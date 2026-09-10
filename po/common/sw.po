@@ -63,7 +63,7 @@ msgstr "na kikundi cha Facebook cha <a href=\"https://www.facebook.com/groups/Op
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Utafutaji wa bidhaa za Urembo wa Open"
+msgstr "Utafutaji wa bidhaa za Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -1757,11 +1757,6 @@ msgstr ""
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
@@ -4705,7 +4700,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Nutri-Alama haitumiki"
+msgstr "Nutri-Score haitumiki"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -4939,7 +4934,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Kipimo cha Kijani ni alama ya kimazingira kuanzia A+ hadi F ambayo hurahisisha kulinganisha athari za bidhaa za chakula kwenye mazingira."
+msgstr "Green-Score ni alama ya kimazingira kuanzia A+ hadi F ambayo hurahisisha kulinganisha athari za bidhaa za chakula kwenye mazingira."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4952,7 +4947,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Kipimo cha Kijani ni alama ya kimazingira kuanzia A+ hadi F ambayo hurahisisha kulinganisha athari za bidhaa za chakula kwenye mazingira."
+msgstr "Green-Score ni alama ya kimazingira kuanzia A+ hadi F ambayo hurahisisha kulinganisha athari za bidhaa za chakula kwenye mazingira."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5876,7 +5871,7 @@ msgstr ""
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Kiwango cha Kijani kilianzishwa awali kwa ajili ya Ufaransa na kinapanuliwa hadi nchi zingine za Ulaya. Fomula ya Kiwango cha Kijani inaweza kubadilika kwani inaboreshwa mara kwa mara ili kuifanya iwe sahihi zaidi na inayofaa zaidi kwa kila nchi."
+msgstr "Green-Score kilianzishwa awali kwa ajili ya Ufaransa na kinapanuliwa hadi nchi zingine za Ulaya. Fomula ya Green-Score inaweza kubadilika kwani inaboreshwa mara kwa mara ili kuifanya iwe sahihi zaidi na inayofaa zaidi kwa kila nchi."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6532,7 +6527,7 @@ msgstr ""
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "Kitengo tulicho nacho cha bidhaa hii si sahihi vya kutosha kukokotoa Alama ya Kijani. Je, unaweza kuongeza aina sahihi zaidi ya bidhaa?"
+msgstr "Kitengo tulicho nacho cha bidhaa hii si sahihi vya kutosha kukokotoa Green-Score. Je, unaweza kuongeza aina sahihi zaidi ya bidhaa?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7675,7 +7670,7 @@ msgstr "Tunakosa thamani ya saizi ya kuhudumia na/au kitengo cha kukokotoa Nutri
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
-msgstr "<<site_name>> imeundwa na shirika lisilo la faida, lisilo na tasnia. Imeundwa kwa wote, na wote, na inafadhiliwa na wote. Unaweza kusaidia kazi yetu kwa kuchangia Ukweli wa Chakula cha Open.<br/><b>Asante!</b>"
+msgstr "<<site_name>> imeundwa na shirika lisilo la faida, lisilo na tasnia. Imeundwa kwa wote, na wote, na inafadhiliwa na wote. Unaweza kusaidia kazi yetu kwa kuchangia Open Food Facts.<br/><b>Asante!</b>"
 
 msgctxt "bottom_content_split_with_lilo"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"

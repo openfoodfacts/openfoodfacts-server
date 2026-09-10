@@ -63,7 +63,7 @@ msgstr "ແລະ ກຸ່ມເຟສບຸກ <a href=\"https://www.facebook.
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "ເປີດການຄົ້ນຫາຜະລິດຕະພັນ Beauty Facts"
+msgstr "ເປີດການຄົ້ນຫາຜະລິດຕະພັນ Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -1756,11 +1756,6 @@ msgstr ""
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
@@ -4938,7 +4933,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "ຄະແນນສີຂຽວແມ່ນຄະແນນດ້ານສິ່ງແວດລ້ອມຕັ້ງແຕ່ A+ ຫາ F ເຊິ່ງເຮັດໃຫ້ງ່າຍຕໍ່ການປຽບທຽບຜົນກະທົບຂອງຜະລິດຕະພັນອາຫານຕໍ່ສິ່ງແວດລ້ອມ."
+msgstr "Green-Scoreແມ່ນຄະແນນດ້ານສິ່ງແວດລ້ອມຕັ້ງແຕ່ A+ ຫາ F ເຊິ່ງເຮັດໃຫ້ງ່າຍຕໍ່ການປຽບທຽບຜົນກະທົບຂອງຜະລິດຕະພັນອາຫານຕໍ່ສິ່ງແວດລ້ອມ."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4951,7 +4946,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "ຄະແນນສີຂຽວແມ່ນຄະແນນດ້ານສິ່ງແວດລ້ອມຕັ້ງແຕ່ A+ ຫາ F ເຊິ່ງເຮັດໃຫ້ງ່າຍຕໍ່ການປຽບທຽບຜົນກະທົບຂອງຜະລິດຕະພັນອາຫານຕໍ່ສິ່ງແວດລ້ອມ."
+msgstr "Green-Scoreແມ່ນຄະແນນດ້ານສິ່ງແວດລ້ອມຕັ້ງແຕ່ A+ ຫາ F ເຊິ່ງເຮັດໃຫ້ງ່າຍຕໍ່ການປຽບທຽບຜົນກະທົບຂອງຜະລິດຕະພັນອາຫານຕໍ່ສິ່ງແວດລ້ອມ."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -7674,11 +7669,11 @@ msgstr "ພວກເຮົາຂາດຄ່າຂະໜາດການໃຫ້
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
-msgstr "<<site_name>> ແມ່ນສ້າງຂຶ້ນໂດຍສະມາຄົມບໍ່ຫວັງຜົນກຳໄລ, ເອກະລາດຈາກອຸດສາຫະກຳ. ມັນຖືກສ້າງຂຶ້ນສໍາລັບທຸກຄົນ, ໂດຍທັງຫມົດ, ແລະມັນໄດ້ຮັບການສະຫນັບສະຫນູນຈາກທັງຫມົດ. ທ່ານສາມາດສະຫນັບສະຫນູນວຽກງານຂອງພວກເຮົາໂດຍການບໍລິຈາກໃຫ້ Open Food Facts.~⌇1⌇<b>ຂໍຂອບໃຈ!</b>"
+msgstr "<<site_name>> ແມ່ນສ້າງຂຶ້ນໂດຍສະມາຄົມບໍ່ຫວັງຜົນກຳໄລ, ເອກະລາດຈາກອຸດສາຫະກຳ. ມັນຖືກສ້າງຂຶ້ນສໍາລັບທຸກຄົນ, ໂດຍທັງຫມົດ, ແລະມັນໄດ້ຮັບການສະຫນັບສະຫນູນຈາກທັງຫມົດ. ທ່ານສາມາດສະຫນັບສະຫນູນວຽກງານຂອງພວກເຮົາໂດຍການບໍລິຈາກໃຫ້ Open Food Facts.<br/><b>ຂໍຂອບໃຈ!</b>"
 
 msgctxt "bottom_content_split_with_lilo"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
-msgstr "<<site_name>> ແມ່ນສ້າງຂຶ້ນໂດຍສະມາຄົມບໍ່ຫວັງຜົນກຳໄລ, ເອກະລາດຈາກອຸດສາຫະກຳ. ມັນຖືກສ້າງຂຶ້ນສໍາລັບທຸກຄົນ, ໂດຍທັງຫມົດ, ແລະມັນໄດ້ຮັບການສະຫນັບສະຫນູນຈາກທັງຫມົດ. ທ່ານສາມາດສະຫນັບສະຫນູນວຽກງານຂອງພວກເຮົາໂດຍການບໍລິຈາກໃຫ້ Open Food Facts ແລະໂດຍການນໍາໃຊ້ເຄື່ອງຈັກຊອກຫາ Lilo.~⌇1⌇<b>ຂໍຂອບໃຈ!</b>"
+msgstr "<<site_name>> ແມ່ນສ້າງຂຶ້ນໂດຍສະມາຄົມບໍ່ຫວັງຜົນກຳໄລ, ເອກະລາດຈາກອຸດສາຫະກຳ. ມັນຖືກສ້າງຂຶ້ນສໍາລັບທຸກຄົນ, ໂດຍທັງຫມົດ, ແລະມັນໄດ້ຮັບການສະຫນັບສະຫນູນຈາກທັງຫມົດ. ທ່ານສາມາດສະຫນັບສະຫນູນວຽກງານຂອງພວກເຮົາໂດຍການບໍລິຈາກໃຫ້ Open Food Facts ແລະໂດຍການນໍາໃຊ້ເຄື່ອງຈັກຊອກຫາ Lilo.<br/><b>ຂໍຂອບໃຈ!</b>"
 
 msgctxt "lilo_search_engine"
 msgid "Lilo search engine"
