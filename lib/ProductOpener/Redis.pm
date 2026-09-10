@@ -133,7 +133,7 @@ Returns on error or when receiving a terminate signal from the OS
 
 =cut
 
-sub subscribe_to_redis_streams () {
+sub subscribe_to_redis_streams ($search_from = undef, $search_to = undef, @streams) {
 	if (get_oidc_implementation_level() < 2) {
 		$log->info("OIDC implementation level is less than 2, not listening to Redis stream") if $log->is_info();
 		return;
@@ -158,7 +158,7 @@ sub subscribe_to_redis_streams () {
 
 	# Read Keycloak events to process actions following user creation / deletion
 	# TODO: We should store the last message_id
-	_read_user_streams();
+	_read_user_streams($search_from, $search_to, @streams);
 
 	return;
 }
@@ -170,15 +170,21 @@ Returns on a fatal error or if the OS signals to quit
 
 =cut
 
-sub _read_user_streams() {
+sub _read_user_streams($search_from = undef, $search_to = undef, @streams) {
 	# Get the index that we last read from
-	my $search_from = retrieve_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id");
-	if (defined $search_from) {
-		# Turn the search from back into a scalar
-		$search_from = ${$search_from};
+	if (not defined $search_from) {
+		$search_from = retrieve_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id");
+		if (defined $search_from) {
+			# Turn the search from back into a scalar
+			$search_from = ${$search_from};
+		}
+		else {
+			$search_from = '$';
+		}
 	}
-	else {
-		$search_from = '$';
+
+	if (!@streams) {
+		push @streams, ('user-deleted', 'user-registered', 'user-updated');
 	}
 
 	my $ok = 1;
@@ -198,15 +204,14 @@ sub _read_user_streams() {
 
 		# Listen for user-deleted events so that we can redact product contributions for this flavor
 		# This will block for up to 5 seconds waiting for messages and return a maximum of 1000
-		my @streams = (
-			'COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted',
-			'user-registered', 'user-updated', $search_from, $search_from, $search_from
-		);
+		my @params = ('COUNT', 1000, 'BLOCK', 5000, 'STREAMS');
+		push @params, @streams;
+		push @params, map {$search_from} @streams;
 
-		$log->info("[" . localtime() . "] Reading from Redis", {streams => \@streams}) if $log->is_info();
+		$log->info("[" . localtime() . "] Reading from Redis", {params => \@params}) if $log->is_info();
 
 		$redis_client->xread(
-			@streams,
+			@params,
 			sub {
 				my ($reply_ref, $err) = @_;
 
@@ -217,13 +222,15 @@ sub _read_user_streams() {
 				}
 
 				if ($reply_ref) {
-					$log->info("[" . localtime() . "] Received data from Redis stream", {reply => $reply_ref})
-						if $log->is_info();
+					# $log->info("[" . localtime() . "] Received data from Redis stream", {reply => $reply_ref})
+					# 	if $log->is_info();
 					# Process any received messages
-					my $last_processed_message_id = process_xread_stream_reply($reply_ref);
+					my $last_processed_message_id = process_xread_stream_reply($reply_ref, $search_to);
 					if ($last_processed_message_id) {
 						$search_from = $last_processed_message_id;
-						store_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id", $search_from);
+						if (not defined $search_to) {
+							store_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id", $search_from);
+						}
 					}
 				}
 				else {
@@ -246,12 +253,12 @@ sub _read_user_streams() {
 		else {
 			$retry_count = 0;
 		}
-	} while ($ok);
+	} while ($ok and (not defined $search_to or $search_from lt $search_to));
 
 	return;
 }
 
-sub process_xread_stream_reply($reply_ref) {
+sub process_xread_stream_reply($reply_ref, $search_to = undef) {
 	my $last_processed_message_id;
 
 	my @streams = @{$reply_ref};
@@ -263,6 +270,15 @@ sub process_xread_stream_reply($reply_ref) {
 		foreach my $outer_ref (@{$stream[1]}) {
 			my @outer = @{$outer_ref};
 			$message_id = $outer[0];
+			if (defined $search_to) {
+				if ($message_id gt $search_to) {
+					$last_processed_message_id = $message_id;
+					$log->info("[" . localtime() . "] Stopping replay",
+						{stream_name => $stream_name, message_id => $message_id, search_to => $search_to})
+						if $log->is_info();
+					last;
+				}
+			}
 			eval {
 				my %message_hash = @{$outer[1]};
 
