@@ -201,11 +201,26 @@ class ImageEditorComponent extends HTMLElement {
         }
         this.naturalWidth = image.naturalWidth;
         this.naturalHeight = image.naturalHeight;
+        // Make the canvas as tall as the image (aspect ratio W/H) while
+        // filling the container width. Without this the canvas collapses to
+        // its 100px min-height and looks "as tiny as the thumbnail".
+        const canvasForAspect = this.cropper.getCropperCanvas();
+        if (canvasForAspect && this.naturalWidth && this.naturalHeight) {
+          // Set inline aspect-ratio directly (var() with a ratio containing
+          // "/" does not reliably resolve in all Chrome versions).
+          canvasForAspect.style.aspectRatio = `${this.naturalWidth} / ${this.naturalHeight}`;
+        }
         this.hidden = false;
         // Re-center now that the canvas has a visible size: $handleLoad runs
         // while the editor is still hidden (display:none), so the initial
         // centering attempt sees a zero-sized canvas and the image is left at
-        // its natural size without fitting.
+        // its natural size without fitting. Force a layout pass after the
+        // aspect is applied so $center sees the correct container size.
+        if (canvasForAspect) {
+          // Reading layout forces the browser to apply the new aspect
+          // before $center measures the container.
+          canvasForAspect.getBoundingClientRect();
+        }
         cropperImage.$center('contain');
         this.applyZoomOnWheel();
         this.setControlsEnabled(true);
@@ -245,43 +260,9 @@ class ImageEditorComponent extends HTMLElement {
 
     this.angle = (((this.angle + angle) % 360) + 360) % 360;
 
-    // Capture canvas dimensions before the rotation transform is applied.
-    // getBoundingClientRect reflects the CSS layout size and is more accurate
-    // than client* when borders or aspect-ratio rules are present.
-    const canvas = this.cropper.getCropperCanvas();
-    let canvasWidth = 0;
-    let canvasHeight = 0;
-    if (canvas) {
-      const rect = canvas.getBoundingClientRect();
-      canvasWidth = rect.width;
-      canvasHeight = rect.height;
-    }
-
     const cropperImage = this.cropper.getCropperImage();
     if (cropperImage) {
       cropperImage.$rotate((angle * Math.PI) / 180);
-    }
-
-    // Keep the selection over the same zone of the image after the rotation,
-    // as the previous implementation did (using getContainerData dimensions).
-    const selection = this.cropper.getCropperSelection();
-    if (selection && !selection.hidden && selection.width > 0 && selection.height > 0 && canvas) {
-      const x1 = selection.x;
-      const y1 = selection.y;
-      const x2 = selection.x + selection.width;
-      const y2 = selection.y + selection.height;
-      const width = y2 - y1;
-      const height = x2 - x1;
-      let x;
-      let y;
-      if (angle === ROTATE_RIGHT) {
-        x = canvasHeight - y2;
-        y = x1;
-      } else {
-        x = y1;
-        y = canvasWidth - x2;
-      }
-      selection.$change(x, y, width, height);
     }
   }
 
