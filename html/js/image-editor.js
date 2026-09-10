@@ -179,9 +179,11 @@ class ImageEditorComponent extends HTMLElement {
     }
     // The cropper markup (cropper-canvas, selection, handles...) is kept in the
     // image_editor_template.tt.html file (template#image-editor-cropper-template).
+    // Note: the template element's own innerHTML serializes its contents (a
+    // DocumentFragment, which has no innerHTML property of its own).
     this.cropper = new Cropper(this.cropImage, {
       container: this.cropContainer,
-      template: this.cropperTemplate.content.innerHTML,
+      template: this.cropperTemplate.innerHTML,
     });
     this.applyThemeColor();
 
