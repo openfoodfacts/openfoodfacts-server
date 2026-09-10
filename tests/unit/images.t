@@ -6,7 +6,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Images
-	qw/get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language data_to_display_image normalize_generation_ref/;
+	qw/get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language data_to_display_image normalize_generation_ref process_image_move/;
 
 use File::Basename 'dirname';
 use Data::Dumper;
@@ -326,5 +326,73 @@ is(
 
 is(normalize_generation_ref(undef), undef, "normalize_generation_ref should return undef when passed undef");
 is(normalize_generation_ref({}), undef, "normalize_generation_ref should return undef when passed empty hash");
+
+# process_image_move permission tests
+{
+	use ProductOpener::Users qw/%User/;
+	my $now = time();
+	my $test_prod = {
+		code => "12345678",
+		id => "12345678",
+		images => {
+			uploaded => {
+				"1" => { uploader => "user_a", uploaded_t => $now - 100 },
+				"2" => { uploader => "user_b", uploaded_t => $now - 100 },
+				"3" => { uploader => "user_a", uploaded_t => $now - 90000 },
+				"4" => { uploader => "user_a", uploaded_t => $now - 3600 }, # 1 hour ago - should be deletable
+			}
+		}
+	};
+
+	my $mock_images = mock 'ProductOpener::Images' => (
+		override => [
+			retrieve_product => sub {
+				my ($id) = @_;
+				return $test_prod if (defined $id and $id =~ /12345678/);
+				return undef;
+			},
+		]
+	);
+	my $mock_products = mock 'ProductOpener::Products' => (
+		override => [
+			retrieve_product => sub {
+				my ($id) = @_;
+				return $test_prod if (defined $id and $id =~ /12345678/);
+				return undef;
+			},
+		]
+	);
+
+	# Test that $test_prod is properly set up
+	is($test_prod->{code}, "12345678", "test product code is set correctly");
+	is($test_prod->{images}{uploaded}{"1"}{uploader}, "user_a", "test product has correct uploader");
+	is($test_prod->{images}{uploaded}{"1"}{uploaded_t}, $now - 100, "test product has correct upload time");
+
+	# Non-moderator trying to move image to another product -> error
+	$User{moderator} = 0;
+	my $err1 = process_image_move("user_a", "12345678", "1", "87654321", "off");
+	is($err1, "You must be a moderator to move images to another product.", "non-moderator cannot move image to another product");
+
+	# Non-moderator trying to delete image uploaded by someone else -> error
+	my $err2 = process_image_move("user_a", "12345678", "2", "trash", "off");
+	is($err2, "You can only remove images uploaded by yourself.", "non-moderator cannot delete image uploaded by someone else");
+
+	# Non-moderator with empty user_id -> error
+	my $err3 = process_image_move("", "12345678", "1", "trash", "off");
+	is($err3, "You can only remove images uploaded by yourself.", "unauthenticated user cannot delete image");
+
+	# Non-moderator trying to delete image uploaded >24h ago -> error
+	my $err4 = process_image_move("user_a", "12345678", "3", "trash", "off");
+	is($err4, "Images uploaded more than 24 hours ago can only be removed by a moderator.", "cannot delete image older than 24h");
+
+	# Non-moderator trying to delete image uploaded <24h ago -> should succeed (no error)
+	my $err5 = process_image_move("user_a", "12345678", "4", "trash", "off");
+	is($err5, undef, "non-moderator can delete their own image uploaded less than 24h ago");
+
+	# Moderator can delete any image regardless of time
+	$User{moderator} = 1;
+	my $err6 = process_image_move("user_a", "12345678", "3", "trash", "off");
+	is($err6, undef, "moderator can delete image older than 24h");
+}
 
 done_testing();
