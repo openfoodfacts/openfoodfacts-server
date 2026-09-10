@@ -138,10 +138,6 @@ jobs:
         run: |
           echo registry_ref=ghcr.io/${{ github.repository }}/backend-buildx-cache:${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }} >> $GITHUB_OUTPUT
 
-      - name: Determine Cache Bust value
-        id: cache-buster
-        run: echo "CALENDAR_WEEK=$(date --utc +%G-W%V)" >> "$GITHUB_OUTPUT"
-
       - name: Build backend image with cache
         uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         with:
@@ -151,7 +147,6 @@ jobs:
             USER_UID=${{ steps.user_ids.outputs.uid }}
             USER_GID=${{ steps.user_ids.outputs.gid }}
             CPANMOPTS=--with-develop
-            CACHE_BUST=${{ steps.cache-buster.outputs.CALENDAR_WEEK }}
           # Multi-layer caching strategy for maximum performance
           # Note: we don't use gha cache because we run out of cache otherwise
           # So we use registry cache, see https://docs.docker.com/build/cache/backends/registry/
@@ -357,10 +352,6 @@ jobs:
         run: |
           echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.mjs', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
 
-      - name: Determine Cache Bust value
-        id: cache-buster
-        run: echo "CALENDAR_WEEK=$(date --utc +%G-W%V)" >> "$GITHUB_OUTPUT"
-
       - name: Build frontend image with cache
         uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         with:
@@ -369,7 +360,6 @@ jobs:
           build-args: |
             USER_UID=${{ steps.user_ids.outputs.uid }}
             USER_GID=${{ steps.user_ids.outputs.gid }}
-            CACHE_BUST=${{ steps.cache-buster.outputs.CALENDAR_WEEK }}
           cache-from: |
             type=registry,ref=${{ steps.registry_ref.outputs.registry_ref }}
           cache-to: |
