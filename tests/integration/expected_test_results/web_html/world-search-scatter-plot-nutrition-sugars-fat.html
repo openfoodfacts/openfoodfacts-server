@@ -342,64 +342,9 @@
 
 
 <!-- Donation banner TOP start -->
-<section id="donation-banner-top" class="donation-banner row">
-
-  <div class="donation-banner__left-aside">
-    <div class="donation-banner__hook-section">
-      <p>We still need €120,000 to finish 2026!</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
-  </div>
-  <div>
-    <div class="donation-banner__aside">
-      <div class="donation-banner__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner__main-title">Become an Open Food Facts patron</h3>
-      </div>
-      <div style="padding:1rem;">
-        <p>Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:</p>
-        <ul>
-          <li>
-            keep Open Food Facts open & available to all,
-            <ul>
-              <li>support infrastructure, the website, mobile app and API with a small permanent team</li>
-            </ul>
-          </li>
-          <li>
-            <p>remain independent of the food industry,</p>
-          </li>
-          <li>
-            <p>support the community</p>
-          </li>
-          <li>
-            <p>support science</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="donation-banner__actions-section">
-      <div class="donation-banner__actions-section__financial">
-        <p>
-          
-          If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!
-          
-        </p>
-      </div>
-      <div class="donation-banner__actions-section__donate-button">
-        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
-          <button>Donate</button>
-        </a>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="donation-banner__close">
+<section id="donation-banner-top" style="position: relative;">
+  <donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="//raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/web/main.json"></donation-banner>
+  <div class="donation-banner__close" style="position: absolute; top: 0.3rem; right: 0.3rem; z-index: 2;">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
 </section>
@@ -438,9 +383,11 @@
   if (getBannerCookie('donation_march_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
-    bannerID.style.display = 'flex';
+    bannerID.style.display = 'block';
   }
 </script>
+
+
 
 
 							
@@ -13271,57 +13218,7 @@
 
 				
 
-<section class="donation-banner-footer row">
-  <div class="donation-banner-footer__left-aside">
-    <div class="donation-banner-footer__hook-section">
-      <p>We still need €120,000 to finish 2026!</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="The Open Food Facts community during the Open Food Facts Days" />
-  </div>
-  <div>
-    <div>
-      <div class="donation-banner-footer__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner-footer__main-title">Become an Open Food Facts patron</h3>
-      </div>
-      <p>Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:</p>
-      <ul>
-        <li>
-          keep Open Food Facts open & available to all,
-          <ul>
-            <li>support infrastructure, the website, mobile app and API with a small permanent team</li>
-          </ul>
-        </li>
-        <li>
-          <p>remain independent of the food industry,</p>
-        </li>
-        <li>
-          <p>support the community</p>
-        </li>
-        <li>
-          <p>support science</p>
-        </li>
-      </ul>
-    </div>
-    <div class="donation-banner-footer__actions-section">
-      <div class="donation-banner-footer__actions-section__financial">
-        <p>
-          If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!
-        </p>
-      </div>
-      <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
-          <button>Donate</button>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="//raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/web/main.json"></donation-banner>
 
 
 			
