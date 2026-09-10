@@ -21,13 +21,13 @@ The Open Food Facts API enables developers to get information like ingredients a
 
 ## Before You Start
 
-- The Open Food Facts database is available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).
+- The Open Food Facts database is available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/)
 - The individual contents of the database are available under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).
 - Product images are available under the [Creative Commons Attribution ShareAlike](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license. They may contain graphical elements subject to copyright or other rights that may, in some cases, be reproduced (quotation rights or fair use).
 
 Before using the API, please :
 
-1. Read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use)
+1. Read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use) and [our wiki page about ODbL](https://wiki.openfoodfacts.org/ODBL_License).
 2. **Tell us how you'll use it** by filling out this short form:  
    👉 [Fill out the API usage form](https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform)
    This helps us understand real-world uses of the API and prioritize improvements.
