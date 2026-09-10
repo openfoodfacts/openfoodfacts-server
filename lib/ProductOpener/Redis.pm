@@ -126,10 +126,26 @@ sub init_redis() {
 	return;
 }
 
-=head2 subscribe_to_redis_streams ()
+=head2 subscribe_to_redis_streams ($search_from = undef, $search_to = undef, @streams)
 
 Connects to Redis and processes any events received. Blocks until there is an error or the application terminates.
 Returns on error or when receiving a terminate signal from the OS
+
+=head3 Parameters
+
+=head4 $search_from (input)
+
+The starting point for reading from the Redis stream. Starts from the last processed message if not provided.
+
+=head4 $search_to (input)
+
+The ending point for reading from the Redis stream. Stays active indefinitely if not provided.
+
+=head4 @streams (input)
+
+The list of Redis streams to subscribe to. Defaults to all streams if not provided.
+
+=cut
 
 =cut
 
@@ -163,10 +179,24 @@ sub subscribe_to_redis_streams ($search_from = undef, $search_to = undef, @strea
 	return;
 }
 
-=head2 _read_user_streams ()
+=head2 _read_user_streams ($search_from = undef, $search_to = undef, @streams)
 
-Keeps reading from Redis until there is an error.
+Keeps reading from Redis until there is an error or the $search_to message is received.
 Returns on a fatal error or if the OS signals to quit
+
+=head3 Parameters
+
+=head4 $search_from (input)
+
+The starting point for reading from the Redis stream. Starts from the last processed message if not provided.
+
+=head4 $search_to (input)
+
+The ending point for reading from the Redis stream. Stays active indefinitely if not provided.
+
+=head4 @streams (input)
+
+The list of Redis streams to subscribe to. Defaults to all streams if not provided.
 
 =cut
 
