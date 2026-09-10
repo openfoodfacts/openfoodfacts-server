@@ -197,6 +197,11 @@ class ImageEditorComponent extends HTMLElement {
         this.naturalWidth = image.naturalWidth;
         this.naturalHeight = image.naturalHeight;
         this.hidden = false;
+        // Re-center now that the canvas has a visible size: $handleLoad runs
+        // while the editor is still hidden (display:none), so the initial
+        // centering attempt sees a zero-sized canvas and the image is left at
+        // its natural size without fitting.
+        cropperImage.$center('contain');
         this.applyZoomOnWheel();
         this.setControlsEnabled(true);
       }).catch(() => {
@@ -292,14 +297,17 @@ class ImageEditorComponent extends HTMLElement {
     if (!cropperImage) {
       return;
     }
-    // Ask the server to render the image with the normalize / white_magic effects.
+    // Ask the server to render the image with the normalize effect.
     // The rotation stays client-side: the server applies the same angle on save.
+    // The rotate endpoint only handles normalize (not white_magic), matching the
+    // previous implementation.  The CGI checkbox convention sends "checked" when
+    // the box is ticked; the server checks eq 'checked'.
     this.hideStatus();
+    const normalize = this.normalizeCheckbox.checked ? '&normalize=checked' : '';
     const url = '/cgi/product_image_rotate.pl?code=' + encodeURIComponent(this.code)
       + '&imgid=' + encodeURIComponent(this.imgid)
       + '&angle=0'
-      + '&normalize=' + encodeURIComponent(this.normalizeCheckbox.checked)
-      + '&white_magic=' + encodeURIComponent(this.whiteMagicCheckbox.checked);
+      + normalize;
     cropperImage.src = url;
   }
 
@@ -399,18 +407,38 @@ class ImageEditorComponent extends HTMLElement {
       ];
     }
 
-    // Map local coordinates to the coordinates of the rotated image, i.e. the
-    // image as it is displayed and as the server will produce it on save.
-    function toRotated(x, y) {
-      return [((a * x) + (c * y)) / scale, ((b * x) + (d * y)) / scale];
+    // Map local (original image) coordinates to the rotated-image coordinate
+    // space.  The server first rotates the source image by the same angle, then
+    // crops using the supplied coordinates.  For 90°/270° rotations the image
+    // dimensions are transposed, so a generic matrix multiply on the original
+    // coordinates misses the required offset.  Instead, use the pixel mapping
+    // for each angle:  original pixel (x, y) in a W × H image → rotated pixel
+    // as shown by ImageMagick's Rotate().
+    const W = this.naturalWidth;
+    const H = this.naturalHeight;
+    const angle = ((this.angle % 360) + 360) % 360;
+    let toRotated;
+
+    if (angle === 90) {
+      // 90° CW: original (x, y) → rotated (H − y, x).  Rotated image is H × W.
+      toRotated = (x, y) => [H - y, x];
+    } else if (angle === 180) {
+      // 180°: original (x, y) → rotated (W − x, H − y).  Image stays W × H.
+      toRotated = (x, y) => [W - x, H - y];
+    } else if (angle === 270) {
+      // 270° CW (90° CCW): original (x, y) → rotated (y, W − x).  Rotated image is H × W.
+      toRotated = (x, y) => [y, W - x];
+    } else {
+      // No rotation (0° or full wrap): coordinates stay the same.
+      toRotated = (x, y) => [x, y];
     }
 
     const [sx1, sy1] = toRotated(...toLocal(selection.x, selection.y));
     const [sx2, sy2] = toRotated(...toLocal(selection.x + selection.width, selection.y + selection.height));
 
-    const swapped = Math.abs(this.angle % 180) === 90;
-    const maxX = swapped ? this.naturalHeight : this.naturalWidth;
-    const maxY = swapped ? this.naturalWidth : this.naturalHeight;
+    const swapped = angle === 90 || angle === 270;
+    const maxX = swapped ? H : W;
+    const maxY = swapped ? W : H;
 
     return [
       Math.round(Math.min(Math.max(Math.min(sx1, sx2), 0), maxX)),
