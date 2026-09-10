@@ -110,11 +110,13 @@ function add_language_tab(lc, language) {
         $clone.addClass('active').removeClass('new_lc').removeClass('hide');
 
         // Clean up detached editors for the template placeholder (new_lc) to
-        // avoid keeping a duplicate hidden host after cloning. The clone
-        // carries its own <image-editor> element; the template's entry is
-        // no longer needed and would leak if retained.
-        if (image_editors.new_lc) {
-            delete image_editors.new_lc;
+        // avoid keeping duplicate hidden hosts after cloning. The clone
+        // carries its own <image-editor> elements; template entries like
+        // front_new_lc, ingredients_new_lc etc. are no longer needed.
+        for (const key in image_editors) {
+            if (Object.prototype.hasOwnProperty.call(image_editors, key) && key.includes('new_lc')) {
+                delete image_editors[key];
+            }
         }
 
         window.imageFieldUI.init($(".select_crop").filter(":visible"));
