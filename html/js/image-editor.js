@@ -58,6 +58,7 @@ class ImageEditorComponent extends HTMLElement {
     // State, reset each time an image is loaded.
     this.cropper = null;
     this.imgid = null;
+    this.storedImagefield = '';
     this.angle = 0;
     this.coordinates_image_size = 'full';
     this.imageUrl = '';
@@ -122,6 +123,9 @@ class ImageEditorComponent extends HTMLElement {
   }
 
   get imagefield() {
+    if (this.storedImagefield) {
+      return this.storedImagefield;
+    }
     const selectCrop = this.closest('.select_crop');
 
     return selectCrop ? selectCrop.id : '';
@@ -147,7 +151,7 @@ class ImageEditorComponent extends HTMLElement {
     return color || '#0064c8';
   }
 
-  loadImage({ imgid, image_size = '', coordinates_image_size = 'full' } = {}) {
+  loadImage({ imgid, image_size = '', coordinates_image_size = 'full', imagefield = '' } = {}) {
     if (!imgid) {
       return;
     }
@@ -156,6 +160,7 @@ class ImageEditorComponent extends HTMLElement {
     this.loadToken += 1;
 
     this.imgid = imgid;
+    this.storedImagefield = imagefield || this.imagefield;
     this.angle = 0;
     this.coordinates_image_size = coordinates_image_size;
     this.imageUrl = this.imagePath + imgid + image_size + '.jpg';
@@ -208,6 +213,11 @@ class ImageEditorComponent extends HTMLElement {
         if (token !== this.loadToken) {
           return;
         }
+        this.destroyCropper();
+        this.imgid = null;
+        this.storedImagefield = '';
+        this.hidden = true;
+        this.setControlsEnabled(false);
         this.setStatusMessage(lang().not_saved);
       });
     }
@@ -217,6 +227,7 @@ class ImageEditorComponent extends HTMLElement {
     this.loadToken += 1;
     this.destroyCropper();
     this.imgid = null;
+    this.storedImagefield = '';
     this.hidden = true;
   }
 
@@ -234,15 +245,26 @@ class ImageEditorComponent extends HTMLElement {
 
     this.angle = (((this.angle + angle) % 360) + 360) % 360;
 
+    // Capture canvas dimensions before the rotation transform is applied.
+    // getBoundingClientRect reflects the CSS layout size and is more accurate
+    // than client* when borders or aspect-ratio rules are present.
+    const canvas = this.cropper.getCropperCanvas();
+    let canvasWidth = 0;
+    let canvasHeight = 0;
+    if (canvas) {
+      const rect = canvas.getBoundingClientRect();
+      canvasWidth = rect.width;
+      canvasHeight = rect.height;
+    }
+
     const cropperImage = this.cropper.getCropperImage();
     if (cropperImage) {
       cropperImage.$rotate((angle * Math.PI) / 180);
     }
 
     // Keep the selection over the same zone of the image after the rotation,
-    // as the previous implementation did.
+    // as the previous implementation did (using getContainerData dimensions).
     const selection = this.cropper.getCropperSelection();
-    const canvas = this.cropper.getCropperCanvas();
     if (selection && !selection.hidden && selection.width > 0 && selection.height > 0 && canvas) {
       const x1 = selection.x;
       const y1 = selection.y;
@@ -253,11 +275,11 @@ class ImageEditorComponent extends HTMLElement {
       let x;
       let y;
       if (angle === ROTATE_RIGHT) {
-        x = canvas.clientHeight - y2;
+        x = canvasHeight - y2;
         y = x1;
       } else {
         x = y1;
-        y = canvas.clientWidth - x2;
+        y = canvasWidth - x2;
       }
       selection.$change(x, y, width, height);
     }
@@ -298,10 +320,14 @@ class ImageEditorComponent extends HTMLElement {
       return;
     }
     // Ask the server to render the image with the normalize effect.
-    // The rotation stays client-side: the server applies the same angle on save.
-    // The rotate endpoint only handles normalize (not white_magic), matching the
-    // previous implementation.  The CGI checkbox convention sends "checked" when
-    // the box is ticked; the server checks eq 'checked'.
+    // Rotation is intentionally NOT sent here (angle=0): it stays client-side
+    // via CSS transform ($rotate) and the server applies the same angle on
+    // save. Sending the angle would double-rotate (server-rotated image plus
+    // CSS rotation). The previous v1 implementation sent angles[imagefield],
+    // but it recreated the cropper on preview; v2 keeps rotation client-side
+    // for instant feedback and avoids a round-trip. The rotate endpoint only
+    // handles normalize (not white_magic). The CGI checkbox convention sends
+    // "checked" when the box is ticked; the server checks eq 'checked'.
     this.hideStatus();
     const normalize = this.normalizeCheckbox.checked ? '&normalize=checked' : '';
     const url = '/cgi/product_image_rotate.pl?code=' + encodeURIComponent(this.code)
@@ -323,9 +349,12 @@ class ImageEditorComponent extends HTMLElement {
     let y2 = -1;
     if (selection && !selection.hidden && selection.width > 0 && selection.height > 0) {
       const coordinates = this.getSelectionCoordinates(selection);
-      if (coordinates) {
-        ([x1, y1, x2, y2] = coordinates);
+      if (!coordinates) {
+        this.setStatusMessage(lang().not_saved);
+
+        return;
       }
+      ([x1, y1, x2, y2] = coordinates);
     }
 
     const params = {
@@ -351,8 +380,13 @@ class ImageEditorComponent extends HTMLElement {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
         body: new URLSearchParams(params),
       });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
       const data = await response.json();
-      if (data.image && data.image.display_url) {
+      if (data.error) {
+        this.setStatusMessage(data.error);
+      } else if (data.image && data.image.display_url) {
         this.setStatusMessage(lang().product_js_image_saved);
         this.dispatchEvent(new CustomEvent('crop-saved', {
           bubbles: true,

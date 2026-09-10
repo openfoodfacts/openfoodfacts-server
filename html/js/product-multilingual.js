@@ -109,6 +109,14 @@ function add_language_tab(lc, language) {
 
         $clone.addClass('active').removeClass('new_lc').removeClass('hide');
 
+        // Clean up detached editors for the template placeholder (new_lc) to
+        // avoid keeping a duplicate hidden host after cloning. The clone
+        // carries its own <image-editor> element; the template's entry is
+        // no longer needed and would leak if retained.
+        if (image_editors.new_lc) {
+            delete image_editors.new_lc;
+        }
+
         window.imageFieldUI.init($(".select_crop").filter(":visible"));
         window.imageFieldUI.show($(".select_crop").filter(":visible"));
 
@@ -141,7 +149,7 @@ function change_image(imagefield, imgid) {
     // Load the image in the <image-editor> web component of the crop box
     $('div[id="' + current_cropbox + '"]').find('image-editor').each(function () {
         if (this.loadImage) {
-            this.loadImage({ imgid: imgid, image_size: image_size, coordinates_image_size: coordinates_image_size });
+            this.loadImage({ imgid: imgid, image_size: image_size, coordinates_image_size: coordinates_image_size, imagefield: imagefield });
         }
     });
 
@@ -372,7 +380,7 @@ const maximumRecentEntriesPerTag = 10;
                             selected = ' ui-selected';
                         }
                         html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '" tabindex="0">';
-                        html += '<img src="' + settings.img_path + image.thumb_url + '" title="' + image.uploaded + ' - ' + image.uploader + '"/>';
+                        html += '<img src="' + settings.img_path + image.thumb_url + '" title="' + escapeHtml(image.uploaded) + ' - ' + escapeHtml(image.uploader) + '"/>';
 
                         if ((stringStartsWith(id, 'manage')) && (admin)) {
                             html += '<div class="show_for_manage_images">' + image.uploaded + '<br/>' + image.uploader + '</div>';
@@ -545,7 +553,7 @@ const maximumRecentEntriesPerTag = 10;
 
 
 
-            $(".single-selectable li").click(function () {
+            $(".single-selectable li").off("click").on("click", function () {
                 const li_id = $(this).attr("id");
                 const imagefield_imgid = li_id.split("_");
                 const imagefield = imagefield_imgid[0] + "_" + imagefield_imgid[1];
@@ -565,7 +573,7 @@ const maximumRecentEntriesPerTag = 10;
 
             // Keyboard operability for the thumbnail list (WCAG 2.1.1): the items
             // are focusable (tabindex="0") and Enter / Space activate them like a click.
-            $(".single-selectable li").on("keydown", function (event) {
+            $(".single-selectable li").off("keydown").on("keydown", function (event) {
                 if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
                     $(this).trigger("click");
@@ -664,9 +672,8 @@ function initLanguageAdding() {
 function convertTranslationsToLanguageList(Lang) {
     const results = [];
 
-    // eslint-disable-next-line guard-for-in
     for (const k in Lang) {
-        if (k.startsWith('language_')) {
+        if (Object.prototype.hasOwnProperty.call(Lang, k) && k.startsWith('language_')) {
             const language = convertTranslationToLanguage(Lang, k);
             if (language) {
                 results.push(language);
