@@ -133,6 +133,20 @@
                {
                   "class" : "product",
                   "percent" : null,
+                  "rdfa" : " property=\"food:calciumPer100g\" content=\"0.0000123\"",
+                  "type" : "normal",
+                  "value" : "0.000012 g"
+               }
+            ],
+            "level" : 0,
+            "name" : "Calcium",
+            "nid" : "calcium"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
                   "value" : "?"

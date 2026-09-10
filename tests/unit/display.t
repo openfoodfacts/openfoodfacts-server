@@ -413,7 +413,10 @@ my @display_tests = (
 							unit => "g",
 							value => 0.133333333333333
 						},
-
+						calcium => {
+							unit => "g",
+							value => 0.0000123
+						},
 					},
 					preparation => "as_sold",
 					per => "100g"
