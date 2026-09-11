@@ -91,11 +91,16 @@ closest ".select_crop" element, and the list of images / image path from "window
       width: 100%;
       max-width: 100%;
       display: block;
+      margin: 0 auto;
       /* Height follows the loaded image's aspect ratio; JS sets inline
          aspect-ratio to "W / H" after the image loads. Fallback is square
          while the image is loading so the canvas is not collapsed to its
-         100px min-height. Width limits the size; height is automatic. */
+         100px min-height. Width limits the size; height is automatic but
+         capped responsively so the cropper fits the viewport on any screen
+         (original v1 was capped at 800px). */
       aspect-ratio: var(--image-aspect, 1 / 1);
+      max-height: min(800px, 65vh);
+      max-height: min(800px, 65dvh);
     }
 
     .editor-options {
