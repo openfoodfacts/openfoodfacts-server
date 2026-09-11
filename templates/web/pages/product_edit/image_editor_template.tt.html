@@ -123,20 +123,20 @@ closest ".select_crop" element, and the list of images / image path from "window
     }
   </style>
 
-  <div class="editor-command"></div>
+  <div class="editor-command">[% lang('product_js_image_rotate_and_crop') %]</div>
 
   <div class="editor-actions">
     <div class="editor-actions-left">
-      <button id="rotate-left" class="small-button" type="button" disabled></button>
-      <button id="rotate-right" class="small-button" type="button" disabled></button>
+      <button id="rotate-left" class="small-button" type="button" disabled>[% lang('product_js_image_rotate_left') %]</button>
+      <button id="rotate-right" class="small-button" type="button" disabled>[% lang('product_js_image_rotate_right') %]</button>
       <br />
-      <a id="open-full-size" target="_blank" rel="noopener noreferrer" hidden aria-label="Open full size image">Open full size image</a>
+      <a id="open-full-size" target="_blank" rel="noopener noreferrer" hidden aria-label="[% lang('product_js_image_open_full_size_image') %]">[% lang('product_js_image_open_full_size_image') %]</a>
       <br />
       <input type="checkbox" id="zoom-on-wheel" />
-      <label for="zoom-on-wheel" id="zoom-on-wheel-label">Enable zooming with the mouse wheel</label>
+      <label for="zoom-on-wheel" id="zoom-on-wheel-label">[% lang('product_js_zoom_on_wheel') %]</label>
     </div>
     <div class="editor-actions-right">
-      <button id="save" class="small-button" type="button" disabled></button>
+      <button id="save" class="small-button" type="button" disabled>[% lang('product_js_image_save') %]</button>
       <div id="save-status" class="editor-status" hidden aria-live="polite"></div>
     </div>
   </div>
@@ -148,10 +148,10 @@ closest ".select_crop" element, and the list of images / image path from "window
   <div class="editor-options">
     <div class="editor-options-left">
       <input type="checkbox" id="normalize" />
-      <label for="normalize" id="normalize-label">Normalise colours</label>
+      <label for="normalize" id="normalize-label">[% lang('product_js_image_normalize') %]</label>
       <br />
       <input type="checkbox" id="white-magic" />
-      <label for="white-magic" id="white-magic-label">Photo on white background: try to remove the background</label>
+      <label for="white-magic" id="white-magic-label">[% lang('product_js_image_white_magic') %]</label>
     </div>
   </div>
 </template>
