@@ -1274,7 +1274,7 @@ my @tests = (
 			{
 				'id' => 'en:celery',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:frischgemahlen',
+				'processing' => 'de:freshly-ground',
 				'text' => 'sellerie'
 			}
 		]
