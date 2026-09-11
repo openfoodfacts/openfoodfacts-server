@@ -417,6 +417,12 @@ is(normalize_generation_ref({}), undef, "normalize_generation_ref should return 
 	$User{moderator} = 1;
 	my $err6 = process_image_move("user_a", "12345678", "3", "trash", "off");
 	is($err6, undef, "moderator can delete image older than 24h");
+
+	# Admin can delete any image regardless of time
+	$User{moderator} = 0;
+	$User{admin} = 1;
+	my $err7 = process_image_move("user_a", "12345678", "3", "trash", "off");
+	is($err7, undef, "admin can delete image older than 24h");
 }
 
 done_testing();
