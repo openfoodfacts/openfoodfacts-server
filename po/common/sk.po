@@ -63,7 +63,7 @@ msgstr "a skupina na Facebooku <a href=\"https://www.facebook.com/groups/OpenBea
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Otvorte vyhľadávanie produktov Beauty Facts"
+msgstr "Otvorte vyhľadávanie produktov Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -154,7 +154,7 @@ msgstr "Spoločná, bezplatná a otvorená databáza ingrediencií, výživovýc
 
 msgctxt "tagline_opff"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Food Facts zhromažďuje informácie a údaje o produktoch krmiva pre zvieratá z celého sveta."
+msgstr "Open Open Pet Food Facts zhromažďuje informácie a údaje o produktoch krmiva pre zvieratá z celého sveta."
 
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
@@ -166,7 +166,7 @@ msgstr "Zloženie, alergény, aditíva, nutričné údaje, etikety, pôvod zlož
 
 msgctxt "search_description_opensearch_opff"
 msgid "Open Pet Food Facts product search"
-msgstr "Otvorte vyhľadávanie produktov Pet Food Facts"
+msgstr "Otvorte vyhľadávanie produktov Open Pet Food Facts"
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -1763,11 +1763,6 @@ msgstr "Stupeň výživnosti"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Stupeň výživnosti"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4948,7 +4943,7 @@ msgstr "Životné prostredie"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Eko-skóre"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4961,7 +4956,7 @@ msgstr "Green-Score je environmentálne skóre od A+ do F, ktoré umožňuje jed
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "Eko-skóre"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -5212,19 +5207,19 @@ msgstr "Chýbajúce nutričné hodnoty pre pripravený výrobok"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "Eko-skóre"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "Eko-skóre"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Eko-skóre"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Eko-skóre"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"

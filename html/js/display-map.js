@@ -24,7 +24,7 @@ import { MarkerClusterGroup } from 'leaflet.markercluster';
 export function displayMap(containerId, pointers) {
   const map = new LeafletMap(containerId, { maxZoom: 12 });
 
-  const tileLayer = new TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  const tileLayer = new TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   });
