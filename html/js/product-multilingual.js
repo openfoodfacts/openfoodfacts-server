@@ -877,7 +877,9 @@ async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copy
             msgDiv.innerHTML = escapeHtml(successMsg) + linkHtml;
             msgDiv.style.opacity = '1';
         }
-        window.imageFieldUI.setImages(data.images);
+        if (data.images) {
+            window.imageFieldUI.setImages(data.images);
+        }
         window.imageFieldUI.show($(".select_crop"));
     } catch (error) {
         msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(error.message);

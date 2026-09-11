@@ -314,6 +314,7 @@ class ImageEditorComponent extends HTMLElement {
     this.hideStatus();
 
     const isNormalized = this.normalizeCheckbox.checked;
+    const previewToken = this.loadToken;
 
     // When normalize is off, the original image is already cached
     // (this.imageUrl / this.originalImageUrl). No need to hit
@@ -335,6 +336,9 @@ class ImageEditorComponent extends HTMLElement {
       // dimensions and canvas aspect after it loads. $ready resolves when
       // the new image is decoded.
       cropperImage.$ready().then((img) => {
+        if (previewToken !== this.loadToken) {
+          return;
+        }
         if (this.normalizeCheckbox.checked || !this.imgid) {
           return;
         }
@@ -370,6 +374,9 @@ class ImageEditorComponent extends HTMLElement {
     }
     cropperImage.src = url;
     cropperImage.$ready().then((img) => {
+      if (previewToken !== this.loadToken) {
+        return;
+      }
       if (!this.normalizeCheckbox.checked || !this.imgid) {
         return;
       }
