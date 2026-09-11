@@ -130,10 +130,10 @@ closest ".select_crop" element, and the list of images / image path from "window
       <button id="rotate-left" class="small-button" type="button" disabled></button>
       <button id="rotate-right" class="small-button" type="button" disabled></button>
       <br />
-      <a id="open-full-size" target="_blank" rel="noopener noreferrer" hidden></a>
+      <a id="open-full-size" target="_blank" rel="noopener noreferrer" hidden aria-label="Open full size image">Open full size image</a>
       <br />
       <input type="checkbox" id="zoom-on-wheel" />
-      <label for="zoom-on-wheel" id="zoom-on-wheel-label"></label>
+      <label for="zoom-on-wheel" id="zoom-on-wheel-label">Enable zooming with the mouse wheel</label>
     </div>
     <div class="editor-actions-right">
       <button id="save" class="small-button" type="button" disabled></button>
@@ -148,18 +148,19 @@ closest ".select_crop" element, and the list of images / image path from "window
   <div class="editor-options">
     <div class="editor-options-left">
       <input type="checkbox" id="normalize" />
-      <label for="normalize" id="normalize-label"></label>
+      <label for="normalize" id="normalize-label">Normalise colours</label>
       <br />
       <input type="checkbox" id="white-magic" />
-      <label for="white-magic" id="white-magic-label"></label>
+      <label for="white-magic" id="white-magic-label">Photo on white background: try to remove the background</label>
     </div>
   </div>
 </template>
 
 [%# Markup given to the cropperjs factory as its "template" option
 (image-editor.js, loadImage). It is rendered in the crop container: the
-<img id="crop-image"> element of the main template is passed to the factory
-as the cropper source, and the factory copies its src onto <cropper-image>.
+source img (id crop-image) of the main template is passed to the factory
+as the cropper source, and the factory copies its src onto the
+cropper-image element.
 The <cropper-image> element is required: without it the cropper has no image
 to display, getCropperImage() returns null and the editor never becomes ready.
 "rotatable scalable skewable translatable" let the image follow rotations

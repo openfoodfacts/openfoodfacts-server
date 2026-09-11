@@ -114,7 +114,7 @@ function add_language_tab(lc, language) {
         // carries its own <image-editor> elements; template entries like
         // front_new_lc, ingredients_new_lc etc. are no longer needed.
         for (const key in image_editors) {
-            if (Object.prototype.hasOwnProperty.call(image_editors, key) && key.includes('new_lc')) {
+            if (Object.hasOwn(image_editors, key) && key.includes('new_lc')) {
                 delete image_editors[key];
             }
         }
@@ -142,9 +142,7 @@ function change_image(imagefield, imgid) {
     // Unload the image editor previously displayed in a crop box
     if (current_cropbox) {
         const editor = $('div[id="' + current_cropbox + '"]').find('image-editor')[0];
-        if (editor && editor.unload) {
-            editor.unload();
-        }
+        editor?.unload?.();
     }
     current_cropbox = 'cropbox_' + imagefield;
 
@@ -442,7 +440,7 @@ const maximumRecentEntriesPerTag = 10;
 
                 $this.html(html);
 
-                if ((typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")) && image_editors[id]) {
+                if ((data_info === undefined || !stringStartsWith(data_info, "protect")) && image_editors[id]) {
                     $('div[id="cropbox_' + id + '"]').append(image_editors[id]);
                 }
 
@@ -675,7 +673,7 @@ function convertTranslationsToLanguageList(Lang) {
     const results = [];
 
     for (const k in Lang) {
-        if (Object.prototype.hasOwnProperty.call(Lang, k) && k.startsWith('language_')) {
+        if (Object.hasOwn(Lang, k) && k.startsWith('language_')) {
             const language = convertTranslationToLanguage(Lang, k);
             if (language) {
                 results.push(language);
