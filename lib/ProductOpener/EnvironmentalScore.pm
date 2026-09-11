@@ -192,6 +192,7 @@ transport scores (/100) from the methodology: each score reflects the CO2 impact
 shipping goods from an origin country to a destination country, derived from the
 distance, the modal mix (road / rail / sea) and ADEME Base Carbone emission factors.
 France scores 100 (local sourcing) and distant origins score 0.
+See https://wiki.openfoodfacts.org/Eco-score_transport_-_en for how it was built.
 
 The file is a matrix: rows = origin countries (columns 0..2 = ISO code, EN name, FR
 name), columns 3+ = destination country codes (the countries where the Eco-score is
