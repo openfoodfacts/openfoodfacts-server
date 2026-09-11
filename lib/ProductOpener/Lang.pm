@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -25,7 +25,7 @@ ProductOpener::Lang - load and return translations
 =head1 SYNOPSIS
 
 C<ProductOpener::Lang> loads translations from .po files and return translated strings
-through the lang() and lang_sprintf() functions.
+through the lang() and f_lang() functions.
 
 =head1 DESCRIPTION
 
@@ -479,7 +479,7 @@ sub build_lang ($Languages_ref) {
 				DateTime->new(year => 2000, time_zone => 'UTC', month => $month, locale => $locale)->month_name;
 		}
 
-		$Lang{months}{$l} = encode_json(\@months);
+		$Lang{months}{$l} = decode("utf8", encode_json(\@months));
 
 		my @weekdays = ();
 		foreach my $weekday (0 .. 6) {
@@ -488,7 +488,7 @@ sub build_lang ($Languages_ref) {
 				->day_name;
 		}
 
-		$Lang{weekdays}{$l} = encode_json(\@weekdays);
+		$Lang{weekdays}{$l} = decode("utf8", encode_json(\@weekdays));
 	}
 
 	return;

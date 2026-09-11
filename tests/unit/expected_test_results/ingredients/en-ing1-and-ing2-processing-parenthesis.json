@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:fruit",
@@ -121,9 +122,9 @@
       "en:avocado",
       "en:fruit-vegetable",
       "en:black-radish",
-      "en:root-vegetable",
+      "en:radish",
       "en:taproot-vegetable",
-      "en:radish"
+      "en:root-vegetable"
    ],
    "ingredients_text" : "fruits (apple, banana and dried cherry), vegetables (pitted avocado, peeled black radish).",
    "ingredients_with_specified_percent_n" : 0,
@@ -142,11 +143,8 @@
    "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 7,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

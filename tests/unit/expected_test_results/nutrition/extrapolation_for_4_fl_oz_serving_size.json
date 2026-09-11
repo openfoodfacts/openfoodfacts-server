@@ -1,0 +1,45 @@
+{
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "salt" : {
+               "modifier" : "~",
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "serving",
+               "unit" : "g",
+               "value" : 0.211337853145553
+            },
+            "sodium" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "serving",
+               "unit" : "g",
+               "value" : 0.084535141258221
+            }
+         },
+         "per" : "100ml",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0.25
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0.1,
+                  "value_string" : "0.1"
+               }
+            },
+            "per" : "serving",
+            "per_quantity" : "4",
+            "per_unit" : "fl oz",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   }
+}

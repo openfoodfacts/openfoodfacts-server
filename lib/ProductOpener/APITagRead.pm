@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -50,7 +50,7 @@ use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::API qw/add_error/;
 use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsTags qw/create_tag_knowledge_panels/;
-use ProductOpener::Tags qw/%taxonomy_fields canonicalize_tag2 canonicalize_taxonomy_tag/;
+use ProductOpener::Tags qw/%taxonomy_fields canonicalize_tag canonicalize_taxonomy_tag/;
 
 =head2 read_tag_api ( $request_ref )
 
@@ -117,8 +117,7 @@ sub read_tag_api ($request_ref) {
 
 		}
 		else {
-			my $display_tag = canonicalize_tag2($tagtype, $tagid);
-			$canon_tagid = get_string_id_for_lang("no_language", $display_tag);
+			$canon_tagid = canonicalize_tag($tagtype, $tagid);
 		}
 
 		# add canonical values to tag output

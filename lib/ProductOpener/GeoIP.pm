@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -57,8 +57,6 @@ BEGIN {
 }
 
 use vars @EXPORT_OK;
-
-use experimental 'smartmatch';
 
 use ProductOpener::Config qw/:all/;
 

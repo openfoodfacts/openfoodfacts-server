@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -38,6 +38,7 @@ use Log::Any qw($log);
 
 use ProductOpener::Auth qw/get_oidc_configuration get_token_using_client_credentials get_oidc_implementation_level/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Health qw/:all/;
 use ProductOpener::Tags qw/country_to_cc cc_to_country/;
 use ProductOpener::Cache qw/$memd/;
 
@@ -45,6 +46,7 @@ use JSON;
 use LWP::UserAgent;
 use LWP::UserAgent::Plugin 'Retry';
 use HTTP::Request;
+use Time::HiRes qw/gettimeofday tv_interval/;
 use URI::Escape::XS qw/uri_escape/;
 
 sub new($class) {
@@ -158,13 +160,13 @@ We create the user properties file locally before, and we create the user in key
 =cut
 
 sub create_or_update_user ($self, $user_ref, $password = undef) {
-	my $credential
-		= defined $password
+	my $credential = defined $password
 		? {
 		type => 'password',
 		temporary => $JSON::PP::false,
 		value => $password
 		}
+		# Note that encrypted_password can still be passed in if the user edits their password
 		: convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
 
 	# Need to sanitise user's name for Keycloak
@@ -194,7 +196,6 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 		emailVerified => $JSON::PP::true,    # TODO: Keep this for compat with current register endpoint?
 		enabled => $JSON::PP::true,
 		username => $userid,
-		credentials => [$credential],
 		createdTimestamp => ($user_ref->{registered_t} // time()) * 1000,
 		attributes => {
 			name => $keycloak_user_ref->{name},
@@ -203,6 +204,10 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}
 	};
+	# Only supply credentials if set
+	if ($credential) {
+		$api_request_ref->{credentials} = [$credential];
+	}
 	# Only supply country if it is set
 	if ($user_ref->{country}) {
 		$api_request_ref->{attributes}->{country} = country_to_cc($keycloak_user_ref->{country});
@@ -416,6 +421,90 @@ sub _find_user_by_single_attribute_exact ($self, $name, $value, $brief = 0) {
 	my $json_response = $search_user_response->decoded_content(charset => 'UTF-8');
 	my $users = decode_json($json_response);
 	return $$users[0];
+}
+
+=head2 perform_health_check()
+
+Verify Keycloak back-channel and front-channel endpoint reachability.
+
+=cut
+
+sub perform_health_check() {
+	my $oidc_configuration = get_oidc_configuration();
+	if (not defined $oidc_configuration) {
+		my $time = current_time_iso8601();
+		return [
+			{
+				status => $status_fail,
+				componentName => 'back_channel',
+				componentType => 'system',
+				output => 'OIDC configuration is unavailable',
+				time => $time,
+			},
+			{
+				status => $status_fail,
+				componentName => 'front_channel',
+				componentType => 'system',
+				output => 'OIDC configuration is unavailable',
+				time => $time,
+			}
+		];
+	}
+
+	my @endpoint_checks = (
+		{
+			componentName => 'back_channel',
+			url => $oidc_configuration->{token_endpoint},
+			description => 'Keycloak back-channel endpoint',
+		},
+		{
+			componentName => 'front_channel',
+			url => $oidc_configuration->{issuer} . '/account',
+			description => 'Keycloak front-channel endpoint',
+		},
+	);
+
+	my @results;
+	foreach my $endpoint_check (@endpoint_checks) {
+		my $start = [gettimeofday()];
+		my ($ok, $code, $error);
+
+		eval {
+			my $response = LWP::UserAgent::Plugin->new->get($endpoint_check->{url});
+			$code = $response->code;
+			$ok = defined($code) && ($code < 500);
+			1;
+		} or do {
+			$error = $@;
+			$ok = 0;
+		};
+
+		my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
+		my $output;
+		if ($ok) {
+			$output = $endpoint_check->{description} . " reachable (HTTP $code)";
+		}
+		elsif (defined($error) && ($error ne '')) {
+			$output = $endpoint_check->{description} . " request failed: $error";
+		}
+		else {
+			$output = $endpoint_check->{description} . " unavailable" . (defined($code) ? " (HTTP $code)" : '');
+		}
+
+		my %result = (
+			status => $ok ? $status_pass : $status_fail,
+			componentName => $endpoint_check->{componentName},
+			componentType => 'system',
+			observedValue => $duration_ms,
+			observedUnit => 'ms',
+			time => current_time_iso8601(),
+			links => {self => $endpoint_check->{url}},
+		);
+		$result{output} = $output if not $ok;
+		push @results, \%result;
+	}
+
+	return \@results;
 }
 
 1;

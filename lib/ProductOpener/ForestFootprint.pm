@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -24,7 +24,7 @@ ProductOpener::ForestFootprint - compute the forest footprint of a food product
 
 =head1 SYNOPSIS
 
-C<ProductOpener::EnvironmentalScore> is used to compute the forest footprint of a food product.
+C<ProductOpener::ForestFootprint> is used to compute the forest footprint of a food product.
 
 =head1 DESCRIPTION
 
@@ -57,6 +57,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 
 use Storable qw(dclone freeze);
@@ -72,7 +73,12 @@ Loads data needed to compute the forest footprint.
 
 =cut
 
+my $forest_footprint_data_loaded = 0;
+
 sub load_forest_footprint_data() {
+
+	return if $forest_footprint_data_loaded;
+	$forest_footprint_data_loaded = 1;
 
 	my $errors = 0;
 

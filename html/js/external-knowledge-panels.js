@@ -1,6 +1,4 @@
-/* eslint-env browser, es2021 */
 /* global lang */
-/* eslint valid-jsdoc: "error" */
 /* exported renderExternalPanelsOptinPreferences */
 
 /**

@@ -1,7 +1,8 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "id" : "en:some-unknown-ingredient",
+         "id" : "en:some unknown ingredient",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 75,
          "percent_max" : 100,
@@ -22,13 +23,13 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "en:some-unknown-ingredient"
+         "en:some unknown ingredient"
       ],
       "en:vegan-status-unknown" : [
-         "en:some-unknown-ingredient"
+         "en:some unknown ingredient"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:some-unknown-ingredient"
+         "en:some unknown ingredient"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -43,12 +44,12 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:some-unknown-ingredient",
+      "en:some unknown ingredient",
       "en:salt"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:some-unknown-ingredient",
+      "en:some unknown ingredient",
       "en:salt"
    ],
    "ingredients_text" : "some unknown ingredient and salt",
@@ -57,21 +58,18 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:some-unknown-ingredient"
+      "en:some unknown ingredient"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "en:salt",
-      "en:some-unknown-ingredient"
+      "en:some unknown ingredient"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 1,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 1
 }

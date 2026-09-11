@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -125,7 +125,7 @@ sub remove_insignificant_digits ($value) {
 	return $value;
 }
 
-=head2 convert_string_to_number($)
+=head2 convert_string_to_number ($value)
 
 Try to convert a number represented as a string to the actual number,
 by guessing which characters (spaces, commas, dots) are used as
@@ -134,6 +134,14 @@ digit grouping separators or used to indicate decimals.
 =cut
 
 sub convert_string_to_number ($value) {
+
+	return if (not defined $value);
+
+	# Convert Arabic-Indic digits (٠١٢٣٤٥٦٧٨٩) and Extended Arabic-Indic digits (۰۱۲۳۴۵۶۷۸۹)
+	# and other non-ASCII digit forms (e.g. Bengali ০-৯, Devanagari ०-९) to ASCII digits
+	$value =~ tr/\x{0660}-\x{0669}/0-9/;    # Arabic-Indic
+	$value =~ tr/\x{06F0}-\x{06F9}/0-9/;    # Extended Arabic-Indic (Persian/Urdu)
+	$value =~ tr/\x{09E6}-\x{09EF}/0-9/;    # Bengali
 
 	$value =~ s/(\d) (\d)/$1$2/g;
 

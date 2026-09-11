@@ -28,12 +28,12 @@ my %product_fields = (
 	origin => "france",
 	serving_size => "10g",
 	packaging_text => "Plastic box, paper lid",
-	nutriment_salt_value => "1.1",
+	nutriment_salt => "1.1",
 	nutriment_salt_unit => "g",
 );
 
 # Test creating a product as a registered user: the product should be created
-my %create_user_args = (%default_user_form, (email => 'bob@test.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($user_ua, \%create_user_args);
 edit_product($user_ua, \%product_fields);
 my $response = $user_ua->get(construct_test_url("/cgi/product.pl?type=edit&code=200000000098"));

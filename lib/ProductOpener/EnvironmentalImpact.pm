@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -45,11 +45,6 @@ package ProductOpener::EnvironmentalImpact;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
-use HTTP::Request::Common;
-use JSON;
-use Encode qw(decode_utf8 encode_utf8);
-
-use ProductOpener::HTTP qw/create_user_agent/;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -64,6 +59,13 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use Log::Any '$log', default_adapter => 'Stderr';
+
+use HTTP::Request::Common;
+use JSON;
+use Encode qw(decode_utf8 encode_utf8);
+
+use ProductOpener::Config qw/:all/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 =head1 FUNCTIONS
 
@@ -102,14 +104,32 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	$updated_product_fields_ref->{environmental_impact} = 1;
 	$product_ref->{environmental_impact} = 0;
 
+	# Example Ecobalyse food2 API request:
+	#
+	# {
+	#   "components": [
+	#     {
+	#       "quantity": 100,
+	#       "custom": {
+	#         "name": "Sucre de betterave par défaut (2025)",
+	#         "elements": [
+	#           {
+	#             "amount": 1,
+	#             "material": {
+	#               "id": "5fc8032f-ca1c-4497-844b-f9213075eab3"
+	#             },
+	#             "transforms": []
+	#           }
+	#         ]
+	#       }
+	#     }
+	#   ],
+	#   "recyclable": true
+	# }
+
 	# Initialisation of the payload structure
 	my $payload = {
 		ingredients => [],
-		transform => {
-			"id" => "83b897cf-9ed2-5604-83b4-67fab8606d35",
-			# name: "Cuisson"
-			"mass" => 545
-		},
 		packaging => [],
 		distribution => "ambient",
 		preparation => ["refrigeration"]
@@ -218,6 +238,12 @@ sub call_ecobalyse($url_recipe, $payload) {
 	# Prepare the POST request with the payload
 	my $request = POST $url_recipe, $payload;
 	$request->header('content-type' => 'application/json');
+
+	# Send the ECOBALYSE API_TOKEN token in the token header if it's defined
+	# the token is now required, the API request will fail without a token
+	if (defined $ecobalyse_api_token) {
+		$request->header('token' => $ecobalyse_api_token);
+	}
 	$request->content(decode_utf8(encode_json($payload)));
 
 	# Send the request and get the response

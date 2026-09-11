@@ -218,30 +218,18 @@
 
       <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
-          <div class="loading">
-            <p>The donation form is being loaded.<br>You can also access it by <a href="https://donorbox.org/your-donation-to-open-food-facts">clicking here</a>.</p>
-          </div>
-
-          <script
-            src="https://donorbox.org/widget.js"
-            paypalExpress="true"
-          ></script>
-          <iframe
-            title="Donate via Donorbox"
-            allowpaymentrequest=""
-            height="900px"
-            name="donorbox"
-            seamless="seamless"
-            src="https://donorbox.org/embed/your-donation-to-open-food-facts"
-            style="max-width: 500px; min-width: 310px; max-height:none!important;border:0;overflow:hidden;"
-            width="100%"
-          ></iframe>
+          <script type="module" src="https://donorbox.org/widgets.js" async></script>
+          <dbox-widget campaign="help-open-food-facts-stay-afloat" type="donation_form" enable-auto-scroll="true"></dbox-widget>
+          <noscript>
+            <p>The donation form is being loaded.<br>You can also access it by <a href="https://donorbox.org/help-open-food-facts-stay-afloat">clicking here</a>.</p>
+          </noscript>
 
           <div class="text-center">
             <img src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"
                  alt="Thig còmhla ris an ar-a-mach bìdh!" style="margin-top: -15%; margin-bottom: -20%; width:80%"
             >
-            <!-- h3>Where your donation goes</h3>
+            <!-- 
+            <h3>Where your donation goes</h3>
 
             <p>
               <strong>Technology:</strong> Development, maintenance, servers to keep the

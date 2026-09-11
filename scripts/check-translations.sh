@@ -13,11 +13,6 @@ tmplog=$(mktemp --suffix "-check-translations.log")
 for filename in $(find po/ -type f \( -name \*.po -o -name \*.pot \))
 do
     file_basename=$(basename "$filename")
-    # exception for lol.po (crowdin ids tracking)
-    if [ "$file_basename"  = "lol.po" ]
-    then
-        continue
-    fi
     echo -n "→ $filename..."
     msgfmt "$filename"
     returnValue=$?

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -52,12 +52,14 @@ use ProductOpener::Tags qw/init_emb_codes init_taxonomies load_knowledge_content
 use ProductOpener::PackagerCodes qw/init_geocode_addresses init_packager_codes/;
 use ProductOpener::Packaging qw/init_packaging_taxonomies_regexps/;
 use ProductOpener::ForestFootprint qw/load_forest_footprint_data/;
+use ProductOpener::ForestFootprint2026 qw/load_forest_footprint_2026_data/;
 use ProductOpener::EnvironmentalScore qw(load_agribalyse_data load_environmental_score_data);
 use ProductOpener::MainCountries qw(load_scans_data);
 use ProductOpener::NutritionCiqual qw(load_ciqual_data);
 use ProductOpener::Routing qw(load_routes);
 use ProductOpener::CRM qw(init_crm_data);
 use ProductOpener::GS1 qw/load_gpc_category_codes_from_categories_taxonomy/;
+use ProductOpener::Stats qw/load_categories_stats_per_country/;
 
 =head1 FUNCTIONS
 
@@ -91,10 +93,13 @@ sub load_data() {
 		load_agribalyse_data();
 		load_environmental_score_data();
 		load_forest_footprint_data();
+		load_forest_footprint_2026_data();
 		load_ciqual_data();
 	}
 
 	load_gpc_category_codes_from_categories_taxonomy();
+
+	load_categories_stats_per_country();
 
 	$log->debug("loading data - done") if $log->is_debug();
 	return;

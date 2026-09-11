@@ -274,10 +274,10 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
-msgstr ""
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Filipino.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -1623,11 +1623,6 @@ msgstr "Ang mga marka ng nutrisyon"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Marka ng nutrisyon"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -5328,7 +5323,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
 msgstr ""
 
 msgctxt "forgotten_password"
@@ -7225,3 +7220,11 @@ msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr ""
 
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-fil.svg"
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "Magagamit sa F-Droid"

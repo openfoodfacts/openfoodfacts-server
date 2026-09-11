@@ -1,0 +1,25 @@
+{
+   "nutrition" : {
+      "aggregated_set" : {},
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0.25
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0.1,
+                  "value_string" : "0.1"
+               }
+            },
+            "per" : "serving",
+            "per_quantity" : "3",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   }
+}

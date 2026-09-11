@@ -20,7 +20,7 @@ remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
 
 subtest 'user + password_signin' => sub {
@@ -50,7 +50,7 @@ subtest 'user + password_signin' => sub {
 subtest 'mail + password_signin' => sub {
 	subtest 'with bad password' => sub {
 		my ($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('bob@gmail.com', 'badpassword', {});
+			= password_signin('bob@example.com', 'badpassword', {});
 		is($user_ref, undef, 'user_ref is undefined');
 		is($refresh_token, undef, 'refresh_token is undefined');
 		is($refresh_expires_at, undef, 'refresh_expires_at is undefined');
@@ -61,7 +61,7 @@ subtest 'mail + password_signin' => sub {
 
 	subtest 'with good password' => sub {
 		my ($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-			= password_signin('bob@gmail.com', 'testtest', {});
+			= password_signin('bob@example.com', 'testtest', {});
 		is($user_ref->{userid}, 'tests', 'user_id matches the one we used');
 		ok($refresh_token, 'refresh token is defined');
 		ok($refresh_expires_at, 'refresh token expires_at is defined');

@@ -1,5 +1,5 @@
 #!/bin/sh
-ssconvert 'AGRIBALYSE3.1.1_produits alimentaires.xlsx' AGRIBALYSE_vf.csv -S
+ssconvert 'AGRIBALYSE3.2_Tableur produits alimentaires_PublieAOUT25.xlsx' AGRIBALYSE_vf.csv -S
 tail -n +9 AGRIBALYSE_vf.csv.2 | sort --numeric-sort --field-separator "," | perl -MText::CSV -le '
     binmode(STDOUT, ":utf8"); $csv = Text::CSV->new({binary=>1}); 
     while ($row_ref = $csv->getline(STDIN)){

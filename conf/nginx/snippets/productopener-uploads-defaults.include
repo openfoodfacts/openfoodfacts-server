@@ -1,0 +1,5 @@
+# Defaults parameters for uploads
+# Normally used on public servers
+client_max_body_size 20M;
+client_body_timeout 120s;
+client_header_timeout 120s;
