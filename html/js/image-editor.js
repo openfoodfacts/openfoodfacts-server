@@ -140,7 +140,7 @@ class ImageEditorComponent extends HTMLElement {
 
   // eslint-disable-next-line class-methods-use-this
   get imagePath() {
-    return (window.imageEditorConfig && window.imageEditorConfig.img_path) || '';
+    return window.imageEditorConfig?.img_path || '';
   }
 
   // Site color for the cropper selection outline and handles, from the CSS
@@ -269,7 +269,7 @@ class ImageEditorComponent extends HTMLElement {
   }
 
   applyZoomOnWheel() {
-    const canvas = this.cropper && this.cropper.getCropperCanvas();
+    const canvas = this.cropper?.getCropperCanvas();
     if (canvas) {
       // Wheel zoom is disabled by default (as in the previous implementation): the
       // checkbox enables it.
@@ -278,7 +278,7 @@ class ImageEditorComponent extends HTMLElement {
   }
 
   applyThemeColor() {
-    const canvas = this.cropper && this.cropper.getCropperCanvas();
+    const canvas = this.cropper?.getCropperCanvas();
     if (!canvas) {
       return;
     }
@@ -341,7 +341,7 @@ class ImageEditorComponent extends HTMLElement {
         this.naturalWidth = img.naturalWidth;
         this.naturalHeight = img.naturalHeight;
         this.coordinates_image_size = this.originalCoordinatesSize || this.coordinates_image_size;
-        const canvas = this.cropper && this.cropper.getCropperCanvas();
+        const canvas = this.cropper?.getCropperCanvas();
         if (canvas && this.naturalWidth && this.naturalHeight) {
           canvas.style.aspectRatio = `${this.naturalWidth} / ${this.naturalHeight}`;
           canvas.getBoundingClientRect();
@@ -377,7 +377,7 @@ class ImageEditorComponent extends HTMLElement {
       this.naturalHeight = img.naturalHeight;
       // product_image_rotate.pl always serves $crop_size (400)
       this.coordinates_image_size = '400';
-      const canvas = this.cropper && this.cropper.getCropperCanvas();
+      const canvas = this.cropper?.getCropperCanvas();
       if (canvas && this.naturalWidth && this.naturalHeight) {
         canvas.style.aspectRatio = `${this.naturalWidth} / ${this.naturalHeight}`;
         canvas.getBoundingClientRect();
@@ -458,7 +458,7 @@ class ImageEditorComponent extends HTMLElement {
   }
 
   getSelectionCoordinates(selection) {
-    const cropperImage = this.cropper.getCropperImage();
+    const cropperImage = this.cropper?.getCropperImage();
     if (!cropperImage) {
       return null;
     }
