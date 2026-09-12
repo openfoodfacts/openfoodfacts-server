@@ -93,6 +93,7 @@ requires 'LWP::UserAgent::Plugin::Retry';
 # AnyEvent
 requires 'AnyEvent';
 requires 'AnyEvent::Inotify::Simple';
+requires 'EV';  # High-performance event loop for async operations, compatible with AnyEvent and Future
 
 # more Apache stuff
 requires 'Apache::Bootstrap';  # needed by Apache2::Connection::XForwardedFor
@@ -129,6 +130,9 @@ requires 'Unicode::GCString';
 
 # To handle IP and IP blocks white lists
 requires 'Net::CIDR'; # libnet-cidr-perl
+
+# OpenTelemetry
+requires 'Punk::OpenTelemetry', '== 0.08';
 
 on 'test' => sub {
   requires 'Test2::V0';

@@ -43,6 +43,10 @@ x-backend-conf: &backend-conf
     - OIDC_DISCOVERY_URL
     - OIDC_CLIENT_ID
     - OIDC_CLIENT_SECRET
+    - OTEL_SERVICE_NAME=${OTEL_SERVICE_NAME_BACKEND}
+    - OTEL_RESOURCE_ATTRIBUTES
+    - OTEL_EXPORTER_OTLP_ENDPOINT
+    - OTEL_EXPORTER_OTLP_PROTOCOL
     - RECIPE_ESTIMATOR_URL
     - RECIPE_ESTIMATOR_SERVICE
     - SLACK_HOOK_URLS
@@ -138,6 +142,10 @@ services:
       - backend
     environment:
       - PRODUCT_OPENER_DOMAIN
+      - OTEL_SERVICE_NAME=${OTEL_SERVICE_NAME_FRONTEND}
+      - OTEL_RESOURCE_ATTRIBUTES
+      - OTEL_COLLECTOR_HOST
+      - OTEL_COLLECTOR_PORT_GRPC
     networks:
       default:
         aliases:
@@ -166,7 +174,8 @@ services:
       - ./logs/nginx/:/var/log/nginx/
 
       # Nginx, we use templates dir to be able to use environment vars
-      - ./conf/nginx-docker/nginx.conf:/etc/nginx/templates/default.conf.template
+      - ./conf/nginx-docker/nginx.conf:/etc/nginx/nginx.conf
+      - ./conf/nginx-docker/default.conf.template:/etc/nginx/templates/default.conf.template
       # needed for monitoring
       - ./conf/nginx/sites-available/default:/etc/nginx/conf.d/stub_status.conf
       # common directives

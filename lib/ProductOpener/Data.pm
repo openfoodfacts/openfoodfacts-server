@@ -68,6 +68,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Cursor;
 use ProductOpener::Health qw/:all/;
 use ProductOpener::HTTP qw/request_param single_param get_http_request_header create_user_agent/;
+use ProductOpener::OpenTelemetry qw/get_otel parent_context/;
 
 use Storable qw(freeze);
 use MongoDB;
@@ -76,6 +77,10 @@ use CGI ':cgi-lib';
 use Log::Any qw($log);
 use Time::HiRes qw/gettimeofday tv_interval/;
 
+use LWP::UserAgent;
+
+# OTEL Span context for MongoDB queries
+my %spans = ();
 my $client;
 
 =head1 FUNCTIONS
@@ -179,7 +184,7 @@ eval {
 =cut
 
 sub execute_query ($sub) {
-	return $sub->();
+	return $sub->(@_);
 }
 
 sub execute_aggregate_tags_query ($query) {
@@ -379,6 +384,14 @@ sub get_mongodb_client ($timeout = undef) {
 		# https://metacpan.org/pod/MongoDB::MongoClient#socket_timeout_ms
 		# default is 30000 ms
 		socket_timeout_ms => $max_time_ms + 5000,
+
+		monitoring_callback => sub {
+			my ($event) = @_;
+			eval {
+				_mongo_monitoring_callback($event);
+				1;
+			} or $log->error('MongoDB monitoring callback error', {error => $@}) if $log->is_error();
+		},
 	);
 
 	if (!defined($client)) {
@@ -519,6 +532,59 @@ sub perform_health_check() {
 			links => $links,
 		}
 	];
+}
+
+# The MongoDB ::monitoring_callback fires once per command, inside the query
+# call stack, with command_started / command_succeeded / command_failed events.
+# It instruments the command as a CLIENT database span. Telemetry must never
+# break the query path, so the callback wraps this in eval.
+sub _mongo_monitoring_callback ($event) {
+	return if (not(defined $event->{type}));
+
+	my $o = get_otel();
+	return if not(defined $o->{tracer});
+
+	if ($event->{type} eq 'command_started') {
+		my $commandName = $event->{commandName};
+		my $collection = $event->{command}->{$commandName} // 'unknown';
+
+		# parent undef makes the span a root span: correct for queries run
+		# outside a web request (cron, scripts) or when the request has no
+		# span (disabled SDK).
+		my $span = $o->{tracer}->start(
+			$commandName . ' ' . $collection,
+			kind => 3,
+			parent => parent_context()
+		);
+		return if not(defined $span);
+
+		# As per https://opentelemetry.io/docs/specs/semconv/database/mongodb/
+		$span->attr('db.namespace' => $event->{databaseName});
+		$span->attr('db.collection.name' => $collection);
+		$span->attr('db.system' => 'mongodb');
+		$span->attr('db.operation.name' => $commandName);
+		$span->attr('server.address' => $event->{connectionId});
+
+		$spans{$event->{requestId}} = $span;
+	}
+	elsif ($event->{type} eq 'command_succeeded') {
+		if (exists $spans{$event->{requestId}}) {
+			my $span = delete $spans{$event->{requestId}};
+			$span->status(1);
+			$o->{tracer}->enqueue($span);
+		}
+	}
+	elsif ($event->{type} eq 'command_failed') {
+		if (exists $spans{$event->{requestId}}) {
+			my $span = delete $spans{$event->{requestId}};
+			my $failure = $event->{failure};
+			my $message = ref $failure ? ($failure->{message} // "$failure") : $failure;
+			$span->status(2, $message);
+			$span->event('exception', {'exception.message' => $message});
+			$o->{tracer}->enqueue($span);
+		}
+	}
+	return;
 }
 
 1;
