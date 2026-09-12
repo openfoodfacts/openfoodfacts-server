@@ -575,4 +575,10 @@
 
 [% IF request.data_debug.defined %]<!-- data_debug: [% request.data_debug %]-->[% END %]
 
+[% IF request.stats.defined %]<!-- request.stats : 
+[% FOREACH key = request.stats.keys %]
+	[% key %] => [% request.stats.$key %]
+[% END %]
+[% END %]
+
 <!-- end templates/[% template.name %] -->
