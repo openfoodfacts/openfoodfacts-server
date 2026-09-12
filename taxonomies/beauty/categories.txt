@@ -3,6 +3,11 @@
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, pour
 
 synonyms:en: flavoured, flavored
+synonyms:en: coloured, colored, color, colour
+synonyms:en: moisturising, moisturizing
+synonyms:en: anti-ageing, anti-aging
+synonyms:en: makeup, make-up, make up
+synonyms:fr: anti-âge, anti-age, anti age
 
 en: Incorrect product type
 ar: نوع المنتج غير صحيح
@@ -509,17 +514,32 @@ wikidata:en: Q34396
 
 < en: Soaps
 en: Scented soaps
+de: Duftseifen, Duftseife
+es: Jabones perfumados, Jabón perfumado
 fr: Savons parfumés, Savon parfumé
+it: Saponi profumati, Sapone profumato
+nl: Geparfumeerde zepen, Geparfumeerde zeep
+pt: Sabonetes perfumados, Sabonete perfumado
 incompatible_with:en: categories:en:unscented-soaps
 
 < en: Soaps
 en: Unscented soaps
+de: Unparfümierte Seifen, Unparfümierte Seife
+es: Jabones sin perfume, Jabón sin perfume
 fr: Savons non parfumés, Savon non parfumé, Savons sans parfum
+it: Saponi non profumati, Sapone senza profumo
+nl: Ongeparfumeerde zepen, Ongeparfumeerde zeep
+pt: Sabonetes sem perfume, Sabonete sem perfume
 incompatible_with:en: categories:en:scented-soaps
 
 < en: Soaps
 en: Marseille soaps, Marseille soap
+de: Marseiller Seife, Savon de Marseille
+es: Jabón de Marsella, Jabones de Marsella
 fr: Savons de Marseille, Savon de Marseille
+it: Sapone di Marsiglia
+nl: Marseillezeep
+pt: Sabonete de Marselha
 wikidata:en: Q908677
 
 < en: Soaps
@@ -630,7 +650,12 @@ wikidata:en: Q97925317
 
 < en: Soaps
 en: Bar soaps
+de: Seifenstücke, Feste Seifen
+es: Jabones en pastilla, Pastillas de jabón, Jabón en barra
 fr: Savons solides, Savon solide, Pains de savon, Pain de savon
+it: Saponette, Sapone solido
+nl: Stukken zeep, Vaste zeep
+pt: Sabonetes em barra, Sabonete em barra
 google_product_taxonomy_id:en: 2503
 incompatible_with:en: categories:en:liquid-soaps
 wikidata:en: Q27883554
@@ -638,7 +663,12 @@ wikidata:en: Q27883554
 < en: Bar soaps
 < en: Scented soaps
 en: Scented bar soaps
+de: Parfümierte Seifenstücke, Parfümierte feste Seife
+es: Pastillas de jabón perfumadas, Jabón en barra perfumado
 fr: Savons solides parfumés, Savon solide parfumé
+it: Saponette profumate, Sapone solido profumato
+nl: Geparfumeerde stukken zeep, Geparfumeerde vaste zeep
+pt: Sabonetes em barra perfumados, Sabonete em barra perfumado
 
 < en: Hygiene
 en: Hydro-alcoholic gels, alcohol-based gels
@@ -865,14 +895,22 @@ wikidata:en: Q798972
 < en: Showers and baths
 en: Shower gels
 de: Duschgele, Duschgels
+es: Geles de ducha, Gel de ducha
 fr: Gels douche, Gel douche
+it: Gel doccia, Bagnoschiuma
 nl: Douchegel, douchegels
+pt: Gel de banho, Géis de banho
 google_product_taxonomy_id:en: 2747
 wikidata:en: Q1267611
 
 < en: Showers and baths
 en: Shower creams, Cream shower gels
+de: Duschcremes, Creme-Duschgels
+es: Cremas de ducha, Geles de ducha en crema
 fr: Crèmes douche, Douche crème
+it: Docciaschiuma in crema, Creme doccia
+nl: Douchecrèmes
+pt: Cremes de banho, Géis de banho em creme
 
 < en: Showers and baths
 en: Shower oils
@@ -993,7 +1031,12 @@ wikidata:en: Q976338
 
 < fr: Tampons hygiéniques
 en: Regular tampons
+de: Normale Tampons
+es: Tampones regulares
 fr: Tampons réguliers
+it: Assorbenti interni regolari, Tamponi regolari
+nl: Normale tampons
+pt: Tampões regulares, Absorventes internos regulares
 
 < en: Intimate hygiene
 en: Intimate wash gels
@@ -1611,12 +1654,22 @@ wikidata:en: Q47471797
 
 < en: Depilatory wax
 en: Cold depilatory wax
+de: Kaltwachs, Kaltwachsstreifen
+es: Cera depilatoria fría, Cera fría
 fr: Cire épilatoire à froid
+it: Cera depilatoria a freddo, Cera a freddo
+nl: Koude hars, Koude ontharingshars
+pt: Cera depilatória fria, Cera fria
 wikidata:en: Q47471806
 
 < en: Depilatory wax
 en: Face depilatory wax
+de: Gesichts-Enthaarungswachs
+es: Cera depilatoria facial
 fr: Cire épilatoire visage
+it: Cera depilatoria viso
+nl: Gezichts ontharingshars
+pt: Cera depilatória facial
 
 #### Rasage
 
@@ -1678,11 +1731,21 @@ zh: 剃须
 
 < en: Shaving
 en: Pre-shave products, Pre-shave
+de: Pre-Shave-Produkte, Pre-Shave
+es: Productos para antes del afeitado, Preafeitado
 fr: Avant rasage
+it: Prodotti pre-barba, Pre-barba
+nl: Pre-shave producten, Pre-shave
+pt: Produtos pré-barba, Pré-barba
 
 < en: Shaving
 en: Aftershaves, Aftershave
+de: Aftershave, Rasierwasser
+es: Lociones para después del afeitado, Aftershave
 fr: Aftershaves, Après-rasage, Aftershave, Après-rasages
+it: Dopobarba
+nl: Aftershave
+pt: Pós-barba, Loção pós-barba
 google_product_taxonomy_id:en: 529
 wikidata:en: Q1545022
 
@@ -1968,8 +2031,12 @@ wikidata:en: Q1189777
 ###### CATEGORIE CORPS
 
 en: Body
+de: Körper
+es: Cuerpo
 fr: Corps
+it: Corpo
 nl: Lichaam
+pt: Corpo
 
 < en: Body
 en: Body milks
@@ -2295,7 +2362,12 @@ fr: Huile de massage comestible
 
 < en: Body
 en: Body gels
+de: Körpergels, Körpergel
+es: Geles corporales, Gel corporal
 fr: Gels pour le corps, Gel pour le corps, Gels corporels
+it: Gel corpo
+nl: Lichaamsgels, Lichaamsgel
+pt: Géis corporais, Gel corporal
 
 < en: Body gels
 en: Slimming gels, Anti-cellulite gels
@@ -2307,11 +2379,21 @@ fr: Gel de massage
 
 < en: Body
 en: Body powders
+de: Körperpuder
+es: Polvos corporales, Polvo corporal
 fr: Poudres pour le corps, poudres corporelles, Poudre pour le corps, Poudre corporelle
+it: Polveri corpo, Polvere per il corpo
+nl: Lichaamspoeders, Lichaamspoeder
+pt: Pós corporais, Pó corporal
 
 < en: Body
 en: Body scrubs, body exfoliants
+de: Körperpeelings, Körperpeeling
+es: Exfoliantes corporales, Exfoliante corporal
 fr: Gommages pour le corps, Gommages corporels, Gommage pour le corps, Gommage corporel
+it: Scrub corpo, Esfolianti corpo
+nl: Lichaamsscrubs, Lichaamsscrub
+pt: Esfoliantes corporais, Esfoliante corporal
 
 < en: Body
 en: Leg care products, Leg care
@@ -2656,7 +2738,12 @@ zh: 日霜和晚霜
 
 < en: Facial creams
 en: Anti-aging face care products
+de: Anti-Aging-Gesichtspflege, Anti-Aging
+es: Productos antienvejecimiento, Cuidado antiedad
 fr: Soins anti-âge visage, Soin anti-âge visage, Crème anti-âge visage
+it: Prodotti antietà, Trattamenti antietà
+nl: Anti-aging gezichtsverzorging
+pt: Produtos antienvelhecimento, Cuidado antienvelhecimento
 
 < en: Anti-aging face care products
 en: Anti-wrinkles creams
@@ -2714,11 +2801,21 @@ zh: 抗皱霜
 
 < en: Face
 en: Eye contour creams, Eye creams
+de: Augencremes, Augenpflege
+es: Cremas para el contorno de ojos, Cremas para los ojos
 fr: Contours des yeux
+it: Creme contorno occhi, Creme occhi
+nl: Oogcrèmes, Oogcontourcrèmes
+pt: Cremes de contorno de olhos, Cremes para os olhos
 
 < en: Face
 en: Face scrubs, face exfoliants, facial exfoliants
+de: Gesichtspeelings, Gesichtspeeling
+es: Exfoliantes faciales, Exfoliante facial
 fr: Gommages visage, Gommage visage
+it: Scrub viso, Esfolianti viso
+nl: Gezichtsscrubs, Gezichtsscrub
+pt: Esfoliantes faciais, Esfoliante facial
 
 < en: Face
 en: Face masks
@@ -3223,7 +3320,12 @@ zh: 鼻贴
 
 < en: Face
 en: Face lotions
+de: Gesichtslotionen, Gesichtswasser
+es: Lociones faciales, Loción facial
 fr: Lotions visage, Lotion visage
+it: Lozioni viso, Lozione viso
+nl: Gezichtslotions, Gezichtslotion
+pt: Loções faciais, Loção facial
 
 ###### CATEGORIE CHEVEUX
 ###### HAIR
@@ -4894,7 +4996,12 @@ zh: 拉直头发
 
 < en: Hair
 en: Hair styling products, Styling products
+de: Haarstyling-Produkte, Styling-Produkte
+es: Productos de peinado, Productos para el cabello
 fr: Coiffants
+it: Prodotti per lo styling, Prodotti per capelli
+nl: Haarstylingsproducten, Stylingproducten
+pt: Produtos capilares, Produtos de styling
 
 < fr: Coiffants
 en: Hair Gel
@@ -5057,7 +5164,11 @@ zh: 化妆品
 
 en: Eyes
 da: Øjne
+es: Ojos
 fr: Yeux
+it: Occhi
+nl: Ogen
+pt: Olhos
 sv: Ögon
 
 #### Maquillage pour les yeux
@@ -5118,13 +5229,23 @@ zh: 眼妆
 
 < en: Eyes makeup
 en: Mascara
+de: Wimperntusche, Mascara
+es: Rímel, Máscara de pestañas
 fr: Mascara
+it: Mascara
+nl: Mascara
+pt: Rímel, Máscara para cílios
 google_product_taxonomy_id:en: 2834
 wikidata:en: Q324120
 
 < en: Eyes makeup
 en: Eyeliners
+de: Eyeliner, Kajal
+es: Delineadores de ojos, Delineador de ojos
 fr: Eye-liners, Eye-liner, Ligneur, Ligneurs
+it: Eyeliner
+nl: Eyeliner, Eyeliners
+pt: Delineadores, Delineador de olhos
 google_product_taxonomy_id:en: 2807
 wikidata:en: Q8243409
 
@@ -5526,7 +5647,12 @@ wikidata:en: Q116221817
 < en: Makeup
 < en: Nail products
 en: Nail makeup
+de: Nagel-Make-up, Nagel-Makeup
+es: Maquillaje para uñas
 fr: Maquillage pour les ongles
+it: Trucco per unghie
+nl: Nagelmake-up
+pt: Maquiagem para unhas
 
 < en: Nail makeup
 en: Nail polishes, Nail polish
@@ -5928,7 +6054,12 @@ wikidata:en: Q184191
 
 < en: Lip Makeup
 en: Lip gloss, Gloss
+de: Lipgloss, Gloss
+es: Brillo de labios, Gloss
 fr: Gloss
+it: Lucidalabbra, Lip gloss
+nl: Lipgloss
+pt: Brilho labial, Gloss
 google_product_taxonomy_id:en: 2858
 wikidata:en: Q747675
 
@@ -5987,7 +6118,12 @@ zh: 唇部贴纸
 ######## CATEGORIE Solaire
 
 en: Suncare, Sun Care
+de: Sonnenschutz
+es: Protección solar
 fr: Solaire
+it: Solari, Protezione solare
+nl: Zonnebrand, Zonverzorging
+pt: Proteção solar, Cuidados solares
 
 < en: Suncare
 en: In-sun protections
@@ -6668,7 +6804,12 @@ zh: 配件
 
 < en: Accessories
 en: Tablets
+de: Tabletten
+es: Pastillas, Comprimidos
 fr: Comprimés à avaler
+it: Compresse
+nl: Tabletten, Pillen
+pt: Comprimidos, Pastilhas
 
 < en: Accessories
 en: Razors
@@ -7154,9 +7295,13 @@ zh: 婴儿湿巾
 
 en: Cotton buds, Cotton swabs
 da: Vatpinde
-de: Wattestäbchen
+de: Wattestäbchen, Ohrenstäbchen
+es: Bastoncillos de algodón, Hisopos de algodón
 fr: Cotons-tiges, Coton-tige, Bâtonnets ouatés
+it: Bastoncini cotonati, Cotton fioc
 nb: Bomullspinner
+nl: Wattenstaafjes
+pt: Cotonetes, Hastes flexíveis
 sv: Bomullspinnar
 google_product_taxonomy_id:en: 2934
 wikidata:en: Q12201
@@ -7168,6 +7313,10 @@ google_product_taxonomy_id:en: 6753
 wikidata:en: Q457239
 
 en: Halloween cosmetics, Halloween makeup, Halloween products, Halloween supplies
-xx: Halloween-makeup
+de: Halloween-Kosmetik, Halloween-Make-up
+es: Cosméticos de Halloween, Maquillaje de Halloween
 fr: Maquillage d'Halloween, Cosmétiques d'Halloween
-
+it: Cosmetici per Halloween, Trucco per Halloween
+nl: Halloween cosmetica, Halloween make-up
+pt: Cosméticos de Halloween, Maquiagem de Halloween
+xx: Halloween-makeup
