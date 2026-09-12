@@ -938,6 +938,12 @@ html[dir="rtl"] {
   font-size: 0.8em;
 }
 
+/* increased line-height for better legibility of ingredients list */
+.panel_ingredients_text {
+  line-height: 1.6;
+  font-size: 1.05em;
+}
+
 .ecoscore_panel {
   border-radius: 1rem;
 }
