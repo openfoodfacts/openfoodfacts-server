@@ -24,6 +24,7 @@ MongoDB:
 Stores:
   - changed-files:
       - any-glob-to-any-file: "taxonomies/unused/stores.txt"
+      - any-glob-to-any-file: "taxonomies/external/name-suggestion-index/shop/*"
       - any-glob-to-any-file: "scripts/tag_stores_magasins_u.pl"
 
 # Mobile App
