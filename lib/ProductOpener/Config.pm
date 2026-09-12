@@ -110,6 +110,14 @@ autoload("ProductOpener::Config_$flavor");
 	},
 );
 
+# Regional variants of the web interface, mapped to their name in the variant itself.
+# Adding a code here makes it selectable, provided po/common/<code>.po and po/tags/<code>.po
+# exist and the base language is registered in the languages taxonomy.
+# Variants stay out of %Langs: product fields, taxonomies, APIs and exports keep using
+# the base language. Names are given here because the languages taxonomy only has ISO 639-1
+# entries. Codes use the normalized spelling: pt_BR, zh_Hant_TW.
+$ProductOpener::Config::options{interface_language_variants} = {pt_BR => 'Português (Brasil)'};
+
 %ProductOpener::Config::admins = map {$_ => 1} qw(
 	alex-off
 	charlesnepote

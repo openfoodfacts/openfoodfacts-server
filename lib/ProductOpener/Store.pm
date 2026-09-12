@@ -57,6 +57,7 @@ BEGIN {
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::I18N qw/lookup_with_language_fallback/;
 use ProductOpener::Paths qw/:all/;
 
 use Storable qw(lock_store lock_retrieve);
@@ -130,14 +131,9 @@ sub get_string_id_for_lang ($lc, $string) {
 	my $unaccent = $string_normalization_for_lang{default}{unaccent};
 	my $lowercase = $string_normalization_for_lang{default}{lowercase};
 
-	if (defined $string_normalization_for_lang{$lc}) {
-		if (defined $string_normalization_for_lang{$lc}{unaccent}) {
-			$unaccent = $string_normalization_for_lang{$lc}{unaccent};
-		}
-		if (defined $string_normalization_for_lang{$lc}{lowercase}) {
-			$lowercase = $string_normalization_for_lang{$lc}{lowercase};
-		}
-	}
+	my $normalization_ref = lookup_with_language_fallback(\%string_normalization_for_lang, $lc) // {};
+	$unaccent = $normalization_ref->{unaccent} // $unaccent;
+	$lowercase = $normalization_ref->{lowercase} // $lowercase;
 
 	if ($lowercase) {
 		# do not lowercase UUIDs

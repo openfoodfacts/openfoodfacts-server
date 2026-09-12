@@ -42,6 +42,9 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$lc
+		$interface_lc
+		%InterfaceLangs
+		@InterfaceLangs
 
 		%tag_type_singular
 		%tag_type_from_singular
@@ -51,6 +54,9 @@ BEGIN {
 		%Langs
 		@Langs
 
+		&interface_languages
+		&current_interface_language
+		&language_locale
 		&lang
 		&f_lang
 		&f_lang_in_lc
@@ -64,7 +70,7 @@ BEGIN {
 }
 
 use vars @EXPORT_OK;
-use ProductOpener::I18N;
+use ProductOpener::I18N qw/normalize_language_code language_tag base_language lookup_with_language_fallback/;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -80,6 +86,74 @@ use Log::Any qw($log);
 $lc = "en";
 
 =head1 FUNCTIONS
+
+=head2 interface_languages( $languages_ref )
+
+Build the interface registry from the product languages and the variants listed in
+$options{interface_language_variants}. Variants have their own native names; they
+are not ISO 639-1 codes in the languages taxonomy. A variant whose base language is
+not registered is skipped.
+
+=cut
+
+sub interface_languages ($languages_ref) {
+	my %registry = %{$languages_ref};
+	my $variants_ref = $options{interface_language_variants} // {};
+	foreach my $code (sort keys %{$variants_ref}) {
+		my $canonical = normalize_language_code($code);
+		if (not defined $canonical) {
+			$log->error("Ignoring interface language variant with invalid syntax", {code => $code})
+				if $log->is_error();
+			next;
+		}
+		my $base = base_language($canonical);
+		next if not exists $registry{$base};
+		$registry{$canonical} = {%{$registry{$base}}, $canonical => $variants_ref->{$code}};
+	}
+	return \%registry;
+}
+
+=head2 current_interface_language()
+
+Use the selected interface variant while its base matches C<$lc>. Code that
+explicitly switches C<$lc>, for example to generate an English link, keeps working.
+
+=cut
+
+sub current_interface_language () {
+	return defined $interface_lc && base_language($interface_lc) eq $lc ? $interface_lc : $lc;
+}
+
+=head2 language_locale( $code )
+
+Return the calendar locale for a language, falling back through its language
+parents and then to English when missing.
+Chinese catalog region codes need an explicit script for DateTime::Locale.
+
+=cut
+
+sub language_locale ($code) {
+	my %chinese_locales = (zh_CN => 'zh-Hans-CN', zh_TW => 'zh-Hant-TW', zh_HK => 'zh-Hant-HK');
+	my $canonical = normalize_language_code($code);
+	state %available = map {
+		my $language = normalize_language_code($_);
+		defined $language ? ($language => $_) : ()
+	} DateTime::Locale->codes;
+	my $requested = defined $canonical ? ($chinese_locales{$canonical} // $canonical) : undef;
+	my $locale = lookup_with_language_fallback(\%available, $requested) // 'en';
+	return DateTime::Locale->load($locale);
+}
+
+# Keep the registries used by product forms, APIs and exports limited to base
+# languages. Interface variants are selectable only through %InterfaceLangs.
+sub init_language_names () {
+	@InterfaceLangs = sort keys %{$Lang{add}};
+	%InterfaceLangs = map {$_ => $Lang{'language_' . $_}{$_}} @InterfaceLangs;
+	@Langs = grep {base_language($_) eq $_} @InterfaceLangs;
+	%Langs = map {$_ => $InterfaceLangs{$_}} @Langs;
+	%lang_lc = map {$_ => $_} @Langs;
+	return;
+}
 
 =head2 separator_before_colon( $l )
 
@@ -106,7 +180,7 @@ sub separator_before_colon ($l) {
 
 =head2 lang( $stringid )
 
-Returns a translation for a specific string id in the language defined in the $lc global variable.
+Returns a translation in $interface_lc when selected, or in $lc otherwise.
 
 If a translation is not available, the function returns English.
 
@@ -119,13 +193,13 @@ In the .po translation files, we use the msgctxt field for the string id.
 =cut
 
 sub lang ($stringid) {
-	return lang_in_other_lc($lc, $stringid);
+	return lang_in_other_lc(current_interface_language(), $stringid);
 }
 
 =head2 f_lang( $stringid, $variables_ref )
 
 Returns a translation for a specific string id with specific arguments
-in the language defined in the $lc global variable.
+in $interface_lc when selected, or in $lc otherwise.
 
 The translation is stored using Python's f-string format with
 named parameters between { }.
@@ -151,7 +225,7 @@ Reference to a hash that contains values for the variables that will be replaced
 
 sub f_lang ($stringid, $variables_ref) {
 
-	return f_lang_in_lc($lc, $stringid, $variables_ref);
+	return f_lang_in_lc(current_interface_language(), $stringid, $variables_ref);
 }
 
 =head2 f_lang_in_lc ( $target_lc, $stringid, $variables_ref )
@@ -254,13 +328,7 @@ if (-e $path) {
 			if $log->is_error();
 		die("Language translation file does not contain the 'add' key, \%Lang will be empty.");
 	}
-	@Langs = sort keys %{$Lang{$msgctxt}};
-	%Langs = ();
-	%lang_lc = ();
-	foreach my $l (@Langs) {
-		$lang_lc{$l} = $l;
-		$Langs{$l} = $Lang{"language_" . $l}{$l};    # Name of the language in the language itself
-	}
+	init_language_names();
 
 	$log->info("Loaded languages", {langs => (scalar @Langs)}) if $log->is_info();
 }
@@ -293,8 +361,9 @@ else {
 my @debug_taxonomies = ("categories", "labels", "additives");
 
 # Build hashes to map a translated tag type (e.g. "catégorie") in singular or plural to the tag type (e.g. "categories")
+# The registry must include en, which supplies the fallback paths for all languages.
 
-sub build_lang_tags() {
+sub build_lang_tags ($Languages_ref) {
 
 	# Tags types to path components in URLS: in ascii, lowercase, unaccented,
 	# transliterated (in Roman characters)
@@ -302,39 +371,23 @@ sub build_lang_tags() {
 	# Note: a lot of plurals are currently missing below, commented-out are
 	# the singulars that need to be changed to plurals
 	my ($tag_type_singular_ref, $tag_type_plural_ref)
-		= ProductOpener::I18N::split_tags(ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
+		= ProductOpener::I18N::split_tags(ProductOpener::I18N::read_po_files("$data_root/po/tags/", $Languages_ref));
 	%tag_type_singular = %{$tag_type_singular_ref};
 	%tag_type_plural = %{$tag_type_plural_ref};
+	%tag_type_from_singular = ();
+	%tag_type_from_plural = ();
 
-	foreach my $l (@Langs) {
-
-		my $short_l = undef;
-		if ($l =~ /_/) {
-			$short_l = $`;    # pt_pt
-		}
-
-		foreach my $type (keys %tag_type_singular) {
-
-			if (not defined $tag_type_singular{$type}{$l}) {
-				if ((defined $short_l) and (defined $tag_type_singular{$type}{$short_l})) {
-					$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{$short_l};
-				}
-				else {
-					$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{en};
-				}
+	foreach my $paths_ref (\%tag_type_singular, \%tag_type_plural) {
+		foreach my $type (keys %{$paths_ref}) {
+			next if not defined $paths_ref->{$type};
+			my %translations = %{$paths_ref->{$type}};
+			foreach my $l (sort keys %{$Languages_ref}) {
+				$paths_ref->{$type}{$l} = lookup_with_language_fallback(\%translations, $l) // $translations{en};
 			}
 		}
+	}
 
-		foreach my $type (keys %tag_type_plural) {
-			if (not defined $tag_type_plural{$type}{$l}) {
-				if ((defined $short_l) and (defined $tag_type_plural{$type}{$short_l})) {
-					$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{$short_l};
-				}
-				else {
-					$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{en};
-				}
-			}
-		}
+	foreach my $l (sort keys %{$Languages_ref}) {
 
 		$tag_type_from_singular{$l} or $tag_type_from_singular{$l} = {};
 		$tag_type_from_plural{$l} or $tag_type_from_plural{$l} = {};
@@ -365,25 +418,25 @@ sub build_lang_tags() {
 # - compute missing values by assigning English values
 
 sub build_lang ($Languages_ref) {
-	# $Languages_ref is a hash of languages with translations initialized from the languages taxonomy by Tags.pm
-	# Note: all .po files must have a corresponding entry in the languages.txt taxonomy
+	# $Languages_ref contains language names from the taxonomy and the explicitly
+	# enabled interface variants returned by interface_languages().
 
 	# Load the strings from the .po files
 	# UI strings, non-Roman characters can be used
 	my $path = "$data_root/po/common/";
 	$log->info("Loading common \%Lang", {path => $path});
-	%Lang = %{ProductOpener::I18N::read_po_files($path)};
+	# Only compile registered languages. Otherwise, regional entries in the 'add' key
+	# would become selectable languages when Lang.sto is loaded, without initialization.
+	%Lang = %{ProductOpener::I18N::read_po_files($path, $Languages_ref)};
 
 	# Load the .pot file
 	my %common_keys = %{ProductOpener::I18N::read_pot_file($path . "common.pot")};
 
-	# Initialize %Langs and @Langs and add language names to %Lang
+	# Add language names before initializing the product and interface registries.
 
-	%Langs = %{$Languages_ref};
-	@Langs = sort keys %{$Languages_ref};
-	foreach my $l (@Langs) {
+	my @languages = sort keys %{$Languages_ref};
+	foreach my $l (@languages) {
 		$Lang{"language_" . $l} = $Languages_ref->{$l};
-		$Langs{$l} = $Languages_ref->{$l}{$l};    # Name of the language in the language itself
 	}
 
 	# Save to file, for debugging and comparing purposes
@@ -402,24 +455,10 @@ sub build_lang ($Languages_ref) {
 
 	foreach my $key (sort keys %common_keys) {
 		if ((defined $Lang{$key}{en}) and ($Lang{$key}{en} ne '')) {
-			foreach my $l (@Langs) {
-
-				my $short_l = undef;
-				if ($l =~ /_/) {
-					$short_l = $`;    # pt_pt
-				}
-
-				if (not defined $Lang{$key}{$l}) {
-					if ((defined $short_l) and (defined $Lang{$key}{$short_l})) {
-						$Lang{$key}{$l} = $Lang{$key}{$short_l};
-					}
-					elsif (defined $Lang{$key}{en}) {
-						$Lang{$key}{$l} = $Lang{$key}{en};
-					}
-					else {
-						$Lang{$key}{$l} = $Lang{$key}{fr};
-					}
-				}
+			my %translations = %{$Lang{$key}};
+			foreach my $l (@languages) {
+				$Lang{$key}{$l} = lookup_with_language_fallback(\%translations, $l) // $translations{en}
+					// $translations{fr};
 
 				my $tagid = get_string_id_for_lang($l, $Lang{$key}{$l});
 			}
@@ -453,7 +492,7 @@ sub build_lang ($Languages_ref) {
 	# Some translations have <<site_name>> in them, replace it with the site name
 	my $site_name = $options{site_name};
 
-	foreach my $l (@Langs) {
+	foreach my $l (@languages) {
 		foreach my $key (keys %Lang) {
 			if (not defined $Lang{$key}{$l}) {
 				next;
@@ -462,16 +501,8 @@ sub build_lang ($Languages_ref) {
 		}
 	}
 
-	my $en_locale = DateTime::Locale->load('en');
-	my @locale_codes = DateTime::Locale->codes;
-	foreach my $l (@Langs) {
-		my $locale;
-		if (grep {$_ eq $l} @locale_codes) {
-			$locale = DateTime::Locale->load($l);
-		}
-		else {
-			$locale = $en_locale;
-		}
+	foreach my $l (@languages) {
+		my $locale = language_locale($l);
 
 		my @months = ();
 		foreach my $month (1 .. 12) {
@@ -491,6 +522,7 @@ sub build_lang ($Languages_ref) {
 		$Lang{weekdays}{$l} = decode("utf8", encode_json(\@weekdays));
 	}
 
+	init_language_names();
 	return;
 }    # build_lang
 
@@ -502,28 +534,13 @@ sub build_json {
 		mkdir($i18n_root, 0755) or die("Could not create target directory $i18n_root : $!\n");
 	}
 
-	foreach my $l (@Langs) {
-		my $target_dir = "$i18n_root/$l";
+	foreach my $l (@InterfaceLangs) {
+		my $target_dir = "$i18n_root/" . language_tag($l);
 		ensure_dir_created_or_die($target_dir);
-
-		my $short_l = undef;
-		if ($l =~ /_/) {
-			$short_l = $`;    # pt_pt
-		}
 
 		my %result = ();
 		foreach my $s (keys %Lang) {
-			my $value;
-
-			if (defined $Lang{$s}{$l}) {
-				$value = $Lang{$s}{$l};
-			}
-			elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
-				$value = $Lang{$s}{$short_l};
-			}
-			elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
-				$value = $Lang{$s}{en};
-			}
+			my $value = lookup_with_language_fallback($Lang{$s}, $l) // $Lang{$s}{en};
 
 			$result{$s} = $value if $value;
 		}
