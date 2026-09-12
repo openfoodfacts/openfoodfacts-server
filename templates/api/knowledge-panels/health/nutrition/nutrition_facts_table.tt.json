@@ -76,4 +76,13 @@
             },  
         }
     ]
+[% IF panel.nutrition_is_empty %]
+,"actions": [
+    {
+        "action_type": "edit",
+        "label": "[% edq(lang('add_nutrition_facts')) %]",
+        "url": "/product/[% product.code %]?fields=nutrition"
+    }
+]
+[% END %]
 }
