@@ -8,6 +8,7 @@
         "title": "[% edq(lang('secondhand')) %]",
     },    
     "elements": [
+        [% IF panel.has_category %]
         [% IF panels.repair_fr_epargnonsnosressources.defined %]
         {
             "element_type": "panel",
@@ -38,6 +39,17 @@
             "panel_element": {
                 "panel_id": "used_products",
             },
+        },
+        [% END %]
+        [% ELSE %]
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("actions_to_discover_secondhand_options") %]`,
+                "actions": [
+                    "add_categories",
+                ]
+            }
         },
         [% END %]
     ],

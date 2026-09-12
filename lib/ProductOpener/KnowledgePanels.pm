@@ -1002,6 +1002,18 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 		return 0;
 	}
 
+	# Donation and secondhand links need a category to build relevant searches.
+	my $has_category
+		= (ref($product_ref->{categories_tags}) eq 'ARRAY' and @{$product_ref->{categories_tags}});
+	$panel_data_ref->{has_category} = $has_category ? 1 : 0;
+
+	# Without a category, create the card with an action to add one.
+	if (not $has_category) {
+		create_panel_from_json_template("secondhand_card", "api/knowledge-panels/secondhand/secondhand_card.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		return 1;
+	}
+
 	# Add the name of the most specific category (last in categories_tags) to the panel data
 	my $category_id = $product_ref->{categories_tags}[-1];
 	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
