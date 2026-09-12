@@ -151,6 +151,492 @@ properties:
           This value is entered either by contributors, either by
           imports.
         example: 12.5
+  casein_100g:
+    type: number
+    description: >
+      Amount of Casein per 100g (or 100ml) of the product.
+      Casein is the main protein (about 80%) found in milk and dairy products. It's a slow-digesting protein, providing a sustained release of amino acids, and is crucial in cheesemaking.
+      Potential interest for developers: Identifying products high in slow-digesting protein (for athletes, satiety-focused diets), flagging for dairy content (though allergen tags are more direct for allergies), or categorizing protein sources in dairy items.
+  serum-proteins_100g:
+    type: number
+    description: >
+      Amount of Serum Proteins (Whey Proteins) per 100g (or 100ml) of the product.
+      Serum proteins, commonly known as whey proteins, constitute the other major group of proteins in milk (about 20%). They are fast-digesting and rich in branched-chain amino acids (BCAAs).
+      Potential interest for developers: Identifying products with fast-digesting proteins (e.g., for post-workout recovery), often highlighted in sports nutrition, or differentiating protein types in dairy for specific user needs.
+  nucleotides_100g:
+    type: number
+    description: >
+      Amount of Nucleotides per 100g (or 100ml) of the product.
+      Nucleotides are organic molecules, the building blocks of DNA and RNA, playing roles in many cellular processes. They are naturally present in breast milk and sometimes added to infant formulas.
+      Potential interest for developers: Identifying foods with added nucleotides, particularly relevant for infant formula information apps, specialized nutritional databases, or products targeting immune support.
+  sucrose_100g:
+    type: number
+    description: >
+      Amount of Sucrose per 100g (or 100ml) of the product.
+      Sucrose is common table sugar, a disaccharide composed of glucose and fructose. It's a readily available energy source.
+      Potential interest for developers: Tracking sugar intake, identifying high-sugar products, useful for diabetic management apps, or those focusing on reducing "added sugars" (this field is total sucrose).
+  glucose_100g:
+    type: number
+    description: >
+      Amount of Glucose per 100g (or 100ml) of the product.
+      Glucose is a simple sugar (monosaccharide) and a primary source of energy for the body's cells.
+      Potential interest for developers: Understanding specific sugar composition, relevant for sports nutrition (quick energy), or for users monitoring blood sugar as part of a broader carbohydrate analysis.
+  fructose_100g:
+    type: number
+    description: >
+      Amount of Fructose per 100g (or 100ml) of the product.
+      Fructose is a simple sugar (monosaccharide) found naturally in fruits, honey, and some vegetables. It's also a component of sucrose and high-fructose corn syrup.
+      Potential interest for developers: Tracking fructose intake, especially for individuals with fructose malabsorption, or those monitoring intake of specific sugars for health reasons (e.g., liver health due to high intake).
+  lactose_100g:
+    type: number
+    description: >
+      Amount of Lactose per 100g (or 100ml) of the product.
+      Lactose is a disaccharide sugar (glucose + galactose) found in milk and dairy products. Its digestion requires the enzyme lactase.
+      Potential interest for developers: Crucial for apps catering to users with lactose intolerance, helping them identify low-lactose or lactose-free products.
+  maltose_100g:
+    type: number
+    description: >
+      Amount of Maltose per 100g (or 100ml) of the product.
+      Maltose, or malt sugar, is a disaccharide formed from two glucose units. It's found in germinating grains, some syrups, and molasses.
+      Potential interest for developers: Identifying specific types of sugars, relevant for certain dietary preferences or understanding the source of sweetness/carbohydrates (e.g., in malted beverages).
+  maltodextrins_100g:
+    type: number
+    description: >
+      Amount of Maltodextrins per 100g (or 100ml) of the product.
+      Maltodextrins are polysaccharides used as food additives for bulk, thickness, or as flavor carriers. They are easily digestible, absorbed rapidly like glucose.
+      Potential interest for developers: Identifying processed foods, quick carbohydrate sources for athletes, or for individuals monitoring processed carbohydrate intake.
+  starch_100g:
+    type: number
+    description: >
+      Amount of Starch per 100g (or 100ml) of the product.
+      Starch is a complex carbohydrate (polysaccharide) made of glucose units, a primary dietary energy source found in grains, potatoes, and legumes.
+      Potential interest for developers: Calculating complex carbohydrate content, energy management in diet trackers, meal planning for athletes, or diabetic carbohydrate management.
+  polyols_100g:
+    type: number
+    description: >
+      Amount of Polyols (Sugar Alcohols) per 100g (or 100ml) of the product.
+      Polyols (e.g., xylitol, sorbitol) are carbohydrates used as sugar substitutes, providing fewer calories. Large amounts can have a laxative effect.
+      Potential interest for developers: Identifying products with sugar substitutes (for low-calorie/sugar-restricted diets like keto, diabetic-friendly products), and flagging potential digestive issues.
+  butyric-acid_100g:
+    type: number
+    description: >
+      Amount of Butyric acid per 100g (or 100ml) of the product.
+      A short-chain saturated fatty acid found in butterfat. Also produced by gut bacteria, it's an energy source for colon cells.
+      Potential interest for developers: Niche interest for gut health applications or detailed fat profiling. Contributes to total saturated fat.
+  caproic-acid_100g:
+    type: number
+    description: >
+      Amount of Caproic acid per 100g (or 100ml) of the product.
+      A medium-chain saturated fatty acid found in animal fats and some plant oils (e.g., coconut oil).
+      Potential interest for developers: Detailed fat profiling, contributes to total saturated fat.
+  caprylic-acid_100g:
+    type: number
+    description: >
+      Amount of Caprylic acid per 100g (or 100ml) of the product.
+      A medium-chain saturated fatty acid found in coconut oil, palm kernel oil, and breast milk. Sometimes promoted for antimicrobial properties or ketogenic diets.
+      Potential interest for developers: Identifying sources of specific Medium-Chain Triglycerides (MCTs) for ketogenic diets or specialized nutritional plans.
+  capric-acid_100g:
+    type: number
+    description: >
+      Amount of Capric acid per 100g (or 100ml) of the product.
+      A medium-chain saturated fatty acid found in coconut oil, palm kernel oil, and some animal fats.
+      Potential interest for developers: Similar to caprylic acid, for detailed fat analysis and MCT identification.
+  lauric-acid_100g:
+    type: number
+    description: >
+      Amount of Lauric acid per 100g (or 100ml) of the product.
+      A medium-chain saturated fatty acid, a major component of coconut oil and palm kernel oil. It has different metabolic effects compared to longer-chain SFAs.
+      Potential interest for developers: Identifying products high in lauric acid for users following specific dietary trends (e.g., those using coconut oil extensively).
+  myristic-acid_100g:
+    type: number
+    description: >
+      Amount of Myristic acid per 100g (or 100ml) of the product.
+      A long-chain saturated fatty acid found in dairy fats, coconut oil, and palm kernel oil. It can raise LDL (bad) cholesterol.
+      Potential interest for developers: Fine-grained analysis of saturated fat types for users concerned about cholesterol levels.
+  palmitic-acid_100g:
+    type: number
+    description: >
+      Amount of Palmitic acid per 100g (or 100ml) of the product.
+      The most common saturated fatty acid in animals and plants (e.g., palm oil, meat, dairy). High intake is linked to increased LDL cholesterol.
+      Potential interest for developers: Identifying products high in palmitic acid, relevant for cardiovascular health concerns and sustainability tracking related to palm oil.
+  stearic-acid_100g:
+    type: number
+    description: >
+      Amount of Stearic acid per 100g (or 100ml) of the product.
+      A long-chain saturated fatty acid in animal fats (esp. beef) and cocoa butter. Generally considered to have a neutral effect on blood cholesterol.
+      Potential interest for developers: Differentiating SFAs, as stearic acid is often viewed more favorably.
+  arachidic-acid_100g:
+    type: number
+    description: >
+      Amount of Arachidic acid per 100g (or 100ml) of the product.
+      A long-chain saturated fatty acid found in peanut oil and some other vegetable fats.
+      Potential interest for developers: Detailed fat profiling for research or highly specific dietary analysis.
+  behenic-acid_100g:
+    type: number
+    description: >
+      Amount of Behenic acid per 100g (or 100ml) of the product.
+      A very long-chain saturated fatty acid in some plant oils (e.g., canola, peanut oil). It is poorly absorbed.
+      Potential interest for developers: Niche interest, potentially for understanding fat absorption characteristics.
+  lignoceric-acid_100g:
+    type: number
+    description: >
+      Amount of Lignoceric acid per 100g (or 100ml) of the product.
+      A very long-chain saturated fatty acid found in small amounts in peanut oil and some wood tars.
+      Potential interest for developers: Highly specialized fat analysis, possible indicator of certain plant oil processing.
+  cerotic-acid_100g:
+    type: number
+    description: >
+      Amount of Cerotic acid per 100g (or 100ml) of the product.
+      A very long-chain saturated fatty acid found in beeswax and carnauba wax. Likely present in foods in trace amounts from specific additives (e.g., fruit coatings like E903).
+      Potential interest for developers: Very niche, possibly for identifying certain food coatings or specific additives.
+  montanic-acid_100g:
+    type: number
+    description: >
+      Amount of Montanic acid per 100g (or 100ml) of the product.
+      A very long-chain saturated fatty acid found in montan wax (derived from lignite), used as a food additive (E912) for fruit coating.
+      Potential interest for developers: Identifying specific food additives (glazing agents) on fruits or confectionery.
+  melissic-acid_100g:
+    type: number
+    description: >
+      Amount of Melissic acid per 100g (or 100ml) of the product.
+      A very long-chain saturated fatty acid found in beeswax (E901) and some plant waxes.
+      Potential interest for developers: Trace component analysis, possibly related to natural food coatings (e.g., on fruits) or use of beeswax as an additive.
+  monounsaturated-fat_100g:
+    type: number
+    description: >
+      Amount of Monounsaturated Fat per 100g (or 100ml) of the product.
+      Fats containing one double bond in their fatty acid chain. Commonly found in olive oil, avocados, and nuts. Considered heart-healthy.
+      Potential interest for developers: Identifying heart-healthy fat sources, useful for dietary recommendations and health-focused applications.
+  polyunsaturated-fat_100g:
+    type: number
+    description: >
+      Amount of Polyunsaturated Fat per 100g (or 100ml) of the product.
+      Fats containing more than one double bond in their fatty acid chain. Includes essential fatty acids like omega-3 and omega-6. Found in fatty fish, seeds, and vegetable oils.
+      Potential interest for developers: Identifying sources of essential fatty acids, crucial for overall health, brain function, and inflammation control.
+  omega-3-fat_100g:
+    type: number
+    description: >
+      Amount of Omega-3 fatty acids per 100g (or 100ml) of the product.
+      A class of polyunsaturated fats considered essential, known for anti-inflammatory effects and benefits for heart and brain health. Includes ALA, EPA, and DHA.
+      Potential interest for developers: Highlighting products rich in omega-3s for heart health, cognitive function, or anti-inflammatory diets.
+  alpha-linolenic-acid_100g:
+    type: number
+    description: >
+      Amount of Alpha-Linolenic Acid (ALA) per 100g (or 100ml) of the product.
+      An essential omega-3 fatty acid found in plant sources like flaxseeds, chia seeds, walnuts, and some vegetable oils.
+      Potential interest for developers: Identifying plant-based omega-3 sources, useful for vegetarian/vegan diets or users seeking specific fatty acids.
+  eicosapentaenoic-acid_100g:
+    type: number
+    description: >
+      Amount of Eicosapentaenoic Acid (EPA) per 100g (or 100ml) of the product.
+      A long-chain omega-3 fatty acid primarily found in fatty fish and fish oil. Important for reducing inflammation and cardiovascular health.
+      Potential interest for developers: Tracking intake of specific beneficial omega-3s, particularly for heart health and anti-inflammatory purposes.
+  docosahexaenoic-acid_100g:
+    type: number
+    description: >
+      Amount of Docosahexaenoic Acid (DHA) per 100g (or 100ml) of the product.
+      A long-chain omega-3 fatty acid crucial for brain development and function, and eye health. Primarily found in fatty fish and fish oil.
+      Potential interest for developers: Highlighting foods important for brain health (especially for pregnant women, infants, and children) and eye health.
+  omega-6-fat_100g:
+    type: number
+    description: >
+      Amount of Omega-6 fatty acids per 100g (or 100ml) of the product.
+      A class of polyunsaturated fats that are also essential. Found in many vegetable oils, nuts, and seeds. Balance with omega-3s is important.
+      Potential interest for developers: Tracking omega-6 intake, potentially for managing the omega-6 to omega-3 ratio, which is of interest in some dietary approaches.
+  linoleic-acid_100g:
+    type: number
+    description: >
+      Amount of Linoleic Acid (LA) per 100g (or 100ml) of the product.
+      An essential omega-6 fatty acid, widely found in vegetable oils, nuts, and seeds.
+      Potential interest for developers: Identifying sources of this primary omega-6 fatty acid for detailed dietary fat analysis.
+  arachidonic-acid_100g:
+    type: number
+    description: >
+      Amount of Arachidonic Acid (AA) per 100g (or 100ml) of the product.
+      An omega-6 fatty acid that can be synthesized from linoleic acid. Found in animal fats, meat, and eggs. Plays a role in inflammation.
+      Potential interest for developers: Tracking intake for users concerned with inflammation, or for detailed fatty acid profiling (e.g., infant nutrition).
+  gamma-linolenic-acid_100g:
+    type: number
+    description: >
+      Amount of Gamma-Linolenic Acid (GLA) per 100g (or 100ml) of the product.
+      An omega-6 fatty acid found in certain plant oils like evening primrose oil, borage oil, and blackcurrant seed oil. Has anti-inflammatory properties.
+      Potential interest for developers: Identifying niche products containing GLA, which is often sought for specific health benefits (e.g., skin health, inflammation).
+  dihomo-gamma-linolenic-acid_100g:
+    type: number
+    description: >
+      Amount of Dihomo-gamma-linolenic acid (DGLA) per 100g (or 100ml) of the product.
+      An omega-6 fatty acid that is a precursor to anti-inflammatory compounds. Formed from GLA.
+      Potential interest for developers: Highly specialized fatty acid analysis, relevant for research or advanced nutritional tracking focusing on eicosanoid pathways.
+  omega-9-fat_100g:
+    type: number
+    description: >
+      Amount of Omega-9 fatty acids per 100g (or 100ml) of the product.
+      A class of monounsaturated fats that are not strictly "essential" as the body can produce them. Oleic acid is a common example. Found in olive oil.
+      Potential interest for developers: Identifying products rich in monounsaturated fats, particularly oleic acid, often associated with heart health benefits.
+  oleic-acid_100g:
+    type: number
+    description: >
+      Amount of Oleic Acid per 100g (or 100ml) of the product.
+      The most common omega-9 monounsaturated fatty acid, abundant in olive oil, avocados, and many nuts. Associated with cardiovascular benefits.
+      Potential interest for developers: Highlighting key monounsaturated fat sources, popular for healthy diet recommendations.
+  elaidic-acid_100g:
+    type: number
+    description: >
+      Amount of Elaidic Acid per 100g (or 100ml) of the product.
+      The principal trans fatty acid found in partially hydrogenated vegetable oils. It's a trans isomer of oleic acid and is detrimental to heart health.
+      Potential interest for developers: Identifying products containing specific industrial trans fats, which users typically want to avoid. Contributes to total trans fat.
+  gondoic-acid_100g:
+    type: number
+    description: >
+      Amount of Gondoic Acid per 100g (or 100ml) of the product.
+      An omega-9 monounsaturated fatty acid found in some fish oils and plant oils like jojoba oil and rapeseed (canola) oil.
+      Potential interest for developers: Detailed fatty acid profiling, particularly for analyzing specific vegetable or fish oils.
+  mead-acid_100g:
+    type: number
+    description: >
+      Amount of Mead Acid per 100g (or 100ml) of the product.
+      An omega-9 fatty acid that the body can synthesize, especially when essential fatty acids (omega-3 and omega-6) are deficient.
+      Potential interest for developers: Niche biomarker, potentially for apps assessing essential fatty acid status in highly detailed nutritional analysis.
+  erucic-acid_100g:
+    type: number
+    description: >
+      Amount of Erucic Acid per 100g (or 100ml) of the product.
+      A monounsaturated omega-9 fatty acid found in rapeseed and mustard seed. High levels in traditional rapeseed oil were a concern; modern canola oil has very low levels.
+      Potential interest for developers: Monitoring levels in specific oils, as high erucic acid content is restricted in food in many regions.
+  nervonic-acid_100g:
+    type: number
+    description: >
+      Amount of Nervonic Acid per 100g (or 100ml) of the product.
+      A very long-chain monounsaturated omega-9 fatty acid, important in the biosynthesis of myelin in the brain. Found in some fish oils and specific plant seed oils.
+      Potential interest for developers: Niche interest for brain health applications or specialized lipid research, particularly concerning nervous system development and disorders.
+  trans-fat_100g:
+    type: number
+    description: >
+      Amount of Trans Fat per 100g (or 100ml) of the product.
+      Unsaturated fats with trans-isomer fatty acid(s). Can be industrially produced (partially hydrogenated oils) or occur naturally in small amounts in meat and dairy. Industrial trans fats are linked to heart disease.
+      Potential interest for developers: Critical for identifying and flagging products high in trans fats, a key factor for heart health-conscious users.
+  cholesterol_100g:
+    type: number
+    description: >
+      Amount of Cholesterol per 100g (or 100ml) of the product.
+      A sterol (type of lipid) found in animal-based foods. Essential for cell membranes and hormone production, but dietary cholesterol's impact on blood cholesterol is complex and varies among individuals.
+      Potential interest for developers: Tracking cholesterol intake for users with specific dietary restrictions or health concerns (e.g., hyperlipidemia).
+  fiber_100g:
+    type: number
+    description: >
+      Amount of Dietary Fiber per 100g (or 100ml) of the product.
+      Non-digestible carbohydrates found in plant-based foods. Important for digestive health, blood sugar regulation, and satiety.
+      Potential interest for developers: Essential for health and wellness apps, tracking fiber intake, recommending high-fiber foods, and useful for digestive health or weight management features.
+  vitamin-a_100g:
+    type: number
+    description: >
+      Amount of Vitamin A (retinol equivalents) per 100g (or 100ml) of the product.
+      A fat-soluble vitamin crucial for vision, immune function, reproduction, and cellular communication. Can be preformed (retinol) or provitamin A (carotenoids).
+      Potential interest for developers: Tracking vitamin intake, identifying good sources, and flagging potential for excessive intake (as high doses can be toxic).
+  vitamin-d_100g:
+    type: number
+    description: >
+      Amount of Vitamin D (e.g., cholecalciferol, ergocalciferol) per 100g (or 100ml) of the product.
+      A fat-soluble vitamin essential for calcium absorption, bone health, immune function, and inflammation modulation.
+      Potential interest for developers: Tracking intake of this commonly deficient vitamin, identifying fortified foods or natural sources, important for bone health and immune support apps.
+  vitamin-e_100g:
+    type: number
+    description: >
+      Amount of Vitamin E (tocopherol equivalents) per 100g (or 100ml) of the product.
+      A fat-soluble antioxidant that protects cell membranes from damage. Found in nuts, seeds, and vegetable oils.
+      Potential interest for developers: Tracking antioxidant intake, identifying good sources for skin health and cellular protection.
+  vitamin-k_100g:
+    type: number
+    description: >
+      Amount of Vitamin K (phylloquinone and menaquinones) per 100g (or 100ml) of the product.
+      A fat-soluble vitamin essential for blood clotting and bone health. Found in leafy green vegetables (K1) and fermented foods/animal products (K2).
+      Potential interest for developers: Tracking intake, especially important for users on blood-thinning medications (like warfarin) as vitamin K can interfere.
+  vitamin-c_100g:
+    type: number
+    description: >
+      Amount of Vitamin C (Ascorbic Acid) per 100g (or 100ml) of the product.
+      A water-soluble vitamin and antioxidant vital for immune function, collagen synthesis, and iron absorption. Found in fruits and vegetables.
+      Potential interest for developers: Tracking antioxidant and immune-supportive nutrient intake, identifying rich sources like citrus fruits and peppers.
+  vitamin-b1_100g:
+    type: number
+    description: >
+      Amount of Vitamin B1 (Thiamin) per 100g (or 100ml) of the product.
+      A water-soluble vitamin essential for energy metabolism and nerve function. Found in whole grains, pork, and legumes.
+      Potential interest for developers: Tracking B-vitamin intake, important for energy level monitoring and identifying sources for overall metabolic health.
+  vitamin-b2_100g:
+    type: number
+    description: >
+      Amount of Vitamin B2 (Riboflavin) per 100g (or 100ml) of the product.
+      A water-soluble vitamin involved in energy production, cellular function, and metabolism of fats and drugs. Found in dairy, lean meats, and green vegetables.
+      Potential interest for developers: Tracking B-vitamin intake for energy and metabolic health applications.
+  vitamin-pp_100g:
+    type: number
+    description: >
+      Amount of Vitamin PP (Niacin / Vitamin B3) per 100g (or 100ml) of the product.
+      A water-soluble vitamin crucial for energy metabolism, DNA repair, and nervous system function. Can be found as nicotinic acid or niacinamide.
+      Potential interest for developers: Tracking intake for energy, skin health (niacinamide), and cardiovascular health (niacin, in therapeutic doses).
+  vitamin-b6_100g:
+    type: number
+    description: >
+      Amount of Vitamin B6 (Pyridoxine) per 100g (or 100ml) of the product.
+      A water-soluble vitamin involved in over 100 enzyme reactions, mostly concerning protein metabolism, neurotransmitter synthesis, and red blood cell formation.
+      Potential interest for developers: Tracking for mood regulation, cognitive function, and overall metabolic health, especially protein utilization.
+  vitamin-b9_100g:
+    type: number
+    description: >
+      Amount of Vitamin B9 (Folate / Folic Acid) per 100g (or 100ml) of the product.
+      A water-soluble vitamin essential for DNA synthesis and cell growth. Folate is the natural form, folic acid is synthetic. Crucial during pregnancy.
+      Potential interest for developers: Critical for pregnancy-related apps, tracking for anemia prevention, and overall cellular health.
+  vitamin-b12_100g:
+    type: number
+    description: >
+      Amount of Vitamin B12 (Cobalamin) per 100g (or 100ml) of the product.
+      A water-soluble vitamin vital for nerve function, red blood cell formation, and DNA synthesis. Primarily found in animal products.
+      Potential interest for developers: Essential for vegan/vegetarian diet tracking, anemia prevention, and neurological health applications.
+  biotin_100g:
+    type: number
+    description: >
+      Amount of Biotin (Vitamin B7/H) per 100g (or 100ml) of the product.
+      A water-soluble vitamin involved in metabolism of carbohydrates, fats, and proteins. Often associated with hair, skin, and nail health.
+      Potential interest for developers: Tracking for beauty and wellness apps, or for detailed metabolic health analysis.
+  pantothenic-acid_100g:
+    type: number
+    description: >
+      Amount of Pantothenic Acid (Vitamin B5) per 100g (or 100ml) of the product.
+      A water-soluble vitamin essential for synthesizing coenzyme A (CoA), which is vital for fatty acid synthesis and metabolism. Found in almost all foods.
+      Potential interest for developers: Tracking for comprehensive B-vitamin analysis and energy metabolism insights.
+  silica_100g:
+    type: number
+    description: >
+      Amount of Silica (Silicon Dioxide) per 100g (or 100ml) of the product.
+      Silicon is a trace element. Silica is its oxide form, found naturally in some foods (e.g., grains, vegetables) and used as a food additive (anti-caking agent).
+      Potential interest for developers: Identifying specific additives (if used as such) or tracking intake for users interested in bone health or connective tissue (though its role is not fully established as essential).
+  bicarbonate_100g:
+    type: number
+    description: >
+      Amount of Bicarbonate per 100g (or 100ml) of the product.
+      Bicarbonate is an alkaline compound that can buffer acids. In food, it might be present in mineral waters or added as baking soda (sodium bicarbonate).
+      Potential interest for developers: Identifying mineral content in water, or ingredients in baked goods (leavening agents). May be of interest for users monitoring acid/alkaline balance or sodium intake if from sodium bicarbonate.
+  potassium_100g:
+    type: number
+    description: >
+      Amount of Potassium per 100g (or 100ml) of the product.
+      An essential mineral and electrolyte vital for nerve function, muscle contraction, and maintaining fluid balance and blood pressure.
+      Potential interest for developers: Crucial for tracking electrolyte balance, blood pressure management apps, and for users on specific diets (e.g., DASH diet).
+  chloride_100g:
+    type: number
+    description: >
+      Amount of Chloride per 100g (or 100ml) of the product.
+      An essential electrolyte that helps maintain fluid balance, blood volume, blood pressure, and body fluid pH. Often consumed as sodium chloride (salt).
+      Potential interest for developers: Tracking electrolyte intake, often in conjunction with sodium for fluid balance and blood pressure considerations.
+  calcium_100g:
+    type: number
+    description: >
+      Amount of Calcium per 100g (or 100ml) of the product.
+      The most abundant mineral in the body, essential for bone and teeth health, muscle function, nerve transmission, and blood clotting.
+      Potential interest for developers: Critical for bone health apps, tracking for osteoporosis prevention, and for users with specific needs (e.g., children, elderly, vegan diets).
+  phosphorus_100g:
+    type: number
+    description: >
+      Amount of Phosphorus per 100g (or 100ml) of the product.
+      An essential mineral important for bone health, energy production (ATP), cell membrane structure, and acid-base balance. Works in conjunction with calcium.
+      Potential interest for developers: Tracking for bone health, energy metabolism. Important for users with kidney disease who may need to limit intake.
+  iron_100g:
+    type: number
+    description: >
+      Amount of Iron per 100g (or 100ml) of the product.
+      An essential mineral crucial for transporting oxygen in the blood (as part of hemoglobin) and for energy metabolism.
+      Potential interest for developers: Vital for tracking and preventing iron deficiency anemia, especially for vulnerable groups (e.g., women, vegetarians/vegans).
+  magnesium_100g:
+    type: number
+    description: >
+      Amount of Magnesium per 100g (or 100ml) of the product.
+      An essential mineral involved in over 300 enzymatic reactions, including muscle and nerve function, blood glucose control, blood pressure regulation, and energy production.
+      Potential interest for developers: Tracking for muscle relaxation, stress management, energy levels, and cardiovascular health. Common deficiency.
+  zinc_100g:
+    type: number
+    description: >
+      Amount of Zinc per 100g (or 100ml) of the product.
+      An essential mineral vital for immune function, wound healing, DNA synthesis, protein synthesis, and sense of taste and smell.
+      Potential interest for developers: Tracking for immune support, skin health, and overall metabolic function. Important for vegetarians/vegans as bioavailability can be lower from plant sources.
+  copper_100g:
+    type: number
+    description: >
+      Amount of Copper per 100g (or 100ml) of the product.
+      An essential trace mineral involved in iron metabolism, energy production, formation of connective tissue, and nervous system function.
+      Potential interest for developers: Tracking for detailed micronutrient analysis, important for iron absorption and antioxidant functions.
+  manganese_100g:
+    type: number
+    description: >
+      Amount of Manganese per 100g (or 100ml) of the product.
+      An essential trace mineral that acts as a cofactor for many enzymes involved in bone formation, metabolism of amino acids, cholesterol, glucose, and carbohydrates.
+      Potential interest for developers: Tracking for bone health, antioxidant enzyme support, and overall metabolic regulation.
+  fluoride_100g:
+    type: number
+    description: >
+      Amount of Fluoride per 100g (or 100ml) of the product.
+      A mineral known for its role in strengthening tooth enamel and preventing dental caries. Often added to public water supplies and dental products. May be naturally present in some foods/beverages.
+      Potential interest for developers: Tracking for dental health considerations, particularly in relation to water sources or specific fortified products.
+  selenium_100g:
+    type: number
+    description: >
+      Amount of Selenium per 100g (or 100ml) of the product.
+      An essential trace mineral that functions as an antioxidant (as part of selenoproteins) and is important for thyroid hormone metabolism and immune function.
+      Potential interest for developers: Tracking for antioxidant support, thyroid health, and immune function.
+  chromium_100g:
+    type: number
+    description: >
+      Amount of Chromium per 100g (or 100ml) of the product.
+      A trace mineral that may play a role in carbohydrate and lipid metabolism, and enhance insulin action. Its essentiality and precise functions are still debated.
+      Potential interest for developers: Niche interest for apps focusing on blood sugar regulation or detailed micronutrient tracking.
+  molybdenum_100g:
+    type: number
+    description: >
+      Amount of Molybdenum per 100g (or 100ml) of the product.
+      An essential trace mineral that acts as a cofactor for enzymes involved in metabolizing sulfur-containing amino acids and certain toxins.
+      Potential interest for developers: Detailed micronutrient analysis, particularly for detoxification pathways and metabolism.
+  iodine_100g:
+    type: number
+    description: >
+      Amount of Iodine per 100g (or 100ml) of the product.
+      An essential trace mineral necessary for the synthesis of thyroid hormones, which regulate metabolism. Often added to salt (iodized salt).
+      Potential interest for developers: Crucial for tracking for thyroid health, especially for pregnant women and those in regions with low iodine in soil.
+  caffeine_100g:
+    type: number
+    description: >
+      Amount of Caffeine per 100g (or 100ml) of the product.
+      A natural stimulant found in coffee, tea, cocoa beans, and cola nuts. It affects the central nervous system, increasing alertness and reducing fatigue.
+      Potential interest for developers: Tracking caffeine intake for users monitoring stimulant consumption, sleep patterns, or for sports performance applications.
+  taurine_100g:
+    type: number
+    description: >
+      Amount of Taurine per 100g (or 100ml) of the product.
+      An amino sulfonic acid found naturally in meat, fish, dairy products, and human milk. It plays roles in bile salt conjugation, eye health, heart and muscle function, and nerve growth. Often added to energy drinks.
+      Potential interest for developers: Identifying sources, especially in energy drinks or specialized formulas, for users interested in its ergogenic or physiological effects.
+  ph_100g:
+    type: number
+    description: >
+      The pH level of the product, typically reported per 100g or 100ml, though pH is an intensive property.
+      pH measures the acidity or alkalinity of a product on a scale from 0 (very acidic) to 14 (very alkaline), with 7 being neutral.
+      Potential interest for developers: Food science applications, shelf-life estimations, identifying acidic foods (e.g., for dental health apps, users with acid reflux), or quality control data.
+  fruits-vegetables-nuts_100g:
+    type: number
+    description: >
+      Estimated percentage of fruits, vegetables, and nuts (and often legumes) in 100g of the product.
+      This component is often used in front-of-pack nutrition scoring systems like Nutri-Score to reflect the presence of beneficial whole foods.
+      Potential interest for developers: Key for calculating nutrition scores (e.g., Nutri-Score), identifying healthier options, promoting products with high fruit/veg content, and for users tracking whole food intake.
+  carbon-footprint_100g:
+    type: number
+    description: >
+      Estimated carbon footprint (e.g., in g CO2eq) associated with 100g (or 100ml) of the product.
+      This value represents the greenhouse gas emissions linked to the product's lifecycle, indicating its environmental impact. Methodologies can vary.
+      Potential interest for developers: Essential for eco-conscious apps, sustainability ratings, allowing users to choose lower-impact products, and for research on the environmental impact of food choices.
+  nutrition-score-uk_100g:
+    type: number
+    description: >
+      The UK's Food Standards Agency (FSA) model nutrient profiling score per 100g (or 100ml) of the product.
+      This score provides an overall assessment of the nutritional quality, used for front-of-pack labelling. Lower scores generally indicate healthier products.
+      Potential interest for developers: Directly provides a summarized nutritional quality indicator for UK users, useful for filtering/sorting products by healthiness, health-focused apps targeting the UK market, and product comparison.
     patternProperties:
       '(?<nutrient>[\w-]+)_unit':
         description: |
