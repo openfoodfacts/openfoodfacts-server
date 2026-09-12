@@ -84,7 +84,7 @@ a user which is an admin
 %admin_user_form = (
 	%{clone(\%default_user_form)},
 	email => 'admin@openfoodfacts.org',
-	userid => 'stephane',    # has to be part of %admins
+	userid => 'admin',    # has to be part of %admins
 	name => "Admin",
 );
 

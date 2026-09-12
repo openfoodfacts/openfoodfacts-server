@@ -2,7 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
-use ProductOpener::Config qw/$data_root/;
+use ProductOpener::Config qw/%admins $data_root/;
 use ProductOpener::Store qw/retrieve/;
 use ProductOpener::Users qw/retrieve_user/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
@@ -34,6 +34,7 @@ remove_all_users();
 remove_all_orgs();
 
 my $admin_ua = new_client();
+$admins{$admin_user_form{userid}} = 1;
 create_user($admin_ua, \%admin_user_form);
 
 # create a pro moderator
