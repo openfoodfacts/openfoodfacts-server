@@ -1,0 +1,51 @@
+# Perl Language Server Docker Compose Configuration
+# This extends the development environment with LSP support
+
+services:
+  # Extend the backend service with LSP server
+  perl-lsp:
+    image: openfoodfacts-server/backend:dev
+    build:
+      context: ../
+      dockerfile: Dockerfile
+      args:
+        USER_UID: ${USER_UID:-501}
+        USER_GID: ${USER_GID:-1000}
+        # Enable development tools including Perl::LanguageServer
+        CPANMOPTS: "--with-develop --with-feature=off_server_dev_tools"
+    volumes:
+      # Mount the entire project for LSP analysis
+      - ../:/opt/product-opener
+      # Mount debug directory
+      - ../debug:/mnt/podata/debug/
+    ports:
+      # Expose LSP server port - bind to all interfaces for Docker networking
+      - "13603:13603"
+    environment:
+      # Set Perl library paths
+      - PERL5LIB=/opt/product-opener/lib/:/opt/perl/local/lib/perl5/
+      - PATH=/opt/perl/local/bin:${PATH}
+      # LSP server configuration
+      - PERL_LANGUAGE_SERVER_HOST=0.0.0.0
+      - PERL_LANGUAGE_SERVER_PORT=13603
+      - PERL_LANGUAGE_SERVER_DEBUG=1
+    working_dir: /opt/product-opener
+    # Keep container running for LSP connections
+    command: ["/opt/product-opener/scripts/perl-lsp-server.sh"]
+    networks:
+      default:
+    extra_hosts:
+      # Allow connection to host services
+      - host.docker.internal=host-gateway
+    # Ensure container stays healthy
+    healthcheck:
+      test: ["CMD", "perl", "-e", "use IO::Socket::INET; my $$sock = IO::Socket::INET->new(PeerAddr => '127.0.0.1', PeerPort => 13603, Timeout => 1); exit($$sock ? 0 : 1);"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+networks:
+  default:
+    external: true
+    name: po_off_default
