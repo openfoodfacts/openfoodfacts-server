@@ -162,6 +162,9 @@ subtest 'Compile, export and reload a registered variant with both fallback leve
 		},
 		pt_BR => {add => 'Adicionar Brasil', base_only => ''},
 		pt_PT => {add => 'Unregistered translation'},
+		zh => {add => '添加', greeting => '中文'},
+		zh_Hant => {add => '新增', base_only => '繁體'},
+		zh_Hant_TW => {add => '新增臺灣'},
 	);
 	foreach my $catalog (sort keys %catalogs, 'common') {
 		my $extension = $catalog eq 'common' ? 'pot' : 'po';
@@ -186,6 +189,9 @@ subtest 'Compile, export and reload a registered variant with both fallback leve
 		en => {en => 'English'},
 		pt => {pt => 'Português'},
 		pt_BR => {pt_BR => 'Português (Brasil)'},
+		zh => {zh => '中文'},
+		zh_Hant => {zh_Hant => '繁體中文'},
+		zh_Hant_TW => {zh_Hant_TW => '臺灣'},
 	};
 	local $ProductOpener::Lang::data_root = $case_dir;
 	local $BASE_DIRS{PUBLIC_DATA} = "$case_dir/public";
@@ -193,12 +199,19 @@ subtest 'Compile, export and reload a registered variant with both fallback leve
 	ProductOpener::Lang::build_lang($languages_ref);
 	my $lang_ref = \%ProductOpener::Lang::Lang;
 	is($lang_ref->{add}{pt_BR}, 'Adicionar Brasil', 'Keep the regional translation');
+	is($lang_ref->{base_only}{zh_Hant_TW}, '繁體', 'Use the script catalog before the base language');
+	is($lang_ref->{greeting}{zh_Hant_TW},
+		'中文', 'An initialized English fallback does not mask the original base catalog');
 	is($lang_ref->{base_only}{pt_BR}, 'Texto português', 'An empty regional translation falls back to Portuguese');
 	is($lang_ref->{english_only}{pt_BR}, 'English fallback', 'Fall back to English when Portuguese is also missing');
 	is($lang_ref->{greeting}{pt_BR}, "Bem-vindo a $options{site_name}", 'Resolve site placeholders after fallback');
 	is(ProductOpener::Lang::f_lang_in_lc('pt_BR', 'formatted', {name => 'Alice'}),
 		'Olá Alice', 'Formatted messages use the compiled base-language fallback');
-	is([sort keys %{$lang_ref->{add}}], [qw/en pt pt_BR/], 'Only registered languages enter the compiled catalog');
+	is(
+		[sort keys %{$lang_ref->{add}}],
+		[qw/en pt pt_BR zh zh_Hant zh_Hant_TW/],
+		'Only registered languages enter the compiled catalog'
+	);
 
 	my $compiled_tags_ref = ProductOpener::Lang::build_lang_tags($languages_ref);
 	is($compiled_tags_ref->{tag_type_singular}{categories}{pt_BR}, 'categoria-br', 'Compile the regional tag path');
@@ -206,13 +219,13 @@ subtest 'Compile, export and reload a registered variant with both fallback leve
 		'categorias-base', 'Compile the base-language fallback for the tag path');
 
 	ProductOpener::Lang::build_json();
-	open(my $json_fh, '<:raw', "$case_dir/public/i18n/pt_BR/lang.json") or die "Cannot read JSON catalog: $!";
+	open(my $json_fh, '<:raw', "$case_dir/public/i18n/pt-BR/lang.json") or die "Cannot read JSON catalog: $!";
 	my $json_ref = decode_json(do {local $/; <$json_fh>});
 	close($json_fh) or die "Cannot close JSON catalog: $!";
 	is($json_ref->{add}, 'Adicionar Brasil', 'Export the regional translation to JavaScript');
 	is($json_ref->{base_only}, 'Texto português', 'Export the Portuguese fallback to JavaScript');
 	is($json_ref->{english_only}, 'English fallback', 'Export the English fallback to JavaScript');
-	ok(!-d "$case_dir/public/i18n/pt_PT", 'Do not export an unregistered locale');
+	ok(!-d "$case_dir/public/i18n/pt-PT", 'Do not export an unregistered locale');
 
 	store("$case_dir/data/Lang.$server_domain.sto", $lang_ref);
 	store("$case_dir/data/Lang_tags.$server_domain.sto", $compiled_tags_ref);
@@ -239,7 +252,11 @@ PERL
 	ok(close($reload_fh), 'Reload both compiled catalogs in a fresh process');
 	is($reloaded_ref->{lang}, $lang_ref, 'All translations and fallbacks survive reloading');
 	is($reloaded_ref->{tags}, $compiled_tags_ref, 'All tag paths and reverse indexes survive reloading');
-	is($reloaded_ref->{languages}, [qw/en pt pt_BR/], 'Reloading does not activate an unregistered locale');
+	is(
+		$reloaded_ref->{languages},
+		[qw/en pt pt_BR zh zh_Hant zh_Hant_TW/],
+		'Reloading does not activate an unregistered locale'
+	);
 	is(
 		$reloaded_ref->{names},
 		{map {$_ => $languages_ref->{$_}{$_}} keys %{$languages_ref}},

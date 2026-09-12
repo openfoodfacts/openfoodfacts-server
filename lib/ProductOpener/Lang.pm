@@ -51,6 +51,7 @@ BEGIN {
 		%Langs
 		@Langs
 
+		&language_locale
 		&lang
 		&f_lang
 		&f_lang_in_lc
@@ -64,7 +65,7 @@ BEGIN {
 }
 
 use vars @EXPORT_OK;
-use ProductOpener::I18N;
+use ProductOpener::I18N qw/normalize_language_code language_tag lookup_with_language_fallback/;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -80,6 +81,26 @@ use Log::Any qw($log);
 $lc = "en";
 
 =head1 FUNCTIONS
+
+=head2 language_locale( $code )
+
+Return the calendar locale for a language, falling back through its language
+parents and then to English when missing.
+Chinese catalog region codes need an explicit script for DateTime::Locale.
+
+=cut
+
+sub language_locale ($code) {
+	my %chinese_locales = (zh_CN => 'zh-Hans-CN', zh_TW => 'zh-Hant-TW', zh_HK => 'zh-Hant-HK');
+	my $canonical = normalize_language_code($code);
+	state %available = map {
+		my $language = normalize_language_code($_);
+		defined $language ? ($language => $_) : ()
+	} DateTime::Locale->codes;
+	my $requested = defined $canonical ? ($chinese_locales{$canonical} // $canonical) : undef;
+	my $locale = lookup_with_language_fallback(\%available, $requested) // 'en';
+	return DateTime::Locale->load($locale);
+}
 
 =head2 separator_before_colon( $l )
 
@@ -309,35 +330,16 @@ sub build_lang_tags ($Languages_ref) {
 	%tag_type_from_singular = ();
 	%tag_type_from_plural = ();
 
+	foreach my $paths_ref (\%tag_type_singular, \%tag_type_plural) {
+		foreach my $type (keys %{$paths_ref}) {
+			my %translations = %{$paths_ref->{$type}};
+			foreach my $l (sort keys %{$Languages_ref}) {
+				$paths_ref->{$type}{$l} = lookup_with_language_fallback(\%translations, $l) // $translations{en};
+			}
+		}
+	}
+
 	foreach my $l (sort keys %{$Languages_ref}) {
-
-		my $short_l = undef;
-		if ($l =~ /_/) {
-			$short_l = $`;    # pt_pt
-		}
-
-		foreach my $type (keys %tag_type_singular) {
-
-			if (not defined $tag_type_singular{$type}{$l}) {
-				if ((defined $short_l) and (defined $tag_type_singular{$type}{$short_l})) {
-					$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{$short_l};
-				}
-				else {
-					$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{en};
-				}
-			}
-		}
-
-		foreach my $type (keys %tag_type_plural) {
-			if (not defined $tag_type_plural{$type}{$l}) {
-				if ((defined $short_l) and (defined $tag_type_plural{$type}{$short_l})) {
-					$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{$short_l};
-				}
-				else {
-					$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{en};
-				}
-			}
-		}
 
 		$tag_type_from_singular{$l} or $tag_type_from_singular{$l} = {};
 		$tag_type_from_plural{$l} or $tag_type_from_plural{$l} = {};
@@ -407,24 +409,10 @@ sub build_lang ($Languages_ref) {
 
 	foreach my $key (sort keys %common_keys) {
 		if ((defined $Lang{$key}{en}) and ($Lang{$key}{en} ne '')) {
+			my %translations = %{$Lang{$key}};
 			foreach my $l (@Langs) {
-
-				my $short_l = undef;
-				if ($l =~ /_/) {
-					$short_l = $`;    # pt_pt
-				}
-
-				if (not defined $Lang{$key}{$l}) {
-					if ((defined $short_l) and (defined $Lang{$key}{$short_l})) {
-						$Lang{$key}{$l} = $Lang{$key}{$short_l};
-					}
-					elsif (defined $Lang{$key}{en}) {
-						$Lang{$key}{$l} = $Lang{$key}{en};
-					}
-					else {
-						$Lang{$key}{$l} = $Lang{$key}{fr};
-					}
-				}
+				$Lang{$key}{$l} = lookup_with_language_fallback(\%translations, $l) // $translations{en}
+					// $translations{fr};
 
 				my $tagid = get_string_id_for_lang($l, $Lang{$key}{$l});
 			}
@@ -467,16 +455,8 @@ sub build_lang ($Languages_ref) {
 		}
 	}
 
-	my $en_locale = DateTime::Locale->load('en');
-	my @locale_codes = DateTime::Locale->codes;
 	foreach my $l (@Langs) {
-		my $locale;
-		if (grep {$_ eq $l} @locale_codes) {
-			$locale = DateTime::Locale->load($l);
-		}
-		else {
-			$locale = $en_locale;
-		}
+		my $locale = language_locale($l);
 
 		my @months = ();
 		foreach my $month (1 .. 12) {
@@ -508,27 +488,12 @@ sub build_json {
 	}
 
 	foreach my $l (@Langs) {
-		my $target_dir = "$i18n_root/$l";
+		my $target_dir = "$i18n_root/" . language_tag($l);
 		ensure_dir_created_or_die($target_dir);
-
-		my $short_l = undef;
-		if ($l =~ /_/) {
-			$short_l = $`;    # pt_pt
-		}
 
 		my %result = ();
 		foreach my $s (keys %Lang) {
-			my $value;
-
-			if (defined $Lang{$s}{$l}) {
-				$value = $Lang{$s}{$l};
-			}
-			elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
-				$value = $Lang{$s}{$short_l};
-			}
-			elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
-				$value = $Lang{$s}{en};
-			}
+			my $value = lookup_with_language_fallback($Lang{$s}, $l) // $Lang{$s}{en};
 
 			$result{$s} = $value if $value;
 		}

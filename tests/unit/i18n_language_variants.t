@@ -47,6 +47,8 @@ subtest 'Load regional catalogs without merging their translations' => sub {
 		zh_CN => '简体中文',
 		zh_TW => '繁體中文',
 		zh_HK => '香港繁體中文',
+		zh_Hant => '繁體',
+		zh_Hant_TW => '臺灣',
 	);
 	foreach my $language (sort keys %translations) {
 		write_po_file("$dir/$language.po", $translations{$language});
@@ -76,8 +78,10 @@ subtest 'Load regional catalogs without merging their translations' => sub {
 subtest 'Validate the complete catalog filename' => sub {
 	my $dir = tempdir(CLEANUP => 1);
 	foreach my $filename (
-		'ptXpo.po', 'pt.po.backup.po', 'pt_BR_extra.po', 'invalid.po', 'abcd.po', 'ast_TR_extra.po',
-		'es_41.po', 'es_4190.po', 'es_4A9.po', 'pt_br.po', 'pt-BR.po', 'PT.po'
+		'ptXpo.po', 'pt.po.backup.po', 'pt_BR_extra.po', 'invalid.po',
+		'abcd.po', 'ast_TR_extra.po', 'es_41.po', 'es_4190.po',
+		'es_4A9.po', 'pt_br.po', 'pt-BR.po', 'PT.po',
+		'zh_hant.po', 'zh-Hant.po', 'zh_Hant_tw.po', 'zh_Hant_TW_extra.po'
 		)
 	{
 		write_po_file("$dir/$filename", 'Not a language catalog');
