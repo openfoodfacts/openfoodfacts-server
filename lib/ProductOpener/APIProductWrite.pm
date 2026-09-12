@@ -301,6 +301,19 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 		# Call preprocess_product_field function for each field
 		$value = preprocess_product_field($field, $value);
 
+		# Check if field is protected (sent by producer)
+		if (skip_protected_field($product_ref, $field, $request_ref->{moderator} || $User{moderator})) {
+			add_warning(
+				$response_ref,
+				{
+					message => {id => "field_protected_by_producer"},
+					field => {id => $field},
+					impact => {id => "field_ignored"},
+				}
+			);
+			next;
+		}
+
 		# Packaging components
 		if ($field =~ /^(packagings)(_add)?$/) {
 			$request_ref->{updated_product_fields}{$1} = 1;
@@ -812,9 +825,13 @@ Source of the field value: "packaging" on the public platform, "manufacturer" on
 
 If set to 1, we will add the tags to existing values
 
+=head4 $response_ref (output)
+
+Reference to response structure to add warnings when protected fields are skipped.
+
 =cut
 
-sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source, $add_tags = 0) {
+sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source, $add_tags = 0, $response_ref = undef) {
 
 	$log->debug("update_product_field_api_v2_and_cgi", {field => $field, value => $value, source => $source})
 		if $log->is_debug();
@@ -834,6 +851,16 @@ sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value
 
 	# Only moderators can update values for fields sent by the producer
 	if (skip_protected_field($product_ref, $field, $User{moderator})) {
+		if (defined $response_ref) {
+			add_warning(
+				$response_ref,
+				{
+					message => {id => "field_protected_by_producer"},
+					field => {id => $field},
+					impact => {id => "field_ignored"},
+				}
+			);
+		}
 		return;
 	}
 	# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
