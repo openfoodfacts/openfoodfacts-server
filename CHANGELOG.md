@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.105.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.104.0...v2.105.0) (2026-09-12)
+
+
+### Features
+
+* add translations of the "Join the food revolution" image ([edeaa47](https://github.com/openfoodfacts/openfoodfacts-server/commit/edeaa477a5caa331fba92121cdedf4a5b909758c))
+* add translations of the "Join the food revolution" image ([#14524](https://github.com/openfoodfacts/openfoodfacts-server/issues/14524)) ([edeaa47](https://github.com/openfoodfacts/openfoodfacts-server/commit/edeaa477a5caa331fba92121cdedf4a5b909758c))
+* Use preferred tile.openstreetmap.org URL ([#14517](https://github.com/openfoodfacts/openfoodfacts-server/issues/14517)) ([6a8a4c3](https://github.com/openfoodfacts/openfoodfacts-server/commit/6a8a4c3712de11539277c9f995e79c9791c7fa1c)), closes [#14516](https://github.com/openfoodfacts/openfoodfacts-server/issues/14516)
+
+
+### Bug Fixes
+
+* cleanup translations ([237b8de](https://github.com/openfoodfacts/openfoodfacts-server/commit/237b8deddb82d05d8b9311b0530a363e083f50d7))
+* cleanup translations ([#14511](https://github.com/openfoodfacts/openfoodfacts-server/issues/14511)) ([237b8de](https://github.com/openfoodfacts/openfoodfacts-server/commit/237b8deddb82d05d8b9311b0530a363e083f50d7))
+* count individual polyols (isomalt, maltitol, sorbitol) in energy computation ([#14383](https://github.com/openfoodfacts/openfoodfacts-server/issues/14383)) ([10477a9](https://github.com/openfoodfacts/openfoodfacts-server/commit/10477a9e861527d8b0008bc46bb053d28cedf5d9)), closes [#14344](https://github.com/openfoodfacts/openfoodfacts-server/issues/14344)
+* escape ampersands in facet links Fixes [#14433](https://github.com/openfoodfacts/openfoodfacts-server/issues/14433) ([#14443](https://github.com/openfoodfacts/openfoodfacts-server/issues/14443)) ([a062636](https://github.com/openfoodfacts/openfoodfacts-server/commit/a0626368dccdca81b268da39ef6c3c5648238b3e))
+* harmonize filenames for the Mobile install visual ([#14370](https://github.com/openfoodfacts/openfoodfacts-server/issues/14370)) ([e577de8](https://github.com/openfoodfacts/openfoodfacts-server/commit/e577de842e11e3c2fc1eae3faadca8e8680f6f2a))
+* pesky translation issues ([5031c0f](https://github.com/openfoodfacts/openfoodfacts-server/commit/5031c0f0e2652ab8d5ce7e89b987edb52131fd7b))
+* pesky translation issues ([#14515](https://github.com/openfoodfacts/openfoodfacts-server/issues/14515)) ([5031c0f](https://github.com/openfoodfacts/openfoodfacts-server/commit/5031c0f0e2652ab8d5ce7e89b987edb52131fd7b))
+* replace Eco-Score visual by Green-Score visual ([#14100](https://github.com/openfoodfacts/openfoodfacts-server/issues/14100)) ([c21a26f](https://github.com/openfoodfacts/openfoodfacts-server/commit/c21a26ff3717478cebe5c291095d5c511fc266f3))
+* wrong Google Play badges ([29b0141](https://github.com/openfoodfacts/openfoodfacts-server/commit/29b01416b56172a1ebccaaaef5b85854775c299b))
+* wrong Google Play badges ([#14504](https://github.com/openfoodfacts/openfoodfacts-server/issues/14504)) ([29b0141](https://github.com/openfoodfacts/openfoodfacts-server/commit/29b01416b56172a1ebccaaaef5b85854775c299b))
+
 ## [2.104.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.103.0...v2.104.0) (2026-09-07)
 
 
