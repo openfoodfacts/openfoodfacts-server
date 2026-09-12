@@ -185,6 +185,7 @@ function compute_expected_links {
   EXPECTED_LINKS["/etc/nginx/snippets/productopener-uploads-large.include"]="$REPO_PATH/conf/nginx/snippets/productopener-uploads-large.include"
   EXPECTED_LINKS["/etc/nginx/conf.d/expires-no-json-xml.conf"]="$REPO_PATH/conf/nginx/conf.d/expires-no-json-xml.conf"
   EXPECTED_LINKS["/etc/nginx/conf.d/log_format_realip.conf"]="$REPO_PATH/conf/nginx/conf.d/log_format_realip.conf"
+  EXPECTED_LINKS["/etc/nginx/conf.d/tagline_cache.conf"]="$REPO_PATH/conf/nginx/conf.d/tagline_cache.conf"
   EXPECTED_LINKS["/etc/nginx/mime.types"]="$REPO_PATH/conf/nginx/mime.types"
   if [[ $SERVICE = "off" ]]
   then
