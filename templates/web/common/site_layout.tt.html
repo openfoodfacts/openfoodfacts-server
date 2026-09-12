@@ -128,9 +128,18 @@
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
-									<select id="select_country" style="width:100%" data-placeholder="[% edq(lang('select_country')) %]">
+									<select id="select_country" style="width:100%"
+											data-placeholder="[% edq(lang('select_country')) %]">
+
+										[% IF country_code && country_code != 'en:world' %]
+											<option value="[% country_code %]" selected="selected">
+												[% display_taxonomy_tag("countries", country_code) %]
+											</option>
+										[% END %]
+
 										<option></option>
 									</select>
+
 								</li>
 								<li class="has-dropdown">
 									[% selected_lang %]
