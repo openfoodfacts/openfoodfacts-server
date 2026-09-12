@@ -1,8 +1,20 @@
 <!-- start templates/[% template.name %] -->
+<!-- Special handling to show a Hunger Game promo -->
+[% IF field == 'brands' %]
+<p id="field_[% field %]">
+    <span class="field">[% name %][% sep %]: </span>
+    <span class="field_value" id="field_[% field %]_value">[% value %]</span>
+    <sup>[<a href="https://hunger.openfoodfacts.org/questions?value_tag=[% field %]&amp;type=brand" title="Help with this brand on Hunger Games">Help with this brand on Hunger Games</a>]</sup>
+</p>
+[% ELSE %]
 
 <p id="field_[% field %]">
     <span class="field">[% name %][% sep %]: </span>
     <span class="field_value" id="field_[% field %]_value">[% value %]</span>
 </p>
+
+[% END %]
+
+
 
 <!-- end templates/[% template.name %] -->
