@@ -265,4 +265,42 @@ PERL
 	done_testing();
 };
 
+subtest 'Catalogs without language name keys' => sub {
+	# po/tags/*.po define no :langname and no :langtag, unlike the fixtures above.
+	my $plain_dir = tempdir(CLEANUP => 1);
+	make_path("$plain_dir/po/tags");
+	open(my $fh, '>:encoding(UTF-8)', "$plain_dir/po/tags/en.po") or die "Cannot write catalog: $!";
+	print {$fh} <<'PO';
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "categories:singular"
+msgid "category"
+msgstr "category"
+
+msgctxt "categories:plural"
+msgid "categories"
+msgstr "categories"
+
+PO
+	close($fh) or die "Cannot close catalog: $!";
+
+	local $ProductOpener::Lang::data_root = $plain_dir;
+	local %ProductOpener::Lang::tag_type_singular;
+	local %ProductOpener::Lang::tag_type_plural;
+	local %ProductOpener::Lang::tag_type_from_singular;
+	local %ProductOpener::Lang::tag_type_from_plural;
+
+	my $plain_tags_ref;
+	ok(lives {$plain_tags_ref = ProductOpener::Lang::build_lang_tags({en => {}})}, 'Build without the language keys')
+		or note($@);
+	is($plain_tags_ref->{tag_type_singular}{categories}, {en => 'category'}, 'Tag paths are still built');
+	ok(
+		!exists $plain_tags_ref->{tag_type_singular}{':langname'},
+		'No empty entry is created for a missing language name'
+	);
+	done_testing();
+};
+
 done_testing();

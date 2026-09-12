@@ -329,8 +329,11 @@ sub split_tags {
 	my ($l10n) = @_;
 
 	my (%singular, %plural);
-	$singular{":langname"} = $plural{":langname"} = delete $l10n->{":langname"};
-	$singular{":langtag"} = $plural{":langtag"} = delete $l10n->{":langtag"};
+	# Do not create undefined entries: po/tags catalogs do not all define these keys.
+	foreach my $key (":langname", ":langtag") {
+		next if not exists $l10n->{$key};
+		$singular{$key} = $plural{$key} = delete $l10n->{$key};
+	}
 
 	for my $key (keys %{$l10n}) {
 		my ($tag, $kind) = split /:/, $key;

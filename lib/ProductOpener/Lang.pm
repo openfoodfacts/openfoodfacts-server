@@ -332,6 +332,7 @@ sub build_lang_tags ($Languages_ref) {
 
 	foreach my $paths_ref (\%tag_type_singular, \%tag_type_plural) {
 		foreach my $type (keys %{$paths_ref}) {
+			next if not defined $paths_ref->{$type};
 			my %translations = %{$paths_ref->{$type}};
 			foreach my $l (sort keys %{$Languages_ref}) {
 				$paths_ref->{$type}{$l} = lookup_with_language_fallback(\%translations, $l) // $translations{en};
