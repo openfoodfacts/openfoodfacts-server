@@ -31,6 +31,71 @@
       "en:prepared-meats",
       "en:sausages"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "egg-indoor-code3",
+               "mass" : 53.8333333333333,
+               "name" : "eggs"
+            },
+            {
+               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "mass" : 24.0833333333333,
+               "name" : "wheat flour"
+            },
+            {
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 12.0416666666667,
+               "name" : "water"
+            },
+            {
+               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "mass" : 6.02083333333333,
+               "name" : "rice flour"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:sausages",
+               "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
+               "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
+               "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "egg-indoor-code3",
+                  "mass" : 53.8333333333333
+               },
+               {
+                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+                  "mass" : 24.0833333333333
+               },
+               {
+                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                  "mass" : 12.0416666666667
+               },
+               {
+                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+                  "mass" : 6.02083333333333
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:processed-meat",
    "food_groups_tags" : [

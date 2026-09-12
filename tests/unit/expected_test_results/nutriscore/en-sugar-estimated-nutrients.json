@@ -27,6 +27,44 @@
       "en:sweeteners",
       "en:sugars"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 100,
+               "name" : "sugar"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:sugars",
+               "id" : "ada440c9-f18f-4df5-bac6-4145040320e0",
+               "name" : "Sugar, 1000g | Packaging System, Proxy Pack, Cardboard {FR} U",
+               "name_fr" : "Sachet en papier pour sucre - 1000g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 100
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "ada440c9-f18f-4df5-bac6-4145040320e0"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:sweets",
    "food_groups_tags" : [

@@ -32,6 +32,71 @@
       "en:vegetable-fats",
       "en:vegetable-oils"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "mass" : 45,
+               "name" : "Huile de colza"
+            },
+            {
+               "id" : "3cfab110-363e-442a-9170-1af337fe9ea3",
+               "mass" : 30,
+               "name" : "huile de tournesol"
+            },
+            {
+               "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
+               "mass" : 20,
+               "name" : "huile d'olive vierge extra"
+            },
+            {
+               "id" : "61ede109-0eed-4aa3-93bb-aacf132b6bdd",
+               "mass" : 5,
+               "name" : "huile de lin"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+                  "mass" : 45
+               },
+               {
+                  "id" : "3cfab110-363e-442a-9170-1af337fe9ea3",
+                  "mass" : 30
+               },
+               {
+                  "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
+                  "mass" : 20
+               },
+               {
+                  "id" : "61ede109-0eed-4aa3-93bb-aacf132b6bdd",
+                  "mass" : 5
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:fats",
    "food_groups_tags" : [

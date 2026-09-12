@@ -41,6 +41,53 @@
       "en:soft-drinks",
       "en:sodas"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 14.75,
+               "name" : "water"
+            },
+            {
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 2.25,
+               "name" : "sugar"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:soft-drinks",
+               "id" : "931774ee-c237-4bf9-8330-a84a5c64b2da",
+               "name" : "Soft drinks, 1500g | Packaging System, Proxy Pack, Plastic bottles {FR} U",
+               "name_fr" : "Bouteille en plastique (PET) pour boisson sans alcool - 1500g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                  "mass" : 14.75
+               },
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 2.25
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "931774ee-c237-4bf9-8330-a84a5c64b2da"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:artificially-sweetened-beverages",
    "food_groups_tags" : [

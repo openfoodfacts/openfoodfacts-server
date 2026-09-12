@@ -414,6 +414,71 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                     "mass" : 62.5,
+                     "name" : "apple"
+                  },
+                  {
+                     "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                     "mass" : 18.75,
+                     "name" : "milk"
+                  },
+                  {
+                     "id" : "egg-indoor-code3",
+                     "mass" : 9.375,
+                     "name" : "eggs"
+                  },
+                  {
+                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "mass" : 9.375,
+                     "name" : "palm oil"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "1c624a8a-afe8-4c7a-9c00-50b057b26b27",
+                     "name" : "Sparkling wine, 75cl | Packaging System, N0, All, Glass bottle (green) 560g with cork stopper {FR} U",
+                     "name_fr" : "Bouteille en verre vert de 560g pour vin effervescent - 75cl"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                        "mass" : 62.5
+                     },
+                     {
+                        "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                        "mass" : 18.75
+                     },
+                     {
+                        "id" : "egg-indoor-code3",
+                        "mass" : 9.375
+                     },
+                     {
+                        "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                        "mass" : 9.375
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "1c624a8a-afe8-4c7a-9c00-50b057b26b27"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
          "forest_footprint_2026" : {
@@ -1457,6 +1522,33 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [],
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
          "generic_name" : "Tester",
@@ -2137,6 +2229,62 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                     "mass" : 66.6666666666667,
+                     "name" : "apple"
+                  },
+                  {
+                     "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                     "mass" : 16.6666666666667,
+                     "name" : "milk"
+                  },
+                  {
+                     "id" : "egg-indoor-code3",
+                     "mass" : 16.6666666666667,
+                     "name" : "eggs"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                        "mass" : 66.6666666666667
+                     },
+                     {
+                        "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                        "mass" : 16.6666666666667
+                     },
+                     {
+                        "id" : "egg-indoor-code3",
+                        "mass" : 16.6666666666667
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
          "forest_footprint_data" : {
@@ -3089,6 +3237,62 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                     "mass" : 66.6666666666667,
+                     "name" : "apple"
+                  },
+                  {
+                     "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                     "mass" : 16.6666666666667,
+                     "name" : "water"
+                  },
+                  {
+                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "mass" : 16.6666666666667,
+                     "name" : "palm oil"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                        "mass" : 66.6666666666667
+                     },
+                     {
+                        "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                        "mass" : 16.6666666666667
+                     },
+                     {
+                        "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                        "mass" : 16.6666666666667
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
          "forest_footprint_2026" : {
@@ -4202,6 +4406,53 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                     "mass" : 75,
+                     "name" : "apple"
+                  },
+                  {
+                     "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                     "mass" : 25,
+                     "name" : "water"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "en:cereals-and-their-products",
+                     "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08",
+                     "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+                     "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                        "mass" : 75
+                     },
+                     {
+                        "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                        "mass" : 25
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups" : "en:breakfast-cereals",
          "food_groups_tags" : [
@@ -5303,6 +5554,62 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                     "mass" : 50,
+                     "name" : "apple"
+                  },
+                  {
+                     "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                     "mass" : 30,
+                     "name" : "water"
+                  },
+                  {
+                     "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                     "mass" : 20,
+                     "name" : "sugar"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "en:cereals-and-their-products",
+                     "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08",
+                     "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+                     "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                        "mass" : 50
+                     },
+                     {
+                        "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                        "mass" : 30
+                     },
+                     {
+                        "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                        "mass" : 20
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups" : "en:breakfast-cereals",
          "food_groups_tags" : [
