@@ -20,6 +20,17 @@ map $host $flavor_short {
     ~(^|\.)pro\.openfoodfacts\. "off-pro";
 }
 
+# Host language extraction for localized pages (e.g. donations)
+map $host $host_lang {
+    default "en";
+    ~^br\.open[a-z]+facts\. "pt_BR";
+    ~^world-br\.open[a-z]+facts\. "pt_BR";
+    ~^world-zh\.open[a-z]+facts\. "zh_CN";
+    ~^world-kmr\.open[a-z]+facts\. "kmr_TR";
+    ~^world-([a-z]{2,3}(?:_[a-zA-Z]{2})?)\.open[a-z]+facts\. $1;
+    ~^([a-z]{2})\.open[a-z]+facts\. $1;
+}
+
 # Server settings --------------------------
 
 # some path differ wether we are in docker on in a CT (for historical reasons)

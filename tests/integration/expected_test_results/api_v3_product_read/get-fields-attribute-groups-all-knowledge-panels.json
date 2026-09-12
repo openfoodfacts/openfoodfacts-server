@@ -1597,7 +1597,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                <h3>We need your help!</h3>\n                <p>You can help us recognize more ingredients and better analyze the list of ingredients for this product and others:</p>\n                <ul>\n                    <li>Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients.</li>\n                    <li>Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels.</li>\n                </ul>\n                <p>If you would like to help, join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>. Thank you!</p>                \n                ",
+                     "html" : "\n                <h3>We need your help!</h3>\n                <p>You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:</p>\n                <ul>\n                    <li>Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients.</li>\n                    <li>Add new entries, synonyms or translations to our multilingual lists of ingredients, ingredient processing methods, and labels.</li>\n                </ul>\n                <p>Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!</p>                \n                ",
                      "type" : "callout_info"
                   }
                }
@@ -1662,7 +1662,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<b>What you need to know</b>\n<ul>\n<li>A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases.</li>\n</ul>\n<br>\n<b>Recommendation</b>:\n<b>Limit the consumption of fat and saturated fat</b>\n<ul>\n<li>Choose products with lower fat and saturated fat content.</li>\n</ul>\n",
+                     "html" : "\n<b>What you need to know</b>\n<ul>\n<li>A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases.</li>\n</ul>\n<br>\n<b>Recommendation</b>:\n<b>Reduce the consumption of fat and saturated fat</b>\n<ul>\n<li>Choose products with lower fat and saturated fat content.</li>\n</ul>\n",
                      "type" : "summary"
                   }
                },
@@ -1740,7 +1740,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n<b>What you need to know</b>\n<ul>\n<li>A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases.</li>\n</ul>\n<br>\n<b>Recommendation</b>:\n<b>Limit the consumption of fat and saturated fat</b>\n<ul>\n<li>Choose products with lower fat and saturated fat content.</li>\n</ul>\n",
+                     "html" : "\n<b>What you need to know</b>\n<ul>\n<li>A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases.</li>\n</ul>\n<br>\n<b>Recommendation</b>:\n<b>Reduce the consumption of fat and saturated fat</b>\n<ul>\n<li>Choose products with lower fat and saturated fat content.</li>\n</ul>\n",
                      "type" : "summary"
                   }
                },
@@ -2036,7 +2036,7 @@
             "title_element" : {
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-3-15.svg",
                "subtitle" : "3/15 points (12.5g)",
-               "title" : "Sugar"
+               "title" : "Sugars"
             },
             "topics" : [
                "health"
