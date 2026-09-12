@@ -33,10 +33,15 @@ is(display_taxonomy_tag("en", "categories", "en:doesnotexist"), "doesnotexist");
 is(display_taxonomy_tag("fr", "categories", "en:doesnotexist"), "en:doesnotexist");
 
 is(display_taxonomy_tag_link("fr", "categories", "en:doesnotexist"),
-	'<a href="/facets/categories/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
+	'<a href="/facets/categories/en%3Adoesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
+
+is(display_taxonomy_tag_link("en", "brands", "cape herb & spice"),
+	'<a href="/facets/brands/Cape%20Herb%20%26%20Spice" class="tag well_known">Cape Herb & Spice</a>');
+
+is(canonicalize_taxonomy_tag_link("en", "brands", "cape herb & spice"), '/brands/Cape%20Herb%20%26%20Spice');
 
 is(display_tags_hierarchy_taxonomy("fr", "categories", ["en:doesnotexist"]),
-	'<a href="/facets/categories/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
+	'<a href="/facets/categories/en%3Adoesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
 
 is(
 	display_tags_hierarchy_taxonomy("en", "categories", ["en:doesnotexist"]),
@@ -71,7 +76,7 @@ is(
 	\@tags,
 	[
 		'en:fruit', 'en:added-sugar', 'en:citrus-fruit', 'en:disaccharide',
-		'en:juice', 'en:sugar', 'en:fruit-juice', 'en:orange',
+		'en:juice', 'en:fruit-juice', 'en:sugar', 'en:orange',
 		'en:salt', 'en:orange-juice', 'en:concentrated-orange-juice'
 	]
 ) or diag Dumper(\@tags);
@@ -85,13 +90,26 @@ is(
 is(
 	\@tags,
 	[
-		'en:concentrated-orange-juice', 'en:fruit', 'en:citrus-fruit', 'en:juice',
-		'en:fruit-juice', 'en:orange', 'en:orange-juice', 'en:sugar',
-		'en:added-sugar', 'en:disaccharide', 'en:salt'
+		'en:concentrated-orange-juice', 'en:orange-juice', 'en:fruit-juice', 'en:orange',
+		'en:fruit', 'en:juice', 'en:citrus-fruit', 'en:sugar',
+		'en:disaccharide', 'en:added-sugar', 'en:salt'
 	]
 ) or diag Dumper(\@tags);
 
 ProductOpener::Tags::retrieve_tags_taxonomy("test");
+
+cmp_ok(
+	$level{test}{"en:lemon-yogurts"},
+	'>',
+	$level{test}{"fr:yaourts-au-citron-alleges"},
+	"direct parent level should be greater than child level"
+);
+cmp_ok(
+	$level{test}{"fr:yaourts-alleges"},
+	'>',
+	$level{test}{"fr:yaourts-au-citron-alleges"},
+	"second direct parent level should be greater than child level"
+);
 
 is(get_property("test", "en:meat", "vegan:en"), "no");
 is($properties{test}{"en:meat"}{"vegan:en"}, "no");
@@ -212,10 +230,10 @@ is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vega
 is(canonicalize_taxonomy_tag("de", "test", "Grünkohl"), "en:kale");
 is(display_taxonomy_tag("de", "test", "en:kale"), "Grünkohl");
 is(display_taxonomy_tag_link("de", "test", "en:kale"),
-	'<a href="/facets//Grünkohl" class="tag well_known">Grünkohl</a>');    # "test" taxonomy causes warning in Tags.pm
+	'<a href="/facets//Gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>'); # "test" taxonomy causes warning in Tags.pm
 is(
 	display_tags_hierarchy_taxonomy("de", "test", ["en:kale"]),
-	'<a href="/facets//Grünkohl" class="tag well_known">Grünkohl</a>'
+	'<a href="/facets//Gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>'
 );
 is(canonicalize_taxonomy_tag("fr", "test", "Pâte de cacao"), "fr:Pâte de cacao");
 is(display_taxonomy_tag("fr", "test", "fr:Pâte de cacao"), "Pâte de cacao");
@@ -261,7 +279,7 @@ is(get_string_id_for_lang("fr", "Yaourts à la fraise"), "yaourts-a-la-fraise");
 
 @tags = gen_tags_hierarchy_taxonomy("en", "labels", "gmo free and organic");
 
-is(\@tags, ['en:organic', 'en:no-gmos',]) or diag Dumper(\@tags);
+is(\@tags, ['en:no-gmos', 'en:organic']) or diag Dumper(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "labels", "commerce équitable, label rouge et bio");
 
@@ -395,21 +413,21 @@ is(
 	display_tags_hierarchy_taxonomy(
 		"fr", "test", ["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]
 	),
-	'<a href="/facets//French entry" class="tag well_known">French entry</a>, <a href="/facets//French entry with default value" class="tag well_known">French entry with default value</a>, <a href="/facets//Language-less entry" class="tag well_known">Language-less entry</a>'
+	'<a href="/facets//French%20entry" class="tag well_known">French entry</a>, <a href="/facets//French%20entry%20with%20default%20value" class="tag well_known">French entry with default value</a>, <a href="/facets//Language-less%20entry" class="tag well_known">Language-less entry</a>'
 );
 
 is(
 	display_tags_hierarchy_taxonomy(
 		"es", "test", ["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]
 	),
-	'<a href="/facets//fr:French entry" class="tag user_defined" lang="fr">fr:French entry</a>, <a href="/facets//French entry with default value" class="tag well_known">French entry with default value</a>, <a href="/facets//Language-less entry" class="tag well_known">Language-less entry</a>'
+	'<a href="/facets//fr%3AFrench%20entry" class="tag user_defined" lang="fr">fr:French entry</a>, <a href="/facets//French%20entry%20with%20default%20value" class="tag well_known">French entry with default value</a>, <a href="/facets//Language-less%20entry" class="tag well_known">Language-less entry</a>'
 );
 
 is(
 	display_tags_hierarchy_taxonomy(
 		"de", "test", ["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]
 	),
-	'<a href="/facets//Special value for German" class="tag well_known">Special value for German</a>, <a href="/facets//Special value for German 2" class="tag well_known">Special value for German 2</a>, <a href="/facets//Special value for German 3" class="tag well_known">Special value for German 3</a>'
+	'<a href="/facets//Special%20value%20for%20German" class="tag well_known">Special value for German</a>, <a href="/facets//Special%20value%20for%20German%202" class="tag well_known">Special value for German 2</a>, <a href="/facets//Special%20value%20for%20German%203" class="tag well_known">Special value for German 3</a>'
 );
 
 is(display_taxonomy_tag("fr", "test", "es:french-entry-with-default-value"), "French entry with default value");
@@ -418,7 +436,7 @@ my $value = display_tags_hierarchy_taxonomy("fr", "test",
 	["fr:french-entry", "es:french-entry-with-default-value", "xx:language-less-entry"]);
 
 is($value,
-	'<a href="/facets//French entry" class="tag well_known">French entry</a>, <a href="/facets//French entry with default value" class="tag well_known">French entry with default value</a>, <a href="/facets//Language-less entry" class="tag well_known">Language-less entry</a>'
+	'<a href="/facets//French%20entry" class="tag well_known">French entry</a>, <a href="/facets//French%20entry%20with%20default%20value" class="tag well_known">French entry with default value</a>, <a href="/facets//Language-less%20entry" class="tag well_known">Language-less entry</a>'
 );
 
 # Double synonym: zumo/jugo and soja/soya
@@ -585,5 +603,12 @@ is(cc_to_country(undef), '');
 is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-yogurts"]);
 
 is(display_taxonomy_tag("en", "ingredients", "en:apple"), "apple");
+
+is([get_tag_with_parents("test", "en:lemon-yogurts")], ["en:lemon-yogurts", "en:yogurts"]);
+
+is([get_tag_with_parents("test", "fr:yaourts-au-citron-alleges")],
+	["fr:yaourts-au-citron-alleges", "en:lemon-yogurts", "fr:yaourts-alleges", "en:yogurts"]);
+
+is([get_tag_with_parents("test", "en:z-yogurts")], ["en:z-yogurts", "en:yogurts", "en:z"]);
 
 done_testing();
