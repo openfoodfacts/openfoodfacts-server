@@ -30,7 +30,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method validate_csrf_token/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
@@ -64,6 +64,9 @@ if (not defined $Owner_id) {
 }
 
 if ($action eq "process") {
+
+	require_post_method($request_ref);
+	validate_csrf_token($request_ref);
 
 	# Process uploaded files
 

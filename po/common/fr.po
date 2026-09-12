@@ -884,6 +884,14 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "Permission refusée."
 
+msgctxt "invalid_method"
+msgid "Method Not Allowed"
+msgstr "Méthode non autorisée"
+
+msgctxt "invalid_csrf_token"
+msgid "Invalid or missing CSRF token"
+msgstr "Jeton CSRF invalide ou manquant"
+
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
 msgstr "Vous devez entrer un nom d'utilisateur."

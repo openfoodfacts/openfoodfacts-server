@@ -5,6 +5,7 @@
 
 <form method="post" enctype="multipart/form-data" id="export_products_form">
 	<input type="hidden" name="action" value="process">
+	<input type="hidden" name="csrf_token" value="[% csrf_token %]">
 	[% IF query_filters %]
 		<ul>
 		[% FOREACH query_filter IN query_filters %]
