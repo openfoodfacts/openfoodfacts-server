@@ -39,6 +39,18 @@ def test_convert_address_to_lat_lng_retry_then_success():
     assert mock_cached.call_count == 2
 
 
+@pytest.mark.parametrize(
+    "country_code,expected",
+    [
+        ("uk", "gb"),
+        ("UK", "gb"),
+        ("hr", "hr"),
+    ]
+)
+def test_get_nominatim_country_code(country_code, expected):
+    assert geocode.get_nominatim_country_code(country_code) == expected
+
+
 # tests for geocode_csv function
 
 def test_geocode_csv_writes(tmp_path):
