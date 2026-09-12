@@ -184,11 +184,43 @@ my %environmental_score_countries = ();
 
 =head2 load_environmental_score_data_origins_of_ingredients_distances ( $product_ref )
 
-Loads origins of ingredients distances data needed to compute the Environmental-Score.
+Loads the transport score matrix used to compute the Environmental-Score "transport"
+bonus (see https://docs.score-environnemental.com/methodologie/produit/transport).
+
+Despite its name, distances.csv does not hold raw distances but the pre-computed
+transport scores (/100) from the methodology: each score reflects the CO2 impact of
+shipping goods from an origin country to a destination country, derived from the
+distance, the modal mix (road / rail / sea) and ADEME Base Carbone emission factors.
+France scores 100 (local sourcing) and distant origins score 0.
+See https://wiki.openfoodfacts.org/Eco-score_transport_-_en for how it was built.
+
+The file is a matrix: rows = origin countries (columns 0..2 = ISO code, EN name, FR
+name), columns 3+ = destination country codes (the countries where the Eco-score is
+enabled, e.g. fr, be, de, uk ...). "gb" is normalised to "uk".
+
+Populates the global %environmental_score_data{origins} hash:
+
+    $environmental_score_data{origins}{$origin_id}{
+        name_en                    => "...",
+        name_fr                    => "...",
+        transportation_score_$cc   => <score /100>,   # one per destination country $cc
+        transportation_score_world => 0,              # "world" = unspecified destination => no bonus
+    }
+
+Also builds %environmental_score_countries (the set of destination countries) and
+aliases en:unknown / en:world / en:european-union-and-non-european-union to a
+0-score origin (unknown origin => no transport bonus).
 
 =cut
 
 sub load_environmental_score_data_origins_of_ingredients_distances() {
+
+	# distances.csv is a pre-computed transport-score matrix (/100) from the
+	# score-environnemental transport methodology:
+	#   - rows  = origin country  (cols 0..2 = ISO code, EN name, FR name)
+	#   - cols  = destination country code (the countries where the Eco-score is enabled)
+	# Each cell is the CO2-impact-based transport score (100 = France/local, 0 = far away).
+	# France=100 rewards local sourcing; distant origins get 0.
 
 	my $errors = 0;
 
@@ -208,22 +240,26 @@ sub load_environmental_score_data_origins_of_ingredients_distances() {
 		# Headers: ISO Country Code,	Country (english),	Country (french),	AD,	AL,	AT,	AX,	BA,	BE,	BG,  ...
 		my $header_row_ref = $csv->getline($io);
 
+		# Build the list of destination countries from columns 3+ (one per destination country code)
 		for (my $i = 3; $i < (scalar @{$header_row_ref}); $i++) {
 			$countries[$i] = lc($header_row_ref->[$i]);
+			# Normalize ISO code: "gb" in the CSV -> "uk" used internally
 			if ($countries[$i] eq 'gb') {
 				$countries[$i] = 'uk';
 			}
 			$environmental_score_countries{$countries[$i]} = 1;
-			# Score 0 for unknown origin
+			# en:unknown origin: no transport bonus for any destination (score 0)
 			$environmental_score_data{origins}{"en:unknown"}{"transportation_score_" . $countries[$i]} = 0;
 		}
-		# Score 0 for unspecified request country (world)
+		# "world" = destination not specified -> no transport bonus (score 0)
 		$environmental_score_data{origins}{"en:unknown"}{"transportation_score_world"} = 0;
 		my @environmental_score_countries_sorted = sort keys %environmental_score_countries;
 
+		# Enable the Eco-score for all countries present in the matrix
 		%environmental_score_countries_enabled = %environmental_score_countries;
 		@environmental_score_countries_enabled_sorted = @environmental_score_countries_sorted;
 
+		# Alias generic origin buckets to en:unknown (0 score => no transport bonus)
 		$environmental_score_data{origins}{"en:world"} = $environmental_score_data{origins}{"en:unknown"};
 		$environmental_score_data{origins}{"en:european-union-and-non-european-union"}
 			= $environmental_score_data{origins}{"en:unknown"};
@@ -258,6 +294,8 @@ sub load_environmental_score_data_origins_of_ingredients_distances() {
 				name_fr => $row_ref->[2],
 			};
 
+			# One transportation_score_<cc> per destination country (columns 3+)
+			# Empty cells are treated as 0 (no data -> no bonus)
 			for (my $i = 3; $i < (scalar @{$row_ref}); $i++) {
 				my $value = $row_ref->[$i];
 				if ($value eq "") {
@@ -265,7 +303,7 @@ sub load_environmental_score_data_origins_of_ingredients_distances() {
 				}
 				$environmental_score_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $value;
 			}
-			# Score 0 for unspecified request country (world)
+			# "world" destination (unspecified) -> score 0
 			$environmental_score_data{origins}{$origin_id}{"transportation_score_world"} = 0;
 		}
 
@@ -281,20 +319,44 @@ sub load_environmental_score_data_origins_of_ingredients_distances() {
 
 =head2 load_environmental_score_data_origins_of_ingredients( $product_ref )
 
-Loads origins of ingredients data needed to compute the Environmental-Score.
+Loads, for each origin country, the two per-origin components of the Environmental-Score
+"origins of ingredients" adjustment:
 
-Data contains:
-- EPI score for each origin
-- Original transportation score for France, as defined in Environmental-Score original specification
-(distances in distances.csv have been recomputed in a slightly different way, and the 
-scores for France slightly differ from the original ones)
+- epi_score: Environmental Performance Index of the country (a separate bonus/malus
+  reflecting the country's environmental policy).
+- transportation_score_fr: the transport score (/100) for France as defined in the
+  original French Environmental-Score specification.
+
+It first calls load_environmental_score_data_origins_of_ingredients_distances() to load
+the full transport-score matrix for all destination countries, then reads fr_countries.csv
+(column 1 = EPI score, column 2 = transport score for France). The France value from
+fr_countries.csv OVERRIDES the recomputed value from distances.csv, because the
+distances.csv scores were recomputed in a slightly different way and differ slightly
+from the original specification.
+
+Resulting structure per origin:
+
+    $environmental_score_data{origins}{$origin_id}{
+        epi_score                => <EPI>,
+        transportation_score_$cc => <score /100>,   # from distances.csv (all countries)
+        transportation_score_fr  => <score /100>,   # overridden from fr_countries.csv
+    }
+
+Origins are matched against the taxonomy; special normalisation handles entries like
+"Congo [DRC]" vs "Congo [Republic]", "Macedonia [FYROM]" and leading articles
+("La Guyane" ...). en:unknown / en:world / en:unspecified /
+en:european-union-and-non-european-union are aliased to a 0-score origin.
+
+At compute time the per-origin score is weighted by the ingredient percentage
+(score = Σ a_i * p_i) and turned into a bonus of up to 15 points
+(bonus = x * 0.15, i.e. the /100 weighted score divided by 6.66).
 
 =cut
 
 sub load_environmental_score_data_origins_of_ingredients() {
 
-	# First load transportation data from the distances.csv file
-
+	# First load the full transport-score matrix (all destination countries) from distances.csv,
+	# then overlay EPI scores + the original France transport score from fr_countries.csv below.
 	load_environmental_score_data_origins_of_ingredients_distances();
 
 	my $errors = 0;
@@ -311,11 +373,14 @@ sub load_environmental_score_data_origins_of_ingredients() {
 	if (open(my $io, "<:encoding($encoding)", $csv_file)) {
 
 		# headers: Pays	"Score Politique environnementale"	Score Transport - France	"Score Transport - Belgique"	"Score Transport - Allemagne"	"Score Transport - Irlande"	Score Transport - Italie	"Score Transport - Luxembourg"	"Score Transport - Pays-Bas"	"Score Transport - Espagne"	"Score Transport - Suisse"
+		# col 0 = Pays, col 1 = EPI score, col 2 = Score Transport - France
 
 		my $header_row_ref = $csv->getline($io);
 
+		# en:unknown: no EPI, no transport bonus (score 0)
 		$environmental_score_data{origins}{"en:unknown"}{epi_score} = 0;
 
+		# Alias generic origin buckets to en:unknown (0 score)
 		$environmental_score_data{origins}{"en:world"} = $environmental_score_data{origins}{"en:unknown"};
 		$environmental_score_data{origins}{"en:european-union-and-non-european-union"}
 			= $environmental_score_data{origins}{"en:unknown"};
@@ -362,7 +427,9 @@ sub load_environmental_score_data_origins_of_ingredients() {
 
 			$environmental_score_data{origins}{$origin_id}{epi_score} = $row_ref->[1];
 
-			# Override data for France from distances.csv with the original French Environmental-Score data for France
+			# Override the France transport score from distances.csv with the original
+			# French Environmental-Score value (col 2), because the distances.csv scores
+			# were recomputed differently and differ slightly from the spec.
 			$environmental_score_data{origins}{$origin_id}{"transportation_score_fr"} = $row_ref->[2];
 		}
 
@@ -370,6 +437,7 @@ sub load_environmental_score_data_origins_of_ingredients() {
 			#die("$errors unrecognized origins in CSV $csv_file");
 		}
 
+		# en:unspecified is also an alias of en:unknown (0 score)
 		$environmental_score_data{origins}{"en:unspecified"} = $environmental_score_data{origins}{"en:unknown"};
 	}
 	else {
@@ -380,7 +448,32 @@ sub load_environmental_score_data_origins_of_ingredients() {
 
 =head2 load_environmental_score_data_packaging( $product_ref )
 
-Loads packaging data needed to compute the Environmental-Score.
+Loads the packaging data needed to compute the Environmental-Score packaging adjustment
+(a malus): a score per packaging material and a ratio per packaging shape/format, as
+published in the score-environnemental documentation
+(https://docs.score-environnemental.com/methodologie/produit/emballages).
+
+1. fr_packaging_materials.csv (Matériaux, Score)
+   -> %environmental_score_data{packaging_materials}
+
+   Each material has a score. The Eco-score defines some entries that are in fact a
+   shape + material combination (e.g. "Bouteille PET" = PET bottle); these are stored
+   under composite keys "$material_id.$shape_id" (e.g. en:plastic.bottle) so they can be
+   matched at compute time. The score is also attached to the packaging_materials
+   taxonomy as the inherited property "environmental_score_score:en" so it can be
+   resolved through taxonomy parents via get_inherited_property().
+
+2. fr_packaging_shapes.csv (Format, Ratio)
+   -> %environmental_score_data{packaging_shapes}
+
+   Each shape has a ratio used to weight the material score by the packaging format.
+   The ratio is attached to the packaging_shapes taxonomy as the inherited property
+   "environmental_score_ratio:en".
+
+Extra assignments map specific material/shape or shape keys to a source entry that
+already has a score (e.g. opaque pet bottle <- colored pet bottle, rPET bottle <-
+transparent rPET bottle, plastic <- other plastics, can <- drink-can, card <-
+backing, label <- sheet, spout <- bottle-cap, elo-pak <- tetra-pak).
 
 =cut
 
@@ -422,7 +515,7 @@ sub load_environmental_score_data_packaging() {
 
 			next if ((not defined $material) or ($material eq ""));
 
-			# Special cases
+			# Special cases: normalize material labels to match the packaging_materials taxonomy
 			$material =~ s/\(100\%\)//;
 			$material =~ s/bisourcé/biosourcé/ig;
 			$material =~ s/Aluminium \(léger < 60mm\)/Aluminium léger/ig;
@@ -431,8 +524,8 @@ sub load_environmental_score_data_packaging() {
 
 			# The Eco-score specifies some materials that are in fact a combination of shape + material
 			# e.g. "Bouteille PET" (PET bottle) is a separate entry from PET, with different scores.
-			# We create special material.shape (e.g. en:plastic.bottle) entries that we will
-			# use when computing the packaging scores.
+			# We split out the shape and create composite material.shape keys
+			# (e.g. en:plastic.bottle) used at compute time to look up the score.
 			my $shape;
 			if ($material =~ /^bouteille /i) {
 				$shape = "en:bottle";
@@ -455,16 +548,19 @@ sub load_environmental_score_data_packaging() {
 				$errors++;
 			}
 
-			# combine material + shape
+			# Combine material + shape into a composite key (e.g. en:polyethylene-terephthalate.en:bottle)
 			if (defined $shape) {
 				$material_id = $material_id . "." . $shape;
 			}
 
+			# Store the score keyed by material_id (or material.shape composite)
 			$environmental_score_data{packaging_materials}{$material_id} = {
 				name_fr => $row_ref->[0],    # Matériaux
 				score => $row_ref->[1],    # Score
 			};
 
+			# Also expose the score as a taxonomy property so get_inherited_property()
+			# can resolve it for sub-materials not explicitly listed in the CSV.
 			(defined $properties{"packaging_materials"}{$material_id})
 				or $properties{"packaging_materials"}{$material_id} = {};
 			$properties{"packaging_materials"}{$material_id}{"environmental_score_score:en"}
@@ -475,14 +571,10 @@ sub load_environmental_score_data_packaging() {
 			die("$errors unrecognized materials in CSV $csv_file");
 		}
 
-		# Extra assignments
-
-		# "Bouteille PET transparente",62.5
-		# "Bouteille PET coloré ou opaque",50
-		# "Bouteille PET Biosourcé",75
-		# "Bouteille rPET transparente (100%)",100
-
-		# We assign the same score to some target material.shape as a source material.shape
+		# Extra assignments: map target material/shape keys (not in the CSV) to a source
+		# entry that already has a score. This fills in gaps where the Eco-score data
+		# does not have a dedicated row but should reuse a related material's score.
+		# e.g. opaque-pet bottle <- colored-pet bottle (same recycling difficulty).
 		# Use English names for source / target shapes and materials
 		# they will be canonicalized with the taxonomies
 		my @assignments = (
@@ -554,6 +646,9 @@ sub load_environmental_score_data_packaging() {
 		if $log->is_debug();
 
 	# Packaging shapes / formats
+	# fr_packaging_shapes.csv: Format, Ratio
+	# The ratio weights the material score by the packaging format (larger / more
+	# material-intensive shapes reduce the score more).
 
 	$csv_file = $data_root . "/external-data/environmental_score/data/Eco_score_Calculateur.csv.12";
 	$csv_file = $data_root . "/external-data/environmental_score/data/fr_packaging_shapes.csv";
@@ -584,14 +679,14 @@ sub load_environmental_score_data_packaging() {
 
 			# Special cases
 
-			# skip ondulated cardboard (should be a material)
+			# skip ondulated cardboard (should be a material, not a shape)
 			next if ($shape eq "Carton ondulé");
 
 			my $shape_id_exists_in_taxonomy;
 			my $shape_id = canonicalize_taxonomy_tag("fr", "packaging_shapes", $shape, \$shape_id_exists_in_taxonomy);
 
-			# Handle special cases that are not recognized by the packaging shapes taxonomy
-			# conserve is used in preservation taxonomy, but it may be a packaging
+			# "conserve" lives in the preservation taxonomy, not packaging_shapes;
+			# remap it to en:can so it can be scored as a packaging shape.
 			if ($shape_id =~ /^fr:conserve/i) {
 				$shape_id = "en:can";
 				$shape_id_exists_in_taxonomy = 1;
@@ -604,14 +699,16 @@ sub load_environmental_score_data_packaging() {
 				$errors++;
 			}
 
+			# Store the ratio keyed by shape_id
 			$environmental_score_data{packaging_shapes}{$shape_id} = {
 				name_fr => $row_ref->[0],    # Format
 				ratio => $row_ref->[1],    # Ratio
 			};
 
-			# if the ratio has a comma (0,2), turn it to a dot (0.2)
+			# French decimal: comma -> dot (0,2 => 0.2)
 			$environmental_score_data{packaging_shapes}{$shape_id}{ratio} =~ s/,/\./;
 
+			# Expose the ratio as a taxonomy property for get_inherited_property() resolution
 			(defined $properties{"packaging_shapes"}{$shape_id}) or $properties{"packaging_shapes"}{$shape_id} = {};
 			$properties{"packaging_shapes"}{$shape_id}{"environmental_score_ratio:en"}
 				= $environmental_score_data{packaging_shapes}{$shape_id}{ratio};
@@ -621,8 +718,8 @@ sub load_environmental_score_data_packaging() {
 			die("$errors unrecognized shapes in CSV $csv_file");
 		}
 
-		# Extra assignments
-
+		# Extra assignments: alias shapes not in the CSV to a source shape that
+		# already has a ratio, so they inherit the same packaging malus weight.
 		$environmental_score_data{packaging_shapes}{"en:can"}
 			= $environmental_score_data{packaging_shapes}{"en:drink-can"};
 		$properties{"packaging_shapes"}{"en:can"}{"environmental_score_ratio:en"}
