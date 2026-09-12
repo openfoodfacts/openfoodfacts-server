@@ -99,6 +99,7 @@ use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Store qw/$json_for_objects/;
 
 use Cpanel::JSON::XS;
+use Scalar::Util qw/blessed reftype/;
 use Storable qw/dclone/;
 use Encode;
 use Types::Serialiser;
@@ -161,7 +162,7 @@ sub add_product_data_from_external_service ($request_ref, $product_ref, $url, $s
 
 	my $response = $ua->post(
 		$url,
-		Content => $json_for_objects->encode($body_ref),
+		Content => $json_for_objects->encode(_plain_data_for_json($body_ref)),
 		"Content-Type" => "application/json; charset=utf-8",
 	);
 
@@ -248,6 +249,24 @@ sub add_product_data_from_external_service ($request_ref, $product_ref, $url, $s
 	$log->debug("add_product_data_from_external_service - stop", {response => $response_ref}) if $log->is_debug();
 
 	return 1;
+}
+
+sub _plain_data_for_json ($value) {
+	return $value if not ref $value;
+
+	if (blessed($value)) {
+		return _plain_data_for_json($value->TO_JSON) if $value->can('TO_JSON');
+
+		my $type = reftype($value);
+		return _plain_data_for_json($$value) if $type eq 'SCALAR';
+		return [_plain_data_for_json($_) for @$value] if $type eq 'ARRAY';
+		return {map { $_ => _plain_data_for_json($value->{$_}) } keys %$value} if $type eq 'HASH';
+		return "$value";
+	}
+
+	return [_plain_data_for_json($_) for @$value] if ref($value) eq 'ARRAY';
+	return {map { $_ => _plain_data_for_json($value->{$_}) } keys %$value} if ref($value) eq 'HASH';
+	return $value;
 }
 
 =head2 echo_service ($product_ref, $updated_product_fields_ref, $errors_ref)
