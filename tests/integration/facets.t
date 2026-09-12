@@ -200,6 +200,13 @@ edit_product(
 # We use the API with .json to test facets, in order to easily get the products that are returned
 my $tests_ref = [
 	{
+		test_case => 'facets_index',
+		method => 'GET',
+		path => 'facets',
+		expected_status_code => 200,
+		expected_type => 'html',
+	},
+	{
 		test_case => 'brand_brand1',
 		method => 'GET',
 		path => 'facets/brands/brand1.json?fields=product_name',
