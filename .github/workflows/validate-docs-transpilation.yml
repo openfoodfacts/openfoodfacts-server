@@ -1,0 +1,168 @@
+name: 📝 Validate Documentation Transpilation
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - ".github/workflows/validate-docs-transpilation.yml"
+
+jobs:
+  validate-transpilation:
+    name: Validate MD to MDX Transpilation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout documentation repository
+        uses: actions/checkout@v5
+        with:
+          repository: openfoodfacts/documentation
+          path: documentation-repo
+          fetch-depth: 1
+
+      - name: Checkout PR source
+        uses: actions/checkout@v5
+        with:
+          path: server-repo
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          cache: "npm"
+          cache-dependency-path: documentation-repo/package-lock.json
+
+      - name: Install documentation repository dependencies
+        run: |
+          echo "Installing dependencies for documentation repository..."
+          cd documentation-repo
+          npm ci
+          echo "✅ Dependencies installed successfully"
+
+      - name: Copy documentation to documentation repository
+        run: |
+          echo "Copying documentation files..."
+          if [ -d "server-repo/docs" ]; then
+            mkdir -p documentation-repo/docs/product-opener
+            cp -r server-repo/docs/* documentation-repo/docs/product-opener/
+            echo "Documentation copied successfully"
+          else
+            echo "Error: docs directory not found"
+            exit 1
+          fi
+
+      - name: Transpile markdown files to MDX
+        run: |
+          echo "Testing transpilation from MD to MDX..."
+          cd documentation-repo
+          if [ -d "docs/product-opener" ]; then
+            npx fumadocs-transpiler@latest --input docs/product-opener --output "content/docs/Product-Opener/(docs)" --verbose
+            echo "✅ Documentation transpiled successfully"
+          else
+            echo "❌ Error: Product Opener docs directory not found"
+            exit 1
+          fi
+
+      - name: Fix malformed code blocks
+        run: |
+          echo "Fixing malformed code block titles..."
+          cd documentation-repo
+          # The fumadocs transpiler adds titles to code blocks without specifying a language,
+          # which causes Shiki (syntax highlighter) to fail. This fixes code blocks by:
+          # - Finding lines starting with ``` followed by spaces and an attribute (e.g., ``` title="example")
+          # - Replacing them with ```text followed by the attribute (e.g., ```text title="example")
+          find content/docs -name "*.mdx" -exec sed -i 's/^``` \+\(\w\+=.\+\)$/```text \1/' {} \;
+          echo "✅ Code block titles fixed"
+
+      - name: Fix internal links
+        run: |
+          echo "Fixing internal links from .md to directory format..."
+          cd documentation-repo
+          # Convert markdown file links to directory-style URLs for the docs site:
+          # - Transforms /docs/example.md -> /docs/example/
+          # - Transforms /docs/example/index.md -> /docs/example/
+          # - Skips external links (those containing ://)
+          # This matches the URL structure expected by the fumadocs documentation site
+          find content/docs -name "*.mdx" -exec sed -i '/:\/\//! s|/index\.md|/|g; s|\([^)]*\)\.md|\1/|g' {} \;
+          echo "✅ Internal links fixed"
+
+      - name: Copy documentation assets
+        run: |
+          echo "Copying documentation assets..."
+          cd documentation-repo
+          if [ -d "docs/product-opener/assets" ]; then
+            mkdir -p "content/docs/Product-Opener/(docs)/assets"
+            cp -r docs/product-opener/assets/* "content/docs/Product-Opener/(docs)/assets/"
+            echo "✅ Assets copied successfully"
+          else
+            echo "No assets directory found, skipping..."
+          fi
+
+      - name: Verify MDX files were created
+        run: |
+          echo "Verifying MDX file creation..."
+          cd documentation-repo
+          MDX_COUNT=$(find content/docs -name "*.mdx" | wc -l)
+          echo "Found $MDX_COUNT MDX files"
+          
+          if [ "$MDX_COUNT" -eq 0 ]; then
+            echo "❌ Error: No MDX files were generated"
+            exit 1
+          fi
+          
+          echo "✅ MDX files generated successfully"
+          
+          # List generated files for verification
+          echo ""
+          echo "Generated MDX files:"
+          find content/docs -name "*.mdx" -type f | sort
+
+      - name: Check for syntax errors in MDX files
+        run: |
+          echo "Checking for basic syntax errors..."
+          cd documentation-repo
+          
+          # Perform basic validation of MDX files
+          ERROR_COUNT=0
+          
+          # Check for unclosed code blocks by counting triple backticks
+          # Note: This is a simple heuristic that catches most obvious errors.
+          # It counts lines starting with ``` and ensures they come in pairs (open/close).
+          # More complex scenarios (backticks in comments, etc.) would require a full MDX parser.
+          for file in $(find content/docs -name "*.mdx"); do
+            BACKTICK_COUNT=$(grep -c '^```' "$file" || true)
+            if [ $((BACKTICK_COUNT % 2)) -ne 0 ]; then
+              echo "⚠️  Warning: Potential unclosed code block in $file"
+              ERROR_COUNT=$((ERROR_COUNT + 1))
+            fi
+          done
+          
+          if [ "$ERROR_COUNT" -gt 0 ]; then
+            echo "❌ Found $ERROR_COUNT potential syntax issues"
+            echo "Please review the warnings above"
+            exit 1
+          fi
+          
+          echo "✅ No obvious syntax errors detected"
+
+      - name: Summary
+        if: success()
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Documentation validation PASSED"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "Your documentation changes have been validated and can be safely merged."
+          echo "The MD to MDX transpilation process completed without errors."
+          echo ""
+          echo "When these changes are merged to main, they will be automatically"
+          echo "synchronized to the documentation repository."
+
+      - name: Cleanup
+        if: always()
+        run: |
+          echo "Cleaning up temporary files..."
+          rm -rf documentation-repo server-repo
+          echo "✅ Cleanup complete"
