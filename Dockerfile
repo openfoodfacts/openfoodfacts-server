@@ -2,7 +2,9 @@
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
-# options for cpan installs
+# Options for Perl dependency installation
+# Use --with-develop to include development dependencies
+# Passed to Carton, which manages dependencies via cpanfile.snapshot
 ARG CPANMOPTS=""
 
 ######################
@@ -10,14 +12,17 @@ ARG CPANMOPTS=""
 ######################
 FROM debian:trixie-slim AS modperl
 
-# Install cpm to install cpanfile dependencies
+# Install Carton and cpanminus for Perl dependency management
+# Carton provides reproducible builds via cpanfile.snapshot lockfile
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         apache2 \
         apt-utils \
+        ca-certificates \
         cpanminus \
+        carton \
         # being able to build things
         g++ \
         gcc \
@@ -198,7 +203,13 @@ ARG PO_LIB_DIR=/tmp/local
 
 WORKDIR /tmp
 
-# run apt update if needed because some package might need to apt install
+# Install Product Opener from the workdir.
+COPY ./cpanfile* /tmp/
+# Install ProductOpener runtime dependencies using Carton for reproducible builds
+# Carton uses cpanfile.snapshot (if present) to ensure exact dependency versions
+# If no snapshot exists, it generates one from cpanfile
+# See docs/dev/how-to-generate-cpanfile-snapshot.md for details
+# we also add apt cache as some libraries might be installed from apt
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
@@ -207,29 +218,32 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
     ) && \
-    # Install package dependencies in $PO_LIB_DIR
-    export PERL_MM_OPT="INSTALL_BASE=$PO_LIB_DIR" && \
-    export PERL_MB_OPT="--install_base $PO_LIB_DIR" && \
-    export PERL5LIB="$PO_LIB_DIR/lib/perl5/:$PERL5LIB" && \
-    export PATH="$PO_LIB_DIR/bin:$PATH" && \
+    # Set Carton install path
+    export PERL_CARTON_PATH=/tmp/local && \
     # first install some dependencies that are not well handled
-    cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap" && \
+    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
+    # Use Carton for deterministic dependency installation when snapshot exists
+    # Otherwise fall back to cpanm for flexibility with CPANMOPTS
+    if [ -f cpanfile.snapshot ]; then \
+        echo "Using cpanfile.snapshot for reproducible build..." && \
+        # Carton --deployment mode installs exact versions from snapshot
+        carton install --deployment; \
+    else \
+        echo "No cpanfile.snapshot found, using cpanm with cpanfile..." && \
+        # Use cpanm for initial installation or when features are needed
+        # This will generate snapshot on next Carton run
+        cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .; \
+    fi && \
     # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
     # without adding an unresolved dependency back into cpanfile.
-    cpm install --show-build-log-on-failure -w $(nproc) -g "Test2::Harness::Renderer::JUnit"
-
-# Add ProductOpener runtime dependencies from cpan
-COPY ./cpanfile* /tmp/
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
-    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
-    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
-    set -x && \
-    # Install package dependencies in $PO_LIB_DIR
-    export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \ 
-    export PERL_MB_OPT="--install_base /tmp/local/" && \
-    export PERL5LIB="/tmp/local/lib/perl5/" && \
-    cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
+    # It is intentionally not in cpanfile (breaks SBOM dependency resolution).
+    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Test2::Harness::Renderer::JUnit" \
+    # in case of errors show build.log, but still, fail
+    || ( for f in /root/.cpanm/work/*/build.log; do \
+            echo "$f= start ============="; \
+            cat "$f"; \
+            echo "$f= end ============="; \
+        done; false )
 
 ######################
 # backend production image stage
