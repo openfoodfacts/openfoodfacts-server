@@ -42,7 +42,8 @@ print STDERR "Build \%Lang - data_root: $data_root - server_domain: $server_doma
 retrieve_tags_taxonomy("languages");
 init_languages();
 
-ProductOpener::Lang::build_lang(\%Languages);
+my $interface_languages_ref = ProductOpener::Lang::interface_languages(\%Languages);
+ProductOpener::Lang::build_lang($interface_languages_ref);
 my $tags_ref = ProductOpener::Lang::build_lang_tags(\%Languages);
 
 print STDERR "Build \%Lang - done, saving sto files \n";

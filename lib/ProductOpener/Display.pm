@@ -133,6 +133,7 @@ use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Users qw(:all);
 use ProductOpener::Texts qw(%texts);
 use ProductOpener::Lang qw(:all);
+use ProductOpener::I18N qw/base_language/;
 use ProductOpener::Images qw(display_image data_to_display_image add_images_urls_to_product);
 use ProductOpener::Food qw(:all);
 use ProductOpener::Ingredients qw(flatten_sub_ingredients);
@@ -337,8 +338,8 @@ Add some functions and variables needed by many templates and process the templa
 
 sub process_template ($template_filename, $template_data_ref, $result_content_ref, $request_ref = {}) {
 
-	# give priority to request_ref lc but eventually fallback to global $lc
-	my $target_lc = $request_ref->{lc} // $lc;
+	# Prefer the explicit interface locale, then the request language and globals.
+	my $target_lc = $request_ref->{interface_lc} // $request_ref->{lc} // current_interface_language();
 	# Add functions and values that are passed to all templates
 
 	# Features for each product type
@@ -396,6 +397,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	# using short names to favour readability
 	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
 	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
+	$template_data_ref->{language_tag} = ProductOpener::I18N::language_tag($target_lc);
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
@@ -496,6 +498,8 @@ Reference to request object.
 =cut
 
 sub init_request ($request_ref = {}) {
+
+	$interface_lc = undef;
 
 	$log->debug("init_request - start", {request_ref => sanitize($request_ref)}) if $log->is_debug();
 
@@ -627,9 +631,9 @@ sub init_request ($request_ref = {}) {
 			$cc = $1;
 			$country = $country_codes{$cc};
 			$lc = $country_languages{$cc}[0];    # first official language
-			if (defined $language_codes{$2}) {
-				$lc = $2;
-				$lc =~ s/-/_/;    # pt-pt -> pt_pt
+			my $requested_lc = ProductOpener::I18N::normalize_language_code($2);
+			if (defined $requested_lc and exists $InterfaceLangs{$requested_lc}) {
+				$lc = $requested_lc;
 			}
 
 			$log->debug("subdomain matches known country code",
@@ -657,9 +661,8 @@ sub init_request ($request_ref = {}) {
 		redirect_to_url($request_ref, 302, $redirect_url);
 	}
 
-	$lc =~ s/_.*//;    # PT_PT doest not work yet: categories
-
-	if ((not defined $lc) or (($lc !~ /^\w\w(_|-)\w\w$/) and (length($lc) != 2))) {
+	$lc = ProductOpener::I18N::normalize_language_code($lc);
+	if ((not defined $lc) or (not exists $InterfaceLangs{$lc})) {
 		$log->debug("replacing unknown lc with en", {lc => $lc}) if $log->debug();
 		$lc = 'en';
 	}
@@ -700,9 +703,10 @@ sub init_request ($request_ref = {}) {
 	my $param_lc = single_param('lc');
 	if (defined $param_lc) {
 		# allow multiple languages in an ordered list
-		@lcs = split(/,/, lc($param_lc));
-		if (defined $language_codes{$lcs[0]}) {
+		@lcs = map {ProductOpener::I18N::normalize_language_code($_)} split(/,/, $param_lc);
+		if (defined $lcs[0] and exists $InterfaceLangs{$lcs[0]}) {
 			$lc = $lcs[0];
+			@lcs = grep {defined $_ and exists $InterfaceLangs{$_}} @lcs;
 			$cc_lc_overrides = 1;
 			$log->debug("lc override from request parameter", {lc => $lc, lcs => \@lcs}) if $log->is_debug();
 		}
@@ -717,9 +721,17 @@ sub init_request ($request_ref = {}) {
 	if ($cc_lc_overrides) {
 		$subdomain = $cc;
 		if (not((defined $country_languages{$cc}[0]) and ($lc eq $country_languages{$cc}[0]))) {
-			$subdomain .= "-" . $lc;
+			$subdomain .= "-" . lc(ProductOpener::I18N::language_tag($lc));
 		}
 	}
+
+	# Keep the selected interface locale out of product fields and taxonomy IDs.
+	# Regional product languages are a separate change.
+	$request_ref->{interface_lc} = $lc;
+	$interface_lc = base_language($lc) ne $lc ? $lc : undef;
+	$lc = base_language($lc);
+	my %seen_lcs;
+	@lcs = grep {!$seen_lcs{$_}++} map {base_language($_)} @lcs;
 
 	# Set cc, lc and lcs in the request object
 	# Ideally, we should rely on those fields in the request object
@@ -989,14 +1001,7 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 sub _get_date ($t) {
 
 	if (defined $t) {
-		my @codes = DateTime::Locale->codes;
-		my $locale;
-		if (grep {$_ eq $lc} @codes) {
-			$locale = DateTime::Locale->load($lc);
-		}
-		else {
-			$locale = DateTime::Locale->load('en');
-		}
+		my $locale = language_locale(current_interface_language());
 
 		my $dt = DateTime->from_epoch(
 			locale => $locale,
@@ -7705,32 +7710,35 @@ sub display_page ($request_ref) {
 	$template_data_ref->{bodyabout} = $request_ref->{bodyabout};
 	$template_data_ref->{site_name} = $site_name;
 
-	my $en = 0;
+	my $selected_lc = $request_ref->{interface_lc} // $request_lc;
 	my $langs = '';
 	my $selected_lang = '';
-
-	foreach my $olc (@{$country_languages{$request_ref->{cc}}}, 'en') {
-		if ($olc eq 'en') {
-			if ($en) {
-				next;
-			}
-			else {
-				$en = 1;
-			}
+	my %seen_languages;
+	my @country_lcs = @{$country_languages{$request_ref->{cc}} // []};
+	my @variants = grep {
+		my $base = base_language($_);
+		$base ne $_ and any {$base eq $_} @country_lcs
+	} @InterfaceLangs;
+	foreach my $olc (@country_lcs, @variants, $selected_lc, 'en') {
+		next if $seen_languages{$olc}++ or not exists $InterfaceLangs{$olc};
+		my $tag = ProductOpener::I18N::language_tag($olc);
+		my $osubdomain = "$request_ref->{cc}-" . lc($tag);
+		if ($olc eq $country_lcs[0]) {
+			$osubdomain = $request_ref->{cc};
 		}
-		if (exists $Langs{$olc}) {
-			my $osubdomain = "$request_ref->{cc}-$olc";
-			if ($olc eq $country_languages{$request_ref->{cc}}[0]) {
-				$osubdomain = $request_ref->{cc};
-			}
-			if (($olc eq $lc)) {
-				$selected_lang
-					= "<a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a>\n";
-			}
-			else {
-				$langs
-					.= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a></li>";
-			}
+		my $link
+			= '<a href="'
+			. format_subdomain($osubdomain)
+			. '/" lang="'
+			. $tag
+			. '" hreflang="'
+			. $tag . '">'
+			. encode_entities($InterfaceLangs{$olc} // $olc) . '</a>';
+		if ($olc eq $selected_lc) {
+			$selected_lang = $link;
+		}
+		else {
+			$langs .= '<li>' . $link . '</li>';
 		}
 	}
 

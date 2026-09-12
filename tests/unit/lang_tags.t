@@ -236,8 +236,8 @@ require ProductOpener::Lang;
 require JSON::MaybeXS;
 print JSON::MaybeXS::encode_json({
     lang => \%ProductOpener::Lang::Lang,
-    names => \%ProductOpener::Lang::Langs,
-    languages => \@ProductOpener::Lang::Langs,
+    names => \%ProductOpener::Lang::InterfaceLangs,
+    languages => \@ProductOpener::Lang::InterfaceLangs,
     tags => {
         tag_type_singular => \%ProductOpener::Lang::tag_type_singular,
         tag_type_plural => \%ProductOpener::Lang::tag_type_plural,
