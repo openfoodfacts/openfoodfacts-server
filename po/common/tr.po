@@ -1072,7 +1072,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Üreticiler için Açık Gıda Gerçekleri"
+msgstr "Üreticiler için Open Food Facts"
 
 msgctxt "for"
 msgid "for"
@@ -1761,11 +1761,6 @@ msgstr "Beslenme dereceleri"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Beslenme derecesi"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4332,11 +4327,11 @@ msgstr "Kategorileri içe aktarın"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr "Üreticiden Nutri-Skor puanı"
+msgstr "Üreticiden Nutri-Score puanı"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr "Hesaplanan Nutri-Puan skor"
+msgstr "Hesaplanan Nutri-Score skor"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
@@ -4344,7 +4339,7 @@ msgstr "Üreticiden Nutri-Score derecesi"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr "Hesaplanan Nutri-Skor derecesi"
+msgstr "Hesaplanan Nutri-Score derecesi"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4950,11 +4945,11 @@ msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Düşük çevresel etki (Eko-Skor)"
+msgstr "Düşük çevresel etki (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Yeşil Puan, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
+msgstr "Green-Score, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4963,11 +4958,11 @@ msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Düşük çevresel etki (Eko-Skor)"
+msgstr "Düşük çevresel etki (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Yeşil Puan, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
+msgstr "Green-Score, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5557,7 +5552,7 @@ msgstr "Kesin bir kategori eksik"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Bazı veriler eksik olduğu için bu ürünün Eko-Skorunu hesaplayamadık, tamamlamanıza yardımcı olabilir misiniz?"
+msgstr "Bazı veriler eksik olduğu için bu ürünün Green-Scoreunu hesaplayamadık, tamamlamanıza yardımcı olabilir misiniz?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5891,7 +5886,7 @@ msgstr "Green-Score formülü, daha kesin hale getirmek için düzenli olarak ge
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Yeşil Puanlama sistemi ilk olarak Fransa için geliştirilmiş olup diğer Avrupa ülkelerine de yaygınlaştırılmaktadır. Yeşil Puanlama formülü, her ülkeye daha uygun ve daha doğru hale getirilmesi için düzenli olarak geliştirildiğinden değişime tabidir."
+msgstr "Green-Score sistemi ilk olarak Fransa için geliştirilmiş olup diğer Avrupa ülkelerine de yaygınlaştırılmaktadır. Green-Score formülü, her ülkeye daha uygun ve daha doğru hale getirilmesi için düzenli olarak geliştirildiğinden değişime tabidir."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6214,7 +6209,7 @@ msgstr "Bonuslar ve kötüye kullanımlar"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Bu ürün için Eko-Skor"
+msgstr "Bu ürün için Green-Score"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6543,11 +6538,11 @@ msgstr "Nutri-Score'u hesaplamak için gereken bilgileri ekleyebilir misiniz?"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Eko-Skoru hesaplayabilmemiz için kesin bir ürün kategorisi ekleyebilir misiniz?"
+msgstr "Green-Scoreu hesaplayabilmemiz için kesin bir ürün kategorisi ekleyebilir misiniz?"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "Bu ürün için belirlediğimiz kategori, Yeşil Puanı hesaplamak için yeterince kesin değil. Daha kesin bir ürün kategorisi ekleyebilir misiniz?"
+msgstr "Bu ürün için belirlediğimiz kategori, Green-Scoreı hesaplamak için yeterince kesin değil. Daha kesin bir ürün kategorisi ekleyebilir misiniz?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
