@@ -348,7 +348,7 @@ my $tests_ref = [
 		expected_status_code => 302,
 		headers => {
 			Location =>
-				'http://world.openfoodfacts.localhost/facets/categories/Vitamin supplements.json?fields=product_name,labels_tags',
+				'http://world.openfoodfacts.localhost/facets/categories/Vitamin%20supplements.json?fields=product_name,labels_tags',
 		},
 		expected_type => 'html',
 	},

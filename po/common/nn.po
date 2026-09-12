@@ -63,7 +63,7 @@ msgstr "og Facebook-gruppen <a href=\"https://www.facebook.com/groups/OpenBeauty
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Åpne produktsøket for skjønnhetsfakta"
+msgstr "Åpne produktsøket for Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -1305,7 +1305,7 @@ msgstr ""
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr ""
+msgstr "/images/misc/appstore/black/appstore_NO.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
@@ -1757,11 +1757,6 @@ msgstr ""
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
@@ -4705,7 +4700,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Næringsscore ikke aktuelt"
+msgstr "Nutri-Score ikke aktuelt"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -7671,7 +7666,7 @@ msgstr "Rapporter dette bildet til moderatorene våre"
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "Vi mangler verdien og/eller enheten for å beregne næringspoengsummen."
+msgstr "Vi mangler verdien og/eller enheten for å beregne Nutri-Score."
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
