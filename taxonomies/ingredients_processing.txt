@@ -514,8 +514,7 @@ uk: гранульований, гранульована, гранульован
 # fi:parse:$rae
 # sv:parse:$granulat
 
-#description:en: To reduce to smaller pieces by crushing with lateral motion.
-en: ground
+en: ground, milled
 bg: смляно, смлян, смляна, смляни, мляно
 ca: mòlt, mòlts, mòltes
 cs: mleté
@@ -535,10 +534,11 @@ ru: дробленое
 sl: mleti
 sv: malen, mald, malet, malt, malna, malda
 uk: мелений, мелена, мелене, мелені, дроблений, дроблена, дроблене, дроблені
+description:en: To reduce to smaller pieces by crushing with lateral motion.
+wikidata:en: Q26882416
 # nl:parse:gemalen_$
 # en:wiktionary:grind
 
-# <en:ground
 < en: ground
 en: finely ground
 de: fein gemahlen, fein gemahlene, fein gemahlener, fein gemahlenes
@@ -547,7 +547,6 @@ hu: finomra őrölt
 pl: drobno mielona, drobno mielone, drobno mielony
 sv: finmalen, finmald, finmalet, finmalt, finmalna, finmalda
 
-# <en:ground
 < en: ground
 en: coarsely ground
 de: grob gemahlen, grob gemahlene, grob gemahlener, grob gemahlenes
@@ -555,9 +554,13 @@ hr: grublje mljeveno, grubo mljeveni
 hu: durvára őrölt
 sv: grovmalen, grovmald, grovmalet, grovmalt, grovmalna, grovmalda
 
-# <en:ground
+< en: ground
+en: freshly ground
 de: frischgemahlen, frischgemahlene, frischgemahlener, frischgemahlenes
 hu: frissen őrölt
+
+< en: ground
+en: partially milled
 
 en: mashed
 da: most
