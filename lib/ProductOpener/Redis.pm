@@ -199,16 +199,18 @@ The list of Redis streams to subscribe to. Defaults to all streams if not provid
 =cut
 
 sub _read_user_streams($search_from = undef, $search_to = undef, @streams) {
+	# If search_from and search_to are not defined, we will use the last processed message ID to continue reading from where we left off
+	my $use_persistent_id = (!defined $search_to && !defined $search_from);
 	# Get the index that we last read from
-	if (not defined $search_from) {
+	if ($use_persistent_id) {
 		$search_from = retrieve_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id");
 		if (defined $search_from) {
 			# Turn the search from back into a scalar
 			$search_from = ${$search_from};
 		}
-		else {
-			$search_from = '$';
-		}
+	}
+	if (not defined $search_from) {
+		$search_from = '$';
 	}
 
 	if (!@streams) {
@@ -234,6 +236,7 @@ sub _read_user_streams($search_from = undef, $search_to = undef, @streams) {
 		# This will block for up to 5 seconds waiting for messages and return a maximum of 1000
 		my @params = ('COUNT', 1000, 'BLOCK', 5000, 'STREAMS');
 		push @params, @streams;
+		# push as many search_from as we have streams
 		push @params, map {$search_from} @streams;
 
 		$log->info("[" . localtime() . "] Reading from Redis", {params => \@params}) if $log->is_info();
@@ -256,7 +259,7 @@ sub _read_user_streams($search_from = undef, $search_to = undef, @streams) {
 					my $last_processed_message_id = process_xread_stream_reply($reply_ref, $search_to);
 					if ($last_processed_message_id) {
 						$search_from = $last_processed_message_id;
-						if (not defined $search_to) {
+						if ($use_persistent_id) {
 							store_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id", $search_from);
 						}
 					}
