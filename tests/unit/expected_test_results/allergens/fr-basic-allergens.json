@@ -95,6 +95,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "10043",
          "id" : "en:crustacean",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.358072916666671,
@@ -197,13 +198,13 @@
       "en:milk",
       "en:dairy",
       "en:wheat-flour",
-      "en:cereal",
-      "en:flour",
-      "en:wheat",
       "en:cereal-flour",
+      "en:wheat",
+      "en:flour",
+      "en:cereal",
       "en:sugar",
-      "en:added-sugar",
       "en:disaccharide",
+      "en:added-sugar",
       "en:salt",
       "en:egg",
       "en:mustard",
@@ -211,8 +212,8 @@
       "en:shellfish",
       "en:nut",
       "en:celery",
-      "en:vegetable",
       "en:stalk-vegetable",
+      "en:vegetable",
       "en:fish",
       "fr:crème de cassis"
    ],
@@ -226,11 +227,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:celery",
-      "en:crustacean",
       "en:nut",
       "fr:crème de cassis"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
       "en:crustacean",
       "en:fish",

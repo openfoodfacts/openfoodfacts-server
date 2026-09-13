@@ -32,6 +32,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11081",
          "id" : "en:spice",
          "ingredients" : [
             {
@@ -105,12 +106,12 @@
       "en:wheat",
       "en:cereal",
       "en:lupin-flour",
-      "en:vegetable",
-      "en:pod-and-seed-vegetable",
       "en:flour",
-      "en:legume",
-      "en:pulse",
       "en:lupin-bean",
+      "en:pulse",
+      "en:legume",
+      "en:pod-and-seed-vegetable",
+      "en:vegetable",
       "en:spice",
       "en:condiment",
       "en:soya",
@@ -128,10 +129,9 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:celery",
-      "en:soya",
-      "en:spice"
+      "en:soya"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:mustard",
       "en:soya",

@@ -7579,7 +7579,6 @@ description:tr: Besin değerleri gözden geçirilmelidir çünkü tüm değerler
 description:uk: Поживні цінності слід переглянути, оскільки вони не повинні мати всі однакові значення
 description:zh: 营养价值必须复核，因为不应具有所有相同的值
 
-
 ## Ingredients
 
 < en: Data quality errors
@@ -7746,7 +7745,6 @@ description:ru: Эта категория предполагает как мин
 description:sv: Denna kategori förväntas ha minst ett visst antal ingredienser
 description:uk: Ця категорія передбачає щонайменше визначену кількість інгредієнтів
 fix_action:en: add_ingredients_text
-
 
 ### Labels
 
@@ -8788,7 +8786,6 @@ description:ru: Эти две категории не могут отображ�
 description:sv: Dessa två kategorier kan inte förekomma på samma produkt.
 description:uk: Ці дві категорії не можуть одночасно бути присутніми на одному продукті.
 
-
 ## --------------- Then data quality warnings
 
 en: Data quality warnings
@@ -9053,9 +9050,6 @@ description:pl: Dane dotyczące opakowania tego produktu są kompletne.
 description:pt: Os dados de embalagem deste produto estão completos.
 description:ru: Данные об упаковке этого продукта полные.
 
-
-
-
 #### Food groups
 
 < en: Data quality warnings
@@ -9181,8 +9175,6 @@ description:pt: A quantidade da porção está definida, mas a quantidade total 
 description:ru: Размер порции указан, но общее количество продукта — нет, что может вызвать проблемы при расчёте значений на 100 г.
 fix_action:en: add_quantity
 
-
-
 ### Fibers
 
 < en: Data quality warnings
@@ -9200,7 +9192,6 @@ description:en: Fibers are mentioned on photos, but are not present in the input
 < en: Fibers warnings
 en: Missing nutrition facts - fibers present on nutrition photos
 description:en: Fibers are mentioned on nutrition photos, but are not present in the inputed nutrition table
-
 
 ## Ingredients
 
@@ -12380,9 +12371,6 @@ en: Ingredients language mismatch es contains pt
 description:en: The ingredients language is set to Spanish, but the ingredients text appears to contain Portuguese.
 fix_action:en: add_ingredients_text
 
-
-
-
 ## GS1
 
 < en: Data quality warnings
@@ -12413,9 +12401,6 @@ description:en: This product has a barcode with a GS1 refund prefix. This is lik
 en: GS1 - Coupon common currency area prefix
 description:en: This product has a barcode with a GS1 coupon common currency area prefix. This is likely a food data quality error as it indicates that the barcode is associated with a coupon rather than a food product.
 
-
-
-
 ## Others
 
 en: Code zero
@@ -12441,7 +12426,6 @@ nl: Hoofdtaal ontbreekt
 pt: Língua principal ausente
 description:en: There's no language for this product, which is problematic, since several behaviors around ingredient analysis rely on a main language.
 
-
 en: Main language unknown
 de: Hauptsprache unbekannt
 es: Idioma principal desconocido
@@ -12450,9 +12434,6 @@ it: Lingua principale sconosciuta
 nl: Hoofdtaal onbekend
 pt: Língua principal desconhecida
 description:en: The main language of the product is unknown, which can lead to data quality issues in analyzing ingredients and other aspects of the product.
-
-
-
 
 ## categories
 
@@ -12738,8 +12719,6 @@ description:ru: Скорее всего, это продукты для Open Bea
 description:zh: 这些很可能是基于品牌的Open Beauty Facts产品。可能存在一些误报。所有美容产品都应通过在“类别”字段中输入OBF来移至Open Beauty Facts。
 fix_action:en: add_categories
 # show_to:en: moderators
-
-
 
 ### Nutrition and Nutri-Score
 
@@ -13534,7 +13513,6 @@ description:tr: Kategori ortalamasına kıyasla, tuz değeri anormal derecede y�
 description:uk: Порівняно із середнім значенням для категорії, значення солі є ненормально високим.
 description:zh: 与类别平均值相比，盐值异常高。
 
-
 < en: Nutrition warnings
 en: Nutrition value very high for category - Saturated fat
 de: Nährwert sehr hoch für Kategorie - Gesättigte Fettsäuren
@@ -13913,9 +13891,6 @@ description:tr: Kategori ortalamasına kıyasla, şeker değeri anormal derecede
 description:uk: Порівняно із середнім значенням для категорії, значення цукрів є ненормально низьким.
 description:zh: 与类别平均值相比，糖的数值异常低。
 
-
-
-
 ### Quantity and serving
 
 < en: Data quality errors
@@ -14057,7 +14032,6 @@ nl: Portiegrootte in mg
 pt: Tamanho da porção em mg
 description:en: The serving size is listed in milligrams (mg), which is unusual for most food products. It is likely a data quality error.
 
-
 ### Carbon footprint
 
 < en: Data quality warnings
@@ -14111,7 +14085,6 @@ description:pl: Ślad węglowy oszacowany na podstawie znanych składników jest
 description:pt: A pegada de carbono estimada a partir dos ingredientes conhecidos é superior à pegada de carbono estimada apenas a partir do teor de carne ou peixe.
 description:ru: Углеродный след, оценённый по известным ингредиентам, выше углеродного следа, оценённого только по содержанию мяса или рыбы.
 
-
 ### Labels
 
 < en: Data quality warnings
@@ -14121,7 +14094,6 @@ description:en: This product has a vegan label, however some ingredients are not
 < en: Data quality warnings
 en: vegetarian label but could not confirm for all ingredients
 description:en: This product has a vegetarian label, however some ingredients are not known as non-vegetarian in the taxonomy (could be unknown ingredients or missing vegetarian true/false in the taxonomy).
-
 
 < en: Data quality warnings
 en: low energy label claim but energy above limitation
@@ -14357,7 +14329,6 @@ description:es: En la UE, solo se puede afirmar que un alimento es rico en grasa
 en: rich in unsaturated fatty acids label claim but unsaturated fat under limitation
 description:en: In EU, a claim that a food is high in unsaturated fat may only be made where at least 70 % of the fatty acids present in the product derive from unsaturated fat under the condition that unsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 
-
 description:fr: Dans l'UE, une allégation selon laquelle un aliment est riche en acides gras monoinsaturés ne peut être faite que si au moins 45 % des acides gras présents dans le produit proviennent d'acides gras monoinsaturés, à condition que les acides gras monoinsaturés fournissent plus de 20 % de l'énergie du produit. Voir: https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A02006R1924-20141213
 
 < en: Data quality warnings
@@ -14367,15 +14338,6 @@ description:en: In EU, a claim that a food is high in polyunsaturated fat may on
 < en: Data quality warnings
 en: rich in unsaturated fatty acids label claim but unsaturated fat under limitation
 description:en: In EU, a claim that a food is high in unsaturated fat may only be made where at least 70 % of the fatty acids present in the product derive from unsaturated fat under the condition that unsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-
-
-
-
-
-
-
-
-
 
 ## --------------- Then data quality completeness
 en: Data quality completeness

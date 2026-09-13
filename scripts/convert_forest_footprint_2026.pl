@@ -147,7 +147,10 @@ sub main {
 		{
 			input => "$data_dir/label.primary_ingredient.risk.tsv",
 			output => "$data_dir/label.primary_ingredient.risk.populated.tsv",
-			mappings => [["label_fr", "label_id", "labels", "fr"],],
+			mappings => [
+				["label_fr", "label_id", "labels", "fr"],
+				["primary_ingredient_fr", "primary_ingredient_id", "ingredients", "fr"],
+			],
 		},
 		{
 			input => "$data_dir/origin.primary_ingredient.footprint.tsv",

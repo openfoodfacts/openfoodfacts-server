@@ -166,7 +166,7 @@ msgstr "Összetevők, allergének, adalékanyagok, tápértékadatok, címkék, 
 
 msgctxt "search_description_opensearch_opff"
 msgid "Open Pet Food Facts product search"
-msgstr "Open Food Facts termékkereső"
+msgstr "Open Pet Food Facts termékkereső"
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -1764,11 +1764,6 @@ msgstr "Táplálkozási osztályzat"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Táplálkozási osztályzat"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -5183,7 +5178,7 @@ msgstr "Jelenleg kiválasztott beállítások"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "A preferenciáit a böngészője tárolja, és soha nem küldi el az OpenFoodFacts vagy bárki más számára."
+msgstr "A preferenciáit a böngészője tárolja, és soha nem küldi el az Open Food Facts vagy bárki más számára."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
@@ -5547,7 +5542,7 @@ msgstr "A Green-Score még nem alkalmazható erre a kategóriára, de dolgozunk 
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Az Eco-score nincs kiszámítva"
+msgstr "Az Green-Score nincs kiszámítva"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5689,7 +5684,7 @@ msgstr "Az erdőlábnyom kiszámításakor figyelembe vesszük azokat az összet
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Az Eco-score csak akkor számítható ki, ha a termék kellően pontos kategóriával rendelkezik."
+msgstr "Az Green-Score csak akkor számítható ki, ha a termék kellően pontos kategóriával rendelkezik."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."

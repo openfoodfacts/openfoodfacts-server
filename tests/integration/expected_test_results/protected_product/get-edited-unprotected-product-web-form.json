@@ -454,32 +454,32 @@
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups_tags" : [],
       "forest_footprint_2026" : {
-         "grade" : "c",
+         "grade" : "b",
          "primary_ingredients" : {
             "en:cocoa" : {},
             "en:coffee" : {},
             "en:palm-oil" : {
-               "footprint_per_kg" : 0.004640625,
-               "grade" : "c",
+               "footprint_per_kg" : 0.00061875,
+               "grade" : "b",
                "ingredients" : [
                   {
                      "equivalence_ingredient" : 1,
                      "equivalence_ingredient_category" : 1,
-                     "footprint_per_kg" : 0.004640625,
+                     "footprint_per_kg" : 0.00061875,
                      "ingredient_category_id" : "en:palm-oil",
                      "ingredient_id" : "en:palm-oil-and-fat",
-                     "label_id" : "en:organic",
+                     "label_id" : "en:fairtrade-international",
                      "origin_footprint" : 0.055,
                      "origin_id" : "en:unknown",
                      "percent" : 9.375,
                      "primary_ingredient_id" : "en:palm-oil",
-                     "risk_factor" : 0.9,
+                     "risk_factor" : 0.12,
                      "transformation_factor" : 1
                   }
                ]
             }
          },
-         "total_footprint_per_kg" : 0.004640625
+         "total_footprint_per_kg" : 0.00061875
       },
       "forest_footprint_data" : {
          "footprint_per_kg" : 0.00145833333333333,
@@ -582,15 +582,15 @@
       ],
       "ingredients_hierarchy" : [
          "en:apple",
-         "en:fruit",
          "en:malaceous-fruit",
+         "en:fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
          "en:palm-oil",
-         "en:oil-and-fat",
+         "en:palm-oil-and-fat",
          "en:vegetable-oil-and-fat",
-         "en:palm-oil-and-fat"
+         "en:oil-and-fat"
       ],
       "ingredients_lc" : "en",
       "ingredients_n" : 4,
@@ -609,15 +609,15 @@
       "ingredients_sweeteners_n" : 0,
       "ingredients_tags" : [
          "en:apple",
-         "en:fruit",
          "en:malaceous-fruit",
+         "en:fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
          "en:palm-oil",
-         "en:oil-and-fat",
+         "en:palm-oil-and-fat",
          "en:vegetable-oil-and-fat",
-         "en:palm-oil-and-fat"
+         "en:oil-and-fat"
       ],
       "ingredients_text" : "apple, milk, eggs, palm oil",
       "ingredients_text_en" : "apple, milk, eggs, palm oil",
@@ -639,15 +639,15 @@
       "labels" : "Organic, Max Havelaar",
       "labels_hierarchy" : [
          "en:fair-trade",
-         "en:organic",
          "en:fairtrade-international",
+         "en:organic",
          "en:max-havelaar"
       ],
       "labels_lc" : "en",
       "labels_tags" : [
          "en:fair-trade",
-         "en:organic",
          "en:fairtrade-international",
+         "en:organic",
          "en:max-havelaar"
       ],
       "lang" : "en",
@@ -758,11 +758,21 @@
       },
       "nutriments_estimated" : {
          "alcohol_100g" : 0,
+         "alpha-linolenic-acid_100g" : 0.00598125,
+         "arachidonic-acid_100g" : 0.01125,
          "beta-carotene_100g" : 1.19375e-05,
+         "butyric-acid_100g" : 0.00590625,
          "calcium_100g" : 0.0333875,
+         "capric-acid_100g" : 0.00564375,
+         "caproic-acid_100g" : 0.00590625,
+         "caprylic-acid_100g" : 0.00511875,
          "carbohydrates_100g" : 7.6484375,
+         "chloride_100g" : 0.01875,
          "cholesterol_100g" : 0.03778125,
          "copper_100g" : 2.678125e-05,
+         "crude-ash_100g" : 0.3331259375,
+         "docosahexaenoic-acid_100g" : 0.0084375,
+         "eicosapentaenoic-acid_100g" : 0,
          "energy-kcal_100g" : 134.5875,
          "fiber_100g" : 0.8125,
          "fructose_100g" : 3.77578125,
@@ -771,19 +781,27 @@
          "iodine_100g" : 7.09375e-06,
          "iron_100g" : 0.0002265625,
          "lactose_100g" : 0.924375,
+         "lauric-acid_100g" : 0.01516875,
+         "linoleic-acid_100g" : 0.13018125,
          "magnesium_100g" : 0.00570625,
          "maltose_100g" : 0.00703125,
          "manganese_100g" : 2.73828125e-05,
+         "monounsaturated-fat_100g" : 3.823625,
+         "myristic-acid_100g" : 0.099,
+         "oleic-acid_100g" : 0.3376875,
+         "palmitic-acid_100g" : 4.2813125,
          "pantothenic-acid_100g" : 0.0002590625,
          "phosphorus_100g" : 0.0445625,
          "phylloquinone_100g" : 1.153125e-06,
          "polyols_100g" : 0.36875,
+         "polyunsaturated-fat_100g" : 1.05075625,
          "potassium_100g" : 0.09825,
          "salt_100g" : 0.0496875,
          "saturated-fat_100g" : 4.903125,
          "selenium_100g" : 1.2290625e-06,
          "sodium_100g" : 0.019725,
          "starch_100g" : 0,
+         "stearic-acid_100g" : 0.4686875,
          "sucrose_100g" : 0.51953125,
          "sugars_100g" : 7.2621875,
          "vitamin-a_100g" : 1.739625e-05,

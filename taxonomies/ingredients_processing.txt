@@ -139,12 +139,27 @@ sv: vald, valda, valt, valda
 # nl: biologische, van biologische oorsprong
 
 en: filtered
-da: filtreret
+da: filtreret, filtrerede
+nb: filtrert, filtrerte
+nn: filtrert, filtrerte
 sv: filtrerad, filtrerat, filtrerade
 uk: фільтрований, фільтрована, фільтроване, фільтровані
+wikidata:en: Q244772
 
 < en: filtered
-en: microfiltered
+en: microfiltered, microfiltrated
+da: mikrofiltreret, mikrofiltrerede
+es: microfiltrado
+fr: microfiltré
+hu: mikrofiltrált
+it: microfiltrato
+nb: mikrofiltrert, mikrofiltrerte
+nn: mikrofiltrert, mikrofiltrerte
+pt: microfiltrado
+sv: mikrofiltrerad, mikrofiltrerat, mikrofiltrerade
+uk: мікрофільтрований, мікрофільтрована, мікрофільтроване, мікрофільтровані
+description:en: filtration process where a contaminated fluid is passed through a special pore-sized membrane filter to separate microorganisms and suspended particles from process liquid
+wikidata:en: Q1753040
 
 en: unfiltered
 bg: непречистен, нефилтриран
@@ -162,6 +177,18 @@ pl: nieoczyszczony
 pt: não filtrado
 sv: ofiltrerad, ofiltrerat, ofiltrerade
 uk: нефільтрований, нефільтроване, нефільтрована, нефільтровані
+
+en: filtrate
+cs: filtrát
+fr: filtrat
+hr: filtrat
+hu: szűrlet
+it: filtrato
+ru: фильтрат
+sl: filtrat
+uk: фільтрат
+description:en: result of a filtration
+wikidata:en: Q28951388
 
 en: non-homogenized
 bg: нехомогенизиран, нехомогенизирано
@@ -596,7 +623,6 @@ pt: pure concentrado, pure de concentrado
 sv: koncentrerad puré, puré av koncentrerad
 uk: концентроване пюре, пюре концентроване
 
-
 hu: lapított
 
 hu: morzsolt
@@ -647,7 +673,6 @@ hu: zsiros
 sk: plnotučné
 sv: fetthaltig, fetthaltigt, fetthaltiga
 zh: 全脂
-
 
 en: halved, halves
 bg: наполовина
@@ -1286,6 +1311,8 @@ ja: ペースト, 練
 
 de: eingekochter
 nl: ingekookt
+
+fr: infusion
 
 en: from concentrate
 bg: от концентрат
@@ -2175,7 +2202,6 @@ zh: 蒸制
 de: gegart, gegarte, gegarter, gegartes, vorgegarte
 nl: gegaard, gegaarde
 
-
 en: uncooked
 de: ungekocht, ungekochte, ungekochter, ungekochtes
 es: sin cocer
@@ -2367,7 +2393,6 @@ nl: gesmolten
 pl: topiony, topiona, topione
 pt: fundido, fundida, fundidos, fundidas
 sv: smält, smälta, smälta
-
 
 #######################################################################
 #
@@ -2636,7 +2661,6 @@ uk: кристалізований, кристалізована, кристал
 < en: unsweetened
 de: ungezuckert, ungezuckerte, ungezuckerter, ungezuckertes
 
-
 en: oiled
 bg: маслен, маслена, маслени, маслено
 ca: oliat, oliada, oliats, oliades
@@ -2674,7 +2698,6 @@ de: geschwefelt, geschwefelte
 # <en:sulfite free, unsulphured
 de: ungeschwefelt, ungeschwefelte
 pt: sem sulfitos
-
 
 # for milk, adjustment of fat content to a desired value either by adding fat-rich product or by fat-poor product
 en: standardized
@@ -2904,27 +2927,6 @@ wikidata:en: Q11874508
 
 en: lactose-reduced, lactose reduced
 description:en: Not lactose free, the ingredient still shows as containing milk as an allergen
-
-# result of a filtration
-en: filtrate
-cs: Filtrát
-fr: filtrat
-hr: filtrat
-hu: szűrlet
-it: filtrato
-ru: Фильтрат
-sl: filtrat
-uk: фільтрат
-
-# microfiltration: filtration process where a contaminated fluid is passed through a special
-# pore-sized membrane filter to separate microorganisms and suspended particles from process liquid
-en: microfiltered, microfiltrated
-es: microfiltrado
-fr: microfiltré
-hu: mikrofiltrált
-it: microfiltrato
-pt: microfiltrado
-uk: мікрофільтрований, мікрофільтрована, мікрофільтроване, мікрофільтровані
 
 #######################################################################
 #
@@ -3454,7 +3456,6 @@ sv: modifierad, modifierat, modifierade
 uk: модифікований, модифікована, модифіковане, модифіковані
 nova:en: 4
 
-
 en: brewed
 de: gebrühter
 fr: infusé, infusée, infusés, infusées, brassé, brassée, brassés, brassées
@@ -3504,7 +3505,6 @@ fr: concentré ou en poudre
 it: concentrato o in polvere
 nl: geconcentreerd of poeder
 pt: concentrado ou em pó
-
 
 en: purified
 uk: очищений, очищена, очищене, очищені

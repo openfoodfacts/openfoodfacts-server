@@ -265,7 +265,7 @@
                "id" : "additives",
                "match" : 100,
                "name" : "Additives",
-               "panel_id" : "additives",
+               "panel_id" : "ingredients_analysis",
                "status" : "known",
                "title" : "Without additives"
             }
@@ -762,9 +762,9 @@
       "en:tapioca",
       "en:starch",
       "en:palm-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
       "en:palm-oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
       "en:enzyme"
    ],
    "ingredients_text" : "tapioca starch, palm oil, enzyme",
