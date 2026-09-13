@@ -9576,8 +9576,7 @@ CSS
 									}
 								}
 
-								my $rounded = round_to_max_decimal_places($formatted_value,
-									$decimals);
+								my $rounded = round_to_max_decimal_places($formatted_value, $decimals);
 								$formatted_value = $rounded // $formatted_value;
 								}
 								if (($formatted_value . ' ') =~ /e/i) {
