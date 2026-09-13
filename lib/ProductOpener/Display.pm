@@ -9562,7 +9562,7 @@ CSS
 								$formatted_value =~ s/0+$//;
 								$formatted_value =~ s/\.$//;
 							}
-							
+
 							# Round numeric values to 1 decimal place to avoid
 							# ugly calculated values like 16.6666666667 (Issue #14035)
 							if ($formatted_value =~ /^-?\d+\.\d{3,}$/) {
@@ -9575,11 +9575,17 @@ CSS
 										$decimals = 2;
 									}
 								}
-								
+
 								my $rounded = round_to_max_decimal_places($formatted_value,
 									$decimals);
 								$formatted_value = $rounded // $formatted_value;
-							}
+								}
+								if (($formatted_value . ' ') =~ /e/i) {
+									$formatted_value = sprintf("%.15f", $formatted_value);
+									$formatted_value =~ s/0+$//;
+									$formatted_value =~ s/\.$//;
+								}
+
 						}
 
 						if (defined $nutrient_set_unit) {
