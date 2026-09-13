@@ -130,6 +130,7 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
 use ProductOpener::ProductsTags qw/:all/;
+use ProductOpener::Numbers qw/round_to_max_decimal_places/;
 use ProductOpener::Users qw(:all);
 use ProductOpener::Texts qw(%texts);
 use ProductOpener::Lang qw(:all);
@@ -9574,8 +9575,8 @@ CSS
 										$decimals = 2;
 									}
 								}
-								require ProductOpener::Numbers;
-								my $rounded = ProductOpener::Numbers::round_to_max_decimal_places($formatted_value,
+								
+								my $rounded = round_to_max_decimal_places($formatted_value,
 									$decimals);
 								$formatted_value = $rounded // $formatted_value;
 							}
