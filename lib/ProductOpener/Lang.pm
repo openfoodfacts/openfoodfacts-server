@@ -69,8 +69,8 @@ use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 
-use DateTime;
-use DateTime::Locale;
+use DateTime::Lite;
+use DateTime::Locale::FromCLDR;
 use Encode;
 use JSON::MaybeXS;
 
@@ -462,33 +462,14 @@ sub build_lang ($Languages_ref) {
 		}
 	}
 
-	my $en_locale = DateTime::Locale->load('en');
-	my @locale_codes = DateTime::Locale->codes;
 	foreach my $l (@Langs) {
-		my $locale;
-		if (grep {$_ eq $l} @locale_codes) {
-			$locale = DateTime::Locale->load($l);
-		}
-		else {
-			$locale = $en_locale;
-		}
+		my $locale = DateTime::Locale::FromCLDR->new($l);
 
-		my @months = ();
-		foreach my $month (1 .. 12) {
-			push @months,
-				DateTime->new(year => 2000, time_zone => 'UTC', month => $month, locale => $locale)->month_name;
-		}
+		my $months = $locale->month_format_wide;
+		$Lang{months}{$l} = decode("utf8", encode_json(\@$months));
 
-		$Lang{months}{$l} = decode("utf8", encode_json(\@months));
-
-		my @weekdays = ();
-		foreach my $weekday (0 .. 6) {
-			push @weekdays,
-				DateTime->new(year => 2000, month => 1, day => (2 + $weekday), time_zone => 'UTC', locale => $locale)
-				->day_name;
-		}
-
-		$Lang{weekdays}{$l} = decode("utf8", encode_json(\@weekdays));
+		my $weekdays = $locale->day_format_wide;
+		$Lang{weekdays}{$l} = decode("utf8", encode_json(\@$weekdays));
 	}
 
 	return;

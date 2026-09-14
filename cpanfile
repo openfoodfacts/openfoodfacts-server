@@ -51,9 +51,6 @@ requires 'Type::Tiny::XS', '==0.025';
 requires 'GraphViz2'; # deps: libfile-which-perl, libdata-section-simple-perl, libwant-perl, libipc-run3-perl, liblog-handler-perl, libtest-deep-perl
 requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1.3.3. deps: libprobe-perl-perl
 requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
-requires 'DateTime', '>= 1.54, < 2.0'; # libdatetime-perl has 1.46. deps: libclass-singleton-perl
-requires 'DateTime::Locale', '>= 1.32, < 2.0'; # libdatetime-locale-perl has 1.17. deps: libfile-sharedir-install-perl
-requires 'DateTime::Format::ISO8601'; # libdatetime-format-iso8601-perl
 requires 'Crypt::ScryptKDF'; #11866: Delete after Keycloak Migration
 requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05'; # deps: liblocale-maketext-lexicon-perl
 requires 'CLDR::Number::Format::Decimal';
@@ -75,6 +72,12 @@ requires 'XML::XML2JSON';
 requires 'Digest::SHA1';
 requires 'Data::Difference';
 requires 'Data::Compare';
+
+# I10N
+requires 'Locale::Unicode', '== 0.4.4';
+requires 'DateTime::Lite', '== 0.8.1';
+requires 'DateTime::Format::Lite', '== 0.1.3';
+requires 'DateTime::Locale::FromCLDR', '== 0.8.7';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';

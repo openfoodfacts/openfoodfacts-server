@@ -124,7 +124,7 @@ use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
-use DateTime::Format::ISO8601;
+use DateTime::Format::Lite;
 use URI;
 use Digest::MD5 qw(md5_hex);
 use Data::Difference qw(data_diff);
@@ -1778,6 +1778,9 @@ sub import_csv_file ($args_ref) {
 	my $skip_not_existing = 0;
 	my $skip_no_images = 0;
 
+	# Set up the date formatter for parsing and formatting dates
+	my $dtformatter = DateTime::Format::Lite->new(pattern => '%Y-%m-%dT%H:%M:%S%z', time_zone => $reference_timezone);
+
 	# go through file
 	while (my $imported_product_ref = $csv->getline_hr($io)) {
 
@@ -2249,11 +2252,13 @@ sub import_csv_file ($args_ref) {
 				my $imported_date_t;
 				my $existing_date_t;
 				eval {
-					$imported_date_t = DateTime::Format::ISO8601->parse_datetime($imported_date)->epoch;
-					$existing_date_t = DateTime::Format::ISO8601->parse_datetime($existing_date)->epoch;
+					my $imported_date_dt = $dtformatter->parse_datetime($imported_date);
+					my $existing_date_dt = $dtformatter->parse_datetime($existing_date);
+					$imported_date_t = $imported_date_dt->epoch if defined $imported_date_dt;
+					$existing_date_t = $existing_date_dt->epoch if defined $existing_date_dt;
 				};
 
-				if ($@) {
+				if ($@ or (not defined $imported_date_t) or (not defined $existing_date_t)) {
 					$log->warn("Could not parse imported or existing dates",
 						{imported_date => $imported_date, existing_date => $existing_date, error => $@})
 						if $log->is_warn();

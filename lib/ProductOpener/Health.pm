@@ -32,7 +32,7 @@ use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
-use DateTime;
+use DateTime::Lite;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);

@@ -85,7 +85,6 @@ use Time::Local;
 use Digest::MD5 qw(md5);
 use URI::Escape;
 use URI::Escape::XS;
-use DateTime;
 use Image::Magick;
 use Log::Log4perl;
 use Log::Any qw($log);
