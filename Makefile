@@ -84,7 +84,7 @@ TEST_CMD ?= yath test
 DEPS=openfoodfacts-shared-services openfoodfacts-auth
 # Set the DEPS_DIR if it hasn't been set already
 ifeq (${DEPS_DIR},)
-	export DEPS_DIR="${PWD}"/deps
+	export DEPS_DIR="${PWD}/deps"
 endif
 
 .DEFAULT_GOAL := usage
