@@ -228,6 +228,14 @@
                "unit" : "g",
                "value" : 0.00155
             },
+            "crude-ash" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 5.9
+            },
             "energy" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -308,6 +316,14 @@
                "unit" : "g",
                "value" : 0.00213
             },
+            "pantothenic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.00023
+            },
             "phosphorus" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -358,6 +374,22 @@
                "value" : 0.074,
                "value_computed" : 0.076
             },
+            "vitamin-b1" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 7e-05
+            },
+            "vitamin-b2" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.0002
+            },
             "vitamin-b6" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -381,6 +413,14 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0.0027
+            },
+            "vitamin-pp" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.015
             },
             "water" : {
                "modifier" : "~",
@@ -441,6 +481,12 @@
                   "value" : 0.00155,
                   "value_string" : "0.00155"
                },
+               "crude-ash" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 5.9,
+                  "value_string" : "5.9"
+               },
                "energy" : {
                   "modifier" : "~",
                   "unit" : "kJ",
@@ -497,6 +543,12 @@
                   "value" : 0.00213,
                   "value_string" : "0.00213"
                },
+               "pantothenic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.00023,
+                  "value_string" : "0.00023"
+               },
                "phosphorus" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -535,6 +587,18 @@
                   "value_computed" : 0.076,
                   "value_string" : "0.074"
                },
+               "vitamin-b1" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 7e-05,
+                  "value_string" : "7e-05"
+               },
+               "vitamin-b2" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.0002,
+                  "value_string" : "0.0002"
+               },
                "vitamin-b6" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -552,6 +616,12 @@
                   "unit" : "g",
                   "value" : 0.0027,
                   "value_string" : "0.0027"
+               },
+               "vitamin-pp" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.015,
+                  "value_string" : "0.015"
                },
                "water" : {
                   "modifier" : "~",

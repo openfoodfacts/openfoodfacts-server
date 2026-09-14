@@ -165,7 +165,7 @@ stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, 
 stopwords:nn: og, av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
-stopwords:ro: Produsul poate conține
+stopwords:ro: produs, produsul, conține, poate conține, și, sau, de, din, cu, în proporții variabile, minim
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
 stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion, motsvarande 0\,016 mg fluor/tablett
@@ -1086,7 +1086,7 @@ vegetarian:en: yes
 en: microbial culture, culture, active cultures, live cultures, starter culture
 bg: микробна култура, живи култури
 ca: Cultiu microbiològic
-cs: Mikrobiální kultura
+cs: Mikrobiální kultura, startovací kultura
 da: aktive kulturer, levende kulturer
 de: mikrobielle Kultur, Kulturen
 es: Cultivo microbiano
@@ -1683,7 +1683,7 @@ ca: quall
 co: Pirrulu
 cs: Syřidlo
 da: osteløbe, animalsk og mikrobiel løbe, microbiel løbe
-de: Lab, Labaustauschstoff
+de: Lab
 el: πυτιά
 es: cuajo
 et: Laap
@@ -1768,7 +1768,7 @@ description:en: CALF RENNET is extracted from the inner mucosa of the fourth sto
 < en: rennet
 en: vegetarian rennet, vegetable rennet, non animal rennet
 da: vegetabilsk osteløbe
-de: vegetarisches Lab
+de: vegetarisches Lab, Labaustauschstoff
 fi: kasviperäinen juustonjuoksutin, kasviperäinen juoksete
 fr: Présure végétarienne, présure végétale
 hr: vegetarijansko sirilo
@@ -9259,7 +9259,7 @@ en: iodised salt, iodized salt
 ar: ملح معالج باليود
 bg: йодирана сол, сол йодирана
 ca: sal iodada
-cs: Jodidovaná sůl
+cs: Jodidovaná sůl, jodizovaná sůl, sůl jodizovaná
 da: salt tilsat jod
 de: Jodsalz, Iodsalz, jodiertes Speisesalz, Salz jodiert
 es: Sal yodada
@@ -16554,7 +16554,7 @@ az: Raps yağı
 be: Рапсавы алей
 bg: рапично масло
 ca: oli de nabina, oli vegetal de nabina
-cs: řepkový olej, řepkovy olej, olej řepkový, olej řepkovy
+cs: řepkový olej, olej řepkový, olej rostlinný řepkový
 da: rapsolie, rapsolje
 de: Rapsöl, Rapsol
 el: κραμβέλαιο
@@ -16657,8 +16657,8 @@ ja: キャノーラ油, なたね油
 nl: canola olie, canolaolie
 # sv: rybsolja, rypsolja # duplicate, unclear which is correct
 tr: kanola yağı
-comment:en: Use only the word canola in this ingredient, as it is only for the american variety of rapeseed
-description:en: Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
+comment:en: Use only the word canola in this ingredient. "Canola" is a Canadian-bred and trademarked variety of low erucic acid rapeseed (the name is a portmanteau of "Canadian oil, low acid"), not a generic synonym for any rapeseed variety.
+description:en: Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed bred in Canada (Saskatchewan and Manitoba, 1960s-1970s) to be low in erucic acid, as opposed to colza oil.
 description:es: El aceite de colza (aceite de nabina o de canola) es el extracto de la semilla de la colza, usado sobre todo en el norte de Europa como condimento y para el alumbrado.
 description:pt: Canola é um cultivo criado para ter baixo teor de ácido erúcico. O termo canola (Brassica napus L., Brassica rapa L., e Brassica juncea) se refere a variedades de plantas de três espécies da família das crucíferas, pertencentes ao gênero Brassica, que produzem um óleo comestível.
 usda_fdc_code:en: 172336
@@ -17191,6 +17191,7 @@ en: shea butter, shea, shea fat
 ak: Nkuto
 ar: زبدة الشيا
 bg: Масло от ший, ший
+cs: bambucké máslo, bambucký tuk
 da: sheasmør, shea, sheafedt
 de: Shea Butter, Sheabutter, Shea, Sheafett
 el: λίπος shea
@@ -23208,6 +23209,7 @@ pl: dym z drewna jodłowego
 
 < en: smoke
 en: liquid smoke
+cs: tekutý kouř
 de: Flüssigrauch
 eo: likva fumo
 es: Humo líquido
@@ -24207,7 +24209,7 @@ ar: سيولينا قمح صلب
 bg: грис от твърда пшеница
 bs: krupica durum pšenice
 ca: sèmola de blat dur
-cs: krupice z tvrdé pšenice
+cs: krupice z tvrdé pšenice, krupice z tvrdozrnné pšenice
 da: durumhvede semulje, durumhvedesemulje
 de: Hartweizengrieß, Hartweizengriess, Hartweizengries
 el: σιμιγδάλισκληρού σιταριού
@@ -26275,6 +26277,7 @@ pl: bezglutenowa mąka owsiana
 < en: vegetable fiber
 en: oat fibre
 bg: овесени влакнини, фибри от овес
+cs: ovesná vláknina
 da: Havrefibre
 de: Haferfasern, Haferfaser, Haferpflanzenfaser
 el: εδώδιμες ινες βρώμης
@@ -26298,6 +26301,7 @@ wikidata:en: Q108654342
 < en: gluten free oats
 < en: oat fibre
 en: gluten free oat fibre
+cs: bezlepková ovesná vláknina
 de: glutenfreie Haferfaser
 fr: fibre d'avoine sans gluten
 hr: zobena vlakna bez glutena
@@ -28313,6 +28317,7 @@ usda_ndb_proxy_name:en: Soy flour, full-fat, raw
 
 < en: soya flour
 en: defatted soy flour
+cs: odtučněná sójová mouka
 usda_fdc_code:en: 174275
 usda_ndb_code:en: 16117
 usda_ndb_name:en: Soy flour, defatted
@@ -29417,6 +29422,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rice
 < en: plant protein
 en: rice protein, rice proteins
 bg: оризов протеин
+cs: rýžová bílkovina
 da: risprotein, ris protein
 de: Reiseiweiß, Reisprotein
 es: proteinas de arroz
@@ -30042,7 +30048,7 @@ bg: ориз басмати, басмати
 bn: বাসমতী
 br: basmati
 ca: arròs Basmati, basmati
-cs: basmati
+cs: basmati, basmati rýže
 da: basmatiris
 de: Basmatireis, Basmati Reis
 eo: Basmatio
@@ -30088,7 +30094,7 @@ en: white basmati rice
 da: hvidt basmatiris
 de: weißer Basmatireis
 fi: valkoinen basmatiriisi
-fr: riz basmati blanc
+fr: riz basmati blanc, riz thaï blanc
 hr: bijela basmati riža
 hu: fehér basmati rizs, fehér baszmati rizs
 it: riso basmati bianco
@@ -30161,6 +30167,7 @@ nl: gekookte basmatirijst
 < en: long grain rice
 en: Thai rice, jasmine rice
 bg: ориз жасмин, тайландски ориз
+cs: jasmínová rýže
 de: Thai-Reis, Jasmin-Reis
 es: Arroz jazmín, Arroz tailandes
 fi: Jasmiiniriisi
@@ -30184,6 +30191,7 @@ fi: valkoinen jasmiiniriisi
 < en: Thai rice
 < en: black rice
 en: black Thai rice
+cs: černá rýže
 de: Thailändischer schwarzer Naturreis, Thailändischer schwarzer Reis, Thailändischer schwarzer Klebreis
 fr: thai riz noir
 hr: crna tajlandska riža
@@ -30373,15 +30381,9 @@ sv: riskli
 zh: 米糠
 ciqual_food_code:en: 9643
 ciqual_food_name:en: Rice bran
-usda_ndb_proxy_code:en: 20060
-usda_ndb_proxy_name:en: Rice bran, crude
-wikidata:en: Q34041491
-
-< en: rice bran
-en: crude rice bran
-usda_fdc_code:en: 169713
 usda_ndb_code:en: 20060
 usda_ndb_name:en: Rice bran, crude
+wikidata:en: Q34041491
 
 # see ingredients_processing.txt
 < en: rice
@@ -33911,6 +33913,7 @@ usda_ndb_name:en: Soy protein isolate, potassium type
 
 < en: soy protein
 en: rehydrated textured soy protein
+cs: rehydovaný sójový texturát, rehydrovaná texturovaná sojová bílkovina
 ciqual_food_code:en: 20591
 ciqual_food_name:en: Soy protein, textured, rehydrated
 
@@ -36733,7 +36736,7 @@ usda_ndb_name:en: Vital wheat gluten
 en: maltodextrin, maltodextrins
 bg: Малтодекстрин
 ca: Maltodextrina
-cs: Maltodextriny
+cs: Maltodextriny, maltodextrin
 da: maltodextrin
 de: Maltodextrin, Maltodextrine
 el: Μαλτοδεξτρίνες, μαλτοδεξτρίνη
@@ -36954,6 +36957,7 @@ nl: verse gist
 
 < en: yeast
 en: deactivated yeast
+cs: inaktivované kvasnice, inaktivované sušené kvasnice
 de: inaktivierte Hefe, inaktiveirte Hefe
 es: levadura inactiva
 fr: levure inactivée, levure désactivée
@@ -44553,6 +44557,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Noix_de_coco
 en: coconut cream
 bg: кокосов крем
 ca: crema de coco
+cs: kokosový krém
 de: Kokosnusscreme, Kokossahne, Kokoscreme
 es: Crema de coco, nata de coco
 fi: kookoskerma
@@ -52959,21 +52964,29 @@ fi: selleriuute
 nl: selderextract
 
 < en: celery
-# < en:seed
+< en: seed
 en: celery seed
+ca: llavor d'api
+da: sellerifrø
 de: Selleriesamen, Selleriesaat
-es: Semilla de apio
+es: semilla de apio
 fi: sellerinsiemen
 fr: graines de céleri
 hr: sjeme celera
-it: Semi di sedano
+ig: celery seed
+it: semi di sedano
 ja: セロリシード
+nb: sellerifrø
 nl: selderij zaad, selderijzaad
+nn: sellerifrø
 pl: nasiona selera
+ru: семечки сельдерея
+sl: seme zelene
 sv: sellerifrö
 usda_fdc_code:en: 170920
 usda_ndb_code:en: 2007
 usda_ndb_name:en: Spices, celery seed
+wikidata:en: Q102256772
 
 < en: celery
 en: celery powder
@@ -53241,7 +53254,7 @@ usda_ndb_name:en: Chicory roots, raw
 < en: vegetable fiber
 en: chicory fibre, chicory root fiber
 bg: фибри от цикория
-cs: vláknina z kořene čekanky
+cs: vláknina z kořene čekanky, čekanková vláknina
 da: cikoriefibre
 de: Zichorienfäser, Zichorienwurzelfaser, Zichorienwurzelfasern, Ballaststoff aus Zichorienwurzel
 es: fibra de la raíz de achicoria, fibra de achicoria
@@ -54784,6 +54797,7 @@ pl: cebula dymka
 
 < en: onion
 en: onion paster
+cs: cibulová pasta, cibulový protlak
 hr: pasta od luka
 it: condimento alla cipolla
 
@@ -55640,6 +55654,7 @@ pl: pasta czosnkowa
 en: garlic powder
 bs: bijeli luk u prahu
 ca: all en pols
+cs: česnekový prášek
 da: hvidløgspulver
 de: Knoblauchpulver
 el: σκόρδο σκόνη, σκόρδο σε σκόνη
@@ -59093,6 +59108,46 @@ hr: miješana salata
 it: insalata composta
 # usage:fr: Salade composée 88% : Scarole, carotte râpées, maïs (maïs, sucre, sel), emmental 12%, dés de jambon cuit supérieur 12% (jambon de porc 10,9%, sel, sirop de glucose, dextrose, arômes naturels, antioxydant : ascorbate de sodium, conservateur: nitrite de sodium), frisée, chicorée rouge.
 
+< en: plant
+en: thistle
+am: ኮሸሽላ
+ar: شوك
+cv: куршанак
+cy: ysgallen
+da: tidsel
+de: Distel
+eo: kardo
+eu: kardu
+fa: گل خار
+fr: chardon
+ga: feochadán
+gd: cluaran
+gv: onnane
+hu: bogáncs
+hy: տատասկափուշ
+id: rumput duri
+io: kardono
+ja: アザミ
+ko: 엉겅퀴류
+kw: askallen
+lb: Dëschtelen
+mg: roy
+nb: tistel
+nl: distel
+nn: tistel
+oc: cardon
+pl: oset
+ru: репей
+sn: rukato
+sq: gjembaçi
+sv: tistel, tistlar
+tl: dawag
+to: longolongoʻuha
+wa: tcherdon
+zh: 薊草, 薊花
+description:en: Thistle is the popular name of a group of flowering plants characterised by leaves with sharp spikes on the margins, mostly in the family Asteraceae. (Wikipedia)
+wikidata:en: Q538906
+
 # do not make pepper a synonym of bell pepper
 
 < en: fruit vegetable
@@ -62063,6 +62118,7 @@ it: fagioli di Lima baby
 # < en:legume
 < en: pulse
 en: pinto beans
+cs: pinto fazole, fazole pinto
 de: Pinto Bohnen, Pintobohnen
 es: frijol pinto
 fr: Haricots pinto
@@ -62086,6 +62142,7 @@ usda_ndb_process:en: en:dried
 < en: pulse
 en: white beans, navy beans, great northern beans, haricot beans
 bg: бял боб
+cs: bílé fazole, fazole bílé
 da: hvide bønner
 de: weiße Bohnen
 es: Alubias blancas, judia blanca
@@ -62145,6 +62202,7 @@ fr: haricots blancs réhydratés
 < en: pulse
 en: black bean, black beans, black field beans
 bg: черен боб
+cs: černé fazole, fazole černé
 da: sorte bønner
 de: schwarze Bohnen, Bohnen schwarz
 es: Alubias negras
@@ -62265,7 +62323,7 @@ ifct_food_process:en: en:dried
 ###################################################################################################
 
 < en: pulse
-en: mung bean, mungbean, Mung dal, Moong dal, green gram
+en: mung bean, mungbean, green gram
 ar: بقلة الماش
 bg: птичи боб, бебриджа
 bn: মুগ
@@ -62391,6 +62449,14 @@ ciqual_food_name:fr: Haricot mungo germé ou pousse de ""soja"", cru
 wikidata:en: Q7635866
 #135 in 10 @2021-10-28
 
+< en: mung bean
+en: mung dal, moong dal
+description:en: Split mung bean
+
+< en: mung dal
+en: yellow mung dal, yellow moong dal
+description:en: Hulled and split mung bean
+
 ###################################################################################################
 #
 #
@@ -62415,6 +62481,12 @@ usda_fdc_code:en: 174259
 usda_ndb_code:en: 16083
 usda_ndb_name:en: Mungo beans, mature seeds, raw
 usda_ndb_process:en: en:dried
+wikidata:en: Q369447
+wikipedia:en: https://en.wikipedia.org/wiki/Vigna_mungo
+
+< en: black gram
+en: white lentil, Ivory White Lentils
+description:en: Hulled and split black gram. Hulling removes the black skin which gives it a white color.
 
 ###################################################################################################
 #
@@ -63684,7 +63756,7 @@ bg: леща
 bn: মসুর ডাল
 bo: སྲན་ལེབ་ཆུང་ངུ།
 ca: llentilla
-cs: čočka jedlá
+cs: čočka jedlá, čočka
 cv: Ясмăк
 cy: Corbysen corbys
 da: Linser
@@ -63781,7 +63853,6 @@ carbon_footprint_fr_foodges_value:fr: 0.3
 ciqual_proxy_food_code:en: 20504
 ciqual_proxy_food_name:en: Lentil, dried
 ciqual_proxy_food_name:fr: Lentille, sèche
-comment:en: The wikidata entry is more about the plant, so translations can be wrong.
 description:en: Originating in the Fertile Crescent over 8,000 years ago, lentils spread across the Mediterranean, Middle East, South Asia, and beyond, becoming a dietary cornerstone worldwide. Known as "dal" in South Asia, they come in many varieties—red, green, brown, black, yellow—each with subtly different flavor, from mild and sweet to earthy. Quick-cooking and hulling-friendly, lentils are simmered into soups, stews, curries, and purées across cuisines, from Indian dal tadka to French lentille du Puy salads and Middle Eastern mujadara. Nutritionally, they're a powerhouse of plant protein, fiber, iron, and folate, making them a global staple for sustainable, affordable nutrition.
 ecobalyse:en: lentils-uncooked-eu
 ecobalyse_origins_en_france:en: lentils-uncooked-fr
@@ -63791,7 +63862,7 @@ ifct_food_name:en: Lentil, dal
 rare_crop:en: yes
 usda_ndb_proxy_code:en: 16069
 usda_ndb_proxy_name:en: Lentils, raw
-wikidata:en: Q131226
+wikidata:en: Q61505177
 wikipedia:en: https://en.wikipedia.org/wiki/Lentil
 
 < en: lentils
@@ -63799,15 +63870,6 @@ en: raw lentils
 usda_fdc_code:en: 172420
 usda_ndb_code:en: 16069
 usda_ndb_name:en: Lentils, raw
-
-< en: lentils
-en: pardina lentils
-de: Pardina Linsen
-es: lenteja pardina
-fr: lentilles pardina
-hr: pardina leća
-it: lenticchie pardina
-pt: lentilhas pardina
 
 < en: lentils
 < en: pulse
@@ -63846,6 +63908,7 @@ hr: leća žuta
 < en: lentils
 en: green lentils
 bg: зелена леща
+cs: zelená čočka
 de: grüne Linsen, Linsen grün
 es: lentejas verdes
 fi: vihreä linssi, vihreät linssit
@@ -63859,6 +63922,7 @@ pt: lentilhas verde
 sv: gröna linser
 carbon_footprint_fr_foodges_ingredient:fr: Lentilles vertes
 carbon_footprint_fr_foodges_value:fr: 0.3
+wikidata:en: Q67445346
 
 < en: green lentils
 en: organic green lentils
@@ -63878,6 +63942,7 @@ en: Puy lentils
 fr: lentilles vertes du Puy, lentilles vertes du Puy AOP
 hu: Puy lencse
 la: lens culinaris puyensis
+wikidata:en: Q67445428
 
 < en: green lentils
 en: cooked green lentils
@@ -63899,10 +63964,12 @@ fr: lentilles jaunes
 hu: sárga lencse
 ifct_food_code:en: B015
 ifct_food_name:en: Lentil whole, yellowish
+wikidata:en: Q67445315
 
 < en: lentils
 en: red lentils
 bg: червена леща
+cs: červená čočka
 de: Rote Linsen
 es: lentejas rojas
 fi: punainen linssi, punaiset linssit
@@ -63920,6 +63987,7 @@ ciqual_food_name:fr: Lentille corail, sèche
 usda_fdc_code:en: 174284
 usda_ndb_code:en: 16144
 usda_ndb_name:en: Lentils, pink or red, raw
+wikidata:en: Q67445480
 
 # <en:aggregate
 < en: green lentils
@@ -63943,14 +64011,17 @@ fr: lentilles rouges décortiquées
 
 < en: lentils
 en: black lentils
+cs: černá čočka
 fr: lentilles noires
 hr: crna leća
 hu: fekete lencse
 it: lenticchie nere
 pl: soczewica czarna, soczewicy czarnej, czarna soczewica, czarnej soczewicy
+wikidata:en: Q67445270
 
 < fr: lentilles noires
 en: Beluga lentils
+cs: Beluga čočka
 de: Beluga Linsen, Belugalinsen
 fr: lentilles noires Beluga, lentilles Béluga
 hr: beluga leća
@@ -63958,6 +64029,7 @@ hu: beluga lencse
 it: lenticchie beluga
 pl: soczewica Beluga, soczewica czarna Beluga
 # 8@2019-06-06
+wikidata:en: Q21741341
 
 < en: black lentils
 en: black lentil flour
@@ -63968,6 +64040,7 @@ pl: mąka z soczewicy czarnej, mąka z czarnej soczewicy
 
 < en: lentils
 en: brown lentils
+cs: hnědá čočka
 de: braune Linsen
 fr: lentilles brunes
 hr: smeđa leća
@@ -63976,6 +64049,16 @@ it: lenticchie marroni
 pl: soczewica brązowa
 ifct_food_code:en: B014
 ifct_food_name:en: Lentil whole, brown
+
+< en: brown lentils
+en: pardina lentils
+de: Pardina Linsen
+es: lenteja pardina
+fr: lentilles pardina
+hr: pardina leća
+it: lenticchie pardina
+pt: lentilhas pardina
+wikidata:en: Q20921902
 
 < en: red lentils
 en: red lentil flour
@@ -64025,6 +64108,7 @@ it: farina integrale di lenticchie
 
 < en: plant protein
 en: lentil protein
+cs: čočkový protein, čočková bílkovina
 da: linseprotein
 fi: linssiproteiinia
 sv: linsprotein
@@ -65308,6 +65392,13 @@ usda_fdc_code:en: 172430
 usda_ndb_code:en: 16087
 usda_ndb_name:en: Peanuts, all types, raw
 wikidata:en: Q37383
+
+< en: caramelised sugar
+< en: peanut
+en: caramelised peanut
+de: karamellisierte erdnüsse
+fr: cacahuète caramélisée, cacahuètes caramélisées
+it: arachidi caramellate
 
 < en: peanut
 en: spanish peanut
@@ -67821,7 +67912,7 @@ bg: билка, билки
 bs: aromatično bilje
 ca: Herbes, herbes aromàtiques, plantes aromàtiques
 cs: Bylina, byliny
-da: urt, krydderurter
+da: urt, urter, krydderurter
 de: Gewürz, Kräuter
 es: hierba, hierbas, plantas aromáticas, planta aromática, hierbas aromaticas, finas hierbas, mezcla de finas hierbas
 fi: yrtti, yrtit, mausteyrtit
@@ -67879,17 +67970,19 @@ sv: örtextrakt, kryddextrakt, kryddextrakter
 < en: herb
 < en: spice
 en: herbs and spices
-da: Krydderurter og krydderier
+bn: ভেষজ ও মসলা
+da: krydderurter og krydderier, krydderier og urter
 de: Kräuter und Gewürze
 es: hierbas y especias
 fi: yrtit ja mausteet
 fr: épices et plantes aromatique, épice et plante aromatique, épices et plante aromatique, plantes aromatiques et épices, extraits d'épices et d'herbes, herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques, épice et aromate, épices et aromates, épices et aromate, épice et aromates, épices et arômes, aromates et épices
 hr: bilja i začina
-it: Erbe e spezie
+it: erbe e spezie
 nl: kruiden en specerijen
-pl: Zioła i przyprawy, mieszanka ziół i przypraw
-pt: Ervas e especiarias
-sv: Örter och kryddor, kryddor och örtkryddor
+pl: zioła i przyprawy, mieszanka ziół i przypraw
+pt: ervas e especiarias
+sv: örter och kryddor, kryddor och örtkryddor
+wikidata:en: Q115619194
 
 < en: spice
 fr: préparation d'épices
@@ -67946,6 +68039,7 @@ sv: kryddor och kryddextrakt
 < en: spice
 en: mixed spices
 # bg:смес от подправки is already in condiments
+cs: směs koření
 da: krydderimix
 de: gemischte Gewürze, gewürzmischung
 es: Mezcla de especias, preparado aromatico de especias
@@ -68265,7 +68359,7 @@ af: brandrissie
 ar: فليفلة حريفة
 bg: кайенски пипер
 ca: pebre de caiena
-cs: kajenský pepř
+cs: kajenský pepř, cayenský pepř
 da: cayennepeber
 de: cayennepfeffer, Cayenne-pfeffer
 el: πιπέρι καγιέν, καγιέν
@@ -68661,6 +68755,7 @@ usda_ndb_name:en: Spices, turmeric, ground
 
 < en: spice
 en: nutmeg
+cs: muškát
 da: muskat
 de: Muskat
 dv: ތަކޫވައް
@@ -69929,7 +70024,7 @@ hr: zrno žute gorušice
 it: chicchi di senape gialla
 nl: geel mosterdzaad, gele mosterdzaden
 pl: gorczyca biała, gorczycy białej, gorczyca żółta, gorczycy żółtej
-sv: gult senapsfrö
+sv: gult senapsfrö, gula senapsfrön
 
 < en: mustard
 en: brown mustard
@@ -69945,7 +70040,7 @@ fr: Graines de moutarde brune
 hr: smeđe sjeme gorušice
 it: semi di senape bruna
 nl: bruin mosterdzaad
-sv: brunt senapsfrö
+sv: brunt senapsfrö, bruna senapsfrön
 
 < en: mustard seed
 en: black mustard seed
@@ -69955,10 +70050,9 @@ hr: sjeme crne gorušice
 it: semi di senape nera
 nl: zwart mosterdzaad
 pl: gorczyca czarna
-#93 @2021-09-09
 
+#< en: aggregate
 < en: brown mustard seed
-# <en:aggregate
 < en: yellow mustard seed
 en: yellow and brown mustard seeds
 de: gelbe und braune Senfkörner, gelbe und braune Senfsamen, gelbe und braune Senfsaat
@@ -69966,7 +70060,7 @@ fi: keltaiset ja ruskeat sinapinsiemenet
 fr: graines de moutarde jaune et brune
 hr: žute i smeđe sjemenke gorušice
 it: semi di senape gialla e marrone
-sv: gult och brunt senapsfrö
+sv: gult och brunt senapsfrö, gula och bruna senapsfrön, senapsfrön (gula och bruna)
 
 #processing:en: en:powder
 < en: mustard seed
@@ -90391,6 +90485,7 @@ ciqual_food_name:fr: Oeuf, poché
 < en: egg
 en: chicken egg
 bg: кокоши яйца
+cs: slepičí vejce
 de: Hühnerei, Hühnereier, Hühnervollei
 es: Huevo de gallina
 fi: kananmuna, kananmunaa, kanamunaa
@@ -97134,6 +97229,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Soy_sauce
 
 < en: soy sauce
 en: light soy sauce
+cs: světlá sojová omáčka
 de: helle Sojasauce
 hr: svijetli soja umak
 it: salsa di soia chiara
