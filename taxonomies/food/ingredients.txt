@@ -23242,8 +23242,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Liquid_smoke
 
 < en: flavouring
 en: vegetable flavouring
+da: grøntsagsaroma, grønsagsaroma
 hr: aroma povrća
 it: aroma vegetale
+
+< en: natural flavouring
+< en: vegetable flavouring
+en: natural vegetable flavouring
+da: naturlig grøntsagsaroma
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -49937,7 +49943,7 @@ en: vegetable, vegetables
 bg: зеленчук, зеленчуци
 ca: Vegetals, Verdures
 cs: Zelenina
-da: grøntsag, grøntsager, grønsag, grønsager
+da: grøntsag, grøntsager, grøntsags, grønsag, grønsager, grønsags
 de: Gemüse
 el: λαχανικό, λαχανικά
 es: verduras, hortaliza, hortalizas, vegetal, vegetales
@@ -71534,19 +71540,23 @@ nl: braamblad, braambladeren
 
 < en: taproot vegetable
 en: parsley root
-de: Petersilienwurzel
+cs: kořenová petržel
+da: persillerod
+de: Petersilienwurzel, Wurzelpetersilie
+eo: radikpetroselo
 es: raices de peregril
 fr: racine de persil
 hr: korijen peršina
 it: radice di prezzemolo
-la: Petroselinum crispum var. tuberosum
-nl: peterseliewortel
+la: Petroselinum crispum subsp. tuberosum, Petroselinum crispum var. tuberosum
+nb: persillerot
+nl: peterseliewortel, wortelpeterselie
 pl: korzeń pietruszki, pietruszka korzeń
+ru: петрушка корневая
 sl: jeva korenina
 sr: koren peršuna
-# 113 @2021-09-16
 eurocode_2_group_3:en: 8.38.60
-wikidata:en: Q68220931
+wikidata:en: Q2595442
 
 ###################################################################################################
 #
@@ -92728,8 +92738,6 @@ zh: 意大利粉
 wikidata:en: Q20026
 wikipedia:en: https://en.wikipedia.org/wiki/Spaghetti
 
-# description:en:LASAGNE are a type of wide, flat pasta, possibly one of the oldest types of pasta.
-
 < en: pasta
 en: lasagne, lasagna, lasagna pasta, lasagne sheets
 af: lasagne
@@ -92741,7 +92749,7 @@ br: lasagne al forno
 ca: lasanya
 cs: lasagne
 cy: lasagna
-da: lasagne
+da: lasagne, lasagneplader
 de: lasagne, lasagneblätter
 eo: lasanjoj
 es: lasaña
@@ -92787,6 +92795,7 @@ zh: 千層麵
 # sco:lasagne
 # tyv:лазанья
 # zh_yue:千層麪
+description:en: LASAGNE are a type of wide, flat pasta, possibly one of the oldest types of pasta.
 wikidata:en: Q20034
 wikipedia:en: https://en.wikipedia.org/wiki/Lasagne
 
