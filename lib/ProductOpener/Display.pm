@@ -5326,8 +5326,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"ecoscore_data.environmental_score_not_applicable_for_category" => 1,
 			"ecoscore_grade" => 1,
 			"ecoscore_score" => 1,
-			"forest_footprint_data.grade" => 1,
-			"forest_footprint_data.footprint_per_kg" => 1,
+			"forest_footprint_2026.grade" => 1,
+			"forest_footprint_2026.footprint_per_kg" => 1,
 			"ingredients_analysis_tags" => 1,
 			"ingredients_n" => 1,
 			"labels_tags" => 1,
@@ -6042,7 +6042,7 @@ sub get_search_field_path_components ($field) {
 	}
 	# forest footprint
 	elsif ($field eq "forest_footprint") {
-		@fields = ('forest_footprint_data', 'footprint_per_kg');
+		@fields = ('forest_footprint_2026', 'footprint_per_kg');
 	}
 	# we assume other fields are nutrients ids
 	else {

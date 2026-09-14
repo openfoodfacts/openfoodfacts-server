@@ -6,8 +6,8 @@
     "expanded": false,
     "title_element": {
 "name": "[% edq(lang('forest_footprint_2026')) %]",
-      "title": "[% edq(lang('forest_footprint_2026')) %] - [% product.forest_footprint_2026.grade.ucfirst %]",
-      "subtitle": "[% edq(lang('forest_footprint_2026_under_development')) %]",
+        "title": "[% edq(lang('forest_footprint_2026')) %] - [% product.forest_footprint_2026.grade.ucfirst %]",
+        "subtitle": "[% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description_short")) %]",        
         "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-[% product.forest_footprint_2026.grade %].svg",
         "type": "grade",
         "grade": "[% product.forest_footprint_2026.grade %]"
@@ -19,7 +19,7 @@
                 "type": "summary",
                 "html": `
                 <p><strong>[% lang('forest_footprint_2026') %]</strong></p>
-                <p>[% lang('forest_footprint_2026_under_development') %]</p>
+                <p>[% lang('forest_footprint_2026_description') %]</p>
                 <p><strong>[% lang('forest_footprint_2026_overall_grade') %][% sep %]:</strong> [% product.forest_footprint_2026.grade.ucfirst %]</p>
                 <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> [% product.forest_footprint_2026.total_footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
                 `
@@ -118,7 +118,97 @@
                     [% END %]
                 ]
             }
-        }[% UNLESS loop.last %],[% END %]
+        },
+        [% END %]
+        [% END %]
+        [% FOREACH primary_id IN ['en:chicken-and-eggs'] %]
+        [% IF product.forest_footprint_2026.primary_ingredients.${primary_id}.ingredients.defined && product.forest_footprint_2026.primary_ingredients.${primary_id}.ingredients.size %]
+        [% SET primary = product.forest_footprint_2026.primary_ingredients.${primary_id} %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                <h3>[% edq(lang("ingredients_requiring_soy")) %]</h3>
+                <p>[% edq(lang("forest_footprint_one_line_explanation")) %]</p>
+                <p><strong>[% lang('forest_footprint_2026_primary_ingredient_grade') %][% sep %]:</strong> [% primary.grade.ucfirst %]</p>
+                <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
+                `
+            }
+        },     
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "forest_footprint_2026_[% primary_id %]_table",
+                "title": "[% display_taxonomy_tag("ingredients", primary_id) %]",
+                "columns": [
+                    {
+                        "text": "[% edq(lang('ingredients_s')) | ucfirst %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("type")) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("percent_in_product")) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("processing_factor")) %]<br><span style=\"font-weight:normal\">([% edq(lang("percent_of_food_after_processing")) %])</span>",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("soy_feed_factor")) %]<br><span style=\"font-weight:normal\">([% edq(lang("kg_of_soy_per_kg_of_food")) %])</span>",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("soy_yield")) %]<br><span style=\"font-weight:normal\">([% edq(lang("kg_of_soy_per_square_meter")) %])</span>",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("deforestation_risk")) %]<br><span style=\"font-weight:normal\">(%)</span>",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("forest_footprint")) %]<br><span style=\"font-weight:normal\">([% edq(lang("square_meters_per_kg_of_food")) %])</span>",
+                        "type": "text"
+                    }
+                ],
+                "rows": [
+                    [% FOREACH ingredient IN primary.ingredients %]
+                    {
+                        "values": [
+                            {
+                                "text": "[% display_taxonomy_tag(ingredient.tag_type, ingredient.tag_id) %]"
+                            },
+                            {
+                                "text": "[% ingredient.type.name %]"
+                            },
+                            {
+                                "text": "[% ingredient.percent FILTER format("%.2f"); %] %"
+                            },
+                            {
+                                "text": "[% ingredient.processing_factor * 100 FILTER format("%d"); %] %"
+                            },
+                            {
+                                "text": "[% ingredient.type.soy_feed_factor %]"
+                            },
+                            {
+                                "text": "[% ingredient.type.soy_yield %]"
+                            },
+                            {
+                                "text": "[% ingredient.type.deforestation_risk * 100 FILTER format("%d"); %] %"
+                            },
+                            {
+                                "text": "[% ingredient.footprint_per_kg FILTER format("%.2f"); %]"
+                            }
+                        ]
+                    }[% UNLESS loop.last %],[% END %]
+                    [% END %]
+                ]
+            }
+        }
         [% END %]
         [% END %]
     ]

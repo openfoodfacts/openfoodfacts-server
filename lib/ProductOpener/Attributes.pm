@@ -311,7 +311,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 	}
 	elsif ($attribute_id eq "forest_footprint") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-a.svg";
-		$attribute_ref->{panel_id} = "forest_footprint";
+		$attribute_ref->{panel_id} = "forest_footprint_2026";
 	}
 	elsif ($attribute_id eq "nova") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nova-group-1.svg";
@@ -813,42 +813,44 @@ The return value is a reference to the resulting attribute data structure.
 
 =head4 % Match
 
-The match is based on the forest footprint
-that is used to define the forest footprint grade from A to E.
+The match is based on the forest footprint 2026 grade:
+- Forest footprint grade A: match = 100
+- Forest footprint grade B: match = 66
+- Forest footprint grade C: match = 33
+- Forest footprint grade D: match = 0
+- Forest footprint grade E: match = 0
+- Forest footprint not computed: match = 0
 
-- Forest footprint A: < 0.5 m² / kg of food
-- Forest footprint B: < 1 m² / kg of food
-- Forest footprint C: < 1.5 m² / kg of food
-- Forest footprint D: < 2 m² / kg of food
-- Forest footprint E: >= 2 m² / kg of food
-
-If the forest footprint is not computed, we mark it as non-computed and make the match 100%.
+If the forest footprint is not computed, we mark it as not computed.
 
 =cut
 
 sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 
 	$log->debug("compute forest footprint attribute",
-		{code => $product_ref->{code}, forest_footprint_data => $product_ref->{forest_footprint_data}})
+		{code => $product_ref->{code}, forest_footprint_2026 => $product_ref->{forest_footprint_2026}})
 		if $log->is_debug();
 
 	my $attribute_id = "forest_footprint";
 
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 
-	if ((defined $product_ref->{forest_footprint_data}) and (defined $product_ref->{forest_footprint_data}{grade})) {
+	my %grade_match = (
+		'a' => 100,
+		'b' => 66,
+		'c' => 33,
+		'd' => 0,
+		'e' => 0,
+	);
+
+	if ((defined $product_ref->{forest_footprint_2026}) and (defined $product_ref->{forest_footprint_2026}{grade})) {
 
 		$attribute_ref->{status} = "known";
 
-		my $grade = $product_ref->{forest_footprint_data}{grade};
+		my $grade = $product_ref->{forest_footprint_2026}{grade};
 
-		# Compute match based on forest footprint
-
-		my $match = 100 - ($product_ref->{forest_footprint_data}{footprint_per_kg} / 2.5) * 100;
-
-		if ($match < 0) {
-			$match = 0;
-		}
+		# Compute match based on the overall grade
+		my $match = $grade_match{$grade} // 0;
 
 		$attribute_ref->{match} = $match;
 

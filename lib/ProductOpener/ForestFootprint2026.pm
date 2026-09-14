@@ -67,6 +67,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Numbers qw/convert_string_to_number/;
+use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
 
 use Text::CSV();
 use Data::DeepAccess qw(deep_get);
@@ -84,10 +85,15 @@ my @primary_ingredients = qw(
 	en:cocoa
 	en:coffee
 	en:palm-oil
+	en:chicken-and-eggs
 );
 
 # Thresholds for each primary ingredient (EF values for grades B, C, D)
 # (grade A is only if value is 0)
+# For chicken-and-eggs, thresholds are based on the old FF1 thresholds:
+#   A = 0, B < 0.5, C < 1.0, D < 1.5, E >= 2.0
+# But _get_grade_for_footprint only supports A-D, and chicken/egg grade is
+# taken directly from the old FF computation (A-E).
 my %grade_thresholds = (
 	'en:cocoa' => {
 		b => 0.065,
@@ -100,6 +106,11 @@ my %grade_thresholds = (
 	'en:palm-oil' => {
 		b => 0.003,
 		c => 0.010,
+	},
+	'en:chicken-and-eggs' => {
+		b => 0.5,
+		c => 1.0,
+		d => 1.5,
 	},
 );
 
@@ -359,8 +370,10 @@ sub compute_forest_footprint_2026 ($product_ref) {
 	# Initialize primary_ingredients structure directly
 	$product_ref->{forest_footprint_2026} = {primary_ingredients => {}};
 
-	# Initialize each primary ingredient
+	# Initialize each primary ingredient (except chicken-and-eggs,
+	# which is computed via the old FF module and populated separately)
 	foreach my $primary_ingredient_id (@primary_ingredients) {
+		next if $primary_ingredient_id eq 'en:chicken-and-eggs';
 		$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id} = {
 			# this will accumulate a small structure for each (sub) ingredient found
 			# linked with this primary_ingredient
@@ -374,9 +387,10 @@ sub compute_forest_footprint_2026 ($product_ref) {
 		compute_footprints_of_ingredients_2026($product_ref, $product_ref->{ingredients});
 	}
 
-	# Calculate total footprint and grades
+	# Calculate total footprint and grades for non-chicken-and-eggs primary ingredients
 	my $has_ingredients = 0;
 	foreach my $primary_ingredient_id (@primary_ingredients) {
+		next if $primary_ingredient_id eq 'en:chicken-and-eggs';
 		my $primary_data = $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id};
 		if (scalar @{$primary_data->{ingredients}} > 0) {
 			$has_ingredients = 1;
@@ -395,8 +409,25 @@ sub compute_forest_footprint_2026 ($product_ref) {
 		}
 	}
 
+	# Compute chicken and eggs using the old ForestFootprint module (unchanged logic)
+	# and copy the data into the forest_footprint_2026 structure
+	compute_forest_footprint($product_ref);
+
+	if (defined $product_ref->{forest_footprint_data}) {
+		# Copy chicken/egg data into the FF2026 structure
+		# Using the FF1 data format (with 'type', 'conditions_tags', etc.)
+		# as requested: "The data has a different format compared to the new
+		# primary ingredient, it is fine, keep the same format."
+		$product_ref->{forest_footprint_2026}{primary_ingredients}{'en:chicken-and-eggs'} = {
+			ingredients => $product_ref->{forest_footprint_data}{ingredients} // [],
+			footprint_per_kg => $product_ref->{forest_footprint_data}{footprint_per_kg} // 0,
+			grade => $product_ref->{forest_footprint_data}{grade},
+		};
+		$has_ingredients = 1;
+	}
+
 	if ($has_ingredients) {
-		# Calculate overall total footprint
+		# Calculate total footprint
 		$product_ref->{forest_footprint_2026}{total_footprint_per_kg} = 0;
 		foreach my $primary_ingredient_id (keys %{$product_ref->{forest_footprint_2026}{primary_ingredients}}) {
 			$product_ref->{forest_footprint_2026}{total_footprint_per_kg}
