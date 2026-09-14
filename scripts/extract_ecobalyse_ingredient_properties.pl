@@ -24,9 +24,17 @@
 # of properties to add to the ingredients taxonomy (ingredients.txt).
 #
 # Property naming convention:
-# - UUID properties: ecobalyse_id:en (default), ecobalyse_id_labels_en_organic:en, etc.
-# - Global scalar properties: ecobalyse_density_g_per_ml:en, ecobalyse_crop_group:en, etc.
-# - Variant-specific scalar properties: ecobalyse_id_name:fr, ecobalyse_id_labels_en_organic_name:fr, etc.
+# - Global properties: ecobalyse_<field>:en (exact match) or ecobalyse_proxy_<field>:en (fallback)
+# - Variant-specific properties: <prefix>_<variant>_<field>:en
+#   where prefix = ecobalyse (exact match) or ecobalyse_proxy (fallback)
+#   variant = one of:
+#     _labels_en_organic_origins_en_france (organic + French)
+#     _labels_en_organic_origins_en_european_union (organic + EU)
+#     _labels_en_organic (organic)
+#     _origins_en_france (French origin)
+#     _origins_en_european_union (EU origin)
+#     (empty for default)
+#   field = id:en, name:fr, alias:en, default_origin:en, scenario:en
 #
 # Default entry selection uses defaultOrigin priority:
 #   OutOfEuropeAndMaghrebByPlane -> OutOfEuropeAndMaghreb -> France -> EuropeAndMaghreb -> FranceOutreMer
@@ -120,16 +128,15 @@ eval {
 };
 say STDERR "  Taxonomy cache: " . ($use_taxonomy_cache ? "available" : "not available (using pre-built mapping)") if $use_taxonomy_cache;
 
-# UUID properties in internal format (no trailing colon)
-my @uuid_props_list = (
+# Existing UUID property names in taxonomy (without trailing colon)
+my @existing_uuid_props = (
     'ecobalyse_id:en',
-    'ecobalyse_id_labels_en_organic:en',
-    'ecobalyse_id_origins_en_france:en',
-    'ecobalyse_id_origins_en_european_union:en',
-    'ecobalyse_id_labels_en_organic_origins_en_france:en',
-    'ecobalyse_id_labels_en_organic_origins_en_european_union:en',
-    'ecobalyse_id_proxy:en',
-    'ecobalyse_id_proxy_labels_en_organic:en',
+    'ecobalyse_labels_en_organic_id:en',
+    'ecobalyse_origins_en_france_id:en',
+    'ecobalyse_origins_en_european_union_id:en',
+    'ecobalyse_labels_en_organic_origins_en_france_id:en',
+    'ecobalyse_proxy_id:en',
+    'ecobalyse_proxy_labels_en_organic_id:en',
 );
 
 # DefaultOrigin priority ranking (lower = higher priority)
@@ -143,7 +150,6 @@ my %default_origin_priority = (
 
 my %matched_tagids;     # baseIngredient -> canonical_tagid
 my %seen_tagids;        # canonical_tagid -> 1 (skip if already processed)
-my %existing_uuids;     # canonical_tagid -> {prefix => value}
 my @output_rows;
 my @warnings;
 my $alias_upgrades = 0;
@@ -158,7 +164,7 @@ BASE: for my $base (sort keys %base_to_entries) {
     next if $seen_tagids{$canonical_id}++;
 
     my %uuid_props;
-    for my $prop (@uuid_props_list) {
+    for my $prop (@existing_uuid_props) {
         my $val = get_property("ingredients", $canonical_id, $prop);
         if (defined $val) {
             $uuid_props{$prop} = $val;
@@ -167,15 +173,17 @@ BASE: for my $base (sort keys %base_to_entries) {
 
     my $has_ecobalyse = 0;
 
+    # Process existing UUID properties - upgrade aliases to UUIDs and emit variant-specific props
     for my $prop (sort keys %uuid_props) {
         my $val = $uuid_props{$prop};
         next unless defined $val;
 
-        # Determine prefix for variant-specific properties
+        # Determine prefix for variant-specific properties from existing property name
         my $prefix = $prop;
-        $prefix =~ s/:en$//;  # e.g. "ecobalyse_id", "ecobalyse_id_labels_en_organic", etc.
+        $prefix =~ s/_id:en$//;  # e.g. "ecobalyse", "ecobalyse_labels_en_organic", etc.
 
         my $entry;
+        my $is_proxy = ($prefix =~ /^ecobalyse_proxy/);
         if ($val =~ /^[0-9a-f-]{36}$/ && exists $id_to_entry{$val}) {
             $entry = $id_to_entry{$val};
             $has_ecobalyse = 1;
@@ -184,7 +192,10 @@ BASE: for my $base (sort keys %base_to_entries) {
             $entry = $alias_to_entry{$val};
             $has_ecobalyse = 1;
             # Emit UUID upgrade
-            push @output_rows, [$canonical_id, $prop, $entry->{id}];
+            my $new_prop = $prop;
+            $new_prop =~ s/^ecobalyse_proxy/ecobalyse_proxy/;  # keep proxy prefix
+            $new_prop =~ s/^ecobalyse/ecobalyse/;  # keep ecobalyse prefix
+            push @output_rows, [$canonical_id, $new_prop, $entry->{id}];
             $alias_upgrades++;
         }
         else {
@@ -192,31 +203,46 @@ BASE: for my $base (sort keys %base_to_entries) {
             next;
         }
 
-        # Emit variant-specific properties
-        emit_variant_props($canonical_id, $prefix, $entry);
+# Emit variant-specific properties
+    emit_variant_props($canonical_id, $prefix, $entry, $is_proxy, 0);  # don't re-emit id for existing variants
     }
 
-    # Emit global properties from the default entry
-    my $default_entry;
+    # Determine default entry and whether it's a proxy
+    my ($default_entry, $default_is_proxy);
     if (exists $uuid_props{'ecobalyse_id:en'}) {
         my $val = $uuid_props{'ecobalyse_id:en'};
         if ($val =~ /^[0-9a-f-]{36}$/ && exists $id_to_entry{$val}) {
             $default_entry = $id_to_entry{$val};
+            $default_is_proxy = 0;
         }
         elsif (exists $alias_to_entry{$val}) {
             $default_entry = $alias_to_entry{$val};
+            $default_is_proxy = 0;
+        }
+    }
+    elsif (exists $uuid_props{'ecobalyse_proxy_id:en'}) {
+        my $val = $uuid_props{'ecobalyse_proxy_id:en'};
+        if ($val =~ /^[0-9a-f-]{36}$/ && exists $id_to_entry{$val}) {
+            $default_entry = $id_to_entry{$val};
+            $default_is_proxy = 1;
+        }
+        elsif (exists $alias_to_entry{$val}) {
+            $default_entry = $alias_to_entry{$val};
+            $default_is_proxy = 1;
         }
     }
 
     if (defined $default_entry) {
-        emit_global_props($canonical_id, $default_entry);
+        emit_global_props($canonical_id, $default_entry, $default_is_proxy);
     }
     elsif (scalar(keys %uuid_props) == 0) {
         # No ecobalyse properties exist at all — select a default entry by defaultOrigin priority
         $default_entry = select_default_entry($base_to_entries{$base});
         if (defined $default_entry) {
-            push @output_rows, [$canonical_id, 'ecobalyse_id:en', $default_entry->{id}];
-            emit_global_props($canonical_id, $default_entry);
+            # Determine if this is a proxy based on defaultOrigin
+            my $is_proxy = is_proxy_entry($default_entry);
+            push @output_rows, [$canonical_id, $is_proxy ? 'ecobalyse_proxy_id:en' : 'ecobalyse_id:en', $default_entry->{id}];
+            emit_global_props($canonical_id, $default_entry, $is_proxy);
 
             # Emit variant-specific properties for other visible variants
             emit_new_variants($canonical_id, $base_to_entries{$base}, $default_entry);
@@ -277,69 +303,119 @@ sub resolve_tagid {
 }
 
 sub emit_global_props {
-    my ($tagid, $entry) = @_;
+    my ($tagid, $entry, $is_proxy) = @_;
+    my $prefix = $is_proxy ? 'ecobalyse_proxy' : 'ecobalyse';
 
     if (defined $entry->{density}) {
-        push @output_rows, [$tagid, 'ecobalyse_density_g_per_ml:en', $entry->{density}];
+        push @output_rows, [$tagid, "${prefix}_density_g_per_ml:en", $entry->{density}];
         $global_props++;
     }
     if (defined $entry->{cropGroup}) {
-        push @output_rows, [$tagid, 'ecobalyse_crop_group:en', $entry->{cropGroup}];
+        push @output_rows, [$tagid, "${prefix}_crop_group:en", $entry->{cropGroup}];
         $global_props++;
     }
     if (defined $entry->{categories} && ref($entry->{categories}) eq 'ARRAY' && @{$entry->{categories}}) {
-        push @output_rows, [$tagid, 'ecobalyse_category:en', $entry->{categories}[0]];
+        push @output_rows, [$tagid, "${prefix}_category:en", $entry->{categories}[0]];
         $global_props++;
     }
     if (defined $entry->{rawToCookedRatio}) {
-        push @output_rows, [$tagid, 'ecobalyse_raw_to_cooked_ratio:en', $entry->{rawToCookedRatio}];
+        push @output_rows, [$tagid, "${prefix}_raw_to_cooked_ratio:en", $entry->{rawToCookedRatio}];
         $global_props++;
     }
     if (defined $entry->{inediblePart}) {
-        push @output_rows, [$tagid, 'ecobalyse_inedible_part:en', $entry->{inediblePart}];
+        push @output_rows, [$tagid, "${prefix}_inedible_part:en", $entry->{inediblePart}];
         $global_props++;
     }
     if (defined $entry->{transportCooling}) {
-        push @output_rows, [$tagid, 'ecobalyse_transport_cooling:en', $entry->{transportCooling}];
+        push @output_rows, [$tagid, "${prefix}_transport_cooling:en", $entry->{transportCooling}];
         $global_props++;
     }
 }
 
 sub emit_variant_props {
-    my ($tagid, $prefix, $entry) = @_;
+    my ($tagid, $prefix, $entry, $is_proxy, $emit_id) = @_;
+    $emit_id //= 1;  # default to true for new variants
 
+    # prefix already includes ecobalyse or ecobalyse_proxy
+    my $use_prefix = $is_proxy ? $prefix : $prefix;
+    # If prefix is just "ecobalyse" or "ecobalyse_proxy", that's the base prefix for default variant
+    # For variants, prefix already has the variant suffix (e.g., ecobalyse_labels_en_organic)
+
+    # Emit the UUID (id) for this variant (only for new variants not already in taxonomy)
+    if ($emit_id) {
+        push @output_rows, [$tagid, "${use_prefix}_id:en", $entry->{id}];
+        $variant_props++;
+    }
     if (defined $entry->{scenario}) {
-        push @output_rows, [$tagid, $prefix . '_scenario:en', $entry->{scenario}];
+        push @output_rows, [$tagid, "${use_prefix}_scenario:en", $entry->{scenario}];
         $variant_props++;
     }
     if (defined $entry->{name}) {
-        push @output_rows, [$tagid, $prefix . '_name:fr', $entry->{name}];
+        push @output_rows, [$tagid, "${use_prefix}_name:fr", $entry->{name}];
         $variant_props++;
     }
     if (defined $entry->{alias}) {
-        push @output_rows, [$tagid, $prefix . '_alias:en', $entry->{alias}];
+        push @output_rows, [$tagid, "${use_prefix}_alias:en", $entry->{alias}];
         $variant_props++;
     }
     if (defined $entry->{defaultOrigin}) {
-        push @output_rows, [$tagid, $prefix . '_default_origin:en', $entry->{defaultOrigin}];
+        push @output_rows, [$tagid, "${use_prefix}_default_origin:en", $entry->{defaultOrigin}];
         $variant_props++;
     }
 }
 
 sub emit_new_variants {
     my ($tagid, $entries_ref, $default_entry) = @_;
-    my %seen_prefixes;
+    my %seen_variant_keys;
 
     for my $entry (sort { ($a->{scenario} // '') cmp ($b->{scenario} // '') } @$entries_ref) {
         next unless ($entry->{visible} // 1);
         next if $entry->{id} eq $default_entry->{id};
 
-        my $prefix = get_ecobalyse_prefix($entry);
-        next if $prefix eq 'ecobalyse_id';
-        next if $seen_prefixes{$prefix}++;
+        my $variant_key = get_variant_key($entry);
+        next if $seen_variant_keys{$variant_key}++;
+        next if $variant_key eq '';  # skip default variant
 
-        emit_variant_props($tagid, $prefix, $entry);
+        my $is_proxy = is_proxy_entry($entry);
+        my $prefix = $is_proxy ? 'ecobalyse_proxy' : 'ecobalyse';
+        $prefix .= $variant_key;
+
+        emit_variant_props($tagid, $prefix, $entry, $is_proxy);
     }
+}
+
+sub get_variant_key {
+    my ($entry) = @_;
+    my $scenario = $entry->{scenario} // 'unknown';
+    my $default_origin = $entry->{defaultOrigin} // 'unknown';
+
+    my $suffix = '';
+
+    # Organic scenario adds _labels_en_organic
+    if ($scenario eq 'organic') {
+        $suffix .= '_labels_en_organic';
+    }
+
+    # defaultOrigin determines the origin prefix component
+    if ($default_origin eq 'France') {
+        $suffix .= '_origins_en_france';
+    }
+    elsif ($default_origin eq 'EuropeAndMaghreb') {
+        $suffix .= '_origins_en_european_union';
+    }
+
+    # defaultOrigin=OutOfEuropeAndMaghreb or OutOfEuropeAndMaghrebByPlane or FranceOutreMer
+    # do NOT add an origin suffix — they use the bare or organic-only suffix
+
+    return $suffix;
+}
+
+sub is_proxy_entry {
+    my ($entry) = @_;
+    my $default_origin = $entry->{defaultOrigin} // '';
+    # Proxy entries are those with defaultOrigin = OutOfEuropeAndMaghreb or OutOfEuropeAndMaghrebByPlane
+    # These are "import" variants used as fallback
+    return ($default_origin eq 'OutOfEuropeAndMaghreb' || $default_origin eq 'OutOfEuropeAndMaghrebByPlane');
 }
 
 sub select_default_entry {
@@ -358,30 +434,4 @@ sub select_default_entry {
         return $e if ($e->{visible} // 1);
     }
     return undef;
-}
-
-sub get_ecobalyse_prefix {
-    my ($entry) = @_;
-    my $scenario = $entry->{scenario} // 'unknown';
-    my $default_origin = $entry->{defaultOrigin} // 'unknown';
-
-    my $prefix = 'ecobalyse_id';
-
-    # Organic scenario adds _labels_en_organic
-    if ($scenario eq 'organic') {
-        $prefix .= '_labels_en_organic';
-    }
-
-    # defaultOrigin determines the origin prefix component
-    if ($default_origin eq 'France') {
-        $prefix .= '_origins_en_france';
-    }
-    elsif ($default_origin eq 'EuropeAndMaghreb') {
-        $prefix .= '_origins_en_european_union';
-    }
-
-    # defaultOrigin=OutOfEuropeAndMaghreb or OutOfEuropeAndMaghrebByPlane or FranceOutreMer
-    # do NOT add an origin prefix — they use the bare or organic-only prefix
-
-    return $prefix;
 }
