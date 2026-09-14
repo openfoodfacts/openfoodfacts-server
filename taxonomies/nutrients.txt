@@ -10,6 +10,8 @@
 # See also: https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts
 # DV (Daily Value) for minerals and vitamins in the US: https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
 
+# English synonyms include the names used in the columns of the French CIQUAL table (e.g. "FA 4:0")
+
 stopwords:en: including, of, which
 stopwords:fr: dont
 stopwords:hr: od kojih
@@ -245,8 +247,8 @@ unit_ca:en: kcal
 unit_us:en: kcal
 
 zz: fat
-xx: Fat, Total fat, Lipids, fats
-en: Fat, Total fat, Lipids, fats
+xx: Fat, Total fat, Lipids, fats, fatty acids, FA
+en: Fat, Total fat, Lipids, fats, fatty acids, FA
 af: Vet
 ak: sradeɛ
 an: Graixa
@@ -334,8 +336,8 @@ wikidata:en: Q127980
 wikipedia:en: https://en.wikipedia.org/wiki/Fat
 
 zz: saturated-fat
-xx: Saturated fat, Saturated fatty acids
-en: Saturated fat, Saturated fatty acids, saturated
+xx: Saturated fat, Saturated fatty acids, saturated, FA saturated
+en: Saturated fat, Saturated fatty acids, saturated, FA saturated
 ar: دهن مشبع
 bg: Наситени мастни киселини
 ca: àcid gras saturat
@@ -396,8 +398,8 @@ wikidata:en: Q970537
 wikipedia:en: https://en.wikipedia.org/wiki/Saturated_fat
 
 zz: butyric-acid
-xx: Butyric acid
-en: Butyric acid
+xx: Butyric acid, FA 4:0
+en: Butyric acid, FA 4:0
 af: Bottersuur
 ar: الزبدة
 bg: Маслена киселина
@@ -455,8 +457,8 @@ wikidata:en: Q193213
 wikipedia:en: https://en.wikipedia.org/wiki/Butyric_acid
 
 zz: caproic-acid
-xx: Caproic acid, Hexanoic acid
-en: Caproic acid, Hexanoic acid
+xx: Caproic acid, Hexanoic acid, FA 6:0
+en: Caproic acid, Hexanoic acid, FA 6:0
 ar: حمض الهكسانويك
 az: Kapron turşusu
 bg: Капронова киселина
@@ -500,8 +502,8 @@ wikidata:en: Q422597
 wikipedia:en: https://en.wikipedia.org/wiki/Hexanoic_acid
 
 zz: caprylic-acid
-xx: Caprylic acid
-en: Caprylic acid
+xx: Caprylic acid, FA 8:0
+en: Caprylic acid, FA 8:0
 ar: حمض الأوكتانويك
 bg: Каприлова киселина
 ca: àcid caprílic
@@ -540,8 +542,8 @@ wikidata:en: Q409564
 wikipedia:en: https://en.wikipedia.org/wiki/Caprylic_acid
 
 zz: capric-acid
-xx: Capric acid
-en: Capric acid
+xx: Capric acid, FA 10:0
+en: Capric acid, FA 10:0
 ar: حمض الديكانويك
 bg: Капринова киселина
 ca: àcid càpric
@@ -583,8 +585,8 @@ wikidata:en: Q422613
 wikipedia:en: https://en.wikipedia.org/wiki/Decanoic_acid
 
 zz: lauric-acid
-xx: Lauric acid
-en: Lauric acid
+xx: Lauric acid, FA 12:0
+en: Lauric acid, FA 12:0
 ar: حمض الغار
 bg: Лауринова киселина
 ca: àcid làuric
@@ -632,8 +634,8 @@ wikidata:en: Q422627
 wikipedia:en: https://en.wikipedia.org/wiki/Lauric_acid
 
 zz: myristic-acid
-xx: Myristic acid
-en: Myristic acid
+xx: Myristic acid, FA 14:0
+en: Myristic acid, FA 14:0
 ar: حمض الميريستيك
 bg: Миристинова киселина
 bs: Miristinska kiselina
@@ -679,8 +681,8 @@ wikidata:en: Q422658
 wikipedia:en: https://en.wikipedia.org/wiki/Myristic_acid
 
 zz: palmitic-acid
-xx: Palmitic acid
-en: Palmitic acid
+xx: Palmitic acid, FA 16:0
+en: Palmitic acid, FA 16:0
 ar: حمض النخيل
 be: Пальміцінавая кіслата
 bg: Палмитинова киселина
@@ -769,8 +771,8 @@ wikidata:en: Q423198
 wikipedia:en: https://en.wikipedia.org/wiki/Psicose
 
 zz: stearic-acid
-xx: Stearic acid
-en: Stearic acid
+xx: Stearic acid, FA 18:0
+en: Stearic acid, FA 18:0
 ar: حمض الشمع
 be: Стэарынавая кіслата
 bg: стеаринова киселина
@@ -1101,7 +1103,7 @@ unit:en: g
 
 zz: monounsaturated-fat
 xx: Monounsaturated fat
-en: Monounsaturated fat, mono-unsaturated fat, monounsaturated, mono-unsaturated
+en: Monounsaturated fat, mono-unsaturated fat, monounsaturated, mono-unsaturated, FA mono
 ar: دهون أحادية غير مشبعة
 be: Монаненасычаныя тлустыя кіслоты
 bg: Мононенаситени мастни киселини
@@ -1154,7 +1156,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Monounsaturated_fat
 
 zz: polyunsaturated-fat
 xx: Polyunsaturated fat
-en: Polyunsaturated fat, poly-unsaturated fat, polyunsaturated, poly-unsaturated
+en: Polyunsaturated fat, poly-unsaturated fat, polyunsaturated, poly-unsaturated, FA poly
 ar: دهون غير مشبعة متعددة
 bg: Полиненаситени мастни киселини
 ca: Àcid gras poliinsaturat
@@ -1233,8 +1235,8 @@ zh_TW: Omega 3 脂肪酸
 unit:en: mg
 
 zz: alpha-linolenic-acid
-xx: Alpha-linolenic acid, ALA
-en: Alpha-linolenic acid, ALA
+xx: Alpha-linolenic acid, ALA, FA 18:3 c9\,c12\,c15 (n-3)
+en: Alpha-linolenic acid, ALA, FA 18:3 c9\,c12\,c15 (n-3)
 ar: حمض ألفا-اللينولينيك
 bg: Алфа-линоленова киселина
 ca: àcid alfa-linolènic
@@ -1285,8 +1287,8 @@ wikidata:en: Q256502
 wikipedia:en: https://en.wikipedia.org/wiki/Alpha-Linolenic_acid
 
 zz: eicosapentaenoic-acid
-xx: Eicosapentaenoic acid, EPA
-en: Eicosapentaenoic acid, EPA
+xx: Eicosapentaenoic acid, EPA, FA 20:5 5c\,8c\,11c\,14c\,17c (n-3) EPA
+en: Eicosapentaenoic acid, EPA, FA 20:5 5c\,8c\,11c\,14c\,17c (n-3) EPA
 ar: حمض الإيكوسابنتاينويك
 bg: Ейкозапентаенова киселина
 ca: Àcid eicosapentaenoic
@@ -1329,8 +1331,8 @@ wikidata:en: Q409990
 wikipedia:en: https://en.wikipedia.org/wiki/Eicosapentaenoic_acid
 
 zz: docosahexaenoic-acid
-xx: Docosahexaenoic acid, DHA
-en: Docosahexaenoic acid, DHA
+xx: Docosahexaenoic acid, DHA, FA 22:6 4c\,7c\,10c\,13c\,16c\,19c (n-3) DHA
+en: Docosahexaenoic acid, DHA, FA 22:6 4c\,7c\,10c\,13c\,16c\,19c (n-3) DHA
 ar: حمض الدوكوساهكساينويك
 bg: Докозахексаенова киселина
 ca: Àcid docosahexaenoic
@@ -1401,8 +1403,8 @@ zh_TW: Omega 6 脂肪酸
 unit:en: mg
 
 zz: linoleic-acid
-xx: Linoleic acid, LA
-en: Linoleic acid, LA
+xx: Linoleic acid, LA, FA 18:2 9c\,12c (n-6)
+en: Linoleic acid, LA, FA 18:2 9c\,12c (n-6)
 ar: حمض اللينولييك
 be: Лінолевая кіслата
 bg: Линолова киселина
@@ -1450,8 +1452,8 @@ wikidata:en: Q407426
 wikipedia:en: https://en.wikipedia.org/wiki/Linoleic_acid
 
 zz: arachidonic-acid
-xx: Arachidonic acid, AA, ARA
-en: Arachidonic acid, AA, ARA
+xx: Arachidonic acid, AA, ARA, FA 20:4 5c\,8c\,11c\,14c (n-6)
+en: Arachidonic acid, AA, ARA, FA 20:4 5c\,8c\,11c\,14c (n-6)
 ar: حمض الأراكيدونيك
 be: Арахідонавая кіслата
 bg: арахидонова киселина
@@ -1594,8 +1596,8 @@ zh_TW: Omega-9 脂肪酸
 unit:en: mg
 
 zz: oleic-acid
-xx: Oleic acid
-en: Oleic acid
+xx: Oleic acid, FA 18:1 n-9 cis
+en: Oleic acid, FA 18:1 n-9 cis
 ar: حمض الزيت
 be: Алеінавая кіслата
 bg: олеинова киселина
@@ -4184,7 +4186,7 @@ wikidata:en: Q199678
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_C
 
 zz: vitamin-b1
-xx: Vitamin B1 (Thiamin), Vitamin B1, Thiamin
+xx: Vitamin B1 (Thiamin), Vitamin B1, Thiamin, Vitamin B1 or Thiamin
 en: Vitamin B1 (Thiamin), Vitamin B1, Thiamin
 bg: Витамин B1 (Тиамин)
 de: Vitamin B1 (Thiamin)
@@ -4215,7 +4217,7 @@ unit:en: mg
 
 zz: vitamin-b2
 xx: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin, Riboflavin (B2)
-en: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
+en: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin, Vitamin B2 or Riboflavin
 bg: Витамин B2 (Рибофлавин)
 de: Vitamin B2 (Riboflavin)
 el: Βιταμίνη B2 (Ριβοφλαβίνη)
@@ -4244,7 +4246,7 @@ unit:en: mg
 
 zz: vitamin-pp
 xx: Vitamin B3, Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin
-en: Vitamin B3/PP (Niacin), Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin
+en: Vitamin B3/PP (Niacin), Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin, Vitamin B3 or Niacin
 bg: Ниацин, Витамин B3
 de: Vitamin B3/PP (Niacin), Vitamin B3, Vitamin PP (Niacin)
 el: Νιασίνη
@@ -4476,7 +4478,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Biotin
 
 zz: pantothenic-acid
 xx: Vitamin B5 (Pantothenic acid), Pantothenic acid, Pantothenate (Vitamin B5), Pantothenic acid, Pantothenate, Vitamin B5, B5
-en: Vitamin B5 (Pantothenic acid), Pantothenic acid, Pantothenate (Vitamin B5), Pantothenic acid, Pantothenate, Vitamin B5, B5
+en: Vitamin B5 (Pantothenic acid), Pantothenic acid, Pantothenate (Vitamin B5), Pantothenic acid, Pantothenate, Vitamin B5, B5, Vitamin B5 or Pantothenic acid
 ar: فيتامين بي5
 bg: витамин B5 (Пантотенова киселина), Пантотенова киселина, витамин B5, B5
 bs: Vitamin B5
@@ -7490,8 +7492,8 @@ sv: råprotein
 unit:en: %
 
 zz: crude ash
-xx: crude ash
-en: crude ash
+xx: crude ash, ash
+en: crude ash, ash
 bg: Сурова пепел
 cs: hrubý popel
 da: råaske
