@@ -84,7 +84,7 @@ TEST_CMD ?= yath test
 DEPS=openfoodfacts-shared-services openfoodfacts-auth
 # Set the DEPS_DIR if it hasn't been set already
 ifeq (${DEPS_DIR},)
-	export DEPS_DIR="${PWD}/deps"
+	export DEPS_DIR=${PWD}/deps
 endif
 
 .DEFAULT_GOAL := usage
@@ -273,7 +273,7 @@ refresh_mongodb: run_deps
 
 # this command is used to import data on the mongodb used on staging environment
 import_prod_data: run_deps
-	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) import_prod_data
+	@cd "${DEPS_DIR}/openfoodfacts-shared-services" && $(MAKE) import_prod_data
 
 #--------#
 # Checks #
@@ -625,22 +625,22 @@ clean: goodbye hdown prune prune_deps prune_cache clean_folders
 # Run dependent projects
 run_deps: clone_deps
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && $(MAKE) run; \
+		cd "${DEPS_DIR}/$$dep" && $(MAKE) run; \
 	done
 
 
 # Clone dependent projects without running them (used to pull in yml for tests)
 clone_deps:
-	@mkdir -p ${DEPS_DIR}; \
+	@mkdir -p "${DEPS_DIR}"; \
 	for dep in ${DEPS} ; do \
 		echo $$dep; \
-		if [ ! -d ${DEPS_DIR}/$$dep ]; then \
+		if [ ! -d "${DEPS_DIR}/$$dep" ]; then \
 			echo "Cloning $$dep"; \
 			git clone --filter=blob:none --sparse \
-				https://github.com/openfoodfacts/$$dep.git ${DEPS_DIR}/$$dep; \
+				https://github.com/openfoodfacts/$$dep.git "${DEPS_DIR}/$$dep"; \
 			echo "Cloned $$dep"; \
 		else \
-			cd ${DEPS_DIR}/$$dep; \
+			cd "${DEPS_DIR}/$$dep"; \
 			git pull || \
 	                  1>&2 echo "Warning: unable to pull latest $$dep; are you online?"; \
 		fi; \
@@ -650,12 +650,12 @@ clone_deps:
 prune_deps: clone_deps
 	@for dep in ${DEPS} ; do \
 		echo "🥫 Pruning $$dep..."; \
-		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
+		cd "${DEPS_DIR}/$$dep" && $(MAKE) prune; \
 	done
 
 stop_deps:
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && ( $(MAKE) stop || env -i docker compose stop ) ; \
+		cd "${DEPS_DIR}/$$dep" && ( $(MAKE) stop || env -i docker compose stop ) ; \
 	done
 
 #-----------#
