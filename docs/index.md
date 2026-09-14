@@ -8,8 +8,7 @@ It also powers the sibling **Open \[[Beauty](https://world.openbeautyfacts.org/)
 
 * If you are a developer, look at [Developer documentation](dev/index.md)
 
-The repository for the project is at https://github.com/openfoodfacts/openfoodfacts-server/
-
+The repository for the project is available on [GitHub](https://github.com/openfoodfacts/openfoodfacts-server/).
 Do not hesitate to contribute to this documentation, this is highly appreciated.
 
 ## Documentation organization

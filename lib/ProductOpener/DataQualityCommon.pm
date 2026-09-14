@@ -101,7 +101,7 @@ sub check_bug_code_missing ($product_ref) {
 	elsif ($product_ref->{code} eq '') {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:code-empty";
 	}
-	elsif ($product_ref->{code} == 0) {
+	elsif ($product_ref->{code} =~ /^0*$/) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:code-zero";
 	}
 

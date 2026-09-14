@@ -36,39 +36,20 @@
       "text" : "voda"
    },
    {
-      "id" : "en:acidity-regulator",
-      "ingredients" : [
-         {
-            "id" : "en:e330",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 1,
-            "percent_max" : 4,
-            "percent_min" : 0,
-            "text" : "limunska kiselina"
-         }
-      ],
+      "additive_class" : "en:acidity-regulator",
+      "id" : "en:e330",
       "is_in_taxonomy" : 1,
       "percent_estimate" : 1,
       "percent_max" : 4,
       "percent_min" : 0,
-      "text" : "regulator kiselosti"
+      "text" : "limunska kiselina"
    },
    {
-      "id" : "en:thickener",
-      "ingredients" : [
-         {
-            "id" : "en:fruit-pectin",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 1,
-            "percent_max" : 2.66666666666667,
-            "percent_min" : 0,
-            "text" : "voćni pektin"
-         }
-      ],
+      "id" : "en:fruit-pectin",
       "is_in_taxonomy" : 1,
       "percent_estimate" : 1,
       "percent_max" : 2.66666666666667,
       "percent_min" : 0,
-      "text" : "zgušnjivač"
+      "text" : "voćni pektin"
    }
 ]

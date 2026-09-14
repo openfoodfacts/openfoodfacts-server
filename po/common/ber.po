@@ -1622,11 +1622,6 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr ""
 
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
-
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
@@ -2813,24 +2808,8 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr ""
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "ⴰⵎⵎⴰⵏⵉ ⵜⵎⵏⵣ"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr ""
-
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
 msgstr ""
 
 msgctxt "nova_groups_s"
@@ -5318,7 +5297,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
 msgstr ""
 
 msgctxt "forgotten_password"
@@ -7215,3 +7194,20 @@ msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr ""
 
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "ⴰⵎⵎⴰⵏⵉ ⵜⵎⵏⵣ"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""

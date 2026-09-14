@@ -11,7 +11,7 @@ $Data::Dumper::Sortkeys = 1;
 
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::Tags qw/has_tag/;
+use ProductOpener::ProductsTags qw/has_tag/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
@@ -621,6 +621,63 @@ check_quality_and_test_product_has_quality_tag(
 	'energy not matching nutrient', 0
 );
 
+# Isomalt is a polyol which contributes energy at the general polyols rate (10 kj / 2.4 kcal per g)
+# If we do not have a value for polyols but we have a value for isomalt, we should assume that
+# polyols are equal to isomalt when we check the nutrients to energy computation.
+# (100 g carbohydrates, all of it isomalt -> 100 g * 10 kj/g = 1000 kj)
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 1000, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"isomalt" => {value => 100, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy matching nutrient - isomalt without polyols', 0
+);
+
+# Individual polyols values (isomalt and maltitol) should be summed when there is no value for polyols
+# (100 g carbohydrates, 60 g isomalt + 40 g maltitol -> 100 g * 10 kj/g = 1000 kj)
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 1000, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"isomalt" => {value => 60, unit => "g"},
+					"maltitol" => {value => 40, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy matching nutrient - isomalt and maltitol without polyols', 0
+);
+
 # en:nutrition-value-negative-$nid should be raised - for nutrients below 0
 $product_ref = {
 	nutrition => {
@@ -1029,6 +1086,71 @@ check_quality_and_test_product_has_quality_tag(
 	'en:nutrition-producer-as-sold-100g-values-are-all-identical',
 	'all identical values and above 1 in the nutrition table BUT not enough nutrients given', 0
 );
+# salt and sodium values should be aligned
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values do not match', 1
+);
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 1, unit => "g"},
+				}
+			}
+		]
+	}
+};
+
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values are consistent', 0
+);
+
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 0.97, unit => "g"},
+				}
+			}
+		]
+	}
+};
+
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values within 0.1g tolerance', 0
+);
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
 $product_ref = {
@@ -1194,7 +1316,7 @@ $product_ref = {
 				preparation => "as_sold",
 				per => "100g",
 				nutrients => {
-					"sugars" => {value => 1, unit => "g"},
+					"sugars" => {value => 4.5, unit => "g"},
 					"fructose" => {value => 1, unit => "g"},
 					"glucose" => {value => 1, unit => "g"},
 					"maltose" => {value => 1, unit => "g"},
@@ -1267,6 +1389,33 @@ ok(
 	),
 	'Lactose and symbol lower than should be ignore'
 ) or diag Dumper $product_ref;
+
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 3, unit => "g"},
+					"fructose" => {value => 4, unit => "g", modifier => '<'},
+					"glucose" => {value => 4, unit => "g", modifier => '<'},
+					"maltose" => {value => 4, unit => "g", modifier => '<'},
+					"lactose" => {value => 4, unit => "g", modifier => '<'},
+					"sucrose" => {value => 4, unit => "g", modifier => '<'},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'component sugars should not be included if they have a < modifier',
+	0
+);
 
 # salt_100g is very small warning (may be in mg)
 ## lower than 0.001
@@ -1847,7 +1996,7 @@ $product_ref = {
 				preparation => "as_sold",
 				per => "100g",
 				nutrients => {
-					"carbohydrates" => {value => 1, unit => "g"},
+					"carbohydrates" => {value => 4, unit => "g"},
 					"sugars" => {value => 2, unit => "g"},
 					"starch" => {value => 3, unit => "g"},
 				}
@@ -1888,6 +2037,32 @@ ok(
 	),
 	'sum of sugars and starch greater carbohydrates, presence of "<" symbol,  and sugars or starch is smaller than carbohydrates'
 ) or diag Dumper $product_ref;
+
+## with "<" symbol on sugars
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 1, unit => "g"},
+					"sugars" => {value => 2, unit => "g", modifier => "<"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'sugars greater carbohydrates but presence of "<" symbol on sugars'
+) or diag Dumper $product_ref;
+
 ## sugar or starch is greater than carbohydrates, with "<" symbol
 $product_ref = {
 	nutrition => {
@@ -1898,8 +2073,8 @@ $product_ref = {
 				per => "100g",
 				nutrients => {
 					"carbohydrates" => {value => 3, unit => "g"},
-					"sugars" => {value => 1, unit => "g"},
-					"starch" => {value => 5, unit => "g", modifier => "<"},
+					"sugars" => {value => 1, unit => "g", modifier => "<"},
+					"starch" => {value => 5, unit => "g"},
 				}
 			}
 		]
@@ -1912,6 +2087,7 @@ ok(
 		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
 	),
 	'sum of sugars and starch greater carbohydrates, presence of "<" symbol, and sugars or starch is greater than carbohydrates'
+
 ) or diag Dumper $product_ref;
 ## should not be triggered
 $product_ref = {
@@ -1939,7 +2115,137 @@ ok(
 	'sum of sugars and starch greater carbohydrates'
 ) or diag Dumper $product_ref;
 
-# Nutrition errors - sugar + starch + fiber > totral-carbohydrates
+## Carbohydrates may be quoted as 0 or traces if there are less than 0.5g
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 0, unit => "g"},
+					"sugars" => {value => 0.4, unit => "g"},
+					"starch" => {value => 0.05, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'sum of sugars and starch less than minimal traces of carbohydrates'
+) or diag Dumper $product_ref;
+
+## Don't go more than 3 significant figures for larger values
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 10, unit => "g"},
+					"sugars" => {value => 9, unit => "g"},
+					"starch" => {value => 1.09, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'check no more than 3 significant figures'
+) or diag Dumper $product_ref;
+
+## should not check if totalling nutrient is an estimate
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g", modifier => "~"},
+					"sugars" => {value => 2, unit => "g"},
+					"starch" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'check should not be triggered if carbohydrates is an estimate'
+) or diag Dumper $product_ref;
+
+## Less than or equal values should also be ignored
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g"},
+					"sugars" => {value => 2, unit => "g", modifier => "≤"},
+					"starch" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'Less than or equal values should also be ignored'
+) or diag Dumper $product_ref;
+
+## should ignore component nutrients that are estimates
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g"},
+					"sugars" => {value => 2, unit => "g", modifier => "~"},
+					"starch" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'estimated nutrient should be ignored'
+) or diag Dumper $product_ref;
+
+# Nutrition errors - sugar + starch + fiber > total-carbohydrates
 ## without "<" symbol
 $product_ref = {
 	nutrition => {
@@ -2001,8 +2307,8 @@ $product_ref = {
 				per => "100g",
 				nutrients => {
 					"carbohydrates-total" => {value => 3, unit => "g"},
-					"sugars" => {value => 1, unit => "g"},
-					"starch" => {value => 5, unit => "g", modifier => "<"},
+					"sugars" => {value => 5, unit => "g"},
+					"starch" => {value => 1, unit => "g", modifier => "<"},
 				}
 			}
 		]
@@ -2383,9 +2689,9 @@ ok(
 	),
 	'en:fruit content too small citrus jams'
 ) or diag Dumper $product_ref;
-## blackcurrants jellies
+## blackcurrant jellies
 $product_ref = {
-	categories_tags => ["en:blackcurrants-jellies"],
+	categories_tags => ["en:blackcurrant-jellies"],
 	countries_tags => ["en:slovenia",],
 	specific_ingredients => [
 		{
@@ -2401,9 +2707,9 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-blackcurrants-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-blackcurrant-jellies'
 	),
-	'en:fruit content too small blackcurrants jellies'
+	'en:fruit content too small blackcurrant jellies'
 ) or diag Dumper $product_ref;
 ## passion fruit jellies
 $product_ref = {

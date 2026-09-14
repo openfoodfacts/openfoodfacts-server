@@ -17,7 +17,6 @@ my $json = JSON::MaybeXS->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
@@ -28,10 +27,11 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::LoadData qw/load_data/;
-
-load_data();
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+
+load_data();
 
 my @tests = (
 
@@ -375,58 +375,51 @@ foreach my $test_ref (@tests) {
 
 	compute_attributes($product_ref, $product_ref->{lc}, "world", $options_ref);
 
-	# Travis and docker has a different $server_domain, so we need to change the resulting URLs
-	#          $got->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.off.travis-ci.org/images/attributes/nutriscore-unknown.svg'
-	#     $expected->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.openfoodfacts.dev/images/attributes/nutriscore-unknown.svg'
-
-	# code below from https://www.perlmonks.org/?node_id=1031287
-
-	use Scalar::Util qw/reftype/;
-
-	sub walk {
-		my ($entry, $code) = @_;
-		my $type = reftype($entry);
-		$type //= "SCALAR";
-
-		if ($type eq "HASH") {
-			walk($_, $code) for values %$entry;
-		}
-		elsif ($type eq "ARRAY") {
-			walk($_, $code) for @$entry;
-		}
-		elsif ($type eq "SCALAR") {
-			$code->($_[0]);    # alias of entry
-		}
-		else {
-			warn "unknown type $type";
-		}
-		return;
-	}
-
-	walk $product_ref, sub {return unless defined $_[0]; $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//;};
-
-	# Save the result
-
-	if ($update_expected_results) {
-		open(my $result, ">:encoding(UTF-8)", "$expected_result_dir/$testid.json")
-			or die("Could not create $expected_result_dir/$testid.json: $!\n");
-		print $result $json->pretty->encode($product_ref);
-		close($result);
-	}
-
-	# Compare the result with the expected result
-
-	if (open(my $expected_result, "<:encoding(UTF-8)", "$expected_result_dir/$testid.json")) {
-
-		local $/;    #Enable 'slurp' mode
-		my $expected_product_ref = $json->decode(<$expected_result>);
-		# print STDERR "testid: $testid\n";
-		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
-	}
-	else {
-		diag Dumper $product_ref;
-		fail("could not load $expected_result_dir/$testid.json");
-	}
+	normalize_product_for_test_comparison($product_ref);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
+subtest 'compute_attribute_additives panel_id' => sub {
+	my $attr_with_additives = ProductOpener::Attributes::compute_attribute_additives({additives_n => 2}, 'en');
+	is($attr_with_additives->{panel_id}, 'additives', 'additives > 0 sets panel_id to additives');
+
+	my $attr_zero_additives_no_ingredients
+		= ProductOpener::Attributes::compute_attribute_additives({additives_n => 0}, 'en');
+	is($attr_zero_additives_no_ingredients->{panel_id},
+		'ingredients', 'additives == 0 without ingredients sets panel_id to ingredients');
+
+	my $attr_zero_additives_with_ingredients
+		= ProductOpener::Attributes::compute_attribute_additives({additives_n => 0, ingredients_n => 3}, 'en');
+	is($attr_zero_additives_with_ingredients->{panel_id},
+		'ingredients_analysis', 'additives == 0 with ingredients sets panel_id to ingredients_analysis');
+
+	my $attr_unknown_additives_no_ingredients = ProductOpener::Attributes::compute_attribute_additives({}, 'en');
+	is($attr_unknown_additives_no_ingredients->{panel_id},
+		'ingredients', 'unknown additives without ingredients sets panel_id to ingredients');
+
+	my $attr_unknown_additives_with_ingredients
+		= ProductOpener::Attributes::compute_attribute_additives({ingredients_n => 5}, 'en');
+	is($attr_unknown_additives_with_ingredients->{panel_id},
+		'ingredients_analysis', 'unknown additives with ingredients sets panel_id to ingredients_analysis');
+};
+
+subtest 'compute_attribute_nutrient_level panel_id' => sub {
+	my $attr_known_nutrient_data_lc = ProductOpener::Attributes::compute_attribute_nutrient_level(
+		{
+			nutrient_levels => {salt => 'low'},
+			nutrition => {aggregated_set => {nutrients => {salt => {value => 0.1}}}}
+		},
+		'data', 'low', 'salt'
+	);
+	is($attr_known_nutrient_data_lc->{panel_id},
+		'nutrient_level_salt', 'nutrient_level sets panel_id even when target_lc is data');
+
+	my $attr_unknown_nutrient_data_lc
+		= ProductOpener::Attributes::compute_attribute_nutrient_level({}, 'data', 'low', 'salt');
+	is($attr_unknown_nutrient_data_lc->{panel_id},
+		'nutrition_facts_table',
+		'unknown nutrient level sets panel_id to nutrition_facts_table when target_lc is data');
+};
+
 done_testing();
+

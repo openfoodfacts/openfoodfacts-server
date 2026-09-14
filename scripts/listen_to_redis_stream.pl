@@ -24,39 +24,21 @@
 
 use ProductOpener::PerlStandards;
 
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Redis qw/:all/;
+use ProductOpener::Redis qw/subscribe_to_redis_streams/;
 
 use Log::Any qw($log);
 use Log::Any::Adapter ('Stderr', log_level => 'debug');
+use IO::Handle;
 
-use AnyEvent;
-use EV;
-
-sub run ($cv) {
-	subscribe_to_redis_streams();
-
-	# call event loop
-	$cv->recv;    # Wait for the event loop to finish
-	EV::run();
-	return;
-}
+# Set to autoflush so that docker logs are sent immediately
+STDERR->autoflush(1);
 
 sub main() {
 	$log->info("Starting listen_to_redis_stream.pl") if $log->is_info();
 
-	my $cv = AE::cv;
+	# The following will block until there is an error
+	subscribe_to_redis_streams();
 
-	# signal handler for TERM, KILL, QUIT
-	foreach my $sig (qw/TERM KILL QUIT/) {
-		EV::signal $sig, sub {
-			$log->info("Exiting after receiving", {signal => $sig}) if $log->is_info();
-			$cv->send;
-			exit(0);
-		};
-	}
-
-	run($cv);
 	return;
 }
 

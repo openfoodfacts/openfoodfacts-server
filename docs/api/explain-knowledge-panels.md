@@ -14,9 +14,9 @@ Knowledge panels in action on the mobile app
 Main elements are panels, which in turn contain elements. Elements are typically `text_element`, `image_element`, `map_element`. Some panels are grouping panels together, forming a hierarchy.
 We also have a concept of action, which allows the user to take an action, currently editing.
 
-The structure of the knowledge panels data returned by the API is described in the [knowledge panels JSON schema](./ref/schemas/knowledge_panels/panels.yaml).
+The structure of the knowledge panels data returned by the API is described in the [knowledge panels JSON schema](https://openfoodfacts.github.io/documentation/docs/Product-Opener/schemas/schemas/product_knowledge_panels/).
 
-> See the reference documentation for [Getting Knowledge panels for a specific product by barcode](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode--fields-knowledge_panels).
+> See the reference documentation for [Getting Knowledge panels for a specific product by barcode](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/products/get-product-by-code/).
 
 ## How to make a knowledge panel related contribution
 - You need to have a clear vision of the information you want to convey, both in synthetic and larger form

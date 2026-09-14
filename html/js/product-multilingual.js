@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2024 Association Open Food Facts
+// Copyright (C) 2011-2026 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -20,8 +20,8 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin initializeTagifyInput other_nutrients:writable*/ // we change other_nutrients to remove nutrients when they are added
-/*exported upload_image update_image update_nutrition_image_copy*/
+/*global lang admin initializeTagifyInput other_nutrients:writable trackMatomoEvent*/ // we change other_nutrients to remove nutrients when they are added
+/* exported upload_image update_image update_nutrition_image_copy */
 
 //Polyfill, just in case
 if (!Array.isArray) {
@@ -334,14 +334,19 @@ $.fn.isVisible = function () {
 };
 
 function update_nutrition_image_copy() {
+    const nutrition_table_width = Math.ceil($('#nutrition_data_table')[0].getBoundingClientRect().width);
+    const nutrition_width = Math.floor($('#nutrition')[0].getBoundingClientRect().width);
+
     // width big enough to display a copy next to nutrition table?
-    if ($("#nutrition_data_table").isVisible() && $('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+    
+    if ($("#nutrition_data_table").isVisible() && nutrition_width - nutrition_table_width > 405) {
         const position = $('html[dir=rtl]').length ? 'right' : 'left';
-        $('#nutrition_image_copy').css(position, $('#nutrition_data_table').width() + 10).show();
+        $('#nutrition_image_copy').css(position, nutrition_table_width + 10).show();
     } else {
         $('#nutrition_image_copy').hide();
     }
-}
+}        
+
 
 function update_display(imagefield, first_display, protected_product) {
 
@@ -358,11 +363,15 @@ function update_display(imagefield, first_display, protected_product) {
         }
 
         if (stringStartsWith(imagefield, 'nutrition')) {
+            const nutrition_table_width = Math.ceil($('#nutrition_data_table')[0].getBoundingClientRect().width);
+            const nutrition_width = Math.floor($('#nutrition')[0].getBoundingClientRect().width);
+
             // width big enough to display a copy next to nutrition table?
-            if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+            if (nutrition_width - nutrition_table_width > 405) {
+
 
                 if ((!first_display) || ($('#nutrition_image_copy').html() === '')) {
-                    $('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
+                    $('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", nutrition_table_width + 10);
                 }
             }
         }
@@ -489,7 +498,7 @@ const maximumRecentEntriesPerTag = 10;
             settings = $.extend(settings, options);
             img_path = settings.img_path;
             code = $("#code").val();
-            code = code.replace(/\W/g, '');
+            code = code.replace(/\s/g, '');
 
             return this.each(function () {
 
@@ -645,6 +654,7 @@ const maximumRecentEntriesPerTag = 10;
 
                                     $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
                                     change_image(imagefield, data.result.image.imgid);
+                                    trackMatomoEvent('product', 'image upload', imagefield);
                                 }
 
                                 if (data.result.error) {
@@ -740,7 +750,7 @@ const maximumRecentEntriesPerTag = 10;
     };
 
     $('#back-btn').click(function () {
-        window.location.href = window.location.origin + '/product/' + code;
+        window.location.href = window.location.origin + '/product/' + encodeURIComponent(code);
     });
 
     initLanguageAdding();
@@ -1083,6 +1093,12 @@ $(function () {
             // clear the values: inputs with class nutrient_value that are inside a cell with the input_set_class
             $('.' + input_set_class + ' input.nutrient_value').val('');
         }
+        
+        
+        // Recalculate nutrition image position after table resize
+        setTimeout(update_nutrition_image_copy, 50);
+        
+        
     });
 
     $('#no_nutrition_data').on('change', function() {
@@ -1250,8 +1266,25 @@ $(function () {
         check_nutrient(nutrient_id, per, preparation, id);
     });
 
-     $('.nutrient_unit').on('change', function () {
-        $('.nutrient_value').trigger('input');
+    $('.nutrient_unit').on('change', function () {
+        // Only re-check the nutrient row(s) whose unit actually changed,
+        // plus the related nutrients used in cross-checks (fat/carbs/sugars/saturated-fat)
+        const $tr = $(this).closest('tr');
+        const trId = $tr.attr('id'); // e.g. "nutrient_sugars_tr"
+        const nutrient_id = trId ? trId.replace(/^nutrient_/, '').replace(/_tr$/, '') : null;
+
+        const related = ['fat', 'carbohydrates', 'sugars', 'saturated-fat'];
+        let idsToRecheck = [];
+        if (nutrient_id && related.includes(nutrient_id)) {
+            idsToRecheck = related;
+        }
+        else if (nutrient_id) {
+            idsToRecheck = [nutrient_id];
+        }
+
+        idsToRecheck.forEach(function (id) {
+            $(`.nutrient_value[id*="_nutrients_${id}_value_string"]`).trigger('input');
+        });
     });
     
     }

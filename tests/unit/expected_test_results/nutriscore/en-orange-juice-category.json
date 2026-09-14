@@ -1,14 +1,11 @@
 {
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories" : "orange juices",
    "categories_hierarchy" : [
       "en:beverages-and-beverages-preparations",
       "en:plant-based-foods-and-beverages",
       "en:beverages",
+      "en:fruit-based-foods-and-beverages",
       "en:plant-based-beverages",
       "en:fruit-based-beverages",
       "en:juices-and-nectars",
@@ -35,6 +32,7 @@
       "en:beverages-and-beverages-preparations",
       "en:plant-based-foods-and-beverages",
       "en:beverages",
+      "en:fruit-based-foods-and-beverages",
       "en:plant-based-beverages",
       "en:fruit-based-beverages",
       "en:juices-and-nectars",
@@ -452,9 +450,19 @@
       "fruit-juices",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : []
 }

@@ -1,12 +1,14 @@
 <!-- start templates/[% template.name %] -->
 
-<p>You can use this form to see how an ingredient list is analyzed.</p>
+<p>[% lang("test_ingredients_analyze_form_description") %]</p>
+<p>[% lang("test_ingredients_recipe_estimator_note") %]</p>
+<p>[% lang("test_ingredients_taxonomy_mapping_description") %]</p>
 
 <form method="get" action="/cgi/test_ingredients_analysis.pl" enctype="multipart/form-data">
     
     <div class="row">
-        <div class="medium-6 columns">
-            Ingredients text: 
+        <div class="medium-6 large-8 columns">
+            <label for="target_lc">[% lang("test_ingredients_text_language") %]</label>
             <select name="target_lc" id="target_lc">
                 [% FOREACH language IN lang_options %]
                     <option value="[% language.value %]" [% IF language.value== target_lc %] selected="selected" [% END %]>[% language.label %]</option>
@@ -14,30 +16,36 @@
             </select>
 
             <br/>
+            <label for="ingredients_text">[% lang("test_ingredients_text") %]</label>
             <textarea id="ingredients_text" name="ingredients_text" style="height:12rem;">[% ingredients_text %]</textarea>
             
             <input type="hidden" name="type" value="[% type %]"/>
             <input type="hidden" name="lc" value="[% lc %]"/>
             <input type="hidden" name="action" value='process'/>        
 
-            <p>Select an ingredient percent estimator:</p>
+            <p>[% lang("test_ingredients_select_estimator") %]</p>
             <label>
                 <input type="radio" name="estimator" value="product_opener" [% IF estimator == "product_opener" %]checked="checked"[% END %] style="margin:0">
-                Product Opener (production)
+                Product Opener - [% lang("test_ingredients_product_opener_description") %]
             </label>
             <label>
                 <input type="radio" name="estimator" value="recipe_estimator_glop" [% IF estimator == "recipe_estimator_glop" %]checked="checked"[% END %] style="margin:0">
-                Recipe Estimator - Glop (experimental)
+                Recipe Estimator - [% lang("test_ingredients_recipe_estimator_glop_description") %]
             </label>
             <label>
                 <input type="radio" name="estimator" value="recipe_estimator_scipy" [% IF estimator == "recipe_estimator_scipy" %]checked="checked"[% END %] style="margin:0">
-                Recipe Estimator - Scipy (experimental)
-            </label><br>
+                Recipe Estimator - [% lang("test_ingredients_recipe_estimator_scipy_description") %]
+            </label>
+            <label>
+                <input type="radio" name="estimator" value="recipe_estimator_cvxpy" [% IF estimator == "recipe_estimator_cvxpy" %]checked="checked"[% END %] style="margin:0">
+                Recipe Estimator - [% lang("test_ingredients_recipe_estimator_cvxpy_description") %]
+            </label>            
+            <br>
 
         </div>
 
-        <div class="medium-6 columns">
-            Key nutrition facts (optional, used for estimating quantity of ingredients):
+        <div class="medium-6 large-4 columns">
+            [% lang("test_ingredients_key_nutrition_facts") %]
             <table>
                 [% FOREACH nutrient IN nutrients %]
                     <tr>
@@ -56,23 +64,30 @@
 </form>
 
 [% IF action == 'process' %]
-    <h3>Ingredients parsing, % estimates and analysis</h3>
-    Ingredient percent estimator: [% estimator %]<br>
+    <h3>[% lang("test_ingredients_parsing_estimates_and_analysis") %]</h3>
+    <p>[% lang("test_ingredients_percent_estimator") %] [% estimator %]</p>
 
     [% display_ingredients_analysis %]
-    <h4>Ingredients analysis</h4>
+    <h4>[% lang("ingredients_analysis") %]</h4>
     [% html_details %]
+
+    <h4>Knowledge Panels</h4>
+    [% health_card_panel %]
+
+    [% forest_footprint_2026_panel %]
+
     <h4>JSON</h4>
     <pre>
     [% json %]
     </pre>
 
-    <h3>Environmental impact</h3>
-    <h4>Ecobalyse request</h4>
+    <h3>[% lang("environmental_impact") %]</h3>
+    <p>[% lang("test_ingredients_ecobalyse_experimental") %]</p>
+    <h4>[% lang("test_ingredients_ecobalyse_request") %]</h4>
     <pre>
     [% ecobalyse_request_json %]
     </pre>
-    <h4>Ecobalyse response</h4>
+    <h4>[% lang("test_ingredients_ecobalyse_response") %]</h4>
     <pre>
     [% ecobalyse_response_json %]
     </pre>

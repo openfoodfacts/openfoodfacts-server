@@ -41,7 +41,7 @@
                         <ul class="inline-list">
                             <li><a class="nav-link scrollto button small round white-button" href="#product_characteristics"><span>[% lang('product_characteristics') %]</span></a></li>
                             <li><a class="nav-link scrollto button small round white-button" href="#ingredients"><span>[% lang("ingredients") %]</span></a></li>
-                            <li><a class="nav-link scrollto button small round white-button" href="#nutrition"><span>[% lang("nutrition") %]</span></a></li>
+                            [% IF nutrition_feature_enabled || product_has_nutrition_data %]<li><a class="nav-link scrollto button small round white-button" href="#nutrition"><span>[% lang("nutrition") %]</span></a></li>[% END %]
                             <li><a class="nav-link scrollto button small round white-button" href="#packaging_section"><span>[% lang("packaging") %]</span></a></li>
                         </ul>
                     </nav><!-- .navbar -->
@@ -173,7 +173,10 @@
             </div>
         </section>
 
-        <!--nutrient fieldset-->
+[%# The nutrition section is displayed when the nutrition feature is enabled for the product,
+    or when the product already has nutrition data (e.g. beauty products with nutrition facts
+    added before the feature was disabled), so that contributors can delete it -%]
+        [% IF nutrition_feature_enabled || product_has_nutrition_data %]<!--nutrient fieldset-->
         <section class="card fieldset" id="nutrition">
             <div class="card-section">
                 <legend>[% lang('nutrition_data') %]</legend>
@@ -334,7 +337,7 @@
                 </div>
 
             </div>
-    </section><!--nutrient field set-->
+    </section><!--nutrient field set-->[% END %]
 
         <!--packaging field-->
         <section id="packaging_section" class="card fieldset">

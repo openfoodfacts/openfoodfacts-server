@@ -1,0 +1,31 @@
+# defines cors headers
+# Note: this file suppose that productopener-mappings.include is already included
+# Also this must be included in a `location` block, not in the `server` block
+
+# default headers
+add_header Access-Control-Allow-Origin $cors_origin always;
+add_header Access-Control-Allow-Methods 'HEAD, GET, PATCH, POST, PUT, OPTIONS' always;
+add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization' always;
+add_header Access-Control-Expose-Headers 'Content-Length,Content-Range' always;
+# note that if $allow_credentials is empty, the header will not be sent, which is what we want
+add_header Access-Control-Allow-Credentials $allow_credentials always;
+add_header Vary $cors_vary;
+add_header Access-Control-Max-Age 1728000;  # 20 days
+
+# CORS preflight handling
+if ($request_method = 'OPTIONS') {
+    # we have to repeat those, has add_header is not inherited if used in a block
+    add_header Access-Control-Allow-Origin $cors_origin;
+    add_header Access-Control-Allow-Methods 'HEAD, GET, PATCH, POST, PUT, OPTIONS';
+    add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization';
+    add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
+    add_header Access-Control-Allow-Credentials $allow_credentials;
+    add_header Access-Control-Max-Age 1728000;  # 20 days
+    add_header Vary $cors_vary;
+
+    # return early without hitting backend
+    add_header Content-Type 'text/plain; charset=utf-8';
+    add_header Content-Length 0;
+    return 204;
+}
+

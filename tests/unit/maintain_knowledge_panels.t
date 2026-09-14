@@ -7,7 +7,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Lang qw/$lc/;
-use ProductOpener::KnowledgePanels qw/create_maintain_card_panel/;
+use ProductOpener::KnowledgePanels;
 use ProductOpener::Test qw/init_expected_results compare_to_expected_results/;
 use ProductOpener::Config qw/:all/;
 
@@ -50,7 +50,7 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 	my $base_product_ref = {
 		code => "3000000000042",
-		categories_hierarchy => ["en:generic", "en:test-category"],
+		categories_tags => ["en:generic", "en:test-category"],
 		knowledge_panels_fr => {}
 	};
 
@@ -58,25 +58,25 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 	# not for food
 	my $product_ref = {%$base_product_ref};
 	$options{product_type} = 'food';
-	is(create_maintain_card_panel($product_ref, "fr", "fr", {}, {}), 0);
+	is(ProductOpener::KnowledgePanels::create_epargnonsnosressources_panel($product_ref, "fr", "fr", {}, {}), 0);
 	is($product_ref, $base_product_ref);
 	# must have a category
-	$product_ref = {%$base_product_ref, categories_hierarchy => []};
+	$product_ref = {%$base_product_ref, categories_tags => []};
 	$options{product_type} = 'product';
-	is(create_maintain_card_panel($product_ref, "fr", "fr", {}, {}), 0);
-	is($product_ref, {%$base_product_ref, categories_hierarchy => []});
+	is(ProductOpener::KnowledgePanels::create_epargnonsnosressources_panel($product_ref, "fr", "fr", {}, {}), 0);
+	is($product_ref, {%$base_product_ref, categories_tags => []});
 	# only for france
 	$product_ref = {%$base_product_ref};
-	is(create_maintain_card_panel({}, "fr", "es", {}, {}), 0);
+	is(ProductOpener::KnowledgePanels::create_epargnonsnosressources_panel({}, "fr", "es", {}, {}), 0);
 	is($product_ref, $base_product_ref);
 	# no property, no panel
 	$product_ref = {%$base_product_ref, code => $no_epargnonsnosressources_link};
-	is(create_maintain_card_panel($product_ref, "fr", "es", {}, {}), 0);
+	is(ProductOpener::KnowledgePanels::create_epargnonsnosressources_panel($product_ref, "fr", "es", {}, {}), 0);
 	is($product_ref, {%$base_product_ref, code => $no_epargnonsnosressources_link});
 	# working tests
 	$lc = "fr";    # set global lc because templates use this…
 	$product_ref = {%$base_product_ref};
-	is(create_maintain_card_panel($product_ref, 'fr', 'fr', {}, {}), 1);
+	is(ProductOpener::KnowledgePanels::create_epargnonsnosressources_panel($product_ref, 'fr', 'fr', {}, {}), 1);
 	is(
 		{%$product_ref, knowledge_panels_fr => "ignore"},
 		{%$base_product_ref, knowledge_panels_fr => "ignore"},

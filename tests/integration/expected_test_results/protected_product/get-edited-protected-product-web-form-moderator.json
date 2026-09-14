@@ -3,29 +3,33 @@
    "product" : {
       "_id" : "0200000000335",
       "_keywords" : [
-         "bio",
          "brand",
          "category",
          "changed",
+         "fair",
+         "fairtrade",
+         "fr-changed",
          "generic",
          "havelaar",
+         "international",
          "max",
          "name",
+         "organic",
          "product",
-         "test"
+         "test",
+         "trade"
       ],
       "added_countries_tags" : [],
       "additives_n" : 0,
       "additives_original_tags" : [],
       "additives_tags" : [],
       "allergens" : "",
-      "allergens_from_ingredients" : "en:eggs, en:milk, apple, milk, eggs",
-      "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
          "en:apple",
          "en:eggs",
          "en:milk"
       ],
+      "allergens_lc" : "en",
       "allergens_tags" : [
          "en:apple",
          "en:eggs",
@@ -34,13 +38,13 @@
       "amino_acids_tags" : [],
       "brands" : "Test brand",
       "brands_tags" : [
-         "test-brand"
+         "Test brand"
       ],
-      "categories" : "Changed category",
+      "categories" : "fr:Changed category",
       "categories_hierarchy" : [
          "fr:Changed category"
       ],
-      "categories_lc" : "fr",
+      "categories_lc" : "en",
       "categories_properties" : {},
       "categories_properties_tags" : [
          "all-products",
@@ -51,7 +55,7 @@
          "agribalyse-unknown"
       ],
       "categories_tags" : [
-         "fr:changed-category"
+         "fr:Changed category"
       ],
       "checkers_tags" : [],
       "code" : "0200000000335",
@@ -139,13 +143,11 @@
          "en:food-groups-3-unknown",
          "en:nutrition-energy-value-in-kcal-greater-than-in-kj",
          "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
-         "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "data_quality_warnings_tags" : [
          "en:nutrition-energy-value-in-kcal-greater-than-in-kj",
          "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
-         "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "debug_param_sorted_langs" : [
@@ -450,7 +452,36 @@
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
+      "estimate_ingredients_percent_service" : "product_opener",
       "food_groups_tags" : [],
+      "forest_footprint_2026" : {
+         "grade" : "b",
+         "primary_ingredients" : {
+            "en:cocoa" : {},
+            "en:coffee" : {},
+            "en:palm-oil" : {
+               "footprint_per_kg" : 0.00061875,
+               "grade" : "b",
+               "ingredients" : [
+                  {
+                     "equivalence_ingredient" : 1,
+                     "equivalence_ingredient_category" : 1,
+                     "footprint_per_kg" : 0.00061875,
+                     "ingredient_category_id" : "en:palm-oil",
+                     "ingredient_id" : "en:palm-oil-and-fat",
+                     "label_id" : "en:fairtrade-international",
+                     "origin_footprint" : 0.055,
+                     "origin_id" : "en:unknown",
+                     "percent" : 9.375,
+                     "primary_ingredient_id" : "en:palm-oil",
+                     "risk_factor" : 0.12,
+                     "transformation_factor" : 1
+                  }
+               ]
+            }
+         },
+         "total_footprint_per_kg" : 0.00061875
+      },
       "forest_footprint_data" : {
          "footprint_per_kg" : 0.00145833333333333,
          "grade" : "a",
@@ -553,15 +584,15 @@
       ],
       "ingredients_hierarchy" : [
          "en:apple",
-         "en:fruit",
          "en:malaceous-fruit",
+         "en:fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
          "en:palm-oil",
-         "en:oil-and-fat",
+         "en:palm-oil-and-fat",
          "en:vegetable-oil-and-fat",
-         "en:palm-oil-and-fat"
+         "en:oil-and-fat"
       ],
       "ingredients_lc" : "en",
       "ingredients_n" : 4,
@@ -580,15 +611,15 @@
       "ingredients_sweeteners_n" : 0,
       "ingredients_tags" : [
          "en:apple",
-         "en:fruit",
          "en:malaceous-fruit",
+         "en:fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
          "en:palm-oil",
-         "en:oil-and-fat",
+         "en:palm-oil-and-fat",
          "en:vegetable-oil-and-fat",
-         "en:palm-oil-and-fat"
+         "en:oil-and-fat"
       ],
       "ingredients_text" : "apple, milk, eggs, palm oil",
       "ingredients_text_en" : "apple, milk, eggs, palm oil",
@@ -607,18 +638,18 @@
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20190830",
       "known_ingredients_n" : 4,
-      "labels" : "Bio, Max Havelaar",
+      "labels" : "Organic, Max Havelaar",
       "labels_hierarchy" : [
          "en:fair-trade",
-         "en:organic",
          "en:fairtrade-international",
+         "en:organic",
          "en:max-havelaar"
       ],
-      "labels_lc" : "fr",
+      "labels_lc" : "en",
       "labels_tags" : [
          "en:fair-trade",
-         "en:organic",
          "en:fairtrade-international",
+         "en:organic",
          "en:max-havelaar"
       ],
       "lang" : "en",
@@ -651,6 +682,7 @@
       "minerals_tags" : [],
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
          "en:nutrients-estimated-from-ingredients",
@@ -673,6 +705,7 @@
          "en:packagings-not-empty",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-number-of-components-4",
+         "en:storage-conditions-not-set",
          "en:main-countries-new-product"
       ],
       "nova_group" : 1,
@@ -727,11 +760,21 @@
       },
       "nutriments_estimated" : {
          "alcohol_100g" : 0,
+         "alpha-linolenic-acid_100g" : 0.00598125,
+         "arachidonic-acid_100g" : 0.01125,
          "beta-carotene_100g" : 1.19375e-05,
+         "butyric-acid_100g" : 0.00590625,
          "calcium_100g" : 0.0333875,
+         "capric-acid_100g" : 0.00564375,
+         "caproic-acid_100g" : 0.00590625,
+         "caprylic-acid_100g" : 0.00511875,
          "carbohydrates_100g" : 7.6484375,
+         "chloride_100g" : 0.01875,
          "cholesterol_100g" : 0.03778125,
          "copper_100g" : 2.678125e-05,
+         "crude-ash_100g" : 0.3331259375,
+         "docosahexaenoic-acid_100g" : 0.0084375,
+         "eicosapentaenoic-acid_100g" : 0,
          "energy-kcal_100g" : 134.5875,
          "fiber_100g" : 0.8125,
          "fructose_100g" : 3.77578125,
@@ -740,19 +783,27 @@
          "iodine_100g" : 7.09375e-06,
          "iron_100g" : 0.0002265625,
          "lactose_100g" : 0.924375,
+         "lauric-acid_100g" : 0.01516875,
+         "linoleic-acid_100g" : 0.13018125,
          "magnesium_100g" : 0.00570625,
          "maltose_100g" : 0.00703125,
          "manganese_100g" : 2.73828125e-05,
+         "monounsaturated-fat_100g" : 3.823625,
+         "myristic-acid_100g" : 0.099,
+         "oleic-acid_100g" : 0.3376875,
+         "palmitic-acid_100g" : 4.2813125,
          "pantothenic-acid_100g" : 0.0002590625,
          "phosphorus_100g" : 0.0445625,
          "phylloquinone_100g" : 1.153125e-06,
          "polyols_100g" : 0.36875,
+         "polyunsaturated-fat_100g" : 1.05075625,
          "potassium_100g" : 0.09825,
          "salt_100g" : 0.0496875,
          "saturated-fat_100g" : 4.903125,
          "selenium_100g" : 1.2290625e-06,
          "sodium_100g" : 0.019725,
          "starch_100g" : 0,
+         "stearic-acid_100g" : 0.4686875,
          "sucrose_100g" : 0.51953125,
          "sugars_100g" : 7.2621875,
          "vitamin-a_100g" : 1.739625e-05,
@@ -928,7 +979,7 @@
       "serving_quantity" : 20,
       "serving_quantity_unit" : "g",
       "serving_size" : "20 g",
-      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "states" : "To be completed, Nutrition facts completed, Ingredients completed, Expiration date to be completed, Packaging code to be completed, Characteristics to be completed, Origins to be completed, Categories completed, Brands completed, Packaging to be completed, Quantity completed, Product name completed, Photos to be uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -960,9 +1011,8 @@
          "en:photos-to-be-uploaded"
       ],
       "traces" : "",
-      "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
+      "traces_lc" : "en",
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "vitamins_tags" : [],

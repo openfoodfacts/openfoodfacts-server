@@ -82,7 +82,7 @@ $material-icons: "Material Icons";
   text-transform: none;
   display: inline-block;
   white-space: nowrap;
-  word-wrap: normal;
+  overflow-wrap: normal;
   direction: ltr;
   font-feature-settings: "liga";
   -webkit-font-feature-settings: "liga";
@@ -296,7 +296,7 @@ ul.products {
   margin: 10px;
   padding: 10px;
   width: 120px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   text-decoration: none !important;
 }
 
@@ -461,7 +461,7 @@ nav.tab-bar > div {
 p.details {
   color: gray;
   font-size: 0.8em;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .select2-dropdown.select2-dropdown--below {
@@ -758,7 +758,7 @@ html[dir="rtl"] {
   border-radius: 8px;
   padding: 10px;
   display: block;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 #product_banner {
@@ -919,7 +919,7 @@ html[dir="rtl"] {
 // from https://www.w3.org/WAI/tutorials/forms/labels/
 .visuallyhidden {
   border: 0;
-  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -1294,11 +1294,13 @@ $border-pink: #ff6e78;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $section-cyan;
+    background-color: $background-orange;
     color: white;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
+    margin-bottom: 2em;
+    text-align: center;
     z-index: 1;
     p {
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -1314,13 +1316,15 @@ $border-pink: #ff6e78;
     }
   }
   &__left-aside {
-    width: 60%;
     margin: 0 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     img {
       transform: translatey(-15px);
+    } 
+    @media #{$medium-up} {
+      width: 60%;
     }
   }
   &__aside {
@@ -1328,7 +1332,7 @@ $border-pink: #ff6e78;
     flex-direction: column;
   }
   &__main-title {
-    color: $border-pink;
+    color: black;
     font-weight: 800;
     font-size: 25px;
   }
@@ -1356,20 +1360,20 @@ $border-pink: #ff6e78;
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
           sans-serif;
         font-size: 15px;
-        color: #008c8c;
+        color: black;
         font-weight: bolder;
       }
     }
     &__donate-button {
       width: 40%;
       a button {
-        background-color: $border-pink;
+        background-color: black;
         border-radius: 30px;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-size: 20px;
         font-weight: 900;
         &:hover {
-          background-color: rgba($border-pink, 0.8);
+          background-color: rgba(0, 0, 0, 0.8);
         }
       }
     }
@@ -2021,3 +2025,7 @@ div.form-field-with-btn {
   transition: opacity 0.3s ease-out;
 }
 
+// Capitalize language name in product edit form tabs
+.tab_language::first-letter {
+  text-transform: capitalize
+}

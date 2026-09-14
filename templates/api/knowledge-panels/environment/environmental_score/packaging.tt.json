@@ -67,7 +67,7 @@
                 ],
                 "rows": [
                     [% FOREACH packaging IN product.environmental_score_data.adjustments.packaging.packagings %]
-                    [% score = packaging.environmental_score_material_score %]
+                    [% score = packaging.environmental_score_material_score; IF ! score.length; score = 0; END %]
                     {
                         "values": [
                             {

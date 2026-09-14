@@ -2059,4 +2059,123 @@ compare_to_expected_results(
 	);
 }
 
+# Test that get_nutrition_input_sets_in_a_hash normalizes "_prepared" to "prepared"
+# for backwards compatibility with products stored via old-style API params
+{
+	my $product_ref = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "_prepared",
+					per => "100g",
+					per_quantity => 100,
+					per_unit => "g",
+					nutrients => {
+						sugars => {
+							value => 5.0,
+							unit => "g"
+						}
+					}
+				},
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					per_quantity => 100,
+					per_unit => "g",
+					nutrients => {
+						sugars => {
+							value => 10.0,
+							unit => "g"
+						}
+					}
+				}
+			]
+		}
+	};
+	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+
+	# The "_prepared" key should be normalized to "prepared" in the hash
+	ok(defined $input_sets_hash_ref->{packaging}{prepared},
+		"get_nutrition_input_sets_in_a_hash normalizes _prepared to prepared in the hash key");
+	ok(!defined $input_sets_hash_ref->{packaging}{_prepared},
+		"get_nutrition_input_sets_in_a_hash does not keep _prepared as a key");
+	is($input_sets_hash_ref->{packaging}{prepared}{"100g"}{nutrients}{sugars}{value},
+		5.0, "get_nutrition_input_sets_in_a_hash normalizes _prepared: nutrient value is preserved");
+
+	# The preparation field inside the set should also be normalized
+	is($input_sets_hash_ref->{packaging}{prepared}{"100g"}{preparation},
+		"prepared", "get_nutrition_input_sets_in_a_hash normalizes _prepared in the set's preparation field");
+
+	# The as_sold set should be unaffected
+	ok(defined $input_sets_hash_ref->{packaging}{as_sold},
+		"get_nutrition_input_sets_in_a_hash keeps as_sold unchanged");
+	is($input_sets_hash_ref->{packaging}{as_sold}{"100g"}{nutrients}{sugars}{value},
+		10.0, "get_nutrition_input_sets_in_a_hash: as_sold nutrient value is preserved");
+}
+
+# Test that sort_sets_by_priority correctly handles both "prepared" and previously stored "_prepared"
+# After normalization, "prepared" should get priority 0 (highest for preparation)
+{
+	my @input_sets = (
+		{
+			source => "packaging",
+			preparation => "as_sold",
+			per => "100g",
+		},
+		{
+			source => "packaging",
+			preparation => "prepared",
+			per => "100g",
+		},
+	);
+	my @sorted = sort_sets_by_priority(\@input_sets);
+	is($sorted[0]->{preparation},
+		"prepared", "sort_sets_by_priority: prepared (priority 0) sorts before as_sold (priority 1)");
+}
+
+# Test the "no nutrition data" checkbox of the product edit form.
+# Product types for which the nutrition feature is disabled (e.g. beauty products) have no valid
+# input set: their nutrition data cannot be edited nutrient by nutrient, and checking the box
+# is the only way to delete data they may still have.
+{
+	my $product_with_nutrition_data = sub {
+		my ($product_type) = @_;
+		return {
+			product_type => $product_type,
+			nutrition => {
+				input_sets => [
+					{
+						source => "packaging",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {fat => {value_string => "12", value => 12, unit => "g"}},
+					}
+				]
+			}
+		};
+	};
+
+	my $request_ref = {body_json => {no_nutrition_data => "on"}};
+
+	my $beauty_product_ref = $product_with_nutrition_data->("beauty");
+	assign_nutrition_values_from_request_parameters($request_ref, $beauty_product_ref, "off_europe", "packaging");
+	is($beauty_product_ref->{nutrition}{input_sets},
+		[], "no nutrition data checkbox: the nutrition data of beauty products is deleted");
+	ok(
+		!exists $beauty_product_ref->{nutrition}{no_nutrition_data_on_packaging},
+		"no nutrition data checkbox: the flag is not kept for beauty products"
+	);
+
+	my $food_product_ref = $product_with_nutrition_data->("food");
+	assign_nutrition_values_from_request_parameters($request_ref, $food_product_ref, "off_europe", "packaging");
+	is(scalar @{$food_product_ref->{nutrition}{input_sets}},
+		1, "no nutrition data checkbox: the nutrition data of food products is kept");
+	ok(
+		$food_product_ref->{nutrition}{no_nutrition_data_on_packaging},
+		"no nutrition data checkbox: the flag is set for food products"
+	);
+}
+
 done_testing();

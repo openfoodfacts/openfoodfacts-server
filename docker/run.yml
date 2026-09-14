@@ -19,6 +19,11 @@ services:
       # Needed to access Redis
       shared_network:
 
+  frontend:
+    networks:
+      # Needed to proxy to keycloak
+      shared_network:
+
 networks:
   # This network allows access to shared services like MongoDB and Redis
   shared_network:

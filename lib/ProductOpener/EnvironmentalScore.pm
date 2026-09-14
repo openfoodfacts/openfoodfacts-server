@@ -64,6 +64,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Ingredients qw/has_specific_ingredient_property/;
 
@@ -966,9 +967,10 @@ sub compute_environmental_score ($product_ref) {
 		$old_environmental_score_score = $old_previous_data->{score};
 	}
 	if (defined $old_environmental_score_score || defined $product_ref->{environmental_score_score}) {
-		if (!defined $old_environmental_score_score
-			|| $old_environmental_score_score != $product_ref->{environmental_score_score})
-		{
+		my $old_score = (defined $old_environmental_score_score) ? $old_environmental_score_score : 0;
+		my $new_score
+			= (defined $product_ref->{environmental_score_score}) ? $product_ref->{environmental_score_score} : 0;
+		if (!defined $old_environmental_score_score || $old_score != $new_score) {
 			if (!defined $old_previous_data && defined $old_agribalyse) {
 				$product_ref->{environmental_score_data}{previous_data} = {
 					grade => $old_environmental_score_grade,

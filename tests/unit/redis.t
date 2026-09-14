@@ -7,7 +7,7 @@ $Data::Dumper::Terse = 1;
 use Test2::Plugin::UTF8;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Redis qw/process_xread_stream_reply/;
+use ProductOpener::Redis qw/process_xread_stream_reply push_product_update_to_redis push_ocr_ready_to_redis/;
 use ProductOpener::Config qw/%oidc_options/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
@@ -134,6 +134,32 @@ subtest 'user deletion from redis to minion' => sub {
 	is($call_count, 2, 'process_xread_stream_reply caused 2 calls to Minion->enqueue');
 	is($user1_called, 1, 'process_xread_stream_reply called Minion->enqueue with user1');
 	is($user2_called, 1, 'process_xread_stream_reply called Minion->enqueue with user2');
+};
+
+subtest 'push_product_update_to_redis skips empty code' => sub {
+	# If the early return fires, $sent_warning_about_missing_redis_url stays 0
+	# (the !$redis_url block, which sets it, is never reached).
+	local $ProductOpener::Redis::sent_warning_about_missing_redis_url = 0;
+
+	push_product_update_to_redis({code => undef}, {}, 'updated');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url,
+		0, 'undef code: early return before redis_url check');
+
+	push_product_update_to_redis({code => ''}, {}, 'updated');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url,
+		0, 'empty code: early return before redis_url check');
+};
+
+subtest 'push_ocr_ready_to_redis skips empty code' => sub {
+	local $ProductOpener::Redis::sent_warning_about_missing_redis_url = 0;
+
+	push_ocr_ready_to_redis(undef, 'front_en', 'https://example.com/1.json');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url,
+		0, 'undef code: early return before redis_url check');
+
+	push_ocr_ready_to_redis('', 'front_en', 'https://example.com/1.json');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url,
+		0, 'empty code: early return before redis_url check');
 };
 
 done_testing();
