@@ -879,6 +879,35 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 
+	# Multi-word oils inside a generic name: "palm kernel" and "palm stearin"
+	# must be expanded as a single ingredient each, not left as a dangling word
+	# after "palm" was matched (e.g. "palm, palm, stearin, palm kernel").
+	[
+		"en-vegetable-oils-palm-stearin-palm-kernel",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (palm stearin, palm, palm kernel)",
+		}
+	],
+
+	[
+		"en-vegetable-oils-palm-stearin-palm-kernel-with-other-oils",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (coconut, palm stearin, palm, palm kernel)",
+		}
+	],
+
+	# Oils that resolve to their taxonomy id via an "X vegetable oil(s)" synonym
+	# (ingredients.txt). Guards the synonym entries added for these oils.
+	[
+		"en-vegetable-oils-five-resolved-oils",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (avocado, olive, colza, cottonseed, safflower)",
+		}
+	],
+
 	# émulsifiant : lécithines (tournesol)
 	[
 		"fr-emulsifiant-lecithines-tournesol",
@@ -1051,6 +1080,43 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "Black\ngrapes (Italy), sugar, eggs, paprika. Origin of paprika: Hungary",
 			origin_en => "Origin of sugar: Guatemala",
 			labels => "French Eggs",
+		}
+	],
+	# Ingredient unit quantities
+	[
+		'en-ingredient-unit-quantities-1-egg-2-carrots',
+		{
+			lc => "en",
+			ingredients_text => "1 egg, 2 carrots",
+		}
+	],
+	[
+		'en-ingredient-unit-quantities-1-large-egg-2-small-carrots',
+		{
+			lc => "en",
+			ingredients_text => "1 large egg, 2 small carrots, 1 large apple",
+		}
+	],
+	[
+		'fr-ingredient-unit-quantities-1-gros-oeuf-2-petites-carottes',
+		{
+			lc => "fr",
+			ingredients_text => "1 gros œuf, 2 petites carottes",
+		}
+	],
+	# sizes stopwords
+	[
+		'en-1-small-size-orange-2-medium-size-apples',
+		{
+			lc => "en",
+			ingredients_text => "1 small sized orange, 2 medium size apples",
+		}
+	],
+	[
+		'fr-ingredient-unit-quantities-3-concombres-de-petite-taille-2-aubergines-de-taille-moyenne',
+		{
+			lc => "fr",
+			ingredients_text => "3 concombres de petite taille, 2 aubergines de taille moyenne",
 		}
 	],
 );
