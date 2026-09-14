@@ -5451,8 +5451,53 @@ msgid "Very high risk of deforestation"
 msgstr "Very high risk of deforestation"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
-msgid "Currently only for products with chicken or eggs"
-msgstr "Currently only for products with chicken or eggs"
+msgid "Not yet assessed"
+msgstr "Not yet assessed"
+ 
+msgctxt "attribute_forest_footprint_unknown_title"
+msgid "Forest footprint: not assessed"
+msgstr "Forest footprint: not assessed"
+ 
+msgctxt "attribute_forest_footprint_unknown_description"
+msgid "The forest footprint of this product is not assessed because it contains ingredients that are not yet covered (e.g., corn, rice, soy, meat, dairy)."
+msgstr "The forest footprint of this product is not assessed because it contains ingredients that are not yet covered (e.g., corn, rice, soy, meat, dairy)."
+ 
+msgctxt "attribute_forest_footprint_unknown_description_short"
+msgid "Not assessed"
+msgstr "Not assessed"
+ 
+msgctxt "attribute_forest_footprint_no_risky_title"
+msgid "Very small forest footprint"
+msgstr "Very small forest footprint"
+ 
+msgctxt "attribute_forest_footprint_no_risky_description"
+msgid "We have not detected risky ingredients in the ingredients list of the product."
+msgstr "We have not detected risky ingredients in the ingredients list of the product."
+ 
+msgctxt "attribute_forest_footprint_no_risky_description_short"
+msgid "No risky ingredients detected"
+msgstr "No risky ingredients detected"
+ 
+msgctxt "attribute_forest_footprint_missing_ingredients_title"
+msgid "Forest footprint: unknown"
+msgstr "Forest footprint: unknown"
+ 
+msgctxt "attribute_forest_footprint_missing_ingredients_description"
+msgid "We cannot assess the forest footprint because the ingredients list is missing."
+msgstr "We cannot assess the forest footprint because the ingredients list is missing."
+ 
+msgctxt "attribute_forest_footprint_missing_ingredients_description_short"
+msgid "Missing ingredients list"
+msgstr "Missing ingredients list"
+ 
+msgctxt "forest_footprint_2026_other_risky_ingredients"
+msgid "Other risky ingredients"
+msgstr "Other risky ingredients"
+ 
+msgctxt "forest_footprint_2026_other_risky_ingredients_description"
+msgid "These ingredients are not yet assessed for deforestation risk:"
+msgstr "These ingredients are not yet assessed for deforestation risk:"
+
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"

@@ -210,6 +210,23 @@
             }
         }
         [% END %]
+        [% IF product.forest_footprint_2026.other_risky_ingredients.defined && product.forest_footprint_2026.other_risky_ingredients.size %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                <h3>[% lang('forest_footprint_2026_other_risky_ingredients') %]</h3>
+                <p>[% lang('forest_footprint_2026_other_risky_ingredients_description') %]</p>
+                <ul>
+                [% FOREACH ingredient_id IN product.forest_footprint_2026.other_risky_ingredients %]
+                <li>[% display_taxonomy_tag("ingredients", ingredient_id) %]</li>
+                [% END %]
+                </ul>
+                `
+            }
+        },
+        [% END %]
         [% END %]
     ]
 }

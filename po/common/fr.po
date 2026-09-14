@@ -5455,7 +5455,51 @@ msgstr "Très haut risque de déforestation"
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Currently only for products with chicken or eggs"
 msgstr "Pour l'instant seulement pour les produits avec du poulet ou des oeufs"
-
+ 
+msgctxt "attribute_forest_footprint_unknown_title"
+msgid "Forest footprint: not assessed"
+msgstr "Empreinte forêt : non évaluée"
+ 
+msgctxt "attribute_forest_footprint_unknown_description"
+msgid "The forest footprint of this product is not assessed because it contains ingredients that are not yet covered (e.g., corn, rice, soy, meat, dairy)."
+msgstr "L'empreinte forêt de ce produit n'est pas évaluée car il contient des ingrédients qui ne sont pas encore pris en compte (par ex. : le maïs, le riz, le soja, la viande, les produits laitiers)."
+ 
+msgctxt "attribute_forest_footprint_unknown_description_short"
+msgid "Not assessed"
+msgstr "Non évaluée"
+ 
+msgctxt "attribute_forest_footprint_no_risky_title"
+msgid "Very small forest footprint"
+msgstr "Très petite empreinte forêt"
+ 
+msgctxt "attribute_forest_footprint_no_risky_description"
+msgid "We have not detected risky ingredients in the ingredients list of the product."
+msgstr "Nous n'avons pas détecté d'ingrédients à risque dans la liste des ingrédients du produit."
+ 
+msgctxt "attribute_forest_footprint_no_risky_description_short"
+msgid "No risky ingredients detected"
+msgstr "Aucun ingrédient à risque détecté"
+ 
+msgctxt "attribute_forest_footprint_missing_ingredients_title"
+msgid "Forest footprint: unknown"
+msgstr "Empreinte forêt : inconnue"
+ 
+msgctxt "attribute_forest_footprint_missing_ingredients_description"
+msgid "We cannot assess the forest footprint because the ingredients list is missing."
+msgstr "Nous ne pouvons pas évaluer l'empreinte forêt car la liste des ingrédients est manquante."
+ 
+msgctxt "attribute_forest_footprint_missing_ingredients_description_short"
+msgid "Missing ingredients list"
+msgstr "Liste des ingrédients manquante"
+ 
+msgctxt "forest_footprint_2026_other_risky_ingredients"
+msgid "Other risky ingredients"
+msgstr "Autres ingrédients à risque"
+ 
+msgctxt "forest_footprint_2026_other_risky_ingredients_description"
+msgid "These ingredients are not yet assessed for deforestation risk:"
+msgstr "Ces ingrédients ne sont pas encore évalués pour le risque de déforestation :"
+ 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
 msgstr "Classer les produits suivant vos préférences"

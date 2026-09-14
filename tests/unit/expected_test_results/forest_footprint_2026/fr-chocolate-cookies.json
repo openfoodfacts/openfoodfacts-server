@@ -2,6 +2,9 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "forest_footprint_2026" : {
       "grade" : "b",
+      "other_risky_ingredients" : [
+         "en:milk"
+      ],
       "primary_ingredients" : {
          "en:cocoa" : {
             "footprint_per_kg" : 0.028328125,
@@ -65,6 +68,13 @@
                   "risk_factor" : 1,
                   "transformation_factor" : 1.25
                }
+            ]
+         },
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               "en:milk"
             ]
          },
          "en:palm-oil" : {

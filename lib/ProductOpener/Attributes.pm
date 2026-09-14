@@ -820,6 +820,11 @@ The match is based on the forest footprint 2026 grade:
 - Forest footprint grade D: match = 0
 - Forest footprint grade E: match = 0
 - Forest footprint not computed: match = 0
+- Forest footprint unknown (risky ingredients without assessment): match = 0
+- Forest footprint unknown (no ingredients list): match = 0
+
+If the forest footprint is not computed, we mark it as not computed.
+If the product has no ingredients list, we mark it as unknown with a missing ingredients message.
 
 If the forest footprint is not computed, we mark it as not computed.
 
@@ -841,27 +846,72 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 		'c' => 33,
 		'd' => 0,
 		'e' => 0,
+		'unknown' => 0,
 	);
 
 	if ((defined $product_ref->{forest_footprint_2026}) and (defined $product_ref->{forest_footprint_2026}{grade})) {
 
-		$attribute_ref->{status} = "known";
-
 		my $grade = $product_ref->{forest_footprint_2026}{grade};
 
-		# Compute match based on the overall grade
-		my $match = $grade_match{$grade} // 0;
-
-		$attribute_ref->{match} = $match;
-
-		if ($target_lc ne "data") {
-			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_title");
-			$attribute_ref->{description}
-				= lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description");
-			$attribute_ref->{description_short}
-				= lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description_short");
+		if ($grade eq 'unknown') {
+			if ($product_ref->{forest_footprint_2026}{no_ingredients}) {
+				# Product has no ingredients list
+				$attribute_ref->{status} = "unknown";
+				$attribute_ref->{match} = 0;
+				if ($target_lc ne "data") {
+					$attribute_ref->{title}
+						= lang_in_other_lc($target_lc, "attribute_forest_footprint_missing_ingredients_title");
+					$attribute_ref->{description}
+						= lang_in_other_lc($target_lc, "attribute_forest_footprint_missing_ingredients_description");
+					$attribute_ref->{description_short}
+						= lang_in_other_lc($target_lc,
+						"attribute_forest_footprint_missing_ingredients_description_short");
+					$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_ingredients_list");
+				}
+				$attribute_ref->{icon_url}
+					= "$static_subdomain/images/attributes/dist/forest-footprint-not-computed.svg";
+			}
+			else {
+				# Product has risky ingredients but no computed primary ingredients
+				$attribute_ref->{status} = "known";
+				$attribute_ref->{match} = 0;
+				if ($target_lc ne "data") {
+					$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_title");
+					$attribute_ref->{description}
+						= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_description");
+					$attribute_ref->{description_short}
+						= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_description_short");
+				}
+				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-unknown.svg";
+			}
 		}
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-$grade.svg";
+		elsif ($product_ref->{forest_footprint_2026}{no_risky_ingredients}) {
+			# No risky ingredients detected, grade is A
+			$attribute_ref->{status} = "known";
+			$attribute_ref->{match} = $grade_match{$grade};
+			if ($target_lc ne "data") {
+				$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_no_risky_title");
+				$attribute_ref->{description}
+					= lang_in_other_lc($target_lc, "attribute_forest_footprint_no_risky_description");
+				$attribute_ref->{description_short}
+					= lang_in_other_lc($target_lc, "attribute_forest_footprint_no_risky_description_short");
+			}
+			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-$grade.svg";
+		}
+		else {
+			# Normal computed grade (a-e)
+			$attribute_ref->{status} = "known";
+			$attribute_ref->{match} = $grade_match{$grade};
+			if ($target_lc ne "data") {
+				$attribute_ref->{title}
+					= lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_title");
+				$attribute_ref->{description}
+					= lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description");
+				$attribute_ref->{description_short}
+					= lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description_short");
+			}
+			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-$grade.svg";
+		}
 	}
 	else {
 		# If we don't have a forest footprint, we assume it is zero and mark it as known
