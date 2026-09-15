@@ -6,11 +6,15 @@ ARG USER_GID=1000
 # Use --with-develop to include development dependencies
 # Passed to Carton, which manages dependencies via cpanfile.snapshot
 ARG CPANMOPTS=""
+# Cache busting argument to force rebuilds when needed
+ARG CACHE_BUST=""
 
 ######################
 # Base modperl image stage
 ######################
 FROM debian:trixie-slim AS modperl
+
+ARG CACHE_BUST
 
 # Install Carton and cpanminus for Perl dependency management
 # Carton provides reproducible builds via cpanfile.snapshot lockfile
