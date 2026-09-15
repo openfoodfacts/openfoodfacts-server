@@ -6044,7 +6044,7 @@ sub get_search_field_path_components ($field) {
 	}
 	# forest footprint
 	elsif ($field eq "forest_footprint") {
-		@fields = ('forest_footprint_2026', 'footprint_per_kg');
+		@fields = ('forest_footprint_2026', 'total_footprint_per_kg');
 	}
 	# we assume other fields are nutrients ids
 	else {
