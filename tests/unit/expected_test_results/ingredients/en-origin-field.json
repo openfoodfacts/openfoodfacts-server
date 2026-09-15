@@ -3,7 +3,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13014",
-         "ecobalyse_code" : "ce20da3d-0ce4-49e9-8942-6d99ff0221b1",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:spain",
@@ -16,7 +15,6 @@
       },
       {
          "ciqual_food_code" : "13015",
-         "ecobalyse_code" : "50939126-d4a5-4b94-b110-63e8b9e66173",
          "id" : "en:raspberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:new-caledonia",
@@ -29,7 +27,6 @@
       },
       {
          "ciqual_food_code" : "13028",
-         "ecobalyse_code" : "b193fd9e-99ab-4d1b-8e81-3b38bab2eacf",
          "id" : "en:blueberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:canada",
@@ -53,7 +50,6 @@
       },
       {
          "ciqual_proxy_food_code" : "13043",
-         "ecobalyse_code" : "fa9e9f34-acc9-4974-89c4-003d2428f502",
          "id" : "en:white-peach",
          "is_in_taxonomy" : 1,
          "origins" : "en:mexico",
@@ -66,7 +62,6 @@
       },
       {
          "ciqual_food_code" : "20041",
-         "ecobalyse_code" : "bellpepper-unheated-greehouse",
          "id" : "en:bell-pepper",
          "is_in_taxonomy" : 1,
          "origins" : "en:guatemala",
@@ -122,9 +117,14 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:gooseberry"
+      "en:bell-pepper",
+      "en:blueberry",
+      "en:gooseberry",
+      "en:raspberry",
+      "en:strawberry",
+      "en:white-peach"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [

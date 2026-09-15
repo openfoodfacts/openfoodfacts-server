@@ -17,7 +17,6 @@
       },
       {
          "ciqual_food_code" : "9610",
-         "ecobalyse_code" : "b02ea3a9-f5f1-4673-b043-1d6d72894964",
          "id" : "en:superior-quality-durum-wheat-semolina",
          "is_in_taxonomy" : 1,
          "percent" : 100,
@@ -67,9 +66,10 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:mustard-seed"
+      "en:mustard-seed",
+      "en:superior-quality-durum-wheat-semolina"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 2,
    "lang" : "fr",
    "languages" : {

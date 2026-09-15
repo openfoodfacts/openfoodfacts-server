@@ -40,30 +40,20 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [
+         "ingredients" : [],
+         "packaging" : [
             {
-               "id" : "coffee-ground",
-               "mass" : 100,
-               "name" : "ground coffee"
+               "category" : "en:ground-coffees",
+               "id" : "b227b85d-b77c-4a34-8a81-a1e17fcefbdf",
+               "name" : "Coffee (grounded), 250g | Packaging System, Proxy Pack, Plastic film {FR} U",
+               "name_fr" : "Sachet en plastique (PE) pour café moulu - 250g - Proxy"
             }
-         ],
-         "packaging" : {
-            "category" : "en:ground-coffees",
-            "ecs" : 2.433,
-            "id" : "b227b85d-b77c-4a34-8a81-a1e17fcefbdf",
-            "name" : "Coffee (grounded), 250g | Packaging System, Proxy Pack, Plastic film {FR} U",
-            "name_fr" : "Sachet en plastique (PE) pour café moulu - 250g - Proxy"
-         }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "coffee-ground",
-                  "mass" : 100
-               }
-            ],
+            "ingredients" : [],
             "packaging" : [
                {
                   "amount" : 1,
@@ -83,7 +73,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18003",
-         "ecobalyse_code" : "coffee-ground",
          "id" : "en:ground-coffee",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -123,8 +112,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:ground-coffee"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "minerals_tags" : [],

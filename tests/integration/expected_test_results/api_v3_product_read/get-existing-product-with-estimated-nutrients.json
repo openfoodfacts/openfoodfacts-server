@@ -572,48 +572,20 @@
       "environmental_impact" : {
          "ecobalyse_input" : {
             "distribution" : "ambient",
-            "ingredients" : [
+            "ingredients" : [],
+            "packaging" : [
                {
-                  "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
-                  "mass" : 68.75,
-                  "name" : "milk"
-               },
-               {
-                  "id" : "egg-indoor-code3",
-                  "mass" : 15.625,
-                  "name" : "eggs"
-               },
-               {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 15.625,
-                  "name" : "sugar"
+                  "category" : "en:biscuits",
+                  "id" : "99353d1b-77a3-4fcd-8c99-25ef7dd404c5",
+                  "name" : "Cookies, 200g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+                  "name_fr" : "Barquette en plastique (PP) pour cookies - 200g - Proxy"
                }
-            ],
-            "packaging" : {
-               "category" : "en:biscuits",
-               "ecs" : 9.29,
-               "id" : "99353d1b-77a3-4fcd-8c99-25ef7dd404c5",
-               "name" : "Cookies, 200g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-               "name_fr" : "Barquette en plastique (PP) pour cookies - 200g - Proxy"
-            }
+            ]
          },
          "ecobalyse_request" : {
             "data" : {
                "distribution" : "ambient",
-               "ingredients" : [
-                  {
-                     "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
-                     "mass" : 68.75
-                  },
-                  {
-                     "id" : "egg-indoor-code3",
-                     "mass" : 15.625
-                  },
-                  {
-                     "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                     "mass" : 15.625
-                  }
-               ],
+               "ingredients" : [],
                "packaging" : [
                   {
                      "amount" : 1,
@@ -662,7 +634,6 @@
       "ingredients" : [
          {
             "ciqual_proxy_food_code" : "19051",
-            "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
             "id" : "en:milk",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 68.75,
@@ -674,7 +645,6 @@
          },
          {
             "ciqual_food_code" : "22000",
-            "ecobalyse_code" : "egg-indoor-code3",
             "id" : "en:egg",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 15.625,
@@ -686,7 +656,6 @@
          },
          {
             "ciqual_proxy_food_code" : "31016",
-            "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
             "id" : "en:sugar",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 15.625,
@@ -748,8 +717,12 @@
       "ingredients_with_unspecified_percent_sum" : 100.0,
       "ingredients_without_ciqual_codes" : [],
       "ingredients_without_ciqual_codes_n" : 0,
-      "ingredients_without_ecobalyse_ids" : [],
-      "ingredients_without_ecobalyse_ids_n" : 0,
+      "ingredients_without_ecobalyse_ids" : [
+         "en:egg",
+         "en:milk",
+         "en:sugar"
+      ],
+      "ingredients_without_ecobalyse_ids_n" : 3,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 3,

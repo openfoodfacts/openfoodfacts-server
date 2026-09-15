@@ -52,30 +52,20 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [
+         "ingredients" : [],
+         "packaging" : [
             {
-               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 92,
-               "name" : "Eau"
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
             }
-         ],
-         "packaging" : {
-            "category" : "",
-            "ecs" : 79.89,
-            "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-            "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-            "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-         }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 92
-               }
-            ],
+            "ingredients" : [],
             "packaging" : [
                {
                   "amount" : 1,
@@ -95,7 +85,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 92,
@@ -154,9 +143,10 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:soya-bean"
+      "en:soya-bean",
+      "en:water"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "minerals_tags" : [],

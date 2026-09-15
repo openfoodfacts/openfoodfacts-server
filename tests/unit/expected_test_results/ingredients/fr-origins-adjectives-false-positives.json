@@ -24,7 +24,6 @@
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "9435",
-               "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                "id" : "en:flour",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 5,
@@ -142,11 +141,12 @@
    "ingredients_without_ecobalyse_ids" : [
       "en:chub-mackerel",
       "en:english-sauce",
+      "en:flour",
       "en:light-custard-cream-with-vanilla",
       "en:salt",
       "en:swedish-bread"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 7,
    "lc" : "fr",
    "misc_tags" : [

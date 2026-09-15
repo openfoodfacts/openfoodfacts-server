@@ -24,34 +24,38 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [
+         "ingredients" : [],
+         "packaging" : [
             {
-               "id" : "mushroom-eu",
-               "mass" : 69,
-               "name" : "Pleurotes"
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
             }
          ],
-         "packaging" : {
-            "category" : "",
-            "ecs" : 79.89,
-            "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-            "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-            "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-         }
+         "transformations" : [
+            {
+               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+               "mass" : 100,
+               "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
+               "name_fr" : "Cuisson"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "mushroom-eu",
-                  "mass" : 69
-               }
-            ],
+            "ingredients" : [],
             "packaging" : [
                {
                   "amount" : 1,
                   "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+               }
+            ],
+            "transformations" : [
+               {
+                  "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+                  "mass" : 100
                }
             ]
          },
@@ -67,7 +71,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20114",
-         "ecobalyse_code" : "mushroom-eu",
          "id" : "en:oyster-mushroom",
          "is_in_taxonomy" : 1,
          "origins" : "en:european-union",
@@ -133,9 +136,10 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
+      "en:oyster-mushroom",
       "fr:chapelure de mais"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "minerals_tags" : [],

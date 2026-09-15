@@ -99,13 +99,7 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [
-            {
-               "id" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
-               "mass" : 100,
-               "name" : "Olive oil"
-            }
-         ],
+         "ingredients" : [],
          "packaging" : [
             {
                "category" : "en:olive-oils",
@@ -118,12 +112,7 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
-                  "mass" : 100
-               }
-            ],
+            "ingredients" : [],
             "packaging" : [
                {
                   "amount" : 1,
@@ -537,7 +526,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "17001",
-         "ecobalyse_code" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
          "from_palm_oil" : "no",
          "id" : "en:olive-oil",
          "is_in_taxonomy" : 1,
@@ -580,8 +568,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:olive-oil"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "languages" : {},
    "languages_codes" : {},

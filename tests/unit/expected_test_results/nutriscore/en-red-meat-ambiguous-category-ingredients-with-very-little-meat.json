@@ -34,57 +34,20 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [
+         "ingredients" : [],
+         "packaging" : [
             {
-               "id" : "egg-indoor-code3",
-               "mass" : 53.8333333333333,
-               "name" : "eggs"
-            },
-            {
-               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-               "mass" : 24.0833333333333,
-               "name" : "wheat flour"
-            },
-            {
-               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 12.0416666666667,
-               "name" : "water"
-            },
-            {
-               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-               "mass" : 6.02083333333333,
-               "name" : "rice flour"
+               "category" : "en:sausages",
+               "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
+               "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
+               "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
             }
-         ],
-         "packaging" : {
-            "category" : "en:sausages",
-            "ecs" : 13.31,
-            "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
-            "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
-            "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
-         }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "egg-indoor-code3",
-                  "mass" : 53.8333333333333
-               },
-               {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 24.0833333333333
-               },
-               {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 12.0416666666667
-               },
-               {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 6.02083333333333
-               }
-            ],
+            "ingredients" : [],
             "packaging" : [
                {
                   "amount" : 1,
@@ -104,7 +67,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "22000",
-         "ecobalyse_code" : "egg-indoor-code3",
          "id" : "en:egg",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 53.8333333333333,
@@ -116,7 +78,6 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 24.0833333333333,
@@ -128,7 +89,6 @@
       },
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 12.0416666666667,
@@ -140,7 +100,6 @@
       },
       {
          "ciqual_food_code" : "9520",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:rice-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 6.02083333333333,
@@ -230,10 +189,14 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
+      "en:egg",
       "en:lamb",
-      "en:salt"
+      "en:rice-flour",
+      "en:salt",
+      "en:water",
+      "en:wheat-flour"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "minerals_tags" : [],

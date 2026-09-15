@@ -1,6 +1,6 @@
 {
    "documentation" : "https://ecobalyse.beta.gouv.fr/#/api",
    "error" : {
-      "decoding" : "Problem with the value at json.ingredients[0].id: \"french-bean-non-eu\" Not a valid UUID"
+      "authorization" : "Un token valide est requis pour utiliser l’API"
    }
 }

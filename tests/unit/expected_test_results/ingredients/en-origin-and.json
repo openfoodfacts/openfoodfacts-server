@@ -3,7 +3,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20047",
-         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:tomato",
          "is_in_taxonomy" : 1,
          "origins" : "en:france,en:italy",
@@ -43,8 +42,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:tomato"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [

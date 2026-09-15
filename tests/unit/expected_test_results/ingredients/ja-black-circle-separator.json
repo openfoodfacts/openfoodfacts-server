@@ -3,7 +3,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 58.3333333333333,
@@ -15,7 +14,6 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 20.8333333333333,
@@ -128,9 +126,11 @@
       "en:emulsifier",
       "en:flavouring",
       "en:salt",
-      "en:vegetable-oil-and-fat"
+      "en:sugar",
+      "en:vegetable-oil-and-fat",
+      "en:wheat-flour"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 6,
    "lc" : "ja",
    "misc_tags" : [

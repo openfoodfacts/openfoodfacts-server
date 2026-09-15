@@ -10,7 +10,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 62.5,
@@ -57,7 +56,6 @@
                "vegetarian" : "yes"
             },
             {
-               "ecobalyse_code" : "celery-eu",
                "id" : "en:celery",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 2.34375,
@@ -148,13 +146,15 @@
    ],
    "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
+      "en:celery",
       "en:lupin-bean",
       "en:mustard",
       "en:soya",
       "en:spice",
+      "en:wheat-flour",
       "fr:crème de cassis"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 7,
    "known_ingredients_n" : 6,
    "lang" : "fr",
    "languages" : {

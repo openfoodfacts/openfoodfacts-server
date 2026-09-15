@@ -3,7 +3,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20019",
-         "ecobalyse_code" : "cucumber-eu",
          "id" : "en:cucumber",
          "is_in_taxonomy" : 1,
          "percent" : 49.0909090909091,
@@ -17,7 +16,6 @@
       },
       {
          "ciqual_proxy_food_code" : "20053",
-         "ecobalyse_code" : "eggplant-eu",
          "id" : "en:aubergine",
          "is_in_taxonomy" : 1,
          "percent" : 50.9090909090909,
@@ -60,8 +58,11 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:aubergine",
+      "en:cucumber"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "misc_tags" : [

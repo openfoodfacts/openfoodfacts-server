@@ -3,7 +3,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "13034",
-         "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
          "id" : "en:orange",
          "is_in_taxonomy" : 1,
          "percent" : 21.9512195121951,
@@ -17,7 +16,6 @@
       },
       {
          "ciqual_food_code" : "13050",
-         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
          "id" : "en:apple",
          "is_in_taxonomy" : 1,
          "percent" : 78.0487804878049,
@@ -61,8 +59,11 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:apple",
+      "en:orange"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 2,
    "lc" : "en",
    "misc_tags" : [

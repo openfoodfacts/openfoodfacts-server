@@ -4,7 +4,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "16400",
-         "ecobalyse_code" : "bbda834e-1548-4682-a461-c367dc1ce517",
          "id" : "en:butter",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 75,
@@ -80,10 +79,11 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
+      "en:butter",
       "en:cheese",
       "en:parmigiano-reggiano"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 3,
    "lc" : "fr",
    "misc_tags" : [

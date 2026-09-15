@@ -30,30 +30,20 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [
+         "ingredients" : [],
+         "packaging" : [
             {
-               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 94,
-               "name" : "sugar"
+               "category" : "en:sugars",
+               "id" : "ada440c9-f18f-4df5-bac6-4145040320e0",
+               "name" : "Sugar, 1000g | Packaging System, Proxy Pack, Cardboard {FR} U",
+               "name_fr" : "Sachet en papier pour sucre - 1000g - Proxy"
             }
-         ],
-         "packaging" : {
-            "category" : "en:sugars",
-            "ecs" : 1.496,
-            "id" : "ada440c9-f18f-4df5-bac6-4145040320e0",
-            "name" : "Sugar, 1000g | Packaging System, Proxy Pack, Cardboard {FR} U",
-            "name_fr" : "Sachet en papier pour sucre - 1000g - Proxy"
-         }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 94
-               }
-            ],
+            "ingredients" : [],
             "packaging" : [
                {
                   "amount" : 1,
@@ -73,7 +63,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent" : 94,
@@ -138,9 +127,10 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:strange ingredient"
+      "en:strange ingredient",
+      "en:sugar"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "minerals_tags" : [],

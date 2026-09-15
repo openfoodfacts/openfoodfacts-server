@@ -3,7 +3,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13014",
-         "ecobalyse_code" : "ce20da3d-0ce4-49e9-8942-6d99ff0221b1",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:sweden",
@@ -16,7 +15,6 @@
       },
       {
          "ciqual_food_code" : "13014",
-         "ecobalyse_code" : "ce20da3d-0ce4-49e9-8942-6d99ff0221b1",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:sweden",
@@ -57,8 +55,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:strawberry"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 2,
    "lc" : "sv",
    "misc_tags" : [

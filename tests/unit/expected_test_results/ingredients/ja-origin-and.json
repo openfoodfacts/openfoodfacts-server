@@ -3,7 +3,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20047",
-         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:tomato",
          "ingredients" : [
             {
@@ -64,9 +63,10 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
+      "en:tomato",
       "ja:ときがわ町"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 1,
    "lc" : "ja",
    "misc_tags" : [

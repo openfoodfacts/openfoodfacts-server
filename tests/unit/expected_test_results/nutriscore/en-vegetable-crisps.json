@@ -34,30 +34,20 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [
+         "ingredients" : [],
+         "packaging" : [
             {
-               "id" : "beetroot-fr",
-               "mass" : 30,
-               "name" : "red beet"
+               "category" : "en:appetizers",
+               "id" : "f755207c-ed56-4666-9b0e-4f2c515f7f18",
+               "name" : "Starters, Exotic products, 280g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+               "name_fr" : "Barquette en plastique (PET) pour entrées, produits exotiques - 280g - Proxy"
             }
-         ],
-         "packaging" : {
-            "category" : "en:appetizers",
-            "ecs" : 12.65,
-            "id" : "f755207c-ed56-4666-9b0e-4f2c515f7f18",
-            "name" : "Starters, Exotic products, 280g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-            "name_fr" : "Barquette en plastique (PET) pour entrées, produits exotiques - 280g - Proxy"
-         }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "beetroot-fr",
-                  "mass" : 30
-               }
-            ],
+            "ingredients" : [],
             "packaging" : [
                {
                   "amount" : 1,
@@ -89,7 +79,6 @@
       },
       {
          "ciqual_food_code" : "20091",
-         "ecobalyse_code" : "beetroot-fr",
          "id" : "en:red-beetroot",
          "is_in_taxonomy" : 1,
          "percent" : 30,
@@ -136,9 +125,10 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:parsnip"
+      "en:parsnip",
+      "en:red-beetroot"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 2,
    "lc" : "en",
    "minerals_tags" : [],

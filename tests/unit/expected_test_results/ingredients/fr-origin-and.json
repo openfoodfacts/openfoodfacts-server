@@ -3,7 +3,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "4003",
-         "ecobalyse_code" : "potato-industry-fr",
          "id" : "en:potato",
          "is_in_taxonomy" : 1,
          "origins" : "en:france,en:italy",
@@ -45,8 +44,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:potato"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "misc_tags" : [

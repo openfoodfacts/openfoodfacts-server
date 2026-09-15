@@ -404,7 +404,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "origins" : "en:Milky way",
@@ -447,8 +446,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:milk"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [

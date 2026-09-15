@@ -21,7 +21,6 @@
       },
       {
          "ciqual_food_code" : "20534",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:lupin-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -57,7 +56,6 @@
                "vegetarian" : "yes"
             },
             {
-               "ecobalyse_code" : "celery-eu",
                "id" : "en:celery",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 4.16666666666666,
@@ -133,12 +131,14 @@
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
+      "en:celery",
+      "en:lupin-flour",
       "en:mustard",
       "en:soya",
       "en:spice",
       "en:wheat"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 6,
    "lang" : "fi",
    "languages" : {

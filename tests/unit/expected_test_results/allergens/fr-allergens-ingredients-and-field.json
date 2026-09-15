@@ -20,7 +20,6 @@
       },
       {
          "ciqual_food_code" : "22000",
-         "ecobalyse_code" : "egg-indoor-code3",
          "id" : "en:egg",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 18.75,
@@ -102,10 +101,11 @@
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "en:chocolate",
+      "en:egg",
       "en:salmon",
       "en:wheat"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 4,
    "languages" : {
       "en:french" : 1

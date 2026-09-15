@@ -145,30 +145,20 @@
       "environmental_impact" : {
          "ecobalyse_input" : {
             "distribution" : "ambient",
-            "ingredients" : [
+            "ingredients" : [],
+            "packaging" : [
                {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 75,
-                  "name" : "water"
+                  "category" : "",
+                  "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b",
+                  "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
+                  "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
                }
-            ],
-            "packaging" : {
-               "category" : "",
-               "ecs" : 7.377,
-               "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b",
-               "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
-               "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
-            }
+            ]
          },
          "ecobalyse_request" : {
             "data" : {
                "distribution" : "ambient",
-               "ingredients" : [
-                  {
-                     "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                     "mass" : 75
-                  }
-               ],
+               "ingredients" : [],
                "packaging" : [
                   {
                      "amount" : 1,
@@ -481,7 +471,6 @@
       "ingredients" : [
          {
             "ciqual_food_code" : "18066",
-            "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
             "id" : "en:water",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 75,
@@ -546,9 +535,10 @@
       ],
       "ingredients_without_ciqual_codes_n" : 1,
       "ingredients_without_ecobalyse_ids" : [
-         "en:test_ingredient"
+         "en:test_ingredient",
+         "en:water"
       ],
-      "ingredients_without_ecobalyse_ids_n" : 1,
+      "ingredients_without_ecobalyse_ids_n" : 2,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 1,

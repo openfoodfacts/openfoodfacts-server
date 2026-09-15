@@ -42,30 +42,20 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [
+         "ingredients" : [],
+         "packaging" : [
             {
-               "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
-               "mass" : 100,
-               "name" : "apples"
+               "category" : "en:fruits",
+               "id" : "52a0059e-0164-44c8-a429-198b2b7f2d62",
+               "name" : "Pureed fruits, ambient, 730g | Packaging System, N0, All, Glass jar with capsule {FR} U",
+               "name_fr" : "Bocal en verre pour purée de fruits, ambiant - 400g"
             }
-         ],
-         "packaging" : {
-            "category" : "en:fruits",
-            "ecs" : 33.83,
-            "id" : "52a0059e-0164-44c8-a429-198b2b7f2d62",
-            "name" : "Pureed fruits, ambient, 730g | Packaging System, N0, All, Glass jar with capsule {FR} U",
-            "name_fr" : "Bocal en verre pour purée de fruits, ambiant - 400g"
-         }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
-                  "mass" : 100
-               }
-            ],
+            "ingredients" : [],
             "packaging" : [
                {
                   "amount" : 1,
@@ -85,7 +75,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13050",
-         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
          "id" : "en:apple",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -126,8 +115,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:apple"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "minerals_tags" : [],

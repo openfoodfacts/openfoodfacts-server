@@ -184,30 +184,20 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [
+         "ingredients" : [],
+         "packaging" : [
             {
-               "id" : "lentils-uncooked-eu",
-               "mass" : 100.0,
-               "name" : "Lentilles vertes"
+               "category" : "",
+               "id" : "79d05fb1-d000-41f4-850b-54afd8d2dc9c",
+               "name" : "Other desserts - cat C, 285g | Packaging System, N0, All, Cardboard box {FR} U",
+               "name_fr" : "Boîte en carton, barquette aluminium, sachet plastique (PEBD) pour gâteau - 330g"
             }
-         ],
-         "packaging" : {
-            "category" : "",
-            "ecs" : 12.53,
-            "id" : "79d05fb1-d000-41f4-850b-54afd8d2dc9c",
-            "name" : "Other desserts - cat C, 285g | Packaging System, N0, All, Cardboard box {FR} U",
-            "name_fr" : "Boîte en carton, barquette aluminium, sachet plastique (PEBD) pour gâteau - 330g"
-         }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "lentils-uncooked-eu",
-                  "mass" : 100.0
-               }
-            ],
+            "ingredients" : [],
             "packaging" : [
                {
                   "amount" : 1,
@@ -683,7 +673,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "20504",
-         "ecobalyse_code" : "lentils-uncooked-eu",
          "id" : "en:green-lentils",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -731,8 +720,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:green-lentils"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "known_ingredients_n" : 1,
    "labels_imported" : "Organic, EU Organic, FR-BIO-01, AB Agriculture Biologique, Agriculture France, en:organic",

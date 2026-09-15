@@ -51,7 +51,6 @@
       },
       {
          "ciqual_food_code" : "20034",
-         "ecobalyse_code" : "onion-organic",
          "id" : "en:onion",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -87,7 +86,6 @@
       },
       {
          "ciqual_proxy_food_code" : "11000",
-         "ecobalyse_code" : "12f8ffd4-cbc0-5d7b-ba0e-9a0acb3e6918",
          "id" : "en:garlic",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic, en:organic",
@@ -161,14 +159,16 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
       "en:basil",
+      "en:garlic",
       "en:low-sodium-unrefined-sea-salt",
+      "en:onion",
       "en:oregano",
       "en:rosemary",
       "en:sage",
       "en:sea-salt",
       "en:thyme"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 7,
+   "ingredients_without_ecobalyse_ids_n" : 9,
    "known_ingredients_n" : 9,
    "lc" : "sv",
    "misc_tags" : [
