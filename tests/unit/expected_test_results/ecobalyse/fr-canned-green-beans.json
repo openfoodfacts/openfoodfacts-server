@@ -81,7 +81,12 @@
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
-      "ecobalyse_response" : "read timeout at /usr/share/perl5/Net/HTTP/Methods.pm line 274.\n"
+      "ecobalyse_response" : {
+         "documentation" : "https://ecobalyse.beta.gouv.fr/#/api",
+         "error" : {
+            "authorization" : "Un token valide est requis pour utiliser l’API"
+         }
+      }
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
