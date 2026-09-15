@@ -23300,8 +23300,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Liquid_smoke
 
 < en: flavouring
 en: vegetable flavouring
+da: grøntsagsaroma, grønsagsaroma
 hr: aroma povrća
 it: aroma vegetale
+
+< en: natural flavouring
+< en: vegetable flavouring
+en: natural vegetable flavouring
+da: naturlig grøntsagsaroma
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -50010,7 +50016,7 @@ en: vegetable, vegetables
 bg: зеленчук, зеленчуци
 ca: Vegetals, Verdures
 cs: Zelenina
-da: grøntsag, grøntsager, grønsag, grønsager
+da: grøntsag, grøntsager, grøntsags, grønsag, grønsager, grønsags
 de: Gemüse
 el: λαχανικό, λαχανικά
 es: verduras, hortaliza, hortalizas, vegetal, vegetales
@@ -71698,19 +71704,23 @@ nl: braamblad, braambladeren
 
 < en: taproot vegetable
 en: parsley root
-de: Petersilienwurzel
+cs: kořenová petržel
+da: persillerod
+de: Petersilienwurzel, Wurzelpetersilie
+eo: radikpetroselo
 es: raices de peregril
 fr: racine de persil
 hr: korijen peršina
 it: radice di prezzemolo
-la: Petroselinum crispum var. tuberosum
-nl: peterseliewortel
+la: Petroselinum crispum subsp. tuberosum, Petroselinum crispum var. tuberosum
+nb: persillerot
+nl: peterseliewortel, wortelpeterselie
 pl: korzeń pietruszki, pietruszka korzeń
+ru: петрушка корневая
 sl: jeva korenina
 sr: koren peršuna
-# 113 @2021-09-16
 eurocode_2_group_3:en: 8.38.60
-wikidata:en: Q68220931
+wikidata:en: Q2595442
 
 ###################################################################################################
 #
@@ -89157,6 +89167,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Chicken_as_food
 
 < en: chicken
 en: free range chicken
+da: fritgående høns
 de: Freilandhühner, Freilandhühnern, Hühner aus Freilandhaltung
 es: pollo de corral
 fr: poulet élevé en plein air
@@ -90715,14 +90726,17 @@ fi: virikehäkkikanan muna, virikehäkkikanojen munia
 < en: chicken egg
 < en: free range eggs
 en: free range chicken eggs
+da: æg fra fritgående høns
 de: Hühnereier aus Freilandhaltung
 es: huevos de gallinas camperas
 fi: ulkokanan munat, ulkokanan munia, ulkokanojen munia
 fr: œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air
 hr: jaja iz podnog uzgoja
 it: uova di gallina allevate all'aperto
+nb: egg fra frittgående høner
 nl: ei van hennen met vrije uitloop, scharrelkipheelei, scharrelkippenei
 pl: kurze jaja z wolnego wybiegu
+sv: ägg från frigående höns
 
 < en: free range chicken eggs
 fr: œufs de poules élevées en plein air calibre moyen
@@ -91368,18 +91382,22 @@ hr: kokošji žumanjak u prahu
 it: Polvere di tuorlo d'uovo di gallina
 pl: żółtko jaj kurzych w proszku
 
+< en: chicken egg yolk
 < en: free range egg yolk
 en: free range chicken egg yolk
 bg: жълтък от пресни яйца от свободно отглеждани кокошки
+da: æggeblomme fra fritgående høns
 de: Hühnereigelb aus Freilandhaltung
 es: yema de huevo de gallinas camperas
 fi: ulkokanan munankeltuainen
 fr: jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air, jaune d'oeuf issu d'oeufs de poules élevées en plein air, jaune d'oeuf issu de poules élevées en plein air
 hr: žumanjak kokoši slobodnog uzgoja
 it: tuorlo d'uovo di gallina allevata all'aperto
+nb: eggeplomme fra frittgående høner
 nl: Eigeel van vrije uitloop eieren, scharreleigeelpoeder, scharrelkippenei-eigeel, scharrelkippenei-eigeelpoeder
 pl: żółtko jaja kurzego z chowu z wolnego wybiegu, żółtko jaja kurzego z chowu na wolnym wybiegu, żółtko z jaja kurzego z chowu na wolnym wybiegu, żółtko jaja w proszku z chowu na wolnym wybiegu
 pt: gema de ovo de galinhas criadas ao ar livre
+sv: äggula från frigående höns
 
 < en: free range egg yolk
 en: pasteurised Free Range Egg Yolk
@@ -92914,8 +92932,6 @@ zh: 意大利粉
 wikidata:en: Q20026
 wikipedia:en: https://en.wikipedia.org/wiki/Spaghetti
 
-# description:en:LASAGNE are a type of wide, flat pasta, possibly one of the oldest types of pasta.
-
 < en: pasta
 en: lasagne, lasagna, lasagna pasta, lasagne sheets
 af: lasagne
@@ -92927,7 +92943,7 @@ br: lasagne al forno
 ca: lasanya
 cs: lasagne
 cy: lasagna
-da: lasagne
+da: lasagne, lasagneplader
 de: lasagne, lasagneblätter
 eo: lasanjoj
 es: lasaña
@@ -92973,6 +92989,7 @@ zh: 千層麵
 # sco:lasagne
 # tyv:лазанья
 # zh_yue:千層麪
+description:en: LASAGNE are a type of wide, flat pasta, possibly one of the oldest types of pasta.
 wikidata:en: Q20034
 wikipedia:en: https://en.wikipedia.org/wiki/Lasagne
 
