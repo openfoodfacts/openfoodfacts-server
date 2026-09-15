@@ -348,6 +348,7 @@ country:en: en:Ireland, en:Northern Ireland
 en: Free range
 bg: Свободно отглеждане
 ca: Rang lliure
+da: fritgående
 de: Freiland
 es: de corral
 fi: vapaana laiduntava, ulkoilma
@@ -355,9 +356,11 @@ fr: Plein air
 he: גידול חופשי
 hu: Szabad tartású
 it: Allevamento a terra
+nb: frittgående
 nl: Vrije uitloop
 pt: Em liberdade, ao ar livre
 ru: свободный выгул, открытый воздух
+sv: frigående
 label_categories:en: en:Animal welfare
 
 en: French eggs, Eggs from France, Oeufs de France
@@ -383,6 +386,7 @@ pt: Ovos de origem França
 en: Free range eggs
 bg: Яйца от свободно отгледани кокошки
 ca: Ous de gallines lliures
+da: æg fra fritgående høns
 de: Freilandeier, eier aus bodenhaltung
 es: Huevos de gallinas camperas
 fi: ulkokananmunat, ulkokanalasta
@@ -391,9 +395,11 @@ he: ביצי חופש
 hr: iz slobodnog uzgoja, iz štalskog uzgoja, iz štalskog (podnog) uzgoja, iz podnog uzgoja
 hu: Szabad tartású tojás
 it: Uova da allevamento all'aperto, uova da galline allevate all'aperto
+nb: egg fra frittgående høner
 nl: Vrije uitloop eieren
 pl: jaja z chowu na wolnym wybiegu, 1 - jajka z chowu na wolnym wybiegu, 1 - jaja z chowu na wolnym wybiegu
 pt: Ovos de galinhas criadas em liberdade, ovos de galinhas em liberdade, ovos de galinhas livres de gaiolas, ovos de galinhas criadas ao ar livre, ovos de galinhas ao ar livre
+sv: ägg från frigående höns
 
 < en: Free range eggs
 en: Made with free range eggs, Baked with free range eggs
@@ -436,11 +442,21 @@ pt: Porco de fazenda criado ao ar livre
 
 < en: Free range
 en: Free range chicken
+da: fritgående høns
 de: Freilandhühnchen
 fi: ulkokana, vapaana elänyt kana
 hu: Szabad tartású csirke, Szabad tartású tyúk
 it: Polli allevati a terra, galline allevate a terra
+nb: frittgående høner
 pt: Galinhas criadas em liberdade, galinhas em liberdade, galinhas livres de gaiolas, galinhas criadas ao ar livre, galinhas ao ar livre
+sv: frigående höns
+
+< en: Free range
+en: From free range chickens
+da: Fra fritgående høns
+fi: Vapaiden ja ulkoilevien kanojen munista
+nb: Fra frittgående høner
+sv: Från frigående höns
 
 < en: Free range
 en: Free range poultry
@@ -4337,6 +4353,11 @@ sv: Tillverkad i Sverige, Tillagat i Sverige, Producerad i Sverige
 label_categories:en: en:Geographic label
 manufacturing_places:en: en:sweden
 
+en: Swedish ingredient
+sv: Svensk råvare, Svensk ingrediens, Råvaren har svenskt ursprung
+label_categories:en: en:Geographic label
+origins:en: en:sweden
+
 en: Made in Swiss, made in Switzerland, swiss made
 bg: Произведено в Швейцария
 ca: Fet a Suïssa
@@ -5723,7 +5744,7 @@ sk: Bez konzervačných látok
 sl: Brez konzervansov
 sq: Pa konservues
 sr: Bez konzervansa
-sv: Utan konserveringsmedel, Innehåller inga konserveringsmedel
+sv: Utan konserveringsmedel, Innehåller inga konserveringsmedel, Bakade utan konserveringsmedel
 th: ไม่ใช้วัตถุกันเสีย
 tr: Koruyucu yok, Koruyucu madde içermez
 uk: Без консервантів
