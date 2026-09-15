@@ -348,6 +348,7 @@ country:en: en:Ireland, en:Northern Ireland
 en: Free range
 bg: Свободно отглеждане
 ca: Rang lliure
+da: fritgående
 de: Freiland
 es: de corral
 fi: vapaana laiduntava, ulkoilma
@@ -355,9 +356,11 @@ fr: Plein air
 he: גידול חופשי
 hu: Szabad tartású
 it: Allevamento a terra
+nb: frittgående
 nl: Vrije uitloop
 pt: Em liberdade, ao ar livre
 ru: свободный выгул, открытый воздух
+sv: frigående
 label_categories:en: en:Animal welfare
 
 en: French eggs, Eggs from France, Oeufs de France
@@ -383,6 +386,7 @@ pt: Ovos de origem França
 en: Free range eggs
 bg: Яйца от свободно отгледани кокошки
 ca: Ous de gallines lliures
+da: æg fra fritgående høns
 de: Freilandeier, eier aus bodenhaltung
 es: Huevos de gallinas camperas
 fi: ulkokananmunat, ulkokanalasta
@@ -391,9 +395,11 @@ he: ביצי חופש
 hr: iz slobodnog uzgoja, iz štalskog uzgoja, iz štalskog (podnog) uzgoja, iz podnog uzgoja
 hu: Szabad tartású tojás
 it: Uova da allevamento all'aperto, uova da galline allevate all'aperto
+nb: egg fra frittgående høner
 nl: Vrije uitloop eieren
 pl: jaja z chowu na wolnym wybiegu, 1 - jajka z chowu na wolnym wybiegu, 1 - jaja z chowu na wolnym wybiegu
 pt: Ovos de galinhas criadas em liberdade, ovos de galinhas em liberdade, ovos de galinhas livres de gaiolas, ovos de galinhas criadas ao ar livre, ovos de galinhas ao ar livre
+sv: ägg från frigående höns
 
 < en: Free range eggs
 en: Made with free range eggs, Baked with free range eggs
@@ -436,11 +442,21 @@ pt: Porco de fazenda criado ao ar livre
 
 < en: Free range
 en: Free range chicken
+da: fritgående høns
 de: Freilandhühnchen
 fi: ulkokana, vapaana elänyt kana
 hu: Szabad tartású csirke, Szabad tartású tyúk
 it: Polli allevati a terra, galline allevate a terra
+nb: frittgående høner
 pt: Galinhas criadas em liberdade, galinhas em liberdade, galinhas livres de gaiolas, galinhas criadas ao ar livre, galinhas ao ar livre
+sv: frigående höns
+
+< en: Free range
+en: From free range chickens
+da: Fra fritgående høns
+fi: Vapaiden ja ulkoilevien kanojen munista
+nb: Fra frittgående høner
+sv: Från frigående höns
 
 < en: Free range
 en: Free range poultry
@@ -1874,6 +1890,7 @@ en: High fibres, high fibers, Rich in fiber, high fiber
 xx: High fibres
 bg: Високо съдържание на хранителни влакнини
 ca: Alt en fibra, ric en fibra
+da: rig på fibre
 de: ballaststoffreich
 es: Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra, Alto Contenido en Fibra
 fi: runsaskuituinen, paljon kuituja, kuitupitoinen
@@ -3467,7 +3484,7 @@ ar: بدون سكر مضاف
 bg: Без добавена захар
 ca: Sense sucre afegit, sense sucres afegits
 cs: Bez přidaného cukru, obsahuje přirozeněse vyskytující cukry
-da: Uden tilsat sukker
+da: Uden tilsat sukker, ikke tilsat sukker
 de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker, Enthält von Natur aus Zucker
 el: Χωρίς προσθήκη ζάχαρης
 es: Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
@@ -3975,6 +3992,62 @@ description:fr: Le contenu du produit est originaire du Canada à au moins 98%
 label_categories:en: en:Geographic label
 # https://bureau-concurrence.canada.ca/comment-nous-favorisons-concurrence/education-sensibilisation/publications/indications-produit-canada-fait-canada
 
+# Canadian Geographical Indication (GI): a name identifying a wine, spirit, agricultural
+# product, or food as originating in Canada, protected under the Trademarks Act. The regime
+# originally covered only wines and spirits; it was expanded to agricultural products and
+# food following the 2017 Canada-EU CETA agreement. Administered by the Canadian Intellectual
+# Property Office (CIPO). The 7 specific GI names below were each individually verified live
+# against CIPO's Canadian Trademarks Database (category: Geographical Indications) at
+# https://ised-isde.canada.ca/cipo/trademark-search/srch as of 2026-09-03, and all carry the
+# status "ENTERED ON THE LIST". This is not a claim that the list is exhaustive - the
+# register holds ~900 GI entries in total, the large majority of which are foreign
+# (EU/CETA-reciprocal) indications like Feta or Champagne, out of scope for this entry.
+en: Canadian Geographical Indication, Canadian GI
+xx: Canadian Geographical Indication
+fr: Indication géographique canadienne, IG canadienne
+country:en: en:Canada
+description:en: A name identifying a wine, spirit, agricultural product, or food as originating in Canada, where a quality, reputation, or other characteristic of the product is essentially attributable to that geographic origin, protected under Canada's Trademarks Act.
+description:fr: Un nom identifiant un vin, une boisson spiritueuse, un produit agricole ou un aliment comme étant originaire du Canada, dont une qualité, une réputation ou une autre caractéristique du produit est essentiellement attribuable à cette origine géographique, protégé en vertu de la Loi sur les marques de commerce du Canada.
+label_categories:en: en:Quality, en:Geographic label
+web:en: https://ised-isde.canada.ca/site/canadian-intellectual-property-office/en/ip-roadmap-geographical-indications-canada
+
+< en: Canadian Geographical Indication
+en: Canadian Whisky
+xx: Canadian Whisky
+fr: Whisky canadien
+
+< en: Canadian Geographical Indication
+en: Canadian Rye Whisky
+xx: Canadian Rye Whisky
+fr: Whisky de seigle canadien
+
+< en: Canadian Geographical Indication
+en: Okanagan Valley
+xx: Okanagan Valley
+fr: Vallée de l'Okanagan
+description:en: Wine geographical indication for British Columbia's Okanagan Valley region.
+
+< en: Canadian Geographical Indication
+en: Niagara Peninsula
+xx: Niagara Peninsula
+fr: Péninsule du Niagara
+description:en: Wine geographical indication for Ontario's Niagara Peninsula region.
+
+< en: Canadian Geographical Indication
+en: Ontario Icewine
+xx: Ontario Icewine
+
+< en: Canadian Geographical Indication
+en: Vin de glace du Québec, Quebec Icewine
+xx: Vin de glace du Québec
+fr: Vin de glace du Québec
+
+< en: Canadian Geographical Indication
+en: Maïs sucré de Neuville, Neuville Sweet Corn
+xx: Maïs sucré de Neuville
+fr: Maïs sucré de Neuville
+description:en: Agricultural product geographical indication for sweet corn grown in Neuville, Québec.
+
 # [CL] Chile
 
 en: Chilean front-of-package nutrition warnings
@@ -4279,6 +4352,11 @@ en: Made in Sweden, Manufactured in Sweden
 sv: Tillverkad i Sverige, Tillagat i Sverige, Producerad i Sverige
 label_categories:en: en:Geographic label
 manufacturing_places:en: en:sweden
+
+en: Swedish ingredient
+sv: Svensk råvare, Svensk ingrediens, Råvaren har svenskt ursprung
+label_categories:en: en:Geographic label
+origins:en: en:sweden
 
 en: Made in Swiss, made in Switzerland, swiss made
 bg: Произведено в Швейцария
@@ -5666,7 +5744,7 @@ sk: Bez konzervačných látok
 sl: Brez konzervansov
 sq: Pa konservues
 sr: Bez konzervansa
-sv: Utan konserveringsmedel, Innehåller inga konserveringsmedel
+sv: Utan konserveringsmedel, Innehåller inga konserveringsmedel, Bakade utan konserveringsmedel
 th: ไม่ใช้วัตถุกันเสีย
 tr: Koruyucu yok, Koruyucu madde içermez
 uk: Без консервантів
@@ -6159,6 +6237,18 @@ ca: Vi biodinàmic
 en: India Organic
 country:en: en:India
 wikidata:en: Q17055995
+
+< en: India Organic
+en: Jaivik Bharat
+comment:en: Food Safety and Standard Authority of India’s main organic logo (Jaivik Bharat) - https://jaivikbharat.fssai.gov.in/pdf/faq.pdf
+
+< en: India Organic
+en: NPOP, National Programme for Organic Production
+comment:en: National Programme for Organic Production - National Accreditation Body
+
+< en: India Organic
+en: PGS-India Organic
+comment:en: Participatory Guarantee System (PGS-India) is based on the standards of NPOP but is distinct in its certification procedures - https://jaivikbharat.fssai.gov.in/standard-pgs.php
 
 < en: India Organic
 en: NPOP-NAB-0001
@@ -20309,7 +20399,7 @@ an: vegano
 bg: Веган
 ca: Vegà, Adequat per persones veganes
 cs: Veganské
-da: Vegansk, Velegnet til veganere, vegetabilsk
+da: Vegansk, Velegnet til veganere, vegetabilsk, velegnet til veganere og vegetarer
 de: Vegan
 es: Vegano, Producto vegano, Vegan, Apto para veganos y vegetarianos
 fi: vegaaninen, sopii vegaaneille, kasviperäinen, Sopii vegaaniruokavalioon
