@@ -34,197 +34,759 @@ location ~ ^/(greenscore|ecoscore|eco-score-l-impact-environnemental-des-produit
 }
 
 # === donation redirects ===
-# 100 % translated: fr, bg, ca, zh, cs, da, nl, de, he, id, it, lt, pl, pt, ro, ru, es, tr, uk, vi
-# EN
+# Default / fallback donation page (with host-language detection)
 location = /donate-to-open-food-facts {
-	try_files /donate/en.html =404;
+	try_files /donate/$host_lang.html /donate/en.html =404;
 }
 
-#FR
-location = /faire-un-don-a-open-food-facts {
+# Generic language-tagged URLs: /donate-to-open-food-facts-<lc>
+location ~ ^/donate-to-open-food-facts-([a-z]{2,3}(?:_[a-zA-Z]{2})?)$ {
+	try_files /donate/$1.html /donate/en.html =404;
+}
+
+# Legacy code aliases
+location = /donate-to-open-food-facts-cn {
+	try_files /donate/zh_CN.html /donate/zh.html =404;
+}
+location = /donate-to-open-food-facts-ua {
+	try_files /donate/uk.html =404;
+}
+location = /donate-to-open-food-facts-lu {
+	try_files /donate/lb.html =404;
+}
+
+# English (EN)
+# /donate-to-open-food-facts handled above
+
+# French (FR)
+location ~ ^/(faire-un-don-a-open-food-facts|donner-a-open-food-facts|faire-un-don)$ {
 	try_files /donate/fr.html =404;
 }
 
-location = /donner-a-open-food-facts {
-	try_files /donate/fr.html =404;
+# German (DE)
+location ~ ^/(spenden|an-open-food-facts-spenden)$ {
+	try_files /donate/de.html =404;
 }
 
-# AR
-location = /donate-to-open-food-facts-ar {
-	try_files /donate/ar.html =404;
+# Spanish (ES)
+location ~ ^/(donar-a-open-food-facts|dar-a-open-food-facts|haz-su-donacion-a-open-food-facts)$ {
+	try_files /donate/es.html =404;
 }
 
-# BG: даряване-на-openfoodfacts
-location = /даряване-на-openfoodfacts {
-	try_files /donate/bg.html =404;
+# Italian (IT)
+location ~ ^/(dona-a-open-food-facts|donare-a-open-food-facts)$ {
+	try_files /donate/it.html =404;
 }
 
-# CA: dona a openfoodfacts
-location = /dona-a-openfoodfacts {
-	try_files /donate/ca.html =404;
+# Dutch (NL)
+location ~ ^/(doneer-aan-open-food-facts|doneren-aan-open-food-facts|doneren-aan-openfoodfacts)$ {
+	try_files /donate/nl.html =404;
 }
 
-# CS
-location = /darujte-openfoodfacts {
+# Portuguese (PT)
+location ~ ^/(fazer-um-donativo-ao-open-food-facts|doar-ao-open-food-facts)$ {
+	try_files /donate/pt.html =404;
+}
+
+# Portuguese (Brazil) (PT_BR)
+location = /fazer-uma-doacao-ao-open-food-facts {
+	try_files /donate/pt_BR.html /donate/pt.html =404;
+}
+
+# Polish (PL)
+location ~ ^/(przekaz-darowizne-na-open-food-facts|wesprzyj-open-food-facts|wplac-darowizne-na-open-food-facts)$ {
+	try_files /donate/pl.html =404;
+}
+
+# Russian (RU)
+location ~ ^/(pozhertvovat-open-food-facts|пожертвовать-open-food-facts|podderzhat-open-food-facts)$ {
+	try_files /donate/ru.html =404;
+}
+
+# Ukrainian (UK)
+location ~ ^/(pidtrymaty-open-food-facts|pozhertvuvaty-dlya-open-food-facts|підтримати-open-food-facts)$ {
+	try_files /donate/uk.html =404;
+}
+
+# Czech (CS)
+location ~ ^/(darujte-open-food-facts|darujte-openfoodfacts)$ {
 	try_files /donate/cs.html =404;
 }
 
-# DA
+# Slovak (SK)
+location ~ ^/(prispejte-na-open-food-facts|darujte-open-food-facts-sk)$ {
+	try_files /donate/sk.html =404;
+}
+
+# Bulgarian (BG)
+location ~ ^/(daryavane-na-open-food-facts|даряване-на-openfoodfacts|dari-na-open-food-facts)$ {
+	try_files /donate/bg.html =404;
+}
+
+# Catalan (CA)
+location ~ ^/(dona-a-open-food-facts|dona-a-openfoodfacts|feu-un-donatiu-a-open-food-facts)$ {
+	try_files /donate/ca.html =404;
+}
+
+# Danish (DA)
 location = /doner-til-open-food-facts {
 	try_files /donate/da.html =404;
 }
 
-# DE
-location = /spenden {
-	try_files /donate/de.html =404;
+# Swedish (SV)
+location = /donera-till-open-food-facts {
+	try_files /donate/sv.html =404;
 }
 
-# EL: δωρεά σε openfoodfacts doreá se openfoodfacts - Partial translation
-location = /dorea-se-openfoodfacts {
-	try_files /donate/el.html =404;
+# Norwegian (NB / NN / NO)
+location ~ ^/(doner-til-open-food-facts-no|stott-open-food-facts)$ {
+	try_files /donate/nb.html /donate/no.html =404;
 }
 
-# ES
-location = /dar-a-open-food-facts {
-	try_files /donate/es.html =404;
-}
-location = /haz-su-donacion-a-open-food-facts {
-	try_files /donate/es.html =404;
-}
-
-# EE: anneta-to-openfoodfacts
-location = /anneta-to-openfoodfacts {
-	try_files /donate/ee.html =404;
-}
-
-# FI
+# Finnish (FI)
 location = /lahjoita-open-food-factsille {
 	try_files /donate/fi.html =404;
 }
 
-# HE
-location = /donate-to-open-food-facts-he {
-	try_files /donate/he.html =404;
+# Greek (EL)
+location ~ ^/(dorea-se-openfoodfacts|dorea-sto-open-food-facts|δωρεά-στο-open-food-facts)$ {
+	try_files /donate/el.html =404;
 }
 
-# HU
-location = /donate-to-open-food-facts-hu {
-	try_files /donate/hu.html =404;
+# Turkish (TR)
+location ~ ^/(open-food-factse-bagista-bulunun|open-food-factse-bagista-bulununs)$ {
+	try_files /donate/tr.html =404;
 }
 
-# HT
-location = /donate-to-open-food-facts-ht {
-	try_files /donate/ht.html =404;
-}
-
-# ID
-location = /donate-to-open-food-facts-id {
-	try_files /donate/id.html =404;
-}
-
-# IT
-location = /dona-a-open-food-facts {
-	try_files /donate/it.html =404;
-}
-
-# JA
-location = /donate-to-open-food-facts-ja {
-	try_files /donate/ja.html =404;
-}
-
-# KO
-location = /donate-to-open-food-facts-ko {
-	try_files /donate/ko.html =404;
-}
-
-# LT
-location = /donate-to-open-food-facts-lt {
-	try_files /donate/lt.html =404;
-}
-
-# LU
-location = /donate-to-open-food-facts-lu {
-	try_files /donate/lu.html =404;
-}
-
-# MG
-location = /donate-to-open-food-facts-mg {
-	try_files /donate/mg.html =404;
-}
-
-# MS
-location = /donate-to-open-food-facts-ms {
-	try_files /donate/ms.html =404;
-}
-
-# NL
-location = /doneren-aan-openfoodfacts {
-	try_files /donate/nl.html =404;
-}
-
-# NB
-location = /donate-to-open-food-facts-nb {
-	try_files /donate/nb.html =404;
-}
-
-# PL: Przekaż darowiznę na openfoodfacts
-location = /pozhertvovat-open-food-facts {
-	try_files /donate/ru.html =404;
-}
-
-# PT
-location = /fazer-um-donativo-ao-open-food-facts {
-	try_files /donate/pt.html =404;
-}
-
-# RO
-location = /donate-to-open-food-facts-ro {
+# Romanian (RO)
+location = /doneaza-pentru-open-food-facts {
 	try_files /donate/ro.html =404;
 }
 
-# RU
-location = /donate-to-open-food-facts-ru {
-	try_files /donate/ru.html =404;
+# Hungarian (HU)
+location ~ ^/(tamogassa-az-open-food-facts-et|adomanyozzon-az-open-food-facts-programnak)$ {
+	try_files /donate/hu.html =404;
 }
 
-# SK
-location = /donate-to-open-food-facts-sk {
-	try_files /donate/sk.html =404;
+# Estonian (ET)
+location ~ ^/(anneta-open-food-factsile|anneta-to-openfoodfacts)$ {
+	try_files /donate/et.html =404;
 }
 
-# SL
+# Lithuanian (LT)
+location ~ ^/(paaukokite-open-food-facts|paremkite-open-food-facts)$ {
+	try_files /donate/lt.html =404;
+}
+
+# Latvian (LV)
+location ~ ^/(ziedot-open-food-facts|atbalstit-open-food-facts)$ {
+	try_files /donate/lv.html =404;
+}
+
+# Croatian (HR)
+location = /donirajte-open-food-facts {
+	try_files /donate/hr.html =404;
+}
+
+# Slovenian (SL)
 location = /doniraj-k-open-food-facts {
 	try_files /donate/sl.html =404;
 }
 
-# SV
-location = /donate-to-open-food-facts-sv {
-	try_files /donate/sv.html =404;
+# Serbian (SR / SR_CS / SR_RS)
+location ~ ^/(donirajte-open-food-facts-sr|донирајте-open-food-facts)$ {
+	try_files /donate/sr_CS.html /donate/sr.html /donate/sr_RS.html =404;
 }
 
-# TH
-location = /donate-to-open-food-facts-th {
-	try_files /donate/th.html =404;
+# Indonesian (ID)
+location ~ ^/(donasi-ke-open-food-facts|berdonasi-ke-open-food-facts)$ {
+	try_files /donate/id.html =404;
 }
 
-# TR
-location = /open-food-factse-bagista-bulununs {
-	try_files /donate/tr.html =404;
+# Malay (MS)
+location = /derma-kepada-open-food-facts {
+	try_files /donate/ms.html =404;
 }
 
-# UK
-location = /donate-to-open-food-facts-ua {
-	try_files /donate/uk.html =404;
-}
-
-# VI
-location = /donate-to-open-food-facts-vi {
+# Vietnamese (VI)
+location ~ ^/(dong-gop-cho-open-food-facts|ung-ho-open-food-facts)$ {
 	try_files /donate/vi.html =404;
 }
 
-# zh-cn: 捐赠给openfoodfacts Juānzèng gěi openfoodfacts
-location = /donate-to-open-food-facts-cn {
-	try_files /donate/cn.html =404;
+# Chinese Simplified (ZH / ZH_CN)
+location ~ ^/(juanzhu-open-food-facts|juanzeng-gei-open-food-facts|捐助-open-food-facts)$ {
+	try_files /donate/zh_CN.html /donate/zh.html =404;
+}
+
+# Chinese Traditional (ZH_TW)
+location ~ ^/(juanzeng-dao-open-food-facts|捐贈-open-food-facts)$ {
+	try_files /donate/zh_TW.html /donate/zh.html =404;
+}
+
+# Chinese Traditional Hong Kong (ZH_HK)
+location = /juanzhu-open-food-facts-hk {
+	try_files /donate/zh_HK.html /donate/zh_TW.html /donate/zh.html =404;
+}
+
+# Japanese (JA)
+location ~ ^/(kifu|open-food-facts-ni-kifu|寄付)$ {
+	try_files /donate/ja.html =404;
+}
+
+# Korean (KO)
+location ~ ^/(gibu|open-food-facts-e-gibu|기부)$ {
+	try_files /donate/ko.html =404;
+}
+
+# Arabic (AR)
+location ~ ^/(tabarru-li-open-food-facts|تبرع-ل-open-food-facts)$ {
+	try_files /donate/ar.html =404;
+}
+
+# Hebrew (HE)
+location ~ ^/(truma-le-open-food-facts|תרומה-ל-open-food-facts)$ {
+	try_files /donate/he.html =404;
+}
+
+# Hindi (HI)
+location ~ ^/(open-food-facts-ko-daan-karein|daan-karein)$ {
+	try_files /donate/hi.html =404;
+}
+
+# Bengali (BN)
+location = /open-food-facts-ke-daan-korun {
+	try_files /donate/bn.html =404;
+}
+
+# Persian / Farsi (FA)
+location = /komak-be-open-food-facts {
+	try_files /donate/fa.html =404;
+}
+
+# Tagalog / Filipino (FIL / TL)
+location ~ ^/(mag-donate-sa-open-food-facts|magbigay-sa-open-food-facts)$ {
+	try_files /donate/fil.html /donate/tl.html =404;
+}
+
+# Esperanto (EO)
+location = /donacu-al-open-food-facts {
+	try_files /donate/eo.html =404;
+}
+
+# Basque (EU)
+location = /eman-open-food-facts-i {
+	try_files /donate/eu.html =404;
+}
+
+# Galician (GL)
+location = /doar-a-open-food-facts {
+	try_files /donate/gl.html =404;
+}
+
+# Irish (GA)
+location = /tabhair-do-open-food-facts {
+	try_files /donate/ga.html =404;
+}
+
+# Welsh (CY)
+location = /cyfrannu-at-open-food-facts {
+	try_files /donate/cy.html =404;
+}
+
+# Icelandic (IS)
+location = /stydja-open-food-facts {
+	try_files /donate/is.html =404;
+}
+
+# Luxembourgish (LB)
+location = /spenden-un-open-food-facts {
+	try_files /donate/lb.html =404;
+}
+
+# Malagasy (MG)
+location = /hanome-fanampiana-ny-open-food-facts {
+	try_files /donate/mg.html =404;
+}
+
+# Haitian Creole (HT)
+location = /fe-yon-don-ak-open-food-facts {
+	try_files /donate/ht.html =404;
+}
+
+# Thai (TH)
+location ~ ^/(borichak-hai-open-food-facts|บริจาคให้กับ-open-food-facts)$ {
+	try_files /donate/th.html =404;
+}
+
+# Georgian (KA)
+location = /shemotsiruloba-open-food-facts-istvis {
+	try_files /donate/ka.html =404;
+}
+
+# Armenian (HY)
+location = /nviraberel-open-food-facts-in {
+	try_files /donate/hy.html =404;
+}
+
+# Azerbaijani (AZ)
+location = /open-food-facts-iane-edin {
+	try_files /donate/az.html =404;
+}
+
+# Uzbek (UZ)
+location = /open-food-facts-ga-ehson-qilish {
+	try_files /donate/uz.html =404;
+}
+
+# Kazakh (KK)
+location = /open-food-facts-ka-qaiyrym-zhasau {
+	try_files /donate/kk.html =404;
+}
+
+# Swahili (SW)
+location = /changia-open-food-facts {
+	try_files /donate/sw.html =404;
+}
+
+# Afrikaans (AF)
+location = /skenk-aan-open-food-facts {
+	try_files /donate/af.html =404;
+}
+
+# Albanian (SQ)
+location = /dhuroni-per-open-food-facts {
+	try_files /donate/sq.html =404;
+}
+
+# Maltese (MT)
+location = /taghti-lil-open-food-facts {
+	try_files /donate/mt.html =404;
+}
+
+# Belarusian (BE)
+location = /akhvyaravats-na-open-food-facts {
+	try_files /donate/be.html =404;
+}
+
+# Urdu (UR)
+location = /open-food-facts-ko-atiyah-den {
+	try_files /donate/ur.html =404;
+}
+
+# Tamil (TA)
+location = /open-food-facts-ukku-nankodai-alikkavum {
+	try_files /donate/ta.html =404;
+}
+
+# Telugu (TE)
+location = /open-food-facts-ku-vihalam-ivvandi {
+	try_files /donate/te.html =404;
+}
+
+# Kannada (KN)
+location = /open-food-facts-ge-dana-madi {
+	try_files /donate/kn.html =404;
+}
+
+# Malayalam (ML)
+location = /open-food-facts-inu-sambhavana-cheyyuka {
+	try_files /donate/ml.html =404;
+}
+
+# Gujarati (GU)
+location = /open-food-facts-mate-daan-karo {
+	try_files /donate/gu.html =404;
+}
+
+# Marathi (MR)
+location = /open-food-facts-la-vichari-dya {
+	try_files /donate/mr.html =404;
+}
+
+# Punjabi (PA)
+location = /open-food-facts-nu-dan-karo {
+	try_files /donate/pa.html =404;
+}
+
+# Nepali (NE)
+location = /open-food-facts-lai-sahayog-garnuhos {
+	try_files /donate/ne.html =404;
+}
+
+# Sinhala (SI)
+location = /open-food-facts-wethata-aadhaara-karanna {
+	try_files /donate/si.html =404;
+}
+
+# Burmese (MY)
+location = /open-food-facts-tho-hlaudar-par {
+	try_files /donate/my.html =404;
+}
+
+# Khmer (KM)
+location = /borijak-dl-open-food-facts {
+	try_files /donate/km.html =404;
+}
+
+# Lao (LO)
+location = /borijak-hai-open-food-facts-lo {
+	try_files /donate/lo.html =404;
+}
+
+# Amharic (AM)
+location = /le-open-food-facts-yilegesu {
+	try_files /donate/am.html =404;
+}
+
+# Somali (SO)
+location = /ku-deeq-open-food-facts {
+	try_files /donate/so.html =404;
+}
+
+# Hausa (HA)
+location = /ba-da-gudunmawa-ga-open-food-facts {
+	try_files /donate/ha.html =404;
+}
+
+# Yoruba (YO)
+location = /se-itoyin-si-open-food-facts {
+	try_files /donate/yo.html =404;
+}
+
+# Zulu (ZU)
+location = /nikela-ku-open-food-facts {
+	try_files /donate/zu.html =404;
+}
+
+# Xhosa (XH)
+location = /nikela-ku-open-food-facts-xh {
+	try_files /donate/xh.html =404;
+}
+
+# Southern Sotho (ST)
+location = /fana-ka-monehelo-ho-open-food-facts {
+	try_files /donate/st.html =404;
+}
+
+# Shona (SN)
+location = /ipai-kutsigira-open-food-facts {
+	try_files /donate/sn.html =404;
+}
+
+# Bosnian (BS)
+location = /donirajte-open-food-facts-bs {
+	try_files /donate/bs.html =404;
+}
+
+# Breton (BR)
+location = /rei-da-open-food-facts {
+	try_files /donate/br.html =404;
+}
+
+# Occitan (OC)
+location = /donar-a-open-food-facts-oc {
+	try_files /donate/oc.html =404;
+}
+
+# Asturian (AST)
+location = /donar-a-open-food-facts-ast {
+	try_files /donate/ast.html =404;
+}
+
+# Kurdish (KMR / KMR_TR)
+location ~ ^/(behs-kiri-open-food-facts|donate-to-open-food-facts-kmr)$ {
+	try_files /donate/kmr_TR.html /donate/kmr.html =404;
+}
+
+# English Variants (EN_AU / EN_GB)
+location = /donate-to-open-food-facts-au {
+	try_files /donate/en_AU.html /donate/en.html =404;
+}
+location = /donate-to-open-food-facts-gb {
+	try_files /donate/en_GB.html /donate/en.html =404;
+}
+
+# Dutch Variants (NL_BE / NL_NL)
+location = /doneer-aan-open-food-facts-be {
+	try_files /donate/nl_BE.html /donate/nl.html =404;
+}
+location = /doneer-aan-open-food-facts-nl {
+	try_files /donate/nl_NL.html /donate/nl.html =404;
+}
+
+# Portuguese (Portugal) (PT_PT)
+location = /fazer-um-donativo-ao-open-food-facts-pt {
+	try_files /donate/pt_PT.html /donate/pt.html =404;
+}
+
+# Norwegian Nynorsk (NN)
+location = /doner-til-open-food-facts-nn {
+	try_files /donate/nn.html /donate/nb.html /donate/no.html =404;
+}
+
+# Afar (AA)
+location = /deeq-open-food-facts {
+	try_files /donate/aa.html =404;
+}
+
+# Acholi (ACH)
+location = /mi-mot-ki-open-food-facts {
+	try_files /donate/ach.html =404;
+}
+
+# Akan (AK)
+location = /kye-open-food-facts {
+	try_files /donate/ak.html =404;
+}
+
+# Assamese (AS)
+location = /open-food-facts-k-daan-diok {
+	try_files /donate/as.html =404;
+}
+
+# Berber (BER)
+location = /efk-i-open-food-facts {
+	try_files /donate/ber.html =404;
+}
+
+# Bambara (BM)
+location = /sara-ke-open-food-facts-ye {
+	try_files /donate/bm.html =404;
+}
+
+# Tibetan (BO)
+location = /open-food-facts-la-jinpa-tang {
+	try_files /donate/bo.html =404;
+}
+
+# Chechen (CE)
+location = /open-food-facts-na-sagla-dalar {
+	try_files /donate/ce.html =404;
+}
+
+# Cherokee (CHR)
+location = /open-food-facts-asquadugv {
+	try_files /donate/chr.html =404;
+}
+
+# Corsican (CO)
+location = /dona-a-open-food-facts-co {
+	try_files /donate/co.html =404;
+}
+
+# Seychellois Creole (CRS)
+location = /donn-open-food-facts {
+	try_files /donate/crs.html =404;
+}
+
+# Chuvash (CV)
+location = /open-food-facts-pa-pulkhasvash {
+	try_files /donate/cv.html =404;
+}
+
+# Faroese (FO)
+location = /lat-open-food-facts-gavu {
+	try_files /donate/fo.html =404;
+}
+
+# Scottish Gaelic (GD)
+location = /thoir-do-open-food-facts {
+	try_files /donate/gd.html =404;
+}
+
+# Sichuan Yi (II)
+location = /open-food-facts-bbux-zze {
+	try_files /donate/ii.html =404;
+}
+
+# Inuktitut (IU)
+location = /open-food-facts-tunirruti {
+	try_files /donate/iu.html =404;
+}
+
+# Javanese (JV)
+location = /nyumbang-kanggo-open-food-facts {
+	try_files /donate/jv.html =404;
+}
+
+# Kabyle (KAB)
+location = /seddeq-i-open-food-facts {
+	try_files /donate/kab.html =404;
+}
+
+# Cornish (KW)
+location = /ri-dhe-open-food-facts {
+	try_files /donate/kw.html =404;
+}
+
+# Kyrgyz (KY)
+location = /open-food-facts-ke-kambarkan-tashoo {
+	try_files /donate/ky.html =404;
+}
+
+# Latin (LA)
+location = /donare-ad-open-food-facts {
+	try_files /donate/la.html =404;
+}
+
+# Maori (MI)
+location = /koha-ki-open-food-facts {
+	try_files /donate/mi.html =404;
+}
+
+# Mongolian (MN)
+location = /open-food-facts-t-khandiv-orgokh {
+	try_files /donate/mn.html =404;
+}
+
+# South Ndebele (NR)
+location = /nikela-ku-open-food-facts-nr {
+	try_files /donate/nr.html =404;
+}
+
+# Odia (OR)
+location = /open-food-facts-ku-daana-karantu {
+	try_files /donate/or.html =404;
+}
+
+# Quechua (QU)
+location ~ ^/(qunay-open-food-facts|qunay-mikhuy-chiqakunata-kicharinapaq)$ {
+	try_files /donate/qu.html =404;
+}
+
+# Romansh (RM)
+location = /donar-ad-open-food-facts {
+	try_files /donate/rm.html =404;
+}
+
+# Sanskrit (SA)
+location = /open-food-facts-artha-daanam {
+	try_files /donate/sa.html =404;
+}
+
+# Santali (SAT)
+location = /open-food-facts-emok {
+	try_files /donate/sat.html =404;
+}
+
+# Sardinian (SC)
+location = /donare-a-open-food-facts {
+	try_files /donate/sc.html =404;
+}
+
+# Scots (SCO)
+location = /gie-tae-open-food-facts {
+	try_files /donate/sco.html =404;
+}
+
+# Sindhi (SD)
+location = /open-food-facts-khe-dan-diyo {
+	try_files /donate/sd.html =404;
+}
+
+# Sango (SG)
+location = /mu-mbongo-na-open-food-facts {
+	try_files /donate/sg.html =404;
+}
+
+# Southern Sami (SMA)
+location = /vedtedh-open-food-facts {
+	try_files /donate/sma.html =404;
+}
+
+# Songhay (SON)
+location = /nooraye-noo-open-food-facts {
+	try_files /donate/son.html =404;
+}
+
+# Swati (SS)
+location ~ ^/(nikela-ku-open-food-facts-ss|nikela-ku-kuvula-emaciniso-ekudla)$ {
+	try_files /donate/ss.html =404;
+}
+
+# Tajik (TG)
+location = /kuhak-ba-open-food-facts {
+	try_files /donate/tg.html =404;
+}
+
+# Tigrinya (TI)
+location = /le-open-food-facts-yilegesu-ti {
+	try_files /donate/ti.html =404;
+}
+
+# Tswana (TN)
+location = /fana-ka-monehelo-open-food-facts {
+	try_files /donate/tn.html =404;
+}
+
+# Tsonga (TS)
+location ~ ^/(nyikela-ku-open-food-facts|nyikela-ku-vula-swilo-swa-swakudya)$ {
+	try_files /donate/ts.html =404;
+}
+
+# Tatar (TT)
+location = /open-food-facts-ka-yardam-itu {
+	try_files /donate/tt.html =404;
+}
+
+# Twi (TW)
+location = /kye-open-food-facts-tw {
+	try_files /donate/tw.html =404;
+}
+
+# Tahitian (TY)
+location = /horoa-no-open-food-facts {
+	try_files /donate/ty.html =404;
+}
+
+# Talossan (TZL)
+location = /dunaziun-per-open-food-facts {
+	try_files /donate/tzl.html =404;
+}
+
+# Uyghur (UG)
+location = /open-food-facts-qa-iqane-qilish {
+	try_files /donate/ug.html =404;
+}
+
+# Valencian (VAL)
+location = /donar-a-open-food-facts-val {
+	try_files /donate/val.html =404;
+}
+
+# Venda (VE)
+location = /fha-u-toda-open-food-facts {
+	try_files /donate/ve.html =404;
+}
+
+# Venetian (VEC)
+location = /dona-a-open-food-facts-vec {
+	try_files /donate/vec.html =404;
+}
+
+# West Flemish (VLS)
+location = /stort-aan-open-food-facts {
+	try_files /donate/vls.html =404;
+}
+
+# Walloon (WA)
+location = /dijh-po-open-food-facts {
+	try_files /donate/wa.html =404;
+}
+
+# Wolof (WO)
+location = /saraxle-open-food-facts {
+	try_files /donate/wo.html =404;
+}
+
+# Yiddish (YI)
+location = /bayshteyer-tsu-open-food-facts {
+	try_files /donate/yi.html =404;
+}
+
+# Zeelandic (ZEA)
+location = /geef-an-open-food-facts {
+	try_files /donate/zea.html =404;
 }
 
 # === end donation redirects ===
