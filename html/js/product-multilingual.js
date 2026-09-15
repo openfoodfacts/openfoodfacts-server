@@ -888,6 +888,7 @@ $(function () {
         const inputRow = $('#add_nutrient_tr');
         nutrientRow.insertBefore(inputRow);
         nutrientRow.show();
+        update_nutrition_image_copy(); 
 
         // remove the selected nutrient from the other_nutrients array
         other_nutrients = other_nutrients.filter(function (item) {
