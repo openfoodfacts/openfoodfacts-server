@@ -1572,7 +1572,7 @@ bs: enzim
 ca: enzim
 cs: enzym
 cy: ensym
-da: enzym
+da: enzym, enzymer
 de: Enzym
 el: Ένζυμο
 eo: enzimo
@@ -28070,7 +28070,7 @@ en: rye flour
 bg: ръжено брашно, брашно от ръж, брашно ръжено, ръжено пшенично брашно
 ca: farina de blat de sègol, farina de blat de segol, farina de sègol
 cs: žitná mouka
-da: Rugmel
+da: rugmel
 de: Roggenmehl, Roggenmehl Typ 1150
 es: harina de centeno
 fi: ruisjauho
@@ -28137,7 +28137,7 @@ it: farina di segale tipo tipo 1250
 en: wholemeal rye flour, wholegrain rye flour, whole grain rye flour
 bg: пълнозърнесто ръжено брашно, ръжено пълнозърнесто брашно
 cs: celozrnná žitná mouka
-da: fuldkornsrugmel, fullkornsrugmel
+da: fuldkornsrugmel
 de: Roggenvollkornmehl
 es: flor de harina integral de centeno, harina integral de centeno
 fi: täysjyväruisjauho, täysjyväruisjauhoa
@@ -31021,7 +31021,7 @@ az: Qəhvəyi şəkər
 bg: кафява захар
 ca: sucre morè
 cs: Hnědý cukr
-da: farin, brun farin
+da: farin, brun farin, farinsukker
 de: Brauner Zucker, Farinzucker
 eo: Bruna sukero
 es: azúcar morena, azúcar moreno
@@ -38276,17 +38276,32 @@ ciqual_food_name:fr: Abricot, dénoyauté, sec
 #24 in 3 @2021-09-12
 
 < en: tree nut
-en: apricot kernels
+en: apricot kernel, apricot kernels
+ar: نواة مشمش
 bg: кайсиеви ядки
-de: Aprikosenkerne
-es: huesos de albaricoque
+ca: llavor d'albercoc
+da: abrikoskerne, abrikoskerner
+de: Aprikosenkern, Aprikosenkerne
+eo: abrikota kerno
+es: huesos de albaricoque, semilla de albaricoque
+fa: مغز هسته زردآلو
 fi: aprikoosinsiemen, aprikoosinsiemenet
-fr: noyaux d'abricots, noyau d'abricot
+fr: noyau d'abricot, noyaux d'abricots
 hr: koštice marelice
-it: Noccioli di albicocca, mandorle d'albicocca
+hu: sárgabarackmag
+hy: ծիրանի կորիզ
+it: noccioli di albicocca, mandorle d'albicocca, armellina
+ja: 杏仁
+ko: 살구씨
 nb: aprikoskjerner
-nl: abrikozenpitten
+nl: abrikozenpit, abrikozenpitten
+ru: зерно абрикоса
+sl: marelična koščica
 sv: aprikoskärnor
+tr: kayısı çekirdeği
+uk: аброкосове ядро
+zh: 杏仁
+wikidata:en: Q165527
 
 #<en:apricot compound
 < en: jam
