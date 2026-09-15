@@ -118,9 +118,7 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Environmental analysis
 
 	compute_environmental_score($product_ref);
-	compute_forest_footprint($product_ref);
-	# Forest Footprint 2026 is the new version, which will eventually replace the old forest footprint
-	compute_forest_footprint_2026($product_ref);
+	compute_forest_footprint_2026($product_ref);    # Also includes compute_forest_footprint()
 
 	# Determine packaging components in contact with food
 	determine_food_contact_of_packaging_components_service($product_ref);

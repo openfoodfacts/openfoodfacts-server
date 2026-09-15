@@ -300,7 +300,7 @@ my @tests = (
 			lc => "fr",
 			categories_tags => ["en:whole-chickens"],
 		}
-	],	
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;

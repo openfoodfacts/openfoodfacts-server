@@ -67,7 +67,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Numbers qw/convert_string_to_number/;
-use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
+use ProductOpener::ForestFootprint qw/load_forest_footprint_data compute_forest_footprint/;
 
 use Text::CSV();
 use Data::DeepAccess qw(deep_get);
@@ -139,6 +139,9 @@ sub load_forest_footprint_2026_data() {
 
 	return if $forest_footprint_data_loaded;
 	$forest_footprint_data_loaded = 1;
+
+	# We also need the old forest footprint data for chicken-and-eggs computation
+	load_forest_footprint_data();
 
 	my $errors = 0;
 
@@ -384,9 +387,33 @@ Returned values:
 
 sub compute_forest_footprint_2026 ($product_ref) {
 
-	# If the product has no ingredients list, mark as unknown and return early
-	if (   (!defined $product_ref->{ingredients} || scalar(@{$product_ref->{ingredients}}) == 0)
-		&& (!defined $product_ref->{ingredients_tags} || scalar(@{$product_ref->{ingredients_tags}}) == 0))
+	# Initialize primary_ingredients structure directly
+	$product_ref->{forest_footprint_2026} = {primary_ingredients => {}};
+
+	# Compute chicken and eggs using the old ForestFootprint module (unchanged logic)
+	# and copy the data into the forest_footprint_2026 structure
+	compute_forest_footprint($product_ref);
+
+	# Chicken and eggs algorithm also looks at categories (e.g. eggs and whole chickens)
+	# We run it first so that we can return "missing_ingredients" if the product has no ingredients and is not a chicken-and-eggs category.
+	my $has_ingredients = 0;
+	if (defined $product_ref->{forest_footprint_data}) {
+		# Copy chicken/egg data into the FF2026 structure
+		# Using the FF1 data format (with 'type', 'conditions_tags', etc.)
+		# as requested: "The data has a different format compared to the new
+		# primary ingredient, it is fine, keep the same format."
+		$product_ref->{forest_footprint_2026}{primary_ingredients}{'en:chicken-and-eggs'} = {
+			ingredients => $product_ref->{forest_footprint_data}{ingredients} // [],
+			footprint_per_kg => $product_ref->{forest_footprint_data}{footprint_per_kg} // 0,
+			grade => $product_ref->{forest_footprint_data}{grade},
+		};
+		$has_ingredients = 1;
+	}
+
+	# If the product has no ingredients list (and not a chicken-and-eggs category), mark as unknown and return early
+	if (    (not $has_ingredients)
+		and (((!defined $product_ref->{ingredients}) or (scalar(@{$product_ref->{ingredients}}) == 0)))
+		and (((!defined $product_ref->{ingredients_tags}) or (scalar(@{$product_ref->{ingredients_tags}}) == 0))))
 	{
 		$product_ref->{forest_footprint_2026} = {
 			grade => 'unknown',
@@ -394,9 +421,6 @@ sub compute_forest_footprint_2026 ($product_ref) {
 		};
 		return;
 	}
-
-	# Initialize primary_ingredients structure directly
-	$product_ref->{forest_footprint_2026} = {primary_ingredients => {}};
 
 	# Initialize each primary ingredient (except chicken-and-eggs,
 	# which is computed via the old FF module and populated separately)
@@ -417,7 +441,7 @@ sub compute_forest_footprint_2026 ($product_ref) {
 	}
 
 	# Calculate total footprint and grades for non-chicken-and-eggs, non-risky primary ingredients
-	my $has_ingredients = 0;
+
 	foreach my $primary_ingredient_id (@primary_ingredients) {
 		next if $primary_ingredient_id eq 'en:chicken-and-eggs';
 		next if $primary_ingredient_id eq 'en:other-risky-ingredients';
@@ -437,23 +461,6 @@ sub compute_forest_footprint_2026 ($product_ref) {
 			# No ingredients for this primary ingredient, remove it from the structure
 			delete $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id};
 		}
-	}
-
-	# Compute chicken and eggs using the old ForestFootprint module (unchanged logic)
-	# and copy the data into the forest_footprint_2026 structure
-	compute_forest_footprint($product_ref);
-
-	if (defined $product_ref->{forest_footprint_data}) {
-		# Copy chicken/egg data into the FF2026 structure
-		# Using the FF1 data format (with 'type', 'conditions_tags', etc.)
-		# as requested: "The data has a different format compared to the new
-		# primary ingredient, it is fine, keep the same format."
-		$product_ref->{forest_footprint_2026}{primary_ingredients}{'en:chicken-and-eggs'} = {
-			ingredients => $product_ref->{forest_footprint_data}{ingredients} // [],
-			footprint_per_kg => $product_ref->{forest_footprint_data}{footprint_per_kg} // 0,
-			grade => $product_ref->{forest_footprint_data}{grade},
-		};
-		$has_ingredients = 1;
 	}
 
 	# Scan for other risky ingredients (corn, rice, cassava, soy, meat, dairy)
