@@ -27,26 +27,10 @@
       }
    },
    "result" : {
-      "id" : "image_not_uploaded",
-      "lc_name" : "Image not uploaded",
-      "name" : "Image not uploaded"
+      "id" : "image_uploaded",
+      "lc_name" : "Image uploaded",
+      "name" : "Image uploaded"
    },
-   "status" : "success_with_warnings",
-   "warnings" : [
-      {
-         "field" : {
-            "id" : "image_data_base64"
-         },
-         "impact" : {
-            "id" : "warning",
-            "lc_name" : "Warning",
-            "name" : "Warning"
-         },
-         "message" : {
-            "id" : "image_already_uploaded",
-            "lc_name" : "Image already uploaded",
-            "name" : "Image already uploaded"
-         }
-      }
-   ]
+   "status" : "success",
+   "warnings" : []
 }
