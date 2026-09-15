@@ -3832,10 +3832,16 @@ Return 1 if the field value was provided by the owner (producer) and the field i
 
 sub is_owner_field ($product_ref, $field) {
 
+	my $base_field = $field;
+	if ($field =~ /^(.*)_([a-z]{2,5}(?:-[a-z0-9]+)?)$/i) {
+		$base_field = $1;
+	}
+
 	if (
 		(defined $product_ref->{owner_fields})
 		and (
 			(defined $product_ref->{owner_fields}{$field})
+			or (defined $product_ref->{owner_fields}{$base_field})
 			# If the producer sent a field value for salt or sodium, the other value was automatically computed
 			or (($field =~ /^salt/) and (defined $product_ref->{owner_fields}{"sodium" . $'}))
 			or (($field =~ /^sodium/) and (defined $product_ref->{owner_fields}{"salt" . $'}))
@@ -3844,6 +3850,7 @@ sub is_owner_field ($product_ref, $field) {
 		# and may have been updated by a contributor (e.g. to add a more precise category)
 		# So we don't consider them to be owner fields
 		and (not defined $tags_fields{$field})
+		and (not defined $tags_fields{$base_field})
 		)
 	{
 		return 1;
