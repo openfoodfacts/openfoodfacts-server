@@ -2007,12 +2007,11 @@ pt: descongelado, descongelada, descongelados, descongeladas
 sv: ofryst, ofrysta, ofrossad, ofrossade
 uk: розморожений, розморожена, розморожене, розморожені
 
-#description:en: Sterilization (or sterilisation) refers to any process that removes, kills, or deactivates all forms of life and other biological agents present in or on a specific surface, object, or fluid. Sterilization can be achieved through various means, including heat, chemicals, irradiation, high pressure, and filtration.
 # Sterilized: higher temperature (more than 100'C) than pasteurised, kills spores, longer conservation
 en: sterilized, sterilised
 bg: стерилизирано, стерилизиран, стерилизирана, стерилизирани
 ca: esterilitzat, esterilitzada
-da: steriliseret
+da: steriliseret, steriliserede
 de: sterilisiert, sterilisierte, sterilisierter, sterilisiertes, sterilisierten, sterilisiertem
 es: esterilizado, esterilizada, esterilizados, esterilizadas
 fi: steriloitu
@@ -2026,6 +2025,7 @@ pl: sterylizowane
 pt: esterilizado, esterilizada, esterilizados, esterilizadas
 sv: steriliserad, steriliserat, steriliserade
 uk: стерилізований, стерилізована, стерилізоване, стерилізовані
+description:en: Sterilization (or sterilisation) refers to any process that removes, kills, or deactivates all forms of life and other biological agents present in or on a specific surface, object, or fluid. Sterilization can be achieved through various means, including heat, chemicals, irradiation, high pressure, and filtration.
 wikidata:en: Q191618
 wikipedia:en: https://en.wikipedia.org/wiki/Sterilization_(microbiology)
 
@@ -2034,7 +2034,7 @@ en: pasteurised, pasteurized
 bg: пастьоризиран, пастьоризирана, пастьоризирано, пастьоризирани
 ca: pasteuritzada, pasteuritada, pasteuritzat, pasteuritzats
 cs: pasterizované
-da: pasteuriseret
+da: pasteuriseret, pasteuriserede
 de: pasteurisiert, pasteurisierte, pasteurisierter, pasteurisiertes
 es: pasteurizado, pasteurizada, pasteurizados, pasteurizadas, producto pasteurizado, producto pasteurizada, pasterizada
 et: pastöriseeritud
@@ -2246,7 +2246,7 @@ zh: 焦糖化
 
 #en:pregelatinisation
 en: puffed, inflated
-da: puffede
+da: puffede, poppede
 de: gepufft, gepuffte, gepuffter, gepufftes, gepoppt, gepoppte, gepoppter
 es: hinchado, hinchada, hinchados, hinchadas, inflado, inflada, inflados, infladas
 fr: soufflé, soufflée, soufflés, soufflées
@@ -3447,18 +3447,18 @@ uk: алкалізований, алкалізована, алкалізован
 nova:en: 4
 
 en: modified
-bg: модифициран, модифицирана, модифицирани, модифицирани
+bg: модифициран, модифицирана, модифицирани
 ca: modificat, modificada, modificats, modificades
-da: modificeret, modificerede, modificerede, modificerede
-de: modifiziert, modifizierte, modifizierten, modifizierten
+da: modificeret, modificerede
+de: modifiziert, modifizierte, modifizierten
 es: modificado, modificada, modificados, modificadas
-fi: muokattu, muokattu, muokatut, muokatut, muunnettuja
+fi: muokattu, muokatut, muunnettuja
 fr: modifié, modifiée, modifiés, modifiées
 hr: modificiran, modificirana, modificirani, modificirane, modificiranih
-hu: módosított, módosított, módosítottak, módosítottak
+hu: módosított, módosítottak
 it: modificato, modificata, modificati, modificate
 ja: 加工
-nl: gewijzigd, gewijzigde, gewijzigden, gewijzigde
+nl: gewijzigd, gewijzigde, gewijzigden
 pl: zmodyfikowany, zmodyfikowana, zmodyfikowani, zmodyfikowane
 pt: modificado, modificada, modificados, modificadas
 ro: modificat, modificată, modificați, modificate

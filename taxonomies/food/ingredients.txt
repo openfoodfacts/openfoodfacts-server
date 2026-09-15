@@ -1572,7 +1572,7 @@ bs: enzim
 ca: enzim
 cs: enzym
 cy: ensym
-da: enzym
+da: enzym, enzymer
 de: Enzym
 el: Ένζυμο
 eo: enzimo
@@ -2835,6 +2835,18 @@ ciqual_food_name:en: Milk, skimmed, UHT
 ciqual_food_name:fr: Lait écrémé, UHT
 comment:en: kept due to ciqual
 
+# < en:compound
+< en: skimmed milk
+en: vitamin enriched skimmed milk
+usda_fdc_code:en: 322559
+usda_foundation_name:en: Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)
+
+# < en: compound
+< en: skimmed milk
+en: vitamin enriched lowfat milk
+usda_fdc_code:en: 322228
+usda_foundation_name:en: Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D
+
 ################################# SEMI-SKIMMED MILK ############################
 
 < en: milk
@@ -2892,6 +2904,11 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_food_code:en: 19042
 ciqual_food_name:en: Milk, semi-skimmed, pasteurised
 ciqual_food_name:fr: Lait demi-écrémé, pasteurisé
+
+< en: semi-skimmed milk
+en: vitamin enriched semi-skimmed milk
+usda_fdc_code:en: 321359
+usda_foundation_name:en: Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D
 
 ################################## FULL FAT MILKS ##############################
 
@@ -2961,6 +2978,12 @@ ro: lapte integral pasteurizat
 ciqual_food_code:en: 19024
 ciqual_food_name:en: Milk, whole, pasteurised
 ciqual_food_name:fr: Lait entier, pasteurisé
+
+# < en: compound
+< en: whole milk
+en: vitamin enhanced whole milk
+usda_fdc_code:en: 322892
+usda_foundation_name:en: Milk, whole, 3.25% milkfat, with added vitamin D
 
 ################################## COW MILKS ###################################
 
@@ -8081,9 +8104,6 @@ sv: ricotta, ricottaost
 tr: Ricotta
 uk: Рікота
 zh: 里考塔
-ciqual_food_code:en: 19585
-ciqual_food_name:en: Ricotta cheese
-ciqual_food_name:fr: Ricotta
 # gsw:Ricotta
 # pt-br:ricota
 # scn:Ricotta
@@ -8096,7 +8116,12 @@ ciqual_food_name:fr: Ricotta
 # zh-hk:里考塔
 # zh-sg:里考塔
 # zh-tw:里考塔
+ciqual_food_code:en: 19585
+ciqual_food_name:en: Ricotta cheese
+ciqual_food_name:fr: Ricotta
 description:en: RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses.
+usda_fdc_code:en: 323444
+usda_foundation_name:en: Cheese, ricotta, whole milk
 wikidata:en: Q216781
 wikipedia:en: https://en.wikipedia.org/wiki/Ricotta
 
@@ -9288,6 +9313,8 @@ ciqual_food_code:en: 11058
 ciqual_food_name:en: Salt, white, for human consumption (sea, igneous or rock), iodine added, no other enrichment
 ciqual_food_name:fr: Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
 description:en: IODISED SALT - is salt mixed with a minute amount of various salts of the element iodine.
+usda_fdc_code:en: 321505
+usda_foundation_name:en: Salt, table, iodized
 wikidata:en: Q902318
 wikipedia:en: https://en.wikipedia.org/wiki/Iodised_salt
 
@@ -9798,6 +9825,33 @@ it: manzo Angus
 en: beef steak
 ciqual_food_code:en: 6201
 ciqual_food_name:en: Beef, steak or beef steak, raw
+usda_fdc_code:en: 334849
+usda_foundation_name:en: Beef, loin, top loin steak, boneless, lip-on, separable lean only, trimmed to 1/8" fat, choice, raw
+
+< en: beef meat
+en: tenderloin beef
+usda_fdc_code:en: 334897
+usda_foundation_name:en: Beef, loin, tenderloin roast, separable lean only, boneless, trimmed to 0" fat, select, cooked, roasted
+
+< en: beef meat
+en: eye of round roast beef
+usda_fdc_code:en: 334898
+usda_foundation_name:en: Beef, round, eye of round roast, boneless, separable lean only, trimmed to 0" fat, select, raw
+
+< en: beef meat
+en: top round roast beef
+usda_fdc_code:en: 334963
+usda_foundation_name:en: Beef, round, top round roast, boneless, separable lean only, trimmed to 0" fat, select, raw
+
+< en: beef steak
+en: t-bone steak beef
+usda_fdc_code:en: 335061
+usda_foundation_name:en: Beef, short loin, t-bone steak, bone-in, separable lean only, trimmed to 1/8" fat, choice, cooked, grilled
+
+< en: beef steak
+en: porterhouse steak
+usda_fdc_code:en: 335109
+usda_foundation_name:en: Beef, short loin, porterhouse steak, separable lean only, trimmed to 1/8" fat, select, raw
 
 < en: beef meat
 en: cooked beef meat, cooked beef
@@ -12384,6 +12438,8 @@ sv: skinka, skinka av gris, svinskinka
 zh: 火腿
 ifct_food_code:en: O050
 ifct_food_name:en: Pork, ham
+usda_fdc_code:en: 332397
+usda_foundation_name:en: Ham, sliced, pre-packaged, deli meat (96%fat free, water added)
 
 # type of dried ham from portugal
 #  < en:ham
@@ -13469,6 +13525,8 @@ it: würstel
 ciqual_food_code:en: 30134
 ciqual_food_name:en: Frankfurter sausage
 ciqual_food_name:fr: Saucisse de Francfort
+usda_fdc_code:en: 323121
+usda_foundation_name:en: Frankfurter, beef, unheated
 
 < en: pork sausage
 en: Morteaux sausage
@@ -16127,7 +16185,7 @@ ciqual_food_code:en: 16040
 ciqual_food_name:en: Coconut fat or oil
 description:en: COCONUT OIL, or copra oil, is an edible oil extracted from the kernel or meat of mature coconuts harvested from the coconut palm (Cocos nucifera).
 from_palm_oil:en: no
-usda_fdc_code:en: 171412
+usda_fdc_code:en: 171412, 330458
 usda_ndb_code:en: 4047
 usda_ndb_name:en: Oil, coconut
 wikidata:en: Q216235
@@ -20918,8 +20976,10 @@ nl: Met andere natuurlijke smaakstoffen
 pl: z innymi naturalnymi aromatami
 ru: ароматизатор идентичный натуральному
 
+< en: dill flavouring
 < en: natural flavouring
 en: natural dill flavouring
+da: naturlig dildaroma
 de: natürliches Dill-Aroma, natürliches Dillaroma
 fr: arôme naturel d'aneth
 hr: prirodna aroma kopra
@@ -22932,6 +22992,7 @@ sv: blåbärsarom
 
 < en: flavouring
 en: dill flavouring
+da: dildaroma
 de: Dill-Aroma, Dillaroma
 es: aroma de eneldo
 fi: tilliaromi
@@ -23242,8 +23303,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Liquid_smoke
 
 < en: flavouring
 en: vegetable flavouring
+da: grøntsagsaroma, grønsagsaroma
 hr: aroma povrća
 it: aroma vegetale
+
+< en: natural flavouring
+< en: vegetable flavouring
+en: natural vegetable flavouring
+da: naturlig grøntsagsaroma
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -26929,6 +26996,12 @@ en: rye scalding
 da: rugskoldning
 sv: rågskållning
 
+< en: scalding
+< en: wheat
+en: wheat scalding
+da: hvedeskoldning
+sv: veteskållning
+
 ##################################################################################
 #
 #                        Spelt / Triticum spelta
@@ -28070,7 +28143,7 @@ en: rye flour
 bg: ръжено брашно, брашно от ръж, брашно ръжено, ръжено пшенично брашно
 ca: farina de blat de sègol, farina de blat de segol, farina de sègol
 cs: žitná mouka
-da: Rugmel
+da: rugmel
 de: Roggenmehl, Roggenmehl Typ 1150
 es: harina de centeno
 fi: ruisjauho
@@ -28137,7 +28210,7 @@ it: farina di segale tipo tipo 1250
 en: wholemeal rye flour, wholegrain rye flour, whole grain rye flour
 bg: пълнозърнесто ръжено брашно, ръжено пълнозърнесто брашно
 cs: celozrnná žitná mouka
-da: fuldkornsrugmel, fullkornsrugmel
+da: fuldkornsrugmel
 de: Roggenvollkornmehl
 es: flor de harina integral de centeno, harina integral de centeno
 fi: täysjyväruisjauho, täysjyväruisjauhoa
@@ -31021,7 +31094,7 @@ az: Qəhvəyi şəkər
 bg: кафява захар
 ca: sucre morè
 cs: Hnědý cukr
-da: farin, brun farin
+da: farin, brun farin, farinsukker
 de: Brauner Zucker, Farinzucker
 eo: Bruna sukero
 es: azúcar morena, azúcar moreno
@@ -31344,7 +31417,7 @@ nl: Kristalsuiker
 pt: Açúcar granulado
 comment:en: "granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
 description:en: Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
-usda_fdc_code:en: 169655
+usda_fdc_code:en: 169655, 334247
 usda_ndb_code:en: 19335
 usda_ndb_name:en: Sugars, granulated
 
@@ -38276,17 +38349,32 @@ ciqual_food_name:fr: Abricot, dénoyauté, sec
 #24 in 3 @2021-09-12
 
 < en: tree nut
-en: apricot kernels
+en: apricot kernel, apricot kernels
+ar: نواة مشمش
 bg: кайсиеви ядки
-de: Aprikosenkerne
-es: huesos de albaricoque
+ca: llavor d'albercoc
+da: abrikoskerne, abrikoskerner
+de: Aprikosenkern, Aprikosenkerne
+eo: abrikota kerno
+es: huesos de albaricoque, semilla de albaricoque
+fa: مغز هسته زردآلو
 fi: aprikoosinsiemen, aprikoosinsiemenet
-fr: noyaux d'abricots, noyau d'abricot
+fr: noyau d'abricot, noyaux d'abricots
 hr: koštice marelice
-it: Noccioli di albicocca, mandorle d'albicocca
+hu: sárgabarackmag
+hy: ծիրանի կորիզ
+it: noccioli di albicocca, mandorle d'albicocca, armellina
+ja: 杏仁
+ko: 살구씨
 nb: aprikoskjerner
-nl: abrikozenpitten
+nl: abrikozenpit, abrikozenpitten
+ru: зерно абрикоса
+sl: marelična koščica
 sv: aprikoskärnor
+tr: kayısı çekirdeği
+uk: аброкосове ядро
+zh: 杏仁
+wikidata:en: Q165527
 
 #<en:apricot compound
 < en: jam
@@ -39248,7 +39336,7 @@ it: pesca bianca
 
 < en: peach
 en: yellow peach
-usda_fdc_code:en: 169928
+usda_fdc_code:en: 169928, 325430
 usda_ndb_code:en: 9236
 usda_ndb_name:en: Peaches, yellow, raw
 
@@ -39626,7 +39714,7 @@ zh: 威廉斯梨
 agribalyse_proxy_food_code:en: 13189
 ciqual_proxy_food_code:en: 13189
 ciqual_proxy_food_name:en: Pear, var. Williams, flesh without skin, raw
-usda_fdc_code:en: 167776
+usda_fdc_code:en: 167776, 332597
 usda_ndb_code:en: 9412
 usda_ndb_name:en: Pears, raw, bartlett (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q498862
@@ -42710,7 +42798,7 @@ usda_ndb_name:en: Oranges, raw, Florida
 
 < en: orange
 en: raw navel orange
-usda_fdc_code:en: 169917
+usda_fdc_code:en: 169917, 327501
 usda_ndb_code:en: 9202
 usda_ndb_name:en: Oranges, raw, navels (Includes foods for USDA's Food Distribution Program)
 
@@ -45251,7 +45339,7 @@ ciqual_food_code:en: 13012
 ciqual_food_name:en: Fig, raw
 ciqual_food_name:fr: Figue, crue
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fig
-usda_fdc_2_code:en: 174665
+usda_fdc_2_code:en: 174665, 326905
 usda_fdc_code:en: 173021
 usda_ndb_2_code:en: 9094
 usda_ndb_2_name:en: Figs, dried, uncooked
@@ -45674,7 +45762,7 @@ description:en: KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is 
 ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
 ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
 ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
-usda_fdc_code:en: 168153
+usda_fdc_code:en: 168153, 327046
 usda_ndb_code:en: 9148
 usda_ndb_name:en: Kiwifruit, green, raw
 wikidata:en: Q13194
@@ -46043,7 +46131,7 @@ zh: 哈密瓜
 ciqual_food_code:en: 13026
 ciqual_food_name:en: Melon, cantaloupe -ex Cavaillon or Charentais melon-, pulp, raw
 description:en: Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
-usda_fdc_code:en: 169092
+usda_fdc_code:en: 169092, 327198
 usda_ndb_code:en: 9181
 usda_ndb_name:en: Melons, cantaloupe, raw
 wikidata:en: Q477179
@@ -46428,7 +46516,7 @@ ciqual_food_code:en: 13030
 ciqual_food_name:en: Nectarine, pulp and peel, raw
 ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
 eurocode_2_group_3:en: 9.20.15
-usda_fdc_code:en: 169914
+usda_fdc_code:en: 169914, 327357
 usda_ndb_code:en: 9191
 usda_ndb_name:en: Nectarines, raw
 wikidata:en: Q841156
@@ -47834,7 +47922,7 @@ eurocode_2_group_3:en: 9.30.15
 ifct_food_code:en: E063
 ifct_food_name:en: Strawberry
 usda_fdc_2_code:en: 168173
-usda_fdc_code:en: 167762
+usda_fdc_code:en: 167762, 327699
 usda_ndb_2_code:en: 9318
 usda_ndb_2_name:en: Strawberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
 usda_ndb_2_process:en: en:frozen, en:unsweetened
@@ -49937,7 +50025,7 @@ en: vegetable, vegetables
 bg: зеленчук, зеленчуци
 ca: Vegetals, Verdures
 cs: Zelenina
-da: grøntsag, grøntsager, grønsag, grønsager
+da: grøntsag, grøntsager, grøntsags, grønsag, grønsager, grønsags
 de: Gemüse
 el: λαχανικό, λαχανικά
 es: verduras, hortaliza, hortalizas, vegetal, vegetales
@@ -50588,7 +50676,7 @@ zh: 蘿蔓萵苣
 ciqual_food_code:en: 20171
 ciqual_food_name:en: Cos or romaine lettuce, raw
 ciqual_food_name:fr: Laitue romaine, crue
-usda_fdc_code:en: 169247
+usda_fdc_code:en: 169247, 327923
 usda_ndb_code:en: 11251
 usda_ndb_name:en: Lettuce, cos or romaine, raw
 wikidata:en: Q1762893
@@ -51839,7 +51927,8 @@ en: raw broccoli
 ciqual_food_code:en: 20057
 ciqual_food_name:en: Broccoli, raw
 ciqual_food_name:fr: Brocoli, cru
-usda_fdc_code:en: 170379
+comment:en: the two usda codes: legacy, foundation
+usda_fdc_code:en: 170379, 321900
 usda_ndb_code:en: 11090
 usda_ndb_name:en: Broccoli, raw
 
@@ -52524,11 +52613,15 @@ zh: 羽衣甘藍
 ciqual_food_code:en: 20218
 ciqual_food_name:en: Curly kale, raw
 ciqual_food_name:fr: Chou frisé, cru
+comment:en: the two usda codes: legacy, foundation
 ecobalyse:en: curly-kale-fr
 ecobalyse_labels_en_organic:en: curly-kale-organic
 eurocode_2_group_3:en: 8.15.55
 usda_fdc_2_code:en: 169239
-usda_fdc_code:en: 168421
+usda_fdc_3_code:en: 326196
+usda_fdc_code:en: 168421, 323505
+usda_foundation_3_name:en: Kale, frozen, cooked, boiled, drained, without salt
+usda_foundation_3_process:en: en:frozen, en:cooked, en:boiled, en:drained
 usda_ndb_2_code:en: 11235
 usda_ndb_2_name:en: Kale, frozen, unprepared
 usda_ndb_2_process:en: en:frozen, en:unprepared
@@ -60243,6 +60336,8 @@ ecobalyse_labels_en_organic_origins_en_france:en: tomato-organic-fr
 ecobalyse_origins_en_european_union:en: tomato-greehouse-eu
 ecobalyse_origins_en_france:en: tomato-greenhouse-fr
 eurocode_2_group_3:en: 8.40.10
+usda_fdc_code:en: 333281
+usda_foundation_name:en: Tomatoes, canned, red, ripe, diced
 wikidata:en: Q20638126
 
 < en: tomato
@@ -60342,6 +60437,11 @@ pt: tomate cherry pêra
 ro: rosii cherry prunisoare
 se: babyplommontomater
 sv: babyplommontomater
+
+< en: tomato
+en: grape tomato, grape tomatoes
+usda_fdc_code:en: 321360
+usda_foundation_name:en: Tomatoes, grape, raw
 
 < en: tomato
 fr: tomates semi-séchées, tomate mi-séchée, tomates mi-séchées
@@ -61698,6 +61798,9 @@ ecobalyse:en: french-bean-non-eu
 ecobalyse_origins_en_european_union:en: french-bean-eu
 ecobalyse_origins_en_france:en: french-bean-fr
 eurocode_2_group_3:en: 8.45.30
+usda_fdc_code:en: 321611
+usda_foundation_name:en: Beans, snap, green, canned, regular pack, drained solids
+usda_foundation_process:en: en:canned
 wikidata:en: Q2987371
 #4192 in 16 @2021-10-01
 
@@ -63228,9 +63331,10 @@ it: pisello giallo
 #
 ###################################################################################################
 
-< en: pulse
+< en: legume
 en: pigeon pea, red gram, pigeon peas, gandules, toor, arhar, gungo peas
 la: Cajanus cajan
+comment:en: should we make the pulse a separate entry?
 description:en: Pigeon peas (Cajanus cajan) differ quite a bit depending on whether they're picked green or left to dry on the plant. The green peas have a mild, slightly sweet flavor; the dried peas have Earthier, nuttier flavor — closer to lentils or other dried pulses
 usda_fdc_2_code:en: 172436
 usda_fdc_code:en: 170025
@@ -63239,6 +63343,21 @@ usda_ndb_2_name:en: Pigeon peas (red gram), mature seeds, raw
 usda_ndb_2_process:en: en:dried
 usda_ndb_code:en: 11344
 usda_ndb_name:en: Pigeonpeas, immature seeds, raw
+
+###################################################################################################
+#
+#
+#                        Horse gram
+#
+#
+###################################################################################################
+
+< en: pulse
+en: pink bean, pink beans, habichuelas rosadas
+es: habichuelas rosadas
+usda_fdc_code:en: 335306
+usda_foundation_name:en: Beans, Dry, Pink (0% moisture)
+usda_foundation_process:en: en:dried
 
 ###################################################################################################
 #
@@ -64562,6 +64681,12 @@ nl: geroosterde amandelen
 pt: amêndoa torrada, amêndoas torradas
 ro: migdale coapte
 
+# < en: compound
+< en: roasted almonds
+en: roasted almonds with salt added
+usda_fdc_code:en: 323294
+usda_foundation_name:en: Nuts, almonds, dry roasted, with salt added
+
 < en: almond
 en: flaked almonds
 de: Mandelblättchen
@@ -64579,14 +64704,14 @@ pt: amêndoa laminada, amêndoas laminadas
 en: bitter almond
 de: Bittermandeln
 es: almendras amargas
-fi: Karvasmanteli
+fi: karvasmanteli
 fr: amandes amères
 hr: gorki badem
-it: mandorle amare, Armellina
+it: mandorle amare
 nl: bittere amandel, bittere amandelen
 pt: amêndoa amarga, amêndoas amargas
-sv: Bittermandel
-# aeb-arab:لوز مرّ
+sv: bittermandel
+#aeb-arab: لوز مرّ
 wikidata:en: Q902704
 
 < en: tree nut
@@ -70497,8 +70622,11 @@ fi: tillivoi
 hr: maslac od kopra
 it: burro all'aneto
 sv: dillsmör
-#1 @2021-09-16
-# usage:fi:Tillivoi: Voi (Suomi), tilli, suola
+
+< en: dill
+< en: vinegar
+en: dill vinegar
+da: dildeddike
 
 ###################################################################################################
 #
@@ -71534,19 +71662,23 @@ nl: braamblad, braambladeren
 
 < en: taproot vegetable
 en: parsley root
-de: Petersilienwurzel
+cs: kořenová petržel
+da: persillerod
+de: Petersilienwurzel, Wurzelpetersilie
+eo: radikpetroselo
 es: raices de peregril
 fr: racine de persil
 hr: korijen peršina
 it: radice di prezzemolo
-la: Petroselinum crispum var. tuberosum
-nl: peterseliewortel
+la: Petroselinum crispum subsp. tuberosum, Petroselinum crispum var. tuberosum
+nb: persillerot
+nl: peterseliewortel, wortelpeterselie
 pl: korzeń pietruszki, pietruszka korzeń
+ru: петрушка корневая
 sl: jeva korenina
 sr: koren peršuna
-# 113 @2021-09-16
 eurocode_2_group_3:en: 8.38.60
-wikidata:en: Q68220931
+wikidata:en: Q2595442
 
 ###################################################################################################
 #
@@ -80711,7 +80843,7 @@ ciqual_food_code:en: 26122
 ciqual_food_name:en: Haddock, raw
 ciqual_food_name:fr: Églefin, cru
 description:en: Haddock is a saltwater fish, closely related to cod and are found mainly in the North Atlantic. Flavor and texture: Mild, slightly sweet flavor with white, flaky flesh. It's often described as a bit more delicate than cod. It's the classic fish used in British fish and chips
-usda_fdc_code:en: 171964
+usda_fdc_code:en: 171964, 333374
 usda_ndb_code:en: 15033
 usda_ndb_name:en: Fish, haddock, raw
 wikidata:en: Q202406
@@ -81289,12 +81421,14 @@ sq: pollock
 sv: gråsej, sej
 uk: Сайда
 zh: 綠青鱈
+# ast:carboneru
+# en-gb:Saithe
 ciqual_food_code:en: 26134
 ciqual_food_name:en: Saithe, raw
 ciqual_food_name:fr: Lieu noir, cru
 description:en: The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
-# ast:carboneru
-# en-gb:Saithe
+usda_fdc_code:en: 333476
+usda_foundation_name:en: Fish, pollock, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Pollachius_virens
 
 #<en:saithe
@@ -82314,6 +82448,8 @@ description:nl: Tonijnen zijn enkele soorten oceaanvissen uit de familie van mak
 description:pt: Os atuns (género Thunnus) são um dos grupos de espécies de peixes mais importantes do ponto de vista pesqueiro.
 ifct_food_code:en: P084
 ifct_food_name:en: Tuna
+usda_fdc_code:en: 334194
+usda_foundation_name:en: Fish, tuna, light, canned in water, drained solids
 wikidata:en: Q2346039
 wikipedia:en: https://en.wikipedia.org/wiki/Tuna
 # 2838 @2021-09-02
@@ -88989,6 +89125,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Chicken_as_food
 
 < en: chicken
 en: free range chicken
+da: fritgående høns
 de: Freilandhühner, Freilandhühnern, Hühner aus Freilandhaltung
 es: pollo de corral
 fr: poulet élevé en plein air
@@ -89375,6 +89512,8 @@ ciqual_proxy_food_name:en: Chicken, breast, without skin, raw
 ecobalyse:en: chicken-breast-br-max
 ecobalyse_labels_en_organic:en: chicken-breast-fr-organic
 ecobalyse_origins_en_france:en: chicken-breast-fr
+usda_fdc_code:en: 331960
+usda_foundation_name:en: Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, braised
 
 < en: chicken breast
 en: british chicken breast
@@ -89412,6 +89551,8 @@ carbon_footprint_fr_foodges_value:fr: 4.9
 #ciqual_food_name:fr: Poulet, cuisse, viande et peau, rôtie/cuite au four
 ciqual_food_code:en: 36006
 ciqual_food_name:en: Chicken, leg, meat only, raw
+usda_fdc_code:en: 331897
+usda_foundation_name:en: Chicken, broilers or fryers, drumstick, meat only, cooked, braised
 
 # <en:cutlet
 < en: chicken meat
@@ -89797,6 +89938,8 @@ zh: 火雞
 # yue:火雞
 ciqual_food_code:en: 36300
 ciqual_food_name:en: Turkey, meat and skin, raw
+usda_fdc_code:en: 330869
+usda_foundation_name:en: Turkey, ground, 93% lean, 7% fat, pan-broiled crumbles
 wikipedia:en: https://en.wikipedia.org/wiki/Turkey_(bird)
 
 # description:en:TURKEY MEAT, commonly referred to as just turkey, is the meat from turkeys, typically domesticated turkeys. Turkeys are sold sliced and ground, as well as "whole" in a manner similar to chicken with the head, feet, and feathers removed. Frozen whole turkeys remain popular. Sliced turkey is frequently used as a sandwich meat or served as cold cuts.
@@ -90355,6 +90498,7 @@ nl: grote eieren
 # 3@2019-05-31
 
 < en: egg
+< en: whole egg
 en: free range eggs, free range whole egg
 bg: яйца от свободни кокошки
 de: Freilandeier
@@ -90540,14 +90684,17 @@ fi: virikehäkkikanan muna, virikehäkkikanojen munia
 < en: chicken egg
 < en: free range eggs
 en: free range chicken eggs
+da: æg fra fritgående høns
 de: Hühnereier aus Freilandhaltung
 es: huevos de gallinas camperas
 fi: ulkokanan munat, ulkokanan munia, ulkokanojen munia
 fr: œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air
 hr: jaja iz podnog uzgoja
 it: uova di gallina allevate all'aperto
+nb: egg fra frittgående høner
 nl: ei van hennen met vrije uitloop, scharrelkipheelei, scharrelkippenei
 pl: kurze jaja z wolnego wybiegu
+sv: ägg från frigående höns
 
 < en: free range chicken eggs
 fr: œufs de poules élevées en plein air calibre moyen
@@ -90573,6 +90720,7 @@ fr: Gros Œufs de Poules Élevées en Plein Air
 fr: œuf moyen de poule élevé en plein air sans antibiotiques
 
 < en: free range chicken eggs
+< en: whole egg
 en: free range pasteurised egg, free range pasteurised whole egg
 fr: œufs de poules élevées en plein air pasteurisés, oeufs de poules élevées en plein air pasteurisés
 hr: pasterizirano jaje slobodnog uzgoja
@@ -90647,7 +90795,10 @@ ja: 全卵
 nl: hele eieren, geheel eieren
 pl: Całe jajo
 pt: Ovo inteiro
-usda_fdc_code:en: 172188
+usda_fdc_2_code:en: 323604
+usda_fdc_code:en: 172188, 329490
+usda_foundation_2_name:en: Egg, whole, raw, frozen, pasteurized
+usda_foundation_2_process:en: en:frozen, en:pasteurized
 usda_ndb_code:en: 1133
 usda_ndb_name:en: Egg, whole, dried
 usda_ndb_process:en: en:dried
@@ -90858,7 +91009,11 @@ ciqual_food_code:en: 22001
 ciqual_food_name:en: Egg white, raw
 ciqual_food_name:fr: Oeuf, blanc (blanc d'oeuf), cru
 description:en: EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
-usda_fdc_code:en: 172204
+#usda_fdc_code:en: 172204
+#usda_fdc_code:en: 323793
+usda_fdc_2_code:en: 323697
+usda_foundation_2_name:en: Egg, white, raw, frozen, pasteurized
+usda_foundation_2_process:en: en:frozen, en:pasteurized
 usda_ndb_code:en: 1173
 usda_ndb_name:en: Egg, white, dried
 usda_ndb_process:en: en:dried
@@ -91144,7 +91299,10 @@ ciqual_food_code:en: 22002
 ciqual_food_name:en: Egg yolk, raw
 ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cru
 # description:en:EGG YOLK is the part of an egg which feeds the developing chicken embryo.
-usda_fdc_code:en: 173428
+usda_fdc_2_code:en: 329596
+usda_fdc_code:en: 173428, 329716
+usda_foundation_name:en: Egg, yolk, raw, frozen, pasteurized
+usda_foundation_process:en: en:raw, en:frozen, en:pasteurized
 usda_ndb_code:en: 1137
 usda_ndb_name:en: Egg, yolk, dried
 usda_ndb_process:en: en:dried
@@ -91182,18 +91340,22 @@ hr: kokošji žumanjak u prahu
 it: Polvere di tuorlo d'uovo di gallina
 pl: żółtko jaj kurzych w proszku
 
+< en: chicken egg yolk
 < en: free range egg yolk
 en: free range chicken egg yolk
 bg: жълтък от пресни яйца от свободно отглеждани кокошки
+da: æggeblomme fra fritgående høns
 de: Hühnereigelb aus Freilandhaltung
 es: yema de huevo de gallinas camperas
 fi: ulkokanan munankeltuainen
 fr: jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air, jaune d'oeuf issu d'oeufs de poules élevées en plein air, jaune d'oeuf issu de poules élevées en plein air
 hr: žumanjak kokoši slobodnog uzgoja
 it: tuorlo d'uovo di gallina allevata all'aperto
+nb: eggeplomme fra frittgående høner
 nl: Eigeel van vrije uitloop eieren, scharreleigeelpoeder, scharrelkippenei-eigeel, scharrelkippenei-eigeelpoeder
 pl: żółtko jaja kurzego z chowu z wolnego wybiegu, żółtko jaja kurzego z chowu na wolnym wybiegu, żółtko z jaja kurzego z chowu na wolnym wybiegu, żółtko jaja w proszku z chowu na wolnym wybiegu
 pt: gema de ovo de galinhas criadas ao ar livre
+sv: äggula från frigående höns
 
 < en: free range egg yolk
 en: pasteurised Free Range Egg Yolk
@@ -91231,6 +91393,7 @@ it: tuorlo d'uovo in polvere da galline allevate all'aperto
 < en: egg yolk
 en: pasteurised egg yolk, pasteurized egg yolk
 bg: пастьоризиран яйчен жълтък, пастьоризирани яйчни жълтъци
+da: pasteuriserede æggeblommer, past. æggeblommer
 de: Pasteurisierter Eigelb Eier, pasteurisiertes Eigelb, pasteurisierter Eidotter, pasteurisierte Eimasse
 es: yema de huevo pasteurizada, yemas de huevo pasteurizadas
 fr: jaune d'œuf pasteurisé, jaune d'oeuf pasteurisé
@@ -92728,8 +92891,6 @@ zh: 意大利粉
 wikidata:en: Q20026
 wikipedia:en: https://en.wikipedia.org/wiki/Spaghetti
 
-# description:en:LASAGNE are a type of wide, flat pasta, possibly one of the oldest types of pasta.
-
 < en: pasta
 en: lasagne, lasagna, lasagna pasta, lasagne sheets
 af: lasagne
@@ -92741,7 +92902,7 @@ br: lasagne al forno
 ca: lasanya
 cs: lasagne
 cy: lasagna
-da: lasagne
+da: lasagne, lasagneplader
 de: lasagne, lasagneblätter
 eo: lasanjoj
 es: lasaña
@@ -92787,6 +92948,7 @@ zh: 千層麵
 # sco:lasagne
 # tyv:лазанья
 # zh_yue:千層麪
+description:en: LASAGNE are a type of wide, flat pasta, possibly one of the oldest types of pasta.
 wikidata:en: Q20034
 wikipedia:en: https://en.wikipedia.org/wiki/Lasagne
 
@@ -98176,7 +98338,8 @@ zh: 鹰嘴豆泥
 ciqual_food_code:en: 25621
 ciqual_food_name:en: Hummus
 ciqual_food_name:fr: Houmous
-usda_fdc_code:en: 174289
+usda_fdc_code:en: 174289, 321358
+usda_foundation_name:en: Hummus, commercial
 usda_ndb_code:en: 16158
 usda_ndb_name:en: Hummus, commercial
 wikidata:en: Q241987
