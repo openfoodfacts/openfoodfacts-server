@@ -8,6 +8,7 @@
     <form id="remove_products_form" method="post" onsubmit="return confirm('[% confirm_alert.squote %]')" enctype="multipart/form-data">
         <input type="submit" class="button small" value="[% edq(lang('remove_products')) %] ">
         <input type="hidden" name="action" value="process">
+        <input type="hidden" name="csrf_token" value="[% csrf_token %]">
     </form>
 
 [% ELSIF action == 'process' %]

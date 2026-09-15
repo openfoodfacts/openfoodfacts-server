@@ -30,7 +30,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method validate_csrf_token/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
@@ -63,6 +63,10 @@ if ((not defined $Owner_id) or ($Owner_id !~ /^(user|org)-\S+$/)) {
 	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
+if (not($ENV{'REQUEST_METHOD'} eq 'POST')) {
+	display_error_and_exit($request_ref, lang("invalid_method"), 405);
+}
+
 if ($action eq "display") {
 
 	my $confirm = lang("remove_products_confirm");
@@ -73,6 +77,8 @@ if ($action eq "display") {
 }
 
 elsif ($action eq "process") {
+
+	validate_csrf_token($request_ref);
 
 	$log->debug("Deleting products for owner in mongodb", {owner => $Owner_id}) if $log->is_debug();
 

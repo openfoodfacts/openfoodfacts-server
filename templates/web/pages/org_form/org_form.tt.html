@@ -46,6 +46,7 @@
 				<td>
 					<form method="post" action="/cgi/org.pl" onsubmit="return confirm('Are you sure you want to remove this user?')">
 						<input type="hidden" name="action" value="process" />
+					<input type="hidden" name="csrf_token" value="[% csrf_token %]">
 						<input type="hidden" name="type" value="user_delete" />
 						<input type="hidden" name="orgid" value="[% orgid %]">
 						<input type="hidden" name="user_id" value="[% users.userid %]">
@@ -113,6 +114,7 @@
 				<td>
 					<form method="post" action="/cgi/org.pl">
 						<input type="hidden" name="action" value="process" />
+					<input type="hidden" name="csrf_token" value="[% csrf_token %]">
 						<input type="hidden" name="type" value="pending_user" />
 						<input type="hidden" name="orgid" value="[% orgid %]">
 						<input type="hidden" name="user_id" value="[% users.userid %]">
@@ -209,6 +211,7 @@
 		[% END %]
 
 		<input type="hidden" name="action" value="process" />
+		<input type="hidden" name="csrf_token" value="[% csrf_token %]">
 		<input type="hidden" name="type" value="[% type %]" />
 		<input type="hidden" name="orgid" value="[% orgid %]" />
 		<input type="submit" name=".submit" class="button" value= "[% edq(lang('save')) %]"/>

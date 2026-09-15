@@ -28,7 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -83,6 +83,8 @@ else {
 
 	if ($action eq 'process') {
 
+		require_post_method($request_ref);
+
 		if ($type eq 'send_email') {
 
 			# Is it an email?
@@ -136,6 +138,8 @@ else {
 	}
 
 	elsif ($action eq 'process') {
+
+		require_post_method($request_ref);
 
 		if ($type eq 'send_email') {
 			$template_data_ref->{status} = "error";

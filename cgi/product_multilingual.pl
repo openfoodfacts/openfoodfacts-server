@@ -29,7 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method validate_csrf_token/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
 use ProductOpener::Tags qw/:all/;
@@ -231,6 +231,9 @@ if ($type eq 'search_or_add') {
 	}
 	else {
 
+		require_post_method($request_ref);
+		validate_csrf_token($request_ref);
+
 		# barcode in image?
 		my $filename;
 		if ((not defined $code) or ($code eq "")) {
@@ -339,6 +342,16 @@ else {
 	}
 	elsif (not is_valid_code($code)) {
 		display_error_and_exit($request_ref, $Lang{invalid_barcode}{$lc}, 403);
+	}
+	elsif (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
+		require_post_method($request_ref);
+		validate_csrf_token($request_ref);
+
+		$product_id = product_id_for_owner($Owner_id, $code);
+		$product_ref = retrieve_product($product_id, $User{moderator});
+		if (not defined $product_ref) {
+			display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
+		}
 	}
 	else {
 		if (    ((defined $server_options{private_products}) and ($server_options{private_products}))
@@ -1361,6 +1374,8 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 }
 elsif ($action eq 'process') {
+	require_post_method($request_ref);
+	validate_csrf_token($request_ref);
 	# process the form
 
 	my $template_data_ref_process = {type => $type};

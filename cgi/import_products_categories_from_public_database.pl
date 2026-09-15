@@ -29,7 +29,7 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method validate_csrf_token/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
 use ProductOpener::Images qw/:all/;
@@ -69,6 +69,9 @@ if ($action eq "display") {
 }
 
 elsif ($action eq "process") {
+
+	require_post_method($request_ref);
+	validate_csrf_token($request_ref);
 
 	my $import_id = time();
 

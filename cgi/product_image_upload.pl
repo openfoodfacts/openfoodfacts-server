@@ -28,7 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method validate_csrf_token/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
@@ -65,6 +65,11 @@ my $env = $ENV{QUERY_STRING};
 $log->debug("calling init()", {query_string => $env});
 
 my $request_ref = ProductOpener::Display::init_request();
+
+require_post_method($request_ref);
+# This endpoint is called by apps that do not use API v3 for images upload
+# So we don't have a CSRF token in the request.
+# validate_csrf_token($request_ref);
 
 $log->debug(
 	"parsing code",

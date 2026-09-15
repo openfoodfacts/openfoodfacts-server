@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Lang qw/lang/;
@@ -108,6 +108,7 @@ else {
 	my $action = param('length');
 
 	if ((defined $action) and ($action eq 'logout')) {
+		require_post_method($request_ref);
 		# The user is signing out
 		$template = "signed_out";
 	}
