@@ -21,6 +21,76 @@
    "categories_tags" : [
       "en:meals"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 80,
+               "name" : "eau"
+            },
+            {
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 10,
+               "name" : "sucre"
+            },
+            {
+               "id" : "french-bean-non-eu",
+               "mass" : 10,
+               "name" : "haricots verts"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+            }
+         ],
+         "transformations" : [
+            {
+               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+               "mass" : 100,
+               "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
+               "name_fr" : "Cuisson"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                  "mass" : 80
+               },
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 10
+               },
+               {
+                  "id" : "french-bean-non-eu",
+                  "mass" : 10
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+               }
+            ],
+            "transformations" : [
+               {
+                  "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+                  "mass" : 100
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:one-dish-meals",
    "food_groups_tags" : [

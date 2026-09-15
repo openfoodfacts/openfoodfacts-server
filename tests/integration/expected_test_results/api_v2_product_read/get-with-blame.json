@@ -826,6 +826,71 @@
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
+      "environmental_impact" : {
+         "ecobalyse_input" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                  "mass" : 58.3333333333333,
+                  "name" : "apple"
+               },
+               {
+                  "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                  "mass" : 20.8333333333333,
+                  "name" : "milk"
+               },
+               {
+                  "id" : "egg-indoor-code3",
+                  "mass" : 10.4166666666667,
+                  "name" : "eggs"
+               },
+               {
+                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                  "mass" : 5.20833333333333,
+                  "name" : "palm oil"
+               }
+            ],
+            "packaging" : [
+               {
+                  "category" : "",
+                  "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b",
+                  "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
+                  "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
+               }
+            ]
+         },
+         "ecobalyse_request" : {
+            "data" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                     "mass" : 58.3333333333333
+                  },
+                  {
+                     "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                     "mass" : 20.8333333333333
+                  },
+                  {
+                     "id" : "egg-indoor-code3",
+                     "mass" : 10.4166666666667
+                  },
+                  {
+                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "mass" : 5.20833333333333
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "amount" : 1,
+                     "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b"
+                  }
+               ]
+            },
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         }
+      },
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups" : "en:biscuits-and-cakes",
       "food_groups_tags" : [

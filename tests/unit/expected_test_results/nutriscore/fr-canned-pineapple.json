@@ -47,6 +47,76 @@
       "en:pineapples",
       "en:canned-pineapples"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 80,
+               "name" : "eau"
+            },
+            {
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 10,
+               "name" : "sucre"
+            },
+            {
+               "id" : "c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a",
+               "mass" : 10,
+               "name" : "ananas"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:canned-foods",
+               "id" : "1686b240-6292-4eae-ad10-0525404cbb10",
+               "name" : "Chestnut cream or canned, 370g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Pot en verre pour crème de marrons - 370g - Proxy"
+            }
+         ],
+         "transformations" : [
+            {
+               "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
+               "mass" : 100,
+               "name" : "Canning fruits or vegetables, industrial, 1kg of canned product {FR} U",
+               "name_fr" : "Mise en conserve"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                  "mass" : 80
+               },
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 10
+               },
+               {
+                  "id" : "c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a",
+                  "mass" : 10
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "1686b240-6292-4eae-ad10-0525404cbb10"
+               }
+            ],
+            "transformations" : [
+               {
+                  "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
+                  "mass" : 100
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:fruits",
    "food_groups_tags" : [

@@ -39,6 +39,71 @@
       "en:juices-and-nectars",
       "en:fruit-nectars"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+               "mass" : 47,
+               "name" : "Orange"
+            },
+            {
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 32,
+               "name" : "Water"
+            },
+            {
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 11,
+               "name" : "Sugar"
+            },
+            {
+               "id" : "carrot-non-eu",
+               "mass" : 10,
+               "name" : "Carrots"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:fruit-nectars",
+               "id" : "2fb5bed2-2a08-41cd-8b7d-e3e0e200fa6d",
+               "name" : "Nectars, 1000g | Packaging System, Proxy Pack, Plastic bottles {FR} U",
+               "name_fr" : "Bouteille en plastique (PET) pour nectars - 1000g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+                  "mass" : 47
+               },
+               {
+                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                  "mass" : 32
+               },
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 11
+               },
+               {
+                  "id" : "carrot-non-eu",
+                  "mass" : 10
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "2fb5bed2-2a08-41cd-8b7d-e3e0e200fa6d"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:sweetened-beverages",
    "food_groups_tags" : [

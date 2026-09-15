@@ -43,6 +43,112 @@
       "en:cold-soups",
       "en:gazpacho"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "tomato-heated-greenhouse-eu",
+               "mass" : 51.7954545454545,
+               "name" : "Tomate"
+            },
+            {
+               "id" : "cucumber-eu",
+               "mass" : 24.45,
+               "name" : "concombre"
+            },
+            {
+               "id" : "bellpepper-unheated-greehouse",
+               "mass" : 12.4272727272727,
+               "name" : "poivron"
+            },
+            {
+               "id" : "onion-non-eu",
+               "mass" : 6.21363636363636,
+               "name" : "oignon"
+            },
+            {
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 3.10681818181818,
+               "name" : "eau"
+            },
+            {
+               "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
+               "mass" : 1.1,
+               "name" : "huile d'olive vierge extra"
+            },
+            {
+               "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
+               "mass" : 0.0566761363636346,
+               "name" : "ail"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+            }
+         ],
+         "transformations" : [
+            {
+               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+               "mass" : 100,
+               "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
+               "name_fr" : "Cuisson"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "tomato-heated-greenhouse-eu",
+                  "mass" : 51.7954545454545
+               },
+               {
+                  "id" : "cucumber-eu",
+                  "mass" : 24.45
+               },
+               {
+                  "id" : "bellpepper-unheated-greehouse",
+                  "mass" : 12.4272727272727
+               },
+               {
+                  "id" : "onion-non-eu",
+                  "mass" : 6.21363636363636
+               },
+               {
+                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                  "mass" : 3.10681818181818
+               },
+               {
+                  "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
+                  "mass" : 1.1
+               },
+               {
+                  "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
+                  "mass" : 0.0566761363636346
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+               }
+            ],
+            "transformations" : [
+               {
+                  "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+                  "mass" : 100
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:soups",
    "food_groups_tags" : [

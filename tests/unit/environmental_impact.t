@@ -14,6 +14,7 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 my $product_hazelnut_spread_json = '{
     "product_name_en": "My hazelnut spread",
     "product_name_fr": "Ma pâte aux noisettes",
+    "categories_tags": ["en:hazelnut-spreads", "en:plant-based-foods", "en:canned-foods"],
     "ingredients": [
         {
             "is_in_taxonomy" : 1,
