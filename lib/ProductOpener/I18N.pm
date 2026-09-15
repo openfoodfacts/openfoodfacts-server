@@ -104,6 +104,7 @@ This does not register or enable a language.
 sub normalize_language_code ($code) {
 	return if not defined $code or $code !~ /\A$language_code_re\z/;
 	my ($language, @subtags) = split /[-_]/, $code;
+	# language lowercase (pt), 4-letter script in Title case (Hant), region uppercase (BR / 419), joined with '_'.
 	return join('_', lc($language), map {length($_) == 4 ? ucfirst(lc($_)) : uc($_)} @subtags);
 }
 
@@ -185,6 +186,7 @@ left to the caller.
 =cut
 
 sub lookup_with_language_fallback ($hash_ref, $code, $matched_code_ref = undef) {
+	# reset the caller's out-parameter (scalar reference) before the lookup.
 	$$matched_code_ref = undef if defined $matched_code_ref;
 	return if not defined $code or not defined $hash_ref;
 	my @languages = language_fallbacks($code);
@@ -242,6 +244,7 @@ sub read_po_files ($dir, $languages_ref = undef) {
 		$log->debug("Reading po file");
 
 		my $lc;
+		# \A and \z anchor the whole string; unlike $, \z does not allow a trailing newline
 		if ($filename =~ /\A($language_code_re)\.po\z/) {
 			$lc = normalize_language_code($1);
 		}
@@ -249,7 +252,10 @@ sub read_po_files ($dir, $languages_ref = undef) {
 			$log->debug("Skipping file (not in language.po format)");
 			next;
 		}
-		next if $filename ne "$lc.po";
+		if ($filename ne "$lc.po") {
+			$log->warn("Skipping file (language code is not in normalized spelling)", {expected => "$lc.po"});
+			next;
+		}
 
 		if ((defined $languages_ref) and (not exists $languages_ref->{$lc})) {
 			$log->debug("Skipping file (language code is not registered with this exact case)", {lc => $lc});

@@ -32,6 +32,10 @@ use ProductOpener::Store qw/store/;
 use ProductOpener::Tags qw/%Languages init_languages retrieve_tags_taxonomy/;
 use ProductOpener::Food qw/:all/;
 
+# standalone script: Apache's Log4perl adapter does not apply here,
+# without this the warnings emitted while reading the catalogs are discarded
+use Log::Any::Adapter ('Stderr', log_level => 'info');
+
 print STDERR "Build \%Lang - data_root: $data_root - server_domain: $server_domain\n";
 
 # This script is used a stored Lang.sto file with %Lang that contains:
