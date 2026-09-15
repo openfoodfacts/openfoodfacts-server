@@ -125,4 +125,8 @@ normalize_org_for_test_comparison($org_cmp_ref);
 compare_to_expected_results($org_cmp_ref, "$expected_result_dir/org-after-validation.json",
 	$update_expected_results, {desc => "org validated"});
 
+# Test that producer badge displays on user profile page
+$resp = get_page($user_ua, "/editor/tests");
+like($resp->decoded_content, qr/This is a producer or brand account/, "producer badge displays on profile page");
+
 done_testing();
