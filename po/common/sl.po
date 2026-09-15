@@ -415,7 +415,7 @@ msgstr "Pridobite ga v Googlu Play"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "Tega izdelek še ni v podatkovni bazi <<site_name>>. Prosimo vas, da posnamete nekaj slik izdelka, črtne kode, seznama sestavin in podatkov o hranilni vrednosti, da vnesete dodate na<a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p><p>Hvala v naprej!</p>\n"
+msgstr "<p>Tega izdelek še ni v podatkovni bazi <<site_name>>. Prosimo vas, da posnamete nekaj slik izdelka, črtne kode, seznama sestavin in podatkov o hranilni vrednosti, da vnesete dodate na <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p><p>Hvala v naprej!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -1307,7 +1307,7 @@ msgstr "Proizvodi, ki ne vsebujejo sestavine %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_SI.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
@@ -1762,11 +1762,6 @@ msgstr "Prehranske stopnje"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Prehranska stopnja"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -5473,7 +5468,7 @@ msgstr "Izdelki z najboljšim Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Izdelki z najboljšo ekološko oceno"
+msgstr "Izdelki z najboljšo Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5544,7 +5539,7 @@ msgstr "Green-Score še ne velja za to kategorijo, izdelava je še v teku."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Eko-ocena ni izračunana"
+msgstr "Green-Score ni izračunana"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5556,7 +5551,7 @@ msgstr "Manjka natančna kategorija"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Eko-Skore tega izdelka ni mogoče izračunati saj manjkajo določeni podatki. Lahko pomagate pri dokončanju?"
+msgstr "Green-Score tega izdelka ni mogoče izračunati saj manjkajo določeni podatki. Lahko pomagate pri dokončanju?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5890,7 +5885,7 @@ msgstr "Formula Green-Score se lahko spreminja, saj se redno izboljšuje, da pos
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Zelena lestvica je bila prvotno razvita za Francijo in se razširja tudi na druge evropske države. Formula za zeleno lestvico se lahko spremeni, saj se redno izboljšuje, da bi bila natančnejša in bolj primerna za posamezno državo."
+msgstr "Green-Score je bila prvotno razvita za Francijo in se razširja tudi na druge evropske države. Formula za Green-Score se lahko spremeni, saj se redno izboljšuje, da bi bila natančnejša in bolj primerna za posamezno državo."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6213,7 +6208,7 @@ msgstr "Bonusi in malusi"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Eko-Score ocena za ta izdelek"
+msgstr "Green-Score ocena za ta izdelek"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"

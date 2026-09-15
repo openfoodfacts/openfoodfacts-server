@@ -42,6 +42,10 @@ updates:
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 300
+    groups:
+      all-actions:
+        patterns:
+          - "*"
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
