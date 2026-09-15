@@ -164,7 +164,16 @@ sub store_org ($org_ref) {
 
 	$log->debug("store_org", {org_ref => $org_ref}) if $log->is_debug();
 
-	defined $org_ref->{org_id} or die("Missing org_id");
+	# Validate that org_ref is defined and has org_id
+	if (not defined $org_ref) {
+		$log->error("store_org called with undefined org_ref");
+		die("store_org called with undefined org_ref");
+	}
+	
+	if (not defined $org_ref->{org_id} or $org_ref->{org_id} eq "") {
+		$log->error("store_org called with missing or empty org_id", {org_ref => $org_ref});
+		die("Missing org_id in store_org call");
+	}
 
 	# retrieve eventual previous values
 	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/$org_ref->{org_id}.sto");
@@ -543,7 +552,8 @@ Update the last import type for an organization.
 =cut
 
 sub update_last_import_type ($org_id_or_ref, $data_source) {
-	my $org_ref = retrieve_org($org_id_or_ref);
+	my $org_ref = org_id_or_ref($org_id_or_ref);
+	return if not defined $org_ref;
 	$org_ref->{last_import_type} = $data_source;
 	update_company_last_import_type($org_ref, $data_source);
 	store_org($org_ref);
