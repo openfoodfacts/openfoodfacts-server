@@ -829,7 +829,7 @@ The summary field indicates:
 - missing_ingredients: product has no ingredients list
 - with_other_risky_ingredients: product has risky ingredients but no computed primary ingredients
 - without_primary_ingredients_or_other_risky_ingredients: no risky ingredients detected, grade A
-- with_primary_ingredients: normal computed grade (a-e)
+- with_primary_ingredients: normal computed grade (a-d)
 
 =cut
 
