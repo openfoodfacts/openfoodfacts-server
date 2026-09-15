@@ -39,6 +39,12 @@ The functions used in this module take the directory to look for the .po files a
 package ProductOpener::I18N;
 
 use ProductOpener::PerlStandards;
+use Exporter qw/import/;
+
+our @EXPORT_OK = qw/$language_code_re normalize_language_code language_tag base_language
+	language_fallbacks lookup_with_language_fallback/;
+our %EXPORT_TAGS = (all => \@EXPORT_OK);
+our $language_code_re = qr/[a-z]{2,3}(?:[-_][a-z]{4})?(?:[-_](?:[a-z]{2}|[0-9]{3}))?/iaa;
 
 use File::Basename;
 use File::Find::Rule;
@@ -79,24 +85,144 @@ my @metadata_fields = qw<
 
 =head1 FUNCTIONS
 
-=head2 read_po_files()
-
-C<read_po_files()> takes directory of the .po files as an input parameter, reads and merges them in one hash
-That hash is returned as a reference. (Done to spare the stack) Returning a reference uses a bit less memory since there's no copy.
-This function also cleans up the %Lexicon from gettext metadata 
-and cleans up the empty values that are put in .po files by Crowdin when the string is not translated.
+=head2 normalize_language_code( $code )
 
 =head3 Arguments
 
-The directory containing .po files are passed as an argument.
+C<$code> is a two- or three-letter language, optionally followed by a script and
+a region. C<$language_code_re> is the same grammar, without anchors or captures,
+for use in filenames and taxonomy prefixes. Hyphens, underscores and mixed case
+are accepted; callers can require the normalized spelling.
 
 =head3 Return values
 
-Returns a reference to a hash on successful execution.
+The internal spelling (C<pt_BR>, C<zh_Hant_TW>), or undef for unsupported syntax.
+This does not register or enable a language.
 
 =cut
 
-sub read_po_files ($dir) {
+sub normalize_language_code ($code) {
+	return if not defined $code or $code !~ /\A$language_code_re\z/;
+	my ($language, @subtags) = split /[-_]/, $code;
+	return join('_', lc($language), map {length($_) == 4 ? ucfirst(lc($_)) : uc($_)} @subtags);
+}
+
+=head2 language_tag( $code )
+
+=head3 Arguments
+
+C<$code> is a supported internal or external language code.
+
+=head3 Return values
+
+The BCP-47 spelling (C<pt-BR>), or undef for unsupported syntax.
+
+=cut
+
+sub language_tag ($code) {
+	my $tag = normalize_language_code($code);
+	return if not defined $tag;
+	$tag =~ s/_/-/g;
+	return $tag;
+}
+
+=head2 base_language( $code )
+
+=head3 Arguments
+
+C<$code> is a supported internal or external language code.
+
+=head3 Return values
+
+The language without script or region (C<pt>, C<zh>), or undef for invalid syntax.
+
+=cut
+
+sub base_language ($code) {
+	my $canonical = normalize_language_code($code);
+	return if not defined $canonical;
+	return (split /_/, $canonical)[0];
+}
+
+=head2 language_fallbacks( $code )
+
+=head3 Arguments
+
+C<$code> is a supported language code.
+
+=head3 Return values
+
+An ordered list of normalized codes, from specific to general, for example
+C<zh_Hant_TW>, C<zh_Hant>, C<zh>. An invalid code returns an empty list.
+No unrelated language is added.
+
+=cut
+
+sub language_fallbacks ($code) {
+	my $canonical = normalize_language_code($code);
+	return () if not defined $canonical;
+	my @languages = ($canonical);
+	while ($canonical =~ s/_[^_]+$//) {
+		push @languages, $canonical;
+	}
+	return @languages;
+}
+
+=head2 lookup_with_language_fallback( $hash_ref, $code, $matched_code_ref = undef )
+
+=head3 Arguments
+
+C<$hash_ref> maps normalized language codes to values. C<$code> selects the
+language. The optional C<$matched_code_ref> receives the code that supplied the
+value, or undef on a miss. Non-language keys such as C<no_language> are exact-only.
+
+=head3 Return values
+
+The first defined value in the language's fallback chain, or undef. Zero and
+empty strings are values too. The hash is not modified, and English fallback is
+left to the caller.
+
+=cut
+
+sub lookup_with_language_fallback ($hash_ref, $code, $matched_code_ref = undef) {
+	$$matched_code_ref = undef if defined $matched_code_ref;
+	return if not defined $code or not defined $hash_ref;
+	my @languages = language_fallbacks($code);
+	@languages = ($code) if not @languages;
+	foreach my $language (@languages) {
+		if (defined $hash_ref->{$language}) {
+			$$matched_code_ref = $language if defined $matched_code_ref;
+			return $hash_ref->{$language};
+		}
+	}
+	return;
+}
+
+=head2 read_po_files( $dir, $languages_ref )
+
+Read and merge .po files into one hash, removing gettext metadata and empty
+translations written by Crowdin.
+
+=head3 Arguments
+
+C<$dir> is the directory containing the .po files.
+
+Basenames must use the normalized spelling: C<en.po>, C<pt_BR.po>, C<kmr_TR.po>,
+C<es_419.po>, C<zh_Hant.po> or C<zh_Hant_TW.po>.
+The complete code remains the translation key.
+
+The optional C<$languages_ref> hash restricts loading to its keys, matched exactly
+including case (C<pt_BR>, not C<pt_br>). Omit it to load all matching catalogs.
+Callers handle language registration and translation fallbacks.
+
+=head3 Return values
+
+A hash reference mapping string IDs to translations by language. Returning a
+reference avoids copying the hash and spares the stack.
+
+=cut
+
+sub read_po_files ($dir, $languages_ref = undef) {
 
 	local $log->context->{directory} = $dir;
 	$log->debug("Reading po files from disk");
@@ -111,16 +237,22 @@ sub read_po_files ($dir) {
 
 	for my $file (sort @files) {
 		# read the .po file
-		local $log->context->{file} = basename($file);
+		my $filename = basename($file);
+		local $log->context->{file} = $filename;
 		$log->debug("Reading po file");
 
 		my $lc;
-
-		if ($file =~ /\/(\w\w).po/) {
-			$lc = $1;
+		if ($filename =~ /\A($language_code_re)\.po\z/) {
+			$lc = normalize_language_code($1);
 		}
 		else {
-			$log->debug("Skipping file (not in [2-letter code].po format)");
+			$log->debug("Skipping file (not in language.po format)");
+			next;
+		}
+		next if $filename ne "$lc.po";
+
+		if ((defined $languages_ref) and (not exists $languages_ref->{$lc})) {
+			$log->debug("Skipping file (language code is not registered with this exact case)", {lc => $lc});
 			next;
 		}
 
@@ -197,8 +329,11 @@ sub split_tags {
 	my ($l10n) = @_;
 
 	my (%singular, %plural);
-	$singular{":langname"} = $plural{":langname"} = delete $l10n->{":langname"};
-	$singular{":langtag"} = $plural{":langtag"} = delete $l10n->{":langtag"};
+	# Do not create undefined entries: po/tags catalogs do not all define these keys.
+	foreach my $key (":langname", ":langtag") {
+		next if not exists $l10n->{$key};
+		$singular{$key} = $plural{$key} = delete $l10n->{$key};
+	}
 
 	for my $key (keys %{$l10n}) {
 		my ($tag, $kind) = split /:/, $key;
@@ -214,4 +349,3 @@ sub split_tags {
 1;
 
 __END__
-

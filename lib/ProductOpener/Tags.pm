@@ -181,6 +181,8 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_files_for_taxonomy get_path_for_taxonomy_file/;
 use ProductOpener::Lang qw/$lc  %Lang %tag_type_plural %tag_type_singular lang/;
+use ProductOpener::I18N qw/$language_code_re normalize_language_code base_language
+	language_fallbacks lookup_with_language_fallback/;
 use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
 use ProductOpener::Texts qw/$lang_dir/;
@@ -808,18 +810,24 @@ Lowercased, unaccented depending on language, non-alphanumeric chars turned to d
 
 sub remove_stopwords ($tagtype, $lc, $tagid) {
 
-	if (defined $stopwords{$tagtype}{$lc}) {
+	# Use base-language stopwords when a variant has no list of its own.
+	my $words_lc;
+	my $words_ref = lookup_with_language_fallback($stopwords{$tagtype}, $lc, \$words_lc);
+	my $base_lc = base_language($lc) // $lc;
+	$lc = $words_lc // $lc;
+
+	if (defined $words_ref) {
 
 		my $uppercased_stopwords_overrides = 0;
 
-		if ($lc eq 'en') {
+		if ($base_lc eq 'en') {
 			# in English, "a" is a stopwords for ingredients, but we do not want to remove it at the end of a tag
 			# e.g. "Cochineal Red A" -> "cochineal-red-a" --> "a" should not be a stopword
 			$tagid =~ s/a$/A/;
 			$uppercased_stopwords_overrides = 1;
 		}
 
-		if ($lc eq 'fr') {
+		if ($base_lc eq 'fr') {
 			# "Dés de tomates" -> "des-de-tomates" --> "dés" should not be a stopword
 			$tagid =~ s/\bdes-de\b/DES-DE/g;
 			$tagid =~ s/\ben-des\b/EN-DES/g;
@@ -833,7 +841,7 @@ sub remove_stopwords ($tagtype, $lc, $tagid) {
 		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc};
 
 		# In Japanese, do not require a word boundary, and do not introduce a hyphen
-		if ($lc eq 'ja') {
+		if ($base_lc eq 'ja') {
 			$tagid =~ s/$regexp//g;
 		}
 		# In other languages, require a word boundary, and replace stopwords with a hyphen
@@ -853,6 +861,8 @@ sub remove_stopwords ($tagtype, $lc, $tagid) {
 }
 
 sub remove_plurals ($lc, $tagid) {
+
+	$lc = base_language($lc) // $lc;
 
 	if ($lc eq 'en') {
 		$tagid =~ s/s$//;
@@ -884,6 +894,9 @@ Sanitize a taxonomy line before processing
 sub sanitize_taxonomy_line ($line) {
 
 	chomp($line);
+
+	# Normalize translation, parent, synonym, stopword and property language prefixes.
+	$line =~ s/^((?:<\s*|[a-z0-9_.-]+:)?)( $language_code_re ):/$1 . normalize_language_code($2) . ':'/ex;
 
 	$line =~ s/’/'/g;    # normalize quotes
 
@@ -995,7 +1008,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20260806 - fix the computation of levels for parents";
+my $BUILD_TAGS_VERSION = "20260912 - preserve regional taxonomy languages";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -1389,7 +1402,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				# Parent
 				# Ignore in first pass as it may be a synonym, or a translation, for the canonical parent
 			}
-			elsif ($line =~ /^stopwords:(\w\w):(\s*)(.*)/) {
+			elsif ($line =~ /^stopwords:($language_code_re):(\s*)(.*)/) {
 				# stop words definition
 				my $lc = $1;
 				my $rest = $3;
@@ -1409,7 +1422,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
 				}
 			}
-			elsif ($line =~ /^(synonyms:)?(\w\w):(.*)/) {
+			elsif ($line =~ /^(synonyms:)?($language_code_re):((?!$language_code_re:).*)/) {
 				# line with regular entry or a synonyms entry
 				my $qualifier = $1;    # eventual synonyms prefix
 				my $lc = $2;
@@ -1841,7 +1854,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			# skip comments lines
 			next if ($line =~ /^\#/);
 
-			if ($line =~ /^<(\s*)(\w\w):/) {
+			if ($line =~ /^<(\s*)($language_code_re):/) {
 				# Parent lines, starting with "<".
 
 				my $lc = $2;
@@ -1852,7 +1865,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				$parents{$main_parentid}++;
 				# display a warning if the same parent is specified twice?
 			}
-			elsif ($line =~ /^(\w\w):/) {
+			elsif ($line =~ /^($language_code_re):(?!$language_code_re:)/) {
 				# Synonym/translation lines, starting with a language code.
 
 				my $lc = $1;
@@ -1912,7 +1925,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					}
 				}
 			}
-			elsif ($line =~ /^([a-z0-9_\-\.]+):(\w\w):(\s*)/) {
+			elsif ($line =~ /^([a-z0-9_\-\.]+):($language_code_re):(\s*)/) {
 				# property lines - wikidata:en:, description:fr:, etc.
 
 				my $property = $1;
@@ -1974,7 +1987,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				# ignore comments lines
 				next if ($line =~ /^\#/);
 
-				if ($line =~ /^(\w\w):/) {
+				if ($line =~ /^($language_code_re):(?!$language_code_re:)/) {
 					my $lc = $1;
 					$line = $';
 					# TODO: why not use get_lc_tagid here ?
@@ -1988,7 +2001,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						$canon_tagid = "$lc:$lc_tagid";
 					}
 				}
-				elsif ($line =~ /^([a-z0-9_\-\.]+):(\w\w):(\s*)/) {
+				elsif ($line =~ /^([a-z0-9_\-\.]+):($language_code_re):(\s*)/) {
 					my $property = $1;
 					my $lc = $2;
 					$line = $';
@@ -2131,7 +2144,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				$taxonomy_full_json{$tagid}{parents} = [];
 				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
 					my $lc = $parentid;
-					$lc =~ s/^(\w\w):.*/$1/;
+					$lc =~ s/^($language_code_re):.*/$1/;
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
 						my $msg = "$tagid has an undefined parent $parentid\n";
 						push(@taxonomy_errors, _taxonomy_error("ERROR", "unknown_parent", $msg));
@@ -2156,7 +2169,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			}
 
 			my $main_lc = $tagid;
-			$main_lc =~ s/^(\w\w):.*/$1/;
+			$main_lc =~ s/^($language_code_re):.*/$1/;
 
 			my $i = 0;
 
@@ -2219,7 +2232,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 				foreach my $prop_lc (sort keys %{$properties{$tagtype}{$tagid}}) {
 					print $OUT "$prop_lc: " . $properties{$tagtype}{$tagid}{$prop_lc} . "\n";
-					if ($prop_lc =~ /^(.*):(\w\w)$/) {
+					if ($prop_lc =~ /^(.*):($language_code_re)$/) {
 						my $prop = $1;
 						my $lc = $2;
 
@@ -3017,7 +3030,7 @@ sub get_city_code ($tag) {
 # This function is not efficient (calls too many other functions) and should be removed
 sub get_tag_css_class ($target_lc, $tagtype, $tag) {
 
-	$target_lc =~ s/_.*//;
+	$target_lc = base_language($target_lc) // $target_lc;
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
 
 	my $canon_tagid = canonicalize_taxonomy_tag($target_lc, $tagtype, $tag);
@@ -3116,7 +3129,7 @@ Can be - to indicate that the tag is a negative tag
 
 sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = undef) {
 
-	$target_lc =~ s/_.*//;
+	$target_lc = base_language($target_lc) // $target_lc;
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
 	my $tagurl = get_tag_url_id($tagtype, $tag);
 	my $path = $tag_type_plural{$tagtype}{$target_lc};
@@ -3130,7 +3143,7 @@ sub display_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
 
 	my $taxonomy = $taxonomy_fields{$tagtype};
 
-	$target_lc =~ s/_.*//;
+	$target_lc = base_language($target_lc) // $target_lc;
 	$tag = display_taxonomy_tag($target_lc, $taxonomy, $tag);
 	my $tagid = $tag;
 	my $tagurl = get_tag_url_id($tagtype, $tagid);
@@ -3307,7 +3320,7 @@ sub display_tag_and_parents_taxonomy ($tagtype, $tagid) {
 
 sub display_parents_and_children ($target_lc, $tagtype, $tagid) {
 
-	$target_lc =~ s/_.*//;
+	$target_lc = base_language($target_lc) // $target_lc;
 	my $html = '';
 
 	if (defined $taxonomy_fields{$tagtype}) {
@@ -3613,6 +3626,9 @@ sub canonicalize_taxonomy_tag_or_die ($tag_lc, $tagtype, $tag) {
 
 Canonicalize a string to check if matches an entry in a taxonomy
 
+Regional codes are normalized (C<pt-br> becomes C<pt_BR>). Matching tries the
+variant before its base language, then the taxonomy's existing language fallbacks.
+
 =head3 Arguments
 
 =head4 $tag_lc
@@ -3670,10 +3686,12 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 
 	# If we are passed a tag string that starts with a language code (e.g. fr:café)
 	# override the input language
-	if ($tag =~ /^(\w\w):/) {
+	if ($tag =~ /^($language_code_re):/) {
 		$tag_lc = $1;
 		$tag = $';
 	}
+
+	$tag_lc = normalize_language_code($tag_lc) // $tag_lc;
 
 	# Language less taxonomies (e.g. brands): consider the input to be in the xx language
 	if ($tagtype eq "brands") {
@@ -3752,6 +3770,18 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 			$found = 1;
 		}
 		else {
+
+			# A regional match wins over the base language, including its synonyms.
+			# Only try other languages after exhausting the variant's parent languages.
+			my (undef, $base_lc) = language_fallbacks($tag_lc);
+			if (defined $base_lc) {
+				my $base_exists;
+				my $base_tagid = canonicalize_taxonomy_tag($base_lc, $tagtype, $tag, \$base_exists);
+				if ($base_exists) {
+					$$exists_in_taxonomy_ref = 1 if defined $exists_in_taxonomy_ref;
+					return $base_tagid;
+				}
+			}
 
 			# try matching in other languages (by default, in the "language-less" language xx, and in English)
 			# note that there may be conflicts where a non-English word matches an English entry,
@@ -3854,7 +3884,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 	}
 
 	# $tagid may already be a canon tagid with a language prefix, in which case do not add the language prefix
-	if ($tagid !~ /^\w\w:/) {
+	if ($tagid !~ /^$language_code_re:/) {
 		$tagid = $tag_lc . ':' . $tagid;
 	}
 
@@ -4070,9 +4100,20 @@ sub cached_display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 	return $value;
 }
 
+# Select a regional display name before trying its base language.
+sub _taxonomy_display_language ($taxonomy, $tagid, $target_lc) {
+	my $translations_ref = ($translations_to{$taxonomy} // {})->{$tagid} // {};
+	my $matched_lc;
+	lookup_with_language_fallback($translations_ref, $target_lc, \$matched_lc);
+	return $matched_lc // base_language($target_lc) // $target_lc;
+}
+
 =head2 display_taxonomy_tag ( $target_lc, $tagtype, $canon_tagid )
 
 Return the name of a tag for displaying it to the user
+
+Regional names take priority over base-language names. Script subtags are kept
+when falling back, for example C<zh_Hant_TW> to C<zh_Hant> to C<zh>.
 
 =head3 Arguments
 
@@ -4091,7 +4132,7 @@ otherwise, the tag id.
 
 sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 
-	$target_lc =~ s/_.*//;
+	$target_lc = normalize_language_code($target_lc) // $target_lc;
 
 	if (not defined $tag) {
 		$log->warn("display_taxonomy_tag() called for undefined \$tag") if $log->is_warn();
@@ -4110,7 +4151,7 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 
 	my $tag_lc;
 
-	if ($tag =~ /^(\w\w):/) {
+	if ($tag =~ /^($language_code_re):/) {
 		$tag_lc = $1;
 		$tag = $';
 	}
@@ -4119,17 +4160,20 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 		$tag_lc = $target_lc;
 	}
 
+	$tag_lc = normalize_language_code($tag_lc) // $tag_lc;
+
 	my $tagid_no_lc = get_string_id_for_lang($tag_lc, $tag);
 	my $tagid = $tag_lc . ':' . $tagid_no_lc;
 
 	my $display = '';
+	my $display_lc = _taxonomy_display_language($taxonomy, $tagid, $target_lc);
 
 	if (    (defined $translations_to{$taxonomy})
 		and (defined $translations_to{$taxonomy}{$tagid})
-		and (defined $translations_to{$taxonomy}{$tagid}{$target_lc}))
+		and (defined $translations_to{$taxonomy}{$tagid}{$display_lc}))
 	{
 		# we have a translation for the target language
-		$display = $translations_to{$taxonomy}{$tagid}{$target_lc};
+		$display = $translations_to{$taxonomy}{$tagid}{$display_lc};
 	}
 	elsif ( (defined $translations_to{$taxonomy})
 		and (defined $translations_to{$taxonomy}{$tagid})
@@ -4155,12 +4199,14 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 			$tagid = $translations_from{$taxonomy}{$tagid};
 		}
 
+		$display_lc = _taxonomy_display_language($taxonomy, $tagid, $target_lc);
+
 		if (    (defined $translations_to{$taxonomy})
 			and (defined $translations_to{$taxonomy}{$tagid})
-			and (defined $translations_to{$taxonomy}{$tagid}{$target_lc}))
+			and (defined $translations_to{$taxonomy}{$tagid}{$display_lc}))
 		{
 			# we have a translation for the target language
-			$display = $translations_to{$taxonomy}{$tagid}{$target_lc};
+			$display = $translations_to{$taxonomy}{$tagid}{$display_lc};
 		}
 		elsif ( (defined $translations_to{$taxonomy})
 			and (defined $translations_to{$taxonomy}{$tagid})
@@ -4191,7 +4237,7 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 		else {
 			$display = $tag;
 
-			if ($target_lc ne $tag_lc) {
+			if (($target_lc ne $tag_lc) and ($display_lc ne $tag_lc)) {
 				# If the tag language is xx:, we don't want to add the language code
 				# This happens for language less taxonomies (e.g. brands) when we don't have a taxonomized entry
 				# So if someone enters SomeUnknownBrand in the brands field, it is normalized to xx:SomeUnknownBrand
@@ -4207,11 +4253,11 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 	# for additives, add the first synonym
 	if ($taxonomy eq 'additives') {
 		$tagid =~ s/.*://;
-		if (    (defined $synonyms_for{$taxonomy}{$target_lc})
-			and (defined $synonyms_for{$taxonomy}{$target_lc}{$tagid})
-			and (defined $synonyms_for{$taxonomy}{$target_lc}{$tagid}[1]))
+		if (    (defined $synonyms_for{$taxonomy}{$display_lc})
+			and (defined $synonyms_for{$taxonomy}{$display_lc}{$tagid})
+			and (defined $synonyms_for{$taxonomy}{$display_lc}{$tagid}[1]))
 		{
-			$display .= " - " . ucfirst($synonyms_for{$taxonomy}{$target_lc}{$tagid}[1]);
+			$display .= " - " . ucfirst($synonyms_for{$taxonomy}{$display_lc}{$tagid}[1]);
 		}
 	}
 
@@ -4244,7 +4290,7 @@ otherwise, the tag in its primary language
 sub display_taxonomy_tag_name ($target_lc, $tagtype, $canon_tagid) {
 	my $display_value = display_taxonomy_tag($target_lc, $tagtype, $canon_tagid);
 	# remove eventual leading language code
-	$display_value =~ s/^\w\w://;
+	$display_value =~ s/^$language_code_re://;
 	return $display_value;
 }
 
