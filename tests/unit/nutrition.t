@@ -16,6 +16,23 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 is(convert_salt_to_sodium(2.5), 1);
 is(convert_sodium_to_salt(1), 2.5);
 
+{
+	my $aggregated_set = generate_nutrient_aggregated_set_from_sets([
+		{
+			preparation => "as_sold",
+			per => "serving",
+			per_quantity => 3,
+			per_unit => "g",
+			source => "packaging",
+			nutrients => {
+				sugars => {value => 1, unit => "g"},
+			}
+		}
+	]);
+	is($aggregated_set->{per}, "serving", "small serving nutrition is retained as serving data");
+	is($aggregated_set->{nutrients}{sugars}{value}, 1, "small serving nutrient value is not extrapolated");
+}
+
 # Test the generation of the aggregated set from input sets
 
 my @tests = (
