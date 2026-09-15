@@ -103,9 +103,7 @@ my @risky_ingredients_tags = qw(
 # Thresholds for each primary ingredient (EF values for grades B, C, D)
 # (grade A is only if value is 0)
 # For chicken-and-eggs, thresholds are based on the old FF1 thresholds:
-#   A = 0, B < 0.5, C < 1.0, D < 1.5, E >= 2.0
-# But _get_grade_for_footprint only supports A-D, and chicken/egg grade is
-# taken directly from the old FF computation (A-E).
+#   A = 0, B < 0.5, C < 1.0, D >= 1.0
 my %grade_thresholds = (
 	'en:cocoa' => {
 		b => 0.065,
@@ -341,8 +339,12 @@ sub load_origins_footprint ($data_dir) {
 
 			# Get all columns named "[primary_ingredient].footprint" and store them in the origins_footprint hash
 			foreach my $primary_ingredient (@primary_ingredients) {
-				next if $primary_ingredient eq 'en:chicken-and-eggs';    # chicken/eggs footprint is computed via the old FF module
-				next if $primary_ingredient eq 'en:other-risky-ingredients';    # other risky ingredients footprint is unknown
+				next
+					if $primary_ingredient eq
+					'en:chicken-and-eggs';    # chicken/eggs footprint is computed via the old FF module
+				next
+					if $primary_ingredient eq
+					'en:other-risky-ingredients';    # other risky ingredients footprint is unknown
 				my $column_name = "$primary_ingredient.footprint";
 				$column_name =~ s/^en://;
 				if ($row_ref->{$column_name} ne '') {
@@ -466,10 +468,11 @@ sub compute_forest_footprint_2026 ($product_ref) {
 			}
 			foreach my $risky_tag (@risky_ingredients_tags) {
 				if (is_a("ingredients", $tag, $risky_tag)) {
-					push @found_risky_ingredient_refs, {
+					push @found_risky_ingredient_refs,
+						{
 						ingredient_category_id => $risky_tag,
-						ingredient_id           => $tag,
-					};
+						ingredient_id => $tag,
+						};
 					last;
 				}
 			}
@@ -501,7 +504,7 @@ sub compute_forest_footprint_2026 ($product_ref) {
 	}
 	elsif (scalar(@found_risky_ingredient_refs) > 0) {
 		# Only risky ingredients found, no computed primary ingredients → grade is unknown
-		$product_ref->{forest_footprint_2026}{grade} = 'unknown';
+		$product_ref->{forest_footprint_2026}{grade} = 'not_computed';
 		$product_ref->{forest_footprint_2026}{summary} = 'with_other_risky_ingredients';
 	}
 	else {

@@ -5300,8 +5300,8 @@ msgid "Products for which we currently miss data to determine if they match your
 msgstr "Produits pour lesquels nous manquons actuellement de données pour déterminer s'ils correspondent à vos préférences"
 
 msgctxt "forest_footprint"
-msgid "Forest footprint"
-msgstr "Empreinte forêt"
+msgid "Forest Footprint"
+msgstr "Empreinte Forêt"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
@@ -5328,8 +5328,8 @@ msgid "Deforestation risk"
 msgstr "Risque de déforestation"
 
 msgctxt "total_forest_footprint"
-msgid "Total forest footprint"
-msgstr "Empreinte forêt totale"
+msgid "Total Forest Footprint"
+msgstr "Empreinte Forêt totale"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -5352,8 +5352,8 @@ msgid "% in product"
 msgstr "% dans le produit"
 
 msgctxt "forest_footprint_calculation_details"
-msgid "Details of the calculation of the forest footprint"
-msgstr "Détails du calcul de l'empreinte forêt"
+msgid "Details of the calculation of the Forest Footprint"
+msgstr "Détails du calcul de l'Empreinte Forêt"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5397,104 +5397,88 @@ msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score
 msgstr "Elle calcule des indicateurs tels que le Nutri-Score, NOVA et le Green-Score, et identifie automatiquement les suggestions pour les améliorer (par exemple tous les produits qui obtiendraient une meilleure note Nutri-Score avec un léger changement de composition)."
 
 msgctxt "attribute_forest_footprint_name"
-msgid "Forest footprint"
-msgstr "Empreinte forêt"
+msgid "Forest Footprint"
+msgstr "Empreinte Forêt"
 
 msgctxt "attribute_forest_footprint_setting_name"
-msgid "Low risk of deforestation (Forest footprint)"
-msgstr "Faible risque de déforestation (Empreinte forêt)"
+msgid "Low risk of deforestation (Forest Footprint)"
+msgstr "Faible risque de déforestation (Empreinte Forêt)"
 
 msgctxt "attribute_forest_footprint_setting_note"
-msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "L'empreinte forêt correspond au risque de déforestation associé à ses ingrédients."
+msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
+msgstr "L'Empreinte Forêt correspond au risque de déforestation associé à ses ingrédients."
 
 msgctxt "attribute_forest_footprint_a_title"
-msgid "Very small forest footprint"
-msgstr "Très petite empreinte forêt"
+msgid "Forest Footprint A"
+msgstr "Empreinte Forêt A"
 
 msgctxt "attribute_forest_footprint_b_title"
-msgid "Small forest footprint"
-msgstr "Petite empreinte forêt"
+msgid "Forest Footprint B"
+msgstr "Empreinte Forêt B"
 
 msgctxt "attribute_forest_footprint_c_title"
-msgid "Medium forest footprint"
-msgstr "Empreinte forêt moyenne"
+msgid "Forest Footprint C"
+msgstr "Empreinte Forêt C"
 
 msgctxt "attribute_forest_footprint_d_title"
-msgid "Large forest footprint"
-msgstr "Grande empreinte forêt"
+msgid "Forest Footprint D"
+msgstr "Empreinte Forêt D"
 
-msgctxt "attribute_forest_footprint_e_title"
-msgid "Very large forest footprint"
-msgstr "Très grande empreinte forêt"
+msgctxt "attribute_forest_footprint_a_description"
+msgid "No ingredient associated with a deforestation risk."
+msgstr "Absence d'ingrédient associé à un risque de déforestation."
+
+msgctxt "attribute_forest_footprint_b_description"
+msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
+msgstr "Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels."
+
+msgctxt "attribute_forest_footprint_c_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
+msgstr "Présence d'un ou plusieurs ingrédients à risque de déforestation, et risque moyen au regard de leur quantité, origine et/ou labels."
+
+msgctxt "attribute_forest_footprint_d_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
+msgstr "Présence d'un ou plusieurs ingrédients à risque de déforestation, et risque fort au regard de leur quantité, origine et/ou labels."
 
 msgctxt "attribute_forest_footprint_not_computed_title"
-msgid "Forest footprint not computed"
-msgstr "Empreinte forêt non calculée"
+msgid "Forest Footprint not computed"
+msgstr "Empreinte Forêt non calculée"
+
+msgctxt "attribute_forest_footprint_not_computed_description"
+msgid "Potential deforestation risk but not yet computed."
+msgstr "Risque potentiel de déforestation mais non calculé à ce jour."
 
 msgctxt "attribute_forest_footprint_a_description_short"
-msgid "Almost no risk of deforestation"
-msgstr "Pas de risque de déforestation"
+msgid "No deforestation risk"
+msgstr "Absence de risque de déforestation"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
-msgstr "Faible risque de déforestation"
+msgstr "Risque faible de déforestation"
 
 msgctxt "attribute_forest_footprint_c_description_short"
-msgid "Moderate risk of deforestation"
-msgstr "Risque modéré de déforestation"
+msgid "Medium risk of deforestation"
+msgstr "Risque moyen de déforestation"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
-msgstr "Haut risque de déforestation"
-
-msgctxt "attribute_forest_footprint_e_description_short"
-msgid "Very high risk of deforestation"
-msgstr "Très haut risque de déforestation"
+msgstr "Risque fort de déforestation"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
-msgid "Currently only for products with chicken or eggs"
-msgstr "Pour l'instant seulement pour les produits avec du poulet ou des oeufs"
+msgid "Potential deforestation risk not computed"
+msgstr "Risque potentiel de déforestation non calculé"
  
 msgctxt "attribute_forest_footprint_unknown_title"
-msgid "Forest footprint: not assessed"
-msgstr "Empreinte forêt : non évaluée"
+msgid "Forest Footprint not available"
+msgstr "Empreinte Forêt non disponible"
  
 msgctxt "attribute_forest_footprint_unknown_description"
-msgid "The forest footprint of this product is not assessed because it contains ingredients that are not yet covered (e.g., corn, rice, soy, meat, dairy)."
-msgstr "L'empreinte forêt de ce produit n'est pas évaluée car il contient des ingrédients qui ne sont pas encore pris en compte (par ex. : le maïs, le riz, le soja, la viande, les produits laitiers)."
- 
-msgctxt "attribute_forest_footprint_unknown_description_short"
-msgid "Not assessed"
-msgstr "Non évaluée"
+msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
+msgstr "L'Empreinte Forêt ne peut pas être calculée car la liste des ingrédients est manquante."
 
-msgctxt "attribute_forest_footprint_unknown_description_short_risky"
-msgid "Contains risky ingredients not yet assessed"
-msgstr "Contient des ingrédients à risque non évalués"
- 
-msgctxt "attribute_forest_footprint_no_risky_title"
-msgid "Very small forest footprint"
-msgstr "Très petite empreinte forêt"
- 
-msgctxt "attribute_forest_footprint_no_risky_description"
-msgid "We have not detected risky ingredients in the ingredients list of the product."
-msgstr "Nous n'avons pas détecté d'ingrédients à risque dans la liste des ingrédients du produit."
- 
-msgctxt "attribute_forest_footprint_no_risky_description_short"
-msgid "No risky ingredients detected"
-msgstr "Aucun ingrédient à risque détecté"
- 
-msgctxt "attribute_forest_footprint_missing_ingredients_title"
-msgid "Forest footprint: unknown"
-msgstr "Empreinte forêt : inconnue"
- 
-msgctxt "attribute_forest_footprint_missing_ingredients_description"
-msgid "We cannot assess the forest footprint because the ingredients list is missing."
-msgstr "Nous ne pouvons pas évaluer l'empreinte forêt car la liste des ingrédients est manquante."
- 
-msgctxt "attribute_forest_footprint_missing_ingredients_description_short"
+msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
-msgstr "Liste des ingrédients manquante"
+msgstr "Liste d'ingrédients manquante"
  
 msgctxt "forest_footprint_2026_other_risky_ingredients"
 msgid "Other risky ingredients"
@@ -5731,8 +5715,8 @@ msgid "If you use the same column on multiple lines to provide images URLs for a
 msgstr "Si vous utilisez la même colonne sur plusieurs lignes pour fournir les URL des images d'un même produit, vous pouvez utiliser ce champ pour indiquer le type de l'image : face, ingrédients, nutrition ou emballage."
 
 msgctxt "forest_footprint_one_line_explanation"
-msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation."
+msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr "L'Empreinte Forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation."
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -8091,25 +8075,21 @@ msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr "Réponse d'Ecobalyse"
 
-msgctxt "forest_footprint_2026"
-msgid "Forest Footprint"
-msgstr "Empreinte Forêt"
+msgctxt "forest_footprint_2026_methodology"
+msgid "The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption."
+msgstr "L'Empreinte Forêt est une méthodologie développée par l'association <a href=\"https://envol-vert.org/\">Envol Vert</a> pour estimer le risque de déforestation lié à notre consommation."
 
-msgctxt "forest_footprint_2026_under_development"
-msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
-msgstr "L'empreinte forêt 2026 est actuellement en développement et affichée aux modérateurs uniquement à des fins de débogage."
-
-msgctxt "forest_footprint_2026_description"
-msgid "The Forest Footprint is developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a>."
-msgstr "L'empreinte forêt est développée par l'association <a href=\"https://envol-vert.org/\">Envol Vert</a>."
+msgctxt "forest_footprint_2026_methodology_more_info"
+msgid "More information on the methodology"
+msgstr "Plus d'informations sur la méthodologie"
 
 msgctxt "forest_footprint_2026_overall_grade"
-msgid "Forest footprint grade"
-msgstr "Note de l'empreinte forêt"
+msgid "Forest Footprint grade"
+msgstr "Note de l'Empreinte Forêt"
 
 msgctxt "forest_footprint_2026_total"
-msgid "Total forest footprint"
-msgstr "Empreinte forêt totale"
+msgid "Total Forest Footprint"
+msgstr "Empreinte Forêt totale"
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
@@ -8120,8 +8100,8 @@ msgid "Primary ingredient"
 msgstr "Ingrédient primaire"
 
 msgctxt "forest_footprint_2026_origin_footprint"
-msgid "Forest footprint for the origin"
-msgstr "Empreinte forêt pour l'origine"
+msgid "Forest Footprint for the origin"
+msgstr "Empreinte Forêt pour l'origine"
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
@@ -8131,3 +8111,22 @@ msgctxt "forest_footprint_2026_grade_unknown"
 msgid "Unknown"
 msgstr "Inconnu"
 
+msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
+msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
+msgstr "La production de cacao, concentrée majoritairement en Afrique de l’Ouest, contribue largement à la déforestation. La Côte d’Ivoire, premier pays producteur de cacao, a par exemple perdu 90% de ses forêts depuis les années 1960."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
+msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
+msgstr "La production d’huile de palme, concentrée majoritairement en Indonésie et en Malaisie, contribue largement à la déforestation. L'île de Bornéo a perdu plus de la moitié de ses forêts depuis les années 1970."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
+msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
+msgstr "La culture du café se concentre principalement en Amérique centrale et du Sud et en Asie du Sud-Est. Elle serait responsable de 130 000 hectares de déforestation chaque année depuis 2000."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
+msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
+msgstr "La viande de volaille et ses dérivés (œufs), même élevés en France, contribuent largement à la déforestation via leur alimentation : le soja. La France importe deux tiers de son soja du Brésil, où sa culture participe à détruire l’Amazonie."
+
+msgctxt "forest_footprint_2026_labels_description"
+msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
+msgstr "La présence de certains labels peut grandement contribuer à réduire le risque de déforestation, via la présence de critères environnementaux et/ou via une meilleure rémunération des producteurs et productrices."

@@ -311,7 +311,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 	}
 	elsif ($attribute_id eq "forest_footprint") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-a.svg";
-		$attribute_ref->{panel_id} = "forest_footprint_2026";
+		$attribute_ref->{panel_id} = "forest_footprint";
 	}
 	elsif ($attribute_id eq "nova") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nova-group-1.svg";
@@ -818,20 +818,18 @@ The match is based on the forest footprint 2026 grade:
 - Forest footprint grade B: match = 66
 - Forest footprint grade C: match = 33
 - Forest footprint grade D: match = 0
-- Forest footprint unknown (risky ingredients without assessment): match = 0
+- Forest footprint not computed (risky ingredients without assessment): match = 0
 - Forest footprint unknown (no ingredients list): match = 0
 
 Note: the new Forest Footprint 2026 grades are from A to D, not A to E.
 
-If the forest footprint is not computed, we mark it as not computed.
+If the forest footprint is not computed because there are some other risky ingredients that are not assessed yet, we mark it as not computed.
 If the product has no ingredients list, we mark it as unknown with a missing ingredients message.
 The summary field indicates:
 - missing_ingredients: product has no ingredients list
 - with_other_risky_ingredients: product has risky ingredients but no computed primary ingredients
 - without_primary_ingredients_or_other_risky_ingredients: no risky ingredients detected, grade A
 - with_primary_ingredients: normal computed grade (a-e)
-
-If the forest footprint is not computed, we mark it as not computed.
 
 =cut
 
@@ -852,60 +850,44 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 		'd' => 0,
 		'e' => 0,
 		'unknown' => 0,
+		'not_computed' => 0,
 	);
 
 	if ((defined $product_ref->{forest_footprint_2026}) and (defined $product_ref->{forest_footprint_2026}{grade})) {
 
 		my $grade = $product_ref->{forest_footprint_2026}{grade};
-		my $summary = $product_ref->{forest_footprint_2026}{summary};
 
-		if ($summary eq 'missing_ingredients') {
+		if ($grade eq 'unknown') {
 			# Product has no ingredients list
 			$attribute_ref->{status} = "unknown";
 			$attribute_ref->{match} = 0;
 			if ($target_lc ne "data") {
-				$attribute_ref->{title}
-					= lang_in_other_lc($target_lc, "attribute_forest_footprint_missing_ingredients_title");
+				$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_title");
 				$attribute_ref->{description}
-					= lang_in_other_lc($target_lc, "attribute_forest_footprint_missing_ingredients_description");
+					= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_description");
 				# We already display "Missing ingredients list" in the "missing" field.
 				# $attribute_ref->{description_short}
 				# 	= lang_in_other_lc($target_lc, "attribute_forest_footprint_missing_ingredients_description_short");
 				$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_ingredients_list");
 			}
-			$attribute_ref->{icon_url}
-				= "$static_subdomain/images/attributes/dist/forest-footprint-not-computed.svg";
+			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-2026-unknown.svg";
 		}
-		elsif ($summary eq 'with_other_risky_ingredients') {
+		elsif ($grade eq 'not_computed') {
 			# Product has risky ingredients but no computed primary ingredients
 			$attribute_ref->{status} = "unknown";
 			$attribute_ref->{match} = 0;
 			if ($target_lc ne "data") {
-				$attribute_ref->{title}
-					= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_title");
+				$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_title");
 				$attribute_ref->{description}
-					= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_description");
+					= lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_description");
 				$attribute_ref->{description_short}
-					= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_description_short_risky");
+					= lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_description_short");
 			}
-			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-unknown.svg";
-		}
-		elsif ($summary eq 'without_primary_ingredients_or_other_risky_ingredients') {
-			# No risky ingredients detected, grade is A
-			$attribute_ref->{status} = "known";
-			$attribute_ref->{match} = $grade_match{$grade};
-			if ($target_lc ne "data") {
-				$attribute_ref->{title}
-					= lang_in_other_lc($target_lc, "attribute_forest_footprint_no_risky_title");
-				$attribute_ref->{description}
-					= lang_in_other_lc($target_lc, "attribute_forest_footprint_no_risky_description");
-				$attribute_ref->{description_short}
-					= lang_in_other_lc($target_lc, "attribute_forest_footprint_no_risky_description_short");
-			}
-			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-$grade.svg";
+			$attribute_ref->{icon_url}
+				= "$static_subdomain/images/attributes/dist/forest-footprint-2026-not-computed.svg";
 		}
 		else {
-			# Normal computed grade (a-e), summary = with_primary_ingredients
+			# Normal computed grade (a-d)
 			$attribute_ref->{status} = "known";
 			$attribute_ref->{match} = $grade_match{$grade};
 			if ($target_lc ne "data") {
@@ -916,22 +898,20 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 				$attribute_ref->{description_short}
 					= lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description_short");
 			}
-			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-$grade.svg";
+			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-2026-$grade.svg";
 		}
 	}
 	else {
-		# If we don't have a forest footprint, we assume it is zero and mark it as known
-		# We do keep a greyed out icon until the forest footprint encompasses most sources of deforestation
-		# (e.g. not only chicken and eggs, but also other raised animals products and palm oil)
-		$attribute_ref->{status} = "known";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-not-computed.svg";
+		# If we don't have a forest footprint, we assume it is zero and mark it as unknown
+		$attribute_ref->{status} = "unknown";
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-2026-unknown.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
-			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_title");
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_title");
 			$attribute_ref->{description}
-				= lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_description");
+				= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_description");
 			$attribute_ref->{description_short}
-				= lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_description_short");
+				= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_description_short");
 		}
 	}
 

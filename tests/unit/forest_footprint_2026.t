@@ -286,8 +286,8 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "maïs doux, farine de manioc, sucre, huile de palme, sel",
 		}
-	],	
-);	
+	],
+);
 
 my $json = JSON->new->allow_nonref->canonical;
 
