@@ -1,19 +1,15 @@
 {
    "errors" : [
       {
-         "field" : {
-            "id" : "permission",
-            "value" : "image_delete"
-         },
          "impact" : {
             "id" : "failure",
             "lc_name" : "Failure",
             "name" : "Failure"
          },
          "message" : {
-            "id" : "no_permission",
-            "lc_name" : "",
-            "name" : ""
+            "id" : "invalid_token",
+            "lc_name" : "Invalid access_token",
+            "name" : "Invalid access_token"
          }
       }
    ],
