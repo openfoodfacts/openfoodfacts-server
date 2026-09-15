@@ -1,8 +1,4 @@
-/* eslint-disable dot-location */
-/* eslint-disable sort-imports */
-
 import gulp from "gulp";
-import sourcemaps from "gulp-sourcemaps";
 import concat from "gulp-concat";
 import gulpSass from "gulp-sass";
 import gzip from "gulp-gzip";
@@ -114,8 +110,7 @@ export function css() {
   console.log("(re)building css");
 
   const processed = gulp
-    .src(sassSrc)
-    .pipe(sourcemaps.init())
+    .src(sassSrc, { sourcemaps: true })
     .pipe(
       sass({
         errLogToConsole: true,
@@ -124,8 +119,7 @@ export function css() {
       }).on("error", sassLogAndExit),
     )
     .pipe(minifyCSS())
-    .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/css/dist"))
+    .pipe(gulp.dest("./html/css/dist", { sourcemaps: '.' }))
     .on('error', gulpLogAndExit);
 
   const compressed = processed
@@ -141,11 +135,10 @@ export function copyJs() {
     .src(jsLibSrc, {
       // prefer jquery from package.json to foundation-vendored copy
       ignore: "./node_modules/foundation-sites/js/vendor/jquery.js",
+      sourcemaps: true,
     })
-    .pipe(sourcemaps.init())
     .pipe(terser())
-    .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/js/dist"))
+    .pipe(gulp.dest("./html/js/dist", { sourcemaps: '.' }))
     .on('error', gulpLogAndExit);
 
   const compressed = processed
@@ -160,11 +153,9 @@ export function buildJs() {
   console.log("(re)building js");
 
   const processed = gulp
-    .src(jsSrc)
-    .pipe(sourcemaps.init())
+    .src(jsSrc, { sourcemaps: true })
     .pipe(terser())
-    .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/js/dist"))
+    .pipe(gulp.dest("./html/js/dist", { sourcemaps: '.' }))
     .on('error', gulpLogAndExit);
 
   const compressed = processed
@@ -186,12 +177,10 @@ function buildjQueryUi() {
       "./node_modules/jquery-ui/ui/unique-id.js",
       "./node_modules/jquery-ui/ui/widgets/autocomplete.js",
       "./node_modules/jquery-ui/ui/widgets/menu.js",
-    ])
-    .pipe(sourcemaps.init())
+    ], { sourcemaps: true })
     .pipe(terser())
     .pipe(concat("jquery-ui.js"))
-    .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/js/dist"))
+    .pipe(gulp.dest("./html/js/dist", { sourcemaps: '.' }))
     .on('error', gulpLogAndExit);
 
   const compressed = processed
@@ -209,12 +198,10 @@ function jQueryUiThemes() {
       "./node_modules/jquery-ui/themes/base/autocomplete.css",
       "./node_modules/jquery-ui/themes/base/menu.css",
       "./node_modules/jquery-ui/themes/base/theme.css",
-    ])
-    .pipe(sourcemaps.init())
+    ], { sourcemaps: true })
     .pipe(minifyCSS())
     .pipe(concat("jquery-ui.css"))
-    .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/css/dist/jqueryui/themes/base"))
+    .pipe(gulp.dest("./html/css/dist/jqueryui/themes/base", { sourcemaps: '.' }))
     .on('error', gulpLogAndExit);
 
   const compressed = processed
@@ -233,11 +220,9 @@ function copyCss() {
       "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.Default.css",
       "./node_modules/cropperjs/dist/cropper.css",
       "./node_modules/select2/dist/css/select2.min.css",
-    ])
-    .pipe(sourcemaps.init())
+    ], { sourcemaps: true })
     .pipe(minifyCSS())
-    .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/css/dist"))
+    .pipe(gulp.dest("./html/css/dist", { sourcemaps: '.' }))
     .on('error', gulpLogAndExit);
 
   const compressed = processed
