@@ -6,16 +6,16 @@
          "en:other-risky-ingredients" : {
             "footprint_per_kg" : null,
             "grade" : "unknown",
-             "ingredients" : [
-                {
-                   "ingredient_category_id" : "en:rice",
-                   "ingredient_id" : "en:rice"
-                },
-                {
-                   "ingredient_category_id" : "en:cassava",
-                   "ingredient_id" : "en:cassava"
-                }
-             ]
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:rice",
+                  "ingredient_id" : "en:rice"
+               },
+               {
+                  "ingredient_category_id" : "en:cassava",
+                  "ingredient_id" : "en:cassava"
+               }
+            ]
          }
       },
       "summary" : "with_other_risky_ingredients"

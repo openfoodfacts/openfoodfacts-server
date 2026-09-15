@@ -868,8 +868,9 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 					= lang_in_other_lc($target_lc, "attribute_forest_footprint_missing_ingredients_title");
 				$attribute_ref->{description}
 					= lang_in_other_lc($target_lc, "attribute_forest_footprint_missing_ingredients_description");
-				$attribute_ref->{description_short}
-					= lang_in_other_lc($target_lc, "attribute_forest_footprint_missing_ingredients_description_short");
+				# We already display "Missing ingredients list" in the "missing" field.
+				# $attribute_ref->{description_short}
+				# 	= lang_in_other_lc($target_lc, "attribute_forest_footprint_missing_ingredients_description_short");
 				$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_ingredients_list");
 			}
 			$attribute_ref->{icon_url}
@@ -877,7 +878,7 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 		}
 		elsif ($summary eq 'with_other_risky_ingredients') {
 			# Product has risky ingredients but no computed primary ingredients
-			$attribute_ref->{status} = "known";
+			$attribute_ref->{status} = "unknown";
 			$attribute_ref->{match} = 0;
 			if ($target_lc ne "data") {
 				$attribute_ref->{title}
@@ -885,7 +886,7 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 				$attribute_ref->{description}
 					= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_description");
 				$attribute_ref->{description_short}
-					= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_description_short");
+					= lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_description_short_risky");
 			}
 			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-unknown.svg";
 		}
