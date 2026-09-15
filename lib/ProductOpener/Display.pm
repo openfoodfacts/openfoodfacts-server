@@ -130,6 +130,7 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
 use ProductOpener::ProductsTags qw/:all/;
+use ProductOpener::Numbers qw/round_to_max_decimal_places/;
 use ProductOpener::Users qw(:all);
 use ProductOpener::Texts qw(%texts);
 use ProductOpener::Lang qw(:all);
@@ -9555,10 +9556,35 @@ CSS
 
 						if ($value ne '?') {
 							# too small values are converted to e notation: 7.18e-05
-							if (($formatted_value . ' ') =~ /e/) {
-								# use %f (outputs extras 0 in the general case)
-								$formatted_value = sprintf("%f", $value);
+							if (($formatted_value . ' ') =~ /e/i) {
+								# Normalize scientific notation without %f's fixed 6-decimal truncation
+								$formatted_value = sprintf("%.15f", $value);
+								$formatted_value =~ s/0+$//;
+								$formatted_value =~ s/\.$//;
 							}
+
+							# Round numeric values to 1 decimal place to avoid
+							# ugly calculated values like 16.6666666667 (Issue #14035)
+							if ($formatted_value =~ /^-?\d+\.\d{3,}$/) {
+								my $decimals = 1;
+								if (abs($formatted_value) < 1 && abs($formatted_value) > 0) {
+									if ($formatted_value =~ /\.(0+)/) {
+										$decimals = length($1) + 2;
+									}
+									else {
+										$decimals = 2;
+									}
+								}
+
+								my $rounded = round_to_max_decimal_places($formatted_value, $decimals);
+								$formatted_value = $rounded // $formatted_value;
+							}
+							if (($formatted_value . ' ') =~ /e/i) {
+								$formatted_value = sprintf("%.15f", $formatted_value);
+								$formatted_value =~ s/0+$//;
+								$formatted_value =~ s/\.$//;
+							}
+
 						}
 
 						if (defined $nutrient_set_unit) {
