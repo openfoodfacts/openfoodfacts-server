@@ -40,6 +40,17 @@ map $nginx_container $apache_port_base {
     "docker" "80";  # port in docker compose
 }
 
+# ensuring redirect of images to the right server, that is the one starting with images
+# but for the images.openfoodfacts.org server
+map $remote_addr--$host==$po_request_uri $po_needs_images_redirect {
+        default 0;
+        # match will happen in order of appearance
+		"~*^217.182.132.133--" 0; # images server can fallback to app server
+        "~*--images\." 0;  # exclude url with right domain name
+        "~*==/images/products/" 1;  # redirect the other that points to images
+}
+
+
 # CORS handling ----------------------
 
 # Extract main domain from host header for CORS
