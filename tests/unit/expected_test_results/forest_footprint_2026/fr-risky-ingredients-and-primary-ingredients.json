@@ -1,0 +1,172 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "forest_footprint_2026" : {
+      "grade" : "b",
+      "primary_ingredients" : {
+         "en:cocoa" : {},
+         "en:coffee" : {},
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+             "ingredients" : [
+                {
+                   "ingredient_category_id" : "en:corn",
+                   "ingredient_id" : "en:sweetcorn"
+                },
+                {
+                   "ingredient_category_id" : "en:cassava",
+                   "ingredient_id" : "en:cassava-flour"
+                }
+             ]
+         },
+         "en:palm-oil" : {
+            "footprint_per_kg" : 0.00275,
+            "grade" : "b",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.00275,
+                  "ingredient_category_id" : "en:palm-oil",
+                  "ingredient_id" : "en:palm-oil-and-fat",
+                  "origin_footprint" : 0.055,
+                  "origin_id" : "en:unknown",
+                  "percent" : 5,
+                  "primary_ingredient_id" : "en:palm-oil",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
+         }
+      },
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 0.00275
+   },
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "9200",
+         "ecobalyse_code" : "6467c956-277d-4e09-80c2-b0b062f84086",
+         "id" : "en:sweetcorn",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 60,
+         "percent_max" : 100,
+         "percent_min" : 20,
+         "text" : "maïs doux",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "54031",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:cassava-flour",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "farine de manioc",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "sucre",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "16129",
+         "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+         "from_palm_oil" : "yes",
+         "id" : "en:palm-oil",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "huile de palme",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ],
+      "en:palm-oil" : [
+         "en:palm-oil"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil",
+      "en:maybe-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:sweetcorn",
+      "en:cassava-flour",
+      "en:sugar",
+      "en:palm-oil",
+      "en:salt"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:sweetcorn",
+      "en:corn",
+      "en:pod-and-seed-vegetable",
+      "en:cereal",
+      "en:vegetable",
+      "en:cassava-flour",
+      "en:cassava",
+      "en:flour",
+      "en:starchy-root-vegetable",
+      "en:tuber",
+      "en:root-vegetable",
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:palm-oil",
+      "en:palm-oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
+      "en:salt"
+   ],
+   "ingredients_text" : "maïs doux, farine de manioc, sucre, huile de palme, sel",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:salt"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 5,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

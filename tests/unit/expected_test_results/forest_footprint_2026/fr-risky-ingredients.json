@@ -1,0 +1,134 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "forest_footprint_2026" : {
+      "grade" : "unknown",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+             "ingredients" : [
+                {
+                   "ingredient_category_id" : "en:rice",
+                   "ingredient_id" : "en:rice"
+                },
+                {
+                   "ingredient_category_id" : "en:cassava",
+                   "ingredient_id" : "en:cassava"
+                }
+             ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "13050",
+         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+         "id" : "en:apple",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 60,
+         "percent_max" : 100,
+         "percent_min" : 20,
+         "text" : "pomme",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "13037",
+         "ecobalyse_code" : "bb00f430-ffda-46a3-ba45-267b0064a43e",
+         "id" : "en:pear",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "poire",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13005",
+         "ecobalyse_code" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
+         "id" : "en:banana",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "banane",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9100",
+         "id" : "en:rice",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "riz",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "54031",
+         "id" : "en:cassava",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "manioc",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:apple",
+      "en:pear",
+      "en:banana",
+      "en:rice",
+      "en:cassava"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:apple",
+      "en:malaceous-fruit",
+      "en:fruit",
+      "en:pear",
+      "en:banana",
+      "en:rice",
+      "en:cassava",
+      "en:starchy-root-vegetable",
+      "en:tuber",
+      "en:root-vegetable",
+      "en:vegetable"
+   ],
+   "ingredients_text" : "pomme, poire, banane, riz, manioc",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cassava",
+      "en:rice"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 5,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

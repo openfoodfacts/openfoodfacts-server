@@ -265,8 +265,29 @@ my @tests = (
 			ingredients_text => "café (origine : Colombie)",
 			labels_tags => ["en:organic", "en:fair-trade", "en:fairtrade-international"],
 		}
-	]
-);
+	],
+	[
+		'fr-no-risky-ingredients',
+		{
+			lc => "fr",
+			ingredients_text => "pomme, poire, banane",
+		}
+	],
+	[
+		'fr-risky-ingredients',
+		{
+			lc => "fr",
+			ingredients_text => "pomme, poire, banane, riz, manioc",
+		}
+	],
+	[
+		'fr-risky-ingredients-and-primary-ingredients',
+		{
+			lc => "fr",
+			ingredients_text => "maïs doux, farine de manioc, sucre, huile de palme, sel",
+		}
+	],	
+);	
 
 my $json = JSON->new->allow_nonref->canonical;
 

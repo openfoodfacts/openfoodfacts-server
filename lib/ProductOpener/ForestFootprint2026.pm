@@ -341,6 +341,8 @@ sub load_origins_footprint ($data_dir) {
 
 			# Get all columns named "[primary_ingredient].footprint" and store them in the origins_footprint hash
 			foreach my $primary_ingredient (@primary_ingredients) {
+				next if $primary_ingredient eq 'en:chicken-and-eggs';    # chicken/eggs footprint is computed via the old FF module
+				next if $primary_ingredient eq 'en:other-risky-ingredients';    # other risky ingredients footprint is unknown
 				my $column_name = "$primary_ingredient.footprint";
 				$column_name =~ s/^en://;
 				if ($row_ref->{$column_name} ne '') {
@@ -386,7 +388,7 @@ sub compute_forest_footprint_2026 ($product_ref) {
 	{
 		$product_ref->{forest_footprint_2026} = {
 			grade => 'unknown',
-			no_ingredients => 1,
+			summary => 'missing_ingredients',
 		};
 		return;
 	}
@@ -454,7 +456,7 @@ sub compute_forest_footprint_2026 ($product_ref) {
 
 	# Scan for other risky ingredients (corn, rice, cassava, soy, meat, dairy)
 	# These ingredients are not yet assessed for deforestation risk
-	my @found_risky_ingredients = ();
+	my @found_risky_ingredient_refs = ();
 
 	if (defined $product_ref->{ingredients_original_tags}) {
 		foreach my $tag (@{$product_ref->{ingredients_original_tags}}) {
@@ -464,21 +466,22 @@ sub compute_forest_footprint_2026 ($product_ref) {
 			}
 			foreach my $risky_tag (@risky_ingredients_tags) {
 				if (is_a("ingredients", $tag, $risky_tag)) {
-					push @found_risky_ingredients, $tag
-						unless grep {$_ eq $tag} @found_risky_ingredients;
+					push @found_risky_ingredient_refs, {
+						ingredient_category_id => $risky_tag,
+						ingredient_id           => $tag,
+					};
 					last;
 				}
 			}
 		}
 	}
 
-	if (scalar(@found_risky_ingredients) > 0) {
+	if (scalar(@found_risky_ingredient_refs) > 0) {
 		$product_ref->{forest_footprint_2026}{primary_ingredients}{'en:other-risky-ingredients'} = {
-			ingredients => \@found_risky_ingredients,
+			ingredients => \@found_risky_ingredient_refs,
 			footprint_per_kg => undef,
 			grade => 'unknown',
 		};
-		$product_ref->{forest_footprint_2026}{other_risky_ingredients} = \@found_risky_ingredients;
 	}
 
 	if ($has_ingredients) {
@@ -494,16 +497,18 @@ sub compute_forest_footprint_2026 ($product_ref) {
 		# Calculate overall grade
 		my $grade = calculate_forest_footprint_2026_grade($product_ref);
 		$product_ref->{forest_footprint_2026}{grade} = $grade;
+		$product_ref->{forest_footprint_2026}{summary} = 'with_primary_ingredients';
 	}
-	elsif (scalar(@found_risky_ingredients) > 0) {
+	elsif (scalar(@found_risky_ingredient_refs) > 0) {
 		# Only risky ingredients found, no computed primary ingredients → grade is unknown
 		$product_ref->{forest_footprint_2026}{grade} = 'unknown';
+		$product_ref->{forest_footprint_2026}{summary} = 'with_other_risky_ingredients';
 	}
 	else {
 		# Ingredients exist but none are risky or assessed → grade A
 		$product_ref->{forest_footprint_2026}{grade} = 'a';
 		$product_ref->{forest_footprint_2026}{total_footprint_per_kg} = 0;
-		$product_ref->{forest_footprint_2026}{no_risky_ingredients} = 1;
+		$product_ref->{forest_footprint_2026}{summary} = 'without_primary_ingredients_or_other_risky_ingredients';
 	}
 
 	return;

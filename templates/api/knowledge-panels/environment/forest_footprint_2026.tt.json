@@ -5,10 +5,21 @@
     ],
     "expanded": false,
     "title_element": {
-"name": "[% edq(lang('forest_footprint_2026')) %]",
+        "name": "[% edq(lang('forest_footprint_2026')) %]",
         "title": "[% edq(lang('forest_footprint_2026')) %] - [% product.forest_footprint_2026.grade.ucfirst %]",
+        [% IF product.forest_footprint_2026.summary == "missing_ingredients" %]
+        "subtitle": "[% edq(lang('attribute_forest_footprint_missing_ingredients_description_short')) %]",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-not-computed.svg",
+        [% ELSIF product.forest_footprint_2026.summary == "with_other_risky_ingredients" %]
+        "subtitle": "[% edq(lang('attribute_forest_footprint_unknown_description_short')) %]",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-unknown.svg",
+        [% ELSIF product.forest_footprint_2026.summary == "without_primary_ingredients_or_other_risky_ingredients" %]
+        "subtitle": "[% edq(lang('attribute_forest_footprint_no_risky_description_short')) %]",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-a.svg",
+        [% ELSE %]
         "subtitle": "[% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description_short")) %]",        
         "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-[% product.forest_footprint_2026.grade %].svg",
+        [% END %]
         "type": "grade",
         "grade": "[% product.forest_footprint_2026.grade %]"
     },
@@ -21,7 +32,9 @@
                 <p><strong>[% lang('forest_footprint_2026') %]</strong></p>
                 <p>[% lang('forest_footprint_2026_description') %]</p>
                 <p><strong>[% lang('forest_footprint_2026_overall_grade') %][% sep %]:</strong> [% product.forest_footprint_2026.grade.ucfirst %]</p>
+                [% UNLESS product.forest_footprint_2026.summary == "missing_ingredients" || product.forest_footprint_2026.summary == "with_other_risky_ingredients" %]
                 <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> [% product.forest_footprint_2026.total_footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
+                [% END %]
                 `
             }
         },
@@ -210,7 +223,7 @@
             }
         }
         [% END %]
-        [% IF product.forest_footprint_2026.other_risky_ingredients.defined && product.forest_footprint_2026.other_risky_ingredients.size %]
+        [% IF product.forest_footprint_2026.primary_ingredients.en:other-risky-ingredients.defined && product.forest_footprint_2026.primary_ingredients.en:other-risky-ingredients.ingredients.defined && product.forest_footprint_2026.primary_ingredients.en:other-risky-ingredients.ingredients.size %]
         {
             "element_type": "text",
             "text_element": {
@@ -219,8 +232,8 @@
                 <h3>[% lang('forest_footprint_2026_other_risky_ingredients') %]</h3>
                 <p>[% lang('forest_footprint_2026_other_risky_ingredients_description') %]</p>
                 <ul>
-                [% FOREACH ingredient_id IN product.forest_footprint_2026.other_risky_ingredients %]
-                <li>[% display_taxonomy_tag("ingredients", ingredient_id) %]</li>
+                [% FOREACH ingredient IN product.forest_footprint_2026.primary_ingredients.en:other-risky-ingredients.ingredients %]
+                <li>[% display_taxonomy_tag("ingredients", ingredient.ingredient_id) %]</li>
                 [% END %]
                 </ul>
                 `
