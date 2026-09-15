@@ -349,9 +349,15 @@
          {
             "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
             "id" : "forest_footprint",
+<<<<<<< HEAD
             "name" : "Empreinte Forêt",
             "setting_name" : "Faible risque de déforestation (Empreinte Forêt)",
             "setting_note" : "L'Empreinte Forêt correspond au risque de déforestation associé à ses ingrédients.",
+=======
+            "name" : "Empreinte forêt",
+            "setting_name" : "Faible risque de déforestation (Empreinte forêt)",
+            "setting_note" : "L'empreinte forêt correspond au risque de déforestation associé à ses ingrédients.",
+>>>>>>> main
             "values" : [
                "not_important",
                "important",

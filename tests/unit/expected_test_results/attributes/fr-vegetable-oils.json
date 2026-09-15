@@ -295,10 +295,16 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-not-computed.svg",
                "id" : "forest_footprint",
                "match" : 0,
+<<<<<<< HEAD
                "name" : "Empreinte Forêt",
                "panel_id" : "forest_footprint",
                "status" : "unknown",
                "title" : "Empreinte Forêt non calculée"
+=======
+               "name" : "Empreinte forêt",
+               "status" : "known",
+               "title" : "Empreinte forêt non calculée"
+>>>>>>> main
             }
          ],
          "id" : "environment",

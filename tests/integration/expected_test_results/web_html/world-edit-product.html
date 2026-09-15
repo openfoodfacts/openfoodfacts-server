@@ -34,6 +34,7 @@
     {
         "imports": {
             "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+			"cropperjs": "//static.openfoodfacts.localhost/js/dist/cropper.esm.js",
             "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
             "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
             "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
@@ -41,8 +42,7 @@
     }
     </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
-	<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-
+	
     <style media="all">
         .show-when-no-access-to-producers-platform {display:none}
 .hide-when-logged-in {display:none}
@@ -1016,7 +1016,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="front_en">Front picture (<span class="tab_language">English</span>)</label>
 
-<div class="select_crop" id="front_en"></div>
+<div class="select_crop" id="front_en">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="front_en_imgid" id="front_en_imgid" value="" />
 <input type="hidden" name="front_en_x1" id="front_en_x1" value="" />
@@ -1039,7 +1041,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="front_fr">Front picture (<span class="tab_language">French</span>)</label>
 
-<div class="select_crop" id="front_fr"></div>
+<div class="select_crop" id="front_fr">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="front_fr_imgid" id="front_fr_imgid" value="" />
 <input type="hidden" name="front_fr_x1" id="front_fr_x1" value="" />
@@ -1062,7 +1066,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="front_new_lc">Front picture (<span class="tab_language"></span>)</label>
 
-<div class="select_crop" id="front_new_lc"></div>
+<div class="select_crop" id="front_new_lc">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="front_new_lc_imgid" id="front_new_lc_imgid" value="" />
 <input type="hidden" name="front_new_lc_x1" id="front_new_lc_x1" value="" />
@@ -1614,7 +1620,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="ingredients_en">Ingredients picture (<span class="tab_language">English</span>)</label>
 <p class="note">&rarr; If the picture is neat enough, the ingredients can be extracted automatically</p>
-<div class="select_crop" id="ingredients_en"></div>
+<div class="select_crop" id="ingredients_en">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="ingredients_en_imgid" id="ingredients_en_imgid" value="" />
 <input type="hidden" name="ingredients_en_x1" id="ingredients_en_x1" value="" />
@@ -1697,7 +1705,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="ingredients_fr">Ingredients picture (<span class="tab_language">French</span>)</label>
 <p class="note">&rarr; If the picture is neat enough, the ingredients can be extracted automatically</p>
-<div class="select_crop" id="ingredients_fr"></div>
+<div class="select_crop" id="ingredients_fr">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="ingredients_fr_imgid" id="ingredients_fr_imgid" value="" />
 <input type="hidden" name="ingredients_fr_x1" id="ingredients_fr_x1" value="" />
@@ -1780,7 +1790,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="ingredients_new_lc">Ingredients picture (<span class="tab_language"></span>)</label>
 <p class="note">&rarr; If the picture is neat enough, the ingredients can be extracted automatically</p>
-<div class="select_crop" id="ingredients_new_lc"></div>
+<div class="select_crop" id="ingredients_new_lc">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="ingredients_new_lc_imgid" id="ingredients_new_lc_imgid" value="" />
 <input type="hidden" name="ingredients_new_lc_x1" id="ingredients_new_lc_x1" value="" />
@@ -1977,7 +1989,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="nutrition_en">Nutrition facts picture (<span class="tab_language">English</span>)</label>
 
-<div class="select_crop" id="nutrition_en"></div>
+<div class="select_crop" id="nutrition_en">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="nutrition_en_imgid" id="nutrition_en_imgid" value="" />
 <input type="hidden" name="nutrition_en_x1" id="nutrition_en_x1" value="" />
@@ -2000,7 +2014,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="nutrition_fr">Nutrition facts picture (<span class="tab_language">French</span>)</label>
 
-<div class="select_crop" id="nutrition_fr"></div>
+<div class="select_crop" id="nutrition_fr">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="nutrition_fr_imgid" id="nutrition_fr_imgid" value="" />
 <input type="hidden" name="nutrition_fr_x1" id="nutrition_fr_x1" value="" />
@@ -2023,7 +2039,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="nutrition_new_lc">Nutrition facts picture (<span class="tab_language"></span>)</label>
 
-<div class="select_crop" id="nutrition_new_lc"></div>
+<div class="select_crop" id="nutrition_new_lc">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="nutrition_new_lc_imgid" id="nutrition_new_lc_imgid" value="" />
 <input type="hidden" name="nutrition_new_lc_x1" id="nutrition_new_lc_x1" value="" />
@@ -34095,7 +34113,9 @@ by typing the first letters of their name in the last row of the table.</p>
                     
                     	<label for="packaging_en">Recycling instructions and/or packaging information picture (<span class="tab_language">English</span>)</label>
 
-<div class="select_crop" id="packaging_en"></div>
+<div class="select_crop" id="packaging_en">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="packaging_en_imgid" id="packaging_en_imgid" value="" />
 <input type="hidden" name="packaging_en_x1" id="packaging_en_x1" value="" />
@@ -34155,7 +34175,9 @@ by typing the first letters of their name in the last row of the table.</p>
                     
                     	<label for="packaging_fr">Recycling instructions and/or packaging information picture (<span class="tab_language">French</span>)</label>
 
-<div class="select_crop" id="packaging_fr"></div>
+<div class="select_crop" id="packaging_fr">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="packaging_fr_imgid" id="packaging_fr_imgid" value="" />
 <input type="hidden" name="packaging_fr_x1" id="packaging_fr_x1" value="" />
@@ -34215,7 +34237,9 @@ by typing the first letters of their name in the last row of the table.</p>
                     
                     	<label for="packaging_new_lc">Recycling instructions and/or packaging information picture (<span class="tab_language"></span>)</label>
 
-<div class="select_crop" id="packaging_new_lc"></div>
+<div class="select_crop" id="packaging_new_lc">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="packaging_new_lc_imgid" id="packaging_new_lc_imgid" value="" />
 <input type="hidden" name="packaging_new_lc_x1" id="packaging_new_lc_x1" value="" />
@@ -34614,6 +34638,177 @@ by typing the first letters of their name in the last row of the table.</p>
 }
 </style>
 
+<!-- start templates/web/pages/product_edit/product_edit_form_display.tt.html -->
+
+
+
+<template id="image-editor-template">
+  <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+
+    /* The "hidden" attribute is used to keep the editor invisible until an image
+       is loaded: the author rule above overrides the UA "[hidden] { display: none }"
+       rule, so it must be re-applied for hosts with the attribute. */
+    :host([hidden]) {
+      display: none;
+    }
+
+    .editor-command {
+      margin-bottom: 5px;
+    }
+
+    .editor-actions {
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .editor-actions-left {
+      float: left;
+      max-width: 70%;
+    }
+
+    .editor-actions-right {
+      float: right;
+      text-align: right;
+    }
+
+    .editor-status {
+      margin-top: 0.5rem;
+      padding: 2px;
+    }
+
+    /* The colors and sizes come from the site stylesheet via CSS custom
+       properties set on the .select_crop element (scss/_product-form.scss).
+       The var() fallbacks below match the site palette so that the component
+       still looks correct when the stylesheet is not loaded. */
+    button.small-button {
+      margin: 0 0.25rem 0.25rem 0;
+      padding: 0.375rem 0.75rem;
+      border: 0;
+      border-radius: var(--editor-button-radius, 8px);
+      background-color: var(--editor-button-bg, #341100);
+      color: var(--editor-button-text, #ffffff);
+      font-size: var(--editor-font-size, 0.9286rem);
+      cursor: pointer;
+    }
+
+    button.small-button:hover:not(:disabled) {
+      background-color: var(--editor-button-bg-hover, #2a0e00);
+    }
+
+    button.small-button:disabled {
+      cursor: default;
+      opacity: 0.7;
+    }
+
+    a {
+      color: var(--editor-link-color, #341100);
+    }
+
+    #crop-container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    #crop-container cropper-canvas {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+      /* Height follows the loaded image's aspect ratio; JS sets inline
+         aspect-ratio to "W / H" after the image loads. Fallback is square
+         while the image is loading so the canvas is not collapsed to its
+         100px min-height. Width limits the size; height is automatic but
+         capped responsively so the cropper fits the viewport on any screen
+         (original v1 was capped at 800px). */
+      aspect-ratio: var(--image-aspect, 1 / 1);
+      max-height: min(800px, 65vh);
+      max-height: min(800px, 65dvh);
+    }
+
+    .editor-options {
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .editor-options-left {
+      float: left;
+      max-width: 70%;
+    }
+
+    .editor-options-right {
+      float: right;
+      text-align: right;
+    }
+
+    .editor-options label {
+      margin: 0;
+    }
+  </style>
+
+  <div class="editor-command">Rotate the image if necessary, then click and drag to select the interesting zone:</div>
+
+  <div class="editor-actions">
+    <div class="editor-actions-left">
+      <button id="rotate-left" class="small-button" type="button" disabled>Rotate left</button>
+      <button id="rotate-right" class="small-button" type="button" disabled>Rotate right</button>
+      <br />
+      <a id="open-full-size" target="_blank" rel="noopener noreferrer" hidden aria-label="Open the picture in original size in a new windows">Open the picture in original size in a new windows</a>
+      <br />
+      <input type="checkbox" id="zoom-on-wheel" />
+      <label for="zoom-on-wheel" id="zoom-on-wheel-label">Enable zooming with the mouse wheel.</label>
+    </div>
+    <div class="editor-actions-right">
+      <button id="save" class="small-button" type="button" disabled>Validate and/or resize image</button>
+      <div id="save-status" class="editor-status" hidden aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div id="crop-container">
+    <img id="crop-image" alt="" />
+  </div>
+
+  <div class="editor-options">
+    <div class="editor-options-left">
+      <input type="checkbox" id="normalize" />
+      <label for="normalize" id="normalize-label">Normalise colours</label>
+      <br />
+      <input type="checkbox" id="white-magic" />
+      <label for="white-magic" id="white-magic-label">Photo on white background: try to remove the background</label>
+    </div>
+  </div>
+</template>
+
+
+<template id="image-editor-cropper-template">
+  <cropper-canvas background>
+    <cropper-image rotatable scalable skewable translatable></cropper-image>
+    <cropper-shade hidden></cropper-shade>
+    <cropper-handle action="select" plain></cropper-handle>
+    <cropper-selection movable resizable outlined>
+      <cropper-grid role="grid" covered></cropper-grid>
+      <cropper-crosshair centered></cropper-crosshair>
+      <cropper-handle action="move" plain></cropper-handle>
+      <cropper-handle action="n-resize"></cropper-handle>
+      <cropper-handle action="e-resize"></cropper-handle>
+      <cropper-handle action="s-resize"></cropper-handle>
+      <cropper-handle action="w-resize"></cropper-handle>
+      <cropper-handle action="ne-resize"></cropper-handle>
+      <cropper-handle action="nw-resize"></cropper-handle>
+      <cropper-handle action="se-resize"></cropper-handle>
+      <cropper-handle action="sw-resize"></cropper-handle>
+    </cropper-selection>
+  </cropper-canvas>
+</template>
+
+<script type="module" src="//static.openfoodfacts.localhost/js/dist/image-editor.js"></script>
+
+<!-- end templates/web/pages/product_edit/product_edit_form_display.tt.html -->
+
 <!-- end templates/web/pages/product_edit/product_edit_form_display.tt.html -->
 
 						
@@ -34800,9 +34995,12 @@ by typing the first letters of their name in the last row of the table.</p>
 <script>
 $(function() {
 
-	$([]).selectcrop('init_images', []);
-	$(".select_crop").selectcrop('init', {img_path : "//images.openfoodfacts.localhost/images/products/330/000/000/0001/"});
-	$(".select_crop").selectcrop('show');
+	window.imageEditorConfig = { images: [], img_path: "//images.openfoodfacts.localhost/images/products/330/000/000/0001/" };
+	if (window.imageFieldUI) {
+		window.imageFieldUI.setImages(window.imageEditorConfig.images);
+		window.imageFieldUI.init($(".select_crop"), { img_path : window.imageEditorConfig.img_path });
+		window.imageFieldUI.show($(".select_crop"));
+	}
 
 
                     configure_packaging_select2("packaging_1_shape", "packaging_shapes", "Shape" )
@@ -34969,8 +35167,6 @@ $(document).on("focus", ".select2", function (e) {
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/matomo-events.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/cropper.js"></script>
-<script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/jquery-cropper.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/tagify.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/jquery.fileupload.js"></script>
