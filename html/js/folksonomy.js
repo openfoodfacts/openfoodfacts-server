@@ -61,9 +61,9 @@ function folskonomy_engine_init() {
  * (Use //ajax... so that https or http is selected as appropriate to avoid "mixed content".)
  */
 
-@import url("https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.css");
+
 @import url("https://rawgit.com/free-jqgrid/jqGrid/master/css/ui.jqgrid.css");
-@import url("https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+
 
 .feus {
   margin-bottom: 1rem;
