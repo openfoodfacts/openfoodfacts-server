@@ -83,4 +83,18 @@ is(normalize_packager_codes(normalize_packager_codes("EE 110 EÜ")),
 	"EE 110 EC", "EE: normalizing code twice does not change it any more than normalizing once");
 is(localize_packager_code(normalize_packager_codes("EE 110 EÜ")), "EE 110 EÜ", "EE: round-tripped code correctly");
 
+# normalize_ca_est_code (CFIA establishment number, not an EU EC-approval scheme)
+is(normalize_packager_codes("Est. 34"), "CA EST 34", "CA: normalized 'Est.' code correctly");
+is(normalize_packager_codes("Estab. 34"), "CA EST 34", "CA: normalized 'Estab.' code correctly");
+is(normalize_packager_codes("Establishment 34"), "CA EST 34", "CA: normalized 'Establishment' code correctly");
+is(normalize_packager_codes("CFIA Est. 34"), "CA EST 34", "CA: normalized 'CFIA Est.' code correctly");
+is(normalize_packager_codes("Est. No. 34"), "CA EST 34", "CA: normalized 'Est. No.' code correctly");
+is(normalize_packager_codes("est-749"), "CA EST 749", "CA: normalized 'est-749' code correctly");
+is(
+	normalize_packager_codes(normalize_packager_codes("Est. 34")),
+	"CA EST 34",
+	"CA: normalizing code twice does not change it any more than normalizing once"
+);
+is(localize_packager_code(normalize_packager_codes("Est. 34")), "CA EST 34", "CA: no local/EC round-trip distinction");
+
 done_testing();
