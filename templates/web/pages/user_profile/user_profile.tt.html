@@ -8,7 +8,14 @@
 		</a>
 	</div>
 [% END %]
-
+<!-- Producer Badge -->
+[% IF org_id %]
+  <div style="margin-top:10px;">
+    <span style="background:#4CAF50;color:white;padding:4px 8px;border-radius:6px;font-size:12px;">
+      Producer Account
+    </span>
+  </div>
+[% END %]
 [% IF admin %]
 	<p>Email: [% email %]</p>
 [% END %]
