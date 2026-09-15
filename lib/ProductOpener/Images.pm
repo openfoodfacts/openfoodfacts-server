@@ -1400,7 +1400,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 	defined $product_ref->{images} or $product_ref->{images} = {};
 
 	# Check permission if user is not a moderator or admin
-	if (not ($User{moderator} || $User{admin} || is_admin_user($user_id))) {
+	if (not($User{moderator} || $User{admin} || is_admin_user($user_id))) {
 		if ($move_to ne "trash") {
 			return "You must be a moderator to move images to another product.";
 		}
