@@ -18,6 +18,7 @@ RUN usermod --uid "$USER_UID" node && \
 COPY --chown=node:node package*.json .npmrc /opt/product-opener/
 COPY --chown=node:node .snyk /opt/product-opener/
 WORKDIR /opt/product-opener
+RUN npm install --global --ignore-scripts npm@11.18.0
 USER node
 RUN --mount=type=cache,id=npm-cacache,target=/root/.npm/_cacache npm ci
 ENV PATH="/opt/product-opener/node_modules/.bin:${PATH}"
