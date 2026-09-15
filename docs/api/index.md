@@ -136,6 +136,7 @@ We are building a complete OpenAPI reference. Here is a list of the current API 
 ### Search
 
 Structured (filter-based) search by categories, brands, nutrients, and other fields is available in API v2 via the `/api/v2/search` endpoints.
+- [Search API Documentation](../api/ref-search-api.md) - Comprehensive guide to filtering, pagination, and search examples
 
 > **Note:** Full-text / plain-text search is **not** available in the v2 server-side API.
 > Full-text search will be available in [Search-a-licious](https://search.openfoodfacts.org/), which will provide a dedicated search API at [search.openfoodfacts.org](https://search.openfoodfacts.org/docs).
