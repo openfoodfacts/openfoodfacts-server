@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding utf8
+
 =head1 NAME
 
 ProductOpener::EnvironmentalScore - compute the EnvironmentalScore environmental grade of a food product
