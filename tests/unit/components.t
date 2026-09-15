@@ -74,11 +74,8 @@ is($customized_product->{code}, "055795740289", "customize_response_for_product 
 
 # Test customize_response_for_product NOT requesting components field
 my $customized_product_without_components = customize_response_for_product($request, $product, "code");
-is(
-	exists $customized_product_without_components->{components},
-	F(),
-	"customize_response_for_product excludes components field when not requested"
-);
+is(exists $customized_product_without_components->{components},
+	F(), "customize_response_for_product excludes components field when not requested");
 
 # Test writing components data via update_product_fields
 my $write_product = {code => "055795740289"};
@@ -136,11 +133,8 @@ my $add_request = {
 
 update_product_fields($add_request, $write_product, $add_request->{api_response});
 
-is(
-	scalar @{$write_product->{components}},
-	3,
-	"update_product_fields with components_add appends to existing components"
-);
+is(scalar @{$write_product->{components}},
+	3, "update_product_fields with components_add appends to existing components");
 is($write_product->{components}[2]{name}, "Item 3", "appended component has correct content");
 
 # Test error handling when components field is not an array

@@ -597,7 +597,7 @@ an error id if there was an error (e.g. no_permisssion or invalid_product_type).
 
 =cut
 
-sub process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref, $new_code) {
+sub process_change_product_code_request_if_we_have_one ($request_ref, $response_ref, $product_ref, $new_code) {
 
 	my $error;
 	# Change of code
@@ -631,7 +631,7 @@ sub process_change_product_code_request_if_we_have_one($request_ref, $response_r
 	return;
 }
 
-sub process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref, $new_product_type) {
+sub process_change_product_type_request_if_we_have_one ($request_ref, $response_ref, $product_ref, $new_product_type) {
 
 	my $error;
 
@@ -874,7 +874,7 @@ If set to 1, we will add the tags to existing values
 
 =cut
 
-sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source, $add_tags = 0) {
+sub update_product_field_api_v2_and_cgi ($product_ref, $target_lc, $field, $value, $source, $add_tags = 0) {
 
 	$log->debug("update_product_field_api_v2_and_cgi", {field => $field, value => $value, source => $source})
 		if $log->is_debug();

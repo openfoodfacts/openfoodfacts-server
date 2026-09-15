@@ -188,7 +188,7 @@ Clone of the input hash with offending values replaced with '...'
 
 =cut
 
-sub sanitize($hashref) {
+sub sanitize ($hashref) {
 	my @disallowed_keys = qw/access_token refresh_token id_token password image_data_base64 body body_json/;
 	my $contains_disallowed = 0;
 	for my $key (@disallowed_keys) {
