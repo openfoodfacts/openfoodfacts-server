@@ -27078,6 +27078,7 @@ nl: speltschroot
 
 < en: spelt
 en: spelt flakes
+da: speltflager
 sv: speltflingor, dinkelveteflingor, flingor av dinkelvete
 
 < en: spelt flakes
@@ -30125,7 +30126,7 @@ en: white basmati rice
 da: hvidt basmatiris
 de: weißer Basmatireis
 fi: valkoinen basmatiriisi
-fr: riz basmati blanc, riz thaï blanc
+fr: riz basmati blanc, riz blanc long grain basmati, riz thaï blanc
 hr: bijela basmati riža
 hu: fehér basmati rizs, fehér baszmati rizs
 it: riso basmati bianco
@@ -31293,6 +31294,7 @@ sv: sockerlösning
 < en: sugar
 en: icing sugar, powdered sugar
 bg: пудра захар
+da: flormelis
 de: Puderzucker, Azucar en polvo
 es: Azúcar glasé
 fi: tomusokeri
@@ -32081,7 +32083,7 @@ bs: Melasa
 ca: Melassa
 cs: Melasa
 cy: Triagl
-da: melasse
+da: melasse, mollasses
 de: Melasse
 el: μελάσα
 eo: melaso
@@ -32655,15 +32657,16 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en: fructose syrup
+en: fructose powder
 de: Fruktosepulver
 fi: fruktoosijauhe
-it: Fruttosio in polvere
+it: fruttosio in polvere
 
 en: oligofructose
 bg: олигофруктоза
-da: oligofruktose, oligofruktose
+da: oligofruktose, oligofructose
 de: Oligofructose, Oligofruktose
-es: Oligofructosa
+es: oligofructosa
 fi: oligofruktoosi
 fr: oligofructose
 he: אוליגופרוקטוז
@@ -32682,7 +32685,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q418945
 wikipedia:en: https://en.wikipedia.org/wiki/Fructooligosaccharide
-# usage:en: dietary fibres (oligofructose, polydextrose)
 
 < en: oligofructose
 fr: fibres végétales d'oligofructose
@@ -65755,7 +65757,7 @@ en: pistachio nuts, pistachio, American Pistachios
 bg: шамфъстък, шам-фъстък
 ca: festuc, festucs
 cs: pistácie
-da: pistacienødder
+da: pistacienød, pistacienødder
 de: Pistazien, pistazienkerne, Pistazienkerne gehackt
 el: φυστίκια, Φυστίκια κελυφωτά
 es: pistachos, pistacho, alfóncigos
@@ -65863,7 +65865,7 @@ bn: আখরোট
 ca: nous
 co: Noce
 cs: vlašský ořech, vlašské ořechy
-da: valnødder
+da: valnød, valnødder
 de: Walnuss, Walnüsse
 el: Καρύδι
 eo: juglandonukso
@@ -87637,7 +87639,7 @@ bg: ментол
 ca: mentol
 cs: Menthol
 cy: menthol
-da: Mentol
+da: mentol, menthol
 de: Menthol
 eo: Mentolo
 es: mentol
@@ -92435,6 +92437,31 @@ hr: inaktivni kvasac
 it: impasto inattivo
 nl: inactief deeg
 
+< en: dough
+en: cookie dough
+da: småkagedej
+fr: pâte à cookies
+hy: թխվածքաբլիթի խմոր
+ja: クッキー生地
+jv: adhonan kukis
+ru: тесто для печенья
+sv: kaksmet
+th: คุกกี้โด
+uk: тісто для печива
+zh: 曲奇面团
+ciqual_proxy_food_code:en: 23440
+ciqual_proxy_food_name:en: Shortbread dough, prepacked, raw
+likely_allergens:en: en:gluten
+wikidata:en: Q5167099
+
+< en: cookie dough
+< en: milk chocolate
+en: cookie dough with milk chocolate
+da: småkagedej med mælkechokolade
+allergens:en: en:milk
+vegan:en: no
+vegetarian:en: yes
+
 < en: pasta
 en: macaroni
 de: Makkaroni
@@ -96255,12 +96282,11 @@ description:en: ICE CREAM is a sweetened frozen food typically eaten as a snack 
 # usage:en:Ice cream:organic cream, organic milk, organic cane sugar, organic egg yolks, organic vanilla extract, organic locust bean gum, organic guar gum
 # usage:fr:glace (sucre, kirsch de Bâle-Campagne)
 
-# description:en:VANILLA ICE CREAM is flavored by artificial or natural vanilla flavoring. The type of vanilla used to flavor ice cream varies by location.
-
 < en: ice cream
 en: vanilla ice cream
 bg: ванилов сладолед
 ca: gelat de vainilla
+da: vaniljeis
 de: Vanille-Eis, Vanilleeis
 eo: vanila glaciaĵo
 es: helado de vainilla
@@ -96276,9 +96302,10 @@ tr: Vanilyalı dondurma
 uk: Ванільне морозиво
 vi: Kem vani
 zh: 香草冰淇淋
-# yue:雲呢拿雪糕
+#yue: 雲呢拿雪糕
 carbon_footprint_fr_foodges_ingredient:fr: Glace à la vanille
 carbon_footprint_fr_foodges_value:fr: 1.5
+description:en: VANILLA ICE CREAM is flavored by artificial or natural vanilla flavoring. The type of vanilla used to flavor ice cream varies by location.
 usda_fdc_code:en: 167575
 usda_ndb_code:en: 19095
 usda_ndb_name:en: Ice creams, vanilla
