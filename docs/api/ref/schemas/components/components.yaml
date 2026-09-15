@@ -1,0 +1,5 @@
+type: array
+title: components
+description: Array of product components for multi-food packages (variety packs, meal kits)
+items:
+  $ref: "./component.yaml"
