@@ -1,0 +1,40 @@
+<!-- start templates/[% template.name %] -->
+
+<table id="tagstable">
+    <thead>
+        <tr>
+            <th>[% lang("serial_no") %]</th>
+            <th>[% lang("barcode") %]</th>
+            <th>[% lang("product_name") %]</th>
+            <th>[% lang("score_name") %]</th>
+            <th>[% lang("current_score") %]</th>
+            <th>[% lang("new_score") %]</th>
+            <th>[% lang("nutrient") %]</th>
+            <th>[% lang("current_value") %]</th>
+            <th>[% lang("new_value") %]</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% SET count = 1 %]
+        [% FOREACH product IN products %]
+        <tr>
+            <td>[% count %].</td>
+            <td>[% product.barcode %]</td>
+            <td>[% product.product_name %]</td>
+            <td>[% product.score_name %]</td>
+            <td>[% product.current_score %]</td>
+            <td>[% product.new_score %]</td>
+            <td>[% product.nutrient %]</td>
+            <td>[% product.current_value %]</td>
+            <td>[% product.new_value %]</td>
+        </tr>
+        [% SET count = count + 1 %]
+        [% END %]
+    </tbody>
+</table>
+
+[% IF !has_products %]
+<p style="font-size: 2rem; padding-top: 40px;">No products with improvement opportunities found.</p>
+[% END %]
+
+<!-- end templates/[% template.name %] -->
