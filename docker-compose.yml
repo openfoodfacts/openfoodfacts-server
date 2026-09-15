@@ -182,6 +182,8 @@ services:
       - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/conf.d/aa_expires-no-json-xml.conf
       # log format
       - ./conf/nginx/conf.d/log_format_realip.conf:/etc/nginx/conf.d/aa_log_format_realip.conf
+      # cache for tagline proxy
+      - ./conf/nginx/conf.d/tagline_cache.conf:/etc/nginx/conf.d/tagline_cache.conf
       # some redirects
       - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/snippets/off.locations-redirects.include
 
