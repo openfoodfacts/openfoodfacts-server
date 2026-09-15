@@ -14,37 +14,15 @@ FROM debian:trixie-slim AS modperl
 
 ARG CACHE_BUST
 
-# Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         apache2 \
-        apt-utils \
-        cpanminus \
-        # being able to build things
-        g++ \
-        gcc \
-        less \
-        libapache2-mod-perl2 \
-        make \
-        gettext \
-        wget \
         # images processing
         imagemagick \
         graphviz \
-        tesseract-ocr \
-        # ftp client
-        lftp \
-        # some compression utils
-        gzip \
-        tar \
-        unzip \
-        zip \
-        pigz \
-        # useful to send mail
-        mailutils \
-        # perlmagick \
+        tesseract-ocr \        
         #
         # Packages from ./cpanfile:
         # If cpanfile specifies a newer version than apt has, cpanm will install the newer version.
@@ -83,7 +61,12 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         liblog-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
-        libemail-valid-perl
+        libemail-valid-perl \
+        # libheif 1.19+ in trixie uses plugins for codec support
+        # needed by Imager::File::HEIF configure test
+        libheif-plugin-x265 \
+        libheif-plugin-libde265
+
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     # rerun apt update, because last RUN might be in cache
@@ -91,7 +74,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
       apt-get update || true \
     ) && \
     apt-get install -y --no-install-recommends \
-        curl \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
         #
@@ -153,12 +135,79 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # Test::Number::Delta
         libtest-number-delta-perl \
         libdevel-size-perl \
+        gnumeric
         # Net-IDN-Encode (needs Debian patch for Perl 5.40+ compat)
         libnet-idn-encode-perl \
-        gnumeric \
+        # IO::AIO needed by Perl::LanguageServer
+        libperl5.40 \
+        # needed to build Apache2::Connection::XForwardedFor
+        libapache2-mod-perl2 \
+        # OpenSSL needed by OIDC::Lite
+        libssl3t64 \
+        # Imager::zxing - build deps
+        libzxing3 \
+        # Imager and Imager::File::* build dependencies
+        libavif16 \
+        libde265-0 \
+        libheif1 \
+        libjpeg62-turbo-dev \
+        libpng16-16t64 \
+        # libwebp-dev \
+        libwebp7 \
+        libwebpdemux2 \
+        libwebpmux3 \
+        libwebpdecoder3
+
+# Run www-data user AS host user 'off' or developper uid
+ARG USER_UID
+ARG USER_GID
+RUN usermod --uid $USER_UID www-data && \
+    groupmod --gid $USER_GID www-data
+
+FROM modperl AS devtools
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    # rerun apt update, because last RUN might be in cache
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt-get update || true \
+    ) && \
+    apt-get install -y --no-install-recommends \
+        curl \
+        less \
+        wget \
+        # some compression utils
+        gzip \
+        tar \
+        unzip \
+        zip \
+        pigz
+
+FROM devtools AS devlibs
+
+# Install cpm to install cpanfile dependencies
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    # rerun apt update, because last RUN might be in cache
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt-get update || true \
+    ) && \
+    apt-get install -y --no-install-recommends \
+        # being able to build things
+        g++ \
+        gcc \
+        make \
+        gettext
+
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    # rerun apt update, because last RUN might be in cache
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt-get update || true \
+    ) && \
+    apt-get install -y --no-install-recommends \
         # for dev
         # gnu readline
-        libreadline-dev \
+        # libreadline-dev \
         # IO::AIO needed by Perl::LanguageServer
         libperl-dev \
         # needed to build Apache2::Connection::XForwardedFor
@@ -185,17 +234,10 @@ RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm -o /tmp/cpm 
     chmod +x /usr/bin/cpm && \
     /usr/bin/cpm --version
 
-# Run www-data user AS host user 'off' or developper uid
-ARG USER_UID
-ARG USER_GID
-RUN usermod --uid $USER_UID www-data && \
-    groupmod --gid $USER_GID www-data
-
-
 ######################
 # Stage for installing/compiling cpanfile dependencies
 ######################
-FROM modperl AS builder
+FROM devlibs AS builder
 ARG CPANMOPTS
 
 ARG PO_LIB_DIR=/tmp/local
@@ -247,7 +289,7 @@ RUN rm /etc/apache2/sites-enabled/000-default.conf
 COPY --from=builder /tmp/local/ /opt/perl/local/
 ENV PERL5LIB="/opt/product-opener/lib/:/opt/perl/local/lib/perl5/"
 ENV PATH="/opt/perl/local/bin:${PATH}"
-# Set up apache2 to use npm prefork
+# Set up apache2 to use mpm prefork
 RUN \
     a2dismod mpm_event && \
     a2enmod mpm_prefork
@@ -288,6 +330,28 @@ USER www-data
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 # default command is apache2ctl start
 CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+######################
+# Dev image - runnable + devtools (wget/tar etc. for import_sample_data.sh)
+# Used via `target: dev` in docker/dev.yml / `make dev`
+######################
+FROM runnable AS dev
+USER root
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt-get update || true \
+    ) && \
+    apt-get install -y --no-install-recommends \
+        curl \
+        less \
+        wget \
+        gzip \
+        tar \
+        unzip \
+        zip \
+        pigz
+USER www-data
 
 ######################
 # Prod image is default
