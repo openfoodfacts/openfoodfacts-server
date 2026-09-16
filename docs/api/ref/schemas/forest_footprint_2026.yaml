@@ -1,10 +1,10 @@
 type: object
 title: ForestFootprint2026
 description: |
-  Forest footprint (2026 algorithm) of a product — the risk of deforestation
+  Forest footprint (2026 algorithm) of a product: the risk of deforestation
   associated with its ingredients.
 
-  This is a computed field; it is not settable by API users. It is present on
+  This is a computed field. It is not settable by API users. It is present on
   the product only when the forest footprint computation has been run.
 
   The `primary_ingredients` object uses ingredient tags (e.g. `en:cocoa`,
