@@ -62,6 +62,22 @@
       "en:milk-and-dairy-products",
       "en:milk-and-yogurt"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "not_computed",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:dairy",
+                  "ingredient_id" : "en:milk"
+               }
+            ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",

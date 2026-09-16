@@ -289,15 +289,16 @@
                "title" : "Green-Score non calculé"
             },
             {
-               "description" : "",
-               "description_short" : "Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
-               "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "description" : "Risque potentiel de déforestation mais non calculé à ce jour.",
+               "description_short" : "Risque potentiel de déforestation non calculé",
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-not-computed.svg",
                "id" : "forest_footprint",
                "match" : 0,
-               "name" : "Empreinte forêt",
-               "status" : "known",
-               "title" : "Empreinte forêt non calculée"
+               "name" : "Empreinte Forêt",
+               "panel_id" : "forest_footprint",
+               "status" : "unknown",
+               "title" : "Empreinte Forêt non calculée"
             }
          ],
          "id" : "environment",
@@ -683,6 +684,22 @@
    ],
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "not_computed",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:corn",
+                  "ingredient_id" : "en:corn-flour"
+               }
+            ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
    "images" : {
       "selected" : {}
    },

@@ -125,11 +125,7 @@ sub specific_processes_for_food_product ($product_ref) {
 	# This feature is still under development, so we skip the API call for now and only prepare the request payload.
 	estimate_environmental_impact_service($product_ref, {}, {}, 1);
 
-	compute_forest_footprint($product_ref);
-	# We are computing a new Forest Footprint 2026 score which is still being refined.
-	# The corresponding knowledge panel is only visible to moderators for now.
-	# Once finalized, we will remove the old forest_footprint data and panel.
-	compute_forest_footprint_2026($product_ref);
+	compute_forest_footprint_2026($product_ref);    # Also includes compute_forest_footprint()
 
 	# Determine packaging components in contact with food
 	determine_food_contact_of_packaging_components_service($product_ref);

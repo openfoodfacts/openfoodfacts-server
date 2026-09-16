@@ -317,15 +317,16 @@
                "title" : "Green-Score D"
             },
             {
-               "description" : "",
-               "description_short" : "Currently only for products with chicken or eggs",
-               "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "description" : "No ingredient associated with a deforestation risk.",
+               "description_short" : "No deforestation risk",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                "id" : "forest_footprint",
-               "match" : 0,
-               "name" : "Forest footprint",
+               "match" : 100,
+               "name" : "Forest Footprint",
+               "panel_id" : "forest_footprint",
                "status" : "known",
-               "title" : "Forest footprint not computed"
+               "title" : "Forest Footprint A"
             }
          ],
          "id" : "environment",
@@ -881,6 +882,12 @@
       "en:milk-and-dairy-products",
       "en:cheese"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "images" : {
       "selected" : {}
    },

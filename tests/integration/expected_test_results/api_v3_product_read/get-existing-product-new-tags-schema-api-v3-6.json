@@ -591,9 +591,56 @@
          "en:beverages",
          "en:teas-and-herbal-teas-and-coffees"
       ],
+      "forest_footprint_2026" : {
+         "grade" : "b",
+         "primary_ingredients" : {
+            "en:chicken-and-eggs" : {
+               "footprint_per_kg" : 0.00259259259259259,
+               "grade" : "b",
+               "ingredients" : [
+                  {
+                     "conditions_tags" : [
+                        [
+                           "labels",
+                           "en:organic"
+                        ]
+                     ],
+                     "footprint_per_kg" : 0.00259259259259259,
+                     "matching_tag_id" : "en:egg",
+                     "percent" : 16.6666666666667,
+                     "percent_estimate" : 16.6666666666667,
+                     "processing_factor" : 1,
+                     "tag_id" : "en:egg",
+                     "tag_type" : "ingredients",
+                     "type" : {
+                        "deforestation_risk" : 0.1,
+                        "name" : "Oeufs Bio",
+                        "soy_feed_factor" : 0.028,
+                        "soy_yield" : 0.18
+                     }
+                  }
+               ]
+            },
+            "en:cocoa" : {},
+            "en:coffee" : {},
+            "en:other-risky-ingredients" : {
+               "footprint_per_kg" : null,
+               "grade" : "unknown",
+               "ingredients" : [
+                  {
+                     "ingredient_category_id" : "en:dairy",
+                     "ingredient_id" : "en:milk"
+                  }
+               ]
+            },
+            "en:palm-oil" : {}
+         },
+         "summary" : "with_primary_ingredients",
+         "total_footprint_per_kg" : 0.00259259259259259
+      },
       "forest_footprint_data" : {
          "footprint_per_kg" : 0.00259259259259259,
-         "grade" : "a",
+         "grade" : "b",
          "ingredients" : [
             {
                "conditions_tags" : [
@@ -753,7 +800,7 @@
          "en:environmental-score-missing-data-packagings",
          "en:environmental-score-missing-data-warning",
          "en:estimated-ingredients-with-product-opener",
-         "en:forest-footprint-a",
+         "en:forest-footprint-b",
          "en:forest-footprint-computed",
          "en:nutrients-estimated-from-ingredients",
          "en:nutriscore-2021-better-than-2023",

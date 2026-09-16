@@ -286,15 +286,16 @@
                "title" : "Green-Score E"
             },
             {
-               "description" : "",
-               "description_short" : "Currently only for products with chicken or eggs",
-               "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "description" : "The Forest Footprint cannot be computed because the ingredient list is missing.",
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-unknown.svg",
                "id" : "forest_footprint",
                "match" : 0,
-               "name" : "Forest footprint",
-               "status" : "known",
-               "title" : "Forest footprint not computed"
+               "missing" : "Missing ingredients list",
+               "name" : "Forest Footprint",
+               "panel_id" : "forest_footprint",
+               "status" : "unknown",
+               "title" : "Forest Footprint not available"
             }
          ],
          "id" : "environment",
@@ -817,6 +818,10 @@
       "e"
    ],
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "unknown",
+      "summary" : "missing_ingredients"
+   },
    "images" : {
       "selected" : {}
    },
