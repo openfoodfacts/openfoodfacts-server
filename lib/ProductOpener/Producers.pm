@@ -150,15 +150,129 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 	# By default, assume the separator is a comma
 	my $separator = ",";
 
-	if ($extension =~ /^xls.?$/) {
-		$log->debug("converting Excel file with gnumeric's ssconvert", {file => $file, extension => $extension})
+	if ($extension =~ /^(?:xls.?|ods)$/) {
+		$log->debug("converting Excel file with Spreadsheet::Read", {file => $file, extension => $extension})
 			if $log->is_debug();
-		$csv_file = $file . ".csv";
-		system("ssconvert", $file, $csv_file);
-		$log->debug(
-			"converting Excel file with gnumeric's ssconvert - output",
-			{file => $file, extension => $extension, command => $0, error => $?}
-		) if $log->is_debug();
+		my $excel_success = eval {
+			require Spreadsheet::Read;
+			Spreadsheet::Read->import();
+			my $book = ReadData($file, dtfmt => "yyyy-mm-dd", strip => 0);
+			unless (defined $book && defined $book->[1]) {
+				die "Cannot read Excel file $file - no sheets found";
+			}
+			my $sheet = $book->[1];
+			my $maxrow = $sheet->{maxrow} // 0;
+			my $maxcol = $sheet->{maxcol} // 0;
+
+			my @original_rows;
+			for my $r (1 .. $maxrow) {
+				my @row;
+				for my $c (1 .. $maxcol) {
+					my $val = $sheet->{cell}[$c][$r];
+					if (!defined $val) {
+						push @row, "";
+					}
+					else {
+						# Stringify, Spreadsheet::Read may return numbers
+						push @row, "$val";
+					}
+				}
+				push @original_rows, \@row;
+			}
+
+			# Filter empty rows and count non-empty columns (same logic as CSV path)
+			my @non_empty_columns;
+			my @filtered_original_rows;
+			foreach my $row_ref (@original_rows) {
+				my $non_empty_values = 0;
+				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+					if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
+						$non_empty_values++;
+					}
+				}
+				if ($non_empty_values >= 2) {
+					push @filtered_original_rows, $row_ref;
+					for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+						if ((defined $row_ref->[$i]) and ($row_ref->[$i] ne "")) {
+							defined $non_empty_columns[$i] or $non_empty_columns[$i] = 0;
+							$non_empty_columns[$i]++;
+						}
+					}
+				}
+			}
+			@original_rows = @filtered_original_rows;
+
+			$log->debug("non empty columns",
+				{number_of_original_rows => scalar(@original_rows), non_empty_columns => \@non_empty_columns})
+				if $log->is_debug();
+
+			# Check if the file contains a "Description" row and a header "Row"
+			my $has_description_and_example_rows = 0;
+			if (    @original_rows
+				and ($original_rows[0][0] eq "")
+				and (($non_empty_columns[0] // 0) == 2)
+				and (defined $original_rows[1][0] and $original_rows[1][0] ne "")
+				and (defined $original_rows[2][0] and $original_rows[2][0] ne ""))
+			{
+				$has_description_and_example_rows = 1;
+			}
+
+			# Copy non empty columns and rows, detect header
+			my $seen_header = 0;
+			foreach my $row_ref (@original_rows) {
+				if (($has_description_and_example_rows) and ($row_ref->[0] ne "")) {
+					next;
+				}
+				my @new_row = ();
+				for (my $i = 0; $i < scalar(@$row_ref); $i++) {
+					if (($non_empty_columns[$i]) and not(($i == 0) and $has_description_and_example_rows)) {
+						push @new_row, $row_ref->[$i];
+					}
+				}
+				$log->debug("new_row", {new_row => \@new_row}) if $log->is_debug();
+				if (not $seen_header) {
+					if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne ""))
+					{
+						$seen_header = 1;
+						@{$input_headers_ref} = @new_row;
+						$log->debug("seen header", {input_headers_ref => $input_headers_ref}) if $log->is_debug();
+					}
+				}
+				else {
+					push @{$rows_ref}, \@new_row;
+				}
+			}
+
+			if (not defined $input_headers_ref) {
+				die "Could not find header in Excel file $file";
+			}
+
+			# If some columns have the same name, add a suffix
+			my %headers = ();
+			my $i = 0;
+			foreach my $header (@{$input_headers_ref}) {
+				if (defined $headers{$header}) {
+					$headers{$header}++;
+					$input_headers_ref->[$i] = $header . " - " . $headers{$header};
+				}
+				else {
+					$headers{$header} = 1;
+				}
+				$i++;
+			}
+			$results_ref = {headers => $input_headers_ref, rows => $rows_ref};
+			1;
+		};
+		if (!$excel_success) {
+			my $error = $@ || "Unknown error reading Excel file";
+			$log->error("Error reading Excel file", {file => $file, error => $error}) if $log->is_error();
+			$results_ref->{error} = "Cannot read Excel file $file: $error";
+			return $results_ref;
+		}
+		if (not $results_ref->{error}) {
+			# Already populated
+			return $results_ref;
+		}
 	}
 	else {
 		# If there are tabs in the first line, assume the separator is tab
