@@ -1566,7 +1566,7 @@ while (my $product_ref = $cursor->next) {
 				# we store the product with the new update_key in the .sto file and the mongodb collection
 
 				# Set last modified time if something was changed
-				if ($any_change) {
+				if ($any_change or $force_new_version) {
 					$product_ref->{last_updated_t} = time() + 0;
 				}
 				else {
