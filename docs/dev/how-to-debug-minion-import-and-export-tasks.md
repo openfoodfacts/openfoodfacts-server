@@ -63,7 +63,7 @@ as the off user:
 sudo -u off bash
 source env/setenv off
 TAP_LOG_FILTER=none perl scripts/minion_producers.pl minion worker -m production
-``` bash
+```
 
 The `TAP_LOG_FILTER` environment variable is used to set the log level for Log4Perl. Setting it to `none` prints messages for all log levels.
 
