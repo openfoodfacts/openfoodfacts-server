@@ -382,7 +382,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         tar \
         unzip \
         zip \
-        pigz
+        pigz \
+        make
 USER www-data
 
 ######################
