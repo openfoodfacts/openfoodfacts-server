@@ -11,7 +11,7 @@ This document explains how to generate and update the `cpanfile.snapshot` file f
 * **`cpm`** is used for installation (`Dockerfile` builder stage): parallel, `--show-build-log-on-failure -w $(nproc)`, `--snapshot` auto-loaded when `cpanfile.snapshot` exists.
 * **`Carton`** is used only for **generating** the snapshot: `cpm` can *consume* a snapshot (`--snapshot` / `--resolver snapshot` via `Carton::Snapshot`, see `skaji/cpm#174`) but cannot *create* it. The Debian `carton` package is therefore kept in `Dockerfile` solely for `scripts/generate_cpanfile_snapshot.sh`.
 
-> Note on `cpm` snapshot semantics: plain `cpm install` auto-adds a `Snapshot` resolver if `cpanfile.snapshot` exists (see `generate_resolver` in `App::cpm::CLI`), but it is opportunistic (falls back to `MetaCPAN`/`MetaDB`). `Dockerfile` therefore uses `cpm install --resolver snapshot --no-default-resolvers` when the snapshot exists — the strict `carton install --deployment` equivalent that fails fast on a stale lock instead of silently drifting.
+> Note on `cpm` snapshot semantics: plain `cpm install` (no ARGV) auto-adds a `Snapshot` resolver if `cpanfile.snapshot` exists (see `generate_resolver` in `App::cpm::CLI`), consulting it first and falling back to `MetaCPAN`/`MetaDB` for anything missing. Snapshot-only resolution (`--resolver snapshot --no-default-resolvers`) is deliberately NOT used: `carton` omits distributions satisfied by the system at snapshot generation time, so a strict snapshot-only resolver can never resolve a full `cpanfile` graph (observed on CI with `ExtUtils::CppGuess`, `Alien::FFI`, `Devel::CheckLib`, `Test::MockObject`, etc.).
 >
 > Note on feature flags: `cpm` accepts `--with-develop` (like `cpanm`) and `--feature=<name>`, but NOT `--with-feature=<name>`. If you need `off_server_dev_tools` from `cpanfile`, pass `--feature=off_server_dev_tools` to `cpm` (the `--with-feature=` spelling in `cpanfile:174` and `docker/devcontainer.yml` is `cpanm` syntax and will fail under `cpm` — pre-existing on `main`, out of scope here).
 
@@ -20,8 +20,8 @@ This document explains how to generate and update the `cpanfile.snapshot` file f
 ### Production Builds (with cpanfile.snapshot)
 
 When `cpanfile.snapshot` exists:
-- `Dockerfile` runs `cpm install --resolver snapshot --no-default-resolvers` (strict, `carton --deployment` equivalent)
-- Exact versions from the snapshot via `Carton::Snapshot`; missing entries fail instead of silently resolving to latest
+- `Dockerfile` runs `cpm install` with no ARGV, so `cpm` auto-loads the snapshot and uses it as the primary resolver
+- Exact versions from the snapshot via `Carton::Snapshot`; anything missing falls back to `MetaCPAN`
 
 ### Development / Initial Builds (without cpanfile.snapshot)
 

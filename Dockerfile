@@ -226,10 +226,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     cpm install --show-build-log-on-failure -w $(nproc) -g "Test2::Harness::Renderer::JUnit"
 
 # Add ProductOpener runtime dependencies from cpan
-# cpm consumes cpanfile.snapshot when present (via Carton::Snapshot).
-# With snapshot: strict --resolver snapshot --no-default-resolvers
-# (carton --deployment equivalent, fails fast on stale lock).
-# Without snapshot: resolve from cpanfile (used by snapshot generation).
+# cpm consumes cpanfile.snapshot when present (auto-detected, no ARGV):
+# the snapshot is consulted first and any gap falls back to MetaCPAN.
+# Snapshot-only "--resolver snapshot --no-default-resolvers" is not used
+# because carton omits distributions satisfied by the system at snapshot
+# generation time, so it can never resolve a full cpanfile graph.
 # See docs/dev/how-to-generate-cpanfile-snapshot.md
 COPY ./cpanfile* /tmp/
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
@@ -241,13 +242,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \
     export PERL_MB_OPT="--install_base /tmp/local/" && \
     export PERL5LIB="/tmp/local/lib/perl5/" && \
-    if [ -f cpanfile.snapshot ]; then \
-        echo "Using cpanfile.snapshot with strict resolver..." && \
-        cpm install --resolver snapshot --no-default-resolvers $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g; \
-    else \
-        echo "No cpanfile.snapshot found, resolving from cpanfile..." && \
-        cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g; \
-    fi
+    cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
 
 ######################
 # backend production image stage

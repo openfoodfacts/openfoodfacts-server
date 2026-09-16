@@ -11,21 +11,21 @@ Previously, Perl dependencies were installed without strict version locking, mak
 **Install with `cpm` (fast) + lock with `cpanfile.snapshot` (Carton format).**
 
 ### Production Builds (Reproducible)
-- When `cpanfile.snapshot` exists, `cpm` auto-loads it via `Carton::Snapshot` (`--snapshot` default) and installs exact versions
-- Fully reproducible builds across environments and time
+- When `cpanfile.snapshot` exists, `cpm` (no ARGV) auto-loads it via `Carton::Snapshot` and uses it as the *primary* resolver
+- Any package missing from the snapshot falls back to `MetaCPAN`/`MetaDB` (snapshot-only `--resolver snapshot --no-default-resolvers` is not used, see below)
 - Used for production deployments and CI/CD
 
 ### Development Builds (Flexible)
 - When no snapshot exists, `cpm` resolves from `cpanfile` constraints (`CPANMOPTS=--with-develop` etc.)
-- Same installer (`cpm -w $(nproc)`) in both cases; no `carton install --deployment` branching
+- Same installer (`cpm -w $(nproc)`) in both cases; snapshot presence only changes resolution priority, not the command
 
 ## Changes Made
 
 ### 1. Dockerfile Updates
-- **Kept `cpm`** as primary installer (as on `main`: `cpm install --show-build-log-on-failure -w $(nproc) -g`)
-- **Added `carton` Debian package** to base image *only* for snapshot generation / `Carton::Snapshot` runtime dep for `cpm --snapshot` (cpm can read `cpanfile.snapshot` via `--resolver snapshot` / `--snapshot` but cannot write it - see `skaji/cpm#174`)
-- **Builder stage** now matches `main` exactly except for the extra `carton` package; `cpm` auto-detects `cpanfile.snapshot` when `COPY ./cpanfile* /tmp/` is present
-- Added comment linking to `docs/dev/how-to-generate-cpanfile-snapshot.md`
+- **Kept `cpm`** as primary installer; build command identical to `main` (`cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g`), which auto-loads `cpanfile.snapshot` when present
+- **Added `carton` Debian package** to base image *only* for snapshot generation / `Carton::Snapshot` runtime dep for `cpm --snapshot` (cpm can read `cpanfile.snapshot` via `--snapshot` / `--resolver snapshot` but cannot write it - see `skaji/cpm#174`)
+- **Builder stage** matches `main`'s install command; `cpm` auto-detects `cpanfile.snapshot` after `COPY ./cpanfile* /tmp/` (fixes a pre-existing trailing space after `\` on the `PERL_MM_OPT` line from `main`)
+- Added comments linking to `docs/dev/how-to-generate-cpanfile-snapshot.md`
 
 ### 2. Scripts
 - **Created `scripts/generate_cpanfile_snapshot.sh`**: Automated snapshot generation
@@ -51,19 +51,19 @@ Previously, Perl dependencies were installed without strict version locking, mak
 
 ### With cpanfile.snapshot (Production)
 ```dockerfile
-# strict snapshot use when present (carton --deployment equivalent)
+# cpm auto-loads cpanfile.snapshot (no ARGV), snapshot first then MetaCPAN fallback
 COPY ./cpanfile* /tmp/
-RUN cpm install --resolver snapshot --no-default-resolvers --show-build-log-on-failure -w $(nproc) -g
+RUN cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
 ```
 
 ### Without cpanfile.snapshot (Development)
 ```dockerfile
-# plain cpm, resolves from cpanfile
-COPY ./cpanfile /tmp/
-RUN cpm install --with-develop --show-build-log-on-failure -w $(nproc) -g
+# same command; no snapshot present so cpm resolves from cpanfile via MetaCPAN
+COPY ./cpanfile* /tmp/
+RUN cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
 ```
 
-`Dockerfile` branches on `-f cpanfile.snapshot`: strict `--resolver snapshot --no-default-resolvers` (`carton --deployment` equivalent) when present, plain `cpm install` otherwise. Plain `cpm` alone would be opportunistic (falls back to `MetaCPAN`).
+Both modes use the **same** command. When `cpanfile.snapshot` exists, `cpm` auto-adds a `Snapshot` resolver ahead of `MetaCPAN`/`MetaDB` (`generate_resolver` in `App::cpm::CLI`). Snapshot-only resolution (`--resolver snapshot --no-default-resolvers`) is deliberately avoided: `carton` omits distributions satisfied by the system at snapshot generation time, so a strict snapshot-only resolver can never resolve a full `cpanfile` graph (observed on CI with `ExtUtils::CppGuess`, `Alien::FFI`, `Devel::CheckLib`, `Test::MockObject`, etc.).
 
 ## Usage
 
@@ -132,13 +132,13 @@ Performance: `cpm` is parallel and an order of magnitude faster. Carton is retai
 
 ### Snapshot Format
 - Carton `version 1.0` text format
-- Read by both `carton` and `cpm` (via `Carton::Snapshot`)
+- Read by both `carton` and `cpm` (via `Carton::Snapshot`); used as primary resolver with `MetaCPAN` fallback
 - Version-controlled, human-readable
 
 ### Backward Compatibility
 - `CPANMOPTS` usage unchanged (mapped to `cpm` flags)
 - No impact on developers without snapshot
-- Dockerfile diff vs `main` is just `+carton` apt package
+- Dockerfile diff vs `main` is just `+carton` apt package, comments, and a trailing-space fix
 
 ## Testing Strategy
 
