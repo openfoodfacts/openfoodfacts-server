@@ -75,7 +75,7 @@ requires 'Data::Compare';
 
 # I10N
 requires 'Locale::Unicode', '== 0.4.4';
-requires 'DateTime::Lite', '== 0.8.1';
+requires 'DateTime::Lite', '== 0.9.0';
 requires 'DateTime::Format::Lite', '== 0.1.3';
 requires 'DateTime::Locale::FromCLDR', '== 0.8.7';
 
