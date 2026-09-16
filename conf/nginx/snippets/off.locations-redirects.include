@@ -36,11 +36,11 @@ location ~ ^/(greenscore|ecoscore|eco-score-l-impact-environnemental-des-produit
 # === donation redirects ===
 # Default / fallback donation page (with host-language detection)
 location = /donate-to-open-food-facts {
-	try_files /donate/$host_lang.html /donate/en.html =404;
+	try_files /donate/en.html =404;
 }
 
 # Generic language-tagged URLs: /donate-to-open-food-facts-<lc>
-location ~ ^/donate-to-open-food-facts-([a-z]{2,3}(?:_[a-zA-Z]{2})?)$ {
+location ~ "^/donate-to-open-food-facts-([a-z]{2,3}(?:_[a-zA-Z]{2})?)$" {
 	try_files /donate/$1.html /donate/en.html =404;
 }
 
@@ -799,4 +799,3 @@ location = /hunger-game {
 location = /donate {
 	return 301 https://$host/donate-to-open-food-facts;
 }
-
