@@ -47,6 +47,12 @@
       "en:beverages",
       "en:artificially-sweetened-beverages"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "improvements_data" : {
       "en:better-nutri-score-with-much-more-fruits-vegetables-legumes" : {
          "current_nutriscore_grade" : "c",
@@ -134,13 +140,13 @@
    "ingredients_sweeteners_n" : 1,
    "ingredients_tags" : [
       "en:apple-juice",
+      "en:fruit-juice",
       "en:fruit",
       "en:juice",
-      "en:fruit-juice",
       "en:water",
       "en:sugar",
-      "en:added-sugar",
       "en:disaccharide",
+      "en:added-sugar",
       "en:e951"
    ],
    "ingredients_text" : "apple juice, water, sugar, aspartame",

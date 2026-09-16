@@ -9,8 +9,8 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fats",
-      "en:vegetable-fats",
       "en:olive-tree-products",
+      "en:vegetable-fats",
       "en:vegetable-oils",
       "en:olive-oils"
    ],
@@ -34,8 +34,8 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fats",
-      "en:vegetable-fats",
       "en:olive-tree-products",
+      "en:vegetable-fats",
       "en:vegetable-oils",
       "en:olive-oils"
    ],
@@ -45,6 +45,12 @@
       "en:fats-and-sauces",
       "en:fats"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "ingredients" : [
       {
          "id" : "en:some very fancy but unrecognized way of writing olive oil",
