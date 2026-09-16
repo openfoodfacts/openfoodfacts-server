@@ -34,6 +34,7 @@
     {
         "imports": {
             "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+			"cropperjs": "//static.openfoodfacts.localhost/js/dist/cropper.esm.js",
             "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
             "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
             "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
@@ -391,7 +392,7 @@
         </p>
       </div>
       <div class="donation-banner__actions-section__donate-button">
-        <a href="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
+        <a href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
           <button>Faire un don</button>
         </a>
       </div>
@@ -815,7 +816,7 @@
         </p>
       </div>
       <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
+        <a href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
           <button>Faire un don</button>
         </a>
       </div>
@@ -834,8 +835,8 @@
 						<p>Rejoignez-nous sur <a href="//slack.openfoodfacts.org">Slack</a></p>
 						<p><a href="//forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">Suivez-nous : 
-							<a href="//x.com/OpenFoodFactsfr"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="x"></a>
-							<a href="//www.facebook.com/OpenFoodFacts.fr"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
+							<a href="//x.com/OpenFoodFactsfr"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="X formerly Twitter"></a>
+							<a href="//www.facebook.com/OpenFoodFacts.fr"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook icon"></a>
 							<a href="//www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
 							
 						</p>
@@ -852,7 +853,11 @@
 							<li><a class="button small white-button radius" href="//fr.wiki.openfoodfacts.org">Open Food Facts wiki (fr)</a></li>
 							<li><a class="button small white-button radius" href="/cgi/top_translators.pl">Traducteurs</a></li>
 							<li><a class="button small white-button radius" href="/partenaires">Partenaires</a></li>
+              <li><a class="button small white-button radius" href="/data">Données, API et SDK</a></li>
 							<li><a class="button small white-button radius" href="//world-fr.openbeautyfacts.org">Open Beauty Facts - Cosmétiques</a></li>
+              <li><a class="button small white-button radius" href="//world.openproductsfacts.org">Open Products Facts</a></li>
+              <li><a class="button small white-button radius" href="//world.openpetfoodfacts.org">Open Pet Food Facts</a></li>
+              <li><a class="button small white-button radius" href="//prices.openfoodfacts.org/">Open Prices</a></li>
 							<li><a class="button small white-button radius" href="//fr.pro.openfoodfacts.localhost/">Open Food Facts pour les producteurs</a></li>
 						</ul>
 					</div>
@@ -875,8 +880,7 @@
 									<li><a href="/mentions-legales">Mentions légales</a></li>
 									<li><a href="/privacy">Confidentialité</a></li>
 									<li><a href="/conditions-d-utilisation">Conditions d'utilisation</a></li>
-									<li><a href="/data">Données, API et SDK</a></li>
-									<li><a href="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Faire un don à l'association Open Food Facts</a></li>
+									<li><a href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Faire un don à l'association Open Food Facts</a></li>
 									<li><a href="//fr.pro.openfoodfacts.org/">Producteurs</a></li>
 									<li><a href="//link.openfoodfacts.org/newsletter-fr">S'abonner à notre newsletter</a></li>
 								</ul>
@@ -980,7 +984,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":93.3333333333333,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Acides gras saturés en faible quantité"
                }
@@ -1212,16 +1216,16 @@ var products = [
                   "title":"Green-Score B"
                },
                {
-                  "description":"",
-                  "description_short":"Pas de risque de déforestation",
-                  "grade":"a",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+                  "description":"Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels.",
+                  "description_short":"Risque faible de déforestation",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg",
                   "id":"forest_footprint",
-                  "match":99.9782222222222,
-                  "name":"Empreinte forêt",
+                  "match":66,
+                  "name":"Empreinte Forêt",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Très petite empreinte forêt"
+                  "title":"Empreinte Forêt B"
                }
             ],
             "id":"environment",
@@ -1317,7 +1321,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":0,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Acides gras saturés en quantité élevée"
                }
@@ -1549,16 +1553,16 @@ var products = [
                   "title":"Green-Score non calculé"
                },
                {
-                  "description":"",
-                  "description_short":"Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
+                  "description":"Présence d'un ou plusieurs ingrédients à risque de déforestation, et risque fort au regard de leur quantité, origine et/ou labels.",
+                  "description_short":"Risque fort de déforestation",
                   "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-d.svg",
                   "id":"forest_footprint",
                   "match":0,
-                  "name":"Empreinte forêt",
+                  "name":"Empreinte Forêt",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Empreinte forêt non calculée"
+                  "title":"Empreinte Forêt D"
                }
             ],
             "id":"environment",
@@ -1653,7 +1657,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":100,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Acides gras saturés en faible quantité"
                }
@@ -1886,16 +1890,16 @@ var products = [
                   "title":"Green-Score C"
                },
                {
-                  "description":"",
-                  "description_short":"Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"Absence d'ingrédient associé à un risque de déforestation.",
+                  "description_short":"Absence de risque de déforestation",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id":"forest_footprint",
-                  "match":0,
-                  "name":"Empreinte forêt",
+                  "match":100,
+                  "name":"Empreinte Forêt",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Empreinte forêt non calculée"
+                  "title":"Empreinte Forêt A"
                }
             ],
             "id":"environment",
@@ -1990,7 +1994,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":100,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Acides gras saturés en faible quantité"
                }
@@ -2223,16 +2227,16 @@ var products = [
                   "title":"Green-Score C"
                },
                {
-                  "description":"",
-                  "description_short":"Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"Absence d'ingrédient associé à un risque de déforestation.",
+                  "description_short":"Absence de risque de déforestation",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id":"forest_footprint",
-                  "match":0,
-                  "name":"Empreinte forêt",
+                  "match":100,
+                  "name":"Empreinte Forêt",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Empreinte forêt non calculée"
+                  "title":"Empreinte Forêt A"
                }
             ],
             "id":"environment",
@@ -2327,7 +2331,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":20,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Acides gras saturés en quantité modérée"
                }
@@ -2560,16 +2564,16 @@ var products = [
                   "title":"Green-Score B"
                },
                {
-                  "description":"",
-                  "description_short":"Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"Risque potentiel de déforestation mais non calculé à ce jour.",
+                  "description_short":"Risque potentiel de déforestation non calculé",
+                  "grade":"unknown",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-not-computed.svg",
                   "id":"forest_footprint",
                   "match":0,
-                  "name":"Empreinte forêt",
+                  "name":"Empreinte Forêt",
                   "panel_id":"forest_footprint",
-                  "status":"known",
-                  "title":"Empreinte forêt non calculée"
+                  "status":"unknown",
+                  "title":"Empreinte Forêt non calculée"
                }
             ],
             "id":"environment",
@@ -2664,7 +2668,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":71.4285714285714,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Acides gras saturés en quantité modérée"
                }
@@ -2896,16 +2900,16 @@ var products = [
                   "title":"Green-Score non calculé"
                },
                {
-                  "description":"",
-                  "description_short":"Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"Absence d'ingrédient associé à un risque de déforestation.",
+                  "description_short":"Absence de risque de déforestation",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id":"forest_footprint",
-                  "match":0,
-                  "name":"Empreinte forêt",
+                  "match":100,
+                  "name":"Empreinte Forêt",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Empreinte forêt non calculée"
+                  "title":"Empreinte Forêt A"
                }
             ],
             "id":"environment",
@@ -3000,7 +3004,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":93.3333333333333,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Acides gras saturés en faible quantité"
                }
@@ -3233,16 +3237,16 @@ var products = [
                   "title":"Green-Score C"
                },
                {
-                  "description":"",
-                  "description_short":"Pas de risque de déforestation",
-                  "grade":"a",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+                  "description":"Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels.",
+                  "description_short":"Risque faible de déforestation",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg",
                   "id":"forest_footprint",
-                  "match":99.9782222222222,
-                  "name":"Empreinte forêt",
+                  "match":66,
+                  "name":"Empreinte Forêt",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Très petite empreinte forêt"
+                  "title":"Empreinte Forêt B"
                }
             ],
             "id":"environment",

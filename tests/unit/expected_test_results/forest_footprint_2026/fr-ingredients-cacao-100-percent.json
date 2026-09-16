@@ -3,13 +3,13 @@
       "grade" : "d",
       "primary_ingredients" : {
          "en:cocoa" : {
-            "footprint_per_kg" : 0.3537,
+            "footprint_per_kg" : 0.33405,
             "grade" : "d",
             "ingredients" : [
                {
                   "equivalence_ingredient" : 1,
                   "equivalence_ingredient_category" : 1,
-                  "footprint_per_kg" : 0.3537,
+                  "footprint_per_kg" : 0.33405,
                   "ingredient_category_id" : "en:cocoa",
                   "ingredient_id" : "en:cocoa",
                   "label_id" : "en:organic",
@@ -17,13 +17,14 @@
                   "origin_id" : "en:brazil",
                   "percent" : 100,
                   "primary_ingredient_id" : "en:cocoa",
-                  "risk_factor" : 0.9,
+                  "risk_factor" : 0.85,
                   "transformation_factor" : 1
                }
             ]
          }
       },
-      "total_footprint_per_kg" : 0.3537
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 0.33405
    },
    "ingredients" : [
       {

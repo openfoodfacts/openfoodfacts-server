@@ -257,7 +257,7 @@ module.exports = [
     }
   },
   {
-    files: ["gulpfile.mjs", "html/js/display-list-of-tags.js", "html/js/display-map.js", "html/js/display-tag.js", "html/js/rewind-browser.js"],
+    files: ["gulpfile.mjs", "html/js/display-list-of-tags.js", "html/js/display-map.js", "html/js/display-tag.js", "html/js/image-editor.js", "html/js/rewind-browser.js"],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: "module",

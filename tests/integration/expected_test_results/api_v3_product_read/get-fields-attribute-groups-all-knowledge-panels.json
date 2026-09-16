@@ -72,7 +72,7 @@
                   "id" : "low_saturated_fat",
                   "match" : 17.6,
                   "name" : "Saturated fat",
-                  "panel_id" : "nutrient_level_saturated_fat",
+                  "panel_id" : "nutrient_level_saturated-fat",
                   "status" : "known",
                   "title" : "Saturated fat in high quantity"
                }
@@ -315,16 +315,16 @@
                   "title" : "Green-Score not computed"
                },
                {
-                  "description" : "",
-                  "description_short" : "Currently only for products with chicken or eggs",
-                  "grade" : "e",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description" : "No ingredient associated with a deforestation risk.",
+                  "description_short" : "No deforestation risk",
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id" : "forest_footprint",
-                  "match" : 0,
-                  "name" : "Forest footprint",
+                  "match" : 100,
+                  "name" : "Forest Footprint",
                   "panel_id" : "forest_footprint",
                   "status" : "known",
-                  "title" : "Forest footprint not computed"
+                  "title" : "Forest Footprint A"
                }
             ],
             "id" : "environment",
@@ -412,7 +412,7 @@
                   "id" : "low_saturated_fat",
                   "match" : 17.6,
                   "name" : "Saturated fat",
-                  "panel_id" : "nutrient_level_saturated_fat",
+                  "panel_id" : "nutrient_level_saturated-fat",
                   "status" : "known",
                   "title" : "Saturated fat in high quantity"
                }
@@ -655,16 +655,16 @@
                   "title" : "Green-Score not computed"
                },
                {
-                  "description" : "",
-                  "description_short" : "Currently only for products with chicken or eggs",
-                  "grade" : "e",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description" : "No ingredient associated with a deforestation risk.",
+                  "description_short" : "No deforestation risk",
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id" : "forest_footprint",
-                  "match" : 0,
-                  "name" : "Forest footprint",
+                  "match" : 100,
+                  "name" : "Forest Footprint",
                   "panel_id" : "forest_footprint",
                   "status" : "known",
-                  "title" : "Forest footprint not computed"
+                  "title" : "Forest Footprint A"
                }
             ],
             "id" : "environment",
@@ -1107,6 +1107,12 @@
       "entry_dates_tags" : "--ignore--",
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups_tags" : [],
+      "forest_footprint_2026" : {
+         "grade" : "a",
+         "primary_ingredients" : {},
+         "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+         "total_footprint_per_kg" : 0
+      },
       "generic_name" : "default_name",
       "generic_name_en" : "default_name",
       "id" : "4260392550101",
@@ -1218,6 +1224,12 @@
                      ],
                      "title" : "Transportation"
                   }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "forest_footprint"
+                  }
                }
             ],
             "expanded" : true,
@@ -1254,6 +1266,37 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                "subtitle" : "Missing a precise category",
                "title" : "Green-Score not computed",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "forest_footprint" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint grade:</strong> \n                    A\n                </p>\n                <p>No ingredient associated with a deforestation risk.</p>\n                <p><strong>Total Forest Footprint:</strong> \n                    0.00 \n                    m² per kg of food\n                </p>\n                \n                ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <h3>Labels</h3>\n                <p>The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers.</p>\n                ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
+               "name" : "Forest Footprint",
+               "subtitle" : "No ingredient associated with a deforestation risk.",
+               "title" : "Forest Footprint A  - No deforestation risk",
                "type" : "grade"
             },
             "topics" : [

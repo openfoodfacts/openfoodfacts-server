@@ -57,7 +57,7 @@
                   "id" : "low_saturated_fat",
                   "match" : 17.6,
                   "name" : "Acides gras saturés",
-                  "panel_id" : "nutrient_level_saturated_fat",
+                  "panel_id" : "nutrient_level_saturated-fat",
                   "status" : "known",
                   "title" : "Acides gras saturés en quantité élevée"
                }
@@ -300,16 +300,16 @@
                   "title" : "Green-Score non calculé"
                },
                {
-                  "description" : "",
-                  "description_short" : "Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
-                  "grade" : "e",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description" : "Absence d'ingrédient associé à un risque de déforestation.",
+                  "description_short" : "Absence de risque de déforestation",
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id" : "forest_footprint",
-                  "match" : 0,
-                  "name" : "Empreinte forêt",
+                  "match" : 100,
+                  "name" : "Empreinte Forêt",
                   "panel_id" : "forest_footprint",
                   "status" : "known",
-                  "title" : "Empreinte forêt non calculée"
+                  "title" : "Empreinte Forêt A"
                }
             ],
             "id" : "environment",

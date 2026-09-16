@@ -687,7 +687,99 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                <p><strong>Ingrédients nécessitant du soja</strong></p>\n                <p>L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation.</p>\n                ",
+                     "html" : "\n                <p><strong>Empreinte Forêt</strong></p>\n                <p>L'Empreinte Forêt est une méthodologie développée par l'association <a href=\"https://envol-vert.org/\">Envol Vert</a> pour estimer le risque de déforestation lié à notre consommation.\n                &rarr; <a href=\"https://envol-vert.org/\">Plus d'informations sur la méthodologie</a></p>\n\n                \n                <p><strong>Note de l'Empreinte Forêt :</strong> \n                    B\n                </p>\n                <p>Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels.</p>\n                <p><strong>Empreinte Forêt totale :</strong> \n                    0.00 \n                    m² par kg d'aliment\n                </p>\n                \n                ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <h3>Huile de palme</h3>\n                <p><strong>Note de l'ingrédient primaire :</strong> B</p>\n                <p><strong>Ingrédient primaire :</strong> 0.00 m² par kg d'aliment</p>\n                \n                <p>La production d’huile de palme, concentrée majoritairement en Indonésie et en Malaisie, contribue largement à la déforestation. L'île de Bornéo a perdu plus de la moitié de ses forêts depuis les années 1970.</p>\n                \n                ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Ingrédient",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "% dans le produit",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Ingrédient primaire",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Facteur de transformation",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Origine du produit et/ou de ses ingrédients",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Empreinte Forêt pour l'origine",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Label",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Risque de déforestation",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Empreinte Forêt<br><span style=\"font-weight:normal\">(m² par kg d'aliment)</span>",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "forest_footprint_2026_en:palm-oil_table",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "huile et matière grasse de palme"
+                              },
+                              {
+                                 "text" : "5.21 %"
+                              },
+                              {
+                                 "text" : "huile de palme"
+                              },
+                              {
+                                 "text" : "1.00"
+                              },
+                              {
+                                 "text" : "Inconnu"
+                              },
+                              {
+                                 "text" : "0.055"
+                              },
+                              {
+                                 "text" : "Bio"
+                              },
+                              {
+                                 "text" : "85 %"
+                              },
+                              {
+                                 "text" : "0.00"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "huile de palme"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <h3>Ingrédients nécessitant du soja</h3>\n                <p>L'Empreinte Forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation.</p>\n                <p><strong>Note de l'ingrédient primaire :</strong> B</p>\n                <p><strong>Empreinte Forêt totale :</strong> 0.00 m² par kg d'aliment</p>\n                <p>La viande de volaille et ses dérivés (œufs), même élevés en France, contribuent largement à la déforestation via leur alimentation : le soja. La France importe deux tiers de son soja du Brésil, où sa culture participe à détruire l’Amazonie.</p>\n                ",
                      "type" : "summary"
                   }
                },
@@ -724,11 +816,11 @@
                            "type" : "text"
                         },
                         {
-                           "text" : "Empreinte forêt<br><span style=\"font-weight:normal\">(m² par kg d'aliment)</span>",
+                           "text" : "Empreinte Forêt<br><span style=\"font-weight:normal\">(m² par kg d'aliment)</span>",
                            "type" : "text"
                         }
                      ],
-                     "id" : "forest_footprint_table",
+                     "id" : "forest_footprint_2026_en:chicken-and-eggs_table",
                      "rows" : [
                         {
                            "values" : [
@@ -759,24 +851,32 @@
                            ]
                         }
                      ],
-                     "title" : "Ingrédients nécessitant du soja"
+                     "title" : "en:chicken-and-eggs"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <h3>Empreinte forêt totale</h3>\n                    <p><strong>0.00 m² par kg d'aliment</strong></p>\n                ",
+                     "html" : "\n                <h3>Autres ingrédients à risque</h3>\n                <p>Ces ingrédients ne sont pas encore évalués pour le risque de déforestation :</p>\n                <ul>\n                \n                <li>Lait</li>\n                \n                </ul>\n                ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <h3>Labels</h3>\n                <p>La présence de certains labels peut grandement contribuer à réduire le risque de déforestation, via la présence de critères environnementaux et/ou via une meilleure rémunération des producteurs et productrices.</p>\n                ",
                      "type" : "summary"
                   }
                }
             ],
+            "expanded" : false,
             "level" : "info",
             "title_element" : {
-               "grade" : "a",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
-               "name" : "Empreinte forêt",
-               "subtitle" : "Pas de risque de déforestation",
-               "title" : "Très petite empreinte forêt",
+               "grade" : "b",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg",
+               "name" : "Empreinte Forêt",
+               "subtitle" : "Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels.",
+               "title" : "Empreinte Forêt B  - Risque faible de déforestation",
                "type" : "grade"
             },
             "topics" : [
