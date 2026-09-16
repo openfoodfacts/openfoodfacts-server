@@ -63,7 +63,7 @@ L<https://inadarei.github.io/rfc-healthcheck/>.
 =cut
 
 sub current_time_iso8601() {
-	return DateTime->now(time_zone => 'UTC')->iso8601 . 'Z';
+	return DateTime::Lite->now(time_zone => 'UTC')->iso8601 . 'Z';
 }
 
 =head2 sanitize_url($url)
