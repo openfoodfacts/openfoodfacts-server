@@ -1734,9 +1734,34 @@ sub load_csv_file ($options_ref) {
 						# but try again if the size is 0
 
 						if ((!-e "$dir/$file") or ((-s "$dir/$file") < 10000)) {
-
-							# print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
-							system("wget \"" . $csv_product_ref->{$source_field} . "\" -O $dir/$file");
+							eval {
+								require LWP::UserAgent;
+								require File::Path;
+								File::Path::make_path($dir) unless -d $dir;
+								my $ua = LWP::UserAgent->new(
+									timeout => 30,
+									agent => "OpenFoodFacts Perl ImportConvert/1.0"
+								);
+								$ua->env_proxy;
+								my $url = $csv_product_ref->{$source_field};
+								my $response = $ua->get($url, ':content_file' => "$dir/$file");
+								if (!$response->is_success) {
+									$log->warn("Failed to download image",
+										{url => $url, status => $response->status_line, file => "$dir/$file"})
+										if $log->is_warn();
+									# Remove empty file on failure to allow retry
+									unlink "$dir/$file" if -e "$dir/$file" && -z "$dir/$file";
+								}
+								else {
+									$log->debug("Downloaded image", {url => $url, file => "$dir/$file"})
+										if $log->is_debug();
+								}
+							};
+							if ($@) {
+								$log->error("Exception downloading image",
+									{error => $@, url => $csv_product_ref->{$source_field}})
+									if $log->is_error();
+							}
 							sleep 2;    # there seems to be some limit as we received 403 Forbidden responses
 						}
 					}

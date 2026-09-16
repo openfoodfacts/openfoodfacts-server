@@ -47,8 +47,20 @@ for (my $month = 1; $month <= 12; $month++) {
 			next;
 		}
 		print STDERR "Downloading data for $date\n";
-		system(
-			"wget -O $file 'https://analytics.openfoodfacts.org/?module=API&method=Live.getLastVisitsDetails&idSite=2&period=day&date=$date&format=JSON&token_auth=$token&filter_limit=-1'"
-		);
+		eval {
+			require LWP::UserAgent;
+			my $ua = LWP::UserAgent->new(timeout => 60, agent => "OpenFoodFacts Matomo Downloader/1.0");
+			$ua->env_proxy;
+			my $url
+				= "https://analytics.openfoodfacts.org/?module=API&method=Live.getLastVisitsDetails&idSite=2&period=day&date=$date&format=JSON&token_auth=$token&filter_limit=-1";
+			my $response = $ua->get($url, ':content_file' => $file);
+			if (!$response->is_success) {
+				warn "Failed to download $date: " . $response->status_line . "\n";
+				unlink $file if -e $file && -z $file;
+			}
+		};
+		if ($@) {
+			warn "Exception downloading $date: $@\n";
+		}
 	}
 }
