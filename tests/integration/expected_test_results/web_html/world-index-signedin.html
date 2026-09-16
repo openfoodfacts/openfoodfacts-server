@@ -34,6 +34,7 @@
     {
         "imports": {
             "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+			"cropperjs": "//static.openfoodfacts.localhost/js/dist/cropper.esm.js",
             "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
             "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
             "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
@@ -872,8 +873,8 @@
 						<p>Join us on <a href="//slack.openfoodfacts.org">Slack</a></p>
 						<p><a href="//forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">Follow us: 
-							<a href="//x.com/OpenFoodFacts"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="x"></a>
-							<a href="//www.facebook.com/OpenFoodFacts?utm_source=off&utm_medium=web"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
+							<a href="//x.com/OpenFoodFacts"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="X formerly Twitter"></a>
+							<a href="//www.facebook.com/OpenFoodFacts?utm_source=off&utm_medium=web"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook icon"></a>
 							<a href="//www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
 							
 						</p>
@@ -890,7 +891,11 @@
 							<li><a class="button small white-button radius" href="//wiki.openfoodfacts.org">Open Food Facts wiki (en)</a></li>
 							<li><a class="button small white-button radius" href="/cgi/top_translators.pl">Translators</a></li>
 							<li><a class="button small white-button radius" href="/partners">Partners</a></li>
+              <li><a class="button small white-button radius" href="/data">Data, API and SDKs</a></li>
 							<li><a class="button small white-button radius" href="//world.openbeautyfacts.org">Open Beauty Facts - Cosmetics</a></li>
+              <li><a class="button small white-button radius" href="//world.openproductsfacts.org">Open Products Facts</a></li>
+              <li><a class="button small white-button radius" href="//world.openpetfoodfacts.org">Open Pet Food Facts</a></li>
+              <li><a class="button small white-button radius" href="//prices.openfoodfacts.org/">Open Prices</a></li>
 							<li><a class="button small white-button radius" href="//world.pro.openfoodfacts.localhost/">Open Food Facts for Producers</a></li>
 						</ul>
 					</div>
@@ -913,7 +918,6 @@
 									<li><a href="/legal">Legal</a></li>
 									<li><a href="/privacy">Privacy</a></li>
 									<li><a href="/terms-of-use">Terms of use</a></li>
-									<li><a href="/data">Data, API and SDKs</a></li>
 									<li><a href="//world.openfoodfacts.org/donate-to-open-food-facts">Donate to Open Food Facts</a></li>
 									<li><a href="//world.pro.openfoodfacts.org/">Producers</a></li>
 									<li><a href="//link.openfoodfacts.org/newsletter-en">Subscribe to our newsletter</a></li>
@@ -1018,7 +1022,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":93.3333333333333,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in low quantity"
                }
@@ -1250,16 +1254,16 @@ var products = [
                   "title":"Green-Score B"
                },
                {
-                  "description":"",
-                  "description_short":"Almost no risk of deforestation",
-                  "grade":"a",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+                  "description":"Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels.",
+                  "description_short":"Low risk of deforestation",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg",
                   "id":"forest_footprint",
-                  "match":99.9782222222222,
-                  "name":"Forest footprint",
+                  "match":66,
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Very small forest footprint"
+                  "title":"Forest Footprint B"
                }
             ],
             "id":"environment",
@@ -1355,7 +1359,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":0,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in high quantity"
                }
@@ -1587,16 +1591,16 @@ var products = [
                   "title":"Green-Score not computed"
                },
                {
-                  "description":"",
-                  "description_short":"Currently only for products with chicken or eggs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"No ingredient associated with a deforestation risk.",
+                  "description_short":"No deforestation risk",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id":"forest_footprint",
-                  "match":0,
-                  "name":"Forest footprint",
+                  "match":100,
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Forest footprint not computed"
+                  "title":"Forest Footprint A"
                }
             ],
             "id":"environment",
@@ -1691,7 +1695,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":0,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in high quantity"
                }
@@ -1923,16 +1927,16 @@ var products = [
                   "title":"Green-Score not computed"
                },
                {
-                  "description":"",
-                  "description_short":"Currently only for products with chicken or eggs",
+                  "description":"Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels.",
+                  "description_short":"High risk of deforestation",
                   "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-d.svg",
                   "id":"forest_footprint",
                   "match":0,
-                  "name":"Forest footprint",
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Forest footprint not computed"
+                  "title":"Forest Footprint D"
                }
             ],
             "id":"environment",
@@ -2027,7 +2031,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":100,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in low quantity"
                }
@@ -2260,16 +2264,16 @@ var products = [
                   "title":"Green-Score C"
                },
                {
-                  "description":"",
-                  "description_short":"Currently only for products with chicken or eggs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"No ingredient associated with a deforestation risk.",
+                  "description_short":"No deforestation risk",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id":"forest_footprint",
-                  "match":0,
-                  "name":"Forest footprint",
+                  "match":100,
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Forest footprint not computed"
+                  "title":"Forest Footprint A"
                }
             ],
             "id":"environment",
@@ -2364,7 +2368,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":20,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in moderate quantity"
                }
@@ -2596,16 +2600,16 @@ var products = [
                   "title":"Green-Score not computed"
                },
                {
-                  "description":"",
-                  "description_short":"Almost no risk of deforestation",
-                  "grade":"a",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+                  "description":"Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels.",
+                  "description_short":"Low risk of deforestation",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg",
                   "id":"forest_footprint",
-                  "match":99.903037037037,
-                  "name":"Forest footprint",
+                  "match":66,
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Very small forest footprint"
+                  "title":"Forest Footprint B"
                }
             ],
             "id":"environment",
@@ -2700,7 +2704,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":100,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in low quantity"
                }
@@ -2933,16 +2937,16 @@ var products = [
                   "title":"Green-Score C"
                },
                {
-                  "description":"",
-                  "description_short":"Currently only for products with chicken or eggs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"No ingredient associated with a deforestation risk.",
+                  "description_short":"No deforestation risk",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id":"forest_footprint",
-                  "match":0,
-                  "name":"Forest footprint",
+                  "match":100,
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Forest footprint not computed"
+                  "title":"Forest Footprint A"
                }
             ],
             "id":"environment",
@@ -3037,7 +3041,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":100,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in low quantity"
                }
@@ -3270,16 +3274,16 @@ var products = [
                   "title":"Green-Score C"
                },
                {
-                  "description":"",
-                  "description_short":"Currently only for products with chicken or eggs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"No ingredient associated with a deforestation risk.",
+                  "description_short":"No deforestation risk",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id":"forest_footprint",
-                  "match":0,
-                  "name":"Forest footprint",
+                  "match":100,
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Forest footprint not computed"
+                  "title":"Forest Footprint A"
                }
             ],
             "id":"environment",
@@ -3374,7 +3378,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":93.3333333333333,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in low quantity"
                }
@@ -3607,16 +3611,16 @@ var products = [
                   "title":"Green-Score D"
                },
                {
-                  "description":"",
-                  "description_short":"Currently only for products with chicken or eggs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"No ingredient associated with a deforestation risk.",
+                  "description_short":"No deforestation risk",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id":"forest_footprint",
-                  "match":0,
-                  "name":"Forest footprint",
+                  "match":100,
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Forest footprint not computed"
+                  "title":"Forest Footprint A"
                }
             ],
             "id":"environment",
@@ -3711,7 +3715,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":20,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in moderate quantity"
                }
@@ -3944,16 +3948,16 @@ var products = [
                   "title":"Green-Score B"
                },
                {
-                  "description":"",
-                  "description_short":"Currently only for products with chicken or eggs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"Potential deforestation risk but not yet computed.",
+                  "description_short":"Potential deforestation risk not computed",
+                  "grade":"unknown",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-not-computed.svg",
                   "id":"forest_footprint",
                   "match":0,
-                  "name":"Forest footprint",
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
-                  "status":"known",
-                  "title":"Forest footprint not computed"
+                  "status":"unknown",
+                  "title":"Forest Footprint not computed"
                }
             ],
             "id":"environment",
@@ -4048,7 +4052,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":0,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in high quantity"
                }
@@ -4281,16 +4285,16 @@ var products = [
                   "title":"Green-Score B"
                },
                {
-                  "description":"",
-                  "description_short":"Currently only for products with chicken or eggs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"Potential deforestation risk but not yet computed.",
+                  "description_short":"Potential deforestation risk not computed",
+                  "grade":"unknown",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-not-computed.svg",
                   "id":"forest_footprint",
                   "match":0,
-                  "name":"Forest footprint",
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
-                  "status":"known",
-                  "title":"Forest footprint not computed"
+                  "status":"unknown",
+                  "title":"Forest Footprint not computed"
                }
             ],
             "id":"environment",
@@ -4385,7 +4389,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":71.4285714285714,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in moderate quantity"
                }
@@ -4617,16 +4621,16 @@ var products = [
                   "title":"Green-Score not computed"
                },
                {
-                  "description":"",
-                  "description_short":"Currently only for products with chicken or eggs",
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "description":"No ingredient associated with a deforestation risk.",
+                  "description_short":"No deforestation risk",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                   "id":"forest_footprint",
-                  "match":0,
-                  "name":"Forest footprint",
+                  "match":100,
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Forest footprint not computed"
+                  "title":"Forest Footprint A"
                }
             ],
             "id":"environment",
@@ -4721,7 +4725,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":93.3333333333333,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in low quantity"
                }
@@ -4954,16 +4958,16 @@ var products = [
                   "title":"Green-Score C"
                },
                {
-                  "description":"",
-                  "description_short":"Almost no risk of deforestation",
-                  "grade":"a",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+                  "description":"Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels.",
+                  "description_short":"Low risk of deforestation",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg",
                   "id":"forest_footprint",
-                  "match":99.9782222222222,
-                  "name":"Forest footprint",
+                  "match":66,
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Very small forest footprint"
+                  "title":"Forest Footprint B"
                }
             ],
             "id":"environment",
@@ -5058,7 +5062,7 @@ var products = [
                   "id":"low_saturated_fat",
                   "match":20,
                   "name":"Saturated fat",
-                  "panel_id":"nutrient_level_saturated_fat",
+                  "panel_id":"nutrient_level_saturated-fat",
                   "status":"known",
                   "title":"Saturated fat in moderate quantity"
                }
@@ -5291,16 +5295,16 @@ var products = [
                   "title":"Green-Score C"
                },
                {
-                  "description":"",
-                  "description_short":"Almost no risk of deforestation",
-                  "grade":"a",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+                  "description":"Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels.",
+                  "description_short":"Low risk of deforestation",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg",
                   "id":"forest_footprint",
-                  "match":99.903037037037,
-                  "name":"Forest footprint",
+                  "match":66,
+                  "name":"Forest Footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
-                  "title":"Very small forest footprint"
+                  "title":"Forest Footprint B"
                }
             ],
             "id":"environment",

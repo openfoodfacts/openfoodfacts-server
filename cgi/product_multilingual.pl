@@ -783,15 +783,8 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$request_ref->{header} .= <<HTML
-<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-HTML
-		;
-
 	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>

@@ -333,6 +333,22 @@
    ],
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "not_computed",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:dairy",
+                  "ingredient_id" : "en:butter"
+               }
+            ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
    "images" : {
       "selected" : {}
    },
@@ -446,6 +462,12 @@
                   ],
                   "title" : "Transportation"
                }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "forest_footprint"
+               }
             }
          ],
          "expanded" : true,
@@ -482,6 +504,37 @@
             "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
             "subtitle" : "Missing a precise category",
             "title" : "Green-Score not computed",
+            "type" : "grade"
+         },
+         "topics" : [
+            "environment"
+         ]
+      },
+      "forest_footprint" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint not computed</strong></p>\n                <p>Potential deforestation risk but not yet computed.</p>\n                \n                ",
+                  "type" : "summary"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                <h3>Other risky ingredients</h3>\n                <p>These ingredients are not yet assessed for deforestation risk:</p>\n                <ul>\n                \n                <li>butter</li>\n                \n                </ul>\n                ",
+                  "type" : "summary"
+               }
+            }
+         ],
+         "expanded" : false,
+         "level" : "info",
+         "title_element" : {
+            "grade" : "not_computed",
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-not-computed.svg",
+            "name" : "Forest Footprint",
+            "subtitle" : "Potential deforestation risk but not yet computed.",
+            "title" : "Forest Footprint not computed ",
             "type" : "grade"
          },
          "topics" : [
