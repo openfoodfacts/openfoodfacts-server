@@ -289,15 +289,16 @@
                "title" : "Green-Score non calculé"
             },
             {
-               "description" : "",
-               "description_short" : "Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
-               "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "description" : "Absence d'ingrédient associé à un risque de déforestation.",
+               "description_short" : "Absence de risque de déforestation",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
                "id" : "forest_footprint",
-               "match" : 0,
-               "name" : "Empreinte forêt",
+               "match" : 100,
+               "name" : "Empreinte Forêt",
+               "panel_id" : "forest_footprint",
                "status" : "known",
-               "title" : "Empreinte forêt non calculée"
+               "title" : "Empreinte Forêt A"
             }
          ],
          "id" : "environment",
@@ -656,6 +657,12 @@
    ],
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "images" : {
       "selected" : {}
    },
