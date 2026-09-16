@@ -170,5 +170,6 @@ Could be added in the future:
 
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 - [Create Pull Request Action](https://github.com/peter-evans/create-pull-request)
-- [Carton Documentation](https://metacpan.org/pod/Carton)
+- [cpm Documentation](https://github.com/skaji/cpm) - fast installer (`--snapshot` / `--resolver snapshot`)
+- [Carton Documentation](https://metacpan.org/pod/Carton) - snapshot generation only
 - [cpanfile Documentation](https://metacpan.org/pod/cpanfile)

@@ -13,7 +13,7 @@ The step-by-step guide to setup the Product Opener using Docker is available on 
 
 ## Reproducible Builds
 
-Product Opener uses [Carton](https://metacpan.org/pod/Carton) to manage Perl dependencies for reproducible builds. Carton uses `cpanfile.snapshot` as a lockfile that records exact versions of all dependencies. This ensures consistent builds across different environments and times.
+Product Opener uses [`cpm`](https://github.com/skaji/cpm) to install Perl dependencies and [`Carton`](https://metacpan.org/pod/Carton) (`cpanfile.snapshot`) as a lockfile for reproducible builds. `cpm` auto-loads `cpanfile.snapshot` when present (via `Carton::Snapshot` / `--snapshot` / `--resolver snapshot`); `Carton` is kept only to *generate* the snapshot because `cpm` cannot create snapshots.
 
 For details on generating and updating the lockfile, see [how to generate cpanfile.snapshot](../docs/dev/how-to-generate-cpanfile-snapshot.md).
 

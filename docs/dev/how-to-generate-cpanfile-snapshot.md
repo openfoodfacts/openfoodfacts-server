@@ -1,43 +1,33 @@
 # How to Generate cpanfile.snapshot
 
-This document explains how to generate and update the `cpanfile.snapshot` file for reproducible Perl dependency builds.
+This document explains how to generate and update the `cpanfile.snapshot` file for reproducible Perl builds.
 
 ## What is cpanfile.snapshot?
 
-`cpanfile.snapshot` is a lockfile that records the exact versions of all Perl dependencies (including transitive dependencies) installed from CPAN. This ensures reproducible builds across different environments and times.
+`cpanfile.snapshot` is a lockfile that records the exact versions of all Perl dependencies (including transitive dependencies) installed from CPAN. This ensures reproducible builds across different environments and times. It uses the [Carton](https://metacpan.org/pod/Carton) format.
 
-## Why Carton?
+## Why cpm for install and Carton for snapshot?
 
-We use [Carton](https://metacpan.org/pod/Carton) for snapshot generation because:
+* **`cpm`** is used for installation (`Dockerfile` builder stage): parallel, `--show-build-log-on-failure -w $(nproc)`, `--snapshot` auto-loaded when `cpanfile.snapshot` exists.
+* **`Carton`** is used only for **generating** the snapshot: `cpm` can *consume* a snapshot (`--snapshot` / `--resolver snapshot` via `Carton::Snapshot`, see `skaji/cpm#174`) but cannot *create* it. The Debian `carton` package is therefore kept in `Dockerfile` solely for `scripts/generate_cpanfile_snapshot.sh`.
 
-- It's available as a Debian package (`carton`)
-- It generates deterministic `cpanfile.snapshot` files compatible with industry standards
-- It's widely adopted in the Perl community
-- It integrates well with our existing `cpanfile`
-- The snapshot format is human-readable and can be version controlled
+> Note on `cpm` snapshot semantics: plain `cpm install` auto-adds a `Snapshot` resolver if `cpanfile.snapshot` exists (see `generate_resolver` in `App::cpm::CLI`), but it is opportunistic (falls back to `MetaCPAN`/`MetaDB`). `Dockerfile` therefore uses `cpm install --resolver snapshot --no-default-resolvers` when the snapshot exists — the strict `carton install --deployment` equivalent that fails fast on a stale lock instead of silently drifting.
+>
+> Note on feature flags: `cpm` accepts `--with-develop` (like `cpanm`) and `--feature=<name>`, but NOT `--with-feature=<name>`. If you need `off_server_dev_tools` from `cpanfile`, pass `--feature=off_server_dev_tools` to `cpm` (the `--with-feature=` spelling in `cpanfile:174` and `docker/devcontainer.yml` is `cpanm` syntax and will fail under `cpm` — pre-existing on `main`, out of scope here).
 
 ## How it Works
 
-The build system uses a hybrid approach for maximum flexibility and reproducibility:
-
 ### Production Builds (with cpanfile.snapshot)
 
-When `cpanfile.snapshot` exists in the repository:
-- **Carton** is used with `--deployment` mode
-- Dependencies are installed from exact versions in the snapshot
-- Build is fully reproducible across different environments
-- This is used for production deployments and CI/CD
+When `cpanfile.snapshot` exists:
+- `Dockerfile` runs `cpm install --resolver snapshot --no-default-resolvers` (strict, `carton --deployment` equivalent)
+- Exact versions from the snapshot via `Carton::Snapshot`; missing entries fail instead of silently resolving to latest
 
-### Development Builds (without cpanfile.snapshot)
+### Development / Initial Builds (without cpanfile.snapshot)
 
 When `cpanfile.snapshot` doesn't exist:
-- **cpanminus (cpanm)** is used with the original approach
-- Dependencies are resolved from `cpanfile` constraints
-- Supports `CPANMOPTS` like `--with-develop` and `--with-feature=...`
-- More flexible for development and testing new dependencies
-- The snapshot can be generated afterward using the helper script
-
-This hybrid approach provides both reproducibility and flexibility.
+- `Dockerfile` runs plain `cpm install` resolving from `cpanfile` constraints (`cpm install --with-develop` etc. via `CPANMOPTS`)
+- Snapshot can be generated afterward with `scripts/generate_cpanfile_snapshot.sh`
 
 ## Prerequisites
 
@@ -45,7 +35,7 @@ To generate the snapshot, you need:
 
 - Docker installed on your system
 - Access to the openfoodfacts-server repository
-- Sufficient disk space (~5GB) and time (~15-30 minutes)
+- Sufficient disk space (~5GB) and time (~15-30 minutes) - faster with `cpm`
 
 ## Generating cpanfile.snapshot
 
@@ -58,10 +48,9 @@ We provide a helper script that automates the snapshot generation:
 ./scripts/generate_cpanfile_snapshot.sh
 
 # The script will:
-# 1. Build the Docker image without a snapshot (uses cpanm)
-# 2. Run Carton to analyze installed modules
-# 3. Generate cpanfile.snapshot with exact versions
-# 4. Extract the snapshot to the repository root
+# 1. Build the Docker image (builder stage) without a snapshot (cpm resolves from cpanfile)
+# 2. Run Carton inside the built image to generate cpanfile.snapshot
+# 3. Extract the snapshot to the repository root (via docker cp)
 ```
 
 ### Method 2: Using Docker Build Directly
@@ -69,10 +58,10 @@ We provide a helper script that automates the snapshot generation:
 You can also generate the snapshot manually:
 
 ```bash
-# Remove existing snapshot to force cpanm-based installation
+# Remove existing snapshot to force cpm to resolve from cpanfile
 rm -f cpanfile.snapshot
 
-# Build the Docker image (this uses cpanm to install dependencies)
+# Build the Docker image (this uses cpm to install dependencies)
 docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-builder .
 
 # Create a container to run Carton and generate the snapshot
@@ -145,7 +134,7 @@ You should update `cpanfile.snapshot` when:
 After generating or updating the snapshot, test it by:
 
 ```bash
-# Build with the snapshot
+# Build with the snapshot (cpm will auto-detect it)
 make build
 
 # Run tests
@@ -164,7 +153,7 @@ If the build fails after updating the snapshot:
 1. Check that all system dependencies (apt packages) are still installed
 2. Verify that version constraints in `cpanfile` are correct
 3. Check for incompatibilities between dependencies
-4. Review the build logs for specific error messages
+4. Review the build logs for specific error messages (`--show-build-log-on-failure`)
 
 ### Snapshot generation fails
 
@@ -174,28 +163,31 @@ If snapshot generation fails:
 2. Check your internet connection (Carton needs to download from CPAN)
 3. Look for error messages in the build logs
 4. Try cleaning the build cache: `docker system prune -af`
+5. Ensure `carton` is installed in the builder image (Debian `carton` package or `Carton::Snapshot` CPAN module - required for `cpm --snapshot` to work)
 
 ## CI/CD Integration
 
 The snapshot is automatically used in CI/CD pipelines:
 
-- GitHub Actions use the snapshot for reproducible builds
+- GitHub Actions use the snapshot for reproducible builds (cpm picks it up automatically)
 - Pull requests should include snapshot updates when dependencies change
 - The container build workflow validates the snapshot
 
 ## Automated Updates (Future)
 
-A GitHub Action workflow could be added to automatically check for dependency updates and create PRs with updated snapshots. See the issue for more details.
+A GitHub Action workflow could be added to automatically check for dependency updates and create PRs with updated snapshots. See `docs/dev/how-to-automate-perl-dependency-updates.md` for a template.
 
 ## Related Files
 
 - `cpanfile` - Declares direct dependencies and version constraints
-- `cpanfile.snapshot` - Lockfile with exact versions of all dependencies
-- `Dockerfile` - Uses Carton to install dependencies from the snapshot
+- `cpanfile.snapshot` - Lockfile with exact versions of all dependencies (Carton format, read by cpm)
+- `Dockerfile` - Uses `cpm` to install dependencies (auto-loads snapshot when present)
+- `scripts/generate_cpanfile_snapshot.sh` - Generates snapshot via Carton from a cpm-built image
 - `.github/workflows/container-build.yml` - CI/CD workflow using the snapshot
 
 ## Additional Resources
 
-- [Carton Documentation](https://metacpan.org/pod/Carton)
+- [cpm Documentation](https://github.com/skaji/cpm) - fast installer, `cpm --help` for `--snapshot`, `--resolver snapshot`
+- [Carton Documentation](https://metacpan.org/pod/Carton) - snapshot format and generation
 - [cpanfile Documentation](https://metacpan.org/pod/cpanfile)
 - [Reproducible Builds](https://reproducible-builds.org/)

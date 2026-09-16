@@ -54,88 +54,88 @@ DISTRIBUTIONS
       Test::More 0
       perl v5.10.1
       version 0
-  Alien-Build-2.84
-    pathname: P/PL/PLICEASE/Alien-Build-2.84.tar.gz
+  Alien-Build-2.87
+    pathname: P/PL/PLICEASE/Alien-Build-2.87.tar.gz
     provides:
-      Alien::Base 2.84
-      Alien::Base::PkgConfig 2.84
-      Alien::Base::Wrapper 2.84
-      Alien::Build 2.84
-      Alien::Build::CommandSequence 2.84
-      Alien::Build::Helper 2.84
-      Alien::Build::Interpolate 2.84
-      Alien::Build::Interpolate::Default 2.84
-      Alien::Build::Interpolate::Helper 2.84
-      Alien::Build::Log 2.84
-      Alien::Build::Log::Abbreviate 2.84
-      Alien::Build::Log::Default 2.84
-      Alien::Build::MM 2.84
-      Alien::Build::Meta 2.84
-      Alien::Build::Plugin 2.84
-      Alien::Build::Plugin::Build::Autoconf 2.84
-      Alien::Build::Plugin::Build::CMake 2.84
-      Alien::Build::Plugin::Build::Copy 2.84
-      Alien::Build::Plugin::Build::MSYS 2.84
-      Alien::Build::Plugin::Build::Make 2.84
-      Alien::Build::Plugin::Build::SearchDep 2.84
-      Alien::Build::Plugin::Core::CleanInstall 2.84
-      Alien::Build::Plugin::Core::Download 2.84
-      Alien::Build::Plugin::Core::FFI 2.84
-      Alien::Build::Plugin::Core::Gather 2.84
-      Alien::Build::Plugin::Core::Legacy 2.84
-      Alien::Build::Plugin::Core::Override 2.84
-      Alien::Build::Plugin::Core::Setup 2.84
-      Alien::Build::Plugin::Core::Tail 2.84
-      Alien::Build::Plugin::Decode::DirListing 2.84
-      Alien::Build::Plugin::Decode::DirListingFtpcopy 2.84
-      Alien::Build::Plugin::Decode::HTML 2.84
-      Alien::Build::Plugin::Decode::Mojo 2.84
-      Alien::Build::Plugin::Digest::Negotiate 2.84
-      Alien::Build::Plugin::Digest::SHA 2.84
-      Alien::Build::Plugin::Digest::SHAPP 2.84
-      Alien::Build::Plugin::Download::Negotiate 2.84
-      Alien::Build::Plugin::Extract::ArchiveTar 2.84
-      Alien::Build::Plugin::Extract::ArchiveZip 2.84
-      Alien::Build::Plugin::Extract::CommandLine 2.84
-      Alien::Build::Plugin::Extract::Directory 2.84
-      Alien::Build::Plugin::Extract::File 2.84
-      Alien::Build::Plugin::Extract::Negotiate 2.84
-      Alien::Build::Plugin::Fetch::CurlCommand 2.84
-      Alien::Build::Plugin::Fetch::HTTPTiny 2.84
-      Alien::Build::Plugin::Fetch::LWP 2.84
-      Alien::Build::Plugin::Fetch::Local 2.84
-      Alien::Build::Plugin::Fetch::LocalDir 2.84
-      Alien::Build::Plugin::Fetch::NetFTP 2.84
-      Alien::Build::Plugin::Fetch::Wget 2.84
-      Alien::Build::Plugin::Gather::IsolateDynamic 2.84
-      Alien::Build::Plugin::PkgConfig::CommandLine 2.84
-      Alien::Build::Plugin::PkgConfig::LibPkgConf 2.84
-      Alien::Build::Plugin::PkgConfig::MakeStatic 2.84
-      Alien::Build::Plugin::PkgConfig::Negotiate 2.84
-      Alien::Build::Plugin::PkgConfig::PP 2.84
-      Alien::Build::Plugin::Prefer::BadVersion 2.84
-      Alien::Build::Plugin::Prefer::GoodVersion 2.84
-      Alien::Build::Plugin::Prefer::SortVersions 2.84
-      Alien::Build::Plugin::Probe::CBuilder 2.84
-      Alien::Build::Plugin::Probe::CommandLine 2.84
-      Alien::Build::Plugin::Probe::Vcpkg 2.84
-      Alien::Build::Plugin::Test::Mock 2.84
-      Alien::Build::PluginMeta 2.84
-      Alien::Build::Temp 2.84
-      Alien::Build::TempDir 2.84
-      Alien::Build::Util 2.84
-      Alien::Build::Version::Basic 2.84
-      Alien::Build::rc 2.84
-      Alien::Role 2.84
-      Alien::Util 2.84
-      Test::Alien 2.84
-      Test::Alien::Build 2.84
-      Test::Alien::CanCompile 2.84
-      Test::Alien::CanPlatypus 2.84
-      Test::Alien::Diag 2.84
-      Test::Alien::Run 2.84
-      Test::Alien::Synthetic 2.84
-      alienfile 2.84
+      Alien::Base 2.87
+      Alien::Base::PkgConfig 2.87
+      Alien::Base::Wrapper 2.87
+      Alien::Build 2.87
+      Alien::Build::CommandSequence 2.87
+      Alien::Build::Helper 2.87
+      Alien::Build::Interpolate 2.87
+      Alien::Build::Interpolate::Default 2.87
+      Alien::Build::Interpolate::Helper 2.87
+      Alien::Build::Log 2.87
+      Alien::Build::Log::Abbreviate 2.87
+      Alien::Build::Log::Default 2.87
+      Alien::Build::MM 2.87
+      Alien::Build::Meta 2.87
+      Alien::Build::Plugin 2.87
+      Alien::Build::Plugin::Build::Autoconf 2.87
+      Alien::Build::Plugin::Build::CMake 2.87
+      Alien::Build::Plugin::Build::Copy 2.87
+      Alien::Build::Plugin::Build::MSYS 2.87
+      Alien::Build::Plugin::Build::Make 2.87
+      Alien::Build::Plugin::Build::SearchDep 2.87
+      Alien::Build::Plugin::Core::CleanInstall 2.87
+      Alien::Build::Plugin::Core::Download 2.87
+      Alien::Build::Plugin::Core::FFI 2.87
+      Alien::Build::Plugin::Core::Gather 2.87
+      Alien::Build::Plugin::Core::Legacy 2.87
+      Alien::Build::Plugin::Core::Override 2.87
+      Alien::Build::Plugin::Core::Setup 2.87
+      Alien::Build::Plugin::Core::Tail 2.87
+      Alien::Build::Plugin::Decode::DirListing 2.87
+      Alien::Build::Plugin::Decode::DirListingFtpcopy 2.87
+      Alien::Build::Plugin::Decode::HTML 2.87
+      Alien::Build::Plugin::Decode::Mojo 2.87
+      Alien::Build::Plugin::Digest::Negotiate 2.87
+      Alien::Build::Plugin::Digest::SHA 2.87
+      Alien::Build::Plugin::Digest::SHAPP 2.87
+      Alien::Build::Plugin::Download::Negotiate 2.87
+      Alien::Build::Plugin::Extract::ArchiveTar 2.87
+      Alien::Build::Plugin::Extract::ArchiveZip 2.87
+      Alien::Build::Plugin::Extract::CommandLine 2.87
+      Alien::Build::Plugin::Extract::Directory 2.87
+      Alien::Build::Plugin::Extract::File 2.87
+      Alien::Build::Plugin::Extract::Negotiate 2.87
+      Alien::Build::Plugin::Fetch::CurlCommand 2.87
+      Alien::Build::Plugin::Fetch::HTTPTiny 2.87
+      Alien::Build::Plugin::Fetch::LWP 2.87
+      Alien::Build::Plugin::Fetch::Local 2.87
+      Alien::Build::Plugin::Fetch::LocalDir 2.87
+      Alien::Build::Plugin::Fetch::NetFTP 2.87
+      Alien::Build::Plugin::Fetch::Wget 2.87
+      Alien::Build::Plugin::Gather::IsolateDynamic 2.87
+      Alien::Build::Plugin::PkgConfig::CommandLine 2.87
+      Alien::Build::Plugin::PkgConfig::LibPkgConf 2.87
+      Alien::Build::Plugin::PkgConfig::MakeStatic 2.87
+      Alien::Build::Plugin::PkgConfig::Negotiate 2.87
+      Alien::Build::Plugin::PkgConfig::PP 2.87
+      Alien::Build::Plugin::Prefer::BadVersion 2.87
+      Alien::Build::Plugin::Prefer::GoodVersion 2.87
+      Alien::Build::Plugin::Prefer::SortVersions 2.87
+      Alien::Build::Plugin::Probe::CBuilder 2.87
+      Alien::Build::Plugin::Probe::CommandLine 2.87
+      Alien::Build::Plugin::Probe::Vcpkg 2.87
+      Alien::Build::Plugin::Test::Mock 2.87
+      Alien::Build::PluginMeta 2.87
+      Alien::Build::Temp 2.87
+      Alien::Build::TempDir 2.87
+      Alien::Build::Util 2.87
+      Alien::Build::Version::Basic 2.87
+      Alien::Build::rc 2.87
+      Alien::Role 2.87
+      Alien::Util 2.87
+      Test::Alien 2.87
+      Test::Alien::Build 2.87
+      Test::Alien::CanCompile 2.87
+      Test::Alien::CanPlatypus 2.87
+      Test::Alien::Diag 2.87
+      Test::Alien::Run 2.87
+      Test::Alien::Synthetic 2.87
+      alienfile 2.87
     requirements:
       Capture::Tiny 0.17
       Digest::SHA 0
@@ -147,50 +147,11 @@ DISTRIBUTIONS
       File::chdir 0
       JSON::PP 0
       List::Util 1.33
-      Path::Tiny 0.077
+      Path::Tiny 0.130
       Test2::API 1.302096
       Text::ParseWords 3.26
       parent 0
       perl 5.008004
-  Alien-Build-Plugin-Download-GitHub-0.10
-    pathname: P/PL/PLICEASE/Alien-Build-Plugin-Download-GitHub-0.10.tar.gz
-    provides:
-      Alien::Build::Plugin::Download::GitHub 0.10
-    requirements:
-      Alien::Build 2.39
-      Alien::Build::Plugin 0
-      Alien::Build::Plugin::Download::Negotiate 0
-      Alien::Build::Plugin::Extract::Negotiate 0
-      ExtUtils::MakeMaker 0
-      JSON::PP 0
-      Path::Tiny 0
-      URI 0
-      YAML 0
-      perl 5.008001
-  Alien-FFI-0.27
-    pathname: P/PL/PLICEASE/Alien-FFI-0.27.tar.gz
-    provides:
-      Alien::FFI 0.27
-    requirements:
-      Alien::Base 2.10
-      Alien::Build 2.10
-      Alien::Build::MM 2.10
-      Alien::Build::Plugin::Download::GitHub 0.09
-      Alien::Build::Plugin::Download::Negotiate 1.30
-      Alien::Build::Plugin::Probe::Vcpkg 0
-      Archive::Tar 0
-      Config 0
-      ExtUtils::MakeMaker 6.52
-      HTTP::Tiny 0.044
-      IO::Socket::SSL 1.56
-      IO::Zlib 0
-      Mojo::DOM 0
-      Mojolicious 7.00
-      Mozilla::CA 0
-      Net::SSLeay 1.49
-      URI 0
-      URI::Escape 0
-      perl 5.006
   Alien-libgs1encoders-0.03
     pathname: H/HA/HANGY/Alien-libgs1encoders-0.03.tar.gz
     provides:
@@ -205,11 +166,10 @@ DISTRIBUTIONS
       Config 0
       ExtUtils::MakeMaker 6.52
       FFI::CheckLib 0.31
+      HTML::LinkExtor 0
       HTTP::Tiny 0.044
       IO::Socket::SSL 1.56
       IO::Zlib 0
-      Mojo::DOM 0
-      Mojolicious 7.00
       Mozilla::CA 0
       Net::SSLeay 1.49
       URI 0
@@ -605,16 +565,16 @@ DISTRIBUTIONS
       Module::Extract::VERSION 1.121
       PerlIO::gzip 0
       perl 5.020
-  CPANSA-DB-20260903.001
-    pathname: B/BR/BRIANDFOY/CPANSA-DB-20260903.001.tar.gz
+  CPANSA-DB-20260914.001
+    pathname: B/BR/BRIANDFOY/CPANSA-DB-20260914.001.tar.gz
     provides:
-      CPAN::Audit::DB 20260903.001
-      CPANSA::DB 20260903.001
+      CPAN::Audit::DB 20260914.001
+      CPANSA::DB 20260914.001
     requirements:
       Carp 0
       ExtUtils::MakeMaker 6.64
       File::Spec::Functions 0
-      perl 5.022
+      perl 5.020
   Cache-Memcached-Fast-0.28
     pathname: R/RA/RAZ/Cache-Memcached-Fast-0.28.tar.gz
     provides:
@@ -786,16 +746,15 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Storable 0
       perl 5.008001
-  Clone-PP-1.08
-    pathname: N/NE/NEILB/Clone-PP-1.08.tar.gz
+  Clone-PP-1.09
+    pathname: N/NE/NEILB/Clone-PP-1.09.tar.gz
     provides:
-      Clone::PP 1.08
+      Clone::PP 1.09
     requirements:
       Exporter 0
       ExtUtils::MakeMaker 0
       perl 5.006
       strict 0
-      vars 0
       warnings 0
   Compiler-Lexer-0.23
     pathname: G/GO/GOCCY/Compiler-Lexer-0.23.tar.gz
@@ -885,10 +844,10 @@ DISTRIBUTIONS
       Scalar::Util 0
       Storable 2.15
       common::sense 0
-  Cpanel-JSON-XS-4.44
-    pathname: R/RU/RURBAN/Cpanel-JSON-XS-4.44.tar.gz
+  Cpanel-JSON-XS-4.52
+    pathname: R/RU/RURBAN/Cpanel-JSON-XS-4.52.tar.gz
     provides:
-      Cpanel::JSON::XS 4.44
+      Cpanel::JSON::XS 4.52
       Cpanel::JSON::XS::Type undef
     requirements:
       Carp 0
@@ -915,42 +874,6 @@ DISTRIBUTIONS
       Scalar::Util 0
       Test::More 0.88
       perl 5.006
-  Crypt-OpenSSL-Bignum-0.09
-    pathname: K/KM/KMX/Crypt-OpenSSL-Bignum-0.09.tar.gz
-    provides:
-      Crypt::OpenSSL::Bignum 0.09
-      Crypt::OpenSSL::Bignum::CTX undef
-    requirements:
-      ExtUtils::MakeMaker 0
-      perl 5.006002
-  Crypt-OpenSSL-Guess-0.15
-    pathname: A/AK/AKIYM/Crypt-OpenSSL-Guess-0.15.tar.gz
-    provides:
-      Crypt::OpenSSL::Guess 0.15
-    requirements:
-      Config 0
-      Exporter 5.57
-      ExtUtils::MakeMaker 6.64
-      File::Spec 0
-      Symbol 0
-      perl 5.008001
-  Crypt-OpenSSL-RSA-0.41
-    pathname: T/TI/TIMLEGGE/Crypt-OpenSSL-RSA-0.41.tar.gz
-    provides:
-      Crypt::OpenSSL::RSA 0.41
-    requirements:
-      Crypt::OpenSSL::Bignum 0
-      Crypt::OpenSSL::Guess 0.11
-      Crypt::OpenSSL::Random 0
-      ExtUtils::MakeMaker 0
-      perl 5.006
-  Crypt-OpenSSL-Random-0.17
-    pathname: R/RU/RURBAN/Crypt-OpenSSL-Random-0.17.tar.gz
-    provides:
-      Crypt::OpenSSL::Random 0.17
-    requirements:
-      Crypt::OpenSSL::Guess 0.11
-      ExtUtils::MakeMaker 0
   Crypt-PasswdMD5-1.46
     pathname: R/RS/RSAVAGE/Crypt-PasswdMD5-1.46.tgz
     provides:
@@ -1861,16 +1784,6 @@ DISTRIBUTIONS
       Test::More 0.98
       parent 0
       perl 5.008001
-  Devel-CheckLib-1.16
-    pathname: M/MA/MATTN/Devel-CheckLib-1.16.tar.gz
-    provides:
-      Devel::CheckLib 1.16
-    requirements:
-      Exporter 0
-      ExtUtils::MakeMaker 0
-      File::Spec 0
-      File::Temp 0.16
-      perl 5.004050
   Devel-Cover-1.52
     pathname: P/PJ/PJCJ/Devel-Cover-1.52.tar.gz
     provides:
@@ -2501,17 +2414,18 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 6.17
       perl 5.006001
-  ExtUtils-CppGuess-0.271
-    pathname: E/ET/ETJ/ExtUtils-CppGuess-0.271.tar.gz
+  ExtUtils-Config-0.010
+    pathname: L/LE/LEONT/ExtUtils-Config-0.010.tar.gz
     provides:
-      ExtUtils::CppGuess 0.271
+      ExtUtils::Config 0.010
+      ExtUtils::Config::MakeMaker 0.010
     requirements:
-      Capture::Tiny 0
+      Data::Dumper 0
       ExtUtils::MakeMaker 0
-      ExtUtils::ParseXS 3.35
-      File::Basename 0
-      File::Spec 0
-      File::Temp 0
+      ExtUtils::MakeMaker::Config 0
+      perl 5.006
+      strict 0
+      warnings 0
   ExtUtils-Depends-0.8002
     pathname: E/ET/ETJ/ExtUtils-Depends-0.8002.tar.gz
     provides:
@@ -2522,6 +2436,35 @@ DISTRIBUTIONS
       File::Spec 0
       IO::File 0
       perl 5.006
+  ExtUtils-Helpers-0.028
+    pathname: L/LE/LEONT/ExtUtils-Helpers-0.028.tar.gz
+    provides:
+      ExtUtils::Helpers 0.028
+      ExtUtils::Helpers::Unix 0.028
+      ExtUtils::Helpers::VMS 0.028
+      ExtUtils::Helpers::Windows 0.028
+    requirements:
+      Carp 0
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      File::Copy 0
+      File::Spec::Functions 0
+      Text::ParseWords 3.24
+      strict 0
+      warnings 0
+  ExtUtils-InstallPaths-0.015
+    pathname: L/LE/LEONT/ExtUtils-InstallPaths-0.015.tar.gz
+    provides:
+      ExtUtils::InstallPaths 0.015
+    requirements:
+      Carp 0
+      ExtUtils::Config 0.009
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      perl 5.008
+      strict 0
+      warnings 0
   FFI-CheckLib-0.31
     pathname: P/PL/PLICEASE/FFI-CheckLib-0.31.tar.gz
     provides:
@@ -2531,58 +2474,58 @@ DISTRIBUTIONS
       File::Which 0
       List::Util 1.33
       perl 5.006
-  FFI-Platypus-2.11
-    pathname: P/PL/PLICEASE/FFI-Platypus-2.11.tar.gz
+  FFI-Platypus-2.12
+    pathname: P/PL/PLICEASE/FFI-Platypus-2.12.tar.gz
     provides:
-      FFI::Build 2.11
-      FFI::Build::File::Base 2.11
-      FFI::Build::File::C 2.11
-      FFI::Build::File::CXX 2.11
-      FFI::Build::File::Library 2.11
-      FFI::Build::File::Object 2.11
-      FFI::Build::MM 2.11
-      FFI::Build::MM::FBX 2.11
-      FFI::Build::Platform 2.11
-      FFI::Build::Plugin 2.11
+      FFI::Build 2.12
+      FFI::Build::File::Base 2.12
+      FFI::Build::File::C 2.12
+      FFI::Build::File::CXX 2.12
+      FFI::Build::File::Library 2.12
+      FFI::Build::File::Object 2.12
+      FFI::Build::MM 2.12
+      FFI::Build::MM::FBX 2.12
+      FFI::Build::Platform 2.12
+      FFI::Build::Plugin 2.12
       FFI::Build::Plugin::Foo1 undef
       FFI::Build::Plugin::Foo2 undef
-      FFI::Build::PluginData 2.11
-      FFI::Platypus 2.11
-      FFI::Platypus::API 2.11
-      FFI::Platypus::Buffer 2.11
-      FFI::Platypus::Bundle 2.11
-      FFI::Platypus::Closure 2.11
-      FFI::Platypus::ClosureData 2.11
-      FFI::Platypus::Constant 2.11
-      FFI::Platypus::DL 2.11
-      FFI::Platypus::Function 2.11
-      FFI::Platypus::Function::Function 2.11
-      FFI::Platypus::Function::Wrapper 2.11
-      FFI::Platypus::Internal 2.11
-      FFI::Platypus::Lang 2.11
-      FFI::Platypus::Lang::ASM 2.11
-      FFI::Platypus::Lang::C 2.11
-      FFI::Platypus::Lang::Win32 2.11
-      FFI::Platypus::Legacy 2.11
-      FFI::Platypus::Memory 2.11
-      FFI::Platypus::Record 2.11
-      FFI::Platypus::Record::Meta 2.11
-      FFI::Platypus::Record::TieArray 2.11
-      FFI::Platypus::ShareConfig 2.11
-      FFI::Platypus::Type 2.11
-      FFI::Platypus::Type::PointerSizeBuffer 2.11
-      FFI::Platypus::Type::StringArray 2.11
-      FFI::Platypus::Type::StringPointer 2.11
-      FFI::Platypus::Type::WideString 2.11
-      FFI::Platypus::TypeParser 2.11
-      FFI::Platypus::TypeParser::Version0 2.11
-      FFI::Platypus::TypeParser::Version1 2.11
-      FFI::Platypus::TypeParser::Version2 2.11
-      FFI::Probe 2.11
-      FFI::Probe::Runner 2.11
-      FFI::Probe::Runner::Builder 2.11
-      FFI::Probe::Runner::Result 2.11
-      FFI::Temp 2.11
+      FFI::Build::PluginData 2.12
+      FFI::Platypus 2.12
+      FFI::Platypus::API 2.12
+      FFI::Platypus::Buffer 2.12
+      FFI::Platypus::Bundle 2.12
+      FFI::Platypus::Closure 2.12
+      FFI::Platypus::ClosureData 2.12
+      FFI::Platypus::Constant 2.12
+      FFI::Platypus::DL 2.12
+      FFI::Platypus::Function 2.12
+      FFI::Platypus::Function::Function 2.12
+      FFI::Platypus::Function::Wrapper 2.12
+      FFI::Platypus::Internal 2.12
+      FFI::Platypus::Lang 2.12
+      FFI::Platypus::Lang::ASM 2.12
+      FFI::Platypus::Lang::C 2.12
+      FFI::Platypus::Lang::Win32 2.12
+      FFI::Platypus::Legacy 2.12
+      FFI::Platypus::Memory 2.12
+      FFI::Platypus::Record 2.12
+      FFI::Platypus::Record::Meta 2.12
+      FFI::Platypus::Record::TieArray 2.12
+      FFI::Platypus::ShareConfig 2.12
+      FFI::Platypus::Type 2.12
+      FFI::Platypus::Type::PointerSizeBuffer 2.12
+      FFI::Platypus::Type::StringArray 2.12
+      FFI::Platypus::Type::StringPointer 2.12
+      FFI::Platypus::Type::WideString 2.12
+      FFI::Platypus::TypeParser 2.12
+      FFI::Platypus::TypeParser::Version0 2.12
+      FFI::Platypus::TypeParser::Version1 2.12
+      FFI::Platypus::TypeParser::Version2 2.12
+      FFI::Probe 2.12
+      FFI::Probe::Runner 2.12
+      FFI::Probe::Runner::Builder 2.12
+      FFI::Probe::Runner::Result 2.12
+      FFI::Temp 2.12
     requirements:
       Alien::FFI 0.20
       Capture::Tiny 0
@@ -2598,15 +2541,6 @@ DISTRIBUTIONS
       constant 1.32
       parent 0
       perl 5.008004
-  Fennec-Lite-0.004
-    pathname: E/EX/EXODIST/Fennec-Lite-0.004.tar.gz
-    provides:
-      Fennec::Lite 0.004
-    requirements:
-      List::Util 0
-      Test::Builder 0
-      Test::More 0
-      perl 5.006
   File-Copy-Recursive-0.45
     pathname: D/DM/DMUEY/File-Copy-Recursive-0.45.tar.gz
     provides:
@@ -3301,6 +3235,22 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       Imager 1.033
+      XSLoader 0
+  Imager-File-JPEG-1.005
+    pathname: T/TO/TONYC/Imager-File-JPEG-1.005.tar.gz
+    provides:
+      Imager::File::JPEG 1.005
+    requirements:
+      ExtUtils::MakeMaker 0
+      Imager 1.034
+      XSLoader 0
+  Imager-File-PNG-1.004
+    pathname: T/TO/TONYC/Imager-File-PNG-1.004.tar.gz
+    provides:
+      Imager::File::PNG 1.004
+    requirements:
+      ExtUtils::MakeMaker 0
+      Imager 0.90
       XSLoader 0
   Imager-File-WEBP-0.006
     pathname: T/TO/TONYC/Imager-File-WEBP-0.006.tar.gz
@@ -4037,9 +3987,6 @@ DISTRIBUTIONS
   Minion-12.0
     pathname: S/SR/SRI/Minion-12.0.tar.gz
     provides:
-      LinkCheck undef
-      LinkCheck::Controller::Links undef
-      LinkCheck::Task::CheckLinks undef
       Minion 12.0
       Minion::Backend undef
       Minion::Backend::Pg undef
@@ -4134,20 +4081,6 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.006001
       version 0.87
-  Module-Build-Pluggable-CPANfile-0.05
-    pathname: K/KA/KAZEBURO/Module-Build-Pluggable-CPANfile-0.05.tar.gz
-    provides:
-      Module::Build::Pluggable::CPANfile 0.05
-    requirements:
-      CPAN::Meta 0
-      CPAN::Meta::Prereqs 0
-      List::Util 1.14
-      Module::Build 0.38
-      Module::Build::Pluggable 0.05
-      Module::CPANfile 0.9010
-      parent 0
-      perl 5.008005
-      version 0.99
   Module-Build-Tiny-0.053
     pathname: L/LE/LEONT/Module-Build-Tiny-0.053.tar.gz
     provides:
@@ -5801,10 +5734,10 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.008001
-  Params-SomeUtil-1.09
-    pathname: P/PL/PLICEASE/Params-SomeUtil-1.09.tar.gz
+  Params-SomeUtil-1.11
+    pathname: P/PL/PLICEASE/Params-SomeUtil-1.11.tar.gz
     provides:
-      Params::SomeUtil 1.09
+      Params::SomeUtil 1.11
     requirements:
       ExtUtils::CBuilder 0.27
       ExtUtils::MakeMaker 6.52
@@ -6949,17 +6882,17 @@ DISTRIBUTIONS
       Time::HiRes 0
       URI 0
       perl 5.008001
-  Test-Fatal-0.018
-    pathname: R/RJ/RJBS/Test-Fatal-0.018.tar.gz
+  Test-Fatal-0.019
+    pathname: R/RJ/RJBS/Test-Fatal-0.019.tar.gz
     provides:
-      Test::Fatal 0.018
+      Test::Fatal 0.019
     requirements:
       Carp 0
       Exporter 5.57
       ExtUtils::MakeMaker 6.78
       Test::Builder 0
       Try::Tiny 0.07
-      perl 5.012
+      strict 0
       warnings 0
   Test-File-Contents-0.242
     pathname: A/AR/ARISTOTLE/Test-File-Contents-0.242.tar.gz
@@ -6990,39 +6923,6 @@ DISTRIBUTIONS
       Test::Builder 0
       Text::Diff 0
       perl 5.014
-  Test-Mock-LWP-Conditional-0.04
-    pathname: M/MA/MASAKI/Test-Mock-LWP-Conditional-0.04.tar.gz
-    provides:
-      Test::Mock::LWP::Conditional 0.04
-      Test::Mock::LWP::Conditional::Stubs undef
-    requirements:
-      Class::Method::Modifiers 0
-      LWP::UserAgent 0
-      Math::Random::Secure 0
-      Module::Build::Tiny 0.035
-      Scalar::Util 1.14
-      Sub::Install 0
-      Test::Fake::HTTPD 0.03
-      Test::More 0.98
-      Test::UseAllModules 0
-      perl 5.008001
-  Test-MockObject-1.20200122
-    pathname: C/CH/CHROMATIC/Test-MockObject-1.20200122.tar.gz
-    provides:
-      Test::MockObject 1.20200122
-      Test::MockObject::Extends 1.20200122
-    requirements:
-      Carp 0
-      Devel::Peek 0
-      ExtUtils::MakeMaker 0
-      Scalar::Util 0
-      Test::Builder 0
-      UNIVERSAL::can 1.20110617
-      UNIVERSAL::isa 1.20110614
-      constant 0
-      perl 5.008
-      strict 0
-      warnings 0
   Test-NoWarnings-1.06
     pathname: H/HA/HAARG/Test-NoWarnings-1.06.tar.gz
     provides:
@@ -7073,129 +6973,119 @@ DISTRIBUTIONS
       Test::SharedFork 0.29
       Time::HiRes 0
       perl 5.008001
-  Test-UseAllModules-0.17
-    pathname: I/IS/ISHIGAKI/Test-UseAllModules-0.17.tar.gz
+  Test2-Harness-1.000180
+    pathname: E/EX/EXODIST/Test2-Harness-1.000180.tar.gz
     provides:
-      Test::UseAllModules 0.17
-    requirements:
-      Exporter 0
-      ExtUtils::MakeMaker 0
-      ExtUtils::Manifest 0
-      Test::Builder 0.30
-      Test::More 0.60
-  Test2-Harness-1.000178
-    pathname: E/EX/EXODIST/Test2-Harness-1.000178.tar.gz
-    provides:
-      App::Yath 1.000178
-      App::Yath::Command 1.000178
-      App::Yath::Command::abort 1.000178
-      App::Yath::Command::auditor 1.000178
-      App::Yath::Command::collector 1.000178
-      App::Yath::Command::do 1.000178
-      App::Yath::Command::failed 1.000178
-      App::Yath::Command::help 1.000178
-      App::Yath::Command::init 1.000178
-      App::Yath::Command::kill 1.000178
-      App::Yath::Command::projects 1.000178
-      App::Yath::Command::ps 1.000178
-      App::Yath::Command::reload 1.000178
-      App::Yath::Command::replay 1.000178
-      App::Yath::Command::resources 1.000178
-      App::Yath::Command::run 1.000178
-      App::Yath::Command::runner 1.000178
-      App::Yath::Command::spawn 1.000178
-      App::Yath::Command::speedtag 1.000178
-      App::Yath::Command::start 1.000178
-      App::Yath::Command::status 1.000178
-      App::Yath::Command::stop 1.000178
-      App::Yath::Command::test 1.000178
-      App::Yath::Command::times 1.000178
-      App::Yath::Command::watch 1.000178
-      App::Yath::Command::which 1.000178
-      App::Yath::Converting 1.000178
-      App::Yath::Option 1.000178
-      App::Yath::Options 1.000178
-      App::Yath::Options::Collector 1.000178
-      App::Yath::Options::Debug 1.000178
-      App::Yath::Options::Display 1.000178
-      App::Yath::Options::Finder 1.000178
-      App::Yath::Options::Logging 1.000178
-      App::Yath::Options::Persist 1.000178
-      App::Yath::Options::PreCommand 1.000178
-      App::Yath::Options::Run 1.000178
-      App::Yath::Options::Runner 1.000178
-      App::Yath::Options::Workspace 1.000178
-      App::Yath::Plugin 1.000178
-      App::Yath::Plugin::Cover 1.000178
-      App::Yath::Plugin::Git 1.000178
-      App::Yath::Plugin::Notify 1.000178
+      App::Yath 1.000180
+      App::Yath::Command 1.000180
+      App::Yath::Command::abort 1.000180
+      App::Yath::Command::auditor 1.000180
+      App::Yath::Command::collector 1.000180
+      App::Yath::Command::do 1.000180
+      App::Yath::Command::failed 1.000180
+      App::Yath::Command::help 1.000180
+      App::Yath::Command::init 1.000180
+      App::Yath::Command::kill 1.000180
+      App::Yath::Command::projects 1.000180
+      App::Yath::Command::ps 1.000180
+      App::Yath::Command::reload 1.000180
+      App::Yath::Command::replay 1.000180
+      App::Yath::Command::resources 1.000180
+      App::Yath::Command::run 1.000180
+      App::Yath::Command::runner 1.000180
+      App::Yath::Command::spawn 1.000180
+      App::Yath::Command::speedtag 1.000180
+      App::Yath::Command::start 1.000180
+      App::Yath::Command::status 1.000180
+      App::Yath::Command::stop 1.000180
+      App::Yath::Command::test 1.000180
+      App::Yath::Command::times 1.000180
+      App::Yath::Command::watch 1.000180
+      App::Yath::Command::which 1.000180
+      App::Yath::Converting 1.000180
+      App::Yath::Option 1.000180
+      App::Yath::Options 1.000180
+      App::Yath::Options::Collector 1.000180
+      App::Yath::Options::Debug 1.000180
+      App::Yath::Options::Display 1.000180
+      App::Yath::Options::Finder 1.000180
+      App::Yath::Options::Logging 1.000180
+      App::Yath::Options::Persist 1.000180
+      App::Yath::Options::PreCommand 1.000180
+      App::Yath::Options::Run 1.000180
+      App::Yath::Options::Runner 1.000180
+      App::Yath::Options::Workspace 1.000180
+      App::Yath::Plugin 1.000180
+      App::Yath::Plugin::Cover 1.000180
+      App::Yath::Plugin::Git 1.000180
+      App::Yath::Plugin::Notify 1.000180
       App::Yath::Plugin::SelfTest undef
-      App::Yath::Plugin::SysInfo 1.000178
-      App::Yath::Plugin::YathUI 1.000178
-      App::Yath::Script::V1 1.000178
-      App::Yath::Tester 1.000178
-      App::Yath::Util 1.000178
-      Test2::Formatter::QVF 1.000178
-      Test2::Formatter::Stream 1.000178
-      Test2::Formatter::Test2 1.000178
-      Test2::Formatter::Test2::Composer 1.000178
-      Test2::Harness 1.000178
-      Test2::Harness::Auditor 1.000178
-      Test2::Harness::Auditor::TimeTracker 1.000178
-      Test2::Harness::Auditor::Watcher 1.000178
-      Test2::Harness::Collector 1.000178
-      Test2::Harness::Collector::JobDir 1.000178
-      Test2::Harness::Collector::TapParser 1.000178
-      Test2::Harness::Event 1.000178
-      Test2::Harness::Finder 1.000178
-      Test2::Harness::IPC 1.000178
-      Test2::Harness::IPC::Process 1.000178
-      Test2::Harness::Log 1.000178
-      Test2::Harness::Log::CoverageAggregator 1.000178
-      Test2::Harness::Log::CoverageAggregator::ByRun 1.000178
-      Test2::Harness::Log::CoverageAggregator::ByTest 1.000178
-      Test2::Harness::Plugin 1.000178
-      Test2::Harness::Renderer 1.000178
-      Test2::Harness::Renderer::Formatter 1.000178
-      Test2::Harness::Run 1.000178
-      Test2::Harness::Runner 1.000178
-      Test2::Harness::Runner::Constants 1.000178
-      Test2::Harness::Runner::DepTracer 1.000178
-      Test2::Harness::Runner::Job 1.000178
-      Test2::Harness::Runner::Preload 1.000178
-      Test2::Harness::Runner::Preload::Stage 1.000178
-      Test2::Harness::Runner::Preloader 1.000178
-      Test2::Harness::Runner::Preloader::Stage 1.000178
-      Test2::Harness::Runner::Reloader 1.000178
-      Test2::Harness::Runner::Resource 1.000178
-      Test2::Harness::Runner::Resource::JobCount 1.000178
-      Test2::Harness::Runner::Resource::SharedJobSlots 1.000178
-      Test2::Harness::Runner::Resource::SharedJobSlots::Config 1.000178
-      Test2::Harness::Runner::Resource::SharedJobSlots::State 1.000178
-      Test2::Harness::Runner::Run 1.000178
-      Test2::Harness::Runner::Spawn 1.000178
-      Test2::Harness::Runner::Spawn::Run 1.000178
-      Test2::Harness::Runner::State 1.000178
-      Test2::Harness::Settings 1.000178
-      Test2::Harness::Settings::Prefix 1.000178
-      Test2::Harness::Stall::Capture 1.000178
-      Test2::Harness::Stall::Detector 1.000178
-      Test2::Harness::Stall::Report 1.000178
-      Test2::Harness::Stall::Trace 1.000178
-      Test2::Harness::TestFile 1.000178
-      Test2::Harness::Util 1.000178
-      Test2::Harness::Util::File 1.000178
-      Test2::Harness::Util::File::JSON 1.000178
-      Test2::Harness::Util::File::JSONL 1.000178
-      Test2::Harness::Util::File::Stream 1.000178
-      Test2::Harness::Util::File::Value 1.000178
-      Test2::Harness::Util::HashBase 1.000178
-      Test2::Harness::Util::IPC 1.000178
-      Test2::Harness::Util::JSON 1.000178
-      Test2::Harness::Util::Queue 1.000178
-      Test2::Harness::Util::Term 1.000178
-      Test2::Harness::Util::UUID 1.000178
-      Test2::Tools::HarnessTester 1.000178
+      App::Yath::Plugin::SysInfo 1.000180
+      App::Yath::Plugin::YathUI 1.000180
+      App::Yath::Script::V1 1.000180
+      App::Yath::Tester 1.000180
+      App::Yath::Util 1.000180
+      Test2::Formatter::QVF 1.000180
+      Test2::Formatter::Stream 1.000180
+      Test2::Formatter::Test2 1.000180
+      Test2::Formatter::Test2::Composer 1.000180
+      Test2::Harness 1.000180
+      Test2::Harness::Auditor 1.000180
+      Test2::Harness::Auditor::TimeTracker 1.000180
+      Test2::Harness::Auditor::Watcher 1.000180
+      Test2::Harness::Collector 1.000180
+      Test2::Harness::Collector::JobDir 1.000180
+      Test2::Harness::Collector::TapParser 1.000180
+      Test2::Harness::Event 1.000180
+      Test2::Harness::Finder 1.000180
+      Test2::Harness::IPC 1.000180
+      Test2::Harness::IPC::Process 1.000180
+      Test2::Harness::Log 1.000180
+      Test2::Harness::Log::CoverageAggregator 1.000180
+      Test2::Harness::Log::CoverageAggregator::ByRun 1.000180
+      Test2::Harness::Log::CoverageAggregator::ByTest 1.000180
+      Test2::Harness::Plugin 1.000180
+      Test2::Harness::Renderer 1.000180
+      Test2::Harness::Renderer::Formatter 1.000180
+      Test2::Harness::Run 1.000180
+      Test2::Harness::Runner 1.000180
+      Test2::Harness::Runner::Constants 1.000180
+      Test2::Harness::Runner::DepTracer 1.000180
+      Test2::Harness::Runner::Job 1.000180
+      Test2::Harness::Runner::Preload 1.000180
+      Test2::Harness::Runner::Preload::Stage 1.000180
+      Test2::Harness::Runner::Preloader 1.000180
+      Test2::Harness::Runner::Preloader::Stage 1.000180
+      Test2::Harness::Runner::Reloader 1.000180
+      Test2::Harness::Runner::Resource 1.000180
+      Test2::Harness::Runner::Resource::JobCount 1.000180
+      Test2::Harness::Runner::Resource::SharedJobSlots 1.000180
+      Test2::Harness::Runner::Resource::SharedJobSlots::Config 1.000180
+      Test2::Harness::Runner::Resource::SharedJobSlots::State 1.000180
+      Test2::Harness::Runner::Run 1.000180
+      Test2::Harness::Runner::Spawn 1.000180
+      Test2::Harness::Runner::Spawn::Run 1.000180
+      Test2::Harness::Runner::State 1.000180
+      Test2::Harness::Settings 1.000180
+      Test2::Harness::Settings::Prefix 1.000180
+      Test2::Harness::Stall::Capture 1.000180
+      Test2::Harness::Stall::Detector 1.000180
+      Test2::Harness::Stall::Report 1.000180
+      Test2::Harness::Stall::Trace 1.000180
+      Test2::Harness::TestFile 1.000180
+      Test2::Harness::Util 1.000180
+      Test2::Harness::Util::File 1.000180
+      Test2::Harness::Util::File::JSON 1.000180
+      Test2::Harness::Util::File::JSONL 1.000180
+      Test2::Harness::Util::File::Stream 1.000180
+      Test2::Harness::Util::File::Value 1.000180
+      Test2::Harness::Util::HashBase 1.000180
+      Test2::Harness::Util::IPC 1.000180
+      Test2::Harness::Util::JSON 1.000180
+      Test2::Harness::Util::Queue 1.000180
+      Test2::Harness::Util::Term 1.000180
+      Test2::Harness::Util::UUID 1.000180
+      Test2::Tools::HarnessTester 1.000180
     requirements:
       App::Yath::Script 2.000017
       Carp 0
@@ -7516,28 +7406,6 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       common::sense 0
-  UNIVERSAL-can-1.20140328
-    pathname: C/CH/CHROMATIC/UNIVERSAL-can-1.20140328.tar.gz
-    provides:
-      UNIVERSAL::can 1.20140328
-    requirements:
-      ExtUtils::MakeMaker 6.30
-      Scalar::Util 0
-      strict 0
-      vars 0
-      warnings 0
-      warnings::register 0
-  UNIVERSAL-isa-1.20171012
-    pathname: E/ET/ETHER/UNIVERSAL-isa-1.20171012.tar.gz
-    provides:
-      UNIVERSAL::isa 1.20171012
-    requirements:
-      ExtUtils::MakeMaker 0
-      Scalar::Util 0
-      perl 5.006002
-      strict 0
-      warnings 0
-      warnings::register 0
   URI-5.37
     pathname: O/OA/OALDERS/URI-5.37.tar.gz
     provides:
@@ -7664,10 +7532,10 @@ DISTRIBUTIONS
       Test::More 0.88
       XSLoader 0
       perl 5.008001
-  UUID-0.38
-    pathname: J/JR/JRM/UUID-0.38.tar.gz
+  UUID-0.39
+    pathname: J/JR/JRM/UUID-0.39.tar.gz
     provides:
-      UUID 0.38
+      UUID 0.39
     requirements:
       Carp 0
       Config 0
@@ -7924,7 +7792,6 @@ DISTRIBUTIONS
       XML::XML2JSON 0.06
     requirements:
       ExtUtils::MakeMaker 0
-      JSON 0
       JSON::Syck 0
       Test::More 0
       XML::LibXML 1.59

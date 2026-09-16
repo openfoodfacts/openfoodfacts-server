@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # Script to generate cpanfile.snapshot for reproducible Perl builds
-# This script builds a Docker image and extracts the generated snapshot
+# Uses cpm for fast installation and Carton only for snapshot generation
+# (cpm can consume cpanfile.snapshot via --snapshot / --resolver snapshot
+#  using Carton::Snapshot, but cannot create it)
 
 set -e
 
@@ -29,10 +31,11 @@ if [[ -f cpanfile.snapshot ]]; then
 fi
 
 echo "🥫 Building Docker image (builder stage only)..."
-echo "🥫 This will install all dependencies (including development deps)..."
+echo "🥫 This will install all dependencies (including development deps) via cpm..."
 
 # Build the builder stage without a snapshot
-# This forces cpanm to be used, which will install all dependencies
+# This forces cpm to resolve from cpanfile (cpm auto-loads cpanfile.snapshot
+# only when it exists and no explicit ARGV is given)
 if docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-snapshot-builder . ; then
     echo ""
     echo "🥫 Build successful!"
@@ -41,6 +44,9 @@ if docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-sna
     # Create a temporary container to run Carton and extract the snapshot
     # We need to use docker cp because carton install outputs logs to stdout
     # which would contaminate the snapshot file if we used stdout redirection
+    # cpm is used for installation; Carton is only used here to *generate*
+    # the snapshot (cpm has --snapshot / --resolver snapshot for reading,
+    # but no writer - see skaji/cpm#174).
     CONTAINER_ID=$(docker create off-snapshot-builder bash -c "
         export PERL_CARTON_PATH=/tmp/local
         cd /tmp

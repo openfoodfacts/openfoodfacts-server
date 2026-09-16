@@ -1,80 +1,78 @@
-# Reproducible Perl Builds with Carton - Implementation Summary
+# Reproducible Perl Builds - Implementation Summary
 
 This document summarizes the changes made to implement reproducible Perl builds for Open Food Facts.
 
 ## Problem Statement
 
-Previously, Perl dependencies were installed using `cpanminus` without version locking, making builds non-deterministic and reproducible builds impossible.
+Previously, Perl dependencies were installed without strict version locking, making builds non-deterministic. `main` migrated from `cpanm` to `cpm` for speed; this branch adds a lockfile on top.
 
 ## Solution Overview
 
-We implemented a **hybrid approach** using Carton for reproducibility while maintaining cpanm for flexibility:
+**Install with `cpm` (fast) + lock with `cpanfile.snapshot` (Carton format).**
 
 ### Production Builds (Reproducible)
-- When `cpanfile.snapshot` exists, Carton installs exact dependency versions
+- When `cpanfile.snapshot` exists, `cpm` auto-loads it via `Carton::Snapshot` (`--snapshot` default) and installs exact versions
 - Fully reproducible builds across environments and time
 - Used for production deployments and CI/CD
 
 ### Development Builds (Flexible)
-- When no snapshot exists, cpanm installs from cpanfile constraints
-- Supports `CPANMOPTS` for features (`--with-develop`, `--with-feature=...`)
-- Allows testing new dependencies before generating a snapshot
+- When no snapshot exists, `cpm` resolves from `cpanfile` constraints (`CPANMOPTS=--with-develop` etc.)
+- Same installer (`cpm -w $(nproc)`) in both cases; no `carton install --deployment` branching
 
 ## Changes Made
 
 ### 1. Dockerfile Updates
-- **Added Carton package** to base image for dependency management
-- **Added ca-certificates** to fix SSL issues during builds
-- **Updated builder stage** to use Carton when snapshot exists, cpanm otherwise
-- **Added comprehensive comments** explaining the build process
+- **Kept `cpm`** as primary installer (as on `main`: `cpm install --show-build-log-on-failure -w $(nproc) -g`)
+- **Added `carton` Debian package** to base image *only* for snapshot generation / `Carton::Snapshot` runtime dep for `cpm --snapshot` (cpm can read `cpanfile.snapshot` via `--resolver snapshot` / `--snapshot` but cannot write it - see `skaji/cpm#174`)
+- **Builder stage** now matches `main` exactly except for the extra `carton` package; `cpm` auto-detects `cpanfile.snapshot` when `COPY ./cpanfile* /tmp/` is present
+- Added comment linking to `docs/dev/how-to-generate-cpanfile-snapshot.md`
 
 ### 2. Scripts
 - **Created `scripts/generate_cpanfile_snapshot.sh`**: Automated snapshot generation
-  - Builds Docker image with all dependencies
-  - Runs Carton to generate the snapshot
-  - Extracts snapshot to repository root
+  - Builds `builder` stage *without* snapshot (forces `cpm` to resolve from `cpanfile`)
+  - Runs `carton install` inside the built image to generate `cpanfile.snapshot`
+  - Extracts snapshot via `docker cp` to repository root
+  - Updated from `cpanm`-centric to `cpm`-centric wording
 
 ### 3. Documentation
-- **`docs/dev/how-to-generate-cpanfile-snapshot.md`**: Complete guide for snapshot management
-  - Explains the hybrid approach
+- **`docs/dev/how-to-generate-cpanfile-snapshot.md`**: Complete guide
+  - Explains `cpm` install + `Carton` generate split
+  - Documents `--snapshot` vs `--resolver snapshot` distinction
   - Multiple generation methods
-  - When to update the snapshot
-  - Troubleshooting tips
 
 - **`docs/dev/how-to-automate-perl-dependency-updates.md`**: Future enhancement guide
-  - GitHub Actions workflow template
-  - Automated monthly dependency updates
-  - Security considerations
 
-- **Updated `docker/README.md`**: Added reproducible builds section
+- **Updated `docker/README.md`**: Reproducible builds section now mentions `cpm`+`Carton`
 
 ### 4. Git Configuration
-- **Updated `.gitattributes`**: Ensure consistent line endings for cpanfile and cpanfile.snapshot
+- **Updated `.gitattributes`**: Ensure consistent line endings for `cpanfile` and `cpanfile.snapshot`
 
 ## How It Works
 
 ### With cpanfile.snapshot (Production)
 ```dockerfile
-# Carton uses the snapshot for exact versions
-export PERL_CARTON_PATH=/tmp/local
-carton install --deployment
+# strict snapshot use when present (carton --deployment equivalent)
+COPY ./cpanfile* /tmp/
+RUN cpm install --resolver snapshot --no-default-resolvers --show-build-log-on-failure -w $(nproc) -g
 ```
 
 ### Without cpanfile.snapshot (Development)
 ```dockerfile
-# cpanm uses cpanfile with flexibility for features
-cpanm $CPANMOPTS --notest --quiet --skip-satisfied \
-  --local-lib /tmp/local/ --installdeps .
+# plain cpm, resolves from cpanfile
+COPY ./cpanfile /tmp/
+RUN cpm install --with-develop --show-build-log-on-failure -w $(nproc) -g
 ```
+
+`Dockerfile` branches on `-f cpanfile.snapshot`: strict `--resolver snapshot --no-default-resolvers` (`carton --deployment` equivalent) when present, plain `cpm install` otherwise. Plain `cpm` alone would be opportunistic (falls back to `MetaCPAN`).
 
 ## Usage
 
 ### For Developers
 ```bash
-# Build normally (uses snapshot if available, otherwise cpanfile)
+# Build normally (cpm uses snapshot if available, otherwise cpanfile)
 make build
 
-# Generate or update snapshot
+# Generate or update snapshot (uses Carton inside cpm-built image)
 ./scripts/generate_cpanfile_snapshot.sh
 
 # Commit the snapshot
@@ -84,38 +82,35 @@ git commit -m "chore: update cpanfile.snapshot"
 
 ### For CI/CD
 No changes needed! The build automatically:
-1. Uses snapshot if committed (reproducible)
+1. Uses snapshot if committed (reproducible, cpm loads it)
 2. Falls back to cpanfile if not (flexible)
 
 ## Benefits
 
 ### ✅ Reproducibility
-- **Deterministic builds**: Same output from same inputs
-- **Predictable deployments**: No surprise dependency changes
-- **Easier debugging**: Exact dependency versions are known
+- Deterministic builds via `cpanfile.snapshot`
+- Predictable deployments
+
+### ✅ Performance
+- `cpm -w $(nproc)` is way faster than `carton`/`cpanm` (parallel downloads/builds)
 
 ### ✅ Security
-- **Version tracking**: All dependency versions in git
-- **Audit trail**: Changes visible in git history
-- **Controlled updates**: Dependencies updated intentionally
+- Version tracking in git, audit trail, controlled updates
 
 ### ✅ Flexibility
-- **Development freedom**: Test new deps without snapshot
-- **Feature support**: CPANMOPTS still works
-- **Backward compatible**: No breaking changes to workflow
+- `CPANMOPTS` / `cpm --with-develop` etc. still work
+- Backward compatible with `main`
 
 ### ✅ Maintainability
-- **Debian packaging**: Carton available as `carton` package
-- **Industry standard**: cpanfile.snapshot format widely used
-- **Future automation**: Template for GitHub Actions updates
+- `cpm` fatpacked single-file installer; `carton` Debian package only for snapshot generation
+- `cpanfile.snapshot` standard Carton format
 
 ## Migration Path
 
 ### Phase 1: Current State ✅
-- Carton installed
-- Build system supports both modes
-- Documentation complete
-- Helper script available
+- `cpm` for install, `carton` for snapshot generation
+- Build system supports both modes (with/without snapshot)
+- Documentation and helper script available
 
 ### Phase 2: Initial Snapshot (Next Steps)
 - Run `./scripts/generate_cpanfile_snapshot.sh`
@@ -128,90 +123,60 @@ No changes needed! The build automatically:
 - Regular snapshot updates
 
 ### Phase 4: Automation (Future)
-- Implement GitHub Actions workflow
-- Monthly automated dependency updates
-- Security vulnerability scanning
+- GitHub Actions workflow for monthly updates
 
 ## Technical Details
 
-### Carton vs Carmel Decision
-We chose **Carton** because:
-- Available as Debian package (no cpanm installation needed)
-- More widely adopted and stable
-- Better documentation
-- Aligns with existing infrastructure
+### Why not Carton for install?
+Performance: `cpm` is parallel and an order of magnitude faster. Carton is retained only because `cpm` has no snapshot writer (`--snapshot` is read-only, `--resolver snapshot` documented in `skaji/cpm#174#629747948`).
 
 ### Snapshot Format
-The `cpanfile.snapshot` is:
-- Human-readable text format
-- Version-controlled
-- Compatible with industry standards
-- Can be generated from any valid cpanfile
+- Carton `version 1.0` text format
+- Read by both `carton` and `cpm` (via `Carton::Snapshot`)
+- Version-controlled, human-readable
 
 ### Backward Compatibility
-- Existing CPANMOPTS usage unchanged
+- `CPANMOPTS` usage unchanged (mapped to `cpm` flags)
 - No impact on developers without snapshot
-- Production builds improved when snapshot added
-- Zero breaking changes
+- Dockerfile diff vs `main` is just `+carton` apt package
 
 ## Testing Strategy
 
 ### Without Snapshot
 ```bash
-# Remove snapshot to test cpanm path
 rm cpanfile.snapshot
-make build
-# Should succeed using cpanfile
+make build  # cpm resolves from cpanfile
 ```
 
 ### With Snapshot
 ```bash
-# Generate snapshot
 ./scripts/generate_cpanfile_snapshot.sh
-make build
-# Should succeed using snapshot
-```
-
-### Reproducibility Test
-```bash
-# Build twice, compare results
-make build
-docker images --format "{{.Repository}}:{{.Tag}} {{.ID}}" | grep backend
-make clean && make build
-docker images --format "{{.Repository}}:{{.Tag}} {{.ID}}" | grep backend
-# IDs may differ due to timestamps, but deps should be identical
+make build  # cpm loads snapshot
 ```
 
 ## Related Files
 
-- `Dockerfile`: Main build logic with Carton integration
+- `Dockerfile`: cpm install logic (matches main + carton)
 - `cpanfile`: Declares dependencies and constraints
-- `cpanfile.snapshot`: Lockfile with exact versions (to be generated)
+- `cpanfile.snapshot`: Lockfile (generated by Carton, read by cpm)
 - `scripts/generate_cpanfile_snapshot.sh`: Snapshot generation helper
 - `docs/dev/how-to-generate-cpanfile-snapshot.md`: User guide
-- `docs/dev/how-to-automate-perl-dependency-updates.md`: Automation guide
-- `.gitattributes`: Git configuration for consistent handling
+- `.gitattributes`: Git configuration
 
 ## Future Enhancements
 
-1. **Automated Updates**: GitHub Actions for monthly dependency updates
-2. **Security Scanning**: Integrate vulnerability scanning for CPAN modules
-3. **Dependency Diff**: Visual comparison of snapshot changes
-4. **Split Snapshots**: Separate snapshots for different feature sets
-5. **Build Cache**: Optimize using snapshot for faster builds
+1. Automated Updates: GitHub Actions for monthly dependency updates
+2. Security Scanning: Vulnerability scanning for CPAN modules
+3. Dependency Diff: Visual comparison of snapshot changes
 
 ## References
 
+- [cpm Documentation](https://github.com/skaji/cpm)
 - [Carton Documentation](https://metacpan.org/pod/Carton)
 - [cpanfile Documentation](https://metacpan.org/pod/cpanfile)
 - [Reproducible Builds](https://reproducible-builds.org/)
 - [GitHub Issue #12548](https://github.com/openfoodfacts/openfoodfacts-server/issues/12548)
 
-## Contributors
-
-- Implementation: GitHub Copilot
-- Review and guidance: @hangy
-
 ---
 
-**Status**: ✅ Implementation Complete - Ready for snapshot generation and testing
+**Status**: ✅ Implementation Complete - cpm for install, Carton for snapshot generation
