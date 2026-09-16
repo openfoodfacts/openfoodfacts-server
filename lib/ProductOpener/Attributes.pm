@@ -311,7 +311,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 	}
 	elsif ($attribute_id eq "forest_footprint") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-a.svg";
-		$attribute_ref->{panel_id} = "forest_footprint";
+		# panel_id is set dynamically in compute_attribute_forest_footprint only when the panel exists
 	}
 	elsif ($attribute_id eq "nova") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nova-group-1.svg";
@@ -839,6 +839,7 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 	if ((defined $product_ref->{forest_footprint_data}) and (defined $product_ref->{forest_footprint_data}{grade})) {
 
 		$attribute_ref->{status} = "known";
+		$attribute_ref->{panel_id} = "forest_footprint";
 
 		my $grade = $product_ref->{forest_footprint_data}{grade};
 
@@ -875,6 +876,7 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_forest_footprint_not_computed_description_short");
 		}
+		delete $attribute_ref->{panel_id};
 	}
 
 	return $attribute_ref;
@@ -1317,7 +1319,6 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 			$attribute_ref->{match} = $match;
 
 			$attribute_ref->{panel_id} = "nutrient_level_" . $nid;
-			$attribute_ref->{panel_id} =~ s/-/_/g;
 
 			if ($target_lc ne "data") {
 				$attribute_ref->{title} = sprintf(
