@@ -120,7 +120,6 @@ my @tests = (
 		test_case => "new_tags_dash_values",
 		csv_files => ["new_tags_1.csv", "new_tags_3_dash_values.csv"]
 	},
-	# Updates
 	# Update with empty values in tag fields, should not change the initial values
 	{
 		test_case => "new_tags_updates",
