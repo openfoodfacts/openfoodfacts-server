@@ -469,6 +469,8 @@ sub build_lang ($Languages_ref) {
 		$Lang{months}{$l} = decode("utf8", encode_json(\@$months));
 
 		my $weekdays = $locale->day_format_wide;
+		# DateTime::Locale::FromCLDR returns Monday..Sunday, but Lang expects Sunday..Saturday
+		unshift @$weekdays, pop @$weekdays;
 		$Lang{weekdays}{$l} = decode("utf8", encode_json(\@$weekdays));
 	}
 
