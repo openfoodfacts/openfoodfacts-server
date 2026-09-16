@@ -411,6 +411,7 @@
    "environmental_score_tags" : [
       "a-plus"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "20009",
@@ -443,9 +444,9 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:carrot",
-      "en:vegetable",
+      "en:taproot-vegetable",
       "en:root-vegetable",
-      "en:taproot-vegetable"
+      "en:vegetable"
    ],
    "ingredients_text" : "Carrots",
    "ingredients_with_specified_percent_n" : 0,
@@ -459,6 +460,7 @@
    "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
       "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",

@@ -22,7 +22,12 @@ properties:
       type: string
 
   ingredients:
-    $ref: "./ingredient.yaml#/components/schemas/Ingredients"
+    type: array
+    description: |
+      This structure gives the different ingredients and some information about them,
+      like estimate on their quantity.
+    items:
+      $ref: "./ingredient.yaml"
   ingredients_analysis:
     type: object
     properties:

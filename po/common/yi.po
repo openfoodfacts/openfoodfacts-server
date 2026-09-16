@@ -30,7 +30,7 @@ msgstr ""
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr ""
+msgstr "/open-food-facts-mobile-app"
 
 msgctxt "product_description_off"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
@@ -38,15 +38,15 @@ msgstr "אינהאַלטן, אַלערגענען, אַדיטיוון, דערנע
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr ""
+msgstr "א קאלאבאראטיווע, פרייע און אפענע דאטאבאזע פון אינגרעדיענטן, און אינפארמאציע וועגן קאסמעטישע פראדוקטן פון ארום דער וועלט"
 
 msgctxt "tagline_obf"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr ""
+msgstr "Open Beauty Facts זאַמלט אינפֿאָרמאַציע און דאַטן וועגן קאָסמעטישע פּראָדוקטן פֿון אַרום דער וועלט."
 
 msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
+msgstr "א קאלאבאראטיווע, פרייע און אפענע דאטאבאזע פון קאסמעטישע פראדוקטן פון ארום דער וועלט."
 
 msgctxt "product_description_obf"
 msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
@@ -55,15 +55,15 @@ msgstr "אינהאַלטן INCI, אַלערגענען, אַדיטיוון, עט�
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-beauty-facts-mobile-app"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "און די <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">פייסבוק גרופע פאר ביישטייערער</a>"
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr ""
+msgstr "עפֿענען Open Beauty Facts פּראָדוקט זוכן"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -71,11 +71,11 @@ msgstr "די פּראָדוקט בלאַט איז נישט פֿולשטענדי�
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
-msgstr ""
+msgstr "ניוועאַ, ניוועאַ מענער"
 
 msgctxt "categories_example_beauty"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr ""
+msgstr "אַנטי-שופּן שאַמפּו, ווייטנינג ציינפּאַסטע"
 
 msgctxt "emb_codes_example_beauty"
 msgid "EMB 53062"
@@ -83,11 +83,11 @@ msgstr ""
 
 msgctxt "generic_name_example_beauty"
 msgid "Anti-dandruff shampoo"
-msgstr ""
+msgstr "אַנטי-שופּן שאַמפּו"
 
 msgctxt "product_name_example_beauty"
 msgid "Anti-Perspirant Stress Protect"
-msgstr ""
+msgstr "אַנטי-פּערספּיראַנט סטרעס פּראָטעקט"
 
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
@@ -1756,11 +1756,6 @@ msgstr ""
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
@@ -4704,7 +4699,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "נוטרי-סקאָר נישט אָנווענדלעך"
+msgstr "Nutri-Score נישט אָנווענדלעך"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -4938,7 +4933,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "דער גרין-סקאָר איז אַן ענווייראָנמענטאַל סקאָר פון A+ ביז F וואָס מאַכט עס גרינג צו פאַרגלייַכן די פּראַל פון עסנוואַרג פּראָדוקטן אויף דער סביבה."
+msgstr "דער Green-Score איז אַן ענווייראָנמענטאַל סקאָר פון A+ ביז F וואָס מאַכט עס גרינג צו פאַרגלייַכן די פּראַל פון עסנוואַרג פּראָדוקטן אויף דער סביבה."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4951,7 +4946,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "דער גרין-סקאָר איז אַן ענווייראָנמענטאַל סקאָר פון A+ ביז F וואָס מאַכט עס גרינג צו פאַרגלייַכן די פּראַל פון עסנוואַרג פּראָדוקטן אויף דער סביבה."
+msgstr "דער Green-Score איז אַן ענווייראָנמענטאַל סקאָר פון A+ ביז F וואָס מאַכט עס גרינג צו פאַרגלייַכן די פּראַל פון עסנוואַרג פּראָדוקטן אויף דער סביבה."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5875,7 +5870,7 @@ msgstr ""
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "דער גרין-סקאָר איז אנהייב אנטוויקלט געוואָרן פֿאַר פֿראַנקרײַך און עס ווערט איצט אויסגעברייטערט צו אַנדערע אייראָפּעיִשע לענדער. די גרין-סקאָר פֿאָרמולע קען זיך ענדערן ווײַל עס ווערט קעסיידער פֿאַרבעסערט כּדי עס צו מאַכן מער פּינקטלעך און בעסער פּאַסיק פֿאַר יעדן לאַנד."
+msgstr "דער Green-Score איז אנהייב אנטוויקלט געוואָרן פֿאַר פֿראַנקרײַך און עס ווערט איצט אויסגעברייטערט צו אַנדערע אייראָפּעיִשע לענדער. די Green-Score פֿאָרמולע קען זיך ענדערן ווײַל עס ווערט קעסיידער פֿאַרבעסערט כּדי עס צו מאַכן מער פּינקטלעך און בעסער פּאַסיק פֿאַר יעדן לאַנד."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6026,6 +6021,46 @@ msgstr ""
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
+msgstr ""
+
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr ""
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr ""
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr ""
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr ""
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr ""
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr ""
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr ""
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
 msgstr ""
 
 msgctxt "donation_cta"
@@ -6491,7 +6526,7 @@ msgstr ""
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "די קאַטעגאָריע וואָס מיר האָבן פֿאַר דעם פּראָדוקט איז נישט פּינקטלעך גענוג צו רעכענען דעם גרין-סקאָר. קענט איר צולייגן אַ מער פּינקטלעכע פּראָדוקט קאַטעגאָריע?"
+msgstr "די קאַטעגאָריע וואָס מיר האָבן פֿאַר דעם פּראָדוקט איז נישט פּינקטלעך גענוג צו רעכענען דעם Green-Score. קענט איר צולייגן אַ מער פּינקטלעכע פּראָדוקט קאַטעגאָריע?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7630,7 +7665,7 @@ msgstr "מעלדן דעם בילד צו אונדזערע מאדעראטארן"
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "מיר פעלט די סערווינג גרייס ווערט און/אדער איינהייט צו רעכענען די נוטרי-סקאָר"
+msgstr "מיר פעלט די סערווינג גרייס ווערט און/אדער איינהייט צו רעכענען די Nutri-Score"
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
@@ -7958,6 +7993,10 @@ msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
 msgstr ""
@@ -7980,5 +8019,37 @@ msgstr ""
 
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
+msgstr ""
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
 msgstr ""
 

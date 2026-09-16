@@ -12,12 +12,12 @@ files:
         pt-PT: pt_PT
         zh-CN: zh_CN
         zh-HK: zh_HK
+        zh-TW: zh_TW
         en-GB: en_GB
         en-AU: en_AU
         en-US: en_US
         nl-BE: nl_BE
         nl: nl_NL
-        zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
         ku : kmr_TR
@@ -26,8 +26,9 @@ files:
     translation: /html/donate/%two_letters_code%.html
     languages_mapping:
       two_letters_code:
-        zh-HK: zh_HK
         zh-CN: zh_CN
+        zh-HK: zh_HK
+        zh-TW: zh_TW
         en-AU: en_AU
         en-GB: en_GB
         en-US: en_US
@@ -35,7 +36,6 @@ files:
         pt-PT: pt_PT
         nl-BE: nl_BE
         nl: nl_NL
-        zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr_RS
         ku : kmr_TR

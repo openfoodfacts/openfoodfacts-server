@@ -47,6 +47,8 @@ BEGIN {
 		&push_ocr_ready_to_redis
 
 		&process_xread_stream_reply
+
+		&perform_health_check
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -63,9 +65,11 @@ use ProductOpener::Store qw/get_string_id_for_lang retrieve_object store_object/
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use ProductOpener::Cache qw/$memd/;
 use ProductOpener::Tags qw/cc_to_country/;
+use ProductOpener::Health qw/:all/;
 
 use AnyEvent;
 use AnyEvent::RipeRedis;
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 =head2 $redis_client
 
@@ -122,14 +126,28 @@ sub init_redis() {
 	return;
 }
 
-=head2 subscribe_to_redis_streams ()
+=head2 subscribe_to_redis_streams ($search_from = undef, $search_to = undef, @streams)
 
 Connects to Redis and processes any events received. Blocks until there is an error or the application terminates.
 Returns on error or when receiving a terminate signal from the OS
 
+=head3 Parameters
+
+=head4 $search_from (input)
+
+The starting point for reading from the Redis stream. Starts from the last processed message if not provided.
+
+=head4 $search_to (input)
+
+The ending point for reading from the Redis stream. Stays active indefinitely if not provided.
+
+=head4 @streams (input)
+
+The list of Redis streams to subscribe to. Defaults to all streams if not provided.
+
 =cut
 
-sub subscribe_to_redis_streams () {
+sub subscribe_to_redis_streams ($search_from = undef, $search_to = undef, @streams) {
 	if (get_oidc_implementation_level() < 2) {
 		$log->info("OIDC implementation level is less than 2, not listening to Redis stream") if $log->is_info();
 		return;
@@ -154,27 +172,49 @@ sub subscribe_to_redis_streams () {
 
 	# Read Keycloak events to process actions following user creation / deletion
 	# TODO: We should store the last message_id
-	_read_user_streams();
+	_read_user_streams($search_from, $search_to, @streams);
 
 	return;
 }
 
-=head2 _read_user_streams ()
+=head2 _read_user_streams ($search_from = undef, $search_to = undef, @streams)
 
-Keeps reading from Redis until there is an error.
+Keeps reading from Redis until there is an error or the $search_to message is received.
 Returns on a fatal error or if the OS signals to quit
+
+=head3 Parameters
+
+=head4 $search_from (input)
+
+The starting point for reading from the Redis stream. Starts from the last processed message if not provided.
+
+=head4 $search_to (input)
+
+The ending point for reading from the Redis stream. Stays active indefinitely if not provided.
+
+=head4 @streams (input)
+
+The list of Redis streams to subscribe to. Defaults to all streams if not provided.
 
 =cut
 
-sub _read_user_streams() {
+sub _read_user_streams($search_from = undef, $search_to = undef, @streams) {
+	# If search_from and search_to are not defined, we will use the last processed message ID to continue reading from where we left off
+	my $use_persistent_id = (!defined $search_to && !defined $search_from);
 	# Get the index that we last read from
-	my $search_from = retrieve_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id");
-	if (defined $search_from) {
-		# Turn the search from back into a scalar
-		$search_from = ${$search_from};
+	if ($use_persistent_id) {
+		$search_from = retrieve_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id");
+		if (defined $search_from) {
+			# Turn the search from back into a scalar
+			$search_from = ${$search_from};
+		}
 	}
-	else {
+	if (not defined $search_from) {
 		$search_from = '$';
+	}
+
+	if (!@streams) {
+		push @streams, ('user-deleted', 'user-registered', 'user-updated');
 	}
 
 	my $ok = 1;
@@ -194,15 +234,15 @@ sub _read_user_streams() {
 
 		# Listen for user-deleted events so that we can redact product contributions for this flavor
 		# This will block for up to 5 seconds waiting for messages and return a maximum of 1000
-		my @streams = (
-			'COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted',
-			'user-registered', 'user-updated', $search_from, $search_from, $search_from
-		);
+		my @params = ('COUNT', 1000, 'BLOCK', 5000, 'STREAMS');
+		push @params, @streams;
+		# push as many search_from as we have streams
+		push @params, map {$search_from} @streams;
 
-		$log->info("[" . localtime() . "] Reading from Redis", {streams => \@streams}) if $log->is_info();
+		$log->info("[" . localtime() . "] Reading from Redis", {params => \@params}) if $log->is_info();
 
 		$redis_client->xread(
-			@streams,
+			@params,
 			sub {
 				my ($reply_ref, $err) = @_;
 
@@ -213,13 +253,15 @@ sub _read_user_streams() {
 				}
 
 				if ($reply_ref) {
-					$log->info("[" . localtime() . "] Received data from Redis stream", {reply => $reply_ref})
-						if $log->is_info();
+					# $log->info("[" . localtime() . "] Received data from Redis stream", {reply => $reply_ref})
+					# 	if $log->is_info();
 					# Process any received messages
-					my $last_processed_message_id = process_xread_stream_reply($reply_ref);
+					my $last_processed_message_id = process_xread_stream_reply($reply_ref, $search_to);
 					if ($last_processed_message_id) {
 						$search_from = $last_processed_message_id;
-						store_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id", $search_from);
+						if ($use_persistent_id) {
+							store_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id", $search_from);
+						}
 					}
 				}
 				else {
@@ -242,12 +284,12 @@ sub _read_user_streams() {
 		else {
 			$retry_count = 0;
 		}
-	} while ($ok);
+	} while ($ok and (not defined $search_to or $search_from lt $search_to));
 
 	return;
 }
 
-sub process_xread_stream_reply($reply_ref) {
+sub process_xread_stream_reply($reply_ref, $search_to = undef) {
 	my $last_processed_message_id;
 
 	my @streams = @{$reply_ref};
@@ -259,6 +301,15 @@ sub process_xread_stream_reply($reply_ref) {
 		foreach my $outer_ref (@{$stream[1]}) {
 			my @outer = @{$outer_ref};
 			$message_id = $outer[0];
+			if (defined $search_to) {
+				if ($message_id gt $search_to) {
+					$last_processed_message_id = $message_id;
+					$log->info("[" . localtime() . "] Stopping replay",
+						{stream_name => $stream_name, message_id => $message_id, search_to => $search_to})
+						if $log->is_info();
+					last;
+				}
+			}
 			eval {
 				my %message_hash = @{$outer[1]};
 
@@ -726,6 +777,110 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 
 	return;
 
+}
+
+=head2 perform_health_check()
+
+Execute a component health check and return a health-check result object.
+
+This sub documents the expected interface for health checks used by
+C<ProductOpener::APIHealth>. Implementations should perform one focused check and
+return an array reference of check objects compatible with
+L<https://inadarei.github.io/rfc-healthcheck/>.
+
+Each check object in the returned array reference must include:
+
+=over 4
+
+=item * C<status>
+
+String indicating the check result. Expected values are C<pass>, C<warn> or
+C<fail>.
+
+=item * C<output>
+
+Human-readable message describing the outcome.
+
+=back
+
+Additional RFC fields (for example C<componentType>, C<time>,
+C<observedValue>, C<observedUnit> and C<links>) may be included when relevant.
+If C<componentId> is included, it should be a stable UUID.
+
+The sub should not die. If an internal error occurs, return one check object
+with C<status =E<gt> 'fail'> and a meaningful C<output> message.
+
+=cut
+
+sub perform_health_check() {
+	if (!defined $redis_client) {
+		init_redis();
+	}
+
+	if (!defined $redis_client) {
+		my $sanitized = sanitize_url($redis_url);
+		my $self_url
+			= defined($sanitized)
+			? (($sanitized =~ m{://}) ? $sanitized : 'redis://' . $sanitized)
+			: undef;
+		return [
+			{
+				status => $status_fail,
+				componentType => 'datastore',
+				output => 'Redis client is not connected',
+				time => current_time_iso8601(),
+				(defined($self_url) ? (links => {self => $self_url}) : ()),
+			}
+		];
+	}
+
+	my $start = [gettimeofday()];
+
+	my $ok = eval {
+		my $cv = AE::cv;
+		$redis_client->ping(
+			sub {
+				my ($reply, $err) = @_;
+				$cv->send($err ? 0 : 1);
+			}
+		);
+		$cv->recv;
+	};
+
+	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
+
+	my $time = current_time_iso8601();
+
+	my $redis_sanitized = sanitize_url($redis_url);
+	my $redis_self_url
+		= defined($redis_sanitized)
+		? (($redis_sanitized =~ m{://}) ? $redis_sanitized : 'redis://' . $redis_sanitized)
+		: undef;
+	my $links = defined($redis_self_url) ? {self => $redis_self_url} : {};
+
+	if ($ok) {
+		return [
+			{
+				status => $status_pass,
+				componentType => 'datastore',
+				observedValue => $duration_ms,
+				observedUnit => 'ms',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
+	else {
+		return [
+			{
+				status => $status_fail,
+				componentType => 'datastore',
+				output => 'Redis did not respond to PING',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
 }
 
 1;

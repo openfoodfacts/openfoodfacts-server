@@ -29,8 +29,8 @@ use ProductOpener::Data qw/get_collection/;
 use ProductOpener::Store qw/retrieve_object store_object/;
 use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Checkpoint;
+use List::Util qw(any);
 
-use experimental qw/switch smartmatch/;
 use Time::HiRes qw/sleep/;
 
 # This script recursively visits all products and checks that they are in the correct MongoDB collection
@@ -38,20 +38,20 @@ use Time::HiRes qw/sleep/;
 my $checkpoint = ProductOpener::Checkpoint->new;
 my $last_processed_path = $checkpoint->{value};
 
-my $do_update = not 'preview' ~~ @ARGV;
+my $do_update = not any {$_ eq 'preview'} @ARGV;
 if (not $do_update) {
 	$checkpoint->log("Running in preview mode");
 }
 
+my %server_to_product_type = (
+	off => 'food',
+	obf => 'beauty',
+	opff => 'petfood',
+	opf => 'product',
+);
+
 sub product_type_for_server($server) {
-	return do {
-		given ($server) {
-			"food" when 'off';
-			"beauty" when 'obf';
-			"petfood" when 'opff';
-			"product" when 'opf';
-		}
-	};
+	return $server_to_product_type{$server};
 }
 
 my %collections;
@@ -133,7 +133,7 @@ while (my $path = $next->()) {
 	if (not $deleted) {
 		$expected_collection = $product_type . $obsolete_suffix;
 
-		if (not $expected_collection ~~ @collection_ids) {
+		if (not any {$_ eq $expected_collection} @collection_ids) {
 			if ($do_update) {
 				$collections{$expected_collection}->insert_one($product_ref);
 				$made_change = 1;

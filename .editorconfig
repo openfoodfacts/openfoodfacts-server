@@ -34,3 +34,8 @@ trim_trailing_whitespace = false
 # Makefiles require tabs for indentation
 [Makefile]
 indent_style = tab
+
+# TSV files: use tabs (data files with tab-separated values)
+[*.tsv]
+indent_style = tab
+trim_trailing_whitespace = false

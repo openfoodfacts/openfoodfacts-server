@@ -28,7 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/init_request/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
@@ -75,7 +75,6 @@ my $data = encode_json($results_ref);
 
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
-write_cors_headers();
 print header (-charset => 'UTF-8') . $data;
 
 exit(0);

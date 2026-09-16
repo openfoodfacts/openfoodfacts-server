@@ -3,8 +3,22 @@
       "body" : {
          "fields" : "updated",
          "product" : {
+            "allergens_tags" : [
+               "en:milk",
+               "en:eggs",
+               "en:peanuts",
+               "en:tree-nuts",
+               "en:fish",
+               "en:shellfish",
+               "en:wheat",
+               "en:soy",
+               "en:mango",
+               "kiwi",
+               "Unrecognized Allergen"
+            ],
             "brands_tags" : [
-               "Some brand"
+               "Some brand",
+               "Aldi"
             ],
             "categories_tags" : [
                "coffee"
@@ -16,6 +30,9 @@
                "Something unrecognized"
             ],
             "stores_tags" : "comma,separated,list",
+            "traces_tags" : [
+               "en:wheat"
+            ],
             "unknown_tags" : [
                "some value"
             ]

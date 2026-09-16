@@ -6,22 +6,21 @@
    "additives_tags" : [
       "en:e951"
    ],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "sodas",
    "categories_hierarchy" : [
       "en:beverages-and-beverages-preparations",
       "en:beverages",
+      "en:non-alcoholic-beverages",
       "en:carbonated-drinks",
+      "en:soft-drinks",
       "en:sodas"
    ],
    "categories_lc" : "en",
    "categories_properties" : {
-      "agribalyse_proxy_food_code:en" : "18340"
+      "agribalyse_proxy_food_code:en" : "18340",
+      "ciqual_food_code:en" : "18029"
    },
    "categories_properties_tags" : [
       "all-products",
@@ -29,21 +28,31 @@
       "agribalyse-food-code-unknown",
       "agribalyse-proxy-food-code-18340",
       "agribalyse-proxy-food-code-known",
-      "ciqual-food-code-unknown",
+      "ciqual-food-code-18029",
+      "ciqual-food-code-known",
       "agribalyse-known",
       "agribalyse-18340"
    ],
    "categories_tags" : [
       "en:beverages-and-beverages-preparations",
       "en:beverages",
+      "en:non-alcoholic-beverages",
       "en:carbonated-drinks",
+      "en:soft-drinks",
       "en:sodas"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:artificially-sweetened-beverages",
    "food_groups_tags" : [
       "en:beverages",
       "en:artificially-sweetened-beverages"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "improvements_data" : {
       "en:better-nutri-score-with-much-more-fruits-vegetables-legumes" : {
          "current_nutriscore_grade" : "c",
@@ -60,7 +69,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
-         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
          "id" : "en:apple-juice",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 70.5,
@@ -84,7 +92,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.25,
@@ -132,15 +140,13 @@
    "ingredients_sweeteners_n" : 1,
    "ingredients_tags" : [
       "en:apple-juice",
+      "en:fruit-juice",
       "en:fruit",
       "en:juice",
-      "en:malaceous-fruit",
-      "en:apple",
-      "en:fruit-juice",
       "en:water",
       "en:sugar",
-      "en:added-sugar",
       "en:disaccharide",
+      "en:added-sugar",
       "en:e951"
    ],
    "ingredients_text" : "apple juice, water, sugar, aspartame",
@@ -153,13 +159,15 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
+      "en:apple-juice",
       "en:e951"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -618,10 +626,20 @@
       "artificially-sweetened-beverages",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

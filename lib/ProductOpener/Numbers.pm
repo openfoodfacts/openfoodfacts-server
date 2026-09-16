@@ -125,7 +125,7 @@ sub remove_insignificant_digits ($value) {
 	return $value;
 }
 
-=head2 convert_string_to_number($)
+=head2 convert_string_to_number ($value)
 
 Try to convert a number represented as a string to the actual number,
 by guessing which characters (spaces, commas, dots) are used as

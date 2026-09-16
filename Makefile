@@ -68,7 +68,7 @@ DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://b
 	ODOO_CRM_URL="" \
 	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
-	OIDC_IMPLEMENTATION_LEVEL=3 \
+	OIDC_IMPLEMENTATION_LEVEL=5 \
 	PO_COMMON_PREFIX=test_ \
 	docker compose --env-file=${ENV_FILE}
 DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
@@ -76,7 +76,7 @@ DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfact
 	${DOCKER_COMPOSE_TEST_BASE}
 # Enable Redis only for integration tests.
 # Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
-DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
+DOCKER_COMPOSE_INT_TEST=PRODUCT_OPENER_HOST_PORT= COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
 	REDIS_URL="redis:6379" \
 	${DOCKER_COMPOSE_TEST_BASE}
 
@@ -120,14 +120,14 @@ goodbye:
 #-------#
 dev: hello build init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
-	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
+	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~4M products)."
 
 #-------#
 # CI    #
 #-------#
 dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
-	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
+	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~4M products)."
 
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
@@ -249,7 +249,7 @@ reset_owner:
 
 init_backend: build_taxonomies build_lang build_pro_platform
 
-create_mongodb_indexes: run_deps
+create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
@@ -275,7 +275,7 @@ refresh_mongodb: run_deps
 
 # this command is used to import data on the mongodb used on staging environment
 import_prod_data: run_deps
-	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) import_prod_data
+	@cd "${DEPS_DIR}/openfoodfacts-shared-services" && $(MAKE) import_prod_data
 
 #--------#
 # Checks #
@@ -316,10 +316,9 @@ integration_test: create_folders
 	mkdir -p tests/integration/outputs/
 # we launch the server and run tests within same container.
 # this is the place where variables are important
-# note that we don't launch the frontend because it causes issues,
-# as we use localhost in tests (which is the backend)
 # Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
 # Also need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
+	${DOCKER_COMPOSE_INT_TEST} up -d frontend
 	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
 	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
@@ -358,6 +357,7 @@ test-int: guard-test create_folders
 # this is the place where variables are important
 # Need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
 	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
+	${DOCKER_COMPOSE_INT_TEST} up -d frontend
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
@@ -499,24 +499,32 @@ build_packager_codes: create_folders
 	@echo "🥫 build packager codes"
 	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/update_packager_codes.pl
 
+build_taxonomies: name ?= *
+build_taxonomies: jobs ?= $(CPU_COUNT)
 build_taxonomies: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend \
+	  scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
 
 # a version where we force building without using cache
 # use it when you are developing in Tags.pm and want to iterate
 # at the end, change the $BUILD_TAGS_VERSION in Tags.pm
+rebuild_taxonomies: name ?= *
+rebuild_taxonomies: jobs ?= $(CPU_COUNT)
 rebuild_taxonomies:
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
-	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend \
+	  scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}" -v
 
+build_taxonomies_test: name ?= *
+build_taxonomies_test: jobs ?= $(CPU_COUNT)
 build_taxonomies_test: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
 
 build_pro_platform: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
@@ -622,22 +630,22 @@ clean: goodbye hdown prune prune_deps prune_cache clean_folders
 # Run dependent projects
 run_deps: clone_deps
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && $(MAKE) run; \
+		cd "${DEPS_DIR}/$$dep" && $(MAKE) run; \
 	done
 
 
 # Clone dependent projects without running them (used to pull in yml for tests)
 clone_deps:
-	@mkdir -p ${DEPS_DIR}; \
+	@mkdir -p "${DEPS_DIR}"; \
 	for dep in ${DEPS} ; do \
 		echo $$dep; \
-		if [ ! -d ${DEPS_DIR}/$$dep ]; then \
+		if [ ! -d "${DEPS_DIR}/$$dep" ]; then \
 			echo "Cloning $$dep"; \
 			git clone --filter=blob:none --sparse \
-				https://github.com/openfoodfacts/$$dep.git ${DEPS_DIR}/$$dep; \
+				https://github.com/openfoodfacts/$$dep.git "${DEPS_DIR}/$$dep"; \
 			echo "Cloned $$dep"; \
 		else \
-			cd ${DEPS_DIR}/$$dep; \
+			cd "${DEPS_DIR}/$$dep"; \
 			git pull || \
 	                  1>&2 echo "Warning: unable to pull latest $$dep; are you online?"; \
 		fi; \
@@ -647,12 +655,12 @@ clone_deps:
 prune_deps: clone_deps
 	@for dep in ${DEPS} ; do \
 		echo "🥫 Pruning $$dep..."; \
-		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
+		cd "${DEPS_DIR}/$$dep" && $(MAKE) prune; \
 	done
 
 stop_deps:
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && ( $(MAKE) stop || env -i docker compose stop ) ; \
+		cd "${DEPS_DIR}/$$dep" && ( $(MAKE) stop || env -i docker compose stop ) ; \
 	done
 
 #-----------#
@@ -726,6 +734,7 @@ endif
 	@echo "🥫 Running integration test group $(TEST_GROUP) …"
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/integration/outputs/
+	${DOCKER_COMPOSE_INT_TEST} up -d frontend
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	@echo "🥫 Running all tests in group $(TEST_GROUP) with both console output and JUnit XML generation..."
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend yath test --renderer=Formatter --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))

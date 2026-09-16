@@ -1,16 +1,12 @@
 {
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories" : "olive oil",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fats",
-      "en:vegetable-fats",
       "en:olive-tree-products",
+      "en:vegetable-fats",
       "en:vegetable-oils",
       "en:olive-oils"
    ],
@@ -34,8 +30,8 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fats",
-      "en:vegetable-fats",
       "en:olive-tree-products",
+      "en:vegetable-fats",
       "en:vegetable-oils",
       "en:olive-oils"
    ],
@@ -44,6 +40,10 @@
       "en:fats-and-sauces",
       "en:fats"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "unknown",
+      "summary" : "missing_ingredients"
+   },
    "lc" : "en",
    "misc_tags" : [
       "en:nutrients-not-estimated-from-ingredients-no-ingredients",
@@ -419,9 +419,19 @@
       "fats",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : []
 }

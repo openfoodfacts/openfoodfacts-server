@@ -126,7 +126,7 @@ msgstr "Bu ürün sayfası tamamlanmamıştır. Sayfayı düzenleyerek ve elimiz
 
 msgctxt "brands_example_product"
 msgid "Tide, Persil"
-msgstr ""
+msgstr "Tide, Persil"
 
 msgctxt "categories_example_product"
 msgid "Liquid laundry detergent, Powder laundry detergent"
@@ -134,11 +134,11 @@ msgstr ""
 
 msgctxt "emb_codes_example_product"
 msgid "EMB 67890"
-msgstr ""
+msgstr "EMB 67890"
 
 msgctxt "generic_name_example_product"
 msgid "Laundry detergent"
-msgstr ""
+msgstr "Çamaşır deterjanı"
 
 msgctxt "product_name_example_product"
 msgid "Ultra Clean Lavender Scent"
@@ -407,7 +407,7 @@ msgstr "Android APK"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Turkish.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -1072,7 +1072,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Üreticiler için Açık Gıda Gerçekleri"
+msgstr "Üreticiler için Open Food Facts"
 
 msgctxt "for"
 msgid "for"
@@ -1761,11 +1761,6 @@ msgstr "Beslenme dereceleri"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Beslenme derecesi"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4332,11 +4327,11 @@ msgstr "Kategorileri içe aktarın"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr "Üreticiden Nutri-Skor puanı"
+msgstr "Üreticiden Nutri-Score puanı"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr "Hesaplanan Nutri-Puan skor"
+msgstr "Hesaplanan Nutri-Score skor"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
@@ -4344,7 +4339,7 @@ msgstr "Üreticiden Nutri-Score derecesi"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr "Hesaplanan Nutri-Skor derecesi"
+msgstr "Hesaplanan Nutri-Score derecesi"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4950,11 +4945,11 @@ msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Düşük çevresel etki (Eko-Skor)"
+msgstr "Düşük çevresel etki (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Yeşil Puan, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
+msgstr "Green-Score, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4963,11 +4958,11 @@ msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Düşük çevresel etki (Eko-Skor)"
+msgstr "Düşük çevresel etki (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Yeşil Puan, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
+msgstr "Green-Score, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5557,7 +5552,7 @@ msgstr "Kesin bir kategori eksik"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Bazı veriler eksik olduğu için bu ürünün Eko-Skorunu hesaplayamadık, tamamlamanıza yardımcı olabilir misiniz?"
+msgstr "Bazı veriler eksik olduğu için bu ürünün Green-Scoreunu hesaplayamadık, tamamlamanıza yardımcı olabilir misiniz?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5891,7 +5886,7 @@ msgstr "Green-Score formülü, daha kesin hale getirmek için düzenli olarak ge
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Yeşil Puanlama sistemi ilk olarak Fransa için geliştirilmiş olup diğer Avrupa ülkelerine de yaygınlaştırılmaktadır. Yeşil Puanlama formülü, her ülkeye daha uygun ve daha doğru hale getirilmesi için düzenli olarak geliştirildiğinden değişime tabidir."
+msgstr "Green-Score sistemi ilk olarak Fransa için geliştirilmiş olup diğer Avrupa ülkelerine de yaygınlaştırılmaktadır. Green-Score formülü, her ülkeye daha uygun ve daha doğru hale getirilmesi için düzenli olarak geliştirildiğinden değişime tabidir."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6044,6 +6039,46 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "DESTEKLİYORUM"
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr ""
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr ""
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr ""
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "gıda endüstrisinden bağımsız kalmak,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr ""
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr ""
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr ""
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Bağış Yapın"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Bağış Yapın"
@@ -6174,7 +6209,7 @@ msgstr "Bonuslar ve kötüye kullanımlar"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Bu ürün için Eko-Skor"
+msgstr "Bu ürün için Green-Score"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6503,11 +6538,11 @@ msgstr "Nutri-Score'u hesaplamak için gereken bilgileri ekleyebilir misiniz?"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Eko-Skoru hesaplayabilmemiz için kesin bir ürün kategorisi ekleyebilir misiniz?"
+msgstr "Green-Scoreu hesaplayabilmemiz için kesin bir ürün kategorisi ekleyebilir misiniz?"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "Bu ürün için belirlediğimiz kategori, Yeşil Puanı hesaplamak için yeterince kesin değil. Daha kesin bir ürün kategorisi ekleyebilir misiniz?"
+msgstr "Bu ürün için belirlediğimiz kategori, Green-Scoreı hesaplamak için yeterince kesin değil. Daha kesin bir ürün kategorisi ekleyebilir misiniz?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6891,7 +6926,7 @@ msgstr ""
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
-msgstr ""
+msgstr "Kimlik doğrulaması gerekiyor"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7598,7 +7633,7 @@ msgstr "{barcode} sahip olduğunuz bir ürünün barkodu mu? Öyleyse, lütfen v
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-tr.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7702,15 +7737,15 @@ msgstr "Aynı kategorideki ilave şeker içermeyen ürünleri arayın:"
 
 msgctxt "per_100g"
 msgid "for 100 g"
-msgstr ""
+msgstr "100 gr için"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
-msgstr ""
+msgstr "100 ml için"
 
 msgctxt "per_1l"
 msgid "for 1 L"
-msgstr ""
+msgstr "1 litre için"
 
 msgctxt "per_1kg"
 msgid "for 1 kg"
@@ -7723,12 +7758,12 @@ msgstr "porsiyon başına"
 # Product as sold
 msgctxt "preparation_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "Satıldığı gibi"
 
 # Prepared product
 msgctxt "preparation_prepared"
 msgid "Prepared"
-msgstr ""
+msgstr "Hazır"
 
 msgctxt "nutrition_data_exists_as_sold"
 msgid "Nutrition facts are specified for the product as sold:"
@@ -7824,7 +7859,7 @@ msgstr "Sigara içmek son derece bağımlılık yapar. Başlamayın. Sigara içm
 
 msgctxt "reuse_card_title"
 msgid "Reuse"
-msgstr ""
+msgstr "Yeniden kullanım"
 
 msgctxt "qfdmo_solutions_title"
 msgid "Circular economy solutions nearby"
@@ -7844,7 +7879,7 @@ msgstr ""
 
 msgctxt "qfdmo_solution_repair"
 msgid "Repair"
-msgstr ""
+msgstr "Onarım"
 
 msgctxt "qfdmo_solution_repair_description"
 msgid "Find repair shops and services to fix your product instead of throwing it away"
@@ -7884,7 +7919,7 @@ msgstr ""
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr ""
+msgstr "Ürün kategorisi"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7936,7 +7971,7 @@ msgstr "Etki değerlendirilmedi."
 
 msgctxt "detailed_data"
 msgid "Detailed data"
-msgstr ""
+msgstr "Ayrıntılı veri"
 
 msgctxt "test_ingredients_analyze_form_description"
 msgid "You can use this form to analyze an ingredient list."
@@ -7974,6 +8009,10 @@ msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
 msgstr ""
@@ -7997,4 +8036,36 @@ msgstr ""
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "Toplam orman ayak izi"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "Etiket"
 

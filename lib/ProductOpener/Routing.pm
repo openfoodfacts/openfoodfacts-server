@@ -967,7 +967,9 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref) {
 		}
 		else {
 			# Use "no_language" normalization
-			$tagid = get_string_id_for_lang("no_language", $tag);
+			# 20260413 new tags refactor: do not normalize tags
+			# $tagid = get_string_id_for_lang("no_language", $tag);
+			$tagid = $tag;
 		}
 
 		$request_ref->{canon_rel_url}

@@ -29,6 +29,12 @@
                      ],
                      "title" : "Transportation"
                   }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "forest_footprint"
+                  }
                }
             ],
             "expanded" : true,
@@ -65,6 +71,37 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                "subtitle" : "Missing a precise category",
                "title" : "Green-Score not computed",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "forest_footprint" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint grade:</strong> \n                    A\n                </p>\n                <p>No ingredient associated with a deforestation risk.</p>\n                <p><strong>Total Forest Footprint:</strong> \n                    0.00 \n                    m² per kg of food\n                </p>\n                \n                ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <h3>Labels</h3>\n                <p>The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers.</p>\n                ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
+               "name" : "Forest Footprint",
+               "subtitle" : "No ingredient associated with a deforestation risk.",
+               "title" : "Forest Footprint A  - No deforestation risk",
                "type" : "grade"
             },
             "topics" : [
@@ -140,7 +177,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Water: 75.0% (estimate)"
+               "title" : "water: 75.0% (estimate)"
             },
             "topics" : [
                "health"
@@ -151,7 +188,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Test-ingredient: 25.0% (estimate)"
+               "title" : "test_ingredient: 25.0% (estimate)"
             },
             "topics" : [
                "health"
@@ -241,7 +278,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Taxonomy ID</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>water</span></td><td style=\"padding:2px 6px\">en:water</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">18066</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">75.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span class=\"text_info unknown_ingredient\">test_ingredient</span></td><td style=\"padding:2px 6px\">en:test-ingredient</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">25.0</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
+                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Taxonomy ID</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>water</span></td><td style=\"padding:2px 6px\">en:water</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">18066</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">75.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span class=\"text_info unknown_ingredient\">test_ingredient</span></td><td style=\"padding:2px 6px\">en:test_ingredient</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">25.0</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
                   }
                },
                {
@@ -270,7 +307,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    Test-ingredient\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    test_ingredient\n                \n                    ",
                      "type" : "summary"
                   }
                },
@@ -299,7 +336,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    Test-ingredient\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    test_ingredient\n                \n                    ",
                      "type" : "summary"
                   }
                },
@@ -328,7 +365,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    Test-ingredient\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    test_ingredient\n                \n                    ",
                      "type" : "summary"
                   }
                },
@@ -1344,8 +1381,8 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 × \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
-                     "icon_alt" : "Recycle",
+                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 × \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        \n                                            - In contact with food\n                                        \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "icon_alt" : "recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
                      "type" : "summary"
@@ -1356,7 +1393,7 @@
                   "text_element" : {
                      "evaluation" : "bad",
                      "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
-                     "icon_alt" : "Discard",
+                     "icon_alt" : "discard",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
                      "type" : "summary"
@@ -1366,7 +1403,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                        \n                            \n                                6 × \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 × \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                        \n                                            - In contact with food\n                                        \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Unknown",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
