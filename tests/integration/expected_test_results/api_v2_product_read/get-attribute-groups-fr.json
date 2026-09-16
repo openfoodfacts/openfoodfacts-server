@@ -290,16 +290,16 @@
                   "title" : "Green-Score D"
                },
                {
-                  "description" : "",
-                  "description_short" : "Pas de risque de déforestation",
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+                  "description" : "Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels.",
+                  "description_short" : "Risque faible de déforestation",
+                  "grade" : "b",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg",
                   "id" : "forest_footprint",
-                  "match" : 99.9351851851852,
-                  "name" : "Empreinte forêt",
+                  "match" : 66,
+                  "name" : "Empreinte Forêt",
                   "panel_id" : "forest_footprint",
                   "status" : "known",
-                  "title" : "Très petite empreinte forêt"
+                  "title" : "Empreinte Forêt B"
                }
             ],
             "id" : "environment",

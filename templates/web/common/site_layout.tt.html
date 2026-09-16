@@ -424,8 +424,8 @@
 						<p>[% f_lang('f_join_us_on_slack', { url => "https://slack.openfoodfacts.org" } ) %]</p>
 						<p><a href="https://forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">[% f_lang('f_footer_follow_us_links', { links => '
-							<a href="https://x.com/' _ x_account _ '"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="x"></a>
-							<a href="' _ facebook_page_url _ '"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
+							<a href="https://x.com/' _ x_account _ '"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="X formerly Twitter"></a>
+							<a href="' _ facebook_page_url _ '"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook icon"></a>
 							<a href="https://www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
 							'
 							})
@@ -444,7 +444,11 @@
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_wiki_link')) %]">[% lang('footer_wiki') %]</a></li>
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_translators_link')) %]">[% lang('footer_translators') %]</a></li>
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_partners_link')) %]">[% lang('footer_partners') %]</a></li>
+              <li><a class="button small white-button radius" href="[% edq(lang('footer_data_link')) %]">[% lang('footer_data') %]</a></li>
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_obf_link')) %]">[% lang('footer_obf') %]</a></li>
+              <li><a class="button small white-button radius" href="[% edq(lang('footer_opf_link')) %]">[% lang('footer_opf') %]</a></li>
+              <li><a class="button small white-button radius" href="[% edq(lang('footer_opff_link')) %]">[% lang('footer_opff') %]</a></li>
+              <li><a class="button small white-button radius" href="[% edq(lang('footer_op_link')) %]">[% lang('footer_op') %]</a></li>
 							<li><a class="button small white-button radius" href="[% producers_platform_url %]">[% edq(lang('footer_pro')) %]</a></li>
 						</ul>
 					</div>
@@ -467,7 +471,6 @@
 									<li><a href="[% edq(lang('footer_legal_link')) %]">[% lang('footer_legal') %]</a></li>
 									<li><a href="[% edq(lang('footer_privacy_link')) %]">[% lang('footer_privacy') %]</a></li>
 									<li><a href="[% edq(lang('footer_terms_link')) %]">[% lang('footer_terms') %]</a></li>
-									<li><a href="[% edq(lang('footer_data_link')) %]">[% lang('footer_data') %]</a></li>
 									<li><a href="[% edq(lang('donate_link')) %]">[% lang('donate') %]</a></li>
 									<li><a href="[% edq(lang('footer_producers_link')) %]">[% lang('footer_producers') %]</a></li>
 									<li><a href="https://link.openfoodfacts.org/newsletter-[% language %]">[% lang('subscribe_to_our_newsletter') %]</a></li>

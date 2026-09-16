@@ -93,6 +93,22 @@
       "en:beverages",
       "en:plant-based-milk-substitutes"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "not_computed",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:soya",
+                  "ingredient_id" : "en:soya-bean"
+               }
+            ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
