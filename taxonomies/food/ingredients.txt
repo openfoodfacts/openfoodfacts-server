@@ -1572,7 +1572,7 @@ bs: enzim
 ca: enzim
 cs: enzym
 cy: ensym
-da: enzym
+da: enzym, enzymer
 de: Enzym
 el: Ένζυμο
 eo: enzimo
@@ -2835,6 +2835,18 @@ ciqual_food_name:en: Milk, skimmed, UHT
 ciqual_food_name:fr: Lait écrémé, UHT
 comment:en: kept due to ciqual
 
+# < en:compound
+< en: skimmed milk
+en: vitamin enriched skimmed milk
+usda_fdc_code:en: 322559
+usda_foundation_name:en: Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)
+
+# < en: compound
+< en: skimmed milk
+en: vitamin enriched lowfat milk
+usda_fdc_code:en: 322228
+usda_foundation_name:en: Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D
+
 ################################# SEMI-SKIMMED MILK ############################
 
 < en: milk
@@ -2892,6 +2904,11 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_food_code:en: 19042
 ciqual_food_name:en: Milk, semi-skimmed, pasteurised
 ciqual_food_name:fr: Lait demi-écrémé, pasteurisé
+
+< en: semi-skimmed milk
+en: vitamin enriched semi-skimmed milk
+usda_fdc_code:en: 321359
+usda_foundation_name:en: Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D
 
 ################################## FULL FAT MILKS ##############################
 
@@ -2961,6 +2978,12 @@ ro: lapte integral pasteurizat
 ciqual_food_code:en: 19024
 ciqual_food_name:en: Milk, whole, pasteurised
 ciqual_food_name:fr: Lait entier, pasteurisé
+
+# < en: compound
+< en: whole milk
+en: vitamin enhanced whole milk
+usda_fdc_code:en: 322892
+usda_foundation_name:en: Milk, whole, 3.25% milkfat, with added vitamin D
 
 ################################## COW MILKS ###################################
 
@@ -8081,9 +8104,6 @@ sv: ricotta, ricottaost
 tr: Ricotta
 uk: Рікота
 zh: 里考塔
-ciqual_food_code:en: 19585
-ciqual_food_name:en: Ricotta cheese
-ciqual_food_name:fr: Ricotta
 # gsw:Ricotta
 # pt-br:ricota
 # scn:Ricotta
@@ -8096,7 +8116,12 @@ ciqual_food_name:fr: Ricotta
 # zh-hk:里考塔
 # zh-sg:里考塔
 # zh-tw:里考塔
+ciqual_food_code:en: 19585
+ciqual_food_name:en: Ricotta cheese
+ciqual_food_name:fr: Ricotta
 description:en: RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses.
+usda_fdc_code:en: 323444
+usda_foundation_name:en: Cheese, ricotta, whole milk
 wikidata:en: Q216781
 wikipedia:en: https://en.wikipedia.org/wiki/Ricotta
 
@@ -9288,6 +9313,8 @@ ciqual_food_code:en: 11058
 ciqual_food_name:en: Salt, white, for human consumption (sea, igneous or rock), iodine added, no other enrichment
 ciqual_food_name:fr: Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
 description:en: IODISED SALT - is salt mixed with a minute amount of various salts of the element iodine.
+usda_fdc_code:en: 321505
+usda_foundation_name:en: Salt, table, iodized
 wikidata:en: Q902318
 wikipedia:en: https://en.wikipedia.org/wiki/Iodised_salt
 
@@ -9798,6 +9825,33 @@ it: manzo Angus
 en: beef steak
 ciqual_food_code:en: 6201
 ciqual_food_name:en: Beef, steak or beef steak, raw
+usda_fdc_code:en: 334849
+usda_foundation_name:en: Beef, loin, top loin steak, boneless, lip-on, separable lean only, trimmed to 1/8" fat, choice, raw
+
+< en: beef meat
+en: tenderloin beef
+usda_fdc_code:en: 334897
+usda_foundation_name:en: Beef, loin, tenderloin roast, separable lean only, boneless, trimmed to 0" fat, select, cooked, roasted
+
+< en: beef meat
+en: eye of round roast beef
+usda_fdc_code:en: 334898
+usda_foundation_name:en: Beef, round, eye of round roast, boneless, separable lean only, trimmed to 0" fat, select, raw
+
+< en: beef meat
+en: top round roast beef
+usda_fdc_code:en: 334963
+usda_foundation_name:en: Beef, round, top round roast, boneless, separable lean only, trimmed to 0" fat, select, raw
+
+< en: beef steak
+en: t-bone steak beef
+usda_fdc_code:en: 335061
+usda_foundation_name:en: Beef, short loin, t-bone steak, bone-in, separable lean only, trimmed to 1/8" fat, choice, cooked, grilled
+
+< en: beef steak
+en: porterhouse steak
+usda_fdc_code:en: 335109
+usda_foundation_name:en: Beef, short loin, porterhouse steak, separable lean only, trimmed to 1/8" fat, select, raw
 
 < en: beef meat
 en: cooked beef meat, cooked beef
@@ -12384,6 +12438,8 @@ sv: skinka, skinka av gris, svinskinka
 zh: 火腿
 ifct_food_code:en: O050
 ifct_food_name:en: Pork, ham
+usda_fdc_code:en: 332397
+usda_foundation_name:en: Ham, sliced, pre-packaged, deli meat (96%fat free, water added)
 
 # type of dried ham from portugal
 #  < en:ham
@@ -13469,6 +13525,8 @@ it: würstel
 ciqual_food_code:en: 30134
 ciqual_food_name:en: Frankfurter sausage
 ciqual_food_name:fr: Saucisse de Francfort
+usda_fdc_code:en: 323121
+usda_foundation_name:en: Frankfurter, beef, unheated
 
 < en: pork sausage
 en: Morteaux sausage
@@ -16127,7 +16185,7 @@ ciqual_food_code:en: 16040
 ciqual_food_name:en: Coconut fat or oil
 description:en: COCONUT OIL, or copra oil, is an edible oil extracted from the kernel or meat of mature coconuts harvested from the coconut palm (Cocos nucifera).
 from_palm_oil:en: no
-usda_fdc_code:en: 171412
+usda_fdc_code:en: 171412, 330458
 usda_ndb_code:en: 4047
 usda_ndb_name:en: Oil, coconut
 wikidata:en: Q216235
@@ -20918,8 +20976,10 @@ nl: Met andere natuurlijke smaakstoffen
 pl: z innymi naturalnymi aromatami
 ru: ароматизатор идентичный натуральному
 
+< en: dill flavouring
 < en: natural flavouring
 en: natural dill flavouring
+da: naturlig dildaroma
 de: natürliches Dill-Aroma, natürliches Dillaroma
 fr: arôme naturel d'aneth
 hr: prirodna aroma kopra
@@ -22932,6 +22992,7 @@ sv: blåbärsarom
 
 < en: flavouring
 en: dill flavouring
+da: dildaroma
 de: Dill-Aroma, Dillaroma
 es: aroma de eneldo
 fi: tilliaromi
@@ -23242,8 +23303,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Liquid_smoke
 
 < en: flavouring
 en: vegetable flavouring
+da: grøntsagsaroma, grønsagsaroma
 hr: aroma povrća
 it: aroma vegetale
+
+< en: natural flavouring
+< en: vegetable flavouring
+en: natural vegetable flavouring
+da: naturlig grøntsagsaroma
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -26929,6 +26996,12 @@ en: rye scalding
 da: rugskoldning
 sv: rågskållning
 
+< en: scalding
+< en: wheat
+en: wheat scalding
+da: hvedeskoldning
+sv: veteskållning
+
 ##################################################################################
 #
 #                        Spelt / Triticum spelta
@@ -27047,6 +27120,7 @@ nl: speltschroot
 
 < en: spelt
 en: spelt flakes
+da: speltflager
 sv: speltflingor, dinkelveteflingor, flingor av dinkelvete
 
 < en: spelt flakes
@@ -28069,7 +28143,7 @@ en: rye flour
 bg: ръжено брашно, брашно от ръж, брашно ръжено, ръжено пшенично брашно
 ca: farina de blat de sègol, farina de blat de segol, farina de sègol
 cs: žitná mouka
-da: Rugmel
+da: rugmel
 de: Roggenmehl, Roggenmehl Typ 1150
 es: harina de centeno
 fi: ruisjauho
@@ -28136,7 +28210,7 @@ it: farina di segale tipo tipo 1250
 en: wholemeal rye flour, wholegrain rye flour, whole grain rye flour
 bg: пълнозърнесто ръжено брашно, ръжено пълнозърнесто брашно
 cs: celozrnná žitná mouka
-da: fuldkornsrugmel, fullkornsrugmel
+da: fuldkornsrugmel
 de: Roggenvollkornmehl
 es: flor de harina integral de centeno, harina integral de centeno
 fi: täysjyväruisjauho, täysjyväruisjauhoa
@@ -30094,7 +30168,7 @@ en: white basmati rice
 da: hvidt basmatiris
 de: weißer Basmatireis
 fi: valkoinen basmatiriisi
-fr: riz basmati blanc, riz thaï blanc
+fr: riz basmati blanc, riz blanc long grain basmati, riz thaï blanc
 hr: bijela basmati riža
 hu: fehér basmati rizs, fehér baszmati rizs
 it: riso basmati bianco
@@ -31020,7 +31094,7 @@ az: Qəhvəyi şəkər
 bg: кафява захар
 ca: sucre morè
 cs: Hnědý cukr
-da: farin, brun farin
+da: farin, brun farin, farinsukker
 de: Brauner Zucker, Farinzucker
 eo: Bruna sukero
 es: azúcar morena, azúcar moreno
@@ -31262,6 +31336,7 @@ sv: sockerlösning
 < en: sugar
 en: icing sugar, powdered sugar
 bg: пудра захар
+da: flormelis
 de: Puderzucker, Azucar en polvo
 es: Azúcar glasé
 fi: tomusokeri
@@ -31342,7 +31417,7 @@ nl: Kristalsuiker
 pt: Açúcar granulado
 comment:en: "granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
 description:en: Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
-usda_fdc_code:en: 169655
+usda_fdc_code:en: 169655, 334247
 usda_ndb_code:en: 19335
 usda_ndb_name:en: Sugars, granulated
 
@@ -32050,7 +32125,7 @@ bs: Melasa
 ca: Melassa
 cs: Melasa
 cy: Triagl
-da: melasse
+da: melasse, mollasses
 de: Melasse
 el: μελάσα
 eo: melaso
@@ -32624,15 +32699,16 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en: fructose syrup
+en: fructose powder
 de: Fruktosepulver
 fi: fruktoosijauhe
-it: Fruttosio in polvere
+it: fruttosio in polvere
 
 en: oligofructose
 bg: олигофруктоза
-da: oligofruktose, oligofruktose
+da: oligofruktose, oligofructose
 de: Oligofructose, Oligofruktose
-es: Oligofructosa
+es: oligofructosa
 fi: oligofruktoosi
 fr: oligofructose
 he: אוליגופרוקטוז
@@ -32651,7 +32727,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q418945
 wikipedia:en: https://en.wikipedia.org/wiki/Fructooligosaccharide
-# usage:en: dietary fibres (oligofructose, polydextrose)
 
 < en: oligofructose
 fr: fibres végétales d'oligofructose
@@ -36473,6 +36548,7 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 20901
 ciqual_food_name:en: Soybean, whole grain
 ciqual_food_name:fr: Soja, graine entière
+description:en: Soybeans (Glycine max) are a legume native to East Asia, cultivated for thousands of years and now grown extensively worldwide, including major production regions in the Americas, East Asia, and South Asia. Their flavor is mild and slightly nutty, adapting well to countless preparations. Soybeans are among the most versatile and widely used legumes globally, forming the basis of foods like tofu, soy milk, soy sauce, miso, tempeh, edamame, and soybean oil, as well as animal feed. Nutritionally, they are notable for their high plant protein content, along with dietary fiber, healthy fats, and various vitamins and minerals.
 description:de: Die Sojabohne (Glycine max), häufig auch einfach als Soja bezeichnet, ist eine Pflanzenart aus der Unterfamilie Schmetterlingsblütler. Als Nahrung ist die Eiweißqualität des Sojaproteins mit der von tierischem Eiweiß vergleichbar, was die Sojabohne von anderen Pflanzen abhebt.
 description:es: Glycine max, llamada popularmente soya o soja, es una especie de la familia Fabaceae. El grano de soya y sus subproductos (aceite y harina de soya) se utilizan en la alimentación humana, del ganado y aves.
 description:fr: Le soja, (soya) (Glycine max), est une espèce de plante annuelle de la famille des légumineuses.
@@ -36485,6 +36561,37 @@ usda_ndb_name:en: Soybeans, mature seeds, raw
 usda_ndb_process:en: en:dried
 wikidata:en: Q11006
 wikipedia:en: https://en.wikipedia.org/wiki/Soybean
+
+< en: soya bean
+en: green soy bean
+de: Grünaäe Sojabohnen
+fi: vihreä soijapapu
+fr: soja vert
+hr: zeleno sojino zrno
+it: fagioli di soia verdi
+usda_ndb_code:en: 11450
+usda_ndb_name:en: Soybeans, green, raw
+
+< en: soya bean
+en: black soy bean
+de: Schwarze Sojabohnen
+fr: soja noir
+ja: 黒大豆
+description:en: Black soybeans (Glycine max) are a dark-seed-coated variety of soybean cultivated across East Asia, including China, Korea, and Japan, with production also found in parts of North America and elsewhere. Their flavor is earthier and nuttier than yellow soybeans, with a subtle sweetness when cooked. Traditionally used in braised side dishes, black bean pastes, teas, fermented condiments, and specialty tofu, they hold cultural significance in many Asian culinary traditions. Nutritionally, they are rich in plant protein and dietary fiber, and their black seed coat contains anthocyanins, the same antioxidant pigments found in blueberries and black rice.
+
+< en: soya bean
+en: brown soybean
+description:en: Brown soybeans (Glycine max) are a tan-to-brown-seed-coated variety grown throughout East Asia, particularly in China, Japan, and Korea, alongside cultivation in other soybean-producing regions worldwide. Compared to common yellow soybeans, they offer a nuttier, slightly roasted, and subtly sweet flavor. They are traditionally used in specialty soy sauces, roasted soy snacks, and certain regional tofu preparations, valued for the distinct character their seed coat lends to fermented and cooked dishes. Nutritionally, brown soybeans provide a strong source of plant protein and dietary fiber, similar to other soybean varieties, with their color coming from natural pigments in the seed coat.
+ifct_food_code:en: B024
+ifct_food_name:en: Soybean, brown
+ifct_food_process:en: en:dried
+
+< en: soya bean
+en: white soybean, yellow soybean
+description:en: White soybeans, more accurately pale yellow in color, are the most widely cultivated variety of soybean (Glycine max), grown extensively across the Americas, East Asia, and other major agricultural regions worldwide. They have a mild, neutral flavor, making them highly versatile in food production. This variety forms the basis of most global soy products, including tofu, soy milk, soybean oil, tempeh, and edamame. As the dominant type in commercial and everyday use, white soybeans are valued nutritionally for their high plant protein content, dietary fiber, and essential fatty acids.
+ifct_food_code:en: B025
+ifct_food_name:en: Soybean, white
+ifct_food_process:en: en:dried
 
 < en: soya bean
 en: sprouted soybeans
@@ -38274,17 +38381,32 @@ ciqual_food_name:fr: Abricot, dénoyauté, sec
 #24 in 3 @2021-09-12
 
 < en: tree nut
-en: apricot kernels
+en: apricot kernel, apricot kernels
+ar: نواة مشمش
 bg: кайсиеви ядки
-de: Aprikosenkerne
-es: huesos de albaricoque
+ca: llavor d'albercoc
+da: abrikoskerne, abrikoskerner
+de: Aprikosenkern, Aprikosenkerne
+eo: abrikota kerno
+es: huesos de albaricoque, semilla de albaricoque
+fa: مغز هسته زردآلو
 fi: aprikoosinsiemen, aprikoosinsiemenet
-fr: noyaux d'abricots, noyau d'abricot
+fr: noyau d'abricot, noyaux d'abricots
 hr: koštice marelice
-it: Noccioli di albicocca, mandorle d'albicocca
+hu: sárgabarackmag
+hy: ծիրանի կորիզ
+it: noccioli di albicocca, mandorle d'albicocca, armellina
+ja: 杏仁
+ko: 살구씨
 nb: aprikoskjerner
-nl: abrikozenpitten
+nl: abrikozenpit, abrikozenpitten
+ru: зерно абрикоса
+sl: marelična koščica
 sv: aprikoskärnor
+tr: kayısı çekirdeği
+uk: аброкосове ядро
+zh: 杏仁
+wikidata:en: Q165527
 
 #<en:apricot compound
 < en: jam
@@ -39246,7 +39368,7 @@ it: pesca bianca
 
 < en: peach
 en: yellow peach
-usda_fdc_code:en: 169928
+usda_fdc_code:en: 169928, 325430
 usda_ndb_code:en: 9236
 usda_ndb_name:en: Peaches, yellow, raw
 
@@ -39624,7 +39746,7 @@ zh: 威廉斯梨
 agribalyse_proxy_food_code:en: 13189
 ciqual_proxy_food_code:en: 13189
 ciqual_proxy_food_name:en: Pear, var. Williams, flesh without skin, raw
-usda_fdc_code:en: 167776
+usda_fdc_code:en: 167776, 332597
 usda_ndb_code:en: 9412
 usda_ndb_name:en: Pears, raw, bartlett (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q498862
@@ -42708,7 +42830,7 @@ usda_ndb_name:en: Oranges, raw, Florida
 
 < en: orange
 en: raw navel orange
-usda_fdc_code:en: 169917
+usda_fdc_code:en: 169917, 327501
 usda_ndb_code:en: 9202
 usda_ndb_name:en: Oranges, raw, navels (Includes foods for USDA's Food Distribution Program)
 
@@ -45249,7 +45371,7 @@ ciqual_food_code:en: 13012
 ciqual_food_name:en: Fig, raw
 ciqual_food_name:fr: Figue, crue
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fig
-usda_fdc_2_code:en: 174665
+usda_fdc_2_code:en: 174665, 326905
 usda_fdc_code:en: 173021
 usda_ndb_2_code:en: 9094
 usda_ndb_2_name:en: Figs, dried, uncooked
@@ -45672,7 +45794,7 @@ description:en: KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is 
 ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
 ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
 ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
-usda_fdc_code:en: 168153
+usda_fdc_code:en: 168153, 327046
 usda_ndb_code:en: 9148
 usda_ndb_name:en: Kiwifruit, green, raw
 wikidata:en: Q13194
@@ -46041,7 +46163,7 @@ zh: 哈密瓜
 ciqual_food_code:en: 13026
 ciqual_food_name:en: Melon, cantaloupe -ex Cavaillon or Charentais melon-, pulp, raw
 description:en: Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
-usda_fdc_code:en: 169092
+usda_fdc_code:en: 169092, 327198
 usda_ndb_code:en: 9181
 usda_ndb_name:en: Melons, cantaloupe, raw
 wikidata:en: Q477179
@@ -46426,7 +46548,7 @@ ciqual_food_code:en: 13030
 ciqual_food_name:en: Nectarine, pulp and peel, raw
 ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
 eurocode_2_group_3:en: 9.20.15
-usda_fdc_code:en: 169914
+usda_fdc_code:en: 169914, 327357
 usda_ndb_code:en: 9191
 usda_ndb_name:en: Nectarines, raw
 wikidata:en: Q841156
@@ -47832,7 +47954,7 @@ eurocode_2_group_3:en: 9.30.15
 ifct_food_code:en: E063
 ifct_food_name:en: Strawberry
 usda_fdc_2_code:en: 168173
-usda_fdc_code:en: 167762
+usda_fdc_code:en: 167762, 327699
 usda_ndb_2_code:en: 9318
 usda_ndb_2_name:en: Strawberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
 usda_ndb_2_process:en: en:frozen, en:unsweetened
@@ -49935,7 +50057,7 @@ en: vegetable, vegetables
 bg: зеленчук, зеленчуци
 ca: Vegetals, Verdures
 cs: Zelenina
-da: grøntsag, grøntsager, grønsag, grønsager
+da: grøntsag, grøntsager, grøntsags, grønsag, grønsager, grønsags
 de: Gemüse
 el: λαχανικό, λαχανικά
 es: verduras, hortaliza, hortalizas, vegetal, vegetales
@@ -50108,8 +50230,6 @@ nl: kiemgroente
 
 #########################################################################################
 #
-#########################################################################################
-#
 #                               LEAF VEGETABLES (Eurocode 2 8.10)
 #
 ##########################################################################################
@@ -50140,6 +50260,110 @@ eurocode_2_group_2:en: 8.10
 
 #########################################################################################
 #
+#                               Agathi leaves
+#
+##########################################################################################
+
+< en: leaf vegetable
+en: agathi leaves
+la: Sesbania grandiflora
+description:en: Agathi leaves (Sesbania grandiflora) originate from South and Southeast Asia, where the tree grows widely across tropical and subtropical regions. The leaves have a mildly bitter, slightly grassy taste that softens when cooked. Culinarily, they're used in soups, stir-fries, lentil dishes, and traditional preparations across Indian, Sri Lankan, Thai, and Filipino cuisines, often paired with tamarind, coconut, or spices. Nutritionally, agathi leaves are notable for their high vitamin A, vitamin C, calcium, and iron content, along with protein and dietary fiber. They also contain antioxidants and various phytonutrients, making them a traditionally valued leafy green in many regional food cultures worldwide.
+ifct_food_code:en: C001
+ifct_food_name:en: Agathi leaves
+
+
+##################################################################################
+#
+#                        Amaranth leaves
+#
+##################################################################################
+
+< en: leaf vegetable
+en: amaranth leaves
+la: Amaranthus gangeticus
+description:en: Amaranth leaves come from the amaranth plant, native to Central and South America but now cultivated widely across Africa, Asia, and the Caribbean, where they form a staple leafy vegetable. Varieties range from vivid red-purple to deep green, with spined and spineless forms differing mainly in stem texture. The leaves have a mild, slightly earthy, spinach-like flavor with a subtle sweetness. They're commonly boiled, steamed, sautéed, or added to soups, stews, and stir-fries, softening quickly when cooked. Nutritionally, amaranth leaves are notably rich in vitamins A, C, and K, folate, calcium, iron, and dietary fiber, alongside plant-based protein.
+ifct_proxy_food_code:en: C004
+ifct_proxy_food_name:en: Amaranth leaves, red and green mix
+usda_ndb_code:en: 11003
+usda_ndb_name:en: Amaranth leaves, raw
+
+< en: amaranth leaves
+en: green amaranth leaves
+ifct_food_code:en: C002
+ifct_food_name:en: Amaranth leaves, green
+
+< en: amaranth leaves
+en: red amaranth leaves
+ifct_food_code:en: C003
+ifct_food_name:en: Amaranth leaves, red
+
+< en: amaranth leaves
+en: green spined amaranth leaves
+ifct_food_code:en: C005
+ifct_food_name:en: Amaranth, spined, leaves, green
+
+< en: amaranth leaves
+en: red and green spined amaranth leaves
+ifct_food_code:en: C006
+ifct_food_name:en: Amaranth, spined, leaves, red and green
+
+##################################################################################
+#
+#                        Basella leaves
+#
+##################################################################################
+
+< en: leaf vegetable
+en: basella leaves, Malabar spinach, vine spinach
+la: Basella alba
+description:en: Basella alba, commonly called Malabar spinach or vine spinach, is a fast-growing climbing vine native to tropical Asia and Africa, now cultivated widely across South and Southeast Asia, Africa, and the Caribbean. Its thick, glossy leaves have a mild, slightly peppery taste and a mucilaginous texture similar to okra when cooked. Popular in stir-fries, soups, curries, and stews, it holds up well in hot, humid climates where true spinach struggles. Nutritionally, the leaves are rich in vitamins A and C, iron, calcium, and antioxidants, with a naturally high water and fiber content, making them a staple leafy green in many traditional cuisines worldwide.
+ifct_food_code:en: C007
+ifct_food_name:en: Basella, leaves
+
+##################################################################################
+#
+#                        Bathua leaves
+#
+##################################################################################
+
+< en: leaf vegetable
+en: bathua leaves
+description:en: Bathua, also known as fat hen or lamb's quarters, is a wild leafy green native to Europe and Asia, now naturalized worldwide and especially prized in North Indian cuisine during winter months. Its leaves have an earthy, slightly tangy, spinach-like flavor with a tender texture when cooked. Traditionally used in soups, flatbreads (bathua paratha), raita, and sautéed side dishes, it's often paired with lentils or mustard greens. Nutritionally, bathua is notable for its iron, calcium, vitamin A, vitamin C, and protein content, along with dietary fiber, making it a valued seasonal green across many traditional food cultures globally.
+ifct_food_code:en: C008
+ifct_food_name:en: Bathua leaves
+
+##################################################################################
+#
+#                        Beet greens
+#
+##################################################################################
+
+< en: leaf vegetable
+en: beet greens, chukandar ke patte
+hi: चुकंदर के पत्ते
+description:en: Beet greens are the leafy tops of the beetroot plant (Beta vulgaris), native to the Mediterranean and Near East, where wild sea beet has been used since antiquity. They have an earthy, slightly bitter flavor with mild sweetness, similar to Swiss chard, and tender-crisp stems ranging from white to deep red. Widely used across Mediterranean, European, Middle Eastern, and South Asian cuisines, they are sautéed, steamed, added to soups, stews, and stir-fries, or eaten raw in salads when young. Nutritionally, beet greens are rich in vitamins A, C, and K, along with folate, potassium, magnesium, iron, and dietary fiber, plus antioxidant compounds including betalains.
+ifct_food_code:en: C009
+ifct_food_name:en: Beet greens
+usda_ndb_code:en: 11086
+usda_ndb_name:en: Beet greens, raw
+
+< en: leaf vegetable
+en: betel leaves
+la: Piper betle
+description:en: Betel leaf (Piper betle) is a heart-shaped, glossy leaf native to Southeast Asia, now cultivated across South and Southeast Asia and parts of the Pacific. It has a pungent, peppery, slightly bitter flavor with an aromatic, faintly numbing quality from natural essential oils. Globally, it's best known as the wrapper for paan, but is also used to wrap savory bites (as in Thai miang kham), chopped into chutneys, or used to wrap fish before steaming. Nutritionally, the leaf contains vitamins A and C, calcium, and trace minerals, along with aromatic compounds like eugenol and chavicol that contribute to its distinctive taste and traditional uses.
+
+< en: betel leaves
+en: big betel leaves
+ifct_food_code:en: C010
+ifct_food_name:en: Betel, leaves, big
+
+< en: betel leaves
+en: small betel leaves
+ifct_food_code:en: C011
+ifct_food_name:en: Betel, leaves, small
+
+#########################################################################################
+#
 #                               Chicory greens
 #
 ##########################################################################################
@@ -50151,6 +50375,22 @@ species:en: Cichorium intybus
 usda_fdc_code:en: 169992
 usda_ndb_code:en: 11152
 usda_ndb_name:en: Chicory greens, raw
+
+#########################################################################################
+#
+#                               Collard greens
+#
+##########################################################################################
+
+< en: leaf vegetable
+en: collard greens, collard
+description:en: Collards (collard greens) are a leafy green vegetable in the cabbage family — the same species as kale, cabbage, and broccoli (Brassica oleracea), just bred for large, loose, dark green leaves rather than a tight head. Earthy, slightly bitter, and hearty — milder than mustard greens, tougher and more assertive than spinach. Traditionally slow-cooked (often with smoked meat, onion, garlic, vinegar, and pepper flakes in Southern U.S. cooking) until tender — but they can also be sautéed, steamed, or even eaten raw/massaged in salads if sliced thin. It's the same species as cabbage (Brassica oleracea), but not a cabbage in the way we normally mean the word.
+ifct_food_code:en: C014
+ifct_food_name:en: Cabbage, collard greens
+species:en: Brassica oleracea
+usda_ndb_code:en: 11161
+usda_ndb_name:en: Collards, raw
+wikidata:en: Q14879985
 
 #########################################################################################
 #
@@ -50183,6 +50423,7 @@ usda_ndb_2_code:en: 11698
 usda_ndb_2_name:en: Chrysanthemum leaves, raw
 usda_ndb_code:en: 11157
 usda_ndb_name:en: Chrysanthemum, garland, raw
+
 
 #########################################################################################
 #
@@ -50586,7 +50827,7 @@ zh: 蘿蔓萵苣
 ciqual_food_code:en: 20171
 ciqual_food_name:en: Cos or romaine lettuce, raw
 ciqual_food_name:fr: Laitue romaine, crue
-usda_fdc_code:en: 169247
+usda_fdc_code:en: 169247, 327923
 usda_ndb_code:en: 11251
 usda_ndb_name:en: Lettuce, cos or romaine, raw
 wikidata:en: Q1762893
@@ -51837,7 +52078,8 @@ en: raw broccoli
 ciqual_food_code:en: 20057
 ciqual_food_name:en: Broccoli, raw
 ciqual_food_name:fr: Brocoli, cru
-usda_fdc_code:en: 170379
+comment:en: the two usda codes: legacy, foundation
+usda_fdc_code:en: 170379, 321900
 usda_ndb_code:en: 11090
 usda_ndb_name:en: Broccoli, raw
 
@@ -52215,7 +52457,11 @@ eurocode_2_group_3:en: 8.15.24
 wikidata:en: q263203
 wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
 
-#comment:en: IN french chou chinois is used for both varieties. And in other languages as well.
+###################################################################################################
+#
+#                                Chinese cabbage
+#
+###################################################################################################
 
 < en: cabbage
 en: Chinese cabbage, Napa cabbage
@@ -52259,17 +52505,20 @@ uk: капуста пекінська
 uz: pekin karami
 vi: cải thảo
 zh: 大白菜
-ciqual_food_code:en: 20167
-ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
-ecobalyse:en: chinese-cabbage-fr
-ecobalyse_labels_en_organic:en: chinese-cabbage-organic
-# 200 @2021-09-29
-eurocode_2_group_3:en: 8.15.28
 #arz:ملفوف برند
 #lzh:菘
 #szy:mamumuway
 # yue:紹菜
+ciqual_food_code:en: 20167
+ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
+ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
+comment:en: IN french chou chinois is used for both varieties. And in other languages as well.
+description:en: Chinese cabbage (Brassica rapa subsp. pekinensis) originated in East Asia, likely China, and has been cultivated for over 1,500 years before spreading worldwide. It features pale green, crinkled leaves with wide white ribs and a mild, slightly sweet flavor with subtle peppery notes. Globally, it's used in stir-fries, soups, dumplings, salads, and most famously as the base for Korean kimchi; it also appears in Japanese, Chinese, and Western cuisines as a crunchy, versatile vegetable. Nutritionally, it's low in calories and contains vitamins C and K, folate, potassium, and dietary fiber, along with various antioxidant compounds, making it a widely valued leafy vegetable across cultures.
+ecobalyse:en: chinese-cabbage-fr
+ecobalyse_labels_en_organic:en: chinese-cabbage-organic
+eurocode_2_group_3:en: 8.15.28
+ifct_food_code:en: C013
+ifct_food_name:en: Cabbage, Chinese
 wikidata:en: Q13360268
 wikipedia:en: https://en.wikipedia.org/wiki/Chinese_cabbage
 
@@ -52317,6 +52566,12 @@ eurocode_2_group_3:en: 8.15.28
 #yue:白菜
 wikidata:en: Q18968514
 wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
+
+###################################################################################################
+#
+#                                Brussels sprouts
+#
+###################################################################################################
 
 < en: brassica
 < en: cabbage
@@ -52406,9 +52661,12 @@ zh: 抱子甘藍
 ciqual_food_code:en: 20058
 ciqual_food_name:en: Brussels sprout, raw
 ciqual_food_name:fr: Chou de Bruxelles, cru
+description:en: Brussels sprouts are small, leafy green vegetables belonging to the cabbage family, believed to have originated in Belgium, from which they take their name, though similar plants trace back to ancient Rome. They grow in tight, bud-like clusters along a thick stalk. Raw, they have a slightly bitter, peppery bite; cooked, they turn nuttier and sweeter, especially when roasted, caramelized, or charred. Popular worldwide, they're prepared by roasting, steaming, sautéing, or shredding into slaws, often paired with garlic, bacon, nuts, or citrus. Nutritionally, they're rich in fiber, vitamin C, vitamin K, folate, and antioxidant compounds, while remaining low in calories.
 ecobalyse:en: brussels-sprout-fr
 ecobalyse_labels_en_organic:en: brussels-sprout-organic
 eurocode_2_group_3:en: 8.15.40
+ifct_food_code:en: C012
+ifct_food_name:en: Brussels sprouts
 usda_fdc_code:en: 170383
 usda_ndb_code:en: 11098
 usda_ndb_name:en: Brussels sprouts, raw
@@ -52522,11 +52780,15 @@ zh: 羽衣甘藍
 ciqual_food_code:en: 20218
 ciqual_food_name:en: Curly kale, raw
 ciqual_food_name:fr: Chou frisé, cru
+comment:en: the two usda codes: legacy, foundation
 ecobalyse:en: curly-kale-fr
 ecobalyse_labels_en_organic:en: curly-kale-organic
 eurocode_2_group_3:en: 8.15.55
 usda_fdc_2_code:en: 169239
-usda_fdc_code:en: 168421
+usda_fdc_3_code:en: 326196
+usda_fdc_code:en: 168421, 323505
+usda_foundation_3_name:en: Kale, frozen, cooked, boiled, drained, without salt
+usda_foundation_3_process:en: en:frozen, en:cooked, en:boiled, en:drained
 usda_ndb_2_code:en: 11235
 usda_ndb_2_name:en: Kale, frozen, unprepared
 usda_ndb_2_process:en: en:frozen, en:unprepared
@@ -52544,15 +52806,6 @@ pl: kiełki jarmużu
 en: komatsuna
 it: komatsuna
 ja: 小松菜, コマツナ
-
-< en: leaf vegetable
-en: collard greens, collard
-description:en: Collards (collard greens) are a leafy green vegetable in the cabbage family — the same species as kale, cabbage, and broccoli (Brassica oleracea), just bred for large, loose, dark green leaves rather than a tight head. Earthy, slightly bitter, and hearty — milder than mustard greens, tougher and more assertive than spinach. Traditionally slow-cooked (often with smoked meat, onion, garlic, vinegar, and pepper flakes in Southern U.S. cooking) until tender — but they can also be sautéed, steamed, or even eaten raw/massaged in salads if sliced thin. It's the same species as cabbage (Brassica oleracea), but not a cabbage in the way we normally mean the word.
-species:en: Brassica oleracea
-usda_fdc_code:en: 170406
-usda_ndb_code:en: 11161
-usda_ndb_name:en: Collards, raw
-wikidata:en: Q14879985
 
 < en: kale
 en: baby kale
@@ -52578,8 +52831,11 @@ hr: pire od kelja
 it: purea di cavolo
 pl: przecier z liści jarmużu
 
-# description:en:Savoy cabbage (Brassica oleracea var. sabauda L. or Brassica oleracea Savoy Cabbage Group) is a variety of the plant species Brassica oleracea.
-# be careful with the translation found on packages.
+###################################################################################################
+#
+#                                Green cabbage
+#
+###################################################################################################
 
 < en: cabbage
 en: savoy cabbage, green cabbage
@@ -52630,9 +52886,13 @@ zh: 野甘蓝
 ciqual_food_code:en: 20069
 ciqual_food_name:en: Green cabbage, raw
 ciqual_food_name:fr: Chou vert, cru
+comment:en: be careful with the translation found on packages.
+description:en: Green cabbage (Brassica oleracea var. capitata) originated in the Mediterranean and Western Europe, cultivated from wild mustard plants over 2,000 years ago before spreading worldwide through trade and colonization. Today it's a staple across Europe, Asia, Africa, and the Americas. Its tightly packed, pale-green leaves offer a crisp texture and mild, slightly peppery flavor that turns sweeter when cooked, with a subtle sulfurous note. Used raw in slaws and salads, fermented into sauerkraut and kimchi, or cooked in soups, stir-fries, stews, and stuffed dishes, it adapts to countless culinary traditions. Nutritionally, green cabbage provides vitamin C, vitamin K, fiber, and small amounts of various minerals, while being low in calories.
 ecobalyse:en: green-cabbage-fr
 ecobalyse_labels_en_organic:en: green-cabbage-organic
 eurocode_2_group_3:en: 8.15.20
+ifct_food_code:en: C015
+ifct_food_name:en: Cabbage, green
 wikidata:en: Q154013
 wikipedia:en: https://en.wikipedia.org/wiki/Savoy_cabbage
 
@@ -54640,7 +54900,7 @@ average_weight_per_unit:en: 1000
 # bar:blaukraut
 # bho:लाल पत्ता गोभी
 # frr:ruadkual
-#hsb:čerwjeny kał
+# hsb:čerwjeny kał
 # nan:âng ko-lê-chhài
 # pcd:colé'd vaque
 # szl:modro kapusta
@@ -54648,10 +54908,12 @@ average_weight_per_unit:en: 1000
 ciqual_food_code:en: 20014
 ciqual_food_name:en: Red cabbage, raw
 ciqual_food_name:fr: Chou rouge, cru
-description:en: The red cabbage (purple-leaved varieties of Brassica oleracea Capitata Group) is a kind of cabbage, also known as purple cabbage, red kraut, or blue kraut after preparation.
+description:en: Native to coastal Europe and cultivated worldwide since antiquity, red cabbage is a dense, round vegetable with deep purple-red leaves, colored by anthocyanin pigments that shift hue with soil acidity. Its flavor is peppery and slightly sweet when raw, mellowing into a tangy, earthy sweetness when cooked, often enhanced with vinegar or apples in European cuisines. Globally, it's eaten raw in salads and slaws, pickled, fermented, braised, or stewed alongside meats in German, Scandinavian, and Eastern European dishes. Nutritionally, it's a good source of vitamin C, vitamin K, fiber, and various antioxidant compounds, contributing to its widespread culinary and cultural presence.
 ecobalyse:en: red-cabbage-non-eu
 ecobalyse_labels_en_organic:en: red-cabbage-organic
 eurocode_2_group_3:en: 8.15.24
+ifct_food_code:en: C016
+ifct_food_name:en: Cabbage, violet
 usda_fdc_code:en: 169977
 usda_ndb_code:en: 11112
 usda_ndb_name:en: Cabbage, red, raw
@@ -60241,6 +60503,8 @@ ecobalyse_labels_en_organic_origins_en_france:en: tomato-organic-fr
 ecobalyse_origins_en_european_union:en: tomato-greehouse-eu
 ecobalyse_origins_en_france:en: tomato-greenhouse-fr
 eurocode_2_group_3:en: 8.40.10
+usda_fdc_code:en: 333281
+usda_foundation_name:en: Tomatoes, canned, red, ripe, diced
 wikidata:en: Q20638126
 
 < en: tomato
@@ -60340,6 +60604,11 @@ pt: tomate cherry pêra
 ro: rosii cherry prunisoare
 se: babyplommontomater
 sv: babyplommontomater
+
+< en: tomato
+en: grape tomato, grape tomatoes
+usda_fdc_code:en: 321360
+usda_foundation_name:en: Tomatoes, grape, raw
 
 < en: tomato
 fr: tomates semi-séchées, tomate mi-séchée, tomates mi-séchées
@@ -61629,6 +61898,7 @@ eurocode_2_group_3:en: 7.10.30
 rare_crop:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Phaseolus_vulgaris
 
+
 < en: beans
 en: bean sprouts, beansprouts
 da: bønnespirer
@@ -61696,6 +61966,9 @@ ecobalyse:en: french-bean-non-eu
 ecobalyse_origins_en_european_union:en: french-bean-eu
 ecobalyse_origins_en_france:en: french-bean-fr
 eurocode_2_group_3:en: 8.45.30
+usda_fdc_code:en: 321611
+usda_foundation_name:en: Beans, snap, green, canned, regular pack, drained solids
+usda_foundation_process:en: en:canned
 wikidata:en: Q2987371
 #4192 in 16 @2021-10-01
 
@@ -62002,6 +62275,7 @@ description:en: pulse = just the dry, harvested seed of specific legume crops. T
 eurocode_2_group_2:en: 7.10
 wikidata:en: Q2727662
 
+
 ###################################################################################################
 #
 #
@@ -62235,6 +62509,14 @@ it: fagioli Boston
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.20
 
+###################################################################################################
+#
+#
+#                        Kidney beans
+#
+#
+###################################################################################################
+
 < en: pulse
 en: kidney bean
 hu: Vörösbab
@@ -62243,8 +62525,9 @@ pl: fasola czerwona kidney
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.20
 
+< en: kidney bean
 < en: pulse
-en: red bean, red beans, red kidney beans
+en: red bean, red beans, red kidney beans, red rajmah, red rajma
 bg: червен боб
 da: Røde kidneybønner, kidneybønner
 de: Rote Bohnen, Kidneybohnen, Kidney-Bohnen
@@ -62261,10 +62544,27 @@ pl: fasola czerwona, fasoli czerwonej, czerwona fasola
 pt: Feijões vermelhos
 ru: фасоль красная, красная фасоль, Фасоль крупа красная
 sv: röda kidneybönor, kidneybönor
+description:en: Red Rajmah (red kidney beans) originates from the Andean region of Central and South America, from where it spread worldwide and became deeply rooted in South Asian cuisine, especially in Punjabi and North Indian cooking. It has a glossy deep-red skin with a soft, creamy interior and a rich, slightly sweet, earthy flavor. Most famously simmered into the classic "rajma" curry with tomatoes, onions, and spices, it's also used in soups, stews, salads, and rice dishes across many cultures. Nutritionally, it provides plant-based protein, dietary fiber, complex carbohydrates, iron, potassium, and folate, making it a globally cherished legume.
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.25
+ifct_food_code:en: B020
+ifct_food_name:en: Rajmah, red
 wikidata:en: Q1828227
 wikipedia:en: https://en.wikipedia.org/wiki/Kidney_bean
+
+< en: kidney bean
+< en: pulse
+en: brown kidney bean, brown rajmah, brown rajma
+description:en: Brown Rajmah (brown kidney beans) traces its origins to the Andean highlands of the Americas, from where it spread globally and became widely cultivated across South Asia, especially in Kashmir and northern India. It has a light tan-brown skin with a mild, nutty, slightly earthy flavor and a firmer texture than red or black varieties. Commonly simmered in spiced curries, added to soups, stews, salads, and rice dishes, it's valued in cuisines worldwide for its versatility. Nutritionally, brown rajmah offers plant-based protein, dietary fiber, complex carbohydrates, iron, magnesium, and folate, making it a nourishing legume across diverse global food cultures.
+ifct_food_code:en: B019
+ifct_food_name:en: Rajmah, brown
+
+< en: kidney bean
+< en: pulse
+en: black kidney bean, black rajmah, black rajma
+description:en: Black Rajmah (black kidney beans) originates from the Andean region of Central and South America, later becoming a staple across South Asia, particularly in North Indian and Kashmiri cuisine. Distinct from the more common red rajmah, it has a deep black-maroon skin and a dense, creamy interior with an earthy, slightly sweet flavor. It's typically slow-cooked in a thick, spiced tomato-onion gravy, served with rice or flatbread, and also used in stews, salads, and bean-based dishes worldwide. Nutritionally, it's rich in plant protein, dietary fiber, complex carbohydrates, iron, folate, and antioxidants, making it a valued legume across many global culinary traditions.
+ifct_food_code:en: B018
+ifct_food_name:en: Rajmah, black
 
 < en: red beans
 en: small red beans
@@ -62779,10 +63079,12 @@ nl: gerehydrateerde vermicelli van erwten
 ###################################################################################################
 
 < en: pulse
-en: moth bean, matki, mothbean
+en: moth bean, matki, mothbean, turkish gram, dew bean
 la: Vigna aconitifolia
-description:en: A drought-tolerant legume native to the Indian subcontinent, grown mainly in arid and semi-arid regions of India and Pakistan. Small, cylindrical, yellowish-brown to olive-colored beans, similar in size to mung beans.
+description:en: Moth beans (Vigna aconitifolia), also called mat beans or matki, originated in the Indian subcontinent, where they've been cultivated for centuries as a hardy, drought-resistant crop suited to arid regions. Small, olive-brown, and oblong, they carry an earthy, slightly nutty flavor with a firm bite once cooked. Across South Asia, they're prepared whole or sprouted—simmered into curries, stewed with spices, or featured in dishes like Maharashtra's misal; sprouted moth beans also appear in salads and street snacks. Globally, they're valued as a protein- and fiber-rich pulse, contributing iron, folate, and other minerals typical of legumes within diverse traditional cuisines.
 eurocode_2_group_2:en: 7.10
+ifct_food_code:en: B016
+ifct_food_name:en: Moth bean
 usda_fdc_code:en: 172425
 usda_ndb_code:en: 16078
 usda_ndb_name:en: Mothbeans, mature seeds, raw
@@ -63069,7 +63371,6 @@ ifct_food_code:en: B006
 ifct_food_name:en: Cowpea, white
 
 # description:en:The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Fresh peas are often eaten boiled and flavored with butter and/or spearmint as a side dish vegetable. Peas are usually boiled or steamed, which breaks down the cell walls and makes the taste sweeter and the nutrients more bioavailable.
-# comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
 
 < en: legume
 < en: pod and seed vegetable
@@ -63226,9 +63527,10 @@ it: pisello giallo
 #
 ###################################################################################################
 
-< en: pulse
+< en: legume
 en: pigeon pea, red gram, pigeon peas, gandules, toor, arhar, gungo peas
 la: Cajanus cajan
+comment:en: should we make the pulse a separate entry?
 description:en: Pigeon peas (Cajanus cajan) differ quite a bit depending on whether they're picked green or left to dry on the plant. The green peas have a mild, slightly sweet flavor; the dried peas have Earthier, nuttier flavor — closer to lentils or other dried pulses
 usda_fdc_2_code:en: 172436
 usda_fdc_code:en: 170025
@@ -63237,6 +63539,50 @@ usda_ndb_2_name:en: Pigeon peas (red gram), mature seeds, raw
 usda_ndb_2_process:en: en:dried
 usda_ndb_code:en: 11344
 usda_ndb_name:en: Pigeonpeas, immature seeds, raw
+
+< en: pigeon pea
+< en: pulse
+en: dried pigeon pea
+comment:en: Has been split from the fresh immature seeds, so that it ingegrates into the eurocodes
+ifct_food_2_code:en: B021
+ifct_food_2_name:en: Red gram, dal
+ifct_food_2_process:en: en:dehusked, en:dried
+ifct_food_code:en: B022
+ifct_food_name:en: Red gram, whole
+ifct_food_process:en: en:dried
+usda_ndb_code:en: 16101
+usda_ndb_name:en: Pigeon peas (red gram), mature seeds, raw
+usda_ndb_process:en: en:dried
+
+###################################################################################################
+#
+#
+#                        Rice bean
+#
+#
+###################################################################################################
+
+< en: legume
+en: Rice bean
+la: Vigna umbellata
+description:en: Rice beans (Vigna umbellata) are a small, oval legume native to South and Southeast Asia, widely cultivated in northeast India, Nepal, Bhutan, southern China, Indonesia, and Thailand. They have a mild, slightly sweet, nutty flavor and a texture similar to mung beans, cooking relatively quickly compared to other pulses. Across their growing regions, rice beans are used in soups, stews, curries, salads, and fermented dishes, and are sometimes sprouted or ground into flour. Nutritionally, they are valued as a good source of plant protein (notably rich in lysine, methionine, and tryptophan), complex carbohydrates, dietary fiber, and minerals such as iron, zinc, and calcium.
+ifct_food_code:en: B023
+ifct_food_name:en: Rice Bean
+
+###################################################################################################
+#
+#
+#                        Horse gram
+#
+#
+###################################################################################################
+
+< en: pulse
+en: pink bean, pink beans, habichuelas rosadas
+es: habichuelas rosadas
+usda_fdc_code:en: 335306
+usda_foundation_name:en: Beans, Dry, Pink (0% moisture)
+usda_foundation_process:en: en:dried
 
 ###################################################################################################
 #
@@ -63652,6 +63998,13 @@ description:en: Sugar snap peas — plumper, rounder pods (than mangetout) with 
 
 # < en:pea
 < en: pulse
+en: whole dried peas, whole peas, safed vatana, matar
+nl: heelerwten, gedroogde erwten
+ifct_food_code:en: B017
+ifct_food_name:en: Peas, dry
+
+# < en:pea
+< en: pulse
 en: split pea, split peas
 de: Schälerbsen, geschälte Trockenerbsen
 el: Φάβα
@@ -63674,7 +64027,11 @@ te: split peas
 #ciqual_food_name:fr: Pois cassé, cuit
 ciqual_proxy_food_code:en: 20504
 ciqual_proxy_food_name:en: Split pea, raw
+comment:en: this are the split variant of the whole dried peas.
+description:en: Split peas are dried, peeled, and halved seeds of Pisum sativum, a legume cultivated for millennia across Europe, Central Asia, and the Indian subcontinent. Available in yellow and green varieties, they have an earthy, slightly sweet, nutty flavor that deepens with cooking. Widely used worldwide — in Dutch erwtensoep, Indian dal, British pease pudding, Middle Eastern stews, and American split pea soup — they cook down to a soft, creamy texture without pre-soaking, unlike whole dried peas. Nutritionally, split peas are dense in protein, complex carbohydrates, dietary fiber, iron, potassium, and B vitamins, with negligible fat content.
 eurocode_2_group_3:en: 7.10.10
+ifct_food_code:en: B017
+ifct_food_name:en: Peas, dry
 wikidata:en: Q2265406
 wikipedia:en: https://en.wikipedia.org/wiki/Split_pea
 
@@ -64560,6 +64917,12 @@ nl: geroosterde amandelen
 pt: amêndoa torrada, amêndoas torradas
 ro: migdale coapte
 
+# < en: compound
+< en: roasted almonds
+en: roasted almonds with salt added
+usda_fdc_code:en: 323294
+usda_foundation_name:en: Nuts, almonds, dry roasted, with salt added
+
 < en: almond
 en: flaked almonds
 de: Mandelblättchen
@@ -64577,14 +64940,14 @@ pt: amêndoa laminada, amêndoas laminadas
 en: bitter almond
 de: Bittermandeln
 es: almendras amargas
-fi: Karvasmanteli
+fi: karvasmanteli
 fr: amandes amères
 hr: gorki badem
-it: mandorle amare, Armellina
+it: mandorle amare
 nl: bittere amandel, bittere amandelen
 pt: amêndoa amarga, amêndoas amargas
-sv: Bittermandel
-# aeb-arab:لوز مرّ
+sv: bittermandel
+#aeb-arab: لوز مرّ
 wikidata:en: Q902704
 
 < en: tree nut
@@ -65702,7 +66065,7 @@ en: pistachio nuts, pistachio, American Pistachios
 bg: шамфъстък, шам-фъстък
 ca: festuc, festucs
 cs: pistácie
-da: pistacienødder
+da: pistacienød, pistacienødder
 de: Pistazien, pistazienkerne, Pistazienkerne gehackt
 el: φυστίκια, Φυστίκια κελυφωτά
 es: pistachos, pistacho, alfóncigos
@@ -65810,7 +66173,7 @@ bn: আখরোট
 ca: nous
 co: Noce
 cs: vlašský ořech, vlašské ořechy
-da: valnødder
+da: valnød, valnødder
 de: Walnuss, Walnüsse
 el: Καρύδι
 eo: juglandonukso
@@ -70495,8 +70858,11 @@ fi: tillivoi
 hr: maslac od kopra
 it: burro all'aneto
 sv: dillsmör
-#1 @2021-09-16
-# usage:fi:Tillivoi: Voi (Suomi), tilli, suola
+
+< en: dill
+< en: vinegar
+en: dill vinegar
+da: dildeddike
 
 ###################################################################################################
 #
@@ -71532,19 +71898,23 @@ nl: braamblad, braambladeren
 
 < en: taproot vegetable
 en: parsley root
-de: Petersilienwurzel
+cs: kořenová petržel
+da: persillerod
+de: Petersilienwurzel, Wurzelpetersilie
+eo: radikpetroselo
 es: raices de peregril
 fr: racine de persil
 hr: korijen peršina
 it: radice di prezzemolo
-la: Petroselinum crispum var. tuberosum
-nl: peterseliewortel
+la: Petroselinum crispum subsp. tuberosum, Petroselinum crispum var. tuberosum
+nb: persillerot
+nl: peterseliewortel, wortelpeterselie
 pl: korzeń pietruszki, pietruszka korzeń
+ru: петрушка корневая
 sl: jeva korenina
 sr: koren peršuna
-# 113 @2021-09-16
 eurocode_2_group_3:en: 8.38.60
-wikidata:en: Q68220931
+wikidata:en: Q2595442
 
 ###################################################################################################
 #
@@ -80709,7 +81079,7 @@ ciqual_food_code:en: 26122
 ciqual_food_name:en: Haddock, raw
 ciqual_food_name:fr: Églefin, cru
 description:en: Haddock is a saltwater fish, closely related to cod and are found mainly in the North Atlantic. Flavor and texture: Mild, slightly sweet flavor with white, flaky flesh. It's often described as a bit more delicate than cod. It's the classic fish used in British fish and chips
-usda_fdc_code:en: 171964
+usda_fdc_code:en: 171964, 333374
 usda_ndb_code:en: 15033
 usda_ndb_name:en: Fish, haddock, raw
 wikidata:en: Q202406
@@ -81287,12 +81657,14 @@ sq: pollock
 sv: gråsej, sej
 uk: Сайда
 zh: 綠青鱈
+# ast:carboneru
+# en-gb:Saithe
 ciqual_food_code:en: 26134
 ciqual_food_name:en: Saithe, raw
 ciqual_food_name:fr: Lieu noir, cru
 description:en: The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
-# ast:carboneru
-# en-gb:Saithe
+usda_fdc_code:en: 333476
+usda_foundation_name:en: Fish, pollock, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Pollachius_virens
 
 #<en:saithe
@@ -82312,6 +82684,8 @@ description:nl: Tonijnen zijn enkele soorten oceaanvissen uit de familie van mak
 description:pt: Os atuns (género Thunnus) são um dos grupos de espécies de peixes mais importantes do ponto de vista pesqueiro.
 ifct_food_code:en: P084
 ifct_food_name:en: Tuna
+usda_fdc_code:en: 334194
+usda_foundation_name:en: Fish, tuna, light, canned in water, drained solids
 wikidata:en: Q2346039
 wikipedia:en: https://en.wikipedia.org/wiki/Tuna
 # 2838 @2021-09-02
@@ -87582,7 +87956,7 @@ bg: ментол
 ca: mentol
 cs: Menthol
 cy: menthol
-da: Mentol
+da: mentol, menthol
 de: Menthol
 eo: Mentolo
 es: mentol
@@ -88987,6 +89361,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Chicken_as_food
 
 < en: chicken
 en: free range chicken
+da: fritgående høns
 de: Freilandhühner, Freilandhühnern, Hühner aus Freilandhaltung
 es: pollo de corral
 fr: poulet élevé en plein air
@@ -89373,6 +89748,8 @@ ciqual_proxy_food_name:en: Chicken, breast, without skin, raw
 ecobalyse:en: chicken-breast-br-max
 ecobalyse_labels_en_organic:en: chicken-breast-fr-organic
 ecobalyse_origins_en_france:en: chicken-breast-fr
+usda_fdc_code:en: 331960
+usda_foundation_name:en: Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, braised
 
 < en: chicken breast
 en: british chicken breast
@@ -89410,6 +89787,8 @@ carbon_footprint_fr_foodges_value:fr: 4.9
 #ciqual_food_name:fr: Poulet, cuisse, viande et peau, rôtie/cuite au four
 ciqual_food_code:en: 36006
 ciqual_food_name:en: Chicken, leg, meat only, raw
+usda_fdc_code:en: 331897
+usda_foundation_name:en: Chicken, broilers or fryers, drumstick, meat only, cooked, braised
 
 # <en:cutlet
 < en: chicken meat
@@ -89795,6 +90174,8 @@ zh: 火雞
 # yue:火雞
 ciqual_food_code:en: 36300
 ciqual_food_name:en: Turkey, meat and skin, raw
+usda_fdc_code:en: 330869
+usda_foundation_name:en: Turkey, ground, 93% lean, 7% fat, pan-broiled crumbles
 wikipedia:en: https://en.wikipedia.org/wiki/Turkey_(bird)
 
 # description:en:TURKEY MEAT, commonly referred to as just turkey, is the meat from turkeys, typically domesticated turkeys. Turkeys are sold sliced and ground, as well as "whole" in a manner similar to chicken with the head, feet, and feathers removed. Frozen whole turkeys remain popular. Sliced turkey is frequently used as a sandwich meat or served as cold cuts.
@@ -90353,6 +90734,7 @@ nl: grote eieren
 # 3@2019-05-31
 
 < en: egg
+< en: whole egg
 en: free range eggs, free range whole egg
 bg: яйца от свободни кокошки
 de: Freilandeier
@@ -90538,14 +90920,17 @@ fi: virikehäkkikanan muna, virikehäkkikanojen munia
 < en: chicken egg
 < en: free range eggs
 en: free range chicken eggs
+da: æg fra fritgående høns
 de: Hühnereier aus Freilandhaltung
 es: huevos de gallinas camperas
 fi: ulkokanan munat, ulkokanan munia, ulkokanojen munia
 fr: œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air
 hr: jaja iz podnog uzgoja
 it: uova di gallina allevate all'aperto
+nb: egg fra frittgående høner
 nl: ei van hennen met vrije uitloop, scharrelkipheelei, scharrelkippenei
 pl: kurze jaja z wolnego wybiegu
+sv: ägg från frigående höns
 
 < en: free range chicken eggs
 fr: œufs de poules élevées en plein air calibre moyen
@@ -90571,6 +90956,7 @@ fr: Gros Œufs de Poules Élevées en Plein Air
 fr: œuf moyen de poule élevé en plein air sans antibiotiques
 
 < en: free range chicken eggs
+< en: whole egg
 en: free range pasteurised egg, free range pasteurised whole egg
 fr: œufs de poules élevées en plein air pasteurisés, oeufs de poules élevées en plein air pasteurisés
 hr: pasterizirano jaje slobodnog uzgoja
@@ -90645,7 +91031,10 @@ ja: 全卵
 nl: hele eieren, geheel eieren
 pl: Całe jajo
 pt: Ovo inteiro
-usda_fdc_code:en: 172188
+usda_fdc_2_code:en: 323604
+usda_fdc_code:en: 172188, 329490
+usda_foundation_2_name:en: Egg, whole, raw, frozen, pasteurized
+usda_foundation_2_process:en: en:frozen, en:pasteurized
 usda_ndb_code:en: 1133
 usda_ndb_name:en: Egg, whole, dried
 usda_ndb_process:en: en:dried
@@ -90856,7 +91245,11 @@ ciqual_food_code:en: 22001
 ciqual_food_name:en: Egg white, raw
 ciqual_food_name:fr: Oeuf, blanc (blanc d'oeuf), cru
 description:en: EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
-usda_fdc_code:en: 172204
+#usda_fdc_code:en: 172204
+#usda_fdc_code:en: 323793
+usda_fdc_2_code:en: 323697
+usda_foundation_2_name:en: Egg, white, raw, frozen, pasteurized
+usda_foundation_2_process:en: en:frozen, en:pasteurized
 usda_ndb_code:en: 1173
 usda_ndb_name:en: Egg, white, dried
 usda_ndb_process:en: en:dried
@@ -91142,7 +91535,10 @@ ciqual_food_code:en: 22002
 ciqual_food_name:en: Egg yolk, raw
 ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cru
 # description:en:EGG YOLK is the part of an egg which feeds the developing chicken embryo.
-usda_fdc_code:en: 173428
+usda_fdc_2_code:en: 329596
+usda_fdc_code:en: 173428, 329716
+usda_foundation_name:en: Egg, yolk, raw, frozen, pasteurized
+usda_foundation_process:en: en:raw, en:frozen, en:pasteurized
 usda_ndb_code:en: 1137
 usda_ndb_name:en: Egg, yolk, dried
 usda_ndb_process:en: en:dried
@@ -91180,18 +91576,22 @@ hr: kokošji žumanjak u prahu
 it: Polvere di tuorlo d'uovo di gallina
 pl: żółtko jaj kurzych w proszku
 
+< en: chicken egg yolk
 < en: free range egg yolk
 en: free range chicken egg yolk
 bg: жълтък от пресни яйца от свободно отглеждани кокошки
+da: æggeblomme fra fritgående høns
 de: Hühnereigelb aus Freilandhaltung
 es: yema de huevo de gallinas camperas
 fi: ulkokanan munankeltuainen
 fr: jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules élevées en plein air, jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air, jaune d'oeuf issu d'oeufs de poules élevées en plein air, jaune d'oeuf issu de poules élevées en plein air
 hr: žumanjak kokoši slobodnog uzgoja
 it: tuorlo d'uovo di gallina allevata all'aperto
+nb: eggeplomme fra frittgående høner
 nl: Eigeel van vrije uitloop eieren, scharreleigeelpoeder, scharrelkippenei-eigeel, scharrelkippenei-eigeelpoeder
 pl: żółtko jaja kurzego z chowu z wolnego wybiegu, żółtko jaja kurzego z chowu na wolnym wybiegu, żółtko z jaja kurzego z chowu na wolnym wybiegu, żółtko jaja w proszku z chowu na wolnym wybiegu
 pt: gema de ovo de galinhas criadas ao ar livre
+sv: äggula från frigående höns
 
 < en: free range egg yolk
 en: pasteurised Free Range Egg Yolk
@@ -91229,6 +91629,7 @@ it: tuorlo d'uovo in polvere da galline allevate all'aperto
 < en: egg yolk
 en: pasteurised egg yolk, pasteurized egg yolk
 bg: пастьоризиран яйчен жълтък, пастьоризирани яйчни жълтъци
+da: pasteuriserede æggeblommer, past. æggeblommer
 de: Pasteurisierter Eigelb Eier, pasteurisiertes Eigelb, pasteurisierter Eidotter, pasteurisierte Eimasse
 es: yema de huevo pasteurizada, yemas de huevo pasteurizadas
 fr: jaune d'œuf pasteurisé, jaune d'oeuf pasteurisé
@@ -92362,6 +92763,31 @@ hr: inaktivni kvasac
 it: impasto inattivo
 nl: inactief deeg
 
+< en: dough
+en: cookie dough
+da: småkagedej
+fr: pâte à cookies
+hy: թխվածքաբլիթի խմոր
+ja: クッキー生地
+jv: adhonan kukis
+ru: тесто для печенья
+sv: kaksmet
+th: คุกกี้โด
+uk: тісто для печива
+zh: 曲奇面团
+ciqual_proxy_food_code:en: 23440
+ciqual_proxy_food_name:en: Shortbread dough, prepacked, raw
+likely_allergens:en: en:gluten
+wikidata:en: Q5167099
+
+< en: cookie dough
+< en: milk chocolate
+en: cookie dough with milk chocolate
+da: småkagedej med mælkechokolade
+allergens:en: en:milk
+vegan:en: no
+vegetarian:en: yes
+
 < en: pasta
 en: macaroni
 de: Makkaroni
@@ -92701,8 +93127,6 @@ zh: 意大利粉
 wikidata:en: Q20026
 wikipedia:en: https://en.wikipedia.org/wiki/Spaghetti
 
-# description:en:LASAGNE are a type of wide, flat pasta, possibly one of the oldest types of pasta.
-
 < en: pasta
 en: lasagne, lasagna, lasagna pasta, lasagne sheets
 af: lasagne
@@ -92714,7 +93138,7 @@ br: lasagne al forno
 ca: lasanya
 cs: lasagne
 cy: lasagna
-da: lasagne
+da: lasagne, lasagneplader
 de: lasagne, lasagneblätter
 eo: lasanjoj
 es: lasaña
@@ -92760,6 +93184,7 @@ zh: 千層麵
 # sco:lasagne
 # tyv:лазанья
 # zh_yue:千層麪
+description:en: LASAGNE are a type of wide, flat pasta, possibly one of the oldest types of pasta.
 wikidata:en: Q20034
 wikipedia:en: https://en.wikipedia.org/wiki/Lasagne
 
@@ -96182,12 +96607,11 @@ description:en: ICE CREAM is a sweetened frozen food typically eaten as a snack 
 # usage:en:Ice cream:organic cream, organic milk, organic cane sugar, organic egg yolks, organic vanilla extract, organic locust bean gum, organic guar gum
 # usage:fr:glace (sucre, kirsch de Bâle-Campagne)
 
-# description:en:VANILLA ICE CREAM is flavored by artificial or natural vanilla flavoring. The type of vanilla used to flavor ice cream varies by location.
-
 < en: ice cream
 en: vanilla ice cream
 bg: ванилов сладолед
 ca: gelat de vainilla
+da: vaniljeis
 de: Vanille-Eis, Vanilleeis
 eo: vanila glaciaĵo
 es: helado de vainilla
@@ -96203,9 +96627,10 @@ tr: Vanilyalı dondurma
 uk: Ванільне морозиво
 vi: Kem vani
 zh: 香草冰淇淋
-# yue:雲呢拿雪糕
+#yue: 雲呢拿雪糕
 carbon_footprint_fr_foodges_ingredient:fr: Glace à la vanille
 carbon_footprint_fr_foodges_value:fr: 1.5
+description:en: VANILLA ICE CREAM is flavored by artificial or natural vanilla flavoring. The type of vanilla used to flavor ice cream varies by location.
 usda_fdc_code:en: 167575
 usda_ndb_code:en: 19095
 usda_ndb_name:en: Ice creams, vanilla
@@ -98149,7 +98574,8 @@ zh: 鹰嘴豆泥
 ciqual_food_code:en: 25621
 ciqual_food_name:en: Hummus
 ciqual_food_name:fr: Houmous
-usda_fdc_code:en: 174289
+usda_fdc_code:en: 174289, 321358
+usda_foundation_name:en: Hummus, commercial
 usda_ndb_code:en: 16158
 usda_ndb_name:en: Hummus, commercial
 wikidata:en: Q241987
