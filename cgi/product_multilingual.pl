@@ -363,7 +363,9 @@ else {
 			{
 				redirect_to_url($request_ref, 302,
 						  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
-						. '/cgi/product.pl?code='
+						. '/cgi/product.pl?type='
+						. $type
+						. '&code='
 						. $code);
 			}
 		}
@@ -781,15 +783,8 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$request_ref->{header} .= <<HTML
-<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-HTML
-		;
-
 	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
@@ -1032,6 +1027,19 @@ CSS
 	}
 
 	$template_data_ref_display->{nutrition_checked} = $checked;
+
+	# The nutrition feature is computed for the product and not for the site, as the producers
+	# platform can host products of different types
+	$template_data_ref_display->{nutrition_feature_enabled} = feature_enabled("nutrition", $product_ref) ? 1 : 0;
+
+	# For product types for which the nutrition feature is disabled (e.g. beauty products),
+	# the nutrition section is normally hidden in the edit form.
+	# We still display it if the product already has nutrition facts (or the "no nutrition data
+	# on packaging" checkbox is set), so that contributors can delete them.
+	$template_data_ref_display->{product_has_nutrition_data}
+		= ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref)))
+		? 1
+		: 0;
 	$template_data_ref_display->{display_tab_ingredients_image}
 		= display_input_tabs($product_ref, "ingredients_image", $product_ref->{sorted_langs},
 		\%Langs, \@ingredients_fields, $request_ref);

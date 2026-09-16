@@ -59,7 +59,7 @@
                "id" : "low_saturated_fat",
                "match" : 1.2,
                "name" : "Saturated fat",
-               "panel_id" : "nutrient_level_saturated_fat",
+               "panel_id" : "nutrient_level_saturated-fat",
                "status" : "known",
                "title" : "Saturated fat in high quantity"
             }
@@ -269,7 +269,7 @@
                "id" : "additives",
                "match" : 100,
                "name" : "Additives",
-               "panel_id" : "additives",
+               "panel_id" : "ingredients_analysis",
                "status" : "known",
                "title" : "Without additives"
             }
@@ -299,7 +299,6 @@
                "id" : "forest_footprint",
                "match" : 0,
                "name" : "Forest footprint",
-               "panel_id" : "forest_footprint",
                "status" : "known",
                "title" : "Forest footprint not computed"
             }
@@ -904,7 +903,8 @@
       "en:packagings-empty",
       "en:packagings-not-complete",
       "en:packagings-number-of-components-0",
-      "en:some-ingredients-with-specified-percent"
+      "en:some-ingredients-with-specified-percent",
+      "en:storage-conditions-not-set"
    ],
    "nova_group" : 1,
    "nova_group_debug" : "",

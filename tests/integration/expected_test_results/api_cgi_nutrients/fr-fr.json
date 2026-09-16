@@ -147,7 +147,7 @@
                "display_in_edit_form" : false,
                "id" : "unsaturated-fat",
                "important" : false,
-               "name" : "Unsaturated fat",
+               "name" : "Acides gras insaturés",
                "nutrients" : [
                   {
                      "display_in_edit_form" : false,
@@ -803,7 +803,7 @@
          "display_in_edit_form" : false,
          "id" : "chlorophyl",
          "important" : false,
-         "name" : "Chlorophyl",
+         "name" : "Chlorophylle",
          "unit" : "g"
       },
       {
@@ -889,6 +889,13 @@
          "important" : false,
          "name" : "Glucides totaux (inclut les fibres)",
          "unit" : "g"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "dry-residue",
+         "important" : false,
+         "name" : "Résidu sec",
+         "unit" : "mg"
       },
       {
          "display_in_edit_form" : false,

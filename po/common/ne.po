@@ -42,7 +42,7 @@ msgstr "विश्वभरका कस्मेटिक उत्पाद�
 
 msgctxt "tagline_obf"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr "ओपन ब्यूटी फ्याक्ट्सले विश्वभरका कस्मेटिक उत्पादनहरूको जानकारी र तथ्याङ्क सङ्कलन गर्दछ।"
+msgstr "Open Beauty Factsले विश्वभरका कस्मेटिक उत्पादनहरूको जानकारी र तथ्याङ्क सङ्कलन गर्दछ।"
 
 msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
@@ -63,7 +63,7 @@ msgstr "र <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">यो�
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "सौन्दर्य तथ्य उत्पादन खोज खोल्नुहोस्"
+msgstr "Open Beauty Facts उत्पादन खोज खोल्नुहोस्"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -121,7 +121,7 @@ msgstr ""
 
 msgctxt "warning_not_complete_opf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-msgstr "यो उत्पादन पृष्ठ पूरा छैन। तपाईं यसलाई सम्पादन गरेर र हामीसँग भएका तस्बिरहरूबाट थप डेटा थपेर, वा <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> वा <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>को लागि विश्वव्यापी ओपन फूड फ्याक्ट्स एप प्रयोग गरेर थप तस्बिरहरू खिचेर यसलाई पूरा गर्न मद्दत गर्न सक्नुहुन्छ। धन्यवाद!"
+msgstr "यो उत्पादन पृष्ठ पूरा छैन। तपाईं यसलाई सम्पादन गरेर र हामीसँग भएका तस्बिरहरूबाट थप डेटा थपेर, वा <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> वा <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>को लागि विश्वव्यापी Open Food Facts एप प्रयोग गरेर थप तस्बिरहरू खिचेर यसलाई पूरा गर्न मद्दत गर्न सक्नुहुन्छ। धन्यवाद!"
 
 msgctxt "brands_example_product"
 msgid "Tide, Persil"
@@ -170,7 +170,7 @@ msgstr ""
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-msgstr "यो उत्पादन पृष्ठ पूरा छैन। तपाईं यसलाई सम्पादन गरेर र हामीसँग भएका तस्बिरहरूबाट थप डेटा थपेर, वा <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> वा <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>को लागि विश्वव्यापी ओपन फूड फ्याक्ट्स एप प्रयोग गरेर थप तस्बिरहरू खिचेर यसलाई पूरा गर्न मद्दत गर्न सक्नुहुन्छ। धन्यवाद!"
+msgstr "यो उत्पादन पृष्ठ पूरा छैन। तपाईं यसलाई सम्पादन गरेर र हामीसँग भएका तस्बिरहरूबाट थप डेटा थपेर, वा <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> वा <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>को लागि विश्वव्यापी Open Food Facts एप प्रयोग गरेर थप तस्बिरहरू खिचेर यसलाई पूरा गर्न मद्दत गर्न सक्नुहुन्छ। धन्यवाद!"
 
 msgctxt "brands_example_petfood"
 msgid "Purina, Pedigree"
@@ -1756,11 +1756,6 @@ msgstr ""
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
@@ -4704,7 +4699,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "न्यूट्री-स्कोर लागू हुँदैन"
+msgstr "Nutri-Score लागू हुँदैन"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -4938,7 +4933,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "ग्रिन-स्कोर भनेको A+ देखि F सम्मको वातावरणीय स्कोर हो जसले वातावरणमा खाद्य उत्पादनहरूको प्रभावको तुलना गर्न सजिलो बनाउँछ।"
+msgstr "Green-Score भनेको A+ देखि F सम्मको वातावरणीय स्कोर हो जसले वातावरणमा खाद्य उत्पादनहरूको प्रभावको तुलना गर्न सजिलो बनाउँछ।"
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4951,7 +4946,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "ग्रिन-स्कोर भनेको A+ देखि F सम्मको वातावरणीय स्कोर हो जसले वातावरणमा खाद्य उत्पादनहरूको प्रभावको तुलना गर्न सजिलो बनाउँछ।"
+msgstr "Green-Score भनेको A+ देखि F सम्मको वातावरणीय स्कोर हो जसले वातावरणमा खाद्य उत्पादनहरूको प्रभावको तुलना गर्न सजिलो बनाउँछ।"
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5875,7 +5870,7 @@ msgstr ""
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "ग्रीन-स्कोर सुरुमा फ्रान्सको लागि विकसित गरिएको थियो र यसलाई अन्य युरोपेली देशहरूमा विस्तार गरिँदैछ। ग्रीन-स्कोर सूत्र परिवर्तनको विषय हो किनकि यसलाई नियमित रूपमा सुधार गरिन्छ ताकि यसलाई प्रत्येक देशको लागि अझ सटीक र राम्रोसँग उपयुक्त बनाइयोस्।"
+msgstr "Green-Score सुरुमा फ्रान्सको लागि विकसित गरिएको थियो र यसलाई अन्य युरोपेली देशहरूमा विस्तार गरिँदैछ। Green-Score सूत्र परिवर्तनको विषय हो किनकि यसलाई नियमित रूपमा सुधार गरिन्छ ताकि यसलाई प्रत्येक देशको लागि अझ सटीक र राम्रोसँग उपयुक्त बनाइयोस्।"
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6531,7 +6526,7 @@ msgstr ""
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "यस उत्पादनको लागि हामीसँग भएको श्रेणी ग्रीन-स्कोर गणना गर्न पर्याप्त सटीक छैन। के तपाईं अझ सटीक उत्पादन श्रेणी थप्न सक्नुहुन्छ?"
+msgstr "यस उत्पादनको लागि हामीसँग भएको श्रेणी Green-Score गणना गर्न पर्याप्त सटीक छैन। के तपाईं अझ सटीक उत्पादन श्रेणी थप्न सक्नुहुन्छ?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7670,15 +7665,15 @@ msgstr "यो तस्बिर हाम्रा मोडरेटरहर
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "हामीसँग न्यूट्री-स्कोर गणना गर्न सर्भिङ साइज मान र/वा एकाइ छुटेको छ।"
+msgstr "हामीसँग Nutri-Score गणना गर्न सर्भिङ साइज मान र/वा एकाइ छुटेको छ।"
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
-msgstr "<<site_name>> उद्योगबाट स्वतन्त्र, गैर-नाफामुखी संस्थाद्वारा बनाइएको हो। यो सबैका लागि बनाइएको हो, सबैद्वारा, र यो सबैद्वारा वित्त पोषित छ। तपाईं ओपन फूड फ्याक्ट्समा दान गरेर हाम्रो कामलाई समर्थन गर्न सक्नुहुन्छ।<br/><b>धन्यवाद!</b>"
+msgstr "<<site_name>> उद्योगबाट स्वतन्त्र, गैर-नाफामुखी संस्थाद्वारा बनाइएको हो। यो सबैका लागि बनाइएको हो, सबैद्वारा, र यो सबैद्वारा वित्त पोषित छ। तपाईं Open Food Factsमा दान गरेर हाम्रो कामलाई समर्थन गर्न सक्नुहुन्छ।<br/><b>धन्यवाद!</b>"
 
 msgctxt "bottom_content_split_with_lilo"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
-msgstr "<<site_name>> उद्योगबाट स्वतन्त्र, गैर-नाफामुखी संस्थाद्वारा बनाइएको हो। यो सबैका लागि बनाइएको हो, सबैद्वारा, र यो सबैद्वारा वित्त पोषित छ। तपाईं ओपन फूड फ्याक्ट्समा दान गरेर र लिलो खोज इन्जिन प्रयोग गरेर हाम्रो कामलाई समर्थन गर्न सक्नुहुन्छ।<br/><b>धन्यवाद!</b>"
+msgstr "<<site_name>> उद्योगबाट स्वतन्त्र, गैर-नाफामुखी संस्थाद्वारा बनाइएको हो। यो सबैका लागि बनाइएको हो, सबैद्वारा, र यो सबैद्वारा वित्त पोषित छ। तपाईं Open Food Factsमा दान गरेर र लिलो खोज इन्जिन प्रयोग गरेर हाम्रो कामलाई समर्थन गर्न सक्नुहुन्छ।<br/><b>धन्यवाद!</b>"
 
 msgctxt "lilo_search_engine"
 msgid "Lilo search engine"
@@ -7686,7 +7681,7 @@ msgstr "लिलो खोज इन्जिन"
 
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
-msgstr "रोबोटहरूबाट हुने अत्यधिक दुरुपयोगका कारण, हामी यो पृष्ठ अज्ञात प्रयोगकर्ताहरूलाई सेवा दिन असमर्थ छौं। सबै ओपन फूड फ्याक्ट्स पहुँच गर्न कृपया नि:शुल्क ओपन फूड फ्याक्ट्स खाता सिर्जना गर्नुहोस्।"
+msgstr "रोबोटहरूबाट हुने अत्यधिक दुरुपयोगका कारण, हामी यो पृष्ठ अज्ञात प्रयोगकर्ताहरूलाई सेवा दिन असमर्थ छौं। सबै Open Food Facts पहुँच गर्न कृपया नि:शुल्क Open Food Facts खाता सिर्जना गर्नुहोस्।"
 
 msgctxt "origin_of_ingredients"
 msgid "Origin of ingredients"
@@ -7772,7 +7767,7 @@ msgstr "नचाहिने सामग्रीहरू"
 
 msgctxt "attribute_unwanted_ingredients_note"
 msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
-msgstr "यो प्राथमिकता ओपन फूड फ्याक्ट्सको सामग्री सूचीको बुझाइमा आधारित छ र यो सही नहुन सक्छ, सधैं उत्पादन आफैं जाँच गर्नुहोस्।"
+msgstr "यो प्राथमिकता Open Food Factsको सामग्री सूचीको बुझाइमा आधारित छ र यो सही नहुन सक्छ, सधैं उत्पादन आफैं जाँच गर्नुहोस्।"
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
@@ -7800,7 +7795,7 @@ msgstr "हामीले पत्ता लगाएनौं: {unwanted_ingr
 
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
-msgstr "ती प्राथमिकताहरू ओपन फूड फ्याक्ट्सको सामग्री सूचीको बुझाइमा आधारित हुन्छन् र यो सही वा पूर्ण नहुन सक्ने सम्भावना सधैं रहन्छ, सधैं उत्पादन आफैं जाँच गर्नुहोस्।"
+msgstr "ती प्राथमिकताहरू Open Food Factsको सामग्री सूचीको बुझाइमा आधारित हुन्छन् र यो सही वा पूर्ण नहुन सक्ने सम्भावना सधैं रहन्छ, सधैं उत्पादन आफैं जाँच गर्नुहोस्।"
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Footprint"

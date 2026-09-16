@@ -367,6 +367,25 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
+# Allergens marked with underscores can be the beginning of compound words.
+my @underscore_compound_word_tests = (
+	["nl", "_soja_lecithine", '<span class="allergen">soja</span>lecithine', "en:soybeans"],
+	["sv", "_vete_mjöl", '<span class="allergen">vete</span>mjöl', "en:gluten"],
+);
+
+foreach my $test_ref (@underscore_compound_word_tests) {
+	my ($lc, $ingredients_text, $expected_html, $expected_allergen) = @{$test_ref};
+	my $product_ref = {lc => $lc, lang => $lc, "ingredients_text_$lc" => $ingredients_text};
+
+	compute_languages($product_ref);
+	extract_ingredients_from_text($product_ref);
+	detect_allergens_from_text($product_ref);
+
+	is($product_ref->{"ingredients_text_with_allergens_$lc"},
+		$expected_html, "allergen markup works inside a $lc compound word");
+	is($product_ref->{allergens_tags}, [$expected_allergen], "allergen is detected inside a $lc compound word");
+}
+
 # Additional tests for canonicalize_allergens_taxonomy_tag
 is(canonicalize_allergens_taxonomy_tag("en", "egg"),
 	"en:eggs", "Testing canonicalize_allergens_taxonomy_tag for egg (en)");

@@ -1767,11 +1767,6 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Note nutritionnelle"
 
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
@@ -2128,7 +2123,7 @@ msgstr "Produits"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr "avec informations<br/>nutritionnelles"
+msgstr "avec informations nutritionnelles"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
@@ -2366,7 +2361,7 @@ msgstr "Visualiser les résultats sous forme de graphique"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr "Note : ce graphique a été généré par un utilisateur du site <<site_name>>. Le titre, les produits representés et les axes de représentation ont été choisis par l'auteur du graphique."
+msgstr "Note : ce graphique a été généré par un utilisateur. Le titre, les produits representés et les axes de représentation ont été choisis par l'auteur du graphique."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"

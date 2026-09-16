@@ -93,7 +93,7 @@ so: fiitamiin
 sq: vitamina, vitaminat, vit.
 sr: витамини, витамин
 su: vitamin, vit.
-sv: vitaminer, vitamin, vit.
+sv: vitaminer, vitamin, vit., vitaminmix
 sw: vitamini, vit.
 ta: உயிர்ச்சத்து
 te: విటమిన్
@@ -140,7 +140,6 @@ vegetarian:en: yes
 # yue:維他命
 wikidata:en: Q34956
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin
-
 
 # All parent vitamin entries must be under en: vitamins
 
@@ -227,7 +226,6 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q18225
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_A
-# vitamin/vitamin-a has 1768 products in 17 languages @2018-11-20
 
 < en: vitamin A
 en: retinol
@@ -280,7 +278,6 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q7316808
 wikipedia:en: https://en.wikipedia.org/wiki/Retinyl_acetate
-# vitamin/retinyl-acetate has 42 products @2018-11-20
 
 # description:en:Retinyl palmitate, or vitamin A palmitate, is the ester of retinol (vitamin A) and palmitic acid, with formula C36H60O2.
 
@@ -315,7 +312,6 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q7316807
 wikipedia:en: https://en.wikipedia.org/wiki/Retinyl_palmitate
-# vitamin/retinyl-palmitate has 14 products in 5 languages @2018-11-20
 
 # description:en:β-Carotene is an organic, strongly colored red-orange pigment abundant in plants and fruits. Plant carotenoids are the primary dietary source of provitamin A worldwide, with β-carotene as the best-known provitamin A carotenoid.
 
@@ -363,6 +359,7 @@ sr: бета-каротен
 sv: Betakaroten
 ta: பீட்டா கரோட்டீன்
 th: บีตา-แคโรทีน
+uk: бета-каротин
 vi: Beta-Carotene
 zh: Β-胡萝卜素
 # azb:بتاکاروتن
@@ -378,7 +375,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q306135
 wikipedia:en: https://en.wikipedia.org/wiki/Beta-Carotene
-# ingredient/fr:bêtacarotène has 116 products in 4 languages @2019-04-25
 
 # description:en: A provitamin is a substance that may be converted within the body to a vitamin. For example, "provitamin A" is a name for β-carotene, Whether beta-carotene is used as colour or vitamin depends on additional information on the ingredient list. It can be preceded by the wording colorant or provitamin A. Or it occurs in a (non-obvious) listing of other vitamins.
 
@@ -397,7 +393,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q306135
 wikipedia:en: https://en.wikipedia.org/wiki/Beta-Carotene
-# vitamin/beta-carotene has 865 products in 8 languages @2018-11-20
 
 < en: beta-carotene
 en: beta-carotene dye
@@ -406,7 +401,6 @@ de: Farbstoff Beta-Carotin
 es: colorante de beta-caroteno
 fr: colorant bêta-carotène
 hu: béta-karotin színezék
-# fr:colorant-bêta-carotène has 71 products in 4 languages @2019-03-27
 it: colorante betacaroteno, colorante beta-carotene
 nl: bètacaroteenkleurstof
 vegan:en: yes
@@ -416,6 +410,7 @@ vegetarian:en: yes
 
 < en: vitamins
 en: vitamin D, D
+xx: vitamin D, D vitamin
 af: Vitamien D
 ar: فيتامين دي
 az: D vitamini
@@ -506,13 +501,12 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q175621
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_D
-# vitamin/vitamin-d has 2516 products in 13 languages @2018-11-21
 
 # description:en:Ergocalciferol, also known as vitamin D2 and calciferol, is a type of vitamin D found in food and used as a dietary supplement.
 
 < en: vitamin D
-< en: vitamins
 en: Ergocalciferol, Vitamin D2, D2
+xx: vitamin D2, vitamin D₂, D₂ vitamin, D2 vitamin
 ar: إرغوكالسيفيرول
 bg: Ергокалциферол
 ca: Ergocalciferol, vitamina D2, D2
@@ -551,7 +545,6 @@ uk: Ергокальциферол
 zh: 麦角钙化醇, 维生素D2
 vegan:en: yes
 vegetarian:en: yes
-# vitamin/ergocalciferol has 690 products @2018-11-21
 wikidata:en: Q139200
 # sr-ec:ергокалциферол
 # sr-el:Ergokalciferol
@@ -566,8 +559,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Ergocalciferol
 # description:en:Cholecalciferol, also known as vitamin D3 and colecalciferol, is a type of vitamin D which is made by the skin, found in some foods, and taken as a dietary supplement.
 
 < en: vitamin D
-< en: vitamins
 en: Cholecalciferol, vitamin D3, D3
+xx: vitamin D3, vitamin D₃, D₃ vitamin, D3 vitamin
 af: Vitamien D3
 ar: كوليكالسيفيرول
 az: D3 vitamini
@@ -641,12 +634,12 @@ vegetarian:en: maybe
 # zh-tw:膽鈣化醇, 维生素D3
 wikidata:en: Q139347
 wikipedia:en: https://en.wikipedia.org/wiki/Cholecalciferol
-# vitamin/cholecalciferol has 2996 products in 8 languages @2018-11-21
 
 # description:en:VITAMIN E is a group of eight fat soluble compounds that include four tocopherols and four tocotrienols. In order to distinguish between the vitamin and antioxidant role, vitamin E is call tocoferol. The oxidant is called Tocopherol-rich extract or E306.
 
 < en: vitamins
 en: Vitamin E, tocopherol
+xx: vitamin E, E vitamin
 af: Vitamien E
 ar: فيتامين إي
 bg: Токоферол, Витамин Е
@@ -723,8 +716,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q141180
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_E
-# ingredient/vitamin-e has 1830 products in 13 languages @2018-11-25
-
 
 < en: Vitamin E
 en: D-alpha tocopherol
@@ -925,7 +916,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q182338
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_K
-# ingredient/vitamin-k has 85 products in 4 languages @2018-11-25
 
 < en: vitamin K
 en: phylloquinone, phytomenadione, Vitamin K1
@@ -969,11 +959,10 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q186093
 wikipedia:en: https://en.wikipedia.org/wiki/Phytomenadione
-# ingredient/fr:k1 has 79 products@2019-04-16
-# vitamin/phylloquinone has 180 products in 8 languages @2019-4-16
 
 < en: vitamin K
 en: menaquinone, vitamin K2
+xx: vitamin K2, vitamin K₂, K₂ vitamin, K2 vitamin
 bg: менахинон
 cs: menachinon
 de: Menachinon
@@ -1000,6 +989,7 @@ vegetarian:en: maybe
 
 < en: Vitamin K
 en: Vitamin K3
+xx: vitamin K3, vitamin K₃, K₃ vitamin, K3 vitamin
 bg: Витамин K3
 de: Vitamin K3
 el: Βιταμίνη K3
@@ -1025,11 +1015,11 @@ zh: 维生素K3
 vegan:en: yes
 vegetarian:en: yes
 
-
 # this is the same molecule as E300, put vitamin c in here and ascorbic acid in additives.txt
 
 < en: vitamins
 en: Vitamin C
+xx: vitamin C, C vitamin
 af: Vitamien C
 az: C vitamini
 bg: Витамин C
@@ -1062,7 +1052,7 @@ ja: ビタミンC, ビタミンＣ, ビタミン C, ビタミン Ｃ, V.C, Ｖ�
 jv: Vitamin C
 ka: vitamine c
 kn: C ಜೀವ ಸತ್ವ
-ko: 비타민 C
+ko: 비타민 C, 비타민C
 ky: Витамин С
 lt: Vitaminas C
 lv: C vitamīns
@@ -1121,7 +1111,6 @@ vegetarian:en: yes
 wikidata:en: Q199678
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_C
 # description:en:Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in food and used as a dietary supplement.
-# en:ascorbic-acid has 17518 products in 17 languages @2018-11-17
 
 < en: Vitamin C
 en: L-ascorbic acid, ascorbic acid
@@ -1258,7 +1247,8 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en: vitamins
-en: Thiamin, thiamine, vitamin b1, B1
+en: thiamin, thiamine
+xx: vitamin B1, vitamin B₁, B₁ vitamin, B1 vitamin, B₁, B1
 af: Tiamien
 ar: فيتامين ب1
 az: Tiamin, B1 vitamini
@@ -1318,7 +1308,7 @@ sl: Tiamin, vitamin B1
 sq: Tiamina, Vitamina B1
 sr: vitamin B1
 su: Tiamin
-sv: vitamin B1
+sv: tiamin, vitamin B1
 sw: Tiamin, B1-vitamin
 ta: தயமின்
 tg: Тиамин
@@ -1342,7 +1332,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q83187
 wikipedia:en: https://en.wikipedia.org/wiki/Thiamine
-# ingredient/vitamin-b1 has 4607 products in 11 languages @2018-11-23
 
 < en: Thiamin
 en: thiamin hydrochloride
@@ -1398,13 +1387,12 @@ sl: tiamin mononitrat
 sv: tiaminmononitrat
 vegan:en: maybe
 vegetarian:en: maybe
-# ingredient/fr:mononitrate-de-thiamine has 83 products in 4 languages @2019-03-11
 
 # description:en:Riboflavin, also known as vitamin B2, is a vitamin found in food and used as a dietary supplement.
 
 < en: vitamins
 en: riboflavin, vitamin B2
-xx: riboflavin, vitamin B2, B2 vitamin, E101, B2
+xx: riboflavin, vitamin B2, vitamin B₂, B₂ vitamin, B2 vitamin, E101, B2, B₂
 af: Riboflavien
 ar: ﻒﻴﺗﺎﻤﻴﻧ ﺏ2
 be: Рыбафлавін
@@ -1414,7 +1402,7 @@ bs: vitamin B2
 ca: riboflavina, vitamina B2
 cs: riboflavin, vitamín B2
 cy: ribofflafin, fitamin B2
-de: Riboflavin, Vitamin B2
+de: Riboflavin, Riboflavine, Vitamin B2
 dv: ވިޓަމިން ބީ2
 el: ριβοφλαβίνη, βιταμίνη Β2
 eo: riboflavino, vitamino B2
@@ -1458,7 +1446,6 @@ uk: Рибофлавін, Вітамін B2
 wa: riboflavene, vitamene B2
 zh: 核黄素
 vegan:en: maybe
-# ingredient/vitamin-b2 has 4263 products in 10 languages @2018-11-23
 vegetarian:en: yes
 # ast:Vitamina B2
 # be-tarask:Рыбафлявін
@@ -1480,7 +1467,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Riboflavin
 
 < en: vitamins
 en: niacin, vitamin B3, vitamin PP
-xx: niacin, vitamin B3, B3 vitamin, vitamin PP, E375, B3, PP
+xx: niacin, vitamin B3, vitamin B₃, B₃ vitamin, B3 vitamin, B3, B₃, vitamin PP, PP vitamin, PP, E375
 af: niasien
 ar: ﻦﻳﺎﺴﻴﻧ
 be: нікацінавая кіслата
@@ -1526,7 +1513,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q134658
 wikipedia:en: https://en.wikipedia.org/wiki/Niacin
-# ingredient/vitamin-b3 has 744 products in 8 languages @2018-11-23
 
 < en: niacin
 en: nicotinic acid
@@ -1609,13 +1595,12 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q192423
 wikipedia:en: https://en.wikipedia.org/wiki/Nicotinamide
-# ingredient/fr:nicotinamide has 172 products in 2 languages @2019-01-16
 
 # description:en:Vitamin B6 refers to a group of chemically similar compounds which can be interconverted in biological systems.
 
 < en: vitamins
 en: vitamin B6
-xx: vitamin B6, B6 vitamin, B6, pyridoxal 5′-phosphate
+xx: vitamin B6, vitamin B₆, B₆ vitamin, B6 vitamin, B6, B₆, pyridoxal 5′-phosphate
 ar: فيتامين بي6
 az: piridoksalfosfat
 bg: витамин B6
@@ -1676,7 +1661,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q205130
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_B6
-# ingredient/vitamin-b6 has 2556 products in 12 languages  @2018-11-24
 
 < en: vitamin B6
 en: pyridoxine
@@ -1736,7 +1720,6 @@ sv: pyridoxinhydroklorid
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q26841284
-# ingredient/pyridoxine-hydrochloride has 1751 products in 5 languages @2018-11-24
 
 < en: vitamin B6
 en: pyridoxamine hydrochloride
@@ -1805,6 +1788,7 @@ vegetarian:en: yes
 
 < en: Folate
 en: folic acid, pteroylmonoglutamic acid, Vitamin B9, B9, vitamin M
+xx: vitamin B9, vitamin B₉, B₉ vitamin, B9 vitamin, B9, B₉, vitamin M, M vitamin
 ar: حمض الفوليك
 be: Фоліевая кіслата
 bg: Фолиева киселина, птероилмоноглутаминова киселина, Витамин B9
@@ -1883,9 +1867,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q127060
 wikipedia:en: https://en.wikipedia.org/wiki/Folate
-# en:vitamin/folic-acid has 23535 products in 17 languages @2018-11-19
-# ingredient/fr:acide-folique has 22121 products in 13 languages @2018-11-19
-# ingredient/fr:folacine has 48 products in 2 languages @2019-04-16
 
 < en: Folate
 en: calcium-L-methylfolate
@@ -1926,7 +1907,8 @@ vegetarian:en: yes
 # it is a cofactor in DNA synthesis, and in both fatty acid and amino acid metabolism.
 
 < en: vitamins
-en: vitamin b12, B12, cobalamin
+en: vitamin B12, B12, cobalamin
+xx: vitamin B12, vitamin B₁₂, B₁₂ vitamin, B12 vitamin, B12, B₁₂
 af: Vitamien B12
 ar: فيتامين بي 12
 az: B12 vitamini
@@ -2002,7 +1984,6 @@ zh: 维生素B12
 vegan:en: yes
 vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_B12
-# ingredient/vitamin-b12 has 2117 products in 10 languages @2018-11-25
 
 < en: Vitamin B12
 en: cyanocobalamin, cyanocobalamine
@@ -2063,7 +2044,7 @@ vegetarian:en: yes
 
 < en: vitamins
 en: biotin
-xx: biotin, vitamin B7, B7 vitamin, B7, vitamin H, H vitamin
+xx: biotin, vitamin B7, vitamin B₇, B₇ vitamin, B7 vitamin, B7, B₇, vitamin H, H vitamin
 ar: بيوتين
 be: біятын
 bg: биотин
@@ -2125,7 +2106,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q181354
 wikipedia:en: https://en.wikipedia.org/wiki/Biotin
-# ingredient/biotin has 145 products in 3 languages @2018-11-24
 
 < en: biotin
 en: D-biotin
@@ -2144,7 +2124,7 @@ vegetarian:en: yes
 
 < en: biotin
 en: vitamin B8
-xx: vitamin B8, B8 vitamin, B8
+xx: vitamin B8, B8 vitamin, B8, vitamin B₈, B₈ vitamin, B₈
 bg: витамин b8, витамин Б8, инозитол
 ca: vitamina B8
 de: Vitamin B8
@@ -2160,13 +2140,12 @@ pt: vitamina B8
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q25113695
-# ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
 
 # description:en:Pantothenic acid, also called vitamin B5 (a B vitamin), is a water-soluble vitamin.
 
 < en: vitamins
 en: pantothenic acid
-xx: vitamin B5, B5 vitamin, B5
+xx: vitamin B5, B5 vitamin, B5, vitamin B₅, B₅ vitamin, B₅
 ar: فيتامين بي5
 bg: пантотенова киселина, витамин B5
 ca: àcid pantotènic, vitamina B5
@@ -2236,8 +2215,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q179894
 wikipedia:en: https://en.wikipedia.org/wiki/Pantothenic_acid
-# vitamin/pantothenic-acid has 1373 products in 12 languages @2018-11-19
-# fr:acide-pantothénique has 900 products in 9 languages @2018-11-19
 
 # description:en:Another common supplemental form of the vitamin is CALCIUM PANTOTHENATE. Calcium pantothenate is often used in dietary supplements because, as a salt, it is more stable than pantothenic acid.
 
@@ -2256,7 +2233,6 @@ nn: kalsiumpantotenat
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q27261387
-# ingredient/fr:pantothénate-de-calcium has 109 products in 4 languages @2019-04-21
 
 < en: pantothenic acid
 en: calcium D-pantothenate, D-pantothenate calcium
@@ -2336,19 +2312,20 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q47495755
 
-
-< en: vitamin A
-< en: vitamin D2
-fi: Vitamiini A- ja D2
-
 < en: vitamin A
 < en: vitamin D
-da: vitamin A og D
+en: vitamin A and D
 ca: vitamines A i D, A i D
+da: vitamin A og D
 de: Vitamin A und D
 es: vitaminas A y D, A y D
 fi: A- ja D-vitamiini
 fr: vitamines A et D, A et D
 nl: vitamine A en D, A en D
 sv: vitamin A och D, vitamin A och vitamin D
+
+< en: vitamin A and D
+< en: vitamin D2
+en: vitamin A and D2, vitamin A and D₂
+fi: Vitamiini A- ja D2
 

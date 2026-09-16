@@ -48,14 +48,14 @@
       "categories_tags" : [
          "en:dairies",
          "en:fermented-foods",
-         "en:fermented-milk-products",
          "en:desserts",
+         "en:fermented-milk-products",
          "en:dairy-desserts",
          "en:fermented-dairy-desserts",
-         "en:fermented-dairy-desserts-with-fruits",
          "en:yogurts",
-         "en:fruit-yogurts",
+         "en:fermented-dairy-desserts-with-fruits",
          "en:flavoured-fermented-dairy-desserts",
+         "en:fruit-yogurts",
          "en:flavoured-yogurts",
          "en:strawberry-yogurts"
       ],
@@ -613,6 +613,7 @@
          "en:packagings-empty",
          "en:packagings-not-complete",
          "en:packagings-number-of-components-0",
+         "en:storage-conditions-not-set",
          "en:main-countries-new-product"
       ],
       "nova_group_debug" : "no nova group when the product does not have ingredients",

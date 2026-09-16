@@ -481,6 +481,18 @@ sub get_forest_footprint_2026_ingredient_footprint ($product_ref, $ingredient_re
 		{ingredient_id => $ingredient_id})
 		if $log->is_debug();
 
+	# We check if we have a mapping for this ingredient in the forest footprint 2026 data,
+	# or for one of its parents
+
+	my @tags_to_check = get_tag_with_parents("ingredients", $ingredient_id);
+
+	foreach my $tag (@tags_to_check) {
+		if (exists $forest_footprint_2026_data{ingredients}{$tag}) {
+			$ingredient_id = $tag;
+			last;
+		}
+	}
+
 	if (not exists $forest_footprint_2026_data{ingredients}{$ingredient_id}) {
 		$log->debug("ingredient not in forest footprint 2026 data", {ingredient_id => $ingredient_id})
 			if $log->is_debug();
@@ -525,10 +537,13 @@ sub get_forest_footprint_2026_ingredient_footprint ($product_ref, $ingredient_re
 		transformation_factor => $transformation_factor,
 		origin_id => $origin_id,
 		origin_footprint => $origin_footprint,
-		label_id => $label_id,
 		risk_factor => $risk_factor,
 		footprint_per_kg => $footprint_per_kg,
 	};
+
+	if (defined $label_id) {
+		$footprint_ref->{label_id} = $label_id;
+	}
 
 	return $footprint_ref;
 }
@@ -568,8 +583,10 @@ sub get_origin_footprint_data ($product_ref, $ingredient_ref, $primary_ingredien
 
 	# Search for the origin with the highest footprint for this primary ingredient
 	foreach my $origin (@origins) {
+		# If we do not have a footprint for this origin and primary ingredient, we use the en:unknown origin footprint
 		my $origin_footprint
-			= deep_get(\%forest_footprint_2026_data, "origins_footprint", $origin, $primary_ingredient_id);
+			= deep_get(\%forest_footprint_2026_data, "origins_footprint", $origin, $primary_ingredient_id)
+			// deep_get(\%forest_footprint_2026_data, "origins_footprint", "en:unknown", $primary_ingredient_id);
 		if (    (defined $origin_footprint)
 			and (not defined $highest_origin_footprint or ($origin_footprint > $highest_origin_footprint)))
 		{

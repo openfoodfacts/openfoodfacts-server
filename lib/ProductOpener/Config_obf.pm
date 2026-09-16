@@ -108,6 +108,8 @@ BEGIN {
 		$serialize_to_json
 
 		$health_check_api_key
+
+		$ecobalyse_api_token
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -188,11 +190,11 @@ $flavor = 'obf';
 	site_name => "Open Beauty Facts",
 	product_type => "beauty",
 	og_image_url => "https://static.openbeautyfacts.org/images/logos/obf-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=obf&utf_medium=web",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases",
 	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
-	ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=obf&utf_medium=web",
-	facebook_page_url => "https://www.facebook.com/openfoodfacts?utm_source=obf&utf_medium=web",
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utm_medium=web",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=obf&utm_medium=web",
+	facebook_page_url => "https://www.facebook.com/openfoodfacts?utm_source=obf&utm_medium=web",
 	x_account => "OpenFoodFacts",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
 	favicons => <<HTML
@@ -266,6 +268,9 @@ $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
 # or "product_opener" to use the legacy Product Opener algorithm
 $recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
 
+# Ecobalyse API token, needs to be generated on https://ecobalyse.beta.gouv.fr/
+$ecobalyse_api_token = $ProductOpener::Config2::ecobalyse_api_token;
+
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
 $events_url = $ProductOpener::Config2::events_url;
@@ -320,6 +325,7 @@ $analytics = <<HTML
   _paq.push(["setDomains", ["*.openbeautyfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -393,6 +399,7 @@ HTML
 	inci_functions
 	brands
 	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable

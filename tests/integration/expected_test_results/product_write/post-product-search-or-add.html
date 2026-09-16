@@ -14,10 +14,10 @@
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
+    <link rel="manifest" href="/cgi/manifest.pl">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
-<link rel="manifest" href="/images/favicon/off/site.webmanifest">
 <link rel="mask-icon" href="/images/favicon/off/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/images/favicon/off/favicon.ico">
 <meta name="msapplication-TileColor" content="#00aba9">
@@ -34,6 +34,7 @@
     {
         "imports": {
             "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+			"cropperjs": "//static.openfoodfacts.localhost/js/dist/cropper.esm.js",
             "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
             "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
             "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
@@ -41,8 +42,7 @@
     }
     </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
-	<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-
+	
     <style media="all">
         .show-when-no-access-to-producers-platform {display:none}
 .hide-when-logged-in {display:none}
@@ -95,6 +95,7 @@
   _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -178,7 +179,7 @@
 									<li class="divider"></li>
 									<li><label>Add products</label></li>
                 <!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
-									<li><a href="/open-food-facts-mobile-app?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_en">Install the app to add products</a></li>
+									<li><a href="/open-food-facts-mobile-app?utm_source=off&utm_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_en">Install the app to add products</a></li>
 									<li><a href="/cgi/product.pl?type=search_or_add&action=display">Add a product</a></li>
 								
 
@@ -313,7 +314,7 @@
 						<li><a href="/discover" class="top-bar-links">Discover</a></li>
 						<li><a href="/contribute" class="top-bar-links">Contribute</a></li>
 						<li class="show-for-xlarge-up"><a href="//world.pro.openfoodfacts.org/" class="top-bar-links">Producers</a></li>
-						<li class="flex-grid getapp"><a href="/open-food-facts-mobile-app?utm_source=off&utf_medium=web&utm_campaign=search_and_links_promo_en" class="buttonbar button" style="top:0;"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2 20h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z"/><path d="M0 0h24v24H0z" fill="none"/></svg> <span class="bt-text">Get the app</span></a></li>
+						<li class="flex-grid getapp"><a href="/open-food-facts-mobile-app?utm_source=off&utm_medium=web&utm_campaign=search_and_links_promo_en" class="buttonbar button" style="top:0;"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2 20h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z"/><path d="M0 0h24v24H0z" fill="none"/></svg> <span class="bt-text">Get the app</span></a></li>
 				<!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
           </ul>
 					</section>
@@ -1011,7 +1012,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="front_en">Front picture (<span class="tab_language">English</span>)</label>
 
-<div class="select_crop" id="front_en"></div>
+<div class="select_crop" id="front_en">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="front_en_imgid" id="front_en_imgid" value="" />
 <input type="hidden" name="front_en_x1" id="front_en_x1" value="" />
@@ -1034,7 +1037,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="front_new_lc">Front picture (<span class="tab_language"></span>)</label>
 
-<div class="select_crop" id="front_new_lc"></div>
+<div class="select_crop" id="front_new_lc">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="front_new_lc_imgid" id="front_new_lc_imgid" value="" />
 <input type="hidden" name="front_new_lc_x1" id="front_new_lc_x1" value="" />
@@ -1518,7 +1523,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="ingredients_en">Ingredients picture (<span class="tab_language">English</span>)</label>
 <p class="note">&rarr; If the picture is neat enough, the ingredients can be extracted automatically</p>
-<div class="select_crop" id="ingredients_en"></div>
+<div class="select_crop" id="ingredients_en">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="ingredients_en_imgid" id="ingredients_en_imgid" value="" />
 <input type="hidden" name="ingredients_en_x1" id="ingredients_en_x1" value="" />
@@ -1601,7 +1608,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="ingredients_new_lc">Ingredients picture (<span class="tab_language"></span>)</label>
 <p class="note">&rarr; If the picture is neat enough, the ingredients can be extracted automatically</p>
-<div class="select_crop" id="ingredients_new_lc"></div>
+<div class="select_crop" id="ingredients_new_lc">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="ingredients_new_lc_imgid" id="ingredients_new_lc_imgid" value="" />
 <input type="hidden" name="ingredients_new_lc_x1" id="ingredients_new_lc_x1" value="" />
@@ -1794,7 +1803,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="nutrition_en">Nutrition facts picture (<span class="tab_language">English</span>)</label>
 
-<div class="select_crop" id="nutrition_en"></div>
+<div class="select_crop" id="nutrition_en">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="nutrition_en_imgid" id="nutrition_en_imgid" value="" />
 <input type="hidden" name="nutrition_en_x1" id="nutrition_en_x1" value="" />
@@ -1817,7 +1828,9 @@ You accept to be credited by re-users by a link to the product your are contribu
                     
                     	<label for="nutrition_new_lc">Nutrition facts picture (<span class="tab_language"></span>)</label>
 
-<div class="select_crop" id="nutrition_new_lc"></div>
+<div class="select_crop" id="nutrition_new_lc">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="nutrition_new_lc_imgid" id="nutrition_new_lc_imgid" value="" />
 <input type="hidden" name="nutrition_new_lc_x1" id="nutrition_new_lc_x1" value="" />
@@ -33313,6 +33326,258 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                 
 
+                                    <tr id="nutrient_dry-residue_tr" class="nutrient_main" style="display:none">
+                                        <td>
+                                            <label class="nutrient_label" for="nutrient_dry-residue">
+                                                Dry residue
+                                                
+                                            </label>
+                                        </td>
+
+                                        <!-- loop on preparation and per to get the input sets for the selected source -->
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100g" >
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100g_nutrients_dry-residue_value_string" name="nutrition_input_sets_as_sold_100g_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_as_sold_100g" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_as_sold_100g" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_as_sold_100g_nutrients_dry-residue_unit" name="nutrition_input_sets_as_sold_100g_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100ml_nutrients_dry-residue_value_string" name="nutrition_input_sets_as_sold_100ml_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_as_sold_100ml" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_as_sold_100ml" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_dry-residue_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_1l_nutrients_dry-residue_value_string" name="nutrition_input_sets_as_sold_1l_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_as_sold_1l" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_as_sold_1l" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_as_sold_1l_nutrients_dry-residue_unit" name="nutrition_input_sets_as_sold_1l_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_serving_nutrients_dry-residue_value_string" name="nutrition_input_sets_as_sold_serving_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_as_sold_serving" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_as_sold_serving" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_as_sold_serving_nutrients_dry-residue_unit" name="nutrition_input_sets_as_sold_serving_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100g" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100g_nutrients_dry-residue_value_string" name="nutrition_input_sets_prepared_100g_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_prepared_100g" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_prepared_100g" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_prepared_100g_nutrients_dry-residue_unit" name="nutrition_input_sets_prepared_100g_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100ml_nutrients_dry-residue_value_string" name="nutrition_input_sets_prepared_100ml_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_prepared_100ml" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_prepared_100ml" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_prepared_100ml_nutrients_dry-residue_unit" name="nutrition_input_sets_prepared_100ml_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_1l_nutrients_dry-residue_value_string" name="nutrition_input_sets_prepared_1l_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_prepared_1l" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_prepared_1l" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_prepared_1l_nutrients_dry-residue_unit" name="nutrition_input_sets_prepared_1l_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_serving_nutrients_dry-residue_value_string" name="nutrition_input_sets_prepared_serving_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_prepared_serving" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_prepared_serving" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_prepared_serving_nutrients_dry-residue_unit" name="nutrition_input_sets_prepared_serving_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+
+                                        <!-- Global nutrient unit column-->
+                                        <td class="nutrient_unit_col">
+                                            
+                                                
+                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_dry-residue_unit" name="nutrition_input_sets_prepared_serving_nutrients_dry-residue_unit">
+                                                        
+                                                            <option value="g"  >g</option>
+                                                        
+                                                            <option value="mg" selected="selected" >mg</option>
+                                                        
+                                                            <option value="µg"  >mcg/µg</option>
+                                                        
+                                                    </select>
+                                                
+                                            
+                                        </td>
+
+                                    </tr>
+
+                                
+
                                     <tr id="nutrient_water_tr" class="nutrient_main" style="display:none">
                                         <td>
                                             <label class="nutrient_label" for="nutrient_water">
@@ -33633,7 +33898,9 @@ by typing the first letters of their name in the last row of the table.</p>
                     
                     	<label for="packaging_en">Recycling instructions and/or packaging information picture (<span class="tab_language">English</span>)</label>
 
-<div class="select_crop" id="packaging_en"></div>
+<div class="select_crop" id="packaging_en">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="packaging_en_imgid" id="packaging_en_imgid" value="" />
 <input type="hidden" name="packaging_en_x1" id="packaging_en_x1" value="" />
@@ -33693,7 +33960,9 @@ by typing the first letters of their name in the last row of the table.</p>
                     
                     	<label for="packaging_new_lc">Recycling instructions and/or packaging information picture (<span class="tab_language"></span>)</label>
 
-<div class="select_crop" id="packaging_new_lc"></div>
+<div class="select_crop" id="packaging_new_lc">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 <input type="hidden" name="packaging_new_lc_imgid" id="packaging_new_lc_imgid" value="" />
 <input type="hidden" name="packaging_new_lc_x1" id="packaging_new_lc_x1" value="" />
@@ -34077,6 +34346,177 @@ by typing the first letters of their name in the last row of the table.</p>
 }
 </style>
 
+<!-- start templates/web/pages/product_edit/product_edit_form_display.tt.html -->
+
+
+
+<template id="image-editor-template">
+  <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+
+    /* The "hidden" attribute is used to keep the editor invisible until an image
+       is loaded: the author rule above overrides the UA "[hidden] { display: none }"
+       rule, so it must be re-applied for hosts with the attribute. */
+    :host([hidden]) {
+      display: none;
+    }
+
+    .editor-command {
+      margin-bottom: 5px;
+    }
+
+    .editor-actions {
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .editor-actions-left {
+      float: left;
+      max-width: 70%;
+    }
+
+    .editor-actions-right {
+      float: right;
+      text-align: right;
+    }
+
+    .editor-status {
+      margin-top: 0.5rem;
+      padding: 2px;
+    }
+
+    /* The colors and sizes come from the site stylesheet via CSS custom
+       properties set on the .select_crop element (scss/_product-form.scss).
+       The var() fallbacks below match the site palette so that the component
+       still looks correct when the stylesheet is not loaded. */
+    button.small-button {
+      margin: 0 0.25rem 0.25rem 0;
+      padding: 0.375rem 0.75rem;
+      border: 0;
+      border-radius: var(--editor-button-radius, 8px);
+      background-color: var(--editor-button-bg, #341100);
+      color: var(--editor-button-text, #ffffff);
+      font-size: var(--editor-font-size, 0.9286rem);
+      cursor: pointer;
+    }
+
+    button.small-button:hover:not(:disabled) {
+      background-color: var(--editor-button-bg-hover, #2a0e00);
+    }
+
+    button.small-button:disabled {
+      cursor: default;
+      opacity: 0.7;
+    }
+
+    a {
+      color: var(--editor-link-color, #341100);
+    }
+
+    #crop-container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    #crop-container cropper-canvas {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+      /* Height follows the loaded image's aspect ratio; JS sets inline
+         aspect-ratio to "W / H" after the image loads. Fallback is square
+         while the image is loading so the canvas is not collapsed to its
+         100px min-height. Width limits the size; height is automatic but
+         capped responsively so the cropper fits the viewport on any screen
+         (original v1 was capped at 800px). */
+      aspect-ratio: var(--image-aspect, 1 / 1);
+      max-height: min(800px, 65vh);
+      max-height: min(800px, 65dvh);
+    }
+
+    .editor-options {
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .editor-options-left {
+      float: left;
+      max-width: 70%;
+    }
+
+    .editor-options-right {
+      float: right;
+      text-align: right;
+    }
+
+    .editor-options label {
+      margin: 0;
+    }
+  </style>
+
+  <div class="editor-command">Rotate the image if necessary, then click and drag to select the interesting zone:</div>
+
+  <div class="editor-actions">
+    <div class="editor-actions-left">
+      <button id="rotate-left" class="small-button" type="button" disabled>Rotate left</button>
+      <button id="rotate-right" class="small-button" type="button" disabled>Rotate right</button>
+      <br />
+      <a id="open-full-size" target="_blank" rel="noopener noreferrer" hidden aria-label="Open the picture in original size in a new windows">Open the picture in original size in a new windows</a>
+      <br />
+      <input type="checkbox" id="zoom-on-wheel" />
+      <label for="zoom-on-wheel" id="zoom-on-wheel-label">Enable zooming with the mouse wheel.</label>
+    </div>
+    <div class="editor-actions-right">
+      <button id="save" class="small-button" type="button" disabled>Validate and/or resize image</button>
+      <div id="save-status" class="editor-status" hidden aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div id="crop-container">
+    <img id="crop-image" alt="" />
+  </div>
+
+  <div class="editor-options">
+    <div class="editor-options-left">
+      <input type="checkbox" id="normalize" />
+      <label for="normalize" id="normalize-label">Normalise colours</label>
+      <br />
+      <input type="checkbox" id="white-magic" />
+      <label for="white-magic" id="white-magic-label">Photo on white background: try to remove the background</label>
+    </div>
+  </div>
+</template>
+
+
+<template id="image-editor-cropper-template">
+  <cropper-canvas background>
+    <cropper-image rotatable scalable skewable translatable></cropper-image>
+    <cropper-shade hidden></cropper-shade>
+    <cropper-handle action="select" plain></cropper-handle>
+    <cropper-selection movable resizable outlined>
+      <cropper-grid role="grid" covered></cropper-grid>
+      <cropper-crosshair centered></cropper-crosshair>
+      <cropper-handle action="move" plain></cropper-handle>
+      <cropper-handle action="n-resize"></cropper-handle>
+      <cropper-handle action="e-resize"></cropper-handle>
+      <cropper-handle action="s-resize"></cropper-handle>
+      <cropper-handle action="w-resize"></cropper-handle>
+      <cropper-handle action="ne-resize"></cropper-handle>
+      <cropper-handle action="nw-resize"></cropper-handle>
+      <cropper-handle action="se-resize"></cropper-handle>
+      <cropper-handle action="sw-resize"></cropper-handle>
+    </cropper-selection>
+  </cropper-canvas>
+</template>
+
+<script type="module" src="//static.openfoodfacts.localhost/js/dist/image-editor.js"></script>
+
+<!-- end templates/web/pages/product_edit/product_edit_form_display.tt.html -->
+
 <!-- end templates/web/pages/product_edit/product_edit_form_display.tt.html -->
 
 						
@@ -34103,15 +34543,15 @@ by typing the first letters of their name in the last row of the table.</p>
 						<div class="row">
 							<div class="small-12 medium-12 large-12 v-space-normal column badge-container">
 								<!-- android_app_link - //play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
-								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web&utm_campaign=install_the_app_android_footer_en"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get It On Google Play" loading="lazy" height="40" width="120"></a>
+								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utm_medium=web&utm_campaign=install_the_app_android_footer_en"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get It On Google Play" loading="lazy" height="40" width="120"></a>
 
 								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-en.svg" alt="Available on F-Droid" loading="lazy" height="40" width="120"></a>
 
 								<!-- android_apk_app_link - //world.openfoodfacts.org/images/apps/off.apk -->
-								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_en"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="Android APK" loading="lazy" height="40" width="120"></a>
+								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utm_medium=web&utm_campaign=install_the_app_apk_footer_en"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="Android APK" loading="lazy" height="40" width="120"></a>
 
 								<!-- msgid "//apps.apple.com/app/open-beauty-facts/id1122926380" -->
-								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web&utm_campaign=install_the_app_ios_footer_en"><img src="/images/misc/appstore/black/appstore_US.svg" alt="Download on the App Store"  loading="lazy" height="40" width="120"></a>
+								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utm_medium=web&utm_campaign=install_the_app_ios_footer_en"><img src="/images/misc/appstore/black/appstore_US.svg" alt="Download on the App Store"  loading="lazy" height="40" width="120"></a>
 							</div>
 						</div>
 					</div>
@@ -34194,7 +34634,7 @@ by typing the first letters of their name in the last row of the table.</p>
 						<p><a href="//forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">Follow us: 
 							<a href="//x.com/OpenFoodFacts"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="x"></a>
-							<a href="//www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
+							<a href="//www.facebook.com/OpenFoodFacts?utm_source=off&utm_medium=web"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
 							<a href="//www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
 							
 						</p>
@@ -34263,9 +34703,12 @@ by typing the first letters of their name in the last row of the table.</p>
 <script>
 $(function() {
 
-	$([]).selectcrop('init_images', []);
-	$(".select_crop").selectcrop('init', {img_path : "//images.openfoodfacts.localhost/images/products/123/456/789/0012/"});
-	$(".select_crop").selectcrop('show');
+	window.imageEditorConfig = { images: [], img_path: "//images.openfoodfacts.localhost/images/products/123/456/789/0012/" };
+	if (window.imageFieldUI) {
+		window.imageFieldUI.setImages(window.imageEditorConfig.images);
+		window.imageFieldUI.init($(".select_crop"), { img_path : window.imageEditorConfig.img_path });
+		window.imageFieldUI.show($(".select_crop"));
+	}
 
 
                     configure_packaging_select2("packaging_1_shape", "packaging_shapes", "Shape" )
@@ -34432,8 +34875,6 @@ $(document).on("focus", ".select2", function (e) {
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/matomo-events.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/cropper.js"></script>
-<script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/jquery-cropper.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/tagify.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/jquery.fileupload.js"></script>
@@ -34563,6 +35004,7 @@ var other_nutrients = [
 { "id" : "nitrate", "text" : "Nitrate"},
 { "id" : "acidity", "text" : "Acidity"},
 { "id" : "carbohydrates-total", "text" : "Total carbohydrates (includes fiber)"},
+{ "id" : "dry-residue", "text" : "Dry residue"},
 { "id" : "water", "text" : "Water"}
 ];
 </script>
@@ -34601,7 +35043,7 @@ $(document).foundation({
 	"url": "//world.openfoodfacts.localhost",
 	"logo": "//static.openfoodfacts.localhost/images/logos/off-logo-vertical-light.svg",
 	"name": "Open Food Facts",
-	"sameAs" : ["//www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web", "//x.com/OpenFoodFacts"]
+	"sameAs" : ["//www.facebook.com/OpenFoodFacts?utm_source=off&utm_medium=web", "//x.com/OpenFoodFacts"]
 }
 </script>
 
