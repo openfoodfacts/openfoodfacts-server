@@ -37,6 +37,22 @@
       "en:fish-meat-eggs",
       "en:processed-meat"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "not_computed",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:rice",
+                  "ingredient_id" : "en:rice-flour"
+               }
+            ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
    "ingredients" : [
       {
          "ciqual_food_code" : "22000",
