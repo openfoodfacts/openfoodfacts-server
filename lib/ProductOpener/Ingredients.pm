@@ -979,7 +979,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		mk => "(?:земја на потекло)",
 		mt => "(?:(?:pajjiż ta' )?ori[gġ]ini)",
 		nb => "(?:opprinnelse)",
-		nl => "(?:oorsprong|herkomst|land van (?:oorsprong|herkomst))",
+		nl => "(?:land van )?(?:oorsprong|herkomst)",
 		pl => "(?:kraj pochodzenia)",
 		pt => "(?:origem(?: de)?|país de origem)",
 		ro => "(?:tara de origine)",
