@@ -39,8 +39,11 @@ location = /donate-to-open-food-facts {
 	try_files /donate/en.html =404;
 }
 
-# Generic language-tagged URLs: /donate-to-open-food-facts-<lc>
-location ~ "^/donate-to-open-food-facts-([a-z]{2,3}(?:_[a-zA-Z]{2})?)$" {
+# Generic language-tagged URLs: /donate-to-open-food-facts-<lc>[-<CC>]
+location ~ "^/donate-to-open-food-facts-([a-z]{2,3})[-_]([a-zA-Z]{2})$" {
+	try_files /donate/$1_$2.html /donate/$1-$2.html /donate/$1.html /donate/en.html =404;
+}
+location ~ "^/donate-to-open-food-facts-([a-z]{2,3})$" {
 	try_files /donate/$1.html /donate/en.html =404;
 }
 
