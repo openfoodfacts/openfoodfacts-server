@@ -302,6 +302,9 @@
       #donate-v2 dbox-widget {
         display: block;
       }
+      #donate-v2 .donate-form:has(.donate-no-express) .donate-pay-label {
+        display: none;
+      }
       #donate-v2 .donate-next-note {
         font-size: 12px;
         color: #85746C;
@@ -339,8 +342,8 @@
       }
       #donate-v2 .donate-trust {
         display: flex;
-        flex-wrap: wrap;
-        gap: 4px 14px;
+        flex-direction: column;
+        gap: 5px;
         font-size: 12px;
         color: #52443D;
         margin: 8px 4px 2px;
@@ -458,8 +461,6 @@
           font-size: 14px;
         }
         #donate-v2 .donate-trust {
-          flex-direction: column;
-          gap: 5px;
           margin: 4px 0 0;
           font-size: 13px;
         }
@@ -557,10 +558,10 @@
             <span class="donate-pay-tpl" data-interval="1 M" hidden>Pay {amount} a month with</span>
             <span class="donate-pay-tpl" data-interval="1 Y" hidden>Pay {amount} a year with</span>
             <span class="donate-pay-tpl" data-interval="1 T" hidden>Pay {amount} with</span>
-            <span class="donate-next-tpl" hidden>Continue with card, SEPA, iDEAL or Wero</span>
+            <span class="donate-next-tpl" hidden>Continue with card, PayPal, iDEAL or Wero</span>
             <div class="donate-pay-label"></div>
             <div class="donate-slot"></div>
-            <p class="donate-next-note">Name and email on the next step. Receipt by email.</p>
+            <p class="donate-next-note">Also Bancontact, Revolut Pay, Amazon Pay and SEPA. Name and email on the next step.</p>
             <p class="donate-fine">Cancel any time. Receipt by email.</p>
           </div>
         </div>
@@ -753,6 +754,36 @@
               widget.style.minInlineSize = '0';
               slot.appendChild(widget);
 
+              // Stripe slots its wallet row into the widget's light DOM and only renders it while it has
+              // layout, so the row is collapsed after a grace period, never before: without a wallet or Link
+              // in this browser it stays 8 px tall and the "pay with" label and OR would sit above nothing
+              var expressWatched = null;
+              var expressTimer = null;
+              function expressEmpty() {
+                var express = widget.querySelector('[slot="express_checkout"]');
+                return !express || express.getBoundingClientRect().height < 20;
+              }
+              function watchExpress() {
+                var express = widget.querySelector('[slot="express_checkout"]');
+                if (express && express !== expressWatched) {
+                  expressWatched = express;
+                  widget.classList.remove('donate-no-express');
+                  if (window.ResizeObserver) {
+                    new ResizeObserver(function () {
+                      if (!expressEmpty()) {
+                        widget.classList.remove('donate-no-express');
+                      }
+                    }).observe(express);
+                  }
+                }
+                clearTimeout(expressTimer);
+                expressTimer = setTimeout(function () {
+                  widget.classList.toggle('donate-no-express', expressEmpty());
+                }, 8000);
+              }
+              watchExpress();
+              new MutationObserver(watchExpress).observe(widget, { childList: true });
+
               var toggleButtons = v2.querySelectorAll('.donate-iv-btn');
               var tierButtons = v2.querySelectorAll('.donate-tier');
               var otherInput = v2.querySelector('.donate-other-input');
@@ -854,7 +885,7 @@
                   return;
                 }
                 var style = document.createElement('style');
-                style.textContent = '#intervals,.recurring_message,#suggested_amounts,#custom_amount,#switch_currency,#comment,#donor_wall,#express_checkout_section>p,#standard_checkout_section>p,:host([page-id="page_select_amount"]) header{display:none!important}#donation_form{font-family:inherit;border:0;min-width:0}#page_select_amount{padding:0}#express_checkout_section{margin-top:0!important}#standard_checkout_section button{border-radius:24px;border:1.5px solid #201A17;background:#fff;color:#201A17;font-weight:700;font-size:15px;line-height:1.25;padding:12px 16px}.checkout-method-separator{font-size:12px;color:#85746C;margin:12px 0}footer.copyright{margin-top:12px}';
+                style.textContent = '#intervals,.recurring_message,#suggested_amounts,#custom_amount,#switch_currency,#comment,#donor_wall,#express_checkout_section>p,#standard_checkout_section>p,:host([page-id="page_select_amount"]) header{display:none!important}#loading.loaded{display:none}#donation_form{font-family:inherit;border:0;min-width:0}#page_select_amount{padding:0}#express_checkout_section{margin-top:0!important}#standard_checkout_section button{border-radius:24px;border:1.5px solid #201A17;background:#fff;color:#201A17;font-weight:700;font-size:15px;line-height:1.25;padding:12px 16px}.checkout-method-separator{font-size:12px;color:#85746C;margin:12px 0}footer.copyright{margin-top:12px}:host(.donate-no-express) .checkout-method-separator{display:none!important}:host(.donate-no-express) #express_checkout_section{height:0!important;overflow:hidden;margin:0!important}';
                 widget.shadowRoot.appendChild(style);
                 var nextButton = widget.shadowRoot.querySelector('#standard_checkout_section button');
                 if (nextButton && nextButton.firstChild && nextButton.firstChild.nodeType === 3) {
