@@ -83,7 +83,7 @@ location ~ ^/(dona-a-open-food-facts|donare-a-open-food-facts)$ {
 
 # Dutch (NL)
 location ~ ^/(doneer-aan-open-food-facts|doneren-aan-open-food-facts|doneren-aan-openfoodfacts)$ {
-	try_files /donate/nl.html =404;
+	try_files /donate/nl_NL.html /donate/nl_BE.html /donate/nl.html =404;
 }
 
 # Portuguese (PT)

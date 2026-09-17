@@ -238,6 +238,16 @@
                 _paq.push(['trackEvent', 'donation', action, source]);
               }
 
+              function onWidgetReady(callback) {
+                if (widget.shadowRoot) {
+                  callback(widget.shadowRoot);
+                } else {
+                  requestAnimationFrame(function () {
+                    onWidgetReady(callback);
+                  });
+                }
+              }
+
               track('page_landed');
               widget.addEventListener('dbox:campaign-loaded', function () {
                 // amount and page-id change on the visitor's first interaction, not on load
@@ -247,11 +257,13 @@
                     track('form_started');
                   }
                 }).observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
-                widget.shadowRoot.addEventListener('dbox:payment-initiated', function () {
-                  track('payment_initiated');
-                });
-                widget.shadowRoot.addEventListener('dbox:donation-created', function () {
-                  track('succeeded');
+                onWidgetReady(function (shadowRoot) {
+                  shadowRoot.addEventListener('dbox:payment-initiated', function () {
+                    track('payment_initiated');
+                  });
+                  shadowRoot.addEventListener('dbox:donation-created', function () {
+                    track('succeeded');
+                  });
                 });
               }, { once: true });
             })();

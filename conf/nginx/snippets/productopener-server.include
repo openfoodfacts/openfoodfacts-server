@@ -71,6 +71,7 @@ location ^~ /data/tagline/ {
     proxy_ssl_verify on;
     proxy_ssl_verify_depth 2;
     proxy_ssl_trusted_certificate /etc/ssl/certs/ca-certificates.crt;
+    proxy_set_header Accept-Encoding "";
     proxy_set_header Host raw.githubusercontent.com;
     sub_filter_once off;
     sub_filter_types application/json text/plain;
