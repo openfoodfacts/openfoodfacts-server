@@ -47,7 +47,7 @@ map $remote_addr--$host==$po_request_uri $po_needs_images_redirect {
         # match will happen in order of appearance
 		"~*^217.182.132.133--" 0; # images server can fallback to app server
         "~*--images\." 0;  # exclude url with right domain name
-        "~*==/images/products/" 1;  # redirect the other that points to images
+        "~*==/images/products/.+" 1;  # redirect the other that points to images
 }
 
 
