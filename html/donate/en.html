@@ -86,6 +86,366 @@
         background-size: 100% 100%;
         z-index: 0;
       }
+      #donate-v1[hidden],
+      #donate-v2[hidden] {
+        display: none;
+      }
+      #donate-v2 {
+        font-family: "Plus Jakarta Sans", "Public Sans", Helvetica, Roboto, Arial, sans-serif;
+        color: #201A17;
+      }
+      #donate-v2 button {
+        background: #341100;
+        margin-bottom: 0;
+        padding: 0;
+        border: 0;
+      }
+      #donate-v2 input[type="text"] {
+        border-radius: 0;
+        height: auto;
+        box-shadow: none;
+        margin-bottom: 0;
+      }
+      #donate-v2 h1,
+      #donate-v2 h3,
+      #donate-v2 p {
+        margin: 0;
+      }
+      #donate-v2 small {
+        font-size: 60%;
+      }
+      #donate-v2 .donate-logo {
+        padding-top: 18px;
+      }
+      #donate-v2 .donate-grid {
+        padding: 18px 16px 28px;
+      }
+      #donate-v2 h1 {
+        font-size: 26px;
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+      }
+      #donate-v2 .donate-lead {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #52443D;
+        margin-bottom: 14px;
+      }
+      #donate-v2 h3 {
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 16px 0 8px;
+        color: #52443D;
+      }
+      #donate-v2 .donate-meter {
+        background: #fff;
+        border: 1px solid #EDE0DB;
+        border-radius: 12px;
+        padding: 12px 14px;
+        margin-bottom: 14px;
+      }
+      #donate-v2 .donate-meter-amount {
+        font-size: 22px;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+      }
+      #donate-v2 .donate-meter-amount span {
+        font-size: 13px;
+        font-weight: 500;
+        color: #85746C;
+      }
+      #donate-v2 .donate-bar {
+        height: 10px;
+        background: #EDE0DB;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 8px 0 6px;
+      }
+      #donate-v2 .donate-bar-fill {
+        display: block;
+        height: 100%;
+        background: #ff8714;
+      }
+      #donate-v2 .donate-meter-foot {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #52443D;
+      }
+      #donate-v2 .donate-form {
+        background: #fff;
+        border: 1px solid #EDE0DB;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(52, 17, 0, 0.08);
+        margin-bottom: 18px;
+      }
+      #donate-v2 .donate-form-head {
+        background: #201A17;
+        color: #fff;
+        padding: 12px 16px;
+        font-weight: 700;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+      }
+      #donate-v2 .donate-form-body {
+        padding: 14px 14px 16px;
+      }
+      #donate-v2 .donate-iv {
+        display: flex;
+        border: 1.5px solid #201A17;
+        border-radius: 22px;
+        overflow: hidden;
+        margin-bottom: 12px;
+      }
+      #donate-v2 .donate-iv-btn {
+        flex: 1;
+        text-align: center;
+        padding: 8px;
+        font-weight: 600;
+        font-size: 13px;
+        background: #fff;
+        color: #201A17;
+      }
+      #donate-v2 .donate-iv-btn[aria-pressed="true"] {
+        background: #201A17;
+        color: #fff;
+      }
+      #donate-v2 .donate-tiers {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      #donate-v2 .donate-tier {
+        display: block;
+        width: 100%;
+        border: 1.5px solid #D9CFC8;
+        border-radius: 12px;
+        padding: 10px;
+        font-weight: 800;
+        font-size: 18px;
+        position: relative;
+        background: #fff;
+        color: #201A17;
+        text-align: left;
+      }
+      #donate-v2 .donate-tier small {
+        display: block;
+        font-weight: 500;
+        color: #85746C;
+        margin-top: 2px;
+        line-height: 1.3;
+      }
+      #donate-v2 .donate-tier[aria-pressed="true"] {
+        border-color: #201A17;
+        background: #FFF3E8;
+      }
+      #donate-v2 .donate-pop {
+        position: absolute;
+        top: -9px;
+        right: 8px;
+        background: #ff8714;
+        color: #fff;
+        font-size: 9px;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 8px;
+      }
+      #donate-v2 .donate-orow {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 14px;
+        align-items: stretch;
+      }
+      #donate-v2 .donate-other-input {
+        flex: 1;
+        border: 1.5px solid #D9CFC8;
+        border-radius: 12px;
+        padding: 10px;
+        font-size: 13px;
+        color: #201A17;
+      }
+      #donate-v2 .donate-cur {
+        display: flex;
+        align-items: center;
+        border: 1.5px solid #D9CFC8;
+        border-radius: 12px;
+        padding: 0 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #52443D;
+        background: #F6F3F0;
+      }
+      #donate-v2 .donate-pay-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #85746C;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      #donate-v2 dbox-widget {
+        display: block;
+      }
+      #donate-v2 .donate-next-note {
+        font-size: 12px;
+        color: #85746C;
+        text-align: center;
+        margin: 8px 0;
+      }
+      #donate-v2 .donate-fine {
+        font-size: 11px;
+        color: #85746C;
+        line-height: 1.5;
+        text-align: center;
+        margin-top: 4px;
+      }
+      #donate-v2 .donate-photo {
+        background: #fff;
+        border: 1px solid #EDE0DB;
+        border-radius: 12px;
+        padding: 8px;
+        margin-bottom: 14px;
+      }
+      #donate-v2 .donate-photo img {
+        display: block;
+        width: 100%;
+        border-radius: 8px;
+      }
+      #donate-v2 .donate-photo-cap {
+        font-size: 13px;
+        color: #52443D;
+        line-height: 1.45;
+        padding: 8px 4px 2px;
+      }
+      #donate-v2 .donate-photo-cap b {
+        display: block;
+        color: #201A17;
+      }
+      #donate-v2 .donate-trust {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+        font-size: 12px;
+        color: #52443D;
+        margin: 8px 4px 2px;
+        list-style: none;
+        padding: 0;
+      }
+      #donate-v2 .donate-trust span::before {
+        content: "\2713 ";
+        color: #009664;
+        font-weight: 800;
+      }
+      #donate-v2 .donate-buys {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      #donate-v2 .donate-buy {
+        background: #fff;
+        border: 1px solid #EDE0DB;
+        border-radius: 10px;
+        padding: 8px;
+      }
+      #donate-v2 .donate-buy b {
+        display: block;
+        font-size: 15px;
+        font-weight: 800;
+      }
+      #donate-v2 .donate-buy span {
+        font-size: 11px;
+        color: #52443D;
+        line-height: 1.35;
+      }
+      #donate-v2 .donate-budget {
+        font-size: 13px;
+        line-height: 1.45;
+        color: #52443D;
+      }
+      #donate-v2 .donate-faq {
+        font-size: 13px;
+        line-height: 1.45;
+        color: #52443D;
+      }
+      #donate-v2 .donate-faq p {
+        margin: 0 0 8px;
+      }
+      #donate-v2 .donate-faq b {
+        display: block;
+        color: #201A17;
+        margin-top: 8px;
+      }
+      #donate-v2 .donate-link {
+        display: inline;
+        width: auto;
+        font: inherit;
+        color: inherit;
+        text-decoration: underline;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+        appearance: none;
+      }
+      @media (min-width: 1024px) {
+        #donate-v2 .donate-grid {
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 48px;
+          padding: 36px 6% 48px;
+          max-width: 1440px;
+          margin: 0 auto;
+          grid-template-areas:
+            "intro form"
+            "meter form"
+            "photo form"
+            "buys form"
+            "budget form"
+            "faq form";
+        }
+        #donate-v2 .donate-intro {
+          grid-area: intro;
+        }
+        #donate-v2 .donate-meter {
+          grid-area: meter;
+        }
+        #donate-v2 .donate-photo {
+          grid-area: photo;
+        }
+        #donate-v2 .donate-section-buys {
+          grid-area: buys;
+        }
+        #donate-v2 .donate-section-budget {
+          grid-area: budget;
+        }
+        #donate-v2 .donate-section-faq {
+          grid-area: faq;
+        }
+        #donate-v2 .donate-form {
+          grid-area: form;
+          align-self: start;
+          position: sticky;
+          top: 16px;
+          max-height: calc(100vh - 32px);
+          overflow: auto;
+        }
+        #donate-v2 h1 {
+          font-size: 38px;
+        }
+        #donate-v2 .donate-lead {
+          font-size: 17px;
+          max-width: 58ch;
+        }
+      }
     </style>
     <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
 <!-- Matomo -->
@@ -113,6 +473,89 @@
   </head>
   <body>
     <div class="wrapper">
+    <div id="donate-v2" hidden>
+      <div class="donate-logo text-center">
+        <img
+          src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
+          width="178"
+          height="156"
+          alt="Open Food Facts logo"
+        />
+      </div>
+      <div class="donate-grid">
+        <div class="donate-intro">
+          <h1>Keep the food database free for everyone.</h1>
+          <p class="donate-lead">Open Food Facts is a non-profit. No ads, no industry money. 4.6 million products, 300+ apps and 100+ research papers rely on it, and volunteers keep it open. Your gift pays for servers and one engineer, nothing else.</p>
+        </div>
+        <div class="donate-meter">
+          <div class="donate-meter-amount"><b>&euro;47,431</b> <span>raised of &euro;170,000 for 2026</span></div>
+          <div class="donate-bar" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"><div class="donate-bar-fill" style="width: 28%"></div></div>
+          <div class="donate-meter-foot"><span><b>760 supporters</b> so far</span><span>28% &middot; until 31 January 2027</span></div>
+        </div>
+        <div class="donate-form">
+          <div class="donate-form-head"><span>Support Open Food Facts</span><span>Secure</span></div>
+          <div class="donate-form-body">
+            <div class="donate-iv">
+              <button type="button" class="donate-iv-btn" data-interval="1 M" aria-pressed="true">Monthly</button>
+              <button type="button" class="donate-iv-btn" data-interval="1 Y" aria-pressed="false">Yearly</button>
+              <button type="button" class="donate-iv-btn" data-interval="1 T" aria-pressed="false">One-time</button>
+            </div>
+            <div class="donate-tiers">
+              <button type="button" class="donate-tier" data-amount="3" aria-pressed="false">&euro;3<small>750 lookups a month</small></button>
+              <button type="button" class="donate-tier" data-amount="5" aria-pressed="true"><span class="donate-pop">Most popular</span>&euro;5<small>1,250 lookups a month</small></button>
+              <button type="button" class="donate-tier" data-amount="10" aria-pressed="false">&euro;10<small>2,500 lookups a month</small></button>
+              <button type="button" class="donate-tier" data-amount="20" aria-pressed="false">&euro;20<small>a day of servers, every month</small></button>
+            </div>
+            <div class="donate-orow">
+              <label for="donate-other-input" hidden>Other amount</label>
+              <input type="text" inputmode="decimal" id="donate-other-input" class="donate-other-input" placeholder="Other amount" />
+              <span class="donate-cur">EUR</span>
+            </div>
+            <span class="donate-pay-tpl" data-interval="1 M" hidden>Pay {amount} a month with</span>
+            <span class="donate-pay-tpl" data-interval="1 Y" hidden>Pay {amount} a year with</span>
+            <span class="donate-pay-tpl" data-interval="1 T" hidden>Pay {amount} with</span>
+            <div class="donate-pay-label"></div>
+            <div class="donate-slot"></div>
+            <p class="donate-next-note">Name and email on the next step. Receipt by email.</p>
+            <p class="donate-fine">Cancel any time. Receipt by email.</p>
+          </div>
+        </div>
+        <div class="donate-photo">
+          <img src="https://static.openfoodfacts.org/images/misc/group-photo-small.jpg" alt="The Open Food Facts team" />
+          <div class="donate-photo-cap">
+            <b>The people behind it</b>
+            A small permanent team and volunteers from all over the world. Your gift goes to them, and to nobody else.
+          </div>
+          <div class="donate-trust">
+            <span>Association loi 1901 since 2012</span>
+            <span>Accounts published yearly</span>
+            <span>Tax deductible in France</span>
+          </div>
+        </div>
+        <div class="donate-section-buys">
+          <h3>What your gift pays for</h3>
+          <div class="donate-buys">
+            <div class="donate-buy"><b>&euro;3 / month</b><span>750 product lookups served every month</span></div>
+            <div class="donate-buy"><b>&euro;5 / month</b><span>1,250 lookups, the most common gift</span></div>
+            <div class="donate-buy"><b>&euro;20</b><span>one day of servers for the whole database</span></div>
+          </div>
+        </div>
+        <div class="donate-section-budget">
+          <h3>Where the &euro;170,000 goes</h3>
+          <div class="donate-budget">Servers and infrastructure, one full-time engineer, software subscriptions. Accounts are published every year.</div>
+        </div>
+        <div class="donate-section-faq">
+          <h3>Questions</h3>
+          <div class="donate-faq">
+            <p><b>Is it tax deductible?</b> In France, 66%: a &euro;5 monthly gift costs you &euro;1.70. The receipt arrives by email.</p>
+            <p><b>Can I stop a monthly gift?</b> Any time, from the link in every receipt.</p>
+            <p><b>Who gets the money?</b> The Open Food Facts association. Not the food industry, not a company.</p>
+            <p><b>I already donated.</b> Thank you. <button type="button" class="donate-link donate-hide-ask">Hide this ask for a year</button><span class="donate-hide-ask-note" hidden>Hidden for a year. Thank you.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="donate-v1">
     <div class="hide-for-large-up text-center">
       <img
         src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
@@ -169,10 +612,11 @@
         <div class="reasons row">
           <div class="reason small-12 large-6 columns">
             <div class="flex-video">
-            <iframe width="420" height="315" src="https://www.youtube.com/embed/W5pOjx6ycX4" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen></iframe>
+            <template id="donate-v1-video"></template>
+            <noscript><iframe width="420" height="315" src="https://www.youtube.com/embed/W5pOjx6ycX4"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe></noscript>
             </div>
           </div>
           <div class="reason small-12 large-6 columns">
@@ -224,6 +668,161 @@
           <noscript>
             <p>The donation form is being loaded.<br>You can also access it by <a href="https://donorbox.org/help-open-food-facts-stay-afloat">clicking here</a>.</p>
           </noscript>
+          <script>
+            // Donorbox contract pinned 2026-09-17 (widgets.js, the donation_form bundle,
+            // widgets/donation_forms/help-open-food-facts-stay-afloat): observed attributes are
+            // amount, interval, currency, page, page-id; interval must be one of "1 T"/"1 M"/"1 Y",
+            // currency one of "eur"/"usd"; dbox:campaign-loaded fires on the element once
+            // campaignData exists; every write below sets amount last, since their own code clears
+            // it on an interval or currency change; a renamed attribute or changed shadow markup is
+            // fail-soft (their own controls stay usable, no exception thrown).
+            (function () {
+              var donateArm = Math.random() < 0.5 ? 'v2' : 'v1';
+
+              var params = new URLSearchParams(location.search);
+              var source = (params.get('utm_content') || params.get('utm_campaign') || 'direct').replace(/:B1:v[12]$/, '');
+              params.set('utm_content', source + ':B1:' + donateArm);
+              history.replaceState(null, '', location.pathname + '?' + params + location.hash);
+
+              var v1 = document.getElementById('donate-v1');
+              var v2 = document.getElementById('donate-v2');
+
+              if (donateArm === 'v1') {
+                var tpl = document.getElementById('donate-v1-video');
+                var ns = tpl && tpl.nextElementSibling;
+                if (ns && ns.tagName === 'NOSCRIPT') {
+                  tpl.parentNode.insertBefore(document.createRange().createContextualFragment(ns.textContent), tpl);
+                }
+                return;
+              }
+
+              v1.hidden = true;
+              v2.hidden = false;
+
+              var AMERICAS = 'US CA MX BM BZ CR SV GT HN NI PA AI AG AW BS BB BQ VG KY CU CW DM DO GD HT JM MS PR KN LC VC SX TT TC VI AR BO BR CL CO EC FK GY PY PE SR UY VE'.split(' ');
+
+              var widget = v1.querySelector('dbox-widget');
+              var slot = v2.querySelector('.donate-slot');
+              widget.style.maxInlineSize = 'none';
+              slot.appendChild(widget);
+
+              var toggleButtons = v2.querySelectorAll('.donate-iv-btn');
+              var tierButtons = v2.querySelectorAll('.donate-tier');
+              var otherInput = v2.querySelector('.donate-other-input');
+              var currencyChip = v2.querySelector('.donate-cur');
+              var payLabel = v2.querySelector('.donate-pay-label');
+              var payTemplates = {};
+              var payTplEls = v2.querySelectorAll('.donate-pay-tpl');
+              var i;
+              for (i = 0; i < payTplEls.length; i++) {
+                payTemplates[payTplEls[i].getAttribute('data-interval')] = payTplEls[i].textContent;
+              }
+              var hideAskButton = v2.querySelector('.donate-hide-ask');
+              var hideAskNote = v2.querySelector('.donate-hide-ask-note');
+
+              var amount = 5;
+              var interval = '1 M';
+              var currency = 'eur';
+              var currencyKnown = false;
+
+              var urlAmount = Number(params.get('amount'));
+              if (isFinite(urlAmount) && urlAmount > 0) {
+                amount = urlAmount;
+              }
+              var urlInterval = params.get('interval');
+              if (urlInterval === '1 M' || urlInterval === '1 Y' || urlInterval === '1 T') {
+                interval = urlInterval;
+              }
+
+              function storeState() {
+                try {
+                  sessionStorage.donation_amount = String(amount);
+                  sessionStorage.donation_interval = interval;
+                } catch (e) {}
+              }
+
+              function apply() {
+                var j;
+                var matchedTile = false;
+                var symbol;
+                for (j = 0; j < toggleButtons.length; j++) {
+                  toggleButtons[j].setAttribute('aria-pressed', toggleButtons[j].getAttribute('data-interval') === interval ? 'true' : 'false');
+                }
+                for (j = 0; j < tierButtons.length; j++) {
+                  var isMatch = String(amount) === tierButtons[j].getAttribute('data-amount');
+                  tierButtons[j].setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+                  if (isMatch) {
+                    matchedTile = true;
+                  }
+                }
+                otherInput.value = matchedTile ? '' : String(amount);
+
+                symbol = currency === 'usd' ? '$' : '€';
+                payLabel.textContent = payTemplates[interval].replace('{amount}', symbol + amount);
+
+                widget.setAttribute('interval', interval);
+                if (currencyKnown) {
+                  widget.setAttribute('currency', currency);
+                }
+                widget.setAttribute('amount', String(amount));
+
+                storeState();
+              }
+
+              apply();
+
+              for (i = 0; i < toggleButtons.length; i++) {
+                toggleButtons[i].addEventListener('click', function (event) {
+                  interval = event.currentTarget.getAttribute('data-interval');
+                  apply();
+                });
+              }
+
+              for (i = 0; i < tierButtons.length; i++) {
+                tierButtons[i].addEventListener('click', function (event) {
+                  amount = Number(event.currentTarget.getAttribute('data-amount'));
+                  apply();
+                });
+              }
+
+              otherInput.addEventListener('input', function () {
+                var value = Number(otherInput.value);
+                if (otherInput.value !== '' && isFinite(value) && value > 0) {
+                  amount = value;
+                  apply();
+                }
+              });
+
+              widget.addEventListener('dbox:campaign-loaded', function () {
+                if (!widget.shadowRoot) {
+                  return;
+                }
+                var style = document.createElement('style');
+                style.textContent = '#intervals,.recurring_message,#suggested_amounts,#custom_amount,#switch_currency,#comment,#donor_wall,#express_checkout_section>p,:host([page-id="page_select_amount"]) header{display:none!important}#donation_form{font-family:inherit}#standard_checkout_section button{border-radius:24px;border:1.5px solid #201A17;background:#fff;color:#201A17;font-weight:700}.checkout-method-separator{font-size:12px;color:#85746C}';
+                widget.shadowRoot.appendChild(style);
+
+                var country = widget.campaignData && widget.campaignData.current_country;
+                currency = AMERICAS.indexOf(country) >= 0 ? 'usd' : 'eur';
+                currencyKnown = true;
+                currencyChip.textContent = currency.toUpperCase();
+                apply();
+              }, { once: true });
+
+              hideAskButton.addEventListener('click', function () {
+                setDonateCookie('donation_done', 1, 365);
+                setDonateCookie('donation_march_2026', 1, 365);
+                hideAskButton.hidden = true;
+                hideAskNote.hidden = false;
+              });
+
+              function setDonateCookie(name, value, days) {
+                var expiry = new Date();
+                expiry.setTime(expiry.getTime() + days * 24 * 60 * 60 * 1000);
+                var domain = 'domain=.' + location.origin.split('.').slice(1).join('.');
+                document.cookie = name + '=' + value + ';expires=' + expiry.toUTCString() + ';' + domain + ';SameSite=None;Secure;path=/';
+              }
+            })();
+          </script>
           <script>
             // Donation funnel in Matomo, named by where the visitor came from (utm_content, else
             // utm_campaign, else "direct"). The Donorbox form lives in an open shadow root and
@@ -279,6 +878,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 
