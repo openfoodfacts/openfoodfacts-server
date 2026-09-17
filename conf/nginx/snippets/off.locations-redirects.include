@@ -83,12 +83,12 @@ location ~ ^/(dona-a-open-food-facts|donare-a-open-food-facts)$ {
 
 # Dutch (NL)
 location ~ ^/(doneer-aan-open-food-facts|doneren-aan-open-food-facts|doneren-aan-openfoodfacts)$ {
-	try_files /donate/nl_NL.html /donate/nl_BE.html /donate/nl.html =404;
+	try_files /donate/nl.html =404;
 }
 
 # Portuguese (PT)
 location ~ ^/(fazer-um-donativo-ao-open-food-facts|doar-ao-open-food-facts)$ {
-	try_files /donate/pt.html =404;
+	try_files /donate/pt_PT.html /donate/pt.html =404;
 }
 
 # Portuguese (Brazil) (PT_BR)
@@ -498,7 +498,7 @@ location = /donar-a-open-food-facts-ast {
 
 # Kurdish (KMR / KMR_TR)
 location ~ ^/(behs-kiri-open-food-facts|donate-to-open-food-facts-kmr)$ {
-	try_files /donate/kmr_TR.html /donate/kmr.html =404;
+	try_files /donate/kmr.html /donate/kmr_TR.html =404;
 }
 
 # English Variants (EN_AU / EN_GB)

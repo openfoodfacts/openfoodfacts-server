@@ -238,18 +238,21 @@
                 _paq.push(['trackEvent', 'donation', action, source]);
               }
 
-              function onWidgetReady(callback, retriesLeft) {
-                if (widget.shadowRoot) {
-                  callback(widget.shadowRoot);
-                } else if (retriesLeft > 0) {
-                  requestAnimationFrame(function () {
-                    onWidgetReady(callback, retriesLeft - 1);
-                  });
+              function registerTracking(retriesLeft) {
+                if (!widget || widget.dataset.offTrackingRegistered === '1') {
+                  return;
                 }
-              }
+                if (!widget.shadowRoot) {
+                  if (retriesLeft > 0) {
+                    requestAnimationFrame(function () {
+                      registerTracking(retriesLeft - 1);
+                    });
+                  }
+                  return;
+                }
 
-              track('page_landed');
-              widget.addEventListener('dbox:campaign-loaded', function () {
+                widget.dataset.offTrackingRegistered = '1';
+
                 // amount and page-id change on the visitor's first interaction, not on load
                 var observer = new MutationObserver(function () {
                   if (!started) {
@@ -259,15 +262,23 @@
                   }
                 });
                 observer.observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
-                onWidgetReady(function (shadowRoot) {
-                  shadowRoot.addEventListener('dbox:payment-initiated', function () {
-                    track('payment_initiated');
-                  });
-                  shadowRoot.addEventListener('dbox:donation-created', function () {
-                    track('succeeded');
-                  });
-                }, 120);
-              }, { once: true });
+
+                var shadowRoot = widget.shadowRoot;
+                shadowRoot.addEventListener('dbox:payment-initiated', function () {
+                  track('payment_initiated');
+                });
+                shadowRoot.addEventListener('dbox:donation-created', function () {
+                  track('succeeded');
+                });
+              }
+
+              track('page_landed');
+              if (widget) {
+                registerTracking(120);
+                widget.addEventListener('dbox:campaign-loaded', function () {
+                  registerTracking(120);
+                }, { once: true });
+              }
             })();
           </script>
 
