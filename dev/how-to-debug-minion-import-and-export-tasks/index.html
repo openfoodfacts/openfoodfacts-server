@@ -2508,15 +2508,11 @@
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash
 <span class="nb">source</span><span class="w"> </span>env/setenv<span class="w"> </span>off
 <span class="nv">TAP_LOG_FILTER</span><span class="o">=</span>none<span class="w"> </span>perl<span class="w"> </span>scripts/minion_producers.pl<span class="w"> </span>minion<span class="w"> </span>worker<span class="w"> </span>-m<span class="w"> </span>production
-<span class="sb">```</span><span class="w"> </span>bash
-
-The<span class="w"> </span><span class="sb">`</span>TAP_LOG_FILTER<span class="sb">`</span><span class="w"> </span>environment<span class="w"> </span>variable<span class="w"> </span>is<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span><span class="nb">set</span><span class="w"> </span>the<span class="w"> </span>log<span class="w"> </span>level<span class="w"> </span><span class="k">for</span><span class="w"> </span>Log4Perl.<span class="w"> </span>Setting<span class="w"> </span>it<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>none<span class="sb">`</span><span class="w"> </span>prints<span class="w"> </span>messages<span class="w"> </span><span class="k">for</span><span class="w"> </span>all<span class="w"> </span>log<span class="w"> </span>levels.
-
-I<span class="w"> </span>added<span class="w"> </span>a<span class="w"> </span>print<span class="w"> </span>STDERR<span class="w"> </span><span class="k">in</span><span class="w"> </span>Import.pm<span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span><span class="k">if</span><span class="w"> </span>a<span class="w"> </span>specific<span class="w"> </span>product<span class="w"> </span>is<span class="w"> </span>causing<span class="w"> </span>the<span class="w"> </span>problem:
-
-<span class="sb">```</span><span class="w"> </span>bash
-Import.pm<span class="w"> </span>-<span class="w"> </span>org:<span class="w"> </span>systeme-u<span class="w"> </span>-<span class="w"> </span>code:<span class="w"> </span><span class="m">3256221408515</span>
 </code></pre></div></p>
+<p>The <code>TAP_LOG_FILTER</code> environment variable is used to set the log level for Log4Perl. Setting it to <code>none</code> prints messages for all log levels.</p>
+<p>I added a print STDERR in Import.pm to see if a specific product is causing the problem:</p>
+<div class="highlight"><pre><span></span><code>Import.pm<span class="w"> </span>-<span class="w"> </span>org:<span class="w"> </span>systeme-u<span class="w"> </span>-<span class="w"> </span>code:<span class="w"> </span><span class="m">3256221408515</span>
+</code></pre></div>
 <p>Trying to export this single product indeed fails.</p>
 <p>Last lines in minion_log4perl.log:</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span><span class="m">24193</span><span class="o">]</span><span class="w"> </span>/srv/off/lib/ProductOpener/TaxonomiesEnhancer.pm<span class="w"> </span><span class="m">257</span><span class="w"> </span>ProductOpener.TaxonomiesEnhancer<span class="w"> </span><span class="o">{}</span><span class="w"> </span>check_ingredients_between_languages<span class="w"> </span>&gt;<span class="w"> </span>detect_missing_stop_words_before_list<span class="w"> </span>-<span class="w">   </span>first<span class="w"> </span>ingredient<span class="w"> </span><span class="k">in</span><span class="w"> </span>ingredients1<span class="w"> </span><span class="o">(</span>fr:ble-dur-precuit-concasse<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>unknown<span class="w"> </span><span class="o">(</span><span class="nv">is_in_taxonomy</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>or<span class="w"> </span>first<span class="w"> </span>ingredient<span class="w"> </span><span class="k">in</span><span class="w"> </span>ingredients2<span class="w"> </span>is<span class="w"> </span>known<span class="w"> </span><span class="o">(</span><span class="nv">is_in_taxonomy</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="m">1</span><span class="o">)</span>
@@ -2534,8 +2530,8 @@ Import.pm<span class="w"> </span>-<span class="w"> </span>org:<span class="w"> <
 </code></pre></div>
 <p><code>$#array</code> is equal to <code>0</code> when <code>@array</code> contains 1 element, so it makes a <code>division by 0 error</code> and the task fails. But unfortunately I could not find any log where this division by zero error was reported, the only thing we get from Minion is that the task failed...</p>
 <p><strong>Finally:</strong> don't forget to <strong>restart the minion service</strong> !</p>
-<p>```bash
-sudo systemctl start minion@off.service</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>minion@off.service
+</code></pre></div>
 
 
 
