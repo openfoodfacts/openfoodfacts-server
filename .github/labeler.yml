@@ -769,13 +769,6 @@ Cyprus:
   - changed-files:
       - any-glob-to-any-file: "scripts/packager-codes/it_packagers_refresh.py"
 
-Non-EU traceability codes:
-  - changed-files:
-      - any-glob-to-any-file: "scripts/packager-codes/non-eu/​non_eu_spider.py"
-      - any-glob-to-any-file: "scripts/packager-codes/non-eu/​requirements.txt"
-      - any-glob-to-any-file: "scripts/packager-codes/non-eu/​packager_codes.py"
-      - any-glob-to-any-file: "scripts/packager-codes/non-eu/​pdf_extraction.py"
-
 Poland:
   - changed-files:
       - any-glob-to-any-file: "scripts/packager-codes/poland_packager_code.py"
