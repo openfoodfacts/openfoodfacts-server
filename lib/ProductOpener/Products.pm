@@ -2296,8 +2296,8 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 
 	if (defined $most_recent_product_ref) {
 		if (not $most_recent_product_ref->{deleted}) {
-		$products_collection->replace_one({"_id" => $most_recent_product_ref->{_id}},
-			$most_recent_product_ref, {upsert => 1});
+			$products_collection->replace_one({"_id" => $most_recent_product_ref->{_id}},
+				$most_recent_product_ref, {upsert => 1});
 		}
 		# Always push the update to Redis, even if the product was deleted, so that the change is reflected in off-query
 		push_product_update_to_redis($most_recent_product_ref, $changes_ref->[-1], "reprocessed");
