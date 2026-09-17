@@ -4,7 +4,7 @@ from typing import Any
 
 import scrapy
 from scrapy.loader import ItemLoader
-from scrapy.loader.processors import MapCompose
+from itemloaders.processors import MapCompose
 
 
 def get_one(values: list) -> Any:
