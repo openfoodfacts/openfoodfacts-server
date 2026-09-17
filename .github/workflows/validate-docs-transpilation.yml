@@ -38,7 +38,7 @@ jobs:
         run: |
           echo "Installing dependencies for documentation repository..."
           cd documentation-repo
-          npm ci
+          npm ci --legacy-peer-deps
           echo "✅ Dependencies installed successfully"
 
       - name: Copy documentation to documentation repository
