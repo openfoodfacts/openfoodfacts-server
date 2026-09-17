@@ -282,6 +282,11 @@
         color: #52443D;
         background: #F6F3F0;
       }
+      #donate-v2 .donate-other-min {
+        font-size: 12px;
+        color: #B3261E;
+        margin: -8px 0 12px;
+      }
       #donate-v2 .donate-pay-label {
         font-size: 11px;
         font-weight: 700;
@@ -511,6 +516,7 @@
               <input type="text" inputmode="decimal" id="donate-other-input" class="donate-other-input" placeholder="Other amount" />
               <span class="donate-cur">EUR</span>
             </div>
+            <p class="donate-other-min" hidden>Minimum {amount}</p>
             <span class="donate-pay-tpl" data-interval="1 M" hidden>Pay {amount} a month with</span>
             <span class="donate-pay-tpl" data-interval="1 Y" hidden>Pay {amount} a year with</span>
             <span class="donate-pay-tpl" data-interval="1 T" hidden>Pay {amount} with</span>
@@ -612,7 +618,6 @@
         <div class="reasons row">
           <div class="reason small-12 large-6 columns">
             <div class="flex-video">
-            <template id="donate-v1-video"></template>
             <noscript><iframe width="420" height="315" src="https://www.youtube.com/embed/W5pOjx6ycX4"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -669,13 +674,10 @@
             <p>The donation form is being loaded.<br>You can also access it by <a href="https://donorbox.org/help-open-food-facts-stay-afloat">clicking here</a>.</p>
           </noscript>
           <script>
-            // Donorbox contract pinned 2026-09-17 (widgets.js, the donation_form bundle,
-            // widgets/donation_forms/help-open-food-facts-stay-afloat): observed attributes are
-            // amount, interval, currency, page, page-id; interval must be one of "1 T"/"1 M"/"1 Y",
-            // currency one of "eur"/"usd"; dbox:campaign-loaded fires on the element once
-            // campaignData exists; every write below sets amount last, since their own code clears
-            // it on an interval or currency change; a renamed attribute or changed shadow markup is
-            // fail-soft (their own controls stay usable, no exception thrown).
+            // Donorbox contract, checked 2026-09-17: observed attributes amount, interval ("1 T"/"1 M"/"1 Y"),
+            // currency ("eur"/"usd"), page, page-id; dbox:campaign-loaded fires on the element once
+            // campaignData (current_country, min_currencies_values) exists. Every write sets amount
+            // last because their code clears it on an interval or currency change.
             (function () {
               var donateArm = Math.random() < 0.5 ? 'v2' : 'v1';
 
@@ -688,11 +690,8 @@
               var v2 = document.getElementById('donate-v2');
 
               if (donateArm === 'v1') {
-                var tpl = document.getElementById('donate-v1-video');
-                var ns = tpl && tpl.nextElementSibling;
-                if (ns && ns.tagName === 'NOSCRIPT') {
-                  tpl.parentNode.insertBefore(document.createRange().createContextualFragment(ns.textContent), tpl);
-                }
+                var ns = v1.querySelector('.flex-video noscript');
+                ns.parentNode.insertBefore(document.createRange().createContextualFragment(ns.textContent), ns);
                 return;
               }
 
@@ -704,11 +703,15 @@
               var widget = v1.querySelector('dbox-widget');
               var slot = v2.querySelector('.donate-slot');
               widget.style.maxInlineSize = 'none';
+              widget.style.minWidth = '0';
+              widget.style.minInlineSize = '0';
               slot.appendChild(widget);
 
               var toggleButtons = v2.querySelectorAll('.donate-iv-btn');
               var tierButtons = v2.querySelectorAll('.donate-tier');
               var otherInput = v2.querySelector('.donate-other-input');
+              var otherMinNote = v2.querySelector('.donate-other-min');
+              var otherMinTemplate = otherMinNote.textContent;
               var currencyChip = v2.querySelector('.donate-cur');
               var payLabel = v2.querySelector('.donate-pay-label');
               var payTemplates = {};
@@ -724,9 +727,10 @@
               var interval = '1 M';
               var currency = 'eur';
               var currencyKnown = false;
+              var minAmount = 1;
 
               var urlAmount = Number(params.get('amount'));
-              if (isFinite(urlAmount) && urlAmount > 0) {
+              if (isFinite(urlAmount) && urlAmount >= minAmount) {
                 amount = urlAmount;
               }
               var urlInterval = params.get('interval');
@@ -741,7 +745,7 @@
                 } catch (e) {}
               }
 
-              function apply() {
+              function apply(syncInput) {
                 var j;
                 var matchedTile = false;
                 var symbol;
@@ -755,10 +759,14 @@
                     matchedTile = true;
                   }
                 }
-                otherInput.value = matchedTile ? '' : String(amount);
+                if (syncInput) {
+                  otherInput.value = matchedTile ? '' : String(amount);
+                  otherMinNote.hidden = true;
+                }
 
                 symbol = currency === 'usd' ? '$' : '€';
                 payLabel.textContent = payTemplates[interval].replace('{amount}', symbol + amount);
+                otherMinNote.textContent = otherMinTemplate.replace('{amount}', symbol + minAmount);
 
                 widget.setAttribute('interval', interval);
                 if (currencyKnown) {
@@ -769,7 +777,7 @@
                 storeState();
               }
 
-              apply();
+              apply(true);
 
               for (i = 0; i < toggleButtons.length; i++) {
                 toggleButtons[i].addEventListener('click', function (event) {
@@ -781,13 +789,15 @@
               for (i = 0; i < tierButtons.length; i++) {
                 tierButtons[i].addEventListener('click', function (event) {
                   amount = Number(event.currentTarget.getAttribute('data-amount'));
-                  apply();
+                  apply(true);
                 });
               }
 
               otherInput.addEventListener('input', function () {
-                var value = Number(otherInput.value);
-                if (otherInput.value !== '' && isFinite(value) && value > 0) {
+                var value = Number(otherInput.value.replace(',', '.'));
+                var valid = isFinite(value) && value >= minAmount;
+                otherMinNote.hidden = valid || otherInput.value === '';
+                if (valid) {
                   amount = value;
                   apply();
                 }
@@ -801,9 +811,10 @@
                 style.textContent = '#intervals,.recurring_message,#suggested_amounts,#custom_amount,#switch_currency,#comment,#donor_wall,#express_checkout_section>p,:host([page-id="page_select_amount"]) header{display:none!important}#donation_form{font-family:inherit}#standard_checkout_section button{border-radius:24px;border:1.5px solid #201A17;background:#fff;color:#201A17;font-weight:700}.checkout-method-separator{font-size:12px;color:#85746C}';
                 widget.shadowRoot.appendChild(style);
 
-                var country = widget.campaignData && widget.campaignData.current_country;
-                currency = AMERICAS.indexOf(country) >= 0 ? 'usd' : 'eur';
+                var campaign = widget.campaignData || {};
+                currency = AMERICAS.indexOf(campaign.current_country) >= 0 ? 'usd' : 'eur';
                 currencyKnown = true;
+                minAmount = (campaign.min_currencies_values || {})[currency] || 1;
                 currencyChip.textContent = currency.toUpperCase();
                 apply();
               }, { once: true });
