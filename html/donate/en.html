@@ -690,8 +690,16 @@
               var v2 = document.getElementById('donate-v2');
 
               if (donateArm === 'v1') {
-                var ns = v1.querySelector('.flex-video noscript');
-                ns.parentNode.insertBefore(document.createRange().createContextualFragment(ns.textContent), ns);
+                // Same iframe as the <noscript> fallback next to it, built as elements (CodeQL: no HTML from text)
+                var video = document.createElement('iframe');
+                video.width = '420';
+                video.height = '315';
+                video.src = 'https://www.youtube.com/embed/W5pOjx6ycX4';
+                video.title = 'YouTube video player';
+                video.setAttribute('frameborder', '0');
+                video.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                video.setAttribute('allowfullscreen', '');
+                v1.querySelector('.flex-video').appendChild(video);
                 return;
               }
 
