@@ -316,16 +316,16 @@
                "title" : "Green-Score E"
             },
             {
-               "description" : "",
-               "description_short" : "Currently only for products with chicken or eggs",
+               "description" : "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels.",
+               "description_short" : "High risk of deforestation",
                "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-d.svg",
                "id" : "forest_footprint",
                "match" : 0,
-               "name" : "Forest footprint",
+               "name" : "Forest Footprint",
                "panel_id" : "forest_footprint",
                "status" : "known",
-               "title" : "Forest footprint not computed"
+               "title" : "Forest Footprint D"
             }
          ],
          "id" : "environment",
@@ -878,6 +878,7 @@
             ]
          }
       },
+      "summary" : "with_primary_ingredients",
       "total_footprint_per_kg" : 0.0366666666666667
    },
    "images" : {
@@ -945,12 +946,12 @@
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:palm-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
       "en:palm-oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
       "en:soya-lecithin",
-      "en:e322",
       "en:e322i",
+      "en:e322",
       "en:e202"
    ],
    "ingredients_text" : "palm oil, soy lecithin, potassium sorbate",

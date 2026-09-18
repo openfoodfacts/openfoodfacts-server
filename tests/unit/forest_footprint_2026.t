@@ -156,6 +156,26 @@ my @tests = (
 		}
 	],
 	[
+		'fr-ingredients-cocoa-and-palm-oil-with-rspo-identity-preserved-label',
+		{
+			lc => "fr",
+			ingredients => [
+				{
+					id => "en:cocoa",
+					percent => 50,
+					text => "cacao",
+				},
+				{
+					id => "en:palm-oil",
+					percent => 50,
+					text => "huile de palme",
+				}
+			],
+			origins_tags => ["en:unknown"],
+			labels_tags => ["en:rspo-identity-preserved", "en:rspo"],
+		}
+	],
+	[
 		'fr-chocolate-cookies',
 		{
 			lc => "fr",
@@ -265,7 +285,42 @@ my @tests = (
 			ingredients_text => "café (origine : Colombie)",
 			labels_tags => ["en:organic", "en:fair-trade", "en:fairtrade-international"],
 		}
-	]
+	],
+	[
+		'fr-no-risky-ingredients',
+		{
+			lc => "fr",
+			ingredients_text => "pomme, poire, banane",
+		}
+	],
+	[
+		'fr-risky-ingredients',
+		{
+			lc => "fr",
+			ingredients_text => "pomme, poire, banane, riz, manioc",
+		}
+	],
+	[
+		'fr-risky-ingredients-and-primary-ingredients',
+		{
+			lc => "fr",
+			ingredients_text => "maïs doux, farine de manioc, sucre, huile de palme, sel",
+		}
+	],
+	[
+		'fr-category-eggs-without-ingredients',
+		{
+			lc => "fr",
+			categories_tags => ["en:eggs"],
+		}
+	],
+	[
+		'fr-category-chicken-without-ingredients',
+		{
+			lc => "fr",
+			categories_tags => ["en:whole-chickens"],
+		}
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;

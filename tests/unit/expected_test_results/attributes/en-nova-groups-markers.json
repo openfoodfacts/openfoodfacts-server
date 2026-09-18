@@ -295,16 +295,16 @@
                "title" : "Green-Score D"
             },
             {
-               "description" : "",
-               "description_short" : "Currently only for products with chicken or eggs",
-               "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "description" : "Potential deforestation risk but not yet computed.",
+               "description_short" : "Potential deforestation risk not computed",
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-not-computed.svg",
                "id" : "forest_footprint",
                "match" : 0,
-               "name" : "Forest footprint",
+               "name" : "Forest Footprint",
                "panel_id" : "forest_footprint",
-               "status" : "known",
-               "title" : "Forest footprint not computed"
+               "status" : "unknown",
+               "title" : "Forest Footprint not computed"
             }
          ],
          "id" : "environment",
@@ -829,6 +829,22 @@
       "en:milk-and-dairy-products",
       "en:cheese"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "not_computed",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:dairy",
+                  "ingredient_id" : "en:cow-s-milk"
+               }
+            ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
    "images" : {
       "selected" : {}
    },
@@ -944,8 +960,8 @@
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:cow-s-milk",
-      "en:dairy",
       "en:milk",
+      "en:dairy",
       "en:salt",
       "en:microbial-culture",
       "en:ferment",
@@ -953,13 +969,13 @@
       "en:flavouring",
       "en:e412",
       "en:sugar",
-      "en:added-sugar",
       "en:disaccharide",
+      "en:added-sugar",
       "en:high-fructose-corn-syrup",
-      "en:monosaccharide",
+      "en:glucose-fructose-syrup",
       "en:fructose",
       "en:glucose",
-      "en:glucose-fructose-syrup"
+      "en:monosaccharide"
    ],
    "ingredients_text" : "Cow milk, salt, microbial culture, garlic flavouring, guar gum, sugar, high fructose corn syrup",
    "ingredients_with_specified_percent_n" : 0,

@@ -1011,6 +1011,84 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "cod 40g, salmon 30%, 20% tuna, mackerel (7%), 3g sardine",
 		}
 	],
+
+	# Concentrations as mg/kg must not split on '/' (issue #6132)
+	# Simplified Spanish reproducer (avoids "Ac." abbreviation which hits period+space separators)
+	[
+		"es-mg-per-kg",
+		{
+			lc => "es",
+			ingredients_text =>
+				"Hierro 30 mg/kg, ácido fólico 2,2 mg/kg, tiamina 6,3 mg/kg, riboflavina 1,3 mg/kg, niacina 13 mg/kg",
+		}
+	],
+	[
+		"en-compound-unit-minimum-qualifier",
+		{
+			lc => "en",
+			ingredients_text => "Vitamin A 100 mg/kg minimum",
+		}
+	],
+	[
+		"en-label-promoted-compound-unit-slash",
+		{
+			lc => "en",
+			ingredients_text => "organic (mg/kg 1b306)",
+		}
+	],
+	# French petfood dosages (Open Pet Food Facts / related to #6132)
+	[
+		"fr-petfood-mg-per-kg",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"extrait de yucca 180 mg/kg, fructooligosaccharides 480 mg/kg, glucosamine 180 mg/kg, méthylsulfométhane 180 mg/kg, sulfate de chondroïtine 125 mg/kg, mannanoligosaccharides 120 mg/kg",
+		}
+	],
+	# Activity / count units (vitamins IU/UI/I.E, probiotics UFC) — no quantity_g
+	[
+		"fr-vitamin-ui-and-ufc",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Vitamine A 14000 U.I., Vitamine D 500 I.E, Vitamine E 10 IU, Enterococcus faecium 1000000000 UFC",
+		}
+	],
+	# Slash between additives must still separate / stay as additive enumeration
+	[
+		"fr-additive-slash-still-works",
+		{
+			lc => "fr",
+			ingredients_text => "correcteurs d'acidité : E322/E333, sel",
+		}
+	],
+	# Compound-unit quantity glued between two ingredients (no comma): it must
+	# be isolated so both ingredients are still extracted (#6132 follow-up)
+	[
+		"fr-petfood-mid-segment-mg-per-kg",
+		{
+			lc => "fr",
+			ingredients_text => "L-carnitine 450 mg/kg sulfate de glucosamine 450 mg/kg, chondroïtine 450 mg/kg",
+		}
+	],
+	# An additive class followed only by unit junk / unknown codes keeps its
+	# node instead of being flattened into unknown children
+	[
+		"fr-additive-class-kept-over-unit-junk",
+		{
+			lc => "fr",
+			ingredients_text => "Antioxygènes : Avec antioxydant naturel : mg/kg 1b306(i), sel",
+		}
+	],
+	# Same, with the class itself ("antioxydant naturel") directly followed by
+	# the unit junk (regression: read-only split chunk crash)
+	[
+		"fr-additive-class-natural-antioxidant-unit-junk",
+		{
+			lc => "fr",
+			ingredients_text => "Avec antioxydant naturel : mg/kg 1b306(i)",
+		}
+	],
 	# handling of */ and **/ in the tail of the ingredients list
 	[
 		# https://se.openfoodfacts.org/product/7350056848709/%C3%B6rtsalt-original-spicemaster
@@ -1080,6 +1158,43 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "Black\ngrapes (Italy), sugar, eggs, paprika. Origin of paprika: Hungary",
 			origin_en => "Origin of sugar: Guatemala",
 			labels => "French Eggs",
+		}
+	],
+	# Ingredient unit quantities
+	[
+		'en-ingredient-unit-quantities-1-egg-2-carrots',
+		{
+			lc => "en",
+			ingredients_text => "1 egg, 2 carrots",
+		}
+	],
+	[
+		'en-ingredient-unit-quantities-1-large-egg-2-small-carrots',
+		{
+			lc => "en",
+			ingredients_text => "1 large egg, 2 small carrots, 1 large apple",
+		}
+	],
+	[
+		'fr-ingredient-unit-quantities-1-gros-oeuf-2-petites-carottes',
+		{
+			lc => "fr",
+			ingredients_text => "1 gros œuf, 2 petites carottes",
+		}
+	],
+	# sizes stopwords
+	[
+		'en-1-small-size-orange-2-medium-size-apples',
+		{
+			lc => "en",
+			ingredients_text => "1 small sized orange, 2 medium size apples",
+		}
+	],
+	[
+		'fr-ingredient-unit-quantities-3-concombres-de-petite-taille-2-aubergines-de-taille-moyenne',
+		{
+			lc => "fr",
+			ingredients_text => "3 concombres de petite taille, 2 aubergines de taille moyenne",
 		}
 	],
 );

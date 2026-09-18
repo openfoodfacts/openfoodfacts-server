@@ -415,7 +415,7 @@ msgstr "Saatavilla Google Playsta"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Tämä tuote ei ole vielä <<site_name>> -tietokannassa. Voisitko ottaa kuvia tuotteesta, viivakoodista, ainesosaluettelosta ja ravintosisällöstä lisätäksesi sen <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>>iin</a>?</p> <p>Kiitos jo etukäteen!</p>\n"
+msgstr "<p>Tämä tuote ei ole vielä <<site_name>> -tietokannassa. Voisitko ottaa kuvia tuotteesta, viivakoodista, ainesosaluettelosta ja ravintosisällöstä lisätäksesi sen <a href=\"https://world-fi.openfoodfacts.org\" target=\"_blank\"><<site_name>>iin</a>?</p> <p>Kiitos jo etukäteen!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -691,7 +691,7 @@ msgstr "Lahjoita Open Food Factsille"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://fi.openfoodfacts.org/lahjoita-open-food-factsille"
+msgstr "https://world-fi.openfoodfacts.org/lahjoita-open-food-factsille"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -1763,11 +1763,6 @@ msgstr "Ravintoarvosanat"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Ravintoarvosana"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -6491,7 +6486,7 @@ msgstr "Poista kuvan valinta"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Kiitos"
+msgstr "Lue lisää Nutri-Scoresta"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
