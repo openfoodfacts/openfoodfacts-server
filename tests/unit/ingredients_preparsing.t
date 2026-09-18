@@ -1265,7 +1265,8 @@ my @tests = (
 	{
 		'id' => 'ingredients-starting-with-ingredients',
 		'lc' => 'en',
-		'ingredients_text' => 'INGREDIENTS Greek Style Yogurt (Milk) (85%), Water, Sugar, Coconut Milk (2%), Desiccated Coconut, Maize Starch, Flavourings, Lactic Acid, Live Bacterial Cultures [Bifidobacterium, Lactobacillus bulgaricus, Streptococcus thermophilus].'
+		'ingredients_text' =>
+			'INGREDIENTS Greek Style Yogurt (Milk) (85%), Water, Sugar, Coconut Milk (2%), Desiccated Coconut, Maize Starch, Flavourings, Lactic Acid, Live Bacterial Cultures [Bifidobacterium, Lactobacillus bulgaricus, Streptococcus thermophilus].'
 	}
 );
 
