@@ -1234,6 +1234,7 @@ $options{nova_groups_tags} = {
 	"categories/en:baking-powders" => 2,
 
 	# group 3 tags will not be applied to food identified as group 2
+	"ingredients/en:baking-powder" => 3,
 
 	# group 3 ingredients from nova paper
 
@@ -1280,6 +1281,7 @@ $options{nova_groups_tags} = {
 	"additives/en:e250" => 3,    # sodium nitrite
 	"additives/en:e251" => 3,    # potassium nitrate
 	"additives/en:e252" => 3,    # sodium nitrite
+	"additives/en:e503" => 3,    # ammonium carboates
 
 	# tags only found in group 4
 
