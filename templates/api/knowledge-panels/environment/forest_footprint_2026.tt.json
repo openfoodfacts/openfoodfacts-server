@@ -38,7 +38,7 @@
                 </p>
                 <p>[% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description")) %]</p>
                 <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> 
-                    [% product.forest_footprint_2026.total_footprint_per_kg FILTER format("%.2f"); %] 
+                    [% product.forest_footprint_2026.total_footprint_per_kg FILTER format("%.3f"); %] 
                     [% lang('square_meters_per_kg_of_food') %]
                 </p>
                 [% END %]
@@ -55,7 +55,7 @@
                 "html": `
                 <h3>[% display_taxonomy_tag("ingredients", primary_id).ucfirst %]</h3>
                 <p><strong>[% lang('forest_footprint_2026_primary_ingredient_grade') %][% sep %]:</strong> [% primary.grade.ucfirst %]</p>
-                <p><strong>[% lang('forest_footprint_2026_primary_ingredient') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
+                <p><strong>[% lang('forest_footprint_2026_primary_ingredient') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.3f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
                 [% IF primary_id == 'en:cocoa' %]
                 <p>[% edq(lang('forest_footprint_2026_primary_ingredient_description_cocoa')) %]</p>
                 [% ELSIF primary_id == 'en:palm-oil' %]
@@ -138,7 +138,7 @@
                                 "text": "[% ingredient.risk_factor * 100 FILTER format("%.0f"); %] %"
                             },
                             {
-                                "text": "[% ingredient.footprint_per_kg FILTER format("%.2f"); %]"
+                                "text": "[% ingredient.footprint_per_kg FILTER format("%.3f"); %]"
                             },
                         ]
                     }[% UNLESS loop.last %],[% END %]
@@ -159,7 +159,7 @@
                 <h3>[% edq(lang("ingredients_requiring_soy")) %]</h3>
                 <p>[% edq(lang("forest_footprint_one_line_explanation")) %]</p>
                 <p><strong>[% lang('forest_footprint_2026_primary_ingredient_grade') %][% sep %]:</strong> [% primary.grade.ucfirst %]</p>
-                <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
+                <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.3f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
                 <p>[% edq(lang('forest_footprint_2026_primary_ingredient_description_chicken_and_eggs')) %]</p>
                 `
             }
@@ -229,7 +229,7 @@
                                 "text": "[% ingredient.type.deforestation_risk * 100 FILTER format("%d"); %] %"
                             },
                             {
-                                "text": "[% ingredient.footprint_per_kg FILTER format("%.2f"); %]"
+                                "text": "[% ingredient.footprint_per_kg FILTER format("%.3f"); %]"
                             }
                         ]
                     }[% UNLESS loop.last %],[% END %]
