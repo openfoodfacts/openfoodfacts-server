@@ -403,7 +403,7 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 	if ($field eq "brands") {
 		$tag_lc = "xx";
 		# Correct misspellings in the input tags for brands
-		apply_misspelling_replacements("brands_misspellings", "xx", \$input_tags);
+		apply_misspelling_replacements("brands", "xx", \$input_tags);
 	}
 
 	my @normalized_input_tags = ();
