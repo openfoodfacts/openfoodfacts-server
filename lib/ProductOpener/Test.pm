@@ -1018,6 +1018,9 @@ sub normalize_html_for_test_comparison ($html_ref) {
 	# <address>Apache/2.4.66 (Debian) Server at world.openfoodfacts.localhost Port 80</address>
 	$$html_ref =~ s/<address>Apache\/[^\s]+ /<address>Apache\/--ignore-- /g;
 
+	# Remove request_stats comment added at the bottom of HTML pages
+	$$html_ref =~ s/<!-- request_stats\s*: [^>]+ -->/<!-- request_stats: --ignore-- -->/g;
+
 	return;
 }
 
