@@ -1230,6 +1230,8 @@ $options{nova_groups_tags} = {
 	"categories/en:honeys" => 2,
 	"categories/en:maple-syrups" => 2,
 	"categories/en:starches" => 2,
+	# baking powders are usually 1 to 3 additives. The additives are heavily used in ultraprocessed foods.
+	"categories/en:baking-powders" => 2,
 
 	# group 3 tags will not be applied to food identified as group 2
 
