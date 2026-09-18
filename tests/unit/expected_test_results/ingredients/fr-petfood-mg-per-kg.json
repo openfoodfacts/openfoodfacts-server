@@ -1,0 +1,143 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "fr:extrait de yucca",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "quantity" : "180 mg/kg",
+         "text" : "extrait de yucca"
+      },
+      {
+         "id" : "en:fructooligosaccharide",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "quantity" : "480 mg/kg",
+         "text" : "fructooligosaccharides"
+      },
+      {
+         "id" : "fr:glucosamine",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "quantity" : "180 mg/kg",
+         "text" : "glucosamine"
+      },
+      {
+         "id" : "fr:méthylsulfométhane",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "quantity" : "180 mg/kg",
+         "text" : "méthylsulfométhane"
+      },
+      {
+         "id" : "fr:sulfate de chondroïtine",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "quantity" : "125 mg/kg",
+         "text" : "sulfate de chondroïtine"
+      },
+      {
+         "id" : "fr:mannanoligosaccharides",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "quantity" : "120 mg/kg",
+         "text" : "mannanoligosaccharides"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:extrait de yucca",
+         "fr:glucosamine",
+         "fr:méthylsulfométhane",
+         "fr:sulfate de chondroïtine",
+         "fr:mannanoligosaccharides"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:extrait de yucca",
+         "en:fructooligosaccharide",
+         "fr:glucosamine",
+         "fr:méthylsulfométhane",
+         "fr:sulfate de chondroïtine",
+         "fr:mannanoligosaccharides"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:extrait de yucca",
+         "en:fructooligosaccharide",
+         "fr:glucosamine",
+         "fr:méthylsulfométhane",
+         "fr:sulfate de chondroïtine",
+         "fr:mannanoligosaccharides"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:extrait de yucca",
+      "en:fructooligosaccharide",
+      "fr:glucosamine",
+      "fr:méthylsulfométhane",
+      "fr:sulfate de chondroïtine",
+      "fr:mannanoligosaccharides"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:extrait de yucca",
+      "en:fructooligosaccharide",
+      "en:sweetener",
+      "en:prebiotics",
+      "fr:glucosamine",
+      "fr:méthylsulfométhane",
+      "fr:sulfate de chondroïtine",
+      "fr:mannanoligosaccharides"
+   ],
+   "ingredients_text" : "extrait de yucca 180 mg/kg, fructooligosaccharides 480 mg/kg, glucosamine 180 mg/kg, méthylsulfométhane 180 mg/kg, sulfate de chondroïtine 125 mg/kg, mannanoligosaccharides 120 mg/kg",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:fructooligosaccharide",
+      "fr:extrait de yucca",
+      "fr:glucosamine",
+      "fr:mannanoligosaccharides",
+      "fr:méthylsulfométhane",
+      "fr:sulfate de chondroïtine"
+   ],
+   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:fructooligosaccharide",
+      "fr:extrait de yucca",
+      "fr:glucosamine",
+      "fr:mannanoligosaccharides",
+      "fr:méthylsulfométhane",
+      "fr:sulfate de chondroïtine"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 6,
+   "known_ingredients_n" : 1,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 5
+}
