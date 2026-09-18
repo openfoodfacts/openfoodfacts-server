@@ -785,6 +785,9 @@
                 try {
                   sessionStorage.donation_amount = String(amount);
                   sessionStorage.donation_interval = interval;
+                  if (currencyKnown) {
+                    sessionStorage.donation_currency = currency;
+                  }
                 } catch (e) {}
               }
 
