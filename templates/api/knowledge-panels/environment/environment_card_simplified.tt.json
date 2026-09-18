@@ -37,5 +37,15 @@
             }
         },
         [% END %]
+        [% IF panels.forest_footprint.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "panel_ids": [
+                    "forest_footprint"
+                ]
+            }
+        },
+        [% END %]        
     ],
 }
