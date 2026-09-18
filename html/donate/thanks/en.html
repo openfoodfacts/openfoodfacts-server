@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Thank you - Open Food Facts</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+
+    <link rel="manifest" href="/cgi/manifest.pl" />
+    <link
+      rel="mask-icon"
+      href="https://static.openfoodfacts.org/images/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://static.openfoodfacts.org/images/favicon/favicon.ico"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta
+      name="msapplication-TileImage"
+      content="https://static.openfoodfacts.org/images/favicon/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-config"
+      content="https://static.openfoodfacts.org/images/favicon/browserconfig.xml"
+    />
+
+    <link
+      rel="stylesheet"
+      href="/cgi/css.pl"
+    />
+    <style media="all">
+      .wrapper {
+        background-image: url("https://static.openfoodfacts.org/images/misc/2023-donation/background.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        min-height: 100vh;
+      }
+      #donate-thanks {
+        font-family: "Plus Jakarta Sans", "Public Sans", Helvetica, Roboto, Arial, sans-serif;
+        color: #201A17;
+      }
+      #donate-thanks [hidden] {
+        display: none !important;
+      }
+      #donate-thanks h1,
+      #donate-thanks h3,
+      #donate-thanks p {
+        margin: 0;
+      }
+      #donate-thanks .donate-logo {
+        padding-top: 18px;
+      }
+      #donate-thanks .thanks-card {
+        max-width: 760px;
+        margin: 24px 12px 48px;
+        padding: 24px 20px 26px;
+        background: #fff;
+        border: 1px solid #EDE0DB;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(52, 17, 0, 0.06);
+      }
+      #donate-thanks h1 {
+        font-size: 28px;
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+      }
+      #donate-thanks .thanks-lead {
+        font-size: 15px;
+        line-height: 1.55;
+        color: #52443D;
+        margin-bottom: 20px;
+      }
+      #donate-thanks .thanks-meter {
+        background: #F6F3F0;
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 20px;
+      }
+      #donate-thanks .thanks-meter-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 4px 12px;
+        font-size: 13px;
+        color: #52443D;
+        font-variant-numeric: tabular-nums;
+        margin-bottom: 6px;
+      }
+      #donate-thanks .thanks-meter-row b {
+        color: #201A17;
+      }
+      #donate-thanks .thanks-bar {
+        height: 10px;
+        background: #EDE0DB;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      #donate-thanks .thanks-bar-fill {
+        display: block;
+        height: 100%;
+        background: #ff8714;
+      }
+      #donate-thanks h3 {
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 20px 0 10px;
+        color: #52443D;
+      }
+      #donate-thanks .thanks-share {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      #donate-thanks .thanks-share-btn {
+        display: block;
+        border: 1.5px solid #201A17;
+        border-radius: 24px;
+        padding: 11px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.2;
+        color: #201A17;
+        background: #fff;
+        text-decoration: none;
+        margin: 0;
+        cursor: pointer;
+      }
+      #donate-thanks .thanks-upgrade {
+        border: 1.5px solid #ff8714;
+        background: #FFF8F2;
+        border-radius: 12px;
+        padding: 16px 18px;
+        margin-top: 20px;
+      }
+      #donate-thanks .thanks-upgrade p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #52443D;
+        margin-bottom: 12px;
+      }
+      #donate-thanks .thanks-upgrade b {
+        display: block;
+        color: #201A17;
+        font-size: 15px;
+        margin-bottom: 2px;
+      }
+      #donate-thanks .thanks-upgrade-btn {
+        display: inline-block;
+        background: #201A17;
+        color: #fff;
+        border-radius: 24px;
+        padding: 11px 20px;
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      #donate-thanks .thanks-fine {
+        font-size: 13px;
+        color: #85746C;
+        line-height: 1.55;
+        margin-top: 20px;
+      }
+      #donate-thanks .thanks-fine b {
+        font-weight: 600;
+        color: #52443D;
+      }
+      #donate-thanks .thanks-fine a {
+        color: inherit;
+        text-decoration: underline;
+      }
+      @media (min-width: 640px) {
+        #donate-thanks .thanks-card {
+          margin: 48px auto;
+          padding: 36px 40px;
+        }
+        #donate-thanks h1 {
+          font-size: 36px;
+        }
+        #donate-thanks .thanks-lead {
+          font-size: 17px;
+        }
+        #donate-thanks .thanks-share {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        #donate-thanks .thanks-upgrade {
+          display: flex;
+          gap: 18px;
+          align-items: center;
+        }
+        #donate-thanks .thanks-upgrade p {
+          flex: 1;
+          margin-bottom: 0;
+        }
+      }
+    </style>
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.openfoodfacts.org"]);
+  _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '5']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=5&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+  </head>
+  <body>
+    <div class="wrapper">
+    <div id="donate-thanks">
+      <div class="donate-logo text-center">
+        <a href="/">
+          <img
+            src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
+            width="178"
+            height="156"
+            alt="Open Food Facts logo"
+          />
+        </a>
+      </div>
+      <div class="thanks-card">
+        <span class="thanks-title-tpl" hidden>Thank you, {name}.</span>
+        <h1>Thank you.</h1>
+        <span class="thanks-lead-tpl" data-interval="1 M" hidden>Your {amount} a month keeps about {lookups} product lookups free every month. The receipt is on its way to your inbox, and you can stop any time from the link in it.</span>
+        <span class="thanks-lead-tpl" data-interval="1 Y" hidden>Your {amount} a year keeps about {lookups} product lookups free every month. The receipt is on its way to your inbox, and you can stop any time from the link in it.</span>
+        <span class="thanks-lead-tpl" data-interval="1 T" hidden>Your {amount} pays for about {lookups} product lookups. The receipt is on its way to your inbox.</span>
+        <p class="thanks-lead">Your gift keeps product lookups free for everyone. The receipt is on its way to your inbox.</p>
+        <div class="thanks-meter">
+          <div class="thanks-meter-row"><span><b>&euro;47,431</b> raised of &euro;170,000</span><span><b>761 supporters</b> &middot; you are the newest</span></div>
+          <div class="thanks-bar" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"><div class="thanks-bar-fill" style="width: 28%"></div></div>
+        </div>
+        <div class="thanks-share-section" hidden>
+          <h3>Tell someone who looks things up too</h3>
+          <span class="thanks-share-text" hidden>I support Open Food Facts, the free and open food database. Join me:</span>
+          <span class="thanks-share-link" hidden>https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=donate-page-share&amp;utm_campaign=donation-2026&amp;utm_content=B2:share</span>
+          <span class="thanks-copied-tpl" hidden>Link copied</span>
+          <div class="thanks-share">
+            <button type="button" class="thanks-share-btn" data-share="copy">Copy link</button>
+            <a class="thanks-share-btn" data-share="mastodon" href="https://mastodon.social/share" target="_blank" rel="noopener">Mastodon</a>
+            <a class="thanks-share-btn" data-share="bluesky" href="https://bsky.app/intent/compose" target="_blank" rel="noopener">Bluesky</a>
+            <a class="thanks-share-btn" data-share="linkedin" href="https://www.linkedin.com/sharing/share-offsite/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <div class="thanks-upgrade" hidden>
+          <span class="thanks-upgrade-tpl" hidden>Your {amount} gift keeps us going today. &euro;5 a month keeps the database running all year, and 71% of monthly supporters are still here a year later.</span>
+          <p><b>Make it monthly?</b><span class="thanks-upgrade-text"></span></p>
+          <a class="thanks-upgrade-btn" href="/donate-to-open-food-facts?amount=5&amp;interval=1%20M&amp;utm_content=B2:upgrade">Give &euro;5 a month</a>
+        </div>
+        <p class="thanks-fine"><b>We won't ask you again for a year on this browser.</b> <span class="thanks-fr" hidden>The France tax receipt (66%) arrives with the email receipt.</span> Questions: <a href="/donate-to-open-food-facts">the donate page</a> answers the common ones, or reply to the receipt.</p>
+      </div>
+    </div>
+    </div>
+    <script>
+      // Donorbox appends id, first_name, last_name, email, amount, currency, duration, form_id, form_name
+      // to its redirect URL on Pro/Premium or with the Tracking add-on (their help centre, checked
+      // 2026-09-18; the duration values are not documented). Without them the page falls back to the
+      // tier the donate page stored in sessionStorage, then to generic copy.
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var page = document.getElementById('donate-thanks');
+        var title = page.querySelector('h1');
+        var titleTemplate = page.querySelector('.thanks-title-tpl').textContent;
+        var lead = page.querySelector('.thanks-lead');
+        var leadTemplates = {};
+        var leadTplEls = page.querySelectorAll('.thanks-lead-tpl');
+        var i;
+        for (i = 0; i < leadTplEls.length; i++) {
+          leadTemplates[leadTplEls[i].getAttribute('data-interval')] = leadTplEls[i].textContent;
+        }
+        var LOOKUPS_PER_UNIT = 250;
+
+        function intervalFrom(value) {
+          value = String(value || '').toLowerCase();
+          if (/month|^1 m$/.test(value)) {
+            return '1 M';
+          }
+          if (/year|annual|^1 y$/.test(value)) {
+            return '1 Y';
+          }
+          if (/one|once|^1 t$/.test(value)) {
+            return '1 T';
+          }
+          return '';
+        }
+
+        var name = (params.get('first_name') || '').trim().slice(0, 40);
+        var amount = Number(params.get('amount'));
+        var interval = intervalFrom(params.get('duration'));
+        var currency = (params.get('currency') || '').toLowerCase();
+        try {
+          if (!(amount > 0)) {
+            amount = Number(sessionStorage.donation_amount);
+          }
+          if (!interval) {
+            interval = intervalFrom(sessionStorage.donation_interval);
+          }
+          if (!currency) {
+            currency = sessionStorage.donation_currency || '';
+          }
+        } catch (e) {}
+
+        if (name) {
+          title.textContent = titleTemplate.replace('{name}', name);
+        }
+        if (amount > 0 && interval) {
+          var amountText = (currency === 'usd' ? '$' : '€') + (amount % 1 ? amount.toFixed(2) : amount);
+          var lookups = amount * LOOKUPS_PER_UNIT / (interval === '1 Y' ? 12 : 1);
+          lead.textContent = leadTemplates[interval]
+            .replace('{amount}', amountText)
+            .replace('{lookups}', Math.round(lookups).toLocaleString('en'));
+          page.querySelector('.thanks-upgrade-text').textContent = page.querySelector('.thanks-upgrade-tpl').textContent.replace('{amount}', amountText);
+          page.querySelector('.thanks-upgrade').hidden = interval !== '1 T';
+        }
+        page.querySelector('.thanks-fr').hidden = !/^fr\./.test(location.hostname);
+
+        var shareLink = page.querySelector('.thanks-share-link').textContent;
+        var shareText = page.querySelector('.thanks-share-text').textContent + ' ' + shareLink;
+        var copiedLabel = page.querySelector('.thanks-copied-tpl').textContent;
+        var shareButtons = page.querySelectorAll('.thanks-share-btn');
+        var shareUrls = {
+          mastodon: 'https://mastodon.social/share?text=' + encodeURIComponent(shareText),
+          bluesky: 'https://bsky.app/intent/compose?text=' + encodeURIComponent(shareText),
+          linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareLink)
+        };
+        for (i = 0; i < shareButtons.length; i++) {
+          var target = shareButtons[i].getAttribute('data-share');
+          if (shareUrls[target]) {
+            shareButtons[i].href = shareUrls[target];
+          }
+          shareButtons[i].addEventListener('click', function (event) {
+            var button = event.currentTarget;
+            _paq.push(['trackEvent', 'donation', 'share_clicked', button.getAttribute('data-share')]);
+            if (button.getAttribute('data-share') === 'copy') {
+              var copyLabel = button.textContent;
+              navigator.clipboard.writeText(shareLink).then(function () {
+                button.textContent = copiedLabel;
+              }, function () {
+                window.prompt(copyLabel, shareLink);
+              });
+            }
+          });
+        }
+        page.querySelector('.thanks-share-section').hidden = false;
+
+        function setDonateCookie(name, value, days) {
+          var expiry = new Date();
+          expiry.setTime(expiry.getTime() + days * 24 * 60 * 60 * 1000);
+          var domain = 'domain=.' + location.origin.split('.').slice(1).join('.');
+          document.cookie = name + '=' + value + ';expires=' + expiry.toUTCString() + ';' + domain + ';SameSite=None;Secure;path=/';
+        }
+        setDonateCookie('donation_done', 1, 365);
+        setDonateCookie('donation_march_2026', 1, 365);
+
+        _paq.push(['trackEvent', 'donation', 'thanks_landed', params.get('utm_content') || params.get('utm_campaign') || 'direct']);
+      })();
+    </script>
+  </body>
+</html>
