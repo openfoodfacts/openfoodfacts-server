@@ -1262,6 +1262,17 @@ my @tests = (
 		lc => 'fr',
 		ingredients_text => 'Huiles végétales biologiques non hydrogénées (colza*)',
 	},
+	# Misspellings
+	{
+		id => 'misspelling-correction',
+		lc => 'fr',
+		ingredients_text => 'Sucre, tomates en dès, sel',
+	},
+	{
+		id => 'misspelling-case-preserve',
+		lc => 'fr',
+		ingredients_text => 'Dès de courgettes, TOMATES EN DÈS, dès d\'aubergine,sel',
+	},
 );
 
 foreach my $test_ref (@tests) {

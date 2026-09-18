@@ -1,0 +1,20 @@
+# Misspellings in ingredient lists
+# These are corrections we are 100% certain about - the misspelled form is
+# never the intended spelling.
+#
+# BEFORE adding an entry, verify:
+# - The correction is correct in ALL cases
+# - The misspelled form is common (not seen only a few times)
+#
+# Format: lc:misspelled -> correct
+# lc: is a 2-letter language code, or xx for all languages
+
+fr:ceuf -> œuf
+fr:ceufs -> œufs
+
+fr:dacidité -> d'acidité    # in a lot of product data from Carrefour
+
+fr:dès -> dés   # might match "dès l'ouverture", but should not be in ingredients list
+
+fr:euf -> œuf
+fr:eufs -> œufs

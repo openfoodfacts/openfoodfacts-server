@@ -21,7 +21,7 @@
          "en:packagings-not-complete",
          "en:packagings-not-empty",
          "en:packagings-not-empty-but-not-complete",
-         "en:packagings-number-of-components-2",
+         "en:packagings-number-of-components-4",
          "en:packagings-with-all-weights",
          "en:packagings-with-all-weights-not-complete",
          "en:packagings-with-weights",
@@ -29,6 +29,32 @@
          "en:main-countries-new-product"
       ],
       "packagings" : [
+         {
+            "food_contact" : 0,
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastic"
+            },
+            "number_of_units" : 1,
+            "shape" : {
+               "id" : "en:bag",
+               "lc_name" : "bag"
+            },
+            "weight_measured" : 10.5
+         },
+         {
+            "food_contact" : 0,
+            "material" : {
+               "id" : "en:paper",
+               "lc_name" : "Paper"
+            },
+            "number_of_units" : 1,
+            "shape" : {
+               "id" : "en:label",
+               "lc_name" : "label"
+            },
+            "weight_specified" : 0.25
+         },
          {
             "food_contact" : 1,
             "material" : {

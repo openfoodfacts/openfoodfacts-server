@@ -122,6 +122,14 @@ Directory containing txt taxonomies
 
 $BASE_DIRS{TAXONOMIES_SRC} = _source_dir() . "/taxonomies";
 
+=head2 $BASE_DIRS{MISSPELLINGS_SRC}
+
+Directory containing misspelling correction files
+
+=cut
+
+$BASE_DIRS{MISSPELLINGS_SRC} = _source_dir() . "/misspellings";
+
 =head2 $BASE_DIRS{CONF}
 
 Directory containing configuration files
