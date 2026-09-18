@@ -573,6 +573,62 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                     "mass" : 50,
+                     "name" : "apple"
+                  },
+                  {
+                     "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                     "mass" : 30,
+                     "name" : "water"
+                  },
+                  {
+                     "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                     "mass" : 20,
+                     "name" : "sugar"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "en:cereals-and-their-products",
+                     "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08",
+                     "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+                     "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                        "mass" : 50
+                     },
+                     {
+                        "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                        "mass" : 30
+                     },
+                     {
+                        "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                        "mass" : 20
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups" : "en:breakfast-cereals",
          "food_groups_tags" : [

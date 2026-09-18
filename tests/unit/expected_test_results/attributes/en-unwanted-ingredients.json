@@ -449,6 +449,44 @@
    "ecoscore_tags" : [
       "e"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "mass" : 62.5,
+               "name" : "palm oil"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:cheeses",
+               "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec",
+               "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
+               "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                  "mass" : 62.5
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {

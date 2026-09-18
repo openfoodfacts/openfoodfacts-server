@@ -39,6 +39,44 @@
       "en:citrus",
       "en:oranges"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+               "mass" : 100,
+               "name" : "orange"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:fruits",
+               "id" : "52a0059e-0164-44c8-a429-198b2b7f2d62",
+               "name" : "Pureed fruits, ambient, 730g | Packaging System, N0, All, Glass jar with capsule {FR} U",
+               "name_fr" : "Bocal en verre pour purée de fruits, ambiant - 400g"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+                  "mass" : 100
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "52a0059e-0164-44c8-a429-198b2b7f2d62"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:fruits",
    "food_groups_tags" : [

@@ -428,6 +428,53 @@
    "ecoscore_tags" : [
       "d"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+               "mass" : 57.1428571428571,
+               "name" : "Cow milk"
+            },
+            {
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 2.5,
+               "name" : "sugar"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:cheeses",
+               "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec",
+               "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
+               "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                  "mass" : 57.1428571428571
+               },
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 2.5
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
