@@ -1501,6 +1501,16 @@ sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, 
 
 	my ($percent, $quantity, $quantity_g, $quantity_ml);
 
+	# Normalize protected solidus (U+2044) and fullwidth solidus back to '/'
+	# and drop whitespace around slashes only (e.g. "mg / kg" -> "mg/kg").
+	# Do not strip spaces inside multi-word units such as "fl oz".
+	$percent_or_quantity_unit =~ s/[\N{U+2044}\N{U+FF0F}]/\//g;
+	$percent_or_quantity_unit =~ s/\s*\/\s*/\//g;
+
+	# Normalize decimal separators in the numeric value (plain comma and U+201A lower comma
+	# used to protect decimals from list splitting) to a dot for storage / math.
+	$percent_or_quantity_value =~ s/[\N{U+201A},]/./g;
+
 	# % unit
 	if ($percent_or_quantity_unit =~ /\%/) {
 		$percent = $percent_or_quantity_value;
@@ -1545,8 +1555,8 @@ sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, 
 	# Other units
 	else {
 		$quantity = $percent_or_quantity_value . " " . $percent_or_quantity_unit;
-		# unit may be an empty string
-		$quantity =~ s/\s+$//;
+		# Concentrations (mg/kg) and activity units (IU, UFC) have a standard_unit
+		# that is neither g nor ml, so they keep quantity and do not get quantity_g.
 		my $standard_unit = get_standard_unit($percent_or_quantity_unit);
 		if (defined $standard_unit) {
 			my $normalized_quantity = normalize_quantity($quantity);
@@ -1691,6 +1701,17 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# replace by a lower comma ‚
 
 	$text =~ s/(\d),(\d)/$1‚$2/g;
+
+	# Protect mg/kg, IU/kg, UFC/g, … so '/' is not treated as an ingredient separator
+	# (issue #6132). Additive lists like E322/E333 are left untouched.
+	$text = protect_compound_unit_slashes($text);
+
+	# Now that the solidus of compound units is protected, the accidental '/'
+	# splits that used to separate e.g. "L-carnitine 450 mg/kg sulfate de
+	# glucosamine" are gone: restore list boundaries around compound-unit
+	# quantities glued between two words, so quantities can be extracted and
+	# the following ingredient can be matched (#6132 follow-up).
+	$text = isolate_compound_unit_quantities($ingredients_lc, $text);
 
 	my $and = $and{$ingredients_lc} || " and ";
 
@@ -2429,6 +2450,9 @@ Text to analyze
 				$ingredient =~ s/^\s+//;
 				$ingredient =~ s/\s+$//;
 
+				# Restore protected solidus after structural handling and label promotion.
+				$ingredient =~ s/\N{U+2044}/\//g;
+
 				$ingredient_id
 					= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient, \$ingredient_recognized);
 
@@ -3022,7 +3046,54 @@ Text to analyze
 					# ingredients tags that are too long (greater than 1024, mongodb max index key size)
 					# will cause issues for the mongodb ingredients_tags index, just drop them
 					if (length($ingredient{id}) < 500) {
-						if ($is_flattenable_additive_class && $between ne "") {
+						# Only require recognizable children when protected compound-unit slashes
+						# could flatten the class into unknown text, e.g. "mg/kg 1b306(i)".
+						my $flatten_children = $is_flattenable_additive_class && $between ne '';
+						if ($flatten_children && $between =~ /\N{U+2044}/) {
+							$flatten_children = 0;
+							foreach my $raw_chunk (split(/$separators/, $between)) {
+								# $separators contains capturing groups, so split
+								# also yields undef delimiter slots.
+								next if not defined $raw_chunk;
+								# copy: chunks aliased to split captures are read-only
+								my $chunk = $raw_chunk;
+								$chunk =~ s/^\s+|\s+$//g;
+								next if $chunk eq '';
+
+								my @candidate_chunks = ($chunk);
+								if ($chunk =~ /$and/i) {
+									push @candidate_chunks, ($`, $');
+								}
+
+								foreach my $candidate_chunk (@candidate_chunks) {
+									$candidate_chunk =~ s/^\s+|\s+$//g;
+									if ($candidate_chunk =~ /\s$percent_or_quantity_regexp$/i && $2 ne '') {
+										$candidate_chunk = $`;
+									}
+									next if $candidate_chunk eq '';
+
+									my $candidate_recognized
+										= exists_taxonomy_tag("additives",
+										canonicalize_taxonomy_tag($ingredients_lc, "additives", $candidate_chunk))
+										|| exists_taxonomy_tag("ingredients",
+										canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $candidate_chunk));
+
+									if ((not $candidate_recognized)
+										and defined $ingredients_processing_regexps{$ingredients_lc})
+									{
+										(undef, undef, undef, $candidate_recognized)
+											= parse_processing_from_ingredient($ingredients_lc, $candidate_chunk);
+									}
+
+									if ($candidate_recognized) {
+										$flatten_children = 1;
+										last;
+									}
+								}
+								last if $flatten_children;
+							}
+						}
+						if ($flatten_children) {
 							$previous_parser_additive_class = $current_parser_additive_class;
 							$started_additive_class_scope = 1;
 							$current_parser_additive_class = $ingredient{id};

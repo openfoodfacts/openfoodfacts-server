@@ -1,0 +1,62 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:vitamin-a",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "quantity" : "100 mg/kg",
+         "text" : "Vitamin A",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:vitamin-a"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:vitamin-a"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:vitamin-a"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:vitamin-a",
+      "en:vitamins"
+   ],
+   "ingredients_text" : "Vitamin A 100 mg/kg minimum",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:vitamin-a"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:vitamin-a"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 1,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
