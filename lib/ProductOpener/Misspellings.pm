@@ -119,7 +119,7 @@ sub apply_misspelling_replacements ($field, $lc, $text_ref) {
 	}
 	if (defined $misspellings_ref->{'xx'}) {
 		push @entries, @{$misspellings_ref->{'xx'}};
-	}	
+	}
 	return unless @entries;
 
 	foreach my $pair_ref (@entries) {
@@ -166,10 +166,11 @@ sub apply_case_to_misspelling ($matched, $replacement) {
 		my @repl_chars = split //, $replacement;
 		my @match_chars = split //, $matched;
 		my $result = '';
-		for my $i (0..$#repl_chars) {
+		for my $i (0 .. $#repl_chars) {
 			if (uc($match_chars[$i]) eq $match_chars[$i]) {
 				$result .= uc($repl_chars[$i]);
-			} else {
+			}
+			else {
 				$result .= lc($repl_chars[$i]);
 			}
 		}
