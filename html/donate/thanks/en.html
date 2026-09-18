@@ -208,6 +208,8 @@
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  // Donorbox puts the donor's name and email on this URL; Matomo gets only the utm_* part
+  _paq.push(["setCustomUrl", location.origin + location.pathname + location.search.replace(/[?&](?!utm_)[^&]*/g, "").replace(/^&/, "?")]);
   _paq.push(["setCookieDomain", "*.openfoodfacts.org"]);
   _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
@@ -223,7 +225,7 @@
     g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=5&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=5&amp;rec=1" referrerpolicy="no-referrer" style="border:0;" alt="" /></p></noscript>
 <!-- End Matomo Code -->
   </head>
   <body>
@@ -253,7 +255,7 @@
         <div class="thanks-share-section" hidden>
           <h3>Tell someone who looks things up too</h3>
           <span class="thanks-share-text" hidden>I support Open Food Facts, the free and open food database. Join me:</span>
-          <span class="thanks-share-link" hidden>https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=donate-page-share&amp;utm_campaign=donation-2026&amp;utm_content=B2:share</span>
+          <span class="thanks-share-link" translate="no" hidden>https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=donate-page-share&amp;utm_campaign=donation-2026&amp;utm_content=B2:share</span>
           <span class="thanks-copied-tpl" hidden>Link copied</span>
           <div class="thanks-share">
             <button type="button" class="thanks-share-btn" data-share="copy">Copy link</button>
@@ -272,10 +274,9 @@
     </div>
     </div>
     <script>
-      // Donorbox appends id, first_name, last_name, email, amount, currency, duration, form_id, form_name
-      // to its redirect URL on Pro/Premium or with the Tracking add-on (their help centre, checked
-      // 2026-09-18; the duration values are not documented). Without them the page falls back to the
-      // tier the donate page stored in sessionStorage, then to generic copy.
+      // Donorbox redirect params (id, first_name, last_name, email, amount, currency, country, duration;
+      // Pro/Premium or the Tracking add-on, help centre checked 2026-09-18). duration values are
+      // undocumented, hence the loose match.
       (function () {
         var params = new URLSearchParams(location.search);
         var page = document.getElementById('donate-thanks');
@@ -308,6 +309,8 @@
         var amount = Number(params.get('amount'));
         var interval = intervalFrom(params.get('duration'));
         var currency = (params.get('currency') || '').toLowerCase();
+        var inFrance = /^fr\./.test(location.hostname) || /^(fr|france)$/i.test(params.get('country') || '');
+        var source = params.get('utm_content') || params.get('utm_campaign') || '';
         try {
           if (!(amount > 0)) {
             amount = Number(sessionStorage.donation_amount);
@@ -318,21 +321,28 @@
           if (!currency) {
             currency = sessionStorage.donation_currency || '';
           }
+          if (!source) {
+            source = sessionStorage.donation_source || '';
+          }
         } catch (e) {}
+        history.replaceState(null, '', location.pathname + location.search.replace(/[?&](?!utm_)[^&]*/g, '').replace(/^&/, '?'));
 
         if (name) {
-          title.textContent = titleTemplate.replace('{name}', name);
+          title.textContent = titleTemplate.replace('{name}', function () { return name; });
         }
-        if (amount > 0 && interval) {
-          var amountText = (currency === 'usd' ? '$' : '€') + (amount % 1 ? amount.toFixed(2) : amount);
+        if (isFinite(amount) && amount > 0 && interval) {
+          var amountText = (currency === 'usd' ? '$' : '€') + amount.toLocaleString('en', { minimumFractionDigits: amount % 1 ? 2 : 0, maximumFractionDigits: 2 });
           var lookups = amount * LOOKUPS_PER_UNIT / (interval === '1 Y' ? 12 : 1);
           lead.textContent = leadTemplates[interval]
             .replace('{amount}', amountText)
             .replace('{lookups}', Math.round(lookups).toLocaleString('en'));
           page.querySelector('.thanks-upgrade-text').textContent = page.querySelector('.thanks-upgrade-tpl').textContent.replace('{amount}', amountText);
-          page.querySelector('.thanks-upgrade').hidden = interval !== '1 T';
+          if (interval === '1 T') {
+            page.querySelector('.thanks-upgrade').hidden = false;
+            _paq.push(['trackEvent', 'donation', 'upgrade_shown', source || 'direct']);
+          }
         }
-        page.querySelector('.thanks-fr').hidden = !/^fr\./.test(location.hostname);
+        page.querySelector('.thanks-fr').hidden = !inFrance;
 
         var shareLink = page.querySelector('.thanks-share-link').textContent;
         var shareText = page.querySelector('.thanks-share-text').textContent + ' ' + shareLink;
@@ -353,6 +363,10 @@
             _paq.push(['trackEvent', 'donation', 'share_clicked', button.getAttribute('data-share')]);
             if (button.getAttribute('data-share') === 'copy') {
               var copyLabel = button.textContent;
+              if (!navigator.clipboard) {
+                window.prompt(copyLabel, shareLink);
+                return;
+              }
               navigator.clipboard.writeText(shareLink).then(function () {
                 button.textContent = copiedLabel;
               }, function () {
@@ -372,7 +386,7 @@
         setDonateCookie('donation_done', 1, 365);
         setDonateCookie('donation_march_2026', 1, 365);
 
-        _paq.push(['trackEvent', 'donation', 'thanks_landed', params.get('utm_content') || params.get('utm_campaign') || 'direct']);
+        _paq.push(['trackEvent', 'donation', 'thanks_landed', source || 'direct']);
       })();
     </script>
   </body>

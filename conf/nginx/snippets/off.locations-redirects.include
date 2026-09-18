@@ -40,7 +40,7 @@ location = /donate-to-open-food-facts {
 }
 
 # Landing page after a gift (Donorbox "redirect after donation" points here)
-location = /donate/thanks {
+location ~ ^/donate/thanks/?$ {
 	try_files /donate/thanks/en.html =404;
 }
 
