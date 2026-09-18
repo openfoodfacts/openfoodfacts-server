@@ -12,7 +12,7 @@
     <meta property="og:title" content="Help us lead the change in the food sector!" />
     <meta
       property="og:url"
-      content="https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=donate-page-share&utm_campaign=donation-2025&utm_content=donate-page-share-en"
+      content="https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=donate-page-share&utm_campaign=donation-2026&utm_content=donate-page-share-en"
     />
     <meta
       property="og:image"
@@ -224,6 +224,38 @@
           <noscript>
             <p>The donation form is being loaded.<br>You can also access it by <a href="https://donorbox.org/help-open-food-facts-stay-afloat">clicking here</a>.</p>
           </noscript>
+          <script>
+            // Donation funnel in Matomo, named by where the visitor came from (utm_content, else
+            // utm_campaign, else "direct"). The Donorbox form lives in an open shadow root and
+            // dispatches its own events there; nothing is sent to Donorbox.
+            (function () {
+              var params = new URLSearchParams(window.location.search);
+              var source = params.get('utm_content') || params.get('utm_campaign') || 'direct';
+              var widget = document.querySelector('dbox-widget');
+              var started = false;
+
+              function track(action) {
+                _paq.push(['trackEvent', 'donation', action, source]);
+              }
+
+              track('page_landed');
+              widget.addEventListener('dbox:campaign-loaded', function () {
+                // amount and page-id change on the visitor's first interaction, not on load
+                new MutationObserver(function () {
+                  if (!started) {
+                    started = true;
+                    track('form_started');
+                  }
+                }).observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
+                widget.shadowRoot.addEventListener('dbox:payment-initiated', function () {
+                  track('payment_initiated');
+                });
+                widget.shadowRoot.addEventListener('dbox:donation-created', function () {
+                  track('succeeded');
+                });
+              }, { once: true });
+            })();
+          </script>
 
           <div class="text-center">
             <img src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"
