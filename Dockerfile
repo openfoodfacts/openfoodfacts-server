@@ -359,15 +359,3 @@ USER www-data
 # Prod image is default
 ######################
 FROM runnable AS prod
-USER root
-# Debian packages that are currently being used in `system` calls, but probably shouldn't.
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
-    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
-      apt-get update || true \
-    ) && \
-    apt-get install -y --no-install-recommends \
-        gzip \
-        pigz \
-        tar
-USER www-data
