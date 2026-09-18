@@ -1023,7 +1023,7 @@ ky: Фермент
 lt: fermentas
 lv: ferments, fermenti
 nb: fermentere, gjære
-nl: Ferment
+nl: Ferment, rijpingscultuur
 pl: Fermentacja
 pt: fermento, fermentos
 ru: Фермент, закваска, заквасочные культуры, йогуртовая закваска, с использованием закваски
@@ -1371,29 +1371,27 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus
 en: Lactobacillus acidophilus, L. acidophilus
 xx: Lactobacillus acidophilus, L. acidophilus
 ar: عصية لبنية حمضية
-bg: Lactobacillus acidophilus, L. acidophilus
 fa: لاکنوباسیلوس اسیدوفیلوس
-fi: Lactobacillus acidophilus, L. acidophilus
-hr: lactobacillus acidophilus La-5, kultura Lactobacillus acidophilus, mikrobiološke kulture Lactobacillus acidophilus La-5, mljekarska kultura s Lactobacillus acidophilus
-it: Lactobacillus acidophilus, L. acidophilus
-kk: Ацидофилин таяқшасы
-pl: bakterie Lactobacillus acidophilus, bakterie Lactobacillus acidophilus LA-5, Lactobacillus acidophilus LA-5, Lactobacillus acidophilus
+hr: Lactobacillus acidophilus La-5, kultura Lactobacillus acidophilus, mikrobiološke kulture Lactobacillus acidophilus La-5, mljekarska kultura s Lactobacillus acidophilus
+hy: թթվասեր լակտոբացիլներ
+kk: Ацидофилин таяқшасы, اتسىيدوفىيلىين تاياقشاسى, Acïdofïlïn tayaqşası
+pl: bakterie Lactobacillus acidophilus, bakterie Lactobacillus acidophilus LA-5, Lactobacillus acidophilus LA-5
 ro: Lapte acidofil
 ru: Lactobacillus acidophilus, Ацидофильная палочка
-sv: Lactobacillus acidophilus, kultur av lactobacillus acidophilus
-zh: 嗜酸乳桿菌
-# kk-arab:اتسىيدوفىيلىين تاياقشاسى
-# kk-cn:اتسىيدوفىيلىين تاياقشاسى
-# kk-cyrl:Ацидофилин таяқшасы
-# kk-kz:Ацидофилин таяқшасы
-# kk-latn:Acïdofïlïn tayaqşası
-# kk-tr:Acïdofïlïn tayaqşası
-# zh-cn:嗜酸乳酸杆菌
-# zh-hans:嗜酸乳酸杆菌
-# zh-hant:嗜酸乳酸桿菌
-# zh-hk:嗜酸乳酸桿菌
-# zh-sg:嗜酸乳酸杆菌
-# zh-tw:嗜酸乳酸菌
+sv: Lactobacillus acidophilus, kultur av Lactobacillus acidophilus, Lactobacillus acidofilus
+zh: 嗜酸乳酸杆菌, 嗜酸乳酸桿菌, 嗜酸乳桿菌
+#kk-arab: اتسىيدوفىيلىين تاياقشاسى
+#kk-cn: اتسىيدوفىيلىين تاياقشاسى
+#kk-cyrl: Ацидофилин таяқшасы
+#kk-kz: Ацидофилин таяқшасы
+#kk-latn: Acïdofïlïn tayaqşası
+#kk-tr: Acïdofïlïn tayaqşası
+#zh-cn: 嗜酸乳酸杆菌
+#zh-hans: 嗜酸乳酸杆菌
+#zh-hant: 嗜酸乳酸桿菌
+#zh-hk: 嗜酸乳酸桿菌
+#zh-sg: 嗜酸乳酸杆菌
+#zh-tw: 嗜酸乳酸菌
 description:en: LACTOBACILLUS ACIDOPHILUS is a species of gram positive bacteria in the genus Lactobacillus. L. acidophilus is a homofermentative, microaerophilic species, fermenting sugars into lactic acid. These strains are commercially used in many dairy products in the production of acidophilus-type yogurt.
 wikidata:en: Q132644
 wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
@@ -20889,6 +20887,10 @@ vegetarian:en: maybe
 de: natürliches Pfirsich– und Holunderblütenaroma mit anderen natürlichen Aromen
 
 < en: natural flavouring
+en: natural nutweg flavour
+nl: natuurlijk nootmuskaataroma
+
+< en: natural flavouring
 en: natural oat flavouring
 fr: arôme naturel d'avoine
 
@@ -21016,6 +21018,7 @@ hr: prirodna citrus aroma sa drugim prirodnim aromama
 nl: natuurlijke aroma's van citrusvruchten met andere natuurlijke aroma's
 nn: naturlig sitrusaroma med andre naturlige aromaer
 sv: naturlig citrusarom med andra naturliga aromer
+
 
 < en: flavouring
 en: salt and vinegar flavour
@@ -21149,11 +21152,12 @@ it: aroma citrico
 
 < en: natural orange flavouring
 < en: with other natural flavouring
-fr: arômes naturels d'orange avec autres arômes naturels, arôme naturel d'orange avec autres arômes naturels
+en: natural orange flavouring with other natural flavouring
 de: natürliches Orangenaroma mit anderen natürlichen Aromen
 fi: luontainen appelsiiniaromi ja muita luontaisia aromeja, luontainen appelsiiniaromi ja muut luontaiset aromit, luontainen appelsiiniaromi joka sisältää muita luontaisia aromeja
+fr: arômes naturels d'orange avec autres arômes naturels, arôme naturel d'orange avec autres arômes naturels
 hr: prirodna aroma naranče s drugim prirodnim aromama
-nl: natuurlijk sinaasappelaroma met andere natuurlijke aroma's
+nl: natuurlijk sinaasappelaroma met andere natuurlijke aroma's, natuurlijke sinaasappelaroma's met andere natuurlijke aroma's
 pl: naturalny aromat pomarańczowy z innymi naturalnymi aromatami, naturalny aromat pomarańczowy z innymi aromatami naturalnymi
 sv: naturlig apelsinarom med andra naturliga aromer
 
@@ -23311,6 +23315,11 @@ it: aroma vegetale
 < en: vegetable flavouring
 en: natural vegetable flavouring
 da: naturlig grøntsagsaroma
+
+#< en: compound
+en: sea salt taste
+nl: zeezout smaak
+comment:en: This is NOT a flavouring, but describes the taste that of sauce/spices. For instance for crisps.
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -28933,6 +28942,7 @@ description:en: Corn flour comes from maize, a grain domesticated in southern Me
 ifct_food_code:en: A006
 ifct_food_name:en: Maize, dry
 ifct_food_process:en: en:dry
+season_in_country_fr:en: 7,8,9
 wikidata:en: Q11575
 wikipedia:en: https://en.wikipedia.org/wiki/Maize
 
@@ -38278,6 +38288,7 @@ ecobalyse:en: c455b3b8-406b-407a-a525-b2c832522e49
 ecobalyse_labels_en_organic:en: 36158ea6-066c-4fd6-9e28-6477c7297b37
 ecobalyse_origins_en_france:en: e3865e84-12e7-4f7a-9fe3-132f67713d82
 eurocode_2_group_3:en: 9.20.10
+season_in_country_fr:en: 6,7,8
 usda_fdc_code:en: 171697
 usda_ndb_code:en: 9021
 usda_ndb_name:en: Apricots, raw
@@ -39312,6 +39323,7 @@ ecobalyse:en: fa9e9f34-acc9-4974-89c4-003d2428f502
 ecobalyse_labels_en_organic:en: peach-organic
 ecobalyse_origins_en_france:en: a0012089-de27-45ae-89d1-863f71a06e72
 eurocode_2_group_3:en: 9.20.20
+season_in_country_fr:en: 6,7,8,9
 usda_ndb_proxy_code:en: 9236
 usda_ndb_proxy_name:en: Peaches, yellow, raw
 wikidata:en: Q13411121
@@ -39628,6 +39640,7 @@ ecobalyse:en: bb00f430-ffda-46a3-ba45-267b0064a43e
 ecobalyse_origins_en_france:en: eab762ca-1edc-4fcc-ba6d-c247bbab0ec8
 ifct_food_code:en: E051
 ifct_food_name:en: Pear
+season_in_country_fr:en: 1,2,3,8,9,10,11,12
 usda_ndb_proxy_code:en: 9252
 usda_ndb_proxy_name:en: Pears, raw
 wikidata:en: Q13099586
@@ -39952,6 +39965,7 @@ eurocode_2_group_3:en: 9.20.30
 ifct_food_code:en: E054
 ifct_food_name:en: Plum
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:prune
+season_in_country_fr:en: 7,8,9
 usda_fdc_code:en: 169949
 usda_ndb_code:en: 9279
 usda_ndb_name:en: Plums, raw
@@ -39980,6 +39994,7 @@ en: Black Splendor plum
 xx: Black Splendor
 da: Black Splendor-blomme
 sv: Black Splendor-plommon
+season_in_country_us:en: 6,7
 wikidata:en: Q126645030
 
 # Some languages seem to give the specific plum cultivars used for making "dried plums" a name
@@ -40146,6 +40161,7 @@ vo: Aiva
 ciqual_food_code:en: 13010
 ciqual_food_name:en: Quince, raw
 description:en: The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits).
+season_in_country_fr:en: 10
 usda_ndb_proxy_code:en: 9296
 usda_ndb_proxy_name:en: Quinces, raw
 wikidata:en: Q2751465
@@ -40200,6 +40216,7 @@ eurocode_2_group_3:en: 9.20.36
 # bar:Ringlo
 # mzn:هلی
 # pcd:Rainne-gleude
+season_in_country_fr:en: 9
 wikidata:en: Q1283218
 wikipedia:en: https://en.wikipedia.org/wiki/Greengage
 
@@ -40210,6 +40227,7 @@ hr: damson
 it: prugna selvatica
 la: prunus domestica var institia
 eurocode_2_group_3:en: 9.20.32
+season_in_country_fr:en: 8,9,10
 
 ###################################################################################################
 #
@@ -40251,6 +40269,7 @@ eurocode_2_group_3:en: 9.20.34
 # zh-hant:黃香李
 # zh-hk:黃香李
 # zh-sg:黃香李# zh-tw:黃香李
+season_in_country_fr:en: 8,9
 wikidata:en: Q149741
 wikipedia:en: https://en.wikipedia.org/wiki/Mirabelle_plum
 
@@ -40512,6 +40531,7 @@ ecobalyse_labels_en_organic:en: 3d3fc6bd-0a43-462b-bc39-fed04cf34498
 # zh-my:苹果
 # zh-sg:苹果
 # zh-tw:蘋果
+season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
 usda_ndb_proxy_code:en: 9004
 usda_ndb_proxy_name:en: Apples, raw, without skin
 wikidata:en: Q89
@@ -41313,6 +41333,7 @@ ciqual_food_name:en: Clementine, pulp, raw
 ciqual_food_name:fr: Clémentine, pulpe, crue
 ciqual_food_process:en: en:pulp, en:raw
 ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
+season_in_country_fr:en: 1,2,11,12
 usda_fdc_code:en: 168195
 usda_ndb_code:en: 9433
 usda_ndb_name:en: Clementines, raw
@@ -41592,6 +41613,7 @@ tt: Bali limunē
 ciqual_proxy_food_code:en: 13040
 ciqual_proxy_food_name:en: Grapefruit, pulp, raw
 ciqual_proxy_food_name:fr: Pomelo (dit Pamplemousse), pulpe, cru
+season_in_country_fr:en: 2,3,4,5,6
 usda_ndb_proxy_code:en: 9295
 usda_ndb_proxy_name:en: Pummelo, raw
 wikidata:en: Q353817
@@ -41946,6 +41968,7 @@ ciqual_proxy_food_name:en: Lemon, pulp, raw
 ciqual_proxy_food_name:fr: Citron, pulpe, cru
 ecobalyse:en: 6ece5452-42de-4e0a-8c70-1d305e614cc8
 ecobalyse_labels_en_organic:en: ed5c98fd-6fe5-43ca-b938-1dde919794b7
+season_in_country_fr:en: 1,2,11,12
 usda_fdc_code:en: 167746
 usda_ndb_code:en: 9150
 usda_ndb_name:en: Lemons, raw, without peel
@@ -42529,6 +42552,7 @@ ecobalyse:en: 6467c956-277d-4e09-80c2-b0b062f84086
 # eml:mandarëin
 # scn:mannarinu
 # vro:mandarijn
+season_in_country_fr:en: 1,2,11,12
 wikidata:en: Q190024
 wikipedia:en: https://en.wikipedia.org/wiki/Mandarin_orange
 
@@ -42805,6 +42829,7 @@ ciqual_proxy_food_code:en: 13034
 ciqual_proxy_food_name:en: Orange, pulp, raw
 ecobalyse:en: f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1
 ecobalyse_origins_en_european_union:en: af47d8b1-2c50-4f3f-8d10-1941133bd100
+season_in_country_fr:en: 1,2,3,12
 usda_fdc_code:en: 169097
 usda_ndb_code:en: 9200
 usda_ndb_name:en: Oranges, raw, all commercial varieties
@@ -43269,7 +43294,7 @@ hu: természetes narancsaroma
 it: aroma naturale di arancia
 lt: natūralios apelsino kvapiosios medžiagos
 lv: apelsīnu dabīgs aromatizētājs
-nl: natuurlijk sinaasappelaroma
+nl: natuurlijk sinaasappelaroma, natuurlijk sinaasappel aroma
 pl: naturalny aromat pomarańczowy
 pt: aroma de laranja natural
 sv: naturlig apelsinarom
@@ -43548,6 +43573,7 @@ eurocode_2_group_3:en: 9.30.24
 # tuk:böwürslen
 # udm:лыз эмезь
 # yue:黑啤梨
+season_in_country_fr:en: 8,9
 usda_fdc_2_code:en: 171710
 usda_fdc_code:en: 173946
 usda_ndb_2_code:en: 9048
@@ -43664,6 +43690,7 @@ description:de: Die Schwarze Johannisbeere ist eine Pflanzenart aus der Gattung 
 description:fr: Fruit formé de baies noires formant des grappes, pulpeuses, à la peau lisse, fortement aromatiques, utilisé pour faire des liqueurs, des sirops, des gelées…
 description:nl: de vrucht (bes) van de Ribes nigrum
 eurocode_2_group_3:en: 9.30.32
+season_in_country_fr:en: 6,7,8
 usda_fdc_code:en: 173963
 usda_ndb_code:en: 9083
 usda_ndb_name:en: Currants, european black, raw
@@ -43743,6 +43770,7 @@ ciqual_food_name:en: Blueberry, raw
 ecobalyse:en: b193fd9e-99ab-4d1b-8e81-3b38bab2eacf
 ecobalyse_labels_en_organic:en: df1fe70a-08c0-4b8a-9f88-0caeb002d26a
 eurocode_2_group_3:en: 9.30.46
+season_in_country_fr:en: 7,8,9
 usda_fdc_2_code:en: 173950
 usda_fdc_code:en: 171711
 usda_ndb_2_code:en: 9054
@@ -44273,6 +44301,7 @@ ciqual_food_name:fr: Cerise, dénoyautée, crue
 ecobalyse:en: 4e13ea5f-4ad1-4009-ae91-842cb18bd4dd
 ecobalyse_labels_en_organic:en: b4e8febc-6588-4599-8c58-c019144597c6
 ecobalyse_origins_en_france:en: 8ea6e0d1-a163-4059-8a6b-bd443f0168db
+season_in_country_fr:en: 6,7
 wikidata:en: Q196
 wikipedia:en: https://en.wikipedia.org/wiki/Cherry
 
@@ -45371,6 +45400,7 @@ ciqual_food_code:en: 13012
 ciqual_food_name:en: Fig, raw
 ciqual_food_name:fr: Figue, crue
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fig
+season_in_country_fr:en: 7,8,9,10
 usda_fdc_2_code:en: 174665, 326905
 usda_fdc_code:en: 173021
 usda_ndb_2_code:en: 9094
@@ -45794,6 +45824,7 @@ description:en: KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is 
 ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
 ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
 ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
+season_in_country_fr:en: 1,2,3,11,12
 usda_fdc_code:en: 168153, 327046
 usda_ndb_code:en: 9148
 usda_ndb_name:en: Kiwifruit, green, raw
@@ -46092,6 +46123,7 @@ carbon_footprint_fr_foodges_value:fr: 0.5
 ecobalyse:en: 7b30c4ad-e851-4274-8062-4e14850108a9
 ecobalyse_labels_en_organic:en: 359ec82d-4f28-43bd-b5be-84256a45c03e
 ecobalyse_origins_en_france:en: dc5c2f84-937c-4059-b7f9-352658cd4c57
+season_in_country_fr:en: 6,7,8,9
 usda_fdc_code:en: 169912
 usda_ndb_code:en: 9185
 usda_ndb_name:en: Melon balls, frozen
@@ -46548,6 +46580,7 @@ ciqual_food_code:en: 13030
 ciqual_food_name:en: Nectarine, pulp and peel, raw
 ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
 eurocode_2_group_3:en: 9.20.15
+season_in_country_fr:en: 7,8
 usda_fdc_code:en: 169914, 327357
 usda_ndb_code:en: 9191
 usda_ndb_name:en: Nectarines, raw
@@ -46569,6 +46602,7 @@ da: Garofa-nektarin
 sv: Garofa-nektarin, nektariner Garofa
 comment:en: CPVO patent: GAROFA-cov CEE Nº 2003/1892
 description:en: Yellow-fleshed early season nectarine variety.
+season_in_country_es:en: 5,6
 
 ###################################################################################################
 #
@@ -47498,6 +47532,7 @@ ciqual_food_name:fr: Framboise, crue
 ecobalyse:en: 50939126-d4a5-4b94-b110-63e8b9e66173
 ecobalyse_labels_en_organic:en: 091cda9d-3c9d-444c-ad0e-1d6f34491767
 eurocode_2_group_3:en: 9.30.20
+season_in_country_fr:en: 6,7,8
 usda_fdc_code:en: 167755
 usda_ndb_code:en: 9302
 usda_ndb_name:en: Raspberries, raw
@@ -47676,6 +47711,7 @@ ciqual_food_name:en: Red currant, raw
 ciqual_food_name:fr: Groseille, crue
 description:nl: rode bes of witte bes; vrucht van de aalbesstruik
 eurocode_2_group_3:en: 9.30.34
+season_in_country_fr:en: 6,7,8
 wikidata:en: Q14714085
 
 < en: redcurrant
@@ -47953,6 +47989,7 @@ ecobalyse_origins_en_france:en: 3c20126c-e2ab-403b-8bbc-0fc0d2fd3a1b
 eurocode_2_group_3:en: 9.30.15
 ifct_food_code:en: E063
 ifct_food_name:en: Strawberry
+season_in_country_fr:en: 5,6,7
 usda_fdc_2_code:en: 168173
 usda_fdc_code:en: 167762, 327699
 usda_ndb_2_code:en: 9318
@@ -48378,6 +48415,7 @@ ciqual_food_code:en: 13112
 ciqual_food_name:en: Grape, raw
 ciqual_food_name:fr: Raisin, cru
 description:en: A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis.
+season_in_country_fr:en: 9,10
 usda_ndb_proxy_code:en: 9131
 usda_ndb_proxy_name:en: Grapes, american type (slip skin), raw
 wikidata:en: Q10978
@@ -48520,6 +48558,10 @@ xx: Prime Seedless
 da: prime seedless-vindrue
 sv: Prime Seedless-vindruva
 comment:en: https://goodfruitguide.co.uk/product/prime-seedless/
+season_in_country_eg:en: 6
+season_in_country_es:en: 7
+season_in_country_na:en: 12
+season_in_country_za:en: 1,2,12
 
 < en: red seedless grape
 en: Starlight grape, Starlight red seedless grape
@@ -48527,6 +48569,8 @@ xx: Starlight
 da: Starlight-vindrue
 sv: Starlight-vindruva
 comment:en: https://goodfruitguide.co.uk/product/starlight-red-grape/
+season_in_country_eg:en: 6
+season_in_country_za:en: 1,2,12
 
 < en: dried fruit
 < en: grape
@@ -48698,6 +48742,11 @@ zh: 蘇丹娜葡萄
 comment:en: This ingredient refers to the UNDRIED grape. The name is often used for the dried version, maybe it is necessary to split between dried and fresh
 description:en: SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina, Thompson Seedless, Lady de Coverly, and oval-fruited Kishmish.
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultanines
+season_in_country_gr:en: 7,8,9
+season_in_country_in:en: 3,4,5
+season_in_country_na:en: 1,2
+season_in_country_pe:en: 12
+season_in_country_za:en: 2,3,4
 wikidata:en: Q1898118
 wikipedia:en: https://en.wikipedia.org/wiki/Sultana_(grape)
 
@@ -50772,6 +50821,7 @@ eurocode_2_group_3:en: 8.10.12
 ifct_food_code:en: C025
 ifct_food_name:en: Lettuce
 #plant:wikidata:en:Q83193
+season_in_country_fr:en: 5,6,7,8,9
 usda_ndb_proxy_code:en: 11253
 usda_ndb_proxy_name:en: Lettuce, green leaf, raw
 wikidata:en: Q104666136
@@ -50946,6 +50996,7 @@ ciqual_food_code:en: 20099
 ciqual_food_name:en: Lamb's lettuce, raw
 ciqual_food_name:fr: Mâche, crue
 eurocode_2_group_3:en: 8.10.16
+season_in_country_fr:en: 1,2,10,11,12
 usda_fdc_code:en: 169219
 usda_ndb_code:en: 11190
 usda_ndb_name:en: Cornsalad, raw
@@ -51027,6 +51078,7 @@ description:en: CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens
 ecobalyse:en: 4974a272-0080-4a52-a46e-ae222dcf8dff
 ecobalyse_origins_en_france:en: 2920acc6-000a-4f43-9525-7d619d19f62e
 eurocode_2_group_3:en: 8.10.20
+season_in_country_fr:en: 6,7,8,9,10,11
 usda_fdc_code:en: 169991
 usda_ndb_code:en: 11147
 usda_ndb_name:en: Chard, swiss, raw
@@ -51220,6 +51272,7 @@ ciqual_proxy_food_name:fr: Épinard, cru
 ecobalyse:en: f46de7f5-4bf0-45f4-b75b-3e00164dd9ca
 ecobalyse_labels_en_organic:en: 49ad2a72-d196-4379-8f23-212b27d44917
 eurocode_2_group_3:en: 8.10.24
+season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 usda_ndb_proxy_code:en: 11457
 usda_ndb_proxy_name:en: Spinach, raw
 wikidata:en: Q81464
@@ -51419,6 +51472,7 @@ ciqual_food_code:en: 20022
 ciqual_food_name:en: Watercress, raw
 ciqual_food_name:fr: Cresson de fontaine, cru
 eurocode_2_group_3:en: 8.10.36
+season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 usda_fdc_code:en: 170068
 usda_ndb_code:en: 11591
 usda_ndb_name:en: Watercress, raw
@@ -52068,6 +52122,7 @@ ciqual_proxy_food_name:en: Broccoli, raw
 ciqual_proxy_food_name:fr: Brocoli, cru
 ecobalyse:en: broccoli-eu
 eurocode_2_group_3:en: 8.15.10
+season_in_country_fr:en: 9,10,11
 usda_ndb_proxy_code:en: 11090
 usda_ndb_proxy_name:en: Broccoli, raw
 wikidata:en: Q47722
@@ -52175,6 +52230,7 @@ ecobalyse_labels_en_organic:en: cauliflower-organic
 eurocode_2_group_3:en: 8.15.15
 ifct_food_code:en: D036
 ifct_food_name:en: Cauliflower
+season_in_country_fr:en: 1,2,3,9,10,11,12
 usda_fdc_2_code:en: 170398
 usda_fdc_code:en: 169986
 usda_ndb_2_code:en: 11137
@@ -52242,6 +52298,7 @@ tr: lahana
 # sco:cabbitch
 # szl:kapusta gowjasto
 eurocode_2_group_3:en: 8.15.20
+season_in_country_fr:en: 1,2,3,10,11,12
 usda_fdc_code:en: 169975
 usda_ndb_code:en: 11109
 usda_ndb_name:en: Cabbage, raw
@@ -52667,6 +52724,7 @@ ecobalyse_labels_en_organic:en: brussels-sprout-organic
 eurocode_2_group_3:en: 8.15.40
 ifct_food_code:en: C012
 ifct_food_name:en: Brussels sprouts
+season_in_country_fr:en: 1,2,3,10,11,12
 usda_fdc_code:en: 170383
 usda_ndb_code:en: 11098
 usda_ndb_name:en: Brussels sprouts, raw
@@ -53141,6 +53199,7 @@ ecobalyse:en: celery-eu
 ecobalyse_labels_en_organic:en: celery-organic
 ecobalyse_origins_en_france:en: celery-fr
 eurocode_2_group_3:en: 8.20.10
+season_in_country_fr:en: 1,2,3,10,11,12
 usda_ndb_proxy_code:en: 11143
 usda_ndb_proxy_name:en: Celery, raw
 wikidata:en: Q23012379
@@ -53374,6 +53433,7 @@ ecobalyse:en: fennel-eu
 ecobalyse_origins_en_france:en: fennel-fr
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.34
+season_in_country_fr:en: 4,6,7,8,9,10,11
 usda_fdc_code:en: 169385
 usda_ndb_code:en: 11957
 usda_ndb_name:en: Fennel, bulb, raw
@@ -53443,6 +53503,7 @@ zh: 大黄
 #sco:rhubarub
 description:en: RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 eurocode_2_group_3:en: 8.20.50
+season_in_country_fr:en: 4,5,6
 usda_fdc_2_code:en: 168168
 usda_fdc_code:en: 167758
 usda_ndb_2_code:en: 9309
@@ -53576,6 +53637,7 @@ ciqual_food_name:fr: Endive, crue
 ecobalyse:en: endive-eu
 ecobalyse_origins_en_france:en: endive-fr
 eurocode_2_group_3:en: 8.25.20
+season_in_country_fr:en: 1,2,3,4,10
 usda_fdc_code:en: 170404
 usda_ndb_code:en: 11151
 usda_ndb_name:en: Chicory, witloof, raw
@@ -53693,6 +53755,7 @@ description:pt: Uma alcachofra (Cynara cardunculus subsp. scolymus) é uma plant
 ecobalyse_labels_en_organic:en: artichoke-fr
 ecobalyse_origins_en_france:en: artichoke-organic
 eurocode_2_group_3:en: 8.25.30
+season_in_country_fr:en: 5,6,7,8,9
 usda_fdc_code:en: 169205
 usda_ndb_code:en: 11007
 usda_ndb_name:en: Artichokes, (globe or french), raw
@@ -53839,6 +53902,7 @@ ciqual_proxy_food_name:en: Asparagus, green, raw
 ciqual_proxy_food_name:fr: Asperge, verte, crue
 description:en: Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis is a spring vegetable, a flowering perennial plant species in the genus Asparagus;
 eurocode_2_group_3:en: 8.25.10
+season_in_country_fr:en: 4,5,6
 usda_fdc_2_code:en: 169208
 usda_fdc_code:en: 168389
 usda_ndb_2_code:en: 11018
@@ -54186,12 +54250,13 @@ hr: cikla, cikle, cikle u boji
 hu: cékla
 it: barbabietola
 ja: ビーツ
-lt: Burokas, burokėlis, jauni burokėliai
+lt: burokas, burokėlis, jauni burokėliai
+nb: rødbete, rødbeter, rødbet, rødbets
 nl: biet, bieten
-no: rødbete
+nn: raudbete, raudbetar, raudbeter
 pl: burak, buraki, buraka, buraków, burak ćwikłowy, buraki ćwikłowe, buraka ćwikłowego, buraków ćwikłowych
 pt: beterraba
-ru: Свёкла
+ru: свёкла
 sk: cvikly
 sv: rödbeta, rödbetor, rödbets
 carbon_footprint_fr_foodges_ingredient:fr: Betteraves
@@ -54204,6 +54269,7 @@ ecobalyse_labels_en_organic:en: beetroot-organic
 eurocode_2_group_3:en: 8.38.55
 ifct_food_code:en: F001
 ifct_food_name:en: Beet root
+season_in_country_fr:en: 1,2,3,10,11,12
 usda_fdc_code:en: 169145
 usda_ndb_code:en: 11080
 usda_ndb_name:en: Beets, raw
@@ -54259,7 +54325,9 @@ it: sciroppo di barbabietola
 # TODO : merge with en:sugar beet syrup ?
 
 < en: beetroot
-en: beetroot juice
+en: beetroot juice, beet juice
+ar: عصير شمندر
+az: çuğundur şirəsi
 bg: сок от цвекло
 cs: šťáva z červené řepy
 de: Randensaft
@@ -54267,11 +54335,18 @@ es: jugo de remolacha
 fi: punajuurimehu, punajuuritäysmehu
 fr: jus de betterave
 hr: sok od cikle
+hu: céklalé
 it: succo di barbabietola
+ja: ビートジュース
+ml: ബീറ്റ്‌റൂട്ട് ജ്യൂസ്
+nb: rødbetsaft
 nl: bietensap
-no: rødbetsaft
-pl: sok z buraka, sok buraczany
+pl: sok z buraka, sok buraczany, kwas buraczany
+ru: свекольный сок
 sv: rödbetsjuice
+uk: буряковий сік
+zh: 甜菜汁
+wikidata:en: Q12227334
 
 < en: beetroot juice
 en: beetroot juice concentrate
@@ -54311,7 +54386,7 @@ sv: betfiber
 < en: beetroot juice
 < en: red beetroot
 en: red beetroot juice
-de: Rote Betesaft, Rote Bete Saft
+de: Rote Betesaft, Rote Bete Saft, Rote Beete Saft
 #es:zumo de remolacha roja, jugo de remolacha roja
 #fr:jus de betterave rouge
 #it:succo di barbabietole rosse
@@ -54452,6 +54527,7 @@ comment:en: Broccoli is either the whole (flower+stalks), only the flowers or th
 description:en: BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable.
 ecobalyse:en: broccoli-eu
 eurocode_2_group_3:en: 8.15.10
+season_in_country_fr:en: 9,10,11
 usda_fdc_code:en: 170379
 usda_ndb_code:en: 11090
 usda_ndb_name:en: Broccoli, raw
@@ -54624,6 +54700,7 @@ ciqual_food_name:fr: Chou de Bruxelles, cru
 ecobalyse:en: brussels-sprout-fr
 ecobalyse_labels_en_organic:en: brussels-sprout-organic
 eurocode_2_group_3:en: 8.15.40
+season_in_country_fr:en: 1,2,3,10,11,12
 usda_fdc_2_code:en: 169972
 usda_fdc_code:en: 170383
 usda_ndb_2_code:en: 11100
@@ -55038,6 +55115,7 @@ ecobalyse_labels_en_organic:en: onion-organic
 ecobalyse_origins_en_european_union:en: onion-eu
 ecobalyse_origins_en_france:en: onion-fr
 eurocode_2_group_3:en: 8.30.10
+season_in_country_fr:en: 1,2,3,4,9,10,11,12
 usda_ndb_proxy_code:en: 11282
 usda_ndb_proxy_name:en: Onions, raw
 wikidata:en: Q3406628
@@ -55531,6 +55609,7 @@ description:en: The SHALLOT is a type of onion, specifically a botanical variety
 ecobalyse:en: shallot-fr
 ecobalyse_labels_en_organic:en: shallot-organic
 eurocode_2_group_3:en: 8.30.20
+season_in_country_fr:en: 10,11,12
 usda_fdc_2_code:en: 170082
 usda_fdc_code:en: 170499
 usda_ndb_2_code:en: 11640
@@ -55665,6 +55744,7 @@ eurocode_2_group_3:en: 8.30.30
 #xmf:პურასქია
 # yue:京蔥
 #plant: wikidata:en:Q21870138
+season_in_country_fr:en: 1,2,3,4,9,10,11,12
 wikidata:en: Q1807269
 wikipedia:en: https://en.wikipedia.org/wiki/Leek
 
@@ -55870,6 +55950,7 @@ ecobalyse_origins_en_european-union_name:fr: Ail UE
 ecobalyse_origins_en_france:en: 06f219a1-ffb3-44ae-ba23-6f9ad7baff39
 ecobalyse_origins_en_france_name:fr: Ail FR
 eurocode_2_group_3:en: 8.30.40
+season_in_country_fr:en: 7,8,9,10,11,12
 usda_ndb_proxy_code:en: 11215
 usda_ndb_proxy_name:en: Garlic, raw
 wikidata:en: Q21546392
@@ -56605,6 +56686,7 @@ ecobalyse_labels_en_organic:en: carrot-organic
 ecobalyse_origins_en_european_union:en: carrot-eu
 ecobalyse_origins_en_france:en: carrot-fr
 eurocode_2_group_3:en: 8.38.10
+season_in_country_fr:en: 1,2,3,9,10,11,12
 usda_fdc_2_code:en: 169983
 usda_fdc_code:en: 170393
 usda_ndb_2_code:en: 11124
@@ -56960,6 +57042,7 @@ ciqual_food_code:en: 20197
 ciqual_food_name:en: Salsify, black, raw
 ciqual_food_name:fr: Salsifis noir, cru
 eurocode_2_group_3:en: 8.38.20
+season_in_country_fr:en: 1,2,11,12
 wikidata:en: Q385259
 wikipedia:en: https://en.wikipedia.org/wiki/Scorzonera_hispanica
 
@@ -58485,6 +58568,7 @@ ciqual_proxy_food_name:en: Eggplant, raw
 ecobalyse:en: eggplant-eu
 ecobalyse_origins_en_france:en: eggplant-fr
 eurocode_2_group_3:en: 8.40.15
+season_in_country_fr:en: 6,7,8,9
 usda_ndb_proxy_code:en: 11209
 usda_ndb_proxy_name:en: Eggplant, raw
 wikidata:en: Q7540
@@ -58811,6 +58895,7 @@ ciqual_food_name:en: Jerusalem artichoke, raw
 ciqual_food_name:fr: Topinambour, cru
 description:en: JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
 eurocode_2_group_3:en: 8.34.20
+season_in_country_fr:en: 1,2,11,12
 usda_fdc_code:en: 169236
 usda_ndb_code:en: 11226
 usda_ndb_name:en: Jerusalem-artichokes, raw
@@ -58911,6 +58996,7 @@ ciqual_food_name:en: Parsnip, raw
 ciqual_food_name:fr: Panais, cru
 description:en: The PARSNIP (Pastinaca sativa) is a root vegetable closely related to the carrot and parsley.
 eurocode_2_group_3:en: 8.38.34
+season_in_country_fr:en: 1,2,3,10,11,12
 usda_fdc_code:en: 170417
 usda_ndb_code:en: 11298
 usda_ndb_name:en: Parsnips, raw
@@ -59058,6 +59144,7 @@ ciqual_food_name:en: Radish, raw
 ciqual_food_name:fr: Radis rouge, cru
 ecobalyse:en: radish-organic
 eurocode_2_group_3:en: 8.38.50
+season_in_country_fr:en: 3,4,5,6
 usda_fdc_code:en: 169276
 usda_ndb_code:en: 11429
 usda_ndb_name:en: Radishes, raw
@@ -59505,6 +59592,7 @@ comment:en: in some languages en:bell-pepper and en:parika are not distinguished
 description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
 ecobalyse:en: bellpepper-unheated-greehouse
 eurocode_2_group_3:en: 8.40.20
+season_in_country_fr:en: 6,7,8,9
 wikidata:en: Q1548030
 wikipedia:en: https://en.wikipedia.org/wiki/Bell_pepper
 
@@ -60503,6 +60591,7 @@ ecobalyse_labels_en_organic_origins_en_france:en: tomato-organic-fr
 ecobalyse_origins_en_european_union:en: tomato-greehouse-eu
 ecobalyse_origins_en_france:en: tomato-greenhouse-fr
 eurocode_2_group_3:en: 8.40.10
+season_in_country_fr:en: 6,7,8,9
 usda_fdc_code:en: 333281
 usda_foundation_name:en: Tomatoes, canned, red, ripe, diced
 wikidata:en: Q20638126
@@ -61189,6 +61278,7 @@ ecobalyse_labels_en_organic:en: turnip-organic
 ecobalyse_origins_en_european_union:en: turnip-eu
 ecobalyse_origins_en_france:en: turnip-fr
 eurocode_2_group_3:en: 8.38.38
+season_in_country_fr:en: 1,2,3,4,5,10,11,12
 usda_ndb_proxy_code:en: 11564
 usda_ndb_proxy_name:en: Turnips, raw
 wikidata:en: Q3916957
@@ -61375,6 +61465,7 @@ ciqual_proxy_food_name:fr: Courge, crue
 description:en: A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 ecobalyse:en: pumpkin-fr
 eurocode_2_group_3:en: 8.40.45
+season_in_country_fr:en: 1,9,10,11,12
 usda_ndb_proxy_code:en: 11422
 usda_ndb_proxy_name:en: Pumpkin, raw
 wikidata:en: Q165308
@@ -61549,6 +61640,7 @@ eurocode_2_group_3:en: 8.40.45
 #dsb:wjelicka banja
 #hsb:hoberski banjowc
 #pcd:paturon
+season_in_country_fr:en: 1,9,10,11,12
 wikidata:en: Q161180
 
 < en: fruit vegetable
@@ -61693,6 +61785,7 @@ ecobalyse:en: zucchini-eu
 ecobalyse_labels_en_organic:en: zucchini-organic
 ecobalyse_origins_en_france:en: zucchini-fr
 eurocode_2_group_3:en: 8.40.40
+season_in_country_fr:en: 5,6,7,8,9,10
 wikidata:en: Q7533
 wikipedia:en: https://en.wikipedia.org/wiki/Zucchini
 
@@ -61966,6 +62059,7 @@ ecobalyse:en: french-bean-non-eu
 ecobalyse_origins_en_european_union:en: french-bean-eu
 ecobalyse_origins_en_france:en: french-bean-fr
 eurocode_2_group_3:en: 8.45.30
+season_in_country_fr:en: 6,7,8,9,10
 usda_fdc_code:en: 321611
 usda_foundation_name:en: Beans, snap, green, canned, regular pack, drained solids
 usda_foundation_process:en: en:canned
@@ -63867,6 +63961,7 @@ ro: mazăre
 ru: Зеленый горошек
 sv: gröna ärtor
 th: ถั่ว ลันเตา
+season_in_country_fr:en: 5,6,7
 usda_fdc_code:en: 170419
 usda_ndb_code:en: 11304
 usda_ndb_name:en: Peas, green, raw
@@ -65209,6 +65304,7 @@ ecobalyse:en: chestnut-husked-fr
 #kab:Idernen
 #pam:Kastanyas
 #pcd:Catin·nhe
+season_in_country_fr:en: 10,11
 wikidata:en: Q773987
 wikipedia:en: https://en.wikipedia.org/wiki/Chestnut
 
@@ -65424,6 +65520,7 @@ description:en: The HAZELNUT is the nut of the hazel and therefore includes any 
 ecobalyse:en: hazelnut-unshelled-non-eu
 ecobalyse_origins_en_european_union:en: hazelnut-unshelled-eu
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/hazelnuts
+season_in_country_fr:en: 9,10,11
 usda_fdc_code:en: 170581
 usda_ndb_code:en: 12120
 usda_ndb_name:en: Nuts, hazelnuts or filberts
@@ -66240,6 +66337,7 @@ description:nl: Met walnoot of okkernoot wordt meestal gedoeld op de vrucht van 
 ecobalyse:en: walnut-husked-fr
 ifct_food_code:en: H021
 ifct_food_name:en: Walnut
+season_in_country_fr:en: 9,10
 usda_fdc_code:en: 170187
 usda_ndb_code:en: 12155
 usda_ndb_name:en: Nuts, walnuts, english
@@ -68709,6 +68807,10 @@ usda_fdc_code:en: 170918
 usda_ndb_code:en: 2005
 usda_ndb_name:en: Spices, caraway seed
 wikidata:en: Q61670763
+
+< en: caraway
+en: caraway essence
+nb: karveessens
 
 ###################################################################################################
 #
@@ -77949,6 +78051,7 @@ carbon_footprint_fr_foodges_value:fr: 1.9
 ciqual_food_code:en: 20056
 ciqual_food_name:en: Button mushroom or cultivated mushroom, raw
 description:en: AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
+season_in_country_fr:en: 1,2,3,4,5,6,7,8,9,10,11,12
 usda_fdc_code:en: 169251
 usda_ndb_code:en: 11260
 usda_ndb_name:en: Mushrooms, white, raw
@@ -88857,6 +88960,7 @@ ecobalyse_origins_en_european_union:en:
 ecobalyse_origins_en_france:en: cucumber-fr-offseason
 eurocode_2_group_3:en: 8.40.30
 nutriscore_fruits_vegetables_nuts:en: yes
+season_in_country_fr:en: 5,6,7,8,9,10
 usda_fdc_2_code:en: 169225
 usda_fdc_code:en: 168409
 usda_ndb_2_code:en: 11206
@@ -92216,7 +92320,7 @@ it: fibra di ceci
 
 < en: vegetable fiber
 en: sugar beet fibre, sugar beet fiber
-da: sukkerroefiber
+da: sukkerroefiber, sukkerroefibre, sukkerroe fibre
 de: zuckerrübenfaser
 fi: sokerijuurikaskuitu
 fr: fibre de betterave sucrière
@@ -96165,6 +96269,10 @@ sv: sojabönsberedning
 allergens:en: en:soybeans
 nova:en: 4
 
+< en: preparation
+en: orange preparation
+nl: sinaasappelbereiding
+
 < en: soy preparation
 # mainIngredient:en:water
 en: soy milk, soy drink
@@ -98466,6 +98574,10 @@ fr: lait d'amande
 fr: fromage frais au lait ecreme pasteurise
 
 fr: billettes de riz souffle
+
+# < en: compound
+en: vegan bacon
+nl: veganistische ham
 
 ###################################################################################################
 #
