@@ -10,7 +10,7 @@
         "subtitle": "[% edq(lang('malus')) %][% sep %]: [% product.environmental_score_data.adjustments.origins_of_ingredients.value %]",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
-        "icon_size": "small",
+        "icon_size": "small"
     },
     "elements": [
         {
@@ -20,10 +20,14 @@
                 "html": `
                 [% lang('environmental_score_ingredients_not_indicated') %]<br><br>
                 [% lang('environmental_score_please_add_the_ingredients') %]<br><br>
+
+                <strong>[% lang('environmental_score_world_assumed_when_unknown') %]</strong><br><br>
+
                 [% lang('environmental_score_platform_prompt_environmental_score_modal') %]
-                    `
+                `
             }
-        }, 
+        }
+    ],
 [% ELSE %]
     [% IF product.environmental_score_data.adjustments.origins_of_ingredients.value.defined && product.environmental_score_data.adjustments.origins_of_ingredients.value <= 0 %]
     "evaluation": "bad",
@@ -45,7 +49,7 @@
         [% END %]
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
-        "icon_size": "small",
+        "icon_size": "small"
     },
     "elements": [
         {
@@ -66,15 +70,15 @@
                 "columns": [
                     {
                         "text": "[% edq(lang('origin')) %]",
-                        "type": "text",
+                        "type": "text"
                     },
                     {
                         "text": "[% edq(lang('percent_of_ingredients')) %]",
-                        "type": "percent",
+                        "type": "percent"
                     },
                     {
                         "text": "[% edq(lang('environmental_score_impact')) %]",
-                        "type": "text",
+                        "type": "text"
                     }
                 ],
                 "rows": [
@@ -82,42 +86,40 @@
                     {
                         "values": [
                             {
-                                "text": "[% display_taxonomy_tag_name("origins",origin.origin) %]",
+                                "text": "[% display_taxonomy_tag_name("origins",origin.origin) %]"
                             },
                             {
                                 "text": "[% round(origin.percent) %] %",
                                 "percent": [% round(origin.percent) %],
-                                // EPI bonus goes from -5 to 5 with the formula bonus = epi_score / 10 - 5
-                                // Transportation bonus goes from 0 to 15 with the formula bonus = transportation_score * 0.15
                                 [% SET epi_score = origin.epi_score.defined ? origin.epi_score : 0 %]
                                 [% SET transportation_score = origin.transportation_score.defined ? origin.transportation_score : 0 %]
                                 [% SET score = epi_score / 10 - 5 + transportation_score * 0.15 %]
                                 [% IF score >= 15 %]
-                                    "evaluation": "good",
+                                    "evaluation": "good"
                                 [% ELSIF score <= 0 %]
-                                    "evaluation": "bad",
+                                    "evaluation": "bad"
                                 [% ELSE %]
-                                    "evaluation": "neutral",
+                                    "evaluation": "neutral"
                                 [% END %]                                
                             },
                             {
                                 [% IF score >= 15 %]
                                     "text": "[% edq(lang('low')) FILTER ucfirst %]",
-                                    "evaluation": "good",
+                                    "evaluation": "good"
                                 [% ELSIF score <= 0 %]
                                     "text": "[% edq(lang('high')) FILTER ucfirst %]",
-                                    "evaluation": "bad",
+                                    "evaluation": "bad"
                                 [% ELSE %]
                                     "text": "[% edq(lang('medium')) FILTER ucfirst %]",
-                                    "evaluation": "neutral",
+                                    "evaluation": "neutral"
                                 [% END %]
                             }
-                            ]
-                    },
+                        ]
+                    }[% UNLESS loop.last %],[% END %]
                     [% END %]
                 ]
             }
-        },   
-[% END %]
+        }
     ]
+[% END %]
 }
