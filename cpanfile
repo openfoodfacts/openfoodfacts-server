@@ -66,6 +66,9 @@ requires 'Text::CSV', '>= 2.01, < 3.0'; # libtext-csv-perl has 1.95/1.99 vs 2.00
 requires 'Text::CSV_XS';
 requires 'Text::Fuzzy';
 requires 'Spreadsheet::CSV'; # deps: libspreadsheet-parseexcel-perl
+requires 'Spreadsheet::Read'; # replacement for ssconvert/gnumeric
+requires 'Spreadsheet::ParseXLSX'; # for XLSX via Spreadsheet::Read
+requires 'Spreadsheet::ParseExcel'; # for XLS via Spreadsheet::Read
 requires 'File::chmod::Recursive'; # deps: libfile-chmod-perl
 requires 'Devel::Size'; # deps: libdevel-size-perl
 requires 'JSON::Create';
