@@ -5840,9 +5840,11 @@ sub clean_ingredients_text_for_lang ($text, $language) {
 	$log->debug("clean_ingredients_text_for_lang - start", {language => $language, text => $text}) if $log->is_debug();
 
 	# Remove phrases before ingredients list, but only when they are at the very beginning of the text
+	# 2026/09/18: do not necessarily require a separator after, as with OCR we can have new lines replaced by spaces
+	# and text like "INGREDIENTS Salt, Flour"
 
 	foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-		if ($text =~ /^(\s*)\b($regexp(\s*)(-|:|\r|\n)+(\s*))/is) {
+		if ($text =~ /^(\s*)\b($regexp(\s*)(-|:|\r|\n)*(\s*))/is) {
 
 			$text = ucfirst($');
 		}
