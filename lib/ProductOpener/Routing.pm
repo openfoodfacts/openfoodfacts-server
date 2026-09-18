@@ -359,10 +359,22 @@ sub api_route($request_ref) {
 	if ($api_action =~ /^products?/) {    # api/v3/product/[code]
 		param("code", $components[3]);
 		$request_ref->{code} = $components[3];
+		# GET /api/v3/product/[barcode]/history is an authenticated metadata-only
+		# view of the product history. Keep this v3-only so v2 remains unchanged.
+		if (   ($api_version >= 3)
+			and (defined $components[4])
+			and ($components[4] eq "history"))
+		{
+			$api_action = "product_history";
+			if (defined $components[5]) {
+				# endpoint not recognized
+				$request_ref->{status_code} = 404;
+			}
+		}
 		# We also have a specific endpoint for image upload
 		# /api/v3/product/[barcode]/images
 		# And an endpoint DELETE /api/v3/product/[barcode]/images/uploaded/[imgid]
-		if ((defined $components[4]) and ($components[4] eq "images")) {
+		elsif ((defined $components[4]) and ($components[4] eq "images")) {
 			$api_action = "product_images";
 			if ((defined $components[5]) and ($components[5] eq "uploaded") and (defined $components[6])) {
 				$request_ref->{imgid} = $components[6];

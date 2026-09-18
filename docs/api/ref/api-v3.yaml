@@ -258,6 +258,112 @@ paths:
       security:
         - cookieAuth: []
           userAgentAuth: []
+  "/api/v3/product/{code}/history":
+    get:
+      tags:
+        - Products
+      summary: Get Authenticated Product History
+      operationId: get-api-v3-product-code-history
+      description: |-
+        Return the metadata for a product's revisions, newest revision first.
+
+        Authentication is required. Any authenticated Open Food Facts account may use this endpoint; moderator status is not required. Authentication can use the session cookie or a bearer token.
+
+        The response intentionally contains metadata only: it does not include product snapshots, field diffs, or IP addresses. The public product page's moderator-only history display is unchanged.
+      parameters:
+        - name: code
+          in: path
+          description: The barcode of the product whose history is requested.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: "3017620422003"
+        - name: page
+          in: query
+          required: false
+          description: Page number, starting at 1. Defaults to 1.
+          schema:
+            type: integer
+            default: 1
+            example: 1
+        - name: page_size
+          in: query
+          required: false
+          description: Number of revisions per page. Defaults to 20 and is capped at 1000.
+          schema:
+            type: integer
+            default: 20
+            maximum: 1000
+            example: 20
+      responses:
+        "200":
+          description: Product history metadata, ordered latest-first.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    required:
+                      - code
+                      - history
+                      - page
+                      - page_size
+                      - total
+                    properties:
+                      code:
+                        type: string
+                        example: "3017620422003"
+                      history:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                            - rev
+                            - t
+                          properties:
+                            rev:
+                              type: integer
+                              description: Revision number. Legacy records without a stored revision receive their derived revision number.
+                              example: 12
+                            t:
+                              type: integer
+                              description: Unix timestamp of the revision.
+                              example: 1712345678
+                            userid:
+                              type: string
+                              example: example-user
+                            comment:
+                              type: string
+                              example: Updated ingredients
+                            app_uuid:
+                              type: string
+                              example: 123e4567-e89b-12d3-a456-426614174000
+                            app_version:
+                              type: string
+                              example: 1.2.0
+                            clientid:
+                              type: string
+                              example: mobile
+                      page:
+                        type: integer
+                        example: 1
+                      page_size:
+                        type: integer
+                        example: 20
+                      total:
+                        type: integer
+                        description: Total number of revisions before pagination.
+                        example: 12
+        "401":
+          description: Authentication is required.
+        "404":
+          description: Product not found.
+      security:
+        - cookieAuth: []
+        - bearerAuth: []
   "/api/v3/product/{code}/images":
     post:
       tags:
@@ -877,6 +983,11 @@ components:
       type: apiKey
       in: header
       name: User-Agent
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Keycloak access token passed in the Authorization header.
 
   schemas:
     ExternalKnowledgePanelList:
