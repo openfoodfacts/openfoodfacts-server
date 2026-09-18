@@ -788,6 +788,7 @@
                   if (currencyKnown) {
                     sessionStorage.donation_currency = currency;
                   }
+                  sessionStorage.donation_source = params.get('utm_content');
                 } catch (e) {}
               }
 
