@@ -54241,12 +54241,13 @@ hr: cikla, cikle, cikle u boji
 hu: cékla
 it: barbabietola
 ja: ビーツ
-lt: Burokas, burokėlis, jauni burokėliai
+lt: burokas, burokėlis, jauni burokėliai
+nb: rødbete, rødbeter, rødbet, rødbets
 nl: biet, bieten
-no: rødbete
+nn: raudbete, raudbetar, raudbeter
 pl: burak, buraki, buraka, buraków, burak ćwikłowy, buraki ćwikłowe, buraka ćwikłowego, buraków ćwikłowych
 pt: beterraba
-ru: Свёкла
+ru: свёкла
 sk: cvikly
 sv: rödbeta, rödbetor, rödbets
 carbon_footprint_fr_foodges_ingredient:fr: Betteraves
@@ -54315,7 +54316,9 @@ it: sciroppo di barbabietola
 # TODO : merge with en:sugar beet syrup ?
 
 < en: beetroot
-en: beetroot juice
+en: beetroot juice, beet juice
+ar: عصير شمندر
+az: çuğundur şirəsi
 bg: сок от цвекло
 cs: šťáva z červené řepy
 de: Randensaft
@@ -54323,11 +54326,18 @@ es: jugo de remolacha
 fi: punajuurimehu, punajuuritäysmehu
 fr: jus de betterave
 hr: sok od cikle
+hu: céklalé
 it: succo di barbabietola
+ja: ビートジュース
+ml: ബീറ്റ്‌റൂട്ട് ജ്യൂസ്
+nb: rødbetsaft
 nl: bietensap
-no: rødbetsaft
-pl: sok z buraka, sok buraczany
+pl: sok z buraka, sok buraczany, kwas buraczany
+ru: свекольный сок
 sv: rödbetsjuice
+uk: буряковий сік
+zh: 甜菜汁
+wikidata:en: Q12227334
 
 < en: beetroot juice
 en: beetroot juice concentrate
@@ -54367,7 +54377,7 @@ sv: betfiber
 < en: beetroot juice
 < en: red beetroot
 en: red beetroot juice
-de: Rote Betesaft, Rote Bete Saft
+de: Rote Betesaft, Rote Bete Saft, Rote Beete Saft
 #es:zumo de remolacha roja, jugo de remolacha roja
 #fr:jus de betterave rouge
 #it:succo di barbabietole rosse
@@ -68788,6 +68798,10 @@ usda_fdc_code:en: 170918
 usda_ndb_code:en: 2005
 usda_ndb_name:en: Spices, caraway seed
 wikidata:en: Q61670763
+
+< en: caraway
+en: caraway essence
+nb: karveessens
 
 ###################################################################################################
 #
