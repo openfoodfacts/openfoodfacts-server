@@ -69,6 +69,7 @@ use ProductOpener::Tags qw/get_inherited_property_from_tags get_property canonic
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::IngredientsStrings qw/%may_contain_regexps/;
+use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
 use Log::Any qw($log);
 
 use URI::Escape::XS;
@@ -401,6 +402,8 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 	# brands are a language less taxonomy, the input tag_lc is not used, we use xx instead
 	if ($field eq "brands") {
 		$tag_lc = "xx";
+		# Correct misspellings in the input tags for brands
+		apply_misspelling_replacements("brands_misspellings", "xx", \$input_tags);
 	}
 
 	my @normalized_input_tags = ();
