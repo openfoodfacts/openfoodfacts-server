@@ -132,7 +132,7 @@ description:nl: Het omhulsel rond het product.
 # fr:Barquette / Coque used by Les Mousquetaires
 en: Tray, trays, tray with indents, shell, shells
 bg: Тарелка
-de: Tablettverpackung, Tablett, Schale
+de: Schale, Menüschale, Tablettverpackung
 fr: Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds, coque, coques, présentoir, présentoirs, bac, bacs, barquette / coque
 hu: Tálca, tálcák
 it: Vaschetta
@@ -143,7 +143,7 @@ description:nl: Een open verpakking die onderverdeeld is in verschillende vakjes
 
 en: Jar, jars
 bg: Буркан, буркани
-de: Krug
+de: Schraubglas, Schraubgläser, Einmachglas, Einmachgläser, Konservenglas, Konservengläser
 el: Βάζο
 es: Tarro
 fr: Bocal, bocaux
@@ -162,7 +162,7 @@ description:nl: Cilindervormig voorwerp van glas of aardewerk
 #fr: Boîte / Coffret used by Les Mousquetaires
 en: Box, boxes
 bg: Кутия, кутии
-de: Kasten, Schachtel, Schachteln
+de: Schachtel, Schachteln, Faltschachtel, Karton, Kasten
 el: Κουτί
 es: caja, cajas
 fr: Boîte, boîtes, boite, boites, boitier, boitiers, coffret, coffrets, Boîte / Coffret
@@ -241,7 +241,7 @@ it: Caraffa o barattolo, lattina o caraffa
 
 < en: Jug or canister
 en: Jug, jugs
-de: Kanne
+de: Kanne, Krug
 fr: Bidon, bidons
 # associated_packagings: en:cap
 it: Caraffa
@@ -316,7 +316,7 @@ wikidata:en: Q80228
 en: hip flask
 ca: petaca
 cs: placatka
-de: Flachmann
+de: Flachmann, Taschenflasche
 el: φλασκί
 es: petaca, licorera
 fi: taskumatti
@@ -338,7 +338,7 @@ description:nl: Heupfles, heupflacon of zakflacon is de algemene benaming voor e
 wikidata:en: Q23680
 
 en: Brick, brick carton, brick shaped carton, bricks, brick cartons, brick shaped cartons
-de: Getränkekarton, Getränkekartons, Getränkeverbundkarton, Getränkeverbundkartons, Milchkarton, Milchkartons, Ziegel, Ziegelkarton, ziegelsteinförmiger Karton, Ziegelkartons, ziegelsteinförmige Kartons
+de: Getränkekarton, Getränkeverbundkarton, Milchkarton, Ziegel, Ziegelkarton, ziegelsteinförmiger Karton, Ziegelkartons, ziegelsteinförmige Kartons
 fr: Brique, briques, brique alimentaire, briques alimentaires
 hu: tégla, tégladoboz, tégla doboz, tégla karton, tégla alakú karton
 nl: Drankkarton, Melkpak, Drankenkartons, Drankencarton, Drankenkarton, Drinkpahk, Drinkpakken
@@ -359,6 +359,7 @@ wikidata:en: Q1520074
 # image:xx:brique-3.svg
 
 en: small brick, small bricks
+de: Trinkpäckchen, Saftpäckchen, Milchpäckchen
 fr: briquette, briquettes
 nl: briquette, briquettes
 # suggest:packaging_materials:en: cardboard
@@ -430,6 +431,7 @@ description:nl: Wijd, houten, metalen of plastic vat
 
 < en: pot
 en: individual pot, individual cup, individual pots, individual cups
+de: Portionsbecher
 fr: pot individuel, pots individuels
 hu: külön edény, külön fazék
 nl: Individuele pot, individuele potten
@@ -442,6 +444,7 @@ pt: Pote individual, potes individuais, boião individual, boiões individuais
 # suggest:category: en:salts, en:peppers
 
 en: Tumbler
+de: Trinkbecher, Pappbecher, Einwegbecher
 fr: Gobelet
 nl: Beker, Bekers, Koffiebeker, Cup
 description:nl: Een cilindervormig voorwerp waaruit gedronken kan worden
@@ -473,6 +476,7 @@ description:nl: Een verpakking in kokervorm gemaakt van metaal of plastic gevuld
 
 en: Fastener, clip
 bg: Клипса
+de: Clip
 fr: Attache
 hu: Rögzítő, kapocs, csipesz
 it: laccetto, laccio
@@ -484,6 +488,7 @@ wikidata:en: Q2002016
 
 < en: fastener
 en: bread clip, bag clip, occlupanid
+de: Beutelclip, Verschlussclip
 description:en: Usually a single plastic piece, in a roughly square shape, through which the neck of a plastic bag can be threaded.
 wikidata:en: Q3018341
 
@@ -656,13 +661,14 @@ pt: Alça, alças, pega, pegas, manípulo, manípulos
 
 < en: bag
 en: Carrying bag, carrying bags
+de: Tragetasche
 fr: Sac de transport, sacs de transport
 nl: Draagtas, draagzak, draagzakken, draagtassen
 # image:xx:sac-sachet-poche-6.svg
 
 # fr:Cageot / Cagette / Caisse / Caissette in data from Les Mousquetaires
 en: Crate, crates, punnet
-de: Steige
+de: Steige, Obstkiste, Flaschenkasten, Getränkekasten
 fr: Cagette, cagettes, cageot, cageots, Cageot / Cagette / Caisse / Caissette
 hu: Láda, lécláda, ketrec
 nl: Krat, kratten
@@ -685,6 +691,7 @@ pt: Saco individual, sacos individuais, saquinho individual, saquinhos individua
 
 # fr:Gourde / Doypack in data from Les Mousquetaires
 en: Pouch flask, doypack, pouch
+de: Standbeutel, Doypack, Quetschbeutel
 fr: Gourde, gourde individuelle, gourdes individuelles, doypack, pouch, Gourde / Doypack
 hu: Flakon, Kulacs, flaska
 it: Borraccia
@@ -696,6 +703,7 @@ pt: Frasco, frascos
 
 # fr:Étui / Fourreau in data from Les Mousquetaires
 en: Sleeve, sleeves, sheath, outer open-end box
+de: Manschette, Banderole
 fr: Étui, étuis, Fourreau, fourreaux
 hu: haskötő
 nl: Banderol, huls
@@ -719,6 +727,7 @@ wikidata:en: Q1432049
 
 en: Tethered cap, attached cap, tethered caps, attached caps
 bg: Прикрепена капачка
+de: Tethered Cap, anhängender Verschluss, fest verbundener Deckel
 fr: Bouchon solidaire, bouchons solidaires, bouchon attaché, bouchons attachés
 
 # fr:Bouchon (non solidaire) / Capsule / Couvercle : in data from Les Mousquetaires
@@ -780,6 +789,7 @@ wikidata:en: Q1440281
 < en: Bottle cap
 en: crown cork, crown cap
 ca: tap corona
+de: Kronkorken
 eo: kronfermilo
 fi: kruunukorkki
 ja: 王冠 (栓)
@@ -793,6 +803,7 @@ wikidata:en: Q13845007
 < en: Bottle cap
 en: screw cap, screw top
 da: skruelåg
+de: Schraubverschluss, Schraubdeckel, Drehverschluss
 fi: kierrekorkki
 ja: スクリューキャップ
 nn: skrukork
@@ -805,7 +816,7 @@ wikidata:en: Q607619
 en: flip-top, swing-top, Quillfeldt stopper
 ca: tap de palanca
 da: patentprop
-de: Bügelverschluss, Patentverschluss, Lochmundverschluss
+de: Bügelverschluss, Patentverschluss
 eo: krampfermilo
 fi: patenttikorkki
 ja: フリップトップ
@@ -818,7 +829,7 @@ wikidata:en: Q1020525
 # for salt and pepper
 < en: Lid or cap
 en: Grinder cap
-de: Mühlenverschluss
+de: Gewürzmühle, Mühlenverschluss
 es: Tapa molinillo
 fr: Bouchon broyeur, bouchons broyeurs
 it: Tappo macinino
@@ -837,6 +848,7 @@ wikidata:en: Q1020525
 < en: Bottle cap
 en: Wine cork, wine bottle cork, wine corks, wine bottle corks
 bg: Коркова тапа, Корк за вино
+de: Weinkorken, Weinflaschenkorken, Naturkorken
 fa: چوب‌پنبه شراب
 fr: bouchon de bouteille de vin, bouchons de bouteilles de vin, bouchon de vin
 hr: pluteni čep
@@ -852,7 +864,7 @@ wikidata:en: Q86511715
 en: Champagne cork
 bg: Шампанска корк
 da: champagneprop
-de: Sektverschluss
+de: Sektkorken, Champagnerkorken, Sektverschluss
 el: Πώμα σαμπάνιας
 es: Corcho de champán
 fr: bouchon de Champagne
@@ -945,7 +957,7 @@ bn: চা ক্যাপসুল
 ca: Càpsules de te
 cs: Čajové kapsle
 da: Te kapsler
-de: Tee-Kapseln
+de: Tee-Kapsel, Tee-Kapseln
 el: Κάψουλες τσαγιού
 es: Cápsulas de té
 et: Teekapslid
@@ -1017,7 +1029,7 @@ sv: Tepåse, tepåsar
 # fr:Baguettes / Couverts / Paille -> entry from Les Mousquetaires
 en: Eating utensils, utensils, eating utensil, utensil
 bg: Прибори за хранене
-de: Essensutensilien, Utensilien, Essensutensil, Utensil
+de: Einwegbesteck, Essbesteck, Essensutensilien, Utensilien, Essensutensil, Utensil
 fr: Ustensiles, ustensile, Baguettes / Couverts / Paille
 hu: evőeszközök, evőeszköz
 nl: Bestek
@@ -1139,6 +1151,7 @@ wikidata:en: Q81895
 en: teaspoon
 bg: чаена лъжичка, чаена лъжица
 da: teske, teskeer
+de: Teelöffel
 fr: cuillère à café
 it: cucchiaino da tè
 nl: theelepel
@@ -1150,6 +1163,7 @@ wikidata:en: Q216425
 en: tablespoon
 bg: супена лъжица
 da: spiseske, spiseskeer
+de: Esslöffel
 fr: cuillère à soupe
 it: cucchiaino
 nl: soeplepel
@@ -1159,6 +1173,7 @@ wikidata:en: Q2002583
 # fr:Plaque / Intercalaire in data from Les Mousquetaires
 en: sheet, sheets, separator sheet
 bg: лист, листа
+de: Zwischenlage, Trennblatt
 fr: feuille, feuilles, feuille intercalaire, feuilles intercalaires, Plaque / Intercalaire
 hu: fólia, fóliák, lap, lapok
 nl: blad, bladeren
@@ -1216,7 +1231,7 @@ be: плёнка
 bg: Фолио, слой
 ca: Film
 da: Film
-de: Folie, Film
+de: Folie, Frischhaltefolie, Wickelfolie, Schrumpffolie, Film
 el: Μεμβράνη
 fr: Film, pellicule, films, pellicules, film de regroupement, Film / Enveloppage / Feuille / Housse
 gd: film
@@ -1246,13 +1261,14 @@ weight:en: light
 # image:xx:film-film-a-bulle.svg (looks like film holding water bottles together)
 
 en: Overpack, overpacks
+de: Umverpackung
 fr: Suremballage, sur-emballage, suremballages, sur-emballages
 hu: gyűjtőcsomag, gyűjtőcsomagolás, overpack
 nl: oververpakking, oververpakkingen
 pt: Sobreembalagem, sobre-embalagem, sobreembalagens, sobre-embalagens, sobrembalagens, sobrembalagens
 
 en: Grouping package, grouping packages
-de: Gruppierungspaket
+de: Sammelpackung, Gebinde, Gruppierungspaket
 fr: Emballage de regroupement, emballages de regroupement
 hu: Csoportosító csomag, egyesítő csomag
 nl: Groepsverpakking, groepsverpakkingen
@@ -1261,7 +1277,7 @@ pt: Embalagem de grupagem, embalagem de agrupagem, embalagens de grupagem, embal
 
 # fr:Opercule / Autre Fermeture Souple in data from Les Mousquetaires
 en: Seal, operculum, seals, peel-off lid
-de: Dichtung, Dichtungen
+de: Siegelfolie, Deckelfolie, Abziehfolie, Abziehdeckel, Dichtung, Dichtungen
 fr: Opercule, opercules, Opercule / Autre Fermeture Souple
 hu: zárófedő
 nl: Seal
@@ -1273,7 +1289,7 @@ pt: Tampo, tampos
 en: bulk, without packaging, no packaging
 bg: насипно, наливно, без амбалаж
 da: uden emballage
-de: ohne Verpackung
+de: ohne Verpackung, unverpackt
 es: a granel, sin empaque, sin envase, sin embalaje
 fr: vrac, sans emballage
 hu: ömlesztett, csomagolás nélkül, csomagolás nélküli, csomagolatlan
@@ -1301,6 +1317,7 @@ wikidata:en: Q153988
 
 en: Plate, plates
 bg: Чиния, чинии
+de: Teller, Pappteller
 fr: Assiette, assiettes
 hr: tanjur
 hu: tányér, tányérok
@@ -1315,6 +1332,7 @@ wikidata:en: Q57216
 # suggest:packaging_materials:en: en:plastic
 
 en: Stick, sticks
+de: Stäbchen, Rührstäbchen
 fr: Batonnet, bâtonnets
 hu: rúd, rudak
 nl: Stok, stokken
@@ -1349,6 +1367,7 @@ nl: Applicator
 # image:xx:applicateur-plastique-2.svg (tampon hygiénique)
 
 en: Bag-in-box
+de: Bag-in-Box
 fr: Bag-in-box, caisse-outre, Cubitainer, BIB
 nl: Zak-in-doos
 wikidata:en: Q799810
@@ -1374,6 +1393,7 @@ fr: Bandelette, bandelettes, bandes, bande, languette, languettes
 
 en: Ampoule, ampul, ampule
 bg: Крушка
+de: Ampulle
 fr: Ampoule
 hr: ampula
 nl: Ampulle
@@ -1384,6 +1404,7 @@ wikidata:en: Q477379
 
 en: Blister, Blister pack
 bg: Блистер
+de: Blister, Blisterverpackung
 es: Blíster
 fr: Blister
 hu: Bliszter
@@ -1404,6 +1425,7 @@ wikidata:en: Q1334675
 # image:xx:blister-coque-avec-chevalet-1
 
 en: Roll, mandrel
+de: Rolle
 fr: Rouleau, Bobine, Mandrin, Mandrin / Rouleau
 # https://fr.wikipedia.org/wiki/Mandrin#Emballage
 # comment:fr:Quand il signifie accessoire pour enroulement, le mandrin peut être un tube pour enrouler des rouleaux de papier, de feuille plastique, de tissu, etc. Le mandrin est le plus souvent en carton, réalisé par l'enroulement successif de spirales de papier croisées et collées. Parfois il est en plastique ou métallique et réutilisable. Parmi les applications domestiques, on trouve les papiers d'essuyage enroulés sur un mandrin jetable, de même le bobineau de film étirable...
@@ -1420,6 +1442,7 @@ fr: Rouleau, Bobine, Mandrin, Mandrin / Rouleau
 
 < en: Jug or canister
 en: Canister
+de: Kanister, Wasserkanister
 fr: Bombonne, bombonnes, bonbonne, bonbonnes
 nl: Spuitbus, spuitbussen
 # related_categories:en: en:Waters
@@ -1437,6 +1460,7 @@ wikidata:en: Q61686575
 
 # fr:Fermeture rigide / Fermoir / Muselet in data from Les Mousquetaires
 en: Wire cage
+de: Drahtkorb, Agraffe
 fr: Muselet, Fermeture rigide / Fermoir / Muselet
 #goes_with:en:glass bottle
 wikidata:en: Q1061121
@@ -1446,6 +1470,7 @@ wikidata:en: Q1061121
 
 en: hanger
 bg: закачалка
+de: Kleiderbügel
 fr: Cintre
 nl: Kleerhanger
 pt: Cabide
@@ -1463,6 +1488,7 @@ fr: Cale, Coin, Cornière, calage, cales, chips, croisillons, flocons, frites, c
 # close to bottle, but also ampoule is translated to vial by citeo
 < en: Bottle or vial
 en: Vial, flask
+de: Flakon
 fr: Flacon
 nl: Flacon, Flacons
 # related_shapes: en:cap, en:vial
@@ -1477,11 +1503,13 @@ nl: Flacon, Flacons
 # suggest:packaging_materials:en: en:metal, en:plastic
 
 en: Clamping ring
+de: Klemmring, Spannring
 fr: Collier
 # image:xx:collier-plastique.svg
 # suggest:packaging_materials:en: en:plastic
 
 en: wrapper, wrapping
+de: Hülle, Umhüllung
 es: envoltorio
 fr: enveloppage
 pt: invólucro
@@ -1489,11 +1517,13 @@ pt: invólucro
 # image:xx:enveloppage.svg
 
 en: Sleeve, sleeves
+de: Schrumpfhülle
 fr: Gaine, gaines, manchon, manchons, sleever, sleevers
 
 en: envelope
 bg: плик
 da: konvolut
+de: Umschlag, Kuvert, Briefumschlag
 es: sobre
 fr: enveloppe
 it: busta
@@ -1504,6 +1534,7 @@ sv: kuvert
 # image:xx:enveloppe-carton.svg
 
 en: String, strings, ribbon, ribbons, adhesive tapes, gift ribbon, gift ribbons
+de: Schnur, Geschenkband
 fr: ficelle, ficelles, ruban, rubans
 # image:xx:ficelle-ruban-bande-3.svg (ficelle)
 # image:xx:ficelle-ruban-bande-1.svg (ruban)
@@ -1517,7 +1548,7 @@ bg: индивидуална доза, индивидуална капсула
 bn: পৃথক ডোজ, পৃথক ক্যাপসুল
 ca: dosi individual, càpsula individual
 cs: jednotlivá dávka, jednotlivá kapsle
-de: Einzeldosis, Einzelkapsel
+de: Einzeldosis, Einzelkapsel, Portionspackung
 el: μεμονωμένη δόση, μεμονωμένη κάψουλα
 es: dosis individual, cápsula individual
 et: individuaalne annus, individuaalne kapsel
@@ -1549,6 +1580,7 @@ zh: 独立剂量，独立胶囊
 # dose-individuelle-autre.svg (looks like a small doypack)
 
 en: Protection cover
+de: Schutzhülle, Schutzhaube
 fr: Housse, housses, housse de protection, housses de protection
 nl: Beschermingshoes, beschermingshoezen
 # image:xx:housse.svg (looks like a suit protection cover)
@@ -1568,7 +1600,7 @@ wikidata:en: Q3737688
 
 < en: Bottle or vial
 en: squeeze bottle
-de: Quetschflasche, Drückflasche
+de: Quetschflasche, Dosierflasche, Spritzflasche, Drückflasche
 es: botella exprimible, botella de apretar
 fr: flacon souple, flacon pressable, flacon à presser, squeezer
 it: flacone a pressione, flacone spremibile
@@ -1584,7 +1616,7 @@ bn: অ্যারোসল ক্যান, অ্যারোসল ক্য
 ca: Aerosol, aerosols
 cs: Aerosolová dóza, aerosolové dózy, aerosolový sprej
 da: Aerosoldåse, aerosoldåser, aerosolspray
-de: Sprühdose
+de: Sprühdose, Spraydose, Aerosoldose
 el: Αεροζόλ, δοχεία αεροζόλ, σπρέι αεροζόλ
 es: Aerosol, aerosoles
 et: Aerosoolpurk, aerosoolpurgid, aerosoolpihusti
@@ -1616,7 +1648,7 @@ wikidata:en: Q659495
 # image:xx:aerosol.svg
 
 en: Ball flask, Roll-on bottle
-de: Kugelflasche, Roll-on-Flasche
+de: Deoroller, Deo-Roller, Roll-on, Roll-on-Flasche, Kugelflasche
 es: Frascos de bola, Botella roll-on
 fr: Flacon à bille, Roll
 it: flacone a sfera, flacone roll-on
@@ -1627,12 +1659,14 @@ wikidata:en: Q115170160
 
 en: Basket, baskets
 bg: Кошница, кошници
+de: Korb, Körbchen
 fr: Panier, paniers
 nl: Mand, manden
 # suggest:packaging_materials:en: en:plastic, en:wicker
 
 en: Syringe, syringes
 bg: Спринцовка, спринцовки
+de: Spritze
 es: Jeringa, jeringas
 fr: Seringue, seringues
 it: Siringa, siringhe
@@ -1723,6 +1757,7 @@ pl: wiaderko
 
 # fr:Plat (Bol, Saladier, Terrine, …) in data from Les Mousquetaires
 en: Dish, dishes
+de: Servierplatte
 fr: Plat, plats, Plat, Plat (Bol - Saladier - Terrine - …)
 
 < en: dish
@@ -1735,6 +1770,7 @@ it: insalatiera, insalatiere
 # CITEO only translates it by pot
 < en: dish
 en: Terrine pot, terrine pots
+de: Terrine
 es: Tarrina, tarrinas
 fr: Terrine, terrines
 # image:xx:terrine.svg
@@ -1800,10 +1836,12 @@ zh: 气泡膜
 wikidata:en: Q19806
 
 xx: cellophane
+de: Cellophan
 nl: cellofaan
 description:nl: Transparant materiaal gemaakt van cellulose, in dunne vellen gewoonlijk in gebruik voor vochtdicht afsluiten van etenswaren
 
 en: Cartridge, cartridges
+de: Kartusche, Patrone
 es: cartucho, cartuchos
 fr: Cartouche, cartouches
 it: cartuccia, cartucce
@@ -1825,7 +1863,7 @@ ca: palla
 cs: slámka
 cy: gwelltyn
 da: sugerør
-de: Trinkhalm
+de: Trinkhalm, Strohhalm
 el: καλαμάκι
 eo: trinkŝalmo
 es: pajilla
@@ -1886,7 +1924,7 @@ en: Filling
 af: Stopsel
 bg: пълнеж
 da: fyldning
-de: Füllung
+de: Füllmaterial, Polstermaterial
 el: γέμιση
 eo: remburaĵo
 es: relleno, farsa
@@ -1903,6 +1941,7 @@ description:en: Anything that is used to fill something
 description:nl: het materiaal waarmee iets opgevuld is
 
 en: Inlay
+de: Einleger
 nl: Inlay
 description:en: The piece of paper or the booklet inside the case
 
@@ -1950,7 +1989,7 @@ bg: Капачка за наливане
 ca: Tapa abocadora
 cs: Nalévací víčko
 da: Hældetud
-de: Ausgießkappe
+de: Ausgießer, Ausgießkappe
 el: Καπάκι έκχυσης
 es: Tapa vertedora
 et: Valamiskork
@@ -1982,12 +2021,15 @@ wikidata:en: Q2921384
 
 # fr:Pistolet / Pompe / Diffuseur / Robinet / Bouchon Technique in data from Les Mousquetaires
 en: Special cap
+de: Spezialverschluss, Dosierverschluss
 fr: Bouchon spécial, Pistolet / Pompe / Diffuseur / Robinet / Bouchon Technique
 
 en: Valve, valves
+de: Ventil
 fr: Valve, valves, soupape, soupapes
 
 # Used on top of a bottle to reduce the flow (e.g. for oil)
 en: Reducer
+de: Tropfeinsatz, Dosieraufsatz
 fr: Réducteur
 
