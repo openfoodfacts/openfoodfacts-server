@@ -304,6 +304,7 @@ $symbols_regexp = join('|', @symbols);
 		["stabil.", "stabiliseringsämne"],
 		["surhetsreg.", "surhetsreglerande"],
 		["veg.", "vegetabilisk"],
+		["veg", "vegetabilisk"],
 		["ca.", "cirka"],
 	],
 );
