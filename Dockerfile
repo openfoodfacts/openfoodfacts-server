@@ -235,6 +235,24 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     export PERL5LIB="/tmp/local/lib/perl5/" && \
     cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
 
+# The bundled tz.sqlite3 ships in WAL journal mode. WAL requires a writable
+# directory (for -wal/-shm sidecar files) even for read-only access, which
+# fails in our read-only deployments. Convert the database to the standard
+# rollback journal mode (DELETE); read-only opens then need no write access.
+# NOTE: the journal mode is stored in the database file header, so the change
+# survives the COPY into the runnable stage.
+RUN set -e && \
+    export PERL5LIB="$PO_LIB_DIR/lib/perl5/" && \
+    perl -MDBI -e ' \
+        my @files = glob("$ENV{PO_LIB_DIR}/lib/perl5/*/DateTime/Lite/tz.sqlite3"); \
+        die "tz.sqlite3 not found\n" unless scalar @files; \
+        foreach my $file (@files) { \
+            my $dbh = DBI->connect("dbi:SQLite:dbname=$file", "", ""); \
+            $dbh->do("PRAGMA journal_mode=DELETE"); \
+            $dbh->disconnect; \
+        } \
+    '
+
 ######################
 # backend production image stage
 ######################

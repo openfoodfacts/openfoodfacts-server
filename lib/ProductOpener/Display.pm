@@ -172,8 +172,7 @@ use URI::Escape::XS qw/uri_escape/;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use HTML::Entities;
-use DateTime;
-use DateTime::Locale;
+use DateTime::Lite;
 use MongoDB;
 use Tie::IxHash;
 use JSON::MaybeXS;
@@ -989,21 +988,13 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 sub _get_date ($t) {
 
 	if (defined $t) {
-		my @codes = DateTime::Locale->codes;
-		my $locale;
-		if (grep {$_ eq $lc} @codes) {
-			$locale = DateTime::Locale->load($lc);
-		}
-		else {
-			$locale = DateTime::Locale->load('en');
-		}
-
-		my $dt = DateTime->from_epoch(
-			locale => $locale,
+		my $dt = DateTime::Lite->from_epoch(
+			locale => $lc,
 			time_zone => $reference_timezone,
 			epoch => $t
 		);
 		return $dt;
+
 	}
 	else {
 		return;
