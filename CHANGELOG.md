@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.106.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.106.0...v2.106.1) (2026-09-19)
+
+
+### Bug Fixes
+
+* **ingredients:** parse mg/kg and activity units without splitting on slash 6132 ([#14491](https://github.com/openfoodfacts/openfoodfacts-server/issues/14491)) ([1373aa1](https://github.com/openfoodfacts/openfoodfacts-server/commit/1373aa1495ad99b325278c595b5be6022a6937e0))
+
 ## [2.106.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.105.0...v2.106.0) (2026-09-18)
 
 
