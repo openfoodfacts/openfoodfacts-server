@@ -127,6 +127,7 @@ use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 use ProductOpener::IngredientsStrings qw/:all/;
+use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
 
 use Encode;
 use Clone qw(clone);
@@ -6786,6 +6787,7 @@ This function transform the ingredients list in a more normalized list that is e
 It does the following:
 
 - Normalize quote characters
+- Fix common misspellings (from misspellings/ingredients_misspellings.txt )
 - Replace abbreviations by their full name
 - Remove extra spaces in compound words width dashes (e.g. céléri - rave -> céléri-rave)
 - Split vitamins enumerations
@@ -6875,6 +6877,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
+
+	# Misspelling corrections (applied early so they don't interfere with other normalizations)
+	apply_misspelling_replacements("ingredients", $ingredients_lc, \$text);
 
 	# vegetable oil (coconut & rapeseed)
 	# turn & to and
