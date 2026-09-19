@@ -1281,7 +1281,9 @@ $options{nova_groups_tags} = {
 	"additives/en:e250" => 3,    # sodium nitrite
 	"additives/en:e251" => 3,    # potassium nitrate
 	"additives/en:e252" => 3,    # sodium nitrite
-	"additives/en:e503" => 3,    # ammonium carboates
+	"additives/en:e334" => 3,    # sodium carbonates
+	"additives/en:e500" => 3,    # sodium carbonates
+	"additives/en:e503" => 3,    # ammonium carbonates
 
 	# tags only found in group 4
 
