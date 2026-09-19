@@ -1023,7 +1023,7 @@ ky: Фермент
 lt: fermentas
 lv: ferments, fermenti
 nb: fermentere, gjære
-nl: Ferment
+nl: Ferment, rijpingscultuur
 pl: Fermentacja
 pt: fermento, fermentos
 ru: Фермент, закваска, заквасочные культуры, йогуртовая закваска, с использованием закваски
@@ -20887,6 +20887,10 @@ vegetarian:en: maybe
 de: natürliches Pfirsich– und Holunderblütenaroma mit anderen natürlichen Aromen
 
 < en: natural flavouring
+en: natural nutweg flavour
+nl: natuurlijk nootmuskaataroma
+
+< en: natural flavouring
 en: natural oat flavouring
 fr: arôme naturel d'avoine
 
@@ -21014,6 +21018,7 @@ hr: prirodna citrus aroma sa drugim prirodnim aromama
 nl: natuurlijke aroma's van citrusvruchten met andere natuurlijke aroma's
 nn: naturlig sitrusaroma med andre naturlige aromaer
 sv: naturlig citrusarom med andra naturliga aromer
+
 
 < en: flavouring
 en: salt and vinegar flavour
@@ -21147,11 +21152,12 @@ it: aroma citrico
 
 < en: natural orange flavouring
 < en: with other natural flavouring
-fr: arômes naturels d'orange avec autres arômes naturels, arôme naturel d'orange avec autres arômes naturels
+en: natural orange flavouring with other natural flavouring
 de: natürliches Orangenaroma mit anderen natürlichen Aromen
 fi: luontainen appelsiiniaromi ja muita luontaisia aromeja, luontainen appelsiiniaromi ja muut luontaiset aromit, luontainen appelsiiniaromi joka sisältää muita luontaisia aromeja
+fr: arômes naturels d'orange avec autres arômes naturels, arôme naturel d'orange avec autres arômes naturels
 hr: prirodna aroma naranče s drugim prirodnim aromama
-nl: natuurlijk sinaasappelaroma met andere natuurlijke aroma's
+nl: natuurlijk sinaasappelaroma met andere natuurlijke aroma's, natuurlijke sinaasappelaroma's met andere natuurlijke aroma's
 pl: naturalny aromat pomarańczowy z innymi naturalnymi aromatami, naturalny aromat pomarańczowy z innymi aromatami naturalnymi
 sv: naturlig apelsinarom med andra naturliga aromer
 
@@ -23309,6 +23315,11 @@ it: aroma vegetale
 < en: vegetable flavouring
 en: natural vegetable flavouring
 da: naturlig grøntsagsaroma
+
+#< en: compound
+en: sea salt taste
+nl: zeezout smaak
+comment:en: This is NOT a flavouring, but describes the taste that of sauce/spices. For instance for crisps.
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -43283,7 +43294,7 @@ hu: természetes narancsaroma
 it: aroma naturale di arancia
 lt: natūralios apelsino kvapiosios medžiagos
 lv: apelsīnu dabīgs aromatizētājs
-nl: natuurlijk sinaasappelaroma
+nl: natuurlijk sinaasappelaroma, natuurlijk sinaasappel aroma
 pl: naturalny aromat pomarańczowy
 pt: aroma de laranja natural
 sv: naturlig apelsinarom
@@ -96258,6 +96269,10 @@ sv: sojabönsberedning
 allergens:en: en:soybeans
 nova:en: 4
 
+< en: preparation
+en: orange preparation
+nl: sinaasappelbereiding
+
 < en: soy preparation
 # mainIngredient:en:water
 en: soy milk, soy drink
@@ -98559,6 +98574,10 @@ fr: lait d'amande
 fr: fromage frais au lait ecreme pasteurise
 
 fr: billettes de riz souffle
+
+# < en: compound
+en: vegan bacon
+nl: veganistische ham
 
 ###################################################################################################
 #
