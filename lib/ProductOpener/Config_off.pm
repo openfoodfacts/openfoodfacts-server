@@ -1316,6 +1316,7 @@ $options{nova_groups_tags} = {
 	"ingredients/en:glucose" => 4,
 	"ingredients/en:glucose-syrup" => 4,
 	# has glucose as parent, so can be removed aleene@2018-10-09
+	"ingredients/en:hydrolised-wheat-flour" => 4,
 
 	# other ingredients that we can consider as ultra-processed
 
