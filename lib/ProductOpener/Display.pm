@@ -1083,7 +1083,7 @@ The request is not terminated by this function, it will continue to run.
 
 sub display_error ($request_ref, $error_message, $status_code) {
 
-	$log->debug('display_error',
+	$log->debug("display_error",
 		{error_message => $error_message, status_code => $status_code, request_ref => sanitize($request_ref)})
 		if $log->is_debug();
 
@@ -1094,9 +1094,9 @@ sub display_error ($request_ref, $error_message, $status_code) {
 	delete $request_ref->{url};
 	delete $request_ref->{current_link};
 
-	my $html = '<p>' . encode_entities($error_message) . '</p>';
+	my $html = "<p>$error_message</p>";
 	$request_ref->{status_code} = $status_code;
-	$request_ref->{page_type} = 'error';
+	$request_ref->{page_type} = "error";
 	$request_ref->{title} = lang('error');
 	$request_ref->{content_ref} = \$html;
 
