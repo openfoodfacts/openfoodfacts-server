@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (arm === null) {
         return;
     }
-    const bannerLinks = document.querySelectorAll('#donation-banner-top a[href], .donation-banner-footer a[href]');
+    const bannerLinks = document.querySelectorAll('.donation-banner__actions-section__donate-button a[href], .donation-banner-footer__actions-section__donate-button a[href]');
     bannerLinks.forEach(function (link) {
         if (link.href.indexOf('utm_content=') === -1) {
             link.href += (link.href.indexOf('?') === -1 ? '?' : '&') + 'utm_content=' + arm;
