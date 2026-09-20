@@ -655,7 +655,14 @@ Returns: The verified access token or undefined if verification fails.
 sub verify_access_token ($access_token_string) {
 	get_oidc_configuration();
 
-	my $access_token_verified = decode_jwt(token => $access_token_string, kid_keys => $jwks);
+	# Bind the token to this relying party: signature alone is not sufficient, because every client
+	# in the realm is signed by the same JWKS keys.
+	my $access_token_verified = decode_jwt(
+		token => $access_token_string,
+		kid_keys => $jwks,
+		verify_iss => $oidc_configuration->{issuer},
+		accepted_alg => ['RS256'],
+	);
 	unless ($access_token_verified) {
 		return;
 	}
