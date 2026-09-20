@@ -529,7 +529,7 @@
         </div>
         <script>
             // The arm is read by matomo-events.js
-            if (Math.random() < 0.5) {
+            if (crypto.getRandomValues(new Uint8Array(1))[0] < 128) {
                 document.getElementById('provenance').hidden = false;
             }
         </script>
