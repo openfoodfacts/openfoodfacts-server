@@ -71,6 +71,19 @@
                 </div>
             </div>
         </div>
+        [% IF product_type == "food" %]
+        <div class="row h-space-normal">
+            <div class="large-12">
+                <p id="provenance" class="provenance" hidden>[% lang('provenance_from') %] · [% lang('provenance_volunteers') %] · [% lang('provenance_reused') %]</p>
+            </div>
+        </div>
+        <script>
+            // Shown on half the page views; the arm is read by matomo-events.js
+            if (Math.random() < 0.5) {
+                document.getElementById('provenance').hidden = false;
+            }
+        </script>
+        [% END %]
     </div>
     <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
         <div class="row h-space-normal">
