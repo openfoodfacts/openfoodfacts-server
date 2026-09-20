@@ -523,6 +523,19 @@
                 </div>
             </div>
         </div>
+        
+        <div class="row h-space-normal">
+            <div class="large-12">
+                <p id="provenance" class="provenance" hidden>From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by 300+ apps</p>
+            </div>
+        </div>
+        <script>
+            // The arm is read by matomo-events.js
+            if (Math.random() < 0.5) {
+                document.getElementById('provenance').hidden = false;
+            }
+        </script>
+        
     </div>
     <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
         <div class="row h-space-normal">
