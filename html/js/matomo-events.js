@@ -93,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     const bannerLinks = document.querySelectorAll('.donation-banner__actions-section__donate-button a[href], .donation-banner-footer__actions-section__donate-button a[href]');
     bannerLinks.forEach(function (link) {
-        if (link.href.indexOf('utm_content=') === -1) {
-            link.href += (link.href.indexOf('?') === -1 ? '?' : '&') + 'utm_content=' + arm;
+        if (!link.href.includes('utm_content=')) {
+            link.href += (link.href.includes('?') ? '&' : '?') + 'utm_content=' + arm;
         }
     });
 });
