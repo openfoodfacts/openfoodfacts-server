@@ -5649,7 +5649,7 @@ vi: E250, Natri nitrit
 zh: E250, 亚硝酸钠
 additives_classes:en: en:preservative
 anses_additives_of_interest:en: yes
-description:en: SODIUM NITRITE is an inorganic compound with the chemical formula NaNO2. it is a food additive used in processed meats and (in some countries) in fish products.
+description:en: A synthetic salt manufactured industrially by reacting sodium hydroxide or sodium carbonate with nitrogen oxide gases, produced worldwide for food and industrial applications. It's typically supplied as a fine white to slightly yellowish crystalline powder. Sodium nitrite itself is essentially tasteless in the small quantities used, though it contributes to the characteristic tangy, savory flavor of cured meats through chemical reactions during processing. Widely used globally as a curing agent and preservative in bacon, ham, sausages, and other processed meats, where it inhibits bacterial growth (notably Clostridium botulinum) and stabilizes color. Nutritionally, it provides no caloric or nutrient value, serving solely a functional preservation role.
 # usage:de:Stabilisator (Natriumnitrit)
 e_number:en: 250
 efsa_evaluation:en: Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250) as food additives
@@ -5660,6 +5660,7 @@ efsa_evaluation_overexposure_risk:en: en:high
 # Mean>ADI adults	95th>ADI adults	Mean>ADI elderly	95th>ADI elderly	Mean>ADI adolescent	95>ADI adolescent	Mean>ADI children	95th>ADI children	Mean>ADI toddlers	95th>ADI toddlers	Mean>ADI infants	95th>ADI infants
 # 0	1	0	1			1	1	1	1	1	1
 efsa_evaluation_url:en: https://zenodo.org/record/1252752/files/EFSAOutputs_KJ_2018.xlsx
+nova:en: 3
 organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
@@ -11670,7 +11671,7 @@ cs: E418, Guma gellan
 da: E418, Gellangummi
 de: E418, Gellan, E 418
 el: E418, Κομμι τζελαν
-es: E418, Goma gellan, goma gellana, goma gelana, E 418
+es: E418, Goma gellan, goma gellana, goma gelana, goma de gelana
 et: E418, Gellankummi
 fi: E418, Gellaanikumi, Gellaanikumia, gellaani
 fr: E418, Gomme gellane, Gomme de gellane, gellan gum, E-418, 71010-52-1
@@ -11692,12 +11693,13 @@ zh: E418, 結蘭膠
 #en-ca: Gellan gum
 #en-gb: Gellan gum
 additives_classes:en: en:stabiliser, en:thickener
-description:en: GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
+description:en: A polysaccharide produced through fermentation of the bacterium Sphingomonas elodea, originally isolated from a pond in the United States and now manufactured globally, with major production in Asia and the Americas. It's made by fermenting sugar with the bacteria, then purifying and drying the resulting gum into a fine powder. Gellan gum is virtually tasteless and odorless, making it ideal as a texturizing agent. Widely used in dairy products, plant-based beverages, desserts, jams, and bakery items to provide gelling, thickening, and stabilizing properties. Nutritionally, it's a non-digestible fiber, contributing negligible calories and no significant vitamins or minerals to the diet.
 e_number:en: 418
 efsa_evaluation:en: Re‐evaluation of gellan gum (E 418) as food additive
 efsa_evaluation_adi_established:en: en:no
 efsa_evaluation_date:en: 2018/06/20
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5296
+nova:en: 4
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q416694
