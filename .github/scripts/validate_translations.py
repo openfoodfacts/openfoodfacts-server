@@ -5,6 +5,7 @@ import sys
 import glob
 import urllib.request
 import urllib.parse
+import polib
 
 BRAND_TERMS = [
     "Open Food Facts",
@@ -127,53 +128,26 @@ FDROID_LOCALES = {
     "zu": "get-it-on-zu.svg"
 }
 
-def parse_po(file_path):
-    with open(file_path, "r", encoding="utf-8") as f:
-        lines = f.readlines()
-        
+def load_po_entries(po_file):
+    """Parse a .po file with polib. Yields (msgctxt, msgid, msgstr) tuples,
+    including one tuple per plural form so plural entries are no longer
+    silently dropped (and no longer leak stale msgctxt into later entries)."""
     entries = []
-    current_msgctxt = ""
-    current_msgid = ""
-    current_msgstr = ""
-    state = None
-    
-    for line in lines:
-        if line.startswith("msgctxt "):
-            if state == "msgstr" and current_msgid != "":
-                entries.append((current_msgctxt, current_msgid, current_msgstr))
-                current_msgctxt = ""
-                current_msgid = ""
-                current_msgstr = ""
-            state = "msgctxt"
-            current_msgctxt = line[len("msgctxt "):].strip(' "\n')
-        elif line.startswith("msgid "):
-            if state == "msgstr" and current_msgid != "":
-                entries.append((current_msgctxt, current_msgid, current_msgstr))
-                current_msgctxt = ""
-                current_msgid = ""
-                current_msgstr = ""
-            state = "msgid"
-            current_msgid = line[len("msgid "):].strip(' "\n')
-        elif line.startswith("msgstr "):
-            state = "msgstr"
-            current_msgstr = line[len("msgstr "):].strip(' "\n')
-        elif line.startswith('"') and state == "msgctxt":
-            current_msgctxt += line.strip(' "\n')
-        elif line.startswith('"') and state == "msgid":
-            current_msgid += line.strip(' "\n')
-        elif line.startswith('"') and state == "msgstr":
-            current_msgstr += line.strip(' "\n')
-        elif line.strip() == "" and state == "msgstr":
-            if current_msgid != "":
-                entries.append((current_msgctxt, current_msgid, current_msgstr))
-            current_msgctxt = ""
-            current_msgid = ""
-            current_msgstr = ""
-            state = None
-    
-    if state == "msgstr" and current_msgid != "":
-        entries.append((current_msgctxt, current_msgid, current_msgstr))
-        
+    try:
+        pofile = polib.pofile(po_file)
+    except Exception as e:
+        print(f"::warning::Failed to parse {po_file} with polib: {e}", file=sys.stderr)
+        return entries
+
+    for entry in pofile:
+        if entry.obsolete:
+            continue
+        if entry.msgid_plural:
+            for idx, msgstr in entry.msgstr_plural.items():
+                msgid = entry.msgid if idx == 0 else entry.msgid_plural
+                entries.append((entry.msgctxt or "", msgid, msgstr))
+        else:
+            entries.append((entry.msgctxt or "", entry.msgid, entry.msgstr))
     return entries
 
 def check_url_exists(url):
@@ -210,14 +184,17 @@ def extract_placeholders(text):
     brackets = re.findall(r'\{[^}]+\}|%\([^)]+\)s', text)
     return sorted(c_style + html_tags + brackets)
 
-def check_po_files():
+def check_po_files(po_files=None):
     brand_issues = []
     url_issues = []
     image_issues = []
     placeholder_issues = []
     badge_issues = []
+
+    if po_files is None:
+        po_files = glob.glob("po/**/*.po", recursive=True)
     
-    for po_file in glob.glob("po/**/*.po", recursive=True):
+    for po_file in po_files:
         if 'en.po' in po_file: continue
         locale = os.path.basename(po_file).replace(".po", "")
         url_locale = locale.split("_")[0].lower()
@@ -229,7 +206,7 @@ def check_po_files():
         has_appstore = False
         has_fdroid = False
 
-        entries = parse_po(po_file)
+        entries = load_po_entries(po_file)
         for msgctxt, msgid, msgstr in entries:
             # Check Google Play badge localization (even if untranslated / msgstr is empty)
             if msgctxt == "android_app_icon_url":
@@ -354,12 +331,16 @@ def check_po_consistency():
     return issues
 
 def main():
+    
     print("## 🔍 Translation Validation Report")
     print("")
     print("This is an automated check of translation quality based on `AGENTS.md` guidelines.")
     print("")
+
+    changed_files = [f for f in sys.argv[1:] if f.endswith('.po')]
+    po_files = changed_files if changed_files else None
     
-    brand_issues, url_issues, image_issues, placeholder_issues, badge_issues = check_po_files()
+    brand_issues, url_issues, image_issues, placeholder_issues, badge_issues = check_po_files(po_files)
     html_brand_issues = check_html_files()
     facet_issues = check_tags_facets()
     
@@ -407,6 +388,8 @@ def main():
         print(f"Found {len(badge_issues)} issues:")
         for issue in badge_issues[:50]: print(issue)
         if len(badge_issues) > 50: print(f"...and {len(badge_issues) - 50} more issues.\n")
+
+
         
     sys.exit(0)
 

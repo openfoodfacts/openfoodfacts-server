@@ -10,7 +10,13 @@ then
 fi
 ERRORS=0
 tmplog=$(mktemp --suffix "-check-translations.log")
-for filename in $(find po/ -type f \( -name \*.po -o -name \*.pot \))
+if [ "$#" -gt 0 ]; then
+    files_to_check="$@"
+else
+    files_to_check=$(find po/ -type f \( -name \*.po -o -name \*.pot \))
+fi
+
+for filename in $files_to_check
 do
     file_basename=$(basename "$filename")
     echo -n "→ $filename..."
