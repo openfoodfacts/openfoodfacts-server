@@ -13558,7 +13558,10 @@ carbon_footprint_fr_foodges_value:fr: 5.1
 fr: saucisse de strasbourg
 
 en: sausage skin
+da: pølseskind
+sv: korvskinn, skinn
 comment:en: Not necessarily meat-based
+comment:sv: ”Skinn” kan också betyde en:skin men just nu (2026-09-21) finns sv:skinn endast använt en gång, i betydningen korvskinn.
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q1372144
@@ -45344,7 +45347,7 @@ pt: sorvas
 ro: scorușelor
 sk: jarabinu
 sl: jerebike
-sv: rönnbär
+sv: rönnbär, rönnbärs
 eurocode_2_group_3:en: 9.30.54
 
 < en: fruit
@@ -76961,9 +76964,6 @@ nl: Spirulinaconcentraat
 pl: koncentrat spiruliny, barwiący koncentrat spiruliny
 ro: concentrat de spirulină, concentrat de spirulina
 
-# description:en:SEAWEED or macroalgae refers to several species of macroscopic, multicellular, marine algae.
-# not sure if this should kept separate from en:algae
-
 # Eurocode 8.55 Seaweeds
 
 < en: algae
@@ -77008,24 +77008,26 @@ pl: Wodorosty, algi morskie, alg morskich
 pt: macroalga
 ru: Морские водоросли
 sq: Alga deti
-sv: Tång
+sv: tång, havstång
 to: Limutahi
 uk: Морські водорості
 vi: Rong biển
 zh: 海藻
+#en-gb: seaweed
+#ike-cans: ᕿᖅᑯᐊᖅ
+#ike-latn: qiqquaq
+#nan: Hái-chháu
+#nrm: Vrai
+#sco: Sea plants
+#zh-cn: 海藻
+#zh-hans: 海藻
+#zh-hant: 海藻
+#zh-hk: 海藻
+#zh-sg: 海藻
+#zh-tw: 海藻
+comment:en: not sure if this should kept separate from en:algae
+description:en: SEAWEED or macroalgae refers to several species of macroscopic, multicellular, marine algae.
 eurocode_2_group_2:en: 8.55
-# en-gb:seaweed
-# ike-cans:ᕿᖅᑯᐊᖅ
-# ike-latn:qiqquaq
-# nan:Hái-chháu
-# nrm:Vrai
-# sco:Sea plants
-# zh-cn:海藻
-# zh-hans:海藻
-# zh-hant:海藻
-# zh-hk:海藻
-# zh-sg:海藻
-# zh-tw:海藻
 wikidata:en: Q237169
 wikipedia:en: https://en.wikipedia.org/wiki/Seaweed
 
@@ -77475,6 +77477,12 @@ eurocode_2_group_3:en: 8.55.10
 usda_fdc_code:en: 168456
 usda_ndb_code:en: 11444
 usda_ndb_name:en: Seaweed, irishmoss, raw
+
+#< en: compound
+< en: seaweed
+en: seaweed caviar
+da: tangkaviar
+sv: tångkaviar, tångcaviar
 
 #description:en: ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 
@@ -98947,4 +98955,11 @@ en: French custard base
 en: French toast
 ciqual_food_code:en: 39236
 ciqual_food_name:en: French toast
+
+#< en: compound
+en: plant-based cheese
+sv: växtbaserad ost, Violife, Violife block
+comment:en: Violife is a producer of such cheeses and ingredient lists will sometimes just say “Violife” or similar.
+vegan:en: yes
+vegetarian:en: yes
 
