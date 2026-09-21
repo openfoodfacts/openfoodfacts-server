@@ -60,6 +60,7 @@ jobs:
           echo "REPORT_FILE=validation_report.md" >> $GITHUB_OUTPUT
 
       - name: Find existing comment
+        if: github.event_name == 'pull_request'
         uses: peter-evans/find-comment@v4
         id: find-comment
         with:
@@ -68,6 +69,7 @@ jobs:
           body-includes: '🔍 Translation Validation Report'
 
       - name: Create or update comment
+        if: github.event_name == 'pull_request'
         uses: peter-evans/create-or-update-comment@v5
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}

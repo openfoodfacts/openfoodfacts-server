@@ -337,8 +337,10 @@ def main():
     print("This is an automated check of translation quality based on `AGENTS.md` guidelines.")
     print("")
 
-    changed_files = [f for f in sys.argv[1:] if f.endswith('.po')]
-    po_files = changed_files if changed_files else None
+    if len(sys.argv) > 1:
+        po_files = [f for f in sys.argv[1:] if f.endswith('.po')]
+    else:
+        po_files = None
     
     brand_issues, url_issues, image_issues, placeholder_issues, badge_issues = check_po_files(po_files)
     html_brand_issues = check_html_files()

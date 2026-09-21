@@ -18,6 +18,10 @@ fi
 
 for filename in $files_to_check
 do
+    if [ ! -f "$filename" ]; then
+        echo "→ $filename... skipped (file no longer exists, likely deleted/renamed)"
+        continue
+    fi
     file_basename=$(basename "$filename")
     echo -n "→ $filename..."
     msgfmt "$filename"
