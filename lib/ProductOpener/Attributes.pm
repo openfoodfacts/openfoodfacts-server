@@ -871,7 +871,8 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 				# 	= lang_in_other_lc($target_lc, "attribute_forest_footprint_missing_ingredients_description_short");
 				$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_ingredients_list");
 			}
-			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-2026-new-unknown.svg";
+			$attribute_ref->{icon_url}
+				= "$static_subdomain/images/attributes/dist/forest-footprint-2026-new-unknown.svg";
 		}
 		elsif ($grade eq 'not_computed') {
 			# Product has risky ingredients but no computed primary ingredients
@@ -899,7 +900,8 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 				$attribute_ref->{description_short}
 					= lang_in_other_lc($target_lc, "attribute_forest_footprint_" . $grade . "_description_short");
 			}
-			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-2026-new-$grade.svg";
+			$attribute_ref->{icon_url}
+				= "$static_subdomain/images/attributes/dist/forest-footprint-2026-new-$grade.svg";
 		}
 	}
 	else {
