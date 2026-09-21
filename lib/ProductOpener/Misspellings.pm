@@ -133,6 +133,7 @@ sub apply_misspelling_replacements ($field, $lc, $text_ref) {
 		my $escaped = quotemeta($misspelled);
 		$$text_ref =~ s/\b($escaped)\b/apply_case_to_misspelling($1, $correct)/ieg;
 	}
+	return;
 }
 
 =head2 apply_case_to_misspelling($matched, $replacement)
@@ -182,6 +183,7 @@ sub apply_case_to_misspelling ($matched, $replacement) {
 		}
 		return $result;
 	}
+	return;
 }
 
 1;
