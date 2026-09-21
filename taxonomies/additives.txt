@@ -2025,7 +2025,7 @@ pt: E160a(i), Beta-caroteno
 ro: E160a(i), Beta-caroten
 sk: E160a(i), Beta-karotén
 sl: E160a(i), Beta karoten
-sv: E160a(i), Betakaroten, beta-karoten
+sv: E160a(i), betakaroten, beta-karoten, B-karoten
 uk: E160a(i), бета-каротин
 additives_classes:en: en:colour
 anses_additives_of_interest:en: yes
@@ -4590,21 +4590,6 @@ tr: kükürt dioksit
 uk: Діоксид сірки
 vi: Lưu huỳnh điôxit
 zh: 二氧化硫
-additives_classes:en: en:antioxidant, en:preservative
-anses_additives_of_interest:en: yes
-description:en: SULPHUR DIOXIDE is the chemical compound with the formula SO2.
-# conservateur (E220 [sulfite])
-e_number:en: 220
-efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
-efsa_evaluation_adi:en: 0.7
-efsa_evaluation_date:en: 2016-04-14
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
-efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
-organic_eu:en: authorized
-vegan:en: yes
-vegetarian:en: yes
 # azb:قوقرد دیاوکسید
 # bho:सल्फर डाइऑक्साइड
 # en-ca:Sulfur dioxide
@@ -4616,6 +4601,22 @@ vegetarian:en: yes
 # pt-br:Dióxido de enxofre
 # sco:Sulfur dioxide
 # yue:二氧化硫
+additives_classes:en: en:antioxidant, en:preservative
+anses_additives_of_interest:en: yes
+description:en: Sulphur dioxide is a gas derived from burning elemental sulphur or as a byproduct of metal smelting and fossil fuel combustion. Industrially, it's produced by burning sulphur in oxygen or via the contact process used for sulphuric acid manufacturing. It has a sharp, pungent smell and, in concentrated form, a slightly acidic, irritating taste. In food, it acts as a preservative, antioxidant, and antimicrobial agent, commonly used in dried fruits, wine, fruit juices, and processed potatoes to prevent browning and spoilage. Nutritionally, it contributes no calories, vitamins, or minerals; it's regulated globally as a food additive with permitted maximum levels.
+# conservateur (E220 [sulfite])
+e_number:en: 220
+efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
+efsa_evaluation_adi:en: 0.7
+efsa_evaluation_date:en: 2016-04-14
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
+nova:en: 3
+organic_eu:en: authorized
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q5282
 wikipedia:en: https://en.wikipedia.org/wiki/Sulfur_dioxide
 
@@ -6630,8 +6631,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q5319
 
-# comment:en:products seems to use all kinds of synonyms. Also wikidata is not consistent. Try to stay close to the chemical name:Carbon dioxide.
-
+# comment:en:products seems to use all kinds of synonyms. Also wikidata is not consistent. Try to stay close to the chemical name:Carbon dioxide. Note: carbon dioxide is different from carbonic acid (which is in ingredients.txt)
 en: E290, Carbon dioxide, Carbonic acid gas
 xx: E290
 af: E290, Koolstofdioksied
@@ -6647,14 +6647,14 @@ ca: E290, Diòxid de carboni, dioxid de carboni
 cs: E290, Oxid uhličitý, Plynný oxid uhličitý
 cy: E290, carbon deuocsid
 da: E290, Carbondioxid, Kuldioxidgas, Kuldioxid
-de: E290, Kohlendioxid, Kohlensäure, Kohlenstoffdioxid
+de: E290, Kohlendioxid, Kohlenstoffdioxid
 el: E290, Διοξειδιο του ανθρακα, Αέριο ανθρακικό οξύ
 eo: E290, karbona dioksido
 es: E290, Dióxido de carbono, Anhídrido carbónico, Gas de ácido carbónico
 et: E290, Süsinikdioksiid, süsihappegaas
 fa: E290, کربن دی‌اکسید
-fi: E290, Hiilidioksidi, Hiilidioksidia, hiilihappo, hiilihappoa
-fr: E290, Dioxyde de carbone, Anhydride carbonique, gaz carbonique, Acide carbonique, carbonate d'hydrogène, Gaz de l'acide carbonique, neige carbonique, gaz carbonique naturel, CO², CO2
+fi: E290, Hiilidioksidi, Hiilidioksidia
+fr: E290, Dioxyde de carbone, Anhydride carbonique, gaz carbonique, carbonate d'hydrogène, Gaz de l'acide carbonique, neige carbonique, gaz carbonique naturel, CO², CO2
 ga: E290, Dé-ocsaíd charbóin
 gd: E290, Dà-ogsaid gualain
 gl: E290, Dióxido de carbono
@@ -6690,7 +6690,7 @@ mt: E290, Diossidu tal-karbonju, Gass tal-aċidu karboniku
 my: E290, ကာဗွန်ဒိုင်အောက်ဆိုက်
 nb: E290, karbondioksid, kullsyre
 ne: E290, कार्बनडाइअक्साइड
-nl: E290, Koolstofdioxide, Koolzuurgas, koolzuur, kooldioxide
+nl: E290, Koolstofdioxide, Koolzuurgas, kooldioxide
 nn: E290, karbondioksid
 oc: E290, Dioxid de carbòni
 om: E290, Carbon dioxide
@@ -6711,7 +6711,7 @@ so: E290, Kaarboon laba ogsaydh
 sq: E290, Dioksidi i karbonit
 sr: E290, ugljen-dioksid
 su: E290, Karbon dioksida
-sv: E290, Koldioxid, Kolsyregas, kolsyresnö, kolsyra
+sv: E290, Koldioxid, Kolsyregas, kolsyresnö
 ta: E290, காபனீரொக்சைட்டு
 te: E290, కార్బన్ డయాక్సైడ్
 th: E290, คาร์บอนไดออกไซด์
@@ -11288,7 +11288,7 @@ pt: E407a, Algas eucheuma transformadas
 ro: E407a, Algă eucheuma prelucrată
 sk: E407a, Spracovaná chaluha eucheuma
 sl: E407a, Predelana morska alga eucheuma
-sv: E407a, Bearbetad eucheumaalg
+sv: E407a, bearbetad eucheumaalg, bearbetad Euchemaalg
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabiliser, en:thickener
 e_number:en: 407a
 efsa_evaluation:en: Re‐evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives
