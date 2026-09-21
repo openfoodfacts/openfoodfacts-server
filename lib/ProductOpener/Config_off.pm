@@ -1221,7 +1221,7 @@ $options{nova_groups_tags} = {
 
 	# start by assigning group 1
 
-	# 1st try to identify group 2 processed culinary ingredients
+	# 1st try to identify group 2 processed culinary categories
 
 	"categories/en:fats" => 2,
 	"categories/en:salts" => 2,
@@ -1230,6 +1230,9 @@ $options{nova_groups_tags} = {
 	"categories/en:honeys" => 2,
 	"categories/en:maple-syrups" => 2,
 	"categories/en:starches" => 2,
+	
+	# culinary ingredients 
+	"ingredients/en:barley-malt-extract" => 2,
 
 	# group 3 tags will not be applied to food identified as group 2
 
