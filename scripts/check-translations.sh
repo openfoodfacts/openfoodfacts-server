@@ -10,7 +10,7 @@ then
 fi
 ERRORS=0
 tmplog=$(mktemp --suffix "-check-translations.log")
-if [ "$#" -gt 0 ]; then
+if [[ "$#" -gt 0 ]]; then
     files_to_check="$@"
 else
     files_to_check=$(find po/ -type f \( -name \*.po -o -name \*.pot \))
