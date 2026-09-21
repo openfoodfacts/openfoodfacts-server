@@ -1232,7 +1232,6 @@ $options{nova_groups_tags} = {
 	"categories/en:starches" => 2,
 	
 	# culinary ingredients 
-	"ingredients/en:barley-malt-extract" => 2,
 
 	# group 3 tags will not be applied to food identified as group 2
 
@@ -1321,6 +1320,8 @@ $options{nova_groups_tags} = {
 	# has glucose as parent, so can be removed aleene@2018-10-09
 
 	# other ingredients that we can consider as ultra-processed
+	
+	"ingredients/en:barley-malt-extract" => 4,
 
 	"ingredients/en:dextrose" => 4,
 	# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09
