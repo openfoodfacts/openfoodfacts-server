@@ -34,6 +34,26 @@
       "en:fish-meat-eggs",
       "en:processed-meat"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "not_computed",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:meat",
+                  "ingredient_id" : "en:pork-meat"
+               },
+               {
+                  "ingredient_category_id" : "en:meat",
+                  "ingredient_id" : "en:lamb-meat"
+               }
+            ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "28205",

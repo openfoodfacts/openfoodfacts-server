@@ -3,13 +3,13 @@
       "grade" : "d",
       "primary_ingredients" : {
          "en:cocoa" : {
-            "footprint_per_kg" : 0.0222,
+            "footprint_per_kg" : 0.03256,
             "grade" : "b",
             "ingredients" : [
                {
                   "equivalence_ingredient" : 1,
                   "equivalence_ingredient_category" : 1,
-                  "footprint_per_kg" : 0.0222,
+                  "footprint_per_kg" : 0.03256,
                   "ingredient_category_id" : "en:cocoa",
                   "ingredient_id" : "en:cocoa",
                   "label_id" : "en:utz-certified",
@@ -17,19 +17,19 @@
                   "origin_id" : "en:unknown",
                   "percent" : 50,
                   "primary_ingredient_id" : "en:cocoa",
-                  "risk_factor" : 0.15,
+                  "risk_factor" : 0.22,
                   "transformation_factor" : 1
                }
             ]
          },
          "en:palm-oil" : {
-            "footprint_per_kg" : 0.02475,
+            "footprint_per_kg" : 0.023375,
             "grade" : "d",
             "ingredients" : [
                {
                   "equivalence_ingredient" : 1,
                   "equivalence_ingredient_category" : 1,
-                  "footprint_per_kg" : 0.02475,
+                  "footprint_per_kg" : 0.023375,
                   "ingredient_category_id" : "en:palm-oil",
                   "ingredient_id" : "en:palm-oil-and-fat",
                   "label_id" : "en:organic",
@@ -37,13 +37,14 @@
                   "origin_id" : "en:unknown",
                   "percent" : 50,
                   "primary_ingredient_id" : "en:palm-oil",
-                  "risk_factor" : 0.9,
+                  "risk_factor" : 0.85,
                   "transformation_factor" : 1
                }
             ]
          }
       },
-      "total_footprint_per_kg" : 0.04695
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 0.055935
    },
    "ingredients" : [
       {

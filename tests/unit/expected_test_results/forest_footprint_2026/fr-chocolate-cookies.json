@@ -3,6 +3,28 @@
    "forest_footprint_2026" : {
       "grade" : "b",
       "primary_ingredients" : {
+         "en:chicken-and-eggs" : {
+            "footprint_per_kg" : 0.00433854166666667,
+            "grade" : "b",
+            "ingredients" : [
+               {
+                  "conditions_tags" : [],
+                  "footprint_per_kg" : 0.00433854166666667,
+                  "matching_tag_id" : "en:egg",
+                  "percent" : 5.46875,
+                  "percent_estimate" : 5.46875,
+                  "processing_factor" : 1,
+                  "tag_id" : "en:egg",
+                  "tag_type" : "ingredients",
+                  "type" : {
+                     "deforestation_risk" : 0.68,
+                     "name" : "Oeufs Importés",
+                     "soy_feed_factor" : 0.035,
+                     "soy_yield" : 0.3
+                  }
+               }
+            ]
+         },
          "en:cocoa" : {
             "footprint_per_kg" : 0.028328125,
             "grade" : "b",
@@ -67,6 +89,16 @@
                }
             ]
          },
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:dairy",
+                  "ingredient_id" : "en:milk"
+               }
+            ]
+         },
          "en:palm-oil" : {
             "footprint_per_kg" : 0.00150390625,
             "grade" : "b",
@@ -87,7 +119,30 @@
             ]
          }
       },
-      "total_footprint_per_kg" : 0.03107958984375
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 0.0354181315104167
+   },
+   "forest_footprint_data" : {
+      "footprint_per_kg" : 0.00433854166666667,
+      "grade" : "b",
+      "ingredients" : [
+         {
+            "conditions_tags" : [],
+            "footprint_per_kg" : 0.00433854166666667,
+            "matching_tag_id" : "en:egg",
+            "percent" : 5.46875,
+            "percent_estimate" : 5.46875,
+            "processing_factor" : 1,
+            "tag_id" : "en:egg",
+            "tag_type" : "ingredients",
+            "type" : {
+               "deforestation_risk" : 0.68,
+               "name" : "Oeufs Importés",
+               "soy_feed_factor" : 0.035,
+               "soy_yield" : 0.3
+            }
+         }
+      ]
    },
    "ingredients" : [
       {
@@ -311,7 +366,9 @@
    "known_ingredients_n" : 12,
    "lc" : "fr",
    "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
+      "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-b"
    ],
    "unknown_ingredients_n" : 0
 }
