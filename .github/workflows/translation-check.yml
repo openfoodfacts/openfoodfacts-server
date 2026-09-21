@@ -33,7 +33,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gettext
       - name: Validate translation files (PR - changed files only)
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && steps.filter.outputs.translations == 'true'
         run: |
           scripts/check-translations.sh ${{ steps.filter.outputs.translations_files }}
       - name: Validate translation files (push - full scan)
@@ -48,8 +48,9 @@ jobs:
 
       - name: Install Python dependencies
         run: pip install polib
-
+        
       - name: Run translation validation
+        if: github.event_name != 'pull_request' || steps.filter.outputs.translations == 'true'
         id: validation
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
@@ -60,7 +61,7 @@ jobs:
           echo "REPORT_FILE=validation_report.md" >> $GITHUB_OUTPUT
 
       - name: Find existing comment
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && steps.filter.outputs.translations == 'true'
         uses: peter-evans/find-comment@v4
         id: find-comment
         with:
@@ -69,7 +70,7 @@ jobs:
           body-includes: '🔍 Translation Validation Report'
 
       - name: Create or update comment
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && steps.filter.outputs.translations == 'true'
         uses: peter-evans/create-or-update-comment@v5
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
