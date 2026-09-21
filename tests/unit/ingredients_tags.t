@@ -173,7 +173,7 @@ my @tests = (
 			ingredients_text =>
 				"Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"
 		},
-		["en:water", "en:e290", "en:e951", "en:e950"],
+		["en:water", "en:carbonic-acid", "en:e951", "en:e950"],
 	],
 	[{lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, ["en:e951", "en:e950"],],
 	[
