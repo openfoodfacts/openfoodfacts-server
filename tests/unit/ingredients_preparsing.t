@@ -1273,6 +1273,12 @@ my @tests = (
 		lc => 'fr',
 		ingredients_text => 'Dès de courgettes, TOMATES EN DÈS, dès d\'aubergine,sel',
 	},
+	{
+		'id' => 'ingredients-starting-with-ingredients',
+		'lc' => 'en',
+		'ingredients_text' =>
+			'INGREDIENTS Greek Style Yogurt (Milk) (85%), Water, Sugar, Coconut Milk (2%), Desiccated Coconut, Maize Starch, Flavourings, Lactic Acid, Live Bacterial Cultures [Bifidobacterium, Lactobacillus bulgaricus, Streptococcus thermophilus].'
+	}
 );
 
 foreach my $test_ref (@tests) {
