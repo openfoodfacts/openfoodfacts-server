@@ -173,7 +173,7 @@ my @tests = (
 			ingredients_text =>
 				"Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"
 		},
-		["en:water", "en:e290", "en:e951", "en:e950"],
+		["en:water", "en:carbonic-acid", "en:e951", "en:e950"],
 	],
 	[{lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, ["en:e951", "en:e950"],],
 	[
@@ -323,6 +323,10 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "Ingrédient inconnu et sel"}, ["fr:Ingrédient inconnu", "en:salt"],],
 	[{lc => "fr", ingredients_text => "Sel et ingrédient inconnu"}, ["en:salt", "fr:ingrédient inconnu"],],
 	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown fruit"],],
+	[
+		{lc => "en", ingredients_text => "colour (Natural Red 4, mg/kg 1b306(i))"},
+		["en:e120", "en:mg/kg 1b306", "en:i"],
+	],
 
 );
 

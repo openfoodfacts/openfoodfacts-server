@@ -2025,7 +2025,7 @@ pt: E160a(i), Beta-caroteno
 ro: E160a(i), Beta-caroten
 sk: E160a(i), Beta-karotén
 sl: E160a(i), Beta karoten
-sv: E160a(i), Betakaroten, beta-karoten
+sv: E160a(i), betakaroten, beta-karoten, B-karoten
 uk: E160a(i), бета-каротин
 additives_classes:en: en:colour
 anses_additives_of_interest:en: yes
@@ -2165,7 +2165,7 @@ lt: E160b, Anatas, biksinas, norbiksinas
 lv: E160b, Annato, biksīns, norbiksīns
 mt: E160b, Annatto, biksin, norbiksin
 nb: E160b, Annatto
-nl: E160b, annatto, Anatto, Annato, annatto norbixine, annatto bixine
+nl: E160b, annatto, Anatto, Annato, annatto norbixine, annatto bixine, annatto norbixin, norbixin
 pl: E160b, Annato, biksyna, norbiksyna, Annatto, annato norbiksyna
 pt: E160b, Anato, bixina, norbixina, Colorau, Coloral, Urucu
 ro: E160b, Annatto, bixină, norbixină (i)
@@ -4590,21 +4590,6 @@ tr: kükürt dioksit
 uk: Діоксид сірки
 vi: Lưu huỳnh điôxit
 zh: 二氧化硫
-additives_classes:en: en:antioxidant, en:preservative
-anses_additives_of_interest:en: yes
-description:en: SULPHUR DIOXIDE is the chemical compound with the formula SO2.
-# conservateur (E220 [sulfite])
-e_number:en: 220
-efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
-efsa_evaluation_adi:en: 0.7
-efsa_evaluation_date:en: 2016-04-14
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
-efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
-organic_eu:en: authorized
-vegan:en: yes
-vegetarian:en: yes
 # azb:قوقرد دیاوکسید
 # bho:सल्फर डाइऑक्साइड
 # en-ca:Sulfur dioxide
@@ -4616,6 +4601,22 @@ vegetarian:en: yes
 # pt-br:Dióxido de enxofre
 # sco:Sulfur dioxide
 # yue:二氧化硫
+additives_classes:en: en:antioxidant, en:preservative
+anses_additives_of_interest:en: yes
+description:en: Sulphur dioxide is a gas derived from burning elemental sulphur or as a byproduct of metal smelting and fossil fuel combustion. Industrially, it's produced by burning sulphur in oxygen or via the contact process used for sulphuric acid manufacturing. It has a sharp, pungent smell and, in concentrated form, a slightly acidic, irritating taste. In food, it acts as a preservative, antioxidant, and antimicrobial agent, commonly used in dried fruits, wine, fruit juices, and processed potatoes to prevent browning and spoilage. Nutritionally, it contributes no calories, vitamins, or minerals; it's regulated globally as a food additive with permitted maximum levels.
+# conservateur (E220 [sulfite])
+e_number:en: 220
+efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
+efsa_evaluation_adi:en: 0.7
+efsa_evaluation_date:en: 2016-04-14
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
+nova:en: 3
+organic_eu:en: authorized
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q5282
 wikipedia:en: https://en.wikipedia.org/wiki/Sulfur_dioxide
 
@@ -5649,7 +5650,7 @@ vi: E250, Natri nitrit
 zh: E250, 亚硝酸钠
 additives_classes:en: en:preservative
 anses_additives_of_interest:en: yes
-description:en: SODIUM NITRITE is an inorganic compound with the chemical formula NaNO2. it is a food additive used in processed meats and (in some countries) in fish products.
+description:en: A synthetic salt manufactured industrially by reacting sodium hydroxide or sodium carbonate with nitrogen oxide gases, produced worldwide for food and industrial applications. It's typically supplied as a fine white to slightly yellowish crystalline powder. Sodium nitrite itself is essentially tasteless in the small quantities used, though it contributes to the characteristic tangy, savory flavor of cured meats through chemical reactions during processing. Widely used globally as a curing agent and preservative in bacon, ham, sausages, and other processed meats, where it inhibits bacterial growth (notably Clostridium botulinum) and stabilizes color. Nutritionally, it provides no caloric or nutrient value, serving solely a functional preservation role.
 # usage:de:Stabilisator (Natriumnitrit)
 e_number:en: 250
 efsa_evaluation:en: Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250) as food additives
@@ -5660,6 +5661,7 @@ efsa_evaluation_overexposure_risk:en: en:high
 # Mean>ADI adults	95th>ADI adults	Mean>ADI elderly	95th>ADI elderly	Mean>ADI adolescent	95>ADI adolescent	Mean>ADI children	95th>ADI children	Mean>ADI toddlers	95th>ADI toddlers	Mean>ADI infants	95th>ADI infants
 # 0	1	0	1			1	1	1	1	1	1
 efsa_evaluation_url:en: https://zenodo.org/record/1252752/files/EFSAOutputs_KJ_2018.xlsx
+nova:en: 3
 organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
@@ -6359,7 +6361,7 @@ uk: E270, Молочна кислота
 uz: E270, Sut kislota
 vi: E270, axit lactic
 zh: E270, 乳酸
-description:en: LACTIC ACID is an organic compound with the formula CH3CH(OH)CO2H. In the form of its conjugate base called lactate (this is thus different and kept as a separate ingredient). Lactic acid is chiral, consisting of two optical isomers. One is known as L-(+)-lactic acid or (S)-lactic acid and the other, its mirror image, is D-(−)-lactic acid or (R)-lactic acid in food the L-variant is used
+description:en: An organic acid naturally occurring in fermented foods, first identified in sour milk, now produced globally through microbial fermentation. It's manufactured by fermenting carbohydrate sources like corn, sugarcane, or beets with lactic acid bacteria, followed by purification. Lactic acid has a sharp, tangy, sour taste and is used worldwide as an acidulant, preservative, and pH regulator in dairy products, baked goods, beverages, pickled vegetables, and processed meats. It also aids fermentation in foods like yogurt and sauerkraut. Nutritionally, it provides a negligible caloric contribution and no significant vitamins or minerals, functioning primarily as a flavoring and preservation agent rather than a nutrient source.
 # wikidata:en:Q161249
 organic_eu:en: authorized
 vegan:en: yes
@@ -6629,8 +6631,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q5319
 
-# comment:en:products seems to use all kinds of synonyms. Also wikidata is not consistent. Try to stay close to the chemical name:Carbon dioxide.
-
+# comment:en:products seems to use all kinds of synonyms. Also wikidata is not consistent. Try to stay close to the chemical name:Carbon dioxide. Note: carbon dioxide is different from carbonic acid (which is in ingredients.txt)
 en: E290, Carbon dioxide, Carbonic acid gas
 xx: E290
 af: E290, Koolstofdioksied
@@ -6646,14 +6647,14 @@ ca: E290, Diòxid de carboni, dioxid de carboni
 cs: E290, Oxid uhličitý, Plynný oxid uhličitý
 cy: E290, carbon deuocsid
 da: E290, Carbondioxid, Kuldioxidgas, Kuldioxid
-de: E290, Kohlendioxid, Kohlensäure, Kohlenstoffdioxid
+de: E290, Kohlendioxid, Kohlenstoffdioxid
 el: E290, Διοξειδιο του ανθρακα, Αέριο ανθρακικό οξύ
 eo: E290, karbona dioksido
 es: E290, Dióxido de carbono, Anhídrido carbónico, Gas de ácido carbónico
 et: E290, Süsinikdioksiid, süsihappegaas
 fa: E290, کربن دی‌اکسید
-fi: E290, Hiilidioksidi, Hiilidioksidia, hiilihappo, hiilihappoa
-fr: E290, Dioxyde de carbone, Anhydride carbonique, gaz carbonique, Acide carbonique, carbonate d'hydrogène, Gaz de l'acide carbonique, neige carbonique, gaz carbonique naturel, CO², CO2
+fi: E290, Hiilidioksidi, Hiilidioksidia
+fr: E290, Dioxyde de carbone, Anhydride carbonique, gaz carbonique, carbonate d'hydrogène, Gaz de l'acide carbonique, neige carbonique, gaz carbonique naturel, CO², CO2
 ga: E290, Dé-ocsaíd charbóin
 gd: E290, Dà-ogsaid gualain
 gl: E290, Dióxido de carbono
@@ -6689,7 +6690,7 @@ mt: E290, Diossidu tal-karbonju, Gass tal-aċidu karboniku
 my: E290, ကာဗွန်ဒိုင်အောက်ဆိုက်
 nb: E290, karbondioksid, kullsyre
 ne: E290, कार्बनडाइअक्साइड
-nl: E290, Koolstofdioxide, Koolzuurgas, koolzuur
+nl: E290, Koolstofdioxide, Koolzuurgas, kooldioxide
 nn: E290, karbondioksid
 oc: E290, Dioxid de carbòni
 om: E290, Carbon dioxide
@@ -6710,7 +6711,7 @@ so: E290, Kaarboon laba ogsaydh
 sq: E290, Dioksidi i karbonit
 sr: E290, ugljen-dioksid
 su: E290, Karbon dioksida
-sv: E290, Koldioxid, Kolsyregas, kolsyresnö, kolsyra
+sv: E290, Koldioxid, Kolsyregas, kolsyresnö
 ta: E290, காபனீரொக்சைட்டு
 te: E290, కార్బన్ డయాక్సైడ్
 th: E290, คาร์บอนไดออกไซด์
@@ -6916,6 +6917,7 @@ sl: E300, Askorbinska kislina, l-askorbinska kislina
 sv: E300, Askorbinsyra, l-askorbinsyra, Hexuronsyra, Askorbat, Askobinsyror, Askorbin
 additives_classes:en: en:antioxidant, en:sequestrant
 default_additive_class:en: en:vitamin
+description:en: Ascorbic acid is a naturally occurring organic compound found in citrus fruits, berries, and vegetables such as peppers and broccoli. Commercially, it is produced industrially through fermentation of glucose (often derived from corn), followed by chemical conversion steps, yielding a highly pure, food-grade powder. It has a mildly tart, sour taste, similar to citrus. Ascorbic acid is widely used as a food additive (E300) for its antioxidant properties, preventing browning and preserving freshness in juices, canned goods, and processed foods. Nutritionally, it is an essential water-soluble vitamin, contributing to collagen synthesis, immune function, and iron absorption across diverse global diets.
 e_number:en: 300
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of ascorbic acid (E 300), sodium ascorbate (E 301) and calcium ascorbate (E 302) as food additives
 efsa_evaluation_adi_established:en: en:no
@@ -10860,6 +10862,7 @@ ro: E392, Extracte de rozmarin, extract de rozmarin
 sk: E392, Extrakty z rozmarínu
 sl: E392, Izvlečki rožmarina
 sv: E392, Extrakt av rosmarin, rosmarinextrakt
+description:en: Derived from Rosmarinus officinalis, a Mediterranean evergreen shrub cultivated widely across Europe, North Africa, and increasingly in Asia and the Americas. The extract is produced by drying rosemary leaves and processing them through solvent or CO₂ extraction to isolate concentrated compounds, primarily carnosic acid and rosmarinic acid. It carries a robust, herbaceous flavor with piney, slightly peppery, and mildly bitter notes. Commonly used as a natural antioxidant and preservative in processed meats, oils, snacks, and sauces, it helps extend shelf life by slowing oxidation. Nutritionally, rosemary extract contains trace polyphenols and antioxidant compounds, though it's typically used in amounts too small to contribute meaningfully to daily nutrient intake.
 e_number:en: 392
 efsa_evaluation:en: Extension of use of extracts of rosemary (E 392) in fat-based spreads
 efsa_evaluation_date:en: 2015-05-07
@@ -11284,7 +11287,7 @@ pt: E407a, Algas eucheuma transformadas
 ro: E407a, Algă eucheuma prelucrată
 sk: E407a, Spracovaná chaluha eucheuma
 sl: E407a, Predelana morska alga eucheuma
-sv: E407a, Bearbetad eucheumaalg
+sv: E407a, bearbetad eucheumaalg, bearbetad Euchemaalg
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabiliser, en:thickener
 e_number:en: 407a
 efsa_evaluation:en: Re‐evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives
@@ -11668,7 +11671,7 @@ cs: E418, Guma gellan
 da: E418, Gellangummi
 de: E418, Gellan, E 418
 el: E418, Κομμι τζελαν
-es: E418, Goma gellan, goma gellana, goma gelana, E 418
+es: E418, Goma gellan, goma gellana, goma gelana, goma de gelana
 et: E418, Gellankummi
 fi: E418, Gellaanikumi, Gellaanikumia, gellaani
 fr: E418, Gomme gellane, Gomme de gellane, gellan gum, E-418, 71010-52-1
@@ -11690,12 +11693,13 @@ zh: E418, 結蘭膠
 #en-ca: Gellan gum
 #en-gb: Gellan gum
 additives_classes:en: en:stabiliser, en:thickener
-description:en: GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
+description:en: A polysaccharide produced through fermentation of the bacterium Sphingomonas elodea, originally isolated from a pond in the United States and now manufactured globally, with major production in Asia and the Americas. It's made by fermenting sugar with the bacteria, then purifying and drying the resulting gum into a fine powder. Gellan gum is virtually tasteless and odorless, making it ideal as a texturizing agent. Widely used in dairy products, plant-based beverages, desserts, jams, and bakery items to provide gelling, thickening, and stabilizing properties. Nutritionally, it's a non-digestible fiber, contributing negligible calories and no significant vitamins or minerals to the diet.
 e_number:en: 418
 efsa_evaluation:en: Re‐evaluation of gellan gum (E 418) as food additive
 efsa_evaluation_adi_established:en: en:no
 efsa_evaluation_date:en: 2018/06/20
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5296
+nova:en: 4
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q416694
@@ -14907,7 +14911,7 @@ ru: E471, Моно- и диглицериды жирных кислот, мон�
 sk: E471, Mono- a diglyceridy mastných kyselín, Glycerylmonostearát, glycerilmonopalmitát, glycerylmonooleát, monostearín, monopalmitín, monooleín
 sl: E471, Mono- in digliceridi maščobnih kislin, gliceril monostearat, gliceril monopalmitat, gliceril monooleat, monostearin, monopalmitin, monoolein
 sr: E471, mono- i digleciridi masnih kiselina
-sv: E471, Mono- och diglycerider av fettsyror, Glycerylmonostearat, glycerylmonopalmitat, glycerylmonooleat, monostearin, monopalmitin, monoolein
+sv: E471, mono- och diglycerider av fettsyror, mono- och diglycerider av fett, mono- o diglycerider av fettsyror, glycerylmonostearat, glycerylmonopalmitat, glycerylmonooleat, monostearin, monopalmitin, monoolein
 th: โมโน- และไดกลีเซอไรด์ของกรดไขมัน
 additives_classes:en: en:emulsifier, en:stabiliser
 description:en: MONO- AND DIGLYCERIDES OF FATTY ACIDS (E471) refers to a food additive composed of diglycerides and monoglycerides which is used as an emulsifier.
@@ -14920,7 +14924,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acid
 
 < en: E471
 en: mono- and diglycerides of vegetable fatty acids
-sv: mono- och diglycerider av vegetabiliska fettsyror, E471 av vegetabiliskt fett
+sv: mono- och diglycerider av vegetabiliska fettsyror, E471 av vegetabiliskt fett, mono- och diglycerider av vegetabilisk fett, mono o diglycerider av fettsyror (vegetabilisk)
 vegan:en: maybe
 vegetarian:en: yes
 
@@ -23373,30 +23377,31 @@ sh: E954, saharin
 sk: E954, Sacharín a jeho soli na k a ca, sacharín
 sl: E954, Saharin in njegove natrijeve kalijeve in kalcijeve soli, saharin
 sr: E954, сахарин
-sv: E954, Saccharin and its na. k and ca salts, sackarin, Sackarinat, Sackarinater
+sv: E954, sackarin, sackarinat, sackarinater, natriumsackarin
 ta: E954, சாக்கரின்
 th: E954, แซกคารีน
 tr: E954, sakarin
 uk: E954, сахарин
 vi: E954, saccharin
 zh: E954, 糖精
+#azb: E954, ساخارین
+#be-tarask: E954, Цукрын
+#sr-ec: E954, сахарин
+#sr-el: E954, saharin
+#war: E954, sakarina
+#zh-cn: E954, 糖精
+#zh-hans: E954, 糖精
+#zh-hant: E954, 糖精
+#zh-hk: E954, 糖精
+#zh-sg: E954, 糖精
+#zt-tw: E954, 糖精
 additives_classes:en: en:sweetener
+agribalyse_food_code:en: 31064
 ciqual_food_code:en: 31064
 ciqual_food_name:en: Saccharin sweetener
 ciqual_food_name:fr: Édulcorant à la saccharine
-# azb:E954, ساخارین
-# be-tarask:E954, Цукрын
-# sr-ec:E954, сахарин
-# sr-el:E954, saharin
-# war:E954, sakarina
-# zh-cn:E954, 糖精
-# zh-hans:E954, 糖精
-# zh-hant:E954, 糖精
-# zh-hk:E954, 糖精
-# zh-sg:E954, 糖精
-# zt-tw:E954, 糖精
+description:en: Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy.
 e_number:en: 954
-# description:en:Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy.
 non_nutritive_sweetener:en: yes
 sweetener:en: yes
 vegan:en: yes

@@ -156,6 +156,26 @@ my @tests = (
 		}
 	],
 	[
+		'fr-ingredients-cocoa-and-palm-oil-with-rspo-identity-preserved-label',
+		{
+			lc => "fr",
+			ingredients => [
+				{
+					id => "en:cocoa",
+					percent => 50,
+					text => "cacao",
+				},
+				{
+					id => "en:palm-oil",
+					percent => 50,
+					text => "huile de palme",
+				}
+			],
+			origins_tags => ["en:unknown"],
+			labels_tags => ["en:rspo-identity-preserved", "en:rspo"],
+		}
+	],
+	[
 		'fr-chocolate-cookies',
 		{
 			lc => "fr",
@@ -301,6 +321,21 @@ my @tests = (
 			categories_tags => ["en:whole-chickens"],
 		}
 	],
+	[
+		'en-chocolate-ingredients',
+		{
+			lc => "en",
+			ingredients_text => "lean cocoa, cocoa butter, cocoa powder",
+		}
+	],
+	[
+		'fr-pepites-de-chocolat-ingredients',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"pépites de chocolat (sucre, pâte de cacao), pépites de chocolat noir, pépites de chocolat, chocolat au lait",
+		}
+	]
 );
 
 my $json = JSON->new->allow_nonref->canonical;
