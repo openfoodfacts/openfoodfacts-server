@@ -1627,6 +1627,9 @@ $options{nova_groups_tags} = {
 
 	"additives/en:e290" => 4,    # carbon dioxyde
 
+	# should have been picked up as parent is E322
+	"ingredients/en:soya-lecithin" => 4,    # soy lecithins
+
 };
 
 # List of sources from which product data can be imported
