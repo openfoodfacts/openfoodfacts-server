@@ -289,16 +289,16 @@
                "title" : "Green-Score non calculé"
             },
             {
-               "description" : "Absence d'ingrédient associé à un risque de déforestation.",
-               "description_short" : "Absence de risque de déforestation",
-               "grade" : "a",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-simple-a.svg",
+               "description" : "Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels.",
+               "description_short" : "Risque faible de déforestation",
+               "grade" : "b",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-simple-b.svg",
                "id" : "forest_footprint",
-               "match" : 100,
+               "match" : 66,
                "name" : "Empreinte Forêt",
                "panel_id" : "forest_footprint",
                "status" : "known",
-               "title" : "Empreinte Forêt A"
+               "title" : "Empreinte Forêt B"
             }
          ],
          "id" : "environment",
@@ -658,10 +658,30 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
    "forest_footprint_2026" : {
-      "grade" : "a",
-      "primary_ingredients" : {},
-      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
-      "total_footprint_per_kg" : 0
+      "grade" : "b",
+      "primary_ingredients" : {
+         "en:cocoa" : {
+            "footprint_per_kg" : 0.02775,
+            "grade" : "b",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.02775,
+                  "ingredient_category_id" : "en:cocoa-bean",
+                  "ingredient_id" : "en:chocolate",
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
+                  "percent" : 9.375,
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
+         }
+      },
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 0.02775
    },
    "images" : {
       "selected" : {}
