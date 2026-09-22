@@ -277,7 +277,7 @@
       {
          "attributes" : [
             {
-               "description_short" : "1 ultra-processing marker",
+               "description_short" : "2 ultra-processing marker",
                "grade" : "e",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                "id" : "nova",
@@ -1043,6 +1043,10 @@
          [
             "additives",
             "en:e322"
+         ],
+         [
+            "ingredients",
+            "en:soya-lecithin"
          ]
       ]
    },
