@@ -2694,7 +2694,7 @@ Text to analyze
 
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
-								'^produktet indeholder \d{1,3}\s*% fuldkorn$'
+								'^produktet indeholder \d{1,3}\s*% fuldkorn$',
 								'^svarende til \d{1,3}\s*% af tørvægten$',
 								'^kan indeholde(?: spor af)?',  # may contain (traces of)
 								'inden servering$',  # before serving
