@@ -891,15 +891,23 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	my %asked_fields = map {$_ => 1} @fields;
 
 	# lets compute each requested field
-	foreach my $field (@fields) {
+	my %seen_fields = ();
+	for (my $field_i = 0; $field_i < scalar @fields; $field_i++) {
+		my $field = $fields[$field_i];
 
 		# Compatibility with older API versions
 		$field = api_compatibility_for_field($field, $request_ref->{api_version});
+		$fields[$field_i] = $field;
+
+		# A field must never be expanded twice: 'all' and 'updated' expand into key lists,
+		# and a caller-supplied product object may itself contain a key named 'all' or 'updated'.
+		next if $seen_fields{$field}++;
 
 		if ($field eq 'all') {
 			# Return all fields of the product, with processing that depends on the API version used
 			# e.g. in API v3, the "packagings" structure is more verbose than the stored version
-			push @fields, sort keys %{$product_ref};
+			# Never re-add an expansion token, so the expansion cannot re-trigger itself.
+			push @fields, grep {($_ ne 'all') and ($_ ne 'updated')} sort keys %{$product_ref};
 			$all_fields_requested = 1;
 			next;
 		}
@@ -907,7 +915,8 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# Callers of the API V3 WRITE product can send fields = updated to get only updated fields
 		if ($field eq "updated") {
 			if (defined $request_ref->{updated_product_fields}) {
-				push @fields, sort keys %{$request_ref->{updated_product_fields}};
+				push @fields, grep {($_ ne 'all') and ($_ ne 'updated')}
+					sort keys %{$request_ref->{updated_product_fields}};
 				$log->debug("returning only updated fields", {fields => \@fields}) if $log->is_debug();
 			}
 			next;
