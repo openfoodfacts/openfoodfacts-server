@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.106.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.105.0...v2.106.0) (2026-09-18)
+
+
+### Features
+
+* measure the web donation funnel in Matomo ([#14581](https://github.com/openfoodfacts/openfoodfacts-server/issues/14581)) ([4fe9678](https://github.com/openfoodfacts/openfoodfacts-server/commit/4fe967810db51484c45e3e0d3e693ad59e1e88d2))
+* polish donations at large scale ([1bb39df](https://github.com/openfoodfacts/openfoodfacts-server/commit/1bb39dff3dbf9e32fff82e38e40105afe55d4971))
+* polish donations at large scale ([#14500](https://github.com/openfoodfacts/openfoodfacts-server/issues/14500)) ([1bb39df](https://github.com/openfoodfacts/openfoodfacts-server/commit/1bb39dff3dbf9e32fff82e38e40105afe55d4971))
+
+
+### Bug Fixes
+
+* Ensure product_updates are pushed to Redis when a user is deleted ([#14598](https://github.com/openfoodfacts/openfoodfacts-server/issues/14598)) ([e35a403](https://github.com/openfoodfacts/openfoodfacts-server/commit/e35a403e3b2181c5e833e9d9f965742f8decb063))
+* fixes for new forest footprint ([#14579](https://github.com/openfoodfacts/openfoodfacts-server/issues/14579)) ([e297e3a](https://github.com/openfoodfacts/openfoodfacts-server/commit/e297e3ad56b35579e662b0db42c46fa43eb7e53c))
+
 ## [2.105.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.104.0...v2.105.0) (2026-09-16)
 
 
