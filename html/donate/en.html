@@ -227,11 +227,32 @@
                 _paq.push(['trackEvent', 'donation', action, source]);
               }
 
-              // "1T" one-time, "1M" monthly, "1Y" yearly: Donorbox writes the visitor's own
-              // choice back to the widget attribute, so the monthly share reads per source.
+              // "1T" one-time, "1M" monthly, "1Y" yearly, then the currency: Donorbox writes
+              // the visitor's own choices back to the widget attributes, so the monthly share
+              // and the amount read per source. The amount is the event value, snapped to the
+              // nearest step of a fixed ladder so every gift shares its figure with many others.
+              var amountSteps = [1, 2, 3, 5, 10, 15, 20, 25, 30, 50, 75, 100, 150, 200, 300, 500];
+
+              function snapAmount(amount) {
+                var nearest = amountSteps[0];
+                amountSteps.forEach(function (step) {
+                  if (Math.abs(step - amount) < Math.abs(nearest - amount)) {
+                    nearest = step;
+                  }
+                });
+                return nearest;
+              }
+
               function trackWithInterval(action) {
                 var interval = (widget.getAttribute('interval') || '').replace(' ', '');
-                _paq.push(['trackEvent', 'donation', action, source + ':' + (interval || 'na')]);
+                var currency = widget.getAttribute('currency') || '';
+                var amount = parseFloat(widget.getAttribute('amount'));
+                var name = source + ':' + (interval || 'na') + ':' + (currency || 'na');
+                if (amount > 0) {
+                  _paq.push(['trackEvent', 'donation', action, name, snapAmount(amount)]);
+                } else {
+                  _paq.push(['trackEvent', 'donation', action, name]);
+                }
               }
 
               function registerTracking(retriesLeft) {
