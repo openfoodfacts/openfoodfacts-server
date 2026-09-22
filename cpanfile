@@ -114,7 +114,7 @@ requires 'Imager::File::WEBP';
 # with the Debian package as it had errors with building with cpan
 # then "cpanm --cpanfile cpanfile --installdeps ." worked
 requires 'OIDC::Lite';
-requires 'Crypt::JWT';
+requires 'Crypt::JWT', '== 0.035';
 
 # To dynamically load Config_*.pm modules
 requires 'Module::Load';
