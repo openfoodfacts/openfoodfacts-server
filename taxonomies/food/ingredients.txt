@@ -3711,7 +3711,7 @@ bs: Laktoza
 ca: Lactosa
 cs: Laktóza, laktózy
 cy: Lactos
-da: Laktose
+da: laktose, mælkesukker
 de: Lactose, Milchzucker, Laktose
 el: Λακτόζη, λακτόζης
 eo: Laktozo, laktosukero
@@ -9283,7 +9283,7 @@ ar: ملح معالج باليود
 bg: йодирана сол, сол йодирана
 ca: sal iodada
 cs: Jodidovaná sůl, jodizovaná sůl, sůl jodizovaná
-da: salt tilsat jod
+da: joderet salt, salt tilsat jod
 de: Jodsalz, Iodsalz, jodiertes Speisesalz, Salz jodiert
 es: Sal yodada
 fa: نمک یددار
@@ -14572,12 +14572,18 @@ zh: 動物脂肪
 # zh-hant:動物性油脂
 description:en: ANIMAL FATS and oils are lipid materials derived from animals. Physically, oils are liquid at room temperature, and fats are solid. Although many animal parts and secretions may yield oil, in commercial practice, oil is extracted primarily from rendered tissue fats obtained from livestock animals like pigs, chickens and cows.
 usda_fdc_code:en: 172345
-usda_ndb_code:en: 4609
-usda_ndb_name:en: Animal fat, bacon grease
+usda_ndb_proxy_code:en: 4609
+usda_ndb_proxy_name:en: Animal fat, bacon grease
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q1423543
 wikipedia:en: https://en.wikipedia.org/wiki/Animal_fat
+
+< en: animal fat
+en: bacon grease, bacon fat
+da: baconfedt
+usda_ndb_code:en: 4609
+usda_ndb_name:en: Animal fat, bacon grease
 
 < en: animal fat
 en: suet
