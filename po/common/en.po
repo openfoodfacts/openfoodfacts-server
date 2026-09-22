@@ -4309,17 +4309,10 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Please Donate"
 
-msgctxt "provenance_from"
-msgid "From <b>Open Food Facts</b>, the free food database"
-msgstr "From <b>Open Food Facts</b>, the free food database"
-
-msgctxt "provenance_volunteers"
-msgid "built by volunteers since 2012"
-msgstr "built by volunteers since 2012"
-
-msgctxt "provenance_reused"
-msgid "data reused by 300+ apps"
-msgstr "data reused by 300+ apps"
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_provenance_line"
+msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
+msgstr "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"

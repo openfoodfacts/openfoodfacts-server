@@ -72,9 +72,9 @@
             </div>
         </div>
         [% IF product_type == "food" %]
-        <div class="row h-space-normal">
+        <div id="provenance" class="row h-space-normal" hidden>
             <div class="large-12">
-                <p id="provenance" class="provenance" hidden>[% lang('provenance_from') %] · [% lang('provenance_volunteers') %] · [% lang('provenance_reused') %]</p>
+                <p class="provenance">[% f_lang('f_provenance_line', { apps_count => 300 }) %]</p>
             </div>
         </div>
         <script>
