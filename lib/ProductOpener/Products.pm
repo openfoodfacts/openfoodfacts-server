@@ -3210,7 +3210,7 @@ sub review_product_type ($product_ref) {
 	return;
 }
 
-=head2 process_product_edit_rules ($product_ref)
+=head2 process_product_edit_rules ($product_ref, $request_ref = undef)
 
 Process the edit_rules (see C<@edit_rules> in in Config file).
 
@@ -3224,7 +3224,9 @@ It applies to apply an image crop.
 It does not block image upload.
 
 Note: product edit rules were designed for API v0, v1 and v2.
-In v3, parameters are passed in a currently different way, so it is very likely that some rules will not apply correctly.
+API v3 passes pending values in $request_ref->{body_json}{product} (with nutrition data
+nested in nutrition.input_sets), so callers on the v3 path must pass $request_ref;
+pending values are read from the JSON body first, falling back to CGI parameters.
 
 =head3 edit_rules structure
 
@@ -3320,7 +3322,121 @@ sub preprocess_product_field ($field, $value) {
 	return $value;
 }
 
-sub process_product_edit_rules ($product_ref) {
+# Helper to read a pending edit value for edit rules.
+# v0/v1/v2 and the web form pass values as CGI parameters,
+# while API v3 passes them in $request_ref->{body_json}{product}.
+# We first consult the JSON body (flat product field, then nested
+# nutrition input_sets for nutriment_* fields), and fall back to CGI.
+sub _get_edit_rule_request_value ($request_ref, $field) {
+
+	if (defined $request_ref) {
+		my $json_value = deep_get($request_ref, 'body_json', 'product', $field);
+		if (defined $json_value and not ref $json_value) {
+			return remove_tags_and_quote($json_value);
+		}
+		# API v3 sends nutrition data in a nested structure:
+		# product.nutrition.input_sets[].nutrients.{nid}.{value_string,value}
+		# while edit rules name flat fields like nutriment_{nid}.
+		if ($field =~ /^nutriment_(.+?)(_100g)?$/) {
+			my $nid = $1;
+			my $input_sets_ref = deep_get($request_ref, 'body_json', 'product', 'nutrition', 'input_sets');
+			if (ref($input_sets_ref) eq 'ARRAY') {
+				foreach my $set_ref (@{$input_sets_ref}) {
+					next if ref($set_ref) ne 'HASH';
+					my $nutrients_ref = $set_ref->{nutrients};
+					next if ref($nutrients_ref) ne 'HASH';
+					next if not exists $nutrients_ref->{$nid};
+					my $nutrient_ref = $nutrients_ref->{$nid};
+					my $v;
+					if (ref($nutrient_ref) eq 'HASH') {
+						$v = $nutrient_ref->{value_string} // $nutrient_ref->{value};
+					}
+					else {
+						$v = $nutrient_ref;
+					}
+					if (defined $v and not ref $v) {
+						return remove_tags_and_quote("$v");
+					}
+				}
+			}
+		}
+	}
+
+	my $cgi_value = single_param($field);
+	if (defined $cgi_value) {
+		return remove_tags_and_quote(decode utf8 => $cgi_value);
+	}
+	return;
+}
+
+# Whether a pending value was supplied for the exact field name,
+# through either the JSON body or CGI parameters.
+sub _edit_rule_request_value_defined ($request_ref, $field) {
+
+	if (defined $request_ref) {
+		my $json_value = deep_get($request_ref, 'body_json', 'product', $field);
+		if (defined $json_value and not ref $json_value) {
+			return 1;
+		}
+		if ($field =~ /^nutriment_(.+?)(_100g)?$/) {
+			my $nid = $1;
+			my $input_sets_ref = deep_get($request_ref, 'body_json', 'product', 'nutrition', 'input_sets');
+			if (ref($input_sets_ref) eq 'ARRAY') {
+				foreach my $set_ref (@{$input_sets_ref}) {
+					next if ref($set_ref) ne 'HASH';
+					my $nutrients_ref = $set_ref->{nutrients};
+					next if ref($nutrients_ref) ne 'HASH';
+					next if not exists $nutrients_ref->{$nid};
+					my $nutrient_ref = $nutrients_ref->{$nid};
+					my $v;
+					if (ref($nutrient_ref) eq 'HASH') {
+						$v = $nutrient_ref->{value_string} // $nutrient_ref->{value};
+					}
+					else {
+						$v = $nutrient_ref;
+					}
+					if (defined $v) {
+						return 1;
+					}
+				}
+			}
+		}
+	}
+
+	return defined single_param($field);
+}
+
+# Delete a pending value so that an "ignore" rule actually prevents the write,
+# on both the CGI path (Delete) and the API v3 path (body_json).
+sub _delete_edit_rule_request_value ($request_ref, $field) {
+
+	Delete($field);
+	if ((defined $request_ref) and (ref($request_ref) eq 'HASH')) {
+		my $input_product_ref = deep_get($request_ref, 'body_json', 'product');
+		if (ref($input_product_ref) eq 'HASH') {
+			if (exists $input_product_ref->{$field}) {
+				delete $input_product_ref->{$field};
+			}
+		}
+		if ($field =~ /^nutriment_(.+?)(_100g)?$/) {
+			my $nid = $1;
+			my $input_sets_ref = deep_get($request_ref, 'body_json', 'product', 'nutrition', 'input_sets');
+			if (ref($input_sets_ref) eq 'ARRAY') {
+				foreach my $set_ref (@{$input_sets_ref}) {
+					next if ref($set_ref) ne 'HASH';
+					my $nutrients_ref = $set_ref->{nutrients};
+					next if ref($nutrients_ref) ne 'HASH';
+					if (exists $nutrients_ref->{$nid}) {
+						delete $nutrients_ref->{$nid};
+					}
+				}
+			}
+		}
+	}
+	return;
+}
+
+sub process_product_edit_rules ($product_ref, $request_ref = undef) {
 
 	my $code = $product_ref->{code};
 
@@ -3444,13 +3560,12 @@ sub process_product_edit_rules ($product_ref) {
 
 						if (defined $condition) {
 
-							my $param_field = undef;
-							if (defined single_param($field)) {
-								# param_field is the new value defined by edit
-								$param_field = remove_tags_and_quote(decode utf8 => single_param($field));
-							}
-							if ((!defined $param_field) && (defined single_param($default_field))) {
-								$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
+							# param_field is the new value defined by edit.
+							# Read it from the API v3 JSON body first, falling back to CGI parameters
+							# so that the same rule text governs v0/v2, the web form and v3.
+							my $param_field = _get_edit_rule_request_value($request_ref, $field);
+							if (not defined $param_field) {
+								$param_field = _get_edit_rule_request_value($request_ref, $default_field);
 							}
 
 							# if field is not passed, skip rule
@@ -3485,32 +3600,42 @@ sub process_product_edit_rules ($product_ref) {
 								}
 							}
 							elsif ($condition eq '0') {
-								if ((defined single_param($field)) and ($param_field == 0)) {
+								if ((_edit_rule_request_value_defined($request_ref, $field)) and ($param_field == 0)) {
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'equal') {
-								if ((defined single_param($field)) and ($param_field == $value)) {
+								if (    (_edit_rule_request_value_defined($request_ref, $field))
+									and ($param_field == $value))
+								{
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'lesser') {
-								if ((defined single_param($field)) and ($param_field < $value)) {
+								if (    (_edit_rule_request_value_defined($request_ref, $field))
+									and ($param_field < $value))
+								{
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'greater') {
-								if ((defined single_param($field)) and ($param_field > $value)) {
+								if (    (_edit_rule_request_value_defined($request_ref, $field))
+									and ($param_field > $value))
+								{
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'match') {
-								if ((defined single_param($field)) and ($param_field eq $value)) {
+								if (    (_edit_rule_request_value_defined($request_ref, $field))
+									and ($param_field eq $value))
+								{
 									$condition_ok = 1;
 								}
 							}
 							elsif ($condition eq 'regexp_match') {
-								if ((defined single_param($field)) and ($param_field =~ /$value/i)) {
+								if (    (_edit_rule_request_value_defined($request_ref, $field))
+									and ($param_field =~ /$value/i))
+								{
 									$condition_ok = 1;
 								}
 							}
@@ -3542,10 +3667,10 @@ sub process_product_edit_rules ($product_ref) {
 							# Delete the parameters
 
 							if ($type eq 'ignore') {
-								Delete($field);
+								_delete_edit_rule_request_value($request_ref, $field);
 								$log->info("edit_rule: Removed $field") if $log->is_info();
 								if ($default_field ne $field) {
-									Delete($default_field);
+									_delete_edit_rule_request_value($request_ref, $default_field);
 									$log->info("edit_rule: Removed $default_field") if $log->is_info();
 								}
 							}
