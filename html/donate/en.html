@@ -966,6 +966,19 @@
                 }
               }
 
+              // Form pages, once each per visit, as page-id changes: select_amount, upsell,
+              // donor_info, payment, thank_you
+              var stepsSeen = {};
+              var attemptFailed = false;
+
+              function trackStep() {
+                var page = (widget.getAttribute('page-id') || '').replace(/^page_/, '');
+                if (page && !stepsSeen[page]) {
+                  stepsSeen[page] = true;
+                  _paq.push(['trackEvent', 'donation', 'step', source + ':' + page]);
+                }
+              }
+
               function registerTracking(retriesLeft) {
                 if (!widget || widget.dataset.offTrackingRegistered === '1') {
                   return;
@@ -990,13 +1003,25 @@
                   }
                 });
                 observer.observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
+                // the observer above stops after the first change; steps keep counting
+                new MutationObserver(trackStep).observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
 
                 var shadowRoot = widget.shadowRoot;
                 shadowRoot.addEventListener('dbox:payment-initiated', function () {
+                  attemptFailed = false;
                   trackWithInterval('payment_initiated');
                 });
                 shadowRoot.addEventListener('dbox:donation-created', function () {
                   trackWithInterval('succeeded');
+                });
+                // Donorbox reports one failure from more than one place: count it once per attempt
+                ['dbox:donation-failed', 'dbox:payment-recaptcha-failed'].forEach(function (type) {
+                  shadowRoot.addEventListener(type, function () {
+                    if (!attemptFailed) {
+                      attemptFailed = true;
+                      trackWithInterval('failed');
+                    }
+                  });
                 });
               }
 
