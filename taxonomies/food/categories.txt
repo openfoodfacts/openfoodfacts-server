@@ -12654,6 +12654,7 @@ intake24_category_code:en: WINE
 nova:en: 3
 wikidata:en: Q282
 
+< en: Vegan products
 < en: Wines
 en: Vegan wines, Vegan-friendly wines
 da: Veganske vin
@@ -41478,6 +41479,7 @@ tr: Havyar
 ciqual_proxy_food_code:en: 26005
 ciqual_proxy_food_name:en: Caviar, semi-preserved
 ciqual_proxy_food_name:fr: Caviar, semi-conserve
+plant_alternative:en: en:plant-based-caviar-substitutes
 wikidata:en: Q186385
 
 < en: Caviars
@@ -78430,6 +78432,7 @@ fr: Sauces végétariennes façon carbonara
 hr: Vegetarijanski umaci u stilu carbonare
 lt: Carbonara stiliaus vegetariški padažai
 
+< en: Vegan products
 < en: Vegetarian sauces
 en: Vegan sauces
 bg: Веган сосове
@@ -79092,7 +79095,8 @@ hr: Cezar umaci
 it: Salse caesar, salsa caesar
 lt: Cezario padažai
 sv: Caesardressingar
-agribalyse_food_code:en: 11248
+# CIQUAL 11248 is not in Agribalyse yet
+#agribalyse_food_code:en: 11248
 ciqual_food_code:en: 11248
 ciqual_food_name:en: Salad dressing, Caesar style, prepacked
 wikidata:en: Q141281410
@@ -86263,6 +86267,7 @@ fr: Légumes farcis dans l'huile, légumes farcis à l'huile
 en: Vegetarian meals
 description:en: Should be distinguished from vegetable meals, that might contain meat
 
+< en: Vegan products
 < en: Vegetarian meals
 en: Vegan meals
 description:en: Should be distinguished from vegetable meals, that might contain animal products
@@ -87005,6 +87010,7 @@ ciqual_proxy_food_code:en: 25472
 ciqual_proxy_food_name:en: Pizza, vegetables or pizza 4 seasons
 ciqual_proxy_food_name:fr: Pizza aux légumes ou Pizza 4 saisons
 
+< en: Vegan products
 < en: Vegetarian pizzas
 en: Vegan pizzas, Plant-based pizzas, Vegetal pizzas
 da: Veganske pizzaer
@@ -120257,18 +120263,34 @@ en: Agar-agar powder
 fr: Agar agar en poudre
 zh: 琼脂粉
 
-en: Caviar substitutes
-fr: Substituts du caviar
+en: Caviar substitutes, Artificial caviar, Imitation caviar
+da: Kaviarerstatninger
+fr: Substituts du caviar, Imitation de caviar
+ru: Искусственная икра
+sv: Kaviarersättningar
+uk: Штучна ікра
 zh: 仿鱼子酱
+comment:en: do not confuse this with vegan caviars: caviar substitutes are commonly made from fish, crustaceans, and/or molluscs.
+wikidata:en: Q4420444
+
+< en: Caviar substitutes
+< en: Vegan products
+en: Plant-based caviar substitutes, Vegan caviar substitutes, Plant-based caviars, Vegan caviars
+da: Plantebaserede kaviarer, Veganske kaviarer
+fr: Caviars végétaux, Caviar végétal
+sv: Växtbaserade kaviarer, Veganska kaviarer
 
 < en: Caviar substitutes
 < en: Seaweed products
-en: Caviar substitutes from algae
+en: Caviar substitutes from algae, Caviar substitutes from seaweed, Alginate caviar
 es: Sucedáneos de caviar a base de algas
+fr: Imitation de caviar à base d'algues
 hr: Zamjene za kavijar od algi
 nl: Kaviaarvervangers op basis van algen
 
 < en: Caviar substitutes
+en: Synthetic black caviar
+da: Syntetisk sort kaviar
 ru: Синтетическая чёрная икра, искусственная чёрная икра
 
 < en: Frozen foods
@@ -123026,9 +123048,9 @@ agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 wikidata:en: Q181055
 
-< en: Vegan products
+< en: Vegan sausages
 < en: Vegetarian hot dog sausages
-en: Vegan hot dog saucages
+en: Vegan hot dog sausages, Vegan hot dog saucages
 pl: Parówki wegańskie
 agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
@@ -123057,7 +123079,7 @@ agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 
-< en: Vegan products
+< en: Vegan sausages
 < en: Vegetarian sausages
 en: Vegan sausages from tofu, Vegetarian sausages from tofu, Plant-based sausage with tofu (vegan)
 fr: Saucisses végétariennes de tofu, Saucisse végétale au tofu (convient aux véganes ou végétaliens) préemballée
