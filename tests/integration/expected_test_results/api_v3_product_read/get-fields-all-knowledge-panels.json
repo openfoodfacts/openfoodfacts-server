@@ -436,6 +436,17 @@
                   "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
                   "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
                }
+<<<<<<< HEAD
+=======
+            ],
+            "packaging" : [
+               {
+                  "category" : "",
+                  "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b",
+                  "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
+                  "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
+               }
+>>>>>>> ecobalyse-packagings
             ]
          },
          "ecobalyse_request" : {
@@ -624,7 +635,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint grade:</strong> \n                    A\n                </p>\n                <p>No ingredient associated with a deforestation risk.</p>\n                <p><strong>Total Forest Footprint:</strong> \n                    0.00 \n                    m² per kg of food\n                </p>\n                \n                ",
+                     "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint grade:</strong> \n                    A\n                </p>\n                <p>No ingredient associated with a deforestation risk.</p>\n                <p><strong>Total Forest Footprint:</strong> \n                    0.000 \n                    m² per kg of food\n                </p>\n                \n                ",
                      "type" : "summary"
                   }
                },
@@ -640,7 +651,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "a",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-simple-a.svg",
                "name" : "Forest Footprint",
                "subtitle" : "No ingredient associated with a deforestation risk.",
                "title" : "Forest Footprint A  - No deforestation risk",

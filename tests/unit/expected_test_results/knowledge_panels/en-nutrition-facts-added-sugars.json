@@ -97,6 +97,17 @@
                "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
                "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
             }
+<<<<<<< HEAD
+=======
+         ],
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+            }
+>>>>>>> ecobalyse-packagings
          ]
       },
       "ecobalyse_request" : {
@@ -557,7 +568,7 @@
          "level" : "info",
          "title_element" : {
             "grade" : "not_computed",
-            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-not-computed.svg",
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-simple-not-computed.svg",
             "name" : "Forest Footprint",
             "subtitle" : "Potential deforestation risk but not yet computed.",
             "title" : "Forest Footprint not computed ",
