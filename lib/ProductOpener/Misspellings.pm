@@ -142,10 +142,10 @@ Determines the correct case for the replacement string based on the matched text
 
 If the replacement has mixed case, it is returned as-is.
 Otherwise, the case pattern of the matched text is applied to the replacement:
-- all uppercase → all uppercase replacement
-- all lowercase → all lowercase replacement
-- title case → ucfirst replacement
-- otherwise → per-character case preservation
+- all uppercase -> all uppercase replacement
+- all lowercase -> all lowercase replacement
+- title case -> ucfirst replacement
+- otherwise -> per-character case preservation
 
 =cut
 

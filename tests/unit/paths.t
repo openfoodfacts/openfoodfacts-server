@@ -27,6 +27,7 @@ my $EXPECTED_BASE_PATHS = {
 	IMPORT_FILES => "$data_root/import_files",
 	LANG => "$data_root/lang",
 	LOGS => "$data_root/logs",
+	MISSPELLINGS_SRC => "$data_root/misspellings",
 	ORGS => "$data_root/orgs",
 	PRIVATE_DATA => "$data_root/data",
 	PRIVATE_DATA_TESTS => "$src_root/tests/data",
