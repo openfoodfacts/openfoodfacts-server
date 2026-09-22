@@ -403,6 +403,7 @@
          "en:packagings-not-empty",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-number-of-components-1",
+         "en:storage-conditions-not-set",
          "en:main-countries-new-product"
       ],
       "nova_group_debug" : "no nova group when the product does not have ingredients",
@@ -496,7 +497,7 @@
             "number_of_units" : 1,
             "shape" : {
                "id" : "en:bag",
-               "lc_name" : "Bag"
+               "lc_name" : "bag"
             }
          }
       ],

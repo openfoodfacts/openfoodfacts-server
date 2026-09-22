@@ -441,24 +441,15 @@
                "vegetarian" : "yes"
             },
             {
-               "id" : "en:sweetener",
-               "ingredients" : [
-                  {
-                     "id" : "en:e951",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 4.16666666666667,
-                     "percent_max" : 16.6666666666667,
-                     "percent_min" : 0,
-                     "text" : "aspartame",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:sweetener",
+               "id" : "en:e951",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 4.16666666666667,
                "percent_max" : 16.6666666666667,
                "percent_min" : 0,
-               "text" : "sweetener"
+               "text" : "aspartame",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -492,9 +483,9 @@
       "en:vegetarian"
    ],
    "ingredients_lc" : "en",
-   "ingredients_n" : 7,
+   "ingredients_n" : 6,
    "ingredients_n_tags" : [
-      "7",
+      "6",
       "1-10"
    ],
    "ingredients_original_tags" : [
@@ -503,7 +494,6 @@
       "en:salt",
       "en:cocoa",
       "en:cocoa-butter",
-      "en:sweetener",
       "en:e951"
    ],
    "ingredients_percent_analysis" : 1,
@@ -518,7 +508,6 @@
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
       "en:vegetable-fat",
-      "en:sweetener",
       "en:e951"
    ],
    "ingredients_text" : "Milk, chocolate (cocoa, cocoa butter, sweetener: aspartame), salt",
@@ -528,20 +517,18 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:chocolate",
-      "en:e951",
-      "en:sweetener"
+      "en:e951"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:chocolate",
       "en:cocoa",
       "en:cocoa-butter",
       "en:e951",
-      "en:salt",
-      "en:sweetener"
+      "en:salt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 6,
-   "known_ingredients_n" : 7,
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener",

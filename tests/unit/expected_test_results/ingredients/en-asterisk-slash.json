@@ -1,0 +1,171 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "11082",
+         "id" : "en:sea-salt",
+         "is_in_taxonomy" : 1,
+         "percent" : 93,
+         "percent_estimate" : 93,
+         "percent_max" : 93,
+         "percent_min" : 93,
+         "text" : "Sea salt",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11080",
+         "id" : "en:basil",
+         "is_in_taxonomy" : 1,
+         "labels" : "en:organic",
+         "percent_estimate" : 4,
+         "percent_max" : 7,
+         "percent_min" : 1,
+         "text" : "basil",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11080",
+         "id" : "en:thyme",
+         "is_in_taxonomy" : 1,
+         "labels" : "en:organic",
+         "percent_estimate" : 1.5,
+         "percent_max" : 6,
+         "percent_min" : 0,
+         "text" : "thyme",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11080",
+         "id" : "en:rosemary",
+         "is_in_taxonomy" : 1,
+         "labels" : "en:organic",
+         "percent_estimate" : 0.75,
+         "percent_max" : 3,
+         "percent_min" : 0,
+         "text" : "rosemary",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20034",
+         "ecobalyse_code" : "onion-organic",
+         "id" : "en:onion",
+         "is_in_taxonomy" : 1,
+         "labels" : "en:organic",
+         "percent_estimate" : 0.375,
+         "percent_max" : 2,
+         "percent_min" : 0,
+         "text" : "onion",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11080",
+         "id" : "en:sage",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.1875,
+         "percent_max" : 1.5,
+         "percent_min" : 0,
+         "text" : "sage",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11080",
+         "id" : "en:oregano",
+         "is_in_taxonomy" : 1,
+         "labels" : "en:organic",
+         "percent_estimate" : 0.09375,
+         "percent_max" : 1.2,
+         "percent_min" : 0,
+         "text" : "oregano",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "11000",
+         "ecobalyse_code" : "12f8ffd4-cbc0-5d7b-ba0e-9a0acb3e6918",
+         "id" : "en:garlic",
+         "is_in_taxonomy" : 1,
+         "labels" : "en:organic, en:organic",
+         "percent_estimate" : 0.09375,
+         "percent_max" : 1,
+         "percent_min" : 0,
+         "text" : "garlic",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 8,
+   "ingredients_n_tags" : [
+      "8",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:sea-salt",
+      "en:basil",
+      "en:thyme",
+      "en:rosemary",
+      "en:onion",
+      "en:sage",
+      "en:oregano",
+      "en:garlic"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:sea-salt",
+      "en:salt",
+      "en:basil",
+      "en:herb",
+      "en:thyme",
+      "en:rosemary",
+      "en:onion",
+      "en:vegetable",
+      "en:root-vegetable",
+      "en:onion-family-vegetable",
+      "en:sage",
+      "en:oregano",
+      "en:garlic"
+   ],
+   "ingredients_text" : "Sea salt (93%)**, basil*, thyme*, rosemary*, onion*, sage, oregano* and garlic* */ organically grown **/fair trade",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 93,
+   "ingredients_with_unspecified_percent_n" : 7,
+   "ingredients_with_unspecified_percent_sum" : 7,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:basil",
+      "en:oregano",
+      "en:rosemary",
+      "en:sage",
+      "en:sea-salt",
+      "en:thyme"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 6,
+   "known_ingredients_n" : 8,
+   "labels" : "en:fair-trade",
+   "labels_hierarchy" : [
+      "en:fair-trade"
+   ],
+   "labels_lc" : "en",
+   "labels_tags" : [
+      "en:fair-trade"
+   ],
+   "lc" : "en",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

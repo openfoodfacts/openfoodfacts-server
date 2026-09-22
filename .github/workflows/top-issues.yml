@@ -12,6 +12,7 @@ on:
 jobs:
   ShowAndLabelTopIssues:
     name: Display and label top issues.
+    if: github.repository == 'openfoodfacts/openfoodfacts-server'
     runs-on: ubuntu-latest
     steps:
     - name: Run top issues action

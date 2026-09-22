@@ -117,6 +117,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11081",
          "id" : "en:spice",
          "is_in_taxonomy" : 1,
          "origins" : "en:india",
@@ -191,6 +192,7 @@
       "en:potato",
       "en:vegetable",
       "en:root-vegetable",
+      "en:starchy-root-vegetable",
       "en:tuber",
       "en:pork",
       "en:animal",
@@ -220,10 +222,9 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [
       "en:broth",
-      "en:pork",
-      "en:spice"
+      "en:pork"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:broth",
       "en:cream",

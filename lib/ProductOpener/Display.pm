@@ -4299,6 +4299,9 @@ HTML
 
 		$tag_template_data_ref->{world_link} = $world_link;
 		$tag_template_data_ref->{world_link_url} = get_world_subdomain() . $request_ref->{world_current_link};
+		if ($request_ref->{query_parameters}) {
+			$tag_template_data_ref->{world_link_url} .= '?' . $request_ref->{query_parameters};
+		}
 
 	}
 

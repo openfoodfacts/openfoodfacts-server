@@ -92,6 +92,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11080",
          "id" : "en:herb",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -103,6 +104,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11081",
          "id" : "en:spice",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -174,11 +176,8 @@
    "ingredients_with_specified_percent_sum" : 43,
    "ingredients_with_unspecified_percent_n" : 7,
    "ingredients_with_unspecified_percent_sum" : 57,
-   "ingredients_without_ciqual_codes" : [
-      "en:herb",
-      "en:spice"
-   ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
       "en:herb",
       "en:salt",

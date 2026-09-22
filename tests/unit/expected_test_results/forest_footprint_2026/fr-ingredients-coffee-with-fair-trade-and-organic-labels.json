@@ -1,30 +1,30 @@
 {
    "forest_footprint_2026" : {
-      "grade" : "d",
+      "grade" : "b",
       "primary_ingredients" : {
          "en:cocoa" : {},
          "en:coffee" : {
-            "footprint_per_kg" : 0.082125,
-            "grade" : "d",
+            "footprint_per_kg" : 0.0136875,
+            "grade" : "b",
             "ingredients" : [
                {
                   "equivalence_ingredient" : 1.25,
                   "equivalence_ingredient_category" : 1,
-                  "footprint_per_kg" : 0.082125,
+                  "footprint_per_kg" : 0.0136875,
                   "ingredient_category_id" : "en:coffee",
                   "ingredient_id" : "en:coffee",
-                  "label_id" : "en:organic",
+                  "label_id" : "en:fair-trade",
                   "origin_footprint" : 0.073,
                   "origin_id" : "en:unknown",
                   "percent" : 100,
                   "primary_ingredient_id" : "en:coffee",
-                  "risk_factor" : 0.9,
+                  "risk_factor" : 0.15,
                   "transformation_factor" : 1.25
                }
             ]
          }
       },
-      "total_footprint_per_kg" : 0.082125
+      "total_footprint_per_kg" : 0.0136875
    },
    "ingredients" : [
       {

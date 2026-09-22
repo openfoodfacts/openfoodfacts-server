@@ -247,7 +247,7 @@ if (    (not defined single_param('json'))
 	and (not defined single_param('jqm_loadmore'))
 	and (not defined single_param('xml'))
 	and (not defined single_param('rss'))
-	and ($search_terms =~ /^(\d{4,24}|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+)$/))
+	and ($search_terms =~ /^(\d{4,40}|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+)$/))
 {
 
 	my $code = normalize_code($search_terms);

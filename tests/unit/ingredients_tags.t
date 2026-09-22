@@ -44,10 +44,7 @@ my @tests = (
 			ingredients_text =>
 				"Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"
 		},
-		[
-			"en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:natural-flavouring",
-			"en:tea-extract", "en:e330"
-		],
+		["en:volvic-natural-mineral-water", "en:sugar", "en:e330", "en:natural-flavouring", "en:tea-extract",],
 	],
 	[
 		{
@@ -78,10 +75,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "Traces de moutarde"}, [],],
 
 	[{lc => "es", ingredients_text => "Quinoa"}, ["en:quinoa",],],
-	[
-		{lc => "es", ingredients_text => "aromas y antioxidante: ácido cítrico"},
-		["en:flavouring", "en:antioxidant", "en:e330",],
-	],
+	[{lc => "es", ingredients_text => "aromas y antioxidante: ácido cítrico"}, ["en:flavouring", "en:e330",],],
 	[{lc => "es", ingredients_text => "aromas y antioxidante"}, ["en:flavouring", "en:antioxidant",],],
 	[{lc => "es", ingredients_text => "manzanas 10% y naranjas 5%"}, ["en:apple", "en:orange",],],
 	[
@@ -90,7 +84,7 @@ my @tests = (
 			ingredients_text =>
 				"sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara."
 		},
-		["en:salt", "en:acid", "en:e330"],
+		["en:salt", "en:e330"],
 	],
 
 	[{lc => "fi", ingredients_text => "valkosipuli ja suola"}, ["en:garlic", "en:salt",],],
@@ -100,12 +94,12 @@ my @tests = (
 			ingredients_text =>
 				"Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"
 		},
-		["en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250"],
+		["en:sugar", "en:spice", "en:e300", "en:e250"],
 	],
 	[{lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, ["en:e951", "en:e950"],],
 	[
 		{lc => "fi", ingredients_text => "Värit (Punajuuriväri, Paprikauute, Kurkumiini)"},
-		["en:colour", "en:e162", "en:e160c", "en:e100"],
+		["en:e162", "en:e160c", "en:e100"],
 	],
 	[
 		{lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"},
@@ -121,7 +115,7 @@ my @tests = (
 			ingredients_text =>
 				"Zucker, Gewürze, Antioxidations-mittel: Ascorbinsäure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."
 		},
-		["en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250"],
+		["en:sugar", "en:spice", "en:e300", "en:e250"],
 	],
 
 	[
@@ -179,12 +173,12 @@ my @tests = (
 			ingredients_text =>
 				"Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"
 		},
-		["en:water", "en:e290", "en:sweetener", "en:e951", "en:e950"],
+		["en:water", "en:e290", "en:e951", "en:e950"],
 	],
 	[{lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, ["en:e951", "en:e950"],],
 	[
 		{lc => "de", ingredients_text => "Farbstoffe (Betenrot, Paprikaextrakt, Kurkumin)"},
-		["en:colour", "en:e162", "en:e160c", "en:e100"],
+		["en:e162", "en:e160c", "en:e100"],
 	],
 
 	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
@@ -196,7 +190,7 @@ my @tests = (
 	],
 	[
 		{lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"},
-		["en:unrefined-cane-sugar", "en:raw-banana", "en:tomato", "en:unrefined-sugar"]
+		["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]
 	],
 
 	[

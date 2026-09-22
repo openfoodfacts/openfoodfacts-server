@@ -173,6 +173,7 @@ jobs:
           echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env
           echo "CROWDIN_PROJECT_IDENTIFIER=${{ env.CROWDIN_PROJECT_IDENTIFIER }}" >> .env
           echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
+          echo "ECOBALYSE_API_TOKEN=${{ secrets.ECOBALYSE_API_TOKEN }}" >> .env
           echo "GEOLITE2_PATH=${{ env.GEOLITE2_PATH }}" >> .env
           echo "GEOLITE2_LICENSE_KEY=${{ secrets.GEOLITE2_LICENSE_KEY }}" >> .env
           echo "GEOLITE2_ACCOUNT_ID=${{ secrets.GEOLITE2_ACCOUNT_ID }}" >> .env

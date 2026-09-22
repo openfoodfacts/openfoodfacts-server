@@ -89,6 +89,7 @@ use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_stan
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::API qw/add_error add_warning/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 
 # FIXME: remove single_param and use request_param
@@ -1471,6 +1472,16 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 
 	# We use a temporary input sets hash to ease setting values
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+
+	# Product types for which the nutrition feature is disabled (e.g. beauty products) have no valid
+	# input set (no preparation and no per), so their nutrition facts cannot be edited nutrient by nutrient.
+	# Some of those products still have nutrition data (added before the feature was disabled, or imported):
+	# checking the "no nutrition data" checkbox deletes it, as the product edit API v2 already does.
+	if ((not feature_enabled("nutrition", $product_ref)) and (has_no_nutrition_data_on_packaging($product_ref))) {
+		delete $input_sets_hash_ref->{$source};
+		# The flag itself is not relevant for those products, we only use it as a way to delete the data
+		delete $product_ref->{nutrition}{no_nutrition_data_on_packaging};
+	}
 
 	# Assign all the nutrient values
 
