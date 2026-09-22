@@ -227,6 +227,13 @@
                 _paq.push(['trackEvent', 'donation', action, source]);
               }
 
+              // "1T" one-time, "1M" monthly, "1Y" yearly: Donorbox writes the visitor's own
+              // choice back to the widget attribute, so the monthly share reads per source.
+              function trackWithInterval(action) {
+                var interval = (widget.getAttribute('interval') || '').replace(' ', '');
+                _paq.push(['trackEvent', 'donation', action, source + ':' + (interval || 'na')]);
+              }
+
               function registerTracking(retriesLeft) {
                 if (!widget || widget.dataset.offTrackingRegistered === '1') {
                   return;
@@ -254,10 +261,10 @@
 
                 var shadowRoot = widget.shadowRoot;
                 shadowRoot.addEventListener('dbox:payment-initiated', function () {
-                  track('payment_initiated');
+                  trackWithInterval('payment_initiated');
                 });
                 shadowRoot.addEventListener('dbox:donation-created', function () {
-                  track('succeeded');
+                  trackWithInterval('succeeded');
                 });
               }
 
