@@ -2696,8 +2696,8 @@ Text to analyze
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
 								'^produktet indeholder \d{1,3}\s*% fuldkorn$',
 								'^svarende til \d{1,3}\s*% af tørvægten$',
-								'^kan indeholde(?: spor af)?',  # may contain (traces of)
-								'inden servering$',  # before serving
+								'^kan indeholde(?: spor af)?',    # may contain (traces of)
+								'inden servering$',    # before serving
 							],
 
 							'de' => [
@@ -2758,7 +2758,7 @@ Text to analyze
 								'^sisältää kaakaovoin lisäksi muita kasvirasvoja$',
 								'^Vähintään \d{1,3}\s*% kaakaota maitosuklaassa$',
 								'^(?:Täysmehu|hedelmä|ruis)(?:osuus|pitoisuus)',
-								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)?',  # may contain
+								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)?',    # may contain
 								'^Sisältää \d{1,3}\s*% (?:siemeniä|kauraa)$',
 								'^Maitosuklaa sisältää kaakaota vähintään',
 								'^vastaa \d{1,3}\s*% viljaraaka-aineista$',
@@ -2812,7 +2812,7 @@ Text to analyze
 
 							'nb' => [
 								'^Pakket i beskyttende atmosfære$',
-								'^kan inneholde(?: rester av)?',  # may contain (traces of)
+								'^kan inneholde(?: rester av)?',    # may contain (traces of)
 								'^Minst \d+ ?% kakao',
 							],
 
@@ -2862,7 +2862,7 @@ Text to analyze
 								'motsvarande \d{1,3}\s+% av torrvikten$',
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
 								'^Mjölkchokladen innehåller minst',
-								'^kan innehälla(?: spår av)?',  # may contain (traces of)
+								'^kan innehälla(?: spår av)?',    # may contain (traces of)
 								'innehåller \d+\s*(?:g|%)',
 								'^Kakaohalt i chokladen$',
 								'varierande proportion',
