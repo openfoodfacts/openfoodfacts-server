@@ -907,7 +907,8 @@ sub compute_attribute_forest_footprint ($product_ref, $target_lc) {
 	else {
 		# If we don't have a forest footprint, we assume it is zero and mark it as unknown
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-2026-simple-unknown.svg";
+		$attribute_ref->{icon_url}
+			= "$static_subdomain/images/attributes/dist/forest-footprint-2026-simple-unknown.svg";
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_forest_footprint_unknown_title");
