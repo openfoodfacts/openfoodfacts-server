@@ -651,8 +651,8 @@ vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Gelatin
 
 < en: gelatin
-en: gelatin sheet, gelatin sheets, gelatine sheet, gelatine sheets, leaf gelatin, sheet gelatin
-fr: feuille de gélatine, feuilles de gélatine, gélatine en feuille, gélatine en feuilles
+en: gelatin sheet, gelatine sheet, leaf gelatin, sheet gelatin
+fr: feuille de gélatine, gélatine en feuille
 
 < en: gelatin
 en: gelatin powder, gelatine powder, powdered gelatin, powdered gelatine
@@ -35249,7 +35249,7 @@ da: Chokoladestykker, stykker af chokolade
 de: Schokoladenstücke, Schokoladenstückchen
 es: copos de chocolate, pepitas de chocolate, gotas de chocolate, chips de chocolate
 fi: suklaapalat, suklaarouhe
-fr: morceaux de chocolat, pépites de chocolat, copeaux de chocolat, morceau de chocolat, pépite de chocolat, copeau de chocolat
+fr: morceaux de chocolat, pépites de chocolat, copeaux de chocolat
 he: שברי שוקולד, נטיפי שוקולד, שוקולד צ׳יפס, שוקולד צ'יפס, חתיכות שוקולד
 # hr:komadići čokolade, čokoladni komadići, čokoladni posip # see ingredients_processings.txt
 it: pezzi di cioccolato, gocce di cioccolato
@@ -35410,7 +35410,7 @@ bg: парчета тъмен шоколад
 de: Bitterschokoladenstückchen, Zartbitterschokoladenplättchen, Zartbitter-Schokoladenplättchen
 es: Trozos de chocolate negro, pepitas de chocolate negro, pedacitos de chocolate negro
 fi: tumma suklaarouhe
-fr: morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir, morceau de chocolat noir, pépite de chocolat noir, copeau de chocolat noir
+fr: morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir
 hr: kapljice tamne čokolade
 it: pezzetti di cioccolato fondente
 nl: stukjes pure chocolade
@@ -52043,12 +52043,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/parsley
 # en:22363 in 51 @2021-09-16
 
 < en: parsley
-en: parsley sprig, parsley sprigs
-fr: brin de persil, brins de persil, branche de persil, branches de persil
+en: parsley sprig
+fr: brin de persil, branche de persil
 
 < en: parsley sprig
-en: fresh parsley sprig, fresh parsley sprigs
-fr: brin de persil frais, brins de persil frais, branche de persil frais, branches de persil frais
+en: fresh parsley sprig
+fr: brin de persil frais, branche de persil frais
 # Reference portion for fresh parsley: USDA SR Legacy, FDC 170416, portion 86609, 10 sprigs = 10 g.
 # https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
 average_weight_per_unit:en: 1
@@ -53284,7 +53284,7 @@ ifct_food_name:en: Celery stalk
 en: celery leaves
 de: Sellerieblätter, Sellerieblatt
 es: apio hoja
-fr: feuilles de céleri, feuille de céleri
+fr: feuilles de céleri
 hr: lišće celera
 it: foglie di sedano
 nl: selderblad, bladselderij
@@ -56007,15 +56007,15 @@ wikidata:en: Q21546392
 wikipedia:en: https://en.wikipedia.org/wiki/Garlic
 
 < en: garlic
-en: garlic clove, garlic cloves
-fr: gousse d'ail, gousses d'ail
+en: garlic clove
+fr: gousse d'ail
 # Reference edible portion of raw garlic: USDA FDC 169230, portion 84480, 1 clove = 3 g.
 # Also documented by the Canadian Nutrient File: https://food-nutrition.canada.ca/cnf-fce/serving-portion?id=2394
 average_weight_per_unit:en: 3
 
 < en: garlic
-en: garlic bulb, garlic bulbs, head of garlic, heads of garlic
-fr: tête d'ail, têtes d'ail, bulbe d'ail, bulbes d'ail
+en: garlic bulb, head of garlic
+fr: tête d'ail, bulbe d'ail
 # Reference edible portion, excluding base and skin; not the gross weight of every bulb.
 # Canadian Nutrient File, food 2394: 1 bulb = 24 g. https://food-nutrition.canada.ca/cnf-fce/serving-portion?id=2394
 average_weight_per_unit:en: 24
@@ -69704,8 +69704,8 @@ usda_ndb_proxy_process:en: en:ground
 wikidata:en: Q28165
 
 < en: cinnamon
-en: cinnamon stick, cinnamon sticks
-fr: bâton de cannelle, bâtons de cannelle
+en: cinnamon stick
+fr: bâton de cannelle
 
 #comment:en:kept for ciqual
 < en: cinnamon
@@ -71010,12 +71010,12 @@ wikidata:en: Q59659860
 wikipedia:en: https://en.wikipedia.org/wiki/Dill
 
 < en: dill
-en: dill sprig, dill sprigs
-fr: brin d'aneth, brins d'aneth, branche d'aneth, branches d'aneth
+en: dill sprig
+fr: brin d'aneth, branche d'aneth
 
 < en: dill sprig
-en: fresh dill sprig, fresh dill sprigs
-fr: brin d'aneth frais, brins d'aneth frais, branche d'aneth frais, branches d'aneth frais
+en: fresh dill sprig
+fr: brin d'aneth frais, branche d'aneth frais
 # Reference portion for fresh dill: USDA SR Legacy, FDC 172233, portion 90128, 5 sprigs = 1 g.
 # https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
 average_weight_per_unit:en: 0.2
@@ -71179,8 +71179,8 @@ wikidata:en: Q68315046
 wikipedia:en: https://en.wikipedia.org/wiki/rosemary
 
 < en: rosemary
-en: rosemary sprig, rosemary sprigs
-fr: brin de romarin, brins de romarin, branche de romarin, branches de romarin
+en: rosemary sprig
+fr: brin de romarin, branche de romarin
 
 < en: rosemary
 en: fresh rosemary
@@ -71295,8 +71295,8 @@ wikidata:en: Q33913
 wikipedia:en: https://en.wikipedia.org/wiki/Cymbopogon
 
 < en: lemongrass
-en: lemongrass stalk, lemongrass stalks
-fr: tige de citronnelle, tiges de citronnelle
+en: lemongrass stalk
+fr: tige de citronnelle
 
 < en: lemongrass
 en: raw lemongrass
@@ -71429,7 +71429,7 @@ bg: листа от мента
 de: Minzblätter
 es: hojas de menta, hoja de menta, menta en hojas
 fi: mintunlehti, mintunlehdet
-fr: feuilles de menthe, feuille de menthe
+fr: feuilles de menthe
 hr: list metvice
 it: foglio di menta, foglie di menta intere
 pl: liść mięty, liście mięty
@@ -71437,18 +71437,18 @@ ifct_food_code:en: G016
 ifct_food_name:en: Mint leaves
 
 < en: mint
-en: mint sprig, mint sprigs
-fr: brin de menthe, brins de menthe, branche de menthe, branches de menthe
+en: mint sprig
+fr: brin de menthe, branche de menthe
 
 < en: mint leaf
 < en: spearmint
 en: spearmint leaf, spearmint leaves
-fr: feuille de menthe verte, feuilles de menthe verte
+fr: feuille de menthe verte
 
 < en: fresh spearmint
 < en: spearmint leaf
 en: fresh spearmint leaf, fresh spearmint leaves
-fr: feuille de menthe verte fraîche, feuilles de menthe verte fraîche, feuille fraîche de menthe verte, feuilles fraîches de menthe verte
+fr: feuille de menthe verte fraîche, feuille fraîche de menthe verte
 # Reference portion for fresh spearmint only: USDA SR Legacy, FDC 173475, portion 92612, 2 leaves = 0.3 g.
 # https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
 average_weight_per_unit:en: 0.15
@@ -71966,8 +71966,8 @@ wikidata:en: Q3215980
 wikipedia:en: https://en.wikipedia.org/wiki/Thyme
 
 < en: thyme
-en: thyme sprig, thyme sprigs
-fr: brin de thym, brins de thym, branche de thym, branches de thym
+en: thyme sprig
+fr: brin de thym, branche de thym
 
 < en: thyme
 en: fresh thyme
@@ -72079,7 +72079,7 @@ it: verbena biologica
 nl: biologisch ijzerhard
 
 < en: verbena
-fr: feuilles de verveine, feuille de verveine
+fr: feuilles de verveine
 de: verbenenblätter
 es: hojas de verbena
 it: foglie di verbena
@@ -72347,19 +72347,19 @@ usda_ndb_name:en: Basil, fresh
 < en: basil
 en: basil leaf, basil leaves
 de: Basilikumblätter
-fr: Feuilles de basilic, feuille de basilic
+fr: Feuilles de basilic
 hr: list bosiljka
 it: foglia di basilico
 pl: liście bazylii
 
 < en: basil
-en: basil sprig, basil sprigs
-fr: brin de basilic, brins de basilic, branche de basilic, branches de basilic
+en: basil sprig
+fr: brin de basilic, branche de basilic
 
 < en: Fresh basil
 < en: basil leaf
 en: fresh basil leaf, fresh basil leaves
-fr: feuille de basilic frais, feuilles de basilic frais, feuille fraîche de basilic, feuilles fraîches de basilic
+fr: feuille de basilic frais, feuille fraîche de basilic
 # Reference portion for fresh basil: USDA SR Legacy, FDC 172232, portion 90125, 5 leaves = 2.5 g.
 # https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
 average_weight_per_unit:en: 0.5
@@ -73085,7 +73085,7 @@ da: laurbær, laurbærblade
 de: lorbeer, lorbeerblatt, lorbeerblätter
 es: hoja de laurel, laurel
 fi: laakerinlehti
-fr: feuille de laurier, feuilles de laurier, laurier
+fr: feuille de laurier, laurier
 hi: तेज पत्ता
 hr: lovor, lovorov
 hu: babérlevél
@@ -76532,7 +76532,7 @@ da: vaniljestang, vaniljestænger
 de: Vanilleschoten
 es: vainas de vainilla, vaina de vainilla
 fi: vaniljatanko, vaniljapapu
-fr: gousse de vanille, gousses de vanille, écorce de vanille, vanille en gousse, vanille en gousses
+fr: gousse de vanille, gousses de vanille, écorce de vanille, vanille en gousse
 hr: mahune vanilije, mahuna vanilije
 it: baccelli di vaniglia, bacche di vaniglia
 nl: vanillestokje, vanillestokjes
@@ -76611,7 +76611,7 @@ da: vaniljekorn
 de: Vanillesamen
 es: Semillas de vainilla
 fi: vaniljansiemen, vaniljan siemenet
-fr: graines de vanille, graine de vanille, grain de vanille, grains de vanille
+fr: graines de vanille, grain de vanille
 hr: sjemenke vanilije
 it: semi di vaniglia
 nl: vanillezaad, vanillezaadjes
@@ -93692,12 +93692,12 @@ en: phyllo dough, filo dough, filo pastry, phyllo pastry
 fr: pâte filo, pâte phyllo
 
 < en: phyllo dough
-en: phyllo dough sheet, phyllo dough sheets, filo pastry sheet, filo pastry sheets
-fr: feuille de pâte filo, feuilles de pâte filo, feuille de filo, feuilles de filo, feuille de pâte phyllo, feuilles de pâte phyllo
+en: phyllo dough sheet, filo pastry sheet
+fr: feuille de pâte filo, feuille de filo, feuille de pâte phyllo
 
 < en: dough
 en: raw shortbread dough
-fr: pâte sablée crue, pâtes sablées crues
+fr: pâte sablée crue
 
 < en: dough
 en: shortcrust dough
