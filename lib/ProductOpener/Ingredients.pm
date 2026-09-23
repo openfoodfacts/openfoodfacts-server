@@ -127,6 +127,7 @@ use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 use ProductOpener::IngredientsStrings qw/:all/;
+use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
 
 use Encode;
 use Clone qw(clone);
@@ -955,25 +956,44 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 	my %origin_of_the_regexp_in_lc = (
 		en => "(?:origin of (?:the )?)",
 		al => "(?:vendi i origjinës)",
+		ar => "(?:بلد المنشأ|المنشأ)",
 		bg => "(?:страна на произход)",
-		cs => "(?:země původu)",
 		ca => "(?:origen)",
+		cs => "(?:země původu)",
 		da => "(?:oprindelse)",
+		de => "(?:ursprungsland)?|herkunftsland)?)",
+		el => "(?:χώρα προέλευσης|προέλευση)",
 		es => "(?:origen)",
+		et => "(?:päritolu(?:riik)?)",
 		fi => "(?:alkuperä)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
+		hi => "(?:उत्पत्ति का देश|मूल)",
 		hr => "(?:zemlja (?:porijekla|podrijetla|podrijetlo|porekla)|uzgojeno u)",
 		hu => "(?:származási (?:hely|ország))",
-		it => "(?:paese di (?:molitura|coltivazione del grano))",
+		id => "(?:asal|negara asal)",
+		is => "(?:upprunaland|uppruni)",
+		it => "(?:origine|paese di (?:origine|molitura|coltivazione del grano))",
+		ja => "(?:原産国(?:名)?|原産地)",
+		ko => "(?:원산지)",
+		lt => "(?:kilmės (?:šalis|valstybė)|kilmė)",
 		lv => "(?:izcelsmes valsts)",
 		mk => "(?:земја на потекло)",
+		mt => "(?:(?:pajjiż ta' )?ori[gġ]ini)",
 		nb => "(?:opprinnelse)",
+		nl => "(?:land van )?(?:oorsprong|herkomst)",
 		pl => "(?:kraj pochodzenia)",
+		pt => "(?:origem(?: de)?|país de origem)",
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
+		ru => "(?:страна происхождени[яи]|происхождение)",
+		sk => "(?:krajina pôvodu|pôvod)",
 		sl => "(?:(?:država|krajina) porekla|gojeno(?: v))",
 		sv => "(?:ursprung(?:sland)?|odla(?:de|t) i(?:nom)?)",
-		uk => "(?:kраїна походження)",
+		th => "(?:ประเทศที่ผลิต|แหล่งกำเนิด)",
+		tr => "(?:menşei?|üretim yeri|menşe ülkesi)",
+		uk => "(?:країна походження)",
+		vi => "(?:xuất xứ|nguồn gốc)",
+		zh => "(?:原产(?:国|地)|產(?:地|國))",
 	);
 
 	my $origin_of_the_regexp = $origin_of_the_regexp_in_lc{$ingredients_lc} || $origin_of_the_regexp_in_lc{en};
@@ -2694,6 +2714,10 @@ Text to analyze
 
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
+								'^produktet indeholder \d{1,3}\s*% fuldkorn$',
+								'^svarende til \d{1,3}\s*% af tørvægten$',
+								'^kan indeholde(?: spor af)?',    # may contain (traces of)
+								'inden servering$',    # before serving
 							],
 
 							'de' => [
@@ -2739,7 +2763,7 @@ Text to analyze
 								'^y compris les cereales contenant du gluten$',
 								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
 								'^(les allerg[èe]nes )?sont indiques en gras$',
-								'^Conditionné[es]* sous atmosphère',    # ... protectrice/contrôlée/modifiée/etc
+								'^Conditionné[es]* sous atmosph[èe]re',    # ... protectrice/contrôlée/modifiée/etc
 							],
 
 							'fi' => [
@@ -2754,7 +2778,7 @@ Text to analyze
 								'^sisältää kaakaovoin lisäksi muita kasvirasvoja$',
 								'^Vähintään \d{1,3}\s*% kaakaota maitosuklaassa$',
 								'^(?:Täysmehu|hedelmä|ruis)(?:osuus|pitoisuus)',
-								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)$',
+								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)?',    # may contain
 								'^Sisältää \d{1,3}\s*% (?:siemeniä|kauraa)$',
 								'^Maitosuklaa sisältää kaakaota vähintään',
 								'^vastaa \d{1,3}\s*% viljaraaka-aineista$',
@@ -2806,7 +2830,11 @@ Text to analyze
 								'その他',    # etc.
 							],
 
-							'nb' => ['^Pakket i beskyttende atmosfære$', '^Minst \d+ ?% kakao',],
+							'nb' => [
+								'^Pakket i beskyttende atmosfære$',
+								'^kan inneholde(?: rester av)?',    # may contain (traces of)
+								'^Minst \d+ ?% kakao',
+							],
 
 							'nl' => [
 								'^allergie.informatie$', 'in wisselende verhoudingen',
@@ -2849,8 +2877,13 @@ Text to analyze
 							'sr' => ['klasa ii',],
 
 							'sv' => [
+								'^fullkornshalten i brödet är \d{1,3}\s*% vilket motsvarar \d{1,3}\s+% av torrvikten$',
+								'^till 100\s*g färdig vara har \d+\s*g [\w\s]+ använts$',
+								'motsvarande \d{1,3}\s+% av torrvikten$',
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
 								'^Mjölkchokladen innehåller minst',
+								'^kan innehälla(?: spår av)?',    # may contain (traces of)
+								'innehåller \d+\s*(?:g|%)',
 								'^Kakaohalt i chokladen$',
 								'varierande proportion',
 								'kan innehålla ben$',
@@ -6799,6 +6832,7 @@ This function transform the ingredients list in a more normalized list that is e
 It does the following:
 
 - Normalize quote characters
+- Fix common misspellings (from misspellings/ingredients_misspellings.txt )
 - Replace abbreviations by their full name
 - Remove extra spaces in compound words width dashes (e.g. céléri - rave -> céléri-rave)
 - Split vitamins enumerations
@@ -6888,6 +6922,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
+
+	# Misspelling corrections (applied early so they don't interfere with other normalizations)
+	apply_misspelling_replacements("ingredients", $ingredients_lc, \$text);
 
 	# vegetable oil (coconut & rapeseed)
 	# turn & to and
@@ -7013,6 +7050,16 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# ! caramel E150d -> caramel - E150d -> e150a - e150d ...
 	$text =~ s/(caramel|caramels)(\W*)e150/e150/ig;
+
+	# re-attach orphan additive variants like "e160a (ii)" that survived the normalization
+	# above: the additives regexp does not allow a space before the parenthetical variant
+	# when the language "and" word is " i " (ca, hr, pl, uk). The letter is optional so
+	# that "e451 (i)" is re-attached like "e451a (i)".
+	# Oxidation states (e.g. "fer (ii)") are left untouched: the ingredient parser splits
+	# parenthetical content before taxonomy matching, and the parent name without the
+	# numeral is usually already a synonym, so stripping would only remove a small unknown
+	# child at the cost of misattributing additives elsewhere.
+	$text =~ s/\b(e\d{3,4}[a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/$1$2/ig;
 
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)

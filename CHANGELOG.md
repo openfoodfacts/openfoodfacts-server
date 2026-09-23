@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.107.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.106.2...v2.107.0) (2026-09-23)
+
+
+### Features
+
+* correct common misspellings in ingredients and brands ([#14612](https://github.com/openfoodfacts/openfoodfacts-server/issues/14612)) ([aa1ef96](https://github.com/openfoodfacts/openfoodfacts-server/commit/aa1ef96614e1f88d910c4a6cd724e3de7c15ae62))
+
+
+### Bug Fixes
+
+* forest footprint new logo and fixes ([#14644](https://github.com/openfoodfacts/openfoodfacts-server/issues/14644)) ([8c3426e](https://github.com/openfoodfacts/openfoodfacts-server/commit/8c3426e5dbe2dbd1294c0a0e7ca9b85703d0054a))
+* **taxonomy:** restore environmental-score match for Caesar salad dressings ([#14615](https://github.com/openfoodfacts/openfoodfacts-server/issues/14615)) ([d3600ee](https://github.com/openfoodfacts/openfoodfacts-server/commit/d3600eeecf771f7a39d2c1dc5e5ae7a50341b826))
+
 ## [2.106.2](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.106.1...v2.106.2) (2026-09-22)
 
 
