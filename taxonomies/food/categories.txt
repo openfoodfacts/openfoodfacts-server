@@ -87755,6 +87755,7 @@ en: Salads with meat
 hr: Salate s mesom
 lt: Salotos su mėsa
 pl: Sałatki z mięsem
+incompatible_with:en: categories:en:prepared-vegan-salads
 
 < en: Prepared salads
 en: Salads with fish
@@ -87762,6 +87763,7 @@ hr: Salate s ribom
 lt: Salotos su žuvimi
 nl: Vissalades
 pl: Sałatki z rybami
+incompatible_with:en: categories:en:prepared-vegan-salads
 
 < en: Canned prepared salads
 < en: Salads with meat
@@ -87805,6 +87807,12 @@ agribalyse_food_code:en: 25601
 ciqual_food_code:en: 25601
 ciqual_food_name:en: Prepared mixed tuna and vegetable salad, canned, drained
 ciqual_food_name:fr: Salade de thon et légumes, appertisée, égouttée
+
+< en: Prepared salads
+< en: Vegan meals
+en: Prepared vegan salads, Vegan prepared salads, Vegan salads
+sv: Veganska sallader
+incompatible_with:en: categories:en:salads-with-meat, categories:en:salads-with-fish
 
 #TODO
 
@@ -87871,8 +87879,8 @@ sv: Rödbetssallader
 description:en: Scandinavian-style salad spread with pickled beetroot and mayonnaise.
 wikidata:en: Q141385805
 
+< en: Prepared vegan salads
 < en: Scandinavian beetroot salads
-< en: Vegan products
 en: Vegan Scandinavian beetroot salads
 da: Veganske rødbedesalater
 nb: Veganske rødbetsalater
