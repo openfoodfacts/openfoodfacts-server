@@ -13,6 +13,7 @@ he: ריק
 hu: Üres
 it: Vuoto
 ja: 空
+ko: 비어 있음
 nl: Leeg
 nl_be: Leeg
 pl: Pusty
@@ -21,6 +22,7 @@ ro: Gol
 rs: Prazno
 ru: Пустые
 sv: Tom
+tr: Boş
 vi: Trống
 zh: 空
 zh-CN: 空
@@ -40,13 +42,16 @@ he: נבדק
 hu: Ellenőrizve
 it: Verificato
 ja: 確認済
+ko: 확인 완료
 nl: Gecontroleerd
 nl_be: Geverifieerd
 pl: Sprawdzony
 pt: Verificado
 ro: Verificat
 rs: Provereno
+ru: Проверено
 sv: Kontrollerat
+tr: Kontrol edildi
 vi: Đã kiểm tra
 zh: 已确认
 zh-CN: 已确认
@@ -65,12 +70,15 @@ he: לבדיקה
 hu: Ellenőrizni kell
 it: Da verificare
 ja: 要確認
+ko: 확인 필요
 nl: Te controleren
 nl_be: Nog te verifiëren
 pl: Do sprawdzenia
 pt: A verificar
 ro: De verificat
+ru: К проверке
 sv: Att kontrolleras
+tr: Kontrol edilecek
 vi: Được kiểm tra
 zh: 需确认
 zh-CN: 需确认
@@ -89,13 +97,16 @@ he: הושלם
 hu: Teljes
 it: Completato
 ja: 完了
+ko: 완료됨
 nl: Volledig
 nl_be: Volledig
+pl: Kompletny
 pt: Completo
 ro: Complet
 rs: Upotpunjeno
 ru: Заполненные
 sv: Fullständig
+tr: Tamamlandı
 vi: Hoàn thành
 zh: 完成
 zh-CN: 完成
@@ -114,6 +125,7 @@ he: להשלמה
 hu: Kiegészítendő
 it: Da completare
 ja: 未完了
+ko: 완료 필요
 lt: Turi būti baigtas
 nl: Aan te vullen
 nl_be: Te vervolledigen
@@ -141,6 +153,7 @@ he: תאריך תפוגה להשלמה
 hu: Lejárati dátum kitöltendő
 it: Data di scadenza da completare
 ja: 期限未完了
+ko: 유통기한 입력 필요
 lt: Galiojimo data turi būti užpildyta
 nl: Houdbaarheidsdatum invullen
 nl_be: Houdbaarheidsdatum invullen
@@ -169,13 +182,16 @@ he: תאריך התפוגה הושלם
 hu: Lejárati dátum megadva
 it: Data di scadenza completata
 ja: 期限完了
+ko: 유통기한 완료
 nl: Houdbaarheidsdatum ingevuld
 nl_be: Houdbaarheidsdatum ingevuld
+pl: Data ważności uzupełniona
 pt: Data de validade completada
 ro: Data de expirare completată
 rs: Rok isticanja upotpunjen
 ru: Окончание срока годности указано
 sv: Utgångsdatum fullständingt
+tr: Son kullanma tarihi tamamlandı
 vi: Ngày hết hạn đã hoàn thành
 zh: 完成期限
 zh-CN: 完成期限
@@ -194,6 +210,7 @@ he: שם המוצר להשלמה
 hu: Termék neve kitöltendő
 it: Nome prodotto da completare
 ja: 製品名未完了
+ko: 제품 이름 입력 필요
 nl: Productnaam invullen
 nl_be: Productnaam invullen
 pl: Nazwa produktu do uzupełnienia
@@ -202,6 +219,7 @@ ro: De completat numele produsului
 rs: Naziv proizvoda nije upotpunjen
 ru: Название надо указать
 sv: Saknar produktnamn
+tr: Ürün adı tamamlanacak
 vi: Tên sản phẩm cần hoàn thành
 zh: 应完成品名
 zh-CN: 应完成品名
@@ -220,8 +238,10 @@ he: כמות להשלמה
 hu: Mennyiség kitöltendő
 it: Quantità da completare
 ja: 数量未完了
+ko: 수량 입력 필요
 nl: Hoeveelheid invullen
 nl_be: Hoeveelheid invullen
+pl: Ilość do uzupełnienia
 pt: Quantidade a completar
 ro: Cantitatea de completat
 rs: Količina nije upotpunjena
@@ -246,13 +266,16 @@ he: אריזה להשלמה
 hu: Csomagolás kitöltendő
 it: Imballaggio da completare
 ja: 包装未完了
+ko: 포장 입력 필요
 nl: Verpakking invullen
 nl_be: Verpakking invullen
+pl: Opakowanie do uzupełnienia
 pt: Embalagem a completar
 ro: De completat ambalarea
 rs: Pakovanje nije upotpunjeno
 ru: Упаковку надо описать
 sv: Saknar förpackning
+tr: Paketleme tamamlanacak
 vi: Bao bì được hoàn thành
 zh: 应完成包装
 zh-CN: 应完成包装
@@ -271,12 +294,15 @@ he: מותגים להשלמה
 hu: Márkanév kitöltendő
 it: Marchi da completare
 ja: ブランド未完了
+ko: 브랜드 입력 필요
 nl: Merken invullen
+pl: Marki do uzupełnienia
 pt: Marcas a completar
 ro: Mărci de completat
 rs: Brend nije upotpunjen
 ru: Марки надо указать
 sv: Saknar varumärken
+tr: Markalar tamamlanacak
 vi: Thương hiệu được hoàn thành
 zh: 应完成商标
 zh-CN: 应完成商标
@@ -295,6 +321,7 @@ he: קטגוריות להשלמה
 hu: Kategóriákat kell megadni
 it: Categorie da completare
 ja: カテゴリー未完了
+ko: 카테고리 입력 필요
 nl: Categorieën invullen
 pl: Kategorie do uzupełnienia
 pt: Categorias a completar
@@ -321,13 +348,16 @@ he: מאפיינים הושלמו
 hu: Jellemzők teljes
 it: Caratteristiche completate
 ja: 特徴完了
+ko: 특징 완료
 nl: Eigenschappen klaar
 nl_be: Eigenschappen ingevuld
+pl: Cechy uzupełnione
 pt: Características completadas
 ro: Caracteristici completate
 rs: Karakteristike upotpunjene
 ru: Характеристики заполнены
 sv: Egenskaper fulllständigt
+tr: Özellikler tamamlandı
 vi: Đặc điểm hoàn thành
 zh: 完成特征
 zh-CN: 完成特征
@@ -346,13 +376,16 @@ he: מאפיינים להשלמה
 hu: Jellemzők kitöltendő
 it: Caratteristiche da completare
 ja: 特徴未完了
+ko: 특징 입력 필요
 nl: Eigenschappen invullen
 nl_be: Eigenschappen invullen
+pl: Cechy do uzupełnienia
 pt: Características a completar
 ro: Caracteristici de completat
 rs: Karakteristike nisu upotpunjene
 ru: Характеристики не заполнены
 sv: Saknar egenskaper
+tr: Özellikler tamamlanacak
 vi: Đặc điểm cần hoàn thành
 zh: 应完成特征
 zh-CN: 应完成特征
@@ -371,6 +404,7 @@ he: הרכיבים הושלמו
 hu: Összetevők teljes
 it: Ingredienti completati
 ja: 原材料完了
+ko: 성분 완료
 nl: Ingrediënten klaar
 pl: Składniki uzupełnione
 pt: Ingredientes completados
@@ -378,6 +412,7 @@ ro: Ingrediente completate
 rs: Sastav upotpunjen
 ru: Состав указан
 sv: Ingredienser fullständigt
+tr: İçerikler tamamlandı
 vi: Thành phần đã hoàn thành
 zh: 完成成分
 zh-CN: 完成成分
@@ -396,6 +431,7 @@ he: רכיבים להשלמה
 hu: Összetevők kitöltendő
 it: Ingredienti da completare
 ja: 原材料未完了
+ko: 성분 입력 필요
 nl: Ingrediënten invullen
 nl_be: Ingrediënten invullen
 pl: Składniki do uzupełnienia
@@ -422,6 +458,7 @@ he: מפרט תזונתי הושלם
 hu: Tápértékadatok teljes
 it: Valori nutrizionali completati
 ja: 栄養成分表完了
+ko: 영양 정보 완료
 nl: Voedingswaarden klaar
 nl_be: Nutritionele informatie ingevuld
 pl: Wartości odżywcze uzupełnione
@@ -429,6 +466,7 @@ pt: Valores nutricionais completados
 ro: Valori nutriționale completate
 ru: Пищевая и энергетическая ценность указаны
 sv: Näringsinnehåll fullständigt
+tr: Beslenme bilgileri tamamlandı
 vi: Thành phần dinh dưỡng đã hoàn thành
 zh: 完成营养成分
 zh-CN: 完成营养成分
@@ -447,6 +485,7 @@ he: מפרט תזונתי להשלמה
 hu: Tápértékadatok kitöltendő
 it: Valori nutrizionali da completare
 ja: 栄養成分表未完了
+ko: 영양 정보 입력 필요
 nl: Voedingswaarden invullen
 nl_be: Nutritionele informatie invullen
 pl: Wartości odżywcze do uzupełnienia
@@ -454,6 +493,7 @@ pt: Valores nutricionais a completar
 ro: Valori nutriționale de completat
 ru: Пищевую и энергетическую ценность надо указать
 sv: Saknar näringsinnehåll
+tr: Beslenme bilgileri tamamlanacak
 vi: Thành phần dinh dưỡng cần hoàn thành
 zh: 应完成营养成分
 zh-CN: 应完成营养成分
@@ -472,12 +512,16 @@ he: התמונות אומתו
 hu: Fényképek érvényesítve
 it: Foto validate
 ja: 写真検証済
+ko: 사진 검증 완료
 nl: Foto's gecontroleerd
 nl_be: Foto's gevalideerd
+pl: Zdjęcia zatwierdzone
 pt: Imagens validadas
 ro: Fotografii validate
 ru: Фотографии выбраны
 sv: Bilder godkända
+tr: Resimler doğrulandı
+vi: Ảnh đã xác thực
 zh: 已验证照片
 zh-CN: 已验证照片
 zh-HK: 已驗證照片
@@ -495,9 +539,11 @@ he: תמונות לאימות
 hu: Fényképeket érvényesíteni kell
 it: Foto da convalidare
 ja: 写真未検証
+ko: 사진 검증 필요
 lt: Nuotraukos turi būti patikrintos
 nl: Te controleren foto's
 nl_be: Te controleren foto's
+pl: Zdjęcia do zatwierdzenia
 pt: Imagens a validar
 ro: Fotografii de validat
 ru: Фотографии не выбраны
@@ -521,6 +567,7 @@ he: התמונות הועלו
 hu: Fényképek feltöltve
 it: Foto caricate
 ja: 写真のアップロード完了
+ko: 사진 업로드 완료
 lt: Įkeltos nuotraukos
 nl: Geüploade foto's
 nl_be: Geüploade foto's
@@ -529,7 +576,7 @@ pt: Imagens enviadas
 ro: Fotografii încărcate
 ru: Фотографии загружены
 sv: Bilder uppladdade
-tr: Resimler yüklenecek
+tr: Resimler yüklendi
 vi: Ảnh đã được tải lên
 zh: 已上传照片
 zh-CN: 已上传照片
@@ -548,12 +595,15 @@ he: תמונות להעלאה
 hu: Fényképeket kell feltölteni
 it: Foto da caricare
 ja: 写真のアップロード未完了
+ko: 사진 업로드 필요
 nl: Foto's uploaden
 nl_be: Foto's uploaden
+pl: Zdjęcia do dodania
 pt: Imagens a enviar
 ro: Fotografii de încărcat
 ru: Фотографии надо загрузить
 sv: Saknar bilder
+tr: Resimler yüklenecek
 vi: Ảnh sẽ được tải lên
 zh: 应上传照片
 zh-CN: 应上传照片
@@ -572,11 +622,14 @@ he: קטגוריות הושלמו
 hu: Kategóriák megadva
 it: Categorie completate
 ja: カテゴリー完了
+ko: 카테고리 완료
 nl: Categorieën klaar
 pl: Kategorie uzupełnione
 pt: Categorias completadas
+ro: Categorii completate
 ru: Категории указаны
 sv: Kategorier fullständigt
+tr: Kategoriler tamamlandı
 vi: Danh mục đã hoàn thành
 zh: 完成分类
 zh-CN: 完成分类
@@ -662,10 +715,14 @@ he: אריזה הושלמה
 hu: Csomagolás megadva
 it: Imballaggio completato
 ja: 包装完了
+ko: 포장 완료
 nl: Verpakking klaar
+pl: Opakowanie uzupełnione
 pt: Embalagem completada
+ro: Ambalaj completat
 ru: Упаковка описана
 sv: Förpackning fullständigt
+tr: Paketleme tamamlandı
 vi: Bao bì đã hoàn thành
 zh: 完成包装
 zh-CN: 完成包装
@@ -689,6 +746,7 @@ hr: Količina dovršena
 hu: Mennyiség megadva
 it: Quantità completata
 ja: 数量完了
+ko: 수량 완료
 lt: Kiekis užpildytas
 lv: Daudzums aizpildīts
 mk: Количина завршена
@@ -790,12 +848,21 @@ fr: Code emballeur à compléter
 he: קוד אריזה להשלמה
 hu: Csomagolási kód kitöltendő
 it: Codice di imballaggio da completare
+ja: 包装コード未完了
+ko: 포장 코드 입력 필요
 lt: Turi būti užpildytas pakuotės kodas
 nl: Verpakkerscode niet ingevuld
+pl: Kod opakowania do uzupełnienia
 pt: Código de embalador a completar
+ro: Cod de ambalare de completat
+ru: Код упаковки для заполнения
 sv: Identifieringsmärke saknas
+tr: Paketleme kodu tamamlanacak
 vi: Mã đóng gói cần hoàn thành
 zh: 包装代码需要完成
+zh-CN: 包装代码需要完成
+zh-HK: 包裝代碼需要完成
+zh-TW: 包裝代碼需要完成
 
 en: Packaging code completed
 ca: Codi d'envasat complet
@@ -808,15 +875,25 @@ fr: Code emballeur complété
 he: קוד אריזה הושלם
 hu: Csomagolási kód megadva
 it: Codice di imballaggio completato
+ja: 包装コード完了
+ko: 포장 코드 완료
 nl: Verpakkerscode gereed
+pl: Kod opakowania uzupełniony
 pt: Código de embalador completado
+ro: Cod de ambalare completat
+ru: Код упаковки заполнен
 sv: Identifieringsmärke fullständigt
+tr: Paketleme kodu tamamlandı
 vi: Mã đóng gói đã hoàn thành
 zh: 包装代码已完成
+zh-CN: 包装代码已完成
+zh-HK: 包裝代碼已完成
+zh-TW: 包裝代碼已完成
 
 en: Front photo selected
 bs: Prednja fotografija odabrana
 ca: Foto frontal seleccionada
+cs: Vybrána přední fotografie
 de: Frontfoto ausgewählt
 el: Επιλέχθηκε φωτογραφία μπροστά
 es: Foto frontal seleccionada
@@ -826,6 +903,8 @@ he: נבחרה תמונת חזית
 hr: Prednja fotografija odabrana
 hu: Borító fotó kiválasztva
 it: Foto frontale selezionata
+ja: 選択された正面写真
+ko: 전면 사진 선택됨
 lt: Išrinktas priekinis nuotraukos
 mk: Избрана предна фотографија
 nl: Voorfoto geselecteerd
@@ -839,19 +918,29 @@ sr: Изабрана предња фотографија
 sv: Främre foto valt
 tr: Ön fotoğraf seçildi
 uk: Обрано фото спереду
+vi: Ảnh mặt trước đã chọn
 zh: 已选择前照片
+zh-CN: 已选择正面照片
+zh-HK: 已選擇正面照片
+zh-TW: 已選擇正面照片
 
 en: Front photo to be selected
 ca: Falta seleccionar la foto frontal, Falta triar la foto frontal
+cs: Je třeba vybrat přední fotografii
 de: Frontfoto muss ausgewählt werden
+el: Πρέπει να επιλεγεί μπροστινή φωτογραφία
 es: Foto frontal a seleccionar
 fi: Etukuva valitsematta
 fr: Photo de face non sélectionnée
 he: יש לבחור בתמונת חזית
 hu: Borító fotó kiválasztandó
 it: Foto frontale da selezionare
+ja: 正面写真を選択する必要があります
+ko: 전면 사진을 선택해야 합니다
 nl: Foto van de voorkant geselecteerd
+pl: Należy wybrać zdjęcie z przodu
 pt: Imagem frontal a selecionar
+ro: Fotografia frontală trebuie selectată
 ru: Необходимо выбрать фронтальное фото
 sv: Främre foto att välja
 tr: Ön fotoğraf seçilmeli
@@ -1066,20 +1155,29 @@ zh-TW: 已選擇營養照片
 
 en: Nutrition photo to be selected
 ca: Foto d'informació nutricional a seleccionar, Foto d'informació nutricional a triar
+cs: Je třeba vybrat fotografii s výživovými údaji
 de: Nährwertangabenfoto muss ausgewählt werden
+el: Πρέπει να επιλεγεί φωτογραφία διατροφής
 es: Foto de información nutricional a seleccionar
 fi: Ravintokuva valitsematta
 fr: Photo de la nutrition non sélectionnée
 he: יש לבחור בתמונת ערכים תזונתיים
 hu: Tápérték fotó kiválasztandó
 it: Foto delle informazioni nutrizionali da selezionare
+ja: 栄養写真を選択する必要があります
+ko: 영양 정보 사진을 선택해야 합니다
 nl: Foto van voedingswaarden moet worden geselecteerd
 pl: Zdjęcie informacji o wartościach odżywczych do wyboru
 pt: Imagem das informações nutricionais a selecionar
+ro: Fotografia cu informațiile nutriționale trebuie selectată
 ru: Выбрать фото пищевой ценности
 sv: Näringsfotot måste väljas
 tr: Beslenme fotoğrafı seçilmeli
+vi: Ảnh thông tin dinh dưỡng cần được chọn
 zh: 待选择营养照片
+zh-CN: 待选择营养照片
+zh-HK: 待選擇營養照片
+zh-TW: 待選擇營養照片
 
 en: Packaging photo selected
 ar: صورة التعبئة والتغليف المحددة
@@ -1150,8 +1248,10 @@ zh-TW: 已選擇包装照片
 
 en: Packaging photo to be selected
 ca: Foto de l'embalatge a triar, Foto de l'embalatge a seleccionar, Seleccionar foto de l'embalatge, Triar foto de l'embalatge
+cs: Je třeba vybrat fotografii obalu
 da: Vælg emballagefoto
 de: Verpackungsfoto muss ausgewählt werden
+el: Πρέπει να επιλεγεί φωτογραφία συσκευασίας
 es: Foto de embalaje a seleccionar
 fi: Pakkauskuva valitsematta
 fr: Photo de l'emballage non sélectionnée
@@ -1162,10 +1262,17 @@ ja: パッケージ写真を選択してください
 ko: 포장 사진을 선택하세요
 nl: Verpakkingsfoto moet worden geselecteerd
 no: Velg emballasjebilde
+pl: Należy wybrać zdjęcie opakowania
 pt: Imagem da embalagem a selecionar
+ro: Fotografia ambalajului trebuie selectată
+ru: Необходимо выбрать фото упаковки
 sv: Förpackningsfoto att välja
 tr: Paketleme fotoğrafı seçilmeli
+vi: Ảnh đóng gói cần được chọn
 zh: 需要选择包装照片
+zh-CN: 需要选择包装照片
+zh-HK: 需要選擇包裝照片
+zh-TW: 需要選擇包裝照片
 
 en: Origins completed
 ar: اكتمل الأصل
@@ -1238,7 +1345,9 @@ zh-TW: 起源已完成
 
 en: Origins to be completed
 ca: Orígens per completar
+cs: Původ k dokončení
 de: Herkunft auszufüllen
+el: Προέλευση προς συμπλήρωση
 es: Orígenes por completar
 fi: Alkuperä täydennettävä
 fr: Origines à compléter
@@ -1260,4 +1369,3 @@ zh: 待完成的起源
 zh-CN: 待完成的起源
 zh-HK: 待完成的起源
 zh-TW: 待完成的起源
-

@@ -63,7 +63,7 @@ msgstr "an d'Facebook-Grupp <a href=\"https://www.facebook.com/groups/OpenBeauty
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Produktsich iwwer Beauty Facts opmaachen"
+msgstr "Produktsich iwwer Open Beauty Facts opmaachen"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -415,7 +415,7 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Dësen Artikel ass nach net an der Datenbank <<site_name>>. Kënnt Dir mir weg e puer Fotoen vum Artikel, Barcode, Zutaten an Ernährungsfakten huelen fir et op <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>bäi ze setzen?</p>\n"
+msgstr "<p>Dësen Artikel ass nach net an der Datenbank <<site_name>>. Kënnt Dir mir weg e puer Fotoen vum Artikel, Barcode, Zutaten an Ernährungsfakten huelen fir et op <a href=\"https://world-lb.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>bäi ze setzen?</p>\n"
 "<p>Merci am Viraus!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -448,7 +448,7 @@ msgstr "Barcode Nummer:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "Dir kënnt och hëllefe den OpenFoodFacts Projet ze ënnerstëtzen "
+msgstr "Dir kënnt och hëllefe den Open Food Facts Projet ze ënnerstëtzen"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
@@ -692,7 +692,7 @@ msgstr "Spenden un Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world-lb.openfoodfacts.org/spenden-un-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -1758,11 +1758,6 @@ msgstr ""
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language

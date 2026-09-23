@@ -85,6 +85,7 @@ use LWP::UserAgent;
 use LWP::UserAgent::Plugin 'Retry';
 use HTTP::Request;
 use URI::Escape::XS qw/uri_escape/;
+use HTML::Entities;
 
 # Initialize some constants
 
@@ -170,7 +171,7 @@ sub signin_callback ($request_ref) {
 			start_authorize($request_ref);
 		}
 		else {
-			display_error_and_exit($request_ref, $error, 500);
+			display_error_and_exit($request_ref, encode_entities($error), 500);
 		}
 
 		return;
@@ -655,7 +656,23 @@ Returns: The verified access token or undefined if verification fails.
 sub verify_access_token ($access_token_string) {
 	get_oidc_configuration();
 
-	my $access_token_verified = decode_jwt(token => $access_token_string, kid_keys => $jwks);
+	# Bind the token to this relying party: signature alone is not sufficient, because every client
+	# in the realm is signed by the same JWKS keys.
+	# Note: decode_jwt throws on signature / iss / alg failure, so trap it
+	# to honor the documented undef-on-failure contract.
+	my $access_token_verified = eval {
+		decode_jwt(
+			token => $access_token_string,
+			kid_keys => $jwks,
+			verify_iss => $oidc_configuration->{issuer},
+			accepted_alg => ['RS256'],
+		);
+	};
+	if (my $error = $@) {
+		chomp $error;
+		$log->info('Access token verification failed', {error => $error}) if $log->is_info();
+		return;
+	}
 	unless ($access_token_verified) {
 		return;
 	}

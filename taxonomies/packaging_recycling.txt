@@ -169,6 +169,17 @@ fr: consigne remboursable
 hr: povratna naknada
 sv: panta, pant
 
+# In Germany, single-use deposit (Einwegpfand, DPG system) and reusable deposit
+# (Mehrwegpfand, pool and individual closed-loop systems) are distinguished.
+# Bare "Pfand" is intentionally not mapped, it is too imprecise.
+< en: return to store
+en: single-use deposit
+de: Einwegpfand, Einweg-Pfand, Einweg Pfand, DPG-Pfand, DPG Pfand
+
+< en: return to store
+en: reusable deposit
+de: Mehrwegpfand, Mehrweg-Pfand, Mehrweg Pfand
+
 #This is green waste
 < en: recycle
 en: recycle as green waste, compost, green waste

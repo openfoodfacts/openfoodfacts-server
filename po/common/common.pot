@@ -1075,6 +1075,33 @@ msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr ""
 
+# Do not translate Open Products Facts
+msgctxt "footer_opf"
+msgid "Open Products Facts"
+msgstr ""
+
+msgctxt "footer_opf_link"
+msgid "https://world.openproductsfacts.org"
+msgstr ""
+
+# Do not translate Open Pet Food Facts
+msgctxt "footer_opff"
+msgid "Open Pet Food Facts"
+msgstr ""
+
+msgctxt "footer_opff_link"
+msgid "https://world.openpetfoodfacts.org"
+msgstr ""
+
+# Do not translate Open Prices
+msgctxt "footer_op"
+msgid "Open Prices"
+msgstr ""
+
+msgctxt "footer_op_link"
+msgid "https://prices.openfoodfacts.org/"
+msgstr ""
+
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
 msgstr ""
@@ -1763,11 +1790,6 @@ msgstr ""
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
@@ -5290,8 +5312,8 @@ msgid "Products for which we currently miss data to determine if they match your
 msgstr "Products for which we currently miss data to determine if they match your preferences"
 
 msgctxt "forest_footprint"
-msgid "Forest footprint"
-msgstr "Forest footprint"
+msgid "Forest Footprint"
+msgstr "Forest Footprint"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
@@ -5318,8 +5340,8 @@ msgid "Deforestation risk"
 msgstr "Deforestation risk"
 
 msgctxt "total_forest_footprint"
-msgid "Total forest footprint"
-msgstr "Total forest footprint"
+msgid "Total Forest Footprint"
+msgstr "Total Forest Footprint"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -5342,8 +5364,8 @@ msgid "% in product"
 msgstr "% in product"
 
 msgctxt "forest_footprint_calculation_details"
-msgid "Details of the calculation of the forest footprint"
-msgstr "Details of the calculation of the forest footprint"
+msgid "Details of the calculation of the Forest Footprint"
+msgstr "Details of the calculation of the Forest Footprint"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5387,43 +5409,54 @@ msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score
 msgstr "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
 
 msgctxt "attribute_forest_footprint_name"
-msgid "Forest footprint"
+msgid "Forest Footprint"
 msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
-msgid "Low risk of deforestation (Forest footprint)"
+msgid "Low risk of deforestation (Forest Footprint)"
 msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
-msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
+msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
 msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
-msgid "Very small forest footprint"
+msgid "Forest Footprint A"
 msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
-msgid "Small forest footprint"
+msgid "Forest Footprint B"
 msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
-msgid "Medium forest footprint"
+msgid "Forest Footprint C"
 msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
-msgid "Large forest footprint"
+msgid "Forest Footprint D"
 msgstr ""
 
-msgctxt "attribute_forest_footprint_e_title"
-msgid "Very large forest footprint"
+msgctxt "attribute_forest_footprint_a_description"
+msgid "No ingredient associated with a deforestation risk."
 msgstr ""
 
-msgctxt "attribute_forest_footprint_not_computed_title"
-msgid "Forest footprint not computed"
+msgctxt "attribute_forest_footprint_b_description"
+msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
 msgstr ""
 
+msgctxt "attribute_forest_footprint_c_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_d_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_not_computed_description"
+msgid "Potential deforestation risk but not yet computed."
+msgstr ""
 msgctxt "attribute_forest_footprint_a_description_short"
-msgid "Almost no risk of deforestation"
+msgid "No deforestation risk"
 msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
@@ -5431,19 +5464,35 @@ msgid "Low risk of deforestation"
 msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description_short"
-msgid "Moderate risk of deforestation"
+msgid "Medium risk of deforestation"
 msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
 msgstr ""
 
-msgctxt "attribute_forest_footprint_e_description_short"
-msgid "Very high risk of deforestation"
+msgctxt "attribute_forest_footprint_not_computed_description_short"
+msgid "Potential deforestation risk not computed"
+msgstr ""
+ 
+msgctxt "attribute_forest_footprint_unknown_title"
+msgid "Forest Footprint not available"
+msgstr ""
+ 
+msgctxt "attribute_forest_footprint_unknown_description"
+msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
 msgstr ""
 
-msgctxt "attribute_forest_footprint_not_computed_description_short"
-msgid "Currently only for products with chicken or eggs"
+msgctxt "attribute_forest_footprint_unknown_description_short"
+msgid "Missing ingredients list"
+msgstr ""
+ 
+msgctxt "forest_footprint_2026_other_risky_ingredients"
+msgid "Other risky ingredients"
+msgstr ""
+ 
+msgctxt "forest_footprint_2026_other_risky_ingredients_description"
+msgid "These ingredients are not yet assessed for deforestation risk:"
 msgstr ""
 
 msgctxt "classify_products_according_to_your_preferences"
@@ -5673,8 +5722,8 @@ msgid "If you use the same column on multiple lines to provide images URLs for a
 msgstr "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
 
 msgctxt "forest_footprint_one_line_explanation"
-msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation"
+msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation"
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -7889,6 +7938,7 @@ msgstr ""
 msgctxt "provided_by"
 msgid "Provided by"
 msgstr ""
+
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
 msgstr "Smoking kills"
@@ -8081,21 +8131,21 @@ msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr "Ecobalyse response"
 
-msgctxt "forest_footprint_2026"
-msgid "Forest Footprint 2026"
-msgstr "Forest Footprint 2026"
+msgctxt "forest_footprint_2026_methodology"
+msgid "The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption."
+msgstr "The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption."
 
-msgctxt "forest_footprint_2026_under_development"
-msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
-msgstr "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgctxt "forest_footprint_2026_methodology_more_info"
+msgid "More information on the methodology"
+msgstr "More information on the methodology"
 
 msgctxt "forest_footprint_2026_overall_grade"
-msgid "Forest footprint grade"
-msgstr "Forest footprint grade"
+msgid "Forest Footprint grade"
+msgstr "Forest Footprint grade"
 
 msgctxt "forest_footprint_2026_total"
-msgid "Total forest footprint"
-msgstr "Total forest footprint"
+msgid "Total Forest Footprint"
+msgstr "Total Forest Footprint"
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
@@ -8106,9 +8156,33 @@ msgid "Primary ingredient"
 msgstr "Primary ingredient"
 
 msgctxt "forest_footprint_2026_origin_footprint"
-msgid "Forest footprint for the origin"
-msgstr "Forest footprint for the origin"
+msgid "Forest Footprint for the origin"
+msgstr "Forest Footprint for the origin"
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
 msgstr "Label"
+
+msgctxt "forest_footprint_2026_grade_unknown"
+msgid "Unknown"
+msgstr "Unknown"
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
+msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
+msgstr "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
+msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
+msgstr "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
+msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
+msgstr "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
+msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
+msgstr "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
+
+msgctxt "forest_footprint_2026_labels_description"
+msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
+msgstr "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."

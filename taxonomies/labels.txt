@@ -348,6 +348,7 @@ country:en: en:Ireland, en:Northern Ireland
 en: Free range
 bg: Свободно отглеждане
 ca: Rang lliure
+da: fritgående
 de: Freiland
 es: de corral
 fi: vapaana laiduntava, ulkoilma
@@ -355,9 +356,11 @@ fr: Plein air
 he: גידול חופשי
 hu: Szabad tartású
 it: Allevamento a terra
+nb: frittgående
 nl: Vrije uitloop
 pt: Em liberdade, ao ar livre
 ru: свободный выгул, открытый воздух
+sv: frigående
 label_categories:en: en:Animal welfare
 
 en: French eggs, Eggs from France, Oeufs de France
@@ -383,6 +386,7 @@ pt: Ovos de origem França
 en: Free range eggs
 bg: Яйца от свободно отгледани кокошки
 ca: Ous de gallines lliures
+da: æg fra fritgående høns
 de: Freilandeier, eier aus bodenhaltung
 es: Huevos de gallinas camperas
 fi: ulkokananmunat, ulkokanalasta
@@ -391,9 +395,11 @@ he: ביצי חופש
 hr: iz slobodnog uzgoja, iz štalskog uzgoja, iz štalskog (podnog) uzgoja, iz podnog uzgoja
 hu: Szabad tartású tojás
 it: Uova da allevamento all'aperto, uova da galline allevate all'aperto
+nb: egg fra frittgående høner
 nl: Vrije uitloop eieren
 pl: jaja z chowu na wolnym wybiegu, 1 - jajka z chowu na wolnym wybiegu, 1 - jaja z chowu na wolnym wybiegu
 pt: Ovos de galinhas criadas em liberdade, ovos de galinhas em liberdade, ovos de galinhas livres de gaiolas, ovos de galinhas criadas ao ar livre, ovos de galinhas ao ar livre
+sv: ägg från frigående höns
 
 < en: Free range eggs
 en: Made with free range eggs, Baked with free range eggs
@@ -436,11 +442,21 @@ pt: Porco de fazenda criado ao ar livre
 
 < en: Free range
 en: Free range chicken
+da: fritgående høns
 de: Freilandhühnchen
 fi: ulkokana, vapaana elänyt kana
 hu: Szabad tartású csirke, Szabad tartású tyúk
 it: Polli allevati a terra, galline allevate a terra
+nb: frittgående høner
 pt: Galinhas criadas em liberdade, galinhas em liberdade, galinhas livres de gaiolas, galinhas criadas ao ar livre, galinhas ao ar livre
+sv: frigående höns
+
+< en: Free range
+en: From free range chickens
+da: Fra fritgående høns
+fi: Vapaiden ja ulkoilevien kanojen munista
+nb: Fra frittgående høner
+sv: Från frigående höns
 
 < en: Free range
 en: Free range poultry
@@ -1874,6 +1890,7 @@ en: High fibres, high fibers, Rich in fiber, high fiber
 xx: High fibres
 bg: Високо съдържание на хранителни влакнини
 ca: Alt en fibra, ric en fibra
+da: rig på fibre
 de: ballaststoffreich
 es: Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra, Alto Contenido en Fibra
 fi: runsaskuituinen, paljon kuituja, kuitupitoinen
@@ -3467,7 +3484,7 @@ ar: بدون سكر مضاف
 bg: Без добавена захар
 ca: Sense sucre afegit, sense sucres afegits
 cs: Bez přidaného cukru, obsahuje přirozeněse vyskytující cukry
-da: Uden tilsat sukker
+da: Uden tilsat sukker, ikke tilsat sukker
 de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker, Enthält von Natur aus Zucker
 el: Χωρίς προσθήκη ζάχαρης
 es: Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
@@ -3508,6 +3525,7 @@ en: No sugar, sugar-free
 xx: no sugar
 bg: Без захар
 ca: Sense sucre, lliure de sucre
+da: sukkerfri, sukkerfrit, sukkerfrie, uden sukker
 de: Ohne Zucker
 es: Sin azúcar, Libre de azúcar, Cero azúcar, sin azúcares
 fi: sokeriton, ei sokeria
@@ -3520,7 +3538,7 @@ nl: Suikervrij, Zonder suiker
 pl: Bez cukru, Nie zawiera cukru
 pt: Sem açúcar, sem açúcares
 ru: Без сахара
-sv: Sockerfri, Sockerfria, Utan socker
+sv: Sockerfri, Sockerfritt, Sockerfria, Utan socker
 th: ไม่มีน้ำตาล
 tr: Şekersiz
 description:en: In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
@@ -3975,6 +3993,62 @@ description:fr: Le contenu du produit est originaire du Canada à au moins 98%
 label_categories:en: en:Geographic label
 # https://bureau-concurrence.canada.ca/comment-nous-favorisons-concurrence/education-sensibilisation/publications/indications-produit-canada-fait-canada
 
+# Canadian Geographical Indication (GI): a name identifying a wine, spirit, agricultural
+# product, or food as originating in Canada, protected under the Trademarks Act. The regime
+# originally covered only wines and spirits; it was expanded to agricultural products and
+# food following the 2017 Canada-EU CETA agreement. Administered by the Canadian Intellectual
+# Property Office (CIPO). The 7 specific GI names below were each individually verified live
+# against CIPO's Canadian Trademarks Database (category: Geographical Indications) at
+# https://ised-isde.canada.ca/cipo/trademark-search/srch as of 2026-09-03, and all carry the
+# status "ENTERED ON THE LIST". This is not a claim that the list is exhaustive - the
+# register holds ~900 GI entries in total, the large majority of which are foreign
+# (EU/CETA-reciprocal) indications like Feta or Champagne, out of scope for this entry.
+en: Canadian Geographical Indication, Canadian GI
+xx: Canadian Geographical Indication
+fr: Indication géographique canadienne, IG canadienne
+country:en: en:Canada
+description:en: A name identifying a wine, spirit, agricultural product, or food as originating in Canada, where a quality, reputation, or other characteristic of the product is essentially attributable to that geographic origin, protected under Canada's Trademarks Act.
+description:fr: Un nom identifiant un vin, une boisson spiritueuse, un produit agricole ou un aliment comme étant originaire du Canada, dont une qualité, une réputation ou une autre caractéristique du produit est essentiellement attribuable à cette origine géographique, protégé en vertu de la Loi sur les marques de commerce du Canada.
+label_categories:en: en:Quality, en:Geographic label
+web:en: https://ised-isde.canada.ca/site/canadian-intellectual-property-office/en/ip-roadmap-geographical-indications-canada
+
+< en: Canadian Geographical Indication
+en: Canadian Whisky
+xx: Canadian Whisky
+fr: Whisky canadien
+
+< en: Canadian Geographical Indication
+en: Canadian Rye Whisky
+xx: Canadian Rye Whisky
+fr: Whisky de seigle canadien
+
+< en: Canadian Geographical Indication
+en: Okanagan Valley
+xx: Okanagan Valley
+fr: Vallée de l'Okanagan
+description:en: Wine geographical indication for British Columbia's Okanagan Valley region.
+
+< en: Canadian Geographical Indication
+en: Niagara Peninsula
+xx: Niagara Peninsula
+fr: Péninsule du Niagara
+description:en: Wine geographical indication for Ontario's Niagara Peninsula region.
+
+< en: Canadian Geographical Indication
+en: Ontario Icewine
+xx: Ontario Icewine
+
+< en: Canadian Geographical Indication
+en: Vin de glace du Québec, Quebec Icewine
+xx: Vin de glace du Québec
+fr: Vin de glace du Québec
+
+< en: Canadian Geographical Indication
+en: Maïs sucré de Neuville, Neuville Sweet Corn
+xx: Maïs sucré de Neuville
+fr: Maïs sucré de Neuville
+description:en: Agricultural product geographical indication for sweet corn grown in Neuville, Québec.
+
 # [CL] Chile
 
 en: Chilean front-of-package nutrition warnings
@@ -4279,6 +4353,11 @@ en: Made in Sweden, Manufactured in Sweden
 sv: Tillverkad i Sverige, Tillagat i Sverige, Producerad i Sverige
 label_categories:en: en:Geographic label
 manufacturing_places:en: en:sweden
+
+en: Swedish ingredient
+sv: Svensk råvare, Svensk ingrediens, Råvaren har svenskt ursprung
+label_categories:en: en:Geographic label
+origins:en: en:sweden
 
 en: Made in Swiss, made in Switzerland, swiss made
 bg: Произведено в Швейцария
@@ -5666,7 +5745,7 @@ sk: Bez konzervačných látok
 sl: Brez konzervansov
 sq: Pa konservues
 sr: Bez konzervansa
-sv: Utan konserveringsmedel, Innehåller inga konserveringsmedel
+sv: Utan konserveringsmedel, Innehåller inga konserveringsmedel, Bakade utan konserveringsmedel
 th: ไม่ใช้วัตถุกันเสีย
 tr: Koruyucu yok, Koruyucu madde içermez
 uk: Без консервантів
@@ -6038,7 +6117,7 @@ pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta o
 ro: din agricultură ecologică controlată, din cultură organică controlată
 sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
-sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk, ekologisk råvara, ekologiskt odlat
+sv: Ekologisk, ekologiskt, ekologiska, certifierad ekologisk, kontrollerat ekologiskt jordbruk, ekologisk ingrediens, ekologisk råvara, ekologiskt odlat, ekologiskt odlade
 th: ออร์แกนิค
 tr: Organik
 zh: 有机
@@ -6159,6 +6238,18 @@ ca: Vi biodinàmic
 en: India Organic
 country:en: en:India
 wikidata:en: Q17055995
+
+< en: India Organic
+en: Jaivik Bharat
+comment:en: Food Safety and Standard Authority of India’s main organic logo (Jaivik Bharat) - https://jaivikbharat.fssai.gov.in/pdf/faq.pdf
+
+< en: India Organic
+en: NPOP, National Programme for Organic Production
+comment:en: National Programme for Organic Production - National Accreditation Body
+
+< en: India Organic
+en: PGS-India Organic
+comment:en: Participatory Guarantee System (PGS-India) is based on the standards of NPOP but is distinct in its certification procedures - https://jaivikbharat.fssai.gov.in/standard-pgs.php
 
 < en: India Organic
 en: NPOP-NAB-0001
@@ -20195,6 +20286,7 @@ en: Sustainable farming, sustainable agriculture
 bg: Устойчиво земеделие
 ca: Agricultura Sostenible
 cs: Udržitelné zemědělství
+da: Bæredygtigt landbrug, fra bæredygtigt landbrug
 de: Nachhaltige Agrikultur
 es: Agricultura sustentable
 fi: Kestävä maatalous
@@ -20203,9 +20295,12 @@ he: חקלאות בת־קיימא
 hr: održiva poljoprivreda
 hu: Fenntartható gazdálkodás, Fenntartható gazdálkodásból
 it: Agricoltura sostenibile
+nb: Bærekraftigt jordbrug, fra bærekraftigt jordbrug
 nl: Duurzame landbouw
 pl: Zrównoważone rolnictwo
 pt: Agricultura sustentável
+sv: Hållbart jordbruk, från hållbart jordbruk
+wikidata:en: Q2751054
 
 < en: Sustainable farming
 fr: CRC, Culture raisonnée contrôlée, filière CRC
@@ -20309,7 +20404,7 @@ an: vegano
 bg: Веган
 ca: Vegà, Adequat per persones veganes
 cs: Veganské
-da: Vegansk, Velegnet til veganere, vegetabilsk
+da: Vegansk, Velegnet til veganere, vegetabilsk, velegnet til veganere og vegetarer
 de: Vegan
 es: Vegano, Producto vegano, Vegan, Apto para veganos y vegetarianos
 fi: vegaaninen, sopii vegaaneille, kasviperäinen, Sopii vegaaniruokavalioon
@@ -21011,7 +21106,7 @@ fr: Sans fruits à coque, sans fruits secs, Sans noix
 it: Senza noci, senza frutta secca, senza frutta a guscio
 nl: Zonder noten
 pt: Sem nozes, livre de nozes
-sv: Utan nötter
+sv: Utan nötter, nötfri
 
 # French label
 fr: Saveurs de l'Année
@@ -21890,6 +21985,14 @@ fr: Médaille de bronze 2023 de la Société Allemande d'Agriculture
 hr: Brončana medalja Njemačkog poljoprivrednog društva 2023
 pt: Medalha de bronze da Sociedade Agrícola Alemã de 2023
 
+< en: Bronze medal of the German Agricultural Society
+en: 2024 Bronze medal of the German Agricultural Society
+de: DLG Bronzener Preis 2024
+
+< en: Bronze medal of the German Agricultural Society
+en: 2025 Bronze medal of the German Agricultural Society
+de: DLG Bronzener Preis 2025
+
 < en: Silver medal of the German Agricultural Society
 en: 2009 Silver medal of the German Agricultural Society
 de: DLG Silberner Preis 2009
@@ -22018,6 +22121,14 @@ fi: Saksan maatalousyhdistyksen hopeamitali 2023
 fr: Médaille d'argent 2023 de la Société Allemande d'Agriculture
 hr: Srebrna medalja Njemačkog poljoprivrednog društva 2023
 pt: Medalha de prata da Sociedade Agrícola Alemã de 2023
+
+< en: Silver medal of the German Agricultural Society
+en: 2024 Silver medal of the German Agricultural Society
+de: DLG Silberner Preis 2024
+
+< en: Silver medal of the German Agricultural Society
+en: 2025 Silver medal of the German Agricultural Society
+de: DLG Silberner Preis 2025
 
 < en: Gold medal of the German Agricultural Society
 en: 2009 Gold medal of the German Agricultural Society
@@ -22157,6 +22268,14 @@ fi: Saksan maatalousyhdistyksen kultamitali 2023
 fr: Médaille d'or 2023 de la Société Allemande d'Agriculture
 hr: Zlatna medalja Njemačkog poljoprivrednog društva 2023
 pt: Medalha de ouro da Sociedade Agrícola Alemã de 2023
+
+< en: Gold medal of the German Agricultural Society
+en: 2024 Gold medal of the German Agricultural Society
+de: DLG Goldener Preis 2024
+
+< en: Gold medal of the German Agricultural Society
+en: 2025 Gold medal of the German Agricultural Society
+de: DLG Goldener Preis 2025
 
 < en: German Agricultural Society
 de: DLG Jährlich Prämiert, DLG Jarhlich Pramiert

@@ -2,6 +2,7 @@
 
 # agent de blanchiment de la farine
 stopwords:en: a, an, for, added, to, as, for, with, added
+stopwords:da: en, et, tilsat
 stopwords:fr: l, la, les, des, du, de, d, un, une, ajouté, ajoutés, ajoutée, ajoutées, pour, avec
 stopwords:es: de, del, la, las, los, una
 
@@ -79,7 +80,7 @@ lt: Rūgštingumą reguliuojanti medžiaga
 lv: Skābuma regulētājs, Skābuma regulētāji
 mt: Regolatur tal-Aċidità
 nb: Surhetsregulerende middel, Surhetsregulerende midler
-nl: Zuurteregelaar, Zuurteregelaars
+nl: Zuurteregelaar, Zuurteregelaars, Zuurtegraadregelaar
 no: surhetsregulerende middel
 pl: Regulator kwasowości, Regulatory kwasowości
 pt: Regulador de acidez, regulador de ácidez, reguladores de acidez
@@ -697,7 +698,7 @@ ro: Emulsifiant, Emulgator, emulsifianți
 ru: Эмульгатор, эмульгаторы
 sk: Emulgátor
 sl: Emulgator
-sv: Emulgeringsmedel, Emulgering, emulgator
+sv: emulgeringsmedel, emulgering, emulgator
 th: อิมัลซิไฟเออร์
 uk: емульгатор, емульгатори
 description:en: Emulsifiers are substances which make it possible to form or maintain a homogenous mixture of two or more immiscible phases such as oil and water in a foodstuff.
@@ -1153,7 +1154,7 @@ en: Humectant, moisture retention agent, water retention agent, wetting agent, m
 bg: Влагозадържащ агент
 ca: Humectant
 cs: Zvlhčující látka, zvlhčující látky
-da: Fugtighedsbevarende middel
+da: fugtighedsbevarende middel, fugtighedsbevarende midler
 de: Feuchthaltemittel
 el: Υγροσκοπικό μέσο
 es: Humectante, agente humectante, agente de retención del agua, agentes de retención de la humedad

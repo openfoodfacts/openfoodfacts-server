@@ -50,3 +50,36 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
+// Donation banners: which one a click or a dismissal happened in, from the
+// composed event path so a link inside the <donation-banner> shadow root counts
+function donationBannerName(path) {
+    if (path.some((node) => node.id === 'donation-banner-top')) {
+        return 'top';
+    }
+    if (path.some((node) => node.tagName === 'DONATION-BANNER' || (node.classList && node.classList.contains('donation-banner-footer')))) {
+        return 'footer';
+    }
+
+    return null;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const topBanner = document.getElementById('donation-banner-top');
+    if (topBanner && getComputedStyle(topBanner).display !== 'none') {
+        trackMatomoEvent('donation', 'banner_shown', 'top');
+    }
+});
+
+document.addEventListener('click', function (event) {
+    const path = event.composedPath();
+    const banner = donationBannerName(path);
+    if (banner === null) {
+        return;
+    }
+    if (path.some((node) => node.id === 'hide-donate-banner')) {
+        trackMatomoEvent('donation', 'banner_dismissed', banner);
+    } else if (path.some((node) => node.tagName === 'A' && node.href)) {
+        trackMatomoEvent('donation', 'banner_clicked', banner);
+    }
+});

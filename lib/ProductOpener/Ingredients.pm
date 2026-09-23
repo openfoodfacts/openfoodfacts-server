@@ -127,6 +127,7 @@ use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 use ProductOpener::IngredientsStrings qw/:all/;
+use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
 
 use Encode;
 use Clone qw(clone);
@@ -1495,16 +1496,67 @@ if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 =cut
 
 sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, $percent_or_quantity_value,
-	$percent_or_quantity_unit)
+	$percent_or_quantity_unit, $size = undef)
 {
 
 	my ($percent, $quantity, $quantity_g, $quantity_ml);
 
+	# Normalize protected solidus (U+2044) and fullwidth solidus back to '/'
+	# and drop whitespace around slashes only (e.g. "mg / kg" -> "mg/kg").
+	# Do not strip spaces inside multi-word units such as "fl oz".
+	$percent_or_quantity_unit =~ s/[\N{U+2044}\N{U+FF0F}]/\//g;
+	$percent_or_quantity_unit =~ s/\s*\/\s*/\//g;
+
+	# Normalize decimal separators in the numeric value (plain comma and U+201A lower comma
+	# used to protect decimals from list splitting) to a dot for storage / math.
+	$percent_or_quantity_value =~ s/[\N{U+201A},]/./g;
+
+	# % unit
 	if ($percent_or_quantity_unit =~ /\%/) {
 		$percent = $percent_or_quantity_value;
 	}
+	# Empty unit
+	elsif ($percent_or_quantity_unit eq "") {
+		$quantity = $percent_or_quantity_value;
+		# Check if the ingredient has properties like:
+		# average_weight_per_unit:en: 70
+		# average_weight_per_unit_large:en: 100
+		# average_weight_per_unit_small:en: 50
+
+		my $average_weight_per_unit;
+		my $size_conversion_factor = 1;
+
+		# First check exact match for the size if we have one
+		if (defined $size) {
+			my $size_id = $size;
+			$size_id =~ s/^en://;
+			$size_id =~ s/-/_/g;
+			$average_weight_per_unit
+				= get_inherited_property("ingredients", $ingredient_id, "average_weight_per_unit_${size_id}:en");
+		}
+		# Otherwise check for a generic average_weight_per_unit property
+		if (not defined $average_weight_per_unit) {
+			$average_weight_per_unit
+				= get_inherited_property("ingredients", $ingredient_id, "average_weight_per_unit:en");
+
+			if (defined $average_weight_per_unit) {
+				# Check if we have a size and a conversion_factor:en property for it in the sizes taxonomy
+				$size_conversion_factor
+					= (defined $size)
+					? get_inherited_property("sizes", $size, "conversion_factor:en") || 1
+					: 1;
+			}
+		}
+
+		if (defined $average_weight_per_unit) {
+			$quantity_g = $quantity * $average_weight_per_unit * $size_conversion_factor;
+		}
+	}
+	# Other units
 	else {
 		$quantity = $percent_or_quantity_value . " " . $percent_or_quantity_unit;
+		# Concentrations (mg/kg) and activity units (IU, UFC) have a standard_unit
+		# that is neither g nor ml, so they keep quantity and do not get quantity_g.
 		my $standard_unit = get_standard_unit($percent_or_quantity_unit);
 		if (defined $standard_unit) {
 			my $normalized_quantity = normalize_quantity($quantity);
@@ -1650,6 +1702,17 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 
 	$text =~ s/(\d),(\d)/$1‚$2/g;
 
+	# Protect mg/kg, IU/kg, UFC/g, … so '/' is not treated as an ingredient separator
+	# (issue #6132). Additive lists like E322/E333 are left untouched.
+	$text = protect_compound_unit_slashes($text);
+
+	# Now that the solidus of compound units is protected, the accidental '/'
+	# splits that used to separate e.g. "L-carnitine 450 mg/kg sulfate de
+	# glucosamine" are gone: restore list boundaries around compound-unit
+	# quantities glued between two words, so quantities can be extracted and
+	# the following ingredient can be matched (#6132 follow-up).
+	$text = isolate_compound_unit_quantities($ingredients_lc, $text);
+
 	my $and = $and{$ingredients_lc} || " and ";
 
 	my $per = $per{$ingredients_lc} || ' per ';
@@ -1708,6 +1771,7 @@ Text to analyze
 		my $labels = undef;
 		my $vegan = undef;
 		my $vegetarian = undef;
+		my $size = undef;
 		my @processings = ();
 		my $previous_parser_additive_class;
 		my $started_additive_class_scope = 0;
@@ -2260,24 +2324,34 @@ Text to analyze
 
 				# Strawberry 10.3%
 				if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
-					$percent_or_quantity_value = $1;
-					$percent_or_quantity_unit = $2;
-					$debug_ingredients and $log->debug(
-						"percent found after",
-						{
-							ingredient => $ingredient,
-							percent_or_quantity_value => $percent_or_quantity_value,
-							percent_or_quantity_unit => $percent_or_quantity_unit,
-							new_ingredient => $`
-						}
-					) if $log->is_debug();
-					$ingredient = $`;
-					$percent_or_quantity_value
-						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
+
+					# False positive: "Red Cochineal A"
+					# "A" is a quantity (e.g. "A" = "1" in English)
+					# -> require a non-empty unit to avoid that false positive
+					# This means "Strawberry 2" will not be recognized, we could also check for "a" and "A",
+					# but "[something] [number]" might generate other false positives
+					if ($2 ne '') {
+
+						$percent_or_quantity_value = $1;
+						$percent_or_quantity_unit = $2;
+						$debug_ingredients and $log->debug(
+							"percent found after",
+							{
+								ingredient => $ingredient,
+								percent_or_quantity_value => $percent_or_quantity_value,
+								percent_or_quantity_unit => $percent_or_quantity_unit,
+								new_ingredient => $`
+							}
+						) if $log->is_debug();
+						$ingredient = $`;
+						$percent_or_quantity_value
+							= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
+					}
 				}
 
 				# 50% beef, 20g of oranges
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
+				# 3 carrots
 				my $of = $of{$ingredients_lc} || ' ';    # default to space in order to not match an empty string
 				if ($ingredient =~ /^\s*$percent_or_quantity_regexp(?:$of|\s)+/i) {
 					$percent_or_quantity_value = $1;
@@ -2376,10 +2450,13 @@ Text to analyze
 				$ingredient =~ s/^\s+//;
 				$ingredient =~ s/\s+$//;
 
-				$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
+				# Restore protected solidus after structural handling and label promotion.
+				$ingredient =~ s/\N{U+2044}/\//g;
 
-				if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
-					$ingredient_recognized = 1;
+				$ingredient_id
+					= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient, \$ingredient_recognized);
+
+				if ($ingredient_recognized) {
 					$debug_ingredients and $log->trace("ingredient recognized", {ingredient_id => $ingredient_id})
 						if $log->is_trace();
 				}
@@ -2555,6 +2632,54 @@ Text to analyze
 						}
 					}
 
+					# Check if we have a size (e.g. "small onions", "carottes moyennes", "carottes de taille moyenne")
+					if (not $ingredient_recognized) {
+
+						my $regexp = $sizes_regexps{$ingredients_lc};
+						my $stopwords_regexp = $sizes_stopwords_regexps{$ingredients_lc};
+						if (defined $regexp) {
+							my $size_of_ingredient;
+							my $ingredient_without_size;
+							# "small sized cucumber", "petite carotte"
+							if ($ingredient =~ /^(?:$stopwords_regexp|\s)*($regexp)(?:$stopwords_regexp|\s)*\s(.*$)/i) {
+								$size_of_ingredient = $1;
+								$ingredient_without_size = $2;
+								$ingredient_without_size =~ s/^($stopwords_regexp|\s)*//i;
+							}
+							# "concombre de taille moyenne"
+							elsif (
+								$ingredient =~ /^(.*)\s+(?:$stopwords_regexp|\s)*($regexp)(?:$stopwords_regexp|\s)*$/i)
+							{
+								$ingredient_without_size = $1;
+								$size_of_ingredient = $2;
+								$ingredient_without_size =~ s/($stopwords_regexp|\s)*$//i;
+							}
+							# Only remove the size if we recognize the ingredient without the size,
+							# to avoid removing words that are part of the ingredient name (e.g. "small leaved spinach")
+							if (defined $ingredient_without_size) {
+								my $ingredient_without_size_id
+									= canonicalize_taxonomy_tag($ingredients_lc, "ingredients",
+									$ingredient_without_size, \$ingredient_recognized);
+
+								if ($ingredient_recognized) {
+									$ingredient_id = $ingredient_without_size_id;
+									$size = canonicalize_taxonomy_tag($ingredients_lc, "sizes", $size_of_ingredient);
+									$debug_ingredients
+										and $log->debug(
+										"ingredient with size found, remove size from ingredient",
+										{
+											ingredient => $ingredient,
+											size => $size,
+											size_of_ingredient => $size_of_ingredient,
+											new_ingredient => $ingredient_without_size,
+											ingredient_id => $ingredient_id
+										}
+										) if $log->is_debug();
+								}
+							}
+						}
+					}
+
 					if (not $ingredient_recognized) {
 						# Check if it is a phrase we want to ignore
 						# NB: If these match, the whole ingredient is ignored, so they're not suitable for ignoring *part* of an ingredient.
@@ -2570,6 +2695,10 @@ Text to analyze
 
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
+								'^produktet indeholder \d{1,3}\s*% fuldkorn$',
+								'^svarende til \d{1,3}\s*% af tørvægten$',
+								'^kan indeholde(?: spor af)?',    # may contain (traces of)
+								'inden servering$',    # before serving
 							],
 
 							'de' => [
@@ -2615,7 +2744,7 @@ Text to analyze
 								'^y compris les cereales contenant du gluten$',
 								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
 								'^(les allerg[èe]nes )?sont indiques en gras$',
-								'^Conditionné[es]* sous atmosphère',    # ... protectrice/contrôlée/modifiée/etc
+								'^Conditionné[es]* sous atmosph[èe]re',    # ... protectrice/contrôlée/modifiée/etc
 							],
 
 							'fi' => [
@@ -2630,7 +2759,7 @@ Text to analyze
 								'^sisältää kaakaovoin lisäksi muita kasvirasvoja$',
 								'^Vähintään \d{1,3}\s*% kaakaota maitosuklaassa$',
 								'^(?:Täysmehu|hedelmä|ruis)(?:osuus|pitoisuus)',
-								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)$',
+								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)?',    # may contain
 								'^Sisältää \d{1,3}\s*% (?:siemeniä|kauraa)$',
 								'^Maitosuklaa sisältää kaakaota vähintään',
 								'^vastaa \d{1,3}\s*% viljaraaka-aineista$',
@@ -2682,7 +2811,11 @@ Text to analyze
 								'その他',    # etc.
 							],
 
-							'nb' => ['^Pakket i beskyttende atmosfære$', '^Minst \d+ ?% kakao',],
+							'nb' => [
+								'^Pakket i beskyttende atmosfære$',
+								'^kan inneholde(?: rester av)?',    # may contain (traces of)
+								'^Minst \d+ ?% kakao',
+							],
 
 							'nl' => [
 								'^allergie.informatie$', 'in wisselende verhoudingen',
@@ -2725,8 +2858,13 @@ Text to analyze
 							'sr' => ['klasa ii',],
 
 							'sv' => [
+								'^fullkornshalten i brödet är \d{1,3}\s*% vilket motsvarar \d{1,3}\s+% av torrvikten$',
+								'^till 100\s*g färdig vara har \d+\s*g [\w\s]+ använts$',
+								'motsvarande \d{1,3}\s+% av torrvikten$',
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
 								'^Mjölkchokladen innehåller minst',
+								'^kan innehälla(?: spår av)?',    # may contain (traces of)
+								'innehåller \d+\s*(?:g|%)',
 								'^Kakaohalt i chokladen$',
 								'varierande proportion',
 								'kan innehålla ben$',
@@ -2873,7 +3011,7 @@ Text to analyze
 				if (defined $percent_or_quantity_value) {
 					my ($percent, $quantity, $quantity_g, $quantity_ml)
 						= get_ingredient_percent_or_quantity_and_normalized_quantity($ingredient_id,
-						$percent_or_quantity_value, $percent_or_quantity_unit);
+						$percent_or_quantity_value, $percent_or_quantity_unit, $size);
 
 					defined $percent and $ingredient{percent} = $percent + 0;
 					defined $quantity and $ingredient{quantity} = $quantity;
@@ -2889,6 +3027,9 @@ Text to analyze
 				}
 				if (defined $vegetarian) {
 					$ingredient{vegetarian} = $vegetarian;
+				}
+				if (defined $size) {
+					$ingredient{size} = $size;
 				}
 
 				if (defined $labels) {
@@ -2918,7 +3059,54 @@ Text to analyze
 					# ingredients tags that are too long (greater than 1024, mongodb max index key size)
 					# will cause issues for the mongodb ingredients_tags index, just drop them
 					if (length($ingredient{id}) < 500) {
-						if ($is_flattenable_additive_class && $between ne "") {
+						# Only require recognizable children when protected compound-unit slashes
+						# could flatten the class into unknown text, e.g. "mg/kg 1b306(i)".
+						my $flatten_children = $is_flattenable_additive_class && $between ne '';
+						if ($flatten_children && $between =~ /\N{U+2044}/) {
+							$flatten_children = 0;
+							foreach my $raw_chunk (split(/$separators/, $between)) {
+								# $separators contains capturing groups, so split
+								# also yields undef delimiter slots.
+								next if not defined $raw_chunk;
+								# copy: chunks aliased to split captures are read-only
+								my $chunk = $raw_chunk;
+								$chunk =~ s/^\s+|\s+$//g;
+								next if $chunk eq '';
+
+								my @candidate_chunks = ($chunk);
+								if ($chunk =~ /$and/i) {
+									push @candidate_chunks, ($`, $');
+								}
+
+								foreach my $candidate_chunk (@candidate_chunks) {
+									$candidate_chunk =~ s/^\s+|\s+$//g;
+									if ($candidate_chunk =~ /\s$percent_or_quantity_regexp$/i && $2 ne '') {
+										$candidate_chunk = $`;
+									}
+									next if $candidate_chunk eq '';
+
+									my $candidate_recognized
+										= exists_taxonomy_tag("additives",
+										canonicalize_taxonomy_tag($ingredients_lc, "additives", $candidate_chunk))
+										|| exists_taxonomy_tag("ingredients",
+										canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $candidate_chunk));
+
+									if ((not $candidate_recognized)
+										and defined $ingredients_processing_regexps{$ingredients_lc})
+									{
+										(undef, undef, undef, $candidate_recognized)
+											= parse_processing_from_ingredient($ingredients_lc, $candidate_chunk);
+									}
+
+									if ($candidate_recognized) {
+										$flatten_children = 1;
+										last;
+									}
+								}
+								last if $flatten_children;
+							}
+						}
+						if ($flatten_children) {
 							$previous_parser_additive_class = $current_parser_additive_class;
 							$started_additive_class_scope = 1;
 							$current_parser_additive_class = $ingredient{id};
@@ -5737,9 +5925,11 @@ sub clean_ingredients_text_for_lang ($text, $language) {
 	$log->debug("clean_ingredients_text_for_lang - start", {language => $language, text => $text}) if $log->is_debug();
 
 	# Remove phrases before ingredients list, but only when they are at the very beginning of the text
+	# 2026/09/18: do not necessarily require a separator after, as with OCR we can have new lines replaced by spaces
+	# and text like "INGREDIENTS Salt, Flour"
 
 	foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
-		if ($text =~ /^(\s*)\b($regexp(\s*)(-|:|\r|\n)+(\s*))/is) {
+		if ($text =~ /^(\s*)\b($regexp(\s*)(-|:|\r|\n)*(\s*))/is) {
 
 			$text = ucfirst($');
 		}
@@ -6064,8 +6254,13 @@ my %ingredients_categories_and_types = (
 			# categories
 			categories => ["oil", "vegetable oil", "vegetal oil",],
 			# types
-			types =>
-				["avocado", "coconut", "colza", "cottonseed", "olive", "palm", "rapeseed", "safflower", "sunflower",],
+			# note: multi-word types (e.g. "palm kernel", "palm stearin") must be listed
+			# before "palm", otherwise the regex matches only "palm" and leaves the
+			# trailing word (e.g. "stearin") as an unexpanded ingredient.
+			types => [
+				"avocado", "coconut", "colza", "cottonseed", "olive", "palm kernel",
+				"palm stearin", "palm", "rapeseed", "safflower", "sunflower",
+			],
 		},
 	],
 
@@ -6607,6 +6802,7 @@ This function transform the ingredients list in a more normalized list that is e
 It does the following:
 
 - Normalize quote characters
+- Fix common misspellings (from misspellings/ingredients_misspellings.txt )
 - Replace abbreviations by their full name
 - Remove extra spaces in compound words width dashes (e.g. céléri - rave -> céléri-rave)
 - Split vitamins enumerations
@@ -6655,6 +6851,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	}
 
 	init_percent_or_quantity_regexps($ingredients_lc);
+	init_sizes_regexps();
 
 	my $and = $and{$ingredients_lc} || " and ";
 	my $and_without_spaces = $and;
@@ -6695,6 +6892,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
+
+	# Misspelling corrections (applied early so they don't interfere with other normalizations)
+	apply_misspelling_replacements("ingredients", $ingredients_lc, \$text);
 
 	# vegetable oil (coconut & rapeseed)
 	# turn & to and
@@ -6820,6 +7020,16 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# ! caramel E150d -> caramel - E150d -> e150a - e150d ...
 	$text =~ s/(caramel|caramels)(\W*)e150/e150/ig;
+
+	# re-attach orphan additive variants like "e160a (ii)" that survived the normalization
+	# above: the additives regexp does not allow a space before the parenthetical variant
+	# when the language "and" word is " i " (ca, hr, pl, uk). The letter is optional so
+	# that "e451 (i)" is re-attached like "e451a (i)".
+	# Oxidation states (e.g. "fer (ii)") are left untouched: the ingredient parser splits
+	# parenthetical content before taxonomy matching, and the parent name without the
+	# numeral is usually already a synonym, so stripping would only remove a small unknown
+	# child at the cost of misattributing additives elsewhere.
+	$text =~ s/\b(e\d{3,4}[a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/$1$2/ig;
 
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
