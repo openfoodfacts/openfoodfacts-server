@@ -82172,7 +82172,7 @@ it: filetti di salmone atlantico con pelle
 # description:en:The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family.
 
 < en: salmon
-en: chum salmon
+en: chum salmon, keta salmon
 be: Кета
 bg: куча сьомга
 ca: salmó keta
@@ -82262,10 +82262,14 @@ wikidata:en: Q673380
 wikipedia:en: https://en.wikipedia.org/wiki/Pink_salmon
 # http://www.marinespecies.org/aphia.php?p=taxdetails&id=127182
 
+< en: salmon
+en: coho salmon, silver salmon
+xx: Oncorhynchus kisutch
+
 #description:en: Sockeye salmon (Oncorhynchus nerka), also called red salmon, kokanee salmon, or blueback salmon, is an anadromous species of salmon found in the Northern Pacific Ocean and rivers discharging into it.
 
 < en: salmon
-en: Sockeye salmon
+en: Sockeye salmon, red salmon
 bg: червена сьомга
 ca: salmó vermell
 cs: losos nerka
@@ -82601,7 +82605,7 @@ ciqual_food_name:fr: Sole, crue
 # description:en:Surimi refers to a paste made from fish or other meat.
 
 < en: fish
-en: surimi
+en: surimi, imitation crab, imitation crab meat, imitation crabmeat
 xx: surimi
 ar: سوريمي
 bg: сурими
@@ -82802,7 +82806,7 @@ la: Lopholatilus chamaeleonticeps
 
 < en: saltwater fish
 #< en: fish
-en: tuna
+en: tuna, tuna fish
 af: Tuna
 ar: تن
 bg: Тунец, риба тон
@@ -82967,7 +82971,7 @@ fr: Ventrèches de thon
 it: ventresca di tonno
 
 < en: tuna
-en: albacore
+en: albacore, albacore tuna, white tuna, solid white tuna
 af: Albakoor
 ar: تونة بيضاء
 az: Uzunüzgəc tunes
@@ -83022,7 +83026,7 @@ description:fr: Bonite est le nom vernaculaire donné à plusieurs espèces de p
 #category/skipjack-tuna
 < en: tuna
 < fr: bonite
-en: skipjack tuna
+en: skipjack tuna, skip jack tuna
 xx: Katsuwonus pelamis, Euthynnus palamis, Euthynnus, katsuwonus
 af: Pensstreep-tuna
 ar: تونة وثابة
@@ -83086,6 +83090,9 @@ description:pt: O bonito, bonito-listado, gaiado, atum-bonito e atum-gaiado (Kat
 # zh-tw:正鰹
 wikidata:en: Q633957
 wikipedia:en: https://en.wikipedia.org/wiki/Skipjack_tuna
+
+< en: tuna
+en: light tuna, light meat tuna, chunk light tuna
 
 < en: skipjack tuna
 en: skipjack tuna fillet
@@ -86089,7 +86096,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Crustacean
 fr: extrait de crustacé
 
 < en: crustacean
-en: crab
+en: crab, crab meat, crabmeat
 af: Krap
 ak: ɔkɔtɔ
 am: ሠርጣን
@@ -86204,6 +86211,13 @@ ciqual_food_name:en: Crab, raw
 description:en: CRABS are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail".
 wikidata:en: Q40802
 wikipedia:en: https://en.wikipedia.org/wiki/Crab
+
+< en: crab
+en: king crab, king crab meat
+
+< en: crab
+en: snow crab, snow crab meat, snow crabmeat
+xx: Chionoecetes opilio
 
 < en: crab
 fr: chair de crabe
@@ -86352,7 +86366,7 @@ wikidata:en: Q1133124
 wikipedia:en: https://en.wikipedia.org/wiki/Procambarus_clarkii
 
 < en: crustacean
-en: lobster
+en: lobster, lobster meat
 ar: همار, كركند
 be: Амары
 bg: омар, омари
