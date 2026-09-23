@@ -169,6 +169,8 @@ sub init_translated_text_routes_for_all_languages () {
 			$texts_text_id_to_translated_route{$text_id}{$target_lc} = $translated_route;
 		}
 	}
+	# Support /faq.html by redirecting to /faq
+	$texts_translated_route_to_text_id{'faq.html'} = 'faq';
 	return;
 }
 
