@@ -7008,6 +7008,16 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# ! caramel E150d -> caramel - E150d -> e150a - e150d ...
 	$text =~ s/(caramel|caramels)(\W*)e150/e150/ig;
 
+	# re-attach orphan additive variants like "e160a (ii)" that survived the normalization
+	# above: the additives regexp does not allow a space before the parenthetical variant
+	# when the language "and" word is " i " (ca, hr, pl, uk). The letter is optional so
+	# that "e451 (i)" is re-attached like "e451a (i)".
+	# Oxidation states (e.g. "fer (ii)") are left untouched: the ingredient parser splits
+	# parenthetical content before taxonomy matching, and the parent name without the
+	# numeral is usually already a synonym, so stripping would only remove a small unknown
+	# child at the cost of misattributing additives elsewhere.
+	$text =~ s/\b(e\d{3,4}[a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/$1$2/ig;
+
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
 
