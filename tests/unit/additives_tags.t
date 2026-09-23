@@ -268,6 +268,13 @@ my @tests = (
 		['en:e100']
 	],
 
+	# a variant unknown to the taxonomy falls back to the additive: "E330 (i)" is E330,
+	# while "E160a (ii)" is a separate additive
+	[
+		{lc => "en", ingredients_text => "acid: E330 (i), colour: E160a (ii), emulsifier: E450 (ix)"},
+		["en:e330", "en:e160aii", "en:e450"]
+	],
+
 );
 
 foreach my $test_ref (@tests) {
