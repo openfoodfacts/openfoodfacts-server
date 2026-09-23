@@ -64,7 +64,7 @@ my @tests = (
 	[
 		"fr",
 		"Ingrédients : Pulpe de tomate 41% (tomate pelée 24.6%, jus de tomate 16.4%, acidifiant : acide citrique), purée de tomate 25%, eau, oignon, crème fraîche 5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde.",
-		"Pulpe de tomate 41% (tomate pelée 24.6%, jus de tomate 16.4%, acidifiant : acide citrique), purée de tomate 25%, eau, oignon, crème fraîche 5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde."
+		"Pulpe de tomate 41% (tomate pelée 24.6%, jus de tomate 16.4%, acidifiant : acide citrique), purée de tomate 25%, eau, oignon, crème fraîche 5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique."
 	],
 
 	[
@@ -216,13 +216,97 @@ Edit ingredients (en)",
 	[
 		"en",
 		"Savoury crackers with sesame seeds. Ingredients: Wheat flour, palm oil, sesame seeds 4.9 %, glucose-fructose syrup, sugar, poppy seeds 2.3 %, raising agents (ammonium carbonates, calcium phosphates, sodium carbonates), salt, malted barley flour, dried yeast, wheat gluten, flavouring (contains celery). May contain egg, milk, nuts. Nutrition Information 1 Portion %*/1 Portion (25 g) 100 g (25 g) 2023 kJ",
-		"Wheat flour, palm oil, sesame seeds 4.9 %, glucose-fructose syrup, sugar, poppy seeds 2.3 %, raising agents (ammonium carbonates, calcium phosphates, sodium carbonates), salt, malted barley flour, dried yeast, wheat gluten, flavouring (contains celery). May contain egg, milk, nuts."
+		"Wheat flour, palm oil, sesame seeds 4.9 %, glucose-fructose syrup, sugar, poppy seeds 2.3 %, raising agents (ammonium carbonates, calcium phosphates, sodium carbonates), salt, malted barley flour, dried yeast, wheat gluten, flavouring (contains celery)."
 	],
 
 	[
 		"en",
 		"PINK SALMON (Oncorhynchus gorbuscha) (99%) (Fish), Salt ALLERGY ADVICE: For allergens, see ingredients in bold. WARNING: This product will contain soft edible bones. NUTRITION: Typical values per 100 Energy h 578kJ/",
 		"PINK SALMON (Oncorhynchus gorbuscha) (99%) (Fish), Salt"
+	],
+
+	# English: May contain / traces / facility / allergy
+	[
+		"en",
+		"Wholegrain oat flakes 44%, Chicory root fibre 18%, Whole grain spelt flakes 8%, Rice flour 8%, Cocoa mass 7%, Wheat flour 7%, Sunflower oil 5%, Cocoa powder 3%, Antioxidant: tocopherol-rich extract. May contain traces of other gluten-containing grains, peanuts, nuts, milk, soy and sesame seeds.",
+		"Wholegrain oat flakes 44%, Chicory root fibre 18%, Whole grain spelt flakes 8%, Rice flour 8%, Cocoa mass 7%, Wheat flour 7%, Sunflower oil 5%, Cocoa powder 3%, Antioxidant: tocopherol-rich extract."
+	],
+	[
+		"en",
+		"Flour, water, sugar. May contain traces of: milk.",
+		"Flour, water, sugar."
+	],
+	[
+		"en",
+		"Oats, honey. Suitable for people with milk, egg, gluten, peanut and tree nut allergy.",
+		"Oats, honey."
+	],
+	[
+		"en",
+		"Chocolate, sugar. made in a facility that handles peanuts, tree nuts, eggs, soy, wheat and milk.",
+		"Chocolate, sugar."
+	],
+	[
+		"en",
+		"Cereal, fruit. Made in a facility that processes foods containing wheat, milk, soy.",
+		"Cereal, fruit."
+	],
+
+	# French: traces / présence / allergènes / atelier / commerce équitable / équivalent
+	[
+		"fr",
+		"Tomates, sel. Il peut contenir des traces de céréales contenant du gluten (orge, avoine), œufs, sole, lait, céleri et sésame.",
+		"Tomates, sel."
+	],
+	[
+		"fr",
+		"Farine, eau. Présence possible de: Lait, œufs.",
+		"Farine, eau."
+	],
+	[
+		"fr",
+		"Sucre, cacao. Peut contenir des traces de toutes les autres céréales contenant du gluten, d'oeufs, de soja, de moutarde et de lupin.",
+		"Sucre, cacao."
+	],
+	[
+		"fr",
+		"Mangue, sucre. Contient l'équivalent de 50% de mangue.",
+		"Mangue, sucre."
+	],
+	[
+		"fr",
+		"Chocolat noir, noisettes. Traces possibles de fruits à coque*, oeufs* et dérivés du lait*.",
+		"Chocolat noir, noisettes."
+	],
+	[
+		"fr",
+		"Farine, beurre. Peut contenir des traces de blé, d'avoine, de seigle et de lait.",
+		"Farine, beurre."
+	],
+	[
+		"fr",
+		"Pâtes, sel. Allergènes signalés en majuscules et en gras.",
+		"Pâtes, sel."
+	],
+	[
+		"fr",
+		"Chocolat noir 70%. Ingrédient issu du commerce équitable français.*issu du commerce équitable et de l'agriculture biologique.",
+		"Chocolat noir 70%."
+	],
+	[
+		"fr",
+		"Riz, huile. Traces éventuelles d'autres céréales contenant du gluten, de poisson, de mollusques, d'oeuf, de lait, de soja, de céleri",
+		"Riz, huile."
+	],
+	[
+		"fr",
+		"Céréales, miel. Transformé dans une usine manipulant des noix, des arachides, des graines de sésame, des graines de moutarde, des produits à base de soja, des produits laitiers et du céleri.",
+		"Céréales, miel."
+	],
+	[
+		"fr",
+		"Gâteaux, sucre. Traces éventuelles de fruits à coque (amande), lupin, poisson, lait et sulfites.",
+		"Gâteaux, sucre."
 	],
 
 	# Polish
