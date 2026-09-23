@@ -135,7 +135,7 @@ stopwords:el: περιέχει
 stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
 stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
 stopwords:fi: allergiatiedot, jossa, käymisen aikana muodostuva, koskenlaskija, muun muassa, noin, sisältää, snellmanin, valio
-stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', avec ajout, sachet, marquants, demeter, minimum, base
+stopwords:fr: aux, au, avec ajout, base, de, demeter, du, la, le, a, et, avec, ou, en, proportion, sachet, variable, contient, élaboré avec, papier traité, marquants, minimum, MG/MS, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d'
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
 # example: luk u prahu (OD ČEGA mladi luk 0,06 %)
@@ -161,7 +161,7 @@ stopwords:ja: 等, その他
 stopwords:lt: iš, su, su pridėtiniu, mažiausiai, įskaitant
 stopwords:lv: no, skatīt uz iepakojuma, tostarp
 stopwords:nb: og, av, fra, bl a, blant annet, tilsatt
-stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, met, o.a, van, vervaardigd met, waaraan toegevoegd, waarvan
+stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, fruitgehalte, kort verhit, met, o.a, van, vervaardigd met, waaraan toegevoegd, waarvan, wat
 stopwords:nn: og, av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
@@ -236,7 +236,7 @@ hu: karamellizált cukorszirup
 it: sciroppo di zucchero caramellato
 lt: karamelizuotas cukraus sirupas
 lv: karamelizēts cukura sīrups
-nl: gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop, karamelsuikersiroop
+nl: gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop, karamelsuikersiroop, karamelstroop, kandijstroop
 pl: karmelizowany syrop cukrowy, syrop cukru skarmelizowanego, syrop cukru karmelizowanego, syrop cukru palonego, syrop palonego cukru, syrop ze skarmelizowanego cukru
 pt: xarome de açúcar caramelizado
 sv: karamelliserad sockersirap, karamelliserat sockersirap, karamelliserad sirap, karamellsockersirap
@@ -1151,7 +1151,7 @@ it: coltura probiotica
 de: Säuerungskultur
 
 < en: microbial culture
-en: kombucha culture, kombuncha cultures
+en: kombucha culture, kombuncha cultures, symbiotic culture
 da: kombuchakultur
 es: cultivo de kombucha
 fr: culture de kombucha
@@ -21088,6 +21088,10 @@ en: mocha flavouring
 sv: mockaarom
 
 < en: flavouring
+en: natural mocha flavouring
+nl: natuurlijk mokka aroma
+
+< en: flavouring
 en: plum flavouring
 de: Pflaumenaroma, Pflaumen-Aroma
 es: aroma de ciruela
@@ -21320,6 +21324,7 @@ fr: arôme naturel de mandarine
 hr: prirodna aroma mandarine
 hu: természetes mandarin aroma
 it: aroma naturale di mandarino
+nl: natuurlijk mandarijnaroma
 pl: naturalny aromat mandarynkowy, naturalny aromat mandarynki
 
 < en: natural flavouring
@@ -22249,7 +22254,7 @@ fr: arômes naturels de menthe, arôme naturel de menthe, arôme naturel de ment
 hr: prirodna aroma mente
 hu: természetes menta aroma
 it: aroma naturale di menta, aroma di menta naturale
-nl: natuurlijk muntsmaak
+nl: natuurlijk muntsmaak, natuurlijk muntaroma
 pl: naturalny aromat mięty
 pt: sabor natural de menta
 sv: naturlig mintsmak
@@ -22496,6 +22501,7 @@ fr: arôme naturel d'anis
 hr: prirodna aroma anisa
 hu: természetes ánizs aroma
 it: aroma naturale di anice
+nl: natuurlijk anijsaroma
 sv: naturlig anisarom
 
 < en: flavouring
@@ -23322,6 +23328,11 @@ da: naturlig grøntsagsaroma
 #< en: compound
 en: sea salt taste
 nl: zeezout smaak
+comment:en: This is NOT a flavouring, but describes the taste that of sauce/spices. For instance for crisps.
+
+#< en: compound
+en: roasted paprika taste
+nl: geroosterde paprikasmaak
 comment:en: This is NOT a flavouring, but describes the taste that of sauce/spices. For instance for crisps.
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -28137,8 +28148,10 @@ usda_ndb_code:en: 20131
 usda_ndb_name:en: Barley malt flour
 
 < en: barley flour
+en: dark barley malt flour
 fr: farine d'orge malté toasté, farine d'orge maltée torréfiée, farine d'orge malté torréfié
 it: farina di orzo maltato tostato, farina d'orzo maltato tostato, farina di malto d'orzo tostato
+nl: donkere gerstemoutbloem
 
 < en: barley flour
 en: dextrinated barley flour
@@ -60352,6 +60365,7 @@ da: sichuanpeber
 hr: sečuanski papar
 it: pepe di Sichuan
 nb: sichuanpepper
+nl: cichuan peper
 pl: pieprz syczuański
 sv: sichuanpeppar
 zh: 花椒
@@ -74808,6 +74822,21 @@ usda_ndb_name:en: Pumpkin flowers, raw
 
 ###################################################################################################
 #
+#                                Purple coneflower
+#
+###################################################################################################
+
+< en: plant
+en: purple coneflower
+xx: echinacae
+de: Purpur-Sonnenhut
+fr: échinacée pourpre
+hu: bibor kasvirág
+nl: paarse zonnehoed
+description:en: Native to the prairies and open woodlands of central and eastern North America, purple coneflower has long been used by Indigenous peoples before spreading globally as a cultivated herb. Today it's grown commercially across North America, Europe, and parts of Asia, with roots, leaves, and flowers harvested, dried, and processed into powders, extracts, teas, or tinctures. Its flavor is earthy, slightly bitter, and mildly tingling on the tongue. It's used in herbal teas, tinctures, capsules, and functional foods/beverages worldwide. Nutritionally, it contains polysaccharides, flavonoids, alkylamides, and trace vitamins and minerals, though it's consumed in small quantities as a flavoring or functional additive rather than a significant caloric or macronutrient source.
+
+###################################################################################################
+#
 #                                Quinine
 #
 ###################################################################################################
@@ -79011,6 +79040,9 @@ description:en: Mortierella alpina oil is derived from a soil-dwelling filamento
 en: rhizopus culture
 de: Rhizopuskultur
 it: coltura di Rhizopus
+
+< en: ferment
+en: blauwschimmelcultuur
 
 # description:en:Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
 
@@ -93413,7 +93445,7 @@ ms: mi
 my: ခေါက်ဆွဲ
 nb: nudler
 ne: चाउचाउ
-nl: noedels
+nl: noedels, mie
 nn: nudlar
 or: ନୁଡୁଲ
 pa: ਨੂਡਲ
