@@ -274,10 +274,10 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
-msgstr ""
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Filipino.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -286,7 +286,7 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Ang produktong ito ay wala pa sa datos ng <<site_name>>. Puwede ba kayong kumuha ng ilang mga larawan ng produkto, barcode, listahan ng sangkap at nutrisyon ng mga katotohanan upang idagdag ito sa <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"> <<site_name>> </a>? </p> <p>Nagpapasalamat </p>\n"
+msgstr "<p>Ang produktong ito ay wala pa sa datos ng <<site_name>>. Puwede ba kayong kumuha ng ilang mga larawan ng produkto, barcode, listahan ng sangkap at nutrisyon ng mga katotohanan upang idagdag ito sa <a href=\"https://world-fil.openfoodfacts.org\" target=\"_blank\"> <<site_name>> </a>? </p> <p>Nagpapasalamat </p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -567,7 +567,7 @@ msgstr "Mag-donate sa Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world-fil.openfoodfacts.org/mag-donate-sa-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -1623,11 +1623,6 @@ msgstr "Ang mga marka ng nutrisyon"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Marka ng nutrisyon"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2823,25 +2818,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "ibang nutrisyonal na sangkap na idinagdag"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Kapag binenta"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Handa"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Yunit"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Ang mga katotohanan sa nutrisyon ay nakasaad para sa produkto na kapag binenta."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Ang mga katotohanan sa nutrisyon ay nakasaad para sa nakahandang produkto."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -7225,3 +7204,28 @@ msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr ""
 
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Kapag binenta"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Handa"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "Ang mga katotohanan sa nutrisyon ay nakasaad para sa produkto na kapag binenta:"
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "Ang mga katotohanan sa nutrisyon ay nakasaad para sa nakahandang produkto:"
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-fil.svg"
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "Magagamit sa F-Droid"

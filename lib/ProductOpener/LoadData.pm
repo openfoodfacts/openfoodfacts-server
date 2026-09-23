@@ -52,6 +52,7 @@ use ProductOpener::Tags qw/init_emb_codes init_taxonomies load_knowledge_content
 use ProductOpener::PackagerCodes qw/init_geocode_addresses init_packager_codes/;
 use ProductOpener::Packaging qw/init_packaging_taxonomies_regexps/;
 use ProductOpener::ForestFootprint qw/load_forest_footprint_data/;
+use ProductOpener::ForestFootprint2026 qw/load_forest_footprint_2026_data/;
 use ProductOpener::EnvironmentalScore qw(load_agribalyse_data load_environmental_score_data);
 use ProductOpener::MainCountries qw(load_scans_data);
 use ProductOpener::NutritionCiqual qw(load_ciqual_data);
@@ -92,6 +93,7 @@ sub load_data() {
 		load_agribalyse_data();
 		load_environmental_score_data();
 		load_forest_footprint_data();
+		load_forest_footprint_2026_data();
 		load_ciqual_data();
 	}
 

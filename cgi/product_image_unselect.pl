@@ -28,7 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/init_request/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
 use ProductOpener::Images qw/is_protected_image process_image_unselect get_image_type_and_image_lc_from_imagefield/;
@@ -69,8 +69,6 @@ if (not is_protected_image($product_ref, $image_type, $image_lc) or $User{modera
 my $data = encode_json({status_code => 0, status => 'status ok', imagefield => $id});
 
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
-
-write_cors_headers();
 
 print header(
 	-type => 'application/json',

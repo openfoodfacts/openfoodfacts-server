@@ -21,13 +21,13 @@ The Open Food Facts API enables developers to get information like ingredients a
 
 ## Before You Start
 
-- The Open Food Facts database is available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).
+- The Open Food Facts database is available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/)
 - The individual contents of the database are available under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).
 - Product images are available under the [Creative Commons Attribution ShareAlike](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license. They may contain graphical elements subject to copyright or other rights that may, in some cases, be reproduced (quotation rights or fair use).
 
 Before using the API, please :
 
-1. Read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use)
+1. Read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use) and [our wiki page about ODbL](https://wiki.openfoodfacts.org/ODBL_License).
 2. **Tell us how you'll use it** by filling out this short form:  
    👉 [Fill out the API usage form](https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform)
    This helps us understand real-world uses of the API and prioritize improvements.
@@ -111,7 +111,7 @@ Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/)
 
 You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.
 
-We however ask that you send the [`app_name`, `app_version` and `app_uuid` parameters](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl) in your write queries.
+We however ask that you send the [`app_name`, `app_version` and `app_uuid` parameters](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/products/post-cgi-product_jqm2.pl/) in your write queries.
 
 - `app_name=MyApp`
 - `app_version=1.1`
@@ -181,16 +181,15 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 
 > **Warning**: Before exploring any SDK, please read the [Before You Start section](#before-you-start).
 >
-> Also, remember to check the [API Reference Documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) first to verify if the problem is in SDK implementation or in the API itself.
+> Also, remember to check the [API Reference Documentation](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/ref-v2/) first to verify if the problem is in SDK implementation or in the API itself.
 
-- Cordova: [GitHub (old Open Food Facts official app)](https://github.com/openfoodfacts/openfoodfacts-cordova-app)
 - DART: [GitHub](https://github.com/openfoodfacts/openfoodfacts-dart) - [Package on pub.dev](https://pub.dev/packages/openfoodfacts)
 - Elixir: [GitHub](https://github.com/openfoodfacts/openfoodfacts-elixir) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C758AFX0S)
 - Go: [GitHub](https://github.com/openfoodfacts/openfoodfacts-go) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C14LGGCUV)
 - Java: [GitHub](https://github.com/openfoodfacts/openfoodfacts-java) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
 - Spring Boot: [GitHub](https://github.com/openfoodfacts/openfoodfacts-springboot-starter) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
 - Kotlin: [GitHub](https://github.com/openfoodfacts/openfoodfacts-kotlin) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C045VU7NXS9)
-- NodeJS: [GitHub](https://github.com/openfoodfacts/openfoodfacts-nodejs) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JQQ28P8)
+- JavaScript: [GitHub](https://github.com/openfoodfacts/openfoodfacts-js) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JQQ28P8)
 - PHP: [GitHub](https://github.com/openfoodfacts/openfoodfacts-php) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)
 - PHP (Laravel): [GitHub](https://github.com/openfoodfacts/openfoodfacts-laravel) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)
 - Python: [GitHub](https://github.com/openfoodfacts/openfoodfacts-python), published on [pypi](https://pypi.org/project/openfoodfacts/) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C13993JDD)

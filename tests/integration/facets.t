@@ -348,7 +348,7 @@ my $tests_ref = [
 		expected_status_code => 302,
 		headers => {
 			Location =>
-				'http://world.openfoodfacts.localhost/facets/categories/Vitamin supplements.json?fields=product_name,labels_tags',
+				'http://world.openfoodfacts.localhost/facets/categories/Vitamin%20supplements.json?fields=product_name,labels_tags',
 		},
 		expected_type => 'html',
 	},
@@ -402,6 +402,16 @@ my $tests_ref = [
 			Location => '/facets/ingredients?filter=bon&status=unknown',
 		},
 		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'filtered-facets-world-link-keeps-filter',
+		method => 'GET',
+		subdomain => 'uk',
+		path => '/facets/ingredients?filter=bon&status=unknown',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match =>
+			'http:\/\/world\.openfoodfacts\.localhost\/facets\/ingredients\?filter=bon&amp;status=unknown',
 	},
 	{
 		test_case => 'redirect-facets-agg-with-json',

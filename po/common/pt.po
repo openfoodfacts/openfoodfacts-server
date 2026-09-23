@@ -312,7 +312,7 @@ msgstr "APK Android"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Portuguese-Portugal.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -1667,11 +1667,6 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Classificação nutricional"
 
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
@@ -2865,25 +2860,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "outra substância nutricional adicionada"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Como vendido"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Preparado"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Unidade"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "As informações nutricionais são especificados para o produto conforme é vendido."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "As informações nutricionais são especificadas para o produto preparado."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -7546,7 +7525,7 @@ msgstr "O {barcode} é o código de barras de um produto que possui? Se sim, adi
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-pt.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7776,3 +7755,20 @@ msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "Impacto não avaliado"
 
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Como vendido"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Preparado"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "As informações nutricionais são especificados para o produto conforme é vendido:"
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "As informações nutricionais são especificadas para o produto preparado:"

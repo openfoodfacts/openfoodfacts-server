@@ -3,9 +3,15 @@
    "_keywords" : [
       "and",
       "beverage",
+      "drink",
+      "food",
+      "fruit",
+      "fruit-based",
       "lemonade",
       "non-alcoholic",
-      "preparation"
+      "plant-based",
+      "preparation",
+      "soft"
    ],
    "added_countries_tags" : [],
    "allergens_imported" : "celery",
@@ -30,9 +36,15 @@
    ],
    "categories_tags" : [
       "en:beverages-and-beverages-preparations",
+      "en:plant-based-foods-and-beverages",
       "en:beverages",
+      "en:fruit-based-foods-and-beverages",
       "en:non-alcoholic-beverages",
-      "en:lemonade"
+      "en:plant-based-beverages",
+      "en:fruit-based-beverages",
+      "en:soft-drinks",
+      "en:fruit-soft-drinks",
+      "en:lemonades"
    ],
    "checkers_tags" : [],
    "code" : "10000001",
@@ -529,6 +541,10 @@
       "c"
    ],
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "unknown",
+      "summary" : "missing_ingredients"
+   },
    "id" : "10000001",
    "images" : {
       "selected" : {}
@@ -561,6 +577,7 @@
       "en:environmental-score-missing-data-origins",
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
+      "en:forest-footprint-unknown",
       "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
@@ -577,6 +594,7 @@
       "en:packagings-empty",
       "en:packagings-not-complete",
       "en:packagings-number-of-components-0",
+      "en:storage-conditions-not-set",
       "en:main-countries-new-product"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
@@ -749,7 +767,7 @@
          "packaging" : {
             "last_updated_t" : "--ignore--",
             "tags" : [
-               "en:lemonade"
+               "en:lemonades"
             ]
          }
       },

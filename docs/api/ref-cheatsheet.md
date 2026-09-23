@@ -74,7 +74,7 @@ https://world.openfoodfacts.org/api/v2/product/3017620422003.json?fields=product
 
 Structured search by tags, nutrients, categories, brands, and other fields is available via the `/api/v2/search` endpoint:
 
-- [Reference documentation for v2 search API](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search)
+- [Reference documentation for v2 search API](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/search/get-search/)
 
 > **Note:** `/api/v3/search` is not yet implemented.
 
@@ -124,7 +124,7 @@ https://world.openfoodfacts.org/api/v2/search?code=3263859883713,8437011606013,6
 The v3 API provides suggestions based on taxonomy fields such as synonyms, categories, and packaging shapes.
 
 ### Reference documentation:
-https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/taxonomy_suggestions
+https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/taxonomy/get-api-v3-taxonomy_suggestions-taxonomy/
 
 ### Example requests:
 Get suggestions from synonyms

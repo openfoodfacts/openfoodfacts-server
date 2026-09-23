@@ -124,7 +124,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
+	qw(set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve retrieve_object);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -174,7 +174,6 @@ use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use HTML::Entities;
 use DateTime;
 use DateTime::Locale;
-use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
 use JSON::MaybeXS;
@@ -193,6 +192,7 @@ use Log::Log4perl;
 use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
+use List::Util qw(any);
 
 use Apache2::Request ();
 use Apache2::RequestUtil ();
@@ -301,6 +301,12 @@ $tt = Template->new(
 				# Use uc() on first character which works correctly with UTF-8
 				# when utf8 flag is set (Template Toolkit handles this with ENCODING => 'UTF-8')
 				return uc(substr($text, 0, 1)) . substr($text, 1);
+			},
+			js => sub {
+				my $text = shift;
+				return '' unless defined $text;
+				# Encode the text as a JSON string for safe inclusion in JavaScript
+				return $json_utf8->encode($text);
 			},
 		},
 	}
@@ -732,7 +738,7 @@ sub init_request ($request_ref = {}) {
 	# If lc is not one of the official languages of the country and if the request comes from
 	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
 	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
-	if ((!($lc ~~ $country_languages{$cc})) or $subdomain =~ /^(ssl-)?api/) {
+	if ((!any {$_ eq $lc} @{$country_languages{$cc}}) or $subdomain =~ /^(ssl-)?api/) {
 		# Use robots.txt with disallow: / for all agents
 		$request_ref->{deny_all_robots_txt} = 1;
 
@@ -1129,7 +1135,6 @@ that require a lot of resources (especially aggregation queries).
 =cut
 
 sub display_no_index_page_and_exit () {
-	write_cors_headers();
 	my $html
 		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>NOINDEX</h1><p>We detected that your browser is a web crawling bot, and this page should not be indexed by web crawlers. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
 	my $http_headers_ref = {
@@ -1157,7 +1162,6 @@ Return a page with a 429 status code and a message explaining that the user is s
 =cut
 
 sub display_too_many_requests_page_and_exit() {
-	write_cors_headers();
 	my $http_headers_ref = {
 		'-status' => 429,
 		'-charset' => 'UTF-8',
@@ -4301,6 +4305,9 @@ HTML
 
 		$tag_template_data_ref->{world_link} = $world_link;
 		$tag_template_data_ref->{world_link_url} = get_world_subdomain() . $request_ref->{world_current_link};
+		if ($request_ref->{query_parameters}) {
+			$tag_template_data_ref->{world_link_url} .= '?' . $request_ref->{query_parameters};
+		}
 
 	}
 
@@ -5325,8 +5332,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"ecoscore_data.environmental_score_not_applicable_for_category" => 1,
 			"ecoscore_grade" => 1,
 			"ecoscore_score" => 1,
-			"forest_footprint_data.grade" => 1,
-			"forest_footprint_data.footprint_per_kg" => 1,
+			"forest_footprint_2026.grade" => 1,
+			"forest_footprint_2026.total_footprint_per_kg" => 1,
+			"forest_footprint_2026.summary" => 1,
+			"forest_footprint_2026.primary_ingredients" => 1,
 			"ingredients_analysis_tags" => 1,
 			"ingredients_n" => 1,
 			"labels_tags" => 1,
@@ -6041,7 +6050,7 @@ sub get_search_field_path_components ($field) {
 	}
 	# forest footprint
 	elsif ($field eq "forest_footprint") {
-		@fields = ('forest_footprint_data', 'footprint_per_kg');
+		@fields = ('forest_footprint_2026', 'total_footprint_per_kg');
 	}
 	# we assume other fields are nutrients ids
 	else {
@@ -9966,7 +9975,6 @@ sub display_structured_response ($request_ref) {
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
 		my $status_code = $request_ref->{status_code} // "200";
-		write_cors_headers();
 		print header(
 			-status => $status_code,
 			-type => 'text/xml',
@@ -9994,7 +10002,6 @@ sub display_structured_response ($request_ref) {
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
-			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'text/javascript',
@@ -10004,7 +10011,6 @@ sub display_structured_response ($request_ref) {
 				. $data . ");";
 		}
 		else {
-			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
@@ -10090,7 +10096,6 @@ XML
 XML
 		;
 
-	write_cors_headers();
 	print header(-type => 'application/rss+xml', -charset => 'utf-8') . $xml;
 
 	return;

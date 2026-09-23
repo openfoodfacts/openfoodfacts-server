@@ -107,7 +107,7 @@ my $tests_ref = [
 						"shape": {"id": "en:box"},
 						"material": {"lc_name": "cardboard"},
 						"recycling": {"lc_name": "to recycle"}
-					}				
+					}
 				]
 			}
 		}'
@@ -675,9 +675,11 @@ my $tests_ref = [
 		path => '/api/v3/product/test',
 		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Credentials" => "true",
 		},
+		expected_status_code => 204,    # specific return code for OPTIONS requests
 		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
@@ -781,6 +783,18 @@ my $tests_ref = [
 				"lang": "fr",
 				"categories_tags_fr": ["confiture"],
 				"ingredients_text_fr": "Sucre 300g, pommes 100g"
+			}
+		}',
+	},
+	# misspelled brand
+	{
+		test_case => 'patch-misspelled-brand',
+		method => 'PATCH',
+		path => '/api/v3.6/product/test',
+		body => '{
+			"fields" : "updated,brands,brands_tags",
+			"product": { 
+				"brands_tags_add": ["Marks & Spencers", "Some other brand"]
 			}
 		}',
 	},
