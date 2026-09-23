@@ -3670,7 +3670,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			# Loop through each suffix to retrieve ecobalyse code
 			foreach my $suffix (@suffixes) {
 				# Construct the property name using the prefix and suffix
-				my $property_name = $prefix . $suffix . ":en";
+				my $property_name = $prefix . $suffix . "_id" . ":en";
 
 				# Attempt to retrieve the ecobalyse code for the current property name
 				my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
