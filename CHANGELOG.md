@@ -1,5 +1,51 @@
 # Changelog
 
+## [2.107.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.106.2...v2.107.0) (2026-09-23)
+
+
+### Features
+
+* correct common misspellings in ingredients and brands ([#14612](https://github.com/openfoodfacts/openfoodfacts-server/issues/14612)) ([aa1ef96](https://github.com/openfoodfacts/openfoodfacts-server/commit/aa1ef96614e1f88d910c4a6cd724e3de7c15ae62))
+
+
+### Bug Fixes
+
+* forest footprint new logo and fixes ([#14644](https://github.com/openfoodfacts/openfoodfacts-server/issues/14644)) ([8c3426e](https://github.com/openfoodfacts/openfoodfacts-server/commit/8c3426e5dbe2dbd1294c0a0e7ca9b85703d0054a))
+* **taxonomy:** restore environmental-score match for Caesar salad dressings ([#14615](https://github.com/openfoodfacts/openfoodfacts-server/issues/14615)) ([d3600ee](https://github.com/openfoodfacts/openfoodfacts-server/commit/d3600eeecf771f7a39d2c1dc5e5ae7a50341b826))
+
+## [2.106.2](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.106.1...v2.106.2) (2026-09-22)
+
+
+### Bug Fixes
+
+* fix again Forest Footprint SVG logos ([#14635](https://github.com/openfoodfacts/openfoodfacts-server/issues/14635)) ([3f13415](https://github.com/openfoodfacts/openfoodfacts-server/commit/3f134152549e82c9e46dd8dcddfbb87b68bc5972))
+
+## [2.106.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.106.0...v2.106.1) (2026-09-21)
+
+
+### Bug Fixes
+
+* escape error message in HTML response ([#14622](https://github.com/openfoodfacts/openfoodfacts-server/issues/14622)) ([df44101](https://github.com/openfoodfacts/openfoodfacts-server/commit/df441013aab8f0fb58b1baadd5fb04f8ca090545))
+* escape packaging in html ([#14624](https://github.com/openfoodfacts/openfoodfacts-server/issues/14624)) ([5e4a8c6](https://github.com/openfoodfacts/openfoodfacts-server/commit/5e4a8c68b5f0e3973b88603ab44733e5e362f189))
+* **ingredients:** parse mg/kg and activity units without splitting on slash 6132 ([#14491](https://github.com/openfoodfacts/openfoodfacts-server/issues/14491)) ([1373aa1](https://github.com/openfoodfacts/openfoodfacts-server/commit/1373aa1495ad99b325278c595b5be6022a6937e0))
+* rename forest footprint svg icons ([#14625](https://github.com/openfoodfacts/openfoodfacts-server/issues/14625)) ([a003e39](https://github.com/openfoodfacts/openfoodfacts-server/commit/a003e3946deef3cf4fec541fed0bff5f9107b265))
+* validate JWT issuer ([#14623](https://github.com/openfoodfacts/openfoodfacts-server/issues/14623)) ([66da023](https://github.com/openfoodfacts/openfoodfacts-server/commit/66da023a1e256d77615f11ae82c35e6fbe2a5def))
+
+## [2.106.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.105.0...v2.106.0) (2026-09-18)
+
+
+### Features
+
+* measure the web donation funnel in Matomo ([#14581](https://github.com/openfoodfacts/openfoodfacts-server/issues/14581)) ([4fe9678](https://github.com/openfoodfacts/openfoodfacts-server/commit/4fe967810db51484c45e3e0d3e693ad59e1e88d2))
+* polish donations at large scale ([1bb39df](https://github.com/openfoodfacts/openfoodfacts-server/commit/1bb39dff3dbf9e32fff82e38e40105afe55d4971))
+* polish donations at large scale ([#14500](https://github.com/openfoodfacts/openfoodfacts-server/issues/14500)) ([1bb39df](https://github.com/openfoodfacts/openfoodfacts-server/commit/1bb39dff3dbf9e32fff82e38e40105afe55d4971))
+
+
+### Bug Fixes
+
+* Ensure product_updates are pushed to Redis when a user is deleted ([#14598](https://github.com/openfoodfacts/openfoodfacts-server/issues/14598)) ([e35a403](https://github.com/openfoodfacts/openfoodfacts-server/commit/e35a403e3b2181c5e833e9d9f965742f8decb063))
+* fixes for new forest footprint ([#14579](https://github.com/openfoodfacts/openfoodfacts-server/issues/14579)) ([e297e3a](https://github.com/openfoodfacts/openfoodfacts-server/commit/e297e3ad56b35579e662b0db42c46fa43eb7e53c))
+
 ## [2.105.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.104.0...v2.105.0) (2026-09-16)
 
 

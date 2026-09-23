@@ -12654,6 +12654,7 @@ intake24_category_code:en: WINE
 nova:en: 3
 wikidata:en: Q282
 
+< en: Vegan products
 < en: Wines
 en: Vegan wines, Vegan-friendly wines
 da: Veganske vin
@@ -33506,12 +33507,12 @@ oqali_family:en: fr:Biscuits et gateaux industriels - Florentins
 wikidata:en: Q1429469
 
 < en: Biscuits
-en: Shortbread cookies, Shortbread pastry biscuit
+en: Shortbread cookies, Shortbread pastry biscuit, Shortbread biscuit with butter
 ca: Galetes de mantega
 de: Mürbeteigkekse
 es: Galletas de mantequilla
 fi: Murokeksit
-fr: Biscuits sablés, Biscuit sablé, Sablés, Sablé, Sablé pâtissier
+fr: Biscuits sablés, Biscuit sablé, Sablés, Sablé, Sablé pâtissier, Sablés au beurre
 hr: Keksi od prhkog tijesta
 it: Frollini
 ja: ショートブレッド
@@ -33531,9 +33532,18 @@ wikidata:en: Q652695
 en: Brittany-style galette biscuits, Shortbread cookies from Brittany
 fr: Galettes bretonnes au beurre, galettes bretonnes
 
+< en: Brittany-style galette biscuits
+< en: Plain butter shortbreads
+en: Plain Brittany-style galette biscuits
+fr: Galettes bretonnes au beurre nature
+
 < en: Shortbread cookies
 en: Brittany-style palet biscuits
 fr: Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
+
+< en: Brittany-style palet biscuits
+en: Plain Brittany-style palet biscuits
+fr: Palets nature
 
 < en: Shortbread cookies
 en: Shortbread biscuit with butter and chocolate
@@ -33611,8 +33621,8 @@ ciqual_food_name:en: Biscuit shortbread, with fruits
 ciqual_food_name:fr: Biscuit sec, sablé, galette ou palet, aux fruits
 
 < en: Shortbread cookies
-en: Plain butter shortbreads, Shortbread biscuit with butter
-fr: Sablés nature au beurre, Sablés au beurre
+en: Plain butter shortbreads
+fr: Sablés nature au beurre
 agribalyse_food_code:en: 24049
 ciqual_food_code:en: 24049
 ciqual_food_name:en: Biscuit shortbread, with butter
@@ -39974,9 +39984,10 @@ nl: Caramels met gezouten boter
 wikidata:en: Q19544049
 
 < en: Confectioneries
-en: Chewing gum, chewing-gum
+en: Chewing gums, chewing-gum
 bg: Дъвки
 ca: Xiclets
+da: Tyggegummier
 de: Kaugummis, Kaugummi
 es: Chicles, Goma de mascar, Gomas de mascar
 fi: purukumi
@@ -39986,11 +39997,14 @@ hr: Žvakaća guma
 it: Gomme da masticare
 ja: チューインガム
 lt: Kramtomosios gumos
+nb: Tyggegummier
 nl: Kauwgom
+nn: Tyggegummiar, Tyggjegummiar
 pl: Guma do żucia
 pt: Pastilhas elásticas
 ro: Gumă de mestecat
 ru: Жевательная резинка
+sv: Tuggummin
 agribalyse_proxy_food_code:en: 31007
 agribalyse_proxy_food_name:en: Chewing gum, with sugar
 agribalyse_proxy_food_name:fr: Chewing-gum, sucré
@@ -40003,6 +40017,7 @@ wikidata:en: Q130878
 < en: Chewing gum
 en: Sugar-free chewing gum, Chewing gum without sugar
 bg: Дъвки без захар
+da: Sukkerfrie tyggegummier, Sukkerfrit tyggegummi, Tyggegummier uden sukker
 de: zuckerfreie Kaugummis, zuckerfreier Kaugummi
 es: Chicles sin azúcar, Goma de mascar sin azúcar, Gomas de mascar sin azúcar
 fi: sokeriton purukumi
@@ -40011,11 +40026,14 @@ he: מסטיק נטול סוכר, מסטיק ללא סוכר
 hr: Žvakaća guma bez šećera
 it: Gomme da masticare senza zucchero
 lt: Becukrės kramtomosios gumos, Kramtomosios gumos be cukraus
+nb: Sukkerfrie tyggegummier
 nl: Kauwgom (suikervrij), Suikervrije kauwgom
+nn: Sukkerfrie tyggegummiar, Sukkerfrie tyggjegummiar
 pl: bezcukrowa guma do żucia
 pt: Pastilhas elásticas sem açucar
 ro: Gumă de mestecat fără zahăr
 ru: Жевательная резинка без сахара
+sv: Sockerfria tuggummin, Sockerfritt tuggummi, Tuggummin utan socker
 zh: 无糖口香糖
 agribalyse_food_code:en: 31054
 ciqual_food_code:en: 31054
@@ -40024,6 +40042,7 @@ ciqual_food_name:fr: Chewing-gum, sans sucre
 
 < en: Chewing gum
 en: Chewing gum with sugar
+da: Tyggegummier med sukker
 de: Kaugummi mit Zucker
 es: Chicle con azúcar
 fr: Chewing-gum sucré
@@ -40031,6 +40050,7 @@ hr: Žvakaća guma sa šećerom
 it: Gomma da masticare con zucchero
 lt: Kramtomosios gumos su cukrumi
 nl: Kauwgom met suiker
+sv: Tuggummin med socker, Tuggummi med socker
 agribalyse_food_code:en: 31007
 ciqual_food_code:en: 31007
 ciqual_food_name:en: Chewing gum, with sugar
@@ -41469,6 +41489,7 @@ tr: Havyar
 ciqual_proxy_food_code:en: 26005
 ciqual_proxy_food_name:en: Caviar, semi-preserved
 ciqual_proxy_food_name:fr: Caviar, semi-conserve
+plant_alternative:en: en:plant-based-caviar-substitutes
 wikidata:en: Q186385
 
 < en: Caviars
@@ -78421,6 +78442,7 @@ fr: Sauces végétariennes façon carbonara
 hr: Vegetarijanski umaci u stilu carbonare
 lt: Carbonara stiliaus vegetariški padažai
 
+< en: Vegan products
 < en: Vegetarian sauces
 en: Vegan sauces
 bg: Веган сосове
@@ -78431,11 +78453,12 @@ lt: Veganiški padažai
 pl: Sosy wegańskie, wegańskie sosy
 sv: Veganska såser
 
-< en: Vegan sauces
-en: Egg-free mayonnaises, Vegan mayonnaises
+< en: Sauces
+en: Egg-free mayonnaises
 bg: Майонеза без яйца
+da: Ægfrie mayonnaiser, Mayonnaiser uden æg
 de: Mayonnaise ohne Eier
-es: Mayonesas sin huevo, Mayonesas vegetales
+es: Mayonesas sin huevo
 fi: Munattomat majoneesit
 fr: Mayonnaises sans œufs, mayonnaises sans oeufs
 hr: Majoneze bez jaja
@@ -78443,12 +78466,21 @@ hu: Tojásmentes majénz
 it: Maionese senza uovo
 lt: Majonezai be kiaušinių
 nl: Eivrije mayonaises
-pl: Majonezy bezjajeczne, majonez bezjajeczny, majonezy wegańskie
-sv: Äggfria majonnäser, Veganska majonnäser
+pl: Majonezy bezjajeczne, majonez bezjajeczny
+sv: Äggfria majonnäser, Majonnäser utan ägg
 tr: Yumurtasız mayonez
 
 < en: Egg-free mayonnaises
-en: Flavoured vegan mayonnaises, Flavoured egg-free mayonnaises
+< en: Vegan sauces
+en: Plant-based mayonnaises, Vegan mayonnaises
+da: Plantebaserede mayonnaiser, Veganske mayonnaiser
+es: Mayonesas vegetales
+fr: Mayonnaises végétaux, Mayonnaise végétal
+pl: Majonezy wegańskie
+sv: Växtbaserade majonnäser, Veganska majonnäser
+
+< en: Plant-based mayonnaises
+en: Flavoured vegan mayonnaises
 sv: Veganska majonnäser med smak
 
 < en: Vegan sauces
@@ -78471,6 +78503,10 @@ fr: Sauces véganes façon hollandaise
 < en: Vegan sauces
 en: Béchamel-style vegan sauces
 fr: Sauces véganes façon béchamel
+
+< en: Vegan sauces
+en: Vegan cheese sauces, Plant-based cheese sauces
+sv: Växtbaserade ostsåser, Veganska ostsåser
 
 < en: Sauces
 en: Peanut sauces
@@ -79079,7 +79115,8 @@ hr: Cezar umaci
 it: Salse caesar, salsa caesar
 lt: Cezario padažai
 sv: Caesardressingar
-agribalyse_food_code:en: 11248
+# CIQUAL 11248 is not in Agribalyse yet
+#agribalyse_food_code:en: 11248
 ciqual_food_code:en: 11248
 ciqual_food_name:en: Salad dressing, Caesar style, prepacked
 wikidata:en: Q141281410
@@ -79572,10 +79609,12 @@ lt: Sūrio padažai
 nl: Kaassauzen
 pl: Sosy serowe
 pt: Molhos de queijo
+sv: Ostsåser
 agribalyse_food_code:en: 11189
 ciqual_food_code:en: 11189
 ciqual_food_name:en: Cheese sauce for risotto or pasta, prepacked
 intake24_category_code:en: WHTE
+plant_alternative:en: en:vegan-cheese-sauces
 wikidata:en: Q27972032
 
 < en: Cheese sauces
@@ -79724,6 +79763,7 @@ nl: Fritessauzen, Fritessaus
 en: Mayonnaises, Mayo
 bg: Майонеза
 ca: Maioneses
+da: Mayonnaiser
 de: Mayonnaisen, Mayo
 es: Mayonesas, Mahonesas
 fi: majoneesit
@@ -79748,6 +79788,7 @@ gpc_category_code:en: 10006319
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a Mayonnaise or Mayonnaise Substitute, which is usually used to enhance the flavour, appearance and texture of savoury foods. These products can be blended with other ingredients. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Specifically excludes Mustard/Mustard Substitutes and other Sauces Dipping/Condiments/Savoury Spreads/ Marinades, Ketchup/Ketchup Substitutes. Excludes products such as Cooking Sauces; Dressings and Dips; Frozen and Perishable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
 gpc_category_name:en: Mayonnaise/Mayonnaise Substitutes (Shelf Stable)
 intake24_category_code:en: MAYN
+plant_alternative:en: en:plant-based-mayonnaises
 wikidata:en: Q167893
 
 < en: Mayonnaises
@@ -81072,9 +81113,13 @@ protected_name_type:en: pgi
 wikidata:en: Q50840850
 
 < en: Polish meat products
+< en: Sausages
 pl: Kabanosy
 en: Cabanossi
+da: Kabanospølser
+sv: Kabanosser
 origins:en: en:poland
+plant_alternative:en: en:plant-based-cabanossi-style-sausages
 protected_name_file_number:en: TSG-PL-0050
 protected_name_type:en: tsg
 wikidata:en: Q462758
@@ -86248,6 +86293,7 @@ fr: Légumes farcis dans l'huile, légumes farcis à l'huile
 en: Vegetarian meals
 description:en: Should be distinguished from vegetable meals, that might contain meat
 
+< en: Vegan products
 < en: Vegetarian meals
 en: Vegan meals
 description:en: Should be distinguished from vegetable meals, that might contain animal products
@@ -86990,6 +87036,7 @@ ciqual_proxy_food_code:en: 25472
 ciqual_proxy_food_name:en: Pizza, vegetables or pizza 4 seasons
 ciqual_proxy_food_name:fr: Pizza aux légumes ou Pizza 4 saisons
 
+< en: Vegan products
 < en: Vegetarian pizzas
 en: Vegan pizzas, Plant-based pizzas, Vegetal pizzas
 da: Veganske pizzaer
@@ -95415,7 +95462,7 @@ zh: 冷肉
 fr: Saucissons artisanaux, Saucisson artisanal
 
 < en: Cured sausages
-en: chorizo, chorizos
+en: Chorizos, Chorizo
 af: Chorizo
 be: Чарыза
 bg: Чорисо
@@ -95453,19 +95500,19 @@ tl: Longganisa
 uk: Чорісос
 vi: Chorizo
 zh: 乔利佐
-# usage:fr:chorizo (maigre et gras de porc, sel, épices et extraits d'épices, dextrose de blé, ferments lactiques, conservateurs :E301, E250)
+#ast: Chorizu
+#ceb: Longganisa
+#en-ca: Chorizo
+#en-gb: Chorizo
+#pt-br: Chouriço
+#yue: 西班牙辣肉腸
+#zh-cn: 口利左香肠
+#zh-hant: 口利左香腸
 agribalyse_food_code:en: 30315
 ciqual_food_code:en: 30315
 ciqual_food_name:en: Spicy pork sausage with red pepper, no precision
 description:en: Chorizo or chouriço is a type of pork sausage. In Europe, chorizo is a fermented, cured, smoked sausage, which may be sliced and eaten without cooking, or added as an ingredient to add flavor to other dishes. Elsewhere, some sausages sold as chorizo may not be fermented and cured, and require cooking before eating. Spanish chorizo and Portuguese chouriço get their distinctive smokiness and deep red color from dried, smoked, red peppers.
-# ast:Chorizu
-# ceb:Longganisa
-# en-ca:Chorizo
-# en-gb:Chorizo
-# pt-br:Chouriço
-# yue:西班牙辣肉腸
-# zh-cn:口利左香肠
-# zh-hant:口利左香腸
+plant_alternative:en: en:plant-based-chorizos
 wikidata:en: Q23374
 wikipedia:en: https://en.wikipedia.org/wiki/Chorizo
 
@@ -120242,18 +120289,34 @@ en: Agar-agar powder
 fr: Agar agar en poudre
 zh: 琼脂粉
 
-en: Caviar substitutes
-fr: Substituts du caviar
+en: Caviar substitutes, Artificial caviar, Imitation caviar
+da: Kaviarerstatninger
+fr: Substituts du caviar, Imitation de caviar
+ru: Искусственная икра
+sv: Kaviarersättningar
+uk: Штучна ікра
 zh: 仿鱼子酱
+comment:en: do not confuse this with vegan caviars: caviar substitutes are commonly made from fish, crustaceans, and/or molluscs.
+wikidata:en: Q4420444
+
+< en: Caviar substitutes
+< en: Vegan products
+en: Plant-based caviar substitutes, Vegan caviar substitutes, Plant-based caviars, Vegan caviars
+da: Plantebaserede kaviarer, Veganske kaviarer
+fr: Caviars végétaux, Caviar végétal
+sv: Växtbaserade kaviarer, Veganska kaviarer
 
 < en: Caviar substitutes
 < en: Seaweed products
-en: Caviar substitutes from algae
+en: Caviar substitutes from algae, Caviar substitutes from seaweed, Alginate caviar
 es: Sucedáneos de caviar a base de algas
+fr: Imitation de caviar à base d'algues
 hr: Zamjene za kavijar od algi
 nl: Kaviaarvervangers op basis van algen
 
 < en: Caviar substitutes
+en: Synthetic black caviar
+da: Syntetisk sort kaviar
 ru: Синтетическая чёрная икра, искусственная чёрная икра
 
 < en: Frozen foods
@@ -122978,6 +123041,7 @@ fr: Galettes au seitan
 
 < en: Meat analogues
 en: Vegetarian sausages
+da: Vegetariske pølser
 de: Vegetarische Würste
 es: Salchichas vegetales
 fi: kasvismakkarat
@@ -122986,17 +123050,21 @@ hr: Vegetarijanske kobasice
 it: Salsicce vegetariane
 nl: Vegetarische worstjes
 pl: Kiełbasy wegetariańskie
+sv: Vegetarianska korvar, Vegetariska korvar
 agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 
 < en: Vegan products
 < en: Vegetarian sausages
-en: Vegan sausages
+en: Vegan sausages, Plant-based sausages
+da: Plantebaserede pølser, Veganske pølser
 pl: Kiełbasy wegańskie, Kiełbaski wegańskie
+sv: Växtbaserade korvar, Veganska korvar
 agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+wikidata:en: Q105523063
 
 < en: Vegetarian sausages
 en: Vegetarian hot dog sausages
@@ -123011,9 +123079,9 @@ agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 wikidata:en: Q181055
 
-< en: Vegan products
+< en: Vegan sausages
 < en: Vegetarian hot dog sausages
-en: Vegan hot dog saucages
+en: Vegan hot dog sausages, Vegan hot dog saucages
 pl: Parówki wegańskie
 agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
@@ -123042,7 +123110,28 @@ agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 
-< en: Vegan products
+< en: Vegan sausages
+en: Plant-based cabanossi-style sausages, Vegan cabanossi
+da: Plantebaserede kabanospølser, Vegansk kabanos
+sv: Växtbaserade kabanosser, Veganska kabanosser
+
+< en: Vegan sausages
+en: Plant-based cheese sausages, Vegan cheese sausages
+da: Plantebaserede ostepølser, Veganske ostepølser
+sv: Växtbaserade ostkorvar, Veganska ostkorvar
+
+< en: Vegan sausages
+en: Plant-based chorizos, Vegan chorizos
+da: Plantebaserede chorizoer, Veganske chorizopølser
+sv: Växtbaserade chorizos, Veganska chorizos
+
+< en: Vegan sausages
+en: Plant-based grill sausages, Vegan grill sausages
+da: Plantebaserede grillpølser, Veganske grillpølser
+sv: Växtbaserade grillkorvar, Veganska grillkorvar
+#wikidata:en: Q10508801 - non-vegan variant
+
+< en: Vegan sausages
 < en: Vegetarian sausages
 en: Vegan sausages from tofu, Vegetarian sausages from tofu, Plant-based sausage with tofu (vegan)
 fr: Saucisses végétariennes de tofu, Saucisse végétale au tofu (convient aux véganes ou végétaliens) préemballée

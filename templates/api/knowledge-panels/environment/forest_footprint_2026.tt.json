@@ -6,12 +6,12 @@
     "expanded": false,
     "title_element": {
         "name": "[% edq(lang('forest_footprint')) %]",
-        "title": "[% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_title")) %] [% IF product.forest_footprint_2026.grade != 'unknown' && product.forest_footprint_2026.grade != 'not_computed' %] - [% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description_short")) %][% END %]",
+        "title": "[% IF product.forest_footprint_2026.grade != 'unknown' && product.forest_footprint_2026.grade != 'not_computed' %][% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description_short")) %][% ELSE %][% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_title")) %][% END %]",
         "subtitle": "[% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description")) %]",
         [% IF product.forest_footprint_2026.grade == 'not_computed' %]
-        "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-2026-not-computed.svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-2026-white-bg-not-computed.svg",
         [% ELSE %]
-        "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-2026-[% product.forest_footprint_2026.grade %].svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-2026-white-bg-[% product.forest_footprint_2026.grade %].svg",
         [% END %]
         "type": "grade",
         "grade": "[% product.forest_footprint_2026.grade %]"
@@ -24,7 +24,7 @@
                 "html": `
                 <p><strong>[% lang('forest_footprint') %]</strong></p>
                 <p>[% lang('forest_footprint_2026_methodology') %]
-                &rarr; <a href="https://envol-vert.org/">[% lang('forest_footprint_2026_methodology_more_info') %]</a></p>
+                &rarr; <a href="https://envol-vert.org/actu/2026/09/lempreinte-foret-sinvite-dans-les-telephones-des-francais/">[% lang('forest_footprint_2026_methodology_more_info') %]</a></p>
 
                 [% IF product.forest_footprint_2026.grade == 'unknown' %]
                 <p><strong>[% lang('attribute_forest_footprint_unknown_title') %]</strong></p>
@@ -38,7 +38,7 @@
                 </p>
                 <p>[% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description")) %]</p>
                 <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> 
-                    [% product.forest_footprint_2026.total_footprint_per_kg FILTER format("%.2f"); %] 
+                    [% product.forest_footprint_2026.total_footprint_per_kg FILTER format("%.3f"); %] 
                     [% lang('square_meters_per_kg_of_food') %]
                 </p>
                 [% END %]
@@ -55,7 +55,7 @@
                 "html": `
                 <h3>[% display_taxonomy_tag("ingredients", primary_id).ucfirst %]</h3>
                 <p><strong>[% lang('forest_footprint_2026_primary_ingredient_grade') %][% sep %]:</strong> [% primary.grade.ucfirst %]</p>
-                <p><strong>[% lang('forest_footprint_2026_primary_ingredient') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
+                <p><strong>[% lang('forest_footprint_2026_primary_ingredient') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.3f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
                 [% IF primary_id == 'en:cocoa' %]
                 <p>[% edq(lang('forest_footprint_2026_primary_ingredient_description_cocoa')) %]</p>
                 [% ELSIF primary_id == 'en:palm-oil' %]
@@ -66,6 +66,7 @@
                 `
             }
         },
+        [% IF knowledge_panels_options.knowledge_panels_client == 'web' %]
         {
             "element_type": "table",
             "table_element": {
@@ -138,7 +139,7 @@
                                 "text": "[% ingredient.risk_factor * 100 FILTER format("%.0f"); %] %"
                             },
                             {
-                                "text": "[% ingredient.footprint_per_kg FILTER format("%.2f"); %]"
+                                "text": "[% ingredient.footprint_per_kg FILTER format("%.3f"); %]"
                             },
                         ]
                     }[% UNLESS loop.last %],[% END %]
@@ -146,6 +147,7 @@
                 ]
             }
         },
+        [% END %]
         [% END %]
         [% END %]
         [% FOREACH primary_id IN ['en:chicken-and-eggs'] %]
@@ -159,11 +161,12 @@
                 <h3>[% edq(lang("ingredients_requiring_soy")) %]</h3>
                 <p>[% edq(lang("forest_footprint_one_line_explanation")) %]</p>
                 <p><strong>[% lang('forest_footprint_2026_primary_ingredient_grade') %][% sep %]:</strong> [% primary.grade.ucfirst %]</p>
-                <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
+                <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.3f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
                 <p>[% edq(lang('forest_footprint_2026_primary_ingredient_description_chicken_and_eggs')) %]</p>
                 `
             }
-        },     
+        },
+        [% IF knowledge_panels_options.knowledge_panels_client == 'web' %]
         {
             "element_type": "table",
             "table_element": {
@@ -229,7 +232,7 @@
                                 "text": "[% ingredient.type.deforestation_risk * 100 FILTER format("%d"); %] %"
                             },
                             {
-                                "text": "[% ingredient.footprint_per_kg FILTER format("%.2f"); %]"
+                                "text": "[% ingredient.footprint_per_kg FILTER format("%.3f"); %]"
                             }
                         ]
                     }[% UNLESS loop.last %],[% END %]
@@ -237,6 +240,7 @@
                 ]
             }
         },
+        [% END %]
         [% END %]
         [% SET other_risky_ingredients = "en:other-risky-ingredients" %]
         [% IF product.forest_footprint_2026.primary_ingredients.$other_risky_ingredients.defined && product.forest_footprint_2026.primary_ingredients.$other_risky_ingredients.ingredients.defined && product.forest_footprint_2026.primary_ingredients.$other_risky_ingredients.ingredients.size %]
