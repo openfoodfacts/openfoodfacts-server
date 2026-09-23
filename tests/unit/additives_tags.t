@@ -272,8 +272,15 @@ my @tests = (
 	# while "E160a (ii)" is a separate additive
 	[
 		{lc => "en", ingredients_text => "acid: E330 (i), colour: E160a (ii), emulsifier: E450 (ix)"},
-		["en:e330", "en:e160aii", "en:e450"]
+		["en:e330", "en:e160aii", "en:e450ix"]
 	],
+
+	# INS variants
+	[{lc => "en", ingredients_text => "choline citrate"}, []],
+	[{lc => "en", ingredients_text => "emulsifier: choline citrate"}, ["en:e1001iv"]],
+	[{lc => "en", ingredients_text => "water, sugar, blackcurrant extract, bromelain"}, []],
+	[{lc => "en", ingredients_text => "colour: E163(iii)"}, ["en:e163iii"]],
+	[{lc => "en", ingredients_text => "sweetener: E952(iv)"}, ["en:e952iv"]],
 
 );
 
