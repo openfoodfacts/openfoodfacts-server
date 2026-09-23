@@ -290,7 +290,7 @@
                "description" : "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels.",
                "description_short" : "Medium risk of deforestation",
                "grade" : "d",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-simple-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-c.svg",
                "id" : "forest_footprint",
                "match" : 33,
                "name" : "Forest Footprint",
@@ -794,6 +794,8 @@
    "misc_tags" : [
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-c",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
