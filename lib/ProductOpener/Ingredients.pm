@@ -6202,7 +6202,12 @@ sub replace_additive ($number, $letter, $variant) {
 	if (defined $variant) {
 		$variant =~ s/^\(//;
 		$variant =~ s/\)$//;
-		$additive .= $variant;
+		# keep the variant only if the additives taxonomy knows it: "E330 (i)" is E330,
+		# while "E160a (ii)" is a distinct additive (plant carotenes)
+		(my $variant_id = $variant) =~ s/[^a-z]//gi;
+		if (exists_taxonomy_tag("additives", "en:" . lc($additive . $variant_id))) {
+			$additive .= $variant;
+		}
 	}
 	return $additive;
 }
@@ -7048,7 +7053,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# parenthetical content before taxonomy matching, and the parent name without the
 	# numeral is usually already a synonym, so stripping would only remove a small unknown
 	# child at the cost of misattributing additives elsewhere.
-	$text =~ s/\b(e\d{3,4}[a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/$1$2/ig;
+	$text =~ s/\be(\d{3,4})([a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/replace_additive($1,$2,$3)/ieg;
 
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
