@@ -6,6 +6,7 @@
          "id" : "en:oil",
          "ingredients" : [
             {
+               "ecobalyse_code" : "sunflower-non-eu",
                "id" : "en:sunflower",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 75,
@@ -16,6 +17,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ecobalyse_code" : "rapeseed-non-eu",
                "id" : "en:rapeseed",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 25,
@@ -75,11 +77,9 @@
    ],
    "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
-      "en:oil",
-      "en:rapeseed",
-      "en:sunflower"
+      "en:oil"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,
    "lc" : "sv",
    "misc_tags" : [

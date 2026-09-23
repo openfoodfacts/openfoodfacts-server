@@ -14,6 +14,7 @@
       },
       {
          "ciqual_food_code" : "20072",
+         "ecobalyse_code" : "garden-peas-eu",
          "id" : "en:large-garden-peas",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -25,6 +26,7 @@
       },
       {
          "ciqual_food_code" : "20009",
+         "ecobalyse_code" : "carrot-non-eu",
          "id" : "fr:carotte-parisienne",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -78,11 +80,9 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:large-garden-peas",
-      "en:white-beans",
-      "fr:carotte-parisienne"
+      "en:white-beans"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,
    "lc" : "fr",
    "misc_tags" : [
