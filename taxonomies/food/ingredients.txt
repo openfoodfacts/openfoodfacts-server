@@ -498,7 +498,7 @@ ru: соевый лецитин, лецитин соевый, эмульгато
 sk: sójový lecitin
 sl: sojin lecitin
 sr: sojin lecitin
-sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, emulgerings medel sojalecitin, soja lecitin
+sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, sojabönlecitin, emulgerings medel sojalecitin, soja lecitin
 tr: soya lesitini
 uk: Соєвий лецитин
 zh: 大豆卵磷脂
@@ -10593,6 +10593,11 @@ ciqual_food_code:en: 21513
 ciqual_food_name:en: Lamb, saddle, lean, roasted/baked
 ciqual_food_name:fr: Agneau, selle, partie maigre, rôtie/cuite au four
 
+< en: lamb meat
+en: lamb intestine
+da: lammetarm
+wikidata:en: Q110611216
+
 ###################################################################################################
 #
 #                                Rabbit
@@ -11747,7 +11752,7 @@ en: pork meat
 bg: свинско месо
 ca: Carn de porc
 cs: Vepřové maso
-da: Svinekød
+da: svinekød, grisekød
 de: Schweinefleisch, Schweinfleisch
 es: carne de cerdo
 fi: sianliha, sianlihaa, porsaanliha, porsaanlihaa, viljaporsaanliha
@@ -22293,6 +22298,10 @@ hr: prirodne arome mente s drugim prirodnim aromama
 it: aroma naturale di menta piperita con altri aromi naturali
 sv: naturlig pepparmintsarom med andra naturliga aromer
 
+< en: flavouring
+en: spearmint flavouring
+da: spearmintaroma
+
 < en: natural citrus flavouring
 < en: natural mint flavouring
 en: natural aroma of mint and citrus
@@ -22312,6 +22321,10 @@ pl: naturalny aromat mięty i cytrusów
 pt: aroma natural de menta e citrinos
 ro: aroma naturală de mentă și citrice
 sv: naturlig arom av mynta och citrus
+
+< en: natural flavouring
+en: natural menthol flavouring
+da: naturlig mentolaroma
 
 < en: flavouring
 en: smoke flavouring, smoke flavour, aroma of smoke, smoked flavour
@@ -32797,7 +32810,7 @@ en: glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 bg: глюкозо-фруктозен сироп, сироп от глюкоза и фруктоза, фруктозо-глюкозен сироп
 ca: Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs: glukózo-fruktózový sirup, glukózový-fruktózový sirup, glukózovo-fruktózový sirup, fruktózo-glukózový sirup
-da: glukos-fruktossirap, glukose-fruktosesirup
+da: glukose-fruktosesirup, fruktose-glucosesirup
 de: Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el: σιρόπι γλυκόζης-φρουκτόζης
 es: jarabe de glucosa y fructosa, jarabe de glucosa-fructosa, sirope de glucosa y fructosa, sirope de glucosa-fructosa
@@ -37932,7 +37945,7 @@ pl: owoce suszone, suszone owoce, owoców suszonych
 en: juice
 bg: сок
 de: Saft
-es: Zumo, jugo
+es: zumo, jugo
 fi: mehu
 fr: jus
 hr: sok
@@ -37941,7 +37954,8 @@ lv: sula
 nl: sap
 pl: sok, soki, soku, soków
 pt: suco, sumo
-ru: Сок
+ru: сок
+sv: saft, juice
 description:en: Juice is the liquid extracted from fruits or vegetables, produced by pressing, squeezing, or blending, with a history stretching back to ancient civilizations that fermented or drank fruit juices, though modern commercial juicing scaled up dramatically in the 20th century with pasteurization and packaging advances. It has a flavor that mirrors its source—sweet, tart, or a mix—with a smooth, liquid texture, sometimes with pulp retained for added body. Consumed as a beverage or used in cooking, baking, and cocktails, juice retains vitamins (especially vitamin C) and antioxidants from its source, though it typically lacks the fiber of whole fruit and can be concentrated in natural sugars, giving it a higher glycemic impact than eating the fruit whole.
 vegan:en: maybe
 vegetarian:en: maybe
@@ -41172,6 +41186,12 @@ zh: 柑橘属
 # yue:柑桔
 wikidata:en: Q81513
 wikipedia:en: https://en.wikipedia.org/wiki/Citrus
+
+< en: citrus fruit
+fr: cédrat
+en: citron
+wikidata:en: Q150064
+wikipedia:en: https://fr.wikipedia.org/wiki/C%C3%A9dratier
 
 < en: citrus fruit
 en: citrus fruit juice
@@ -47954,7 +47974,7 @@ ru: клубника
 sa: तृणबदरफलम्
 sd: اسٽرا بيري
 sq: luleshtrydhe
-sv: Jordgubbe, jordgubb, jordgubbar
+sv: jordgubbe, jordgubb, jordgubbar, jordgubbs
 sw: Mstroberi
 ta: செம்புற்று
 tg: Қулфинай
@@ -48064,7 +48084,7 @@ ja: 苺ジュース, イチゴジュース, いちごジュース, 苺果汁, �
 nl: aardbeiensap
 pl: sok truskawkowy, sok z truskawki, sok z truskawek
 pt: Suco de morango, sumo de morango
-sv: jordgubbsjuice, jordgubbssaft
+sv: jordgubbssaft, jordgubbsjuice, jordgubbjuice
 
 < en: concentrate
 < en: strawberry juice
@@ -56893,7 +56913,7 @@ lv: melnais burkāns
 nb: sort gulrot
 nl: zwarte wortel
 pl: czarna marchew, czarnej marchwi
-sv: svart morot, svart morots
+sv: svart morot, svart morots, svartmorot, svartmorots
 wikidata:en: Q11767451
 
 #< en:black carrot
@@ -56930,7 +56950,7 @@ de: schwarze Möhre Konzentrat, Konzentrate aus schwarzer Karotte
 fr: concentré de carotte pourpre
 hr: koncentrat crne mrkve
 it: concentrato di carota nera, concentrato di carote nere
-sv: svart morotskoncentrat
+sv: svart morotskoncentrat, koncentrat av svartmorot
 
 < en: black carrot
 < en: carrot extract
@@ -88065,12 +88085,11 @@ zh: 葡萄糖醛酸內酯
 wikidata:en: Q411638
 wikipedia:en: https://en.wikipedia.org/wiki/Glucuronolactone
 
-# description:en:GUM BASE is the non-nutritive, non-digestible, water-insoluble masticatory delivery system used to carry sweeteners, flavors, and any other substances in chewing gum and bubble gum. It provides all the basic textural and masticatory properties of gum. The actual composition of gum base is usually a trade secret.
-
-en: Gum base
+en: gum base
 cs: žvýkačková báze
+da: gummibase
 de: Kaumasse
-es: Base de goma
+es: base de goma
 fi: purukumin perusmassa, purukumin perusmassaa
 fr: gomme base
 hr: gumena baza, gumi baza
@@ -88078,6 +88097,7 @@ it: gomma base
 ja: ガムベース
 pl: baza gumowa
 sv: gummibas, tuggummibas
+description:en: GUM BASE is the non-nutritive, non-digestible, water-insoluble masticatory delivery system used to carry sweeteners, flavors, and any other substances in chewing gum and bubble gum. It provides all the basic textural and masticatory properties of gum. The actual composition of gum base is usually a trade secret.
 wikidata:en: Q5618000
 wikipedia:en: https://en.wikipedia.org/wiki/Gum_base
 
