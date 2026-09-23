@@ -1,0 +1,27 @@
+{
+   "errors" : [],
+   "product" : {
+      "brands" : "Marks & Spencer, Some other brand",
+      "brands_tags" : [
+         "xx:Marks & Spencer",
+         "xx:Some other brand"
+      ],
+      "brands_tags_en" : [
+         "Marks & Spencer",
+         "Some other brand"
+      ],
+      "tags_sources" : {
+         "brands" : {
+            "packaging" : {
+               "last_updated_t" : null,
+               "tags" : [
+                  "xx:Marks & Spencer",
+                  "xx:Some other brand"
+               ]
+            }
+         }
+      }
+   },
+   "status" : "success",
+   "warnings" : []
+}
