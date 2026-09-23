@@ -1264,6 +1264,7 @@ ro: Produse apicole, Produse de apicultură, Produse apicultură, Produse de api
 ru: Продукция пчеловодства, Продукты пчеловодства
 tr: Arı ürünleri
 zh: 蜂产品
+incompatible_with:en: categories:en:vegan-products, labels:en:vegan
 wikidata_category:en: Q7189914
 
 < en: Bee products
@@ -44194,7 +44195,7 @@ yi: מילכיגס
 zh: 乳製品, 奶制品
 food_of_animal_origin:en: yes
 google_product_taxonomy_id:en: 428
-incompatible_with:en: categories:en:dairy-substitutes
+incompatible_with:en: categories:en:dairy-substitutes, categories:en:vegan-products, labels:en:vegan
 wikidata:en: Q185217
 
 < en: Dairies
@@ -58450,6 +58451,7 @@ en: Eggs and their products
 fr: Œufs et dérivés
 nl: Eieren en afgeleide producten
 zh: 鸡蛋及其制品
+incompatible_with:en: categories:en:vegan-products, labels:en:vegan
 
 < en: Eggs and their products
 en: Scrambled egg, Egg scrambled with added fat, Scrambled eggs with added fat
@@ -80236,6 +80238,7 @@ sv: Kött och dess produkter, Köttbaserade produkter
 tr: Et ürünleri
 zh: 肉制品
 food_of_animal_origin:en: yes
+incompatible_with:en: categories:en:vegan-products, labels:en:vegetarian
 wikidata:en: Q1427844
 
 < en: Meats and their products
@@ -87763,7 +87766,7 @@ en: Salads with meat
 hr: Salate s mesom
 lt: Salotos su mėsa
 pl: Sałatki z mięsem
-incompatible_with:en: categories:en:prepared-vegan-salads
+incompatible_with:en: categories:en:vegan-products, labels:en:vegetarian
 
 < en: Prepared salads
 en: Salads with fish
@@ -87771,7 +87774,7 @@ hr: Salate s ribom
 lt: Salotos su žuvimi
 nl: Vissalades
 pl: Sałatki z rybami
-incompatible_with:en: categories:en:prepared-vegan-salads
+incompatible_with:en: categories:en:vegan-products, labels:en:vegetarian
 
 < en: Canned prepared salads
 < en: Salads with meat
@@ -107699,6 +107702,7 @@ en: Vegan products
 fr: Produits veganes
 nl: Veganistische producten
 zh: 纯素产品
+incompatible_with:en: categories:en:bee-products, categories:en:dairies, categories:en:eggs-and-their-products, categories:en:meats-and-their-products
 
 < en: Plant-based spreads
 < en: Salted spreads
@@ -122810,7 +122814,7 @@ google_product_taxonomy_id:en: 6843
 gpc_category_code:en: 10005824
 gpc_category_description:en: Definition: Includes all products which can be described/observed as a healthy food alternative to meat vegetable and egg proteins. These products are non animal based and an imitation of meat products, meant to simulate the taste and mouthfeel of real meat but are normally made from a combination of non animal based ingredients. Includes products such as soya, fungus, beans, lentils, peas and chickpeas based products. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes all meat-based products and any other protein rich products such as eggs and pulses that constitute the main recipe ingredients. Also excludes Meat Substitutes - Non Animal based frozen and shelf stable products and Meat Substitutes - Animal based frozen, perishable and shelf stable products.
 gpc_category_name:en: Meat Substitutes - Non Animal Based (Perishable)
-incompatible_with:en: categories:en:meat
+incompatible_with:en: categories:en:meats
 intake24_category_code:en: MTST
 intake24_category_code:fr: MTST
 wikidata:en: Q1343997
