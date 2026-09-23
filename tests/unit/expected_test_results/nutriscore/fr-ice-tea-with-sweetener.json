@@ -46,6 +46,62 @@
       "en:tea-based-beverages",
       "en:iced-teas"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 87.1,
+               "name" : "Eau"
+            },
+            {
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 2.85,
+               "name" : "sucre"
+            },
+            {
+               "id" : "fa9e9f34-acc9-4974-89c4-003d2428f502",
+               "mass" : 0.1,
+               "name" : "pêche"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                  "mass" : 87.1
+               },
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 2.85
+               },
+               {
+                  "id" : "fa9e9f34-acc9-4974-89c4-003d2428f502",
+                  "mass" : 0.1
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:sweetened-beverages",
    "food_groups_tags" : [

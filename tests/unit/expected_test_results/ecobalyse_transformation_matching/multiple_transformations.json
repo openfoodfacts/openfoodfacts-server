@@ -1,0 +1,26 @@
+{
+   "categories_tags" : [
+      "en:canned-vegetables",
+      "en:cooked-meats"
+   ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "transformations" : [
+            {
+               "ecs" : 19.54,
+               "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
+               "name" : "Canning fruits or vegetables, industrial, 1kg of canned product {FR} U",
+               "name_fr" : "Mise en conserve",
+               "unit" : "kg"
+            },
+            {
+               "ecs" : 17.42,
+               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+               "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
+               "name_fr" : "Cuisson",
+               "unit" : "kg"
+            }
+         ]
+      }
+   }
+}

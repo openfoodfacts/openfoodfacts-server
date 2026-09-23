@@ -451,6 +451,71 @@
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
+      "environmental_impact" : {
+         "ecobalyse_input" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                  "mass" : 62.5,
+                  "name" : "apple"
+               },
+               {
+                  "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                  "mass" : 18.75,
+                  "name" : "milk"
+               },
+               {
+                  "id" : "egg-indoor-code3",
+                  "mass" : 9.375,
+                  "name" : "eggs"
+               },
+               {
+                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                  "mass" : 9.375,
+                  "name" : "palm oil"
+               }
+            ],
+            "packaging" : [
+               {
+                  "category" : "",
+                  "id" : "604c4bbf-c35a-4717-bc27-6b80940440c9",
+                  "name" : "Soft cheeses - cat A, 250g | Packaging System, N0, All, Wooden box {FR} U",
+                  "name_fr" : "Boîte en bois pour fromage à pâte molle - 250g"
+               }
+            ]
+         },
+         "ecobalyse_request" : {
+            "data" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+                     "mass" : 62.5
+                  },
+                  {
+                     "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                     "mass" : 18.75
+                  },
+                  {
+                     "id" : "egg-indoor-code3",
+                     "mass" : 9.375
+                  },
+                  {
+                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "mass" : 9.375
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "amount" : 1,
+                     "id" : "604c4bbf-c35a-4717-bc27-6b80940440c9"
+                  }
+               ]
+            },
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         }
+      },
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups_tags" : [],
       "forest_footprint_2026" : {

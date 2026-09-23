@@ -1,35 +1,32 @@
 {
    "environmental_impact" : {
       "ecobalyse_request" : {
-         "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "9b476f8e-08c2-4406-9198-1fb2e007f000",
-                  "mass" : 50
-               },
-               {
-                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 25
-               },
-               {
-                  "id" : "60184de2-cc9e-4618-924a-b8fecf080c8b",
-                  "mass" : 13
-               },
-               {
-                  "id" : "33d2f3c2-ffa2-4b96-811e-50c1c8670e26",
-                  "mass" : 8.7
-               },
-               {
-                  "id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
-                  "mass" : 3.3
-               }
-            ],
-            "packaging" : [],
-            "preparation" : [
-               "refrigeration"
-            ]
-         },
+          "data" : {
+             "distribution" : "ambient",
+             "ingredients" : [
+                {
+                   "id" : "9b476f8e-08c2-4406-9198-1fb2e007f000",
+                   "mass" : 50
+                },
+                {
+                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                   "mass" : 25
+                },
+                {
+                   "id" : "60184de2-cc9e-4618-924a-b8fecf080c8b",
+                   "mass" : 13
+                },
+                {
+                   "id" : "33d2f3c2-ffa2-4b96-811e-50c1c8670e26",
+                   "mass" : 8.7
+                },
+                {
+                   "id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
+                   "mass" : 3.3
+                }
+             ],
+             "packaging" : []
+          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
       "ecobalyse_response" : {
