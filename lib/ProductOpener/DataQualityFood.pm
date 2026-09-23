@@ -1164,6 +1164,7 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 	if ((defined $per) and (($per eq "100g") or ($per eq "100ml"))) {
 
 		my $salt = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "salt");
+
 		if ((defined $salt) and ($salt > 0)) {
 
 			if ($salt < 0.001) {
@@ -1173,8 +1174,16 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 				push @{$product_ref->{data_quality_warnings_tags}}, "en:${set_id}-value-under-0-01-g-salt";
 			}
 		}
-	}
 
+		my $sodium = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "sodium");
+
+		if ((defined $salt) and (defined $sodium)) {
+			# Allow a 0.1 g difference because nutrition values on labels are rounded
+			if (abs(convert_sodium_to_salt($sodium) - $salt) > 0.1) {
+				push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-salt-does-not-match-sodium";
+			}
+		}
+	}
 	return;
 }
 

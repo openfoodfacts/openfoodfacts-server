@@ -30,7 +30,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers request_param single_param get_http_request_header/;
+use ProductOpener::HTTP qw/request_param single_param get_http_request_header/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
 use ProductOpener::Food qw/%nutrients_lists/;
@@ -40,7 +40,6 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Lang qw/$lc %Lang %tag_type_singular lang/;
 use ProductOpener::Routing qw/:all/;
 
-use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
@@ -126,7 +125,6 @@ if ($is_api_search_request) {
 	$log->debug("API search request",
 		{path => request_uri(), query_string => query_string(), api_version => $request_ref->{api_version}})
 		if $log->is_debug();
-	write_cors_headers();
 
 	# Preflight requests only need the CORS headers.
 	if (request_method() eq 'OPTIONS') {
@@ -249,7 +247,7 @@ if (    (not defined single_param('json'))
 	and (not defined single_param('jqm_loadmore'))
 	and (not defined single_param('xml'))
 	and (not defined single_param('rss'))
-	and ($search_terms =~ /^(\d{4,24}|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+)$/))
+	and ($search_terms =~ /^(\d{4,40}|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+)$/))
 {
 
 	my $code = normalize_code($search_terms);
@@ -957,7 +955,6 @@ HTML
 
 			my $data = encode_json(\%response);
 
-			write_cors_headers();
 			print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;
 		}
 	}

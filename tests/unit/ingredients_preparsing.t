@@ -1240,6 +1240,45 @@ my @tests = (
 		ingredients_text =>
 			'émulsifiant e471, émulsifiant lécithine de soja, acidifiant acide citrique, acidifiant e330, emulsifiant lecithine de tournesol, émulsifiant lécithine',
 	},
+	# margarine
+	{
+		id => '231',
+		lc => 'fr',
+		ingredients_text => 'Huiles végétales biologiques non hydrogénées (colza, palme)',
+	},
+	# As of 2026/04/15, the 3 following tests fail, there is code that should handle the * symbol but it is not working
+	{
+		id => '232',
+		lc => 'fr',
+		ingredients_text => 'Huiles végétales biologiques non hydrogénées (colza*, palme*)',
+	},
+	{
+		id => '233',
+		lc => 'fr',
+		ingredients_text => 'Huiles végétales biologiques non hydrogénées (colza* et palme*)',
+	},
+	{
+		id => '234',
+		lc => 'fr',
+		ingredients_text => 'Huiles végétales biologiques non hydrogénées (colza*)',
+	},
+	# Misspellings
+	{
+		id => 'misspelling-correction',
+		lc => 'fr',
+		ingredients_text => 'Sucre, tomates en dès, sel',
+	},
+	{
+		id => 'misspelling-case-preserve',
+		lc => 'fr',
+		ingredients_text => 'Dès de courgettes, TOMATES EN DÈS, dès d\'aubergine,sel',
+	},
+	{
+		'id' => 'ingredients-starting-with-ingredients',
+		'lc' => 'en',
+		'ingredients_text' =>
+			'INGREDIENTS Greek Style Yogurt (Milk) (85%), Water, Sugar, Coconut Milk (2%), Desiccated Coconut, Maize Starch, Flavourings, Lactic Acid, Live Bacterial Cultures [Bifidobacterium, Lactobacillus bulgaricus, Streptococcus thermophilus].'
+	}
 );
 
 foreach my $test_ref (@tests) {

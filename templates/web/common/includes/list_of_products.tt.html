@@ -88,7 +88,7 @@
           <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
           [% FOREACH newtagtype IN current_drilldown_fields %]
             <li>
-              <a href="[% newtagtype.current_link %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a>
+              <a href="[% IF newtagtype.current_link == '' %]/facets[% ELSE %][% newtagtype.current_link %][% END %]/[% newtagtype.tag_type_plural %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a>
             </li>
           [% END %]
           </ul>

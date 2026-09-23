@@ -29,6 +29,12 @@
                      ],
                      "title" : "Transport"
                   }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "forest_footprint"
+                  }
                }
             ],
             "expanded" : true,
@@ -65,6 +71,37 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                "subtitle" : "Catégorie précise manquante",
                "title" : "Green-Score non calculé",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "forest_footprint" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <p><strong>Empreinte Forêt</strong></p>\n                <p>L'Empreinte Forêt est une méthodologie développée par l'association <a href=\"https://envol-vert.org/\">Envol Vert</a> pour estimer le risque de déforestation lié à notre consommation.\n                &rarr; <a href=\"https://envol-vert.org/actu/2026/09/lempreinte-foret-sinvite-dans-les-telephones-des-francais/\">Plus d'informations sur la méthodologie</a></p>\n\n                \n                <p><strong>Note de l'Empreinte Forêt :</strong> \n                    A\n                </p>\n                <p>Absence d'ingrédient associé à un risque de déforestation.</p>\n                <p><strong>Empreinte Forêt totale :</strong> \n                    0.000 \n                    m² par kg d'aliment\n                </p>\n                \n                ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <h3>Labels</h3>\n                <p>La présence de certains labels peut grandement contribuer à réduire le risque de déforestation, via la présence de critères environnementaux et/ou via une meilleure rémunération des producteurs et productrices.</p>\n                ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-a.svg",
+               "name" : "Empreinte Forêt",
+               "subtitle" : "Absence d'ingrédient associé à un risque de déforestation.",
+               "title" : "Absence de risque de déforestation",
                "type" : "grade"
             },
             "topics" : [
@@ -1389,7 +1426,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Boîte\n                                    \n                                </strong>\n                                    \n                                        (Bois)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 × \n                                <strong>\n                                    Couvercle\n                                    \n                                </strong>\n                                    \n                                        (Acier)\n                                    \n                                    \n                                        - En contact avec l'aliment\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Boîte\n                                    \n                                </strong>\n                                    \n                                        (Bois)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 × \n                                <strong>\n                                    Couvercle\n                                    \n                                </strong>\n                                    \n                                        (Acier)\n                                    \n                                    \n                                        \n                                            - En contact avec l'aliment\n                                        \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "recycler",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
@@ -1411,7 +1448,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                        \n                            \n                                6 × \n                                <strong>\n                                    Bouteille\n                                    25cl \n                                </strong>\n                                    \n                                        (Verre)\n                                    \n                                    \n                                        - En contact avec l'aliment\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 × \n                                <strong>\n                                    Bouteille\n                                    25cl \n                                </strong>\n                                    \n                                        (Verre)\n                                    \n                                    \n                                        \n                                            - En contact avec l'aliment\n                                        \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Inconnu",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
