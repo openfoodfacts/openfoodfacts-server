@@ -1319,7 +1319,7 @@ $options{nova_groups_tags} = {
 	# has glucose as parent, so can be removed aleene@2018-10-09
 
 	# other ingredients that we can consider as ultra-processed
-	
+
 	"ingredients/en:barley-malt-extract" => 4,
 	"ingredients/en:whey-proteins" => 4,
 	# could be changed to singular aleene@2018-10-09
