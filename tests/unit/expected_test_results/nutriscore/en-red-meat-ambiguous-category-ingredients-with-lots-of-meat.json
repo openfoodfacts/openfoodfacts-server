@@ -31,7 +31,13 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "45e3cd64-1647-4841-bacb-795e2aae4f02",
+               "mass" : 20,
+               "name" : "lamb meat"
+            }
+         ],
          "packaging" : [
             {
                "category" : "en:sausages",
@@ -44,7 +50,12 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "45e3cd64-1647-4841-bacb-795e2aae4f02",
+                  "mass" : 20
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -95,6 +106,7 @@
       },
       {
          "ciqual_proxy_food_code" : "21500",
+         "ecobalyse_code" : "45e3cd64-1647-4841-bacb-795e2aae4f02",
          "id" : "en:lamb-meat",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 20,
@@ -182,11 +194,10 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
       "en:chicken-meat",
-      "en:lamb-meat",
       "en:pork-meat",
       "en:salt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "minerals_tags" : [],

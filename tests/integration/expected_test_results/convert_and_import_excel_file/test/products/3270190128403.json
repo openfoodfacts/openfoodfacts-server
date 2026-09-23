@@ -184,7 +184,13 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "lentils-uncooked-eu",
+               "mass" : 100.0,
+               "name" : "Lentilles vertes"
+            }
+         ],
          "packaging" : [
             {
                "category" : "",
@@ -197,7 +203,12 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "lentils-uncooked-eu",
+                  "mass" : 100.0
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -679,6 +690,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "20504",
+         "ecobalyse_code" : "lentils-uncooked-eu",
          "id" : "en:green-lentils",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -726,10 +738,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:green-lentils"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "known_ingredients_n" : 1,
    "labels_imported" : "Organic, EU Organic, FR-BIO-01, AB Agriculture Biologique, Agriculture France, en:organic",

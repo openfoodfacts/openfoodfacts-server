@@ -136,7 +136,13 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
+               "mass" : 100.0,
+               "name" : "Banane"
+            }
+         ],
          "packaging" : [
             {
                "category" : "",
@@ -149,7 +155,12 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
+                  "mass" : 100.0
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -424,6 +435,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13005",
+         "ecobalyse_code" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
          "id" : "en:banana",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100.0,
@@ -467,10 +479,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:banana"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "known_ingredients_n" : 1,
    "lang" : "fr",

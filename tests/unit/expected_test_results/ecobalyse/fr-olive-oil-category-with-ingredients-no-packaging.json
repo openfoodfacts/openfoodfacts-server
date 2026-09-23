@@ -22,7 +22,13 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
+               "mass" : 100,
+               "name" : "Huile d'olive vierge extra"
+            }
+         ],
          "packaging" : [
             {
                "category" : "en:olive-oils",
@@ -35,7 +41,12 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
+                  "mass" : 100
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -56,6 +67,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "17270",
+         "ecobalyse_code" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
          "from_palm_oil" : "no",
          "id" : "en:extra-virgin-olive-oil",
          "is_in_taxonomy" : 1,
@@ -98,10 +110,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:extra-virgin-olive-oil"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "misc_tags" : [

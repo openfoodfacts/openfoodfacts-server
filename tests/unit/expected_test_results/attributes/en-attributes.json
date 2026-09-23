@@ -442,7 +442,33 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "mass" : 54.5454545454545,
+               "name" : "wheat flour"
+            },
+            {
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 12.5,
+               "name" : "sugar"
+            },
+            {
+               "id" : "egg-indoor-code3",
+               "mass" : 12.5,
+               "name" : "eggs"
+            },
+            {
+               "id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
+               "mass" : 10.2272727272727,
+               "name" : "strawberries"
+            },
+            {
+               "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "mass" : 2.55681818181818,
+               "name" : "rapeseed oil"
+            }
+         ],
          "packaging" : [
             {
                "category" : "",
@@ -455,7 +481,28 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+                  "mass" : 54.5454545454545
+               },
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 12.5
+               },
+               {
+                  "id" : "egg-indoor-code3",
+                  "mass" : 12.5
+               },
+               {
+                  "id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
+                  "mass" : 10.2272727272727
+               },
+               {
+                  "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+                  "mass" : 2.55681818181818
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -954,6 +1001,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "origins" : "en:united-kingdom",
@@ -966,6 +1014,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "origins" : "en:paraguay",
@@ -978,6 +1027,7 @@
       },
       {
          "ciqual_food_code" : "22000",
+         "ecobalyse_code" : "egg-indoor-code3",
          "id" : "en:egg",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 12.5,
@@ -989,6 +1039,7 @@
       },
       {
          "ciqual_food_code" : "13014",
+         "ecobalyse_code" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 10.2272727272727,
@@ -1011,6 +1062,7 @@
       },
       {
          "ciqual_food_code" : "17130",
+         "ecobalyse_code" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
          "from_palm_oil" : "no",
          "id" : "en:rapeseed-oil",
          "is_in_taxonomy" : 1,
@@ -1156,17 +1208,12 @@
    "ingredients_without_ecobalyse_ids" : [
       "en:e102",
       "en:e120",
-      "en:egg",
       "en:high-fructose-corn-syrup",
       "en:macadamia-nut",
       "en:milk-proteins",
-      "en:rapeseed-oil",
-      "en:salt",
-      "en:strawberry",
-      "en:sugar",
-      "en:wheat-flour"
+      "en:salt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 11,
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 11,
    "labels_tags" : [
       "en:organic",

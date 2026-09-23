@@ -34,7 +34,13 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "beetroot-fr",
+               "mass" : 30,
+               "name" : "red beet"
+            }
+         ],
          "packaging" : [
             {
                "category" : "en:appetizers",
@@ -47,7 +53,12 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "beetroot-fr",
+                  "mass" : 30
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -85,6 +96,7 @@
       },
       {
          "ciqual_food_code" : "20091",
+         "ecobalyse_code" : "beetroot-fr",
          "id" : "en:red-beetroot",
          "is_in_taxonomy" : 1,
          "percent" : 30,
@@ -131,10 +143,9 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:parsnip",
-      "en:red-beetroot"
+      "en:parsnip"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 2,
    "lc" : "en",
    "minerals_tags" : [],

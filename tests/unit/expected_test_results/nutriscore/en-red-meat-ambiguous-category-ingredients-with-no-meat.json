@@ -34,7 +34,13 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "mass" : 13.625,
+               "name" : "wheat flour"
+            }
+         ],
          "packaging" : [
             {
                "category" : "en:sausages",
@@ -47,7 +53,12 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+                  "mass" : 13.625
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -84,6 +95,7 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 13.625,
@@ -153,10 +165,9 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
       "en:salmon",
-      "en:salt",
-      "en:wheat-flour"
+      "en:salt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "minerals_tags" : [],

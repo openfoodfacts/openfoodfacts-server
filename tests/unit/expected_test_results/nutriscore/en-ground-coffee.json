@@ -40,7 +40,13 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "coffee-ground",
+               "mass" : 100,
+               "name" : "ground coffee"
+            }
+         ],
          "packaging" : [
             {
                "category" : "en:ground-coffees",
@@ -53,7 +59,12 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "coffee-ground",
+                  "mass" : 100
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -79,6 +90,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18003",
+         "ecobalyse_code" : "coffee-ground",
          "id" : "en:ground-coffee",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -118,10 +130,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:ground-coffee"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "minerals_tags" : [],

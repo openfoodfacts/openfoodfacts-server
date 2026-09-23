@@ -58,7 +58,13 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 40,
+               "name" : "eau"
+            }
+         ],
          "packaging" : [
             {
                "category" : "",
@@ -71,7 +77,12 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                  "mass" : 40
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -109,6 +120,7 @@
       },
       {
          "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 40,
@@ -151,10 +163,9 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:coconut",
-      "en:water"
+      "en:coconut"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "minerals_tags" : [],

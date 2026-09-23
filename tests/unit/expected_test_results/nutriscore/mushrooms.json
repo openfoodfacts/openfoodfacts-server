@@ -24,7 +24,13 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "mushroom-eu",
+               "mass" : 69,
+               "name" : "Pleurotes"
+            }
+         ],
          "packaging" : [
             {
                "category" : "",
@@ -45,7 +51,12 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "mushroom-eu",
+                  "mass" : 69
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -77,6 +88,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20114",
+         "ecobalyse_code" : "mushroom-eu",
          "id" : "en:oyster-mushroom",
          "is_in_taxonomy" : 1,
          "origins" : "en:european-union",
@@ -142,10 +154,9 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:oyster-mushroom",
       "fr:chapelure de mais"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "minerals_tags" : [],
