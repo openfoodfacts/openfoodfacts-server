@@ -2695,6 +2695,10 @@ Text to analyze
 
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
+								'^produktet indeholder \d{1,3}\s*% fuldkorn$',
+								'^svarende til \d{1,3}\s*% af tørvægten$',
+								'^kan indeholde(?: spor af)?',    # may contain (traces of)
+								'inden servering$',    # before serving
 							],
 
 							'de' => [
@@ -2740,7 +2744,7 @@ Text to analyze
 								'^y compris les cereales contenant du gluten$',
 								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
 								'^(les allerg[èe]nes )?sont indiques en gras$',
-								'^Conditionné[es]* sous atmosphère',    # ... protectrice/contrôlée/modifiée/etc
+								'^Conditionné[es]* sous atmosph[èe]re',    # ... protectrice/contrôlée/modifiée/etc
 							],
 
 							'fi' => [
@@ -2755,7 +2759,7 @@ Text to analyze
 								'^sisältää kaakaovoin lisäksi muita kasvirasvoja$',
 								'^Vähintään \d{1,3}\s*% kaakaota maitosuklaassa$',
 								'^(?:Täysmehu|hedelmä|ruis)(?:osuus|pitoisuus)',
-								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)$',
+								'(?:saattaa|voi) sisältää (?:ruotoja|luuta)?',    # may contain
 								'^Sisältää \d{1,3}\s*% (?:siemeniä|kauraa)$',
 								'^Maitosuklaa sisältää kaakaota vähintään',
 								'^vastaa \d{1,3}\s*% viljaraaka-aineista$',
@@ -2807,7 +2811,11 @@ Text to analyze
 								'その他',    # etc.
 							],
 
-							'nb' => ['^Pakket i beskyttende atmosfære$', '^Minst \d+ ?% kakao',],
+							'nb' => [
+								'^Pakket i beskyttende atmosfære$',
+								'^kan inneholde(?: rester av)?',    # may contain (traces of)
+								'^Minst \d+ ?% kakao',
+							],
 
 							'nl' => [
 								'^allergie.informatie$', 'in wisselende verhoudingen',
@@ -2850,8 +2858,13 @@ Text to analyze
 							'sr' => ['klasa ii',],
 
 							'sv' => [
+								'^fullkornshalten i brödet är \d{1,3}\s*% vilket motsvarar \d{1,3}\s+% av torrvikten$',
+								'^till 100\s*g färdig vara har \d+\s*g [\w\s]+ använts$',
+								'motsvarande \d{1,3}\s+% av torrvikten$',
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
 								'^Mjölkchokladen innehåller minst',
+								'^kan innehälla(?: spår av)?',    # may contain (traces of)
+								'innehåller \d+\s*(?:g|%)',
 								'^Kakaohalt i chokladen$',
 								'varierande proportion',
 								'kan innehålla ben$',
@@ -7007,6 +7020,16 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# ! caramel E150d -> caramel - E150d -> e150a - e150d ...
 	$text =~ s/(caramel|caramels)(\W*)e150/e150/ig;
+
+	# re-attach orphan additive variants like "e160a (ii)" that survived the normalization
+	# above: the additives regexp does not allow a space before the parenthetical variant
+	# when the language "and" word is " i " (ca, hr, pl, uk). The letter is optional so
+	# that "e451 (i)" is re-attached like "e451a (i)".
+	# Oxidation states (e.g. "fer (ii)") are left untouched: the ingredient parser splits
+	# parenthetical content before taxonomy matching, and the parent name without the
+	# numeral is usually already a synonym, so stripping would only remove a small unknown
+	# child at the cost of misattributing additives elsewhere.
+	$text =~ s/\b(e\d{3,4}[a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/$1$2/ig;
 
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
