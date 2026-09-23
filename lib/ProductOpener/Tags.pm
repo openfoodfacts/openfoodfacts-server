@@ -4881,6 +4881,10 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 			defined $synonyms_regexps{$language} or $synonyms_regexps{$language} = [];
 
 			# the synonyms below also contain the main translation as the first entry
+			# (3rd element of the pairs below), used to deterministically pick the
+			# entry that keeps a synonym listed for several entries
+
+			my $is_main_translation = 1;
 
 			foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
 
@@ -4906,11 +4910,12 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 					$synonym =~ s/( |-)/\(\?: \|-\)/g;
 				}
 
-				push @{$synonyms_regexps{$language}}, [$tagid, $synonym];
+				push @{$synonyms_regexps{$language}}, [$tagid, $synonym, $is_main_translation];
 
 				if ((my $unaccented_synonym = unac_string_perl($synonym)) ne $synonym) {
-					push @{$synonyms_regexps{$language}}, [$tagid, $unaccented_synonym];
+					push @{$synonyms_regexps{$language}}, [$tagid, $unaccented_synonym, $is_main_translation];
 				}
+				$is_main_translation = 0;
 			}
 
 			# Add xx entries
@@ -4921,8 +4926,14 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 	}
 
 	# Unique the synonyms
+	# A synonym can be listed for several entries (e.g. "dry roasted" for both
+	# en:dry-baked and en:dry-roasted). Keep it for the entry for which it is the
+	# main translation, or for the first entry id otherwise, so that the result
+	# does not depend on the hash order in which the taxonomy entries were iterated
 	foreach my $language (keys %synonyms_regexps) {
 		my %seen = ();
+		@{$synonyms_regexps{$language}} = sort {($a->[1] cmp $b->[1]) || ($b->[2] <=> $a->[2]) || ($a->[0] cmp $b->[0])}
+			@{$synonyms_regexps{$language}};
 		$synonyms_regexps{$language} = [grep {!$seen{$_->[1]}++} @{$synonyms_regexps{$language}}];
 	}
 
@@ -4937,8 +4948,9 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 	}
 	elsif ($return_type eq 'list_of_regexps') {
 		foreach my $language (keys %synonyms_regexps) {
-			@{$result_ref->{$language}}
-				= sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])} @{$synonyms_regexps{$language}};
+			# the third element is only used to pick which entry keeps a shared synonym
+			@{$result_ref->{$language}} = map {[$_->[0], $_->[1]]}
+				sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])} @{$synonyms_regexps{$language}};
 		}
 	}
 	else {
