@@ -498,7 +498,7 @@ ru: соевый лецитин, лецитин соевый, эмульгато
 sk: sójový lecitin
 sl: sojin lecitin
 sr: sojin lecitin
-sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, emulgerings medel sojalecitin, soja lecitin
+sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, sojabönlecitin, emulgerings medel sojalecitin, soja lecitin
 tr: soya lesitini
 uk: Соєвий лецитин
 zh: 大豆卵磷脂
@@ -582,7 +582,7 @@ ca: Lecitina de colza, lecitines de colza
 de: Rapslecithin
 es: Lecitina de colza, lecitinas de colza
 et: rapsi letsitiin
-fi: rapsilesitiini, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä
+fi: rapsilesitiini, rapsilesitiiniä
 fr: lécithine de colza, lécithines de colza
 hr: lecitin repica, lecitin uljane repice
 hu: repce lecitin, lecitini (repica)
@@ -595,6 +595,13 @@ pt: lecitina de colza
 ro: lecitină din rapiță, lecitina din rapita
 sr: lecitin uljane repice
 sv: rapslecitin, rapslecithin
+vegan:en: yes
+vegetarian:en: yes
+
+< en: E322(i)
+en: turnip rape lecithin
+fi: rypsilesitiini, rypsilesitiiniä
+sv: rybslecitin
 vegan:en: yes
 vegetarian:en: yes
 
@@ -3711,7 +3718,7 @@ bs: Laktoza
 ca: Lactosa
 cs: Laktóza, laktózy
 cy: Lactos
-da: Laktose
+da: laktose, mælkesukker
 de: Lactose, Milchzucker, Laktose
 el: Λακτόζη, λακτόζης
 eo: Laktozo, laktosukero
@@ -9283,7 +9290,7 @@ ar: ملح معالج باليود
 bg: йодирана сол, сол йодирана
 ca: sal iodada
 cs: Jodidovaná sůl, jodizovaná sůl, sůl jodizovaná
-da: salt tilsat jod
+da: joderet salt, salt tilsat jod
 de: Jodsalz, Iodsalz, jodiertes Speisesalz, Salz jodiert
 es: Sal yodada
 fa: نمک یددار
@@ -10593,6 +10600,11 @@ ciqual_food_code:en: 21513
 ciqual_food_name:en: Lamb, saddle, lean, roasted/baked
 ciqual_food_name:fr: Agneau, selle, partie maigre, rôtie/cuite au four
 
+< en: lamb meat
+en: lamb intestine
+da: lammetarm
+wikidata:en: Q110611216
+
 ###################################################################################################
 #
 #                                Rabbit
@@ -11747,7 +11759,7 @@ en: pork meat
 bg: свинско месо
 ca: Carn de porc
 cs: Vepřové maso
-da: Svinekød
+da: svinekød, grisekød
 de: Schweinefleisch, Schweinfleisch
 es: carne de cerdo
 fi: sianliha, sianlihaa, porsaanliha, porsaanlihaa, viljaporsaanliha
@@ -14572,12 +14584,18 @@ zh: 動物脂肪
 # zh-hant:動物性油脂
 description:en: ANIMAL FATS and oils are lipid materials derived from animals. Physically, oils are liquid at room temperature, and fats are solid. Although many animal parts and secretions may yield oil, in commercial practice, oil is extracted primarily from rendered tissue fats obtained from livestock animals like pigs, chickens and cows.
 usda_fdc_code:en: 172345
-usda_ndb_code:en: 4609
-usda_ndb_name:en: Animal fat, bacon grease
+usda_ndb_proxy_code:en: 4609
+usda_ndb_proxy_name:en: Animal fat, bacon grease
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q1423543
 wikipedia:en: https://en.wikipedia.org/wiki/Animal_fat
+
+< en: animal fat
+en: bacon grease, bacon fat
+da: baconfedt
+usda_ndb_code:en: 4609
+usda_ndb_name:en: Animal fat, bacon grease
 
 < en: animal fat
 en: suet
@@ -16623,7 +16641,6 @@ et: rapsiõli, rapsiseemneõli, rüpsiõli
 eu: Koltza-olio
 fa: روغن کلزا
 fi: rapsiöljy, rapsirasva, rapsiöljy ja -rasva
-fr: Huile de navette
 ga: Ola ráibe
 gl: Aceite de colza
 he: שמן לפתית
@@ -16647,7 +16664,7 @@ mr: रेपसीड तेल
 ms: Minyak rapeseed
 mt: Żejt tal-kolza
 nb: rapsolje
-nl: raapolie, raapzaad, raap, raapzaadolie, gedeeltelijk geharde raapzaadolie
+nl: raapolie, raap, raapzaadolie
 nn: rapsolje
 pl: olej roślinny rzepakowy, olej rzepakowy, olej z rzepaku, oleje roślinne rzepakowy, tłuszcz rzepakowy, tłuszcze roślinne rzepakowy, tłuszcz roślinny rzepakowy
 pt: óleo de colza
@@ -16657,7 +16674,7 @@ sk: repkový olej
 sl: repična, repično, repična rastlinska maščoba
 sq: Vaj repice
 sr: Уље репице
-sv: Rapsolja, rybsolja, Rapsfett, rypsolja
+sv: rapsolja, rapsfett
 ta: ராப்சீட் எண்ணெய்
 te: రేప్సీడ్ నూనె
 th: น้ำมันเรพซีด
@@ -16667,7 +16684,6 @@ ur: ریپسیڈ تیل
 uz: Rapeseed yog'i
 vi: Dầu hạt cải
 zh: 菜籽油
-# 62.151 in 35 @2021-08-23
 ciqual_food_code:en: 17130
 ciqual_food_name:en: Rapeseed oil
 ciqual_food_name:fr: Huile de colza
@@ -16688,33 +16704,24 @@ lt: rafinuotas rapsų aliejus
 pl: rafinowany olej rzepakowy, olej rzepakowy rafinowany
 
 < en: rapeseed oil
-en: british rapeseed oil
+en: British rapeseed oil
 de: Britisches Rapsöl
 hr: britanskog repičinog ulja
 it: olio di colza britannico
-
-< en: rapeseed oil
-en: partially hydrogenated rapeseed oil
-hr: djelomično hidrogenirano ulje repice
-it: olio di colza parzialmente idrogenato
-pl: olej rzepakowy częściowo uwodorniony, tłuszcz roślinny rzepakowy częściowo uwodorniony
+comment:en: should this be moved to origin adjectives now? (Freso, 2026-09)
 
 < en: rapeseed oil
 en: canola oil
 bg: олио от канола
 ca: Oli de canola
-# cs: Řepkový olej # duplicate, unclear which is correct
-# da: Rapsolie # duplicate, unclear which is correct
 de: Ölrübsenöl
 es: aceite de canola
-# fi: rypsiöljy, rypsiöljyä # duplicate, unclear which is correct
 fr: huile de canola
 hr: kanola ulje
 hu: kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj
 it: Olio di canola
 ja: キャノーラ油, なたね油
 nl: canola olie, canolaolie
-# sv: rybsolja, rypsolja # duplicate, unclear which is correct
 tr: kanola yağı
 comment:en: Use only the word canola in this ingredient. "Canola" is a Canadian-bred and trademarked variety of low erucic acid rapeseed (the name is a portmanteau of "Canadian oil, low acid"), not a generic synonym for any rapeseed variety.
 description:en: Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed bred in Canada (Saskatchewan and Manitoba, 1960s-1970s) to be low in erucic acid, as opposed to colza oil.
@@ -16737,10 +16744,8 @@ usda_ndb_name:en: Oil, industrial, canola (partially hydrogenated) oil for deep 
 < en: fully hydrogenated vegetable oil
 en: fully hydrogenated canola oil
 de: ganz gehärtetes Canola-Öl, vollständig hydriertes Canola-Öl
-fi: kokonaan kovetettu rypsiöljy
 hr: potpuno hidrogenirano ulje repice
 it: olio di canola completamente idrogenato
-sv: fullhärdad rypsolja
 
 < en: rapeseed oil
 en: low erucic acid rapeseed oil
@@ -16758,27 +16763,19 @@ hr: ne-gmo ulje repice
 < en: canola oil
 < en: preparation
 en: canola oil preparation
-fi: rypsiöljyvalmiste
 hr: pripravak uljane repice
 it: preparazione di olio di canola
-sv: rypsoljeberedning
-# usage:fi:rypsiöljyvalmiste (rypsiöljy, voiaromi)
-# mainIngredient:en:canola oil
 
 < en: rapeseed oil
 en: colza oil, colza vegetable oil
 bg: рапично олио
-ca: Oli de colza
+ca: oli de colza
 de: Kolzaöl, Kohlsaatöl
-# el: κραμβέλαιο # duplicate, unclear which is correct
 es: aceite de colza
-fi: rypsiöljy, rypsiöljyä
 fr: huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, huiles végétales de colza, huile de graines de colza, huile de graine de colza
 hr: uljana repica, uljane repice, ulje uljane repice, ulje repice
-# hu: Repceolaj # duplicate, unclear which is correct
 it: olio di colza, olio vegetale di colza
 nl: koolzaadolie, plantaardige koolzaadolie
-# pt: óleo de colza # duplicate, unclear which is correct
 carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
 carbon_footprint_fr_foodges_value:fr: 2.2
 ciqual_food_code:en: 17130
@@ -16794,27 +16791,18 @@ wikidata:en: Q697248
 wikipedia:en: https://en.wikipedia.org/wiki/Colza_oil
 
 #processing:en: en:hydrogenated
-#<en:colza oil
+< en: colza oil
+< en: hydrogenated vegetable oil
 #en:hydrogenated colza oil
 #de:Gehärtetes Rapsöl
 es: aceite hidrogenado de colza
 #fi:kovetettu rapsiöljy
 #fr:Huile de colza hydrogénée
 #sv:hårdat rapsolja
-
-#processing:en: en:fully hydrogenated
-#<en:hydrogenated colza oil
-#fr:huile de colza totalement hydrogénée, huiles végétales de colza totalement hydrogénée
-#fi:kokonaan kovetettu rapsiöljy
-#hr:potpuno hidrogenirano repičino ulje
-#nb:fullherdet rapsolje
-#sv:fullhärdad rapsolja
-
-#processing:en: en:non-hydrogenated
-#<en:colza oil
-#fr:huile de colza non hydrogénée
+comment:en: can the es entry be recognised with the processing taxonomy? (Freso, 2026-09)
 
 < en: colza oil
+< en: refined vegetable oil
 bg: рафинирано рапично олио
 fr: huile de colza raffinée
 
@@ -16827,12 +16815,25 @@ fr: monodiglycérides de colza
 de: Mono- und Diglyceride von Raps
 hu: repce mono- és digliceridjei
 
-#process:en: en:non-hydrogenated
-#<en:rapeseed oil
-#en:non-hydrogenated rapeseed oil
-#de:ungehärtetes Rapsöl
-#fi:kovettamaton rapsiöljy
-#sv:ohärdad rapsolja
+< en: vegetable oil and fat
+en: turnip rape oil, turnip rape vegetable oil
+da: rybsolie
+fi: rypsiöljy, rypsiöljyä
+fr: huile de navette
+nb: rybsolje
+nn: rybsolje
+sv: rybsolja, rypsolja
+ciqual_proxy_food_code:en: 17130
+ciqual_proxy_food_name:en: Rapeseed oil
+ciqual_proxy_food_name:fr: Huile de colza
+from_palm_oil:en: no
+nutriscore_fruits_vegetables_nuts:en: yes
+
+< en: preparation
+< en: turnip rape oil
+en: turnip rape oil preparation
+fi: rypsiöljyvalmiste
+sv: rypsoljeberedning
 
 < en: palm oil and fat
 en: palm and rapeseed
@@ -22293,6 +22294,10 @@ hr: prirodne arome mente s drugim prirodnim aromama
 it: aroma naturale di menta piperita con altri aromi naturali
 sv: naturlig pepparmintsarom med andra naturliga aromer
 
+< en: flavouring
+en: spearmint flavouring
+da: spearmintaroma
+
 < en: natural citrus flavouring
 < en: natural mint flavouring
 en: natural aroma of mint and citrus
@@ -22312,6 +22317,10 @@ pl: naturalny aromat mięty i cytrusów
 pt: aroma natural de menta e citrinos
 ro: aroma naturală de mentă și citrice
 sv: naturlig arom av mynta och citrus
+
+< en: natural flavouring
+en: natural menthol flavouring
+da: naturlig mentolaroma
 
 < en: flavouring
 en: smoke flavouring, smoke flavour, aroma of smoke, smoked flavour
@@ -32795,7 +32804,7 @@ en: glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 bg: глюкозо-фруктозен сироп, сироп от глюкоза и фруктоза, фруктозо-глюкозен сироп
 ca: Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs: glukózo-fruktózový sirup, glukózový-fruktózový sirup, glukózovo-fruktózový sirup, fruktózo-glukózový sirup
-da: glukos-fruktossirap, glukose-fruktosesirup
+da: glukose-fruktosesirup, fruktose-glucosesirup
 de: Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el: σιρόπι γλυκόζης-φρουκτόζης
 es: jarabe de glucosa y fructosa, jarabe de glucosa-fructosa, sirope de glucosa y fructosa, sirope de glucosa-fructosa
@@ -37930,7 +37939,7 @@ pl: owoce suszone, suszone owoce, owoców suszonych
 en: juice
 bg: сок
 de: Saft
-es: Zumo, jugo
+es: zumo, jugo
 fi: mehu
 fr: jus
 hr: sok
@@ -37939,7 +37948,8 @@ lv: sula
 nl: sap
 pl: sok, soki, soku, soków
 pt: suco, sumo
-ru: Сок
+ru: сок
+sv: saft, juice
 description:en: Juice is the liquid extracted from fruits or vegetables, produced by pressing, squeezing, or blending, with a history stretching back to ancient civilizations that fermented or drank fruit juices, though modern commercial juicing scaled up dramatically in the 20th century with pasteurization and packaging advances. It has a flavor that mirrors its source—sweet, tart, or a mix—with a smooth, liquid texture, sometimes with pulp retained for added body. Consumed as a beverage or used in cooking, baking, and cocktails, juice retains vitamins (especially vitamin C) and antioxidants from its source, though it typically lacks the fiber of whole fruit and can be concentrated in natural sugars, giving it a higher glycemic impact than eating the fruit whole.
 vegan:en: maybe
 vegetarian:en: maybe
@@ -41170,6 +41180,12 @@ zh: 柑橘属
 # yue:柑桔
 wikidata:en: Q81513
 wikipedia:en: https://en.wikipedia.org/wiki/Citrus
+
+< en: citrus fruit
+fr: cédrat
+en: citron
+wikidata:en: Q150064
+wikipedia:en: https://fr.wikipedia.org/wiki/C%C3%A9dratier
 
 < en: citrus fruit
 en: citrus fruit juice
@@ -47952,7 +47968,7 @@ ru: клубника
 sa: तृणबदरफलम्
 sd: اسٽرا بيري
 sq: luleshtrydhe
-sv: Jordgubbe, jordgubb, jordgubbar
+sv: jordgubbe, jordgubb, jordgubbar, jordgubbs
 sw: Mstroberi
 ta: செம்புற்று
 tg: Қулфинай
@@ -48062,7 +48078,7 @@ ja: 苺ジュース, イチゴジュース, いちごジュース, 苺果汁, �
 nl: aardbeiensap
 pl: sok truskawkowy, sok z truskawki, sok z truskawek
 pt: Suco de morango, sumo de morango
-sv: jordgubbsjuice, jordgubbssaft
+sv: jordgubbssaft, jordgubbsjuice, jordgubbjuice
 
 < en: concentrate
 < en: strawberry juice
@@ -56891,7 +56907,7 @@ lv: melnais burkāns
 nb: sort gulrot
 nl: zwarte wortel
 pl: czarna marchew, czarnej marchwi
-sv: svart morot, svart morots
+sv: svart morot, svart morots, svartmorot, svartmorots
 wikidata:en: Q11767451
 
 #< en:black carrot
@@ -56928,7 +56944,7 @@ de: schwarze Möhre Konzentrat, Konzentrate aus schwarzer Karotte
 fr: concentré de carotte pourpre
 hr: koncentrat crne mrkve
 it: concentrato di carota nera, concentrato di carote nere
-sv: svart morotskoncentrat
+sv: svart morotskoncentrat, koncentrat av svartmorot
 
 < en: black carrot
 < en: carrot extract
@@ -61840,25 +61856,26 @@ la: blighia sapida
 eurocode_2_group_3:en: 8.40.50
 
 < en: root vegetable
-en: Rapeseed, rape, oilseed rape, rape seed
+en: rapeseed, rape, oilseed rape, rape seed
 bg: рапична, рапица, рапично
 bs: repičino
-ca: Colza, Llavor de colza, Llavors de colza
+ca: colza, llavor de colza, llavors de colza
 da: raps
 de: Raps
-es: Colza, nabina
+es: colza, nabina
 fi: rapsi, rapsinsiemenet
-fr: Colza
+fr: colza
 hr: repica, repice, repičina, repičino
-it: Colza
+it: colza
 ja: 菜種
 la: Brassica napus
 lv: rapšu
 nb: raps
-nl: koolzaad
+nl: koolzaad, raapzaad
+nn: raps
 pl: rzepak, rzepaku, rzepakowy, rzepakowa, rzepakowe
 ro: rapiță
-sv: Raps, rapsfrön
+sv: raps, rapsfrön
 comment:en: Why is this listed separately. Is only used as oil source. Can this be listed as a synonym of the oil names?
 ecobalyse:en: rapeseed-non-eu
 ecobalyse_labels_en_organic:en: rapeseed-organic
@@ -61868,12 +61885,30 @@ wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
 
 < en: root vegetable
-en: turnip-rape, turnip rape, field mustard
-de: Rübsamen
+en: turnip rape, turnip-rape, field mustard
+be: свірэпіца
+da: rybs
+de: Rübsamen, Ölrübsen
+et: põld-kapsasrohi
+eu: aza-arbi
 fi: rypsi
-fr: Navette
+fr: navette
 hr: repa-silovanje
+hu: réparepce
+hy: կաղամբուկ դաշտային
+ja: アブラナ
+ka: შალგი
 la: Brassica rapa subsp. oleifera
+nb: rybs
+nn: rybs
+os: булкъой
+pl: kapusta właściwa olejowa
+ru: капуста полевая
+sl: oljna repica
+sv: rybs, ryps
+ta: வயல் கடுகு
+uz: dala karami
+zh: 油菜
 comment:en: Why is this listed as a vegetable?
 description:en: Turnip rape (Brassica rapa subsp. oleifera, also called field mustard or rybs in some regions) is grown for its seeds, which are pressed for oil. It's one of the plants used to produce canola oil (along with rapeseed, Brassica napus). Young leaves of turnip rape can be eaten as leafy greens, similar to mustard greens or other brassica greens, in some regional cuisines.
 wikidata:en: Q3337246
@@ -88063,12 +88098,11 @@ zh: 葡萄糖醛酸內酯
 wikidata:en: Q411638
 wikipedia:en: https://en.wikipedia.org/wiki/Glucuronolactone
 
-# description:en:GUM BASE is the non-nutritive, non-digestible, water-insoluble masticatory delivery system used to carry sweeteners, flavors, and any other substances in chewing gum and bubble gum. It provides all the basic textural and masticatory properties of gum. The actual composition of gum base is usually a trade secret.
-
-en: Gum base
+en: gum base
 cs: žvýkačková báze
+da: gummibase
 de: Kaumasse
-es: Base de goma
+es: base de goma
 fi: purukumin perusmassa, purukumin perusmassaa
 fr: gomme base
 hr: gumena baza, gumi baza
@@ -88076,6 +88110,7 @@ it: gomma base
 ja: ガムベース
 pl: baza gumowa
 sv: gummibas, tuggummibas
+description:en: GUM BASE is the non-nutritive, non-digestible, water-insoluble masticatory delivery system used to carry sweeteners, flavors, and any other substances in chewing gum and bubble gum. It provides all the basic textural and masticatory properties of gum. The actual composition of gum base is usually a trade secret.
 wikidata:en: Q5618000
 wikipedia:en: https://en.wikipedia.org/wiki/Gum_base
 
@@ -99026,3 +99061,7 @@ comment:en: Violife is a producer of such cheeses and ingredient lists will some
 vegan:en: yes
 vegetarian:en: yes
 
+< en: scalding
+< en: sourdough
+en: scalding and sourdough
+sv: skållning och surdeg

@@ -292,7 +292,7 @@
                "description" : "Risque potentiel de déforestation mais non calculé à ce jour.",
                "description_short" : "Risque potentiel de déforestation non calculé",
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-simple-not-computed.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-not-computed.svg",
                "id" : "forest_footprint",
                "match" : 0,
                "name" : "Empreinte Forêt",
@@ -771,6 +771,7 @@
    "misc_tags" : [
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-not-computed",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-energy",
       "en:nutriscore-estimated-fat",
