@@ -81113,9 +81113,13 @@ protected_name_type:en: pgi
 wikidata:en: Q50840850
 
 < en: Polish meat products
+< en: Sausages
 pl: Kabanosy
 en: Cabanossi
+da: Kabanospølser
+sv: Kabanosser
 origins:en: en:poland
+plant_alternative:en: en:plant-based-cabanossi-style-sausages
 protected_name_file_number:en: TSG-PL-0050
 protected_name_type:en: tsg
 wikidata:en: Q462758
@@ -95458,7 +95462,7 @@ zh: 冷肉
 fr: Saucissons artisanaux, Saucisson artisanal
 
 < en: Cured sausages
-en: chorizo, chorizos
+en: Chorizos, Chorizo
 af: Chorizo
 be: Чарыза
 bg: Чорисо
@@ -95496,19 +95500,19 @@ tl: Longganisa
 uk: Чорісос
 vi: Chorizo
 zh: 乔利佐
-# usage:fr:chorizo (maigre et gras de porc, sel, épices et extraits d'épices, dextrose de blé, ferments lactiques, conservateurs :E301, E250)
+#ast: Chorizu
+#ceb: Longganisa
+#en-ca: Chorizo
+#en-gb: Chorizo
+#pt-br: Chouriço
+#yue: 西班牙辣肉腸
+#zh-cn: 口利左香肠
+#zh-hant: 口利左香腸
 agribalyse_food_code:en: 30315
 ciqual_food_code:en: 30315
 ciqual_food_name:en: Spicy pork sausage with red pepper, no precision
 description:en: Chorizo or chouriço is a type of pork sausage. In Europe, chorizo is a fermented, cured, smoked sausage, which may be sliced and eaten without cooking, or added as an ingredient to add flavor to other dishes. Elsewhere, some sausages sold as chorizo may not be fermented and cured, and require cooking before eating. Spanish chorizo and Portuguese chouriço get their distinctive smokiness and deep red color from dried, smoked, red peppers.
-# ast:Chorizu
-# ceb:Longganisa
-# en-ca:Chorizo
-# en-gb:Chorizo
-# pt-br:Chouriço
-# yue:西班牙辣肉腸
-# zh-cn:口利左香肠
-# zh-hant:口利左香腸
+plant_alternative:en: en:plant-based-chorizos
 wikidata:en: Q23374
 wikipedia:en: https://en.wikipedia.org/wiki/Chorizo
 
@@ -123037,6 +123041,7 @@ fr: Galettes au seitan
 
 < en: Meat analogues
 en: Vegetarian sausages
+da: Vegetariske pølser
 de: Vegetarische Würste
 es: Salchichas vegetales
 fi: kasvismakkarat
@@ -123045,17 +123050,21 @@ hr: Vegetarijanske kobasice
 it: Salsicce vegetariane
 nl: Vegetarische worstjes
 pl: Kiełbasy wegetariańskie
+sv: Vegetarianska korvar, Vegetariska korvar
 agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 
 < en: Vegan products
 < en: Vegetarian sausages
-en: Vegan sausages
+en: Vegan sausages, Plant-based sausages
+da: Plantebaserede pølser, Veganske pølser
 pl: Kiełbasy wegańskie, Kiełbaski wegańskie
+sv: Växtbaserade korvar, Veganska korvar
 agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+wikidata:en: Q105523063
 
 < en: Vegetarian sausages
 en: Vegetarian hot dog sausages
@@ -123100,6 +123109,27 @@ nl: Vegetarische weense worstjes
 agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+
+< en: Vegan sausages
+en: Plant-based cabanossi-style sausages, Vegan cabanossi
+da: Plantebaserede kabanospølser, Vegansk kabanos
+sv: Växtbaserade kabanosser, Veganska kabanosser
+
+< en: Vegan sausages
+en: Plant-based cheese sausages, Vegan cheese sausages
+da: Plantebaserede ostepølser, Veganske ostepølser
+sv: Växtbaserade ostkorvar, Veganska ostkorvar
+
+< en: Vegan sausages
+en: Plant-based chorizos, Vegan chorizos
+da: Plantebaserede chorizoer, Veganske chorizopølser
+sv: Växtbaserade chorizos, Veganska chorizos
+
+< en: Vegan sausages
+en: Plant-based grill sausages, Vegan grill sausages
+da: Plantebaserede grillpølser, Veganske grillpølser
+sv: Växtbaserade grillkorvar, Veganska grillkorvar
+#wikidata:en: Q10508801 - non-vegan variant
 
 < en: Vegan sausages
 < en: Vegetarian sausages
