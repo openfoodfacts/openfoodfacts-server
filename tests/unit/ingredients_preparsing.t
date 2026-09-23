@@ -1240,6 +1240,90 @@ my @tests = (
 		ingredients_text =>
 			'émulsifiant e471, émulsifiant lécithine de soja, acidifiant acide citrique, acidifiant e330, emulsifiant lecithine de tournesol, émulsifiant lécithine',
 	},
+	# margarine
+	{
+		id => '231',
+		lc => 'fr',
+		ingredients_text => 'Huiles végétales biologiques non hydrogénées (colza, palme)',
+	},
+	# As of 2026/04/15, the 3 following tests fail, there is code that should handle the * symbol but it is not working
+	{
+		id => '232',
+		lc => 'fr',
+		ingredients_text => 'Huiles végétales biologiques non hydrogénées (colza*, palme*)',
+	},
+	{
+		id => '233',
+		lc => 'fr',
+		ingredients_text => 'Huiles végétales biologiques non hydrogénées (colza* et palme*)',
+	},
+	{
+		id => '234',
+		lc => 'fr',
+		ingredients_text => 'Huiles végétales biologiques non hydrogénées (colza*)',
+	},
+	# Misspellings
+	{
+		id => 'misspelling-correction',
+		lc => 'fr',
+		ingredients_text => 'Sucre, tomates en dès, sel',
+	},
+	{
+		id => 'misspelling-case-preserve',
+		lc => 'fr',
+		ingredients_text => 'Dès de courgettes, TOMATES EN DÈS, dès d\'aubergine,sel',
+	},
+	{
+		id => '239',
+		lc => 'en',
+		ingredients_text => 'E160a (i)'    # additive normalization regression check
+	},
+	# orphan additive variants must be re-attached, not stripped: in languages whose "and"
+	# word is " i " (ca, hr, pl, uk), the additives normalization does not accept a space
+	# before the parenthetical variant
+	{
+		id => '240',
+		lc => 'pl',
+		ingredients_text => 'barwnik: e160a (ii)'
+	},
+	{
+		id => '241',
+		lc => 'ca',
+		ingredients_text => 'colorant e160a (ii) i conservant e451 (i)'
+	},
+	# variant re-attachment also applies when the upstream lookahead fails
+	# (e.g. "*" after the closing paren)
+	{
+		id => '242',
+		lc => 'en',
+		ingredients_text => 'Annatto e160b(ii)*'
+	},
+	# the re-attach accepts the same whitespace as the removed numerals would
+	{
+		id => '243',
+		lc => 'en',
+		ingredients_text => 'carotenes e160a  (ii)'
+	},
+	# the letter after the E-number is optional: "e451 (i)" re-attaches like "e451a (i)"
+	{
+		id => '244',
+		lc => 'pl',
+		ingredients_text => 'regulator kwasowosci: e451 (i)'
+	},
+	# oxidation states in roman numeral parens are kept: stripping the numeral would turn
+	# "Azotan(III) potasu" (an E249 nitrite synonym) into "Azotan potasu" (an E252 nitrate
+	# synonym)
+	{
+		id => '245',
+		lc => 'pl',
+		ingredients_text => 'konserwant: Azotan(III) potasu'
+	},
+	{
+		'id' => 'ingredients-starting-with-ingredients',
+		'lc' => 'en',
+		'ingredients_text' =>
+			'INGREDIENTS Greek Style Yogurt (Milk) (85%), Water, Sugar, Coconut Milk (2%), Desiccated Coconut, Maize Starch, Flavourings, Lactic Acid, Live Bacterial Cultures [Bifidobacterium, Lactobacillus bulgaricus, Streptococcus thermophilus].'
+	}
 );
 
 foreach my $test_ref (@tests) {

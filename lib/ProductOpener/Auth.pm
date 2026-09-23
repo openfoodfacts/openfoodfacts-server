@@ -61,6 +61,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Cache qw/generate_cache_key safe_cache_get safe_cache_set/;
 use ProductOpener::Display qw/display_error_and_exit/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
@@ -84,6 +85,7 @@ use LWP::UserAgent;
 use LWP::UserAgent::Plugin 'Retry';
 use HTTP::Request;
 use URI::Escape::XS qw/uri_escape/;
+use HTML::Entities;
 
 # Initialize some constants
 
@@ -96,6 +98,7 @@ my $signout_callback_uri = format_subdomain('world') . '/cgi/oidc_signout_callba
 my $client = undef;
 my $oidc_configuration = undef;
 my $jwks = undef;
+my $oidc_metadata_cache_ttl = 2 * 60 * 60;
 
 =head2 start_authorize($request_ref)
 
@@ -168,7 +171,7 @@ sub signin_callback ($request_ref) {
 			start_authorize($request_ref);
 		}
 		else {
-			display_error_and_exit($request_ref, $error, 500);
+			display_error_and_exit($request_ref, encode_entities($error), 500);
 		}
 
 		return;
@@ -185,9 +188,11 @@ sub signin_callback ($request_ref) {
 	my %cookie_ref = cookie($cookie_name);
 	# verify we are in the right sign-in process, thanks to the randomly generated token
 	my $nonce = $cookie_ref{'nonce'};
-	if (not($state eq $nonce)) {
-		$log->info('unexpected nonce', {nonce => $nonce, expected_nonce => $state}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Invalid Nonce during OIDC login', 500);
+	my ($state_is_valid, $error_message, $error_status) = _validate_oidc_state_and_nonce($state, $nonce, 'login');
+	if (not $state_is_valid) {
+		$log->info('invalid OIDC callback state', {nonce => $nonce, expected_nonce => $state, context => 'login'})
+			if $log->is_info();
+		display_error_and_exit($request_ref, $error_message, $error_status);
 	}
 
 	# validation against JWKS
@@ -219,6 +224,28 @@ sub signin_callback ($request_ref) {
 	init_user($request_ref);
 
 	return $cookie_ref{'return_url'};
+}
+
+=head2 _validate_oidc_state_and_nonce($state, $nonce, $context)
+
+Validate OIDC state and nonce values before comparing them.
+
+=cut
+
+sub _validate_oidc_state_and_nonce ($state, $nonce, $context = 'login') {
+	if ((not defined $state) or ($state eq '')) {
+		return (0, "Missing OIDC state during $context", 400);
+	}
+
+	if ((not defined $nonce) or ($nonce eq '')) {
+		return (0, "Missing OIDC nonce during $context", 400);
+	}
+
+	if ($state ne $nonce) {
+		return (0, "Invalid Nonce during OIDC $context", 500);
+	}
+
+	return (1, undef, undef);
 }
 
 =head2 password_signin($username, $password, $request_ref)
@@ -398,6 +425,10 @@ sub access_to_protected_resource ($request_ref) {
 
 	$log->info('request is ok', $request_ref) if $log->is_info();
 
+	# Already logged in. Redirect to the requested url
+	if (defined $request_ref->{return_url}) {
+		redirect_to_url($request_ref, 302, $request_ref->{return_url});
+	}
 	return;
 }
 
@@ -479,9 +510,11 @@ sub signout_callback ($request_ref) {
 	my $state = single_param('state');
 	my %cookie_ref = cookie($cookie_name);
 	my $nonce = $cookie_ref{'nonce'};
-	if (not($state eq $nonce)) {
-		$log->info('unexpected nonce', {nonce => $nonce, expected_nonce => $state}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Invalid Nonce during OIDC logout', 500);
+	my ($state_is_valid, $error_message, $error_status) = _validate_oidc_state_and_nonce($state, $nonce, 'logout');
+	if (not $state_is_valid) {
+		$log->info('invalid OIDC callback state', {nonce => $nonce, expected_nonce => $state, context => 'logout'})
+			if $log->is_info();
+		display_error_and_exit($request_ref, $error_message, $error_status);
 	}
 
 	param('length', 'logout');
@@ -623,7 +656,23 @@ Returns: The verified access token or undefined if verification fails.
 sub verify_access_token ($access_token_string) {
 	get_oidc_configuration();
 
-	my $access_token_verified = decode_jwt(token => $access_token_string, kid_keys => $jwks);
+	# Bind the token to this relying party: signature alone is not sufficient, because every client
+	# in the realm is signed by the same JWKS keys.
+	# Note: decode_jwt throws on signature / iss / alg failure, so trap it
+	# to honor the documented undef-on-failure contract.
+	my $access_token_verified = eval {
+		decode_jwt(
+			token => $access_token_string,
+			kid_keys => $jwks,
+			verify_iss => $oidc_configuration->{issuer},
+			accepted_alg => ['RS256'],
+		);
+	};
+	if (my $error = $@) {
+		chomp $error;
+		$log->info('Access token verification failed', {error => $error}) if $log->is_info();
+		return;
+	}
 	unless ($access_token_verified) {
 		return;
 	}
@@ -768,24 +817,36 @@ None.
 =cut
 
 sub get_oidc_configuration () {
-	if (!$jwks) {
-		my $discovery_endpoint = $oidc_options{oidc_discovery_url};
+	if ($oidc_configuration and $jwks) {
+		return $oidc_configuration;
+	}
 
-		$log->info('Original OIDC configuration', {discovery_endpoint => $discovery_endpoint})
-			if $log->is_info();
+	my $discovery_endpoint = $oidc_options{oidc_discovery_url};
 
+	$log->info('Original OIDC configuration', {discovery_endpoint => $discovery_endpoint}) if $log->is_info();
+
+	my $oidc_cache_key = generate_cache_key("oidc_configuration", {discovery_endpoint => $discovery_endpoint});
+
+	if (!$oidc_configuration) {
+		$oidc_configuration = safe_cache_get($oidc_cache_key);
+	}
+
+	if (!$oidc_configuration) {
 		my $discovery_request = HTTP::Request->new(GET => $discovery_endpoint);
 		my $discovery_response = LWP::UserAgent::Plugin->new->request($discovery_request);
-		unless ($discovery_response->is_success) {
+		if ($discovery_response->is_success) {
+			$oidc_configuration = decode_json($discovery_response->content);
+			safe_cache_set($oidc_cache_key, $oidc_configuration, $oidc_metadata_cache_ttl);
+		}
+		else {
 			$log->error('Unable to load OIDC data from IdP',
 				{discovery_endpoint => $discovery_endpoint, response => $discovery_response->content})
 				if $log->is_error();
 			return;
 		}
+	}
 
-		$oidc_configuration = decode_json($discovery_response->content);
-		# $log->info('got discovery document', {discovery => $oidc_configuration}) if $log->is_info();
-
+	if (!$jwks) {
 		_load_jwks_configuration_to_oidc_options($oidc_configuration->{jwks_uri});
 	}
 
@@ -810,6 +871,13 @@ None.
 =cut
 
 sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
+	my $jwks_cache_key = generate_cache_key("oidc_jwks", {jwks_uri => $jwks_uri});
+
+	$jwks = safe_cache_get($jwks_cache_key);
+	if ($jwks) {
+		return;
+	}
+
 	my $jwks_request = HTTP::Request->new(GET => $jwks_uri);
 	my $jwks_response = LWP::UserAgent::Plugin->new->request($jwks_request);
 	unless ($jwks_response->is_success) {
@@ -818,6 +886,7 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	}
 
 	$jwks = decode_json($jwks_response->content);
+	safe_cache_set($jwks_cache_key, $jwks, $oidc_metadata_cache_ttl);
 
 	return;
 }

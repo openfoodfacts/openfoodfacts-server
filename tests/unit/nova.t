@@ -6,6 +6,7 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
@@ -65,8 +66,8 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[0];
 	my $nova = $test_ref->[1];
 
-	if (not defined $product_ref->{categories}) {
-		$product_ref->{categories} = "some category";
+	if (not defined $product_ref->{categories_tags}) {
+		$product_ref->{categories_tags} = ["en:some-category"];
 	}
 	$product_ref->{ingredients_text} = $product_ref->{"ingredients_text_" . $product_ref->{lc}};
 	clean_ingredients_text($product_ref);

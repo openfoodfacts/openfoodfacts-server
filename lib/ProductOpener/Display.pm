@@ -61,7 +61,7 @@ BEGIN {
 		&display_stats
 		&display_points
 		&display_mission
-		&display_tag
+		&display_tag_page
 		&display_search_results
 		&display_error
 		&display_error_and_exit
@@ -124,11 +124,12 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
+	qw(set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve retrieve_object);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Users qw(:all);
 use ProductOpener::Texts qw(%texts);
 use ProductOpener::Lang qw(:all);
@@ -173,7 +174,6 @@ use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use HTML::Entities;
 use DateTime;
 use DateTime::Locale;
-use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
 use JSON::MaybeXS;
@@ -192,6 +192,7 @@ use Log::Log4perl;
 use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
+use List::Util qw(any);
 
 use Apache2::Request ();
 use Apache2::RequestUtil ();
@@ -291,6 +292,23 @@ $tt = Template->new(
 		COMPILE_EXT => '.ttc',    # compile templates to Perl code for much faster reload
 		COMPILE_DIR => $data_root . "/tmp/templates",
 		ENCODING => 'UTF-8',
+		FILTERS => {
+			# UTF-8-safe ucfirst filter to avoid "Wide character in ucfirst" warnings
+			# Standard Perl ucfirst doesn't handle multi-byte UTF-8 characters properly
+			ucfirst => sub {
+				my $text = shift;
+				return '' unless defined $text;
+				# Use uc() on first character which works correctly with UTF-8
+				# when utf8 flag is set (Template Toolkit handles this with ENCODING => 'UTF-8')
+				return uc(substr($text, 0, 1)) . substr($text, 1);
+			},
+			js => sub {
+				my $text = shift;
+				return '' unless defined $text;
+				# Encode the text as a JSON string for safe inclusion in JavaScript
+				return $json_utf8->encode($text);
+			},
+		},
 	}
 );
 
@@ -720,7 +738,7 @@ sub init_request ($request_ref = {}) {
 	# If lc is not one of the official languages of the country and if the request comes from
 	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
 	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
-	if ((!($lc ~~ $country_languages{$cc})) or $subdomain =~ /^(ssl-)?api/) {
+	if ((!any {$_ eq $lc} @{$country_languages{$cc}}) or $subdomain =~ /^(ssl-)?api/) {
 		# Use robots.txt with disallow: / for all agents
 		$request_ref->{deny_all_robots_txt} = 1;
 
@@ -950,12 +968,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot|Timpibot)/i
+		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot|Timpibot|meta-webindexer|meta-externalagent)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot|Timpibot)/i
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot|Timpibot|meta-webindexer|meta-externalagent|Applebot)/i
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -1347,13 +1365,14 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 			}
 			$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 		}
+	}
 
-		if (get_oidc_implementation_level() >= 3) {
-			# Use the Keycloak login link once we have migrated the Login user interface
-			#11867: Should be full URL
-			my $escaped_canon_url = uri_escape($request_ref->{formatted_subdomain});
-			$html =~ s/<escaped_subdomain>/$escaped_canon_url/g;
-		}
+	if (get_oidc_implementation_level() >= 3) {
+		# Use the Keycloak login link once we have migrated the Login user interface
+		#11867: Should be full URL
+		my $login_link = 'href="/cgi/oidc_signin.pl?return_url='
+			. uri_escape($request_ref->{formatted_subdomain} . '/' . $request_ref->{original_query_string}) . '"';
+		$html =~ s/href="\/cgi\/user.pl"/$login_link/g;
 	}
 
 	$log->debug("displaying text from file",
@@ -1540,8 +1559,16 @@ sub display_mission ($request_ref) {
 
 	my $missionid = $request_ref->{missionid};
 
-	open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/" . $request_ref->{lc} . "/$missionid.html");
-	my $html = join('', (<$IN>));
+	my $html = '';
+	if (
+		open(
+			my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/" . $request_ref->{lc} . "/$missionid.html"
+		)
+		)
+	{
+		$html = join('', (<$IN>));
+		close($IN);
+	}
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{canon_url} = "/facets" . canonicalize_tag_link("missions", $missionid);
@@ -2178,8 +2205,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				}
 			}
 			else {
-				$display = canonicalize_tag2($tagtype, $tagid);
-				$display = display_tag_name($tagtype, $display);
+				$display = display_tag_name($tagtype, $tagid);
 			}
 
 			# Display the percent of products for each tag
@@ -2918,11 +2944,11 @@ sub display_points_ranking ($tagtype, $tagid, $request_ref) {
 
 		$html
 			.= "<tr><td><a href=\"$link\">$display_key</a></td><td>$rank</td><td>"
-			. $points_ref->{$tagid}{$key}
+			. ($points_ref->{$tagid}{$key} // '')
 			. "</td><td>"
-			. $ambassadors_ranks{$key}
+			. ($ambassadors_ranks{$key} // '')
 			. "</td><td>"
-			. $ambassadors_points_ref->{$tagid}{$key}
+			. ($ambassadors_points_ref->{$tagid}{$key} // '')
 			. "</td></tr>\n";
 
 	}
@@ -3015,13 +3041,8 @@ sub display_points ($request_ref) {
 				= '/facets' . canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
 		}
 		else {
-			$display_tag = canonicalize_tag2($tagtype, $tagid);
-			$new_tagid = get_string_id_for_lang($lc, $display_tag);
-			$display_tag = display_tag_name($tagtype, $display_tag);
-			if ($tagtype eq 'emb_codes') {
-				$canon_tagid = $new_tagid;
-				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
-			}
+			$new_tagid = canonicalize_tag($tagtype, $tagid);
+			$display_tag = display_tag_name($tagtype, $new_tagid);
 			$title = $display_tag;
 			$new_tagid_path = '/facets' . canonicalize_tag_link($tagtype, $new_tagid);
 			$request_ref->{current_link} = $new_tagid_path;
@@ -3048,7 +3069,7 @@ sub display_points ($request_ref) {
 
 	my $description = '';
 
-	if ($tagtype eq 'users') {
+	if ((defined $tagtype) and ($tagtype eq 'users')) {
 		my $user_ref = retrieve_user($tagid);
 		if (defined $user_ref) {
 			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
@@ -3132,8 +3153,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc, $tagtype, $canon_tagid);
 			$new_tagid = get_taxonomyid($lc, $display_tag);
-			$log->debug("displaying taxonomy tag", {canon_tagid => $canon_tagid, new_tagid => $new_tagid})
-				if $log->is_debug();
+
 			if ($new_tagid !~ /^(\w\w):/) {
 				$new_tagid = $lc . ':' . $new_tagid;
 			}
@@ -3141,16 +3161,20 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 			$request_ref->{current_link} .= $new_tagid_path;
 			$request_ref->{world_current_link}
 				.= canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid, $tag_prefix);
+
+			$log->debug(
+				"displaying taxonomy tag",
+				{
+					canon_tagid => $canon_tagid,
+					display_tag => $display_tag,
+					new_tagid => $new_tagid,
+					new_tagid_path => $new_tagid_path
+				}
+			) if $log->is_debug();
 		}
 		else {
-			$display_tag = canonicalize_tag2($tagtype, $tagid);
-			# Use "no_language" normalization for tags types without a taxonomy
-			$new_tagid = get_string_id_for_lang("no_language", $display_tag);
-			$display_tag = display_tag_name($tagtype, $display_tag);
-			if ($tagtype eq 'emb_codes') {
-				$canon_tagid = $new_tagid;
-				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
-			}
+			$new_tagid = canonicalize_tag($tagtype, $tagid);
+			$display_tag = display_tag_name($tagtype, $new_tagid);
 			$new_tagid_path = canonicalize_tag_link($tagtype, $new_tagid, $tag_prefix);
 			$request_ref->{current_link} .= $new_tagid_path;
 			my $current_lc = $lc;
@@ -3195,7 +3219,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 		$request_ref->{header} .= '<meta name="robots" content="noindex">' . "\n";
 	}
 
-	return;
+	return $request_ref->{tags};
 }
 
 =head2 generate_title_from_request_tags ($tags_ref)
@@ -3723,7 +3747,7 @@ HTML
 	return $description;
 }
 
-=head2 display_tag ($request_ref)
+=head2 display_tag_page ($request_ref)
 
 This function is called to display either:
 
@@ -3746,7 +3770,7 @@ When displaying a list of tags, the function calls display_list_of_tags().
 
 =cut
 
-sub display_tag ($request_ref) {
+sub display_tag_page ($request_ref) {
 
 	local $log->context->{tags} = $request_ref->{tags};
 
@@ -4281,6 +4305,9 @@ HTML
 
 		$tag_template_data_ref->{world_link} = $world_link;
 		$tag_template_data_ref->{world_link_url} = get_world_subdomain() . $request_ref->{world_current_link};
+		if ($request_ref->{query_parameters}) {
+			$tag_template_data_ref->{world_link_url} .= '?' . $request_ref->{query_parameters};
+		}
 
 	}
 
@@ -4348,7 +4375,7 @@ HTML
 	# If we have no resultings products or aggregated tags, and the tag value does not exist in the taxonomy,
 	# we do not output the tag value in the page title and content
 	if (
-		($request_ref->{structured_response}{count} == 0)
+		(($request_ref->{structured_response}{count} // 0) == 0)
 		and (
 			(
 				(
@@ -4695,7 +4722,10 @@ sub add_params_and_filters_to_query ($request_ref, $query_ref) {
 		# Some parameters like page / page_size and sort_by are related to the query
 		# but not query filters, we set them at the request object level
 		elsif (($field eq "page") or ($field eq "page_size")) {
-			$request_ref->{$field} = $params_ref->{$field} + 0;    # Make sure we have a number
+			my $numeric_param = $params_ref->{$field};
+			$numeric_param =~ s/\D.*$//    # Strip anything from the first non-digit (e.g. "50?sort_by=...")
+				if defined $numeric_param;
+			$request_ref->{$field} = ($numeric_param // 0) + 0;    # Make sure we have a number
 			delete $params_ref->{$field};
 		}
 
@@ -4821,11 +4851,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 							}
 						}
 						else {
-							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
-							# EU packager codes are normalized to have -ec at the end
-							if ($tagtype eq 'emb_codes') {
-								$tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
-							}
+							$tagid2 = canonicalize_tag($tagtype, $tag2);
 						}
 						push @tagids, $tagid2;
 					}
@@ -4862,11 +4888,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 						}
 					}
 					else {
-						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
-						# EU packager codes are normalized to have -ec at the end
-						if ($tagtype eq 'emb_codes') {
-							$tagid =~ s/-($ec_code_regexp)$/-ec/ie;
-						}
+						$tagid = canonicalize_tag($tagtype, $tag);
 					}
 					$log->debug("add_params_to_query - tags param - single value",
 						{field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid})
@@ -5069,14 +5091,14 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		{request_ref => sanitize($request_ref), query_ref => $query_ref, sort_by => $sort_by})
 		if $log->is_debug();
 
+	add_params_and_filters_to_query($request_ref, $query_ref);
+
 	# 2026-03-04 - due to heavy load from bots, disabling 2nd level facets unless the user
 	#  is logged in
 	if ((not defined $User_id) and ($request_ref->{page} > 10)) {
 		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
 		return;
 	}
-
-	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
 	}
@@ -5195,6 +5217,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	$template_data_ref->{sort_options} = [];
 
+	my $current_link = $request_ref->{current_link};
+	if (index($current_link, "?") == -1) {
+		$current_link .= "?";
+	}
+	else {
+		$current_link .= "&";
+	}
 	# Nutri-Score and Environmental-Score are only for food products
 	# and currently scan data is only loaded for Open Food Facts
 	if (feature_enabled("popularity")) {
@@ -5202,7 +5231,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "popularity",
-			link => $request_ref->{current_link} . "?sort_by=popularity",
+			link => $current_link . "sort_by=popularity",
 			name => lang("sort_by_popularity")
 			};
 	}
@@ -5210,7 +5239,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "nutriscore_score",
-			link => $request_ref->{current_link} . "?sort_by=nutriscore_score",
+			link => $current_link . "sort_by=nutriscore_score",
 			name => lang("sort_by_nutriscore_score")
 			};
 	}
@@ -5219,7 +5248,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "environmental_score_score",
-			link => $request_ref->{current_link} . "?sort_by=environmental_score_score",
+			link => $current_link . "sort_by=environmental_score_score",
 			name => lang("sort_by_environmental_score_score")
 			};
 	}
@@ -5227,13 +5256,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	push @{$template_data_ref->{sort_options}},
 		{
 		value => "created_t",
-		link => $request_ref->{current_link} . "?sort_by=created_t",
+		link => $current_link . "sort_by=created_t",
 		name => lang("sort_by_created_t")
 		};
 	push @{$template_data_ref->{sort_options}},
 		{
 		value => "last_modified_t",
-		link => $request_ref->{current_link} . "?sort_by=last_modified_t",
+		link => $current_link . "sort_by=last_modified_t",
 		name => lang("sort_by_last_modified_t")
 		};
 
@@ -5303,8 +5332,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"ecoscore_data.environmental_score_not_applicable_for_category" => 1,
 			"ecoscore_grade" => 1,
 			"ecoscore_score" => 1,
-			"forest_footprint_data.grade" => 1,
-			"forest_footprint_data.footprint_per_kg" => 1,
+			"forest_footprint_2026.grade" => 1,
+			"forest_footprint_2026.total_footprint_per_kg" => 1,
+			"forest_footprint_2026.summary" => 1,
+			"forest_footprint_2026.primary_ingredients" => 1,
 			"ingredients_analysis_tags" => 1,
 			"ingredients_n" => 1,
 			"labels_tags" => 1,
@@ -5534,7 +5565,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 			# For non API queries, we will display the products in a template (this is for SEO, before personal search products are displayed through Javascript)
 			if (not defined $request_ref->{api}) {
-				my $product_display_name = $product_ref->{product_display_name};
+				my $product_display_name = $product_ref->{product_display_name} // '';
 				# Prevent the quantity "750 g" to be split on two lines
 				$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
 
@@ -6019,7 +6050,7 @@ sub get_search_field_path_components ($field) {
 	}
 	# forest footprint
 	elsif ($field eq "forest_footprint") {
-		@fields = ('forest_footprint_data', 'footprint_per_kg');
+		@fields = ('forest_footprint_2026', 'total_footprint_per_kg');
 	}
 	# we assume other fields are nutrients ids
 	else {
@@ -7701,10 +7732,12 @@ sub display_page ($request_ref) {
 				$osubdomain = $request_ref->{cc};
 			}
 			if (($olc eq $lc)) {
-				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a>\n";
+				$selected_lang
+					= "<a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a>\n";
 			}
 			else {
-				$langs .= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a></li>";
+				$langs
+					.= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a></li>";
 			}
 		}
 	}
@@ -9441,13 +9474,17 @@ CSS
 							$value = $decf->format(g_to_unit($value, $unit));
 						}
 					}
-					# too small values are converted to e notation: 7.18e-05
-					if (($value . ' ') =~ /e/) {
-						# use %f (outputs extras 0 in the general case)
-						$value = sprintf("%f", g_to_unit($value, $unit));
+
+					if (defined $value) {
+						# too small values are converted to e notation: 7.18e-05
+						if (($value . ' ') =~ /e/) {
+							# use %f (outputs extras 0 in the general case)
+							$value = sprintf("%f", g_to_unit($value, $unit));
+						}
+
+						$values = "$value $unit";
 					}
 
-					$values = "$value $unit";
 					if (   (not defined $value)
 						or ($comparison_ref->{nutrients}{$nid} eq ''))
 					{
@@ -9700,7 +9737,7 @@ sub display_product_api ($request_ref) {
 		$response{status_verbose} = 'no code or invalid code';
 	}
 	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
-		if ($request_ref->{api_version} >= 1) {
+		if (($request_ref->{api_version} // 0) >= 1) {
 			$request_ref->{status_code} = 404;
 		}
 		$response{status} = 0;
@@ -9753,7 +9790,7 @@ sub display_product_api ($request_ref) {
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ($request_ref->{api_version} <= 1) {
+		if (not defined $request_ref->{api_version} or $request_ref->{api_version} <= 1) {
 
 			if (defined $product_ref->{ingredients}) {
 
@@ -9938,7 +9975,6 @@ sub display_structured_response ($request_ref) {
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
 		my $status_code = $request_ref->{status_code} // "200";
-		write_cors_headers();
 		print header(
 			-status => $status_code,
 			-type => 'text/xml',
@@ -9966,7 +10002,6 @@ sub display_structured_response ($request_ref) {
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
-			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'text/javascript',
@@ -9976,7 +10011,6 @@ sub display_structured_response ($request_ref) {
 				. $data . ");";
 		}
 		else {
-			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
@@ -10062,7 +10096,6 @@ XML
 XML
 		;
 
-	write_cors_headers();
 	print header(-type => 'application/rss+xml', -charset => 'utf-8') . $xml;
 
 	return;
@@ -10283,11 +10316,30 @@ Reference to an HTML list of ingredients in ordered nested list format that corr
 
 =cut
 
-sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref, $ingredients_list_ref) {
+sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref, $ingredients_list_ref, $depth = 0) {
 
-	${$ingredients_list_ref} .= "<ol id=\"ordered_ingredients_list\">\n";
+	# Add table header on the outermost call only
+	if ($depth == 0) {
+		${$ingredients_list_ref}
+			.= '<table id="ordered_ingredients_list" style="border-collapse:collapse;width:100%;font-size:0.85rem">'
+			. "\n<thead><tr>"
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Ingredient</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Taxonomy ID</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual_proxy</th>'
+			. '<th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">percent</th>'
+			. '<th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">min</th>'
+			. '<th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">max</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">origin</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">labels</th>'
+			. "</tr></thead>\n<tbody>\n";
+	}
 
 	my $i = 0;
+	my $padding_style = $depth > 0 ? ' style="padding-left:' . ($depth * 1.5) . 'em"' : '';
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
@@ -10307,33 +10359,43 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 			${$ingredients_text_ref} .= " " . $ingredient_ref->{percent} . "%";
 		}
 
-		${$ingredients_list_ref}
-			.= "<li>" . "<span$class>" . $ingredient_ref->{text} . "</span>" . " -> " . $ingredient_ref->{id};
+		my $r1 = sub {defined $_[0] ? sprintf("%.1f", $_[0]) : ''};
+		my $percent_display = $r1->($ingredient_ref->{percent} // $ingredient_ref->{percent_estimate});
 
-		foreach my $property (
-			qw(origin labels vegan vegetarian from_palm_oil ciqual_food_code ciqual_proxy_food_code percent_min percent percent_estimate percent_max)
-			)
-		{
-			if (defined $ingredient_ref->{$property}) {
-				# Skip percent_estimate if percent is defined
-				if (($property eq 'percent_estimate') and (defined $ingredient_ref->{percent})) {
-					next;
-				}
-				${$ingredients_list_ref} .= ' – ' . $property . ":&nbsp;" . $ingredient_ref->{$property};
-			}
+		${$ingredients_list_ref} .= "<tr>";
+		${$ingredients_list_ref}
+			.= "<td$padding_style style=\"padding:2px 6px\"><span$class>" . $ingredient_ref->{text} . "</span></td>";
+		${$ingredients_list_ref} .= '<td style="padding:2px 6px">' . $ingredient_ref->{id} . "</td>";
+
+		foreach my $property (qw(vegan vegetarian from_palm_oil ciqual_food_code ciqual_proxy_food_code)) {
+			${$ingredients_list_ref}
+				.= '<td style="padding:2px 6px">' . ($ingredient_ref->{$property} // '') . "</td>";
 		}
+
+		${$ingredients_list_ref} .= '<td style="text-align:right;padding:2px 6px">' . $percent_display . "</td>";
+		${$ingredients_list_ref}
+			.= '<td style="text-align:right;padding:2px 6px">' . $r1->($ingredient_ref->{percent_min}) . "</td>";
+		${$ingredients_list_ref}
+			.= '<td style="text-align:right;padding:2px 6px">' . $r1->($ingredient_ref->{percent_max}) . "</td>";
+
+		foreach my $property (qw(origin labels)) {
+			${$ingredients_list_ref}
+				.= '<td style="padding:2px 6px">' . ($ingredient_ref->{$property} // '') . "</td>";
+		}
+
+		${$ingredients_list_ref} .= "</tr>\n";
 
 		if (defined $ingredient_ref->{ingredients}) {
 			${$ingredients_text_ref} .= " (";
 			display_nested_list_of_ingredients($ingredient_ref->{ingredients},
-				$ingredients_text_ref, $ingredients_list_ref);
+				$ingredients_text_ref, $ingredients_list_ref, $depth + 1);
 			${$ingredients_text_ref} .= ")";
 		}
-
-		${$ingredients_list_ref} .= "</li>\n";
 	}
 
-	${$ingredients_list_ref} .= "</ol>\n";
+	if ($depth == 0) {
+		${$ingredients_list_ref} .= "</tbody></table>\n";
+	}
 
 	return;
 }
@@ -10742,7 +10804,7 @@ sub display_properties ($request_ref) {
 
 	my $html;
 	process_template('web/common/includes/folksonomy_script.tt.html', {}, \$html, $request_ref)
-		|| return "template error: " . $tt->error();
+		|| return "template error: " . ($tt->error() // 'unknown error');
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{page_type} = "properties";

@@ -309,7 +309,7 @@ my %gs1_maps = (
 		"BLEU_BLANC_COEUR" => "fr:bleu-blanc-coeur",
 		"BIO_LABEL_GERMAN" => "de:EG-Öko-Verordnung",
 		"BIO_PARTENAIRE" => "fr:biopartenaire",
-		"CERTIFIED_PLANT_BASED" => "en:certified plant based",
+		"CERTIFIED_PLANT_BASED" => "en:certified-plant-based",
 		"CROSSED_GRAIN_SYMBOL" => "en:crossed-grain-symbol",
 		"DEMETER" => "en:demeter",
 		"DEMETER_LABEL" => "en:demeter",
@@ -1172,7 +1172,7 @@ sub assign_field ($results_ref, $target_field, $target_value) {
 
 sub extract_nutrient_quantity_contained ($preparation, $per, $results_ref, $nid, $nutrient_detail_ref) {
 
-	my $nutrient_field = "nutrition.input_sets.manufacturer.$preparation.$per.$nid";
+	my $nutrient_field = "nutrition.input_sets.manufacturer.$preparation.$per.nutrients.$nid";
 
 	my $nutrient_value;
 	my $nutrient_unit;
@@ -1213,10 +1213,10 @@ sub extract_nutrient_quantity_contained ($preparation, $per, $results_ref, $nid,
 		# energy: based on the nutrient unit, assign the energy-kj or energy-kcal field
 		if ($nid eq "energy") {
 			if ($nutrient_unit eq "kcal") {
-				$nutrient_field =~ s/\.energy$/\.energy-kcal/;
+				$nutrient_field =~ s/\.energy.*$/\.energy-kcal/;
 			}
 			else {
-				$nutrient_field =~ s/\.energy$/\.energy-kj/;
+				$nutrient_field =~ s/\.energy.*$/\.energy-kj/;
 			}
 		}
 

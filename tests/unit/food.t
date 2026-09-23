@@ -9,7 +9,8 @@ $Data::Dumper::Terse = 1;
 $Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Tags qw/exists_taxonomy_tag has_tag get_property %properties/;
+use ProductOpener::Tags qw/exists_taxonomy_tag get_property %properties/;
+use ProductOpener::ProductsTags qw/has_tag/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::FoodProducts qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;

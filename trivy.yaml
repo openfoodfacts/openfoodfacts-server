@@ -1,9 +1,35 @@
-# Trivy configuration to ignore specific copyleft licenses
+# Trivy configuration: ignore licenses we consider compatible with our AGPL project.
+# We publish this project under AGPL and use Creative Commons images; treat common
+# AGPL/CC licenses as acceptable to reduce noisy GitHub issues from Trivy.
 license:
   ignored-licenses:
     - GPL-1.0
     - GPL-2.0
     - GPL-3.0
     - AGPL-3.0
+    - AGPL-3.0-only
+    - AGPL-3.0-or-later
+    - GPL-1.0-only
+    - GPL-1.0-or-later
+    - GPL-2.0-only
+    - GPL-2.0-or-later
+    - GPL-3.0-only
+    - GPL-3.0-or-later
+    - LGPL-2.0
+    - LGPL-2.0-only
+    - LGPL-2.0-or-later
     - LGPL-2.1
+    - LGPL-2.1-only
+    - LGPL-2.1-or-later
+    - LGPL-2.1+
+    - "LGPL-2.1+ with Perl exception"
+    - "LGPL-2.1+ with OpenSSL exception"
     - LGPL-3.0
+    - LGPL-3.0-only
+    - LGPL-3.0-or-later
+    - CC0-1.0
+    - CC-BY-4.0
+    - CC-BY-3.0
+    - CC-BY-SA-4.0
+    - CC-BY-SA-3.0
+    - ODbL-1.0

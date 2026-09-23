@@ -1,0 +1,574 @@
+// This file is part of Product Opener.
+//
+// Product Opener
+// Copyright (C) 2011-2026 Association Open Food Facts
+// Contact: contact@openfoodfacts.org
+// Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+//
+// Product Opener is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+/*global lang HTMLElement customElements CustomEvent URLSearchParams*/
+
+import Cropper from 'cropperjs';
+
+const ROTATE_LEFT = -90;
+const ROTATE_RIGHT = 90;
+
+class ImageEditorComponent extends HTMLElement {
+  constructor() {
+    super();
+    // The templates are maintained in templates/web/pages/product_edit/image_editor_template.tt.html
+    this.template = document.getElementById('image-editor-template');
+    this.cropperTemplate = document.getElementById('image-editor-cropper-template');
+    const templateContent = this.template.content;
+
+    // Create open Shadow DOM and append the template content
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(templateContent.cloneNode(true));
+
+    this.command = this.shadowRoot.querySelector('.editor-command');
+    this.rotateLeftButton = this.shadowRoot.querySelector('#rotate-left');
+    this.rotateRightButton = this.shadowRoot.querySelector('#rotate-right');
+    this.fullSizeLink = this.shadowRoot.querySelector('#open-full-size');
+    this.zoomOnWheelCheckbox = this.shadowRoot.querySelector('#zoom-on-wheel');
+    this.zoomOnWheelLabel = this.shadowRoot.querySelector('#zoom-on-wheel-label');
+    this.saveButton = this.shadowRoot.querySelector('#save');
+    this.saveStatus = this.shadowRoot.querySelector('#save-status');
+    this.cropContainer = this.shadowRoot.querySelector('#crop-container');
+    this.cropImage = this.shadowRoot.querySelector('#crop-image');
+    this.normalizeCheckbox = this.shadowRoot.querySelector('#normalize');
+    this.normalizeLabel = this.shadowRoot.querySelector('#normalize-label');
+    this.whiteMagicCheckbox = this.shadowRoot.querySelector('#white-magic');
+    this.whiteMagicLabel = this.shadowRoot.querySelector('#white-magic-label');
+
+    // The editor is not visible until an image is loaded into it.
+    this.hidden = true;
+
+    // State, reset each time an image is loaded.
+    this.cropper = null;
+    this.imgid = null;
+    this.storedImagefield = '';
+    this.angle = 0;
+    this.coordinates_image_size = 'full';
+    this.imageUrl = '';
+    this.fullImageUrl = '';
+    this.naturalWidth = 0;
+    this.naturalHeight = 0;
+    this.loadToken = 0;
+  }
+
+  connectedCallback() {
+    if (this.initialized) {
+      return;
+    }
+    this.initialized = true;
+
+    const messages = lang();
+
+    this.command.textContent = messages.product_js_image_rotate_and_crop;
+    this.rotateLeftButton.textContent = messages.product_js_image_rotate_left;
+    this.rotateRightButton.textContent = messages.product_js_image_rotate_right;
+    this.fullSizeLink.textContent = messages.product_js_image_open_full_size_image;
+    this.zoomOnWheelLabel.textContent = messages.product_js_zoom_on_wheel;
+    this.saveButton.textContent = messages.product_js_image_save;
+    this.normalizeLabel.textContent = messages.product_js_image_normalize;
+    this.whiteMagicLabel.textContent = messages.product_js_image_white_magic;
+
+    this.rotateLeftButton.addEventListener('click', () => this.rotate(ROTATE_LEFT));
+    this.rotateRightButton.addEventListener('click', () => this.rotate(ROTATE_RIGHT));
+    this.zoomOnWheelCheckbox.addEventListener('change', () => this.applyZoomOnWheel());
+    this.normalizeCheckbox.addEventListener('change', () => this.updateImagePreview());
+    this.whiteMagicCheckbox.addEventListener('change', () => this.updateImagePreview());
+    this.saveButton.addEventListener('click', () => this.save());
+
+    // The image is copied into the cropper canvas on load: give it a localized
+    // accessible name so that assistive technologies describe what is displayed.
+    this.cropImage.alt = messages.product_image || '';
+
+    // Clicking the canvas (without dragging) removes the selection, so that the
+    // full image can be saved, as in the previous implementation.
+    this.addEventListener('pointerdown', (event) => {
+      this.pointerDown = { x: event.clientX, y: event.clientY };
+    });
+    this.addEventListener('click', (event) => {
+      const start = this.pointerDown;
+      this.pointerDown = null;
+      if (!start || !this.cropper) {
+        return;
+      }
+      // Only clicks on the crop canvas itself, and only clicks that are not
+      // the end of a drag gesture, clear the selection.
+      if (!event.composedPath().includes(this.cropContainer)) {
+        return;
+      }
+      if (Math.hypot(event.clientX - start.x, event.clientY - start.y) > 3) {
+        return;
+      }
+      const selection = this.cropper.getCropperSelection();
+      if (selection && !selection.hidden && selection.width > 0 && selection.height > 0) {
+        selection.$clear();
+      }
+    });
+  }
+
+  get imagefield() {
+    if (this.storedImagefield) {
+      return this.storedImagefield;
+    }
+    const selectCrop = this.closest('.select_crop');
+
+    return selectCrop ? selectCrop.id : '';
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  get code() {
+    const codeInput = document.getElementById('code');
+
+    return codeInput ? codeInput.value.replace(/\s/g, '') : '';
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  get imagePath() {
+    return window.imageEditorConfig?.img_path || '';
+  }
+
+  // Site color for the cropper selection outline and handles, from the CSS
+  // custom property set on the .select_crop element (scss/_product-form.scss).
+  get editorThemeColor() {
+    const color = getComputedStyle(this).getPropertyValue('--cropper-theme-color').trim();
+
+    return color || '#0064c8';
+  }
+
+  loadImage({ imgid, image_size = '', coordinates_image_size = 'full', imagefield = '' } = {}) {
+    if (!imgid) {
+      return;
+    }
+
+    this.destroyCropper();
+    this.loadToken += 1;
+
+    this.imgid = imgid;
+    this.storedImagefield = imagefield || this.imagefield;
+    this.angle = 0;
+    this.coordinates_image_size = coordinates_image_size;
+    this.originalCoordinatesSize = coordinates_image_size;
+    this.imageUrl = this.imagePath + imgid + image_size + '.jpg';
+    this.originalImageUrl = this.imageUrl;
+    this.fullImageUrl = this.imagePath + imgid + '.jpg';
+
+    // Display the low resolution image at its real size.
+    this.cropContainer.style.maxWidth = this.coordinates_image_size === '400' ? '400px' : '100%';
+
+    this.fullSizeLink.href = this.fullImageUrl;
+    this.fullSizeLink.hidden = false;
+    this.hideStatus();
+    this.setControlsEnabled(false);
+
+    this.cropImage.setAttribute('src', this.imageUrl);
+
+    const token = this.loadToken;
+    if (!this.cropperTemplate) {
+      this.setStatusMessage(lang().not_saved);
+
+      return;
+    }
+    // The cropper markup (cropper-canvas, selection, handles...) is kept in the
+    // image_editor_template.tt.html file (template#image-editor-cropper-template).
+    // Note: the template element's own innerHTML serializes its contents (a
+    // DocumentFragment, which has no innerHTML property of its own).
+    this.cropper = new Cropper(this.cropImage, {
+      container: this.cropContainer,
+      template: this.cropperTemplate.innerHTML,
+    });
+    this.applyThemeColor();
+
+    const cropperImage = this.cropper.getCropperImage();
+    if (cropperImage) {
+      cropperImage.$ready().then((image) => {
+        // Ignore the result if a newer image has been loaded meanwhile.
+        if (token !== this.loadToken) {
+          return;
+        }
+        this.naturalWidth = image.naturalWidth;
+        this.naturalHeight = image.naturalHeight;
+        // Make the canvas as tall as the image (aspect ratio W/H) while
+        // filling the container width. Without this the canvas collapses to
+        // its 100px min-height and looks "as tiny as the thumbnail".
+        const canvasForAspect = this.cropper.getCropperCanvas();
+        if (canvasForAspect && this.naturalWidth && this.naturalHeight) {
+          // Set inline aspect-ratio directly (var() with a ratio containing
+          // "/" does not reliably resolve in all Chrome versions).
+          canvasForAspect.style.aspectRatio = `${this.naturalWidth} / ${this.naturalHeight}`;
+        }
+        this.hidden = false;
+        // Re-center now that the canvas has a visible size: $handleLoad runs
+        // while the editor is still hidden (display:none), so the initial
+        // centering attempt sees a zero-sized canvas and the image is left at
+        // its natural size without fitting. Force a layout pass after the
+        // aspect is applied so $center sees the correct container size.
+        if (canvasForAspect) {
+          // Reading layout forces the browser to apply the new aspect
+          // before $center measures the container.
+          canvasForAspect.getBoundingClientRect();
+        }
+        cropperImage.$center('contain');
+        this.applyZoomOnWheel();
+        this.setControlsEnabled(true);
+      }).catch(() => {
+        if (token !== this.loadToken) {
+          return;
+        }
+        this.destroyCropper();
+        this.imgid = null;
+        this.storedImagefield = '';
+        this.hidden = true;
+        this.setControlsEnabled(false);
+        this.setStatusMessage(lang().not_saved);
+      });
+    }
+  }
+
+  unload() {
+    this.loadToken += 1;
+    this.destroyCropper();
+    this.imgid = null;
+    this.storedImagefield = '';
+    this.hidden = true;
+  }
+
+  destroyCropper() {
+    if (this.cropper) {
+      this.cropper.destroy();
+      this.cropper = null;
+    }
+  }
+
+  rotate(angle) {
+    if (!this.cropper) {
+      return;
+    }
+
+    this.angle = (((this.angle + angle) % 360) + 360) % 360;
+
+    const cropperImage = this.cropper.getCropperImage();
+    if (cropperImage) {
+      cropperImage.$rotate((angle * Math.PI) / 180);
+    }
+  }
+
+  applyZoomOnWheel() {
+    const canvas = this.cropper?.getCropperCanvas();
+    if (canvas) {
+      // Wheel zoom is disabled by default (as in the previous implementation): the
+      // checkbox enables it.
+      canvas.scaleStep = this.zoomOnWheelCheckbox.checked ? 0.1 : 0;
+    }
+  }
+
+  applyThemeColor() {
+    const canvas = this.cropper?.getCropperCanvas();
+    if (!canvas) {
+      return;
+    }
+    const color = this.editorThemeColor;
+    // The selection border, crosshair, grid and handles all have their own
+    // "theme-color" default (blue #39f / translucent white): apply the site
+    // color to each of them. The shade keeps its dark default to dim the area
+    // outside the selection. Setting the attributes (rather than the
+    // properties) also themes elements that are not yet upgraded.
+    canvas.setAttribute('theme-color', color);
+    canvas.querySelectorAll('cropper-selection, cropper-crosshair, cropper-grid, cropper-handle').forEach((element) => {
+      element.setAttribute('theme-color', color);
+    });
+  }
+
+  updateImagePreview() {
+    if (!this.cropper || !this.imgid) {
+      return;
+    }
+    const cropperImage = this.cropper.getCropperImage();
+    if (!cropperImage) {
+      return;
+    }
+    // Ask the server to render the image with the normalize effect.
+    // Rotation is intentionally NOT sent here (angle=0): it stays client-side
+    // via CSS transform ($rotate) and the server applies the same angle on
+    // save. Sending the angle would double-rotate (server-rotated image plus
+    // CSS rotation). The previous v1 implementation sent angles[imagefield],
+    // but it recreated the cropper on preview; v2 keeps rotation client-side
+    // for instant feedback and avoids a round-trip. The rotate endpoint only
+    // handles normalize (not white_magic). The CGI checkbox convention sends
+    // "checked" when the box is ticked; the server checks eq 'checked'.
+    this.hideStatus();
+
+    const isNormalized = this.normalizeCheckbox.checked;
+    const previewToken = this.loadToken;
+
+    // When normalize is off, the original image is already cached
+    // (this.imageUrl / this.originalImageUrl). No need to hit
+    // product_image_rotate.pl again for angle=0 without normalize —
+    // just restore the cached src and its natural dimensions.
+    if (!isNormalized) {
+      const targetSrc = this.originalImageUrl || this.imageUrl;
+      // Avoid redundant reload if already showing original
+      if (cropperImage.getAttribute('src') === targetSrc
+          && cropperImage.src.endsWith(targetSrc)) {
+        // Still ensure coordinates size reflects original
+        this.coordinates_image_size = this.originalCoordinatesSize || this.coordinates_image_size;
+
+        return;
+      }
+      // Use setAttribute to keep the value comparable; Cropper will handle load
+      cropperImage.src = targetSrc;
+      // The new src is the original (full or .400) — restore natural
+      // dimensions and canvas aspect after it loads. $ready resolves when
+      // the new image is decoded.
+      cropperImage.$ready().then((img) => {
+        if (previewToken !== this.loadToken) {
+          return;
+        }
+        if (this.normalizeCheckbox.checked || !this.imgid) {
+          return;
+        }
+        this.naturalWidth = img.naturalWidth;
+        this.naturalHeight = img.naturalHeight;
+        this.coordinates_image_size = this.originalCoordinatesSize || this.coordinates_image_size;
+        const canvas = this.cropper?.getCropperCanvas();
+        if (canvas && this.naturalWidth && this.naturalHeight) {
+          canvas.style.aspectRatio = `${this.naturalWidth} / ${this.naturalHeight}`;
+          canvas.getBoundingClientRect();
+        }
+        if (this.cropper) {
+          const ci = this.cropper.getCropperImage();
+          if (ci) {
+            ci.$center('contain');
+          }
+        }
+      }).catch(() => { /* ignore load error, status already handled */ });
+
+      return;
+    }
+
+    // Normalized: server returns the 400px image (crop_size=400) with
+    // Normalize applied. Update natural dimensions and canvas aspect after
+    // load so getSelectionCoordinates uses the displayed (400) size.
+    // Without this the coordinates were computed with the previous full-size
+    // naturalWidth/Height, making the crop far too small.
+    const url = '/cgi/product_image_rotate.pl?code=' + encodeURIComponent(this.code)
+      + '&imgid=' + encodeURIComponent(this.imgid)
+      + '&angle=0&normalize=checked';
+    if (cropperImage.getAttribute('src') === url || cropperImage.src.endsWith(url)) {
+      return;
+    }
+    cropperImage.src = url;
+    cropperImage.$ready().then((img) => {
+      if (previewToken !== this.loadToken) {
+        return;
+      }
+      if (!this.normalizeCheckbox.checked || !this.imgid) {
+        return;
+      }
+      this.naturalWidth = img.naturalWidth;
+      this.naturalHeight = img.naturalHeight;
+      // product_image_rotate.pl always serves $crop_size (400)
+      this.coordinates_image_size = '400';
+      const canvas = this.cropper?.getCropperCanvas();
+      if (canvas && this.naturalWidth && this.naturalHeight) {
+        canvas.style.aspectRatio = `${this.naturalWidth} / ${this.naturalHeight}`;
+        canvas.getBoundingClientRect();
+      }
+      if (this.cropper) {
+        const ci = this.cropper.getCropperImage();
+        if (ci) {
+          ci.$center('contain');
+        }
+      }
+    }).catch(() => { /* ignore load error */ });
+  }
+
+  async save() {
+    if (!this.cropper || !this.imgid) {
+      return;
+    }
+
+    const selection = this.cropper.getCropperSelection();
+    let x1 = -1;
+    let y1 = -1;
+    let x2 = -1;
+    let y2 = -1;
+    if (selection && !selection.hidden && selection.width > 0 && selection.height > 0) {
+      const coordinates = this.getSelectionCoordinates(selection);
+      if (!coordinates) {
+        this.setStatusMessage(lang().not_saved);
+
+        return;
+      }
+      ([x1, y1, x2, y2] = coordinates);
+    }
+
+    const params = {
+      code: this.code,
+      id: this.imagefield,
+      imgid: this.imgid,
+      x1,
+      y1,
+      x2,
+      y2,
+      coordinates_image_size: this.coordinates_image_size,
+      angle: this.angle,
+      normalize: this.normalizeCheckbox.checked,
+      white_magic: this.whiteMagicCheckbox.checked,
+    };
+
+    this.saveButton.hidden = true;
+    this.showSavingStatus();
+
+    try {
+      const response = await fetch('/cgi/product_image_crop.pl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+        body: new URLSearchParams(params),
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      const data = await response.json();
+      if (data.error) {
+        this.setStatusMessage(data.error);
+      } else if (data.image && data.image.display_url) {
+        this.setStatusMessage(lang().product_js_image_saved);
+        this.dispatchEvent(new CustomEvent('crop-saved', {
+          bubbles: true,
+          composed: true,
+          detail: { imagefield: this.imagefield, display_url: data.image.display_url },
+        }));
+      } else {
+        this.setStatusMessage(lang().not_saved);
+      }
+    } catch {
+      this.setStatusMessage(lang().not_saved);
+    } finally {
+      this.saveButton.hidden = false;
+    }
+  }
+
+  getSelectionCoordinates(selection) {
+    const cropperImage = this.cropper?.getCropperImage();
+    if (!cropperImage) {
+      return null;
+    }
+
+    // The transform matrix of the image ("matrix(a, b, c, d, e, f)") maps the
+    // local coordinates of the image to the canvas, with the transform origin
+    // at the center of the image (as cropper.js does).
+    const [a, b, c, d, e, f] = cropperImage.$getTransform();
+    const det = (a * d) - (b * c);
+    const scale = Math.hypot(a, b);
+    if (!det || !scale) {
+      return null;
+    }
+
+    const originX = this.naturalWidth / 2;
+    const originY = this.naturalHeight / 2;
+
+    // Inverse of the affine transform matrix [a c e; b d f; 0 0 1].
+    const invA = d / det;
+    const invB = -b / det;
+    const invC = -c / det;
+    const invD = a / det;
+    const invE = ((c * f) - (d * e)) / det;
+    const invF = ((b * e) - (a * f)) / det;
+
+    // Map a canvas point to the local (original image) coordinates.
+    function toLocal(x, y) {
+      const px = x - originX;
+      const py = y - originY;
+
+      return [
+        (invA * px) + (invC * py) + invE + originX,
+        (invB * px) + (invD * py) + invF + originY,
+      ];
+    }
+
+    // Map local (original image) coordinates to the rotated-image coordinate
+    // space.  The server first rotates the source image by the same angle, then
+    // crops using the supplied coordinates.  For 90°/270° rotations the image
+    // dimensions are transposed, so a generic matrix multiply on the original
+    // coordinates misses the required offset.  Instead, use the pixel mapping
+    // for each angle:  original pixel (x, y) in a W × H image → rotated pixel
+    // as shown by ImageMagick's Rotate().
+    const W = this.naturalWidth;
+    const H = this.naturalHeight;
+    const angle = ((this.angle % 360) + 360) % 360;
+    let toRotated;
+
+    if (angle === 90) {
+      // 90° CW: original (x, y) → rotated (H − y, x).  Rotated image is H × W.
+      toRotated = (x, y) => [H - y, x];
+    } else if (angle === 180) {
+      // 180°: original (x, y) → rotated (W − x, H − y).  Image stays W × H.
+      toRotated = (x, y) => [W - x, H - y];
+    } else if (angle === 270) {
+      // 270° CW (90° CCW): original (x, y) → rotated (y, W − x).  Rotated image is H × W.
+      toRotated = (x, y) => [y, W - x];
+    } else {
+      // No rotation (0° or full wrap): coordinates stay the same.
+      toRotated = (x, y) => [x, y];
+    }
+
+    const [sx1, sy1] = toRotated(...toLocal(selection.x, selection.y));
+    const [sx2, sy2] = toRotated(...toLocal(selection.x + selection.width, selection.y + selection.height));
+
+    const swapped = angle === 90 || angle === 270;
+    const maxX = swapped ? H : W;
+    const maxY = swapped ? W : H;
+
+    return [
+      Math.round(Math.min(Math.max(Math.min(sx1, sx2), 0), maxX)),
+      Math.round(Math.min(Math.max(Math.min(sy1, sy2), 0), maxY)),
+      Math.round(Math.min(Math.max(Math.max(sx1, sx2), 0), maxX)),
+      Math.round(Math.min(Math.max(Math.max(sy1, sy2), 0), maxY)),
+    ];
+  }
+
+  setControlsEnabled(enabled) {
+    this.rotateLeftButton.disabled = !enabled;
+    this.rotateRightButton.disabled = !enabled;
+    this.saveButton.disabled = !enabled;
+  }
+
+  hideStatus() {
+    this.saveStatus.hidden = true;
+    this.saveStatus.textContent = '';
+  }
+
+  setStatusMessage(message) {
+    this.saveStatus.hidden = false;
+    this.saveStatus.textContent = message;
+  }
+
+  showSavingStatus() {
+    this.saveStatus.hidden = false;
+    this.saveStatus.textContent = '';
+    const loadingImage = document.createElement('img');
+    loadingImage.src = '/images/misc/loading2.gif';
+    loadingImage.alt = '';
+    this.saveStatus.appendChild(loadingImage);
+    this.saveStatus.appendChild(document.createTextNode(' ' + lang().product_js_image_saving));
+  }
+}
+
+// Define the custom element for the image editor component
+customElements.define('image-editor', ImageEditorComponent);

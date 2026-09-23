@@ -398,6 +398,7 @@
    "environmental_score_tags" : [
       "f"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "21502",
@@ -436,9 +437,9 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:lamb-leg",
-      "en:animal",
+      "en:lamb",
       "en:sheep",
-      "en:lamb"
+      "en:animal"
    ],
    "ingredients_text" : "Fresh lamb leg (Great Britain)",
    "ingredients_with_specified_percent_n" : 0,
@@ -454,6 +455,7 @@
    "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",

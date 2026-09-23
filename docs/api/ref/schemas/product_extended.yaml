@@ -56,6 +56,15 @@ properties:
       the category to use for comparison.
 
       **TODO** explain how it is chosen.
+  forest_footprint_2026:
+    $ref: "../api.yaml#/components/schemas/Product-Forest-Footprint-2026"
+    description: |
+      Forest footprint (2026 algorithm) of a product — the risk of deforestation
+      associated with its ingredients. This is a computed field.
+
+      See also `forest_footprint_2026.grade`, `forest_footprint_2026.summary`,
+      `forest_footprint_2026.total_footprint_per_kg`, and
+      `forest_footprint_2026.primary_ingredients`.
   conservation_conditions:
     type: string
   customer_service:

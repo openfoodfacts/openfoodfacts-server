@@ -65,6 +65,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang retrieve_config/;
 use ProductOpener::API qw/add_warning/;
 use ProductOpener::Numbers qw/convert_string_to_number/;
@@ -413,8 +414,13 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 			}
 		);
 	}
-	# Require a positive and non zero number of units
-	elsif (($input_packaging_ref->{number_of_units} =~ /^\d+$/) and ($input_packaging_ref->{number_of_units} > 0)) {
+	# Require a positive integer no greater than 10000.
+	# Larger values overflow to a float on serialization (e.g. 9.22e+18 in JSON),
+	# which breaks integer fields in exports.
+	elsif ( ($input_packaging_ref->{number_of_units} =~ /^\d+$/)
+		and ($input_packaging_ref->{number_of_units} > 0)
+		and ($input_packaging_ref->{number_of_units} <= 10000))
+	{
 		$packaging_ref->{number_of_units} = $input_packaging_ref->{number_of_units} + 0;
 		$has_data = 1;
 	}

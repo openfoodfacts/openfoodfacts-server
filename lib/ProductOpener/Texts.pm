@@ -148,6 +148,9 @@ sub init_translated_text_routes_for_all_languages () {
 			# Remove leading slash if present
 			$translated_route =~ s|^/||;
 
+			# Skip if translation is empty (fallback to English will be used)
+			next if $translated_route eq '';
+
 			# $translated_route must be a slug
 			die("$translated_route (translation of $translation_id in $target_lc) is not a slug while it should")
 				unless ($translated_route =~ /[A-Za-z-]+/);

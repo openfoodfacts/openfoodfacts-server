@@ -1,6 +1,5 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-warning-comments */
-/* eslint-env jquery */
 /* eslint max-statements-per-line: ["error", { "max": 2 }] */
 /* eslint no-plusplus: ["warn", { "allowForLoopAfterthoughts": true }]*/
 /* eslint max-params: ["error", 5] */
