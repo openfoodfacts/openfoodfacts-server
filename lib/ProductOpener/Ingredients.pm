@@ -399,11 +399,11 @@ sub init_compiled_ingredients_processing_regexps ($ingredients_lc) {
 				push @inside, qr/$regexp\b/i;
 			}
 			# without space before, without space after, set a minimal length (H- for UHT in German will remove all H letters)
-			if (($ingredients_lc eq 'de') and (length($regexp) >= 3)) {
+			elsif (($ingredients_lc eq 'de') and (length($regexp) >= 3)) {
 				push @inside, qr/-?$regexp-?/i;
 			}
 			# with space before, without space after
-			if ($ingredients_lc eq 'fi') {
+			elsif ($ingredients_lc eq 'fi') {
 				push @inside, qr/\b$regexp/i;
 			}
 
