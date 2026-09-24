@@ -472,6 +472,27 @@ sub init_origins_regexps() {
 
 my %additives_classes_regexps = ();
 
+# roman numerals used for additive variants (E160a(ii)) and oxidation states (fer (III))
+my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv";
+
+# Find a name written with a roman numeral in parenthesis, "Azotan(III) potasu" or "ijzer (II) citraat".
+# The name is followed by the whole $tail, by the $tail up to $end ("and", a quantity), or by nothing.
+# Taxonomies store the numeral glued ("AzotanIII potasu") or spaced ("ijzer II citraat").
+# Returns the known name, its part up to the numeral and the part of $tail it uses, or an empty list.
+sub find_name_with_roman_numeral ($before, $numeral, $tail, $end, $is_known) {
+	(my $name_tail = $tail) =~ s/$end.*//;
+	foreach my $rest (uniq($tail, $name_tail, '')) {
+		# glued, then spaced numeral
+		foreach my $space ('', ' ') {
+			my $prefix = "$before$space$numeral";
+			(my $name = "$prefix$space$rest") =~ s/\s+/ /g;
+			$name =~ s/\s+$//;
+			return ($name, $prefix, $rest) if $is_known->($name);
+		}
+	}
+	return;
+}
+
 sub init_additives_classes_regexps() {
 
 	# Create a regexp with all synonyms of all additives classes
@@ -1812,6 +1833,11 @@ Text to analyze
 
 =cut
 
+	# original text of names looked up with a roman numeral: "Sulfate de cuivreII" -> "Sulfate de cuivre (II)"
+	my %numeral_text = ();
+	# such a name stops before "and" or a quantity: "Azotan(III) potasu i sól"
+	my $numeral_name_end = qr/$and|\s$percent_or_quantity_regexp/i;
+
 	my $analyze_ingredients_function = sub ($analyze_ingredients_self, $ingredients_ref, $parent_ref, $level, $s) {
 
 		# print STDERR "analyze_ingredients level $level: $s\n";
@@ -1891,6 +1917,34 @@ Text to analyze
 					# Remove dot at the end
 					# e.g. (Contains milk.) -> Contains milk.
 					$between =~ s/(\s|\.)+$//;
+
+					# a lone roman numeral is an oxidation state or a variant, not a sub-ingredient:
+					# "sulfate de cuivre (II)", "Azotan(III) potasu", "1b306(i)".
+					# Look the name up with its numeral, never without it: "Azotan potasu" is E252, not E249.
+					if (($sep eq '(') and ($before =~ /\S/) and ($between =~ /^\s*($roman_numerals)\s*$/i)) {
+						my $numeral = $1;
+						(my $original = "$before($numeral)") =~ s/^\s+//;
+						$before =~ s/^\s+|\s+$//g;
+						my $tail = ($after =~ $separators) ? $` : $after;
+						$tail = '' if $tail !~ /^\s*[[:alpha:]]/;
+						# the name can end with processing words: "copper (II) sulfate powder"
+						my $is_known = sub ($name) {
+							(parse_processing_from_ingredient($ingredients_lc, $name))[3];
+						};
+						my ($name, $prefix, $rest)
+							= find_name_with_roman_numeral($before, $numeral, $tail, $numeral_name_end, $is_known);
+						if (defined $name) {
+							$numeral_text{$prefix} = $original;
+							$before = $name;
+							# the rest of the tail ("i sól", "0,1%") stays with the name, for the "and" split and the
+							# percent parsing below; an unknown tail ("pentahydraté") is parsed on its own
+							if ($rest ne '') {
+								$before .= substr($tail, length($rest));
+								$after = substr($after, length($tail));
+							}
+						}
+						$between = '';
+					}
 
 					$debug_ingredients and $log->debug("parse_ingredients_text - sub-ingredients found: $between")
 						if $log->is_debug();
@@ -3045,9 +3099,15 @@ Text to analyze
 					}
 				}
 
+				# put back the roman numeral in parenthesis that was glued for the taxonomy lookup
+				my $ingredient_text = $ingredient;
+				foreach my $prefix (sort {length($b) <=> length($a)} keys %numeral_text) {
+					last if $ingredient_text =~ s/^\Q$prefix\E/$numeral_text{$prefix}/;
+				}
+
 				my %ingredient = (
 					id => get_taxonomyid($ingredients_lc, $ingredient_id),
-					text => $ingredient
+					text => $ingredient_text
 				);
 
 				my $is_additive_class = exists_taxonomy_tag("additives_classes", $ingredient{id});
@@ -7083,7 +7143,6 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
 	# colorants alimentaires E (124,122,133,104,110)
-	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv";
 	my $additivesregexp;
 	# special cases, when $and (" a ", " e " or " i ") conflict with variants (E470a, E472e or E451i or E451(i))
 	# in these cases, we fetch variant only if there is no space before
@@ -7488,6 +7547,26 @@ sub extract_additives_from_text ($product_ref) {
 
 	#  remove % / percent (to avoid identifying 100% as E100 in some cases)
 	$text =~ s/(\d+((\,|\.)\d+)?)\s*\%$//g;
+
+	# names with a roman numeral in parenthesis would be split at the parenthesis:
+	# write "azotan(III) sodu" (E250, while "azotan sodu" is E251) as its known form "azotanIII sodu"
+	my $and_text = $and{$ingredients_lc} || " will not match ";
+	# the name stops before "and" or a quantity
+	my $name_end = qr/$and_text|\s\d/i;
+	my $is_known = sub ($name) {
+		exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $name));
+	};
+	my $join_roman_numeral = sub ($match, $space, $before, $numeral, $tail) {
+		# the name starts after "and"
+		my ($lead, $name_before) = $before =~ /^(.*$and_text)?(.*)$/i;
+		my (undef, $prefix) = find_name_with_roman_numeral($name_before, $numeral, $tail, $name_end, $is_known)
+			or return $match;
+		# a spaced numeral needs a space before the rest of the name
+		$prefix .= ' ' if $prefix =~ / \Q$numeral\E$/;
+		return $space . ($lead // '') . $prefix;
+	};
+	$text
+		=~ s/(\s*)([^,;:()\[\]{}]*?)\s*\(\s*($roman_numerals)\s*\)(?=([^,;:()\[\]{}]*))/$join_roman_numeral->($&, $1, $2, $3, $4)/gie;
 
 	my @ingredients = split($separators, $text);
 
