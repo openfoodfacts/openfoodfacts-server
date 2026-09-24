@@ -354,64 +354,9 @@
 
 
 <!-- Donation banner TOP start -->
-<section id="donation-banner-top" class="donation-banner row">
-
-  <div class="donation-banner__left-aside">
-    <div class="donation-banner__hook-section">
-      <p>We still need €120,000 to finish 2026!</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
-  </div>
-  <div>
-    <div class="donation-banner__aside">
-      <div class="donation-banner__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner__main-title">Become an Open Food Facts patron</h3>
-      </div>
-      <div style="padding:1rem;">
-        <p>Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:</p>
-        <ul>
-          <li>
-            keep Open Food Facts open & available to all,
-            <ul>
-              <li>support infrastructure, the website, mobile app and API with a small permanent team</li>
-            </ul>
-          </li>
-          <li>
-            <p>remain independent of the food industry,</p>
-          </li>
-          <li>
-            <p>support the community</p>
-          </li>
-          <li>
-            <p>support science</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="donation-banner__actions-section">
-      <div class="donation-banner__actions-section__financial">
-        <p>
-          
-          If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!
-          
-        </p>
-      </div>
-      <div class="donation-banner__actions-section__donate-button">
-        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
-          <button>Donate</button>
-        </a>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="donation-banner__close">
+<section id="donation-banner-top" style="position: relative;">
+  <donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
+  <div class="donation-banner__close" style="position: absolute; top: 0.3rem; right: 0.3rem; z-index: 2;">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
 </section>
@@ -450,9 +395,11 @@
   if (getBannerCookie('donation_march_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
-    bannerID.style.display = 'flex';
+    bannerID.style.display = 'block';
   }
 </script>
+
+
 
 
 							
@@ -6007,7 +5954,7 @@ Apple pies
             
         >
             
-            <img src="//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg"
+            <img src="//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-b.svg"
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
@@ -6019,7 +5966,7 @@ Apple pies
             >
                 
                 
-                    Forest Footprint B  - Low risk of deforestation
+                    Low risk of deforestation
                 
             </h4>
             
@@ -6045,7 +5992,7 @@ Apple pies
              
                 <p><strong>Forest Footprint</strong></p>
                 <p>The Forest Footprint is a methodology developed by the association <a href="//envol-vert.org/">Envol Vert</a> to estimate the risk of deforestation related to our consumption.
-                &rarr; <a href="//envol-vert.org/">More information on the methodology</a></p>
+                &rarr; <a href="//envol-vert.org/actu/2026/09/lempreinte-foret-sinvite-dans-les-telephones-des-francais/">More information on the methodology</a></p>
 
                 
                 <p><strong>Forest Footprint grade:</strong> 
@@ -6791,57 +6738,7 @@ Apple pies
 
 				
 
-<section class="donation-banner-footer row">
-  <div class="donation-banner-footer__left-aside">
-    <div class="donation-banner-footer__hook-section">
-      <p>We still need €120,000 to finish 2026!</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="The Open Food Facts community during the Open Food Facts Days" />
-  </div>
-  <div>
-    <div>
-      <div class="donation-banner-footer__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner-footer__main-title">Become an Open Food Facts patron</h3>
-      </div>
-      <p>Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:</p>
-      <ul>
-        <li>
-          keep Open Food Facts open & available to all,
-          <ul>
-            <li>support infrastructure, the website, mobile app and API with a small permanent team</li>
-          </ul>
-        </li>
-        <li>
-          <p>remain independent of the food industry,</p>
-        </li>
-        <li>
-          <p>support the community</p>
-        </li>
-        <li>
-          <p>support science</p>
-        </li>
-      </ul>
-    </div>
-    <div class="donation-banner-footer__actions-section">
-      <div class="donation-banner-footer__actions-section__financial">
-        <p>
-          If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!
-        </p>
-      </div>
-      <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
-          <button>Donate</button>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
 
 
 			
@@ -6948,7 +6845,7 @@ display_product_summary("#product_summary", product);
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
 var preferences_text = "Classify products according to your preferences";
-var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Lower nutritional quality","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg","id":"nutriscore","match":33.6666666666667,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"known","title":"Nutri-Score D"},{"description_short":"0.5 g / 100 g","grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg","id":"low_salt","match":70,"name":"Salt","panel_id":"nutrient_level_salt","status":"known","title":"Salt in moderate quantity"},{"description_short":"10 g / 100 g","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg","id":"low_fat","match":55.2941176470588,"name":"Fat","panel_id":"nutrient_level_fat","status":"known","title":"Fat in moderate quantity"},{"description_short":"20 g / 100 g","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg","id":"low_sugars","match":8.0,"name":"Sugars","panel_id":"nutrient_level_sugars","status":"known","title":"Sugars in high quantity"},{"description_short":"5 g / 100 g","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-medium.svg","id":"low_saturated_fat","match":20,"name":"Saturated fat","panel_id":"nutrient_level_saturated-fat","status":"known","title":"Saturated fat in moderate quantity"}],"id":"nutritional_quality","name":"Nutritional quality"},{"attributes":[{"debug":"en:gluten in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-gluten.svg","id":"allergens_no_gluten","match":0,"name":"Gluten","status":"known","title":"Contains: gluten"},{"debug":"en:milk in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-milk.svg","id":"allergens_no_milk","match":0,"name":"Milk","status":"known","title":"Contains: milk"},{"debug":"en:eggs in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-eggs.svg","id":"allergens_no_eggs","match":0,"name":"Eggs","status":"known","title":"Contains: eggs"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg","id":"allergens_no_nuts","match":100,"name":"Nuts","status":"known","title":"Does not contain: nuts"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg","id":"allergens_no_peanuts","match":100,"name":"Peanuts","status":"known","title":"Does not contain: peanuts"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg","id":"allergens_no_sesame_seeds","match":100,"name":"Sesame seeds","status":"known","title":"Does not contain: sesame seeds"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg","id":"allergens_no_soybeans","match":100,"name":"Soybeans","status":"known","title":"Does not contain: soybeans"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg","id":"allergens_no_celery","match":100,"name":"Celery","status":"known","title":"Does not contain: celery"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg","id":"allergens_no_mustard","match":100,"name":"Mustard","status":"known","title":"Does not contain: mustard"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg","id":"allergens_no_lupin","match":100,"name":"Lupin","status":"known","title":"Does not contain: lupin"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg","id":"allergens_no_fish","match":100,"name":"Fish","status":"known","title":"Does not contain: fish"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg","id":"allergens_no_crustaceans","match":100,"name":"Crustaceans","status":"known","title":"Does not contain: crustaceans"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg","id":"allergens_no_molluscs","match":100,"name":"Molluscs","status":"known","title":"Does not contain: molluscs"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","match":100,"name":"Sulphur dioxide and sulphites","status":"known","title":"Does not contain: sulphur dioxide and sulphites"}],"id":"allergens","name":"Allergens","warning":"There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."},{"attributes":[{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/non-vegan.svg","id":"vegan","match":0,"name":"Vegan","panel_id":"ingredients_analysis_en:non-vegan","status":"known","title":"Non-vegan"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg","id":"vegetarian","match":100,"name":"Vegetarian","panel_id":"ingredients_analysis_en:vegetarian","status":"known","title":"Vegetarian"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-palm-oil.svg","id":"palm_oil_free","match":0,"name":"Palm oil free","panel_id":"ingredients_analysis_en:palm-oil","status":"known","title":"Palm oil"}],"id":"ingredients_analysis","name":"Ingredients","warning":"Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."},{"attributes":[{"grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"NOVA group","panel_id":"nova","status":"known","title":"Processed foods"},{"grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg","id":"additives","match":60,"name":"Additives","panel_id":"additives","status":"known","title":"2 additives"}],"id":"processing","name":"Food processing"},{"attributes":[{"description":"","description_short":"Moderate environmental impact","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg","id":"ecoscore","match":52,"name":"Green-Score","panel_id":"environmental_score","status":"known","title":"Green-Score C"},{"description":"Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels.","description_short":"Low risk of deforestation","grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg","id":"forest_footprint","match":66,"name":"Forest Footprint","panel_id":"forest_footprint","status":"known","title":"Forest Footprint B"}],"id":"environment","name":"Environment"},{"attributes":[{"description":"Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.","description_short":"Organic products promote ecological sustainability and biodiversity.","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/not-organic.svg","id":"labels_organic","match":0,"name":"Organic farming","status":"known","title":"Not an organic product"},{"description":"When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.","description_short":"Helps producers in developing countries.","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade.svg","id":"labels_fair_trade","match":100,"name":"Fair trade","status":"known","title":"Fair trade product"}],"id":"labels","name":"Labels"}]};
+var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Lower nutritional quality","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg","id":"nutriscore","match":33.6666666666667,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"known","title":"Nutri-Score D"},{"description_short":"0.5 g / 100 g","grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg","id":"low_salt","match":70,"name":"Salt","panel_id":"nutrient_level_salt","status":"known","title":"Salt in moderate quantity"},{"description_short":"10 g / 100 g","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg","id":"low_fat","match":55.2941176470588,"name":"Fat","panel_id":"nutrient_level_fat","status":"known","title":"Fat in moderate quantity"},{"description_short":"20 g / 100 g","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg","id":"low_sugars","match":8.0,"name":"Sugars","panel_id":"nutrient_level_sugars","status":"known","title":"Sugars in high quantity"},{"description_short":"5 g / 100 g","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-medium.svg","id":"low_saturated_fat","match":20,"name":"Saturated fat","panel_id":"nutrient_level_saturated-fat","status":"known","title":"Saturated fat in moderate quantity"}],"id":"nutritional_quality","name":"Nutritional quality"},{"attributes":[{"debug":"en:gluten in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-gluten.svg","id":"allergens_no_gluten","match":0,"name":"Gluten","status":"known","title":"Contains: gluten"},{"debug":"en:milk in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-milk.svg","id":"allergens_no_milk","match":0,"name":"Milk","status":"known","title":"Contains: milk"},{"debug":"en:eggs in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-eggs.svg","id":"allergens_no_eggs","match":0,"name":"Eggs","status":"known","title":"Contains: eggs"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg","id":"allergens_no_nuts","match":100,"name":"Nuts","status":"known","title":"Does not contain: nuts"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg","id":"allergens_no_peanuts","match":100,"name":"Peanuts","status":"known","title":"Does not contain: peanuts"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg","id":"allergens_no_sesame_seeds","match":100,"name":"Sesame seeds","status":"known","title":"Does not contain: sesame seeds"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg","id":"allergens_no_soybeans","match":100,"name":"Soybeans","status":"known","title":"Does not contain: soybeans"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg","id":"allergens_no_celery","match":100,"name":"Celery","status":"known","title":"Does not contain: celery"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg","id":"allergens_no_mustard","match":100,"name":"Mustard","status":"known","title":"Does not contain: mustard"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg","id":"allergens_no_lupin","match":100,"name":"Lupin","status":"known","title":"Does not contain: lupin"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg","id":"allergens_no_fish","match":100,"name":"Fish","status":"known","title":"Does not contain: fish"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg","id":"allergens_no_crustaceans","match":100,"name":"Crustaceans","status":"known","title":"Does not contain: crustaceans"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg","id":"allergens_no_molluscs","match":100,"name":"Molluscs","status":"known","title":"Does not contain: molluscs"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","match":100,"name":"Sulphur dioxide and sulphites","status":"known","title":"Does not contain: sulphur dioxide and sulphites"}],"id":"allergens","name":"Allergens","warning":"There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."},{"attributes":[{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/non-vegan.svg","id":"vegan","match":0,"name":"Vegan","panel_id":"ingredients_analysis_en:non-vegan","status":"known","title":"Non-vegan"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg","id":"vegetarian","match":100,"name":"Vegetarian","panel_id":"ingredients_analysis_en:vegetarian","status":"known","title":"Vegetarian"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-palm-oil.svg","id":"palm_oil_free","match":0,"name":"Palm oil free","panel_id":"ingredients_analysis_en:palm-oil","status":"known","title":"Palm oil"}],"id":"ingredients_analysis","name":"Ingredients","warning":"Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."},{"attributes":[{"grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"NOVA group","panel_id":"nova","status":"known","title":"Processed foods"},{"grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg","id":"additives","match":60,"name":"Additives","panel_id":"additives","status":"known","title":"2 additives"}],"id":"processing","name":"Food processing"},{"attributes":[{"description":"","description_short":"Moderate environmental impact","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg","id":"ecoscore","match":52,"name":"Green-Score","panel_id":"environmental_score","status":"known","title":"Green-Score C"},{"description":"Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels.","description_short":"Low risk of deforestation","grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-b.svg","id":"forest_footprint","match":66,"name":"Forest Footprint","panel_id":"forest_footprint","status":"known","title":"Forest Footprint B"}],"id":"environment","name":"Environment"},{"attributes":[{"description":"Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.","description_short":"Organic products promote ecological sustainability and biodiversity.","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/not-organic.svg","id":"labels_organic","match":0,"name":"Organic farming","status":"known","title":"Not an organic product"},{"description":"When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.","description_short":"Helps producers in developing countries.","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade.svg","id":"labels_fair_trade","match":100,"name":"Fair trade","status":"known","title":"Fair trade product"}],"id":"labels","name":"Labels"}]};
 var product_type = "food";
 </script>
 

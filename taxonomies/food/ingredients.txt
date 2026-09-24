@@ -135,7 +135,7 @@ stopwords:el: περιέχει
 stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
 stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
 stopwords:fi: allergiatiedot, jossa, käymisen aikana muodostuva, koskenlaskija, muun muassa, noin, sisältää, snellmanin, valio
-stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', avec ajout, sachet, marquants, demeter, minimum, base
+stopwords:fr: aux, au, avec ajout, base, de, demeter, du, la, le, a, et, avec, ou, en, proportion, sachet, variable, contient, élaboré avec, papier traité, marquants, minimum, MG/MS, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d'
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
 # example: luk u prahu (OD ČEGA mladi luk 0,06 %)
@@ -161,7 +161,7 @@ stopwords:ja: 等, その他
 stopwords:lt: iš, su, su pridėtiniu, mažiausiai, įskaitant
 stopwords:lv: no, skatīt uz iepakojuma, tostarp
 stopwords:nb: og, av, fra, bl a, blant annet, tilsatt
-stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, met, o.a, van, vervaardigd met, waaraan toegevoegd, waarvan
+stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, fruitgehalte, kort verhit, met, o.a, van, vervaardigd met, waaraan toegevoegd, waarvan, wat
 stopwords:nn: og, av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
@@ -236,7 +236,7 @@ hu: karamellizált cukorszirup
 it: sciroppo di zucchero caramellato
 lt: karamelizuotas cukraus sirupas
 lv: karamelizēts cukura sīrups
-nl: gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop, karamelsuikersiroop
+nl: gekarameliseerde suikerstroop, gebrande suikerstroop, karamelsuikerstroop, karamelsuikersiroop, karamelstroop, kandijstroop
 pl: karmelizowany syrop cukrowy, syrop cukru skarmelizowanego, syrop cukru karmelizowanego, syrop cukru palonego, syrop palonego cukru, syrop ze skarmelizowanego cukru
 pt: xarome de açúcar caramelizado
 sv: karamelliserad sockersirap, karamelliserat sockersirap, karamelliserad sirap, karamellsockersirap
@@ -498,7 +498,7 @@ ru: соевый лецитин, лецитин соевый, эмульгато
 sk: sójový lecitin
 sl: sojin lecitin
 sr: sojin lecitin
-sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, emulgerings medel sojalecitin, soja lecitin
+sv: sojalecitin, sojalecitiner, sojalecithin, sojabönslecitin, sojabönlecitin, emulgerings medel sojalecitin, soja lecitin
 tr: soya lesitini
 uk: Соєвий лецитин
 zh: 大豆卵磷脂
@@ -582,7 +582,7 @@ ca: Lecitina de colza, lecitines de colza
 de: Rapslecithin
 es: Lecitina de colza, lecitinas de colza
 et: rapsi letsitiin
-fi: rapsilesitiini, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä
+fi: rapsilesitiini, rapsilesitiiniä
 fr: lécithine de colza, lécithines de colza
 hr: lecitin repica, lecitin uljane repice
 hu: repce lecitin, lecitini (repica)
@@ -595,6 +595,13 @@ pt: lecitina de colza
 ro: lecitină din rapiță, lecitina din rapita
 sr: lecitin uljane repice
 sv: rapslecitin, rapslecithin
+vegan:en: yes
+vegetarian:en: yes
+
+< en: E322(i)
+en: turnip rape lecithin
+fi: rypsilesitiini, rypsilesitiiniä
+sv: rybslecitin
 vegan:en: yes
 vegetarian:en: yes
 
@@ -642,6 +649,14 @@ description:en: GELATIN or GELATINE is a translucent, colorless, brittle (when d
 vegan:en: no
 vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Gelatin
+
+< en: gelatin
+en: gelatin sheet, gelatine sheet, leaf gelatin, sheet gelatin
+fr: feuille de gélatine, gélatine en feuille
+
+< en: gelatin
+en: gelatin powder, gelatine powder, powdered gelatin, powdered gelatine
+fr: gélatine en poudre, poudre de gélatine
 
 < en: beef
 < en: gelatin
@@ -1083,7 +1098,7 @@ vegetarian:en: yes
 # comment:en:Should this be kept separate from lactic ferments?
 
 < en: ferment
-en: microbial culture, culture, active cultures, live cultures, starter culture
+en: microbial culture, culture, active cultures, live cultures, starter culture, bacteria culture, bacterial culture, live bacteria culture, live bacterial culture
 bg: микробна култура, живи култури
 ca: Cultiu microbiològic
 cs: Mikrobiální kultura, startovací kultura
@@ -1151,7 +1166,7 @@ it: coltura probiotica
 de: Säuerungskultur
 
 < en: microbial culture
-en: kombucha culture, kombuncha cultures
+en: kombucha culture, kombuncha cultures, symbiotic culture
 da: kombuchakultur
 es: cultivo de kombucha
 fr: culture de kombucha
@@ -2863,7 +2878,7 @@ it: latte parzialmente scremato, Latte semiscremato
 nb: lettmelk
 nl: halfvolle melk, gedeeltelijk afgeroomde melk
 pl: Mleko półtłuste
-pt: leite meio gordo
+pt: leite meio gordo, leite semidesnatado
 sv: mellanmjölk
 ciqual_proxy_food_code:en: 19041
 ciqual_proxy_food_name:en: Milk, semi-skimmed, UHT
@@ -3711,7 +3726,7 @@ bs: Laktoza
 ca: Lactosa
 cs: Laktóza, laktózy
 cy: Lactos
-da: Laktose
+da: laktose, mælkesukker
 de: Lactose, Milchzucker, Laktose
 el: Λακτόζη, λακτόζης
 eo: Laktozo, laktosukero
@@ -9283,7 +9298,7 @@ ar: ملح معالج باليود
 bg: йодирана сол, сол йодирана
 ca: sal iodada
 cs: Jodidovaná sůl, jodizovaná sůl, sůl jodizovaná
-da: salt tilsat jod
+da: joderet salt, salt tilsat jod
 de: Jodsalz, Iodsalz, jodiertes Speisesalz, Salz jodiert
 es: Sal yodada
 fa: نمک یددار
@@ -10593,6 +10608,11 @@ ciqual_food_code:en: 21513
 ciqual_food_name:en: Lamb, saddle, lean, roasted/baked
 ciqual_food_name:fr: Agneau, selle, partie maigre, rôtie/cuite au four
 
+< en: lamb meat
+en: lamb intestine
+da: lammetarm
+wikidata:en: Q110611216
+
 ###################################################################################################
 #
 #                                Rabbit
@@ -11747,7 +11767,7 @@ en: pork meat
 bg: свинско месо
 ca: Carn de porc
 cs: Vepřové maso
-da: Svinekød
+da: svinekød, grisekød
 de: Schweinefleisch, Schweinfleisch
 es: carne de cerdo
 fi: sianliha, sianlihaa, porsaanliha, porsaanlihaa, viljaporsaanliha
@@ -13558,7 +13578,10 @@ carbon_footprint_fr_foodges_value:fr: 5.1
 fr: saucisse de strasbourg
 
 en: sausage skin
+da: pølseskind
+sv: korvskinn, skinn
 comment:en: Not necessarily meat-based
+comment:sv: ”Skinn” kan också betyde en:skin men just nu (2026-09-21) finns sv:skinn endast använt en gång, i betydningen korvskinn.
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q1372144
@@ -14569,12 +14592,18 @@ zh: 動物脂肪
 # zh-hant:動物性油脂
 description:en: ANIMAL FATS and oils are lipid materials derived from animals. Physically, oils are liquid at room temperature, and fats are solid. Although many animal parts and secretions may yield oil, in commercial practice, oil is extracted primarily from rendered tissue fats obtained from livestock animals like pigs, chickens and cows.
 usda_fdc_code:en: 172345
-usda_ndb_code:en: 4609
-usda_ndb_name:en: Animal fat, bacon grease
+usda_ndb_proxy_code:en: 4609
+usda_ndb_proxy_name:en: Animal fat, bacon grease
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q1423543
 wikipedia:en: https://en.wikipedia.org/wiki/Animal_fat
+
+< en: animal fat
+en: bacon grease, bacon fat
+da: baconfedt
+usda_ndb_code:en: 4609
+usda_ndb_name:en: Animal fat, bacon grease
 
 < en: animal fat
 en: suet
@@ -16620,7 +16649,6 @@ et: rapsiõli, rapsiseemneõli, rüpsiõli
 eu: Koltza-olio
 fa: روغن کلزا
 fi: rapsiöljy, rapsirasva, rapsiöljy ja -rasva
-fr: Huile de navette
 ga: Ola ráibe
 gl: Aceite de colza
 he: שמן לפתית
@@ -16644,7 +16672,7 @@ mr: रेपसीड तेल
 ms: Minyak rapeseed
 mt: Żejt tal-kolza
 nb: rapsolje
-nl: raapolie, raapzaad, raap, raapzaadolie, gedeeltelijk geharde raapzaadolie
+nl: raapolie, raap, raapzaadolie
 nn: rapsolje
 pl: olej roślinny rzepakowy, olej rzepakowy, olej z rzepaku, oleje roślinne rzepakowy, tłuszcz rzepakowy, tłuszcze roślinne rzepakowy, tłuszcz roślinny rzepakowy
 pt: óleo de colza
@@ -16654,7 +16682,7 @@ sk: repkový olej
 sl: repična, repično, repična rastlinska maščoba
 sq: Vaj repice
 sr: Уље репице
-sv: Rapsolja, rybsolja, Rapsfett, rypsolja
+sv: rapsolja, rapsfett
 ta: ராப்சீட் எண்ணெய்
 te: రేప్సీడ్ నూనె
 th: น้ำมันเรพซีด
@@ -16664,7 +16692,6 @@ ur: ریپسیڈ تیل
 uz: Rapeseed yog'i
 vi: Dầu hạt cải
 zh: 菜籽油
-# 62.151 in 35 @2021-08-23
 ciqual_food_code:en: 17130
 ciqual_food_name:en: Rapeseed oil
 ciqual_food_name:fr: Huile de colza
@@ -16685,33 +16712,24 @@ lt: rafinuotas rapsų aliejus
 pl: rafinowany olej rzepakowy, olej rzepakowy rafinowany
 
 < en: rapeseed oil
-en: british rapeseed oil
+en: British rapeseed oil
 de: Britisches Rapsöl
 hr: britanskog repičinog ulja
 it: olio di colza britannico
-
-< en: rapeseed oil
-en: partially hydrogenated rapeseed oil
-hr: djelomično hidrogenirano ulje repice
-it: olio di colza parzialmente idrogenato
-pl: olej rzepakowy częściowo uwodorniony, tłuszcz roślinny rzepakowy częściowo uwodorniony
+comment:en: should this be moved to origin adjectives now? (Freso, 2026-09)
 
 < en: rapeseed oil
 en: canola oil
 bg: олио от канола
 ca: Oli de canola
-# cs: Řepkový olej # duplicate, unclear which is correct
-# da: Rapsolie # duplicate, unclear which is correct
 de: Ölrübsenöl
 es: aceite de canola
-# fi: rypsiöljy, rypsiöljyä # duplicate, unclear which is correct
 fr: huile de canola
 hr: kanola ulje
 hu: kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj
 it: Olio di canola
 ja: キャノーラ油, なたね油
 nl: canola olie, canolaolie
-# sv: rybsolja, rypsolja # duplicate, unclear which is correct
 tr: kanola yağı
 comment:en: Use only the word canola in this ingredient. "Canola" is a Canadian-bred and trademarked variety of low erucic acid rapeseed (the name is a portmanteau of "Canadian oil, low acid"), not a generic synonym for any rapeseed variety.
 description:en: Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed bred in Canada (Saskatchewan and Manitoba, 1960s-1970s) to be low in erucic acid, as opposed to colza oil.
@@ -16734,10 +16752,8 @@ usda_ndb_name:en: Oil, industrial, canola (partially hydrogenated) oil for deep 
 < en: fully hydrogenated vegetable oil
 en: fully hydrogenated canola oil
 de: ganz gehärtetes Canola-Öl, vollständig hydriertes Canola-Öl
-fi: kokonaan kovetettu rypsiöljy
 hr: potpuno hidrogenirano ulje repice
 it: olio di canola completamente idrogenato
-sv: fullhärdad rypsolja
 
 < en: rapeseed oil
 en: low erucic acid rapeseed oil
@@ -16755,27 +16771,19 @@ hr: ne-gmo ulje repice
 < en: canola oil
 < en: preparation
 en: canola oil preparation
-fi: rypsiöljyvalmiste
 hr: pripravak uljane repice
 it: preparazione di olio di canola
-sv: rypsoljeberedning
-# usage:fi:rypsiöljyvalmiste (rypsiöljy, voiaromi)
-# mainIngredient:en:canola oil
 
 < en: rapeseed oil
 en: colza oil, colza vegetable oil
 bg: рапично олио
-ca: Oli de colza
+ca: oli de colza
 de: Kolzaöl, Kohlsaatöl
-# el: κραμβέλαιο # duplicate, unclear which is correct
 es: aceite de colza
-fi: rypsiöljy, rypsiöljyä
 fr: huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, huiles végétales de colza, huile de graines de colza, huile de graine de colza
 hr: uljana repica, uljane repice, ulje uljane repice, ulje repice
-# hu: Repceolaj # duplicate, unclear which is correct
 it: olio di colza, olio vegetale di colza
 nl: koolzaadolie, plantaardige koolzaadolie
-# pt: óleo de colza # duplicate, unclear which is correct
 carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
 carbon_footprint_fr_foodges_value:fr: 2.2
 ciqual_food_code:en: 17130
@@ -16791,27 +16799,18 @@ wikidata:en: Q697248
 wikipedia:en: https://en.wikipedia.org/wiki/Colza_oil
 
 #processing:en: en:hydrogenated
-#<en:colza oil
+< en: colza oil
+< en: hydrogenated vegetable oil
 #en:hydrogenated colza oil
 #de:Gehärtetes Rapsöl
 es: aceite hidrogenado de colza
 #fi:kovetettu rapsiöljy
 #fr:Huile de colza hydrogénée
 #sv:hårdat rapsolja
-
-#processing:en: en:fully hydrogenated
-#<en:hydrogenated colza oil
-#fr:huile de colza totalement hydrogénée, huiles végétales de colza totalement hydrogénée
-#fi:kokonaan kovetettu rapsiöljy
-#hr:potpuno hidrogenirano repičino ulje
-#nb:fullherdet rapsolje
-#sv:fullhärdad rapsolja
-
-#processing:en: en:non-hydrogenated
-#<en:colza oil
-#fr:huile de colza non hydrogénée
+comment:en: can the es entry be recognised with the processing taxonomy? (Freso, 2026-09)
 
 < en: colza oil
+< en: refined vegetable oil
 bg: рафинирано рапично олио
 fr: huile de colza raffinée
 
@@ -16824,12 +16823,25 @@ fr: monodiglycérides de colza
 de: Mono- und Diglyceride von Raps
 hu: repce mono- és digliceridjei
 
-#process:en: en:non-hydrogenated
-#<en:rapeseed oil
-#en:non-hydrogenated rapeseed oil
-#de:ungehärtetes Rapsöl
-#fi:kovettamaton rapsiöljy
-#sv:ohärdad rapsolja
+< en: vegetable oil and fat
+en: turnip rape oil, turnip rape vegetable oil
+da: rybsolie
+fi: rypsiöljy, rypsiöljyä
+fr: huile de navette
+nb: rybsolje
+nn: rybsolje
+sv: rybsolja, rypsolja
+ciqual_proxy_food_code:en: 17130
+ciqual_proxy_food_name:en: Rapeseed oil
+ciqual_proxy_food_name:fr: Huile de colza
+from_palm_oil:en: no
+nutriscore_fruits_vegetables_nuts:en: yes
+
+< en: preparation
+< en: turnip rape oil
+en: turnip rape oil preparation
+fi: rypsiöljyvalmiste
+sv: rypsoljeberedning
 
 < en: palm oil and fat
 en: palm and rapeseed
@@ -20878,7 +20890,7 @@ ro: aromă naturală, aroma naturala, arome naturale
 ru: Натуральный ароматизатор, ароматизатор натуральный, натуральные ароматизаторы, ароматизаторы натуральные, натуральные вкусоароматические вещества
 sl: naravna aroma, naravne arome
 sr: prirodne arome
-sv: naturlig arom, naturliga aromer, naturlig smakämne, naturliga smakämnen, naturligt smakämne, naturliga aromämnen
+sv: naturlig arom, naturliga aromer, naturlig smakämne, naturliga smakämnen, naturligt smakämne, naturliga aromämnen, naturliga smaker
 zh: 天然调味剂
 vegan:en: maybe
 vegetarian:en: maybe
@@ -21083,6 +21095,10 @@ sv: arraksarom
 < en: flavouring
 en: mocha flavouring
 sv: mockaarom
+
+< en: flavouring
+en: natural mocha flavouring
+nl: natuurlijk mokka aroma
 
 < en: flavouring
 en: plum flavouring
@@ -21317,6 +21333,7 @@ fr: arôme naturel de mandarine
 hr: prirodna aroma mandarine
 hu: természetes mandarin aroma
 it: aroma naturale di mandarino
+nl: natuurlijk mandarijnaroma
 pl: naturalny aromat mandarynkowy, naturalny aromat mandarynki
 
 < en: natural flavouring
@@ -22246,7 +22263,7 @@ fr: arômes naturels de menthe, arôme naturel de menthe, arôme naturel de ment
 hr: prirodna aroma mente
 hu: természetes menta aroma
 it: aroma naturale di menta, aroma di menta naturale
-nl: natuurlijk muntsmaak
+nl: natuurlijk muntsmaak, natuurlijk muntaroma
 pl: naturalny aromat mięty
 pt: sabor natural de menta
 sv: naturlig mintsmak
@@ -22285,6 +22302,10 @@ hr: prirodne arome mente s drugim prirodnim aromama
 it: aroma naturale di menta piperita con altri aromi naturali
 sv: naturlig pepparmintsarom med andra naturliga aromer
 
+< en: flavouring
+en: spearmint flavouring
+da: spearmintaroma
+
 < en: natural citrus flavouring
 < en: natural mint flavouring
 en: natural aroma of mint and citrus
@@ -22304,6 +22325,10 @@ pl: naturalny aromat mięty i cytrusów
 pt: aroma natural de menta e citrinos
 ro: aroma naturală de mentă și citrice
 sv: naturlig arom av mynta och citrus
+
+< en: natural flavouring
+en: natural menthol flavouring
+da: naturlig mentolaroma
 
 < en: flavouring
 en: smoke flavouring, smoke flavour, aroma of smoke, smoked flavour
@@ -22493,6 +22518,7 @@ fr: arôme naturel d'anis
 hr: prirodna aroma anisa
 hu: természetes ánizs aroma
 it: aroma naturale di anice
+nl: natuurlijk anijsaroma
 sv: naturlig anisarom
 
 < en: flavouring
@@ -23319,6 +23345,11 @@ da: naturlig grøntsagsaroma
 #< en: compound
 en: sea salt taste
 nl: zeezout smaak
+comment:en: This is NOT a flavouring, but describes the taste that of sauce/spices. For instance for crisps.
+
+#< en: compound
+en: roasted paprika taste
+nl: geroosterde paprikasmaak
 comment:en: This is NOT a flavouring, but describes the taste that of sauce/spices. For instance for crisps.
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -28134,8 +28165,10 @@ usda_ndb_code:en: 20131
 usda_ndb_name:en: Barley malt flour
 
 < en: barley flour
+en: dark barley malt flour
 fr: farine d'orge malté toasté, farine d'orge maltée torréfiée, farine d'orge malté torréfié
 it: farina di orzo maltato tostato, farina d'orzo maltato tostato, farina di malto d'orzo tostato
+nl: donkere gerstemoutbloem
 
 < en: barley flour
 en: dextrinated barley flour
@@ -31350,7 +31383,7 @@ da: flormelis
 de: Puderzucker, Azucar en polvo
 es: Azúcar glasé
 fi: tomusokeri
-fr: sucre glace, sucre en poudre
+fr: sucre glace, sucre en poudre, sucre à glacer, sucre impalpable
 hr: šećerni posip
 hu: porcukor
 it: zucchero a velo
@@ -32779,7 +32812,7 @@ en: glucose-fructose syrup, fructose-glucose syrup, glucose and fructose syrup
 bg: глюкозо-фруктозен сироп, сироп от глюкоза и фруктоза, фруктозо-глюкозен сироп
 ca: Xarop de glucosa-fructosa, xarop de glicosa-fructosa, xarop de glucosa i fructosa
 cs: glukózo-fruktózový sirup, glukózový-fruktózový sirup, glukózovo-fruktózový sirup, fruktózo-glukózový sirup
-da: glukos-fruktossirap, glukose-fruktosesirup
+da: glukose-fruktosesirup, fruktose-glucosesirup
 de: Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Glucose-Fructose-Sirup, Fruktose-Glukose-Sirup
 el: σιρόπι γλυκόζης-φρουκτόζης
 es: jarabe de glucosa y fructosa, jarabe de glucosa-fructosa, sirope de glucosa y fructosa, sirope de glucosa-fructosa
@@ -37068,7 +37101,7 @@ bg: прясна мая
 de: Frischhefe
 es: levadura fresca
 fi: tuorehiiva
-fr: levure fraîche
+fr: levure fraîche, levure de boulanger fraîche, levure fraîche de boulanger, levure de boulangerie fraîche, levure boulangère fraîche
 it: lievito fresco
 nl: verse gist
 
@@ -37240,10 +37273,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Baker%27s_yeast
 
 < en: baker's yeast
 en: compressed baker's yeast
-fr: levure de boulanger compressée
+fr: levure de boulanger compressée, levure de boulanger pressée, levure de boulangerie compressée, levure de boulangerie pressée
 ciqual_food_code:en: 11010
 ciqual_food_name:en: Baker's yeast, compressed
 ciqual_food_name:fr: Levure de boulanger, compressée
+
+< en: baker's yeast
+en: dry baker's yeast, dried baker's yeast
+fr: levure de boulanger sèche, levure de boulangerie sèche, levure boulangère sèche
 
 < en: yeast
 bg: суха мая
@@ -37350,7 +37387,7 @@ it: aroma di estratto di lievito
 pl: aromat z ekstraktu drożdżowego, aromat ekstraktu drożdżowego
 
 < en: dough
-en: sourdough
+en: sourdough, sour dough
 an: Emprenyatuera
 ar: خبز عجينة متخمرة
 bg: Квас
@@ -37914,7 +37951,7 @@ pl: owoce suszone, suszone owoce, owoców suszonych
 en: juice
 bg: сок
 de: Saft
-es: Zumo, jugo
+es: zumo, jugo
 fi: mehu
 fr: jus
 hr: sok
@@ -37923,7 +37960,8 @@ lv: sula
 nl: sap
 pl: sok, soki, soku, soków
 pt: suco, sumo
-ru: Сок
+ru: сок
+sv: saft, juice
 description:en: Juice is the liquid extracted from fruits or vegetables, produced by pressing, squeezing, or blending, with a history stretching back to ancient civilizations that fermented or drank fruit juices, though modern commercial juicing scaled up dramatically in the 20th century with pasteurization and packaging advances. It has a flavor that mirrors its source—sweet, tart, or a mix—with a smooth, liquid texture, sometimes with pulp retained for added body. Consumed as a beverage or used in cooking, baking, and cocktails, juice retains vitamins (especially vitamin C) and antioxidants from its source, though it typically lacks the fiber of whole fruit and can be concentrated in natural sugars, giving it a higher glycemic impact than eating the fruit whole.
 vegan:en: maybe
 vegetarian:en: maybe
@@ -41868,8 +41906,22 @@ pt: suco de kumquat, sumo de kumquat
 
 < en: citrus fruit
 en: citron
+ar: أترجة
+ca: poncem
+da: cedrat
+de: Zitronatzitrone
+eu: zidra
+fr: cédrat
 it: cedro
-la: citrus medica
+ja: シトロン
+la: Citrus medica
+nb: sukatsitron
+nn: sukatsitron
+ru: цитрон
+sl: citrona
+sv: suckatcitron, cedrat
+uk: цитрон
+wikidata:en: Q104832496
 wikipedia:en: https://en.wikipedia.org/wiki/Citron
 
 < en: citron
@@ -45344,7 +45396,7 @@ pt: sorvas
 ro: scorușelor
 sk: jarabinu
 sl: jerebike
-sv: rönnbär
+sv: rönnbär, rönnbärs
 eurocode_2_group_3:en: 9.30.54
 
 < en: fruit
@@ -47936,7 +47988,7 @@ ru: клубника
 sa: तृणबदरफलम्
 sd: اسٽرا بيري
 sq: luleshtrydhe
-sv: Jordgubbe, jordgubb, jordgubbar
+sv: jordgubbe, jordgubb, jordgubbar, jordgubbs
 sw: Mstroberi
 ta: செம்புற்று
 tg: Қулфинай
@@ -48046,7 +48098,7 @@ ja: 苺ジュース, イチゴジュース, いちごジュース, 苺果汁, �
 nl: aardbeiensap
 pl: sok truskawkowy, sok z truskawki, sok z truskawek
 pt: Suco de morango, sumo de morango
-sv: jordgubbsjuice, jordgubbssaft
+sv: jordgubbssaft, jordgubbsjuice, jordgubbjuice
 
 < en: concentrate
 < en: strawberry juice
@@ -52004,6 +52056,17 @@ wikipedia:en: https://en.wikipedia.org/wiki/parsley
 # en:22363 in 51 @2021-09-16
 
 < en: parsley
+en: parsley sprig
+fr: brin de persil, branche de persil
+
+< en: parsley sprig
+en: fresh parsley sprig
+fr: brin de persil frais, branche de persil frais
+# Reference portion for fresh parsley: USDA SR Legacy, FDC 170416, portion 86609, 10 sprigs = 10 g.
+# https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
+average_weight_per_unit:en: 1
+
+< en: parsley
 en: flatleaf parsley
 it: prezzemolo a foglia piatta
 
@@ -55766,7 +55829,7 @@ pl: kiełki pora
 
 < en: onion-family vegetable
 < en: root vegetable
-en: garlic, garlic bulb, garlic clove
+en: garlic
 af: Knoffel
 am: ነጭ ሽንኩርት
 ar: ثوم
@@ -55955,6 +56018,20 @@ usda_ndb_proxy_code:en: 11215
 usda_ndb_proxy_name:en: Garlic, raw
 wikidata:en: Q21546392
 wikipedia:en: https://en.wikipedia.org/wiki/Garlic
+
+< en: garlic
+en: garlic clove
+fr: gousse d'ail
+# Reference edible portion of raw garlic: USDA FDC 169230, portion 84480, 1 clove = 3 g.
+# Also documented by the Canadian Nutrient File: https://food-nutrition.canada.ca/cnf-fce/serving-portion?id=2394
+average_weight_per_unit:en: 3
+
+< en: garlic
+en: garlic bulb, head of garlic
+fr: tête d'ail, bulbe d'ail
+# Reference edible portion, excluding base and skin; not the gross weight of every bulb.
+# Canadian Nutrient File, food 2394: 1 bulb = 24 g. https://food-nutrition.canada.ca/cnf-fce/serving-portion?id=2394
+average_weight_per_unit:en: 24
 
 < en: garlic
 en: tender garlic
@@ -56875,7 +56952,7 @@ lv: melnais burkāns
 nb: sort gulrot
 nl: zwarte wortel
 pl: czarna marchew, czarnej marchwi
-sv: svart morot, svart morots
+sv: svart morot, svart morots, svartmorot, svartmorots
 wikidata:en: Q11767451
 
 #< en:black carrot
@@ -56912,7 +56989,7 @@ de: schwarze Möhre Konzentrat, Konzentrate aus schwarzer Karotte
 fr: concentré de carotte pourpre
 hr: koncentrat crne mrkve
 it: concentrato di carota nera, concentrato di carote nere
-sv: svart morotskoncentrat
+sv: svart morotskoncentrat, koncentrat av svartmorot
 
 < en: black carrot
 < en: carrot extract
@@ -60349,6 +60426,7 @@ da: sichuanpeber
 hr: sečuanski papar
 it: pepe di Sichuan
 nb: sichuanpepper
+nl: cichuan peper
 pl: pieprz syczuański
 sv: sichuanpeppar
 zh: 花椒
@@ -61823,25 +61901,26 @@ la: blighia sapida
 eurocode_2_group_3:en: 8.40.50
 
 < en: root vegetable
-en: Rapeseed, rape, oilseed rape, rape seed
+en: rapeseed, rape, oilseed rape, rape seed
 bg: рапична, рапица, рапично
 bs: repičino
-ca: Colza, Llavor de colza, Llavors de colza
+ca: colza, llavor de colza, llavors de colza
 da: raps
 de: Raps
-es: Colza, nabina
+es: colza, nabina
 fi: rapsi, rapsinsiemenet
-fr: Colza
+fr: colza
 hr: repica, repice, repičina, repičino
-it: Colza
+it: colza
 ja: 菜種
 la: Brassica napus
 lv: rapšu
 nb: raps
-nl: koolzaad
+nl: koolzaad, raapzaad
+nn: raps
 pl: rzepak, rzepaku, rzepakowy, rzepakowa, rzepakowe
 ro: rapiță
-sv: Raps, rapsfrön
+sv: raps, rapsfrön
 comment:en: Why is this listed separately. Is only used as oil source. Can this be listed as a synonym of the oil names?
 ecobalyse:en: rapeseed-non-eu
 ecobalyse_labels_en_organic:en: rapeseed-organic
@@ -61851,12 +61930,30 @@ wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
 
 < en: root vegetable
-en: turnip-rape, turnip rape, field mustard
-de: Rübsamen
+en: turnip rape, turnip-rape, field mustard
+be: свірэпіца
+da: rybs
+de: Rübsamen, Ölrübsen
+et: põld-kapsasrohi
+eu: aza-arbi
 fi: rypsi
-fr: Navette
+fr: navette
 hr: repa-silovanje
+hu: réparepce
+hy: կաղամբուկ դաշտային
+ja: アブラナ
+ka: შალგი
 la: Brassica rapa subsp. oleifera
+nb: rybs
+nn: rybs
+os: булкъой
+pl: kapusta właściwa olejowa
+ru: капуста полевая
+sl: oljna repica
+sv: rybs, ryps
+ta: வயல் கடுகு
+uz: dala karami
+zh: 油菜
 comment:en: Why is this listed as a vegetable?
 description:en: Turnip rape (Brassica rapa subsp. oleifera, also called field mustard or rybs in some regions) is grown for its seeds, which are pressed for oil. It's one of the plants used to produce canola oil (along with rapeseed, Brassica napus). Young leaves of turnip rape can be eaten as leafy greens, similar to mustard greens or other brassica greens, in some regional cuisines.
 wikidata:en: Q3337246
@@ -69619,6 +69716,10 @@ usda_ndb_proxy_name:en: Spices, cinnamon, ground
 usda_ndb_proxy_process:en: en:ground
 wikidata:en: Q28165
 
+< en: cinnamon
+en: cinnamon stick
+fr: bâton de cannelle
+
 #comment:en:kept for ciqual
 < en: cinnamon
 en: cinnamon powder
@@ -70921,6 +71022,17 @@ wikidata:en: Q59659860
 #plant: wikidata:en:q26686
 wikipedia:en: https://en.wikipedia.org/wiki/Dill
 
+< en: dill
+en: dill sprig
+fr: brin d'aneth, branche d'aneth
+
+< en: dill sprig
+en: fresh dill sprig
+fr: brin d'aneth frais, branche d'aneth frais
+# Reference portion for fresh dill: USDA SR Legacy, FDC 172233, portion 90128, 5 sprigs = 1 g.
+# https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
+average_weight_per_unit:en: 0.2
+
 #comment:en:kept separate as it is another ingredient than the leaves
 
 < en: dill
@@ -71080,6 +71192,10 @@ wikidata:en: Q68315046
 wikipedia:en: https://en.wikipedia.org/wiki/rosemary
 
 < en: rosemary
+en: rosemary sprig
+fr: brin de romarin, branche de romarin
+
+< en: rosemary
 en: fresh rosemary
 fr: romarin frais
 it: rosmarino fresco
@@ -71190,6 +71306,10 @@ usda_ndb_proxy_code:en: 11972
 usda_ndb_proxy_name:en: Lemon grass (citronella), raw
 wikidata:en: Q33913
 wikipedia:en: https://en.wikipedia.org/wiki/Cymbopogon
+
+< en: lemongrass
+en: lemongrass stalk
+fr: tige de citronnelle
 
 < en: lemongrass
 en: raw lemongrass
@@ -71328,6 +71448,23 @@ it: foglio di menta, foglie di menta intere
 pl: liść mięty, liście mięty
 ifct_food_code:en: G016
 ifct_food_name:en: Mint leaves
+
+< en: mint
+en: mint sprig
+fr: brin de menthe, branche de menthe
+
+< en: mint leaf
+< en: spearmint
+en: spearmint leaf, spearmint leaves
+fr: feuille de menthe verte
+
+< en: fresh spearmint
+< en: spearmint leaf
+en: fresh spearmint leaf, fresh spearmint leaves
+fr: feuille de menthe verte fraîche, feuille fraîche de menthe verte
+# Reference portion for fresh spearmint only: USDA SR Legacy, FDC 173475, portion 92612, 2 leaves = 0.3 g.
+# https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
+average_weight_per_unit:en: 0.15
 
 < en: mint
 en: mint oil
@@ -71842,6 +71979,10 @@ wikidata:en: Q3215980
 wikipedia:en: https://en.wikipedia.org/wiki/Thyme
 
 < en: thyme
+en: thyme sprig
+fr: brin de thym, branche de thym
+
+< en: thyme
 en: fresh thyme
 ciqual_food_code:en: 11070
 ciqual_food_name:en: Thyme, fresh
@@ -72223,6 +72364,18 @@ fr: Feuilles de basilic
 hr: list bosiljka
 it: foglia di basilico
 pl: liście bazylii
+
+< en: basil
+en: basil sprig
+fr: brin de basilic, branche de basilic
+
+< en: Fresh basil
+< en: basil leaf
+en: fresh basil leaf, fresh basil leaves
+fr: feuille de basilic frais, feuille fraîche de basilic
+# Reference portion for fresh basil: USDA SR Legacy, FDC 172232, portion 90125, 5 leaves = 2.5 g.
+# https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
+average_weight_per_unit:en: 0.5
 
 < en: basil
 en: dried basil
@@ -72945,7 +73098,7 @@ da: laurbær, laurbærblade
 de: lorbeer, lorbeerblatt, lorbeerblätter
 es: hoja de laurel, laurel
 fi: laakerinlehti
-fr: feuille de laurier, feuille de laurier, laurier
+fr: feuille de laurier, laurier
 hi: तेज पत्ता
 hr: lovor, lovorov
 hu: babérlevél
@@ -74805,6 +74958,21 @@ usda_ndb_name:en: Pumpkin flowers, raw
 
 ###################################################################################################
 #
+#                                Purple coneflower
+#
+###################################################################################################
+
+< en: plant
+en: purple coneflower
+xx: echinacae
+de: Purpur-Sonnenhut
+fr: échinacée pourpre
+hu: bibor kasvirág
+nl: paarse zonnehoed
+description:en: Native to the prairies and open woodlands of central and eastern North America, purple coneflower has long been used by Indigenous peoples before spreading globally as a cultivated herb. Today it's grown commercially across North America, Europe, and parts of Asia, with roots, leaves, and flowers harvested, dried, and processed into powders, extracts, teas, or tinctures. Its flavor is earthy, slightly bitter, and mildly tingling on the tongue. It's used in herbal teas, tinctures, capsules, and functional foods/beverages worldwide. Nutritionally, it contains polysaccharides, flavonoids, alkylamides, and trace vitamins and minerals, though it's consumed in small quantities as a flavoring or functional additive rather than a significant caloric or macronutrient source.
+
+###################################################################################################
+#
 #                                Quinine
 #
 ###################################################################################################
@@ -76377,7 +76545,7 @@ da: vaniljestang, vaniljestænger
 de: Vanilleschoten
 es: vainas de vainilla, vaina de vainilla
 fi: vaniljatanko, vaniljapapu
-fr: gousse de vanille, gousses de vanille, écorce de vanille
+fr: gousse de vanille, gousses de vanille, écorce de vanille, vanille en gousse
 hr: mahune vanilije, mahuna vanilije
 it: baccelli di vaniglia, bacche di vaniglia
 nl: vanillestokje, vanillestokjes
@@ -76456,7 +76624,7 @@ da: vaniljekorn
 de: Vanillesamen
 es: Semillas de vainilla
 fi: vaniljansiemen, vaniljan siemenet
-fr: graines de vanille
+fr: graines de vanille, grain de vanille
 hr: sjemenke vanilije
 it: semi di vaniglia
 nl: vanillezaad, vanillezaadjes
@@ -76961,9 +77129,6 @@ nl: Spirulinaconcentraat
 pl: koncentrat spiruliny, barwiący koncentrat spiruliny
 ro: concentrat de spirulină, concentrat de spirulina
 
-# description:en:SEAWEED or macroalgae refers to several species of macroscopic, multicellular, marine algae.
-# not sure if this should kept separate from en:algae
-
 # Eurocode 8.55 Seaweeds
 
 < en: algae
@@ -77008,24 +77173,26 @@ pl: Wodorosty, algi morskie, alg morskich
 pt: macroalga
 ru: Морские водоросли
 sq: Alga deti
-sv: Tång
+sv: tång, havstång
 to: Limutahi
 uk: Морські водорості
 vi: Rong biển
 zh: 海藻
+#en-gb: seaweed
+#ike-cans: ᕿᖅᑯᐊᖅ
+#ike-latn: qiqquaq
+#nan: Hái-chháu
+#nrm: Vrai
+#sco: Sea plants
+#zh-cn: 海藻
+#zh-hans: 海藻
+#zh-hant: 海藻
+#zh-hk: 海藻
+#zh-sg: 海藻
+#zh-tw: 海藻
+comment:en: not sure if this should kept separate from en:algae
+description:en: SEAWEED or macroalgae refers to several species of macroscopic, multicellular, marine algae.
 eurocode_2_group_2:en: 8.55
-# en-gb:seaweed
-# ike-cans:ᕿᖅᑯᐊᖅ
-# ike-latn:qiqquaq
-# nan:Hái-chháu
-# nrm:Vrai
-# sco:Sea plants
-# zh-cn:海藻
-# zh-hans:海藻
-# zh-hant:海藻
-# zh-hk:海藻
-# zh-sg:海藻
-# zh-tw:海藻
 wikidata:en: Q237169
 wikipedia:en: https://en.wikipedia.org/wiki/Seaweed
 
@@ -77475,6 +77642,12 @@ eurocode_2_group_3:en: 8.55.10
 usda_fdc_code:en: 168456
 usda_ndb_code:en: 11444
 usda_ndb_name:en: Seaweed, irishmoss, raw
+
+#< en: compound
+< en: seaweed
+en: seaweed caviar
+da: tangkaviar
+sv: tångkaviar, tångcaviar
 
 #description:en: ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 
@@ -79003,6 +79176,9 @@ description:en: Mortierella alpina oil is derived from a soil-dwelling filamento
 en: rhizopus culture
 de: Rhizopuskultur
 it: coltura di Rhizopus
+
+< en: ferment
+en: blauwschimmelcultuur
 
 # description:en:Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
 
@@ -88023,12 +88199,11 @@ zh: 葡萄糖醛酸內酯
 wikidata:en: Q411638
 wikipedia:en: https://en.wikipedia.org/wiki/Glucuronolactone
 
-# description:en:GUM BASE is the non-nutritive, non-digestible, water-insoluble masticatory delivery system used to carry sweeteners, flavors, and any other substances in chewing gum and bubble gum. It provides all the basic textural and masticatory properties of gum. The actual composition of gum base is usually a trade secret.
-
-en: Gum base
+en: gum base
 cs: žvýkačková báze
+da: gummibase
 de: Kaumasse
-es: Base de goma
+es: base de goma
 fi: purukumin perusmassa, purukumin perusmassaa
 fr: gomme base
 hr: gumena baza, gumi baza
@@ -88036,6 +88211,7 @@ it: gomma base
 ja: ガムベース
 pl: baza gumowa
 sv: gummibas, tuggummibas
+description:en: GUM BASE is the non-nutritive, non-digestible, water-insoluble masticatory delivery system used to carry sweeteners, flavors, and any other substances in chewing gum and bubble gum. It provides all the basic textural and masticatory properties of gum. The actual composition of gum base is usually a trade secret.
 wikidata:en: Q5618000
 wikipedia:en: https://en.wikipedia.org/wiki/Gum_base
 
@@ -93405,7 +93581,7 @@ ms: mi
 my: ခေါက်ဆွဲ
 nb: nudler
 ne: चाउचाउ
-nl: noedels
+nl: noedels, mie
 nn: nudlar
 or: ନୁଡୁଲ
 pa: ਨੂਡਲ
@@ -93523,6 +93699,18 @@ en: chow mein chinese noodles
 usda_fdc_code:en: 168905
 usda_ndb_code:en: 20113
 usda_ndb_name:en: Noodles, chinese, chow mein
+
+< en: dough
+en: phyllo dough, filo dough, filo pastry, phyllo pastry
+fr: pâte filo, pâte phyllo
+
+< en: phyllo dough
+en: phyllo dough sheet, filo pastry sheet
+fr: feuille de pâte filo, feuille de filo, feuille de pâte phyllo
+
+< en: dough
+en: raw shortbread dough
+fr: pâte sablée crue
 
 < en: dough
 en: shortcrust dough
@@ -94812,6 +95000,7 @@ pt: chocolate de cobertura negro, chocolate negro de cobertura
 < en: chocolate coating
 < en: white chocolate
 en: white chocolate coating
+fr: chocolat blanc de couverture, enrobage au chocolat blanc
 hr: bijeli čokoladni preljev, preljev s bijelom čokoladom
 it: rivestimento di cioccolato bianco
 
@@ -98948,3 +99137,45 @@ en: French toast
 ciqual_food_code:en: 39236
 ciqual_food_name:en: French toast
 
+en: carbonic acid
+ar: حمض الكربوني
+bg: въглеродна киселина
+ca: àcid carbònic
+cs: uhličná kyselina
+da: kulsyre
+de: Kohlensäure
+el: υδροξυβωξικό οξύ
+es: ácido carbónico
+et: süsinikuhap
+fi: hiilihappo
+fr: acide carbonique
+hr: uglična kiselina
+hu: gázkarbonsav
+it: acido carbonico
+lt: anglvandeninė rūgštis
+lv: oglekļu spēks
+mt: tar-Riżor
+nl: koolzuur
+no: karbonsyre
+pl: kwas węglowy
+pt: ácido carbónico
+ro: acid carbonat
+ru: углекислая кислота
+sk: uhličná kyselina
+sl: ogljevicna kislina
+sr: углењана киселина
+sv: kolsyra
+tr: karbonsyonlu asit
+uk: вуглекисна кислота
+
+#< en: compound
+en: plant-based cheese
+sv: växtbaserad ost, Violife, Violife block
+comment:en: Violife is a producer of such cheeses and ingredient lists will sometimes just say “Violife” or similar.
+vegan:en: yes
+vegetarian:en: yes
+
+< en: scalding
+< en: sourdough
+en: scalding and sourdough
+sv: skållning och surdeg

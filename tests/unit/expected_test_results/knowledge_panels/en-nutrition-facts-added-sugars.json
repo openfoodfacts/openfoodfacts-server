@@ -513,7 +513,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint not computed</strong></p>\n                <p>Potential deforestation risk but not yet computed.</p>\n                \n                ",
+                  "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/actu/2026/09/lempreinte-foret-sinvite-dans-les-telephones-des-francais/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint not computed</strong></p>\n                <p>Potential deforestation risk but not yet computed.</p>\n                \n                ",
                   "type" : "summary"
                }
             },
@@ -529,10 +529,10 @@
          "level" : "info",
          "title_element" : {
             "grade" : "not_computed",
-            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-not-computed.svg",
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-not-computed.svg",
             "name" : "Forest Footprint",
             "subtitle" : "Potential deforestation risk but not yet computed.",
-            "title" : "Forest Footprint not computed ",
+            "title" : "Forest Footprint not computed",
             "type" : "grade"
          },
          "topics" : [
@@ -1638,6 +1638,7 @@
    "misc_tags" : [
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-not-computed",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-energy",
       "en:nutriscore-estimated-fat",
