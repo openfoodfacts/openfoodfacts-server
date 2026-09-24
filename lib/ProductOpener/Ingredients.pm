@@ -339,6 +339,113 @@ sub init_ingredients_processing_regexps() {
 	return;
 }
 
+# Processing regexps compiled once per language, on first use: for each synonym,
+# the ordered list of patterns that are tried for the start and end pass and for
+# the inside pass, so that matching the first pattern of the list that matches
+# gives the same result as the prefix/suffix/inside patterns tried in turn
+my %compiled_ingredients_processing_regexps = ();
+
+sub init_compiled_ingredients_processing_regexps ($ingredients_lc) {
+
+	if (defined $compiled_ingredients_processing_regexps{$ingredients_lc}) {
+		return;
+	}
+
+	# the synonym lists are initialized lazily by preparse_ingredients_text();
+	# compiling before that would cache an empty list for the rest of the process
+	if (not %ingredients_processing_regexps) {
+		init_ingredients_processing_regexps();
+	}
+
+	my @compiled_regexps = ();
+
+	if (defined $ingredients_processing_regexps{$ingredients_lc}) {
+
+		# match before or after the ingredient, require a space
+		my %start_and_end_boundaries = map {$_ => 1}
+			qw(ar az be bg bs ca cs el en eo es eu fi fr he hr it lt mk pl pt ro ru sk sl sr tl tr tt uk vi);
+
+		# match before or after the ingredient, does not require a space,
+		# for German (H- for UHT will remove all H letters) handle 'h' separately
+		my %start_and_end_no_boundaries = map {$_ => 1} qw(af de et fi hu is ja ko lv nl sv th zh);
+
+		# match after the ingredient, does not require a space
+		# match before the ingredient, require a space
+		my %start_and_end_boundary_at_start = map {$_ => 1} qw(da fi hu nb no nn sv);
+
+		foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$ingredients_lc}}) {
+			my $regexp = $ingredient_processing_regexp_ref->[1];
+
+			my @start_and_end = ();
+			if ($start_and_end_boundaries{$ingredients_lc}) {
+				push @start_and_end, qr/(^($regexp)\b|\b($regexp)$)/i;
+			}
+			if ($start_and_end_no_boundaries{$ingredients_lc}
+				and (($ingredients_lc ne 'de') or ($regexp ne 'h')))
+			{
+				push @start_and_end, qr/(^($regexp)|($regexp)$)/i;
+			}
+			if (($ingredients_lc eq 'de') and ($regexp eq 'h')) {
+				push @start_and_end, qr/(^($regexp))/i;
+			}
+			if ($start_and_end_boundary_at_start{$ingredients_lc}) {
+				push @start_and_end, qr/(^($regexp)\b|($regexp)$)/i;
+			}
+
+			# match inside the ingredient
+			my @inside = (qr/\b$regexp\b/i);
+			# without space before, with space after
+			if ($ingredients_lc eq 'hu') {
+				push @inside, qr/$regexp\b/i;
+			}
+			# without space before, without space after, set a minimal length (H- for UHT in German will remove all H letters)
+			if (($ingredients_lc eq 'de') and (length($regexp) >= 3)) {
+				push @inside, qr/-?$regexp-?/i;
+			}
+			# with space before, without space after
+			if ($ingredients_lc eq 'fi') {
+				push @inside, qr/\b$regexp/i;
+			}
+
+			push @compiled_regexps,
+				{
+				processing => $ingredient_processing_regexp_ref->[0],
+				pattern => $regexp,
+				start_and_end => \@start_and_end,
+				inside => \@inside,
+				};
+		}
+	}
+
+	# Every pattern of the entries contains its synonym, so if this loose
+	# alternation of all the synonyms does not match, none of the patterns can
+	# match and the loop below can be skipped
+	my $gate_regexp = qr/(?!)/;    # never matches when there are no synonyms
+	if (@compiled_regexps) {
+		my $gate_pattern = '(?:' . join('|', map {$_->{pattern}} @compiled_regexps) . ')';
+		$gate_regexp = qr/$gate_pattern/i;
+	}
+
+	$compiled_ingredients_processing_regexps{$ingredients_lc} = {
+		gate => $gate_regexp,
+		entries => \@compiled_regexps,
+	};
+
+	return;
+}
+
+# Cache key is the full pattern string: callers must not interpolate per-product text
+my %compiled_regexps = ();
+
+sub compiled_regexp ($pattern) {
+
+	if (not defined $compiled_regexps{$pattern}) {
+		$compiled_regexps{$pattern} = qr/$pattern/i;
+	}
+
+	return $compiled_regexps{$pattern};
+}
+
 # Origins processing regexps
 
 my %origins_regexps = ();
@@ -1081,6 +1188,8 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 	}
 	else {
 
+		init_compiled_ingredients_processing_regexps($ingredients_lc);
+
 		my $found_a_known_ingredient = 0;
 		my $new_ingredient = $ingredient;
 		my @new_processings = ();
@@ -1098,125 +1207,47 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 				# Skip the second pass if we already matched a processing ($removed_a_processing = 1) or if found a known ingredient ($found_a_known_ingredient = 1)
 				if ((not $removed_a_processing) and (not $found_a_known_ingredient)) {
 
-					foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$ingredients_lc}}) {
-						my $regexp = $ingredient_processing_regexp_ref->[1];
+					my $compiled_ingredients_processing_ref = $compiled_ingredients_processing_regexps{$ingredients_lc};
+
+					if ($new_ingredient !~ $compiled_ingredients_processing_ref->{gate}) {
+						next;
+					}
+
+					foreach my $ingredient_processing_ref (@{$compiled_ingredients_processing_ref->{entries}}) {
 
 						$debug_parse_processing_from_ingredient
+							and $log->is_trace()
 							and $log->trace("processing - checking processing regexps",
-							{new_ingredient => $new_ingredient, regexp => $regexp})
-							if $log->is_trace();
+							{new_ingredient => $new_ingredient, regexp => $ingredient_processing_ref->{pattern}});
 
-						if (
-							(
-								($pass eq "start_and_end") and (
-									# match before or after the ingredient, require a space
-									(
-										(
-											   ($ingredients_lc eq 'ar')
-											or ($ingredients_lc eq 'az')
-											or ($ingredients_lc eq 'be')
-											or ($ingredients_lc eq 'bg')
-											or ($ingredients_lc eq 'bs')
-											or ($ingredients_lc eq 'ca')
-											or ($ingredients_lc eq 'cs')
-											or ($ingredients_lc eq 'el')
-											or ($ingredients_lc eq 'en')
-											or ($ingredients_lc eq 'eo')
-											or ($ingredients_lc eq 'es')
-											or ($ingredients_lc eq 'eu')
-											or ($ingredients_lc eq 'fi')
-											or ($ingredients_lc eq 'fr')
-											or ($ingredients_lc eq 'he')
-											or ($ingredients_lc eq 'hr')
-											or ($ingredients_lc eq 'it')
-											or ($ingredients_lc eq 'lt')
-											or ($ingredients_lc eq 'mk')
-											or ($ingredients_lc eq 'pl')
-											or ($ingredients_lc eq 'pt')
-											or ($ingredients_lc eq 'ro')
-											or ($ingredients_lc eq 'ru')
-											or ($ingredients_lc eq 'sk')
-											or ($ingredients_lc eq 'sl')
-											or ($ingredients_lc eq 'sr')
-											or ($ingredients_lc eq 'tl')
-											or ($ingredients_lc eq 'tr')
-											or ($ingredients_lc eq 'tt')
-											or ($ingredients_lc eq 'uk')
-											or ($ingredients_lc eq 'vi')
-										)
-										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
-									)
+						# $` and $' are dynamically scoped to the block with the match:
+						# consume them before leaving it
+						my $matched = 0;
+						foreach my $regexp (@{$ingredient_processing_ref->{$pass}}) {
+							if ($new_ingredient =~ $regexp) {
+								$new_ingredient = $` . $';
+								$matched = 1;
+								last;
+							}
+						}
 
-									#  match before or after the ingredient, does not require a space, for German (H- for UHT will remove all H letters) handle 'h' separately
-									or (
-										(
-											   ($ingredients_lc eq 'af')
-											or (($ingredients_lc eq 'de') and ($regexp ne 'h'))
-											or ($ingredients_lc eq 'et')
-											or ($ingredients_lc eq 'fi')
-											or ($ingredients_lc eq 'hu')
-											or ($ingredients_lc eq 'is')
-											or ($ingredients_lc eq 'ja')
-											or ($ingredients_lc eq 'ko')
-											or ($ingredients_lc eq 'lv')
-											or ($ingredients_lc eq 'nl')
-											or ($ingredients_lc eq 'sv')
-											or ($ingredients_lc eq 'th')
-											or ($ingredients_lc eq 'zh')
-										)
-										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
-									)
-									or (    ($ingredients_lc eq 'de')
-										and ($regexp eq 'h')
-										and ($new_ingredient =~ /(^($regexp))/i))
+						if ($matched) {
 
-									# match after the ingredient, does not require a space
-									# match before the ingredient, require a space
-									or (
-										(
-											   ($ingredients_lc eq 'da')
-											or ($ingredients_lc eq 'fi')
-											or ($ingredients_lc eq 'hu')
-											or ($ingredients_lc eq 'nb')
-											or ($ingredients_lc eq 'no')
-											or ($ingredients_lc eq 'nn')
-											or ($ingredients_lc eq 'sv')
-										)
-										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i)
-									)
-								)
-							)
-							# match inside the ingredient
-							or (
-								($pass eq "inside") and (
-									($new_ingredient =~ /\b$regexp\b/i)
-									# without space before, with space after
-									or (($ingredients_lc eq 'hu') and ($new_ingredient =~ /$regexp\b/i))
-									# without space before, without space after, set a minimal length (H- for UHT in German will remove all H letters)
-									or (    ($ingredients_lc eq 'de')
-										and (length($regexp) >= 3)
-										and ($new_ingredient =~ /-?$regexp-?/i))
-									# with space before, without space after
-									or (($ingredients_lc eq 'fi') and ($new_ingredient =~ /\b$regexp/i))
-								)
-							)
-							)
-						{
-							$new_ingredient = $` . $';
-
-							$debug_parse_processing_from_ingredient and $log->debug(
+							$debug_parse_processing_from_ingredient
+								and $log->is_debug()
+								and $log->debug(
 								"processing - found processing",
 								{
 									ingredient => $ingredient,
 									new_ingredient => $new_ingredient,
-									processing => $ingredient_processing_regexp_ref->[0],
-									regexp => $regexp
+									processing => $ingredient_processing_ref->{processing},
+									regexp => $ingredient_processing_ref->{pattern}
 								}
-							) if $log->is_debug();
+								);
 
 							$removed_a_processing = 1;
 
-							my $processing = $ingredient_processing_regexp_ref->[0];
+							my $processing = $ingredient_processing_ref->{processing};
 							unless (grep {$_ eq $processing} @new_processings) {
 								push @new_processings, $processing;
 							}
@@ -1237,22 +1268,24 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 								= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
 
 							if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-								$debug_parse_processing_from_ingredient and $log->debug(
+								$debug_parse_processing_from_ingredient
+									and $log->is_debug()
+									and $log->debug(
 									"processing - found existing ingredient, stop matching",
 									{
 										ingredient => $ingredient,
 										new_ingredient => $new_ingredient,
 										new_ingredient_id => $new_ingredient_id
 									}
-								) if $log->is_debug();
+									);
 
 								$found_a_known_ingredient = 1;
 							}
 							else {
 								$debug_parse_processing_from_ingredient
+									and $log->is_debug()
 									and $log->debug(
-									"processing - NOT found existing ingredient >$new_ingredient_id<, stop matching")
-									if $log->is_debug();
+									"processing - NOT found existing ingredient >$new_ingredient_id<, stop matching");
 							}
 
 							last;
@@ -1265,7 +1298,9 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 
 			my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
 			if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-				$debug_parse_processing_from_ingredient and $log->debug(
+				$debug_parse_processing_from_ingredient
+					and $log->is_debug()
+					and $log->debug(
 					"processing - found existing ingredient after removing processing",
 					{
 						ingredient => $ingredient,
@@ -1273,14 +1308,16 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 						new_ingredient_id => $new_ingredient_id,
 						new_processings => \@new_processings,
 					}
-				) if $log->is_debug();
+					);
 				$ingredient = $new_ingredient;
 				$ingredient_id = $new_ingredient_id;
 				$ingredient_recognized = 1;
 				@processings = @new_processings;
 			}
 			else {
-				$debug_parse_processing_from_ingredient and $log->debug(
+				$debug_parse_processing_from_ingredient
+					and $log->is_debug()
+					and $log->debug(
 					"processing - did not find existing ingredient after removing processing",
 					{
 						ingredient => $ingredient,
@@ -1288,12 +1325,13 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 						new_ingredient_id => $new_ingredient_id,
 						new_processinsg => \@new_processings,
 					}
-				) if $log->is_debug();
+					);
 			}
 		}
 	}
 
 	$debug_parse_processing_from_ingredient
+		and $log->is_debug()
 		and $log->debug(
 		"processing - return",
 		{
@@ -1302,7 +1340,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 			ingredient_id => $ingredient_id,
 			ingredient_recognized => $ingredient_recognized
 		}
-		) if $log->is_debug();
+		);
 
 	return (\@processings, $ingredient, $ingredient_id, $ingredient_recognized);
 }
@@ -1505,7 +1543,7 @@ Normalized quantity in ml.
 
 $ingredient = "100% cocoa";	# or "milk 10cl"
 
-if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
+if ($ingredient =~ compiled_regexp('\s' . $percent_or_quantity_regexp . '$')) {
 	$percent_or_quantity_value = $1;
 	$percent_or_quantity_unit = $2;
 
@@ -1860,7 +1898,8 @@ Text to analyze
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
 					# tomatoes (145g per 100g of finished product)
-					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
+					if (($between =~ $separators) and ($` =~ compiled_regexp('^' . $percent_or_quantity_regexp . '$')))
+					{
 						$percent_or_quantity_value = $1;
 						$percent_or_quantity_unit = $2;
 						$percent_or_quantity_value
@@ -2003,7 +2042,7 @@ Text to analyze
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
 						and ($` !~ /\s*(allergens)\s*/i)
-						and ($between !~ /^$percent_or_quantity_regexp$/i))
+						and ($between !~ compiled_regexp('^' . $percent_or_quantity_regexp . '$')))
 					{
 						$between_level = $level + 1;
 						$log->debug(
@@ -2018,7 +2057,9 @@ Text to analyze
 							{between => $between}
 						) if $log->is_debug();
 
-						if ($between =~ /^$percent_or_quantity_regexp(?:$per_100g_regexp)?$/i) {
+						if ($between
+							=~ compiled_regexp('^' . $percent_or_quantity_regexp . '(?:' . $per_100g_regexp . ')?$'))
+						{
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;
@@ -2208,7 +2249,7 @@ Text to analyze
 				$last_separator = $sep;
 			}
 
-			if ($after =~ /^$percent_or_quantity_regexp($separators|$)/i) {
+			if ($after =~ compiled_regexp('^' . $percent_or_quantity_regexp . '(' . $separators . '|$)')) {
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
 				$after = $';
@@ -2271,7 +2312,7 @@ Text to analyze
 
 				foreach ($ingredient1, $ingredient2) {
 					# Remove percent
-					$_ =~ s/\s$percent_or_quantity_regexp$//i;
+					$_ =~ s/${\compiled_regexp('\s' . $percent_or_quantity_regexp . '$')}//;
 
 					# Check if we recognize the ingredient
 					(undef, undef, undef, my $is_recognized) = parse_processing_from_ingredient($ingredients_lc, $_);
@@ -2342,7 +2383,7 @@ Text to analyze
 				$current_ingredient = $ingredient;
 
 				# Strawberry 10.3%
-				if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
+				if ($ingredient =~ compiled_regexp('\s' . $percent_or_quantity_regexp . '$')) {
 
 					# False positive: "Red Cochineal A"
 					# "A" is a quantity (e.g. "A" = "1" in English)
@@ -2372,7 +2413,7 @@ Text to analyze
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
 				# 3 carrots
 				my $of = $of{$ingredients_lc} || ' ';    # default to space in order to not match an empty string
-				if ($ingredient =~ /^\s*$percent_or_quantity_regexp(?:$of|\s)+/i) {
+				if ($ingredient =~ compiled_regexp('^\s*' . $percent_or_quantity_regexp . '(?:' . $of . '|\s)+')) {
 					$percent_or_quantity_value = $1;
 					$percent_or_quantity_unit = $2;
 					$debug_ingredients and $log->debug(
@@ -2932,7 +2973,7 @@ Text to analyze
 
 							foreach ($ingredient1, $ingredient2) {
 								# Remove percent
-								$_ =~ s/\s$percent_or_quantity_regexp$//i;
+								$_ =~ s/${\compiled_regexp('\s' . $percent_or_quantity_regexp . '$')}//;
 
 								# Check if we recognize the ingredient
 								(undef, undef, undef, my $is_recognized)
@@ -3099,7 +3140,9 @@ Text to analyze
 
 								foreach my $candidate_chunk (@candidate_chunks) {
 									$candidate_chunk =~ s/^\s+|\s+$//g;
-									if ($candidate_chunk =~ /\s$percent_or_quantity_regexp$/i && $2 ne '') {
+									if (   $candidate_chunk =~ compiled_regexp('\s' . $percent_or_quantity_regexp . '$')
+										&& $2 ne '')
+									{
 										$candidate_chunk = $`;
 									}
 									next if $candidate_chunk eq '';
@@ -6634,15 +6677,35 @@ my %ingredients_categories_and_types = (
 
 );
 
-sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
-	$log->debug("develop_ingredients_categories_and_types", {ingredients_lc => $ingredients_lc, text => $text})
-		if $log->is_debug();
+# Keyed by language: the patterns depend only on $ingredients_lc
+my %categories_and_types_regexps = ();
 
-	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
+sub init_categories_and_types_regexps($ingredients_lc) {
+
+	if (not exists $categories_and_types_regexps{$ingredients_lc}) {
+
+		init_percent_or_quantity_regexps($ingredients_lc);
 
 		my $percent_or_quantity_regexp = $percent_or_quantity_regexps{$ingredients_lc};
 		# Make capturing groups non-capturing, while keeping escaped and special (?...) groups unchanged
 		$percent_or_quantity_regexp =~ s/\((?!\?)/(?:/g;
+
+		my $and = ' - ';
+		if (defined $and{$ingredients_lc}) {
+			$and = $and{$ingredients_lc};
+		}
+		my $of = ' - ';
+		if (defined $of{$ingredients_lc}) {
+			$of = $of{$ingredients_lc};
+		}
+		my $and_of = ' - ';
+		if (defined $and_of{$ingredients_lc}) {
+			$and_of = $and_of{$ingredients_lc};
+		}
+		my $and_or = ' - ';
+		if (defined $and_or{$ingredients_lc}) {
+			$and_or = $and_or{$ingredients_lc};
+		}
 
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
 			my $category_regexp = "";
@@ -6686,26 +6749,70 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				$of_bool = $categories_and_types_ref->{of_bool};
 			}
 
+			push @{$categories_and_types_regexps{$ingredients_lc}}, {
+
+				categories_and_types_ref => $categories_and_types_ref,
+				of_bool => $of_bool,
+
+				# arôme naturel de citron-citron vert et d'autres agrumes
+				# -> separate types
+				dash_separated_types => qr/($type_regexp)-($type_regexp)/i,
+
+				# vegetable oil (palm, sunflower and olive) -> palm vegetable oil, sunflower vegetable oil, olive vegetable oil
+				# Note: not using the /x modifier to put spaces in the regexp, as it doesn't work if the interpolated variables contain spaces themselves...
+				category_then_enumeration =>
+					qr/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*(\s|\/|\s\/\s|\s-\s|,|,\s|$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/i,
+
+				# vegetable oil (palm) -> palm vegetable oil
+				# huile végétale (colza)
+				category_then_single_type =>
+					qr/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)($symbols_regexp|\s)*\b(\s?(\)|\]))/i,
+
+				# vegetable oil: palm
+				# huile végétale : colza,
+				category_colon_type => qr/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/i,
+
+				# ječmeni i pšenični slad (barley and wheat malt) -> ječmeni slad, pšenični slad
+				types_then_category =>
+					qr/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/i,
+
+				# fr: huiles végétales en quantité variable et huile de palme -> huile végétale en quantité variable, huile végétale de palme
+				a_et_b_de_c => qr/($category_regexp) et ($category_regexp)(?:$of)?($type_regexp)/i,
+
+				# $text =~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names})/ieg;
+				# Huiles végétales de palme, de colza et de tournesol
+				# warning: Nutella has "huile de palme, noisettes" -> we do not want "huiles de palme, huile de noisettes"
+				# require a " et " and/or " de " at the end of the enumeration
+				#
+				fr_category_then_enumeration =>
+					qr/($category_regexp)(?::| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)*($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, )*( et | de | et de | et d'| d'| d'autres | et d'autres )( |\/| \/ | - |,|, )*($type_regexp)($symbols_regexp|\s)*)\b/i,
+
+				# Huiles végétales (palme, colza et tournesol)
+				fr_category_paren_enumeration =>
+					qr/($category_regexp)(?:\(|\[)(?:de |d')?((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))/i,
+			};
+		}
+	}
+
+	return;
+}
+
+sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
+	$log->debug("develop_ingredients_categories_and_types", {ingredients_lc => $ingredients_lc, text => $text})
+		if $log->is_debug();
+
+	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
+
+		init_categories_and_types_regexps($ingredients_lc);
+
+		foreach my $regexps_ref (@{$categories_and_types_regexps{$ingredients_lc}}) {
+
+			my $categories_and_types_ref = $regexps_ref->{categories_and_types_ref};
+			my $of_bool = $regexps_ref->{of_bool};
+
 			# arôme naturel de citron-citron vert et d'autres agrumes
 			# -> separate types
-			$text =~ s/($type_regexp)-($type_regexp)/$1, $2/ig;
-
-			my $and = ' - ';
-			if (defined $and{$ingredients_lc}) {
-				$and = $and{$ingredients_lc};
-			}
-			my $of = ' - ';
-			if (defined $of{$ingredients_lc}) {
-				$of = $of{$ingredients_lc};
-			}
-			my $and_of = ' - ';
-			if (defined $and_of{$ingredients_lc}) {
-				$and_of = $and_of{$ingredients_lc};
-			}
-			my $and_or = ' - ';
-			if (defined $and_or{$ingredients_lc}) {
-				$and_or = $and_or{$ingredients_lc};
-			}
+			$text =~ s/$regexps_ref->{dash_separated_types}/$1, $2/ig;
 
 			if (   ($ingredients_lc eq "en")
 				or ($ingredients_lc eq "de")
@@ -6715,52 +6822,44 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "pl"))
 			{
 				# vegetable oil (palm, sunflower and olive) -> palm vegetable oil, sunflower vegetable oil, olive vegetable oil
-				# Note: not using the /x modifier to put spaces in the regexp, as it doesn't work if the interpolated variables contain spaces themselves...
 				$text
-					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*(\s|\/|\s\/\s|\s-\s|,|,\s|$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/$regexps_ref->{category_then_enumeration}/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 
 				# vegetable oil (palm) -> palm vegetable oil
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)($symbols_regexp|\s)*\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/$regexps_ref->{category_then_single_type}/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 				# vegetable oil: palm
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/$regexps_ref->{category_colon_type}/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 
 				# ječmeni i pšenični slad (barley and wheat malt) -> ječmeni slad, pšenični slad
 				$text
-					=~ s/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/normalize_enumeration($ingredients_lc,$2,$1,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/$regexps_ref->{types_then_category}/normalize_enumeration($ingredients_lc,$2,$1,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 			}
 			elsif ($ingredients_lc eq "fr") {
 				# arôme naturel de pomme avec d'autres âromes
 				$text =~ s/ (ou|et|avec) (d')?autres / et /g;
 
-				$text
-					=~ s/($category_regexp) et ($category_regexp)(?:$of)?($type_regexp)/normalize_fr_a_et_b_de_c($1, $2, $3)/ieg;
+				$text =~ s/$regexps_ref->{a_et_b_de_c}/normalize_fr_a_et_b_de_c($1, $2, $3)/ieg;
 
 				# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire. Bug #3838
 				# TODO 18/07/2020 remove when we have a better solution
 				$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
 
-				# $text =~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
-				# Huiles végétales de palme, de colza et de tournesol
-				# warning: Nutella has "huile de palme, noisettes" -> we do not want "huiles de palme, huile de noisettes"
-				# require a " et " and/or " de " at the end of the enumeration
-				#
 				$text
-					=~ s/($category_regexp)(?::| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)*($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, )*( et | de | et de | et d'| d'| d'autres | et d'autres )( |\/| \/ | - |,|, )*($type_regexp)($symbols_regexp|\s)*)\b/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/$regexps_ref->{fr_category_then_enumeration}/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 
-				# Huiles végétales (palme, colza et tournesol)
 				$text
-					=~ s/($category_regexp)(?:\(|\[)(?:de |d')?((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/$regexps_ref->{fr_category_paren_enumeration}/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 
 				$text =~ s/fer_élémentaire/fer élémentaire/ig;
 
 				# huile végétale (colza)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)($symbols_regexp|\s)*\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/$regexps_ref->{category_then_single_type}/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
 				# huile végétale : colza,
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/$regexps_ref->{category_colon_type}/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
 			}
 		}
 
@@ -7060,7 +7159,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		my $regexp = $additives_classes_regexps{$ingredients_lc};
 		# negative look ahead so that the additive class is not preceded by other words
 		# e.g. "de l'acide" should not match "acide"
-		$text =~ s/(?<!\w( |'))\b($regexp)(\s+)(:?)(?!\(| \()/separate_additive_class($ingredients_lc,$2,$3,$4,$')/ieg;
+		my $separate_additive_class_regexp = compiled_regexp('(?<!\w( |\'))\b(' . $regexp . ')(\s+)(:?)(?!\(| \()');
+		$text =~ s/$separate_additive_class_regexp/separate_additive_class($ingredients_lc,$2,$3,$4,$')/eg;
 	}
 
 	# dash with 1 missing space
@@ -7252,8 +7352,26 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			# warning: we should remove a parenthesis at the end only if we remove one at the beginning
 			# e.g. contains (milk, eggs) -> contains milk, eggs
 			# chocolate (contains milk) -> chocolate (contains milk)
+			my $allergens_enumeration_regexp
+				= compiled_regexp('([^,-\.;\(\)\/]*)\b('
+					. $contains_or_may_contain_regexp
+					. ')\b((:|\(|\[| |'
+					. $of
+					. ')+)((_?('
+					. $allergens_regexp
+					. ')_?\b((\s)('
+					. $stopwords
+					. ')\b)*( |\/| \/ | - |,|, |'
+					. $and . '|'
+					. $of . '|'
+					. $and_of
+					. ')+)*_?('
+					. $allergens_regexp
+					. ')_?)\b((\s)('
+					. $stopwords
+					. ')\b)*(\s?(\)|\]))?');
 			$text
-				=~ s/([^,-\.;\(\)\/]*)\b($contains_or_may_contain_regexp)\b((:|\(|\[| |$of)+)((_?($allergens_regexp)_?\b((\s)($stopwords)\b)*( |\/| \/ | - |,|, |$and|$of|$and_of)+)*_?($allergens_regexp)_?)\b((\s)($stopwords)\b)*(\s?(\)|\]))?/normalize_allergens_enumeration($allergens_type,$ingredients_lc,$3,$5,$17)/ieg;
+				=~ s/$allergens_enumeration_regexp/normalize_allergens_enumeration($allergens_type,$ingredients_lc,$3,$5,$17)/eg;
 			# we may have added an extra dot in order to make sure we have at least one
 			$text =~ s/\.\./\./g;
 		}
