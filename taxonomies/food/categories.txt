@@ -1264,6 +1264,7 @@ ro: Produse apicole, Produse de apicultură, Produse apicultură, Produse de api
 ru: Продукция пчеловодства, Продукты пчеловодства
 tr: Arı ürünleri
 zh: 蜂产品
+incompatible_with:en: categories:en:vegan-products, labels:en:vegan
 wikidata_category:en: Q7189914
 
 < en: Bee products
@@ -44194,7 +44195,7 @@ yi: מילכיגס
 zh: 乳製品, 奶制品
 food_of_animal_origin:en: yes
 google_product_taxonomy_id:en: 428
-incompatible_with:en: categories:en:dairy-substitutes
+incompatible_with:en: categories:en:dairy-substitutes, categories:en:vegan-products, labels:en:vegan
 wikidata:en: Q185217
 
 < en: Dairies
@@ -58450,6 +58451,7 @@ en: Eggs and their products
 fr: Œufs et dérivés
 nl: Eieren en afgeleide producten
 zh: 鸡蛋及其制品
+incompatible_with:en: categories:en:vegan-products, labels:en:vegan
 
 < en: Eggs and their products
 en: Scrambled egg, Egg scrambled with added fat, Scrambled eggs with added fat
@@ -80236,6 +80238,7 @@ sv: Kött och dess produkter, Köttbaserade produkter
 tr: Et ürünleri
 zh: 肉制品
 food_of_animal_origin:en: yes
+incompatible_with:en: categories:en:vegan-products, labels:en:vegetarian
 wikidata:en: Q1427844
 
 < en: Meats and their products
@@ -80623,11 +80626,18 @@ protected_name_type:en: pgi
 wikidata:en: Q1570335
 
 < en: Sausages
-de: Bratwurst
+de: Bratwürste, Bratwurst
+xx: Bratwurst
+en: Bratwursts, Bratwurst sausages
+da: Bratwurster, Bratwurstpølser
+sv: Bratvurstar, Bratwurstar
+plant_alternative:en: en:plant-based-bratwursts
 wikidata:en: Q899882
 
+< de: Bratwürste
 < en: German sausages
 en: Thuringian sausages
+xx: Thüringer Rostbratwurst
 de: Thüringer Rostbratwurst, Original Thüringer Rostbratwürste, Original Thüringer Rostbratwurst
 fr: Thüringer
 hr: Tiringijske kobasice
@@ -80644,6 +80654,7 @@ protected_name_file_number:en: PGI-DE-0224
 protected_name_type:en: pgi
 wikidata:en: Q1170667
 
+< de: Bratwürste
 < en: German sausages
 fr: Saucisses de Nuremberg, Nürnberger Rostbratwürstchen, Nürnberger Bratwürste, petites saucisses de Nuremberg
 bg: Нюрнбергски наденички
@@ -80653,8 +80664,8 @@ protected_name_file_number:en: PGI-DE-0184
 protected_name_type:en: pgi
 wikidata:en: Q11696257
 
-< de: Bratwurst
-de: Curry Bratwurst
+< de: Bratwürste
+de: Curry Bratwürste, Curry Bratwurst
 # This is the naked bratwurst seasonned with curry, not the currywurst full meal
 
 < en: Sausages
@@ -87755,6 +87766,7 @@ en: Salads with meat
 hr: Salate s mesom
 lt: Salotos su mėsa
 pl: Sałatki z mięsem
+incompatible_with:en: categories:en:vegan-products, labels:en:vegetarian
 
 < en: Prepared salads
 en: Salads with fish
@@ -87762,6 +87774,7 @@ hr: Salate s ribom
 lt: Salotos su žuvimi
 nl: Vissalades
 pl: Sałatki z rybami
+incompatible_with:en: categories:en:vegan-products, labels:en:vegetarian
 
 < en: Canned prepared salads
 < en: Salads with meat
@@ -87805,6 +87818,12 @@ agribalyse_food_code:en: 25601
 ciqual_food_code:en: 25601
 ciqual_food_name:en: Prepared mixed tuna and vegetable salad, canned, drained
 ciqual_food_name:fr: Salade de thon et légumes, appertisée, égouttée
+
+< en: Prepared salads
+< en: Vegan meals
+en: Prepared vegan salads, Vegan prepared salads, Vegan salads
+sv: Veganska sallader
+incompatible_with:en: categories:en:salads-with-meat, categories:en:salads-with-fish
 
 #TODO
 
@@ -87871,8 +87890,8 @@ sv: Rödbetssallader
 description:en: Scandinavian-style salad spread with pickled beetroot and mayonnaise.
 wikidata:en: Q141385805
 
+< en: Prepared vegan salads
 < en: Scandinavian beetroot salads
-< en: Vegan products
 en: Vegan Scandinavian beetroot salads
 da: Veganske rødbedesalater
 nb: Veganske rødbetsalater
@@ -94528,6 +94547,7 @@ agribalyse_food_code:en: 30134
 ciqual_food_code:en: 30134
 ciqual_food_name:en: Frankfurter sausage
 ciqual_food_name:fr: Saucisse de Francfort
+plant_alternative:en: en:plant-based-frankfurter-sausages
 
 < en: Frankfurter sausages
 en: Rindswurst, Frankfurter Rindswurst
@@ -107682,6 +107702,7 @@ en: Vegan products
 fr: Produits veganes
 nl: Veganistische producten
 zh: 纯素产品
+incompatible_with:en: categories:en:bee-products, categories:en:dairies, categories:en:eggs-and-their-products, categories:en:meats-and-their-products
 
 < en: Plant-based spreads
 < en: Salted spreads
@@ -122793,7 +122814,7 @@ google_product_taxonomy_id:en: 6843
 gpc_category_code:en: 10005824
 gpc_category_description:en: Definition: Includes all products which can be described/observed as a healthy food alternative to meat vegetable and egg proteins. These products are non animal based and an imitation of meat products, meant to simulate the taste and mouthfeel of real meat but are normally made from a combination of non animal based ingredients. Includes products such as soya, fungus, beans, lentils, peas and chickpeas based products. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes all meat-based products and any other protein rich products such as eggs and pulses that constitute the main recipe ingredients. Also excludes Meat Substitutes - Non Animal based frozen and shelf stable products and Meat Substitutes - Animal based frozen, perishable and shelf stable products.
 gpc_category_name:en: Meat Substitutes - Non Animal Based (Perishable)
-incompatible_with:en: categories:en:meat
+incompatible_with:en: categories:en:meats
 intake24_category_code:en: MTST
 intake24_category_code:fr: MTST
 wikidata:en: Q1343997
@@ -123044,26 +123065,32 @@ en: Vegetarian sausages
 da: Vegetariske pølser
 de: Vegetarische Würste
 es: Salchichas vegetales
-fi: kasvismakkarat
-fr: Saucisses végétariennes, Saucisses végétales, Saucisse végétale
+fi: Kasvismakkarat
+fr: Saucisses végétariennes
 hr: Vegetarijanske kobasice
 it: Salsicce vegetariane
 nl: Vegetarische worstjes
 pl: Kiełbasy wegetariańskie
 sv: Vegetarianska korvar, Vegetariska korvar
-agribalyse_proxy_food_code:en: 20337
-agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
-agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+# Using 25232_2 over 20337/20338 since it has a higher environmental impact score
+agribalyse_proxy_food_code:en: 25232_2
+agribalyse_proxy_food_name:en: Plant-based sausage with wheat or seitan, prepacked
+agribalyse_proxy_food_name:fr: Saucisse végétale au blé ou seitan, préemballé
+ciqual_proxy_food_code:en: 20338
+ciqual_proxy_food_name:en: Plant-based sausage with tofu (not vegan), prepacked
 
 < en: Vegan products
 < en: Vegetarian sausages
 en: Vegan sausages, Plant-based sausages
 da: Plantebaserede pølser, Veganske pølser
+fr: Saucisses végétales, Saucisse végétale
 pl: Kiełbasy wegańskie, Kiełbaski wegańskie
 sv: Växtbaserade korvar, Veganska korvar
 agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+ciqual_proxy_food_code:en: 20337
+ciqual_proxy_food_name:en: Plant-based sausage with tofu (vegan), prepacked
 wikidata:en: Q105523063
 
 < en: Vegetarian sausages
@@ -123074,41 +123101,63 @@ fr: Saucisses végétariennes pour hot-dog, Saucisses végétales pour hot-dog
 hr: Vegetarijanske hrenovke
 nl: Vegetarische worstjes voor hotdogs
 pl: Parówki wegetariańskie
-agribalyse_proxy_food_code:en: 20337
-agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
-agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+agribalyse_proxy_food_code:en: 25232_1
+agribalyse_proxy_food_name:fr: Saucisse hot-dog végétale
+ciqual_proxy_food_code:en: 20338
+ciqual_proxy_food_name:en: Plant-based sausage with tofu (not vegan), prepacked
 wikidata:en: Q181055
 
 < en: Vegan sausages
 < en: Vegetarian hot dog sausages
 en: Vegan hot dog sausages, Vegan hot dog saucages
+da: Plante-baserede hotdog-pølser, Veganske hotdog-pølser
 pl: Parówki wegańskie
-agribalyse_proxy_food_code:en: 20337
-agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
-agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+sv: Växtbaserade varmkorv-korvar
+agribalyse_proxy_food_code:en: 25232_1
+agribalyse_proxy_food_name:fr: Saucisse hot-dog végétale
+ciqual_proxy_food_code:en: 20337
+ciqual_proxy_food_name:en: Plant-based sausage with tofu (vegan), prepacked
 
 < en: Vegetarian sausages
-en: Vegetarian Frankfurt sausages, Vegetarian Frankfurter Würstchen
+en: Vegetarian frankfurter sausages, Vegetarian Frankfurt sausages, Vegetarian Frankfurter Würstchen
+da: Vegetariske frankfurtere
 de: Vegetarische Frankfurter
-es: Salchichas vegetales de tipo Frankfurt
-fr: Saucisses végétariennes de Francfort, Saucisses végétales de Francfort
+fr: Saucisses végétariennes de Francfort
 hr: Vegetarijanske frankfurtske kobasice
 nl: Vegetarische Frankfurterworstjes
 pl: Frankfurterki wegetariańskie
+sv: Vegetarianska frankfurter-korvar, Vegetariska frankfurter-korvar
+
+< en: Vegan sausages
+< en: Vegetarian frankfurter sausages
+en: Plant-based frankfurter sausages, Vegan Frankfurt sausages, Vegan Frankfurter Würstchen
+da: Plantebaserede frankfurtere, Veganske frankfurtere
+de: Veganes Frankfurter
+es: Salchichas vegetales de tipo Frankfurt, Salchichas veganos de tipo Frankfurt
+fr: Saucisses végétales de Francfort
+hr: Veganski frankfurtske kobasice
+nl: Veganistische Frankfurterworstjes
+pl: Frankfurterki wegańskie
+sv: Växtbaserade frankfurter-korvar, Veganska frankfurter-korvar
 agribalyse_proxy_food_code:en: 20337
 agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+ciqual_proxy_food_code:en: 20337
+ciqual_proxy_food_name:en: Plant-based sausage with tofu (vegan), prepacked
 
 < en: Vegetarian sausages
 en: Vegetarian Vienna sausages
-de: Vegetaische Fleische, Fleischersatz
+de: Vegetarische Fleische, Fleischersatz
 es: Salchichas vegetales de tipo Viena
 fr: Saucisses végétariennes de Vienne, saucisses végétales de Vienne
 hr: Vegetarijanske bečke kobasice
 nl: Vegetarische weense worstjes
-agribalyse_proxy_food_code:en: 20337
-agribalyse_proxy_food_name:en: Plant-based sausage with tofu (vegan)
-agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+
+< en: Vegan sausages
+en: Plant-based bratwursts, Vegan bratwurst sausages
+da: Plantebaserede bratwurster, Veganske bratwurstpølser
+de: Veganes Bratwürste
+sv: Växtbaserade bratvurstar, Veganska bratwurstar
 
 < en: Vegan sausages
 en: Plant-based cabanossi-style sausages, Vegan cabanossi
@@ -123131,15 +123180,27 @@ da: Plantebaserede grillpølser, Veganske grillpølser
 sv: Växtbaserade grillkorvar, Veganska grillkorvar
 #wikidata:en: Q10508801 - non-vegan variant
 
-< en: Vegan sausages
 < en: Vegetarian sausages
-en: Vegan sausages from tofu, Vegetarian sausages from tofu, Plant-based sausage with tofu (vegan)
-fr: Saucisses végétariennes de tofu, Saucisse végétale au tofu (convient aux véganes ou végétaliens) préemballée
+en: Vegetarian sausages from tofu, Plant-based sausage with tofu (not vegan)
+da: Vegetariske tofupølser, Vegetariske pølser på tofu
+fr: Saucisses végétariennes de tofu
 hr: Vegetarijanske kobasice od tofua
 pl: Kiełbasy z tofu, Kiełbaski z tofu
+sv: Vegetarianska korvar på tofu
+agribalyse_proxy_food_code:en: 20337
+agribalyse_proxy_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+ciqual_food_code:en: 20338
+ciqual_food_name:en: Plant-based sausage with tofu (not vegan), prepacked
+
+< en: Vegan sausages
+< en: Vegetarian sausages from tofu
+en: Vegan sausages from tofu, Plant-based sausage with tofu (vegan)
+da: Plantebaserede tofupølser, Veganske pølser på tofu
+fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens) préemballée
+sv: Växtbaserade tofukorvar, Veganska korvar på tofu
 agribalyse_food_code:en: 20337
 ciqual_food_code:en: 20337
-ciqual_food_name:en: Plant-based sausage with tofu (vegan)
+ciqual_food_name:en: Plant-based sausage with tofu (vegan), prepacked
 ciqual_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 
 #Meat and fish categories are separated while Fish analogues is under meat analogue. This difference is intended, since fishes are animals and therefore considered as meat by vegetarians
