@@ -1098,7 +1098,7 @@ vegetarian:en: yes
 # comment:en:Should this be kept separate from lactic ferments?
 
 < en: ferment
-en: microbial culture, culture, active cultures, live cultures, starter culture, bacteria culture, bacterial culture, live bacteria culture, live bacterial culture
+en: microbial culture, culture, active cultures, live cultures, starter culture, bacteria culture, bacterial culture, live bacteria culture, live bacterial culture, bacterial cultures, bacteria cultures
 bg: микробна култура, живи култури
 ca: Cultiu microbiològic
 cs: Mikrobiální kultura, startovací kultura
@@ -1128,7 +1128,7 @@ en: lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cul
 bg: Млечни ферментации, млечна закваска, млечни закваски, млечни култури, закваски за кисело мляко, закваска за кисело мляко, млечни ферменти
 ca: Ferments làctics
 cs: bakterie mléčného kvašení, mléčné ferminty
-da: yoghurtkultur, starterkultur, mælkesyrekultur, ostekulturer
+da: yoghurtkultur, starterkultur, mælkesyrekultur, mælkesyrekulturer, ostekulturer
 de: Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, lebende Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen, Milchfermente
 el: γαλακτικά ένζυμα
 es: fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
@@ -4414,7 +4414,7 @@ it: filtrato di siero di latte in polvere
 nl: weifiltraatpoeder
 
 < en: whey
-en: Demineralised whey
+en: Demineralised whey, demineralized whey, demineralized whey powder
 ca: sèrum de la llet desmineralitzat
 de: entsalzte Molke
 es: suero de la leche desmineralizado, lactosuero desmineralizado
@@ -15368,7 +15368,7 @@ it: grasso di semi di cotone
 from_palm_oil:en: no
 
 < en: vegetable oil
-en: cottonseed oil, cotton seed oil, cottonseed vegetable oil
+en: cottonseed oil, cotton seed oil, cottonseed vegetable oil, cottonseed vegetable oils
 ar: زيت بذرة القطن
 az: Pambıq yağı
 be: Баваўняны алей
@@ -22808,7 +22808,7 @@ ro: aromă de brânză
 sv: ostsmak
 
 < en: cheese flavouring
-en: cheddar flavouring, cheddar flavour
+en: cheddar flavouring, cheddar flavour, cheddar flavor
 de: Cheddar Aroma
 fr: arôme de cheddar
 sv: cheddararom, cheddar aromer
@@ -34619,7 +34619,7 @@ da: raps- og majsprotein
 pt: proteína de colza e milho
 sv: raps- och majsprotein
 
-en: protein crisp
+en: protein crisp, protein crisps
 sv: proteincrisp
 vegan:en: maybe
 vegetarian:en: maybe
@@ -39417,7 +39417,7 @@ it: pesca bianca
 # ingredient/white-peach 48 products in 6 languages @2021-08-19
 
 < en: peach
-en: yellow peach
+en: yellow peach, yellow peaches
 usda_fdc_code:en: 169928, 325430
 usda_ndb_code:en: 9236
 usda_ndb_name:en: Peaches, yellow, raw
@@ -39774,7 +39774,7 @@ ciqual_proxy_food_name:en: Pear, var. Conférence, flesh without skin, raw
 wikidata:en: Q747247
 
 < en: pear
-en: Williams' bon chrétien pear, Williams pear, Bartlett pear
+en: Williams' bon chrétien pear, Williams pear, Bartlett pear, bartlett pears
 xx: Williams' bon chrétien
 bg: Вилямова масловка
 cs: Williamsova
@@ -48725,7 +48725,7 @@ wikidata:en: Q13186
 wikipedia:en: https://en.wikipedia.org/wiki/Raisin
 
 < en: raisin
-en: seedless raisin
+en: seedless raisin, seedless raisins
 usda_ndb_proxy_code:en: 9298
 usda_ndb_proxy_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
 
@@ -48803,7 +48803,7 @@ wikidata:en: Q1898118
 wikipedia:en: https://en.wikipedia.org/wiki/Sultana_(grape)
 
 < en: raisin
-en: golden raisin
+en: golden raisin, golden raisins
 usda_ndb_proxy_code:en: 9297
 usda_ndb_proxy_name:en: Raisins, golden, seedless
 
@@ -48816,7 +48816,7 @@ usda_ndb_name:en: Raisins, golden, seedless
 
 < en: seedless golden raisin
 < en: sultana
-en: sultana raisin, Raisin Thompson Seedless
+en: sultana raisin, Raisin Thompson Seedless, sultana raisins
 fr: raisins secs sultanines
 pl: rodzynki thompson jumbo
 sv: sultanrussin, Sultan-russin, Thompson-russin
@@ -54620,7 +54620,7 @@ usda_ndb_code:en: 11739
 usda_ndb_name:en: Broccoli, leaves, raw
 
 < en: broccoli
-en: broccoli stalks
+en: broccoli stalks, broccoli stalk
 usda_fdc_code:en: 169331
 usda_ndb_code:en: 11741
 usda_ndb_name:en: Broccoli, stalks, raw
@@ -55457,7 +55457,7 @@ usda_ndb_code:en: 11292
 usda_ndb_name:en: Onions, young green, tops only
 
 < en: onion
-en: sweet onion
+en: sweet onion, sweet onions
 comment:en: NDB number 11294 used as a general "sweet onion" category — it's also commonly cited as the stand-in nutrition data for Vidalia onions specifically, since Vidalia is considered a brand/regional name rather than a distinct variety with its own USDA entry.
 usda_fdc_code:en: 170008
 usda_ndb_code:en: 11294
@@ -55505,7 +55505,7 @@ usda_ndb_name:en: Onions, dehydrated flakes
 #category/onion-powder
 #processing:en: en:powder
 < en: onion
-en: onion powder, granulated onion, dried minced onion
+en: onion powder, granulated onion, dried minced onion, onion powders
 bg: лук на прах
 ca: ceba en pols
 cs: sušená cibule
@@ -56071,7 +56071,7 @@ pl: pasta czosnkowa
 
 #en:processing:en:powder removed due to specific nutritional data
 < en: garlic
-en: garlic powder
+en: garlic powder, garlic powders
 bs: bijeli luk u prahu
 ca: all en pols
 cs: česnekový prášek
@@ -57204,7 +57204,7 @@ ciqual_food_name:fr: Taro, tubercule, cru
 wikidata:en: Q1771944
 
 < en: root vegetable
-en: turnip green
+en: turnip green, turnip greens
 usda_fdc_2_code:en: 170468
 usda_fdc_code:en: 170061
 usda_ndb_2_code:en: 11574
@@ -59823,7 +59823,7 @@ sv: röd och gul paprika
 
 # category/chili-peppers
 < en: fruit vegetable
-en: chili pepper, chilli pepper, chilli, chillies, chile, chile pepper
+en: chili pepper, chilli pepper, chilli, chillies, chile, chile pepper, chilies
 ar: فلفل حار
 be: чырвоны перац
 bg: Люта чушка, люти пиперки, лютиви пиперки, чили, люти чушлета
@@ -59989,7 +59989,7 @@ sv: chilipasta
 #pl:płatki chili, chili grys
 
 < en: chili pepper
-en: ancho peppers
+en: ancho peppers, ancho pepper
 description:en: Ancho peppers are the dried form of the poblano pepper. Sweet and fruity with notes of raisin, dried plum, and a mild smokiness — sometimes with a hint of coffee or tobacco. It's considered one of the more complex, dessert-like tasting dried chiles.
 scoville:en: 1,000–2,000
 usda_fdc_code:en: 169396
@@ -59998,7 +59998,7 @@ usda_ndb_name:en: Peppers, ancho, dried
 usda_ndb_processe:en: en:dried
 
 < en: chili pepper
-en: banana pepper
+en: banana pepper, banana peppers
 description:en: Banana peppers are a mild, tangy pepper named for their curved, elongated shape and pale yellow color — closely resembling a banana. Tangy and slightly sweet with a mild vinegary bite, especially when pickled — very different from the "grassy" heat of a jalapeño.
 scoville:en: 0–500
 usda_fdc_code:en: 169394
@@ -60014,7 +60014,7 @@ usda_ndb_code:en: 11981
 usda_ndb_name:en: Peppers, hungarian, raw
 
 < en: chili pepper
-en: serrano peppers
+en: serrano peppers, serrano pepper
 description:en: Serrano peppers are a type of chili pepper originating from the mountainous regions of Puebla and Hidalgo in Mexico. They have a bright, crisp, and grassy with a clean heat — often described as sharper and more straightforward than jalapeño.
 scoville:en: 10,000–25,000
 usda_fdc_code:en: 169395
@@ -60048,7 +60048,7 @@ it: peperoncino conservato
 
 #these are chili peppers that are red
 < en: chili pepper
-en: red chili pepper, red chili, red chilli pepper, red chilli, red chillies, red chile, red chile pepper
+en: red chili pepper, red chili, red chilli pepper, red chilli, red chillies, red chile, red chile pepper, red chilies
 bg: червени люти чушки, чили чушки
 da: rød chili
 de: roter Chili, rote Chili-Schoten
@@ -60089,7 +60089,7 @@ nl: rode peper zaad olie
 pl: olej z nasion czerwonej papryki
 
 < en: chili pepper
-en: green chili pepper, green chili, green chilli pepper, green chilli, green chillies, green chile, green chile pepper
+en: green chili pepper, green chili, green chilli pepper, green chilli, green chillies, green chile, green chile pepper, green chilies
 bg: зелени люти чушки
 da: grøn chili
 de: grüne Chili
@@ -60550,7 +60550,7 @@ eurocode_2_group_2:en: 8.40
 ###################################################################################################
 
 < en: fruit vegetable
-en: tomatillo
+en: tomatillo, tomatillos
 description:en: Tomatillos are small, round fruits (botanically fruits, culinarily treated as vegetables) that look like little green tomatoes wrapped in a papery husk. They're a staple in Mexican cooking, especially for salsa verde. Tart, tangy, and slightly citrusy — quite different from a regular tomato. Raw ones are firm and sour; cooking mellows and sweetens them a bit.
 usda_fdc_code:en: 168566
 usda_ndb_code:en: 11954
@@ -68092,7 +68092,7 @@ wikidata:en: Q744814
 ###################################################################################################
 
 < en: pepper
-en: green pepper, green peppercorns
+en: green pepper, green peppercorns, green peppercorn
 bg: зелен пипер
 de: grüner Pfeffer
 es: pimienta verde
@@ -78603,7 +78603,7 @@ usda_ndb_process:en: en:dried
 # description:en:PHOLIOTA is a genus of small to medium-sized, fleshy mushrooms in the family Strophariaceae.
 
 < en: mushroom
-en: maitake mushroom
+en: maitake mushroom, maitake mushrooms
 la: Grifola frondosa
 description:en: Maitake mushrooms (Grifola frondosa) are a type of edible mushroom native to Japan, China, and North America, where they grow wild at the base of oak, maple, and elm trees. Earthy, rich, and savory, often described as woodsy with a slightly peppery note. They have a nice meaty texture when cooked, similar to other polypore mushrooms. Popular in Japanese and other Asian cuisines — sautéed, roasted, added to soups, stir-fries, or used in broths. Their frilly texture crisps up nicely when roasted or pan-fried.
 usda_fdc_code:en: 169403
@@ -89174,7 +89174,7 @@ wikidata:en: Q1365891
 #< en: compound
 < en: baby cucumber
 < en: pickled cucumber
-en: pickled gherkin, pickle
+en: pickled gherkin, pickle, pickles
 bg: корнишон, кисела краставичка, кисели краставички, краставички, корнишони
 da: cornichon
 de: Cornichons
@@ -92228,7 +92228,7 @@ fr: purée et purée concentrée
 # description:en:FIBER is a natural or synthetic substance that is significantly longer than it is wide.
 
 # <en:vegetable part
-en: fiber, fibre, dietary fibre
+en: fiber, fibre, dietary fibre, dietary fiber, dietary fibers
 af: Vesel
 ar: ألياف النسيج
 ba: Сүстәр
@@ -92344,7 +92344,7 @@ pt: fibra de cana-de-açúcar
 sv: sockerrörsfiber, sockerrörfiber
 
 < en: fiber
-en: betaglucan, β-glucane
+en: betaglucan, β-glucane, beta glucan
 da: beta-glucan
 de: Beta-Glucane, β-Glucane
 es: beta glucano, β-glucano
