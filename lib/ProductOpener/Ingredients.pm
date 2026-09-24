@@ -1068,7 +1068,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ca => "(?:origen)",
 		cs => "(?:země původu)",
 		da => "(?:oprindelse)",
-		de => "(?:ursprungsland)?|herkunftsland)?)",
+		de => "(?:ursprungsland|herkunftsland)",
 		el => "(?:χώρα προέλευσης|προέλευση)",
 		es => "(?:origen)",
 		et => "(?:päritolu(?:riik)?)",
