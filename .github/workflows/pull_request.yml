@@ -923,6 +923,7 @@ jobs:
           BUILD_BACKEND_RESULT: ${{ needs.build_backend.result }}
           BUILD_FRONTEND_RESULT: ${{ needs.build_frontend.result }}
           CHECK_PERL_RESULT: ${{ needs.check_perl.result }}
+          # those two aggregate results from all tests groups
           UNIT_TESTS_RESULT: ${{ needs.unit_tests.result }}
           INTEGRATION_TESTS_RESULT: ${{ needs.integration_tests.result }}
           TESTS_DEV_RESULT: ${{ needs.tests_dev.result }}
