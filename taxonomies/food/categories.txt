@@ -89216,7 +89216,7 @@ ciqual_food_name:fr: Boeuf, entrecôte, partie maigre, grillée/poêlée
 < en: Beef
 en: Beef ribs
 bg: Говежди ребра
-fr: Côtes de boeuf
+fr: Côtes de boeuf, Côtes à l'os, Côte à l'os
 hr: Goveđa rebra
 lt: Jautienos šonkauliukai
 agribalyse_food_code:en: 6001
@@ -90715,6 +90715,10 @@ agribalyse_food_code:en: 8373
 ciqual_food_code:en: 8373
 ciqual_food_name:en: Rolled escalope of pork with pistachios
 
+< en: Meat preparations
+en: Assortments of meat roulades, Assortment of meat roulades
+fr: Assortiments de roulades, Assortiment de roulades
+
 #fr:Roulade au jambon pistachée
 
 < en: Meat preparations
@@ -91182,6 +91186,10 @@ fr: filet mignon de porc
 agribalyse_food_code:en: 28204
 ciqual_food_code:en: 28204
 ciqual_food_name:en: Pork filet mignon, raw
+
+< en: Pork filet mignon
+en: Smoked pork filet mignon
+fr: Filets mignons de porc fumés, Filet mignon de porc fumé
 
 < en: Pork
 en: Pork 90/10 trimming
@@ -93508,7 +93516,7 @@ nl: Witte hammen met minder zout
 < en: White hams
 en: White smoked hams
 fi: kypsät savustetut kinkut
-fr: Jambons blancs fumés, jambons cuits fumés, Jambon blanc fumé, jambon cuit fumé
+fr: Jambons blancs fumés, jambons cuits fumés, Jambons fumés, Jambon blanc fumé, jambon cuit fumé, jambon fumé
 hr: Bijele dimljene šunke
 hu: Fehér füstölt sonka
 nl: gerookte gekookte ham
@@ -93556,10 +93564,15 @@ fr: Jambon persillé de Bourgogne
 
 < en: White hams
 en: Cooked ham of superior quality
-fr: Jambon cuit supérieur
+fr: Jambon cuit supérieur, Jambon supérieur
 agribalyse_food_code:en: 28900
 ciqual_food_code:en: 28900
 ciqual_food_name:en: Cooked ham, superior quality
+
+< en: Cooked ham of superior quality
+< en: White smoked hams
+en: Smoked cooked ham of superior quality
+fr: Jambons cuits supérieurs fumés, Jambon cuit supérieur fumé, Jambon supérieur fumé
 
 < en: Cooked ham of superior quality
 en: Cooked ham with rind of superior quality
@@ -95724,7 +95737,7 @@ ciqual_food_name:en: Sausage from Paris, smoked
 en: Garlic sausage
 de: Knoblauchwurst
 es: Salchicha de ajo
-fr: Saucissons à l’ail, saucisson à l’ail
+fr: Saucissons à l’ail, Saucissons cuits à l'ail, saucisson à l’ail, saucisson cuit à l'ail
 hr: Češnjak kobasica
 it: Salsiccia all'aglio
 nl: Knoflookworstjes
@@ -95747,6 +95760,11 @@ agribalyse_food_code:en: 30701
 ciqual_food_code:en: 30701
 ciqual_food_name:en: Cooked sausage, pure pork
 ciqual_food_name:fr: Saucisson cuit pur porc
+
+< en: Garlic sausage
+< fr: Saucissons cuits
+en: Cooked sausage with smoked garlic
+fr: Saucissons cuits à l'ail fumé, saucisson cuit à l'ail fumé
 
 < en: Cured sausages
 en: Dry sausages
@@ -96988,7 +97006,7 @@ ciqual_food_name:fr: Veau, noix, rôtie
 
 < en: Veal meat
 en: Veal escalopes
-fr: Escalopes de veau
+fr: Escalopes de veau, Escalope de veau
 agribalyse_food_code:en: 6521
 ciqual_food_code:en: 6521
 ciqual_food_name:en: Veal, escalope, raw
@@ -97006,7 +97024,7 @@ ciqual_food_name:fr: Veau, escalope, cuite
 < en: Veal meat
 en: Veal fillets
 bg: Телешко филе
-fr: Filets de veau
+fr: Filets de veau, Filet de veau
 hr: Teleći fileti
 agribalyse_food_code:en: 6530
 ciqual_food_code:en: 6530
@@ -103239,6 +103257,11 @@ ciqual_food_code:en: 26194
 ciqual_food_name:en: Blue ling, raw
 ciqual_food_name:fr: Lingue bleue ou Lingue, crue
 
+< en: Blue ling
+< en: Fish fillets
+en: Blue ling fillets, Blue ling fillet
+fr: Filets de lingue bleue, Filet de lingue bleue
+
 < en: Fishes
 en: Common dentex
 fr: Denté
@@ -104981,7 +105004,7 @@ fr: Filets de cabillaud panés
 
 < en: Fish fillets
 en: Whiting fillets
-fr: Filets de merlan
+fr: Filets de merlan, Filet de merlan
 hr: Fileti belanaca
 nl: Wijtingfilets
 
@@ -105241,7 +105264,7 @@ ciqual_food_name:fr: Saumon, élevage, rôti/cuit au four
 < en: Salmons
 en: Salmon steaks
 de: Lachssteaks
-fr: Pavés de saumon
+fr: Pavés de saumon, Pavé de saumon
 hr: Odresci lososa
 
 < en: Fish fillets
@@ -105349,6 +105372,11 @@ ciqual_food_name:en: Haddock, raw
 ciqual_food_name:fr: Églefin, cru
 cooking_method:en: en:raw
 wikidata:en: Q202406
+
+< en: Fish fillets
+< en: Haddock
+en: Haddock fillets, Haddock fillet
+fr: Filets d'églefin, Filet d'églefin
 
 < en: Haddock
 en: Grilled haddock, Pan-fried haddock
@@ -106291,6 +106319,11 @@ hr: Bas
 ja: バス
 nl: Baars
 wikidata:en: Q1224135
+
+< en: Bass
+< en: Fish fillets
+en: Bass fillets, Bass fillet
+fr: Filets de bar, Filet de bar
 
 < en: Bass
 en: American bass
@@ -107349,6 +107382,10 @@ agribalyse_food_code:en: 10001
 ciqual_food_code:en: 10001
 ciqual_food_name:en: Squid, raw
 ciqual_food_name:fr: Calmar ou calamar ou encornet, cru
+
+< en: Squid
+en: Squid rings, Squid ring
+fr: Anneaux d'encornets, Anneaux de calamars, Anneau d'encornet, Anneau de calamar
 
 < en: Mollusc
 en: Squid boiled in water, Squid cooked in water
@@ -126778,4 +126815,3 @@ zh: 全杜兰小麦螺旋意面
 en: Semi whole durum wheat spirals
 fr: Spirales de blé dur semi-complet
 zh: 半杜兰小麦螺旋意面
-
