@@ -32464,7 +32464,7 @@ sl: Glukoza
 sq: Glukoza
 sr: Глукоза
 su: Glukosa
-sv: Glukos
+sv: glukos, glykos
 sw: Glukosi
 ta: குளுக்கோசு
 te: గ్లూకోస్
@@ -32536,7 +32536,7 @@ ru: Сироп глюкозы, глюкозный сироп, патока кр�
 sk: glukózový sirup
 sq: shurup glukoze
 sr: glukozni sirup
-sv: glukossirap, stärkelsesirap, glukos-sirap
+sv: glukossirap, stärkelsesirap, glukos-sirap, glykossirap
 tr: glikoz şurubu, glukoz şurubu, glükoz şurubu
 # ast:Almíbar
 ciqual_proxy_food_code:en: 31016
@@ -50239,17 +50239,24 @@ it: mix di verdure
 pl: mieszanka warzyw, mieszanka warzywna
 ru: овощи
 sv: grönsaksblandning, grönsaksmix
-# usage:en:vegetable blend (carrot, onion, parsley)
+
+< en: vegetable blend
+en: julienne mix
+sv: juliennemix
+description:en: A mix of julienne cut vegetables.
 
 < en: vegetable
+en: dried vegetable
 fr: légume déshydraté, légumes déshydratés, légumes séchés
 fi: kuivatut vihannekset, kuivatut kasvikset
 sv: torkade grönsaker
 
 < en: vegetable
+en: green vegetable
 fr: légumes verts
 
 < en: vegetable fiber
+en: fiber from vegetables
 fr: fibres de légume
 fi: kasviskuitu
 
@@ -52321,15 +52328,20 @@ usda_fdc_code:en: 169389
 usda_ndb_code:en: 11965
 usda_ndb_name:en: Cauliflower, green, raw
 
-# description:en:POINTED CABBAGE (Brassica oleracea var. capitata f. acuta), also known as cone, sweetheart, hispi or sugarloaf cabbage is a form of cabbage (Brassica oleracea) with a tapering shape and large delicate leaves varying in colour from yellowish to blue-green. It tastes less pronounced and more delicate than common white cabbage (Brassica oleracea var. capitata f. alba).
-
 < en: brassica
 en: pointed cabbage
 da: spidskål
 de: Spitzkohl
+la: Brassica oleracea var. capitata f. acuta
 sv: spetskål
+description:en: POINTED CABBAGE, also known as cone, sweetheart, hispi or sugarloaf cabbage is a form of cabbage (Brassica oleracea) with a tapering shape and large delicate leaves varying in colour from yellowish to blue-green. It tastes less pronounced and more delicate than common white cabbage (Brassica oleracea var. capitata f. alba).
 wikidata:en: Q7225623
 wikipedia:en: https://en.wikipedia.org/wiki/Pointed_cabbage
+
+< en: pointed cabbage
+en: red pointed cabbage
+da: rød spidskål
+sv: röd spetskål
 
 # description:en:CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
 
@@ -59514,15 +59526,20 @@ fr: feuille de chene verte
 fr: feuille de chene rouge
 
 < en: salad
+en: salad mix
 fr: mélange de salades, salade mélangée
 de: Mischsalat
 it: Insalata mista
 sv: salladsmix
-# Salade mélangée (laitue, chicorée et roquette)
-# Mélange de salade  (scarole, frisée, chicorée rouge, roquette)
+wikidata:en: Q115618686
 
-< fr: mélange de salades
+< en: salad mix
+en: green and red salad mix
 fr: salade mélangée verte et rouge
+
+< en: salad mix
+en: pointed cabbage mix
+sv: spetskålsmix
 
 #< en: compound
 < en: salad
@@ -94359,9 +94376,12 @@ sv: fullkornsrågbröd
 # usage:fi:täysjyväruisleipä [täysjyväruisjauho, -rouhe ja ruislese, vesi, vehnäjauho, vehnägluteeni, hiiva, jodioitu merisuola, ruismallas, RUISMALLASUUTE]
 # mainIngredient:en:wholemeal rye flour
 
-# description:en:PITA or pitta (British English), is a family of yeast-leavened round flatbreads baked from wheat flour, common in the Mediterranean, Middle East, and neighboring areas.
-
 < en: bread
+en: flatbread
+sv: tunnbröd
+wikidata:en: Q666242
+
+< en: flatbread
 en: pita, pitta, pita bread, pitta bread
 az: pita
 be: піта
@@ -94410,18 +94430,18 @@ zh: 皮塔饼
 # zh_yue:比得包
 ciqual_food_code:en: 7180
 ciqual_food_name:en: Pita bread
+description:en: PITA or pitta (British English), is a family of yeast-leavened round flatbreads baked from wheat flour, common in the Mediterranean, Middle East, and neighboring areas.
 wikidata:en: Q211340
 wikipedia:en: https://en.wikipedia.org/wiki/Pita
 
-# description:en:A tortilla is a type of thin flatbread, typically made from nixtamalized corn or wheat flour.
-
-< en: bread
+< en: flatbread
 en: tortilla, tortilla wrap
 xx: tortilla
 bg: тортиля
 de: Tortilla, Tortilla Wrap, Tortilla Wraps
 hr: tortilja
 pl: tortilla, tortilli, tortille
+description:en: A tortilla is a type of thin flatbread, typically made from nixtamalized corn or wheat flour.
 wikidata:en: Q55642411
 wikipedia:en: https://en.wikipedia.org/wiki/Tortilla
 
@@ -97282,6 +97302,44 @@ fr: sauce au vinaigre balsamique
 
 < en: sauce
 fr: sauce aux fruits rouges
+
+< en: sauce
+en: aioli
+xx: aioli
+bg: аиоли
+bn: আইওলি
+ca: allioli
+eo: ajlolea saŭco
+es: alioli
+eu: alioli
+fa: آیولی
+fi: aiolikastike
+fr: aïoli
+gl: alioli
+hi: एओली
+hu: aioli szósz
+hy: աիոլի
+io: alioleo
+ja: アイオリソース
+ko: 아욜리
+ml: ഏയോളി
+oc: alhòli
+or: ଏଇଓଲି
+os: айоли
+pa: ਏਓਲੀ
+pl: ailloli
+ro: allioli
+ru: айоли
+ta: ஐயோலி
+th: อัลยอลี
+tl: allioli
+uk: айолі
+uz: ayoli
+wikidata:en: Q283231
+
+< en: aioli
+en: lime aioli
+sv: limeaioli
 
 < en: sauce
 en: curry sauce
