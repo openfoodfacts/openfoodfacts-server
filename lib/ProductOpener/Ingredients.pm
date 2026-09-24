@@ -824,8 +824,18 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 
 					(defined $ingredient_content)
 					# optional minimum, followed by ingredient, content, : and/or spaces, percent or quantity, optional per 100g, separator
-					and ($text
-						=~ /((?:^|;|,|\.| - )\s*)(?:(?:$minimum_or_total) )?\s*([^,.;]+?)\s*(?:$ingredient_content)(?::|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					and (
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)(?:(?:'
+								. $minimum_or_total
+								. ') )?\s*([^,.;]+?)\s*(?:'
+								. $ingredient_content
+								. ')(?::|\s)+'
+								. $percent_or_quantity_regexp
+								. '\s*(?:'
+								. $per_100g_regexp
+								. ')?(?:;|,|\.| - |$)'
+						)
 					)
 
 				)
@@ -835,8 +845,17 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 					(defined $content_of_ingredient)
 					and (
 						# content, of or : or space, ingredient, percent or quantity, optional per 100g, separator
-						$text
-						=~ /((?:^|;|,|\.| - )\s*)(?:$content_of_ingredient)(?:$of|\s|:)+([^,.;]+?)(?:$of|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)(?:'
+								. $content_of_ingredient . ')(?:'
+								. $of
+								. '|\s|:)+([^,.;]+?)(?:'
+								. $of . '|\s)+'
+								. $percent_or_quantity_regexp
+								. '\s*(?:'
+								. $per_100g_regexp
+								. ')?(?:;|,|\.| - |$)'
+						)
 					)
 				)
 
@@ -884,17 +903,32 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				# prepared with, percent, ingredient, optional per 100g, separator
 				# $of needs to be first in (?:$of|\s|:) so that " of " is matched by it, instead of the ingredient capturing group
 				(
-						(defined $prepared_with)
-					and ($prepared_with ne "")
-					and ($text
-						=~ /((?:^|;|,|\.| - )\s*)$prepared_with(?:$of|\s|:)+$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					(defined $prepared_with) and ($prepared_with ne "")
+					and (
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)'
+								. $prepared_with . '(?:'
+								. $of
+								. '|\s|:)+'
+								. $percent_or_quantity_regexp . '(?:'
+								. $of
+								. '|\s|:)+\s*([^,.;]+?)\s*(?:'
+								. $per_100g_regexp
+								. ')?(?:;|,|\.| - |$)'
+						)
 					)
 				)
 				or
 				# percent, ingredient, per 100g, separator
 				(
-					$text
-					=~ /((?:^|;|,|\.| - )\s*)$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)(?:;|,|\.| - |$)/i
+					$text =~ compiled_regexp(
+							  '((?:^|;|,|\.| - )\s*)'
+							. $percent_or_quantity_regexp . '(?:'
+							. $of
+							. '|\s|:)+\s*([^,.;]+?)\s*(?:'
+							. $per_100g_regexp
+							. ')(?:;|,|\.| - |$)'
+					)
 				)
 			)
 			)
@@ -1110,8 +1144,18 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 	# Origin of the milk: United Kingdom.
 	if (
 		$origins_regexp
-		and ($$text_ref
-			=~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i
+		and (
+			$$text_ref =~ compiled_regexp(
+					  '\s*'
+					. $origin_of_the_regexp
+					. '([^,.;:]+)(?::| )+((?:'
+					. $origins_regexp
+					. ')(?:(?:,|'
+					. $and_or
+					. ')(?:\s?)(?:'
+					. $origins_regexp
+					. '))*)\s*(?:,|;|\.| - |$)'
+			)
 		)
 		)
 	{
@@ -2461,7 +2505,7 @@ Text to analyze
 						#$debug_ingredients and $log->trace("checking labels regexps",
 						#	{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
 						#	if $log->is_trace();
-						if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
+						if ((defined $regexp) and ($ingredient =~ compiled_regexp('\b(' . $regexp . ')\b'))) {
 
 							my $label = $1;
 
@@ -2935,7 +2979,7 @@ Text to analyze
 						);
 						if (defined $ignore_regexps{$ingredients_lc}) {
 							foreach my $regexp (@{$ignore_regexps{$ingredients_lc}}) {
-								if ($ingredient =~ /$regexp/i) {
+								if ($ingredient =~ compiled_regexp($regexp)) {
 
 									$debug_ingredients and $log->debug(
 										"unknown ingredient matches a phrase to ignore",
@@ -7312,8 +7356,16 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# vitamines (B1, acide folique (B9)) <-- we need to match (B9) which is not followed by a \b boundary, hence the ((\s?((\)|\]))|\b)) in the regexp below
 
-	$text
-		=~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and)+)+($vitaminssuffixregexp))((\s?((\)|\]))|\b))/normalize_vitamins_enumeration($ingredients_lc,$3)/ieg;
+	my $vitamins_regexp
+		= compiled_regexp('('
+			. $vitaminsprefixregexp
+			. ')(:|\(|\[| )+((('
+			. $vitaminssuffixregexp
+			. ')( |\/| \/ | - |,|, |'
+			. $and . ')+)+('
+			. $vitaminssuffixregexp
+			. '))((\s?((\)|\]))|\b))');
+	$text =~ s/$vitamins_regexp/normalize_vitamins_enumeration($ingredients_lc,$3)/eg;
 
 	# Allergens and traces
 	# Traces de lait, d'oeufs et de soja.
