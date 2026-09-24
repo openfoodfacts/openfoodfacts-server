@@ -3710,6 +3710,25 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 		}
 	}
 
+	# EU feed additive code (Regulation 1831/2003) + name, or name + code: "3a672a vitamine A", "vitamine E 3a700"
+	# keep the entry of the code if the name is the same entry or one of its parents
+	my ($feed_code, $feed_code_name);
+	if ($tagid =~ /^(\d[a-e]\d{3}[a-z]*)-(.+)$/) {
+		($feed_code, $feed_code_name) = ($1, $2);
+	}
+	elsif ($tagid =~ /^(.+)-(\d[a-e]\d{3}[a-z]*)$/) {
+		($feed_code_name, $feed_code) = ($1, $2);
+	}
+	if (defined $feed_code) {
+		my $feed_code_exists = 0;
+		my $feed_code_id = canonicalize_taxonomy_tag($tag_lc, $tagtype, $feed_code, \$feed_code_exists);
+		my $name_id = canonicalize_taxonomy_tag($tag_lc, $tagtype, $feed_code_name);
+		if ($feed_code_exists and is_a($taxonomy, $feed_code_id, $name_id)) {
+			$$exists_in_taxonomy_ref = 1 if defined $exists_in_taxonomy_ref;
+			return $feed_code_id;
+		}
+	}
+
 	my $found = 0;
 
 	if (    (defined $synonyms{$taxonomy})
