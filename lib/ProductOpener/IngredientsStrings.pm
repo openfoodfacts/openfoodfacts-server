@@ -79,6 +79,7 @@ BEGIN {
 		&convert_text_value_to_number
 
 		%percent_or_quantity_regexps
+		%quantity_with_unit_regexps
 
 		&init_percent_or_quantity_regexps
 		&protect_compound_unit_slashes
@@ -555,6 +556,7 @@ sub init_units_regexps() {
 }
 
 %percent_or_quantity_regexps = ();
+%quantity_with_unit_regexps = ();
 
 # Overlay for compound / activity units (mg/kg, IU/kg, UFC/g, U.I, I.E).
 # Simple mass/volume units come from taxonomies/units.txt via init_units_regexps.
@@ -705,6 +707,18 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		my $decimal_sep = '(?:\,|\.|\N{U+201A})';
 		# A protected decimal comma needs a unit; otherwise "0,1,2" is parsed as unitless quantities.
 		my $number = '(?:\d+(?:[,.]\d+)?|\d+\N{U+201A}\d+(?=\s*(?:' . $units_except_percent . '|\%)))';
+		# Non-capturing, with a required unit, for protecting dosages during preparsing.
+		# Code suffixes (E 150d) and conjunctions (E 500 i E 503) are
+		# ambiguous with units such as days and international units. Keep code syntax.
+		my $conjunction = $and{$ingredients_lc} || ' and ';
+		$conjunction =~ s/^\s+|\s+$//g;
+		$quantity_with_unit_regexps{$ingredients_lc}
+			= $number
+			. '(?!\s*[a-fh]\b)\s*(?!'
+			. quotemeta($conjunction)
+			. '\b)(?:'
+			. $units_except_percent
+			. '|\%)(?!\w)';
 
 		$percent_or_quantity_regexps{$ingredients_lc} = '(?:' . "(?:$prepared_with )" . ' )?'   # optional produced with
 			. '(?:>|' . $max_regexp . '|<|' . $min_regexp . '|\s|\.|:)*'    # optional maximum, minimum, and separators

@@ -1371,4 +1371,84 @@ foreach my $text (
 	);
 }
 
+foreach my $test (
+	['3b 103 105 mg', 'en:ferrous-sulfate', '105 mg', 0.105, 1],
+	['3B 103 fer 73,2 mg', 'en:ferrous-sulfate', '73.2 mg', 0.0732, 1],
+	['sulfate de fer 3b 103 73,2 mg', 'en:ferrous-sulfate', '73.2 mg', 0.0732, 1],
+	['3a 672a vitamine A 13400 UI', 'en:retinyl-acetate', '13400 UI', undef, 1],
+	['vitamine E 3a 700 105 mg', 'en:dl-alpha-tocopheryl-acetate', '105 mg', 0.105, 1],
+	['3B 405 sulfate de cuivre 7,2 mg', 'en:e519', '7.2 mg', 0.0072, 1],
+	['E 330 acide citrique 105 mg', 'en:e330', '105 mg', 0.105, 1],
+	['1b 306(i) 105 mg', 'en:e306', '105 mg', 0.105, 1],
+	['Omega 3b 150mg', 'fr:Omega 3b', '150 mg', 0.15, 0],
+	['Omega 3b 103 mg', 'fr:Omega 3b', '103 mg', 0.103, 0],
+	['Omega E 150 mg', 'fr:Omega E', '150 mg', 0.15, 0],
+	['3b 103,5 mg', 'fr:3b', '103.5 mg', 0.1035, 0],
+	['3b 502 manganèse 7,6 mg', 'fr:3b 502 manganèse', '7.6 mg', 0.0076, 0],
+	)
+{
+	my ($text, @expected) = @$test;
+	my $product = {lc => 'fr', ingredients_text => $text};
+	extract_ingredients_from_text($product);
+	is([map {[@{$_}{qw(id quantity quantity_g is_in_taxonomy)}]} @{$product->{ingredients}}],
+		[\@expected], "food and feed codes with quantities: $text");
+}
+
+my $feed_with_unknown_name = {lc => 'en', ingredients_text => '1b 306(i) unlisted extract 40 mg'};
+extract_ingredients_from_text($feed_with_unknown_name);
+is($feed_with_unknown_name->{ingredients}[0]{id}, 'en:e306', 'feed variant remains recognized before an unknown name');
+
+my $ins_variants
+	= {lc => 'pt', ingredients_text => 'Bicarbonato De Sódio (INS 500ii), Difosfato Tetrassódico (INS 450iii)'};
+extract_ingredients_from_text($ins_variants);
+is(
+	[map {[$_->{id}, $_->{ingredients}[0]{id}]} @{$ins_variants->{ingredients}}],
+	[['en:e500ii', 'en:e500ii'], ['en:e450iii', 'en:e450iii']],
+	'INS variants retain every roman digit'
+);
+
+# OPFF 3770024561043: do not let a partly unknown code list change the
+# newline interpretation and lose the taurine dosage at the end of the label.
+my $multiline_codes = {lc => 'fr', ingredients_text => <<'LABEL'};
+Porc 45 % (Cœur, Lobe de Poumon),
+Poulet 28 % (Cœur, Foie), Eau, Huile de Colza, Carottes déshydratées, Courgettes déshydratées, Levure de bière, Minéraux, Thym.
+CONSTITUANTS ANALYTIQUES
+Protéines brutes : 10 %
+Matières grasses brutes : 6 %
+Cellulose brute : 0,6 %
+Cendres brutes : 1,3 %
+ENA (glucides) : 0,1 %
+Humidité : 82 %
+ADDITIFS NUTRITIONNELS
+Manganèse (3b503) : 3 mg
+Zinc (3b607 & 3b605) : 38 mg
+Iode (3b203) : 0,51 mg
+Sélénium (E8 & 3b811) : 19 µg
+Vitamine D3 (3a671) : 427 UI
+Vitamine E (3a700) : 388 mg
+Vitamine B1 (3a821) : 54 mg
+Vitamine B2 : 39 mg
+Vitamine B3 (3a315) : 388 mg
+Acide pantothénique (3a841) : 72 mg
+Vitamine B6 (3a831) : 40 mg
+Biotine (3a880) : 97 µg
+Acide folique (3a316) : 9,7 mg
+Vitamine B12 : 233 µg
+Choline (3a890) : 58 mg
+Taurine (3a370) : 660 mg
+LABEL
+extract_ingredients_from_text($multiline_codes);
+my @identities = qw(en:protein en:manganese en:choline en:taurine);
+is(
+	[
+		map {
+			my $id = $_;
+			my ($ingredient) = grep {$_->{id} eq $id} @{$multiline_codes->{ingredients}};
+			[$ingredient->{id}, $ingredient->{quantity}]
+		} @identities
+	],
+	[['en:protein', undef], ['en:manganese', '3 mg'], ['en:choline', '58 mg'], ['en:taurine', '660 mg']],
+	'known ingredients and dosages survive mixed known and unknown codes on separate lines'
+);
+
 done_testing();
