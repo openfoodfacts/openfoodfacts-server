@@ -1,0 +1,53 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:e150a",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "e150c",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:e150a"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:e150a"
+   ],
+   "ingredients_text" : "E150c",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e150a"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e150a"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 1,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
