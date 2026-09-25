@@ -16,6 +16,7 @@ ProductOpener::Tags::retrieve_tags_taxonomy("ingredients");
 # Check the Eurocode properties of ingredients
 
 my @ingredients = ProductOpener::Tags::get_all_taxonomy_entries("ingredients");
+ok(scalar @ingredients > 0, "ingredients taxonomy loaded successfully with entries");
 
 my %eurocodes = ();
 

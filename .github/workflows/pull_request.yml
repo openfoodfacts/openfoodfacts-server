@@ -849,24 +849,6 @@ jobs:
         flags: integration-test-group-${{ matrix.test-group }}
         report_type: test_results
 
-  tests_summary:
-    # if all tests did run correctly acknowledge the branch protection rule
-    # use the name that is settled in branch protection rules, although it's not fully correct
-    name: 🐪 Perl unit tests
-    needs: [unit_tests, integration_tests]
-    runs-on: ubuntu-latest
-    if: always()
-    steps:
-      - name: Check if unit and integration tests succeeded or fail
-        run: |
-          if [ ${{ needs.unit_tests.result }} = "failure" ] || [ ${{ needs.integration_tests.result }} = "failure" ]
-          then
-            echo "Some tests did fail"
-            exit 1
-          else
-            echo "All Perl unit and integration test groups finished."
-          fi
-
   tests_dev:
     name: 🧪 Test make dev
     needs: [filter, build_backend, build_frontend]
@@ -917,3 +899,96 @@ jobs:
         env/setenv.sh off;
         sh -c ". conf/apache-2.4/off-envvars"
         sh -c "APACHE_CONFDIR=/etc/apache2-priority; . conf/apache-2.4/off-envvars"
+
+  tests_summary:
+    # if all tests did run correctly acknowledge the branch protection rule
+    # use the name that is settled in branch protection rules, although it's not fully correct
+    name: 🐪 Perl unit tests
+    needs:
+      - filter
+      - build_backend
+      - build_frontend
+      - check_perl
+      - unit_tests
+      - integration_tests
+      - tests_dev
+      - lint
+      - test_deployment
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Check if all required CI checks succeeded
+        env:
+          FILTER_RESULT: ${{ needs.filter.result }}
+          BUILD_BACKEND_RESULT: ${{ needs.build_backend.result }}
+          BUILD_FRONTEND_RESULT: ${{ needs.build_frontend.result }}
+          CHECK_PERL_RESULT: ${{ needs.check_perl.result }}
+          # those two aggregate results from all tests groups
+          UNIT_TESTS_RESULT: ${{ needs.unit_tests.result }}
+          INTEGRATION_TESTS_RESULT: ${{ needs.integration_tests.result }}
+          TESTS_DEV_RESULT: ${{ needs.tests_dev.result }}
+          LINT_RESULT: ${{ needs.lint.result }}
+          TEST_DEPLOYMENT_RESULT: ${{ needs.test_deployment.result }}
+          CODE_MODIFIED: ${{ needs.filter.outputs.code_modified }}
+          TAXONOMY_ONLY: ${{ needs.filter.outputs.taxonomy_only }}
+          IS_PR: ${{ github.event_name == 'pull_request' }}
+        run: |
+          has_error=0
+
+          if [ "$FILTER_RESULT" != "success" ]; then
+            echo "❌ filter failed with result: $FILTER_RESULT"
+            has_error=1
+          fi
+
+          if [ "$BUILD_BACKEND_RESULT" != "success" ]; then
+            echo "❌ build_backend failed with result: $BUILD_BACKEND_RESULT"
+            has_error=1
+          fi
+
+          if [ "$BUILD_FRONTEND_RESULT" != "success" ]; then
+            echo "❌ build_frontend failed with result: $BUILD_FRONTEND_RESULT"
+            has_error=1
+          fi
+
+          if [ "$CODE_MODIFIED" = "true" ]; then
+            if [ "$UNIT_TESTS_RESULT" != "success" ]; then
+              echo "❌ unit_tests failed with result: $UNIT_TESTS_RESULT"
+              has_error=1
+            fi
+
+            if [ "$IS_PR" = "true" ]; then
+              if [ "$INTEGRATION_TESTS_RESULT" != "success" ]; then
+                echo "❌ integration_tests failed with result: $INTEGRATION_TESTS_RESULT"
+                has_error=1
+              fi
+
+              if [ "$CHECK_PERL_RESULT" != "success" ]; then
+                echo "❌ check_perl failed with result: $CHECK_PERL_RESULT"
+                has_error=1
+              fi
+
+              if [ "$TESTS_DEV_RESULT" != "success" ]; then
+                echo "❌ tests_dev failed with result: $TESTS_DEV_RESULT"
+                has_error=1
+              fi
+
+              if [ "$TAXONOMY_ONLY" = "false" ]; then
+                if [ "$LINT_RESULT" != "success" ]; then
+                  echo "❌ lint failed with result: $LINT_RESULT"
+                  has_error=1
+                fi
+
+                if [ "$TEST_DEPLOYMENT_RESULT" != "success" ]; then
+                  echo "❌ test_deployment failed with result: $TEST_DEPLOYMENT_RESULT"
+                  has_error=1
+                fi
+              fi
+            fi
+          fi
+
+          if [ "$has_error" -ne 0 ]; then
+            echo "Some required CI checks failed or were not completed successfully."
+            exit 1
+          fi
+
+          echo "All required CI checks completed successfully."
