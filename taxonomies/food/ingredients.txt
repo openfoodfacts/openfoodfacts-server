@@ -65103,7 +65103,7 @@ pt: farinha de amêndoa biológica, farinha de amêndoas biológicas
 sv: ekologiskt mandelmjöl
 
 < en: almond
-en: ground almonds
+en: ground almonds, almond meal
 de: Erdmandeln
 es: almendras molidas
 fi: Jauhettua mantelia, jauhettuja manteleita, mantelirouhe
@@ -65208,6 +65208,9 @@ ciqual_proxy_food_name:fr: Pâte d'amande, préemballée
 usda_fdc_code:en: 170160
 usda_ndb_code:en: 12071
 usda_ndb_name:en: Nuts, almond paste
+
+< en: almond
+en: almond butter, almond butters
 
 < en: almond paste
 en: prepacked Almond paste
@@ -65383,7 +65386,7 @@ hr: indijski oraščić sirovi
 it: anacardi crudi
 
 < en: cashew nuts
-en: cashew nut paste
+en: cashew nut paste, cashew butter, cashew nut butter
 de: Cashewpaste, Cashewnusspaste, Cashewmus
 es: pasta de anacardos
 fr: pâte de noix de cajou, purée de noix de cajou
@@ -65586,7 +65589,7 @@ usda_ndb_name:en: Nuts, ginkgo nuts, raw
 ###################################################################################################
 
 < en: tree nut
-en: hazelnut, hazelnuts, filbert
+en: hazelnut, hazelnuts, filbert, filberts
 af: Haselneut
 an: Avellana
 ar: بندق
@@ -65781,7 +65784,7 @@ fr: éclats de noisettes caramélisés
 fi: karamellisoidut hasselpähkinät
 
 < en: hazelnut
-en: hazelnut paste
+en: hazelnut paste, hazelnut butter
 bg: лешникова паста, крем лешник
 ca: pasta d'avellana, pasta d'avellanes
 cs: lískooříšková pasta
@@ -65910,6 +65913,9 @@ usda_ndb_name:en: Nuts, macadamia nuts, raw
 wikidata:en: Q11027461
 #ingredient/macadamia-nut 84 in 12 @2021-08-21
 
+< en: macadamia nut
+en: macadamia nut butter, macadamia butter
+
 ###################################################################################################
 #
 #                                Peanut
@@ -65994,20 +66000,20 @@ fr: cacahuète caramélisée, cacahuètes caramélisées
 it: arachidi caramellate
 
 < en: peanut
-en: spanish peanut
+en: spanish peanut, spanish peanuts
 description:en: Spanish peanuts are a specific variety of peanut, distinct from the more common runner or Virginia types you'd find as standard roasted peanuts or in most peanut butter. Grown mainly in Oklahoma and Texas in the US, though the name comes from their origin.
 usda_fdc_code:en: 174263
 usda_ndb_code:en: 16091
 usda_ndb_name:en: Peanuts, spanish, raw
 
 < en: peanut
-en: valencia peanut
+en: valencia peanut, valencia peanuts
 usda_fdc_code:en: 172432
 usda_ndb_code:en: 16093
 usda_ndb_name:en: Peanuts, valencia, raw
 
 < en: peanut
-en: virginia peanut
+en: virginia peanut, virginia peanuts
 usda_fdc_code:en: 172434
 usda_ndb_code:en: 16095
 usda_ndb_name:en: Peanuts, virginia, raw
@@ -66291,7 +66297,7 @@ usda_ndb_process:en: en:dried
 #
 ###################################################################################################
 < en: tree nut
-en: pistachio nuts, pistachio, American Pistachios
+en: pistachio nuts, pistachio, American Pistachios, pistachio kernels
 bg: шамфъстък, шам-фъстък
 ca: festuc, festucs
 cs: pistácie
@@ -66395,7 +66401,7 @@ it: ripieno al pistacchio
 
 # category/walnuts
 < en: tree nut
-en: walnut, walnuts
+en: walnut, walnuts, english walnut, english walnuts
 af: Okkerneut
 ar: جوز
 bg: орех, орехи
@@ -66476,6 +66482,10 @@ usda_ndb_code:en: 12155
 usda_ndb_name:en: Nuts, walnuts, english
 wikidata:en: Q208021
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut
+
+< en: walnut
+en: black walnut, black walnuts
+xx: Juglans nigra
 
 < en: walnut
 en: fresh walnut
@@ -67796,7 +67806,7 @@ usda_ndb_name:en: Seeds, sesame butter, paste
 
 #category/tahini
 < en: sesame paste
-en: tahini, tahini paste, sesame tahini
+en: tahini, tahini paste, sesame tahini, sesame butter, sesame seed butter
 xx: tahini, tahina
 ar: طحينة
 be: Тахіні
