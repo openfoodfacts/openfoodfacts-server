@@ -5,13 +5,19 @@ on:
   issue_comment:
     types: [created, edited]
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
   # Action to update test results by issuing /lint
   run_lint:
     name: "On demand linting"
     if: |
       github.event.issue.pull_request &&
-      (github.event.comment.body == '/lint')
+      (github.event.comment.body == '/lint') &&
+      contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
     steps:
     - &step-reaction-seen
@@ -79,7 +85,8 @@ jobs:
     name: "On demand Update Tests Results"
     if: |
       github.event.issue.pull_request &&
-      (github.event.comment.body == '/update_tests_results')
+      (github.event.comment.body == '/update_tests_results') &&
+      contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
     steps:
     - *step-reaction-seen
@@ -110,7 +117,8 @@ jobs:
     if: |
       github.event.issue.pull_request &&
       ((github.event.comment.body == '/lint+update_test_results') ||
-      (github.event.comment.body == '/lint+update_tests_results'))
+      (github.event.comment.body == '/lint+update_tests_results')) &&
+      contains(fromJSON('["COLLABORATOR", "CONTRIBUTOR", "MEMBER", "OWNER"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
     steps:
     - *step-reaction-seen
