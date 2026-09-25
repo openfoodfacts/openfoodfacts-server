@@ -1306,6 +1306,14 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text_fr => "",
 		}
 	],
+	# Bold mathematical unicode letters in ingredient names (issue #15592)
+	[
+		"en-bold-mathematical-unicode-letters",
+		{
+			lc => "en",
+			ingredients_text => "𝑨𝒑𝒑𝒍𝒆, 𝑩𝒂𝒏𝒂𝒏𝒂, 𝑪𝒉𝒆𝒓𝒓𝒚, cheese (𝐌𝐢𝐥𝐤)",
+		}
+	],
 
 );
 
