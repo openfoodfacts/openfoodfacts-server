@@ -3731,7 +3731,7 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 
 =head2 get_missing_ecobalyse_ids ($ingredients_ref)
 
-Assign a ecobalyse_code or a ecobalyse_proxy_code to ingredients and sub ingredients.
+Assign a ecobalyse_id or a ecobalyse_proxy_id to ingredients and sub ingredients.
 
 =head3 Arguments
 
@@ -3754,9 +3754,9 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			push(@ingredients_without_ecobalyse_ids, get_missing_ecobalyse_ids($ingredient_ref->{ingredients}));
 		}
 
-		# Assign a ecobalyse_code or a ecoalyse_proxy_code to the ingredient
-		delete $ingredient_ref->{ecobalyse_code};
-		delete $ingredient_ref->{ecobalyse_proxy_code};
+		# Assign a ecobalyse_id or a ecoalyse_proxy_code to the ingredient
+		delete $ingredient_ref->{ecobalyse_id};
+		delete $ingredient_ref->{ecobalyse_proxy_id};
 
 		# We are now looking for the appropriate ecobalyse id :
 		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)
@@ -3808,20 +3808,20 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 				my $property_name = $prefix . $suffix . "_id" . ":en";
 
 				# Attempt to retrieve the ecobalyse code for the current property name
-				my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
+				my $ecobalyse_id = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
 
-				if (defined $ecobalyse_code) {
+				if (defined $ecobalyse_id) {
 					# Assign the ecobalyse code if found
-					$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
+					$ingredient_ref->{ecobalyse_id} = $ecobalyse_id;
 					last;
 				}
 			}
 			# Exit the loop if a valid ecobalyse code was found
-			last if defined $ingredient_ref->{ecobalyse_code};
+			last if defined $ingredient_ref->{ecobalyse_id};
 		}
 
 		# If no ecobalyse code was found, add ingredient ID to list of missing codes
-		if (!defined $ingredient_ref->{ecobalyse_code}) {
+		if (!defined $ingredient_ref->{ecobalyse_id}) {
 			push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
 		}
 

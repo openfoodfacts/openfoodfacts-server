@@ -1,6 +1,3 @@
 {
-   "documentation" : "https://ecobalyse.beta.gouv.fr/#/api",
-   "error" : {
-      "authorization" : "Un token valide est requis pour utiliser l’API"
-   }
+   "error" : "Failed to decode JSON response: malformed JSON string, neither tag, array, object, number, string or atom, at character offset 758 (before \"Infinity,\\n      \"cc...\") at /opt/product-opener/lib/ProductOpener/EnvironmentalImpact.pm line 279.\n"
 }

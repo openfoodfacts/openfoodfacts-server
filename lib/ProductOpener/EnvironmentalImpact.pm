@@ -171,7 +171,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 	my @ingredients_queue = @{$product_ref->{ingredients} // []};
 	my $total_ingredients_quantity = 0;
-	my $total_ingredients_quantity_with_ecobalyse_code = 0;
+	my $total_ingredients_quantity_with_ecobalyse_id = 0;
 
 	while (@ingredients_queue) {
 		my $ingredient_ref = shift @ingredients_queue;
@@ -186,9 +186,9 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 			$total_ingredients_quantity += $quantity;
 
-			my $id = $ingredient_ref->{ecobalyse_code} || $ingredient_ref->{ecobalyse_proxy_code};
+			my $id = $ingredient_ref->{ecobalyse_id} || $ingredient_ref->{ecobalyse_proxy_id};
 			if (defined $id) {
-				$total_ingredients_quantity_with_ecobalyse_code += $quantity;
+				$total_ingredients_quantity_with_ecobalyse_id += $quantity;
 				push @{$payload_ref->{ingredients}},
 					{
 					id => $id,
@@ -275,7 +275,15 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		# Parse the JSON response
 		my $response_data = $response_content;
 		# if the response is JSON, decode it
+		print STDERR "Response content: $response_content\n";
 		eval {$response_data = decode_json($response_content);};
+		# Check if the JSON decoding was successful
+		if ($@) {
+			$log->error("Failed to decode JSON response from Ecobalyse API",
+				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content, error => $@})
+				if $log->is_error();
+			$response_data = {error => "Failed to decode JSON response: $@"};
+		}
 
 		$product_ref->{environmental_impact}{ecobalyse_response} = $response_data;
 
@@ -320,28 +328,25 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	return;
 }
 
-sub call_ecobalyse($url_recipe, $payload_ref, $testid) {
+sub call_ecobalyse($url, $payload_ref, $testid) {
 	# Create a UserAgent object to make the API request
 	my $ua = create_user_agent();
 	$ua->timeout(5);
 
-	# Prepare the POST request with the payload
-	my $request = POST $url_recipe, $payload_ref;
-	$request->header('content-type' => 'application/json');
-
 	# Send the ECOBALYSE API_TOKEN token in the token header if it's defined
 	# the token is now required, the API request will fail without a token
-	if (defined $ecobalyse_api_token) {
-		$request->header('token' => $ecobalyse_api_token);
-	}
-	else {
+	if (not defined $ecobalyse_api_token) {
 		$log->error("ECOBALYSE_API_TOKEN is not defined, the API request will fail without a token")
 			if $log->is_error();
 	}
-	$request->content(decode_utf8(encode_json($payload_ref)));
 
-	# Send the request and get the response
-	my $response = $ua->request($request);
+	my $response = $ua->post(
+		$url,
+		Content_Type => 'application/json',
+		Content => encode_json($payload_ref),
+		Authorization => "Bearer $ecobalyse_api_token"
+	);
+
 	return ($response->decoded_content, $response->is_success);
 }
 
