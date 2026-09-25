@@ -61,6 +61,8 @@ BEGIN {
 		&regexp_escape
 		&remove_email
 
+		&normalize_unicode_bold
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -69,6 +71,7 @@ use vars @EXPORT_OK;
 
 use CLDR::Number;
 use CLDR::Number::Format::Percent;
+use Unicode::UCD qw(charinfo);
 
 =head1 FUNCTIONS
 
@@ -349,6 +352,170 @@ sub remove_tags ($s) {
 	$s =~ s/>/&gt;/g;
 
 	return $s;
+}
+
+=head2 normalize_unicode_bold( $text )
+
+Normalize Unicode "letter-like" bold and stylistic variant characters found in
+ingredient lists (e.g. Mathematical Bold letters U+1D400–U+1D433, Mathematical
+Italic, Bold Fraktur, Sans-Serif variants, Fullwidth letters, etc.) into their
+plain ASCII equivalents.
+
+When a contiguous run of such characters is bounded by word boundaries (i.e.
+the characters before and after the run are not letters or digits), the run is
+wrapped in underscore characters (e.g. C<_Milk_>) so that the existing
+underscore-based emphasis/allergen syntax in ingredient analysis is triggered.
+Runs that are not bounded by word boundaries are converted to plain ASCII
+without underscores.
+
+=cut
+
+sub normalize_unicode_bold ($text) {
+
+	return $text unless defined $text;
+
+	my $result = '';
+	my $i = 0;
+	my $len = length($text);
+
+	while ($i < $len) {
+		my $char = substr($text, $i, 1);
+
+		# Determine if this character is a Unicode "bold" / stylistic variant
+		my $ascii_char = _unicode_bold_to_ascii($char);
+
+		if (defined $ascii_char) {
+			# Collect the maximal run of Unicode bold variant characters
+			my $run_start = $i;
+			my $converted = $ascii_char;
+			$i++;
+
+			while ($i < $len) {
+				my $next_char = substr($text, $i, 1);
+				my $next_ascii = _unicode_bold_to_ascii($next_char);
+				if (defined $next_ascii) {
+					$converted .= $next_ascii;
+					$i++;
+				}
+				else {
+					last;
+				}
+			}
+
+			# Check if the run is bounded by non-letter/non-digit characters
+			# on both sides (word boundary), so it forms a complete "word"
+			my $before_ok = 1;
+			if ($run_start > 0) {
+				my $before_char = substr($text, $run_start - 1, 1);
+				$before_ok = _is_word_boundary($before_char);
+			}
+
+			my $after_ok = 1;
+			if ($i < $len) {
+				my $after_char = substr($text, $i, 1);
+				$after_ok = _is_word_boundary($after_char);
+			}
+
+			if ($before_ok && $after_ok) {
+				$result .= '_' . $converted . '_';
+			}
+			else {
+				$result .= $converted;
+			}
+		}
+		else {
+			# Regular character, keep as-is
+			$result .= $char;
+			$i++;
+		}
+	}
+
+	return $result;
+}
+
+sub _is_word_boundary ($char) {
+	# A word boundary is any character that is NOT a letter or digit
+	# (letters include Unicode letters, digits include Unicode digits)
+	return 0 if $char =~ /\p{Letter}/;
+	return 0 if $char =~ /\p{Digit}/;
+	return 1;
+}
+
+sub _unicode_bold_to_ascii ($char) {
+	# Unicode code point
+	my $code = ord($char);
+
+	# Mathematical Bold uppercase A-Z: U+1D400 - U+1D419
+	if ($code >= 0x1D400 && $code <= 0x1D419) {
+		return chr(ord('A') + ($code - 0x1D400));
+	}
+
+	# Mathematical Bold lowercase a-z: U+1D41A - U+1D433
+	if ($code >= 0x1D41A && $code <= 0x1D433) {
+		return chr(ord('a') + ($code - 0x1D41A));
+	}
+
+	# Mathematical Italic uppercase A-Z: U+1D434 - U+1D44D
+	if ($code >= 0x1D434 && $code <= 0x1D44D) {
+		return chr(ord('A') + ($code - 0x1D434));
+	}
+
+	# Mathematical Italic lowercase a-z: U+1D44E - U+1D467
+	if ($code >= 0x1D44E && $code <= 0x1D467) {
+		return chr(ord('a') + ($code - 0x1D44E));
+	}
+
+	# Mathematical Bold Fraktur uppercase (some letters): U+1D504 - U+1D51C
+	if ($code >= 0x1D504 && $code <= 0x1D51C) {
+		return chr(ord('A') + ($code - 0x1D504));
+	}
+
+	# Mathematical Bold Fraktur lowercase (some letters): U+1D51E - U+1D537
+	if ($code >= 0x1D51E && $code <= 0x1D537) {
+		return chr(ord('a') + ($code - 0x1D51E));
+	}
+
+	# Mathematical Bold Script uppercase: U+1D468 - U+1D481
+	if ($code >= 0x1D468 && $code <= 0x1D481) {
+		return chr(ord('A') + ($code - 0x1D468));
+	}
+
+	# Mathematical Bold Script lowercase: U+1D482 - U+1D49B
+	if ($code >= 0x1D482 && $code <= 0x1D49B) {
+		return chr(ord('a') + ($code - 0x1D482));
+	}
+
+	# Mathematical Sans-Serif Bold uppercase: U+1D5A0 - U+1D5B9
+	if ($code >= 0x1D5A0 && $code <= 0x1D5B9) {
+		return chr(ord('A') + ($code - 0x1D5A0));
+	}
+
+	# Mathematical Sans-Serif Bold lowercase: U+1D5BA - U+1D5D3
+	if ($code >= 0x1D5BA && $code <= 0x1D5D3) {
+		return chr(ord('a') + ($code - 0x1D5BA));
+	}
+
+	# Fullwidth uppercase letters: U+FF21 - U+FF3A
+	if ($code >= 0xFF21 && $code <= 0xFF3A) {
+		return chr(ord('A') + ($code - 0xFF21));
+	}
+
+	# Fullwidth lowercase letters: U+FF41 - U+FF5A
+	if ($code >= 0xFF41 && $code <= 0xFF5A) {
+		return chr(ord('a') + ($code - 0xFF41));
+	}
+
+	# Mathematical Monospace: U+1D670 - U+1D689
+	if ($code >= 0x1D670 && $code <= 0x1D689) {
+		return chr(ord('a') + ($code - 0x1D670));
+	}
+
+	# Bold digits 0-9: U+1D7CE - U+1D7D7
+	if ($code >= 0x1D7CE && $code <= 0x1D7D7) {
+		return chr(ord('0') + ($code - 0x1D7CE));
+	}
+
+	return undef;
 }
 
 1;
