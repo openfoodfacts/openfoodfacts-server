@@ -185,6 +185,13 @@ my @tests = (
 		['en:e123']
 	],
 
+	# roman numeral in the name: "azotan(III) sodu" is E250, "azotan sodu" is E251
+	[{lc => "pl", ingredients_text => "konserwant: azotan(III) sodu"}, ["en:e250"]],
+	[{lc => "pl", ingredients_text => "konserwant: Azotan(III) potasu, sól"}, ["en:e249"]],
+	[{lc => "pl", ingredients_text => "konserwant: Azotan potasu"}, ["en:e252"]],
+	[{lc => "pl", ingredients_text => "konserwant: Azotan(III) potasu i azotan(III) sodu"}, ["en:e249", "en:e250"]],
+	[{lc => "en", ingredients_text => "colour: iron (III) oxide"}, ["en:e172ii"]],
+
 	# additive class followed by an ingredient, without a :
 	# this will test the additives entries regexps in Ingredients.pm
 	[
