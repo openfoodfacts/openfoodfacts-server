@@ -3021,14 +3021,18 @@ Text to analyze
 							'sv' => [
 								'^fullkornshalten i brödet är \d{1,3}\s*% vilket motsvarar \d{1,3}\s+% av torrvikten$',
 								'^till 100\s*g färdig vara har \d+\s*g [\w\s]+ använts$',
+								'^Någon kärna (?:och|eller) del kan finnas kvar$',
 								'motsvarande \d{1,3}\s+% av torrvikten$',
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
 								'^Mjölkchokladen innehåller minst',
 								'^kan innehälla(?: spår av)?',    # may contain (traces of)
 								'innehåller \d+\s*(?:g|%)',
+								'är maskinellt urkärnade$',    # pitted by machine
 								'^Kakaohalt i chokladen$',
 								'varierande proportion',
 								'kan innehålla ben$',
+								# TODO: Have ”Odlade i” get recognised as a denominator of ingredient origin
+								'^Odla(?:de?|t) i ',    # Grown/cultivated (ie., origin/from) in …
 								'^Kakao minst',
 								'^fetthalt',
 							],
