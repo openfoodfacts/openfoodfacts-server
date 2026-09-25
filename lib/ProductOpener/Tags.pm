@@ -1440,6 +1440,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 						my $tag = $tag2;
 						my $possible_canon_tagid = get_lc_tagid($synonyms{$tagtype}, $lc, $tagtype, $tag, "");
+						warn "DEBUG PARSE: tag2=$tag possible_canon_tagid=" . ($possible_canon_tagid // "undef") . " lc_tagid=$lc_tagid canon_tagid=" . (defined $canon_tagid ? $canon_tagid : "undef") . "\n" if $lc_tag eq "E150c";
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
 							$lc_tagid = $possible_canon_tagid;
@@ -1504,8 +1505,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					if (
 							(defined $synonyms{$tagtype}{$lc}{$tagid})
 						and ($synonyms{$tagtype}{$lc}{$tagid} ne $lc_tagid)
-						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
-						and (not($tagtype eq 'additives'))
 						# we have some exception when we merge packaging shapes and materials
 						# in packaging
 						and (not($tagtype eq 'packaging'))
