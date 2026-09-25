@@ -1275,6 +1275,14 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "3 concombres de petite taille, 2 aubergines de taille moyenne",
 		}
 	],
+	# E150c bug
+	[
+		"en-e150c",
+		{
+			lc => "en",
+			ingredients_text => "E150c",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
