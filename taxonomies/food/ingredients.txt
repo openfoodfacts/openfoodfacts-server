@@ -2719,6 +2719,9 @@ vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Milk
 
 < en: milk
+en: grade a milk
+
+< en: milk
 en: low sodium fluid milk
 usda_fdc_code:en: 170875
 usda_ndb_code:en: 1089
@@ -2810,6 +2813,10 @@ description:en: LOW-FAT MILK is a 1% fat milk, sold in the United States. Skim m
 wikidata:en: Q2352187
 wikipedia:en: https://en.wikipedia.org/wiki/Skimmed_milk
 
+< en: grade a milk
+< en: skimmed milk
+en: grade a nonfat milk, grade a non fat milk, grade a skim milk, grade a skimmed milk, grade a fat free milk, grade a lowfat milk, grade a low fat milk
+
 #kept due to ciqual
 < en: skimmed milk
 en: pasteurized skimmed milk
@@ -2887,6 +2894,10 @@ description:en: LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by r
 wikidata:en: Q10572454
 wikipedia:fr: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
+< en: grade a milk
+< en: semi-skimmed milk
+en: grade a reduced fat milk
+
 < en: semi-skimmed milk
 fr: lait demi écrémé uht, lait stérilisé u h t demi-écrémé, lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
 ca: llet parcialment desnatada esterilitzada UHT, llet semidesnatada esterilitzada UHT
@@ -2954,6 +2965,10 @@ ciqual_food_code:en: 19023
 ciqual_food_name:en: Milk, whole, UHT
 ciqual_food_name:fr: Lait entier, UHT
 description:fr: WHOLE MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
+
+< en: grade a milk
+< en: whole milk
+en: grade a whole milk
 
 < en: whole milk
 en: UHT pasteurised whole milk
@@ -4616,6 +4631,9 @@ vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q13228
 wikipedia:en: https://en.wikipedia.org/wiki/Cream
+
+< en: cream
+en: grade a cream
 
 < en: cream
 en: fat free half and half cream
