@@ -204,11 +204,39 @@ def check_image_exists(img_ref):
 
     return False
 
+def normalize_html_tag(tag):
+    tag = tag.strip()
+    m_close = re.match(r"^</\s*([a-zA-Z0-9]+)\s*>$", tag)
+    if m_close:
+        return f"</{m_close.group(1).lower()}>"
+    m_open = re.match(r"^<\s*([a-zA-Z0-9]+)(?:[^>]*)?(/?)>$", tag)
+    if m_open:
+        tag_name = m_open.group(1).lower()
+        if tag_name == "br" or tag.endswith("/>"):
+            return f"<{tag_name}/>"
+        return f"<{tag_name}>"
+    return tag.lower()
+
+def extract_format_specifiers(text):
+    matches = re.finditer(r'%([0-9]+)?\$?([sdi])', text)
+    specifiers = []
+    auto_idx = 1
+    for m in matches:
+        pos_str, spec = m.groups()
+        norm_type = "d" if spec == "i" else spec
+        idx = int(pos_str) if pos_str else auto_idx
+        auto_idx += 1
+        specifiers.append((idx, norm_type))
+    return sorted(specifiers)
+
 def extract_placeholders(text):
-    c_style = re.findall(r'%[0-9]*\$?[sd]', text)
-    html_tags = re.findall(r'</?[a-zA-Z0-9]+[^>]*>', text)
+    c_specs = [f"%{idx}${typ}" for idx, typ in extract_format_specifiers(text)]
+    raw_tags = re.findall(r'</?[a-zA-Z0-9]+[^>]*>', text)
+    norm_tags = [normalize_html_tag(t) for t in raw_tags]
+    # Typographic tags sup/sub legitimately vary across languages (ordinals, chemical formulas)
+    struct_tags = [t for t in norm_tags if not any(x in t for x in ("sup", "sub"))]
     brackets = re.findall(r'\{[^}]+\}|%\([^)]+\)s', text)
-    return sorted(c_style + html_tags + brackets)
+    return sorted(c_specs + struct_tags + brackets)
 
 def check_po_files():
     brand_issues = []
