@@ -465,7 +465,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Oleoresin#Oleoresin_capsicum
 # nova:en:lecithin
 # < en:vegetable oil
 < en: E322i
-en: soya lecithin, soy lecithin, soybean lecithin, emulsifer soya lecithin
+en: soya lecithin, soy lecithin, soybean lecithin, emulsifer soya lecithin, soy lecithin-an emulsifier
 bg: соев лецитин, соеви лецитини
 bs: emulgator sojin lecitin
 ca: Lecitina de soja, lecitines de soja
@@ -2719,7 +2719,7 @@ vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Milk
 
 < en: milk
-en: grade a milk
+en: grade a milk, pasteurized grade a milk
 
 < en: milk
 en: low sodium fluid milk
@@ -57655,7 +57655,7 @@ nutriscore_fruits_vegetables_nuts:en: no
 < en: tuber
 en: tigernut
 ca: xufa, xufas
-de: Tigernuss, Erdmandel
+de: Tigernuss, Erdmandel, Erdmandeln
 es: chufa, xufa, chufas, xufas
 fr: souchet, souchet comestible, noix tigrée, souchet sucré, souchet tubéreux
 hr: tigrasti orah
@@ -65107,7 +65107,6 @@ sv: ekologiskt mandelmjöl
 
 < en: almond
 en: ground almonds, almond meal
-de: Erdmandeln
 es: almendras molidas
 fi: Jauhettua mantelia, jauhettuja manteleita, mantelirouhe
 fr: amandes hachées, amandes moulues
@@ -93923,8 +93922,9 @@ pt: Jodenkoek
 sv: Judebröd
 th: โยเดิงกุก
 
-#category:en: en:Pretzel
-en: bretzel
+< en: ingredient
+en: pretzel, pretzels, bretzel, bretzels
+allergens:en: en:gluten
 fr: bretzel
 hr: bretzel
 it: bretzel
@@ -99295,3 +99295,13 @@ vegetarian:en: yes
 < en: sourdough
 en: scalding and sourdough
 sv: skållning och surdeg
+
+< en: plant
+en: wheat grass, wheatgrass
+vegan:en: yes
+vegetarian:en: yes
+
+< en: plant
+en: barley grass, barleygrass
+vegan:en: yes
+vegetarian:en: yes
