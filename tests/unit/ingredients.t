@@ -1089,6 +1089,84 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "Avec antioxydant naturel : mg/kg 1b306(i)",
 		}
 	],
+	# a lone roman numeral in parenthesis is an oxidation state, not a sub-ingredient
+	[
+		"fr-oxidation-states-not-sub-ingredients",
+		{
+			lc => "fr",
+			ingredients_text => "Minéraux : sulfate de fer (II), sulfate de cuivre (ii), fer (iii), oxyde de zinc",
+		}
+	],
+	# an unknown word after the numeral must not hide the known parent
+	[
+		"fr-oxidation-state-before-unknown-word",
+		{
+			lc => "fr",
+			ingredients_text => "Sulfate de cuivre (II) pentahydraté, sulfate de fer (II) monohydraté",
+		}
+	],
+	# taxonomies can store the numeral between spaces: "ijzer (II) citraat", "iron(III) oxide"
+	[
+		"nl-oxidation-state-spaced-in-taxonomy",
+		{
+			lc => "nl",
+			ingredients_text => "ijzer (II) citraat, zout",
+		}
+	],
+	[
+		"en-oxidation-state-spaced-in-taxonomy",
+		{
+			lc => "en",
+			ingredients_text => "colour: iron (III) oxide, salt",
+		}
+	],
+	# the name stops before "and" or a quantity
+	[
+		"pl-oxidation-state-before-and",
+		{
+			lc => "pl",
+			ingredients_text => "konserwant: Azotan(III) potasu i sól",
+		}
+	],
+	[
+		"pl-oxidation-state-before-percent",
+		{
+			lc => "pl",
+			ingredients_text => "konserwant: Azotan(III) potasu 0,1%, sól",
+		}
+	],
+	# processing words after the name
+	[
+		"en-oxidation-state-with-processing",
+		{
+			lc => "en",
+			ingredients_text => "copper (II) sulfate powder, salt",
+		}
+	],
+	[
+		"fr-oxidation-state-with-processing",
+		{
+			lc => "fr",
+			ingredients_text => "sulfate de cuivre (II) en poudre, sel",
+		}
+	],
+	# the name continues after the numeral: "Azotan(III) potasu" is E249, "Azotan potasu" is E252
+	[
+		"pl-oxidation-state-inside-name",
+		{
+			lc => "pl",
+			ingredients_text => "konserwant: Azotan(III) potasu, sól",
+		}
+	],
+	# EU feed additive codes (Regulation 1831/2003 register) are synonyms of the additive
+	[
+		"fr-feed-additive-codes",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels : Fer (3b103), Cuivre (3b405), vitamine A (3a672a), vitamine E (3a700), taurine (3a370). Antioxydant : 1b306(i)",
+		}
+	],
 	# handling of */ and **/ in the tail of the ingredients list
 	[
 		# https://se.openfoodfacts.org/product/7350056848709/%C3%B6rtsalt-original-spicemaster
