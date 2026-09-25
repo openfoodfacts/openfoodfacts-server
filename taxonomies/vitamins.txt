@@ -249,6 +249,7 @@ wikidata:en: Q424976
 
 < en: vitamin A
 en: retinyl acetate, retinol acetate, vitamin A acetate
+xx: 3a672a
 bg: ретинил ацетат
 ca: acetat de retinol
 cs: retinyl-acetát
@@ -283,6 +284,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Retinyl_acetate
 
 < en: vitamin A
 en: retinyl palmitate, Vitamin A palmitate, palmitate
+xx: 3a672b
 bg: Ретинил палмитат
 cs: retinyl-palmitát
 de: Retinylpalmitat
@@ -560,7 +562,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Ergocalciferol
 
 < en: vitamin D
 en: Cholecalciferol, vitamin D3, D3
-xx: vitamin D3, vitamin D₃, D₃ vitamin, D3 vitamin
+xx: vitamin D3, vitamin D₃, D₃ vitamin, D3 vitamin, 3a671
 af: Vitamien D3
 ar: كوليكالسيفيرول
 az: D3 vitamini
@@ -771,6 +773,7 @@ wikidata:en: Q364160
 
 < en: Vitamin E
 en: DL-alpha tocopheryl acetate, dl-alpha tocopherol acetate
+xx: 3a700
 bg: DL-алфатокоферил ацетат
 cs: DL-α-tokoferyl-acetát
 de: DL-alpha-Tocopherylacetat
@@ -1362,6 +1365,7 @@ vegetarian:en: yes
 
 < en: Thiamin
 en: thiamin mononitrate, thiamine mononitrate
+xx: 3a821
 bg: Тиамин мононитрат
 ca: mononitrat de tiamina
 cs: thiamin-mononitrát
@@ -1693,6 +1697,7 @@ wikidata:en: Q2541149
 
 < en: vitamin B6
 en: pyridoxine hydrochloride
+xx: 3a831
 bg: пиридоксин хидрохлорид
 cs: pyridoxin-hydrochlorid
 de: Pyridoxinhydrochlorid
@@ -1788,7 +1793,7 @@ vegetarian:en: yes
 
 < en: Folate
 en: folic acid, pteroylmonoglutamic acid, Vitamin B9, B9, vitamin M
-xx: vitamin B9, vitamin B₉, B₉ vitamin, B9 vitamin, B9, B₉, vitamin M, M vitamin
+xx: vitamin B9, vitamin B₉, B₉ vitamin, B9 vitamin, B9, B₉, vitamin M, M vitamin, 3a316
 ar: حمض الفوليك
 be: Фоліевая кіслата
 bg: Фолиева киселина, птероилмоноглутаминова киселина, Витамин B9
@@ -2044,7 +2049,7 @@ vegetarian:en: yes
 
 < en: vitamins
 en: biotin
-xx: biotin, vitamin B7, vitamin B₇, B₇ vitamin, B7 vitamin, B7, B₇, vitamin H, H vitamin
+xx: biotin, vitamin B7, vitamin B₇, B₇ vitamin, B7 vitamin, B7, B₇, vitamin H, H vitamin, 3a880
 ar: بيوتين
 be: біятын
 bg: биотин
@@ -2141,8 +2146,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q25113695
 
-# description:en:Pantothenic acid, also called vitamin B5 (a B vitamin), is a water-soluble vitamin.
-
 < en: vitamins
 en: pantothenic acid
 xx: vitamin B5, B5 vitamin, B5, vitamin B₅, B₅ vitamin, B₅
@@ -2193,7 +2196,7 @@ ru: пантотеновая кислота, витамин B5
 sk: kyselina pantoténová, vitamín B5
 sl: pantonenska kislina
 sr: пантотенска киселина, витамин Б5
-sv: pantotensyra
+sv: pantotensyra, pantotenat
 ta: பான்டோதெனிக் அமிலம், உயிர்ச்சத்து பி5
 th: กรดแพนโทเทนิก, วิตามินบี5
 tr: pantotenik asit, vitamin B5
@@ -2201,16 +2204,17 @@ uk: пантотенова кислота, вітамін В5
 ur: پینٹوتھینک تیزاب
 vi: axit pantothenic
 zh: 泛酸
-# azb:پانتوتنیک اسید
-# sco:pantothenic acid
-# sr-ec:Пантотенска киселина, витамин Б5
-# sr-el:Vitamin B5
-# zh-cn:泛酸
-# zh-hans:泛酸
-# zh-hant:泛酸
-# zh-hk:泛酸
-# zh-sg:泛酸
-# zh-tw:泛酸
+#azb: پانتوتنیک اسید
+#sco: pantothenic acid
+#sr-ec: Пантотенска киселина, витамин Б5
+#sr-el: Vitamin B5
+#zh-cn: 泛酸
+#zh-hans: 泛酸
+#zh-hant: 泛酸
+#zh-hk: 泛酸
+#zh-sg: 泛酸
+#zh-tw: 泛酸
+description:en: Pantothenic acid, also called vitamin B5 (a B vitamin), is a water-soluble vitamin.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q179894
@@ -2236,6 +2240,7 @@ wikidata:en: Q27261387
 
 < en: pantothenic acid
 en: calcium D-pantothenate, D-pantothenate calcium
+xx: 3a841
 bg: D-пантотенат калций
 cs: D-pantothenát vápenatý
 de: Calcium-D-pantothenat

@@ -1713,6 +1713,7 @@ hr: prešano, ekspeler, pogača
 hu: préselt, sajtolt
 #fr:false:à pâte pressée, fromage pressé
 it: spremuto, spremuta, spremuti, spremute, spremuto di, spremuta di, spremuto d', spremuta d'
+nl: geperst, geperste
 pl: tłoczony, tłoczona, tłoczone, prasowane, prasowany, prasowana, wyciskany, wyciskane, wyciskana, wyciskanego
 pt: espremido, espremida, espremidos, espremidas
 sv: pressad, pressat, pressade
@@ -2351,7 +2352,7 @@ fr: toasté, toastée, toastés, toastées
 hu: pirított
 it: tostato, tostata, tostati, tostate
 nb: ristet, ristede
-nl: geroosterd, geroosterde, getoaste
+nl: geroosterd, geroosterde, getoaste, gebrand
 pl: prażony, prażone, prażona, prażonego, prażonej, prażonych
 pt: tostado, tostada, tostados, tostadas, torrado, torrada, torrados, torradas
 sl: praženi
@@ -2359,7 +2360,7 @@ zh: 焙烤
 comment:en: In the actual translations on products, there is not always a difference between toasted and roasted
 description:en: To lightly cook by browning via direct exposure to a fire or other heat source.
 
-en: untoasted
+en: untoasted, unroasted
 de: ungeröstet, ungeröstete, ungerösteter, ungeröstetes
 es: sin tostar
 fr: non grillé, non grillée, non grillés, non grillées
@@ -3334,7 +3335,7 @@ da: ikke-hydrogeneret
 de: unhydriertes, ungehärtet, ungehärtetes
 es: no hidrogenado, no hidrogenada
 fi: kovettamaton, hydrogenoimaton
-fr: non hydrogénée
+fr: non hydrogénée, non hydrogénées
 hr: nehidrogenirani, nehidrogenirana, nehidrogenizirana, nehidrogenizirano
 hu: nem hidrogénezett
 it: non idrogenato, non idrogenati
@@ -3361,8 +3362,7 @@ description:en: Breakdown into simpler chemical constituents by appropriate trea
 nova:en: 4
 wikidata:en: Q103135
 
-#description:en: Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
-en: hydrogenated, hardened, partially hardened
+en: hydrogenated, hardened
 bg: хидрогениран, хидрогенирано
 ca: hidrogenat, hidrogenada
 da: hærdet
@@ -3377,9 +3377,10 @@ nl: Gehydrogeneerde
 pl: uwodorniony, uwodorniona, uwodornione, utwardzony, utwardzone, utwardzona
 sv: härdad, härdat, härdade
 uk: гідрогенований, гідрогенована, гідрогеноване, гідрогеновані
+description:en: Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
 nova:en: 4
+wikidata:en: Q214166
 
-#<en:hydrogenated
 < en: hydrogenated
 en: fully hydrogenated
 bg: напълно хидрогениран, напълно хидрогенирано
@@ -3396,9 +3397,8 @@ pl: całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione, c
 sv: fullhärdad, fullhärdat, fullhärdade
 nova:en: 4
 
-#<en:hydrogenated
 < en: hydrogenated
-en: partially hydrogenated
+en: partially hydrogenated, partially hardened
 bg: частично хидрогениран, частично хидрогенирано
 ca: parcialment hidrogenat, parcialment hidrogenada
 da: delvist hydrogeniseret
@@ -3409,7 +3409,7 @@ fr: partiellement hydrogénée
 hr: djelomično hidrogenirane
 hu: részben hidrogénezett
 it: parzialmente idrogenato, parzialmente idrogenati
-nl: gedeeltelijk gehydrogeneerd, gedeeltelijk gehydrogeneerde
+nl: gedeeltelijk gehydrogeneerd, gedeeltelijk gehydrogeneerde, gedeeltelijk geharde
 pl: częściowo uwodorniony, częściowo uwodorniona, częściowo uwodornione, częściowo utwardzony, częściowo utwardzona, częściowo utwardzone
 pt: parcialmente hidrogenada
 ro: parțial hidrogenate
@@ -3529,6 +3529,7 @@ uk: оброблений, оброблена, оброблене, обробле
 en: preserved
 
 < en: preserved
-en: canned
+en: canned, appertised, appertized
+fr: conserve, en conserve, boite, boîte, boite de conserve, boîte de conserve, en boite, en boîte, en boite de conserve, en boîte de conserve, appertisé, appertisée, appertisés, appertisées
 uk: консервований, консервована, консервоване, консервовані
 

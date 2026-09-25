@@ -289,7 +289,7 @@
                {
                   "description" : "The Forest Footprint cannot be computed because the ingredient list is missing.",
                   "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-new-unknown.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-unknown.svg",
                   "id" : "forest_footprint",
                   "match" : 0,
                   "missing" : "Missing ingredients list",
@@ -409,7 +409,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint not available</strong></p>\n                <p>The Forest Footprint cannot be computed because the ingredient list is missing.</p>\n                \n                ",
+                     "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/actu/2026/09/lempreinte-foret-sinvite-dans-les-telephones-des-francais/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint not available</strong></p>\n                <p>The Forest Footprint cannot be computed because the ingredient list is missing.</p>\n                \n                ",
                      "type" : "summary"
                   }
                }
@@ -418,10 +418,10 @@
             "level" : "info",
             "title_element" : {
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-new-unknown.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-unknown.svg",
                "name" : "Forest Footprint",
                "subtitle" : "The Forest Footprint cannot be computed because the ingredient list is missing.",
-               "title" : "Forest Footprint not available ",
+               "title" : "Forest Footprint not available",
                "type" : "grade"
             },
             "topics" : [

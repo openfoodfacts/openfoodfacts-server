@@ -680,7 +680,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint grade:</strong> \n                    B\n                </p>\n                <p>Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels.</p>\n                <p><strong>Total Forest Footprint:</strong> \n                    0.004 \n                    m² per kg of food\n                </p>\n                \n                ",
+                     "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/actu/2026/09/lempreinte-foret-sinvite-dans-les-telephones-des-francais/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint grade:</strong> \n                    B\n                </p>\n                <p>Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels.</p>\n                <p><strong>Total Forest Footprint:</strong> \n                    0.004 \n                    m² per kg of food\n                </p>\n                \n                ",
                      "type" : "summary"
                   }
                },
@@ -692,159 +692,10 @@
                   }
                },
                {
-                  "element_type" : "table",
-                  "table_element" : {
-                     "columns" : [
-                        {
-                           "text" : "Ingredient",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "% in product",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Primary ingredient",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Processing factor",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Origin of the product and/or its ingredients",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Forest Footprint for the origin",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Label",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Deforestation risk",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Forest Footprint<br><span style=\"font-weight:normal\">(m² per kg of food)</span>",
-                           "type" : "text"
-                        }
-                     ],
-                     "id" : "forest_footprint_2026_en:palm-oil_table",
-                     "rows" : [
-                        {
-                           "values" : [
-                              {
-                                 "text" : "palm oil and fat"
-                              },
-                              {
-                                 "text" : "5.21 %"
-                              },
-                              {
-                                 "text" : "palm oil"
-                              },
-                              {
-                                 "text" : "1.00"
-                              },
-                              {
-                                 "text" : "Unknown"
-                              },
-                              {
-                                 "text" : "0.055"
-                              },
-                              {
-                                 "text" : "Organic"
-                              },
-                              {
-                                 "text" : "85 %"
-                              },
-                              {
-                                 "text" : "0.002"
-                              }
-                           ]
-                        }
-                     ],
-                     "title" : "palm oil"
-                  }
-               },
-               {
                   "element_type" : "text",
                   "text_element" : {
                      "html" : "\n                <h3>Ingredients requiring soy</h3>\n                <p>The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation</p>\n                <p><strong>Primary ingredient grade:</strong> B</p>\n                <p><strong>Total Forest Footprint:</strong> 0.002 m² per kg of food</p>\n                <p>Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon.</p>\n                ",
                      "type" : "summary"
-                  }
-               },
-               {
-                  "element_type" : "table",
-                  "table_element" : {
-                     "columns" : [
-                        {
-                           "text" : "Ingredient",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Type",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "% in product",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Processing factor<br><span style=\"font-weight:normal\">(% of food after processing)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Soy feed factor<br><span style=\"font-weight:normal\">(kg of soy per kg of food)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Soy yield<br><span style=\"font-weight:normal\">(kg of soy per m²)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Deforestation risk<br><span style=\"font-weight:normal\">(%)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Forest Footprint<br><span style=\"font-weight:normal\">(m² per kg of food)</span>",
-                           "type" : "text"
-                        }
-                     ],
-                     "id" : "forest_footprint_2026_en:chicken-and-eggs_table",
-                     "rows" : [
-                        {
-                           "values" : [
-                              {
-                                 "text" : "egg"
-                              },
-                              {
-                                 "text" : "Oeufs Bio"
-                              },
-                              {
-                                 "text" : "10.42 %"
-                              },
-                              {
-                                 "text" : "100 %"
-                              },
-                              {
-                                 "text" : "0.028"
-                              },
-                              {
-                                 "text" : "0.18"
-                              },
-                              {
-                                 "text" : "10 %"
-                              },
-                              {
-                                 "text" : "0.002"
-                              }
-                           ]
-                        }
-                     ],
-                     "title" : "chicken-and-eggs"
                   }
                },
                {
@@ -866,10 +717,10 @@
             "level" : "info",
             "title_element" : {
                "grade" : "b",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-new-b.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-b.svg",
                "name" : "Forest Footprint",
                "subtitle" : "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels.",
-               "title" : "Forest Footprint B  - Low risk of deforestation",
+               "title" : "Low risk of deforestation",
                "type" : "grade"
             },
             "topics" : [
