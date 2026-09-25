@@ -298,7 +298,7 @@ sub resolve_tagid {
 		return $canonical_id if $exists;
 	}
 
-	return undef;
+	return;
 }
 
 sub emit_global_props {
@@ -329,6 +329,8 @@ sub emit_global_props {
 		push @output_rows, [$tagid, "${prefix}_transport_cooling:en", $entry->{transportCooling}];
 		$global_props++;
 	}
+
+	return;
 }
 
 sub emit_variant_props {
@@ -361,6 +363,8 @@ sub emit_variant_props {
 		push @output_rows, [$tagid, "${use_prefix}_default_origin:en", $entry->{defaultOrigin}];
 		$variant_props++;
 	}
+
+	return;
 }
 
 sub emit_new_variants {
@@ -381,6 +385,8 @@ sub emit_new_variants {
 
 		emit_variant_props($tagid, $prefix, $entry, $is_proxy);
 	}
+
+	return;
 }
 
 sub get_variant_key {
@@ -432,5 +438,5 @@ sub select_default_entry {
 	for my $e (@sorted) {
 		return $e if ($e->{visible} // 1);
 	}
-	return undef;
+	return;
 }
