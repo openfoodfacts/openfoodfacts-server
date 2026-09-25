@@ -399,11 +399,11 @@ sub init_compiled_ingredients_processing_regexps ($ingredients_lc) {
 				push @inside, qr/$regexp\b/i;
 			}
 			# without space before, without space after, set a minimal length (H- for UHT in German will remove all H letters)
-			if (($ingredients_lc eq 'de') and (length($regexp) >= 3)) {
+			elsif (($ingredients_lc eq 'de') and (length($regexp) >= 3)) {
 				push @inside, qr/-?$regexp-?/i;
 			}
 			# with space before, without space after
-			if ($ingredients_lc eq 'fi') {
+			elsif ($ingredients_lc eq 'fi') {
 				push @inside, qr/\b$regexp/i;
 			}
 
@@ -471,6 +471,27 @@ sub init_origins_regexps() {
 # Additives classes regexps
 
 my %additives_classes_regexps = ();
+
+# roman numerals used for additive variants (E160a(ii)) and oxidation states (fer (III))
+my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv";
+
+# Find a name written with a roman numeral in parenthesis, "Azotan(III) potasu" or "ijzer (II) citraat".
+# The name is followed by the whole $tail, by the $tail up to $end ("and", a quantity), or by nothing.
+# Taxonomies store the numeral glued ("AzotanIII potasu") or spaced ("ijzer II citraat").
+# Returns the known name, its part up to the numeral and the part of $tail it uses, or an empty list.
+sub find_name_with_roman_numeral ($before, $numeral, $tail, $end, $is_known) {
+	(my $name_tail = $tail) =~ s/$end.*//;
+	foreach my $rest (uniq($tail, $name_tail, '')) {
+		# glued, then spaced numeral
+		foreach my $space ('', ' ') {
+			my $prefix = "$before$space$numeral";
+			(my $name = "$prefix$space$rest") =~ s/\s+/ /g;
+			$name =~ s/\s+$//;
+			return ($name, $prefix, $rest) if $is_known->($name);
+		}
+	}
+	return;
+}
 
 sub init_additives_classes_regexps() {
 
@@ -824,8 +845,18 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 
 					(defined $ingredient_content)
 					# optional minimum, followed by ingredient, content, : and/or spaces, percent or quantity, optional per 100g, separator
-					and ($text
-						=~ /((?:^|;|,|\.| - )\s*)(?:(?:$minimum_or_total) )?\s*([^,.;]+?)\s*(?:$ingredient_content)(?::|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					and (
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)(?:(?:'
+								. $minimum_or_total
+								. ') )?\s*([^,.;]+?)\s*(?:'
+								. $ingredient_content
+								. ')(?::|\s)+'
+								. $percent_or_quantity_regexp
+								. '\s*(?:'
+								. $per_100g_regexp
+								. ')?(?:;|,|\.| - |$)'
+						)
 					)
 
 				)
@@ -835,8 +866,17 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 					(defined $content_of_ingredient)
 					and (
 						# content, of or : or space, ingredient, percent or quantity, optional per 100g, separator
-						$text
-						=~ /((?:^|;|,|\.| - )\s*)(?:$content_of_ingredient)(?:$of|\s|:)+([^,.;]+?)(?:$of|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)(?:'
+								. $content_of_ingredient . ')(?:'
+								. $of
+								. '|\s|:)+([^,.;]+?)(?:'
+								. $of . '|\s)+'
+								. $percent_or_quantity_regexp
+								. '\s*(?:'
+								. $per_100g_regexp
+								. ')?(?:;|,|\.| - |$)'
+						)
 					)
 				)
 
@@ -884,17 +924,32 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				# prepared with, percent, ingredient, optional per 100g, separator
 				# $of needs to be first in (?:$of|\s|:) so that " of " is matched by it, instead of the ingredient capturing group
 				(
-						(defined $prepared_with)
-					and ($prepared_with ne "")
-					and ($text
-						=~ /((?:^|;|,|\.| - )\s*)$prepared_with(?:$of|\s|:)+$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					(defined $prepared_with) and ($prepared_with ne "")
+					and (
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)'
+								. $prepared_with . '(?:'
+								. $of
+								. '|\s|:)+'
+								. $percent_or_quantity_regexp . '(?:'
+								. $of
+								. '|\s|:)+\s*([^,.;]+?)\s*(?:'
+								. $per_100g_regexp
+								. ')?(?:;|,|\.| - |$)'
+						)
 					)
 				)
 				or
 				# percent, ingredient, per 100g, separator
 				(
-					$text
-					=~ /((?:^|;|,|\.| - )\s*)$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)(?:;|,|\.| - |$)/i
+					$text =~ compiled_regexp(
+							  '((?:^|;|,|\.| - )\s*)'
+							. $percent_or_quantity_regexp . '(?:'
+							. $of
+							. '|\s|:)+\s*([^,.;]+?)\s*(?:'
+							. $per_100g_regexp
+							. ')(?:;|,|\.| - |$)'
+					)
 				)
 			)
 			)
@@ -1068,7 +1123,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ca => "(?:origen)",
 		cs => "(?:země původu)",
 		da => "(?:oprindelse)",
-		de => "(?:ursprungsland)?|herkunftsland)?)",
+		de => "(?:ursprungsland|herkunftsland)",
 		el => "(?:χώρα προέλευσης|προέλευση)",
 		es => "(?:origen)",
 		et => "(?:päritolu(?:riik)?)",
@@ -1110,8 +1165,18 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 	# Origin of the milk: United Kingdom.
 	if (
 		$origins_regexp
-		and ($$text_ref
-			=~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i
+		and (
+			$$text_ref =~ compiled_regexp(
+					  '\s*'
+					. $origin_of_the_regexp
+					. '([^,.;:]+)(?::| )+((?:'
+					. $origins_regexp
+					. ')(?:(?:,|'
+					. $and_or
+					. ')(?:\s?)(?:'
+					. $origins_regexp
+					. '))*)\s*(?:,|;|\.| - |$)'
+			)
 		)
 		)
 	{
@@ -1812,6 +1877,11 @@ Text to analyze
 
 =cut
 
+	# original text of names looked up with a roman numeral: "Sulfate de cuivreII" -> "Sulfate de cuivre (II)"
+	my %numeral_text = ();
+	# such a name stops before "and" or a quantity: "Azotan(III) potasu i sól"
+	my $numeral_name_end = qr/$and|\s$percent_or_quantity_regexp/i;
+
 	my $analyze_ingredients_function = sub ($analyze_ingredients_self, $ingredients_ref, $parent_ref, $level, $s) {
 
 		# print STDERR "analyze_ingredients level $level: $s\n";
@@ -1891,6 +1961,34 @@ Text to analyze
 					# Remove dot at the end
 					# e.g. (Contains milk.) -> Contains milk.
 					$between =~ s/(\s|\.)+$//;
+
+					# a lone roman numeral is an oxidation state or a variant, not a sub-ingredient:
+					# "sulfate de cuivre (II)", "Azotan(III) potasu", "1b306(i)".
+					# Look the name up with its numeral, never without it: "Azotan potasu" is E252, not E249.
+					if (($sep eq '(') and ($before =~ /\S/) and ($between =~ /^\s*($roman_numerals)\s*$/i)) {
+						my $numeral = $1;
+						(my $original = "$before($numeral)") =~ s/^\s+//;
+						$before =~ s/^\s+|\s+$//g;
+						my $tail = ($after =~ $separators) ? $` : $after;
+						$tail = '' if $tail !~ /^\s*[[:alpha:]]/;
+						# the name can end with processing words: "copper (II) sulfate powder"
+						my $is_known = sub ($name) {
+							(parse_processing_from_ingredient($ingredients_lc, $name))[3];
+						};
+						my ($name, $prefix, $rest)
+							= find_name_with_roman_numeral($before, $numeral, $tail, $numeral_name_end, $is_known);
+						if (defined $name) {
+							$numeral_text{$prefix} = $original;
+							$before = $name;
+							# the rest of the tail ("i sól", "0,1%") stays with the name, for the "and" split and the
+							# percent parsing below; an unknown tail ("pentahydraté") is parsed on its own
+							if ($rest ne '') {
+								$before .= substr($tail, length($rest));
+								$after = substr($after, length($tail));
+							}
+						}
+						$between = '';
+					}
 
 					$debug_ingredients and $log->debug("parse_ingredients_text - sub-ingredients found: $between")
 						if $log->is_debug();
@@ -2461,7 +2559,7 @@ Text to analyze
 						#$debug_ingredients and $log->trace("checking labels regexps",
 						#	{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
 						#	if $log->is_trace();
-						if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
+						if ((defined $regexp) and ($ingredient =~ compiled_regexp('\b(' . $regexp . ')\b'))) {
 
 							my $label = $1;
 
@@ -2935,7 +3033,7 @@ Text to analyze
 						);
 						if (defined $ignore_regexps{$ingredients_lc}) {
 							foreach my $regexp (@{$ignore_regexps{$ingredients_lc}}) {
-								if ($ingredient =~ /$regexp/i) {
+								if ($ingredient =~ compiled_regexp($regexp)) {
 
 									$debug_ingredients and $log->debug(
 										"unknown ingredient matches a phrase to ignore",
@@ -3045,9 +3143,15 @@ Text to analyze
 					}
 				}
 
+				# put back the roman numeral in parenthesis that was glued for the taxonomy lookup
+				my $ingredient_text = $ingredient;
+				foreach my $prefix (sort {length($b) <=> length($a)} keys %numeral_text) {
+					last if $ingredient_text =~ s/^\Q$prefix\E/$numeral_text{$prefix}/;
+				}
+
 				my %ingredient = (
 					id => get_taxonomyid($ingredients_lc, $ingredient_id),
-					text => $ingredient
+					text => $ingredient_text
 				);
 
 				my $is_additive_class = exists_taxonomy_tag("additives_classes", $ingredient{id});
@@ -6245,7 +6349,12 @@ sub replace_additive ($number, $letter, $variant) {
 	if (defined $variant) {
 		$variant =~ s/^\(//;
 		$variant =~ s/\)$//;
-		$additive .= $variant;
+		# keep the variant only if the additives taxonomy knows it: "E330 (i)" is E330,
+		# while "E160a (ii)" is a distinct additive (plant carotenes)
+		(my $variant_id = $variant) =~ s/[^a-z]//gi;
+		if (exists_taxonomy_tag("additives", "en:" . lc($additive . $variant_id))) {
+			$additive .= $variant;
+		}
 	}
 	return $additive;
 }
@@ -7078,7 +7187,6 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
 	# colorants alimentaires E (124,122,133,104,110)
-	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv";
 	my $additivesregexp;
 	# special cases, when $and (" a ", " e " or " i ") conflict with variants (E470a, E472e or E451i or E451(i))
 	# in these cases, we fetch variant only if there is no space before
@@ -7147,7 +7255,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# parenthetical content before taxonomy matching, and the parent name without the
 	# numeral is usually already a synonym, so stripping would only remove a small unknown
 	# child at the cost of misattributing additives elsewhere.
-	$text =~ s/\b(e\d{3,4}[a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/$1$2/ig;
+	$text =~ s/\be(\d{3,4})([a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/replace_additive($1,$2,$3)/ieg;
 
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
@@ -7312,8 +7420,16 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# vitamines (B1, acide folique (B9)) <-- we need to match (B9) which is not followed by a \b boundary, hence the ((\s?((\)|\]))|\b)) in the regexp below
 
-	$text
-		=~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and)+)+($vitaminssuffixregexp))((\s?((\)|\]))|\b))/normalize_vitamins_enumeration($ingredients_lc,$3)/ieg;
+	my $vitamins_regexp
+		= compiled_regexp('('
+			. $vitaminsprefixregexp
+			. ')(:|\(|\[| )+((('
+			. $vitaminssuffixregexp
+			. ')( |\/| \/ | - |,|, |'
+			. $and . ')+)+('
+			. $vitaminssuffixregexp
+			. '))((\s?((\)|\]))|\b))');
+	$text =~ s/$vitamins_regexp/normalize_vitamins_enumeration($ingredients_lc,$3)/eg;
 
 	# Allergens and traces
 	# Traces de lait, d'oeufs et de soja.
@@ -7483,6 +7599,26 @@ sub extract_additives_from_text ($product_ref) {
 
 	#  remove % / percent (to avoid identifying 100% as E100 in some cases)
 	$text =~ s/(\d+((\,|\.)\d+)?)\s*\%$//g;
+
+	# names with a roman numeral in parenthesis would be split at the parenthesis:
+	# write "azotan(III) sodu" (E250, while "azotan sodu" is E251) as its known form "azotanIII sodu"
+	my $and_text = $and{$ingredients_lc} || " will not match ";
+	# the name stops before "and" or a quantity
+	my $name_end = qr/$and_text|\s\d/i;
+	my $is_known = sub ($name) {
+		exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $name));
+	};
+	my $join_roman_numeral = sub ($match, $space, $before, $numeral, $tail) {
+		# the name starts after "and"
+		my ($lead, $name_before) = $before =~ /^(.*$and_text)?(.*)$/i;
+		my (undef, $prefix) = find_name_with_roman_numeral($name_before, $numeral, $tail, $name_end, $is_known)
+			or return $match;
+		# a spaced numeral needs a space before the rest of the name
+		$prefix .= ' ' if $prefix =~ / \Q$numeral\E$/;
+		return $space . ($lead // '') . $prefix;
+	};
+	$text
+		=~ s/(\s*)([^,;:()\[\]{}]*?)\s*\(\s*($roman_numerals)\s*\)(?=([^,;:()\[\]{}]*))/$join_roman_numeral->($&, $1, $2, $3, $4)/gie;
 
 	my @ingredients = split($separators, $text);
 

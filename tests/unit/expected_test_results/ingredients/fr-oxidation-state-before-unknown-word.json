@@ -1,0 +1,106 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:e519",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "text" : "Sulfate de cuivre (II)",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "fr:pentahydraté",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "pentahydraté"
+      },
+      {
+         "id" : "en:ferrous-sulfate",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "sulfate de fer",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "fr:monohydraté",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "monohydraté"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:pentahydraté",
+         "fr:monohydraté"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:pentahydraté",
+         "fr:monohydraté"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:pentahydraté",
+         "fr:monohydraté"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:e519",
+      "fr:pentahydraté",
+      "en:ferrous-sulfate",
+      "fr:monohydraté"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:e519",
+      "fr:pentahydraté",
+      "en:ferrous-sulfate",
+      "en:iron",
+      "en:minerals",
+      "fr:monohydraté"
+   ],
+   "ingredients_text" : "Sulfate de cuivre (II) pentahydraté, sulfate de fer (II) monohydraté",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e519",
+      "en:ferrous-sulfate",
+      "fr:monohydraté",
+      "fr:pentahydraté"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e519",
+      "en:ferrous-sulfate",
+      "fr:monohydraté",
+      "fr:pentahydraté"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 2,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}
