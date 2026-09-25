@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.109.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.108.0...v2.109.0) (2026-09-25)
+
+
+### Features
+
+* recognize EU feed additive codes next to names, and complete taxonomies ([#14703](https://github.com/openfoodfacts/openfoodfacts-server/issues/14703)) ([b0c557f](https://github.com/openfoodfacts/openfoodfacts-server/commit/b0c557fe6b54edf1b2e1ff4d1298ead345bd508a))
+
+
+### Bug Fixes
+
+* fall back to base additive for unknown variants, and add missing INS variants ([#14680](https://github.com/openfoodfacts/openfoodfacts-server/issues/14680)) ([c5e11fb](https://github.com/openfoodfacts/openfoodfacts-server/commit/c5e11fb255c7dceb44b397f2ad15ea1d752e7b66))
+* german regexp for origins ([#14696](https://github.com/openfoodfacts/openfoodfacts-server/issues/14696)) ([a31a0c6](https://github.com/openfoodfacts/openfoodfacts-server/commit/a31a0c6b493b522c46b06c3c897a2faa3e57fdc2))
+* parse roman numerals in parentheses as part of the name ([#14681](https://github.com/openfoodfacts/openfoodfacts-server/issues/14681)) ([d41227f](https://github.com/openfoodfacts/openfoodfacts-server/commit/d41227fa65b2923c33c2a3b4e2010a59cde9ec9b))
+* remove duplicate e150c caramel color synonym ([#14708](https://github.com/openfoodfacts/openfoodfacts-server/issues/14708)) ([67ca5a2](https://github.com/openfoodfacts/openfoodfacts-server/commit/67ca5a25c28ef0f97002e2a9cd73d43d7ea712b5))
+
 ## [2.108.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.107.0...v2.108.0) (2026-09-24)
 
 
