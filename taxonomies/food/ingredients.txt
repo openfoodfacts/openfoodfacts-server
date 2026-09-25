@@ -650,6 +650,14 @@ vegan:en: no
 vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Gelatin
 
+< en: gelatin
+en: gelatin sheet, gelatine sheet, leaf gelatin, sheet gelatin
+fr: feuille de gélatine, gélatine en feuille
+
+< en: gelatin
+en: gelatin powder, gelatine powder, powdered gelatin, powdered gelatine
+fr: gélatine en poudre, poudre de gélatine
+
 < en: beef
 < en: gelatin
 en: beef gelatin, bovine gelatine, bovine gelatin
@@ -886,7 +894,7 @@ en: cyclamate, cyclamates
 wikidata:en: Q76824182
 
 < en: cyclamate
-en: Sodium cyclamate, E952iv, E-952iv, E952(iv)
+en: Sodium cyclamate
 bg: Натриев цикламат
 ca: ciclamat de sodi
 de: Natriumcyclamat
@@ -917,7 +925,7 @@ wikidata:en: Q407786
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_cyclamate
 
 < en: E1105
-en: lysozyme from eggs, egg lysozyme
+en: lysozyme from eggs, egg lysozyme, egg white lysozyme
 bg: яйчен лизозим
 ca: lisozim d'ou
 cs: lysozym z vajec
@@ -1090,7 +1098,7 @@ vegetarian:en: yes
 # comment:en:Should this be kept separate from lactic ferments?
 
 < en: ferment
-en: microbial culture, culture, active cultures, live cultures, starter culture, bacteria culture, bacterial culture, live bacteria culture, live bacterial culture
+en: microbial culture, culture, active cultures, live cultures, starter culture, bacteria culture, bacterial culture, live bacteria culture, live bacterial culture, bacterial cultures, bacteria cultures
 bg: микробна култура, живи култури
 ca: Cultiu microbiològic
 cs: Mikrobiální kultura, startovací kultura
@@ -1120,7 +1128,7 @@ en: lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cul
 bg: Млечни ферментации, млечна закваска, млечни закваски, млечни култури, закваски за кисело мляко, закваска за кисело мляко, млечни ферменти
 ca: Ferments làctics
 cs: bakterie mléčného kvašení, mléčné ferminty
-da: yoghurtkultur, starterkultur, mælkesyrekultur, ostekulturer
+da: yoghurtkultur, starterkultur, mælkesyrekultur, mælkesyrekulturer, ostekulturer
 de: Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, lebende Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen, Milchfermente
 el: γαλακτικά ένζυμα
 es: fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
@@ -2711,6 +2719,9 @@ vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Milk
 
 < en: milk
+en: grade a milk
+
+< en: milk
 en: low sodium fluid milk
 usda_fdc_code:en: 170875
 usda_ndb_code:en: 1089
@@ -2802,6 +2813,10 @@ description:en: LOW-FAT MILK is a 1% fat milk, sold in the United States. Skim m
 wikidata:en: Q2352187
 wikipedia:en: https://en.wikipedia.org/wiki/Skimmed_milk
 
+< en: grade a milk
+< en: skimmed milk
+en: grade a nonfat milk, grade a non fat milk, grade a skim milk, grade a skimmed milk, grade a fat free milk, grade a lowfat milk, grade a low fat milk
+
 #kept due to ciqual
 < en: skimmed milk
 en: pasteurized skimmed milk
@@ -2879,6 +2894,10 @@ description:en: LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by r
 wikidata:en: Q10572454
 wikipedia:fr: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
+< en: grade a milk
+< en: semi-skimmed milk
+en: grade a reduced fat milk
+
 < en: semi-skimmed milk
 fr: lait demi écrémé uht, lait stérilisé u h t demi-écrémé, lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
 ca: llet parcialment desnatada esterilitzada UHT, llet semidesnatada esterilitzada UHT
@@ -2946,6 +2965,10 @@ ciqual_food_code:en: 19023
 ciqual_food_name:en: Milk, whole, UHT
 ciqual_food_name:fr: Lait entier, UHT
 description:fr: WHOLE MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
+
+< en: grade a milk
+< en: whole milk
+en: grade a whole milk
 
 < en: whole milk
 en: UHT pasteurised whole milk
@@ -4406,7 +4429,7 @@ it: filtrato di siero di latte in polvere
 nl: weifiltraatpoeder
 
 < en: whey
-en: Demineralised whey
+en: Demineralised whey, demineralized whey, demineralized whey powder
 ca: sèrum de la llet desmineralitzat
 de: entsalzte Molke
 es: suero de la leche desmineralizado, lactosuero desmineralizado
@@ -4608,6 +4631,9 @@ vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q13228
 wikipedia:en: https://en.wikipedia.org/wiki/Cream
+
+< en: cream
+en: grade a cream
 
 < en: cream
 en: fat free half and half cream
@@ -15360,7 +15386,7 @@ it: grasso di semi di cotone
 from_palm_oil:en: no
 
 < en: vegetable oil
-en: cottonseed oil, cotton seed oil, cottonseed vegetable oil
+en: cottonseed oil, cotton seed oil, cottonseed vegetable oil, cottonseed vegetable oils
 ar: زيت بذرة القطن
 az: Pambıq yağı
 be: Баваўняны алей
@@ -20990,6 +21016,7 @@ de: natürliches Dill-Aroma, natürliches Dillaroma
 fr: arôme naturel d'aneth
 hr: prirodna aroma kopra
 it: aroma naturale di aneto
+sv: naturlig dillarom
 
 < en: flavouring
 en: chicken flavouring
@@ -22171,7 +22198,7 @@ wikidata:en: Q33495
 wikipedia:en: https://en.wikipedia.org/wiki/Vanillin
 
 < en: vanillin
-en: ethylvanillin
+en: ethylvanillin, ethyl vanillin
 de: Ethylvanillin
 es: etilvainillina, etil vainillina
 fr: Éthylvanilline
@@ -22800,7 +22827,7 @@ ro: aromă de brânză
 sv: ostsmak
 
 < en: cheese flavouring
-en: cheddar flavouring, cheddar flavour
+en: cheddar flavouring, cheddar flavour, cheddar flavor
 de: Cheddar Aroma
 fr: arôme de cheddar
 sv: cheddararom, cheddar aromer
@@ -24565,7 +24592,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 ##################################################################################
 
 < en: wheat
-en: semolina
+en: semolina, semolina wheat
 bg: грис
 ca: Sèmola
 cs: Krupice
@@ -24595,7 +24622,7 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en: semolina
-en: semolina flour
+en: semolina flour, semolina wheat flour
 bg: брашно от грис, грисово брашно
 de: Grießmehl
 es: harina de sémola
@@ -25150,7 +25177,7 @@ pl: kasza jęczmienna łamana, kasza jęczmienna wiejska
 description:en: Pot barley is barley that has been processed to remove its fibrous outer hull but has not been polished.
 
 < en: barley groats
-en: pearl barley
+en: pearl barley, pearled barley
 az: arpa yarması perlovaya
 bg: перлен ечемик
 da: perlebyg
@@ -31375,7 +31402,7 @@ da: flormelis
 de: Puderzucker, Azucar en polvo
 es: Azúcar glasé
 fi: tomusokeri
-fr: sucre glace, sucre en poudre
+fr: sucre glace, sucre en poudre, sucre à glacer, sucre impalpable
 hr: šećerni posip
 hu: porcukor
 it: zucchero a velo
@@ -32456,7 +32483,7 @@ sl: Glukoza
 sq: Glukoza
 sr: Глукоза
 su: Glukosa
-sv: Glukos
+sv: glukos, glykos
 sw: Glukosi
 ta: குளுக்கோசு
 te: గ్లూకోస్
@@ -32528,7 +32555,7 @@ ru: Сироп глюкозы, глюкозный сироп, патока кр�
 sk: glukózový sirup
 sq: shurup glukoze
 sr: glukozni sirup
-sv: glukossirap, stärkelsesirap, glukos-sirap
+sv: glukossirap, stärkelsesirap, glukos-sirap, glykossirap
 tr: glikoz şurubu, glukoz şurubu, glükoz şurubu
 # ast:Almíbar
 ciqual_proxy_food_code:en: 31016
@@ -34611,7 +34638,7 @@ da: raps- og majsprotein
 pt: proteína de colza e milho
 sv: raps- och majsprotein
 
-en: protein crisp
+en: protein crisp, protein crisps
 sv: proteincrisp
 vegan:en: maybe
 vegetarian:en: maybe
@@ -36874,8 +36901,11 @@ usda_fdc_code:en: 168147
 usda_ndb_code:en: 48052
 usda_ndb_name:en: Vital wheat gluten
 
+< en: wheat gluten
+en: hydrolyzed wheat gluten, hydrolysed wheat gluten
+
 # nova:en:maltodextrin
-en: maltodextrin, maltodextrins
+en: maltodextrin, maltodextrins, maltodextrine, malto dextrin
 bg: Малтодекстрин
 ca: Maltodextrina
 cs: Maltodextriny, maltodextrin
@@ -37093,7 +37123,7 @@ bg: прясна мая
 de: Frischhefe
 es: levadura fresca
 fi: tuorehiiva
-fr: levure fraîche
+fr: levure fraîche, levure de boulanger fraîche, levure fraîche de boulanger, levure de boulangerie fraîche, levure boulangère fraîche
 it: lievito fresco
 nl: verse gist
 
@@ -37265,10 +37295,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Baker%27s_yeast
 
 < en: baker's yeast
 en: compressed baker's yeast
-fr: levure de boulanger compressée
+fr: levure de boulanger compressée, levure de boulanger pressée, levure de boulangerie compressée, levure de boulangerie pressée
 ciqual_food_code:en: 11010
 ciqual_food_name:en: Baker's yeast, compressed
 ciqual_food_name:fr: Levure de boulanger, compressée
+
+< en: baker's yeast
+en: dry baker's yeast, dried baker's yeast
+fr: levure de boulanger sèche, levure de boulangerie sèche, levure boulangère sèche
 
 < en: yeast
 bg: суха мая
@@ -39405,7 +39439,7 @@ it: pesca bianca
 # ingredient/white-peach 48 products in 6 languages @2021-08-19
 
 < en: peach
-en: yellow peach
+en: yellow peach, yellow peaches
 usda_fdc_code:en: 169928, 325430
 usda_ndb_code:en: 9236
 usda_ndb_name:en: Peaches, yellow, raw
@@ -39762,7 +39796,7 @@ ciqual_proxy_food_name:en: Pear, var. Conférence, flesh without skin, raw
 wikidata:en: Q747247
 
 < en: pear
-en: Williams' bon chrétien pear, Williams pear, Bartlett pear
+en: Williams' bon chrétien pear, Williams pear, Bartlett pear, bartlett pears
 xx: Williams' bon chrétien
 bg: Вилямова масловка
 cs: Williamsova
@@ -41182,12 +41216,6 @@ wikidata:en: Q81513
 wikipedia:en: https://en.wikipedia.org/wiki/Citrus
 
 < en: citrus fruit
-fr: cédrat
-en: citron
-wikidata:en: Q150064
-wikipedia:en: https://fr.wikipedia.org/wiki/C%C3%A9dratier
-
-< en: citrus fruit
 en: citrus fruit juice
 de: Saft aus Zitrusfrüchten
 fr: jus d'agrumes à base de concentrés
@@ -41900,8 +41928,22 @@ pt: suco de kumquat, sumo de kumquat
 
 < en: citrus fruit
 en: citron
+ar: أترجة
+ca: poncem
+da: cedrat
+de: Zitronatzitrone
+eu: zidra
+fr: cédrat
 it: cedro
-la: citrus medica
+ja: シトロン
+la: Citrus medica
+nb: sukatsitron
+nn: sukatsitron
+ru: цитрон
+sl: citrona
+sv: suckatcitron, cedrat
+uk: цитрон
+wikidata:en: Q104832496
 wikipedia:en: https://en.wikipedia.org/wiki/Citron
 
 < en: citron
@@ -48705,7 +48747,7 @@ wikidata:en: Q13186
 wikipedia:en: https://en.wikipedia.org/wiki/Raisin
 
 < en: raisin
-en: seedless raisin
+en: seedless raisin, seedless raisins
 usda_ndb_proxy_code:en: 9298
 usda_ndb_proxy_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
 
@@ -48783,7 +48825,7 @@ wikidata:en: Q1898118
 wikipedia:en: https://en.wikipedia.org/wiki/Sultana_(grape)
 
 < en: raisin
-en: golden raisin
+en: golden raisin, golden raisins
 usda_ndb_proxy_code:en: 9297
 usda_ndb_proxy_name:en: Raisins, golden, seedless
 
@@ -48796,7 +48838,7 @@ usda_ndb_name:en: Raisins, golden, seedless
 
 < en: seedless golden raisin
 < en: sultana
-en: sultana raisin, Raisin Thompson Seedless
+en: sultana raisin, Raisin Thompson Seedless, sultana raisins
 fr: raisins secs sultanines
 pl: rodzynki thompson jumbo
 sv: sultanrussin, Sultan-russin, Thompson-russin
@@ -50219,19 +50261,26 @@ it: mix di verdure
 pl: mieszanka warzyw, mieszanka warzywna
 ru: овощи
 sv: grönsaksblandning, grönsaksmix
-# usage:en:vegetable blend (carrot, onion, parsley)
+
+< en: vegetable blend
+en: julienne mix
+sv: juliennemix
+description:en: A mix of julienne cut vegetables.
 
 < en: vegetable
-fr: légume déshydraté, légumes déshydratés, légumes séchés
+en: dried vegetable
 fi: kuivatut vihannekset, kuivatut kasvikset
+fr: légume déshydraté, légumes déshydratés, légumes séchés
 sv: torkade grönsaker
 
 < en: vegetable
+en: green vegetable
 fr: légumes verts
 
 < en: vegetable fiber
-fr: fibres de légume
+en: fiber from vegetables
 fi: kasviskuitu
+fr: fibres de légume
 
 < en: concentrate
 < en: vegetable
@@ -52036,6 +52085,17 @@ wikipedia:en: https://en.wikipedia.org/wiki/parsley
 # en:22363 in 51 @2021-09-16
 
 < en: parsley
+en: parsley sprig
+fr: brin de persil, branche de persil
+
+< en: parsley sprig
+en: fresh parsley sprig
+fr: brin de persil frais, branche de persil frais
+# Reference portion for fresh parsley: USDA SR Legacy, FDC 170416, portion 86609, 10 sprigs = 10 g.
+# https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
+average_weight_per_unit:en: 1
+
+< en: parsley
 en: flatleaf parsley
 it: prezzemolo a foglia piatta
 
@@ -52290,15 +52350,20 @@ usda_fdc_code:en: 169389
 usda_ndb_code:en: 11965
 usda_ndb_name:en: Cauliflower, green, raw
 
-# description:en:POINTED CABBAGE (Brassica oleracea var. capitata f. acuta), also known as cone, sweetheart, hispi or sugarloaf cabbage is a form of cabbage (Brassica oleracea) with a tapering shape and large delicate leaves varying in colour from yellowish to blue-green. It tastes less pronounced and more delicate than common white cabbage (Brassica oleracea var. capitata f. alba).
-
 < en: brassica
 en: pointed cabbage
 da: spidskål
 de: Spitzkohl
+la: Brassica oleracea var. capitata f. acuta
 sv: spetskål
+description:en: POINTED CABBAGE, also known as cone, sweetheart, hispi or sugarloaf cabbage is a form of cabbage (Brassica oleracea) with a tapering shape and large delicate leaves varying in colour from yellowish to blue-green. It tastes less pronounced and more delicate than common white cabbage (Brassica oleracea var. capitata f. alba).
 wikidata:en: Q7225623
 wikipedia:en: https://en.wikipedia.org/wiki/Pointed_cabbage
+
+< en: pointed cabbage
+en: red pointed cabbage
+da: rød spidskål
+sv: röd spetskål
 
 # description:en:CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
 
@@ -54589,7 +54654,7 @@ usda_ndb_code:en: 11739
 usda_ndb_name:en: Broccoli, leaves, raw
 
 < en: broccoli
-en: broccoli stalks
+en: broccoli stalks, broccoli stalk
 usda_fdc_code:en: 169331
 usda_ndb_code:en: 11741
 usda_ndb_name:en: Broccoli, stalks, raw
@@ -55426,7 +55491,7 @@ usda_ndb_code:en: 11292
 usda_ndb_name:en: Onions, young green, tops only
 
 < en: onion
-en: sweet onion
+en: sweet onion, sweet onions
 comment:en: NDB number 11294 used as a general "sweet onion" category — it's also commonly cited as the stand-in nutrition data for Vidalia onions specifically, since Vidalia is considered a brand/regional name rather than a distinct variety with its own USDA entry.
 usda_fdc_code:en: 170008
 usda_ndb_code:en: 11294
@@ -55474,7 +55539,7 @@ usda_ndb_name:en: Onions, dehydrated flakes
 #category/onion-powder
 #processing:en: en:powder
 < en: onion
-en: onion powder, granulated onion, dried minced onion
+en: onion powder, granulated onion, dried minced onion, onion powders
 bg: лук на прах
 ca: ceba en pols
 cs: sušená cibule
@@ -55798,7 +55863,7 @@ pl: kiełki pora
 
 < en: onion-family vegetable
 < en: root vegetable
-en: garlic, garlic bulb, garlic clove
+en: garlic
 af: Knoffel
 am: ነጭ ሽንኩርት
 ar: ثوم
@@ -55989,6 +56054,20 @@ wikidata:en: Q21546392
 wikipedia:en: https://en.wikipedia.org/wiki/Garlic
 
 < en: garlic
+en: garlic clove
+fr: gousse d'ail
+# Reference edible portion of raw garlic: USDA FDC 169230, portion 84480, 1 clove = 3 g.
+# Also documented by the Canadian Nutrient File: https://food-nutrition.canada.ca/cnf-fce/serving-portion?id=2394
+average_weight_per_unit:en: 3
+
+< en: garlic
+en: garlic bulb, head of garlic
+fr: tête d'ail, bulbe d'ail
+# Reference edible portion, excluding base and skin; not the gross weight of every bulb.
+# Canadian Nutrient File, food 2394: 1 bulb = 24 g. https://food-nutrition.canada.ca/cnf-fce/serving-portion?id=2394
+average_weight_per_unit:en: 24
+
+< en: garlic
 en: tender garlic
 da: hvidløgsskud
 de: Knoblauchsprossen, Knoblauch-Sprossen
@@ -56026,7 +56105,7 @@ pl: pasta czosnkowa
 
 #en:processing:en:powder removed due to specific nutritional data
 < en: garlic
-en: garlic powder
+en: garlic powder, garlic powders
 bs: bijeli luk u prahu
 ca: all en pols
 cs: česnekový prášek
@@ -57159,7 +57238,7 @@ ciqual_food_name:fr: Taro, tubercule, cru
 wikidata:en: Q1771944
 
 < en: root vegetable
-en: turnip green
+en: turnip green, turnip greens
 usda_fdc_2_code:en: 170468
 usda_fdc_code:en: 170061
 usda_ndb_2_code:en: 11574
@@ -59469,15 +59548,20 @@ fr: feuille de chene verte
 fr: feuille de chene rouge
 
 < en: salad
-fr: mélange de salades, salade mélangée
+en: salad mix
 de: Mischsalat
+fr: mélange de salades, salade mélangée
 it: Insalata mista
 sv: salladsmix
-# Salade mélangée (laitue, chicorée et roquette)
-# Mélange de salade  (scarole, frisée, chicorée rouge, roquette)
+wikidata:en: Q115618686
 
-< fr: mélange de salades
+< en: salad mix
+en: green and red salad mix
 fr: salade mélangée verte et rouge
+
+< en: salad mix
+en: pointed cabbage mix
+sv: spetskålsmix
 
 #< en: compound
 < en: salad
@@ -59778,7 +59862,7 @@ sv: röd och gul paprika
 
 # category/chili-peppers
 < en: fruit vegetable
-en: chili pepper, chilli pepper, chilli, chillies, chile, chile pepper
+en: chili pepper, chilli pepper, chilli, chillies, chile, chile pepper, chilies
 ar: فلفل حار
 be: чырвоны перац
 bg: Люта чушка, люти пиперки, лютиви пиперки, чили, люти чушлета
@@ -59944,7 +60028,7 @@ sv: chilipasta
 #pl:płatki chili, chili grys
 
 < en: chili pepper
-en: ancho peppers
+en: ancho peppers, ancho pepper
 description:en: Ancho peppers are the dried form of the poblano pepper. Sweet and fruity with notes of raisin, dried plum, and a mild smokiness — sometimes with a hint of coffee or tobacco. It's considered one of the more complex, dessert-like tasting dried chiles.
 scoville:en: 1,000–2,000
 usda_fdc_code:en: 169396
@@ -59953,7 +60037,7 @@ usda_ndb_name:en: Peppers, ancho, dried
 usda_ndb_processe:en: en:dried
 
 < en: chili pepper
-en: banana pepper
+en: banana pepper, banana peppers
 description:en: Banana peppers are a mild, tangy pepper named for their curved, elongated shape and pale yellow color — closely resembling a banana. Tangy and slightly sweet with a mild vinegary bite, especially when pickled — very different from the "grassy" heat of a jalapeño.
 scoville:en: 0–500
 usda_fdc_code:en: 169394
@@ -59969,7 +60053,7 @@ usda_ndb_code:en: 11981
 usda_ndb_name:en: Peppers, hungarian, raw
 
 < en: chili pepper
-en: serrano peppers
+en: serrano peppers, serrano pepper
 description:en: Serrano peppers are a type of chili pepper originating from the mountainous regions of Puebla and Hidalgo in Mexico. They have a bright, crisp, and grassy with a clean heat — often described as sharper and more straightforward than jalapeño.
 scoville:en: 10,000–25,000
 usda_fdc_code:en: 169395
@@ -60003,7 +60087,7 @@ it: peperoncino conservato
 
 #these are chili peppers that are red
 < en: chili pepper
-en: red chili pepper, red chili, red chilli pepper, red chilli, red chillies, red chile, red chile pepper
+en: red chili pepper, red chili, red chilli pepper, red chilli, red chillies, red chile, red chile pepper, red chilies
 bg: червени люти чушки, чили чушки
 da: rød chili
 de: roter Chili, rote Chili-Schoten
@@ -60044,7 +60128,7 @@ nl: rode peper zaad olie
 pl: olej z nasion czerwonej papryki
 
 < en: chili pepper
-en: green chili pepper, green chili, green chilli pepper, green chilli, green chillies, green chile, green chile pepper
+en: green chili pepper, green chili, green chilli pepper, green chilli, green chillies, green chile, green chile pepper, green chilies
 bg: зелени люти чушки
 da: grøn chili
 de: grüne Chili
@@ -60505,7 +60589,7 @@ eurocode_2_group_2:en: 8.40
 ###################################################################################################
 
 < en: fruit vegetable
-en: tomatillo
+en: tomatillo, tomatillos
 description:en: Tomatillos are small, round fruits (botanically fruits, culinarily treated as vegetables) that look like little green tomatoes wrapped in a papery husk. They're a staple in Mexican cooking, especially for salsa verde. Tart, tangy, and slightly citrusy — quite different from a regular tomato. Raw ones are firm and sour; cooking mellows and sweetens them a bit.
 usda_fdc_code:en: 168566
 usda_ndb_code:en: 11954
@@ -65022,7 +65106,7 @@ pt: farinha de amêndoa biológica, farinha de amêndoas biológicas
 sv: ekologiskt mandelmjöl
 
 < en: almond
-en: ground almonds
+en: ground almonds, almond meal
 de: Erdmandeln
 es: almendras molidas
 fi: Jauhettua mantelia, jauhettuja manteleita, mantelirouhe
@@ -65127,6 +65211,9 @@ ciqual_proxy_food_name:fr: Pâte d'amande, préemballée
 usda_fdc_code:en: 170160
 usda_ndb_code:en: 12071
 usda_ndb_name:en: Nuts, almond paste
+
+< en: almond
+en: almond butter, almond butters
 
 < en: almond paste
 en: prepacked Almond paste
@@ -65302,7 +65389,7 @@ hr: indijski oraščić sirovi
 it: anacardi crudi
 
 < en: cashew nuts
-en: cashew nut paste
+en: cashew nut paste, cashew butter, cashew nut butter
 de: Cashewpaste, Cashewnusspaste, Cashewmus
 es: pasta de anacardos
 fr: pâte de noix de cajou, purée de noix de cajou
@@ -65505,7 +65592,7 @@ usda_ndb_name:en: Nuts, ginkgo nuts, raw
 ###################################################################################################
 
 < en: tree nut
-en: hazelnut, hazelnuts, filbert
+en: hazelnut, hazelnuts, filbert, filberts
 af: Haselneut
 an: Avellana
 ar: بندق
@@ -65700,7 +65787,7 @@ fr: éclats de noisettes caramélisés
 fi: karamellisoidut hasselpähkinät
 
 < en: hazelnut
-en: hazelnut paste
+en: hazelnut paste, hazelnut butter
 bg: лешникова паста, крем лешник
 ca: pasta d'avellana, pasta d'avellanes
 cs: lískooříšková pasta
@@ -65829,6 +65916,9 @@ usda_ndb_name:en: Nuts, macadamia nuts, raw
 wikidata:en: Q11027461
 #ingredient/macadamia-nut 84 in 12 @2021-08-21
 
+< en: macadamia nut
+en: macadamia nut butter, macadamia butter
+
 ###################################################################################################
 #
 #                                Peanut
@@ -65913,20 +66003,20 @@ fr: cacahuète caramélisée, cacahuètes caramélisées
 it: arachidi caramellate
 
 < en: peanut
-en: spanish peanut
+en: spanish peanut, spanish peanuts
 description:en: Spanish peanuts are a specific variety of peanut, distinct from the more common runner or Virginia types you'd find as standard roasted peanuts or in most peanut butter. Grown mainly in Oklahoma and Texas in the US, though the name comes from their origin.
 usda_fdc_code:en: 174263
 usda_ndb_code:en: 16091
 usda_ndb_name:en: Peanuts, spanish, raw
 
 < en: peanut
-en: valencia peanut
+en: valencia peanut, valencia peanuts
 usda_fdc_code:en: 172432
 usda_ndb_code:en: 16093
 usda_ndb_name:en: Peanuts, valencia, raw
 
 < en: peanut
-en: virginia peanut
+en: virginia peanut, virginia peanuts
 usda_fdc_code:en: 172434
 usda_ndb_code:en: 16095
 usda_ndb_name:en: Peanuts, virginia, raw
@@ -66210,7 +66300,7 @@ usda_ndb_process:en: en:dried
 #
 ###################################################################################################
 < en: tree nut
-en: pistachio nuts, pistachio, American Pistachios
+en: pistachio nuts, pistachio, American Pistachios, pistachio kernels
 bg: шамфъстък, шам-фъстък
 ca: festuc, festucs
 cs: pistácie
@@ -66314,7 +66404,7 @@ it: ripieno al pistacchio
 
 # category/walnuts
 < en: tree nut
-en: walnut, walnuts
+en: walnut, walnuts, english walnut, english walnuts
 af: Okkerneut
 ar: جوز
 bg: орех, орехи
@@ -66395,6 +66485,10 @@ usda_ndb_code:en: 12155
 usda_ndb_name:en: Nuts, walnuts, english
 wikidata:en: Q208021
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut
+
+< en: walnut
+en: black walnut, black walnuts
+xx: Juglans nigra
 
 < en: walnut
 en: fresh walnut
@@ -67715,7 +67809,7 @@ usda_ndb_name:en: Seeds, sesame butter, paste
 
 #category/tahini
 < en: sesame paste
-en: tahini, tahini paste, sesame tahini
+en: tahini, tahini paste, sesame tahini, sesame butter, sesame seed butter
 xx: tahini, tahina
 ar: طحينة
 be: Тахіні
@@ -68047,7 +68141,7 @@ wikidata:en: Q744814
 ###################################################################################################
 
 < en: pepper
-en: green pepper, green peppercorns
+en: green pepper, green peppercorns, green peppercorn
 bg: зелен пипер
 de: grüner Pfeffer
 es: pimienta verde
@@ -69671,6 +69765,10 @@ usda_ndb_proxy_name:en: Spices, cinnamon, ground
 usda_ndb_proxy_process:en: en:ground
 wikidata:en: Q28165
 
+< en: cinnamon
+en: cinnamon stick
+fr: bâton de cannelle
+
 #comment:en:kept for ciqual
 < en: cinnamon
 en: cinnamon powder
@@ -70973,6 +71071,17 @@ wikidata:en: Q59659860
 #plant: wikidata:en:q26686
 wikipedia:en: https://en.wikipedia.org/wiki/Dill
 
+< en: dill
+en: dill sprig
+fr: brin d'aneth, branche d'aneth
+
+< en: dill sprig
+en: fresh dill sprig
+fr: brin d'aneth frais, branche d'aneth frais
+# Reference portion for fresh dill: USDA SR Legacy, FDC 172233, portion 90128, 5 sprigs = 1 g.
+# https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
+average_weight_per_unit:en: 0.2
+
 #comment:en:kept separate as it is another ingredient than the leaves
 
 < en: dill
@@ -71132,6 +71241,10 @@ wikidata:en: Q68315046
 wikipedia:en: https://en.wikipedia.org/wiki/rosemary
 
 < en: rosemary
+en: rosemary sprig
+fr: brin de romarin, branche de romarin
+
+< en: rosemary
 en: fresh rosemary
 fr: romarin frais
 it: rosmarino fresco
@@ -71242,6 +71355,10 @@ usda_ndb_proxy_code:en: 11972
 usda_ndb_proxy_name:en: Lemon grass (citronella), raw
 wikidata:en: Q33913
 wikipedia:en: https://en.wikipedia.org/wiki/Cymbopogon
+
+< en: lemongrass
+en: lemongrass stalk
+fr: tige de citronnelle
 
 < en: lemongrass
 en: raw lemongrass
@@ -71380,6 +71497,23 @@ it: foglio di menta, foglie di menta intere
 pl: liść mięty, liście mięty
 ifct_food_code:en: G016
 ifct_food_name:en: Mint leaves
+
+< en: mint
+en: mint sprig
+fr: brin de menthe, branche de menthe
+
+< en: mint leaf
+< en: spearmint
+en: spearmint leaf, spearmint leaves
+fr: feuille de menthe verte
+
+< en: fresh spearmint
+< en: spearmint leaf
+en: fresh spearmint leaf, fresh spearmint leaves
+fr: feuille de menthe verte fraîche, feuille fraîche de menthe verte
+# Reference portion for fresh spearmint only: USDA SR Legacy, FDC 173475, portion 92612, 2 leaves = 0.3 g.
+# https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
+average_weight_per_unit:en: 0.15
 
 < en: mint
 en: mint oil
@@ -71894,6 +72028,10 @@ wikidata:en: Q3215980
 wikipedia:en: https://en.wikipedia.org/wiki/Thyme
 
 < en: thyme
+en: thyme sprig
+fr: brin de thym, branche de thym
+
+< en: thyme
 en: fresh thyme
 ciqual_food_code:en: 11070
 ciqual_food_name:en: Thyme, fresh
@@ -72275,6 +72413,18 @@ fr: Feuilles de basilic
 hr: list bosiljka
 it: foglia di basilico
 pl: liście bazylii
+
+< en: basil
+en: basil sprig
+fr: brin de basilic, branche de basilic
+
+< en: Fresh basil
+< en: basil leaf
+en: fresh basil leaf, fresh basil leaves
+fr: feuille de basilic frais, feuille fraîche de basilic
+# Reference portion for fresh basil: USDA SR Legacy, FDC 172232, portion 90125, 5 leaves = 2.5 g.
+# https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip
+average_weight_per_unit:en: 0.5
 
 < en: basil
 en: dried basil
@@ -72997,7 +73147,7 @@ da: laurbær, laurbærblade
 de: lorbeer, lorbeerblatt, lorbeerblätter
 es: hoja de laurel, laurel
 fi: laakerinlehti
-fr: feuille de laurier, feuille de laurier, laurier
+fr: feuille de laurier, laurier
 hi: तेज पत्ता
 hr: lovor, lovorov
 hu: babérlevél
@@ -76444,7 +76594,7 @@ da: vaniljestang, vaniljestænger
 de: Vanilleschoten
 es: vainas de vainilla, vaina de vainilla
 fi: vaniljatanko, vaniljapapu
-fr: gousse de vanille, gousses de vanille, écorce de vanille
+fr: gousse de vanille, gousses de vanille, écorce de vanille, vanille en gousse
 hr: mahune vanilije, mahuna vanilije
 it: baccelli di vaniglia, bacche di vaniglia
 nl: vanillestokje, vanillestokjes
@@ -76523,7 +76673,7 @@ da: vaniljekorn
 de: Vanillesamen
 es: Semillas de vainilla
 fi: vaniljansiemen, vaniljan siemenet
-fr: graines de vanille
+fr: graines de vanille, grain de vanille
 hr: sjemenke vanilije
 it: semi di vaniglia
 nl: vanillezaad, vanillezaadjes
@@ -77017,7 +77167,7 @@ pl: sproszkowana spirulina, spirulina w proszku
 
 < en: concentrate
 < en: spirulina
-en: spirulina concentrate, spirulina extract
+en: spirulina concentrate, spirulina extract, spirulina extract color
 de: Spirulina-konzentrat, Spirulinakonzentrat
 es: Concetrado de espirulina
 fi: spirulinatiiviste, spirulinauute
@@ -78502,7 +78652,7 @@ usda_ndb_process:en: en:dried
 # description:en:PHOLIOTA is a genus of small to medium-sized, fleshy mushrooms in the family Strophariaceae.
 
 < en: mushroom
-en: maitake mushroom
+en: maitake mushroom, maitake mushrooms
 la: Grifola frondosa
 description:en: Maitake mushrooms (Grifola frondosa) are a type of edible mushroom native to Japan, China, and North America, where they grow wild at the base of oak, maple, and elm trees. Earthy, rich, and savory, often described as woodsy with a slightly peppery note. They have a nice meaty texture when cooked, similar to other polypore mushrooms. Popular in Japanese and other Asian cuisines — sautéed, roasted, added to soups, stir-fries, or used in broths. Their frilly texture crisps up nicely when roasted or pan-fried.
 usda_fdc_code:en: 169403
@@ -82172,7 +82322,7 @@ it: filetti di salmone atlantico con pelle
 # description:en:The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family.
 
 < en: salmon
-en: chum salmon
+en: chum salmon, keta salmon
 be: Кета
 bg: куча сьомга
 ca: salmó keta
@@ -82262,10 +82412,14 @@ wikidata:en: Q673380
 wikipedia:en: https://en.wikipedia.org/wiki/Pink_salmon
 # http://www.marinespecies.org/aphia.php?p=taxdetails&id=127182
 
+< en: salmon
+en: coho salmon, silver salmon
+xx: Oncorhynchus kisutch
+
 #description:en: Sockeye salmon (Oncorhynchus nerka), also called red salmon, kokanee salmon, or blueback salmon, is an anadromous species of salmon found in the Northern Pacific Ocean and rivers discharging into it.
 
 < en: salmon
-en: Sockeye salmon
+en: Sockeye salmon, red salmon
 bg: червена сьомга
 ca: salmó vermell
 cs: losos nerka
@@ -82601,7 +82755,7 @@ ciqual_food_name:fr: Sole, crue
 # description:en:Surimi refers to a paste made from fish or other meat.
 
 < en: fish
-en: surimi
+en: surimi, imitation crab, imitation crab meat, imitation crabmeat
 xx: surimi
 ar: سوريمي
 bg: сурими
@@ -82802,7 +82956,7 @@ la: Lopholatilus chamaeleonticeps
 
 < en: saltwater fish
 #< en: fish
-en: tuna
+en: tuna, tuna fish
 af: Tuna
 ar: تن
 bg: Тунец, риба тон
@@ -82967,7 +83121,7 @@ fr: Ventrèches de thon
 it: ventresca di tonno
 
 < en: tuna
-en: albacore
+en: albacore, albacore tuna, white tuna, solid white tuna
 af: Albakoor
 ar: تونة بيضاء
 az: Uzunüzgəc tunes
@@ -83022,7 +83176,7 @@ description:fr: Bonite est le nom vernaculaire donné à plusieurs espèces de p
 #category/skipjack-tuna
 < en: tuna
 < fr: bonite
-en: skipjack tuna
+en: skipjack tuna, skip jack tuna
 xx: Katsuwonus pelamis, Euthynnus palamis, Euthynnus, katsuwonus
 af: Pensstreep-tuna
 ar: تونة وثابة
@@ -83086,6 +83240,9 @@ description:pt: O bonito, bonito-listado, gaiado, atum-bonito e atum-gaiado (Kat
 # zh-tw:正鰹
 wikidata:en: Q633957
 wikipedia:en: https://en.wikipedia.org/wiki/Skipjack_tuna
+
+< en: tuna
+en: light tuna, light meat tuna, chunk light tuna
 
 < en: skipjack tuna
 en: skipjack tuna fillet
@@ -86089,7 +86246,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Crustacean
 fr: extrait de crustacé
 
 < en: crustacean
-en: crab
+en: crab, crab meat, crabmeat
 af: Krap
 ak: ɔkɔtɔ
 am: ሠርጣን
@@ -86204,6 +86361,13 @@ ciqual_food_name:en: Crab, raw
 description:en: CRABS are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail".
 wikidata:en: Q40802
 wikipedia:en: https://en.wikipedia.org/wiki/Crab
+
+< en: crab
+en: king crab, king crab meat
+
+< en: crab
+en: snow crab, snow crab meat, snow crabmeat
+xx: Chionoecetes opilio
 
 < en: crab
 fr: chair de crabe
@@ -86352,7 +86516,7 @@ wikidata:en: Q1133124
 wikipedia:en: https://en.wikipedia.org/wiki/Procambarus_clarkii
 
 < en: crustacean
-en: lobster
+en: lobster, lobster meat
 ar: همار, كركند
 be: Амары
 bg: омар, омари
@@ -86969,7 +87133,7 @@ la: Solenocera Crassicornis
 wikipedia:nl: https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 
 < en: vegetable fiber
-en: Psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
+en: psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
 ar: بزر قطونة
 cs: psyllium
 da: psyllium, psyllium skræl
@@ -86987,7 +87151,7 @@ pl: Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik
 ro: Psyllium
 ru: Подорожник
 sd: اسپنگر
-sv: psylliumfiber, psylliumfröskal
+sv: psylliumfiber, psylliumfröskal, psyllium
 ta: Isabgol
 uk: Подорожник
 ur: اسپغول
@@ -89073,7 +89237,7 @@ wikidata:en: Q1365891
 #< en: compound
 < en: baby cucumber
 < en: pickled cucumber
-en: pickled gherkin, pickle
+en: pickled gherkin, pickle, pickles
 bg: корнишон, кисела краставичка, кисели краставички, краставички, корнишони
 da: cornichon
 de: Cornichons
@@ -90926,6 +91090,9 @@ ja: 平飼い卵
 nl: vrije-uitloopei, vrije uitloop ei
 pl: jaja z wolnego wybiegu, jajka z wolnego wybiegu, jaja z chowu na wolnym wybiegu
 
+< en: whole egg
+en: cage-free eggs, cage-free egg, cage-free whole eggs, cage-free whole egg
+
 < en: egg
 en: category A eggs
 bg: яйца категория А
@@ -91436,6 +91603,9 @@ wikidata:en: Q796758
 wikipedia:en: https://en.wikipedia.org/wiki/Egg_white
 
 < en: egg white
+en: cage-free egg whites, cage-free egg white
+
+< en: egg white
 en: chicken egg white
 es: Clara de huevo de gallina
 fi: kananmunan valkuainen, kananmunanvalkuainen
@@ -91554,7 +91724,7 @@ nl: gepasteuriseerd vloeibaar eiwit
 sv: pastöriserad äggvita i flytande form
 
 < en: egg white
-en: egg protein
+en: egg protein, egg white protein
 bg: яйчен протеин
 ca: proteïna d'ou, proteïnes d'ou, proteïnes de l'ou
 de: Ei-Eiweiß
@@ -91722,6 +91892,12 @@ usda_ndb_code:en: 1137
 usda_ndb_name:en: Egg, yolk, dried
 usda_ndb_process:en: en:dried
 wikidata:en: Q1302994
+
+< en: egg yolk
+en: enzyme modified egg yolk, enzyme modified egg yolks
+
+< en: egg yolk
+en: cage-free egg yolks, cage-free egg yolk
 
 < en: egg yolk
 fr: jaune d'oeuf de poules élevées au sol
@@ -92127,7 +92303,7 @@ fr: purée et purée concentrée
 # description:en:FIBER is a natural or synthetic substance that is significantly longer than it is wide.
 
 # <en:vegetable part
-en: fiber, fibre, dietary fibre
+en: fiber, fibre, dietary fibre, dietary fiber, dietary fibers
 af: Vesel
 ar: ألياف النسيج
 ba: Сүстәр
@@ -92243,7 +92419,7 @@ pt: fibra de cana-de-açúcar
 sv: sockerrörsfiber, sockerrörfiber
 
 < en: fiber
-en: betaglucan, β-glucane
+en: betaglucan, β-glucane, beta glucan
 da: beta-glucan
 de: Beta-Glucane, β-Glucane
 es: beta glucano, β-glucano
@@ -93600,6 +93776,18 @@ usda_ndb_code:en: 20113
 usda_ndb_name:en: Noodles, chinese, chow mein
 
 < en: dough
+en: phyllo dough, filo dough, filo pastry, phyllo pastry
+fr: pâte filo, pâte phyllo
+
+< en: phyllo dough
+en: phyllo dough sheet, filo pastry sheet
+fr: feuille de pâte filo, feuille de filo, feuille de pâte phyllo
+
+< en: dough
+en: raw shortbread dough
+fr: pâte sablée crue
+
+< en: dough
 en: shortcrust dough
 da: mørdej
 de: Mürbeteig
@@ -94246,9 +94434,12 @@ sv: fullkornsrågbröd
 # usage:fi:täysjyväruisleipä [täysjyväruisjauho, -rouhe ja ruislese, vesi, vehnäjauho, vehnägluteeni, hiiva, jodioitu merisuola, ruismallas, RUISMALLASUUTE]
 # mainIngredient:en:wholemeal rye flour
 
-# description:en:PITA or pitta (British English), is a family of yeast-leavened round flatbreads baked from wheat flour, common in the Mediterranean, Middle East, and neighboring areas.
-
 < en: bread
+en: flatbread
+sv: tunnbröd
+wikidata:en: Q666242
+
+< en: flatbread
 en: pita, pitta, pita bread, pitta bread
 az: pita
 be: піта
@@ -94297,18 +94488,18 @@ zh: 皮塔饼
 # zh_yue:比得包
 ciqual_food_code:en: 7180
 ciqual_food_name:en: Pita bread
+description:en: PITA or pitta (British English), is a family of yeast-leavened round flatbreads baked from wheat flour, common in the Mediterranean, Middle East, and neighboring areas.
 wikidata:en: Q211340
 wikipedia:en: https://en.wikipedia.org/wiki/Pita
 
-# description:en:A tortilla is a type of thin flatbread, typically made from nixtamalized corn or wheat flour.
-
-< en: bread
+< en: flatbread
 en: tortilla, tortilla wrap
 xx: tortilla
 bg: тортиля
 de: Tortilla, Tortilla Wrap, Tortilla Wraps
 hr: tortilja
 pl: tortilla, tortilli, tortille
+description:en: A tortilla is a type of thin flatbread, typically made from nixtamalized corn or wheat flour.
 wikidata:en: Q55642411
 wikipedia:en: https://en.wikipedia.org/wiki/Tortilla
 
@@ -94887,6 +95078,7 @@ pt: chocolate de cobertura negro, chocolate negro de cobertura
 < en: chocolate coating
 < en: white chocolate
 en: white chocolate coating
+fr: chocolat blanc de couverture, enrobage au chocolat blanc
 hr: bijeli čokoladni preljev, preljev s bijelom čokoladom
 it: rivestimento di cioccolato bianco
 
@@ -97168,6 +97360,44 @@ fr: sauce au vinaigre balsamique
 
 < en: sauce
 fr: sauce aux fruits rouges
+
+< en: sauce
+en: aioli
+xx: aioli
+bg: аиоли
+bn: আইওলি
+ca: allioli
+eo: ajlolea saŭco
+es: alioli
+eu: alioli
+fa: آیولی
+fi: aiolikastike
+fr: aïoli
+gl: alioli
+hi: एओली
+hu: aioli szósz
+hy: աիոլի
+io: alioleo
+ja: アイオリソース
+ko: 아욜리
+ml: ഏയോളി
+oc: alhòli
+or: ଏଇଓଲି
+os: айоли
+pa: ਏਓਲੀ
+pl: ailloli
+ro: allioli
+ru: айоли
+ta: ஐயோலி
+th: อัลยอลี
+tl: allioli
+uk: айолі
+uz: ayoli
+wikidata:en: Q283231
+
+< en: aioli
+en: lime aioli
+sv: limeaioli
 
 < en: sauce
 en: curry sauce

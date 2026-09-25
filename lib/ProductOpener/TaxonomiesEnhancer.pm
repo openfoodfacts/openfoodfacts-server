@@ -142,6 +142,8 @@ sub parse_ingredients_for_language {
 	my $lang = ($key =~ s/^ingredients_text_//r);
 
 	# Apply parse on given lang
+	$ingredients_hash->{"lc"} = $lang;
+	$ingredients_hash->{"lang"} = $lang;
 	$ingredients_hash->{"ingredients_lc"} = $lang;
 	$ingredients_hash->{"ingredients_text"} = lc($ingredients_hash->{"ingredients_text_" . $lang});
 
@@ -153,6 +155,8 @@ sub parse_ingredients_for_language {
 	$ingredients_hash->{$lang} = \@flat_ingredients;
 
 	# Deleting unnecessary keys created by the parse_ingredients_text_service, ensure they exist before deletion
+	delete $ingredients_hash->{"lc"} if exists $ingredients_hash->{"lc"};
+	delete $ingredients_hash->{"lang"} if exists $ingredients_hash->{"lang"};
 	delete $ingredients_hash->{"ingredients"} if exists $ingredients_hash->{"ingredients"};
 	delete $ingredients_hash->{"ingredients_lc"} if exists $ingredients_hash->{"ingredients_lc"};
 	delete $ingredients_hash->{"ingredients_text"} if exists $ingredients_hash->{"ingredients_text"};
