@@ -5267,6 +5267,7 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$lc} || " will not match ";
+	$and =~ s/ /\\s+/g;
 
 	# The ?: makes the group non-capturing, so that the split does not create an extra item for the group
 	my @vitamins = split(/(?:\(|\)|\/| \/ | - |, |,|$and)+/i, $vitamins_list);
@@ -7197,6 +7198,81 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# and PP, B6, B12 etc. will be listed as synonyms for Vitamine PP, Vitamin B6, Vitamin B12 etc.
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
+	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
+	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
+
+	my @vitaminssuffixes = (
+		"a", "rétinol", "b", "b1",
+		"b2", "b3", "b4", "b5",
+		"b6", "b7", "b8", "b9",
+		"b10", "b11", "b12", "thiamine",
+		"riboflavine", "niacine", "pyridoxine", "cobalamine",
+		"biotine", "acide pantothénique", "acide folique", "c",
+		"acide ascorbique", "d", "d2", "d3",
+		"cholécalciférol", "e", "tocophérol", "alphatocophérol",
+		"alpha-tocophérol", "f", "h", "k",
+		"k1", "k2", "k3", "p",
+		"pp",
+	);
+	my @vitaminsprefixes = ('vit', 'vit.', 'vitamine', 'vitamines');
+
+	# Add synonyms in target language
+	if (defined $translations_to{vitamins}) {
+		foreach my $vitamin (sort keys %{$translations_to{vitamins}}) {
+			if (defined $translations_to{vitamins}{$vitamin}{$ingredients_lc}) {
+				push @vitaminssuffixes, $translations_to{vitamins}{$vitamin}{$ingredients_lc};
+			}
+		}
+	}
+
+	# Include English, which normalize_vitamin() also uses as a fallback.
+	foreach my $vitamin_lc (uniq($ingredients_lc, 'en')) {
+		next if not defined $translations_to{ingredients}{'en:vitamins'}{$vitamin_lc};
+		push @vitaminsprefixes, get_taxonomy_tag_synonyms($vitamin_lc, 'ingredients', 'en:vitamins');
+	}
+	my $vitaminsprefixregexp
+		= join('|', map {quotemeta($_)} sort {length($b) <=> length($a) || $a cmp $b} uniq(@vitaminsprefixes));
+	$vitaminsprefixregexp =~ s/\\ /\\s+/g;
+
+	my $vitaminssuffixregexp = "";
+	foreach my $suffix (@vitaminssuffixes) {
+		$vitaminssuffixregexp .= '|' . quotemeta($suffix);
+		# vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)].
+		# -> also put (B1)
+		$vitaminssuffixregexp .= '|\(' . quotemeta($suffix) . '\)';
+
+		my $unaccented_suffix = unac_string_perl($suffix);
+		if ($unaccented_suffix ne $suffix) {
+			$vitaminssuffixregexp .= '|' . quotemeta($unaccented_suffix);
+		}
+		if ($suffix =~ /[a-z]\d/) {
+
+			$suffix =~ s/([a-z])(\d)/$1 $2/;
+			$vitaminssuffixregexp .= '|' . quotemeta($suffix);
+			$suffix =~ s/ /-/;
+			$vitaminssuffixregexp .= '|' . quotemeta($suffix);
+
+		}
+
+	}
+	$vitaminssuffixregexp =~ s/^\|//;
+
+	# Preserve the standalone E in "vitamine E 105 mg" and "vitamines A, C et E
+	# 105 mg" until vitamin enumeration and quantity parsing run. Match forward
+	# to allow arbitrary whitespace. All groups must be non-capturing: the
+	# additive substitutions below rely on their existing capture numbers.
+	my $vitamins_and = $and;
+	$vitamins_and =~ s/ /\\s+/g;
+	my $vitamin_e_regexp
+		= '\b(?:'
+		. $vitaminsprefixregexp
+		. ')(?:[:\(\[]|\s)+'
+		. '(?:(?:'
+		. $vitaminssuffixregexp
+		. ')(?:\s|/| - |,|'
+		. $vitamins_and . ')+)*'
+		. '[eе](?=\s|\)|\]|$)(*SKIP)(*F)|';
+
 	# colorants alimentaires E (124,122,133,104,110)
 	my $additivesregexp;
 	# special cases, when $and (" a ", " e " or " i ") conflict with variants (E470a, E472e or E451i or E451(i))
@@ -7226,13 +7302,22 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			. ')\)))?';
 	}
 
-	$text
-		=~ s/\b(e|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)(:|\(|\[| | n| nb|#|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and))+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($ingredients_lc,$3)/ieg;
+	my $additives_enumeration_regexp
+		= compiled_regexp($vitamin_e_regexp
+			. '\b(e|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)(:|\(|\[| | n| nb|#|°)+((('
+			. $additivesregexp
+			. ')( |/| / | - |,|, |'
+			. $and . '))+('
+			. $additivesregexp
+			. '))\b(\s?(\)|\]))?');
+	$text =~ s/$additives_enumeration_regexp/normalize_additives_enumeration($ingredients_lc,$3)/eg;
 
 	# in India: INS 240 instead of E 240, bug #1133)
 	# also INS N°420, bug #3618
 	# Russian е (!= e), https://github.com/openfoodfacts/openfoodfacts-server/issues/4931
-	$text =~ s/\b(е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
+	my $additive_prefix_regexp = compiled_regexp(
+		$vitamin_e_regexp . q{\b(е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})});
+	$text =~ s/$additive_prefix_regexp/E$3/g;
 
 	# E 240, E.240, E-240..
 	# E250-E251-E260
@@ -7246,7 +7331,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# $6 would be ([abcdefgh]) in $additivesregexp
 	# $9 would be (( |-|\.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\))) in $additivesregexp
 	# $12 would be (\b|\s|,|\.|;|\/|-|\\|\)|\]|$)
-	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|\)|\]|$)/replace_additive($3,$6,$9) . $12/ieg;
+	my $additive_code_regexp
+		= compiled_regexp($vitamin_e_regexp . '(\b)e( |-|\.)?' . $additivesregexp . '(\b|\s|,|\.|;|/|-|\\\\|\)|\]|$)');
+	$text =~ s/$additive_code_regexp/replace_additive($3,$6,$9) . $12/eg;
 
 	# E100 et E120 -> E100, E120
 	$text =~ s/\be($additivesregexp)$and/'e' . ((defined $1) ? $1 : '') . ', '/ige;
@@ -7362,70 +7449,6 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	$text = develop_ingredients_categories_and_types($ingredients_lc, $text);
 
-	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
-	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
-
-	my @vitaminssuffixes = (
-		"a", "rétinol", "b", "b1",
-		"b2", "b3", "b4", "b5",
-		"b6", "b7", "b8", "b9",
-		"b10", "b11", "b12", "thiamine",
-		"riboflavine", "niacine", "pyridoxine", "cobalamine",
-		"biotine", "acide pantothénique", "acide folique", "c",
-		"acide ascorbique", "d", "d2", "d3",
-		"cholécalciférol", "e", "tocophérol", "alphatocophérol",
-		"alpha-tocophérol", "f", "h", "k",
-		"k1", "k2", "k3", "p",
-		"pp",
-	);
-	my $vitaminsprefixregexp = "vit|vit\.|vitamine|vitamines";
-
-	# Add synonyms in target language
-	if (defined $translations_to{vitamins}) {
-		foreach my $vitamin (keys %{$translations_to{vitamins}}) {
-			if (defined $translations_to{vitamins}{$vitamin}{$ingredients_lc}) {
-				push @vitaminssuffixes, $translations_to{vitamins}{$vitamin}{$ingredients_lc};
-			}
-		}
-	}
-
-	# Add synonyms in target language
-	my $vitamin_in_lc
-		= get_string_id_for_lang($ingredients_lc, display_taxonomy_tag($ingredients_lc, "ingredients", "en:vitamins"));
-	$vitamin_in_lc =~ s/^\w\w://;
-
-	if (    (defined $synonyms_for{ingredients})
-		and (defined $synonyms_for{ingredients}{$ingredients_lc})
-		and (defined $synonyms_for{ingredients}{$ingredients_lc}{$vitamin_in_lc}))
-	{
-		foreach my $synonym (@{$synonyms_for{ingredients}{$ingredients_lc}{$vitamin_in_lc}}) {
-			$vitaminsprefixregexp .= '|' . $synonym;
-		}
-	}
-
-	my $vitaminssuffixregexp = "";
-	foreach my $suffix (@vitaminssuffixes) {
-		$vitaminssuffixregexp .= '|' . $suffix;
-		# vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)].
-		# -> also put (B1)
-		$vitaminssuffixregexp .= '|\(' . $suffix . '\)';
-
-		my $unaccented_suffix = unac_string_perl($suffix);
-		if ($unaccented_suffix ne $suffix) {
-			$vitaminssuffixregexp .= '|' . $unaccented_suffix;
-		}
-		if ($suffix =~ /[a-z]\d/) {
-
-			$suffix =~ s/([a-z])(\d)/$1 $2/;
-			$vitaminssuffixregexp .= '|' . $suffix;
-			$suffix =~ s/ /-/;
-			$vitaminssuffixregexp .= '|' . $suffix;
-
-		}
-
-	}
-	$vitaminssuffixregexp =~ s/^\|//;
-
 	#$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
 	#$log->debug("vitamins text", { vitaminssuffixregexp => $vitaminssuffixregexp }) if $log->is_debug();
 
@@ -7434,10 +7457,10 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	my $vitamins_regexp
 		= compiled_regexp('('
 			. $vitaminsprefixregexp
-			. ')(:|\(|\[| )+((('
+			. ')(:|\(|\[|\s)+((('
 			. $vitaminssuffixregexp
-			. ')( |\/| \/ | - |,|, |'
-			. $and . ')+)+('
+			. ')(\s|\/| \/ | - |,|, |'
+			. $vitamins_and . ')+)+('
 			. $vitaminssuffixregexp
 			. '))((\s?((\)|\]))|\b))');
 	$text =~ s/$vitamins_regexp/normalize_vitamins_enumeration($ingredients_lc,$3)/eg;
