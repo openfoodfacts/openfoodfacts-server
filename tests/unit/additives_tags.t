@@ -289,6 +289,19 @@ my @tests = (
 	[{lc => "en", ingredients_text => "colour: E163(iii)"}, ["en:e163iii"]],
 	[{lc => "en", ingredients_text => "sweetener: E952(iv)"}, ["en:e952iv"]],
 
+	# Vitamin dosages must not create additive tags, even in vitamin lists.
+	[{lc => 'en', ingredients_text => 'vitamin  E 105 mg'}, []],
+	[{lc => 'fr', ingredients_text => 'vitamine E 105,125 mg'}, []],
+	[{lc => 'fr', ingredients_text => 'vitamines A, C et E 105 mg'}, []],
+	[{lc => 'el', ingredients_text => 'βιταμίνη E 105 mg'}, []],
+	[{lc => 'ru', ingredients_text => 'витамин е 105 мг'}, []],
+	[{lc => 'fr', ingredients_text => 'vitamines A, C et E 105 mg, colorant E 120'}, ['en:e120']],
+	[
+		{lc => 'fr', ingredients_text => 'vitamine E 105 mg, E 330, E-160a(ii), INS 471'},
+		['en:e330', 'en:e160aii', 'en:e471']
+	],
+	[{lc => 'ru', ingredients_text => 'е 330'}, ['en:e330']],
+
 );
 
 foreach my $test_ref (@tests) {

@@ -1315,4 +1315,60 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
+# Vitamin E dosages must survive additive normalization, including decimal commas
+# that look like an enumeration of E-numbers.
+foreach my $test (
+	['fr', 'vitamine E 105 mg', '105 mg', 0.105],
+	['fr', 'vitamine E 105mg', '105 mg', 0.105],
+	['fr', 'vitamine  E 105 mg', '105 mg', 0.105],
+	['fr', "vitamine \tE  105 mg", '105 mg', 0.105],
+	['fr', "vitamine\x{a0}E 105 mg", '105 mg', 0.105],
+	['fr', 'vitamine E 105,5 mg', '105.5 mg', 0.1055],
+	['fr', 'vitamine E 105.5 mg', '105.5 mg', 0.1055],
+	['fr', 'vitamine E 105,125 mg', '105.125 mg', 0.105125],
+	['fr', 'vitamine E 1050 mg', '1050 mg', 1.05],
+	['fr', 'vit. E 105 mg', '105 mg', 0.105],
+	['fr', 'vitamine E (105 mg)', '105 mg', 0.105],
+	['fr', 'vitamine E 105 UI', '105 UI', undef],
+	['en', 'vitamin E 105 mg', '105 mg', 0.105],
+	['de', 'Vitamin E 105 mg', '105 mg', 0.105],
+	['es', 'vitamina E 105 mg', '105 mg', 0.105],
+	['pl', 'witamina E 105 mg', '105 mg', 0.105],
+	['el', 'βιταμίνη E 105 mg', '105 mg', 0.105],
+	['ru', 'витамин E 105 мг', '105 мг', 0.105],
+	# The Cyrillic spelling is not yet a vitamin E synonym: preserve the dose
+	# without inventing either an additive or a taxonomy match.
+	['ru', 'витамин е 105 мг', '105 мг', 0.105, 'ru:витамин е', 0],
+	)
+{
+	my ($lc, $text, $quantity, $quantity_g, $id, $known) = @$test;
+	my $product = {lc => $lc, ingredients_text => $text};
+	extract_ingredients_from_text($product);
+	is(
+		[map {[@{$_}{qw(id quantity quantity_g is_in_taxonomy)}]} @{$product->{ingredients}}],
+		[[$id // 'en:vitamin-e', $quantity, $quantity_g, $known // 1]],
+		"vitamin E dosage: $lc / $text"
+	);
+}
+
+foreach my $text (
+	'vitamines A, C et E 105 mg',
+	'vitamines  A, C et E 105 mg',
+	'vitamines A, C  et  E 105 mg',
+	"vitamines\x{a0}A, C et E 105 mg",
+	"vitamines A, C\x{a0}et\x{a0}E 105 mg",
+	)
+{
+	my $product = {lc => 'fr', ingredients_text => $text};
+	extract_ingredients_from_text($product);
+	is(
+		[
+			map {[@{$_}{qw(id quantity quantity_g is_in_taxonomy)}]}
+			grep {$_->{id} ne 'en:vitamins'} @{$product->{ingredients}}
+		],
+		[['en:vitamin-a', undef, undef, 1], ['en:vitamin-c', undef, undef, 1], ['en:vitamin-e', '105 mg', 0.105, 1],],
+		"only the last vitamin receives the dosage: $text"
+	);
+}
+
 done_testing();

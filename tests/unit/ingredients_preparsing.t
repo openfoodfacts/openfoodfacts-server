@@ -1337,4 +1337,29 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($test_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
+foreach my $test (
+	['fr', 'vitamine E 105 mg', 'vitamine E 105 mg'],
+	['fr', 'vitamine  E 105 mg', 'vitamine E 105 mg'],
+	['fr', "vitamine \tE 105 mg", 'vitamine E 105 mg'],
+	['fr', 'vitamine E 105,125 mg', 'vitamine E 105,125 mg'],
+	['el', 'βιταμίνη E 105 mg', 'βιταμίνη E 105 mg'],
+	['ru', 'витамин е 105 мг', 'витамин е 105 мг'],
+	['fr', 'vitamines A, C et E 105 mg', 'vitamines, vitamine A, vitamine C, vitamine E 105 mg'],
+	['fr', 'vitamines A, C  et  E 105 mg', 'vitamines, vitamine A, vitamine C, vitamine E 105 mg'],
+	['en', 'vitamins A, C and E 105 mg', 'vitamins, vitamin A, vitamin C, vitamin E 105 mg'],
+	['pl', 'witaminy A, C i E 105 mg', 'witaminy, witamina A, witamina C, witamina E 105 mg'],
+	['fr', 'vitamines (A, C et E) 105 mg', 'vitamines, vitamine A, vitamine C, vitamine E 105 mg'],
+	[
+		'fr',
+		'vitamines A, C et E 105 mg, colorant E 120',
+		'vitamines, vitamine A, vitamine C, vitamine E 105 mg, colorant : e120'
+	],
+	['fr', 'E 330, E-160a(ii), INS 471', 'e330, e160aii, e471'],
+	['ru', 'е 330', 'e330'],
+	)
+{
+	my ($lc, $text, $expected) = @$test;
+	is(preparse_ingredients_text($lc, $text), $expected, "vitamins and E-numbers: $lc / $text");
+}
+
 done_testing();
