@@ -925,7 +925,7 @@ wikidata:en: Q407786
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_cyclamate
 
 < en: E1105
-en: lysozyme from eggs, egg lysozyme
+en: lysozyme from eggs, egg lysozyme, egg white lysozyme
 bg: яйчен лизозим
 ca: lisozim d'ou
 cs: lysozym z vajec
@@ -24592,7 +24592,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 ##################################################################################
 
 < en: wheat
-en: semolina
+en: semolina, semolina wheat
 bg: грис
 ca: Sèmola
 cs: Krupice
@@ -24622,7 +24622,7 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en: semolina
-en: semolina flour
+en: semolina flour, semolina wheat flour
 bg: брашно от грис, грисово брашно
 de: Grießmehl
 es: harina de sémola
@@ -25177,7 +25177,7 @@ pl: kasza jęczmienna łamana, kasza jęczmienna wiejska
 description:en: Pot barley is barley that has been processed to remove its fibrous outer hull but has not been polished.
 
 < en: barley groats
-en: pearl barley
+en: pearl barley, pearled barley
 az: arpa yarması perlovaya
 bg: перлен ечемик
 da: perlebyg
@@ -36900,6 +36900,9 @@ description:en: Vital wheat gluten is a concentrated protein extracted from whea
 usda_fdc_code:en: 168147
 usda_ndb_code:en: 48052
 usda_ndb_name:en: Vital wheat gluten
+
+< en: wheat gluten
+en: hydrolyzed wheat gluten, hydrolysed wheat gluten
 
 # nova:en:maltodextrin
 en: maltodextrin, maltodextrins, maltodextrine, malto dextrin
@@ -91087,6 +91090,9 @@ ja: 平飼い卵
 nl: vrije-uitloopei, vrije uitloop ei
 pl: jaja z wolnego wybiegu, jajka z wolnego wybiegu, jaja z chowu na wolnym wybiegu
 
+< en: whole egg
+en: cage-free eggs, cage-free egg, cage-free whole eggs, cage-free whole egg
+
 < en: egg
 en: category A eggs
 bg: яйца категория А
@@ -91597,6 +91603,9 @@ wikidata:en: Q796758
 wikipedia:en: https://en.wikipedia.org/wiki/Egg_white
 
 < en: egg white
+en: cage-free egg whites, cage-free egg white
+
+< en: egg white
 en: chicken egg white
 es: Clara de huevo de gallina
 fi: kananmunan valkuainen, kananmunanvalkuainen
@@ -91715,7 +91724,7 @@ nl: gepasteuriseerd vloeibaar eiwit
 sv: pastöriserad äggvita i flytande form
 
 < en: egg white
-en: egg protein
+en: egg protein, egg white protein
 bg: яйчен протеин
 ca: proteïna d'ou, proteïnes d'ou, proteïnes de l'ou
 de: Ei-Eiweiß
@@ -91883,6 +91892,12 @@ usda_ndb_code:en: 1137
 usda_ndb_name:en: Egg, yolk, dried
 usda_ndb_process:en: en:dried
 wikidata:en: Q1302994
+
+< en: egg yolk
+en: enzyme modified egg yolk, enzyme modified egg yolks
+
+< en: egg yolk
+en: cage-free egg yolks, cage-free egg yolk
 
 < en: egg yolk
 fr: jaune d'oeuf de poules élevées au sol
