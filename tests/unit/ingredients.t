@@ -1089,6 +1089,94 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "Avec antioxydant naturel : mg/kg 1b306(i)",
 		}
 	],
+	# a lone roman numeral in parenthesis is an oxidation state, not a sub-ingredient
+	[
+		"fr-oxidation-states-not-sub-ingredients",
+		{
+			lc => "fr",
+			ingredients_text => "Minéraux : sulfate de fer (II), sulfate de cuivre (ii), fer (iii), oxyde de zinc",
+		}
+	],
+	# an unknown word after the numeral must not hide the known parent
+	[
+		"fr-oxidation-state-before-unknown-word",
+		{
+			lc => "fr",
+			ingredients_text => "Sulfate de cuivre (II) pentahydraté, sulfate de fer (II) monohydraté",
+		}
+	],
+	# taxonomies can store the numeral between spaces: "ijzer (II) citraat", "iron(III) oxide"
+	[
+		"nl-oxidation-state-spaced-in-taxonomy",
+		{
+			lc => "nl",
+			ingredients_text => "ijzer (II) citraat, zout",
+		}
+	],
+	[
+		"en-oxidation-state-spaced-in-taxonomy",
+		{
+			lc => "en",
+			ingredients_text => "colour: iron (III) oxide, salt",
+		}
+	],
+	# the name stops before "and" or a quantity
+	[
+		"pl-oxidation-state-before-and",
+		{
+			lc => "pl",
+			ingredients_text => "konserwant: Azotan(III) potasu i sól",
+		}
+	],
+	[
+		"pl-oxidation-state-before-percent",
+		{
+			lc => "pl",
+			ingredients_text => "konserwant: Azotan(III) potasu 0,1%, sól",
+		}
+	],
+	# processing words after the name
+	[
+		"en-oxidation-state-with-processing",
+		{
+			lc => "en",
+			ingredients_text => "copper (II) sulfate powder, salt",
+		}
+	],
+	[
+		"fr-oxidation-state-with-processing",
+		{
+			lc => "fr",
+			ingredients_text => "sulfate de cuivre (II) en poudre, sel",
+		}
+	],
+	# the name continues after the numeral: "Azotan(III) potasu" is E249, "Azotan potasu" is E252
+	[
+		"pl-oxidation-state-inside-name",
+		{
+			lc => "pl",
+			ingredients_text => "konserwant: Azotan(III) potasu, sól",
+		}
+	],
+	# EU feed additive codes (Regulation 1831/2003 register) are synonyms of the additive
+	[
+		"fr-feed-additive-codes",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels : Fer (3b103), Cuivre (3b405), vitamine A (3a672a), vitamine E (3a700), taurine (3a370). Antioxydant : 1b306(i)",
+		}
+	],
+	# EU feed additive code before or after the name: kept if the name is the same entry as the code,
+	# or one of its parents ("vitamine A" for 3a672a, retinyl acetate)
+	[
+		"fr-feed-additive-code-with-name",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels : 3a672a vitamine A, vitamine E 3a700, 3b103 fer, taurine 3a370, 3a700 taurine",
+		}
+	],
 	# handling of */ and **/ in the tail of the ingredients list
 	[
 		# https://se.openfoodfacts.org/product/7350056848709/%C3%B6rtsalt-original-spicemaster
@@ -1197,6 +1285,28 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "3 concombres de petite taille, 2 aubergines de taille moyenne",
 		}
 	],
+	# E150c bug
+	[
+		"en-e150c",
+		{
+			lc => "en",
+			ingredients_text => "E150c",
+		}
+	],
+	# English ingredients but different main language: should still work
+	[
+		"en-ingredients-with-different-main-language",
+		{
+			lc => "fr",
+			lang => "fr",
+			ingredients_lc =>
+				"sr",    # wrong ingredients_lc that was set previously before an ingredients_text language change
+			ingredients_text => "sugar, salt, and pepper",
+			ingredients_text_en => "sugar, salt, and pepper",
+			ingredients_text_fr => "",
+		}
+	],
+
 );
 
 foreach my $test_ref (@tests) {

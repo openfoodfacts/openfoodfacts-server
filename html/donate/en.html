@@ -227,22 +227,47 @@
                 _paq.push(['trackEvent', 'donation', action, source]);
               }
 
-              track('page_landed');
-              widget.addEventListener('dbox:campaign-loaded', function () {
+              function registerTracking(retriesLeft) {
+                if (!widget || widget.dataset.offTrackingRegistered === '1') {
+                  return;
+                }
+                if (!widget.shadowRoot) {
+                  if (retriesLeft > 0) {
+                    requestAnimationFrame(function () {
+                      registerTracking(retriesLeft - 1);
+                    });
+                  }
+                  return;
+                }
+
+                widget.dataset.offTrackingRegistered = '1';
+
                 // amount and page-id change on the visitor's first interaction, not on load
-                new MutationObserver(function () {
+                var observer = new MutationObserver(function () {
                   if (!started) {
                     started = true;
+                    observer.disconnect();
                     track('form_started');
                   }
-                }).observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
-                widget.shadowRoot.addEventListener('dbox:payment-initiated', function () {
+                });
+                observer.observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
+
+                var shadowRoot = widget.shadowRoot;
+                shadowRoot.addEventListener('dbox:payment-initiated', function () {
                   track('payment_initiated');
                 });
-                widget.shadowRoot.addEventListener('dbox:donation-created', function () {
+                shadowRoot.addEventListener('dbox:donation-created', function () {
                   track('succeeded');
                 });
-              }, { once: true });
+              }
+
+              track('page_landed');
+              if (widget) {
+                registerTracking(120);
+                widget.addEventListener('dbox:campaign-loaded', function () {
+                  registerTracking(120);
+                }, { once: true });
+              }
             })();
           </script>
 
