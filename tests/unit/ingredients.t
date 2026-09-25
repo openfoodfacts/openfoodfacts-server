@@ -1293,6 +1293,19 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "E150c",
 		}
 	],
+	# English ingredients but different main language: should still work
+	[
+		"en-ingredients-with-different-main-language",
+		{
+			lc => "fr",
+			lang => "fr",
+			ingredients_lc => "sr", # wrong ingredients_lc that was set previously before an ingredients_text language change
+			ingredients_text => "sugar, salt, and pepper",
+			ingredients_text_en => "sugar, salt, and pepper",
+			ingredients_text_fr => "",
+		}
+	],
+
 );
 
 foreach my $test_ref (@tests) {

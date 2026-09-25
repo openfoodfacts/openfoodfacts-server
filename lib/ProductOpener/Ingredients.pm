@@ -1741,7 +1741,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# indicate that the service is creating the "ingredients" structure
 	$updated_product_fields_ref->{ingredients} = 1;
 
-	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
+	# Run select_ingredients_lc() to set the ingredients_lc field in the product
+	my $ingredients_lc = select_ingredients_lc($product_ref);
 
 	if (   (not defined $product_ref->{ingredients_text})
 		or ($product_ref->{ingredients_text} eq "")
