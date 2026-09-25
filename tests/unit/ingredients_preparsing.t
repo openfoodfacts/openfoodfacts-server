@@ -1362,4 +1362,34 @@ foreach my $test (
 	is(preparse_ingredients_text($lc, $text), $expected, "vitamins and E-numbers: $lc / $text");
 }
 
+# Food and feed codes share whitespace handling, without consuming a dosage.
+foreach my $test (
+	['3B 103, 3B 202, 3B 405, 3B 502, 3B 603, 3B 801', '3b103, 3b202, 3b405, 3B 502, 3b603, 3b801'],
+	["3b\t103, 3a\x{a0}672a, E  330", '3b103, 3a672a, e330'],
+	['1b 306(i), 1b306(ii), 3a 825ii', '1b306(i), 1b306(ii), 3a825ii'],
+	['3b 103 105 mg, E 330 105 mg', '3b103 105 mg, e330 105 mg'],
+	['3b 999, 3a 700i, lot 1B 064, 2B 1003131447', '3b 999, 3a700i, lot 1B 064, 2B 1003131447'],
+	['Omega 3b 150mg, Omega 3b 103 mg, Omega E 150 mg', 'Omega 3b 150mg, Omega 3b 103 mg, Omega E 150 mg'],
+	['Omega-E 150mg, Omega-3b 103 mg', 'Omega-E 150mg, Omega-3b 103 mg'],
+	['E 330 mg, INS 471 mg, 3b 103,5 mg', 'E 330 mg, INS 471 mg, 3b 103,5 mg'],
+	['E 105,125 mg, E 1050 UI, 3b 103 mg/kg', 'E 105,125 mg, E 1050 UI, 3b 103 mg/kg'],
+	['3b 103 fer 73,2 mg', '3b103 fer 73,2 mg'],
+	['3b 103 et 3b 104, 3a 672a 3a 671', '3b103, 3b104, 3a672a, 3a671'],
+	['3b607 et 3b605, E8 et 3b811', '3b607 et 3b605, E8 et 3b811'],
+	['E 150 d, E 100g, 3b 103g', 'e150d, E 100g, 3b 103g'],
+	)
+{
+	is(preparse_ingredients_text('fr', $test->[0]), $test->[1], "food and feed codes: $test->[0]");
+}
+
+foreach my $test (
+	['pt', 'INS 500ii, INS 450iii', 'e500ii, e450iii'],
+	['ro', 'apă și sare', 'apă și sare'],
+	['ro', 'lapte şi soia', 'lapte şi soia'],
+	['ro', 'E 330 şi E 331', 'e330, e331'],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "code variants and conjunctions: $test->[1]");
+}
+
 done_testing();

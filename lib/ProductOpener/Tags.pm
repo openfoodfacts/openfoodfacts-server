@@ -3689,23 +3689,41 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
 	}
 
-	if (($taxonomy eq "ingredients") or ($taxonomy eq "packaging") or ($taxonomy =~ /^additives/)) {
-		# convert E-number + name to E-number only if the number match the name
+	if (   ($taxonomy eq "ingredients")
+		or ($taxonomy eq "packaging")
+		or ($taxonomy =~ /^additives/)
+		or ($taxonomy =~ /^(vitamins|minerals|amino_acids|nucleotides|other_nutritional_substances)$/))
+	{
+		# A food or feed code can refine its accompanying name only when both
+		# resolve to the same entry, or the code denotes a child of that entry.
+		my $code_regexp = qr/(?:e|[1-9][ab])\d{3,4}[a-z]*/i;
 		my $additive_tagid;
 		my $name;
-		if ($tagid =~ /^(e\d.*?)-(.*)$/i) {
+		if ($tagid =~ /^($code_regexp)-(.+)$/) {
 			$additive_tagid = $1;
 			$name = $2;
 		}
-		elsif ($tagid =~ /^(.*)-(e\d.*?)$/i) {
+		elsif ($tagid =~ /^(.+)-($code_regexp)$/) {
 			$name = $1;
 			$additive_tagid = $2;
 		}
 		if (defined $name) {
-			my $name_id = canonicalize_taxonomy_tag($tag_lc, "additives", $name, $exists_in_taxonomy_ref);
-			# caramelo e150c -> name_id is e150
-			if (("en:" . $additive_tagid) =~ /^$name_id/) {
-				return "en:" . $additive_tagid;
+			my $code_taxonomy
+				= ($taxonomy eq 'packaging' or ($taxonomy eq 'ingredients' and $additive_tagid =~ /^e/i))
+				? 'additives'
+				: $taxonomy;
+			my ($code_exists, $name_exists);
+			my $code_id = canonicalize_taxonomy_tag('xx', $code_taxonomy, $additive_tagid, \$code_exists);
+			my $name_id = canonicalize_taxonomy_tag($tag_lc, $code_taxonomy, $name, \$name_exists);
+			# Some E-number variants (notably E150c / E150) have no parent edge.
+			my $e_variant = ($name_id =~ /^en:e\d{3,4}[a-h]?$/ and $code_id =~ /^\Q$name_id\E[a-z]+$/);
+			# A repeated prefix ("E E110") is not an accompanying ingredient name.
+			my $repeated_prefix = ($name eq 'e' and $additive_tagid =~ /^e/i);
+			if ($code_exists
+				and ($repeated_prefix or ($name_exists and (is_a($code_taxonomy, $code_id, $name_id) or $e_variant))))
+			{
+				$$exists_in_taxonomy_ref = 1 if defined $exists_in_taxonomy_ref;
+				return $code_id;
 			}
 		}
 	}
