@@ -1299,7 +1299,8 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => "fr",
 			lang => "fr",
-			ingredients_lc => "sr", # wrong ingredients_lc that was set previously before an ingredients_text language change
+			ingredients_lc =>
+				"sr",    # wrong ingredients_lc that was set previously before an ingredients_text language change
 			ingredients_text => "sugar, salt, and pepper",
 			ingredients_text_en => "sugar, salt, and pepper",
 			ingredients_text_fr => "",
