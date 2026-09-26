@@ -1167,6 +1167,16 @@ puffed orange and caramelized unknown_fruit4.",
 				"Additifs nutritionnels : Fer (3b103), Cuivre (3b405), vitamine A (3a672a), vitamine E (3a700), taurine (3a370). Antioxydant : 1b306(i)",
 		}
 	],
+	# EU feed additive code before or after the name: kept if the name is the same entry as the code,
+	# or one of its parents ("vitamine A" for 3a672a, retinyl acetate)
+	[
+		"fr-feed-additive-code-with-name",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels : 3a672a vitamine A, vitamine E 3a700, 3b103 fer, taurine 3a370, 3a700 taurine",
+		}
+	],
 	# handling of */ and **/ in the tail of the ingredients list
 	[
 		# https://se.openfoodfacts.org/product/7350056848709/%C3%B6rtsalt-original-spicemaster
@@ -1275,6 +1285,28 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "3 concombres de petite taille, 2 aubergines de taille moyenne",
 		}
 	],
+	# E150c bug
+	[
+		"en-e150c",
+		{
+			lc => "en",
+			ingredients_text => "E150c",
+		}
+	],
+	# English ingredients but different main language: should still work
+	[
+		"en-ingredients-with-different-main-language",
+		{
+			lc => "fr",
+			lang => "fr",
+			ingredients_lc =>
+				"sr",    # wrong ingredients_lc that was set previously before an ingredients_text language change
+			ingredients_text => "sugar, salt, and pepper",
+			ingredients_text_en => "sugar, salt, and pepper",
+			ingredients_text_fr => "",
+		}
+	],
+
 );
 
 foreach my $test_ref (@tests) {

@@ -399,11 +399,11 @@ sub init_compiled_ingredients_processing_regexps ($ingredients_lc) {
 				push @inside, qr/$regexp\b/i;
 			}
 			# without space before, without space after, set a minimal length (H- for UHT in German will remove all H letters)
-			if (($ingredients_lc eq 'de') and (length($regexp) >= 3)) {
+			elsif (($ingredients_lc eq 'de') and (length($regexp) >= 3)) {
 				push @inside, qr/-?$regexp-?/i;
 			}
 			# with space before, without space after
-			if ($ingredients_lc eq 'fi') {
+			elsif ($ingredients_lc eq 'fi') {
 				push @inside, qr/\b$regexp/i;
 			}
 
@@ -845,8 +845,18 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 
 					(defined $ingredient_content)
 					# optional minimum, followed by ingredient, content, : and/or spaces, percent or quantity, optional per 100g, separator
-					and ($text
-						=~ /((?:^|;|,|\.| - )\s*)(?:(?:$minimum_or_total) )?\s*([^,.;]+?)\s*(?:$ingredient_content)(?::|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					and (
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)(?:(?:'
+								. $minimum_or_total
+								. ') )?\s*([^,.;]+?)\s*(?:'
+								. $ingredient_content
+								. ')(?::|\s)+'
+								. $percent_or_quantity_regexp
+								. '\s*(?:'
+								. $per_100g_regexp
+								. ')?(?:;|,|\.| - |$)'
+						)
 					)
 
 				)
@@ -856,8 +866,17 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 					(defined $content_of_ingredient)
 					and (
 						# content, of or : or space, ingredient, percent or quantity, optional per 100g, separator
-						$text
-						=~ /((?:^|;|,|\.| - )\s*)(?:$content_of_ingredient)(?:$of|\s|:)+([^,.;]+?)(?:$of|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)(?:'
+								. $content_of_ingredient . ')(?:'
+								. $of
+								. '|\s|:)+([^,.;]+?)(?:'
+								. $of . '|\s)+'
+								. $percent_or_quantity_regexp
+								. '\s*(?:'
+								. $per_100g_regexp
+								. ')?(?:;|,|\.| - |$)'
+						)
 					)
 				)
 
@@ -905,17 +924,32 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				# prepared with, percent, ingredient, optional per 100g, separator
 				# $of needs to be first in (?:$of|\s|:) so that " of " is matched by it, instead of the ingredient capturing group
 				(
-						(defined $prepared_with)
-					and ($prepared_with ne "")
-					and ($text
-						=~ /((?:^|;|,|\.| - )\s*)$prepared_with(?:$of|\s|:)+$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					(defined $prepared_with) and ($prepared_with ne "")
+					and (
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)'
+								. $prepared_with . '(?:'
+								. $of
+								. '|\s|:)+'
+								. $percent_or_quantity_regexp . '(?:'
+								. $of
+								. '|\s|:)+\s*([^,.;]+?)\s*(?:'
+								. $per_100g_regexp
+								. ')?(?:;|,|\.| - |$)'
+						)
 					)
 				)
 				or
 				# percent, ingredient, per 100g, separator
 				(
-					$text
-					=~ /((?:^|;|,|\.| - )\s*)$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)(?:;|,|\.| - |$)/i
+					$text =~ compiled_regexp(
+							  '((?:^|;|,|\.| - )\s*)'
+							. $percent_or_quantity_regexp . '(?:'
+							. $of
+							. '|\s|:)+\s*([^,.;]+?)\s*(?:'
+							. $per_100g_regexp
+							. ')(?:;|,|\.| - |$)'
+					)
 				)
 			)
 			)
@@ -1131,8 +1165,18 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 	# Origin of the milk: United Kingdom.
 	if (
 		$origins_regexp
-		and ($$text_ref
-			=~ /\s*${origin_of_the_regexp}([^,.;:]+)(?::| )+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i
+		and (
+			$$text_ref =~ compiled_regexp(
+					  '\s*'
+					. $origin_of_the_regexp
+					. '([^,.;:]+)(?::| )+((?:'
+					. $origins_regexp
+					. ')(?:(?:,|'
+					. $and_or
+					. ')(?:\s?)(?:'
+					. $origins_regexp
+					. '))*)\s*(?:,|;|\.| - |$)'
+			)
 		)
 		)
 	{
@@ -1697,7 +1741,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# indicate that the service is creating the "ingredients" structure
 	$updated_product_fields_ref->{ingredients} = 1;
 
-	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
+	# Run select_ingredients_lc() to set the ingredients_lc field in the product
+	my $ingredients_lc = select_ingredients_lc($product_ref);
 
 	if (   (not defined $product_ref->{ingredients_text})
 		or ($product_ref->{ingredients_text} eq "")
@@ -1739,10 +1784,12 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# If the original text contains newlines, we may need to try parsing with newlines as separators
 	my $has_newlines = ($product_ref->{ingredients_text} =~ /[\r\n]/);
 	my $original_ingredients_text;
+	my $original_ingredients_text_lc;
 	# Make a deep copy of the original specific_ingredients structure, so that we can reset it if we need to reparse with newlines as separators
 	my $original_specific_ingredients_ref;
 	if ($has_newlines) {
 		$original_ingredients_text = $product_ref->{ingredients_text};
+		$original_ingredients_text_lc = $product_ref->{"ingredients_text_" . $ingredients_lc};
 		$original_specific_ingredients_ref
 			= (defined $product_ref->{specific_ingredients}) ? dclone($product_ref->{specific_ingredients}) : undef;
 	}
@@ -2515,7 +2562,7 @@ Text to analyze
 						#$debug_ingredients and $log->trace("checking labels regexps",
 						#	{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
 						#	if $log->is_trace();
-						if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
+						if ((defined $regexp) and ($ingredient =~ compiled_regexp('\b(' . $regexp . ')\b'))) {
 
 							my $label = $1;
 
@@ -2989,7 +3036,7 @@ Text to analyze
 						);
 						if (defined $ignore_regexps{$ingredients_lc}) {
 							foreach my $regexp (@{$ignore_regexps{$ingredients_lc}}) {
-								if ($ingredient =~ /$regexp/i) {
+								if ($ingredient =~ compiled_regexp($regexp)) {
 
 									$debug_ingredients and $log->debug(
 										"unknown ingredient matches a phrase to ignore",
@@ -3300,9 +3347,12 @@ Text to analyze
 		}
 
 		# Replace newlines with ", " for Parse B
-		$product_ref->{ingredients_text} =~ s/\r\n/, /g;
-		$product_ref->{ingredients_text} =~ s/\n/, /g;
-		$product_ref->{ingredients_text} =~ s/\r/, /g;
+		if (defined $product_ref->{ingredients_text}) {
+			$product_ref->{ingredients_text} =~ s/(\r|\n)+/, /g;
+		}
+		if (defined $product_ref->{"ingredients_text_" . $ingredients_lc}) {
+			$product_ref->{"ingredients_text_" . $ingredients_lc} =~ s/(\r|\n)+/, /g;
+		}
 
 		# Call recursively for Parse B
 		parse_ingredients_text_service($product_ref, $updated_product_fields_ref, $errors_ref);
@@ -3328,7 +3378,12 @@ Text to analyze
 		}
 
 		# Restore original ingredients_text
-		$product_ref->{ingredients_text} = $original_ingredients_text;
+		if (defined $original_ingredients_text) {
+			$product_ref->{ingredients_text} = $original_ingredients_text;
+		}
+		if (defined $original_ingredients_text_lc) {
+			$product_ref->{"ingredients_text_" . $ingredients_lc} = $original_ingredients_text_lc;
+		}
 	}
 
 	return;
@@ -7376,8 +7431,16 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# vitamines (B1, acide folique (B9)) <-- we need to match (B9) which is not followed by a \b boundary, hence the ((\s?((\)|\]))|\b)) in the regexp below
 
-	$text
-		=~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, |$and)+)+($vitaminssuffixregexp))((\s?((\)|\]))|\b))/normalize_vitamins_enumeration($ingredients_lc,$3)/ieg;
+	my $vitamins_regexp
+		= compiled_regexp('('
+			. $vitaminsprefixregexp
+			. ')(:|\(|\[| )+((('
+			. $vitaminssuffixregexp
+			. ')( |\/| \/ | - |,|, |'
+			. $and . ')+)+('
+			. $vitaminssuffixregexp
+			. '))((\s?((\)|\]))|\b))');
+	$text =~ s/$vitamins_regexp/normalize_vitamins_enumeration($ingredients_lc,$3)/eg;
 
 	# Allergens and traces
 	# Traces de lait, d'oeufs et de soja.
