@@ -5267,6 +5267,7 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$lc} || " will not match ";
+	$and =~ s/ /\\s+/g;
 
 	# The ?: makes the group non-capturing, so that the split does not create an extra item for the group
 	my @vitamins = split(/(?:\(|\)|\/| \/ | - |, |,|$and)+/i, $vitamins_list);
@@ -6334,35 +6335,36 @@ sub separate_additive_class ($ingredients_lc, $additive_class, $spaces, $colon, 
 	}
 }
 
-=head2 replace_additive ($number, $letter, $variant) - normalize the additive
+=head2 normalize_additive_code ($prefix, $number, $letter, $variant, $original) - normalize a food or feed code
 
 This function is used inside regular expressions to turn additives to a normalized form.
 
-Using a function to concatenate the E-number, letter and variant makes it possible
-to deal with undefined $letter or $variant without triggering an undefined warning.
-
-=head3 Synopsis
-
-	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|$)/replace_additive($3,$6,$9) . $12/ieg;
+Feed codes are normalized only when the complete code is a known synonym. Unlike
+E-number variants, an unknown feed-code suffix must not fall back to a base code.
 
 =cut
 
-sub replace_additive ($number, $letter, $variant) {
+sub normalize_additive_code ($prefix, $number, $letter, $variant, $original) {
 
 	# $number  ->  e.g. 160
 	# $letter  ->  e.g. a
 	# $variant ->  e.g. ii
 
-	my $additive = "e" . $number;
-	if (defined $letter) {
-		$additive .= $letter;
+	my $additive = lc($prefix) . $number . ($letter // '');
+	(my $variant_id = lc($variant // '')) =~ s/[^a-z]//g;
+	if (lc($prefix) ne 'e') {
+		$additive = lc($additive);
+		my $exists;
+		canonicalize_taxonomy_tag('xx', 'ingredients', $additive . $variant_id, \$exists);
+		return $original if not $exists;
+		# Keep parentheses: they also delimit the code from an unknown trailing name.
+		return $additive . (($original =~ /\(/) ? "($variant_id)" : $variant_id);
 	}
 	if (defined $variant) {
 		$variant =~ s/^\(//;
 		$variant =~ s/\)$//;
 		# keep the variant only if the additives taxonomy knows it: "E330 (i)" is E330,
 		# while "E160a (ii)" is a distinct additive (plant carotenes)
-		(my $variant_id = $variant) =~ s/[^a-z]//gi;
 		if (exists_taxonomy_tag("additives", "en:" . lc($additive . $variant_id))) {
 			$additive .= $variant;
 		}
@@ -7093,8 +7095,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	my $and = $and{$ingredients_lc} || " and ";
 	my $and_without_spaces = $and;
-	$and_without_spaces =~ s/^ //;
-	$and_without_spaces =~ s/ $//;
+	$and_without_spaces =~ s/(?:^|(?<=\|)) +| +(?=\||$)//g;
 
 	my $of = ' - ';
 	if (defined $of{$ingredients_lc}) {
@@ -7197,6 +7198,92 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# and PP, B6, B12 etc. will be listed as synonyms for Vitamine PP, Vitamin B6, Vitamin B12 etc.
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
+	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
+	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
+
+	my @vitaminssuffixes = (
+		"a", "rétinol", "b", "b1",
+		"b2", "b3", "b4", "b5",
+		"b6", "b7", "b8", "b9",
+		"b10", "b11", "b12", "thiamine",
+		"riboflavine", "niacine", "pyridoxine", "cobalamine",
+		"biotine", "acide pantothénique", "acide folique", "c",
+		"acide ascorbique", "d", "d2", "d3",
+		"cholécalciférol", "e", "tocophérol", "alphatocophérol",
+		"alpha-tocophérol", "f", "h", "k",
+		"k1", "k2", "k3", "p",
+		"pp",
+	);
+	my @vitaminsprefixes = ('vit', 'vit.', 'vitamine', 'vitamines');
+
+	# Add synonyms in target language
+	if (defined $translations_to{vitamins}) {
+		foreach my $vitamin (sort keys %{$translations_to{vitamins}}) {
+			if (defined $translations_to{vitamins}{$vitamin}{$ingredients_lc}) {
+				push @vitaminssuffixes, $translations_to{vitamins}{$vitamin}{$ingredients_lc};
+			}
+		}
+	}
+
+	# Include English, which normalize_vitamin() also uses as a fallback.
+	foreach my $vitamin_lc (uniq($ingredients_lc, 'en')) {
+		next if not defined $translations_to{ingredients}{'en:vitamins'}{$vitamin_lc};
+		push @vitaminsprefixes, get_taxonomy_tag_synonyms($vitamin_lc, 'ingredients', 'en:vitamins');
+	}
+	my $vitaminsprefixregexp
+		= join('|', map {quotemeta($_)} sort {length($b) <=> length($a) || $a cmp $b} uniq(@vitaminsprefixes));
+	$vitaminsprefixregexp =~ s/\\ /\\s+/g;
+
+	my $vitaminssuffixregexp = "";
+	foreach my $suffix (@vitaminssuffixes) {
+		$vitaminssuffixregexp .= '|' . quotemeta($suffix);
+		# vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)].
+		# -> also put (B1)
+		$vitaminssuffixregexp .= '|\(' . quotemeta($suffix) . '\)';
+
+		my $unaccented_suffix = unac_string_perl($suffix);
+		if ($unaccented_suffix ne $suffix) {
+			$vitaminssuffixregexp .= '|' . quotemeta($unaccented_suffix);
+		}
+		if ($suffix =~ /[a-z]\d/) {
+
+			$suffix =~ s/([a-z])(\d)/$1 $2/;
+			$vitaminssuffixregexp .= '|' . quotemeta($suffix);
+			$suffix =~ s/ /-/;
+			$vitaminssuffixregexp .= '|' . quotemeta($suffix);
+
+		}
+
+	}
+	$vitaminssuffixregexp =~ s/^\|//;
+
+	# Preserve the standalone E in "vitamine E 105 mg" and "vitamines A, C et E
+	# 105 mg" until vitamin enumeration and quantity parsing run. Match forward
+	# to allow arbitrary whitespace. All groups must be non-capturing: the
+	# additive substitutions below rely on their existing capture numbers.
+	my $vitamins_and = $and;
+	$vitamins_and =~ s/ /\\s+/g;
+	my $vitamin_e_regexp
+		= '\b(?:'
+		. $vitaminsprefixregexp
+		. ')(?:[:\(\[]|\s)+'
+		. '(?:(?:'
+		. $vitaminssuffixregexp
+		. ')(?:\s|/| - |,|'
+		. $vitamins_and . ')+)*'
+		. '[eе](?=\s|\)|\]|$)(*SKIP)(*F)|';
+
+	# A separated prefix followed by a quantity is not a code: "Omega 3b 103 mg"
+	# must keep its dose even though 3b103 exists. Apply the same rule to E / INS.
+	my $e_number_prefix = 'e|е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?';
+	my $protected_additive_context
+		= $vitamin_e_regexp
+		. '-?\b(?:'
+		. $e_number_prefix
+		. '|[1-9][ab])\s+'
+		. $quantity_with_unit_regexps{$ingredients_lc}
+		. '(*SKIP)(*F)|';
+
 	# colorants alimentaires E (124,122,133,104,110)
 	my $additivesregexp;
 	# special cases, when $and (" a ", " e " or " i ") conflict with variants (E470a, E472e or E451i or E451(i))
@@ -7207,7 +7294,10 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		# based on $additivesregexp below in the else, with following modifications
 		# no space before abcdefgh
 		$additivesregexp
-			= '(\d{3}|\d{4})((-|\.)?([abcdefgh]))?(( |,|.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\)))?';
+			= '(\d{3}|\d{4})((-|\.)?([abcdefgh]))?(( |,|\.)?(('
+			. $roman_numerals . ')|\(('
+			. $roman_numerals
+			. ')\)))?';
 	}
 	elsif ($and eq " i ") {
 		# based on $additivesregexp below in the else, with following modifications
@@ -7226,31 +7316,61 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			. ')\)))?';
 	}
 
-	$text
-		=~ s/\b(e|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)(:|\(|\[| | n| nb|#|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and))+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($ingredients_lc,$3)/ieg;
+	my $additives_enumeration_regexp
+		= compiled_regexp($protected_additive_context
+			. '\b(e|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)(:|\(|\[| | n| nb|#|°)+((('
+			. $additivesregexp
+			. ')( |/| / | - |,|, |'
+			. $and . '))+('
+			. $additivesregexp
+			. '))\b(\s?(\)|\]))?');
+	$text =~ s/$additives_enumeration_regexp/normalize_additives_enumeration($ingredients_lc,$3)/eg;
 
 	# in India: INS 240 instead of E 240, bug #1133)
 	# also INS N°420, bug #3618
 	# Russian е (!= e), https://github.com/openfoodfacts/openfoodfacts-server/issues/4931
-	$text =~ s/\b(е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
+	my $additive_prefix_regexp = compiled_regexp($protected_additive_context
+			. q{\b(е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})});
+	$text =~ s/$additive_prefix_regexp/E$3/g;
 
 	# E 240, E.240, E-240..
 	# E250-E251-E260
-	$text =~ s/-e( |-|\.)?($additivesregexp)/- E$2/ig;
+	my $additive_dash_regexp = compiled_regexp($protected_additive_context . '-e( |-|\.)?(' . $additivesregexp . ')');
+	$text =~ s/$additive_dash_regexp/- E$2/g;
 	# do not turn E172-i into E172 - i
-	$text =~ s/e( |-|\.)?($additivesregexp)-(e)/E$2 - E/ig;
+	my $additive_dash_list_regexp
+		= compiled_regexp($protected_additive_context . 'e( |-|\.)?(' . $additivesregexp . ')-(e)');
+	$text =~ s/$additive_dash_list_regexp/E$2 - E/g;
 
 	# Canonicalize additives to remove the dash that can make further parsing break
 	# Match E + number + letter a to h + i to xv, followed by a space or separator
 	# $3 would be either \d{3} or \d{4} in $additivesregexp
 	# $6 would be ([abcdefgh]) in $additivesregexp
 	# $9 would be (( |-|\.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\))) in $additivesregexp
-	# $12 would be (\b|\s|,|\.|;|\/|-|\\|\)|\]|$)
-	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|\)|\]|$)/replace_additive($3,$6,$9) . $12/ieg;
+	# Feed codes use the same normalization, but require a known complete code.
+	my $additive_code_regexp
+		= compiled_regexp($protected_additive_context
+			. '(\b)(e|[1-9][ab])(?:\s+|-|\.)?'
+			. $additivesregexp
+			. '(?=\b|\s|,|\.|;|/|-|\\\\|\)|\]|$)');
+	$text =~ s/$additive_code_regexp/normalize_additive_code($2,$3,$6,$9,$&)/eg;
+
+	# Split feed-code lists only when both complete codes are known. Splitting
+	# an unknown code can change the parser's choice of newline separators.
+	my $compact_code = '(?:e|[1-9][ab])\d{3,4}[a-z]*';
+	my $separate_codes = sub ($first, $second, $original) {
+		foreach my $code ($first, $second) {
+			my $exists;
+			canonicalize_taxonomy_tag('xx', 'ingredients', $code, \$exists);
+			return $original if not $exists;
+		}
+		return $first . ', ';
+	};
+	$text =~ s/\b($compact_code)(?:$and|\s+)(?=($compact_code)\b)/$separate_codes->($1,$2,$&)/ige;
 
 	# E100 et E120 -> E100, E120
-	$text =~ s/\be($additivesregexp)$and/'e' . ((defined $1) ? $1 : '') . ', '/ige;
-	$text =~ s/${and}e($additivesregexp)/', e' . ((defined $1) ? $1 : '')/ige;
+	$text =~ s/\be($additivesregexp)(?:$and)/'e' . $1 . ', '/ige;
+	$text =~ s/(?:$and)e($additivesregexp)/', e' . $1/ige;
 
 	# E100 E122 -> E100, E122
 	$text =~ s/\be($additivesregexp)\s+e(?=\d)/e$1, e/ig;
@@ -7266,7 +7386,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# parenthetical content before taxonomy matching, and the parent name without the
 	# numeral is usually already a synonym, so stripping would only remove a small unknown
 	# child at the cost of misattributing additives elsewhere.
-	$text =~ s/\be(\d{3,4})([a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/replace_additive($1,$2,$3)/ieg;
+	$text
+		=~ s/\b(e|[1-9][ab])(\d{3,4})([a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/normalize_additive_code($1,$2,$3,$4,$&)/ieg;
 
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
@@ -7291,7 +7412,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/\bmono\s-\s/mono- /ig;
 	$text =~ s/\bmono\s/mono- /ig;
 	#  émulsifiant mono-et diglycérides d'acides gras
-	$text =~ s/(mono$and_without_spaces )/mono- $and_without_spaces /ig;
+	$text =~ s/mono($and_without_spaces) /mono- $1 /ig;
 
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
@@ -7309,7 +7430,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# separator followed by and
 	# aceite de girasol (70%) y aceite de oliva virgen (30%)
-	$text =~ s/($cbrackets)$and/$1, /ig;
+	$text =~ s/($cbrackets)(?:$and)/$1, /ig;
 
 	$log->debug("preparse_ingredients_text - before language specific preparsing", {text => $text}) if $log->is_debug();
 
@@ -7362,70 +7483,6 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	$text = develop_ingredients_categories_and_types($ingredients_lc, $text);
 
-	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
-	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
-
-	my @vitaminssuffixes = (
-		"a", "rétinol", "b", "b1",
-		"b2", "b3", "b4", "b5",
-		"b6", "b7", "b8", "b9",
-		"b10", "b11", "b12", "thiamine",
-		"riboflavine", "niacine", "pyridoxine", "cobalamine",
-		"biotine", "acide pantothénique", "acide folique", "c",
-		"acide ascorbique", "d", "d2", "d3",
-		"cholécalciférol", "e", "tocophérol", "alphatocophérol",
-		"alpha-tocophérol", "f", "h", "k",
-		"k1", "k2", "k3", "p",
-		"pp",
-	);
-	my $vitaminsprefixregexp = "vit|vit\.|vitamine|vitamines";
-
-	# Add synonyms in target language
-	if (defined $translations_to{vitamins}) {
-		foreach my $vitamin (keys %{$translations_to{vitamins}}) {
-			if (defined $translations_to{vitamins}{$vitamin}{$ingredients_lc}) {
-				push @vitaminssuffixes, $translations_to{vitamins}{$vitamin}{$ingredients_lc};
-			}
-		}
-	}
-
-	# Add synonyms in target language
-	my $vitamin_in_lc
-		= get_string_id_for_lang($ingredients_lc, display_taxonomy_tag($ingredients_lc, "ingredients", "en:vitamins"));
-	$vitamin_in_lc =~ s/^\w\w://;
-
-	if (    (defined $synonyms_for{ingredients})
-		and (defined $synonyms_for{ingredients}{$ingredients_lc})
-		and (defined $synonyms_for{ingredients}{$ingredients_lc}{$vitamin_in_lc}))
-	{
-		foreach my $synonym (@{$synonyms_for{ingredients}{$ingredients_lc}{$vitamin_in_lc}}) {
-			$vitaminsprefixregexp .= '|' . $synonym;
-		}
-	}
-
-	my $vitaminssuffixregexp = "";
-	foreach my $suffix (@vitaminssuffixes) {
-		$vitaminssuffixregexp .= '|' . $suffix;
-		# vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)].
-		# -> also put (B1)
-		$vitaminssuffixregexp .= '|\(' . $suffix . '\)';
-
-		my $unaccented_suffix = unac_string_perl($suffix);
-		if ($unaccented_suffix ne $suffix) {
-			$vitaminssuffixregexp .= '|' . $unaccented_suffix;
-		}
-		if ($suffix =~ /[a-z]\d/) {
-
-			$suffix =~ s/([a-z])(\d)/$1 $2/;
-			$vitaminssuffixregexp .= '|' . $suffix;
-			$suffix =~ s/ /-/;
-			$vitaminssuffixregexp .= '|' . $suffix;
-
-		}
-
-	}
-	$vitaminssuffixregexp =~ s/^\|//;
-
 	#$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
 	#$log->debug("vitamins text", { vitaminssuffixregexp => $vitaminssuffixregexp }) if $log->is_debug();
 
@@ -7434,10 +7491,10 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	my $vitamins_regexp
 		= compiled_regexp('('
 			. $vitaminsprefixregexp
-			. ')(:|\(|\[| )+((('
+			. ')(:|\(|\[|\s)+((('
 			. $vitaminssuffixregexp
-			. ')( |\/| \/ | - |,|, |'
-			. $and . ')+)+('
+			. ')(\s|\/| \/ | - |,|, |'
+			. $vitamins_and . ')+)+('
 			. $vitaminssuffixregexp
 			. '))((\s?((\)|\]))|\b))');
 	$text =~ s/$vitamins_regexp/normalize_vitamins_enumeration($ingredients_lc,$3)/eg;
@@ -7809,15 +7866,15 @@ sub extract_additives_from_text ($product_ref) {
 						$match = 1;
 						$product_ref->{'additives'} .= " -- ok ";
 					}
-					elsif ($ingredient_id_copy =~ /^e( |-)?\d/) {
-						# id the additive is mentioned with an E number, tag it even if we haven't detected a mandatory class
+					elsif ($ingredient_id_copy =~ /^(?:e|[1-9][ab])( |-)?\d/) {
+						# An explicit food or feed code identifies the additive even without a class.
 						if (not exists $seen_tags{'additives_tags' . $canon_ingredient}) {
 							push @{$product_ref->{'additives_tags'}}, $canon_ingredient;
 							$seen_tags{'additives_tags' . $canon_ingredient} = 1;
 						}
 						# success!
 						$match = 1;
-						$product_ref->{'additives'} .= " -- e-number ";
+						$product_ref->{'additives'} .= " -- additive code ";
 
 					}
 				}
