@@ -130,8 +130,10 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libconfig-autoconf-perl \
         libdigest-hmac-perl \
         libsafe-isa-perl \
-        # Spreadsheet::CSV
+        # Spreadsheet::CSV / Spreadsheet::Read for Excel import (replaces ssconvert/gnumeric)
         libspreadsheet-parseexcel-perl \
+        libspreadsheet-read-perl \
+        libspreadsheet-parsexlsx-perl \
         # Test::Number::Delta
         libtest-number-delta-perl \
         libdevel-size-perl \
@@ -365,7 +367,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
       apt-get update || true \
     ) && \
     apt-get install -y --no-install-recommends \
-        gnumeric \
         wget \
         gzip \
         pigz \
