@@ -581,6 +581,10 @@ sub normalize_code_with_gs1_ai ($code) {
 
 	my $ai_data_str;
 	if (defined $code) {
+		# Keep Amazon FNSKUs unchanged
+        return ($code, undef) if $code =~ /^X00[A-Z0-9]{7}$/;
+		return ($code, undef) if $code =~ /^X/ && $code !~ /^X00[A-Z0-9]{7}$/;
+
 		my ($gs1_code, $gs1_ai_data_str) = &_try_normalize_code_gs1($code);
 		if ($gs1_code and $gs1_ai_data_str) {
 			$code = $gs1_code;
@@ -675,6 +679,10 @@ Boolean value indicating if the code is valid or not.
 sub is_valid_code ($code) {
 	# Return an empty string if $code is undef
 	return '' if !defined $code;
+
+	# Amazon FNSKU
+    return 1 if $code =~ /^X00[A-Z0-9]{7}$/;
+
 	my $code_without_leading_zeroes = $code;
 	# Remove leading zeroes
 	$code_without_leading_zeroes =~ s/^0+//;
