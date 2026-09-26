@@ -12661,6 +12661,19 @@ en: Vegan wines, Vegan-friendly wines
 da: Veganske vin
 sv: Veganska viner
 
+< en: Wines
+en: Kosher wines
+ar: نبيذ كوشير
+bn: কোশের ওয়াইন
+es: Vinos kosher
+fr: Vins casher
+he: יינות כשרים
+hi: कोशर वाइन
+id: Minuman anggur kosher
+pt: Vinhos kosher
+zh: 犹太洁食葡萄酒
+wikidata:en: Q2896889
+
 # should this fall under wines?
 < en: Wines
 en: Cooking wines
@@ -86321,6 +86334,30 @@ en: Vegan meals
 description:en: Should be distinguished from vegetable meals, that might contain animal products
 
 < en: Meals
+en: Halal meals, Halal prepared meals
+ar: وجبات جاهزة حلال
+bn: হালাল প্রস্তুত খাবার
+es: Comidas preparadas halal, Platos preparados halal
+fr: Plats préparés halal, Plats cuisinés halal
+he: ארוחות מוכנות חלאל
+hi: हलाल तैयार भोजन
+id: Makanan siap saji halal
+pt: Refeições preparadas halal, Pratos preparados halal
+zh: 清真菜肴
+
+< en: Meals
+en: Kosher meals, Kosher prepared meals
+ar: وجبات جاهزة كوشير
+bn: কোশের প্রস্তুত খাবার
+es: Comidas preparadas kosher, Platos preparados kosher
+fr: Plats préparés casher, Plats cuisinés casher
+he: ארוחות מוכנות כשרות
+hi: कोशर तैयार भोजन
+id: Makanan siap saji kosher
+pt: Refeições preparadas kosher, Pratos preparados kosher
+zh: 犹太洁食菜肴
+
+< en: Meals
 en: Gratins
 de: Gratins
 fi: gratiinit
@@ -88856,6 +88893,30 @@ lt: Mėsos kukuliai
 nl: Gehaktballen
 pt: Almôndegas
 
+< en: Meat balls
+en: Halal meat balls, Halal meatballs
+ar: كرات لحم حلال
+bn: হালাল মাংসের বল, হালাল মিটবল
+es: Albóndigas halal
+fr: Boulettes de viande halal
+he: כדורי בשר חלאל
+hi: हलाल मांस के गोले
+id: Bola-bola daging halal
+pt: Almôndegas halal
+zh: 清真肉丸
+
+< en: Meat balls
+en: Kosher meat balls, Kosher meatballs
+ar: كرات لحم كوشير
+bn: কোশের মাংসের বল, কোশের মিটবল
+es: Albóndigas kosher
+fr: Boulettes de viande casher
+he: כדורי בשר כשרים
+hi: कोशर मांस के गोले
+id: Bola-bola daging kosher
+pt: Almôndegas kosher
+zh: 犹太洁食肉丸
+
 # to be added to soups
 < en: Meat balls
 en: Small meat balls
@@ -90495,6 +90556,18 @@ wikidata:en: Q429518
 # TODO : in the file I have, the same number is named Cordon bleu de volaille
 
 < en: Cordons bleus
+en: Halal cordons bleus
+ar: كوردون بلو حلال
+bn: হালাল কর্ডন ব্লু
+es: Cordon bleu halal
+fr: Cordons bleus halal
+he: קורדון בלו חלאל
+hi: हलाल कॉर्डन ब्लू
+id: Cordon bleu halal
+pt: Cordon bleu halal
+zh: 清真蓝带肉排
+
+< en: Cordons bleus
 en: Poultry cordons bleus
 fr: Cordons bleus de volaille
 
@@ -91815,6 +91888,28 @@ agribalyse_proxy_food_name:en: Poultry nuggets
 < en: Breaded chicken
 en: Frozen breaded chicken
 fr: Poulets panés surgelés, Poulet pané surgelé
+
+< en: Breaded products
+en: Halal nuggets
+ar: ناجتس حلال
+bn: হালাল নাগেটস
+es: Nuggets halal
+fr: Nuggets halal
+he: נאגטס חלאל
+hi: हलाल नगेट्स
+id: Nugget halal
+pt: Nuggets halal
+
+< en: Breaded products
+en: Kosher nuggets
+ar: ناجتس كوشير
+bn: কোশের নাগেটস
+es: Nuggets kosher
+fr: Nuggets casher
+he: נאגטס כשרים
+hi: कोशर नगेट्स
+id: Nugget kosher
+pt: Nuggets kosher
 
 < en: Breaded products
 < en: Meat preparations
@@ -94209,6 +94304,30 @@ ciqual_food_code:en: 30780
 ciqual_food_name:en: Sausage (average)
 ciqual_food_name:fr: Saucisse (aliment moyen)
 intake24_category_code:en: SSGS
+
+< en: Sausages
+en: Halal sausages
+ar: نقانق حلال
+bn: হালাল সসেজ
+es: Salchichas halal
+fr: Saucisses halal
+he: נקניקיות חלאל
+hi: हलाल सॉसेज
+id: Sosis halal
+pt: Salsichas halal
+zh: 清真香肠
+
+< en: Sausages
+en: Kosher sausages
+ar: نقانق كوشير
+bn: কোশের সসেজ
+es: Salchichas kosher
+fr: Saucisses casher
+he: נקניקיות כשרות
+hi: कोशर सॉसेज
+id: Sosis kosher
+pt: Salsichas kosher
+zh: 犹太洁食香肠
 
 < en: Prepared beef meats
 < en: Sausages
@@ -102168,6 +102287,30 @@ nl: Hamburgers
 ru: Гамбургер
 intake24_category_code:en: BRGS
 wikidata:en: Q6663
+
+< en: Hamburgers
+en: Halal hamburgers, Halal burgers
+ar: هامبرغر حلال
+bn: হালাল হ্যামবার্গার, হালাল বার্গার
+es: Hamburguesas halal
+fr: Hamburgers halal, Burgers halal
+he: המבורגרים חלאל
+hi: हलाल हैमबर्गर
+id: Hamburger halal
+pt: Hambúrgueres halal
+zh: 清真汉堡
+
+< en: Hamburgers
+en: Kosher hamburgers, Kosher burgers
+ar: هامبرغر كوشير
+bn: কোশের হ্যামবার্গার, কোশের বার্গার
+es: Hamburguesas kosher
+fr: Hamburgers casher, Burgers casher
+he: המבורגרים כשרים
+hi: कोशर हैमबर्गर
+id: Hamburger kosher
+pt: Hambúrgueres kosher
+zh: 犹太洁食汉堡
 
 < en: Hamburgers
 en: Hamburgers from fast food
