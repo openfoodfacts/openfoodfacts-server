@@ -34,7 +34,7 @@ en: raw
 bg: суров, сурово, сурова, сурови
 ca: cru, crua
 cs: syrový, syrová, syrové
-da: rå
+da: rå, råt
 de: roh, rohe, roher, rohes
 el: ακατέργαστο
 es: crudo, cruda, crudos, crudas
@@ -45,7 +45,9 @@ hu: nyers, nyersen
 it: crudo, cruda, crudi, crude
 ja: 生, 粗製
 lt: neapdorotas
+nb: rå, rått, råe
 nl: rauw, rauwe
+nn: rå, rått, råe
 pl: surowy, surowa, surowe
 pt: cru, crus
 ro: crud
@@ -54,12 +56,14 @@ sv: rå, rått, råa
 tr: çiğ
 uk: сирий, сира, сире, сирі
 zh: 生
+wikidata:en: Q21198046
 
 en: fresh
 bg: пресно, пресен, пресна, пресни, прясно, свежо
 ca: fresc, fresca, frescos, fresques
 cs: čerstvý, čerstvá, čerstvé
-da: frisk, friske
+da: frisk, friskt, friske
+# de:frisch is found in front and in the ingredients
 de: frisch, frische, frischer, frisches
 es: fresco, fresca, frescos, frescas
 fi: tuore
@@ -68,12 +72,14 @@ hr: svježe, sviježi, svježi, svježih, svježeg
 hu: friss
 it: fresco, fresca, fresche, freschi
 lt: šviežia, šviežios, švieži
-# de:frisch is found in front and in the ingredients
+nb: fersk, ferskt, ferske
 nl: verse, vers
+nn: fersk, ferskt, ferske
 pl: świeży, świeża, świeże
 pt: fresco, fresca, frescos, frescas
 sv: färsk, färskt, färska
 uk: свіжий, свіжа, свіже, свіжі
+wikidata:en: Q11574949
 
 # Often in combination with flavour. It does not seem that it has much meaning.
 #en:natural
