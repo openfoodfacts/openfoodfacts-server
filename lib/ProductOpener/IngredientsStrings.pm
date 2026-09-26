@@ -152,7 +152,7 @@ $symbols_regexp = join('|', @symbols);
 %may_contain_regexps = (
 
 	en =>
-		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present|Produced in a factory handling",
+		"made in a facility that processes foods containing|made in a facility that handles|Produced in a factory handling|it may contain traces of|may contain traces of|may also contain|also may contain|possible traces|may be present|may contain|traces",
 	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа|може да съдържа следи от",
 	bs => "može da sadrži",
 	ca => "pot contenir",
@@ -166,7 +166,7 @@ $symbols_regexp = join('|', @symbols);
 	fi =>
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää myös pieniä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
-		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace|Traces éventuelles de|Peut contenir des traces de",
+		"peut contenir des traces de toutes les autres|transformé dans une usine manipulant|traces d'allergènes potentielles de|peut contenir des traces d'autres|traces d'allergènes potentielles|il peut contenir des traces de|il peut contenir des traces|peut contenir des traces de|traces éventuelles d'autres|traces eventuelles d'autres|peut contenir des traces|peut également contenir|traces potentielles de|traces éventuelles de|traces eventuelles de|présence possible de|trace potentielle de|traces possibles de|trace éventuelle de|trace eventuelle de|traces potentielles|traces éventuelles|traces eventuelles|qui manipule aussi|trace possible de|présence possible|trace potentielle|qui utilise aussi|traces possibles|trace éventuelle|trace eventuelle|traces d'autres|trace possible|peut contenir|qui manipule|manipulisant|qui utilise|utilisant|traces|trace",
 	hr =>
 		"mogući ostaci|mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
 	hu => "nyomokban|tartalmazhat",
