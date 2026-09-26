@@ -13347,6 +13347,7 @@ en: sausage, sausages
 de: Wurst, Würstchen
 hr: kobasica
 it: salsiccia
+nl: worstjes
 pl: kiełbasa, kiełbasy
 ciqual_food_code:en: 30780
 ciqual_food_name:en: Sausage -average-
@@ -13513,9 +13514,6 @@ fr: saucisses fumées
 hr: dimljena kobasica
 it: salsiccia affumicata
 nl: rookworst
-
-< en: meat
-nl: worstjes
 
 < en: meat
 en: Garlic sausage
@@ -16753,7 +16751,6 @@ hr: kanola ulje
 hu: kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj
 it: Olio di canola
 ja: キャノーラ油, なたね油
-la: Brassica Rapa L.
 nl: canola olie, canolaolie
 tr: kanola yağı
 comment:en: Use only the word canola in this ingredient. "Canola" is a Canadian-bred and trademarked variety of low erucic acid rapeseed (the name is a portmanteau of "Canadian oil, low acid"), not a generic synonym for any rapeseed variety.
@@ -52868,6 +52865,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kohlrabi
 
 # description:en:RAPINI or BROCCOLI RABE (Brassica rapa subspecies rapa) is a green cruciferous vegetable, with the leaves, buds, and stems all being edible; the buds somewhat resemble broccoli, but do not form a large head.
 
+< en: Brassica Rapa L.
 < en: cabbage
 en: rapini, broccoli rabe
 de: Wildbrokkoli
@@ -54891,6 +54889,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gai_lan
 #
 ###################################################################################################
 
+< en: Brassica Rapa L.
 < en: cabbage
 en: chinese cabbage
 bg: китайско зеле
@@ -56616,6 +56615,10 @@ it: radice fittonante vegetale
 lv: nakņu dārzenis
 nl: penwortelgroente
 eurocode_2_group_2:en: 8.38
+
+< en: taproot vegetable
+la: Brassica Rapa L.
+comment:en: No english exists for this group of plants
 
 < en: root vegetable
 en: starchy root vegetable
@@ -61306,6 +61309,7 @@ en: Cooked rutabaga, Cooked swede
 fr: Rutabaga cuit
 it: rapa svedese cotta
 
+< en: Brassica Rapa L.
 < en: taproot vegetable
 en: turnip, turnips
 af: Raap
@@ -61975,6 +61979,7 @@ ecobalyse_origins_en_france:en: rapeseed-fr
 wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
 
+< en: Brassica Rapa L.
 < en: root vegetable
 en: turnip rape, turnip-rape, field mustard
 be: свірэпіца
