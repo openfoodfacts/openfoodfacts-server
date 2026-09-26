@@ -58,7 +58,7 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
-use ProductOpener::API qw/get_initialized_response check_user_permission/;
+use ProductOpener::API qw/add_warning get_initialized_response check_user_permission/;
 use ProductOpener::APIProductWrite
 	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field update_product_field_api_v2_and_cgi/;
 
@@ -406,7 +406,7 @@ else {
 			$add_tags = 1;
 		}
 
-		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source, $add_tags);
+		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source, $add_tags, $response_ref);
 
 		if (defined $language_fields{$field}) {
 
@@ -416,6 +416,14 @@ else {
 
 					# Only moderators can update values for fields sent by the producer
 					if (skip_protected_field($product_ref, $field_lc, $User{moderator})) {
+						add_warning(
+							$response_ref,
+							{
+								message => {id => "field_protected_by_producer"},
+								field => {id => $field_lc},
+								impact => {id => "field_ignored"},
+							}
+						);
 						next;
 					}
 
