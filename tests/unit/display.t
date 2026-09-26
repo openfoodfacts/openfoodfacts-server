@@ -16,10 +16,11 @@ use ProductOpener::Lang qw/$lc lang separator_before_colon/;
 use ProductOpener::HTTP qw/request_param/;
 use ProductOpener::Tags qw/build_tags_taxonomy build_all_taxonomies/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Text qw(get_decimal_formatter get_percent_formatter);
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
-# date tests
+# date tests - LTR and RTL with different formats/symbols
 my $t = 1472292529;
 $lc = 'en';
 is(display_date($t), 'August 27, 2016, 12:08:49 PM CEST');
@@ -27,6 +28,52 @@ is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">August 27, 2016, 
 $lc = 'de';
 is(display_date($t), '27. August 2016, 12:08:49 CEST');
 is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">27. August 2016, 12:08:49 CEST</time>');
+# LTR Asian (ja) - year-month-day order
+$lc = 'ja';
+is(display_date($t), '2016年8月27日 12:08:49 CEST');
+is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">2016年8月27日 12:08:49 CEST</time>');
+# LTR Cyrillic with NBSP group (ru) - day month genitive
+$lc = 'ru';
+is(display_date($t),
+	"27 \x{0430}\x{0432}\x{0433}\x{0443}\x{0441}\x{0442}\x{0430} 2016\x{202f}\x{0433}., 12:08:49 CEST");
+is(display_date_tag($t),
+	"<time datetime=\"2016-08-27T12:08:49\">27 \x{0430}\x{0432}\x{0433}\x{0443}\x{0441}\x{0442}\x{0430} 2016\x{202f}\x{0433}., 12:08:49 CEST</time>"
+);
+# RTL Arabic
+$lc = 'ar';
+is(display_date($t), "27 \x{0623}\x{063A}\x{0633}\x{0637}\x{0633} 2016\x{060C} 12:08:49 \x{0645} CEST");
+is(display_date_tag($t),
+	"<time datetime=\"2016-08-27T12:08:49\">27 \x{0623}\x{063A}\x{0633}\x{0637}\x{0633} 2016\x{060C} 12:08:49 \x{0645} CEST</time>"
+);
+# RTL Hebrew
+$lc = 'he';
+is(display_date($t), "27 \x{05D1}\x{05D0}\x{05D5}\x{05D2}\x{05D5}\x{05E1}\x{05D8} 2016, 12:08:49 CEST");
+is(display_date_tag($t),
+	"<time datetime=\"2016-08-27T12:08:49\">27 \x{05D1}\x{05D0}\x{05D5}\x{05D2}\x{05D5}\x{05E1}\x{05D8} 2016, 12:08:49 CEST</time>"
+);
+# RTL Persian (fa) - different prefix/suffix
+$lc = 'fa';
+is(display_date($t), "27 \x{0627}\x{0648}\x{062A} 2016\x{060C} \x{0633}\x{0627}\x{0639}\x{062A} 12:08:49 (CEST)");
+is(display_date_tag($t),
+	"<time datetime=\"2016-08-27T12:08:49\">27 \x{0627}\x{0648}\x{062A} 2016\x{060C} \x{0633}\x{0627}\x{0639}\x{062A} 12:08:49 (CEST)</time>"
+);
+# Indian grouping locale (hi)
+$lc = 'hi';
+is(display_date($t), "27 \x{0905}\x{0917}\x{0938}\x{094D}\x{0924} 2016, 12:08:49 pm CEST");
+is(display_date_tag($t),
+	"<time datetime=\"2016-08-27T12:08:49\">27 \x{0905}\x{0917}\x{0938}\x{094D}\x{0924} 2016, 12:08:49 pm CEST</time>");
+
+# Number formatting for other locales (LTR/RTL, different symbols) - ensures I18N refactor works
+# LTR: ja (standard), ru (NBSP group, comma decimal), hi (Indian)
+is(get_decimal_formatter('ja')->format(1234567.89), "1,234,567.89");
+is(get_decimal_formatter('ru')->format(1234567.89), "1\N{U+00A0}234\N{U+00A0}567,89");
+is(get_decimal_formatter('hi')->format(1234567.89), "12,34,567.89");
+is(get_percent_formatter('ru', 2)->format(0.025), "2,5\N{U+00A0}%");
+# RTL: ar (LRM), ar-SA (Arabic percent), he (simple)
+is(get_decimal_formatter('ar')->format(1234567.89), "1,234,567.89");
+is(get_percent_formatter('ar', 0)->format(0.025), "2\N{U+200E}%\N{U+200E}");
+is(get_percent_formatter('ar-SA', 0)->format(0.025), "2\N{U+066A}");
+is(get_percent_formatter('he', 0)->format(0.025), "2%");
 
 # is(
 #	display_field({link => "https://www.brouwerijdebrabandere.be/fr/marques/bavik-super-pils"}, "link"),
