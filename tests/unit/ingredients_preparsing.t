@@ -1323,7 +1323,22 @@ my @tests = (
 		'lc' => 'en',
 		'ingredients_text' =>
 			'INGREDIENTS Greek Style Yogurt (Milk) (85%), Water, Sugar, Coconut Milk (2%), Desiccated Coconut, Maize Starch, Flavourings, Lactic Acid, Live Bacterial Cultures [Bifidobacterium, Lactobacillus bulgaricus, Streptococcus thermophilus].'
-	}
+	},
+	{
+		id => 'bold-single-character',
+		lc => 'en',
+		ingredients_text => "Whey Powder (\x{1D40C} Milk)",
+	},
+	{
+		id => 'bold-multichar',
+		lc => 'en',
+		ingredients_text => "Sugar, \x{1D412}\x{1D428}\x{1D432}\x{1D41A} Lecithin, Salt",
+	},
+	{
+		id => 'bold-fullwidth',
+		lc => 'en',
+		ingredients_text => "Whey Power (\x{FF2C}\x{FF21}\x{FF22})",
+	},
 );
 
 foreach my $test_ref (@tests) {
