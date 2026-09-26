@@ -227,6 +227,47 @@
                 _paq.push(['trackEvent', 'donation', action, source]);
               }
 
+              // "1T" one-time, "1M" monthly, "1Y" yearly, then the currency: Donorbox writes
+              // the visitor's own choices back to the widget attributes, so the monthly share
+              // and the amount read per source. The amount is the event value, snapped to the
+              // nearest step of a fixed ladder so every gift shares its figure with many others.
+              var amountSteps = [1, 2, 3, 5, 10, 15, 20, 25, 30, 50, 75, 100, 150, 200, 300, 500];
+
+              function snapAmount(amount) {
+                var nearest = amountSteps[0];
+                amountSteps.forEach(function (step) {
+                  if (Math.abs(step - amount) < Math.abs(nearest - amount)) {
+                    nearest = step;
+                  }
+                });
+                return nearest;
+              }
+
+              function trackWithInterval(action) {
+                var interval = (widget.getAttribute('interval') || '').replace(' ', '');
+                var currency = widget.getAttribute('currency') || '';
+                var amount = parseFloat(widget.getAttribute('amount'));
+                var name = source + ':' + (interval || 'na') + ':' + (currency || 'na');
+                if (amount > 0) {
+                  _paq.push(['trackEvent', 'donation', action, name, snapAmount(amount)]);
+                } else {
+                  _paq.push(['trackEvent', 'donation', action, name]);
+                }
+              }
+
+              // Form pages, once each per visit, as page-id changes: select_amount, upsell,
+              // donor_info, payment, thank_you
+              var stepsSeen = {};
+              var attemptFailed = false;
+
+              function trackStep() {
+                var page = (widget.getAttribute('page-id') || '').replace(/^page_/, '');
+                if (page && !stepsSeen[page]) {
+                  stepsSeen[page] = true;
+                  _paq.push(['trackEvent', 'donation', 'step', source + ':' + page]);
+                }
+              }
+
               function registerTracking(retriesLeft) {
                 if (!widget || widget.dataset.offTrackingRegistered === '1') {
                   return;
@@ -251,13 +292,25 @@
                   }
                 });
                 observer.observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
+                // the observer above stops after the first change; steps keep counting
+                new MutationObserver(trackStep).observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
 
                 var shadowRoot = widget.shadowRoot;
                 shadowRoot.addEventListener('dbox:payment-initiated', function () {
-                  track('payment_initiated');
+                  attemptFailed = false;
+                  trackWithInterval('payment_initiated');
                 });
                 shadowRoot.addEventListener('dbox:donation-created', function () {
-                  track('succeeded');
+                  trackWithInterval('succeeded');
+                });
+                // Donorbox reports one failure from more than one place: count it once per attempt
+                ['dbox:donation-failed', 'dbox:payment-recaptcha-failed'].forEach(function (type) {
+                  shadowRoot.addEventListener(type, function () {
+                    if (!attemptFailed) {
+                      attemptFailed = true;
+                      trackWithInterval('failed');
+                    }
+                  });
                 });
               }
 
