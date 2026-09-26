@@ -826,19 +826,19 @@ sub remove_stopwords ($tagtype, $lc, $tagid) {
 			$uppercased_stopwords_overrides = 1;
 		}
 
-		if (not defined $stopwords_regexps{$tagtype . '.' . $lc}) {
-			$stopwords_regexps{$tagtype . '.' . $lc} = join('|', uniq(@{$stopwords{$tagtype}{$lc}}));
-		}
-
-		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc};
-
 		# In Japanese, do not require a word boundary, and do not introduce a hyphen
+		# In other languages, require a word boundary, and replace stopwords with a hyphen
+		# The regexp is compiled once: the tagtype and language change from one call to the next
+		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc} //= do {
+			my $stopwords = join('|', uniq(@{$stopwords{$tagtype}{$lc}}));
+			($lc eq 'ja') ? qr/$stopwords/ : qr/(^|-)($stopwords)(-($stopwords))*(-|$)/;
+		};
+
 		if ($lc eq 'ja') {
 			$tagid =~ s/$regexp//g;
 		}
-		# In other languages, require a word boundary, and replace stopwords with a hyphen
 		else {
-			$tagid =~ s/(^|-)($regexp)(-($regexp))*(-|$)/-/g;
+			$tagid =~ s/$regexp/-/g;
 		}
 
 		$tagid =~ tr/-/-/s;
@@ -3707,6 +3707,25 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 			if (("en:" . $additive_tagid) =~ /^$name_id/) {
 				return "en:" . $additive_tagid;
 			}
+		}
+	}
+
+	# EU feed additive code (Regulation 1831/2003) + name, or name + code: "3a672a vitamine A", "vitamine E 3a700"
+	# keep the entry of the code if the name is the same entry or one of its parents
+	my ($feed_code, $feed_code_name);
+	if ($tagid =~ /^(\d[a-e]\d{3}[a-z]*)-(.+)$/) {
+		($feed_code, $feed_code_name) = ($1, $2);
+	}
+	elsif ($tagid =~ /^(.+)-(\d[a-e]\d{3}[a-z]*)$/) {
+		($feed_code_name, $feed_code) = ($1, $2);
+	}
+	if (defined $feed_code) {
+		my $feed_code_exists = 0;
+		my $feed_code_id = canonicalize_taxonomy_tag($tag_lc, $tagtype, $feed_code, \$feed_code_exists);
+		my $name_id = canonicalize_taxonomy_tag($tag_lc, $tagtype, $feed_code_name);
+		if ($feed_code_exists and is_a($taxonomy, $feed_code_id, $name_id)) {
+			$$exists_in_taxonomy_ref = 1 if defined $exists_in_taxonomy_ref;
+			return $feed_code_id;
 		}
 	}
 
