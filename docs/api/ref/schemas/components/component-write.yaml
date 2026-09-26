@@ -1,0 +1,21 @@
+type: object
+title: component-write
+description: Sub-component object for creating or updating product components
+properties:
+  name:
+    type: string
+    description: Name or description of the sub-component
+    example: "Item 1"
+  quantity:
+    type: string
+    description: Portion weight or net quantity of the component
+    example: "100g"
+  serving_size:
+    type: string
+    description: Serving size specific to the sub-component
+  ingredients_text:
+    type: string
+    description: Ingredients text for this sub-component
+  nutriments:
+    type: object
+    description: Nutritional values object for this sub-component
