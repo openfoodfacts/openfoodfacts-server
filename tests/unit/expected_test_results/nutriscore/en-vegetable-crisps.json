@@ -31,6 +31,44 @@
       "en:crisps",
       "en:parsnip-crisps"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "beetroot-fr",
+               "mass" : 30,
+               "name" : "red beet"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:appetizers",
+               "id" : "f755207c-ed56-4666-9b0e-4f2c515f7f18",
+               "name" : "Starters, Exotic products, 280g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+               "name_fr" : "Barquette en plastique (PET) pour entrées, produits exotiques - 280g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "beetroot-fr",
+                  "mass" : 30
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "f755207c-ed56-4666-9b0e-4f2c515f7f18"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:appetizers",
    "food_groups_tags" : [
