@@ -3172,8 +3172,15 @@ xx: Premieur
 xx: Premium Plus
 wikidata:en: Q7240466
 
-xx: President's Choice
-wikidata:en: Q845185
+en:president-s-choice
+	name:en: President's Choice
+	name:fr: Le Choix du Président
+	< xx:president-choice
+	< xx:choix-du-president
+	< fr:choix-du-president
+	< fr:le-choix-du-president
+	< en:president-choice
+	wikidata:en: Q7241257
 
 xx: Priméal
 wikidata:en: Q137393142
