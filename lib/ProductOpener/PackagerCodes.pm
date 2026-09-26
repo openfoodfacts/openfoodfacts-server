@@ -126,6 +126,18 @@ sub normalize_packager_codes ($codes) {
 		return "$countrycode $code EC";
 	};
 
+	# Canadian CFIA establishment number, e.g. "Est. 34", "Estab. No. 34", "CFIA Est 34".
+	# Unlike EU EC-approval numbers, this is not an EU CE-marking scheme: the number has no
+	# fixed digit count or leading-zero convention (real establishment numbers are plain
+	# integers, e.g. 121, 229, 236, 749), and there is no "local" vs "EC" naming distinction
+	# to round-trip, so this does not go through normalize_ce_code / %local_ec.
+	# https://inspection.canada.ca/exporting-food-plants-or-animals/food-exports/assigning-establishment-identification-numbers/eng/1550501665690/1551124722022
+	my $normalize_ca_est_code = sub ($number) {
+
+		$number =~ s/\D//g;
+		return "CA EST $number";
+	};
+
 	# CE codes -- FR 67.145.01 CE
 	#$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+)(\.|_|\s|-)?(ce)?\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	 # without CE, only for FR
 	$codes
@@ -176,6 +188,11 @@ sub normalize_packager_codes ($codes) {
 			   }ixsm;
 	$codes =~ s{ $rs_pat }
 			   {$+{start} . $normalize_rs_ce_code->('rs', $+{code})}iegxsm;
+
+	# CA EST 34 -- CFIA establishment number, written as "Est.", "Estab.", or "Establishment",
+	# optionally with a "No."/"CFIA"/"Canada" prefix, e.g. "Est. 34", "CFIA Estab. No. 34"
+	$codes
+		=~ s/(^|,|, )(?:cfia|canada)?(?:\s|-|_|\.)*est(?:ab(?:lishment)?)?\.?(?:\s|-|_|\.)*(?:no\.?)?(?:\s|-|_|\.|:)*(\d+)\b/$1 . $normalize_ca_est_code->($2)/ieg;
 
 	$codes
 		=~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
