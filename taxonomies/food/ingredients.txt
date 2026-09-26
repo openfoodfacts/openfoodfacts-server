@@ -13347,6 +13347,7 @@ en: sausage, sausages
 de: Wurst, Würstchen
 hr: kobasica
 it: salsiccia
+nl: worstjes
 pl: kiełbasa, kiełbasy
 ciqual_food_code:en: 30780
 ciqual_food_name:en: Sausage -average-
@@ -15063,11 +15064,11 @@ da: helt hærdet vegetabilsk fedt
 de: komplett hydriertes Pflanzenfett
 es: grasa vegetal totalmente hidrogenada, grasa vegetal fraccionada y totalmente hidrogenada
 fi: kokonaan kovetettu kasvirasva, kokonaan hydrogenoitu kasvirasva
-fr: graisse végétale totalement hydrogénée
+fr: graisse végétale totalement hydrogénée, matières graisses végétales totalement hydrogénées
 # hr:potpuno hidrogenirane biljne masti # see ingredients_processings.txt
 hu: teljesen hidrogénezett növényi zsír
 it: grassi vegetali totalmente idrogenati
-nl: volledig gehydrogeneerde plantaardig vet
+nl: volledig gehydrogeneerde plantaardig vet, geheel gehard plantaardige vet
 
 < en: hydrogenated vegetable fat
 en: partially hydrogenated vegetable fat, partly hydrogenated vegetable fat
@@ -35792,7 +35793,7 @@ my: ရေ
 na: Ebok
 nb: Vann
 ne: पानी
-nl: Water
+nl: water, opgiet
 nn: Vatn
 no: vann, drikkevann
 nv: Tó
@@ -52864,6 +52865,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kohlrabi
 
 # description:en:RAPINI or BROCCOLI RABE (Brassica rapa subspecies rapa) is a green cruciferous vegetable, with the leaves, buds, and stems all being edible; the buds somewhat resemble broccoli, but do not form a large head.
 
+< en: Brassica Rapa L.
 < en: cabbage
 en: rapini, broccoli rabe
 de: Wildbrokkoli
@@ -54887,6 +54889,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gai_lan
 #
 ###################################################################################################
 
+< en: Brassica Rapa L.
 < en: cabbage
 en: chinese cabbage
 bg: китайско зеле
@@ -56612,6 +56615,10 @@ it: radice fittonante vegetale
 lv: nakņu dārzenis
 nl: penwortelgroente
 eurocode_2_group_2:en: 8.38
+
+< en: taproot vegetable
+la: Brassica Rapa L.
+comment:en: No english exists for this group of plants
 
 < en: root vegetable
 en: starchy root vegetable
@@ -61302,6 +61309,7 @@ en: Cooked rutabaga, Cooked swede
 fr: Rutabaga cuit
 it: rapa svedese cotta
 
+< en: Brassica Rapa L.
 < en: taproot vegetable
 en: turnip, turnips
 af: Raap
@@ -61971,6 +61979,7 @@ ecobalyse_origins_en_france:en: rapeseed-fr
 wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
 
+< en: Brassica Rapa L.
 < en: root vegetable
 en: turnip rape, turnip-rape, field mustard
 be: свірэпіца
@@ -86648,7 +86657,7 @@ fi: amerikanhummeri, Homarus americanus
 fr: homard américain, Homarus americanus
 he: לובסטר אמריקני, Homarus americanus
 hi: अमेरिकी झींगा मछली, Homarus americanus
-hr: američki jastog
+hr: američki jastog, američki hlap
 id: Lobster amerika, Homarus americanus
 it: Astice americano, Homarus americanus
 ka: ამერიკული ასთაკვი, Homarus americanus
@@ -89140,6 +89149,8 @@ fr: ester de stérol végétal, esters de stérol végétal
 pl: estry steroli roślinnych
 vegan:en: yes
 vegetarian:en: yes
+
+fr: esters de phytostérols
 
 #category/cucumbers
 < en: fruit vegetable
@@ -92928,6 +92939,9 @@ nl: vulling met vanillesmaak
 pl: nadzienie o smaku waniliowym, nadzienie waniliowe, wsad waniliowy
 pt: recheio com sabor de baunilha
 sv: fyllning med vaniljsmak
+
+< en: filling
+nl: vulling met peer
 
 #category/pains-au-chocolat
 fr: pain au chocolat
