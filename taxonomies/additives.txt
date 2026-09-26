@@ -122,6 +122,16 @@ vegetarian:en: yes
 wikidata:en: Q312266
 wikipedia:en: https://en.wikipedia.org/wiki/Curcumin
 
+< en: E100
+en: E100(i)
+xx: E100(i)
+e_number:en: 100
+
+< en: E100
+en: E100(ii)
+xx: E100(ii)
+e_number:en: 100
+
 # WARNING:e106 is the same as e101a, moved synonyms to E101a
 
 en: E106, flavin mononucleotide
@@ -154,7 +164,7 @@ wikidata:en: Q376061
 # comment:en:used to be extracted from milk, but not anymore.
 
 en: E101, Riboflavin, Vitamin B2, Flavaxin, Vitamin B 2, Vitamin G, Riboflavine, Lactoflavine, Lactoflavin, riboflavin color
-xx: E101
+xx: E101, 3a825i, 3a825ii, 3a825
 bg: E101, Рибофлавин
 ca: E101, Riboflavina
 cs: E101, Riboflavin, Ovoflavin, Vitamin B 2, Vitamin B2, Laktoflavin, Vitamín G, Lactoflavin
@@ -256,6 +266,16 @@ efsa_evaluation_adi_established:en: en:no
 efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 wikidata:en: Q130365
+
+< en: E101
+en: E101(iii), Riboflavin from Bacillus subtilis
+xx: E101(iii)
+e_number:en: 101
+
+< en: E101
+en: E101(iv), Riboflavin from Ashbya gossypii
+xx: E101(iv)
+e_number:en: 101
 
 en: E101a, E101a food additive
 xx: E101a
@@ -1624,7 +1644,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
 vegan:en: yes
 vegetarian:en: yes
 
-en: E150c, Ammonia caramel, baker's caramel, confectioner's caramel, beer caramel, Caramel Color Ammonia, Ammonia caramel, Caramel Color
+en: E150c, Ammonia caramel, baker's caramel, confectioner's caramel, beer caramel, Caramel Color Ammonia, Ammonia caramel
 xx: E150c
 bg: E150c, Амониев карамел
 cs: E150c, Amoniakový karamel
@@ -2202,6 +2222,12 @@ fr: E160b(ii), norbixine de rocou
 additives_classes:en: en:colour
 e_number:en: 160b
 
+# comment:en: former EU subtype of E160b (Regulation 231/2012), replaced in 2020 by Regulation 2020/771; still found on older labels
+< en: E160b
+en: E160b(iii), Oil-extracted annatto
+xx: E160b(iii)
+e_number:en: 160b
+
 # in English, we sometimes have "paprika color", in which case it is clearly the additive
 en: E160c, Paprika extract, capsanthin, capsorubin, Paprika oleoresin, oleoresin of paprika, oleoresin paprika, paprika color, colored with paprika, paprika oleoresin color, oleoresin paprika color
 xx: E160c
@@ -2241,6 +2267,16 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4320
 vegan:en: yes
 vegetarian:en: yes
 
+< en: E160c
+en: E160c(i)
+xx: E160c(i)
+e_number:en: 160c
+
+< en: E160c
+en: E160c(ii)
+xx: E160c(ii)
+e_number:en: 160c
+
 en: E160d, Lycopene
 xx: E160d
 bg: E160d, Ликопен i, Ликопен
@@ -2276,6 +2312,21 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3492
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q208130
+
+< en: E160d
+en: E160d(i), Lycopene\, synthetic
+xx: E160d(i)
+e_number:en: 160d
+
+< en: E160d
+en: E160d(ii), Lycopene\, tomato
+xx: E160d(ii)
+e_number:en: 160d
+
+< en: E160d
+en: E160d(iii), Lycopene\, Blakeslea trispora
+xx: E160d(iii)
+e_number:en: 160d
 
 en: E160e, Beta-apo-8′-carotenal (c30), Apocarotenal, Beta-apo-8'-carotenal, C.I. Food orange 6, E number 160E, Trans-beta-apo-8'-carotenal, C30H40O, apo carotenal, apocarotenal color
 xx: E160e
@@ -2468,6 +2519,21 @@ vegetarian:en: yes
 # zh-sg:E161b, 葉黃素
 wikidata:en: Q422067
 wikipedia:en: https://en.wikipedia.org/wiki/Lutein
+
+< en: E161b
+en: E161b(i), Lutein from Tagetes erecta
+xx: E161b(i)
+e_number:en: 161b
+
+< en: E161b
+en: E161b(ii)
+xx: E161b(ii)
+e_number:en: 161b
+
+< en: E161b
+en: E161b(iii), Lutein esters from Tagetes erecta
+xx: E161b(iii)
+e_number:en: 161b
 
 en: E161c, Cryptoaxanthin, Cryptoxanthin
 xx: E161c
@@ -2690,6 +2756,16 @@ vegan:en: yes
 vegetarian:en: yes
 # comment:en:E161h can be consumed by all religious groups, vegans and vegetarians.
 
+< en: E161h
+en: E161h(i), Zeaxanthin\, synthetic
+xx: E161h(i)
+e_number:en: 161h
+
+< en: E161h
+en: E161h(ii)
+xx: E161h(ii)
+e_number:en: 161h
+
 en: E161i, Citranaxanthin
 xx: E161i
 ar: E161i, سيتراناكسانثين
@@ -2882,6 +2958,56 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3145
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q262547
+
+< en: E163
+en: E163(ii)
+xx: E163(ii)
+e_number:en: 163
+
+< en: E163
+en: E163(iii)
+xx: E163(iii)
+e_number:en: 163
+
+< en: E163
+en: E163(iv)
+xx: E163(iv)
+e_number:en: 163
+
+< en: E163
+en: E163(v)
+xx: E163(v)
+e_number:en: 163
+
+< en: E163
+en: E163(vi)
+xx: E163(vi)
+e_number:en: 163
+
+< en: E163
+en: E163(vii)
+xx: E163(vii)
+e_number:en: 163
+
+< en: E163
+en: E163(viii)
+xx: E163(viii)
+e_number:en: 163
+
+< en: E163
+en: E163(ix)
+xx: E163(ix)
+e_number:en: 163
+
+< en: E163
+en: E163(x)
+xx: E163(x)
+e_number:en: 163
+
+< en: E163
+en: E163(xi)
+xx: E163(xi)
+e_number:en: 163
 
 en: E163a, Cyanidin
 xx: E163a
@@ -4022,7 +4148,7 @@ vegetarian:en: yes
 wikidata:en: Q420152
 
 en: E202, Potassium sorbate
-xx: E202
+xx: E202, 1k202
 bg: E202, Калиев сорбат
 bs: E202, Kalij sorbat
 ca: E202, Sorbat de potassi, sorbat potàssic
@@ -6013,6 +6139,16 @@ vegetarian:en: yes
 # zh-tw:E261, 乙酸鉀
 wikidata:en: Q409199
 
+< en: E261
+en: E261(i)
+xx: E261(i)
+e_number:en: 261
+
+< en: E261
+en: E261(ii), Potassium diacetate
+xx: E261(ii)
+e_number:en: 261
+
 # comment:en:Note that E262 must be in plural (Sodium acetates), as it is unspecified which one. The specific ones come as E262i, E262ii, etc.
 
 en: E262, Sodium acetates
@@ -6889,7 +7025,7 @@ wikidata:en: Q139857
 
 # this is vitamin c, put vitamin c in vitamins.txt and ascorbic acid here
 en: E300, Ascorbic acid, l-ascorbic acid, Synonyms L-xylo-Ascorbic acid
-xx: E300
+xx: E300, 3a300
 bg: E300, Аскорбинова киселина, l-аскорбинова киселина, L-ксило-аскорбинова киселина
 ca: E300, Àcid ascòrbic, acid ascorbic
 cs: E300, Kyselina askorbová, kyselina l-askorbová
@@ -7188,7 +7324,7 @@ wikidata:en: Q424521
 # comment:en:For the Vitamin application of tocopherol, see the vitamins section<en:antioxidant
 
 en: E306, Tocopherol-rich extract, Tocopherols, natural tocopherols, mixed tocopherols, natural mixed tocopherols
-xx: E306
+xx: E306, 1b306i, 1b306ii, 1b306
 bg: E306, Токоферол-обогатен екстракт
 ca: E306, Extracte ric en tocoferols
 cs: E306, Extrakt s vysokým obsahem tokoferolů
@@ -7987,6 +8123,11 @@ organic_eu:en: authorized
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q241595
+
+< en: E322
+en: E322(iii), Lecithin\, hydroxylated
+xx: E322(iii)
+e_number:en: 322
 
 < en: E322
 en: E322a, Oat lecithin
@@ -9683,6 +9824,16 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18967184
 
+< en: E342
+en: E342(i), Ammonium dihydrogen phosphate
+xx: E342(i)
+e_number:en: 342
+
+< en: E342
+en: E342(ii), Diammonium hydrogen phosphate
+xx: E342(ii)
+e_number:en: 342
+
 #comment:en:Is in plural, as it can be any specific variant
 # description:en:Magnesium phosphate is a general term for salts of magnesium and phosphate appearing in several forms and several hydrates
 # Note that these ingredients are written in plural as it can be any of the three variants
@@ -9799,6 +9950,11 @@ anses_additives_of_interest:en: yes
 e_number:en: 343
 wikidata:en: Q14325507
 wikipedia:en: https://en.wikipedia.org/wiki/Dimagnesium_phosphate
+
+< en: E343
+en: E343(iii), Trimagnesium phosphate
+xx: E343(iii)
+e_number:en: 343
 
 en: E344, Lecithin citrate
 xx: E344
@@ -10035,6 +10191,16 @@ e_number:en: 351
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q408755
+
+< en: E351
+en: E351(i), Potassium hydrogen malate
+xx: E351(i)
+e_number:en: 351
+
+< en: E351
+en: E351(ii)
+xx: E351(ii)
+e_number:en: 351
 
 #comment:en:Use plural to describe E352 and singular to describe E352i
 en: E352, Calcium malates
@@ -10323,6 +10489,17 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q213050
 
+< en: E364
+en: E364(i), Monosodium succinate
+xx: E364(i)
+e_number:en: 364
+
+< en: E364
+en: E364(ii), Disodium succinate
+xx: E364(ii)
+e_number:en: 364
+
+en: E364, Sodium succinates
 xx: E364
 ar: E364, سكسينات الصوديوم
 az: E364, Natrium süksinat
@@ -10523,7 +10700,7 @@ vegan:en: yes
 vegetarian:en: yes
 
 en: E375, Nicotinic acid, Niacin, Nicotinamide
-xx: E375
+xx: E375, 3a314
 bg: E375, Никотинова киселина, Ниацин, Никотинамид
 cs: E375, Kyselina nikotinová, Niacin, Nikotinamid
 da: E375, Nikotinsyre, Niacin, Nikotinamid
@@ -11704,6 +11881,16 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q416694
 wikipedia:en: https://en.wikipedia.org/wiki/Gellan_gum
+
+< en: E418
+en: E418(i)
+xx: E418(i)
+e_number:en: 418
+
+< en: E418
+en: E418(ii), Low-acyl clarified gellan gum
+xx: E418(ii)
+e_number:en: 418
 
 #< en:tree gum
 en: E419, Gum ghatti
@@ -12905,6 +13092,21 @@ wikidata:en: Q836765
 #description:en:GLYCEROL ESTER OF WOOD ROSIN,  also known as glyceryl abietate or ester gum, is an oil-soluble food additive (E number E445).
 wikipedia:en: https://en.wikipedia.org/wiki/Glycerol_ester_of_wood_rosin
 
+< en: E445
+en: E445(i), Glycerol ester of gum rosin
+xx: E445(i)
+e_number:en: 445
+
+< en: E445
+en: E445(ii), Glycerol ester of tall oil rosin
+xx: E445(ii)
+e_number:en: 445
+
+< en: E445
+en: E445(iii)
+xx: E445(iii)
+e_number:en: 445
+
 en: E446, Succistearin
 xx: E446
 ar: E446, سكسيستيرين
@@ -13320,6 +13522,16 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18944661
 
+< en: E550
+en: E550(i)
+xx: E550(i)
+e_number:en: 550
+
+< en: E550
+en: E550(ii), Sodium metasilicate
+xx: E550(ii)
+e_number:en: 550
+
 # In chemistry, a pyrophosphate is a phosphorus oxyanion.
 # On wikidata the ingredient is usually called pyrophosphate, contrary to what is found on packages
 
@@ -13671,6 +13883,11 @@ additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser
 e_number:en: 450
 wikidata:en: Q290828
 
+< en: E450
+en: E450(ix), Magnesium dihydrogen diphosphate
+xx: E450(ix)
+e_number:en: 450
+
 #comment:en:E451 is the triphosphates group, either bound with sodium (i) or potassium (ii).
 en: E451, Triphosphates, triphosphate, E 451, e-451
 xx: E451
@@ -13786,6 +14003,11 @@ additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser
 anses_additives_of_interest:en: yes
 e_number:en: 451
 wikidata:en: Q15632716
+
+< en: E451
+en: E451(iii), Sodium potassium triphosphate
+xx: E451(iii)
+e_number:en: 451
 
 en: E452, Polyphosphates, Polyphosphate E452
 xx: E452, e 452, e-452
@@ -14696,6 +14918,21 @@ from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
+< en: E470
+en: E470(i)
+xx: E470(i)
+e_number:en: 470
+
+< en: E470
+en: E470(ii)
+xx: E470(ii)
+e_number:en: 470
+
+< en: E470
+en: E470(iii)
+xx: E470(iii)
+e_number:en: 470
+
 en: E470a, Sodium/potassium and calcium salts of fatty acids, Sodium/potassium and calcium salts of fatty acids
 xx: E470a
 bg: E470a, Натриеви/калиеви и калциеви соли на мастни киселини
@@ -15567,6 +15804,16 @@ wikidata:en: Q416058
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_stearoyl_lactylate
 # usage:fr:emulsionante (mono- et diglycérides d'acides gras, stéaroyl-2-lactylate de sodium)
 
+< en: E481
+en: E481(i)
+xx: E481(i)
+e_number:en: 481
+
+< en: E481
+en: E481(ii), Sodium oleyl lactylate
+xx: E481(ii)
+e_number:en: 481
+
 en: E482, Calcium stearoyl-2-lactylate
 xx: E482
 bg: E482, Калциев стераоил-2-лактилат
@@ -15606,6 +15853,16 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q788535
 # comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
+
+< en: E482
+en: E482(i), Calcium stearoyl lactylate
+xx: E482(i)
+e_number:en: 482
+
+< en: E482
+en: E482(ii), Calcium oleyl lactylate
+xx: E482(ii)
+e_number:en: 482
 
 en: E483, Stearyl tartrate, Stearyl palmityl tartrate
 xx: E483
@@ -16854,7 +17111,7 @@ organic_eu:en: authorized
 wikidata:en: Q407931
 
 en: E505, Ferrous carbonate
-xx: E505
+xx: E505, 3b101
 bg: E505, Желязен карбонат
 cs: E505, Uhličitan železnatý
 da: E505, jernkarbonat, jerncarbonat
@@ -18387,6 +18644,21 @@ vegan:en: yes
 vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Talc
 
+< en: E553
+en: E553(i), Magnesium silicate\, synthetic
+xx: E553(i)
+e_number:en: 553
+
+< en: E553
+en: E553(ii)
+xx: E553(ii)
+e_number:en: 553
+
+< en: E553
+en: E553(iii)
+xx: E553(iii)
+e_number:en: 553
+
 #comment:en:E553a is a synthetic form of magnesium silicates (plural)
 # the E553a family contains E553a(i): Synthetic magnesium silicate and E553a(ii): Magnesium trisilicate
 # put plural for E553a and singular for E553a(i) whenever it is possible
@@ -18703,7 +18975,7 @@ vegetarian:en: yes
 wikidata:en: Q408008
 
 en: E558, Bentonite
-xx: E558
+xx: E558, 1m558i, 1m558
 af: E558, Bentoniet
 ar: E558, بنتونيت
 az: E558, Bentonit
@@ -21619,7 +21891,7 @@ vegetarian:en: yes
 wikidata:en: Q18935691
 
 en: E916, Calcium iodate
-xx: E916
+xx: E916, 3b202
 bg: E916, Калциев йодат
 cs: E916, Jodan vápenatý
 da: E916, Calciumiodat
@@ -23280,6 +23552,21 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q2130929
 
+< en: E952
+en: E952(i)
+xx: E952(i)
+e_number:en: 952
+
+< en: E952
+en: E952(ii), Calcium cyclamate
+xx: E952(ii)
+e_number:en: 952
+
+< en: E952
+en: E952(iv)
+xx: E952(iv)
+e_number:en: 952
+
 en: E953, isomalt
 xx: E953
 af: E953, Isomalt
@@ -23407,6 +23694,26 @@ sweetener:en: yes
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q191381
+
+< en: E954
+en: E954(i)
+xx: E954(i)
+e_number:en: 954
+
+< en: E954
+en: E954(ii), Calcium saccharin
+xx: E954(ii)
+e_number:en: 954
+
+< en: E954
+en: E954(iii), Potassium saccharin
+xx: E954(iii)
+e_number:en: 954
+
+< en: E954
+en: E954(iv)
+xx: E954(iv)
+e_number:en: 954
 
 en: E955, Sucralose
 xx: E955
@@ -24284,6 +24591,16 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q118843
 
+< en: E999
+en: E999(i), Quillaia extract type 1
+xx: E999(i)
+e_number:en: 999
+
+< en: E999
+en: E999(ii), Quillaia extract type 2
+xx: E999(ii)
+e_number:en: 999
+
 en: Exxx, Exxx food additive
 xx: Exxx
 fi: Exxx, Exxx elintarvikelisäaine
@@ -24372,6 +24689,42 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18668392
 
+< en: E1001
+en: E1001(i), Choline acetate
+xx: E1001(i)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
+< en: E1001
+en: E1001(ii), Choline carbonate
+xx: E1001(ii)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
+< en: E1001
+en: E1001(iii)
+xx: E1001(iii)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
+< en: E1001
+en: E1001(iv), Choline citrate
+xx: E1001(iv)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
+< en: E1001
+en: E1001(v), Choline tartrate
+xx: E1001(v)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
+< en: E1001
+en: E1001(vi), Choline lactate
+xx: E1001(vi)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
 # description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars.
 
 en: E1100, Alpha-Amylase, amylase, E-1100, E 1100
@@ -24416,6 +24769,36 @@ wikipedia:en: https://en.wikipedia.org/wiki/Amylase
 # comment:en:when indicated, probably alpha-amylase is meant
 # alpha-amylase, (α-amylase) is a protein enzyme EC 3.2.1.1 that hydrolyses alpha bonds of large, alpha-linked polysaccharides, such as starch and glycogen, yielding glucose and maltose.
 # wikipedia:en:https://en.wikipedia.org/wiki/Alpha-amylase
+
+< en: E1100
+en: E1100(i)
+xx: E1100(i)
+e_number:en: 1100
+
+< en: E1100
+en: E1100(ii)
+xx: E1100(ii)
+e_number:en: 1100
+
+< en: E1100
+en: E1100(iii)
+xx: E1100(iii)
+e_number:en: 1100
+
+< en: E1100
+en: E1100(iv), alpha-Amylase from Bacillus megaterium expressed in Bacillus subtilis
+xx: E1100(iv)
+e_number:en: 1100
+
+< en: E1100
+en: E1100(v)
+xx: E1100(v)
+e_number:en: 1100
+
+< en: E1100
+en: E1100(vi)
+xx: E1100(vi)
+e_number:en: 1100
 
 en: E1101, Protease, peptidase, proteinase, EC 3.4, E-1101, E 1101
 xx: E1101
@@ -24476,6 +24859,36 @@ wikidata:en: Q212410
 # wikidata:en:Q212410
 #comment:en:the preferred name on products is protease. Not possible to copy 1:1
 wikipedia:en: https://en.wikipedia.org/wiki/Protease
+
+< en: E1101
+en: E1101(i)
+xx: E1101(i)
+e_number:en: 1101
+
+< en: E1101
+en: E1101(ii)
+xx: E1101(ii)
+e_number:en: 1101
+
+< en: E1101
+en: E1101(iii)
+xx: E1101(iii)
+e_number:en: 1101
+
+< en: E1101
+en: E1101(iv)
+xx: E1101(iv)
+e_number:en: 1101
+
+< en: E1101
+en: E1101(v), Protease from Streptomyces fradiae
+xx: E1101(v)
+e_number:en: 1101
+
+< en: E1101
+en: E1101(vi), Proteases from Bacillus subtilis
+xx: E1101(vi)
+e_number:en: 1101
 
 en: E1102, Glucose oxidase
 xx: E1102

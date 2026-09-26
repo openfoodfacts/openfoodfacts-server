@@ -894,7 +894,7 @@ en: cyclamate, cyclamates
 wikidata:en: Q76824182
 
 < en: cyclamate
-en: Sodium cyclamate, E952iv, E-952iv, E952(iv)
+en: Sodium cyclamate
 bg: Натриев цикламат
 ca: ciclamat de sodi
 de: Natriumcyclamat
@@ -925,7 +925,7 @@ wikidata:en: Q407786
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_cyclamate
 
 < en: E1105
-en: lysozyme from eggs, egg lysozyme
+en: lysozyme from eggs, egg lysozyme, egg white lysozyme
 bg: яйчен лизозим
 ca: lisozim d'ou
 cs: lysozym z vajec
@@ -2719,6 +2719,9 @@ vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Milk
 
 < en: milk
+en: grade a milk
+
+< en: milk
 en: low sodium fluid milk
 usda_fdc_code:en: 170875
 usda_ndb_code:en: 1089
@@ -2810,6 +2813,10 @@ description:en: LOW-FAT MILK is a 1% fat milk, sold in the United States. Skim m
 wikidata:en: Q2352187
 wikipedia:en: https://en.wikipedia.org/wiki/Skimmed_milk
 
+< en: grade a milk
+< en: skimmed milk
+en: grade a nonfat milk, grade a non fat milk, grade a skim milk, grade a skimmed milk, grade a fat free milk, grade a lowfat milk, grade a low fat milk
+
 #kept due to ciqual
 < en: skimmed milk
 en: pasteurized skimmed milk
@@ -2887,6 +2894,10 @@ description:en: LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by r
 wikidata:en: Q10572454
 wikipedia:fr: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
+< en: grade a milk
+< en: semi-skimmed milk
+en: grade a reduced fat milk
+
 < en: semi-skimmed milk
 fr: lait demi écrémé uht, lait stérilisé u h t demi-écrémé, lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
 ca: llet parcialment desnatada esterilitzada UHT, llet semidesnatada esterilitzada UHT
@@ -2954,6 +2965,10 @@ ciqual_food_code:en: 19023
 ciqual_food_name:en: Milk, whole, UHT
 ciqual_food_name:fr: Lait entier, UHT
 description:fr: WHOLE MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
+
+< en: grade a milk
+< en: whole milk
+en: grade a whole milk
 
 < en: whole milk
 en: UHT pasteurised whole milk
@@ -4616,6 +4631,9 @@ vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q13228
 wikipedia:en: https://en.wikipedia.org/wiki/Cream
+
+< en: cream
+en: grade a cream
 
 < en: cream
 en: fat free half and half cream
@@ -14426,7 +14444,7 @@ br: druzoni
 ca: greix
 cs: tuky, tuk
 cy: braster
-da: fedtstof, fed
+da: fedtstof, fedt
 de: Fett, Backfett
 el: λίπος, λιπαρός
 eo: graso
@@ -14640,6 +14658,7 @@ nl: kalfsvet
 en: beef fat
 bg: говежда мазнина
 ca: greix de bou
+da: oksefedt
 de: Rinderfett
 es: Grasa de vacuno, grasa bovina, grasa vacuna
 fi: naudanrasva
@@ -14647,8 +14666,10 @@ fr: gras de bœuf, graisse de bœuf, gras de bovin, bovin
 hr: goveđi mast
 hu: marhazsír
 it: grasso di manzo
+nb: oksekjøttfett
 nl: rundvet, rundervet
 pl: tłuszcz wołowy, tłuszcze wołowe
+sv: nötköttsfett
 usda_ndb_proxy_code:en: 4001
 usda_ndb_proxy_name:en: Fat, beef tallow
 
@@ -17418,15 +17439,19 @@ it: grasso di cartamo
 #wikipedia:en: https://en.wikipedia.org/wiki/Shorea_robusta
 
 < en: vegetable oil
-en: Shorea robusta seed oil, Shorea robusta oil, Sal tree oil, Sal oil
+en: Shorea robusta seed oil, Shorea robusta oil, sal tree oil, sal oil
+da: salolie, sal
 de: Salöl
-es: Aceite de shorea robusta, aceite de sal
-fr: Huile de sal, huile végétale de sal, graisses végétales de sal, matières grasses de sal, matières grasses végétales de sal
+es: aceite de Shorea robusta, aceite de sal
+fi: sal
+fr: huile de sal, huile végétale de sal, graisses végétales de sal, matières grasses de sal, matières grasses végétales de sal
 hr: sal
-it: Olio di shorea robusta
+it: olio di Shorea robusta
 kn: ಅಶ್ವಕರ್ಣ ಎಣ್ಣೆ
+nb: salolje, sal
 nl: sal
 pl: olej z sal
+sv: salolja, sal
 te: సాల్‌సీడ్ నూనె
 description:en: SAL OIL (Shorea robusta seed oil) is an edible oil extracted from the seeds of Shorea robusta.
 from_palm_oil:en: no
@@ -17435,10 +17460,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Shorea_robusta_seed_oil
 
 < en: vegetable fat
 en: sal fat
+da: salfedt
 de: Salfett
+fi: sal kasvirasvat
 hr: slana mast
 it: grasso di sale
+nb: salfett
 pl: tłuszcz sal, tłuszcz z sal
+sv: salfett, sal vegetabiliskt fett
 from_palm_oil:en: no
 
 < en: vegetable oil
@@ -20998,6 +21027,7 @@ de: natürliches Dill-Aroma, natürliches Dillaroma
 fr: arôme naturel d'aneth
 hr: prirodna aroma kopra
 it: aroma naturale di aneto
+sv: naturlig dillarom
 
 < en: flavouring
 en: chicken flavouring
@@ -24573,7 +24603,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 ##################################################################################
 
 < en: wheat
-en: semolina
+en: semolina, semolina wheat
 bg: грис
 ca: Sèmola
 cs: Krupice
@@ -24603,7 +24633,7 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en: semolina
-en: semolina flour
+en: semolina flour, semolina wheat flour
 bg: брашно от грис, грисово брашно
 de: Grießmehl
 es: harina de sémola
@@ -25158,7 +25188,7 @@ pl: kasza jęczmienna łamana, kasza jęczmienna wiejska
 description:en: Pot barley is barley that has been processed to remove its fibrous outer hull but has not been polished.
 
 < en: barley groats
-en: pearl barley
+en: pearl barley, pearled barley
 az: arpa yarması perlovaya
 bg: перлен ечемик
 da: perlebyg
@@ -36881,6 +36911,9 @@ description:en: Vital wheat gluten is a concentrated protein extracted from whea
 usda_fdc_code:en: 168147
 usda_ndb_code:en: 48052
 usda_ndb_name:en: Vital wheat gluten
+
+< en: wheat gluten
+en: hydrolyzed wheat gluten, hydrolysed wheat gluten
 
 # nova:en:maltodextrin
 en: maltodextrin, maltodextrins, maltodextrine, malto dextrin
@@ -55163,23 +55196,23 @@ it: cipolla, Cipolle
 ja: タマネギ, オニオン, たまねぎ, 玉葱, 玉ねぎ
 lt: svogūnai
 lv: sīpoli
-nb: løk
+nb: løk, løker
 nl: ui, uien, ajuin
-no: løk
+nn: lauk, laukar, løk, løkar
 nv: tłʼohchin
 pl: cebula, cebuli, cebulowy, cebulowa, cebulowe, cebulka, cebulki
 pt: cebola
 ro: ceapă, ceapa
 ru: лук, лук репчатый
-sv: lök
+sv: lök, lökar
 tr: soğan
 uk: Цибуля
 vi: hành tây
 zh: 洋葱
-# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
-average_weight_per_unit:en: 150
 # aeb-arab:راس بصل
 # ckb:پیاز
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 150
 carbon_footprint_fr_foodges_ingredient:fr: Oignons
 carbon_footprint_fr_foodges_value:fr: 0.6
 ciqual_food_code:en: 20034
@@ -55191,19 +55224,11 @@ ecobalyse_origins_en_european_union:en: onion-eu
 ecobalyse_origins_en_france:en: onion-fr
 eurocode_2_group_3:en: 8.30.10
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
-usda_ndb_proxy_code:en: 11282
-usda_ndb_proxy_name:en: Onions, raw
-wikidata:en: Q3406628
-wikipedia:en: https://en.wikipedia.org/wiki/Onion
-
-< en: onion
-en: raw onion
-ciqual_food_code:en: 20034
-ciqual_food_name:en: Onion, raw
-ciqual_food_name:fr: Oignon, cru
 usda_fdc_code:en: 170000
 usda_ndb_code:en: 11282
 usda_ndb_name:en: Onions, raw
+wikidata:en: Q3406628
+wikipedia:en: https://en.wikipedia.org/wiki/Onion
 
 # description:en:Cebula dymka is a name for young onion meant to be pickled or consumed raw
 
@@ -65084,7 +65109,7 @@ pt: farinha de amêndoa biológica, farinha de amêndoas biológicas
 sv: ekologiskt mandelmjöl
 
 < en: almond
-en: ground almonds
+en: ground almonds, almond meal
 de: Erdmandeln
 es: almendras molidas
 fi: Jauhettua mantelia, jauhettuja manteleita, mantelirouhe
@@ -65189,6 +65214,9 @@ ciqual_proxy_food_name:fr: Pâte d'amande, préemballée
 usda_fdc_code:en: 170160
 usda_ndb_code:en: 12071
 usda_ndb_name:en: Nuts, almond paste
+
+< en: almond
+en: almond butter, almond butters
 
 < en: almond paste
 en: prepacked Almond paste
@@ -65364,7 +65392,7 @@ hr: indijski oraščić sirovi
 it: anacardi crudi
 
 < en: cashew nuts
-en: cashew nut paste
+en: cashew nut paste, cashew butter, cashew nut butter
 de: Cashewpaste, Cashewnusspaste, Cashewmus
 es: pasta de anacardos
 fr: pâte de noix de cajou, purée de noix de cajou
@@ -65567,7 +65595,7 @@ usda_ndb_name:en: Nuts, ginkgo nuts, raw
 ###################################################################################################
 
 < en: tree nut
-en: hazelnut, hazelnuts, filbert
+en: hazelnut, hazelnuts, filbert, filberts
 af: Haselneut
 an: Avellana
 ar: بندق
@@ -65762,7 +65790,7 @@ fr: éclats de noisettes caramélisés
 fi: karamellisoidut hasselpähkinät
 
 < en: hazelnut
-en: hazelnut paste
+en: hazelnut paste, hazelnut butter
 bg: лешникова паста, крем лешник
 ca: pasta d'avellana, pasta d'avellanes
 cs: lískooříšková pasta
@@ -65891,6 +65919,9 @@ usda_ndb_name:en: Nuts, macadamia nuts, raw
 wikidata:en: Q11027461
 #ingredient/macadamia-nut 84 in 12 @2021-08-21
 
+< en: macadamia nut
+en: macadamia nut butter, macadamia butter
+
 ###################################################################################################
 #
 #                                Peanut
@@ -65975,20 +66006,20 @@ fr: cacahuète caramélisée, cacahuètes caramélisées
 it: arachidi caramellate
 
 < en: peanut
-en: spanish peanut
+en: spanish peanut, spanish peanuts
 description:en: Spanish peanuts are a specific variety of peanut, distinct from the more common runner or Virginia types you'd find as standard roasted peanuts or in most peanut butter. Grown mainly in Oklahoma and Texas in the US, though the name comes from their origin.
 usda_fdc_code:en: 174263
 usda_ndb_code:en: 16091
 usda_ndb_name:en: Peanuts, spanish, raw
 
 < en: peanut
-en: valencia peanut
+en: valencia peanut, valencia peanuts
 usda_fdc_code:en: 172432
 usda_ndb_code:en: 16093
 usda_ndb_name:en: Peanuts, valencia, raw
 
 < en: peanut
-en: virginia peanut
+en: virginia peanut, virginia peanuts
 usda_fdc_code:en: 172434
 usda_ndb_code:en: 16095
 usda_ndb_name:en: Peanuts, virginia, raw
@@ -66272,7 +66303,7 @@ usda_ndb_process:en: en:dried
 #
 ###################################################################################################
 < en: tree nut
-en: pistachio nuts, pistachio, American Pistachios
+en: pistachio nuts, pistachio, American Pistachios, pistachio kernels
 bg: шамфъстък, шам-фъстък
 ca: festuc, festucs
 cs: pistácie
@@ -66376,7 +66407,7 @@ it: ripieno al pistacchio
 
 # category/walnuts
 < en: tree nut
-en: walnut, walnuts
+en: walnut, walnuts, english walnut, english walnuts
 af: Okkerneut
 ar: جوز
 bg: орех, орехи
@@ -66457,6 +66488,10 @@ usda_ndb_code:en: 12155
 usda_ndb_name:en: Nuts, walnuts, english
 wikidata:en: Q208021
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut
+
+< en: walnut
+en: black walnut, black walnuts
+xx: Juglans nigra
 
 < en: walnut
 en: fresh walnut
@@ -67777,7 +67812,7 @@ usda_ndb_name:en: Seeds, sesame butter, paste
 
 #category/tahini
 < en: sesame paste
-en: tahini, tahini paste, sesame tahini
+en: tahini, tahini paste, sesame tahini, sesame butter, sesame seed butter
 xx: tahini, tahina
 ar: طحينة
 be: Тахіні
@@ -82290,7 +82325,7 @@ it: filetti di salmone atlantico con pelle
 # description:en:The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family.
 
 < en: salmon
-en: chum salmon
+en: chum salmon, keta salmon
 be: Кета
 bg: куча сьомга
 ca: salmó keta
@@ -82380,10 +82415,14 @@ wikidata:en: Q673380
 wikipedia:en: https://en.wikipedia.org/wiki/Pink_salmon
 # http://www.marinespecies.org/aphia.php?p=taxdetails&id=127182
 
+< en: salmon
+en: coho salmon, silver salmon
+xx: Oncorhynchus kisutch
+
 #description:en: Sockeye salmon (Oncorhynchus nerka), also called red salmon, kokanee salmon, or blueback salmon, is an anadromous species of salmon found in the Northern Pacific Ocean and rivers discharging into it.
 
 < en: salmon
-en: Sockeye salmon
+en: Sockeye salmon, red salmon
 bg: червена сьомга
 ca: salmó vermell
 cs: losos nerka
@@ -82719,7 +82758,7 @@ ciqual_food_name:fr: Sole, crue
 # description:en:Surimi refers to a paste made from fish or other meat.
 
 < en: fish
-en: surimi
+en: surimi, imitation crab, imitation crab meat, imitation crabmeat
 xx: surimi
 ar: سوريمي
 bg: сурими
@@ -82920,7 +82959,7 @@ la: Lopholatilus chamaeleonticeps
 
 < en: saltwater fish
 #< en: fish
-en: tuna
+en: tuna, tuna fish
 af: Tuna
 ar: تن
 bg: Тунец, риба тон
@@ -83085,7 +83124,7 @@ fr: Ventrèches de thon
 it: ventresca di tonno
 
 < en: tuna
-en: albacore
+en: albacore, albacore tuna, white tuna, solid white tuna
 af: Albakoor
 ar: تونة بيضاء
 az: Uzunüzgəc tunes
@@ -83140,7 +83179,7 @@ description:fr: Bonite est le nom vernaculaire donné à plusieurs espèces de p
 #category/skipjack-tuna
 < en: tuna
 < fr: bonite
-en: skipjack tuna
+en: skipjack tuna, skip jack tuna
 xx: Katsuwonus pelamis, Euthynnus palamis, Euthynnus, katsuwonus
 af: Pensstreep-tuna
 ar: تونة وثابة
@@ -83204,6 +83243,9 @@ description:pt: O bonito, bonito-listado, gaiado, atum-bonito e atum-gaiado (Kat
 # zh-tw:正鰹
 wikidata:en: Q633957
 wikipedia:en: https://en.wikipedia.org/wiki/Skipjack_tuna
+
+< en: tuna
+en: light tuna, light meat tuna, chunk light tuna
 
 < en: skipjack tuna
 en: skipjack tuna fillet
@@ -86207,7 +86249,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Crustacean
 fr: extrait de crustacé
 
 < en: crustacean
-en: crab
+en: crab, crab meat, crabmeat
 af: Krap
 ak: ɔkɔtɔ
 am: ሠርጣን
@@ -86322,6 +86364,13 @@ ciqual_food_name:en: Crab, raw
 description:en: CRABS are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail".
 wikidata:en: Q40802
 wikipedia:en: https://en.wikipedia.org/wiki/Crab
+
+< en: crab
+en: king crab, king crab meat
+
+< en: crab
+en: snow crab, snow crab meat, snow crabmeat
+xx: Chionoecetes opilio
 
 < en: crab
 fr: chair de crabe
@@ -86470,7 +86519,7 @@ wikidata:en: Q1133124
 wikipedia:en: https://en.wikipedia.org/wiki/Procambarus_clarkii
 
 < en: crustacean
-en: lobster
+en: lobster, lobster meat
 ar: همار, كركند
 be: Амары
 bg: омар, омари
@@ -87087,7 +87136,7 @@ la: Solenocera Crassicornis
 wikipedia:nl: https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 
 < en: vegetable fiber
-en: Psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
+en: psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
 ar: بزر قطونة
 cs: psyllium
 da: psyllium, psyllium skræl
@@ -87105,7 +87154,7 @@ pl: Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik
 ro: Psyllium
 ru: Подорожник
 sd: اسپنگر
-sv: psylliumfiber, psylliumfröskal
+sv: psylliumfiber, psylliumfröskal, psyllium
 ta: Isabgol
 uk: Подорожник
 ur: اسپغول
@@ -91044,6 +91093,9 @@ ja: 平飼い卵
 nl: vrije-uitloopei, vrije uitloop ei
 pl: jaja z wolnego wybiegu, jajka z wolnego wybiegu, jaja z chowu na wolnym wybiegu
 
+< en: whole egg
+en: cage-free eggs, cage-free egg, cage-free whole eggs, cage-free whole egg
+
 < en: egg
 en: category A eggs
 bg: яйца категория А
@@ -91554,6 +91606,9 @@ wikidata:en: Q796758
 wikipedia:en: https://en.wikipedia.org/wiki/Egg_white
 
 < en: egg white
+en: cage-free egg whites, cage-free egg white
+
+< en: egg white
 en: chicken egg white
 es: Clara de huevo de gallina
 fi: kananmunan valkuainen, kananmunanvalkuainen
@@ -91672,7 +91727,7 @@ nl: gepasteuriseerd vloeibaar eiwit
 sv: pastöriserad äggvita i flytande form
 
 < en: egg white
-en: egg protein
+en: egg protein, egg white protein
 bg: яйчен протеин
 ca: proteïna d'ou, proteïnes d'ou, proteïnes de l'ou
 de: Ei-Eiweiß
@@ -91840,6 +91895,12 @@ usda_ndb_code:en: 1137
 usda_ndb_name:en: Egg, yolk, dried
 usda_ndb_process:en: en:dried
 wikidata:en: Q1302994
+
+< en: egg yolk
+en: enzyme modified egg yolk, enzyme modified egg yolks
+
+< en: egg yolk
+en: cage-free egg yolks, cage-free egg yolk
 
 < en: egg yolk
 fr: jaune d'oeuf de poules élevées au sol
@@ -96213,12 +96274,21 @@ ciqual_food_name:fr: Bouillon de boeuf, déshydraté
 wikidata:en: Q96362190
 
 < en: beef broth
+< en: dehydrated broth
 en: dehydrated beef stock, dehydrated beef bouillon
 fr: Bouillon de boeuf déshydraté
 it: brodo di manzo disidratato
 ciqual_food_code:en: 11001
 ciqual_food_name:en: Broth, stock or bouillon, beef, dehydrated
 ciqual_food_name:fr: Bouillon de boeuf, déshydraté
+
+< en: beef bones
+< en: dehydrated beef stock
+en: beef bone stock powder
+da: bouillonpulver af oskeben
+fi: liemijauhe häränluista
+nb: buljongpulver av oskekjøttben
+sv: buljongpulver av oxben
 
 < en: broth
 fr: bouillon de veau

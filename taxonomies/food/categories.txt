@@ -79916,9 +79916,20 @@ hr: Umaci sa senfom
 lt: Padažai su garstyčiomis
 
 < en: Sauces with mustard
-en: Remoulade sauce
-fr: rémoulade, Sauce Rémoulade
+en: Remoulade sauces, Remoulade sauce
+da: Remoulader, Remulader
+fr: Rémoulade, Sauce Rémoulade
+nb: Remulader
+nn: Remuladar
+sv: Remouladsåser
+plant_alternative:en: en:plant-based-remoulade-sauces
 wikidata:en: Q1190414
+
+< en: Remoulade sauces
+< en: Vegan sauces
+en: Plant-based remoulade sauces, Vegan remoulade sauces
+da: Plantebaserede remoulader, Veganske remoulader
+sv: Växtbaserade remouladsåser, Veganska remouladsåser
 
 < en: Sauces with mustard
 en: Honey mustard dressings
@@ -90734,6 +90745,10 @@ agribalyse_food_code:en: 8373
 ciqual_food_code:en: 8373
 ciqual_food_name:en: Rolled escalope of pork with pistachios
 
+< en: Meat preparations
+en: Assortments of meat roulades, Assortment of meat roulades
+fr: Assortiments de roulades, Assortiment de roulades
+
 #fr:Roulade au jambon pistachée
 
 < en: Meat preparations
@@ -91201,6 +91216,10 @@ fr: filet mignon de porc
 agribalyse_food_code:en: 28204
 ciqual_food_code:en: 28204
 ciqual_food_name:en: Pork filet mignon, raw
+
+< en: Pork filet mignon
+en: Smoked pork filet mignon
+fr: Filets mignons de porc fumés, Filet mignon de porc fumé
 
 < en: Pork
 en: Pork 90/10 trimming
@@ -93575,10 +93594,15 @@ fr: Jambon persillé de Bourgogne
 
 < en: White hams
 en: Cooked ham of superior quality
-fr: Jambon cuit supérieur
+fr: Jambon cuit supérieur, Jambon supérieur
 agribalyse_food_code:en: 28900
 ciqual_food_code:en: 28900
 ciqual_food_name:en: Cooked ham, superior quality
+
+< en: Cooked ham of superior quality
+< en: White smoked hams
+en: Smoked cooked ham of superior quality
+fr: Jambons cuits supérieurs fumés, Jambon cuit supérieur fumé, Jambon supérieur fumé
 
 < en: Cooked ham of superior quality
 en: Cooked ham with rind of superior quality
@@ -95744,7 +95768,7 @@ ciqual_food_name:en: Sausage from Paris, smoked
 en: Garlic sausage
 de: Knoblauchwurst
 es: Salchicha de ajo
-fr: Saucissons à l’ail, saucisson à l’ail
+fr: Saucissons à l’ail, Saucissons cuits à l'ail, saucisson à l’ail, saucisson cuit à l'ail
 hr: Češnjak kobasica
 it: Salsiccia all'aglio
 nl: Knoflookworstjes
@@ -95767,6 +95791,11 @@ agribalyse_food_code:en: 30701
 ciqual_food_code:en: 30701
 ciqual_food_name:en: Cooked sausage, pure pork
 ciqual_food_name:fr: Saucisson cuit pur porc
+
+< en: Garlic sausage
+< fr: Saucissons cuits
+en: Smoked cooked garlic sausage
+fr: Saucissons cuits fumés à l'ail, Saucissons cuits à l'ail fumé, saucisson cuit à l'ail fumé
 
 < en: Cured sausages
 en: Dry sausages
@@ -103259,6 +103288,11 @@ ciqual_food_code:en: 26194
 ciqual_food_name:en: Blue ling, raw
 ciqual_food_name:fr: Lingue bleue ou Lingue, crue
 
+< en: Blue ling
+< en: Fish fillets
+en: Blue ling fillets, Blue ling fillet
+fr: Filets de lingue bleue, Filet de lingue bleue
+
 < en: Fishes
 en: Common dentex
 fr: Denté
@@ -105370,6 +105404,11 @@ ciqual_food_name:fr: Églefin, cru
 cooking_method:en: en:raw
 wikidata:en: Q202406
 
+< en: Fish fillets
+< en: Haddock
+en: Haddock fillets, Haddock fillet
+fr: Filets d'églefin, Filets d'aiglefin, Filet d'églefin
+
 < en: Haddock
 en: Grilled haddock, Pan-fried haddock
 fr: Églefin grillé, Églefin poêlé
@@ -106311,6 +106350,11 @@ hr: Bas
 ja: バス
 nl: Baars
 wikidata:en: Q1224135
+
+< en: Bass
+< en: Fish fillets
+en: Bass fillets, Bass fillet
+fr: Filets de bar, Filet de bar
 
 < en: Bass
 en: American bass
@@ -107369,6 +107413,10 @@ agribalyse_food_code:en: 10001
 ciqual_food_code:en: 10001
 ciqual_food_name:en: Squid, raw
 ciqual_food_name:fr: Calmar ou calamar ou encornet, cru
+
+< en: Squid
+en: Squid rings, Calamari rings, Squid ring
+fr: Anneaux d'encornets, Anneaux de calamars, Anneau d'encornet, Anneau de calamar
 
 < en: Mollusc
 en: Squid boiled in water, Squid cooked in water
@@ -126839,4 +126887,3 @@ zh: 全杜兰小麦螺旋意面
 en: Semi whole durum wheat spirals
 fr: Spirales de blé dur semi-complet
 zh: 半杜兰小麦螺旋意面
-
