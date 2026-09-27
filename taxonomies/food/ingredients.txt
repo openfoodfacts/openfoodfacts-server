@@ -23389,6 +23389,12 @@ comment:en: This is NOT a flavouring, but describes the taste that of sauce/spic
 #< en: compound
 en: Chicken flavour taste
 de: Aroma mit Hühnerfleischgeschmack
+# example: https://world.openfoodfacts.org/product/8801073116467/buldak-hot-chicken-flavour-ramen-carbonara-flavour-samyang
+
+#< en: compound
+en: habanero chili flavour
+de Habanero-Chili-Gewürz
+# example: https://world.openfoodfacts.org/product/8801073116467/buldak-hot-chicken-flavour-ramen-carbonara-flavour-samyang
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -52117,6 +52123,12 @@ average_weight_per_unit:en: 1
 < en: parsley
 en: flatleaf parsley
 it: prezzemolo a foglia piatta
+la: Petroselinum crispum var. neapolitanum
+
+< en: parsley
+en: curly parsley
+de: Krause Petersilie
+la: Petroselinum crispum var. crispum
 
 #processing:en: en:leaf
 #<en:parsley
