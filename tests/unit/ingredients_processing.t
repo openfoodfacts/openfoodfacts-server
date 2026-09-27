@@ -3103,6 +3103,75 @@ my @tests = (
 			}
 		],
 	],
+	# fr: en conserve, en boite (used in cooking recipes)
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"asperges en conserve, thon en conserve, thon en boite, tomates concentrées, champignons en boîte de conserve, tomates séchées, oignons en poudre, poudre de carottes, poulet en poudre, olives appertisées"
+		},
+		[
+
+			{
+				'processing' => 'en:canned',
+				'text' => 'asperges',
+				'id' => 'en:asparagus',
+				'is_in_taxonomy' => 1
+			},
+			{
+				'id' => 'en:canned-tuna',
+				'is_in_taxonomy' => 1,
+				'text' => 'thon en conserve'
+			},
+			{
+				'processing' => 'en:canned',
+				'text' => 'thon',
+				'id' => 'en:tuna',
+				'is_in_taxonomy' => 1
+			},
+			{
+				'processing' => 'en:concentrated',
+				'id' => 'en:tomato',
+				'is_in_taxonomy' => 1,
+				'text' => 'tomates'
+			},
+			{
+				'text' => 'champignons',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:mushroom',
+				'processing' => 'en:canned'
+			},
+			{
+				'id' => 'en:tomato',
+				'is_in_taxonomy' => 1,
+				'text' => 'tomates',
+				'processing' => 'en:dried'
+			},
+			{
+				'text' => 'oignons en poudre',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:onion-powder'
+			},
+			{
+				'id' => 'en:carrot-powder',
+				'is_in_taxonomy' => 1,
+				'text' => 'poudre de carottes'
+			},
+			{
+				'processing' => 'en:powder',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:chicken',
+				'text' => 'poulet'
+			},
+			{
+				'text' => 'olives',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:olive',
+				'processing' => 'en:canned'
+			}
+		]
+
+	]
 
 );
 

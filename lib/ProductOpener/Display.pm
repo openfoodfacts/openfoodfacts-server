@@ -302,6 +302,12 @@ $tt = Template->new(
 				# when utf8 flag is set (Template Toolkit handles this with ENCODING => 'UTF-8')
 				return uc(substr($text, 0, 1)) . substr($text, 1);
 			},
+			js => sub {
+				my $text = shift;
+				return '' unless defined $text;
+				# Encode the text as a JSON string for safe inclusion in JavaScript
+				return $json_utf8->encode($text);
+			},
 		},
 	}
 );

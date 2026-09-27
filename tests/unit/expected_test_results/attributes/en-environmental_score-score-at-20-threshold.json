@@ -288,7 +288,7 @@
             {
                "description" : "The Forest Footprint cannot be computed because the ingredient list is missing.",
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-unknown.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-unknown.svg",
                "id" : "forest_footprint",
                "match" : 0,
                "missing" : "Missing ingredients list",
@@ -842,6 +842,7 @@
       "en:environmental-score-missing-data-origins",
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
+      "en:forest-footprint-unknown",
       "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",

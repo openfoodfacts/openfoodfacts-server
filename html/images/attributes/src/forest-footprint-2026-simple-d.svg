@@ -4,7 +4,7 @@
    data-name="Layer 1"
    viewBox="0 0 337.16 119.48"
    version="1.1"
-   sodipodi:docname="forest-footprint-2026-d.svg"
+   sodipodi:docname="forest-footprint-2026-new-d.svg"
    inkscape:version="1.4.2 (ebf0e94, 2025-05-08)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -21,7 +21,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="2.4083521"
      inkscape:cx="243.3199"
-     inkscape:cy="69.549631"
+     inkscape:cy="102.76737"
      inkscape:window-width="2560"
      inkscape:window-height="1403"
      inkscape:window-x="0"
@@ -29,42 +29,7 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="Layer_1" />
   <defs
-     id="defs1">
-    <style
-       id="style1">
-      .cls-1 {
-        opacity: .7;
-      }
-
-      .cls-2 {
-        opacity: .75;
-      }
-
-      .cls-3 {
-        fill: #0c6831;
-      }
-
-      .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
-        stroke-width: 0px;
-      }
-
-      .cls-4 {
-        fill: #cc0f1f;
-      }
-
-      .cls-5 {
-        fill: #fff;
-      }
-
-      .cls-6 {
-        fill: #ea773d;
-      }
-
-      .cls-7 {
-        fill: #fcbf00;
-      }
-    </style>
-  </defs>
+     id="defs1" />
   <rect
      class="cls-3"
      x="35.459999"
@@ -73,7 +38,8 @@
      height="66.550003"
      rx="24.110001"
      ry="24.110001"
-     id="rect1" />
+     id="rect1"
+     style="fill:#0c6831;fill-opacity:1" />
   <rect
      class="cls-7"
      x="102.05"
@@ -82,7 +48,8 @@
      height="66.550003"
      rx="24.110001"
      ry="24.110001"
-     id="rect2" />
+     id="rect2"
+     style="fill:#fcbf00;fill-opacity:1" />
   <rect
      class="cls-6"
      x="168.60001"
@@ -91,7 +58,8 @@
      height="66.550003"
      rx="24.110001"
      ry="24.110001"
-     id="rect3" />
+     id="rect3"
+     style="fill:#ea773d;fill-opacity:1" />
   <path
      class="cls-5"
      d="m 88.22,78.39 c 0.39,1.14 -0.18,1.85 -1.37,1.85 h -8.19 c -0.92,0 -1.58,-0.42 -1.85,-1.4 L 75.49,74.2 H 61.98 l -1.32,4.64 c -0.27,0.98 -0.92,1.4 -1.85,1.4 h -8.19 c -1.19,0 -1.76,-0.71 -1.37,-1.85 L 61.89,39.61 c 0.27,-0.92 0.96,-1.37 1.88,-1.37 h 9.94 c 0.92,0 1.61,0.45 1.88,1.37 l 12.64,38.78 v 0 z M 72.85,64.92 68.73,50.42 64.61,64.92 Z"
@@ -190,5 +158,6 @@
   <path
      class="cls-5"
      d="m 272.74,33.21 c 11.58,0 20.4,9.12 20.4,21 0,11.88 -8.82,21 -20.4,21 H 256.1 c -1.04,0 -1.64,-0.6 -1.64,-1.64 V 34.85 c 0,-1.04 0.6,-1.64 1.64,-1.64 z m 0,31.64 c 5.79,0 9.87,-4.2 9.87,-10.64 0,-6.44 -4.08,-10.64 -9.87,-10.64 h -7.28 v 21.28 z"
-     id="path14" />
+     id="path14"
+     style="fill:#ffffff;fill-opacity:1" />
 </svg>
