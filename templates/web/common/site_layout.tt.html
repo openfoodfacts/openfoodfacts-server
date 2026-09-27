@@ -1,22 +1,22 @@
 <!-- start templates/[% template.name %] -->
 
 <!doctype html>
-<html class="no-js" lang="[% language %]" data-serverdomain="[% server_domain %]" dir="[% edq(lang('text_direction')) %]">
+<html class="no-js" lang="[% language | html_entities %]" data-serverdomain="[% server_domain | html_entities %]" dir="[% lang('text_direction') | html_entities %]">
 <head>
     <meta charset="utf-8">
-    <title>[% title %]</title>
+    <title>[% title | html_entities %]</title>
     [% meta_description %]
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="fb:app_id" content="[% fb_config %]">
-    <meta property="og:type" content="[% og_type %]">
-    <meta property="og:title" content="[% canon_title %]">
-    <meta property="og:url" content="[% canon_url %]">
+	<meta property="fb:app_id" content="[% fb_config | html_entities %]">
+    <meta property="og:type" content="[% og_type | html_entities %]">
+    <meta property="og:title" content="[% canon_title | html_entities %]">
+    <meta property="og:url" content="[% canon_url | url %]">
     [% og_images %]
     [% og_images2 %]
-    <meta property="og:description" content="[% canon_description %]">
+    <meta property="og:description" content="[% canon_description | html_entities %]">
     [% options_favicons %]
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="[% canon_url %]">
+    <link rel="canonical" href="[% canon_url | url %]">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% edq(lang('text_direction')) %].css?v=[% css_timestamp %]" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">

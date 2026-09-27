@@ -186,6 +186,7 @@ use Storable qw(dclone freeze);
 use boolean;
 use Excel::Writer::XLSX;
 use Template;
+use Template::Filters;
 use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get deep_set deep_exists);
 use Log::Log4perl;
@@ -283,11 +284,12 @@ if (defined $options{export_limit}) {
 @index_tag_types_set{@ProductOpener::Config::index_tag_types} = ();
 
 # Initialize the Template module
+Template::Filters->use_html_entities;
 $tt = Template->new(
 	{
 		INCLUDE_PATH => $data_root . '/templates',
 		INTERPOLATE => 1,
-		EVAL_PERL => 1,
+		EVAL_PERL => 0,
 		STAT_TTL => 60,    # cache templates in memory for 1 min before checking if the source changed
 		COMPILE_EXT => '.ttc',    # compile templates to Perl code for much faster reload
 		COMPILE_DIR => $data_root . "/tmp/templates",

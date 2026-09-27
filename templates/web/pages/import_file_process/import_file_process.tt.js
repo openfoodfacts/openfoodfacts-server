@@ -4,15 +4,15 @@ var timeout = 5000;
 var job_info_state;
 
 var statuses = {
-	"inactive" :  "[% edq(lang('job_status_inactive')) %]",
-	"active" :  "[% edq(lang('job_status_active')) %]",
-	"finished" :  "[% edq(lang('job_status_finished')) %]",
-	"failed" :  "[% edq(lang('job_status_failed')) %]",
+	"inactive" :  [% lang('job_status_inactive') | js %],
+	"active" :  [% lang('job_status_active') | js %],
+	"finished" :  [% lang('job_status_finished') | js %],
+	"failed" :  [% lang('job_status_failed') | js %],
 };
 
 (function poll() {
   \$.ajax({
-    url: '/cgi/import_file_job_status.pl?file_id=[% process_file_id %]&import_id=[% process_import_id %]',
+    url: '/cgi/import_file_job_status.pl?file_id=[% process_file_id | uri %]&import_id=[% process_import_id | uri %]',
     success: function(data) {
       \$('#result').text(statuses[data.job_info.state]);
 	  job_info_state = data.job_info.state;
