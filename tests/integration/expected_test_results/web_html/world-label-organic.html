@@ -504,15 +504,15 @@
                 <div id="facet_panels_content"></div>
             </div>
             <!-- Fetching facet knowledge panel -->                
-            <script>
+                <script>
                     let facet_kp = "//facets-kp.openfoodfacts.org/render-to-html";
-                    let params = "?facet_tag=labels&value_tag=en:organic";
-                    if ("") {
+                    let params = "?facet_tag=" + "labels" + "&value_tag=" + "en:organic";
+                    if (0) {
                         params += "&sec_facet_tag=&sec_value_tag="
                     }
 
                     // Adding language code to get translated data
-                    params += "&lang_code=en&country=world";
+                    params += "&lang_code=" + "en" + "&country=" + "world";
 
                     fetch(facet_kp + params)
                         .then((response) => {
