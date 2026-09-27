@@ -70,9 +70,9 @@
 >
     [% IF panel.title_element.defined %]
         [% IF (panel.type == "card") %]
-            <h2 class="panel_title_[% panel.type %] text-medium">[% panel.title_element.title %]</h2>
+            <h2 class="panel_title_[% panel.type | html %] text-medium">[% panel.title_element.title | html %]</h2>
         [% ELSE %]        
-            <h3 class="panel_title_[% panel.type %]">[% panel.title_element.title %]</h3>
+            <h3 class="panel_title_[% panel.type | html %]">[% panel.title_element.title | html %]</h3>
         [% END %]
     [% END %]
 [% content %]
@@ -103,12 +103,12 @@
             [% END %]
         >
             [% IF panel.title_element.icon_url.defined %]
-            <img src="[% panel.title_element.icon_url %]"
+            <img src="[% panel.title_element.icon_url | url %]"
                 style="[%  IF panel.title_element.icon_size == 'very_small' %]height: 24px;
                        [%~ ELSIF panel.title_element.icon_size == 'small' %]height:36px;
                        [%~ ELSE %]height:72px;
                        [%~ END %]float:left;margin-right:1rem;"
-                alt="[%  IF panel.title_element.icon_alt.defined %][% panel.title_element.icon_alt %]
+                alt="[%  IF panel.title_element.icon_alt.defined %][% panel.title_element.icon_alt | html %]
                      [%~ ELSE %]icon
                      [%~ END %]"
                 [% IF panel.title_element.icon_color_from_evaluation %]
@@ -126,20 +126,20 @@
                     </span>
                 [% END %]
                 [% IF panel.title_element.title.defined %]
-                    [% panel.title_element.title %]
+                    [% panel.title_element.title | html %]
                 [% ELSIF panel.title_element.name.defined %]
-                    [% panel.title_element.name %]
+                    [% panel.title_element.name | html %]
                 [% END %]
             </h4>
             [% IF panel.title_element.subtitle.defined %]
-                <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.subtitle %]</span>
+                <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.subtitle | html %]</span>
             [% ELSIF panel.title_element.value_string.defined %]
-                <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value_string %]</span>  
+                <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value_string | html %]</span>  
             [% ELSIF panel.title_element.value.defined %]
                 [% IF panel.title_element.type.defined AND panel.title_element.type == "percent" %]
-                    <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value %]%</span>
+                    <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value | html %]%</span>
                 [% ELSE %]
-                    <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value %]</span>
+                    <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value | html %]</span>
                 [% END %]
             [% END %]
             <hr class="floatclear">
@@ -166,12 +166,12 @@
         [% END %]
 
         [% IF panel_group_element.icon_url.defined %]
-        <img src="[% panel_group_element.icon_url %]"
+        <img src="[% panel_group_element.icon_url | url %]"
             style="[%  IF panel_group_element.icon_size == 'very_small' %]height: 24px;
                    [%~ ELSIF panel_group_element.icon_size == 'small' %]height:36px;
                    [%~ ELSE %]height:72px;
                    [%~ END %]float:left;margin-right:1rem;"
-            alt="[% IF panel_group_element.icon_alt.defined %][% panel_group_element.icon_alt %][% ELSE %]icon[% END %]"
+            alt="[% IF panel_group_element.icon_alt.defined %][% panel_group_element.icon_alt | html %][% ELSE %]icon[% END %]"
             [% IF panel_group_element.icon_color_from_evaluation %]
                 class="filter-[% show_evaluation.${panel_group_element.evaluation}.img_color or 'grey' %]"
             [% END %]
@@ -219,9 +219,9 @@
     #---------------------------------------------------------------------- ~%]
 
     [% IF text_element.icon_url.defined %]
-    	<img src="[% text_element.icon_url %]"
+    	<img src="[% text_element.icon_url | url %]"
     	    style="height:72px;float:left;margin-right:1rem;"
-    	    alt="[% IF text_element.icon_alt.defined %][% text_element.icon_alt %][% ELSE %]icon[% END %]"
+    	    alt="[% IF text_element.icon_alt.defined %][% text_element.icon_alt | html %][% ELSE %]icon[% END %]"
     	    [% IF text_element.icon_color_from_evaluation %]
   	            class="filter-[% show_evaluation.${text_element.evaluation}.img_color or 'grey' %]"
     	    [% END %]>
@@ -235,7 +235,7 @@
        text_content = BLOCK;
            IF text_element.lc.defined && text_element.lc != lc %]
               <!-- text is in a different language than the interface -->
-              <strong>[% text_element.language %][% sep %]: </strong>
+              <strong>[% text_element.language | html %][% sep %]: </strong>
      [%    END; # IF 
            text_element.html;
        END; # BLOCK for text_content
@@ -274,10 +274,10 @@
 
     [% IF text_element.source_url.defined %]
         <em>[% lang("source") %][% sep %]:
-            <a href="[% text_element.source_url %]">[% text_element.source_text %]
+            <a href="[% text_element.source_url %]">[% text_element.source_text | html %]
                 [% IF text_element.source_lc.defined && text_element.source_lc != lc %]
                 <!-- source is in a different language than the interface -->
-                ([% text_element.source_language %])
+                ([% text_element.source_language | html %])
                 [% END %]
             </a>
         </em>
@@ -305,7 +305,7 @@
 
     [% FOREACH action IN action_element.actions %]
         <div>
-            <a class="button small action-[% action %]"
+            <a class="button small action-[% action | html %]"
                 href="[% product_action_url(product.code, action) %]">
                 [% lang("action_$action") %]
             </a>
@@ -326,15 +326,15 @@
 
     [% image_element = element_ref.image_element %]
     [% IF image_element.link_url.defined %]<a href="[% image_element.link_url %]">[% END %]
-        <img src="[% image_element.url %]" alt="[% image_element.alt %]">
+        <img src="[% image_element.url %]" alt="[% image_element.alt | html %]">
     [% IF image_element.link_url.defined %]</a>[% END %]
 
     [% IF image_element.source_url.defined %]
     <div class="image_source" style="font-style:italic">[% lang("source") %][% sep %]:
-        <a href="[% image_element.source_url %]">[% image_element.source_text %]
+        <a href="[% image_element.source_url %]">[% image_element.source_text | html %]
             [% IF image_element.source_lc.defined && image_element.source_lc != lc %]
             <!-- source is in a different language than the interface -->
-            ([% image_element.source_language %])
+            ([% image_element.source_language | html %])
             [% END %]
         </a>
     </div>
@@ -352,7 +352,7 @@
     #---------------------------------------------------------------------- ~%]
 
     [% table_element = element_ref.table_element %]
-    <table[% IF element.id %] id="[% table_element.id %]"[% END %] aria-label="[% table_element.title %]">
+    <table[% IF element.id %] id="[% table_element.id | html %]"[% END %] aria-label="[% table_element.title | html %]">
         <thead>
             <tr>
                 [% FOREACH column IN table_element.columns %]
@@ -364,7 +364,7 @@
         </thead>
         <tbody>
             [% FOREACH row IN table_element.rows %]
-            <tr[% IF row.id %] id="[% row.id %]"[% END %][% IF row.style.defined %] style="[% row.style %]"[% END %]>
+            <tr[% IF row.id %] id="[% row.id | html %]"[% END %][% IF row.style.defined %] style="[% row.style %]"[% END %]>
                 [% FOREACH value IN row.item('values') %]
                     <td [% IF value.style.defined %]style="[% value.style %]"[% END %]>
                       [% INCLUDE table_td_content %]
@@ -413,7 +413,7 @@
     #---------------------------------------------------------------------- ~%]
 
      [% IF value.icon_url %]
-         <span class="icon"><img src="[% value.icon_url %]" alt="icon"></span>
+         <span class="icon"><img src="[% value.icon_url | url %]" alt="icon"></span>
      [% END %]
 
      [% IF value.percent.defined %]
@@ -424,16 +424,16 @@
                  </div>
              </div>
          </div>
-         [% value.text %]
+         [% value.text | html %]
      [% ELSE %]
          <span
          [% IF value.level.defined %]
-             style="padding-left: [% value.level %]rem;"
+             style="padding-left: [% value.level | html %]rem;"
          [% END %]
          [% IF value.evaluation.defined %]
              class="[% show_evaluation.${value.evaluation}.td_color %]"
          [% END %]>
-            [% value.text %]
+            [% value.text | html %]
         </span>
     [% END %]
 

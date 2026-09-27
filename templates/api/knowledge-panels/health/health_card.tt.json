@@ -5,7 +5,7 @@
         "health"
     ],
     "title_element": {
-        "title": "[% edq(lang('health')) %]",
+        "title": [% lang('health') | js %],
     },    
     "elements": [
         [% IF panels.recommendation_health.defined %]

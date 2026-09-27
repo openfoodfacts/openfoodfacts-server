@@ -1,13 +1,13 @@
 <!-- start templates/[% component.name %] -->
 
 <figure itemscope itemtype="https://schema.org/ImageObject">
-    <img src="[% display_image_url %]" width="[% display_size_width %]" height="[% display_size_height %]" alt="[% alt %]" itemprop="thumbnail" loading="lazy">
+    <img src="[% display_image_url | url %]" width="[% display_size_width | html %]" height="[% display_size_height | html %]" alt="[% alt | html %]" itemprop="thumbnail" loading="lazy">
 	<figcaption>
-		<p><a href="[% full_image_url %]" itemprop="contentUrl">[% full_size %]</a></p>
+		<p><a href="[% full_image_url | url %]" itemprop="contentUrl">[% full_size | html %]</a></p>
 		<p>[% creativecommons %][% original_link %]</p>
 		<p>[% attribution %]</p>
 	</figcaption>
-	<a class="button small action-report_product_to_nutripatrol" href="https://nutripatrol.openfoodfacts.org/flag/image/?barcode=[% code %]&image_id=[% original_id %]&source=web&flavor=[% flavor %]">
+	<a class="button small action-report_product_to_nutripatrol" href="https://nutripatrol.openfoodfacts.org/flag/image/?barcode=[% code | uri %]&image_id=[% original_id | uri %]&source=web&flavor=[% flavor | uri %]">
 		[% lang('action_report_image_to_nutripatrol') %]
 	</a>
 </figure>

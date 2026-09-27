@@ -5,22 +5,22 @@
 
 [% IF action_process == 'process' %]
     <p>
-        Spellcheck result for taxonomy <strong>[% tagtype %]</strong> and language <strong>[% lc %]</strong>:
+        Spellcheck result for taxonomy <strong>[% tagtype | html %]</strong> and language <strong>[% lc | html %]</strong>:
     </p>
     <table>
         <caption>Spellcheck Results</caption>
         <tr>
             <th scope="col">Input</th>
             <th scope="col">Correction</th>
-            <th scope="col">[% lc %] tag</th>
+            <th scope="col">[% lc | html %] tag</th>
             <th scope="col">Canonical tag</th>
         </tr>
         [% FOREACH token IN tokens %]
             <tr>
-                <td>[% token.token %]</td>
-                <td>[% token.tag %]</td>
-                <td>[% token.tagid %]</td>
-                <td>[% token.canon_tagid %]</td>
+                <td>[% token.token | html %]</td>
+                <td>[% token.tag | html %]</td>
+                <td>[% token.tagid | html %]</td>
+                <td>[% token.canon_tagid | html %]</td>
             </tr>
         [% END %]
     </table>
@@ -29,12 +29,12 @@
 [% IF action_display == 'display' %]
     <form method="get" action="/cgi/spellcheck_test.pl" enctype="multipart/form-data">
         <label>Taxonomy:
-            <input type="text" name="tagtype" id="tagtype" value="[% tagtype %]" />
+            <input type="text" name="tagtype" id="tagtype" value="[% tagtype | html %]" />
         </label>
         <br />
         <br />
-        <label>Text (language code: [% lc %]):
-            <textarea id="text" name="text" style="height:8rem;">[% text %]</textarea>
+        <label>Text (language code: [% lc | html %]):
+            <textarea id="text" name="text" style="height:8rem;">[% text | html %]</textarea>
         </label>
         <input type="hidden" name="type" value="add"  />
         <input type="hidden" name="action" value="process"  />

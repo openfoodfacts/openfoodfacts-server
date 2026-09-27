@@ -7,8 +7,8 @@
     "expand_for": "large",
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% IF panel.title.defined %][% edq(panel.title) %][% ELSE %][% edq(lang('nutrition_data_table')) %][% END %]",
-        [% IF panel.subtitle.defined %]"subtitle": "[% edq(panel.subtitle) %]",[% END %]
+        "title": [% IF panel.title.defined %][% panel.title | js %][% ELSE %][% lang('nutrition_data_table') | js %][% END %],
+        [% IF panel.subtitle.defined %]"subtitle": [% panel.subtitle | js %],[% END %]
         "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
         "icon_color_from_evaluation": true,
     },
@@ -17,7 +17,7 @@
             "element_type": "table",
             "table_element": {
                 "id": "nutrition_facts_table",
-                "title": "[% edq(lang('nutrition_data_table')) %]",
+                "title": [% lang('nutrition_data_table') | js %],
                 // Create a structure to check if we already have seen a column for a given scope
                 // so that we can mark the first one as the default column for the group
                 [% SET scopes = {} %]              

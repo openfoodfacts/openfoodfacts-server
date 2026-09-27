@@ -1,6 +1,6 @@
 <!-- start templates/[% template.name %] -->
-<p> job_id: [% job_id %]</p>
-<a href="[% link %]">status</a>
+<p> job_id: [% job_id | html %]</p>
+<a href="[% link | url %]">status</a>
 
 <br>Poll: <span id="poll"></span>
 

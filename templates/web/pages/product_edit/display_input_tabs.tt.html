@@ -1,7 +1,7 @@
 <!-- start templates/[% template.name %] -->
 
 <!--html tab header starts-->
-<ul id="tabs_[% tabsid %]" class="tabs" data-tab>
+<ul id="tabs_[% tabsid | html %]" class="tabs" data-tab>
     [% FOREACH tab IN display_tabs %]
         [% IF tab.tabid == 'new' %]
             <li class="tabs tab-title[% tab.active %][% tab.new_lc %] tabs_new">
@@ -10,34 +10,34 @@
                 </select>
             </li>
         [% ELSE %]
-            <li class="tabs tab-title[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]_tab" data-language="[% tab.tabid %]"><a href="#tabs_[% tabsid %]_[% tab.tabid %]" class="tab_language">[% tab.language %]</a></li>
+            <li class="tabs tab-title[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid | html %]" id="tabs_[% tabsid | html %]_[% tab.tabid | html %]_tab" data-language="[% tab.tabid | html %]"><a href="#tabs_[% tabsid | html %]_[% tab.tabid | html %]" class="tab_language">[% tab.language | html %]</a></li>
         [% END %]
     [% END %]
 </ul>
 <!--html tab header ends-->
 
 <!--The content tab starts-->
-<div id="tabs_content_[% tabsid %]" class="tabs-content">
+<div id="tabs_content_[% tabsid | html %]" class="tabs-content">
     [% FOREACH tab IN display_tabs %]
         [% IF tab.tabid != "new" %]
-            <div class="tabs content[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid %]" id="tabs_[% tabsid %]_[% tab.tabid %]">
+            <div class="tabs content[% tab.active %][% tab.new_lc %] tabs_[% tab.tabid | html %]" id="tabs_[% tabsid | html %]_[% tab.tabid | html %]">
                 
                 [% IF moderator && tabsid == "front_image" %]
-                    <div class="move_data_and_images_to_main_language" id="[% tab.moveid %]_div" style="display:none;">
-                        <input class="move_data_and_images_to_main_language_checkbox" type="checkbox" id="[% tab.moveid %]" name="[% tab.moveid %]" />
-                        <label for="[% tab.moveid %]" class="checkbox_label">[% tab.msg %]</label><br/>
-                        <div id="[% tab.moveid %]_radio" style="display:hidden">
-                            <input type="radio" id="[% tab.moveid %]_replace" value="replace" name="[% tab.moveid %]_mode" checked class="move_and_replace" style="margin-left:1rem;"/>
-                            <label for="[% tab.moveid %]_replace" style="margin-top:0">[% lang("move_data_and_photos_to_main_language_replace") %]</label>
-                            <input type="radio" id="[% tab.moveid %]_ignore" value="ignore" name="[% tab.moveid %]_mode" />
-                            <label for="[% tab.moveid %]_ignore" style="margin-top:0">[% lang("move_data_and_photos_to_main_language_ignore") %]</label><br/>
+                    <div class="move_data_and_images_to_main_language" id="[% tab.moveid | html %]_div" style="display:none;">
+                        <input class="move_data_and_images_to_main_language_checkbox" type="checkbox" id="[% tab.moveid | html %]" name="[% tab.moveid | html %]" />
+                        <label for="[% tab.moveid | html %]" class="checkbox_label">[% tab.msg | html %]</label><br/>
+                        <div id="[% tab.moveid | html %]_radio" style="display:hidden">
+                            <input type="radio" id="[% tab.moveid | html %]_replace" value="replace" name="[% tab.moveid | html %]_mode" checked class="move_and_replace" style="margin-left:1rem;"/>
+                            <label for="[% tab.moveid | html %]_replace" style="margin-top:0">[% lang("move_data_and_photos_to_main_language_replace") %]</label>
+                            <input type="radio" id="[% tab.moveid | html %]_ignore" value="ignore" name="[% tab.moveid | html %]_mode" />
+                            <label for="[% tab.moveid | html %]_ignore" style="margin-top:0">[% lang("move_data_and_photos_to_main_language_ignore") %]</label><br/>
                         </div>
                     </div>
                 [% END %]                 
 
                 [% FOREACH field IN tab.fields %]
                     [% IF field.image_full_id.defined %]
-                        <div id="[% field.image_full_id %]"></div>
+                        <div id="[% field.image_full_id | html %]"></div>
                     [% END %]
                     [% field.display_div %]
                 [% END %]

@@ -9,8 +9,8 @@
 		<ul>
 		[% FOREACH query_filter IN query_filters %]
 
-			<li>[% lang('query_filter') %]: [% query_filter.field %] = [% query_filter.value %]</li>
-			<input type="hidden" name="query_[% query_filter.field %]" value="[% query_filter.value %]"  />
+			<li>[% lang('query_filter') %]: [% query_filter.field | html %] = [% query_filter.value | html %]</li>
+			<input type="hidden" name="query_[% query_filter.field | html %]" value="[% query_filter.value | html %]"  />
 
 		[% END %]
 		</ul>
@@ -47,7 +47,7 @@
 		[% END %]
 	[% END %]
 		
-	<input type="submit" class="button small" value="[% edq(lang('export_product_data_photos')) %]">
+	<input type="submit" class="button small" value="[% lang('export_product_data_photos') | html %]">
 		
 </form>
 

@@ -6,8 +6,8 @@
     "expand_for": "large",
     "evaluation": "neutral",
     "title_element": {
-        "title": "[% edq(lang('incomplete_or_incorrect_data_title')) %]",
-        "subtitle": "[% edq(lang_flavor('incomplete_or_incorrect_data_subtitle')) %]",
+        "title": [% lang('incomplete_or_incorrect_data_title') | js %],
+        "subtitle": [% lang_flavor('incomplete_or_incorrect_data_subtitle') | js %],
         "icon_url": "[% static_subdomain %]/images/logos/[% flavor %]-logo-icon-light.svg",
     },
     "elements": [

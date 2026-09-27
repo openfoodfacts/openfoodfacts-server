@@ -6,8 +6,8 @@
         "environment"
     ],
     "title_element": {
-        "title":  "[% edq(lang('impact_for_this_product')) %]: [% panel.letter_grade %] (Score: [% panel.score %]/100)",
-        "subtitle": "[% edq(lang('front_alt')) %][% sep %]: [% product_name_brand_quantity(product) %]",
+        "title":  [% (lang('impact_for_this_product') _ ': ' _ panel.letter_grade _ ' (Score: ' _ panel.score _ '/100)') | js %],
+        "subtitle": [% (lang('front_alt') _ sep _ ': ' _ product_name_brand_quantity(product)) | js %],
         "type": "grade",
         "grade": "[% panel.grade_underscore %]",
         "icon_url": "[% static_subdomain %]/images/attributes/dist/green-score-[% panel.grade %].svg",

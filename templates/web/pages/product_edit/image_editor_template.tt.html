@@ -130,7 +130,7 @@ closest ".select_crop" element, and the list of images / image path from "window
       <button id="rotate-left" class="small-button" type="button" disabled>[% lang('product_js_image_rotate_left') %]</button>
       <button id="rotate-right" class="small-button" type="button" disabled>[% lang('product_js_image_rotate_right') %]</button>
       <br />
-      <a id="open-full-size" target="_blank" rel="noopener noreferrer" hidden aria-label="[% lang('product_js_image_open_full_size_image') %]">[% lang('product_js_image_open_full_size_image') %]</a>
+      <a id="open-full-size" target="_blank" rel="noopener noreferrer" hidden aria-label="[% lang('product_js_image_open_full_size_image') | html %]">[% lang('product_js_image_open_full_size_image') %]</a>
       <br />
       <input type="checkbox" id="zoom-on-wheel" />
       <label for="zoom-on-wheel" id="zoom-on-wheel-label">[% lang('product_js_zoom_on_wheel') %]</label>

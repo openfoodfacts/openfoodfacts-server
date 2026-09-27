@@ -186,7 +186,6 @@ use Storable qw(dclone freeze);
 use boolean;
 use Excel::Writer::XLSX;
 use Template;
-use Template::Filters;
 use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get deep_set deep_exists);
 use Log::Log4perl;
@@ -284,7 +283,6 @@ if (defined $options{export_limit}) {
 @index_tag_types_set{@ProductOpener::Config::index_tag_types} = ();
 
 # Initialize the Template module
-Template::Filters->use_html_entities;
 $tt = Template->new(
 	{
 		INCLUDE_PATH => $data_root . '/templates',
@@ -308,7 +306,7 @@ $tt = Template->new(
 				my $text = shift;
 				return '' unless defined $text;
 				# Encode the text as a JSON string for safe inclusion in JavaScript
-				return $json_utf8->encode($text);
+				return $json->encode($text);
 			},
 		},
 	}
@@ -402,8 +400,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 	# escaping quotes for use in javascript or json
 	# using short names to favour readability
-	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
-	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
@@ -465,10 +461,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	$template_data_ref->{encode_json} = sub ($var) {
 		return $json->encode($var);
-	};
-
-	$template_data_ref->{uri_escape} = sub ($var) {
-		return uri_escape($var);
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -2705,11 +2697,13 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 					next;
 				}
 				# All, Edit or Review mode: show the new translation
+				# Escape the user-provided translation and userid, the fragment
+				# itself is passed through as-is by the template.
 				$new_translation
 					= "<div>"
 					. lang("current_translation") . " : "
-					. $users_translations_ref->{$lc}{$tagid}{to} . " ("
-					. $users_translations_ref->{$lc}{$tagid}{userid}
+					. encode_entities($users_translations_ref->{$lc}{$tagid}{to}) . " ("
+					. encode_entities($users_translations_ref->{$lc}{$tagid}{userid})
 					. ")</div>";
 			}
 			else {

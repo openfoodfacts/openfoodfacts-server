@@ -1,15 +1,15 @@
 <off-webcomponents-configuration
-  language-code="[% language_code %]"
-  country-code="[% country_code %]"
+  language-code="[% language_code | html %]"
+  country-code="[% country_code | html %]"
   robotoff-configuration='{
-    "apiUrl": "[% robotoff_domain %]/api/v1",
-    "imgUrl": "[% images_domain %]/images/products"
+    "apiUrl": "[% robotoff_domain | url %]/api/v1",
+    "imgUrl": "[% images_domain | url %]/images/products"
   }'
   [% IF (folksonomy_uri.defined) && (folksonomy_uri.length> 0) %]
   folksonomy-configuration='{
-  "apiUrl": "[% folksonomy_uri %]"
+  "apiUrl": "[% folksonomy_uri | url %]"
   }'
   [% END %]
-  openfoodfacts-api-url="[% api_domain %]"
+  openfoodfacts-api-url="[% api_domain | url %]"
   assets-images-path="[% static_subdomain %]/css/dist/images"
   ></off-webcomponents-configuration>

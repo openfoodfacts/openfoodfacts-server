@@ -7,7 +7,7 @@
 [% IF action == 'display' %]
 
 	[% IF org_does_not_exist %]
-		<div class="panel" style="background-color:#ffdddd">The organization <strong>[% orgid %]</strong> does not exist yet. It will be created if you submit the form.</div>
+		<div class="panel" style="background-color:#ffdddd">The organization <strong>[% orgid | html %]</strong> does not exist yet. It will be created if you submit the form.</div>
 	[% END %]
 
 	[% IF org_members.size %]
@@ -36,20 +36,20 @@
 				<td>
 				[% SET userid = users.userid %]
 				[% SET user_in_admin_status = user_is_admin.$userid %]
-				<input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %] [% IF current_user_id == userid  %]disabled[% END %]>
+				<input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid | html %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %] [% IF current_user_id == userid  %]disabled[% END %]>
 				</td>
-				<td>[% users.userid %]</td>
-				<td>[% users.name %]</td>
-				<td>[% users.email %]</td>
-				<td>[% users.preferred_language %]</td>
-				<td>[% users.user_cc %]</td>
+				<td>[% users.userid | html %]</td>
+				<td>[% users.name | html %]</td>
+				<td>[% users.email | html %]</td>
+				<td>[% users.preferred_language | html %]</td>
+				<td>[% users.user_cc | html %]</td>
 				<td>
 					<form method="post" action="/cgi/org.pl" onsubmit="return confirm('Are you sure you want to remove this user?')">
 						<input type="hidden" name="action" value="process" />
 						<input type="hidden" name="type" value="user_delete" />
-						<input type="hidden" name="orgid" value="[% orgid %]">
-						<input type="hidden" name="user_id" value="[% users.userid %]">
-						<input type="submit" name="remove_user" class="button small" value= "[% edq(lang('remove_user')) %]"/>
+						<input type="hidden" name="orgid" value="[% orgid | html %]">
+						<input type="hidden" name="user_id" value="[% users.userid | html %]">
+						<input type="submit" name="remove_user" class="button small" value= "[% lang('remove_user') | html %]"/>
 					</form>
 				</td>
 			</tr>
@@ -62,8 +62,8 @@
 				<!-- admin_status_xxxx elements above are also part of it, thanks to form attribute -->
 				<input type="hidden" name="action" value="process" />
 				<input type="hidden" name="type" value="admin_status" />
-				<input type="hidden" name="orgid" value="[% orgid %]">
-				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value= "[% edq(lang('grant_remove_admin_status')) %]"/>
+				<input type="hidden" name="orgid" value="[% orgid | html %]">
+				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value= "[% lang('grant_remove_admin_status') | html %]"/>
 			</form>
 		</div>
 	</div>
@@ -72,11 +72,11 @@
 	<!-- #11867: Hide if new org -->
 	<form method="post" action="/cgi/org.pl" style="margin-bottom: 20px; margin-top: 10px;">
 		<p>[% lang('enter_main_contact_username') %]</p>
-		<input  type="text" id="main_contact" name="main_contact" style="width:50vw" placeholder="[% main_contact %]"></input>
+		<input  type="text" id="main_contact" name="main_contact" style="width:50vw" placeholder="[% main_contact | html %]"></input>
 		<input type="hidden" name="action" value="process" />
 		<input type="hidden" name="type" value="change_main_contact" />
-		<input type="hidden" name="orgid" value="[% orgid %]" />
-		<input type="submit" id="contact_button" name=".submit" class="button" value= "[% edq(lang('change_main_contact')) %]" />
+		<input type="hidden" name="orgid" value="[% orgid | html %]" />
+		<input type="submit" id="contact_button" name=".submit" class="button" value= "[% lang('change_main_contact') | html %]" />
 	</form>
 
 	<!-- #11867: Hide if new org -->
@@ -85,8 +85,8 @@
 		<textarea id="email_list" name="email_list" style="height:100px;width:50vw"></textarea>
 		<input type="hidden" name="action" value="process" />
 		<input type="hidden" name="type" value="add_users" />
-		<input type="hidden" name="orgid" value="[% orgid %]" />
-		<input type="submit" id="invite_button" name=".submit" class="button" value= "[% edq(lang('invite_user')) %]" disabled />
+		<input type="hidden" name="orgid" value="[% orgid | html %]" />
+		<input type="submit" id="invite_button" name=".submit" class="button" value= "[% lang('invite_user') | html %]" disabled />
 	</form>
 
 	<!-- pending users -->
@@ -107,17 +107,17 @@
 			[% FOREACH users IN pending_users %]
 			<tr>
 				<td>[% count %].</td>
-				<td>[% users.userid %]</td>
-				<td>[% users.name %]</td>
-				<td>[% users.email %]</td>
+				<td>[% users.userid | html %]</td>
+				<td>[% users.name | html %]</td>
+				<td>[% users.email | html %]</td>
 				<td>
 					<form method="post" action="/cgi/org.pl">
 						<input type="hidden" name="action" value="process" />
 						<input type="hidden" name="type" value="pending_user" />
-						<input type="hidden" name="orgid" value="[% orgid %]">
-						<input type="hidden" name="user_id" value="[% users.userid %]">
-						<input type="submit" name="accept_user" class="button small" value="[% edq(lang('add')) %]"/>
-						<input type="submit" name="deny_user" class="button small warning" value="[% edq(lang('deny')) %]"/>
+						<input type="hidden" name="orgid" value="[% orgid | html %]">
+						<input type="hidden" name="user_id" value="[% users.userid | html %]">
+						<input type="submit" name="accept_user" class="button small" value="[% lang('add') | html %]"/>
+						<input type="submit" name="deny_user" class="button small warning" value="[% lang('deny') | html %]"/>
 					</form>
 				</td>
 			</tr>
@@ -149,44 +149,44 @@
 		
 				[% IF section.name %]
 					<fieldset[% IF section.id == "admin" %] class="panel callout"[% END %]>
-						<legend>[% section.name %]</legend>
+						<legend>[% section.name | html %]</legend>
 				[% END %]
 				
 				[% IF section.description %]
-					<p>[% section.description %]</p>
+					<p>[% section.description | html %]</p>
 				[% END %]
 				[% IF section.note %]
-					<p>[% section.note %]</p>
+					<p>[% section.note | html %]</p>
 				[% END %]
 
 				[% FOREACH field IN section.fields %]
 
 					[% IF field.description %]
-						<p>[% field.description %]</p>
+						<p>[% field.description | html %]</p>
 					[% END %]								
 
 					[% IF field.field == 'crm_org_id' AND crm_company_url != "" %]
-						<label for="[% field.field %]">[% field.label %]</label>
+						<label for="[% field.field | html %]">[% field.label | html %]</label>
 						<div class="form-field-with-btn">
-							<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+							<input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]"/>
 							<a type="button" class="button" id="crm_button" href="[% crm_company_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
 						</div>
 					[% ELSIF field.type == 'text' %]
-						<label for="[% field.field %]">[% field.label %]</label>
-						<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" />
+						<label for="[% field.field | html %]">[% field.label | html %]</label>
+						<input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]" />
 					[% ELSIF field.type == 'textarea' %]
-						<label for="[% field.field %]">[% field.label %]</label>
-						<textarea id="[% field.field %]" name="[% field.field %]" style="height:100px;">[% field.value %]</textarea>
+						<label for="[% field.field | html %]">[% field.label | html %]</label>
+						<textarea id="[% field.field | html %]" name="[% field.field | html %]" style="height:100px;">[% field.value | html %]</textarea>
 					[% ELSIF field.type == 'checkbox' %]
-						<label for="[% field.field %]">
-							<input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
-							[% field.label %]
+						<label for="[% field.field | html %]">
+							<input type="checkbox" id="[% field.field | html %]" name="[% field.field | html %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
+							[% field.label | html %]
 						</label>
 					[% ELSIF field.type == 'select' %]
-					<label for="[% field.field %]">	[% lang(field.label) %]</label>
-					<select name="[% field.field %]" id="[% field.field %]-select">
+					<label for="[% field.field | html %]">	[% lang(field.label) %]</label>
+					<select name="[% field.field | html %]" id="[% field.field | html %]-select">
 						[% FOREACH item IN field.options %]
-							<option value="[% item.value %]" [% IF item.value == field.selected %]selected[% END %]> [% item.label %]</option>
+							<option value="[% item.value | html %]" [% IF item.value == field.selected %]selected[% END %]> [% item.label | html %]</option>
 						[% END %]
 					</select>
 					[% END %]
@@ -209,9 +209,9 @@
 		[% END %]
 
 		<input type="hidden" name="action" value="process" />
-		<input type="hidden" name="type" value="[% type %]" />
-		<input type="hidden" name="orgid" value="[% orgid %]" />
-		<input type="submit" name=".submit" class="button" value= "[% edq(lang('save')) %]"/>
+		<input type="hidden" name="type" value="[% type | html %]" />
+		<input type="hidden" name="orgid" value="[% orgid | html %]" />
+		<input type="submit" name=".submit" class="button" value= "[% lang('save') | html %]"/>
     </form>
 
     <!-- End form -->
@@ -236,8 +236,8 @@
 </ul>
 [% END %]
 
-    <p>[% result %]</p>
-    <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
+    <p>[% result | html %]</p>
+    <p>&rarr; <a href="[% profile_url | url %]">[% profile_name | html %]</a></p>
 [% END %]
 
 <script src="[% static_subdomain %]/js/dist/jquery.js" data-base-layout="true"></script>

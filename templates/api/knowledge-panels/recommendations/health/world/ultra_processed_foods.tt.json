@@ -5,8 +5,8 @@
     ],
     "evaluation": "bad",
     "title_element": {
-        "title": "[% edq(lang('recommendation_limit_ultra_processed_foods_title')) %]",
-        "subtitle": "[% edq(lang('recommendation_limit_ultra_processed_foods_subtitle')) %]",
+        "title": [% lang('recommendation_limit_ultra_processed_foods_title') | js %],
+        "subtitle": [% lang('recommendation_limit_ultra_processed_foods_subtitle') | js %],
         "icon_url": "[% static_subdomain %]/images/icons/dist/arrow-bottom-right-thick.svg",
         "icon_color_from_evaluation": true,
         "evaluation": "bad",                

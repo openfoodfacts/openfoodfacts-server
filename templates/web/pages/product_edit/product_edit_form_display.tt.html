@@ -9,7 +9,7 @@
 <div class="block v-space-tiny product_banner_unranked" id="prodHead">
     <div class="row">
         <div class="small-12 columns">
-            <h1>[% title %]</h1>
+            <h1>[% title | html %]</h1>
         </div>
     </div>
 </div>
@@ -20,7 +20,7 @@
             <p>[% lang("product_edits_by_producers_platform") %]</p>
             <p>[% lang("product_edits_by_producers_import") %]</p>
             <p>[% lang("product_edits_by_producers_analysis") %] [% lang("product_edits_by_producers_indicators") %]</p>
-            <p><a href="[% producers_platform_url %]" class="button">[% lang("manage_your_products_on_the_producers_platform") %]</a></p>
+            <p><a href="[% producers_platform_url | url %]" class="button">[% lang("manage_your_products_on_the_producers_platform") %]</a></p>
 		</div>
     [% END %]
 
@@ -28,7 +28,7 @@
         <p>[% lang("correct_the_following_errors") %]</p>
 
         [% FOREACH error IN errors %]
-            <p class="error">[% error %]</p><br/>
+            <p class="error">[% error | html %]</p><br/>
         [% END %]
     [% END %]
 
@@ -63,7 +63,7 @@
 
 
         [% IF has_permission('product_change_code') %]
-            <label for="new_code" id="label_new_code" class="moderator-only">[% label_new_code %]</label>
+            <label for="new_code" id="label_new_code" class="moderator-only">[% label_new_code | html %]</label>
             <input type="text" name="new_code" id="new_code" class="text" value="" /><br/>
         [% END %]
         
@@ -71,7 +71,7 @@
             <label for="product_type" id="label_product_type">[% lang("product_type") %]</label>
             <select name="product_type" id="product_type">
                 [% FOREACH available_product_type IN product_types %]
-                    <option value="[% available_product_type %]" [% IF product.product_type == available_product_type %] selected="selected" [% END %]>[% lang("product_type_" _ available_product_type) %]</option>
+                    <option value="[% available_product_type | html %]" [% IF product.product_type == available_product_type %] selected="selected" [% END %]>[% lang("product_type_" _ available_product_type) %]</option>
                 [% END %]
             </select>
         [% END %]
@@ -98,7 +98,7 @@
         [% IF product.owner %]
         <div data-alert class="alert-box secondary" id="warning_protected_fields">
             <p>
-                <span class="material-icons size-20" title="[% edq(lang("information_provided_by_the_manufacturer")) %]">factory</span>
+                <span class="material-icons size-20" title="[% lang("information_provided_by_the_manufacturer") | html %]">factory</span>
                 <span>
                     [% lang("information_provided_by_the_manufacturer_edit_form") %]
                 </span>
@@ -112,7 +112,7 @@
                     <a href="#manage_images_drop" class="moderator-only">[% display_icon('collections') %] [% lang("manage_images") %]</a>
                     <div id="manage_images_drop" class="content" style="background:#eeeeee">
                         [% display_select_manage %]
-                        <p>[% manage_images_info %]</p>
+                        <p>[% manage_images_info | html %]</p>
                         <a id="delete_images" class="button small disabled">[% display_icon('delete') %] [% lang("delete_the_images") %]</a><br/>
                         <div class="row">
                             <div class="small-12 medium-5 columns">
@@ -138,12 +138,12 @@
         <section id="product_image" class="card fieldset">
             <div class="card-section">
                 <legend>[% lang("product_image") %]</legend>
-                <input type="hidden" id="sorted_langs" name="sorted_langs" value="[% product_ref_sorted_langs %]"/>
+                <input type="hidden" id="sorted_langs" name="sorted_langs" value="[% product_ref_sorted_langs | html %]"/>
 
                 <label for="lang"> [% lang('lang') %] </label>
                 <select name="lang" id="lang">
                     [% FOREACH language IN lang_options %]
-                        <option value="[% language.value %]" [% IF language.value== product_lang_value %] selected="selected" [% END %]>[% language.label %]</option>
+                        <option value="[% language.value | html %]" [% IF language.value== product_lang_value %] selected="selected" [% END %]>[% language.label | html %]</option>
                     [% END %]
                 </select>
 
@@ -207,10 +207,10 @@
                         [% FOREACH nutrition_product_type IN nutrition_product_types %]
                             <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
                             <input type="hidden" name="[% nutrition_product_type.nutrition_data %]_displayed" value="1" />
-                            <input type="radio" id="[% nutrition_product_type.nutrition_data_per %]_100g" value="100g" name="[% nutrition_product_type.nutrition_data_per %]" [% nutrition_product_type.checked_per_xxg %] />
-                            <label for="[% nutrition_product_type.nutrition_data_per %]_100g">[% edq(lang('nutrition_data_per_100g')) %]</label>
-                            <input type="radio" id="[% nutrition_product_type.nutrition_data_per %]_serving" value="serving" name="[% nutrition_product_type.nutrition_data_per %]" [% nutrition_product_type.checked_per_serving %] />
-                            <label for="[%nutrition_product_type. nutrition_data_per %]_serving">[% edq(lang('nutrition_data_per_serving')) %]</label><br/>
+                            <input type="radio" id="[% nutrition_product_type.nutrition_data_per | html %]_100g" value="100g" name="[% nutrition_product_type.nutrition_data_per | html %]" [% nutrition_product_type.checked_per_xxg %] />
+                            <label for="[% nutrition_product_type.nutrition_data_per | html %]_100g">[% lang('nutrition_data_per_100g') %]</label>
+                            <input type="radio" id="[% nutrition_product_type.nutrition_data_per | html %]_serving" value="serving" name="[% nutrition_product_type.nutrition_data_per | html %]" [% nutrition_product_type.checked_per_serving %] />
+                            <label for="[% nutrition_product_type.nutrition_data_per | html %]_serving">[% lang('nutrition_data_per_serving') %]</label><br/>
 
                             [% IF nutrition_data_instructions_check && nutrition_data_instructions_check != '' %]
                                 <p id="[% nutrition_product_type.nutrition_data_instructions %]" [% nutrition_product_type.hidden %]>[% lang(nutrition_product_type.nutrition_data_instructions) %]</p>
@@ -233,7 +233,7 @@
                                 <!-- loop on preparation and per to get the input sets for the selected source -->
                                  [% FOREACH preparation IN preparations %]
                                     [% FOREACH per IN pers %]
-                                        <th id="col_[% preparation %]_[% per %]_value" class="nutrient_col nutrition_input_sets_${preparation}_${per}" [% IF NOT input_sets.$preparation.$per.shown %]style="display:none"[% END %]>
+                                        <th id="col_[% preparation | html %]_[% per | html %]_value" class="nutrient_col nutrition_input_sets_${preparation}_${per}" [% IF NOT input_sets.$preparation.$per.shown %]style="display:none"[% END %]>
                                             [% lang('preparation_' _ preparation) %] [% lang('per_' _ per) %]<br/>
                                         </th>                                                                         
                                     [% END %]
@@ -248,10 +248,10 @@
 
                                 [% FOREACH nutrient IN nutrients %]
 
-                                    <tr id="nutrient_[% nutrient.nid %]_tr" class="nutrient_[% nutrient.class %]" [% IF ! nutrient.shown %]style="display:none"[% END %]>
+                                    <tr id="nutrient_[% nutrient.nid | html %]_tr" class="nutrient_[% nutrient.class | html %]" [% IF ! nutrient.shown %]style="display:none"[% END %]>
                                         <td>
-                                            <label class="nutrient_label" for="nutrient_[% nutrient.nid %]">
-                                                [% nutrient.prefix %][% nutrient.name %]
+                                            <label class="nutrient_label" for="nutrient_[% nutrient.nid | html %]">
+                                                [% nutrient.prefix | html %][% nutrient.name | html %]
                                                 [% IF nutrient.nid == 'energy-kj' || nutrient.nid == 'saturated-fat' || nutrient.nid == 'salt'|| nutrient.nid =='sugars' || nutrient.nid == 'fiber' || nutrient.nid =='fat' || nutrient.nid =='proteins' %]
                                                 *
                                                 [% END %]
@@ -264,10 +264,10 @@
                                                 <td class="nutrient_col nutrition_input_sets_${preparation}_${per}" [% IF NOT input_sets.$preparation.$per.shown %]style="display:none"[% END %]>
                                                     [% SET nutrient_id = "nutrition_input_sets_" _ preparation _ "_" _ per _ "_nutrients_" _  nutrient.nid %]
 
-                                                    <input class="nutrient_value soft-background" id="[% nutrient_id %]_value_string" name="[% nutrient_id %]_value_string" value="[% nutrient.input_sets.$preparation.$per.value_string %]" autocomplete="off"/>
+                                                    <input class="nutrient_value soft-background" id="[% nutrient_id | html %]_value_string" name="[% nutrient_id | html %]_value_string" value="[% nutrient.input_sets.$preparation.$per.value_string | html %]" autocomplete="off"/>
 
-                                                    <span id="nutrient_question_mark_[% nutrient.nid %]_[% preparation %]_[% per %]" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_[% nutrient.nid %]_[% preparation %]_[% per %]" class="sugars_warning">Please enter a valid value.</span>
+                                                    <span id="nutrient_question_mark_[% nutrient.nid | html %]_[% preparation | html %]_[% per | html %]" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_[% nutrient.nid | html %]_[% preparation | html %]_[% per | html %]" class="sugars_warning">Please enter a valid value.</span>
 
                                                     <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
                                                     <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
@@ -277,9 +277,9 @@
                                                     [% IF nutrient.units_options.size < 2 %]
                                                         <span class="nutrient_unit">[% nutrient.input_sets.$preparation.$per.unit %]</span>
                                                     [% ELSE %]
-                                                        <select class="nutrient_unit nutrient_[% nutrient.nid %]_unit" id="[% nutrient_id %]_unit" name="[% nutrient_id %]_unit">
+                                                        <select class="nutrient_unit nutrient_[% nutrient.nid | html %]_unit" id="[% nutrient_id | html %]_unit" name="[% nutrient_id | html %]_unit">
                                                             [% FOREACH unit IN nutrient.units_options %]
-                                                                <option value="[% unit.id %]" [% IF unit.id == nutrient.input_sets.$preparation.$per.unit %]selected="selected"[% END %] >[% unit.label %]</option>
+                                                                <option value="[% unit.id | html %]" [% IF unit.id == nutrient.input_sets.$preparation.$per.unit %]selected="selected"[% END %] >[% unit.label | html %]</option>
                                                             [% END %]
                                                         </select>
                                                     [% END %]
@@ -293,11 +293,11 @@
                                             [% IF nutrient.unit.defined %]
                                                 [% IF nutrient.units_options.size < 2 %]
                                                     <span class="nutrient_unit">[% nutrient.input_sets.$preparation.$per.unit %]</span>
-                                                    <input type="hidden" class="global_nutrient_unit" id="global_nutrient_[% nutrient.nid %]_unit" name="[% nutrient_id %]_unit" value="[% nutrient.input_sets.$preparation.$per.unit %]" />
+                                                    <input type="hidden" class="global_nutrient_unit" id="global_nutrient_[% nutrient.nid | html %]_unit" name="[% nutrient_id | html %]_unit" value="[% nutrient.input_sets.$preparation.$per.unit | html %]" />
                                                 [% ELSE %]
-                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_[% nutrient.nid %]_unit" name="[% nutrient_id %]_unit">
+                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_[% nutrient.nid | html %]_unit" name="[% nutrient_id | html %]_unit">
                                                         [% FOREACH unit IN nutrient.units_options %]
-                                                            <option value="[% unit.id %]" [% IF unit.id == nutrient.unit %]selected="selected"[% END %] >[% unit.label %]</option>
+                                                            <option value="[% unit.id | html %]" [% IF unit.id == nutrient.unit %]selected="selected"[% END %] >[% unit.label | html %]</option>
                                                         [% END %]
                                                     </select>
                                                 [% END %]
@@ -364,13 +364,12 @@
         [% END %]
 
         [% IF admin %]
-                [% IF param_fields %]
-                    <input type="hidden"  name="fields" value="[% param_fields %]">
-                [% END %]
+            [% IF param_fields %]
+                <input type="hidden"  name="fields" value="[% param_fields | html %]">
+            [% END %]
         [% END %]
-
-        <input type="hidden" name="type" value="[% type %]">
-        <input type="hidden" id="code" name="code" value="[% code %]">
+        <input type="hidden" name="type" value="[% type | html %]">
+        <input type="hidden" id="code" name="code" value="[% code | html %]">
         <input type="hidden" name="action" value="process">
 
         <div id="fixed_bar" class="bottom-validation">
@@ -385,7 +384,7 @@
                         [% button_grid_classes = "small-6 medium-6 large-2 xlarge-2 columns" %]
                     [% END %]
                     <div class="[% comment_grid_classes %]" style="margin-bottom:0.5rem;">
-                        <input id="comment" name="comment" placeholder="[% edq(lang('edit_comment')) %]" value="" type="text" class="text" style="margin:0" />
+                        <input id="comment" name="comment" placeholder="[% lang('edit_comment') | html %]" value="" type="text" class="text" style="margin:0" />
                     </div>
                     <div class="[% button_grid_classes %]">
                         <button type="submit" id="save" name=".submit" class="button postfix success small">
@@ -399,7 +398,7 @@
                     </div>
                     [% IF moderator %]
                         <div class="small-4 medium-4 large-2 xlarge-2 columns">
-                            <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button postfix small secondary alert" title="[% edq(lang('delete_product_page')) %]">
+                            <a href="/cgi/product.pl?type=delete&code=[% code | uri %]" class="button postfix small secondary alert" title="[% lang('delete_product_page') | html %]">
                                 [% display_icon('delete') %] [% lang('delete') %]
                             </a>
                         </div>
@@ -410,7 +409,7 @@
 
                 <div class="row">
                     <div class="small-12 medium-12 large-12 xlarge-12 columns bg-primary h-space-normal v-space-normal text-center">
-                        <input type="submit" name=".submit" value="[% edq(lang('save')) %]" class="button success">
+                        <input type="submit" name=".submit" value="[% lang('save') | html %]" class="button success">
                     </div>
                 </div>
 
