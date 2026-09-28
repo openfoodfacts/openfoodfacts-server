@@ -7041,7 +7041,7 @@ This function transform the ingredients list in a more normalized list that is e
 It does the following:
 
 - Normalize quote characters
-- Normalize Unicode bold and stylistic-variant characters to plain ASCII or underscore-wrapped form
+- Normalize Unicode bold and stylistic-variant characters
 - Fix common misspellings (from misspellings/ingredients_misspellings.txt )
 - Replace abbreviations by their full name
 - Remove extra spaces in compound words width dashes (e.g. céléri - rave -> céléri-rave)
@@ -7131,8 +7131,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/[\000-\037]/ /g;
 
 	# Normalize Unicode bold and stylistic-variant characters to plain ASCII
-	# wrapped with underscores (as bold / italic words are usually allergens)
-	$text = normalize_unicode_letter_variants($text, '_', '_');
+	$text = normalize_unicode_letter_variants($text);
 
 	# zero width space
 	$text =~ s/\x{200B}/-/g;

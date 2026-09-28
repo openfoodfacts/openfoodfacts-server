@@ -1339,6 +1339,17 @@ my @tests = (
 		lc => 'en',
 		ingredients_text => "Whey Power (\x{FF2C}\x{FF21}\x{FF22})",
 	},
+	# Allergens between underscores
+	{
+		id => 'en-allergens-between-underscores',
+		lc => 'en',
+		ingredients_text => "Sugar, _Milk_, Salt, _Soy_, _Sour cream_, false_positive",
+	},
+	{
+		id => 'de-allergens-between-underscores',
+		lc => 'de',
+		ingredients_text => "Zucker, _Milch_, Salz, _Soja_, _Sesam_öl",
+	},
 );
 
 foreach my $test_ref (@tests) {
