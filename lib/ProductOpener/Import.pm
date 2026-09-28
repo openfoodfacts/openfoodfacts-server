@@ -88,6 +88,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve retrieve_object store_object/;
 use ProductOpener::Texts qw/:all/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ProductsTags qw/:all/;
@@ -998,6 +999,12 @@ sub set_field_value (
 		# remove leading and trailing spaces
 		$new_field_value =~ s/\s+$//g;
 		$new_field_value =~ s/^\s+//g;
+
+		# Escape HTML like the web form and the API do (see preprocess_product_field).
+		# Without this, imported values are stored raw while values coming from the
+		# web form or the API are stored escaped, so an imported value containing
+		# markup is rendered as markup wherever product fields are output unescaped.
+		$new_field_value = remove_tags_and_quote($new_field_value);
 
 		# Some fields like "obsolete" can have yes/no values
 		if ($field eq "obsolete") {
