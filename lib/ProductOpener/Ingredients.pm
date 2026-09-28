@@ -7311,8 +7311,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		# deletes brackets in "Bienenwachs, weiß und gelb" since it is just one ingredient
 		$text =~ s/Bienenwachs \(weiß und gelb\)/Bienenwachs weiß und gelb/ig;
 
-		# Normalize " - und " to " und " (e.g. "Palm - und Kokosnuss" -> "Palm und Kokosnuss")
-		$text =~ s/ - und / und /ig;
+		# Normalize "- und " to " und " (e.g. "Palm - und Kokosnuss" -> "Palm und Kokosnuss")
+		$text =~ s/ *- und / und /ig;
 	}
 	elsif ($ingredients_lc eq 'es') {
 
