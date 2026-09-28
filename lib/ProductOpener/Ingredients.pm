@@ -2141,17 +2141,18 @@ Text to analyze
 					) if $log->is_debug();
 
 					# Check if $between is a processing or an enumeration of processings
-										# e.g. "dried", "dried, rehydrated and fried"
-										my @between_processings = check_if_text_is_a_taxonomy_tags_enumeration($ingredients_lc, "ingredients_processing", $between);
-										
-										if (scalar @between_processings > 0) {
-											push @processings, @between_processings;
-											$debug_ingredients and $log->debug("between is a processing enumeration",
-												{between => $between, processings => \@processings})
-												if $log->is_debug();
-											$between = '';
-										}
-				
+					# e.g. "dried", "dried, rehydrated and fried"
+					my @between_processings
+						= check_if_text_is_a_taxonomy_tags_enumeration($ingredients_lc, "ingredients_processing",
+						$between);
+
+					if (scalar @between_processings > 0) {
+						push @processings, @between_processings;
+						$debug_ingredients and $log->debug("between is a processing enumeration",
+							{between => $between, processings => \@processings})
+							if $log->is_debug();
+						$between = '';
+					}
 
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
@@ -8936,7 +8937,6 @@ sub detect_rare_crops($product_ref) {
 
 	return;
 }
-
 
 =head2 check_if_text_is_a_taxonomy_tags_enumeration ($target_lc, $taxonomy, $text)
 

@@ -3214,7 +3214,7 @@ my @tests = (
 				'text' => "Flageolets"
 			}
 		],
-	],		
+	],
 );
 
 foreach my $test_ref (@tests) {
