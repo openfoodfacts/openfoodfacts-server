@@ -13,7 +13,7 @@
 ## Discussing data, API and exports
 --------------------------------
 
-* You can look at [common FAQ questions about the API and Data Exports](https://support.openfoodfacts.org/help/fr-fr/12) and [common Open Food Facts questions](https://support.openfoodfacts.org/help/fr-fr)
+* You can look at [common FAQ questions about the API and Data Exports](https://world.openfoodfacts.org/faq#api-data-reuse) and [common Open Food Facts questions](https://world.openfoodfacts.org/faq)
 
 * You can [join the Open Food Facts Slack chatroom](https://slack.openfoodfacts.org/) which is the preferred way to ask questions and discuss the API. Please [ask your questions in the #api channel](https://app.slack.com/client/T02KVRT1Q/C043X1X90)
 
