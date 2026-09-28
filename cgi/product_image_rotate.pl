@@ -29,6 +29,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Products qw/normalize_code product_id_for_owner product_path_from_id/;
 use ProductOpener::Display qw/init_request/;
+use ProductOpener::Auth qw/require_scope/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 
@@ -37,6 +38,15 @@ use CGI qw/:cgi :form escapeHTML/;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
+
+# If an OIDC Bearer token is presented, it must carry the products:write scope
+if (defined $request_ref->{access_token}) {
+	unless (require_scope($request_ref, 'products:write')) {
+		my $data = encode_json({status => 'status not ok', error => 'insufficient_scope'});
+		print header(-type => 'application/json', -charset => 'utf-8') . $data;
+		exit(0);
+	}
+}
 
 my $code = normalize_code(single_param('code'));
 my $product_id = product_id_for_owner($Owner_id, $code);

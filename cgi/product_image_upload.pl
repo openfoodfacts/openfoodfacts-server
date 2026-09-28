@@ -38,6 +38,7 @@ use ProductOpener::Images
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::Auth qw/require_scope/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -65,6 +66,15 @@ my $env = $ENV{QUERY_STRING};
 $log->debug("calling init()", {query_string => $env});
 
 my $request_ref = ProductOpener::Display::init_request();
+
+# If an OIDC Bearer token is presented, it must carry the products:write scope
+if (defined $request_ref->{access_token}) {
+	unless (require_scope($request_ref, 'products:write')) {
+		my $data = encode_json({status => 'status not ok', error => 'insufficient_scope'});
+		print header(-type => 'application/json', -charset => 'utf-8') . $data;
+		exit(0);
+	}
+}
 
 $log->debug(
 	"parsing code",

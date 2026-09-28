@@ -114,7 +114,9 @@ paths:
       description: |
         Photos are source and proof of data.
         The first photo uploaded for a product is
-        auto-selected as the product’s “front” photo.'
+        auto-selected as the product's "front" photo.'
+
+        When using OIDC authentication, the access token must carry the `products:write` scope.
       responses:
         "200":
           description: OK
@@ -132,6 +134,9 @@ paths:
         description: ""
       security:
         - cookieAuth: []
+          userAgentAuth: []
+        - bearerAuth:
+            - products:write
           userAgentAuth: []
 
   /cgi/ingredients.pl:
@@ -169,6 +174,8 @@ paths:
       description: |
         Cropping is only relevant for editing existing products.
         You cannot crop an image the first time you upload it to the system.
+
+        When using OIDC authentication, the access token must carry the `products:write` scope.
       parameters: []
       requestBody:
         content:
@@ -207,6 +214,8 @@ paths:
       description: |
         This endpoint allows the user to unselect a photo for a product.
         The user must provide the product code and the image ID to unselect.
+
+        When using OIDC authentication, the access token must carry the `products:write` scope.
       operationId: post-cgi-product_image_unselect.pl
       tags:
         - Images
@@ -236,6 +245,62 @@ paths:
                     type: string
                     example: front_fr
                     description: image field that was unselected
+
+  /cgi/product_image_rotate.pl:
+    post:
+      summary: Rotate Image
+      operationId: post-cgi-product_image_rotate.pl
+      description: |
+        Rotate a product image by 90 degrees.
+
+        When using OIDC authentication, the access token must carry the `products:write` scope.
+      tags:
+        - Images
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: status ok
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
+        - bearerAuth:
+            - products:write
+          userAgentAuth: []
+
+  /cgi/product_image_move.pl:
+    post:
+      summary: Move Image
+      operationId: post-cgi-product_image_move.pl
+      description: |
+        Move a product image to a different image field (e.g. from "other" to "front").
+
+        When using OIDC authentication, the access token must carry the `products:write` scope.
+      tags:
+        - Images
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: status ok
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
+        - bearerAuth:
+            - products:write
+          userAgentAuth: []
 
   /cgi/product_jqm2.pl:
     post:
