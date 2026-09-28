@@ -17,37 +17,29 @@ jobs:
         # only if a new release was created
         if: ${{ env.IS_RELEASE }}
         id: wait-build
-        uses: tomchv/wait-my-workflow@v1.1.0
+        uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
+        timeout-minutes: 20
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build (frontend)
           ref: ${{ env.RELEASE_SHA }}
-          intervalSeconds: 10
-          timeoutSeconds: 1200 # 20m
+          check-name: build (frontend)
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+          checks-discovery-timeout: 300
+          allowed-conclusions: success
 
       - name: Wait for backend container build workflow
         # only if a new release was created
         if: ${{ env.IS_RELEASE }}
-        uses: tomchv/wait-my-workflow@v1.1.0
         id: wait-build2
+        uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
+        timeout-minutes: 20
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build (backend)
           ref: ${{ env.RELEASE_SHA }}
-          intervalSeconds: 10
-          timeoutSeconds: 1200 # 20m
-
-      - name: Do something if build isn't launch
-        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist') }}
-        run: echo job does not exist && false # fail if build doesn't exist
-
-      - name: Do something if build fail
-        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure') }}
-        run: echo fail && false # fail if build fail
-
-      - name: Do something if build timeout
-        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out') }}
-        run: echo Timeout && false # fail if build time out
+          check-name: build (backend)
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+          checks-discovery-timeout: 300
+          allowed-conclusions: success
 
       - name: Prepare folder for assets to upload to release
         if: ${{ env.IS_RELEASE }}
@@ -86,7 +78,7 @@ jobs:
           tar czf /tmp/release-assets/frontend-dist.tgz -C /tmp/frontend-dist .
       - name: Checkout the project in case of release
         if: ${{ env.IS_RELEASE }}
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 1
           ref: ${{ env.RELEASE_SHA }}
@@ -121,7 +113,7 @@ jobs:
 
       - name: Add commit to release or release!
         id: release
-        uses: googleapis/release-please-action@v5.0.0
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
         with:
           # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
           # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
@@ -143,7 +135,7 @@ jobs:
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
         id: add-assets-to-release
-        uses: svenstaro/upload-release-action@2.11.5
+        uses: svenstaro/upload-release-action@29e53e917877a24fad85510ded594ab3c9ca12de # 2.11.5
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: /tmp/release-assets/*.tgz

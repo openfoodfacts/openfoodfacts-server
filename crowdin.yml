@@ -40,3 +40,21 @@ files:
         sr: sr_RS
         ku : kmr_TR
         kmr: kmr
+  - source: /html/donate/thanks/en.html
+    translation: /html/donate/thanks/%two_letters_code%.html
+    languages_mapping:
+      two_letters_code:
+        zh-CN: zh_CN
+        zh-HK: zh_HK
+        zh-TW: zh_TW
+        en-AU: en_AU
+        en-GB: en_GB
+        en-US: en_US
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl: nl_NL
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr

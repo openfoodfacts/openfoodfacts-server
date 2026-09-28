@@ -110,6 +110,7 @@ BEGIN {
 		$health_check_api_key
 
 		$csrf_secret
+		$ecobalyse_api_token
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -272,6 +273,9 @@ $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
 # or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
 # or "product_opener" to use the legacy Product Opener algorithm
 $recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
+
+# Ecobalyse API token, needs to be generated on https://ecobalyse.beta.gouv.fr/
+$ecobalyse_api_token = $ProductOpener::Config2::ecobalyse_api_token;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
