@@ -5,6 +5,11 @@ on:
   issue_comment:
     types: [created, edited]
 
+permissions:
+  contents: write
+  pull-requests: read
+  issues: read
+
 jobs:
   # Action to update test results by issuing /lint
   run_lint:

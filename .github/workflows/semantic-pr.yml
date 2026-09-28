@@ -11,6 +11,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  pull-requests: read
+  statuses: write
+
 jobs:
   main:
     name: Validate Pull Request title
