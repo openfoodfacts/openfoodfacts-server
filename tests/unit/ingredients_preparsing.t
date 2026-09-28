@@ -1350,6 +1350,11 @@ my @tests = (
 		lc => 'de',
 		ingredients_text => "Zucker, _Milch_, Salz, _Soja_, _Sesam_öl",
 	},
+	{
+		id => 'fr-allergens-between-underscores',
+		lc => 'fr',
+		ingredients_text => "Eau, BLE, _CELERI_, __GLUTEN__, _poisson_, FRAISE, _banane_, lupin, _mollusque_"
+	},
 );
 
 foreach my $test_ref (@tests) {

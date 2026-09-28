@@ -7051,7 +7051,9 @@ sub _replace_underscores_around_allergens ($ingredients_lc, $allergen) {
 sub remove_underscores_around_allergens ($ingredients_lc, $text_ref) {
 
 	# We want to remove underscores only when they around an allergen
-	$$text_ref =~ s/_([^_]+)_/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+	$$text_ref =~ s/___([^_,;]+)___/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+	$$text_ref =~ s/__([^_,;]+)__/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+	$$text_ref =~ s/_([^_,;]+)_/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
 
 	return;
 }
