@@ -6,9 +6,9 @@ use Test2::V0;
 use ProductOpener::APITest qw/create_user execute_api_tests login new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
-use ProductOpener::Users qw/retrieve_user/;
-
-use File::Basename "dirname";
+use ProductOpener::Display qw/generate_csrf_token/;
+use ProductOpener::Config qw/$csrf_secret/;
+use Digest::SHA qw(hmac_sha256_hex);
 
 use Storable qw/dclone/;
 
@@ -25,15 +25,21 @@ create_user($ua, \%create_user_args);
 login($ua, $create_user_args{userid}, $default_user_form{password});
 
 # Remove the bearer token set by create_user, so that subsequent requests
-# use the session cookie instead. Otherwise, the OIDC path in init_user()
-# would call open_user_session() on every request, rotating the CSRF token
-# and making the token retrieved below stale.
+# use the session cookie instead.
 $ua->default_header('Authorization' => undef);
 
-# Retrieve the CSRF token from the user's session
-my $user_ref = retrieve_user($create_user_args{userid});
-my $session_token = (keys %{$user_ref->{user_sessions}})[0];
-my $csrf_token = $user_ref->{csrf_token};
+# Compute the CSRF token the same way the application does:
+# HMAC-SHA256(csrf_secret, day|userid|uri)
+my $day = do {
+	my @lt = localtime(time());
+	sprintf('%04d-%02d-%02d', $lt[5] + 1900, $lt[4] + 1, $lt[3]);
+};
+my $csrf_token
+	= hmac_sha256_hex($csrf_secret, $day . '|' . $create_user_args{userid} . '|/cgi/product_multilingual.pl');
+
+# Also compute using the production helper for consistency
+my $csrf_token_helper = generate_csrf_token($create_user_args{userid}, '/cgi/product_multilingual.pl');
+ok($csrf_token eq $csrf_token_helper, 'helper function matches manual computation');
 
 # Test 1: GET request to product_multilingual.pl process action should return 405
 my $tests_ref = [
@@ -117,7 +123,7 @@ $tests_ref = [
 			action => 'process',
 			type => 'edit',
 			code => '1234567890001',
-			csrf_token => $csrf_token,
+			csrf_token => $csrf_token_helper,
 		},
 		expected_status_code => 404,
 		expected_type => 'none',
