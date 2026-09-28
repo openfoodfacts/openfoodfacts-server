@@ -15,7 +15,7 @@
                "percent_estimate" : 48.75,
                "percent_max" : 65,
                "percent_min" : 32.5,
-               "text" : "_Weizen_eiweiß",
+               "text" : "Weizeneiweiß",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
@@ -70,22 +70,19 @@
          "id" : "en:wholemeal-spelt-flour",
          "ingredients" : [
             {
-               "ciqual_proxy_food_code" : "9410",
-               "id" : "en:wheat",
-               "is_in_taxonomy" : 1,
+               "id" : "de:Weizenart",
+               "is_in_taxonomy" : 0,
                "percent_estimate" : 3.88888888888889,
                "percent_max" : 15.5555555555556,
                "percent_min" : 0,
-               "text" : "_Weizen_art",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
+               "text" : "Weizenart"
             }
          ],
          "is_in_taxonomy" : 1,
          "percent_estimate" : 3.88888888888889,
          "percent_max" : 15.5555555555556,
          "percent_min" : 0,
-         "text" : "_Dinkel_vollkornmehl",
+         "text" : "Dinkelvollkornmehl",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -146,7 +143,7 @@
                "percent_estimate" : 0.0607638888888893,
                "percent_max" : 2.59259259259259,
                "percent_min" : 0,
-               "text" : "_Soja_bohnen",
+               "text" : "Sojabohnen",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
@@ -169,7 +166,7 @@
                "percent_estimate" : 0.0303819444444446,
                "percent_max" : 1.2962962962963,
                "percent_min" : 0,
-               "text" : "_Weizen_mehl",
+               "text" : "Weizenmehl",
                "vegan" : "yes",
                "vegetarian" : "yes"
             }
@@ -178,7 +175,7 @@
          "percent_estimate" : 0.243055555555557,
          "percent_max" : 5.18518518518519,
          "percent_min" : 0,
-         "text" : "_Soja_soße",
+         "text" : "Sojasoße",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
       },
@@ -206,11 +203,18 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:vegan-status-unknown" : [
+         "de:Weizenart"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "de:Weizenart"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
-      "en:vegetarian"
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "de",
    "ingredients_n" : 17,
@@ -231,7 +235,7 @@
       "en:salt",
       "en:wheat-protein",
       "en:water",
-      "en:wheat",
+      "de:Weizenart",
       "en:water",
       "en:soya-bean",
       "en:salt",
@@ -272,6 +276,7 @@
       "en:plant-protein",
       "en:protein",
       "en:water",
+      "de:Weizenart",
       "en:soya-bean",
       "en:soya",
       "en:wheat-flour"
@@ -285,11 +290,13 @@
    "ingredients_with_unspecified_percent_n" : 14,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "de:Weizenart",
       "en:red-bean",
       "en:wheat-protein"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
+      "de:Weizenart",
       "en:apple-vinegar",
       "en:red-bean",
       "en:salt",
@@ -297,11 +304,10 @@
       "en:soy-sauce",
       "en:soya-bean",
       "en:spice",
-      "en:wheat",
       "en:wheat-protein"
    ],
    "ingredients_without_ecobalyse_ids_n" : 9,
-   "known_ingredients_n" : 17,
+   "known_ingredients_n" : 16,
    "lang" : "de",
    "languages" : {
       "en:german" : 1
@@ -339,5 +345,5 @@
       }
    },
    "traces_tags" : [],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 1
 }
