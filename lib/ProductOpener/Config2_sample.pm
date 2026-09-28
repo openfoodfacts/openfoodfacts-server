@@ -55,6 +55,7 @@ BEGIN {
 		$oidc_discovery_url
 		$oidc_client_id
 		$oidc_client_secret
+		$oidc_audience
 		%slack_hook_urls
 		$rate_limiter_blocking_enabled
 		$rate_limiter_disabled
@@ -130,6 +131,10 @@ $oidc_implementation_level = 1;
 $oidc_client_id = 'OFF';
 $oidc_client_secret = 'A secret';
 $oidc_discovery_url = 'http://10.1.0.104:5600/realms/openfoodfacts/.well-known/openid-configuration';
+# Audience (aud claim) that access tokens must carry to be accepted by the ProductOpener API.
+# Must match the off-api client scope configured in Keycloak. Leave empty to skip the check
+# (e.g. during migration, before the Keycloak realm has been updated).
+$oidc_audience = 'off-api';
 
 # associate each channel (by name) with its url (containing auth)
 %slack_hook_urls = ();

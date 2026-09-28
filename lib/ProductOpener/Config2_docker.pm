@@ -77,6 +77,7 @@ BEGIN {
 		$oidc_discovery_url
 		$oidc_client_id
 		$oidc_client_secret
+		$oidc_audience
 		%slack_hook_urls
 		$health_check_api_key
 
@@ -214,6 +215,7 @@ $oidc_implementation_level = $ENV{OIDC_IMPLEMENTATION_LEVEL};
 $oidc_client_id = $ENV{OIDC_CLIENT_ID};
 $oidc_discovery_url = $ENV{OIDC_DISCOVERY_URL};
 $oidc_client_secret = $ENV{OIDC_CLIENT_SECRET};
+$oidc_audience = $ENV{OIDC_AUDIENCE};
 
 # Slack URLs
 %slack_hook_urls = ();

@@ -37,11 +37,17 @@ paths:
         - Products
       summary: Get Product Details
       description: |
-        Fetches product details by its unique barcode. 
+        Fetches product details by its unique barcode.
         Can return all product details or specific fields like knowledge panels.
-        
+
         Use the `blame` parameter to include information about who last modified each field of the product.
+
+        When using OIDC authentication, the access token must carry the `products:read` scope.
       operationId: get-product-by-code
+      security:
+        - bearerAuth:
+            - products:read
+          userAgentAuth: []
       parameters:
         - name: code
           in: path
@@ -536,6 +542,24 @@ components:
       type: apiKey
       in: header
       name: User-Agent
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        OpenID Connect (OIDC) authentication using a Bearer access token issued by Keycloak.
+        The token must be signed with RS256 and carry the `off-api` audience.
+
+        The following scopes are available:
+
+        | Scope | Description |
+        | ----- | ----------- |
+        | `products:read` | Read product data (granted by default to all clients) |
+        | `products:write` | Create and update product data (must be requested explicitly) |
+
+        If the token lacks the required scope, the API returns `403 Forbidden` with a
+        `WWW-Authenticate: Bearer error="insufficient_scope"` header (RFC 6750), so that
+        clients can obtain a new token with the required scope.
 
   schemas:
     "Product-Base":
