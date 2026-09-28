@@ -29,6 +29,7 @@ ProductOpener::APITaxonomySuggestions - implementation of READ taxonomy suggesti
 package ProductOpener::APITaxonomySuggestions;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Auth qw/require_scope/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -68,6 +69,9 @@ Reference to the request object.
 sub taxonomy_suggestions_api ($request_ref) {
 
 	$log->debug("taxonomy_suggestions_api - start", {request => $request_ref}) if $log->is_debug();
+
+	# If an OIDC Bearer token is presented, it must carry the products:read scope
+	return if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:read')));
 
 	my $response_ref = $request_ref->{api_response};
 

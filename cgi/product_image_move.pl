@@ -74,12 +74,10 @@ $log->debug("calling init()", {query_string => $env});
 my $request_ref = ProductOpener::Display::init_request();
 
 # If an OIDC Bearer token is presented, it must carry the products:write scope
-if (defined $request_ref->{access_token}) {
-	unless (require_scope($request_ref, 'products:write')) {
-		my $data = encode_json({status => 'status not ok', error => 'insufficient_scope'});
-		print header(-type => 'application/json', -charset => 'utf-8') . $data;
-		exit(0);
-	}
+if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:write'))) {
+	my $data = encode_json({status => 'status not ok', error => 'insufficient_scope'});
+	print header(-type => 'application/json', -charset => 'utf-8') . $data;
+	exit(0);
 }
 
 $log->debug("parsing code", {user => $User_id, code => $code, cc => $request_ref->{cc}, lc => $lc, ip => remote_addr()})

@@ -29,6 +29,7 @@ ProductOpener::APIProductRevert - implementation of API to revert a product to a
 package ProductOpener::APIProductRevert;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Auth qw/require_scope/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -64,6 +65,9 @@ Process API v3 requests to revert a product to a specific revision.
 sub revert_product_api ($request_ref) {
 
 	$log->debug("revert_product_api - start", {request => $request_ref}) if $log->is_debug();
+
+	# If an OIDC Bearer token is presented, it must carry the products:write scope
+	return if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:write')));
 
 	my $response_ref = $request_ref->{api_response};
 

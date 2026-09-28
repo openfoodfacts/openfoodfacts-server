@@ -71,6 +71,7 @@ The response is in the JSON API v3 response format, with a resulting product obj
 package ProductOpener::APIProductServices;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Auth qw/require_scope/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -349,6 +350,9 @@ sub product_services_api ($request_ref) {
 
 	$log->debug("product_services_api - start", {request => $request_ref}) if $log->is_debug();
 
+	# If an OIDC Bearer token is presented, it must carry the products:read scope
+	return if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:read')));
+
 	my $response_ref = $request_ref->{api_response};
 	my $request_body_ref = $request_ref->{body_json};
 
@@ -425,6 +429,9 @@ Get external sources but translated in target language
 =cut
 
 sub external_sources_api ($request_ref) {
+
+	# If an OIDC Bearer token is presented, it must carry the products:read scope
+	return if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:read')));
 
 	my $target_lc = $request_ref->{lc};
 	my $response_ref = $request_ref->{api_response};

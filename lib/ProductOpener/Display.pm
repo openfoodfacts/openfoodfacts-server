@@ -9692,11 +9692,7 @@ This function is used only for api v0, v1 and v2. API v3 + uses APIProductRead.p
 sub display_product_api ($request_ref) {
 
 	# If an OIDC Bearer token is presented, it must carry the products:read scope
-	if (defined $request_ref->{access_token}) {
-		unless (require_scope($request_ref, 'products:read')) {
-			return;
-		}
-	}
+	return if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:read')));
 
 	my $cc = $request_ref->{cc};
 

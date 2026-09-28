@@ -29,6 +29,7 @@ ProductOpener::APIProductRead - implementation of READ API for accessing product
 package ProductOpener::APITagRead;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Auth qw/require_scope/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -69,6 +70,9 @@ Reference to the request object.
 sub read_tag_api ($request_ref) {
 
 	$log->debug("read_tag_api - start", {request => $request_ref}) if $log->is_debug();
+
+	# If an OIDC Bearer token is presented, it must carry the products:read scope
+	return if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:read')));
 
 	my $response_ref = $request_ref->{api_response};
 
