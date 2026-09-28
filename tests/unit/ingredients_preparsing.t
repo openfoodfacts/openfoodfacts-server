@@ -1343,7 +1343,7 @@ my @tests = (
 	{
 		id => 'en-allergens-between-underscores',
 		lc => 'en',
-		ingredients_text => "Sugar, _Milk_, Salt, _Soy_, _Sour cream_, false_positive",
+		ingredients_text => "Sugar, _Milk_, Salt, _Soy_, _Sour cream_, false_positive, _other_ _false positives_",
 	},
 	{
 		id => 'de-allergens-between-underscores',

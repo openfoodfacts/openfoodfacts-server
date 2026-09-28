@@ -1320,8 +1320,8 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => "en",
 			ingredients_text => "Wheat flour (𝐖𝐡𝐞𝐚𝐭), 𝑴𝒊𝒍𝒌 powder, 𝓢𝓸𝔂 lecithin, 𝔈𝔤𝔤 yolk, 𝔼𝕘𝕘 white, "
-			. "𝗛𝗮𝘇𝗲𝗹𝗻𝘂𝘁 paste, 𝘊𝘢𝘴𝘩𝘦𝘸 𝘯𝘶𝘵𝘴, 𝙼𝚞𝚜𝚝𝚊𝚛𝚍 seed, Ｓｅｓａｍｅ seeds, "
-			. "𝐒𝐨𝐮𝐫 𝐜𝐫𝐞𝐚𝐦, 𝐶𝑒𝑙𝑒𝑟𝑦, salt"
+				. "𝗛𝗮𝘇𝗲𝗹𝗻𝘂𝘁 paste, 𝘊𝘢𝘴𝘩𝘦𝘸 𝘯𝘶𝘵𝘴, 𝙼𝚞𝚜𝚝𝚊𝚛𝚍 seed, Ｓｅｓａｍｅ seeds, "
+				. "𝐒𝐨𝐮𝐫 𝐜𝐫𝐞𝐚𝐦, 𝐶𝑒𝑙𝑒𝑟𝑦, salt"
 		}
 	],
 	[
@@ -1332,7 +1332,6 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	]
 );
-
 
 foreach my $test_ref (@tests) {
 

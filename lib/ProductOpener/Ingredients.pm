@@ -7034,6 +7034,28 @@ INFO
 	return $text;
 }
 
+# Used to remove underscores around allergens, e.g. "_milk_" -> "milk"
+
+sub _replace_underscores_around_allergens ($ingredients_lc, $allergen) {
+
+	my $exists_in_taxonomy = 0;
+	canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergen, \$exists_in_taxonomy);
+
+	if ($exists_in_taxonomy) {
+		return $allergen;
+	}
+
+	return "_" . $allergen . "_";
+}
+
+sub remove_underscores_around_allergens ($ingredients_lc, $text_ref) {
+
+	# We want to remove underscores only when they around an allergen
+	$$text_ref =~ s/_([^_]+)_/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+
+	return;
+}
+
 =head2 preparse_ingredients_text ($ingredients_lc, $text) - normalize the ingredient list to make parsing easier
 
 This function transform the ingredients list in a more normalized list that is easier to parse.
@@ -7138,6 +7160,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# Misspelling corrections (applied early so they don't interfere with other normalizations)
 	apply_misspelling_replacements("ingredients", $ingredients_lc, \$text);
+
+	# Remove _ underscores around allergens, e.g. "_milk_" -> "milk"
+	remove_underscores_around_allergens($ingredients_lc, \$text);
 
 	# vegetable oil (coconut & rapeseed)
 	# turn & to and
