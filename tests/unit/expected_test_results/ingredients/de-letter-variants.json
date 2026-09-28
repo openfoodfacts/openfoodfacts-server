@@ -1,0 +1,159 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "de:Zutaten",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "9410",
+               "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "id" : "en:wheat-flour",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 58.3333333333333,
+               "percent_max" : 100,
+               "percent_min" : 16.6666666666667,
+               "text" : "_Weizen_mehl",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "text" : "Zutaten"
+      },
+      {
+         "ciqual_food_code" : "19021",
+         "ecobalyse_code" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "id" : "en:whole-milk-powder",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "Voll_milch_pulver",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "15004",
+         "ecobalyse_code" : "hazelnut-unshelled-non-eu",
+         "id" : "en:hazelnut",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "_Haselnüsse_",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "de:_Sesam_öl",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "_Sesam_öl"
+      },
+      {
+         "ciqual_food_code" : "42200",
+         "id" : "en:soya-lecithin",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "_Soja_lecithin",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "Salz",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:whole-milk-powder"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "de:Zutaten",
+         "de:_Sesam_öl"
+      ],
+      "en:vegan-status-unknown" : [
+         "de:_Sesam_öl"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "de:_Sesam_öl"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "de",
+   "ingredients_n" : 7,
+   "ingredients_n_tags" : [
+      "7",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "de:Zutaten",
+      "en:whole-milk-powder",
+      "en:hazelnut",
+      "de:_Sesam_öl",
+      "en:soya-lecithin",
+      "en:salt",
+      "en:wheat-flour"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "de:Zutaten",
+      "en:whole-milk-powder",
+      "en:milk-powder",
+      "en:dairy",
+      "en:hazelnut",
+      "en:tree-nut",
+      "en:nut",
+      "de:_Sesam_öl",
+      "en:soya-lecithin",
+      "en:e322i",
+      "en:e322",
+      "en:salt",
+      "en:wheat-flour",
+      "en:cereal-flour",
+      "en:wheat",
+      "en:flour",
+      "en:cereal"
+   ],
+   "ingredients_text" : "Zutaten: 𝐖𝐞𝐢𝐳𝐞𝐧mehl, Voll𝐦𝐢𝐥𝐜𝐡pulver, 𝐇𝐚𝐬𝐞𝐥𝐧ü𝐬𝐬𝐞, Ｓｅｓａｍöl, 𝑆𝑜𝑗𝑎lecithin, Salz",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "de:Zutaten",
+      "de:_Sesam_öl"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "de:Zutaten",
+      "de:_Sesam_öl",
+      "en:salt",
+      "en:soya-lecithin"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 5,
+   "lc" : "de",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}

@@ -5,45 +5,97 @@ use utf8;
 
 use Test2::V0;
 
-use ProductOpener::Text qw/normalize_unicode_bold/;
+use ProductOpener::Text qw/normalize_percentages remove_email normalize_unicode_letter_variants/;
+use Log::Any::Adapter 'TAP';
+
+# Patterns according to Unicode CDLR v29
+# Pattern	# Locales using it
+# --------------------------------
+# #,##,##0 %	1			=> used only in 'dz' locale
+# #,##,##0%	9
+# #,##0 %	25
+# #,##0%	639
+# % #,##0	1
+# %#,##0	1
+
+# There are some interesting cases to consider, asides from the pattern itself.
+# - The decimal sign could be a '.' (most languages), or it could be a ',' (de - DECIMAL POINT IS COMMA ;-)).
+# - The group sign (between groups of three) could be nothing, a ',' (ie. en_US), a '.' (de) or a non-breaking space (fr), even though for one locale it will most likely not be the same as the decimal sign.
+
+# ur      #,##,##0%
+is(normalize_percentages('test 1234% hi there', 'ur'), 'test 1,234% hi there');
+is(normalize_percentages('test 123,456.78% hi there', 'ur'), 'test 1,23,456.78% hi there');
+is(normalize_percentages('test 0,12,345.67% hi there', 'ur'), 'test 12,345.67% hi there');
+is(normalize_percentages('test 1,002.34% hi there', 'ur'), 'test 1,002.34% hi there');
+# de	#,##0\N{U+00A0}%
+is(normalize_percentages('test 1234% hi there', 'de'), "test 1.234\N{U+00A0}% hi there");
+is(normalize_percentages('test 123.456,78% hi there', 'de'), "test 123.456,78\N{U+00A0}% hi there");
+is(normalize_percentages('test 1.023,45% hi there', 'de'), "test 1.023,45\N{U+00A0}% hi there");
+is(normalize_percentages('test 1.23.045,67% hi there', 'de'), "test 123.045,67\N{U+00A0}% hi there");
+is(normalize_percentages("test 1.23.045,67\N{U+00A0}% hi there", 'de'), "test 123.045,67\N{U+00A0}% hi there");
+is(normalize_percentages("test 1.23.045,67 \N{U+00A0} % hi there", 'de'), "test 123.045,67\N{U+00A0}% hi there");
+
+# eu	% #,##0
+is(normalize_percentages('test % 1234 hi there', 'eu'), "test %\N{U+00A0}1.234 hi there");
+is(normalize_percentages('test %1234 hi there', 'eu'), "test %\N{U+00A0}1.234 hi there");
+is(normalize_percentages('test % 123.456,78 hi there', 'eu'), "test %\N{U+00A0}123.456,78 hi there");
+is(normalize_percentages('test %123.456,78 hi there', 'eu'), "test %\N{U+00A0}123.456,78 hi there");
+is(normalize_percentages("test %\N{U+00A0}123 hi there", 'eu'), "test %\N{U+00A0}123 hi there");
+is(normalize_percentages("test %\N{U+00A0} 123,45 hi there", 'eu'), "test %\N{U+00A0}123,45 hi there");
+
+# tr	%#,##0
+is(normalize_percentages('test % 1234 hi there', 'tr'), 'test %1.234 hi there');
+is(normalize_percentages('test %1234 hi there', 'tr'), 'test %1.234 hi there');
+is(normalize_percentages('test % 123.456,78 hi there', 'tr'), 'test %123.456,78 hi there');
+is(normalize_percentages('test %123.456,78 hi there', 'tr'), 'test %123.456,78 hi there');
+
+#fr
+is(normalize_percentages('2,50%', 'fr'), "2,5\N{U+00A0}%");
+# 2.50 should be 2,50 in French, but the form with the . is very common too
+is(normalize_percentages('2.50%', 'fr'), "2,5\N{U+00A0}%");
+is(normalize_percentages('2.5%', 'fr'), "2,5\N{U+00A0}%");
+is(normalize_percentages('2.500%', 'fr'), "2,5\N{U+00A0}%");
+is(normalize_percentages('2500%', 'fr'), "2\N{U+00A0}500\N{U+00A0}%");
+
+#en
+is(normalize_percentages('2,50%', 'en'), "2.5%");
+is(normalize_percentages('2.50%', 'en'), "2.5%");
+
+# Test remove_email
+is(remove_email('test@example.com'), '');
+is(remove_email('test string'), "test string");
+is(remove_email('no email address'), 'no email address');
+
+# Unicode bold normalization tests
 
 # Test: no bold characters → unchanged
-is(normalize_unicode_bold('Whey Powder (Milk)'), 'Whey Powder (Milk)', 'plain text unchanged');
-
-# Test: single bold character bounded by word boundaries → wrapped in underscores
-# 𝐌 = U+1D40C (Mathematical Bold Capital M)
-is(normalize_unicode_bold("Whey Powder (\x{1D40C} Milk)"),
-	'Whey Powder (_M_ Milk)', 'single bold char bounded → underscore-wrapped');
-
-# Test: contiguous bold run bounded by word boundaries → wrapped in underscores
-# 𝐒 = U+1D412, 𝐨 = U+1D428, 𝐲 = U+1D432, 𝐚 = U+1D41A
-is(normalize_unicode_bold("Sugar, \x{1D412}\x{1D428}\x{1D432}\x{1D41A} Lecithin"),
-	'Sugar, _Soya_ Lecithin', 'contiguous bold run bounded → underscore-wrapped');
-
-# Test: bold run not bounded by word boundary on one side → plain ASCII
-# 𝐌 = U+1D40C appended after a letter
-is(normalize_unicode_bold("Whey\x{1D40C} Powder"),
-	'WheyM Powder', 'bold char in middle of word → plain ASCII');
-
-# Test: fullwidth bold characters → underscore-wrapped
-# Ｌ = U+FF2C, Ａ = U+FF21, Ｂ = U+FF22
-is(normalize_unicode_bold("Whey Power (\x{FF2C}\x{FF21}\x{FF22})"),
-	'Whey Power (_LAB_)', 'fullwidth run → underscore-wrapped');
-
-# Test: bold digit
-# 𝟎 = U+1D7CE (Mathematical Bold Digit 0)
-is(normalize_unicode_bold("E\x{1D7CE}100"),
-	'E0100', 'bold digit not word-bounded → plain ASCII');
-
-# Test: bold run at start and end of string (word-bounded on both sides)
-# 𝐚 = U+1D41A, 𝐛 = U+1D41B
-is(normalize_unicode_bold("\x{1D41A}\x{1D41B}"),
-	'_ab_', 'bold run at start/end of string → underscore-wrapped');
+is(normalize_unicode_letter_variants('Whey Powder (Milk)', '_', '_'), 'Whey Powder (Milk)', 'plain text unchanged');
 
 # Test: empty string
-is(normalize_unicode_bold(''), '', 'empty string returns empty string');
+is(normalize_unicode_letter_variants('', '_', '_'), '', 'empty string returns empty string');
 
 # Test: undefined input
-is(normalize_unicode_bold(undef), undef, 'undefined input returns undefined');
+is(normalize_unicode_letter_variants(undef, '_', '_'), undef, 'undefined input returns undefined');
+
+is(
+	normalize_unicode_letter_variants(
+		"Wheat flour (𝐖𝐡𝐞𝐚𝐭), 𝑴𝒊𝒍𝒌 powder, 𝓢𝓸𝔂 lecithin, 𝔈𝔤𝔤 yolk, 𝔼𝕘𝕘 white, "
+			. "𝗛𝗮𝘇𝗲𝗹𝗻𝘂𝘁 paste, 𝘊𝘢𝘴𝘩𝘦𝘸 𝘯𝘶𝘵𝘴, 𝙼𝚞𝚜𝚝𝚊𝚛𝚍 seed, Ｓｅｓａｍｅ seeds, "
+			. "𝐒𝐨𝐮𝐫 𝐜𝐫𝐞𝐚𝐦, 𝐶𝑒𝑙𝑒𝑟𝑦, salt",
+		'_',
+		'_'
+	),
+	"Wheat flour (_Wheat_), _Milk_ powder, _Soy_ lecithin, _Egg_ yolk, _Egg_ white, "
+		. "_Hazelnut_ paste, _Cashew nuts_, _Mustard_ seed, _Sesame_ seeds, "
+		. "_Sour cream_, _Celery_, salt",
+);
+
+is(
+	normalize_unicode_letter_variants(
+		"Zutaten: 𝐖𝐞𝐢𝐳𝐞𝐧mehl, Voll𝐦𝐢𝐥𝐜𝐡pulver, 𝐇𝐚𝐬𝐞𝐥𝐧ü𝐬𝐬𝐞, Ｓｅｓａｍöl, " . "𝑆𝑜𝑗𝑎lecithin, Salz",
+		'_', '_'
+	),
+	"Zutaten: _Weizen_mehl, Voll_milch_pulver, _Haselnüsse_, _Sesam_öl, " . "_Soja_lecithin, Salz",
+);
 
 done_testing();

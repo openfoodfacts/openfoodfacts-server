@@ -128,7 +128,7 @@ use ProductOpener::APIProductServices qw/add_product_data_from_external_service/
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 use ProductOpener::IngredientsStrings qw/:all/;
 use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
-use ProductOpener::Text qw/normalize_unicode_bold/;
+use ProductOpener::Text qw/normalize_unicode_letter_variants/;
 
 use Encode;
 use Clone qw(clone);
@@ -7131,8 +7131,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/[\000-\037]/ /g;
 
 	# Normalize Unicode bold and stylistic-variant characters to plain ASCII
-	# or underscore-wrapped form so that downstream analysis can recognize them.
-	$text = normalize_unicode_bold($text);
+	# wrapped with underscores (as bold / italic words are usually allergens)
+	$text = normalize_unicode_letter_variants($text, '_', '_');
 
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
