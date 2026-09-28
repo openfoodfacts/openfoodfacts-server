@@ -63,10 +63,6 @@ if ((not defined $Owner_id) or ($Owner_id !~ /^(user|org)-\S+$/)) {
 	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
-if (not($ENV{'REQUEST_METHOD'} eq 'POST')) {
-	display_error_and_exit($request_ref, lang("invalid_method"), 405);
-}
-
 if ($action eq "display") {
 
 	my $confirm = lang("remove_products_confirm");
@@ -77,6 +73,8 @@ if ($action eq "display") {
 }
 
 elsif ($action eq "process") {
+
+	require_post_method($request_ref);
 
 	validate_csrf_token($request_ref);
 

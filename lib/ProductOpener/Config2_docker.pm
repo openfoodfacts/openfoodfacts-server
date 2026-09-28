@@ -216,7 +216,8 @@ $oidc_client_id = $ENV{OIDC_CLIENT_ID};
 $oidc_discovery_url = $ENV{OIDC_DISCOVERY_URL};
 $oidc_client_secret = $ENV{OIDC_CLIENT_SECRET};
 
-$csrf_secret = $ENV{CSRF_SECRET} || 'test-csrf-secret';
+$csrf_secret = $ENV{CSRF_SECRET};
+warn "CSRF_SECRET is not set: CSRF-protected forms will reject all submissions\n" unless $csrf_secret;
 
 # Slack URLs
 %slack_hook_urls = ();

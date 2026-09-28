@@ -72,6 +72,13 @@ $log->debug("calling init()", {query_string => $env});
 
 my $request_ref = ProductOpener::Display::init_request();
 
+my $r = Apache2::RequestUtil->request();
+
+# If the requests is an OPTIONS request, we return the headers and exit
+if ($r->method_number == Apache2::Const::M_OPTIONS) {
+	exit(0);
+}
+
 require_post_method($request_ref);
 # This endpoint is called by apps that do not use API v3 for images move
 # So we don't have a CSRF token in the request.
@@ -79,13 +86,6 @@ require_post_method($request_ref);
 
 $log->debug("parsing code", {user => $User_id, code => $code, cc => $request_ref->{cc}, lc => $lc, ip => remote_addr()})
 	if $log->is_debug();
-
-my $r = Apache2::RequestUtil->request();
-
-# If the requests is an OPTIONS request, we return the headers and exit
-if ($r->method_number == Apache2::Const::M_OPTIONS) {
-	exit(0);
-}
 
 if ((not defined $code) or ($code eq '')) {
 
