@@ -358,7 +358,7 @@ sub remove_tags ($s) {
 =head2 normalize_unicode_letter_variants ( $text )
 
 Normalize Unicode "letter-like" bold and stylistic variant characters found in
-ingredient lists (e.g. Mathematical Bold letters U+1D400–U+1D433, Mathematical
+ingredient lists (e.g. Mathematical Bold letters, Mathematical
 Italic, Bold Fraktur, Sans-Serif variants, Fullwidth letters, etc.) into their
 plain ASCII equivalents.
 
