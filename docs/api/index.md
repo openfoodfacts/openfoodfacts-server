@@ -161,7 +161,7 @@ Structured (filter-based) search by categories, brands, nutrients, and other fie
 
 ## Help
 
-- Try the [FAQ](https://support.openfoodfacts.org/help/en-gb/12-api) - to answer most of your questions.
+- Try the [FAQ](https://world.openfoodfacts.org/faq#api-data-reuse) - to answer most of your questions.
 - Didn't get what you wanted? Contact the Team on the [#api Slack Channel][slack_url].
 - [Report Bugs][report_bugs] on the Open Food Facts GitHub repository.
 - Do you have an issue or feature request? You can submit it [on GitHub](https://github.com/openfoodfacts/openfoodfacts-server/issues/new) too.
