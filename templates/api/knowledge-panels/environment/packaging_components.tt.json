@@ -48,7 +48,7 @@
                                 [% IF packaging.number_of_units %][% packaging.number_of_units %] × [% END %]
                                 <strong>
                                     [% display_taxonomy_tag_name('packaging_shapes',packaging.shape) %]
-                                    [% IF packaging.quantity_per_unit %][% packaging.quantity_per_unit %] [% END %]
+                                    [% IF packaging.quantity_per_unit %][% packaging.quantity_per_unit | html %] [% END %]
                                 </strong>
                                     [% IF packaging.material %]
                                         ([% display_taxonomy_tag_name('packaging_materials',packaging.material) %][% IF packaging.weight_specified %][% sep %]: [% packaging.weight_specified %] g[% ELSIF packaging.weight_measured %][% sep %]: [% packaging.weight_measured %] g[% END %])
