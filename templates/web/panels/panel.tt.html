@@ -424,7 +424,7 @@
                  </div>
              </div>
          </div>
-         [% value.text | html %]
+         [% value.text %]
      [% ELSE %]
          <span
          [% IF value.level.defined %]
@@ -433,7 +433,7 @@
          [% IF value.evaluation.defined %]
              class="[% show_evaluation.${value.evaluation}.td_color %]"
          [% END %]>
-            [% value.text | html %]
+            [% value.text %]
         </span>
     [% END %]
 

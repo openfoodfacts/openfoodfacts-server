@@ -67,20 +67,20 @@
                 [% FOREACH field IN section.fields %]
                     
                     [% IF field.field == 'crm_user_id' AND crm_contact_url != "" %]
-                        <label for="[% field.field | html %]">[% field.label | html %]</label>
+                        <label for="[% field.field | html %]">[% field.label %]</label>
                         <div class="form-field-with-btn">
                             <input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]"/>
                             <a type="button" class="button" id="crm_button" href="[% crm_contact_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
                         </div>
                     [% ELSIF field.field == 'org' AND org_url != "" %]
-                        <label for="[% field.field | html %]">[% field.label | html %]</label>
+                        <label for="[% field.field | html %]">[% field.label %]</label>
                         <div class="form-field-with-btn">
                             <input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]"/>
                             <a type="button" class="button" id="" href="[% org_url %]" target="_blank" rel="noopener">[% lang("open_org") %]</a> 
                         </div>
 					[% ELSIF field.field == 'userid' %]
                         [% IF type == 'edit' %]
-                            <label for="[% field.field | html %]"> [% field.label | html %]</label>
+                            <label for="[% field.field | html %]"> [% field.label %]</label>
                             <p id="userid"><a href="/editor/[% field.value | uri %]">[% field.value | html %]</a></p>
                         [% ELSE %]
                             <label for="[% field.field | html %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
@@ -88,7 +88,7 @@
                         [% END %]
                     [% ELSIF field.type == 'text' %]
                         <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>
-                            <label for="[% field.field | html %]">[% field.label | html %]</label>
+                            <label for="[% field.field | html %]">[% field.label %]</label>
                             <input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
                             </div>
                     [% ELSIF field.type == 'password' %]
@@ -100,7 +100,7 @@
                                 </span>
                             </div>
                     [% ELSIF field.type == 'email' %]
-                        <label for="[% field.field | html %]">	[% field.label | html %]</label>
+                        <label for="[% field.field | html %]">	[% field.label %]</label>
                         <input type="email" id="[% field.field | html %]" name="[% field.field | html %]" value = "[% field.value | html %]" autocomplete="email"/>
                         [% IF server_options_producers_platform %]
                         <div style="color: red; font-weight: 600;">🚨 [% lang('email_warning') %]</div>
@@ -119,13 +119,13 @@
                         [% ELSE %]
                             <label for="[% field.field | html %]">
                                 <input type="checkbox" id="[% field.field | html %]" name="[% field.field | html %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
-                                [% field.label | html %]
+                                [% field.label %]
                             </label>
                         [% END %]
                     [% ELSIF field.type == 'honeypot' %]
                         [%# this is a honey pot for spammers, it should be left empty %]
                         <div style="display:none">
-                            <label for="[% field.field | html %]">[% field.label | html %]</label>
+                            <label for="[% field.field | html %]">[% field.label %]</label>
                             <input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]"/>
                         </div>
                     [% ELSIF field.type == 'hidden' %]

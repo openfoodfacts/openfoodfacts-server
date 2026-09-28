@@ -2677,7 +2677,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 				next;
 			}
 
-			my $new_translation = "";
+			my ($new_translation_label, $new_translation_value, $new_translation_userid) = ("", "", "");
 
 			# Check to see if we already have a user translation
 			if (defined $users_translations_ref->{$lc}{$tagid}) {
@@ -2697,14 +2697,11 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 					next;
 				}
 				# All, Edit or Review mode: show the new translation
-				# Escape the user-provided translation and userid, the fragment
-				# itself is passed through as-is by the template.
-				$new_translation
-					= "<div>"
-					. lang("current_translation") . " : "
-					. encode_entities($users_translations_ref->{$lc}{$tagid}{to}) . " ("
-					. encode_entities($users_translations_ref->{$lc}{$tagid}{userid})
-					. ")</div>";
+				# Only the untrusted parts are passed to the template,
+				# which escapes them in HTML context.
+				$new_translation_label = lang("current_translation");
+				$new_translation_value = $users_translations_ref->{$lc}{$tagid}{to};
+				$new_translation_userid = $users_translations_ref->{$lc}{$tagid}{userid};
 			}
 			else {
 				$to_be_translated++;
@@ -2760,7 +2757,9 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 					j => $j,
 					tagid => $tagid,
 					google_translate_link => $google_translate_link,
-					new_translation => $new_translation,
+					new_translation_label => $new_translation_label,
+					new_translation_value => $new_translation_value,
+					new_translation_userid => $new_translation_userid,
 					products => $products
 				}
 			);

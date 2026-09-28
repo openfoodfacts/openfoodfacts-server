@@ -6,7 +6,7 @@
 <ul id="history_list">
   [% FOREACH revision IN revisions %]
   <li>
-    [% revision.date | html %] - [% display_editor_link(revision.userid) %][% IF revision.uuid %] (UUID: [% revision.uuid | html %])[% END %][% IF revision.app_version %] (App Version: [% revision.app_version | html %])[% END %] [% IF revision.clientid %] ([% revision.clientid | html %]) [% END %][% revision.diffs %] [% IF
+    [% revision.date %] - [% display_editor_link(revision.userid) %][% IF revision.uuid %] (UUID: [% revision.uuid | html %])[% END %][% IF revision.app_version %] (App Version: [% revision.app_version | html %])[% END %] [% IF revision.clientid %] ([% revision.clientid | html %]) [% END %][% revision.diffs %] [% IF
     revision.comment %] - [% revision.comment | html %] [% END %] &nbsp;
     <a href="[% this_product_url | url %]?rev=[% revision.number | uri %]" class="button tiny">[% lang('view_this_revision') %]</a>
     [% IF has_permission_product_revert AND product.rev != revision.number %]

@@ -149,38 +149,38 @@
 		
 				[% IF section.name %]
 					<fieldset[% IF section.id == "admin" %] class="panel callout"[% END %]>
-						<legend>[% section.name | html %]</legend>
+						<legend>[% section.name %]</legend>
 				[% END %]
 				
 				[% IF section.description %]
-					<p>[% section.description | html %]</p>
+					<p>[% section.description %]</p>
 				[% END %]
 				[% IF section.note %]
-					<p>[% section.note | html %]</p>
+					<p>[% section.note %]</p>
 				[% END %]
 
 				[% FOREACH field IN section.fields %]
 
 					[% IF field.description %]
-						<p>[% field.description | html %]</p>
+						<p>[% field.description %]</p>
 					[% END %]								
 
 					[% IF field.field == 'crm_org_id' AND crm_company_url != "" %]
-						<label for="[% field.field | html %]">[% field.label | html %]</label>
+						<label for="[% field.field | html %]">[% field.label %]</label>
 						<div class="form-field-with-btn">
 							<input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]"/>
 							<a type="button" class="button" id="crm_button" href="[% crm_company_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
 						</div>
 					[% ELSIF field.type == 'text' %]
-						<label for="[% field.field | html %]">[% field.label | html %]</label>
+						<label for="[% field.field | html %]">[% field.label %]</label>
 						<input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]" />
 					[% ELSIF field.type == 'textarea' %]
-						<label for="[% field.field | html %]">[% field.label | html %]</label>
+						<label for="[% field.field | html %]">[% field.label %]</label>
 						<textarea id="[% field.field | html %]" name="[% field.field | html %]" style="height:100px;">[% field.value | html %]</textarea>
 					[% ELSIF field.type == 'checkbox' %]
 						<label for="[% field.field | html %]">
 							<input type="checkbox" id="[% field.field | html %]" name="[% field.field | html %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
-							[% field.label | html %]
+							[% field.label %]
 						</label>
 					[% ELSIF field.type == 'select' %]
 					<label for="[% field.field | html %]">	[% lang(field.label) %]</label>
