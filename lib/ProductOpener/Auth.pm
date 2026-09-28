@@ -837,7 +837,7 @@ Checks whether a verified access token has a specific scope.
 
 sub has_access_token_scope ($access_token_verified, $required_scope) {
 	my $scopes = get_token_scopes($access_token_verified);
-	return scalar(grep {$_ eq $required_scope} @$scopes) > 0;
+	return scalar(grep {$_ eq $required_scope} @$scopes) > 0 ? !!1 : !!0;
 }
 
 =head2 verify_access_token_scopes($access_token_verified, @required_scopes)
@@ -918,13 +918,13 @@ sub require_scope ($request_ref, $scope) {
 	}
 
 	if (has_access_token_scope($access_token, $scope)) {
-		return 1;
+		return !!1;
 	}
 
 	$log->info('require_scope - token missing required scope', {scope => $scope})
 		if $log->is_info();
 	_add_insufficient_scope_error($request_ref, $scope);
-	return 0;
+	return !!0;
 }
 
 =head2 _add_insufficient_scope_error($request_ref, $scope)

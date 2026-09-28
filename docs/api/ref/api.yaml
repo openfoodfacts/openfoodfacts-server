@@ -246,62 +246,6 @@ paths:
                     example: front_fr
                     description: image field that was unselected
 
-  /cgi/product_image_rotate.pl:
-    post:
-      summary: Rotate Image
-      operationId: post-cgi-product_image_rotate.pl
-      description: |
-        Rotate a product image by 90 degrees.
-
-        When using OIDC authentication, the access token must carry the `products:write` scope.
-      tags:
-        - Images
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: status ok
-      security:
-        - cookieAuth: []
-          userAgentAuth: []
-        - bearerAuth:
-            - products:write
-          userAgentAuth: []
-
-  /cgi/product_image_move.pl:
-    post:
-      summary: Move Image
-      operationId: post-cgi-product_image_move.pl
-      description: |
-        Move a product image to a different image field (e.g. from "other" to "front").
-
-        When using OIDC authentication, the access token must carry the `products:write` scope.
-      tags:
-        - Images
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: status ok
-      security:
-        - cookieAuth: []
-          userAgentAuth: []
-        - bearerAuth:
-            - products:write
-          userAgentAuth: []
-
   /cgi/product_jqm2.pl:
     post:
       summary: Edit Product
