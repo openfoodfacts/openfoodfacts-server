@@ -13291,6 +13291,10 @@ fr: boyau collagénique
 nl: collageendarm
 # boyau collagénique (collagène, glycérine, cellulose)
 
+en: cellulose
+xx: cellulose
+de: Zellulose
+
 < en: beef
 < en: collagen
 en: beef casing
@@ -20874,6 +20878,10 @@ vegan:en: maybe
 vegetarian:en: maybe
 
 < en: flavouring
+en: green tea flavour
+de: Grüntee-Aroma
+
+< en: flavouring
 < en: preparation
 en: flavouring preparation, spice preparation
 de: Gewürzzubereitung, Aromaextrakte
@@ -23382,6 +23390,16 @@ comment:en: This is NOT a flavouring, but describes the taste that of sauce/spic
 en: roasted paprika taste
 nl: geroosterde paprikasmaak
 comment:en: This is NOT a flavouring, but describes the taste that of sauce/spices. For instance for crisps.
+
+#< en: compound
+en: Chicken flavour taste
+de: Aroma mit Hühnerfleischgeschmack
+# example: https://world.openfoodfacts.org/product/8801073116467/buldak-hot-chicken-flavour-ramen-carbonara-flavour-samyang
+
+#< en: compound
+en: habanero chili flavour
+de: Habanero-Chili-Gewürz
+# example: https://world.openfoodfacts.org/product/8801073116467/buldak-hot-chicken-flavour-ramen-carbonara-flavour-samyang
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -37650,7 +37668,7 @@ sv: rissurdeg
 < en: rice sourdough
 en: natural rice sourdough
 da: naturlig rissurdej
-de: reisnatursauerteigeisnatursauerteig
+de: Reisnatursauerteig
 es: masa fermentada de arroz
 fi: hapatettu riisitaikina
 fr: levain naturel de riz
@@ -39305,6 +39323,14 @@ fr: purée et puré concentrée de mangue, purée de mangue et purée de mangue 
 < en: concentrated mango juice
 < en: mango puree
 fr: purée et jus de mangue concentrés
+
+# < en: compound
+en: Mango mix
+de: Mangomischung
+es: Mix de mango
+fi: mangosekoitus
+fr: préparation à base de mangue
+nl: mango mix
 
 ##########################################
 #              Flavourings
@@ -52110,6 +52136,12 @@ average_weight_per_unit:en: 1
 < en: parsley
 en: flatleaf parsley
 it: prezzemolo a foglia piatta
+la: Petroselinum crispum var. neapolitanum
+
+< en: parsley
+en: curly parsley
+de: Krause Petersilie
+la: Petroselinum crispum var. crispum
 
 #processing:en: en:leaf
 #<en:parsley
@@ -56891,6 +56923,18 @@ sv: morotkoncentrat, morotskoncentrat
 en: colouring carrot concentrate
 sv: färgande morotkoncentrat
 
+< en: carrot concentrate
+< en: pumpkin
+en: carrot and pumpkin concentrate
+de: Karotten- und Kürbiskonzentrat
+fi: porkkana- ja kurpitsatiiviste
+fr: concentré de carotte et de citrouille
+pt: extrato de abóbora y de cenoura
+
+< en: carrot and pumpkin concentrate
+en: carrot and pumpkin concentrate colouring
+de: Färbende Konzentrate Karotte und Kürbis
+
 < en: carrot
 en: carrot extract
 da: gulerodsekstrakt
@@ -58831,13 +58875,6 @@ en: konjac flour
 hr: konjac brašno
 it: farina di Konjac
 
-< en: carrot
-< en: pumpkin
-fr: concentré de carotte et de citrouille
-
-< fr: concentré de carotte et de citrouille
-de: Färbende Konzentrate Karotte und Kürbis
-
 < en: taproot vegetable
 en: horseradish, horseradish root
 af: peperwortel
@@ -60131,12 +60168,13 @@ it: peperoncino rosso pestato
 
 < en: red chili pepper
 en: red pepper seed oil
-de: roter Pfeffer Kernöl
+de: roter Pfeffer Kernöl, Rotes Chiliesamenöl
 fr: huile de graines de piment rouge
 hr: ulje sjemenki crvene paprike
 it: olio di semi di peperoncino rosso
 nl: rode peper zaad olie
 pl: olej z nasion czerwonej papryki
+comment:en: shouldn't this be under the oils somewhere?
 
 < en: chili pepper
 en: green chili pepper, green chili, green chilli pepper, green chilli, green chillies, green chile, green chile pepper, green chilies
@@ -69065,7 +69103,7 @@ ca: curri
 cs: kari
 cy: cyrri
 da: karry
-de: Curry
+de: Curry, Curry-Gewürz
 el: Κάρυ
 es: curry
 et: karri
@@ -69096,6 +69134,7 @@ zh: 咖哩
 ciqual_proxy_food_code:en: 11005
 ciqual_proxy_food_name:en: Curry, powder
 ciqual_proxy_food_name:fr: Curry, poudre
+comment:en: This hould be setup as a compound
 usda_ndb_proxy_code:en: 2015
 usda_ndb_proxy_name:en: Spices, curry powder
 wikidata:en: Q1144935
