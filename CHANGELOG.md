@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.110.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.109.0...v2.110.0) (2026-09-28)
+
+
+### Features
+
+* FAQ revamp to overcome the chronically unavailable server ([#14658](https://github.com/openfoodfacts/openfoodfacts-server/issues/14658)) ([eb2a187](https://github.com/openfoodfacts/openfoodfacts-server/commit/eb2a187055daa77e342472359ae7fe745a3a1f0d))
+* send language, country and logged-in state as Matomo custom dimensions on the web ([#14706](https://github.com/openfoodfacts/openfoodfacts-server/issues/14706)) ([07b2b69](https://github.com/openfoodfacts/openfoodfacts-server/commit/07b2b6967a49ed83ce42f63848df6c4134f12de7))
+
 ## [2.109.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.108.0...v2.109.0) (2026-09-25)
 
 
