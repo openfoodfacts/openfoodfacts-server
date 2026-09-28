@@ -58,6 +58,15 @@
 </head>
 <body[% bodyabout %] class="[% page_type %]_page">
 
+	[% IF analytics %]
+	<!-- Same slots and values as the app's first three Matomo dimensions: language, country, logged in -->
+	<script>
+		var _paq = window._paq = window._paq || [];
+		_paq.push(['setCustomDimension', 1, '[% lc %]']);
+		_paq.push(['setCustomDimension', 2, '[% cc %]']);
+		_paq.push(['setCustomDimension', 3, '[% IF user_id.defined %]Y[% ELSE %]N[% END %]']);
+	</script>
+	[% END %]
 	[% analytics %]
 
 	[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc country_code = cc
