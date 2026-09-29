@@ -1,5 +1,7 @@
 name: Ventilate issues to the right GitHub projects
 
+permissions: {}
+
 on:
   issues:
     types:
