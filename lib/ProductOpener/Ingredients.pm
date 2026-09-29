@@ -5205,7 +5205,8 @@ sub normalize_enumeration (
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$ingredients_lc} || " will not match ";
 
-	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
+	# "-$and| -$and" is to match German "Palm- und Sonnenblumenöl" / "Palm - und Sonnenblumenöl"
+	my @list = split(/-$and| -$and|$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
 
 	# If we have a percent or quantity, we output it only for the parent
 	my $category_without_percent_or_quantity = $category;
@@ -6471,7 +6472,8 @@ my %ingredients_categories_and_types = (
 	de => [
 		# oil and fat
 		{
-			categories => ["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle"],
+			categories =>
+				["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle", "Pflanzenfett"],
 			types =>
 				["Avocado", "Baumwolle", "Distel", "Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
 			# Kokosnussöl, Sonnenblumenfett
@@ -6897,8 +6899,10 @@ sub init_categories_and_types_regexps($ingredients_lc) {
 				category_colon_type => qr/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/i,
 
 				# ječmeni i pšenični slad (barley and wheat malt) -> ječmeni slad, pšenični slad
+				# Also match German "A und B-C" where C is a category (e.g. "Palm und Kokosnuss-Pflanzenfett")
+				# We have |-$and| and | -$and| to match "Palm- und Kokosnuss-Pflanzenfett" and "Palm - und Kokosnuss-Pflanzenfett"
 				types_then_category =>
-					qr/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/i,
+					qr/((?:(?:$type_regexp)(?: |\/| \/ | - |- |,|, |$and|-$and| -$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*(?:-)?($category_regexp)?/i,
 
 				# fr: huiles végétales en quantité variable et huile de palme -> huile végétale en quantité variable, huile végétale de palme
 				a_et_b_de_c => qr/($category_regexp) et ($category_regexp)(?:$of)?($type_regexp)/i,
@@ -6957,6 +6961,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 					=~ s/$regexps_ref->{category_colon_type}/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 
 				# ječmeni i pšenični slad (barley and wheat malt) -> ječmeni slad, pšenični slad
+				# Also handles German "A und B-C" where C is a category (e.g. "Palm und Kokosnuss-Pflanzenfett")
 				$text
 					=~ s/$regexps_ref->{types_then_category}/normalize_enumeration($ingredients_lc,$2,$1,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 			}
