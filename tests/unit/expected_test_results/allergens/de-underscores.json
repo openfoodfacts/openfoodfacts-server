@@ -70,12 +70,15 @@
          "id" : "en:wholemeal-spelt-flour",
          "ingredients" : [
             {
-               "id" : "de:Weizenart",
-               "is_in_taxonomy" : 0,
+               "ciqual_proxy_food_code" : "9410",
+               "id" : "en:wheat",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 3.88888888888889,
                "percent_max" : 15.5555555555556,
                "percent_min" : 0,
-               "text" : "Weizenart"
+               "text" : "Weizenart",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -203,18 +206,11 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "de:Weizenart"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "de:Weizenart"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "de",
    "ingredients_n" : 17,
@@ -235,7 +231,7 @@
       "en:salt",
       "en:wheat-protein",
       "en:water",
-      "de:Weizenart",
+      "en:wheat",
       "en:water",
       "en:soya-bean",
       "en:salt",
@@ -276,7 +272,6 @@
       "en:plant-protein",
       "en:protein",
       "en:water",
-      "de:Weizenart",
       "en:soya-bean",
       "en:soya",
       "en:wheat-flour"
@@ -290,13 +285,11 @@
    "ingredients_with_unspecified_percent_n" : 14,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "de:Weizenart",
       "en:red-bean",
       "en:wheat-protein"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "de:Weizenart",
       "en:apple-vinegar",
       "en:red-bean",
       "en:salt",
@@ -304,10 +297,11 @@
       "en:soy-sauce",
       "en:soya-bean",
       "en:spice",
+      "en:wheat",
       "en:wheat-protein"
    ],
    "ingredients_without_ecobalyse_ids_n" : 9,
-   "known_ingredients_n" : 16,
+   "known_ingredients_n" : 17,
    "lang" : "de",
    "languages" : {
       "en:german" : 1
@@ -345,5 +339,5 @@
       }
    },
    "traces_tags" : [],
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }
