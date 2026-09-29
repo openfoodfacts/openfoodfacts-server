@@ -13291,6 +13291,10 @@ fr: boyau collagénique
 nl: collageendarm
 # boyau collagénique (collagène, glycérine, cellulose)
 
+en: cellulose
+xx: cellulose
+de: Zellulose
+
 < en: beef
 < en: collagen
 en: beef casing
@@ -13347,6 +13351,7 @@ en: sausage, sausages
 de: Wurst, Würstchen
 hr: kobasica
 it: salsiccia
+nl: worstjes
 pl: kiełbasa, kiełbasy
 ciqual_food_code:en: 30780
 ciqual_food_name:en: Sausage -average-
@@ -14444,7 +14449,7 @@ br: druzoni
 ca: greix
 cs: tuky, tuk
 cy: braster
-da: fedtstof, fed
+da: fedtstof, fedt
 de: Fett, Backfett
 el: λίπος, λιπαρός
 eo: graso
@@ -14658,6 +14663,7 @@ nl: kalfsvet
 en: beef fat
 bg: говежда мазнина
 ca: greix de bou
+da: oksefedt
 de: Rinderfett
 es: Grasa de vacuno, grasa bovina, grasa vacuna
 fi: naudanrasva
@@ -14665,8 +14671,10 @@ fr: gras de bœuf, graisse de bœuf, gras de bovin, bovin
 hr: goveđi mast
 hu: marhazsír
 it: grasso di manzo
+nb: oksekjøttfett
 nl: rundvet, rundervet
 pl: tłuszcz wołowy, tłuszcze wołowe
+sv: nötköttsfett
 usda_ndb_proxy_code:en: 4001
 usda_ndb_proxy_name:en: Fat, beef tallow
 
@@ -15060,11 +15068,11 @@ da: helt hærdet vegetabilsk fedt
 de: komplett hydriertes Pflanzenfett
 es: grasa vegetal totalmente hidrogenada, grasa vegetal fraccionada y totalmente hidrogenada
 fi: kokonaan kovetettu kasvirasva, kokonaan hydrogenoitu kasvirasva
-fr: graisse végétale totalement hydrogénée
+fr: graisse végétale totalement hydrogénée, matières graisses végétales totalement hydrogénées
 # hr:potpuno hidrogenirane biljne masti # see ingredients_processings.txt
 hu: teljesen hidrogénezett növényi zsír
 it: grassi vegetali totalmente idrogenati
-nl: volledig gehydrogeneerde plantaardig vet
+nl: volledig gehydrogeneerde plantaardig vet, geheel gehard plantaardige vet
 
 < en: hydrogenated vegetable fat
 en: partially hydrogenated vegetable fat, partly hydrogenated vegetable fat
@@ -17436,15 +17444,19 @@ it: grasso di cartamo
 #wikipedia:en: https://en.wikipedia.org/wiki/Shorea_robusta
 
 < en: vegetable oil
-en: Shorea robusta seed oil, Shorea robusta oil, Sal tree oil, Sal oil
+en: Shorea robusta seed oil, Shorea robusta oil, sal tree oil, sal oil
+da: salolie, sal
 de: Salöl
-es: Aceite de shorea robusta, aceite de sal
-fr: Huile de sal, huile végétale de sal, graisses végétales de sal, matières grasses de sal, matières grasses végétales de sal
+es: aceite de Shorea robusta, aceite de sal
+fi: sal
+fr: huile de sal, huile végétale de sal, graisses végétales de sal, matières grasses de sal, matières grasses végétales de sal
 hr: sal
-it: Olio di shorea robusta
+it: olio di Shorea robusta
 kn: ಅಶ್ವಕರ್ಣ ಎಣ್ಣೆ
+nb: salolje, sal
 nl: sal
 pl: olej z sal
+sv: salolja, sal
 te: సాల్‌సీడ్ నూనె
 description:en: SAL OIL (Shorea robusta seed oil) is an edible oil extracted from the seeds of Shorea robusta.
 from_palm_oil:en: no
@@ -17453,10 +17465,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Shorea_robusta_seed_oil
 
 < en: vegetable fat
 en: sal fat
+da: salfedt
 de: Salfett
+fi: sal kasvirasvat
 hr: slana mast
 it: grasso di sale
+nb: salfett
 pl: tłuszcz sal, tłuszcz z sal
+sv: salfett, sal vegetabiliskt fett
 from_palm_oil:en: no
 
 < en: vegetable oil
@@ -20862,6 +20878,10 @@ vegan:en: maybe
 vegetarian:en: maybe
 
 < en: flavouring
+en: green tea flavour
+de: Grüntee-Aroma
+
+< en: flavouring
 < en: preparation
 en: flavouring preparation, spice preparation
 de: Gewürzzubereitung, Aromaextrakte
@@ -21213,6 +21233,7 @@ it: aroma naturale di lime dolce
 < en: flavouring
 # derivedFrom:en:lemon
 en: lemon flavouring, lemon scent
+ar: نكهات الليمون
 de: ZitronenAroma
 es: sabor a limón, aroma de limon
 fi: sitruuna-aromi
@@ -23370,6 +23391,16 @@ comment:en: This is NOT a flavouring, but describes the taste that of sauce/spic
 en: roasted paprika taste
 nl: geroosterde paprikasmaak
 comment:en: This is NOT a flavouring, but describes the taste that of sauce/spices. For instance for crisps.
+
+#< en: compound
+en: Chicken flavour taste
+de: Aroma mit Hühnerfleischgeschmack
+# example: https://world.openfoodfacts.org/product/8801073116467/buldak-hot-chicken-flavour-ramen-carbonara-flavour-samyang
+
+#< en: compound
+en: habanero chili flavour
+de: Habanero-Chili-Gewürz
+# example: https://world.openfoodfacts.org/product/8801073116467/buldak-hot-chicken-flavour-ramen-carbonara-flavour-samyang
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -35781,7 +35812,7 @@ my: ရေ
 na: Ebok
 nb: Vann
 ne: पानी
-nl: Water
+nl: water, opgiet
 nn: Vatn
 no: vann, drikkevann
 nv: Tó
@@ -36170,7 +36201,7 @@ it: acqua minerale naturale Luchon
 < en: water
 en: carbonated water, sparkling water
 af: Sodawater, klubsoda, bruiswater, vonkelwater, seltzerwater
-ar: ماء مكربن
+ar: ماء مكربن, ماء غازي
 az: Qazlı su
 bg: газирана вода
 bs: Soda voda
@@ -37638,7 +37669,7 @@ sv: rissurdeg
 < en: rice sourdough
 en: natural rice sourdough
 da: naturlig rissurdej
-de: reisnatursauerteigeisnatursauerteig
+de: Reisnatursauerteig
 es: masa fermentada de arroz
 fi: hapatettu riisitaikina
 fr: levain naturel de riz
@@ -39293,6 +39324,14 @@ fr: purée et puré concentrée de mangue, purée de mangue et purée de mangue 
 < en: concentrated mango juice
 < en: mango puree
 fr: purée et jus de mangue concentrés
+
+# < en: compound
+en: Mango mix
+de: Mangomischung
+es: Mix de mango
+fi: mangosekoitus
+fr: préparation à base de mangue
+nl: mango mix
 
 ##########################################
 #              Flavourings
@@ -52098,6 +52137,12 @@ average_weight_per_unit:en: 1
 < en: parsley
 en: flatleaf parsley
 it: prezzemolo a foglia piatta
+la: Petroselinum crispum var. neapolitanum
+
+< en: parsley
+en: curly parsley
+de: Krause Petersilie
+la: Petroselinum crispum var. crispum
 
 #processing:en: en:leaf
 #<en:parsley
@@ -52853,6 +52898,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kohlrabi
 
 # description:en:RAPINI or BROCCOLI RABE (Brassica rapa subspecies rapa) is a green cruciferous vegetable, with the leaves, buds, and stems all being edible; the buds somewhat resemble broccoli, but do not form a large head.
 
+< en: Brassica Rapa L.
 < en: cabbage
 en: rapini, broccoli rabe
 de: Wildbrokkoli
@@ -54876,6 +54922,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gai_lan
 #
 ###################################################################################################
 
+< en: Brassica Rapa L.
 < en: cabbage
 en: chinese cabbage
 bg: китайско зеле
@@ -55185,23 +55232,23 @@ it: cipolla, Cipolle
 ja: タマネギ, オニオン, たまねぎ, 玉葱, 玉ねぎ
 lt: svogūnai
 lv: sīpoli
-nb: løk
+nb: løk, løker
 nl: ui, uien, ajuin
-no: løk
+nn: lauk, laukar, løk, løkar
 nv: tłʼohchin
 pl: cebula, cebuli, cebulowy, cebulowa, cebulowe, cebulka, cebulki
 pt: cebola
 ro: ceapă, ceapa
 ru: лук, лук репчатый
-sv: lök
+sv: lök, lökar
 tr: soğan
 uk: Цибуля
 vi: hành tây
 zh: 洋葱
-# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
-average_weight_per_unit:en: 150
 # aeb-arab:راس بصل
 # ckb:پیاز
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 150
 carbon_footprint_fr_foodges_ingredient:fr: Oignons
 carbon_footprint_fr_foodges_value:fr: 0.6
 ciqual_food_code:en: 20034
@@ -55213,19 +55260,11 @@ ecobalyse_origins_en_european_union_id:en: onion-eu
 ecobalyse_origins_en_france_id:en: onion-fr
 eurocode_2_group_3:en: 8.30.10
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
-usda_ndb_proxy_code:en: 11282
-usda_ndb_proxy_name:en: Onions, raw
-wikidata:en: Q3406628
-wikipedia:en: https://en.wikipedia.org/wiki/Onion
-
-< en: onion
-en: raw onion
-ciqual_food_code:en: 20034
-ciqual_food_name:en: Onion, raw
-ciqual_food_name:fr: Oignon, cru
 usda_fdc_code:en: 170000
 usda_ndb_code:en: 11282
 usda_ndb_name:en: Onions, raw
+wikidata:en: Q3406628
+wikipedia:en: https://en.wikipedia.org/wiki/Onion
 
 # description:en:Cebula dymka is a name for young onion meant to be pickled or consumed raw
 
@@ -56610,6 +56649,11 @@ lv: nakņu dārzenis
 nl: penwortelgroente
 eurocode_2_group_2:en: 8.38
 
+< en: brassica
+en: Brassica Rapa L.
+la: Brassica Rapa L.
+comment:en: No english exists for this group of plants
+
 < en: root vegetable
 en: starchy root vegetable
 da: stivelsesholdig rodfrugt
@@ -56879,6 +56923,18 @@ sv: morotkoncentrat, morotskoncentrat
 < en: colouring plant concentrate
 en: colouring carrot concentrate
 sv: färgande morotkoncentrat
+
+< en: carrot concentrate
+< en: pumpkin
+en: carrot and pumpkin concentrate
+de: Karotten- und Kürbiskonzentrat
+fi: porkkana- ja kurpitsatiiviste
+fr: concentré de carotte et de citrouille
+pt: extrato de abóbora y de cenoura
+
+< en: carrot and pumpkin concentrate
+en: carrot and pumpkin concentrate colouring
+de: Färbende Konzentrate Karotte und Kürbis
 
 < en: carrot
 en: carrot extract
@@ -58820,13 +58876,6 @@ en: konjac flour
 hr: konjac brašno
 it: farina di Konjac
 
-< en: carrot
-< en: pumpkin
-fr: concentré de carotte et de citrouille
-
-< fr: concentré de carotte et de citrouille
-de: Färbende Konzentrate Karotte und Kürbis
-
 < en: taproot vegetable
 en: horseradish, horseradish root
 af: peperwortel
@@ -60120,12 +60169,13 @@ it: peperoncino rosso pestato
 
 < en: red chili pepper
 en: red pepper seed oil
-de: roter Pfeffer Kernöl
+de: roter Pfeffer Kernöl, Rotes Chiliesamenöl
 fr: huile de graines de piment rouge
 hr: ulje sjemenki crvene paprike
 it: olio di semi di peperoncino rosso
 nl: rode peper zaad olie
 pl: olej z nasion czerwonej papryki
+comment:en: shouldn't this be under the oils somewhere?
 
 < en: chili pepper
 en: green chili pepper, green chili, green chilli pepper, green chilli, green chillies, green chile, green chile pepper, green chilies
@@ -61299,6 +61349,7 @@ en: Cooked rutabaga, Cooked swede
 fr: Rutabaga cuit
 it: rapa svedese cotta
 
+< en: Brassica Rapa L.
 < en: taproot vegetable
 en: turnip, turnips
 af: Raap
@@ -61968,6 +62019,7 @@ ecobalyse_origins_en_france_id:en: rapeseed-fr
 wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
 
+< en: Brassica Rapa L.
 < en: root vegetable
 en: turnip rape, turnip-rape, field mustard
 be: свірэпіца
@@ -67674,6 +67726,7 @@ fr: sésame doré
 < en: sesame
 en: white sesame
 bg: бял сусам
+de: weißer Sesam
 fr: sésame blanc
 hr: bijeli sezam
 it: sesamo bianco
@@ -67682,6 +67735,7 @@ ja: 白ごま
 < en: sesame
 en: black sesame
 bg: черен сусам
+de: schwarzer Sesam
 fr: sésame noir
 it: sesamo nero
 ja: 黒ごま
@@ -69052,7 +69106,7 @@ ca: curri
 cs: kari
 cy: cyrri
 da: karry
-de: Curry
+de: Curry, Curry-Gewürz
 el: Κάρυ
 es: curry
 et: karri
@@ -69083,6 +69137,7 @@ zh: 咖哩
 ciqual_proxy_food_code:en: 11005
 ciqual_proxy_food_name:en: Curry, powder
 ciqual_proxy_food_name:fr: Curry, poudre
+comment:en: This hould be setup as a compound
 usda_ndb_proxy_code:en: 2015
 usda_ndb_proxy_name:en: Spices, curry powder
 wikidata:en: Q1144935
@@ -74738,10 +74793,15 @@ wikipedia:en: https://en.wikipedia.org/wiki/Koroneiki
 
 # See https://en.wikipedia.org/wiki/List_of_olive_cultivars
 
-< en: olive
-en: Halkidiki olives
+< en: green olive
+en: Halkidiki olive, Halkidiki olives
+xx: Prasines Elies Chalkidikis
+da: halkidikioliven
+el: Πράσινες Ελιές Χαλκιδικής
 it: olive Halkidiki
 pl: oliwki Halkidiki, oliwki Chalkidiki
+sv: halkidikioliv, halkidikioliver
+comment:en: xx entry is the Greek name romanised
 
 < en: olive
 en: green olive, green olives
@@ -76597,10 +76657,12 @@ fi: vaniljatanko, vaniljapapu
 fr: gousse de vanille, gousses de vanille, écorce de vanille, vanille en gousse
 hr: mahune vanilije, mahuna vanilije
 it: baccelli di vaniglia, bacche di vaniglia
+nb: vaniljestang, vaniljestenger
 nl: vanillestokje, vanillestokjes
+nn: vaniljestong, vaniljestenger
 pl: laski wanilii, laska wanilii
 pt: vagem de baunilha
-sv: vaniljstång, vaniljböna
+sv: vaniljstång, vaniljstänger, vaniljböna
 carbon_footprint_fr_foodges_ingredient:fr: Gousse de Vanille
 carbon_footprint_fr_foodges_value:fr: 2.6
 
@@ -86645,7 +86707,7 @@ fi: amerikanhummeri, Homarus americanus
 fr: homard américain, Homarus americanus
 he: לובסטר אמריקני, Homarus americanus
 hi: अमेरिकी झींगा मछली, Homarus americanus
-hr: američki jastog
+hr: američki jastog, američki hlap
 id: Lobster amerika, Homarus americanus
 it: Astice americano, Homarus americanus
 ka: ამერიკული ასთაკვი, Homarus americanus
@@ -89137,6 +89199,9 @@ fr: ester de stérol végétal, esters de stérol végétal
 pl: estry steroli roślinnych
 vegan:en: yes
 vegetarian:en: yes
+
+en: phytosterol esters
+fr: esters de phytostérols
 
 #category/cucumbers
 < en: fruit vegetable
@@ -92926,6 +92991,10 @@ pl: nadzienie o smaku waniliowym, nadzienie waniliowe, wsad waniliowy
 pt: recheio com sabor de baunilha
 sv: fyllning med vaniljsmak
 
+< en: filling
+en: filling with pear
+nl: vulling met peer
+
 #category/pains-au-chocolat
 fr: pain au chocolat
 carbon_footprint_fr_foodges_ingredient:fr: Viennoiseries pain au chocolat
@@ -96271,12 +96340,21 @@ ciqual_food_name:fr: Bouillon de boeuf, déshydraté
 wikidata:en: Q96362190
 
 < en: beef broth
+< en: dehydrated broth
 en: dehydrated beef stock, dehydrated beef bouillon
 fr: Bouillon de boeuf déshydraté
 it: brodo di manzo disidratato
 ciqual_food_code:en: 11001
 ciqual_food_name:en: Broth, stock or bouillon, beef, dehydrated
 ciqual_food_name:fr: Bouillon de boeuf, déshydraté
+
+< en: beef bones
+< en: dehydrated beef stock
+en: beef bone stock powder
+da: bouillonpulver af oskeben
+fi: liemijauhe häränluista
+nb: buljongpulver av oskekjøttben
+sv: buljongpulver av oxben
 
 < en: broth
 fr: bouillon de veau
@@ -99295,3 +99373,4 @@ vegetarian:en: yes
 < en: sourdough
 en: scalding and sourdough
 sv: skållning och surdeg
+
