@@ -37,6 +37,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   CodeQL-Build:
     name: "CodeQL Analysis"
