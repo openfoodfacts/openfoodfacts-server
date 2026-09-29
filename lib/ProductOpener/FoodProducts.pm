@@ -123,7 +123,7 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Ecobalyse environmental cost
 	# last parameter is $skip_ecobalyse_call, set to 1 in order to only prepare and store the request payload without calling the Ecobalyse API
 	# This feature is still under development, so we skip the API call for now and only prepare the request payload.
-	estimate_environmental_impact_service($product_ref, {}, {}, 1);
+	estimate_environmental_impact_service($product_ref, {}, [], 1);
 
 	compute_forest_footprint_2026($product_ref);    # Also includes compute_forest_footprint()
 

@@ -75,7 +75,7 @@ use Data::DeepAccess qw(deep_exists deep_get);
 
 =head1 FUNCTIONS
 
-=head2 estimate_environmental_impact_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
+=head2 estimate_environmental_impact_service ( $product_ref, $updated_product_fields_ref, $errors_ref, $skip_ecobalyse_call = 0 )
 
 Compute the environmental impact of a given product (see the french environmental environmental labeling Ecobalyse).
 
@@ -248,6 +248,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Add distribution
 	my $distribution = $product_ref->{storage_conditions} || "en:ambient";
 	$distribution =~ s/^[a-z]{2}://;
+	$distribution =~ s/refrigerated/fresh/;
 	$payload_ref->{distribution} = $distribution;
 	$product_ref->{environmental_impact}{ecobalyse_input}{distribution} = $distribution;
 

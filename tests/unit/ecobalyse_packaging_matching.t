@@ -116,7 +116,15 @@ my @tests = (
 		}'
 	],
 
-	# Product with no packaging components: no candidate, result is undef (no environmental_impact.pkg key added)
+	# Product with no packaging components and no categories
+	[
+		'pkg_no_packaging',
+		'{
+			"packagings": [],
+			"product_quantity": 250
+		}'
+	],
+	# Product with no packaging components but with a category: can select the category entry for biscuits
 	[
 		'pkg_no_packaging',
 		'{
@@ -125,7 +133,6 @@ my @tests = (
 			"product_quantity": 250
 		}'
 	],
-
 );
 
 my $json = JSON->new->allow_nonref->canonical;

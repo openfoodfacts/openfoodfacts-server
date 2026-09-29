@@ -3871,16 +3871,16 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 
 				if (defined $ecobalyse_id) {
 					# Assign the ecobalyse code if found
-					$ingredient_ref->{ecobalyse_id} = $ecobalyse_id;
+					$ingredient_ref->{$prefix . "_id"} = $ecobalyse_id;
 					last;
 				}
 			}
 			# Exit the loop if a valid ecobalyse code was found
-			last if defined $ingredient_ref->{ecobalyse_id};
+			last if defined $ingredient_ref->{$prefix . "_id"};
 		}
 
 		# If no ecobalyse code was found, add ingredient ID to list of missing codes
-		if (!defined $ingredient_ref->{ecobalyse_id}) {
+		if (not ((defined $ingredient_ref->{ecobalyse_id}) or (defined $ingredient_ref->{ecobalyse_proxy_id}))) {
 			push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
 		}
 
