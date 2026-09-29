@@ -53,6 +53,7 @@ BEGIN {
 		&estimate_environmental_impact_service
 		&get_ecobalyse_packaging_entry
 		&get_ecobalyse_transformation_entries
+		&filter_ecobalyse_response_for_open_data
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -274,25 +275,26 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		my ($response_content, $is_success) = (call_ecobalyse($url_recipe, $payload_ref, $product_ref->{testid}));
 
 		# Parse the JSON response
-		my $response_data = $response_content;
+		my $response_data_ref;
 		# if the response is JSON, decode it
-		print STDERR "Response content: $response_content\n";
-		eval {$response_data = decode_json($response_content);};
+
+		eval {$response_data_ref = decode_json($response_content);};
 		# Check if the JSON decoding was successful
 		if ($@) {
 			$log->error("Failed to decode JSON response from Ecobalyse API",
 				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content, error => $@})
 				if $log->is_error();
-			$response_data = {error => "Failed to decode JSON response: $@"};
+			$response_data_ref = {error => "Failed to decode JSON response: $@"};
 		}
-
-		$product_ref->{environmental_impact}{ecobalyse_response} = $response_data;
+		else {
+			$response_data_ref = filter_ecobalyse_response_for_open_data($response_data_ref);
+		}
 
 		# Handle the response based on success or failure
 		if ($is_success) {
 
 			# Access the specific "ecs" value
-			my $ecs_value = deep_get($response_data, 'results', 'total', 'ecs');
+			my $ecs_value = deep_get($response_data_ref, 'results', 'total', 'ecs');
 			if (defined $ecs_value) {
 				# If 'ecs' is defined, store it in the product reference
 				$product_ref->{environmental_impact}{ecs} = $ecs_value;
@@ -304,7 +306,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content})
 				if $log->is_error();
 			# Add an error message to the errors array
-			$product_ref->{environmental_impact}{ecobalyse_response} = $response_data;
+			$product_ref->{environmental_impact}{ecobalyse_response} = $response_data_ref;
 
 			push @{$errors_ref},
 				{
@@ -317,6 +319,8 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 				service => {id => "estimate_environmental_impact_service"},
 				};
 		}
+
+		$product_ref->{environmental_impact}{ecobalyse_response} = $response_data_ref;
 
 		# If necessary, return error as well
 		# (number of unattributed ingredients,
@@ -627,6 +631,69 @@ sub get_ecobalyse_transformation_entries ($product_ref) {
 	}
 
 	return @entries;
+}
+
+=head2 filter_ecobalyse_response_for_open_data ( $response_ref )
+
+Filter an Ecobalyse API response so that only the data suitable for the
+OFF open-data database is retained.
+
+The following transformations are applied:
+
+=over 4
+
+=item * The C<query> key is removed (it is already stored separately in
+C<ecobalyse_input>).
+
+=item * Only the contents of the C<results> key are kept; all other
+top-level keys (C<description>, C<webUrl>, …) are dropped.
+
+=item * For every hash that contains an C<ecs> key, all other keys are
+removed so that only C<ecs> remains.  This pruning is applied recursively
+throughout the C<results> sub-structure.
+
+=back
+
+The original hash is not modified; a new hash reference is returned.
+
+=cut
+
+sub filter_ecobalyse_response_for_open_data ($response_ref) {
+	return unless ref($response_ref) eq 'HASH';
+
+	# Keep only what's inside "error" and "results"; remove query, description, webUrl, etc.
+
+	my $filtered_response_ref = {};
+	if (exists $response_ref->{error}) {
+		$filtered_response_ref->{error} = $response_ref->{error};
+	}
+	if (exists $response_ref->{results}) {
+		$filtered_response_ref->{results} = _filter_ecobalyse_results_for_open_data($response_ref->{results});
+	}
+
+	return $filtered_response_ref;
+}
+
+sub _filter_ecobalyse_results_for_open_data ($value_ref) {
+	# Hash reference: if it has an "ecs" key, keep only that key
+	if (ref($value_ref) eq 'HASH') {
+		if (exists $value_ref->{ecs}) {
+			return {ecs => $value_ref->{ecs}};
+		}
+		my %filtered = ();
+		for my $key (keys %$value_ref) {
+			$filtered{$key} = _filter_ecobalyse_results_for_open_data($value_ref->{$key});
+		}
+		return \%filtered;
+	}
+
+	# Array reference: recurse into each element
+	if (ref($value_ref) eq 'ARRAY') {
+		return [map {_filter_ecobalyse_results_for_open_data($_)} @$value_ref];
+	}
+
+	# Scalar or undef: return as-is
+	return $value_ref;
 }
 
 1;

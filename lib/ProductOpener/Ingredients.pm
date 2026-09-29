@@ -3880,7 +3880,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		}
 
 		# If no ecobalyse code was found, add ingredient ID to list of missing codes
-		if (not ((defined $ingredient_ref->{ecobalyse_id}) or (defined $ingredient_ref->{ecobalyse_proxy_id}))) {
+		if (not((defined $ingredient_ref->{ecobalyse_id}) or (defined $ingredient_ref->{ecobalyse_proxy_id}))) {
 			push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
 		}
 

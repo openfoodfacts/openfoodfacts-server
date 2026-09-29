@@ -23,6 +23,8 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 # and to store the mocked Ecobalyse responses in the expected results directory.
 # The env variable ECOBALYSE_API_TOKEN needs to be set to a valid Ecobalyse API token for the real API call to work.
 
+# If the 3rd argument of a test case is set to 1, it indicates that the Ecobalyse API call is skipped (for example, when there are no ingredients to send to Ecobalyse).
+
 my @tests = (
 	[
 		'fr-pate-aux-noisettes',
@@ -40,7 +42,8 @@ my @tests = (
 			lc => "fr",
 			categories => "huile d'olive",
 			quantity => "0.75l",
-		}
+		},
+		1    # Ecobalyse API call is skipped (no ingredients) so the mock is not called and no mocked response is saved
 	],
 	[
 		'fr-olive-oil-category-with-ingredients-no-packaging',
@@ -103,6 +106,7 @@ foreach my $test_ref (@tests) {
 
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
+	my $skip_ecobalyse_call = $test_ref->[2] // 0;
 
 	# We add the testid to the product_ref so that the call_ecobalyse() mock can use it to return a mock response instead of calling the real Ecobalyse API.
 	$product_ref->{testid} = $testid;
@@ -140,7 +144,7 @@ foreach my $test_ref (@tests) {
 		print $response $json->pretty->encode($product_ref->{environmental_impact}->{ecobalyse_response});
 		close($response);
 	}
-	else {
+	elsif (!$skip_ecobalyse_call) {
 		is($mock_calls, 1, "Ecobalyse mock called");
 	}
 }
