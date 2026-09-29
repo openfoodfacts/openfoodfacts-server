@@ -67,70 +67,70 @@
                 [% FOREACH field IN section.fields %]
                     
                     [% IF field.field == 'crm_user_id' AND crm_contact_url != "" %]
-                        <label for="[% field.field %]">[% field.label %]</label>
+                        <label for="[% field.field | html %]">[% field.label %]</label>
                         <div class="form-field-with-btn">
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                            <input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]"/>
                             <a type="button" class="button" id="crm_button" href="[% crm_contact_url %]" target="_blank" rel="noopener">[% lang("open_in_crm") %]</a> 
                         </div>
                     [% ELSIF field.field == 'org' AND org_url != "" %]
-                        <label for="[% field.field %]">[% field.label %]</label>
+                        <label for="[% field.field | html %]">[% field.label %]</label>
                         <div class="form-field-with-btn">
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                            <input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]"/>
                             <a type="button" class="button" id="" href="[% org_url %]" target="_blank" rel="noopener">[% lang("open_org") %]</a> 
                         </div>
 					[% ELSIF field.field == 'userid' %]
                         [% IF type == 'edit' %]
-                            <label for="[% field.field %]"> [% field.label %]</label>
-                            <p id="userid"><a href="/editor/[% field.value %]">[% field.value %]</a></p>
+                            <label for="[% field.field | html %]"> [% field.label %]</label>
+                            <p id="userid"><a href="/editor/[% field.value | uri %]">[% field.value | html %]</a></p>
                         [% ELSE %]
-                            <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="username" onkeyup="normalize_string_value(this)" />
+                            <label for="[% field.field | html %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
+                            <input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]" autocomplete="username" onkeyup="normalize_string_value(this)" />
                         [% END %]
                     [% ELSIF field.type == 'text' %]
                         <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>
-                            <label for="[% field.field %]">[% field.label %]</label>
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
+                            <label for="[% field.field | html %]">[% field.label %]</label>
+                            <input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
                             </div>
                     [% ELSIF field.type == 'password' %]
-                        <label for="[% field.field %]">[% lang(field.label) %]</label>
+                        <label for="[% field.field | html %]">[% lang(field.label) %]</label>
                         <div class="password-container">
-                            <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="new-password"/>
-                            <span class="toggle-password" onclick="togglePasswordVisibility('[% field.field %]')">
+                            <input type="password" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]" autocomplete="new-password"/>
+                            <span class="toggle-password" onclick="togglePasswordVisibility('[% field.field | html %]')">
                                 <span class="material-icons material-symbols-visibility">visibility_off</span>
                                 </span>
                             </div>
                     [% ELSIF field.type == 'email' %]
-                        <label for="[% field.field %]">	[% field.label %]</label>
-                        <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
+                        <label for="[% field.field | html %]">	[% field.label %]</label>
+                        <input type="email" id="[% field.field | html %]" name="[% field.field | html %]" value = "[% field.value | html %]" autocomplete="email"/>
                         [% IF server_options_producers_platform %]
                         <div style="color: red; font-weight: 600;">🚨 [% lang('email_warning') %]</div>
                         [% END %]
                     [% ELSIF field.type == 'select' %]
-                        <label for="[% field.field %]">	[% lang(field.label) %]</label>
-                        <select name="[% field.field %]" id="[% field.field %]-select">
+                        <label for="[% field.field | html %]">	[% lang(field.label) %]</label>
+                        <select name="[% field.field | html %]" id="[% field.field | html %]-select">
                             <option value=""></option>
                             [% FOREACH item IN field.options %]
-                                <option value="[% item.value %]" [% IF item.value == field.selected %]selected[% END %]> [% item.label %]</option>
+                                <option value="[% item.value | html %]" [% IF item.value == field.selected %]selected[% END %]> [% item.label | html %]</option>
                             [% END %]
                         </select>
                     [% ELSIF field.type == 'checkbox' %]
                         [% IF accepted_organization && section.id == "professional" %]
                             <p>[% f_lang('f_this_is_a_pro_account_for_org', {'org' => accepted_organization}) %]</p>
                         [% ELSE %]
-                            <label for="[% field.field %]">
-                                <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
+                            <label for="[% field.field | html %]">
+                                <input type="checkbox" id="[% field.field | html %]" name="[% field.field | html %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
                                 [% field.label %]
                             </label>
                         [% END %]
                     [% ELSIF field.type == 'honeypot' %]
                         [%# this is a honey pot for spammers, it should be left empty %]
                         <div style="display:none">
-                            <label for="[% field.field %]">[% field.label %]</label>
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                            <label for="[% field.field | html %]">[% field.label %]</label>
+                            <input type="text" id="[% field.field | html %]" name="[% field.field | html %]" value="[% field.value | html %]"/>
                         </div>
                     [% ELSIF field.type == 'hidden' %]
                         <label for="pro">
-                            <input type="hidden" name="[% field.field %]" value="[% field.value %]">
+                            <input type="hidden" name="[% field.field | html %]" value="[% field.value | html %]">
                         </label>
                     [% END %]
                 [% END %]
@@ -151,7 +151,7 @@
             <div class="pro_org_display">
                 [% IF requested_org_ref.defined %]
                     <div id="existing_org_warning">
-                        <p>[% org_name %] </p>
+                        <p>[% org_name | html %] </p>
                         <p>[% lang("add_user_existing_org_pending") %] </p>
                         <p>[% lang("please_email_producers") %] </p>
                     </div>
@@ -179,19 +179,35 @@
         [% IF oidc_implementation_level < 5 and userid and (type != 'add') %]
             <fieldset>
                 <legend class="text_warning">[% lang("danger_zone") %]</legend>
-                [% delete_confirm=esq(lang("delete_confirmation")) %]
-                <input type="button" name=".delete" class="button text_warning" value= "[% edq(lang('delete_user')) %]" onclick="if ('[% userid %]'.localeCompare(prompt('[% delete_confirm %]'),undefined,'base') === 0) { trackMatomoEvent('user', 'delete_account'); document.getElementById('delete_input').value='on';document.getElementById('user_form').submit();}"/>
+                <input type="button" name=".delete" class="button text_warning" value= "[% lang('delete_user') | html %]" id="delete_account_button" />
                 <input type="hidden" name="delete" id="delete_input"/>
             </fieldset>
+            <script>
+                (function() {
+                    var deleteButton = document.getElementById('delete_account_button');
+                    if (!deleteButton) {
+                        return;
+                    }
+                    var expectedUserid = [% userid | js %];
+                    var deleteConfirmation = [% lang("delete_confirmation") | js %];
+                    deleteButton.addEventListener('click', function() {
+                        if (expectedUserid.localeCompare(prompt(deleteConfirmation), undefined, 'base') === 0) {
+                            trackMatomoEvent('user', 'delete_account');
+                            document.getElementById('delete_input').value = 'on';
+                            document.getElementById('user_form').submit();
+                        }
+                    });
+                })();
+            </script>
         [% END %]
 
         <input type="hidden" name="action" value="process" />
-        <input type="hidden" name="type" value="[% type %]" />
+        <input type="hidden" name="type" value="[% type | html %]" />
         [% IF userid %]
-            <input type="hidden" name="userid" value="[% userid %]" />
-            <input type="submit" name=".submit" class="button" value= "[% edq(lang('save')) %]" />
+            <input type="hidden" name="userid" value="[% userid | html %]" />
+            <input type="submit" name=".submit" class="button" value= "[% lang('save') | html %]" />
         [% ELSE %]
-            <input type="submit" name=".submit" class="button" value= "[% edq(lang('add_user')) %]" onclick="trackMatomoEvent('user', 'signup_submit');" />
+            <input type="submit" name=".submit" class="button" value= "[% lang('add_user') | html %]" onclick="trackMatomoEvent('user', 'signup_submit');" />
         [% END %]
     </form>
 
@@ -288,7 +304,7 @@
 [% END %]
 
 [% IF debug %]
-    <p>type: [% type %] action: [% action %] userid: [% userid %]</p>
+    <p>type: [% type | html %] action: [% action | html %] userid: [% userid | html %]</p>
 [% END %]
 
 <!-- end templates/[% template.name %] -->

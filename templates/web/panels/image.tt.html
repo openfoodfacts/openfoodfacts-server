@@ -1,36 +1,36 @@
 <!-- start templates/[% template.name %] -->
 
-<div id="image_box_[% image.type %]" class="image_box">
+<div id="image_box_[% image.type | html %]" class="image_box">
 
 <figure itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject" style="margin-bottom:0">
    
-    <a data-reveal-id="drop_[% image.type %]">
-        <img style="border-radius:10px;margin-bottom:0.5rem;" [% IF image.type == 'front' %]id="og_image" [% END %] class="product_image" src="[% image.sizes.400.url %]" width="[% image.sizes.400.w %]" height="[% image.sizes.400.h %]" alt="[% image.alt %]" itemprop="thumbnail" loading="lazy">
+    <a data-reveal-id="drop_[% image.type | html %]">
+        <img style="border-radius:10px;margin-bottom:0.5rem;" [% IF image.type == 'front' %]id="og_image" [% END %] class="product_image" src="[% image.sizes.400.url | url %]" width="[% image.sizes.400.w | html %]" height="[% image.sizes.400.h | html %]" alt="[% image.alt | html %]" itemprop="thumbnail" loading="lazy">
     </a>
 
-    <meta itemprop="imgid" content="[% image.type %]">
+    <meta itemprop="imgid" content="[% image.type | html %]">
     
     <figcaption>
-        <a href="[% nutripatrol_url %]/flag/image/?barcode=[% code %]&image_id=[% imgid %]&source=web&flavor=[% flavor %]" title="[% lang("action_report_image_to_nutripatrol") %]" style="text-decoration: none;">
+        <a href="[% nutripatrol_url | url %]/flag/image/?barcode=[% code | uri %]&image_id=[% imgid | uri %]&source=web&flavor=[% flavor | uri %]" title="[% lang("action_report_image_to_nutripatrol") | html %]" style="text-decoration: none;">
             ⚑
         </a>
-        <a href="/cgi/product_image.pl?code=[% code %]&amp;id=[% image.id %]" title="[% lang("image_attribution_link_title") %]">
+        <a href="/cgi/product_image.pl?code=[% code | uri %]&amp;id=[% image.id | uri %]" title="[% lang("image_attribution_link_title") | html %]">
             [% display_icon('cc') %]
         </a>
     </figcaption>
 </figure>
 
-<a data-reveal-id="drop_[% image.type %]" style="border-radius:10px;border-width:0;">
+<a data-reveal-id="drop_[% image.type | html %]" style="border-radius:10px;border-width:0;">
     <button class="button small round white-button"><span class="material-icons material-symbols-button">zoom_in</span> <span>Zoom</span></button>
 </a>
 
-<div id="drop_[% image.type %]" class="reveal-modal" data-reveal="" aria-labelledby="modalTitle_[% image.type %]" aria-hidden="true" role="dialog" about="[% image.full_url %]">
-    <h2 id="modalTitle_[% image.type %]"></h2>
-    <img src="[% image.sizes.full.url %]" alt="[% image.alt %]" itemprop="contentUrl" loading="lazy">
+<div id="drop_[% image.type | html %]" class="reveal-modal" data-reveal="" aria-labelledby="modalTitle_[% image.type | html %]" aria-hidden="true" role="dialog" about="[% image.full_url | url %]">
+    <h2 id="modalTitle_[% image.type | html %]"></h2>
+    <img src="[% image.sizes.full.url | url %]" alt="[% image.alt | html %]" itemprop="contentUrl" loading="lazy">
     <a class="close-reveal-modal" aria-label="Close" href="#">×</a>
     <meta itemprop="representativeOfPage" content="false">
     <meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/3.0/">
-    <meta itemprop="caption" content="[% image.alt %]">
+    <meta itemprop="caption" content="[% image.alt | html %]">
 </div>
 
 </div>

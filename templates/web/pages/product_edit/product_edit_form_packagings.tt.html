@@ -24,15 +24,15 @@
 
 [% FOREACH packaging IN product.packagings %]
     [% SET packaging_id = "packaging_" _ loop.index() %]
-    <div class="row packagings_components_edit_row" id="[% packaging_id %]_row">
+    <div class="row packagings_components_edit_row" id="[% packaging_id | html %]_row">
         <div class="small-12 large-1 columns">
 
             <!-- label for small displays -->
-            <label class="hide-for-large-up" for="[% packaging_id %]_number_of_units">[% lang("packaging_number_of_units") %]</label>
+            <label class="hide-for-large-up" for="[% packaging_id | html %]_number_of_units">[% lang("packaging_number_of_units") %]</label>
 
             <div class="row">
                 <div class="small-12 large-4 columns delete_packaging_column">
-                    <a class="delete_packaging" id="[% packaging_id %]_delete">
+                    <a class="delete_packaging" id="[% packaging_id | html %]_delete">
                         <span class="material-icons">
                             delete
                         </span>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="small-12 large-8 columns">
-                    <input id="[% packaging_id %]_number_of_units" name="[% packaging_id %]_number_of_units" type="text" value="[% packaging.number_of_units %]">
+                    <input id="[% packaging_id | html %]_number_of_units" name="[% packaging_id | html %]_number_of_units" type="text" value="[% packaging.number_of_units | html %]">
                 </div>
             </div>
         </div>
@@ -58,8 +58,8 @@
             [% SET select2_id = packaging_id _ "_$property" %]
 
             <div class="small-12 large-3 columns">
-                <label class="hide-for-large-up" for="[% select2_id %]">[% lang("packaging_$property") %]</label>
-                <select id="[% select2_id %]" name="[% select2_id %]" class="form-control [% taxonomy %]_select2">
+                <label class="hide-for-large-up" for="[% select2_id | html %]">[% lang("packaging_$property") %]</label>
+                <select id="[% select2_id | html %]" name="[% select2_id | html %]" class="form-control [% taxonomy | html %]_select2">
                     <option></option>
                 </select>
             </div>
@@ -67,25 +67,25 @@
             <!-- row 0 is a template for new row, we do not populate it -->
             [% IF packaging_max.defined && packaging_max > 0 %]
                 <initjs>
-                    configure_packaging_select2("[% select2_id %]", "[% taxonomy %]", "[% edq(lang("packaging_$property")) %]" )
+                    configure_packaging_select2("[% select2_id | html %]", "[% taxonomy | html %]", [% lang("packaging_$property") | js %] )
 
                     [% IF packaging.$property.defined %]
                     // Set the value, creating a new option if necessary (for non taxonomy values)
                     var value = [% display_taxonomy_tag(taxonomy, packaging.$property) | js %];
-                    if (\$("#[% select2_id %]").find("option[value='" + CSS.escape(value) + "']").length) {
-                        \$("#[% select2_id %]").val(value).trigger('change');
+                    if (\$("#[% select2_id | html %]").find("option[value='" + CSS.escape(value) + "']").length) {
+                        \$("#[% select2_id | html %]").val(value).trigger('change');
                     } else { 
                         // Create a DOM Option and pre-select by default
                         var newOption = new Option(value, value, true, true);
                         // Append it to the select
-                        \$("#[% select2_id %]").append(newOption).trigger('change');
+                        \$("#[% select2_id | html %]").append(newOption).trigger('change');
                     } 
                     [% END %]
 
-                    \$("#[% packaging_id %]_delete").click(function(event) {
+                    \$("#[% packaging_id | html %]_delete").click(function(event) {
                         event.stopPropagation();
                         event.preventDefault();
-                        \$("#[% packaging_id %]_row").remove();
+                        \$("#[% packaging_id | html %]_row").remove();
                     });
                 </initjs>
             [% END %]
@@ -93,20 +93,20 @@
         [% END %]
 
         <div class="small-12 large-1 columns">
-            <label class="hide-for-large-up" for="[% packaging_id %]_weight_measured">[% lang("packaging_weight") %] (g)</label>
+            <label class="hide-for-large-up" for="[% packaging_id | html %]_weight_measured">[% lang("packaging_weight") %] (g)</label>
             [%# if we have a weight_specified from the manufacturer, we don't show the weight_measured field %]
             [% IF packaging.weight_specified.defined %]
-                <input id="[% packaging_id %]_weight_specified" name="[% packaging_id %]_weight_specified" type="hidden" value="[% packaging.weight_specified %]" %]">
-                <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="hidden" value="[% packaging.weight_measured %]" %]">
-            [% packaging.weight_specified %]
+                <input id="[% packaging_id | html %]_weight_specified" name="[% packaging_id | html %]_weight_specified" type="hidden" value="[% packaging.weight_specified | html %]" %]">
+                <input id="[% packaging_id | html %]_weight_measured" name="[% packaging_id | html %]_weight_measured" type="hidden" value="[% packaging.weight_measured | html %]" %]">
+            [% packaging.weight_specified | html %]
             [% ELSE %]
-                <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="text" value="[% packaging.weight_measured %]" %]">
+                <input id="[% packaging_id | html %]_weight_measured" name="[% packaging_id | html %]_weight_measured" type="text" value="[% packaging.weight_measured | html %]" %]">
             [% END %]
         </div>
 
         <div class="small-12 large-1 columns">
-            <label class="hide-for-large-up" for="[% packaging_id %]_quantity_per_unit">[% lang("packaging_quantity_per_unit") %]</label>
-            <input id="[% packaging_id %]_quantity_per_unit" name="[% packaging_id %]_quantity_per_unit" type="text" value="[% packaging.quantity_per_unit %]" %]">
+            <label class="hide-for-large-up" for="[% packaging_id | html %]_quantity_per_unit">[% lang("packaging_quantity_per_unit") %]</label>
+            <input id="[% packaging_id | html %]_quantity_per_unit" name="[% packaging_id | html %]_quantity_per_unit" type="text" value="[% packaging.quantity_per_unit | html %]" %]">
         </div>        
 
     </div>
@@ -114,7 +114,7 @@
     [% SET packaging_max = loop.max() %]
 [% END %]
 
-<input type="hidden" name="packaging_max" value="[% packaging_max %]">
+<input type="hidden" name="packaging_max" value="[% packaging_max | html %]">
 
 <initjs>
 // defined by the FOREACH loop above
@@ -193,7 +193,7 @@ function add_packaging() {
             [% SET taxonomy = "packaging_recycling" %]
         [% END %]
         
-         configure_packaging_select2(new_packaging_id + "_$property", "$taxonomy", "[% edq(lang("packaging_$property")) %]");
+         configure_packaging_select2(new_packaging_id + "_$property", "$taxonomy", [% lang("packaging_$property") | js %]);
 
     [% END %]
 
@@ -208,9 +208,9 @@ function add_packaging() {
 
 [%# packaging_id contains our last row %]
 // last row triggers addition of a new row
-\$("#[% packaging_id %]_shape").on('select2:select', add_packaging);
+\$("#[% packaging_id | html %]_shape").on('select2:select', add_packaging);
 // disable removal of last row
-\$("#[% packaging_id %]_delete").hide()
+\$("#[% packaging_id | html %]_delete").hide()
 
 
 /**

@@ -18,7 +18,7 @@
         "environment"
     ],
     "title_element": {
-        "title": "[% edq(lang('packaging_parts')) %]",
+        "title": [% lang('packaging_parts') | js %],
     },
     "expanded": true,
     "elements": [
@@ -40,7 +40,7 @@
                     [% ELSE %]
                     "evaluation": "neutral",
                     "icon_url": "[% static_subdomain %]/images/icons/dist/help.svg",
-                    "icon_alt": "[% edq(lang('unknown')) %]",
+                    "icon_alt": [% lang('unknown') | js %],
                     [% END %]
                     "html": `
                         [% FOREACH packaging IN product.packagings %]
@@ -48,16 +48,16 @@
                                 [% IF packaging.number_of_units %][% packaging.number_of_units %] × [% END %]
                                 <strong>
                                     [% display_taxonomy_tag_name('packaging_shapes',packaging.shape) %]
-                                    [% IF packaging.quantity_per_unit %][% packaging.quantity_per_unit %] [% END %]
+                                    [% IF packaging.quantity_per_unit %][% packaging.quantity_per_unit | html %] [% END %]
                                 </strong>
                                     [% IF packaging.material %]
                                         ([% display_taxonomy_tag_name('packaging_materials',packaging.material) %][% IF packaging.weight_specified %][% sep %]: [% packaging.weight_specified %] g[% ELSIF packaging.weight_measured %][% sep %]: [% packaging.weight_measured %] g[% END %])
                                     [% END %]
                                     [% IF packaging.food_contact %]
                                         [% IF product.product_type == "food" %]
-                                            - [% edq(lang('in_contact_with_food')) %]
+                                            - [% lang('in_contact_with_food') %]
                                         [% ELSE %]
-                                            - [% edq(lang('in_contact_with_the_product')) %]
+                                            - [% lang('in_contact_with_the_product') %]
                                         [% END %]
                                     [% END %]
                                     <br>

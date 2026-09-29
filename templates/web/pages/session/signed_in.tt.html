@@ -1,5 +1,5 @@
 <!-- start templates/[% template.name %] -->
-<h1>[% lang('hello')%] [% user_name %]!</h1>
+<h1>[% lang('hello')%] [% user_name | html %]!</h1>
 
 [% IF !server_options_producers_platform %]
     [% INCLUDE 'web/common/includes/help_us_block.tt.html' %]

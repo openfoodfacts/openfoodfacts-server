@@ -9,7 +9,7 @@
                 [% IF (ingredient == "other") OR (ingredient == "unknown") %]
                     [% lang(ingredient) %]
                 [% ELSE %]
-                    [% display_taxonomy_tag("ingredients", ingredient) %]
+                    [% display_taxonomy_tag("ingredients", ingredient) | html %]
                 [% END %]
             </th>
             [% END %]
@@ -44,7 +44,7 @@
                 [% IF (ingredient == "other") OR (ingredient == "unknown") %]
                     [% lang(ingredient) %]
                 [% ELSE %]
-                    [% display_taxonomy_tag("ingredients", ingredient) %]
+                    [% display_taxonomy_tag("ingredients", ingredient) | html %]
                 [% END %]
             </th>
             [% END %]
@@ -55,13 +55,13 @@
     [% FOREACH recipe IN recipes %]
         <tr>
             <td>
-                <a href="[% product_url(recipe.product) %]"
-                    title="[% recipe.product.ingredients_text | replace('"', ' ')  %]"
+                <a href="[% product_url(recipe.product) | url %]"
+                    title="[% recipe.product.ingredients_text | replace('"', ' ') | html  %]"
                 >
-                    [% product_name_brand_quantity(recipe.product) %]
+                    [% product_name_brand_quantity(recipe.product) | html %]
                 </a>
                 [% IF recipe.recipe.warning.defined %]
-                    -- <span style="color:red">[% recipe.recipe.warning %]</span>
+                    -- <span style="color:red">[% recipe.recipe.warning | html %]</span>
                 [% END %]
             </td>
             [% FOREACH ingredient IN analysis.parent_ingredients %]

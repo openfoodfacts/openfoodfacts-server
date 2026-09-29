@@ -1,7 +1,7 @@
 <!-- show only questions if user is not logged in -->
 <robotoff-contribution-message
-  product-code="[% product_code %]"
-  id="[% id %]"
+  product-code="[% product_code | html %]"
+  id="[% id | html %]"
   [%
   IF
   is_logged_in

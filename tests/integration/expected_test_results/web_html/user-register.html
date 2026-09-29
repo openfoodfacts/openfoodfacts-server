@@ -790,8 +790,10 @@ function checkboxChange(checkbox) {
 		$('.pro_org_display').show();
 		$('#teams_section').hide();
 		if ( ! $('#pro-email-warning').length ) {
-			let pro_email_warning = '<div style="color: red; font-weight: 600;" id="pro-email-warning">🚨 Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join.</div>';
-			$('.pro_org_display').first().prepend(pro_email_warning);
+			const email_warning = "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join.";
+			const element = $('<div style="color: red; font-weight: 600;" id="pro-email-warning"></div>');
+			element.text(`🚨 `);
+			$('.pro_org_display').first().prepend(element);
 		}
 	} else {
 		$('.pro_org_display').hide();

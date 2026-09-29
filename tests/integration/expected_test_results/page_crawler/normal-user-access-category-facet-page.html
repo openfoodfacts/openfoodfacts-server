@@ -10,7 +10,7 @@
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
     <meta property="og:title" content="Hazelnut spreads">
-    <meta property="og:url" content="//world.openfoodfacts.localhost/facets/categories/en:Hazelnut spreads/1">
+    <meta property="og:url" content="//world.openfoodfacts.localhost/facets/categories/en:Hazelnut%20spreads/1">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world">
@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#ffffff">
 
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="//world.openfoodfacts.localhost/facets/categories/en:Hazelnut spreads/1">
+    <link rel="canonical" href="//world.openfoodfacts.localhost/facets/categories/en:Hazelnut%20spreads/1">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
@@ -466,15 +466,15 @@
                 <div id="facet_panels_content"></div>
             </div>
             <!-- Fetching facet knowledge panel -->                
-            <script>
+                <script>
                     let facet_kp = "//facets-kp.openfoodfacts.org/render-to-html";
-                    let params = "?facet_tag=categories&value_tag=en:hazelnut-spreads";
-                    if ("") {
+                    let params = "?facet_tag=" + "categories" + "&value_tag=" + "en:hazelnut-spreads";
+                    if (0) {
                         params += "&sec_facet_tag=&sec_value_tag="
                     }
 
                     // Adding language code to get translated data
-                    params += "&lang_code=en&country=world";
+                    params += "&lang_code=" + "en" + "&country=" + "world";
 
                     fetch(facet_kp + params)
                         .then((response) => {

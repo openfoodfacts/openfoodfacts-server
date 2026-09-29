@@ -3,7 +3,7 @@
 [% IF edit_profile %]
 	<!-- Edit product page -->
 	<div class="edit_button">
-		<a href="/cgi/org.pl?orgid=[% orgid %]" class="button small" title= "[% edq(lang('edit_org_profile')) %]">
+		<a href="/cgi/org.pl?orgid=[% orgid | uri %]" class="button small" title= "[% lang('edit_org_profile') | html %]">
 			[% display_icon('edit') %]
 			<span class="show-for-large-up">[% lang("edit_org_profile") %]</span>
 		</a>
@@ -24,25 +24,25 @@
 				<h3>[% lang("org_$contact") %]</h3>
 				
 				[% IF $contact.name %]
-					<p>[% $contact.name %]</p>
+					<p>[% $contact.name | html %]</p>
 				[% END %]
 				
 				[% IF $contact.address %]
-					<p>[% $contact.address %]</p>
+					<p>[% $contact.address | html %]</p>
 				[% END %]
 				
 				[% IF $contact.email %]
-					<p>[% display_icon('email') %] <a href="mailto:[% $contact.email %]">[% $contact.email %]</a></p>
+					<p>[% display_icon('email') %] <a href="mailto:[% $contact.email | uri %]">[% $contact.email | html %]</a></p>
 				[% ELSIF $contact.link %]
 					<p>[% display_icon('email') %] <a href="[% $contact.link %]">[% lang("contact_form") %]</a></p>
 				[% END %]
 				
 				[% IF $contact.phone %]
-					<p>[% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% $contact.phone %]">[% $contact.phone %]</a></span></p>
+					<p>[% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% $contact.phone | uri %]">[% $contact.phone | html %]</a></span></p>
 				[% END %]
 					
 				[% IF $contact.info %]
-					<p>[% $contact.info %]</p>
+					<p>[% $contact.info | html %]</p>
 				[% END %]
 			</div>
 		</div>

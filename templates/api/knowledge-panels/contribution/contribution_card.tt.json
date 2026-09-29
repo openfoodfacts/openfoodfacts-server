@@ -6,7 +6,7 @@
         "contribution"
     ],
     "title_element": {
-        "title": "[% edq(lang('contribution_panel_title')) %]",
+        "title": [% lang('contribution_panel_title') | js %],
     },
     "elements": [
         [%# Panels displaying data_quality errors / warnings / info %]
@@ -14,7 +14,7 @@
         {
             "element_type": "panel",
             "panel_element": {
-                "panel_id": "[% panel_name %]",
+                "panel_id": [% panel_name | js %],
             },
         },
         [% END %]

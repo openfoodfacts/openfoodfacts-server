@@ -287,7 +287,7 @@ $tt = Template->new(
 	{
 		INCLUDE_PATH => $data_root . '/templates',
 		INTERPOLATE => 1,
-		EVAL_PERL => 1,
+		EVAL_PERL => 0,
 		STAT_TTL => 60,    # cache templates in memory for 1 min before checking if the source changed
 		COMPILE_EXT => '.ttc',    # compile templates to Perl code for much faster reload
 		COMPILE_DIR => $data_root . "/tmp/templates",
@@ -306,7 +306,7 @@ $tt = Template->new(
 				my $text = shift;
 				return '' unless defined $text;
 				# Encode the text as a JSON string for safe inclusion in JavaScript
-				return $json_utf8->encode($text);
+				return $json->encode($text);
 			},
 		},
 	}
@@ -400,8 +400,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 	# escaping quotes for use in javascript or json
 	# using short names to favour readability
-	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
-	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
@@ -463,10 +461,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	$template_data_ref->{encode_json} = sub ($var) {
 		return $json->encode($var);
-	};
-
-	$template_data_ref->{uri_escape} = sub ($var) {
-		return uri_escape($var);
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -2683,7 +2677,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 				next;
 			}
 
-			my $new_translation = "";
+			my ($new_translation_label, $new_translation_value, $new_translation_userid) = ("", "", "");
 
 			# Check to see if we already have a user translation
 			if (defined $users_translations_ref->{$lc}{$tagid}) {
@@ -2703,12 +2697,11 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 					next;
 				}
 				# All, Edit or Review mode: show the new translation
-				$new_translation
-					= "<div>"
-					. lang("current_translation") . " : "
-					. $users_translations_ref->{$lc}{$tagid}{to} . " ("
-					. $users_translations_ref->{$lc}{$tagid}{userid}
-					. ")</div>";
+				# Only the untrusted parts are passed to the template,
+				# which escapes them in HTML context.
+				$new_translation_label = lang("current_translation");
+				$new_translation_value = $users_translations_ref->{$lc}{$tagid}{to};
+				$new_translation_userid = $users_translations_ref->{$lc}{$tagid}{userid};
 			}
 			else {
 				$to_be_translated++;
@@ -2764,7 +2757,9 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 					j => $j,
 					tagid => $tagid,
 					google_translate_link => $google_translate_link,
-					new_translation => $new_translation,
+					new_translation_label => $new_translation_label,
+					new_translation_value => $new_translation_value,
+					new_translation_userid => $new_translation_userid,
 					products => $products
 				}
 			);

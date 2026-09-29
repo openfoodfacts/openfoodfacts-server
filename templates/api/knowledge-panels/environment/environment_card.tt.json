@@ -5,7 +5,7 @@
         "environment"
     ],
     "title_element": {
-        "title": "[% edq(lang('environment_card_title')) %]",
+        "title": [% lang('environment_card_title') | js %],
     },    
     "elements": [
         {
@@ -18,7 +18,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% edq(lang('carbon_footprint')) %]",
+                "title": [% lang('carbon_footprint') | js %],
                 "panel_ids": ["carbon_footprint"],
             },
         },
@@ -27,7 +27,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% edq(lang('environmental_score_packaging')) %]",
+                "title": [% lang('environmental_score_packaging') | js %],
                 "panel_group_id": "packaging",
                 "panel_ids": [
                     "packaging",
@@ -42,7 +42,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% edq(lang('environmental_score_transportation')) %]",
+                "title": [% lang('environmental_score_transportation') | js %],
                 "panel_ids": [
                     [% IF panels.manufacturing_place.defined %]"manufacturing_place",[% END %]
                     [% IF panels.origins_of_ingredients.defined %]"origins_of_ingredients",[% END %]
@@ -54,7 +54,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% edq(lang('environmental_score_threatened_species')) %]",
+                "title": [% lang('environmental_score_threatened_species') | js %],
                 "panel_ids": [
                     "threatened_species"
                 ],
@@ -73,7 +73,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% edq(lang('environmental_labels')) %]",
+                "title": [% lang('environmental_labels') | js %],
                 "panel_ids": [
                     [% FOREACH label IN product.environmental_score_data.adjustments.production_system.labels %]
                         "environment_label_[% label %]",
