@@ -256,10 +256,7 @@ $symbols_regexp = join('|', @symbols);
 		["pr.", "per"],
 	],
 
-	de => [
-		["inkl.", "inklusive"],
-		["vit.", "vitamin"],
-	],
+	de => [["inkl.", "inklusive"], ["vit.", "vitamin"],],
 
 	es => [["vit.", "vitamina"], ["m.g.", "materia grasa"]],
 
