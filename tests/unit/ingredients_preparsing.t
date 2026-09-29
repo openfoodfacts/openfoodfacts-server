@@ -1327,7 +1327,7 @@ my @tests = (
 	{
 		id => 'de-palm-and-coconut-oil',
 		'lc' => 'de',
-		'ingredients_text' => 'Palm - und Kokosnuss-Pflanzenfett'
+		'ingredients_text' => 'Palm- und Kokosnuss-Pflanzenfett'
 	}
 
 );
