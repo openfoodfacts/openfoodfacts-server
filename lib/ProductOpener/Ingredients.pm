@@ -5205,7 +5205,8 @@ sub normalize_enumeration (
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$ingredients_lc} || " will not match ";
 
-	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
+	# "-$and| -$and" is to match German "Palm- und Sonnenblumenöl" / "Palm - und Sonnenblumenöl"
+	my @list = split(/-$and| -$and|$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
 
 	# If we have a percent or quantity, we output it only for the parent
 	my $category_without_percent_or_quantity = $category;
@@ -6899,8 +6900,9 @@ sub init_categories_and_types_regexps($ingredients_lc) {
 
 				# ječmeni i pšenični slad (barley and wheat malt) -> ječmeni slad, pšenični slad
 				# Also match German "A und B-C" where C is a category (e.g. "Palm und Kokosnuss-Pflanzenfett")
+				# We have |-$and| and | -$and| to match "Palm- und Kokosnuss-Pflanzenfett" and "Palm - und Kokosnuss-Pflanzenfett"
 				types_then_category =>
-					qr/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*(?:-)?($category_regexp)?/i,
+					qr/((?:(?:$type_regexp)(?: |\/| \/ | - |- |,|, |$and|-$and| -$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*(?:-)?($category_regexp)?/i,
 
 				# fr: huiles végétales en quantité variable et huile de palme -> huile végétale en quantité variable, huile végétale de palme
 				a_et_b_de_c => qr/($category_regexp) et ($category_regexp)(?:$of)?($type_regexp)/i,
@@ -7325,9 +7327,6 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		$text =~ s/Bienenwachs, weiß und gelb/Bienenwachs weiß und gelb/ig;
 		# deletes brackets in "Bienenwachs, weiß und gelb" since it is just one ingredient
 		$text =~ s/Bienenwachs \(weiß und gelb\)/Bienenwachs weiß und gelb/ig;
-
-		# Normalize "- und " to " und " (e.g. "Palm - und Kokosnuss" -> "Palm und Kokosnuss")
-		$text =~ s/ *- und / und /ig;
 	}
 	elsif ($ingredients_lc eq 'es') {
 
