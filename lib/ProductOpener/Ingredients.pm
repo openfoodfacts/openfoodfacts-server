@@ -527,6 +527,9 @@ sub extract_ingredients_from_image ($product_ref, $image_type, $image_lc, $ocr_e
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
 		$results_ref->{ingredients_text_from_image}
 			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $image_lc);
+
+		# fix common OCR misreads
+		apply_misspelling_replacements("ingredients", $image_lc, \$results_ref->{ingredients_text_from_image});
 	}
 
 	return;
