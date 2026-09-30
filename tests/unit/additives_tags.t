@@ -185,6 +185,13 @@ my @tests = (
 		['en:e123']
 	],
 
+	# roman numeral in the name: "azotan(III) sodu" is E250, "azotan sodu" is E251
+	[{lc => "pl", ingredients_text => "konserwant: azotan(III) sodu"}, ["en:e250"]],
+	[{lc => "pl", ingredients_text => "konserwant: Azotan(III) potasu, sól"}, ["en:e249"]],
+	[{lc => "pl", ingredients_text => "konserwant: Azotan potasu"}, ["en:e252"]],
+	[{lc => "pl", ingredients_text => "konserwant: Azotan(III) potasu i azotan(III) sodu"}, ["en:e249", "en:e250"]],
+	[{lc => "en", ingredients_text => "colour: iron (III) oxide"}, ["en:e172ii"]],
+
 	# additive class followed by an ingredient, without a :
 	# this will test the additives entries regexps in Ingredients.pm
 	[
@@ -267,6 +274,20 @@ my @tests = (
 		},
 		['en:e100']
 	],
+
+	# a variant unknown to the taxonomy falls back to the additive: "E330 (i)" is E330,
+	# while "E160a (ii)" is a separate additive
+	[
+		{lc => "en", ingredients_text => "acid: E330 (i), colour: E160a (ii), emulsifier: E450 (ix)"},
+		["en:e330", "en:e160aii", "en:e450ix"]
+	],
+
+	# INS variants
+	[{lc => "en", ingredients_text => "choline citrate"}, []],
+	[{lc => "en", ingredients_text => "emulsifier: choline citrate"}, ["en:e1001iv"]],
+	[{lc => "en", ingredients_text => "water, sugar, blackcurrant extract, bromelain"}, []],
+	[{lc => "en", ingredients_text => "colour: E163(iii)"}, ["en:e163iii"]],
+	[{lc => "en", ingredients_text => "sweetener: E952(iv)"}, ["en:e952iv"]],
 
 );
 

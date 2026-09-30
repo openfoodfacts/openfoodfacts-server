@@ -3,9 +3,6 @@ name: 🌐 Translations check
 on:
   pull_request:
     paths: ["**.po", "**.pot", ".github/workflows/translation-check.yml"]
-  push:
-    branches:
-    - main
     
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: install gettext (i18n) tools
         run: |
           sudo apt-get update
@@ -25,3 +22,33 @@ jobs:
       - name: Validate translation files
         run: |
           scripts/check-translations.sh
+
+      - name: Checkout code
+        uses: actions/checkout@v7
+      
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.x'
+      
+      - name: Run translation validation
+        id: validation
+        run: |
+          python .github/scripts/validate_translations.py > validation_report.md
+          echo "REPORT_FILE=validation_report.md" >> $GITHUB_OUTPUT
+      
+      - name: Find existing comment
+        uses: peter-evans/find-comment@v4
+        id: find-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '🔍 Translation Validation Report'
+      
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body-path: validation_report.md
+          edit-mode: replace

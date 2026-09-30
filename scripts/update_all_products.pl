@@ -80,7 +80,7 @@ use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::EnvironmentalScore qw(compute_environmental_score);
 use ProductOpener::Packaging
 	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
-use ProductOpener::ForestFootprint qw(compute_forest_footprint);
+use ProductOpener::ForestFootprint2026 qw(compute_forest_footprint_2026);
 use ProductOpener::MainCountries qw(compute_main_countries);
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
@@ -1407,7 +1407,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_forest_footprint) {
-			compute_forest_footprint($product_ref);
+			compute_forest_footprint_2026($product_ref);
 		}
 
 		if ($compute_main_countries) {
@@ -1566,7 +1566,7 @@ while (my $product_ref = $cursor->next) {
 				# we store the product with the new update_key in the .sto file and the mongodb collection
 
 				# Set last modified time if something was changed
-				if ($any_change) {
+				if ($any_change or $force_new_version) {
 					$product_ref->{last_updated_t} = time() + 0;
 				}
 				else {

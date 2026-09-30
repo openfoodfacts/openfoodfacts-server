@@ -74,6 +74,9 @@ BEGIN {
 		&import_products_categories_from_public_database
 		&list_product_images_files_in_dir
 		&upload_images_for_product
+		&get_image_urls_to_try
+		&get_google_drive_confirm_download_url
+		&download_image
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -510,6 +513,118 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 	return;
 }
 
+=head2 get_image_urls_to_try ($image_url)
+
+Given an image URL found in a CSV import file, return an ordered list of URLs to try
+downloading the image from, most likely to return the full-size image first.
+
+Some URLs point to a viewer/thumbnail page instead of the actual image file: they are
+rewritten to a direct-download / full-size URL, which is tried first, while the original
+URL is kept as a fallback.
+
+=head3 Arguments
+
+=head4 $image_url - the image URL found in the CSV file
+
+=head3 Return value
+
+A list of URLs to try downloading the image from, in order.
+
+=cut
+
+sub get_image_urls_to_try ($image_url) {
+
+	my @image_urls = ($image_url);
+
+	my $rewritten_url = $image_url;
+
+	# Google Drive "view" / "open" share links point to an HTML viewer page, not the image file
+	# https://drive.google.com/file/d/1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0/view?usp=drive_link
+	# https://drive.google.com/open?id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0
+	# -> https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0
+	if ($rewritten_url =~ m{^https?://drive\.google\.com/(?:file/d/|open\?id=)([\w-]+)}i) {
+		$rewritten_url = "https://drive.google.com/uc?export=download&id=$1";
+	}
+
+	# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
+	# -> remove thumb=true to get the full image
+	$rewritten_url =~ s/thumb=true&//;
+
+	# https://www.elle-et-vire.com/uploads/cache/400x400/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png
+	$rewritten_url =~ s/\/uploads\/cache\/(\d+)x(\d+)\/uploads\//\/uploads\//;
+
+	if ($rewritten_url ne $image_urls[0]) {
+		unshift @image_urls, $rewritten_url;
+	}
+
+	return @image_urls;
+}
+
+=head2 get_google_drive_confirm_download_url ($html)
+
+Google Drive returns an HTML "Google Drive can't scan this file for viruses" interstitial page
+instead of the file content, for files it considers too large to scan. Build the URL to retry
+the download with from that page.
+
+As of 2026, the interstitial is a GET form (id="download-form") whose action and hidden inputs
+(id, export, confirm, uuid) must all be resubmitted - the download must be retried against that
+form's action URL (a different host, drive.usercontent.google.com, not drive.google.com) with
+all of its hidden fields, not just by appending a confirm token to the original URL. Google has
+changed this page's format before (it used to be a plain link with an embedded confirm= token,
+which we fall back to if the form isn't found) and may do so again.
+
+=head3 Arguments
+
+=head4 $html - the HTML content returned by Google Drive
+
+=head3 Return value
+
+The absolute URL to retry the download with, or undef if $html does not look like a Google
+Drive virus-scan confirmation interstitial.
+
+=cut
+
+sub get_google_drive_confirm_download_url ($html) {
+
+	# Current interstitial: a GET form with hidden inputs, e.g.
+	# <form id="download-form" action="https://drive.usercontent.google.com/download" method="get">
+	# <input type="hidden" name="id" value="...">
+	# <input type="hidden" name="export" value="download">
+	# <input type="hidden" name="confirm" value="t">
+	# <input type="hidden" name="uuid" value="...">
+	if ($html =~ m{<form\b[^>]*\bid=["']download-form["'][^>]*\baction=["']([^"']+)["'][^>]*>(.*?)</form>}is) {
+		my ($action, $form_body) = ($1, $2);
+
+		my %params;
+		while ($form_body =~ m{<input\b([^>]*)>}gi) {
+			my $attributes = $1;
+			if (    ($attributes =~ /\btype=["']hidden["']/i)
+				and ($attributes =~ /\bname=["']([^"']+)["']/i))
+			{
+				my $name = $1;
+				my ($value) = $attributes =~ /\bvalue=["']([^"']*)["']/i;
+				$params{$name} = $value // '';
+			}
+		}
+
+		if (%params) {
+			return $action . '?'
+				. join('&', map {encodeURIComponent($_) . '=' . encodeURIComponent($params{$_})} sort keys %params);
+		}
+	}
+
+	# Older interstitial format: a plain link with an embedded confirm= token, e.g.
+	# <a id="uc-download-link" href="/uc?export=download&amp;id=...&amp;confirm=t7cO" ...
+	if ($html =~ /href=["']([^"']*confirm=[0-9A-Za-z_-]+[^"']*)["']/) {
+		my $href = $1;
+		$href =~ s/&amp;/&/g;
+		$href = "https://drive.google.com" . $href if $href =~ m{^/};
+		return $href;
+	}
+
+	return;
+}
+
 # download image at given url parameter
 sub download_image ($image_url) {
 
@@ -523,6 +638,21 @@ sub download_image ($image_url) {
 		$log->debug("got a 403, trying a different User-Agent", {image_url => $image_url}) if $log->is_debug();
 		$ua->agent("curl/8.5.0");
 		$response = $ua->get($image_url, 'Accept' => '*/*');
+	}
+
+	# Google Drive returns an HTML "can't scan this file for viruses" interstitial page instead of
+	# the file content, for files it considers too large to scan: retry with the confirm URL it gives us
+	if (    ($response->is_success)
+		and ($image_url =~ m{^https?://drive\.google\.com/uc\?})
+		and (($response->header('Content-Type') // '') =~ m{^text/html}))
+	{
+		my $confirm_url = get_google_drive_confirm_download_url($response->decoded_content);
+		if (defined $confirm_url) {
+			$log->debug("got a Google Drive virus scan warning page, retrying with confirm url",
+				{image_url => $image_url, confirm_url => $confirm_url})
+				if $log->is_debug();
+			$response = $ua->get($confirm_url, 'Accept' => '*/*');
+		}
 	}
 
 	$log->debug("downloading image - result",
@@ -2605,20 +2735,7 @@ sub import_csv_file ($args_ref) {
 							# Download the image
 
 							# We can try to transform some URLs to get the full size image instead of preview thumbs
-
-							my @image_urls = ($image_url);
-
-							# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
-							# -> remove thumb=true to get the full image
-
-							$image_url =~ s/thumb=true&//;
-
-							# https://www.elle-et-vire.com/uploads/cache/400x400/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png
-							$image_url =~ s/\/uploads\/cache\/(\d+)x(\d+)\/uploads\//\/uploads\//;
-
-							if ($image_url ne $image_urls[0]) {
-								unshift @image_urls, $image_url;
-							}
+							my @image_urls = get_image_urls_to_try($image_url);
 
 							my $downloaded_image = 0;
 

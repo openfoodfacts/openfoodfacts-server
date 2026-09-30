@@ -621,6 +621,63 @@ check_quality_and_test_product_has_quality_tag(
 	'energy not matching nutrient', 0
 );
 
+# Isomalt is a polyol which contributes energy at the general polyols rate (10 kj / 2.4 kcal per g)
+# If we do not have a value for polyols but we have a value for isomalt, we should assume that
+# polyols are equal to isomalt when we check the nutrients to energy computation.
+# (100 g carbohydrates, all of it isomalt -> 100 g * 10 kj/g = 1000 kj)
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 1000, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"isomalt" => {value => 100, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy matching nutrient - isomalt without polyols', 0
+);
+
+# Individual polyols values (isomalt and maltitol) should be summed when there is no value for polyols
+# (100 g carbohydrates, 60 g isomalt + 40 g maltitol -> 100 g * 10 kj/g = 1000 kj)
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 1000, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"isomalt" => {value => 60, unit => "g"},
+					"maltitol" => {value => 40, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy matching nutrient - isomalt and maltitol without polyols', 0
+);
+
 # en:nutrition-value-negative-$nid should be raised - for nutrients below 0
 $product_ref = {
 	nutrition => {

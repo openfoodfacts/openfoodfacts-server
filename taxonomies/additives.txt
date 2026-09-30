@@ -122,6 +122,16 @@ vegetarian:en: yes
 wikidata:en: Q312266
 wikipedia:en: https://en.wikipedia.org/wiki/Curcumin
 
+< en: E100
+en: E100(i)
+xx: E100(i)
+e_number:en: 100
+
+< en: E100
+en: E100(ii)
+xx: E100(ii)
+e_number:en: 100
+
 # WARNING:e106 is the same as e101a, moved synonyms to E101a
 
 en: E106, flavin mononucleotide
@@ -153,8 +163,8 @@ vegetarian:en: yes
 wikidata:en: Q376061
 # comment:en:used to be extracted from milk, but not anymore.
 
-en: E101, Riboflavin, Vitamin B2, Flavaxin, Vitamin B 2, Vitamin G, Riboflavine, Lactoflavine, Lactoflavin
-xx: E101
+en: E101, Riboflavin, Vitamin B2, Flavaxin, Vitamin B 2, Vitamin G, Riboflavine, Lactoflavine, Lactoflavin, riboflavin color
+xx: E101, 3a825i, 3a825ii, 3a825
 bg: E101, Рибофлавин
 ca: E101, Riboflavina
 cs: E101, Riboflavin, Ovoflavin, Vitamin B 2, Vitamin B2, Laktoflavin, Vitamín G, Lactoflavin
@@ -256,6 +266,16 @@ efsa_evaluation_adi_established:en: en:no
 efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 wikidata:en: Q130365
+
+< en: E101
+en: E101(iii), Riboflavin from Bacillus subtilis
+xx: E101(iii)
+e_number:en: 101
+
+< en: E101
+en: E101(iv), Riboflavin from Ashbya gossypii
+xx: E101(iv)
+e_number:en: 101
 
 en: E101a, E101a food additive
 xx: E101a
@@ -1624,7 +1644,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
 vegan:en: yes
 vegetarian:en: yes
 
-en: E150c, Ammonia caramel, baker's caramel, confectioner's caramel, beer caramel, Caramel Color Ammonia, Ammonia caramel, Caramel Color
+en: E150c, Ammonia caramel, baker's caramel, confectioner's caramel, beer caramel, Caramel Color Ammonia, Ammonia caramel
 xx: E150c
 bg: E150c, Амониев карамел
 cs: E150c, Amoniakový karamel
@@ -1959,7 +1979,7 @@ vegetarian:en: maybe
 wikidata:en: Q191907
 
 #comment:en: E160a are mixed carotenes and E160b the beta-variants (put those there)
-en: E160a, carotene
+en: E160a, carotene, carotene color
 xx: E160a
 bg: E160a, Каротин
 ca: E160a, Carotè
@@ -2000,7 +2020,7 @@ vegetarian:en: maybe
 wikidata:en: Q190156
 
 < en: E160a
-en: E160a(i), Beta-carotene, b-carotene
+en: E160a(i), Beta-carotene, b-carotene, beta-carotene color
 xx: E160a(i)
 bg: E160a(i), Бета-каротин
 cs: E160a(i), Beta-karoten
@@ -2025,7 +2045,7 @@ pt: E160a(i), Beta-caroteno
 ro: E160a(i), Beta-caroten
 sk: E160a(i), Beta-karotén
 sl: E160a(i), Beta karoten
-sv: E160a(i), Betakaroten, beta-karoten
+sv: E160a(i), betakaroten, beta-karoten, B-karoten
 uk: E160a(i), бета-каротин
 additives_classes:en: en:colour
 anses_additives_of_interest:en: yes
@@ -2139,7 +2159,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
 vegan:en: yes
 vegetarian:en: yes
 
-en: E160b, Annatto, bixin, norbixin, roucou, achiote, annatto norbixin, annatto bixin, Orlean, Terre orellana, L. Orange, CI Natural Orange 4
+en: E160b, Annatto, bixin, norbixin, roucou, achiote, annatto norbixin, annatto bixin, Orlean, Terre orellana, L. Orange, CI Natural Orange 4, annatto color
 xx: E160b
 ar: E160b, أناتو
 bg: E160b, Анато, биксин, норбиксин (i), БИКСИН И НОРБИКСИН, анато норбиксин
@@ -2165,7 +2185,7 @@ lt: E160b, Anatas, biksinas, norbiksinas
 lv: E160b, Annato, biksīns, norbiksīns
 mt: E160b, Annatto, biksin, norbiksin
 nb: E160b, Annatto
-nl: E160b, annatto, Anatto, Annato, annatto norbixine, annatto bixine
+nl: E160b, annatto, Anatto, Annato, annatto norbixine, annatto bixine, annatto norbixin, norbixin
 pl: E160b, Annato, biksyna, norbiksyna, Annatto, annato norbiksyna
 pt: E160b, Anato, bixina, norbixina, Colorau, Coloral, Urucu
 ro: E160b, Annatto, bixină, norbixină (i)
@@ -2202,8 +2222,14 @@ fr: E160b(ii), norbixine de rocou
 additives_classes:en: en:colour
 e_number:en: 160b
 
+# comment:en: former EU subtype of E160b (Regulation 231/2012), replaced in 2020 by Regulation 2020/771; still found on older labels
+< en: E160b
+en: E160b(iii), Oil-extracted annatto
+xx: E160b(iii)
+e_number:en: 160b
+
 # in English, we sometimes have "paprika color", in which case it is clearly the additive
-en: E160c, Paprika extract, capsanthin, capsorubin, Paprika oleoresin, oleoresin of paprika, oleoresin paprika, paprika color, colored with paprika
+en: E160c, Paprika extract, capsanthin, capsorubin, Paprika oleoresin, oleoresin of paprika, oleoresin paprika, paprika color, colored with paprika, paprika oleoresin color, oleoresin paprika color
 xx: E160c
 bg: E160c, Паприка екстракт, капсантин, капсорубин
 ca: E160c, Capsantina
@@ -2241,6 +2267,16 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4320
 vegan:en: yes
 vegetarian:en: yes
 
+< en: E160c
+en: E160c(i)
+xx: E160c(i)
+e_number:en: 160c
+
+< en: E160c
+en: E160c(ii)
+xx: E160c(ii)
+e_number:en: 160c
+
 en: E160d, Lycopene
 xx: E160d
 bg: E160d, Ликопен i, Ликопен
@@ -2277,7 +2313,22 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q208130
 
-en: E160e, Beta-apo-8′-carotenal (c30), Apocarotenal, Beta-apo-8'-carotenal, C.I. Food orange 6, E number 160E, Trans-beta-apo-8'-carotenal, C30H40O
+< en: E160d
+en: E160d(i), Lycopene\, synthetic
+xx: E160d(i)
+e_number:en: 160d
+
+< en: E160d
+en: E160d(ii), Lycopene\, tomato
+xx: E160d(ii)
+e_number:en: 160d
+
+< en: E160d
+en: E160d(iii), Lycopene\, Blakeslea trispora
+xx: E160d(iii)
+e_number:en: 160d
+
+en: E160e, Beta-apo-8′-carotenal (c30), Apocarotenal, Beta-apo-8'-carotenal, C.I. Food orange 6, E number 160E, Trans-beta-apo-8'-carotenal, C30H40O, apo carotenal, apocarotenal color
 xx: E160e
 bg: E160e, Бета-апо-8′-каротенал (c30)
 cs: E160e, Β-apo-8′-karotenal (c 30)
@@ -2468,6 +2519,21 @@ vegetarian:en: yes
 # zh-sg:E161b, 葉黃素
 wikidata:en: Q422067
 wikipedia:en: https://en.wikipedia.org/wiki/Lutein
+
+< en: E161b
+en: E161b(i), Lutein from Tagetes erecta
+xx: E161b(i)
+e_number:en: 161b
+
+< en: E161b
+en: E161b(ii)
+xx: E161b(ii)
+e_number:en: 161b
+
+< en: E161b
+en: E161b(iii), Lutein esters from Tagetes erecta
+xx: E161b(iii)
+e_number:en: 161b
 
 en: E161c, Cryptoaxanthin, Cryptoxanthin
 xx: E161c
@@ -2690,6 +2756,16 @@ vegan:en: yes
 vegetarian:en: yes
 # comment:en:E161h can be consumed by all religious groups, vegans and vegetarians.
 
+< en: E161h
+en: E161h(i), Zeaxanthin\, synthetic
+xx: E161h(i)
+e_number:en: 161h
+
+< en: E161h
+en: E161h(ii)
+xx: E161h(ii)
+e_number:en: 161h
+
 en: E161i, Citranaxanthin
 xx: E161i
 ar: E161i, سيتراناكسانثين
@@ -2882,6 +2958,56 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3145
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q262547
+
+< en: E163
+en: E163(ii)
+xx: E163(ii)
+e_number:en: 163
+
+< en: E163
+en: E163(iii)
+xx: E163(iii)
+e_number:en: 163
+
+< en: E163
+en: E163(iv)
+xx: E163(iv)
+e_number:en: 163
+
+< en: E163
+en: E163(v)
+xx: E163(v)
+e_number:en: 163
+
+< en: E163
+en: E163(vi)
+xx: E163(vi)
+e_number:en: 163
+
+< en: E163
+en: E163(vii)
+xx: E163(vii)
+e_number:en: 163
+
+< en: E163
+en: E163(viii)
+xx: E163(viii)
+e_number:en: 163
+
+< en: E163
+en: E163(ix)
+xx: E163(ix)
+e_number:en: 163
+
+< en: E163
+en: E163(x)
+xx: E163(x)
+e_number:en: 163
+
+< en: E163
+en: E163(xi)
+xx: E163(xi)
+e_number:en: 163
 
 en: E163a, Cyanidin
 xx: E163a
@@ -3470,7 +3596,7 @@ wikidata:en: Q415144
 
 # comment:en:A translation with dioxide in it is preferred
 
-en: E171, Titanium dioxide
+en: E171, Titanium dioxide, titanium dioxide color
 xx: E171
 ar: E171, ثنائي أكسيد التيتانيوم
 be: E171, Аксід тытану
@@ -4022,7 +4148,7 @@ vegetarian:en: yes
 wikidata:en: Q420152
 
 en: E202, Potassium sorbate
-xx: E202
+xx: E202, 1k202
 bg: E202, Калиев сорбат
 bs: E202, Kalij sorbat
 ca: E202, Sorbat de potassi, sorbat potàssic
@@ -4406,7 +4532,7 @@ e_number:en: 215
 vegan:en: yes
 vegetarian:en: yes
 
-en: E216, Propyl para-hydroxybenzoate, Sodium Salt of Propyl-p-hydroxy Benzoic Acid, Propylparaben
+en: E216, Propyl para-hydroxybenzoate, Sodium Salt of Propyl-p-hydroxy Benzoic Acid, Propylparaben, propyl paraben
 xx: E216
 ar: E216, بروبيل بارا هيدروكسي بنزوات
 az: E216, Propil para-hidroksibenzoat
@@ -4476,7 +4602,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18967279
 
-en: E218, Methyl p-hydroxybenzoate, Methylparaben, methyl 4-hydroxybenzoate
+en: E218, Methyl p-hydroxybenzoate, Methylparaben, methyl 4-hydroxybenzoate, methyl paraben
 xx: E218
 bg: E218, Метил р-хидроксибензоат, Метилпарабен
 cs: E218, Methyl-p-hydroxybenzoát, Metylparaben
@@ -4590,21 +4716,6 @@ tr: kükürt dioksit
 uk: Діоксид сірки
 vi: Lưu huỳnh điôxit
 zh: 二氧化硫
-additives_classes:en: en:antioxidant, en:preservative
-anses_additives_of_interest:en: yes
-description:en: SULPHUR DIOXIDE is the chemical compound with the formula SO2.
-# conservateur (E220 [sulfite])
-e_number:en: 220
-efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
-efsa_evaluation_adi:en: 0.7
-efsa_evaluation_date:en: 2016-04-14
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
-efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
-organic_eu:en: authorized
-vegan:en: yes
-vegetarian:en: yes
 # azb:قوقرد دیاوکسید
 # bho:सल्फर डाइऑक्साइड
 # en-ca:Sulfur dioxide
@@ -4616,6 +4727,22 @@ vegetarian:en: yes
 # pt-br:Dióxido de enxofre
 # sco:Sulfur dioxide
 # yue:二氧化硫
+additives_classes:en: en:antioxidant, en:preservative
+anses_additives_of_interest:en: yes
+description:en: Sulphur dioxide is a gas derived from burning elemental sulphur or as a byproduct of metal smelting and fossil fuel combustion. Industrially, it's produced by burning sulphur in oxygen or via the contact process used for sulphuric acid manufacturing. It has a sharp, pungent smell and, in concentrated form, a slightly acidic, irritating taste. In food, it acts as a preservative, antioxidant, and antimicrobial agent, commonly used in dried fruits, wine, fruit juices, and processed potatoes to prevent browning and spoilage. Nutritionally, it contributes no calories, vitamins, or minerals; it's regulated globally as a food additive with permitted maximum levels.
+# conservateur (E220 [sulfite])
+e_number:en: 220
+efsa_evaluation:en: Scientific Opinion on the re-evaluation of sulfur dioxide (E 220), sodium sulfite (E 221), sodium bisulfite (E 222), sodium metabisulfite (E 223), potassium metabisulfite (E 224), calcium sulfite (E 226), calcium bisulfite (E 227) and potassium bisulfite (E 228) as food additives
+efsa_evaluation_adi:en: 0.7
+efsa_evaluation_date:en: 2016-04-14
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4438
+nova:en: 3
+organic_eu:en: authorized
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q5282
 wikipedia:en: https://en.wikipedia.org/wiki/Sulfur_dioxide
 
@@ -5649,7 +5776,7 @@ vi: E250, Natri nitrit
 zh: E250, 亚硝酸钠
 additives_classes:en: en:preservative
 anses_additives_of_interest:en: yes
-description:en: SODIUM NITRITE is an inorganic compound with the chemical formula NaNO2. it is a food additive used in processed meats and (in some countries) in fish products.
+description:en: A synthetic salt manufactured industrially by reacting sodium hydroxide or sodium carbonate with nitrogen oxide gases, produced worldwide for food and industrial applications. It's typically supplied as a fine white to slightly yellowish crystalline powder. Sodium nitrite itself is essentially tasteless in the small quantities used, though it contributes to the characteristic tangy, savory flavor of cured meats through chemical reactions during processing. Widely used globally as a curing agent and preservative in bacon, ham, sausages, and other processed meats, where it inhibits bacterial growth (notably Clostridium botulinum) and stabilizes color. Nutritionally, it provides no caloric or nutrient value, serving solely a functional preservation role.
 # usage:de:Stabilisator (Natriumnitrit)
 e_number:en: 250
 efsa_evaluation:en: Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250) as food additives
@@ -5660,6 +5787,7 @@ efsa_evaluation_overexposure_risk:en: en:high
 # Mean>ADI adults	95th>ADI adults	Mean>ADI elderly	95th>ADI elderly	Mean>ADI adolescent	95>ADI adolescent	Mean>ADI children	95th>ADI children	Mean>ADI toddlers	95th>ADI toddlers	Mean>ADI infants	95th>ADI infants
 # 0	1	0	1			1	1	1	1	1	1
 efsa_evaluation_url:en: https://zenodo.org/record/1252752/files/EFSAOutputs_KJ_2018.xlsx
+nova:en: 3
 organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
@@ -6011,6 +6139,16 @@ vegetarian:en: yes
 # zh-tw:E261, 乙酸鉀
 wikidata:en: Q409199
 
+< en: E261
+en: E261(i)
+xx: E261(i)
+e_number:en: 261
+
+< en: E261
+en: E261(ii), Potassium diacetate
+xx: E261(ii)
+e_number:en: 261
+
 # comment:en:Note that E262 must be in plural (Sodium acetates), as it is unspecified which one. The specific ones come as E262i, E262ii, etc.
 
 en: E262, Sodium acetates
@@ -6359,7 +6497,7 @@ uk: E270, Молочна кислота
 uz: E270, Sut kislota
 vi: E270, axit lactic
 zh: E270, 乳酸
-description:en: LACTIC ACID is an organic compound with the formula CH3CH(OH)CO2H. In the form of its conjugate base called lactate (this is thus different and kept as a separate ingredient). Lactic acid is chiral, consisting of two optical isomers. One is known as L-(+)-lactic acid or (S)-lactic acid and the other, its mirror image, is D-(−)-lactic acid or (R)-lactic acid in food the L-variant is used
+description:en: An organic acid naturally occurring in fermented foods, first identified in sour milk, now produced globally through microbial fermentation. It's manufactured by fermenting carbohydrate sources like corn, sugarcane, or beets with lactic acid bacteria, followed by purification. Lactic acid has a sharp, tangy, sour taste and is used worldwide as an acidulant, preservative, and pH regulator in dairy products, baked goods, beverages, pickled vegetables, and processed meats. It also aids fermentation in foods like yogurt and sauerkraut. Nutritionally, it provides a negligible caloric contribution and no significant vitamins or minerals, functioning primarily as a flavoring and preservation agent rather than a nutrient source.
 # wikidata:en:Q161249
 organic_eu:en: authorized
 vegan:en: yes
@@ -6629,8 +6767,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q5319
 
-# comment:en:products seems to use all kinds of synonyms. Also wikidata is not consistent. Try to stay close to the chemical name:Carbon dioxide.
-
+# comment:en:products seems to use all kinds of synonyms. Also wikidata is not consistent. Try to stay close to the chemical name:Carbon dioxide. Note: carbon dioxide is different from carbonic acid (which is in ingredients.txt)
 en: E290, Carbon dioxide, Carbonic acid gas
 xx: E290
 af: E290, Koolstofdioksied
@@ -6646,14 +6783,14 @@ ca: E290, Diòxid de carboni, dioxid de carboni
 cs: E290, Oxid uhličitý, Plynný oxid uhličitý
 cy: E290, carbon deuocsid
 da: E290, Carbondioxid, Kuldioxidgas, Kuldioxid
-de: E290, Kohlendioxid, Kohlensäure, Kohlenstoffdioxid
+de: E290, Kohlendioxid, Kohlenstoffdioxid
 el: E290, Διοξειδιο του ανθρακα, Αέριο ανθρακικό οξύ
 eo: E290, karbona dioksido
 es: E290, Dióxido de carbono, Anhídrido carbónico, Gas de ácido carbónico
 et: E290, Süsinikdioksiid, süsihappegaas
 fa: E290, کربن دی‌اکسید
-fi: E290, Hiilidioksidi, Hiilidioksidia, hiilihappo, hiilihappoa
-fr: E290, Dioxyde de carbone, Anhydride carbonique, gaz carbonique, Acide carbonique, carbonate d'hydrogène, Gaz de l'acide carbonique, neige carbonique, gaz carbonique naturel, CO², CO2
+fi: E290, Hiilidioksidi, Hiilidioksidia
+fr: E290, Dioxyde de carbone, Anhydride carbonique, gaz carbonique, carbonate d'hydrogène, Gaz de l'acide carbonique, neige carbonique, gaz carbonique naturel, CO², CO2
 ga: E290, Dé-ocsaíd charbóin
 gd: E290, Dà-ogsaid gualain
 gl: E290, Dióxido de carbono
@@ -6689,7 +6826,7 @@ mt: E290, Diossidu tal-karbonju, Gass tal-aċidu karboniku
 my: E290, ကာဗွန်ဒိုင်အောက်ဆိုက်
 nb: E290, karbondioksid, kullsyre
 ne: E290, कार्बनडाइअक्साइड
-nl: E290, Koolstofdioxide, Koolzuurgas, koolzuur
+nl: E290, Koolstofdioxide, Koolzuurgas, kooldioxide
 nn: E290, karbondioksid
 oc: E290, Dioxid de carbòni
 om: E290, Carbon dioxide
@@ -6710,7 +6847,7 @@ so: E290, Kaarboon laba ogsaydh
 sq: E290, Dioksidi i karbonit
 sr: E290, ugljen-dioksid
 su: E290, Karbon dioksida
-sv: E290, Koldioxid, Kolsyregas, kolsyresnö, kolsyra
+sv: E290, Koldioxid, Kolsyregas, kolsyresnö
 ta: E290, காபனீரொக்சைட்டு
 te: E290, కార్బన్ డయాక్సైడ్
 th: E290, คาร์บอนไดออกไซด์
@@ -6888,7 +7025,7 @@ wikidata:en: Q139857
 
 # this is vitamin c, put vitamin c in vitamins.txt and ascorbic acid here
 en: E300, Ascorbic acid, l-ascorbic acid, Synonyms L-xylo-Ascorbic acid
-xx: E300
+xx: E300, 3a300
 bg: E300, Аскорбинова киселина, l-аскорбинова киселина, L-ксило-аскорбинова киселина
 ca: E300, Àcid ascòrbic, acid ascorbic
 cs: E300, Kyselina askorbová, kyselina l-askorbová
@@ -6916,6 +7053,7 @@ sl: E300, Askorbinska kislina, l-askorbinska kislina
 sv: E300, Askorbinsyra, l-askorbinsyra, Hexuronsyra, Askorbat, Askobinsyror, Askorbin
 additives_classes:en: en:antioxidant, en:sequestrant
 default_additive_class:en: en:vitamin
+description:en: Ascorbic acid is a naturally occurring organic compound found in citrus fruits, berries, and vegetables such as peppers and broccoli. Commercially, it is produced industrially through fermentation of glucose (often derived from corn), followed by chemical conversion steps, yielding a highly pure, food-grade powder. It has a mildly tart, sour taste, similar to citrus. Ascorbic acid is widely used as a food additive (E300) for its antioxidant properties, preventing browning and preserving freshness in juices, canned goods, and processed foods. Nutritionally, it is an essential water-soluble vitamin, contributing to collagen synthesis, immune function, and iron absorption across diverse global diets.
 e_number:en: 300
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of ascorbic acid (E 300), sodium ascorbate (E 301) and calcium ascorbate (E 302) as food additives
 efsa_evaluation_adi_established:en: en:no
@@ -7186,7 +7324,7 @@ wikidata:en: Q424521
 # comment:en:For the Vitamin application of tocopherol, see the vitamins section<en:antioxidant
 
 en: E306, Tocopherol-rich extract, Tocopherols, natural tocopherols, mixed tocopherols, natural mixed tocopherols
-xx: E306
+xx: E306, 1b306i, 1b306ii, 1b306
 bg: E306, Токоферол-обогатен екстракт
 ca: E306, Extracte ric en tocoferols
 cs: E306, Extrakt s vysokým obsahem tokoferolů
@@ -7987,6 +8125,11 @@ vegetarian:en: maybe
 wikidata:en: Q241595
 
 < en: E322
+en: E322(iii), Lecithin\, hydroxylated
+xx: E322(iii)
+e_number:en: 322
+
+< en: E322
 en: E322a, Oat lecithin
 xx: E322a
 ar: E322a, ليسيثين الشوفان
@@ -8170,7 +8313,7 @@ lt: E326, kalio laktatas
 lv: E326, kālija laktāts
 mt: E326, Lattat tal-potassju
 nb: E326, Kaliumlaktat
-nl: E326, kaliumlactaat
+nl: E326, kaliumlactaat, kalium lactaat
 pl: E326, mleczan potasu
 pt: E326, lactato de potássio
 ro: E326, Lactat de potasiu
@@ -8727,7 +8870,7 @@ wikidata:en: Q420280
 
 #comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
 < en: E333
-en: E333(iii), Tricalcium citrate
+en: E333(iii), Tricalcium citrate, tri-calciumcitrate
 xx: E333(iii)
 bg: E333(iii), Трикалциев цитрат
 cs: E333(iii), Tricalcium citrate
@@ -9490,7 +9633,7 @@ it: E341, Fosfati di calcio, Fosfato di calcio
 lt: E341, Kalcio fosfatai, kalcio fosfatas
 lv: E341, Kalcija fosfāti, kalcija fosfāts
 mt: E341, Fosfat tal-kalċju, fosfat tal-kalċju
-nl: E341, Calciumfosfaten, Calciumorthofosfaten
+nl: E341, Calciumfosfaten, Calciumorthofosfaten, calciumfosfaat
 pl: E341, Fosforan wapnia, Fosforany wapnia
 pt: E341, Fosfatos de cálcio, Fosfato de cálcio
 ro: E341, Fosfați de calciu, fosfat de calciu
@@ -9681,6 +9824,16 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18967184
 
+< en: E342
+en: E342(i), Ammonium dihydrogen phosphate
+xx: E342(i)
+e_number:en: 342
+
+< en: E342
+en: E342(ii), Diammonium hydrogen phosphate
+xx: E342(ii)
+e_number:en: 342
+
 #comment:en:Is in plural, as it can be any specific variant
 # description:en:Magnesium phosphate is a general term for salts of magnesium and phosphate appearing in several forms and several hydrates
 # Note that these ingredients are written in plural as it can be any of the three variants
@@ -9797,6 +9950,11 @@ anses_additives_of_interest:en: yes
 e_number:en: 343
 wikidata:en: Q14325507
 wikipedia:en: https://en.wikipedia.org/wiki/Dimagnesium_phosphate
+
+< en: E343
+en: E343(iii), Trimagnesium phosphate
+xx: E343(iii)
+e_number:en: 343
 
 en: E344, Lecithin citrate
 xx: E344
@@ -10033,6 +10191,16 @@ e_number:en: 351
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q408755
+
+< en: E351
+en: E351(i), Potassium hydrogen malate
+xx: E351(i)
+e_number:en: 351
+
+< en: E351
+en: E351(ii)
+xx: E351(ii)
+e_number:en: 351
 
 #comment:en:Use plural to describe E352 and singular to describe E352i
 en: E352, Calcium malates
@@ -10321,6 +10489,17 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q213050
 
+< en: E364
+en: E364(i), Monosodium succinate
+xx: E364(i)
+e_number:en: 364
+
+< en: E364
+en: E364(ii), Disodium succinate
+xx: E364(ii)
+e_number:en: 364
+
+en: E364, Sodium succinates
 xx: E364
 ar: E364, سكسينات الصوديوم
 az: E364, Natrium süksinat
@@ -10521,7 +10700,7 @@ vegan:en: yes
 vegetarian:en: yes
 
 en: E375, Nicotinic acid, Niacin, Nicotinamide
-xx: E375
+xx: E375, 3a314
 bg: E375, Никотинова киселина, Ниацин, Никотинамид
 cs: E375, Kyselina nikotinová, Niacin, Nikotinamid
 da: E375, Nikotinsyre, Niacin, Nikotinamid
@@ -10860,6 +11039,7 @@ ro: E392, Extracte de rozmarin, extract de rozmarin
 sk: E392, Extrakty z rozmarínu
 sl: E392, Izvlečki rožmarina
 sv: E392, Extrakt av rosmarin, rosmarinextrakt
+description:en: Derived from Rosmarinus officinalis, a Mediterranean evergreen shrub cultivated widely across Europe, North Africa, and increasingly in Asia and the Americas. The extract is produced by drying rosemary leaves and processing them through solvent or CO₂ extraction to isolate concentrated compounds, primarily carnosic acid and rosmarinic acid. It carries a robust, herbaceous flavor with piney, slightly peppery, and mildly bitter notes. Commonly used as a natural antioxidant and preservative in processed meats, oils, snacks, and sauces, it helps extend shelf life by slowing oxidation. Nutritionally, rosemary extract contains trace polyphenols and antioxidant compounds, though it's typically used in amounts too small to contribute meaningfully to daily nutrient intake.
 e_number:en: 392
 efsa_evaluation:en: Extension of use of extracts of rosemary (E 392) in fat-based spreads
 efsa_evaluation_date:en: 2015-05-07
@@ -11284,7 +11464,7 @@ pt: E407a, Algas eucheuma transformadas
 ro: E407a, Algă eucheuma prelucrată
 sk: E407a, Spracovaná chaluha eucheuma
 sl: E407a, Predelana morska alga eucheuma
-sv: E407a, Bearbetad eucheumaalg
+sv: E407a, bearbetad eucheumaalg, bearbetad Euchemaalg
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabiliser, en:thickener
 e_number:en: 407a
 efsa_evaluation:en: Re‐evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives
@@ -11535,7 +11715,7 @@ ar: E415, صمغ الكزانتان
 bg: E415, Гума ксантан, Ксантанова гума, ксантан, ксантан гума
 ca: E415, Goma de xantè, goma de xante, goma xantana
 cs: E415, Xanthan, Xanthanová guma, Xantan
-da: E415, Xanthangummi
+da: E415, xanthangummi, xanthan-gummi
 de: E415, Xanthan, Xanthangummi, E 415, Xantan
 el: E415, Ξανθανικο κομμι, uc
 es: E415, Goma xantana, Xantano, Xantana, goma de xantano, goma xantica, E 415
@@ -11668,7 +11848,7 @@ cs: E418, Guma gellan
 da: E418, Gellangummi
 de: E418, Gellan, E 418
 el: E418, Κομμι τζελαν
-es: E418, Goma gellan, goma gellana, goma gelana, E 418
+es: E418, Goma gellan, goma gellana, goma gelana, goma de gelana
 et: E418, Gellankummi
 fi: E418, Gellaanikumi, Gellaanikumia, gellaani
 fr: E418, Gomme gellane, Gomme de gellane, gellan gum, E-418, 71010-52-1
@@ -11690,16 +11870,27 @@ zh: E418, 結蘭膠
 #en-ca: Gellan gum
 #en-gb: Gellan gum
 additives_classes:en: en:stabiliser, en:thickener
-description:en: GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
+description:en: A polysaccharide produced through fermentation of the bacterium Sphingomonas elodea, originally isolated from a pond in the United States and now manufactured globally, with major production in Asia and the Americas. It's made by fermenting sugar with the bacteria, then purifying and drying the resulting gum into a fine powder. Gellan gum is virtually tasteless and odorless, making it ideal as a texturizing agent. Widely used in dairy products, plant-based beverages, desserts, jams, and bakery items to provide gelling, thickening, and stabilizing properties. Nutritionally, it's a non-digestible fiber, contributing negligible calories and no significant vitamins or minerals to the diet.
 e_number:en: 418
 efsa_evaluation:en: Re‐evaluation of gellan gum (E 418) as food additive
 efsa_evaluation_adi_established:en: en:no
 efsa_evaluation_date:en: 2018/06/20
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5296
+nova:en: 4
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q416694
 wikipedia:en: https://en.wikipedia.org/wiki/Gellan_gum
+
+< en: E418
+en: E418(i)
+xx: E418(i)
+e_number:en: 418
+
+< en: E418
+en: E418(ii), Low-acyl clarified gellan gum
+xx: E418(ii)
+e_number:en: 418
 
 #< en:tree gum
 en: E419, Gum ghatti
@@ -11904,7 +12095,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mannitol
 
 #  description:en:GLYCEROL is a simple polyol compound. In food and beverages, glycerol serves as a humectant, solvent, and sweetener, and may help preserve foods. It is also used as filler in commercially prepared low-fat foods (e.g., cookies), and as a thickening agent in liqueurs.
 
-en: E422, Glycerol, Glycerin, Glycerine, vegetable glycerine
+en: E422, Glycerol, Glycerin, Glycerine, vegetable glycerine, vegetable glycerin
 xx: E422
 ar: E422, غليسرول
 as: E422, গ্লিচাৰল
@@ -12901,6 +13092,21 @@ wikidata:en: Q836765
 #description:en:GLYCEROL ESTER OF WOOD ROSIN,  also known as glyceryl abietate or ester gum, is an oil-soluble food additive (E number E445).
 wikipedia:en: https://en.wikipedia.org/wiki/Glycerol_ester_of_wood_rosin
 
+< en: E445
+en: E445(i), Glycerol ester of gum rosin
+xx: E445(i)
+e_number:en: 445
+
+< en: E445
+en: E445(ii), Glycerol ester of tall oil rosin
+xx: E445(ii)
+e_number:en: 445
+
+< en: E445
+en: E445(iii)
+xx: E445(iii)
+e_number:en: 445
+
 en: E446, Succistearin
 xx: E446
 ar: E446, سكسيستيرين
@@ -13316,6 +13522,16 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18944661
 
+< en: E550
+en: E550(i)
+xx: E550(i)
+e_number:en: 550
+
+< en: E550
+en: E550(ii), Sodium metasilicate
+xx: E550(ii)
+e_number:en: 550
+
 # In chemistry, a pyrophosphate is a phosphorus oxyanion.
 # On wikidata the ingredient is usually called pyrophosphate, contrary to what is found on packages
 
@@ -13667,6 +13883,11 @@ additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser
 e_number:en: 450
 wikidata:en: Q290828
 
+< en: E450
+en: E450(ix), Magnesium dihydrogen diphosphate
+xx: E450(ix)
+e_number:en: 450
+
 #comment:en:E451 is the triphosphates group, either bound with sodium (i) or potassium (ii).
 en: E451, Triphosphates, triphosphate, E 451, e-451
 xx: E451
@@ -13782,6 +14003,11 @@ additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser
 anses_additives_of_interest:en: yes
 e_number:en: 451
 wikidata:en: Q15632716
+
+< en: E451
+en: E451(iii), Sodium potassium triphosphate
+xx: E451(iii)
+e_number:en: 451
 
 en: E452, Polyphosphates, Polyphosphate E452
 xx: E452, e 452, e-452
@@ -14269,7 +14495,7 @@ el: E460(i), Μικροκρυσταλλικη κυτταρινη
 es: E460(i), Celulosa microcristalina
 et: E460(i), Mikrokristalne tselluloos
 fi: E460(i), Mikrokiteinen selluloosa, Mikrokiteistä selluloosaa
-fr: E460(i), Cellulose microcristalline
+fr: E460(i), Cellulose microcristalline, cellulose microcrystalline
 hu: E460(i), Mikrokristályos cellulóz
 it: E460(i), Cellulosa microcristallina
 lt: E460(i), Mikrokristalinė celiuliozė
@@ -14692,6 +14918,21 @@ from_palm_oil:en: maybe
 vegan:en: maybe
 vegetarian:en: maybe
 
+< en: E470
+en: E470(i)
+xx: E470(i)
+e_number:en: 470
+
+< en: E470
+en: E470(ii)
+xx: E470(ii)
+e_number:en: 470
+
+< en: E470
+en: E470(iii)
+xx: E470(iii)
+e_number:en: 470
+
 en: E470a, Sodium/potassium and calcium salts of fatty acids, Sodium/potassium and calcium salts of fatty acids
 xx: E470a
 bg: E470a, Натриеви/калиеви и калциеви соли на мастни киселини
@@ -14907,7 +15148,7 @@ ru: E471, Моно- и диглицериды жирных кислот, мон�
 sk: E471, Mono- a diglyceridy mastných kyselín, Glycerylmonostearát, glycerilmonopalmitát, glycerylmonooleát, monostearín, monopalmitín, monooleín
 sl: E471, Mono- in digliceridi maščobnih kislin, gliceril monostearat, gliceril monopalmitat, gliceril monooleat, monostearin, monopalmitin, monoolein
 sr: E471, mono- i digleciridi masnih kiselina
-sv: E471, Mono- och diglycerider av fettsyror, Glycerylmonostearat, glycerylmonopalmitat, glycerylmonooleat, monostearin, monopalmitin, monoolein
+sv: E471, mono- och diglycerider av fettsyror, mono- och diglycerider av fett, mono- o diglycerider av fettsyror, glycerylmonostearat, glycerylmonopalmitat, glycerylmonooleat, monostearin, monopalmitin, monoolein
 th: โมโน- และไดกลีเซอไรด์ของกรดไขมัน
 additives_classes:en: en:emulsifier, en:stabiliser
 description:en: MONO- AND DIGLYCERIDES OF FATTY ACIDS (E471) refers to a food additive composed of diglycerides and monoglycerides which is used as an emulsifier.
@@ -14920,7 +15161,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acid
 
 < en: E471
 en: mono- and diglycerides of vegetable fatty acids
-sv: mono- och diglycerider av vegetabiliska fettsyror, E471 av vegetabiliskt fett
+sv: mono- och diglycerider av vegetabiliska fettsyror, E471 av vegetabiliskt fett, mono- och diglycerider av vegetabilisk fett, mono o diglycerider av fettsyror (vegetabilisk)
 vegan:en: maybe
 vegetarian:en: yes
 
@@ -15563,6 +15804,16 @@ wikidata:en: Q416058
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_stearoyl_lactylate
 # usage:fr:emulsionante (mono- et diglycérides d'acides gras, stéaroyl-2-lactylate de sodium)
 
+< en: E481
+en: E481(i)
+xx: E481(i)
+e_number:en: 481
+
+< en: E481
+en: E481(ii), Sodium oleyl lactylate
+xx: E481(ii)
+e_number:en: 481
+
 en: E482, Calcium stearoyl-2-lactylate
 xx: E482
 bg: E482, Калциев стераоил-2-лактилат
@@ -15602,6 +15853,16 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q788535
 # comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
+
+< en: E482
+en: E482(i), Calcium stearoyl lactylate
+xx: E482(i)
+e_number:en: 482
+
+< en: E482
+en: E482(ii), Calcium oleyl lactylate
+xx: E482(ii)
+e_number:en: 482
 
 en: E483, Stearyl tartrate, Stearyl palmityl tartrate
 xx: E483
@@ -16183,7 +16444,7 @@ bs: E500(i), Natrij-karbonat
 ca: E500(i), carbonat de sodi
 cs: E500(i), Uhličitan sodný, Bezvodý uhličitan sodný, Soda na praní
 da: E500(i), natriumkarbonat, natriumcarbonat, soda
-de: E500(i), Natriumcarbonat, Natriumkarbonat, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Kalziniertes Soda
+de: E500(i), Natriumcarbonat, Natriumkarbonat, Natriumkarbonate, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Kalziniertes Soda
 el: E500(i), Ανθρακικα αλατα του νατριου
 eo: E500(i), natria karbonato
 es: E500(i), Carbonato sódico, Carbonato de sodio, Sosa comercial
@@ -16850,7 +17111,7 @@ organic_eu:en: authorized
 wikidata:en: Q407931
 
 en: E505, Ferrous carbonate
-xx: E505
+xx: E505, 3b101
 bg: E505, Желязен карбонат
 cs: E505, Uhličitan železnatý
 da: E505, jernkarbonat, jerncarbonat
@@ -17042,7 +17303,7 @@ bs: E510, Amonijum hlorid
 ca: E510, clorur d'amoni, clorur amònic
 cs: E510, Chlorid amonný
 cy: E510, Amoniwm clorid
-da: E510, ammoniumklorid, salmiak
+da: E510, ammoniumklorid, salmiak, ammoniumchlorid
 de: E510, Ammoniumchlorid
 el: E510, Χλωριούχο αμμώνιο
 eo: E510, Amonia klorido
@@ -17302,7 +17563,7 @@ e_number:en: 514
 wikidata:en: Q211737
 
 < en: E514
-en: E514(ii), Sodium hydrogen sulphate, Acid sodium sulphate, Sodium bisulphate
+en: E514(ii), Sodium hydrogen sulphate, Acid sodium sulphate, Sodium bisulphate, sodium bisulfate
 xx: E514(ii)
 bg: E514(ii), Натриев хидроген сулфат, Кисел натриев сулфат
 cs: E514(ii), Hydrogensíran sodný, Kyselý síran sodný
@@ -18383,6 +18644,21 @@ vegan:en: yes
 vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Talc
 
+< en: E553
+en: E553(i), Magnesium silicate\, synthetic
+xx: E553(i)
+e_number:en: 553
+
+< en: E553
+en: E553(ii)
+xx: E553(ii)
+e_number:en: 553
+
+< en: E553
+en: E553(iii)
+xx: E553(iii)
+e_number:en: 553
+
 #comment:en:E553a is a synthetic form of magnesium silicates (plural)
 # the E553a family contains E553a(i): Synthetic magnesium silicate and E553a(ii): Magnesium trisilicate
 # put plural for E553a and singular for E553a(i) whenever it is possible
@@ -18699,7 +18975,7 @@ vegetarian:en: yes
 wikidata:en: Q408008
 
 en: E558, Bentonite
-xx: E558
+xx: E558, 1m558i, 1m558
 af: E558, Bentoniet
 ar: E558, بنتونيت
 az: E558, Bentonit
@@ -20534,7 +20810,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q411955
 
-en: E901, white and yellow beeswax, beeswax, white beeswax, yellow beeswax, white wax
+en: E901, white and yellow beeswax, beeswax, white beeswax, yellow beeswax, white wax, bees wax
 xx: E901
 af: E901, Byewas
 ar: E901, شمع العسل
@@ -21615,7 +21891,7 @@ vegetarian:en: yes
 wikidata:en: Q18935691
 
 en: E916, Calcium iodate
-xx: E916
+xx: E916, 3b202
 bg: E916, Калциев йодат
 cs: E916, Jodan vápenatý
 da: E916, Calciumiodat
@@ -23276,6 +23552,21 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q2130929
 
+< en: E952
+en: E952(i)
+xx: E952(i)
+e_number:en: 952
+
+< en: E952
+en: E952(ii), Calcium cyclamate
+xx: E952(ii)
+e_number:en: 952
+
+< en: E952
+en: E952(iv)
+xx: E952(iv)
+e_number:en: 952
+
 en: E953, isomalt
 xx: E953
 af: E953, Isomalt
@@ -23336,7 +23627,7 @@ bn: E954, স্যাকারিন
 ca: E954, sacarina i les seves sals de sodi potassi i calci, sacarina
 cs: E954, sacharin a jeho sodná draselná a vápenatá sůl, sacharin, cukerín, zuckerin
 da: E954, saccharin and its na. k and ca salts, sakkarin, saccharin
-de: E954, Saccharin, Benzoesäuresulfimid, Saccharin-Natrium
+de: E954, Saccharin, Benzoesäuresulfimid, Natriumsaccharin, Saccharin-Natrium
 el: E954, σακχαρινες
 eo: E954, sakarino
 es: E954, sacarina, Sacarina y sus sales de sodio potasio y calcio, sacarinas, sacarina sódica
@@ -23373,35 +23664,56 @@ sh: E954, saharin
 sk: E954, Sacharín a jeho soli na k a ca, sacharín
 sl: E954, Saharin in njegove natrijeve kalijeve in kalcijeve soli, saharin
 sr: E954, сахарин
-sv: E954, Saccharin and its na. k and ca salts, sackarin, Sackarinat, Sackarinater
+sv: E954, sackarin, sackarinat, sackarinater, natriumsackarin
 ta: E954, சாக்கரின்
 th: E954, แซกคารีน
 tr: E954, sakarin
 uk: E954, сахарин
 vi: E954, saccharin
 zh: E954, 糖精
+#azb: E954, ساخارین
+#be-tarask: E954, Цукрын
+#sr-ec: E954, сахарин
+#sr-el: E954, saharin
+#war: E954, sakarina
+#zh-cn: E954, 糖精
+#zh-hans: E954, 糖精
+#zh-hant: E954, 糖精
+#zh-hk: E954, 糖精
+#zh-sg: E954, 糖精
+#zt-tw: E954, 糖精
 additives_classes:en: en:sweetener
+agribalyse_food_code:en: 31064
 ciqual_food_code:en: 31064
 ciqual_food_name:en: Saccharin sweetener
 ciqual_food_name:fr: Édulcorant à la saccharine
-# azb:E954, ساخارین
-# be-tarask:E954, Цукрын
-# sr-ec:E954, сахарин
-# sr-el:E954, saharin
-# war:E954, sakarina
-# zh-cn:E954, 糖精
-# zh-hans:E954, 糖精
-# zh-hant:E954, 糖精
-# zh-hk:E954, 糖精
-# zh-sg:E954, 糖精
-# zt-tw:E954, 糖精
+description:en: Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy.
 e_number:en: 954
-# description:en:Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy.
 non_nutritive_sweetener:en: yes
 sweetener:en: yes
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q191381
+
+< en: E954
+en: E954(i)
+xx: E954(i)
+e_number:en: 954
+
+< en: E954
+en: E954(ii), Calcium saccharin
+xx: E954(ii)
+e_number:en: 954
+
+< en: E954
+en: E954(iii), Potassium saccharin
+xx: E954(iii)
+e_number:en: 954
+
+< en: E954
+en: E954(iv)
+xx: E954(iv)
+e_number:en: 954
 
 en: E955, Sucralose
 xx: E955
@@ -23692,7 +24004,7 @@ de: E960a, Steviolglycoside aus Stevia
 el: E960a, Γλυκοσίδες στεβιόλης από Στέβια
 es: E960a, Glucósidos de esteviol procedentes de estevia
 et: E960a, Steviolglükosiidid Steviast
-fi: E960a, Stevioliglykosidit Steviasta
+fi: E960a, Stevioliglykosidit Steviasta, steviasta saatavat stevioliglykosidit
 fr: E960a, Glycosides de stéviol issus de Stevia
 he: E960a, גליקוזידים סטיביול מסטיביה
 hi: E960a, स्टीविया से स्टीविओल ग्लाइकोसाइड
@@ -24279,6 +24591,16 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q118843
 
+< en: E999
+en: E999(i), Quillaia extract type 1
+xx: E999(i)
+e_number:en: 999
+
+< en: E999
+en: E999(ii), Quillaia extract type 2
+xx: E999(ii)
+e_number:en: 999
+
 en: Exxx, Exxx food additive
 xx: Exxx
 fi: Exxx, Exxx elintarvikelisäaine
@@ -24367,6 +24689,42 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18668392
 
+< en: E1001
+en: E1001(i), Choline acetate
+xx: E1001(i)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
+< en: E1001
+en: E1001(ii), Choline carbonate
+xx: E1001(ii)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
+< en: E1001
+en: E1001(iii)
+xx: E1001(iii)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
+< en: E1001
+en: E1001(iv), Choline citrate
+xx: E1001(iv)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
+< en: E1001
+en: E1001(v), Choline tartrate
+xx: E1001(v)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
+< en: E1001
+en: E1001(vi), Choline lactate
+xx: E1001(vi)
+e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
+
 # description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars.
 
 en: E1100, Alpha-Amylase, amylase, E-1100, E 1100
@@ -24411,6 +24769,36 @@ wikipedia:en: https://en.wikipedia.org/wiki/Amylase
 # comment:en:when indicated, probably alpha-amylase is meant
 # alpha-amylase, (α-amylase) is a protein enzyme EC 3.2.1.1 that hydrolyses alpha bonds of large, alpha-linked polysaccharides, such as starch and glycogen, yielding glucose and maltose.
 # wikipedia:en:https://en.wikipedia.org/wiki/Alpha-amylase
+
+< en: E1100
+en: E1100(i)
+xx: E1100(i)
+e_number:en: 1100
+
+< en: E1100
+en: E1100(ii)
+xx: E1100(ii)
+e_number:en: 1100
+
+< en: E1100
+en: E1100(iii)
+xx: E1100(iii)
+e_number:en: 1100
+
+< en: E1100
+en: E1100(iv), alpha-Amylase from Bacillus megaterium expressed in Bacillus subtilis
+xx: E1100(iv)
+e_number:en: 1100
+
+< en: E1100
+en: E1100(v)
+xx: E1100(v)
+e_number:en: 1100
+
+< en: E1100
+en: E1100(vi)
+xx: E1100(vi)
+e_number:en: 1100
 
 en: E1101, Protease, peptidase, proteinase, EC 3.4, E-1101, E 1101
 xx: E1101
@@ -24471,6 +24859,36 @@ wikidata:en: Q212410
 # wikidata:en:Q212410
 #comment:en:the preferred name on products is protease. Not possible to copy 1:1
 wikipedia:en: https://en.wikipedia.org/wiki/Protease
+
+< en: E1101
+en: E1101(i)
+xx: E1101(i)
+e_number:en: 1101
+
+< en: E1101
+en: E1101(ii)
+xx: E1101(ii)
+e_number:en: 1101
+
+< en: E1101
+en: E1101(iii)
+xx: E1101(iii)
+e_number:en: 1101
+
+< en: E1101
+en: E1101(iv)
+xx: E1101(iv)
+e_number:en: 1101
+
+< en: E1101
+en: E1101(v), Protease from Streptomyces fradiae
+xx: E1101(v)
+e_number:en: 1101
+
+< en: E1101
+en: E1101(vi), Proteases from Bacillus subtilis
+xx: E1101(vi)
+e_number:en: 1101
 
 en: E1102, Glucose oxidase
 xx: E1102
