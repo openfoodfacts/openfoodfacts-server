@@ -2139,7 +2139,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			my $data_sort;
 
 			my @sameAs = ();
-			if ($tagtype eq 'nutrition_grades') {
+			if (($tagtype eq 'nutrition_grades') or ($tagtype eq 'nutriscore')) {
 				my $grade;
 				if ($tagid =~ /^[abcde]$/) {
 					$grade = uc($tagid);
@@ -2364,6 +2364,8 @@ HTML
 		# Nutri-Score nutrition grades colors histogram / Environmental-Score / NOVA groups histogram
 
 		if (   ($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+			or ($request_ref->{groupby_tagtype} eq 'nutriscore')
+			or ($request_ref->{groupby_tagtype} eq 'ecoscore')
 			or ($request_ref->{groupby_tagtype} eq 'environmental_score')
 			or ($request_ref->{groupby_tagtype} eq 'nova_groups'))
 		{
@@ -2375,7 +2377,9 @@ HTML
 			my $y_title = lang("number_of_products");
 			my $x_title = lang($request_ref->{groupby_tagtype} . "_p");
 
-			if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
+			if (   ($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+				or ($request_ref->{groupby_tagtype} eq 'nutriscore'))
+			{
 				$categories = "'A','B','C','D','E','" . lang("not_applicable") . "','" . lang("unknown") . "'";
 				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
@@ -2383,7 +2387,9 @@ HTML
 					$series_data .= (($products{$nutrition_grade} || 0) + 0) . ',';
 				}
 			}
-			elsif ($request_ref->{groupby_tagtype} eq 'environmental_score') {
+			elsif (($request_ref->{groupby_tagtype} eq 'ecoscore')
+				or ($request_ref->{groupby_tagtype} eq 'environmental_score'))
+			{
 				$categories = "'A+','A','B','C','D','E','F','" . lang("not_applicable") . "','" . lang("unknown") . "'";
 				$colors = "'#1E8F4E','#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
@@ -4897,7 +4903,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					# if the value is "unknown", we need to add a condition on the field being empty
 
 					my @tagtype_allowing_unknown_as_value
-						= qw(nutrition_grades nova_groups environmental_score pnns_groups_1 pnns_groups_2 food_groups);
+						= qw(nutrition_grades nutriscore nova_groups ecoscore environmental_score pnns_groups_1 pnns_groups_2 food_groups);
 					# warning: unknown is a value for pnns_groups_1 and 2
 					if (
 						(

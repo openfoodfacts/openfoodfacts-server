@@ -124,7 +124,7 @@ synonyms:sv: rostat, rostad, rostade
 
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
-stopwords:bg: съдържа, в, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително, променливо, отношение, съотношение
+stopwords:bg: съдържа, в, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително, променливо, отношение, съотношение, минимум в шоколадовия крем, минимум в бялата шоколадова част, минимум в шоколадовата част
 stopwords:bs: i, u promjenljivom odnosu
 stopwords:ca: i, de
 stopwords:ca: jiné
@@ -132,8 +132,8 @@ stopwords:da: og, eller, samt, av, af, blandt andet, bl a, inklusive, heraf, ind
 stopwords:de: Allergene Zutaten, und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
-stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
-stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
+stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, blend of, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportion, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
+stopwords:es: calibre, categoria, con, contener, contiene, contienen, controlada, de, de cultivo, de, e, en, el, equivalente, equivalel, la, las, los, min, minimo, maximo, nota, origen, por, produccion, puede, vereidad, variedad, y
 stopwords:fi: allergiatiedot, jossa, käymisen aikana muodostuva, koskenlaskija, muun muassa, noin, sisältää, snellmanin, valio
 stopwords:fr: aux, au, avec ajout, base, de, demeter, du, la, le, a, et, avec, ou, en, proportion, sachet, variable, contient, élaboré avec, papier traité, marquants, minimum, MG/MS, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d'
 # example: grašak u prahu BOGAT BJELANČEVINAMA
@@ -470,7 +470,7 @@ bg: соев лецитин, соеви лецитини
 bs: emulgator sojin lecitin
 ca: Lecitina de soja, lecitines de soja
 cs: sójový lecitin, sójové lecitiny
-da: sojalecitin, sojalecitiner, sojalecithin, sojalecithiner, e322 af soja
+da: sojalecitin, sojalecitiner, sojalecithin, sojalecithiner, E322 af soja, E322 sojalecithin
 de: Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine, Soja-Lecithin, Emulgator Sojalecithin
 el: λεκιθίνη σόγιας
 es: lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
@@ -5614,6 +5614,11 @@ es: mezcla de quesos
 hr: miješani sir
 it: formaggio misto
 
+< en: edam
+< en: mixed cheese
+< en: mozzarella
+en: mozzarella and edam cheese, blend of mozzarella and edam cheese
+
 < en: cheese
 en: cured cheese, mature cheese
 ca: formatge curat
@@ -6759,7 +6764,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gloucester_cheese
 
 < en: cheese
 en: edam, edam cheese, Edam cheese from cow's milk
-xx: Edam
+xx: edam
 bg: Едамер
 ca: Formatge edam
 cs: Eidam
@@ -7921,7 +7926,7 @@ wikidata:en: Q177727
 #category/mozzarella
 < en: cheese
 en: mozzarella, mozzarella cheese, mozzarella soft cheese
-xx: Mozzarella
+xx: mozzarella
 ar: موتزاريلا
 be: Мацарэла
 bg: Моцарела
@@ -7971,6 +7976,13 @@ th: มอซซาเรลลา
 uk: Моцарела
 ur: موزاریلا
 zh: 莫薩里拉乾酪
+# arz:موتزاريلا
+# nap:Muzzarella
+# pnb:موزاریلا
+# roa-tara:muzzarelle
+# yue:水牛芝士
+# zh-hans:莫薩里拉乾酪
+# zh-hant:莫札瑞拉起司
 ciqual_food_code:en: 19590
 ciqual_food_name:en: Mozzarella cheese, from cow's milk
 ciqual_food_name:fr: Mozzarella au lait de vache
@@ -7996,14 +8008,6 @@ ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_raw_to_cooked_ratio:en: 1
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: none
-# 4663 in 15 languages @2021-08-30
-# arz:موتزاريلا
-# nap:Muzzarella
-# pnb:موزاریلا
-# roa-tara:muzzarelle
-# yue:水牛芝士
-# zh-hans:莫薩里拉乾酪
-# zh-hant:莫札瑞拉起司
 wikidata:en: Q14088
 wikipedia:en: https://en.wikipedia.org/wiki/Mozzarella
 
@@ -22669,7 +22673,7 @@ it: aroma di spezie naturali
 sv: naturlig krydderi aroma
 
 < en: natural flavouring
-en: natural flavor of turmeric
+en: natural turmeric flavouring, natural flavor of turmeric
 de: natürlicher Kurkumageschmack, natürlicher Kurkuma-Geschmack, natürlicher Curcumageschmack, natürlicher Curcuma-Geschmack
 es: aroma natural de cúrcuma
 fi: luontainen kurkuma-aromi
@@ -24203,7 +24207,7 @@ bg: зърнени продукти
 ca: Cereal, cereals
 cs: obilovina, obiloviny
 da: Korn
-de: Getreide
+de: Getreide, anderer Getreidesorten
 el: δημητριακό, δημητριακά
 es: cereales
 et: Teraviljad
@@ -32100,7 +32104,10 @@ ur: اضافی چینی
 uz: qo'shilgan shakar
 vi: đường thêm vào
 zh: 添加糖
+comment:en: See comment on en:sugar for details on vegan status.
 description:en: Added sugar is an ingredient that describes anything that counts as sugar.
+vegan:en: maybe
+vegetarian:en: yes
 
 < en: added sugar
 en: monosaccharide
@@ -35969,7 +35976,7 @@ pl: kakao alkalizowane
 
 < en: cocoa
 en: fat reduced cocoa, reduced fat cocoa, low fat cocoa, lean cocoa
-bg: какао с намалено съдържание на мазнини
+bg: какао с намалено съдържание на мазнини, какао с намалено маслено съдържание
 ca: cacau desgreixat
 da: fedtfattig kakao
 de: fettarmer Kakao, magerer Kakao, mageres Kakao
@@ -42318,12 +42325,14 @@ wikidata:en: Q494259
 wikipedia:en: https://en.wikipedia.org/wiki/Gala_(apple)
 
 < en: green apple
-en: Granny apple
+en: Granny Smith apple, Granny apple
 es: manzana Granny
 fr: pomme Granny, pomme Granny Smith, pommes Grany, pommes Granny Smith
 hr: baka jabuka
 it: mela Granny
 nl: Granny Smith, Granny Smith appel, Granny Smith appels
+wikidata:en: Q506040
+wikipedia:en: https://en.wikipedia.org/wiki/Granny_Smith
 
 #US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
 < en: apple
@@ -42555,7 +42564,7 @@ ar: عصير تفاح
 bg: сок от ябълки, ябълков сок
 ca: suc de poma
 cs: jablečný mošt, jablečná stáva, jablečná štáva
-da: æblemost, æblesaft
+da: æblemost, æblesaft, æblejuice
 de: Apfelsaft, Apfelsaft von Streuobstwiesen-Äpfeln
 el: χυμός μήλου, μηλοχυμός
 eo: poma suko
@@ -42642,6 +42651,7 @@ fr: pur jus de pommes à cidre de Bretagne
 
 < en: squeezed apple juice
 en: unfiltered apple juice, cloudy apple
+da: ufiltreret æblejuice
 de: Naturtrüber Apfelsaft, Apfelsaft naturtrüb
 fr: jus de pomme trouble, jus de pomme non filtré
 hr: nefiltrirani sok od jabuke
@@ -50260,6 +50270,9 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:cynorrhodon
 wikidata:en: Q46740
 wikipedia:en: https://en.wikipedia.org/wiki/Rose_hip
 
+< en: rose hip
+en: rosehip fruit peel
+
 < en: plant
 en: dog rose
 de: Hundsrose
@@ -50276,6 +50289,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rosa_canina
 en: dog rose fruit
 it: frutto di rosa canina
 pl: owoc dzikiej róży
+
 
 ###################################################################################################
 #
@@ -70020,7 +70034,7 @@ en: hazelnut paste, hazelnut butter
 bg: лешникова паста, крем лешник
 ca: pasta d'avellana, pasta d'avellanes
 cs: lískooříšková pasta
-da: hasselnödmasse
+da: hasselnøddepuré
 de: Haselnussmus, Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
 es: pasta de avellana, pasta de avellanas
 fi: hasselpähkinätahna, hasselpähkinämassa
@@ -70464,7 +70478,7 @@ sv: jordnötssmör med bitar
 en: peanut paste
 bg: фъстъчена паста
 cs: arašídová pasta
-da: jordnøddepasta
+da: jordnøddepasta, jordnøddepuré
 de: Erdnusspaste
 eo: pasto de ternukso
 es: pasta de cacahuete, pasta de maní
@@ -82268,53 +82282,59 @@ wikipedia:en: https://en.wikipedia.org/wiki/Nori
 
 < en: seaweed
 en: sea lettuce, green laver
-ar: أولفا خسية
-az: Ulva yosunu
-be: Ульва
-ca: enciam de mar
-cs: porost locikový
-da: Havsalat
-de: Meersalat, ulva
-es: lechuga de mar, ulva
-eu: Itsas uraza, ulva
-fa: کاهوی دریایی
-fi: merisalaatti, Suolilevät
-fr: laitue de mer, laitue de mers, ulve
-ga: Glasán
-gd: Glasag
-gl: Leituga de mar, ulva
-hr: morska salata
-hu: tengeri saláta, ulva
-id: ulva
-is: Maríusvunta
-it: lattuga di mare, ulva
+xx: ulva, ulvales, Ульва
+ar: أولفاويات
+ca: ulvals
+fa: دریاکاهوسانان
 ja: アオサ
 ka: ულვა
-ko: 갈파래속
+ko: 갈파래목
 la: Ulva sp.
-mk: морска марула
-nl: zeesla, ulva
-no: ulva
-pl: Ulwa sałatowa, ulva
-pt: Alface-do-mar
-ru: Ульва
-sv: Havssallat, ulva
-uk: Морський салат, Ульва
-uz: Ulva
-vi: Ulva
-zh: 石莼, 石莼属
+uk: Ульвальні
+zh: 石莼目
 # algues:laitue de mer
 ciqual_food_code:en: 20985
 ciqual_food_name:en: Sea lettuce (ulva sp.), dried or dehydrated
 ciqual_food_name:fr: Laitue de mer (Ulva sp.), séchée ou déshydratée
+comment:en: the exact species is often not specified
 description:en: The sea lettuces comprise the genus Ulva, a group of edible green algae that is widely distributed along the coasts of the world's oceans.
 eurocode_2_group_3:en: 8.55.30
-# zh-hans:石莼
-# zh-hant:石蓴
-# zh-hk:石蓴
-# zh-tw:石蓴
+# arz: اولفاويات
 wikidata:en: Q1109330
 wikipedia:en: https://en.wikipedia.org/wiki/Sea_lettuce
+
+< en: sea lettuce
+en: broadleaf sea lettuce
+ar: أولفا خسية
+az: Ulva yosunu
+ca: enciam de mar
+cs: porost locikový
+da: Havsalat
+de: Meersalat
+es: lechuga de mar
+eu: Itsas uraza
+fa: کاهوی دریایی
+fi: merisalaatti, Suolilevät
+fr: laitue de mer, laitue de mers
+ga: Glasán
+gd: Glasag
+gl: Leituga de mar
+hr: morska salata
+hu: tengeri saláta
+is: Maríusvunta
+it: lattuga di mare
+ko: 갈파래속
+la: ulva lactuca
+mk: морска марула
+nl: zeesla
+pl: Ulwa sałatowa
+pt: Alface-do-mar
+sv: Havssallat
+uk: Морський салат
+zh: 石莼, 石莼属
+description:en: Sea lettuce (Ulva lactuca and related Ulva species) is a bright green marine macroalga found in coastal waters worldwide, thriving in nutrient-rich shallows from the Atlantic and Pacific to the Mediterranean. It is harvested wild from rocky shores and increasingly cultivated in tanks, ponds, or ropes at sea, then washed, dried, or freeze-dried and milled. Its taste is mildly salty, fresh, and slightly grassy with oceanic umami. It is used in soups, salads, seasonings, snacks, and pastas across Asia, Europe, and the Americas. Nutritionally, it provides fiber, protein, iodine, iron, magnesium, and vitamins, while being naturally low in fat.
+wikidata:en: Q852879
+wikipedia:en: Ulva_lactuca
 
 < en: seaweed
 en: thongweed, sea spaghetti
@@ -104429,4 +104449,8 @@ vegetarian:en: yes
 < en: sourdough
 en: scalding and sourdough
 sv: skållning och surdeg
+
+#< en: compound
+en: caramelized apple
+fr: pomme caramélisée, pommes caramélisées
 
