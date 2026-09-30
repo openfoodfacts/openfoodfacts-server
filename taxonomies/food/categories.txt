@@ -62699,6 +62699,26 @@ fr: Boules de céréales au chocolat
 en: Honey cereal balls, Breakfast cereals puffed corn with honey
 fr: Boules de céréales au miel, Boules de maïs soufflées au miel
 
+< en: Extruded cereals
+en: Oat rings, Cheerios
+sv: Havreringar
+# wikidata is specifically Cheerios; doesn’t look like there’s an item for the generic product (2026-09-30)
+wikidata:en: Q2425291
+
+< en: Oat rings
+en: Whole-grain oat rings, Wholemeal oat rings
+sv: Fullkornshavreringar, Havreringar av fullkorn
+
+< en: Oat rings
+en: Plain oat rings
+sv: Naturelle havreringar, Havreringar naturell
+incompatible_with:en: categories:en:flavoured-oat-rings
+
+< en: Oat rings
+en: Flavoured oat rings
+sv: Havreringar med smak
+incompatible_with:en: categories:en:plain-oat-rings
+
 < en: Breakfast cereals
 en: Cereals with nuts
 fr: Céréales aux fruits à coques
@@ -111344,15 +111364,29 @@ de: Bananenblüten in Salzwasser
 nl: Bananenbloemen(gepekeld)
 
 < en: Vegetable pickles
-en: Beetroot(pickled), Pickled beets
+en: Pickled beetroots, Beetroot(pickled), Pickled beets
+da: Syltede rødbeder
 de: Eingelegte rote Bete
 es: Remolacha encurtida
 fr: Betteraves marinées
 hr: Ukiseljena repa
 ja: ビーツのピクルス
 nl: Ingemaakte rode bieten, Rode bieten op azijn
-comment:en: Cooked cut beetroot laid in vinegar.
+comment:en: Cooked beetroot laid in vinegar.
 opposite:en: en:beetroot
+wikidata:en: Q12338154
+
+< en: Pickled beetroots
+en: Pickled whole beetroots
+da: Syltede hele rødbeder
+
+< en: Pickled beetroots
+en: Pickled sliced beetroots
+da: Syltede rødbeder i skiver, Syltede skivede rødbeder
+
+< en: Pickled beetroots
+en: Pickled diced beetroots, Pickled cubed beetroots
+da: Syltede rødbeder i tern
 
 < en: Vegetable pickles
 en: Pickled carrots

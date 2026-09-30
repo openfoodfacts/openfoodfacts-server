@@ -470,7 +470,7 @@ bg: соев лецитин, соеви лецитини
 bs: emulgator sojin lecitin
 ca: Lecitina de soja, lecitines de soja
 cs: sójový lecitin, sójové lecitiny
-da: sojalecitin, sojalecitiner, sojalecithin, sojalecithiner, e322 af soja
+da: sojalecitin, sojalecitiner, sojalecithin, sojalecithiner, E322 af soja, E322 sojalecithin
 de: Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine, Soja-Lecithin, Emulgator Sojalecithin
 el: λεκιθίνη σόγιας
 es: lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
@@ -5465,6 +5465,11 @@ es: mezcla de quesos
 hr: miješani sir
 it: formaggio misto
 
+< en: edam
+< en: mixed cheese
+< en: mozzarella
+en: mozzarella and edam cheese, blend of mozzarella and edam cheese
+
 < en: cheese
 en: cured cheese, mature cheese
 ca: formatge curat
@@ -6506,7 +6511,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gloucester_cheese
 
 < en: cheese
 en: edam, edam cheese, Edam cheese from cow's milk
-xx: Edam
+xx: edam
 bg: Едамер
 ca: Formatge edam
 cs: Eidam
@@ -7554,7 +7559,7 @@ wikidata:en: Q177727
 #category/mozzarella
 < en: cheese
 en: mozzarella, mozzarella cheese, mozzarella soft cheese
-xx: Mozzarella
+xx: mozzarella
 ar: موتزاريلا
 be: Мацарэла
 bg: Моцарела
@@ -7604,6 +7609,13 @@ th: มอซซาเรลลา
 uk: Моцарела
 ur: موزاریلا
 zh: 莫薩里拉乾酪
+# arz:موتزاريلا
+# nap:Muzzarella
+# pnb:موزاریلا
+# roa-tara:muzzarelle
+# yue:水牛芝士
+# zh-hans:莫薩里拉乾酪
+# zh-hant:莫札瑞拉起司
 ciqual_food_code:en: 19590
 ciqual_food_name:en: Mozzarella cheese, from cow's milk
 ciqual_food_name:fr: Mozzarella au lait de vache
@@ -7615,16 +7627,8 @@ description:it: La mozzarella è un latticino a pasta filata originario dell'Ita
 description:nl: Mozzarella is een verzamelnaam voor twee soorten verse kaas: mozzarella di bufala vervaardigd uit de melk van de waterbuffel en mozzarella vervaardigd uit koemelk.
 description:pt: A mozarela ou muçarela é uma variedade de queijo de massa filada com origem na comuna (município) de Aversa, Italia.
 ecobalyse:en: faa513ae-9c32-4e6c-874e-58c13309339e
-# arz:موتزاريلا
-# nap:Muzzarella
-# pnb:موزاریلا
-# roa-tara:muzzarelle
-# yue:水牛芝士
-# zh-hans:莫薩里拉乾酪
-# zh-hant:莫札瑞拉起司
 wikidata:en: Q14088
 wikipedia:en: https://en.wikipedia.org/wiki/Mozzarella
-# 4663 in 15 languages @2021-08-30
 
 #processing:en: en:firmed
 #<en:mozzarella
@@ -21901,7 +21905,7 @@ it: aroma di spezie naturali
 sv: naturlig krydderi aroma
 
 < en: natural flavouring
-en: natural flavor of turmeric
+en: natural turmeric flavouring, natural flavor of turmeric
 de: natürlicher Kurkumageschmack, natürlicher Kurkuma-Geschmack, natürlicher Curcumageschmack, natürlicher Curcuma-Geschmack
 es: aroma natural de cúrcuma
 fi: luontainen kurkuma-aromi
@@ -23435,7 +23439,7 @@ bg: зърнени продукти
 ca: Cereal, cereals
 cs: obilovina, obiloviny
 da: Korn
-de: Getreide
+de: Getreide, anderer Getreidesorten
 el: δημητριακό, δημητριακά
 es: cereales
 et: Teraviljad
@@ -40949,7 +40953,7 @@ ar: عصير تفاح
 bg: сок от ябълки, ябълков сок
 ca: suc de poma
 cs: jablečný mošt, jablečná stáva, jablečná štáva
-da: æblemost, æblesaft
+da: æblemost, æblesaft, æblejuice
 de: Apfelsaft, Apfelsaft von Streuobstwiesen-Äpfeln
 el: χυμός μήλου, μηλοχυμός
 eo: poma suko
@@ -41020,6 +41024,7 @@ fr: pur jus de pommes à cidre de Bretagne
 
 < en: squeezed apple juice
 en: unfiltered apple juice, cloudy apple
+da: ufiltreret æblejuice
 de: Naturtrüber Apfelsaft, Apfelsaft naturtrüb
 fr: jus de pomme trouble, jus de pomme non filtré
 hr: nefiltrirani sok od jabuke
@@ -65850,7 +65855,7 @@ en: hazelnut paste, hazelnut butter
 bg: лешникова паста, крем лешник
 ca: pasta d'avellana, pasta d'avellanes
 cs: lískooříšková pasta
-da: hasselnödmasse
+da: hasselnøddepuré
 de: Haselnussmus, Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
 es: pasta de avellana, pasta de avellanas
 fi: hasselpähkinätahna, hasselpähkinämassa
@@ -66254,7 +66259,7 @@ sv: jordnötssmör med bitar
 en: peanut paste
 bg: фъстъчена паста
 cs: arašídová pasta
-da: jordnøddepasta
+da: jordnøddepasta, jordnøddepuré
 de: Erdnusspaste
 eo: pasto de ternukso
 es: pasta de cacahuete, pasta de maní
