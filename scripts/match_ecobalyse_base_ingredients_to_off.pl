@@ -90,7 +90,23 @@ for my $base (sort @$base_ingredients) {
 		push @matched, [$base, $tagid, 'taxonomy'];
 	}
 	else {
-		push @missing, $base;
+		# Try reordering: move the last word to the front
+		# e.g. "parsley-fresh" -> "fresh-parsley"
+		my @words = split /-/, $base;
+		if (@words > 1) {
+			my $reordered = join("-", $words[-1], @words[0 .. $#words - 1]);
+			$exists = 0;
+			$tagid = canonicalize_taxonomy_tag("en", "ingredients", $reordered, \$exists);
+			if ($exists && defined $tagid) {
+				push @matched, [$base, $tagid, 'reordered'];
+			}
+			else {
+				push @missing, $base;
+			}
+		}
+		else {
+			push @missing, $base;
+		}
 	}
 }
 
