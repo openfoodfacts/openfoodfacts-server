@@ -25,53 +25,6 @@
       "en:beverages-and-beverages-preparations",
       "en:beverages"
    ],
-   "environmental_impact" : {
-      "ecobalyse_input" : {
-         "distribution" : "ambient",
-         "ingredients" : [
-            {
-               "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-               "mass" : 80,
-               "name" : "milk"
-            },
-            {
-               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 20,
-               "name" : "sugar"
-            }
-         ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
-      },
-      "ecobalyse_request" : {
-         "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-                  "mass" : 80
-               },
-               {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 20
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
-               }
-            ]
-         },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
-   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
    "forest_footprint_2026" : {
@@ -93,7 +46,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "percent" : 80,
@@ -107,7 +60,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 20,

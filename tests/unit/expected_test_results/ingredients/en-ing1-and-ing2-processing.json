@@ -3,7 +3,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13050",
-         "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
          "id" : "en:apple",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 52.7777777777778,
@@ -15,7 +15,7 @@
       },
       {
          "ciqual_food_code" : "13005",
-         "ecobalyse_id" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
+         "ecobalyse_code" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
          "id" : "en:banana",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 23.6111111111111,
@@ -28,7 +28,7 @@
       },
       {
          "ciqual_food_code" : "13008",
-         "ecobalyse_id" : "417a0eff-a10d-4231-839b-d953f644d69c",
+         "ecobalyse_code" : "4e13ea5f-4ad1-4009-ae91-842cb18bd4dd",
          "id" : "en:cherry",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 11.8055555555556,
@@ -40,7 +40,6 @@
       },
       {
          "ciqual_food_code" : "13011",
-         "ecobalyse_id" : "b212ea5a-fc5d-533a-84b3-80add4011864",
          "id" : "en:date",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.90277777777778,
@@ -52,7 +51,6 @@
       },
       {
          "ciqual_food_code" : "13126",
-         "ecobalyse_id" : "feeaa187-3b5f-5185-a0e5-1760b1b1b251",
          "id" : "en:elderberry",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.95138888888889,
@@ -65,7 +63,6 @@
       },
       {
          "ciqual_food_code" : "13012",
-         "ecobalyse_id" : "4564a3e0-691e-42c3-8917-3d484eaa3c2d",
          "id" : "en:fig",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 1.47569444444444,
@@ -77,7 +74,6 @@
       },
       {
          "ciqual_food_code" : "13112",
-         "ecobalyse_id" : "3733e844-5e53-5404-9b26-28fcb67896c8",
          "id" : "en:grape",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.737847222222221,
@@ -89,7 +85,7 @@
       },
       {
          "ciqual_food_code" : "13028",
-         "ecobalyse_id" : "099aeeb2-bf69-5105-a94f-f1fde83a451e",
+         "ecobalyse_code" : "b193fd9e-99ab-4d1b-8e81-3b38bab2eacf",
          "id" : "en:bilberry",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.368923611111114,
@@ -113,7 +109,7 @@
       },
       {
          "ciqual_food_code" : "13021",
-         "ecobalyse_id" : "ee78fd94-c4b4-5e73-8e1f-c615927c75f8",
+         "ecobalyse_code" : "5c5663f5-3075-4814-92ff-1f65c99ad518",
          "id" : "en:kiwifruit",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0922309027777786,
@@ -126,7 +122,7 @@
       },
       {
          "ciqual_proxy_food_code" : "13009",
-         "ecobalyse_id" : "4fba3fff-ce86-4827-8c1f-aab86f16e469",
+         "ecobalyse_code" : "6ece5452-42de-4e0a-8c70-1d305e614cc8",
          "id" : "en:lemon",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0461154513888857,
@@ -146,7 +142,7 @@
       },
       {
          "ciqual_food_code" : "13025",
-         "ecobalyse_id" : "db0e5f44-34b4-4160-b003-77c828d75e60",
+         "ecobalyse_code" : "db0e5f44-34b4-4160-b003-77c828d75e60",
          "id" : "en:mango",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0115288628472214,
@@ -167,7 +163,6 @@
       },
       {
          "ciqual_food_code" : "13030",
-         "ecobalyse_id" : "11a8671b-5e76-544d-a42a-3527fa6e6dd1",
          "id" : "en:nectarine",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.00288221571180713,
@@ -187,7 +182,7 @@
       },
       {
          "ciqual_proxy_food_code" : "13034",
-         "ecobalyse_id" : "cb58f1d0-634f-5582-9c13-a12e80474e77",
+         "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
          "id" : "en:orange",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.000720553927948231,
@@ -302,12 +297,17 @@
    "ingredients_without_ciqual_codes_n" : 5,
    "ingredients_without_ecobalyse_ids" : [
       "en:caramelized unknown_fruit4",
+      "en:date",
+      "en:elderberry",
+      "en:fig",
       "en:fried unknown_fruit3",
+      "en:grape",
       "en:jackfruit",
+      "en:nectarine",
       "en:unknown_fruit",
       "en:unknown_fruit2"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 10,
    "known_ingredients_n" : 14,
    "lc" : "en",
    "misc_tags" : [

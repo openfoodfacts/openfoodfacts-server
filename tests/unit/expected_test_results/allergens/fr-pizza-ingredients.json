@@ -10,7 +10,6 @@
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "11107",
-               "ecobalyse_proxy_id" : "bdae67c5-ac20-417b-9094-8755ae1ab42b",
                "id" : "en:tomato-sauce",
                "is_in_taxonomy" : 1,
                "percent" : 32,
@@ -21,7 +20,7 @@
             },
             {
                "ciqual_food_code" : "20170",
-               "ecobalyse_id" : "a96c560e-7959-4698-b533-23f922bb62b9",
+               "ecobalyse_code" : "tomato-heated-greenhouse-eu",
                "id" : "en:tomato-puree",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 29,
@@ -39,7 +38,7 @@
       },
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 19.5,
@@ -49,7 +48,7 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.75,
@@ -59,7 +58,6 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 4.875,
@@ -78,7 +76,7 @@
       },
       {
          "ciqual_food_code" : "19590",
-         "ecobalyse_id" : "3a0c1c19-ef08-4abd-b441-df53b0e27f2a",
+         "ecobalyse_code" : "faa513ae-9c32-4e6c-874e-58c13309339e",
          "id" : "en:mozzarella",
          "is_in_taxonomy" : 1,
          "percent" : 26,
@@ -92,7 +90,6 @@
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "28205",
-               "ecobalyse_proxy_id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
                "id" : "en:ham",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
@@ -102,7 +99,7 @@
             },
             {
                "ciqual_food_code" : "18066",
-               "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
                "id" : "en:water",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
@@ -112,7 +109,6 @@
             },
             {
                "ciqual_food_code" : "11058",
-               "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                "id" : "en:salt",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
@@ -131,7 +127,6 @@
             },
             {
                "ciqual_proxy_food_code" : "31016",
-               "ecobalyse_proxy_id" : "06dffb5c-07ad-48de-9630-632f4c84e02d",
                "id" : "en:glucose-syrup",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
@@ -174,7 +169,6 @@
                "vegetarian" : "yes"
             },
             {
-               "ecobalyse_proxy_id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
                "id" : "en:pork-stock",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
@@ -216,12 +210,12 @@
       },
       {
          "ciqual_food_code" : "20056",
-         "ecobalyse_id" : "5a29aa60-9bb9-5a93-acf3-bbba3afb2edd",
+         "ecobalyse_code" : "mushroom-eu",
          "id" : "en:cultivated-mushroom",
          "ingredients" : [
             {
                "ciqual_food_code" : "20056",
-               "ecobalyse_id" : "5a29aa60-9bb9-5a93-acf3-bbba3afb2edd",
+               "ecobalyse_code" : "mushroom-eu",
                "id" : "en:mushroom",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
@@ -231,7 +225,7 @@
             },
             {
                "ciqual_food_code" : "20056",
-               "ecobalyse_id" : "5a29aa60-9bb9-5a93-acf3-bbba3afb2edd",
+               "ecobalyse_code" : "mushroom-eu",
                "id" : "en:mushroom",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
@@ -250,7 +244,7 @@
       },
       {
          "ciqual_food_code" : "13186",
-         "ecobalyse_id" : "34e35753-f5ae-58d4-8f4e-5d15a3821a8e",
+         "ecobalyse_code" : "olive-eu",
          "id" : "fr:olives-noires-avec-noyau",
          "ingredients" : [
             {
@@ -302,7 +296,7 @@
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "9410",
-               "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                "id" : "en:wheat-flour",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
@@ -320,7 +314,7 @@
       },
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0,
@@ -339,7 +333,6 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0,
@@ -349,7 +342,7 @@
       },
       {
          "ciqual_proxy_food_code" : "9435",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:malted-wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0,
@@ -512,13 +505,18 @@
       "en:e579",
       "en:ferment",
       "en:filling",
+      "en:glucose-syrup",
+      "en:ham",
       "en:lactose",
       "en:natural-flavouring",
       "en:oregano",
+      "en:pork-stock",
       "en:rocket",
+      "en:salt",
+      "en:tomato-sauce",
       "fr:chiffonnade de jambon cuit standard"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 17,
+   "ingredients_without_ecobalyse_ids_n" : 22,
    "known_ingredients_n" : 35,
    "lang" : "fr",
    "languages" : {

@@ -3,7 +3,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 56.25,
@@ -31,7 +31,6 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.46875,
@@ -43,7 +42,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.734375,
@@ -77,7 +76,7 @@
       },
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.68359375,
@@ -155,10 +154,11 @@
    "ingredients_without_ecobalyse_ids" : [
       "en:another unknown ingredient",
       "en:pepper",
+      "en:salt",
       "en:some unknown ingredient",
       "en:spice"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [

@@ -43,126 +43,6 @@
       "en:cold-soups",
       "en:gazpacho"
    ],
-   "environmental_impact" : {
-      "ecobalyse_input" : {
-         "distribution" : "ambient",
-         "ingredients" : [
-            {
-               "id" : "a96c560e-7959-4698-b533-23f922bb62b9",
-               "mass" : 51.7954545454545,
-               "name" : "Tomate"
-            },
-            {
-               "id" : "542540f4-754f-53e5-88df-44afaffb6972",
-               "mass" : 24.45,
-               "name" : "concombre"
-            },
-            {
-               "id" : "d018ec1f-d3c8-4fa1-a70d-bca1b0380c47",
-               "mass" : 12.4272727272727,
-               "name" : "poivron"
-            },
-            {
-               "id" : "23d64366-18f7-5f10-a3a8-6c15176d16a9",
-               "mass" : 6.21363636363636,
-               "name" : "oignon"
-            },
-            {
-               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 3.10681818181818,
-               "name" : "eau"
-            },
-            {
-               "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
-               "mass" : 1.1,
-               "name" : "huile d'olive vierge extra"
-            },
-            {
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-               "mass" : 0.113352272727269,
-               "name" : "sel"
-            },
-            {
-               "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
-               "mass" : 0.0566761363636346,
-               "name" : "ail"
-            },
-            {
-               "id" : "fd79d142-7e34-45a4-a0d1-59922b4c8d09",
-               "mass" : 0.0566761363636346,
-               "name" : "jus de citron"
-            }
-         ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ],
-         "transform" : {
-            "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
-            "mass" : 100,
-            "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
-            "name_fr" : "Cuisson"
-         }
-      },
-      "ecobalyse_request" : {
-         "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "a96c560e-7959-4698-b533-23f922bb62b9",
-                  "mass" : 51.7954545454545
-               },
-               {
-                  "id" : "542540f4-754f-53e5-88df-44afaffb6972",
-                  "mass" : 24.45
-               },
-               {
-                  "id" : "d018ec1f-d3c8-4fa1-a70d-bca1b0380c47",
-                  "mass" : 12.4272727272727
-               },
-               {
-                  "id" : "23d64366-18f7-5f10-a3a8-6c15176d16a9",
-                  "mass" : 6.21363636363636
-               },
-               {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 3.10681818181818
-               },
-               {
-                  "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
-                  "mass" : 1.1
-               },
-               {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 0.113352272727269
-               },
-               {
-                  "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
-                  "mass" : 0.0566761363636346
-               },
-               {
-                  "id" : "fd79d142-7e34-45a4-a0d1-59922b4c8d09",
-                  "mass" : 0.0566761363636346
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
-               }
-            ],
-            "transform" : {
-               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
-               "mass" : 100
-            }
-         },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
-   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:soups",
    "food_groups_tags" : [
@@ -178,7 +58,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20047",
-         "ecobalyse_id" : "a96c560e-7959-4698-b533-23f922bb62b9",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:tomato",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 51.7954545454545,
@@ -190,7 +70,7 @@
       },
       {
          "ciqual_food_code" : "20019",
-         "ecobalyse_id" : "542540f4-754f-53e5-88df-44afaffb6972",
+         "ecobalyse_code" : "cucumber-eu",
          "id" : "en:cucumber",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 24.45,
@@ -202,7 +82,7 @@
       },
       {
          "ciqual_food_code" : "20041",
-         "ecobalyse_id" : "d018ec1f-d3c8-4fa1-a70d-bca1b0380c47",
+         "ecobalyse_code" : "bellpepper-unheated-greehouse",
          "id" : "en:bell-pepper",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 12.4272727272727,
@@ -214,7 +94,7 @@
       },
       {
          "ciqual_food_code" : "20034",
-         "ecobalyse_id" : "23d64366-18f7-5f10-a3a8-6c15176d16a9",
+         "ecobalyse_code" : "onion-non-eu",
          "id" : "en:onion",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 6.21363636363636,
@@ -226,7 +106,7 @@
       },
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 3.10681818181818,
@@ -238,7 +118,7 @@
       },
       {
          "ciqual_food_code" : "17270",
-         "ecobalyse_proxy_id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
+         "ecobalyse_code" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
          "from_palm_oil" : "no",
          "id" : "en:extra-virgin-olive-oil",
          "is_in_taxonomy" : 1,
@@ -271,7 +151,6 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.113352272727269,
@@ -283,7 +162,7 @@
       },
       {
          "ciqual_proxy_food_code" : "11000",
-         "ecobalyse_id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
+         "ecobalyse_code" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
          "id" : "en:garlic",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0566761363636346,
@@ -295,7 +174,6 @@
       },
       {
          "ciqual_food_code" : "2028",
-         "ecobalyse_proxy_id" : "fd79d142-7e34-45a4-a0d1-59922b4c8d09",
          "id" : "en:lemon-juice",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0566761363636346,
@@ -381,10 +259,12 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
+      "en:lemon-juice",
+      "en:salt",
       "en:wine-vinegar",
       "fr:pain de riz"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 10,
    "lc" : "fr",
    "minerals_tags" : [],

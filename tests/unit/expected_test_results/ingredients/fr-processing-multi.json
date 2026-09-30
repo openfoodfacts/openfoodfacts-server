@@ -3,7 +3,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20047",
-         "ecobalyse_id" : "a96c560e-7959-4698-b533-23f922bb62b9",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:peeled-tomatoes",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 58.3333333333333,
@@ -16,7 +16,7 @@
       },
       {
          "ciqual_proxy_food_code" : "13009",
-         "ecobalyse_id" : "4fba3fff-ce86-4827-8c1f-aab86f16e469",
+         "ecobalyse_code" : "6ece5452-42de-4e0a-8c70-1d305e614cc8",
          "id" : "en:lemon",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 20.8333333333333,
@@ -29,7 +29,7 @@
       },
       {
          "ciqual_food_code" : "20020",
-         "ecobalyse_id" : "0c28e3b8-0699-5524-9205-8915ff5c881a",
+         "ecobalyse_code" : "zucchini-eu",
          "id" : "en:courgette",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 10.4166666666667,
@@ -42,7 +42,7 @@
       },
       {
          "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.20833333333333,
@@ -55,7 +55,7 @@
       },
       {
          "ciqual_proxy_food_code" : "20053",
-         "ecobalyse_id" : "af3985b9-5532-575b-a157-14b34e5d0436",
+         "ecobalyse_code" : "eggplant-eu",
          "id" : "en:aubergine",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.60416666666666,
@@ -68,7 +68,6 @@
       },
       {
          "ciqual_food_code" : "28800",
-         "ecobalyse_proxy_id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
          "id" : "en:raw-ham",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.60416666666666,
@@ -135,8 +134,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:raw-ham"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 6,
    "lc" : "fr",
    "misc_tags" : [

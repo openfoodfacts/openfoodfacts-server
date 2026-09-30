@@ -31,53 +31,6 @@
       "en:prepared-meats",
       "en:sausages"
    ],
-   "environmental_impact" : {
-      "ecobalyse_input" : {
-         "distribution" : "ambient",
-         "ingredients" : [
-            {
-               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-               "mass" : 13.625,
-               "name" : "wheat flour"
-            },
-            {
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-               "mass" : 12.625,
-               "name" : "salt"
-            }
-         ],
-         "packaging" : [
-            {
-               "category" : "en:sausages",
-               "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
-               "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
-               "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
-            }
-         ]
-      },
-      "ecobalyse_request" : {
-         "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 13.625
-               },
-               {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 12.625
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27"
-               }
-            ]
-         },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
-   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:processed-meat",
    "food_groups_tags" : [
@@ -104,7 +57,7 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 13.625,
@@ -116,7 +69,6 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent" : 1,
@@ -174,9 +126,10 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:salmon"
+      "en:salmon",
+      "en:salt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "minerals_tags" : [],
