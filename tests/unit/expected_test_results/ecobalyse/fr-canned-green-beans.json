@@ -26,16 +26,19 @@
          "distribution" : "ambient",
          "ingredients" : [
             {
+               "ecobalyse_name" : "Haricots verts Origine Inconnue",
                "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
                "mass" : 66.6666666666667,
                "name" : "haricots verts"
             },
             {
+               "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
                "mass" : 16.6666666666667,
                "name" : "eau"
             },
             {
+               "ecobalyse_name" : "Sel -2025-",
                "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                "mass" : 16.6666666666667,
                "name" : "sel"
@@ -87,16 +90,90 @@
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
       "ecobalyse_response" : {
-         "error" : {
-            "authorization" : "Un token valide est requis pour utiliser l’API"
+         "results" : {
+            "distribution" : {
+               "total" : {
+                  "ecs" : 0.236318
+               },
+               "transports" : {
+                  "air" : 0,
+                  "impacts" : {
+                     "ecs" : 4.41124
+                  },
+                  "road" : 0,
+                  "roadCooled" : 600,
+                  "sea" : 0,
+                  "seaCooled" : 0
+               }
+            },
+            "packaging" : {
+               "ecs" : 17.23
+            },
+            "perKg" : {
+               "ecs" : 396.583
+            },
+            "preparation" : {
+               "ecs" : 0
+            },
+            "preparedMass" : 0.0933333,
+            "recipe" : {
+               "ingredientsTotal" : {
+                  "ecs" : 4.99427
+               },
+               "total" : {
+                  "ecs" : 15.1369
+               },
+               "totalBonusImpact" : {
+                  "cropDiversity" : 0,
+                  "hedges" : -0.000112,
+                  "permanentPasture" : 0,
+                  "plotSize" : -0.00132
+               },
+               "transform" : {
+                  "ecs" : 1.954
+               },
+               "transports" : {
+                  "air" : 0,
+                  "impacts" : {
+                     "ecs" : 8.18863
+                  },
+                  "road" : 3320,
+                  "roadCooled" : 2660,
+                  "sea" : 0,
+                  "seaCooled" : 18000
+               }
+            },
+            "scoring" : {
+               "all" : 396.583,
+               "biodiversity" : 156.772,
+               "climate" : 110.891,
+               "health" : 47.5736,
+               "resources" : 81.4145
+            },
+            "total" : {
+               "ecs" : 37.0145
+            },
+            "totalMass" : 0.308133,
+            "transports" : {
+               "air" : 0,
+               "impacts" : {
+                  "ecs" : 12.5999
+               },
+               "road" : 3320,
+               "roadCooled" : 3260,
+               "sea" : 0,
+               "seaCooled" : 18000
+            }
          }
-      }
+      },
+      "ecs" : 37.0145
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "20061",
          "ecobalyse_id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
+         "ecobalyse_name" : "Haricots verts Origine Inconnue",
          "id" : "en:green-bean",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
@@ -109,6 +186,7 @@
       {
          "ciqual_food_code" : "18066",
          "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -121,6 +199,7 @@
       {
          "ciqual_food_code" : "11058",
          "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_proxy_name" : "Sel -2025-",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
