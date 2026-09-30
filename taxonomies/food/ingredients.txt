@@ -50324,6 +50324,7 @@ fr: légumes verts
 en: fiber from vegetables
 fi: kasviskuitu
 fr: fibres de légume
+nova:en: 2
 
 < en: concentrate
 < en: vegetable
@@ -92455,6 +92456,7 @@ zh: 纤维
 # wuu:纤维
 # zh-cn:纤维
 # zh-hans:纤维# zh-hant:纤维
+nova:en: 2
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q161
@@ -92472,7 +92474,7 @@ ja: 水溶性食物繊維
 nl: oplosbare vezels
 pl: błonnik rozpuszczalny, rozpuszczalny błonnik
 
-< en: flax seed
+# < en: flax seed
 < en: vegetable fiber
 en: flax seed fiber, flaxseed fiber, flax fiber, flax fibers
 da: hørfrøfiber
@@ -92482,8 +92484,9 @@ hr: vlakna sjemenki lana
 it: fibra di semi di lino
 no: linfrøfiber
 sv: linfröfiber
+comment:en: Isolated flax fiber or flax fiber concentrate is nova 4
 
-< en: sugarcane
+# < en: sugarcane
 < en: vegetable fiber
 en: sugarcane fiber, sugarcane fibers
 da: sukkerrørsfiber
@@ -92493,6 +92496,7 @@ it: fibra di canna da zucchero
 pl: błonnik z trzciny cukrowej
 pt: fibra de cana-de-açúcar
 sv: sockerrörsfiber, sockerrörfiber
+nova:en: 4
 
 < en: fiber
 en: betaglucan, β-glucane, beta glucan
@@ -92502,6 +92506,7 @@ es: beta glucano, β-glucano
 fr: bêta-glucane, betaglucane, β-glucane
 it: betaglucano
 sv: betaglukan
+nova:en: 4
 wikidata:en: Q2076617
 
 # description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
@@ -92564,6 +92569,7 @@ zh: 菊粉
 # zh-hk:菊粉
 # zh-sg:菊粉
 # zh-tw:菊粉
+nova:en: 4
 wikidata:en: Q201552
 wikipedia:en: https://en.wikipedia.org/wiki/Inulin
 
@@ -92598,7 +92604,6 @@ ru: растительное волокно
 sl: rastlinske vlaknine
 sr: biljna vlakna
 sv: vegetabilisk fiber, vegetabiliska fibrer, vegetabilisk fibrer, växtfiber, växtfibrer
-nova:en: 4
 # pt-br:fibra vegetal
 vegan:en: yes
 vegetarian:en: yes
