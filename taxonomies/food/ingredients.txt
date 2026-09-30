@@ -4112,7 +4112,6 @@ ciqual_food_name:fr: Yaourt à la grecque, nature
 #ciqual_food_name:en:Yogurt, Greek-style, ewe's milk
 #ciqual_food_name:fr:Yaourt à la grecque, au lait de brebis
 
-
 fr: yaourt à la grecque sur lit de fruits
 ciqual_proxy_food_code:en: 19552
 ciqual_proxy_food_name:fr: Yaourt à la grecque, sur lit de fruits
@@ -9715,10 +9714,6 @@ en: antelope meat
 fr: viande d'antilope
 usda_ndb_proxy_code:en: 17144
 usda_ndb_proxy_name:en: Game meat, antelope, raw
-
-< en: antelope meat
-en: raw antelope meat
-fr: viande d'antilope crue
 usda_fdc_code:en: 175292
 usda_ndb_code:en: 17144
 usda_ndb_name:en: Game meat, antelope, raw
@@ -9732,10 +9727,6 @@ en: bear meat
 fr: viande d'ours
 usda_ndb_proxy_code:en: 17146
 usda_ndb_proxy_name:en: Game meat, bear, raw
-
-< en: bear meat
-en: raw bear meat
-fr: viande d'ours crue
 usda_fdc_code:en: 173845
 usda_ndb_code:en: 17146
 usda_ndb_name:en: Game meat, bear, raw
@@ -9751,10 +9742,6 @@ fr: viande de castor
 usda_fdc_code:en: 175294
 usda_ndb_code:en: 17150
 usda_ndb_name:en: Game meat, beaver, raw
-
-< en: beaver meat
-en: raw beaver meat
-fr: viande de castor crue
 usda_fdc_code:en: 175294
 usda_ndb_code:en: 17150
 usda_ndb_name:en: Game meat, beaver, raw
@@ -10186,10 +10173,6 @@ en: caribou meat
 fr: viande de caribou
 usda_ndb_proxy_code:en: 17162
 usda_ndb_proxy_name:en: Game meat, caribou, raw
-
-< en: caribou meat
-en: raw caribou meat
-fr: viande de caribou crue
 usda_fdc_code:en: 173853
 usda_ndb_code:en: 17162
 usda_ndb_name:en: Game meat, caribou, raw
@@ -11342,10 +11325,6 @@ en: elk meat
 fr: viande d'élan
 usda_ndb_proxy_code:en: 17166
 usda_ndb_proxy_name:en: Game meat, elk, raw
-
-< en: elk meat
-en: raw elk meat
-fr: viande d'élan crue
 usda_fdc_code:en: 175301
 usda_ndb_code:en: 17166
 usda_ndb_name:en: Game meat, elk, raw
@@ -11766,10 +11745,6 @@ usda_ndb_proxy_name:en: Game meat, goat, raw
 wikidata:en: Q449506
 wikipedia:en: https://en.wikipedia.org/wiki/Goat_meat
 # ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
-
-< en: goat meat
-en: raw goat meat
-fr: viande de chèvre crue
 usda_fdc_code:en: 175303
 usda_ndb_code:en: 17168
 usda_ndb_name:en: Game meat, goat, raw
@@ -11809,10 +11784,6 @@ en: moose meat
 fr: viande d'orignal
 usda_ndb_proxy_code:en: 17172
 usda_ndb_proxy_name:en: Game meat, moose, raw
-
-< en: moose meat
-en: raw moose meat
-fr: viande d'orignal crue
 usda_fdc_code:en: 174344
 usda_ndb_code:en: 17172
 usda_ndb_name:en: Game meat, moose, raw
@@ -11832,10 +11803,6 @@ en: muskrat meat
 fr: viande de rat musqué
 usda_ndb_proxy_code:en: 17174
 usda_ndb_proxy_name:en: Game meat, muskrat, raw
-
-< en: muskrat meat
-en: raw muskrat meat
-fr: viande de rat musqué crue
 usda_fdc_code:en: 172518
 usda_ndb_code:en: 17174
 usda_ndb_name:en: Game meat, muskrat, raw
@@ -13190,10 +13157,6 @@ en: squirrel meat
 fr: viande d'écureuil
 usda_ndb_proxy_code:en: 17183
 usda_ndb_proxy_name:en: Game meat, squirrel, raw
-
-< en: squirrel meat
-en: raw squirrel meat
-fr: viande d'écureuil crue
 usda_fdc_code:en: 172523
 usda_ndb_code:en: 17183
 usda_ndb_name:en: Game meat, squirrel, raw
@@ -44972,12 +44935,6 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Noix_de_coco
 # The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
 # NOTE the oil and fat of a coconut can be found under the fats section
 # When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
-# 1209 products in 11 languages @2018-10-03
-
-< en: coconut
-en: raw coconut meat
-fr: chair de noix de coco crue
 usda_fdc_code:en: 170169
 usda_ndb_code:en: 12104
 usda_ndb_name:en: Nuts, coconut meat, raw
