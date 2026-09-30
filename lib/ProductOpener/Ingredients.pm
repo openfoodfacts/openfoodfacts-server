@@ -3877,6 +3877,10 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 				if (defined $ecobalyse_id) {
 					# Assign the ecobalyse code if found
 					$ingredient_ref->{$prefix . "_id"} = $ecobalyse_id;
+					# Also retrieve the corresponding French display name
+					my $name_property = $prefix . $suffix . "_name:fr";
+					my $ecobalyse_name = get_inherited_property("ingredients", $ingredient_ref->{id}, $name_property);
+					$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
 					last;
 				}
 			}

@@ -108,16 +108,13 @@ Boolean flag indicating whether to skip the Ecobalyse API call, in which case we
 sub estimate_environmental_impact_service ($product_ref, $updated_product_fields_ref, $errors_ref,
 	$skip_ecobalyse_call = 0)
 {
-
-	# $updated_product_fields_ref, $errors_ref sont des outputs : chaque service
-	# dit quels champs sont modifiés
-	# Ici on en ajoute un : "environmental_impact"
-
-	# If undefined ingredients, do nothing
-	return if not defined $product_ref->{ingredients};
+	delete $product_ref->{environmental_impact};    # clear previous environmental impact data
 
 	# indicate that the service is modifying the "ingredients" structure
 	$updated_product_fields_ref->{environmental_impact} = 1;
+
+	# If undefined ingredients, do nothing
+	return if not defined $product_ref->{ingredients};
 
 	# Example Ecobalyse food API request:
 
@@ -204,6 +201,8 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 					id => $id,
 					mass => $quantity,
 					name => $ingredient_ref->{text} // '',
+					ecobalyse_name => $ingredient_ref->{ecobalyse_name} || $ingredient_ref->{ecobalyse_proxy_name}
+						// '',
 					};
 			}
 		}
@@ -372,7 +371,7 @@ sub call_ecobalyse($url, $payload_ref, $testid) {
 		$url,
 		Content_Type => 'application/json',
 		Content => encode_json($payload_ref),
-		Authorization => "Bearer $ecobalyse_api_token"
+		Authorization => "Bearer " . $ecobalyse_api_token || "",
 	);
 
 	return ($response->decoded_content, $response->is_success);

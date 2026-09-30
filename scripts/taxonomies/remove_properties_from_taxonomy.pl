@@ -46,7 +46,7 @@ GetOptions(
 if (not defined $taxonomy_file) {
 	die("missing --taxonomy_file argument\n");
 }
-if (not defined $property_prefix) {
+if ((not defined $property_prefix) or ($property_prefix eq '')) {
 	die("missing --property_prefix argument\n");
 }
 

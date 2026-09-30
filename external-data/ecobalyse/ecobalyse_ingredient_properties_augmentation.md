@@ -73,7 +73,7 @@ Generates ecobalyse properties TSV from `processes.json`.
 - `external-data/ecobalyse/base_ingredients_to_off_ingredients_overrides.tsv` (optional)
 
 **Output**:
-- `external-data/ecobalyse/ecobalyse_ingredient_properties_v2.csv`
+- `external-data/ecobalyse/ecobalyse_ingredient_properties.csv`
   Format: `tagid<TAB>property_name<TAB>value`
 
 ## Property naming convention
@@ -182,7 +182,7 @@ Ecobalyse applies to LCA data. It varies by variant for 275/370 baseIngredients
 2. (Manual step: review missing entries, edit overrides file if needed)
 
 3. Run extract_ecobalyse_ingredient_properties.pl
-   → generates ecobalyse_ingredient_properties_v2.csv
+   → generates ecobalyse_ingredient_properties.csv
 ```
 
 ## Old-style (non-UUID) ecobalyse IDs in the taxonomy

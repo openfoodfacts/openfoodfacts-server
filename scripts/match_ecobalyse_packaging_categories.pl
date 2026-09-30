@@ -209,14 +209,14 @@ sub extract_packaging_material {
 
 	# Ordered: check compound / specific materials before generic ones
 	my @patterns = (
-		[qr/(?:apet\/pe|pe\/evoh\/pe|pp\/pe\/evoh\/pe|apet\/pe\/evoh\/pe|psx)/, "multi-layer plastic"],
+		[qr/(?:apet\/pe|pa\/pe|pe\/evoh\/pe|pp\/pe\/evoh\/pe|apet\/pe\/evoh\/pe|psx)/, "multi-layer plastic"],
 		[qr/\bmultimaterial\b|\bmultimat.riau[lx]?\b/, "multi-material"],
 		[qr/\bopp\b/, "OPP"],
 		[qr/\bkraft\b/, "kraft paper"],
 		[qr/\bapet\b/, "APET"],
 		[qr/\bpet\b/, "PET"],
 		[qr/\bpp\b/, "PP"],
-		[qr/\beps\b|\bpse\b/, "PS"],
+		[qr/\beps\b|\bpse\b|\bps\b/, "PS"],
 		[qr/\bpsex\b/, "PS"],
 		[qr/\bpehd\b/, "HDPE"],
 		[qr/\bhdpe\b/, "HDPE"],

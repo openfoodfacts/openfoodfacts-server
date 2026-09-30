@@ -53,6 +53,7 @@ binmode(STDERR, ":encoding(UTF-8)");
 my $processes_file = "external-data/ecobalyse/processes.json";
 my $mapping_file = "external-data/ecobalyse/base_ingredients_to_off_ingredients.tsv";
 my $overrides_file = "external-data/ecobalyse/base_ingredients_to_off_ingredients_overrides.tsv";
+my $proxies_file = "external-data/ecobalyse/base_ingredients_proxies_for_off_ingredients.tsv";
 my $output_file = "external-data/ecobalyse/ecobalyse_ingredient_properties.csv";
 
 # Load base_ingredients → tagid mapping (from Script 1 output + overrides)
@@ -68,7 +69,24 @@ for my $file ($mapping_file, $overrides_file) {
 		$base_to_tagid{$base} = $tagid if defined $base && defined $tagid;
 	}
 	close $tfh;
-	say STDERR "  Loaded " . scalar(keys %base_to_tagid) . " baseIngredient -> tagid mappings";
+}
+say STDERR "  Loaded " . scalar(keys %base_to_tagid) . " baseIngredient -> tagid mappings";
+
+# Load proxies: source_baseIngredient -> target_tagid
+# These are used to emit ecobalyse_proxy_ properties on the target tagid
+# by copying data from the source baseIngredient.
+my %base_to_proxy_tagid;
+if (-f $proxies_file) {
+	open my $pfh, '<:encoding(UTF-8)', $proxies_file
+		or die "Cannot open $proxies_file: $!";
+	while (my $line = <$pfh>) {
+		chomp $line;
+		next if $line =~ /^#/ || $line =~ /^\s*$/;
+		my ($source_base, $target_tagid) = split /\t/, $line, 2;
+		$base_to_proxy_tagid{$source_base} = $target_tagid if defined $source_base && defined $target_tagid;
+	}
+	close $pfh;
+	say STDERR "  Loaded " . scalar(keys %base_to_proxy_tagid) . " proxy mappings";
 }
 
 # Initialize taxonomies for canonicalize_taxonomy_tag fallback
@@ -207,6 +225,78 @@ TAGID: for my $tagid (sort keys %tagid_to_entries) {
 
 		# "Origin none does not mean proxy" — always use ecobalyse_ prefix
 		emit_variant_entry($tagid, $entry, 'ecobalyse', $variant_key);
+	}
+}
+
+# Emit proxy properties: for each (source_base, target_tagid) in the proxies file,
+# find the source baseIngredient's default entry and emit ecobalyse_proxy_ properties
+# on the target tagid.
+my $proxies_added = 0;
+for my $source_base (sort keys %base_to_proxy_tagid) {
+	my $target_tagid = $base_to_proxy_tagid{$source_base};
+
+	# Find the entries for the source baseIngredient in processes.json
+	if (exists $base_to_tagid{$source_base} && defined $base_to_tagid{$source_base}) {
+		my $source_tagid = $base_to_tagid{$source_base};
+		if (exists $tagid_to_entries{$source_tagid}) {
+			my $entries_ref = $tagid_to_entries{$source_tagid};
+			my @visible = grep {$_->{visible} // 1} @$entries_ref;
+			unless (@visible) {
+				push @warnings, "Proxy: no visible entries for $source_base -> $target_tagid";
+				next;
+			}
+
+			# Find the "base default" entry: None origin + non-organic
+			my @base_defaults = grep {is_none_origin($_) && !is_organic($_)} @visible;
+			my $default_entry;
+			if (@base_defaults) {
+				my @sorted = sort {
+					($a->{metadata}{ingredient}{scenario} // '') cmp ($b->{metadata}{ingredient}{scenario} // '')
+				} @base_defaults;
+				$default_entry = $sorted[0];
+			}
+			else {
+				# No natural base default — use best available entry (non-organic preferred, France last)
+				my @non_organic = grep {!is_organic($_)} @visible;
+				my @candidates = @non_organic ? @non_organic : @visible;
+				my @sorted = sort {
+					($default_origin_priority{$a->{metadata}{defaultOrigin} // ''} // 99)
+						<=> ($default_origin_priority{$b->{metadata}{defaultOrigin} // ''} // 99)
+				} @candidates;
+				$default_entry = $sorted[0];
+			}
+
+			# Emit global + variant properties on the target tagid with proxy prefix
+			emit_global_props($target_tagid, $default_entry, 'ecobalyse_proxy');
+			emit_variant_entry($target_tagid, $default_entry, 'ecobalyse_proxy', '');
+
+			# Emit variant-specific properties for other visible entries (all as proxy)
+			my %seen_variants;
+			for my $entry (
+				sort {
+					($default_origin_priority{$a->{metadata}{defaultOrigin} // ''} // 99)
+						<=> ($default_origin_priority{$b->{metadata}{defaultOrigin} // ''} // 99)
+						|| ($b->{visible} // 1) <=> ($a->{visible} // 1)
+						|| ($a->{metadata}{ingredient}{scenario} // '')
+						cmp ($b->{metadata}{ingredient}{scenario} // '')
+				} @visible
+				)
+			{
+				my $variant_key = get_variant_key($entry);
+				next if $seen_variants{$variant_key}++;
+				next if $variant_key eq '';    # skip base default (already emitted)
+				emit_variant_entry($target_tagid, $entry, 'ecobalyse_proxy', $variant_key);
+			}
+
+			$proxies_added++;
+		}
+		else {
+			push @warnings,
+				"Proxy: source baseIngredient $source_base resolves to $source_tagid but no entries in processes.json";
+		}
+	}
+	else {
+		push @warnings, "Proxy: source baseIngredient $source_base not in mapping file";
 	}
 }
 
