@@ -640,19 +640,15 @@ OFF open-data database is retained.
 
 The following transformations are applied:
 
-=over 4
-
-=item * The C<query> key is removed (it is already stored separately in
+- The C<query> key is removed (it is already stored separately in
 C<ecobalyse_input>).
 
-=item * Only the contents of the C<results> key are kept; all other
+- Only the contents of the C<results> key are kept; all other
 top-level keys (C<description>, C<webUrl>, …) are dropped.
 
-=item * For every hash that contains an C<ecs> key, all other keys are
+- For every hash that contains an C<ecs> key, all other keys are
 removed so that only C<ecs> remains.  This pruning is applied recursively
 throughout the C<results> sub-structure.
-
-=back
 
 The original hash is not modified; a new hash reference is returned.
 

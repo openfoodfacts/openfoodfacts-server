@@ -56,12 +56,14 @@ my $ecobalyse_json_file;
 my $output_file;
 my $dry_run = 0;
 my $tagids_file;
+my $alias_overrides_file;
 
 GetOptions(
 	"input=s" => \$ecobalyse_json_file,
 	"output=s" => \$output_file,
 	"dry-run" => \$dry_run,
 	"tagids-file=s" => \$tagids_file,
+	"alias-overrides=s" => \$alias_overrides_file,
 ) or die("Error in command line arguments\n");
 
 die("missing --output argument\n") unless defined $output_file;
@@ -71,7 +73,14 @@ unless (defined $ecobalyse_json_file && -f $ecobalyse_json_file) {
 	$ecobalyse_json_file = "/opt/product-opener/external-data/ecobalyse/ingredients.json";
 }
 
-$tagids_file //= "/tmp/kilo/base_ingredient_tagids.tsv";
+$tagids_file
+	//= "$BASE_DIRS{TAXONOMIES_SRC}/../external-data/ecobalyse/ecobalyse_base_ingredient_to_off_tagid_mapping.tsv";
+$tagids_file //= "/opt/product-opener/external-data/ecobalyse/ecobalyse_base_ingredient_to_off_tagid_mapping.tsv"
+	unless defined $tagids_file && -f $tagids_file;
+
+$alias_overrides_file //= "$BASE_DIRS{TAXONOMIES_SRC}/../external-data/ecobalyse/ecobalyse_alias_overrides.tsv";
+$alias_overrides_file //= "/opt/product-opener/external-data/ecobalyse/ecobalyse_alias_overrides.tsv"
+	unless defined $alias_overrides_file && -f $alias_overrides_file;
 
 if (defined $tagids_file && -f $tagids_file) {
 	say STDERR "Using pre-built tagid mapping from $tagids_file";
@@ -113,11 +122,32 @@ if (defined $tagids_file && -f $tagids_file) {
 		or die "Cannot open $tagids_file: $!";
 	while (my $line = <$tfh>) {
 		chomp $line;
+		next if $line =~ /^#/ || $line =~ /^\s*$/;
 		my ($base, $tagid) = split /\t/, $line, 2;
 		$base_to_tagid{$base} = $tagid if defined $base && defined $tagid;
 	}
 	close $tfh;
 	say STDERR "  Loaded " . scalar(keys %base_to_tagid) . " baseIngredient -> tagid mappings";
+}
+
+# Load permanent alias overrides (old alias -> UUID) for hard-to-resolve cases
+my %alias_overrides;
+if (defined $alias_overrides_file && -f $alias_overrides_file) {
+	open my $ofh, '<:encoding(UTF-8)', $alias_overrides_file
+		or die "Cannot open $alias_overrides_file: $!";
+	while (my $line = <$ofh>) {
+		chomp $line;
+		next if $line =~ /^#/ || $line =~ /^\s*$/;
+		my ($old_alias, $new_uuid, $new_alias, $method, $notes) = split /\t/, $line, 5;
+		if (defined $old_alias && defined $new_uuid && exists $id_to_entry{$new_uuid}) {
+			$alias_overrides{$old_alias} = $id_to_entry{$new_uuid};
+		}
+		elsif (defined $old_alias && defined $new_uuid) {
+			say STDERR "WARNING: alias override for '$old_alias' references unknown UUID '$new_uuid'";
+		}
+	}
+	close $ofh;
+	say STDERR "  Loaded " . scalar(keys %alias_overrides) . " alias override mappings";
 }
 
 # Initialize taxonomies for canonicalization fallback (cache may not be built)
@@ -197,8 +227,19 @@ BASE: for my $base (sort keys %base_to_entries) {
 			$alias_upgrades++;
 		}
 		else {
-			push @warnings, "Stale UUID or unknown alias in $prop for $base ($canonical_id): $val";
-			next;
+			# Try to resolve via fallback strategies before giving up
+			$entry = resolve_alias($val, $base);
+			if (defined $entry) {
+				$has_ecobalyse = 1;
+				push @output_rows, [$canonical_id, $prop, $entry->{id}];
+				$alias_upgrades++;
+				push @warnings,
+					"Upgraded alias with fallback in $prop for $base ($canonical_id): $val -> $entry->{alias}";
+			}
+			else {
+				push @warnings, "Stale UUID or unknown alias in $prop for $base ($canonical_id): $val";
+				next;
+			}
 		}
 
 		# Emit variant-specific properties
@@ -438,5 +479,65 @@ sub select_default_entry {
 	for my $e (@sorted) {
 		return $e if ($e->{visible} // 1);
 	}
+	return;
+}
+
+sub resolve_alias {
+	my ($alias, $base_ingredient) = @_;
+
+	# Strategy 0: check permanent alias overrides (manually curated mappings)
+	if (exists $alias_overrides{$alias}) {
+		return $alias_overrides{$alias};
+	}
+
+	# Strategy 1: try with -2025 suffix (Ecobalyse DB version marker)
+	my $suffixed = $alias . '-2025';
+	return $alias_to_entry{$suffixed} if exists $alias_to_entry{$suffixed};
+
+	# Strategy 2: plural-to-singular normalization
+	# e.g. broad-beans-eu -> broad-bean-eu
+	my $singular = $alias;
+	# Remove trailing 's' from word segment before a variant suffix
+	# Uses a lookahead so we only strip 's' when immediately followed by -<suffix>
+	$singular =~ s/s(?=-(?:eu|fr|non-eu|organic|default|2025))//;
+	if ($singular ne $alias) {
+		return $alias_to_entry{$singular} if exists $alias_to_entry{$singular};
+		return $alias_to_entry{$singular . '-2025'} if exists $alias_to_entry{$singular . '-2025'};
+	}
+
+	# Strategy 3: try matching by baseIngredient name directly
+	# Some aliases were renamed entirely (e.g. curly-kale-fr -> kale-fr)
+	if (defined $base_ingredient && exists $base_to_entries{$base_ingredient}) {
+		for my $entry (@{$base_to_entries{$base_ingredient}}) {
+			if ($entry->{alias} eq $alias || $entry->{alias} eq $suffixed) {
+				return $entry;
+			}
+		}
+	}
+
+	# Strategy 4: suffix overlap — check if the old alias ends with a known alias
+	# from the same baseIngredient (e.g. "curly-kale-fr" ends with "kale-fr")
+	if (defined $base_ingredient && exists $base_to_entries{$base_ingredient}) {
+		for my $entry (@{$base_to_entries{$base_ingredient}}) {
+			my $known_alias = $entry->{alias};
+			if (   $known_alias ne $alias
+				&& length($alias) > length($known_alias)
+				&& substr($alias, -length($known_alias)) eq $known_alias)
+			{
+				return $entry;
+			}
+		}
+	}
+
+	# Strategy 5: stale UUID fallback — if the value looks like a UUID (36-char hex)
+	# but is not in the current database, try to use the default entry for this
+	# baseIngredient (by defaultOrigin priority)
+	if ($alias =~ /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/) {
+		if (defined $base_ingredient && exists $base_to_entries{$base_ingredient}) {
+			my $default = select_default_entry($base_to_entries{$base_ingredient});
+			return $default if defined $default;
+		}
+	}
+
 	return;
 }

@@ -146,57 +146,41 @@ is($filtered_ref->{results}{total}, {ecs => 97.318}, "total keeps only ecs");
 is($filtered_ref->{results}{preparation}, {ecs => 0}, "preparation keeps only ecs");
 
 # 4. Nested hashes inside results with ecs are also filtered
-is(
-	$filtered_ref->{results}{distribution}{total},
-	{ecs => 0.253},
-	"distribution.total keeps only ecs"
-);
+is($filtered_ref->{results}{distribution}{total}, {ecs => 0.253}, "distribution.total keeps only ecs");
 is(
 	$filtered_ref->{results}{distribution}{transports},
 	{
-		air         => 0,
-		impacts     => {ecs => 4.91},
-		road        => 600,
-		roadCooled  => 0,
-		sea         => 0,
-		seaCooled   => 0,
+		air => 0,
+		impacts => {ecs => 4.91},
+		road => 600,
+		roadCooled => 0,
+		sea => 0,
+		seaCooled => 0,
 	},
 	"distribution.transports keeps non-impact scalars and filters impacts"
 );
-is(
-	$filtered_ref->{results}{recipe}{ingredientsTotal},
-	{ecs => 49.38},
-	"recipe.ingredientsTotal keeps only ecs"
-);
-is(
-	$filtered_ref->{results}{recipe}{total},
-	{ecs => 53.49},
-	"recipe.total keeps only ecs"
-);
-is(
-	$filtered_ref->{results}{recipe}{transform},
-	{ecs => 0},
-	"recipe.transform keeps only ecs"
-);
+is($filtered_ref->{results}{recipe}{ingredientsTotal}, {ecs => 49.38}, "recipe.ingredientsTotal keeps only ecs");
+is($filtered_ref->{results}{recipe}{total}, {ecs => 53.49}, "recipe.total keeps only ecs");
+is($filtered_ref->{results}{recipe}{transform}, {ecs => 0}, "recipe.transform keeps only ecs");
 
 # 5. Hashes without ecs are kept as-is (scoring, totalBonusImpact)
 is(
 	$filtered_ref->{results}{scoring},
 	{
-		all         => 973.181,
+		all => 973.181,
 		biodiversity => 451.194,
-		climate     => 157.121,
-		health      => 96.1446,
-		resources   => 268.723,
+		climate => 157.121,
+		health => 96.1446,
+		resources => 268.723,
 	},
 	"scoring kept as-is (no ecs key)"
 );
 is(
 	$filtered_ref->{results}{recipe}{totalBonusImpact},
 	{
-		cropDiversity      => 0,
-		hedges             => 0,
-		plotSize            => 0,
+		cropDiversity => 0,
+		hedges => 0,
+		plotSize => 0,
 	},
 	"totalBonusImpact kept as-is (no ecs key)"
 );

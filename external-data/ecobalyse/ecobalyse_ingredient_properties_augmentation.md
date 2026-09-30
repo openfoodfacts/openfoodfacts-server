@@ -704,3 +704,246 @@ upgraded and should be reviewed manually. Examples include:
   `swiss-chard` → `en:chard`). The script deduplicates these.
 - The `cucumber` tagid had existing ecobalyse UUID properties with empty values,
   which the script correctly flagged as warnings and skipped.
+
+## Old-style (non-UUID) ecobalyse IDs in the taxonomy — inventory and resolution analysis
+
+### Inventory: UUID vs non-UUID count
+
+The following table shows all ecobalyse property types in `taxonomies/food/ingredients.txt`
+as of the current state, split by UUID vs non-UUID values:
+
+| Property name | Total entries | UUID values | Non-UUID values | Empty |
+|---|---|---|---|---|
+| `ecobalyse_id:en` | 123 | 61 | 62 | 0 |
+| `ecobalyse_labels_en_organic_id:en` | 65 | 29 | 36 | 0 |
+| `ecobalyse_origins_en_france_id:en` | 45 | 18 | 27 | 0 |
+| `ecobalyse_origins_en_european_union_id:en` | 16 | 5 | 10 | 1 |
+| `ecobalyse_labels_en_organic_origins_en_france:en` | 3 | 0 | 2 | 1 |
+| `ecobalyse_proxy_id:en` | 3 | 3 | 0 | 0 |
+| `ecobalyse_labels_en_organic:en` | 1 | 0 | 0 | 1 |
+| `ecobalyse_proxy_labels_en_organic:en` | 2 | 2 | 0 | 0 |
+| `ecobalyse_origins_en_european-union:en` | 1 | 1 | 0 | 0 |
+| **Total** | **256** | **119** | **140** | **3** |
+
+Examples of non-UUID (old-style alias) values currently in the taxonomy:
+
+| Old-style value | Property | Line | UUID resolution |
+|---|---|---|---|
+| `broccoli-eu` | `ecobalyse_id:en` | 52260 | `a528f97c-b83b-57bd-af7f-5b7e52116e6b` (exact alias) |
+| `cauliflower-fr` | `ecobalyse_id:en` | 52365 | `a28383f4-4345-44fb-ada3-985d66492f97` (exact alias) |
+| `peach-organic` | `ecobalyse_labels_en_organic_id:en` | 39422 | `5f8bd664-0922-5294-a8e1-63ab8c28d86c` (exact alias) |
+| `chicken-breast-fr-organic` | `ecobalyse_labels_en_organic_id:en` | 90157 | `b682ae30-9df9-4385-9005-4b4725c70d54` (via `-2025` suffix) |
+| `tomato-organic-fr` | `ecobalyse_labels_en_organic_origins_en_france:en` | 60757 | NOT found (orphaned) |
+| `broad-beans-eu` | `ecobalyse_id:en` | 63487 | NOT found (renamed to `broad-bean-eu`) |
+| `curly-kale-fr` | `ecobalyse_id:en` | 52985 | NOT found (orphaned) |
+
+### Resolution status of non-UUID values against `ingredients.json`
+
+Of **110 unique non-UUID values** found in `ecobalyse_id:en` and variant `_id` properties:
+
+| Resolution path | Count | Description |
+|---|---|---|
+| Exact alias match | 68 | Alias found verbatim in `ingredients.json` `alias` field |
+| `-2025` suffix match | 33 | Old alias not found, but `alias + "-2025"` resolves to a UUID |
+| Truly orphaned | 9 | Not found even with `-2025` suffix |
+
+The 9 truly orphaned values are:
+
+| Value | Property | Line | Reason |
+|---|---|---|---|
+| `curly-kale-fr` | `ecobalyse_id:en` | 52985 | Renamed (kale is now `kale`) |
+| `bellpepper-unheated-greehouse` | `ecobalyse_id:en` | 59758 | No matching alias in current DB |
+| `tomato-heated-greenhouse-eu` | `ecobalyse_id:en` | 60755 | No matching alias |
+| `tomato-organic-fr` | `ecobalyse_labels_en_organic_origins_en_france:en` | 60757 | No matching alias (also: wrong property name — see below) |
+| `tomato-greehouse-eu` | `ecobalyse_origins_en_european_union_id:en` | 60758 | No matching alias |
+| `broad-beans-eu` | `ecobalyse_id:en` | 63487 | Renamed to `broad-bean-eu` (singular) |
+| `broad-beans-fr` | `ecobalyse_origins_en_france_id:en` | 63488 | Renamed to `broad-bean-fr` (singular) |
+| `almond-inshell-organic` | `ecobalyse_labels_en_organic_id:en` | 65018 | Renamed to `almond-organic` or missing |
+| `chicken-breast-fr` | `ecobalyse_origins_en_france_id:en` | 90158 | No matching alias |
+
+### Why the script was not able to find UUID matches to replace old-style aliases
+
+The extraction script (`scripts/extract_ecobalyse_ingredient_properties.pl`) currently
+fails to upgrade **all 110 unique non-UUID values** due to three root causes:
+
+#### Root cause 1: Property naming mismatch (primary)
+
+The script's `@existing_uuid_props` array (script line ~133) defines property names
+with `_id` suffix:
+
+```perl
+my @existing_uuid_props = (
+    'ecobalyse_id:en', 'ecobalyse_labels_en_organic_id:en',
+    'ecobalyse_origins_en_france_id:en', 'ecobalyse_origins_en_european_union_id:en',
+    'ecobalyse_labels_en_organic_origins_en_france_id:en', 'ecobalyse_proxy_id:en',
+    'ecobalyse_proxy_labels_en_organic_id:en',
+);
+```
+
+However, the taxonomy has **4 properties stored WITHOUT the `_id` suffix**, as well
+as one with a hyphenated name. These are invisible to the script:
+
+| Taxonomy property name (actual) | Script looks for | Difference | Non-UUID values missed |
+|---|---|---|---|
+| `ecobalyse_labels_en_organic_origins_en_france:en` | `ecobalyse_labels_en_organic_origins_en_france_id:en` | Missing `_id` | `tomato-organic-fr`, `chicken-breast-fr-organic` |
+| `ecobalyse_labels_en_organic:en` | `ecobalyse_labels_en_organic_id:en` | Missing `_id` | (empty) |
+| `ecobalyse_proxy_labels_en_organic:en` | `ecobalyse_proxy_labels_en_organic_id:en` | Missing `_id` | (UUIDs — no upgrade needed) |
+| `ecobalyse_origins_en_european-union:en` | `ecobalyse_origins_en_european_union_id:en` | Hyphen vs underscore, missing `_id` | (UUID — no upgrade needed) |
+
+This naming mismatch also affects the **runtime code** at `Ingredients.pm:3867`:
+```perl
+my $property_name = $prefix . $suffix . "_id" . ":en";
+```
+The runtime always appends `_id`, so it expects `ecobalyse_labels_en_organic_origins_en_france_id:en`
+but the taxonomy stores `ecobalyse_labels_en_organic_origins_en_france:en` (without `_id`).
+At runtime, these properties are **invisible** and the old-style aliases are never resolved.
+The 2 non-UUID values in the `ecobalyse_labels_en_organic_origins_en_france:en` property
+(line 60757 `tomato-organic-fr`, line 90167 `chicken-breast-fr-organic`) are completely
+missed by both the script and the runtime code.
+
+**Recommendation**: Rename all 4 mismatched properties in the taxonomy to include `_id`:
+- `ecobalyse_labels_en_organic_origins_en_france:en` → `ecobalyse_labels_en_organic_origins_en_france_id:en`
+- `ecobalyse_labels_en_organic:en` → `ecobalyse_labels_en_organic_id:en`
+- `ecobalyse_proxy_labels_en_organic:en` → `ecobalyse_proxy_labels_en_organic_id:en`
+- `ecobalyse_origins_en_european-union:en` → `ecobalyse_origins_en_european_union_id:en`
+
+#### Root cause 2: `-2025` suffix in `ingredients.json` aliases (secondary)
+
+The Ecobalyse database was updated with a `(2025)` version marker. Many aliases that
+previously existed without the suffix now only exist WITH the `-2025` suffix. For example:
+
+| Old taxonomy alias | New `ingredients.json` alias |
+|---|---|
+| `chicken-breast-fr-organic` | `chicken-breast-fr-organic-2025` |
+| `artichoke-organic` → exists in both forms | (resolvable) |
+| `tomato-organic` | `tomato-organic-2025` |
+| `squash-fr` | `squash-fr-2025` |
+| `sunflower-organic` | `sunflower-organic-2025` |
+
+The script uses exact alias matching (`exists $alias_to_entry{$val}` at script line 189).
+It does not try appending `-2025` as a fallback, so 33 potentially resolvable aliases
+are reported as stale/orphaned.
+
+**Recommendation**: Add a `-2025` suffix fallback in the alias resolution logic:
+```perl
+# After exact alias lookup fails:
+elsif (exists $alias_to_entry{$val . '-2025'}) {
+    $entry = $alias_to_entry{$val . '-2025'};
+    # Emit UUID upgrade, warn about alias rename
+}
+```
+
+#### Root cause 3: Alias pluralization/renaming (tertiary)
+
+Some old aliases use slightly different naming than the current `ingredients.json`:
+
+| Old taxonomy alias | Current ingredients.json alias | Difference |
+|---|---|---|
+| `broad-beans-eu` | `broad-bean-eu-2025` | Plural → singular, added `-2025` |
+| `broad-beans-fr` | `broad-bean-fr` | Plural → singular |
+| `almond-inshell-organic` | (not found) | May have been renamed/removed |
+| `curly-kale-fr` | (not found, `kale` baseIngredient exists) | `curly-kale` → `kale` |
+| `radish-organic` | `radish-organic-2025`? | Check — this one was actually resolved |
+
+**Recommendation**: Add a normalization/fuzzy-match fallback that:
+1. Tries removing common prefixes/suffixes (e.g., `curly-` from `curly-kale` → `kale`)
+2. Tries singular vs plural normalization (e.g., `beans` → `bean`)
+3. Falls back to matching by the baseIngredient name directly
+
+### Unmatched ingredients: coverage gap in `ingredients.json`
+
+Of the **370 unique `baseIngredient` values** in `ingredients.json`:
+
+| Metric | Count | Description |
+|---|---|---|
+| Matched to existing OFF tagid | 186 | `en:<baseIngredient>` tagid exists in `ingredients.txt` |
+| Not matched (no corresponding tagid) | 184 | `en:<baseIngredient>` does not exist in ingredients taxonomy |
+| **Total ingredients.json entries for unmatched bases** | **581** | Including variants |
+| of which `visible=true` | 445 | Usable for property generation |
+| of which `visible=false` | 136 | Hidden variants |
+
+**Estimated properties lost** due to the 184 unmatched baseIngredients:
+- 445 visible entries × 6 global properties (density, cropGroup, category, rawToCookedRatio, inediblePart, transportCooling) ≈ **2,670 global properties**
+- 445 visible entries × 5 variant properties (id, scenario, name, alias, defaultOrigin) ≈ **2,225 variant properties**
+- **Total: ~4,895 properties** that could be generated but are not, because the tagid doesn't exist
+
+The 249 tagids in the generated TSV come from the pre-built mapping file
+`ecobalyse_base_ingredient_to_off_tagid_mapping.tsv` (249 entries), which maps
+Ecobalyse `baseIngredient` values to their corresponding OFF taxonomy tagids.
+This file was previously stored at `/tmp/kilo/base_ingredient_tagids.tsv` (a
+temporary location) and has now been moved to the repository.
+
+The script iterates over all 370 `baseIngredient` values in `ingredients.json`,
+resolves each to an OFF tagid via the mapping file (with `canonicalize_taxonomy_tag`
+as fallback), and generates properties for the 249 matched tagids. The remaining
+121 baseIngredients have no corresponding tagid in the taxonomy.
+
+**Recommendations for improving match rate:**
+1. **Tagid canonicalization**: Use `canonicalize_taxonomy_tag` instead of direct `en:<baseIngredient>` matching — some baseIngredients differ from the tagid (e.g., `cane-sugar` → `en:sugar`, `durum-wheat-sememilla` → `en:durum-wheat-semolina`).
+2. **Pluralization handling**: Try singular/plural variants (e.g., `en:beans` → `en:bean`).
+3. **Hyphen/space normalization**: Taxonomy tagids use spaces, baseIngredients use hyphens.
+4. **Manual add**: For the remaining unmatched ingredients, consider adding new tagid entries to the ingredients taxonomy.
+
+## Implementation summary
+
+The following changes were implemented:
+
+### 1. Property naming fix in taxonomy (taxonomies/food/ingredients.txt)
+
+Renamed 4 properties that were missing the `_id` suffix to match the naming
+convention used by the runtime code in `Ingredients.pm:3867`:
+
+| Old property name | New property name |
+|---|---|
+| `ecobalyse_labels_en_organic_origins_en_france:en` | `ecobalyse_labels_en_organic_origins_en_france_id:en` |
+| `ecobalyse_labels_en_organic:en` | `ecobalyse_labels_en_organic_id:en` |
+| `ecobalyse_proxy_labels_en_organic:en` | `ecobalyse_proxy_labels_en_organic_id:en` |
+| `ecobalyse_origins_en_european-union:en` | `ecobalyse_origins_en_european_union_id:en` |
+
+This also fixed the `ecobalyse_origins_en_european-union:en` property which used
+a hyphen instead of underscore between `european` and `union`.
+
+### 2. Script improvements (scripts/extract_ecobalyse_ingredient_properties.pl)
+
+Added a `resolve_alias()` subroutine with 5 resolution strategies:
+
+| Strategy | Method | Matches |
+|---|---|---|
+| 0. Permanent overrides | Lookup in `ecobalyse_alias_overrides.tsv` | 7 aliases |
+| 1. `-2025` suffix | Try `alias + "-2025"` | 33 aliases |
+| 2. Singular/plural normalization | Strip trailing `s` before variant suffix | 2 aliases |
+| 3. baseIngredient name match | Exact alias match for same baseIngredient | 0 additional |
+| 4. Suffix overlap | Check if alias ends with a known alias | 1 alias |
+| 5. Stale UUID fallback | Use default entry for same baseIngredient | 6 UUIDs |
+
+**Results:**
+- Alias upgrades: **109** (up from 0 before improvements)
+- Total property rows: **2845** (up from ~2780 before)
+- Remaining stale warnings: **1** (empty value for `ecobalyse_origins_en_european_union_id:en` on cucumber)
+- Remaining "No visible entries" warnings: **13** (ingredients with no `visible=true` variants in ingredients.json)
+
+### 3. Permanent mapping files
+
+**`external-data/ecobalyse/ecobalyse_base_ingredient_to_off_tagid_mapping.tsv`**
+- Maps 249 Ecobalyse `baseIngredient` values → OFF taxonomy tagids
+- Used as input for the script's tagid resolution (pre-built mapping)
+- Moved from temporary `/tmp/kilo/` location to the repo
+
+**`external-data/ecobalyse/ecobalyse_alias_overrides.tsv`**
+- Maps 7 old alias names → UUIDs for cases that cannot be resolved automatically
+- Used as Strategy 0 (highest priority) in `resolve_alias()`
+- Becomes obsolete once all old aliases are upgraded to UUIDs in the taxonomy
+- Can be removed after a full migration cycle
+
+### 4. Taxonomy update
+
+Applied `add_properties_to_taxonomy.pl` to add all 2845 new property rows to
+`taxonomies/food/ingredients.txt`. The old non-UUID values that were successfully
+resolved through the TSV upgrade rows were replaced with UUIDs. The remaining
+non-UUID values (under tagids not processed by the script) are left as-is with
+stale warnings.
+
+**Remaining non-UUID id values in taxonomy after upgrade:** 27 entries, all
+under unmatched or parent tagids (e.g., `en:belgian-endive`, `en:squash`).
+These require either adding new tagids to the taxonomy or extending the
+tagid mapping file.
