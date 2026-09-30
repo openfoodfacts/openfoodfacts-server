@@ -479,7 +479,7 @@ sub build_lang ($Languages_ref) {
 				DateTime->new(year => 2000, time_zone => 'UTC', month => $month, locale => $locale)->month_name;
 		}
 
-		$Lang{months}{$l} = encode_json(\@months);
+		$Lang{months}{$l} = decode("utf8", encode_json(\@months));
 
 		my @weekdays = ();
 		foreach my $weekday (0 .. 6) {
@@ -488,7 +488,7 @@ sub build_lang ($Languages_ref) {
 				->day_name;
 		}
 
-		$Lang{weekdays}{$l} = encode_json(\@weekdays);
+		$Lang{weekdays}{$l} = decode("utf8", encode_json(\@weekdays));
 	}
 
 	return;

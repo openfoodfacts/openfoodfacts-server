@@ -879,6 +879,35 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 
+	# Multi-word oils inside a generic name: "palm kernel" and "palm stearin"
+	# must be expanded as a single ingredient each, not left as a dangling word
+	# after "palm" was matched (e.g. "palm, palm, stearin, palm kernel").
+	[
+		"en-vegetable-oils-palm-stearin-palm-kernel",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (palm stearin, palm, palm kernel)",
+		}
+	],
+
+	[
+		"en-vegetable-oils-palm-stearin-palm-kernel-with-other-oils",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (coconut, palm stearin, palm, palm kernel)",
+		}
+	],
+
+	# Oils that resolve to their taxonomy id via an "X vegetable oil(s)" synonym
+	# (ingredients.txt). Guards the synonym entries added for these oils.
+	[
+		"en-vegetable-oils-five-resolved-oils",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (avocado, olive, colza, cottonseed, safflower)",
+		}
+	],
+
 	# émulsifiant : lécithines (tournesol)
 	[
 		"fr-emulsifiant-lecithines-tournesol",
@@ -933,6 +962,351 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => '小麦粉●砂糖●植物油脂●食塩●香料●乳化剤',
 		},
 	],
+	# origins adjectives
+	[
+		'fr-origins-adjectives',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				'Tomates italiennes, fraises bretonnes, pommes normandes, huile d’olive italienne, huile d’olive grecque, fromage anglais',
+		}
+	],
+	[
+		'fr-origins-adjectives-false-positives',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				'Crème anglaise, sauce anglaise, pain suédois (farine, sel), maquereaux espagnols, maquereau espagnol',
+		}
+	],
+	[
+		'sv-origins-adjectives',
+		{
+			lc => 'sv',
+			ingredients_text => 'svensk jordgubbe, svenska jordgubbar',
+		}
+
+	],
+	# Recipes with ingredients by weight and volume
+	[
+		'en-ingredients-with-a-specific-density',
+		{
+			lc => 'en',
+			ingredients_text => 'cooking oil 25 fl oz, milk 1dl, 5cl granulated sugar, water 1l, apple juice 20ml',
+		}
+	],
+	[
+		'fr-recipes-with-ingredients-by-weight-and-volume',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
+		}
+	],
+	# percent_or_quantity_regexp
+	[
+		'en-percent-or-quantity-regexp',
+		{
+			lc => 'en',
+			ingredients_text => "cod 40g, salmon 30%, 20% tuna, mackerel (7%), 3g sardine",
+		}
+	],
+
+	# Concentrations as mg/kg must not split on '/' (issue #6132)
+	# Simplified Spanish reproducer (avoids "Ac." abbreviation which hits period+space separators)
+	[
+		"es-mg-per-kg",
+		{
+			lc => "es",
+			ingredients_text =>
+				"Hierro 30 mg/kg, ácido fólico 2,2 mg/kg, tiamina 6,3 mg/kg, riboflavina 1,3 mg/kg, niacina 13 mg/kg",
+		}
+	],
+	[
+		"en-compound-unit-minimum-qualifier",
+		{
+			lc => "en",
+			ingredients_text => "Vitamin A 100 mg/kg minimum",
+		}
+	],
+	[
+		"en-label-promoted-compound-unit-slash",
+		{
+			lc => "en",
+			ingredients_text => "organic (mg/kg 1b306)",
+		}
+	],
+	# French petfood dosages (Open Pet Food Facts / related to #6132)
+	[
+		"fr-petfood-mg-per-kg",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"extrait de yucca 180 mg/kg, fructooligosaccharides 480 mg/kg, glucosamine 180 mg/kg, méthylsulfométhane 180 mg/kg, sulfate de chondroïtine 125 mg/kg, mannanoligosaccharides 120 mg/kg",
+		}
+	],
+	# Activity / count units (vitamins IU/UI/I.E, probiotics UFC) — no quantity_g
+	[
+		"fr-vitamin-ui-and-ufc",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Vitamine A 14000 U.I., Vitamine D 500 I.E, Vitamine E 10 IU, Enterococcus faecium 1000000000 UFC",
+		}
+	],
+	# Slash between additives must still separate / stay as additive enumeration
+	[
+		"fr-additive-slash-still-works",
+		{
+			lc => "fr",
+			ingredients_text => "correcteurs d'acidité : E322/E333, sel",
+		}
+	],
+	# Compound-unit quantity glued between two ingredients (no comma): it must
+	# be isolated so both ingredients are still extracted (#6132 follow-up)
+	[
+		"fr-petfood-mid-segment-mg-per-kg",
+		{
+			lc => "fr",
+			ingredients_text => "L-carnitine 450 mg/kg sulfate de glucosamine 450 mg/kg, chondroïtine 450 mg/kg",
+		}
+	],
+	# An additive class followed only by unit junk / unknown codes keeps its
+	# node instead of being flattened into unknown children
+	[
+		"fr-additive-class-kept-over-unit-junk",
+		{
+			lc => "fr",
+			ingredients_text => "Antioxygènes : Avec antioxydant naturel : mg/kg 1b306(i), sel",
+		}
+	],
+	# Same, with the class itself ("antioxydant naturel") directly followed by
+	# the unit junk (regression: read-only split chunk crash)
+	[
+		"fr-additive-class-natural-antioxidant-unit-junk",
+		{
+			lc => "fr",
+			ingredients_text => "Avec antioxydant naturel : mg/kg 1b306(i)",
+		}
+	],
+	# a lone roman numeral in parenthesis is an oxidation state, not a sub-ingredient
+	[
+		"fr-oxidation-states-not-sub-ingredients",
+		{
+			lc => "fr",
+			ingredients_text => "Minéraux : sulfate de fer (II), sulfate de cuivre (ii), fer (iii), oxyde de zinc",
+		}
+	],
+	# an unknown word after the numeral must not hide the known parent
+	[
+		"fr-oxidation-state-before-unknown-word",
+		{
+			lc => "fr",
+			ingredients_text => "Sulfate de cuivre (II) pentahydraté, sulfate de fer (II) monohydraté",
+		}
+	],
+	# taxonomies can store the numeral between spaces: "ijzer (II) citraat", "iron(III) oxide"
+	[
+		"nl-oxidation-state-spaced-in-taxonomy",
+		{
+			lc => "nl",
+			ingredients_text => "ijzer (II) citraat, zout",
+		}
+	],
+	[
+		"en-oxidation-state-spaced-in-taxonomy",
+		{
+			lc => "en",
+			ingredients_text => "colour: iron (III) oxide, salt",
+		}
+	],
+	# the name stops before "and" or a quantity
+	[
+		"pl-oxidation-state-before-and",
+		{
+			lc => "pl",
+			ingredients_text => "konserwant: Azotan(III) potasu i sól",
+		}
+	],
+	[
+		"pl-oxidation-state-before-percent",
+		{
+			lc => "pl",
+			ingredients_text => "konserwant: Azotan(III) potasu 0,1%, sól",
+		}
+	],
+	# processing words after the name
+	[
+		"en-oxidation-state-with-processing",
+		{
+			lc => "en",
+			ingredients_text => "copper (II) sulfate powder, salt",
+		}
+	],
+	[
+		"fr-oxidation-state-with-processing",
+		{
+			lc => "fr",
+			ingredients_text => "sulfate de cuivre (II) en poudre, sel",
+		}
+	],
+	# the name continues after the numeral: "Azotan(III) potasu" is E249, "Azotan potasu" is E252
+	[
+		"pl-oxidation-state-inside-name",
+		{
+			lc => "pl",
+			ingredients_text => "konserwant: Azotan(III) potasu, sól",
+		}
+	],
+	# EU feed additive codes (Regulation 1831/2003 register) are synonyms of the additive
+	[
+		"fr-feed-additive-codes",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels : Fer (3b103), Cuivre (3b405), vitamine A (3a672a), vitamine E (3a700), taurine (3a370). Antioxydant : 1b306(i)",
+		}
+	],
+	# EU feed additive code before or after the name: kept if the name is the same entry as the code,
+	# or one of its parents ("vitamine A" for 3a672a, retinyl acetate)
+	[
+		"fr-feed-additive-code-with-name",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels : 3a672a vitamine A, vitamine E 3a700, 3b103 fer, taurine 3a370, 3a700 taurine",
+		}
+	],
+	# handling of */ and **/ in the tail of the ingredients list
+	[
+		# https://se.openfoodfacts.org/product/7350056848709/%C3%B6rtsalt-original-spicemaster
+		'sv-asterisk-slash',
+		{
+			lc => 'sv',
+			ingredients_text =>
+				'Havssalt (93%)**, basilika*, timjan*, rosmarin*, lök*, salvia, oregano* och vitlök* */ ekologiskt odlat **/oraffinerat havssalt med låg natriumhalt',
+		},
+	],
+	[
+		'en-asterisk-slash',
+		{
+			lc => 'en',
+			ingredients_text =>
+				'Sea salt (93%)**, basil*, thyme*, rosemary*, onion*, sage, oregano* and garlic* */ organically grown **/fair trade',
+		},
+	],
+	# Ingredients list with new lines
+	[
+		'fr-ingredients-with-new-lines-simple-recipe',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 kg de sucre\r\n1 kg de farine\n\n1 litre d'eau\n1 pincée de sel\n1 sachet de levure chimique\npoivre, épices\n",
+		},
+	],
+	[
+		'en-ingredients-with-new-lines',
+		{
+			lc => 'en',
+			ingredients_text =>
+				"Water\nSugar\nGlucose Syrup\nModified Starch\nCitric Acid\nNatural Flavouring\nFruit and Vegetable Concentrates (Carrot, Blackcurrant, Apple, Lemon, Safflower, Spirulina)\nColours (Anthocyanins, Curcumin)\nAcidity Regulator (Sodium Citrates)\nPreservative (Potassium Sorbate)",
+		},
+	],
+	# Ingredients with commas and new lines in middle of ingredient names that should not be split into multiple ingredients
+	[
+		'fr-ingredients-with-new-lines-and-commas-simple',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"Eau, Sucre, Sirop de\nGlucose, Amidon Modifié, Acide\nCitrique, Arôme Naturel,\nConcentrés de Fruits\net Légumes",
+		},
+	],
+	[
+		'en-ingredients-with-new-lines-and-commas',
+		{
+			lc => 'en',
+			ingredients_text =>
+				"Water, Sugar, Glucose Syrup, Modified\nStarch, Citric Acid, Natural\nFlavouring, Fruit and\n Vegetable Concentrates (Carrot,\nBlackcurrant, Apple, Lemon, Safflower, \nSpirulina), Colours (Anthocyanins, Curcumin), Acidity\nRegulator (Sodium Citrates), Preservative (Potassium Sorbate)",
+		},
+	],
+	# Check that specific ingredients are not added twice when we parse ingredients twice (when they have newlines)
+	[
+		'en-ingredients-parsing-multiple-times-with-specific-ingredients-converting-newlines-to-commas',
+		{
+			lc => "en",
+			ingredients_text => "Black grapes (Italy)\nsugar\neggs\npaprika.\nOrigin of paprika: Hungary",
+			origin_en => "Origin of sugar: Guatemala",
+			labels => "French Eggs",
+		}
+	],
+	[
+		'en-ingredients-parsing-multiple-times-with-specific-ingredients-not-converting-newlines-to-commas',
+		{
+			lc => "en",
+			ingredients_text => "Black\ngrapes (Italy), sugar, eggs, paprika. Origin of paprika: Hungary",
+			origin_en => "Origin of sugar: Guatemala",
+			labels => "French Eggs",
+		}
+	],
+	# Ingredient unit quantities
+	[
+		'en-ingredient-unit-quantities-1-egg-2-carrots',
+		{
+			lc => "en",
+			ingredients_text => "1 egg, 2 carrots",
+		}
+	],
+	[
+		'en-ingredient-unit-quantities-1-large-egg-2-small-carrots',
+		{
+			lc => "en",
+			ingredients_text => "1 large egg, 2 small carrots, 1 large apple",
+		}
+	],
+	[
+		'fr-ingredient-unit-quantities-1-gros-oeuf-2-petites-carottes',
+		{
+			lc => "fr",
+			ingredients_text => "1 gros œuf, 2 petites carottes",
+		}
+	],
+	# sizes stopwords
+	[
+		'en-1-small-size-orange-2-medium-size-apples',
+		{
+			lc => "en",
+			ingredients_text => "1 small sized orange, 2 medium size apples",
+		}
+	],
+	[
+		'fr-ingredient-unit-quantities-3-concombres-de-petite-taille-2-aubergines-de-taille-moyenne',
+		{
+			lc => "fr",
+			ingredients_text => "3 concombres de petite taille, 2 aubergines de taille moyenne",
+		}
+	],
+	# E150c bug
+	[
+		"en-e150c",
+		{
+			lc => "en",
+			ingredients_text => "E150c",
+		}
+	],
+	# English ingredients but different main language: should still work
+	[
+		"en-ingredients-with-different-main-language",
+		{
+			lc => "fr",
+			lang => "fr",
+			ingredients_lc =>
+				"sr",    # wrong ingredients_lc that was set previously before an ingredients_text language change
+			ingredients_text => "sugar, salt, and pepper",
+			ingredients_text_en => "sugar, salt, and pepper",
+			ingredients_text_fr => "",
+		}
+	],
+
 );
 
 foreach my $test_ref (@tests) {

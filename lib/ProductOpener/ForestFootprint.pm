@@ -290,20 +290,20 @@ sub compute_forest_footprint ($product_ref) {
 			$product_ref->{forest_footprint_data}{footprint_per_kg} += $ingredient_ref->{footprint_per_kg};
 		}
 
-		# Assign a A to E grade (used for icons and descriptions)
+		# Assign a A to D grade (used for icons and descriptions)
 
-		my $grade = "e";
+		my $grade = "d";
 
-		if ($product_ref->{forest_footprint_data}{footprint_per_kg} < 0.5) {
+		if ($product_ref->{forest_footprint_data}{footprint_per_kg} == 0) {
 			$grade = "a";
 		}
-		elsif ($product_ref->{forest_footprint_data}{footprint_per_kg} < 1) {
+		elsif ($product_ref->{forest_footprint_data}{footprint_per_kg} < 1.25) {
 			$grade = "b";
 		}
-		elsif ($product_ref->{forest_footprint_data}{footprint_per_kg} < 1.5) {
+		elsif ($product_ref->{forest_footprint_data}{footprint_per_kg} < 2) {
 			$grade = "c";
 		}
-		elsif ($product_ref->{forest_footprint_data}{footprint_per_kg} < 2) {
+		else {
 			$grade = "d";
 		}
 		$product_ref->{forest_footprint_data}{grade} = $grade;

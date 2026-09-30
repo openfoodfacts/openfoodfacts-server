@@ -416,6 +416,12 @@
       ],
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups_tags" : [],
+      "forest_footprint_2026" : {
+         "grade" : "a",
+         "primary_ingredients" : {},
+         "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+         "total_footprint_per_kg" : 0
+      },
       "generic_name" : "default_name",
       "generic_name_en" : "default_name",
       "id" : "4260392550101",
@@ -527,6 +533,8 @@
       "misc_tags" : [
          "en:environmental-score-not-computed",
          "en:estimated-ingredients-with-product-opener",
+         "en:forest-footprint-computed",
+         "en:forest-footprint-grade-a",
          "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
          "en:nutriscore-2021-c-2023-c",
          "en:nutriscore-2021-same-as-2023",
@@ -539,6 +547,7 @@
          "en:packagings-not-empty",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-number-of-components-4",
+         "en:storage-conditions-not-set",
          "en:main-countries-new-product"
       ],
       "nova_group" : 1,

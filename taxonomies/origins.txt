@@ -115,6 +115,10 @@ synonyms:tr: Güneydoğu, Güney Doğu
 synonyms:tr: Doğu Merkezi, Doğu Merkez
 synonyms:tr: Batı Merkezi, Batı Merkez
 
+synonyms:fr: FAO, FAO n°, Zone FAO, Zone FAO n°
+synonyms:it: FAO, FAO n°, Zona FAO, Zona FAO n°
+synonyms:es: FAO, FAO n°, Zona FAO, Zona FAO n°, Zona de captura FAO, Zona de captura FAO n°
+
 # Unknown origin: no value has been entered (it's possible that there is one specified on the product but that we don't have the data)
 en: Unknown
 af: Onbekend
@@ -4196,6 +4200,82 @@ en: The Alps, Alps
 de: Die Alpen, Alpen
 wikidata:en: Q1286
 
+en: Nordic countries, Nordics, Nordic region
+an: países nordicos
+ar: دول الشمال
+az: Skandinav ölkələri
+be: Краіны Паўночнай Еўропы
+bg: Скандинавски страни
+bn: নর্ডীয় রাষ্ট্রসমূহ
+bs: Nordijska regija
+ca: països nòrdics
+cs: Severské státy
+cy: Y Gwledydd Nordig
+da: Norden, de nordiske lande
+de: Nordische Länder
+el: Νορδικές χώρες
+eo: Nordio, Nordiaj landoj, Nordia regiono
+es: países nórdicos
+et: Põhjamaad
+eu: Eskandinaviako herrialdeak
+fa: سرزمین‌های شمالی
+fi: Pohjoismaat
+fo: Norðurlond
+fr: pays nordiques
+ga: Na Stáit Nordacha
+gl: países nórdicos
+gv: Çheeraghyn Nordagh
+hi: नॉर्डिक देश
+hr: Nordijska regija
+hu: északi országok
+hy: Հյուսիսային Եվրոպայի երկրներ
+ia: Paises nordic
+id: Negara-negara Nordik
+io: Nordia
+is: Norðurlöndin
+it: Paesi nordici
+ja: 北欧
+jv: Negara Nordik
+kl: Nunat Avannarliit
+ko: 노르딕 국가
+ku: welatên skandînavî
+lb: Nordesch Länner
+lt: Šiaurės šalys
+lv: Ziemeļvalstis
+mg: Firenena nôrdika
+mk: Нордиски земји
+ml: നോർഡിക് രാജ്യങ്ങൾ
+ms: Negara-negara Nordic
+mt: Pajjiżi Nordiċi
+nb: Norden, de nordiske landene
+nl: Noordse landen
+nn: Norden
+pl: Kraje nordyckie
+pt: Países nórdicos
+ro: țările nordice
+ru: страны Северной Европы
+sc: Paisos nòrdicos
+sd: نورڊڪ ملڪ
+se: Davviriikkat
+sh: Nordijska regija
+sk: Severské štáty
+sl: nordijske države
+sq: Vendet Nordike
+sr: Нордијске земље
+sv: Norden, de nordiska länderna
+ta: நோர்டிக் நாடுகள்
+te: నార్డిక్ దేశాలు
+th: กลุ่มนอร์ดิก
+tl: Mga bansang Nordiko
+tr: İskandinav ülkeleri
+uk: Скандинавські країни
+ur: شمالی ممالک
+vi: Các nước Bắc Âu
+zh: 北欧五国, 北歐五國
+comment:en: While most of the Nordics are in/on Europe, not all of it is, so this shouldn’t be made a child of en:europe.
+description:en: Region consisting of the five sovereign countries of Denmark, Finland, Iceland, Norway, and Sweden, as well as the autonomous territories/regions of the Åland isles, Faroe Islands, and Greenland.
+wikidata:en: Q52062
+
 # ************************************************************
 
 #                           Country regions
@@ -5912,8 +5992,6 @@ es: Galicia
 en: Castile and León
 es: Castilla y León
 
-
-
 # Denmark origins
 
 < en: denmark
@@ -5964,6 +6042,18 @@ xx: Österlen
 sv: Österlen
 wikidata:en: Q298465
 wikipedia:en: https://en.wikipedia.org/wiki/%C3%96sterlen
+
+< en: Scania
+en: Ramlösa hälsobrunn
+xx: Ramlösa hälsobrunn
+sv: Ramlösa hälsobrunn
+wikidata:en: Q9361026
+wikipedia:en: https://en.wikipedia.org/wiki/Raml%C3%B6sa_H%C3%A4lsobrunn
+wikipedia:sv: https://sv.wikipedia.org/wiki/Raml%C3%B6sa_h%C3%A4lsobrunn
+
+< en: Ramlösa hälsobrunn
+en: Döbelius spring
+sv: Döbelius källa
 
 < en: sweden
 xx: Tibro
@@ -6827,6 +6917,7 @@ ur: بحر منجمد شمالی
 vi: Bắc Băng Dương
 zh: 北冰洋
 wikidata:en: Q788
+#wikidata:en: Q18720635 - similar duplicated item on wikidata
 
 en: Atlantic Ocean, Atlantic
 af: Atlantiese Oseaan
@@ -7319,6 +7410,7 @@ fr: Océan Atlantique Centre-Est, FAO 34, FAO N°34
 hr: ribolovno područje FAO 34
 sl: FAO ribolovno območje 34
 wikidata:en: Q43181427
+#wikidata:en: Q18783324 - similar duplicated item on wikidata
 
 en: Mediterranean and Black Sea
 xx: FAO 37
@@ -7413,6 +7505,7 @@ xx: FAO 37.2
 < en: Mediterranean Sea
 en: Eastern Mediterranean
 xx: FAO 37.3
+sv: Östra Medelhavet
 
 < xx: FAO 37
 xx: FAO 37.4
@@ -7426,6 +7519,7 @@ wikidata:en: Q35367
 < en: Atlantic Ocean
 en: Southwest Atlantic Ocean
 xx: FAO 41
+wikidata:en: Q18783377
 
 < xx: FAO 41
 xx: FAO 41.1
@@ -7473,10 +7567,12 @@ xx: FAO 41.3.3
 en: Southeast Atlantic Ocean
 xx: FAO 47
 fr: Océan Atlantique Sud-Est, FAO 47, FAO N°47
+wikidata:en: Q18783378
 
 < en: Atlantic Ocean
 en: Antartic Atlantic Ocean
 xx: FAO 48
+wikidata:en: Q18783379
 
 en: Indian Ocean
 af: Indiese Oseaan
@@ -7530,6 +7626,7 @@ wikidata:en: Q1239
 en: Western Indian Ocean
 xx: FAO 51
 fr: Océan Indien Ouest, zone de pêche FAO N051, Zone FAO N051, Océan Indien Occidental
+wikidata:en: Q18783380
 
 < en: Western Indian Ocean
 xx: FAO 51.1

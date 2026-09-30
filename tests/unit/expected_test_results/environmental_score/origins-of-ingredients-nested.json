@@ -426,24 +426,15 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:colour",
-         "ingredients" : [
-            {
-               "id" : "en:e160b",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 16.6666666666667,
-               "percent_max" : 33.3333333333333,
-               "percent_min" : 0,
-               "text" : "e160b",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
+         "additive_class" : "en:colour",
+         "id" : "en:e160b",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
-         "text" : "coloring"
+         "text" : "e160b",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -457,15 +448,14 @@
       "en:vegetarian"
    ],
    "ingredients_lc" : "en",
-   "ingredients_n" : 4,
+   "ingredients_n" : 3,
    "ingredients_n_tags" : [
-      "4",
+      "3",
       "1-10"
    ],
    "ingredients_original_tags" : [
       "en:milk",
       "en:salt",
-      "en:colour",
       "en:e160b"
    ],
    "ingredients_percent_analysis" : 1,
@@ -473,7 +463,6 @@
       "en:milk",
       "en:dairy",
       "en:salt",
-      "en:colour",
       "en:e160b"
    ],
    "ingredients_text" : "Milk, salt, coloring: E160b",
@@ -482,17 +471,15 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:colour",
       "en:e160b"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:colour",
       "en:e160b",
       "en:salt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
-   "known_ingredients_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 3,
    "lc" : "en",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener",

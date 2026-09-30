@@ -267,7 +267,7 @@
                "id" : "additives",
                "match" : 100,
                "name" : "Additifs",
-               "panel_id" : "additives",
+               "panel_id" : "ingredients_analysis",
                "status" : "known",
                "title" : "Sans additives"
             }
@@ -289,16 +289,16 @@
                "title" : "Green-Score non calculé"
             },
             {
-               "description" : "",
-               "description_short" : "Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
-               "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "description" : "Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels.",
+               "description_short" : "Risque faible de déforestation",
+               "grade" : "b",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-b.svg",
                "id" : "forest_footprint",
-               "match" : 0,
-               "name" : "Empreinte forêt",
+               "match" : 66,
+               "name" : "Empreinte Forêt",
                "panel_id" : "forest_footprint",
                "status" : "known",
-               "title" : "Empreinte forêt non calculée"
+               "title" : "Empreinte Forêt B"
             }
          ],
          "id" : "environment",
@@ -657,6 +657,32 @@
    ],
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "b",
+      "primary_ingredients" : {
+         "en:cocoa" : {
+            "footprint_per_kg" : 0.02775,
+            "grade" : "b",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.02775,
+                  "ingredient_category_id" : "en:cocoa-bean",
+                  "ingredient_id" : "en:chocolate",
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
+                  "percent" : 9.375,
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
+         }
+      },
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 0.02775
+   },
    "images" : {
       "selected" : {}
    },
@@ -687,7 +713,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.375,
@@ -738,8 +764,8 @@
       "en:water",
       "en:flour",
       "en:sugar",
-      "en:added-sugar",
       "en:disaccharide",
+      "en:added-sugar",
       "en:chocolate"
    ],
    "ingredients_text" : "eau, farine, sucre, chocolat",
@@ -767,6 +793,8 @@
    "misc_tags" : [
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-b",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-fiber",
@@ -784,7 +812,8 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-empty",
       "en:packagings-not-complete",
-      "en:packagings-number-of-components-0"
+      "en:packagings-number-of-components-0",
+      "en:storage-conditions-not-set"
    ],
    "nova_group_debug" : "no nova group when the product does not have a category",
    "nova_group_error" : "missing_category",

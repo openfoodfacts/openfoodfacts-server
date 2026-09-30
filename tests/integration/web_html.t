@@ -605,6 +605,11 @@ my $tests_ref = [
 		path => '/cgi/search.pl?action=process&search_terms=apple&axis_x=sugars&graph_type=histogram&graph=1',
 		expected_type => 'html',
 	},
+	# manifest file
+	{
+		test_case => 'manifest',
+		path => '/cgi/manifest.pl',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

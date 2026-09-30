@@ -267,7 +267,7 @@
                "id" : "additives",
                "match" : 100,
                "name" : "Additifs",
-               "panel_id" : "additives",
+               "panel_id" : "ingredients_analysis",
                "status" : "known",
                "title" : "Sans additives"
             }
@@ -289,16 +289,16 @@
                "title" : "Green-Score non calculé"
             },
             {
-               "description" : "",
-               "description_short" : "Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
+               "description" : "Présence d'un ou plusieurs ingrédients à risque de déforestation, et risque fort au regard de leur quantité, origine et/ou labels.",
+               "description_short" : "Risque fort de déforestation",
                "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-d.svg",
                "id" : "forest_footprint",
                "match" : 0,
-               "name" : "Empreinte forêt",
+               "name" : "Empreinte Forêt",
                "panel_id" : "forest_footprint",
                "status" : "known",
-               "title" : "Empreinte forêt non calculée"
+               "title" : "Empreinte Forêt D"
             }
          ],
          "id" : "environment",
@@ -662,6 +662,34 @@
    ],
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "d",
+      "primary_ingredients" : {
+         "en:cocoa" : {},
+         "en:coffee" : {},
+         "en:palm-oil" : {
+            "footprint_per_kg" : 0.055,
+            "grade" : "d",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.055,
+                  "ingredient_category_id" : "en:palm-oil",
+                  "ingredient_id" : "en:palm-kernel-oil-and-fat",
+                  "origin_footprint" : 0.055,
+                  "origin_id" : "en:unknown",
+                  "percent" : 100,
+                  "primary_ingredient_id" : "en:palm-oil",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
+         }
+      },
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 0.055
+   },
    "images" : {
       "selected" : {}
    },
@@ -702,9 +730,9 @@
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:palm-kernel-fat",
-      "en:oil-and-fat",
+      "en:palm-kernel-oil-and-fat",
       "en:vegetable-oil-and-fat",
-      "en:palm-kernel-oil-and-fat"
+      "en:oil-and-fat"
    ],
    "ingredients_text" : "graisse de palmiste",
    "ingredients_with_specified_percent_n" : 0,
@@ -731,6 +759,8 @@
    "misc_tags" : [
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-d",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-fiber",
@@ -748,7 +778,8 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-empty",
       "en:packagings-not-complete",
-      "en:packagings-number-of-components-0"
+      "en:packagings-number-of-components-0",
+      "en:storage-conditions-not-set"
    ],
    "nova_group_debug" : "no nova group when the product does not have a category",
    "nova_group_error" : "missing_category",

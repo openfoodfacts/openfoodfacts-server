@@ -36,7 +36,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::MaybeXS;
+use boolean;
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -64,7 +64,7 @@ my %manifest = (
 	start_url => $request_ref->{formatted_subdomain},
 	scope => '/',
 	display => 'standalone',
-	prefer_related_applications => $JSON::MaybeXS::true,
+	prefer_related_applications => true,
 );
 
 my @keys = qw(theme_color icons related_applications background_color);
@@ -72,7 +72,7 @@ foreach my $key (@keys) {
 	$manifest{$key} = $options{manifest}{$key} if $options{manifest}{$key};
 }
 
-my $data = encode_json(\%manifest);
+my $data = $json_for_objects->canonical->encode(\%manifest);
 
 print "Content-Type: application/manifest+json; charset=UTF-8\r\nCache-Control: max-age=86400\r\n\r\n" . $data;
 

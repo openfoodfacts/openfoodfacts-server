@@ -23,6 +23,6 @@ proCheckbox.addEventListener('change', function() {
 [%- IF action == 'process' AND type == 'add' -%]
 // Track successful signup event in Matomo (issue #13166)
 if (typeof trackMatomoEvent === 'function') {
-	trackMatomoEvent('User', 'Signup', 'successful');
+	trackMatomoEvent('user', 'signup', 'successful');
 }
 [%- END -%]
