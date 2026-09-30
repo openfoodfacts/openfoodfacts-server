@@ -132,8 +132,8 @@ stopwords:da: og, eller, samt, av, af, blandt andet, bl a, inklusive, heraf, ind
 stopwords:de: Allergene Zutaten, und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
-stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
-stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
+stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, blend of, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportion, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
+stopwords:es: calibre, categoria, con, contener, contiene, contienen, controlada, de, de cultivo, de, e, en, el, equivalente, equivalel, la, las, los, min, minimo, maximo, nota, origen, por, produccion, puede, vereidad, variedad, y
 stopwords:fi: allergiatiedot, jossa, käymisen aikana muodostuva, koskenlaskija, muun muassa, noin, sisältää, snellmanin, valio
 stopwords:fr: aux, au, avec ajout, base, de, demeter, du, la, le, a, et, avec, ou, en, proportion, sachet, variable, contient, élaboré avec, papier traité, marquants, minimum, MG/MS, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d'
 # example: grašak u prahu BOGAT BJELANČEVINAMA
@@ -40716,12 +40716,14 @@ wikidata:en: Q494259
 wikipedia:en: https://en.wikipedia.org/wiki/Gala_(apple)
 
 < en: green apple
-en: Granny apple
+en: Granny Smith apple, Granny apple
 es: manzana Granny
 fr: pomme Granny, pomme Granny Smith, pommes Grany, pommes Granny Smith
 hr: baka jabuka
 it: mela Granny
 nl: Granny Smith, Granny Smith appel, Granny Smith appels
+wikidata:en: Q506040
+wikipedia:en: https://en.wikipedia.org/wiki/Granny_Smith
 
 #US plant patent 4121, Ten Hove, Oct 4 1977, muted from Gala variety
 < en: apple
@@ -47931,6 +47933,9 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:cynorrhodon
 wikidata:en: Q46740
 wikipedia:en: https://en.wikipedia.org/wiki/Rose_hip
 
+< en: rose hip
+en: rosehip fruit peel
+
 < en: plant
 en: dog rose
 de: Hundsrose
@@ -47947,6 +47952,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rosa_canina
 en: dog rose fruit
 it: frutto di rosa canina
 pl: owoc dzikiej róży
+
 
 ###################################################################################################
 #
