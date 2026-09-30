@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.111.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.110.0...v2.111.0) (2026-09-30)
+
+
+### Features
+
+* add misspellings function to ingredients OCR ([#14762](https://github.com/openfoodfacts/openfoodfacts-server/issues/14762)) ([e24d8e5](https://github.com/openfoodfacts/openfoodfacts-server/commit/e24d8e57cb64035687ba20485908280b96e5bb6f))
+* **Ingredients:** ignore “Fullkorn 63%” etc. ([#14767](https://github.com/openfoodfacts/openfoodfacts-server/issues/14767)) ([7bf97e9](https://github.com/openfoodfacts/openfoodfacts-server/commit/7bf97e9fd98fe8f68bc5e7b8ac8674b590541103))
+* **IngredientsStrings:** de:“inkl.” abbreviation ([#14759](https://github.com/openfoodfacts/openfoodfacts-server/issues/14759)) ([bb79eb7](https://github.com/openfoodfacts/openfoodfacts-server/commit/bb79eb7860c5208e313ee5d8567acebee766cb02))
+
+
+### Bug Fixes
+
+* bump @openfoodfacts/openfoodfacts-webcomponents to 1.18.3 ([bdb2ee4](https://github.com/openfoodfacts/openfoodfacts-server/commit/bdb2ee42ceb0ab991f2064c79f9db046686602f4))
+* bump @openfoodfacts/openfoodfacts-webcomponents to 1.18.3 ([#14769](https://github.com/openfoodfacts/openfoodfacts-server/issues/14769)) ([bdb2ee4](https://github.com/openfoodfacts/openfoodfacts-server/commit/bdb2ee42ceb0ab991f2064c79f9db046686602f4))
+* German ingredients preparsing improvement: Palm - und Kokosnuss-Pflanzenfett ([#14713](https://github.com/openfoodfacts/openfoodfacts-server/issues/14713)) ([dc290fe](https://github.com/openfoodfacts/openfoodfacts-server/commit/dc290fe6f1ed081d42da9e449f2b3fae9b07e3bb))
+* nutri-score and environmental-score facet logos, graphs and links ([#14760](https://github.com/openfoodfacts/openfoodfacts-server/issues/14760)) ([7531172](https://github.com/openfoodfacts/openfoodfacts-server/commit/75311721be4af8d4c67fafacc35ef6529744d64d))
+
 ## [2.110.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.109.0...v2.110.0) (2026-09-28)
 
 
