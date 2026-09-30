@@ -853,13 +853,13 @@ jobs:
     # if all tests did run correctly acknowledge the branch protection rule
     # use the name that is settled in branch protection rules, although it's not fully correct
     name: 🐪 Perl unit tests
-    needs: [unit_tests, integration_tests]
+    needs: [build_backend, unit_tests, integration_tests]
     runs-on: ubuntu-latest
     if: always()
     steps:
       - name: Check if unit and integration tests succeeded or fail
         run: |
-          if [ ${{ needs.unit_tests.result }} = "failure" ] || [ ${{ needs.integration_tests.result }} = "failure" ]
+          if [ ${{ needs.build_backend.result }} != "success" ] || [ ${{ needs.unit_tests.result }} = "failure" ] || [ ${{ needs.integration_tests.result }} = "failure" ]
           then
             echo "Some tests did fail"
             exit 1

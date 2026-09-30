@@ -1355,6 +1355,11 @@ my @tests = (
 		lc => 'fr',
 		ingredients_text => "Eau, BLE, _CELERI_, __GLUTEN__, _poisson_, FRAISE, _banane_, lupin, _mollusque_"
 	},
+	{
+		id => 'de-palm-and-coconut-oil',
+		'lc' => 'de',
+		'ingredients_text' => 'Palm- und Kokosnuss-Pflanzenfett'
+	}
 );
 
 foreach my $test_ref (@tests) {

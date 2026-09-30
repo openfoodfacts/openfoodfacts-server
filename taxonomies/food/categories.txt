@@ -62699,6 +62699,26 @@ fr: Boules de céréales au chocolat
 en: Honey cereal balls, Breakfast cereals puffed corn with honey
 fr: Boules de céréales au miel, Boules de maïs soufflées au miel
 
+< en: Extruded cereals
+en: Oat rings, Cheerios
+sv: Havreringar
+# wikidata is specifically Cheerios; doesn’t look like there’s an item for the generic product (2026-09-30)
+wikidata:en: Q2425291
+
+< en: Oat rings
+en: Whole-grain oat rings, Wholemeal oat rings
+sv: Fullkornshavreringar, Havreringar av fullkorn
+
+< en: Oat rings
+en: Plain oat rings
+sv: Naturelle havreringar, Havreringar naturell
+incompatible_with:en: categories:en:flavoured-oat-rings
+
+< en: Oat rings
+en: Flavoured oat rings
+sv: Havreringar med smak
+incompatible_with:en: categories:en:plain-oat-rings
+
 < en: Breakfast cereals
 en: Cereals with nuts
 fr: Céréales aux fruits à coques
@@ -88001,6 +88021,7 @@ wikidata:en: Q413449
 < en: Potato dishes
 < en: Prepared salads
 en: Potato salads
+da: Kartoffelsalater
 de: Kartoffelsalate
 es: Ensaladas de patata
 fi: perunasalaatit
@@ -88012,7 +88033,7 @@ lt: Salotos su bulvėmis
 nl: Aardappelsalade
 pl: Sałatki ziemniaczane, Sałatka ziemniaczana, Sałatka z ziemniakami
 pt: Salatas de batata
-sv: Potatissallad, Potatissallader
+sv: Potatissallader, Potatissallad
 agribalyse_proxy_food_code:en: 25609
 agribalyse_proxy_food_name:en: Potato salad, piémontaise-style, prepacked
 agribalyse_proxy_food_name:fr: Salade de pomme de terre à la piémontaise, préemballée
@@ -88039,6 +88060,7 @@ ciqual_food_name:en: Prepared potatoes salad, home-made
 
 < en: Piemontese salads
 < en: Pork meals
+< en: Salads with meat
 en: Piemontese salads with ham
 fr: Salades piémontaises au jambon, piémontaises au jambon
 hr: Piemontese salate sa šunkom
@@ -88047,10 +88069,17 @@ nl: Salades uit Piëmont met ham
 
 < en: Meals with chicken
 < en: Piemontese salads
+< en: Salads with meat
 en: Piemontese salads with chicken
 fr: Salades piémontaises au poulet, piémontaises au poulet
 hr: Piemontese salate s piletinom
 lt: Piemontietiškos salotos su vištiena
+
+< en: Potato salads
+< en: Prepared vegan salads
+en: Vegan potato salads
+da: Veganske kartoffelsalater
+sv: Veganska potatissallader
 
 < en: Prepared salads
 < en: Rice dishes
@@ -111335,15 +111364,29 @@ de: Bananenblüten in Salzwasser
 nl: Bananenbloemen(gepekeld)
 
 < en: Vegetable pickles
-en: Beetroot(pickled), Pickled beets
+en: Pickled beetroots, Beetroot(pickled), Pickled beets
+da: Syltede rødbeder
 de: Eingelegte rote Bete
 es: Remolacha encurtida
 fr: Betteraves marinées
 hr: Ukiseljena repa
 ja: ビーツのピクルス
 nl: Ingemaakte rode bieten, Rode bieten op azijn
-comment:en: Cooked cut beetroot laid in vinegar.
+comment:en: Cooked beetroot laid in vinegar.
 opposite:en: en:beetroot
+wikidata:en: Q12338154
+
+< en: Pickled beetroots
+en: Pickled whole beetroots
+da: Syltede hele rødbeder
+
+< en: Pickled beetroots
+en: Pickled sliced beetroots
+da: Syltede rødbeder i skiver, Syltede skivede rødbeder
+
+< en: Pickled beetroots
+en: Pickled diced beetroots, Pickled cubed beetroots
+da: Syltede rødbeder i tern
 
 < en: Vegetable pickles
 en: Pickled carrots
@@ -119821,6 +119864,22 @@ en: Semi-ripe whole olives
 es: Aceitunas de color cambiante enteras
 hr: Poluzrele cijele masline
 nl: Halfrijpe hele olijven
+
+< en: Green olives
+en: Halkidiki olives
+xx: Prasines Elies Chalkidikis
+da: Halkidikioliven
+el: Πράσινες Ελιές Χαλκιδικής
+it: Olive Halkidiki
+pl: Oliwki Halkidiki, Oliwki Chalkidiki
+sv: Halkidikioliver
+comment:en: https://www.tasteatlas.com/prasines-elies-chalkidikis
+
+< en: Halkidiki olives
+< en: Whole green olives
+en: Whole Halkidiki olives
+da: Hele halkidikioliven
+sv: Hela halkidikioliver
 
 < en: Plant-based pickles
 en: Pickled caper berries
