@@ -49,14 +49,12 @@
                "name_fr" : "Pot en verre pour crème de marrons - 370g - Proxy"
             }
          ],
-         "transformations" : [
-            {
-               "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-               "mass" : 100,
-               "name" : "Canning fruits or vegetables, industrial, 1kg of canned product {FR} U",
-               "name_fr" : "Mise en conserve"
-            }
-         ]
+         "transform" : {
+            "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
+            "mass" : 100,
+            "name" : "Canning fruits or vegetables, industrial, 1kg of canned product {FR} U",
+            "name_fr" : "Mise en conserve"
+         }
       },
       "ecobalyse_request" : {
          "data" : {
@@ -81,12 +79,10 @@
                   "id" : "1686b240-6292-4eae-ad10-0525404cbb10"
                }
             ],
-            "transformations" : [
-               {
-                  "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-                  "mass" : 100
-               }
-            ]
+            "transform" : {
+               "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
+               "mass" : 100
+            }
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
@@ -111,7 +107,7 @@
                "ecs" : 17.23
             },
             "perKg" : {
-               "ecs" : 375.648
+               "ecs" : 396.583
             },
             "preparation" : {
                "ecs" : 0
@@ -122,7 +118,7 @@
                   "ecs" : 4.99427
                },
                "total" : {
-                  "ecs" : 13.1829
+                  "ecs" : 15.1369
                },
                "totalBonusImpact" : {
                   "cropDiversity" : 0,
@@ -131,7 +127,7 @@
                   "plotSize" : -0.00132
                },
                "transform" : {
-                  "ecs" : 0
+                  "ecs" : 1.954
                },
                "transports" : {
                   "air" : 0,
@@ -145,14 +141,14 @@
                }
             },
             "scoring" : {
-               "all" : 375.648,
-               "biodiversity" : 154.174,
-               "climate" : 107.51,
-               "health" : 45.1493,
-               "resources" : 68.8859
+               "all" : 396.583,
+               "biodiversity" : 156.772,
+               "climate" : 110.891,
+               "health" : 47.5736,
+               "resources" : 81.4145
             },
             "total" : {
-               "ecs" : 35.0605
+               "ecs" : 37.0145
             },
             "totalMass" : 0.308133,
             "transports" : {
@@ -167,7 +163,7 @@
             }
          }
       },
-      "ecs" : 35.0605
+      "ecs" : 37.0145
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [

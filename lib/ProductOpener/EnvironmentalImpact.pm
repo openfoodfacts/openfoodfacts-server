@@ -74,6 +74,9 @@ use File::Basename qw/dirname/;
 use Scalar::Util qw/looks_like_number/;
 use Data::DeepAccess qw(deep_exists deep_get);
 
+my $ecobalyse_version
+	= "food";    # "food" or "food2" (the Ecobalyse food2 API is newer and more complete, but not yet fully documented)
+
 =head1 FUNCTIONS
 
 =head2 estimate_environmental_impact_service ( $product_ref, $updated_product_fields_ref, $errors_ref, $skip_ecobalyse_call = 0 )
@@ -209,22 +212,42 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Add transformations / processing
 	my @transformation_entries = get_ecobalyse_transformation_entries($product_ref);
 	if (@transformation_entries) {
-		$payload_ref->{transformations} = [];
-		$product_ref->{environmental_impact}{ecobalyse_input}{transformations} = [];
-		foreach my $entry (@transformation_entries) {
-			push @{$payload_ref->{transformations}},
-				{
-				id => $entry->{id},
+		# Note: the food2 API allows multiple transformations, but the food API only allows one transformation in the "transform" field.
+		# We use the food API for now, so we only take the first transformation entry.
+		if ($ecobalyse_version eq "food") {
+			@transformation_entries = ($transformation_entries[0]);
+			$payload_ref->{transform} = {
+				id => $transformation_entries[0]->{id},
 				mass => $total_ingredients_quantity,
-				};
-			push @{$product_ref->{environmental_impact}{ecobalyse_input}{transformations}},
-				{
-				id => $entry->{id},
-				name => $entry->{name},
-				name_fr => $entry->{name_fr},
+			};
+			$product_ref->{environmental_impact}{ecobalyse_input}{transform} = {
+				id => $transformation_entries[0]->{id},
+				name => $transformation_entries[0]->{name},
+				name_fr => $transformation_entries[0]->{name_fr},
 				mass => $total_ingredients_quantity,
-				};
+			};
 		}
+		else {
+			# For the food2 API, we can keep all transformation entries
+			$payload_ref->{transformations} = [];
+			$product_ref->{environmental_impact}{ecobalyse_input}{transformations} = [];
+
+			foreach my $entry (@transformation_entries) {
+				push @{$payload_ref->{transformations}},
+					{
+					id => $entry->{id},
+					mass => $total_ingredients_quantity,
+					};
+				push @{$product_ref->{environmental_impact}{ecobalyse_input}{transformations}},
+					{
+					id => $entry->{id},
+					name => $entry->{name},
+					name_fr => $entry->{name_fr},
+					mass => $total_ingredients_quantity,
+					};
+			}
+		}
+
 	}
 
 	# Add packaging
@@ -232,11 +255,11 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	if (defined $packaging_entry_ref) {
 		$payload_ref->{packaging} = [];
 		$product_ref->{environmental_impact}{ecobalyse_input}{packaging} = [];
-		push @{$payload_ref->{packaging}},
-			{
+		push @{$payload_ref->{packaging}}, {
 			id => $packaging_entry_ref->{id},
-			amount => 1
-			};
+			amount =>
+				1 # The packaging entries in Ecobalyse are already normalized to the product quantity, so we always use amount=1 here (only raw materials need a mass)
+		};
 		push @{$product_ref->{environmental_impact}{ecobalyse_input}{packaging}},
 			{
 			id => $packaging_entry_ref->{id},
