@@ -3822,7 +3822,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# ecobalyse_origins_european-union_labels_organic (if the product comes from europe, and is organic)
 		# ecobalyse_labels_organic (if the product is organic)
 		# ecobalyse_origins_france (if the product comes from france)
-		# ecobalyse_origins_european-union (if the product comes from the Europe region)
+		# ecobalyse_origins_en_europe_and_maghreb (if the product comes from Europe and Maghreb region)
 		# ecobalyse (else)
 
 		# List of suffixes
@@ -3834,7 +3834,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			and (get_geographical_area($ingredient_ref->{origins}) eq "fr"))
 		{
 			push @suffixes, "_labels_en_organic_origins_en_france";
-			push @suffixes, "_labels_en_organic_origins_en_european_union";
+			push @suffixes, "_labels_en_organic_origins_en_europe_and_maghreb";
 		}
 		# If the ingredient is both organic and European...
 		if (    (defined $ingredient_ref->{labels})
@@ -3842,7 +3842,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			and (defined $ingredient_ref->{origins})
 			and (get_geographical_area($ingredient_ref->{origins}) eq "eu"))
 		{
-			push @suffixes, "_labels_en_organic_origins_en_european_union";
+			push @suffixes, "_labels_en_organic_origins_en_europe_and_maghreb";
 		}
 		# If the ingredient is organic...
 		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
@@ -3851,11 +3851,11 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# If the ingredient is French...
 		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
 			push @suffixes, "_origins_en_france";
-			push @suffixes, "_origins_en_european_union";
+			push @suffixes, "_origins_en_europe_and_maghreb";
 		}
 		# If the ingredient is European...
 		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
-			push @suffixes, "_origins_en_european_union";
+			push @suffixes, "_origins_en_europe_and_maghreb";
 		}
 		push @suffixes, '';
 

@@ -39,7 +39,7 @@ my $taxonomy_file;
 my $property_prefix;
 
 GetOptions(
-	"taxonomy_file=s"   => \$taxonomy_file,
+	"taxonomy_file=s" => \$taxonomy_file,
 	"property_prefix=s" => \$property_prefix,
 ) or die("Error in command line arguments\n");
 

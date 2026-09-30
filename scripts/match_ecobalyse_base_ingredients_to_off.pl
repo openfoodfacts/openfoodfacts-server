@@ -88,7 +88,8 @@ for my $base (sort @$base_ingredients) {
 	my $tagid = canonicalize_taxonomy_tag("en", "ingredients", $base, \$exists);
 	if ($exists && defined $tagid) {
 		push @matched, [$base, $tagid, 'taxonomy'];
-	} else {
+	}
+	else {
 		push @missing, $base;
 	}
 }
@@ -125,4 +126,8 @@ for my $base (@missing) {
 }
 close $mfh;
 
-say STDERR "Wrote " . scalar(@matched) . " taxonomy matches + " . scalar(@matched_override) . " override matches to $output_file";
+say STDERR "Wrote "
+	. scalar(@matched)
+	. " taxonomy matches + "
+	. scalar(@matched_override)
+	. " override matches to $output_file";
