@@ -31,7 +31,33 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "mass" : 30,
+               "name" : "soy beans"
+            },
+            {
+               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "mass" : 25,
+               "name" : "soy beans"
+            },
+            {
+               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "mass" : 20,
+               "name" : "soy beans"
+            },
+            {
+               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "mass" : 15,
+               "name" : "soy beans"
+            },
+            {
+               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "mass" : 10,
+               "name" : "soy beans"
+            }
+         ],
          "packaging" : [
             {
                "category" : "",
@@ -40,31 +66,48 @@
                "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
             }
          ],
-         "transformations" : [
-            {
-               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
-               "mass" : 100,
-               "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
-               "name_fr" : "Cuisson"
-            }
-         ]
+         "transform" : {
+            "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+            "mass" : 100,
+            "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
+            "name_fr" : "Cuisson"
+         }
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+                  "mass" : 30
+               },
+               {
+                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+                  "mass" : 25
+               },
+               {
+                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+                  "mass" : 20
+               },
+               {
+                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+                  "mass" : 15
+               },
+               {
+                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+                  "mass" : 10
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
                   "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
                }
             ],
-            "transformations" : [
-               {
-                  "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
-                  "mass" : 100
-               }
-            ]
+            "transform" : {
+               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+               "mass" : 100
+            }
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       }
@@ -110,6 +153,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20901",
+         "ecobalyse_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 30,
@@ -122,6 +166,7 @@
       },
       {
          "ciqual_food_code" : "20901",
+         "ecobalyse_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 25,
@@ -135,6 +180,7 @@
       },
       {
          "ciqual_food_code" : "20901",
+         "ecobalyse_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 20,
@@ -148,6 +194,7 @@
       },
       {
          "ciqual_food_code" : "20901",
+         "ecobalyse_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 15,
@@ -161,6 +208,7 @@
       },
       {
          "ciqual_food_code" : "20901",
+         "ecobalyse_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 10,
@@ -210,10 +258,8 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:soya-bean"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 5,
    "lc" : "en",
    "minerals_tags" : [],

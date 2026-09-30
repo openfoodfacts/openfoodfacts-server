@@ -39,6 +39,11 @@
                "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                "mass" : 13.625,
                "name" : "wheat flour"
+            },
+            {
+               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "mass" : 12.625,
+               "name" : "salt"
             }
          ],
          "packaging" : [
@@ -57,6 +62,10 @@
                {
                   "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                   "mass" : 13.625
+               },
+               {
+                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+                  "mass" : 12.625
                }
             ],
             "packaging" : [
@@ -107,6 +116,7 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent" : 1,
@@ -164,10 +174,9 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:salmon",
-      "en:salt"
+      "en:salmon"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "minerals_tags" : [],

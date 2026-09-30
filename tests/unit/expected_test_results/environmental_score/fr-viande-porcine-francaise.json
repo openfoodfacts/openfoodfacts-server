@@ -413,7 +413,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20026",
-         "ecobalyse_id" : "endive-eu",
          "id" : "en:belgian-endive",
          "is_in_taxonomy" : 1,
          "percent" : 40,
@@ -439,7 +438,7 @@
       },
       {
          "ciqual_food_code" : "22002",
-         "ecobalyse_id" : "egg-indoor-code3",
+         "ecobalyse_id" : "7ef7399a-1d56-4947-b773-9f6438a50fda",
          "id" : "en:egg-yolk",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
@@ -452,6 +451,7 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 10,
@@ -511,7 +511,7 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:salt"
+      "en:belgian-endive"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 4,

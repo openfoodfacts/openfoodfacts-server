@@ -36,7 +36,12 @@
          "distribution" : "ambient",
          "ingredients" : [
             {
-               "id" : "beetroot-fr",
+               "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
+               "mass" : 70,
+               "name" : "parsnip"
+            },
+            {
+               "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
                "mass" : 30,
                "name" : "red beet"
             }
@@ -55,7 +60,11 @@
             "distribution" : "ambient",
             "ingredients" : [
                {
-                  "id" : "beetroot-fr",
+                  "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
+                  "mass" : 70
+               },
+               {
+                  "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
                   "mass" : 30
                }
             ],
@@ -84,6 +93,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20181",
+         "ecobalyse_id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
          "id" : "en:parsnip",
          "is_in_taxonomy" : 1,
          "percent" : 70,
@@ -96,7 +106,7 @@
       },
       {
          "ciqual_food_code" : "20091",
-         "ecobalyse_id" : "beetroot-fr",
+         "ecobalyse_id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
          "id" : "en:red-beetroot",
          "is_in_taxonomy" : 1,
          "percent" : 30,
@@ -142,10 +152,8 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:parsnip"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 2,
    "lc" : "en",
    "minerals_tags" : [],

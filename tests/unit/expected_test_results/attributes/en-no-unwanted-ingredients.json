@@ -452,13 +452,7 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [
-            {
-               "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-               "mass" : 66.6666666666667,
-               "name" : "palm oil"
-            }
-         ],
+         "ingredients" : [],
          "packaging" : [
             {
                "category" : "en:cheeses",
@@ -471,12 +465,7 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [
-               {
-                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 66.6666666666667
-               }
-            ],
+            "ingredients" : [],
             "packaging" : [
                {
                   "amount" : 1,
@@ -925,7 +914,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "16129",
-         "ecobalyse_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
          "from_palm_oil" : "yes",
          "id" : "en:palm-oil",
          "is_in_taxonomy" : 1,
@@ -1003,9 +991,10 @@
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "en:e202",
+      "en:palm-oil",
       "en:soya-lecithin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 3,
    "languages" : {},
    "languages_codes" : {},

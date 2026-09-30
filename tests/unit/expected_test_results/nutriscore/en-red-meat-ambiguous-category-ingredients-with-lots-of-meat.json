@@ -33,9 +33,19 @@
          "distribution" : "ambient",
          "ingredients" : [
             {
-               "id" : "45e3cd64-1647-4841-bacb-795e2aae4f02",
+               "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
+               "mass" : 61,
+               "name" : "pork meat"
+            },
+            {
+               "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
                "mass" : 20,
                "name" : "lamb meat"
+            },
+            {
+               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "mass" : 9,
+               "name" : "salt"
             }
          ],
          "packaging" : [
@@ -52,8 +62,16 @@
             "distribution" : "ambient",
             "ingredients" : [
                {
-                  "id" : "45e3cd64-1647-4841-bacb-795e2aae4f02",
+                  "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
+                  "mass" : 61
+               },
+               {
+                  "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
                   "mass" : 20
+               },
+               {
+                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+                  "mass" : 9
                }
             ],
             "packaging" : [
@@ -95,6 +113,7 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "28205",
+         "ecobalyse_proxy_id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
          "id" : "en:pork-meat",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 61,
@@ -106,7 +125,7 @@
       },
       {
          "ciqual_proxy_food_code" : "21500",
-         "ecobalyse_id" : "45e3cd64-1647-4841-bacb-795e2aae4f02",
+         "ecobalyse_proxy_id" : "d79e0fce-8633-4189-a937-7b8010abafed",
          "id" : "en:lamb-meat",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 20,
@@ -129,6 +148,7 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent" : 1,
@@ -193,11 +213,9 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:chicken-meat",
-      "en:pork-meat",
-      "en:salt"
+      "en:chicken-meat"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "minerals_tags" : [],

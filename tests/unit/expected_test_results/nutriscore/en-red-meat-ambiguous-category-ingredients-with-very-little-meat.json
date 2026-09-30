@@ -36,7 +36,7 @@
          "distribution" : "ambient",
          "ingredients" : [
             {
-               "id" : "egg-indoor-code3",
+               "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
                "mass" : 53.8333333333333,
                "name" : "eggs"
             },
@@ -51,9 +51,19 @@
                "name" : "water"
             },
             {
-               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "id" : "9db59fb1-143d-420d-a0b8-a5887c6def60",
                "mass" : 6.02083333333333,
                "name" : "rice flour"
+            },
+            {
+               "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
+               "mass" : 2,
+               "name" : "lamb"
+            },
+            {
+               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "mass" : 2.02083333333333,
+               "name" : "salt"
             }
          ],
          "packaging" : [
@@ -70,7 +80,7 @@
             "distribution" : "ambient",
             "ingredients" : [
                {
-                  "id" : "egg-indoor-code3",
+                  "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
                   "mass" : 53.8333333333333
                },
                {
@@ -82,8 +92,16 @@
                   "mass" : 12.0416666666667
                },
                {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+                  "id" : "9db59fb1-143d-420d-a0b8-a5887c6def60",
                   "mass" : 6.02083333333333
+               },
+               {
+                  "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
+                  "mass" : 2
+               },
+               {
+                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+                  "mass" : 2.02083333333333
                }
             ],
             "packaging" : [
@@ -121,7 +139,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "22000",
-         "ecobalyse_id" : "egg-indoor-code3",
+         "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
          "id" : "en:egg",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 53.8333333333333,
@@ -145,7 +163,7 @@
       },
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 12.0416666666667,
@@ -157,7 +175,7 @@
       },
       {
          "ciqual_food_code" : "9520",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_id" : "9db59fb1-143d-420d-a0b8-a5887c6def60",
          "id" : "en:rice-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 6.02083333333333,
@@ -168,6 +186,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_proxy_id" : "d79e0fce-8633-4189-a937-7b8010abafed",
          "id" : "en:lamb",
          "is_in_taxonomy" : 1,
          "percent" : 2,
@@ -178,6 +197,7 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent" : 1,
@@ -246,11 +266,8 @@
       "en:lamb"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:lamb",
-      "en:salt"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "minerals_tags" : [],

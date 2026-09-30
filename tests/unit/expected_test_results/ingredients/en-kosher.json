@@ -3,6 +3,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "11082",
+         "ecobalyse_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
          "id" : "en:sea-salt",
          "is_in_taxonomy" : 1,
          "labels" : "en:kosher",
@@ -15,6 +16,7 @@
       },
       {
          "ciqual_food_code" : "12999",
+         "ecobalyse_id" : "c137c5b5-ec74-45b5-a270-30cfe74f5924",
          "id" : "en:american-cheese",
          "is_in_taxonomy" : 1,
          "labels" : "en:kosher",
@@ -84,11 +86,9 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:american-cheese",
-      "en:beef-gelatin",
-      "en:sea-salt"
+      "en:beef-gelatin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "misc_tags" : [

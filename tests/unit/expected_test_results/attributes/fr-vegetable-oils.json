@@ -417,9 +417,14 @@
          "distribution" : "ambient",
          "ingredients" : [
             {
-               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "id" : "11fd6550-211b-5c84-8424-5331b1cb3ca6",
                "mass" : 66.6666666666667,
                "name" : "farine de maïs"
+            },
+            {
+               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "mass" : 16.6666666666667,
+               "name" : "sel"
             }
          ],
          "packaging" : [
@@ -436,8 +441,12 @@
             "distribution" : "ambient",
             "ingredients" : [
                {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+                  "id" : "11fd6550-211b-5c84-8424-5331b1cb3ca6",
                   "mass" : 66.6666666666667
+               },
+               {
+                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+                  "mass" : 16.6666666666667
                }
             ],
             "packaging" : [
@@ -717,7 +726,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "9545",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_id" : "11fd6550-211b-5c84-8424-5331b1cb3ca6",
          "id" : "en:corn-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
@@ -741,6 +750,7 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -793,10 +803,9 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:salt",
       "en:vegetable-oil"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,
    "languages" : {},
    "languages_codes" : {},
