@@ -89,6 +89,10 @@ jobs:
     - *step-reaction-seen
     - *get-repository-owner-branch
     - *checkout-fork-repo
+    - &set-env-vars
+      name: Set up env variables for tests
+      run: |
+        echo "ECOBALYSE_API_TOKEN=${{ secrets.ECOBALYSE_API_TOKEN }}" >> .env
     - &run-update-tests-results
       name: Run update tests results
       run: make update_tests_results
@@ -121,6 +125,7 @@ jobs:
     - *get-repository-owner-branch
     - *checkout-fork-repo
     - *fetch-origin-main
+    - *set-env-vars
     - name: Create folders
       run: make create_folders
     - *run-linting
