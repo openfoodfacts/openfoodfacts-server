@@ -527,6 +527,9 @@ sub extract_ingredients_from_image ($product_ref, $image_type, $image_lc, $ocr_e
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
 		$results_ref->{ingredients_text_from_image}
 			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $image_lc);
+
+		# fix common OCR misreads
+		apply_misspelling_replacements("ingredients", $image_lc, \$results_ref->{ingredients_text_from_image});
 	}
 
 	return;
@@ -3019,10 +3022,9 @@ Text to analyze
 							'sr' => ['klasa ii',],
 
 							'sv' => [
-								'^fullkornshalten i brödet är \d{1,3}\s*% vilket motsvarar \d{1,3}\s+% av torrvikten$',
 								'^till 100\s*g färdig vara har \d+\s*g [\w\s]+ använts$',
 								'^Någon kärna (?:och|eller) del kan finnas kvar$',
-								'motsvarande \d{1,3}\s+% av torrvikten$',
+								'motsvarande \d{1,3}\s*% av torrvikten$',
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
 								'^Mjölkchokladen innehåller minst',
 								'^kan innehälla(?: spår av)?',    # may contain (traces of)
@@ -3031,10 +3033,13 @@ Text to analyze
 								'^Kakaohalt i chokladen$',
 								'varierande proportion',
 								'kan innehålla ben$',
-								# TODO: Have ”Odlade i” get recognised as a denominator of ingredient origin
-								'^Odla(?:de?|t) i ',    # Grown/cultivated (ie., origin/from) in …
 								'^Kakao minst',
 								'^fetthalt',
+								# TODO: Store the amount wholegrain as a nutrition fact or otherwise utilise it
+								'^fullkornshalten i brödet är \d{1,3}\s*% vilket motsvarar \d{1,3}\s+% av torrvikten$',
+								'^Fullkorn \d{1,3}\s*%$',
+								# TODO: Recognise as ingredient origin denominator
+								'^Odla(?:de?|t) i ',    # Grown/cultivated (ie., origin/from) in …
 							],
 
 						);
