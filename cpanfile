@@ -53,9 +53,6 @@ requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1
 requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
 requires 'Crypt::ScryptKDF'; #11866: Delete after Keycloak Migration
 requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05'; # deps: liblocale-maketext-lexicon-perl
-requires 'CLDR::Number::Format::Decimal';
-requires 'CLDR::Number::Format::Percent';
-requires 'CLDR::Number'; # deps: libmath-round-perl, libtest-differences-perl, libsoftware-license-perl
 requires 'Modern::Perl', '>= 1.20200211'; # libmodern-perl-perl has 1.20170117/1.20180901
 requires 'Data::Dumper::AutoEncode'; # deps: libmodule-build-pluggable-perl, libclass-accessor-lite-perl
 requires 'XML::Rules';
@@ -75,6 +72,7 @@ requires 'Data::Compare';
 
 # I10N
 requires 'Locale::Unicode', '== 0.4.4';
+requires 'Locale::Unicode::Data', '== 1.9.0';
 requires 'DateTime::Lite', '== 0.9.0';
 requires 'DateTime::Format::Lite', '== 0.1.3';
 requires 'DateTime::Locale::FromCLDR', '== 0.8.7';
