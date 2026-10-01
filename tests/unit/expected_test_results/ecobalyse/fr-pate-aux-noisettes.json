@@ -76,10 +76,83 @@
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
       "ecobalyse_response" : {
-         "error" : {
-            "authorization" : "Un token valide est requis pour utiliser l’API"
+         "results" : {
+            "distribution" : {
+               "total" : {
+                  "ecs" : 0.234461
+               },
+               "transports" : {
+                  "air" : 0,
+                  "impacts" : {
+                     "ecs" : 10.0969
+                  },
+                  "road" : 600,
+                  "roadCooled" : 0,
+                  "sea" : 0,
+                  "seaCooled" : 0
+               }
+            },
+            "packaging" : {
+               "ecs" : 79.89
+            },
+            "perKg" : {
+               "ecs" : 1813.75
+            },
+            "preparation" : {
+               "ecs" : 0
+            },
+            "preparedMass" : 0.0926,
+            "recipe" : {
+               "ingredientsTotal" : {
+                  "ecs" : 72.3096
+               },
+               "total" : {
+                  "ecs" : 77.7319
+               },
+               "totalBonusImpact" : {
+                  "cropDiversity" : 0,
+                  "hedges" : -0.011975,
+                  "permanentPasture" : 0,
+                  "plotSize" : -0.0362388
+               },
+               "transform" : {
+                  "ecs" : 0
+               },
+               "transports" : {
+                  "air" : 0,
+                  "impacts" : {
+                     "ecs" : 5.4223
+                  },
+                  "road" : 8640,
+                  "roadCooled" : 0,
+                  "sea" : 54000,
+                  "seaCooled" : 0
+               }
+            },
+            "scoring" : {
+               "all" : 1813.75,
+               "biodiversity" : 933.53,
+               "climate" : 411.256,
+               "health" : 178.619,
+               "resources" : 290.794
+            },
+            "total" : {
+               "ecs" : 167.953
+            },
+            "totalMass" : 1.0885,
+            "transports" : {
+               "air" : 0,
+               "impacts" : {
+                  "ecs" : 15.5192
+               },
+               "road" : 9240,
+               "roadCooled" : 0,
+               "sea" : 54000,
+               "seaCooled" : 0
+            }
          }
-      }
+      },
+      "ecs" : 167.953
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [

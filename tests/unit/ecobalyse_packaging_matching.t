@@ -126,7 +126,7 @@ my @tests = (
 	],
 	# Product with no packaging components but with a category: can select the category entry for biscuits
 	[
-		'pkg_no_packaging',
+		'pkg_no_packaging_with_category_biscuits',
 		'{
 			"categories_tags": ["en:biscuits"],
 			"packagings": [],

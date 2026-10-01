@@ -21,7 +21,7 @@ my $product_hazelnut_spread_json = '{
             "id" : "en:sugar",
             "vegetarian" : "yes",
             "percent_estimate" : 50,
-            "ecobalyse_code" : "9b476f8e-08c2-4406-9198-1fb2e007f000",
+            "ecobalyse_id" : "9b476f8e-08c2-4406-9198-1fb2e007f000",
             "vegan" : "yes",
             "ciqual_proxy_food_code" : "31016",
             "text" : "Sucre"
@@ -34,7 +34,7 @@ my $product_hazelnut_spread_json = '{
             "is_in_taxonomy" : 1,
             "id" : "en:palm-oil",
             "text" : "huile de palme",
-            "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+            "ecobalyse_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
             "vegan" : "yes"
         },
         {
@@ -43,7 +43,7 @@ my $product_hazelnut_spread_json = '{
             "vegetarian" : "yes",
             "percent_estimate" : 13,
             "ciqual_food_code" : "15004",
-            "ecobalyse_code" : "60184de2-cc9e-4618-924a-b8fecf080c8b",
+            "ecobalyse_id" : "60184de2-cc9e-4618-924a-b8fecf080c8b",
             "vegan" : "yes",
             "percent" : 13,
             "text" : "NOISETTES"
@@ -55,7 +55,7 @@ my $product_hazelnut_spread_json = '{
             "ciqual_food_code" : "19054",
             "vegetarian" : "yes",
             "vegan" : "no",
-            "ecobalyse_code" : "33d2f3c2-ffa2-4b96-811e-50c1c8670e26",
+            "ecobalyse_id" : "33d2f3c2-ffa2-4b96-811e-50c1c8670e26",
             "text" : "LAIT écrémé en poudre",
             "percent" : 8.7
         },
@@ -68,7 +68,7 @@ my $product_hazelnut_spread_json = '{
             "is_in_taxonomy" : 1,
             "percent_estimate" : 3.3,
             "vegetarian" : "yes",
-            "ecobalyse_code" : "3d7f808b-77c5-4207-968d-feea6dfd9496"
+            "ecobalyse_id" : "3d7f808b-77c5-4207-968d-feea6dfd9496"
         }
     ]
 }';
