@@ -5489,10 +5489,6 @@ my %phrases_after_ingredients_list = (
 		'packed in a modified atmosphere',
 		'(Storage( instructions| conditions)?[: ]+)?Store in',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
-		'(it )?may (also )?contain',
-		'may be present',
-		'(not )?suitable for (people|individuals)?',
-		'(made|produced|manufactured|packed) in a (facility|factory) (that |which )?(handles|processes|uses|handling|processing|using)',
 		#'See bottom of tin',
 	],
 
