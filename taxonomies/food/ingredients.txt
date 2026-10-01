@@ -4232,7 +4232,7 @@ bn: ঘোল
 ca: Sèrum de llet, xerigot
 cs: Syrovátka
 cy: Maidd
-da: Valle
+da: valle
 de: Molke, Molken, Käsemilch, Schotte, Sirte, Waddike, Wedicke, Zieger
 el: Τυρόγαλα
 eo: selakto, laktosero
@@ -4315,7 +4315,7 @@ en: whey powder, powdered whey, milk whey powder
 bg: суроватка на прах, млечна суроватка на прах, млечна суха суроватка, суха млечна суроватка
 ca: Xerigot en pols, sèrum en pols, sèrum làctic en pols
 cs: sušená syrovátka
-da: Vallepulver, vallepulver af mælk
+da: vallepulver, vallepulver af mælk
 de: Molkenpulver, Molkepulver
 es: suero de leche en polvo, lactoserum en polvo, suero en polvo
 et: vadakupulber
@@ -4410,15 +4410,14 @@ usda_ndb_process:en: en:fluid
 #usda_ndb_code:en: 1115
 #usda_ndb_name:en: Whey, sweet, dried
 
-
 < en: sweet whey
 en: skimmed sweet whey
 hr: slatka obrana sirutka
 it: siero di latte dolce scremato
 
+#en:process:en:powder
 < en: whey powder
 en: filtered whey powder
-#en:process:en:powder
 ca: sèrum de la llet en pols filtrat
 de: gefiltertes Molkepulver
 es: suero de leche en polvo filtrado, lactosuero en polvo filtrado
@@ -4487,6 +4486,7 @@ nova:en: 4
 en: whey permeate, milk permeate
 bg: суроватъчен пермеат
 ca: permeat de sèrum de la llet, permeat làctic
+da: vallepermeat
 de: Molkenpermeat, Milchpermeat, Molkepermeat
 es: permeado de suerodérivé de la
 fi: herapermeaatti, maitopermeaatti
@@ -4503,12 +4503,13 @@ ca: permeat làctic reconstituit
 hr: rekonstituirani permeat sirutke
 it: permeato di siero di latte ricostituito
 
+#en:process:en:powder
 < en: whey permeate
 en: whey permeate powder
+da: vallepermeatpulver
 de: Molkenpermeatpulver, Molkepermeatpulver
 hr: prašak permeata sirutke
 it: permeato di siero di latte in polvere
-#en:process:en:powder
 #ca:permeta de sèrum de llet en pols
 #es:permeado de suero en polvo
 #fi:herapermeaattijauhe

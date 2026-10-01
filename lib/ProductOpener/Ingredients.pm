@@ -2862,6 +2862,7 @@ Text to analyze
 								'^produktet indeholder \d{1,3}\s*% fuldkorn$',
 								'^svarende til \d{1,3}\s*% af tørvægten$',
 								'^kan indeholde(?: spor af)?',    # may contain (traces of)
+								'^Mælken er pasteuriseret$',
 								'inden servering$',    # before serving
 							],
 
