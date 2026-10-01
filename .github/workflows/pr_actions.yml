@@ -89,13 +89,11 @@ jobs:
     - *step-reaction-seen
     - *get-repository-owner-branch
     - *checkout-fork-repo
-    - &set-env-vars
-      name: Set up env variables for tests
-      run: |
-        echo "ECOBALYSE_API_TOKEN=${{ secrets.ECOBALYSE_API_TOKEN }}" >> .env
     - &run-update-tests-results
       name: Run update tests results
       run: make update_tests_results
+      env:
+        ECOBALYSE_API_TOKEN: ${{ secrets.ECOBALYSE_API_TOKEN }}
     - name: Push changes if needed
       uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
       with:
@@ -125,7 +123,6 @@ jobs:
     - *get-repository-owner-branch
     - *checkout-fork-repo
     - *fetch-origin-main
-    - *set-env-vars
     - name: Create folders
       run: make create_folders
     - *run-linting
