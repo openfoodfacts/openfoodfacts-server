@@ -419,19 +419,28 @@
                "distribution" : "ambient",
                "ingredients" : [
                   {
+                     "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                      "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
                      "mass" : 62.5,
                      "name" : "apple"
                   },
                   {
+                     "ecobalyse_name" : "Lait par défaut -2025-",
                      "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
                      "mass" : 18.75,
                      "name" : "milk"
                   },
                   {
+                     "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
                      "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
                      "mass" : 9.375,
                      "name" : "eggs"
+                  },
+                  {
+                     "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
+                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "mass" : 9.375,
+                     "name" : "palm oil"
                   }
                ],
                "packaging" : [
@@ -457,6 +466,10 @@
                      },
                      {
                         "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+                        "mass" : 9.375
+                     },
+                     {
+                        "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
                         "mass" : 9.375
                      }
                   ],
@@ -565,6 +578,7 @@
             {
                "ciqual_food_code" : "13050",
                "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 62.5,
@@ -578,6 +592,7 @@
             {
                "ciqual_proxy_food_code" : "19051",
                "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+               "ecobalyse_name" : "Lait par défaut -2025-",
                "id" : "en:milk",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 18.75,
@@ -591,6 +606,7 @@
             {
                "ciqual_food_code" : "22000",
                "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+               "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
                "id" : "en:egg",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 9.375,
@@ -603,6 +619,8 @@
             },
             {
                "ciqual_food_code" : "16129",
+               "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
                "from_palm_oil" : "yes",
                "id" : "en:palm-oil",
                "is_in_taxonomy" : 1,
@@ -678,10 +696,8 @@
          "ingredients_with_unspecified_percent_sum" : 100,
          "ingredients_without_ciqual_codes" : [],
          "ingredients_without_ciqual_codes_n" : 0,
-         "ingredients_without_ecobalyse_ids" : [
-            "en:palm-oil"
-         ],
-         "ingredients_without_ecobalyse_ids_n" : 1,
+         "ingredients_without_ecobalyse_ids" : [],
+         "ingredients_without_ecobalyse_ids_n" : 0,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
          "known_ingredients_n" : 4,
@@ -1553,6 +1569,7 @@
                "distribution" : "ambient",
                "ingredients" : [
                   {
+                     "ecobalyse_name" : "Riz basmati par défaut -2025-",
                      "id" : "cce078cf-3d3e-4153-a0a1-35555b2da639",
                      "mass" : 25,
                      "name" : "rice"
@@ -1626,6 +1643,7 @@
             {
                "ciqual_proxy_food_code" : "9100",
                "ecobalyse_id" : "cce078cf-3d3e-4153-a0a1-35555b2da639",
+               "ecobalyse_name" : "Riz basmati par défaut -2025-",
                "id" : "en:rice",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 25,
@@ -2288,16 +2306,19 @@
                "distribution" : "ambient",
                "ingredients" : [
                   {
+                     "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                      "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
                      "mass" : 66.6666666666667,
                      "name" : "apple"
                   },
                   {
+                     "ecobalyse_name" : "Lait par défaut -2025-",
                      "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
                      "mass" : 16.6666666666667,
                      "name" : "milk"
                   },
                   {
+                     "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
                      "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
                      "mass" : 16.6666666666667,
                      "name" : "eggs"
@@ -2416,6 +2437,7 @@
             {
                "ciqual_food_code" : "13050",
                "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 66.6666666666667,
@@ -2429,6 +2451,7 @@
             {
                "ciqual_proxy_food_code" : "19051",
                "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+               "ecobalyse_name" : "Lait par défaut -2025-",
                "id" : "en:milk",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 16.6666666666667,
@@ -2442,6 +2465,7 @@
             {
                "ciqual_food_code" : "22000",
                "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+               "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
                "id" : "en:egg",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 16.6666666666667,
@@ -3339,14 +3363,22 @@
                "distribution" : "ambient",
                "ingredients" : [
                   {
+                     "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                      "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
                      "mass" : 66.6666666666667,
                      "name" : "apple"
                   },
                   {
+                     "ecobalyse_name" : "Eau du robinet UE -2025-",
                      "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
                      "mass" : 16.6666666666667,
                      "name" : "water"
+                  },
+                  {
+                     "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
+                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "mass" : 16.6666666666667,
+                     "name" : "palm oil"
                   }
                ],
                "packaging" : [
@@ -3368,6 +3400,10 @@
                      },
                      {
                         "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                        "mass" : 16.6666666666667
+                     },
+                     {
+                        "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
                         "mass" : 16.6666666666667
                      }
                   ],
@@ -3421,6 +3457,7 @@
             {
                "ciqual_food_code" : "13050",
                "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 66.6666666666667,
@@ -3434,6 +3471,7 @@
             {
                "ciqual_food_code" : "18066",
                "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
                "id" : "en:water",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 16.6666666666667,
@@ -3446,6 +3484,8 @@
             },
             {
                "ciqual_food_code" : "16129",
+               "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
                "from_palm_oil" : "yes",
                "id" : "en:palm-oil",
                "is_in_taxonomy" : 1,
@@ -3512,10 +3552,8 @@
          "ingredients_with_unspecified_percent_sum" : 100,
          "ingredients_without_ciqual_codes" : [],
          "ingredients_without_ciqual_codes_n" : 0,
-         "ingredients_without_ecobalyse_ids" : [
-            "en:palm-oil"
-         ],
-         "ingredients_without_ecobalyse_ids_n" : 1,
+         "ingredients_without_ecobalyse_ids" : [],
+         "ingredients_without_ecobalyse_ids_n" : 0,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
          "known_ingredients_n" : 3,
@@ -4503,11 +4541,13 @@
                "distribution" : "ambient",
                "ingredients" : [
                   {
+                     "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                      "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
                      "mass" : 75,
                      "name" : "apple"
                   },
                   {
+                     "ecobalyse_name" : "Eau du robinet UE -2025-",
                      "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
                      "mass" : 25,
                      "name" : "water"
@@ -4567,6 +4607,7 @@
             {
                "ciqual_food_code" : "13050",
                "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 75,
@@ -4580,6 +4621,7 @@
             {
                "ciqual_food_code" : "18066",
                "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
                "id" : "en:water",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 25,
@@ -5659,16 +5701,19 @@
                "distribution" : "ambient",
                "ingredients" : [
                   {
+                     "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                      "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
                      "mass" : 50,
                      "name" : "apple"
                   },
                   {
+                     "ecobalyse_name" : "Eau du robinet UE -2025-",
                      "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
                      "mass" : 30,
                      "name" : "water"
                   },
                   {
+                     "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                      "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
                      "mass" : 20,
                      "name" : "sugar"
@@ -5733,6 +5778,7 @@
             {
                "ciqual_food_code" : "13050",
                "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 50,
@@ -5746,6 +5792,7 @@
             {
                "ciqual_food_code" : "18066",
                "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
                "id" : "en:water",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 30,
@@ -5759,6 +5806,7 @@
             {
                "ciqual_proxy_food_code" : "31016",
                "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "en:sugar",
                "is_in_taxonomy" : 1,
                "percent" : 20,

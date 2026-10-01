@@ -101,6 +101,7 @@
          "distribution" : "ambient",
          "ingredients" : [
             {
+               "ecobalyse_name" : "Huile d'olive UE -2025-",
                "id" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
                "mass" : 100,
                "name" : "Olive oil"
@@ -544,6 +545,7 @@
       {
          "ciqual_food_code" : "17001",
          "ecobalyse_proxy_id" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
+         "ecobalyse_proxy_name" : "Huile d'olive UE -2025-",
          "from_palm_oil" : "no",
          "id" : "en:olive-oil",
          "is_in_taxonomy" : 1,

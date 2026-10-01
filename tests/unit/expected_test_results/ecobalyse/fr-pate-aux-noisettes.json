@@ -18,6 +18,12 @@
                "name" : "Sucre"
             },
             {
+               "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
+               "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "mass" : 24.55,
+               "name" : "huile de palme"
+            },
+            {
                "ecobalyse_name" : "Noisette, décortiquée Origine Inconnue",
                "id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7",
                "mass" : 13,
@@ -48,6 +54,10 @@
                   "mass" : 44.85
                },
                {
+                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                  "mass" : 24.55
+               },
+               {
                   "id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7",
                   "mass" : 13
                },
@@ -66,83 +76,10 @@
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
       "ecobalyse_response" : {
-         "results" : {
-            "distribution" : {
-               "total" : {
-                  "ecs" : 0.172301
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 9.8692
-                  },
-                  "road" : 600,
-                  "roadCooled" : 0,
-                  "sea" : 0,
-                  "seaCooled" : 0
-               }
-            },
-            "packaging" : {
-               "ecs" : 79.89
-            },
-            "perKg" : {
-               "ecs" : 2283.79
-            },
-            "preparation" : {
-               "ecs" : 0
-            },
-            "preparedMass" : 0.06805,
-            "recipe" : {
-               "ingredientsTotal" : {
-                  "ecs" : 61.6427
-               },
-               "total" : {
-                  "ecs" : 65.4805
-               },
-               "totalBonusImpact" : {
-                  "cropDiversity" : 0,
-                  "hedges" : -0.011975,
-                  "permanentPasture" : 0,
-                  "plotSize" : -0.0362388
-               },
-               "transform" : {
-                  "ecs" : 0
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 3.83781
-                  },
-                  "road" : 5980,
-                  "roadCooled" : 0,
-                  "sea" : 36000,
-                  "seaCooled" : 0
-               }
-            },
-            "scoring" : {
-               "all" : 2283.79,
-               "biodiversity" : 1194.94,
-               "climate" : 495.087,
-               "health" : 220.341,
-               "resources" : 374.039
-            },
-            "total" : {
-               "ecs" : 155.412
-            },
-            "totalMass" : 1.06395,
-            "transports" : {
-               "air" : 0,
-               "impacts" : {
-                  "ecs" : 13.707
-               },
-               "road" : 6580,
-               "roadCooled" : 0,
-               "sea" : 36000,
-               "seaCooled" : 0
-            }
+         "error" : {
+            "authorization" : "Un token valide est requis pour utiliser l’API"
          }
-      },
-      "ecs" : 155.412
+      }
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
@@ -161,6 +98,8 @@
       },
       {
          "ciqual_food_code" : "16129",
+         "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+         "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
          "from_palm_oil" : "yes",
          "id" : "en:palm-oil",
          "is_in_taxonomy" : 1,
@@ -264,10 +203,9 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:fat-reduced-cocoa",
-      "en:palm-oil"
+      "en:fat-reduced-cocoa"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 5,
    "lc" : "fr",
    "misc_tags" : [

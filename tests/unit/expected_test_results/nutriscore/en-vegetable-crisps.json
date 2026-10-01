@@ -36,11 +36,13 @@
          "distribution" : "ambient",
          "ingredients" : [
             {
+               "ecobalyse_name" : "Panais Origine Inconnue",
                "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
                "mass" : 70,
                "name" : "parsnip"
             },
             {
+               "ecobalyse_name" : "Betterave Origine Inconnue",
                "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
                "mass" : 30,
                "name" : "red beet"
@@ -94,6 +96,7 @@
       {
          "ciqual_food_code" : "20181",
          "ecobalyse_id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
+         "ecobalyse_name" : "Panais Origine Inconnue",
          "id" : "en:parsnip",
          "is_in_taxonomy" : 1,
          "percent" : 70,
@@ -107,6 +110,7 @@
       {
          "ciqual_food_code" : "20091",
          "ecobalyse_id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
+         "ecobalyse_name" : "Betterave Origine Inconnue",
          "id" : "en:red-beetroot",
          "is_in_taxonomy" : 1,
          "percent" : 30,
