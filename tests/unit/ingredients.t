@@ -1306,7 +1306,30 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text_fr => "",
 		}
 	],
-
+	# Animal / vegetal origins
+	[
+		'en-animal-vegetal-origins',
+		{
+			lc => "en",
+			ingredients_text => "fat (vegetal origin), gelatin (animal origin), natural flavors (vegetal)",
+		}
+	],
+	[
+		'fr-animal-vegetal-origins',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"graisse (origine végétale), gélatine (origine animale), arômes naturels (végétaux), soupe (végétale), gélatine (animale)",
+		}
+	],
+	[
+		'nl-animal-vegetal-origins',
+		{
+			lc => "nl",
+			ingredients_text =>
+				"vet (plantaardige oorsprong), gelatine (dierlijke oorsprong), natuurlijke aroma's (plantaardig), E120 (dierlijk)",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
