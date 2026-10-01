@@ -289,6 +289,25 @@ my @tests = (
 	[{lc => "en", ingredients_text => "colour: E163(iii)"}, ["en:e163iii"]],
 	[{lc => "en", ingredients_text => "sweetener: E952(iv)"}, ["en:e952iv"]],
 
+	# Vitamin dosages must not create additive tags, even in vitamin lists.
+	[{lc => 'en', ingredients_text => 'vitamin  E 105 mg'}, []],
+	[{lc => 'fr', ingredients_text => 'vitamine E 105,125 mg'}, []],
+	[{lc => 'fr', ingredients_text => 'vitamines A, C et E 105 mg'}, []],
+	[{lc => 'el', ingredients_text => 'βιταμίνη E 105 mg'}, []],
+	[{lc => 'ru', ingredients_text => 'витамин е 105 мг'}, []],
+	[{lc => 'fr', ingredients_text => 'vitamines A, C et E 105 mg, colorant E 120'}, ['en:e120']],
+	[
+		{lc => 'fr', ingredients_text => 'vitamine E 105 mg, E 330, E-160a(ii), INS 471'},
+		['en:e330', 'en:e160aii', 'en:e471']
+	],
+	[{lc => 'ru', ingredients_text => 'е 330'}, ['en:e330']],
+	# 3b405 was moved to the minerals taxonomy: no additive tag for it
+	[{lc => 'fr', ingredients_text => '3B 405, 3B 202, 1b 306(i)'}, ['en:e916', 'en:e306']],
+	[{lc => 'fr', ingredients_text => 'E 330 105 mg, 3b 405 7,2 mg'}, ['en:e330']],
+	[{lc => 'fr', ingredients_text => 'Omega 3b 150mg, Omega 3b 103 mg, Omega E 150 mg'}, []],
+	[{lc => 'fr', ingredients_text => 'E 330 mg, INS 471 mg, 3b 405 mg'}, []],
+	[{lc => 'fr', ingredients_text => 'lot 1B 064, 4B 166, 2B 1003131447, 3b 999'}, []],
+
 );
 
 foreach my $test_ref (@tests) {
