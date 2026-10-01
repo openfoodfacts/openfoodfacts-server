@@ -3029,6 +3029,7 @@ Text to analyze
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
 								'^Mjölkchokladen innehåller minst',
 								'^kan innehälla(?: spår av)?',    # may contain (traces of)
+								'^Mjölken är pastöriserad$',
 								'innehåller \d+\s*(?:g|%)',
 								'är maskinellt urkärnade$',    # pitted by machine
 								'^Kakaohalt i chokladen$',
