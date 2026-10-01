@@ -168,7 +168,7 @@ stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém,
 stopwords:ro: produs, produsul, conține, poate conține, și, sau, de, din, cu, în proporții variabile, minim
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
-stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion, motsvarande 0\,016 mg fluor/tablett
+stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion, motsvarande 0\,016 mg fluor/tablett, med
 stopwords:zh: :配料
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -4232,7 +4232,7 @@ bn: ঘোল
 ca: Sèrum de llet, xerigot
 cs: Syrovátka
 cy: Maidd
-da: Valle
+da: valle
 de: Molke, Molken, Käsemilch, Schotte, Sirte, Waddike, Wedicke, Zieger
 el: Τυρόγαλα
 eo: selakto, laktosero
@@ -4315,7 +4315,7 @@ en: whey powder, powdered whey, milk whey powder
 bg: суроватка на прах, млечна суроватка на прах, млечна суха суроватка, суха млечна суроватка
 ca: Xerigot en pols, sèrum en pols, sèrum làctic en pols
 cs: sušená syrovátka
-da: Vallepulver, vallepulver af mælk
+da: vallepulver, vallepulver af mælk
 de: Molkenpulver, Molkepulver
 es: suero de leche en polvo, lactoserum en polvo, suero en polvo
 et: vadakupulber
@@ -4410,15 +4410,14 @@ usda_ndb_process:en: en:fluid
 #usda_ndb_code:en: 1115
 #usda_ndb_name:en: Whey, sweet, dried
 
-
 < en: sweet whey
 en: skimmed sweet whey
 hr: slatka obrana sirutka
 it: siero di latte dolce scremato
 
+#en:process:en:powder
 < en: whey powder
 en: filtered whey powder
-#en:process:en:powder
 ca: sèrum de la llet en pols filtrat
 de: gefiltertes Molkepulver
 es: suero de leche en polvo filtrado, lactosuero en polvo filtrado
@@ -4487,6 +4486,7 @@ nova:en: 4
 en: whey permeate, milk permeate
 bg: суроватъчен пермеат
 ca: permeat de sèrum de la llet, permeat làctic
+da: vallepermeat
 de: Molkenpermeat, Milchpermeat, Molkepermeat
 es: permeado de suerodérivé de la
 fi: herapermeaatti, maitopermeaatti
@@ -4503,12 +4503,13 @@ ca: permeat làctic reconstituit
 hr: rekonstituirani permeat sirutke
 it: permeato di siero di latte ricostituito
 
+#en:process:en:powder
 < en: whey permeate
 en: whey permeate powder
+da: vallepermeatpulver
 de: Molkenpermeatpulver, Molkepermeatpulver
 hr: prašak permeata sirutke
 it: permeato di siero di latte in polvere
-#en:process:en:powder
 #ca:permeta de sèrum de llet en pols
 #es:permeado de suero en polvo
 #fi:herapermeaattijauhe
@@ -70810,12 +70811,11 @@ description:pt: A mostarda de Dijon é uma variedade de mostarda forte muito usa
 wikidata:en: Q204226
 wiktionary:en: Dijon_mustard
 
+< en: dijon mustard
 < en: strong mustard
-< fr: moutarde de dijon
 en: strong Dijon mustard
 fr: moutarde forte de dijon
 it: senape forte di Digione
-# 16 in fr @2021-09-10
 
 < en: mustard
 en: strong mustard
@@ -97961,6 +97961,11 @@ sv: chilimajonnäs
 
 < en: mayonnaise
 en: French style mayonnaise, French mayonnaise
+
+< en: dijon mustard
+< en: mayonnaise
+en: dijonnaise
+xx: dijonnaise
 
 # description:en:MIRIN is a type of rice wine similar to sake, but with a lower alcohol content and higher sugar content. Mirin is used to add a bright touch to grilled (broiled) fish or to erase the fishy smell.
 
