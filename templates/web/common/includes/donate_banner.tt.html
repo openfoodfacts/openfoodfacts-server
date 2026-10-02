@@ -492,7 +492,10 @@
     function wait() {
       timer = setTimeout(() => (document.hidden ? wait() : fire('dwell')), 15000);
     }
-    window.addEventListener('scroll', onScroll, { passive: true });
+    setTimeout(() => {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }, 10000);
     wait();
   }
 
