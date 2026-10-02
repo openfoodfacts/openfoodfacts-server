@@ -97416,9 +97416,6 @@ uz: qayla
 vi: Xốt
 vo: sod
 zh: 醬
-nova:en: 3
-vegan:en: maybe
-vegetarian:en: maybe
 # arz:صلصه
 # be-tarask:соўс
 # de-ch:Sauce
@@ -97451,6 +97448,9 @@ vegetarian:en: maybe
 # zh-hk:醬
 # zh-sg:酱
 # zh-tw:醬
+nova:en: 3
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q178359
 wikipedia:en: https://en.wikipedia.org/wiki/Sauce
 
@@ -97769,8 +97769,6 @@ usda_fdc_code:en: 169381
 usda_ndb_code:en: 11949
 usda_ndb_name:en: Catsup, low sodium
 
-# description:en:Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
-
 #< en: compound
 < en: sauce
 en: marinade
@@ -97790,14 +97788,19 @@ nn: marinade
 pl: marynata
 pt: marinada
 sv: marinad
+description:en: Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
 wikidata:en: Q56296569
-# usage:fr:marinade (olive oil, rapeseed oil, chives 4%, lemon essential oil 3%)
 
 < en: marinade
 fr: marinade barbecue
 
 < en: marinade
 fr: marinade tex mex
+
+< en: marinade
+en: soy marinade
+sv: sojamarinad
+allergens:en: en:soybeans
 
 #<en:compound
 < en: sauce
