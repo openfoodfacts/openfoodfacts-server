@@ -23,6 +23,18 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 # and to store the mocked Ecobalyse responses in the expected results directory.
 # The env variable ECOBALYSE_API_TOKEN needs to be set to a valid Ecobalyse API token for the real API call to work.
 
+# If the env variable is not set, we override the usual --update-tests-results parameter
+# so that the /update_tests_results comment triggered GitHub action does not actually trigger an update of the expected results.
+# Test results should only be updated manually by running the tests with the appropriate environment variable and API token.
+# You can create an Ecobalyse token on the Ecobalyse website and set it as the ECOBALYSE_API_TOKEN environment variable.
+# Then to update tests results, run:
+#    ECOBALYSE_API_TOKEN=your_token_here prove -v tests/unit/ecobalyse.t --update-tests-results
+
+if ($update_expected_results and !$ENV{ECOBALYSE_API_TOKEN}) {
+	warn "ECOBALYSE_API_TOKEN is not set. Skipping update of expected results.\n";
+	$update_expected_results = 0;
+}
+
 # If the 3rd argument of a test case is set to 1, it indicates that the Ecobalyse API call is skipped (for example, when there are no ingredients to send to Ecobalyse).
 
 my @tests = (
