@@ -19,6 +19,8 @@
       },
       {
          "ciqual_food_code" : "2028",
+         "ecobalyse_proxy_id" : "fd79d142-7e34-45a4-a0d1-59922b4c8d09",
+         "ecobalyse_proxy_name" : "Jus de citron UE -2025-",
          "id" : "en:lemon-juice",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -32,6 +34,8 @@
       },
       {
          "ciqual_food_code" : "11082",
+         "ecobalyse_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:sea-salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 1.5,
@@ -105,12 +109,10 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:lemon-juice",
       "en:pepper",
-      "en:salmon-fillet",
-      "en:sea-salt"
+      "en:salmon-fillet"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 4,
    "languages" : {
       "en:french" : 1
