@@ -356,6 +356,7 @@
   [% END %]
 <!-- Open Food Facts Days end -->
 [% ELSE %]
+[% donation_variants = 1 %]
 <!-- Donation banner TOP start -->
 <section id="donation-banner-top" style="position: relative;">
   <donation-banner donate-url="[% link %]" news-url="/data/tagline/web/main.json"></donation-banner>
@@ -399,8 +400,10 @@
   let arm = getBannerCookie('donation_arm');
   if (crawler) {
     arm = 'old';
-  } else if (arm !== 'old' && arm !== 'new') {
-    arm = Math.random() < 0.5 ? 'old' : 'new';
+  } else {
+    if (arm !== 'old' && arm !== 'new') {
+      arm = Math.random() < 0.5 ? 'old' : 'new';
+    }
     setBannerCookie('donation_arm', arm, 30);
   }
 
@@ -504,6 +507,9 @@
     const bars = parseInt(getBannerCookie('donation_bar_n'), 10) || 0;
     if (getBannerCookie('donation_sheet') === '' && sheets < 3) {
       whenEngaged(function (trigger) {
+        if (!bannerID.isConnected) {
+          return;
+        }
         setBannerCookie('donation_sheet', 1, 7);
         setBannerCookie('donation_sheet_n', sheets + 1, 30);
         showTop('sheet', 'top:sheet:new:' + trigger, id);
@@ -562,7 +568,7 @@
 <!-- Donation banner @ footer start-->
 [% banner_footer = BLOCK %]
 
-<donation-banner id="donation-banner-footer" style="display: none;" donate-url="[% link %]" news-url="/data/tagline/web/main.json"></donation-banner>
+<donation-banner id="donation-banner-footer"[% IF donation_variants %] style="display: none;"[% END %] donate-url="[% link %]" news-url="/data/tagline/web/main.json"></donation-banner>
 
 [% END %]
 <!-- Donation banner @ footer end-->
