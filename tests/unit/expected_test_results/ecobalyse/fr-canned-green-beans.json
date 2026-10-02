@@ -90,83 +90,10 @@
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
       "ecobalyse_response" : {
-         "results" : {
-            "distribution" : {
-               "total" : {
-                  "ecs" : 0.236318
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 4.41124
-                  },
-                  "road" : 0,
-                  "roadCooled" : 600,
-                  "sea" : 0,
-                  "seaCooled" : 0
-               }
-            },
-            "packaging" : {
-               "ecs" : 17.23
-            },
-            "perKg" : {
-               "ecs" : 396.583
-            },
-            "preparation" : {
-               "ecs" : 0
-            },
-            "preparedMass" : 0.0933333,
-            "recipe" : {
-               "ingredientsTotal" : {
-                  "ecs" : 4.99427
-               },
-               "total" : {
-                  "ecs" : 15.1369
-               },
-               "totalBonusImpact" : {
-                  "cropDiversity" : 0,
-                  "hedges" : -0.000112,
-                  "permanentPasture" : 0,
-                  "plotSize" : -0.00132
-               },
-               "transform" : {
-                  "ecs" : 1.954
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 8.18863
-                  },
-                  "road" : 3320,
-                  "roadCooled" : 2660,
-                  "sea" : 0,
-                  "seaCooled" : 18000
-               }
-            },
-            "scoring" : {
-               "all" : 396.583,
-               "biodiversity" : 156.772,
-               "climate" : 110.891,
-               "health" : 47.5736,
-               "resources" : 81.4145
-            },
-            "total" : {
-               "ecs" : 37.0145
-            },
-            "totalMass" : 0.308133,
-            "transports" : {
-               "air" : 0,
-               "impacts" : {
-                  "ecs" : 12.5999
-               },
-               "road" : 3320,
-               "roadCooled" : 3260,
-               "sea" : 0,
-               "seaCooled" : 18000
-            }
+         "error" : {
+            "authorization" : "Un token valide est requis pour utiliser l’API"
          }
-      },
-      "ecs" : 37.0145
+      }
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
