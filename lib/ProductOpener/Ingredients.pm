@@ -3027,6 +3027,7 @@ Text to analyze
 								'^Någon kärna (?:och|eller) del kan finnas kvar$',
 								'motsvarande \d{1,3}\s*% av torrvikten$',
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
+								'^Förpackat i en skyddande atmosfär$',    # packaged in a protective atmosphere
 								'^Mjölkchokladen innehåller minst',
 								'^kan innehälla(?: spår av)?',    # may contain (traces of)
 								'^Mjölken är pastöriserad$',
