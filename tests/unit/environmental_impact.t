@@ -22,7 +22,7 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 # Then to update tests results, run:
 #    ECOBALYSE_API_TOKEN=your_token_here prove -v tests/unit/ecobalyse.t --update-tests-results
 
-if ($update_expected_results and !$ENV{ECOBALYSE_API_TOKEN}) {
+if (($update_expected_results) and (!$ENV{ECOBALYSE_API_TOKEN})) {
 	warn "ECOBALYSE_API_TOKEN is not set. Skipping update of expected results.\n";
 	$update_expected_results = 0;
 }

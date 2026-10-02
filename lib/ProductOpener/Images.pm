@@ -144,7 +144,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use Image::Magick;
 use Barcode::ZBar;
 use Imager;
-use Imager::zxing;
+#use Imager::zxing;
 use Image::OCR::Tesseract 'get_ocr';
 
 use ProductOpener::Products qw/:all/;
