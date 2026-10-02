@@ -74807,6 +74807,71 @@ wikidata:en: Q160102
 
 ###################################################################################################
 #
+#                                Psyllium
+#
+###################################################################################################
+
+< en: plant
+en: psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
+xx: psyllium
+ar: بزر قطونة
+da: psyllium skræl, psyllium frøskaller
+de: Psyllium, Flohsamenschalen, Plantago Psyllium
+es: Psilio, plantago, cáscara de semilla de psyllium
+fa: بارهنگ کتانی
+fi: psylliumkuitu, psylliuminsiemenkuori
+fr: fibres de psyllium, psyllium, enveloppe de psyllium, enveloppes de psyllium
+he: פסיליום
+hi: isabgol
+hr: vlakna psylliuma
+it: fibra di psillio
+nl: psylliumvezels, psylliumvezel, vlozaadvezels
+pl: Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik, błonnik z babki płesznik, łupiny nasienne babki płesznik, łuski psyllium - łuski nasion babki jajowatej
+ru: Подорожник
+sd: اسپنگر
+sv: psylliumfiber, psylliumfröskal, psyllium
+ta: Isabgol
+uk: Подорожник
+ur: اسپغول
+# pam:Apang psyllium
+comment:en: this not a fiber (but has a lot), so no nova implications.
+description:en: Psyllium is the seed husk of Plantago ovata, a plant part grown mainly in India (the world's dominant producer), with smaller output in Pakistan, Iran, and parts of Europe. Seeds are harvested and cleaned, then the husk is mechanically separated by milling and sifting, and sometimes ground into powder, without extraction or chemical treatment. It is nearly tasteless, with a slightly mucilaginous texture. It is used as a binder and gelling agent in gluten-free baking, as a thickener, and in fiber supplements and cereals. Nutritionally, it is about 70 to 85% soluble fiber, providing roughly 0 to 2 kcal/g, with negligible fat and protein.
+nova:en: 2
+wikidata:en: Q15258700
+wikipedia:en: https://en.wikipedia.org/wiki/Psyllium
+
+< en: psyllium
+en: psyllium seed
+da: loppefrø
+sv: loppfrö, psylliumfrö, psylliumfrön
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q138602386
+
+< en: psyllium
+en: blond psyllium
+es: psyllium rubio
+fr: psyllium blond
+hr: plavokosi psilium
+it: psillio biondo
+la: Plantago ovata
+pl: babka jajowata, babki jajowatej
+
+< en: blond psyllium
+en: blond psyllium husk
+es: tegumento de psyllium rubio
+fr: tégument de psyllium blond
+hr: plava ljuska psiliuma
+it: buccia di psillio biondo
+pl: łupina nasienna babki jajowatej, łupiny nasion babki jajowatej, łuska babki jajowatej
+
+< en: blond psyllium
+en: blond psyllium fibre
+it: fibra di psillio biondo
+pl: błonnik babki jajowatej, błonnik z babki jajowatej, błonnik z łuski babki jajowatej
+
+###################################################################################################
+#
 #                                Pumpkin flowers
 #
 ###################################################################################################
@@ -92499,65 +92564,6 @@ nl: aardappelvezel, aardappelvezels
 no: potetfiber, potetfibre
 pl: błonnik ziemniaczany
 sv: potatisfiber
-
-< en: vegetable fiber
-en: psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
-xx: psyllium
-ar: بزر قطونة
-da: psyllium skræl, psyllium frøskaller
-de: Psyllium, Flohsamenschalen, Plantago Psyllium
-es: Psilio, plantago, cáscara de semilla de psyllium
-fa: بارهنگ کتانی
-fi: psylliumkuitu, psylliuminsiemenkuori
-fr: fibres de psyllium, psyllium, enveloppe de psyllium, enveloppes de psyllium
-he: פסיליום
-hi: isabgol
-hr: vlakna psylliuma
-it: fibra di psillio
-nl: psylliumvezels, psylliumvezel, vlozaadvezels
-pl: Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik, błonnik z babki płesznik, łupiny nasienne babki płesznik, łuski psyllium - łuski nasion babki jajowatej
-ru: Подорожник
-sd: اسپنگر
-sv: psylliumfiber, psylliumfröskal, psyllium
-ta: Isabgol
-uk: Подорожник
-ur: اسپغول
-# pam:Apang psyllium
-comment:en: an exception from all the nova 4 fibers, due to simple production and consumer availability.
-description:en: Psyllium is the seed husk of Plantago ovata, grown mainly in India (the world's dominant producer), with smaller output in Pakistan, Iran, and parts of Europe. Seeds are harvested, cleaned, and milled, then the husk is mechanically separated by sifting and air classification, and sometimes ground into powder. It is nearly tasteless, with a slightly mucilaginous texture. It is used as a binder and gelling agent in gluten-free baking, as a thickener, and in fiber supplements and cereals. Nutritionally, it is about 70 to 85% soluble fiber, providing roughly 0 to 2 kcal/g, with negligible fat and protein.
-nova:en: 2
-wikidata:en: Q15258700
-wikipedia:en: https://en.wikipedia.org/wiki/Psyllium
-
-< en: psyllium
-en: psyllium seed
-da: loppefrø
-sv: loppfrö, psylliumfrö, psylliumfrön
-vegan:en: yes
-vegetarian:en: yes
-wikidata:en: Q138602386
-
-< en: psyllium
-en: blond psyllium
-es: psyllium rubio
-fr: psyllium blond
-hr: plavokosi psilium
-it: psillio biondo
-la: Plantago ovata
-pl: babka jajowata, babki jajowatej
-
-< en: blond psyllium
-en: blond psyllium husk
-es: tegumento de psyllium rubio
-fr: tégument de psyllium blond
-hr: plava ljuska psiliuma
-it: buccia di psillio biondo
-pl: łupina nasienna babki jajowatej, łupiny nasion babki jajowatej, łuska babki jajowatej
-
-< en: blond psyllium
-en: blond psyllium fibre
-it: fibra di psillio biondo
-pl: błonnik babki jajowatej, błonnik z babki jajowatej, błonnik z łuski babki jajowatej
 
 < en: vegetable fiber
 en: rye fiber
