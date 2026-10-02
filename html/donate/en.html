@@ -765,7 +765,7 @@
               if (isFinite(urlAmount) && urlAmount >= minAmount) {
                 amount = urlAmount;
               }
-              var urlInterval = params.get('interval');
+              var urlInterval = (params.get('interval') || '').replace(/^1([MYT])$/, '1 $1');
               if (urlInterval === '1 M' || urlInterval === '1 Y' || urlInterval === '1 T') {
                 interval = urlInterval;
               }
