@@ -937,7 +937,7 @@ fi: lysotsyymi kananmunasta
 fr: lysozyme d'œuf, lysozyme d'oeuf, lysozyme issu de protéine d'oeufs
 hr: jajčani lizozim, lizozim iz jaja, lisozim iz jaja
 it: lisozima da uovo, lisozima d'uovo
-nl: lysozym uit ei, lysozym van ei
+nl: lysozym uit ei, lysozym van ei, ei-lysosym
 pl: lizozym z jaj, lizozym z białka jaja kurzego, lizozym jajeczny
 ru: белок яичный сухой, белок яичный, яичный белок
 sl: lizocim iz JAJC
@@ -13198,7 +13198,7 @@ fi: kotelo
 fr: enveloppe
 hr: omotač, omotaču
 it: involucro
-nl: vel
+nl: vel, omhulsel
 pl: osłonka
 
 # <en:animal part
@@ -21735,7 +21735,7 @@ pl: naturalny aromat brzoskwiniowy
 
 < en: flavouring
 en: pepper flavouring
-de: Pfeffergewürz, Gewürzpfeffer
+de: Pfeffergewürz, Gewürzpfeffer, Pfeffer-Gewürz
 es: aroma de pimienta
 fi: pippuriaromi
 fr: arôme de poivre
@@ -43097,7 +43097,7 @@ fr: pulpe d'orange
 hr: pulpa naranče
 hu: narancs gyümölcshős, narancs püré
 it: polpe d'arancia
-nl: sinaasappelpulp
+nl: sinaasappelpulp, sinaasappelpasta
 pl: miąższ pomarańczy, miąższu pomarańczy
 pt: polpa de laranja
 ciqual_food_code:en: 13034
@@ -56722,7 +56722,7 @@ pt: extrato de abóbora y de cenoura
 
 < en: carrot and pumpkin concentrate
 en: carrot and pumpkin concentrate colouring
-de: Färbende Konzentrate Karotte und Kürbis
+de: Färbende Konzentrate Karotte und Kürbis, färbendes Karotten- und Kürbiskonzentrat
 
 < en: carrot
 en: carrot extract
@@ -60268,7 +60268,7 @@ da: sichuanpeber
 hr: sečuanski papar
 it: pepe di Sichuan
 nb: sichuanpepper
-nl: cichuan peper
+nl: cichuan peper, Sichuan peper
 pl: pieprz syczuański
 sv: sichuanpeppar
 zh: 花椒
@@ -68015,7 +68015,7 @@ kk: қара бұрыш
 lt: juodieji piperai
 lv: melnie pipari
 nb: svart pepper, piper nigrum, sort pepper
-nl: zwarte peper
+nl: zwarte peper, zwartepeper
 nn: svart pepper
 pl: czarny pieprz, pieprz czarny
 pt: pimenta preta, pimenta-negra
@@ -68074,7 +68074,7 @@ fi: mustapippuriuute
 fr: extrait de poivre noir
 hr: ekstrakt crnog papra
 it: Estratto di pepe nero
-nl: zwarte peperextract, zwartepeperextract
+nl: zwarte peperextract, zwartepeperextract, zwartepeper extract
 sv: svartpepparextrakt
 
 < en: black pepper
@@ -74890,7 +74890,7 @@ usda_ndb_name:en: Pumpkin flowers, raw
 
 < en: plant
 en: purple coneflower
-xx: echinacae
+xx: echinacea
 de: Purpur-Sonnenhut
 fr: échinacée pourpre
 hu: bibor kasvirág
@@ -79112,7 +79112,8 @@ de: Rhizopuskultur
 it: coltura di Rhizopus
 
 < en: ferment
-en: blauwschimmelcultuur
+en: blue mold culture
+nl: blauwschimmelcultuur
 
 # description:en:Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
 
@@ -88853,7 +88854,6 @@ wiktionary:en: instant_coffee
 #<en:instant coffee
 #en:freeze-dried soluble coffee
 #fr:café soluble lyophilisé
-# 28 in french @2021-09-10
 
 < en: instant coffee
 en: decaffeinated instant coffee
@@ -88873,7 +88873,10 @@ it: caffè freddo
 description:de: Cold brewing is the process of steeping coffee grounds in water at cool temperatures for an extended period.
 wikidata:en: q5142444
 wiktionary:en: cold_brew_coffee
-#170 in 3 @2021-09-10
+
+# < en: compound
+en: mocha
+nl: mokka
 
 # description:en:CREATINE is an organic compound with the nominal formula (H2N)(HN)CN(CH3)CH2CO2H.  Creatine is found in vertebrates where it facilitates recycling of adenosine triphosphate (ATP), the energy currency of the cell, primarily in muscle and brain tissue.
 
@@ -91101,7 +91104,7 @@ da: æg fra fritgående høns
 de: Hühnereier aus Freilandhaltung
 es: huevos de gallinas camperas
 fi: ulkokanan munat, ulkokanan munia, ulkokanojen munia
-fr: œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air
+fr: œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air, oeuf de poule élevée en plein air
 hr: jaja iz podnog uzgoja
 it: uova di gallina allevate all'aperto
 nb: egg fra frittgående høner
