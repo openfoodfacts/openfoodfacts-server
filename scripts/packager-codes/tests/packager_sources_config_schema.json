@@ -51,7 +51,7 @@
                   "properties": {
                     "type": {
                       "type": "string",
-                      "enum": ["excel", "html"],
+                      "enum": ["excel", "csv", "html"],
                       "description": "Type of file to process"
                     },
                     "last_filename": {
@@ -91,6 +91,7 @@
                     "code_format": {
                       "type": "object",
                       "properties": {
+                        "prefix": {"type": "string"},
                         "strip_prefix": {"type": "string"},
                         "suffix": {"type": "string"}
                       },
