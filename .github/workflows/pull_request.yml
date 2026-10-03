@@ -143,6 +143,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
+          target: dev
           build-args: |
             USER_UID=${{ steps.user_ids.outputs.uid }}
             USER_GID=${{ steps.user_ids.outputs.gid }}
