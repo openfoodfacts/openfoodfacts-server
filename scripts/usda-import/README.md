@@ -2,11 +2,17 @@ Steps to load the USDA data in Open Food Facts
 
 1. Download the USDA database
 
+(to where, specifically? -rrk)
+
 2. Merge the USDA csv files
+
+(what script? -rrk)
 
 Output: merged.csv
 
 3. Add OFF categories
+
+(what script? -rrk)
 
 USDA_fdc_categories.csv maps FDC categories to OFF categories.
 
@@ -19,7 +25,7 @@ producers platform when a CSV file is loaded and columns are mapped.
 
 Sample script (needs to be updated with new path names etc.):
 
-- ./usda/convert_usda.sh
+- ./usda-import/convert_usda.sh
 
 5. Deduplicate rows
 
@@ -28,7 +34,7 @@ otherwise when we import data, we will import products several times, with diffe
 
 Sample script (needs to be updated with new path names etc.):
 
-- ./usda/deduplicate_usda.sh
+- ./usda-import/deduplicate_usda.sh
 
 6. Double check everything
 
