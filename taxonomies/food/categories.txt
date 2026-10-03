@@ -10330,6 +10330,7 @@ en: Psyllium
 fr: Psyllium
 hr: Psilij
 nl: Psylliumvezels
+nova:en: 2
 wikidata:en: Q311228
 
 < en: Plant-based foods
@@ -32959,8 +32960,16 @@ en: Plain wheat biscuits
 fr: Biscuits au blé natures
 
 < en: Biscuits
-en: Biscuits with meringue
-fr: Biscuits meringués
+en: Biscuits with meringue, Pastry biscuit with meringue
+fr: Biscuits meringués, Biscuit pâtissier meringué
+agribalyse_food_code:en: 24060
+ciqual_food_code:en: 24060
+ciqual_food_name:en: Pastry biscuit with meringue
+ciqual_food_name:fr: Biscuit pâtissier meringué
+
+< en: Biscuits
+en: Buckweat biscuits
+fr: Biscuits au sarrasin
 
 #do not confuse with the cocktail spritz
 < en: Biscuits
@@ -33543,6 +33552,7 @@ en: Brittany-style palet biscuits
 fr: Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
 
 < en: Brittany-style palet biscuits
+< en: Plain butter shortbreads
 en: Plain Brittany-style palet biscuits
 fr: Palets nature
 
@@ -79836,10 +79846,11 @@ hr: Majoneza s karameliziranim lukom
 lt: Majonezai su karamelizuotais svogūnais
 
 < en: Mayonnaises
-en: Dijon mayonnaises
+en: Dijon mayonnaises, Dijonnaises, Dijonnaise
+da: Dijonnaiser, Dijon-mayonnaiser
 de: Dijon-Mayonnaisen
 es: Mayonesas de Dijon
-fi: dijon-majoneesit
+fi: Dijon-majoneesit
 fr: Mayonnaises de Dijon, Mayonnaise de Dijon, Mayonnaise à la moutarde de Dijon, Mayonnaises à la moutarde de Dijon, Mayonaises de Dijon
 he: מיונז דיז'ון
 hr: Dijon majoneze
@@ -79847,6 +79858,7 @@ hu: Dijoni majonéz
 it: Maionese di Digione
 lt: Dižono majonezai
 nl: Dijonmayonnaises
+sv: Dijonnäser, Dijon-majonnäser
 
 < en: Mayonnaises
 en: Light mayonnaises, Reduced fat mayonnaise, Low fat mayonnaise, Light mayonnaise
@@ -101220,14 +101232,6 @@ ciqual_food_name:fr: Meringue
 wikidata:en: Q276276
 
 < en: Pastries
-en: Pastry biscuit with meringue
-fr: Biscuit pâtissier meringué
-agribalyse_food_code:en: 24060
-ciqual_food_code:en: 24060
-ciqual_food_name:en: Pastry biscuit with meringue
-ciqual_food_name:fr: Biscuit pâtissier meringué
-
-< en: Pastries
 en: Mille-feuille pastry
 fr: Millefeuilles, millefeuille, Mille-feuille
 hr: Mille-feuille pecivo
@@ -109573,28 +109577,39 @@ wikidata:en: Q48724049
 en: Sweet pepper chutneys
 fr: Confits de poivrons
 
+< en: Meat alternatives
 < en: Plant-based spreads
-en: Plant-based pâtés, Vegetarian pâtés
+en: Vegetarian pâtés
+da: Vegetariske postejer
+de: Vegetarische Pasteten
+pl: Pasztety wegetariańskie
+sv: Vegetarianska pastejer, Vegetariska pastejer
+
+< en: Vegan products
+< en: Vegetarian pâtés
+en: Plant-based pâtés, Vegan pâtés
 ca: Patés vegetals
-de: Pflanzlische Pasteten, Vegetarische Pasteten
+da: Plantebaserede postejer, Veganske postejer
+de: Pflanzlische Pasteten
 es: Patés vegetales
 fi: Kasvipateet
 fr: Pâtés végétaux, Pâté végétal
 hr: Paštete na biljnoj bazi
 it: Paté a base vegetale
 nl: Plantaardige smeerworsten, Plantaardige pastas
-pl: Pasztety roślinne, Pasztety wegetariańskie
+pl: Pasztety roślinne
 ro: Pate vegetal
+sv: Växtbaserade pastejer, Veganska pastejer
 
 < en: Olive tree products
-< en: Plant-based pâtés
+< en: Vegetarian pâtés
 en: Vegetarian olive pâtés
 es: Patés vegetales a base de aceitunas, Patés vegetales de aceitunas
 fr: Pâtés à tartiner végétaux à base d'olives, Pâtés à tartiner végétales à base de olives
 hr: Vegetarijanske paštete od maslina
 nl: Plantaardige pastas op basis van olijfolie
 
-< en: Plant-based pâtés
+< en: Vegetarian pâtés
 en: Vegetarian tofu pâtés
 es: Patés vegetales a base de tofu
 fr: Pâtés à tartiner végétaux à base de tofu, Pâtés à tartiner végétales à base de tofu
@@ -125937,6 +125952,7 @@ ciqual_food_code:en: 8332
 ciqual_food_name:en: Paté (average)
 ciqual_food_name:fr: Pâté (aliment moyen)
 intake24_category_code:en: PTES
+plant_alternative:en: en:plant-based-pâtés
 wikidata:en: Q816704
 
 < en: Pâté

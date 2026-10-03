@@ -11,6 +11,20 @@
 
 de:modifzierte -> modifizierte
 
+# OCR "com" for "corn". Adding the bare word too is tempting, but maybe false-positive prone
+en:comflour -> cornflour
+en:com flour -> corn flour
+en:comstarch -> cornstarch
+en:com starch -> corn starch
+en:sweetcom -> sweetcorn
+
+# OCR l for i
+en:lodate -> iodate
+en:lodide -> iodide
+en:lodine -> iodine
+en:lodised -> iodised
+en:lodized -> iodized
+
 fr:ceuf -> œuf
 fr:ceufs -> œufs
 
