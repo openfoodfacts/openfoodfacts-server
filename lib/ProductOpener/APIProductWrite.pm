@@ -722,7 +722,7 @@ sub write_product_api ($request_ref) {
 
 		$log->debug("phase 0 - checking edit rules", {code => $code}) if $log->is_debug();
 
-		my $proceed_with_edit = process_product_edit_rules($product_ref);
+		my $proceed_with_edit = process_product_edit_rules($product_ref, $request_ref);
 
 		$log->debug("phase 0", {code => $code, proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
 
