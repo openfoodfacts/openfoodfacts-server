@@ -7171,6 +7171,26 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# transform 0,1-0.2% into 0.1-0.2%
 	$text =~ s/(\d),(\d+( )?-( )?\d)/$1.$2/ig;
 
+	# "viandes et sous-produits animaux (36%, dont 4% de bœuf)": drop the
+	# "dont N%" inclusion markers and their articles (the marker covers the
+	# whole share list: "dont 4% de bœuf, 2% de poulet"; a share name can carry
+	# one level of parenthesis: "dont 4% de bœuf (France)"): the share
+	# ingredients are recognized as sub-ingredients, without a percent field
+	# (the estimator treats sub-ingredient lists as exhaustive)
+	if ($ingredients_lc eq 'fr') {
+		$text =~ s{(\(|,\s*)(dont)(\s+[^()]*?(?:\([^()]*\)[^()]*)*?)\)}{
+			my ($separator, $marker, $shares) = ($1, $2, $3);
+			if ($shares =~ s{^\s+\d+(?:[.,]\d+)?\s*%\s*(?:d[eu]\s+|d')?}{}) {
+				$shares =~ s{,\s*\d+(?:[.,]\d+)?\s*%\s*(?:d[eu]\s+|d')?}{, }g;
+				$separator . $shares . ")"
+			}
+			else {
+				# no percentage after the marker: nutrition remark, left alone
+				$separator . $marker . $shares . ")"
+			}
+		}gei;
+	}
+
 	# abbreviations, replace language specific abbreviations first
 	foreach my $abbreviations_lc ($ingredients_lc, "all") {
 		if (defined $abbreviations{$abbreviations_lc}) {
