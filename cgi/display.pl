@@ -238,6 +238,9 @@ elsif (defined $request_ref->{product}) {
 elsif (defined $request_ref->{points}) {
 	display_points($request_ref);
 }
+elsif (defined $request_ref->{facets_index}) {
+	display_facets_index($request_ref);
+}
 elsif ((defined $request_ref->{groupby_tagtype})
 	or ((defined $request_ref->{tagtype}) and (defined $request_ref->{tagid})))
 {
