@@ -55558,8 +55558,6 @@ fr: jus d'échalote concentré
 hr: koncentrirani sok od ljutike
 it: succo concentrato di scalogno
 
-# description:en:The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
-
 # category/leeks
 < en: onion-family vegetable
 en: leek
@@ -55609,7 +55607,7 @@ li: sjpoor
 lt: poras, daržinis poras
 lv: puravi
 mk: праз
-ms: bawang perai, ‏باوڠ ڤراي‎‎
+ms: bawang perai, باوڠ ڤراي
 mt: kurrat
 my: ထန်းကြက်သွန်
 nb: purre, purreløk
@@ -55629,7 +55627,7 @@ sk: pór
 sl: por
 sq: presh, preshi
 sr: празилук, praziluk
-sv: purjolök
+sv: purjolök, purjolöks
 ta: லீக்ஸ்
 tg: гандано
 th: กระเทียมต้น
@@ -55640,35 +55638,36 @@ vi: tỏi tây
 wa: porea
 yi: פארע-ציבעלע
 zh: 韭葱
+#aeb-arab: كرّاث
+#ang: lēac
+#arz: كراث
+#frr: gäärslook
+#kbp: puwaroo
+#nah: huēyi caxtillān xōnacatl
+#nap: puorr
+#nds: look
+#pap: siboyo largu
+#pcd: poreau
+#pnb: ہرا پیاز
+#pt-br: alho poró
+#sco: leek
+#smn: purjosiipuul
+#sms: purjoluukk
+#vls: pret
+#wuu: 韭葱
+#xmf: პურასქია
+#yue: 京蔥
 carbon_footprint_fr_foodges_ingredient:fr: Poireau
 carbon_footprint_fr_foodges_value:fr: 0.3
 ciqual_food_code:en: 20039
 ciqual_food_name:en: Leek, raw
 ciqual_food_name:fr: Poireau, cru
+description:en: The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
 ecobalyse:en: leek-fr
 ecobalyse_labels_en_organic:en: leek-organic
 eurocode_2_group_3:en: 8.30.30
-# aeb-arab:كرّاث
-#ang:lēac
-#arz:كراث
-# frr:gäärslook
-# kbp:puwaroo
-# nah:huēyi caxtillān xōnacatl
-# nap:puorr
-# nds:look
-#pap:siboyo largu
-# pcd:poreau
-# pnb:ہرا پیاز
-# pt-br:alho poró
-# sco:leek
-#smn:purjosiipuul
-#sms:purjoluukk
-# vls:pret
-#wuu:韭葱
-#xmf:პურასქია
-# yue:京蔥
-#plant: wikidata:en:Q21870138
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
+#plant: wikidata:en:Q21870138
 wikidata:en: Q1807269
 wikipedia:en: https://en.wikipedia.org/wiki/Leek
 
@@ -55679,7 +55678,6 @@ de: Konzentrierter Porreesaft
 fr: jus de poireau concentré
 hr: koncentriranog soka od poriluka
 it: succo concentrato di porro
-#20 in 3 @2021-10-26
 
 < en: leek
 en: leek sprouts
@@ -77924,10 +77922,8 @@ eurocode_2_group_3:en: 8.50.25
 wikidata:en: Q19744
 wikipedia:en: https://en.wikipedia.org/wiki/Boletus
 
-# description:en:BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus.
-
 < en: boletus
-en: cep, porcini mushroom, porcini mushrooms, Boletus edulis
+en: cep, porcini mushroom, porcini mushrooms
 ar: بوليط مأكول
 ba: Аҡ бәшмәк
 be: Баравік
@@ -77938,24 +77934,24 @@ ca: cep
 cs: hřib smrkový
 cv: Шур кăмпа
 cy: Wicsen gron
-da: Karl Johan
-de: Steinpilze, Boletus edulis
+da: Karl Johan-svamp, Karl Johan
+de: Steinpilze
 el: Βωλίτης ο εδώδιμος
-es: boletus, seta común, Boletus edulis
+es: boletus, seta común
 et: kivipuravik, harilik kivipuravik
 eu: Onddozuri
 fa: قارچ تیره‌سر
-fi: Herkkutatti, Boletus edulis
-fr: cèpe, cèpes, bolets, cèpe de Bordeaux, Boletus edulis
+fi: Herkkutatti
+fr: cèpe, cèpes, bolets, cèpe de Bordeaux
 ga: Ceap
 gl: Andoa
 he: פורצ'יני
-hr: ljetni vrganj, vrganji, Boletus edulis
+hr: ljetni vrganj, vrganji
 hu: Ízletes vargánya
 hy: Սպիտակ սունկ
 io: Cepo
 is: Kóngssveppur
-it: funghi porcini, Boletus edulis
+it: funghi porcini
 ja: ヤマドリタケ
 ka: დათვისსოკო
 kk: Ақ саңырауқұлақ
@@ -77967,7 +77963,6 @@ mk: летен вргањ
 nb: Steinsopp
 nl: eekhoorntjesbrood
 nn: steinsopp
-oc: Boletus edulis
 pl: Borowik szlachetny, prawdziwek, prawdziwki
 ro: Hrib
 ru: Белый гриб
@@ -77975,7 +77970,7 @@ sh: Vrganj
 sk: hríb smrekový
 sl: Jesenski goban
 sr: вргањ
-sv: Stensopp, karljohan
+sv: karljohanssvamp, stensopp, karljohanssvampar, Karl-Johans-svamp, Karl-Johans-svampar, Carl-Johanssvamp, karljohan, karl-johan, karljohansvamp, karljohan-svamp, karl-johansvamp, karl-johan-svamp
 th: เห็ดพอร์ชินี
 tr: Çörek mantarı
 tt: Ак гөмбә
@@ -77999,8 +77994,9 @@ zh: 美味牛肝菌
 # zh-hans:美味牛肝菌
 # zh-hant:美味牛肝菌
 # zh-tw:美味牛肝菌
-ciqual_proxy_food_code:en: 20160
-ciqual_proxy_food_name:en: Cep or boletus mushroom, raw
+ciqual_food_code:en: 20160
+ciqual_food_name:en: Cep or boletus mushroom, raw
+description:en: BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus.
 wikidata:en: Q19740
 wikipedia:en: https://en.wikipedia.org/wiki/Boletus_edulis
 
@@ -78011,8 +78007,6 @@ fi: kuivattu herkkutatti
 fr: cèpes déshydratés
 hr: sušeni vrganji
 it: porcini secchi
-ciqual_food_code:en: 20160
-ciqual_food_name:en: Cep or boletus mushroom, raw
 
 < en: cep
 de: Steinpilzpulver
