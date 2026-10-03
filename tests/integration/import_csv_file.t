@@ -54,7 +54,7 @@ sub fake_download_image ($image_url) {
 sub fake_lwp_get_virus_scan_retry {
 	my ($ua, $url, @headers) = @_;
 	if ($url =~ m{^https://drive\.usercontent\.google\.com/download\?}) {
-		my $image_path = $inputs_dir . "uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0";
+		my $image_path = $inputs_dir . "google_drive_image.png";
 		open(my $image, "<", $image_path);
 		binmode($image);
 		read $image, my $content, -s $image;
