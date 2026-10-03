@@ -1325,11 +1325,41 @@ my @tests = (
 			'INGREDIENTS Greek Style Yogurt (Milk) (85%), Water, Sugar, Coconut Milk (2%), Desiccated Coconut, Maize Starch, Flavourings, Lactic Acid, Live Bacterial Cultures [Bifidobacterium, Lactobacillus bulgaricus, Streptococcus thermophilus].'
 	},
 	{
+		id => 'bold-single-character',
+		lc => 'en',
+		ingredients_text => "Whey Powder (\x{1D40C} Milk)",
+	},
+	{
+		id => 'bold-multichar',
+		lc => 'en',
+		ingredients_text => "Sugar, \x{1D412}\x{1D428}\x{1D432}\x{1D41A} Lecithin, Salt",
+	},
+	{
+		id => 'bold-fullwidth',
+		lc => 'en',
+		ingredients_text => "Whey Power (\x{FF2C}\x{FF21}\x{FF22})",
+	},
+	# Allergens between underscores
+	{
+		id => 'en-allergens-between-underscores',
+		lc => 'en',
+		ingredients_text => "Sugar, _Milk_, Salt, _Soy_, _Sour cream_, false_positive, _other_ _false positives_",
+	},
+	{
+		id => 'de-allergens-between-underscores',
+		lc => 'de',
+		ingredients_text => "Zucker, _Milch_, Salz, _Soja_, _Sesam_öl",
+	},
+	{
+		id => 'fr-allergens-between-underscores',
+		lc => 'fr',
+		ingredients_text => "Eau, BLE, _CELERI_, __GLUTEN__, _poisson_, FRAISE, _banane_, lupin, _mollusque_"
+	},
+	{
 		id => 'de-palm-and-coconut-oil',
 		'lc' => 'de',
 		'ingredients_text' => 'Palm- und Kokosnuss-Pflanzenfett'
 	}
-
 );
 
 foreach my $test_ref (@tests) {
