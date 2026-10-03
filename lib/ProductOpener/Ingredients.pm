@@ -2143,6 +2143,20 @@ Text to analyze
 						}
 					) if $log->is_debug();
 
+					# Check if $between is a processing or an enumeration of processings
+					# e.g. "dried", "dried, rehydrated and fried"
+					my @between_processings
+						= check_if_text_is_a_taxonomy_tags_enumeration($ingredients_lc, "ingredients_processing",
+						$between);
+
+					if (scalar @between_processings > 0) {
+						push @processings, @between_processings;
+						$debug_ingredients and $log->debug("between is a processing enumeration",
+							{between => $between, processings => \@processings})
+							if $log->is_debug();
+						$between = '';
+					}
+
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
 						and ($` !~ /\s*(allergens)\s*/i)
@@ -2319,21 +2333,6 @@ Text to analyze
 											$between = '';
 										}
 									}
-									else {
-
-										# processing method?
-										my $processingid
-											= canonicalize_taxonomy_tag($ingredients_lc, "ingredients_processing",
-											$between);
-										if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
-											push @processings, $processingid;
-											$debug_ingredients and $log->debug("between is a processing",
-												{between => $between, processing => $processingid})
-												if $log->is_debug();
-											$between = '';
-										}
-									}
-
 								}
 							}
 
@@ -9006,6 +9005,60 @@ sub detect_rare_crops($product_ref) {
 	}
 
 	return;
+}
+
+=head2 check_if_text_is_a_taxonomy_tags_enumeration ($target_lc, $taxonomy, $text)
+
+This function checks if a text is an enumeration of tags from a specific taxonomy.
+e.g. ingredients processings, labels, etc. And returns the list of tags found in the text, or an empty list if none were found.
+
+The values need to be separated by commas or semicolons (or the word "and" in the target language),
+and can be preceded or followed by whitespace.
+
+
+=head3 Parameters
+
+=head4 $target_lc
+
+The language code of the text to check.
+
+=head4 $taxonomy
+
+The taxonomy to check against (e.g. ingredients_processing, labels, etc.)
+
+=head4 $text
+
+=head3 Return value
+
+A list of tags found in the text, or an empty list if none were found.
+
+=cut
+
+sub check_if_text_is_a_taxonomy_tags_enumeration($target_lc, $taxonomy, $text) {
+
+	my @tags = ();
+
+	my $and = $and{$target_lc} || " will not match ";
+
+	# Split the text into parts using the separator regexp
+	my @parts = split(/\s*(?:,|;|$and)\s*/, $text);
+
+	foreach my $part (@parts) {
+		if ($part ne '') {
+			my $tagid = canonicalize_taxonomy_tag($target_lc, $taxonomy, $part);
+			if (exists_taxonomy_tag($taxonomy, $tagid)) {
+				push @tags, $tagid;
+			}
+			else {
+				$log->debug("check_if_text_is_a_taxonomy_tags_enumeration - part not found in taxonomy",
+					{part => $part, tagid => $tagid, taxonomy => $taxonomy})
+					if $log->is_debug();
+				return ();    # if any part is not found, return an empty list
+			}
+		}
+	}
+
+	return @tags;
 }
 
 1;
