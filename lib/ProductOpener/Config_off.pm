@@ -1273,7 +1273,6 @@ $options{nova_groups_tags} = {
 
 	# group 3 additives
 
-	"additives/en:e202" => 3,    # potassium nitrite
 	"additives/en:e220" => 3,    # sulphur dioxide
 	"additives/en:e249" => 3,    # potassium nitrite
 	"additives/en:e250" => 3,    # sodium nitrite
@@ -1440,6 +1439,8 @@ $options{nova_groups_tags} = {
 	,    #Litholrubine bk" => 4, #CI Pigment Red 57" => 4, #Rubinpigment" => 4, #Pigment Rubine" => 4, #Lithol rubine bk
 	"additives/en:e181" => 4,    #Tannin
 	"additives/en:e182" => 4,    #Orcein
+
+	"additives/en:e202" => 4,    # potassium sorbate
 
 	# emulsifiers
 	"additives/en:e322" => 4,    # Lecithins
