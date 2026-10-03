@@ -55,6 +55,7 @@ BEGIN {
 		$oidc_discovery_url
 		$oidc_client_id
 		$oidc_client_secret
+		$csrf_secret
 		%slack_hook_urls
 		$rate_limiter_blocking_enabled
 		$rate_limiter_disabled
@@ -130,6 +131,8 @@ $oidc_implementation_level = 1;
 $oidc_client_id = 'OFF';
 $oidc_client_secret = 'A secret';
 $oidc_discovery_url = 'http://10.1.0.104:5600/realms/openfoodfacts/.well-known/openid-configuration';
+
+$csrf_secret = 'your-csrf-secret-key-change-me';
 
 # associate each channel (by name) with its url (containing auth)
 %slack_hook_urls = ();

@@ -29,7 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method/;
 use ProductOpener::HTTP qw/request_param single_param get_http_request_header/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
@@ -625,6 +625,9 @@ JS
 }
 
 elsif ($action eq 'process') {
+
+	# Commented out so that we can have shareable links to search results
+	# require_post_method($request_ref);
 
 	# Display the search results or construct CSV file for download
 

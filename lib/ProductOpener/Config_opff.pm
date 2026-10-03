@@ -109,6 +109,7 @@ BEGIN {
 
 		$health_check_api_key
 
+		$csrf_secret
 		$ecobalyse_api_token
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -307,6 +308,9 @@ $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 
 #11901: Remove once production is migrated
 $serialize_to_json = $ProductOpener::Config2::serialize_to_json;
+
+# CSRF protection secret for stateless HMAC-based tokens
+$csrf_secret = $ProductOpener::Config2::csrf_secret;
 
 $reference_timezone = 'Europe/Paris';
 

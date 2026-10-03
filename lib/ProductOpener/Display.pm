@@ -44,7 +44,6 @@ BEGIN {
 		%index_tag_types_set
 
 		&init_request
-
 		&display_date
 		&display_date_tag
 		&display_date_iso
@@ -65,6 +64,9 @@ BEGIN {
 		&display_search_results
 		&display_error
 		&display_error_and_exit
+		&require_post_method
+		&generate_csrf_token
+		&validate_csrf_token
 
 		&compare_product_nutrition_facts_to_categories
 		&data_to_display_nutrition_table
@@ -196,6 +198,7 @@ use Apache2::RequestRec ();
 use Apache2::Const qw(:http :common);
 
 use URI::Find;
+use Digest::SHA qw(hmac_sha256_hex);
 
 my $uri_finder = URI::Find->new(
 	sub ($uri, $orig_uri) {
@@ -359,6 +362,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
+	$template_data_ref->{csrf_token} = $request_ref->{csrf_token} // '';
 	# webcomponents configuration
 	$template_data_ref->{robotoff_url} = $robotoff_url;
 	$template_data_ref->{folksonomy_uri} = $folksonomy_url;
@@ -848,6 +852,11 @@ sub init_request ($request_ref = {}) {
 
 	$request_ref->{user_id} = $User_id;
 
+	# Generate a stateless CSRF token (HMAC of day + user_id + uri).
+	# No token needs to be stored server-side.
+	$request_ref->{csrf_uri} = $r->uri();
+	$request_ref->{csrf_token} = generate_csrf_token($User_id, $request_ref->{csrf_uri});
+
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
 	$request_ref->{admin} = is_admin_user($User_id);
@@ -1110,6 +1119,90 @@ sub display_error_and_exit ($request_ref, $error_message, $status_code) {
 
 	display_error($request_ref, $error_message, $status_code);
 	exit();
+}
+
+=head2 require_post_method ($request_ref)
+
+Verify that the current request uses the POST method. If not, render a 405 error
+and exit. This should be called at the start of any state-changing process branch
+to block GET-based CSRF attacks.
+
+=cut
+
+sub require_post_method ($request_ref) {
+	if (not($request_ref->{method} eq 'POST')) {
+		display_error_and_exit($request_ref, lang("invalid_method"), 405);
+	}
+	return;
+}
+
+=head2 generate_csrf_token ($user_id, $uri)
+
+Generate a CSRF token using an HMAC of the current day, the user ID, and the
+request URI, keyed with C<$csrf_secret> from the configuration. This is
+stateless: no token needs to be stored server-side.
+
+Returns an empty string when C<$user_id> is not defined (i.e. the user is
+not authenticated).
+
+=cut
+
+sub _csrf_day_string ($timestamp) {
+	my @lt = localtime($timestamp);
+	return sprintf('%04d-%02d-%02d', $lt[5] + 1900, $lt[4] + 1, $lt[3]);
+}
+
+sub _generate_csrf_token_for_day ($user_id, $uri, $day) {
+	return '' unless defined $user_id and defined $uri and $csrf_secret;
+	return hmac_sha256_hex($csrf_secret, $day . '|' . $user_id . '|' . $uri);
+}
+
+sub generate_csrf_token ($user_id, $uri) {
+	return _generate_csrf_token_for_day($user_id, $uri, _csrf_day_string(time()));
+}
+
+=head2 _is_midnight_to_3am ()
+
+Return true when the current time is between midnight (inclusive) and 3am
+(exclusive) in the server local timezone. During this window the CSRF
+validator also accepts tokens issued for the previous day.
+
+=cut
+
+sub _is_midnight_to_3am () {
+	my $hour = (localtime(time()))[2];
+	return ($hour >= 0 && $hour < 3) ? 1 : 0;
+}
+
+=head2 validate_csrf_token ($request_ref)
+
+Verify that the request contains a CSRF token matching the HMAC-based token
+generated for the current day, user, and URI. If the current time is between
+midnight and 3am, the previous day's token is also accepted to handle the
+day-rollover edge case. If the token is missing or invalid, a 403 error
+page is rendered and execution exits.
+
+=cut
+
+sub validate_csrf_token ($request_ref) {
+	my $submitted = single_param('csrf_token') // '';
+	my $user_id = $request_ref->{user_id};
+	my $uri = $request_ref->{csrf_uri};
+	my $expected = generate_csrf_token($user_id, $uri);
+	$log->debug("CSRF check", {submitted => $submitted, expected => $expected}) if $log->is_debug();
+	if (not($submitted && $expected && $submitted eq $expected)) {
+		if (_is_midnight_to_3am()) {
+			my $prev_day = _csrf_day_string(time() - 86400);
+			my $prev_expected = _generate_csrf_token_for_day($user_id, $uri, $prev_day);
+			$log->debug("CSRF check (previous day fallback)", {submitted => $submitted, expected => $prev_expected})
+				if $log->is_debug();
+			if ($submitted && $prev_expected && $submitted eq $prev_expected) {
+				return;
+			}
+		}
+		display_error_and_exit($request_ref, lang("invalid_csrf_token"), 403);
+	}
+	return;
 }
 
 =head2 display_no_index_page_and_exit ()

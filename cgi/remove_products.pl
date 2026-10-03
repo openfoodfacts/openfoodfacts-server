@@ -30,7 +30,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method validate_csrf_token/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
@@ -73,6 +73,10 @@ if ($action eq "display") {
 }
 
 elsif ($action eq "process") {
+
+	require_post_method($request_ref);
+
+	validate_csrf_token($request_ref);
 
 	$log->debug("Deleting products for owner in mongodb", {owner => $Owner_id}) if $log->is_debug();
 
