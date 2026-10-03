@@ -75,6 +75,8 @@ BEGIN {
 		%max_regexp
 		%ignore_strings_after_percent
 		%one_regexp
+		%inclusion_markers_regexps
+		&init_inclusion_markers_regexps
 
 		&convert_text_value_to_number
 
@@ -493,6 +495,19 @@ including localized strings like "minimum"
 	fr => "(?:dans le chocolat(?: (?:blanc|noir|au lait))?)|(?:du poids total|du poids)",
 	sv => "fetthalt",
 );
+
+# QUID inclusion markers ("dont", "of which", "davon"...) come from the
+# ingredients_inclusion_markers taxonomy; generate_regexps_matching_taxonomy_entries
+# compiles them into one alternation per language, longest synonyms first.
+%inclusion_markers_regexps = ();
+
+sub init_inclusion_markers_regexps() {
+
+	%inclusion_markers_regexps
+		= %{generate_regexps_matching_taxonomy_entries("ingredients_inclusion_markers", "unique_regexp", {})};
+
+	return;
+}
 
 # Used to parse "a pinch of salt", "une pincée de sel" etc.
 %one_regexp = (

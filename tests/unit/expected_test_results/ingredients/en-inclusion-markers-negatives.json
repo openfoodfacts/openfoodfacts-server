@@ -1,0 +1,115 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:fat",
+         "ingredients" : [
+            {
+               "id" : "en:of which saturates",
+               "is_in_taxonomy" : 0,
+               "percent_estimate" : 10,
+               "text" : "of which saturates"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 10,
+         "percent_estimate" : 10,
+         "text" : "fat",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "ciqual_food_code" : "17001",
+         "from_palm_oil" : "maybe",
+         "id" : "en:vegetable-oil",
+         "ingredients" : [
+            {
+               "id" : "en:inclx 20% olive oil",
+               "is_in_taxonomy" : 0,
+               "percent_estimate" : 70,
+               "text" : "inclx 20% olive oil"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 70,
+         "percent_estimate" : 70,
+         "text" : "vegetable oils",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20,
+         "text" : "salt",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:vegan-status-unknown" : [
+         "en:of which saturates",
+         "en:inclx 20% olive oil"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:of which saturates",
+         "en:inclx 20% olive oil"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:fat",
+      "en:vegetable-oil",
+      "en:salt",
+      "en:of which saturates",
+      "en:inclx 20% olive oil"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:fat",
+      "en:oil-and-fat",
+      "en:vegetable-oil",
+      "en:vegetable-oil-and-fat",
+      "en:salt",
+      "en:of which saturates",
+      "en:inclx 20% olive oil"
+   ],
+   "ingredients_text" : "fat (10%, of which saturates), vegetable oils (70%, inclx 20% olive oil), salt",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:fat",
+      "en:inclx 20% olive oil",
+      "en:of which saturates"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:fat",
+      "en:inclx 20% olive oil",
+      "en:of which saturates",
+      "en:salt",
+      "en:vegetable-oil"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 3,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}

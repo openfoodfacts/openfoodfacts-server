@@ -7101,6 +7101,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	if ((scalar keys %labels_regexps) == 0) {
 		init_labels_regexps();
 		init_ingredients_processing_regexps();
+		init_inclusion_markers_regexps();
 		init_additives_classes_regexps();
 		init_allergens_regexps();
 		init_origins_regexps();
@@ -7171,24 +7172,25 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# transform 0,1-0.2% into 0.1-0.2%
 	$text =~ s/(\d),(\d+( )?-( )?\d)/$1.$2/ig;
 
-	# "viandes et sous-produits animaux (36%, dont 4% de bœuf)": drop the
-	# "dont N%" inclusion markers and their articles (the marker covers the
-	# whole share list: "dont 4% de bœuf, 2% de poulet"; a share name can carry
-	# one level of parenthesis: "dont 4% de bœuf (France)"): the share
-	# ingredients are recognized as sub-ingredients, without a percent field
-	# (the estimator treats sub-ingredient lists as exhaustive)
-	if ($ingredients_lc eq 'fr') {
-		$text =~ s{(\(|,\s*)(dont)(\s+[^()]*?(?:\([^()]*\)[^()]*)*?)\)}{
+	# "viandes et sous-produits animaux (36%, dont 4% de bœuf)": drop the QUID
+	# inclusion markers ("dont", "of which", "davon"...) and their percentages (a
+	# marker covers the whole share list: "dont 4% de bœuf, 2% de poulet"; a share
+	# name can carry one level of parenthesis: "dont 4% de bœuf (France)"): the
+	# share ingredients are recognized as sub-ingredients, without a percent
+	# field (the estimator treats sub-ingredient lists as exhaustive). A marker
+	# not followed by a percentage is a nutrition remark and is left alone.
+	my $inclusion_markers = $inclusion_markers_regexps{$ingredients_lc};
+	if (defined $inclusion_markers) {
+		$text =~ s{(\(|,\s*)\b($inclusion_markers)(\s+[^()]*?(?:\([^()]*\)[^()]*)*?)\)}{
 			my ($separator, $marker, $shares) = ($1, $2, $3);
 			if ($shares =~ s{^\s+\d+(?:[.,]\d+)?\s*%\s*(?:d[eu]\s+|d')?}{}) {
 				$shares =~ s{,\s*\d+(?:[.,]\d+)?\s*%\s*(?:d[eu]\s+|d')?}{, }g;
 				$separator . $shares . ")"
 			}
 			else {
-				# no percentage after the marker: nutrition remark, left alone
 				$separator . $marker . $shares . ")"
 			}
-		}gei;
+			}gei;
 	}
 
 	# abbreviations, replace language specific abbreviations first

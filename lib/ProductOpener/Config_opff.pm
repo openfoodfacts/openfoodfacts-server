@@ -400,6 +400,7 @@ XML
 	packaging_shapes packaging_materials packaging_recycling packaging
 	labels food_groups categories
 	ingredients_processing
+	ingredients_inclusion_markers
 	additives vitamins minerals amino_acids nucleotides other_nutritional_substances traces
 	ingredients_analysis
 	nutrients nutrient_levels misc nova_groups

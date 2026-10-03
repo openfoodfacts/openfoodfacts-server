@@ -91,6 +91,35 @@ my @tests = (
 		}
 	],
 
+	# QUID inclusion markers in other languages: "of which", "davon", "di cui"...
+	# introduce a share of the parent, parsed like any percent-prefix
+	[
+		'en-of-which-percent-inclusion',
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (70%, of which 20% olive oil), salt"
+		}
+	],
+
+	[
+		'de-davon-percent-inclusion',
+		{
+			lc => "de",
+			ingredients_text => "Fleisch und tierische Nebenerzeugnisse (30%, davon 20% Rind), Getreide"
+		}
+	],
+
+	# the marker rewrite is narrow: a marker not directly followed by a
+	# percentage (nutrition remark) is left alone, and the dot of "incl."
+	# matches only a literal dot ("inclx" is not a marker)
+	[
+		'en-inclusion-markers-negatives',
+		{
+			lc => "en",
+			ingredients_text => "fat (10%, of which saturates), vegetable oils (70%, inclx 20% olive oil), salt"
+		}
+	],
+
 	[
 		'fr-marmelade',
 		{
