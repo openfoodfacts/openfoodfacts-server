@@ -88364,11 +88364,13 @@ en: Ground meats
 de: Hackfleisch
 fr: Viandes hachées
 hr: Mljeveno meso
+plant_alternative:en: en:plant-based-grounds
 
 < en: Frozen meats
 < en: Ground meats
 en: Frozen ground meats
 fr: Viandes hachées surgelées
+plant_alternative:en: en:frozen-plant-based-grounds
 
 < en: Beef
 #Should contain products with >99% beef only
@@ -123110,11 +123112,35 @@ de: Vegetarisches Gehacktes, Gemüsehack, Vegetarisches Hackfleisch
 fr: Hachés végétaux
 hr: Vegetarijanska podloga
 pl: Mielone wegetariańskie, Wegetariańskie mielone
+agribalyse_proxy_food_code:en: 30181
+ciqual_proxy_food_code:en: 30181
+ciqual_proxy_food_name:en: Soy-based minced, prepacked
+ciqual_proxy_food_name:fr: Haché végétal à base de soja, préemballé
+
+< en: Vegetarian grounds
+< en: Vegan products
+en: Plant-based grounds, Plant-based minces, Vegan grounds, Vegan minces
+fr: Hachés végétales
+
+< en: Meat analogues from soy or wheat proteins
+< en: Plant-based grounds
+en: Soy-based grounds, Soy-based minces, Soy-based minced prepacked
+fr: Hachés végétales à base de soja
+agribalyse_food_code:en: 30181
+ciqual_food_code:en: 30181
+ciqual_food_name:en: Soy-based minced, prepacked
+ciqual_food_name:fr: Haché végétal à base de soja, préemballé
+incompatible_with:en: labels:en:no-soy
 
 < en: Frozen plant-based foods
 < en: Vegetarian grounds
-en: Frozen vegetarian grounds, frozen veggie grounds
+en: Frozen vegetarian grounds, Frozen veggie grounds
 fr: Hachés végétaux surgelés
+
+< en: Frozen vegetarian grounds
+< en: Plant-based grounds
+en: Frozen plant-based grounds, Frozen plant-based minces, Frozen vegan grounds, Frozen vegan minces
+fr: Hachés végétales surgelés
 
 #Patties are a very generic term for anything flat baked in a pan
 < en: Meat alternatives
@@ -126823,14 +126849,6 @@ agribalyse_food_code:en: 28913
 ciqual_food_code:en: 28913
 ciqual_food_name:en: Cooked ham, choice, rind less and fatless
 ciqual_food_name:fr: Jambon cuit, choix, découenné dégraissé
-
-< en: meat-alternatives
-en: Soy-based minced prepacked
-fr: Haché végétal à base de soja préemballé
-agribalyse_food_code:en: 30181
-ciqual_food_code:en: 30181
-ciqual_food_name:en: Soy-based minced, prepacked
-ciqual_food_name:fr: Haché végétal à base de soja, préemballé
 
 < en: chickens
 en: Chicken leg meat and skin raw
