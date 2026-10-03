@@ -4651,6 +4651,7 @@ usda_ndb_code:en: 1303
 usda_ndb_name:en: Cream, half and half, lowfat
 
 < en: cream
+< en: liquid cream
 fr: Crème fleurette, Crèmes fleurettes
 description:en: "Crème fleurette" isn't a legally protected or defined term in French regulation and is used by dairy and food service professionals to designate a liquid fresh cream that has only undergone pasteurization.
 
@@ -4701,6 +4702,11 @@ fr: crème à 25% de matière grasse, crème à 25% de matière grasse laitière
 hr: vrhnje s 25% mliječne masti
 
 < en: cream
+en: cream with 30% milk fat
+fr: crème à 30% de matière grasse, crème à 30% de matière grasse laitière, crème à 30% de matière grasse du lait
+hr: vrhnje s 30% mliječne masti
+
+< en: cream
 en: cream with 33% milk fat
 fr: crème à 33% de matière grasse, crème à 33% de matière grasse laitière, crème à 33% de matière grasse du lait
 hr: vrhnje s 33% mliječne masti
@@ -4715,9 +4721,21 @@ usda_ndb_code:en: 1053
 usda_ndb_name:en: Cream, fluid, heavy whipping
 
 < en: cream
+en: thick cream
 fr: crème épaisse
+agribalyse_proxy_food_code:en: 19410
+agribalyse_proxy_food_name:en: Thick cream 30% fat, refrigerated
+agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
 
 < en: cream
+en: liquid cream
+fr: crème liquide
+agribalyse_proxy_food_code:en: 19415
+agribalyse_proxy_food_name:en: Liquid cream 30% fat, UHT
+agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
+
+< en: thick cream
+< en: cream with 30% milk fat
 en: Refrigerated 30% fat thick cream
 fr: Crème de lait épaisse à 30% de matières grasses rayon frais
 hr: ohlađena gusta krema od 30% masti
@@ -4725,7 +4743,9 @@ ciqual_food_code:en: 19410
 ciqual_food_name:en: Thick cream 30% fat, refrigerated
 ciqual_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
 
-< en: cream
+< en: liquid cream
+< en: cream with 30% milk fat
+< en: semi-thick cream
 en: Liquid 30% fat UHT cream
 fr: Crème de lait semi-épaisse à 30% de matières grasses UHT
 hr: tekuće vrhnje s 30% masti
@@ -4742,6 +4762,7 @@ it: panna britannica
 nl: Britse room
 
 < en: cream
+< en: crème fraîche
 en: cream from Normandy
 de: Sahne aus der Normandie
 es: crema de Normandía
@@ -4782,6 +4803,9 @@ hr: uht krema
 hu: UHT tejszín
 it: panna UHT
 nl: UHT room
+agribalyse_proxy_food_code:en: 19415
+agribalyse_proxy_food_name:en: Liquid cream 30% fat, UHT
+agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
 
 < en: UHT cream
 < en: sterilized cream
@@ -4794,12 +4818,13 @@ fr: crème stérilisée uht
 hr: sterilizirana uht krema
 it: panna UHT sterilizzata
 
-< en: cream
+< en: crème fraîche
+< en: liquid cream
 fr: Crème fraîche liquide
 ca: crema de llet fresca líquida, nata fresca líquida
 es: crema de leche fresca líquida, nata fresca líquida
 
-< en: cream
+< en: crème fraîche
 en: light cream
 ca: nata lleugera, crema de llet lleugera
 de: leichte Sahne
@@ -4811,7 +4836,28 @@ hu: főzőtejszín
 it: crema leggera
 nl: Lichte room
 
+< en: cream
+en: semi-thick cream
+fr: crème semi-épaisse
+ca: crema de llet semi-espessa, nata semi-espessa
+de: halbsteife Sahne
+es: crema de leche semi-espesa, nata semi-espesa
+fi: puolikiinteä kerma
+hr: polutvrda krema
+hu: félig sűrű tejszín
+it: panna semi-densa
+nl: half-vaste room
+
 < en: light cream
+< en: semi-thick cream
+fr: crème légère semi-épaisse UHT à 15-20% de matière grasse
+agribalyse_proxy_food_name:fr: Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
+agribalyse_proxy_food_name:en: Light cream 15-20% fat, semi-thick, UHT
+agribalyse_proxy_food_code:en: 19430
+
+< en: light cream
+< en: thick cream
+< en: crème fraîche
 fr: crème fraîche légère epaisse
 ca: crema de llet lleugera espessa, nata lleugera espessa
 es: crema de leche ligera espesa, nata ligera espesa
@@ -4918,6 +4964,10 @@ pl: Świeża śmietana, śmietana kremówka, śmietanka kremówka
 sv: Färsk grädde
 ciqual_food_code:en: 19402
 ciqual_food_name:fr: Crème de lait ou spécialité à base de crème légère, teneur en matière grasse inconnue (aliment moyen)
+agribalyse_proxy_food_code:en: 19410
+agribalyse_proxy_food_name:en: Thick cream 30% fat, refrigerated
+agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
+
 
 < en: cream
 en: clotted cream
@@ -5059,6 +5109,7 @@ comment:en: Creme fraiche is often translated into creme. Even the wikidata page
 description:en: Crème fraîche is a dairy product, a soured cream, with a pH of approximately 4.5. It is soured with a bacterial culture. European labeling regulations disallow any ingredients other than cream and bacterial culture. Fat percentage is more than 30%
 wikidata:en: Q1142459
 wikipedia:en: https://en.wikipedia.org/wiki/Crème_fraîche
+
 
 ###################################################################################################
 #
