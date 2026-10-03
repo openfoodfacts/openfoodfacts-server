@@ -1,5 +1,43 @@
 # Changelog
 
+## [2.112.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.111.0...v2.112.0) (2026-10-02)
+
+
+### Features
+
+* **Ingredients:** add sv phrase to ignore ([#14773](https://github.com/openfoodfacts/openfoodfacts-server/issues/14773)) ([d1cdfd4](https://github.com/openfoodfacts/openfoodfacts-server/commit/d1cdfd4f2ef41b346b47c608057b15ee99aa7928))
+
+
+### Bug Fixes
+
+* improve ingredient traces parser ([#14663](https://github.com/openfoodfacts/openfoodfacts-server/issues/14663)) ([09a5dd1](https://github.com/openfoodfacts/openfoodfacts-server/commit/09a5dd1d4c52c0ac8dfb294eadd71d247c51f4c3)), closes [#14649](https://github.com/openfoodfacts/openfoodfacts-server/issues/14649)
+* preserve vitamin E quantities during additive parsing ([#14715](https://github.com/openfoodfacts/openfoodfacts-server/issues/14715)) ([be2fa34](https://github.com/openfoodfacts/openfoodfacts-server/commit/be2fa349849a2eb4123499299cc4fa0276f554b7))
+
+## [2.111.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.110.0...v2.111.0) (2026-09-30)
+
+
+### Features
+
+* add misspellings function to ingredients OCR ([#14762](https://github.com/openfoodfacts/openfoodfacts-server/issues/14762)) ([e24d8e5](https://github.com/openfoodfacts/openfoodfacts-server/commit/e24d8e57cb64035687ba20485908280b96e5bb6f))
+* **Ingredients:** ignore “Fullkorn 63%” etc. ([#14767](https://github.com/openfoodfacts/openfoodfacts-server/issues/14767)) ([7bf97e9](https://github.com/openfoodfacts/openfoodfacts-server/commit/7bf97e9fd98fe8f68bc5e7b8ac8674b590541103))
+* **IngredientsStrings:** de:“inkl.” abbreviation ([#14759](https://github.com/openfoodfacts/openfoodfacts-server/issues/14759)) ([bb79eb7](https://github.com/openfoodfacts/openfoodfacts-server/commit/bb79eb7860c5208e313ee5d8567acebee766cb02))
+
+
+### Bug Fixes
+
+* bump @openfoodfacts/openfoodfacts-webcomponents to 1.18.3 ([bdb2ee4](https://github.com/openfoodfacts/openfoodfacts-server/commit/bdb2ee42ceb0ab991f2064c79f9db046686602f4))
+* bump @openfoodfacts/openfoodfacts-webcomponents to 1.18.3 ([#14769](https://github.com/openfoodfacts/openfoodfacts-server/issues/14769)) ([bdb2ee4](https://github.com/openfoodfacts/openfoodfacts-server/commit/bdb2ee42ceb0ab991f2064c79f9db046686602f4))
+* German ingredients preparsing improvement: Palm - und Kokosnuss-Pflanzenfett ([#14713](https://github.com/openfoodfacts/openfoodfacts-server/issues/14713)) ([dc290fe](https://github.com/openfoodfacts/openfoodfacts-server/commit/dc290fe6f1ed081d42da9e449f2b3fae9b07e3bb))
+* nutri-score and environmental-score facet logos, graphs and links ([#14760](https://github.com/openfoodfacts/openfoodfacts-server/issues/14760)) ([7531172](https://github.com/openfoodfacts/openfoodfacts-server/commit/75311721be4af8d4c67fafacc35ef6529744d64d))
+
+## [2.110.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.109.0...v2.110.0) (2026-09-28)
+
+
+### Features
+
+* FAQ revamp to overcome the chronically unavailable server ([#14658](https://github.com/openfoodfacts/openfoodfacts-server/issues/14658)) ([eb2a187](https://github.com/openfoodfacts/openfoodfacts-server/commit/eb2a187055daa77e342472359ae7fe745a3a1f0d))
+* send language, country and logged-in state as Matomo custom dimensions on the web ([#14706](https://github.com/openfoodfacts/openfoodfacts-server/issues/14706)) ([07b2b69](https://github.com/openfoodfacts/openfoodfacts-server/commit/07b2b6967a49ed83ce42f63848df6c4134f12de7))
+
 ## [2.109.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.108.0...v2.109.0) (2026-09-25)
 
 
