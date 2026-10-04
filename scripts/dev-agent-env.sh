@@ -64,7 +64,8 @@ END_MARKER='# <<< make agent (generated) <<<'
 WORKTREE_DIR="$(pwd -P)"
 
 die() {
-    echo "❌ $*" >&2
+    local message="$*"
+    echo "❌ ${message}" >&2
     exit 1
 }
 
@@ -83,7 +84,7 @@ Options:
 EOF
 }
 
-while [ $# -gt 0 ]; do
+while [[ $# -gt 0 ]]; do
     case "$1" in
         --id)
             ID="${2:-}"
@@ -117,21 +118,19 @@ while [ $# -gt 0 ]; do
 done
 
 port_for() {
-    case "$1" in
-        frontend) echo $(($(port_base frontend) + $2)) ;;
-        mongodb) echo $(($(port_base mongodb) + $2)) ;;
-        postgres) echo $(($(port_base postgres) + $2)) ;;
-        redis) echo $(($(port_base redis) + $2)) ;;
-        keycloak) echo $(($(port_base keycloak) + $2)) ;;
-        keycloak_mgmt) echo $(($(port_base keycloak_mgmt) + $2)) ;;
-        smtp4dev) echo $(($(port_base smtp4dev) + $2)) ;;
+    local service="$1" slot="$2" base
+    case "$service" in
+        frontend | mongodb | postgres | redis | keycloak | keycloak_mgmt | smtp4dev) ;;
         *) return 1
         ;;
     esac
+    base="$(port_base "$service")"
+    echo $((base + slot))
 }
 
 port_base() {
-    case "$1" in
+    local service="$1"
+    case "$service" in
         frontend) echo 8080 ;;
         mongodb) echo 8180 ;;
         postgres) echo 8280 ;;
@@ -151,14 +150,15 @@ ALL_SERVICES="frontend mongodb postgres redis keycloak keycloak_mgmt smtp4dev"
 sanitize_id() {
     # Lowercase, and keep only characters that are valid in Docker container,
     # network, volume and image names.
-    local candidate
-    candidate="$(printf '%s' "$1" |
+    local raw="$1" candidate
+    candidate="$(printf '%s' "$raw" |
         tr '[:upper:]' '[:lower:]' |
         sed -e 's/[^a-z0-9-]\{1,\}/-/g' -e 's/-\{1,\}/-/g' -e 's/^-//' -e 's/-$//')"
-    [ -n "$candidate" ] || candidate="worktree"
+    [[ -n "$candidate" ]] || candidate="worktree"
     # must start with a letter
     case "$candidate" in
         [0-9]*) candidate="w$candidate" ;;
+        *) ;;
     esac
     printf '%s' "${candidate:0:20}"
 }
@@ -166,13 +166,15 @@ sanitize_id() {
 # The registry entry for an id is "<slot>\n<directory>". Line 2 may be missing for
 # entries written by an older version.
 registry_slot() {
-    [ -f "$REGISTRY_DIR/$1" ] || return 1
-    printf '%s' "$(sed -n 1p "$REGISTRY_DIR/$1")"
+    local id="$1"
+    [[ -f "$REGISTRY_DIR/$id" ]] || return 1
+    printf '%s' "$(sed -n 1p "$REGISTRY_DIR/$id")"
 }
 
 registry_dir_of() {
-    [ -f "$REGISTRY_DIR/$1" ] || return 1
-    printf '%s' "$(sed -n 2p "$REGISTRY_DIR/$1")"
+    local id="$1"
+    [[ -f "$REGISTRY_DIR/$id" ]] || return 1
+    printf '%s' "$(sed -n 2p "$REGISTRY_DIR/$id")"
 }
 
 # Two things have to be unique, and they are enforced by two different mechanisms:
@@ -190,23 +192,26 @@ CLAIMED_ID=""
 CLAIMED_SLOT=""
 
 claim_slot_lock() {
+    local slot="$1"
     mkdir -p "$REGISTRY_DIR"
-    (set -o noclobber; : >"$REGISTRY_DIR/.slot-$1") 2>/dev/null
+    (set -o noclobber; : >"$REGISTRY_DIR/.slot-$slot") 2>/dev/null
 }
 
 release_slot_lock() {
-    rm -f "$REGISTRY_DIR/.slot-$1"
+    local slot="$1"
+    rm -f "$REGISTRY_DIR/.slot-$slot"
 }
 
 # usage: write_id_entry <slot> <id>
 write_id_entry() {
-    (set -o noclobber; printf '%s\n%s\n' "$1" "$WORKTREE_DIR" >"$REGISTRY_DIR/$2") 2>/dev/null
+    local slot="$1" id="$2"
+    (set -o noclobber; printf '%s\n%s\n' "$slot" "$WORKTREE_DIR" >"$REGISTRY_DIR/$id") 2>/dev/null
 }
 
 # Undo a claim made during this run, so that a failure does not leave a slot locked.
 cleanup_claims() {
     local status=$?
-    if [ "$status" -ne 0 ] && [ -n "$CLAIMED_SLOT" ]; then
+    if [[ "$status" -ne 0 && -n "$CLAIMED_SLOT" ]]; then
         release_slot_lock "$CLAIMED_SLOT"
     fi
     return $status
@@ -248,7 +253,7 @@ slot_is_usable() {
 sync_dep_envrc() {
     local slot="$1" net mongo postgres redis keycloak keycloak_mgmt smtp4dev
 
-    if [ "$(truthy "${PO_SHARED_DATA:-}")" = "1" ]; then
+    if [[ "$(truthy "${PO_SHARED_DATA:-}")" == "1" ]]; then
         remove_all_dep_envrc
         return 0
     fi
@@ -292,7 +297,8 @@ export SMTP4DEV_PORT=${smtp4dev}"
 }
 
 truthy() {
-    case "$1" in
+    local value="$1"
+    case "$value" in
         1 | true | yes | on) echo 1 ;;
         *) echo "" ;;
     esac
@@ -303,7 +309,7 @@ truthy() {
 # Where the dependency checkouts live. The Makefile exports DEPS_DIR, as an
 # absolute path; resolve a relative one against the worktree, because that is what
 # the dependency Makefiles will do too.
-if [ -n "${DEPS_DIR:-}" ]; then
+if [[ -n "${DEPS_DIR:-}" ]]; then
     case "$DEPS_DIR" in
         /*) DEPS_ROOT="$DEPS_DIR" ;;
         *) DEPS_ROOT="$WORKTREE_DIR/$DEPS_DIR" ;;
@@ -329,15 +335,15 @@ deps_dir_is_shared() {
 # Strip a sentinel-delimited block from a file, keeping everything else. If
 # nothing else is left the file is removed, rather than left behind empty.
 strip_block() {
-    local file="$1" tmp
-    [ -f "$file" ] || return 0
+    local file="$1" begin="$2" end="$3" tmp
+    [[ -f "$file" ]] || return 0
     tmp="$(mktemp "${TMPDIR:-/tmp}/envrc.XXXXXX")"
-    awk -v begin="$2" -v end="$3" '
+    awk -v begin="$begin" -v end="$end" '
         $0 == begin { skip = 1; next }
         $0 == end   { skip = 0; next }
         !skip       { print }
     ' "$file" >"$tmp"
-    if [ -s "$tmp" ]; then
+    if [[ -s "$tmp" ]]; then
         cat "$tmp" >"$file"
     else
         rm -f "$file"
@@ -351,7 +357,7 @@ write_dep_envrc() {
     strip_block "$file" "$SHARED_BEGIN" "$SHARED_END"
     tmp="$(mktemp "${TMPDIR:-/tmp}/envrc.XXXXXX")"
     {
-        [ -f "$file" ] && cat "$file"
+        [[ -f "$file" ]] && cat "$file"
         printf '%s\n' "$SHARED_BEGIN"
         printf '%s\n' "$body"
         printf '%s\n' "$SHARED_END"
@@ -361,7 +367,8 @@ write_dep_envrc() {
 }
 
 remove_dep_envrc() {
-    strip_block "$1" "$SHARED_BEGIN" "$SHARED_END"
+    local file="$1"
+    strip_block "$file" "$SHARED_BEGIN" "$SHARED_END"
 }
 
 remove_all_dep_envrc() {
@@ -374,23 +381,23 @@ remove_all_dep_envrc() {
 # `make agent` still ends up consistent.
 # ------------------------------------------------------------------- release
 
-if [ "$RELEASE" -eq 1 ]; then
+if [[ "$RELEASE" -eq 1 ]]; then
     released_id="$ID"
-    [ -n "$released_id" ] || released_id="$(sed -n 's/^export PO_AGENT_ID=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"
-    if [ -n "$released_id" ] && [ -f "$REGISTRY_DIR/$released_id" ]; then
+    [[ -n "$released_id" ]] || released_id="$(sed -n 's/^export PO_AGENT_ID=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"
+    if [[ -n "$released_id" && -f "$REGISTRY_DIR/$released_id" ]]; then
         release_slot_lock "$(sed -n 1p "$REGISTRY_DIR/$released_id" 2>/dev/null || true)"
         rm -f "$REGISTRY_DIR/$released_id"
     fi
     remove_all_dep_envrc
-    if [ -f "$ENVRC" ]; then
+    if [[ -f "$ENVRC" ]]; then
         strip_block "$ENVRC" "$BEGIN_MARKER" "$END_MARKER"
         # also drop stray managed keys a user may have added outside a block
         TMP="$(mktemp "${TMPDIR:-/tmp}/envrc.XXXXXX")"
         grep -Ev "$MANAGED" "$ENVRC" >"$TMP" || true
-        if [ -s "$TMP" ]; then cat "$TMP" >"$ENVRC"; else rm -f "$ENVRC"; fi
+        if [[ -s "$TMP" ]]; then cat "$TMP" >"$ENVRC"; else rm -f "$ENVRC"; fi
         rm -f "$TMP"
     fi
-    if [ -n "$released_id" ]; then
+    if [[ -n "$released_id" ]]; then
         echo "🥫 Released id '${released_id}' and its ports. This worktree is shared again;"
         echo "   existing suffixed volumes and images stay until you remove them with 'make prune'."
     else
@@ -401,23 +408,25 @@ fi
 
 # ----------------------------------------------------------------------- list
 
-if [ "$LIST" -eq 1 ]; then
-    if [ ! -d "$REGISTRY_DIR" ] || [ -z "$(ls -A "$REGISTRY_DIR" 2>/dev/null | grep -v '^\.slot-' || true)" ]; then
+if [[ "$LIST" -eq 1 ]]; then
+    if [[ ! -d "$REGISTRY_DIR" || -z "$(ls -A "$REGISTRY_DIR" 2>/dev/null | grep -v '^\.slot-' || true)" ]]; then
         echo "No worktree is registered yet. Run 'make agent' in a worktree to register one."
         exit 0
     fi
     printf '%-14s %-7s %-7s %-7s %-7s %s\n' "ID" "SLOT" "FRONTEND" "MONGO" "KEYCLOAK" "DIRECTORY"
     for entry in "$REGISTRY_DIR"/*; do
-        [ -f "$entry" ] || continue
+        [[ -f "$entry" ]] || continue
         entry_id="$(basename "$entry")"
         case "$entry_id" in
             .slot-*) continue ;;
+            *) ;;
         esac
         entry_slot="$(sed -n 1p "$entry" 2>/dev/null || true)"
         entry_dir="$(sed -n 2p "$entry" 2>/dev/null || true)"
-        [ -n "$entry_dir" ] || entry_dir="(unknown)"
+        [[ -n "$entry_dir" ]] || entry_dir="(unknown)"
         case "$entry_slot" in
             '' | *[!0-9]*) entry_slot="?" ;;
+            *) ;;
         esac
         printf '%-14s %-7s %-7s %-7s %-7s %s\n' \
             "$entry_id" "$entry_slot" \
@@ -437,16 +446,16 @@ fi
 # From here on we may claim a slot: make sure a failure gives it back.
 trap cleanup_claims EXIT
 
-if [ "$SYNC_DEPS" -eq 1 ]; then
+if [[ "$SYNC_DEPS" -eq 1 ]]; then
     ID="$(sed -n 's/^export PO_AGENT_ID=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"
-    if [ -z "$ID" ]; then
+    if [[ -z "$ID" ]]; then
         # Not isolated: make sure no leftover from a previous run survives.
         remove_all_dep_envrc
         exit 0
     fi
     CLAIMED_ID="$ID"
     SLOT="$(registry_slot "$ID" 2>/dev/null || true)"
-    if [ -z "$SLOT" ]; then
+    if [[ -z "$SLOT" ]]; then
         echo "❌ '${ID}' is not in the agent registry (${REGISTRY_DIR})." >&2
         echo "   Run 'make agent' again to re-register it." >&2
         exit 1
@@ -457,36 +466,37 @@ fi
 
 # --------------------------------------------------------------------- assign
 
-if [ -n "$ID" ]; then
+if [[ -n "$ID" ]]; then
     # Lowercase letters, digits and dashes only: the value ends up in Docker
     # container, network, volume and image names, all of which are restricted.
     case "$ID" in
         '' | *[!a-z0-9-]* | [0-9-]*)
             die "invalid id '$ID': use lowercase letters, digits and dashes, starting with a letter"
             ;;
+        *) ;;
     esac
-    if [ ${#ID} -gt 20 ]; then
+    if [[ ${#ID} -gt 20 ]]; then
         die "invalid id '$ID': too long (max 20 characters)"
     fi
 fi
 
 # Reuse the id already recorded in .envrc, so that a worktree keeps a stable URL
 # across re-runs and the agent never has to remember what it chose.
-if [ -z "$ID" ]; then
+if [[ -z "$ID" ]]; then
     ID="$(sed -n 's/^export PO_AGENT_ID=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"
-    [ -n "$ID" ] || ID=""
+    [[ -n "$ID" ]] || ID=""
 fi
 
 # Candidate ids to try: the explicit one, or the derived one plus a -2, -3, ...
 # discriminator for every other worktree whose directory sanitises to the same
 # name.
 CANDIDATE_IDS=()
-if [ -n "$ID" ]; then
+if [[ -n "$ID" ]]; then
     CANDIDATE_IDS=("$ID")
 else
     base_id="$(sanitize_id "$(basename "$WORKTREE_DIR")")"
     for attempt in $(seq 1 "$SLOT_MAX"); do
-        if [ "$attempt" -eq 1 ]; then
+        if [[ "$attempt" -eq 1 ]]; then
             CANDIDATE_IDS+=("$base_id")
         else
             CANDIDATE_IDS+=("${base_id:0:17}-${attempt}")
@@ -503,9 +513,11 @@ acquire() {
     for candidate in "${CANDIDATE_IDS[@]}"; do
         CLAIMED_ID="$candidate"
         owner="$(registry_dir_of "$candidate" 2>/dev/null || true)"
-        if [ -n "$owner" ] && [ "$owner" != "$WORKTREE_DIR" ]; then
-            # Somebody else already owns this id: do not steal it.
-            if [ "$candidate" = "${CANDIDATE_IDS[0]}" ] && [ "${#CANDIDATE_IDS[@]}" -eq 1 ]; then
+        if [[ -n "$owner" && "$owner" != "$WORKTREE_DIR" ]]; then
+            # Somebody else already owns this id: do not steal it. Only complain if
+            # the user asked for this exact id, otherwise move on to the next
+            # candidate.
+            if [[ "$candidate" == "${CANDIDATE_IDS[0]}" && "${#CANDIDATE_IDS[@]}" -eq 1 ]]; then
                 die "id '${candidate}' is already registered to ${owner}.
    Using it here would make this worktree share its containers, volumes and images.
 
@@ -515,12 +527,13 @@ acquire() {
             continue
         fi
         # Our own entry from a previous run: keep the slot if it is still usable.
-        if [ -n "$owner" ]; then
+        if [[ -n "$owner" ]]; then
             stored="$(registry_slot "$candidate" 2>/dev/null || true)"
             case "$stored" in
                 '' | *[!0-9]*) stored="" ;;
+                *) ;;
             esac
-            if [ -n "$stored" ] && slot_is_usable "$stored"; then
+            if [[ -n "$stored" ]] && slot_is_usable "$stored"; then
                 ID="$candidate"
                 SLOT="$stored"
                 CLAIMED_SLOT=""
@@ -551,9 +564,10 @@ acquire ||
     die "no free slot left (${SLOT_MIN}-${SLOT_MAX}) for this worktree: every derived host port is in use.
    Free one with 'make release-agent', or stop whatever is holding them."
 
-if [ -n "$PORT" ]; then
+if [[ -n "$PORT" ]]; then
     case "$PORT" in
         '' | *[!0-9]*) die "invalid port '$PORT': expected a number" ;;
+        *) ;;
     esac
     FRONTEND_PORT="$PORT"
 else
@@ -576,7 +590,7 @@ BASE_DOMAIN="${BASE_DOMAIN:-openfoodfacts.localhost}"
 
 TMP_ENVRC="$(mktemp "${TMPDIR:-/tmp}/envrc.XXXXXX")"
 
-if [ -f "$ENVRC" ]; then
+if [[ -f "$ENVRC" ]]; then
     # Keep unrelated lines (USER_UID, USER_GID, CPANMOPTS, DEPS_DIR, ...) so that
     # we never clobber a hand-tuned .envrc.
     # The last awk drops trailing blank lines, so that re-running this script
@@ -596,7 +610,7 @@ fi
 # Persist PO_SHARED_DATA so that a later `make dev` without the environment
 # variable keeps behaving the same way.
 SHARED_DATA_LINE=""
-if [ "$(truthy "${PO_SHARED_DATA:-}")" = "1" ]; then
+if [[ "$(truthy "${PO_SHARED_DATA:-}")" == "1" ]]; then
     SHARED_DATA_LINE="export PO_SHARED_DATA=1
 "
 fi
