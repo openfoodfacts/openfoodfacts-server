@@ -963,7 +963,7 @@ sub get_unit_options_for_nutrient ($nid) {
 		@units = ('');
 	}
 	elsif ($nid eq 'carbon-footprint') {
-		@units = ('kg', 'g');
+		@units = ('kg', 'g', 'mg');
 	}
 	else {
 		@units = ('g', 'mg', 'µg');
