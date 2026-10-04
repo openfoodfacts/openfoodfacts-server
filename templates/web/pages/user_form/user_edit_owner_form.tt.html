@@ -1,7 +1,7 @@
 <!-- start templates/[% template.name %] -->
 
 [% IF pro_moderator_owner %]
-	<p>[% f_lang('f_pro_moderator_owner_set', pro_moderator_owner) %]</p>
+	<p>[% f_lang('f_pro_moderator_owner_set', {organization => pro_moderator_owner}) %]</p>
 [% ELSE %]
 	<p>[% lang('pro_moderator_owner_not_set') %]</p>
 [% END %]

@@ -134,6 +134,11 @@ like(
 	qr/ name="pro_moderator_owner" value="org-acme-inc"/,
 	"the moderation organization is prefilled in the form"
 );
+like(
+	$resp->decoded_content,
+	qr/You are currently viewing products from org-acme-inc/,
+	"the current moderation organization is displayed"
+);
 like($resp->decoded_content, qr/ name="action" value="process"/, "the form is submitted with action=process");
 like($resp->decoded_content, qr/ name="userid" value="promoderator"/, "the form is submitted for the current user");
 
@@ -156,5 +161,24 @@ $resp = $moderator_ua->post(
 is($resp->code, 302, "submitting the form redirects to the organization page");
 my $pro_moderator_ref = retrieve_user($pro_moderator_user_form{userid});
 is($pro_moderator_ref->{pro_moderator_owner}, "org-acme-inc", "the moderation organization is set");
+
+# A moderation organization that does not exist is refused, and the current one is kept
+$resp = $moderator_ua->post(
+	construct_test_url("/cgi/user.pl"),
+	Content => {
+		type => "edit_owner",
+		action => "process",
+		userid => $pro_moderator_user_form{userid},
+		pro_moderator_owner => "org-does-not-exist",
+		submit => "submit",
+	}
+);
+ok(html_displays_error($resp->decoded_content), "an unknown moderation organization is refused");
+$pro_moderator_ref = retrieve_user($pro_moderator_user_form{userid});
+is($pro_moderator_ref->{pro_moderator_owner}, "org-acme-inc",
+	"the moderation organization is unchanged after an invalid submission");
+
+# Note: the /org/<orgid> route is not tested here, as it only exists when the
+# producers platform is enabled, and it is disabled in the test environment.
 
 done_testing();

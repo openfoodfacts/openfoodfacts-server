@@ -889,13 +889,17 @@ sub send_welcome_emails($user_ref) {
 	return $error;
 }
 
-=head2 check_edit_owner($user_ref, $errors_ref)
+=head2 check_edit_owner($user_ref, $errors_ref, $ownerid)
 
 This sets pro_moderator_owner according to request parameter.
 Sets it in $User global and $user_ref.
 
 This variable is used to say that a moderator or admin
 is acting on the pro platform as part of a specific company.
+
+The value is checked before it is set: if the user or the organization does not
+exist, an error is pushed to $errors_ref and the value is left unchanged (the
+user keeps moderating the organization they were moderating before).
 
 =head3 Arguments
 
@@ -907,64 +911,73 @@ is acting on the pro platform as part of a specific company.
 
 sub check_edit_owner ($user_ref, $errors_ref, $ownerid = undef) {
 
-	# temporarily use the org passed as parameter
-	$user_ref->{pro_moderator_owner} = $ownerid // get_string_id_for_lang("no_language",
+	# Do not change the user until the requested value has been checked
+	my $pro_moderator_owner = $ownerid // get_string_id_for_lang("no_language",
 		remove_tags_and_quote(decode utf8 => single_param('pro_moderator_owner')));
 
 	# If the owner id looks like a GLN, see if we have a corresponding org
 
-	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
+	if ($pro_moderator_owner =~ /^\d+$/) {
 		my $glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 		not defined $glns_ref and $glns_ref = {};
-		if (defined $glns_ref->{$user_ref->{pro_moderator_owner}}) {
-			$user_ref->{pro_moderator_owner} = $glns_ref->{$user_ref->{pro_moderator_owner}};
+		if (defined $glns_ref->{$pro_moderator_owner}) {
+			$pro_moderator_owner = $glns_ref->{$pro_moderator_owner};
 		}
 	}
 
-	$log->debug("check_edit_owner", {pro_moderator_owner => $User{pro_moderator_owner}}) if $log->is_debug();
+	# if there is no user- or org- prefix, assume it is an org
+	if (($pro_moderator_owner ne "") and ($pro_moderator_owner !~ /^(user-|org-|all$)/)) {
+		$pro_moderator_owner = "org-" . $pro_moderator_owner;
+	}
 
-	if ((not defined $user_ref->{pro_moderator_owner}) or ($user_ref->{pro_moderator_owner} eq "")) {
+	$log->debug("check_edit_owner", {pro_moderator_owner => $pro_moderator_owner}) if $log->is_debug();
+
+	if ((not defined $pro_moderator_owner) or ($pro_moderator_owner eq "")) {
 		delete $user_ref->{pro_moderator_owner};
 		# Also edit the current user object so that we can display the current status directly on the form result page
 		delete $User{pro_moderator_owner};
 	}
-	elsif ($user_ref->{pro_moderator_owner} =~ /^user-/) {
-		my $userid = $';
-		# Add check that organization exists when we add org profiles
+	elsif ($pro_moderator_owner =~ /^user-(.+)$/) {
+		my $userid = $1;
+		# Add check that the user exists
 
 		if (!user_preferences_exists($userid)) {
 			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lc}, $userid);
 		}
 		else {
-			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+			$user_ref->{pro_moderator_owner} = $pro_moderator_owner;
+			$User{pro_moderator_owner} = $pro_moderator_owner;
 			$log->debug("set pro_moderator_owner (user)",
 				{userid => $userid, pro_moderator_owner => $User{pro_moderator_owner}})
 				if $log->is_debug();
 		}
 	}
-	elsif ($user_ref->{pro_moderator_owner} eq 'all') {
+	elsif ($pro_moderator_owner eq 'all') {
 		# Admin mode to see all products from all owners
-		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$user_ref->{pro_moderator_owner} = $pro_moderator_owner;
+		$User{pro_moderator_owner} = $pro_moderator_owner;
 		$log->debug(
 			"set pro_moderator_owner (all) see products from all owners",
 			{pro_moderator_owner => $User{pro_moderator_owner}}
 		) if $log->is_debug();
 	}
-	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
-		my $orgid = $';
-		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
-		$log->debug("set pro_moderator_owner (org)",
-			{orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner}})
-			if $log->is_debug();
-	}
 	else {
-		# if there is no user- or org- prefix, assume it is an org
-		my $orgid = $user_ref->{pro_moderator_owner};
-		$User{pro_moderator_owner} = "org-" . $orgid;
-		$user_ref->{pro_moderator_owner} = "org-" . $orgid;
-		$log->debug("set pro_moderator_owner (org)",
-			{orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner}})
-			if $log->is_debug();
+
+		# Organization: check that it exists, otherwise we would keep an owner that
+		# can never be displayed, and moderators would see an empty product list
+
+		my ($orgid) = ($pro_moderator_owner =~ /^org-(.+)$/);
+		if ((not defined $orgid) or (not defined retrieve_org($orgid))) {
+			push @{$errors_ref}, $Lang{error_org_does_not_exist}{$lc};
+			$log->debug("check_edit_owner: organization does not exist", {orgid => $orgid}) if $log->is_debug();
+		}
+		else {
+			$user_ref->{pro_moderator_owner} = $pro_moderator_owner;
+			$User{pro_moderator_owner} = $pro_moderator_owner;
+			$log->debug("set pro_moderator_owner (org)",
+				{orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner}})
+				if $log->is_debug();
+		}
 	}
 
 	return;
