@@ -20,7 +20,7 @@
 
 package ProductOpener::PerlStandards;
 
-use 5.24.0;
+use 5.36.0;
 use strict;
 use warnings;
 use feature ();
@@ -61,7 +61,7 @@ This module is a replacement for the following:
 
     use strict;
     use warnings;
-    use v5.24;
+    use v5.36;
     use feature 'signatures';
     no warnings 'experimental::signatures';
     use utf8;
@@ -70,5 +70,9 @@ Most of this module's code has been copied from the Veure::Module
 available on http://blogs.perl.org/users/ovid/2019/03/enforcing-simple-standards-with-one-module.html
 
 Notes:
-- the motivation for that module is to enable Perl's signatures that are experimental since Perl 5.24 and non-experimental in Perl 5.34
-- we cannot use "use Modern::Perl '2022'" to activate signatures as we run Perl 5.24 in production today (July 2022)
+- the motivation for that module is to enable Perl's signatures: they are experimental since Perl 5.20
+  and stable (ie. they no longer emit an experimental::signatures warning) since Perl 5.36
+- 5.36 is the oldest Perl version we run in production (Debian bookworm), while we develop and run
+  our tests with Debian trixie and Perl 5.40: see the Dockerfile
+- we do not use "use Modern::Perl '2023'" (which enables the same :5.36 feature bundle plus
+  signatures) because Modern::Perl does not enable the utf8 pragma
