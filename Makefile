@@ -673,10 +673,17 @@ rotate_logs:
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
 # Run dependent projects
-run_deps: clone_deps
+run_deps: clone_deps sync_agent_deps
 	@for dep in ${DEPS} ; do \
 		cd ${DEPS_DIR}/$$dep && $(MAKE) run; \
 	done
+
+# Keep the dependencies' .envrc in sync with this worktree's agent id. Runs before
+# run_deps rather than only in `make agent`, so that a worktree whose deps were
+# cloned (or re-cloned) after `make agent` is still isolated. It is a no-op when
+# PO_AGENT_ID is unset, which is what CI relies on.
+sync_agent_deps:
+	@PO_SHARED_DATA="$(PO_SHARED_DATA)" DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --sync-deps
 
 
 # Clone dependent projects without running them (used to pull in yml for tests)
@@ -718,16 +725,16 @@ stop_deps:
 # claimed atomically, so concurrent agents never collide.
 # See docs/dev/how-to-run-several-worktrees.md
 agent:
-	@scripts/dev-agent-env.sh $(if $(ID),--id "$(ID)",) $(if $(PORT),--port "$(PORT)",)
+	@PO_SHARED_DATA="$(PO_SHARED_DATA)" DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh $(if $(ID),--id "$(ID)",) $(if $(PORT),--port "$(PORT)",)
 
 # Which ids are in use on this machine, and on which ports.
 list-agents:
-	@scripts/dev-agent-env.sh --list
+	@DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --list
 
 # Drop this worktree's generated block and give its id/port back.
 # Pass ID=<id> to also free an entry left behind by a worktree that no longer exists.
 release-agent:
-	@scripts/dev-agent-env.sh --release $(if $(ID),--id "$(ID)",)
+	@DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --release $(if $(ID),--id "$(ID)",)
 
 # Fail loudly rather than silently fighting over host port 80 with another worktree.
 check_agent_ports:
@@ -745,6 +752,19 @@ ifneq ($(strip $(PO_AGENT_ID)),)
 		echo "   makes the app generate URLs and redirects pointing at another port."; \
 		echo "   Set both to the same value in .envrc."; \
 		exit 1; \
+	fi
+	@if [ "$(PO_SHARED_DATA)" != "1" ]; then \
+		for f in ${DEPS_DIR}/openfoodfacts-shared-services/.envrc ${DEPS_DIR}/openfoodfacts-auth/.envrc; do \
+			if ! grep -q "_$(PO_AGENT_ID)" "$$f" 2>/dev/null; then \
+				echo "❌ $$f does not mention $(PO_AGENT_ID), so MongoDB, Redis, PostgreSQL and"; \
+				echo "   Keycloak would stay shared with the other worktrees. Their Redis streams"; \
+				echo "   (user-deleted, user-registered, user-updated) are global, so one worktree"; \
+				echo "   would then act on another worktree's user events."; \
+				echo "   Fix: run 'make agent' again, or set PO_SHARED_DATA=1 in .envrc to share"; \
+				echo "   them deliberately."; \
+				exit 1; \
+			fi; \
+		done; \
 	fi
 else
 	@:

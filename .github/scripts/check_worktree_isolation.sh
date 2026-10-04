@@ -44,7 +44,7 @@ for i in 1 2 3 4 5; do
     (
         cd "$COORD/p$i/shared-name"
         XDG_CACHE_HOME="$COORD/cache" ENVRC="$COORD/p$i/shared-name/.envrc" \
-            "$REPO_ROOT/scripts/dev-agent-env.sh" >/dev/null 2>&1
+            DEPS_DIR="$COORD/cache" "$REPO_ROOT/scripts/dev-agent-env.sh" >/dev/null 2>&1
     ) &
 done
 wait
@@ -64,28 +64,41 @@ mapfile -t COORD_IDS < <(
         basename "$entry"
     done
 )
-mapfile -t COORD_PORTS < <(
+mapfile -t COORD_SLOTS < <(
     for entry in "$COORD/cache/off-agents"/*; do
         case "$(basename "$entry")" in
-            .port-*) continue ;;
+            .slot-*) continue ;;
         esac
         sed -n 1p "$entry"
     done
 )
+# the frontend port of a slot is 8080 + slot
+COORD_PORTS=()
+for slot in "${COORD_SLOTS[@]}"; do
+    COORD_PORTS+=("$((8080 + slot))")
+done
 
 [ "${#COORD_IDS[@]}" -eq 5 ] ||
     fail "expected 5 registered worktrees, got ${#COORD_IDS[@]}: ${COORD_IDS[*]}"
 [ "$(printf '%s\n' "${COORD_IDS[@]}" | sort -u | grep -c .)" -eq 5 ] ||
     fail "two worktrees got the same id: ${COORD_IDS[*]}"
+[ "$(printf '%s\n' "${COORD_SLOTS[@]}" | sort -u | grep -c .)" -eq 5 ] ||
+    fail "two worktrees got the same slot: ${COORD_SLOTS[*]}"
 [ "$(printf '%s\n' "${COORD_PORTS[@]}" | sort -u | grep -c .)" -eq 5 ] ||
-    fail "two worktrees got the same port: ${COORD_PORTS[*]}"
-for port in "${COORD_PORTS[@]}"; do
-    [ -n "$port" ] || fail "a worktree was registered without a port: ${COORD_IDS[*]}"
+    fail "two worktrees got the same frontend port: ${COORD_PORTS[*]}"
+for slot in "${COORD_SLOTS[@]}"; do
+    case "$slot" in
+        '' | *[!0-9]*) fail "a worktree was registered with a non-numeric slot: ${COORD_IDS[*]}" ;;
+    esac
 done
-echo "✅ concurrent worktrees derive distinct ids and ports without coordinating"
+echo "✅ concurrent worktrees derive distinct ids, slots and ports without coordinating"
 
-# 1. the generator, exactly as `make agent` invokes it
-make --no-print-directory ENVRC="$WORK_DIR/envrc" agent ID="$AGENT_ID" PORT="$AGENT_PORT" >/dev/null
+# 1. the generator. Run it from a throwaway worktree so that it writes its
+# .envrc files there instead of into the real deps/ checkouts.
+WT="$WORK_DIR/wt"
+mkdir -p "$WT"
+(cd "$WT" && ENVRC="$WT/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" --id "$AGENT_ID" --port "$AGENT_PORT" >/dev/null)
+cp "$WT/.envrc" "$WORK_DIR/envrc"
 
 for expected in \
     "export PO_AGENT_ID=${AGENT_ID}" \
@@ -105,6 +118,44 @@ for forbidden in COMPOSE_PROJECT_NAME PRODUCT_OPENER_DOMAIN MINION_QUEUE; do
 done
 echo "✅ the generator writes the expected .envrc"
 
+# MongoDB, Redis, PostgreSQL and Keycloak must be isolated too, because Keycloak
+# publishes user-deleted/user-registered/user-updated to Redis and every instance
+# consumes all three streams: a shared Redis would make one worktree act on
+# another worktree's user events.
+for dep in openfoodfacts-shared-services openfoodfacts-auth; do
+    grep -qx "export COMMON_NET_NAME=off_shared_network_${AGENT_ID}" \
+        "$WT/deps/$dep/.envrc" ||
+        fail "$dep/.envrc does not isolate the shared network"
+done
+grep -qx "export COMPOSE_PROJECT_NAME=off_shared_${AGENT_ID}" \
+    "$WT/deps/openfoodfacts-shared-services/.envrc" ||
+    fail "openfoodfacts-shared-services is not isolated"
+grep -qx "export COMPOSE_PROJECT_NAME=openfoodfacts-auth_${AGENT_ID}" \
+    "$WT/deps/openfoodfacts-auth/.envrc" ||
+    fail "openfoodfacts-auth is not isolated"
+# and every dependency port must differ from the shared default
+AGENT_SLOT="$(sed -n 1p "$XDG_CACHE_HOME/off-agents/$AGENT_ID")"
+for entry in "openfoodfacts-shared-services 127.0.0.1:$((8180 + AGENT_SLOT))" \
+            "openfoodfacts-auth ${AGENT_ID} $((8480 + AGENT_SLOT))"; do
+    dep="${entry%% *}"
+    rest="${entry#* }"
+    needle="${rest#* }"
+    grep -qF "$needle" "$WT/deps/$dep/.envrc" ||
+        fail "$dep does not carry its isolated port ${needle}"
+done
+echo "✅ MongoDB, Redis, PostgreSQL and Keycloak are isolated per worktree"
+
+# PO_SHARED_DATA=1 must opt back out, and be remembered in .envrc
+(cd "$WT" && PO_SHARED_DATA=1 ENVRC="$WT/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" >/dev/null)
+grep -qx "export PO_SHARED_DATA=1" "$WT/.envrc" || fail "PO_SHARED_DATA=1 was not persisted"
+cp "$WT/.envrc" "$WORK_DIR/envrc"
+[ ! -e "$WT/deps/openfoodfacts-shared-services/.envrc" ] ||
+    fail "PO_SHARED_DATA=1 should have removed the shared-services .envrc"
+echo "✅ PO_SHARED_DATA=1 shares the dependencies again, and is persisted"
+# back to fully isolated, and pin the port again for the assertions below
+(cd "$WT" && "$REPO_ROOT/scripts/dev-agent-env.sh" --id "$AGENT_ID" --port "$AGENT_PORT" >/dev/null)
+cp "$WT/.envrc" "$WORK_DIR/envrc"
+
 # An id that belongs to another worktree must be refused, not silently shared.
 OTHER="$WORK_DIR/other"
 mkdir -p "$OTHER"
@@ -114,6 +165,15 @@ if XDG_CACHE_HOME="$COORD/cache" ENVRC="$OTHER/.envrc" \
     fail "claiming id '$STOLEN_ID' owned by another worktree should have failed"
 fi
 echo "✅ an id owned by another worktree is refused"
+
+# A DEPS_DIR shared with other worktrees cannot be isolated, and the generator has
+# to say so rather than write per-worktree values into a common directory.
+SHARED_DEPS_OUT="$(cd "$WT" && DEPS_DIR=/tmp/elsewhere ENVRC="$WT/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" --id "$AGENT_ID" 2>&1 >/dev/null || true)"
+case "$SHARED_DEPS_OUT" in
+    *"is outside this worktree"*) ;;
+    *) fail "a DEPS_DIR outside the worktree should be reported as shared, got: $SHARED_DEPS_OUT" ;;
+esac
+echo "✅ a DEPS_DIR shared with other worktrees is refused, not silently overwritten"
 
 # 2. the Makefile derivation. We point ENVRC at the generated file rather than at
 # .envrc: make includes it after .env, and an assignment in a makefile always beats
