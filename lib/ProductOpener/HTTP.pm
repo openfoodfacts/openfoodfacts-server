@@ -331,13 +331,22 @@ Requiring C<POST> is enough to defeat simple CSRF attacks, as the session cookie
 is issued with C<SameSite=Lax>, which means that browsers do not send it for
 cross-site POST requests (only for cross-site top-level GET navigations).
 
-=item * if the request has an C<Origin> header, it is equal to the
-C<formatted_subdomain> value of the request (e.g. C<https://world.openfoodfacts.org>).
+=item * if the request has an C<Origin> header, the host of the C<Origin> header
+(e.g. C<world.openfoodfacts.org>) is equal to the host the request was sent to
+(the C<Host> header, without the port).
 
-Browsers always send the C<Origin> header for POST requests, so requests coming
-from another origin are rejected. Non browser clients (curl, mobile apps, our
-integration tests) do not send it, so the check is skipped if the header is not
-present.
+Browsers always send the C<Origin> header for POST requests, and they always send
+the C<Host> header of the site they are posting to, so requests coming from another
+origin are rejected.
+
+The host of the request is used instead of C<$request_ref->{formatted_subdomain}>
+because that value can be different from the host the request was sent to: it is
+computed from the configuration and it can be overridden by C<cc> and C<lc>
+request parameters. The scheme is not compared, as it can be terminated by a
+reverse proxy before the request reaches us.
+
+Non browser clients (curl, mobile apps) do not send the C<Origin> header, so the
+check is skipped if the header is not present.
 
 =back
 
@@ -347,7 +356,7 @@ Note: an anti-CSRF token is not verified here, as it is handled separately.
 
 =head4 $request_ref - Reference to the request object.
 
-The C<method> and C<formatted_subdomain> fields are used.
+The C<method> field is used.
 
 =head3 Return value
 
@@ -364,9 +373,20 @@ sub require_same_origin_post ($request_ref) {
 	return !!0 unless ($method eq 'POST');
 
 	my $origin = get_http_request_header('Origin');
+	# Non browser clients do not send an Origin header
 	return !!1 unless defined $origin;
 
-	return !!($origin eq $request_ref->{formatted_subdomain});
+	# Keep the host:port of the Origin header, e.g. world.openfoodfacts.org
+	my ($origin_host) = ($origin =~ m{^(?:[^:/?#]+:)?//([^/?#]+)});
+	my $r = Apache2::RequestUtil->request();
+	my $host = $r->unparsed_host();
+
+	if ((not defined $origin_host) or (not defined $host) or ($host eq '')) {
+		$log->warn("require_same_origin_post: could not get the Origin ($origin) or Host ($host) header");
+		return !!0;
+	}
+
+	return !!($origin_host eq $host);
 }
 
 1;
