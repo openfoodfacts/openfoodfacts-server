@@ -366,9 +366,7 @@ their C<Origin> header is. The other values are accepted: C<same-site> requests
 (e.g. from another of our subdomains) are rejected by the C<Origin> check below, and
 C<none> is sent for requests typed in the address bar.
 
-=item * if the request has an C<Origin> header, the host of the C<Origin> header
-(e.g. C<world.openfoodfacts.org>) is equal to the host the request was sent to
-(the C<Host> header, including the port if any).
+=item * if the request has an C<Origin> header, its host (e.g. C<world.openfoodfacts.org>) is equal to the host the request was sent to (the C<Host> header, including the port if any).
 
 Browsers always send the C<Origin> header for POST requests, and they always send
 the C<Host> header of the site they are posting to, so requests coming from another
