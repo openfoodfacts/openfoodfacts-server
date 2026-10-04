@@ -59387,6 +59387,12 @@ gpc_category_code:en: 10000585
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a solid made from artificially hardened vegetable oils for baking and cooking. These products can be/must be refrigerated to extend their consumable life. Products include vegetable shortening specifically designed for baking and cooking. Definition Excludes: Excludes products such as Butter and Butter Based Spreads and Margarine, Cooking Animal Fats and Shelf Stable Vegetable Fats and Oils.
 gpc_category_name:en: Fats Edible - Vegetable/Plant (Perishable)
 
+< en: Plant-based spreads
+< en: Spreadable fats
+< en: Vegetable fats
+en: Spreadable vegetable fats
+sv: Smörbara vegetabiliska matfetter
+
 < en: Vegetable fats
 en: Cocoa butter
 bg: Какаово масло
@@ -59405,35 +59411,47 @@ ciqual_food_name:en: Cocoa butter
 ciqual_food_name:fr: Beurre de cacao
 wikidata:en: Q251106
 
-< en: Plant-based spreads
 < en: Spreadable fats
-< en: Vegetable fats
 en: Margarines
 bg: Маргарин
 ca: Margarina
+da: Margariner
 de: Margarinen, Margarine
-es: Margarinas, Margarinas vegetales, Margarinas de origen vegetal
+es: Margarinas
 fi: margariinit
-fr: Margarines, Margarine végétale
+fr: Margarines
 he: מרגרינות
 hr: margarin
 hu: Margarinok
 it: Margarina
 ja: マーガリン
 lt: Margarinai
+nb: Margariner
 nl: Margarines
+nn: Margarinar
 pl: Margaryny, margaryna
 pt: Margarinas
-sv: Margarin
+sv: Margariner
 agribalyse_proxy_food_code:en: 16737
 ciqual_proxy_food_code:en: 16737
 ciqual_proxy_food_name:en: Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3
 ciqual_proxy_food_name:fr: Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
+comment:en: margarine was originally made with animal fats, and while much less common now, there are still some non-plant margarines around
 # median fat for margarines in France is 58%
 food_groups:en: en:vegetable-margarines
 intake24_category_code:en: MRGN
 pnns_group_2:en: Fats
 wikidata:en: Q4287
+
+< en: Margarines
+< en: Spreadable vegetable fats
+en: Plant-based margarines, Vegetable margarines, Vegan margarines
+da: Plantebaserede margariner, Veganske margariner
+es: Margarinas vegetales, Margarinas de origen vegetal
+fr: Margarine végétale
+nb: Plantebaserte margariner, Veganske margariner
+nn: Plantebaserte margarinar, Veganske margarinar
+sv: Växtbaserade margariner, Veganska margariner
 
 < en: Margarines
 en: Margarine (Perishable)
