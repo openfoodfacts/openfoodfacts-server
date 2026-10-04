@@ -548,6 +548,8 @@ components:
       $ref: ./schemas/product_images.yaml
     "Product-Eco-Score":
       $ref: ./schemas/product_ecoscore.yaml
+    "Product-Forest-Footprint-2026":
+      $ref: ./schemas/forest_footprint_2026.yaml
     "Product-Ingredients":
       $ref: ./schemas/product_ingredients.yaml
     "Product-Nutrition":

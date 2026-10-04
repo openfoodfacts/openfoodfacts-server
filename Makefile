@@ -66,10 +66,11 @@ endif
 # When it is empty, which is the default, every name below is byte-identical to
 # what it has always been, so a single-worktree setup needs no change at all.
 #
-# Only the compose files can rename networks/volumes/images, they do it from
-# PO_AGENT_PREFIX/PO_AGENT_SUFFIX. We always export those two (rather than letting
-# compose compute them from PO_AGENT_ID) because compose's ${VAR:+word} treats an
-# empty-but-set VAR as true, which would produce names like product-opener_.
+# The compose files rename networks/volumes/images from PO_AGENT_PREFIX and
+# PO_AGENT_SUFFIX, and from PRODUCT_OPENER_NETWORK for the default network. We
+# always export those (rather than letting compose compute them from PO_AGENT_ID)
+# because compose's ${VAR:+word} treats an empty-but-set VAR as true, which would
+# produce names like product-opener_.
 PO_AGENT_ID ?=
 PO_AGENT_PREFIX := $(if $(strip $(PO_AGENT_ID)),$(strip $(PO_AGENT_ID))_,)
 PO_AGENT_SUFFIX := $(if $(strip $(PO_AGENT_ID)),_$(strip $(PO_AGENT_ID)),)
@@ -87,6 +88,12 @@ ifneq ($(strip $(PO_AGENT_ID)),)
     # with PRODUCT_OPENER_PORT or every generated URL/redirect is wrong.
     export PRODUCT_OPENER_DOMAIN := $(strip $(PO_AGENT_ID)).$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
     export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN)
+    # The default compose network of the Product Opener stack. Without this every
+    # worktree would share it, and Docker DNS would answer `backend`, `frontend`
+    # and world.$PRODUCT_OPENER_DOMAIN for all of them at once. This is separate
+    # from COMMON_NET_NAME, which names the network shared with MongoDB, Redis,
+    # PostgreSQL and Keycloak (see docker/run.yml).
+    export PRODUCT_OPENER_NETWORK := $(or $(strip $(PRODUCT_OPENER_NETWORK)),product-opener)_$(strip $(PO_AGENT_ID))
 endif
 
 # Hosts entries for PRODUCT_OPENER_DOMAIN, derived from it so they cannot drift
@@ -323,7 +330,7 @@ refresh_mongodb: run_deps
 
 # this command is used to import data on the mongodb used on staging environment
 import_prod_data: run_deps
-	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) import_prod_data
+	@cd "${DEPS_DIR}/openfoodfacts-shared-services" && $(MAKE) import_prod_data
 
 #--------#
 # Checks #
@@ -675,7 +682,7 @@ clean: goodbye hdown prune prune_deps prune_cache clean_folders
 # Run dependent projects
 run_deps: clone_deps sync_agent_deps
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && $(MAKE) run; \
+		cd "${DEPS_DIR}/$$dep" && $(MAKE) run; \
 	done
 
 # Keep the dependencies' .envrc in sync with this worktree's agent id. Runs before
@@ -688,16 +695,16 @@ sync_agent_deps:
 
 # Clone dependent projects without running them (used to pull in yml for tests)
 clone_deps:
-	@mkdir -p ${DEPS_DIR}; \
+	@mkdir -p "${DEPS_DIR}"; \
 	for dep in ${DEPS} ; do \
 		echo $$dep; \
-		if [ ! -d ${DEPS_DIR}/$$dep ]; then \
+		if [ ! -d "${DEPS_DIR}/$$dep" ]; then \
 			echo "Cloning $$dep"; \
 			git clone --filter=blob:none --sparse \
-				https://github.com/openfoodfacts/$$dep.git ${DEPS_DIR}/$$dep; \
+				https://github.com/openfoodfacts/$$dep.git "${DEPS_DIR}/$$dep"; \
 			echo "Cloned $$dep"; \
 		else \
-			cd ${DEPS_DIR}/$$dep; \
+			cd "${DEPS_DIR}/$$dep"; \
 			git pull || \
 	                  1>&2 echo "Warning: unable to pull latest $$dep; are you online?"; \
 		fi; \
@@ -707,12 +714,12 @@ clone_deps:
 prune_deps: clone_deps
 	@for dep in ${DEPS} ; do \
 		echo "🥫 Pruning $$dep..."; \
-		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
+		cd "${DEPS_DIR}/$$dep" && $(MAKE) prune; \
 	done
 
 stop_deps:
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && ( $(MAKE) stop || env -i docker compose stop ) ; \
+		cd "${DEPS_DIR}/$$dep" && ( $(MAKE) stop || env -i docker compose stop ) ; \
 	done
 
 #-----------#
@@ -781,6 +788,7 @@ print-agent-config:
 	@echo "PRODUCT_OPENER_HOST_PORT=$(PRODUCT_OPENER_HOST_PORT)"
 	@echo "PRODUCT_OPENER_PORT=$(PRODUCT_OPENER_PORT)"
 	@echo "MINION_QUEUE=$(MINION_QUEUE)"
+	@echo "PRODUCT_OPENER_NETWORK=$(PRODUCT_OPENER_NETWORK)"
 
 guard-%: # guard clause for targets that require an environment variable (usually used as an argument)
 	@ if [ "${${*}}" = "" ]; then \

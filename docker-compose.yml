@@ -1,4 +1,4 @@
-﻿x-backend-conf: &backend-conf
+x-backend-conf: &backend-conf
   image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
   environment:
     - PRODUCERS_PLATFORM
@@ -8,6 +8,7 @@
     - PRODUCT_OPENER_FLAVOR_SHORT
     - OFF_LOG_EMAILS
     - MONGODB_HOST
+    - MONGODB_DATABASE
     - POSTGRES_HOST
     - POSTGRES_USER
     - POSTGRES_PASSWORD
@@ -187,6 +188,8 @@ services:
       - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/conf.d/aa_expires-no-json-xml.conf
       # log format
       - ./conf/nginx/conf.d/log_format_realip.conf:/etc/nginx/conf.d/aa_log_format_realip.conf
+      # cache for tagline proxy
+      - ./conf/nginx/conf.d/tagline_cache.conf:/etc/nginx/conf.d/tagline_cache.conf
       # some redirects
       - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/snippets/off.locations-redirects.include
 
@@ -210,13 +213,13 @@ volumes:
 
 networks:
   default:
-    # The suffix is empty unless per-worktree isolation is enabled (PO_AGENT_ID),
-    # so by default every project keeps sharing the historical network name.
-    # When it is set, each worktree gets its own network: otherwise every
-    # worktree would answer to the same DNS names (backend, frontend, postgres,
-    # world.$PRODUCT_OPENER_DOMAIN, ...) and Docker DNS would round-robin
-    # between them.
+    # Several instances of Product Opener on one machine must not share this
+    # network: Docker DNS answers `backend`, `frontend`, `postgres` and
+    # `world.$PRODUCT_OPENER_DOMAIN` for every container attached to it, so they
+    # would round-robin between instances. `make agent` sets
+    # PRODUCT_OPENER_NETWORK per git worktree; deployments can set it too. The
+    # default keeps the historical name.
     # See docs/dev/how-to-run-several-worktrees.md
-    name: product-opener${PO_AGENT_SUFFIX:-}
+    name: ${PRODUCT_OPENER_NETWORK:-product-opener}
 
 
