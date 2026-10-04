@@ -227,7 +227,7 @@ sub generate_nutrient_aggregated_set ($product_ref) {
 
 Generates and returns a hash reference of the aggregated nutrient set from the given list of nutrient sets.
 
-The generated set is a combined set of nutrients with the preferred sources, per references and preparation states 
+The generated set is a combined set of nutrients with the preferred sources, per references and preparation states
 and with normalized units.
 
 =head3 Arguments
@@ -962,8 +962,10 @@ sub get_unit_options_for_nutrient ($nid) {
 	elsif ($nid eq 'ph') {
 		@units = ('');
 	}
+	elsif ($nid eq 'carbon-footprint') {
+		@units = ('kg', 'g');
+	}
 	else {
-
 		@units = ('g', 'mg', 'µg');
 	}
 
