@@ -180,6 +180,17 @@ echo "✅ a DEPS_DIR shared with other worktrees is refused, not silently overwr
 # an inherited environment variable, so a shell export cannot override .env.
 effective="$(make --no-print-directory ENVRC="$WORK_DIR/envrc" print-agent-config)"
 
+# Keep only the assignments. On a fresh checkout `make` first regenerates
+# .test_groups_cache/{unit,integration}_groups.mk, and those recipes print their
+# own banners ("Generating dynamic unit test groups ...") on stdout before our
+# target's output. That output is legitimate make noise, but it must not be
+# mistaken for configuration, so it is dropped here rather than being executed
+# further down.
+effective="$(grep -E '^[A-Za-z_][A-Za-z0-9_]*=' <<<"$effective")"
+
+[ -n "$effective" ] ||
+    fail "make print-agent-config printed no variable assignment at all"
+
 for pair in \
     "COMPOSE_PROJECT_NAME=po_off_${AGENT_ID}" \
     "PRODUCT_OPENER_DOMAIN=${AGENT_ID}.openfoodfacts.localhost" \
@@ -192,10 +203,37 @@ done
 echo "✅ the Makefile derives the isolated names"
 
 # 3. what docker compose makes of it
-AGENT_VALUES="$(tr '\n' ' ' <<<"$effective")"
+#
+# The values are exported inside a subshell rather than passed to `env` as an
+# argument list. `env` executes the first argument that is not a KEY=VALUE
+# assignment, so feeding it unvalidated `make` output means that any stray line
+# (a banner, a warning) is run as a command, which fails with a baffling
+# "env: '<line>': No such file or directory". Exporting also keeps values that
+# contain spaces intact, which an unquoted expansion would word-split.
+command -v docker >/dev/null 2>&1 ||
+    fail "docker is required to resolve the compose configuration"
+
+compose_config_with() {
+    local values="$1" line key
+    while IFS= read -r line; do
+        [[ -z "$line" ]] && continue
+        if [[ "$line" != *=* ]]; then
+            echo "not a KEY=VALUE line: $line" >&2
+            return 1
+        fi
+        key="${line%%=*}"
+        if [[ ! "$key" =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]]; then
+            echo "not a valid variable name: $line" >&2
+            return 1
+        fi
+        export "$key=${line#*=}"
+    done <<<"$values"
+    COMPOSE_FILE="$COMPOSE_FILES" docker compose --env-file=.env config --format json
+}
+
 DEFAULT_JSON="$(COMPOSE_FILE="$COMPOSE_FILES" docker compose --env-file=.env config --format json)"
-AGENT_JSON="$(env $AGENT_VALUES COMPOSE_FILE="$COMPOSE_FILES" \
-    docker compose --env-file=.env config --format json)"
+AGENT_JSON="$(compose_config_with "$effective")" ||
+    fail "could not turn the derived values into environment variables"
 
 python3 - "$DEFAULT_JSON" "$AGENT_JSON" "$AGENT_ID" "$AGENT_PORT" <<'PY'
 import json
