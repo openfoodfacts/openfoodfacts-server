@@ -135,15 +135,24 @@ like(
 	"the moderation organization is prefilled in the form"
 );
 like($resp->decoded_content, qr/ name="action" value="process"/, "the form is submitted with action=process");
+like($resp->decoded_content, qr/ name="userid" value="promoderator"/, "the form is submitted for the current user");
 
 # The state change must not be reachable with a GET request
 $resp = $moderator_ua->get(
 	construct_test_url("/cgi/user.pl?type=edit_owner&action=process&pro_moderator_owner=org-acme-inc"));
 is($resp->code, 405, "setting the moderation organization with a GET request is not allowed");
 
-# Submit the form
-$resp = $moderator_ua->post(construct_test_url("/cgi/user.pl"),
-	Content => {type => "edit_owner", action => "process", pro_moderator_owner => "org-acme-inc"});
+# Submit the form, like the browser does with all the fields of the form
+$resp = $moderator_ua->post(
+	construct_test_url("/cgi/user.pl"),
+	Content => {
+		type => "edit_owner",
+		action => "process",
+		userid => $pro_moderator_user_form{userid},
+		pro_moderator_owner => "org-acme-inc",
+		submit => "submit",
+	}
+);
 is($resp->code, 302, "submitting the form redirects to the organization page");
 my $pro_moderator_ref = retrieve_user($pro_moderator_user_form{userid});
 is($pro_moderator_ref->{pro_moderator_owner}, "org-acme-inc", "the moderation organization is set");

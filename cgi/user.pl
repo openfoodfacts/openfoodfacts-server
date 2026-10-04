@@ -163,14 +163,17 @@ if (($type eq 'edit_owner') and ($action eq 'display')) {
 		display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 	}
 
-	my $template_data_ref_edit_owner
-		= {pro_moderator_owner => remove_tags_and_quote(single_param('pro_moderator_owner') // ''),};
+	my $template_data_ref_edit_owner = {
+		pro_moderator_owner => $user_ref->{pro_moderator_owner}
+			// remove_tags_and_quote(single_param('pro_moderator_owner') // ''),
+		userid => $userid,
+	};
 
 	process_template('web/pages/user_form/user_edit_owner_form.tt.html',
 		$template_data_ref_edit_owner, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
-	$request_ref->{title} = lang('pro_moderator_edit_owner');
+	$request_ref->{title} = lang('producers_platform_moderation_title');
 	$request_ref->{content_ref} = \$html;
 	display_page($request_ref);
 	exit(0);
