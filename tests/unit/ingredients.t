@@ -11,6 +11,8 @@ use JSON;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ProductsTags qw/compute_field_tags/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::IngredientsStrings
+	qw/init_percent_or_quantity_regexps %percent_or_quantity_regexps %percent_or_quantity_with_symbols_regexps/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
@@ -33,6 +35,75 @@ my @tests = (
 		{
 			lc => "fr",
 			ingredients_text => "graisse de palmiste"
+		}
+	],
+
+	# pet food additive section: the "/kg" dosage context must not become a
+	# sub-ingredient, and microgram dosages (µg) must not leave a "µg" sub-ingredient
+	[
+		'fr-feed-additive-dosages',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels (/kg) : Vitamine D3 : 160 UI, Vitamine E : 15 mg, Biotine : 20 µg"
+		}
+	],
+
+	# same dosage contexts with a "per" word and a unit list
+	[
+		'fr-feed-dosage-per-word',
+		{
+			lc => "fr",
+			ingredients_text => "Additifs (par kg) : antioxydants : E306, vitamines (en mg)"
+		}
+	],
+
+	# a comma-separated list of units is also a dosage context
+	[
+		'fr-feed-dosage-unit-list',
+		{
+			lc => "fr",
+			ingredients_text => "Additifs (mg, kg) : E306, vitamine C : 100 mg"
+		}
+	],
+
+	# the three microgram spellings (micro sign, Greek mu, ASCII fold) are all
+	# consumed with the dosage and normalized to g
+	[
+		'fr-feed-microgram-forms',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels : vitamine E : 15 mg, vitamine D3 : 100 µg, vitamine B12 : 2 μg, biotine : 5 ug"
+		}
+	],
+
+	# percent symbols are not dosage units: "(%)" and "(% DV)" stay sub-ingredients,
+	# only the microgram symbols are consumed as units
+	[
+		'fr-percent-symbol-sub-ingredients',
+		{
+			lc => "fr",
+			ingredients_text => "vin (%), sucre, vitamines (% DV), sel"
+		}
+	],
+
+	# emphasis underscores are markup, not part of ingredient names: they are
+	# stripped from the parsed names, and kept in the stored ingredients text
+	# (allergen markup "_lait_")
+	[
+		'fr-emphasis-underscores',
+		{
+			lc => "fr",
+			ingredients_text => "farine, _sucre_, sel"
+		}
+	],
+
+	[
+		'fr-emphasis-underscores-sub-ingredient',
+		{
+			lc => "fr",
+			ingredients_text => "sauce (_crustacés_, eau), _lait_ écrémé"
 		}
 	],
 
@@ -1464,5 +1535,17 @@ is(
 	[['en:protein', undef], ['en:manganese', '3 mg'], ['en:choline', '58 mg'], ['en:taurine', '660 mg']],
 	'known ingredients and dosages survive mixed known and unknown codes on separate lines'
 );
+
+# The with_symbols variant must actually widen the base regexp: if the base
+# regexp drifts and no longer contains the unit capture group, the widening
+# substitution becomes a no-op and microgram dosages stop being consumed.
+init_percent_or_quantity_regexps($_) for ('de', 'en', 'fr');
+foreach my $lc ('de', 'en', 'fr') {
+	isnt(
+		$percent_or_quantity_with_symbols_regexps{$lc},
+		$percent_or_quantity_regexps{$lc},
+		"with_symbols variant widens the base regexp ($lc)"
+	);
+}
 
 done_testing();
