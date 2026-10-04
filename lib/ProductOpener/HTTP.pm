@@ -54,6 +54,7 @@ BEGIN {
 		&get_http_request_header
 		&create_user_agent
 		&is_post_request
+		&is_cross_site_request
 		&require_same_origin_post
 	);    #the functions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -346,6 +347,29 @@ sub is_post_request ($request_ref) {
 	return !!($method eq 'POST');
 }
 
+=head2 is_cross_site_request()
+
+Returns true if the request was triggered by another site, based on the
+C<Sec-Fetch-Site> header sent by browsers.
+
+C<Sec-Fetch-Site> cannot be set by scripts, so a request coming from another site
+can be identified without relying on C<Origin> or C<Referer> (which can be missing).
+
+=head3 Return value
+
+Returns true (C<1>) if C<Sec-Fetch-Site> is C<cross-site>, and false (C<0>)
+otherwise: C<same-origin>, C<same-site> and C<none> requests are not cross site
+requests, and non browser clients (curl, mobile apps, our integration tests) do not
+send the header at all.
+
+=cut
+
+sub is_cross_site_request () {
+	my $sec_fetch_site = get_http_request_header('Sec-Fetch-Site');
+	return !!0 unless defined $sec_fetch_site;
+	return !!(lc($sec_fetch_site) eq 'cross-site');
+}
+
 =head2 require_same_origin_post($request_ref)
 
 Checks that a request can be attributed to our own origin, in order to protect
@@ -357,7 +381,7 @@ The function returns true only if both of the following checks pass:
 
 =over 4
 
-=item * the C<Sec-Fetch-Site> header, if present, is not C<cross-site>.
+=item * the request is not a cross site request (see is_cross_site_request()).
 
 C<Sec-Fetch-Site> is set by browsers on all requests, and cannot be set by scripts:
 C<same-origin> for requests coming from our own pages, C<cross-site> for requests
@@ -401,10 +425,7 @@ for rejecting the request, for example by returning a 403 Forbidden status code.
 
 sub require_same_origin_post ($request_ref) {
 
-	my $sec_fetch_site = get_http_request_header('Sec-Fetch-Site');
-	if (defined $sec_fetch_site) {
-		return !!0 if (lc($sec_fetch_site) eq 'cross-site');
-	}
+	return !!0 if (is_cross_site_request());
 
 	my $origin = get_http_request_header('Origin');
 	# Non browser clients do not send an Origin header

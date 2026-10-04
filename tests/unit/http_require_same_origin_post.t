@@ -43,26 +43,32 @@ subtest 'is_post_request' => sub {
 
 subtest 'Sec-Fetch-Site is used to reject cross-site requests' => sub {
 	$headers_in{'Sec-Fetch-Site'} = 'cross-site';
+	ok(ProductOpener::HTTP::is_cross_site_request(), 'cross-site requests are detected');
 	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'cross-site requests are rejected');
 
 	$headers_in{'Sec-Fetch-Site'} = 'CROSS-SITE';
-	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'the header value is case insensitive');
+	ok(ProductOpener::HTTP::is_cross_site_request(), 'the header value is case insensitive');
+	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'cross-site is rejected whatever the case');
 
 	# rejected even if the Origin header matches
 	$headers_in{'Origin'} = "https://$host";
 	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'cross-site is rejected even with a same origin');
 
 	$headers_in{'Sec-Fetch-Site'} = 'same-origin';
+	ok(!ProductOpener::HTTP::is_cross_site_request(), 'same-origin requests are not cross site');
 	ok(ProductOpener::HTTP::require_same_origin_post({}), 'same-origin requests are accepted');
 
 	$headers_in{'Sec-Fetch-Site'} = 'same-site';
+	ok(!ProductOpener::HTTP::is_cross_site_request(), 'same-site requests are not cross site');
 	ok(ProductOpener::HTTP::require_same_origin_post({}), 'same-site requests are left to the Origin check');
 
 	$headers_in{'Sec-Fetch-Site'} = 'none';
+	ok(!ProductOpener::HTTP::is_cross_site_request(), 'requests without a referrer are not cross site');
 	ok(ProductOpener::HTTP::require_same_origin_post({}), 'requests without a referrer are accepted');
 
 	# non browser clients do not send the header
 	$headers_in{'Sec-Fetch-Site'} = undef;
+	ok(!ProductOpener::HTTP::is_cross_site_request(), 'requests without the header are not cross site');
 	ok(ProductOpener::HTTP::require_same_origin_post({}), 'requests without the header are accepted');
 };
 
