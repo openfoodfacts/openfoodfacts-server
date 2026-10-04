@@ -1,0 +1,147 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:meat",
+         "is_in_taxonomy" : 1,
+         "percent" : 36,
+         "percent_estimate" : 36,
+         "percent_max" : 36,
+         "percent_min" : 36,
+         "text" : "viandes",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "id" : "fr:sous-produits animaux",
+         "ingredients" : [
+            {
+               "id" : "en:beef",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 36,
+               "percent_max" : 36,
+               "percent_min" : 36,
+               "text" : "bœuf",
+               "vegan" : "no",
+               "vegetarian" : "no"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent" : 36,
+         "percent_estimate" : 36,
+         "percent_max" : 36,
+         "percent_min" : 36,
+         "text" : "sous-produits animaux"
+      },
+      {
+         "id" : "en:cereal",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 21,
+         "percent_max" : 28,
+         "percent_min" : 14,
+         "text" : "céréales",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "fr:sous-produits",
+         "ingredients" : [
+            {
+               "id" : "fr:inuline de chicorée",
+               "is_in_taxonomy" : 0,
+               "percent_estimate" : 7,
+               "percent_max" : 14,
+               "percent_min" : 0,
+               "text" : "inuline de chicorée"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 7,
+         "percent_max" : 14,
+         "percent_min" : 0,
+         "text" : "sous-produits",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:meat",
+         "en:beef"
+      ],
+      "en:non-vegetarian" : [
+         "en:meat",
+         "en:beef"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "fr:sous-produits animaux",
+         "fr:sous-produits",
+         "fr:inuline de chicorée"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:inuline de chicorée"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:inuline de chicorée"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:meat",
+      "fr:sous-produits animaux",
+      "en:cereal",
+      "fr:sous-produits",
+      "en:beef",
+      "fr:inuline de chicorée"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:meat",
+      "fr:sous-produits animaux",
+      "en:cereal",
+      "fr:sous-produits",
+      "en:beef",
+      "en:animal",
+      "fr:inuline de chicorée"
+   ],
+   "ingredients_text" : "viandes et sous-produits animaux (36%, dont 4% de bœuf), céréales, sous-produits d'origine végétale (dont 0,4% d'inuline de chicorée)",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 36,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 64,
+   "ingredients_without_ciqual_codes" : [
+      "en:beef",
+      "en:cereal",
+      "en:meat",
+      "fr:inuline de chicorée",
+      "fr:sous-produits",
+      "fr:sous-produits animaux"
+   ],
+   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:beef",
+      "en:cereal",
+      "en:meat",
+      "fr:inuline de chicorée",
+      "fr:sous-produits",
+      "fr:sous-produits animaux"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 6,
+   "known_ingredients_n" : 3,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 3
+}
