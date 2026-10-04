@@ -1,5 +1,9 @@
 ﻿x-backend-conf: &backend-conf
-  image: openfoodfacts-server/backend:dev
+  # The tag suffix is empty unless per-worktree isolation is enabled
+  # (PO_AGENT_ID), so by default the image is shared with other worktrees.
+  # When it is set, a worktree keeps its own image so that a rebuild in one
+  # worktree cannot swap the image under another worktree's running containers.
+  image: openfoodfacts-server/backend:dev${PO_AGENT_SUFFIX:-}
   build:
     context: .
     dockerfile: Dockerfile
@@ -25,6 +29,9 @@
     # This is needed to access other services that are running outside of Docker
     # e.g. when developing with openfoodfacts-query
     - host.docker.internal=host-gateway
+    # Not ${PRODUCT_OPENER_DOMAIN}-based on purpose: this must match the
+    # Keycloak hostname (KC_HOSTNAME in deps/openfoodfacts-auth/.env), which is
+    # fixed and shared by every worktree.
     - auth.openfoodfacts.localhost=host-gateway
   networks:
     default:
@@ -50,7 +57,7 @@ services:
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:
-    image: openfoodfacts-server/dynamicfront:dev
+    image: openfoodfacts-server/dynamicfront:dev${PO_AGENT_SUFFIX:-}
     build:
       context: .
       target: builder
@@ -79,7 +86,7 @@ services:
       - ${WEBCOMPONENTS_DIR:-./web-default}/web-components:/opt/webcomponents
 
   frontend:
-    image: openfoodfacts-server/frontend:dev
+    image: openfoodfacts-server/frontend:dev${PO_AGENT_SUFFIX:-}
     build:
       context: .
       dockerfile: Dockerfile.frontend
@@ -99,7 +106,9 @@ services:
           aliases:
             # trick: make it possible for robotoff to reach it internally,
             # using localhost domain
-            - world.${PRODUCT_OPENER_DOMAIN}
+            # note: world.${PRODUCT_OPENER_DOMAIN} and ${PRODUCT_OPENER_DOMAIN}
+            # itself are already declared in docker-compose.yml, which is always
+            # loaded together with this file
             - static.${PRODUCT_OPENER_DOMAIN}
             - images.${PRODUCT_OPENER_DOMAIN}
             - fr.${PRODUCT_OPENER_DOMAIN}
@@ -125,17 +134,20 @@ volumes:
   # those one are volumes shared between off and pro, so we assign hard-coded names
   # see docs/dev/explain-pro-dev-setup.md
   # PO_COMMON_PREFIX is there to separate envs, eg. for tests
+  # PO_AGENT_PREFIX is there to separate worktrees, eg. concurrent agents, and is
+  # empty unless `make agent` has been run
+  # see docs/dev/how-to-run-several-worktrees.md
   users:
-    name: ${PO_COMMON_PREFIX:-}po_users
+    name: ${PO_COMMON_PREFIX:-}${PO_AGENT_PREFIX:-}po_users
   orgs:
-    name: ${PO_COMMON_PREFIX:-}po_orgs
+    name: ${PO_COMMON_PREFIX:-}${PO_AGENT_PREFIX:-}po_orgs
   export_files:
-    name: ${PO_COMMON_PREFIX:-}po_export_files
+    name: ${PO_COMMON_PREFIX:-}${PO_AGENT_PREFIX:-}po_export_files
   product_images:
-    name: ${PO_COMMON_PREFIX:-}po_off_product_images
+    name: ${PO_COMMON_PREFIX:-}${PO_AGENT_PREFIX:-}po_off_product_images
   podata:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db
   minion_db:
-    name: ${PO_COMMON_PREFIX:-}minion_db
+    name: ${PO_COMMON_PREFIX:-}${PO_AGENT_PREFIX:-}minion_db

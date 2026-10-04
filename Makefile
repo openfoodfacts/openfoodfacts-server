@@ -9,6 +9,8 @@ endif
 SHELL := $(shell which bash)
 # some vars
 ENV_FILE ?= .env
+# Local overrides, also loaded by direnv. Override to /dev/null to ignore them.
+ENVRC ?= .envrc
 NAME = "ProductOpener"
 VERSION = $(shell cat version.txt)
 MOUNT_POINT ?= /mnt
@@ -38,19 +40,59 @@ endif
 export MSYS_NO_PATHCONV=1
 
 # load env variables
-# also takes into account envrc (direnv file)
 ifneq (,$(wildcard ./${ENV_FILE}))
     -include ${ENV_FILE}
-    -include .envrc
     export
 endif
+
+# .envrc holds local overrides (and is what direnv loads). It is included after
+# .env so that it wins, and unconditionally: -include on a missing file is a no-op,
+# whereas skipping it whenever .env is absent would silently disable per-worktree
+# isolation (see the PO_AGENT_ID block below).
+-include ${ENVRC}
+export
 
 ifneq (${EXTRA_ENV_FILE},'')
     -include ${EXTRA_ENV_FILE}
     export
 endif
 
-HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
+#------#
+# Per-worktree isolation #
+#------#
+# `make agent` writes PO_AGENT_ID and the two ports to .envrc.
+# When PO_AGENT_ID is set we derive per-worktree names so that several worktrees
+# (or several agents) can run `make dev` on the same machine at the same time.
+# When it is empty, which is the default, every name below is byte-identical to
+# what it has always been, so a single-worktree setup needs no change at all.
+#
+# Only the compose files can rename networks/volumes/images, they do it from
+# PO_AGENT_PREFIX/PO_AGENT_SUFFIX. We always export those two (rather than letting
+# compose compute them from PO_AGENT_ID) because compose's ${VAR:+word} treats an
+# empty-but-set VAR as true, which would produce names like product-opener_.
+PO_AGENT_ID ?=
+PO_AGENT_PREFIX := $(if $(strip $(PO_AGENT_ID)),$(strip $(PO_AGENT_ID))_,)
+PO_AGENT_SUFFIX := $(if $(strip $(PO_AGENT_ID)),_$(strip $(PO_AGENT_ID)),)
+export PO_AGENT_ID
+export PO_AGENT_PREFIX
+export PO_AGENT_SUFFIX
+
+# Resolved values, with the same fallbacks as .env, used by the guard below.
+PO_HOST_PORT := $(or $(strip $(PRODUCT_OPENER_HOST_PORT)),80)
+PO_SERVER_PORT := $(or $(strip $(PRODUCT_OPENER_PORT)),80)
+
+ifneq ($(strip $(PO_AGENT_ID)),)
+    export COMPOSE_PROJECT_NAME := $(or $(strip $(COMPOSE_PROJECT_NAME)),po_off)_$(strip $(PO_AGENT_ID))
+    # Config2_docker.pm folds this into $server_domain, so it has to stay in sync
+    # with PRODUCT_OPENER_PORT or every generated URL/redirect is wrong.
+    export PRODUCT_OPENER_DOMAIN := $(strip $(PO_AGENT_ID)).$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
+    export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN)
+endif
+
+# Hosts entries for PRODUCT_OPENER_DOMAIN, derived from it so they cannot drift
+# away from the configured domain (this list used to be hardcoded to
+# productopener.localhost, which no longer is the domain we serve).
+HOSTS=127.0.0.1 ${PRODUCT_OPENER_DOMAIN} world.${PRODUCT_OPENER_DOMAIN} fr.${PRODUCT_OPENER_DOMAIN} static.${PRODUCT_OPENER_DOMAIN} ssl-api.${PRODUCT_OPENER_DOMAIN} fr-en.${PRODUCT_OPENER_DOMAIN}
 # commands aliases
 DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # docker command that do not need the shared network
@@ -158,10 +200,10 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE_BUILD} build ${args} ${container} 2>&1
 
-_up: run_deps
+_up: run_deps check_agent_ports
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
-	@echo "🥫 started service at http://openfoodfacts.localhost"
+	@echo "🥫 started service at http://$(if $(PRODUCT_OPENER_HOST_PORT),$(PRODUCT_OPENER_HOST_PORT),80)/"
 
 up: build create_folders _up
 
@@ -661,6 +703,56 @@ stop_deps:
 #-----------#
 # Utilities #
 #-----------#
+
+# Writes .envrc so that this worktree gets its own container/network/volume/image
+# names, its own domain and its own host port. Run it once per worktree.
+# No coordination needed: ID defaults to one derived from the directory name and
+# claimed atomically, so concurrent agents never collide.
+# See docs/dev/how-to-run-several-worktrees.md
+agent:
+	@scripts/dev-agent-env.sh $(if $(ID),--id "$(ID)",) $(if $(PORT),--port "$(PORT)",)
+
+# Which ids are in use on this machine, and on which ports.
+list-agents:
+	@scripts/dev-agent-env.sh --list
+
+# Drop this worktree's generated block and give its id/port back.
+# Pass ID=<id> to also free an entry left behind by a worktree that no longer exists.
+release-agent:
+	@scripts/dev-agent-env.sh --release $(if $(ID),--id "$(ID)",)
+
+# Fail loudly rather than silently fighting over host port 80 with another worktree.
+check_agent_ports:
+ifneq ($(strip $(PO_AGENT_ID)),)
+	@if [ "$(PO_HOST_PORT)" = "80" ] && [ "$(ALLOW_SHARED_PORT)" != "1" ]; then \
+		echo "❌ PO_AGENT_ID=$(PO_AGENT_ID) is set but the frontend would still publish host port 80,"; \
+		echo "   so another worktree on this machine would collide with it."; \
+		echo "   Fix: run 'make agent ID=$(PO_AGENT_ID)' again, or set PRODUCT_OPENER_HOST_PORT and"; \
+		echo "   PRODUCT_OPENER_PORT in .envrc. Set ALLOW_SHARED_PORT=1 to override."; \
+		exit 1; \
+	fi
+	@if [ "$(PO_HOST_PORT)" != "$(PO_SERVER_PORT)" ]; then \
+		echo "❌ PRODUCT_OPENER_HOST_PORT=$(PO_HOST_PORT) but PRODUCT_OPENER_PORT=$(PO_SERVER_PORT)."; \
+		echo "   Config2_docker.pm derives its server domain from PRODUCT_OPENER_PORT, so a mismatch"; \
+		echo "   makes the app generate URLs and redirects pointing at another port."; \
+		echo "   Set both to the same value in .envrc."; \
+		exit 1; \
+	fi
+else
+	@:
+endif
+
+# Effective (post-derivation) configuration, handy to debug a worktree or to assert
+# in CI that per-worktree isolation is applied.
+print-agent-config:
+	@echo "PO_AGENT_ID=$(PO_AGENT_ID)"
+	@echo "PO_AGENT_PREFIX=$(PO_AGENT_PREFIX)"
+	@echo "PO_AGENT_SUFFIX=$(PO_AGENT_SUFFIX)"
+	@echo "COMPOSE_PROJECT_NAME=$(COMPOSE_PROJECT_NAME)"
+	@echo "PRODUCT_OPENER_DOMAIN=$(PRODUCT_OPENER_DOMAIN)"
+	@echo "PRODUCT_OPENER_HOST_PORT=$(PRODUCT_OPENER_HOST_PORT)"
+	@echo "PRODUCT_OPENER_PORT=$(PRODUCT_OPENER_PORT)"
+	@echo "MINION_QUEUE=$(MINION_QUEUE)"
 
 guard-%: # guard clause for targets that require an environment variable (usually used as an argument)
 	@ if [ "${${*}}" = "" ]; then \
