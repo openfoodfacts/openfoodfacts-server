@@ -1370,7 +1370,7 @@ foreach my $test (
 
 # Food and feed codes share whitespace handling, without consuming a dosage.
 foreach my $test (
-	['3B 103, 3B 202, 3B 405, 3B 502, 3B 603, 3B 801', '3b103, 3b202, 3b405, 3B 502, 3b603, 3b801'],
+	['3B 103, 3B 202, 3B 405, 3B 502, 3B 603, 3B 801', '3b103, 3b202, 3b405, 3b502, 3b603, 3b801'],
 	["3b\t103, 3a\x{a0}672a, E  330", '3b103, 3a672a, e330'],
 	['1b 306(i), 1b306(ii), 3a 825ii', '1b306(i), 1b306(ii), 3a825ii'],
 	['3b 103 105 mg, E 330 105 mg', '3b103 105 mg, e330 105 mg'],
