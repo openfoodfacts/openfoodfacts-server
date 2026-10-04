@@ -40,5 +40,10 @@ WORKDIR /opt/product-opener
 ARG USER_UID
 ARG USER_GID
 RUN usermod -u "$USER_UID" www-data && \
-    groupmod --gid "$USER_GID" www-data
+    groupmod --gid "$USER_GID" www-data && \
+    apt-get update && apt-get install -y curl && \
+    rm -rf /var/lib/apt/lists/*
 COPY --from=builder /opt/product-opener/html/ /opt/product-opener/html/
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost/nginx_status || curl -f http://localhost/robots.txt || exit 1
