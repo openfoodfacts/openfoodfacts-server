@@ -271,7 +271,7 @@ sub _build_decimal_formatter ($bundle, $locale) {
 	my ($major, $minor) = _parse_grouping_from_pattern($pattern);
 	return ProductOpener::Text::Formatter->new(
 		locale => $locale,
-		is_percent => !!0,
+		is_percent => builtin::false(),
 		pattern => $pattern,
 		symbols => $bundle->{symbols},
 		maximum_fraction_digits => 3,
@@ -364,7 +364,7 @@ sub _build_percent_formatter ($bundle, $locale, $maximum_fraction_digits) {
 	my ($prefix, $suffix) = _parse_percent_prefix_suffix($pattern, $bundle->{symbols}{percent});
 	return ProductOpener::Text::Formatter->new(
 		locale => $locale,
-		is_percent => !!1,
+		is_percent => builtin::true(),
 		pattern => $pattern,
 		symbols => $bundle->{symbols},
 		maximum_fraction_digits => $maximum_fraction_digits,
@@ -510,11 +510,11 @@ sub _format_percentage ($value, $bundle, $perf) {
 		$number = 0 + $number;
 
 		my $symbols = $self->{symbols};
-		my $is_percent = $self->{is_percent} // !!0;
+		my $is_percent = $self->{is_percent} // builtin::false();
 		my $max = $self->{maximum_fraction_digits};
 
 		# Sign handling
-		my $is_negative = $number < 0 ? !!1 : !!0;
+		my $is_negative = $number < 0 ? builtin::true() : builtin::false();
 		$number = -$number if $is_negative;
 		# -0 edge
 		$number = 0 if $number == 0;
