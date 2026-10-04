@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -27,7 +27,7 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::HTTP qw/single_param require_same_origin_post/;
 use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
@@ -107,6 +107,10 @@ my $debug = 0;
 my @errors = ();
 
 if ($action eq 'process') {
+
+	# Reject state changes that are not origin-bound POST requests
+	require_same_origin_post($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 
 	if (get_oidc_implementation_level() < 5) {
 		# Keep legacy method until we have moved account management to Keycloak
@@ -429,6 +433,10 @@ if ($action eq 'display') {
 }
 
 elsif ($action eq 'process') {
+
+	# Reject state changes that are not origin-bound POST requests
+	require_same_origin_post($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 
 	if (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);

@@ -53,6 +53,7 @@ BEGIN {
 		&request_param
 		&get_http_request_header
 		&create_user_agent
+		&require_same_origin_post
 	);    #the functions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -312,6 +313,60 @@ sub create_user_agent {
 	$ua->agent("Mozilla/5.0 (compatible; Open Food Facts/$version; +https://world.$server_domain)");
 
 	return $ua;
+}
+
+=head2 require_same_origin_post($request_ref)
+
+Checks that a state changing request is a POST request that can be attributed to
+our own origin, in order to protect cookie authenticated endpoints against CSRF
+(cross site request forgery).
+
+The function returns true only if both of the following checks pass:
+
+=over 4
+
+=item * the request method is C<POST>.
+
+Requiring C<POST> is enough to defeat simple CSRF attacks, as the session cookie
+is issued with C<SameSite=Lax>, which means that browsers do not send it for
+cross-site POST requests (only for cross-site top-level GET navigations).
+
+=item * if the request has an C<Origin> header, it is equal to the
+C<formatted_subdomain> value of the request (e.g. C<https://world.openfoodfacts.org>).
+
+Browsers always send the C<Origin> header for POST requests, so requests coming
+from another origin are rejected. Non browser clients (curl, mobile apps, our
+integration tests) do not send it, so the check is skipped if the header is not
+present.
+
+=back
+
+Note: an anti-CSRF token is not verified here, as it is handled separately.
+
+=head3 Parameters
+
+=head4 $request_ref - Reference to the request object.
+
+The C<method> and C<formatted_subdomain> fields are used.
+
+=head3 Return value
+
+Returns true (C<1>) if the request is an origin-bound POST request, and false
+(C<0>) otherwise.
+
+The function does not set any response status code: the caller is responsible
+for rejecting the request, for example by returning a 403 Forbidden status code.
+
+=cut
+
+sub require_same_origin_post ($request_ref) {
+	my $method = $request_ref->{method} // $ENV{REQUEST_METHOD} // '';
+	return !!0 unless ($method eq 'POST');
+
+	my $origin = get_http_request_header('Origin');
+	return !!1 unless defined $origin;
+
+	return !!($origin eq $request_ref->{formatted_subdomain});
 }
 
 1;
