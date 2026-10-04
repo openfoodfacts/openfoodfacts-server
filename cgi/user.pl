@@ -27,7 +27,7 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/single_param require_same_origin_post/;
+use ProductOpener::HTTP qw/single_param is_post_request require_same_origin_post/;
 use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
@@ -109,6 +109,8 @@ my @errors = ();
 if ($action eq 'process') {
 
 	# Reject state changes that are not origin-bound POST requests
+	is_post_request($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_invalid_method}{$lc}, 405);
 	require_same_origin_post($request_ref)
 		or display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 
@@ -161,9 +163,8 @@ if (($type eq 'edit_owner') and ($action eq 'display')) {
 		display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 	}
 
-	my $template_data_ref_edit_owner = {
-		pro_moderator_owner => remove_tags_and_quote(single_param('pro_moderator_owner') // ''),
-	};
+	my $template_data_ref_edit_owner
+		= {pro_moderator_owner => remove_tags_and_quote(single_param('pro_moderator_owner') // ''),};
 
 	process_template('web/pages/user_form/user_edit_owner_form.tt.html',
 		$template_data_ref_edit_owner, \$html, $request_ref)
@@ -458,6 +459,8 @@ elsif ($action eq 'display') {
 elsif ($action eq 'process') {
 
 	# Reject state changes that are not origin-bound POST requests
+	is_post_request($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_invalid_method}{$lc}, 405);
 	require_same_origin_post($request_ref)
 		or display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 

@@ -51,6 +51,8 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&format_subdomain
 		&get_cookie_domain
+		&should_use_secure_cookies
+		&is_https_request
 		&get_owner_pretty_path
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -153,6 +155,85 @@ sub get_cookie_domain() {
 	}
 
 	return $cookie_domain;
+}
+
+=head2 is_https_request( )
+
+C<is_https_request()> tells whether the request currently being served reached us over HTTPS.
+
+It is used to decide C<Secure> on cookies, so it must not raise outside of a request: the module
+is also loaded by command line scripts (minion jobs, cron, unit tests) where there is no
+Apache request at all.
+
+=head3 Arguments
+
+None.
+
+=head3 Return Values
+
+True if the current request was received over HTTPS, false otherwise (including when there is no
+current request).
+
+=cut
+
+sub is_https_request() {
+
+	# mod_ssl sets HTTPS in the request environment, REDIRECT_HTTPS is set by rewrite based setups
+	return !!1 if $ENV{HTTPS};
+	return !!1 if $ENV{REDIRECT_HTTPS};
+
+	# request() is only implemented when mod_perl has loaded its registry, which is not the case for
+	# the command line scripts and unit tests that also load this module
+	return !!0 if not eval {require Apache2::RequestUtil; Apache2::RequestUtil->can('request')};
+
+	my $r = Apache2::RequestUtil->request();
+
+	# X-Forwarded-Proto is set by the nginx front end (conf/nginx/snippets/productopener-server.include),
+	# as TLS may be terminated by a load balancer in front of us
+	return !!0 if not defined $r;
+	my $forwarded_proto = $r->headers_in->{'X-Forwarded-Proto'};
+	return !!1 if (defined $forwarded_proto) and ($forwarded_proto eq 'https');
+
+	return !!0;
+}
+
+=head2 should_use_secure_cookies( )
+
+C<should_use_secure_cookies()> tells whether the session and OIDC cookies must be flagged Secure.
+
+The session cookie value is the authentication credential itself, so it must never travel over
+plaintext HTTP. But a Secure cookie is not sent over plain HTTP either, so flagging it on an
+instance that is only reachable over HTTP makes sign-in fail silently: browsers simply discard the
+cookie. Hence the decision is driven by configuration rather than by the current request.
+
+C<$server_options{secure_cookies}> is the authority: set it for every deployment served over
+HTTPS. It has to be configuration and not only the current scheme, because an attacker able to
+force one plaintext request would otherwise strip the attribute, and the credential would then be
+sent back over plaintext on every subsequent request.
+
+The current scheme is still honoured, so that an instance configured for HTTP but actually served
+over HTTPS (a preview deployment, or local development behind a locally trusted certificate)
+behaves like production without having to be reconfigured.
+
+Note that browsers treat C<*.localhost> as a trustworthy origin, but Safari still refuses to store
+Secure cookies sent over plain HTTP on it, so plain HTTP on localhost must keep the flag off.
+
+=head3 Arguments
+
+None.
+
+=head3 Return Values
+
+True if the cookies should be flagged Secure, false otherwise.
+
+=cut
+
+sub should_use_secure_cookies() {
+
+	return !!1 if $server_options{secure_cookies};
+	return !!1 if is_https_request();
+
+	return !!0;
 }
 
 =head2 get_owner_pretty_path ($owner_id)

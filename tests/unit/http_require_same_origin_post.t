@@ -5,72 +5,106 @@ use Test2::V0;
 
 use ProductOpener::HTTP ();
 
-my $formatted_subdomain = 'https://world.openfoodfacts.org';
+our $host = 'world.openfoodfacts.org';
 
-# get_http_request_header() reads the Apache request object: simulate the Origin header
-my $origin;
+# get_http_request_header() reads the Apache request object:
+# simulate the headers sent by the browser, and the Host of the request
+my %headers_in = (Origin => undef, 'Sec-Fetch-Site' => undef);
 {
 	no strict 'refs';
-	no warnings 'redefine';
+	no warnings 'redefine', 'once';
 	*ProductOpener::HTTP::get_http_request_header = sub {
 		my ($header_name) = @_;
-		return $origin if ($header_name eq 'Origin');
-		return undef;
+		return $headers_in{$header_name};
+	};
+	*Apache2::RequestUtil::request = sub {
+		return Test2::Mock::Host->new();
 	};
 }
 
-subtest 'GET requests are rejected' => sub {
-	$origin = $formatted_subdomain;
-	my $request_ref = {method => 'GET', formatted_subdomain => $formatted_subdomain};
-	ok(!ProductOpener::HTTP::require_same_origin_post($request_ref), 'GET is rejected even for our own origin');
-};
+package Test2::Mock::Host;
+sub new {return bless {}, shift}
+sub unparsed_host {return $main::host}
+sub hostname {return $main::host}
 
-subtest 'POST requests from our own origin are accepted' => sub {
-	$origin = $formatted_subdomain;
-	my $request_ref = {method => 'POST', formatted_subdomain => $formatted_subdomain};
-	ok(ProductOpener::HTTP::require_same_origin_post($request_ref), 'same origin POST is accepted');
-};
+package main;
 
-subtest 'POST requests from another origin are rejected' => sub {
-	$origin = 'https://www.example.org';
-	my $request_ref = {method => 'POST', formatted_subdomain => $formatted_subdomain};
-	ok(!ProductOpener::HTTP::require_same_origin_post($request_ref), 'cross origin POST is rejected');
+subtest 'is_post_request' => sub {
+	ok(ProductOpener::HTTP::is_post_request({method => 'POST'}), 'POST is a POST request');
 
-	$origin = $formatted_subdomain . '/';
-	ok(!ProductOpener::HTTP::require_same_origin_post($request_ref), 'origin with a trailing slash is rejected');
-
-	$origin = 'http://world.openfoodfacts.org';
-	ok(!ProductOpener::HTTP::require_same_origin_post($request_ref), 'origin with another scheme is rejected');
-};
-
-subtest 'POST requests without an Origin header are accepted' => sub {
-	# non browser clients (curl, mobile apps) and our integration tests do not send Origin
-	$origin = undef;
-	my $request_ref = {method => 'POST', formatted_subdomain => $formatted_subdomain};
-	ok(ProductOpener::HTTP::require_same_origin_post($request_ref), 'POST without Origin header is accepted');
-};
-
-subtest 'other request methods are rejected' => sub {
-	$origin = $formatted_subdomain;
-	foreach my $method (qw(PUT DELETE PATCH OPTIONS HEAD)) {
-		my $request_ref = {method => $method, formatted_subdomain => $formatted_subdomain};
-		ok(!ProductOpener::HTTP::require_same_origin_post($request_ref), "$method is rejected");
+	foreach my $method (qw(GET PUT DELETE PATCH OPTIONS HEAD)) {
+		ok(!ProductOpener::HTTP::is_post_request({method => $method}), "$method is not a POST request");
 	}
-};
 
-subtest 'the method can be read from the environment' => sub {
+	ok(!ProductOpener::HTTP::is_post_request({}), 'an unknown method is not a POST request');
+
 	local $ENV{REQUEST_METHOD} = 'POST';
-	$origin = $formatted_subdomain;
-	ok(
-		ProductOpener::HTTP::require_same_origin_post({formatted_subdomain => $formatted_subdomain}),
-		'POST from the environment is accepted'
-	);
+	ok(ProductOpener::HTTP::is_post_request({}), 'the method can be read from the environment');
 
 	local $ENV{REQUEST_METHOD} = 'GET';
-	ok(
-		!ProductOpener::HTTP::require_same_origin_post({formatted_subdomain => $formatted_subdomain}),
-		'GET from the environment is rejected'
-	);
+	ok(!ProductOpener::HTTP::is_post_request({}), 'GET from the environment is not a POST request');
+};
+
+subtest 'Sec-Fetch-Site is used to reject cross-site requests' => sub {
+	$headers_in{'Sec-Fetch-Site'} = 'cross-site';
+	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'cross-site requests are rejected');
+
+	$headers_in{'Sec-Fetch-Site'} = 'CROSS-SITE';
+	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'the header value is case insensitive');
+
+	# rejected even if the Origin header matches
+	$headers_in{'Origin'} = "https://$host";
+	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'cross-site is rejected even with a same origin');
+
+	$headers_in{'Sec-Fetch-Site'} = 'same-origin';
+	ok(ProductOpener::HTTP::require_same_origin_post({}), 'same-origin requests are accepted');
+
+	$headers_in{'Sec-Fetch-Site'} = 'same-site';
+	ok(ProductOpener::HTTP::require_same_origin_post({}), 'same-site requests are left to the Origin check');
+
+	$headers_in{'Sec-Fetch-Site'} = 'none';
+	ok(ProductOpener::HTTP::require_same_origin_post({}), 'requests without a referrer are accepted');
+
+	# non browser clients do not send the header
+	$headers_in{'Sec-Fetch-Site'} = undef;
+	ok(ProductOpener::HTTP::require_same_origin_post({}), 'requests without the header are accepted');
+};
+
+subtest 'the Origin host must match the host of the request' => sub {
+	$headers_in{'Origin'} = "https://$host";
+	ok(ProductOpener::HTTP::require_same_origin_post({}), 'the same host is accepted');
+
+	# the scheme can be terminated by a reverse proxy before the request reaches us
+	$headers_in{'Origin'} = "http://$host";
+	ok(ProductOpener::HTTP::require_same_origin_post({}), 'another scheme for the same host is accepted');
+
+	# cc and lc request parameters change the formatted subdomain, but not the host
+	$headers_in{'Origin'} = "https://fr.$host";
+	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'another host is rejected');
+
+	$headers_in{'Origin'} = "https://www.example.org";
+	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'cross origin requests are rejected');
+
+	$headers_in{'Origin'} = "https://$host.example.org";
+	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'a host starting with our host is rejected');
+
+	$headers_in{'Origin'} = "https://$host/";
+	ok(ProductOpener::HTTP::require_same_origin_post({}), 'a trailing slash is ignored');
+
+	# non browser clients do not send the header
+	$headers_in{'Origin'} = undef;
+	ok(ProductOpener::HTTP::require_same_origin_post({}), 'requests without an Origin header are accepted');
+};
+
+subtest 'the port must match' => sub {
+	$headers_in{'Origin'} = "https://$host:8080";
+	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'another port is rejected');
+
+	{
+		local $host = "world.openfoodfacts.org:8080";
+		ok(ProductOpener::HTTP::require_same_origin_post({}),
+			'the same host and port is accepted when the request was sent to that port');
+	}
 };
 
 done_testing();

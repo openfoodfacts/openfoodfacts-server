@@ -129,13 +129,17 @@ compare_to_expected_results($org_cmp_ref, "$expected_result_dir/org-after-valida
 # which is submitted with a POST request
 
 $resp = get_page($moderator_ua, "/cgi/user.pl?type=edit_owner&pro_moderator_owner=org-acme-inc");
-like($resp->decoded_content, qr/ name="pro_moderator_owner" value="org-acme-inc"/,
-	"the moderation organization is prefilled in the form");
+like(
+	$resp->decoded_content,
+	qr/ name="pro_moderator_owner" value="org-acme-inc"/,
+	"the moderation organization is prefilled in the form"
+);
 like($resp->decoded_content, qr/ name="action" value="process"/, "the form is submitted with action=process");
 
 # The state change must not be reachable with a GET request
-$resp = $moderator_ua->get(construct_test_url("/cgi/user.pl?type=edit_owner&action=process&pro_moderator_owner=org-acme-inc"));
-is($resp->code, 403, "setting the moderation organization with a GET request is rejected");
+$resp = $moderator_ua->get(
+	construct_test_url("/cgi/user.pl?type=edit_owner&action=process&pro_moderator_owner=org-acme-inc"));
+is($resp->code, 405, "setting the moderation organization with a GET request is not allowed");
 
 # Submit the form
 $resp = $moderator_ua->post(construct_test_url("/cgi/user.pl"),
