@@ -151,7 +151,30 @@ $template_data_ref->{errors} = \@errors;
 $log->debug("user form - before display / process", {type => $type, action => $action, userid => $userid})
 	if $log->is_debug();
 
-if ($action eq 'display') {
+if (($type eq 'edit_owner') and ($action eq 'display')) {
+
+	# Display a form to set the producers platform moderation organization.
+	# The form is submitted with action=process, which requires a POST request.
+
+	# only admin and pro moderators can change organization freely
+	if (not($request_ref->{admin} or $User{pro_moderator})) {
+		display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+	}
+
+	my $template_data_ref_edit_owner = {
+		pro_moderator_owner => remove_tags_and_quote(single_param('pro_moderator_owner') // ''),
+	};
+
+	process_template('web/pages/user_form/user_edit_owner_form.tt.html',
+		$template_data_ref_edit_owner, \$html, $request_ref)
+		or $html = "<p>" . $tt->error() . "</p>";
+
+	$request_ref->{title} = lang('pro_moderator_edit_owner');
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
+	exit(0);
+}
+elsif ($action eq 'display') {
 
 	# We can pre-fill the form to create an account using the username and password
 	# passed in a form to open a session.
