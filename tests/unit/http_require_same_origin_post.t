@@ -2,32 +2,28 @@ use Modern::Perl '2017';
 use utf8;
 
 use Test2::V0;
+use Test2::Tools::Mock qw/mock/;
 
 use ProductOpener::HTTP ();
 
 our $host = 'world.openfoodfacts.org';
 
-# get_http_request_header() reads the Apache request object:
-# simulate the headers sent by the browser, and the Host of the request
 my %headers_in = (Origin => undef, 'Sec-Fetch-Site' => undef);
-{
-	no strict 'refs';
-	no warnings 'redefine', 'once';
-	*ProductOpener::HTTP::get_http_request_header = sub {
-		my ($header_name) = @_;
-		return $headers_in{$header_name};
-	};
-	*Apache2::RequestUtil::request = sub {
-		return Test2::Mock::Host->new();
-	};
-}
 
-package Test2::Mock::Host;
-sub new {return bless {}, shift}
-sub unparsed_host {return $main::host}
-sub hostname {return $main::host}
+# get_http_request_header() reads the Apache request object: simulate the headers sent by the browser
+my $http_mock = mock 'ProductOpener::HTTP' => (
+	override => [
+		get_http_request_header => sub {
+			my ($header_name) = @_;
+			return $headers_in{$header_name};
+		},
+	]
+);
 
-package main;
+# require_same_origin_post() gets the host of the request with $r->hostname()
+my $request_util_mock
+	= mock 'Apache2::RequestUtil' => (add => [request => sub {return bless {}, 'Apache2::RequestRec'}]);
+my $request_rec_mock = mock 'Apache2::RequestRec' => (add => [hostname => sub {return $host}]);
 
 subtest 'is_post_request' => sub {
 	ok(ProductOpener::HTTP::is_post_request({method => 'POST'}), 'POST is a POST request');
@@ -82,7 +78,7 @@ subtest 'the Origin host must match the host of the request' => sub {
 	$headers_in{'Origin'} = "https://fr.$host";
 	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'another host is rejected');
 
-	$headers_in{'Origin'} = "https://www.example.org";
+	$headers_in{'Origin'} = 'https://www.example.org';
 	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'cross origin requests are rejected');
 
 	$headers_in{'Origin'} = "https://$host.example.org";

@@ -184,15 +184,15 @@ sub is_https_request() {
 
 	# request() is only implemented when mod_perl has loaded its registry, which is not the case for
 	# the command line scripts and unit tests that also load this module
-	return !!0 if not eval {require Apache2::RequestUtil; Apache2::RequestUtil->can('request')};
+	return !!0 if !eval {require Apache2::RequestUtil; Apache2::RequestUtil->can('request')};
 
 	my $r = Apache2::RequestUtil->request();
 
 	# X-Forwarded-Proto is set by the nginx front end (conf/nginx/snippets/productopener-server.include),
 	# as TLS may be terminated by a load balancer in front of us
-	return !!0 if not defined $r;
+	return !!0 if !defined $r;
 	my $forwarded_proto = $r->headers_in->{'X-Forwarded-Proto'};
-	return !!1 if (defined $forwarded_proto) and ($forwarded_proto eq 'https');
+	return !!1 if defined($forwarded_proto) && ($forwarded_proto eq 'https');
 
 	return !!0;
 }
