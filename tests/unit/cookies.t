@@ -3,8 +3,11 @@ use utf8;
 
 use Test2::V0;
 
+use B ();
+
 use ProductOpener::Auth ();
 use ProductOpener::Config qw/%server_options/;
+use ProductOpener::URL qw/is_https_request should_use_secure_cookies/;
 use ProductOpener::Users qw/generate_session_cookie clear_session_cookie/;
 
 # The session cookie value is the authentication credential itself: it is accepted as proof of
@@ -98,6 +101,47 @@ subtest 'the cookie clearing a session carries the same attributes as the cookie
 			}
 		);
 	}
+};
+
+subtest 'should_use_secure_cookies and is_https_request return real booleans' => sub {
+	# Callers must be able to use these in boolean context without any risk of a string or a number
+	# leaking out, so we check that both functions return an SvIsBOOL, that is an SV with both
+	# SVf_IOK and SVf_POK set: it numifies to 1 or 0 and stringifies to "1" or "".
+	# Note that a bare 1 or 0 is *not* a boolean, only !!1, !!0, builtin::true and builtin::false are.
+	my $is_boolean = sub {
+		my ($value) = @_;
+		my $flags = B::svref_2object(\$value)->FLAGS;
+
+		return ($flags & B::SVf_IOK()) && ($flags & B::SVf_POK());
+	};
+
+	with_secure_cookies(
+		1,
+		sub {
+			my $value = should_use_secure_cookies();
+			ok($is_boolean->($value), 'true branch returns an SvIsBOOL');
+			is(0 + $value, 1, 'true branch numifies to 1');
+			is("$value", 1, 'true branch stringifies to "1"');
+		}
+	);
+
+	with_secure_cookies(
+		0,
+		sub {
+			my $value = should_use_secure_cookies();
+			ok($is_boolean->($value), 'false branch returns an SvIsBOOL');
+			is(0 + $value, 0, 'false branch numifies to 0');
+			is("$value", '', 'false branch stringifies to ""');
+		}
+	);
+
+	with_secure_cookies(
+		0,
+		sub {
+			my $value = is_https_request();
+			ok($is_boolean->($value), 'is_https_request returns an SvIsBOOL');
+		}
+	);
 };
 
 done_testing();

@@ -775,7 +775,7 @@ function getCredentialsFromCookie(callback) {
             // is set: calling back on failure would fire requests with "Bearer undefined".
             // Note: several callers do not pass a callback.
             if (typeof callback === 'function') {
-                callback();
+                return callback();
             }
         }
         else {

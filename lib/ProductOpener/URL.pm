@@ -46,6 +46,12 @@ package ProductOpener::URL;
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
+# builtin::true / builtin::false return a real boolean (SvIsBOOL), like !!1 and !!0 do,
+# but read as booleans instead of as a double negation.
+# Note: this needs Perl 5.36 or later, while ProductOpener::PerlStandards declares 5.24,
+# so only use it in code that cannot be reused on an older interpreter.
+use builtin qw< true false >;
+
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
@@ -179,22 +185,22 @@ current request).
 sub is_https_request() {
 
 	# mod_ssl sets HTTPS in the request environment, REDIRECT_HTTPS is set by rewrite based setups
-	return !!1 if $ENV{HTTPS};
-	return !!1 if $ENV{REDIRECT_HTTPS};
+	return true if $ENV{HTTPS};
+	return true if $ENV{REDIRECT_HTTPS};
 
 	# request() is only implemented when mod_perl has loaded its registry, which is not the case for
 	# the command line scripts and unit tests that also load this module
-	return !!0 if not eval {require Apache2::RequestUtil; Apache2::RequestUtil->can('request')};
+	return false if !eval {require Apache2::RequestUtil; Apache2::RequestUtil->can('request')};
 
 	my $r = Apache2::RequestUtil->request();
 
 	# X-Forwarded-Proto is set by the nginx front end (conf/nginx/snippets/productopener-server.include),
 	# as TLS may be terminated by a load balancer in front of us
-	return !!0 if not defined $r;
+	return false if !defined $r;
 	my $forwarded_proto = $r->headers_in->{'X-Forwarded-Proto'};
-	return !!1 if (defined $forwarded_proto) and ($forwarded_proto eq 'https');
+	return true if defined $forwarded_proto && $forwarded_proto eq 'https';
 
-	return !!0;
+	return false;
 }
 
 =head2 should_use_secure_cookies( )
@@ -230,10 +236,10 @@ True if the cookies should be flagged Secure, false otherwise.
 
 sub should_use_secure_cookies() {
 
-	return !!1 if $server_options{secure_cookies};
-	return !!1 if is_https_request();
+	return true if $server_options{secure_cookies};
+	return true if is_https_request();
 
-	return !!0;
+	return false;
 }
 
 =head2 get_owner_pretty_path ($owner_id)
