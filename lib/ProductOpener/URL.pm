@@ -127,7 +127,7 @@ The function returns true after evaluating the true value for the regular expres
 sub subdomain_supports_https ($sd) {
 
 	return $sd unless $sd;
-	return 1 if grep {$_ eq '*'} @ssl_subdomains;
+	return !!1 if grep {$_ eq '*'} @ssl_subdomains;
 	return grep {$_ eq $sd} @ssl_subdomains;
 
 }
@@ -179,22 +179,22 @@ current request).
 sub is_https_request() {
 
 	# mod_ssl sets HTTPS in the request environment, REDIRECT_HTTPS is set by rewrite based setups
-	return 1 if $ENV{HTTPS};
-	return 1 if $ENV{REDIRECT_HTTPS};
+	return !!1 if $ENV{HTTPS};
+	return !!1 if $ENV{REDIRECT_HTTPS};
 
 	# request() is only implemented when mod_perl has loaded its registry, which is not the case for
 	# the command line scripts and unit tests that also load this module
-	return 0 if not eval {require Apache2::RequestUtil; Apache2::RequestUtil->can('request')};
+	return !!0 if not eval {require Apache2::RequestUtil; Apache2::RequestUtil->can('request')};
 
 	my $r = Apache2::RequestUtil->request();
 
 	# X-Forwarded-Proto is set by the nginx front end (conf/nginx/snippets/productopener-server.include),
 	# as TLS may be terminated by a load balancer in front of us
-	return 0 if not defined $r;
+	return !!0 if not defined $r;
 	my $forwarded_proto = $r->headers_in->{'X-Forwarded-Proto'};
-	return 1 if (defined $forwarded_proto) and ($forwarded_proto eq 'https');
+	return !!1 if (defined $forwarded_proto) and ($forwarded_proto eq 'https');
 
-	return 0;
+	return !!0;
 }
 
 =head2 should_use_secure_cookies( )
@@ -230,10 +230,10 @@ True if the cookies should be flagged Secure, false otherwise.
 
 sub should_use_secure_cookies() {
 
-	return 1 if $server_options{secure_cookies};
-	return 1 if is_https_request();
+	return !!1 if $server_options{secure_cookies};
+	return !!1 if is_https_request();
 
-	return 0;
+	return !!0;
 }
 
 =head2 get_owner_pretty_path ($owner_id)
