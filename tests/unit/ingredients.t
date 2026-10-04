@@ -36,6 +36,90 @@ my @tests = (
 		}
 	],
 
+	# "dont X% de Y" marks a share of the parent: the Y ingredient must be
+	# recognized as a sub-ingredient instead of an unknown "dont 4% de boeuf";
+	# the share carries no percent field (the estimator treats sub-ingredient
+	# lists as exhaustive)
+	[
+		'fr-dont-percent-inclusion',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"viandes et sous-produits animaux (36%, dont 4% de bœuf), céréales, sous-produits d'origine végétale (dont 0,4% d'inuline de chicorée)"
+		}
+	],
+
+	# several shares in one declaration, and the product keeps its percent
+	# estimation
+	[
+		'fr-dont-percent-multiple-shares',
+		{
+			lc => "fr",
+			ingredients_text => "viande (dont 4% de bœuf, 2% de poulet), céréales"
+		}
+	],
+
+	# a share name can carry one level of parenthesis (origin): the share is
+	# still recognized, without a percent field
+	[
+		'fr-dont-percent-nested-parenthesis',
+		{
+			lc => "fr",
+			ingredients_text => "viandes (36%, dont 4% de bœuf (France)), céréales"
+		}
+	],
+
+	# in a share list, percent-prefix elements lose their percentage, starting
+	# with the share itself: "dont" enumerations are shares, not product-level
+	# percents
+	[
+		'fr-dont-percent-sauce',
+		{
+			lc => "fr",
+			ingredients_text => "sauce (tomate 60%, dont 20% de concentré, 30% eau), sel"
+		}
+	],
+
+	# the "dont" rewrite is narrow: mid-sentence mentions, and "dont" not
+	# directly followed by a percentage (nutrition remarks), are left alone
+	[
+		'fr-dont-percent-negatives',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"farine, sucre dont 20% de chocolat, glucides (dont sucres), sucre (dont sucres 5%), sel"
+		}
+	],
+
+	# QUID inclusion markers in other languages: "of which", "davon", "di cui"...
+	# introduce a share of the parent, parsed like any percent-prefix
+	[
+		'en-of-which-percent-inclusion',
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (70%, of which 20% olive oil), salt"
+		}
+	],
+
+	[
+		'de-davon-percent-inclusion',
+		{
+			lc => "de",
+			ingredients_text => "Fleisch und tierische Nebenerzeugnisse (30%, davon 20% Rind), Getreide"
+		}
+	],
+
+	# the marker rewrite is narrow: a marker not directly followed by a
+	# percentage (nutrition remark) is left alone, and the dot of "incl."
+	# matches only a literal dot ("inclx" is not a marker)
+	[
+		'en-inclusion-markers-negatives',
+		{
+			lc => "en",
+			ingredients_text => "fat (10%, of which saturates), vegetable oils (70%, inclx 20% olive oil), salt"
+		}
+	],
+
 	[
 		'fr-marmelade',
 		{

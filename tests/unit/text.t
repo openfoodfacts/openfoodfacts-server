@@ -6,7 +6,7 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Text qw/normalize_percentages remove_email/;
+use ProductOpener::Text qw/normalize_percentages regexp_escape remove_email/;
 
 # Patterns according to Unicode CDLR v29
 # Pattern	# Locales using it
@@ -60,6 +60,10 @@ is(normalize_percentages('2500%', 'fr'), "2\N{U+00A0}500\N{U+00A0}%");
 #en
 is(normalize_percentages('2,50%', 'en'), "2.5%");
 is(normalize_percentages('2.50%', 'en'), "2.5%");
+
+# Test regexp_escape
+is(regexp_escape('incl.'), 'incl\\.');
+is(regexp_escape('inclx'), 'inclx');
 
 # Test remove_email
 is(remove_email('test@example.com'), '');

@@ -1,0 +1,100 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:meat",
+         "is_in_taxonomy" : 1,
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "text" : "Fleisch",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "id" : "de:tierische Nebenerzeugnisse",
+         "ingredients" : [
+            {
+               "id" : "en:beef",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 30,
+               "text" : "Rind",
+               "vegan" : "no",
+               "vegetarian" : "no"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "text" : "tierische Nebenerzeugnisse"
+      },
+      {
+         "id" : "en:cereal",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 40,
+         "text" : "Getreide",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:meat",
+         "en:beef"
+      ],
+      "en:non-vegetarian" : [
+         "en:meat",
+         "en:beef"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_lc" : "de",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:meat",
+      "de:tierische Nebenerzeugnisse",
+      "en:cereal",
+      "en:beef"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:meat",
+      "de:tierische Nebenerzeugnisse",
+      "en:cereal",
+      "en:beef",
+      "en:animal"
+   ],
+   "ingredients_text" : "Fleisch und tierische Nebenerzeugnisse (30%, davon 20% Rind), Getreide",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 30,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 70,
+   "ingredients_without_ciqual_codes" : [
+      "de:tierische Nebenerzeugnisse",
+      "en:beef",
+      "en:cereal",
+      "en:meat"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "de:tierische Nebenerzeugnisse",
+      "en:beef",
+      "en:cereal",
+      "en:meat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 3,
+   "lc" : "de",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 1
+}
