@@ -107,6 +107,13 @@ $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 %server_options = (
 
 	cookie_domain => "openfoodfacts.dev",    # if not set, default to $server _domain
+
+	# The session and OIDC cookies carry the authentication credential, so they must not be sent over
+	# plaintext HTTP. Keep this to 1 on any deployment served over HTTPS: a Secure cookie is never
+	# sent back over plain HTTP, so flagging it on a HTTP-only instance makes sign-in fail silently.
+	# Only turn it off for an instance that is deliberately served over plain HTTP.
+	secure_cookies => 1,
+
 	private_products => 1,    # Make products visible only to the owner
 							  # Tells that session_cookie (which is normally limitted by ip)
 							  # can be trusted also for those ip addresses
