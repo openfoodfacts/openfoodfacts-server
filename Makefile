@@ -93,6 +93,14 @@ endif
 # away from the configured domain (this list used to be hardcoded to
 # productopener.localhost, which no longer is the domain we serve).
 HOSTS=127.0.0.1 ${PRODUCT_OPENER_DOMAIN} world.${PRODUCT_OPENER_DOMAIN} fr.${PRODUCT_OPENER_DOMAIN} static.${PRODUCT_OPENER_DOMAIN} ssl-api.${PRODUCT_OPENER_DOMAIN} fr-en.${PRODUCT_OPENER_DOMAIN}
+
+# Base URL of the dev instance, used by the messages the targets below print.
+# Derived from PRODUCT_OPENER_DOMAIN and the published host port, both of which
+# per-worktree isolation changes, so these messages stay correct. The port is
+# omitted when it is the default 80.
+PO_URL_HOST := world.$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
+PO_URL_PORT := $(if $(filter 80,$(or $(strip $(PRODUCT_OPENER_HOST_PORT)),80)),,:$(strip $(PRODUCT_OPENER_HOST_PORT)))
+PO_URL := http://$(PO_URL_HOST)$(PO_URL_PORT)/
 # commands aliases
 DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # docker command that do not need the shared network
@@ -159,14 +167,14 @@ goodbye:
 # Local #
 #-------#
 dev: hello build init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
-	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
+	@echo "🥫 You should be able to access your local install of Open Food Facts at $(PO_URL)"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~4M products)."
 
 #-------#
 # CI    #
 #-------#
 dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
-	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
+	@echo "🥫 You should be able to access your local install of Open Food Facts at $(PO_URL)"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~4M products)."
 
 edit_etc_hosts:
@@ -203,7 +211,7 @@ build:
 _up: run_deps check_agent_ports
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
-	@echo "🥫 started service at http://$(if $(PRODUCT_OPENER_HOST_PORT),$(PRODUCT_OPENER_HOST_PORT),80)/"
+	@echo "🥫 started service at $(PO_URL)"
 
 up: build create_folders _up
 
@@ -227,12 +235,12 @@ reset: hdown up
 restart: run_deps
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
-	@echo "🥫  started service at http://openfoodfacts.localhost"
+	@echo "🥫  started service at $(PO_URL)"
 
 restart_backend:
 	@echo "🥫 Restarting backend container …"
 	${DOCKER_COMPOSE} restart backend
-	@echo "🥫 Apache restarted successfully at http://openfoodfacts.localhost"
+	@echo "🥫 Apache restarted successfully at $(PO_URL)"
 
 stop: stop_deps
 	@echo "🥫 Stopping containers …"
