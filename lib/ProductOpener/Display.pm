@@ -172,16 +172,12 @@ use URI::Escape::XS qw/uri_escape/;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use HTML::Entities;
-use DateTime;
-use DateTime::Locale;
+use DateTime::Lite;
 use MongoDB;
 use Tie::IxHash;
 use JSON::MaybeXS;
 use Text::CSV;
 use XML::Simple;
-use CLDR::Number;
-use CLDR::Number::Format::Decimal;
-use CLDR::Number::Format::Percent;
 use Storable qw(dclone freeze);
 use boolean;
 use Excel::Writer::XLSX;
@@ -301,6 +297,12 @@ $tt = Template->new(
 				# Use uc() on first character which works correctly with UTF-8
 				# when utf8 flag is set (Template Toolkit handles this with ENCODING => 'UTF-8')
 				return uc(substr($text, 0, 1)) . substr($text, 1);
+			},
+			js => sub {
+				my $text = shift;
+				return '' unless defined $text;
+				# Encode the text as a JSON string for safe inclusion in JavaScript
+				return $json_utf8->encode($text);
 			},
 		},
 	}
@@ -989,21 +991,13 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 sub _get_date ($t) {
 
 	if (defined $t) {
-		my @codes = DateTime::Locale->codes;
-		my $locale;
-		if (grep {$_ eq $lc} @codes) {
-			$locale = DateTime::Locale->load($lc);
-		}
-		else {
-			$locale = DateTime::Locale->load('en');
-		}
-
-		my $dt = DateTime->from_epoch(
-			locale => $locale,
+		my $dt = DateTime::Lite->from_epoch(
+			locale => $lc,
 			time_zone => $reference_timezone,
 			epoch => $t
 		);
 		return $dt;
+
 	}
 	else {
 		return;
@@ -2133,7 +2127,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			my $data_sort;
 
 			my @sameAs = ();
-			if ($tagtype eq 'nutrition_grades') {
+			if (($tagtype eq 'nutrition_grades') or ($tagtype eq 'nutriscore')) {
 				my $grade;
 				if ($tagid =~ /^[abcde]$/) {
 					$grade = uc($tagid);
@@ -2358,6 +2352,8 @@ HTML
 		# Nutri-Score nutrition grades colors histogram / Environmental-Score / NOVA groups histogram
 
 		if (   ($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+			or ($request_ref->{groupby_tagtype} eq 'nutriscore')
+			or ($request_ref->{groupby_tagtype} eq 'ecoscore')
 			or ($request_ref->{groupby_tagtype} eq 'environmental_score')
 			or ($request_ref->{groupby_tagtype} eq 'nova_groups'))
 		{
@@ -2369,7 +2365,9 @@ HTML
 			my $y_title = lang("number_of_products");
 			my $x_title = lang($request_ref->{groupby_tagtype} . "_p");
 
-			if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
+			if (   ($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+				or ($request_ref->{groupby_tagtype} eq 'nutriscore'))
+			{
 				$categories = "'A','B','C','D','E','" . lang("not_applicable") . "','" . lang("unknown") . "'";
 				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
@@ -2377,7 +2375,9 @@ HTML
 					$series_data .= (($products{$nutrition_grade} || 0) + 0) . ',';
 				}
 			}
-			elsif ($request_ref->{groupby_tagtype} eq 'environmental_score') {
+			elsif (($request_ref->{groupby_tagtype} eq 'ecoscore')
+				or ($request_ref->{groupby_tagtype} eq 'environmental_score'))
+			{
 				$categories = "'A+','A','B','C','D','E','F','" . lang("not_applicable") . "','" . lang("unknown") . "'";
 				$colors = "'#1E8F4E','#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
@@ -4891,7 +4891,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					# if the value is "unknown", we need to add a condition on the field being empty
 
 					my @tagtype_allowing_unknown_as_value
-						= qw(nutrition_grades nova_groups environmental_score pnns_groups_1 pnns_groups_2 food_groups);
+						= qw(nutrition_grades nutriscore nova_groups ecoscore environmental_score pnns_groups_1 pnns_groups_2 food_groups);
 					# warning: unknown is a value for pnns_groups_1 and 2
 					if (
 						(
@@ -5326,8 +5326,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"ecoscore_data.environmental_score_not_applicable_for_category" => 1,
 			"ecoscore_grade" => 1,
 			"ecoscore_score" => 1,
-			"forest_footprint_data.grade" => 1,
-			"forest_footprint_data.footprint_per_kg" => 1,
+			"forest_footprint_2026.grade" => 1,
+			"forest_footprint_2026.total_footprint_per_kg" => 1,
+			"forest_footprint_2026.summary" => 1,
+			"forest_footprint_2026.primary_ingredients" => 1,
 			"ingredients_analysis_tags" => 1,
 			"ingredients_n" => 1,
 			"labels_tags" => 1,
@@ -6042,7 +6044,7 @@ sub get_search_field_path_components ($field) {
 	}
 	# forest footprint
 	elsif ($field eq "forest_footprint") {
-		@fields = ('forest_footprint_data', 'footprint_per_kg');
+		@fields = ('forest_footprint_2026', 'total_footprint_per_kg');
 	}
 	# we assume other fields are nutrients ids
 	else {

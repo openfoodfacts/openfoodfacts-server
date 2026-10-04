@@ -25,6 +25,7 @@
             ]
          }
       },
+      "summary" : "with_primary_ingredients",
       "total_footprint_per_kg" : 0.0229166666666667
    },
    "ingredients" : [
@@ -118,8 +119,8 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:vegetable-oil",
-      "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
       "en:water",
       "en:salt",
       "en:palm-oil",
@@ -142,7 +143,9 @@
    "known_ingredients_n" : 5,
    "lc" : "fr",
    "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
+      "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-d"
    ],
    "unknown_ingredients_n" : 0
 }

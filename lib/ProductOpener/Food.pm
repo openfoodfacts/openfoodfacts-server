@@ -206,7 +206,10 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 
 =cut
 
-# http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
+# Core nutrients mandatory in the Canadian Nutrition Facts table, per the Food and Drug
+# Regulations as amended by SOR/2016-305 (in force for all businesses since 2025-12-14):
+# https://gazette.gc.ca/rp-pr/p2/2016/2016-12-14/html/sor-dors305-eng.html
+# https://inspection.canada.ca/en/food-labels/labelling/industry/nutrition-labelling/nutrition-facts-table
 %nutrients_tables = (
 	off_europe => [
 		(
@@ -312,17 +315,17 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-serum-proteins-', '-nucleotides-',
 			'salt', '-added-salt-',
 			'sodium', 'alcohol',
-			'#vitamins', 'vitamin-a',
-			'beta-carotene-', 'vitamin-d-',
+			'#vitamins', 'vitamin-a-',
+			'beta-carotene-', 'vitamin-d',
 			'vitamin-d2-', 'vitamin-d3-',
 			'vitamin-e-', 'vitamin-k-',
-			'vitamin-c', 'vitamin-b1-',
+			'vitamin-c-', 'vitamin-b1-',
 			'vitamin-b2-', 'vitamin-pp-',
 			'vitamin-b6-', 'vitamin-b9-',
 			'folates-', 'vitamin-b12-',
 			'biotin-', 'pantothenic-acid-',
 			'#minerals', 'silica-',
-			'bicarbonate-', 'potassium-',
+			'bicarbonate-', 'potassium',
 			'chloride-', 'calcium',
 			'phosphorus-', 'iron',
 			'magnesium-', 'zinc-',

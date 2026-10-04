@@ -107,29 +107,54 @@ my %unit_factor = (
 
 Loads the Ciqual table. Some Ciqual categories may have missing values for some nutrients.
 
+As some CIQUAL codes can be removed in new version of the CIQUAL table, we load multiple tables.
+
+Versions to load are configured iun external-data/ciqual/ciqual/CIQUAL_versions.csv
+
 =cut
 
 sub load_ciqual_table() {
-	my $ciqual_csv_file = $data_root . "/external-data/ciqual/ciqual/CIQUAL.csv";
-	my $ciqual_version_file = $data_root . "/external-data/ciqual/ciqual/CIQUAL_version.txt";
+	my $ciqual_dir = $data_root . "/external-data/ciqual/ciqual";
+	my $ciqual_versions_file = "$ciqual_dir/CIQUAL_versions.csv";
 
-	my $rows_ref = [];
+	my @version_files;
+
+	open(my $fh, '<:encoding(UTF-8)', $ciqual_versions_file)
+		or die("Cannot open $ciqual_versions_file: " . $! . "\n");
+	while (my $line = <$fh>) {
+		chomp $line;
+		next if $line =~ /^\s*$/;
+		my ($year, $filename) = split /\t/, $line, 2;
+		push @version_files, {year => $year, file => "$ciqual_dir/$filename"};
+	}
+	close($fh);
+	@version_files = sort {$a->{year} <=> $b->{year}} @version_files;
+	$log->info("Loading Ciqual data from multiple versions", {versions => scalar(@version_files)})
+		if $log->is_info();
+
+	foreach my $version (@version_files) {
+		_load_ciqual_version($version->{file});
+	}
+
+	return;
+}
+
+sub _load_ciqual_version ($ciqual_csv_file) {
+
+	# If the table contains nutrients that we cannot recognize with the nutrients taxonomy,
+	# this function will die, unless we explicitly ignore them here.
+	# This is to make sure that we do not miss any nutrients that we should recognize, especially when a new version of the CIQUAL table is released.
+	my %nutrients_that_can_be_ignored = (
+		"Protein, crude, N x 6.25" => 1,
+		"Organic acids" => 1,
+	);
 
 	my $encoding = "UTF-8";
 
-	open(my $version_file, "<:encoding($encoding)", $ciqual_version_file)
-		or die("Cannot open $ciqual_version_file: " . $! . "\n");
-	chomp(my $ciqual_version = <$version_file>);
-	close($version_file);
-
-	$log->debug("opening ciqual CSV file", {file => $ciqual_csv_file, version => $ciqual_version})
+	$log->debug("opening ciqual CSV file", {file => $ciqual_csv_file})
 		if $log->is_debug();
 
-	# alim_grp_code	alim_ssgrp_code	alim_ssssgrp_code	alim_grp_nom_eng	alim_ssgrp_nom_eng	alim_ssssgrp_nom_eng	alim_code	alim_nom_eng	alim_nom_sci	Energy, Regulation EU No 1169/2011 (kJ/100g)	Energy, Regulation EU No 1169/2011 (kcal/100g)	Energy, N x Jones' factor, with fibres (kJ/100g)	Energy, N x Jones' factor, with fibres (kcal/100g)	Water (g/100g)	Protein (g/100g)	Protein, crude, N x 6.25 (g/100g)	Carbohydrate (g/100g)	Fat (g/100g)	Sugars (g/100g)	fructose (g/100g)	galactose (g/100g)	glucose (g/100g)	lactose (g/100g)	maltose (g/100g)	sucrose (g/100g)	Starch (g/100g)	Fibres (g/100g)	Polyols (g/100g)	Ash (g/100g)	Alcohol (g/100g)	Organic acids (g/100g)	FA saturated (g/100g)	FA mono (g/100g)	FA poly (g/100g)	FA 4:0 (g/100g)	FA 6:0 (g/100g)	FA 8:0 (g/100g)	FA 10:0 (g/100g)	FA 12:0 (g/100g)	FA 14:0 (g/100g)	FA 16:0 (g/100g)	FA 18:0 (g/100g)	FA 18:1 n-9 cis (g/100g)	FA 18:2 9c,12c (n-6) (g/100g)	FA 18:3 c9,c12,c15 (n-3) (g/100g)	FA 20:4 5c,8c,11c,14c (n-6) (g/100g)	FA 20:5 5c,8c,11c,14c,17c (n-3) EPA (g/100g)	FA 22:6 4c,7c,10c,13c,16c,19c (n-3) DHA (g/100g)	Cholesterol (mg/100g)	Salt (g/100g)	Calcium (mg/100g)	Chloride (mg/100g)	Copper (mg/100g)	Iron (mg/100g)	Iodine (µg/100g)	Magnesium (mg/100g)	Manganese (mg/100g)	Phosphorus (mg/100g)	Potassium (mg/100g)	Selenium (µg/100g)	Sodium (mg/100g)	Zinc (mg/100g)	Retinol (µg/100g)	Beta-carotene (µg/100g)	Vitamin D (µg/100g)	Vitamin E (mg/100g)	Vitamin K1 (µg/100g)	Vitamin K2 (µg/100g)	Vitamin C (mg/100g)	Vitamin B1 or Thiamin (mg/100g)	Vitamin B2 or Riboflavin (mg/100g)	Vitamin B3 or Niacin (mg/100g)	Vitamin B5 or Pantothenic acid (mg/100g)	Vitamin B6 (mg/100g)	Vitamin B9 or Folate (µg/100g)	Vitamin B12 (µg/100g)
-
-	my $csv_options_ref = {binary => 1, sep_char => "\t"};    # should set binary attribute.
-
-	my $csv = Text::CSV->new($csv_options_ref)
+	my $csv = Text::CSV->new({binary => 1, sep_char => "\t", auto_diag => 1})
 		or die("Cannot use CSV: " . Text::CSV->error_diag());
 
 	if (open(my $io, "<:encoding($encoding)", $ciqual_csv_file)) {
@@ -142,9 +167,10 @@ sub load_ciqual_table() {
 
 		# read headers to populate @nutrients, corresponding to each columns
 		foreach my $nutrient (@$header_row_ref) {
-			# Energy, Regulation EU No 1169/2011 (kJ/100g)	Energy, Regulation EU No 1169/2011 (kcal/100g)
-			# -> Energy
+			# Normalize header text for both English and French
+			$nutrient =~ s/\/100 g/\/100g/g;
 			$nutrient =~ s/^Energy.*\((.*)$/Energy ($1/;
+			$nutrient =~ s/^Energie.*\((.*)$/Energy ($1/;
 
 			if ($nutrient =~ /\s+\((g|mg|mcg|kj|kcal)\/100g\)/) {
 				my $nutrient_name = $`;
@@ -153,6 +179,9 @@ sub load_ciqual_table() {
 				# Check if we recognize the name of the ingredient
 				my $exists_in_taxonomy;
 				my $nid = canonicalize_taxonomy_tag("en", "nutrients", $nutrient_name, \$exists_in_taxonomy);
+				if (!$exists_in_taxonomy) {
+					$nid = canonicalize_taxonomy_tag("fr", "nutrients", $nutrient_name, \$exists_in_taxonomy);
+				}
 				if ($exists_in_taxonomy) {
 					$nid =~ s/^zz://;
 					push @nutrients,
@@ -162,9 +191,8 @@ sub load_ciqual_table() {
 						unit => $unit,
 						};
 				}
-				else {
-					# TODO: some nutrients are not automatically recognized yet
-					# (e.g. most fatty acids identified with column names like ag_18_3_a_lino_g)
+				elsif (not exists $nutrients_that_can_be_ignored{$nutrient_name}) {
+					die("Unrecognized nutrient in Ciqual CSV: $nutrient_name\n");
 				}
 			}
 			$col++;
@@ -174,12 +202,17 @@ sub load_ciqual_table() {
 
 		while ($row_ref = $csv->getline($io)) {
 			my $ciqual_id = $row_ref->[6];    # alim_code
-			my $name_en = $row_ref->[7];    # FOOD_LABEL
+			my $name = $row_ref->[7];    # FOOD_LABEL
 
-			$ciqual_data{$ciqual_id} = {
-				name_en => $name_en,
-				nutrients => {}
-			};
+			if (!exists $ciqual_data{$ciqual_id}) {
+				$ciqual_data{$ciqual_id} = {
+					name_en => $name,
+					nutrients => {}
+				};
+			}
+			else {
+				$ciqual_data{$ciqual_id}{name_en} = $name;
+			}
 
 			# fetch each nutrients we need
 			foreach my $nutrient_ref (@nutrients) {
@@ -284,10 +317,15 @@ sub load_ciqual_calnut_table() {
 			# We select the middle bound value
 			next if $hypothesis ne "MB";
 
-			$ciqual_data{$ciqual_id} = {
-				name_fr => $name_fr,
-				nutrients => {}
-			};
+			if (!exists $ciqual_data{$ciqual_id}) {
+				$ciqual_data{$ciqual_id} = {
+					name_fr => $name_fr,
+					nutrients => {}
+				};
+			}
+			else {
+				$ciqual_data{$ciqual_id}{name_fr} = $name_fr;
+			}
 
 			# fetch each nutrients we need
 			foreach my $nutrient_ref (@nutrients) {

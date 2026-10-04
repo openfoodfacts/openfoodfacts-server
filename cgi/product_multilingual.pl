@@ -137,7 +137,7 @@ sub create_packaging_components_from_request_parameters ($product_ref) {
 			"quantity_per_unit", "weight_measured", "weight_specified"
 			)
 		{
-			$input_packaging_ref->{$property} = remove_tags_and_quote(decode utf8 => single_param($prefix . $property));
+			$input_packaging_ref->{$property} = decode utf8 => single_param($prefix . $property);
 		}
 
 		my $response_ref = {};   # Currently unused, may be used to display warnings in future versions of the interface
@@ -783,15 +783,8 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 		$moderator = 1;
 	}
 
-	$request_ref->{header} .= <<HTML
-<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-HTML
-		;
-
 	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>

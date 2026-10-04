@@ -41,6 +41,7 @@
             ]
          }
       },
+      "summary" : "with_primary_ingredients",
       "total_footprint_per_kg" : 0.1755
    },
    "ingredients" : [
@@ -59,6 +60,10 @@
       "en:rspo"
    ],
    "lc" : "fr",
+   "misc_tags" : [
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-d"
+   ],
    "origins_tags" : [
       "en:unknown"
    ]

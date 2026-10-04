@@ -2584,6 +2584,11 @@ sub convert_salt_to_sodium ($salt_value) {
 	},
 );
 
+# Polyols that can be entered individually in the nutrition facts, without a value for the
+# aggregate "polyols" nutrient. Erythritol is listed here too, but it is handled separately
+# above as it does not contribute any energy, unlike the other polyols.
+my @individual_polyols_nids = ("erythritol", "isomalt", "maltitol", "sorbitol");
+
 =head2 compute_energy_from_nutrients_for_nutrients_set ( $nutrients_ref, $unit )
 
 Computes the energy from other nutrients for a given input set.
@@ -2618,6 +2623,20 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 		and (defined $proteins_value))
 	{
 
+		# If we do not have a value for the aggregate "polyols" nutrient, but we have values for
+		# individual polyols (e.g. isomalt, maltitol, sorbitol, erythritol), compute the polyols
+		# value as the sum of the individual polyols values, so that they are taken into account
+		# in the energy computation below (instead of being counted as regular carbohydrates).
+		my $polyols_value = deep_get($nutrients_ref, "polyols", "value");
+		if (not defined $polyols_value) {
+			foreach my $individual_polyol_nid (@individual_polyols_nids) {
+				my $individual_polyol_value = deep_get($nutrients_ref, $individual_polyol_nid, "value");
+				if (defined $individual_polyol_value) {
+					$polyols_value += $individual_polyol_value;
+				}
+			}
+		}
+
 		foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
 
 			my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$lc_unit};
@@ -2627,19 +2646,19 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 				my $nid_minus = $';
 				$nid = $`;
 
-				# If we are computing carbohydrates minus polyols, and we do not have a value for polyols
-				# but we have a value for erythritol (which is a polyol), then we need to remove erythritol
-				if (($nid_minus eq "polyols") and (not deep_exists($nutrients_ref, $nid_minus, "value"))) {
-					$nid_minus = "erythritol";
+				if ($nid_minus eq "polyols") {
+					$grams -= $polyols_value || 0;
 				}
-				# Similarly for polyols minus erythritol
-				if (($nid eq "polyols") and (not deep_exists($nutrients_ref, $nid, "value"))) {
-					$nid = "erythritol";
+				else {
+					$grams -= deep_get($nutrients_ref, $nid_minus, "value") || 0;
 				}
-
-				$grams -= deep_get($nutrients_ref, $nid_minus, "value") || 0;
 			}
-			$grams += deep_get($nutrients_ref, $nid, "value") || 0;
+			if ($nid eq "polyols") {
+				$grams += $polyols_value || 0;
+			}
+			else {
+				$grams += deep_get($nutrients_ref, $nid, "value") || 0;
+			}
 			$computed_energy += $grams * $energy_per_gram;
 		}
 
