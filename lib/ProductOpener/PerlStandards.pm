@@ -23,12 +23,13 @@ package ProductOpener::PerlStandards;
 use 5.36.0;
 use strict;
 use warnings;
+use builtin ();
 use feature ();
 use utf8;
 
 sub import {
 	warnings->import;
-	warnings->unimport('experimental::signatures');
+	warnings->unimport('experimental::signatures', 'experimental::builtin');
 	strict->import;
 	feature->import(qw/signatures :5.24/);
 	utf8->import;
@@ -66,6 +67,14 @@ This module is a replacement for the following:
     no warnings 'experimental::signatures';
     use utf8;
 
+It also makes the builtin:: functions available, so that builtin::true and
+builtin::false can be used instead of !!1 and !!0. They must be called with
+their full name: we deliberately do not "use builtin qw/true false>" here,
+because the bare names true and false would then silently shadow the ones
+imported by the boolean module in the 24 files that still use it, and
+boolean::true is stored as a real MongoDB boolean while builtin::true is
+stored as a double.
+
 Most of this module's code has been copied from the Veure::Module
 available on http://blogs.perl.org/users/ovid/2019/03/enforcing-simple-standards-with-one-module.html
 
@@ -76,3 +85,5 @@ Notes:
   our tests with Debian trixie and Perl 5.40: see the Dockerfile
 - we do not use "use Modern::Perl '2023'" (which enables the same :5.36 feature bundle plus
   signatures) because Modern::Perl does not enable the utf8 pragma
+- the builtin:: functions exist since Perl 5.36 and are called experimental until Perl 5.40,
+  so we disable the experimental::builtin warnings category like the one for signatures
