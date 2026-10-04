@@ -24,7 +24,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Log::Any::Adapter ('Stdout');
@@ -94,14 +94,13 @@ if (not defined $channel) {
 
 my $sendings = 0;    # Number of alerts sent by the bot
 
-sub send_msg($) {
+sub send_msg ($msg) {
 
 	# Don't send and exit if the number of alerts sent equal the maximum allowed
 	if ($sendings == $max_sendings) {
 		exit(0);
 	}
 	$sendings++;
-	my $msg = shift;
 
 	# if "channel=STDIN" don't send any message on slack
 	if ($channel eq "STDIN") {

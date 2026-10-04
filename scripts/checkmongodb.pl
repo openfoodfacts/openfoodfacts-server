@@ -22,7 +22,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Log::Any::Adapter ('Stdout');
@@ -30,9 +30,7 @@ use Log::Any::Adapter ('Stdout');
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Slack qw/send_slack_message/;
 
-sub send_msg($) {
-
-	my $msg = shift;
+sub send_msg ($msg) {
 
 	send_slack_message('#infrastructure', 'checkmongodb', $msg, ':hamster:');
 

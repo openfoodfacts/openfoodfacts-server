@@ -31,7 +31,7 @@ sub import {
 	warnings->import;
 	warnings->unimport('experimental::signatures', 'experimental::builtin');
 	strict->import;
-	feature->import(qw/signatures :5.24/);
+	feature->import(qw/signatures :5.36/);
 	utf8->import;
 	return;
 }
@@ -83,7 +83,7 @@ Notes:
   and stable (ie. they no longer emit an experimental::signatures warning) since Perl 5.36
 - 5.36 is the oldest Perl version we run in production (Debian bookworm), while we develop and run
   our tests with Debian trixie and Perl 5.40: see the Dockerfile
-- we do not use "use Modern::Perl '2023'" (which enables the same :5.36 feature bundle plus
-  signatures) because Modern::Perl does not enable the utf8 pragma
+- this module replaces Modern::Perl, which we used before: "use Modern::Perl '2023'" would enable the
+  same :5.36 feature bundle plus signatures, but it does not enable the utf8 pragma
 - the builtin:: functions exist since Perl 5.36 and are called experimental until Perl 5.40,
   so we disable the experimental::builtin warnings category like the one for signatures

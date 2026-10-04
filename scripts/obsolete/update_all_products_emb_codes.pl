@@ -22,7 +22,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -81,9 +81,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 				# FRANCE -> FR
 				$product_ref->{$field} =~ s/(^|,|, )(france)/$1FR/ig;
 
-				sub normalize_emb_ce_code($$) {
-					my $country = shift;
-					my $number = shift;
+				sub normalize_emb_ce_code ($country, $number) {
 					$country = uc($country);
 					$number =~ s/\D//g;
 					$number =~ s/^(\d\d)(\d\d\d)(\d)/$1.$2.$3/;
