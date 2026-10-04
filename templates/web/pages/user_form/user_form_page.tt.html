@@ -186,6 +186,7 @@
         [% END %]
 
         <input type="hidden" name="action" value="process" />
+        <input type="hidden" name="csrf_token" value="[% csrf_token %]">
         <input type="hidden" name="type" value="[% type %]" />
         [% IF userid %]
             <input type="hidden" name="userid" value="[% userid %]" />

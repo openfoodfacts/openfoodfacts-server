@@ -1123,6 +1123,7 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 		access_expires_at => $access_expires_at,
 		id_token => $id_token
 	};
+
 	$user_ref->{last_login_t} = time();
 
 	# Store user data
