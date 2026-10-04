@@ -11,6 +11,8 @@ use JSON;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ProductsTags qw/compute_field_tags/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::IngredientsStrings
+	qw/init_percent_or_quantity_regexps %percent_or_quantity_regexps %percent_or_quantity_with_symbols_regexps/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
@@ -73,6 +75,16 @@ my @tests = (
 			lc => "fr",
 			ingredients_text =>
 				"Additifs nutritionnels : vitamine E : 15 mg, vitamine D3 : 100 µg, vitamine B12 : 2 μg, biotine : 5 ug"
+		}
+	],
+
+	# percent symbols are not dosage units: "(%)" and "(% DV)" stay sub-ingredients,
+	# only the microgram symbols are consumed as units
+	[
+		'fr-percent-symbol-sub-ingredients',
+		{
+			lc => "fr",
+			ingredients_text => "vin (%), sucre, vitamines (% DV), sel"
 		}
 	],
 
@@ -1523,5 +1535,17 @@ is(
 	[['en:protein', undef], ['en:manganese', '3 mg'], ['en:choline', '58 mg'], ['en:taurine', '660 mg']],
 	'known ingredients and dosages survive mixed known and unknown codes on separate lines'
 );
+
+# The with_symbols variant must actually widen the base regexp: if the base
+# regexp drifts and no longer contains the unit capture group, the widening
+# substitution becomes a no-op and microgram dosages stop being consumed.
+init_percent_or_quantity_regexps($_) for ('de', 'en', 'fr');
+foreach my $lc ('de', 'en', 'fr') {
+	isnt(
+		$percent_or_quantity_with_symbols_regexps{$lc},
+		$percent_or_quantity_regexps{$lc},
+		"with_symbols variant widens the base regexp ($lc)"
+	);
+}
 
 done_testing();

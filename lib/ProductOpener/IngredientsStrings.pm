@@ -97,7 +97,10 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Tags qw/generate_regexps_matching_taxonomy_entries generate_regexps_matching_taxonomy_stopwords/;
+use ProductOpener::Tags
+	qw/generate_regexps_matching_taxonomy_entries generate_regexps_matching_taxonomy_stopwords get_all_taxonomy_entries get_property/;
+use ProductOpener::Text qw/regexp_escape/;
+use Log::Any qw/$log/;
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 # U+00B7 "·" (Middle Dot). Is a common character in Catalan. To avoid to break ingredients,
@@ -686,15 +689,50 @@ that parenthesized dosage contexts like "Additifs nutritionnels (/kg)" or
 
 =cut
 
+# Some unit symbols cannot be taxonomy synonyms: canonicalization would fold them
+# into the base unit ("\N{U+00B5}g" would canonicalize to "g"), so the taxonomy
+# carries them as symbol: properties instead. Compile the symbols that carry the
+# micro sign U+00B5 into one case-insensitive alternation, with the Greek small
+# letter mu U+03BC made interchangeable and the ASCII fold added
+# ("\N{U+00B5}g" -> "ug"), as all three spellings occur on labels and OCR output.
+# The other symbol: properties ("%", "% vol", "% dv") are deliberately left out:
+# consuming them would delete sub-ingredients like "wine (%)" or
+# "vitamins (% DV)" that the dosage parsing used to keep.
+my $unit_symbols_regexp;
+
+sub init_unit_symbols_regexps() {
+
+	my @forms = ();
+	foreach my $tagid (get_all_taxonomy_entries("units")) {
+		my $symbol = get_property("units", $tagid, "symbol:en");
+		next if not defined $symbol;
+		$symbol =~ s/^\s+|\s+$//g;
+		next if $symbol eq '';
+		next if $symbol !~ /\N{U+00B5}/;
+		push @forms, regexp_escape($symbol);
+		(my $mu = $symbol) =~ s/\N{U+00B5}/\N{U+03BC}/g;
+		push @forms, regexp_escape($mu);
+		(my $ascii = $symbol) =~ s/\N{U+00B5}/u/g;
+		push @forms, regexp_escape($ascii);
+	}
+
+	# an empty alternation would match the empty string: never match instead
+	my $alternation = join('|', sort {(length $b <=> length $a) || ($a cmp $b)} grep {length} @forms);
+	$unit_symbols_regexp = ($alternation ne '') ? "(?i:$alternation)" : '(?!)';
+
+	return;
+}
+
 sub unit_only_string ($ingredients_lc, $string) {
 
 	(scalar keys %units_regexps) or init_units_regexps();
+	(defined $unit_symbols_regexp) or init_unit_symbols_regexps();
 
 	my $units = join(
 		'|',
 		grep {length} (
 			_compound_unit_regexp_alternatives(), @UNIT_ACTIVITY_NUMERATORS,
-			@UNIT_MASS_NUMERATORS, "(?i:\N{U+00B5}g|\N{U+03BC}g|ug)",
+			@UNIT_MASS_NUMERATORS, $unit_symbols_regexp,
 			$units_regexps{$ingredients_lc} || '',
 		)
 	);
@@ -709,6 +747,7 @@ sub unit_only_string ($ingredients_lc, $string) {
 sub init_percent_or_quantity_regexps($ingredients_lc) {
 
 	(scalar keys %units_regexps) or init_units_regexps();
+	(defined $unit_symbols_regexp) or init_unit_symbols_regexps();
 
 	if (not exists $percent_or_quantity_regexps{$ingredients_lc}) {
 
@@ -730,9 +769,10 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		$units_regexp_in_lc =~ s{\\/}{(?:/|\N{U+2044}|\N{U+FF0F})}g;
 		my $compound_units = join('|', _compound_unit_regexp_alternatives());
 		my $activity_units = join('|', @UNIT_ACTIVITY_NUMERATORS);
-		# The units taxonomy stores the microgram symbol as a symbol: property instead of a
-		# synonym (a plain "µg" synonym would be canonicalized to "g"), so the symbol forms
-		# are added here: micro sign U+00B5, Greek small letter mu U+03BC seen in OCR, "ug"
+		# The units taxonomy stores the microgram symbol as a symbol: property instead
+		# of a synonym (a plain "µg" synonym would be canonicalized to "g"), so it is
+		# absent from $units_except_percent; the symbol forms are added to the unit
+		# capture group in $percent_or_quantity_with_symbols_regexps below.
 		my $units_except_percent = join('|', grep {length} ($compound_units, $activity_units, $units_regexp_in_lc));
 
 		my $one_regexp_in_lc = $one_regexp{$ingredients_lc} || 'do not match';
@@ -770,15 +810,25 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 			. $symbols_regexp
 			. '))*';    # strings that can be ignored
 
-		# Symbol units (microgram U+00B5 / Greek mu U+03BC / ug) are kept out of the general
-		# regexp above, because widening it changes which strings look like quantities everywhere
-		# (dosage protection, dual-parse newline arbitration). They are only needed to consume a
-		# parenthesized or column-separated dosage in its entirety: "Biotine : 100 µg" must not
-		# leave a "µg" sub-ingredient, so only the unit capture group is widened.
+		# Symbol units (from the units taxonomy symbol: properties) are kept out of the
+		# general regexp above, because widening it changes which strings look like
+		# quantities everywhere (dosage protection, dual-parse newline arbitration). They
+		# are only needed to consume a parenthesized or column-separated dosage in its
+		# entirety: "Biotine : 100 µg" must not leave a "µg" sub-ingredient, so only the
+		# unit capture group is widened.
 		my $unit_capture = '(' . $units_except_percent . '|\%|)';
-		my $unit_capture_with_symbols = '(' . $units_except_percent . '|(?i:\N{U+00B5}g|\N{U+03BC}g|ug)|\%|)';
-		$percent_or_quantity_with_symbols_regexps{$ingredients_lc}
-			= $percent_or_quantity_regexps{$ingredients_lc} =~ s/\Q$unit_capture\E/$unit_capture_with_symbols/r;
+		my $unit_capture_with_symbols = '(' . $units_except_percent . '|' . $unit_symbols_regexp . '|\%|)';
+		my $with_symbols = $percent_or_quantity_regexps{$ingredients_lc};
+		if (index($with_symbols, $unit_capture) >= 0) {
+			$with_symbols =~ s/\Q$unit_capture\E/$unit_capture_with_symbols/;
+		}
+		else {
+			# the regexp above drifted and no longer contains the unit capture group:
+			# keep the base regexp rather than silently claiming the symbols were added
+			$log->warn("unit capture group not found in percent or quantity regexp",
+				{ingredients_lc => $ingredients_lc});
+		}
+		$percent_or_quantity_with_symbols_regexps{$ingredients_lc} = $with_symbols;
 	}
 
 	return;
