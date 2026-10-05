@@ -181,7 +181,7 @@ my @tests = (
 		["en:e162", "en:e160c", "en:e100"],
 	],
 
-	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
+	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:fat", "en:colza-oil"]],
 
 	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
 	[
@@ -300,7 +300,7 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)"
 		},
-		['en:non-hydrogenated-vegetable-oils', 'en:palm-oil', 'en:colza-oil']
+		['en:oil', 'en:palm-oil', 'en:colza-oil']
 	],
 	[{lc => "fr", ingredients_text => "huile de palme certifiée durable"}, ['en:palm-oil']],
 	[{lc => "fr", ingredients_text => "huile de palme RSPO"}, ['en:palm-oil']],
