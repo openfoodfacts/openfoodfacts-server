@@ -36,6 +36,96 @@ my @tests = (
 		}
 	],
 
+	# pet food additive section: the "/kg" dosage context must not become a
+	# sub-ingredient, and microgram dosages (µg) must not leave a "µg" sub-ingredient
+	[
+		'fr-feed-additive-dosages',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels (/kg) : Vitamine D3 : 160 UI, Vitamine E : 15 mg, Biotine : 20 µg"
+		}
+	],
+
+	# same dosage contexts with a "per" word and a unit list
+	[
+		'fr-feed-dosage-per-word',
+		{
+			lc => "fr",
+			ingredients_text => "Additifs (par kg) : antioxydants : E306, vitamines (en mg)"
+		}
+	],
+
+	# a comma-separated list of units is also a dosage context
+	[
+		'fr-feed-dosage-unit-list',
+		{
+			lc => "fr",
+			ingredients_text => "Additifs (mg, kg) : E306, vitamine C : 100 mg"
+		}
+	],
+
+	# the three microgram spellings (micro sign, Greek mu, ASCII fold) are all
+	# consumed with the dosage and normalized to g
+	[
+		'fr-feed-microgram-forms',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels : vitamine E : 15 mg, vitamine D3 : 100 µg, vitamine B12 : 2 μg, biotine : 5 ug"
+		}
+	],
+
+	# emphasis underscores are markup, not part of ingredient names: they are
+	# stripped from the parsed names, and kept in the stored ingredients text
+	# (allergen markup "_lait_")
+	[
+		'fr-emphasis-underscores',
+		{
+			lc => "fr",
+			ingredients_text => "farine, _sucre_, sel"
+		}
+	],
+
+	[
+		'fr-emphasis-underscores-sub-ingredient',
+		{
+			lc => "fr",
+			ingredients_text => "sauce (_crustacés_, eau), _lait_ écrémé"
+		}
+	],
+
+	# decimal commas protected during preparsing (U+201A) must be restored in
+	# the stored text; the id of unknown ingredients keeps the protected form,
+	# so that ingredient tags are not split in two
+	[
+		'fr-unknown-name-with-decimal-comma',
+		{
+			lc => "fr",
+			ingredients_text => "substances minérales (2,3 Tetrasodiumpyrophosphate)"
+		}
+	],
+
+	# more unknown names with a protected decimal comma: each stays a single
+	# ingredient tag
+	[
+		'fr-protected-decimal-comma-one-tag',
+		{
+			lc => "fr",
+			ingredients_text => "farine, 1,2-propanediol, sucre, sodium (E,E)-hexa-2,4-dienoate, sel"
+		}
+	],
+
+	# a known name with a decimal comma resolves to its canonical id and gets
+	# the original comma back in its text
+	[
+		'en-known-name-with-decimal-comma',
+		{
+			lc => "en",
+			ingredients_text => "sugar, Tert-butyl-1,4-benzenediol, salt"
+		}
+	],
+
 	[
 		'fr-marmelade',
 		{
@@ -1306,7 +1396,30 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text_fr => "",
 		}
 	],
-
+	# Animal / vegetal origins
+	[
+		'en-animal-vegetal-origins',
+		{
+			lc => "en",
+			ingredients_text => "fat (vegetal origin), gelatin (animal origin), natural flavors (vegetal)",
+		}
+	],
+	[
+		'fr-animal-vegetal-origins',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"graisse (origine végétale), gélatine (origine animale), arômes naturels (végétaux), soupe (végétale), gélatine (animale)",
+		}
+	],
+	[
+		'nl-animal-vegetal-origins',
+		{
+			lc => "nl",
+			ingredients_text =>
+				"vet (plantaardige oorsprong), gelatine (dierlijke oorsprong), natuurlijke aroma's (plantaardig), E120 (dierlijk)",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
