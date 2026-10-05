@@ -126,6 +126,27 @@ my @tests = (
 		}
 	],
 
+	# FEDIAF label forms of trace mineral sources, with hydration and
+	# oxidation-state qualifiers, must resolve to their taxonomy entries
+	[
+		'fr-feed-mineral-forms',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Substances minérales : Sulfate de zinc monohydraté : 37,1 mg, Oxyde de manganèse (II) : 3,2 mg, Sulfate de cuivre (II) pentahydraté : 4,8 mg, Iodate de calcium anhydre : 2 mg"
+		}
+	],
+
+	# "Matières minérales" is the analytical constituent (crude ash) on feed
+	# labels, not the minerals additive class
+	[
+		'fr-feed-matieres-minerales',
+		{
+			lc => "fr",
+			ingredients_text => "viande, céréales, Constituants analytiques : matières minérales 7%, protéines 22%"
+		}
+	],
+
 	[
 		'fr-marmelade',
 		{
@@ -1511,7 +1532,7 @@ foreach my $test (
 	['Omega 3b 103 mg', 'fr:Omega 3b', '103 mg', 0.103, 0],
 	['Omega E 150 mg', 'fr:Omega E', '150 mg', 0.15, 0],
 	['3b 103,5 mg', 'fr:3b', '103.5 mg', 0.1035, 0],
-	['3b 502 manganèse 7,6 mg', 'fr:3b 502 manganèse', '7.6 mg', 0.0076, 0],
+	['3b 502 manganèse 7,6 mg', 'en:manganous-oxide', '7.6 mg', 0.0076, 1],
 	)
 {
 	my ($text, @expected) = @$test;
