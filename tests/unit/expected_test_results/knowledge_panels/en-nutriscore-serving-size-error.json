@@ -21,7 +21,6 @@
    "categories_tags" : [
       "en:biscuits"
    ],
-   "compared_to_category" : "en:biscuits",
    "data_quality_bugs_tags" : [
       "en:main-language-missing",
       "en:code-missing",
@@ -1569,12 +1568,6 @@
                         "text" : "As sold<br>for 100 g / 100 ml",
                         "text_for_small_screens" : "100g",
                         "type" : "text"
-                     },
-                     {
-                        "column_group_id" : "comparisons",
-                        "shown_by_default" : true,
-                        "text" : "Compared to: biscuits",
-                        "type" : "text"
                      }
                   ],
                   "id" : "nutrition_facts_table",
@@ -1588,9 +1581,6 @@
                            },
                            {
                               "text" : "?"
-                           },
-                           {
-                              "text" : "1,366.467 kj (326 kcal)"
                            }
                         ]
                      },
@@ -1603,9 +1593,6 @@
                            },
                            {
                               "text" : "?"
-                           },
-                           {
-                              "text" : "16.933 g"
                            }
                         ]
                      },
@@ -1618,9 +1605,6 @@
                            },
                            {
                               "text" : "?"
-                           },
-                           {
-                              "text" : "10.567 g"
                            }
                         ]
                      },
@@ -1633,9 +1617,6 @@
                            },
                            {
                               "text" : "?"
-                           },
-                           {
-                              "text" : "41.533 g"
                            }
                         ]
                      },
@@ -1648,9 +1629,6 @@
                            },
                            {
                               "text" : "?"
-                           },
-                           {
-                              "text" : "19.8 g"
                            }
                         ]
                      },
@@ -1663,9 +1641,6 @@
                            },
                            {
                               "text" : "?"
-                           },
-                           {
-                              "text" : "2.15 g"
                            }
                         ]
                      },
@@ -1678,9 +1653,6 @@
                            },
                            {
                               "text" : "?"
-                           },
-                           {
-                              "text" : "4.467 g"
                            }
                         ]
                      },
@@ -1693,9 +1665,6 @@
                            },
                            {
                               "text" : "?"
-                           },
-                           {
-                              "text" : "0.343 g"
                            }
                         ]
                      },
@@ -1708,9 +1677,6 @@
                            },
                            {
                               "text" : "~ 100 %"
-                           },
-                           {
-                              "text" : "0 %"
                            }
                         ]
                      }
