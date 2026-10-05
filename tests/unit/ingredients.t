@@ -95,6 +95,37 @@ my @tests = (
 		}
 	],
 
+	# decimal commas protected during preparsing (U+201A) must be restored in
+	# the stored text; the id of unknown ingredients keeps the protected form,
+	# so that ingredient tags are not split in two
+	[
+		'fr-unknown-name-with-decimal-comma',
+		{
+			lc => "fr",
+			ingredients_text => "substances minérales (2,3 Tetrasodiumpyrophosphate)"
+		}
+	],
+
+	# more unknown names with a protected decimal comma: each stays a single
+	# ingredient tag
+	[
+		'fr-protected-decimal-comma-one-tag',
+		{
+			lc => "fr",
+			ingredients_text => "farine, 1,2-propanediol, sucre, sodium (E,E)-hexa-2,4-dienoate, sel"
+		}
+	],
+
+	# a known name with a decimal comma resolves to its canonical id and gets
+	# the original comma back in its text
+	[
+		'en-known-name-with-decimal-comma',
+		{
+			lc => "en",
+			ingredients_text => "sugar, Tert-butyl-1,4-benzenediol, salt"
+		}
+	],
+
 	[
 		'fr-marmelade',
 		{
