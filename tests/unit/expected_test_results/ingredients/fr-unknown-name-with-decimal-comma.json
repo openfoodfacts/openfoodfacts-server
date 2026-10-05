@@ -1,0 +1,76 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "fr:substances minérales",
+         "ingredients" : [
+            {
+               "id" : "fr:2‚3 Tetrasodiumpyrophosphate",
+               "is_in_taxonomy" : 0,
+               "percent_estimate" : 100,
+               "percent_max" : 100,
+               "percent_min" : 100,
+               "text" : "2,3 Tetrasodiumpyrophosphate"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "substances minérales"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:substances minérales",
+         "fr:2‚3 Tetrasodiumpyrophosphate"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:2‚3 Tetrasodiumpyrophosphate"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:2‚3 Tetrasodiumpyrophosphate"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:substances minérales",
+      "fr:2‚3 Tetrasodiumpyrophosphate"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:substances minérales",
+      "fr:2‚3 Tetrasodiumpyrophosphate"
+   ],
+   "ingredients_text" : "substances minérales (2,3 Tetrasodiumpyrophosphate)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "fr:2‚3 Tetrasodiumpyrophosphate",
+      "fr:substances minérales"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "fr:2‚3 Tetrasodiumpyrophosphate",
+      "fr:substances minérales"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 0,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}
