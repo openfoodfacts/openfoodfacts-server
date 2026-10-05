@@ -1632,6 +1632,11 @@ sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, 
 	$percent_or_quantity_unit =~ s/[\N{U+2044}\N{U+FF0F}]/\//g;
 	$percent_or_quantity_unit =~ s/\s*\/\s*/\//g;
 
+	# Fold the Greek mu and ASCII spellings of the microgram symbol onto the
+	# micro sign spelling that the units taxonomy carries as its symbol:
+	# only that one has a conversion to g.
+	$percent_or_quantity_unit =~ s/^(?i:\N{U+03BC}g|ug)$/µg/;
+
 	# Normalize decimal separators in the numeric value (plain comma and U+201A lower comma
 	# used to protect decimals from list splitting) to a dot for storage / math.
 	$percent_or_quantity_value =~ s/[\N{U+201A},]/./g;
@@ -1996,6 +2001,14 @@ Text to analyze
 						$between = '';
 					}
 
+					# a lone unit in parenthesis is a dosage context, not a sub-ingredient:
+					# "Additifs nutritionnels (/kg)" must not create a "kg" sub-ingredient.
+					# unit_only_string matches the whole string, so it is checked before the
+					# solidus of "/kg" is treated as an ingredient separator
+					if (($between ne '') and (unit_only_string($ingredients_lc, $between))) {
+						$between = '';
+					}
+
 					$debug_ingredients and $log->debug("parse_ingredients_text - sub-ingredients found: $between")
 						if $log->is_debug();
 
@@ -2161,8 +2174,13 @@ Text to analyze
 							{between => $between}
 						) if $log->is_debug();
 
-						if ($between
-							=~ compiled_regexp('^' . $percent_or_quantity_regexp . '(?:' . $per_100g_regexp . ')?$'))
+						if (
+							$between =~ compiled_regexp(
+									  '^'
+									. $percent_or_quantity_with_symbols_regexps{$ingredients_lc} . '(?:'
+									. $per_100g_regexp . ')?$'
+							)
+							)
 						{
 
 							$percent_or_quantity_value = $1;
@@ -2470,6 +2488,16 @@ Text to analyze
 
 			my $ingredient = shift @ingredients;
 			chomp($ingredient);
+
+			# underscores are markup (emphasis copied from the interface or OCR,
+			# or the allergen bolding "_lait_") and are not part of ingredient
+			# names: strip them at word edges so that they do not leak into the
+			# texts and ids, and keep word-internal underscores ("coca_cola"
+			# style names). The stored ingredients_text keeps the underscores,
+			# the allergen markup is read later by detect_allergens_from_text.
+			$ingredient =~ s/(?<!\w)_+//g;
+			$ingredient =~ s/_+(?!\w)//g;
+			next unless $ingredient =~ /\S/;
 
 			$debug_ingredients and $log->debug("analyzing ingredient", {ingredient => $ingredient})
 				if $log->is_debug();
@@ -3162,6 +3190,13 @@ Text to analyze
 				foreach my $prefix (sort {length($b) <=> length($a)} keys %numeral_text) {
 					last if $ingredient_text =~ s/^\Q$prefix\E/$numeral_text{$prefix}/;
 				}
+
+				# put back the decimal commas that were protected from list splitting
+				# during preparsing (U+201A lower comma), so that the stored text keeps
+				# the original comma of "2,3-diol" style names. The id of unknown
+				# ingredients keeps the protected form: ids feed the tag fields, where
+				# a comma would split one ingredient into two tags.
+				$ingredient_text =~ s/\N{U+201A}/,/g;
 
 				my %ingredient = (
 					id => get_taxonomyid($ingredients_lc, $ingredient_id),
