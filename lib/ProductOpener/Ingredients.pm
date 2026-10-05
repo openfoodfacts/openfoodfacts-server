@@ -2968,6 +2968,7 @@ Text to analyze
 								'^Leivottu tuotantolinjalla'
 								,    # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^vastaa 100 g porkkanaa$',
+								'^Pakattu suojakaasuun$',    # packaged in a protective atmosphere
 								'^Tuotteessa mustikkaa$',
 								'vaihtelevina osuuksina',
 								'^lakritsin osuudesta$',
