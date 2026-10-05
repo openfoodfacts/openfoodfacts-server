@@ -48,12 +48,9 @@ sub run_script ($options_ref) {
 	my $report_file = $tmp_dir->dirname . "/report." . ($options_ref->{test_case_id} // "") . ".txt";
 
 	my @args = (
-		"perl", "-Ilib", $script,
-		"--taxonomy-file", "$input_dir/categories.txt",
-		"--jsonl-file", "$input_dir/products.jsonl",
-		"--output-file", $filtered_file,
-		"--report-file", $report_file,
-		"--quiet",
+		"perl", "-Ilib", $script, "--taxonomy-file",
+		"$input_dir/categories.txt", "--jsonl-file", "$input_dir/products.jsonl", "--output-file",
+		$filtered_file, "--report-file", $report_file, "--quiet",
 	);
 	foreach my $option (sort keys %$options_ref) {
 		next if $option eq "test_case_id";
@@ -87,8 +84,10 @@ foreach my $test_case_ref (@test_cases) {
 
 		my ($filtered_taxonomy, $report) = run_script({%$test_case_ref->{options}, test_case_id => $test_case_id});
 
-		compare_file_to_expected_results($filtered_taxonomy, "$expected_result_dir/$test_case_id.categories.txt",
-			$update_expected_results, {desc => "$test_case_id filtered taxonomy"});
+		compare_file_to_expected_results(
+			$filtered_taxonomy, "$expected_result_dir/$test_case_id.categories.txt",
+			$update_expected_results, {desc => "$test_case_id filtered taxonomy"}
+		);
 
 		compare_file_to_expected_results($report, "$expected_result_dir/$test_case_id.report.txt",
 			$update_expected_results, {desc => "$test_case_id report"});

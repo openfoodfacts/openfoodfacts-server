@@ -88368,11 +88368,13 @@ en: Ground meats
 de: Hackfleisch
 fr: Viandes hachées
 hr: Mljeveno meso
+plant_alternative:en: en:plant-based-grounds
 
 < en: Frozen meats
 < en: Ground meats
 en: Frozen ground meats
 fr: Viandes hachées surgelées
+plant_alternative:en: en:frozen-plant-based-grounds
 
 < en: Beef
 #Should contain products with >99% beef only
@@ -121707,6 +121709,53 @@ zh: 棒状零食
 food_groups:en: en:biscuits-and-cakes
 pnns_group_2:en: Biscuits and cakes
 
+< en: Bars
+en: Protein bars
+bg: Протеинови блокчета
+ca: Barretes de proteïna, barres de proteïna
+cs: Proteinové tyčinky
+de: Proteinriegel, Eiweißriegel
+es: Barritas de proteínas
+fi: proteiinipatukat
+fr: Barres protéinées
+he: חטיפי חלבון
+hr: Proteinske pločice
+it: Barrette proteiche
+ja: プロテインバー
+nl: Proteinerepen
+pt: Barras de proteínas
+ro: Batoane proteice
+ru: Протеиновые батончики
+zh: 蛋白质棒
+wikidata:en: Q7251457
+
+< en: Energy bars
+< en: Protein bars
+en: Protein Energy Bars
+de: Protein-Energie-Riegel
+fr: Barres énergétiques protéinées
+hr: Proteinske energetske pločice
+it: Barrette Energetiche Proteiche
+nl: Proteïne energierepen
+zh: 蛋白质能量棒
+
+< en: Bars
+en: Energy bars
+bg: Енергийни блокчета
+cs: Energetické tyčinky
+de: Energieriegel, Energie-Riegel
+es: Barritas energéticas
+fi: energiapatukat
+fr: Barres énergétiques
+he: חטיפים אנרגיה
+hr: Energetske pločice
+it: Barrette energetiche
+nl: Energierepen
+pl: Batony energetyczne
+zh: 能量棒
+google_product_taxonomy_id:en: 2984
+wikidata:en: Q1699821
+
 #Sweet snack made of quark and sugar. It can be filled with jam or coated in chocolate
 < en: Bars
 en: Curd snacks
@@ -123114,11 +123163,35 @@ de: Vegetarisches Gehacktes, Gemüsehack, Vegetarisches Hackfleisch
 fr: Hachés végétaux
 hr: Vegetarijanska podloga
 pl: Mielone wegetariańskie, Wegetariańskie mielone
+agribalyse_proxy_food_code:en: 30181
+ciqual_proxy_food_code:en: 30181
+ciqual_proxy_food_name:en: Soy-based minced, prepacked
+ciqual_proxy_food_name:fr: Haché végétal à base de soja, préemballé
+
+< en: Vegan products
+< en: Vegetarian grounds
+en: Plant-based grounds, Plant-based minces, Vegan grounds, Vegan minces
+fr: Hachés végétales
+
+< en: Meat analogues from soy or wheat proteins
+< en: Plant-based grounds
+en: Soy-based grounds, Soy-based minces, Soy-based minced prepacked
+fr: Hachés végétales à base de soja
+agribalyse_food_code:en: 30181
+ciqual_food_code:en: 30181
+ciqual_food_name:en: Soy-based minced, prepacked
+ciqual_food_name:fr: Haché végétal à base de soja, préemballé
+incompatible_with:en: labels:en:no-soy
 
 < en: Frozen plant-based foods
 < en: Vegetarian grounds
-en: Frozen vegetarian grounds, frozen veggie grounds
+en: Frozen vegetarian grounds, Frozen veggie grounds
 fr: Hachés végétaux surgelés
+
+< en: Frozen vegetarian grounds
+< en: Plant-based grounds
+en: Frozen plant-based grounds, Frozen plant-based minces, Frozen vegan grounds, Frozen vegan minces
+fr: Hachés végétales surgelés
 
 #Patties are a very generic term for anything flat baked in a pan
 < en: Meat alternatives
@@ -125307,54 +125380,6 @@ nl: Proteineshakes
 ro: Shake-uri cu proteine, Shake-uri proteice
 
 < en: Bodybuilding supplements
-en: Protein bars
-bg: Протеинови блокчета
-ca: Barretes de proteïna, barres de proteïna
-cs: Proteinové tyčinky
-de: Proteinriegel, Eiweißriegel
-es: Barritas de proteínas
-fi: proteiinipatukat
-fr: Barres protéinées
-he: חטיפי חלבון
-hr: Proteinske pločice
-it: Barrette proteiche
-ja: プロテインバー
-nl: Proteinerepen
-pt: Barras de proteínas
-ro: Batoane proteice
-ru: Протеиновые батончики
-zh: 蛋白质棒
-wikidata:en: Q7251457
-
-< en: Energy bars
-< en: Protein bars
-en: Protein Energy Bars
-de: Protein-Energie-Riegel
-fr: Barres énergétiques protéinées
-hr: Proteinske energetske pločice
-it: Barrette Energetiche Proteiche
-nl: Proteïne energierepen
-zh: 蛋白质能量棒
-
-< en: Bars
-< en: Bodybuilding supplements
-en: Energy bars
-bg: Енергийни блокчета
-cs: Energetické tyčinky
-de: Energieriegel, Energie-Riegel
-es: Barritas energéticas
-fi: energiapatukat
-fr: Barres énergétiques
-he: חטיפים אנרגיה
-hr: Energetske pločice
-it: Barrette energetiche
-nl: Energierepen
-pl: Batony energetyczne
-zh: 能量棒
-google_product_taxonomy_id:en: 2984
-wikidata:en: Q1699821
-
-< en: Bodybuilding supplements
 en: BCAA, Branched-chain amino acids
 de: verzweigtkettige Aminosäuren
 fi: BCAA, Branched-chain amino acids, Haaroittuneet aminohapot
@@ -126827,14 +126852,6 @@ agribalyse_food_code:en: 28913
 ciqual_food_code:en: 28913
 ciqual_food_name:en: Cooked ham, choice, rind less and fatless
 ciqual_food_name:fr: Jambon cuit, choix, découenné dégraissé
-
-< en: meat-alternatives
-en: Soy-based minced prepacked
-fr: Haché végétal à base de soja préemballé
-agribalyse_food_code:en: 30181
-ciqual_food_code:en: 30181
-ciqual_food_name:en: Soy-based minced, prepacked
-ciqual_food_name:fr: Haché végétal à base de soja, préemballé
 
 < en: chickens
 en: Chicken leg meat and skin raw

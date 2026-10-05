@@ -1633,6 +1633,11 @@ sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, 
 	$percent_or_quantity_unit =~ s/[\N{U+2044}\N{U+FF0F}]/\//g;
 	$percent_or_quantity_unit =~ s/\s*\/\s*/\//g;
 
+	# Fold the Greek mu and ASCII spellings of the microgram symbol onto the
+	# micro sign spelling that the units taxonomy carries as its symbol:
+	# only that one has a conversion to g.
+	$percent_or_quantity_unit =~ s/^(?i:\N{U+03BC}g|ug)$/µg/;
+
 	# Normalize decimal separators in the numeric value (plain comma and U+201A lower comma
 	# used to protect decimals from list splitting) to a dot for storage / math.
 	$percent_or_quantity_value =~ s/[\N{U+201A},]/./g;
@@ -1997,6 +2002,14 @@ Text to analyze
 						$between = '';
 					}
 
+					# a lone unit in parenthesis is a dosage context, not a sub-ingredient:
+					# "Additifs nutritionnels (/kg)" must not create a "kg" sub-ingredient.
+					# unit_only_string matches the whole string, so it is checked before the
+					# solidus of "/kg" is treated as an ingredient separator
+					if (($between ne '') and (unit_only_string($ingredients_lc, $between))) {
+						$between = '';
+					}
+
 					$debug_ingredients and $log->debug("parse_ingredients_text - sub-ingredients found: $between")
 						if $log->is_debug();
 
@@ -2144,6 +2157,20 @@ Text to analyze
 						}
 					) if $log->is_debug();
 
+					# Check if $between is a processing or an enumeration of processings
+					# e.g. "dried", "dried, rehydrated and fried"
+					my @between_processings
+						= check_if_text_is_a_taxonomy_tags_enumeration($ingredients_lc, "ingredients_processing",
+						$between);
+
+					if (scalar @between_processings > 0) {
+						push @processings, @between_processings;
+						$debug_ingredients and $log->debug("between is a processing enumeration",
+							{between => $between, processings => \@processings})
+							if $log->is_debug();
+						$between = '';
+					}
+
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
 						and ($` !~ /\s*(allergens)\s*/i)
@@ -2162,8 +2189,13 @@ Text to analyze
 							{between => $between}
 						) if $log->is_debug();
 
-						if ($between
-							=~ compiled_regexp('^' . $percent_or_quantity_regexp . '(?:' . $per_100g_regexp . ')?$'))
+						if (
+							$between =~ compiled_regexp(
+									  '^'
+									. $percent_or_quantity_with_symbols_regexps{$ingredients_lc} . '(?:'
+									. $per_100g_regexp . ')?$'
+							)
+							)
 						{
 
 							$percent_or_quantity_value = $1;
@@ -2320,21 +2352,6 @@ Text to analyze
 											$between = '';
 										}
 									}
-									else {
-
-										# processing method?
-										my $processingid
-											= canonicalize_taxonomy_tag($ingredients_lc, "ingredients_processing",
-											$between);
-										if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
-											push @processings, $processingid;
-											$debug_ingredients and $log->debug("between is a processing",
-												{between => $between, processing => $processingid})
-												if $log->is_debug();
-											$between = '';
-										}
-									}
-
 								}
 							}
 
@@ -2471,6 +2488,16 @@ Text to analyze
 
 			my $ingredient = shift @ingredients;
 			chomp($ingredient);
+
+			# underscores are markup (emphasis copied from the interface or OCR,
+			# or the allergen bolding "_lait_") and are not part of ingredient
+			# names: strip them at word edges so that they do not leak into the
+			# texts and ids, and keep word-internal underscores ("coca_cola"
+			# style names). The stored ingredients_text keeps the underscores,
+			# the allergen markup is read later by detect_allergens_from_text.
+			$ingredient =~ s/(?<!\w)_+//g;
+			$ingredient =~ s/_+(?!\w)//g;
+			next unless $ingredient =~ /\S/;
 
 			$debug_ingredients and $log->debug("analyzing ingredient", {ingredient => $ingredient})
 				if $log->is_debug();
@@ -3163,6 +3190,13 @@ Text to analyze
 				foreach my $prefix (sort {length($b) <=> length($a)} keys %numeral_text) {
 					last if $ingredient_text =~ s/^\Q$prefix\E/$numeral_text{$prefix}/;
 				}
+
+				# put back the decimal commas that were protected from list splitting
+				# during preparsing (U+201A lower comma), so that the stored text keeps
+				# the original comma of "2,3-diol" style names. The id of unknown
+				# ingredients keeps the protected form: ids feed the tag fields, where
+				# a comma would split one ingredient into two tags.
+				$ingredient_text =~ s/\N{U+201A}/,/g;
 
 				my %ingredient = (
 					id => get_taxonomyid($ingredients_lc, $ingredient_id),
@@ -9038,6 +9072,60 @@ sub detect_rare_crops($product_ref) {
 	}
 
 	return;
+}
+
+=head2 check_if_text_is_a_taxonomy_tags_enumeration ($target_lc, $taxonomy, $text)
+
+This function checks if a text is an enumeration of tags from a specific taxonomy.
+e.g. ingredients processings, labels, etc. And returns the list of tags found in the text, or an empty list if none were found.
+
+The values need to be separated by commas or semicolons (or the word "and" in the target language),
+and can be preceded or followed by whitespace.
+
+
+=head3 Parameters
+
+=head4 $target_lc
+
+The language code of the text to check.
+
+=head4 $taxonomy
+
+The taxonomy to check against (e.g. ingredients_processing, labels, etc.)
+
+=head4 $text
+
+=head3 Return value
+
+A list of tags found in the text, or an empty list if none were found.
+
+=cut
+
+sub check_if_text_is_a_taxonomy_tags_enumeration($target_lc, $taxonomy, $text) {
+
+	my @tags = ();
+
+	my $and = $and{$target_lc} || " will not match ";
+
+	# Split the text into parts using the separator regexp
+	my @parts = split(/\s*(?:,|;|$and)\s*/, $text);
+
+	foreach my $part (@parts) {
+		if ($part ne '') {
+			my $tagid = canonicalize_taxonomy_tag($target_lc, $taxonomy, $part);
+			if (exists_taxonomy_tag($taxonomy, $tagid)) {
+				push @tags, $tagid;
+			}
+			else {
+				$log->debug("check_if_text_is_a_taxonomy_tags_enumeration - part not found in taxonomy",
+					{part => $part, tagid => $tagid, taxonomy => $taxonomy})
+					if $log->is_debug();
+				return ();    # if any part is not found, return an empty list
+			}
+		}
+	}
+
+	return @tags;
 }
 
 1;
