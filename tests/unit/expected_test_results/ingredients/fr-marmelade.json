@@ -154,7 +154,7 @@
             },
             {
                "from_palm_oil" : "maybe",
-               "id" : "en:vegetable-fat",
+               "id" : "en:fat",
                "ingredients" : [
                   {
                      "from_palm_oil" : "no",
@@ -208,8 +208,9 @@
                   }
                ],
                "is_in_taxonomy" : 1,
+               "labels" : "en:vegan",
                "percent_estimate" : 1.55625,
-               "text" : "graisses végétales",
+               "text" : "graisses",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
@@ -393,7 +394,7 @@
       "en:sugar",
       "en:cocoa-paste",
       "en:cocoa-butter",
-      "en:vegetable-fat",
+      "en:fat",
       "en:flavouring",
       "en:soya-lecithin",
       "en:lactose-and-milk-proteins",
@@ -460,6 +461,7 @@
       "en:plant",
       "en:cocoa-butter",
       "en:vegetable-fat",
+      "en:fat",
       "en:lactose-and-milk-proteins",
       "en:lactose",
       "en:milk-proteins",
@@ -487,12 +489,12 @@
       "en:e450i",
       "en:e500ii",
       "en:e503ii",
+      "en:fat",
       "en:flavouring",
       "en:illipe-oil",
       "en:lactose-and-milk-proteins",
       "en:natural-orange-flavouring",
-      "en:sodium-citrate",
-      "en:vegetable-fat"
+      "en:sodium-citrate"
    ],
    "ingredients_without_ciqual_codes_n" : 14,
    "ingredients_without_ecobalyse_ids" : [
@@ -506,6 +508,7 @@
       "en:e450i",
       "en:e500ii",
       "en:e503ii",
+      "en:fat",
       "en:flavouring",
       "en:glucose-fructose-syrup",
       "en:illipe-oil",
@@ -517,8 +520,7 @@
       "en:shea-butter",
       "en:shorea-robusta-seed-oil",
       "en:sodium-citrate",
-      "en:soya-lecithin",
-      "en:vegetable-fat"
+      "en:soya-lecithin"
    ],
    "ingredients_without_ecobalyse_ids_n" : 23,
    "known_ingredients_n" : 35,

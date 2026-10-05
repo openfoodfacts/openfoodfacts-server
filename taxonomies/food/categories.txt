@@ -42257,6 +42257,10 @@ es: Lino marrón molido
 hr: Mljevene sjemenke smeđeg lana
 nl: Gemalen bruin lijnzaad
 
+< en: seeds
+en: Hemp seeds
+fr: Graines de chanvre
+
 < en: Cereal grains
 en: Freekeh
 fr: Freekeh
@@ -59387,6 +59391,12 @@ gpc_category_code:en: 10000585
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a solid made from artificially hardened vegetable oils for baking and cooking. These products can be/must be refrigerated to extend their consumable life. Products include vegetable shortening specifically designed for baking and cooking. Definition Excludes: Excludes products such as Butter and Butter Based Spreads and Margarine, Cooking Animal Fats and Shelf Stable Vegetable Fats and Oils.
 gpc_category_name:en: Fats Edible - Vegetable/Plant (Perishable)
 
+< en: Plant-based spreads
+< en: Spreadable fats
+< en: Vegetable fats
+en: Spreadable vegetable fats
+sv: Smörbara vegetabiliska matfetter
+
 < en: Vegetable fats
 en: Cocoa butter
 bg: Какаово масло
@@ -59405,35 +59415,47 @@ ciqual_food_name:en: Cocoa butter
 ciqual_food_name:fr: Beurre de cacao
 wikidata:en: Q251106
 
-< en: Plant-based spreads
 < en: Spreadable fats
-< en: Vegetable fats
 en: Margarines
 bg: Маргарин
 ca: Margarina
+da: Margariner
 de: Margarinen, Margarine
-es: Margarinas, Margarinas vegetales, Margarinas de origen vegetal
+es: Margarinas
 fi: margariinit
-fr: Margarines, Margarine végétale
+fr: Margarines
 he: מרגרינות
 hr: margarin
 hu: Margarinok
 it: Margarina
 ja: マーガリン
 lt: Margarinai
+nb: Margariner
 nl: Margarines
+nn: Margarinar
 pl: Margaryny, margaryna
 pt: Margarinas
-sv: Margarin
+sv: Margariner
 agribalyse_proxy_food_code:en: 16737
 ciqual_proxy_food_code:en: 16737
 ciqual_proxy_food_name:en: Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3
 ciqual_proxy_food_name:fr: Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
+comment:en: margarine was originally made with animal fats, and while much less common now, there are still some non-plant margarines around
 # median fat for margarines in France is 58%
 food_groups:en: en:vegetable-margarines
 intake24_category_code:en: MRGN
 pnns_group_2:en: Fats
 wikidata:en: Q4287
+
+< en: Margarines
+< en: Spreadable vegetable fats
+en: Plant-based margarines, Vegetable margarines, Vegan margarines
+da: Plantebaserede margariner, Veganske margariner
+es: Margarinas vegetales, Margarinas de origen vegetal
+fr: Margarine végétale
+nb: Plantebaserte margariner, Veganske margariner
+nn: Plantebaserte margarinar, Veganske margarinar
+sv: Växtbaserade margariner, Veganska margariner
 
 < en: Margarines
 en: Margarine (Perishable)
@@ -121685,6 +121707,53 @@ zh: 棒状零食
 food_groups:en: en:biscuits-and-cakes
 pnns_group_2:en: Biscuits and cakes
 
+< en: Bars
+en: Protein bars
+bg: Протеинови блокчета
+ca: Barretes de proteïna, barres de proteïna
+cs: Proteinové tyčinky
+de: Proteinriegel, Eiweißriegel
+es: Barritas de proteínas
+fi: proteiinipatukat
+fr: Barres protéinées
+he: חטיפי חלבון
+hr: Proteinske pločice
+it: Barrette proteiche
+ja: プロテインバー
+nl: Proteinerepen
+pt: Barras de proteínas
+ro: Batoane proteice
+ru: Протеиновые батончики
+zh: 蛋白质棒
+wikidata:en: Q7251457
+
+< en: Energy bars
+< en: Protein bars
+en: Protein Energy Bars
+de: Protein-Energie-Riegel
+fr: Barres énergétiques protéinées
+hr: Proteinske energetske pločice
+it: Barrette Energetiche Proteiche
+nl: Proteïne energierepen
+zh: 蛋白质能量棒
+
+< en: Bars
+en: Energy bars
+bg: Енергийни блокчета
+cs: Energetické tyčinky
+de: Energieriegel, Energie-Riegel
+es: Barritas energéticas
+fi: energiapatukat
+fr: Barres énergétiques
+he: חטיפים אנרגיה
+hr: Energetske pločice
+it: Barrette energetiche
+nl: Energierepen
+pl: Batony energetyczne
+zh: 能量棒
+google_product_taxonomy_id:en: 2984
+wikidata:en: Q1699821
+
 #Sweet snack made of quark and sugar. It can be filled with jam or coated in chocolate
 < en: Bars
 en: Curd snacks
@@ -125283,54 +125352,6 @@ it: Frappè Proteico
 ja: プロテインシェイク
 nl: Proteineshakes
 ro: Shake-uri cu proteine, Shake-uri proteice
-
-< en: Bodybuilding supplements
-en: Protein bars
-bg: Протеинови блокчета
-ca: Barretes de proteïna, barres de proteïna
-cs: Proteinové tyčinky
-de: Proteinriegel, Eiweißriegel
-es: Barritas de proteínas
-fi: proteiinipatukat
-fr: Barres protéinées
-he: חטיפי חלבון
-hr: Proteinske pločice
-it: Barrette proteiche
-ja: プロテインバー
-nl: Proteinerepen
-pt: Barras de proteínas
-ro: Batoane proteice
-ru: Протеиновые батончики
-zh: 蛋白质棒
-wikidata:en: Q7251457
-
-< en: Energy bars
-< en: Protein bars
-en: Protein Energy Bars
-de: Protein-Energie-Riegel
-fr: Barres énergétiques protéinées
-hr: Proteinske energetske pločice
-it: Barrette Energetiche Proteiche
-nl: Proteïne energierepen
-zh: 蛋白质能量棒
-
-< en: Bars
-< en: Bodybuilding supplements
-en: Energy bars
-bg: Енергийни блокчета
-cs: Energetické tyčinky
-de: Energieriegel, Energie-Riegel
-es: Barritas energéticas
-fi: energiapatukat
-fr: Barres énergétiques
-he: חטיפים אנרגיה
-hr: Energetske pločice
-it: Barrette energetiche
-nl: Energierepen
-pl: Batony energetyczne
-zh: 能量棒
-google_product_taxonomy_id:en: 2984
-wikidata:en: Q1699821
 
 < en: Bodybuilding supplements
 en: BCAA, Branched-chain amino acids
