@@ -6,7 +6,8 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Text qw/normalize_percentages remove_email get_decimal_formatter get_percent_formatter/;
+use ProductOpener::Text
+	qw/normalize_percentages regexp_escape remove_email get_decimal_formatter get_percent_formatter/;
 
 # Patterns according to Unicode CDLR v29
 # Pattern	# Locales using it
@@ -108,6 +109,10 @@ is(normalize_percentages('test 1234% hi', 'he'), "test 1,234% hi");
 # fa - RTL Persian, similar to he
 is(get_decimal_formatter('fa')->format(1234567.89), "1,234,567.89");
 is(normalize_percentages('test 1234% hi', 'fa'), "test 1,234% hi");
+
+# Test regexp_escape
+is(regexp_escape('incl.'), 'incl\\.');
+is(regexp_escape('inclx'), 'inclx');
 
 # Test remove_email
 is(remove_email('test@example.com'), '');
