@@ -740,14 +740,15 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "17001",
+         "ciqual_proxy_food_code" : "17001",
          "from_palm_oil" : "maybe",
-         "id" : "en:vegetable-oil",
+         "id" : "en:oil",
          "is_in_taxonomy" : 1,
+         "labels" : "en:vegan",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
          "percent_min" : 0,
-         "text" : "huiles végétales",
+         "text" : "huiles",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -767,7 +768,7 @@
    ],
    "ingredients_analysis" : {
       "en:may-contain-palm-oil" : [
-         "en:vegetable-oil"
+         "en:oil"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -784,7 +785,7 @@
    "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:corn-flour",
-      "en:vegetable-oil",
+      "en:oil",
       "en:salt"
    ],
    "ingredients_percent_analysis" : 1,
@@ -794,8 +795,7 @@
       "en:corn",
       "en:flour",
       "en:cereal",
-      "en:vegetable-oil",
-      "en:vegetable-oil-and-fat",
+      "en:oil",
       "en:oil-and-fat",
       "en:salt"
    ],
@@ -807,7 +807,12 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
+<<<<<<< HEAD
       "en:vegetable-oil"
+=======
+      "en:oil",
+      "en:salt"
+>>>>>>> main
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,

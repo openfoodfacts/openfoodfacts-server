@@ -10330,6 +10330,7 @@ en: Psyllium
 fr: Psyllium
 hr: Psilij
 nl: Psylliumvezels
+nova:en: 2
 wikidata:en: Q311228
 
 < en: Plant-based foods
@@ -32959,8 +32960,16 @@ en: Plain wheat biscuits
 fr: Biscuits au blé natures
 
 < en: Biscuits
-en: Biscuits with meringue
-fr: Biscuits meringués
+en: Biscuits with meringue, Pastry biscuit with meringue
+fr: Biscuits meringués, Biscuit pâtissier meringué
+agribalyse_food_code:en: 24060
+ciqual_food_code:en: 24060
+ciqual_food_name:en: Pastry biscuit with meringue
+ciqual_food_name:fr: Biscuit pâtissier meringué
+
+< en: Biscuits
+en: Buckweat biscuits
+fr: Biscuits au sarrasin
 
 #do not confuse with the cocktail spritz
 < en: Biscuits
@@ -33543,6 +33552,7 @@ en: Brittany-style palet biscuits
 fr: Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
 
 < en: Brittany-style palet biscuits
+< en: Plain butter shortbreads
 en: Plain Brittany-style palet biscuits
 fr: Palets nature
 
@@ -42247,6 +42257,10 @@ de: geschrotete braune Leinsamen, geschrotete braune Leinsaaten, geschrotete bra
 es: Lino marrón molido
 hr: Mljevene sjemenke smeđeg lana
 nl: Gemalen bruin lijnzaad
+
+< en: seeds
+en: Hemp seeds
+fr: Graines de chanvre
 
 < en: Cereal grains
 en: Freekeh
@@ -59378,6 +59392,12 @@ gpc_category_code:en: 10000585
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a solid made from artificially hardened vegetable oils for baking and cooking. These products can be/must be refrigerated to extend their consumable life. Products include vegetable shortening specifically designed for baking and cooking. Definition Excludes: Excludes products such as Butter and Butter Based Spreads and Margarine, Cooking Animal Fats and Shelf Stable Vegetable Fats and Oils.
 gpc_category_name:en: Fats Edible - Vegetable/Plant (Perishable)
 
+< en: Plant-based spreads
+< en: Spreadable fats
+< en: Vegetable fats
+en: Spreadable vegetable fats
+sv: Smörbara vegetabiliska matfetter
+
 < en: Vegetable fats
 en: Cocoa butter
 bg: Какаово масло
@@ -59396,35 +59416,47 @@ ciqual_food_name:en: Cocoa butter
 ciqual_food_name:fr: Beurre de cacao
 wikidata:en: Q251106
 
-< en: Plant-based spreads
 < en: Spreadable fats
-< en: Vegetable fats
 en: Margarines
 bg: Маргарин
 ca: Margarina
+da: Margariner
 de: Margarinen, Margarine
-es: Margarinas, Margarinas vegetales, Margarinas de origen vegetal
+es: Margarinas
 fi: margariinit
-fr: Margarines, Margarine végétale
+fr: Margarines
 he: מרגרינות
 hr: margarin
 hu: Margarinok
 it: Margarina
 ja: マーガリン
 lt: Margarinai
+nb: Margariner
 nl: Margarines
+nn: Margarinar
 pl: Margaryny, margaryna
 pt: Margarinas
-sv: Margarin
+sv: Margariner
 agribalyse_proxy_food_code:en: 16737
 ciqual_proxy_food_code:en: 16737
 ciqual_proxy_food_name:en: Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3
 ciqual_proxy_food_name:fr: Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
+comment:en: margarine was originally made with animal fats, and while much less common now, there are still some non-plant margarines around
 # median fat for margarines in France is 58%
 food_groups:en: en:vegetable-margarines
 intake24_category_code:en: MRGN
 pnns_group_2:en: Fats
 wikidata:en: Q4287
+
+< en: Margarines
+< en: Spreadable vegetable fats
+en: Plant-based margarines, Vegetable margarines, Vegan margarines
+da: Plantebaserede margariner, Veganske margariner
+es: Margarinas vegetales, Margarinas de origen vegetal
+fr: Margarine végétale
+nb: Plantebaserte margariner, Veganske margariner
+nn: Plantebaserte margarinar, Veganske margarinar
+sv: Växtbaserade margariner, Veganska margariner
 
 < en: Margarines
 en: Margarine (Perishable)
@@ -88338,11 +88370,13 @@ en: Ground meats
 de: Hackfleisch
 fr: Viandes hachées
 hr: Mljeveno meso
+plant_alternative:en: en:plant-based-grounds
 
 < en: Frozen meats
 < en: Ground meats
 en: Frozen ground meats
 fr: Viandes hachées surgelées
+plant_alternative:en: en:frozen-plant-based-grounds
 
 < en: Beef
 #Should contain products with >99% beef only
@@ -101225,14 +101259,6 @@ ciqual_food_name:fr: Meringue
 wikidata:en: Q276276
 
 < en: Pastries
-en: Pastry biscuit with meringue
-fr: Biscuit pâtissier meringué
-agribalyse_food_code:en: 24060
-ciqual_food_code:en: 24060
-ciqual_food_name:en: Pastry biscuit with meringue
-ciqual_food_name:fr: Biscuit pâtissier meringué
-
-< en: Pastries
 en: Mille-feuille pastry
 fr: Millefeuilles, millefeuille, Mille-feuille
 hr: Mille-feuille pecivo
@@ -109578,28 +109604,39 @@ wikidata:en: Q48724049
 en: Sweet pepper chutneys
 fr: Confits de poivrons
 
+< en: Meat alternatives
 < en: Plant-based spreads
-en: Plant-based pâtés, Vegetarian pâtés
+en: Vegetarian pâtés
+da: Vegetariske postejer
+de: Vegetarische Pasteten
+pl: Pasztety wegetariańskie
+sv: Vegetarianska pastejer, Vegetariska pastejer
+
+< en: Vegan products
+< en: Vegetarian pâtés
+en: Plant-based pâtés, Vegan pâtés
 ca: Patés vegetals
-de: Pflanzlische Pasteten, Vegetarische Pasteten
+da: Plantebaserede postejer, Veganske postejer
+de: Pflanzlische Pasteten
 es: Patés vegetales
 fi: Kasvipateet
 fr: Pâtés végétaux, Pâté végétal
 hr: Paštete na biljnoj bazi
 it: Paté a base vegetale
 nl: Plantaardige smeerworsten, Plantaardige pastas
-pl: Pasztety roślinne, Pasztety wegetariańskie
+pl: Pasztety roślinne
 ro: Pate vegetal
+sv: Växtbaserade pastejer, Veganska pastejer
 
 < en: Olive tree products
-< en: Plant-based pâtés
+< en: Vegetarian pâtés
 en: Vegetarian olive pâtés
 es: Patés vegetales a base de aceitunas, Patés vegetales de aceitunas
 fr: Pâtés à tartiner végétaux à base d'olives, Pâtés à tartiner végétales à base de olives
 hr: Vegetarijanske paštete od maslina
 nl: Plantaardige pastas op basis van olijfolie
 
-< en: Plant-based pâtés
+< en: Vegetarian pâtés
 en: Vegetarian tofu pâtés
 es: Patés vegetales a base de tofu
 fr: Pâtés à tartiner végétaux à base de tofu, Pâtés à tartiner végétales à base de tofu
@@ -121676,6 +121713,53 @@ zh: 棒状零食
 food_groups:en: en:biscuits-and-cakes
 pnns_group_2:en: Biscuits and cakes
 
+< en: Bars
+en: Protein bars
+bg: Протеинови блокчета
+ca: Barretes de proteïna, barres de proteïna
+cs: Proteinové tyčinky
+de: Proteinriegel, Eiweißriegel
+es: Barritas de proteínas
+fi: proteiinipatukat
+fr: Barres protéinées
+he: חטיפי חלבון
+hr: Proteinske pločice
+it: Barrette proteiche
+ja: プロテインバー
+nl: Proteinerepen
+pt: Barras de proteínas
+ro: Batoane proteice
+ru: Протеиновые батончики
+zh: 蛋白质棒
+wikidata:en: Q7251457
+
+< en: Energy bars
+< en: Protein bars
+en: Protein Energy Bars
+de: Protein-Energie-Riegel
+fr: Barres énergétiques protéinées
+hr: Proteinske energetske pločice
+it: Barrette Energetiche Proteiche
+nl: Proteïne energierepen
+zh: 蛋白质能量棒
+
+< en: Bars
+en: Energy bars
+bg: Енергийни блокчета
+cs: Energetické tyčinky
+de: Energieriegel, Energie-Riegel
+es: Barritas energéticas
+fi: energiapatukat
+fr: Barres énergétiques
+he: חטיפים אנרגיה
+hr: Energetske pločice
+it: Barrette energetiche
+nl: Energierepen
+pl: Batony energetyczne
+zh: 能量棒
+google_product_taxonomy_id:en: 2984
+wikidata:en: Q1699821
+
 #Sweet snack made of quark and sugar. It can be filled with jam or coated in chocolate
 < en: Bars
 en: Curd snacks
@@ -123083,11 +123167,35 @@ de: Vegetarisches Gehacktes, Gemüsehack, Vegetarisches Hackfleisch
 fr: Hachés végétaux
 hr: Vegetarijanska podloga
 pl: Mielone wegetariańskie, Wegetariańskie mielone
+agribalyse_proxy_food_code:en: 30181
+ciqual_proxy_food_code:en: 30181
+ciqual_proxy_food_name:en: Soy-based minced, prepacked
+ciqual_proxy_food_name:fr: Haché végétal à base de soja, préemballé
+
+< en: Vegan products
+< en: Vegetarian grounds
+en: Plant-based grounds, Plant-based minces, Vegan grounds, Vegan minces
+fr: Hachés végétales
+
+< en: Meat analogues from soy or wheat proteins
+< en: Plant-based grounds
+en: Soy-based grounds, Soy-based minces, Soy-based minced prepacked
+fr: Hachés végétales à base de soja
+agribalyse_food_code:en: 30181
+ciqual_food_code:en: 30181
+ciqual_food_name:en: Soy-based minced, prepacked
+ciqual_food_name:fr: Haché végétal à base de soja, préemballé
+incompatible_with:en: labels:en:no-soy
 
 < en: Frozen plant-based foods
 < en: Vegetarian grounds
-en: Frozen vegetarian grounds, frozen veggie grounds
+en: Frozen vegetarian grounds, Frozen veggie grounds
 fr: Hachés végétaux surgelés
+
+< en: Frozen vegetarian grounds
+< en: Plant-based grounds
+en: Frozen plant-based grounds, Frozen plant-based minces, Frozen vegan grounds, Frozen vegan minces
+fr: Hachés végétales surgelés
 
 #Patties are a very generic term for anything flat baked in a pan
 < en: Meat alternatives
@@ -125276,54 +125384,6 @@ nl: Proteineshakes
 ro: Shake-uri cu proteine, Shake-uri proteice
 
 < en: Bodybuilding supplements
-en: Protein bars
-bg: Протеинови блокчета
-ca: Barretes de proteïna, barres de proteïna
-cs: Proteinové tyčinky
-de: Proteinriegel, Eiweißriegel
-es: Barritas de proteínas
-fi: proteiinipatukat
-fr: Barres protéinées
-he: חטיפי חלבון
-hr: Proteinske pločice
-it: Barrette proteiche
-ja: プロテインバー
-nl: Proteinerepen
-pt: Barras de proteínas
-ro: Batoane proteice
-ru: Протеиновые батончики
-zh: 蛋白质棒
-wikidata:en: Q7251457
-
-< en: Energy bars
-< en: Protein bars
-en: Protein Energy Bars
-de: Protein-Energie-Riegel
-fr: Barres énergétiques protéinées
-hr: Proteinske energetske pločice
-it: Barrette Energetiche Proteiche
-nl: Proteïne energierepen
-zh: 蛋白质能量棒
-
-< en: Bars
-< en: Bodybuilding supplements
-en: Energy bars
-bg: Енергийни блокчета
-cs: Energetické tyčinky
-de: Energieriegel, Energie-Riegel
-es: Barritas energéticas
-fi: energiapatukat
-fr: Barres énergétiques
-he: חטיפים אנרגיה
-hr: Energetske pločice
-it: Barrette energetiche
-nl: Energierepen
-pl: Batony energetyczne
-zh: 能量棒
-google_product_taxonomy_id:en: 2984
-wikidata:en: Q1699821
-
-< en: Bodybuilding supplements
 en: BCAA, Branched-chain amino acids
 de: verzweigtkettige Aminosäuren
 fi: BCAA, Branched-chain amino acids, Haaroittuneet aminohapot
@@ -125943,6 +126003,7 @@ ciqual_food_code:en: 8332
 ciqual_food_name:en: Paté (average)
 ciqual_food_name:fr: Pâté (aliment moyen)
 intake24_category_code:en: PTES
+plant_alternative:en: en:plant-based-pâtés
 wikidata:en: Q816704
 
 < en: Pâté
@@ -126795,14 +126856,6 @@ agribalyse_food_code:en: 28913
 ciqual_food_code:en: 28913
 ciqual_food_name:en: Cooked ham, choice, rind less and fatless
 ciqual_food_name:fr: Jambon cuit, choix, découenné dégraissé
-
-< en: meat-alternatives
-en: Soy-based minced prepacked
-fr: Haché végétal à base de soja préemballé
-agribalyse_food_code:en: 30181
-ciqual_food_code:en: 30181
-ciqual_food_name:en: Soy-based minced, prepacked
-ciqual_food_name:fr: Haché végétal à base de soja, préemballé
 
 < en: chickens
 en: Chicken leg meat and skin raw

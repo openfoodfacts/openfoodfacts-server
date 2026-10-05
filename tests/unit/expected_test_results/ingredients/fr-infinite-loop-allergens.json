@@ -27,7 +27,7 @@
       },
       {
          "from_palm_oil" : "maybe",
-         "id" : "en:vegetable-fat",
+         "id" : "en:fat",
          "ingredients" : [
             {
                "ciqual_food_code" : "16129",
@@ -52,8 +52,9 @@
             }
          ],
          "is_in_taxonomy" : 1,
+         "labels" : "en:vegan",
          "percent_estimate" : 12.5,
-         "text" : "graisse végétale",
+         "text" : "graisse",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -153,7 +154,7 @@
    "ingredients_original_tags" : [
       "en:sugar",
       "en:whole-milk-powder",
-      "en:vegetable-fat",
+      "en:fat",
       "fr:beurre de cacao1",
       "fr:pâte de cacao1",
       "en:skimmed-milk-powder",
@@ -172,14 +173,14 @@
       "en:whole-milk-powder",
       "en:milk-powder",
       "en:dairy",
-      "en:vegetable-fat",
-      "en:vegetable-oil-and-fat",
+      "en:fat",
       "en:oil-and-fat",
       "fr:beurre de cacao1",
       "fr:pâte de cacao1",
       "en:skimmed-milk-powder",
       "en:sunflower-oil",
       "en:vegetable-oil",
+      "en:vegetable-oil-and-fat",
       "en:e322",
       "en:vanilla-flavouring",
       "en:flavouring",
@@ -197,9 +198,9 @@
    "ingredients_with_unspecified_percent_sum" : 71.984375,
    "ingredients_without_ciqual_codes" : [
       "en:e322",
+      "en:fat",
       "en:palm-kernel-fat",
       "en:vanilla-flavouring",
-      "en:vegetable-fat",
       "fr:beurre de cacao1",
       "fr:pâte de cacao1"
    ],
@@ -207,9 +208,9 @@
    "ingredients_without_ecobalyse_ids" : [
       "en:cocoa",
       "en:e322",
+      "en:fat",
       "en:palm-kernel-fat",
       "en:vanilla-flavouring",
-      "en:vegetable-fat",
       "fr:beurre de cacao1",
       "fr:pâte de cacao1"
    ],

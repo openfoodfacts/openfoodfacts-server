@@ -1,0 +1,140 @@
+{
+   "additives_n" : 0,
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "allergens_tags" : [
+      "en:gluten",
+      "en:milk"
+   ],
+   "amino_acids_tags" : [],
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "text" : "farine de blé",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "sucre",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+         "id" : "en:skimmed-milk",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "lait écrémé",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:skimmed-milk"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
+   "ingredients_original_tags" : [
+      "en:wheat-flour",
+      "en:sugar",
+      "en:skimmed-milk"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
+   "ingredients_tags" : [
+      "en:wheat-flour",
+      "en:cereal-flour",
+      "en:wheat",
+      "en:flour",
+      "en:cereal",
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:skimmed-milk",
+      "en:milk",
+      "en:dairy"
+   ],
+   "ingredients_text" : "farine de _blé_, sucre, _lait_ écrémé",
+   "ingredients_text_fr" : "farine de _blé_, sucre, _lait_ écrémé",
+   "ingredients_text_with_allergens" : "farine de <span class=\"allergen\">blé</span>, sucre, <span class=\"allergen\">lait</span> écrémé",
+   "ingredients_text_with_allergens_fr" : "farine de <span class=\"allergen\">blé</span>, sucre, <span class=\"allergen\">lait</span> écrémé",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 3,
+   "lang" : "fr",
+   "languages" : {
+      "en:french" : 1
+   },
+   "languages_codes" : {
+      "fr" : 1
+   },
+   "languages_hierarchy" : [
+      "en:french"
+   ],
+   "languages_tags" : [
+      "en:french",
+      "en:1"
+   ],
+   "lc" : "fr",
+   "minerals_tags" : [],
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "nucleotides_tags" : [],
+   "other_nutritional_substances_tags" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:milk",
+               "en:gluten"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 0,
+   "vitamins_tags" : []
+}

@@ -78,12 +78,12 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "fi:_kananmunat_",
+         "id" : "fi:kananmunat",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 1.43229166666667,
          "percent_max" : 16.6666666666667,
          "percent_min" : 0,
-         "text" : "_kananmunat_"
+         "text" : "kananmunat"
       },
       {
          "ciqual_food_code" : "11013",
@@ -99,12 +99,12 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "fi:_äyriäiset_",
+         "id" : "fi:äyriäiset",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 0.358072916666671,
          "percent_max" : 12.5,
          "percent_min" : 0,
-         "text" : "_äyriäiset_"
+         "text" : "äyriäiset"
       },
       {
          "id" : "fi:pähkinöitä",
@@ -122,7 +122,7 @@
          "percent_estimate" : 0.0895182291666714,
          "percent_max" : 10,
          "percent_min" : 0,
-         "text" : "_selleri_",
+         "text" : "selleri",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -138,12 +138,12 @@
          "vegetarian" : "no"
       },
       {
-         "id" : "fi:_nilviäisiä_",
+         "id" : "fi:nilviäisiä",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 0.0447591145833428,
          "percent_max" : 8.33333333333333,
          "percent_min" : 0,
-         "text" : "_nilviäisiä_"
+         "text" : "nilviäisiä"
       }
    ],
    "ingredients_analysis" : {
@@ -155,22 +155,22 @@
          "en:fish"
       ],
       "en:palm-oil-content-unknown" : [
-         "fi:_kananmunat_",
-         "fi:_äyriäiset_",
+         "fi:kananmunat",
+         "fi:äyriäiset",
          "fi:pähkinöitä",
-         "fi:_nilviäisiä_"
+         "fi:nilviäisiä"
       ],
       "en:vegan-status-unknown" : [
-         "fi:_kananmunat_",
-         "fi:_äyriäiset_",
+         "fi:kananmunat",
+         "fi:äyriäiset",
          "fi:pähkinöitä",
-         "fi:_nilviäisiä_"
+         "fi:nilviäisiä"
       ],
       "en:vegetarian-status-unknown" : [
-         "fi:_kananmunat_",
-         "fi:_äyriäiset_",
+         "fi:kananmunat",
+         "fi:äyriäiset",
          "fi:pähkinöitä",
-         "fi:_nilviäisiä_"
+         "fi:nilviäisiä"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -190,13 +190,13 @@
       "en:wheat-flour",
       "en:sugar",
       "en:salt",
-      "fi:_kananmunat_",
+      "fi:kananmunat",
       "en:mustard",
-      "fi:_äyriäiset_",
+      "fi:äyriäiset",
       "fi:pähkinöitä",
       "en:celery",
       "en:fish",
-      "fi:_nilviäisiä_"
+      "fi:nilviäisiä"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -212,15 +212,15 @@
       "en:disaccharide",
       "en:added-sugar",
       "en:salt",
-      "fi:_kananmunat_",
+      "fi:kananmunat",
       "en:mustard",
-      "fi:_äyriäiset_",
+      "fi:äyriäiset",
       "fi:pähkinöitä",
       "en:celery",
       "en:stalk-vegetable",
       "en:vegetable",
       "en:fish",
-      "fi:_nilviäisiä_"
+      "fi:nilviäisiä"
    ],
    "ingredients_text" : "Vesi, MAITO, VEHNÄjauho, sokeri, suola, _kananmunat_, sinappi, _äyriäiset_, pähkinöitä, _selleri_, KALA, _nilviäisiä_. Saattaa sisältää pieniä määriä LUPIINEJA, maapähkinöitä, _soijaa_ ja seesamia ",
    "ingredients_text_fi" : "Vesi, MAITO, VEHNÄjauho, sokeri, suola, _kananmunat_, sinappi, _äyriäiset_, pähkinöitä, _selleri_, KALA, _nilviäisiä_. Saattaa sisältää pieniä määriä LUPIINEJA, maapähkinöitä, _soijaa_ ja seesamia ",
@@ -232,18 +232,27 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:celery",
-      "fi:_kananmunat_",
-      "fi:_nilviäisiä_",
-      "fi:_äyriäiset_",
-      "fi:pähkinöitä"
+      "fi:kananmunat",
+      "fi:nilviäisiä",
+      "fi:pähkinöitä",
+      "fi:äyriäiset"
    ],
    "ingredients_without_ciqual_codes_n" : 5,
    "ingredients_without_ecobalyse_ids" : [
       "en:fish",
+<<<<<<< HEAD
       "fi:_kananmunat_",
       "fi:_nilviäisiä_",
       "fi:_äyriäiset_",
       "fi:pähkinöitä"
+=======
+      "en:mustard",
+      "en:salt",
+      "fi:kananmunat",
+      "fi:nilviäisiä",
+      "fi:pähkinöitä",
+      "fi:äyriäiset"
+>>>>>>> main
    ],
    "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 8,
