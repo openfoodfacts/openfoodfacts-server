@@ -1,0 +1,108 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "fr:Additifs nutritionnels",
+         "ingredients" : [
+            {
+               "id" : "en:cholecalciferol",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 66.6666666666667,
+               "percent_max" : 100,
+               "percent_min" : 33.3333333333333,
+               "text" : "Vitamine D3",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "text" : "Additifs nutritionnels"
+      },
+      {
+         "id" : "en:vitamin-e",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "quantity" : "15 mg",
+         "quantity_g" : 0.015,
+         "text" : "Vitamine E",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:biotin",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "quantity" : "20 µg",
+         "quantity_g" : 2e-05,
+         "text" : "Biotine",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:cholecalciferol"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:cholecalciferol"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:Additifs nutritionnels",
+      "en:vitamin-e",
+      "en:biotin",
+      "en:cholecalciferol"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:Additifs nutritionnels",
+      "en:vitamin-e",
+      "en:vitamins",
+      "en:biotin",
+      "en:cholecalciferol",
+      "en:vitamin-d"
+   ],
+   "ingredients_text" : "Additifs nutritionnels (/kg) : Vitamine D3 : 160 UI, Vitamine E : 15 mg, Biotine : 20 µg",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:biotin",
+      "en:cholecalciferol",
+      "en:vitamin-e",
+      "fr:Additifs nutritionnels"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:biotin",
+      "en:cholecalciferol",
+      "en:vitamin-e",
+      "fr:Additifs nutritionnels"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 3,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 1
+}

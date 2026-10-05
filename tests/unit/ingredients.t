@@ -36,6 +36,65 @@ my @tests = (
 		}
 	],
 
+	# pet food additive section: the "/kg" dosage context must not become a
+	# sub-ingredient, and microgram dosages (µg) must not leave a "µg" sub-ingredient
+	[
+		'fr-feed-additive-dosages',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels (/kg) : Vitamine D3 : 160 UI, Vitamine E : 15 mg, Biotine : 20 µg"
+		}
+	],
+
+	# same dosage contexts with a "per" word and a unit list
+	[
+		'fr-feed-dosage-per-word',
+		{
+			lc => "fr",
+			ingredients_text => "Additifs (par kg) : antioxydants : E306, vitamines (en mg)"
+		}
+	],
+
+	# a comma-separated list of units is also a dosage context
+	[
+		'fr-feed-dosage-unit-list',
+		{
+			lc => "fr",
+			ingredients_text => "Additifs (mg, kg) : E306, vitamine C : 100 mg"
+		}
+	],
+
+	# the three microgram spellings (micro sign, Greek mu, ASCII fold) are all
+	# consumed with the dosage and normalized to g
+	[
+		'fr-feed-microgram-forms',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels : vitamine E : 15 mg, vitamine D3 : 100 µg, vitamine B12 : 2 μg, biotine : 5 ug"
+		}
+	],
+
+	# emphasis underscores are markup, not part of ingredient names: they are
+	# stripped from the parsed names, and kept in the stored ingredients text
+	# (allergen markup "_lait_")
+	[
+		'fr-emphasis-underscores',
+		{
+			lc => "fr",
+			ingredients_text => "farine, _sucre_, sel"
+		}
+	],
+
+	[
+		'fr-emphasis-underscores-sub-ingredient',
+		{
+			lc => "fr",
+			ingredients_text => "sauce (_crustacés_, eau), _lait_ écrémé"
+		}
+	],
+
 	# FEDIAF label forms of trace mineral sources, with hydration and
 	# oxidation-state qualifiers, must resolve to their taxonomy entries
 	[
@@ -1327,7 +1386,30 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text_fr => "",
 		}
 	],
-
+	# Animal / vegetal origins
+	[
+		'en-animal-vegetal-origins',
+		{
+			lc => "en",
+			ingredients_text => "fat (vegetal origin), gelatin (animal origin), natural flavors (vegetal)",
+		}
+	],
+	[
+		'fr-animal-vegetal-origins',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"graisse (origine végétale), gélatine (origine animale), arômes naturels (végétaux), soupe (végétale), gélatine (animale)",
+		}
+	],
+	[
+		'nl-animal-vegetal-origins',
+		{
+			lc => "nl",
+			ingredients_text =>
+				"vet (plantaardige oorsprong), gelatine (dierlijke oorsprong), natuurlijke aroma's (plantaardig), E120 (dierlijk)",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
