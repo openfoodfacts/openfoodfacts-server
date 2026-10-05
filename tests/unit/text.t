@@ -6,7 +6,8 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Text qw/normalize_percentages regexp_escape remove_email get_decimal_formatter get_percent_formatter/;
+use ProductOpener::Text
+	qw/normalize_percentages regexp_escape remove_email get_decimal_formatter get_percent_formatter/;
 
 # Patterns according to Unicode CDLR v29
 # Pattern	# Locales using it
