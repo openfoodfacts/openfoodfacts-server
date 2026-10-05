@@ -1232,7 +1232,6 @@ $options{nova_groups_tags} = {
 	"categories/en:starches" => 2,
 	"categories/en:baking-flavors" => 2,
 
-
 	# group 3 tags will not be applied to food identified as group 2
 
 	# group 3 ingredients from nova paper
