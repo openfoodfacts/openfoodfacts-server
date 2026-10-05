@@ -937,7 +937,7 @@ fi: lysotsyymi kananmunasta
 fr: lysozyme d'œuf, lysozyme d'oeuf, lysozyme issu de protéine d'oeufs
 hr: jajčani lizozim, lizozim iz jaja, lisozim iz jaja
 it: lisozima da uovo, lisozima d'uovo
-nl: lysozym uit ei, lysozym van ei
+nl: lysozym uit ei, lysozym van ei, ei-lysosym
 pl: lizozym z jaj, lizozym z białka jaja kurzego, lizozym jajeczny
 ru: белок яичный сухой, белок яичный, яичный белок
 sl: lizocim iz JAJC
@@ -13198,7 +13198,7 @@ fi: kotelo
 fr: enveloppe
 hr: omotač, omotaču
 it: involucro
-nl: vel
+nl: vel, omhulsel
 pl: osłonka
 
 # <en:animal part
@@ -14400,6 +14400,8 @@ zh: 油
 # yue:油
 # zh-hans:油
 # zh-hant:油
+ciqual_proxy_food_code:en: 17001
+ciqual_proxy_food_name:en: Vegetable oil -average-
 comment:en: should cooking oil be split out?
 density_g_per_ml:en: 0.92
 description:en: Cooking OIL is plant, animal, or synthetic fat used in frying, baking, and other types of cooking. It is also used in food preparation and flavouring not involving heat, such as salad dressings and bread dips, and in this sense might be more accurately termed edible oil.
@@ -21735,7 +21737,7 @@ pl: naturalny aromat brzoskwiniowy
 
 < en: flavouring
 en: pepper flavouring
-de: Pfeffergewürz, Gewürzpfeffer
+de: Pfeffergewürz, Gewürzpfeffer, Pfeffer-Gewürz
 es: aroma de pimienta
 fi: pippuriaromi
 fr: arôme de poivre
@@ -24056,35 +24058,6 @@ nl: tarwemout
 pl: słód pszenny, słód pszeniczny
 pt: Malte de trigo
 sv: vetemalt, mältade vetekorn, malt av vete
-
-< en: vegetable fiber
-en: wheat fiber
-bg: пшенични влакна, пшенични фибри
-cs: pšeničná vláknina
-da: hvedefibre
-de: Weizenfaser, Weizenfasern
-es: fibras de trigo
-fi: vehnäkuitu
-fr: fibre de blé, fibres de blé
-hr: pšenična vlakna
-hu: búzarost
-it: fibra di frumento, fibre di frumento
-lt: kviečių ląsteliena, kviečių skaidulos, kvietiniai ląsteliena, kvietiniai skaidulos, kvietinės ląsteliena, kvietinės skaidulos, kvietinis ląsteliena, kvietinis skaidulos
-nl: tarwevezel, tarwevezels
-pl: błonnik pszenny, błonnik pszeniczny
-pt: fibras de trigo
-ro: fibră de grâu, fibre de grâu
-ru: Пшеничные волокна, пищевые волокна пшеничные
-sv: vetefiber, Vete fiber
-tr: buğday lifi
-
-< en: wheat fiber
-en: gluten free wheat fiber
-bg: безглутенови пшенични влакнини
-hr: bezglutenska pšenična vlakna
-it: fibra di frumento senza glutine
-nl: glutenvrije tarwevezel
-pl: błonnik pszenny bezglutenowy
 
 < en: wheat fiber
 en: wheat stalk fiber
@@ -26436,49 +26409,6 @@ it: farina di avena senza glutine
 pl: bezglutenowa mąka owsiana
 
 < en: oat
-< en: vegetable fiber
-en: oat fibre
-bg: овесени влакнини, фибри от овес
-cs: ovesná vláknina
-da: Havrefibre
-de: Haferfasern, Haferfaser, Haferpflanzenfaser
-el: εδώδιμες ινες βρώμης
-es: fibra de avena
-fi: kaurakuitu
-fr: fibre d'avoine, fibres d'avoine
-hr: zobena vlakna
-hu: zabrost
-it: fibra d'avena, fibra di avena
-nl: havervezel, havervezels
-pl: błonnik owsiany, błonnik z owsa
-pt: fibra de aveia
-ro: fibre de ovăz
-sk: ovsená vláknina
-sl: zobena vlakna
-sv: havrefiber
-tr: yulaf lifi
-wikidata:en: Q108654342
-#2903 @2021-09-22
-
-< en: gluten free oats
-< en: oat fibre
-en: gluten free oat fibre
-cs: bezlepková ovesná vláknina
-de: glutenfreie Haferfaser
-fr: fibre d'avoine sans gluten
-hr: zobena vlakna bez glutena
-it: fibra di avena senza glutine
-nl: glutenvrije havervezels
-pl: błonnik owsiany bezglutenowy, bezglutenowy błonnik owsiany
-
-< en: oat
-< en: vegetable fiber
-en: oat husk fiber
-de: Haferspelzfaser, Haferspelzfasern
-fr: fibre de son d'avoine
-it: fibra di buccia d'avena
-
-< en: oat
 en: oat bran, oatbran
 bg: овесени трици
 da: havreklid
@@ -27069,14 +26999,6 @@ es: malta molida de centeno
 hr: mljeveni raženi slad
 it: malto di segale macinato
 
-< en: vegetable fiber
-en: rye fiber
-de: Roggen-Ballaststoffe
-fi: ruiskuitu
-hr: vlakna raži
-it: fibra di segale
-nl: roggevezel
-sv: rågfiber
 
 #processing:en: en:scalding
 en: scalding
@@ -29146,30 +29068,6 @@ hr: mladi kukuruz
 it: baby corn
 pl: mini kolby kukurydzy, kukurydza baby, małe kolby kukurydzy
 sv: babymajs, minimajs
-
-< en: vegetable fiber
-en: corn fiber
-bg: царевични фибри, царевични влакнини
-cs: kukuřičná vláknina
-de: Maisfaser, Maisfasern
-es: fibra de maiz
-fr: fibre de maïs
-hr: kukuruzna vlakna
-it: fibra di mais
-lt: kukurūzų skaidulos, kukurūzų ląsteliena
-lv: kukurūzas šķiedra
-nl: maïsvezel
-pl: błonnik kukurydziany
-sk: kukuričná vláknina
-
-< en: corn fiber
-en: soluble corn fiber
-fr: fibre soluble de maïs
-hr: topivih kukuruznih vlakana
-it: fibra di mais solubile
-lv: šķīstošā kukurūzas šķiedra
-nl: oplosbare maïsvezel
-pl: rozpuszczalny błonnik kukurydziany, błonnik rozpuszczalny kukurydziany
 
 < en: corn
 en: Maize bran, Corn bran
@@ -33572,14 +33470,6 @@ fr: sirop d'agave concentré biologique
 hr: organski koncentrirani sirup od agave
 it: sciroppo di agave concentrato biologico
 
-< en: vegetable fiber
-en: agave fiber
-de: Agavenfaser, Agavenfasern
-fr: fibres d'agave
-hr: vlakna agave
-it: fibre d'agave, fibra d'agave, fibra di agave, fibre di agave
-nl: agavevezel
-
 < en: sweetener
 en: oligosaccharides
 de: Oligosaccharide
@@ -34102,28 +33992,6 @@ allergens:en: en:soybeans
 < en: soy protein product
 en: proteic extruded soy, proteic extrusion of soy
 it: estruso proteico di soia
-
-< en: vegetable fiber
-en: soy fiber
-de: Sojafaser
-es: fibra de soja
-fi: soijakuitu
-fr: fibres de soja
-hr: sojina vlakna
-it: fibre di soia
-lt: sojų ląsteliena
-nl: sojavezel
-pl: błonnik sojowy, błonnik z soi
-pt: fibra de soja
-allergens:en: en:soybeans
-
-< en: soy fiber
-en: rehydrated soy fiber
-de: Rehydrierte Sojafaser, rehydrierte Sojafasern
-es: fibra de soja rehidratada
-fr: Fibre de soja réhydratée
-hr: rehidrirana sojina vlakna
-it: fibre di soia reidratate
 
 < en: soy protein
 en: dehydrated soy protein
@@ -36779,11 +36647,6 @@ fi: soijaleseet
 fr: son de soja
 hr: sojine mekinje
 it: crusca di soia
-
-< en: soya bean
-< en: vegetable fiber
-en: soya bean fiber
-sv: sojabönfiber, sojabönfibrer
 
 #process:en: en:concentrated
 #<en:soya bean
@@ -40931,17 +40794,6 @@ de: Apfelflocken
 fi: omenahiutale
 it: fiocchi di mela
 
-< en: vegetable fiber
-en: apple fiber
-de: Apfelfaser
-es: Fibra de manzana
-fi: omenakuitu
-fr: fibre de pomme, fibres de pomme
-hr: jabučna vlakna
-it: fibra di mela, fibre di mele
-nl: appelvezel
-pl: błonnik jabłkowy
-
 #< en: compound
 fi: omenavalmiste
 fr: préparation à base de pommes
@@ -41160,21 +41012,6 @@ usda_ndb_process:en: en:powder
 #                                Citrus fruit
 #
 ###################################################################################################
-
-< en: vegetable fiber
-en: citrus fibre, citrus fibres
-bg: цитрусови влакнини
-da: citrusfibre
-de: citrusfaser, zitrusfaser, Zitrusfasern, Zitrusfruchtfasern, Citrusfasern
-fi: sitruskuitu
-fr: fibre d'agrume, fibre végétale d'agrumes, fibres d'agrumes, fibres d'agrume
-hr: citrusna vlakna, vlakna citrusa
-it: fibra di agrumi, fibra di agrume, fibre di agrumi
-nl: citrusvezel, citrusvezels
-no: sitrusfiber
-pl: błonnik cytrusowy, błonnik z owoców cytrusowych, błonnik z cytrusów
-ro: fibră de citrice
-sv: citrusfiber, citrusfibrer
 
 < en: fruit
 en: citrus fruit, citrus
@@ -43262,7 +43099,7 @@ fr: pulpe d'orange
 hr: pulpa naranče
 hu: narancs gyümölcshős, narancs püré
 it: polpe d'arancia
-nl: sinaasappelpulp
+nl: sinaasappelpulp, sinaasappelpasta
 pl: miąższ pomarańczy, miąższu pomarańczy
 pt: polpa de laranja
 ciqual_food_code:en: 13034
@@ -47144,19 +46981,6 @@ fr: segments d'ananas
 hr: segmenti ananasa
 it: spicchi di ananas
 
-< en: vegetable fiber
-en: pineapple fibre, pineapple fibres
-de: Ananasfasern
-es: fibras de piña
-et: ananassi kiud
-fi: ananaskuitu
-fr: fibres d'ananas
-hr: vlakna ananasa
-hu: ananászrost
-it: fibre d'ananas, fibre di ananas
-nl: ananasvezels
-sv: ananasfiber
-
 < en: pineapple
 #<en:purée
 en: pineapple purée
@@ -50331,10 +50155,7 @@ sv: torkade grönsaker
 en: green vegetable
 fr: légumes verts
 
-< en: vegetable fiber
-en: fiber from vegetables
-fi: kasviskuitu
-fr: fibres de légume
+
 
 < en: concentrate
 < en: vegetable
@@ -53730,29 +53551,6 @@ usda_ndb_code:en: 11154
 usda_ndb_name:en: Chicory roots, raw
 
 < en: chicory
-< en: vegetable fiber
-en: chicory fibre, chicory root fiber
-bg: фибри от цикория
-cs: vláknina z kořene čekanky, čekanková vláknina
-da: cikoriefibre
-de: Zichorienfäser, Zichorienwurzelfaser, Zichorienwurzelfasern, Ballaststoff aus Zichorienwurzel
-es: fibra de la raíz de achicoria, fibra de achicoria
-fi: sikurikuitu, sikurijuurikuitu
-fr: fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
-hr: vlakna iz korijena cikorije
-it: Fibre di cicoria, fibra di radice di cicoria
-lv: cigoriņu šķiedra
-nl: chichoreivezel, chichoreiwortelvezel
-pl: błonnik z cykorii, błonnik z korzenia cykorii, włókna z korzenia cykorii
-sk: vláknina z koreňa čakanky
-sv: cikoriarotfiber, fiber från cikoriarot, cikoriafiber
-
-< en: chicory fibre
-< en: oligofructose fibre
-en: fiber from chicory root-oligofructose
-hr: vlakna iz korijena cikorije-oligofruktoza
-
-< en: chicory
 fr: chicorée soluble
 es: achicoria en polvo
 nl: oploscichorei, poeder met witlof, cichorei
@@ -54341,29 +54139,6 @@ usda_ndb_name:en: Bamboo shoots, raw
 wikidata:en: Q2157176
 wikipedia:en: https://en.wikipedia.org/wiki/Bamboo_shoot
 # 412 in 10 languages @2021-09-22
-
-# <en:bamboo
-< en: vegetable fiber
-en: bamboo fibre
-bg: бамбукови фибри
-da: bambusfibre
-de: Bambusfaser, Bambusfasern
-es: Fibra de bambú
-fi: bambukuitu
-fr: fibre de bambou, fibres de bambou
-hr: vlakna bambusa
-it: fibra di bambù, fibre di bambù
-nl: bamboevezel, bamboevezels
-pl: błonnik bambusowy, błonnik roślinny bambusowy
-sv: bambufiber
-
-< en: bamboo fibre
-en: bamboo shoot fiber
-de: bamboo fibre
-fr: fibres de pousses de bambou
-hr: vlakna izdanaka bambusa
-it: fibra di germoglio di bambù
-nl: vezels van bamboescheuten
 
 < en: bamboo
 en: sasa veitchii
@@ -55785,8 +55560,6 @@ fr: jus d'échalote concentré
 hr: koncentrirani sok od ljutike
 it: succo concentrato di scalogno
 
-# description:en:The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
-
 # category/leeks
 < en: onion-family vegetable
 en: leek
@@ -55836,7 +55609,7 @@ li: sjpoor
 lt: poras, daržinis poras
 lv: puravi
 mk: праз
-ms: bawang perai, ‏باوڠ ڤراي‎‎
+ms: bawang perai, باوڠ ڤراي
 mt: kurrat
 my: ထန်းကြက်သွန်
 nb: purre, purreløk
@@ -55856,7 +55629,7 @@ sk: pór
 sl: por
 sq: presh, preshi
 sr: празилук, praziluk
-sv: purjolök
+sv: purjolök, purjolöks
 ta: லீக்ஸ்
 tg: гандано
 th: กระเทียมต้น
@@ -55867,35 +55640,36 @@ vi: tỏi tây
 wa: porea
 yi: פארע-ציבעלע
 zh: 韭葱
+#aeb-arab: كرّاث
+#ang: lēac
+#arz: كراث
+#frr: gäärslook
+#kbp: puwaroo
+#nah: huēyi caxtillān xōnacatl
+#nap: puorr
+#nds: look
+#pap: siboyo largu
+#pcd: poreau
+#pnb: ہرا پیاز
+#pt-br: alho poró
+#sco: leek
+#smn: purjosiipuul
+#sms: purjoluukk
+#vls: pret
+#wuu: 韭葱
+#xmf: პურასქია
+#yue: 京蔥
 carbon_footprint_fr_foodges_ingredient:fr: Poireau
 carbon_footprint_fr_foodges_value:fr: 0.3
 ciqual_food_code:en: 20039
 ciqual_food_name:en: Leek, raw
 ciqual_food_name:fr: Poireau, cru
+description:en: The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
 ecobalyse:en: leek-fr
 ecobalyse_labels_en_organic:en: leek-organic
 eurocode_2_group_3:en: 8.30.30
-# aeb-arab:كرّاث
-#ang:lēac
-#arz:كراث
-# frr:gäärslook
-# kbp:puwaroo
-# nah:huēyi caxtillān xōnacatl
-# nap:puorr
-# nds:look
-#pap:siboyo largu
-# pcd:poreau
-# pnb:ہرا پیاز
-# pt-br:alho poró
-# sco:leek
-#smn:purjosiipuul
-#sms:purjoluukk
-# vls:pret
-#wuu:韭葱
-#xmf:პურასქია
-# yue:京蔥
-#plant: wikidata:en:Q21870138
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
+#plant: wikidata:en:Q21870138
 wikidata:en: Q1807269
 wikipedia:en: https://en.wikipedia.org/wiki/Leek
 
@@ -55906,7 +55680,6 @@ de: Konzentrierter Porreesaft
 fr: jus de poireau concentré
 hr: koncentriranog soka od poriluka
 it: succo concentrato di porro
-#20 in 3 @2021-10-26
 
 < en: leek
 en: leek sprouts
@@ -56949,7 +56722,7 @@ pt: extrato de abóbora y de cenoura
 
 < en: carrot and pumpkin concentrate
 en: carrot and pumpkin concentrate colouring
-de: Färbende Konzentrate Karotte und Kürbis
+de: Färbende Konzentrate Karotte und Kürbis, färbendes Karotten- und Kürbiskonzentrat
 
 < en: carrot
 en: carrot extract
@@ -56989,12 +56762,6 @@ fi: porkkanaraaste
 fr: granulé de carotte
 nl: wortelgranulaat
 ru: морковь гранулы
-
-< en: vegetable fiber
-fr: fibre de carotte, fibres de carotte
-de: Karottenfasern
-fi: porkkanakuitu
-nl: wortelvezel
 
 < en: carrot
 fr: carottes déshydratées
@@ -58085,22 +57852,6 @@ sl: krompirjevi kosmiči
 < en: potato flakes
 fr: flocons de pomme de terre réhydratés
 
-< en: vegetable fiber
-en: potato fiber, potato fibre
-ca: fibra de patata, fibra vegetal de patata
-da: kartoffelfibre
-de: Kartoffelfasern, Kartoffelfaser, Kartoffelballaststoffe
-es: fibra de patata, fibra vegetal de patata
-fi: perunakuitu
-fr: fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
-hr: krumpirova vlakna
-it: fibra di patata
-nb: potetfiber
-nl: aardappelvezel, aardappelvezels
-no: potetfiber, potetfibre
-pl: błonnik ziemniaczany
-sv: potatisfiber
-
 # fr:pommes de terre préfrites is a compound ingredient:Pomme de terre préfrite [pomme de terre, huile de tournesol, dextrose de blé]
 
 < en: potato
@@ -58814,19 +58565,6 @@ description:en: "Drumstick" is the common name for the long, slender seed pods o
 usda_fdc_code:en: 170483
 usda_ndb_code:en: 11620
 usda_ndb_name:en: Drumstick pods, raw
-
-< en: vegetable fiber
-en: acacia fibre, acacia fibre
-de: Akazienfasern
-es: Fibra de acacia
-fi: akaasiakuitu
-fr: fibre d'acacia, fibres d'acacia
-hr: bagremova vlakna
-it: fibre di acacia
-nl: acaciavezels
-pl: błonnik akacjowy
-pt: fibras de acácia
-sv: akaciafiber, akaciefiber
 
 en: prebiotics
 da: Præbiotiske
@@ -60530,7 +60268,7 @@ da: sichuanpeber
 hr: sečuanski papar
 it: pepe di Sichuan
 nb: sichuanpepper
-nl: cichuan peper
+nl: cichuan peper, Sichuan peper
 pl: pieprz syczuański
 sv: sichuanpeppar
 zh: 花椒
@@ -68277,7 +68015,7 @@ kk: қара бұрыш
 lt: juodieji piperai
 lv: melnie pipari
 nb: svart pepper, piper nigrum, sort pepper
-nl: zwarte peper
+nl: zwarte peper, zwartepeper
 nn: svart pepper
 pl: czarny pieprz, pieprz czarny
 pt: pimenta preta, pimenta-negra
@@ -68336,7 +68074,7 @@ fi: mustapippuriuute
 fr: extrait de poivre noir
 hr: ekstrakt crnog papra
 it: Estratto di pepe nero
-nl: zwarte peperextract, zwartepeperextract
+nl: zwarte peperextract, zwartepeperextract, zwartepeper extract
 sv: svartpepparextrakt
 
 < en: black pepper
@@ -75069,6 +74807,71 @@ wikidata:en: Q160102
 
 ###################################################################################################
 #
+#                                Psyllium
+#
+###################################################################################################
+
+< en: plant
+en: psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
+xx: psyllium
+ar: بزر قطونة
+da: psyllium skræl, psyllium frøskaller
+de: Psyllium, Flohsamenschalen, Plantago Psyllium
+es: Psilio, plantago, cáscara de semilla de psyllium
+fa: بارهنگ کتانی
+fi: psylliumkuitu, psylliuminsiemenkuori
+fr: fibres de psyllium, psyllium, enveloppe de psyllium, enveloppes de psyllium
+he: פסיליום
+hi: isabgol
+hr: vlakna psylliuma
+it: fibra di psillio
+nl: psylliumvezels, psylliumvezel, vlozaadvezels
+pl: Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik, błonnik z babki płesznik, łupiny nasienne babki płesznik, łuski psyllium - łuski nasion babki jajowatej
+ru: Подорожник
+sd: اسپنگر
+sv: psylliumfiber, psylliumfröskal, psyllium
+ta: Isabgol
+uk: Подорожник
+ur: اسپغول
+# pam:Apang psyllium
+comment:en: this not a fiber (but has a lot), so no nova implications.
+description:en: Psyllium is the seed husk of Plantago ovata, a plant part grown mainly in India (the world's dominant producer), with smaller output in Pakistan, Iran, and parts of Europe. Seeds are harvested and cleaned, then the husk is mechanically separated by milling and sifting, and sometimes ground into powder, without extraction or chemical treatment. It is nearly tasteless, with a slightly mucilaginous texture. It is used as a binder and gelling agent in gluten-free baking, as a thickener, and in fiber supplements and cereals. Nutritionally, it is about 70 to 85% soluble fiber, providing roughly 0 to 2 kcal/g, with negligible fat and protein.
+nova:en: 2
+wikidata:en: Q15258700
+wikipedia:en: https://en.wikipedia.org/wiki/Psyllium
+
+< en: psyllium
+en: psyllium seed
+da: loppefrø
+sv: loppfrö, psylliumfrö, psylliumfrön
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q138602386
+
+< en: psyllium
+en: blond psyllium
+es: psyllium rubio
+fr: psyllium blond
+hr: plavokosi psilium
+it: psillio biondo
+la: Plantago ovata
+pl: babka jajowata, babki jajowatej
+
+< en: blond psyllium
+en: blond psyllium husk
+es: tegumento de psyllium rubio
+fr: tégument de psyllium blond
+hr: plava ljuska psiliuma
+it: buccia di psillio biondo
+pl: łupina nasienna babki jajowatej, łupiny nasion babki jajowatej, łuska babki jajowatej
+
+< en: blond psyllium
+en: blond psyllium fibre
+it: fibra di psillio biondo
+pl: błonnik babki jajowatej, błonnik z babki jajowatej, błonnik z łuski babki jajowatej
+
+###################################################################################################
+#
 #                                Pumpkin flowers
 #
 ###################################################################################################
@@ -75087,7 +74890,7 @@ usda_ndb_name:en: Pumpkin flowers, raw
 
 < en: plant
 en: purple coneflower
-xx: echinacae
+xx: echinacea
 de: Purpur-Sonnenhut
 fr: échinacée pourpre
 hu: bibor kasvirág
@@ -78121,10 +77924,8 @@ eurocode_2_group_3:en: 8.50.25
 wikidata:en: Q19744
 wikipedia:en: https://en.wikipedia.org/wiki/Boletus
 
-# description:en:BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus.
-
 < en: boletus
-en: cep, porcini mushroom, porcini mushrooms, Boletus edulis
+en: cep, porcini mushroom, porcini mushrooms
 ar: بوليط مأكول
 ba: Аҡ бәшмәк
 be: Баравік
@@ -78135,24 +77936,24 @@ ca: cep
 cs: hřib smrkový
 cv: Шур кăмпа
 cy: Wicsen gron
-da: Karl Johan
-de: Steinpilze, Boletus edulis
+da: Karl Johan-svamp, Karl Johan
+de: Steinpilze
 el: Βωλίτης ο εδώδιμος
-es: boletus, seta común, Boletus edulis
+es: boletus, seta común
 et: kivipuravik, harilik kivipuravik
 eu: Onddozuri
 fa: قارچ تیره‌سر
-fi: Herkkutatti, Boletus edulis
-fr: cèpe, cèpes, bolets, cèpe de Bordeaux, Boletus edulis
+fi: Herkkutatti
+fr: cèpe, cèpes, bolets, cèpe de Bordeaux
 ga: Ceap
 gl: Andoa
 he: פורצ'יני
-hr: ljetni vrganj, vrganji, Boletus edulis
+hr: ljetni vrganj, vrganji
 hu: Ízletes vargánya
 hy: Սպիտակ սունկ
 io: Cepo
 is: Kóngssveppur
-it: funghi porcini, Boletus edulis
+it: funghi porcini
 ja: ヤマドリタケ
 ka: დათვისსოკო
 kk: Ақ саңырауқұлақ
@@ -78164,7 +77965,6 @@ mk: летен вргањ
 nb: Steinsopp
 nl: eekhoorntjesbrood
 nn: steinsopp
-oc: Boletus edulis
 pl: Borowik szlachetny, prawdziwek, prawdziwki
 ro: Hrib
 ru: Белый гриб
@@ -78172,7 +77972,7 @@ sh: Vrganj
 sk: hríb smrekový
 sl: Jesenski goban
 sr: вргањ
-sv: Stensopp, karljohan
+sv: karljohanssvamp, stensopp, karljohanssvampar, Karl-Johans-svamp, Karl-Johans-svampar, Carl-Johanssvamp, karljohan, karl-johan, karljohansvamp, karljohan-svamp, karl-johansvamp, karl-johan-svamp
 th: เห็ดพอร์ชินี
 tr: Çörek mantarı
 tt: Ак гөмбә
@@ -78196,8 +77996,9 @@ zh: 美味牛肝菌
 # zh-hans:美味牛肝菌
 # zh-hant:美味牛肝菌
 # zh-tw:美味牛肝菌
-ciqual_proxy_food_code:en: 20160
-ciqual_proxy_food_name:en: Cep or boletus mushroom, raw
+ciqual_food_code:en: 20160
+ciqual_food_name:en: Cep or boletus mushroom, raw
+description:en: BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus.
 wikidata:en: Q19740
 wikipedia:en: https://en.wikipedia.org/wiki/Boletus_edulis
 
@@ -78208,8 +78009,6 @@ fi: kuivattu herkkutatti
 fr: cèpes déshydratés
 hr: sušeni vrganji
 it: porcini secchi
-ciqual_food_code:en: 20160
-ciqual_food_name:en: Cep or boletus mushroom, raw
 
 < en: cep
 de: Steinpilzpulver
@@ -79309,7 +79108,8 @@ de: Rhizopuskultur
 it: coltura di Rhizopus
 
 < en: ferment
-en: blauwschimmelcultuur
+en: blue mold culture
+nl: blauwschimmelcultuur
 
 # description:en:Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
 
@@ -87214,63 +87014,6 @@ wikipedia:nl: https://nl.wikipedia.org/wiki/Pandalus_jordani
 la: Solenocera Crassicornis
 wikipedia:nl: https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 
-< en: vegetable fiber
-en: psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
-ar: بزر قطونة
-cs: psyllium
-da: psyllium, psyllium skræl
-de: Psyllium, Flohsamenschalen, Plantago Psyllium
-es: Psilio, plantago, cáscara de semilla de psyllium
-fa: بارهنگ کتانی
-fi: psyllium, psylliumkuitu, psylliuminsiemenkuori
-fr: fibres de psyllium, psyllium, enveloppe de psyllium, enveloppes de psyllium
-he: פסיליום
-hi: isabgol
-hr: psyllium, vlakna psylliuma
-it: psyllium, fibra di psillio
-nl: Psyllium, psylliumvezels, psylliumvezel, vlozaadvezels
-pl: Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik, błonnik z babki płesznik, łupiny nasienne babki płesznik, łuski psyllium - łuski nasion babki jajowatej
-ro: Psyllium
-ru: Подорожник
-sd: اسپنگر
-sv: psylliumfiber, psylliumfröskal, psyllium
-ta: Isabgol
-uk: Подорожник
-ur: اسپغول
-# pam:Apang psyllium
-description:en: Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage. It can be used for the fibres or as infusion.
-wikidata:en: Q15258700
-wikipedia:en: https://en.wikipedia.org/wiki/Psyllium
-
-en: psyllium seed
-da: loppefrø
-sv: loppfrö, psylliumfrö, psylliumfrön
-vegan:en: yes
-vegetarian:en: yes
-wikidata:en: Q138602386
-
-< en: psyllium
-en: blond psyllium
-es: psyllium rubio
-fr: psyllium blond
-hr: plavokosi psilium
-it: psillio biondo
-la: Plantago ovata
-pl: babka jajowata, babki jajowatej
-
-< en: blond psyllium
-en: blond psyllium husk
-es: tegumento de psyllium rubio
-fr: tégument de psyllium blond
-hr: plava ljuska psiliuma
-it: buccia di psillio biondo
-pl: łupina nasienna babki jajowatej, łupiny nasion babki jajowatej, łuska babki jajowatej
-
-< en: blond psyllium
-en: blond psyllium fibre
-it: fibra di psillio biondo
-pl: błonnik babki jajowatej, błonnik z babki jajowatej, błonnik z łuski babki jajowatej
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                     B E E     I N G R E D I E N T S     S E C T I O N
@@ -89107,7 +88850,6 @@ wiktionary:en: instant_coffee
 #<en:instant coffee
 #en:freeze-dried soluble coffee
 #fr:café soluble lyophilisé
-# 28 in french @2021-09-10
 
 < en: instant coffee
 en: decaffeinated instant coffee
@@ -89127,7 +88869,10 @@ it: caffè freddo
 description:de: Cold brewing is the process of steeping coffee grounds in water at cool temperatures for an extended period.
 wikidata:en: q5142444
 wiktionary:en: cold_brew_coffee
-#170 in 3 @2021-09-10
+
+# < en: compound
+en: mocha
+nl: mokka
 
 # description:en:CREATINE is an organic compound with the nominal formula (H2N)(HN)CN(CH3)CH2CO2H.  Creatine is found in vertebrates where it facilitates recycling of adenosine triphosphate (ATP), the energy currency of the cell, primarily in muscle and brain tissue.
 
@@ -91355,7 +91100,7 @@ da: æg fra fritgående høns
 de: Hühnereier aus Freilandhaltung
 es: huevos de gallinas camperas
 fi: ulkokanan munat, ulkokanan munia, ulkokanojen munia
-fr: œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air
+fr: œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeuf de poules élevées en plein air, oeufs de poules élevées en plein air, oeuf de poule élevée en plein air
 hr: jaja iz podnog uzgoja
 it: uova di gallina allevate all'aperto
 nb: egg fra frittgående høner
@@ -92385,7 +92130,11 @@ nl: geconcentreerde puree
 < en: purée
 fr: purée et purée concentrée
 
-# description:en:FIBER is a natural or synthetic substance that is significantly longer than it is wide.
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                        F I B E R     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # <en:vegetable part
 en: fiber, fibre, dietary fibre, dietary fiber, dietary fibers
@@ -92464,6 +92213,9 @@ zh: 纤维
 # wuu:纤维
 # zh-cn:纤维
 # zh-hans:纤维# zh-hant:纤维
+comment:en: All fibers are nova, except psyllium
+description:en: Dietary fiber is the indigestible carbohydrate portion of plant foods, produced worldwide from cereals (oats, wheat, rice), legumes (peas, soy), fruits (citrus, apple), roots (chicory, sugar beet) and sugarcane residues. Production involves collecting by-products or plant parts, washing, extracting or milling, drying, and sometimes bleaching or purifying to a fine powder. Its taste is neutral to slightly sweet or grainy. Industries use it to add bulk, retain moisture, thicken, replace fat or sugar, and improve texture in bakery, meat, dairy, and beverage products. Nutritionally, it provides little to no digestible energy (0 to 2 kcal/g), and can be soluble or insoluble.
+nova:en: 4
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q161
@@ -92481,28 +92233,6 @@ ja: 水溶性食物繊維
 nl: oplosbare vezels
 pl: błonnik rozpuszczalny, rozpuszczalny błonnik
 
-< en: flax seed
-< en: vegetable fiber
-en: flax seed fiber, flaxseed fiber, flax fiber, flax fibers
-da: hørfrøfiber
-fi: pellavansiemenkuitu
-fr: fibre de lin, fibres de lin, fibres de graines de lin
-hr: vlakna sjemenki lana
-it: fibra di semi di lino
-no: linfrøfiber
-sv: linfröfiber
-
-< en: sugarcane
-< en: vegetable fiber
-en: sugarcane fiber, sugarcane fibers
-da: sukkerrørsfiber
-fr: fibre de canne à sucre, fibres de canne à sucre
-hr: vlakna šećerne trske
-it: fibra di canna da zucchero
-pl: błonnik z trzciny cukrowej
-pt: fibra de cana-de-açúcar
-sv: sockerrörsfiber, sockerrörfiber
-
 < en: fiber
 en: betaglucan, β-glucane, beta glucan
 da: beta-glucan
@@ -92513,19 +92243,14 @@ it: betaglucano
 sv: betaglukan
 wikidata:en: Q2076617
 
-# description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
-
 # fodmap:en:yes
 < en: vegetable fiber
 en: inulin
+xx: inulin
 ar: إينولين
 be: Інулін
 bg: Инулин
-bs: Inulin
 ca: Inulina
-cs: Inulin
-da: Inulin
-de: Inulin
 eo: Inulino
 es: Inulina
 eu: Inulina
@@ -92535,48 +92260,38 @@ fr: inuline
 gl: Inulina
 he: אינולין
 hr: inulin, prehrambena vlakna Beneo, inulin od cikorije, vlakna inulina, inulinsko vlakno
-hu: Inulin
 hy: Ինուլին
-id: Inulin
 io: Inulino
 it: Inulina
 ja: イヌリン
-jv: Inulin
 lt: Inulinas
 lv: inulīns
 mk: Инулин
-nb: inulin
 nl: Inuline
-nn: Inulin
 pl: Inulina, inulina z cykorii
 pt: Inulina
 ro: Inulina
 ru: инулин
-sh: inulin
-sl: Inulin
 sr: Инулин
 sv: inulin, inulinfiber
 th: อินูลิน
-tr: İnülin
 uk: Інулін
-uz: Inulin
-vi: Inulin
 zh: 菊粉
 # azb:اینولین
 # be-tarask:Інулін
-# sco:inulin
 # sr-ec:Инулин
-# sr-el:inulin
 # zh-cn:菊粉
 # zh-hans:菊粉
 # zh-hant:菊粉
 # zh-hk:菊粉
 # zh-sg:菊粉
 # zh-tw:菊粉
+description:en: INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
 wikidata:en: Q201552
 wikipedia:en: https://en.wikipedia.org/wiki/Inulin
 
 < en: inulin
+en: Jerusalem artichoke inulin
 de: Inulin aus Topinambur
 
 < en: fiber
@@ -92607,15 +92322,203 @@ ru: растительное волокно
 sl: rastlinske vlaknine
 sr: biljna vlakna
 sv: vegetabilisk fiber, vegetabiliska fibrer, vegetabilisk fibrer, växtfiber, växtfibrer
-nova:en: 4
 # pt-br:fibra vegetal
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q20026824
 
 < en: vegetable fiber
-fr: fibres de tomate, fibre de tomate
-nl: tomatenvezel
+en: fiber from vegetables
+fi: kasviskuitu
+fr: fibres de légume
+
+< en: vegetable fiber
+en: acacia fibre, acacia fibre
+de: Akazienfasern
+es: Fibra de acacia
+fi: akaasiakuitu
+fr: fibre d'acacia, fibres d'acacia
+hr: bagremova vlakna
+it: fibre di acacia
+nl: acaciavezels
+pl: błonnik akacjowy
+pt: fibras de acácia
+sv: akaciafiber, akaciefiber
+
+< en: vegetable fiber
+en: agave fiber
+de: Agavenfaser, Agavenfasern
+fr: fibres d'agave
+hr: vlakna agave
+it: fibre d'agave, fibra d'agave, fibra di agave, fibre di agave
+nl: agavevezel
+
+< en: vegetable fiber
+en: apple fiber
+de: Apfelfaser
+es: Fibra de manzana
+fi: omenakuitu
+fr: fibre de pomme, fibres de pomme
+hr: jabučna vlakna
+it: fibra di mela, fibre di mele
+nl: appelvezel
+pl: błonnik jabłkowy
+
+# <en:bamboo
+< en: vegetable fiber
+en: bamboo fibre
+bg: бамбукови фибри
+da: bambusfibre
+de: Bambusfaser, Bambusfasern
+es: Fibra de bambú
+fi: bambukuitu
+fr: fibre de bambou, fibres de bambou
+hr: vlakna bambusa
+it: fibra di bambù, fibre di bambù
+nl: bamboevezel, bamboevezels
+pl: błonnik bambusowy, błonnik roślinny bambusowy
+sv: bambufiber
+
+< en: bamboo fibre
+en: bamboo shoot fiber
+de: bamboo fibre
+fr: fibres de pousses de bambou
+hr: vlakna izdanaka bambusa
+it: fibra di germoglio di bambù
+nl: vezels van bamboescheuten
+
+< en: vegetable fiber
+en: banana fiber
+fr: fibre de plantain
+nl: banaanvezel, bananenvezel
+
+< en: vegetable fiber
+en: carrot fiber
+de: Karottenfasern
+fi: porkkanakuitu
+fr: fibre de carotte, fibres de carotte
+nl: wortelvezel
+
+< en: vegetable fiber
+en: chickpea fiber
+de: Kichererbsenfaser, Kichererbsenfasern
+fr: fibre de pois chiche, fibres de pois chiche
+hr: vlakna od slanutka
+it: fibra di ceci
+comment:en: isolated chickpea fiber is nova 4
+
+< en: chicory
+< en: vegetable fiber
+en: chicory fibre, chicory root fiber
+bg: фибри от цикория
+cs: vláknina z kořene čekanky, čekanková vláknina
+da: cikoriefibre
+de: Zichorienfäser, Zichorienwurzelfaser, Zichorienwurzelfasern, Ballaststoff aus Zichorienwurzel
+es: fibra de la raíz de achicoria, fibra de achicoria
+fi: sikurikuitu, sikurijuurikuitu
+fr: fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
+hr: vlakna iz korijena cikorije
+it: Fibre di cicoria, fibra di radice di cicoria
+lv: cigoriņu šķiedra
+nl: chichoreivezel, chichoreiwortelvezel
+pl: błonnik z cykorii, błonnik z korzenia cykorii, włókna z korzenia cykorii
+sk: vláknina z koreňa čakanky
+sv: cikoriarotfiber, fiber från cikoriarot, cikoriafiber
+
+< en: chicory fibre
+< en: oligofructose fibre
+en: fiber from chicory root-oligofructose
+hr: vlakna iz korijena cikorije-oligofruktoza
+
+< en: vegetable fiber
+en: citrus fibre, citrus fibres
+bg: цитрусови влакнини
+da: citrusfibre
+de: citrusfaser, zitrusfaser, Zitrusfasern, Zitrusfruchtfasern, Citrusfasern
+fi: sitruskuitu
+fr: fibre d'agrume, fibre végétale d'agrumes, fibres d'agrumes, fibres d'agrume
+hr: citrusna vlakna, vlakna citrusa
+it: fibra di agrumi, fibra di agrume, fibre di agrumi
+nl: citrusvezel, citrusvezels
+no: sitrusfiber
+pl: błonnik cytrusowy, błonnik z owoców cytrusowych, błonnik z cytrusów
+ro: fibră de citrice
+sv: citrusfiber, citrusfibrer
+
+< en: vegetable fiber
+en: corn fiber
+bg: царевични фибри, царевични влакнини
+cs: kukuřičná vláknina
+de: Maisfaser, Maisfasern
+es: fibra de maiz
+fr: fibre de maïs
+hr: kukuruzna vlakna
+it: fibra di mais
+lt: kukurūzų skaidulos, kukurūzų ląsteliena
+lv: kukurūzas šķiedra
+nl: maïsvezel
+pl: błonnik kukurydziany
+sk: kukuričná vláknina
+
+< en: corn fiber
+en: soluble corn fiber
+fr: fibre soluble de maïs
+hr: topivih kukuruznih vlakana
+it: fibra di mais solubile
+lv: šķīstošā kukurūzas šķiedra
+nl: oplosbare maïsvezel
+pl: rozpuszczalny błonnik kukurydziany, błonnik rozpuszczalny kukurydziany
+
+< en: vegetable fiber
+en: flax seed fiber, flaxseed fiber, flax fiber, flax fibers
+da: hørfrøfiber
+fi: pellavansiemenkuitu
+fr: fibre de lin, fibres de lin, fibres de graines de lin
+hr: vlakna sjemenki lana
+it: fibra di semi di lino
+no: linfrøfiber
+sv: linfröfiber
+comment:en: Isolated flax fiber or flax fiber concentrate is nova 4
+
+< en: vegetable fiber
+en: oat fibre
+bg: овесени влакнини, фибри от овес
+cs: ovesná vláknina
+da: Havrefibre
+de: Haferfasern, Haferfaser, Haferpflanzenfaser
+el: εδώδιμες ινες βρώμης
+es: fibra de avena
+fi: kaurakuitu
+fr: fibre d'avoine, fibres d'avoine
+hr: zobena vlakna
+hu: zabrost
+it: fibra d'avena, fibra di avena
+nl: havervezel, havervezels
+pl: błonnik owsiany, błonnik z owsa
+pt: fibra de aveia
+ro: fibre de ovăz
+sk: ovsená vláknina
+sl: zobena vlakna
+sv: havrefiber
+tr: yulaf lifi
+wikidata:en: Q108654342
+
+< en: oat fibre
+en: gluten free oat fibre
+cs: bezlepková ovesná vláknina
+de: glutenfreie Haferfaser
+fr: fibre d'avoine sans gluten
+hr: zobena vlakna bez glutena
+it: fibra di avena senza glutine
+nl: glutenvrije havervezels
+pl: błonnik owsiany bezglutenowy, bezglutenowy błonnik owsiany
+
+# < en: oat
+< en: oat fiber
+en: oat husk fiber
+de: Haferspelzfaser, Haferspelzfasern
+fr: fibre de son d'avoine
+it: fibra di buccia d'avena
 
 < en: vegetable fiber
 en: pea fiber
@@ -92633,26 +92536,64 @@ ro: fibre de mazare
 sv: ärtfiber
 
 < en: vegetable fiber
-en: banana fiber
-fr: fibre de plantain
-nl: banaanvezel, bananenvezel
+en: pineapple fibre, pineapple fibres
+de: Ananasfasern
+es: fibras de piña
+et: ananassi kiud
+fi: ananaskuitu
+fr: fibres d'ananas
+hr: vlakna ananasa
+hu: ananászrost
+it: fibre d'ananas, fibre di ananas
+nl: ananasvezels
+sv: ananasfiber
 
 < en: vegetable fiber
-en: wheat bran fiber
-de: Weizenkleiefaser
-es: fibra de salvado de trigo
-fr: fibre de son de blé
-it: fibra di crusca di grano
-nl: tarwezemelvezel
-sv: vetekli-fiber
-description:en: Wheat bran fiber is derived from the outer layer of the wheat kernel, removed during milling. It has a neutral, slightly nutty taste and a coarse, gritty texture. Widely used across global food industries, it serves as a bulking agent and fiber fortifier in baked goods, cereals, snacks, and pasta, and is also used as a texturizer in processed meats. Nutritionally, it is rich in insoluble dietary fiber, contributing to digestive bulk, along with modest amounts of protein, B vitamins, and minerals like magnesium and iron. Its low fat and calorie content make it valued as a functional, fiber-dense ingredient worldwide.
+en: potato fiber, potato fibre
+ca: fibra de patata, fibra vegetal de patata
+da: kartoffelfibre
+de: Kartoffelfasern, Kartoffelfaser, Kartoffelballaststoffe
+es: fibra de patata, fibra vegetal de patata
+fi: perunakuitu
+fr: fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
+hr: krumpirova vlakna
+it: fibra di patata
+nb: potetfiber
+nl: aardappelvezel, aardappelvezels
+no: potetfiber, potetfibre
+pl: błonnik ziemniaczany
+sv: potatisfiber
 
 < en: vegetable fiber
-en: chickpea fiber
-de: Kichererbsenfaser, Kichererbsenfasern
-fr: fibre de pois chiche, fibres de pois chiche
-hr: vlakna od slanutka
-it: fibra di ceci
+en: rye fiber
+de: Roggen-Ballaststoffe
+fi: ruiskuitu
+hr: vlakna raži
+it: fibra di segale
+nl: roggevezel
+sv: rågfiber
+
+< en: vegetable fiber
+en: soy fiber
+de: Sojafaser
+es: fibra de soja
+fi: soijakuitu
+fr: fibres de soja
+hr: sojina vlakna
+it: fibre di soia
+lt: sojų ląsteliena
+nl: sojavezel
+pl: błonnik sojowy, błonnik z soi
+pt: fibra de soja
+allergens:en: en:soybeans
+
+< en: soy fiber
+en: rehydrated soy fiber
+de: Rehydrierte Sojafaser, rehydrierte Sojafasern
+es: fibra de soja rehidratada
+fr: Fibre de soja réhydratée
+hr: rehidrirana sojina vlakna
+it: fibre di soia reidratate
 
 < en: vegetable fiber
 en: sugar beet fibre, sugar beet fiber
@@ -92665,6 +92606,65 @@ it: fibra de barbabietola
 nb: sukkerbetefiber
 nl: suikerbietvezel
 sv: sockerbetsfiber
+
+< en: vegetable fiber
+en: sugarcane fiber, sugarcane fibers
+da: sukkerrørsfiber
+fr: fibre de canne à sucre, fibres de canne à sucre
+hr: vlakna šećerne trske
+it: fibra di canna da zucchero
+pl: błonnik z trzciny cukrowej
+pt: fibra de cana-de-açúcar
+sv: sockerrörsfiber, sockerrörfiber
+
+< en: vegetable fiber
+en: tomato fiber
+fr: fibres de tomate, fibre de tomate
+nl: tomatenvezel
+
+< en: vegetable fiber
+en: wheat fiber
+bg: пшенични влакна, пшенични фибри
+cs: pšeničná vláknina
+da: hvedefibre
+de: Weizenfaser, Weizenfasern
+es: fibras de trigo
+fi: vehnäkuitu
+fr: fibre de blé, fibres de blé
+hr: pšenična vlakna
+hu: búzarost
+it: fibra di frumento, fibre di frumento
+lt: kviečių ląsteliena, kviečių skaidulos, kvietiniai ląsteliena, kvietiniai skaidulos, kvietinės ląsteliena, kvietinės skaidulos, kvietinis ląsteliena, kvietinis skaidulos
+nl: tarwevezel, tarwevezels
+pl: błonnik pszenny, błonnik pszeniczny
+pt: fibras de trigo
+ro: fibră de grâu, fibre de grâu
+ru: Пшеничные волокна, пищевые волокна пшеничные
+sv: vetefiber, Vete fiber
+tr: buğday lifi
+
+< en: wheat fiber
+en: gluten free wheat fiber
+bg: безглутенови пшенични влакнини
+hr: bezglutenska pšenična vlakna
+it: fibra di frumento senza glutine
+nl: glutenvrije tarwevezel
+pl: błonnik pszenny bezglutenowy
+
+< en: vegetable fiber
+en: wheat bran fiber
+de: Weizenkleiefaser
+es: fibra de salvado de trigo
+fr: fibre de son de blé
+it: fibra di crusca di grano
+nl: tarwezemelvezel
+sv: vetekli-fiber
+description:en: Wheat bran fiber is derived from the outer layer of the wheat kernel, removed during milling. It has a neutral, slightly nutty taste and a coarse, gritty texture. Widely used across global food industries, it serves as a bulking agent and fiber fortifier in baked goods, cereals, snacks, and pasta, and is also used as a texturizer in processed meats. Nutritionally, it is rich in insoluble dietary fiber, contributing to digestive bulk, along with modest amounts of protein, B vitamins, and minerals like magnesium and iron. Its low fat and calorie content make it valued as a functional, fiber-dense ingredient worldwide.
+
+< en: soya bean
+< en: vegetable fiber
+en: soya bean fiber
+sv: sojabönfiber, sojabönfibrer
 
 # <en:part
 # en:animal part
@@ -97412,9 +97412,6 @@ uz: qayla
 vi: Xốt
 vo: sod
 zh: 醬
-nova:en: 3
-vegan:en: maybe
-vegetarian:en: maybe
 # arz:صلصه
 # be-tarask:соўс
 # de-ch:Sauce
@@ -97447,6 +97444,9 @@ vegetarian:en: maybe
 # zh-hk:醬
 # zh-sg:酱
 # zh-tw:醬
+nova:en: 3
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q178359
 wikipedia:en: https://en.wikipedia.org/wiki/Sauce
 
@@ -97765,8 +97765,6 @@ usda_fdc_code:en: 169381
 usda_ndb_code:en: 11949
 usda_ndb_name:en: Catsup, low sodium
 
-# description:en:Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
-
 #< en: compound
 < en: sauce
 en: marinade
@@ -97786,14 +97784,19 @@ nn: marinade
 pl: marynata
 pt: marinada
 sv: marinad
+description:en: Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
 wikidata:en: Q56296569
-# usage:fr:marinade (olive oil, rapeseed oil, chives 4%, lemon essential oil 3%)
 
 < en: marinade
 fr: marinade barbecue
 
 < en: marinade
 fr: marinade tex mex
+
+< en: marinade
+en: soy marinade
+sv: sojamarinad
+allergens:en: en:soybeans
 
 #<en:compound
 < en: sauce
