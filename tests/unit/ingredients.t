@@ -1441,8 +1441,8 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "de",
 			ingredients_text => "Zutaten: 𝐖𝐞𝐢𝐳𝐞𝐧mehl, Voll𝐦𝐢𝐥𝐜𝐡pulver, 𝐇𝐚𝐬𝐞𝐥𝐧ü𝐬𝐬𝐞, Ｓｅｓａｍöl, 𝑆𝑜𝑗𝑎lecithin, Salz",
 		}
-	]
-		# Animal / vegetal origins
+	],
+	# Animal / vegetal origins
 	[
 		'en-animal-vegetal-origins',
 		{
