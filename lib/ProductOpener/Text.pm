@@ -61,12 +61,15 @@ BEGIN {
 		&regexp_escape
 		&remove_email
 
+		&normalize_unicode_letter_variants
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
+use Unicode::Normalize qw(NFKC);
 use Locale::Unicode::Data;
 
 # Workaround for Locale::Unicode::Data 1.9.0 missing true/false in the main package
@@ -651,6 +654,56 @@ sub remove_tags ($s) {
 	$s =~ s/>/&gt;/g;
 
 	return $s;
+}
+
+=head2 normalize_unicode_letter_variants ( $text )
+
+Normalize Unicode "letter-like" bold and stylistic variant characters found in
+ingredient lists (e.g. Mathematical Bold letters, Mathematical
+Italic, Bold Fraktur, Sans-Serif variants, Fullwidth letters, etc.) into their
+plain ASCII equivalents.
+
+Contiguous character runs of such variants are optionally wrapped by characters
+(e.g. C<_Milk_>) so that the existing underscore-based emphasis/allergen syntax in ingredient analysis is triggered.
+
+=head3 Parameters
+
+=head4 $text
+
+A scalar variable containing the text to normalize.
+
+=head4 $start_char
+
+A scalar variable containing the character to prepend to contiguous runs of normalized characters. If not defined, no character is prepended.
+
+=head4 $end_char
+
+A scalar variable containing the character to append to contiguous runs of normalized characters. If not defined, no character is appended.
+
+=cut
+
+sub normalize_unicode_letter_variants ($text, $start_char = '', $end_char = '') {
+
+	return $text unless defined $text;
+
+	# Font or Wide variants, restricted to letters
+	my $letter_variant = qr/(?[ ( \p{Dt=Font} + \p{Dt=Wide} ) & \p{L} ])/;
+
+	# A run starts with a variant letter, then continues with:
+	# - more variant letters
+	# - a single plain letter directly followed by a variant letter (e.g. the ü in 𝐇𝐚𝐬𝐞𝐥𝐧ü𝐬𝐬𝐞)
+	# - whitespace followed by a variant letter (multi word ingredients)
+	# The run always ends with a variant letter, so no trailing space is captured.
+	$text =~ s/(
+			$letter_variant
+			(?:
+				$letter_variant
+				| \p{L}(?=$letter_variant)
+				| \s+$letter_variant
+			)*
+		)/$start_char . NFKC($1) . $end_char/gex;
+
+	return $text;
 }
 
 1;
