@@ -3,7 +3,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20047",
-         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
+         "ecobalyse_id" : "a96c560e-7959-4698-b533-23f922bb62b9",
+         "ecobalyse_name" : "Tomate sous serre chauffée par défaut",
          "id" : "en:tomato",
          "is_in_taxonomy" : 1,
          "percent" : 42.5287356321839,
@@ -15,6 +16,8 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_proxy_id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
+         "ecobalyse_proxy_name" : "Viande de porc -alim. ani. 100% FR-",
          "id" : "en:pork",
          "is_in_taxonomy" : 1,
          "percent" : 57.4712643678161,
@@ -66,10 +69,8 @@
       "en:pork"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:pork"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "misc_tags" : [
