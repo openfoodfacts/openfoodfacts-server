@@ -982,6 +982,9 @@ sub get_unit_options_for_nutrient ($nid) {
 		@units = ('g', 'mg', 'µg');
 	}
 
+	# ensure default unit is always one of the options
+	push @units, $default_unit;
+
 	my @units_options;
 
 	if ($nid eq 'cocoa') {
