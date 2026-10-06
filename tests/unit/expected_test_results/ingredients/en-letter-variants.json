@@ -1,0 +1,248 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:wheat-flour",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "9410",
+               "id" : "en:wheat",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 54.1666666666667,
+               "percent_max" : 100,
+               "percent_min" : 8.33333333333333,
+               "text" : "Wheat",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 54.1666666666667,
+         "percent_max" : 100,
+         "percent_min" : 8.33333333333333,
+         "text" : "Wheat flour",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "19044",
+         "ecobalyse_code" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "id" : "en:milk-powder",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 22.9166666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "Milk powder",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "42200",
+         "id" : "en:soya-lecithin",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 11.4583333333333,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "Soy lecithin",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "22002",
+         "ecobalyse_code" : "egg-indoor-code3",
+         "id" : "en:egg-yolk",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.72916666666667,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "Egg yolk",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "22001",
+         "ecobalyse_code" : "egg-indoor-code3",
+         "id" : "en:egg-white",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.86458333333334,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "Egg white",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "15004",
+         "ecobalyse_code" : "hazelnut-unshelled-non-eu",
+         "id" : "en:hazelnut-paste",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.43229166666667,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "Hazelnut paste",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "15055",
+         "id" : "en:cashew-nuts",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.716145833333336,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "Cashew nuts",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11013",
+         "id" : "en:mustard-seed",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.358072916666671,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "Mustard seed",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "15010",
+         "id" : "en:sesame-seeds",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.179036458333336,
+         "percent_max" : 11.1111111111111,
+         "percent_min" : 0,
+         "text" : "Sesame seeds",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "19402",
+         "id" : "en:sour-cream",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.0895182291666714,
+         "percent_max" : 10,
+         "percent_min" : 0,
+         "text" : "Sour cream",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ecobalyse_code" : "celery-eu",
+         "id" : "en:celery",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.0447591145833357,
+         "percent_max" : 9.09090909090909,
+         "percent_min" : 0,
+         "text" : "Celery",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.0447591145833428,
+         "percent_max" : 8.33333333333333,
+         "percent_min" : 0,
+         "text" : "salt",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:milk-powder",
+         "en:egg-yolk",
+         "en:egg-white",
+         "en:sour-cream"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 13,
+   "ingredients_n_tags" : [
+      "13",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:wheat-flour",
+      "en:milk-powder",
+      "en:soya-lecithin",
+      "en:egg-yolk",
+      "en:egg-white",
+      "en:hazelnut-paste",
+      "en:cashew-nuts",
+      "en:mustard-seed",
+      "en:sesame-seeds",
+      "en:sour-cream",
+      "en:celery",
+      "en:salt",
+      "en:wheat"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:wheat-flour",
+      "en:cereal-flour",
+      "en:wheat",
+      "en:flour",
+      "en:cereal",
+      "en:milk-powder",
+      "en:dairy",
+      "en:soya-lecithin",
+      "en:e322i",
+      "en:e322",
+      "en:egg-yolk",
+      "en:egg",
+      "en:egg-white",
+      "en:hazelnut-paste",
+      "en:hazelnut",
+      "en:tree-nut",
+      "en:nut",
+      "en:cashew-nuts",
+      "en:mustard-seed",
+      "en:mustard",
+      "en:spice",
+      "en:condiment",
+      "en:sesame-seeds",
+      "en:sesame",
+      "en:seed",
+      "en:sour-cream",
+      "en:cream",
+      "en:celery",
+      "en:stalk-vegetable",
+      "en:vegetable",
+      "en:salt"
+   ],
+   "ingredients_text" : "Wheat flour (𝐖𝐡𝐞𝐚𝐭), 𝑴𝒊𝒍𝒌 powder, 𝓢𝓸𝔂 lecithin, 𝔈𝔤𝔤 yolk, 𝔼𝕘𝕘 white, 𝗛𝗮𝘇𝗲𝗹𝗻𝘂𝘁 paste, 𝘊𝘢𝘴𝘩𝘦𝘸 𝘯𝘶𝘵𝘴, 𝙼𝚞𝚜𝚝𝚊𝚛𝚍 seed, Ｓｅｓａｍｅ seeds, 𝐒𝐨𝐮𝐫 𝐜𝐫𝐞𝐚𝐦, 𝐶𝑒𝑙𝑒𝑟𝑦, salt",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 12,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:celery"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cashew-nuts",
+      "en:mustard-seed",
+      "en:salt",
+      "en:sesame-seeds",
+      "en:sour-cream",
+      "en:soya-lecithin",
+      "en:wheat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 7,
+   "known_ingredients_n" : 13,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
