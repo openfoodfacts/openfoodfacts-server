@@ -41330,16 +41330,7 @@ ciqual_food_code:en: 25549
 ciqual_food_name:en: Crepe or buckwheat crepe, filled with cheese and bechamel sauce
 ciqual_food_name:fr: Crêpe ou Galette fourrée béchamel fromage
 
-< en: Crêpes and galettes
-en: Galettes
-de: Galetten
-fr: Galettes
-hr: Galete
-it: Gallette
-ja: ガレット
-nl: Galettes
-
-< en: Crêpes and galettes
+< en: Crêpes and pancakes
 en: Ham and mushroom pancake in cheese sauce
 fr: Ficelle picarde
 hr: Palačinka od šunke i gljiva u umaku od sira
@@ -41348,6 +41339,7 @@ agribalyse_food_code:en: 26256
 ciqual_food_code:en: 26256
 ciqual_food_name:en: Ham and mushroom pancake in cheese sauce
 
+< en: Crêpes and pancakes
 < en: Meals
 en: Filled buckwheat crepes
 fr: Galettes fourrées, Galettes de blé noir fourrées
@@ -41447,16 +41439,6 @@ agribalyse_food_code:en: 25572
 ciqual_food_code:en: 25572
 ciqual_food_name:en: Crepe or buckwheat crepe, filled with scallops
 ciqual_food_name:fr: Crêpe ou Galette aux noix de St Jacques
-
-< en: Galettes
-en: Plain buckwheat crepes
-fr: Galettes de blé noir, galette de blé noir, galette de sarazin, galettes de sarrasin, galette de sarrasin, galettes de sarazin, crêpe au sarrasin
-hr: Obične palačinke od heljde
-it: Crespelle al grano saraceno
-agribalyse_food_code:en: 23801
-ciqual_food_code:en: 23801
-ciqual_food_name:en: Buckwheat crepe, plain, prepacked
-ciqual_food_name:fr: Galette de sarrasin, nature, préemballée
 
 < en: Meals
 en: Pork sausage stew with cabbage carrots and potatoes
@@ -54156,6 +54138,12 @@ nl: Babycompotes
 < en: Desserts
 < en: Pastries
 en: Meringue roulades
+
+< en: Desserts
+en: Hotteok
+xx: Hotteok
+description:en: Korean dessert consisting of a dough filled with brown sugar, honey or nuts.
+Wikidata:en: Q496999
 
 < en: Desserts
 < en: Pastas and dumplings
@@ -121588,6 +121576,7 @@ agribalyse_proxy_food_name:fr: Toasts ou Canapés salés, garnitures diverses
 wikidata:en: Q1032806
 
 < en: Appetizers
+< en: Crêpes and pancakes
 fr: Blinis
 nl: Blinis
 agribalyse_food_code:en: 23805
@@ -122471,7 +122460,7 @@ fr: Civet de zourites
 wikidata:en: Q16540075
 
 # Note: most products under en:Crêpes and galettes are not meals, it should not be put under en:meals
-en: Crêpes and galettes
+en: Crêpes and pancakes, Crêpes and galettes
 ca: Creps i coques
 de: Crêpes und Galetten
 es: Crêpes y galettes
@@ -122483,7 +122472,7 @@ nl: Pannenkoeken en galettes
 ru: Блины
 zh: 可丽饼和法式咸薄饼
 
-< en: Crêpes and galettes
+< en: Crêpes and pancakes
 en: Pancakes
 de: Pfannkuchen
 es: Tortitas
@@ -122494,8 +122483,14 @@ it: Pancake
 ja: パンケーキ
 nl: Pancakes
 
+< en: Crêpes and pancakes
+en: Poffertjes
+xx: Poffertjes
+nl: Poffertjes
+wikidata:en: Q283740
+
 # <en:compound
-< en: Crêpes and galettes
+< en: Crêpes and pancakes
 en: Crêpes, Crêpe, crepe, crepes
 ar: بان كيك
 az: krep
@@ -122577,20 +122572,31 @@ wikidata:en: Q12200
 wikipedia:en: https://en.wikipedia.org/wiki/Crêpe
 
 < en: Crêpes
-en: Plain crepes
-fr: Crêpe nature
-agribalyse_food_code:en: 23800
-ciqual_food_code:en: 23800
-ciqual_food_name:en: Crepe, plain, prepacked, room temperature
-ciqual_food_name:fr: Crêpe, nature, préemballée, rayon température ambiante
+en: Plain sweet crêpes, Plain crepes, Sugared crêpes
+de: Gezuckerte Crêpes
+fi: makeat letut
+fr: Crêpes nature sucrées, Crêpe nature, Crêpes sucrées, Crêpes de froment, crêpe de froment
+hr: Pošećerene palačinke
+it: Crepes zuccherate
+nl: Zoete pannenkoeken, zoete pannenkoek, zoet flensjes
+food_groups:en: en:biscuits-and-cakes
+pnns_group_2:en: Biscuits and cakes
 
-< en: Plain crepes
-en: Refrigerated plain crepes
+< en: Plain sweet crêpes
+en: Refrigerated plain crêpes
 fr: Crêpes nature rayon frais
 agribalyse_food_code:en: 23799
 ciqual_food_code:en: 23799
 ciqual_food_name:en: Crepe, plain, prepacked, refrigerated
 ciqual_food_name:fr: Crêpe, nature, préemballée, rayon frais
+
+< en: Plain sweet crêpes
+en: Shelf-stable plain crêpes
+fr: Crêpes nature rayon température ambiante
+agribalyse_food_code:en: 23800
+ciqual_food_code:en: 23800
+ciqual_food_name:en: Crepe, plain, prepacked, room temperature
+ciqual_food_name:fr: Crêpe, nature, préemballée, rayon température ambiante
 
 < en: Sweet filled crêpes
 en: Crepes filled with sugar
@@ -122599,23 +122605,6 @@ agribalyse_food_code:en: 23815
 ciqual_food_code:en: 23815
 ciqual_food_name:en: Crepe filled with sugar, prepacked
 ciqual_food_name:fr: Crêpe préemballée, fourrée au sucre
-
-< en: Crêpes
-fr: Crêpes de froment, crêpe de froment
-agribalyse_proxy_food_code:en: 23799
-agribalyse_proxy_food_name:en: Crepe, plain, prepacked, refrigerated
-agribalyse_proxy_food_name:fr: Crêpe, nature, préemballée, rayon frais
-
-< en: Crêpes
-en: Sugared crêpes
-de: Gezuckerte Crêpes
-fi: makeat letut
-fr: Crêpes sucrées
-hr: Pošećerene palačinke
-it: Crepes zuccherate
-nl: Zoete pannenkoeken, zoete pannenkoek, zoet flensjes
-food_groups:en: en:biscuits-and-cakes
-pnns_group_2:en: Biscuits and cakes
 
 < en: Crêpes
 en: Filled crêpes
@@ -122632,16 +122621,27 @@ fr: Crêpes fourrées sucrées
 hr: Slatke punjene palačinke
 nl: Zoete gevulde pannenkoeken
 
+< en: Crêpes and pancakes
+en: Plain buckwheat crepes
+fr: Galettes de blé noir, galette de blé noir, galette de sarazin, galettes de sarrasin, galette de sarrasin, galettes de sarazin, crêpe au sarrasin
+hr: Obične palačinke od heljde
+it: Crespelle al grano saraceno
+agribalyse_food_code:en: 23801
+ciqual_food_code:en: 23801
+ciqual_food_name:en: Buckwheat crepe, plain, prepacked
+ciqual_food_name:fr: Galette de sarrasin, nature, préemballée
+
 < en: Filled crêpes
+< en: Meals
 en: Savoury filled crêpes, Salty filled crêpes
 fr: Crêpes fourrées salées
 hr: Slanim punjenim palačinkama
 nl: Hartige gevulde pannenkoeken
 
 < en: Sweet filled crêpes
-en: Filled crêpes with chocolate, Home-made crepes filled with chocolate spread
+en: Filled crêpes with chocolate, Home-made crepes filled with chocolate spread, Prepacked Crepes filled with chocolate
 de: Crêpes gefüllt mit Schokolade
-fr: Crêpes fourrées au chocolat, Crêpes au chocolat, Crêpes maison fourrées au chocolat
+fr: Crêpes fourrées au chocolat, Crêpes au chocolat, Crêpes maison fourrées au chocolat, Crêpes préemballées fourrées au chocolat
 hr: Punjene palačinke s čokoladom
 nl: Pannenkoeken gevuld met chocola
 agribalyse_food_code:en: 23829
@@ -122657,12 +122657,6 @@ agribalyse_food_code:en: 23821
 ciqual_food_code:en: 23821
 ciqual_food_name:en: Crepe, filled with chocolate or chocolate and hazelnut spread, home-made
 ciqual_food_name:fr: Crêpe maison, fourrée au chocolat ou à la pâte à tartiner chocolat et noisettes
-
-< en: Sweet filled crêpes
-en: Prepacked Crepes filled with chocolate
-fr: Crêpes préemballées fourrées au chocolat
-ciqual_food_code:en: 23829
-ciqual_food_name:en: Crepe filled with chocolate, prepacked
 
 < en: Sweet filled crêpes
 en: Filled crêpes with jam, Home-made crepes filled with jam
@@ -122687,8 +122681,8 @@ ciqual_food_code:en: 23830
 ciqual_food_name:en: Crepe filled with strawberries, prepacked
 ciqual_food_name:fr: Crêpe préemballée, fourrée fraise
 
-< en: Crêpes and galettes
-en: Frozen crêpes and galettes
+< en: Crêpes and pancakes
+en: Frozen crêpes and pancakes, Frozen crêpes and galettes
 fr: Crêpes et galettes surgelées
 
 en: Fish and meat and eggs, Fish meat eggs
