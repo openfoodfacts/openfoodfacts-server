@@ -163,7 +163,7 @@ stopwords:bs: i, u promjenljivom odnosu
 stopwords:ca: i, de
 stopwords:ca: jiné
 stopwords:da: og, eller, samt, av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat, ingredienser som i dette brød
-stopwords:de: Allergene Zutaten, und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
+stopwords:de: Allergene Zutaten, aus, enthält, enthalten, Fullstoffe, in veränderlichen gewichtsanteilen, max, min, mit, mindestens, naturbelassen, und, von, wenig
 stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
 stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, blend of, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportion, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
@@ -199,7 +199,7 @@ stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, 
 stopwords:nn: og, av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
-stopwords:ro: produs, produsul, conține, poate conține, și, sau, de, din, cu, în proporții variabile, minim
+stopwords:ro: conține, cu, de, din, în proporții variabile, minim, minimum, produs, produsul, poate conține, și, sau
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
 stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion, motsvarande 0\,016 mg fluor/tablett, med
@@ -18786,6 +18786,7 @@ fr: huile essentielle de poivre
 fi: pippuriöljy
 hu: paprika illóolaj
 nl: peperolie
+ro: ulei de piper negru
 
 < en: essential oil
 en: aniseed oil, anise oil
@@ -18847,7 +18848,8 @@ bg: масло от мащерка
 de: Thymianöl
 hr: ulje majčine dušice
 it: olio di timo
-#10 @2021-09-16
+nl: thijmolie
+ro: ulei de cimbru
 
 < en: oil
 # from:en:fish
@@ -28817,6 +28819,10 @@ wikidata:en: Q2249305
 wikipedia:en: https://en.wikipedia.org/wiki/Wheat_flour
 
 < en: wheat flour
+en: white wheat flour
+ro: făină albă de grâu
+
+< en: wheat flour
 en: malted wheat flour, wheat malt flour
 bg: пшенично малцово брашно, малцово пшенично брашно, брашно от пшеничен малц
 ca: farina de blat maltejada
@@ -34037,7 +34043,7 @@ nn: glukos-fruktossirap
 no: glukose-fruktosesirup, glukose-fruktose-sirup, glukose-fruktose sirup
 pl: syrop glukozowo-fruktozowy, syrop fruktozowo-glukozowy
 pt: xarope de glucose-frutose, xarope de glucose e frutose
-ro: sirop de glucoză-fructoză, sirop glucoză-fructoză
+ro: sirop de glucoză-fructoză, sirop glucoză-fructoză, sirop de fructoză-glucoză
 ru: глюкозно-фруктозный сироп, сироп глюкозно-фруктозный, сироп глюкозно фруктозный
 sk: glukózový-fruktózový sirup
 sl: izoglukozni sirup
@@ -36996,7 +37002,7 @@ pl: Woda, wody, wodny, woda pitna
 ps: اوبه
 pt: Água
 qu: Yaku
-ro: Apă, apa
+ro: apă, apa
 ru: Вода, вода питьевая, вода питьевая очищенная, очищенная вода, вода подготовленная, подготовленная вода, вода очищенная
 sa: जलम्
 sc: Aba
@@ -64037,6 +64043,7 @@ pl: papryka w proszku słodka, słodka papryka w proszku, papryka słodka suszon
 
 < en: paprika
 en: hot paprika
+hu: erős fűszerpaprika
 it: paprika piccante
 pl: ostra papryka, ostra papryka w proszku, papryka ostra, papryka ostra mielona
 
@@ -79449,7 +79456,7 @@ gn: narã poty
 it: zagara
 ja: オレンジの花
 ka: ფლერდორანჟი
-nl: orange blossom
+nl: oranjebloesem
 pt: flor de laranjeira
 ru: флёрдоранж
 sl: pomarančni cvet
@@ -96130,7 +96137,7 @@ bg: яйца от кокошки от подово отглеждане
 de: Eier aus Bodenhaltung
 es: huevos de granero
 fi: lattiakanojen munat, vapaan kanan munat, onnellisen kanan munat, pesämunat
-fr: œufs d'élevage au sol, œufs de poules élevées au sol, œufs de ponte au sol, oeufs de poules élevées au sol, oeufs de ponte au sol
+fr: œufs d'élevage au sol, œufs de poules élevées au sol, œufs de ponte au sol, oeufs de poules élevées au sol, oeufs de ponte au sol, oeufs «sol»
 hr: ambar jaja
 it: uova di allevamento al suolo
 nl: scharreleieren, scharrelei, scharrel-ei, ei van scharreleieren
