@@ -37,7 +37,7 @@ Filter criteria: `"food2"` in `scopes` AND `"ingredient"` in `categories` (all 1
 
 ## Scripts
 
-### 1. `scripts/match_base_ingredients_to_off.pl`
+### 1. `external-data/ecobalyse/match_base_ingredients_to_off.pl`
 
 Resolves baseIngredient names from `base_ingredients.json` (370 names) to OFF
 taxonomy tagids.
@@ -63,7 +63,7 @@ taxonomy tagids.
 6. Print statistics to STDOUT
 7. Exit 0 (even if some are missing)
 
-### 2. `scripts/extract_ecobalyse_ingredient_properties.pl`
+### 2. `external-data/ecobalyse/extract_ecobalyse_ingredient_properties.pl`
 
 Generates ecobalyse properties TSV from `processes.json`.
 
@@ -201,7 +201,7 @@ taxonomy (it is fully data-driven and does not read existing properties). After
 applying the new TSV, the taxonomy will have a mix of old (non-UUID) and new
 (UUID) ecobalyse properties. To clean up old values:
 
-1. Run `scripts/taxonomies/remove_properties_from_taxonomy.pl` with prefix
+1. Run `scripts/taxonomies/remove_properties_from_taxonomy.sh` with prefix
    `ecobalyse_` to remove ALL existing ecobalyse properties.
 2. Run `scripts/taxonomies/add_properties_to_taxonomy.pl` to apply the freshly
    generated TSV.
@@ -221,7 +221,7 @@ Recommendations for improving match rate:
 
 ## Verification plan
 
-1. **Syntax check**: `perl -c scripts/extract_ecobalyse_ingredient_properties.pl`
+1. **Syntax check**: `perl -c external-data/ecobalyse/extract_ecobalyse_ingredient_properties.pl`
 2. **Run extraction**: Execute the two scripts in sequence, check STDOUT stats.
 3. **Coverage report**: Verify 249 tagids resolved, 121 unmatched reported.
 4. **Property validation**: Verify TSV has 3 tab-separated columns with valid tagids.

@@ -49,6 +49,40 @@
 # ciqual_proxy_food_name:en:Butter, 82% fat, unsalted
 # ciqual_proxy_food_name:fr:Beurre à 82% MG, doux
 
+# --- Ecobalyse properties ---
+#
+# IMPORTANT: Ecobalyse properties are automatically generated from Ecobalyse files
+# Do not make changes to the Ecobalyse properties in ingredients.txt as they will get removed and overwritten
+# the next time we update the Ecobalyse properties.
+#
+# See files in external-data/ecobalyse (.md docs + script files that convert Ecobalyse data to ingredients properties)
+#
+# Format of the Ecobalyse properties:
+#
+# Entries that start with "ecobalyse_proxy" mean that it is not an exact match, but a good enough match in terms of
+# environmental impact. For instance a vegetable that is not in Ecobalyse could have a proxy with a vegetable that
+# has a similar way of being grown.
+#
+# Entries starting with "ecobalyse" are exact matches.
+#
+# Ecobalyse entries are matched to "base ingredients", and they can have variants by label and/or origin
+# Some Ecobalyse properties are global (same for all variants):
+#
+# ecobalyse[_proxy]_density_g_per_ml:en
+# ecobalyse[_proxy]_crop_group:en
+# ecobalyse[_proxy]_raw_to_cooked_ratio:en
+# ecobalyse[_proxy]_inedible_part:en
+# ecobalyse[_proxy]_transport_cooling:en
+# ecobalyse[_proxy]_category:en
+#
+# Some entries are specific to variants, in which case we add a suffix with the label and/or origin:
+# 
+# ecobalyse[_proxy]_[label_en_organic_][origin_en_france_]id:en -> Ecobalyse variant id
+# ecobalyse[_proxy]_[label_en_organic_][origin_en_france_]scenario:en -> Ecobalyse codes for the label and/or origin
+# ecobalyse[_proxy]_[label_en_organic_][origin_en_france_]name:fr -> French name for the variant
+# ecobalyse[_proxy]_[label_en_organic_][origin_en_france_]alias:en -> English alias
+# ecobalyse[_proxy]_[label_en_organic_][origin_en_france_]default_origin:en
+
 #comment:en:These are synonyms of ingredients
 
 # Synonyms must be separated with an empty line.

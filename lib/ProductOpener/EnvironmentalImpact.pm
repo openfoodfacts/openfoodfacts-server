@@ -381,7 +381,7 @@ sub call_ecobalyse($url, $payload_ref, $testid) {
 
 # Load and index the Ecobalyse packaging data. Cached on first call in a state variable.
 # The packaging material/shape fields in the data have already been canonicalized to
-# OFF taxonomy tagids by scripts/match_ecobalyse_packaging_categories.pl.
+# OFF taxonomy tagids by external-data/ecobalyse/match_ecobalyse_packaging_categories.pl.
 sub _load_ecobalyse_packaging_data () {
 
 	state $cache;
