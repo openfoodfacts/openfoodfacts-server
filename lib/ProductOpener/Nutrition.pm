@@ -987,9 +987,6 @@ sub get_unit_options_for_nutrient ($nid) {
 
 	my @units_options;
 
-	if ($nid eq 'cocoa') {
-		push @units, '%';
-	}
 	if (defined get_property("nutrients", "zz:$nid", "dv_value:en")) {
 		push @units, '% DV';
 	}
