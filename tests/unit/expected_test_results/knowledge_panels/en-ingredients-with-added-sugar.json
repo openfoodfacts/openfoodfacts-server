@@ -88,6 +88,65 @@
    "ecoscore_tags" : [
       "unknown"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 66.6666666666667,
+               "name" : "Sugar"
+            },
+            {
+               "ecobalyse_name" : "Farine UE -2025-",
+               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "mass" : 16.6666666666667,
+               "name" : "wheat flour"
+            },
+            {
+               "ecobalyse_name" : "Beurre à 39-41% MG, léger, doux Origine Inconnue",
+               "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
+               "mass" : 16.6666666666667,
+               "name" : "butter"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 66.6666666666667
+               },
+               {
+                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+                  "mass" : 16.6666666666667
+               },
+               {
+                  "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
+                  "mass" : 16.6666666666667
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -355,7 +414,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
@@ -367,7 +427,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -379,7 +440,8 @@
       },
       {
          "ciqual_proxy_food_code" : "16400",
-         "ecobalyse_code" : "bbda834e-1548-4682-a461-c367dc1ce517",
+         "ecobalyse_id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
+         "ecobalyse_name" : "Beurre à 39-41% MG, léger, doux Origine Inconnue",
          "id" : "en:butter",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
