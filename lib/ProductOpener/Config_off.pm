@@ -1231,6 +1231,10 @@ $options{nova_groups_tags} = {
 	"categories/en:maple-syrups" => 2,
 	"categories/en:starches" => 2,
 
+	# ingredients that can be bought in supermarkets as culinary helpers
+
+	"categories/en:agar-agar" => 2,
+
 	# group 3 tags will not be applied to food identified as group 2
 
 	# group 3 ingredients from nova paper
