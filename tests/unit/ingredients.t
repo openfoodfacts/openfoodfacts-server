@@ -126,6 +126,27 @@ my @tests = (
 		}
 	],
 
+	# FEDIAF label forms of trace mineral sources, with hydration and
+	# oxidation-state qualifiers, must resolve to their taxonomy entries
+	[
+		'fr-feed-mineral-forms',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Substances minérales : Sulfate de zinc monohydraté : 37,1 mg, Oxyde de manganèse (II) : 3,2 mg, Sulfate de cuivre (II) pentahydraté : 4,8 mg, Iodate de calcium anhydre : 2 mg"
+		}
+	],
+
+	# "Matières minérales" is the analytical constituent (crude ash) on feed
+	# labels, not the minerals additive class
+	[
+		'fr-feed-matieres-minerales',
+		{
+			lc => "fr",
+			ingredients_text => "viande, céréales, Constituants analytiques : matières minérales 7%, protéines 22%"
+		}
+	],
+
 	[
 		'fr-marmelade',
 		{
@@ -1396,6 +1417,31 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text_fr => "",
 		}
 	],
+	# Bold mathematical unicode letters in ingredient names (issue #15592)
+	[
+		"en-bold-mathematical-unicode-letters",
+		{
+			lc => "en",
+			ingredients_text => "𝑨𝒑𝒑𝒍𝒆, 𝑩𝒂𝒏𝒂𝒏𝒂, 𝑪𝒉𝒆𝒓𝒓𝒚, cheese (𝐌𝐢𝐥𝐤)",
+		}
+	],
+	# Other letter variants
+	[
+		"en-letter-variants",
+		{
+			lc => "en",
+			ingredients_text => "Wheat flour (𝐖𝐡𝐞𝐚𝐭), 𝑴𝒊𝒍𝒌 powder, 𝓢𝓸𝔂 lecithin, 𝔈𝔤𝔤 yolk, 𝔼𝕘𝕘 white, "
+				. "𝗛𝗮𝘇𝗲𝗹𝗻𝘂𝘁 paste, 𝘊𝘢𝘴𝘩𝘦𝘸 𝘯𝘶𝘵𝘴, 𝙼𝚞𝚜𝚝𝚊𝚛𝚍 seed, Ｓｅｓａｍｅ seeds, "
+				. "𝐒𝐨𝐮𝐫 𝐜𝐫𝐞𝐚𝐦, 𝐶𝑒𝑙𝑒𝑟𝑦, salt"
+		}
+	],
+	[
+		"de-letter-variants",
+		{
+			lc => "de",
+			ingredients_text => "Zutaten: 𝐖𝐞𝐢𝐳𝐞𝐧mehl, Voll𝐦𝐢𝐥𝐜𝐡pulver, 𝐇𝐚𝐬𝐞𝐥𝐧ü𝐬𝐬𝐞, Ｓｅｓａｍöl, 𝑆𝑜𝑗𝑎lecithin, Salz",
+		}
+	],
 	# Animal / vegetal origins
 	[
 		'en-animal-vegetal-origins',
@@ -1511,7 +1557,7 @@ foreach my $test (
 	['Omega 3b 103 mg', 'fr:Omega 3b', '103 mg', 0.103, 0],
 	['Omega E 150 mg', 'fr:Omega E', '150 mg', 0.15, 0],
 	['3b 103,5 mg', 'fr:3b', '103.5 mg', 0.1035, 0],
-	['3b 502 manganèse 7,6 mg', 'fr:3b 502 manganèse', '7.6 mg', 0.0076, 0],
+	['3b 502 manganèse 7,6 mg', 'en:manganous-oxide', '7.6 mg', 0.0076, 1],
 	)
 {
 	my ($text, @expected) = @$test;
