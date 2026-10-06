@@ -38,6 +38,7 @@ package ProductOpener::Nutrition;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
+use List::MoreUtils qw( none );
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -983,7 +984,9 @@ sub get_unit_options_for_nutrient ($nid) {
 	}
 
 	# ensure default unit is always one of the options
-	push @units, $default_unit;
+	if (none {$_ eq $default_unit} @units) {
+		push @units, $default_unit;
+	}
 
 	my @units_options;
 
