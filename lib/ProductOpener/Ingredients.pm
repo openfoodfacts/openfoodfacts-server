@@ -128,6 +128,7 @@ use ProductOpener::APIProductServices qw/add_product_data_from_external_service/
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 use ProductOpener::IngredientsStrings qw/:all/;
 use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
+use ProductOpener::Text qw/normalize_unicode_letter_variants/;
 
 use Encode;
 use Clone qw(clone);
@@ -2967,6 +2968,7 @@ Text to analyze
 								'^Leivottu tuotantolinjalla'
 								,    # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^vastaa 100 g porkkanaa$',
+								'^Pakattu suojakaasuun$',    # packaged in a protective atmosphere
 								'^Tuotteessa mustikkaa$',
 								'vaihtelevina osuuksina',
 								'^lakritsin osuudesta$',
@@ -3054,6 +3056,7 @@ Text to analyze
 								'^Någon kärna (?:och|eller) del kan finnas kvar$',
 								'motsvarande \d{1,3}\s*% av torrvikten$',
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
+								'^Förpackat i en skyddande atmosfär$',    # packaged in a protective atmosphere
 								'^Mjölkchokladen innehåller minst',
 								'^kan innehälla(?: spår av)?',    # may contain (traces of)
 								'^Mjölken är pastöriserad$',
@@ -7085,6 +7088,30 @@ INFO
 	return $text;
 }
 
+# Used to remove underscores around allergens, e.g. "_milk_" -> "milk"
+
+sub _replace_underscores_around_allergens ($ingredients_lc, $allergen) {
+
+	my $exists_in_taxonomy = 0;
+	canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergen, \$exists_in_taxonomy);
+
+	if ($exists_in_taxonomy) {
+		return $allergen;
+	}
+
+	return "_" . $allergen . "_";
+}
+
+sub remove_underscores_around_allergens ($ingredients_lc, $text_ref) {
+
+	# We want to remove underscores only when they around an allergen
+	$$text_ref =~ s/___([^_,;]+)___/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+	$$text_ref =~ s/__([^_,;]+)__/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+	$$text_ref =~ s/_([^_,;]+)_/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+
+	return;
+}
+
 =head2 preparse_ingredients_text ($ingredients_lc, $text) - normalize the ingredient list to make parsing easier
 
 This function transform the ingredients list in a more normalized list that is easier to parse.
@@ -7092,6 +7119,7 @@ This function transform the ingredients list in a more normalized list that is e
 It does the following:
 
 - Normalize quote characters
+- Normalize Unicode bold and stylistic-variant characters
 - Fix common misspellings (from misspellings/ingredients_misspellings.txt )
 - Replace abbreviations by their full name
 - Remove extra spaces in compound words width dashes (e.g. céléri - rave -> céléri-rave)
@@ -7179,11 +7207,17 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# turn special chars to spaces
 	$text =~ s/[\000-\037]/ /g;
 
+	# Normalize Unicode bold and stylistic-variant characters to plain ASCII
+	$text = normalize_unicode_letter_variants($text);
+
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
 
 	# Misspelling corrections (applied early so they don't interfere with other normalizations)
 	apply_misspelling_replacements("ingredients", $ingredients_lc, \$text);
+
+	# Remove _ underscores around allergens, e.g. "_milk_" -> "milk"
+	remove_underscores_around_allergens($ingredients_lc, \$text);
 
 	# vegetable oil (coconut & rapeseed)
 	# turn & to and
