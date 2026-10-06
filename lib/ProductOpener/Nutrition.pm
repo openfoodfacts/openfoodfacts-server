@@ -38,7 +38,7 @@ package ProductOpener::Nutrition;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
-use List::MoreUtils qw( none );
+use List::MoreUtils qw( any none );
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -2904,6 +2904,13 @@ sub default_unit_for_nid ($nid) {
 
 	$nid =~ s/_prepared//;
 
+	my @special_units = (
+		"",
+		"%",
+		"kJ",
+		"kcal",
+	);
+
 	if (exists($default_unit_for_nid_map{$nid})) {
 		return $default_unit_for_nid_map{$nid};
 	}
@@ -2916,7 +2923,7 @@ sub default_unit_for_nid ($nid) {
 	# If it is in % or '', we use it
 	if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 		my $unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
-		if ((defined $unit) and (($unit eq '%') or ($unit eq ''))) {
+		if ((defined $unit) and (any {$unit eq $_} @special_units)) {
 			# Set the default unit for this nutrient for future use
 			$default_unit_for_nid_map{$nid} = $unit;
 			return $unit;
