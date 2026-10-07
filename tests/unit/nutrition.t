@@ -1155,121 +1155,121 @@ my @tests = (
 	],
 
 	[
-# an unknown source should be considered less important than known sources
-	"unknown_source_less_important_than_known_sources",
-	{
-		nutrition => {
-			input_sets => [
-				{
-					preparation => "as_sold",
-					per => "100g",
-					per_quantity => "100",
-					per_unit => "g",
-					source => "unknown_source",
-					nutrients => {
-						sodium => {
-							value_string => "2.0",
-							value => 2,
-							unit => "g",
-							modifier => "<="
+		# an unknown source should be considered less important than known sources
+		"unknown_source_less_important_than_known_sources",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "unknown_source",
+						nutrients => {
+							sodium => {
+								value_string => "2.0",
+								value => 2,
+								unit => "g",
+								modifier => "<="
+							}
 						}
-					}
-				},
-				{
-					preparation => "as_sold",
-					per => "serving",
-					per_quantity => "10",
-					per_unit => "g",
-					source => "packaging",
-					nutrients => {
-						sodium => {
-							value_string => "0.1",
-							value => 0.1,
-							unit => "g",
-						},
+					},
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "10",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "0.1",
+								value => 0.1,
+								unit => "g",
+							},
 
-					}
-				}
-			]
-		}
-	},
-	],
-# pH and glycemic-index per serving (not 100g) should be kept as-is in aggregated set
-	[
-	"ph_and_glycemic_index_per_serving_kept_as_is",
-	{
-		nutrition => {
-			input_sets => [
-				{
-					preparation => "as_sold",
-					per => "serving",
-					per_quantity => "250",
-					per_unit => "g",
-					source => "packaging",
-					nutrients => {
-						ph => {
-							value_string => "6.5",
-							value => 6.5,
-							unit => "",
-						},
-						"glycemic-index" => {
-							value_string => "45",
-							value => 45,
-							unit => "",
 						}
 					}
-				}
-			]
+				]
+			}
+		},
+	],
+	# pH and glycemic-index per serving (not 100g) should be kept as-is in aggregated set
+	[
+		"ph_and_glycemic_index_per_serving_kept_as_is",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "250",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							ph => {
+								value_string => "6.5",
+								value => 6.5,
+								unit => "",
+							},
+							"glycemic-index" => {
+								value_string => "45",
+								value => 45,
+								unit => "",
+							}
+						}
+					}
+				]
+			}
 		}
-	}
 	],
 	# alcohol (% vol) per serving should be kept as-is in aggregated set
 	[
-	"alcohol_per_serving_kept_as_is",
-	{
-		nutrition => {
-			input_sets => [
-				{
-					preparation => "as_sold",
-					per => "serving",
-					per_quantity => "250",
-					per_unit => "ml",
-					source => "packaging",
-					nutrients => {
-						alcohol => {
-							value_string => "5.0",
-							value => 5.0,
-							unit => "% vol",
+		"alcohol_per_serving_kept_as_is",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "250",
+						per_unit => "ml",
+						source => "packaging",
+						nutrients => {
+							alcohol => {
+								value_string => "5.0",
+								value => 5.0,
+								unit => "% vol",
+							}
 						}
 					}
-				}
-			]
+				]
+			}
 		}
-	}
 	],
 	# fruits-vegetables-nuts (%) per serving should be kept as-is in aggregated set
 	[
-	"fruits_vegetables_nuts_per_serving_kept_as_is",
-	{
-		nutrition => {
-			input_sets => [
-				{
-					preparation => "as_sold",
-					per => "serving",
-					per_quantity => "100",
-					per_unit => "g",
-					source => "packaging",
-					nutrients => {
-						"fruits-vegetables-nuts" => {
-							value_string => "80",
-							value => 80,
-							unit => "%",
+		"fruits_vegetables_nuts_per_serving_kept_as_is",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							"fruits-vegetables-nuts" => {
+								value_string => "80",
+								value => 80,
+								unit => "%",
+							}
 						}
 					}
-				}
-			]
+				]
+			}
 		}
-	}
 	]
 );
 

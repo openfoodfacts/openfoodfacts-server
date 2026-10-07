@@ -606,7 +606,11 @@ sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quanti
 
 	# If the nutrient is unit-less (e.g. pH or glycemic index), or if the unit is % or "% vol" (alcohol)
 	# The value is the same for 100g or per serving
-	if ((not defined $nutrient_ref->{unit}) or ($nutrient_ref->{unit} eq '') or ($nutrient_ref->{unit} eq '%') or ($nutrient_ref->{unit} eq '% vol')) {
+	if (   (not defined $nutrient_ref->{unit})
+		or ($nutrient_ref->{unit} eq '')
+		or ($nutrient_ref->{unit} eq '%')
+		or ($nutrient_ref->{unit} eq '% vol'))
+	{
 		return;
 	}
 
