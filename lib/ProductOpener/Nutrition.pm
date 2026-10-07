@@ -603,6 +603,13 @@ Wanted per unit of the nutrient
 =cut
 
 sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quantity, $original_per_unit, $wanted_per) {
+
+	# If the nutrient is unit-less (e.g. pH or glycemic index), or if the unit is % or "% vol" (alcohol)
+	# The value is the same for 100g or per serving
+	if ((not defined $nutrient_ref->{unit}) or ($nutrient_ref->{unit} eq '') or ($nutrient_ref->{unit} eq '%') or ($nutrient_ref->{unit} eq '% vol')) {
+		return;
+	}
+
 	if ($original_per ne $wanted_per) {
 		my $original_value = $nutrient_ref->{value};
 		my $wanted_per_unit = $wanted_per eq "100g" ? "g" : "ml";
