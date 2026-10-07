@@ -413,7 +413,7 @@ if [[ "$LIST" -eq 1 ]]; then
         echo "No worktree is registered yet. Run 'make agent' in a worktree to register one."
         exit 0
     fi
-    printf '%-14s %-7s %-7s %-7s %-7s %s\n' "ID" "SLOT" "FRONTEND" "MONGO" "KEYCLOAK" "DIRECTORY"
+    printf '%-1s%-13s %-5s %-5s %-6s %-4s %s\n' " " "ID" "SLOT" "WEB" "MONGO" "KC" "DIRECTORY"
     for entry in "$REGISTRY_DIR"/*; do
         [[ -f "$entry" ]] || continue
         entry_id="$(basename "$entry")"
@@ -428,14 +428,22 @@ if [[ "$LIST" -eq 1 ]]; then
             '' | *[!0-9]*) entry_slot="?" ;;
             *) ;;
         esac
-        printf '%-14s %-7s %-7s %-7s %-7s %s\n' \
-            "$entry_id" "$entry_slot" \
+        # The registry is per user, so another user's worktree would not be listed
+        # here. Mark the ones Docker still knows about, to show which are really up.
+        marker=" "
+        if command -v docker >/dev/null 2>&1 &&
+            docker network inspect "product-opener_${entry_id}" >/dev/null 2>&1; then
+            marker="*"
+        fi
+        printf '%s%-13s %-5s %-5s %-6s %-4s %s\n' \
+            "$marker" "$entry_id" "$entry_slot" \
             "$(port_for frontend "$entry_slot" 2>/dev/null || echo '-')" \
             "$(port_for mongodb "$entry_slot" 2>/dev/null || echo '-')" \
             "$(port_for keycloak "$entry_slot" 2>/dev/null || echo '-')" \
             "$entry_dir"
     done
     echo ""
+    echo "* = a Docker network still exists for that id, so it is really in use."
     echo "Slots are handed out from 1 to ${SLOT_MAX}; every service port is derived from the slot."
     echo "Registry: ${REGISTRY_DIR} (per user; run 'make release-agent' to free a slot)"
     exit 0
@@ -531,9 +539,15 @@ acquire() {
             stored="$(registry_slot "$candidate" 2>/dev/null || true)"
             case "$stored" in
                 '' | *[!0-9]*) stored="" ;;
-                *) ;;
             esac
-            if [[ -n "$stored" ]] && slot_is_usable "$stored"; then
+            # Out of range means the entry predates the slot scheme, which stored a
+            # host port in line 1: 8081 would be read as slot 8081 and hand out port
+            # 24241. Drop such an entry and allocate a proper slot below.
+            if [ -n "$stored" ] && { [ "$stored" -lt "$SLOT_MIN" ] || [ "$stored" -gt "$SLOT_MAX" ]; }; then
+                stored=""
+                rm -f "$REGISTRY_DIR/$candidate"
+            fi
+            if [ -n "$stored" ] && slot_is_usable "$stored"; then
                 ID="$candidate"
                 SLOT="$stored"
                 CLAIMED_SLOT=""
