@@ -172,13 +172,27 @@ $product_ref = {
 		"69% pšeničná múka, pitná voda, repkový olej, stabilizátor: glycerol; pšeničný glutén, regulátor kyslosti: kyselina jablčná; jedlá soľ, emulgátor: mono - a diglyceridy mastných kyselín; dextróza, kypriaca látka: uhličitany sodné; new word for preservative: propionan vápenatý, sorban draselný; múku upravujúca látka: L-cystein.",
 };
 check_ingredients_between_languages($product_ref);
+# The cs stop word is no longer detected: with the ro conjunction fix, ro has one
+# ingredient less, so no language is exactly one item shorter than cs, which the
+# index-based stop word detection requires.
 ok(
-	has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-cs-skladujte-v-suchu-a-chraňte-před-teplem"),
-	'cs has one stop word'
+	!has_tag(
+		$product_ref, "taxonomies_enhancer",
+		"possible-stop-word-after-cs-skladujte-v-suchu-a-chra\x{148}te-p\x{159}ed-teplem"
+	),
+	'cs stop word no longer detected after the ro conjunction fix'
 ) or diag Dumper $product_ref;
 ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-čuvati-na-suhom-mjestu"),
 	'hr has one stop word as well')
 	or diag Dumper $product_ref;
+ok(
+	has_tag(
+		$product_ref,
+		"taxonomies_enhancer",
+		"ingredients-ro-mono-\x{15f}i-digliceride-ale-acizilor-gra\x{15f}i-is-possible-typo-for-ro-mono-\x{219}i-digliceride-ale-acizilor-gra\x{219}i"
+	),
+	'ro emulsifier kept whole is flagged as old orthography typo'
+) or diag Dumper $product_ref;
 
 $product_ref = {
 	ingredients_text_sk =>

@@ -13,7 +13,8 @@ use JSON;
 use ProductOpener::Products qw/compute_languages/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ProductsTags qw/:all/;
-use ProductOpener::Ingredients qw/detect_allergens_from_text extract_ingredients_from_text/;
+use ProductOpener::Ingredients
+	qw/clean_ingredients_text detect_allergens_from_text extract_additives_from_text extract_ingredients_from_text/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
@@ -384,6 +385,31 @@ foreach my $test_ref (@underscore_compound_word_tests) {
 	is($product_ref->{"ingredients_text_with_allergens_$lc"},
 		$expected_html, "allergen markup works inside a $lc compound word");
 	is($product_ref->{allergens_tags}, [$expected_allergen], "allergen is detected inside a $lc compound word");
+}
+
+# The underscore markup is the allergen bolding markup: it must survive the
+# ingredients text cleaning (which rewrites the stored ingredients text),
+# still mark the allergen, and not leak into the parsed ingredient names.
+my @underscore_markup_survives_cleaning_tests = (
+	['fr-allergen-markup-kept', "fr", "farine de _blé_, sucre, _lait_ écrémé"],
+	['fr-allergen-markup-unknown-allergen', "fr", "graines de _plantex_"],
+);
+
+foreach my $test_ref (@underscore_markup_survives_cleaning_tests) {
+	my ($testid, $lc, $ingredients_text) = @{$test_ref};
+	my $product_ref = {lc => $lc, lang => $lc, "ingredients_text_$lc" => $ingredients_text};
+
+	compute_languages($product_ref);
+	clean_ingredients_text($product_ref);
+	extract_ingredients_from_text($product_ref);
+	extract_additives_from_text($product_ref);
+	detect_allergens_from_text($product_ref);
+
+	is($product_ref->{"ingredients_text_$lc"},
+		$ingredients_text, "underscore markup is kept in the stored ingredients text");
+
+	normalize_product_for_test_comparison($product_ref);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
 # Additional tests for canonicalize_allergens_taxonomy_tag

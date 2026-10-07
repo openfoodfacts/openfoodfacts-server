@@ -1,0 +1,17 @@
+{
+   "api_call" : {
+      "body" : {
+         "fields" : "updated,brands,brands_tags",
+         "product" : {
+            "brands_tags_add" : [
+               "Marks & Spencers",
+               "Some other brand"
+            ]
+         }
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3.6/product/test"
+   }
+}

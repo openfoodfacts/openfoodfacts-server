@@ -39,12 +39,45 @@
       "en:vegetable-oils",
       "en:olive-oils"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [],
+         "packaging" : [
+            {
+               "category" : "en:olive-oils",
+               "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58",
+               "name" : "Olive oil, 0,75L | Packaging System, N0, All, Glass bottle {FR} U",
+               "name_fr" : "Bouteille en verre et bouchon plastique pour huile d'olive - 0,5L à 1L"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:fats",
    "food_groups_tags" : [
       "en:fats-and-sauces",
       "en:fats"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "ingredients" : [
       {
          "id" : "en:some very fancy but unrecognized way of writing olive oil",
@@ -113,6 +146,8 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
    ],
    "nova_group_debug" : "no nova group if too many ingredients are unknown: 1 out of 1",

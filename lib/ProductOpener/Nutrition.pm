@@ -227,7 +227,7 @@ sub generate_nutrient_aggregated_set ($product_ref) {
 
 Generates and returns a hash reference of the aggregated nutrient set from the given list of nutrient sets.
 
-The generated set is a combined set of nutrients with the preferred sources, per references and preparation states 
+The generated set is a combined set of nutrients with the preferred sources, per references and preparation states
 and with normalized units.
 
 =head3 Arguments
@@ -935,6 +935,7 @@ Reference to an array of valid unit options for the given nutrient
 sub get_unit_options_for_nutrient ($nid) {
 
 	my @units = ();
+	my $default_unit = default_unit_for_nid($nid);
 
 	if (($nid eq 'alcohol')) {
 		@units = ('% vol');
@@ -959,16 +960,22 @@ sub get_unit_options_for_nutrient ($nid) {
 	{
 		@units = ('%');
 	}
-	elsif ($nid eq 'ph') {
+	# pH, glycemic index, NOVA group, etc.
+	elsif ($default_unit eq '') {
 		@units = ('');
 	}
+	elsif ($nid eq 'carbon-footprint') {
+		@units = ('kg', 'g', 'mg');
+	}
 	else {
-
 		@units = ('g', 'mg', 'µg');
 	}
 
 	my @units_options;
 
+	if ($nid eq 'cocoa') {
+		push @units, '%';
+	}
 	if (defined get_property("nutrients", "zz:$nid", "dv_value:en")) {
 		push @units, '% DV';
 	}
