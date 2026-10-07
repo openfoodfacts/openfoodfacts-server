@@ -573,4 +573,32 @@ is(
 	]
 ) or diag Dumper $tags_ref;
 
+# Test that input set columns have distinct short names (fixes #14778)
+$lc = 'en';
+my $input_sets_table_ref = data_to_display_nutrition_table(
+	{
+		nutrition => {
+			input_sets => [
+				{source => "packaging", preparation => "as_sold", per => "100g", nutrients => {sugars => {value => 1}}},
+				{
+					source => "packaging",
+					preparation => "prepared",
+					per => "100g",
+					nutrients => {sugars => {value => 2}}
+				},
+				{source => "estimate", preparation => "as_sold", per => "100g", nutrients => {sugars => {value => 3}}},
+			],
+		},
+	},
+	undef,
+	{},
+	1
+);
+is(
+	[map {$_->{short_name} // ()} @{$input_sets_table_ref->{nutrition_table}{header}{columns}}],
+	["100g", "prepared 100g", "100g (estimate)"],
+	'input set columns have distinct short names'
+) or diag Dumper $input_sets_table_ref->{nutrition_table}{header};
+
 done_testing();
+
