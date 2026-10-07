@@ -158,6 +158,33 @@
       "test-user"
    ],
    "entry_dates_tags" : "--ignore--",
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [],
+         "packaging" : [
+            {
+               "category" : "en:eggs",
+               "id" : "a560affc-90ca-4219-b4a3-6520906e834c",
+               "name" : "Eggs, powder, 800g | Packaging System, Proxy Pack, Steel {FR} U",
+               "name_fr" : "Pot en acier pour œufs en poudre - 800g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "a560affc-90ca-4219-b4a3-6520906e834c"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
