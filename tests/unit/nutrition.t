@@ -16,6 +16,8 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 is(convert_salt_to_sodium(2.5), 1);
 is(convert_sodium_to_salt(1), 2.5);
 
+is(default_unit_for_nid('energy-from-fat'), 'kJ');
+
 # Test the generation of the aggregated set from input sets
 
 my @tests = (
