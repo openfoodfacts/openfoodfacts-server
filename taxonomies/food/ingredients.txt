@@ -76,7 +76,7 @@
 # ecobalyse[_proxy]_category:en
 #
 # Some entries are specific to variants, in which case we add a suffix with the label and/or origin:
-# 
+#
 # ecobalyse[_proxy]_[label_en_organic_][origin_en_france_]id:en -> Ecobalyse variant id
 # ecobalyse[_proxy]_[label_en_organic_][origin_en_france_]scenario:en -> Ecobalyse codes for the label and/or origin
 # ecobalyse[_proxy]_[label_en_organic_][origin_en_france_]name:fr -> French name for the variant
@@ -34981,7 +34981,7 @@ bg: растителен протеин, растителни протеини
 ca: Proteïna vegetal
 cs: rostlinné proteiny, rostlinné bílkoviny
 da: vegetabilsk protein
-de: pflanzliches Eiweiß, Pflanzenprotein, Pflanzenproteine, Pflanzliche Protein, pflanzliche Eiweißextrakte, pflanzliches Eiweiss
+de: pflanzliches Eiweiß, Pflanzenprotein, Pflanzenproteine, pflanzliche Protein, pflanzliche Eiweißextrakte, pflanzliches Eiweiss, pflanzliche Proteine
 es: proteína vegetal
 fi: kasviproteiini
 fr: protéines végétales, protéine végétale
@@ -67159,7 +67159,7 @@ ca: fava
 cs: bob obecný
 cy: Ffeuen y gerddi
 da: Hestebønne
-de: Ackerbohne, Ackerbohnen, Fava Bohnen, Saubohne
+de: Ackerbohne, Ackerbohnen, Fava Bohnen, Saubohne, Fababohnen
 el: Κουκιά
 eo: Fabo
 es: haba, habas, habas tiernas
@@ -104526,6 +104526,17 @@ sv: växtbaserad ost, Violife, Violife block
 comment:en: Violife is a producer of such cheeses and ingredient lists will sometimes just say “Violife” or similar.
 vegan:en: yes
 vegetarian:en: yes
+
+en: pizza topping
+de: Pizzabelag
+vegan:en: maybe
+vegetarian:en: maybe
+#wikidata:en: Q126709630  # item for a list article
+
+< en: pizza topping
+< en: vegetable fat
+en: vegetable fat based pizza topping
+de: Pizzabelag auf Pflanzenfettbasis
 
 < en: scalding
 < en: sourdough
