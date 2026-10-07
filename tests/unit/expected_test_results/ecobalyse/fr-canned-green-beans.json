@@ -22,10 +22,9 @@
       "en:canned-vegetables"
    ],
    "environmental_impact" : {
-"ecobalyse_input" : {
-          "distribution" : "ambient",
-          "ingredients_coverage_percent" : 100,
-          "ingredients" : [
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
             {
                "ecobalyse_name" : "Haricots verts Origine Inconnue",
                "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
@@ -45,6 +44,7 @@
                "name" : "sel"
             }
          ],
+         "ingredients_coverage_percent" : 100,
          "packaging" : [
             {
                "category" : "en:canned-foods",
@@ -248,12 +248,12 @@
    "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
    "lc" : "fr",
-"misc_tags" : [
-       "en:estimated-ingredients-with-product-opener",
-       "en:ecobalyse-ingredients-matched-between-90-and-100",
-       "en:ecobalyse-api-called",
-       "en:ecobalyse-api-success"
-    ],
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
+   ],
    "testid" : "fr-canned-green-beans",
    "unknown_ingredients_n" : 0
 }
