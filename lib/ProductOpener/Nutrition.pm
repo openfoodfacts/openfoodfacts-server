@@ -1236,6 +1236,7 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 			my $recognized_unit = 0;
 			my $lc_unit = lc($unit);
 			$lc_unit =~ s/^\s+|\s+$//g;    # trim spaces
+
 			foreach my $unit_option_ref (@{$valid_units_ref}) {
 				if (lc($unit_option_ref->{id}) eq $lc_unit) {
 					$recognized_unit = 1;
