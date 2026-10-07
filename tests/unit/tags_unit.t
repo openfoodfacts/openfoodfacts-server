@@ -137,5 +137,6 @@ is(canonicalize_tag("emb_codes", "EMB 62863C"), "emb-62863c");
 is(display_tag("emb_codes", "fr-85-222-003-ce"), "FR 85.222.003 CE");
 is(display_tag("emb_codes", "fr-85-222-003-ec"), "FR 85.222.003 CE");
 is(display_tag("emb_codes", "EMB 62863C"), "EMB 62863C");
+is(display_tag("units", "kj"), "kJ");
 
 done_testing();
