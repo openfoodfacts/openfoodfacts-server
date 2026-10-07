@@ -2904,6 +2904,9 @@ sub default_unit_for_nid ($nid) {
 
 	$nid =~ s/_prepared//;
 
+	# Units convertible to grams
+	my @gram_units = ("kg", "g", "mg", "µg",);
+
 	if (exists($default_unit_for_nid_map{$nid})) {
 		return $default_unit_for_nid_map{$nid};
 	}
@@ -2916,7 +2919,7 @@ sub default_unit_for_nid ($nid) {
 	# If it is in % or '', we use it
 	if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 		my $unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
-		if ((defined $unit) and ($unit ne 'g')) {
+		if ((defined $unit) and (none {$unit eq $_} @gram_units)) {
 			# Set the default unit for this nutrient for future use
 			$default_unit_for_nid_map{$nid} = $unit;
 			return $unit;
