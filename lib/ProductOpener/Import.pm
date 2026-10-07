@@ -63,6 +63,7 @@ use Storable qw(dclone);
 use Text::Fuzzy;
 use Data::DeepAccess qw(deep_get deep_exists);
 use Encode qw(encode_utf8);
+use Cwd qw/realpath/;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -73,6 +74,7 @@ BEGIN {
 		&import_csv_file
 		&import_products_categories_from_public_database
 		&list_product_images_files_in_dir
+		&get_local_image_path
 		&upload_images_for_product
 		&get_image_urls_to_try
 		&get_google_drive_confirm_download_url
@@ -267,6 +269,91 @@ sub list_product_images_files_in_dir ($image_dir, $stats) {
 	}
 
 	return $images_ref;
+}
+
+=head2 get_local_image_path ( $args_ref, $path )
+
+Resolve a path to an image file that an import refers to, and check that it is a
+file we are allowed to read.
+
+Local paths are only accepted for imports that explicitly allow them (imports
+started by an operator script, or by our own exporters platform exporter), and
+the path must resolve inside the product images directory or inside one of the
+image directories of the import: an import must not be able to read an arbitrary
+file of the server, e.g. to copy it into a product image.
+
+=head3 Arguments
+
+=head4 $args_ref Import arguments reference, must have the allow_local_image_paths flag set
+
+=head4 $path Path to check (string)
+
+=head3 Return value
+
+The path to read, or undef if it must not be read.
+
+=cut
+
+# Remove "." and ".." from an absolute path, without touching the file system,
+# so that we can also check paths that do not exist (yet).
+
+sub _clean_absolute_path ($path) {
+
+	my @cleaned = ();
+
+	foreach my $part (split(m|/|, $path)) {
+		next if $part eq '';
+		next if $part eq '.';
+		if ($part eq '..') {
+			pop @cleaned;
+			next;
+		}
+		push @cleaned, $part;
+	}
+
+	return '/' . join('/', @cleaned);
+}
+
+sub get_local_image_path ($args_ref, $path) {
+
+	my $accepted_path;
+
+	# Local paths are only accepted when the caller explicitly allows them
+	if (    (defined $args_ref)
+		and ($args_ref->{allow_local_image_paths})
+		and (defined $path)
+		and ($path =~ /\S/))
+	{
+
+		# Canonical path of the file if it exists, otherwise check the path itself
+		my $candidate = realpath($path);
+		$candidate = _clean_absolute_path($path) if ((not defined $candidate) and ($path =~ m|^/|));
+
+		if (defined $candidate) {
+
+			my @roots = grep {defined $_ and $_ ne ''}
+				($BASE_DIRS{PRODUCTS_IMAGES}, $args_ref->{images_download_dir}, $args_ref->{images_dir});
+
+			foreach my $root (@roots) {
+				my $realroot = realpath($root);
+				$realroot = _clean_absolute_path($root) if ((not defined $realroot) and ($root =~ m|^/|));
+				next if not defined $realroot;
+
+				if (($candidate eq $realroot) or (index($candidate, $realroot . '/') == 0)) {
+					$accepted_path = $candidate;
+					last;
+				}
+			}
+
+			if (not defined $accepted_path) {
+				$log->warn("get_local_image_path - rejected an image path outside of the allowed directories",
+					{path => $path, candidate => $candidate, roots => \@roots})
+					if $log->is_warn();
+			}
+		}
+	}
+
+	return $accepted_path;
 }
 
 =head2 upload_images_for_product ($args_ref, $images_ref, $product_ref, $imported_product_ref, $product_id, $code, $user_id, $comment, $stats_ref)
@@ -1582,6 +1669,21 @@ If the CSV contains a non-empty value for a field, the value from the CSV file i
 
 Path to a directory that contains images for the products.
 
+=head4 allow_local_image_paths - optional
+
+Accept image paths that refer to local files (image_*_file columns, and the bare
+image_front / image_ingredients / image_nutrition / image_other columns).
+
+Only meant to be set for imports started by an operator, or for CSV files that
+were produced by our own exporter. The paths must resolve inside the product
+images directory or inside images_dir / images_download_dir.
+
+=head4 allow_any_source_fields - optional
+
+Accept sources_fields:<source id>:<field> columns that do not belong to the
+owner the import runs with. Only meant to be set for imports started by an
+operator, or for CSV files that were produced by our own exporter.
+
 =head4 comment - optional
 
 Comment that will be saved in the product history.
@@ -2125,6 +2227,12 @@ sub import_csv_file ($args_ref) {
 
 					$log->debug("images", {file => $file}) if $log->is_debug();
 
+					# Local image paths are only accepted for operator imports, and must
+					# stay inside the directories we are allowed to read images from
+					my $image_path = get_local_image_path($args_ref, $file);
+					next if not defined $image_path;
+					$file = $image_path;
+
 					defined $images_ref->{$code} or $images_ref->{$code} = {};
 					if ($imagefield ne "other") {
 						$images_ref->{$code}{$imagefield} = $file;
@@ -2302,6 +2410,22 @@ sub import_csv_file ($args_ref) {
 
 		my @param_fields = ();
 
+		# The owner of the products is bound server side to the owner the import runs
+		# with: only apply an owner column when the import was started by an operator
+		# (import_owner), or when the value matches that owner.
+		my $apply_owner_field = 1;
+		if (    (not $args_ref->{import_owner})
+			and (defined $Owner_id)
+			and (defined $imported_product_ref->{owner})
+			and ($imported_product_ref->{owner} ne $Owner_id))
+		{
+			$log->warn(
+				"import - ignoring an owner value that does not match the owner of the import",
+				{code => $code, owner => $imported_product_ref->{owner}, owner_id => $Owner_id}
+			) if $log->is_warn();
+			$apply_owner_field = 0;
+		}
+
 		foreach my $field (
 			'owner', 'lc',
 			'lang', 'product_name',
@@ -2315,6 +2439,9 @@ sub import_csv_file ($args_ref) {
 			'data_sources', 'imports'
 			)
 		{
+
+			# The owner column is only applied when the import runs with the owner it names
+			next if (($field eq 'owner') and (not $apply_owner_field));
 
 			if (defined $language_fields{$field}) {
 				foreach my $display_lc (@param_sorted_langs) {
@@ -2370,6 +2497,25 @@ sub import_csv_file ($args_ref) {
 			if ($field =~ /^sources_fields:([a-z0-9-]+):/) {
 				my $source_id = $1;
 				my $source_field = $';
+
+				# Only write the source fields of the owner the import runs with, unless
+				# the import was started by an operator or by our own exporter
+				my $allowed_source_id
+					= (not defined $Owner_id)
+					|| ($source_id eq $Owner_id)
+					|| (
+					(defined $args_ref->{source_id})
+					&& (   ($source_id eq $args_ref->{source_id})
+						|| ($source_id eq "org-" . $args_ref->{source_id}))
+					);
+
+				if ((not $args_ref->{allow_any_source_fields}) and (not $allowed_source_id)) {
+					$log->warn(
+						"import - ignoring source fields of another source than the importer",
+						{code => $code, field => $field, owner_id => $Owner_id}
+					) if $log->is_warn();
+					next;
+				}
 				defined $product_ref->{sources_fields} or $product_ref->{sources_fields} = {};
 				defined $product_ref->{sources_fields}{$source_id} or $product_ref->{sources_fields}{$source_id} = {};
 				if (   (not defined $product_ref->{sources_fields}{$source_id}{$source_field})
@@ -2603,8 +2749,13 @@ sub import_csv_file ($args_ref) {
 
 			my $imagefield = $1;
 
+			# Local image paths are only accepted for operator imports, and must stay
+			# inside the directories we are allowed to read images from
+			my $image_path = get_local_image_path($args_ref, $imported_product_ref->{$field});
+			next if not defined $image_path;
+
 			(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-			$images_ref->{$code}{$imagefield} = $imported_product_ref->{$field};
+			$images_ref->{$code}{$imagefield} = $image_path;
 		}
 
 		# Images can be specified as urls that we need to download
