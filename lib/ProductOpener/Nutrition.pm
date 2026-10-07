@@ -935,6 +935,7 @@ Reference to an array of valid unit options for the given nutrient
 sub get_unit_options_for_nutrient ($nid) {
 
 	my @units = ();
+	my $default_unit = default_unit_for_nid($nid);
 
 	if (($nid eq 'alcohol')) {
 		@units = ('% vol');
@@ -959,7 +960,8 @@ sub get_unit_options_for_nutrient ($nid) {
 	{
 		@units = ('%');
 	}
-	elsif ($nid eq 'ph') {
+	# pH, glycemic index, NOVA group, etc.
+	elsif ($default_unit eq '') {
 		@units = ('');
 	}
 	elsif ($nid eq 'carbon-footprint') {
