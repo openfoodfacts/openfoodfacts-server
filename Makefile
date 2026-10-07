@@ -679,16 +679,21 @@ rotate_logs:
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
-# Run dependent projects
-run_deps: clone_deps sync_agent_deps
+# Run dependent projects.
+# The sync happens in the recipe, not as a sibling prerequisite: with
+# `make --jobs=N` the two would run in parallel, and the sync could land before
+# clone_deps had created deps/, silently leaving the dependencies shared.
+run_deps: clone_deps
+	@PO_SHARED_DATA="$(PO_SHARED_DATA)" DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --sync-deps
 	@for dep in ${DEPS} ; do \
 		cd "${DEPS_DIR}/$$dep" && $(MAKE) run; \
 	done
 
-# Keep the dependencies' .envrc in sync with this worktree's agent id. Runs before
-# run_deps rather than only in `make agent`, so that a worktree whose deps were
-# cloned (or re-cloned) after `make agent` is still isolated. It is a no-op when
-# PO_AGENT_ID is unset, which is what CI relies on.
+# Keep this worktree's .envrc and the dependencies' .envrc in sync with its agent
+# id. Runs on every run_deps, not only in `make agent`, so that a worktree whose
+# deps were cloned afterwards, or whose .envrc was lost or edited by hand, still
+# ends up isolated. It is a no-op when PO_AGENT_ID is unset, which is what CI
+# relies on.
 sync_agent_deps:
 	@PO_SHARED_DATA="$(PO_SHARED_DATA)" DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --sync-deps
 
@@ -789,6 +794,7 @@ print-agent-config:
 	@echo "PRODUCT_OPENER_PORT=$(PRODUCT_OPENER_PORT)"
 	@echo "MINION_QUEUE=$(MINION_QUEUE)"
 	@echo "PRODUCT_OPENER_NETWORK=$(PRODUCT_OPENER_NETWORK)"
+	@echo "COMMON_NET_NAME=$(COMMON_NET_NAME)"
 
 guard-%: # guard clause for targets that require an environment variable (usually used as an argument)
 	@ if [ "${${*}}" = "" ]; then \

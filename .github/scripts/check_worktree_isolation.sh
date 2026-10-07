@@ -127,6 +127,12 @@ for dep in openfoodfacts-shared-services openfoodfacts-auth; do
         "$WT/deps/$dep/.envrc" ||
         fail "$dep/.envrc does not isolate the shared network"
 done
+# The Product Opener side has to agree. docker/run.yml attaches the containers to
+# ${COMMON_NET_NAME} as an external network, and PO's .env defaults that to the
+# shared off_shared_network, so writing the name only into the dependencies leaves
+# the containers searching for `mongodb` on a network their own MongoDB is not on.
+grep -qx "export COMMON_NET_NAME=off_shared_network_${AGENT_ID}" "$WT/.envrc" ||
+    fail "the worktree .envrc does not set COMMON_NET_NAME, so its containers would not join the isolated dependency network"
 grep -qx "export COMPOSE_PROJECT_NAME=off_shared_${AGENT_ID}" \
     "$WT/deps/openfoodfacts-shared-services/.envrc" ||
     fail "openfoodfacts-shared-services is not isolated"
@@ -231,18 +237,36 @@ compose_config_with() {
     COMPOSE_FILE="$COMPOSE_FILES" docker compose --env-file=.env config --format json
 }
 
+# Same, but including docker/run.yml, which is what `make dev` resolves and which
+# is where the external dependency network is declared.
+compose_config_with_run() {
+    local values="$1" line key
+    while IFS= read -r line; do
+        [[ -z "$line" ]] && continue
+        [[ "$line" == *=* ]] || return 1
+        key="${line%%=*}"
+        [[ "$key" =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]] || return 1
+        export "$key=${line#*=}"
+    done <<<"$values"
+    COMPOSE_FILE="$COMPOSE_FILES;docker/run.yml" \
+        docker compose --env-file=.env config --format json
+}
+
 DEFAULT_JSON="$(COMPOSE_FILE="$COMPOSE_FILES" docker compose --env-file=.env config --format json)"
 AGENT_JSON="$(compose_config_with "$effective")" ||
     fail "could not turn the derived values into environment variables"
+AGENT_WITH_DEPS_JSON="$(compose_config_with_run "$effective")" ||
+    fail "could not resolve the compose configuration including docker/run.yml"
 
-python3 - "$DEFAULT_JSON" "$AGENT_JSON" "$AGENT_ID" "$AGENT_PORT" <<'PY'
+python3 - "$DEFAULT_JSON" "$AGENT_JSON" "$AGENT_WITH_DEPS_JSON" "$AGENT_ID" "$AGENT_PORT" <<'PY'
 import json
 import sys
 
 default = json.loads(sys.argv[1])
 agent = json.loads(sys.argv[2])
-agent_id = sys.argv[3]
-port = sys.argv[4]
+with_deps = json.loads(sys.argv[3])
+agent_id = sys.argv[4]
+port = sys.argv[5]
 prefix, suffix = agent_id + "_", "_" + agent_id
 
 errors = []
@@ -315,6 +339,12 @@ expected_suffix = f"{agent_id}.openfoodfacts.localhost"
 for alias in aliases:
     if expected_suffix not in alias:
         errors.append(f"frontend alias is not isolated: {alias}")
+
+# The containers have to reach their own dependency stack: docker/run.yml attaches
+# them to the external network ${COMMON_NET_NAME}.
+want(with_deps, "external dependency network",
+     with_deps["networks"]["shared_network"]["name"],
+     "off_shared_network_" + agent_id)
 
 if errors:
     print("❌ per-worktree isolation check failed:", file=sys.stderr)

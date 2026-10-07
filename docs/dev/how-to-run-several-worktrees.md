@@ -175,8 +175,17 @@ Because the stream names are global, a per-worktree Keycloak alone would not be
 enough: Redis has to be per worktree too.
 
 `MONGODB_HOST`, `REDIS_URL` and `KC_SPI_EVENTS_LISTENER_REDIS_EVENT_LISTENER_REDIS_URL`
-need no change. On the per-worktree network, `mongodb` and `redis` already resolve
+need no change: on the per-worktree network, `mongodb` and `redis` already resolve
 to that worktree's containers.
+
+`COMMON_NET_NAME`, on the other hand, has to be set on **both** sides.
+`docker/run.yml` attaches the Product Opener containers to `${COMMON_NET_NAME}` as
+an *external* network, and `.env` defaults it to the shared `off_shared_network`.
+So `make agent` writes `COMMON_NET_NAME=off_shared_network_<id>` into the worktree's
+own `.envrc` as well as into both dependency `.envrc` files. Without it the
+containers look for `mongodb` on the shared network, where this worktree's MongoDB
+does not exist, and `make import_sample_data` fails with
+`Temporary failure in name resolution`.
 
 MongoDB's WiredTiger cache is lowered to 1 GB per worktree
 (`PO_AGENT_MONGO_CACHE_SIZE` overrides it), because the shared default of 8 GB
@@ -204,8 +213,19 @@ It removes the generated dependency blocks, so `make run_deps` reuses the shared
 production data dump in every worktree — at the price of the cross-talk described
 above. It shares Keycloak too, because both have to agree on the network name.
 
-`make agent PO_SHARED_DATA=1` remembers the setting, so a later `make dev` without
-the environment variable keeps behaving the same way.
+`make agent PO_SHARED_DATA=1` remembers the setting in `.envrc`, so a later
+`make dev` without the environment variable keeps behaving the same way. To go back
+to isolated dependencies, set that line to `0` in `.envrc` (or delete it) and re-run
+`make agent`:
+
+```bash
+sed -i 's/^export PO_SHARED_DATA=1$/export PO_SHARED_DATA=0/' .envrc
+make agent
+```
+
+`PO_SHARED_DATA=0 make agent` does **not** work, and that is the precedence rule
+below rather than a bug: the `Makefile` includes `.envrc`, and a makefile assignment
+always wins over an inherited environment variable.
 
 **Do not point several worktrees at one `DEPS_DIR`.** The generated dependency
 `.envrc` files live inside `deps/`, so a shared `DEPS_DIR` cannot be isolated:
