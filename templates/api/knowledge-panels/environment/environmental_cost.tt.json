@@ -1,0 +1,65 @@
+{
+    "level": "info",
+    "topics": ["environment"],
+    "title_element": {
+        "title": "[% edq(lang('environmental_cost_title')) %]: [% panel.ecs %] [% edq(lang('points')) %] [% edq(lang('per_100g')) %]"
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": "[% edq(lang('environmental_cost_description')) %]"
+            }
+        },
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "environmental_cost_breakdown",
+                "table_type": "default",
+                "title": "[% edq(lang('ecs_breakdown')) %]",
+                "columns": [
+                    {
+                        "text": "[% edq(lang('environmental_cost_stage')) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang('environmental_cost_ecs')) %]",
+                        "type": "text"
+                    }
+                ],
+                "rows": [
+                    {
+                        "values": [
+                            { "text": "[% edq(lang('environmental_cost_ingredients')) %]" },
+                            { "text": "[% panel.ecs_ingredients %] mPt/kg" }
+                        ]
+                    },
+                    {
+                        "values": [
+                            { "text": "[% edq(lang('environmental_cost_packaging')) %]" },
+                            { "text": "[% panel.ecs_packaging %] mPt/kg" }
+                        ]
+                    },
+                    {
+                        "values": [
+                            { "text": "[% edq(lang('environmental_cost_transport')) %]" },
+                            { "text": "[% panel.ecs_transport %] mPt/kg" }
+                        ]
+                    },
+                    {
+                        "values": [
+                            { "text": "[% edq(lang('environmental_cost_processing')) %]" },
+                            { "text": "[% panel.ecs_processing %] mPt/kg" }
+                        ]
+                    },
+                    {
+                        "values": [
+                            { "text": "[% edq(lang('environmental_cost_total')) %]" },
+                            { "text": "[% panel.ecs %] mPt/kg" }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

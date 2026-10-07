@@ -54,6 +54,8 @@ BEGIN {
 		&get_ecobalyse_packaging_entry
 		&get_ecobalyse_transformation_entries
 		&filter_ecobalyse_response_for_open_data
+		&set_ecobalyse_coverage_misc_tags
+		&call_ecobalyse
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -70,6 +72,7 @@ use Encode qw(decode_utf8 encode_utf8);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Tags qw/is_a get_taxonomy_tag_level get_property/;
+use ProductOpener::ProductsTags qw/add_tag remove_tag/;
 use File::Basename qw/dirname/;
 use Scalar::Util qw/looks_like_number/;
 use Data::DeepAccess qw(deep_exists deep_get);
@@ -104,6 +107,36 @@ reference to an array of error messages
 Boolean flag indicating whether to skip the Ecobalyse API call, in which case we only prepare the request payload and store it in the product.
 
 =cut
+
+=head2 set_ecobalyse_coverage_misc_tags ($product_ref)
+
+Set misc_tags for Ecobalyse ingredients coverage ranges.
+
+=cut
+
+sub set_ecobalyse_coverage_misc_tags ($product_ref) {
+	return unless defined $product_ref->{environmental_impact}{ecobalyse_input}{ingredients_coverage_percent};
+
+	my $pct = $product_ref->{environmental_impact}{ecobalyse_input}{ingredients_coverage_percent};
+
+	# Remove any existing ecobalyse coverage tags
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags}
+			= [grep {$_ !~ /^en:ecobalyse-ingredients-matched-between-\d+-and-\d+/} @{$product_ref->{misc_tags}}];
+	}
+
+	# Determine range: 0-9, 10-19, ..., 90-100
+	my $range_start = int($pct / 10) * 10;
+	my $range_end = $range_start + 9;
+	# Special case: 90-100% should map to 90-100 range
+	if ($range_start >= 90) {
+		$range_start = 90;
+		$range_end = 100;
+	}
+
+	my $tag = "en:ecobalyse-ingredients-matched-between-$range_start-and-$range_end";
+	add_tag($product_ref, "misc", $tag);
+}
 
 sub estimate_environmental_impact_service ($product_ref, $updated_product_fields_ref, $errors_ref,
 	$skip_ecobalyse_call = 0)
@@ -208,6 +241,16 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		}
 	}
 
+	# Compute ingredients coverage percentage and set misc_tags
+	my $ingredients_coverage_percent = 0;
+	if ($total_ingredients_quantity > 0) {
+		$ingredients_coverage_percent
+			= int(($total_ingredients_quantity_with_ecobalyse_id / $total_ingredients_quantity) * 100);
+	}
+	$product_ref->{environmental_impact}{ecobalyse_input}{ingredients_coverage_percent} = $ingredients_coverage_percent;
+
+	set_ecobalyse_coverage_misc_tags($product_ref);
+
 	# Add transformations / processing
 	my @transformation_entries = get_ecobalyse_transformation_entries($product_ref);
 	if (@transformation_entries) {
@@ -280,11 +323,26 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 	$product_ref->{environmental_impact}{ecobalyse_request} = {url => $url_recipe, data => $payload_ref};
 
+	# Check ingredients coverage threshold
+	my $ingredients_coverage_percent
+		= $product_ref->{environmental_impact}{ecobalyse_input}{ingredients_coverage_percent} // 0;
+	my $threshold = $options{ecobalyse_min_ingredients_coverage_percent} // 80;
+
+	if ($ingredients_coverage_percent < $threshold) {
+		$log->info(
+			"Skipping Ecobalyse API call: ingredients coverage ${ingredients_coverage_percent}% < ${threshold}%");
+		$product_ref->{environmental_impact}{ecobalyse_skipped} = 1;
+		$product_ref->{environmental_impact}{ecobalyse_skip_reason} = "insufficient_ingredients_coverage";
+		add_tag($product_ref, "misc", "en:ecobalyse-api-not-called");
+		return;
+	}
+
 	if ($skip_ecobalyse_call) {
 		$log->debug(
 			"Skipping Ecobalyse API call, only preparing request payload",
 			{endpoint => $url_recipe, payload => $payload_ref}
 		) if $log->is_debug();
+		add_tag($product_ref, "misc", "en:ecobalyse-api-skipped");
 	}
 	else {
 
@@ -294,6 +352,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 		# Send the request and get the response
 		# For tests, we pass a testid to call_ecobalyse() so that the mock response is used instead of a real API call.
+		add_tag($product_ref, "misc", "en:ecobalyse-api-called");
 		my ($response_content, $is_success) = (call_ecobalyse($url_recipe, $payload_ref, $product_ref->{testid}));
 
 		# Parse the JSON response
@@ -315,6 +374,8 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		# Handle the response based on success or failure
 		if ($is_success) {
 
+			add_tag($product_ref, "misc", "en:ecobalyse-api-success");
+
 			# Access the specific "ecs" value
 			my $ecs_value = deep_get($response_data_ref, 'results', 'total', 'ecs');
 			if (defined $ecs_value) {
@@ -327,6 +388,10 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			$log->error("send_event request failed",
 				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content})
 				if $log->is_error();
+			# Add error misc tag
+			add_tag($product_ref, "misc", "en:ecobalyse-api-error");
+			# Store the error response for debugging
+			$product_ref->{environmental_impact}{ecobalyse_error_response} = $response_content;
 			# Add an error message to the errors array
 			$product_ref->{environmental_impact}{ecobalyse_response} = $response_data_ref;
 
@@ -579,6 +644,11 @@ sub get_ecobalyse_packaging_entry ($product_ref) {
 		my $cat_level = 0;
 		if ($entry_ref->{categories_tagid} and $entry_ref->{categories_tagid} ne '') {
 			$cat_level = get_taxonomy_tag_level('categories', $entry_ref->{categories_tagid});
+		}
+
+		# Skip category less entries if there was no match on material and shape
+		if (($cat_level) == 0 and ($best_material == 0 and ($best_shape == 0))) {
+			next;
 		}
 
 		# Quantity distance: only counted if material and shape both match at all

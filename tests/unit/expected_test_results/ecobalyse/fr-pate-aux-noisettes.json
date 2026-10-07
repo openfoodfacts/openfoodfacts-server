@@ -8,9 +8,10 @@
       "fr:pâte aux noisettes"
    ],
    "environmental_impact" : {
-      "ecobalyse_input" : {
-         "distribution" : "ambient",
-         "ingredients" : [
+"ecobalyse_input" : {
+          "distribution" : "ambient",
+          "ingredients_coverage_percent" : 92,
+          "ingredients" : [
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
@@ -281,10 +282,13 @@
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 5,
    "lc" : "fr",
-   "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener"
-   ],
+"misc_tags" : [
+       "en:some-ingredients-with-specified-percent",
+       "en:estimated-ingredients-with-product-opener",
+       "en:ecobalyse-ingredients-matched-between-90-and-100",
+       "en:ecobalyse-api-called",
+       "en:ecobalyse-api-success"
+    ],
    "quantity" : "400g",
    "testid" : "fr-pate-aux-noisettes",
    "unknown_ingredients_n" : 0
