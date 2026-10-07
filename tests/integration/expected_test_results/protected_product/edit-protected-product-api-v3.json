@@ -1,0 +1,90 @@
+{
+   "code" : "0200000000135",
+   "errors" : [],
+   "product" : {
+      "ingredients_text_fr" : "Farine de blé, eau, sel, sucre",
+      "product_name_fr" : "New French product name",
+      "serving_size" : "20 g"
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "categories",
+            "value" : "Changed category"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "labels",
+            "value" : "Bio, Max Havelaar"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "nutrition",
+            "value" : "fat"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "no_permission",
+            "lc_name" : "",
+            "name" : ""
+         }
+      },
+      {
+         "field" : {
+            "id" : "product_name_en"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "no_permission",
+            "lc_name" : "",
+            "name" : ""
+         }
+      },
+      {
+         "field" : {
+            "id" : "quantity"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "no_permission",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ]
+}

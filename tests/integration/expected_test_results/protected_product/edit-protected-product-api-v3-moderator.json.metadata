@@ -1,0 +1,11 @@
+{
+   "api_call" : {
+      "body" : {
+         "raw_body" : "{\n\t\t\t\"product\": {\n\t\t\t\t\"product_name_en\": \"Changed product name\",\n\t\t\t\t\"product_name_fr\": \"New French product name\",\n\t\t\t\t\"categories\": \"Changed category\",\n\t\t\t\t\"quantity\": \"250 g\",\n\t\t\t\t\"serving_size\": \"20 g\",\n\t\t\t\t\"ingredients_text_fr\": \"Farine de blÃ©, eau, sel, sucre\",\n\t\t\t\t\"labels\": \"Bio, Max Havelaar\",\n\t\t\t\t\"nutrition\": {\"salt\": 0.7, \"fat\": 12.7, \"sugars\": 7}\n\t\t\t}\n\t\t}"
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/0200000000335"
+   }
+}

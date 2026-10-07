@@ -1,0 +1,15 @@
+{
+   "api_call" : {
+      "body" : {
+         "product" : {
+            "product_name_en" : {
+               "name" : "not a string"
+            }
+         }
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890008"
+   }
+}

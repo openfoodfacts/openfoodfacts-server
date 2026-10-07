@@ -1,0 +1,91 @@
+{
+   "code" : "1234567890011",
+   "errors" : [],
+   "product" : {
+      "categories_tags" : [
+         "en:snacks",
+         "en:sweet-snacks",
+         "en:confectioneries"
+      ],
+      "categories_tags_en" : [
+         "Snacks",
+         "Sweet snacks",
+         "Confectioneries"
+      ],
+      "packagings" : [
+         {
+            "food_contact" : 0,
+            "material" : {
+               "id" : "en:paper",
+               "lc_name" : "Paper"
+            },
+            "number_of_units" : 2,
+            "recycling" : {
+               "id" : "en:recycle",
+               "lc_name" : "recycle"
+            },
+            "shape" : {
+               "id" : "en:bag",
+               "lc_name" : "bag"
+            }
+         },
+         {
+            "food_contact" : 1,
+            "shape" : {
+               "id" : "en:bottle",
+               "lc_name" : "Bottle"
+            }
+         }
+      ]
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "number_of_units"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "material",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

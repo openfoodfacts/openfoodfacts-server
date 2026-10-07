@@ -310,6 +310,74 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v2/product/0200000000335',
 	},
+	# Same tests with the API v3 write path, which must apply the same protection as the v2 path
+	{
+		test_case => 'edit-unprotected-product-api-v3',
+		method => 'PATCH',
+		path => '/api/v3/product/0200000000134',
+		body => '{
+			"product": {
+				"product_name_en": "Changed product name",
+				"product_name_fr": "New French product name",
+				"categories": "Changed category",
+				"quantity": "250 g",
+				"serving_size": "20 g",
+				"ingredients_text_fr": "Farine de blé, eau, sel, sucre",
+				"labels": "Bio, Max Havelaar",
+				"nutrition": {"salt": 0.7, "fat": 12.7, "sugars": 7}
+			}
+		}',
+	},
+	{
+		test_case => 'get-edited-unprotected-product-api-v3',
+		method => 'GET',
+		path => '/api/v2/product/0200000000134',
+	},
+	{
+		test_case => 'edit-protected-product-api-v3',
+		method => 'PATCH',
+		path => '/api/v3/product/0200000000135',
+		body => '{
+			"product": {
+				"product_name_en": "Changed product name",
+				"product_name_fr": "New French product name",
+				"categories": "Changed category",
+				"quantity": "250 g",
+				"serving_size": "20 g",
+				"ingredients_text_fr": "Farine de blé, eau, sel, sucre",
+				"labels": "Bio, Max Havelaar",
+				"nutrition": {"salt": 0.7, "fat": 12.7, "sugars": 7}
+			}
+		}',
+	},
+	{
+		test_case => 'get-edited-protected-product-api-v3',
+		method => 'GET',
+		path => '/api/v2/product/0200000000135',
+	},
+	{
+		test_case => 'edit-protected-product-api-v3-moderator',
+		method => 'PATCH',
+		path => '/api/v3/product/0200000000335',
+		ua => $moderator_ua,
+		body => '{
+			"product": {
+				"product_name_en": "Changed product name",
+				"product_name_fr": "New French product name",
+				"categories": "Changed category",
+				"quantity": "250 g",
+				"serving_size": "20 g",
+				"ingredients_text_fr": "Farine de blé, eau, sel, sucre",
+				"labels": "Bio, Max Havelaar",
+				"nutrition": {"salt": 0.7, "fat": 12.7, "sugars": 7}
+			}
+		}',
+	},
+	{
+		test_case => 'get-edited-protected-product-api-v3-moderator',
+		method => 'GET',
+		path => '/api/v2/product/0200000000335',
+	},
 ];
 
 # Note: some tests override $ua with $moderator_ua

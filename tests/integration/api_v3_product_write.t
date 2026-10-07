@@ -798,6 +798,34 @@ my $tests_ref = [
 			}
 		}',
 	},
+	# A JSON object or array is not a valid value for a text field: the sanitizer cannot
+	# coerce it, so it would be stored as a reference
+	{
+		test_case => 'patch-product-name-object-not-string',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890008',
+		body => '{"product": {"product_name_en": {"name": "not a string"}}}',
+	},
+	{
+		test_case => 'patch-ingredients-text-array-not-string',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890009',
+		body => '{"product": {"ingredients_text_fr": ["Sucre", "eau"]}}',
+	},
+	{
+		test_case => 'patch-quantity-object-not-string',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890010',
+		body => '{"product": {"quantity": {"value": "250 g"}}}',
+	},
+	# ...but the object and array fields keep working
+	{
+		test_case => 'patch-packagings-and-tags-not-affected-by-type-check',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890011',
+		body =>
+			'{"product": {"categories_tags": ["en:confectionery"], "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

@@ -1,0 +1,142 @@
+{
+   "code" : "0200000000335",
+   "errors" : [],
+   "product" : {
+      "ingredients_text_fr" : "Farine de blé, eau, sel, sucre",
+      "nutriments" : {
+         "added-sugars" : 0,
+         "added-sugars_100g" : 0,
+         "added-sugars_modifier" : "~",
+         "added-sugars_serving" : 0,
+         "added-sugars_unit" : "g",
+         "added-sugars_value" : 0,
+         "energy" : 10,
+         "energy-kj" : 10,
+         "energy-kj_100g" : 10,
+         "energy-kj_serving" : 2,
+         "energy-kj_unit" : "kJ",
+         "energy-kj_value" : 10,
+         "energy_100g" : 10,
+         "energy_serving" : 2,
+         "energy_unit" : "kJ",
+         "energy_value" : 10,
+         "fat" : 5,
+         "fat_100g" : 5,
+         "fat_serving" : 1,
+         "fat_unit" : "g",
+         "fat_value" : 5,
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 62.5,
+         "proteins" : 2,
+         "proteins_100g" : 2,
+         "proteins_serving" : 0.4,
+         "proteins_unit" : "g",
+         "proteins_value" : 2
+      },
+      "nutriments_estimated" : {
+         "alcohol_100g" : 0,
+         "alpha-linolenic-acid_100g" : 0.00598125,
+         "arachidonic-acid_100g" : 0.01125,
+         "beta-carotene_100g" : 1.19375e-05,
+         "butyric-acid_100g" : 0.00590625,
+         "calcium_100g" : 0.0333875,
+         "capric-acid_100g" : 0.00564375,
+         "caproic-acid_100g" : 0.00590625,
+         "caprylic-acid_100g" : 0.00511875,
+         "carbohydrates_100g" : 7.6484375,
+         "chloride_100g" : 0.01875,
+         "cholesterol_100g" : 0.03778125,
+         "copper_100g" : 2.678125e-05,
+         "crude-ash_100g" : 0.3331259375,
+         "docosahexaenoic-acid_100g" : 0.0084375,
+         "eicosapentaenoic-acid_100g" : 0,
+         "energy-kcal_100g" : 134.5875,
+         "fiber_100g" : 0.8125,
+         "fructose_100g" : 3.77578125,
+         "galactose_100g" : 0,
+         "glucose_100g" : 2.0565625,
+         "iodine_100g" : 7.09375e-06,
+         "iron_100g" : 0.0002265625,
+         "lactose_100g" : 0.924375,
+         "lauric-acid_100g" : 0.01516875,
+         "linoleic-acid_100g" : 0.13018125,
+         "magnesium_100g" : 0.00570625,
+         "maltose_100g" : 0.00703125,
+         "manganese_100g" : 2.73828125e-05,
+         "monounsaturated-fat_100g" : 3.823625,
+         "myristic-acid_100g" : 0.099,
+         "oleic-acid_100g" : 0.3376875,
+         "palmitic-acid_100g" : 4.2813125,
+         "pantothenic-acid_100g" : 0.0002590625,
+         "phosphorus_100g" : 0.0445625,
+         "phylloquinone_100g" : 1.153125e-06,
+         "polyols_100g" : 0.36875,
+         "polyunsaturated-fat_100g" : 1.05075625,
+         "potassium_100g" : 0.09825,
+         "salt_100g" : 0.0496875,
+         "saturated-fat_100g" : 4.903125,
+         "selenium_100g" : 1.2290625e-06,
+         "sodium_100g" : 0.019725,
+         "starch_100g" : 0,
+         "stearic-acid_100g" : 0.4686875,
+         "sucrose_100g" : 0.51953125,
+         "sugars_100g" : 7.2621875,
+         "vitamin-a_100g" : 1.739625e-05,
+         "vitamin-b12_100g" : 2.278125e-07,
+         "vitamin-b1_100g" : 2.509375e-05,
+         "vitamin-b2_100g" : 9.34375e-05,
+         "vitamin-b6_100g" : 4.54375e-05,
+         "vitamin-b9_100g" : 4.10625e-06,
+         "vitamin-c_100g" : 0.00274375,
+         "vitamin-d_100g" : 1.903125e-07,
+         "vitamin-e_100g" : 0.001657625,
+         "vitamin-pp_100g" : 8.003125e-05,
+         "water_100g" : 78.365625,
+         "zinc_100g" : 0.0002046875
+      },
+      "nutrition_data" : "on",
+      "nutrition_data_per" : "100g",
+      "nutrition_data_prepared_per" : "100g",
+      "product_name_en" : "Changed product name",
+      "product_name_fr" : "New French product name",
+      "product_quantity" : 250,
+      "product_quantity_unit" : "g",
+      "quantity" : "250 g",
+      "serving_size" : "20 g"
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "categories",
+            "value" : "Changed category"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "labels",
+            "value" : "Bio, Max Havelaar"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      }
+   ]
+}

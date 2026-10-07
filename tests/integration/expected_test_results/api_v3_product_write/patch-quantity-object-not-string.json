@@ -1,0 +1,23 @@
+{
+   "code" : "1234567890010",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "quantity"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "invalid_type_must_be_string",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "product" : {},
+   "status" : "success_with_errors",
+   "warnings" : []
+}

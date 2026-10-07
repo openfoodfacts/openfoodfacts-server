@@ -298,6 +298,28 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 
 		my $value = $input_product_ref->{$field};
 
+		# Scalar-typed fields must not receive a JSON object or array: the sanitizer in
+		# preprocess_product_field() cannot coerce a reference, so the reference and its
+		# contents would be stored as they are (the packagings and tags branches below have
+		# their own type checks, and images and nutrition are not scalars)
+		if (    (ref($value) ne '')
+			and ($field !~ /^(packagings)(_add)?$/)
+			and ($field !~ /^(.*)_tags(?:_(\w\w))?(_add)?$/)
+			and ($field ne 'images')
+			and ($field ne 'nutrition'))
+		{
+			add_error(
+				$response_ref,
+				{
+					message => {id => "invalid_type_must_be_string"},
+					field => {id => $field},
+					impact => {id => "field_ignored"},
+				},
+				200
+			);
+			next;
+		}
+
 		# Call preprocess_product_field function for each field
 		$value = preprocess_product_field($field, $value);
 
@@ -322,6 +344,19 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 			my $language_field = $1;
 			my $language_field_lc = $2;
 
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $field, $request_ref->{moderator})) {
+				add_warning(
+					$response_ref,
+					{
+						message => {id => "no_permission"},
+						field => {id => $field},
+						impact => {id => "field_ignored"},
+					}
+				);
+				next;
+			}
+
 			$request_ref->{updated_product_fields}{$field} = 1;
 
 			$product_ref->{$language_field . '_' . $language_field_lc} = $value;
@@ -341,6 +376,18 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 		}
 		# Simple product fields
 		elsif (defined $product_simple_fields{$field}) {
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $field, $request_ref->{moderator})) {
+				add_warning(
+					$response_ref,
+					{
+						message => {id => "no_permission"},
+						field => {id => $field},
+						impact => {id => "field_ignored"},
+					}
+				);
+				next;
+			}
 			$product_ref->{$field} = remove_tags_and_quote($value);
 			$request_ref->{updated_product_fields}{$field} = 1;
 		}
@@ -370,6 +417,30 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 		}
 		# Nutrition data
 		elsif ($field eq "nutrition") {
+			# Only moderators can update the values sent by the producer. On API v0/v2 each
+			# nutrient value is checked on its own (see update_product_field_api_v2_and_cgi), so
+			# here we look at all the values of the object and ignore the whole object if one of
+			# them is protected.
+			my $protected_nutrient;
+			if ((ref($value) eq "HASH") and (not $request_ref->{moderator})) {
+				foreach my $nutrient (sort keys %{$value}) {
+					if (skip_protected_field($product_ref, $nutrient, $request_ref->{moderator})) {
+						$protected_nutrient = $nutrient;
+						last;
+					}
+				}
+			}
+			if (defined $protected_nutrient) {
+				add_warning(
+					$response_ref,
+					{
+						message => {id => "no_permission"},
+						field => {id => $field, value => $protected_nutrient},
+						impact => {id => "field_ignored"},
+					}
+				);
+				next;
+			}
 			assign_nutrition_values_from_request_object($request_ref, $product_ref);
 		}
 		# Unrecognized field
