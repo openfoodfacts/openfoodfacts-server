@@ -191,6 +191,12 @@ $ProductOpener::Config::options{other_servers} = {
 
 # Number of requests per minutes for the search API
 $ProductOpener::Config::options{rate_limit_search} = 10;
+# Number of requests per minutes for the search API for the intake24 integration, which
+# identifies itself with an X-User-Agent request header. That header is client-supplied, so it
+# cannot be used to skip rate limiting: these requests are counted and limited like any other,
+# with a higher limit. Set the option to the same value as rate_limit_search (or to 0) to stop
+# giving a higher limit to requests that claim to be from intake24.
+$ProductOpener::Config::options{rate_limit_search_intake24} = 60;
 # Number of requests per minutes for all facets for anonymous users
 $ProductOpener::Config::options{rate_limit_facet_products_unregistered} = 5;
 # Number of requests per minutes for facets for registered users

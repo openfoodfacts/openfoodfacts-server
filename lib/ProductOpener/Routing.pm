@@ -1091,6 +1091,11 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 	if ($rate_limit_bucket eq "search") {
 		$limit = $options{rate_limit_search};
 	}
+	elsif ($rate_limit_bucket eq "search_intake24") {
+		# The intake24 integration identifies itself with a client-supplied X-User-Agent header,
+		# so it only gets a higher limit: its requests are counted and blocked like any other
+		$limit = $options{rate_limit_search_intake24};
+	}
 	elsif ($rate_limit_bucket eq "product") {
 		$limit = $options{rate_limit_product};
 	}
