@@ -2920,6 +2920,8 @@ sub default_unit_for_nid ($nid) {
 	if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 		my $unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
 		if ((defined $unit) and (none {$unit eq $_} @gram_units)) {
+			# Normalise the unit (e.g., 'kj'→'kJ')
+			$unit = display_tag('units', $unit);
 			# Set the default unit for this nutrient for future use
 			$default_unit_for_nid_map{$nid} = $unit;
 			return $unit;
