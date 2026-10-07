@@ -386,8 +386,23 @@ elsif ($action eq 'process') {
 	}
 	elsif (is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $User{pro_moderator}) {
 		if ($type eq 'user_delete') {
-			remove_user_by_org_admin(single_param('orgid'), single_param('user_id'));
-			$template_data_ref->{result} = lang("edit_org_result");
+			my $user_to_remove = remove_tags_and_quote(single_param('user_id'));
+			# Check that the user is in the organization, like change_main_contact does:
+			# being an admin of an organization must not give the right to remove an account
+			# that belongs to another organization
+			if (    (not is_user_in_org_group($org_ref, $user_to_remove, 'admins'))
+				and (not is_user_in_org_group($org_ref, $user_to_remove, 'members'))
+				and (not is_user_in_org_group($org_ref, $user_to_remove, 'pending')))
+			{
+				$log->warn("user_delete - the user is not in the organization",
+					{org_id => $orgid, user_id => $user_to_remove, User_id => $User_id})
+					if $log->is_warn();
+				$template_data_ref->{result} = lang('error_unknown_member');
+			}
+			else {
+				remove_user_by_org_admin($orgid, $user_to_remove);
+				$template_data_ref->{result} = lang("edit_org_result");
+			}
 		}
 		elsif ($type eq 'add_users') {
 			my $email_list = remove_tags_and_quote(single_param('email_list'));
