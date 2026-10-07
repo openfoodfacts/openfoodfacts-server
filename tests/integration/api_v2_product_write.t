@@ -301,6 +301,7 @@ my $tests_ref = [
 			nutriment_water => '10.0',
 			nutriment_water_unit => 'g',
 			# Test passing "g" for unit less nutrients like glycemic-index and ph
+			# Those values will be ignored.
 			"nutriment_glycemic-index" => '6',
 			"nutriment_glycemic-index_unit" => 'g',
 			"nutriment_ph" => '7',
