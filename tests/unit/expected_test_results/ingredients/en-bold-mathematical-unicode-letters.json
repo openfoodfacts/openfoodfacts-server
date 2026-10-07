@@ -4,7 +4,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13050",
-         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+         "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+         "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
          "id" : "en:apple",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 62.5,
@@ -16,7 +17,8 @@
       },
       {
          "ciqual_food_code" : "13005",
-         "ecobalyse_code" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
+         "ecobalyse_id" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
+         "ecobalyse_name" : "Banane par défaut -2025-",
          "id" : "en:banana",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 18.75,
@@ -28,7 +30,8 @@
       },
       {
          "ciqual_food_code" : "13008",
-         "ecobalyse_code" : "4e13ea5f-4ad1-4009-ae91-842cb18bd4dd",
+         "ecobalyse_id" : "417a0eff-a10d-4231-839b-d953f644d69c",
+         "ecobalyse_name" : "Cerise, dénoyautée, crue Origine Inconnue",
          "id" : "en:cherry",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.375,
@@ -40,6 +43,8 @@
       },
       {
          "ciqual_food_code" : "12999",
+         "ecobalyse_id" : "c137c5b5-ec74-45b5-a270-30cfe74f5924",
+         "ecobalyse_name" : "Spécialité fromagère non affinée à tartiner 20 à 40 % MG nature ou aromatisée -ex: ail et fines herbes- Origine Inconnue",
          "id" : "en:cheese",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.375,
@@ -93,10 +98,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:cheese"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "misc_tags" : [

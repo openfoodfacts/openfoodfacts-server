@@ -40999,6 +40999,7 @@ ru: Консервы
 th: อาหารกระป๋อง
 tr: Konserve gıda, Konserve besin, Konserve yiyecek, Konserve ürünler, Konserve mamüller, Kavanozlu gıda, Kavanozlu besin, Kavanozlu yiyecek
 zh: 罐头食品, 罐装食品, 罐頭食品, 醃製品
+ingredients_processing:en: en:canned
 storage_conditions:en: en:ambient
 wikidata:en: Q18396746
 
@@ -41330,16 +41331,7 @@ ciqual_food_code:en: 25549
 ciqual_food_name:en: Crepe or buckwheat crepe, filled with cheese and bechamel sauce
 ciqual_food_name:fr: Crêpe ou Galette fourrée béchamel fromage
 
-< en: Crêpes and galettes
-en: Galettes
-de: Galetten
-fr: Galettes
-hr: Galete
-it: Gallette
-ja: ガレット
-nl: Galettes
-
-< en: Crêpes and galettes
+< en: Crêpes and pancakes
 en: Ham and mushroom pancake in cheese sauce
 fr: Ficelle picarde
 hr: Palačinka od šunke i gljiva u umaku od sira
@@ -41348,6 +41340,7 @@ agribalyse_food_code:en: 26256
 ciqual_food_code:en: 26256
 ciqual_food_name:en: Ham and mushroom pancake in cheese sauce
 
+< en: Crêpes and pancakes
 < en: Meals
 en: Filled buckwheat crepes
 fr: Galettes fourrées, Galettes de blé noir fourrées
@@ -41447,16 +41440,6 @@ agribalyse_food_code:en: 25572
 ciqual_food_code:en: 25572
 ciqual_food_name:en: Crepe or buckwheat crepe, filled with scallops
 ciqual_food_name:fr: Crêpe ou Galette aux noix de St Jacques
-
-< en: Galettes
-en: Plain buckwheat crepes
-fr: Galettes de blé noir, galette de blé noir, galette de sarazin, galettes de sarrasin, galette de sarrasin, galettes de sarazin, crêpe au sarrasin
-hr: Obične palačinke od heljde
-it: Crespelle al grano saraceno
-agribalyse_food_code:en: 23801
-ciqual_food_code:en: 23801
-ciqual_food_name:en: Buckwheat crepe, plain, prepacked
-ciqual_food_name:fr: Galette de sarrasin, nature, préemballée
 
 < en: Meals
 en: Pork sausage stew with cabbage carrots and potatoes
@@ -48741,6 +48724,7 @@ ciqual_food_code:en: 12120
 ciqual_food_name:en: Parmesan cheese, from cow's milk
 oqali_family:en: fr:Fromages - Parmesan et assimiles
 origins:en: en:italy
+plant_alternative:en: en:parmesan-style-cheese-substitutes
 protected_name_file_number:en: PDO-IT-0016
 protected_name_type:en: pdo
 wikidata:en: Q155922
@@ -54156,6 +54140,12 @@ nl: Babycompotes
 < en: Desserts
 < en: Pastries
 en: Meringue roulades
+
+< en: Desserts
+en: Hotteok
+xx: Hotteok
+description:en: Korean dessert consisting of a dough filled with brown sugar, honey or nuts.
+Wikidata:en: Q496999
 
 < en: Desserts
 < en: Pastas and dumplings
@@ -82605,6 +82595,7 @@ tr: Hazır yemek
 zh: 菜肴
 food_groups:en: en:one-dish-meals
 incompatible_with:en: categories:en:beverages
+ingredients_processing:en: en:cooked
 nova:en: 3
 pnns_group_2:en: One-dish meals
 wikidata:en: Q3391775
@@ -87123,6 +87114,12 @@ ciqual_proxy_food_code:en: 25472
 ciqual_proxy_food_name:en: Pizza, vegetables or pizza 4 seasons
 ciqual_proxy_food_name:fr: Pizza aux légumes ou Pizza 4 saisons
 
+< en: Vegan pizzas
+en: Vegan margherita pizzas, Vegan margherita pizza
+da: Veganske margherita-pizzaer
+fr: Pizzas margherita véganes
+sv: Veganska margherita-pizzor
+
 < en: Pizzas
 < en: Pork meals
 en: Pizza with ham and cheese, Ham and cheese pizza
@@ -88401,6 +88398,7 @@ lt: Keptos mėsos
 ciqual_food_code:en: 6999
 ciqual_food_name:en: Meat, cooked (average)
 ciqual_food_name:fr: Viande cuite (aliment moyen)
+ingredients_processing:en: en:cooked
 
 < en: Cooked meats
 en: Smoked cooked meats, Smoked cooked meat
@@ -111131,6 +111129,7 @@ zh: 罐头蔬菜
 gpc_category_code:en: 10000272
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of vegetables combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, that have gone through further manufacturing processes, such as reformed, cooked, dried, salted or smoked, however these products can also be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Perishable Prepared and Processed Vegetables, all Unprepared and Unprocessed Vegetables, all Fruit, Nuts and Seeds.
 gpc_category_name:en: Vegetables - Prepared/Processed (Shelf Stable)
+ingredients_processing:en: en:canned
 who_id:en: 16
 
 < en: Artichokes
@@ -121588,6 +121587,7 @@ agribalyse_proxy_food_name:fr: Toasts ou Canapés salés, garnitures diverses
 wikidata:en: Q1032806
 
 < en: Appetizers
+< en: Crêpes and pancakes
 fr: Blinis
 nl: Blinis
 agribalyse_food_code:en: 23805
@@ -122471,7 +122471,7 @@ fr: Civet de zourites
 wikidata:en: Q16540075
 
 # Note: most products under en:Crêpes and galettes are not meals, it should not be put under en:meals
-en: Crêpes and galettes
+en: Crêpes and pancakes, Crêpes and galettes
 ca: Creps i coques
 de: Crêpes und Galetten
 es: Crêpes y galettes
@@ -122483,7 +122483,7 @@ nl: Pannenkoeken en galettes
 ru: Блины
 zh: 可丽饼和法式咸薄饼
 
-< en: Crêpes and galettes
+< en: Crêpes and pancakes
 en: Pancakes
 de: Pfannkuchen
 es: Tortitas
@@ -122494,8 +122494,14 @@ it: Pancake
 ja: パンケーキ
 nl: Pancakes
 
+< en: Crêpes and pancakes
+en: Poffertjes
+xx: Poffertjes
+nl: Poffertjes
+wikidata:en: Q283740
+
 # <en:compound
-< en: Crêpes and galettes
+< en: Crêpes and pancakes
 en: Crêpes, Crêpe, crepe, crepes
 ar: بان كيك
 az: krep
@@ -122577,45 +122583,39 @@ wikidata:en: Q12200
 wikipedia:en: https://en.wikipedia.org/wiki/Crêpe
 
 < en: Crêpes
-en: Plain crepes
-fr: Crêpe nature
-agribalyse_food_code:en: 23800
-ciqual_food_code:en: 23800
-ciqual_food_name:en: Crepe, plain, prepacked, room temperature
-ciqual_food_name:fr: Crêpe, nature, préemballée, rayon température ambiante
+en: Plain sweet crêpes, Plain crepes, Sugared crêpes
+de: Gezuckerte Crêpes
+fi: makeat letut
+fr: Crêpes nature sucrées, Crêpe nature, Crêpes sucrées, Crêpes de froment, crêpe de froment
+hr: Pošećerene palačinke
+it: Crepes zuccherate
+nl: Zoete pannenkoeken, zoete pannenkoek, zoet flensjes
+food_groups:en: en:biscuits-and-cakes
+pnns_group_2:en: Biscuits and cakes
 
-< en: Plain crepes
-en: Refrigerated plain crepes
+< en: Plain sweet crêpes
+en: Refrigerated plain crêpes
 fr: Crêpes nature rayon frais
 agribalyse_food_code:en: 23799
 ciqual_food_code:en: 23799
 ciqual_food_name:en: Crepe, plain, prepacked, refrigerated
 ciqual_food_name:fr: Crêpe, nature, préemballée, rayon frais
 
-< en: Sweet filled crêpes
-en: Crepes filled with sugar
-fr: Crêpes fourrées au sucre
-agribalyse_food_code:en: 23815
-ciqual_food_code:en: 23815
-ciqual_food_name:en: Crepe filled with sugar, prepacked
-ciqual_food_name:fr: Crêpe préemballée, fourrée au sucre
+< en: Plain sweet crêpes
+en: Shelf-stable plain crêpes
+fr: Crêpes nature rayon température ambiante
+agribalyse_food_code:en: 23800
+ciqual_food_code:en: 23800
+ciqual_food_name:en: Crepe, plain, prepacked, room temperature
+ciqual_food_name:fr: Crêpe, nature, préemballée, rayon température ambiante
 
 < en: Crêpes
-fr: Crêpes de froment, crêpe de froment
-agribalyse_proxy_food_code:en: 23799
-agribalyse_proxy_food_name:en: Crepe, plain, prepacked, refrigerated
-agribalyse_proxy_food_name:fr: Crêpe, nature, préemballée, rayon frais
+en: Crêpes with alcohol
+fr: Crêpes à l'alcool
 
-< en: Crêpes
-en: Sugared crêpes
-de: Gezuckerte Crêpes
-fi: makeat letut
-fr: Crêpes sucrées
-hr: Pošećerene palačinke
-it: Crepes zuccherate
-nl: Zoete pannenkoeken, zoete pannenkoek, zoet flensjes
-food_groups:en: en:biscuits-and-cakes
-pnns_group_2:en: Biscuits and cakes
+< en: Crêpes with alcohol
+en: Crêpes with rum
+fr: Crêpes au rhum
 
 < en: Crêpes
 en: Filled crêpes
@@ -122632,16 +122632,35 @@ fr: Crêpes fourrées sucrées
 hr: Slatke punjene palačinke
 nl: Zoete gevulde pannenkoeken
 
+< en: Sweet filled crêpes
+en: Crepes filled with sugar
+fr: Crêpes fourrées au sucre
+agribalyse_food_code:en: 23815
+ciqual_food_code:en: 23815
+ciqual_food_name:en: Crepe filled with sugar, prepacked
+ciqual_food_name:fr: Crêpe préemballée, fourrée au sucre
+
+< en: Crêpes and pancakes
+en: Plain buckwheat crepes
+fr: Galettes de blé noir, galette de blé noir, galette de sarazin, galettes de sarrasin, galette de sarrasin, galettes de sarazin, crêpe au sarrasin
+hr: Obične palačinke od heljde
+it: Crespelle al grano saraceno
+agribalyse_food_code:en: 23801
+ciqual_food_code:en: 23801
+ciqual_food_name:en: Buckwheat crepe, plain, prepacked
+ciqual_food_name:fr: Galette de sarrasin, nature, préemballée
+
 < en: Filled crêpes
+< en: Meals
 en: Savoury filled crêpes, Salty filled crêpes
 fr: Crêpes fourrées salées
 hr: Slanim punjenim palačinkama
 nl: Hartige gevulde pannenkoeken
 
 < en: Sweet filled crêpes
-en: Filled crêpes with chocolate, Home-made crepes filled with chocolate spread
+en: Filled crêpes with chocolate, Home-made crepes filled with chocolate spread, Prepacked Crepes filled with chocolate
 de: Crêpes gefüllt mit Schokolade
-fr: Crêpes fourrées au chocolat, Crêpes au chocolat, Crêpes maison fourrées au chocolat
+fr: Crêpes fourrées au chocolat, Crêpes au chocolat, Crêpes maison fourrées au chocolat, Crêpes préemballées fourrées au chocolat
 hr: Punjene palačinke s čokoladom
 nl: Pannenkoeken gevuld met chocola
 agribalyse_food_code:en: 23829
@@ -122657,12 +122676,6 @@ agribalyse_food_code:en: 23821
 ciqual_food_code:en: 23821
 ciqual_food_name:en: Crepe, filled with chocolate or chocolate and hazelnut spread, home-made
 ciqual_food_name:fr: Crêpe maison, fourrée au chocolat ou à la pâte à tartiner chocolat et noisettes
-
-< en: Sweet filled crêpes
-en: Prepacked Crepes filled with chocolate
-fr: Crêpes préemballées fourrées au chocolat
-ciqual_food_code:en: 23829
-ciqual_food_name:en: Crepe filled with chocolate, prepacked
 
 < en: Sweet filled crêpes
 en: Filled crêpes with jam, Home-made crepes filled with jam
@@ -122687,8 +122700,8 @@ ciqual_food_code:en: 23830
 ciqual_food_name:en: Crepe filled with strawberries, prepacked
 ciqual_food_name:fr: Crêpe préemballée, fourrée fraise
 
-< en: Crêpes and galettes
-en: Frozen crêpes and galettes
+< en: Crêpes and pancakes
+en: Frozen crêpes and pancakes, Frozen crêpes and galettes
 fr: Crêpes et galettes surgelées
 
 en: Fish and meat and eggs, Fish meat eggs
@@ -123462,7 +123475,7 @@ sv: Växtbaserade tonfiskar, Veganska tonfiskar
 < en: Dairy substitutes
 < en: Plant-based foods
 < en: Vegan products
-en: Cheese substitutes, Non-dairy cheeses, Plant cheeses, Vegan cheeses
+en: Cheese substitutes, Non-dairy cheeses, Plant cheeses, Plant-based cheeses, Vegan cheeses
 ar: جبن نباتي
 da: Veganske oste
 de: Milchfreie Käse, Pflanzliche Käse, Käseersatz, Vegane Käse, Vegane Käsealternative
@@ -123520,6 +123533,15 @@ ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, shred
 ciqual_proxy_food_name:fr: Spécialité végétale type fromage râpé, sans soja, préemballée
 
 < en: Cheese substitutes
+en: Cubed cheese substitutes, Diced plant-based cheeses
+da: Veganske ostetern
+sv: Tärnade veganska ostar
+agribalyse_proxy_food_code:en: 1029_1
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, sliced
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage en tranche, sans soja, préemballée
+
+< en: Cheese substitutes
 en: Cheddar cheese substitutes, Non-dairy cheddars, Vegan cheddars
 da: Veganske oste med cheddarsmag
 fr: Substituts de fromage saveur cheddar
@@ -123538,6 +123560,65 @@ sv: Veganska skivar med smak av cheddar
 < en: Shredded cheese substitutes
 en: Shredded cheddar cheese substitutes
 fr: Substituts du fromage râpé saveur cheddar
+
+< en: Cheese substitutes
+en: Emmentaler cheese substitutes, Non-dairy emmentaler cheeses, Vegan emmentaler cheeses, Plant-based emmentaler cheeses, Vegan Swiss cheeses
+da: Veganske emmentaleroste, Veganske ost med emmentalersmag
+fr: Substituts de fromage saveur emmental
+sv: Veganska emmentalerostar, Veganska ostar med smak av emmentaler
+
+< en: Emmentaler cheese substitutes
+< en: Sliced cheese substitutes
+en: Sliced emmentaler cheese substitutes, Plant-based slices with emmentaler flavour
+da: Veganske skiver med emmentalersmag
+de: Vegane Genuss-Scheiben Emmentaler Geschmack
+fr: Tranches végétales saveur emmental
+nl: Plantaardige plakken met emmentaler-smaak
+sv: Veganska skivar med smak av emmentaler
+
+< en: Cheese substitutes
+en: Feta-style cheese substitutes, Non-dairy fetas, Vegan fetas, Salad cheese substitutes, Vegan salad cheeses
+da: Veganske salatoste, Veganske ost med fetasmag
+fr: Substituts de fromage saveur feta
+sv: Veganska vitostar, Veganska ostar med smak av feta
+
+< en: Cheese substitutes
+< en: Cubed cheese substitutes
+en: Cubed feta-style cheese substitutes, Diced feta-style cheese substitutes
+da: Veganske salatostetern, Veganske ostetern med fetasmag
+sv: Tärnade veganska vitostar, Tärnade veganska ostar med smak av feta
+
+< en: Cheese substitutes
+en: Gouda cheese substitutes, Non-dairy gouda cheeses, Vegan gouda cheeses, Plant-based gouda cheeses
+da: Veganske goudaoste, Veganske ost med goudasmag
+fr: Substituts de fromage saveur gouda
+sv: Veganska goudaostar, Veganska ostar med smak av gouda
+
+< en: Gouda cheese substitutes
+< en: Sliced cheese substitutes
+en: Sliced gouda cheese substitutes, Plant-based slices with gouda flavour
+da: Veganske skiver med goudasmag
+de: Vegane Genuss-Scheiben Gouda Geschmack
+fr: Tranches végétales saveur gouda
+nl: Plantaardige plakken met gouda-smaak
+sv: Veganska skivar med smak av gouda
+
+< en: Cheese substitutes
+en: Mozzarella cheese substitutes, Non-dairy mozzarella cheeses, Vegan mozzarella cheeses, Plant-based mozzarella cheeses
+da: Veganske mozzarellaoste, Veganske ost med mozzarellasmag
+fr: Substituts de fromage saveur mozzarella
+sv: Veganska mozzarellaostar, Veganska ostar med smak av mozzarella
+
+< en: Cheese substitutes
+en: Parmesan-style cheese substitutes, Non-dairy parmesans, Vegan parmesans
+da: Veganske oste med parmesansmag
+fr: Substituts de fromage saveur parmesan
+sv: Veganska ostar med smak av parmesan
+
+< en: Parmesan-style cheese substitutes
+< en: Shredded cheese substitutes
+en: Shredded parmesan-style cheese substitutes
+fr: Substituts du fromage râpé saveur parmesan
 
 < en: Legumes and their products
 en: Puffed pulse cakes, pulse cakes, cakes of pulses
