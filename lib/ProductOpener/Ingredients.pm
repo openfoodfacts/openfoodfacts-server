@@ -447,15 +447,30 @@ sub compiled_regexp ($pattern) {
 	return $compiled_regexps{$pattern};
 }
 
-# Origins processing regexps
+# Origins regexps
 
 my %origins_regexps = ();
 
+=head2 init_origins_regexps () - initialize regular expressions needed to parse origins of ingredients
+
+This function creates regular expressions that match all synonyms of all entries of the origins taxonomy,
+to recognize the origins of specific ingredients (e.g. "Origin of the milk: United Kingdom")
+in the origins field and at the end of ingredients lists.
+
+Needs to be called after Tags.pm has loaded taxonomies.
+
+The regular expressions are generated only once: the function can be called several times in the same process.
+
+=cut
+
 sub init_origins_regexps() {
 
-	next if scalar keys %origins_regexps > 0;
+	# Already initialized (e.g. by preparse_ingredients_text() or parse_origins_from_text())
+	if (scalar keys %origins_regexps > 0) {
+		return;
+	}
 
-	# Create a list of regexps with each synonyms of all ingredients processes
+	# Create a list of regexps with each synonyms of all origins
 	%origins_regexps = %{
 		generate_regexps_matching_taxonomy_entries(
 			"origins",
@@ -1446,6 +1461,12 @@ Array of specific ingredients.
 =cut
 
 sub parse_origins_from_text ($product_ref, $text, $ingredients_lc) {
+
+	# The origins regexps are initialized lazily by preparse_ingredients_text(),
+	# but extract_ingredients_from_text() parses the origins field before the ingredients list:
+	# make sure they are initialized, otherwise nothing is matched in the origins field
+	# of the first product processed by a new process (e.g. a new Apache worker)
+	init_origins_regexps();
 
 	# Normalize single quotes
 	$text =~ s/’/'/g;

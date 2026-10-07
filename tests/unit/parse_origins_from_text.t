@@ -5,7 +5,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
-use ProductOpener::Ingredients qw/parse_origins_from_text init_origins_regexps/;
+use ProductOpener::Ingredients qw/parse_origins_from_text/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -61,7 +61,9 @@ my @tests = (
 	}
 );
 
-init_origins_regexps();
+# Note: we do not call init_origins_regexps() on purpose:
+# parse_origins_from_text() must initialize the origins regexps itself,
+# as it is called before the ingredients list is parsed in extract_ingredients_from_text()
 
 my $json = JSON->new->allow_nonref->canonical;
 
