@@ -283,8 +283,7 @@
 
                 widget.dataset.offTrackingRegistered = '1';
 
-                // Donorbox sets page-id to page_select_amount while loading; a visitor's first
-                // choice sets amount, a later step moves page-id on
+                // Donorbox itself sets page-id to page_select_amount while loading
                 var observer = new MutationObserver(function () {
                   var page = widget.getAttribute('page-id');
                   if (!started && (widget.getAttribute('amount') || (page && page !== 'page_select_amount'))) {
