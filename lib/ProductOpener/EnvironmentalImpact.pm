@@ -136,6 +136,8 @@ sub set_ecobalyse_coverage_misc_tags ($product_ref) {
 
 	my $tag = "en:ecobalyse-ingredients-matched-between-$range_start-and-$range_end";
 	add_tag($product_ref, "misc", $tag);
+
+	return;
 }
 
 sub estimate_environmental_impact_service ($product_ref, $updated_product_fields_ref, $errors_ref,
