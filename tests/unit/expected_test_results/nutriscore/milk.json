@@ -31,16 +31,72 @@
       "en:milks-liquid-and-powder",
       "en:milks"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Lait par défaut -2025-",
+               "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+               "mass" : 100,
+               "name" : "Milk"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:milks",
+               "id" : "d585c6ab-c4c1-4bc7-ba8d-a06e943ad065",
+               "name" : "Milk, other than from cow, 1000g | Packaging System, N0, All, PET bottle {FR} U",
+               "name_fr" : "Bouteille en plastique (PET) pour lait - 1L"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+                  "mass" : 100
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "d585c6ab-c4c1-4bc7-ba8d-a06e943ad065"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:milk-and-yogurt",
    "food_groups_tags" : [
       "en:milk-and-dairy-products",
       "en:milk-and-yogurt"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "not_computed",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:dairy",
+                  "ingredient_id" : "en:milk"
+               }
+            ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+         "ecobalyse_name" : "Lait par défaut -2025-",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -99,6 +155,7 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-d-2023-e",
+      "en:forest-footprint-not-computed",
       "en:nutrition-data-per-100g"
    ],
    "nova_group" : 1,

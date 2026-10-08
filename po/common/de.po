@@ -415,7 +415,7 @@ msgstr "Erhältlich bei Google Play"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Dieses Produkt ist bisher noch nicht in der <<site_name>>-Datenbank eingetragen. Können Sie bitte Fotos des Produkts, des Strichcodes, der Zutatenliste und der Nährwertangaben machen und auf <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a> ergänzen?</p>\n"
+msgstr "<p>Dieses Produkt ist bisher noch nicht in der <<site_name>>-Datenbank eingetragen. Können Sie bitte Fotos des Produkts, des Strichcodes, der Zutatenliste und der Nährwertangaben machen und auf <a href=\"https://world-de.openfoodfacts.org\" target=\"_blank\"><<site_name>></a> ergänzen?</p>\n"
 "<p>Vielen Dank im Voraus!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -976,8 +976,8 @@ msgstr "Häufig gestellte Fragen"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "https://support.openfoodfacts.org/help/en-gb"
-msgstr "https://support.openfoodfacts.org/help/de-de"
+msgid "/faq"
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -2775,8 +2775,8 @@ msgstr "Weltweite Ergebnisse anzeigen"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr "Die Informationen und Daten müssen von der Produktverpackung und dem Etikett stammen (und nicht von anderen Websites oder der Website des Herstellers), und Sie müssen die Fotos selbst aufgenommen haben.<br/>➜ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Warum das wichtig ist</a>"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
+msgstr "Die Informationen und Daten müssen von der Produktverpackung und dem Etikett stammen (und nicht von anderen Websites oder der Website des Herstellers), und Sie müssen die Fotos selbst aufgenommen haben.<br/>➜ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Warum das wichtig ist</a>"
 
 msgctxt "website"
 msgid "Site or blog address"

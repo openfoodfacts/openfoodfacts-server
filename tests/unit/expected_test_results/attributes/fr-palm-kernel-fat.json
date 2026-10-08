@@ -289,15 +289,16 @@
                "title" : "Green-Score non calculé"
             },
             {
-               "description" : "",
-               "description_short" : "Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
+               "description" : "Présence d'un ou plusieurs ingrédients à risque de déforestation, et risque fort au regard de leur quantité, origine et/ou labels.",
+               "description_short" : "Risque fort de déforestation",
                "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-d.svg",
                "id" : "forest_footprint",
                "match" : 0,
-               "name" : "Empreinte forêt",
+               "name" : "Empreinte Forêt",
+               "panel_id" : "forest_footprint",
                "status" : "known",
-               "title" : "Empreinte forêt non calculée"
+               "title" : "Empreinte Forêt D"
             }
          ],
          "id" : "environment",
@@ -413,6 +414,33 @@
    "ecoscore_tags" : [
       "unknown"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [],
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -686,6 +714,7 @@
             ]
          }
       },
+      "summary" : "with_primary_ingredients",
       "total_footprint_per_kg" : 0.055
    },
    "images" : {
@@ -757,6 +786,8 @@
    "misc_tags" : [
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-d",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-fiber",

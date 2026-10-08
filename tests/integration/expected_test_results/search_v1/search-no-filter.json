@@ -414,13 +414,114 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
+                     "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                     "mass" : 62.5,
+                     "name" : "apple"
+                  },
+                  {
+                     "ecobalyse_name" : "Lait par défaut -2025-",
+                     "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+                     "mass" : 18.75,
+                     "name" : "milk"
+                  },
+                  {
+                     "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
+                     "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+                     "mass" : 9.375,
+                     "name" : "eggs"
+                  },
+                  {
+                     "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
+                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "mass" : 9.375,
+                     "name" : "palm oil"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "1c624a8a-afe8-4c7a-9c00-50b057b26b27",
+                     "name" : "Sparkling wine, 75cl | Packaging System, N0, All, Glass bottle (green) 560g with cork stopper {FR} U",
+                     "name_fr" : "Bouteille en verre vert de 560g pour vin effervescent - 75cl"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                        "mass" : 62.5
+                     },
+                     {
+                        "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+                        "mass" : 18.75
+                     },
+                     {
+                        "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+                        "mass" : 9.375
+                     },
+                     {
+                        "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                        "mass" : 9.375
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "1c624a8a-afe8-4c7a-9c00-50b057b26b27"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
          "forest_footprint_2026" : {
             "grade" : "c",
             "primary_ingredients" : {
+               "en:chicken-and-eggs" : {
+                  "footprint_per_kg" : 0.0074375,
+                  "grade" : "b",
+                  "ingredients" : [
+                     {
+                        "conditions_tags" : [],
+                        "footprint_per_kg" : 0.0074375,
+                        "matching_tag_id" : "en:egg",
+                        "percent" : 9.375,
+                        "percent_estimate" : 9.375,
+                        "processing_factor" : 1,
+                        "tag_id" : "en:egg",
+                        "tag_type" : "ingredients",
+                        "type" : {
+                           "deforestation_risk" : 0.68,
+                           "name" : "Oeufs Importés",
+                           "soy_feed_factor" : 0.035,
+                           "soy_yield" : 0.3
+                        }
+                     }
+                  ]
+               },
                "en:cocoa" : {},
                "en:coffee" : {},
+               "en:other-risky-ingredients" : {
+                  "footprint_per_kg" : null,
+                  "grade" : "unknown",
+                  "ingredients" : [
+                     {
+                        "ingredient_category_id" : "en:dairy",
+                        "ingredient_id" : "en:milk"
+                     }
+                  ]
+               },
                "en:palm-oil" : {
                   "footprint_per_kg" : 0.00515625,
                   "grade" : "c",
@@ -441,11 +542,12 @@
                   ]
                }
             },
-            "total_footprint_per_kg" : 0.00515625
+            "summary" : "with_primary_ingredients",
+            "total_footprint_per_kg" : 0.01259375
          },
          "forest_footprint_data" : {
             "footprint_per_kg" : 0.0074375,
-            "grade" : "a",
+            "grade" : "b",
             "ingredients" : [
                {
                   "conditions_tags" : [],
@@ -475,7 +577,8 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "13050",
-               "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+               "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 62.5,
@@ -488,7 +591,8 @@
             },
             {
                "ciqual_proxy_food_code" : "19051",
-               "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+               "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+               "ecobalyse_name" : "Lait par défaut -2025-",
                "id" : "en:milk",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 18.75,
@@ -501,7 +605,8 @@
             },
             {
                "ciqual_food_code" : "22000",
-               "ecobalyse_code" : "egg-indoor-code3",
+               "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+               "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
                "id" : "en:egg",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 9.375,
@@ -514,7 +619,8 @@
             },
             {
                "ciqual_food_code" : "16129",
-               "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
                "from_palm_oil" : "yes",
                "id" : "en:palm-oil",
                "is_in_taxonomy" : 1,
@@ -621,8 +727,9 @@
          "misc_tags" : [
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
-            "en:forest-footprint-a",
+            "en:forest-footprint-b",
             "en:forest-footprint-computed",
+            "en:forest-footprint-grade-c",
             "en:nutrients-estimated-from-ingredients",
             "en:nutriscore-2021-c-2023-c",
             "en:nutriscore-2021-same-as-2023",
@@ -1457,8 +1564,63 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "ecobalyse_name" : "Riz basmati par défaut -2025-",
+                     "id" : "cce078cf-3d3e-4153-a0a1-35555b2da639",
+                     "mass" : 25,
+                     "name" : "rice"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "cce078cf-3d3e-4153-a0a1-35555b2da639",
+                        "mass" : 25
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
+         "forest_footprint_2026" : {
+            "grade" : "not_computed",
+            "primary_ingredients" : {
+               "en:other-risky-ingredients" : {
+                  "footprint_per_kg" : null,
+                  "grade" : "unknown",
+                  "ingredients" : [
+                     {
+                        "ingredient_category_id" : "en:rice",
+                        "ingredient_id" : "en:rice"
+                     }
+                  ]
+               }
+            },
+            "summary" : "with_other_risky_ingredients"
+         },
          "generic_name" : "Tester",
          "generic_name_en" : "Tester",
          "id" : "2000000000374",
@@ -1480,6 +1642,8 @@
             },
             {
                "ciqual_proxy_food_code" : "9100",
+               "ecobalyse_id" : "cce078cf-3d3e-4153-a0a1-35555b2da639",
+               "ecobalyse_name" : "Riz basmati par défaut -2025-",
                "id" : "en:rice",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 25,
@@ -1531,10 +1695,9 @@
          ],
          "ingredients_without_ciqual_codes_n" : 1,
          "ingredients_without_ecobalyse_ids" : [
-            "en:fruit",
-            "en:rice"
+            "en:fruit"
          ],
-         "ingredients_without_ecobalyse_ids_n" : 2,
+         "ingredients_without_ecobalyse_ids_n" : 1,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
          "known_ingredients_n" : 2,
@@ -1564,6 +1727,7 @@
          "misc_tags" : [
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
+            "en:forest-footprint-not-computed",
             "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
             "en:nutriscore-missing-fiber",
             "en:nutriscore-missing-nutrition-data",
@@ -2137,11 +2301,112 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
+                     "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                     "mass" : 66.6666666666667,
+                     "name" : "apple"
+                  },
+                  {
+                     "ecobalyse_name" : "Lait par défaut -2025-",
+                     "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+                     "mass" : 16.6666666666667,
+                     "name" : "milk"
+                  },
+                  {
+                     "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
+                     "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+                     "mass" : 16.6666666666667,
+                     "name" : "eggs"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                        "mass" : 66.6666666666667
+                     },
+                     {
+                        "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+                        "mass" : 16.6666666666667
+                     },
+                     {
+                        "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+                        "mass" : 16.6666666666667
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
+         "forest_footprint_2026" : {
+            "grade" : "b",
+            "primary_ingredients" : {
+               "en:chicken-and-eggs" : {
+                  "footprint_per_kg" : 0.0132222222222222,
+                  "grade" : "b",
+                  "ingredients" : [
+                     {
+                        "conditions_tags" : [],
+                        "footprint_per_kg" : 0.0132222222222222,
+                        "matching_tag_id" : "en:egg",
+                        "percent" : 16.6666666666667,
+                        "percent_estimate" : 16.6666666666667,
+                        "processing_factor" : 1,
+                        "tag_id" : "en:egg",
+                        "tag_type" : "ingredients",
+                        "type" : {
+                           "deforestation_risk" : 0.68,
+                           "name" : "Oeufs Importés",
+                           "soy_feed_factor" : 0.035,
+                           "soy_yield" : 0.3
+                        }
+                     }
+                  ]
+               },
+               "en:cocoa" : {},
+               "en:coffee" : {},
+               "en:other-risky-ingredients" : {
+                  "footprint_per_kg" : null,
+                  "grade" : "unknown",
+                  "ingredients" : [
+                     {
+                        "ingredient_category_id" : "en:dairy",
+                        "ingredient_id" : "en:milk"
+                     }
+                  ]
+               },
+               "en:palm-oil" : {}
+            },
+            "summary" : "with_primary_ingredients",
+            "total_footprint_per_kg" : 0.0132222222222222
+         },
          "forest_footprint_data" : {
             "footprint_per_kg" : 0.0132222222222222,
-            "grade" : "a",
+            "grade" : "b",
             "ingredients" : [
                {
                   "conditions_tags" : [],
@@ -2171,7 +2436,8 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "13050",
-               "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+               "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 66.6666666666667,
@@ -2184,7 +2450,8 @@
             },
             {
                "ciqual_proxy_food_code" : "19051",
-               "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+               "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+               "ecobalyse_name" : "Lait par défaut -2025-",
                "id" : "en:milk",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 16.6666666666667,
@@ -2197,7 +2464,8 @@
             },
             {
                "ciqual_food_code" : "22000",
-               "ecobalyse_code" : "egg-indoor-code3",
+               "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+               "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
                "id" : "en:egg",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 16.6666666666667,
@@ -2291,8 +2559,9 @@
          "misc_tags" : [
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
-            "en:forest-footprint-a",
+            "en:forest-footprint-b",
             "en:forest-footprint-computed",
+            "en:forest-footprint-grade-b",
             "en:nutrients-estimated-from-ingredients",
             "en:nutriscore-2021-a-2023-a",
             "en:nutriscore-2021-same-as-2023",
@@ -3089,6 +3358,65 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
+                     "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                     "mass" : 66.6666666666667,
+                     "name" : "apple"
+                  },
+                  {
+                     "ecobalyse_name" : "Eau du robinet UE -2025-",
+                     "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                     "mass" : 16.6666666666667,
+                     "name" : "water"
+                  },
+                  {
+                     "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
+                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "mass" : 16.6666666666667,
+                     "name" : "palm oil"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                        "mass" : 66.6666666666667
+                     },
+                     {
+                        "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                        "mass" : 16.6666666666667
+                     },
+                     {
+                        "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                        "mass" : 16.6666666666667
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
          "forest_footprint_2026" : {
@@ -3116,6 +3444,7 @@
                   ]
                }
             },
+            "summary" : "with_primary_ingredients",
             "total_footprint_per_kg" : 0.00916666666666666
          },
          "generic_name_en" : "Tester",
@@ -3127,7 +3456,8 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "13050",
-               "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+               "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 66.6666666666667,
@@ -3140,7 +3470,8 @@
             },
             {
                "ciqual_food_code" : "18066",
-               "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
                "id" : "en:water",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 16.6666666666667,
@@ -3153,7 +3484,8 @@
             },
             {
                "ciqual_food_code" : "16129",
-               "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
                "from_palm_oil" : "yes",
                "id" : "en:palm-oil",
                "is_in_taxonomy" : 1,
@@ -3251,6 +3583,8 @@
          "misc_tags" : [
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
+            "en:forest-footprint-computed",
+            "en:forest-footprint-grade-c",
             "en:nutrients-estimated-from-ingredients",
             "en:nutriscore-2021-c-2023-c",
             "en:nutriscore-2021-same-as-2023",
@@ -4202,12 +4536,67 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
+                     "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                     "mass" : 75,
+                     "name" : "apple"
+                  },
+                  {
+                     "ecobalyse_name" : "Eau du robinet UE -2025-",
+                     "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                     "mass" : 25,
+                     "name" : "water"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "en:cereals-and-their-products",
+                     "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08",
+                     "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+                     "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                        "mass" : 75
+                     },
+                     {
+                        "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                        "mass" : 25
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups" : "en:breakfast-cereals",
          "food_groups_tags" : [
             "en:cereals-and-potatoes",
             "en:breakfast-cereals"
          ],
+         "forest_footprint_2026" : {
+            "grade" : "a",
+            "primary_ingredients" : {},
+            "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+            "total_footprint_per_kg" : 0
+         },
          "generic_name_en" : "Tester",
          "id" : "2000000000459",
          "images" : {},
@@ -4217,7 +4606,8 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "13050",
-               "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+               "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 75,
@@ -4230,7 +4620,8 @@
             },
             {
                "ciqual_food_code" : "18066",
-               "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
                "id" : "en:water",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 25,
@@ -4321,6 +4712,8 @@
             "en:environmental-score-missing-data-packagings",
             "en:environmental-score-missing-data-warning",
             "en:estimated-ingredients-with-product-opener",
+            "en:forest-footprint-computed",
+            "en:forest-footprint-grade-a",
             "en:nutrients-estimated-from-ingredients",
             "en:nutriscore-2021-a-2023-a",
             "en:nutriscore-2021-same-as-2023",
@@ -5303,12 +5696,77 @@
             "tests"
          ],
          "entry_dates_tags" : "--ignore--",
+         "environmental_impact" : {
+            "ecobalyse_input" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
+                     "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                     "mass" : 50,
+                     "name" : "apple"
+                  },
+                  {
+                     "ecobalyse_name" : "Eau du robinet UE -2025-",
+                     "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                     "mass" : 30,
+                     "name" : "water"
+                  },
+                  {
+                     "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+                     "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                     "mass" : 20,
+                     "name" : "sugar"
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "category" : "en:cereals-and-their-products",
+                     "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08",
+                     "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+                     "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
+                  }
+               ]
+            },
+            "ecobalyse_request" : {
+               "data" : {
+                  "distribution" : "ambient",
+                  "ingredients" : [
+                     {
+                        "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                        "mass" : 50
+                     },
+                     {
+                        "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                        "mass" : 30
+                     },
+                     {
+                        "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                        "mass" : 20
+                     }
+                  ],
+                  "packaging" : [
+                     {
+                        "amount" : 1,
+                        "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08"
+                     }
+                  ]
+               },
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            }
+         },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups" : "en:breakfast-cereals",
          "food_groups_tags" : [
             "en:cereals-and-potatoes",
             "en:breakfast-cereals"
          ],
+         "forest_footprint_2026" : {
+            "grade" : "a",
+            "primary_ingredients" : {},
+            "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+            "total_footprint_per_kg" : 0
+         },
          "generic_name" : "default_name",
          "generic_name_en" : "default_name",
          "id" : "2000000000466",
@@ -5319,7 +5777,8 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "13050",
-               "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+               "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 50,
@@ -5332,7 +5791,8 @@
             },
             {
                "ciqual_food_code" : "18066",
-               "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
                "id" : "en:water",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 30,
@@ -5345,7 +5805,8 @@
             },
             {
                "ciqual_proxy_food_code" : "31016",
-               "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "en:sugar",
                "is_in_taxonomy" : 1,
                "percent" : 20,
@@ -5448,6 +5909,8 @@
             "en:environmental-score-missing-data-packagings",
             "en:environmental-score-missing-data-warning",
             "en:estimated-ingredients-with-product-opener",
+            "en:forest-footprint-computed",
+            "en:forest-footprint-grade-a",
             "en:nutrients-estimated-from-ingredients",
             "en:nutriscore-2021-c-2023-c",
             "en:nutriscore-2021-same-as-2023",

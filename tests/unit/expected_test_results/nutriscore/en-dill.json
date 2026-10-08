@@ -41,8 +41,41 @@
       "en:herbs",
       "en:dill"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [],
+         "packaging" : [
+            {
+               "category" : "en:herbs",
+               "id" : "9f2c95d7-a7db-44e0-9a52-c09ad35ea488",
+               "name" : "Fresh herbs, 100g | Packaging System, Proxy Pack, Plastic film {FR} U",
+               "name_fr" : "Sachet en plastique (PP) pour herbes aromatiques - 100g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "9f2c95d7-a7db-44e0-9a52-c09ad35ea488"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "ingredients" : [
       {
          "ciqual_food_code" : "11093",
@@ -108,7 +141,9 @@
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-a-2023-a"
+      "en:nutriscore-2021-a-2023-a",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a"
    ],
    "nova_group" : 1,
    "nova_group_debug" : "",

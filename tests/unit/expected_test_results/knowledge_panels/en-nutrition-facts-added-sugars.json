@@ -86,6 +86,65 @@
    "ecoscore_tags" : [
       "unknown"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 66.6666666666667,
+               "name" : "Sugar"
+            },
+            {
+               "ecobalyse_name" : "Farine UE -2025-",
+               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "mass" : 16.6666666666667,
+               "name" : "wheat flour"
+            },
+            {
+               "ecobalyse_name" : "Beurre à 39-41% MG, léger, doux Origine Inconnue",
+               "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
+               "mass" : 16.6666666666667,
+               "name" : "butter"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 66.6666666666667
+               },
+               {
+                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+                  "mass" : 16.6666666666667
+               },
+               {
+                  "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
+                  "mass" : 16.6666666666667
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -331,13 +390,30 @@
    ],
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "not_computed",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:dairy",
+                  "ingredient_id" : "en:butter"
+               }
+            ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
    "images" : {
       "selected" : {}
    },
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
@@ -349,7 +425,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -361,7 +438,8 @@
       },
       {
          "ciqual_proxy_food_code" : "16400",
-         "ecobalyse_code" : "bbda834e-1548-4682-a461-c367dc1ce517",
+         "ecobalyse_id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
+         "ecobalyse_name" : "Beurre à 39-41% MG, léger, doux Origine Inconnue",
          "id" : "en:butter",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -444,6 +522,12 @@
                   ],
                   "title" : "Transportation"
                }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "forest_footprint"
+               }
             }
          ],
          "expanded" : true,
@@ -480,6 +564,37 @@
             "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
             "subtitle" : "Missing a precise category",
             "title" : "Green-Score not computed",
+            "type" : "grade"
+         },
+         "topics" : [
+            "environment"
+         ]
+      },
+      "forest_footprint" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/actu/2026/09/lempreinte-foret-sinvite-dans-les-telephones-des-francais/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint not computed</strong></p>\n                <p>Potential deforestation risk but not yet computed.</p>\n                \n                ",
+                  "type" : "summary"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                <h3>Other risky ingredients</h3>\n                <p>These ingredients are not yet assessed for deforestation risk:</p>\n                <ul>\n                \n                <li>butter</li>\n                \n                </ul>\n                ",
+                  "type" : "summary"
+               }
+            }
+         ],
+         "expanded" : false,
+         "level" : "info",
+         "title_element" : {
+            "grade" : "not_computed",
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-not-computed.svg",
+            "name" : "Forest Footprint",
+            "subtitle" : "Potential deforestation risk but not yet computed.",
+            "title" : "Forest Footprint not computed",
             "type" : "grade"
          },
          "topics" : [
@@ -1585,6 +1700,7 @@
    "misc_tags" : [
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-not-computed",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-energy",
       "en:nutriscore-estimated-fat",

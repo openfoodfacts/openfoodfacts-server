@@ -86,6 +86,15 @@
 </head>
 <body class="product_edit_page">
 
+	
+	<!-- Same slots and values as the app's first three Matomo dimensions: language, country, logged in -->
+	<script>
+		var _paq = window._paq = window._paq || [];
+		_paq.push(['setCustomDimension', 1, 'en']);
+		_paq.push(['setCustomDimension', 2, 'world']);
+		_paq.push(['setCustomDimension', 3, 'Y']);
+	</script>
+	
 	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -384,64 +393,9 @@
 
 
 <!-- Donation banner TOP start -->
-<section id="donation-banner-top" class="donation-banner row">
-
-  <div class="donation-banner__left-aside">
-    <div class="donation-banner__hook-section">
-      <p>We still need €120,000 to finish 2026!</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
-  </div>
-  <div>
-    <div class="donation-banner__aside">
-      <div class="donation-banner__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner__main-title">Become an Open Food Facts patron</h3>
-      </div>
-      <div style="padding:1rem;">
-        <p>Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:</p>
-        <ul>
-          <li>
-            keep Open Food Facts open & available to all,
-            <ul>
-              <li>support infrastructure, the website, mobile app and API with a small permanent team</li>
-            </ul>
-          </li>
-          <li>
-            <p>remain independent of the food industry,</p>
-          </li>
-          <li>
-            <p>support the community</p>
-          </li>
-          <li>
-            <p>support science</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="donation-banner__actions-section">
-      <div class="donation-banner__actions-section__financial">
-        <p>
-          
-          If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!
-          
-        </p>
-      </div>
-      <div class="donation-banner__actions-section__donate-button">
-        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
-          <button>Donate</button>
-        </a>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="donation-banner__close">
+<section id="donation-banner-top" style="position: relative;">
+  <donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
+  <div class="donation-banner__close" style="position: absolute; top: 0.3rem; right: 0.3rem; z-index: 2;">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
 </section>
@@ -480,9 +434,11 @@
   if (getBannerCookie('donation_march_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
-    bannerID.style.display = 'flex';
+    bannerID.style.display = 'block';
   }
 </script>
+
+
 
 
 							
@@ -569,7 +525,7 @@
         
         <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
             <span>Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>
-→ <a href="//support.openfoodfacts.org/help/en-gb/9/27">Why it matters</a></span>
+→ <a href="/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si">Why it matters</a></span>
              <a href="#" class="close">&times;</a>
         </div>
         
@@ -29934,6 +29890,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                             
                                                                 <option value="µg"  >mcg/µg</option>
                                                             
+                                                                <option value="%" selected="selected" >%</option>
+                                                            
                                                         </select>
                                                     
                                                     </span>
@@ -29960,6 +29918,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                                 <option value="mg"  >mg</option>
                                                             
                                                                 <option value="µg"  >mcg/µg</option>
+                                                            
+                                                                <option value="%" selected="selected" >%</option>
                                                             
                                                         </select>
                                                     
@@ -29988,6 +29948,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                             
                                                                 <option value="µg"  >mcg/µg</option>
                                                             
+                                                                <option value="%" selected="selected" >%</option>
+                                                            
                                                         </select>
                                                     
                                                     </span>
@@ -30014,6 +29976,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                                 <option value="mg"  >mg</option>
                                                             
                                                                 <option value="µg"  >mcg/µg</option>
+                                                            
+                                                                <option value="%" selected="selected" >%</option>
                                                             
                                                         </select>
                                                     
@@ -30044,6 +30008,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                             
                                                                 <option value="µg"  >mcg/µg</option>
                                                             
+                                                                <option value="%" selected="selected" >%</option>
+                                                            
                                                         </select>
                                                     
                                                     </span>
@@ -30070,6 +30036,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                                 <option value="mg"  >mg</option>
                                                             
                                                                 <option value="µg"  >mcg/µg</option>
+                                                            
+                                                                <option value="%" selected="selected" >%</option>
                                                             
                                                         </select>
                                                     
@@ -30098,6 +30066,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                             
                                                                 <option value="µg"  >mcg/µg</option>
                                                             
+                                                                <option value="%" selected="selected" >%</option>
+                                                            
                                                         </select>
                                                     
                                                     </span>
@@ -30125,6 +30095,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                             
                                                                 <option value="µg"  >mcg/µg</option>
                                                             
+                                                                <option value="%" selected="selected" >%</option>
+                                                            
                                                         </select>
                                                     
                                                     </span>
@@ -30143,6 +30115,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                             <option value="mg"  >mg</option>
                                                         
                                                             <option value="µg"  >mcg/µg</option>
+                                                        
+                                                            <option value="%" selected="selected" >%</option>
                                                         
                                                     </select>
                                                 
@@ -30432,11 +30406,11 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     
                                                         <select class="nutrient_unit nutrient_carbon-footprint_unit" id="nutrition_input_sets_as_sold_100g_nutrients_carbon-footprint_unit" name="nutrition_input_sets_as_sold_100g_nutrients_carbon-footprint_unit">
                                                             
+                                                                <option value="kg"  >kg</option>
+                                                            
                                                                 <option value="g" selected="selected" >g</option>
                                                             
                                                                 <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
                                                             
                                                         </select>
                                                     
@@ -30459,11 +30433,11 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     
                                                         <select class="nutrient_unit nutrient_carbon-footprint_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_carbon-footprint_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_carbon-footprint_unit">
                                                             
+                                                                <option value="kg"  >kg</option>
+                                                            
                                                                 <option value="g" selected="selected" >g</option>
                                                             
                                                                 <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
                                                             
                                                         </select>
                                                     
@@ -30486,11 +30460,11 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     
                                                         <select class="nutrient_unit nutrient_carbon-footprint_unit" id="nutrition_input_sets_as_sold_1l_nutrients_carbon-footprint_unit" name="nutrition_input_sets_as_sold_1l_nutrients_carbon-footprint_unit">
                                                             
+                                                                <option value="kg"  >kg</option>
+                                                            
                                                                 <option value="g" selected="selected" >g</option>
                                                             
                                                                 <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
                                                             
                                                         </select>
                                                     
@@ -30513,11 +30487,11 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     
                                                         <select class="nutrient_unit nutrient_carbon-footprint_unit" id="nutrition_input_sets_as_sold_serving_nutrients_carbon-footprint_unit" name="nutrition_input_sets_as_sold_serving_nutrients_carbon-footprint_unit">
                                                             
+                                                                <option value="kg"  >kg</option>
+                                                            
                                                                 <option value="g" selected="selected" >g</option>
                                                             
                                                                 <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
                                                             
                                                         </select>
                                                     
@@ -30542,11 +30516,11 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     
                                                         <select class="nutrient_unit nutrient_carbon-footprint_unit" id="nutrition_input_sets_prepared_100g_nutrients_carbon-footprint_unit" name="nutrition_input_sets_prepared_100g_nutrients_carbon-footprint_unit">
                                                             
+                                                                <option value="kg"  >kg</option>
+                                                            
                                                                 <option value="g" selected="selected" >g</option>
                                                             
                                                                 <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
                                                             
                                                         </select>
                                                     
@@ -30569,11 +30543,11 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     
                                                         <select class="nutrient_unit nutrient_carbon-footprint_unit" id="nutrition_input_sets_prepared_100ml_nutrients_carbon-footprint_unit" name="nutrition_input_sets_prepared_100ml_nutrients_carbon-footprint_unit">
                                                             
+                                                                <option value="kg"  >kg</option>
+                                                            
                                                                 <option value="g" selected="selected" >g</option>
                                                             
                                                                 <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
                                                             
                                                         </select>
                                                     
@@ -30596,11 +30570,11 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     
                                                         <select class="nutrient_unit nutrient_carbon-footprint_unit" id="nutrition_input_sets_prepared_1l_nutrients_carbon-footprint_unit" name="nutrition_input_sets_prepared_1l_nutrients_carbon-footprint_unit">
                                                             
+                                                                <option value="kg"  >kg</option>
+                                                            
                                                                 <option value="g" selected="selected" >g</option>
                                                             
                                                                 <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
                                                             
                                                         </select>
                                                     
@@ -30623,11 +30597,11 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     
                                                         <select class="nutrient_unit nutrient_carbon-footprint_unit" id="nutrition_input_sets_prepared_serving_nutrients_carbon-footprint_unit" name="nutrition_input_sets_prepared_serving_nutrients_carbon-footprint_unit">
                                                             
+                                                                <option value="kg"  >kg</option>
+                                                            
                                                                 <option value="g" selected="selected" >g</option>
                                                             
                                                                 <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
                                                             
                                                         </select>
                                                     
@@ -30642,11 +30616,11 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                 
                                                     <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_carbon-footprint_unit" name="nutrition_input_sets_prepared_serving_nutrients_carbon-footprint_unit">
                                                         
+                                                            <option value="kg"  >kg</option>
+                                                        
                                                             <option value="g" selected="selected" >g</option>
                                                         
                                                             <option value="mg"  >mg</option>
-                                                        
-                                                            <option value="µg"  >mcg/µg</option>
                                                         
                                                     </select>
                                                 
@@ -30682,15 +30656,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_glycemic-index_unit" id="nutrition_input_sets_as_sold_100g_nutrients_glycemic-index_unit" name="nutrition_input_sets_as_sold_100g_nutrients_glycemic-index_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit"></span>
                                                     
                                                     </span>
                                                 </td>
@@ -30709,15 +30675,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_glycemic-index_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_glycemic-index_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_glycemic-index_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit"></span>
                                                     
                                                     </span>
                                                 </td>
@@ -30736,15 +30694,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_glycemic-index_unit" id="nutrition_input_sets_as_sold_1l_nutrients_glycemic-index_unit" name="nutrition_input_sets_as_sold_1l_nutrients_glycemic-index_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit"></span>
                                                     
                                                     </span>
                                                 </td>
@@ -30763,15 +30713,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_glycemic-index_unit" id="nutrition_input_sets_as_sold_serving_nutrients_glycemic-index_unit" name="nutrition_input_sets_as_sold_serving_nutrients_glycemic-index_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit"></span>
                                                     
                                                     </span>
                                                 </td>
@@ -30792,15 +30734,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_glycemic-index_unit" id="nutrition_input_sets_prepared_100g_nutrients_glycemic-index_unit" name="nutrition_input_sets_prepared_100g_nutrients_glycemic-index_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit"></span>
                                                     
                                                     </span>
                                                 </td>
@@ -30819,15 +30753,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_glycemic-index_unit" id="nutrition_input_sets_prepared_100ml_nutrients_glycemic-index_unit" name="nutrition_input_sets_prepared_100ml_nutrients_glycemic-index_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit"></span>
                                                     
                                                     </span>
                                                 </td>
@@ -30846,15 +30772,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_glycemic-index_unit" id="nutrition_input_sets_prepared_1l_nutrients_glycemic-index_unit" name="nutrition_input_sets_prepared_1l_nutrients_glycemic-index_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit"></span>
                                                     
                                                     </span>
                                                 </td>
@@ -30873,15 +30791,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_glycemic-index_unit" id="nutrition_input_sets_prepared_serving_nutrients_glycemic-index_unit" name="nutrition_input_sets_prepared_serving_nutrients_glycemic-index_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit"></span>
                                                     
                                                     </span>
                                                 </td>
@@ -30892,15 +30802,8 @@ You accept to be credited by re-users by a link to the product your are contribu
                                         <td class="nutrient_unit_col">
                                             
                                                 
-                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_glycemic-index_unit" name="nutrition_input_sets_prepared_serving_nutrients_glycemic-index_unit">
-                                                        
-                                                            <option value="g"  >g</option>
-                                                        
-                                                            <option value="mg"  >mg</option>
-                                                        
-                                                            <option value="µg"  >mcg/µg</option>
-                                                        
-                                                    </select>
+                                                    <span class="nutrient_unit"></span>
+                                                    <input type="hidden" class="global_nutrient_unit" id="global_nutrient_glycemic-index_unit" name="nutrition_input_sets_prepared_serving_nutrients_glycemic-index_unit" value="" />
                                                 
                                             
                                         </td>
@@ -34862,57 +34765,7 @@ by typing the first letters of their name in the last row of the table.</p>
 
 				
 
-<section class="donation-banner-footer row">
-  <div class="donation-banner-footer__left-aside">
-    <div class="donation-banner-footer__hook-section">
-      <p>We still need €120,000 to finish 2026!</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="The Open Food Facts community during the Open Food Facts Days" />
-  </div>
-  <div>
-    <div>
-      <div class="donation-banner-footer__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner-footer__main-title">Become an Open Food Facts patron</h3>
-      </div>
-      <p>Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:</p>
-      <ul>
-        <li>
-          keep Open Food Facts open & available to all,
-          <ul>
-            <li>support infrastructure, the website, mobile app and API with a small permanent team</li>
-          </ul>
-        </li>
-        <li>
-          <p>remain independent of the food industry,</p>
-        </li>
-        <li>
-          <p>support the community</p>
-        </li>
-        <li>
-          <p>support science</p>
-        </li>
-      </ul>
-    </div>
-    <div class="donation-banner-footer__actions-section">
-      <div class="donation-banner-footer__actions-section__financial">
-        <p>
-          If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!
-        </p>
-      </div>
-      <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
-          <button>Donate</button>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
 
 
 			
@@ -34925,8 +34778,8 @@ by typing the first letters of their name in the last row of the table.</p>
 						<p>Join us on <a href="//slack.openfoodfacts.org">Slack</a></p>
 						<p><a href="//forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">Follow us: 
-							<a href="//x.com/OpenFoodFacts"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="x"></a>
-							<a href="//www.facebook.com/OpenFoodFacts?utm_source=off&utm_medium=web"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
+							<a href="//x.com/OpenFoodFacts"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="X formerly Twitter"></a>
+							<a href="//www.facebook.com/OpenFoodFacts?utm_source=off&utm_medium=web"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook icon"></a>
 							<a href="//www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
 							
 						</p>
@@ -34937,13 +34790,17 @@ by typing the first letters of their name in the last row of the table.</p>
 						<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
 							<li><a class="button small white-button radius" href="/who-we-are">Who we are</a></li>
 							<li><a class="button small white-button radius" href="/open-food-facts-vision-mission-values-and-programs">Vision, Mission, Values and Programs</a></li>
-							<li><a class="button small white-button radius" href="//support.openfoodfacts.org/help/en-gb">Frequently asked questions</a></li>
+							<li><a class="button small white-button radius" href="/faq">Frequently asked questions</a></li>
 							<li><a class="button small white-button radius" href="//blog.openfoodfacts.org/en/">Open Food Facts blog</a></li>
 							<li><a class="button small white-button radius" href="/press">Press</a></li>
 							<li><a class="button small white-button radius" href="//wiki.openfoodfacts.org">Open Food Facts wiki (en)</a></li>
 							<li><a class="button small white-button radius" href="/cgi/top_translators.pl">Translators</a></li>
 							<li><a class="button small white-button radius" href="/partners">Partners</a></li>
+              <li><a class="button small white-button radius" href="/data">Data, API and SDKs</a></li>
 							<li><a class="button small white-button radius" href="//world.openbeautyfacts.org">Open Beauty Facts - Cosmetics</a></li>
+              <li><a class="button small white-button radius" href="//world.openproductsfacts.org">Open Products Facts</a></li>
+              <li><a class="button small white-button radius" href="//world.openpetfoodfacts.org">Open Pet Food Facts</a></li>
+              <li><a class="button small white-button radius" href="//prices.openfoodfacts.org/">Open Prices</a></li>
 							<li><a class="button small white-button radius" href="//world.pro.openfoodfacts.localhost/">Open Food Facts for Producers</a></li>
 						</ul>
 					</div>
@@ -34966,7 +34823,6 @@ by typing the first letters of their name in the last row of the table.</p>
 									<li><a href="/legal">Legal</a></li>
 									<li><a href="/privacy">Privacy</a></li>
 									<li><a href="/terms-of-use">Terms of use</a></li>
-									<li><a href="/data">Data, API and SDKs</a></li>
 									<li><a href="//world.openfoodfacts.org/donate-to-open-food-facts">Donate to Open Food Facts</a></li>
 									<li><a href="//world.pro.openfoodfacts.org/">Producers</a></li>
 									<li><a href="//link.openfoodfacts.org/newsletter-en">Subscribe to our newsletter</a></li>
@@ -35156,11 +35012,8 @@ $(document).on("focus", ".select2", function (e) {
   });
 
 
-
 });
 </script>
-
-
 
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>

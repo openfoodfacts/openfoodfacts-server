@@ -34,7 +34,7 @@ en: raw
 bg: суров, сурово, сурова, сурови
 ca: cru, crua
 cs: syrový, syrová, syrové
-da: rå
+da: rå, råt
 de: roh, rohe, roher, rohes
 el: ακατέργαστο
 es: crudo, cruda, crudos, crudas
@@ -45,7 +45,9 @@ hu: nyers, nyersen
 it: crudo, cruda, crudi, crude
 ja: 生, 粗製
 lt: neapdorotas
+nb: rå, rått, råe
 nl: rauw, rauwe
+nn: rå, rått, råe
 pl: surowy, surowa, surowe
 pt: cru, crus
 ro: crud
@@ -54,12 +56,14 @@ sv: rå, rått, råa
 tr: çiğ
 uk: сирий, сира, сире, сирі
 zh: 生
+wikidata:en: Q21198046
 
 en: fresh
 bg: пресно, пресен, пресна, пресни, прясно, свежо
 ca: fresc, fresca, frescos, fresques
 cs: čerstvý, čerstvá, čerstvé
-da: frisk, friske
+da: frisk, friskt, friske
+# de:frisch is found in front and in the ingredients
 de: frisch, frische, frischer, frisches
 es: fresco, fresca, frescos, frescas
 fi: tuore
@@ -68,12 +72,14 @@ hr: svježe, sviježi, svježi, svježih, svježeg
 hu: friss
 it: fresco, fresca, fresche, freschi
 lt: šviežia, šviežios, švieži
-# de:frisch is found in front and in the ingredients
+nb: fersk, ferskt, ferske
 nl: verse, vers
+nn: fersk, ferskt, ferske
 pl: świeży, świeża, świeże
 pt: fresco, fresca, frescos, frescas
 sv: färsk, färskt, färska
 uk: свіжий, свіжа, свіже, свіжі
+wikidata:en: Q11574949
 
 # Often in combination with flavour. It does not seem that it has much meaning.
 #en:natural
@@ -194,7 +200,7 @@ uk: фільтрат
 description:en: result of a filtration
 wikidata:en: Q28951388
 
-en: non-homogenized
+en: non-homogenized, non-homogenised
 bg: нехомогенизиран, нехомогенизирано
 ca: no homogeneïtzat
 da: uhomogeniseret
@@ -353,8 +359,9 @@ de: feinst zerkleinert
 de: überwiegend feinst zerkleinert
 
 < en: cut
-en: sliced
+en: sliced, in slices
 ca: llàmina, llaminat, rodanxes, rodanxes de, en rodanxes
+da: skivet, skivede, i skiver
 de: gehobelt, gehobelte, in scheiben geschnitten
 es: lamina, laminada, laminado, laminadas, laminados, rodajas
 fr: tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
@@ -521,8 +528,7 @@ uk: гранульований, гранульована, гранульован
 # fi:parse:$rae
 # sv:parse:$granulat
 
-#description:en: To reduce to smaller pieces by crushing with lateral motion.
-en: ground
+en: ground, milled
 bg: смляно, смлян, смляна, смляни, мляно
 ca: mòlt, mòlts, mòltes
 cs: mleté, mletá, mletý
@@ -542,10 +548,11 @@ ru: дробленое
 sl: mleti
 sv: malen, mald, malet, malt, malna, malda
 uk: мелений, мелена, мелене, мелені, дроблений, дроблена, дроблене, дроблені
+description:en: To reduce to smaller pieces by crushing with lateral motion.
+wikidata:en: Q26882416
 # nl:parse:gemalen_$
 # en:wiktionary:grind
 
-# <en:ground
 < en: ground
 en: finely ground
 cs: jemně mleté, jemně mletá, jemně mletý
@@ -555,7 +562,6 @@ hu: finomra őrölt
 pl: drobno mielona, drobno mielone, drobno mielony
 sv: finmalen, finmald, finmalet, finmalt, finmalna, finmalda
 
-# <en:ground
 < en: ground
 en: coarsely ground
 de: grob gemahlen, grob gemahlene, grob gemahlener, grob gemahlenes
@@ -563,9 +569,13 @@ hr: grublje mljeveno, grubo mljeveni
 hu: durvára őrölt
 sv: grovmalen, grovmald, grovmalet, grovmalt, grovmalna, grovmalda
 
-# <en:ground
+< en: ground
+en: freshly ground
 de: frischgemahlen, frischgemahlene, frischgemahlener, frischgemahlenes
 hu: frissen őrölt
+
+< en: ground
+en: partially milled
 
 en: mashed
 da: most
@@ -1209,7 +1219,7 @@ sv: med borttagen grodd
 en: liquid
 ca: líquid
 da: flydende
-de: flüssiger
+de: flüssiger, flüssige
 es: líquido, fluída
 fi: nestemäinen
 fr: liquide
@@ -1347,6 +1357,10 @@ uk: з концентрату
 zh: 浓缩还原
 description:en: Water has been added to concentrate
 
+en: not from concentrate
+da: ikke fra koncentrat, ikke fra koncentrater
+sv: inte från koncentrat
+
 en: from comminute
 description:en: A comminute is a puree that is derived from whole citrus fruits.
 
@@ -1354,7 +1368,7 @@ description:en: A comminute is a puree that is derived from whole citrus fruits.
 # anhydrous: No water, dehydrated: Water removed, dried: Less water.
 en: dried, dry
 ar: مجف
-bg: изсушен, изсушено, изсушена, изсушени, сушен, сушено, сушена, сушени, сухо
+bg: изсушен, изсушено, изсушена, изсушени, сушен, сушено, сушена, сушени, сухо, суха
 ca: dessecat, dessecade, dessecades, dessecats
 co: secchi
 cs: sušené, sušená, sušenná, sušený, suseny
@@ -1710,6 +1724,7 @@ hr: prešano, ekspeler, pogača
 hu: préselt, sajtolt
 #fr:false:à pâte pressée, fromage pressé
 it: spremuto, spremuta, spremuti, spremute, spremuto di, spremuta di, spremuto d', spremuta d'
+nl: geperst, geperste
 pl: tłoczony, tłoczona, tłoczone, prasowane, prasowany, prasowana, wyciskany, wyciskane, wyciskana, wyciskanego
 pt: espremido, espremida, espremidos, espremidas
 sv: pressad, pressat, pressade
@@ -2059,18 +2074,18 @@ uk: пастеризований, пастеризована, пастеризо
 
 #pasteurisation of 15s under 72–74 °C
 < en: pasteurised
-en: low-pasteurized
+en: low-pasteurized, low-pasteurised
 sv: lågpastöriserad, lågpastöriserat, lågpastöriserade
 
 #pasteurisation of 5s under 80 °C
 < en: pasteurised
-en: high-pasteurized
+en: high-pasteurized, high-pasteurised
 sv: högpastöriserad, högpastöriserat, högpastöriserade
 
 < en: heat treated
 < en: pasteurised
 < en: sterilized
-en: UHT, UHT pasteurised, UHT sterilised, ultra heat treated
+en: UHT, UHT pasteurised, UHT pasteurized, UHT sterilised, UHT sterilized, ultra heat treated
 xx: UHT
 bg: UHT, UHT пастьоризирано, обработена с изключително висока температура
 ca: UHT, esterilitzada UHT
@@ -2184,6 +2199,9 @@ ro: fiert
 sv: kokt, kokta
 uk: відварений, відварена, відварене, відварені, варений, варена, варене, варені
 zh: 熟制
+ecobalyse_transformation:en: a2836bb8-7f45-5cfa-bb00-8b38046291cf
+ecobalyse_transformation_name:en: Cooking, industrial, 1kg of cooked product {FR} U
+ecobalyse_transformation_name:fr: Cuisson
 
 en: distilled
 bg: дестилация, дестилиран
@@ -2202,6 +2220,7 @@ wikidata:en: Q101017
 
 #< en:cooked
 en: steamed
+de: Gedämpfter
 it: al vapore
 pl: parowany, parowana, parowane
 sv: ångpreparerad, ångpreparerat, ångpreparerade
@@ -2348,7 +2367,7 @@ fr: toasté, toastée, toastés, toastées
 hu: pirított
 it: tostato, tostata, tostati, tostate
 nb: ristet, ristede
-nl: geroosterd, geroosterde, getoaste
+nl: geroosterd, geroosterde, getoaste, gebrand
 pl: prażony, prażone, prażona, prażonego, prażonej, prażonych
 pt: tostado, tostada, tostados, tostadas, torrado, torrada, torrados, torradas
 sl: praženi
@@ -2356,7 +2375,7 @@ zh: 焙烤
 comment:en: In the actual translations on products, there is not always a difference between toasted and roasted
 description:en: To lightly cook by browning via direct exposure to a fire or other heat source.
 
-en: untoasted
+en: untoasted, unroasted
 de: ungeröstet, ungeröstete, ungerösteter, ungeröstetes
 es: sin tostar
 fr: non grillé, non grillée, non grillés, non grillées
@@ -2653,7 +2672,7 @@ ro: semi confiat, semi confiata, semi confiați, semi confiate
 sv: halv kanderad, halv kanderade, halv kanderade, halv kanderade
 
 #en:crystallized
-en: crystallized
+en: crystallized, crystallised
 bg: кристализиран, кристализирана, кристализирани, кристализирани
 ca: cristal·litzat, cristal·litzada, cristal·litzats, cristal·litzades
 es: cristalizado, cristalizada, cristalizados, cristalizadas
@@ -2710,14 +2729,14 @@ de: ungeschwefelt, ungeschwefelte
 pt: sem sulfitos
 
 # for milk, adjustment of fat content to a desired value either by adding fat-rich product or by fat-poor product
-en: standardized
+en: standardized, standardised
 bg: стандартизирано
 fr: standardisé, standardisée, standardisés, standardisées
 hr: standardizirano
 uk: стандартизований, стандартизована, стандартизоване, стандартизовані
 
 < en: standardized
-en: normalized
+en: normalized, normalised
 uk: нормалізований, нормалізоване, нормалізована, нормалізовані
 
 en: seasoned, with seasoning, with liquid seasoning
@@ -2794,7 +2813,7 @@ pl: niesłodowana, niesłodowany, niesłodowane
 pt: não maltado, não maltada, sem malte
 sv: icke mältad, icke mältat, inte mältade
 
-en: deodorized
+en: deodorized, deodorised
 ca: desodoritzat
 de: desodoriert, desodorierte, desodoriertes, desodorierter, desodorierten, desodoriertem
 es: desodorizado, desodorizada, desodorizados, desodorizadas
@@ -2806,7 +2825,7 @@ pt: desodorizado, desodorizada, desodorizados, desodorizadas
 ro: deodorizat
 uk: деодорований, деодорована, деодороване, деодоровані
 
-en: non-deodorized
+en: non-deodorized, non-deodorised
 de: nicht desodoriert, nicht desodorierte, nicht desodorierten, nicht desodoriertes
 es: no desodorizado, no desodorizada, no desodorizados, no desodorizadas
 fr: non-désodorisée
@@ -2821,7 +2840,7 @@ en: rbst-free
 
 #en:deionized
 
-en: nixtamalized
+en: nixtamalized, nixtamalised
 de: nixtamalisiert, nixtamalisierte, nixtamalisiertes, nixtamalisierten
 es: nixtamalizado, nixtamalizada
 fr: nixtamalisé, nixtamalisée, nixtamalisés, nixtamalisées
@@ -2883,7 +2902,7 @@ pt: refinado fisicamente, refinada fisicamente, refinados fisicamente, refinadas
 #en:Desugared, partially desugared
 #fr:Dessucré, partiellement dessucré
 #hr:bez šećera, sa smanjenom količinom šećera
-en: Homogenized
+en: Homogenized, homogenised
 bg: Хомогенизирано, хомогенизиран, хомогенизирана
 ca: homogeneïtzat
 de: homogenisiert, homogenisierte, homogenisierter, homogenisiertes, homogenisierten, homogenisiertem
@@ -3331,7 +3350,7 @@ da: ikke-hydrogeneret
 de: unhydriertes, ungehärtet, ungehärtetes
 es: no hidrogenado, no hidrogenada
 fi: kovettamaton, hydrogenoimaton
-fr: non hydrogénée
+fr: non hydrogénée, non hydrogénées
 hr: nehidrogenirani, nehidrogenirana, nehidrogenizirana, nehidrogenizirano
 hu: nem hidrogénezett
 it: non idrogenato, non idrogenati
@@ -3341,7 +3360,8 @@ pt: nâo hidrogenada
 ro: nehidrogenate, nehidrogenat
 sv: ohärdad, ohärdat, ohärdade, icke-hydrogenerad, icke-hydrogenerat, icke-hydrogenerade
 
-en: hydrolysed, hydrolized
+# note: both hydrolised and hydrolysed are used in British English
+en: hydrolysed, hydrolized, hydrolised
 de: hydrolisiert, hydrolisierte, hydrolisierten, hydrolisiertem, hydrolisierter, hydrolisiertes
 fr: hydrolisé, hydrolisée, hydrolisés, hydrolisées
 hr: hidrolizat, hidrolizirane, hidrolizirano, hidrolizirani
@@ -3358,8 +3378,7 @@ description:en: Breakdown into simpler chemical constituents by appropriate trea
 nova:en: 4
 wikidata:en: Q103135
 
-#description:en: Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
-en: hydrogenated, hardened, partially hardened
+en: hydrogenated, hardened
 bg: хидрогениран, хидрогенирано
 ca: hidrogenat, hidrogenada
 da: hærdet
@@ -3374,9 +3393,10 @@ nl: Gehydrogeneerde
 pl: uwodorniony, uwodorniona, uwodornione, utwardzony, utwardzone, utwardzona
 sv: härdad, härdat, härdade
 uk: гідрогенований, гідрогенована, гідрогеноване, гідрогеновані
+description:en: Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
 nova:en: 4
+wikidata:en: Q214166
 
-#<en:hydrogenated
 < en: hydrogenated
 en: fully hydrogenated
 bg: напълно хидрогениран, напълно хидрогенирано
@@ -3388,14 +3408,13 @@ fi: kokonaan kovetettu
 fr: totalement hydrogénée
 hr: potpuno hidrogenirana, potpuno hidrogenirane, potpuno hidrogenirano, potpuno hidrogenizirana
 nb: fullherdet
-nl: geheel gehard, geheel geharde
+nl: geheel gehard, geheel geharde, volledig gehydrogeneerde
 pl: całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione, całkowicie utwardzony, całkowicie utwardzona, całkowicie utwardzone
 sv: fullhärdad, fullhärdat, fullhärdade
 nova:en: 4
 
-#<en:hydrogenated
 < en: hydrogenated
-en: partially hydrogenated
+en: partially hydrogenated, partially hardened
 bg: частично хидрогениран, частично хидрогенирано
 ca: parcialment hidrogenat, parcialment hidrogenada
 da: delvist hydrogeniseret
@@ -3406,7 +3425,7 @@ fr: partiellement hydrogénée
 hr: djelomično hidrogenirane
 hu: részben hidrogénezett
 it: parzialmente idrogenato, parzialmente idrogenati
-nl: gedeeltelijk gehydrogeneerd, gedeeltelijk gehydrogeneerde
+nl: gedeeltelijk gehydrogeneerd, gedeeltelijk gehydrogeneerde, gedeeltelijk geharde
 pl: częściowo uwodorniony, częściowo uwodorniona, częściowo uwodornione, częściowo utwardzony, częściowo utwardzona, częściowo utwardzone
 pt: parcialmente hidrogenada
 ro: parțial hidrogenate
@@ -3520,11 +3539,16 @@ en: purified
 uk: очищений, очищена, очищене, очищені
 
 en: processed
+sv: bearbetad, bearbetat, bearbetade
 uk: оброблений, оброблена, оброблене, оброблені
 
 en: preserved
 
 < en: preserved
-en: canned
+en: canned, appertised, appertized
+fr: conserve, en conserve, boite, boîte, boite de conserve, boîte de conserve, en boite, en boîte, en boite de conserve, en boîte de conserve, appertisé, appertisée, appertisés, appertisées
 uk: консервований, консервована, консервоване, консервовані
+ecobalyse_transformation:en: a83c94af-6e31-5599-8022-7ae795862a99
+ecobalyse_transformation_name:en: Canning fruits or vegetables, industrial, 1kg of canned product {FR} U
+ecobalyse_transformation_name:fr: Mise en conserve
 

@@ -415,7 +415,7 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Dette produktet er ikke i <<site_name>>-databasen ennå. Kunne du vennligst tatt noen bilder av det, strekkoden, ingredienslisten og næringslisten for å legge den til <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+msgstr "<p>Dette produktet er ikke i <<site_name>>-databasen ennå. Kunne du vennligst tatt noen bilder av det, strekkoden, ingredienslisten og næringslisten for å legge den til <a href=\"https://world-nn.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Takk på forskudd!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -692,7 +692,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world-no.openfoodfacts.org/doner-til-open-food-facts-nn"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -976,8 +976,8 @@ msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "https://support.openfoodfacts.org/help/en-gb"
-msgstr ""
+msgid "/faq"
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -2758,7 +2758,7 @@ msgstr ""
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
 msgstr ""
 
 msgctxt "website"

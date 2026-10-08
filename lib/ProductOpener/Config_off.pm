@@ -1274,6 +1274,7 @@ $options{nova_groups_tags} = {
 	# group 3 additives
 
 	"additives/en:e202" => 3,    # potassium nitrite
+	"additives/en:e220" => 3,    # sulphur dioxide
 	"additives/en:e249" => 3,    # potassium nitrite
 	"additives/en:e250" => 3,    # sodium nitrite
 	"additives/en:e251" => 3,    # potassium nitrate

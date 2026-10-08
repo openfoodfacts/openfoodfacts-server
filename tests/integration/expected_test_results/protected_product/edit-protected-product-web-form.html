@@ -69,6 +69,15 @@
 </head>
 <body class="other_page">
 
+	
+	<!-- Same slots and values as the app's first three Matomo dimensions: language, country, logged in -->
+	<script>
+		var _paq = window._paq = window._paq || [];
+		_paq.push(['setCustomDimension', 1, 'fr']);
+		_paq.push(['setCustomDimension', 2, 'be']);
+		_paq.push(['setCustomDimension', 3, 'Y']);
+	</script>
+	
 	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -367,64 +376,9 @@
 
 
 <!-- Donation banner TOP start -->
-<section id="donation-banner-top" class="donation-banner row">
-
-  <div class="donation-banner__left-aside">
-    <div class="donation-banner__hook-section">
-      <p>Il nous manque encore 120 000 € pour terminer 2026 !</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
-  </div>
-  <div>
-    <div class="donation-banner__aside">
-      <div class="donation-banner__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner__main-title">Devenez mécène d'Open Food Facts</h3>
-      </div>
-      <div style="padding:1rem;">
-        <p>Chaque mois, nous accueillons 8 millions de visiteurs, et bien plus via l’API. Votre soutien est essentiel pour :</p>
-        <ul>
-          <li>
-            garder Open Food Facts ouvert et accessible à tous,
-            <ul>
-              <li>soutenir l’infrastructure, le site web, l’application mobile et l’API avec une petite équipe permanente</li>
-            </ul>
-          </li>
-          <li>
-            <p>rester indépendants de l’industrie agroalimentaire,</p>
-          </li>
-          <li>
-            <p>soutenir la communauté</p>
-          </li>
-          <li>
-            <p>soutenir la science</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="donation-banner__actions-section">
-      <div class="donation-banner__actions-section__financial">
-        <p>
-          
-          Si chaque visiteur ce mois-ci cliquait sur Faire un don et donnait seulement 1 €, nous aurions plus de 8 fois notre budget annuel !
-          
-        </p>
-      </div>
-      <div class="donation-banner__actions-section__donate-button">
-        <a href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
-          <button>Faire un don</button>
-        </a>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="donation-banner__close">
+<section id="donation-banner-top" style="position: relative;">
+  <donation-banner donate-url="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
+  <div class="donation-banner__close" style="position: absolute; top: 0.3rem; right: 0.3rem; z-index: 2;">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
 </section>
@@ -463,9 +417,11 @@
   if (getBannerCookie('donation_march_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
-    bannerID.style.display = 'flex';
+    bannerID.style.display = 'block';
   }
 </script>
+
+
 
 
 							
@@ -1025,57 +981,7 @@
 
 				
 
-<section class="donation-banner-footer row">
-  <div class="donation-banner-footer__left-aside">
-    <div class="donation-banner-footer__hook-section">
-      <p>Il nous manque encore 120 000 € pour terminer 2026 !</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="The Open Food Facts community during the Open Food Facts Days" />
-  </div>
-  <div>
-    <div>
-      <div class="donation-banner-footer__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner-footer__main-title">Devenez mécène d'Open Food Facts</h3>
-      </div>
-      <p>Chaque mois, nous accueillons 8 millions de visiteurs, et bien plus via l’API. Votre soutien est essentiel pour :</p>
-      <ul>
-        <li>
-          garder Open Food Facts ouvert et accessible à tous,
-          <ul>
-            <li>soutenir l’infrastructure, le site web, l’application mobile et l’API avec une petite équipe permanente</li>
-          </ul>
-        </li>
-        <li>
-          <p>rester indépendants de l’industrie agroalimentaire,</p>
-        </li>
-        <li>
-          <p>soutenir la communauté</p>
-        </li>
-        <li>
-          <p>soutenir la science</p>
-        </li>
-      </ul>
-    </div>
-    <div class="donation-banner-footer__actions-section">
-      <div class="donation-banner-footer__actions-section__financial">
-        <p>
-          Si chaque visiteur ce mois-ci cliquait sur Faire un don et donnait seulement 1 €, nous aurions plus de 8 fois notre budget annuel !
-        </p>
-      </div>
-      <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
-          <button>Faire un don</button>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<donation-banner donate-url="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
 
 
 			
@@ -1088,8 +994,8 @@
 						<p>Rejoignez-nous sur <a href="//slack.openfoodfacts.org">Slack</a></p>
 						<p><a href="//forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">Suivez-nous : 
-							<a href="//x.com/OpenFoodFactsfr"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="x"></a>
-							<a href="//www.facebook.com/OpenFoodFacts.fr"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
+							<a href="//x.com/OpenFoodFactsfr"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="X formerly Twitter"></a>
+							<a href="//www.facebook.com/OpenFoodFacts.fr"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook icon"></a>
 							<a href="//www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
 							
 						</p>
@@ -1100,13 +1006,17 @@
 						<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
 							<li><a class="button small white-button radius" href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
 							<li><a class="button small white-button radius" href="/open-food-facts-vision-mission-values-and-programs">Vision, mission, valeurs et programmes</a></li>
-							<li><a class="button small white-button radius" href="//support.openfoodfacts.org/help/fr-fr">Questions fréquentes</a></li>
+							<li><a class="button small white-button radius" href="/faq">Questions fréquentes</a></li>
 							<li><a class="button small white-button radius" href="//blog.openfoodfacts.org/fr/">Le blog d'Open Food Facts</a></li>
 							<li><a class="button small white-button radius" href="/presse">Presse</a></li>
 							<li><a class="button small white-button radius" href="//fr.wiki.openfoodfacts.org">Open Food Facts wiki (fr)</a></li>
 							<li><a class="button small white-button radius" href="/cgi/top_translators.pl">Traducteurs</a></li>
 							<li><a class="button small white-button radius" href="/partenaires">Partenaires</a></li>
+              <li><a class="button small white-button radius" href="/data">Données, API et SDK</a></li>
 							<li><a class="button small white-button radius" href="//world-fr.openbeautyfacts.org">Open Beauty Facts - Cosmétiques</a></li>
+              <li><a class="button small white-button radius" href="//world.openproductsfacts.org">Open Products Facts</a></li>
+              <li><a class="button small white-button radius" href="//world.openpetfoodfacts.org">Open Pet Food Facts</a></li>
+              <li><a class="button small white-button radius" href="//prices.openfoodfacts.org/">Open Prices</a></li>
 							<li><a class="button small white-button radius" href="//be-fr.pro.openfoodfacts.localhost/">Open Food Facts pour les producteurs</a></li>
 						</ul>
 					</div>
@@ -1129,8 +1039,7 @@
 									<li><a href="/mentions-legales">Mentions légales</a></li>
 									<li><a href="/privacy">Confidentialité</a></li>
 									<li><a href="/conditions-d-utilisation">Conditions d'utilisation</a></li>
-									<li><a href="/data">Données, API et SDK</a></li>
-									<li><a href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Faire un don à l'association Open Food Facts</a></li>
+									<li><a href="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Faire un don à l'association Open Food Facts</a></li>
 									<li><a href="//fr.pro.openfoodfacts.org/">Producteurs</a></li>
 									<li><a href="//link.openfoodfacts.org/newsletter-fr">S'abonner à notre newsletter</a></li>
 								</ul>
@@ -1158,11 +1067,8 @@
 <script>
 $(function() {
 
-
 });
 </script>
-
-
 
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
