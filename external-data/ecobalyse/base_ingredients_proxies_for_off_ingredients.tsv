@@ -1,7 +1,12 @@
-# Proxy mappings: source_baseIngredient -> target OFF tagid
+# Proxy mappings: target OFF tagid -> source_baseIngredient
 # When a baseIngredient has no direct tagid, but a related baseIngredient's ecobalyse
 # data can be used as a proxy. All properties for proxy targets start with
 # ecobalyse_proxy_ prefix (global properties also use proxy prefix).
 #
-# Format: source_baseIngredient<TAB>target_tagid
-refined-palm-oil	en:palm-oil
+# Format: target_tagid<TAB>source_baseIngredient
+en:chicken	chicken-breast
+en:corn-syrup	glucose-syrup
+en:cocoa-paste	cocoa-bean
+en:cream	fresh-cream-cheese
+en:palm-oil	refined-palm-oil
+en:wheat	soft-wheat

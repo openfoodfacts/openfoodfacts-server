@@ -72,7 +72,7 @@ for my $file ($mapping_file, $overrides_file) {
 }
 say STDERR "  Loaded " . scalar(keys %base_to_tagid) . " baseIngredient -> tagid mappings";
 
-# Load proxies: source_baseIngredient -> target_tagid
+# Load proxies: target_tagid -> source_baseIngredient
 # These are used to emit ecobalyse_proxy_ properties on the target tagid
 # by copying data from the source baseIngredient.
 my %base_to_proxy_tagid;
@@ -82,7 +82,7 @@ if (-f $proxies_file) {
 	while (my $line = <$pfh>) {
 		chomp $line;
 		next if $line =~ /^#/ || $line =~ /^\s*$/;
-		my ($source_base, $target_tagid) = split /\t/, $line, 2;
+		my ($target_tagid, $source_base) = split /\t/, $line, 2;
 		$base_to_proxy_tagid{$source_base} = $target_tagid if defined $source_base && defined $target_tagid;
 	}
 	close $pfh;

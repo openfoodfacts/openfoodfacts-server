@@ -40,6 +40,27 @@ en:alfalfa	ecobalyse_origins_en_france_scenario:en	reference
 en:alfalfa	ecobalyse_origins_en_france_name:fr	Luzerne FR
 en:alfalfa	ecobalyse_origins_en_france_alias:en	alfalfa-fr
 en:alfalfa	ecobalyse_origins_en_france_default_origin:en	FR
+en:almond	ecobalyse_density_g_per_ml:en	1
+en:almond	ecobalyse_crop_group:en	FRUITS A COQUES
+en:almond	ecobalyse_raw_to_cooked_ratio:en	1
+en:almond	ecobalyse_inedible_part:en	0
+en:almond	ecobalyse_transport_cooling:en	none
+en:almond	ecobalyse_category:en	other_food_items
+en:almond	ecobalyse_id:en	f470bfc2-9272-4897-8083-42787e3df37d
+en:almond	ecobalyse_scenario:en	import
+en:almond	ecobalyse_name:fr	Amande, décortiquée, avec peau Origine Inconnue
+en:almond	ecobalyse_alias:en	almond-shelled-with-skin-default
+en:almond	ecobalyse_default_origin:en	
+en:almond	ecobalyse_labels_en_organic_id:en	64e2c40d-0565-4247-ac68-e189d6a88204
+en:almond	ecobalyse_labels_en_organic_scenario:en	organic
+en:almond	ecobalyse_labels_en_organic_name:fr	Amande, décortiquée, avec peau BIO
+en:almond	ecobalyse_labels_en_organic_alias:en	almond-shelled-with-skin-default-organic
+en:almond	ecobalyse_labels_en_organic_default_origin:en	
+en:almond	ecobalyse_origins_en_france_id:en	69a756eb-5360-434a-9c2c-b6650db97399
+en:almond	ecobalyse_origins_en_france_scenario:en	reference
+en:almond	ecobalyse_origins_en_france_name:fr	Amande, décortiquée, avec peau FR
+en:almond	ecobalyse_origins_en_france_alias:en	almond-shelled-with-skin-fr
+en:almond	ecobalyse_origins_en_france_default_origin:en	FR
 en:apple	ecobalyse_density_g_per_ml:en	1
 en:apple	ecobalyse_crop_group:en	VERGERS
 en:apple	ecobalyse_raw_to_cooked_ratio:en	1
@@ -5274,6 +5295,68 @@ en:yogurt	ecobalyse_origins_en_france_scenario:en	reference
 en:yogurt	ecobalyse_origins_en_france_name:fr	Fromage blanc FR (2025)
 en:yogurt	ecobalyse_origins_en_france_alias:en	yogurt-2025
 en:yogurt	ecobalyse_origins_en_france_default_origin:en	FR
+en:chicken	ecobalyse_proxy_density_g_per_ml:en	1
+en:chicken	ecobalyse_proxy_raw_to_cooked_ratio:en	0.755
+en:chicken	ecobalyse_proxy_inedible_part:en	0
+en:chicken	ecobalyse_proxy_transport_cooling:en	always
+en:chicken	ecobalyse_proxy_category:en	poultry
+en:chicken	ecobalyse_proxy_id:en	8fb5024c-ceec-4201-b069-ea253c537ad6
+en:chicken	ecobalyse_proxy_scenario:en	import
+en:chicken	ecobalyse_proxy_name:fr	Blanc de poulet cru (alim. ani. 100%BR) par défaut
+en:chicken	ecobalyse_proxy_alias:en	chicken-breast-br-max
+en:chicken	ecobalyse_proxy_default_origin:en	
+en:chicken	ecobalyse_proxy_labels_en_organic_origins_en_france_id:en	b19b0dc0-3478-46a0-b8a1-3225ea939ff1
+en:chicken	ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en	organic
+en:chicken	ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr	Blanc de poulet cru Bio
+en:chicken	ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en	chicken-breast-organic
+en:chicken	ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en	FR
+en:chicken	ecobalyse_proxy_origins_en_france_id:en	a360871c-fc35-4cb3-af2c-5eeb8bd6f984
+en:chicken	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:chicken	ecobalyse_proxy_origins_en_france_name:fr	Blanc de poulet cru FR
+en:chicken	ecobalyse_proxy_origins_en_france_alias:en	chicken-breast
+en:chicken	ecobalyse_proxy_origins_en_france_default_origin:en	FR
+en:cocoa-paste	ecobalyse_proxy_density_g_per_ml:en	0.9
+en:cocoa-paste	ecobalyse_proxy_crop_group:en	ARBORICULTURE
+en:cocoa-paste	ecobalyse_proxy_raw_to_cooked_ratio:en	0.856
+en:cocoa-paste	ecobalyse_proxy_inedible_part:en	0.2
+en:cocoa-paste	ecobalyse_proxy_transport_cooling:en	always
+en:cocoa-paste	ecobalyse_proxy_category:en	fruits_and_vegetables
+en:cocoa-paste	ecobalyse_proxy_id:en	35d0ffc8-3043-5012-86f3-4401ab37c5cf
+en:cocoa-paste	ecobalyse_proxy_scenario:en	import
+en:cocoa-paste	ecobalyse_proxy_name:fr	Fève de cacao HORS UE
+en:cocoa-paste	ecobalyse_proxy_alias:en	cocoa-bean-non-eu
+en:cocoa-paste	ecobalyse_proxy_default_origin:en	
+en:cream	ecobalyse_proxy_density_g_per_ml:en	1
+en:cream	ecobalyse_proxy_raw_to_cooked_ratio:en	1
+en:cream	ecobalyse_proxy_inedible_part:en	0
+en:cream	ecobalyse_proxy_transport_cooling:en	none
+en:cream	ecobalyse_proxy_category:en	other_food_items
+en:cream	ecobalyse_proxy_id:en	2cced940-3abf-439d-b2f1-e6241ffb31fd
+en:cream	ecobalyse_proxy_scenario:en	reference
+en:cream	ecobalyse_proxy_name:fr	Crème fraiche FR (2025)
+en:cream	ecobalyse_proxy_alias:en	fresh-cream-cheese-2025
+en:cream	ecobalyse_proxy_default_origin:en	FR
+en:cream	ecobalyse_proxy_origins_en_france_id:en	2cced940-3abf-439d-b2f1-e6241ffb31fd
+en:cream	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:cream	ecobalyse_proxy_origins_en_france_name:fr	Crème fraiche FR (2025)
+en:cream	ecobalyse_proxy_origins_en_france_alias:en	fresh-cream-cheese-2025
+en:cream	ecobalyse_proxy_origins_en_france_default_origin:en	FR
+en:corn-syrup	ecobalyse_proxy_density_g_per_ml:en	1
+en:corn-syrup	ecobalyse_proxy_crop_group:en	DIVERS
+en:corn-syrup	ecobalyse_proxy_raw_to_cooked_ratio:en	1
+en:corn-syrup	ecobalyse_proxy_inedible_part:en	0
+en:corn-syrup	ecobalyse_proxy_transport_cooling:en	none
+en:corn-syrup	ecobalyse_proxy_category:en	other_food_items
+en:corn-syrup	ecobalyse_proxy_id:en	06dffb5c-07ad-48de-9630-632f4c84e02d
+en:corn-syrup	ecobalyse_proxy_scenario:en	import
+en:corn-syrup	ecobalyse_proxy_name:fr	Sirop de glucose FR ou UE ou par défaut (2025)
+en:corn-syrup	ecobalyse_proxy_alias:en	glucose-syrup-2025
+en:corn-syrup	ecobalyse_proxy_default_origin:en	REM
+en:corn-syrup	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	06dffb5c-07ad-48de-9630-632f4c84e02d
+en:corn-syrup	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
+en:corn-syrup	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Sirop de glucose FR ou UE ou par défaut (2025)
+en:corn-syrup	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	glucose-syrup-2025
+en:corn-syrup	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
 en:palm-oil	ecobalyse_proxy_density_g_per_ml:en	1
 en:palm-oil	ecobalyse_proxy_crop_group:en	AUTRES CULTURES INDUSTRIELLES
 en:palm-oil	ecobalyse_proxy_raw_to_cooked_ratio:en	1
@@ -5290,3 +5373,29 @@ en:palm-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
 en:palm-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Huile de palme (raffinée) UE (2025)
 en:palm-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	refined-palm-oil-2025
 en:palm-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
+en:wheat	ecobalyse_proxy_density_g_per_ml:en	0.77
+en:wheat	ecobalyse_proxy_crop_group:en	BLE TENDRE
+en:wheat	ecobalyse_proxy_raw_to_cooked_ratio:en	2.259
+en:wheat	ecobalyse_proxy_inedible_part:en	0
+en:wheat	ecobalyse_proxy_transport_cooling:en	none
+en:wheat	ecobalyse_proxy_category:en	cereals
+en:wheat	ecobalyse_proxy_id:en	1402fd8a-d473-51fd-9d07-b4c0eb798dcc
+en:wheat	ecobalyse_proxy_scenario:en	import
+en:wheat	ecobalyse_proxy_name:fr	Blé tendre HORS UE
+en:wheat	ecobalyse_proxy_alias:en	soft-wheat-non-eu
+en:wheat	ecobalyse_proxy_default_origin:en	
+en:wheat	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	c56ff7bd-cb19-5798-8611-6ce072b541ba
+en:wheat	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
+en:wheat	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Blé tendre UE
+en:wheat	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	soft-wheat-eu
+en:wheat	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
+en:wheat	ecobalyse_proxy_labels_en_organic_origins_en_france_id:en	3436324c-7835-4e9b-86c6-e9ca68a5e2af
+en:wheat	ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en	organic
+en:wheat	ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr	Farine de blé tendre, froment ou millet Bio
+en:wheat	ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en	soft-wheat-flour-fr-organic
+en:wheat	ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en	FR
+en:wheat	ecobalyse_proxy_origins_en_france_id:en	38788025-a65e-4edf-a92f-aab0b89b0d61
+en:wheat	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:wheat	ecobalyse_proxy_origins_en_france_name:fr	Blé tendre FR
+en:wheat	ecobalyse_proxy_origins_en_france_alias:en	soft-wheat-fr
+en:wheat	ecobalyse_proxy_origins_en_france_default_origin:en	FR
