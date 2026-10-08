@@ -4683,13 +4683,25 @@ sub canonicalize_allergens_taxonomy_tag($ingredients_lc, $ingredient_or_allergen
 
 sub add_user_translation ($tag_lc, $tagtype, $user, $from, $to) {
 
+	# The tagtype and the language code select the file we append to, and they come from the
+	# request in cgi/translate_taxonomy.pl: only accept a known taxonomy and a language code.
+	# The character check also rejects '/', '\', '..' and NUL, which remove_tags_and_quote()
+	# does not remove, and which would let a request direct the write to another directory.
+	if (($tagtype !~ /^[a-z0-9_]+$/) or ($tag_lc !~ /^[a-z]{2,3}$/) or (not defined $taxonomy_fields{$tagtype})) {
+		$log->warn("add_user_translation - refusing an unknown tagtype or language code",
+			{tagtype => $tagtype, tag_lc => $tag_lc})
+			if $log->is_warn();
+		return 0;
+	}
+
 	ensure_dir_created_or_die($BASE_DIRS{USERS_TRANSLATIONS});
 
-	open(my $LOG, ">>:encoding(UTF-8)", "$BASE_DIRS{USERS_TRANSLATIONS}/$tagtype.$tag_lc.txt");
+	open(my $LOG, ">>:encoding(UTF-8)", "$BASE_DIRS{USERS_TRANSLATIONS}/$tagtype.$tag_lc.txt")
+		or die("Cannot append to $BASE_DIRS{USERS_TRANSLATIONS}/$tagtype.$tag_lc.txt : $!\n");
 	print $LOG join("\t", (time(), $user, $from, $to)) . "\n";
 	close $LOG;
 
-	return;
+	return 1;
 }
 
 sub load_users_translations_for_lc ($users_translations_ref, $tagtype, $tag_lc) {

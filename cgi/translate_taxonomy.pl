@@ -46,9 +46,18 @@ my $to = remove_tags_and_quote(decode utf8 => single_param('to'));
 
 my $status;
 
-if ((defined $tagtype) and (defined $from) and (defined $to) and ($to ne "")) {
-	$status = "ok";
-	add_user_translation($lc, $tagtype, $User_id, $from, $to);
+if (not defined $User_id) {
+	# Adding a translation writes to the translation files: only let a logged in user do it
+	$status = "not ok - authentication required";
+}
+elsif ((defined $tagtype) and (defined $from) and (defined $to) and ($tagtype ne "") and ($to ne "")) {
+	if (add_user_translation($lc, $tagtype, $User_id, $from, $to)) {
+		$status = "ok";
+	}
+	else {
+		# The tagtype is not a known taxonomy: add_user_translation() refused to write the file
+		$status = "not ok - unknown tagtype";
+	}
 }
 else {
 	$status = "not ok - missing tagtype, from or to parameter";
