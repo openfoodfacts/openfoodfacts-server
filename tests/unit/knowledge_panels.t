@@ -120,6 +120,17 @@ my @tests = (
 		target_lc => 'en',
 		target_cc => 'us'
 	},
+	# NOVA markers in ingredients
+	{
+		'id' => 'en-nova-markers',
+		'product' => {
+			lc => "en",
+			ingredients_text =>
+				"Hydrolised wheat flour, emulsifier: soy lecithin, baking powder, rice starch, barley malt extract, colour: caramel, acidifier: citric acid, soy proteins, refined palm oil",
+		},
+		target_lc => 'en',
+		target_cc => 'us'
+	},
 );
 
 foreach my $test_ref (@tests) {

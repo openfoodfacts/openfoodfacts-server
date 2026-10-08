@@ -3171,8 +3171,50 @@ my @tests = (
 			}
 		]
 
-	]
-
+	],
+	# Flageolets (séchés)
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried',
+				'text' => "Flageolets"
+			}
+		],
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés, réhydratés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried,en:rehydrated',
+				'text' => "Flageolets"
+			}
+		],
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés et réhydratés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried,en:rehydrated',
+				'text' => "Flageolets"
+			}
+		],
+	],
 );
 
 foreach my $test_ref (@tests) {
