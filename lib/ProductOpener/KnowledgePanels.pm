@@ -816,7 +816,7 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 	# Round ECS values to 2 decimal places
 	my $round_ecs = sub {
 		my $value = shift;
-		return undef unless defined $value;
+		return unless defined $value;
 		return sprintf("%.2f", $value);
 	};
 
