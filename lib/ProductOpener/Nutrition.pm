@@ -2922,6 +2922,7 @@ sub default_unit_for_nid ($nid) {
 		if ((defined $unit) and (none {$unit eq $_} @gram_units)) {
 			# Normalise the unit (e.g., 'kj'→'kJ')
 			$unit = display_taxonomy_tag('xx', 'units', $unit);
+			$unit =~ s/\bpercent\b/%/;
 			# Set the default unit for this nutrient for future use
 			$default_unit_for_nid_map{$nid} = $unit;
 			return $unit;

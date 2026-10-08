@@ -17,6 +17,7 @@ is(convert_salt_to_sodium(2.5), 1);
 is(convert_sodium_to_salt(1), 2.5);
 
 is(default_unit_for_nid('energy-from-fat'), 'kJ');
+is(default_unit_for_nid('cocoa'), '%');
 
 # Test the generation of the aggregated set from input sets
 
