@@ -283,9 +283,11 @@
 
                 widget.dataset.offTrackingRegistered = '1';
 
-                // amount and page-id change on the visitor's first interaction, not on load
+                // Donorbox sets page-id to page_select_amount while loading; a visitor's first
+                // choice sets amount, a later step moves page-id on
                 var observer = new MutationObserver(function () {
-                  if (!started) {
+                  var page = widget.getAttribute('page-id');
+                  if (!started && (widget.getAttribute('amount') || (page && page !== 'page_select_amount'))) {
                     started = true;
                     observer.disconnect();
                     track('form_started');
