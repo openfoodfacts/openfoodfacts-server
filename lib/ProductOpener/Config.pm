@@ -191,6 +191,12 @@ $ProductOpener::Config::options{other_servers} = {
 
 # Number of requests per minutes for the search API
 $ProductOpener::Config::options{rate_limit_search} = 10;
+# Number of requests per minute for the entry points that are not routed (the API v0/v2 cgi
+# scripts, the producers platform scripts, the OCR scripts, ...). Every request is counted in a
+# rate-limit bucket, and a request without a more specific bucket is counted in the "other" bucket:
+# setting this is what makes those requests blocked rather than only counted.
+# Not set by default: the requests are counted, but not blocked, until an operator sets it.
+$ProductOpener::Config::options{rate_limit_other} = undef;
 # Number of requests per minutes for all facets for anonymous users
 $ProductOpener::Config::options{rate_limit_facet_products_unregistered} = 5;
 # Number of requests per minutes for facets for registered users

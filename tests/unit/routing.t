@@ -5,6 +5,7 @@ use utf8;
 
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 use ProductOpener::Routing qw/analyze_request load_routes/;
+use ProductOpener::RateLimiter qw/account_request_for_rate_limiting move_rate_limit_accounting set_rate_limit_bucket/;
 use ProductOpener::Lang qw/$lc/;
 
 use Test2::V0;
@@ -370,9 +371,9 @@ foreach my $test_ref (@tests) {
 	my $request_ref = {rate_limiter_bucket => "search",};
 
 	# Mock the get_rate_limit_user_requests method called in set_rate_limit_attributes()
-	# Note: even though the original method is in ProductOpener::Redis,
-	# we need to mock the method in ProductOpener::Routing
-	my $redis_module = mock 'ProductOpener::Routing' => (
+	# Note: even though the original method is in ProductOpener::Redis, we need to mock the
+	# method in ProductOpener::RateLimiter, which is where set_rate_limit_attributes lives now
+	my $redis_module = mock 'ProductOpener::RateLimiter' => (
 		override => [
 			get_rate_limit_user_requests => sub {
 				my $bucket = shift;
@@ -383,12 +384,65 @@ foreach my $test_ref (@tests) {
 		]
 	);
 
-	ProductOpener::Routing::set_rate_limit_attributes($request_ref, "1.2.3.4");
+	ProductOpener::RateLimiter::set_rate_limit_attributes($request_ref, "1.2.3.4");
 	is($request_ref->{rate_limiter_blocking}, 1, "IP not in rate limit whitelist");
 
-	ProductOpener::Routing::set_rate_limit_attributes($request_ref, "163.5.3.4");
+	ProductOpener::RateLimiter::set_rate_limit_attributes($request_ref, "163.5.3.4");
 	is($request_ref->{rate_limiter_blocking}, 0, "IP in rate limit whitelist");
 
+}
+
+# Every request must be accounted for in a rate-limit bucket
+
+{
+
+	my @counted_buckets = ();
+	my $module = mock 'ProductOpener::RateLimiter' => (
+		override => [
+			increment_rate_limit_requests => sub {
+				my $ip_address = shift;
+				my $bucket = shift;
+				push @counted_buckets, $bucket;
+				return;
+			}
+		]
+	);
+
+	# Without a bucket, the request is counted in the "other" bucket: the bucket of a route was the
+	# only thing that set it, and only 5 of the 52 cgi/*.pl scripts go through the router
+	my $request_ref = {no_index => 0};
+	account_request_for_rate_limiting($request_ref);
+	is($request_ref->{rate_limiter_bucket}, "other", "a request without a bucket is counted in 'other'");
+	is($request_ref->{rate_limiter_accounted_bucket}, "other", "the request is accounted for");
+	is(scalar @counted_buckets, 1, "the request is counted once");
+
+	# A route that sets a bucket moves the count, so that both counters add up
+	set_rate_limit_bucket($request_ref, "product");
+	is($request_ref->{rate_limiter_bucket}, "product", "the route bucket is set");
+	is($request_ref->{rate_limiter_accounted_bucket}, "product", "the count moved to the new bucket");
+	is(scalar @counted_buckets, 2, "the request is counted again in the new bucket");
+	is($counted_buckets[1], "product", "the second count is for the route bucket");
+
+	# Setting the same bucket again does not count the request twice
+	set_rate_limit_bucket($request_ref, "product");
+	is(scalar @counted_buckets, 2, "the request is not counted twice in the same bucket");
+
+	# move_rate_limit_accounting() only refreshes the limit when the count has already moved
+	move_rate_limit_accounting($request_ref);
+	is(scalar @counted_buckets, 2, "the limit is refreshed without counting the request again");
+
+	# A request that was not accounted for (init_request() was not called) is counted when the
+	# accounting is asked for, in the bucket that was set in the meantime
+	my $not_accounted_ref = {no_index => 0, rate_limiter_bucket => "facet_tags"};
+	move_rate_limit_accounting($not_accounted_ref);
+	is($not_accounted_ref->{rate_limiter_accounted_bucket}, "facet_tags", "the request is accounted for");
+	is(scalar @counted_buckets, 3, "the request is counted once");
+
+	# A no-index page (an empty page returned to known web crawlers) is not counted
+	my $no_index_ref = {no_index => 1, rate_limiter_bucket => "other"};
+	is(account_request_for_rate_limiting($no_index_ref), 0, "a no-index page is not accounted for");
+	is($no_index_ref->{rate_limiter_accounted_bucket}, undef, "a no-index page is not counted");
+	is(scalar @counted_buckets, 3, "a no-index page does not increment a counter");
 }
 
 done_testing();
