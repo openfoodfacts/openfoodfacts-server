@@ -1466,6 +1466,15 @@ puffed orange and caramelized unknown_fruit4.",
 				"vet (plantaardige oorsprong), gelatine (dierlijke oorsprong), natuurlijke aroma's (plantaardig), E120 (dierlijk)",
 		}
 	],
+	# Origin adjectives
+	[
+		'sv-nordisk-rapsolja',
+		# https://se.openfoodfacts.org/product/7311442111401/vegansk-majonn%C3%A4s-kavli
+		{
+			lc => "sv",
+			ingredients_text => "Nordisk rapsolja, vatten, socker",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
