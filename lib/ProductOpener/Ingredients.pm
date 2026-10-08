@@ -128,6 +128,7 @@ use ProductOpener::APIProductServices qw/add_product_data_from_external_service/
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 use ProductOpener::IngredientsStrings qw/:all/;
 use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
+use ProductOpener::Text qw/normalize_unicode_letter_variants/;
 
 use Encode;
 use Clone qw(clone);
@@ -2156,6 +2157,20 @@ Text to analyze
 						}
 					) if $log->is_debug();
 
+					# Check if $between is a processing or an enumeration of processings
+					# e.g. "dried", "dried, rehydrated and fried"
+					my @between_processings
+						= check_if_text_is_a_taxonomy_tags_enumeration($ingredients_lc, "ingredients_processing",
+						$between);
+
+					if (scalar @between_processings > 0) {
+						push @processings, @between_processings;
+						$debug_ingredients and $log->debug("between is a processing enumeration",
+							{between => $between, processings => \@processings})
+							if $log->is_debug();
+						$between = '';
+					}
+
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
 						and ($` !~ /\s*(allergens)\s*/i)
@@ -2337,21 +2352,6 @@ Text to analyze
 											$between = '';
 										}
 									}
-									else {
-
-										# processing method?
-										my $processingid
-											= canonicalize_taxonomy_tag($ingredients_lc, "ingredients_processing",
-											$between);
-										if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
-											push @processings, $processingid;
-											$debug_ingredients and $log->debug("between is a processing",
-												{between => $between, processing => $processingid})
-												if $log->is_debug();
-											$between = '';
-										}
-									}
-
 								}
 							}
 
@@ -2968,6 +2968,7 @@ Text to analyze
 								'^Leivottu tuotantolinjalla'
 								,    # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^vastaa 100 g porkkanaa$',
+								'^Pakattu suojakaasuun$',    # packaged in a protective atmosphere
 								'^Tuotteessa mustikkaa$',
 								'vaihtelevina osuuksina',
 								'^lakritsin osuudesta$',
@@ -3055,6 +3056,7 @@ Text to analyze
 								'^Någon kärna (?:och|eller) del kan finnas kvar$',
 								'motsvarande \d{1,3}\s*% av torrvikten$',
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
+								'^Förpackat i en skyddande atmosfär$',    # packaged in a protective atmosphere
 								'^Mjölkchokladen innehåller minst',
 								'^kan innehälla(?: spår av)?',    # may contain (traces of)
 								'^Mjölken är pastöriserad$',
@@ -3832,7 +3834,7 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 
 =head2 get_missing_ecobalyse_ids ($ingredients_ref)
 
-Assign a ecobalyse_code or a ecobalyse_proxy_code to ingredients and sub ingredients.
+Assign a ecobalyse_id or a ecobalyse_proxy_id to ingredients and sub ingredients.
 
 =head3 Arguments
 
@@ -3855,16 +3857,16 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			push(@ingredients_without_ecobalyse_ids, get_missing_ecobalyse_ids($ingredient_ref->{ingredients}));
 		}
 
-		# Assign a ecobalyse_code or a ecoalyse_proxy_code to the ingredient
-		delete $ingredient_ref->{ecobalyse_code};
-		delete $ingredient_ref->{ecobalyse_proxy_code};
+		# Assign a ecobalyse_id or a ecoalyse_proxy_code to the ingredient
+		delete $ingredient_ref->{ecobalyse_id};
+		delete $ingredient_ref->{ecobalyse_proxy_id};
 
 		# We are now looking for the appropriate ecobalyse id :
 		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)
 		# ecobalyse_origins_european-union_labels_organic (if the product comes from europe, and is organic)
 		# ecobalyse_labels_organic (if the product is organic)
 		# ecobalyse_origins_france (if the product comes from france)
-		# ecobalyse_origins_european-union (if the product comes from the Europe region)
+		# ecobalyse_origins_en_europe_and_maghreb (if the product comes from Europe and Maghreb region)
 		# ecobalyse (else)
 
 		# List of suffixes
@@ -3876,7 +3878,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			and (get_geographical_area($ingredient_ref->{origins}) eq "fr"))
 		{
 			push @suffixes, "_labels_en_organic_origins_en_france";
-			push @suffixes, "_labels_en_organic_origins_en_european_union";
+			push @suffixes, "_labels_en_organic_origins_en_europe_and_maghreb";
 		}
 		# If the ingredient is both organic and European...
 		if (    (defined $ingredient_ref->{labels})
@@ -3884,7 +3886,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			and (defined $ingredient_ref->{origins})
 			and (get_geographical_area($ingredient_ref->{origins}) eq "eu"))
 		{
-			push @suffixes, "_labels_en_organic_origins_en_european_union";
+			push @suffixes, "_labels_en_organic_origins_en_europe_and_maghreb";
 		}
 		# If the ingredient is organic...
 		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
@@ -3893,11 +3895,11 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# If the ingredient is French...
 		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
 			push @suffixes, "_origins_en_france";
-			push @suffixes, "_origins_en_european_union";
+			push @suffixes, "_origins_en_europe_and_maghreb";
 		}
 		# If the ingredient is European...
 		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
-			push @suffixes, "_origins_en_european_union";
+			push @suffixes, "_origins_en_europe_and_maghreb";
 		}
 		push @suffixes, '';
 
@@ -3906,23 +3908,27 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			# Loop through each suffix to retrieve ecobalyse code
 			foreach my $suffix (@suffixes) {
 				# Construct the property name using the prefix and suffix
-				my $property_name = $prefix . $suffix . ":en";
+				my $property_name = $prefix . $suffix . "_id" . ":en";
 
 				# Attempt to retrieve the ecobalyse code for the current property name
-				my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
+				my $ecobalyse_id = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
 
-				if (defined $ecobalyse_code) {
+				if (defined $ecobalyse_id) {
 					# Assign the ecobalyse code if found
-					$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
+					$ingredient_ref->{$prefix . "_id"} = $ecobalyse_id;
+					# Also retrieve the corresponding French display name
+					my $name_property = $prefix . $suffix . "_name:fr";
+					my $ecobalyse_name = get_inherited_property("ingredients", $ingredient_ref->{id}, $name_property);
+					$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
 					last;
 				}
 			}
 			# Exit the loop if a valid ecobalyse code was found
-			last if defined $ingredient_ref->{ecobalyse_code};
+			last if defined $ingredient_ref->{$prefix . "_id"};
 		}
 
 		# If no ecobalyse code was found, add ingredient ID to list of missing codes
-		if (!defined $ingredient_ref->{ecobalyse_code}) {
+		if (not((defined $ingredient_ref->{ecobalyse_id}) or (defined $ingredient_ref->{ecobalyse_proxy_id}))) {
 			push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
 		}
 
@@ -7086,6 +7092,30 @@ INFO
 	return $text;
 }
 
+# Used to remove underscores around allergens, e.g. "_milk_" -> "milk"
+
+sub _replace_underscores_around_allergens ($ingredients_lc, $allergen) {
+
+	my $exists_in_taxonomy = 0;
+	canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergen, \$exists_in_taxonomy);
+
+	if ($exists_in_taxonomy) {
+		return $allergen;
+	}
+
+	return "_" . $allergen . "_";
+}
+
+sub remove_underscores_around_allergens ($ingredients_lc, $text_ref) {
+
+	# We want to remove underscores only when they around an allergen
+	$$text_ref =~ s/___([^_,;]+)___/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+	$$text_ref =~ s/__([^_,;]+)__/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+	$$text_ref =~ s/_([^_,;]+)_/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+
+	return;
+}
+
 =head2 preparse_ingredients_text ($ingredients_lc, $text) - normalize the ingredient list to make parsing easier
 
 This function transform the ingredients list in a more normalized list that is easier to parse.
@@ -7093,6 +7123,7 @@ This function transform the ingredients list in a more normalized list that is e
 It does the following:
 
 - Normalize quote characters
+- Normalize Unicode bold and stylistic-variant characters
 - Fix common misspellings (from misspellings/ingredients_misspellings.txt )
 - Replace abbreviations by their full name
 - Remove extra spaces in compound words width dashes (e.g. céléri - rave -> céléri-rave)
@@ -7180,11 +7211,17 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# turn special chars to spaces
 	$text =~ s/[\000-\037]/ /g;
 
+	# Normalize Unicode bold and stylistic-variant characters to plain ASCII
+	$text = normalize_unicode_letter_variants($text);
+
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
 
 	# Misspelling corrections (applied early so they don't interfere with other normalizations)
 	apply_misspelling_replacements("ingredients", $ingredients_lc, \$text);
+
+	# Remove _ underscores around allergens, e.g. "_milk_" -> "milk"
+	remove_underscores_around_allergens($ingredients_lc, \$text);
 
 	# vegetable oil (coconut & rapeseed)
 	# turn & to and
@@ -9041,6 +9078,60 @@ sub detect_rare_crops($product_ref) {
 	}
 
 	return;
+}
+
+=head2 check_if_text_is_a_taxonomy_tags_enumeration ($target_lc, $taxonomy, $text)
+
+This function checks if a text is an enumeration of tags from a specific taxonomy.
+e.g. ingredients processings, labels, etc. And returns the list of tags found in the text, or an empty list if none were found.
+
+The values need to be separated by commas or semicolons (or the word "and" in the target language),
+and can be preceded or followed by whitespace.
+
+
+=head3 Parameters
+
+=head4 $target_lc
+
+The language code of the text to check.
+
+=head4 $taxonomy
+
+The taxonomy to check against (e.g. ingredients_processing, labels, etc.)
+
+=head4 $text
+
+=head3 Return value
+
+A list of tags found in the text, or an empty list if none were found.
+
+=cut
+
+sub check_if_text_is_a_taxonomy_tags_enumeration($target_lc, $taxonomy, $text) {
+
+	my @tags = ();
+
+	my $and = $and{$target_lc} || " will not match ";
+
+	# Split the text into parts using the separator regexp
+	my @parts = split(/\s*(?:,|;|$and)\s*/, $text);
+
+	foreach my $part (@parts) {
+		if ($part ne '') {
+			my $tagid = canonicalize_taxonomy_tag($target_lc, $taxonomy, $part);
+			if (exists_taxonomy_tag($taxonomy, $tagid)) {
+				push @tags, $tagid;
+			}
+			else {
+				$log->debug("check_if_text_is_a_taxonomy_tags_enumeration - part not found in taxonomy",
+					{part => $part, tagid => $tagid, taxonomy => $taxonomy})
+					if $log->is_debug();
+				return ();    # if any part is not found, return an empty list
+			}
+		}
+	}
+
+	return @tags;
 }
 
 1;
