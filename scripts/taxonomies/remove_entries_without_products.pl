@@ -63,6 +63,9 @@ Usage: remove_entries_without_products.pl [options]
   --ignore-property=prop[:lc] keep the entries that define this taxonomy property
                               (eg. --ignore-property=protected_name_type:en, or
                               --ignore-property=protected_name_type to match any language)
+  --keep-entries-with-children keep the entries that are parents of at least one other
+                              entry (have at least one child), regardless of their product
+                              count
   --output-file=path          write the filtered taxonomy there (default: stdout)
   --report-file=path          write the kept / removed list there (default: stderr)
   --dry-run                   do everything except writing the filtered taxonomy
@@ -132,6 +135,7 @@ sub compute_block($lines_ref, $start_line, $tagtype) {
 		canon_tagid       => undef,
 		canon_tagid_exists => 0,
 		properties        => {},
+		parents           => [],
 	};
 
 	foreach my $line (@$lines_ref) {
@@ -140,9 +144,21 @@ sub compute_block($lines_ref, $start_line, $tagtype) {
 
 		next if ($sanitized_line =~ /^\s*$/);
 		next if ($sanitized_line =~ /^#/);
-		next if ($sanitized_line =~ /^</);
 
-		if ($sanitized_line =~ /^(?:synonyms:)?(\w\w):\s*(.*)$/) {
+		if ($sanitized_line =~ /^<\s+(\w\w):\s*(.+)$/) {
+
+			# a parent declaration line such as < en: teas ; the parent is canonicalized
+			# the same way as in build_tags_taxonomy() in lib/ProductOpener/Tags.pm
+			my ($lc, $parent_line) = ($1, $2);
+			my ($parent_name) = split(/\s*,\s*/, $parent_line);
+			$parent_name = "" if not defined $parent_name;
+			$parent_name =~ s/^\s+//;
+			$parent_name =~ s/\s+$//;
+			if ($parent_name ne "") {
+				push @{$block_ref->{parents}}, canonicalize_taxonomy_tag($lc, $tagtype, $parent_name);
+			}
+		}
+		elsif ($sanitized_line =~ /^(?:synonyms:)?(\w\w):\s*(.*)$/) {
 
 			my ($lc, $entry_line) = ($1, $2);
 
@@ -302,12 +318,14 @@ sub select_blocks($blocks_ref, $products_per_canon_tagid, $parameters_ref) {
 
 	my $min_products = $parameters_ref->{min_products};
 	my $drop_unresolved = $parameters_ref->{drop_unresolved};
-	my %keep_tags = %{$parameters_ref->{keep_tags}};
+	my $keep_tags = $parameters_ref->{keep_tags};
 	my $ignore_properties = $parameters_ref->{ignore_properties};
+	my $parent_tagids = $parameters_ref->{parent_tagids};
 
 	my @kept_blocks = ();
 	my @removed_blocks = ();
-	my %stats = (with_products => 0, kept_unresolved => 0, kept_forced => 0, kept_for_property => 0, no_entry => 0);
+	my %stats = (with_products => 0, kept_unresolved => 0, kept_forced => 0,
+		kept_for_property => 0, kept_for_children => 0, no_entry => 0);
 
 	foreach my $block_ref (@$blocks_ref) {
 
@@ -332,12 +350,16 @@ sub select_blocks($blocks_ref, $products_per_canon_tagid, $parameters_ref) {
 				push @kept_blocks, $block_ref;
 			}
 		}
-		elsif ($keep_tags{$canon_tagid}) {
+		elsif ($keep_tags->{$canon_tagid}) {
 			$stats{kept_forced}++;
 			push @kept_blocks, $block_ref;
 		}
 		elsif (block_has_ignored_property($block_ref, $ignore_properties)) {
 			$stats{kept_for_property}++;
+			push @kept_blocks, $block_ref;
+		}
+		elsif (defined $parent_tagids && defined $canon_tagid && $parent_tagids->{$canon_tagid}) {
+			$stats{kept_for_children}++;
 			push @kept_blocks, $block_ref;
 		}
 		elsif ($products >= $min_products) {
@@ -445,6 +467,7 @@ my $min_products = 1;
 my $drop_unresolved = 0;
 my @keep_tags = ();
 my @ignore_properties = ();
+my $keep_with_children = 0;
 my $output_file;
 my $report_file;
 my $dry_run = 0;
@@ -462,6 +485,7 @@ GetOptions(
 	"drop-unresolved" => \$drop_unresolved,
 	"keep=s" => \@keep_tags,
 	"ignore-property=s" => \@ignore_properties,
+	"keep-entries-with-children" => \$keep_with_children,
 	"output-file=s" => \$output_file,
 	"report-file=s" => \$report_file,
 	"dry-run" => \$dry_run,
@@ -525,14 +549,26 @@ if ($verbose) {
 	print STDERR "Reading $taxonomy_file\n";
 }
 
-my $blocks_ref = read_taxonomy_blocks($taxonomy_file, $tagtype);
+	my $blocks_ref = read_taxonomy_blocks($taxonomy_file, $tagtype);
 
-my ($kept_blocks_ref, $removed_blocks_ref, $stats_ref) = select_blocks(
-	$blocks_ref,
-	$canon_counts_ref->{products_per_canon_tagid},
-	{min_products => $min_products, drop_unresolved => $drop_unresolved, keep_tags => \%keep_tags,
-	ignore_properties => \@ignore_properties}
-);
+	# When --keep-entries-with-children is set, collect the canonical tagids that are
+	# referenced as a parent (< en: name) by at least one other block. These entries have
+	# at least one child and are kept regardless of their product count.
+	my %parent_tagids = ();
+	if ($keep_with_children) {
+		foreach my $block_ref (@$blocks_ref) {
+			foreach my $parent_id (@{$block_ref->{parents}}) {
+				$parent_tagids{$parent_id} = 1;
+			}
+		}
+	}
+
+	my ($kept_blocks_ref, $removed_blocks_ref, $stats_ref) = select_blocks(
+		$blocks_ref,
+		$canon_counts_ref->{products_per_canon_tagid},
+		{min_products => $min_products, drop_unresolved => $drop_unresolved, keep_tags => \%keep_tags,
+		ignore_properties => \@ignore_properties, parent_tagids => \%parent_tagids}
+	);
 
 if (!$dry_run) {
 	write_blocks($kept_blocks_ref, $output_file);
@@ -562,12 +598,16 @@ printf $report "distinct tagids: %d (remapped from non canonical ids: %d, unknow
 	scalar(keys %{$counts_ref->{products_per_tagid}}), scalar(@{$canon_counts_ref->{remapped_tagids}}),
 	scalar(@{$canon_counts_ref->{unknown_tagids}});
 printf $report "blocks: %d\n", scalar @{$blocks_ref};
-printf $report "kept: %d (with products: %d, always kept: %d, kept for ignored property: %d, unresolved: %d, without entry: %d)\n",
+printf $report "kept: %d (with products: %d, always kept: %d, kept for ignored property: %d, kept for children: %d, unresolved: %d, without entry: %d)\n",
 	scalar @{$kept_blocks_ref}, $stats_ref->{with_products}, $stats_ref->{kept_forced},
-	$stats_ref->{kept_for_property}, $stats_ref->{kept_unresolved}, $stats_ref->{no_entry};
+	$stats_ref->{kept_for_property}, $stats_ref->{kept_for_children}, $stats_ref->{kept_unresolved},
+	$stats_ref->{no_entry};
 printf $report "removed: %d (%d lines)\n", scalar @{$removed_blocks_ref}, $removed_lines;
 printf $report "min-products: %d\n", $min_products;
-printf $report "ignore-properties: %s\n", join(",", @ignore_properties) // "(none)";
+if (@ignore_properties) {
+	printf $report "ignore-properties: %s\n", join(",", @ignore_properties);
+}
+printf $report "keep-entries-with-children: %s\n", $keep_with_children ? "yes" : "no";
 
 unless ($quiet) {
 	foreach my $block_ref (@{$removed_blocks_ref}) {

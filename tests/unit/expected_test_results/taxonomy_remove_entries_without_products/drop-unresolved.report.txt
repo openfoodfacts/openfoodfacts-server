@@ -4,8 +4,8 @@ products export: tests/unit/inputs/taxonomy_remove_entries_without_products/prod
 lines read: 7
 products with categories_tags: 6
 distinct tagids: 5 (remapped from non canonical ids: 1, unknown: 0)
-blocks: 12
-kept: 7 (with products: 3, always kept: 0, kept for ignored property: 0, unresolved: 0, without entry: 4)
-removed: 5 (11 lines)
+blocks: 14
+kept: 7 (with products: 3, always kept: 0, kept for ignored property: 0, kept for children: 0, unresolved: 0, without entry: 4)
+removed: 7 (15 lines)
 min-products: 1
-ignore-properties: 
+keep-entries-with-children: no
