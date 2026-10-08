@@ -60,7 +60,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Numbers qw/$number_regexp convert_string_to_number/;
-use ProductOpener::Tags qw/%translations_to get_all_taxonomy_entries get_property get_taxonomy_tag_synonyms display_taxonomy_tag/;
+use ProductOpener::Tags
+	qw/%translations_to get_all_taxonomy_entries get_property get_taxonomy_tag_synonyms display_taxonomy_tag/;
 use ProductOpener::Text qw/regexp_escape/;
 
 =head1 FUNCTIONS
@@ -447,7 +448,7 @@ e.g. "percent" -> "%"
 
 =head4 $unit
 
-Unit to get symbol for.
+Unit to get symbol of.
 
 =head3 Return values
 
@@ -456,23 +457,17 @@ The symbol used to represent the given unit.
 =cut
 
 sub get_unit_symbol ($unit) {
-
-	my $standard_symbol = undef;
-
 	if (defined $unit) {
-
 		# search in the map of all synonyms in all languages ($units_names)
 		$unit = lc($unit);
 		my $unit_id = $units_names{$unit};    # $unit_id can be undefined
-		if (defined $unit_id) {
-			my $symbol = get_property("units", $unit_id, "symbol:en");
-			if (defined $symbol) {
-				return $symbol;
-			}
-			return display_taxonomy_tag('xx', 'units', $unit);
+		if (defined $unit_id && defined $units{$unit_id}{symbol}) {
+			return $units{$unit_id}{symbol};
 		}
+		# if no symbol is specifically defined, return the first language agnostic synonym
+		return display_taxonomy_tag('xx', 'units', $unit);
 	}
-	return $standard_unit;
+	return;
 }
 
 init_units_names();
