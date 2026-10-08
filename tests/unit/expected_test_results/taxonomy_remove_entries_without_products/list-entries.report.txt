@@ -5,13 +5,14 @@ lines read: 7
 products with categories_tags: 6
 distinct tagids: 5 (remapped from non canonical ids: 1, unknown: 0)
 blocks: 12
-kept: 8 (with products: 3, always kept: 0, unresolved: 1, without entry: 4)
-removed: 4 (9 lines)
+kept: 8 (with products: 3, always kept: 0, kept for ignored property: 0, unresolved: 1, without entry: 4)
+removed: 4 (10 lines)
 min-products: 1
+ignore-properties: 
 removed	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:17	en:ginger-and-turmeric-shots-with-orange-apple-and-lemon	0 products
-removed	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:27	en:fruit-juices	0 products
-removed	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:30	en:cigarettes	0 products
-removed	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:33	en:kitchenware	0 products
+removed	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:28	en:fruit-juices	0 products
+removed	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:31	en:cigarettes	0 products
+removed	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:34	en:kitchenware	0 products
 kept	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:5	en:caramelised	0 products
 kept	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:13	en:herbal-teas	1 products
-kept	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:21	en:green-teas	1 products
+kept	tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt:22	en:green-teas	1 products

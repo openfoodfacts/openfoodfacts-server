@@ -82,6 +82,9 @@ my @test_cases = (
 	{test_case_id => "min-products", options => {min_products => 10}},
 	# --keep always keeps the listed entries, even if they have no product
 	{test_case_id => "keep", options => {keep => "en:cigarettes,en:kitchenware"}},
+	# --ignore-property keeps the entries that define a given property (eg. protected_name_type:en)
+	# even if they have no product
+	{test_case_id => "ignore-property", options => {ignore_property => "protected_name_type:en"}},
 	# without --quiet, the report also lists the kept and removed entries, and the tagids
 	# of the export that are not in the taxonomy
 	{test_case_id => "list-entries", options => {list_entries => 1}},

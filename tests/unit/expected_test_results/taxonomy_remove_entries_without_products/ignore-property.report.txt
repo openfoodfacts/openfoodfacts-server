@@ -5,7 +5,7 @@ lines read: 7
 products with categories_tags: 6
 distinct tagids: 5 (remapped from non canonical ids: 1, unknown: 0)
 blocks: 12
-kept: 5 (with products: 0, always kept: 0, kept for ignored property: 0, unresolved: 1, without entry: 4)
-removed: 7 (19 lines)
-min-products: 10
-ignore-properties: 
+kept: 9 (with products: 3, always kept: 0, kept for ignored property: 1, unresolved: 1, without entry: 4)
+removed: 3 (6 lines)
+min-products: 1
+ignore-properties: protected_name_type:en

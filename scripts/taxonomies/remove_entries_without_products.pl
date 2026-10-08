@@ -60,6 +60,9 @@ Usage: remove_entries_without_products.pl [options]
   --drop-unresolved           drop the blocks whose entry name cannot be canonicalized
                               (default: keep them)
   --keep=tag[,tag...]         always keep these entries (canonical tagid or entry name)
+  --ignore-property=prop[:lc] keep the entries that define this taxonomy property
+                              (eg. --ignore-property=protected_name_type:en, or
+                              --ignore-property=protected_name_type to match any language)
   --output-file=path          write the filtered taxonomy there (default: stdout)
   --report-file=path          write the kept / removed list there (default: stderr)
   --dry-run                   do everything except writing the filtered taxonomy
@@ -123,11 +126,12 @@ sub compute_block($lines_ref, $start_line, $tagtype) {
 
 	my $block_ref = {
 		start_line => $start_line,
-		lines => $lines_ref,
-		lc => undef,
-		name => undef,
-		canon_tagid => undef,
+		lines             => $lines_ref,
+		lc                => undef,
+		name              => undef,
+		canon_tagid       => undef,
 		canon_tagid_exists => 0,
+		properties        => {},
 	};
 
 	foreach my $line (@$lines_ref) {
@@ -141,21 +145,29 @@ sub compute_block($lines_ref, $start_line, $tagtype) {
 		if ($sanitized_line =~ /^(?:synonyms:)?(\w\w):\s*(.*)$/) {
 
 			my ($lc, $entry_line) = ($1, $2);
-			my ($name) = split(/\s*,\s*/, $entry_line);
-			$name = "" if not defined $name;
-			$name =~ s/^\s+//;
-			$name =~ s/\s+$//;
 
-			$block_ref->{lc} = $lc;
-			$block_ref->{name} = $name;
+			# Only the first <language> tag of the block is the entry name, the following
+			# lines are translations of the same entry
+			if (!defined $block_ref->{name}) {
+				my ($name) = split(/\s*,\s*/, $entry_line);
+				$name = "" if not defined $name;
+				$name =~ s/^\s+//;
+				$name =~ s/\s+$//;
 
-			if ($name ne "") {
-				my $exists_in_taxonomy = 0;
-				$block_ref->{canon_tagid} = canonicalize_taxonomy_tag($lc, $tagtype, $name, \$exists_in_taxonomy);
-				$block_ref->{canon_tagid_exists} = $exists_in_taxonomy;
+				$block_ref->{lc} = $lc;
+				$block_ref->{name} = $name;
+
+				if ($name ne "") {
+					my $exists_in_taxonomy = 0;
+					$block_ref->{canon_tagid} = canonicalize_taxonomy_tag($lc, $tagtype, $name, \$exists_in_taxonomy);
+					$block_ref->{canon_tagid_exists} = $exists_in_taxonomy;
+				}
 			}
+		}
+		elsif ($sanitized_line =~ /^([\w-]+):(\w\w):\s*(.+)$/) {
 
-			last;
+			# a property line such as protected_name_type:en: pgi or wikidata:en: Q123
+			$block_ref->{properties}{$1}{$2} = $3;
 		}
 	}
 
@@ -283,6 +295,7 @@ sub canonicalize_products_per_tagid($products_per_tagid, $tagtype) {
 # - it has no entry line (comments, section headers)
 # - or its entry name could not be canonicalized (unless $drop_unresolved is true)
 # - or its entry is in the list of tags to always keep
+# - or it has one of the ignored properties (e.g. protected_name_type:en: pgi)
 # - or the number of products of its canonical tagid is >= $min_products
 # Blocks are dropped otherwise.
 sub select_blocks($blocks_ref, $products_per_canon_tagid, $parameters_ref) {
@@ -290,10 +303,11 @@ sub select_blocks($blocks_ref, $products_per_canon_tagid, $parameters_ref) {
 	my $min_products = $parameters_ref->{min_products};
 	my $drop_unresolved = $parameters_ref->{drop_unresolved};
 	my %keep_tags = %{$parameters_ref->{keep_tags}};
+	my $ignore_properties = $parameters_ref->{ignore_properties};
 
 	my @kept_blocks = ();
 	my @removed_blocks = ();
-	my %stats = (with_products => 0, kept_unresolved => 0, kept_forced => 0, no_entry => 0);
+	my %stats = (with_products => 0, kept_unresolved => 0, kept_forced => 0, kept_for_property => 0, no_entry => 0);
 
 	foreach my $block_ref (@$blocks_ref) {
 
@@ -322,6 +336,10 @@ sub select_blocks($blocks_ref, $products_per_canon_tagid, $parameters_ref) {
 			$stats{kept_forced}++;
 			push @kept_blocks, $block_ref;
 		}
+		elsif (block_has_ignored_property($block_ref, $ignore_properties)) {
+			$stats{kept_for_property}++;
+			push @kept_blocks, $block_ref;
+		}
 		elsif ($products >= $min_products) {
 			$stats{with_products}++;
 			push @kept_blocks, $block_ref;
@@ -332,6 +350,29 @@ sub select_blocks($blocks_ref, $products_per_canon_tagid, $parameters_ref) {
 	}
 
 	return (\@kept_blocks, \@removed_blocks, \%stats);
+}
+
+# A block matches an ignore spec such as "protected_name_type:en" or "protected_name_type"
+# (any language) or "protected_name_type:" (any language, explicitly empty).
+sub block_has_ignored_property($block_ref, $ignore_properties) {
+
+	return 0 if !@$ignore_properties;
+
+	foreach my $spec (@$ignore_properties) {
+
+		my ($property, $language) = split(/:/, $spec, 2);
+
+		if (not defined $language) {
+			# any language
+			return 1 if (defined $block_ref->{properties}{$property});
+		}
+		else {
+			# "property:" (empty language) matches any language of that property
+			return 1 if (defined $block_ref->{properties}{$property}{$language});
+		}
+	}
+
+	return 0;
 }
 
 # Write the kept blocks, separated by a single empty line.
@@ -403,6 +444,7 @@ my $download = 0;
 my $min_products = 1;
 my $drop_unresolved = 0;
 my @keep_tags = ();
+my @ignore_properties = ();
 my $output_file;
 my $report_file;
 my $dry_run = 0;
@@ -419,6 +461,7 @@ GetOptions(
 	"min-products=i" => \$min_products,
 	"drop-unresolved" => \$drop_unresolved,
 	"keep=s" => \@keep_tags,
+	"ignore-property=s" => \@ignore_properties,
 	"output-file=s" => \$output_file,
 	"report-file=s" => \$report_file,
 	"dry-run" => \$dry_run,
@@ -487,7 +530,8 @@ my $blocks_ref = read_taxonomy_blocks($taxonomy_file, $tagtype);
 my ($kept_blocks_ref, $removed_blocks_ref, $stats_ref) = select_blocks(
 	$blocks_ref,
 	$canon_counts_ref->{products_per_canon_tagid},
-	{min_products => $min_products, drop_unresolved => $drop_unresolved, keep_tags => \%keep_tags}
+	{min_products => $min_products, drop_unresolved => $drop_unresolved, keep_tags => \%keep_tags,
+	ignore_properties => \@ignore_properties}
 );
 
 if (!$dry_run) {
@@ -518,11 +562,12 @@ printf $report "distinct tagids: %d (remapped from non canonical ids: %d, unknow
 	scalar(keys %{$counts_ref->{products_per_tagid}}), scalar(@{$canon_counts_ref->{remapped_tagids}}),
 	scalar(@{$canon_counts_ref->{unknown_tagids}});
 printf $report "blocks: %d\n", scalar @{$blocks_ref};
-printf $report "kept: %d (with products: %d, always kept: %d, unresolved: %d, without entry: %d)\n",
+printf $report "kept: %d (with products: %d, always kept: %d, kept for ignored property: %d, unresolved: %d, without entry: %d)\n",
 	scalar @{$kept_blocks_ref}, $stats_ref->{with_products}, $stats_ref->{kept_forced},
-	$stats_ref->{kept_unresolved}, $stats_ref->{no_entry};
+	$stats_ref->{kept_for_property}, $stats_ref->{kept_unresolved}, $stats_ref->{no_entry};
 printf $report "removed: %d (%d lines)\n", scalar @{$removed_blocks_ref}, $removed_lines;
 printf $report "min-products: %d\n", $min_products;
+printf $report "ignore-properties: %s\n", join(",", @ignore_properties) // "(none)";
 
 unless ($quiet) {
 	foreach my $block_ref (@{$removed_blocks_ref}) {
