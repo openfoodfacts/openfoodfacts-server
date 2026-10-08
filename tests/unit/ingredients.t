@@ -36,6 +36,117 @@ my @tests = (
 		}
 	],
 
+	# pet food additive section: the "/kg" dosage context must not become a
+	# sub-ingredient, and microgram dosages (µg) must not leave a "µg" sub-ingredient
+	[
+		'fr-feed-additive-dosages',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels (/kg) : Vitamine D3 : 160 UI, Vitamine E : 15 mg, Biotine : 20 µg"
+		}
+	],
+
+	# same dosage contexts with a "per" word and a unit list
+	[
+		'fr-feed-dosage-per-word',
+		{
+			lc => "fr",
+			ingredients_text => "Additifs (par kg) : antioxydants : E306, vitamines (en mg)"
+		}
+	],
+
+	# a comma-separated list of units is also a dosage context
+	[
+		'fr-feed-dosage-unit-list',
+		{
+			lc => "fr",
+			ingredients_text => "Additifs (mg, kg) : E306, vitamine C : 100 mg"
+		}
+	],
+
+	# the three microgram spellings (micro sign, Greek mu, ASCII fold) are all
+	# consumed with the dosage and normalized to g
+	[
+		'fr-feed-microgram-forms',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Additifs nutritionnels : vitamine E : 15 mg, vitamine D3 : 100 µg, vitamine B12 : 2 μg, biotine : 5 ug"
+		}
+	],
+
+	# emphasis underscores are markup, not part of ingredient names: they are
+	# stripped from the parsed names, and kept in the stored ingredients text
+	# (allergen markup "_lait_")
+	[
+		'fr-emphasis-underscores',
+		{
+			lc => "fr",
+			ingredients_text => "farine, _sucre_, sel"
+		}
+	],
+
+	[
+		'fr-emphasis-underscores-sub-ingredient',
+		{
+			lc => "fr",
+			ingredients_text => "sauce (_crustacés_, eau), _lait_ écrémé"
+		}
+	],
+
+	# decimal commas protected during preparsing (U+201A) must be restored in
+	# the stored text; the id of unknown ingredients keeps the protected form,
+	# so that ingredient tags are not split in two
+	[
+		'fr-unknown-name-with-decimal-comma',
+		{
+			lc => "fr",
+			ingredients_text => "substances minérales (2,3 Tetrasodiumpyrophosphate)"
+		}
+	],
+
+	# more unknown names with a protected decimal comma: each stays a single
+	# ingredient tag
+	[
+		'fr-protected-decimal-comma-one-tag',
+		{
+			lc => "fr",
+			ingredients_text => "farine, 1,2-propanediol, sucre, sodium (E,E)-hexa-2,4-dienoate, sel"
+		}
+	],
+
+	# a known name with a decimal comma resolves to its canonical id and gets
+	# the original comma back in its text
+	[
+		'en-known-name-with-decimal-comma',
+		{
+			lc => "en",
+			ingredients_text => "sugar, Tert-butyl-1,4-benzenediol, salt"
+		}
+	],
+
+	# FEDIAF label forms of trace mineral sources, with hydration and
+	# oxidation-state qualifiers, must resolve to their taxonomy entries
+	[
+		'fr-feed-mineral-forms',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Substances minérales : Sulfate de zinc monohydraté : 37,1 mg, Oxyde de manganèse (II) : 3,2 mg, Sulfate de cuivre (II) pentahydraté : 4,8 mg, Iodate de calcium anhydre : 2 mg"
+		}
+	],
+
+	# "Matières minérales" is the analytical constituent (crude ash) on feed
+	# labels, not the minerals additive class
+	[
+		'fr-feed-matieres-minerales',
+		{
+			lc => "fr",
+			ingredients_text => "viande, céréales, Constituants analytiques : matières minérales 7%, protéines 22%"
+		}
+	],
+
 	[
 		'fr-marmelade',
 		{
@@ -1306,7 +1417,55 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text_fr => "",
 		}
 	],
-
+	# Bold mathematical unicode letters in ingredient names (issue #15592)
+	[
+		"en-bold-mathematical-unicode-letters",
+		{
+			lc => "en",
+			ingredients_text => "𝑨𝒑𝒑𝒍𝒆, 𝑩𝒂𝒏𝒂𝒏𝒂, 𝑪𝒉𝒆𝒓𝒓𝒚, cheese (𝐌𝐢𝐥𝐤)",
+		}
+	],
+	# Other letter variants
+	[
+		"en-letter-variants",
+		{
+			lc => "en",
+			ingredients_text => "Wheat flour (𝐖𝐡𝐞𝐚𝐭), 𝑴𝒊𝒍𝒌 powder, 𝓢𝓸𝔂 lecithin, 𝔈𝔤𝔤 yolk, 𝔼𝕘𝕘 white, "
+				. "𝗛𝗮𝘇𝗲𝗹𝗻𝘂𝘁 paste, 𝘊𝘢𝘴𝘩𝘦𝘸 𝘯𝘶𝘵𝘴, 𝙼𝚞𝚜𝚝𝚊𝚛𝚍 seed, Ｓｅｓａｍｅ seeds, "
+				. "𝐒𝐨𝐮𝐫 𝐜𝐫𝐞𝐚𝐦, 𝐶𝑒𝑙𝑒𝑟𝑦, salt"
+		}
+	],
+	[
+		"de-letter-variants",
+		{
+			lc => "de",
+			ingredients_text => "Zutaten: 𝐖𝐞𝐢𝐳𝐞𝐧mehl, Voll𝐦𝐢𝐥𝐜𝐡pulver, 𝐇𝐚𝐬𝐞𝐥𝐧ü𝐬𝐬𝐞, Ｓｅｓａｍöl, 𝑆𝑜𝑗𝑎lecithin, Salz",
+		}
+	],
+	# Animal / vegetal origins
+	[
+		'en-animal-vegetal-origins',
+		{
+			lc => "en",
+			ingredients_text => "fat (vegetal origin), gelatin (animal origin), natural flavors (vegetal)",
+		}
+	],
+	[
+		'fr-animal-vegetal-origins',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"graisse (origine végétale), gélatine (origine animale), arômes naturels (végétaux), soupe (végétale), gélatine (animale)",
+		}
+	],
+	[
+		'nl-animal-vegetal-origins',
+		{
+			lc => "nl",
+			ingredients_text =>
+				"vet (plantaardige oorsprong), gelatine (dierlijke oorsprong), natuurlijke aroma's (plantaardig), E120 (dierlijk)",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
@@ -1398,7 +1557,7 @@ foreach my $test (
 	['Omega 3b 103 mg', 'fr:Omega 3b', '103 mg', 0.103, 0],
 	['Omega E 150 mg', 'fr:Omega E', '150 mg', 0.15, 0],
 	['3b 103,5 mg', 'fr:3b', '103.5 mg', 0.1035, 0],
-	['3b 502 manganèse 7,6 mg', 'fr:3b 502 manganèse', '7.6 mg', 0.0076, 0],
+	['3b 502 manganèse 7,6 mg', 'en:manganous-oxide', '7.6 mg', 0.0076, 1],
 	)
 {
 	my ($text, @expected) = @$test;
