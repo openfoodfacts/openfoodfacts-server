@@ -140,7 +140,7 @@ is(display_tag("emb_codes", "EMB 62863C"), "EMB 62863C");
 
 # display_taxonomy_tag
 is(display_taxonomy_tag("xx", "units", "kj"), "kJ");
-is(display_taxonomy_tag("xx", "units", "percent"), "%");
 is(display_taxonomy_tag("xx", "units", "%"), "%");
+is(display_taxonomy_tag("xx", "units", "percent"), "percent");
 
 done_testing();
