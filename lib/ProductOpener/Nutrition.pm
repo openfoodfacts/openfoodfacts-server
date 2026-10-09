@@ -97,11 +97,12 @@ use ProductOpener::HTTP qw/single_param request_param/;
 
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Numbers qw/convert_string_to_number remove_insignificant_digits/;
-use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size get_unit_symbol/;
 use ProductOpener::Ingredients
 	qw/estimate_added_sugars_percent_from_ingredients estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients/;
 
 use Log::Any qw($log);
+use List::MoreUtils qw(none);
 
 use Encode;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
@@ -982,11 +983,13 @@ sub get_unit_options_for_nutrient ($nid) {
 		@units = ('g', 'mg', 'µg');
 	}
 
+	# ensure default unit is always one of the options
+	if (none {$_ eq $default_unit} @units) {
+		push @units, $default_unit;
+	}
+
 	my @units_options;
 
-	if ($nid eq 'cocoa') {
-		push @units, '%';
-	}
 	if (defined get_property("nutrients", "zz:$nid", "dv_value:en")) {
 		push @units, '% DV';
 	}
@@ -2901,6 +2904,9 @@ sub default_unit_for_nid ($nid) {
 
 	$nid =~ s/_prepared//;
 
+	# Units convertible to grams
+	my @gram_units = ("kg", "g", "mg", "µg",);
+
 	if (exists($default_unit_for_nid_map{$nid})) {
 		return $default_unit_for_nid_map{$nid};
 	}
@@ -2913,7 +2919,12 @@ sub default_unit_for_nid ($nid) {
 	# If it is in % or '', we use it
 	if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 		my $unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
-		if ((defined $unit) and (($unit eq '%') or ($unit eq ''))) {
+		if ((defined $unit) and (none {$unit eq $_} @gram_units)) {
+			# Normalise the unit (e.g., 'kj'→'kJ')
+			my $unit_symbol = get_unit_symbol($unit);
+			if (defined $unit_symbol) {
+				$unit = $unit_symbol;
+			}
 			# Set the default unit for this nutrient for future use
 			$default_unit_for_nid_map{$nid} = $unit;
 			return $unit;
