@@ -1270,6 +1270,58 @@ my @tests = (
 				]
 			}
 		}
+	],
+
+	[
+		# carbon footprint with separate emission unit and product mass reference
+		# should be normalized to g per 100g (0.48 kg CO2e per kg of product = 48 g CO2e per 100g)
+		"carbon_footprint_kg_per_kg",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "1kg",
+						per_quantity => 1000,
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							"carbon-footprint" => {
+								value_string => "0.48",
+								value => 0.48,
+								unit => "kg",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+
+	[
+		# carbon footprint entered in kg per 100g should be normalized to g per 100g
+		# (0.31 kg per 100g = 310 g/100g)
+		"carbon_footprint_kg",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => 100,
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							"carbon-footprint" => {
+								value_string => "0.31",
+								value => 0.31,
+								unit => "kg",
+							}
+						}
+					}
+				]
+			}
+		}
 	]
 );
 

@@ -49,6 +49,8 @@ BEGIN {
 		&convert_nutrition_input_sets_hash_to_array
 		&get_preparations_for_product_type
 		&get_pers_for_product_type
+		&get_pers_for_nutrient
+		&get_declared_carbon_footprint_input_set_index
 		&get_default_per_for_product
 		&get_unit_label_for_nutrient
 		&get_unit_options_for_nutrient
@@ -265,8 +267,26 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 		@input_sets = grep {unit_to_g($_->{set}{per_quantity}, $_->{set}{per_unit}) >= 5} @input_sets;
 
 		if (defined $input_sets[0] and %{$input_sets[0]} and %{$input_sets[0]{set}}) {
+			# A set that declares only a carbon footprint (e.g. per kg on a drink with nutrition facts
+			# per volume) must not choose the reference of the aggregated set:
+			# use the first set with other nutrients in the same preparation instead.
+			my $reference_set_ref = $input_sets[0]{set};
+			if ((scalar keys %{$reference_set_ref->{nutrients} // {}} == 1)
+				and exists $reference_set_ref->{nutrients}{'carbon-footprint'})
+			{
+				foreach my $element_ref (@input_sets) {
+					my $set_ref = $element_ref->{set};
+					if (    (($set_ref->{preparation} // '') eq ($reference_set_ref->{preparation} // ''))
+						and (($set_ref->{source} // '') ne 'estimate')
+						and (grep {$_ ne 'carbon-footprint'} keys %{$set_ref->{nutrients} // {}}))
+					{
+						$reference_set_ref = $set_ref;
+						last;
+					}
+				}
+			}
 			# set preparation and per of aggregated set as values of the nutrient_set with the highest priority
-			$aggregated_nutrient_set_ref->{preparation} = $input_sets[0]{set}{preparation};
+			$aggregated_nutrient_set_ref->{preparation} = $reference_set_ref->{preparation};
 
 			# set per only if given per unit can be converted to g or to ml
 			# for petfood, the aggregated_set is per 1kg
@@ -274,7 +294,7 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 				$aggregated_nutrient_set_ref->{per} = "1kg";
 			}
 			else {
-				my $standard_unit = get_standard_unit($input_sets[0]{set}{per_unit});
+				my $standard_unit = get_standard_unit($reference_set_ref->{per_unit});
 				if ((not defined $standard_unit) or ($standard_unit eq "g")) {
 					$aggregated_nutrient_set_ref->{per} = "100g";
 				}
@@ -360,10 +380,54 @@ sub sort_sets_by_priority ($input_sets_ref) {
 	return @$input_sets_ref;
 }
 
+=head2 get_declared_carbon_footprint_input_set_index ($product_ref, $preparation)
+
+Returns the index of the first input set that declares a carbon footprint (not estimated) for a preparation.
+
+A footprint can be declared in an input set that is not used for the aggregated set (e.g. 0.48 kg CO2e per kg for a drink
+with nutrition facts per 100ml), so that it is only available in the input sets.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=head4 $preparation
+
+Preparation state of the input set: "as_sold" or "prepared".
+Normally the preparation of the aggregated set, as it is the only one that is displayed.
+
+=head3 Return values
+
+Index of the input set in the input_sets array, or undef if there is none.
+
+=cut
+
+sub get_declared_carbon_footprint_input_set_index ($product_ref, $preparation) {
+
+	return if not defined $preparation;
+
+	my $input_sets_ref = deep_get($product_ref, qw/nutrition input_sets/) // [];
+
+	foreach my $i (0 .. $#$input_sets_ref) {
+		my $set_ref = $input_sets_ref->[$i];
+		if (    (($set_ref->{preparation} // '') eq $preparation)
+			and (($set_ref->{source} // '') ne 'estimate')
+			and (defined deep_get($set_ref, "nutrients", "carbon-footprint", "value")))
+		{
+			return $i;
+		}
+	}
+
+	return;
+}
+
 =head2 get_non_estimated_nutrient_per_100g_or_100ml_for_preparation ($product_ref, $preparation, $nid)
 
 Gets the value of a nutrient from the first non-estimated input set with per = 100g or 100ml.
 We take the first value defined in the sorted input set, that we can convert to 100g or 100ml.
+A value declared per 1kg is converted to 100g, like the other values of a food.
 
 This function is needed to estimate the % of ingredients, in order to set the max for ingredients like salt and sugar.
 
@@ -410,8 +474,11 @@ sub get_non_estimated_nutrient_per_100g_or_100ml_for_preparation ($product_ref, 
 		{
 			my $nutrient_ref = clone($set_ref->{nutrients}{$nid});
 			convert_nutrient_to_standard_unit($nutrient_ref, $nid);
+			# a value declared per kg is returned per 100g, like the other values of a food
+			# (set_per_quantity_and_unit() has set the quantity of a per 1kg set to 1000 g)
+			my $wanted_per = $set_ref->{per} eq '1kg' ? '100g' : $set_ref->{per};
 			convert_nutrient_to_100g($nutrient_ref, $set_ref->{per}, $set_ref->{per_quantity},
-				$set_ref->{per_unit}, $set_ref->{per});
+				$set_ref->{per_unit}, $wanted_per);
 			return $nutrient_ref->{value};
 		}
 	}
@@ -461,6 +528,13 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 				next if $nutrient eq "energy";
 
 				if (!exists $aggregated_nutrient_set_ref->{nutrients}{$nutrient}) {
+					# A footprint per kg of product (e.g. 0.48 kg CO2e/kg) needs the density of the product to be
+					# converted to an aggregated set per 100ml: keep it only in its input set.
+					# (the other declarations are merged assuming 1ml = 1g, like all the other nutrients)
+					next
+						if ($nutrient eq 'carbon-footprint')
+						and ($nutrient_set_ref->{per} eq '1kg')
+						and ($aggregated_nutrient_set_ref->{per} eq '100ml');
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}
 						= clone($nutrient_set_ref->{nutrients}{$nutrient});
 					delete $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_string};
@@ -904,6 +978,53 @@ sub get_pers_for_product_type ($product_type) {
 	}
 
 	return @pers;
+}
+
+# Per references that are only valid for some nutrients of a product type,
+# e.g. 1kg, reserved for the carbon footprint of a food.
+my %pers_restricted_to_nutrients = (food => {'1kg' => {'carbon-footprint' => 1}});
+
+=head2 get_pers_for_nutrient
+
+Returns the list of per references a nutrient can be declared with, for a given product type.
+
+This is the list returned by get_pers_for_product_type(), without the per references that are
+restricted to other nutrients: for a food, "1kg" is restricted to the carbon footprint
+(e.g. 0.48 kg CO2e per kg on a drink with nutrition facts per 100ml), so the other nutrients
+of a food can only be declared per 100g, 100ml, 1l or serving, and pet food nutrients are
+all declared per 1kg.
+
+It is used everywhere nutrient values are read or displayed one input set at a time:
+the product edit form (which shows a "for 1 kg" column only on the carbon footprint row,
+instead of one for every nutrient), the web form / API v2 parameters, and CSV imports.
+
+=head3 Arguments
+
+=head4 $product_type
+
+Type of the product (food, petfood, etc)
+
+=head4 $nid
+
+Nutrient id
+
+=head3 Return values
+
+List of valid per references for the nutrient.
+
+  get_pers_for_nutrient('food', 'carbon-footprint')    # 100g, 100ml, 1l, 1kg, serving
+  get_pers_for_nutrient('food', 'salt')                # 100g, 100ml, 1l, serving
+  get_pers_for_nutrient('petfood', 'crude-fat')        # 1kg
+
+=cut
+
+sub get_pers_for_nutrient ($product_type, $nid) {
+
+	my $restricted_pers_ref = $pers_restricted_to_nutrients{$product_type} // {};
+
+	return
+		grep {not exists $restricted_pers_ref->{$_} or $restricted_pers_ref->{$_}{$nid}}
+		get_pers_for_product_type($product_type);
 }
 
 sub get_default_per_for_product ($product_ref, $preparation = "as_sold") {
@@ -1546,8 +1667,9 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 		# with _ instead of . so that they can be passed as HTML form parameters without escaping.
 
 		# Go through all the possible input sets
+		my @nutrient_pers = get_pers_for_nutrient($product_ref->{product_type}, $nid);
 		foreach my $preparation (@preparations) {
-			foreach my $per (@pers) {
+			foreach my $per (@nutrient_pers) {
 
 				my $input_set_nutrient_id = "nutrition_input_sets_${preparation}_${per}_nutrients_${nid}";
 
@@ -1605,7 +1727,6 @@ The source of the nutrition data. e.g. "packaging" or "manufacturer"
 sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref, $product_ref) {
 
 	my @preparations = get_preparations_for_product_type($product_ref->{product_type});
-	my @pers = get_pers_for_product_type($product_ref->{product_type});
 
 	# We use a temporary input sets hash to ease setting values
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
@@ -1639,8 +1760,9 @@ sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref
 		# Note: the parameters are long because they mimic the structure of the product nutrition hash
 
 		# Go through all the possible input sets
+		my @nutrient_pers = get_pers_for_nutrient($product_ref->{product_type}, $nid);
 		foreach my $preparation (@preparations) {
-			foreach my $per (@pers) {
+			foreach my $per (@nutrient_pers) {
 				foreach my $source (@sources) {
 
 					my $input_set_nutrient_id = "nutrition.input_sets.${source}.${preparation}.${per}.nutrients.${nid}";

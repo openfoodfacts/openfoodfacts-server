@@ -135,7 +135,7 @@ use ProductOpener::Texts qw(%texts);
 use ProductOpener::Lang qw(:all);
 use ProductOpener::Images qw(display_image data_to_display_image add_images_urls_to_product);
 use ProductOpener::Food qw(:all);
-use ProductOpener::Nutrition qw(get_unit_label_for_nutrient);
+use ProductOpener::Nutrition qw(get_declared_carbon_footprint_input_set_index get_unit_label_for_nutrient);
 use ProductOpener::Ingredients qw(flatten_sub_ingredients);
 use ProductOpener::Products qw(:all);
 use ProductOpener::Missions qw(:all);
@@ -9281,20 +9281,37 @@ CSS
 		}
 	}
 
-	# Display a column for each of the nutrition input sets
+	# The nutrients of the table (we may have no table for the country, and some tests may not have $nutrient_table initialized)
+	my @nutrients = @{$nutrients_tables{$nutrient_table || "off_europe"}};
+
+	# A footprint per kg can coexist with nutrition facts per 100ml.
+	# If it cannot be aggregated without a density, display its original reference
+	# (if the nutrient table of the country has a row for the footprint).
 	my $input_sets = deep_get($product_ref, "nutrition", "input_sets");
-	if (($include_input_sets) and (defined $input_sets)) {
+	my $carbon_footprint_input_set_index;
+	my $aggregated_footprint_value
+		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "carbon-footprint", "value");
+	my $aggregated_footprint_source
+		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "carbon-footprint", "source");
+	if (    (grep {/^[-!]*carbon-footprint-?$/} @nutrients)
+		and ((not defined $aggregated_footprint_value) or ($aggregated_footprint_source // '') eq 'estimate'))
+	{
+		$carbon_footprint_input_set_index = get_declared_carbon_footprint_input_set_index($product_ref, $preparation);
+	}
 
-		my $i = 0;
+	# Display all requested input sets, or the footprint's separate reference.
+	if ((defined $input_sets) and ($include_input_sets or defined $carbon_footprint_input_set_index)) {
 
-		foreach my $input_set_ref (@$input_sets) {
+		foreach my $i (0 .. $#$input_sets) {
+			next if not $include_input_sets and $i != $carbon_footprint_input_set_index;
+			my $input_set_ref = $input_sets->[$i];
 
 			my $col_id = "input_set_" . $i;
 
 			push @cols, $col_id;
 
 			my $preparation = deep_get($input_set_ref, "preparation");
-			my $per = deep_get($input_set_ref, "per");
+			my $per = (deep_get($input_set_ref, "per") // '') =~ s/[^a-zA-Z0-9_-]/_/gr;
 			my $per_quantity = deep_get($input_set_ref, "per_quantity");
 			my $per_unit = deep_get($input_set_ref, "per_unit");
 
@@ -9303,20 +9320,19 @@ CSS
 				$per_lang .= " (" . $per_quantity . " " . $per_unit . ")";
 			}
 
-			my $source = deep_get($input_set_ref, "source");
+			# The source of the input sets can be set through the API: only keep safe characters in the names
+			my $source = (deep_get($input_set_ref, "source") // '') =~ s/[^a-zA-Z0-9_-]/_/gr;
 
 			my $col_name = lang("preparation_" . $preparation) . " " . $per_lang . " (" . $source . ")";
 
 			$columns{$col_id} = {
-				scope => "product",
+				scope => $include_input_sets ? "product" : "carbon_footprint",
 				preparation => $preparation,
 				per => $per,
 				name => $col_name,
 				short_name => $per,
 				class => "product",
 			};
-
-			$i++;
 		}
 	}
 
@@ -9354,8 +9370,6 @@ CSS
 
 	# Display estimate of fruits, vegetables, nuts from the analysis of the ingredients list
 	$log->debug("displaying nutrition table, nutrient table", {nutrient_table => $nutrient_table}) if $log->is_debug();
-	my @nutrients = @{$nutrients_tables{$nutrient_table || "off_europe"}}
-		;    # Note: some tests may not have $nutrient_table initialized
 
 	my $decf = get_decimal_formatter($lc);
 	my $perf = get_percent_formatter($lc, 0);
@@ -9390,6 +9404,9 @@ CSS
 			$shown = 1;
 			$log->debug("showing nutrient in nutrition table even if no value", {nid => $nid})
 				if $log->is_debug();
+		}
+		elsif (($nid eq 'carbon-footprint') and defined $carbon_footprint_input_set_index) {
+			$shown = 1;
 		}
 
 		if ($shown) {
@@ -9594,7 +9611,7 @@ CSS
 					}
 
 					# Add % DV if applicable
-					if ($col_id eq $product_ref->{nutrition}{aggregated_set}{per}) {
+					if ($col_id eq (deep_get($product_ref, "nutrition", "aggregated_set", "per") // '')) {
 						if (    (defined $value)
 							and (defined $unit)
 							and ($nutrient_set_unit eq '% DV'))
@@ -9603,7 +9620,9 @@ CSS
 						}
 					}
 
-					if (defined $value) {
+					# Do not output the RDFa per 100g property for a footprint displayed from an input set:
+					# its reference may be per kg
+					if (defined $value and not($nid eq 'carbon-footprint' and $col_id =~ /^input_set_/)) {
 						my $property = $nid;
 						$property =~ s/-([a-z])/ucfirst($1)/eg;
 						$property .= "Per100g";
