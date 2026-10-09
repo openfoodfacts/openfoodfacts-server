@@ -302,6 +302,10 @@ COPY --chown=www-data:www-data . /opt/product-opener/
 EXPOSE 80
 COPY ./docker/docker-entrypoint.sh /
 WORKDIR /opt/product-opener/
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost/api/v3/health || exit 1
+
 USER www-data
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 # default command is apache2ctl start
