@@ -423,12 +423,6 @@
                "name" : "eau"
             },
             {
-               "ecobalyse_name" : "Farine UE -2025-",
-               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-               "mass" : 18.75,
-               "name" : "farine"
-            },
-            {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
                "mass" : 9.375,
@@ -451,10 +445,6 @@
                {
                   "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
                   "mass" : 62.5
-               },
-               {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 18.75
                },
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
@@ -761,8 +751,6 @@
       },
       {
          "ciqual_proxy_food_code" : "9435",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 18.75,
@@ -840,9 +828,10 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:chocolate"
+      "en:chocolate",
+      "en:flour"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 4,
    "languages" : {},
    "languages_codes" : {},

@@ -147,8 +147,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9435",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 56.25,
@@ -203,6 +201,8 @@
             },
             {
                "ciqual_proxy_food_code" : "18100",
+               "ecobalyse_proxy_id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
+               "ecobalyse_proxy_name" : "Poudre de cacao par défaut -2025-",
                "id" : "en:fat-reduced-cocoa",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 1.3671875,
@@ -263,6 +263,8 @@
       },
       {
          "ciqual_proxy_food_code" : "18003",
+         "ecobalyse_proxy_id" : "77be5f12-5124-4828-861c-9ce4ed3fa661",
+         "ecobalyse_proxy_name" : "Café moulu par défaut -2025-",
          "id" : "en:coffee",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 1.3671875,
@@ -368,10 +370,9 @@
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "en:chocolate",
-      "en:coffee",
-      "en:fat-reduced-cocoa"
+      "en:flour"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 12,
    "lc" : "fr",
    "misc_tags" : [

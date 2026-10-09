@@ -8,6 +8,8 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "16040",
+               "ecobalyse_proxy_id" : "66e7706b-5129-410c-b070-0a7feff2680f",
+               "ecobalyse_proxy_name" : "Autres huiles -non encore répertoriées- -2025-",
                "from_palm_oil" : "no",
                "id" : "en:coconut-oil",
                "is_in_taxonomy" : 1,
@@ -114,11 +116,10 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:coconut-oil",
       "en:palm-kernel-oil",
       "en:vegetable-oil"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 5,
    "lc" : "en",
    "misc_tags" : [

@@ -486,6 +486,12 @@
                "name" : "macadamia nuts"
             },
             {
+               "ecobalyse_name" : "Lait par défaut -2025-",
+               "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+               "mass" : 0.639204545454547,
+               "name" : "milk proteins"
+            },
+            {
                "ecobalyse_name" : "Sel -2025-",
                "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                "mass" : 0.125,
@@ -532,6 +538,10 @@
                {
                   "id" : "02a9df90-91c4-5bf0-900a-9efa6ffcfaf6",
                   "mass" : 1.27840909090909
+               },
+               {
+                  "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+                  "mass" : 0.639204545454547
                },
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
@@ -1129,6 +1139,8 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_proxy_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+         "ecobalyse_proxy_name" : "Lait par défaut -2025-",
          "id" : "en:milk-proteins",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.639204545454547,
@@ -1253,10 +1265,9 @@
    "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
       "en:e102",
-      "en:e120",
-      "en:milk-proteins"
+      "en:e120"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 11,
    "labels_tags" : [
       "en:organic",

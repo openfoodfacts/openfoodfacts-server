@@ -244,6 +244,8 @@
                "vegetarian" : "yes"
             },
             {
+               "ecobalyse_proxy_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+               "ecobalyse_proxy_name" : "Lait par défaut -2025-",
                "id" : "en:lactose-and-milk-proteins",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0.389062500000001,
@@ -261,8 +263,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
-         "ecobalyse_proxy_name" : "Blé tendre HORS UE",
+         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 17.05,
@@ -529,7 +531,6 @@
       "en:fat",
       "en:flavouring",
       "en:illipe-oil",
-      "en:lactose-and-milk-proteins",
       "en:mango-kernel-oil",
       "en:natural-orange-flavouring",
       "en:orange-marmalade",
@@ -538,7 +539,7 @@
       "en:sodium-citrate",
       "en:soya-lecithin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 19,
+   "ingredients_without_ecobalyse_ids_n" : 18,
    "known_ingredients_n" : 35,
    "lc" : "fr",
    "misc_tags" : [

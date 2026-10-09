@@ -21,6 +21,8 @@
                "vegetarian" : "yes"
             },
             {
+               "ecobalyse_proxy_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "ecobalyse_proxy_name" : "Soja Origine Inconnue",
                "id" : "en:soya",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 16.6666666666667,
@@ -94,10 +96,9 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:something strange",
-      "en:soya",
       "en:vegetable-oil"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "misc_tags" : [

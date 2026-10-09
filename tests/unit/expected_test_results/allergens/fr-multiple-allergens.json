@@ -10,8 +10,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
-         "ecobalyse_proxy_name" : "Blé tendre HORS UE",
+         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 62.5,
@@ -39,6 +39,8 @@
          "id" : "en:spice",
          "ingredients" : [
             {
+               "ecobalyse_proxy_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "ecobalyse_proxy_name" : "Soja Origine Inconnue",
                "id" : "en:soya",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 4.6875,
@@ -154,11 +156,10 @@
    ],
    "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
-      "en:soya",
       "en:spice",
       "fr:crème de cassis"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 6,
    "lang" : "fr",
    "languages" : {
