@@ -1,3 +1,19 @@
+en:alcohol-vinegar	ecobalyse_density_g_per_ml:en	0.447
+en:alcohol-vinegar	ecobalyse_crop_group:en	DIVERS
+en:alcohol-vinegar	ecobalyse_raw_to_cooked_ratio:en	1
+en:alcohol-vinegar	ecobalyse_inedible_part:en	0
+en:alcohol-vinegar	ecobalyse_transport_cooling:en	none
+en:alcohol-vinegar	ecobalyse_category:en	other_food_items
+en:alcohol-vinegar	ecobalyse_proxy_id:en	24222e45-52dc-4c18-ab9f-0ee39d8a46b4
+en:alcohol-vinegar	ecobalyse_proxy_scenario:en	reference
+en:alcohol-vinegar	ecobalyse_proxy_name:fr	Vinaigre d'alcool FR (2025)
+en:alcohol-vinegar	ecobalyse_proxy_alias:en	vinegar-alcohol-2025
+en:alcohol-vinegar	ecobalyse_proxy_default_origin:en	FR
+en:alcohol-vinegar	ecobalyse_origins_en_france_id:en	24222e45-52dc-4c18-ab9f-0ee39d8a46b4
+en:alcohol-vinegar	ecobalyse_origins_en_france_scenario:en	reference
+en:alcohol-vinegar	ecobalyse_origins_en_france_name:fr	Vinaigre d'alcool FR (2025)
+en:alcohol-vinegar	ecobalyse_origins_en_france_alias:en	vinegar-alcohol-2025
+en:alcohol-vinegar	ecobalyse_origins_en_france_default_origin:en	FR
 en:alfalfa	ecobalyse_density_g_per_ml:en	0.745
 en:alfalfa	ecobalyse_crop_group:en	LEGUMINEUSES A GRAIN
 en:alfalfa	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -1935,27 +1951,6 @@ en:flax-seed	ecobalyse_origins_en_france_scenario:en	reference
 en:flax-seed	ecobalyse_origins_en_france_name:fr	Graines de lin FR
 en:flax-seed	ecobalyse_origins_en_france_alias:en	flaxseed-fr
 en:flax-seed	ecobalyse_origins_en_france_default_origin:en	FR
-en:flour	ecobalyse_density_g_per_ml:en	1
-en:flour	ecobalyse_crop_group:en	BLE TENDRE
-en:flour	ecobalyse_raw_to_cooked_ratio:en	1
-en:flour	ecobalyse_inedible_part:en	0
-en:flour	ecobalyse_transport_cooling:en	none
-en:flour	ecobalyse_category:en	other_food_items
-en:flour	ecobalyse_proxy_id:en	a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
-en:flour	ecobalyse_proxy_scenario:en	import
-en:flour	ecobalyse_proxy_name:fr	Farine UE (2025)
-en:flour	ecobalyse_proxy_alias:en	flour-2025
-en:flour	ecobalyse_proxy_default_origin:en	REM
-en:flour	ecobalyse_origins_en_europe_and_maghreb_id:en	a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
-en:flour	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
-en:flour	ecobalyse_origins_en_europe_and_maghreb_name:fr	Farine UE (2025)
-en:flour	ecobalyse_origins_en_europe_and_maghreb_alias:en	flour-2025
-en:flour	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
-en:flour	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en	db791ac8-02b9-41b0-bc2b-2913e745bd19
-en:flour	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en	organic
-en:flour	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr	Farine Bio (2025)
-en:flour	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en	flour-organic-2025
-en:flour	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en	REM
 en:fourme-d-ambert	ecobalyse_density_g_per_ml:en	1
 en:fourme-d-ambert	ecobalyse_raw_to_cooked_ratio:en	1
 en:fourme-d-ambert	ecobalyse_inedible_part:en	0
@@ -4956,22 +4951,6 @@ en:taro-tuber	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:taro-tuber	ecobalyse_labels_en_organic_origins_en_france_name:fr	Taro, tubercule Bio
 en:taro-tuber	ecobalyse_labels_en_organic_origins_en_france_alias:en	taro-tuber-organic
 en:taro-tuber	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
-en:tea	ecobalyse_density_g_per_ml:en	0.9
-en:tea	ecobalyse_crop_group:en	DIVERS
-en:tea	ecobalyse_raw_to_cooked_ratio:en	1
-en:tea	ecobalyse_inedible_part:en	0
-en:tea	ecobalyse_transport_cooling:en	none
-en:tea	ecobalyse_category:en	other_food_items
-en:tea	ecobalyse_id:en	b767e665-ad96-5200-ad67-11ac66e81559
-en:tea	ecobalyse_scenario:en	import
-en:tea	ecobalyse_name:fr	Thé, feuilles séchées HORS UE
-en:tea	ecobalyse_alias:en	tea-dried-non-eu
-en:tea	ecobalyse_default_origin:en	
-en:tea	ecobalyse_origins_en_europe_and_maghreb_id:en	97f56acd-962e-4a4b-af42-1e468d2017a0
-en:tea	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
-en:tea	ecobalyse_origins_en_europe_and_maghreb_name:fr	Thé (feuilles) UE (2025)
-en:tea	ecobalyse_origins_en_europe_and_maghreb_alias:en	tea-dried-2025
-en:tea	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
 en:tomato	ecobalyse_density_g_per_ml:en	0.447
 en:tomato	ecobalyse_crop_group:en	LEGUMES-FLEURS
 en:tomato	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -5145,22 +5124,6 @@ en:vegetable-blend	ecobalyse_origins_en_france_scenario:en	reference
 en:vegetable-blend	ecobalyse_origins_en_france_name:fr	Mélange de légumes (2025)
 en:vegetable-blend	ecobalyse_origins_en_france_alias:en	vegetable-mix-2025
 en:vegetable-blend	ecobalyse_origins_en_france_default_origin:en	FR
-en:vinegar	ecobalyse_density_g_per_ml:en	0.447
-en:vinegar	ecobalyse_crop_group:en	DIVERS
-en:vinegar	ecobalyse_raw_to_cooked_ratio:en	1
-en:vinegar	ecobalyse_inedible_part:en	0
-en:vinegar	ecobalyse_transport_cooling:en	none
-en:vinegar	ecobalyse_category:en	other_food_items
-en:vinegar	ecobalyse_proxy_id:en	24222e45-52dc-4c18-ab9f-0ee39d8a46b4
-en:vinegar	ecobalyse_proxy_scenario:en	reference
-en:vinegar	ecobalyse_proxy_name:fr	Vinaigre d'alcool FR (2025)
-en:vinegar	ecobalyse_proxy_alias:en	vinegar-alcohol-2025
-en:vinegar	ecobalyse_proxy_default_origin:en	FR
-en:vinegar	ecobalyse_origins_en_france_id:en	24222e45-52dc-4c18-ab9f-0ee39d8a46b4
-en:vinegar	ecobalyse_origins_en_france_scenario:en	reference
-en:vinegar	ecobalyse_origins_en_france_name:fr	Vinaigre d'alcool FR (2025)
-en:vinegar	ecobalyse_origins_en_france_alias:en	vinegar-alcohol-2025
-en:vinegar	ecobalyse_origins_en_france_default_origin:en	FR
 en:virgin-hazelnut-oil	ecobalyse_density_g_per_ml:en	1
 en:virgin-hazelnut-oil	ecobalyse_crop_group:en	FRUITS A COQUES
 en:virgin-hazelnut-oil	ecobalyse_raw_to_cooked_ratio:en	1
@@ -5244,6 +5207,27 @@ en:watermelon	ecobalyse_origins_en_france_scenario:en	reference
 en:watermelon	ecobalyse_origins_en_france_name:fr	Pastèque FR
 en:watermelon	ecobalyse_origins_en_france_alias:en	watermelon-fr
 en:watermelon	ecobalyse_origins_en_france_default_origin:en	FR
+en:wheat-flour	ecobalyse_density_g_per_ml:en	1
+en:wheat-flour	ecobalyse_crop_group:en	BLE TENDRE
+en:wheat-flour	ecobalyse_raw_to_cooked_ratio:en	1
+en:wheat-flour	ecobalyse_inedible_part:en	0
+en:wheat-flour	ecobalyse_transport_cooling:en	none
+en:wheat-flour	ecobalyse_category:en	other_food_items
+en:wheat-flour	ecobalyse_proxy_id:en	a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+en:wheat-flour	ecobalyse_proxy_scenario:en	import
+en:wheat-flour	ecobalyse_proxy_name:fr	Farine UE (2025)
+en:wheat-flour	ecobalyse_proxy_alias:en	flour-2025
+en:wheat-flour	ecobalyse_proxy_default_origin:en	REM
+en:wheat-flour	ecobalyse_origins_en_europe_and_maghreb_id:en	a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+en:wheat-flour	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:wheat-flour	ecobalyse_origins_en_europe_and_maghreb_name:fr	Farine UE (2025)
+en:wheat-flour	ecobalyse_origins_en_europe_and_maghreb_alias:en	flour-2025
+en:wheat-flour	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:wheat-flour	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en	db791ac8-02b9-41b0-bc2b-2913e745bd19
+en:wheat-flour	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en	organic
+en:wheat-flour	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr	Farine Bio (2025)
+en:wheat-flour	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en	flour-organic-2025
+en:wheat-flour	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en	REM
 en:whey	ecobalyse_density_g_per_ml:en	0.24
 en:whey	ecobalyse_raw_to_cooked_ratio:en	1
 en:whey	ecobalyse_inedible_part:en	0
@@ -5353,6 +5337,22 @@ en:yogurt	ecobalyse_origins_en_france_scenario:en	reference
 en:yogurt	ecobalyse_origins_en_france_name:fr	Fromage blanc FR (2025)
 en:yogurt	ecobalyse_origins_en_france_alias:en	yogurt-2025
 en:yogurt	ecobalyse_origins_en_france_default_origin:en	FR
+tea	ecobalyse_density_g_per_ml:en	0.9
+tea	ecobalyse_crop_group:en	DIVERS
+tea	ecobalyse_raw_to_cooked_ratio:en	1
+tea	ecobalyse_inedible_part:en	0
+tea	ecobalyse_transport_cooling:en	none
+tea	ecobalyse_category:en	other_food_items
+tea	ecobalyse_id:en	b767e665-ad96-5200-ad67-11ac66e81559
+tea	ecobalyse_scenario:en	import
+tea	ecobalyse_name:fr	Thé, feuilles séchées HORS UE
+tea	ecobalyse_alias:en	tea-dried-non-eu
+tea	ecobalyse_default_origin:en	
+tea	ecobalyse_origins_en_europe_and_maghreb_id:en	97f56acd-962e-4a4b-af42-1e468d2017a0
+tea	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+tea	ecobalyse_origins_en_europe_and_maghreb_name:fr	Thé (feuilles) UE (2025)
+tea	ecobalyse_origins_en_europe_and_maghreb_alias:en	tea-dried-2025
+tea	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
 en:beef-meat	ecobalyse_proxy_density_g_per_ml:en	1
 en:beef-meat	ecobalyse_proxy_raw_to_cooked_ratio:en	0.792
 en:beef-meat	ecobalyse_proxy_inedible_part:en	0
@@ -5834,22 +5834,6 @@ en:soya	ecobalyse_proxy_origins_en_france_scenario:en	reference
 en:soya	ecobalyse_proxy_origins_en_france_name:fr	Soja FR
 en:soya	ecobalyse_proxy_origins_en_france_alias:en	soybean-fr
 en:soya	ecobalyse_proxy_origins_en_france_default_origin:en	FR
-en:green-tea	ecobalyse_proxy_density_g_per_ml:en	0.9
-en:green-tea	ecobalyse_proxy_crop_group:en	DIVERS
-en:green-tea	ecobalyse_proxy_raw_to_cooked_ratio:en	1
-en:green-tea	ecobalyse_proxy_inedible_part:en	0
-en:green-tea	ecobalyse_proxy_transport_cooling:en	none
-en:green-tea	ecobalyse_proxy_category:en	other_food_items
-en:green-tea	ecobalyse_proxy_id:en	b767e665-ad96-5200-ad67-11ac66e81559
-en:green-tea	ecobalyse_proxy_scenario:en	import
-en:green-tea	ecobalyse_proxy_name:fr	Thé, feuilles séchées HORS UE
-en:green-tea	ecobalyse_proxy_alias:en	tea-dried-non-eu
-en:green-tea	ecobalyse_proxy_default_origin:en	
-en:green-tea	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	97f56acd-962e-4a4b-af42-1e468d2017a0
-en:green-tea	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
-en:green-tea	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Thé (feuilles) UE (2025)
-en:green-tea	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	tea-dried-2025
-en:green-tea	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
 en:coconut-oil	ecobalyse_proxy_density_g_per_ml:en	1
 en:coconut-oil	ecobalyse_proxy_crop_group:en	TOURNESOL
 en:coconut-oil	ecobalyse_proxy_raw_to_cooked_ratio:en	1
@@ -5866,3 +5850,19 @@ en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
 en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Autres huiles (non encore répertoriées) (2025)
 en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	unknown-oil-2025
 en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
+en:vinegar	ecobalyse_proxy_density_g_per_ml:en	0.447
+en:vinegar	ecobalyse_proxy_crop_group:en	DIVERS
+en:vinegar	ecobalyse_proxy_raw_to_cooked_ratio:en	1
+en:vinegar	ecobalyse_proxy_inedible_part:en	0
+en:vinegar	ecobalyse_proxy_transport_cooling:en	none
+en:vinegar	ecobalyse_proxy_category:en	other_food_items
+en:vinegar	ecobalyse_proxy_id:en	24222e45-52dc-4c18-ab9f-0ee39d8a46b4
+en:vinegar	ecobalyse_proxy_scenario:en	reference
+en:vinegar	ecobalyse_proxy_name:fr	Vinaigre d'alcool FR (2025)
+en:vinegar	ecobalyse_proxy_alias:en	vinegar-alcohol-2025
+en:vinegar	ecobalyse_proxy_default_origin:en	FR
+en:vinegar	ecobalyse_proxy_origins_en_france_id:en	24222e45-52dc-4c18-ab9f-0ee39d8a46b4
+en:vinegar	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:vinegar	ecobalyse_proxy_origins_en_france_name:fr	Vinaigre d'alcool FR (2025)
+en:vinegar	ecobalyse_proxy_origins_en_france_alias:en	vinegar-alcohol-2025
+en:vinegar	ecobalyse_proxy_origins_en_france_default_origin:en	FR

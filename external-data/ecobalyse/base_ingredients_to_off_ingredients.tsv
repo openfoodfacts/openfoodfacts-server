@@ -88,7 +88,6 @@ fennel	en:fennel	taxonomy
 fig	en:fig	taxonomy
 flageolet-bean	en:flageolets	taxonomy
 flaxseed	en:flax-seed	taxonomy
-flour	en:flour	taxonomy
 french-bean	en:green-bean	taxonomy
 french-fries	en:french-fries	taxonomy
 fresh-cream-cheese	en:fresh-cream-cheese	taxonomy
@@ -245,6 +244,7 @@ turnip	en:turnip	taxonomy
 vanilla	en:vanilla	taxonomy
 veal-meat	en:veal-meat	taxonomy
 vegetable-mix	en:vegetable-blend	taxonomy
+vinegar-alcohol	en:alcohol-vinegar	reordered
 virgin-hazelnut-oil	en:virgin-hazelnut-oil	taxonomy
 walnut	en:walnut	taxonomy
 watermelon	en:watermelon	taxonomy
@@ -261,6 +261,7 @@ chestnut-inshell	en:chestnut	override
 chickpea-dried	en:chickpea	override
 coconut-dehusked	en:coconut	override
 feta-type-cheese	en:feta	override
+flour	en:wheat-flour	override
 fourme-dambert-cheese	en:fourme-d-ambert	override
 fresh-shrimps	en:shrimp	override
 greek-yogurt-sheep-milk	en:greek-yogurt	override
@@ -288,9 +289,8 @@ spring-pea	en:green-pea	override
 squash	en:spaghetti-squash	override
 squash-with-skin-raw	en:butternut-squash	override
 strawberry-coulis	en:strawberry	override
-tea-dried	en:tea	override
+tea-dried	tea	override
 tomato-concentrated	en:tomato-concentrate	override
-vinegar-alcohol	en:vinegar	override
 walnut-husked	en:walnut	override
 walnut-inshell	en:walnut	override
 white-bean-canned-drained	en:bean	override
