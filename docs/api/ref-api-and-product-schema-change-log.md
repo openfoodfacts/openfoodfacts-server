@@ -32,6 +32,11 @@ Note: API v3 is under active development, and the API and corresponding product 
 
 ## Schema version and API version change log
 
+### 2026-10-09 — Product version 1004 (no change) — API version 3.6 — Input sets with an invalid source or per are ignored
+
+Changes for the product write API (v3):
+- Input sets with a `source` or a `per` that does not match `[a-zA-Z0-9_-]+` are now ignored, with an `unrecognized_value` error. Those values are used in field names and in the display of the nutrition facts.
+
 ### 2026-05-27 — Product version 1004 — API version 3.6 — New tags schema with tags_sources
 
 Breaking changes for product read API responses:
