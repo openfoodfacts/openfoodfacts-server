@@ -988,6 +988,14 @@ function show_warning(should_show, input_id, nutrient_id, per, preparation, warn
     }
 }
 
+// conversion factors of the mass units to grams
+const mass_unit_factors = {
+    'kg': 1000,
+    'g': 1,
+    'mg': 0.001,
+    'µg': 0.000001
+};
+
 function get_nutrient_unit(nutrient_id) {
     // line selector case (user chooses a unit from a list for the whole row of the nutrient)
     const select = $(`#global_nutrient_${nutrient_id}_unit`);
@@ -1014,14 +1022,9 @@ function get_nutrient_value(nutrient_id, per, preparation, wanted_unit) {
     if (!Number.isNaN(value)) {
         const current_unit = get_nutrient_unit(nutrient_id);
 
-        const factor = {
-            'g': 1,
-            'mg': 0.001,
-            'µg': 0.000001
-        };
-
-        if (factor[current_unit] !== null && factor[wanted_unit] !== null) {
-            value *= (factor[current_unit] / factor[wanted_unit]);
+        // values are compared in grams if the wanted unit is not a mass (e.g. kJ or %)
+        if (current_unit in mass_unit_factors) {
+            value *= mass_unit_factors[current_unit] / (mass_unit_factors[wanted_unit] || 1);
         }
 
         return value;
@@ -1047,6 +1050,11 @@ function check_nutrient(nutrient_id, per, preparation, id) {
     else if (nutrient_id == 'alcohol') {
         max = 100;
         percent = true;
+    }
+    else if (nutrient_id == 'carbon-footprint') {
+        // emissions are not a part of the mass of the product, and can be above 100 g per 100g or 1 kg per kg:
+        // only warn above a tonne of CO2e (1 tonne = 1 000 000 g)
+        max = 1000000 / mass_unit_factors[nutrient_unit];
     }
     else if (nutrient_unit == 'g') {
         max = 100;
