@@ -16,7 +16,23 @@ en:fresh-cream	fresh-cream-cheese
 en:glucose-fructose-syrup	glucose-syrup
 en:fructose-syrup	glucose-syrup
 en:oil	rapeseed-oil
-en:soy-base soy-milk
-en:starch   potato-starch
+en:soy-base	soy-milk
+en:starch	potato-starch
 # herbs without fresh / dried precision: consider it is dried
-en:herb herb-dried
+en:herb	herb-dried
+# Generic/parent ingredients proxied from more specific matched baseIngredients
+en:butterfat	butter
+en:milk-proteins	milk
+en:wheat-gluten	soft-wheat
+en:instant-coffee	coffee-ground
+en:green-tea	tea-dried
+en:beef-meat	beef-without-bone
+en:soya	soybean
+en:coconut-oil	unknown-oil
+en:coffee	coffee-ground
+en:cocoa	cocoa-powder
+en:dextrose	glucose-syrup
+en:chicory-powder	chicory-root
+en:sugar-syrup  glucose-syrup
+en:maple-syrup  glucose-syrup
+en:agave-syrup  glucose-syrup

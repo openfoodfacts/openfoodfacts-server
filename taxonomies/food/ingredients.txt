@@ -10410,6 +10410,26 @@ carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr: 35.8
 ciqual_proxy_food_code:en: 6101
 ciqual_proxy_food_name:fr: Boeuf, braisé
+ecobalyse_proxy_alias:en: beef-without-bone-feedlot
+ecobalyse_proxy_category:en: red_meats
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 91f8ec52-d3bb-44db-84be-08bb1996caf8
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: beef-without-bone-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: ff532795-d725-4c6b-82bc-022d38b83bff
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Viande de boeuf sans os Bio (crue)
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Viande de boeuf sans os par défaut
+ecobalyse_proxy_origins_en_france_alias:en: beef-without-bone
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 22179caa-eb41-49c0-ae04-49eda23da4da
+ecobalyse_proxy_origins_en_france_name:fr: Viande de boeuf sans os (crue) FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_raw_to_cooked_ratio:en: 0.792
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: always
 nutriscore_red_meat:en: yes
 
 # see ingredients_processings.txt
@@ -15454,6 +15474,26 @@ ciqual_food_code:en: 16401
 ciqual_food_name:en: Butter oil or concentrated butter
 comment:en: BUTTERFAT seems to be more than just butter, water has been removed
 description:en: BUTTERFAT - the fatty portion of milk.
+ecobalyse_proxy_alias:en: butter-39-41pct-fat-light-default
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 1dd1d7ed-2266-4317-bb45-709f850bd1e1
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: butter-organic-2025
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: aeedb0fa-81a7-4f21-9bf1-7ec9c4c69ed9
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Beurre Bio (2025)
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Beurre à 39-41% MG, léger, doux Origine Inconnue
+ecobalyse_proxy_origins_en_france_alias:en: butter-2025
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: bbda834e-1548-4682-a461-c367dc1ce517
+ecobalyse_proxy_origins_en_france_name:fr: Beurre FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 usda_fdc_code:en: 173412
 usda_ndb_code:en: 1003
 usda_ndb_name:en: Butter oil, anhydrous
@@ -16987,6 +17027,22 @@ zh: 椰子油
 ciqual_food_code:en: 16040
 ciqual_food_name:en: Coconut fat or oil
 description:en: COCONUT OIL, or copra oil, is an edible oil extracted from the kernel or meat of mature coconuts harvested from the coconut palm (Cocos nucifera).
+ecobalyse_proxy_alias:en: unknown-oil-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: TOURNESOL
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Autres huiles (non encore répertoriées) (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: unknown-oil-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Autres huiles (non encore répertoriées) (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 from_palm_oil:en: no
 usda_fdc_code:en: 171412, 330458
 usda_ndb_code:en: 4047
@@ -34463,6 +34519,22 @@ ru: кленовый сироп
 sv: lönnsirap
 ciqual_food_code:en: 31034
 ciqual_food_name:en: maple syrup
+ecobalyse_proxy_alias:en: glucose-syrup-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: DIVERS
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: glucose-syrup-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 usda_fdc_code:en: 169661
 usda_ndb_code:en: 19353
 usda_ndb_name:en: Syrups, maple
@@ -34534,6 +34606,22 @@ tr: şeker şurubu
 ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
+ecobalyse_proxy_alias:en: glucose-syrup-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: DIVERS
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: glucose-syrup-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 vegan:en: yes
 vegetarian:en: yes
 
@@ -34718,6 +34806,22 @@ sv: dextros
 ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
+ecobalyse_proxy_alias:en: glucose-syrup-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: DIVERS
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: glucose-syrup-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 
 < en: dextrose
 en: organic dextrose
@@ -34852,6 +34956,22 @@ zh: 龍舌蘭糖漿
 ciqual_food_code:en: 31089
 ciqual_food_name:en: Syrup, agave
 description:en: Agave syrup (or agave nectar) is a liquid sweetener extracted from the core of the agave plant, particularly Agave tequilana, with production centered in Mexico where the plant has long been used to make traditional sweeteners and beverages like pulque. It has a mild, neutral sweetness—often noted as sweeter than honey—with subtle caramel notes in darker varieties, and a thin, smooth, honey-like texture that dissolves easily in cold liquids. Popular as a vegan honey substitute in beverages, baking, and dressings, agave syrup is very high in fructose (often 70-90%), giving it a low glycemic index despite being calorie-dense, though its fructose concentration has raised similar metabolic concerns as high-fructose corn syrup.
+ecobalyse_proxy_alias:en: glucose-syrup-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: DIVERS
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: glucose-syrup-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 usda_fdc_code:en: 170277
 usda_ndb_code:en: 19912
 usda_ndb_name:en: Sweetener, syrup, agave
@@ -35717,6 +35837,21 @@ sl: mlečne beljakovine
 sr: mliječni proteini, mlečni proteini
 sv: mjölkprotein, mjölkproteiner
 allergens:en: en:milk
+ecobalyse_proxy_alias:en: milk-non-eu-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 17cb3a3e-04e0-4550-bd9b-91a28d8bcec0
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Lait par défaut (2025)
+ecobalyse_proxy_origins_en_france_alias:en: milk-2025
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 8f3863e7-f981-4367-90a2-e1aaa096a6e0
+ecobalyse_proxy_origins_en_france_name:fr: Lait FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 nova:en: 4
 vegetarian:en: yes
 
@@ -36053,6 +36188,22 @@ ciqual_proxy_food_name:en: Cocoa powder, without sugar, powder, instant
 ciqual_proxy_food_name:fr: Cacao, non sucré, poudre soluble
 ciqual_proxy_food_process:en: en:powder
 description:en: Cocoa comes from the seeds (beans) of the cacao tree, native to Central and South America and used by the Aztecs and Maya for thousands of years in ceremonial and medicinal drinks long before it spread to Europe in the 16th century and became the basis for modern chocolate. It has a rich, bitter, complex flavor with earthy, fruity, and slightly astringent notes that vary by origin and processing, and comes in forms ranging from raw beans and nibs to fine cocoa powder, defined by its fat content (cocoa butter) after pressing. Used in chocolate-making, baking, and beverages, cocoa is notably rich in flavanol antioxidants, along with magnesium, iron, and fiber, though its bitter compounds are often offset with added sugar in most commercial products.
+ecobalyse_proxy_alias:en: cocoa-powder-non-ue-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: FRUITS A COQUES
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 0.24
+ecobalyse_proxy_id:en: 3d7f808b-77c5-4207-968d-feea6dfd9496
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Poudre de cacao par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: cocoa-powder-ue-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 88bd8bf2-0e2f-4adf-98cf-09325e38b7f9
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Poudre de cacao UE (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q45912917
@@ -37933,6 +38084,27 @@ zh: 黄豆, 大豆类制品
 #war: Soya
 comment:en: Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max, note that soya is english and soy is american
 description:en: Soy comes from the soybean, a legume domesticated in China around 3,000-5,000 years ago and long a dietary staple across East Asia, later spreading globally as both a food crop and major agricultural commodity. It has a mild, earthy, slightly nutty flavor with a texture that varies enormously by form—from the firm bite of tofu and edamame to the smooth creaminess of soy milk and the meaty chew of tempeh. Extremely versatile, soy is used in countless forms including tofu, milk, sauce, and protein isolates, and stands out nutritionally as a complete plant protein containing all nine essential amino acids, along with fiber, iron, and isoflavones linked to potential health benefits.
+ecobalyse_proxy_alias:en: soybean-default
+ecobalyse_proxy_category:en: cereals
+ecobalyse_proxy_crop_group:en: AUTRES OLEAGINEUX
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 0.74
+ecobalyse_proxy_id:en: 2c2e014e-3a4a-523a-8d26-eead5e99a957
+ecobalyse_proxy_inedible_part:en: 0.5
+ecobalyse_proxy_name:fr: Soja Origine Inconnue
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: soybean-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 33fdb2a4-d68c-5492-87af-5a38e533b406
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Soja UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: soybean-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: c466ec83-7735-43b6-a919-c933e6656a8d
+ecobalyse_proxy_origins_en_france_name:fr: Soja FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_raw_to_cooked_ratio:en: 2.259
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 vegan:en: yes
 vegetarian:en: yes
 
@@ -38345,6 +38517,32 @@ sl: pšenični gluten
 sv: vetegluten
 ciqual_proxy_food_code:en: 48052
 ciqual_proxy_food_name:en: Vital wheat gluten
+ecobalyse_proxy_alias:en: soft-wheat-non-eu
+ecobalyse_proxy_category:en: cereals
+ecobalyse_proxy_crop_group:en: BLE TENDRE
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 0.77
+ecobalyse_proxy_id:en: 1402fd8a-d473-51fd-9d07-b4c0eb798dcc
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: soft-wheat-flour-fr-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: 3436324c-7835-4e9b-86c6-e9ca68a5e2af
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Farine de blé tendre, froment ou millet Bio
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Blé tendre HORS UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: soft-wheat-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: c56ff7bd-cb19-5798-8611-6ce072b541ba
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Blé tendre UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: soft-wheat-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 38788025-a65e-4edf-a92f-aab0b89b0d61
+ecobalyse_proxy_origins_en_france_name:fr: Blé tendre FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_raw_to_cooked_ratio:en: 2.259
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 
 < en: wheat gluten
 en: vital wheat gluten
@@ -46833,9 +47031,6 @@ ecobalyse_alias:en: coconut-dehusked-non-eu
 ecobalyse_category:en: other_food_items
 ecobalyse_crop_group:en: FRUITS A COQUES
 ecobalyse_default_origin:en:
-# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
-# NOTE the oil and fat of a coconut can be found under the fats section
-# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
 ecobalyse_density_g_per_ml:en: 0.5
 ecobalyse_id:en: 927231a5-c0c4-560f-8e89-ca4b01795fe6
 ecobalyse_inedible_part:en: 0.5
@@ -46853,6 +47048,9 @@ ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_raw_to_cooked_ratio:en: 1
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: none
+# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
+# NOTE the oil and fat of a coconut can be found under the fats section
+# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
 usda_fdc_code:en: 170169
 usda_ndb_code:en: 12104
 usda_ndb_name:en: Nuts, coconut meat, raw
@@ -56711,8 +56909,9 @@ usda_ndb_code:en: 11154
 usda_ndb_name:en: Chicory roots, raw
 
 < en: chicory
-fr: chicorée soluble
+en: chicory powder, instant chicory
 es: achicoria en polvo
+fr: chicorée soluble, chicorée en poudre, chicorée instantanée
 nl: oploscichorei, poeder met witlof, cichorei
 pt: chicória solúvel
 ciqual_food_code:en: 18152
@@ -73083,6 +73282,27 @@ vegetarian:en: yes
 < en: herb
 en: fresh herb, fresh herbs
 fr: herbe fraîche, herbes fraîches
+ecobalyse_alias:en: herb-fresh-non-eu
+ecobalyse_category:en: other_food_items
+ecobalyse_crop_group:en: AUTRES CULTURES INDUSTRIELLES
+ecobalyse_default_origin:en:
+ecobalyse_density_g_per_ml:en: 0.9
+ecobalyse_id:en: e0ca6e33-9540-5abc-a285-bfffba017601
+ecobalyse_inedible_part:en: 0.2
+ecobalyse_name:fr: Herbes fraîches (aneth, basilic, cerfeuil, romarin, sauge, thym) HORS UE
+ecobalyse_origins_en_europe_and_maghreb_alias:en: herb-fresh-eu
+ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_origins_en_europe_and_maghreb_id:en: ddf1b502-4c77-5275-a074-726b1125a959
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Herbes fraîches (aneth, basilic, cerfeuil, romarin, sauge, thym) UE
+ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_origins_en_france_alias:en: herb-fresh-fr
+ecobalyse_origins_en_france_default_origin:en: FR
+ecobalyse_origins_en_france_id:en: eb1ec96a-d923-599a-97c0-fccb20d48cb2
+ecobalyse_origins_en_france_name:fr: Herbes fraîches (aneth, basilic, cerfeuil, romarin, sauge, thym) FR
+ecobalyse_origins_en_france_scenario:en: reference
+ecobalyse_raw_to_cooked_ratio:en: 0.856
+ecobalyse_scenario:en: import
+ecobalyse_transport_cooling:en: none
 
 < en: herb
 en: herbal tea
@@ -80749,6 +80969,22 @@ carbon_footprint_fr_foodges_value:fr: 30.5
 ciqual_food_code:en: 18020
 ciqual_food_name:en: Tea, brewed, without sugar
 ciqual_food_name:fr: Thé infusé, non sucré
+ecobalyse_alias:en: tea-dried-non-eu
+ecobalyse_category:en: other_food_items
+ecobalyse_crop_group:en: DIVERS
+ecobalyse_default_origin:en:
+ecobalyse_density_g_per_ml:en: 0.9
+ecobalyse_id:en: b767e665-ad96-5200-ad67-11ac66e81559
+ecobalyse_inedible_part:en: 0
+ecobalyse_name:fr: Thé, feuilles séchées HORS UE
+ecobalyse_origins_en_europe_and_maghreb_alias:en: tea-dried-2025
+ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_origins_en_europe_and_maghreb_id:en: 97f56acd-962e-4a4b-af42-1e468d2017a0
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Thé (feuilles) UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_raw_to_cooked_ratio:en: 1
+ecobalyse_scenario:en: import
+ecobalyse_transport_cooling:en: none
 # ang:Tē
 # arz:شاى
 # ast:Té
@@ -81055,6 +81291,22 @@ zh: 綠茶
 ciqual_food_code:en: 18155
 ciqual_food_name:en: Green tea, brewed, without sugar
 ciqual_food_name:fr: Thé vert, infusé, non sucré
+ecobalyse_proxy_alias:en: tea-dried-non-eu
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: DIVERS
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 0.9
+ecobalyse_proxy_id:en: b767e665-ad96-5200-ad67-11ac66e81559
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Thé, feuilles séchées HORS UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: tea-dried-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 97f56acd-962e-4a4b-af42-1e468d2017a0
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Thé (feuilles) UE (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 # arz:شاى أخضر
 # ast:Té verde
 # cdo:liŏh-dà
@@ -93529,6 +93781,17 @@ carbon_footprint_fr_foodges_ingredient:fr: Café moulu
 carbon_footprint_fr_foodges_value:fr: 15.7
 ciqual_proxy_food_code:en: 18003
 ciqual_proxy_food_name:en: Coffee, ground
+ecobalyse_proxy_alias:en: coffee-ground-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: VERGERS
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 77be5f12-5124-4828-861c-9ce4ed3fa661
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Café moulu par défaut (2025)
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 vegan:en: yes
 vegetarian:en: yes
 # ang:Caffiȝ
@@ -94012,6 +94275,17 @@ ciqual_food_code:en: 18005
 ciqual_food_name:en: Coffee, powder, instant
 ciqual_food_name:fr: Café, poudre soluble
 description:en: INSTANT COFFEE is a beverage derived from brewed coffee beans that enables people to quickly prepare hot coffee by adding hot water or milk to the powder or crystals and stirring
+ecobalyse_proxy_alias:en: coffee-ground-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: VERGERS
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 77be5f12-5124-4828-861c-9ce4ed3fa661
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Café moulu par défaut (2025)
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 # zh-cn:即溶咖啡
 # zh-hans:即溶咖啡
 # zh-hant:即溶咖啡
