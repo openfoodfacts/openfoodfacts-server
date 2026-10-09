@@ -99,14 +99,14 @@ synonyms:it: senza, 0%, zero
 synonyms:nl: zonder, 0%
 synonyms:pt: sem, 0%, livre de, zero
 synonyms:ru: без, 0%, 0 %
-synonyms:sv: utan, inga, ingen, inget, noll, 0%, fritt från, fri från, innehåller inga
+synonyms:sv: utan, ingen, inget, inga, noll, 0%, fri från, fritt från, fria från, innehåller inga
 
 synonyms:fi: lisätty
 synonyms:fr: ajout, adjonction
 synonyms:pt: adicionado, adicionados, adinionada, adicionadas
 synonyms:ru: дополнение, добавка
 
-synonyms:en: carbon, co2
+synonyms:en: carbon, co2, CO₂
 synonyms:bg: въглерод, co2
 synonyms:da: kuldioxid, CO2
 synonyms:es: carbono, co2, CO<sub>2</sub>, CO2
@@ -116,7 +116,7 @@ synonyms:hu: szén, co2
 synonyms:it: carbonio, CO2
 synonyms:pt: carbono, co2
 synonyms:ru: углерод, CO<sub>2</sub>, CO2
-synonyms:sv: koldioxid, CO2
+synonyms:sv: koldioxid, CO2, CO₂
 
 synonyms:en: durable, soutenable, responsable
 synonyms:fi: kestävä, luotettava, vastuullinen
@@ -132,7 +132,7 @@ synonyms:pt: fabrico, fabricado, produção, elaborado, feito
 synonyms:ru: изготовление, производство
 
 synonyms:en: made, manufactured, produced
-synonyms:sv: tillverkad, tillverkat, tillagad, tillagat, producerad, producerat
+synonyms:sv: tillverkad, tillverkat, tillverkade, tillagad, tillagat, tillagade, producerad, producerat, producerade
 
 synonyms:en: fats, fat
 synonyms:fr: matières grasses, MG, gras
@@ -144,7 +144,7 @@ synonyms:fr: naturel, d'origine naturelle, origine naturelle
 synonyms:fi: luontainen, luonnollinen
 synonyms:it: naturale, di origine naturale, origine naturale
 synonyms:pt: natural, de origem natural, origem natural
-synonyms:sv: naturlig, naturligt
+synonyms:sv: naturlig, naturligt, naturliga
 
 synonyms:fr: élevé, élevée, élevés, élevées
 synonyms:pt: elevado, elevados
@@ -165,7 +165,12 @@ synonyms:fr: premier, 1er
 synonyms:fr: français, francais
 # soja francais sans OGM
 
-synonyms:sv: ingrediens, råvara
+synonyms:sv: ingrediens, råvara, ingredienser, råvaror
+
+# rich
+synonyms:sv: rik, rikt, rika
+# enriched
+synonyms:sv: berikad, berikat, berikade
 
 en: 1% for the planet, 1 percent for the planet, one percent for the planet
 bg: 1% за планетата
@@ -1927,6 +1932,7 @@ en: source of omega-3, source of omega-3 fatty acids
 xx: source of omega-3
 bg: Натурален източник на омега-3 мастни киселини
 it: sorgente di omega 3, sorgente di omega-3, sorgente di omega3
+sv: källa till omega-3
 description:en: In EU, a claim that a food is a source of omega-3 may only be made where the product contains at least 0,3 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en: Omega-3
@@ -1946,6 +1952,7 @@ nl: Rijk aan Omega 3
 pt: Rico em Ómega 3, Rico em Ómega-3
 ru: Обогащено омега-3 жирами
 sr: Bogata Omega-3 masnim kiselinama
+sv: rik på omega-3
 description:en: In EU, a claim that a food is high in omega-3 may only be made where the product contains at least 0,6 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 80 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 en: high monounsaturated fat
@@ -2007,7 +2014,7 @@ nl: Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
 pl: Wysoka zawartość białka, Bogaty w białko
 pt: Proteínas altas
 ru: Обогащено протеинами
-sv: Proteinrik, rik på protein, högt proteininnehåll
+sv: Rik på protein, proteinrik, högt proteininnehåll
 th: โปรตีนสูง
 description:en: In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -2022,6 +2029,12 @@ hu: Növényi fehérjékben gazdag
 it: Ricca di proteini vegetali
 nl: Rijk aan plantaardige eiwitten
 pt: Rico em proteínas vegetais, rico em proteína vegetal
+sv: Rik på protein från växter
+
+< en: Rich in vegetable protein
+en: Rich in soy protein
+sv: Rik på protein från soja
+incompatible_with:en: labels:en:no-soy
 
 en: Calcium source, Source of calcium, With calcium
 xx: Calcium source
@@ -2058,16 +2071,19 @@ nl: bron van magnesium
 pl: Źródło magnezu
 pt: Fonte de magnésio
 ru: источник магния
+sv: källa till magnesium
 th: แหล่งแมกนีเซียม
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: zinc source, source of zinc
 xx: zinc source
 it: fonte di zinco
+sv: källa till zink
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: iodine source, source of iodine
 xx: iodine source
+sv: källa till jod
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Phosphore source
@@ -2083,6 +2099,7 @@ it: Fonte di fosforo
 nl: Bron van fosfor
 pt: Fonte de fósforo
 ru: Источник фосфора
+sv: källa till fosfor
 th: แหล่งโฟสฟอรัส
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
@@ -2239,13 +2256,16 @@ description:en: In EU, claim that a food is a source of vitamins and/or minerals
 en: source of biotin, Vitamin B7 source
 xx: source of biotin
 it: fonte di biotina, fonte di vitamina B7
+sv: källa till biotin, källa till vitamin B7
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: source of pantothenic acid, Vitamin B5 source
 xx: source of pantothenic acid
+sv: källa till pantotensyra, källa till vitamin B5
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Vitamin C source, Source of vitamin C
+xx: Vitamin C source
 bg: Източник на витамин C
 ca: Font de vitamina C
 de: Vitamin C-Quelle
@@ -2260,10 +2280,9 @@ nl: Bron van Vitamine C
 pl: Źródło witaminy C
 pt: Fonte de vitamina C
 ru: Источник витамина C
-sv: Källa till vitamin C
+sv: Källa till vitamin C, källa till askorbinsyra
 tr: C Vitamini kaynağı
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
-xx:en: Vitamin C source
 
 en: Vitamin D source, Source of vitamin D, With vitamin D2
 xx: Vitamin D source
@@ -2281,7 +2300,7 @@ nl: Bron van Vitamine D
 pl: Źródło witaminy D
 pt: Fonte de vitamina D
 ru: Источник витамина D
-sv: D-vitaminkälla
+sv: Källa till vitamin D, D-vitaminkälla
 th: แหล่งของวิตามินดี
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
@@ -2301,7 +2320,7 @@ nl: Bron van Vitamine E
 pl: Źródło witaminy E
 pt: Fonte de vitamina e
 ru: Источник витамина E
-sv: Källa till vitamin E
+sv: Källa till vitamin E, E-vitaminkälla
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: iron source, Source of iron
@@ -2334,6 +2353,7 @@ nl: Bron van natuurlijke Calcium
 pl: Naturalne źródło wapnia
 pt: Fonte natural de cálcio
 ru: Источник натурального кальция
+sv: naturlig källa till kalcium
 
 en: High in calcium
 xx: High in calcium
@@ -2348,6 +2368,7 @@ it: Ricco di calcio
 nl: Rijk aan Calcium
 pt: Rico em cálcio
 ru: Обогащено кальцием
+sv: rik på kalcium
 th: แคลเซียมสูง
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
@@ -2376,7 +2397,7 @@ it: Arricchito con vitamine
 nl: verrijkt met vitaminen
 pl: Wzbogacane witaminami
 pt: Enriquecido com vitaminas
-sv: Vitaminberikat, Vitaminberikad, Berikad med vitaminer
+sv: Vitaminberikad, Vitaminberikat, Berikad med vitaminer
 
 < en: Enriched with calcium
 < en: Enriched with vitamins
@@ -2384,17 +2405,17 @@ en: Enriched with calcium and vitamins
 sv: Berikad med kalcium & vitaminer
 
 < en: Enriched with vitamins
-en: Enriched with riboflavin
-sv: Berikad med riboflavin
+en: Enriched with riboflavin, Enriched with vitamin B2
+sv: Berikad med riboflavin, berikad med vitamin B2, riboflavinberikad, vitamin B2-berikad
 
 < en: Enriched with vitamins
 en: Enriched with vitamin D
-sv: Berikad med vitamin D
+sv: Berikad med vitamin D, vitamin D-berikad
 
 < en: Enriched with vitamins
 en: Enriched with vitamin B12, B12 enriched
 fr: Enrichi en vitamine B12
-sv: Berikad med vitamin B12
+sv: Berikad med vitamin B12, vitamin B12-berikad
 
 en: Enriched with minerals
 da: Beriget med mineraler
@@ -2404,6 +2425,7 @@ hu: Ásványi anyagokkal dúsított
 it: Arricchito con minerali
 nl: verrijkt met mineralen
 pt: Enriquecido com minerais
+sv: berikad med mineraler, mineralberikad
 
 en: Rich in iron
 bg: Богато на желязо
@@ -2415,7 +2437,7 @@ it: Ricco di ferro
 nl: Rijk aan ijzer
 pl: Bogaty w żelazo
 pt: Rico em ferro
-sv: Rika på järn
+sv: rik på järn
 tr: Demir açısından zengin
 
 en: Rich in potassium
@@ -2427,7 +2449,7 @@ it: Ricco di potassio
 nl: Rijk aan kalium
 pl: Bogaty w potas
 pt: Rico em potássio
-sv: Rika på kalium
+sv: rik på kalium
 tr: Demir açısından potasyum
 
 en: In braille
@@ -5605,7 +5627,7 @@ ru: Без лактозы
 sk: Bez laktozy
 sl: Brez laktoze
 sq: Pa laktozë
-sv: Laktosfri, Laktosfritt, Naturligt laktosfri
+sv: Fri från laktos, Laktosfri, Laktosfritt, Naturligt laktosfri
 th: ไม่มีแลคโตส
 tr: Laktozsuz
 uk: Без лактози
@@ -5681,6 +5703,9 @@ th: ไม่มีส่วนผสมของนม
 incompatible_with:en: labels:en:contains-milk
 label_categories:en: en:Allergens
 opposite:en: en:contains-milk
+
+en: No milk protein
+sv: Fri från mjölkprotein
 
 fr: Contrat Biolait
 
@@ -19152,7 +19177,7 @@ nl: Zonder palmolie, Palmolie-vrij, Palmolievrij
 pl: Wolne od oleju palmowego, bez oleju palmowego
 pt: Sem óleo de palma, 0% óleo de palma
 ru: Без пальмового масла
-sv: Utan palmolja, palmoljefri
+sv: Fri från palmolja, Utan palmolja, palmoljefri
 th: ไม่ใช้น้ำมันปาล์ม
 zh: 不含棕榈油
 incompatible_with:en: labels:en:contains-palm-oil
@@ -19453,6 +19478,7 @@ hr: bogat vitaminom A
 hu: A-vitaminban gazdag
 it: Ricco di vitamina A
 pt: Rico en vitamina A
+sv: Rik på vitamin A
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B
@@ -19464,6 +19490,7 @@ hr: bogat vitaminom B
 hu: B-vitaminban gazdag
 it: Ricco di vitamina B
 pt: Rico en vitamina B
+sv: Rik på vitamin B
 
 en: Rich in vitamin B1
 de: Reich an Vitamin B1
@@ -19476,14 +19503,33 @@ hu: B1-vitaminban gazdag
 it: Ricco di vitamina B1
 nl: rijk aan vitamine B1
 pt: Rico em vitamina B1
+sv: Rik på vitamin B1
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B2
 xx: Rich in vitamin B2
+de: Reich an Vitamin B2
+es: Rico en vitamina B2
+fi: runsaasti B2-vitamiinia
+fr: Riche en vitamine B2
+hr: bogat vitaminom B2
+hu: B2-vitaminban gazdag
+it: Ricco di vitamina B2
+pt: Rico en vitamina B2
+sv: Rik på vitamin B2, rik på riboflavin
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B3
 xx: Rich in vitamin B3
+de: Reich an Vitamin B3
+es: Rico en vitamina B3
+fi: runsaasti B3-vitamiinia
+fr: Riche en vitamine B3
+hr: bogat vitaminom B3
+hu: B3-vitaminban gazdag
+it: Ricco di vitamina B3
+pt: Rico en vitamina B3
+sv: Rik på vitamin B3
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B6
@@ -19497,34 +19543,42 @@ hr: bogat vitaminom B6
 hu: B6-vitaminban gazdag
 it: Ricco di vitamina B6
 pt: Rico em vitamina B6
+sv: Rik på vitamin B6
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
-en: high in biotin, high in vitamin b7
+en: high in biotin, high in vitamin B7
 xx: high in biotin
+sv: Rik på biotin, Rik på vitamin B7
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
-en: high in pantothenic acid, high in vitamin b5
+en: high in pantothenic acid, high in vitamin B5
 xx: high in pantothenic acid
+sv: Rik på pantotensyra, Rik på vitamin B5
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: high in phosphore
 xx: high in phosphore
+sv: rik på fosfor
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: high in iron
 xx: high in iron
+sv: rik på järn
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: high in magnesium
 xx: high in magnesium
+sv: rik på magnesium
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: high in zinc
 xx: high in zinc
+sv: rik på zink
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: high in iodine
 xx: high in iodine
+sv: rik på jod
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B9
@@ -19538,6 +19592,7 @@ hr: bogat vitaminom B9
 hu: B9-vitaminban gazdag
 it: Ricco di vitamina B9
 pt: Rico en vitamina B9
+sv: Rik på vitamin B9
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B12
@@ -19585,6 +19640,7 @@ hu: D-vitaminban gazdag
 it: Ricco di vitamina D
 nl: rijk aan vitamine D
 pt: Rico em vitamina D
+sv: Rik på vitamin D
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin E
@@ -19598,6 +19654,7 @@ hu: E-vitaminban gazdag
 it: Ricco di vitamina E
 nl: rijk aan vitamine E
 pt: Rico em vitamina E
+sv: Rik på vitamin E
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 < en: Rich in vitamin C
@@ -19607,6 +19664,7 @@ fr: naturellement riche en vitamine C
 hr: prirodno bogato vitaminom C
 it: naturalmente ricco di vitamina C
 pt: rico naturalmente em vitamina C
+sv: naturlig rik på vitamin C
 
 < en: Rich in vitamin E
 en: naturally rich in vitamin E
@@ -19615,6 +19673,7 @@ fr: naturellement riche en vitamine E
 hr: prirodno bogato vitaminom E
 it: naturalmente ricco di vitamina E
 pt: rico naturalmente em vitamina E
+sv: naturlig rik på vitamin E
 
 en: whole grain, wholegrain, wholemeal
 da: fuldkorn
@@ -19631,7 +19690,7 @@ sv: med fullkornsmjöl
 
 #< en:whole grain
 en: Rich in whole grain
-sv: Fullkornsrik
+sv: rik på fullkorn, fullkornsrik
 
 en: The Danish Whole Grain Logo, The Whole Grain Logo
 xx: Vælg fuldkorn først
@@ -20422,7 +20481,7 @@ nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
 pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos, odpowiedni dla wegan
 sq: vegan
-sv: Vegansk, Passar för veganer, vegetabilisk, vegetabiliskt, vegetabiliskt ursprung, veganska, 100% vegansk
+sv: Vegansk, veganskt, veganska, 100% vegansk, 100% veganskt, 100% veganska, vegetabilisk, vegetabiliskt, vegetabiliska, vegetabiliskt ursprung, Passar för veganer, vegan
 th: สูตรเจ
 tr: Vegan
 zh: 纯素
