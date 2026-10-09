@@ -47476,6 +47476,19 @@ ciqual_food_name:en: Yogurt, fermented milk or dairy specialty, w fruits or flav
 ciqual_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré, non allégé en MG (aliment moyen)
 
 < en: Fermented dairy desserts
+en: Fermented dairy desserts enriched in proteins
+fr: Desserts lactés fermentés enrichis en protéines
+nova:en: 4
+
+< en: Fermented dairy desserts enriched in proteins
+en: Fermented dairy desserts enriched in proteins with fruits, Yogurts high in protein on a fruit layer, Yoghurts high in protein on a fruit layer
+fr: Desserts lactés fermentés enrichis en protéines aux fruits, Spécialités laitières sucrées riches en protéines sur lit de fruits
+#hr: Jogurti s visokim udjelom proteina na voćnom sloju
+ciqual_food_code:en: 19669
+ciqual_food_name:en: Yoghurt, high in protein, on a fruit layer
+ciqual_food_name:fr: Spécialité laitière type encas, riche en protéines, sur lit de fruits, sucrée
+
+< en: Fermented dairy desserts
 en: Kefir yogurts
 de: Sahnekefir
 fr: Yaourts au kéfir
@@ -53346,13 +53359,13 @@ da: Frugtyoghurt
 de: Fruchtjoghurt, Fruchtjogurt, Fruchtjoghurts, Fruchtjogurts
 es: Yogures de frutas
 fi: Hedelmäjogurtit
-fr: Yaourts aux fruits, yaourt aux fruits
+fr: Yaourts aux fruits, yaourt aux fruits, Yaourts sur lit de fruits, yaourts sur lits de fruits, Yaourts sut lit de fruits
 he: יוגורט פירות
 hr: voćni jogurti, voćni jogurt
 hu: Gyümölcsjoghurtok, Joghurt gyümölccsel
 it: Yogurt alla frutta
 lt: Jogurtai su vaisiais, Vaisiniai jogurtai
-nl: Vruchtenyoghurts, Fruityoghurts
+nl: Vruchtenyoghurts, Fruityoghurts, Yoghurts op een laag fruit
 pl: Jogurty owocowe, Jogurty z owocami
 pt: Iogurtes de fruta, iogurtes com fruta
 ro: Iaurturi cu fructe, Iaurt cu fructe
@@ -53814,15 +53827,6 @@ fr: Yaourt à la grecque au lait de brebis
 agribalyse_food_code:en: 19550
 ciqual_food_code:en: 19550
 ciqual_food_name:en: Yogurt, Greek-style, ewe's milk
-
-< en: Fruit yogurts
-en: Yogurts high in protein on a fruit layer, Yoghurts high in protein on a fruit layer
-fr: Yaourts sur lit de fruits, yaourts sur lits de fruits, Yaourts sut lit de fruits, Spécialités laitières sucrées riches en protéines sur lit de fruits
-hr: Jogurti s visokim udjelom proteina na voćnom sloju
-nl: Yoghurts op een laag fruit
-ciqual_food_code:en: 19669
-ciqual_food_name:en: Yoghurt, high in protein, on a fruit layer
-ciqual_food_name:fr: Spécialité laitière type encas, riche en protéines, sur lit de fruits, sucrée
 
 < en: Greek-style yogurts
 en: Greek-style yogurts on a bed of fruits, Greek yogurt on a bed of fruits, Greek-style yogurt on a bed of fruits
@@ -54959,6 +54963,11 @@ ciqual_food_code:en: 39511
 ciqual_food_name:en: Custard dessert, refrigerated or canned (average)
 ciqual_food_name:fr: Crème dessert, rayon frais ou appertisée (aliment moyen)
 intake24_category_code:en: CSTD
+
+< en:Creamy puddings
+en: Creamy puddings enriched in proteins
+fr: Crèmes dessert enrichies en protéines
+nova:en: 4
 
 #Those puddings seem to be sold only in Spain and Portugal, no need to translate it
 < en: Creamy puddings
