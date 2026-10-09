@@ -244,7 +244,6 @@ turnip	en:turnip	taxonomy
 vanilla	en:vanilla	taxonomy
 veal-meat	en:veal-meat	taxonomy
 vegetable-mix	en:vegetable-blend	taxonomy
-vinegar-alcohol	en:alcohol-vinegar	reordered
 virgin-hazelnut-oil	en:virgin-hazelnut-oil	taxonomy
 walnut	en:walnut	taxonomy
 watermelon	en:watermelon	taxonomy
@@ -254,12 +253,15 @@ white-wine-dry	en:dry-white-wine	reordered
 yam	en:yam	taxonomy
 yogurt	en:yogurt	taxonomy
 zucchini	en:courgette	taxonomy
+almond-shelled-with-skin	en:almond	override
 cantal-cheese	en:cantal	override
 chestnut-husked	en:chestnut	override
 chestnut-inshell	en:chestnut	override
 chickpea-dried	en:chickpea	override
+coconut-dehusked	en:coconut	override
 feta-type-cheese	en:feta	override
 fourme-dambert-cheese	en:fourme-d-ambert	override
+fresh-shrimps	en:shrimp	override
 greek-yogurt-sheep-milk	en:greek-yogurt	override
 green-bean-cut-raw	en:green-bean	override
 green-olive-pitted	en:green-olive	override
@@ -286,6 +288,7 @@ squash	en:spaghetti-squash	override
 squash-with-skin-raw	en:butternut-squash	override
 strawberry-coulis	en:strawberry	override
 tomato-concentrated	en:tomato-concentrate	override
+vinegar-alcohol	en:vinegar	override
 walnut-husked	en:walnut	override
 walnut-inshell	en:walnut	override
 white-bean-canned-drained	en:bean	override

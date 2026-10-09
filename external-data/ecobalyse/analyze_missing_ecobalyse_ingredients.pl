@@ -139,6 +139,21 @@ my $products_with_ingredients = 0;
 my $leaf_ingredients_total = 0;
 my $leaf_ingredients_missing_ecobalyse = 0;
 
+# Coverage statistics accumulators
+my $products_with_leaf_ingredients = 0;
+
+# Ecobalyse coverage: % of leaf ingredient quantity with an ecobalyse id or proxy id
+my $ecobalyse_100 = 0;
+my $ecobalyse_90 = 0;
+my $ecobalyse_80 = 0;
+my $total_ecobalyse_ratio = 0;
+
+# Taxonomy coverage: % of leaf ingredient quantity that exists in the taxonomy
+my $taxonomy_100 = 0;
+my $taxonomy_90 = 0;
+my $taxonomy_80 = 0;
+my $total_taxonomy_ratio = 0;
+
 while (my $product_ref = $cursor->next) {
 	$products_processed++;
 
@@ -166,6 +181,11 @@ while (my $product_ref = $cursor->next) {
 
 	$products_with_ingredients++;
 
+	# Per-product accumulators for coverage statistics
+	my $product_total_quantity = 0;
+	my $product_ecobalyse_quantity = 0;
+	my $product_taxonomy_quantity = 0;
+
 	# Traverse ingredient tree to find leaf ingredients
 	my @ingredients_queue = @{$full_product_ref->{ingredients}};
 
@@ -180,24 +200,37 @@ while (my $product_ref = $cursor->next) {
 			# This is a leaf ingredient
 			$leaf_ingredients_total++;
 
+			# Get quantity estimate (computed for all leaf ingredients for coverage stats)
+			my $quantity = $ingredient_ref->{quantity_estimate} // $ingredient_ref->{percent_estimate}
+				// $ingredient_ref->{percent};
+			$quantity = 0 unless defined $quantity;
+			$quantity += 0;    # Ensure numeric
+
+			$product_total_quantity += $quantity;
+
 			# Check if it has ecobalyse_id or ecobalyse_proxy_id
 			my $has_ecobalyse
 				= (defined $ingredient_ref->{ecobalyse_id} || defined $ingredient_ref->{ecobalyse_proxy_id});
 
+			if ($has_ecobalyse) {
+				$product_ecobalyse_quantity += $quantity;
+			}
+
+			# Check if in taxonomy (for all leaf ingredients)
+			my $ingredient_id = $ingredient_ref->{id};
+			my $in_taxonomy = 0;
+			if (defined $ingredient_id && $ingredient_id ne '') {
+				$in_taxonomy = exists_taxonomy_tag("ingredients", $ingredient_id) ? 1 : 0;
+			}
+
+			if ($in_taxonomy) {
+				$product_taxonomy_quantity += $quantity;
+			}
+
 			if (!$has_ecobalyse) {
 				$leaf_ingredients_missing_ecobalyse++;
 
-				my $ingredient_id = $ingredient_ref->{id};
 				next unless defined $ingredient_id && $ingredient_id ne '';
-
-				# Get quantity estimate
-				my $quantity = $ingredient_ref->{quantity_estimate} // $ingredient_ref->{percent_estimate}
-					// $ingredient_ref->{percent};
-				$quantity = 0 unless defined $quantity;
-				$quantity += 0;    # Ensure numeric
-
-				# Check if in taxonomy
-				my $in_taxonomy = exists_taxonomy_tag("ingredients", $ingredient_id) ? 1 : 0;
 
 				# Accumulate stats
 				$stats{$ingredient_id}{count}++;
@@ -206,6 +239,25 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 	}
+
+	# Compute coverage ratios for this product
+	if ($product_total_quantity > 0) {
+		$products_with_leaf_ingredients++;
+
+		my $ratio_ecobalyse = $product_ecobalyse_quantity / $product_total_quantity;
+		$total_ecobalyse_ratio += $ratio_ecobalyse;
+
+		if ($ratio_ecobalyse >= 1.0) {$ecobalyse_100++;}
+		if ($ratio_ecobalyse >= 0.9) {$ecobalyse_90++;}
+		if ($ratio_ecobalyse >= 0.8) {$ecobalyse_80++;}
+
+		my $ratio_taxonomy = $product_taxonomy_quantity / $product_total_quantity;
+		$total_taxonomy_ratio += $ratio_taxonomy;
+
+		if ($ratio_taxonomy >= 1.0) {$taxonomy_100++;}
+		if ($ratio_taxonomy >= 0.9) {$taxonomy_90++;}
+		if ($ratio_taxonomy >= 0.8) {$taxonomy_80++;}
+	}
 }
 
 print STDERR "\n\nProcessed $products_processed products\n";
@@ -213,6 +265,35 @@ print STDERR "Products with ingredients: $products_with_ingredients\n";
 print STDERR "Total leaf ingredients: $leaf_ingredients_total\n";
 print STDERR "Leaf ingredients missing ecobalyse IDs: $leaf_ingredients_missing_ecobalyse\n";
 print STDERR "Unique ingredient IDs missing ecobalyse: " . scalar(keys %stats) . "\n";
+
+print STDERR "\n";
+print STDERR "Coverage statistics\n";
+print STDERR "===================\n";
+print STDERR "Products processed: $products_processed\n";
+print STDERR "Products with leaf ingredients: $products_with_leaf_ingredients\n";
+
+print STDERR "\n";
+print STDERR "Estimated quantity of leaf ingredients with an ecobalyse id or proxy id:\n";
+my $pct_ecobalyse_100 = $products_with_leaf_ingredients ? $ecobalyse_100 / $products_with_leaf_ingredients * 100 : 0;
+my $pct_ecobalyse_90 = $products_with_leaf_ingredients ? $ecobalyse_90 / $products_with_leaf_ingredients * 100 : 0;
+my $pct_ecobalyse_80 = $products_with_leaf_ingredients ? $ecobalyse_80 / $products_with_leaf_ingredients * 100 : 0;
+my $avg_ecobalyse
+	= $products_with_leaf_ingredients ? $total_ecobalyse_ratio / $products_with_leaf_ingredients * 100 : 0;
+printf STDERR "  Products with 100%% coverage: %d (%.1f%%)\n", $ecobalyse_100, $pct_ecobalyse_100;
+printf STDERR "  Products with >= 90%% coverage: %d (%.1f%%)\n", $ecobalyse_90, $pct_ecobalyse_90;
+printf STDERR "  Products with >= 80%% coverage: %d (%.1f%%)\n", $ecobalyse_80, $pct_ecobalyse_80;
+printf STDERR "  Average coverage: %.1f%%\n", $avg_ecobalyse;
+
+print STDERR "\n";
+print STDERR "Estimated quantity of leaf ingredients that exist in the taxonomy:\n";
+my $pct_taxonomy_100 = $products_with_leaf_ingredients ? $taxonomy_100 / $products_with_leaf_ingredients * 100 : 0;
+my $pct_taxonomy_90 = $products_with_leaf_ingredients ? $taxonomy_90 / $products_with_leaf_ingredients * 100 : 0;
+my $pct_taxonomy_80 = $products_with_leaf_ingredients ? $taxonomy_80 / $products_with_leaf_ingredients * 100 : 0;
+my $avg_taxonomy = $products_with_leaf_ingredients ? $total_taxonomy_ratio / $products_with_leaf_ingredients * 100 : 0;
+printf STDERR "  Products with 100%% coverage: %d (%.1f%%)\n", $taxonomy_100, $pct_taxonomy_100;
+printf STDERR "  Products with >= 90%% coverage: %d (%.1f%%)\n", $taxonomy_90, $pct_taxonomy_90;
+printf STDERR "  Products with >= 80%% coverage: %d (%.1f%%)\n", $taxonomy_80, $pct_taxonomy_80;
+printf STDERR "  Average coverage: %.1f%%\n", $avg_taxonomy;
 
 # Sort by aggregate quantity descending
 my @sorted_ingredients = sort {$stats{$b}{quantity} <=> $stats{$a}{quantity}} keys %stats;

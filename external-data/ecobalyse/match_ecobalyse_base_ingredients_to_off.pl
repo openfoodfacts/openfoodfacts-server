@@ -64,7 +64,7 @@ if (-f $overrides_file) {
 	while (my $line = <$ofh>) {
 		chomp $line;
 		next if $line =~ /^#/ || $line =~ /^\s*$/;
-		my ($base, $tagid) = split /\t/, $line, 2;
+		my ($base, $tagid) = split /[\t ]+/, $line, 2;
 		$overrides{$base} = $tagid if defined $base && defined $tagid;
 	}
 	close $ofh;

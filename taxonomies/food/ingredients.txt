@@ -5102,6 +5102,21 @@ pl: Świeża śmietana, śmietana kremówka, śmietanka kremówka
 sv: Färsk grädde
 ciqual_food_code:en: 19402
 ciqual_food_name:fr: Crème de lait ou spécialité à base de crème légère, teneur en matière grasse inconnue (aliment moyen)
+ecobalyse_proxy_alias:en: fresh-cream-cheese-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 2cced940-3abf-439d-b2f1-e6241ffb31fd
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Crème fraiche FR (2025)
+ecobalyse_proxy_origins_en_france_alias:en: fresh-cream-cheese-2025
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 2cced940-3abf-439d-b2f1-e6241ffb31fd
+ecobalyse_proxy_origins_en_france_name:fr: Crème fraiche FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: reference
+ecobalyse_proxy_transport_cooling:en: none
 
 < en: cream
 en: clotted cream
@@ -14347,6 +14362,17 @@ ciqual_proxy_food_code:en: 9510
 ciqual_proxy_food_name:en: Maize/corn starch
 ciqual_proxy_food_name:fr: Amidon de maïs ou fécule de maïs
 description:en: STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined by glycosidic bonds.
+ecobalyse_proxy_alias:en: potato-starch-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: LEGUMES-FLEURS
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 0.72
+ecobalyse_proxy_id:en: b042c68d-6c0d-448d-91e6-7a8a424abd4a
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Fécule de pomme de terre par défaut (2025)
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q41534
@@ -15030,6 +15056,22 @@ ciqual_proxy_food_name:en: Vegetable oil -average-
 comment:en: should cooking oil be split out?
 density_g_per_ml:en: 0.92
 description:en: Cooking OIL is plant, animal, or synthetic fat used in frying, baking, and other types of cooking. It is also used in food preparation and flavouring not involving heat, such as salad dressings and bread dips, and in this sense might be more accurately termed edible oil.
+ecobalyse_proxy_alias:en: rapeseed-oil-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: COLZA
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 96b301d9-d21b-4cea-8903-bd7917e95a30
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en: rapeseed-oil-organic-2025
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_id:en: 51f8e8d2-13c0-446c-bf0a-9272fc46edde
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Huile de colza Bio (2025)
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
+ecobalyse_proxy_name:fr: Huile de colza par défaut (2025)
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 wikidata:en: Q42962
 wikipedia:en: https://en.wikipedia.org/wiki/Cooking_oil
 
@@ -16610,6 +16652,22 @@ sr: palmina mast
 sv: palmfett
 comment:en: Not all languages use palm fat, but use palm oil instead
 description:en: the solid state of the vegetable oil, obtained from the fruit of oil palms.
+ecobalyse_proxy_alias:en: refined-palm-oil-non-ue-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: AUTRES CULTURES INDUSTRIELLES
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 45658c32-66d9-4305-a34b-21d6a4cef89c
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Huile de palme (raffinée) par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: refined-palm-oil-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 3612e931-f0e0-4263-a079-63650a941fbd
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Huile de palme (raffinée) UE (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 usda_fdc_code:en: 171015
 usda_ndb_code:en: 4055
 usda_ndb_name:en: Oil, palm
@@ -19178,6 +19236,22 @@ ciqual_food_code:en: 11018
 ciqual_food_name:en: Vinegar
 ciqual_food_name:fr: Vinaigre
 description:en: VINAIGRE is a liquid consisting of about 5–20% acetic acid (CH3COOH), water (H2O), and trace chemicals that may include flavorings.
+ecobalyse_category:en: other_food_items
+ecobalyse_crop_group:en: DIVERS
+ecobalyse_density_g_per_ml:en: 0.447
+ecobalyse_inedible_part:en: 0
+ecobalyse_origins_en_france_alias:en: vinegar-alcohol-2025
+ecobalyse_origins_en_france_default_origin:en: FR
+ecobalyse_origins_en_france_id:en: 24222e45-52dc-4c18-ab9f-0ee39d8a46b4
+ecobalyse_origins_en_france_name:fr: Vinaigre d'alcool FR (2025)
+ecobalyse_origins_en_france_scenario:en: reference
+ecobalyse_proxy_alias:en: vinegar-alcohol-2025
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_id:en: 24222e45-52dc-4c18-ab9f-0ee39d8a46b4
+ecobalyse_proxy_name:fr: Vinaigre d'alcool FR (2025)
+ecobalyse_proxy_scenario:en: reference
+ecobalyse_raw_to_cooked_ratio:en: 1
+ecobalyse_transport_cooling:en: none
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q41354
@@ -19288,22 +19362,6 @@ nl: alcoholazijn
 pt: vinagre de álcool
 ro: oțet de alcool, oțet din alcool
 sv: ättiksprit
-ecobalyse_category:en: other_food_items
-ecobalyse_crop_group:en: DIVERS
-ecobalyse_density_g_per_ml:en: 0.447
-ecobalyse_inedible_part:en: 0
-ecobalyse_origins_en_france_alias:en: vinegar-alcohol-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 24222e45-52dc-4c18-ab9f-0ee39d8a46b4
-ecobalyse_origins_en_france_name:fr: Vinaigre d'alcool FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_proxy_alias:en: vinegar-alcohol-2025
-ecobalyse_proxy_default_origin:en: FR
-ecobalyse_proxy_id:en: 24222e45-52dc-4c18-ab9f-0ee39d8a46b4
-ecobalyse_proxy_name:fr: Vinaigre d'alcool FR (2025)
-ecobalyse_proxy_scenario:en: reference
-ecobalyse_raw_to_cooked_ratio:en: 1
-ecobalyse_transport_cooling:en: none
 
 < en: alcohol vinegar
 #<en:vinegar powder
@@ -34006,6 +34064,22 @@ pl: syrop fruktozowy, syrop z fruktozy
 pt: Xarope de fructose
 sl: fruktozni sirup
 sv: fruktossirap
+ecobalyse_proxy_alias:en: glucose-syrup-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: DIVERS
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: glucose-syrup-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 vegan:en: yes
 vegetarian:en: yes
 
@@ -34106,6 +34180,22 @@ sl: izoglukozni sirup
 sr: glukozno-fruktozni sirup
 sv: glukos-fruktossirap, glukosfruktossirap
 uk: сироп глюкозно-фруктозний
+ecobalyse_proxy_alias:en: glucose-syrup-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: DIVERS
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: glucose-syrup-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/glucose-and-fructose-syrup
 
 #<en:wheat
@@ -38113,6 +38203,22 @@ ja: 大豆ベース
 nl: sojabasis
 pl: baza sojowa
 sv: sojabas
+ecobalyse_proxy_alias:en: soy-milk-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: PROTEAGINEUX
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: f2f3c3f0-c7d1-4a3c-ad2f-f3659c9b546b
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Lait de soja FR (2025)
+ecobalyse_proxy_origins_en_france_alias:en: soy-milk-2025
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: f2f3c3f0-c7d1-4a3c-ad2f-f3659c9b546b
+ecobalyse_proxy_origins_en_france_name:fr: Lait de soja FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 # it:salsa di soia translation error
 vegan:en: maybe
 vegetarian:en: yes
@@ -46723,14 +46829,35 @@ zh: 椰子
 # pt-br:coco
 ciqual_proxy_food_code:en: 15006
 ciqual_proxy_food_name:fr: Coconut, ripe kernel, fresh
+ecobalyse_alias:en: coconut-dehusked-non-eu
+ecobalyse_category:en: other_food_items
+ecobalyse_crop_group:en: FRUITS A COQUES
+ecobalyse_default_origin:en:
+# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
+# NOTE the oil and fat of a coconut can be found under the fats section
+# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
+ecobalyse_density_g_per_ml:en: 0.5
+ecobalyse_id:en: 927231a5-c0c4-560f-8e89-ca4b01795fe6
+ecobalyse_inedible_part:en: 0.5
+ecobalyse_labels_en_organic_origins_en_france_alias:en: coconut-dehusked-organic
+ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_labels_en_organic_origins_en_france_id:en: 77a5e811-7024-5b2c-b07c-77ac6c4dd63e
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Noix de coco décortiquée Bio
+ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_name:fr: Noix de coco décortiquée HORS UE
+ecobalyse_origins_en_france_alias:en: coconut-dehusked-fr
+ecobalyse_origins_en_france_default_origin:en: FR
+ecobalyse_origins_en_france_id:en: f822a925-7754-5933-84a9-82eee0440f9a
+ecobalyse_origins_en_france_name:fr: Noix de coco décortiquée FR
+ecobalyse_origins_en_france_scenario:en: reference
+ecobalyse_raw_to_cooked_ratio:en: 1
+ecobalyse_scenario:en: import
+ecobalyse_transport_cooling:en: none
 usda_fdc_code:en: 170169
 usda_ndb_code:en: 12104
 usda_ndb_name:en: Nuts, coconut meat, raw
 wikidata:en: Q3342808
 wikipedia:fr: https://fr.wikipedia.org/wiki/Noix_de_coco
-# The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
-# NOTE the oil and fat of a coconut can be found under the fats section
-# When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
 
 < en: coconut
 #<en:compound
@@ -54687,6 +54814,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/parsley
 en: parsley sprig
 fr: brin de persil, branche de persil
 
+< en: fresh herb
 < en: parsley sprig
 en: fresh parsley sprig
 fr: brin de persil frais, branche de persil frais
@@ -72926,10 +73054,35 @@ sl: zelišča
 sv: örter, örtkrydda, örtkryddor, kryddörter
 ciqual_food_code:en: 11080
 ciqual_food_name:en: Herbs, fresh -average-
+ecobalyse_proxy_alias:en: herb-dried-non-eu
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: AUTRES CULTURES INDUSTRIELLES
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 0.5
+ecobalyse_proxy_id:en: d6dd0011-30df-5509-bc5e-b6d47a71b6e3
+ecobalyse_proxy_inedible_part:en: 0
+ecobalyse_proxy_name:fr: Herbes séchées (marjolaine, origan, sarriette, thym, basilic, romarin, sauge) HORS UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: herb-dried-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: a31fc664-e136-507a-9ae0-ad78d5130625
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Herbes séchées (marjolaine, origan, sarriette, thym, basilic, romarin, sauge) UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: herb-dried-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 311a8023-5db1-5594-91ac-6f350740a538
+ecobalyse_proxy_origins_en_france_name:fr: Herbes séchées (marjolaine, origan, sarriette, thym, basilic, romarin, sauge) FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 eurocode_2_group_2:en: 12.20
 nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
+
+< en: herb
+en: fresh herb, fresh herbs
+fr: herbe fraîche, herbes fraîches
 
 < en: herb
 en: herbal tea
@@ -76893,6 +77046,7 @@ wikidata:en: Q38859
 wikipedia:en: https://en.wikipedia.org/wiki/Basil
 
 < en: basil
+< en: fresh herb
 en: Fresh basil
 bg: пресен босилек
 fr: Basilic frais
@@ -77108,6 +77262,7 @@ usda_ndb_proxy_name:en: Spices, sage, ground
 wikidata:en: Q1111359
 wikipedia:en: https://en.wikipedia.org/wiki/Salvia_officinalis
 
+< en: fresh herb
 < en: sage
 en: fresh sage
 fr: sauge fraîche
@@ -84280,6 +84435,26 @@ carbon_footprint_fr_foodges_value:fr: 11.5
 ciqual_proxy_food_code:en: 26140
 ciqual_proxy_food_name:en: Fish, cooked (average)
 description:en: Fish are gill-bearing aquatic craniate animals that lack limbs with digits.
+ecobalyse_proxy_alias:en: fish-secondary-ingredient-default
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_density_g_per_ml:en: 1
+ecobalyse_proxy_id:en: cacf491b-5529-4e0c-af3f-75ab1d007659
+ecobalyse_proxy_inedible_part:en: 0.2
+ecobalyse_proxy_name:fr: Poissons ingrédients secondaires Origine Inconnue
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: fish-secondary-ingredient-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: cacf491b-5529-4e0c-af3f-75ab1d007657
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Poissons ingrédients secondaires UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: fish-secondary-ingredient-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: cacf491b-5529-4e0c-af3f-75ab1d007656
+ecobalyse_proxy_origins_en_france_name:fr: Poissons ingrédients secondaires FR
+ecobalyse_proxy_origins_en_france_scenario:en: import
+ecobalyse_proxy_raw_to_cooked_ratio:en: 1
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 vegan:en: no
 vegetarian:en: no
 # ace:Eungkôt
