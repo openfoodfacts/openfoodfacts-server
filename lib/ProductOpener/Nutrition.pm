@@ -38,7 +38,6 @@ package ProductOpener::Nutrition;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
-use List::MoreUtils qw( none );
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -98,11 +97,12 @@ use ProductOpener::HTTP qw/single_param request_param/;
 
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Numbers qw/convert_string_to_number remove_insignificant_digits/;
-use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size get_unit_symbol/;
 use ProductOpener::Ingredients
 	qw/estimate_added_sugars_percent_from_ingredients estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients/;
 
 use Log::Any qw($log);
+use List::MoreUtils qw( none );
 
 use Encode;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
@@ -2921,7 +2921,10 @@ sub default_unit_for_nid ($nid) {
 		my $unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
 		if ((defined $unit) and (none {$unit eq $_} @gram_units)) {
 			# Normalise the unit (e.g., 'kj'→'kJ')
-			$unit = display_taxonomy_tag('xx', 'units', $unit);
+			$unit_symbol = get_unit_symbol($unit);
+			if (defined $unit_symbol) {
+				$unit = $unit_symbol;
+			}
 			# Set the default unit for this nutrient for future use
 			$default_unit_for_nid_map{$nid} = $unit;
 			return $unit;
