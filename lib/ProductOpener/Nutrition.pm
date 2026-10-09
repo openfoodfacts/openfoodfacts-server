@@ -102,7 +102,7 @@ use ProductOpener::Ingredients
 	qw/estimate_added_sugars_percent_from_ingredients estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients/;
 
 use Log::Any qw($log);
-use List::MoreUtils qw( none );
+use List::MoreUtils qw(none);
 
 use Encode;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
@@ -2921,7 +2921,7 @@ sub default_unit_for_nid ($nid) {
 		my $unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
 		if ((defined $unit) and (none {$unit eq $_} @gram_units)) {
 			# Normalise the unit (e.g., 'kj'→'kJ')
-			$unit_symbol = get_unit_symbol($unit);
+			my $unit_symbol = get_unit_symbol($unit);
 			if (defined $unit_symbol) {
 				$unit = $unit_symbol;
 			}
