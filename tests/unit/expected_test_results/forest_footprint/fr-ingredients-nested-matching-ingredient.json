@@ -25,6 +25,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "36005",
+         "ecobalyse_proxy_id" : "8fb5024c-ceec-4201-b069-ea253c537ad6",
+         "ecobalyse_proxy_name" : "Blanc de poulet cru -alim. ani. 100%BR- par défaut",
          "id" : "fr:viande-de-poulet-traitee-en-salaison",
          "ingredients" : [
             {
@@ -125,10 +127,9 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:brine",
-      "en:kangaroo",
-      "fr:viande-de-poulet-traitee-en-salaison"
+      "en:kangaroo"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 4,
    "lc" : "fr",
    "misc_tags" : [

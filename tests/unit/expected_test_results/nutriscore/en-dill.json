@@ -44,7 +44,14 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Herbes séchées -marjolaine, origan, sarriette, thym, basilic, romarin, sauge- HORS UE",
+               "id" : "d6dd0011-30df-5509-bc5e-b6d47a71b6e3",
+               "mass" : 100,
+               "name" : "dill"
+            }
+         ],
          "packaging" : [
             {
                "category" : "en:herbs",
@@ -57,7 +64,12 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
+            "ingredients" : [
+               {
+                  "id" : "d6dd0011-30df-5509-bc5e-b6d47a71b6e3",
+                  "mass" : 100
+               }
+            ],
             "packaging" : [
                {
                   "amount" : 1,
@@ -79,6 +91,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "11093",
+         "ecobalyse_proxy_id" : "d6dd0011-30df-5509-bc5e-b6d47a71b6e3",
+         "ecobalyse_proxy_name" : "Herbes séchées -marjolaine, origan, sarriette, thym, basilic, romarin, sauge- HORS UE",
          "id" : "en:dill",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -118,10 +132,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:dill"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "minerals_tags" : [],

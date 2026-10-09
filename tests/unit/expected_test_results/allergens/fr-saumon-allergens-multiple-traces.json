@@ -6,6 +6,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "26036",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:salmon-fillet",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -109,10 +111,9 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:pepper",
-      "en:salmon-fillet"
+      "en:pepper"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 4,
    "languages" : {
       "en:french" : 1

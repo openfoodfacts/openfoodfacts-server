@@ -30,6 +30,8 @@
       },
       {
          "ciqual_proxy_food_code" : "26053",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:tuna",
          "is_in_taxonomy" : 1,
          "percent" : 10,
@@ -98,6 +100,8 @@
       },
       {
          "ciqual_food_code" : "9510",
+         "ecobalyse_proxy_id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
+         "ecobalyse_proxy_name" : "Fécule de pomme de terre par défaut -2025-",
          "id" : "en:corn-starch",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 1.5,
@@ -202,11 +206,9 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:corn-starch",
-      "en:e330",
-      "en:tuna"
+      "en:e330"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 10,
    "lc" : "es",
    "misc_tags" : [

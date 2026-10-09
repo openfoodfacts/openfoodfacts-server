@@ -60,6 +60,12 @@
          "distribution" : "ambient",
          "ingredients" : [
             {
+               "ecobalyse_name" : "Noix de coco décortiquée HORS UE",
+               "id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6",
+               "mass" : 60,
+               "name" : "Noix de coco"
+            },
+            {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
                "mass" : 40,
@@ -79,6 +85,10 @@
          "data" : {
             "distribution" : "ambient",
             "ingredients" : [
+               {
+                  "id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6",
+                  "mass" : 60
+               },
                {
                   "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
                   "mass" : 40
@@ -109,6 +119,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "15006",
+         "ecobalyse_id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6",
+         "ecobalyse_name" : "Noix de coco décortiquée HORS UE",
          "id" : "en:coconut",
          "is_in_taxonomy" : 1,
          "percent" : 60,
@@ -164,10 +176,8 @@
    "ingredients_with_unspecified_percent_sum" : 40,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:coconut"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "minerals_tags" : [],
