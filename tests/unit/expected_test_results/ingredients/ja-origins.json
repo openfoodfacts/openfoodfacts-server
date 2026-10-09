@@ -17,6 +17,8 @@
       },
       {
          "ciqual_food_code" : "19402",
+         "ecobalyse_proxy_id" : "2cced940-3abf-439d-b2f1-e6241ffb31fd",
+         "ecobalyse_proxy_name" : "Crème fraiche FR -2025-",
          "id" : "en:creme-fraiche",
          "is_in_taxonomy" : 1,
          "origins" : "en:japan",
@@ -55,6 +57,8 @@
       },
       {
          "ciqual_food_code" : "11018",
+         "ecobalyse_proxy_id" : "24222e45-52dc-4c18-ab9f-0ee39d8a46b4",
+         "ecobalyse_proxy_name" : "Vinaigre d'alcool FR -2025-",
          "id" : "en:white-wine-vinegar",
          "is_in_taxonomy" : 1,
          "origins" : "en:australia,en:finland",
@@ -225,12 +229,10 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:cocoa",
-      "en:creme-fraiche",
       "en:malt",
-      "en:meat",
-      "en:white-wine-vinegar"
+      "en:meat"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 11,
    "lc" : "ja",
    "misc_tags" : [

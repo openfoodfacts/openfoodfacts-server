@@ -190,6 +190,8 @@
             },
             {
                "ciqual_proxy_food_code" : "16030",
+               "ecobalyse_proxy_id" : "35d0ffc8-3043-5012-86f3-4401ab37c5cf",
+               "ecobalyse_proxy_name" : "Fève de cacao HORS UE",
                "id" : "en:cocoa-paste",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 2.734375,
@@ -366,11 +368,10 @@
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "en:chocolate",
-      "en:cocoa-paste",
       "en:coffee",
       "en:fat-reduced-cocoa"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 12,
    "lc" : "fr",
    "misc_tags" : [

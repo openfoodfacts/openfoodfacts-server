@@ -10,6 +10,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_proxy_id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
+         "ecobalyse_proxy_name" : "Blé tendre HORS UE",
          "id" : "en:wheat",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
@@ -138,10 +140,9 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:soya",
-      "en:spice",
-      "en:wheat"
+      "en:spice"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 6,
    "lang" : "fi",
    "languages" : {

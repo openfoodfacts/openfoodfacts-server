@@ -14,8 +14,8 @@
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "9410",
-               "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-               "ecobalyse_proxy_name" : "Farine UE -2025-",
+               "ecobalyse_proxy_id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
+               "ecobalyse_proxy_name" : "Blé tendre HORS UE",
                "id" : "en:wheat-flour",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 60,
@@ -69,6 +69,8 @@
       },
       {
          "ciqual_food_code" : "18041",
+         "ecobalyse_id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6",
+         "ecobalyse_name" : "Noix de coco décortiquée HORS UE",
          "id" : "en:coconut-milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5,
@@ -138,11 +140,10 @@
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "en:coconut-milk",
       "en:condiment",
       "en:seed"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 6,
    "lang" : "fr",
    "languages" : {

@@ -7,6 +7,8 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "31077",
+               "ecobalyse_proxy_id" : "06dffb5c-07ad-48de-9630-632f4c84e02d",
+               "ecobalyse_proxy_name" : "Sirop de glucose FR ou UE ou par défaut -2025-",
                "id" : "en:glucose-fructose-syrup",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 20.5,
@@ -140,6 +142,8 @@
             },
             {
                "ciqual_proxy_food_code" : "16030",
+               "ecobalyse_proxy_id" : "35d0ffc8-3043-5012-86f3-4401ab37c5cf",
+               "ecobalyse_proxy_name" : "Fève de cacao HORS UE",
                "id" : "en:cocoa-paste",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 6.225,
@@ -257,8 +261,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
+         "ecobalyse_proxy_id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
+         "ecobalyse_proxy_name" : "Blé tendre HORS UE",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 17.05,
@@ -290,6 +294,8 @@
       },
       {
          "ciqual_food_code" : "31077",
+         "ecobalyse_proxy_id" : "06dffb5c-07ad-48de-9630-632f4c84e02d",
+         "ecobalyse_proxy_name" : "Sirop de glucose FR ou UE ou par défaut -2025-",
          "id" : "en:glucose-fructose-syrup",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.13125,
@@ -513,7 +519,6 @@
    "ingredients_without_ciqual_codes_n" : 14,
    "ingredients_without_ecobalyse_ids" : [
       "en:chocolate",
-      "en:cocoa-paste",
       "en:e330",
       "en:e333",
       "en:e415",
@@ -523,7 +528,6 @@
       "en:e503ii",
       "en:fat",
       "en:flavouring",
-      "en:glucose-fructose-syrup",
       "en:illipe-oil",
       "en:lactose-and-milk-proteins",
       "en:mango-kernel-oil",
@@ -534,7 +538,7 @@
       "en:sodium-citrate",
       "en:soya-lecithin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 21,
+   "ingredients_without_ecobalyse_ids_n" : 19,
    "known_ingredients_n" : 35,
    "lc" : "fr",
    "misc_tags" : [
