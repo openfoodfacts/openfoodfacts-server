@@ -1,0 +1,27 @@
+type: object
+title: component
+description: A sub-component of a multi-food product package (variety pack, meal kit, sachet kit)
+properties:
+  name:
+    type: string
+    description: Name or description of the sub-component
+    example: "Liquid Gold Glaze"
+  quantity:
+    type: string
+    description: Portion weight or net quantity of the component
+    example: "14g"
+  serving_size:
+    type: string
+    description: Serving size specific to the sub-component
+    example: "1 tbsp (14 g)"
+  ingredients_text:
+    type: string
+    description: Ingredients text for this sub-component
+    example: "Water, vegetable oil, sugar, salt"
+  nutriments:
+    type: object
+    description: Nutritional values object for this sub-component
+    example:
+      energy-kcal: 70
+      fat: 6
+      sodium: 270
