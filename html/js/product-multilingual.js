@@ -988,14 +988,20 @@ function show_warning(should_show, input_id, nutrient_id, per, preparation, warn
     }
 }
 
-function get_nutrient_unit(nutrient_id) {
+function get_nutrient_unit(nutrient_id, per, preparation) {
     // line selector case (user chooses a unit from a list for the whole row of the nutrient)
     const select = $(`#global_nutrient_${nutrient_id}_unit`);
     if (select.length) {
-        
+
         return select.val();
     }
     // per-cell selector case (user chooses a unit from a list for one particular cell)
+    // e.g. the carbon footprint, which is declared in g per 100g and in kg per 1kg
+    const selectForCell = $(`#nutrition_input_sets_${preparation}_${per}_nutrients_${nutrient_id}_unit`);
+    if (selectForCell.length) {
+        return selectForCell.val();
+    }
+    // per-cell selector case without knowing the cell: use the first one
     const selectPerCell = $(`#nutrient_${nutrient_id}_tr select.nutrient_unit`).first();
     if (selectPerCell.length) {
         return selectPerCell.val();
@@ -1012,7 +1018,7 @@ function get_nutrient_value(nutrient_id, per, preparation, wanted_unit) {
     let value = Number.parseFloat(($(input_id).val() || '').replace(',', '.'));
     
     if (!Number.isNaN(value)) {
-        const current_unit = get_nutrient_unit(nutrient_id);
+        const current_unit = get_nutrient_unit(nutrient_id, per, preparation);
 
         const factor = {
             'g': 1,
@@ -1031,7 +1037,7 @@ function get_nutrient_value(nutrient_id, per, preparation, wanted_unit) {
 function check_nutrient(nutrient_id, per, preparation, id) {
     // check the changed nutrient value
     const nutrient_value = $('#' + id).val().replace(',', '.').replace(/^(<|>|~)/, '');
-    const nutrient_unit = get_nutrient_unit(nutrient_id);
+    const nutrient_unit = get_nutrient_unit(nutrient_id, per, preparation);
 
     // define the max valid value
     let max;

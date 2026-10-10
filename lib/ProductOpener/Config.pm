@@ -153,7 +153,7 @@ $ProductOpener::Config::options{product_types_preparations} = {
 };
 
 $ProductOpener::Config::options{product_types_pers} = {
-	food => ["100g", "100ml", "1l", "serving"],
+	food => ["100g", "100ml", "1l", "1kg", "serving"],
 	petfood => ["1kg"],
 };
 
