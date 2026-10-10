@@ -1,0 +1,21 @@
+# Test taxonomy for remove_entries_without_products.pl
+
+# please keep an extra line between synonyms
+
+synonyms:en: caramelised, caramelized
+
+### A section header without any entry
+
+< en: Teas
+en: Teas, tea
+fr: Thés
+
+< en: Teas
+en: Herbal teas
+fr: Tisanes
+
+< en: Teas
+en: Green teas, green tea
+de: Grüner Tee
+
+### Entries without any product
