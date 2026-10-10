@@ -867,6 +867,21 @@ jobs:
             echo "All Perl unit and integration test groups finished."
           fi
 
+  # Guards the per-worktree isolation mechanism (PO_AGENT_ID). It only resolves
+  # configuration, so it needs no image and no database, and it runs on a fresh
+  # checkout where no .envrc exists.
+  worktree_isolation:
+    name: 🧷 Check worktree isolation
+    needs: [filter]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        fetch-depth: 1
+    - name: Check default and isolated configurations
+      run: ./.github/scripts/check_worktree_isolation.sh
+
   tests_dev:
     name: 🧪 Test make dev
     needs: [filter, build_backend, build_frontend]
