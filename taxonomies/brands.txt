@@ -3792,8 +3792,18 @@ xx: Premieur
 xx: Premium Plus
 wikidata:en: Q7240466
 
-xx: President's Choice
-wikidata:en: Q845185
+en:president-s-choice
+	name:en: President's Choice
+	name:fr: Le Choix du Président
+	< xx:president-choice
+	< xx:choix-du-president
+	< fr:choix-du-president
+	< fr:le-choix-du-president
+	< en:president-choice
+	< xx:pc
+	< en:pc
+	< fr:pc
+	wikidata:en: Q7241257
 
 xx: preventivo
 comment:en: Private label of German retail store Rossmann
