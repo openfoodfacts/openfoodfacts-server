@@ -9293,7 +9293,7 @@ CSS
 			push @cols, $col_id;
 
 			my $preparation = deep_get($input_set_ref, "preparation");
-			my $per = deep_get($input_set_ref, "per");
+			my $per = (deep_get($input_set_ref, "per") // '') =~ s/[^a-zA-Z0-9_-]/_/gr;
 			my $per_quantity = deep_get($input_set_ref, "per_quantity");
 			my $per_unit = deep_get($input_set_ref, "per_unit");
 
@@ -9302,7 +9302,8 @@ CSS
 				$per_lang .= " (" . $per_quantity . " " . $per_unit . ")";
 			}
 
-			my $source = deep_get($input_set_ref, "source");
+			# The source of the input sets can be set through the API: only keep safe characters in the names
+			my $source = (deep_get($input_set_ref, "source") // '') =~ s/[^a-zA-Z0-9_-]/_/gr;
 
 			my $col_name = lang("preparation_" . $preparation) . " " . $per_lang . " (" . $source . ")";
 
