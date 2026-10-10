@@ -20,7 +20,7 @@
 
 =head1 NAME
 
-ProductOpener::Units - functions to convert units
+ProductOpener::Units - functions to convert or otherwise handle units
 
 =head1 DESCRIPTION
 
@@ -52,6 +52,7 @@ BEGIN {
 		&get_standard_unit
 		&normalize_product_quantity_and_serving_size
 
+		&get_unit_symbol
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -59,7 +60,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Numbers qw/$number_regexp convert_string_to_number/;
-use ProductOpener::Tags qw/%translations_to get_all_taxonomy_entries get_property get_taxonomy_tag_synonyms/;
+use ProductOpener::Tags
+	qw/%translations_to get_all_taxonomy_entries get_property get_taxonomy_tag_synonyms display_taxonomy_tag/;
 use ProductOpener::Text qw/regexp_escape/;
 
 =head1 FUNCTIONS
@@ -432,6 +434,39 @@ sub normalize_product_quantity_and_serving_size ($product_ref) {
 			and delete $product_ref->{serving_size};
 	}
 
+	return;
+}
+
+=head2 get_unit_symbol ($unit)
+
+Gets the symbol for the given unit.
+
+e.g. "percent" -> "%"
+     "g"       -> "g"
+
+=head3 Parameters
+
+=head4 $unit
+
+Unit to get symbol of.
+
+=head3 Return values
+
+The symbol used to represent the given unit.
+
+=cut
+
+sub get_unit_symbol ($unit) {
+	if (defined $unit) {
+		# search in the map of all synonyms in all languages ($units_names)
+		$unit = lc($unit);
+		my $unit_id = $units_names{$unit};    # $unit_id can be undefined
+		if (defined $unit_id && defined $units{$unit_id}{symbol}) {
+			return $units{$unit_id}{symbol};
+		}
+		# if no symbol is specifically defined, return the first language agnostic synonym
+		return display_taxonomy_tag('xx', 'units', $unit);
+	}
 	return;
 }
 

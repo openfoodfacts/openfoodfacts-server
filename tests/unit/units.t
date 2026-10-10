@@ -193,4 +193,13 @@ is(get_standard_unit("kj"), "kj");
 is(get_standard_unit("mmol/l"), "mmol/l");
 is(get_standard_unit("ppm"), "mmol/l");
 
+is(get_unit_symbol("percent"), "%");
+is(get_unit_symbol("g  "), "g");
+is(get_unit_symbol("kj"), "kJ");
+is(get_unit_symbol("% vol"), "% vol");
+is(get_unit_symbol(""), "");
+# TODO: Should these two work?
+#is(get_unit_symbol("kilogramai"), "kg");
+#is(get_unit_symbol("this is not a unit"), undef);
+
 done_testing();
