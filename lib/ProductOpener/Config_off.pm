@@ -1221,7 +1221,7 @@ $options{nova_groups_tags} = {
 
 	# start by assigning group 1
 
-	# 1st try to identify group 2 processed culinary ingredients
+	# 1st try to identify group 2 processed culinary categories
 
 	"categories/en:fats" => 2,
 	"categories/en:salts" => 2,
@@ -1233,6 +1233,7 @@ $options{nova_groups_tags} = {
 	# baking powders are usually 1 to 3 additives. The additives are heavily used in ultraprocessed foods.
 	"categories/en:baking-powders" => 2,
 
+	# culinary ingredients
 	# group 3 tags will not be applied to food identified as group 2
 	"ingredients/en:baking-powder" => 3,
 
@@ -1326,10 +1327,7 @@ $options{nova_groups_tags} = {
 
 	# other ingredients that we can consider as ultra-processed
 
-	"ingredients/en:dextrose" => 4,
-	# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09
-	"ingredients/en:milk-proteins" => 4,
-	# could be changed to singular aleene@2018-10-09
+	"ingredients/en:barley-malt-extract" => 4,
 	"ingredients/en:whey-proteins" => 4,
 	# could be changed to singular aleene@2018-10-09
 	# as whey is from milk, it is also part of milk-proteins aleene@2018-10-09
