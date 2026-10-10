@@ -36,6 +36,7 @@ my %random_admin_user_form = (
 %admins = (%admins, $random_admin_user_form{userid} => 1);
 
 my $admin = new_client();
+$admins{$admin_user_form{userid}} = 1;
 create_user($admin, \%admin_user_form);
 
 #common ua add a new product then delete the account while being still logged in
