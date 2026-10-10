@@ -603,6 +603,17 @@ Wanted per unit of the nutrient
 =cut
 
 sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quantity, $original_per_unit, $wanted_per) {
+
+	# If the nutrient is unit-less (e.g. pH or glycemic index), or if the unit is % or "% vol" (alcohol)
+	# The value is the same for 100g or per serving
+	if (   (not defined $nutrient_ref->{unit})
+		or ($nutrient_ref->{unit} eq '')
+		or ($nutrient_ref->{unit} eq '%')
+		or ($nutrient_ref->{unit} eq '% vol'))
+	{
+		return;
+	}
+
 	if ($original_per ne $wanted_per) {
 		my $original_value = $nutrient_ref->{value};
 		my $wanted_per_unit = $wanted_per eq "100g" ? "g" : "ml";
@@ -935,6 +946,7 @@ Reference to an array of valid unit options for the given nutrient
 sub get_unit_options_for_nutrient ($nid) {
 
 	my @units = ();
+	my $default_unit = default_unit_for_nid($nid);
 
 	if (($nid eq 'alcohol')) {
 		@units = ('% vol');
@@ -959,7 +971,8 @@ sub get_unit_options_for_nutrient ($nid) {
 	{
 		@units = ('%');
 	}
-	elsif ($nid eq 'ph') {
+	# pH, glycemic index, NOVA group, etc.
+	elsif ($default_unit eq '') {
 		@units = ('');
 	}
 	elsif ($nid eq 'carbon-footprint') {
@@ -1223,6 +1236,7 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 			my $recognized_unit = 0;
 			my $lc_unit = lc($unit);
 			$lc_unit =~ s/^\s+|\s+$//g;    # trim spaces
+
 			foreach my $unit_option_ref (@{$valid_units_ref}) {
 				if (lc($unit_option_ref->{id}) eq $lc_unit) {
 					$recognized_unit = 1;
