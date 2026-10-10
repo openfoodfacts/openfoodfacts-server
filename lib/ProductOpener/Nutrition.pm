@@ -50,6 +50,7 @@ BEGIN {
 		&get_preparations_for_product_type
 		&get_pers_for_product_type
 		&get_default_per_for_product
+		&get_unit_label_for_nutrient
 		&get_unit_options_for_nutrient
 		&normalize_nutrient_value_string_and_modifier
 		&assign_nutrient_modifier_value_string_and_unit
@@ -87,6 +88,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Lang qw/f_lang/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::API qw/add_error add_warning/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
@@ -927,6 +929,27 @@ sub get_default_per_for_product ($product_ref, $preparation = "as_sold") {
 	return $default_per;
 }
 
+=head2 get_unit_label_for_nutrient ( $nid, $unit )
+
+Returns the unit of a nutrient to display, e.g. "kg CO₂e" for the carbon footprint, as it is a mass of CO₂ equivalent.
+
+=head3 Arguments
+
+=head4 $nid
+
+Nutrient id
+
+=head4 $unit
+
+Unit of the nutrient value: g, kg, mg, µg...
+
+=cut
+
+sub get_unit_label_for_nutrient ($nid, $unit) {
+
+	return ($nid eq 'carbon-footprint') ? f_lang('f_carbon_footprint_unit', {unit => $unit}) : $unit;
+}
+
 =head2 get_unit_options_for_nutrient ($nid)
 
 Returns the list of valid unit options for a given nutrient.
@@ -995,7 +1018,7 @@ sub get_unit_options_for_nutrient ($nid) {
 	}
 
 	foreach my $unit (@units) {
-		my $label = $unit;
+		my $label = get_unit_label_for_nutrient($nid, $unit);
 		# Display both mcg and µg as different food labels show the unit differently
 		if ($unit eq 'µg') {
 			$label = "mcg/µg";
