@@ -1325,6 +1325,8 @@ $options{nova_groups_tags} = {
 	# has glucose as parent, so can be removed aleene@2018-10-09
 
 	# other ingredients that we can consider as ultra-processed
+	"ingredients/en:wheat-protein" => 4,
+	# is very close to gluten and produced/used in the same way
 
 	"ingredients/en:dextrose" => 4,
 	# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09
