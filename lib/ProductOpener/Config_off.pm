@@ -1233,6 +1233,10 @@ $options{nova_groups_tags} = {
 	# baking powders are usually 1 to 3 additives. The additives are heavily used in ultraprocessed foods.
 	"categories/en:baking-powders" => 2,
 
+	# ingredients that can be bought in supermarkets as culinary helpers
+
+	"categories/en:agar-agar" => 2,
+
 	# group 3 tags will not be applied to food identified as group 2
 	"ingredients/en:baking-powder" => 3,
 
