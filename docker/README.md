@@ -11,6 +11,12 @@ The main docker compose file [`docker-compose.yml`](../docker-compose.yml) is lo
 
 The step-by-step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](../docs/dev/how-to-quick-start-guide.md).
 
+## Reproducible Builds
+
+Product Opener uses [`cpm`](https://github.com/skaji/cpm) to install Perl dependencies and [`Carton`](https://metacpan.org/pod/Carton) (`cpanfile.snapshot`) as a lockfile for reproducible builds. `cpm` auto-loads `cpanfile.snapshot` when present (no ARGV, via `Carton::Snapshot` / `--snapshot`), using it as the primary resolver with a `MetaCPAN` fallback; `Carton` is kept only to *generate* the snapshot because `cpm` cannot create snapshots.
+
+For details on generating and updating the lockfile, see [how to generate cpanfile.snapshot](../docs/dev/how-to-generate-cpanfile-snapshot.md).
+
 ## Makefile targets
 
 Makefile targets are handy for beginners to start the project and for some usual tasks.
