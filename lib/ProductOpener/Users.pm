@@ -78,6 +78,9 @@ BEGIN {
 		&check_session
 		&open_user_session
 
+		&generate_session_cookie
+		&clear_session_cookie
+
 		&generate_token
 
 		&welcome_user_task
@@ -886,13 +889,17 @@ sub send_welcome_emails($user_ref) {
 	return $error;
 }
 
-=head2 check_edit_owner($user_ref, $errors_ref)
+=head2 check_edit_owner($user_ref, $errors_ref, $ownerid)
 
 This sets pro_moderator_owner according to request parameter.
 Sets it in $User global and $user_ref.
 
 This variable is used to say that a moderator or admin
 is acting on the pro platform as part of a specific company.
+
+The value is checked before it is set: if the user or the organization does not
+exist, an error is pushed to $errors_ref and the value is left unchanged (the
+user keeps moderating the organization they were moderating before).
 
 =head3 Arguments
 
@@ -904,64 +911,73 @@ is acting on the pro platform as part of a specific company.
 
 sub check_edit_owner ($user_ref, $errors_ref, $ownerid = undef) {
 
-	# temporarily use the org passed as parameter
-	$user_ref->{pro_moderator_owner} = $ownerid // get_string_id_for_lang("no_language",
+	# Do not change the user until the requested value has been checked
+	my $pro_moderator_owner = $ownerid // get_string_id_for_lang("no_language",
 		remove_tags_and_quote(decode utf8 => single_param('pro_moderator_owner')));
 
 	# If the owner id looks like a GLN, see if we have a corresponding org
 
-	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
+	if ($pro_moderator_owner =~ /^\d+$/) {
 		my $glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 		not defined $glns_ref and $glns_ref = {};
-		if (defined $glns_ref->{$user_ref->{pro_moderator_owner}}) {
-			$user_ref->{pro_moderator_owner} = $glns_ref->{$user_ref->{pro_moderator_owner}};
+		if (defined $glns_ref->{$pro_moderator_owner}) {
+			$pro_moderator_owner = $glns_ref->{$pro_moderator_owner};
 		}
 	}
 
-	$log->debug("check_edit_owner", {pro_moderator_owner => $User{pro_moderator_owner}}) if $log->is_debug();
+	# if there is no user- or org- prefix, assume it is an org
+	if (($pro_moderator_owner ne "") and ($pro_moderator_owner !~ /^(user-|org-|all$)/)) {
+		$pro_moderator_owner = "org-" . $pro_moderator_owner;
+	}
 
-	if ((not defined $user_ref->{pro_moderator_owner}) or ($user_ref->{pro_moderator_owner} eq "")) {
+	$log->debug("check_edit_owner", {pro_moderator_owner => $pro_moderator_owner}) if $log->is_debug();
+
+	if ((not defined $pro_moderator_owner) or ($pro_moderator_owner eq "")) {
 		delete $user_ref->{pro_moderator_owner};
 		# Also edit the current user object so that we can display the current status directly on the form result page
 		delete $User{pro_moderator_owner};
 	}
-	elsif ($user_ref->{pro_moderator_owner} =~ /^user-/) {
-		my $userid = $';
-		# Add check that organization exists when we add org profiles
+	elsif ($pro_moderator_owner =~ /^user-(.+)$/) {
+		my $userid = $1;
+		# Add check that the user exists
 
 		if (!user_preferences_exists($userid)) {
 			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lc}, $userid);
 		}
 		else {
-			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+			$user_ref->{pro_moderator_owner} = $pro_moderator_owner;
+			$User{pro_moderator_owner} = $pro_moderator_owner;
 			$log->debug("set pro_moderator_owner (user)",
 				{userid => $userid, pro_moderator_owner => $User{pro_moderator_owner}})
 				if $log->is_debug();
 		}
 	}
-	elsif ($user_ref->{pro_moderator_owner} eq 'all') {
+	elsif ($pro_moderator_owner eq 'all') {
 		# Admin mode to see all products from all owners
-		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
+		$user_ref->{pro_moderator_owner} = $pro_moderator_owner;
+		$User{pro_moderator_owner} = $pro_moderator_owner;
 		$log->debug(
 			"set pro_moderator_owner (all) see products from all owners",
 			{pro_moderator_owner => $User{pro_moderator_owner}}
 		) if $log->is_debug();
 	}
-	elsif ($user_ref->{pro_moderator_owner} =~ /^org-/) {
-		my $orgid = $';
-		$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
-		$log->debug("set pro_moderator_owner (org)",
-			{orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner}})
-			if $log->is_debug();
-	}
 	else {
-		# if there is no user- or org- prefix, assume it is an org
-		my $orgid = $user_ref->{pro_moderator_owner};
-		$User{pro_moderator_owner} = "org-" . $orgid;
-		$user_ref->{pro_moderator_owner} = "org-" . $orgid;
-		$log->debug("set pro_moderator_owner (org)",
-			{orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner}})
-			if $log->is_debug();
+
+		# Organization: check that it exists, otherwise we would keep an owner that
+		# can never be displayed, and moderators would see an empty product list
+
+		my ($orgid) = ($pro_moderator_owner =~ /^org-(.+)$/);
+		if ((not defined $orgid) or (not defined retrieve_org($orgid))) {
+			push @{$errors_ref}, $Lang{error_org_does_not_exist}{$lc};
+			$log->debug("check_edit_owner: organization does not exist", {orgid => $orgid}) if $log->is_debug();
+		}
+		else {
+			$user_ref->{pro_moderator_owner} = $pro_moderator_owner;
+			$User{pro_moderator_owner} = $pro_moderator_owner;
+			$log->debug("set pro_moderator_owner (org)",
+				{orgid => $orgid, pro_moderator_owner => $User{pro_moderator_owner}})
+				if $log->is_debug();
+		}
 	}
 
 	return;
@@ -1052,13 +1068,8 @@ sub generate_session_cookie ($user_id, $user_session) {
 	my $session_ref = {'user_id' => $user_id, 'user_session' => $user_session};
 
 	# generate session cookie
-	my $cookie_ref = {
-		'-name' => $cookie_name,
-		'-value' => $session_ref,
-		'-path' => '/',
-		'-domain' => $cookie_domain,
-		'-samesite' => 'Lax',
-	};
+	my $cookie_ref = session_cookie_options();
+	$cookie_ref->{'-value'} = $session_ref;
 
 	if ($length > 0) {
 		# Set a persistent cookie
@@ -1069,6 +1080,62 @@ sub generate_session_cookie ($user_id, $user_session) {
 		# Set a session cookie
 		$log->debug("setting session cookie") if $log->is_debug();
 	}
+
+	return cookie(%$cookie_ref);
+}
+
+=head2 session_cookie_options( )
+
+Return the attributes shared by every cookie set under the session cookie name: only the value and
+the expiry differ between setting and clearing the cookie. Browsers only overwrite an existing
+cookie when name, domain and path match, so keeping the security attributes in one place is what
+guarantees that the cookie we send to clear a session is accepted as an overwrite.
+
+=head3 Arguments
+
+None.
+
+=head3 Return values
+
+A hash reference of C<CGI::cookie()> attributes.
+
+=cut
+
+sub session_cookie_options() {
+
+	my $options_ref = {
+		'-name' => $cookie_name,
+		'-path' => '/',
+		'-domain' => $cookie_domain,
+		'-samesite' => 'Lax',
+		# The cookie value is the credential itself, so it must not be readable by scripts running
+		# under the cookie domain, and it must not be sent over plaintext HTTP.
+		'-httponly' => 1,
+	};
+	$options_ref->{'-secure'} = 1 if should_use_secure_cookies();
+
+	return $options_ref;
+}
+
+=head2 clear_session_cookie( )
+
+Return a cookie that removes the session cookie, with the same attributes as the cookie it replaces.
+
+=head3 Arguments
+
+None.
+
+=head3 Return values
+
+An expired session cookie.
+
+=cut
+
+sub clear_session_cookie() {
+
+	my $cookie_ref = session_cookie_options();
+	$cookie_ref->{'-value'} = {};
+	$cookie_ref->{'-expires'} = '-1d';
 
 	return cookie(%$cookie_ref);
 }
@@ -1420,14 +1487,7 @@ sub init_user ($request_ref) {
 	# Remove persistent cookie if user is logging out
 	if ((defined request_param($request_ref, 'length')) and (request_param($request_ref, 'length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
-		my $session = {};
-		$request_ref->{cookie} = cookie(
-			-name => $cookie_name,
-			-expires => '-1d',
-			-value => $session,
-			-path => '/',
-			-domain => "$cookie_domain"
-		);
+		$request_ref->{cookie} = clear_session_cookie();
 	}
 
 	# User was authenticated via OIDC
@@ -1616,14 +1676,7 @@ sub init_user ($request_ref) {
 					$user_id = undef;
 					$user_ref = undef;
 					# Remove the cookie
-					my $session = {};
-					$request_ref->{cookie} = cookie(
-						-name => $cookie_name,
-						-expires => '-1d',
-						-value => $session,
-						-path => '/',
-						-domain => "$cookie_domain"
-					);
+					$request_ref->{cookie} = clear_session_cookie();
 				}
 				else {
 					$log->debug("user identified", {user_id => $user_id, stocked_user_id => $user_ref->{'userid'}})
@@ -1646,28 +1699,14 @@ sub init_user ($request_ref) {
 			}
 			else {
 				# Remove the cookie
-				my $session = {};
-				$request_ref->{cookie} = cookie(
-					-name => $cookie_name,
-					-expires => '-1d',
-					-value => $session,
-					-path => '/',
-					-domain => "$cookie_domain"
-				);
+				$request_ref->{cookie} = clear_session_cookie();
 
 				$user_id = undef;
 			}
 		}
 		else {
 			# Remove the cookie
-			my $session = {};
-			$request_ref->{cookie} = cookie(
-				-name => $cookie_name,
-				-expires => '-1d',
-				-value => $session,
-				-path => '/',
-				-domain => "$cookie_domain"
-			);
+			$request_ref->{cookie} = clear_session_cookie();
 
 			$user_id = undef;
 		}

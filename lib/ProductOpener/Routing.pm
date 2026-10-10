@@ -47,7 +47,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Products qw/is_valid_code normalize_code product_url/;
 use ProductOpener::Display qw/%index_tag_types_set display_robots_txt_and_exit init_request/;
-use ProductOpener::HTTP qw/extension_and_query_parameters_to_redirect_url redirect_to_url single_param/;
+use ProductOpener::HTTP
+	qw/extension_and_query_parameters_to_redirect_url is_cross_site_request redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
@@ -306,8 +307,18 @@ sub org_route($request_ref) {
 		}
 		if (scalar @errors eq 0) {
 			set_owner_id($request_ref);
-			# will save the pro_moderator_owner field
-			store_user_preferences($moderator);
+			# Only remember the new moderation organization if the request comes from our own site:
+			# a link followed from another site (or from a page we do not control) must not be able
+			# to change it, otherwise any site could switch the organization a moderator works on.
+			# The organization is still used for the current request only, so the page can be displayed.
+			if (not is_cross_site_request()) {
+				# will save the pro_moderator_owner field
+				store_user_preferences($moderator);
+			}
+			else {
+				$log->debug("not saving pro_moderator_owner for a cross site request", {orgid => $orgid})
+					if $log->is_debug();
+			}
 		}
 		else {
 			$request_ref->{status_code} = 404;

@@ -283,7 +283,7 @@ user email: $User{email} <br>
 <br>
 TODO:<br>
 <br>
-1. <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-$Org_id">Control products on pro platform</a>. <br>
+1. <a href="https://world.pro.openfoodfacts.org/cgi/user.pl?type=edit_owner&pro_moderator_owner=org-$Org_id">Set the moderation organization to org-$Org_id on the pro platform</a>. <br>
 <br>
 2. Validate the export. <br>
 <br>

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -27,7 +27,7 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::HTTP qw/single_param is_post_request require_same_origin_post/;
 use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc  %Lang lang/;
@@ -108,6 +108,12 @@ my @errors = ();
 
 if ($action eq 'process') {
 
+	# Reject state changes that are not origin-bound POST requests
+	is_post_request($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_invalid_method}{$lc}, 405);
+	require_same_origin_post($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+
 	if (get_oidc_implementation_level() < 5) {
 		# Keep legacy method until we have moved account management to Keycloak
 		if ($type eq 'edit') {
@@ -147,7 +153,32 @@ $template_data_ref->{errors} = \@errors;
 $log->debug("user form - before display / process", {type => $type, action => $action, userid => $userid})
 	if $log->is_debug();
 
-if ($action eq 'display') {
+if (($type eq 'edit_owner') and ($action eq 'display')) {
+
+	# Display a form to set the producers platform moderation organization.
+	# The form is submitted with action=process, which requires a POST request.
+
+	# only admin and pro moderators can change organization freely
+	if (not($request_ref->{admin} or $User{pro_moderator})) {
+		display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+	}
+
+	my $template_data_ref_edit_owner = {
+		pro_moderator_owner => $user_ref->{pro_moderator_owner}
+			// remove_tags_and_quote(single_param('pro_moderator_owner') // ''),
+		userid => $userid,
+	};
+
+	process_template('web/pages/user_form/user_edit_owner_form.tt.html',
+		$template_data_ref_edit_owner, \$html, $request_ref)
+		or $html = "<p>" . $tt->error() . "</p>";
+
+	$request_ref->{title} = lang('producers_platform_moderation_title');
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
+	exit(0);
+}
+elsif ($action eq 'display') {
 
 	# We can pre-fill the form to create an account using the username and password
 	# passed in a form to open a session.
@@ -429,6 +460,12 @@ if ($action eq 'display') {
 }
 
 elsif ($action eq 'process') {
+
+	# Reject state changes that are not origin-bound POST requests
+	is_post_request($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_invalid_method}{$lc}, 405);
+	require_same_origin_post($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 
 	if (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
