@@ -58,6 +58,7 @@ my @tests = (
 	[{lc => "en", ingredients_text_en => "Modified cornflour"}, 4],
 	[{lc => "en", ingredients_text_en => "Modified whey"}, 4],
 	[{lc => "en", ingredients_text_en => "Modified strawberry"}, 4],
+	[{lc => "en", ingredients_text_en => "Hydrolysed apple"}, 4],
 
 );
 
