@@ -38088,11 +38088,11 @@ en: Chocolates
 bg: Шоколади
 ca: Xocolata
 cs: Čokolády
-da: Chokolader, chokolade
+da: Chokolader, Chokolade
 de: Schokoladen, Schokolade
 es: Chocolates
 fi: suklaat
-fr: Chocolats, chocolat, Chocolat en tablette
+fr: Chocolats, chocolat
 he: שוקולדים
 hr: čokolade, čokolada
 hu: Csokoládék
@@ -38104,7 +38104,7 @@ pl: Czekolada
 pt: Chocolates
 ro: Ciocolată, ciocolata
 ru: Шоколад, шоколадные продукты
-sv: Choklad
+sv: Choklader
 th: ช็อกโกแลต
 tr: Çikolatalar, Çikolatalı ürünler
 zh: 巧克力
@@ -38127,6 +38127,13 @@ protected_name_type:en: pgi
 wikidata:en: Q1790835
 
 < en: Chocolates
+en: Chocolate bars
+fi: Suklaalevyt
+fr: Chocolats en tablette, Tablette de chocolat, Chocolat en tablette
+hr: Štanglica čokolade
+lt: Šokolado plytelės, Šokolado plytelė
+
+< en: Chocolates
 en: Assorted chocolates
 de: Verschiedene Schokoladen
 es: Surtido de chocolates
@@ -38142,12 +38149,24 @@ comment:en: This category refers to assorted chocolate squares and bars, not bon
 #wikidata:en:Q5103648 Life is like a wikipedia disambiguation page.
 
 < en: Chocolates
-en: Plant milk chocolates
+< en: Vegan products
+en: Plant milk chocolates, Plant-based milk chocolates, Vegan milk chocolates
 fi: Kasvimaitosuklaat
 fr: Chocolats au lait végétal
 hr: Biljne mliječne čokolade
 nl: Plantaardige melkchocolade, Plantaardige melkchocolades
 
+< en: Chocolate bars
+< en: Plant milk chocolates
+en: Plant milk chocolate bars, Plant-based milk chocolate bars, Vegan milk chocolate bars
+fi: Kasvimaitosuklaalevyt
+hr: Štanglica biljne mliječne čokolade
+
+< en: Plant milk chocolate bars
+en: Plain plant milk chocolate bars, Plain plant-based milk chocolate bars, Plain vegan milk chocolate bars
+incompatible_with:en: categories:en:flavoured-plant-milk-chocolate-bars
+
+< en: Chocolate bars
 < en: Dark chocolates
 en: Dark chocolate bars, Dark chocolate bar
 fr: Chocolats noirs en tablette
@@ -38157,7 +38176,7 @@ en: Milk chocolates, milk chocolate
 bg: Млечен шоколад
 ca: Xocolata amb llet
 cs: Mléčné čokolády
-da: Lys chokolader, lys chokolade, mælkechokolader, mælkechokolade
+da: Mælkechokolader, Mælkechokolade, Lyse chokolader, Lys chokolade
 de: Milchschokoladen
 es: Chocolates con leche
 fi: maitosuklaat
@@ -38173,10 +38192,11 @@ pl: Czekolada mleczna
 pt: Chocolates de leite, chocolate de leite
 ro: Ciocolată cu lapte
 ru: Молочный шоколад, Шоколад молочный
-sv: Mjölkchoklad, ljus choklad
+sv: Mjölkchoklader, Ljusa choklader
 tr: Sütlü çikolata
 zh: 牛奶巧克力
 agribalyse_proxy_food_code:en: 31004
+plant_alternative:en: en:plant-milk-chocolates
 wikidata:en: Q2164820
 #all agribalyse milk chocolate categories have the same CO2 score
 
@@ -38207,16 +38227,27 @@ it: Stampi di cioccolato al latte
 lt: Pieniški šokolado formos
 nl: Melkchocoladevormen, Melkchocolade figuren
 
+< en: Chocolate bars
 < en: Milk chocolates
-en: Milk chocolate bar
+en: Milk chocolate bars, Milk chocolate bar
 fi: Maitosuklaalevyt
 fr: Tablette de chocolat au lait, Chocolat au lait en tablette
 hr: Štanglica mliječne čokolade
 lt: Pieniškos šokolado plytelės, pieniška šokolado plytelė
+agribalyse_proxy_food_code:en: 31004
+ciqual_proxy_food_code:en: 31004
+ciqual_proxy_food_name:en: Milk chocolate bar
+ciqual_proxy_food_name:fr: Chocolat au lait, tablette
+plant_alternative:en: en:plant-milk-chocolate-bars
+
+< en: Milk chocolate bars
+en: Plain milk chocolate bars
 agribalyse_food_code:en: 31004
 ciqual_food_code:en: 31004
 ciqual_food_name:en: Milk chocolate bar
 ciqual_food_name:fr: Chocolat au lait, tablette
+incompatible_with:en: categories:en:flavoured-milk-chocolates
+plant_alternative:en: en:plain-plant-milk-chocolate-bars
 
 < en: Chocolates with sweeteners
 < en: Milk chocolates
@@ -38231,9 +38262,9 @@ lt: Pieniški šokoladai su saldikliais
 nl: Melkchocolade met zoetstoffen
 pt: Chocolates de leite com adoçantes
 
-< en: Chocolates with sweeteners
-< en: Milk chocolates
-en: Milk chocolate bar without sugar with sweeteners
+< en: Milk chocolate bars
+< en: Milk chocolates with sweeteners
+en: Milk chocolate bars without sugar with sweeteners, Milk chocolate bar without sugar with sweeteners
 fr: Chocolat au lait en tablette sans sucres ajoutés avec édulcorants
 hr: Mliječna čokolada bez šećera sa zaslađivačima
 lt: Pieniškos šokolado plytelės be cukraus su saldikliais
@@ -38262,23 +38293,33 @@ hu: Csokoládék extra finom tejjel
 lt: Šokoladai su itin geru pienu
 nl: Chocola met extra fijne melk
 
+< en: Chocolates with rice
 < en: Milk chocolates
-< en: Rice chocolates
-en: Rice milk chocolates
+en: Milk chocolates with rice, Rice milk chocolates
 fr: Chocolats au lait au riz
 hr: Čokolade od rižinog mlijeka
 it: Cioccolato al latte con riso
 lt: Ryžių pieno šokoladai
 nl: Chocolade-rijstmelk
+comment:en: these are milk chocolates with (usually puffed) rice, not chocolates made with rice milk
 
 < en: Cereal chocolates
 < en: Milk chocolates
-en: Puffed cereal milk chocolates, Milk chocolate bar with puffed cereals, Milk chocolate bar with popped cereals
-fr: Chocolats au lait aux céréales croustillantes, Chocolat au lait en tablette aux céréales croustillantes
+en: Milk chocolates with puffed cereals, Puffed cereal milk chocolates
+fr: Chocolats au lait aux céréales croustillantes
 hr: Lisnate mliječne čokolade od žitarica
 it: Cioccolato al latte con cereali
 lt: Pieniško šokolado plytelės su pūstais dribsniais
 nl: Melkchocolade met granen
+agribalyse_food_code:en: 31009
+ciqual_food_code:en: 31009
+ciqual_food_name:en: Milk chocolate bar, with puffed/popped cereals
+ciqual_food_name:fr: Chocolat au lait aux céréales croustillantes, tablette
+
+< en: Milk chocolate bars
+< en: Milk chocolates with puffed cereals
+en: Milk chocolate bars with puffed cereals, Milk chocolate bar with popped cereals
+fr: Chocolat au lait en tablette aux céréales croustillantes
 agribalyse_food_code:en: 31009
 ciqual_food_code:en: 31009
 ciqual_food_name:en: Milk chocolate bar, with puffed/popped cereals
@@ -38302,8 +38343,8 @@ ru: Шоколад с миндалём
 sv: Choklad med mandlar, choklad med mandel
 tr: Bademli çikolata
 
-< en: Chocolates
-en: Milk chocolate bar with nougat, Toblerone
+< en: Milk chocolate bars
+en: Milk chocolate bars with nougat, Milk chocolate bar with nougat, Toblerone
 es: Barra de chocolate con leche y nougat, Toblerone
 fr: Barre de chocolat au lait avec nougat, Toblerone
 hr: Pločica mliječne čokolade s nugatom
@@ -38348,16 +38389,21 @@ fr: Chocolats à la praline
 hr: Čokolade s pralinama
 ja: プラリネチョコレート
 
-< en: Chocolates
-en: Rice chocolates
+< en: Chocolates with cereals
+en: Chocolates with rice, Rice chocolates
 fr: Chocolats au riz
 hr: Rižine čokolade
 it: Cioccolato con riso
+lt: Šokoladai su ryžiais
+nl: Chocola met rijst
+
+< en: Chocolates with rice
+en: Chocolates with puffed rice
 lt: Šokoladai su pūstais ryžiais
 nl: Chocola met gepofte rijst
 
 < en: Chocolates
-en: Cereal chocolates
+en: Chocolates with cereals, Cereal chocolates
 bg: Шоколади с житни зърна
 da: Chokolade med korn
 de: Getreideschokolade
@@ -38398,8 +38444,12 @@ sv: Vit choklad
 tr: Beyaz çikolata
 zh: 白巧克力
 agribalyse_proxy_food_code:en: 31010
+ciqual_proxy_food_code:en: 31010
+ciqual_proxy_food_name:en: White chocolate bar
+ciqual_proxy_food_name:fr: Chocolat blanc, tablette
 wikidata:en: Q742385
 
+< en: Chocolate bars
 < en: White chocolates
 en: White chocolate bars
 fr: Chocolat blanc en tablette, Tablette de chocolat blanc
@@ -38532,6 +38582,18 @@ it: Cioccolato aromatizzato
 lt: Aromatizuoti šokoladai
 nl: Gearomatiseerde chocola
 
+< en: Flavoured chocolates
+< en: Plant milk chocolates
+en: Flavoured plant milk chocolates
+fr: Chocolats au lait végétal aromatisés
+hr: Aromatizirane biljne mliječne čokolade
+
+< en: Flavoured plant milk chocolates
+< en: Plant milk chocolate bars
+en: Flavoured plant milk chocolate bars
+hr: Štanglica aromatizirane biljne mliječne čokolade
+incompatible_with:en: categories:en:plain-plant-milk-chocolate-bars
+
 < en: Dark chocolates
 < en: Flavoured chocolates
 en: Flavoured dark chocolates
@@ -38549,6 +38611,7 @@ de: Aromatisierte Milchschokolade
 fr: Chocolats au lait aromatisés
 hr: Aromatizirane mliječne čokolade
 lt: Aromatizuoti pieniški šokoladai
+incompatible_with:en: categories:en:plain-milk-chocolate-bars
 
 < en: Flavoured chocolates
 < en: White chocolates
@@ -66309,6 +66372,27 @@ pnns_group_2:en: Ice cream
 who_id:en: 5
 
 < en: Ice creams and sorbets
+en: Mochi ice cream
+es: Helado de mochi
+fr: Mochi glacés
+hr: Mochi sladoled
+ja: 餅アイス, もちアイス
+lt: Mochi ledai
+wikidata:en: Q977539
+
+< en: Ice creams and sorbets
+en: Cookie dough covered ice cream balls
+fr: Boules de glace enrobées de pâte à cookie
+
+< en: Ice creams and sorbets
+en: Iced nougat
+fr: Nougat glacé
+agribalyse_food_code:en: 39529
+ciqual_food_code:en: 39529
+ciqual_food_name:en: Iced nougat
+ciqual_food_name:fr: Nougat glacé
+
+< en: Ice creams and sorbets
 en: Frozen sticks
 fr: Bâtonnets glacés
 
@@ -67355,23 +67439,6 @@ hr: Smrznuti kolači i kolači
 it: Torte e pasticcini congelati
 lt: Šaldyti tortai ir pyragaičiai, šaldyti pyragaičiai
 nl: Diepvriesgebak
-
-< en: Ice creams and sorbets
-en: Mochi ice cream
-es: Helado de mochi
-fr: Mochi glacés
-hr: Mochi sladoled
-ja: 餅アイス, もちアイス
-lt: Mochi ledai
-wikidata:en: Q977539
-
-< en: Ice creams and sorbets
-en: Iced nougat
-fr: Nougat glacé
-agribalyse_food_code:en: 39529
-ciqual_food_code:en: 39529
-ciqual_food_name:en: Iced nougat
-ciqual_food_name:fr: Nougat glacé
 
 < en: Frozen foods
 fr: Viennoiseries surgelées

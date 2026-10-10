@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.114.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.113.0...v2.114.0) (2026-10-09)
+
+
+### Features
+
+* **Nutrition:** keep unit empty for empty-unit nutrients ([#14844](https://github.com/openfoodfacts/openfoodfacts-server/issues/14844)) ([29c3415](https://github.com/openfoodfacts/openfoodfacts-server/commit/29c3415e156df07a818f5c8a02b3fc27a0205476))
+
+
+### Bug Fixes
+
+* do not show g as unit for pH and glycemic index, fix issue with aggregated set for unit less and % per serving nutrients ([#14848](https://github.com/openfoodfacts/openfoodfacts-server/issues/14848)) ([1d16eff](https://github.com/openfoodfacts/openfoodfacts-server/commit/1d16eff7b0373de4ab24fd396ce9d3b1870bf1b0))
+* parse the origin field for the first product analyzed by a process ([#14866](https://github.com/openfoodfacts/openfoodfacts-server/issues/14866)) ([ded960e](https://github.com/openfoodfacts/openfoodfacts-server/commit/ded960e48de60c5eee3fb6c871e2d87301ef0828))
+
 ## [2.113.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.112.0...v2.113.0) (2026-10-06)
 
 
