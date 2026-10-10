@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.114.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.114.0...v2.114.1) (2026-10-10)
+
+
+### Bug Fixes
+
+* add HEALTHCHECK instructions to Dockerfiles ([#14809](https://github.com/openfoodfacts/openfoodfacts-server/issues/14809)) ([9225269](https://github.com/openfoodfacts/openfoodfacts-server/commit/9225269555a76766042f7736f17bcacd19210b75))
+
 ## [2.114.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.113.0...v2.114.0) (2026-10-09)
 
 
