@@ -948,7 +948,14 @@ sub get_unit_options_for_nutrient ($nid) {
 	my @units = ();
 	my $default_unit = default_unit_for_nid($nid);
 
-	if (($nid eq 'alcohol')) {
+	# The nutrients taxonomy can carry the allowed units as a unit_options property,
+	# so that adjusting a nutrient's units is a taxonomy edit. Nutrients without the
+	# property keep falling back to the hardcoded cases below.
+	my $unit_options = get_property("nutrients", "zz:$nid", "unit_options:en");
+	if (defined $unit_options) {
+		@units = split(/\s*,\s*/, $unit_options);
+	}
+	elsif (($nid eq 'alcohol')) {
 		@units = ('% vol');
 	}    # alcohol in % vol / °
 	elsif (($nid eq 'energy-kj')) {@units = ('kJ');}
