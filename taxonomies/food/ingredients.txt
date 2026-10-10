@@ -166,10 +166,10 @@ stopwords:da: og, eller, samt, av, af, blandt andet, bl a, inklusive, heraf, ind
 stopwords:de: Allergene Zutaten, aus, enthält, enthalten, Fullstoffe, in veränderlichen gewichtsanteilen, max, min, mit, mindestens, naturbelassen, und, von, wenig
 stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
-stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, blend of, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportion, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
+stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, blend of, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportion, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added, sachet, other, in, variable, varied, varying, various, proportion, proportions
 stopwords:es: calibre, categoria, con, contener, contiene, contienen, controlada, de, de cultivo, de, e, en, el, equivalente, equivalel, la, las, los, min, minimo, maximo, nota, origen, por, produccion, puede, vereidad, variedad, y
 stopwords:fi: allergiatiedot, jossa, käymisen aikana muodostuva, koskenlaskija, muun muassa, noin, sisältää, snellmanin, valio
-stopwords:fr: aux, au, avec ajout, base, de, demeter, du, la, le, a, et, avec, ou, en, proportion, sachet, variable, contient, élaboré avec, papier traité, marquants, minimum, MG/MS, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d'
+stopwords:fr: aux, au, avec ajout, base, de, demeter, du, la, le, a, et, avec, ou, en, proportion, proportions, sachet, variable, variables, variée, variées, contient, élaboré avec, papier traité, marquants, minimum, MG/MS, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', sachet, autre, d'autre
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
 # example: luk u prahu (OD ČEGA mladi luk 0,06 %)
@@ -14336,6 +14336,10 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q41534
 wikipedia:en: https://en.wikipedia.org/wiki/Starch
+
+< en: starch
+en: non-modified starch, not modified starch
+fr: amidon non transformé, amidon non modifié
 
 < en: starch
 en: modified starch, modified starches, modified food starch, modified food starches, food starch modified, processed starch
@@ -38676,7 +38680,7 @@ it: aroma di estratto di lievito
 pl: aromat z ekstraktu drożdżowego, aromat ekstraktu drożdżowego
 
 < en: dough
-en: sourdough, sour dough
+en: sourdough, sour dough, sourdough starter, sour dough starter
 an: Emprenyatuera
 ar: خبز عجينة متخمرة
 bg: Квас
@@ -38921,9 +38925,14 @@ nl: rijstzuurdesempoeder
 sv: rissurdegspulver, surdegspulver av ris
 
 < en: sourdough
-en: inactive sourdough starter
+en: inactive sourdough, inactive sourdough
 es: masa madre inactiva
 hr: inaktivni suhi kvasac
+
+< en: inactive sourdough
+< en: wheat sourdough
+en: inactive wheat sourdough
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -73496,7 +73505,7 @@ wikidata:en: Q1882876
 
 # <en: root vegetable
 < en: spice
-en: turmeric
+en: turmeric, turmeric root
 af: borrie
 am: እርድ
 ar: كركم
@@ -74504,7 +74513,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Trigonella_caerulea
 # description:en:GALANGAL is a common name for several tropical rhizomatous spices
 
 < en: spice
-en: Galangal
+en: galangal, galangal root
 de: Galgant
 es: galangal
 fi: galangal, galanga, galgantti, galangajuuri
@@ -79002,7 +79011,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Corchorus_olitorius
 ###################################################################################################
 
 < en: plant
-en: mate, yerba mate leaves, yerba mate
+en: mate, yerba mate leaves, yerba mate, mate tea, maté, maté tea
+xx: mate, maté, yerba mate, yerba maté
 af: Mate
 ar: متة
 be: Матэ
@@ -98825,6 +98835,10 @@ wikidata:en: q192874
 wikipedia:en: https://en.wikipedia.org/wiki/Noodle
 
 < en: noodle
+en: wheat noodles
+fr: nouilles de blé
+
+< en: noodle
 en: rice noodles
 da: risnudler
 de: Reisnudeln
@@ -103885,6 +103899,17 @@ description:pt: Pesto é um molho italiano composto tradicionalmente de folhas d
 # zh_yue:羅勒醬
 wikidata:en: Q9896
 wikipedia:en: https://en.wikipedia.org/wiki/Pesto
+
+< en: pesto
+en: basil pesto
+fr: pesto au basilic
+
+< en: sauce
+en: noodle sauce
+fr: sauce pour nouilles
+
+< en: sauce
+en: stir-fried sauce
 
 ###################################################################################################
 #
