@@ -4,7 +4,7 @@
 # 1. import some products from a CSV file
 # 2. exports the products with various options, and checks that we get the expected exports
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;

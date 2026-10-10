@@ -2,7 +2,7 @@
 
 # Tests of parsing nested ingredients, such as "ingredient (component 1, component 2)", etc.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;

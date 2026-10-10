@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -62,9 +62,7 @@ GetOptions('products=s' => \@products, 'owner=s' => \$owner);
 
 my $d = 0;
 
-sub find_products($) {
-
-	my $dir = shift;
+sub find_products ($dir) {
 
 	my $next = product_iter($dir);
 	while (my $file = $next->()) {
