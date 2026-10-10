@@ -31,8 +31,6 @@
       },
       {
          "ciqual_proxy_food_code" : "9435",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
          "labels" : "en:no-gluten",
@@ -45,6 +43,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_proxy_id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
+         "ecobalyse_proxy_name" : "Blé tendre HORS UE",
          "id" : "en:einkorn-wheat",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.375,
@@ -92,7 +92,7 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:einkorn-wheat"
+      "en:flour"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 4,

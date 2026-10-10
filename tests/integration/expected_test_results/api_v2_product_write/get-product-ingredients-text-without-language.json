@@ -408,6 +408,12 @@
                   "name" : "Pork meat"
                },
                {
+                  "ecobalyse_name" : "Blé tendre HORS UE",
+                  "id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
+                  "mass" : 16.6666666666667,
+                  "name" : "wheat"
+               },
+               {
                   "ecobalyse_name" : "Sel -2025-",
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                   "mass" : 16.6666666666667,
@@ -430,6 +436,10 @@
                   {
                      "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
                      "mass" : 66.6666666666667
+                  },
+                  {
+                     "id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
+                     "mass" : 16.6666666666667
                   },
                   {
                      "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
@@ -489,6 +499,8 @@
          },
          {
             "ciqual_proxy_food_code" : "9410",
+            "ecobalyse_proxy_id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
+            "ecobalyse_proxy_name" : "Blé tendre HORS UE",
             "id" : "en:wheat",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 16.6666666666667,
@@ -567,10 +579,8 @@
       "ingredients_with_unspecified_percent_sum" : 100.0,
       "ingredients_without_ciqual_codes" : [],
       "ingredients_without_ciqual_codes_n" : 0,
-      "ingredients_without_ecobalyse_ids" : [
-         "en:wheat"
-      ],
-      "ingredients_without_ecobalyse_ids_n" : 1,
+      "ingredients_without_ecobalyse_ids" : [],
+      "ingredients_without_ecobalyse_ids_n" : 0,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 3,

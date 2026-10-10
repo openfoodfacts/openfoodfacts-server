@@ -9,6 +9,8 @@
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "9410",
+               "ecobalyse_proxy_id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
+               "ecobalyse_proxy_name" : "Blé tendre HORS UE",
                "id" : "en:wheat",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 54.1666666666667,
@@ -131,6 +133,8 @@
       },
       {
          "ciqual_food_code" : "19402",
+         "ecobalyse_proxy_id" : "2cced940-3abf-439d-b2f1-e6241ffb31fd",
+         "ecobalyse_proxy_name" : "Crème fraiche FR -2025-",
          "id" : "en:sour-cream",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0895182291666714,
@@ -244,11 +248,9 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:sour-cream",
-      "en:soya-lecithin",
-      "en:wheat"
+      "en:soya-lecithin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 13,
    "lc" : "en",
    "misc_tags" : [

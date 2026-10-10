@@ -118,6 +118,12 @@
                "name" : "wheat flour"
             },
             {
+               "ecobalyse_name" : "Fécule de pomme de terre par défaut -2025-",
+               "id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
+               "mass" : 5.55555555555556,
+               "name" : "rice starch"
+            },
+            {
                "ecobalyse_name" : "Protéines de soja par défaut -2025-",
                "id" : "f8fb04c1-c207-4a3c-993f-e5a1b0204dfa",
                "mass" : 0.347222222222221,
@@ -146,6 +152,10 @@
                {
                   "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                   "mass" : 55.5555555555556
+               },
+               {
+                  "id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
+                  "mass" : 5.55555555555556
                },
                {
                   "id" : "f8fb04c1-c207-4a3c-993f-e5a1b0204dfa",
@@ -484,6 +494,8 @@
       },
       {
          "ciqual_food_code" : "96781",
+         "ecobalyse_proxy_id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
+         "ecobalyse_proxy_name" : "Fécule de pomme de terre par défaut -2025-",
          "id" : "en:rice-starch",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.55555555555556,
@@ -625,10 +637,9 @@
       "en:barley-malt-extract",
       "en:e150",
       "en:e330",
-      "en:rice-starch",
       "en:soya-lecithin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 6,
+   "ingredients_without_ecobalyse_ids_n" : 5,
    "knowledge_panels_en" : {
       "additive_en:e150" : {
          "elements" : [],

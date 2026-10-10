@@ -128,6 +128,8 @@
       },
       {
          "ciqual_proxy_food_code" : "26140",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:fish",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0447591145833357,
@@ -239,13 +241,12 @@
    ],
    "ingredients_without_ciqual_codes_n" : 5,
    "ingredients_without_ecobalyse_ids" : [
-      "en:fish",
       "fi:kananmunat",
       "fi:nilviäisiä",
       "fi:pähkinöitä",
       "fi:äyriäiset"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 8,
    "lang" : "fi",
    "languages" : {

@@ -45,6 +45,12 @@
                "name" : "lamb meat"
             },
             {
+               "ecobalyse_name" : "Blanc de poulet cru -alim. ani. 100%BR- par défaut",
+               "id" : "8fb5024c-ceec-4201-b069-ea253c537ad6",
+               "mass" : 10,
+               "name" : "chicken meat"
+            },
+            {
                "ecobalyse_name" : "Sel -2025-",
                "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                "mass" : 9,
@@ -71,6 +77,10 @@
                {
                   "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
                   "mass" : 20
+               },
+               {
+                  "id" : "8fb5024c-ceec-4201-b069-ea253c537ad6",
+                  "mass" : 10
                },
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
@@ -142,6 +152,8 @@
       },
       {
          "ciqual_food_code" : "36005",
+         "ecobalyse_proxy_id" : "8fb5024c-ceec-4201-b069-ea253c537ad6",
+         "ecobalyse_proxy_name" : "Blanc de poulet cru -alim. ani. 100%BR- par défaut",
          "id" : "en:chicken-meat",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 10,
@@ -218,10 +230,8 @@
    "ingredients_with_unspecified_percent_sum" : 91,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:chicken-meat"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "minerals_tags" : [],

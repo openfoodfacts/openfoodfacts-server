@@ -24,6 +24,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_proxy_id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
+         "ecobalyse_proxy_name" : "Blé tendre HORS UE",
          "id" : "en:wheat",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 22.2222222222222,
@@ -57,6 +59,8 @@
       },
       {
          "ciqual_proxy_food_code" : "26140",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:fish",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.77777777777778,
@@ -184,12 +188,10 @@
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "en:fish",
       "en:gluten",
-      "en:mollusc",
-      "en:wheat"
+      "en:mollusc"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 9,
    "languages" : {
       "en:french" : 1

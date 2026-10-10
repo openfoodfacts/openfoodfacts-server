@@ -17,6 +17,8 @@
       },
       {
          "ciqual_proxy_food_code" : "26140",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:surimi",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 18.75,
@@ -44,8 +46,6 @@
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "9435",
-               "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-               "ecobalyse_proxy_name" : "Farine UE -2025-",
                "id" : "en:flour",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 4.6875,
@@ -159,8 +159,8 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:dough",
-      "en:gluten",
-      "en:surimi"
+      "en:flour",
+      "en:gluten"
    ],
    "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 8,

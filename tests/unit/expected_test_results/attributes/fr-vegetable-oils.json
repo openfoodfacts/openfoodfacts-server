@@ -423,6 +423,12 @@
                "name" : "farine de maïs"
             },
             {
+               "ecobalyse_name" : "Huile de colza par défaut -2025-",
+               "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "mass" : 16.6666666666667,
+               "name" : "huiles"
+            },
+            {
                "ecobalyse_name" : "Sel -2025-",
                "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                "mass" : 16.6666666666667,
@@ -445,6 +451,10 @@
                {
                   "id" : "11fd6550-211b-5c84-8424-5331b1cb3ca6",
                   "mass" : 66.6666666666667
+               },
+               {
+                  "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+                  "mass" : 16.6666666666667
                },
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
@@ -741,6 +751,8 @@
       },
       {
          "ciqual_proxy_food_code" : "17001",
+         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
          "from_palm_oil" : "maybe",
          "id" : "en:oil",
          "is_in_taxonomy" : 1,
@@ -806,10 +818,8 @@
    "ingredients_with_unspecified_percent_sum" : 100.0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:oil"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
    "languages" : {},
    "languages_codes" : {},

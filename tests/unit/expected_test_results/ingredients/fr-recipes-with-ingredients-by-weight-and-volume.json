@@ -18,8 +18,6 @@
       },
       {
          "ciqual_proxy_food_code" : "9435",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
          "percent" : 19.9624705553559,
@@ -32,8 +30,6 @@
       },
       {
          "ciqual_proxy_food_code" : "9435",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
          "percent" : 14.3729787998563,
@@ -76,6 +72,8 @@
       },
       {
          "ciqual_proxy_food_code" : "17001",
+         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
          "from_palm_oil" : "maybe",
          "id" : "en:oil",
          "is_in_taxonomy" : 1,
@@ -174,7 +172,7 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:oil",
+      "en:flour",
       "en:pepper"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,

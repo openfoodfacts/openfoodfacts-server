@@ -138,6 +138,8 @@
       },
       {
          "ciqual_proxy_food_code" : "26140",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:fish",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0447591145833357,
@@ -243,11 +245,10 @@
    "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
       "en:crustacean",
-      "en:fish",
       "en:nut",
       "fr:crème de cassis"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 11,
    "lang" : "fr",
    "languages" : {

@@ -3,8 +3,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9435",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
          "percent" : 12,
@@ -40,6 +38,8 @@
                "vegetarian" : "yes"
             },
             {
+               "ecobalyse_proxy_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+               "ecobalyse_proxy_name" : "Lait par défaut -2025-",
                "id" : "en:milk-proteins",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 5.5,
@@ -265,7 +265,7 @@
       "en:e472",
       "en:e474",
       "en:e475",
-      "en:milk-proteins"
+      "en:flour"
    ],
    "ingredients_without_ecobalyse_ids_n" : 11,
    "known_ingredients_n" : 16,
