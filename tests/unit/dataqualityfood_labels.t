@@ -140,10 +140,24 @@ check_quality_and_test_product_has_quality_tag(
 	'en:vegan-label-but-could-not-confirm-for-all-ingredients -- should not be raised when ingredient contain sub-ingredients',
 	0
 );
+
+# Test derived vegetarian label with explicit tags_sources containing no vegetarian label claim
+$product_ref = {
+	tags_sources => {
+		labels => {
+			user => {
+				tags => ["en:organic"]
+			}
+		}
+	},
+	labels_tags => ["en:organic", "en:vegetarian"], # en:vegetarian was derived
+	ingredients_text_en => "Lentils, green bell pepper, totoro",
+	lc => "en",
+};
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients -- should not be raised when ingredient contain sub-ingredients',
+	'should not raise vegetarian label warning when vegetarian label is derived and not explicit input',
 	0
 );
 
