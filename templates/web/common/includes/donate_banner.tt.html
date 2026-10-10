@@ -356,6 +356,7 @@
   [% END %]
 <!-- Open Food Facts Days end -->
 [% ELSE %]
+[% donation_variants = 1 %]
 <!-- Donation banner TOP start -->
 <section id="donation-banner-top" style="position: relative;">
   <donation-banner donate-url="[% link %]" news-url="/data/tagline/web/main.json"></donation-banner>
@@ -365,11 +366,11 @@
 </section>
 
 <script>
-  let d = new Date();
   let bannerID = document.getElementById('donation-banner-top');
   let getDomain = window.location.origin.split('.');
 
   function setBannerCookie(bcname, bcval, bcexdays) {
+    const d = new Date();
     d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
     let expires = 'expires=' + d.toUTCString();
     // Apply cookie for every domain contains open...facts
@@ -395,11 +396,169 @@
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('donation_march_2026') !== '') {
-    bannerID.style.display = 'none';
+  const crawler = [% request.is_crawl_bot ? 'true' : 'false' %];
+  let arm = getBannerCookie('donation_arm');
+  if (crawler) {
+    arm = 'old';
   } else {
-    bannerID.style.display = 'block';
+    if (arm !== 'old' && arm !== 'new') {
+      arm = Math.random() < 0.5 ? 'old' : 'new';
+    }
+    setBannerCookie('donation_arm', arm, 30);
   }
+
+  const gone = ['donation_march_2026', 'donation_dismiss', 'donation_done'].some((name) => getBannerCookie(name) !== '');
+  const closeButton = bannerID.querySelector('.donation-banner__close');
+  if (arm === 'new') {
+    bannerID.style.display = 'none';
+    closeButton.style.display = 'none';
+  } else {
+    bannerID.style.display = gone ? 'none' : 'block';
+  }
+
+  function track(action, name) {
+    if (typeof trackMatomoEvent === 'function') {
+      trackMatomoEvent('donation', action, name);
+    }
+  }
+
+  function removeBanners() {
+    bannerID.remove();
+    document.getElementById('donation-banner-footer').remove();
+  }
+
+  function showClassic() {
+    const footer = document.getElementById('donation-banner-footer');
+    footer.style.display = '';
+    bannerID.querySelector('donation-banner').setAttribute('utm-content', 'top:classic:old');
+    footer.setAttribute('utm-content', 'footer:classic:old');
+  }
+
+  function mount(el, variant, name, id) {
+    el.setAttribute('variant', variant);
+    el.setAttribute('news-id', id);
+    el.setAttribute('amounts', '3,5,10');
+    el.setAttribute('country', '[% cc %]');
+    el.setAttribute('utm-content', name);
+    el.style.display = '';
+  }
+
+  function showTop(variant, name, id) {
+    mount(bannerID.querySelector('donation-banner'), variant, name, id);
+    bannerID.style.display = 'block';
+    track('banner_shown', name);
+  }
+
+  function parseFeedDate(value) {
+    return new Date(String(value).replace(' ', 'T'));
+  }
+
+  function covers(item, now) {
+    return Boolean(item) && parseFeedDate(item.start_date) <= now && now <= parseFeedDate(item.end_date);
+  }
+
+  async function feedPhase() {
+    try {
+      const response = await fetch('/data/tagline/web/main.json');
+      if (!response.ok) {
+        return null;
+      }
+      const news = (await response.json()).news || {};
+      const now = new Date();
+      for (const kind of ['banner', 'quiet']) {
+        for (const year of [now.getFullYear(), now.getFullYear() - 1]) {
+          const id = 'donation_' + kind + '_' + year;
+          if (covers(news[id], now)) {
+            return { kind, id };
+          }
+        }
+      }
+    } catch {
+      return null;
+    }
+
+    return null;
+  }
+
+  function whenEngaged(open) {
+    let timer;
+    function fire(trigger) {
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(timer);
+      open(trigger);
+    }
+    function onScroll() {
+      if (window.scrollY >= window.innerHeight) {
+        fire('scroll');
+      }
+    }
+    function wait() {
+      timer = setTimeout(() => (document.hidden ? wait() : fire('dwell')), 15000);
+    }
+    setTimeout(() => {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }, 10000);
+    wait();
+  }
+
+  function sheetOrBar(id) {
+    const sheets = parseInt(getBannerCookie('donation_sheet_n'), 10) || 0;
+    const bars = parseInt(getBannerCookie('donation_bar_n'), 10) || 0;
+    if (getBannerCookie('donation_sheet') === '' && sheets < 3) {
+      whenEngaged(function (trigger) {
+        if (!bannerID.isConnected) {
+          return;
+        }
+        setBannerCookie('donation_sheet', 1, 7);
+        setBannerCookie('donation_sheet_n', sheets + 1, 30);
+        showTop('sheet', 'top:sheet:new:' + trigger, id);
+      });
+    } else if (bars < 10) {
+      setBannerCookie('donation_bar_n', bars + 1, 30);
+      showTop('bar', 'top:bar:new', id);
+    } else {
+      bannerID.remove();
+    }
+  }
+
+  document.addEventListener('donation-banner-state', function (event) {
+    const action = event.detail.action;
+    if (action === 'dismiss') {
+      setBannerCookie('donation_dismiss', 1, 30);
+      removeBanners();
+    } else if (action === 'already-donated') {
+      setBannerCookie('donation_done', 1, 365);
+      removeBanners();
+    } else if (action === 'minimize') {
+      bannerID.remove();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', async function () {
+    if (arm === 'old') {
+      showClassic();
+    } else if (gone) {
+      removeBanners();
+    } else {
+      const phase = await feedPhase();
+      if (phase === null) {
+        showClassic();
+        bannerID.style.display = 'block';
+        closeButton.style.display = '';
+        track('banner_shown', 'top');
+      } else {
+        mount(document.getElementById('donation-banner-footer'), 'strip', 'footer:strip:new', phase.id);
+        if (phase.kind === 'quiet') {
+          showTop('strip', 'top:strip:new', phase.id);
+        } else if (Foundation.utils.is_small_only()) {
+          sheetOrBar(phase.id);
+        } else {
+          showTop('campaign', 'top:campaign:new', phase.id);
+        }
+      }
+    }
+  });
 </script>
 
 [% END %]
@@ -409,7 +568,7 @@
 <!-- Donation banner @ footer start-->
 [% banner_footer = BLOCK %]
 
-<donation-banner donate-url="[% link %]" news-url="/data/tagline/web/main.json"></donation-banner>
+<donation-banner id="donation-banner-footer"[% IF donation_variants %] style="display: none;"[% END %] donate-url="[% link %]" news-url="/data/tagline/web/main.json"></donation-banner>
 
 [% END %]
 <!-- Donation banner @ footer end-->
