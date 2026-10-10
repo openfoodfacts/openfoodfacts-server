@@ -26,9 +26,8 @@ from common.config import load_config, save_config
 from common.convert import merge_csv_files
 from common.geocode import geocode_csv
 from common.io import generate_file_identifier, move_output_to_packager_codes, cleanup_temp_files, find_preprocessed_csv_files, find_temporary_files
-from common.processors import process_excel_file, process_html_file
+from common.processors import process_excel_file, process_html_file, process_csv_file
 
-DEBUG = False
 SLEEP_DURATION = 2.0
 
 
@@ -65,18 +64,21 @@ def process_source_file(country_name: str, country_code: str,
         if file_type == 'excel':
             return process_excel_file(country_name, country_code, url, keyword, last_filename,
                                      file_config, file_id)
+        elif file_type == 'csv':
+            return process_csv_file(country_name, country_code, url, keyword, last_filename,
+                                    file_config, file_id)
         elif file_type == 'html':
             return process_html_file(country_name, country_code, url, keyword, last_filename,
                                     file_config, file_id)
         else:
             raise ValueError(f"Unknown file type '{file_type}' for file {file_id}")
         
-    except Exception as e:
+    except (RuntimeError, ValueError, FileNotFoundError) as e:
         print(f"{country_name} - Error - Failed to process file: {e}")
         return False, None
 
 
-def process_country(country_code: str):
+def process_country(country_code: str, debug: bool = False, sleep_duration: float = SLEEP_DURATION):
     """Process packager codes for a single country."""
     
     config = load_config()
@@ -144,7 +146,8 @@ def process_country(country_code: str):
         merge_csv_files(country_name, preprocessed_csv_files, merged_file, skip_headers=True)
         
         # Geocode addresses
-        failure_count, total_count = geocode_csv(DEBUG, country_name, country_code, merged_file, target_file, SLEEP_DURATION)
+        print(f"{country_name} - Info - Geocoding sleep duration: {sleep_duration:.2f}s")
+        failure_count, total_count = geocode_csv(debug, country_name, country_code, merged_file, target_file, sleep_duration)
         
         if failure_count > 0:
             raise RuntimeError(f"Geocoding failed for {failure_count} addresses out of {total_count}. All addresses must be successfully geocoded.")
@@ -160,7 +163,7 @@ def process_country(country_code: str):
             save_config(config)
     
     finally:
-        if not DEBUG:
+        if not debug:
             # Cleanup all temporary files
             all_temp_files = find_temporary_files(country_code)
             cleanup_temp_files(country_name, all_temp_files)
@@ -173,10 +176,21 @@ def process_country(country_code: str):
         sys.exit(1)
 
 
-def main():
+def main(argv: list[str] | None = None):
     """Main entry point."""
     parser = argparse.ArgumentParser(
         description='Process packager codes for one or more countries.'
+    )
+    parser.add_argument(
+        '-d', '--debug',
+        action='store_true',
+        help='Enable debug logging'
+    )
+    parser.add_argument(
+        '--sleep',
+        type=float,
+        default=SLEEP_DURATION,
+        help='Delay in seconds between geocoding requests (default: %(default)s)'
     )
     parser.add_argument(
         'countries',
@@ -184,13 +198,15 @@ def main():
         help='Country code(s) to process (e.g., dk fi hr)'
     )
     
-    args = parser.parse_args()
-    
+    args = parser.parse_args(argv)
+    if args.sleep <= 0:
+        parser.error('--sleep must be greater than 0')
+
     # Process each country
     for country_code in args.countries:
         try:
-            process_country(country_code.lower())
-        except Exception as e:
+            process_country(country_code.lower(), debug=args.debug, sleep_duration=args.sleep)
+        except (RuntimeError, ValueError, FileNotFoundError) as e:
             print(f"\nError processing {country_code}: {e}")
             sys.exit(1)
 
