@@ -39,6 +39,18 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 my @tests = (
 	{
+		'id' => 'en-cosmetics-origins-panel',
+		'product' => {
+			product_type => 'beauty',
+			lc => 'en',
+			categories => 'cosmetics',
+			ingredients_text => 'water, glycerin',
+		},
+		target_lc => 'en',
+		target_cc => 'us'
+	},
+
+	{
 		'id' => 'en-nutriscore-serving-size-error',
 		'product' => {
 			lc => "en",
