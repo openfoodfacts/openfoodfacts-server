@@ -130,14 +130,7 @@
                "name" : "refined palm oil"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 56
       },
       "ecobalyse_request" : {
          "data" : {
@@ -155,16 +148,12 @@
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
                   "mass" : 0.347222222222229
                }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
-               }
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -2102,6 +2091,8 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-50-and-59",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-computed",

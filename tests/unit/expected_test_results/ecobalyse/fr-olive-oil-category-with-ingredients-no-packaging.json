@@ -30,6 +30,7 @@
                "name" : "Huile d'olive vierge extra"
             }
          ],
+         "ingredients_coverage_percent" : 100,
          "packaging" : [
             {
                "category" : "en:olive-oils",
@@ -189,7 +190,10 @@
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
    ],
    "quantity" : "0.75l",
    "testid" : "fr-olive-oil-category-with-ingredients-no-packaging",

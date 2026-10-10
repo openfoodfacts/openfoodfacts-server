@@ -217,6 +217,7 @@ $flavor = 'off';
 <meta name="theme-color" content="#ffffff">
 HTML
 	,
+	ecobalyse_min_ingredients_coverage_percent => 80,
 );
 
 $options{export_limit} = 10000;
@@ -462,6 +463,11 @@ $recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
 
 # Ecobalyse API token, needs to be generated on https://ecobalyse.beta.gouv.fr/
 $ecobalyse_api_token = $ProductOpener::Config2::ecobalyse_api_token;
+
+# Ecobalyse API minimum ingredients coverage percentage (0-100)
+# Only call Ecobalyse API if ingredients with ecobalyse IDs cover at least this percentage
+our $ecobalyse_min_ingredients_coverage_percent = $ProductOpener::Config2::ecobalyse_min_ingredients_coverage_percent
+	// 80;
 
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;

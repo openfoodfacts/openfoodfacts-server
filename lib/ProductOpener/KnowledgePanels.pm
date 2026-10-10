@@ -800,6 +800,53 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 	return;
 }
 
+=head2 create_environmental_cost_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates the Environmental Cost knowledge panel displaying Ecobalyse ECS breakdown.
+
+=cut
+
+sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+	my $ecs = $product_ref->{environmental_impact}{ecs};
+	return unless defined $ecs;
+
+	# Only show Environmental Cost panel to moderators and admins
+	return unless $options_ref->{moderator} || $options_ref->{admin};
+
+	# Round ECS values to 2 decimal places
+	my $round_ecs = sub {
+		my $value = shift;
+		return unless defined $value;
+		return sprintf("%.2f", $value);
+	};
+
+	my $panel_data_ref = {
+		ecs => $round_ecs->($ecs),
+		ecs_ingredients => $round_ecs->(
+			deep_get($product_ref, 'environmental_impact', 'ecobalyse_response', 'results', 'recipe', 'total', 'ecs')
+				// 0
+		),
+		ecs_packaging => $round_ecs->(
+			deep_get($product_ref, 'environmental_impact', 'ecobalyse_response', 'results', 'packaging', 'ecs') // 0
+		),
+		ecs_transport => $round_ecs->(
+			deep_get(
+				$product_ref, 'environmental_impact', 'ecobalyse_response', 'results',
+				'transports', 'impacts', 'ecs'
+			) // 0
+		),
+		ecs_processing => $round_ecs->(
+			deep_get($product_ref, 'environmental_impact', 'ecobalyse_response', 'results', 'recipe', 'transform',
+				'ecs') // 0
+		),
+	};
+
+	create_panel_from_json_template("environmental_cost", "api/knowledge-panels/environment/environmental_cost.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return;
+}
+
 =head2 create_environment_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains all knowledge panels related to the environment.
@@ -832,6 +879,11 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	# Create Environmental-Score related panels
 	if ($options{product_type} eq "food") {
 		create_environmental_score_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Create Environmental Cost panel (Ecobalyse ECS) if we have ECS data
+		if (defined $product_ref->{environmental_impact}{ecs}) {
+			create_environmental_cost_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
 
 		if (
 				(defined $product_ref->{environmental_score_data})

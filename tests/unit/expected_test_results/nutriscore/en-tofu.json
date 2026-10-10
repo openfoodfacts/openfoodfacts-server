@@ -58,14 +58,7 @@
                "name" : "salt"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 100
       },
       "ecobalyse_request" : {
          "data" : {
@@ -82,12 +75,6 @@
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                   "mass" : 1
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
                }
             ]
          },
@@ -215,6 +202,8 @@
       "en:nutrition-fruits-vegetables-legumes-from-category-xx-tofu",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-not-computed",
       "en:nutrition-data-per-100g"
    ],

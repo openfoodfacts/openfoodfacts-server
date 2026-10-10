@@ -63,14 +63,7 @@
                "name" : "soy beans"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ],
+         "ingredients_coverage_percent" : 100,
          "transform" : {
             "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
             "mass" : 100,
@@ -101,12 +94,6 @@
                {
                   "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
                   "mass" : 10
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
                }
             ],
             "transform" : {
@@ -286,6 +273,8 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-not-computed",
       "en:nutrition-data-per-100g"
    ],

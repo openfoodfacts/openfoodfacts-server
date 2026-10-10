@@ -32,14 +32,7 @@
                "name" : "Pleurotes"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ],
+         "ingredients_coverage_percent" : 69,
          "transform" : {
             "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
             "mass" : 100,
@@ -56,19 +49,15 @@
                   "mass" : 69
                }
             ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
-               }
-            ],
             "transform" : {
                "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
                "mass" : 100
             }
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:one-dish-meals",
@@ -168,6 +157,8 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-ingredients-matched-between-60-and-69",
+      "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"

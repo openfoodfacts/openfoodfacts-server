@@ -451,6 +451,7 @@
                "name" : "sugar"
             }
          ],
+         "ingredients_coverage_percent" : 81,
          "packaging" : [
             {
                "category" : "en:cheeses",
@@ -1068,6 +1069,8 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-ingredients-matched-between-80-and-89",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",

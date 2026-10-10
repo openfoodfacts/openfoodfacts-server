@@ -38,6 +38,7 @@
                "name" : "sugar"
             }
          ],
+         "ingredients_coverage_percent" : 94,
          "packaging" : [
             {
                "category" : "en:sugars",
@@ -170,6 +171,8 @@
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a"
    ],

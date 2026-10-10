@@ -443,6 +443,7 @@
                      "name" : "palm oil"
                   }
                ],
+               "ingredients_coverage_percent" : 100,
                "packaging" : [
                   {
                      "category" : "",
@@ -725,6 +726,8 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
+            "en:ecobalyse-api-skipped",
+            "en:ecobalyse-ingredients-matched-between-90-and-100",
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
             "en:forest-footprint-b",
@@ -1575,14 +1578,7 @@
                      "name" : "rice"
                   }
                ],
-               "packaging" : [
-                  {
-                     "category" : "",
-                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-                  }
-               ]
+               "ingredients_coverage_percent" : 25
             },
             "ecobalyse_request" : {
                "data" : {
@@ -1592,16 +1588,12 @@
                         "id" : "cce078cf-3d3e-4153-a0a1-35555b2da639",
                         "mass" : 25
                      }
-                  ],
-                  "packaging" : [
-                     {
-                        "amount" : 1,
-                        "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
-                     }
                   ]
                },
                "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-            }
+            },
+            "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+            "ecobalyse_skipped" : 1
          },
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
@@ -1725,6 +1717,8 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
+            "en:ecobalyse-api-not-called",
+            "en:ecobalyse-ingredients-matched-between-20-and-29",
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
             "en:forest-footprint-not-computed",
@@ -2324,14 +2318,7 @@
                      "name" : "eggs"
                   }
                ],
-               "packaging" : [
-                  {
-                     "category" : "",
-                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-                  }
-               ]
+               "ingredients_coverage_percent" : 100
             },
             "ecobalyse_request" : {
                "data" : {
@@ -2348,12 +2335,6 @@
                      {
                         "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
                         "mass" : 16.6666666666667
-                     }
-                  ],
-                  "packaging" : [
-                     {
-                        "amount" : 1,
-                        "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
                      }
                   ]
                },
@@ -2557,6 +2538,8 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
+            "en:ecobalyse-api-skipped",
+            "en:ecobalyse-ingredients-matched-between-90-and-100",
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
             "en:forest-footprint-b",
@@ -3381,14 +3364,7 @@
                      "name" : "palm oil"
                   }
                ],
-               "packaging" : [
-                  {
-                     "category" : "",
-                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-                  }
-               ]
+               "ingredients_coverage_percent" : 100
             },
             "ecobalyse_request" : {
                "data" : {
@@ -3405,12 +3381,6 @@
                      {
                         "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
                         "mass" : 16.6666666666667
-                     }
-                  ],
-                  "packaging" : [
-                     {
-                        "amount" : 1,
-                        "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
                      }
                   ]
                },
@@ -3581,6 +3551,8 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
+            "en:ecobalyse-api-skipped",
+            "en:ecobalyse-ingredients-matched-between-90-and-100",
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
             "en:forest-footprint-computed",
@@ -4553,6 +4525,7 @@
                      "name" : "water"
                   }
                ],
+               "ingredients_coverage_percent" : 100,
                "packaging" : [
                   {
                      "category" : "en:cereals-and-their-products",
@@ -4703,6 +4676,8 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
+            "en:ecobalyse-api-skipped",
+            "en:ecobalyse-ingredients-matched-between-90-and-100",
             "en:environmental-score-changed",
             "en:environmental-score-computed",
             "en:environmental-score-grade-changed",
@@ -5719,6 +5694,7 @@
                      "name" : "sugar"
                   }
                ],
+               "ingredients_coverage_percent" : 100,
                "packaging" : [
                   {
                      "category" : "en:cereals-and-their-products",
@@ -5900,6 +5876,8 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
+            "en:ecobalyse-api-skipped",
+            "en:ecobalyse-ingredients-matched-between-90-and-100",
             "en:environmental-score-changed",
             "en:environmental-score-computed",
             "en:environmental-score-grade-changed",
