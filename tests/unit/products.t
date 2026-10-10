@@ -346,6 +346,12 @@ is(is_valid_code('123'), '', '3 digit code');
 is(is_valid_code('00000123'), '', '3 digit code with leading 0s');
 is(is_valid_code('1234567890123456789012345678901234567890123456789012345678901234567890'), '', 'too long code');
 is(is_valid_code(undef), '', 'undefined code');
+is(is_valid_code('X001ABCDEF'), 1, 'valid Amazon FNSKU');
+is(is_valid_code('X002TJHLPN'), 1, 'valid Amazon FNSKU');
+is(is_valid_code('X001UVTA2F'), 1, 'valid Amazon FNSKU');
+is(is_valid_code('X101UVTA2F'), '', 'invalid Amazon FNSKU - wrong prefix');
+is(is_valid_code('X001UVTA2'), '', 'invalid Amazon FNSKU - too short');
+is(is_valid_code('X001UVTA2FF'), '', 'invalid Amazon FNSKU - too long');
 
 my @tests = (
 	[
