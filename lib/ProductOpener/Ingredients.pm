@@ -8295,7 +8295,9 @@ sub replace_allergen ($language, $product_ref, $allergen, $before) {
 	if ($language eq $ingredients_lc) {
 		# skip allergens like "moutarde et céleri" (will be caught later by replace_allergen_between_separators)
 		if (not(($language eq 'fr') and $allergen =~ / et /i)) {
-			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
+			my $tagid = canonicalize_taxonomy_tag($language, "allergens", $allergen);
+			my $allergen_tag = exists_taxonomy_tag("allergens", $tagid) ? $tagid : ($language . ':' . $allergen);
+			$product_ref->{$field . "_from_ingredients"} .= $allergen_tag . ', ';
 		}
 	}
 
@@ -8319,7 +8321,7 @@ sub replace_allergen_in_caps ($language, $product_ref, $allergen, $before) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $ingredients_lc) {
-			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
+			$product_ref->{$field . "_from_ingredients"} .= $tagid . ', ';
 		}
 		return '<span class="allergen">' . $allergen . '</span>';
 	}
@@ -8385,7 +8387,7 @@ sub replace_allergen_between_separators ($language, $product_ref, $start_separat
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $ingredients_lc) {
-			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
+			$product_ref->{$field . "_from_ingredients"} .= $tagid . ', ';
 		}
 		return
 			  $start_separator
@@ -8574,7 +8576,7 @@ sub detect_allergens_from_text ($product_ref) {
 		my $allergens_from_ingredients = $product_ref->{$field . "_from_ingredients"} // "";
 		$allergens_from_ingredients =~ s/,\s$//;    # remove last comma
 
-		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc};
+		my $tag_lc = $ingredients_lc || $product_ref->{lc};
 
 		# Set the tags_source "ingredients" for allergens and traces detected from ingredients
 		set_field_input_tags_for_source($product_ref, $tag_lc, $field, "ingredients", $allergens_from_ingredients);
