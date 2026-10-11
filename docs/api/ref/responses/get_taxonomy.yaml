@@ -1,0 +1,68 @@
+title: get_taxonomy_response
+description: |
+  A map of taxonomy entries keyed by taxonomy entry ID.
+  Each entry contains localized names, synonyms, parent/child relationships,
+  and taxonomy properties, depending on the requested fields.
+type: object
+additionalProperties:
+  type: object
+  description: |
+    A taxonomy entry object. The key is the taxonomy entry ID
+    (e.g. "en:organic", "en:fair-trade").
+  properties:
+    name:
+      type: object
+      description: |
+        Localized names of the taxonomy entry, keyed by 2-letter language code.
+      additionalProperties:
+        type: string
+      example:
+        en: "Organic"
+        fr: "Bio"
+    synonyms:
+      type: object
+      description: |
+        Localized synonyms of the taxonomy entry, keyed by 2-letter language code.
+        Each language maps to an array of synonym strings.
+      additionalProperties:
+        type: array
+        items:
+          type: string
+      example:
+        en: ["Organic", "Bio", "Ecological"]
+        fr: ["Bio", "Biologique"]
+    parents:
+      type: array
+      description: List of direct parent taxonomy entry IDs.
+      items:
+        type: string
+      example:
+        - "en:sustainable"
+    children:
+      type: array
+      description: List of direct children taxonomy entry IDs.
+      items:
+        type: string
+      example:
+        - "en:eu-organic"
+        - "en:usda-organic"
+  additionalProperties:
+    description: |
+      Taxonomy properties (e.g. description, vegan, vegetarian)
+      are returned as objects keyed by 2-letter language code.
+    type: object
+    additionalProperties:
+      type: string
+example:
+  "en:organic":
+    name:
+      en: "Organic"
+      fr: "Bio"
+    parents:
+      - "en:sustainable"
+    children:
+      - "en:eu-organic"
+  "en:fair-trade":
+    name:
+      en: "Fair trade"
+      fr: "Commerce équitable"
