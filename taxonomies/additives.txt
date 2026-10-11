@@ -12766,16 +12766,11 @@ wikidata:en: Q2103107
 
 #WARNING: Putting E440a and E440b first so that they don't take precedence over E440
 
-en: E440a, Pectin
+< en: E440(i)
+en: E440a
 xx: E440a
-da: E440a, Pektin
-es: E440a, Pectina
-fi: E440a, Pektiini, Pektiiniä
-fr: E440a, Pectine
-hr: E440a, pektin, pektini, tvar za želiranje pektin, zgušnjivač pektini
-hu: E440a, Pektin
-sv: E440a, Pektin
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
+comment:en: E440a was replaced with E440(i) by Council Directive 86/102/EEC in 1986.
 e_number:en: 440a
 organic_eu:en: authorized
 vegan:en: yes
@@ -12790,6 +12785,7 @@ fr: E440a(ii), Pectate de sodium, Sodium pectate
 hu: E440a(ii), Nátrium-pektát
 nl: E440a(ii), Natriumpectaat
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
+comment:en: Can't find a formal definition of this
 e_number:en: 440a
 wikidata:en: Q188154
 
@@ -12801,6 +12797,7 @@ fr: E440a(iii), Pectate de potassium
 hu: E440a(iii), Kálium-pektát
 nl: E440a(iii), Kaliumpectaat
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
+comment:en: Can't find a formal definition of this
 e_number:en: 440a
 wikidata:en: Q188154
 
@@ -12812,50 +12809,15 @@ fr: E440a(iv), Pectate d'ammonium
 hu: E440a(iv), Ammónium-pektát
 nl: E440a(iv), Ammoniumpectaat
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
+comment:en: Can't find a formal definition of this
 e_number:en: 440a
 wikidata:en: Q188154
 
-#comment:en:This is the same as E440(ii)
-en: E440b, pectin amide, amidated pectin
+< en: E440(ii)
+en: E440b
 xx: E440b
-ar: E440b, بكتين أميد
-az: E440b, amidləşdirilmiş pektin
-bg: E440b, амидиран пектин
-ca: E440b, pectina amidada
-cs: E440b, amidovaný pektin
-da: E440b, amideret pektin
-de: E440b, amidiertes Pektin
-el: E440b, αμιδωμένη πηκτίνη
-eo: E440b, amidita pektino
-es: E440b, pectina amidada
-et: E440b, amiiditud pektiin
-fi: E440b, Amidoitu pektiini, Amidoitua pektiiniä
-fr: E440b, Pectine amidée
-he: E440b, פקטין אמידי
-hi: E440b, एमिडित पेक्टिन
-hr: E440b, amidirani pektin
-hu: E440b, Pektin-amid, amidált pektin
-id: E440b, pektin teramidasi
-it: E440b, pectina amidata
-ja: E440b, アミド化ペクチン
-ko: E440b, 아미드화 펙틴
-lt: E440b, amidintas pektinas
-lv: E440b, amidēts pektīns
-mk: E440b, амидиран пектин
-mt: E440b, pektin amidat
-nl: E440b, geamideerde pectine
-pl: E440b, pektyna amidowana
-pt: E440b, pectina amidada
-ro: E440b, pectină amidată
-ru: E440b, амидированный пектин
-sk: E440b, amidovaný pektín
-sl: E440b, amidirani pektin
-sr: E440b, амидирани пектин
-sv: E440b, amiderat pektin
-tr: E440b, amidlenmiş pektin
-uk: E440b, амідірованний пектин
-zh: E440b, 酰胺化果胶
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
+comment:en: E440b was replaced with E440(ii) by Council Directive 86/102/EEC in 1986.
 e_number:en: 440b
 vegan:en: yes
 vegetarian:en: yes
@@ -12885,7 +12847,7 @@ fr: E440, Pectines, Pectine
 ga: E440, Peictin
 gl: E440, Pectina
 he: E440, פקטין
-hr: E440, pektin, eko pektin
+hr: E440, pektin, eko pektin, pektini, tvar za želiranje pektin, zgušnjivač pektini
 hu: E440, Pektin, Pektinek
 hy: E440, Պեկտինյան նյութեր
 id: E440, Pektin
@@ -12908,14 +12870,13 @@ sh: E440, Pektin
 sk: E440, Pektín
 sl: E440, Pektin
 sr: E440, пектин
-sv: E440, Pektiner
+sv: E440, Pektiner, Pektin
 ta: E440, பெக்டின்
 th: E440, เพกทิน
 tr: E440, Pektin
 uk: E440, Pektin
 vi: E440, Pectin
 zh: E440, 果胶
-additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 # be-tarask:E440, пэктынавыя рэчывы
 # sco:E440, pectin
 # sr-ec:E440, пектин
@@ -12926,6 +12887,8 @@ additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 # zh-hk:E440, 果膠
 # zh-sg:E440, 果胶
 # zh-tw:E440, 果膠
+additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
+comment: en: This could be the plural "pectins" as a parent, and E440(i) be "pectin".
 e_number:en: 440
 organic_eu:en: authorized
 vegan:en: yes
@@ -12935,7 +12898,7 @@ wikidata:en: Q188154
 wikipedia:en: https://en.wikipedia.org/wiki/Pectin
 
 < en: E440
-en: E440(i), non-amidated pectines
+en: E440(i), non-amidated pectin, non-amidated pectines
 xx: E440(i)
 ca: E440(i), Pectina no amidada
 es: E440(i), Pectina no amidada
@@ -12947,30 +12910,45 @@ organic_eu:en: authorized
 wikidata:en: Q188154
 
 < en: E440
-en: E440(ii), Amidated pectin
+en: E440(ii), Amidated pectin, pectin amide
 xx: E440(ii)
+ar: E440(ii), بكتين أميد
+az: E440(ii), amidləşdirilmiş pektin
 bg: E440(ii), Амидиран пектин
 ca: E440(ii), Pectina amidada
 cs: E440(ii), Amidovaný pektin
 da: E440(ii), Amideret pectin
-de: E440(ii), Amidiertes pektin
-el: E440(ii), Αμιδιωμενες πηκτινικες υλες
+de: E440(ii), Amidiertes Pektin
+el: E440(ii), Αμιδωμένη πηκτίνη, Αμιδιωμενες πηκτινικες υλες
+eo: E440(ii), amidita pektino
 es: E440(ii), Pectina amidada
 et: E440(ii), Amiiditud pektiin
 fi: E440(ii), Amidoitu pektiini, Amidoitua pektiiniä
 fr: E440(ii), Pectine amidée
-hu: E440(ii), Amidált pektin
+he: E440(ii), פקטין אמידי
+hi: E440(ii), एमिडित पेक्टिन
+hr: E440(ii), amidirani pektin
+hu: E440(ii), Amidált pektin, Pektin-amid
+id: E440(ii), pektin teramidasi
 it: E440(ii), Pectina amidata
+ja: E440(ii), アミド化ペクチン
+ko: E440(ii), 아미드화 펙틴
 lt: E440(ii), Amidintas pektinas
 lv: E440(ii), Amidēts pektīns
-mt: E440(ii), Pektina amidata
+mk: E440(ii), амидиран пектин
+mt: E440(ii), Pektina amidata, pektin amidat
 nl: E440(ii), Geamideerde pectine
 pl: E440(ii), Pektyna amidowana
 pt: E440(ii), Pectina amidada
 ro: E440(ii), Pectină amidată
+ru: E440(ii), амидированный пектин
 sk: E440(ii), Amidovaný pektín
 sl: E440(ii), Amidirani pektin
+sr: E440(ii), амидирани пектин
 sv: E440(ii), Amiderat pektin
+tr: E440(ii), amidlenmiş pektin
+uk: E440(ii), амідірованний пектин
+zh: E440(ii), 酰胺化果胶
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 440
 wikidata:en: Q42807519
