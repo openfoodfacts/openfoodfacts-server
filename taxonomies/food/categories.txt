@@ -87962,6 +87962,20 @@ en: Prepared vegan salads, Vegan prepared salads, Vegan salads
 sv: Veganska sallader
 incompatible_with:en: categories:en:salads-with-meat, categories:en:salads-with-fish
 
+< en: Prepared vegan salads
+en: Plant-based shrimp salads, Vegan shrimp salads
+da: Plantebaserede rejesalater, Veganske rejesalater
+sv: Växtbaserade räksallader, Veganska räksallader
+incompatible_with:en: categories:en:shrimp-salads
+
+< en: Plant-based shrimp salads
+en: Plant-based skagenröror, Vegan skagenröras, Vegan Swedish shrimp salads
+da: Plantebaserede skagenrører, Veganske skagenrører, Vegansk skagenröra
+nb: Plantebaserte skagenrører, Veganske skagenrører
+nn: Plantebaserte skagenrører, Veganske skagenrører
+sv: Växtbaserade skagenröror, Vegansk skagenröra
+incompatible_with:en: categories:en:skagenröror
+
 #TODO
 
 < en: Prepared salads
@@ -107663,9 +107677,47 @@ ciqual_food_code:en: 25037
 ciqual_food_name:en: Fish or seafood au gratin, intended to be cook
 ciqual_food_name:fr: Gratin ou cassolette de poisson et / ou fruits de mer, à cuire
 
+< en: Prepared salads
 < en: Seafood
 en: Seafood salads
 fr: Salades de fruits de mer
+it: Insalata di mare
+ja: シーフードサラダ
+nl: Zeevruchtensalade
+wikidata:en: Q3799069
+
+< en: Seafood salads
+< en: Shrimp preparations
+en: Shrimp salads
+da: Rejesalater
+fi: Katkarapusalaatti
+nb: Rekesalat
+nn: Rekesalat
+sv: Räksallad
+incompatible_with:en: categories:en:plant-based-shrimp-salads
+plant_alternative:en: en:plant-based-shrimp-salads
+wikidata:en: Q10658425
+
+< en: Shrimp salads
+en: Skagenröror, Skagenröras, Swedish shrimp salads
+xx: Skagenröror, Skagenröra
+bn: স্কাগেনরোরা
+da: Skagenrører
+eo: Sveda salikoka salatoj
+fi: Skagenröror, Katkaraputahna
+fr: Salades de crevettes à la crème
+ja: スカーイェンレラ
+ml: സ്ക്കാൻഗെൻറോറ
+nb: Skagenrører
+nn: Skagenrører
+pa: ਸਕੇਗਨਰੋਰਾ
+ru: Скагенрора
+sq: Kokteji suedez me karkaleca deti
+sv: Skagenröror, Skagenröra
+zh: 瑞典鸡尾酒虾
+incompatible_with:en: categories:en:plant-based-skagenröror
+plant_alternative:en: en:plant-based-skagenröror
+wikidata:en: Q10669607
 
 < en: Seafood
 en: Marinated seafood
