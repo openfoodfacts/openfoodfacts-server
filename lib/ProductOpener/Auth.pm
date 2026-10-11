@@ -656,7 +656,23 @@ Returns: The verified access token or undefined if verification fails.
 sub verify_access_token ($access_token_string) {
 	get_oidc_configuration();
 
-	my $access_token_verified = decode_jwt(token => $access_token_string, kid_keys => $jwks);
+	# Bind the token to this relying party: signature alone is not sufficient, because every client
+	# in the realm is signed by the same JWKS keys.
+	# Note: decode_jwt throws on signature / iss / alg failure, so trap it
+	# to honor the documented undef-on-failure contract.
+	my $access_token_verified = eval {
+		decode_jwt(
+			token => $access_token_string,
+			kid_keys => $jwks,
+			verify_iss => $oidc_configuration->{issuer},
+			accepted_alg => ['RS256'],
+		);
+	};
+	if (my $error = $@) {
+		chomp $error;
+		$log->info('Access token verification failed', {error => $error}) if $log->is_info();
+		return;
+	}
 	unless ($access_token_verified) {
 		return;
 	}

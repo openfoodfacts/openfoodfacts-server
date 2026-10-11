@@ -27,7 +27,7 @@
                 ],
             },
         },        
-        [% IF panels.carbon_footprint.defined %]
+        [% IF 0 && panels.carbon_footprint.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
