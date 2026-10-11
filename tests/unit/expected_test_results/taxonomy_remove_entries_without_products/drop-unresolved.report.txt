@@ -1,0 +1,10 @@
+tagtype: categories
+taxonomy file: tests/unit/inputs/taxonomy_remove_entries_without_products/categories.txt
+products export: tests/unit/inputs/taxonomy_remove_entries_without_products/products.jsonl (500.0 B)
+lines read: 7
+products with categories_tags: 6
+distinct tagids: 5 (remapped from non canonical ids: 1, unknown: 0)
+blocks: 12
+kept: 7 (with products: 3, always kept: 0, unresolved: 0, without entry: 4)
+removed: 5 (10 lines)
+min-products: 1
