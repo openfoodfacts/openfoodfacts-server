@@ -883,24 +883,6 @@ sub send_welcome_emails($user_ref) {
 	$email_content =~ s/\{\{NAME\}\}/$user_name/g;
 	my $error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
 
-	my $admin_mail_body = <<EMAIL
-
-Bonjour,
-
-Inscription d'un utilisateur :
-
-name: $user_ref->{name}
-email: $user_ref->{email}
-x: https://x.com/$user_ref->{x}
-newsletter: $user_ref->{newsletter}
-discussion: $user_ref->{discussion}
-lc: $language
-cc: $user_cc
-
-EMAIL
-		;
-	$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
-
 	return $error;
 }
 

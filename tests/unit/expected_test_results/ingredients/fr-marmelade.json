@@ -16,7 +16,8 @@
             },
             {
                "ciqual_proxy_food_code" : "31016",
-               "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "en:sugar",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 10.25,
@@ -26,7 +27,8 @@
             },
             {
                "ciqual_food_code" : "13034",
-               "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+               "ecobalyse_id" : "cb58f1d0-634f-5582-9c13-a12e80474e77",
+               "ecobalyse_name" : "Oranges Origine Inconnue",
                "id" : "en:orange-pulp",
                "is_in_taxonomy" : 1,
                "percent" : 4.5,
@@ -37,7 +39,8 @@
             },
             {
                "ciqual_food_code" : "2004",
-               "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+               "ecobalyse_id" : "4649b3db-d927-4ea5-baa0-d74fa3c768d2",
+               "ecobalyse_name" : "Jus d'orange par défaut -2025-",
                "id" : "en:concentrated-orange-juice",
                "ingredients" : [],
                "is_in_taxonomy" : 1,
@@ -49,7 +52,8 @@
             },
             {
                "ciqual_proxy_food_code" : "13034",
-               "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+               "ecobalyse_id" : "cb58f1d0-634f-5582-9c13-a12e80474e77",
+               "ecobalyse_name" : "Oranges Origine Inconnue",
                "id" : "en:orange",
                "ingredients" : [],
                "is_in_taxonomy" : 1,
@@ -125,7 +129,8 @@
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "31016",
-               "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "en:sugar",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 12.45,
@@ -144,6 +149,8 @@
             },
             {
                "ciqual_food_code" : "16030",
+               "ecobalyse_id" : "0ea5f5a0-51d9-41da-9ac4-cb60f3ddb86c",
+               "ecobalyse_name" : "Beurre de cacao par défaut -2025-",
                "from_palm_oil" : "no",
                "id" : "en:cocoa-butter",
                "is_in_taxonomy" : 1,
@@ -154,7 +161,7 @@
             },
             {
                "from_palm_oil" : "maybe",
-               "id" : "en:vegetable-fat",
+               "id" : "en:fat",
                "ingredients" : [
                   {
                      "from_palm_oil" : "no",
@@ -197,7 +204,8 @@
                   },
                   {
                      "ciqual_food_code" : "16129",
-                     "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
                      "from_palm_oil" : "yes",
                      "id" : "en:palm-oil",
                      "is_in_taxonomy" : 1,
@@ -208,8 +216,9 @@
                   }
                ],
                "is_in_taxonomy" : 1,
+               "labels" : "en:vegan",
                "percent_estimate" : 1.55625,
-               "text" : "graisses végétales",
+               "text" : "graisses",
                "vegan" : "yes",
                "vegetarian" : "yes"
             },
@@ -248,7 +257,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 17.05,
@@ -258,7 +268,8 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 8.525,
@@ -268,7 +279,8 @@
       },
       {
          "ciqual_food_code" : "22000",
-         "ecobalyse_code" : "egg-indoor-code3",
+         "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+         "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
          "id" : "en:egg",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 4.2625,
@@ -287,7 +299,8 @@
       },
       {
          "ciqual_food_code" : "17130",
-         "ecobalyse_code" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_name" : "Huile de colza par défaut -2025-",
          "from_palm_oil" : "no",
          "id" : "en:colza-oil",
          "is_in_taxonomy" : 1,
@@ -325,6 +338,8 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_proxy_name" : "Sel -2025-",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0666015624999972,
@@ -393,7 +408,7 @@
       "en:sugar",
       "en:cocoa-paste",
       "en:cocoa-butter",
-      "en:vegetable-fat",
+      "en:fat",
       "en:flavouring",
       "en:soya-lecithin",
       "en:lactose-and-milk-proteins",
@@ -460,6 +475,7 @@
       "en:plant",
       "en:cocoa-butter",
       "en:vegetable-fat",
+      "en:fat",
       "en:lactose-and-milk-proteins",
       "en:lactose",
       "en:milk-proteins",
@@ -487,17 +503,16 @@
       "en:e450i",
       "en:e500ii",
       "en:e503ii",
+      "en:fat",
       "en:flavouring",
       "en:illipe-oil",
       "en:lactose-and-milk-proteins",
       "en:natural-orange-flavouring",
-      "en:sodium-citrate",
-      "en:vegetable-fat"
+      "en:sodium-citrate"
    ],
    "ingredients_without_ciqual_codes_n" : 14,
    "ingredients_without_ecobalyse_ids" : [
       "en:chocolate",
-      "en:cocoa-butter",
       "en:cocoa-paste",
       "en:e330",
       "en:e333",
@@ -506,6 +521,7 @@
       "en:e450i",
       "en:e500ii",
       "en:e503ii",
+      "en:fat",
       "en:flavouring",
       "en:glucose-fructose-syrup",
       "en:illipe-oil",
@@ -513,14 +529,12 @@
       "en:mango-kernel-oil",
       "en:natural-orange-flavouring",
       "en:orange-marmalade",
-      "en:salt",
       "en:shea-butter",
       "en:shorea-robusta-seed-oil",
       "en:sodium-citrate",
-      "en:soya-lecithin",
-      "en:vegetable-fat"
+      "en:soya-lecithin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 23,
+   "ingredients_without_ecobalyse_ids_n" : 21,
    "known_ingredients_n" : 35,
    "lc" : "fr",
    "misc_tags" : [
