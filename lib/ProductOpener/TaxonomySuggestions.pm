@@ -176,12 +176,61 @@ Generate a sorted list of canonicalized taxonomy entries from which we will gene
 
 =cut
 
-# Note: the sorted list of entries is deliberately not cached in the process. It does not depend on
-# the string being searched for, but it does depend on the translations, and a running worker picks
-# up user contributed translations through add_users_translations_to_taxonomy(), so a list cached
-# for the lifetime of the worker would go stale. Building it costs about 0.25s for the categories
-# taxonomy, which is a small enough part of a request to leave alone.
+# The list of entries does not depend on the string being searched for, but it does depend on the
+# translations, which change when a taxonomy is loaded or when user contributed translations are
+# merged in. The cache key therefore carries get_taxonomies_version(), so a process picks the new
+# translations up without having to be told to rebuild.
+#
+# The packaging taxonomies are not cached: their leading entries are the ones most used for a
+# country and a category, so they come from product data and depend on the context.
+
+my %sorted_entries_cache = ();
+
+sub _sorted_entries_cache_key ($country, $tagtype, $search_lc) {
+	return join("\t", get_taxonomies_version(), $country, $tagtype, $search_lc);
+}
+
+sub _get_sorted_entries ($country, $tagtype, $search_lc, $context_ref) {
+
+	my $key = _sorted_entries_cache_key($country, $tagtype, $search_lc);
+
+	if (not exists $sorted_entries_cache{$key}) {
+
+		my @tags = _generate_sorted_list_of_taxonomy_entries($country, $tagtype, $search_lc, $context_ref);
+
+		$sorted_entries_cache{$key} = \@tags;
+
+		# a move of the version makes every older key unreachable, so start over rather than grow
+		if (scalar(keys %sorted_entries_cache) > 8) {
+			%sorted_entries_cache = ();
+			$sorted_entries_cache{$key} = \@tags;
+		}
+
+		$log->debug(
+			"cached the sorted entries",
+			{
+				tagtype => $tagtype,
+				search_lc => $search_lc,
+				cc => $country,
+				entries => scalar(@tags)
+			}
+		) if $log->is_debug();
+	}
+
+	return $sorted_entries_cache{$key};
+}
+
 sub generate_sorted_list_of_taxonomy_entries ($country, $tagtype, $search_lc, $context_ref) {
+
+	if (($tagtype eq "packaging_shapes") or ($tagtype eq "packaging_materials")) {
+		return _generate_sorted_list_of_taxonomy_entries($country, $tagtype, $search_lc, $context_ref);
+	}
+
+	my $tags_ref = _get_sorted_entries($country, $tagtype, $search_lc, $context_ref);
+	return @{$tags_ref};
+}
+
+sub _generate_sorted_list_of_taxonomy_entries ($country, $tagtype, $search_lc, $context_ref) {
 
 	my @tags;
 	my %seen_tags = ();    # Used to not add the same tag several times
@@ -381,6 +430,7 @@ answering from the entries it had indexed before the rebuild.
 sub clear_suggestions_index() {
 	%suggestions_index = ();
 	@suggestions_index_order = ();
+	%sorted_entries_cache = ();
 	return;
 }
 
@@ -394,7 +444,7 @@ sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 		my $tag_xx = display_taxonomy_tag("xx", $tagtype, $canon_tagid);
 
 		# Synonyms in the search language, and in the wildcard xx: language. Each one is
-		# normalized in the search language, which is what best_match() matched before.
+		# normalized in the search language, which is what the scan matched before.
 		my @synonyms = map {
 			my $synonym = $_;
 			[get_string_id_for_lang($search_lc, $synonym), $synonym]
@@ -411,7 +461,7 @@ sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 
 sub _get_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 
-	my $key = join("\t", $tagtype, $search_lc);
+	my $key = join("\t", get_taxonomies_version(), $tagtype, $search_lc);
 
 	if (not exists $suggestions_index{$key}) {
 
@@ -434,36 +484,6 @@ sub _get_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 	}
 
 	return $suggestions_index{$key};
-}
-
-# best_match is used to see how well matches the best matching synonym
-
-sub best_match ($stringid, $fuzzystringid, $synonyms_ref) {
-
-	my $best_type = "none";
-	my $best_match = 0;
-
-	# $synonyms_ref is a list of [$normalized_synonym, $synonym] pairs, as built by
-	# _get_suggestions_index(): the normalized form of a synonym does not depend on the query
-	foreach my $synonym_pair_ref (@$synonyms_ref) {
-		my ($synonymid, $synonym) = @{$synonym_pair_ref};
-		my $match = match_stringids($stringid, $fuzzystringid, $synonymid);
-		# Prefer to use the earlier ones from the list for when the canonical name has the same match type as a synonym
-		next if $match eq "none" or $match eq $best_type;
-		if ($match eq "start") {
-			# Best match, we can return without looking at the other synonyms
-			$best_type = $match;
-			$best_match = $synonym;
-			last;
-		}
-		elsif (($match eq "inside")
-			or (($match eq "fuzzy") and ($best_type eq "none")))
-		{
-			$best_type = $match;
-			$best_match = $synonym;
-		}
-	}
-	return {type => $best_type, match => $best_match};
 }
 
 =head2 filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
@@ -577,40 +597,47 @@ sub _filter_suggestions ($index_ref, $tags_ref, $tagtype, $search_lc, $string, $
 			# just_synonyms are not real entries
 			next if defined $just_synonyms{$tagtype}{$canon_tagid};
 
-			my $tag = $entry_ref->{tag};
-			my $synonyms = $entry_ref->{synonyms};
+			# best_match() inlined: this runs for every entry of the taxonomy on a request that
+			# finds nothing, so a call per entry and the loop it owns are worth avoiding
+			my $best_type = "none";
+			my $best_synonym = 0;
 
-			# check how well the synonyms match the input string
-			my $best_match = best_match($stringid, $fuzzystringid, $synonyms);
-
-			$log->debug(
-				"synonyms for canon_tagid",
-				{
-					tagtype => $tagtype,
-					canon_tagid => $canon_tagid,
-					tag => $tag,
-					synonyms => $synonyms,
-					best_match => $best_match
+			foreach my $synonym_pair_ref (@{$entry_ref->{synonyms}}) {
+				my $match = match_stringids($stringid, $fuzzystringid, $synonym_pair_ref->[0]);
+				# Prefer to use the earlier ones from the list for when the canonical name has the
+				# same match type as a synonym
+				next if $match eq "none" or $match eq $best_type;
+				if ($match eq "start") {
+					# Best match, we can return without looking at the other synonyms
+					$best_type = $match;
+					$best_synonym = $synonym_pair_ref->[1];
+					last;
 				}
-			) if $log->is_debug();
+				elsif (($match eq "inside")
+					or (($match eq "fuzzy") and ($best_type eq "none")))
+				{
+					$best_type = $match;
+					$best_synonym = $synonym_pair_ref->[1];
+				}
+			}
 
 			my $suggestion_ref = {
-				tag => $tag,
-				matched_synonym => $best_match->{match}
+				tag => $entry_ref->{tag},
+				matched_synonym => $best_synonym
 			};
 			# matching at start, best matches
-			if ($best_match->{type} eq "start") {
+			if ($best_type eq "start") {
 				push @suggestions, $suggestion_ref;
 				# count matches at start so that we can return only if we have enough matches
 				$suggestions_count++;
 				last if $suggestions_count >= $limit;
 			}
 			# matching inside
-			elsif ($best_match->{type} eq "inside") {
+			elsif ($best_type eq "inside") {
 				push @suggestions_c, $suggestion_ref;
 			}
 			# fuzzy match
-			elsif ($best_match->{type} eq "fuzzy") {
+			elsif ($best_type eq "fuzzy") {
 				push @suggestions_f, $suggestion_ref;
 			}
 		}

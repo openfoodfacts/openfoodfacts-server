@@ -147,6 +147,7 @@ BEGIN {
 		&add_user_translation
 		&load_users_translations_for_lc
 		&add_users_translations_to_taxonomy
+		&get_taxonomies_version
 
 		&remove_stopwords_from_start_or_end_of_string
 		&get_lc_tagid
@@ -313,6 +314,22 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 
 %stopwords = ();
 %just_synonyms = ();
+# Bumped whenever the translations or the synonyms of a taxonomy are loaded or changed, so that a
+# process caching something derived from them knows when its copy is out of date.
+my $taxonomies_version = 0;
+
+=head2 get_taxonomies_version()
+
+A number that changes every time the translations or the synonyms of a taxonomy are loaded or
+changed. Code that caches a structure derived from them can put this in its cache key and rebuild
+when it moves, instead of having to be told to.
+
+=cut
+
+sub get_taxonomies_version() {
+	return $taxonomies_version;
+}
+
 my %just_tags = ();    # does not include synonyms that are only synonyms
 my %synonyms = ();
 %synonyms_for = ();
@@ -2599,6 +2616,8 @@ sub generate_tags_taxonomy_extract ($tagtype, $tags_ref, $options_ref, $lcs_ref)
 
 sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 
+	$taxonomies_version++;
+
 	$taxonomy_fields{$tagtype} = $tagtype;
 	$tags_fields{$tagtype} = 1;
 
@@ -4738,6 +4757,8 @@ sub load_users_translations ($users_translations_ref, $tagtype) {
 }
 
 sub add_users_translations_to_taxonomy ($tagtype) {
+
+	$taxonomies_version++;
 
 	my $users_translations_ref = {};
 
