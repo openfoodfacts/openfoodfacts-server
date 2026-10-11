@@ -100,6 +100,10 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
 		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
 
+	# Activate product history knowledge panel only when specified (it is shown only to logged in users)
+	$knowledge_panels_options_ref->{activate_knowledge_panel_product_history}
+		= normalize_boolean(single_param("activate_knowledge_panel_product_history"));
+
 	# Specify if we knowledge panels are requested from the app or the website
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
 	# possible values: "web", "app"
