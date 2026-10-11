@@ -128,6 +128,7 @@ use ProductOpener::APIProductServices qw/add_product_data_from_external_service/
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 use ProductOpener::IngredientsStrings qw/:all/;
 use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
+use ProductOpener::Text qw/normalize_unicode_letter_variants/;
 
 use Encode;
 use Clone qw(clone);
@@ -452,7 +453,7 @@ my %origins_regexps = ();
 
 sub init_origins_regexps() {
 
-	next if scalar keys %origins_regexps > 0;
+	return if scalar keys %origins_regexps > 0;
 
 	# Create a list of regexps with each synonyms of all ingredients processes
 	%origins_regexps = %{
@@ -527,6 +528,9 @@ sub extract_ingredients_from_image ($product_ref, $image_type, $image_lc, $ocr_e
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
 		$results_ref->{ingredients_text_from_image}
 			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $image_lc);
+
+		# fix common OCR misreads
+		apply_misspelling_replacements("ingredients", $image_lc, \$results_ref->{ingredients_text_from_image});
 	}
 
 	return;
@@ -1443,6 +1447,9 @@ Array of specific ingredients.
 
 sub parse_origins_from_text ($product_ref, $text, $ingredients_lc) {
 
+	# The origin field is parsed before the ingredients list, so the regexps may not be built yet
+	init_origins_regexps();
+
 	# Normalize single quotes
 	$text =~ s/’/'/g;
 
@@ -1629,6 +1636,11 @@ sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, 
 	$percent_or_quantity_unit =~ s/[\N{U+2044}\N{U+FF0F}]/\//g;
 	$percent_or_quantity_unit =~ s/\s*\/\s*/\//g;
 
+	# Fold the Greek mu and ASCII spellings of the microgram symbol onto the
+	# micro sign spelling that the units taxonomy carries as its symbol:
+	# only that one has a conversion to g.
+	$percent_or_quantity_unit =~ s/^(?i:\N{U+03BC}g|ug)$/µg/;
+
 	# Normalize decimal separators in the numeric value (plain comma and U+201A lower comma
 	# used to protect decimals from list splitting) to a dot for storage / math.
 	$percent_or_quantity_value =~ s/[\N{U+201A},]/./g;
@@ -1741,7 +1753,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# indicate that the service is creating the "ingredients" structure
 	$updated_product_fields_ref->{ingredients} = 1;
 
-	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
+	# Run select_ingredients_lc() to set the ingredients_lc field in the product
+	my $ingredients_lc = select_ingredients_lc($product_ref);
 
 	if (   (not defined $product_ref->{ingredients_text})
 		or ($product_ref->{ingredients_text} eq "")
@@ -1783,10 +1796,12 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# If the original text contains newlines, we may need to try parsing with newlines as separators
 	my $has_newlines = ($product_ref->{ingredients_text} =~ /[\r\n]/);
 	my $original_ingredients_text;
+	my $original_ingredients_text_lc;
 	# Make a deep copy of the original specific_ingredients structure, so that we can reset it if we need to reparse with newlines as separators
 	my $original_specific_ingredients_ref;
 	if ($has_newlines) {
 		$original_ingredients_text = $product_ref->{ingredients_text};
+		$original_ingredients_text_lc = $product_ref->{"ingredients_text_" . $ingredients_lc};
 		$original_specific_ingredients_ref
 			= (defined $product_ref->{specific_ingredients}) ? dclone($product_ref->{specific_ingredients}) : undef;
 	}
@@ -1990,6 +2005,14 @@ Text to analyze
 						$between = '';
 					}
 
+					# a lone unit in parenthesis is a dosage context, not a sub-ingredient:
+					# "Additifs nutritionnels (/kg)" must not create a "kg" sub-ingredient.
+					# unit_only_string matches the whole string, so it is checked before the
+					# solidus of "/kg" is treated as an ingredient separator
+					if (($between ne '') and (unit_only_string($ingredients_lc, $between))) {
+						$between = '';
+					}
+
 					$debug_ingredients and $log->debug("parse_ingredients_text - sub-ingredients found: $between")
 						if $log->is_debug();
 
@@ -2137,6 +2160,20 @@ Text to analyze
 						}
 					) if $log->is_debug();
 
+					# Check if $between is a processing or an enumeration of processings
+					# e.g. "dried", "dried, rehydrated and fried"
+					my @between_processings
+						= check_if_text_is_a_taxonomy_tags_enumeration($ingredients_lc, "ingredients_processing",
+						$between);
+
+					if (scalar @between_processings > 0) {
+						push @processings, @between_processings;
+						$debug_ingredients and $log->debug("between is a processing enumeration",
+							{between => $between, processings => \@processings})
+							if $log->is_debug();
+						$between = '';
+					}
+
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
 						and ($` !~ /\s*(allergens)\s*/i)
@@ -2155,8 +2192,13 @@ Text to analyze
 							{between => $between}
 						) if $log->is_debug();
 
-						if ($between
-							=~ compiled_regexp('^' . $percent_or_quantity_regexp . '(?:' . $per_100g_regexp . ')?$'))
+						if (
+							$between =~ compiled_regexp(
+									  '^'
+									. $percent_or_quantity_with_symbols_regexps{$ingredients_lc} . '(?:'
+									. $per_100g_regexp . ')?$'
+							)
+							)
 						{
 
 							$percent_or_quantity_value = $1;
@@ -2313,21 +2355,6 @@ Text to analyze
 											$between = '';
 										}
 									}
-									else {
-
-										# processing method?
-										my $processingid
-											= canonicalize_taxonomy_tag($ingredients_lc, "ingredients_processing",
-											$between);
-										if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
-											push @processings, $processingid;
-											$debug_ingredients and $log->debug("between is a processing",
-												{between => $between, processing => $processingid})
-												if $log->is_debug();
-											$between = '';
-										}
-									}
-
 								}
 							}
 
@@ -2464,6 +2491,16 @@ Text to analyze
 
 			my $ingredient = shift @ingredients;
 			chomp($ingredient);
+
+			# underscores are markup (emphasis copied from the interface or OCR,
+			# or the allergen bolding "_lait_") and are not part of ingredient
+			# names: strip them at word edges so that they do not leak into the
+			# texts and ids, and keep word-internal underscores ("coca_cola"
+			# style names). The stored ingredients_text keeps the underscores,
+			# the allergen markup is read later by detect_allergens_from_text.
+			$ingredient =~ s/(?<!\w)_+//g;
+			$ingredient =~ s/_+(?!\w)//g;
+			next unless $ingredient =~ /\S/;
 
 			$debug_ingredients and $log->debug("analyzing ingredient", {ingredient => $ingredient})
 				if $log->is_debug();
@@ -2856,6 +2893,7 @@ Text to analyze
 								'^produktet indeholder \d{1,3}\s*% fuldkorn$',
 								'^svarende til \d{1,3}\s*% af tørvægten$',
 								'^kan indeholde(?: spor af)?',    # may contain (traces of)
+								'^Mælken er pasteuriseret$',
 								'inden servering$',    # before serving
 							],
 
@@ -2933,6 +2971,7 @@ Text to analyze
 								'^Leivottu tuotantolinjalla'
 								,    # Leivottu tuotantolinjalla, jossa käsitellään myös muita viljoja.
 								'^vastaa 100 g porkkanaa$',
+								'^Pakattu suojakaasuun$',    # packaged in a protective atmosphere
 								'^Tuotteessa mustikkaa$',
 								'vaihtelevina osuuksina',
 								'^lakritsin osuudesta$',
@@ -3016,18 +3055,26 @@ Text to analyze
 							'sr' => ['klasa ii',],
 
 							'sv' => [
-								'^fullkornshalten i brödet är \d{1,3}\s*% vilket motsvarar \d{1,3}\s+% av torrvikten$',
 								'^till 100\s*g färdig vara har \d+\s*g [\w\s]+ använts$',
-								'motsvarande \d{1,3}\s+% av torrvikten$',
+								'^Någon kärna (?:och|eller) del kan finnas kvar$',
+								'motsvarande \d{1,3}\s*% av torrvikten$',
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
+								'^Förpackat i en skyddande atmosfär$',    # packaged in a protective atmosphere
 								'^Mjölkchokladen innehåller minst',
 								'^kan innehälla(?: spår av)?',    # may contain (traces of)
+								'^Mjölken är pastöriserad$',
 								'innehåller \d+\s*(?:g|%)',
+								'är maskinellt urkärnade$',    # pitted by machine
 								'^Kakaohalt i chokladen$',
 								'varierande proportion',
 								'kan innehålla ben$',
 								'^Kakao minst',
 								'^fetthalt',
+								# TODO: Store the amount wholegrain as a nutrition fact or otherwise utilise it
+								'^fullkornshalten i brödet är \d{1,3}\s*% vilket motsvarar \d{1,3}\s+% av torrvikten$',
+								'^Fullkorn \d{1,3}\s*%$',
+								# TODO: Recognise as ingredient origin denominator
+								'^Odla(?:de?|t) i ',    # Grown/cultivated (ie., origin/from) in …
 							],
 
 						);
@@ -3148,6 +3195,13 @@ Text to analyze
 				foreach my $prefix (sort {length($b) <=> length($a)} keys %numeral_text) {
 					last if $ingredient_text =~ s/^\Q$prefix\E/$numeral_text{$prefix}/;
 				}
+
+				# put back the decimal commas that were protected from list splitting
+				# during preparsing (U+201A lower comma), so that the stored text keeps
+				# the original comma of "2,3-diol" style names. The id of unknown
+				# ingredients keeps the protected form: ids feed the tag fields, where
+				# a comma would split one ingredient into two tags.
+				$ingredient_text =~ s/\N{U+201A}/,/g;
 
 				my %ingredient = (
 					id => get_taxonomyid($ingredients_lc, $ingredient_id),
@@ -3344,9 +3398,12 @@ Text to analyze
 		}
 
 		# Replace newlines with ", " for Parse B
-		$product_ref->{ingredients_text} =~ s/\r\n/, /g;
-		$product_ref->{ingredients_text} =~ s/\n/, /g;
-		$product_ref->{ingredients_text} =~ s/\r/, /g;
+		if (defined $product_ref->{ingredients_text}) {
+			$product_ref->{ingredients_text} =~ s/(\r|\n)+/, /g;
+		}
+		if (defined $product_ref->{"ingredients_text_" . $ingredients_lc}) {
+			$product_ref->{"ingredients_text_" . $ingredients_lc} =~ s/(\r|\n)+/, /g;
+		}
 
 		# Call recursively for Parse B
 		parse_ingredients_text_service($product_ref, $updated_product_fields_ref, $errors_ref);
@@ -3372,7 +3429,12 @@ Text to analyze
 		}
 
 		# Restore original ingredients_text
-		$product_ref->{ingredients_text} = $original_ingredients_text;
+		if (defined $original_ingredients_text) {
+			$product_ref->{ingredients_text} = $original_ingredients_text;
+		}
+		if (defined $original_ingredients_text_lc) {
+			$product_ref->{"ingredients_text_" . $ingredients_lc} = $original_ingredients_text_lc;
+		}
 	}
 
 	return;
@@ -3775,7 +3837,7 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 
 =head2 get_missing_ecobalyse_ids ($ingredients_ref)
 
-Assign a ecobalyse_code or a ecobalyse_proxy_code to ingredients and sub ingredients.
+Assign a ecobalyse_id or a ecobalyse_proxy_id to ingredients and sub ingredients.
 
 =head3 Arguments
 
@@ -3798,16 +3860,16 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			push(@ingredients_without_ecobalyse_ids, get_missing_ecobalyse_ids($ingredient_ref->{ingredients}));
 		}
 
-		# Assign a ecobalyse_code or a ecoalyse_proxy_code to the ingredient
-		delete $ingredient_ref->{ecobalyse_code};
-		delete $ingredient_ref->{ecobalyse_proxy_code};
+		# Assign a ecobalyse_id or a ecoalyse_proxy_code to the ingredient
+		delete $ingredient_ref->{ecobalyse_id};
+		delete $ingredient_ref->{ecobalyse_proxy_id};
 
 		# We are now looking for the appropriate ecobalyse id :
 		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)
 		# ecobalyse_origins_european-union_labels_organic (if the product comes from europe, and is organic)
 		# ecobalyse_labels_organic (if the product is organic)
 		# ecobalyse_origins_france (if the product comes from france)
-		# ecobalyse_origins_european-union (if the product comes from the Europe region)
+		# ecobalyse_origins_en_europe_and_maghreb (if the product comes from Europe and Maghreb region)
 		# ecobalyse (else)
 
 		# List of suffixes
@@ -3819,7 +3881,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			and (get_geographical_area($ingredient_ref->{origins}) eq "fr"))
 		{
 			push @suffixes, "_labels_en_organic_origins_en_france";
-			push @suffixes, "_labels_en_organic_origins_en_european_union";
+			push @suffixes, "_labels_en_organic_origins_en_europe_and_maghreb";
 		}
 		# If the ingredient is both organic and European...
 		if (    (defined $ingredient_ref->{labels})
@@ -3827,7 +3889,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			and (defined $ingredient_ref->{origins})
 			and (get_geographical_area($ingredient_ref->{origins}) eq "eu"))
 		{
-			push @suffixes, "_labels_en_organic_origins_en_european_union";
+			push @suffixes, "_labels_en_organic_origins_en_europe_and_maghreb";
 		}
 		# If the ingredient is organic...
 		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
@@ -3836,11 +3898,11 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# If the ingredient is French...
 		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "fr")) {
 			push @suffixes, "_origins_en_france";
-			push @suffixes, "_origins_en_european_union";
+			push @suffixes, "_origins_en_europe_and_maghreb";
 		}
 		# If the ingredient is European...
 		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
-			push @suffixes, "_origins_en_european_union";
+			push @suffixes, "_origins_en_europe_and_maghreb";
 		}
 		push @suffixes, '';
 
@@ -3849,23 +3911,27 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			# Loop through each suffix to retrieve ecobalyse code
 			foreach my $suffix (@suffixes) {
 				# Construct the property name using the prefix and suffix
-				my $property_name = $prefix . $suffix . ":en";
+				my $property_name = $prefix . $suffix . "_id" . ":en";
 
 				# Attempt to retrieve the ecobalyse code for the current property name
-				my $ecobalyse_code = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
+				my $ecobalyse_id = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
 
-				if (defined $ecobalyse_code) {
+				if (defined $ecobalyse_id) {
 					# Assign the ecobalyse code if found
-					$ingredient_ref->{ecobalyse_code} = $ecobalyse_code;
+					$ingredient_ref->{$prefix . "_id"} = $ecobalyse_id;
+					# Also retrieve the corresponding French display name
+					my $name_property = $prefix . $suffix . "_name:fr";
+					my $ecobalyse_name = get_inherited_property("ingredients", $ingredient_ref->{id}, $name_property);
+					$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
 					last;
 				}
 			}
 			# Exit the loop if a valid ecobalyse code was found
-			last if defined $ingredient_ref->{ecobalyse_code};
+			last if defined $ingredient_ref->{$prefix . "_id"};
 		}
 
 		# If no ecobalyse code was found, add ingredient ID to list of missing codes
-		if (!defined $ingredient_ref->{ecobalyse_code}) {
+		if (not((defined $ingredient_ref->{ecobalyse_id}) or (defined $ingredient_ref->{ecobalyse_proxy_id}))) {
 			push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
 		}
 
@@ -5190,7 +5256,8 @@ sub normalize_enumeration (
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$ingredients_lc} || " will not match ";
 
-	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
+	# "-$and| -$and" is to match German "Palm- und Sonnenblumenöl" / "Palm - und Sonnenblumenöl"
+	my @list = split(/-$and| -$and|$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
 
 	# If we have a percent or quantity, we output it only for the parent
 	my $category_without_percent_or_quantity = $category;
@@ -5256,6 +5323,7 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$lc} || " will not match ";
+	$and =~ s/ /\\s+/g;
 
 	# The ?: makes the group non-capturing, so that the split does not create an extra item for the group
 	my @vitamins = split(/(?:\(|\)|\/| \/ | - |, |,|$and)+/i, $vitamins_list);
@@ -6323,35 +6391,36 @@ sub separate_additive_class ($ingredients_lc, $additive_class, $spaces, $colon, 
 	}
 }
 
-=head2 replace_additive ($number, $letter, $variant) - normalize the additive
+=head2 normalize_additive_code ($prefix, $number, $letter, $variant, $original) - normalize a food or feed code
 
 This function is used inside regular expressions to turn additives to a normalized form.
 
-Using a function to concatenate the E-number, letter and variant makes it possible
-to deal with undefined $letter or $variant without triggering an undefined warning.
-
-=head3 Synopsis
-
-	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|$)/replace_additive($3,$6,$9) . $12/ieg;
+Feed codes are normalized only when the complete code is a known synonym. Unlike
+E-number variants, an unknown feed-code suffix must not fall back to a base code.
 
 =cut
 
-sub replace_additive ($number, $letter, $variant) {
+sub normalize_additive_code ($prefix, $number, $letter, $variant, $original) {
 
 	# $number  ->  e.g. 160
 	# $letter  ->  e.g. a
 	# $variant ->  e.g. ii
 
-	my $additive = "e" . $number;
-	if (defined $letter) {
-		$additive .= $letter;
+	my $additive = lc($prefix) . $number . ($letter // '');
+	(my $variant_id = lc($variant // '')) =~ s/[^a-z]//g;
+	if (lc($prefix) ne 'e') {
+		$additive = lc($additive);
+		my $exists;
+		canonicalize_taxonomy_tag('xx', 'ingredients', $additive . $variant_id, \$exists);
+		return $original if not $exists;
+		# Keep parentheses: they also delimit the code from an unknown trailing name.
+		return $additive . (($original =~ /\(/) ? "($variant_id)" : $variant_id);
 	}
 	if (defined $variant) {
 		$variant =~ s/^\(//;
 		$variant =~ s/\)$//;
 		# keep the variant only if the additives taxonomy knows it: "E330 (i)" is E330,
 		# while "E160a (ii)" is a distinct additive (plant carotenes)
-		(my $variant_id = $variant) =~ s/[^a-z]//gi;
 		if (exists_taxonomy_tag("additives", "en:" . lc($additive . $variant_id))) {
 			$additive .= $variant;
 		}
@@ -6456,7 +6525,8 @@ my %ingredients_categories_and_types = (
 	de => [
 		# oil and fat
 		{
-			categories => ["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle"],
+			categories =>
+				["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle", "Pflanzenfett"],
 			types =>
 				["Avocado", "Baumwolle", "Distel", "Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
 			# Kokosnussöl, Sonnenblumenfett
@@ -6882,8 +6952,10 @@ sub init_categories_and_types_regexps($ingredients_lc) {
 				category_colon_type => qr/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/i,
 
 				# ječmeni i pšenični slad (barley and wheat malt) -> ječmeni slad, pšenični slad
+				# Also match German "A und B-C" where C is a category (e.g. "Palm und Kokosnuss-Pflanzenfett")
+				# We have |-$and| and | -$and| to match "Palm- und Kokosnuss-Pflanzenfett" and "Palm - und Kokosnuss-Pflanzenfett"
 				types_then_category =>
-					qr/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/i,
+					qr/((?:(?:$type_regexp)(?: |\/| \/ | - |- |,|, |$and|-$and| -$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*(?:-)?($category_regexp)?/i,
 
 				# fr: huiles végétales en quantité variable et huile de palme -> huile végétale en quantité variable, huile végétale de palme
 				a_et_b_de_c => qr/($category_regexp) et ($category_regexp)(?:$of)?($type_regexp)/i,
@@ -6942,6 +7014,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 					=~ s/$regexps_ref->{category_colon_type}/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 
 				# ječmeni i pšenični slad (barley and wheat malt) -> ječmeni slad, pšenični slad
+				# Also handles German "A und B-C" where C is a category (e.g. "Palm und Kokosnuss-Pflanzenfett")
 				$text
 					=~ s/$regexps_ref->{types_then_category}/normalize_enumeration($ingredients_lc,$2,$1,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 			}
@@ -7022,6 +7095,30 @@ INFO
 	return $text;
 }
 
+# Used to remove underscores around allergens, e.g. "_milk_" -> "milk"
+
+sub _replace_underscores_around_allergens ($ingredients_lc, $allergen) {
+
+	my $exists_in_taxonomy = 0;
+	canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergen, \$exists_in_taxonomy);
+
+	if ($exists_in_taxonomy) {
+		return $allergen;
+	}
+
+	return "_" . $allergen . "_";
+}
+
+sub remove_underscores_around_allergens ($ingredients_lc, $text_ref) {
+
+	# We want to remove underscores only when they around an allergen
+	$$text_ref =~ s/___([^_,;]+)___/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+	$$text_ref =~ s/__([^_,;]+)__/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+	$$text_ref =~ s/_([^_,;]+)_/_replace_underscores_around_allergens($ingredients_lc, $1)/eg;
+
+	return;
+}
+
 =head2 preparse_ingredients_text ($ingredients_lc, $text) - normalize the ingredient list to make parsing easier
 
 This function transform the ingredients list in a more normalized list that is easier to parse.
@@ -7029,6 +7126,7 @@ This function transform the ingredients list in a more normalized list that is e
 It does the following:
 
 - Normalize quote characters
+- Normalize Unicode bold and stylistic-variant characters
 - Fix common misspellings (from misspellings/ingredients_misspellings.txt )
 - Replace abbreviations by their full name
 - Remove extra spaces in compound words width dashes (e.g. céléri - rave -> céléri-rave)
@@ -7082,8 +7180,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	my $and = $and{$ingredients_lc} || " and ";
 	my $and_without_spaces = $and;
-	$and_without_spaces =~ s/^ //;
-	$and_without_spaces =~ s/ $//;
+	$and_without_spaces =~ s/(?:^|(?<=\|)) +| +(?=\||$)//g;
 
 	my $of = ' - ';
 	if (defined $of{$ingredients_lc}) {
@@ -7117,11 +7214,17 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# turn special chars to spaces
 	$text =~ s/[\000-\037]/ /g;
 
+	# Normalize Unicode bold and stylistic-variant characters to plain ASCII
+	$text = normalize_unicode_letter_variants($text);
+
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
 
 	# Misspelling corrections (applied early so they don't interfere with other normalizations)
 	apply_misspelling_replacements("ingredients", $ingredients_lc, \$text);
+
+	# Remove _ underscores around allergens, e.g. "_milk_" -> "milk"
+	remove_underscores_around_allergens($ingredients_lc, \$text);
 
 	# vegetable oil (coconut & rapeseed)
 	# turn & to and
@@ -7186,6 +7289,92 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# and PP, B6, B12 etc. will be listed as synonyms for Vitamine PP, Vitamin B6, Vitamin B12 etc.
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
+	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
+	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
+
+	my @vitaminssuffixes = (
+		"a", "rétinol", "b", "b1",
+		"b2", "b3", "b4", "b5",
+		"b6", "b7", "b8", "b9",
+		"b10", "b11", "b12", "thiamine",
+		"riboflavine", "niacine", "pyridoxine", "cobalamine",
+		"biotine", "acide pantothénique", "acide folique", "c",
+		"acide ascorbique", "d", "d2", "d3",
+		"cholécalciférol", "e", "tocophérol", "alphatocophérol",
+		"alpha-tocophérol", "f", "h", "k",
+		"k1", "k2", "k3", "p",
+		"pp",
+	);
+	my @vitaminsprefixes = ('vit', 'vit.', 'vitamine', 'vitamines');
+
+	# Add synonyms in target language
+	if (defined $translations_to{vitamins}) {
+		foreach my $vitamin (sort keys %{$translations_to{vitamins}}) {
+			if (defined $translations_to{vitamins}{$vitamin}{$ingredients_lc}) {
+				push @vitaminssuffixes, $translations_to{vitamins}{$vitamin}{$ingredients_lc};
+			}
+		}
+	}
+
+	# Include English, which normalize_vitamin() also uses as a fallback.
+	foreach my $vitamin_lc (uniq($ingredients_lc, 'en')) {
+		next if not defined $translations_to{ingredients}{'en:vitamins'}{$vitamin_lc};
+		push @vitaminsprefixes, get_taxonomy_tag_synonyms($vitamin_lc, 'ingredients', 'en:vitamins');
+	}
+	my $vitaminsprefixregexp
+		= join('|', map {quotemeta($_)} sort {length($b) <=> length($a) || $a cmp $b} uniq(@vitaminsprefixes));
+	$vitaminsprefixregexp =~ s/\\ /\\s+/g;
+
+	my $vitaminssuffixregexp = "";
+	foreach my $suffix (@vitaminssuffixes) {
+		$vitaminssuffixregexp .= '|' . quotemeta($suffix);
+		# vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)].
+		# -> also put (B1)
+		$vitaminssuffixregexp .= '|\(' . quotemeta($suffix) . '\)';
+
+		my $unaccented_suffix = unac_string_perl($suffix);
+		if ($unaccented_suffix ne $suffix) {
+			$vitaminssuffixregexp .= '|' . quotemeta($unaccented_suffix);
+		}
+		if ($suffix =~ /[a-z]\d/) {
+
+			$suffix =~ s/([a-z])(\d)/$1 $2/;
+			$vitaminssuffixregexp .= '|' . quotemeta($suffix);
+			$suffix =~ s/ /-/;
+			$vitaminssuffixregexp .= '|' . quotemeta($suffix);
+
+		}
+
+	}
+	$vitaminssuffixregexp =~ s/^\|//;
+
+	# Preserve the standalone E in "vitamine E 105 mg" and "vitamines A, C et E
+	# 105 mg" until vitamin enumeration and quantity parsing run. Match forward
+	# to allow arbitrary whitespace. All groups must be non-capturing: the
+	# additive substitutions below rely on their existing capture numbers.
+	my $vitamins_and = $and;
+	$vitamins_and =~ s/ /\\s+/g;
+	my $vitamin_e_regexp
+		= '\b(?:'
+		. $vitaminsprefixregexp
+		. ')(?:[:\(\[]|\s)+'
+		. '(?:(?:'
+		. $vitaminssuffixregexp
+		. ')(?:\s|/| - |,|'
+		. $vitamins_and . ')+)*'
+		. '[eе](?=\s|\)|\]|$)(*SKIP)(*F)|';
+
+	# A separated prefix followed by a quantity is not a code: "Omega 3b 103 mg"
+	# must keep its dose even though 3b103 exists. Apply the same rule to E / INS.
+	my $e_number_prefix = 'e|е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?';
+	my $protected_additive_context
+		= $vitamin_e_regexp
+		. '-?\b(?:'
+		. $e_number_prefix
+		. '|[1-9][ab])\s+'
+		. $quantity_with_unit_regexps{$ingredients_lc}
+		. '(*SKIP)(*F)|';
+
 	# colorants alimentaires E (124,122,133,104,110)
 	my $additivesregexp;
 	# special cases, when $and (" a ", " e " or " i ") conflict with variants (E470a, E472e or E451i or E451(i))
@@ -7196,7 +7385,10 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		# based on $additivesregexp below in the else, with following modifications
 		# no space before abcdefgh
 		$additivesregexp
-			= '(\d{3}|\d{4})((-|\.)?([abcdefgh]))?(( |,|.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\)))?';
+			= '(\d{3}|\d{4})((-|\.)?([abcdefgh]))?(( |,|\.)?(('
+			. $roman_numerals . ')|\(('
+			. $roman_numerals
+			. ')\)))?';
 	}
 	elsif ($and eq " i ") {
 		# based on $additivesregexp below in the else, with following modifications
@@ -7215,31 +7407,61 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			. ')\)))?';
 	}
 
-	$text
-		=~ s/\b(e|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)(:|\(|\[| | n| nb|#|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and))+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($ingredients_lc,$3)/ieg;
+	my $additives_enumeration_regexp
+		= compiled_regexp($protected_additive_context
+			. '\b(e|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)(:|\(|\[| | n| nb|#|°)+((('
+			. $additivesregexp
+			. ')( |/| / | - |,|, |'
+			. $and . '))+('
+			. $additivesregexp
+			. '))\b(\s?(\)|\]))?');
+	$text =~ s/$additives_enumeration_regexp/normalize_additives_enumeration($ingredients_lc,$3)/eg;
 
 	# in India: INS 240 instead of E 240, bug #1133)
 	# also INS N°420, bug #3618
 	# Russian е (!= e), https://github.com/openfoodfacts/openfoodfacts-server/issues/4931
-	$text =~ s/\b(е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})/E$3/ig;
+	my $additive_prefix_regexp = compiled_regexp($protected_additive_context
+			. q{\b(е|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)( |-| n| nb|#|°|'|"|\.|\W)*(\d{3}|\d{4})});
+	$text =~ s/$additive_prefix_regexp/E$3/g;
 
 	# E 240, E.240, E-240..
 	# E250-E251-E260
-	$text =~ s/-e( |-|\.)?($additivesregexp)/- E$2/ig;
+	my $additive_dash_regexp = compiled_regexp($protected_additive_context . '-e( |-|\.)?(' . $additivesregexp . ')');
+	$text =~ s/$additive_dash_regexp/- E$2/g;
 	# do not turn E172-i into E172 - i
-	$text =~ s/e( |-|\.)?($additivesregexp)-(e)/E$2 - E/ig;
+	my $additive_dash_list_regexp
+		= compiled_regexp($protected_additive_context . 'e( |-|\.)?(' . $additivesregexp . ')-(e)');
+	$text =~ s/$additive_dash_list_regexp/E$2 - E/g;
 
 	# Canonicalize additives to remove the dash that can make further parsing break
 	# Match E + number + letter a to h + i to xv, followed by a space or separator
 	# $3 would be either \d{3} or \d{4} in $additivesregexp
 	# $6 would be ([abcdefgh]) in $additivesregexp
 	# $9 would be (( |-|\.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\))) in $additivesregexp
-	# $12 would be (\b|\s|,|\.|;|\/|-|\\|\)|\]|$)
-	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|\)|\]|$)/replace_additive($3,$6,$9) . $12/ieg;
+	# Feed codes use the same normalization, but require a known complete code.
+	my $additive_code_regexp
+		= compiled_regexp($protected_additive_context
+			. '(\b)(e|[1-9][ab])(?:\s+|-|\.)?'
+			. $additivesregexp
+			. '(?=\b|\s|,|\.|;|/|-|\\\\|\)|\]|$)');
+	$text =~ s/$additive_code_regexp/normalize_additive_code($2,$3,$6,$9,$&)/eg;
+
+	# Split feed-code lists only when both complete codes are known. Splitting
+	# an unknown code can change the parser's choice of newline separators.
+	my $compact_code = '(?:e|[1-9][ab])\d{3,4}[a-z]*';
+	my $separate_codes = sub ($first, $second, $original) {
+		foreach my $code ($first, $second) {
+			my $exists;
+			canonicalize_taxonomy_tag('xx', 'ingredients', $code, \$exists);
+			return $original if not $exists;
+		}
+		return $first . ', ';
+	};
+	$text =~ s/\b($compact_code)(?:$and|\s+)(?=($compact_code)\b)/$separate_codes->($1,$2,$&)/ige;
 
 	# E100 et E120 -> E100, E120
-	$text =~ s/\be($additivesregexp)$and/'e' . ((defined $1) ? $1 : '') . ', '/ige;
-	$text =~ s/${and}e($additivesregexp)/', e' . ((defined $1) ? $1 : '')/ige;
+	$text =~ s/\be($additivesregexp)(?:$and)/'e' . $1 . ', '/ige;
+	$text =~ s/(?:$and)e($additivesregexp)/', e' . $1/ige;
 
 	# E100 E122 -> E100, E122
 	$text =~ s/\be($additivesregexp)\s+e(?=\d)/e$1, e/ig;
@@ -7255,7 +7477,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# parenthetical content before taxonomy matching, and the parent name without the
 	# numeral is usually already a synonym, so stripping would only remove a small unknown
 	# child at the cost of misattributing additives elsewhere.
-	$text =~ s/\be(\d{3,4})([a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/replace_additive($1,$2,$3)/ieg;
+	$text
+		=~ s/\b(e|[1-9][ab])(\d{3,4})([a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/normalize_additive_code($1,$2,$3,$4,$&)/ieg;
 
 	# stabilisant e420 (sans : ) -> stabilisant : e420
 	# but not acidifier (pectin) : acidifier : (pectin)
@@ -7280,7 +7503,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/\bmono\s-\s/mono- /ig;
 	$text =~ s/\bmono\s/mono- /ig;
 	#  émulsifiant mono-et diglycérides d'acides gras
-	$text =~ s/(mono$and_without_spaces )/mono- $and_without_spaces /ig;
+	$text =~ s/mono($and_without_spaces) /mono- $1 /ig;
 
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
@@ -7298,7 +7521,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# separator followed by and
 	# aceite de girasol (70%) y aceite de oliva virgen (30%)
-	$text =~ s/($cbrackets)$and/$1, /ig;
+	$text =~ s/($cbrackets)(?:$and)/$1, /ig;
 
 	$log->debug("preparse_ingredients_text - before language specific preparsing", {text => $text}) if $log->is_debug();
 
@@ -7351,70 +7574,6 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	$text = develop_ingredients_categories_and_types($ingredients_lc, $text);
 
-	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
-	# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
-
-	my @vitaminssuffixes = (
-		"a", "rétinol", "b", "b1",
-		"b2", "b3", "b4", "b5",
-		"b6", "b7", "b8", "b9",
-		"b10", "b11", "b12", "thiamine",
-		"riboflavine", "niacine", "pyridoxine", "cobalamine",
-		"biotine", "acide pantothénique", "acide folique", "c",
-		"acide ascorbique", "d", "d2", "d3",
-		"cholécalciférol", "e", "tocophérol", "alphatocophérol",
-		"alpha-tocophérol", "f", "h", "k",
-		"k1", "k2", "k3", "p",
-		"pp",
-	);
-	my $vitaminsprefixregexp = "vit|vit\.|vitamine|vitamines";
-
-	# Add synonyms in target language
-	if (defined $translations_to{vitamins}) {
-		foreach my $vitamin (keys %{$translations_to{vitamins}}) {
-			if (defined $translations_to{vitamins}{$vitamin}{$ingredients_lc}) {
-				push @vitaminssuffixes, $translations_to{vitamins}{$vitamin}{$ingredients_lc};
-			}
-		}
-	}
-
-	# Add synonyms in target language
-	my $vitamin_in_lc
-		= get_string_id_for_lang($ingredients_lc, display_taxonomy_tag($ingredients_lc, "ingredients", "en:vitamins"));
-	$vitamin_in_lc =~ s/^\w\w://;
-
-	if (    (defined $synonyms_for{ingredients})
-		and (defined $synonyms_for{ingredients}{$ingredients_lc})
-		and (defined $synonyms_for{ingredients}{$ingredients_lc}{$vitamin_in_lc}))
-	{
-		foreach my $synonym (@{$synonyms_for{ingredients}{$ingredients_lc}{$vitamin_in_lc}}) {
-			$vitaminsprefixregexp .= '|' . $synonym;
-		}
-	}
-
-	my $vitaminssuffixregexp = "";
-	foreach my $suffix (@vitaminssuffixes) {
-		$vitaminssuffixregexp .= '|' . $suffix;
-		# vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)].
-		# -> also put (B1)
-		$vitaminssuffixregexp .= '|\(' . $suffix . '\)';
-
-		my $unaccented_suffix = unac_string_perl($suffix);
-		if ($unaccented_suffix ne $suffix) {
-			$vitaminssuffixregexp .= '|' . $unaccented_suffix;
-		}
-		if ($suffix =~ /[a-z]\d/) {
-
-			$suffix =~ s/([a-z])(\d)/$1 $2/;
-			$vitaminssuffixregexp .= '|' . $suffix;
-			$suffix =~ s/ /-/;
-			$vitaminssuffixregexp .= '|' . $suffix;
-
-		}
-
-	}
-	$vitaminssuffixregexp =~ s/^\|//;
-
 	#$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
 	#$log->debug("vitamins text", { vitaminssuffixregexp => $vitaminssuffixregexp }) if $log->is_debug();
 
@@ -7423,10 +7582,10 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	my $vitamins_regexp
 		= compiled_regexp('('
 			. $vitaminsprefixregexp
-			. ')(:|\(|\[| )+((('
+			. ')(:|\(|\[|\s)+((('
 			. $vitaminssuffixregexp
-			. ')( |\/| \/ | - |,|, |'
-			. $and . ')+)+('
+			. ')(\s|\/| \/ | - |,|, |'
+			. $vitamins_and . ')+)+('
 			. $vitaminssuffixregexp
 			. '))((\s?((\)|\]))|\b))');
 	$text =~ s/$vitamins_regexp/normalize_vitamins_enumeration($ingredients_lc,$3)/eg;
@@ -7798,15 +7957,15 @@ sub extract_additives_from_text ($product_ref) {
 						$match = 1;
 						$product_ref->{'additives'} .= " -- ok ";
 					}
-					elsif ($ingredient_id_copy =~ /^e( |-)?\d/) {
-						# id the additive is mentioned with an E number, tag it even if we haven't detected a mandatory class
+					elsif ($ingredient_id_copy =~ /^(?:e|[1-9][ab])( |-)?\d/) {
+						# An explicit food or feed code identifies the additive even without a class.
 						if (not exists $seen_tags{'additives_tags' . $canon_ingredient}) {
 							push @{$product_ref->{'additives_tags'}}, $canon_ingredient;
 							$seen_tags{'additives_tags' . $canon_ingredient} = 1;
 						}
 						# success!
 						$match = 1;
-						$product_ref->{'additives'} .= " -- e-number ";
+						$product_ref->{'additives'} .= " -- additive code ";
 
 					}
 				}
@@ -8922,6 +9081,60 @@ sub detect_rare_crops($product_ref) {
 	}
 
 	return;
+}
+
+=head2 check_if_text_is_a_taxonomy_tags_enumeration ($target_lc, $taxonomy, $text)
+
+This function checks if a text is an enumeration of tags from a specific taxonomy.
+e.g. ingredients processings, labels, etc. And returns the list of tags found in the text, or an empty list if none were found.
+
+The values need to be separated by commas or semicolons (or the word "and" in the target language),
+and can be preceded or followed by whitespace.
+
+
+=head3 Parameters
+
+=head4 $target_lc
+
+The language code of the text to check.
+
+=head4 $taxonomy
+
+The taxonomy to check against (e.g. ingredients_processing, labels, etc.)
+
+=head4 $text
+
+=head3 Return value
+
+A list of tags found in the text, or an empty list if none were found.
+
+=cut
+
+sub check_if_text_is_a_taxonomy_tags_enumeration($target_lc, $taxonomy, $text) {
+
+	my @tags = ();
+
+	my $and = $and{$target_lc} || " will not match ";
+
+	# Split the text into parts using the separator regexp
+	my @parts = split(/\s*(?:,|;|$and)\s*/, $text);
+
+	foreach my $part (@parts) {
+		if ($part ne '') {
+			my $tagid = canonicalize_taxonomy_tag($target_lc, $taxonomy, $part);
+			if (exists_taxonomy_tag($taxonomy, $tagid)) {
+				push @tags, $tagid;
+			}
+			else {
+				$log->debug("check_if_text_is_a_taxonomy_tags_enumeration - part not found in taxonomy",
+					{part => $part, tagid => $tagid, taxonomy => $taxonomy})
+					if $log->is_debug();
+				return ();    # if any part is not found, return an empty list
+			}
+		}
+	}
+
+	return @tags;
 }
 
 1;
