@@ -14,11 +14,9 @@
     "build:dynamic": "npm install && gulp dynamic",
     "test": "npm run lint",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:scss",
-    "lint:js": "eslint gulpfile.mjs html/js/*.js",
+    "lint:js": "eslint *.*js html/js/**/*.*js",
     "lint:css": "stylelint html/css/*.css",
-    "lint:scss": "stylelint scss/*.scss",
-    "snyk-protect": "snyk-protect",
-    "prepare": "npm run snyk-protect"
+    "lint:scss": "stylelint scss/**/*.scss"
   },
   "repository": {
     "type": "git",
@@ -39,7 +37,6 @@
     "@kristjan.esperanto/leaflet.markercluster": "^3.0.3",
     "@openfoodfacts/openfoodfacts-nodejs": "2.0.0-alpha.35",
     "@openfoodfacts/openfoodfacts-webcomponents": "1.18.3",
-    "@snyk/protect": "^1.1307.4",
     "@webcomponents/webcomponentsjs": "2.8.0",
     "@yaireo/tagify": ">=4.12.0 <4.40.0",
     "blueimp-file-upload": "^10.31.0",
@@ -77,6 +74,5 @@
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/openfoodfacts-server"
-  },
-  "snyk": true
+  }
 }
