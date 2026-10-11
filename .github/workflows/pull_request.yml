@@ -403,15 +403,15 @@ jobs:
     - name: build taxonomies (should use cache)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: check taxonomies
-      run: make check_taxonomies
+      run: ./.github/scripts/run_and_annotate.sh "Taxonomy lint" make check_taxonomies
     - name: check perltidy
-      run: make check_perltidy
+      run: ./.github/scripts/run_and_annotate.sh "perltidy" make check_perltidy
       if: needs.filter.outputs.taxonomy_only == 'false'
     - name: check perlcritic
-      run: make check_critic
+      run: ./.github/scripts/run_and_annotate.sh "perlcritic" make check_critic
       if: needs.filter.outputs.taxonomy_only == 'false'
     - name: check perl
-      run: make check_perl
+      run: ./.github/scripts/run_and_annotate.sh "Perl syntax" make check_perl
       if: needs.filter.outputs.taxonomy_only == 'false'
 
   generate_perl_sbom:
@@ -684,7 +684,7 @@ jobs:
       run: |
         echo "🥫 Running dynamically balanced unit test group ${{ matrix.test-group }}..."
         make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" unit_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        ./.github/scripts/run_and_annotate.sh "Unit test group ${{ matrix.test-group }}" make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" unit_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
     # Update timing data after test execution for future optimization
     # This enables the system to learn and improve load balancing over time
@@ -807,7 +807,7 @@ jobs:
       run: |
         echo "🥫 Running dynamically balanced integration test group ${{ matrix.test-group }}..."
         make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" integration_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        ./.github/scripts/run_and_annotate.sh "Integration test group ${{ matrix.test-group }}" make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" integration_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
     # Update timing data after test execution for future optimization
     # Integration test timing data is especially valuable due to higher variance
