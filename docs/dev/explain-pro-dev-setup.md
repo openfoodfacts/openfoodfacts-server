@@ -63,10 +63,11 @@ po_default containers       minion_db     containers       po_pro_default
 
 For custom flavors such as Open Beauty Facts (`obf`), Open Products Facts (`opf`), and Open Pet Food Facts (`opff`), isolation follows similar principles but with standalone datastores:
 
-* **Independent Compose Projects**: Each flavor has its own `COMPOSE_PROJECT_NAME` (e.g. `po_obf`), prefixing its containers and volumes.
-* **Network & Port Isolation**: Each flavor defines its own network (`PRODUCT_OPENER_NETWORK`, e.g. `po_obf_network`) and maps to a distinct host port (e.g. 81 for OBF, 82 for OPF). Frontend network aliases are dynamically generated from `${PRODUCT_OPENER_DOMAIN}` to prevent DNS alias collisions.
+* **Independent Compose Projects & Shared Product History**: Each flavor has its own `COMPOSE_PROJECT_NAME` (e.g. `po_obf`), prefixing its containers. However, the `products` volume is explicitly shared across instances (`po_products`), alongside `product_images` (`po_off_product_images`), ensuring that revision files, changes, and product history remain fully accessible when products transition between flavors (e.g., moving between OFF and OBF).
+* **Network & Port Isolation**: Each flavor defines its own internal network (`PRODUCT_OPENER_NETWORK`, e.g. `po_obf_network`) and maps to a distinct host port (e.g. 81 for OBF, 82 for OPF). Frontend network aliases are dynamically generated from `${PRODUCT_OPENER_DOMAIN}` to prevent DNS alias collisions. Furthermore, shared service networks (`COMMON_NET_NAME`) are flavor-scoped (e.g. `obf_shared_network`, `off_shared_network`) so Compose backend and minion service aliases do not collide across concurrent flavor instances.
 * **Datastore & Task Queue Isolation**:
   * MongoDB uses flavor-specific databases (e.g. `obf`).
-  * PostgreSQL task queues use separate databases (`POSTGRES_DB=minion_obf`).
-  * Minion workers listen exclusively on flavor queues (`MINION_QUEUE=openbeautyfacts.localhost`).
-* **Shared Infrastructure**: On staging/production, common services (MongoDB, Redis) are accessed across instances over the external `off_shared_network`.
+  * Standalone PostgreSQL instances retain the standard database name (`POSTGRES_DB=minion`), preserving compatibility with existing development `pgdata` volumes and healthchecks.
+  * Task queue isolation is achieved via flavor-specific Minion queues (`MINION_QUEUE=openbeautyfacts.localhost`).
+* **Shared Infrastructure**: On staging/production, common services (MongoDB, Redis) are accessed across instances over flavor-scoped shared networks.
+

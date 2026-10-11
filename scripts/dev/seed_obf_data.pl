@@ -21,7 +21,9 @@ use Modern::Perl '2017';
 use open ':std', ':encoding(UTF-8)';
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Products qw/init_product store_product/;
+use ProductOpener::Products qw/init_product store_product analyze_and_enrich_product_data/;
+use ProductOpener::ProductsTags qw/set_field_input_tags_for_source/;
+use ProductOpener::BeautyProducts qw/specific_processes_for_beauty_product/;
 
 my @sample_products = (
 	{
@@ -82,6 +84,20 @@ for my $p (@sample_products) {
 	for my $k (keys %$p) {
 		$product_ref->{$k} = $p->{$k};
 	}
+
+	# Canonicalize tag fields using standard tags pipeline
+	for my $tag_field (qw(categories brands countries)) {
+		if (defined $p->{$tag_field} && $p->{$tag_field} ne '') {
+			set_field_input_tags_for_source($product_ref, "en", $tag_field, "off-dev", $p->{$tag_field});
+		}
+	}
+
+	# Run beauty-specific processing (ingredient parsing and extraction)
+	specific_processes_for_beauty_product($product_ref);
+
+	# Run standard enrichment and analysis pipeline
+	analyze_and_enrich_product_data($product_ref, {});
+
 	store_product("off-dev", $product_ref, "Seed sample OBF data");
 }
 say "🥫 Sample OBF products seeded successfully.";
