@@ -1,3 +1,5 @@
+@use "sass:color";
+
 div.tagsinput {
     line-height: 1.2;
     resize: vertical; /* Make the box manually resizable, vertically (CSS3) */
@@ -104,6 +106,20 @@ padding:0.5rem 1rem;
 
 #product_form ul.tabs .select2-container--default .select2-selection--single .select2-selection__rendered {
 	line-height:2.5rem;
+}
+
+// Custom properties consumed by the <image-editor> web component.
+// CSS custom properties inherit into the component's shadow DOM, so the
+// component uses var(--editor-*) for its controls and the site color for
+// the cropper selection outline / handles.
+.select_crop {
+	--editor-button-bg: #{$primary-button-color};
+	--editor-button-bg-hover: #{color.scale($primary-button-color, $lightness: $button-function-factor)};
+	--editor-button-text: #{$button-font-color};
+	--editor-button-radius: #{$global-radius};
+	--editor-font-size: #{$button-font-sml};
+	--editor-link-color: #{$anchor-font-color};
+	--cropper-theme-color: #{$off-blue};
 }
 
 

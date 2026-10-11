@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -103,10 +103,10 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Brevo qw/add_contact_to_list/;
 use ProductOpener::CRM qw/update_contact_last_login/;
 use ProductOpener::Auth qw/:all/;
-use ProductOpener::Keycloak qw/:all/;
+use ProductOpener::Keycloak;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Minion qw/queue_job write_minion_log/;
-use ProductOpener::Tags qw/country_to_cc cc_to_country/;
+use ProductOpener::Tags qw/display_taxonomy_tag_name country_to_cc cc_to_country/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -287,8 +287,12 @@ sub subscribe_user_newsletter_task ($job, $args_ref) {
 		$job->fail({errors => ['User with id ' . $userid . ' not found in Keycloak.']});
 		return;
 	}
-
-	add_contact_to_list($user_ref->{email}, $user_ref->{name}, $user_ref->{country}, $user_ref->{preferred_language});
+	add_contact_to_list(
+		$user_ref->{email}, $user_ref->{userid},
+		display_taxonomy_tag_name("en", "countries", $user_ref->{country}),
+		$user_ref->{preferred_language},
+		$user_ref->{name}
+	);
 
 	write_minion_log("subscribe_user_newsletter_task - job: $job_id done");
 	$job->finish("done");
@@ -479,17 +483,21 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	# Assigning 'userid' to 0 -- if userid is not defined
 	$user_ref->{userid} = remove_tags_and_quote(single_param('userid'));
 
-	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
-	$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
-
-	# Check for spam
 	my $is_spam = undef;
-	# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
-	if (is_suspicious_name($user_ref->{name})) {
-		$is_spam = 1;
+	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
+	if (defined single_param('name')) {
+		$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
+
+		# Check for spam
+		# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
+		if (is_suspicious_name($user_ref->{name})) {
+			$is_spam = 1;
+		}
 	}
+
 	# check for spam, that may have filled the honeypot faxnumber field
-	if (single_param('faxnumber') ne "") {
+	my $faxnumber = single_param('faxnumber');
+	if ((defined $faxnumber) and ($faxnumber ne "")) {
 		$is_spam = 1;
 	}
 	if ($is_spam) {
@@ -505,7 +513,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 
 	$log->debug("check_user_form", {type => $type, user_ref => $user_ref, email => $email}) if $log->is_debug();
 
-	if ((defined $email) and ($email ne '') and ($user_ref->{email} ne $email)) {
+	if ((defined $email) and ($email ne '') and (($user_ref->{email} // '') ne $email)) {
 
 		# check that the email is not already used
 		my $user_id_from_mail;
@@ -527,12 +535,13 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	}
 
 	# Country and preferred language
-	if (get_oidc_implementation_level() < 5) {
-		# Show additional fields until Keycloak is managing user registration
-		$user_ref->{preferred_language} = remove_tags_and_quote(single_param("preferred_language"));
-		$user_ref->{country} = remove_tags_and_quote(single_param("country"));
+	# Still allow these to be sent for legacy API support, but don't update if supplied by the preferences form
+	# Which we deduce by the absence of a name field
+	if (defined single_param('name')) {
+		$user_ref->{preferred_language}
+			= remove_tags_and_quote(single_param('preferred_language')) || $request_ref->{lc};
+		$user_ref->{country} = remove_tags_and_quote(single_param('country')) || $request_ref->{country};
 	}
-
 	# Is there a checkbox to make a professional account
 	if (defined single_param("pro_checkbox")) {
 
@@ -596,20 +605,20 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	$user_ref->{display_barcode} = !!remove_tags_and_quote(single_param("display_barcode"));
 	$user_ref->{edit_link} = !!remove_tags_and_quote(single_param("edit_link"));
 
-	# Check input parameters, redisplay if necessary
-
-	if (length($user_ref->{name}) < 2) {
-		push @{$errors_ref}, $Lang{error_no_name}{$lc};
-	}
-	elsif (length($user_ref->{name}) > 60) {
-		push @{$errors_ref}, $Lang{error_name_too_long}{$lc};
-	}
-
 	if (get_oidc_implementation_level() < 5) {
+		# Check input parameters, redisplay if necessary. Delegate all validation to Keycloak from level 5
+		if (length($user_ref->{name}) < 2) {
+			push @{$errors_ref}, $Lang{error_no_name}{$lc};
+		}
+		elsif (length($user_ref->{name}) > 60) {
+			push @{$errors_ref}, $Lang{error_name_too_long}{$lc};
+		}
+
 		# Show additional fields until Keycloak is managing user registration
 		my $address;
 		eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
 		$address = 0 if $@;
+		$log->debug("check_user_form - address", {mail => $user_ref->{email}, address => $address}) if $log->is_debug();
 		if (not $address) {
 			push @{$errors_ref}, $Lang{error_invalid_email}{$lc};
 		}
@@ -672,6 +681,8 @@ the request object
 =cut
 
 sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
+
+	$log->debug("notify_user_requested_org", {user_ref => $user_ref, org_created => $org_created}) if $log->is_debug();
 
 	# the template for the email, we will build it gradually
 	my $template_data_ref = {
@@ -842,8 +853,12 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 
 			# Check if the user subscribed to the newsletter
 			if ($user_ref->{newsletter}) {
-				add_contact_to_list($user_ref->{email}, $user_ref->{user_id}, $user_ref->{country},
-					$user_ref->{preferred_language});
+				add_contact_to_list(
+					$user_ref->{email}, $user_ref->{userid},
+					display_taxonomy_tag_name("en", "countries", $user_ref->{country}),
+					$user_ref->{preferred_language},
+					$user_ref->{name}
+				);
 			}
 		}
 
@@ -867,24 +882,6 @@ sub send_welcome_emails($user_ref) {
 	$email_content =~ s/\{\{USERID\}\}/$userid/g;
 	$email_content =~ s/\{\{NAME\}\}/$user_name/g;
 	my $error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
-
-	my $admin_mail_body = <<EMAIL
-
-Bonjour,
-
-Inscription d'un utilisateur :
-
-name: $user_ref->{name}
-email: $user_ref->{email}
-x: https://x.com/$user_ref->{x}
-newsletter: $user_ref->{newsletter}
-discussion: $user_ref->{discussion}
-lc: $language
-cc: $user_cc
-
-EMAIL
-		;
-	$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
 
 	return $error;
 }
@@ -1162,14 +1159,19 @@ sub retrieve_user_preferences ($user_id) {
 # This fetches the data from Keycloak and merges it into the local data
 # This might take some time so should only be used if you really need all the user information
 sub retrieve_user ($user_id) {
+	my $user_ref = retrieve_user_preferences($user_id);
 	my $keycloak_user_ref;
 	if (get_oidc_implementation_level() > 1) {
 		# Fetch the user from Keycloak once it has become the source of truth
 		# Do this before fetching the local preferences as it can take a while
 		my $keycloak = ProductOpener::Keycloak->new();
 		$keycloak_user_ref = $keycloak->find_user_by_username($user_id);
+
+		# encrypted_password is write only for OIDC Level 2 and above
+		if ($user_ref) {
+			delete $user_ref->{encrypted_password};
+		}
 	}
-	my $user_ref = retrieve_user_preferences($user_id);
 	if ($keycloak_user_ref) {
 		$user_ref //= {};
 		$user_ref->{email} = $keycloak_user_ref->{email};
@@ -1601,25 +1603,14 @@ sub init_user ($request_ref) {
 					{
 						user_id => $user_id,
 						user_session => $user_session,
-						stock_session => $user_ref->{'user_sessions'},
 						stock_ip => $user_ref->{'user_last_ip'},
 						current_ip => remote_addr()
 					}
 				) if $log->is_debug();
 
-				# Try to keep sessions opened for users with dynamic IPs
-				my $short_ip = sub ($) {
-					my $ip = shift;
-					# Remove the last two bytes
-					$ip =~ s/(\.\d+){2}$//;
-					return $ip;
-				};
-
 				if (   (not defined $user_ref->{'user_sessions'})
 					or (not defined $user_session)
 					or (not defined $user_ref->{'user_sessions'}{$user_session}))
-					# disable the restriction of sessions by ip address (issue 6842 57E0 C2C7 F629 E4CE 5605 42)
-					#	or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
 				{
 					$log->debug("no matching session for user") if $log->is_debug();
 					$user_id = undef;
@@ -1757,33 +1748,6 @@ sub set_owner_id ($request_ref) {
 	}
 
 	return;
-}
-
-=head2 is_ip_known_or_whitelisted ()
-
-This sub introduces a server option to whitelist IPs for all cookies.
-
-=cut
-
-sub is_ip_known_or_whitelisted ($user_ref, $user_session, $ip, $shorten_ip) {
-
-	my $short_ip = $shorten_ip->($ip);
-
-	if (    (defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-		and ($shorten_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) eq $short_ip))
-	{
-		return 1;
-	}
-
-	if (defined $server_options{ip_whitelist_session_cookie}) {
-		foreach (@{$server_options{ip_whitelist_session_cookie}}) {
-			if ($_ eq $ip) {
-				return 1;
-			}
-		}
-	}
-
-	return 0;
 }
 
 sub check_session ($user_id, $user_session) {

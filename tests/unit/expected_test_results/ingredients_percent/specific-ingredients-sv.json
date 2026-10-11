@@ -27,39 +27,21 @@
       "text" : "vatten"
    },
    {
-      "id" : "en:thickener",
-      "ingredients" : [
-         {
-            "id" : "en:e440a",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 4.6875,
-            "percent_max" : 18.75,
-            "percent_min" : 0,
-            "text" : "pektin"
-         }
-      ],
+      "additive_class" : "en:thickener",
+      "id" : "en:e440a",
       "is_in_taxonomy" : 1,
       "percent_estimate" : 4.6875,
       "percent_max" : 18.75,
       "percent_min" : 0,
-      "text" : "förtjockningsmedel"
+      "text" : "pektin"
    },
    {
-      "id" : "en:acidity-regulator",
-      "ingredients" : [
-         {
-            "id" : "en:e330",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 4.6875,
-            "percent_max" : 12.5,
-            "percent_min" : 0,
-            "text" : "citronsyra"
-         }
-      ],
+      "additive_class" : "en:acidity-regulator",
+      "id" : "en:e330",
       "is_in_taxonomy" : 1,
       "percent_estimate" : 4.6875,
       "percent_max" : 12.5,
       "percent_min" : 0,
-      "text" : "surhetsreglerande medel"
+      "text" : "citronsyra"
    }
 ]

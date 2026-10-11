@@ -119,7 +119,7 @@ paths:
         - name: code
           in: path
           description: |
-            The barcode of the product to to create or update, or "test" to analyze the product data sent without creating or updating a product.
+            The barcode of the product to create or update, or "test" to analyze the product data sent without creating or updating a product.
           required: true
           style: simple
           explode: false

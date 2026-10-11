@@ -38,7 +38,6 @@ use ProductOpener::Images
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -83,8 +82,6 @@ $log->debug(
 	}
 ) if $log->is_debug();
 
-write_cors_headers();
-
 # By default, don't select images uploaded (e.g. through the product edit form)
 
 my $select_image = 0;
@@ -105,7 +102,7 @@ if (not defined $code) {
 	$code_specified = 0;
 
 	my $file = single_param("files[]");
-	$filename = $file . "";
+	$filename = defined($file) ? ($file . "") : "";
 
 	($code, $imagefield) = get_code_and_imagefield_from_file_name($lc, $filename);
 
@@ -114,7 +111,7 @@ if (not defined $code) {
 	}
 	else {
 
-		if ($file =~ /\.(gif|jpeg|jpg|png|heic)$/i) {
+		if ((defined $file) and ($file =~ /\.(gif|jpeg|jpg|png|heic)$/i)) {
 
 			$log->debug("scan barcode in image file", {file => $file}) if $log->is_debug();
 
@@ -155,7 +152,7 @@ if (not defined $code) {
 my $response_ref = {
 	files => [
 		{
-			filename => $filename . "",    # Make filename a scalar
+			filename => ($filename // '') . "",    # Make filename a scalar
 		}
 	],
 };
@@ -268,7 +265,7 @@ if ($imagefield) {
 
 	# For backwards compatibility, if we have no imgid (if the image was not uploaded), we return the return code in the imgid field
 	$response_ref->{imgid} = $imgid || $imgid_returncode;
-	if ($imgid > 0) {
+	if ((defined $imgid) and ($imgid > 0)) {
 		$response_ref->{files}[0]{thumbnailUrl} = "/images/products/$path/$imgid.$thumb_size.jpg";
 	}
 
