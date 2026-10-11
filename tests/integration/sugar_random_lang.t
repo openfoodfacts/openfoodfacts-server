@@ -29,7 +29,7 @@ foreach my $lang ('en', 'fr') {
 
 # A value that walks out of the sugar directory is refused
 
-foreach my $case (
+my @refused_cases = (
 	["../../../../etc/passwd", 'a path traversal'],
 	["../en", 'a relative directory'],
 	["en/../../en", 'a traversal in the middle'],
@@ -37,9 +37,10 @@ foreach my $case (
 	["", 'an empty value'],
 	["EN", 'an uppercase code'],
 	["e n", 'a code with a space'],
-	) {
+);
 
-	my ($lang, $desc) = @{$case};
+foreach my $case_ref (@refused_cases) {
+	my ($lang, $desc) = @{$case_ref};
 
 	my $response = $ua->get(construct_test_url('/cgi/sugar_random.pl'), 'X-Site-Lang' => $lang);
 	is($response->code, 400, "$desc is refused with a 400: '$lang'");
