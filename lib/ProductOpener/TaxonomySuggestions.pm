@@ -60,19 +60,25 @@ use Data::DeepAccess qw(deep_exists deep_get);
 # We use a global variable in order to load the packaging stats only once
 my $categories_packagings_stats_for_suggestions_ref;
 
+# Bumped whenever the way suggestions are matched or returned changes, and part of the result cache
+# key. The cached suggestions live for a day and the key is built from the request, so a change to
+# this module is otherwise invisible until they expire: a deployment keeps answering from entries
+# that the previous code wrote. Raise it in the same commit as the change.
+my $suggestions_cache_version = 2;
+
+sub categories_packagings_stats_file() {
+
+	my $file = "$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_stats.all.popular";
+	return $file if -e $file;
+
+	# In dev environments, we provide a sample stats file in the data-default directory
+	# so that we can run tests with meaningful and unchanging data
+	return "$BASE_DIRS{PRIVATE_DATA}-default/categories_stats/categories_packagings_stats.all.popular";
+}
+
 sub load_categories_packagings_stats_for_suggestions() {
 	if (not defined $categories_packagings_stats_for_suggestions_ref) {
-		my $file = "$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_stats.all.popular";
-		# In dev environments, we provide a sample stats file in the data-default directory
-		# so that we can run tests with meaningful and unchanging data
-		if (!-e $file) {
-			my $default_file
-				= "$BASE_DIRS{PRIVATE_DATA}-default/categories_stats/categories_packagings_stats.all.popular";
-			$log->debug("local packaging stats file does not exist, will use default",
-				{file => $file, default_file => $default_file})
-				if $log->is_debug();
-			$file = $default_file;
-		}
+		my $file = categories_packagings_stats_file();
 		$log->debug("loading packaging stats", {file => $file}) if $log->is_debug();
 		$categories_packagings_stats_for_suggestions_ref = retrieve_config($file);
 		if (not defined $categories_packagings_stats_for_suggestions_ref) {
@@ -110,8 +116,9 @@ Hash of fields that can be taken into account to generate relevant suggestions
 
 =head3 Note
 
-The results of this function are cached for 1 day using memcached.
-Restart memcached if you want fresh results (e.g. when taxonomy are category stats change).
+The results of this function are cached for 1 day using memcached. The key carries the version of
+this module, the version of the taxonomies and, for the packaging taxonomies, the time the popular
+statistics file was last written, so results that no longer apply are not served from the cache.
 
 =cut
 
@@ -129,9 +136,24 @@ sub get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $str
 	) if $log->is_debug();
 
 	# Check if we have cached suggestions
+	# The key carries the versions of the things the answer depends on, so that a change to any of
+	# them is picked up instead of being answered from an entry that is a day old:
+	# - $suggestions_cache_version, raised by a change to the matching or to what is returned
+	# - the taxonomies version, raised when translations or synonyms are loaded
+	# - for the packaging taxonomies, the time the popular statistics file was last written,
+	#   because those suggestions come from product data and not from the taxonomy
+	my $stats_file_mtime = 0;
+	if (($tagtype eq "packaging_shapes") or ($tagtype eq "packaging_materials")) {
+		my @stats = stat(categories_packagings_stats_file());
+		$stats_file_mtime = $stats[9] if defined $stats[9];
+	}
+
 	my $key = generate_cache_key(
 		"get_taxonomy_suggestions",
 		{
+			cache_version => $suggestions_cache_version,
+			taxonomies_version => get_taxonomies_version(),
+			stats_file_mtime => $stats_file_mtime,
 			tagtype => $tagtype,
 			search_lc => $search_lc,
 			string => $string,

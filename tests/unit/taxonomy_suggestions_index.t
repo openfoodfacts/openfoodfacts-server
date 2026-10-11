@@ -13,7 +13,12 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 
+use ProductOpener::Tags qw/retrieve_tags_taxonomy/;
 use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions_with_synonyms clear_suggestions_index/;
+
+# The "test" taxonomy is the one that carries translations in several languages, which the language
+# prefix cases below need. Load it explicitly rather than relying on it being loaded already.
+retrieve_tags_taxonomy("test");
 
 my @queries = ("yogurt", "yog", "chocolat", "eau", "zzqqxx", "pain", "fromage", "a");
 
