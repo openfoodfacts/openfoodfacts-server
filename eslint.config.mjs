@@ -1,4 +1,7 @@
-const js = require("@eslint/js");
+import js from "@eslint/js";
+import css from "@eslint/css";
+import { defineConfig } from "eslint/config";
+import { scss } from "@humanwhocodes/scsstree";
 
 const baseGlobals = {
   Foundation: "readonly",
@@ -22,7 +25,7 @@ const baseGlobals = {
   Option: "readonly"
 };
 
-module.exports = [
+export default defineConfig([
   {
     ignores: [
       "html/js/dist/",
@@ -31,11 +34,14 @@ module.exports = [
       "html/js/sigma.*.js",
       "html/js/hc-sticky.js",
       "html/js/scrollNav.js",
-      "html/js/stikelem.js"
+      "html/js/stikelem.js",
+      "html/css/dist/",
+      "scripts/obsolete/",
+      "tests/"
     ]
   },
   {
-    files: ["html/js/*.js"],
+    files: ["gulpfile.mjs", "html/js/*.js"],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: "script",
@@ -272,5 +278,26 @@ module.exports = [
     rules: {
       "no-unused-vars": "off"
     }
+  },
+  {
+    files: ["html/css/*.css"],
+    plugins: { css },
+    extends: ["css/recommended"]
+  },
+  {
+    files: ["scss/**/*.scss"],
+    plugins: { css },
+    language: "css/css",
+    languageOptions: {
+      customSyntax: scss
+    },
+    extends: ["css/recommended"],
+    rules: {
+      // These rules reason about CSS semantics that SCSS doesn't share.
+      // See https://github.com/humanwhocodes/scsstree#limitations
+      "css/no-invalid-at-rule-placement": "off",
+      "css/use-baseline": "off",
+      "css/no-invalid-properties": "off"
+    }
   }
-];
+]);

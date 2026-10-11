@@ -13,10 +13,10 @@
     "build:watch": "gulp watch",
     "build:dynamic": "npm install && gulp dynamic",
     "test": "npm run lint",
-    "lint": "npm run lint:js && npm run lint:css && npm run lint:scss",
-    "lint:js": "eslint *.*js html/js/**/*.*js",
-    "lint:css": "stylelint html/css/*.css",
-    "lint:scss": "stylelint scss/**/*.scss"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "@yaireo/tagify": ">=4.12.0 <4.40.0",
     "blueimp-file-upload": "^10.31.0",
     "cropperjs": "^2.2.0",
+    "eslint-config-prettier": "^10.1.8",
     "foundation-sites": "5.5.3",
     "highcharts": "^9.2.2",
     "jquery": "2.2.4",
@@ -54,7 +55,9 @@
   "devDependencies": {
     "@babel/core": "^8.0.6",
     "@babel/preset-env": "^8.0.1",
+    "@eslint/css": "^2.0.0",
     "@eslint/js": "^10.0.1",
+    "@humanwhocodes/scsstree": "^0.1.1",
     "dotenv": "^18.0.4",
     "eslint": "^10.11.0",
     "gulp": "^4.0.2",
@@ -65,11 +68,8 @@
     "gulp-sass": "^6.0.1",
     "gulp-svgmin": "^4.1.0",
     "gulp-terser": "^2.1.0",
-    "sass": "^1.105.0",
-    "stylelint": "^17.6.0",
-    "stylelint-config-recommended": "^18.0.0",
-    "stylelint-config-recommended-scss": "^17.0.1",
-    "stylelint-scss": "^7.3.0"
+    "prettier": "^3.9.10",
+    "sass": "^1.105.0"
   },
   "funding": {
     "type": "opencollective",
