@@ -260,6 +260,7 @@ sub move_rate_limit_accounting ($request_ref) {
 	# The count has been moved to the new bucket by set_rate_limit_bucket(): only the limit to
 	# check changes
 	set_rate_limit_attributes($request_ref, remote_addr());
+	return;
 }
 
 =head2 check_and_update_rate_limits($request_ref)
@@ -272,6 +273,7 @@ ProductOpener::Display::init_request() and by cgi/search.pl.
 sub check_and_update_rate_limits($request_ref) {
 
 	account_request_for_rate_limiting($request_ref);
+	return;
 }
 
 1;
