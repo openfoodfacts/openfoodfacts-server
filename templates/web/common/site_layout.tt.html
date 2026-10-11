@@ -128,9 +128,9 @@
 									<select id="select_country" style="width:100%"
 											data-placeholder="[% edq(lang('select_country')) %]">
 
-										[% IF country_code && country_code != 'en:world' %]
+										[% IF country_code && country_code != 'world' %]
 											<option value="[% country_code %]" selected="selected">
-												[% display_taxonomy_tag("countries", country_code) %]
+												[% display_taxonomy_tag("countries", country) %]
 											</option>
 										[% END %]
 
