@@ -150,8 +150,10 @@ sub get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $str
 
 		# The entry list is the process's own, so the index can be kept and reused between
 		# requests; it is dropped by clear_suggestions_index() when the taxonomies are rebuilt
-		my @filtered_tags = _filter_suggestions(_get_suggestions_index($tagtype, $search_lc, $tags_ref),
-			$tags_ref, $tagtype, $search_lc, $string, $options_ref);
+		my ($effective_lc, $effective_string) = _search_lc_and_string($search_lc, $string);
+
+		my @filtered_tags = _filter_suggestions(_get_suggestions_index($tagtype, $effective_lc, $tags_ref),
+			$tags_ref, $tagtype, $effective_lc, $effective_string, $options_ref);
 		$results_ref = \@filtered_tags;
 
 		$log->debug("storing suggestions in cache", {key => $key}) if $log->is_debug();
@@ -434,6 +436,18 @@ sub clear_suggestions_index() {
 	return;
 }
 
+# If the search string begins with a language code, it is searched in that language. This has to be
+# decided before the index is picked, because the index holds the display text and the synonyms the
+# scan matches against, and both are language dependent.
+sub _search_lc_and_string ($search_lc, $string) {
+
+	if ((not defined $string) or ($string !~ /^(\w\w):/)) {
+		return ($search_lc, $string);
+	}
+
+	return ($1, substr($string, 3));
+}
+
 sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 
 	my @entries = ();
@@ -525,8 +539,10 @@ An array of suggestions hashes with the following fields:
 sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
 
 	# Callers can pass any list of entries, so index exactly that list rather than a cached one
-	return _filter_suggestions(_build_suggestions_index($tagtype, $search_lc, $tags_ref),
-		$tags_ref, $tagtype, $search_lc, $string, $options_ref);
+	my ($effective_lc, $effective_string) = _search_lc_and_string($search_lc, $string);
+
+	return _filter_suggestions(_build_suggestions_index($tagtype, $effective_lc, $tags_ref),
+		$tags_ref, $tagtype, $effective_lc, $effective_string, $options_ref);
 }
 
 sub _filter_suggestions ($index_ref, $tags_ref, $tagtype, $search_lc, $string, $options_ref) {
@@ -553,12 +569,6 @@ sub _filter_suggestions ($index_ref, $tags_ref, $tagtype, $search_lc, $string, $
 	# undefined string
 	if (not defined $string) {
 		$string = "";
-	}
-
-	# if search string begins with a language code, use it for search
-	if ($string =~ /^(\w\w):/) {
-		$search_lc = $1;
-		$string = $';
 	}
 
 	my @suggestions = ();    # Suggestions starting with the string

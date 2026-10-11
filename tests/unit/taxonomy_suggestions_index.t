@@ -67,6 +67,37 @@ if (scalar(@french) > 0) {
 	isnt(join("|", @french_tags), join("|", @english_tags), "the French query does not reuse the English index");
 }
 
+# A search string that starts with a language code is searched in that language, so the index has
+# to be the one built for that language: fr:yaourts on an English page has to answer with the
+# French labels, not with the English ones. The index is chosen before the string is looked at,
+# so this is the case where picking the wrong index is invisible until it is checked.
+
+clear_suggestions_index();
+
+my @french = get_taxonomy_suggestions_with_synonyms("en:world", "test", "en", "fr:yaourts", {}, {limit => 10});
+
+ok(scalar(@french) > 0, "a search prefixed with a language code returns suggestions");
+
+my %french_tags = map {$_->{tag} => 1} @french;
+
+ok(
+	(grep({$_ eq "yaourts à la banane"} keys %french_tags)),
+	"fr:yaourts answers with the French label of banana yogurts"
+);
+ok((not(grep({$_ eq "banana yogurts"} keys %french_tags))), "fr:yaourts does not answer with the English label");
+
+my @dutch = get_taxonomy_suggestions_with_synonyms("en:world", "test", "en", "nl:yoghurt", {}, {limit => 10});
+
+my %dutch_tags = map {$_->{tag} => 1} @dutch;
+
+ok((grep({$_ eq "bananenyoghurt"} keys %dutch_tags)), "nl:yoghurt answers with the Dutch label");
+
+# The same query without a prefix is searched in the language of the page
+
+my @english = get_taxonomy_suggestions_with_synonyms("en:world", "test", "en", "yaourts", {}, {limit => 10});
+
+ok(scalar(@english) == 0, "the same words without a prefix are not matched in English");
+
 clear_suggestions_index();
 
 done_testing();
