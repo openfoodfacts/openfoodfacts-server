@@ -106,7 +106,7 @@ jobs:
           # needs depth to run git log below
           fetch-depth: 50
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
         with:
           driver: docker-container
           use: true
@@ -139,7 +139,7 @@ jobs:
           echo registry_ref=ghcr.io/${{ github.repository }}/backend-buildx-cache:${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }} >> $GITHUB_OUTPUT
 
       - name: Build backend image with cache
-        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
           file: ./Dockerfile
@@ -329,7 +329,7 @@ jobs:
           fetch-depth: 1
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
         with:
           driver: docker-container
           use: true
@@ -353,7 +353,7 @@ jobs:
           echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.mjs', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
 
       - name: Build frontend image with cache
-        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
           file: ./Dockerfile.frontend
@@ -454,7 +454,7 @@ jobs:
         retention-days: 90
     - name: Submit Perl SBOM to Dependency Graph
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: advanced-security/spdx-dependency-submission-action@8b97fad313c1af2c5c490e1f72ab338371eb92f6 # v0.3.2
+      uses: advanced-security/spdx-dependency-submission-action@b009efcf8b9d562a4569d2028c276522232e631f # v0.4.0
       with:
         filePath: perl-sbom.json
 
@@ -503,7 +503,7 @@ jobs:
         cache: true
         skip-dirs: opt/product-opener/build-cache/,opt/product-opener/taxonomies
     - name: Upload Trivy results to GitHub Security
-      uses: github/codeql-action/upload-sarif@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
+      uses: github/codeql-action/upload-sarif@2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2 # v4.38.2
       if: always()
       with:
         sarif_file: backend-trivy.sarif
@@ -553,7 +553,7 @@ jobs:
         ignore-unfixed: true
         cache: true
     - name: Upload Trivy results to GitHub Security
-      uses: github/codeql-action/upload-sarif@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
+      uses: github/codeql-action/upload-sarif@2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2 # v4.38.2
       if: always()
       with:
         sarif_file: frontend-trivy.sarif
@@ -708,7 +708,7 @@ jobs:
         make codecov
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0v7
+      uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.0.0v7
       if: needs.filter.outputs.taxonomy_only == 'false'
       with:
         files: cover_db/codecov.json
@@ -719,7 +719,7 @@ jobs:
 
     - name: Upload test results to Codecov
       if: ${{ needs.filter.outputs.taxonomy_only == 'false' && !cancelled() }}
-      uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0v7
+      uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.0.0v7
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: ./tests/unit/outputs/junit_group_${{ matrix.test-group }}.xml
@@ -831,7 +831,7 @@ jobs:
         make codecov
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0v7
+      uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.0.0v7
       if: needs.filter.outputs.taxonomy_only == 'false'
       with:
         files: cover_db/codecov.json
@@ -842,7 +842,7 @@ jobs:
 
     - name: Upload test results to Codecov
       if: ${{ needs.filter.outputs.taxonomy_only == 'false' && !cancelled() }}
-      uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0v7
+      uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.0.0v7
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml

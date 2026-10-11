@@ -33,6 +33,14 @@ location ~ ^/(greenscore|ecoscore|eco-score-l-impact-environnemental-des-produit
 	return 301 https://$host/green-score;
 }
 
+location = /faq.html {
+	return 301 https://$host/faq;
+}
+
+location ~ ^/help(/.*)?$ {
+	return 301 https://$host/faq;
+}
+
 # === donation redirects ===
 # Default / fallback donation page (with host-language detection)
 location = /donate-to-open-food-facts {
