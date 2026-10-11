@@ -5,6 +5,7 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use ProductOpener::APITest qw/execute_api_tests login new_client wait_application_ready/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Tags qw/add_user_translation/;
 use File::Slurp;
 
 wait_application_ready(__FILE__);
@@ -89,6 +90,33 @@ $tests_ref = [
 		expected_type => 'json',
 	},
 	{
+		# A record is one line of tab separated values: a newline in the value would append a
+		# second record, attributed to a user of the caller's choosing
+		test_case => 'translate-taxonomy-newline-in-value',
+		method => 'POST',
+		path => '/cgi/translate_taxonomy.pl',
+		form => {
+			lc => 'en',
+			tagtype => 'categories',
+			from => 'en:poc-source-tag',
+			to => "poc translation\n1700000000\tpoc-forged-user\ten:poc-forged-tag\tpoc forged translation",
+		},
+		expected_type => 'json',
+	},
+	{
+		# A tab in the value would shift the columns of the record
+		test_case => 'translate-taxonomy-tab-in-value',
+		method => 'POST',
+		path => '/cgi/translate_taxonomy.pl',
+		form => {
+			lc => 'en',
+			tagtype => 'categories',
+			from => 'en:poc-source-tag',
+			to => "poc\ttranslation",
+		},
+		expected_type => 'json',
+	},
+	{
 		test_case => 'translate-taxonomy-missing-parameter',
 		method => 'POST',
 		path => '/cgi/translate_taxonomy.pl',
@@ -106,6 +134,26 @@ execute_api_tests(__FILE__, $tests_ref, $ua);
 ok(-e $translation_file, "the translation file is created for a logged in caller");
 like(read_file($translation_file), qr/poc translation/, "the translation is written to the file");
 ok(not(-e $traversal_file), "no file is created outside of the translations directory");
+
+# cgi/translate_taxonomy.pl is not the only caller add_user_translation() has to refuse: it is the
+# only writer of the file, so check that it refuses a value with a control character itself, rather
+# than relying on each caller to have checked.
+
+foreach
+	my $value_ref (["poc\tforged", 'a tab'], ["poc\n1700000000\tpoc-forged\ten:poc-forged\tpoc forged", 'a newline'],)
+{
+	my ($value, $desc) = @{$value_ref};
+	is(add_user_translation('en', 'categories', 'tests', 'en:poc-source-tag', $value),
+		0, "add_user_translation refuses a value with $desc");
+}
+
+# Only the one translation that was allowed was written: a value with a control character must not
+# have added a record of its own, or one attributed to another user.
+
+unlike(read_file($translation_file), qr/forged/, "no forged record is written to the file");
+
+my @records = grep {$_ ne ''} split(/\n/, read_file($translation_file));
+is(scalar(@records), 1, "the file holds exactly the one record that was allowed");
 
 # Restore the translations that were there before the test
 
