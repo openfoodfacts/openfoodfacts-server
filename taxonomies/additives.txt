@@ -604,7 +604,7 @@ nl_be: E120, Cochenille, karmijnzuur, karmijn
 oc: E120, Carmin
 pl: E120, Koszenila, kwas karminowy, karminy, Koszelina, Karmina, karmin
 pt: E120, Cochonilha, ácido carmínico, carminas
-ro: E120, Coșenilă, acid carminic, carmine, Acidului carminic, carmin
+ro: E120, Coșenilă, acid carminic, carmine, Acidului carminic, carmin, carmină
 ru: E120, Кошениль, карминовая кислота, кармин, кармины
 sh: E120, Carmine
 sk: E120, Košenila, kyselina karmínová, karmíny
@@ -7402,7 +7402,7 @@ xx: E307b
 bg: E307b, концентриран токоферол
 cs: E307b, koncentrovaný tokoferol
 da: E307b, koncentreret tocopherol
-de: E307b, konzentrierter Tocopherol
+de: E307b, konzentrierter Tocopherol, stark tocopherol-tatige Extract
 el: E307b, συμπυκνωμένο τοκοφερόλη
 es: E307b, tocoferol concentrado
 et: E307b, kontsentreeritud tokoferool
@@ -7435,7 +7435,7 @@ xx: E307c
 bg: E307c, dl-α-токоферол
 cs: E307c, DL-α-tokoferol
 da: E307c, dl-α-Tocopherol
-de: E307c, DL-Alpha-Tocopherol, DL-α-Tocopherol
+de: E307c, DL-Alpha-Tocopherol, DL-α-Tocopherol, DL-A-TOCOPHERYLACETAT
 el: E307c, dl-α-Τοκοφερόλη
 es: E307c, DL-α-tocoferol
 et: E307c, DL-alfa-tokoferool
@@ -8952,14 +8952,6 @@ tr: E334, Tartarik asit
 uk: E334, Винна кислота
 uz: E334, Vino kislota
 zh: E334, 酒石酸
-additives_classes:en: en:antioxidant, en:sequestrant
-anses_additives_of_interest:en: yes
-description:en: TARTARIC ACID is a white, crystalline organic acid that occurs naturally in many fruits, most notably in grapes, but also in bananas, tamarinds, and citrus
-e_number:en: 334
-organic_eu:en: authorized
-vegan:en: yes
-vegetarian:en: yes
-wikidata:en: Q194322
 # azb:اسید تارتاریک
 # sr-ec:винска киселина
 # sr-el:Vinska kiselina
@@ -8969,6 +8961,15 @@ wikidata:en: Q194322
 # zh-hk:酒石酸
 # zh-sg:酒石酸
 # zh-tw:酒石酸
+additives_classes:en: en:antioxidant, en:sequestrant
+anses_additives_of_interest:en: yes
+description:en: TARTARIC ACID is a white, crystalline organic acid that occurs naturally in many fruits, most notably in grapes, but also in bananas, tamarinds, and citrus
+e_number:en: 334
+nova:en: 3
+organic_eu:en: authorized
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q194322
 wikipedia:en: https://en.wikipedia.org/wiki/Tartaric_acid
 
 en: E335, Sodium tartrates
@@ -13666,7 +13667,7 @@ e_number:en: 450
 wikidata:en: Q290828
 
 < en: E450
-en: E450(iii), Tetrasodium diphosphate, Tetrasodium pyrophosphate, Tetrasodium disphosphate, Tetrasodium diphosphate, sodium pyrophosphate, TSPP, e450iii
+en: E450(iii), Tetrasodium diphosphate, Tetrasodium pyrophosphate, Tetrasodiumpyrophosphate, Tetrasodium disphosphate, Tetrasodium diphosphate, sodium pyrophosphate, TSPP, e450iii
 xx: E450(iii)
 ar: E450(iii), بيروفوسفات صوديوم
 bg: E450(iii), Тетранатриев дифосфат, Тетранатриев пирофосфат, тетранатриев дифосфат, натриев пирофосфат
@@ -16872,6 +16873,7 @@ ru: E503, Карбонаты аммония
 sk: E503, Amoniakové uhličitany
 sl: E503, Amonijevi karbonati
 sv: E503, Ammoniumkarbonater
+description:en: Also known as "hartshorn" or baker's ammonia, this mineral salt was historically produced by heating animal horn, and is now made synthetically by reacting ammonia with carbon dioxide. It has a sharp, ammonia-like smell and salty, alkaline taste that fully dissipates during baking. Traditionally used in home baking for thin, crisp goods like gingerbread and speculaas, it remains far more prevalent industrially, valued for its low cost, stability, and moisture-free leavening—ideal for high-speed cracker and cookie production. Nutritionally inert, it serves purely as a leavening agent, contributing no calories or nutrients to the final product.
 e_number:en: 503
 mandatory_additive_class:en: en:raising-agent
 organic_eu:en: authorized
@@ -17234,7 +17236,7 @@ fr: E509, Chlorure de calcium, CaCl2
 gl: E509, Cloruro de calcio
 hi: E509, कैल्सियम क्लोराइड
 hr: E509, kalcijev klorid, kalcij klorid
-hu: E509, Kalcium-klorid
+hu: E509, Kálcium-klorid, Kalcium-klorid
 hy: E509, Կալցիումի քլորիդ
 id: E509, Kalsium klorida
 it: E509, Cloruro di calcio, CaCl2, Dicloruro di calcio, Calcio cloruro

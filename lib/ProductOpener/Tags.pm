@@ -60,6 +60,7 @@ BEGIN {
 		&sanitize_taxonomy_line
 
 		&is_a
+		&get_taxonomy_tag_level
 
 		&get_property
 		&get_property_with_fallbacks
@@ -721,6 +722,26 @@ sub is_a ($tagtype, $child, $parent) {
 	}
 
 	return $found;
+}
+
+=head2 get_taxonomy_tag_level ($tagtype, $tagid)
+
+Determine the taxonomy level (depth) of a tag. Higher means more specific. Returns 0 if undefined.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tagid
+
+The tag id for which we want to get the taxonomy level.
+
+=cut
+
+sub get_taxonomy_tag_level ($tagtype, $tagid) {
+	return $level{$tagtype}{$tagid} // 0;
 }
 
 sub load_tags_images ($lc, $tagtype) {

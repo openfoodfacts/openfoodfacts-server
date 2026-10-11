@@ -1192,6 +1192,83 @@ my @tests = (
 					}
 				]
 			}
+		},
+	],
+	# pH and glycemic-index per serving (not 100g) should be kept as-is in aggregated set
+	[
+		"ph_and_glycemic_index_per_serving_kept_as_is",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "250",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							ph => {
+								value_string => "6.5",
+								value => 6.5,
+								unit => "",
+							},
+							"glycemic-index" => {
+								value_string => "45",
+								value => 45,
+								unit => "",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+	# alcohol (% vol) per serving should be kept as-is in aggregated set
+	[
+		"alcohol_per_serving_kept_as_is",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "250",
+						per_unit => "ml",
+						source => "packaging",
+						nutrients => {
+							alcohol => {
+								value_string => "5.0",
+								value => 5.0,
+								unit => "% vol",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+	# fruits-vegetables-nuts (%) per serving should be kept as-is in aggregated set
+	[
+		"fruits_vegetables_nuts_per_serving_kept_as_is",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							"fruits-vegetables-nuts" => {
+								value_string => "80",
+								value => 80,
+								unit => "%",
+							}
+						}
+					}
+				]
+			}
 		}
 	]
 );

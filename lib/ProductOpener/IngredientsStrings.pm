@@ -79,11 +79,13 @@ BEGIN {
 		&convert_text_value_to_number
 
 		%percent_or_quantity_regexps
+		%percent_or_quantity_with_symbols_regexps
 		%quantity_with_unit_regexps
 
 		&init_percent_or_quantity_regexps
 		&protect_compound_unit_slashes
 		&isolate_compound_unit_quantities
+		&unit_only_string
 		&init_sizes_regexps
 
 		%sizes_regexps
@@ -674,6 +676,36 @@ sub isolate_compound_unit_quantities ($ingredients_lc, $text) {
 	return $text;
 }
 
+=head2 unit_only_string( $ingredients_lc, $string )
+
+Return true if the string is only a dosage context: a unit, optionally
+preceded by a solidus ("/kg", or U+2044 after protect_compound_unit_slashes)
+or a "per" word ("par kg", "pro kg"), or a list of such units ("mg, kg"), so
+that parenthesized dosage contexts like "Additifs nutritionnels (/kg)" or
+"Additifs (par kg)" are not turned into sub-ingredients.
+
+=cut
+
+sub unit_only_string ($ingredients_lc, $string) {
+
+	(scalar keys %units_regexps) or init_units_regexps();
+
+	my $units = join(
+		'|',
+		grep {length} (
+			_compound_unit_regexp_alternatives(), @UNIT_ACTIVITY_NUMERATORS,
+			@UNIT_MASS_NUMERATORS, "(?i:\N{U+00B5}g|\N{U+03BC}g|ug)",
+			$units_regexps{$ingredients_lc} || '',
+		)
+	);
+	$units =~ s{\\/}{(?:/|\N{U+2044}|\N{U+FF0F})}g;
+
+	my $unit_list = "(?:$units)(?:\\s*[,,;/]\\s*(?:$units))*";
+	my $per_word = '(?i:par|per|pro|en|in|je)\s+';
+
+	return (($string // '') =~ /^\s*(?:$UNIT_SOLIDUS_REGEXP)?\s*(?:$per_word)?$unit_list\s*$/) ? 1 : 0;
+}
+
 sub init_percent_or_quantity_regexps($ingredients_lc) {
 
 	(scalar keys %units_regexps) or init_units_regexps();
@@ -698,6 +730,9 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		$units_regexp_in_lc =~ s{\\/}{(?:/|\N{U+2044}|\N{U+FF0F})}g;
 		my $compound_units = join('|', _compound_unit_regexp_alternatives());
 		my $activity_units = join('|', @UNIT_ACTIVITY_NUMERATORS);
+		# The units taxonomy stores the microgram symbol as a symbol: property instead of a
+		# synonym (a plain "µg" synonym would be canonicalized to "g"), so the symbol forms
+		# are added here: micro sign U+00B5, Greek small letter mu U+03BC seen in OCR, "ug"
 		my $units_except_percent = join('|', grep {length} ($compound_units, $activity_units, $units_regexp_in_lc));
 
 		my $one_regexp_in_lc = $one_regexp{$ingredients_lc} || 'do not match';
@@ -734,6 +769,16 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 			. '|\s|\)|\]|\}|(?:'
 			. $symbols_regexp
 			. '))*';    # strings that can be ignored
+
+		# Symbol units (microgram U+00B5 / Greek mu U+03BC / ug) are kept out of the general
+		# regexp above, because widening it changes which strings look like quantities everywhere
+		# (dosage protection, dual-parse newline arbitration). They are only needed to consume a
+		# parenthesized or column-separated dosage in its entirety: "Biotine : 100 µg" must not
+		# leave a "µg" sub-ingredient, so only the unit capture group is widened.
+		my $unit_capture = '(' . $units_except_percent . '|\%|)';
+		my $unit_capture_with_symbols = '(' . $units_except_percent . '|(?i:\N{U+00B5}g|\N{U+03BC}g|ug)|\%|)';
+		$percent_or_quantity_with_symbols_regexps{$ingredients_lc}
+			= $percent_or_quantity_regexps{$ingredients_lc} =~ s/\Q$unit_capture\E/$unit_capture_with_symbols/r;
 	}
 
 	return;
