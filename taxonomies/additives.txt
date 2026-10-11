@@ -163,34 +163,33 @@ vegetarian:en: yes
 wikidata:en: Q376061
 # comment:en:used to be extracted from milk, but not anymore.
 
-en: E101, Riboflavin, Vitamin B2, Flavaxin, Vitamin B 2, Vitamin G, Riboflavine, Lactoflavine, Lactoflavin, riboflavin color
-xx: E101, 3a825i, 3a825ii, 3a825
-bg: E101, Рибофлавин
-ca: E101, Riboflavina
-cs: E101, Riboflavin, Ovoflavin, Vitamin B 2, Vitamin B2, Laktoflavin, Vitamín G, Lactoflavin
-da: E101, Riboflavin, Vitamin B2, Vitamin B 2, Vitamin G, Lactoflavin
-de: E101, Riboflavin, Vitamin B2, Vitamin G, Lactoflavin, Laktoflavin
-el: E101, ριβοφλαβίνη, βιταμίνη Β2
-es: E101, Riboflavina, Vitamina B2, Lactoflavina
-et: E101, Vitamiin B2, B2-vitamiin, Laktoflaviin, Riboflaviin
-fi: E101, Riboflaviini, B2-vitamiini, Laktoflaviini, Riboflaviinia, B2-vitamiinia, Laktoflaviinia
-fr: E101, Riboflavine, vitamine B2, Bacillus subtilis
-hr: E101, riboflavini, riboflavin
-hu: E101, Riboflavin, Laktoflavin, B2-vitamin
-it: E101, Riboflavina, Vitamina G, Vitamina B2, C17H20N4O6
-lt: E101, Riboflavinas, Vitaminas G
-lv: E101, B2 vitamīns, Riboflavīns
-mt: E101, Riboflavina, Vitamina B2
-nl: E101, Riboflavine, Vitamine B2, Lactoflavine
-nl_be: E101, Riboflavine, Vitamine B2, Lactoflavine
-pl: E101, Witamina B2, Witamina G, Ryboflawina, Laktoflawina, Ryboflawiny
-pt: E101, Riboflavina, Vitamina b2, Vitamina G
-ro: E101, Riboflavină, Vitamina B2
-sk: E101, Riboflavín, Vitamín G, Ovoflavín, Vitamín B2, Laktoflavín
-sl: E101, Riboflavin, Vitamin B2
-sv: E101, Riboflavin, Vitamin B2, B2-vitamin
-tr: E101, Riboflavin, B2 Vitamini, B2 Vitamin, Vitamin B2, Laktoflavin
+en: E101, Riboflavins, Vitamin B2, Flavaxin, Vitamin B 2, Vitamin G, Lactoflavine, Lactoflavin, riboflavin color
+xx: E101, 3a825
+cs: E101, Vitamin B2, Vitamin B 2, Laktoflavin, Ovoflavin, Vitamín G, Lactoflavin
+da: E101, Vitamin B2, Vitamin B 2, Vitamin G, Lactoflavin
+de: E101, Vitamin B2, Vitamin G, Lactoflavin, Laktoflavin
+el: E101, βιταμίνη Β2
+es: E101, Vitamina B2, Lactoflavina
+et: E101, Vitamiin B2, B2-vitamiin, Laktoflaviin
+fi: E101, B2-vitamiini, Laktoflaviini, B2-vitamiinia, Laktoflaviinia
+fr: E101, Vitamine B2, Bacillus subtilis
+hr: E101, Riboflavini
+hu: E101, B2-vitamin, Laktoflavin
+it: E101, Vitamina G, Vitamina B2, C17H20N4O6
+lt: E101, Vitaminas G
+lv: E101, B2 vitamīns
+mt: E101, Vitamina B2
+nl: E101, Vitamine B2, Lactoflavine
+nl_be: E101, Vitamine B2, Lactoflavine
+pl: E101, Ryboflawiny, Witamina B2, Witamina G, Laktoflawina
+pt: E101, Vitamina b2, Vitamina G
+ro: E101, Vitamina B2
+sk: E101, Vitamín G, Ovoflavín, Vitamín B2, Laktoflavín
+sl: E101, Vitamin B2
+sv: E101, Vitamin B2, B2-vitamin
+tr: E101, B2 Vitamini, B2 Vitamin, Vitamin B2, Laktoflavin
 additives_classes:en: en:colour
+comment:en: E101 and E101(i) are generally the same thing, but E101(ii) means we need a parent, so using this as the concept of the vitamin/riboflavins, and E101(i) as "riboflavin" specifically.
 e_number:en: 101
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101(i)) and riboflavin-5'-phosphate sodium (E 101(ii)) as food additives.
 efsa_evaluation_date:en: 2013-10-22
@@ -200,18 +199,19 @@ vegetarian:en: yes
 wikidata:en: Q130365
 
 < en: E101
-en: E101(i), Riboflavin, Vitamin B2
-xx: E101(i)
+en: E101(i), Riboflavin, Riboflavine
+xx: E101(i), 3a825i
 bg: E101(i), Рибофлавин
 ca: E101(i), Riboflavina
 cs: E101(i), Riboflavin
 da: E101(i), Riboflavin
 de: E101(i), Riboflavin
-el: E101(i), Ριβοφλαβινη
-es: E101(i), Riboflavina, Vitamina B2
+el: E101(i), Ριβοφλαβίνη, Ριβοφλαβινη
+es: E101(i), Riboflavina
 et: E101(i), Riboflaviin
-fi: E101(i), Riboflaviini, B2-vitamiini, Riboflaviinia, B2-vitamiinia
+fi: E101(i), Riboflaviini, Riboflaviinia
 fr: E101(i), Riboflavine
+hr: E101(i), Riboflavin
 hu: E101(i), Riboflavin
 it: E101(i), Riboflavina
 lt: E101(i), Riboflavinas
@@ -225,6 +225,7 @@ ro: E101(i), Riboflavină
 sk: E101(i), Riboflavín
 sl: E101(i), Riboflavin
 sv: E101(i), Riboflavin
+tr: E101(i), Riboflavin
 additives_classes:en: en:colour
 e_number:en: 101
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101(i)) and riboflavin-5'-phosphate sodium (E 101(ii)) as food additives.
@@ -235,7 +236,7 @@ wikidata:en: Q130365
 
 < en: E101
 en: E101(ii), Riboflavin-5′-phosphate, phosphate lactoflavina
-xx: E101(ii)
+xx: E101(ii), 3a825ii
 bg: E101(ii), Рибофлавин-5′-фосфат
 ca: E101(ii), Riboflavina-5′-fosfat
 cs: E101(ii), Riboflavin-5′-fosfát, Riboflavin-5′-fosforečnan
@@ -265,7 +266,8 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101
 efsa_evaluation_adi_established:en: en:no
 efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
-wikidata:en: Q130365
+wikidata:en: Q376061
+wikipedia:en: https://en.wikipedia.org/wiki/Flavin_mononucleotide
 
 < en: E101
 en: E101(iii), Riboflavin from Bacillus subtilis
