@@ -39,6 +39,7 @@ BEGIN {
 		&get_taxonomy_suggestions_with_synonyms
 		&get_taxonomy_suggestions
 		&generate_sorted_list_of_taxonomy_entries
+		&clear_suggestions_index
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -145,9 +146,12 @@ sub get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $str
 		$log->debug("suggestions are not cached", {key => $key}) if $log->is_debug();
 
 		my @tags = generate_sorted_list_of_taxonomy_entries($country, $tagtype, $search_lc, $context_ref);
+		my $tags_ref = \@tags;
 
-		my @filtered_tags
-			= filter_suggestions_matching_string_with_synonyms(\@tags, $tagtype, $search_lc, $string, $options_ref);
+		# The entry list is the process's own, so the index can be kept and reused between
+		# requests; it is dropped by clear_suggestions_index() when the taxonomies are rebuilt
+		my @filtered_tags = _filter_suggestions(_get_suggestions_index($tagtype, $search_lc, $tags_ref),
+			$tags_ref, $tagtype, $search_lc, $string, $options_ref);
 		$results_ref = \@filtered_tags;
 
 		$log->debug("storing suggestions in cache", {key => $key}) if $log->is_debug();
@@ -172,6 +176,11 @@ Generate a sorted list of canonicalized taxonomy entries from which we will gene
 
 =cut
 
+# Note: the sorted list of entries is deliberately not cached in the process. It does not depend on
+# the string being searched for, but it does depend on the translations, and a running worker picks
+# up user contributed translations through add_users_translations_to_taxonomy(), so a list cached
+# for the lifetime of the worker would go stale. Building it costs about 0.25s for the categories
+# taxonomy, which is a small enough part of a request to leave alone.
 sub generate_sorted_list_of_taxonomy_entries ($country, $tagtype, $search_lc, $context_ref) {
 
 	my @tags;
@@ -187,9 +196,17 @@ sub generate_sorted_list_of_taxonomy_entries ($country, $tagtype, $search_lc, $c
 		@tags = generate_popular_suggestions_according_to_context($country, $tagtype, $search_lc, $context_ref,
 			\%seen_tags);
 
-		# Sort the remaining entries alphabetically before adding them
-		my @all_tags = sort({cmp_taxonomy_tags_alphabetically($tagtype, $search_lc, $a, $b)}
-			keys %{$translations_to{$tagtype}});
+		# Sort the remaining entries alphabetically before adding them.
+		# The entries are decorated with the string they sort on first: cmp_taxonomy_tags_alphabetically()
+		# looks the translation up on both sides of every comparison, and sorting the categories
+		# taxonomy is about 200000 comparisons for 14736 entries, so doing that lookup once per entry
+		# instead of once per side of every comparison is the difference between the sort taking a
+		# large part of a request and taking a small one. Perl's sort is stable, so entries that
+		# translate to the same string keep the order they have here, as they did before.
+		my @decorated
+			= map {[$_, $translations_to{$tagtype}{$_}{$search_lc} || $translations_to{$tagtype}{$_}{"xx"} || $_]}
+			keys %{$translations_to{$tagtype}};
+		my @all_tags = map {$_->[0]} sort({$a->[1] cmp $b->[1]} @decorated);
 
 		# add all remaining entries in alphabetical order
 		foreach my $tag (@all_tags) {
@@ -325,15 +342,111 @@ sub match_stringids ($stringid, $fuzzystringid, $synonymid) {
 	return "none";
 }
 
+# Per-process index of what a suggestion request needs for every entry of a taxonomy.
+#
+# A request that misses the result cache used to sort every entry of the taxonomy and then, for
+# each of them, normalize its display text and every one of its synonyms, which meant tens of
+# thousands of Unicode NFC normalizations per request. None of that work depends on the string
+# being searched for: the same entries are walked in the same order for every query.
+#
+# The index holds, per taxonomy and per search language, the display text of every entry and the
+# normalized synonyms of every entry, so a request is a loop over strings that already exist.
+#
+# It is deliberately not shared through memcached or redis: the display map of the categories
+# taxonomy alone is about 1.2 MB per language in Storable, which is larger than the default
+# memcached item size, and a shared cache would turn a pointer dereference into a multi-megabyte
+# read on every keystroke. Workers are long lived, so one copy per process is cheaper.
+#
+# It also holds no product data: the entries come from the taxonomy, and the only suggestions that
+# depend on products - packaging shapes and materials - are read from a separate precomputed file.
+# It therefore only goes stale if the taxonomies are rebuilt inside the same process, which is
+# what build_all_taxonomies() does, and operators can drop it with clear_suggestions_index().
+
+my %suggestions_index = ();
+my @suggestions_index_order = ();
+
+# How many (taxonomy, language) indexes to keep. A handful of languages are hot at a time, and
+# the categories taxonomy is the largest at about 1.2 MB per language, so this bounds the memory
+# a worker spends on this at roughly 10 MB.
+my $suggestions_index_max = 8;
+
+=head2 clear_suggestions_index()
+
+Drop the per-process index of taxonomy entries used to answer suggestion requests. Call it after
+rebuilding the taxonomies in a process that also serves suggestions, otherwise the process keeps
+answering from the entries it had indexed before the rebuild.
+
+=cut
+
+sub clear_suggestions_index() {
+	%suggestions_index = ();
+	@suggestions_index_order = ();
+	return;
+}
+
+sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref) {
+
+	my @entries = ();
+
+	foreach my $canon_tagid (@$tags_ref) {
+
+		my $tag = display_taxonomy_tag($search_lc, $tagtype, $canon_tagid);
+		my $tag_xx = display_taxonomy_tag("xx", $tagtype, $canon_tagid);
+
+		# Synonyms in the search language, and in the wildcard xx: language. Each one is
+		# normalized in the search language, which is what best_match() matched before.
+		my @synonyms = map {
+			my $synonym = $_;
+			[get_string_id_for_lang($search_lc, $synonym), $synonym]
+		} (
+			@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
+			@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
+		);
+
+		push @entries, {tagid => $canon_tagid, tag => $tag, synonyms => \@synonyms};
+	}
+
+	return \@entries;
+}
+
+sub _get_suggestions_index ($tagtype, $search_lc, $tags_ref) {
+
+	my $key = join("\t", $tagtype, $search_lc);
+
+	if (not exists $suggestions_index{$key}) {
+
+		$suggestions_index{$key} = _build_suggestions_index($tagtype, $search_lc, $tags_ref);
+		push @suggestions_index_order, $key;
+
+		# keep the memory bounded: drop the index that was added first
+		if (scalar(@suggestions_index_order) > $suggestions_index_max) {
+			delete $suggestions_index{shift @suggestions_index_order};
+		}
+
+		$log->debug(
+			"built the suggestions index",
+			{
+				tagtype => $tagtype,
+				search_lc => $search_lc,
+				entries => scalar(@{$suggestions_index{$key}})
+			}
+		) if $log->is_debug();
+	}
+
+	return $suggestions_index{$key};
+}
+
 # best_match is used to see how well matches the best matching synonym
 
-sub best_match ($search_lc, $stringid, $fuzzystringid, $synonyms_ref) {
+sub best_match ($stringid, $fuzzystringid, $synonyms_ref) {
 
 	my $best_type = "none";
 	my $best_match = 0;
 
-	foreach my $synonym (@$synonyms_ref) {
-		my $synonymid = get_string_id_for_lang($search_lc, $synonym);
+	# $synonyms_ref is a list of [$normalized_synonym, $synonym] pairs, as built by
+	# _get_suggestions_index(): the normalized form of a synonym does not depend on the query
+	foreach my $synonym_pair_ref (@$synonyms_ref) {
+		my ($synonymid, $synonym) = @{$synonym_pair_ref};
 		my $match = match_stringids($stringid, $fuzzystringid, $synonymid);
 		# Prefer to use the earlier ones from the list for when the canonical name has the same match type as a synonym
 		next if $match eq "none" or $match eq $best_type;
@@ -390,6 +503,13 @@ An array of suggestions hashes with the following fields:
 =cut
 
 sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
+
+	# Callers can pass any list of entries, so index exactly that list rather than a cached one
+	return _filter_suggestions(_build_suggestions_index($tagtype, $search_lc, $tags_ref),
+		$tags_ref, $tagtype, $search_lc, $string, $options_ref);
+}
+
+sub _filter_suggestions ($index_ref, $tags_ref, $tagtype, $search_lc, $string, $options_ref) {
 
 	my $original_lc = $search_lc;
 
@@ -452,22 +572,16 @@ sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $sear
 		# fuzzy match whole words with other words between them
 		my $fuzzystringid = join(".*", split("-", $stringid));
 
-		foreach my $canon_tagid (@$tags_ref) {
+		foreach my $entry_ref (@$index_ref) {
+			my $canon_tagid = $entry_ref->{tagid};
 			# just_synonyms are not real entries
 			next if defined $just_synonyms{$tagtype}{$canon_tagid};
 
-			# We will match synonyms in the search language, and in the wildcard xx: language
-			my $tag = display_taxonomy_tag($search_lc, $tagtype, $canon_tagid);
-			my $tag_xx = display_taxonomy_tag("xx", $tagtype, $canon_tagid);
-
-			# Build a list of normalized synonyms in the search language and the wildcard xx: language
-			my @synonyms = (
-				@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
-				@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
-			);
+			my $tag = $entry_ref->{tag};
+			my $synonyms = $entry_ref->{synonyms};
 
 			# check how well the synonyms match the input string
-			my $best_match = best_match($search_lc, $stringid, $fuzzystringid, \@synonyms);
+			my $best_match = best_match($stringid, $fuzzystringid, $synonyms);
 
 			$log->debug(
 				"synonyms for canon_tagid",
@@ -475,7 +589,7 @@ sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $sear
 					tagtype => $tagtype,
 					canon_tagid => $canon_tagid,
 					tag => $tag,
-					synonyms => \@synonyms,
+					synonyms => $synonyms,
 					best_match => $best_match
 				}
 			) if $log->is_debug();
