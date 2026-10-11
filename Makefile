@@ -259,9 +259,18 @@ import_sample_data: run_deps
 	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
    		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
 		${DOCKER_COMPOSE} run --rm -e SKIP_SAMPLE_IMAGES backend bash /opt/product-opener/scripts/import_sample_data.sh; \
+	elif [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "obf" ]]; then \
+		echo "🥫 Seeding sample cosmetic products for Open Beauty Facts …"; \
+		${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/dev/seed_obf_data.pl; \
 	else \
-	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
+		echo "🥫 Not importing sample data into MongoDB for flavor ${PRODUCT_OPENER_FLAVOR_SHORT}"; \
 	fi
+
+import_sample_data_obf: run_deps
+	@echo "🥫 Seeding sample cosmetic products for Open Beauty Facts …"
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/dev/seed_obf_data.pl
+
+sample-obf: import_sample_data_obf
 
 import_more_sample_data: run_deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"

@@ -57,7 +57,16 @@ po_default containers       minion_db     containers       po_pro_default
     |                          +----------minion--------------+
     |                          |                              |
     |                          |                              |
-    +------frontend            |          frontend------------+
-    +------mongodb             |          mongodb-------------+
-    |                          |                              |
 ```
+
+## Multi-Flavor Architecture (OBF, OPF, OPFF)
+
+For custom flavors such as Open Beauty Facts (`obf`), Open Products Facts (`opf`), and Open Pet Food Facts (`opff`), isolation follows similar principles but with standalone datastores:
+
+* **Independent Compose Projects**: Each flavor has its own `COMPOSE_PROJECT_NAME` (e.g. `po_obf`), prefixing its containers and volumes.
+* **Network & Port Isolation**: Each flavor defines its own network (`PRODUCT_OPENER_NETWORK`, e.g. `po_obf_network`) and maps to a distinct host port (e.g. 81 for OBF, 82 for OPF). Frontend network aliases are dynamically generated from `${PRODUCT_OPENER_DOMAIN}` to prevent DNS alias collisions.
+* **Datastore & Task Queue Isolation**:
+  * MongoDB uses flavor-specific databases (e.g. `obf`).
+  * PostgreSQL task queues use separate databases (`POSTGRES_DB=minion_obf`).
+  * Minion workers listen exclusively on flavor queues (`MINION_QUEUE=openbeautyfacts.localhost`).
+* **Shared Infrastructure**: On staging/production, common services (MongoDB, Redis) are accessed across instances over the external `off_shared_network`.
