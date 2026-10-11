@@ -3,6 +3,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
+         "ecobalyse_proxy_id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
+         "ecobalyse_proxy_name" : "Jus de pomme FR -2025-",
          "id" : "en:apple-juice",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -43,10 +45,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:apple-juice"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [

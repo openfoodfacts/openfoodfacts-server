@@ -1,0 +1,84 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "fr:Additifs",
+         "ingredients" : [
+            {
+               "id" : "en:e306",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 75,
+               "percent_max" : 100,
+               "percent_min" : 50,
+               "text" : "e306",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "Additifs"
+      },
+      {
+         "id" : "en:vitamin-c",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "quantity" : "100 mg",
+         "quantity_g" : 0.1,
+         "text" : "vitamine C",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:Additifs",
+      "en:vitamin-c",
+      "en:e306"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:Additifs",
+      "en:vitamin-c",
+      "en:vitamins",
+      "en:e306"
+   ],
+   "ingredients_text" : "Additifs (mg, kg) : E306, vitamine C : 100 mg",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e306",
+      "en:vitamin-c",
+      "fr:Additifs"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e306",
+      "en:vitamin-c",
+      "fr:Additifs"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 2,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 1
+}
