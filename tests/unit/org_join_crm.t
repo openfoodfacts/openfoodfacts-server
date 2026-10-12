@@ -10,8 +10,7 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 
 use ProductOpener::Users qw/store_user_preferences retrieve_user_preferences/;
-use ProductOpener::Orgs
-	qw/store_org retrieve_org add_user_to_org accept_pending_user_in_org is_user_in_org_group/;
+use ProductOpener::Orgs qw/store_org retrieve_org add_user_to_org accept_pending_user_in_org is_user_in_org_group/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
 # A user and an accepted organization that has a CRM company record. The CRM is not configured in
@@ -61,20 +60,14 @@ ok(
 );
 
 my $after_request = retrieve_user_preferences($user_id);
-ok(
-	not(exists $after_request->{crm_user_id}),
-	"asking to join an org does not write the requester into the org CRM"
-);
+ok(not(exists $after_request->{crm_user_id}), "asking to join an org does not write the requester into the org CRM");
 
 # Accepting the request syncs the CRM, so the guard does not disable the sync altogether
 
 accept_pending_user_in_org(retrieve_org($org_id), $user_id);
 
 ok(is_user_in_org_group($org_id, $user_id, "members"), "the user is a member once accepted");
-ok(
-	not(is_user_in_org_group($org_id, $user_id, "pending")),
-	"the user is no longer pending once accepted"
-);
+ok(not(is_user_in_org_group($org_id, $user_id, "pending")), "the user is no longer pending once accepted");
 
 my $after_accept = retrieve_user_preferences($user_id);
 ok(exists $after_accept->{crm_user_id}, "accepting a pending user still writes them to the CRM");
