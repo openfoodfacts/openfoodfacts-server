@@ -453,7 +453,7 @@ my %origins_regexps = ();
 
 sub init_origins_regexps() {
 
-	next if scalar keys %origins_regexps > 0;
+	return if scalar keys %origins_regexps > 0;
 
 	# Create a list of regexps with each synonyms of all ingredients processes
 	%origins_regexps = %{
@@ -1446,6 +1446,9 @@ Array of specific ingredients.
 =cut
 
 sub parse_origins_from_text ($product_ref, $text, $ingredients_lc) {
+
+	# The origin field is parsed before the ingredients list, so the regexps may not be built yet
+	init_origins_regexps();
 
 	# Normalize single quotes
 	$text =~ s/’/'/g;
