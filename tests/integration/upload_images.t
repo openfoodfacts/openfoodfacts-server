@@ -239,7 +239,7 @@ my $tests_ref = [
 			'Authorization' => 'Bearer 4711',
 		},
 		expected_status_code => 403,
-		expected_type => 'html'
+		# errors of API requests are returned in JSON
 	},
 ];
 
