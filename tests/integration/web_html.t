@@ -628,6 +628,16 @@ my $tests_ref = [
 		path => '/cgi/search.pl?action=process&search_terms=apple&axis_x=sugars&axis_y=fat&graph=1',
 		expected_type => 'html',
 	},
+	# search.pl scatter plot with the products of a brand highlighted
+	# (the brand name contains a quote, it needs to be escaped in the generated JavaScript)
+	{
+		test_case => 'world-search-scatter-plot-highlight-brand',
+		path =>
+			"/cgi/search.pl?action=process&search_terms=apple&axis_x=sugars&axis_y=fat&graph=1&series_brand=Bob%27s%20pies",
+		expected_type => 'none',
+		response_content_must_match =>
+			"name: \"[^\"<>]+ : \\d+ [^\"<>]*\",\\s*color: 'rgba\\(204, 0, 204, \\.9\\)',\\s*marker: \\{ symbol: 'diamond'",
+	},
 	# histogram on nutrition data
 	{
 		test_case => 'world-search-histogram-nutrition-sugars',
