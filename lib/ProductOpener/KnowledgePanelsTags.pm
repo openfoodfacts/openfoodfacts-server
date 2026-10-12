@@ -46,11 +46,15 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
-use ProductOpener::Tags qw(canonicalize_taxonomy_tag display_taxonomy_tag_name);
+use ProductOpener::Tags
+	qw(canonicalize_taxonomy_tag display_taxonomy_tag_name get_tag_with_parents get_tag_direct_children cmp_taxonomy_tags_alphabetically);
 use ProductOpener::Packaging qw(load_categories_packagings_materials_stats);
 use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
-use ProductOpener::Display qw/data_to_display_nutrition_table/;
+use ProductOpener::Display qw/data_to_display_nutrition_table generate_query_cache_key/;
+use ProductOpener::Data qw/can_use_off_query execute_aggregate_tags_query/;
+use ProductOpener::Cache qw/get_cache_results set_cache_results/;
+use ProductOpener::RequestStats qw/set_request_stats_time_start set_request_stats_time_end/;
 use ProductOpener::Lang qw/lang_in_other_lc/;
 
 use Encode;
@@ -83,7 +87,7 @@ Needed for some country specific panels like the Environmental-Score.
 Defines how some panels should be created (or not created)
 
 - deactivate_[panel_id] : do not create a default panel -- currently unimplemented
-- activate_[panel_id] : create an on demand panel -- currently only for physical_activities panel
+- activate_[panel_id] : create an on demand panel -- currently only for physical_activities and related_categories panels
 
 =head4 tag type $tagtype
 
@@ -119,6 +123,13 @@ sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref,
 			= create_category_packagings_materials_panel($tag_ref, $target_lc, $target_cc, $options_ref, $canon_tagid,
 			$request_ref);
 		push(@panels, $created) if $created;
+
+		if ($options_ref->{activate_knowledge_panel_related_categories}) {
+			$created
+				= create_category_related_categories_panel($tag_ref, $target_lc, $target_cc, $options_ref,
+				$canon_tagid, $request_ref);
+			push(@panels, $created) if $created;
+		}
 	}
 	if (@panels) {
 		my $panel_data_ref = {tags_panels => \@panels};
@@ -222,6 +233,92 @@ sub create_category_packagings_materials_panel ($tag_ref, $target_lc, $target_cc
 		if $log->is_debug();
 
 	return $created;
+}
+
+=head2 create_category_related_categories_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $category_id, $request_ref)
+
+Creates a panel listing the parents of the category, and its direct children with their number of products.
+
+The panel is not created if the category has neither parents nor children with products,
+or if the product counts could not be retrieved.
+
+=cut
+
+sub create_category_related_categories_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $category_id,
+	$request_ref)
+{
+
+	my @parents = get_tag_with_parents("categories", $category_id);
+	shift @parents;
+
+	my %children = map {$_ => 1} get_tag_direct_children("categories", $category_id);
+
+	my @children = ();
+	if (%children) {
+		my $counts_ref = get_children_product_counts($category_id, \%children, $request_ref);
+		if (not defined $counts_ref) {
+			return;
+		}
+		@children = map {{id => $_, count => $counts_ref->{$_}}} sort {
+			($counts_ref->{$b} <=> $counts_ref->{$a})
+				|| cmp_taxonomy_tags_alphabetically("categories", $target_lc, $a, $b)
+		} keys %{$counts_ref};
+	}
+
+	if (not(@parents or @children)) {
+		return;
+	}
+
+	create_panel_from_json_template("related_categories",
+		"api/knowledge-panels/tags/categories/related_categories.tt.json",
+		{parents => \@parents, children => \@children},
+		$tag_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return "related_categories";
+}
+
+sub get_children_product_counts ($category_id, $children_ref, $request_ref) {
+
+	my %match = (categories_tags => $category_id);
+	if ((defined $request_ref->{country}) and ($request_ref->{cc} ne 'world')) {
+		$match{countries_tags} = $request_ref->{country};
+	}
+
+	my $aggregate_parameters = [
+		{"\$match" => \%match},
+		{"\$unwind" => "\$categories_tags"},
+		{"\$group" => {"_id" => "\$categories_tags", "count" => {"\$sum" => 1}}}
+	];
+
+	my $key = generate_query_cache_key("related_categories", $aggregate_parameters, $request_ref);
+	my $data_debug = '';
+	my $counts_ref = get_cache_results($key, \$data_debug);
+	if (defined $counts_ref) {
+		return $counts_ref;
+	}
+
+	my $results;
+	if (can_use_off_query(\$data_debug)) {
+		set_request_stats_time_start($request_ref->{stats}, "off_query_related_categories");
+		$results = eval {execute_aggregate_tags_query($aggregate_parameters)};
+		set_request_stats_time_end($request_ref->{stats}, "off_query_related_categories");
+	}
+
+	if (ref($results) ne 'ARRAY') {
+		$log->warn("related categories: no aggregate results", {category_id => $category_id, error => $@})
+			if $log->is_warn();
+		return;
+	}
+
+	$counts_ref = select_children_counts($results, $children_ref);
+	set_cache_results($key, $counts_ref, \$data_debug);
+
+	return $counts_ref;
+}
+
+sub select_children_counts ($results_ref, $children_ref) {
+
+	return {map {$_->{_id} => $_->{count}} grep {$children_ref->{$_->{_id}}} @{$results_ref}};
 }
 
 1;

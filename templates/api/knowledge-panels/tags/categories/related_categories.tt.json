@@ -1,0 +1,73 @@
+{
+    "level" :"info",
+    "topics": [
+        "categories"
+    ],
+    "title_element": {
+        "title": "[% edq(lang('related_categories')) %]",
+    },
+    "expanded": true,
+    "elements": [
+        [% IF panel.parents.size %]
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "related_categories_parents",
+                "title": "[% edq(lang('tag_belongs_to')) %]",
+                "columns": [
+                    {
+                        "text": "[% edq(lang('categories')) %]",
+                        "type": "text",
+                    },
+                ],
+                "rows": [
+                    [% FOREACH parent IN panel.parents %]
+                    {
+                        "values": [
+                            {
+                                "text": "[% edq(display_taxonomy_tag_name('categories', parent)) %]",
+                                "url": "[% formatted_subdomain %][% canonicalize_taxonomy_tag_link('categories', parent) %]"
+                            },
+                        ]
+                    },
+                    [% END %]
+                ]
+            }
+        },
+        [% END %]
+        [% IF panel.children.size %]
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "related_categories_children",
+                "title": "[% edq(lang('tag_contains')) %]",
+                "columns": [
+                    {
+                        "text": "[% edq(lang('categories')) %]",
+                        "type": "text",
+                    },
+                    {
+                        "text": "[% edq(lang('number_of_products')) %]",
+                        "type": "text",
+                    },
+                ],
+                "rows": [
+                    [% FOREACH child IN panel.children %]
+                    {
+                        "values": [
+                            {
+                                "text": "[% edq(display_taxonomy_tag_name('categories', child.id)) %]",
+                                "url": "[% formatted_subdomain %][% canonicalize_taxonomy_tag_link('categories', child.id) %]"
+                            },
+                            {
+                                "text": "[% child.count %]"
+                            },
+                        ]
+                    },
+                    [% END %]
+                ]
+            }
+        },
+        [% END %]
+    ]
+}
