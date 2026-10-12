@@ -349,32 +349,17 @@ en:bay-leaf	ecobalyse_origins_en_france_scenario:en	reference
 en:bay-leaf	ecobalyse_origins_en_france_name:fr	Feuilles de laurier FR
 en:bay-leaf	ecobalyse_origins_en_france_alias:en	bay-leaf-fr
 en:bay-leaf	ecobalyse_origins_en_france_default_origin:en	FR
-en:bean	ecobalyse_density_g_per_ml:en	0.8
-en:bean	ecobalyse_crop_group:en	LEGUMINEUSES A GRAIN
-en:bean	ecobalyse_raw_to_cooked_ratio:en	0.856
-en:bean	ecobalyse_inedible_part:en	0.2
-en:bean	ecobalyse_transport_cooling:en	always
-en:bean	ecobalyse_category:en	fruits_and_vegetables
-en:bean	ecobalyse_id:en	ec4b37fd-34ee-54d7-9283-02344bd529ba
+en:bean	ecobalyse_density_g_per_ml:en	1
+en:bean	ecobalyse_crop_group:en	LEGUMES-FLEURS
+en:bean	ecobalyse_raw_to_cooked_ratio:en	1
+en:bean	ecobalyse_inedible_part:en	0
+en:bean	ecobalyse_transport_cooling:en	none
+en:bean	ecobalyse_category:en	other_food_items
+en:bean	ecobalyse_id:en	882c0d42-7f99-4ff5-ae5f-85277082e5f7
 en:bean	ecobalyse_scenario:en	import
-en:bean	ecobalyse_name:fr	Haricots blancs séchés Origine Inconnue
-en:bean	ecobalyse_alias:en	white-bean-dried-default
+en:bean	ecobalyse_name:fr	Haricot blanc, appertisé, égoutté Origine Inconnue
+en:bean	ecobalyse_alias:en	white-bean-canned-drained-default
 en:bean	ecobalyse_default_origin:en	
-en:bean	ecobalyse_origins_en_europe_and_maghreb_id:en	64c9962d-8250-50a5-86d2-9c0379220645
-en:bean	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
-en:bean	ecobalyse_origins_en_europe_and_maghreb_name:fr	Haricots rouges UE
-en:bean	ecobalyse_origins_en_europe_and_maghreb_alias:en	red-bean-dried-eu
-en:bean	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
-en:bean	ecobalyse_labels_en_organic_origins_en_france_id:en	ac918e69-cf8d-590e-bbe0-69e9cd9abc39
-en:bean	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
-en:bean	ecobalyse_labels_en_organic_origins_en_france_name:fr	Haricots rouges Bio
-en:bean	ecobalyse_labels_en_organic_origins_en_france_alias:en	red-bean-dried-organic
-en:bean	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
-en:bean	ecobalyse_origins_en_france_id:en	04d08216-6cc1-532c-86a8-3c17f94a6db5
-en:bean	ecobalyse_origins_en_france_scenario:en	reference
-en:bean	ecobalyse_origins_en_france_name:fr	Haricots rouges FR
-en:bean	ecobalyse_origins_en_france_alias:en	red-bean-dried-fr
-en:bean	ecobalyse_origins_en_france_default_origin:en	FR
 en:beans	ecobalyse_density_g_per_ml:en	0.72
 en:beans	ecobalyse_crop_group:en	AUTRES CEREALES
 en:beans	ecobalyse_raw_to_cooked_ratio:en	2.259
@@ -1126,31 +1111,26 @@ en:chicken-breast	ecobalyse_origins_en_france_scenario:en	reference
 en:chicken-breast	ecobalyse_origins_en_france_name:fr	Blanc de poulet cru FR
 en:chicken-breast	ecobalyse_origins_en_france_alias:en	chicken-breast
 en:chicken-breast	ecobalyse_origins_en_france_default_origin:en	FR
-en:chickpea	ecobalyse_density_g_per_ml:en	0.8
+en:chickpea	ecobalyse_density_g_per_ml:en	0.72
 en:chickpea	ecobalyse_crop_group:en	LEGUMINEUSES A GRAIN
-en:chickpea	ecobalyse_raw_to_cooked_ratio:en	0.856
+en:chickpea	ecobalyse_raw_to_cooked_ratio:en	2.33
 en:chickpea	ecobalyse_inedible_part:en	0.2
 en:chickpea	ecobalyse_transport_cooling:en	always
-en:chickpea	ecobalyse_category:en	fruits_and_vegetables
-en:chickpea	ecobalyse_id:en	5c830f3e-2467-58b4-b9cc-c5ce6eedf306
+en:chickpea	ecobalyse_category:en	legumes
+en:chickpea	ecobalyse_id:en	227914fd-5cf5-4c05-958f-ac4321e6c557
 en:chickpea	ecobalyse_scenario:en	import
-en:chickpea	ecobalyse_name:fr	Pois chiches HORS UE
-en:chickpea	ecobalyse_alias:en	chickpea-dried-non-eu
+en:chickpea	ecobalyse_name:fr	Pois chiche par défaut (2025)
+en:chickpea	ecobalyse_alias:en	chickpea-non-eu-2025
 en:chickpea	ecobalyse_default_origin:en	
-en:chickpea	ecobalyse_origins_en_europe_and_maghreb_id:en	c141b0e1-8755-5de3-91cd-44a45f00a7d1
-en:chickpea	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
-en:chickpea	ecobalyse_origins_en_europe_and_maghreb_name:fr	Pois chiches UE
-en:chickpea	ecobalyse_origins_en_europe_and_maghreb_alias:en	chickpea-dried-eu
-en:chickpea	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
-en:chickpea	ecobalyse_labels_en_organic_origins_en_france_id:en	afb6d3fe-f3ef-515f-b1c0-e6480c420bad
+en:chickpea	ecobalyse_labels_en_organic_origins_en_france_id:en	20aea108-cab8-4223-b8b7-4747599e228c
 en:chickpea	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
-en:chickpea	ecobalyse_labels_en_organic_origins_en_france_name:fr	Pois chiches Bio
-en:chickpea	ecobalyse_labels_en_organic_origins_en_france_alias:en	chickpea-dried-organic
+en:chickpea	ecobalyse_labels_en_organic_origins_en_france_name:fr	Pois chiche Bio (2025)
+en:chickpea	ecobalyse_labels_en_organic_origins_en_france_alias:en	chickpea-organic-2025
 en:chickpea	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
-en:chickpea	ecobalyse_origins_en_france_id:en	e1abc8f3-a037-53c1-8c1f-cc0cb45c098a
+en:chickpea	ecobalyse_origins_en_france_id:en	89035410-466b-4c9d-8726-98f0928b664b
 en:chickpea	ecobalyse_origins_en_france_scenario:en	reference
-en:chickpea	ecobalyse_origins_en_france_name:fr	Pois chiches FR
-en:chickpea	ecobalyse_origins_en_france_alias:en	chickpea-dried-fr
+en:chickpea	ecobalyse_origins_en_france_name:fr	Pois chiche FR (2025)
+en:chickpea	ecobalyse_origins_en_france_alias:en	chickpea-fr-2025
 en:chickpea	ecobalyse_origins_en_france_default_origin:en	FR
 en:chicory-root	ecobalyse_density_g_per_ml:en	0.9
 en:chicory-root	ecobalyse_crop_group:en	AUTRES CULTURES INDUSTRIELLES
@@ -1615,6 +1595,48 @@ en:date	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:date	ecobalyse_labels_en_organic_origins_en_france_name:fr	Dattes Bio
 en:date	ecobalyse_labels_en_organic_origins_en_france_alias:en	date-organic
 en:date	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:dehydrated-onion	ecobalyse_density_g_per_ml:en	0.6195
+en:dehydrated-onion	ecobalyse_crop_group:en	LEGUMES-FLEURS
+en:dehydrated-onion	ecobalyse_raw_to_cooked_ratio:en	1
+en:dehydrated-onion	ecobalyse_inedible_part:en	0
+en:dehydrated-onion	ecobalyse_transport_cooling:en	none
+en:dehydrated-onion	ecobalyse_category:en	other_food_items
+en:dehydrated-onion	ecobalyse_proxy_id:en	0a2edda7-2158-4206-8d8c-2151fc925215
+en:dehydrated-onion	ecobalyse_proxy_scenario:en	reference
+en:dehydrated-onion	ecobalyse_proxy_name:fr	Oignons déshydratés par défaut (2025)
+en:dehydrated-onion	ecobalyse_proxy_alias:en	onion-dried-2025
+en:dehydrated-onion	ecobalyse_proxy_default_origin:en	FR
+en:dehydrated-onion	ecobalyse_origins_en_france_id:en	0a2edda7-2158-4206-8d8c-2151fc925215
+en:dehydrated-onion	ecobalyse_origins_en_france_scenario:en	reference
+en:dehydrated-onion	ecobalyse_origins_en_france_name:fr	Oignons déshydratés par défaut (2025)
+en:dehydrated-onion	ecobalyse_origins_en_france_alias:en	onion-dried-2025
+en:dehydrated-onion	ecobalyse_origins_en_france_default_origin:en	FR
+en:dried-chickpea	ecobalyse_density_g_per_ml:en	0.8
+en:dried-chickpea	ecobalyse_crop_group:en	LEGUMINEUSES A GRAIN
+en:dried-chickpea	ecobalyse_raw_to_cooked_ratio:en	0.856
+en:dried-chickpea	ecobalyse_inedible_part:en	0.2
+en:dried-chickpea	ecobalyse_transport_cooling:en	always
+en:dried-chickpea	ecobalyse_category:en	fruits_and_vegetables
+en:dried-chickpea	ecobalyse_id:en	5c830f3e-2467-58b4-b9cc-c5ce6eedf306
+en:dried-chickpea	ecobalyse_scenario:en	import
+en:dried-chickpea	ecobalyse_name:fr	Pois chiches HORS UE
+en:dried-chickpea	ecobalyse_alias:en	chickpea-dried-non-eu
+en:dried-chickpea	ecobalyse_default_origin:en	
+en:dried-chickpea	ecobalyse_origins_en_europe_and_maghreb_id:en	c141b0e1-8755-5de3-91cd-44a45f00a7d1
+en:dried-chickpea	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:dried-chickpea	ecobalyse_origins_en_europe_and_maghreb_name:fr	Pois chiches UE
+en:dried-chickpea	ecobalyse_origins_en_europe_and_maghreb_alias:en	chickpea-dried-eu
+en:dried-chickpea	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:dried-chickpea	ecobalyse_labels_en_organic_origins_en_france_id:en	afb6d3fe-f3ef-515f-b1c0-e6480c420bad
+en:dried-chickpea	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:dried-chickpea	ecobalyse_labels_en_organic_origins_en_france_name:fr	Pois chiches Bio
+en:dried-chickpea	ecobalyse_labels_en_organic_origins_en_france_alias:en	chickpea-dried-organic
+en:dried-chickpea	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:dried-chickpea	ecobalyse_origins_en_france_id:en	e1abc8f3-a037-53c1-8c1f-cc0cb45c098a
+en:dried-chickpea	ecobalyse_origins_en_france_scenario:en	reference
+en:dried-chickpea	ecobalyse_origins_en_france_name:fr	Pois chiches FR
+en:dried-chickpea	ecobalyse_origins_en_france_alias:en	chickpea-dried-fr
+en:dried-chickpea	ecobalyse_origins_en_france_default_origin:en	FR
 en:durum-wheat	ecobalyse_density_g_per_ml:en	0.77
 en:durum-wheat	ecobalyse_crop_group:en	AUTRES CEREALES
 en:durum-wheat	ecobalyse_raw_to_cooked_ratio:en	2.259
@@ -5337,22 +5359,6 @@ en:yogurt	ecobalyse_origins_en_france_scenario:en	reference
 en:yogurt	ecobalyse_origins_en_france_name:fr	Fromage blanc FR (2025)
 en:yogurt	ecobalyse_origins_en_france_alias:en	yogurt-2025
 en:yogurt	ecobalyse_origins_en_france_default_origin:en	FR
-tea	ecobalyse_density_g_per_ml:en	0.9
-tea	ecobalyse_crop_group:en	DIVERS
-tea	ecobalyse_raw_to_cooked_ratio:en	1
-tea	ecobalyse_inedible_part:en	0
-tea	ecobalyse_transport_cooling:en	none
-tea	ecobalyse_category:en	other_food_items
-tea	ecobalyse_id:en	b767e665-ad96-5200-ad67-11ac66e81559
-tea	ecobalyse_scenario:en	import
-tea	ecobalyse_name:fr	Thé, feuilles séchées HORS UE
-tea	ecobalyse_alias:en	tea-dried-non-eu
-tea	ecobalyse_default_origin:en	
-tea	ecobalyse_origins_en_europe_and_maghreb_id:en	97f56acd-962e-4a4b-af42-1e468d2017a0
-tea	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
-tea	ecobalyse_origins_en_europe_and_maghreb_name:fr	Thé (feuilles) UE (2025)
-tea	ecobalyse_origins_en_europe_and_maghreb_alias:en	tea-dried-2025
-tea	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
 en:beef-meat	ecobalyse_proxy_density_g_per_ml:en	1
 en:beef-meat	ecobalyse_proxy_raw_to_cooked_ratio:en	0.792
 en:beef-meat	ecobalyse_proxy_inedible_part:en	0
@@ -5393,6 +5399,27 @@ en:butterfat	ecobalyse_proxy_origins_en_france_scenario:en	reference
 en:butterfat	ecobalyse_proxy_origins_en_france_name:fr	Beurre FR (2025)
 en:butterfat	ecobalyse_proxy_origins_en_france_alias:en	butter-2025
 en:butterfat	ecobalyse_proxy_origins_en_france_default_origin:en	FR
+en:chia-seed	ecobalyse_proxy_density_g_per_ml:en	0.9
+en:chia-seed	ecobalyse_proxy_crop_group:en	SEMENCES
+en:chia-seed	ecobalyse_proxy_raw_to_cooked_ratio:en	0.856
+en:chia-seed	ecobalyse_proxy_inedible_part:en	0.2
+en:chia-seed	ecobalyse_proxy_transport_cooling:en	none
+en:chia-seed	ecobalyse_proxy_category:en	other_food_items
+en:chia-seed	ecobalyse_proxy_id:en	f78baa5c-880f-5570-8c0e-e81a9174dd92
+en:chia-seed	ecobalyse_proxy_scenario:en	import
+en:chia-seed	ecobalyse_proxy_name:fr	Graines de chia HORS UE
+en:chia-seed	ecobalyse_proxy_alias:en	chia-seed-dried-non-eu
+en:chia-seed	ecobalyse_proxy_default_origin:en	
+en:chia-seed	ecobalyse_proxy_labels_en_organic_origins_en_france_id:en	0a20bd7e-4da7-5155-bdba-322a33b92920
+en:chia-seed	ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en	organic
+en:chia-seed	ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr	Graines de chia Bio
+en:chia-seed	ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en	chia-seed-dried-organic
+en:chia-seed	ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en	FR
+en:chia-seed	ecobalyse_proxy_origins_en_france_id:en	b0428172-de77-5feb-a486-187a9f8a96c6
+en:chia-seed	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:chia-seed	ecobalyse_proxy_origins_en_france_name:fr	Graines de chia FR
+en:chia-seed	ecobalyse_proxy_origins_en_france_alias:en	chia-seed-dried-fr
+en:chia-seed	ecobalyse_proxy_origins_en_france_default_origin:en	FR
 en:chicken	ecobalyse_proxy_density_g_per_ml:en	1
 en:chicken	ecobalyse_proxy_raw_to_cooked_ratio:en	0.755
 en:chicken	ecobalyse_proxy_inedible_part:en	0
@@ -5508,6 +5535,27 @@ en:fish	ecobalyse_proxy_origins_en_france_scenario:en	import
 en:fish	ecobalyse_proxy_origins_en_france_name:fr	Poissons ingrédients secondaires FR
 en:fish	ecobalyse_proxy_origins_en_france_alias:en	fish-secondary-ingredient-fr
 en:fish	ecobalyse_proxy_origins_en_france_default_origin:en	FR
+en:flour	ecobalyse_proxy_density_g_per_ml:en	1
+en:flour	ecobalyse_proxy_crop_group:en	BLE TENDRE
+en:flour	ecobalyse_proxy_raw_to_cooked_ratio:en	1
+en:flour	ecobalyse_proxy_inedible_part:en	0
+en:flour	ecobalyse_proxy_transport_cooling:en	none
+en:flour	ecobalyse_proxy_category:en	other_food_items
+en:flour	ecobalyse_proxy_id:en	a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+en:flour	ecobalyse_proxy_scenario:en	import
+en:flour	ecobalyse_proxy_name:fr	Farine UE (2025)
+en:flour	ecobalyse_proxy_alias:en	flour-2025
+en:flour	ecobalyse_proxy_default_origin:en	REM
+en:flour	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+en:flour	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
+en:flour	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Farine UE (2025)
+en:flour	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	flour-2025
+en:flour	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
+en:flour	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_id:en	db791ac8-02b9-41b0-bc2b-2913e745bd19
+en:flour	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:en	organic
+en:flour	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr	Farine Bio (2025)
+en:flour	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en	flour-organic-2025
+en:flour	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en	REM
 en:cream	ecobalyse_proxy_density_g_per_ml:en	1
 en:cream	ecobalyse_proxy_raw_to_cooked_ratio:en	1
 en:cream	ecobalyse_proxy_inedible_part:en	0
@@ -5713,6 +5761,32 @@ en:oil	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:
 en:oil	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr	Huile de colza Bio (2025)
 en:oil	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en	rapeseed-oil-organic-2025
 en:oil	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en	REM
+en:red-bean	ecobalyse_proxy_density_g_per_ml:en	0.8
+en:red-bean	ecobalyse_proxy_crop_group:en	LEGUMINEUSES A GRAIN
+en:red-bean	ecobalyse_proxy_raw_to_cooked_ratio:en	0.856
+en:red-bean	ecobalyse_proxy_inedible_part:en	0.2
+en:red-bean	ecobalyse_proxy_transport_cooling:en	always
+en:red-bean	ecobalyse_proxy_category:en	fruits_and_vegetables
+en:red-bean	ecobalyse_proxy_id:en	bc2fea1a-3dc9-515b-b744-7af4222e448f
+en:red-bean	ecobalyse_proxy_scenario:en	import
+en:red-bean	ecobalyse_proxy_name:fr	Haricots rouges HORS UE
+en:red-bean	ecobalyse_proxy_alias:en	red-bean-dried-non-eu
+en:red-bean	ecobalyse_proxy_default_origin:en	
+en:red-bean	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	64c9962d-8250-50a5-86d2-9c0379220645
+en:red-bean	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
+en:red-bean	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Haricots rouges UE
+en:red-bean	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	red-bean-dried-eu
+en:red-bean	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
+en:red-bean	ecobalyse_proxy_labels_en_organic_origins_en_france_id:en	ac918e69-cf8d-590e-bbe0-69e9cd9abc39
+en:red-bean	ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en	organic
+en:red-bean	ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr	Haricots rouges Bio
+en:red-bean	ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en	red-bean-dried-organic
+en:red-bean	ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en	FR
+en:red-bean	ecobalyse_proxy_origins_en_france_id:en	04d08216-6cc1-532c-86a8-3c17f94a6db5
+en:red-bean	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:red-bean	ecobalyse_proxy_origins_en_france_name:fr	Haricots rouges FR
+en:red-bean	ecobalyse_proxy_origins_en_france_alias:en	red-bean-dried-fr
+en:red-bean	ecobalyse_proxy_origins_en_france_default_origin:en	FR
 en:palm-oil	ecobalyse_proxy_density_g_per_ml:en	1
 en:palm-oil	ecobalyse_proxy_crop_group:en	AUTRES CULTURES INDUSTRIELLES
 en:palm-oil	ecobalyse_proxy_raw_to_cooked_ratio:en	1
@@ -5834,6 +5908,22 @@ en:soya	ecobalyse_proxy_origins_en_france_scenario:en	reference
 en:soya	ecobalyse_proxy_origins_en_france_name:fr	Soja FR
 en:soya	ecobalyse_proxy_origins_en_france_alias:en	soybean-fr
 en:soya	ecobalyse_proxy_origins_en_france_default_origin:en	FR
+en:tea	ecobalyse_proxy_density_g_per_ml:en	0.9
+en:tea	ecobalyse_proxy_crop_group:en	DIVERS
+en:tea	ecobalyse_proxy_raw_to_cooked_ratio:en	1
+en:tea	ecobalyse_proxy_inedible_part:en	0
+en:tea	ecobalyse_proxy_transport_cooling:en	none
+en:tea	ecobalyse_proxy_category:en	other_food_items
+en:tea	ecobalyse_proxy_id:en	b767e665-ad96-5200-ad67-11ac66e81559
+en:tea	ecobalyse_proxy_scenario:en	import
+en:tea	ecobalyse_proxy_name:fr	Thé, feuilles séchées HORS UE
+en:tea	ecobalyse_proxy_alias:en	tea-dried-non-eu
+en:tea	ecobalyse_proxy_default_origin:en	
+en:tea	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	97f56acd-962e-4a4b-af42-1e468d2017a0
+en:tea	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
+en:tea	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Thé (feuilles) UE (2025)
+en:tea	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	tea-dried-2025
+en:tea	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
 en:coconut-oil	ecobalyse_proxy_density_g_per_ml:en	1
 en:coconut-oil	ecobalyse_proxy_crop_group:en	TOURNESOL
 en:coconut-oil	ecobalyse_proxy_raw_to_cooked_ratio:en	1
@@ -5866,3 +5956,29 @@ en:vinegar	ecobalyse_proxy_origins_en_france_scenario:en	reference
 en:vinegar	ecobalyse_proxy_origins_en_france_name:fr	Vinaigre d'alcool FR (2025)
 en:vinegar	ecobalyse_proxy_origins_en_france_alias:en	vinegar-alcohol-2025
 en:vinegar	ecobalyse_proxy_origins_en_france_default_origin:en	FR
+en:white-beans	ecobalyse_proxy_density_g_per_ml:en	0.8
+en:white-beans	ecobalyse_proxy_crop_group:en	LEGUMINEUSES A GRAIN
+en:white-beans	ecobalyse_proxy_raw_to_cooked_ratio:en	0.856
+en:white-beans	ecobalyse_proxy_inedible_part:en	0.2
+en:white-beans	ecobalyse_proxy_transport_cooling:en	always
+en:white-beans	ecobalyse_proxy_category:en	fruits_and_vegetables
+en:white-beans	ecobalyse_proxy_id:en	ec4b37fd-34ee-54d7-9283-02344bd529ba
+en:white-beans	ecobalyse_proxy_scenario:en	import
+en:white-beans	ecobalyse_proxy_name:fr	Haricots blancs séchés Origine Inconnue
+en:white-beans	ecobalyse_proxy_alias:en	white-bean-dried-default
+en:white-beans	ecobalyse_proxy_default_origin:en	
+en:white-beans	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	6fb8faac-9315-5292-8ec0-4cc570b980a9
+en:white-beans	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
+en:white-beans	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Haricots blancs séchés UE
+en:white-beans	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	white-bean-dried-eu
+en:white-beans	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
+en:white-beans	ecobalyse_proxy_labels_en_organic_origins_en_france_id:en	39e00dfd-bde5-59c9-a2d0-21531ead2035
+en:white-beans	ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en	organic
+en:white-beans	ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr	Haricots blancs séchés Bio
+en:white-beans	ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en	white-bean-dried-organic
+en:white-beans	ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en	FR
+en:white-beans	ecobalyse_proxy_origins_en_france_id:en	4aec2ecb-6f87-5501-a22a-a06ab4842fca
+en:white-beans	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:white-beans	ecobalyse_proxy_origins_en_france_name:fr	Haricots blancs séchés FR
+en:white-beans	ecobalyse_proxy_origins_en_france_alias:en	white-bean-dried-fr
+en:white-beans	ecobalyse_proxy_origins_en_france_default_origin:en	FR
