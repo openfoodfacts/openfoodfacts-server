@@ -123,8 +123,11 @@ is(
 	"children names, tie sorted by name; non children and the category itself are not listed"
 ) or diag Dumper \@children_rows;
 like($children_rows[0]{values}[0]{url}, qr{/facets/categories/Mueslis$}, "child links to its page");
-like($tables_ref->[0]{table_element}{rows}[0]{values}[0]{url}, qr{/facets/categories/Breakfasts$},
-	"parent links to its page");
+like(
+	$tables_ref->[0]{table_element}{rows}[0]{values}[0]{url},
+	qr{/facets/categories/Breakfasts$},
+	"parent links to its page"
+);
 
 # tie sorted by localized name, not by id: in French "Céréales soufflées" (en:puffed-cereals) comes before "Porridge"
 reset_state();
@@ -159,7 +162,12 @@ is(scalar @queries, 0, "unknown category - no query");
 foreach my $failure (
 	["query unavailable", sub {$can_use_off_query = 0}],
 	["no response", sub {$aggregate_response = undef}],
-	["invalid response", sub {$aggregate_response = sub {die "malformed JSON"}}],
+	[
+		"invalid response",
+		sub {
+			$aggregate_response = sub {die "malformed JSON"}
+		}
+	],
 	)
 {
 	reset_state();

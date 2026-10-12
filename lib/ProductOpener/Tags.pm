@@ -2981,7 +2981,8 @@ Given a canonical tagid, return the list of its direct children, in alphabetical
 
 sub get_tag_direct_children ($tagtype, $tagid) {
 
-	return sort keys %{$direct_children{$tagtype}{$tagid} // {}};
+	my @children = sort keys %{$direct_children{$tagtype}{$tagid} // {}};
+	return @children;
 }
 
 sub gen_ingredients_tags_hierarchy_taxonomy ($tag_lc, $tags_list) {

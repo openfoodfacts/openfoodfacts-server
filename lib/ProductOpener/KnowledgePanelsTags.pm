@@ -269,10 +269,12 @@ sub create_category_related_categories_panel ($tag_ref, $target_lc, $target_cc, 
 		return;
 	}
 
-	create_panel_from_json_template("related_categories",
+	create_panel_from_json_template(
+		"related_categories",
 		"api/knowledge-panels/tags/categories/related_categories.tt.json",
 		{parents => \@parents, children => \@children},
-		$tag_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		$tag_ref, $target_lc, $target_cc, $options_ref, $request_ref
+	);
 
 	return "related_categories";
 }
