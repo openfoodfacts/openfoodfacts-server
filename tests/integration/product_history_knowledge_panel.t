@@ -19,7 +19,8 @@ remove_all_users();
 my $ua = new_client();
 create_user($ua, \%default_user_form);
 
-my $code = '200000000101';
+# 13 digits barcode, so that it is not normalized in urls
+my $code = '2000000000101';
 
 # Create a product, then edit it twice
 edit_product(
