@@ -453,6 +453,7 @@ Unit to get symbol of.
 =head3 Return values
 
 The symbol used to represent the given unit.
+Returns undef if the unit isn’t recognised.
 
 =cut
 
@@ -461,13 +462,17 @@ sub get_unit_symbol ($unit) {
 		# search in the map of all synonyms in all languages ($units_names)
 		$unit = lc($unit);
 		my $unit_id = $units_names{$unit};    # $unit_id can be undefined
-		if (defined $unit_id && defined $units{$unit_id}{symbol}) {
-			return $units{$unit_id}{symbol};
+		if (defined $unit_id) {
+			if (defined $units{$unit_id}{symbol}) {
+				return $units{$unit_id}{symbol};
+			}
+			else {
+				# if no symbol is specifically defined, return the first language agnostic synonym
+				return display_taxonomy_tag('xx', 'units', $unit_id);
+			}
 		}
-		# if no symbol is specifically defined, return the first language agnostic synonym
-		return display_taxonomy_tag('xx', 'units', $unit);
 	}
-	return;
+	return undef;
 }
 
 init_units_names();
