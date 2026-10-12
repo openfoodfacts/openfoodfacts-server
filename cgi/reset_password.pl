@@ -189,6 +189,9 @@ else {
 
 					store_user($user_ref);
 
+					# A session obtained with the old password must not authenticate any more
+					remove_all_user_sessions($userid);
+
 				}
 				else {
 					$log->debug("token is invalid", {userid => $userid}) if $log->is_debug();
