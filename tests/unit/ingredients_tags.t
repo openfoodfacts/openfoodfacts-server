@@ -173,7 +173,7 @@ my @tests = (
 			ingredients_text =>
 				"Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"
 		},
-		["en:water", "en:e290", "en:e951", "en:e950"],
+		["en:water", "en:carbonic-acid", "en:e951", "en:e950"],
 	],
 	[{lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, ["en:e951", "en:e950"],],
 	[
@@ -181,7 +181,7 @@ my @tests = (
 		["en:e162", "en:e160c", "en:e100"],
 	],
 
-	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
+	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:fat", "en:colza-oil"]],
 
 	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
 	[
@@ -300,7 +300,7 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)"
 		},
-		['en:non-hydrogenated-vegetable-oils', 'en:palm-oil', 'en:colza-oil']
+		['en:oil', 'en:palm-oil', 'en:colza-oil']
 	],
 	[{lc => "fr", ingredients_text => "huile de palme certifiée durable"}, ['en:palm-oil']],
 	[{lc => "fr", ingredients_text => "huile de palme RSPO"}, ['en:palm-oil']],
@@ -323,6 +323,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "Ingrédient inconnu et sel"}, ["fr:Ingrédient inconnu", "en:salt"],],
 	[{lc => "fr", ingredients_text => "Sel et ingrédient inconnu"}, ["en:salt", "fr:ingrédient inconnu"],],
 	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown fruit"],],
+	[{lc => "en", ingredients_text => "colour (Natural Red 4, mg/kg 1b306(i))"}, ["en:e120", "en:mg/kg 1b306"],],
 
 );
 

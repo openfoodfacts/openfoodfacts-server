@@ -31,15 +31,72 @@
       "en:crisps",
       "en:parsnip-crisps"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Panais Origine Inconnue",
+               "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
+               "mass" : 70,
+               "name" : "parsnip"
+            },
+            {
+               "ecobalyse_name" : "Betterave Origine Inconnue",
+               "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
+               "mass" : 30,
+               "name" : "red beet"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "en:appetizers",
+               "id" : "f755207c-ed56-4666-9b0e-4f2c515f7f18",
+               "name" : "Starters, Exotic products, 280g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+               "name_fr" : "Barquette en plastique (PET) pour entrées, produits exotiques - 280g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
+                  "mass" : 70
+               },
+               {
+                  "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
+                  "mass" : 30
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "f755207c-ed56-4666-9b0e-4f2c515f7f18"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:appetizers",
    "food_groups_tags" : [
       "en:salty-snacks",
       "en:appetizers"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "ingredients" : [
       {
          "ciqual_food_code" : "20181",
+         "ecobalyse_id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
+         "ecobalyse_name" : "Panais Origine Inconnue",
          "id" : "en:parsnip",
          "is_in_taxonomy" : 1,
          "percent" : 70,
@@ -52,7 +109,8 @@
       },
       {
          "ciqual_food_code" : "20091",
-         "ecobalyse_code" : "beetroot-fr",
+         "ecobalyse_id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
+         "ecobalyse_name" : "Betterave Origine Inconnue",
          "id" : "en:red-beetroot",
          "is_in_taxonomy" : 1,
          "percent" : 30,
@@ -98,10 +156,8 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:parsnip"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 2,
    "lc" : "en",
    "minerals_tags" : [],
@@ -118,6 +174,8 @@
       "en:nutrition-fruits-vegetables-legumes-from-category-en-parsnip-crisps",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
    ],
    "nova_group" : 3,

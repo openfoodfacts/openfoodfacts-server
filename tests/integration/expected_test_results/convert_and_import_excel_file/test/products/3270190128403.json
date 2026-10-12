@@ -181,6 +181,45 @@
       "emb-43062a"
    ],
    "entry_dates_tags" : "--ignore--",
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Lentille Origine Inconnue",
+               "id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd",
+               "mass" : 100.0,
+               "name" : "Lentilles vertes"
+            }
+         ],
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "79d05fb1-d000-41f4-850b-54afd8d2dc9c",
+               "name" : "Other desserts - cat C, 285g | Packaging System, N0, All, Cardboard box {FR} U",
+               "name_fr" : "Boîte en carton, barquette aluminium, sachet plastique (PEBD) pour gâteau - 330g"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd",
+                  "mass" : 100.0
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "79d05fb1-d000-41f4-850b-54afd8d2dc9c"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -586,6 +625,12 @@
       "en:fruits-and-vegetables",
       "en:vegetables"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "generic_name" : "Lentilles",
    "generic_name_fr" : "Lentilles",
    "generic_name_fr_imported" : "Lentilles",
@@ -646,7 +691,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "20504",
-         "ecobalyse_code" : "lentils-uncooked-eu",
+         "ecobalyse_id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd",
+         "ecobalyse_name" : "Lentille Origine Inconnue",
          "id" : "en:green-lentils",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -749,6 +795,8 @@
       "en:environmental-score-grade-changed",
       "en:environmental-score-score-above-100",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:ingredients-contain-rare-crops",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fat",

@@ -611,4 +611,28 @@ is([get_tag_with_parents("test", "fr:yaourts-au-citron-alleges")],
 
 is([get_tag_with_parents("test", "en:z-yogurts")], ["en:z-yogurts", "en:yogurts", "en:z"]);
 
+# A code and a name must agree. A more specific code may refine a known parent
+# (retinyl acetate is vitamin A), as E150c already refines caramel.
+foreach my $test (
+	['3b103 sulfate de fer', 'en:ferrous-sulfate', 1],
+	['sulfate de fer 3b103', 'en:ferrous-sulfate', 1],
+	['3b103 fer', 'en:ferrous-sulfate', 1],
+	['3a672a vitamine A', 'en:retinyl-acetate', 1],
+	['vitamine E 3a700', 'en:dl-alpha-tocopheryl-acetate', 1],
+	['3b405 sulfate de cuivre', 'en:e519', 1],
+	['e330 acide citrique', 'en:e330', 1],
+	['caramel e150c', 'en:e150c', 1],
+	['e e110', 'en:e110', 1],
+	['e330 sel', 'fr:e330 sel', 0],
+	['3b103 sel', 'fr:3b103 sel', 0],
+	['3b999 sulfate de fer', 'fr:3b999 sulfate de fer', 0],
+	['3a700i vitamine E', 'en:dl-alpha-tocopheryl-acetate', 1],
+	)
+{
+	my ($text, $expected, $known) = @$test;
+	my $exists;
+	my $id = canonicalize_taxonomy_tag('fr', 'ingredients', $text, \$exists);
+	is([$id, $exists], [$expected, $known], "code and name consistency: $text");
+}
+
 done_testing();
