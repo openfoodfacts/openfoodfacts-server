@@ -1836,13 +1836,43 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 	my @states_tags = ();
 
 	# Images
+	my $uploaded_images_n
+		= defined $current_ref->{uploaded_images} ? scalar keys %{$current_ref->{uploaded_images}} : 0;
+
+	# Add misc tags for ranges of uploaded images. Unlike states tags, misc tags are
+	# searchable but are not displayed in the product page footer.
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags}
+			= [grep {$_ !~ /^en:number-of-uploaded-images-/} @{$product_ref->{misc_tags}}];
+	}
+
+	if ($uploaded_images_n > 0) {
+		if ($uploaded_images_n <= 3) {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-1-to-3");
+		}
+		elsif ($uploaded_images_n <= 6) {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-4-to-6");
+		}
+		elsif ($uploaded_images_n <= 10) {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-7-to-10");
+		}
+		elsif ($uploaded_images_n <= 50) {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-11-to-50");
+		}
+		elsif ($uploaded_images_n <= 100) {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-51-to-100");
+		}
+		else {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-more-than-100");
+		}
+	}
 
 	my $complete = 1;
 	my $notempty = 0;
 	my $step = 1.0 / 10.0;    # Currently, we check for 10 items.
 	my $completeness = 0.0;
 
-	if (scalar keys %{$current_ref->{uploaded_images}} < 1) {
+	if ($uploaded_images_n < 1) {
 		push @states_tags, "en:photos-to-be-uploaded";
 		$complete = 0;
 	}
@@ -2264,9 +2294,13 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 		$most_recent_product_ref = $product_ref;
 	}
 
-	if ((defined $most_recent_product_ref) and (not $most_recent_product_ref->{deleted})) {
-		$products_collection->replace_one({"_id" => $most_recent_product_ref->{_id}},
-			$most_recent_product_ref, {upsert => 1});
+	if (defined $most_recent_product_ref) {
+		if (not $most_recent_product_ref->{deleted}) {
+			$products_collection->replace_one({"_id" => $most_recent_product_ref->{_id}},
+				$most_recent_product_ref, {upsert => 1});
+		}
+		# Always push the update to Redis, even if the product was deleted, so that the change is reflected in off-query
+		push_product_update_to_redis($most_recent_product_ref, $changes_ref->[-1], "reprocessed");
 	}
 
 	store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);

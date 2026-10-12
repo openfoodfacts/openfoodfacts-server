@@ -51,7 +51,7 @@ jobs:
 
     # use `sudo -u off touch /home/off/off-net/NO_DEPLOY` to stop deployment on staging 
     - name: Check for an eventual NO_DEPLOY file to put deployment on hold
-      uses: appleboy/ssh-action@v1.2.5
+      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -67,39 +67,31 @@ jobs:
           fi
 
     - name: Wait for frontend container build workflow
-      uses: tomchv/wait-my-workflow@v1.1.0
       id: wait-build
+      uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
+      timeout-minutes: 10
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        checkName: build (frontend)
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
-        intervalSeconds: 10
-        timeoutSeconds: 600 # 10m
+        check-name: build (frontend)
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
+        checks-discovery-timeout: 300
+        allowed-conclusions: success
 
     - name: Wait for backend container build workflow
-      uses: tomchv/wait-my-workflow@v1.1.0
       id: wait-build2
+      uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
+      timeout-minutes: 10
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        checkName: build (backend)
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
-        intervalSeconds: 10
-        timeoutSeconds: 600 # 10m
-
-    - name: Do something if build isn't launch
-      if: steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist'
-      run: echo job does not exist && true
-
-    - name: Do something if build fail
-      if: steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure' 
-      run: echo fail && false # fail if build fail
-
-    - name: Do something if build timeout
-      if: steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out'
-      run: echo Timeout && false # fail if build time out
-
+        check-name: build (backend)
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        wait-interval: 10
+        checks-discovery-timeout: 300
+        allowed-conclusions: success
+        
     - name: Checkout git repository
-      uses: appleboy/ssh-action@v1.2.5
+      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -107,7 +99,6 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        continue-on-error: false
         script: |
           # while we would use shallow clone on a normal repo,
           # comparison is too costly for this project and takes too much time, so we use a regular clone
@@ -125,7 +116,7 @@ jobs:
           git checkout -qf ${{ github.sha }}
 
     - name: Set environment variables
-      uses: appleboy/ssh-action@v1.2.5
+      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -133,7 +124,6 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        continue-on-error: false
         script: |
           # Go to repository directory
           cd ${{ matrix.env }}
@@ -196,7 +186,7 @@ jobs:
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf
 
     - name: Create Docker volumes and network
-      uses: appleboy/ssh-action@v1.2.5
+      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -204,7 +194,6 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make create_external_volumes && \
@@ -212,7 +201,7 @@ jobs:
 
     - name: wait for docker images to be available
       # we sometimes have the images not ready immediately after build, so we prefer to wait for it
-      uses: appleboy/ssh-action@v1.2.5
+      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -221,7 +210,6 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 25m
-        continue-on-error: false
         script: |
           waited=0
           for IMAGE_TYPE in frontend backend
@@ -241,7 +229,7 @@ jobs:
           done
 
     - name: initialize the backend
-      uses: appleboy/ssh-action@v1.2.5
+      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -250,7 +238,6 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 25m
-        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make init_backend
@@ -258,7 +245,7 @@ jobs:
 
     # NOTE: the mongodb and redis containers are deployed by openfoodfacts-shared-services 
     - name: Start services
-      uses: appleboy/ssh-action@v1.2.5
+      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -267,7 +254,6 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 15m
-        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make hdown && \
@@ -279,7 +265,7 @@ jobs:
           make prod_up
 
     - name: Check services are up
-      uses: appleboy/ssh-action@v1.2.5
+      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
       if: ${{ always() }}
       with:
         host: ${{ env.SSH_HOST }}
@@ -288,13 +274,12 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make livecheck
 
     - name: Cleanup obsolete Docker objects
-      uses: appleboy/ssh-action@v1.2.5
+      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
       if: ${{ always() }}
       with:
         host: ${{ env.SSH_HOST }}
@@ -303,12 +288,11 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make prune
 
-    - uses: basos9/grafana-annotation-action@v1.1.0
+    - uses: basos9/grafana-annotation-action@0b97c65550aa3d1ac30082aae76095e153e951b4 # v1.1.0
       if: ${{ always() }}
       with:
         apiHost: https://grafana.openfoodfacts.org

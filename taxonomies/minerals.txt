@@ -2413,6 +2413,7 @@ vegetarian:en: yes
 
 < en: iron
 en: ferrous sulfate, iron sulfate
+xx: 3b103, 3b104
 ar: كبريتات الحديد الثنائي
 bg: Железен сулфат
 ca: sulfat de ferro
@@ -3093,6 +3094,7 @@ vegetarian:en: yes
 
 < en: zinc
 en: zinc oxide
+xx: 3b603
 ar: أكسيد الزنك
 bg: Цинков оксид
 bn: জিঙ্ক অক্সাইড
@@ -3187,6 +3189,7 @@ vegetarian:en: yes
 
 < en: zinc
 en: zinc sulfate
+xx: 3b605
 ar: كبريتات الزنك
 # azb:چینکو سولفات
 bg: Цинков сулфат
@@ -3204,7 +3207,7 @@ es: sulfato de cinc, sulfato de zinc
 et: tsinksulfaat
 fa: روی سولفات
 fi: sinkkisulfaatti
-fr: sulfate de zinc
+fr: sulfate de zinc, sulfate de zinc monohydraté
 hi: जिंक सल्फेट
 hr: cinkov sulfat
 hu: cink-szulfát
@@ -3550,6 +3553,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Copper_gluconate
 # comment:en:The (II) has been removed from the translations, as it is not used on packages.
 < en: copper
 en: copper sulfate, copper sulphate, cupric sulphate, cupric sulfate
+xx: 3b405
 ar: كبريتات النحاس الثنائي
 bg: Меден сулфат
 bn: কপার সালফেট
@@ -3564,7 +3568,7 @@ et: vasksulfaat
 eu: kobre sulfato
 fa: مس(II) سولفات
 fi: kuparisulfaatti
-fr: sulfate de cuivre
+fr: sulfate de cuivre, sulfate de cuivre pentahydraté, sulfate de cuivre (ii) pentahydraté
 he: נחושת גופרתית
 hi: नीला थोथा
 hr: Modra galica
@@ -3908,9 +3912,18 @@ sv: manganglycerolfosfat
 vegan:en: yes
 vegetarian:en: yes
 
+< en: manganese
+en: manganous oxide, manganese oxide
+xx: 3b502
+fr: oxyde de manganèse, oxyde de manganèse (II)
+description:en: MANGANOUS OXIDE is the inorganic compound with the formula MnO, used as a trace mineral source in feed (EU feed additive identifier 3b502).
+vegan:en: yes
+vegetarian:en: yes
+
 # comment:en:The simple name without the (II), is used here.
 < en: manganese
 en: manganese sulfate, manganese sulphate
+xx: 3b503
 ar: كبريتات المنغنيز الثنائي
 bg: Манганов сулфат
 bs: Mangan sulfat
@@ -3922,7 +3935,7 @@ es: Sulfato de manganeso
 et: mangaansulfaat
 fa: سولفات منگنز
 fi: Mangaanisulfaatti
-fr: sulfate de manganèse
+fr: sulfate de manganèse, sulfate de manganèse monohydraté, sulfate manganeux monohydraté
 hr: manganov-sulfat
 hu: Mangán-szulfát
 it: Solfato manganoso
@@ -4245,6 +4258,7 @@ vegetarian:en: yes
 # comment:en:it seem that translations on packages confound selanate with selenite.
 < en: selenium
 en: Sodium selenite
+xx: 3b801, 3b802
 ar: سيلينيت الصوديوم
 bg: Натриев селенит
 cs: seleničitan sodný
@@ -4916,6 +4930,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Iodine
 
 < en: iodine
 en: potassium iodide
+xx: 3b201
 ar: يوديد البوتاسيوم
 bg: Калиев йодид
 bs: Kalij jodid
@@ -5053,7 +5068,7 @@ de: Calciumiodat
 el: ιωδικό ασβέστιο
 es: yodato de calcio
 fi: Kalsiumjodaatti
-fr: iodate de calcium
+fr: iodate de calcium, iodate de calcium anhydre
 hu: Kalcium-jodát
 it: Iodato di calcio
 ja: ヨウ素酸カルシウム

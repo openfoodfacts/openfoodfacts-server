@@ -2,10 +2,12 @@
 
 # agent de blanchiment de la farine
 stopwords:en: a, an, for, added, to, as, for, with, added
+stopwords:da: en, et, tilsat
 stopwords:fr: l, la, les, des, du, de, d, un, une, ajouté, ajoutés, ajoutée, ajoutées, pour, avec
 stopwords:es: de, del, la, las, los, una
 
 en: Acid, Acidifier, Acidulant, tartness, provides tartness, Food acid
+ar: محمضات
 bg: Киселина
 ca: Àcid, Acidulant
 cs: Kyselina, kyseliny
@@ -79,11 +81,11 @@ lt: Rūgštingumą reguliuojanti medžiaga
 lv: Skābuma regulētājs, Skābuma regulētāji
 mt: Regolatur tal-Aċidità
 nb: Surhetsregulerende middel, Surhetsregulerende midler
-nl: Zuurteregelaar, Zuurteregelaars
+nl: Zuurteregelaar, Zuurteregelaars, Zuurtegraadregelaar
 no: surhetsregulerende middel
 pl: Regulator kwasowości, Regulatory kwasowości
 pt: Regulador de acidez, regulador de ácidez, reguladores de acidez
-ro: Corector de aciditate, Regulator de aciditate, regulatori de aciditate
+ro: Corector de aciditate, corectori de aciditate, Regulator de aciditate, regulatori de aciditate
 ru: Регулятор кислотности, регуляторы кислотности
 sk: Regulátor kyslosti
 sl: Sredstvo za uravnavanje kislosti, sredstva za uravnavanje kislosti
@@ -697,7 +699,7 @@ ro: Emulsifiant, Emulgator, emulsifianți
 ru: Эмульгатор, эмульгаторы
 sk: Emulgátor
 sl: Emulgator
-sv: Emulgeringsmedel, Emulgering, emulgator
+sv: emulgeringsmedel, emulgering, emulgator
 th: อิมัลซิไฟเออร์
 uk: емульгатор, емульгатори
 description:en: Emulsifiers are substances which make it possible to form or maintain a homogenous mixture of two or more immiscible phases such as oil and water in a foodstuff.
@@ -1153,7 +1155,7 @@ en: Humectant, moisture retention agent, water retention agent, wetting agent, m
 bg: Влагозадържащ агент
 ca: Humectant
 cs: Zvlhčující látka, zvlhčující látky
-da: Fugtighedsbevarende middel
+da: fugtighedsbevarende middel, fugtighedsbevarende midler
 de: Feuchthaltemittel
 el: Υγροσκοπικό μέσο
 es: Humectante, agente humectante, agente de retención del agua, agentes de retención de la humedad
@@ -1263,6 +1265,7 @@ description:pt: Um aditivo alimentar gasoso, que é introduzido em um recipiente
 description:sv: En gasformig livsmedelstillsats som införs i en behållare före, under eller efter fyllning med mat med avsikt att skydda maten, till exempel från oxidation eller försämring.
 
 en: Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent, natural mold inhibitor, maintain freshness, protect flavor
+ar: مادة حافظة
 bg: Консервант, консерванти
 ca: Conservant, conservants, conservador, conservadors
 cs: Konzervant
@@ -1635,7 +1638,7 @@ nb: Søtningsmiddel, Søtstoff, Søtstoffer
 nl: Zoetstof, Zoetstoffen
 pl: Substancja słodząca, Substancje słodzące, słodzik, słodziki, substancję słodzącą
 pt: Edulcorante
-ro: Îndulcitor
+ro: Îndulcitor, indulcitor
 ru: подсластитель, подсластители, заменитель сахара
 sk: Sladidlo, sladidlá
 sl: sladila, sladilo, sladidlá
@@ -1758,7 +1761,7 @@ el: Ανόργανα συστατικά, Ορυκτά
 es: Minerales
 et: Mineraalained, Mineraalid
 fi: Kivennäisaineet, Kivennäisaineita, Kivennäiset, Kivennäisiä, Kivennäinen, Kivennäistä, Kivennäisaine, Kivennäisainetta, Mineraalit
-fr: Minéraux, Substances d'apport minéral, Apport minéral
+fr: Minéraux, Substances d'apport minéral, Apport minéral, Substances minérales
 hr: minerala, Minerali
 hu: Ásványi anyagok, ásványok
 it: Minerali
