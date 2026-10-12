@@ -16,6 +16,7 @@ use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
+use ProductOpener::Config qw/%options/;
 
 is(
 	ProductOpener::KnowledgePanels::convert_multiline_string_to_singleline('
@@ -156,6 +157,42 @@ foreach my $test_ref (@tests) {
 
 	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
+
+# Open Products Facts: no empty health card for products like toilet paper or batteries
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/12683
+{
+	local $options{product_type} = "product";
+
+	my $options_ref = {};
+	my $request_ref = {};
+	initialize_knowledge_panels_options($options_ref, $request_ref);
+
+	my $product_ref = {code => "3596710478163", lc => "en", categories_tags => ["en:toilet-papers"]};
+	is(
+		ProductOpener::KnowledgePanels::create_health_card_panel(
+			$product_ref, "en", "world", $options_ref, $request_ref
+		),
+		0,
+		"no health card without a health recommendation"
+	);
+	is($product_ref->{knowledge_panels_en}{health_card}, undef);
+
+	create_knowledge_panels($product_ref, "en", "world", $options_ref, $request_ref);
+	is($product_ref->{knowledge_panels_en}{health_card}, undef);
+	unlike($json->encode($product_ref->{knowledge_panels_en}{root}),
+		qr/health_card/, "the root panel does not link to the health card");
+
+	# The health card is still created when we have a health recommendation (e.g. the tobacco health warning)
+	$product_ref = {code => "3596710478164", lc => "en", knowledge_panels_en => {recommendation_health => {}}};
+	is(
+		ProductOpener::KnowledgePanels::create_health_card_panel(
+			$product_ref, "en", "world", $options_ref, $request_ref
+		),
+		1,
+		"health card with a health recommendation"
+	);
+	ok(defined $product_ref->{knowledge_panels_en}{health_card});
 }
 
 done_testing();
