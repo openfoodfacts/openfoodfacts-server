@@ -459,8 +459,12 @@ Returns undef if the unit isn’t recognised.
 
 sub get_unit_symbol ($unit) {
 	if (defined $unit) {
-		# search in the map of all synonyms in all languages ($units_names)
+		$unit =~ s/^\s+|\s+$//g;
+		if ($unit eq '') {
+			return $unit;
+		}
 		$unit = lc($unit);
+		# search in the map of all synonyms in all languages ($units_names)
 		my $unit_id = $units_names{$unit};    # $unit_id can be undefined
 		if (defined $unit_id) {
 			if (defined $units{$unit_id}{symbol}) {
