@@ -804,6 +804,13 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 
 Creates the Environmental Cost knowledge panel displaying Ecobalyse ECS breakdown.
 
+The Ecobalyse API returns impacts (in points) for the mass of ingredients that we sent,
+which is close to 100 g (ingredients percentages, possibly minus ingredients without an Ecobalyse id).
+We scale all values to 100 g of ingredients.
+
+Note: Ecobalyse also computes impacts per kg of prepared product (e.g. inedible parts are removed),
+we do not use it for now.
+
 =cut
 
 sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
@@ -813,32 +820,31 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 	# Only show Environmental Cost panel to moderators and admins
 	return unless $options_ref->{moderator} || $options_ref->{admin};
 
-	# Round ECS values to 2 decimal places
-	my $round_ecs = sub {
-		my $value = shift;
-		return unless defined $value;
-		return sprintf("%.2f", $value);
+	# Total mass of ingredients sent to Ecobalyse
+	my $ingredients_mass = 0;
+	foreach my $ingredient_ref (@{deep_get($product_ref, qw(environmental_impact ecobalyse_input ingredients)) // []}) {
+		$ingredients_mass += $ingredient_ref->{mass} // 0;
+	}
+	return unless $ingredients_mass > 0;
+
+	# Scale ECS values to 100 g of ingredients and round them to 2 decimal places
+	my $per_100g = sub {
+		my $value = shift // 0;
+		return sprintf("%.2f", $value * 100 / $ingredients_mass);
 	};
 
+	# The breakdown values sum up to the total ECS
+	my $results_ref = deep_get($product_ref, qw(environmental_impact ecobalyse_response results)) // {};
+
 	my $panel_data_ref = {
-		ecs => $round_ecs->($ecs),
-		ecs_ingredients => $round_ecs->(
-			deep_get($product_ref, 'environmental_impact', 'ecobalyse_response', 'results', 'recipe', 'total', 'ecs')
-				// 0
-		),
-		ecs_packaging => $round_ecs->(
-			deep_get($product_ref, 'environmental_impact', 'ecobalyse_response', 'results', 'packaging', 'ecs') // 0
-		),
-		ecs_transport => $round_ecs->(
-			deep_get(
-				$product_ref, 'environmental_impact', 'ecobalyse_response', 'results',
-				'transports', 'impacts', 'ecs'
-			) // 0
-		),
-		ecs_processing => $round_ecs->(
-			deep_get($product_ref, 'environmental_impact', 'ecobalyse_response', 'results', 'recipe', 'transform',
-				'ecs') // 0
-		),
+		ecs => $per_100g->($ecs),
+		ecs_ingredients => $per_100g->(deep_get($results_ref, qw(recipe ingredientsTotal ecs))),
+		ecs_processing => $per_100g->(deep_get($results_ref, qw(recipe transform ecs))),
+		ecs_packaging => $per_100g->(deep_get($results_ref, qw(packaging ecs))),
+		# Transports of ingredients + distribution transports
+		ecs_transport => $per_100g->(deep_get($results_ref, qw(transports impacts ecs))),
+		ecs_distribution => $per_100g->(deep_get($results_ref, qw(distribution total ecs))),
+		ecs_preparation => $per_100g->(deep_get($results_ref, qw(preparation ecs))),
 	};
 
 	create_panel_from_json_template("environmental_cost", "api/knowledge-panels/environment/environmental_cost.tt.json",

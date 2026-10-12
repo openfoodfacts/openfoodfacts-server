@@ -6546,8 +6546,8 @@ msgid "Stage"
 msgstr "Étape"
 
 msgctxt "environmental_cost_ecs"
-msgid "ECS (mPt/kg)"
-msgstr "ECS (mPt/kg)"
+msgid "Points per 100 g"
+msgstr "Points pour 100 g"
 
 msgctxt "environmental_cost_ingredients"
 msgid "Ingredients"
@@ -6564,6 +6564,14 @@ msgstr "Transport"
 msgctxt "environmental_cost_processing"
 msgid "Processing"
 msgstr "Transformation"
+
+msgctxt "environmental_cost_distribution"
+msgid "Distribution"
+msgstr "Distribution"
+
+msgctxt "environmental_cost_preparation"
+msgid "Preparation"
+msgstr "Préparation"
 
 msgctxt "environmental_cost_total"
 msgid "Total"

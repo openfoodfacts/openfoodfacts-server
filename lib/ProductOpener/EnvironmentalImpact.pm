@@ -145,6 +145,11 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 {
 	delete $product_ref->{environmental_impact};    # clear previous environmental impact data
 
+	# Remove Ecobalyse API status misc tags from previous runs
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags} = [grep {$_ !~ /^en:ecobalyse-api-/} @{$product_ref->{misc_tags}}];
+	}
+
 	# indicate that the service is modifying the "ingredients" structure
 	$updated_product_fields_ref->{environmental_impact} = 1;
 
@@ -325,9 +330,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 	$product_ref->{environmental_impact}{ecobalyse_request} = {url => $url_recipe, data => $payload_ref};
 
-	# Check ingredients coverage threshold
-	my $ingredients_coverage_percent
-		= $product_ref->{environmental_impact}{ecobalyse_input}{ingredients_coverage_percent} // 0;
+	# Check ingredients coverage threshold ($ingredients_coverage_percent was computed above)
 	my $threshold = $options{ecobalyse_min_ingredients_coverage_percent} // 80;
 
 	if ($ingredients_coverage_percent < $threshold) {
@@ -361,9 +364,11 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		my $response_data_ref;
 		# if the response is JSON, decode it
 
+		my $json_decoded = 1;
 		eval {$response_data_ref = decode_json($response_content);};
 		# Check if the JSON decoding was successful
 		if ($@) {
+			$json_decoded = 0;
 			$log->error("Failed to decode JSON response from Ecobalyse API",
 				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content, error => $@})
 				if $log->is_error();
@@ -373,21 +378,20 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			$response_data_ref = filter_ecobalyse_response_for_open_data($response_data_ref);
 		}
 
+		# Access the specific "ecs" value
+		my $ecs_value = $json_decoded ? deep_get($response_data_ref, 'results', 'total', 'ecs') : undef;
+
 		# Handle the response based on success or failure
-		if ($is_success) {
+		# We consider the call successful only if we got a valid JSON response with an ecs value
+		if ($is_success and (defined $ecs_value)) {
 
 			add_tag($product_ref, "misc", "en:ecobalyse-api-success");
 
-			# Access the specific "ecs" value
-			my $ecs_value = deep_get($response_data_ref, 'results', 'total', 'ecs');
-			if (defined $ecs_value) {
-				# If 'ecs' is defined, store it in the product reference
-				$product_ref->{environmental_impact}{ecs} = $ecs_value;
-			}
+			$product_ref->{environmental_impact}{ecs} = $ecs_value;
 		}
 		else {
 			# If the request failed, log the error
-			$log->error("send_event request failed",
+			$log->error("Ecobalyse API request failed or returned no ecs value",
 				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content})
 				if $log->is_error();
 			# Add error misc tag
@@ -395,8 +399,6 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			# Store the error response for debugging
 			$product_ref->{environmental_impact}{ecobalyse_error_response} = $response_content;
 			# Add an error message to the errors array
-			$product_ref->{environmental_impact}{ecobalyse_response} = $response_data_ref;
-
 			push @{$errors_ref},
 				{
 				message => {id => "error_response_from_ecobalyse"},

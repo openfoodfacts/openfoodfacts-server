@@ -1418,6 +1418,9 @@ while (my $product_ref = $cursor->next) {
 			my @errors = ();
 			# skip_ecobalyse_call = 0 means we actually call the API
 			estimate_environmental_impact_service($product_ref, {}, \@errors, 0);
+			# Do not mark products with failed Ecobalyse calls as processed (with the new update_key),
+			# so that they can be retried in a later run
+			next if @errors;
 		}
 
 		if ($compute_main_countries) {
