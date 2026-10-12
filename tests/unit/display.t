@@ -573,4 +573,9 @@ is(
 	]
 ) or diag Dumper $tags_ref;
 
+my $tax_request_ref = {tags => [{tagtype => "categories", tagid => "en:breakfast-cereals"}]};
+my $tax_tags_ref = ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url($tax_request_ref);
+ok(!exists $tax_request_ref->{redirect}, "canonical taxonomy tag does not trigger redirect");
+is($tax_tags_ref->[0]{new_tagid}, "en:breakfast-cereals", "canonical taxonomy tag retains canonical new_tagid");
+
 done_testing();

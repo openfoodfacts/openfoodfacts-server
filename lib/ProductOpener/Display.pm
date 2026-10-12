@@ -3052,7 +3052,17 @@ sub display_points ($request_ref) {
 
 	$request_ref->{current_link} .= "/points";
 
-	if ((defined $tagid) and ($new_tagid ne $tagid)) {
+	my $is_canonical = ((defined $tagid) && ($new_tagid eq $tagid));
+	if ((defined $tagid) && not $is_canonical && defined $tagtype && defined $taxonomy_fields{$tagtype}) {
+		my $normalized_display_tag = get_string_id_for_lang($lc, $display_tag);
+		if (
+			(defined $canon_tagid && $tagid eq $canon_tagid)
+			|| (defined $normalized_display_tag && ($tagid eq "$lc:$normalized_display_tag" || $tagid eq $normalized_display_tag))
+		) {
+			$is_canonical = 1;
+		}
+	}
+	if ((defined $tagid) && not $is_canonical) {
 		$request_ref->{redirect} = $request_ref->{formatted_subdomain} . $request_ref->{current_link};
 		$log->debug(
 			"new_tagid does not equal the original tagid, redirecting",
@@ -3187,7 +3197,18 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 		$tag_ref->{tagtype_name} = lang_in_other_lc($lc, $tagtype . '_s');
 
 		# We will redirect if the tag is not canonical
-		if ($new_tagid ne $tagid) {
+		my $is_canonical = ($new_tagid eq $tagid);
+		if (not $is_canonical and defined $tagtype and defined $taxonomy_fields{$tagtype}) {
+			my $normalized_display_tag = get_string_id_for_lang($lc, $display_tag);
+			if (
+				(defined $canon_tagid and $tagid eq $canon_tagid)
+				or (defined $normalized_display_tag and ($tagid eq "$lc:$normalized_display_tag" or $tagid eq $normalized_display_tag))
+			) {
+				$is_canonical = 1;
+				$tag_ref->{new_tagid} = $tagid;
+			}
+		}
+		if (not $is_canonical) {
 			$redirect_to_canonical_url = 1;
 		}
 	}
