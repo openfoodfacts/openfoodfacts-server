@@ -476,7 +476,7 @@ sub get_unit_symbol ($unit) {
 			}
 		}
 	}
-	return undef;
+	return;
 }
 
 init_units_names();
