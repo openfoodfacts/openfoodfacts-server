@@ -197,6 +197,13 @@ $ProductOpener::Config::options{rate_limit_search} = 10;
 # setting this is what makes those requests blocked rather than only counted.
 # Not set by default: the requests are counted, but not blocked, until an operator sets it.
 $ProductOpener::Config::options{rate_limit_other} = undef;
+
+# Maximum lifetime of a session, in seconds (30 days). A session stored forever can be replayed
+# forever: signing out only expired the cookie, and nothing else ever deleted the server side
+# entry, so a stolen cookie stayed valid until the account opened 10 other sessions. A session
+# older than this is refused, which also discards the stale entries that are already stored.
+# Set it to undef to accept sessions of any age.
+$ProductOpener::Config::options{user_session_max_lifetime} = 30 * 24 * 60 * 60;
 # Number of requests per minutes for all facets for anonymous users
 $ProductOpener::Config::options{rate_limit_facet_products_unregistered} = 5;
 # Number of requests per minutes for facets for registered users
