@@ -3920,11 +3920,18 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 
 		# First try an exact match, and then a proxy match
 		my @prefixes = ("ecobalyse", "ecobalyse_proxy");
-		# If the ingredient has its own proxy but no exact match of its own,
-		# its proxy is more specific than an exact match inherited from a parent
-		# (e.g. en:chicken has a chicken breast proxy, and its parent en:poultry has an exact match)
-		if (    (not defined get_property("ingredients", $ingredient_ref->{id}, "ecobalyse_id:en"))
-			and (defined get_property("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy_id:en")))
+		# If the proxy comes from a closer level of the taxonomy than the exact match,
+		# the proxy is more specific and is tried first
+		# (e.g. en:chicken has a chicken breast proxy, and its parent en:poultry has an exact match:
+		# en:chicken and its children like en:chicken-fillet should use the chicken breast proxy)
+		my (undef, $exact_tagid)
+			= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, "ecobalyse_id:en");
+		my (undef, $proxy_tagid)
+			= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy_id:en");
+		if (    (defined $exact_tagid)
+			and (defined $proxy_tagid)
+			and ($proxy_tagid ne $exact_tagid)
+			and (is_a("ingredients", $proxy_tagid, $exact_tagid)))
 		{
 			@prefixes = ("ecobalyse_proxy", "ecobalyse");
 		}

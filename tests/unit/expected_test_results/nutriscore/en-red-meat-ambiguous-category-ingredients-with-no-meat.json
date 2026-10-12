@@ -36,8 +36,8 @@
          "distribution" : "ambient",
          "ingredients" : [
             {
-               "ecobalyse_name" : "Poissons ingrédients secondaires Origine Inconnue",
-               "id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+               "ecobalyse_name" : "Saumon cru UE -2025-",
+               "id" : "cacf491b-5529-4e0c-af3f-75ab1d007655",
                "mass" : 73.75,
                "name" : "salmon"
             },
@@ -68,7 +68,7 @@
             "distribution" : "ambient",
             "ingredients" : [
                {
-                  "id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+                  "id" : "cacf491b-5529-4e0c-af3f-75ab1d007655",
                   "mass" : 73.75
                },
                {
@@ -105,8 +105,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "26036",
-         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
-         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
+         "ecobalyse_id" : "cacf491b-5529-4e0c-af3f-75ab1d007655",
+         "ecobalyse_name" : "Saumon cru UE -2025-",
          "id" : "en:salmon",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 73.75,
@@ -118,8 +118,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
+         "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_name" : "Farine UE -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 13.625,
@@ -131,8 +131,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_proxy_name" : "Sel -2025-",
+         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_name" : "Sel -2025-",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent" : 1,
