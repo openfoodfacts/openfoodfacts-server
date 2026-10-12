@@ -11,6 +11,15 @@
         "icon_url": "[% static_subdomain %]/images/icons/dist/edit.svg",
     },
     "elements": [
+        [%# For products with many revisions, only the most recent ones are included, link to the full history %]
+        [% IF panel.truncated %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": [% encode_json(lang('product_history_most_recent_changes') _ ' <a href="' _ panel.full_history_url _ '">' _ lang('product_history_see_full_history') _ '</a>') %],
+            },
+        },
+        [% END %]
         {
             "element_type": "table",
             "table_element": {

@@ -9863,7 +9863,7 @@ sub display_rev_info ($product_ref, $rev) {
 
 }
 
-=head2 get_product_history_revisions ( $product_ref )
+=head2 get_product_history_revisions ( $product_ref, $max_revisions = undef )
 
 Load the changes history of a product, and return the list of revisions, most recent first.
 
@@ -9873,6 +9873,10 @@ It is used both to display the history on the website, and to create the product
 
 =head4 product reference $product_ref
 
+=head4 maximum number of revisions $max_revisions (optional)
+
+If specified, only the $max_revisions most recent revisions are returned.
+
 =head3 Return value
 
 Reference to an array of revisions. Each revision is a hash with the following keys:
@@ -9880,7 +9884,7 @@ number, t (timestamp), userid, uuid, app_version, clientid, diffs (text describi
 
 =cut
 
-sub get_product_history_revisions ($product_ref) {
+sub get_product_history_revisions ($product_ref, $max_revisions = undef) {
 
 	my @revisions = ();
 
@@ -9897,6 +9901,8 @@ sub get_product_history_revisions ($product_ref) {
 	my $current_rev = $product_ref->{rev};
 
 	foreach my $change_ref (reverse @{$changes_ref}) {
+
+		last if ((defined $max_revisions) and (scalar @revisions >= $max_revisions));
 
 		my $change_rev = $change_ref->{rev};
 

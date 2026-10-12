@@ -50,7 +50,7 @@ use vars @EXPORT_OK;
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
 use ProductOpener::Tags qw(display_taxonomy_tag get_tags_grouped_by_property canonicalize_tag canonicalize_tag_link);
 use ProductOpener::Display qw(get_product_history_revisions display_date);
-use ProductOpener::Products qw(product_url);
+use ProductOpener::Products qw(product_url product_action_url);
 
 use Encode;
 use Data::DeepAccess qw(deep_get);
@@ -179,6 +179,9 @@ Creates a knowledge panel with a table of the changes history of the product (mo
 The panel is created only on demand (activate_knowledge_panel_product_history option),
 and only for logged in users.
 
+Popular products can have more than a thousand revisions, so only the most recent ones are included,
+with a link to the full history on the website.
+
 =head3 Arguments
 
 =head4 product reference $product_ref
@@ -197,6 +200,9 @@ and only for logged in users.
 
 =cut
 
+# Maximum number of revisions included in the product history panel
+my $product_history_panel_max_revisions = 100;
+
 sub create_product_history_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	if (not($options_ref->{activate_knowledge_panel_product_history} and $options_ref->{user_logged_in})) {
@@ -205,7 +211,8 @@ sub create_product_history_panel ($product_ref, $target_lc, $target_cc, $options
 
 	$log->debug("create product history panel", {code => $product_ref->{code}}) if $log->is_debug();
 
-	my $revisions_ref = get_product_history_revisions($product_ref);
+	# Get one more revision than the maximum, to know if there are more revisions than the ones we display
+	my $revisions_ref = get_product_history_revisions($product_ref, $product_history_panel_max_revisions + 1);
 
 	if (not @{$revisions_ref}) {
 		return;
@@ -214,6 +221,13 @@ sub create_product_history_panel ($product_ref, $target_lc, $target_cc, $options
 	# Links are absolute so that they can be used by apps
 	my $url_prefix = $request_ref->{formatted_subdomain} // '';
 	my $product_url = $url_prefix . product_url($product_ref);
+
+	# Keep only the most recent revisions (revisions are sorted from the most recent)
+	my $truncated = 0;
+	if (scalar @{$revisions_ref} > $product_history_panel_max_revisions) {
+		$revisions_ref = [@{$revisions_ref}[0 .. $product_history_panel_max_revisions - 1]];
+		$truncated = 1;
+	}
 
 	my @rows = ();
 	foreach my $revision_ref (@{$revisions_ref}) {
@@ -247,8 +261,17 @@ sub create_product_history_panel ($product_ref, $target_lc, $target_cc, $options
 	create_panel_from_json_template(
 		"product_history",
 		"api/knowledge-panels/contribution/product_history.tt.json",
-		{rows => \@rows},
-		$product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+		{
+			rows => \@rows,
+			truncated => $truncated,
+			# the full history is displayed at the bottom of the product edit form
+			full_history_url => $url_prefix . product_action_url($product_ref->{code}) . "#history",
+		},
+		$product_ref,
+		$target_lc,
+		$target_cc,
+		$options_ref,
+		$request_ref
 	);
 
 	return 1;
