@@ -581,6 +581,7 @@ paths:
     parameters:
       - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
       - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
+      - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelRelatedCategories"
       - schema:
           type: string
           example: categories
@@ -640,6 +641,7 @@ paths:
 
         Categories:
         - Packaging stats for a category
+        - Related categories (on request): parent categories, and direct subcategories with their number of products
   /api/v3/product_revert:
     parameters: []
     post:
