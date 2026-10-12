@@ -97,6 +97,7 @@ BEGIN {
 		&display_taxonomy_tag_name
 		&display_taxonomy_tag_link
 		&get_taxonomy_tag_and_link_for_lang
+		&taxonomy_display_name
 
 		&get_tag_image
 
@@ -944,6 +945,43 @@ sub sanitize_taxonomy_line ($line) {
 	$line =~ s/\s+$//;
 
 	return $line;
+}
+
+=head2 taxonomy_display_name( $name )
+
+Turn a name loaded from a taxonomy into a name ready to be displayed to users.
+
+=head3 Arguments
+
+=head4 $name - a name (or list of names) loaded from a taxonomy
+
+=head3 Notes
+
+Taxonomy files escape the commas that are part of a name (e.g. "Fruits\, vegetables\, legumes"),
+because a plain comma separates the values of a line. sanitize_taxonomy_line() replaces those
+escaped commas by a U+201A lower comma when loading the taxonomy.
+
+The lower comma must be kept in the loaded taxonomies, as it ends up in the identifiers computed
+by get_string_id_for_lang(), but it must not be shown to users, which would display
+"Fruits‚ vegetables‚ legumes" instead of "Fruits, vegetables, legumes".
+
+Both characters are turned into "-" when computing an identifier, so replacing the lower comma by
+a plain comma does not change any identifier, nor the lookups that are keyed on them.
+
+=head3 Return values
+
+The name with the U+201A lower commas replaced by plain commas.
+
+=cut
+
+sub taxonomy_display_name ($name) {
+
+	if (defined $name) {
+		$name =~ s/\N{U+201A}/,/g;
+	}
+
+	return $name;
+
 }
 
 =head2 get_lc_tagid( $synonyms_ref, $lc, $tagtype, $tag, $warning )
@@ -4295,7 +4333,8 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 	#$log->debug("display_taxonomy_tag",
 	#	{target_lc => $target_lc, tagtype => $tagtype, tag => $tag, tagid => $tagid, display => $display});
 
-	return $display;
+	# The U+201A lower commas are markers used when loading the taxonomy, they should not be displayed
+	return taxonomy_display_name($display);
 
 }
 
