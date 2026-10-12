@@ -75,9 +75,52 @@ if (-f $overrides_file) {
 # Initialize taxonomies for canonicalize_taxonomy_tag
 init_taxonomies(0);
 
+# Qualifiers in baseIngredient names that we can remove to find a matching OFF ingredient.
+#
+# Neutral qualifiers do not change the ingredient: if the baseIngredient has no direct match,
+# the OFF ingredient without the qualifiers is a direct match (e.g. dill-fresh -> en:dill,
+# millet-whole -> en:millet, pea-shelled-raw -> en:pea), unless the OFF ingredient already
+# has a direct match from another baseIngredient (e.g. comte-aop and comte-cheese -> en:comte).
+# "in-shell" is not a neutral qualifier: the shell is an inedible part that changes the mass.
+#
+# Transforming qualifiers change the ingredient (e.g. mass, processing): the baseIngredient is
+# a proxy for the OFF ingredient without the qualifiers (e.g. onion-dried -> en:onion,
+# refined-peanut-oil -> en:peanut-oil, red-berries-frozen-raw -> en:red-berries).
+# This applies even if the baseIngredient matched directly (e.g. "dried-apple" may match
+# "en:dried-apple", but we also want a proxy on "en:apple").
+#
+# Multi-word qualifiers are listed before the single-word qualifiers they contain.
+my @neutral_qualifiers = qw(
+	with-skin
+	fresh raw whole shelled husked dehusked cut uncooked aop
+);
+my @transforming_qualifiers = qw(
+	dried dehydrated frozen refined cooked canned drained
+);
+
+# Remove qualifiers from a baseIngredient name.
+# Returns the name without the qualifiers, and whether a transforming qualifier was removed.
+# Returns undef if no qualifier was found or if nothing is left.
+sub remove_qualifiers {
+	my ($base) = @_;
+	my $name = $base;
+	my $found = 0;
+	my $transforming = 0;
+	for my $qualifier (@neutral_qualifiers, @transforming_qualifiers) {
+		my $is_transforming = grep {$_ eq $qualifier} @transforming_qualifiers;
+		while ($name =~ s/(^|-)\Q$qualifier\E(-|$)/$1 && $2 ? '-' : ''/e) {
+			$found = 1;
+			$transforming = 1 if $is_transforming;
+		}
+	}
+	return if not $found or $name eq '';
+	return ($name, $transforming);
+}
+
 my @matched;
 my @matched_override;
 my @unmatched;
+my @qualifier_match_candidates;    # [baseIngredient, tagid, source]
 my @auto_proxy_candidates;    # [target_tagid, source_baseIngredient]
 my @auto_proxies;    # [target_tagid, source_baseIngredient]
 
@@ -110,28 +153,55 @@ for my $base (sort @$base_ingredients) {
 		}
 	}
 
-	# For dried baseIngredients, also add a proxy on the non-dried OFF ingredient.
-	# This applies even if the dried ingredient matched directly (e.g. "dried-apple"
-	# may match "en:dried-apple", but we also want a proxy on "en:apple").
-	my $non_dried;
-	if ($base =~ /^(.+)-dried$/) {
-		$non_dried = $1;
-	}
-	elsif ($base =~ /^dried-(.+)$/) {
-		$non_dried = $1;
+	# Try removing qualifiers (see @neutral_qualifiers and @transforming_qualifiers above)
+	my ($without_qualifiers, $transforming) = remove_qualifiers($base);
+	if (defined $without_qualifiers) {
+		$exists = 0;
+		$tagid = canonicalize_taxonomy_tag("en", "ingredients", $without_qualifiers, \$exists);
+		if ($exists && defined $tagid && (!defined $matched_tagid || $tagid ne $matched_tagid)) {
+			if ($transforming) {
+				# Candidates are filtered after the loop, once all direct matches are known
+				push @auto_proxy_candidates, [$tagid, $base];
+			}
+			elsif (!defined $matched_tagid) {
+				# Candidates are filtered after the loop, once all direct matches are known
+				push @qualifier_match_candidates, [$base, $tagid, 'qualifiers'];
+			}
+		}
 	}
 
-	# Candidates are filtered after the loop, once all direct matches are known
-	if (defined $non_dried && $non_dried ne '') {
+	# "-cheese" suffix: e.g. beaufort-cheese -> en:beaufort
+	# Only if the OFF ingredient is a cheese (e.g. not goat-cheese -> en:goat)
+	if (   !defined $matched_tagid
+		&& !(@qualifier_match_candidates && $qualifier_match_candidates[-1][0] eq $base)
+		&& $base =~ /^(.+)-cheese$/)
+	{
 		$exists = 0;
-		$tagid = canonicalize_taxonomy_tag("en", "ingredients", $non_dried, \$exists);
-		if ($exists && defined $tagid && (!defined $matched_tagid || $tagid ne $matched_tagid)) {
-			push @auto_proxy_candidates, [$tagid, $base];
+		$tagid = canonicalize_taxonomy_tag("en", "ingredients", $1, \$exists);
+		if ($exists && defined $tagid && is_a("ingredients", $tagid, "en:cheese")) {
+			push @qualifier_match_candidates, [$base, $tagid, 'cheese'];
 		}
 	}
 
 	push @unmatched, $base unless defined $matched_tagid;
 }
+
+# Filter qualifier match candidates: skip OFF tagids that already have a direct match
+# from another baseIngredient (taxonomy, reordered or override), or from another qualifier match.
+# Merging several baseIngredients in one OFF tagid would change its default entry.
+my %directly_matched_tagids = map {$_->[1] => $_->[0]} (@matched, @matched_override);
+my %matched_by_qualifiers;
+for my $candidate (@qualifier_match_candidates) {
+	my ($base, $tagid, $source) = @$candidate;
+	if (exists $directly_matched_tagids{$tagid}) {
+		say STDERR "  Skipping $source match $base -> $tagid (already matched by $directly_matched_tagids{$tagid})";
+		next;
+	}
+	push @matched, $candidate;
+	$directly_matched_tagids{$tagid} = $base;
+	$matched_by_qualifiers{$base} = 1;
+}
+@unmatched = grep {!$matched_by_qualifiers{$_}} @unmatched;
 
 # Filter auto proxy candidates:
 # - skip OFF tagids that already have an exact Ecobalyse match (taxonomy, reordered or override)
@@ -146,7 +216,7 @@ if (-f $proxies_file) {
 	while (my $line = <$pfh>) {
 		chomp $line;
 		next if $line =~ /^#/ || $line =~ /^\s*$/;
-		my ($target_tagid) = split /\t/, $line;
+		my ($target_tagid) = split /[\t ]+/, $line;
 		$tagid_has_ecobalyse_data{$target_tagid} //= 'manual proxy' if defined $target_tagid;
 	}
 	close $pfh;
@@ -178,8 +248,11 @@ close $out_fh;
 say "Base ingredient matching statistics";
 say "  Total base ingredients: $total";
 say "  Matched via taxonomy: " . scalar(@matched);
+for my $source (qw(taxonomy reordered qualifiers cheese)) {
+	say "    $source: " . scalar(grep {$_->[2] eq $source} @matched);
+}
 say "  Matched via overrides: " . scalar(@matched_override);
-say "  Dried -> non-dried proxies: " . scalar(@auto_proxies);
+say "  Auto proxies (transforming qualifiers): " . scalar(@auto_proxies);
 say "  Missing (unmatched): " . scalar(@missing);
 say "";
 
@@ -190,11 +263,13 @@ if (@missing) {
 	}
 }
 
-# Write auto-generated proxies (dried -> non-dried) to a separate file
+# Write auto-generated proxies (transforming qualifiers) to a separate file
 my $auto_proxies_file = "external-data/ecobalyse/base_ingredients_auto_proxies.tsv";
 open my $apfh, '>:encoding(UTF-8)', $auto_proxies_file
 	or die "Cannot open $auto_proxies_file for writing: $!";
-print $apfh "# Auto-generated proxy mappings: dried baseIngredient -> non-dried OFF tagid\n";
+print $apfh
+	"# Auto-generated proxy mappings: baseIngredient with transforming qualifiers (e.g. dried, frozen, refined)\n";
+print $apfh "# -> OFF tagid without the qualifiers\n";
 print $apfh "# Generated by match_ecobalyse_base_ingredients_to_off.pl\n";
 print $apfh "# Format: target_tagid<TAB>source_baseIngredient\n";
 for my $row (@auto_proxies) {

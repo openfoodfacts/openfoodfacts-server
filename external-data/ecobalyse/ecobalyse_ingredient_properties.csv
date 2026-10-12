@@ -4,11 +4,11 @@ en:alcohol-vinegar	ecobalyse_raw_to_cooked_ratio:en	1
 en:alcohol-vinegar	ecobalyse_inedible_part:en	0
 en:alcohol-vinegar	ecobalyse_transport_cooling:en	none
 en:alcohol-vinegar	ecobalyse_category:en	other_food_items
-en:alcohol-vinegar	ecobalyse_proxy_id:en	24222e45-52dc-4c18-ab9f-0ee39d8a46b4
-en:alcohol-vinegar	ecobalyse_proxy_scenario:en	reference
-en:alcohol-vinegar	ecobalyse_proxy_name:fr	Vinaigre d'alcool FR (2025)
-en:alcohol-vinegar	ecobalyse_proxy_alias:en	vinegar-alcohol-2025
-en:alcohol-vinegar	ecobalyse_proxy_default_origin:en	FR
+en:alcohol-vinegar	ecobalyse_id:en	24222e45-52dc-4c18-ab9f-0ee39d8a46b4
+en:alcohol-vinegar	ecobalyse_scenario:en	reference
+en:alcohol-vinegar	ecobalyse_name:fr	Vinaigre d'alcool FR (2025)
+en:alcohol-vinegar	ecobalyse_alias:en	vinegar-alcohol-2025
+en:alcohol-vinegar	ecobalyse_default_origin:en	FR
 en:alcohol-vinegar	ecobalyse_origins_en_france_id:en	24222e45-52dc-4c18-ab9f-0ee39d8a46b4
 en:alcohol-vinegar	ecobalyse_origins_en_france_scenario:en	reference
 en:alcohol-vinegar	ecobalyse_origins_en_france_name:fr	Vinaigre d'alcool FR (2025)
@@ -25,6 +25,12 @@ en:alfalfa	ecobalyse_scenario:en	import
 en:alfalfa	ecobalyse_name:fr	Luzerne HORS UE
 en:alfalfa	ecobalyse_alias:en	alfalfa-non-eu
 en:alfalfa	ecobalyse_default_origin:en	
+en:alfalfa	ecobalyse_labels_en_organic_id:en	fd187fa6-9cbc-4839-b13f-365c5371cee6
+en:alfalfa	ecobalyse_labels_en_organic_scenario:en	organic
+en:alfalfa	ecobalyse_labels_en_organic_name:fr	Luzerne Bio (2025)
+en:alfalfa	ecobalyse_labels_en_organic_alias:en	alfalfa-organic-2025
+en:alfalfa	ecobalyse_labels_en_organic_default_origin:en	
+en:alfalfa	ecobalyse_labels_en_organic_visibility:en	false
 en:alfalfa	ecobalyse_origins_en_europe_and_maghreb_id:en	0ea1b225-eba0-5884-ac23-e042c3fa7afb
 en:alfalfa	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:alfalfa	ecobalyse_origins_en_europe_and_maghreb_name:fr	Luzerne UE
@@ -61,6 +67,29 @@ en:almond	ecobalyse_origins_en_france_scenario:en	reference
 en:almond	ecobalyse_origins_en_france_name:fr	Amande, décortiquée, avec peau FR
 en:almond	ecobalyse_origins_en_france_alias:en	almond-shelled-with-skin-fr
 en:almond	ecobalyse_origins_en_france_default_origin:en	FR
+en:anchovy	ecobalyse_density_g_per_ml:en	1
+en:anchovy	ecobalyse_raw_to_cooked_ratio:en	0.819
+en:anchovy	ecobalyse_inedible_part:en	0.2
+en:anchovy	ecobalyse_transport_cooling:en	always
+en:anchovy	ecobalyse_category:en	fish_and_shellfish
+en:anchovy	ecobalyse_id:en	91314b7a-0b9f-4893-946d-e321dc1cacb4
+en:anchovy	ecobalyse_scenario:en	import
+en:anchovy	ecobalyse_name:fr	Anchois par défaut (2025)
+en:anchovy	ecobalyse_alias:en	anchovy-non-eu-2025
+en:anchovy	ecobalyse_default_origin:en	
+en:anchovy	ecobalyse_visibility:en	false
+en:anchovy	ecobalyse_origins_en_europe_and_maghreb_id:en	fcb112b1-bf64-431d-8f01-f2a9e7bfe155
+en:anchovy	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:anchovy	ecobalyse_origins_en_europe_and_maghreb_name:fr	Anchois UE (2025)
+en:anchovy	ecobalyse_origins_en_europe_and_maghreb_alias:en	anchovy-eu-2025
+en:anchovy	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:anchovy	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
+en:anchovy	ecobalyse_origins_en_france_id:en	80aaae2b-6b1e-43fe-9139-319b114ca620
+en:anchovy	ecobalyse_origins_en_france_scenario:en	reference
+en:anchovy	ecobalyse_origins_en_france_name:fr	Anchois FR (2025)
+en:anchovy	ecobalyse_origins_en_france_alias:en	anchovy-fr-2025
+en:anchovy	ecobalyse_origins_en_france_default_origin:en	FR
+en:anchovy	ecobalyse_origins_en_france_visibility:en	false
 en:apple	ecobalyse_density_g_per_ml:en	1
 en:apple	ecobalyse_crop_group:en	VERGERS
 en:apple	ecobalyse_raw_to_cooked_ratio:en	1
@@ -93,11 +122,11 @@ en:apple-juice	ecobalyse_raw_to_cooked_ratio:en	1
 en:apple-juice	ecobalyse_inedible_part:en	0.1
 en:apple-juice	ecobalyse_transport_cooling:en	none
 en:apple-juice	ecobalyse_category:en	other_food_items
-en:apple-juice	ecobalyse_proxy_id:en	40a4432b-2b12-45f3-aed2-a8c4e165e15f
-en:apple-juice	ecobalyse_proxy_scenario:en	reference
-en:apple-juice	ecobalyse_proxy_name:fr	Jus de pomme FR (2025)
-en:apple-juice	ecobalyse_proxy_alias:en	apple-juice-2025
-en:apple-juice	ecobalyse_proxy_default_origin:en	FR
+en:apple-juice	ecobalyse_id:en	40a4432b-2b12-45f3-aed2-a8c4e165e15f
+en:apple-juice	ecobalyse_scenario:en	reference
+en:apple-juice	ecobalyse_name:fr	Jus de pomme FR (2025)
+en:apple-juice	ecobalyse_alias:en	apple-juice-2025
+en:apple-juice	ecobalyse_default_origin:en	FR
 en:apple-juice	ecobalyse_origins_en_france_id:en	40a4432b-2b12-45f3-aed2-a8c4e165e15f
 en:apple-juice	ecobalyse_origins_en_france_scenario:en	reference
 en:apple-juice	ecobalyse_origins_en_france_name:fr	Jus de pomme FR (2025)
@@ -239,11 +268,11 @@ en:balsamic-vinegar	ecobalyse_raw_to_cooked_ratio:en	1
 en:balsamic-vinegar	ecobalyse_inedible_part:en	0
 en:balsamic-vinegar	ecobalyse_transport_cooling:en	none
 en:balsamic-vinegar	ecobalyse_category:en	other_food_items
-en:balsamic-vinegar	ecobalyse_proxy_id:en	c2e4259b-962f-49ea-b7f1-606f81b59207
-en:balsamic-vinegar	ecobalyse_proxy_scenario:en	reference
-en:balsamic-vinegar	ecobalyse_proxy_name:fr	Vinaigre balsamique FR (2025)
-en:balsamic-vinegar	ecobalyse_proxy_alias:en	balsamic-vinegar-2025
-en:balsamic-vinegar	ecobalyse_proxy_default_origin:en	FR
+en:balsamic-vinegar	ecobalyse_id:en	c2e4259b-962f-49ea-b7f1-606f81b59207
+en:balsamic-vinegar	ecobalyse_scenario:en	reference
+en:balsamic-vinegar	ecobalyse_name:fr	Vinaigre balsamique FR (2025)
+en:balsamic-vinegar	ecobalyse_alias:en	balsamic-vinegar-2025
+en:balsamic-vinegar	ecobalyse_default_origin:en	FR
 en:balsamic-vinegar	ecobalyse_origins_en_france_id:en	c2e4259b-962f-49ea-b7f1-606f81b59207
 en:balsamic-vinegar	ecobalyse_origins_en_france_scenario:en	reference
 en:balsamic-vinegar	ecobalyse_origins_en_france_name:fr	Vinaigre balsamique FR (2025)
@@ -281,6 +310,17 @@ en:banana	ecobalyse_scenario:en	import
 en:banana	ecobalyse_name:fr	Banane par défaut (2025)
 en:banana	ecobalyse_alias:en	banana-non-eu-2025
 en:banana	ecobalyse_default_origin:en	
+en:banana	ecobalyse_labels_en_organic_id:en	d9ac7880-c51e-4f4b-a2b8-c7e9408e3bae
+en:banana	ecobalyse_labels_en_organic_scenario:en	organic
+en:banana	ecobalyse_labels_en_organic_name:fr	Banane, pulpe, crue Origine Inconnue BIO
+en:banana	ecobalyse_labels_en_organic_alias:en	banana-pulp-raw-default-organic
+en:banana	ecobalyse_labels_en_organic_default_origin:en	
+en:banana	ecobalyse_labels_en_organic_visibility:en	false
+en:banana	ecobalyse_origins_en_france_overseas_id:en	ed59e002-178b-5132-9df5-6883261dfa1c
+en:banana	ecobalyse_origins_en_france_overseas_scenario:en	reference
+en:banana	ecobalyse_origins_en_france_overseas_name:fr	Banane FR Outre-Mer
+en:banana	ecobalyse_origins_en_france_overseas_alias:en	banana-fr-overseas
+en:banana	ecobalyse_origins_en_france_overseas_default_origin:en	ROF
 en:banana	ecobalyse_origins_en_europe_and_maghreb_id:en	aa3807aa-d855-5506-a799-88d49ccbe0d4
 en:banana	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:banana	ecobalyse_origins_en_europe_and_maghreb_name:fr	Banane UE Antilles
@@ -307,6 +347,18 @@ en:barley	ecobalyse_scenario:en	import
 en:barley	ecobalyse_name:fr	Orge par défaut (2025)
 en:barley	ecobalyse_alias:en	barley-non-eu-2025
 en:barley	ecobalyse_default_origin:en	
+en:barley	ecobalyse_labels_en_organic_id:en	3c16dc23-021d-45ef-8805-c77b043b041a
+en:barley	ecobalyse_labels_en_organic_scenario:en	organic
+en:barley	ecobalyse_labels_en_organic_name:fr	Orge Bio (2025)
+en:barley	ecobalyse_labels_en_organic_alias:en	barley-organic-2025
+en:barley	ecobalyse_labels_en_organic_default_origin:en	
+en:barley	ecobalyse_labels_en_organic_visibility:en	false
+en:barley	ecobalyse_origins_en_europe_and_maghreb_id:en	34a88056-cd23-40e6-8eaa-6a64595fa9b2
+en:barley	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:barley	ecobalyse_origins_en_europe_and_maghreb_name:fr	Orge UE (2025)
+en:barley	ecobalyse_origins_en_europe_and_maghreb_alias:en	barley-eu-2025
+en:barley	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:barley	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:barley	ecobalyse_origins_en_france_id:en	6665e6d0-38da-4010-87e7-7fb54f85643d
 en:barley	ecobalyse_origins_en_france_scenario:en	reference
 en:barley	ecobalyse_origins_en_france_name:fr	Farine d'orge FR
@@ -349,17 +401,6 @@ en:bay-leaf	ecobalyse_origins_en_france_scenario:en	reference
 en:bay-leaf	ecobalyse_origins_en_france_name:fr	Feuilles de laurier FR
 en:bay-leaf	ecobalyse_origins_en_france_alias:en	bay-leaf-fr
 en:bay-leaf	ecobalyse_origins_en_france_default_origin:en	FR
-en:bean	ecobalyse_density_g_per_ml:en	1
-en:bean	ecobalyse_crop_group:en	LEGUMES-FLEURS
-en:bean	ecobalyse_raw_to_cooked_ratio:en	1
-en:bean	ecobalyse_inedible_part:en	0
-en:bean	ecobalyse_transport_cooling:en	none
-en:bean	ecobalyse_category:en	other_food_items
-en:bean	ecobalyse_id:en	882c0d42-7f99-4ff5-ae5f-85277082e5f7
-en:bean	ecobalyse_scenario:en	import
-en:bean	ecobalyse_name:fr	Haricot blanc, appertisé, égoutté Origine Inconnue
-en:bean	ecobalyse_alias:en	white-bean-canned-drained-default
-en:bean	ecobalyse_default_origin:en	
 en:beans	ecobalyse_density_g_per_ml:en	0.72
 en:beans	ecobalyse_crop_group:en	AUTRES CEREALES
 en:beans	ecobalyse_raw_to_cooked_ratio:en	2.259
@@ -386,6 +427,67 @@ en:beans	ecobalyse_origins_en_france_scenario:en	reference
 en:beans	ecobalyse_origins_en_france_name:fr	Pois FR (2025)
 en:beans	ecobalyse_origins_en_france_alias:en	bean-fr-2025
 en:beans	ecobalyse_origins_en_france_default_origin:en	FR
+en:beaufort	ecobalyse_density_g_per_ml:en	1
+en:beaufort	ecobalyse_raw_to_cooked_ratio:en	1
+en:beaufort	ecobalyse_inedible_part:en	0
+en:beaufort	ecobalyse_transport_cooling:en	none
+en:beaufort	ecobalyse_category:en	other_food_items
+en:beaufort	ecobalyse_id:en	2e8c166a-b78a-4550-a8c8-c565a9f4bd1b
+en:beaufort	ecobalyse_scenario:en	reference
+en:beaufort	ecobalyse_name:fr	Beaufort FR
+en:beaufort	ecobalyse_alias:en	beaufort-cheese-fr
+en:beaufort	ecobalyse_default_origin:en	FR
+en:beaufort	ecobalyse_origins_en_france_id:en	2e8c166a-b78a-4550-a8c8-c565a9f4bd1b
+en:beaufort	ecobalyse_origins_en_france_scenario:en	reference
+en:beaufort	ecobalyse_origins_en_france_name:fr	Beaufort FR
+en:beaufort	ecobalyse_origins_en_france_alias:en	beaufort-cheese-fr
+en:beaufort	ecobalyse_origins_en_france_default_origin:en	FR
+en:beef	ecobalyse_density_g_per_ml:en	1.05
+en:beef	ecobalyse_raw_to_cooked_ratio:en	0.792
+en:beef	ecobalyse_inedible_part:en	0.05
+en:beef	ecobalyse_transport_cooling:en	none
+en:beef	ecobalyse_category:en	other_food_items
+en:beef	ecobalyse_id:en	046dbc17-d453-526e-9d3d-d79706f48b88
+en:beef	ecobalyse_scenario:en	import
+en:beef	ecobalyse_name:fr	Boeuf Origine Inconnue
+en:beef	ecobalyse_alias:en	beef-default
+en:beef	ecobalyse_default_origin:en	
+en:beef	ecobalyse_visibility:en	false
+en:beef	ecobalyse_labels_en_organic_origins_en_france_id:en	ee9f059d-cb4f-5e74-9981-7ced79fdc330
+en:beef	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:beef	ecobalyse_labels_en_organic_origins_en_france_name:fr	Boeuf Bio
+en:beef	ecobalyse_labels_en_organic_origins_en_france_alias:en	beef-organic
+en:beef	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:beef	ecobalyse_labels_en_organic_origins_en_france_visibility:en	false
+en:beef	ecobalyse_origins_en_france_id:en	83dd3304-48b4-524a-ac85-de5402385fa3
+en:beef	ecobalyse_origins_en_france_scenario:en	reference
+en:beef	ecobalyse_origins_en_france_name:fr	Boeuf FR
+en:beef	ecobalyse_origins_en_france_alias:en	beef-fr
+en:beef	ecobalyse_origins_en_france_default_origin:en	FR
+en:beef	ecobalyse_origins_en_france_visibility:en	false
+en:beef-bones	ecobalyse_density_g_per_ml:en	1
+en:beef-bones	ecobalyse_raw_to_cooked_ratio:en	0.792
+en:beef-bones	ecobalyse_inedible_part:en	0.2
+en:beef-bones	ecobalyse_transport_cooling:en	always
+en:beef-bones	ecobalyse_category:en	red_meats
+en:beef-bones	ecobalyse_id:en	131354de-e269-4bc7-a21a-b55658b8e3fb
+en:beef-bones	ecobalyse_scenario:en	import
+en:beef-bones	ecobalyse_name:fr	Viande de boeuf avec os par défaut
+en:beef-bones	ecobalyse_alias:en	beef-with-bone-feedlot
+en:beef-bones	ecobalyse_default_origin:en	
+en:beef-bones	ecobalyse_visibility:en	false
+en:beef-bones	ecobalyse_labels_en_organic_origins_en_france_id:en	6912db61-530f-4630-956a-b94a6ded0134
+en:beef-bones	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:beef-bones	ecobalyse_labels_en_organic_origins_en_france_name:fr	Viande de boeuf avec os Bio
+en:beef-bones	ecobalyse_labels_en_organic_origins_en_france_alias:en	beef-with-bone-organic
+en:beef-bones	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:beef-bones	ecobalyse_labels_en_organic_origins_en_france_visibility:en	false
+en:beef-bones	ecobalyse_origins_en_france_id:en	9db6b0d1-941a-4dda-a347-b7a7fee8fd46
+en:beef-bones	ecobalyse_origins_en_france_scenario:en	reference
+en:beef-bones	ecobalyse_origins_en_france_name:fr	Viande de boeuf avec os (crue) FR
+en:beef-bones	ecobalyse_origins_en_france_alias:en	beef-with-bone
+en:beef-bones	ecobalyse_origins_en_france_default_origin:en	FR
+en:beef-bones	ecobalyse_origins_en_france_visibility:en	false
 en:beetroot	ecobalyse_density_g_per_ml:en	0.9
 en:beetroot	ecobalyse_crop_group:en	AUTRES CULTURES INDUSTRIELLES
 en:beetroot	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -501,11 +603,11 @@ en:blue-cheese	ecobalyse_raw_to_cooked_ratio:en	1
 en:blue-cheese	ecobalyse_inedible_part:en	0
 en:blue-cheese	ecobalyse_transport_cooling:en	none
 en:blue-cheese	ecobalyse_category:en	other_food_items
-en:blue-cheese	ecobalyse_proxy_id:en	0cb50cd4-2842-4336-9710-c1bf52a2209e
-en:blue-cheese	ecobalyse_proxy_scenario:en	reference
-en:blue-cheese	ecobalyse_proxy_name:fr	Fromage bleu d'Auvergne FR
-en:blue-cheese	ecobalyse_proxy_alias:en	blue-cheese-auvergne-fr
-en:blue-cheese	ecobalyse_proxy_default_origin:en	FR
+en:blue-cheese	ecobalyse_id:en	0cb50cd4-2842-4336-9710-c1bf52a2209e
+en:blue-cheese	ecobalyse_scenario:en	reference
+en:blue-cheese	ecobalyse_name:fr	Fromage bleu d'Auvergne FR
+en:blue-cheese	ecobalyse_alias:en	blue-cheese-auvergne-fr
+en:blue-cheese	ecobalyse_default_origin:en	FR
 en:blue-cheese	ecobalyse_origins_en_france_id:en	0cb50cd4-2842-4336-9710-c1bf52a2209e
 en:blue-cheese	ecobalyse_origins_en_france_scenario:en	reference
 en:blue-cheese	ecobalyse_origins_en_france_name:fr	Fromage bleu d'Auvergne FR
@@ -547,11 +649,11 @@ en:bolognese-sauce	ecobalyse_raw_to_cooked_ratio:en	0.856
 en:bolognese-sauce	ecobalyse_inedible_part:en	0
 en:bolognese-sauce	ecobalyse_transport_cooling:en	always
 en:bolognese-sauce	ecobalyse_category:en	fruits_and_vegetables
-en:bolognese-sauce	ecobalyse_proxy_id:en	ad4e4cff-9333-4f5a-bfc5-028cfe888072
-en:bolognese-sauce	ecobalyse_proxy_scenario:en	reference
-en:bolognese-sauce	ecobalyse_proxy_name:fr	Sauce tomate à la viande FR (2025)
-en:bolognese-sauce	ecobalyse_proxy_alias:en	bolognese-2025
-en:bolognese-sauce	ecobalyse_proxy_default_origin:en	FR
+en:bolognese-sauce	ecobalyse_id:en	ad4e4cff-9333-4f5a-bfc5-028cfe888072
+en:bolognese-sauce	ecobalyse_scenario:en	reference
+en:bolognese-sauce	ecobalyse_name:fr	Sauce tomate à la viande FR (2025)
+en:bolognese-sauce	ecobalyse_alias:en	bolognese-2025
+en:bolognese-sauce	ecobalyse_default_origin:en	FR
 en:bolognese-sauce	ecobalyse_origins_en_france_id:en	ad4e4cff-9333-4f5a-bfc5-028cfe888072
 en:bolognese-sauce	ecobalyse_origins_en_france_scenario:en	reference
 en:bolognese-sauce	ecobalyse_origins_en_france_name:fr	Sauce tomate à la viande FR (2025)
@@ -584,6 +686,11 @@ en:breadfruit	ecobalyse_scenario:en	import
 en:breadfruit	ecobalyse_name:fr	Fruit à pain Origine Inconnue
 en:breadfruit	ecobalyse_alias:en	breadfruit-default
 en:breadfruit	ecobalyse_default_origin:en	
+en:breadfruit	ecobalyse_origins_en_france_overseas_id:en	5912afe2-4eaf-5676-b83e-8635066f8359
+en:breadfruit	ecobalyse_origins_en_france_overseas_scenario:en	reference
+en:breadfruit	ecobalyse_origins_en_france_overseas_name:fr	Fruit à pain FR Outre-Mer
+en:breadfruit	ecobalyse_origins_en_france_overseas_alias:en	breadfruit-fr-overseas
+en:breadfruit	ecobalyse_origins_en_france_overseas_default_origin:en	ROF
 en:breadfruit	ecobalyse_origins_en_europe_and_maghreb_id:en	95462786-990c-5fda-bad5-bce0211ea131
 en:breadfruit	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:breadfruit	ecobalyse_origins_en_europe_and_maghreb_name:fr	Fruit à pain UE
@@ -769,11 +876,11 @@ en:cantal	ecobalyse_raw_to_cooked_ratio:en	1
 en:cantal	ecobalyse_inedible_part:en	0
 en:cantal	ecobalyse_transport_cooling:en	none
 en:cantal	ecobalyse_category:en	other_food_items
-en:cantal	ecobalyse_proxy_id:en	c398359a-dc79-483a-9b53-687ab17406ab
-en:cantal	ecobalyse_proxy_scenario:en	reference
-en:cantal	ecobalyse_proxy_name:fr	Cantal, Salers ou Laguiole FR
-en:cantal	ecobalyse_proxy_alias:en	cantal-cheese-fr
-en:cantal	ecobalyse_proxy_default_origin:en	FR
+en:cantal	ecobalyse_id:en	c398359a-dc79-483a-9b53-687ab17406ab
+en:cantal	ecobalyse_scenario:en	reference
+en:cantal	ecobalyse_name:fr	Cantal, Salers ou Laguiole FR
+en:cantal	ecobalyse_alias:en	cantal-cheese-fr
+en:cantal	ecobalyse_default_origin:en	FR
 en:cantal	ecobalyse_origins_en_france_id:en	c398359a-dc79-483a-9b53-687ab17406ab
 en:cantal	ecobalyse_origins_en_france_scenario:en	reference
 en:cantal	ecobalyse_origins_en_france_name:fr	Cantal, Salers ou Laguiole FR
@@ -827,6 +934,12 @@ en:carrot	ecobalyse_scenario:en	import
 en:carrot	ecobalyse_name:fr	Carotte, découpée, crue Origine Inconnue
 en:carrot	ecobalyse_alias:en	carrot-cut-raw-default
 en:carrot	ecobalyse_default_origin:en	
+en:carrot	ecobalyse_origins_en_europe_and_maghreb_id:en	836d0a35-84c0-5981-bcde-73befcf3bf61
+en:carrot	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:carrot	ecobalyse_origins_en_europe_and_maghreb_name:fr	Carottes UE
+en:carrot	ecobalyse_origins_en_europe_and_maghreb_alias:en	carrot-eu
+en:carrot	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:carrot	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:carrot	ecobalyse_labels_en_organic_origins_en_france_id:en	ce71197c-d90f-5daf-a532-d9ae0f0c9ab2
 en:carrot	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:carrot	ecobalyse_labels_en_organic_origins_en_france_name:fr	Carottes Bio
@@ -952,11 +1065,11 @@ en:chaource-cheese	ecobalyse_raw_to_cooked_ratio:en	1
 en:chaource-cheese	ecobalyse_inedible_part:en	0
 en:chaource-cheese	ecobalyse_transport_cooling:en	none
 en:chaource-cheese	ecobalyse_category:en	other_food_items
-en:chaource-cheese	ecobalyse_proxy_id:en	e35b0b64-956f-476b-a7f4-c8cd29ad5020
-en:chaource-cheese	ecobalyse_proxy_scenario:en	reference
-en:chaource-cheese	ecobalyse_proxy_name:fr	Chaource FR
-en:chaource-cheese	ecobalyse_proxy_alias:en	chaource-cheese-fr
-en:chaource-cheese	ecobalyse_proxy_default_origin:en	FR
+en:chaource-cheese	ecobalyse_id:en	e35b0b64-956f-476b-a7f4-c8cd29ad5020
+en:chaource-cheese	ecobalyse_scenario:en	reference
+en:chaource-cheese	ecobalyse_name:fr	Chaource FR
+en:chaource-cheese	ecobalyse_alias:en	chaource-cheese-fr
+en:chaource-cheese	ecobalyse_default_origin:en	FR
 en:chaource-cheese	ecobalyse_origins_en_france_id:en	e35b0b64-956f-476b-a7f4-c8cd29ad5020
 en:chaource-cheese	ecobalyse_origins_en_france_scenario:en	reference
 en:chaource-cheese	ecobalyse_origins_en_france_name:fr	Chaource FR
@@ -1029,6 +1142,12 @@ en:cherry	ecobalyse_scenario:en	import
 en:cherry	ecobalyse_name:fr	Cerise, dénoyautée, crue Origine Inconnue
 en:cherry	ecobalyse_alias:en	cherry-pitted-raw-default
 en:cherry	ecobalyse_default_origin:en	
+en:cherry	ecobalyse_origins_en_europe_and_maghreb_id:en	ea6cc96f-ae22-4f14-ace9-a6a463fd360b
+en:cherry	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:cherry	ecobalyse_origins_en_europe_and_maghreb_name:fr	Cerise UE
+en:cherry	ecobalyse_origins_en_europe_and_maghreb_alias:en	cherry-eu
+en:cherry	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:cherry	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:cherry	ecobalyse_labels_en_organic_origins_en_france_id:en	19ef7744-364e-422c-8c68-0ed87fad5e81
 en:cherry	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:cherry	ecobalyse_labels_en_organic_origins_en_france_name:fr	Cerise, dénoyautée, crue Bio
@@ -1101,6 +1220,12 @@ en:chicken-breast	ecobalyse_scenario:en	import
 en:chicken-breast	ecobalyse_name:fr	Blanc de poulet cru (alim. ani. 100%BR) par défaut
 en:chicken-breast	ecobalyse_alias:en	chicken-breast-br-max
 en:chicken-breast	ecobalyse_default_origin:en	
+en:chicken-breast	ecobalyse_origins_en_europe_and_maghreb_id:en	e57ae0e0-6277-427f-9090-087c97008966
+en:chicken-breast	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:chicken-breast	ecobalyse_origins_en_europe_and_maghreb_name:fr	Blanc de poulet cru UE (2025)
+en:chicken-breast	ecobalyse_origins_en_europe_and_maghreb_alias:en	chicken-breast-eu-2025
+en:chicken-breast	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:chicken-breast	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:chicken-breast	ecobalyse_labels_en_organic_origins_en_france_id:en	b19b0dc0-3478-46a0-b8a1-3225ea939ff1
 en:chicken-breast	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:chicken-breast	ecobalyse_labels_en_organic_origins_en_france_name:fr	Blanc de poulet cru Bio
@@ -1322,6 +1447,11 @@ en:coconut	ecobalyse_scenario:en	import
 en:coconut	ecobalyse_name:fr	Noix de coco décortiquée HORS UE
 en:coconut	ecobalyse_alias:en	coconut-dehusked-non-eu
 en:coconut	ecobalyse_default_origin:en	
+en:coconut	ecobalyse_origins_en_france_overseas_id:en	79109cbe-e78f-5c83-8140-169b550bf068
+en:coconut	ecobalyse_origins_en_france_overseas_scenario:en	reference
+en:coconut	ecobalyse_origins_en_france_overseas_name:fr	Noix de coco décortiquée FR Outre-Mer
+en:coconut	ecobalyse_origins_en_france_overseas_alias:en	coconut-dehusked-fr-overseas
+en:coconut	ecobalyse_origins_en_france_overseas_default_origin:en	ROF
 en:coconut	ecobalyse_labels_en_organic_origins_en_france_id:en	77a5e811-7024-5b2c-b07c-77ac6c4dd63e
 en:coconut	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:coconut	ecobalyse_labels_en_organic_origins_en_france_name:fr	Noix de coco décortiquée Bio
@@ -1332,6 +1462,23 @@ en:coconut	ecobalyse_origins_en_france_scenario:en	reference
 en:coconut	ecobalyse_origins_en_france_name:fr	Noix de coco décortiquée FR
 en:coconut	ecobalyse_origins_en_france_alias:en	coconut-dehusked-fr
 en:coconut	ecobalyse_origins_en_france_default_origin:en	FR
+en:cod	ecobalyse_density_g_per_ml:en	1
+en:cod	ecobalyse_raw_to_cooked_ratio:en	1
+en:cod	ecobalyse_inedible_part:en	0.2
+en:cod	ecobalyse_transport_cooling:en	none
+en:cod	ecobalyse_category:en	other_food_items
+en:cod	ecobalyse_id:en	62fc4202-1ff8-44f5-8f5b-e734ac8a4730
+en:cod	ecobalyse_scenario:en	import
+en:cod	ecobalyse_name:fr	Morue UE (2025)
+en:cod	ecobalyse_alias:en	cod-eu-2025
+en:cod	ecobalyse_default_origin:en	REM
+en:cod	ecobalyse_visibility:en	false
+en:cod	ecobalyse_origins_en_europe_and_maghreb_id:en	62fc4202-1ff8-44f5-8f5b-e734ac8a4730
+en:cod	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:cod	ecobalyse_origins_en_europe_and_maghreb_name:fr	Morue UE (2025)
+en:cod	ecobalyse_origins_en_europe_and_maghreb_alias:en	cod-eu-2025
+en:cod	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:cod	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:coffee-beans	ecobalyse_density_g_per_ml:en	0.8
 en:coffee-beans	ecobalyse_crop_group:en	ARBORICULTURE
 en:coffee-beans	ecobalyse_raw_to_cooked_ratio:en	1
@@ -1353,11 +1500,11 @@ en:comte	ecobalyse_raw_to_cooked_ratio:en	1
 en:comte	ecobalyse_inedible_part:en	0
 en:comte	ecobalyse_transport_cooling:en	none
 en:comte	ecobalyse_category:en	other_food_items
-en:comte	ecobalyse_proxy_id:en	afec1f74-2b0e-4c68-97ad-bdc79e4c2806
-en:comte	ecobalyse_proxy_scenario:en	reference
-en:comte	ecobalyse_proxy_name:fr	Comté FR
-en:comte	ecobalyse_proxy_alias:en	comte-cheese-fr
-en:comte	ecobalyse_proxy_default_origin:en	FR
+en:comte	ecobalyse_id:en	afec1f74-2b0e-4c68-97ad-bdc79e4c2806
+en:comte	ecobalyse_scenario:en	reference
+en:comte	ecobalyse_name:fr	Comté FR
+en:comte	ecobalyse_alias:en	comte-cheese-fr
+en:comte	ecobalyse_default_origin:en	FR
 en:comte	ecobalyse_origins_en_france_id:en	afec1f74-2b0e-4c68-97ad-bdc79e4c2806
 en:comte	ecobalyse_origins_en_france_scenario:en	reference
 en:comte	ecobalyse_origins_en_france_name:fr	Comté FR
@@ -1368,11 +1515,11 @@ en:cooked-ham	ecobalyse_raw_to_cooked_ratio:en	1
 en:cooked-ham	ecobalyse_inedible_part:en	0
 en:cooked-ham	ecobalyse_transport_cooling:en	none
 en:cooked-ham	ecobalyse_category:en	other_food_items
-en:cooked-ham	ecobalyse_proxy_id:en	755225f1-f0c5-497f-b8a9-263828a84a22
-en:cooked-ham	ecobalyse_proxy_scenario:en	reference
-en:cooked-ham	ecobalyse_proxy_name:fr	Jambon cuit FR (2025)
-en:cooked-ham	ecobalyse_proxy_alias:en	cooked-ham-2025
-en:cooked-ham	ecobalyse_proxy_default_origin:en	FR
+en:cooked-ham	ecobalyse_id:en	755225f1-f0c5-497f-b8a9-263828a84a22
+en:cooked-ham	ecobalyse_scenario:en	reference
+en:cooked-ham	ecobalyse_name:fr	Jambon cuit FR (2025)
+en:cooked-ham	ecobalyse_alias:en	cooked-ham-2025
+en:cooked-ham	ecobalyse_default_origin:en	FR
 en:cooked-ham	ecobalyse_labels_en_organic_origins_en_france_id:en	4de5e41e-3271-4489-aa27-a973e4045082
 en:cooked-ham	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:cooked-ham	ecobalyse_labels_en_organic_origins_en_france_name:fr	Jambon cuit Bio (2025)
@@ -1420,6 +1567,12 @@ en:corn	ecobalyse_scenario:en	import
 en:corn	ecobalyse_name:fr	Maïs Origine Inconnue
 en:corn	ecobalyse_alias:en	corn-default
 en:corn	ecobalyse_default_origin:en	
+en:corn	ecobalyse_origins_en_europe_and_maghreb_id:en	96962794-5565-544b-ba7b-ba05b859711e
+en:corn	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:corn	ecobalyse_origins_en_europe_and_maghreb_name:fr	Maïs UE
+en:corn	ecobalyse_origins_en_europe_and_maghreb_alias:en	corn-eu
+en:corn	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:corn	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:corn	ecobalyse_labels_en_organic_origins_en_france_id:en	ad0de72a-ad5e-4776-b63f-b82779022e9e
 en:corn	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:corn	ecobalyse_labels_en_organic_origins_en_france_name:fr	Farine de maïs FR BIO
@@ -1507,11 +1660,11 @@ en:crab	ecobalyse_raw_to_cooked_ratio:en	0.819
 en:crab	ecobalyse_inedible_part:en	0.5
 en:crab	ecobalyse_transport_cooling:en	always
 en:crab	ecobalyse_category:en	fish_and_shellfish
-en:crab	ecobalyse_proxy_id:en	4f075683-12a5-423b-bd78-75aed2781290
-en:crab	ecobalyse_proxy_scenario:en	import
-en:crab	ecobalyse_proxy_name:fr	Crabe UE (2025)
-en:crab	ecobalyse_proxy_alias:en	crab-eu-2025
-en:crab	ecobalyse_proxy_default_origin:en	REM
+en:crab	ecobalyse_id:en	4f075683-12a5-423b-bd78-75aed2781290
+en:crab	ecobalyse_scenario:en	import
+en:crab	ecobalyse_name:fr	Crabe UE (2025)
+en:crab	ecobalyse_alias:en	crab-eu-2025
+en:crab	ecobalyse_default_origin:en	REM
 en:crab	ecobalyse_origins_en_europe_and_maghreb_id:en	4f075683-12a5-423b-bd78-75aed2781290
 en:crab	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:crab	ecobalyse_origins_en_europe_and_maghreb_name:fr	Crabe UE (2025)
@@ -1601,16 +1754,37 @@ en:dehydrated-onion	ecobalyse_raw_to_cooked_ratio:en	1
 en:dehydrated-onion	ecobalyse_inedible_part:en	0
 en:dehydrated-onion	ecobalyse_transport_cooling:en	none
 en:dehydrated-onion	ecobalyse_category:en	other_food_items
-en:dehydrated-onion	ecobalyse_proxy_id:en	0a2edda7-2158-4206-8d8c-2151fc925215
-en:dehydrated-onion	ecobalyse_proxy_scenario:en	reference
-en:dehydrated-onion	ecobalyse_proxy_name:fr	Oignons déshydratés par défaut (2025)
-en:dehydrated-onion	ecobalyse_proxy_alias:en	onion-dried-2025
-en:dehydrated-onion	ecobalyse_proxy_default_origin:en	FR
+en:dehydrated-onion	ecobalyse_id:en	0a2edda7-2158-4206-8d8c-2151fc925215
+en:dehydrated-onion	ecobalyse_scenario:en	reference
+en:dehydrated-onion	ecobalyse_name:fr	Oignons déshydratés par défaut (2025)
+en:dehydrated-onion	ecobalyse_alias:en	onion-dried-2025
+en:dehydrated-onion	ecobalyse_default_origin:en	FR
 en:dehydrated-onion	ecobalyse_origins_en_france_id:en	0a2edda7-2158-4206-8d8c-2151fc925215
 en:dehydrated-onion	ecobalyse_origins_en_france_scenario:en	reference
 en:dehydrated-onion	ecobalyse_origins_en_france_name:fr	Oignons déshydratés par défaut (2025)
 en:dehydrated-onion	ecobalyse_origins_en_france_alias:en	onion-dried-2025
 en:dehydrated-onion	ecobalyse_origins_en_france_default_origin:en	FR
+en:dill	ecobalyse_density_g_per_ml:en	0.9
+en:dill	ecobalyse_crop_group:en	LEGUMES-FLEURS
+en:dill	ecobalyse_raw_to_cooked_ratio:en	0.856
+en:dill	ecobalyse_inedible_part:en	0.2
+en:dill	ecobalyse_transport_cooling:en	none
+en:dill	ecobalyse_category:en	other_food_items
+en:dill	ecobalyse_id:en	e849f2db-b8d3-5456-a771-bd23d88b1e66
+en:dill	ecobalyse_scenario:en	import
+en:dill	ecobalyse_name:fr	Aneth, frais HORS UE
+en:dill	ecobalyse_alias:en	dill-fresh-non-eu
+en:dill	ecobalyse_default_origin:en	
+en:dill	ecobalyse_origins_en_europe_and_maghreb_id:en	f7a0c8f4-0292-5d4f-a1bf-c0ea957782e1
+en:dill	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:dill	ecobalyse_origins_en_europe_and_maghreb_name:fr	Aneth, frais UE
+en:dill	ecobalyse_origins_en_europe_and_maghreb_alias:en	dill-fresh-eu
+en:dill	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:dill	ecobalyse_origins_en_france_id:en	2be86df2-76cd-5cea-8f9b-73e46fe5e1dd
+en:dill	ecobalyse_origins_en_france_scenario:en	reference
+en:dill	ecobalyse_origins_en_france_name:fr	Aneth, frais FR
+en:dill	ecobalyse_origins_en_france_alias:en	dill-fresh-fr
+en:dill	ecobalyse_origins_en_france_default_origin:en	FR
 en:dried-chickpea	ecobalyse_density_g_per_ml:en	0.8
 en:dried-chickpea	ecobalyse_crop_group:en	LEGUMINEUSES A GRAIN
 en:dried-chickpea	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -1637,6 +1811,30 @@ en:dried-chickpea	ecobalyse_origins_en_france_scenario:en	reference
 en:dried-chickpea	ecobalyse_origins_en_france_name:fr	Pois chiches FR
 en:dried-chickpea	ecobalyse_origins_en_france_alias:en	chickpea-dried-fr
 en:dried-chickpea	ecobalyse_origins_en_france_default_origin:en	FR
+en:dry-white-wine	ecobalyse_density_g_per_ml:en	1
+en:dry-white-wine	ecobalyse_crop_group:en	VIGNES
+en:dry-white-wine	ecobalyse_raw_to_cooked_ratio:en	1
+en:dry-white-wine	ecobalyse_inedible_part:en	0
+en:dry-white-wine	ecobalyse_transport_cooling:en	none
+en:dry-white-wine	ecobalyse_category:en	other_food_items
+en:dry-white-wine	ecobalyse_id:en	4050697c-75eb-4608-8fac-e7137e3d2941
+en:dry-white-wine	ecobalyse_scenario:en	import
+en:dry-white-wine	ecobalyse_name:fr	Vin blanc (sec) Origine Inconnue
+en:dry-white-wine	ecobalyse_alias:en	white-wine-dry-default
+en:dry-white-wine	ecobalyse_default_origin:en	
+en:dry-white-wine	ecobalyse_visibility:en	false
+en:dry-white-wine	ecobalyse_labels_en_organic_id:en	5db08ff7-eeeb-43c1-8525-63222faa7685
+en:dry-white-wine	ecobalyse_labels_en_organic_scenario:en	organic
+en:dry-white-wine	ecobalyse_labels_en_organic_name:fr	Vin blanc (sec) Origine Inconnue BIO
+en:dry-white-wine	ecobalyse_labels_en_organic_alias:en	white-wine-dry-default-organic
+en:dry-white-wine	ecobalyse_labels_en_organic_default_origin:en	
+en:dry-white-wine	ecobalyse_labels_en_organic_visibility:en	false
+en:dry-white-wine	ecobalyse_origins_en_france_id:en	52b6704f-c9d5-4a60-bbbe-47aaece69689
+en:dry-white-wine	ecobalyse_origins_en_france_scenario:en	reference
+en:dry-white-wine	ecobalyse_origins_en_france_name:fr	Vin blanc (sec) FR
+en:dry-white-wine	ecobalyse_origins_en_france_alias:en	white-wine-dry-fr
+en:dry-white-wine	ecobalyse_origins_en_france_default_origin:en	FR
+en:dry-white-wine	ecobalyse_origins_en_france_visibility:en	false
 en:durum-wheat	ecobalyse_density_g_per_ml:en	0.77
 en:durum-wheat	ecobalyse_crop_group:en	AUTRES CEREALES
 en:durum-wheat	ecobalyse_raw_to_cooked_ratio:en	2.259
@@ -1761,11 +1959,11 @@ en:egg-yolk-powder	ecobalyse_raw_to_cooked_ratio:en	1
 en:egg-yolk-powder	ecobalyse_inedible_part:en	0
 en:egg-yolk-powder	ecobalyse_transport_cooling:en	none
 en:egg-yolk-powder	ecobalyse_category:en	other_food_items
-en:egg-yolk-powder	ecobalyse_proxy_id:en	f6e84334-a8bb-4f07-915d-ef51e8dcf800
-en:egg-yolk-powder	ecobalyse_proxy_scenario:en	reference
-en:egg-yolk-powder	ecobalyse_proxy_name:fr	poudre de jaune d'oeuf FR (2025)
-en:egg-yolk-powder	ecobalyse_proxy_alias:en	egg-yolk-powder-fr-2025
-en:egg-yolk-powder	ecobalyse_proxy_default_origin:en	FR
+en:egg-yolk-powder	ecobalyse_id:en	f6e84334-a8bb-4f07-915d-ef51e8dcf800
+en:egg-yolk-powder	ecobalyse_scenario:en	reference
+en:egg-yolk-powder	ecobalyse_name:fr	poudre de jaune d'oeuf FR (2025)
+en:egg-yolk-powder	ecobalyse_alias:en	egg-yolk-powder-fr-2025
+en:egg-yolk-powder	ecobalyse_default_origin:en	FR
 en:egg-yolk-powder	ecobalyse_origins_en_france_id:en	f6e84334-a8bb-4f07-915d-ef51e8dcf800
 en:egg-yolk-powder	ecobalyse_origins_en_france_scenario:en	reference
 en:egg-yolk-powder	ecobalyse_origins_en_france_name:fr	poudre de jaune d'oeuf FR (2025)
@@ -1802,11 +2000,11 @@ en:emmental	ecobalyse_raw_to_cooked_ratio:en	1
 en:emmental	ecobalyse_inedible_part:en	0
 en:emmental	ecobalyse_transport_cooling:en	none
 en:emmental	ecobalyse_category:en	other_food_items
-en:emmental	ecobalyse_proxy_id:en	74314f2e-aa88-4ac1-aa78-bb29dceebf0b
-en:emmental	ecobalyse_proxy_scenario:en	reference
-en:emmental	ecobalyse_proxy_name:fr	Emmental FR (2025)
-en:emmental	ecobalyse_proxy_alias:en	emmental-2025
-en:emmental	ecobalyse_proxy_default_origin:en	FR
+en:emmental	ecobalyse_id:en	74314f2e-aa88-4ac1-aa78-bb29dceebf0b
+en:emmental	ecobalyse_scenario:en	reference
+en:emmental	ecobalyse_name:fr	Emmental FR (2025)
+en:emmental	ecobalyse_alias:en	emmental-2025
+en:emmental	ecobalyse_default_origin:en	FR
 en:emmental	ecobalyse_origins_en_france_id:en	74314f2e-aa88-4ac1-aa78-bb29dceebf0b
 en:emmental	ecobalyse_origins_en_france_scenario:en	reference
 en:emmental	ecobalyse_origins_en_france_name:fr	Emmental FR (2025)
@@ -1844,11 +2042,11 @@ en:extra-virgin-olive-oil	ecobalyse_raw_to_cooked_ratio:en	1
 en:extra-virgin-olive-oil	ecobalyse_inedible_part:en	0
 en:extra-virgin-olive-oil	ecobalyse_transport_cooling:en	none
 en:extra-virgin-olive-oil	ecobalyse_category:en	other_food_items
-en:extra-virgin-olive-oil	ecobalyse_proxy_id:en	fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac
-en:extra-virgin-olive-oil	ecobalyse_proxy_scenario:en	import
-en:extra-virgin-olive-oil	ecobalyse_proxy_name:fr	Huile d'olive (extra vierge) UE (2025)
-en:extra-virgin-olive-oil	ecobalyse_proxy_alias:en	extra-virgin-olive-oil-2025
-en:extra-virgin-olive-oil	ecobalyse_proxy_default_origin:en	REM
+en:extra-virgin-olive-oil	ecobalyse_id:en	fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac
+en:extra-virgin-olive-oil	ecobalyse_scenario:en	import
+en:extra-virgin-olive-oil	ecobalyse_name:fr	Huile d'olive (extra vierge) UE (2025)
+en:extra-virgin-olive-oil	ecobalyse_alias:en	extra-virgin-olive-oil-2025
+en:extra-virgin-olive-oil	ecobalyse_default_origin:en	REM
 en:extra-virgin-olive-oil	ecobalyse_origins_en_europe_and_maghreb_id:en	fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac
 en:extra-virgin-olive-oil	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:extra-virgin-olive-oil	ecobalyse_origins_en_europe_and_maghreb_name:fr	Huile d'olive (extra vierge) UE (2025)
@@ -1890,6 +2088,12 @@ en:feta	ecobalyse_scenario:en	import
 en:feta	ecobalyse_name:fr	Fromage type feta, au lait de vache Origine Inconnue
 en:feta	ecobalyse_alias:en	feta-type-cheese-cow-milk-default
 en:feta	ecobalyse_default_origin:en	
+en:feta	ecobalyse_origins_en_france_id:en	35d48d4e-33ee-44e8-8e57-2d385ef90563
+en:feta	ecobalyse_origins_en_france_scenario:en	reference
+en:feta	ecobalyse_origins_en_france_name:fr	Fromage type feta, au lait de vache FR
+en:feta	ecobalyse_origins_en_france_alias:en	feta-type-cheese-cow-milk-fr
+en:feta	ecobalyse_origins_en_france_default_origin:en	FR
+en:feta	ecobalyse_origins_en_france_visibility:en	false
 en:fig	ecobalyse_density_g_per_ml:en	1
 en:fig	ecobalyse_crop_group:en	VERGERS
 en:fig	ecobalyse_raw_to_cooked_ratio:en	1
@@ -1978,11 +2182,11 @@ en:fourme-d-ambert	ecobalyse_raw_to_cooked_ratio:en	1
 en:fourme-d-ambert	ecobalyse_inedible_part:en	0
 en:fourme-d-ambert	ecobalyse_transport_cooling:en	none
 en:fourme-d-ambert	ecobalyse_category:en	other_food_items
-en:fourme-d-ambert	ecobalyse_proxy_id:en	20ae3e77-c899-4a3e-84c2-ca8be004f9dc
-en:fourme-d-ambert	ecobalyse_proxy_scenario:en	reference
-en:fourme-d-ambert	ecobalyse_proxy_name:fr	Fourme d'Ambert FR
-en:fourme-d-ambert	ecobalyse_proxy_alias:en	fourme-dambert-cheese-fr
-en:fourme-d-ambert	ecobalyse_proxy_default_origin:en	FR
+en:fourme-d-ambert	ecobalyse_id:en	20ae3e77-c899-4a3e-84c2-ca8be004f9dc
+en:fourme-d-ambert	ecobalyse_scenario:en	reference
+en:fourme-d-ambert	ecobalyse_name:fr	Fourme d'Ambert FR
+en:fourme-d-ambert	ecobalyse_alias:en	fourme-dambert-cheese-fr
+en:fourme-d-ambert	ecobalyse_default_origin:en	FR
 en:fourme-d-ambert	ecobalyse_origins_en_france_id:en	20ae3e77-c899-4a3e-84c2-ca8be004f9dc
 en:fourme-d-ambert	ecobalyse_origins_en_france_scenario:en	reference
 en:fourme-d-ambert	ecobalyse_origins_en_france_name:fr	Fourme d'Ambert FR
@@ -1994,11 +2198,11 @@ en:french-fries	ecobalyse_raw_to_cooked_ratio:en	0.856
 en:french-fries	ecobalyse_inedible_part:en	0.1
 en:french-fries	ecobalyse_transport_cooling:en	always
 en:french-fries	ecobalyse_category:en	fruits_and_vegetables
-en:french-fries	ecobalyse_proxy_id:en	7c742241-9678-4a46-972b-8be1baf7f5a7
-en:french-fries	ecobalyse_proxy_scenario:en	reference
-en:french-fries	ecobalyse_proxy_name:fr	Frites de pomme de terre congelées FR (2025)
-en:french-fries	ecobalyse_proxy_alias:en	french-fries-2025
-en:french-fries	ecobalyse_proxy_default_origin:en	FR
+en:french-fries	ecobalyse_id:en	7c742241-9678-4a46-972b-8be1baf7f5a7
+en:french-fries	ecobalyse_scenario:en	reference
+en:french-fries	ecobalyse_name:fr	Frites de pomme de terre congelées FR (2025)
+en:french-fries	ecobalyse_alias:en	french-fries-2025
+en:french-fries	ecobalyse_default_origin:en	FR
 en:french-fries	ecobalyse_origins_en_france_id:en	7c742241-9678-4a46-972b-8be1baf7f5a7
 en:french-fries	ecobalyse_origins_en_france_scenario:en	reference
 en:french-fries	ecobalyse_origins_en_france_name:fr	Frites de pomme de terre congelées FR (2025)
@@ -2009,11 +2213,11 @@ en:fresh-cream-cheese	ecobalyse_raw_to_cooked_ratio:en	1
 en:fresh-cream-cheese	ecobalyse_inedible_part:en	0
 en:fresh-cream-cheese	ecobalyse_transport_cooling:en	none
 en:fresh-cream-cheese	ecobalyse_category:en	other_food_items
-en:fresh-cream-cheese	ecobalyse_proxy_id:en	2cced940-3abf-439d-b2f1-e6241ffb31fd
-en:fresh-cream-cheese	ecobalyse_proxy_scenario:en	reference
-en:fresh-cream-cheese	ecobalyse_proxy_name:fr	Crème fraiche FR (2025)
-en:fresh-cream-cheese	ecobalyse_proxy_alias:en	fresh-cream-cheese-2025
-en:fresh-cream-cheese	ecobalyse_proxy_default_origin:en	FR
+en:fresh-cream-cheese	ecobalyse_id:en	2cced940-3abf-439d-b2f1-e6241ffb31fd
+en:fresh-cream-cheese	ecobalyse_scenario:en	reference
+en:fresh-cream-cheese	ecobalyse_name:fr	Crème fraiche FR (2025)
+en:fresh-cream-cheese	ecobalyse_alias:en	fresh-cream-cheese-2025
+en:fresh-cream-cheese	ecobalyse_default_origin:en	FR
 en:fresh-cream-cheese	ecobalyse_origins_en_france_id:en	2cced940-3abf-439d-b2f1-e6241ffb31fd
 en:fresh-cream-cheese	ecobalyse_origins_en_france_scenario:en	reference
 en:fresh-cream-cheese	ecobalyse_origins_en_france_name:fr	Crème fraiche FR (2025)
@@ -2062,11 +2266,11 @@ en:fruit-puree	ecobalyse_raw_to_cooked_ratio:en	0.856
 en:fruit-puree	ecobalyse_inedible_part:en	0.1
 en:fruit-puree	ecobalyse_transport_cooling:en	always
 en:fruit-puree	ecobalyse_category:en	fruits_and_vegetables
-en:fruit-puree	ecobalyse_proxy_id:en	57490ff0-61a0-44cd-bd4f-3a3be7af25f2
-en:fruit-puree	ecobalyse_proxy_scenario:en	reference
-en:fruit-puree	ecobalyse_proxy_name:fr	Purée de fruits FR (2025)
-en:fruit-puree	ecobalyse_proxy_alias:en	fruit-puree-2025
-en:fruit-puree	ecobalyse_proxy_default_origin:en	FR
+en:fruit-puree	ecobalyse_id:en	57490ff0-61a0-44cd-bd4f-3a3be7af25f2
+en:fruit-puree	ecobalyse_scenario:en	reference
+en:fruit-puree	ecobalyse_name:fr	Purée de fruits FR (2025)
+en:fruit-puree	ecobalyse_alias:en	fruit-puree-2025
+en:fruit-puree	ecobalyse_default_origin:en	FR
 en:fruit-puree	ecobalyse_origins_en_france_id:en	57490ff0-61a0-44cd-bd4f-3a3be7af25f2
 en:fruit-puree	ecobalyse_origins_en_france_scenario:en	reference
 en:fruit-puree	ecobalyse_origins_en_france_name:fr	Purée de fruits FR (2025)
@@ -2078,11 +2282,11 @@ en:garden-peas	ecobalyse_raw_to_cooked_ratio:en	2.33
 en:garden-peas	ecobalyse_inedible_part:en	0.2
 en:garden-peas	ecobalyse_transport_cooling:en	always
 en:garden-peas	ecobalyse_category:en	legumes
-en:garden-peas	ecobalyse_proxy_id:en	3f4037f4-8c7a-45f7-b376-ec48357db98d
-en:garden-peas	ecobalyse_proxy_scenario:en	import
-en:garden-peas	ecobalyse_proxy_name:fr	Petit pois UE (2025)
-en:garden-peas	ecobalyse_proxy_alias:en	garden-peas-eu-2025
-en:garden-peas	ecobalyse_proxy_default_origin:en	REM
+en:garden-peas	ecobalyse_id:en	3f4037f4-8c7a-45f7-b376-ec48357db98d
+en:garden-peas	ecobalyse_scenario:en	import
+en:garden-peas	ecobalyse_name:fr	Petit pois UE (2025)
+en:garden-peas	ecobalyse_alias:en	garden-peas-eu-2025
+en:garden-peas	ecobalyse_default_origin:en	REM
 en:garden-peas	ecobalyse_origins_en_europe_and_maghreb_id:en	3f4037f4-8c7a-45f7-b376-ec48357db98d
 en:garden-peas	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:garden-peas	ecobalyse_origins_en_europe_and_maghreb_name:fr	Petit pois UE (2025)
@@ -2167,11 +2371,11 @@ en:glucose-syrup	ecobalyse_raw_to_cooked_ratio:en	1
 en:glucose-syrup	ecobalyse_inedible_part:en	0
 en:glucose-syrup	ecobalyse_transport_cooling:en	none
 en:glucose-syrup	ecobalyse_category:en	other_food_items
-en:glucose-syrup	ecobalyse_proxy_id:en	06dffb5c-07ad-48de-9630-632f4c84e02d
-en:glucose-syrup	ecobalyse_proxy_scenario:en	import
-en:glucose-syrup	ecobalyse_proxy_name:fr	Sirop de glucose FR ou UE ou par défaut (2025)
-en:glucose-syrup	ecobalyse_proxy_alias:en	glucose-syrup-2025
-en:glucose-syrup	ecobalyse_proxy_default_origin:en	REM
+en:glucose-syrup	ecobalyse_id:en	06dffb5c-07ad-48de-9630-632f4c84e02d
+en:glucose-syrup	ecobalyse_scenario:en	import
+en:glucose-syrup	ecobalyse_name:fr	Sirop de glucose FR ou UE ou par défaut (2025)
+en:glucose-syrup	ecobalyse_alias:en	glucose-syrup-2025
+en:glucose-syrup	ecobalyse_default_origin:en	REM
 en:glucose-syrup	ecobalyse_origins_en_europe_and_maghreb_id:en	06dffb5c-07ad-48de-9630-632f4c84e02d
 en:glucose-syrup	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:glucose-syrup	ecobalyse_origins_en_europe_and_maghreb_name:fr	Sirop de glucose FR ou UE ou par défaut (2025)
@@ -2182,16 +2386,33 @@ en:goat-cheese	ecobalyse_raw_to_cooked_ratio:en	1
 en:goat-cheese	ecobalyse_inedible_part:en	0
 en:goat-cheese	ecobalyse_transport_cooling:en	none
 en:goat-cheese	ecobalyse_category:en	other_food_items
-en:goat-cheese	ecobalyse_proxy_id:en	d93c2c58-8073-47ef-99da-999ad7cba846
-en:goat-cheese	ecobalyse_proxy_scenario:en	reference
-en:goat-cheese	ecobalyse_proxy_name:fr	Fromage de chèvre FR (2025)
-en:goat-cheese	ecobalyse_proxy_alias:en	goat-cheese-2025
-en:goat-cheese	ecobalyse_proxy_default_origin:en	FR
+en:goat-cheese	ecobalyse_id:en	d93c2c58-8073-47ef-99da-999ad7cba846
+en:goat-cheese	ecobalyse_scenario:en	reference
+en:goat-cheese	ecobalyse_name:fr	Fromage de chèvre FR (2025)
+en:goat-cheese	ecobalyse_alias:en	goat-cheese-2025
+en:goat-cheese	ecobalyse_default_origin:en	FR
 en:goat-cheese	ecobalyse_origins_en_france_id:en	d93c2c58-8073-47ef-99da-999ad7cba846
 en:goat-cheese	ecobalyse_origins_en_france_scenario:en	reference
 en:goat-cheese	ecobalyse_origins_en_france_name:fr	Fromage de chèvre FR (2025)
 en:goat-cheese	ecobalyse_origins_en_france_alias:en	goat-cheese-2025
 en:goat-cheese	ecobalyse_origins_en_france_default_origin:en	FR
+en:goat-milk	ecobalyse_density_g_per_ml:en	1
+en:goat-milk	ecobalyse_raw_to_cooked_ratio:en	1
+en:goat-milk	ecobalyse_inedible_part:en	0
+en:goat-milk	ecobalyse_transport_cooling:en	none
+en:goat-milk	ecobalyse_category:en	other_food_items
+en:goat-milk	ecobalyse_id:en	a9eed813-3242-4701-8d76-f4fb2f222121
+en:goat-milk	ecobalyse_scenario:en	reference
+en:goat-milk	ecobalyse_name:fr	Lait de chèvre FR (2025)
+en:goat-milk	ecobalyse_alias:en	goat-milk-2025
+en:goat-milk	ecobalyse_default_origin:en	FR
+en:goat-milk	ecobalyse_visibility:en	false
+en:goat-milk	ecobalyse_origins_en_france_id:en	a9eed813-3242-4701-8d76-f4fb2f222121
+en:goat-milk	ecobalyse_origins_en_france_scenario:en	reference
+en:goat-milk	ecobalyse_origins_en_france_name:fr	Lait de chèvre FR (2025)
+en:goat-milk	ecobalyse_origins_en_france_alias:en	goat-milk-2025
+en:goat-milk	ecobalyse_origins_en_france_default_origin:en	FR
+en:goat-milk	ecobalyse_origins_en_france_visibility:en	false
 en:gooseberry	ecobalyse_density_g_per_ml:en	0.85
 en:gooseberry	ecobalyse_crop_group:en	VERGERS
 en:gooseberry	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -2223,11 +2444,11 @@ en:gorgonzola	ecobalyse_raw_to_cooked_ratio:en	1
 en:gorgonzola	ecobalyse_inedible_part:en	0
 en:gorgonzola	ecobalyse_transport_cooling:en	none
 en:gorgonzola	ecobalyse_category:en	other_food_items
-en:gorgonzola	ecobalyse_proxy_id:en	ec2cabd5-6eec-40e0-a9c6-1a47c0455504
-en:gorgonzola	ecobalyse_proxy_scenario:en	reference
-en:gorgonzola	ecobalyse_proxy_name:fr	Gorgonzola FR
-en:gorgonzola	ecobalyse_proxy_alias:en	gorgonzola-cheese-fr
-en:gorgonzola	ecobalyse_proxy_default_origin:en	FR
+en:gorgonzola	ecobalyse_id:en	ec2cabd5-6eec-40e0-a9c6-1a47c0455504
+en:gorgonzola	ecobalyse_scenario:en	reference
+en:gorgonzola	ecobalyse_name:fr	Gorgonzola FR
+en:gorgonzola	ecobalyse_alias:en	gorgonzola-cheese-fr
+en:gorgonzola	ecobalyse_default_origin:en	FR
 en:gorgonzola	ecobalyse_origins_en_france_id:en	ec2cabd5-6eec-40e0-a9c6-1a47c0455504
 en:gorgonzola	ecobalyse_origins_en_france_scenario:en	reference
 en:gorgonzola	ecobalyse_origins_en_france_name:fr	Gorgonzola FR
@@ -2305,11 +2526,11 @@ en:greek-yogurt	ecobalyse_raw_to_cooked_ratio:en	1
 en:greek-yogurt	ecobalyse_inedible_part:en	0
 en:greek-yogurt	ecobalyse_transport_cooling:en	none
 en:greek-yogurt	ecobalyse_category:en	other_food_items
-en:greek-yogurt	ecobalyse_proxy_id:en	53bf7b0b-e254-4488-a322-5adbcd649574
-en:greek-yogurt	ecobalyse_proxy_scenario:en	reference
-en:greek-yogurt	ecobalyse_proxy_name:fr	Yaourt à la grecque, au lait de brebis FR
-en:greek-yogurt	ecobalyse_proxy_alias:en	greek-yogurt-sheep-milk-fr
-en:greek-yogurt	ecobalyse_proxy_default_origin:en	FR
+en:greek-yogurt	ecobalyse_id:en	53bf7b0b-e254-4488-a322-5adbcd649574
+en:greek-yogurt	ecobalyse_scenario:en	reference
+en:greek-yogurt	ecobalyse_name:fr	Yaourt à la grecque, au lait de brebis FR
+en:greek-yogurt	ecobalyse_alias:en	greek-yogurt-sheep-milk-fr
+en:greek-yogurt	ecobalyse_default_origin:en	FR
 en:greek-yogurt	ecobalyse_origins_en_france_id:en	53bf7b0b-e254-4488-a322-5adbcd649574
 en:greek-yogurt	ecobalyse_origins_en_france_scenario:en	reference
 en:greek-yogurt	ecobalyse_origins_en_france_name:fr	Yaourt à la grecque, au lait de brebis FR
@@ -2352,37 +2573,43 @@ en:green-olive	ecobalyse_scenario:en	import
 en:green-olive	ecobalyse_name:fr	Olive verte, dénoyautée Origine Inconnue
 en:green-olive	ecobalyse_alias:en	green-olive-pitted-default
 en:green-olive	ecobalyse_default_origin:en	
+en:green-olive	ecobalyse_labels_en_organic_id:en	d70cb4d5-5d95-406b-bd0e-1cd4ee3ec68b
+en:green-olive	ecobalyse_labels_en_organic_scenario:en	organic
+en:green-olive	ecobalyse_labels_en_organic_name:fr	Olive verte, dénoyautée Origine Inconnue BIO
+en:green-olive	ecobalyse_labels_en_organic_alias:en	green-olive-pitted-default-organic
+en:green-olive	ecobalyse_labels_en_organic_default_origin:en	
+en:green-olive	ecobalyse_labels_en_organic_visibility:en	false
 en:green-olive	ecobalyse_origins_en_france_id:en	492a7f49-2fb2-4368-92cb-09a02764e482
 en:green-olive	ecobalyse_origins_en_france_scenario:en	reference
 en:green-olive	ecobalyse_origins_en_france_name:fr	Olive verte, dénoyautée FR
 en:green-olive	ecobalyse_origins_en_france_alias:en	green-olive-pitted-fr
 en:green-olive	ecobalyse_origins_en_france_default_origin:en	FR
-en:green-pea	ecobalyse_density_g_per_ml:en	0.8
-en:green-pea	ecobalyse_crop_group:en	PROTEAGINEUX
-en:green-pea	ecobalyse_raw_to_cooked_ratio:en	1
-en:green-pea	ecobalyse_inedible_part:en	0.2
-en:green-pea	ecobalyse_transport_cooling:en	none
-en:green-pea	ecobalyse_category:en	other_food_items
-en:green-pea	ecobalyse_id:en	e532f04f-ef0f-53a6-b091-2dcff07b69ad
-en:green-pea	ecobalyse_scenario:en	import
-en:green-pea	ecobalyse_name:fr	Pois de printemps Origine Inconnue
-en:green-pea	ecobalyse_alias:en	spring-pea-default
-en:green-pea	ecobalyse_default_origin:en	
-en:green-pea	ecobalyse_origins_en_europe_and_maghreb_id:en	70622657-e093-5e2c-9370-6ef093f96624
-en:green-pea	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
-en:green-pea	ecobalyse_origins_en_europe_and_maghreb_name:fr	Pois de printemps UE
-en:green-pea	ecobalyse_origins_en_europe_and_maghreb_alias:en	spring-pea-eu
-en:green-pea	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
-en:green-pea	ecobalyse_labels_en_organic_origins_en_france_id:en	8514450f-35a9-5a51-a3d5-b28e2e21d5a5
-en:green-pea	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
-en:green-pea	ecobalyse_labels_en_organic_origins_en_france_name:fr	Pois de printemps Bio
-en:green-pea	ecobalyse_labels_en_organic_origins_en_france_alias:en	spring-pea-organic
-en:green-pea	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
-en:green-pea	ecobalyse_origins_en_france_id:en	03a180e3-3f09-5459-8397-bdbd10c1c934
-en:green-pea	ecobalyse_origins_en_france_scenario:en	reference
-en:green-pea	ecobalyse_origins_en_france_name:fr	Pois de printemps FR
-en:green-pea	ecobalyse_origins_en_france_alias:en	spring-pea-fr
-en:green-pea	ecobalyse_origins_en_france_default_origin:en	FR
+en:green-peas	ecobalyse_density_g_per_ml:en	0.8
+en:green-peas	ecobalyse_crop_group:en	PROTEAGINEUX
+en:green-peas	ecobalyse_raw_to_cooked_ratio:en	1
+en:green-peas	ecobalyse_inedible_part:en	0.2
+en:green-peas	ecobalyse_transport_cooling:en	none
+en:green-peas	ecobalyse_category:en	other_food_items
+en:green-peas	ecobalyse_id:en	e532f04f-ef0f-53a6-b091-2dcff07b69ad
+en:green-peas	ecobalyse_scenario:en	import
+en:green-peas	ecobalyse_name:fr	Pois de printemps Origine Inconnue
+en:green-peas	ecobalyse_alias:en	spring-pea-default
+en:green-peas	ecobalyse_default_origin:en	
+en:green-peas	ecobalyse_origins_en_europe_and_maghreb_id:en	70622657-e093-5e2c-9370-6ef093f96624
+en:green-peas	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:green-peas	ecobalyse_origins_en_europe_and_maghreb_name:fr	Pois de printemps UE
+en:green-peas	ecobalyse_origins_en_europe_and_maghreb_alias:en	spring-pea-eu
+en:green-peas	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:green-peas	ecobalyse_labels_en_organic_origins_en_france_id:en	8514450f-35a9-5a51-a3d5-b28e2e21d5a5
+en:green-peas	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:green-peas	ecobalyse_labels_en_organic_origins_en_france_name:fr	Pois de printemps Bio
+en:green-peas	ecobalyse_labels_en_organic_origins_en_france_alias:en	spring-pea-organic
+en:green-peas	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:green-peas	ecobalyse_origins_en_france_id:en	03a180e3-3f09-5459-8397-bdbd10c1c934
+en:green-peas	ecobalyse_origins_en_france_scenario:en	reference
+en:green-peas	ecobalyse_origins_en_france_name:fr	Pois de printemps FR
+en:green-peas	ecobalyse_origins_en_france_alias:en	spring-pea-fr
+en:green-peas	ecobalyse_origins_en_france_default_origin:en	FR
 en:greengage	ecobalyse_density_g_per_ml:en	0.95
 en:greengage	ecobalyse_crop_group:en	VERGERS
 en:greengage	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -2394,6 +2621,12 @@ en:greengage	ecobalyse_scenario:en	import
 en:greengage	ecobalyse_name:fr	Prune reine-claude Origine Inconnue
 en:greengage	ecobalyse_alias:en	greengage-plum-default
 en:greengage	ecobalyse_default_origin:en	
+en:greengage	ecobalyse_origins_en_europe_and_maghreb_id:en	a8abdd4a-b6bd-5afa-b1a7-de92c50a0268
+en:greengage	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:greengage	ecobalyse_origins_en_europe_and_maghreb_name:fr	Prune reine-claude UE
+en:greengage	ecobalyse_origins_en_europe_and_maghreb_alias:en	greengage-plum-eu
+en:greengage	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:greengage	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:greengage	ecobalyse_labels_en_organic_origins_en_france_id:en	04064048-be9e-5453-afe1-b1c4593d1a39
 en:greengage	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:greengage	ecobalyse_labels_en_organic_origins_en_france_name:fr	Prune reine-claude Bio
@@ -2420,11 +2653,11 @@ en:gruyere	ecobalyse_raw_to_cooked_ratio:en	1
 en:gruyere	ecobalyse_inedible_part:en	0
 en:gruyere	ecobalyse_transport_cooling:en	none
 en:gruyere	ecobalyse_category:en	other_food_items
-en:gruyere	ecobalyse_proxy_id:en	0db53c94-9dcf-449f-9a2e-c45b189d46ee
-en:gruyere	ecobalyse_proxy_scenario:en	reference
-en:gruyere	ecobalyse_proxy_name:fr	Gruyère FR
-en:gruyere	ecobalyse_proxy_alias:en	gruyere-cheese-fr
-en:gruyere	ecobalyse_proxy_default_origin:en	FR
+en:gruyere	ecobalyse_id:en	0db53c94-9dcf-449f-9a2e-c45b189d46ee
+en:gruyere	ecobalyse_scenario:en	reference
+en:gruyere	ecobalyse_name:fr	Gruyère FR
+en:gruyere	ecobalyse_alias:en	gruyere-cheese-fr
+en:gruyere	ecobalyse_default_origin:en	FR
 en:gruyere	ecobalyse_origins_en_france_id:en	0db53c94-9dcf-449f-9a2e-c45b189d46ee
 en:gruyere	ecobalyse_origins_en_france_scenario:en	reference
 en:gruyere	ecobalyse_origins_en_france_name:fr	Gruyère FR
@@ -2441,6 +2674,11 @@ en:guava	ecobalyse_scenario:en	import
 en:guava	ecobalyse_name:fr	Goyave Origine Inconnue
 en:guava	ecobalyse_alias:en	guava-default
 en:guava	ecobalyse_default_origin:en	
+en:guava	ecobalyse_origins_en_france_overseas_id:en	9843e808-978d-5e45-89b2-1c076851386c
+en:guava	ecobalyse_origins_en_france_overseas_scenario:en	reference
+en:guava	ecobalyse_origins_en_france_overseas_name:fr	Goyave FR Outre-Mer
+en:guava	ecobalyse_origins_en_france_overseas_alias:en	guava-fr-overseas
+en:guava	ecobalyse_origins_en_france_overseas_default_origin:en	ROF
 en:guava	ecobalyse_origins_en_europe_and_maghreb_id:en	f31cbb4f-43af-5cce-b051-ff267866080f
 en:guava	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:guava	ecobalyse_origins_en_europe_and_maghreb_name:fr	Goyave UE Antilles
@@ -2456,6 +2694,23 @@ en:guava	ecobalyse_origins_en_france_scenario:en	reference
 en:guava	ecobalyse_origins_en_france_name:fr	Goyave FR
 en:guava	ecobalyse_origins_en_france_alias:en	guava-fr
 en:guava	ecobalyse_origins_en_france_default_origin:en	FR
+en:hake	ecobalyse_density_g_per_ml:en	1
+en:hake	ecobalyse_raw_to_cooked_ratio:en	1
+en:hake	ecobalyse_inedible_part:en	0.2
+en:hake	ecobalyse_transport_cooling:en	none
+en:hake	ecobalyse_category:en	other_food_items
+en:hake	ecobalyse_id:en	cb1fc717-78f9-46fe-9121-fbf8aa803599
+en:hake	ecobalyse_scenario:en	import
+en:hake	ecobalyse_name:fr	Colin UE (2025)
+en:hake	ecobalyse_alias:en	hake-eu-2025
+en:hake	ecobalyse_default_origin:en	REM
+en:hake	ecobalyse_visibility:en	false
+en:hake	ecobalyse_origins_en_europe_and_maghreb_id:en	cb1fc717-78f9-46fe-9121-fbf8aa803599
+en:hake	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:hake	ecobalyse_origins_en_europe_and_maghreb_name:fr	Colin UE (2025)
+en:hake	ecobalyse_origins_en_europe_and_maghreb_alias:en	hake-eu-2025
+en:hake	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:hake	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:hazelnut	ecobalyse_density_g_per_ml:en	1
 en:hazelnut	ecobalyse_crop_group:en	FRUITS A COQUES
 en:hazelnut	ecobalyse_raw_to_cooked_ratio:en	1
@@ -2512,6 +2767,33 @@ en:honey	ecobalyse_origins_en_france_scenario:en	reference
 en:honey	ecobalyse_origins_en_france_name:fr	Miel FR
 en:honey	ecobalyse_origins_en_france_alias:en	honey-fr
 en:honey	ecobalyse_origins_en_france_default_origin:en	FR
+en:horseradish	ecobalyse_density_g_per_ml:en	0.9
+en:horseradish	ecobalyse_crop_group:en	LEGUMES-FLEURS
+en:horseradish	ecobalyse_raw_to_cooked_ratio:en	0.856
+en:horseradish	ecobalyse_inedible_part:en	0.2
+en:horseradish	ecobalyse_transport_cooling:en	none
+en:horseradish	ecobalyse_category:en	other_food_items
+en:horseradish	ecobalyse_id:en	a4b546fa-a89a-5373-82aa-e94112e3fd48
+en:horseradish	ecobalyse_scenario:en	import
+en:horseradish	ecobalyse_name:fr	Raifort frais Origine Inconnue
+en:horseradish	ecobalyse_alias:en	horseradish-fresh-default
+en:horseradish	ecobalyse_default_origin:en	
+en:horseradish	ecobalyse_origins_en_europe_and_maghreb_id:en	73ea7661-67ba-5ba1-8c8a-7e96b2817468
+en:horseradish	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:horseradish	ecobalyse_origins_en_europe_and_maghreb_name:fr	Raifort frais UE
+en:horseradish	ecobalyse_origins_en_europe_and_maghreb_alias:en	horseradish-fresh-eu
+en:horseradish	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:horseradish	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
+en:horseradish	ecobalyse_labels_en_organic_origins_en_france_id:en	f15d9782-6e63-518f-9854-5bfd19a16992
+en:horseradish	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:horseradish	ecobalyse_labels_en_organic_origins_en_france_name:fr	Raifort frais Bio
+en:horseradish	ecobalyse_labels_en_organic_origins_en_france_alias:en	horseradish-fresh-organic
+en:horseradish	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:horseradish	ecobalyse_origins_en_france_id:en	8339ac2c-0487-51a1-82e7-29e8898fed30
+en:horseradish	ecobalyse_origins_en_france_scenario:en	reference
+en:horseradish	ecobalyse_origins_en_france_name:fr	Raifort frais FR
+en:horseradish	ecobalyse_origins_en_france_alias:en	horseradish-fresh-fr
+en:horseradish	ecobalyse_origins_en_france_default_origin:en	FR
 en:jerusalem-artichoke	ecobalyse_density_g_per_ml:en	0.9
 en:jerusalem-artichoke	ecobalyse_crop_group:en	LEGUMES-FLEURS
 en:jerusalem-artichoke	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -2642,11 +2924,17 @@ en:lamb	ecobalyse_raw_to_cooked_ratio:en	0.792
 en:lamb	ecobalyse_inedible_part:en	0
 en:lamb	ecobalyse_transport_cooling:en	always
 en:lamb	ecobalyse_category:en	red_meats
-en:lamb	ecobalyse_proxy_id:en	d79e0fce-8633-4189-a937-7b8010abafed
-en:lamb	ecobalyse_proxy_scenario:en	reference
-en:lamb	ecobalyse_proxy_name:fr	Viande d'agneau (désossée) FR
-en:lamb	ecobalyse_proxy_alias:en	lamb-meat-without-bone
-en:lamb	ecobalyse_proxy_default_origin:en	FR
+en:lamb	ecobalyse_id:en	d79e0fce-8633-4189-a937-7b8010abafed
+en:lamb	ecobalyse_scenario:en	reference
+en:lamb	ecobalyse_name:fr	Viande d'agneau (désossée) FR
+en:lamb	ecobalyse_alias:en	lamb-meat-without-bone
+en:lamb	ecobalyse_default_origin:en	FR
+en:lamb	ecobalyse_origins_en_europe_and_maghreb_id:en	d48015d2-a512-4bac-ba93-82a7ae001b81
+en:lamb	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:lamb	ecobalyse_origins_en_europe_and_maghreb_name:fr	Viande d'agneau (désossée) UE (2025)
+en:lamb	ecobalyse_origins_en_europe_and_maghreb_alias:en	lamb-meat-without-bone-eu-2025
+en:lamb	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:lamb	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:lamb	ecobalyse_labels_en_organic_origins_en_france_id:en	e07f7703-c4f7-479e-a8ac-bb73d3f08c78
 en:lamb	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:lamb	ecobalyse_labels_en_organic_origins_en_france_name:fr	Viande d'agneau Bio (désossée)
@@ -2694,6 +2982,12 @@ en:lemon	ecobalyse_scenario:en	import
 en:lemon	ecobalyse_name:fr	Citron, pulpe, cru Origine Inconnue
 en:lemon	ecobalyse_alias:en	lemon-pulp-raw-default
 en:lemon	ecobalyse_default_origin:en	
+en:lemon	ecobalyse_labels_en_organic_id:en	f30c2ffc-a2f6-4bae-8ef2-b06ebc063b64
+en:lemon	ecobalyse_labels_en_organic_scenario:en	organic
+en:lemon	ecobalyse_labels_en_organic_name:fr	Citron, pulpe, cru Origine Inconnue BIO
+en:lemon	ecobalyse_labels_en_organic_alias:en	lemon-pulp-raw-default-organic
+en:lemon	ecobalyse_labels_en_organic_default_origin:en	
+en:lemon	ecobalyse_labels_en_organic_visibility:en	false
 en:lemon	ecobalyse_origins_en_europe_and_maghreb_id:en	aa4ca6bf-2c7c-59d7-ac75-df1cf824f9fe
 en:lemon	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:lemon	ecobalyse_origins_en_europe_and_maghreb_name:fr	Citron UE
@@ -2715,42 +3009,16 @@ en:lemon-juice	ecobalyse_raw_to_cooked_ratio:en	1
 en:lemon-juice	ecobalyse_inedible_part:en	0
 en:lemon-juice	ecobalyse_transport_cooling:en	none
 en:lemon-juice	ecobalyse_category:en	other_food_items
-en:lemon-juice	ecobalyse_proxy_id:en	fd79d142-7e34-45a4-a0d1-59922b4c8d09
-en:lemon-juice	ecobalyse_proxy_scenario:en	import
-en:lemon-juice	ecobalyse_proxy_name:fr	Jus de citron UE (2025)
-en:lemon-juice	ecobalyse_proxy_alias:en	lemon-juice-2025
-en:lemon-juice	ecobalyse_proxy_default_origin:en	REM
+en:lemon-juice	ecobalyse_id:en	fd79d142-7e34-45a4-a0d1-59922b4c8d09
+en:lemon-juice	ecobalyse_scenario:en	import
+en:lemon-juice	ecobalyse_name:fr	Jus de citron UE (2025)
+en:lemon-juice	ecobalyse_alias:en	lemon-juice-2025
+en:lemon-juice	ecobalyse_default_origin:en	REM
 en:lemon-juice	ecobalyse_origins_en_europe_and_maghreb_id:en	fd79d142-7e34-45a4-a0d1-59922b4c8d09
 en:lemon-juice	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:lemon-juice	ecobalyse_origins_en_europe_and_maghreb_name:fr	Jus de citron UE (2025)
 en:lemon-juice	ecobalyse_origins_en_europe_and_maghreb_alias:en	lemon-juice-2025
 en:lemon-juice	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
-en:lentil	ecobalyse_density_g_per_ml:en	0.72
-en:lentil	ecobalyse_crop_group:en	LEGUMINEUSES A GRAIN
-en:lentil	ecobalyse_raw_to_cooked_ratio:en	2.33
-en:lentil	ecobalyse_inedible_part:en	0
-en:lentil	ecobalyse_transport_cooling:en	always
-en:lentil	ecobalyse_category:en	legumes
-en:lentil	ecobalyse_id:en	c06e8471-88c9-490c-99fc-eb85b4e9e300
-en:lentil	ecobalyse_scenario:en	import
-en:lentil	ecobalyse_name:fr	Lentilles par défaut (2025)
-en:lentil	ecobalyse_alias:en	lentils-uncooked-non-eu-2025
-en:lentil	ecobalyse_default_origin:en	
-en:lentil	ecobalyse_origins_en_europe_and_maghreb_id:en	d0cd6516-40b9-40ce-b632-63c3a0ed14c1
-en:lentil	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
-en:lentil	ecobalyse_origins_en_europe_and_maghreb_name:fr	Lentilles UE (2025)
-en:lentil	ecobalyse_origins_en_europe_and_maghreb_alias:en	lentils-uncooked-eu-2025
-en:lentil	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
-en:lentil	ecobalyse_labels_en_organic_origins_en_france_id:en	02b2ed63-6246-446c-8cf3-224dbe698821
-en:lentil	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
-en:lentil	ecobalyse_labels_en_organic_origins_en_france_name:fr	Lentilles Bio (2025)
-en:lentil	ecobalyse_labels_en_organic_origins_en_france_alias:en	lentils-uncooked-organic-2025
-en:lentil	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
-en:lentil	ecobalyse_origins_en_france_id:en	e3833045-a0a4-48c7-ab73-5a01834b0219
-en:lentil	ecobalyse_origins_en_france_scenario:en	reference
-en:lentil	ecobalyse_origins_en_france_name:fr	Lentilles FR (2025)
-en:lentil	ecobalyse_origins_en_france_alias:en	lentils-uncooked-fr-2025
-en:lentil	ecobalyse_origins_en_france_default_origin:en	FR
 en:lentils	ecobalyse_density_g_per_ml:en	0.8
 en:lentils	ecobalyse_crop_group:en	LEGUMINEUSES A GRAIN
 en:lentils	ecobalyse_raw_to_cooked_ratio:en	2.33
@@ -2824,6 +3092,29 @@ en:lima-bean	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:lima-bean	ecobalyse_labels_en_organic_origins_en_france_name:fr	Haricots de Lima Bio
 en:lima-bean	ecobalyse_labels_en_organic_origins_en_france_alias:en	lima-bean-organic
 en:lima-bean	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:lobster	ecobalyse_density_g_per_ml:en	1
+en:lobster	ecobalyse_raw_to_cooked_ratio:en	0.819
+en:lobster	ecobalyse_inedible_part:en	0.5
+en:lobster	ecobalyse_transport_cooling:en	always
+en:lobster	ecobalyse_category:en	fish_and_shellfish
+en:lobster	ecobalyse_id:en	c217f7ad-7413-4663-b049-1ce6c040f597
+en:lobster	ecobalyse_scenario:en	import
+en:lobster	ecobalyse_name:fr	Homard par défaut (2025)
+en:lobster	ecobalyse_alias:en	lobster-non-eu-2025
+en:lobster	ecobalyse_default_origin:en	
+en:lobster	ecobalyse_visibility:en	false
+en:lobster	ecobalyse_origins_en_europe_and_maghreb_id:en	16ff0416-9d7f-4e3b-9e2e-7a25e729b863
+en:lobster	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:lobster	ecobalyse_origins_en_europe_and_maghreb_name:fr	Homard UE (2025)
+en:lobster	ecobalyse_origins_en_europe_and_maghreb_alias:en	lobster-eu-2025
+en:lobster	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:lobster	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
+en:lobster	ecobalyse_origins_en_france_id:en	5b0f85b9-5bc9-4eca-b134-af3a344f586e
+en:lobster	ecobalyse_origins_en_france_scenario:en	reference
+en:lobster	ecobalyse_origins_en_france_name:fr	Homard FR (2025)
+en:lobster	ecobalyse_origins_en_france_alias:en	lobster-fr-2025
+en:lobster	ecobalyse_origins_en_france_default_origin:en	FR
+en:lobster	ecobalyse_origins_en_france_visibility:en	false
 en:lupin-bean	ecobalyse_density_g_per_ml:en	0.8
 en:lupin-bean	ecobalyse_crop_group:en	PROTEAGINEUX
 en:lupin-bean	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -2861,6 +3152,11 @@ en:lychee	ecobalyse_scenario:en	import
 en:lychee	ecobalyse_name:fr	Litchi par défaut (2025)
 en:lychee	ecobalyse_alias:en	lychee-non-eu-2025
 en:lychee	ecobalyse_default_origin:en	
+en:lychee	ecobalyse_origins_en_france_overseas_id:en	d28fd59a-ae07-5813-b707-c9329ffc39ed
+en:lychee	ecobalyse_origins_en_france_overseas_scenario:en	reference
+en:lychee	ecobalyse_origins_en_france_overseas_name:fr	Litchi FR Outre-Mer
+en:lychee	ecobalyse_origins_en_france_overseas_alias:en	lychee-fr-overseas
+en:lychee	ecobalyse_origins_en_france_overseas_default_origin:en	ROF
 en:lychee	ecobalyse_labels_en_organic_origins_en_france_id:en	97179c67-b8a8-5d3d-95b0-4b188de6ba92
 en:lychee	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:lychee	ecobalyse_labels_en_organic_origins_en_france_name:fr	Litchi Bio
@@ -2919,6 +3215,17 @@ en:mango	ecobalyse_scenario:en	import
 en:mango	ecobalyse_name:fr	Mangue par défaut (2025)
 en:mango	ecobalyse_alias:en	mango-non-eu-2025
 en:mango	ecobalyse_default_origin:en	
+en:mango	ecobalyse_labels_en_organic_id:en	b453b005-f6cb-4e4b-9d98-033302b491e3
+en:mango	ecobalyse_labels_en_organic_scenario:en	organic
+en:mango	ecobalyse_labels_en_organic_name:fr	Mangue, pulpe, crue Origine Inconnue BIO
+en:mango	ecobalyse_labels_en_organic_alias:en	mango-pulp-raw-default-organic
+en:mango	ecobalyse_labels_en_organic_default_origin:en	
+en:mango	ecobalyse_labels_en_organic_visibility:en	false
+en:mango	ecobalyse_origins_en_france_overseas_id:en	5d39ed23-3000-54af-9c47-6954802a3cf5
+en:mango	ecobalyse_origins_en_france_overseas_scenario:en	reference
+en:mango	ecobalyse_origins_en_france_overseas_name:fr	Mangue FR Outre-Mer
+en:mango	ecobalyse_origins_en_france_overseas_alias:en	mango-fr-overseas
+en:mango	ecobalyse_origins_en_france_overseas_default_origin:en	ROF
 en:mango	ecobalyse_labels_en_organic_origins_en_france_id:en	c15d6695-452c-5401-b820-b3fe8c0f843b
 en:mango	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:mango	ecobalyse_labels_en_organic_origins_en_france_name:fr	Mangue Bio
@@ -2965,6 +3272,12 @@ en:milk	ecobalyse_scenario:en	import
 en:milk	ecobalyse_name:fr	Lait par défaut (2025)
 en:milk	ecobalyse_alias:en	milk-non-eu-2025
 en:milk	ecobalyse_default_origin:en	
+en:milk	ecobalyse_origins_en_europe_and_maghreb_id:en	dbba1f04-b86c-42aa-96f9-93cfcdf4a141
+en:milk	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:milk	ecobalyse_origins_en_europe_and_maghreb_name:fr	Lait UE (2025)
+en:milk	ecobalyse_origins_en_europe_and_maghreb_alias:en	milk-eu-2025
+en:milk	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:milk	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:milk	ecobalyse_origins_en_france_id:en	8f3863e7-f981-4367-90a2-e1aaa096a6e0
 en:milk	ecobalyse_origins_en_france_scenario:en	reference
 en:milk	ecobalyse_origins_en_france_name:fr	Lait FR (2025)
@@ -2975,31 +3288,80 @@ en:milk-powder	ecobalyse_raw_to_cooked_ratio:en	1
 en:milk-powder	ecobalyse_inedible_part:en	0
 en:milk-powder	ecobalyse_transport_cooling:en	none
 en:milk-powder	ecobalyse_category:en	other_food_items
-en:milk-powder	ecobalyse_proxy_id:en	b6776a28-ec84-4bf3-988c-07b3c29f6136
-en:milk-powder	ecobalyse_proxy_scenario:en	reference
-en:milk-powder	ecobalyse_proxy_name:fr	Poudre de lait écrémé FR (2025)
-en:milk-powder	ecobalyse_proxy_alias:en	milk-powder-2025
-en:milk-powder	ecobalyse_proxy_default_origin:en	FR
+en:milk-powder	ecobalyse_id:en	b6776a28-ec84-4bf3-988c-07b3c29f6136
+en:milk-powder	ecobalyse_scenario:en	reference
+en:milk-powder	ecobalyse_name:fr	Poudre de lait écrémé FR (2025)
+en:milk-powder	ecobalyse_alias:en	milk-powder-2025
+en:milk-powder	ecobalyse_default_origin:en	FR
 en:milk-powder	ecobalyse_origins_en_france_id:en	b6776a28-ec84-4bf3-988c-07b3c29f6136
 en:milk-powder	ecobalyse_origins_en_france_scenario:en	reference
 en:milk-powder	ecobalyse_origins_en_france_name:fr	Poudre de lait écrémé FR (2025)
 en:milk-powder	ecobalyse_origins_en_france_alias:en	milk-powder-2025
 en:milk-powder	ecobalyse_origins_en_france_default_origin:en	FR
+en:millet	ecobalyse_density_g_per_ml:en	0.64
+en:millet	ecobalyse_crop_group:en	AUTRES CEREALES
+en:millet	ecobalyse_raw_to_cooked_ratio:en	2.259
+en:millet	ecobalyse_inedible_part:en	0
+en:millet	ecobalyse_transport_cooling:en	none
+en:millet	ecobalyse_category:en	cereals
+en:millet	ecobalyse_id:en	4b996c06-a53a-5ed9-9add-22f59f7a9f6d
+en:millet	ecobalyse_scenario:en	import
+en:millet	ecobalyse_name:fr	Millet entier HORS UE
+en:millet	ecobalyse_alias:en	millet-whole-non-eu
+en:millet	ecobalyse_default_origin:en	
+en:millet	ecobalyse_origins_en_europe_and_maghreb_id:en	a8944af5-37c6-5e57-bb18-ccdd2819e2d1
+en:millet	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:millet	ecobalyse_origins_en_europe_and_maghreb_name:fr	Millet entier UE
+en:millet	ecobalyse_origins_en_europe_and_maghreb_alias:en	millet-whole-eu
+en:millet	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:millet	ecobalyse_labels_en_organic_origins_en_france_id:en	77d55e50-5971-57d0-ac30-1b1a6692b8f7
+en:millet	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:millet	ecobalyse_labels_en_organic_origins_en_france_name:fr	Millet entier Bio
+en:millet	ecobalyse_labels_en_organic_origins_en_france_alias:en	millet-whole-organic
+en:millet	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:millet	ecobalyse_origins_en_france_id:en	de28a618-cac8-539e-8f08-0548c88f56f6
+en:millet	ecobalyse_origins_en_france_scenario:en	reference
+en:millet	ecobalyse_origins_en_france_name:fr	Millet entier FR
+en:millet	ecobalyse_origins_en_france_alias:en	millet-whole-fr
+en:millet	ecobalyse_origins_en_france_default_origin:en	FR
 en:mimolette	ecobalyse_density_g_per_ml:en	1
 en:mimolette	ecobalyse_raw_to_cooked_ratio:en	1
 en:mimolette	ecobalyse_inedible_part:en	0
 en:mimolette	ecobalyse_transport_cooling:en	none
 en:mimolette	ecobalyse_category:en	other_food_items
-en:mimolette	ecobalyse_proxy_id:en	dedfd5eb-6ec4-44d5-9586-e14b4f6631a1
-en:mimolette	ecobalyse_proxy_scenario:en	reference
-en:mimolette	ecobalyse_proxy_name:fr	Mimolette FR
-en:mimolette	ecobalyse_proxy_alias:en	mimolette-cheese-fr
-en:mimolette	ecobalyse_proxy_default_origin:en	FR
+en:mimolette	ecobalyse_id:en	dedfd5eb-6ec4-44d5-9586-e14b4f6631a1
+en:mimolette	ecobalyse_scenario:en	reference
+en:mimolette	ecobalyse_name:fr	Mimolette FR
+en:mimolette	ecobalyse_alias:en	mimolette-cheese-fr
+en:mimolette	ecobalyse_default_origin:en	FR
 en:mimolette	ecobalyse_origins_en_france_id:en	dedfd5eb-6ec4-44d5-9586-e14b4f6631a1
 en:mimolette	ecobalyse_origins_en_france_scenario:en	reference
 en:mimolette	ecobalyse_origins_en_france_name:fr	Mimolette FR
 en:mimolette	ecobalyse_origins_en_france_alias:en	mimolette-cheese-fr
 en:mimolette	ecobalyse_origins_en_france_default_origin:en	FR
+en:minced-beef	ecobalyse_density_g_per_ml:en	1
+en:minced-beef	ecobalyse_raw_to_cooked_ratio:en	0.792
+en:minced-beef	ecobalyse_inedible_part:en	0
+en:minced-beef	ecobalyse_transport_cooling:en	always
+en:minced-beef	ecobalyse_category:en	red_meats
+en:minced-beef	ecobalyse_id:en	ce073919-1aff-4892-a1f5-b25ee94bccd8
+en:minced-beef	ecobalyse_scenario:en	import
+en:minced-beef	ecobalyse_name:fr	Boeuf haché cru par défaut (2025)
+en:minced-beef	ecobalyse_alias:en	ground-beef-feedlot-2025
+en:minced-beef	ecobalyse_default_origin:en	
+en:minced-beef	ecobalyse_visibility:en	false
+en:minced-beef	ecobalyse_labels_en_organic_origins_en_france_id:en	3fd1b6d5-58d9-40eb-b215-d2e8c2876a5f
+en:minced-beef	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:minced-beef	ecobalyse_labels_en_organic_origins_en_france_name:fr	Boeuf haché cru - v. de réforme 100% herbe FR (2025)
+en:minced-beef	ecobalyse_labels_en_organic_origins_en_france_alias:en	ground-beef-grass-fed-2025
+en:minced-beef	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:minced-beef	ecobalyse_labels_en_organic_origins_en_france_visibility:en	false
+en:minced-beef	ecobalyse_origins_en_france_id:en	41d65ed4-230f-4a47-a67c-9a8015f50420
+en:minced-beef	ecobalyse_origins_en_france_scenario:en	reference
+en:minced-beef	ecobalyse_origins_en_france_name:fr	Boeuf haché cru FR (2025)
+en:minced-beef	ecobalyse_origins_en_france_alias:en	ground-beef-2025
+en:minced-beef	ecobalyse_origins_en_france_default_origin:en	FR
+en:minced-beef	ecobalyse_origins_en_france_visibility:en	false
 en:mint	ecobalyse_density_g_per_ml:en	0.9
 en:mint	ecobalyse_crop_group:en	AUTRES CULTURES INDUSTRIELLES
 en:mint	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -3036,16 +3398,37 @@ en:mozzarella	ecobalyse_origins_en_france_scenario:en	reference
 en:mozzarella	ecobalyse_origins_en_france_name:fr	Mozzarella FR (2025)
 en:mozzarella	ecobalyse_origins_en_france_alias:en	mozzarella-2025
 en:mozzarella	ecobalyse_origins_en_france_default_origin:en	FR
+en:mung-bean-sprout	ecobalyse_density_g_per_ml:en	0.8
+en:mung-bean-sprout	ecobalyse_crop_group:en	LEGUMINEUSES A GRAIN
+en:mung-bean-sprout	ecobalyse_raw_to_cooked_ratio:en	0.856
+en:mung-bean-sprout	ecobalyse_inedible_part:en	0.2
+en:mung-bean-sprout	ecobalyse_transport_cooling:en	always
+en:mung-bean-sprout	ecobalyse_category:en	fruits_and_vegetables
+en:mung-bean-sprout	ecobalyse_id:en	d48d93f8-3451-599c-81ba-276f7a92f6ef
+en:mung-bean-sprout	ecobalyse_scenario:en	import
+en:mung-bean-sprout	ecobalyse_name:fr	Haricot mungo Origine Inconnue
+en:mung-bean-sprout	ecobalyse_alias:en	mung-bean-sprouted-default
+en:mung-bean-sprout	ecobalyse_default_origin:en	
+en:mung-bean-sprout	ecobalyse_origins_en_europe_and_maghreb_id:en	79cd73a5-7b3c-5ac0-b6af-87d8562438b3
+en:mung-bean-sprout	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:mung-bean-sprout	ecobalyse_origins_en_europe_and_maghreb_name:fr	Haricot mungo UE
+en:mung-bean-sprout	ecobalyse_origins_en_europe_and_maghreb_alias:en	mung-bean-sprouted-eu
+en:mung-bean-sprout	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:mung-bean-sprout	ecobalyse_labels_en_organic_origins_en_france_id:en	ed1ccbba-0745-5cec-889c-26e8d9d845d6
+en:mung-bean-sprout	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:mung-bean-sprout	ecobalyse_labels_en_organic_origins_en_france_name:fr	Haricot mungo Bio
+en:mung-bean-sprout	ecobalyse_labels_en_organic_origins_en_france_alias:en	mung-bean-sprouted-organic
+en:mung-bean-sprout	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
 en:munster	ecobalyse_density_g_per_ml:en	1
 en:munster	ecobalyse_raw_to_cooked_ratio:en	1
 en:munster	ecobalyse_inedible_part:en	0
 en:munster	ecobalyse_transport_cooling:en	none
 en:munster	ecobalyse_category:en	other_food_items
-en:munster	ecobalyse_proxy_id:en	7251209a-43b4-45c2-9925-129919e3c7a3
-en:munster	ecobalyse_proxy_scenario:en	reference
-en:munster	ecobalyse_proxy_name:fr	Munster FR
-en:munster	ecobalyse_proxy_alias:en	munster-cheese-fr
-en:munster	ecobalyse_proxy_default_origin:en	FR
+en:munster	ecobalyse_id:en	7251209a-43b4-45c2-9925-129919e3c7a3
+en:munster	ecobalyse_scenario:en	reference
+en:munster	ecobalyse_name:fr	Munster FR
+en:munster	ecobalyse_alias:en	munster-cheese-fr
+en:munster	ecobalyse_default_origin:en	FR
 en:munster	ecobalyse_origins_en_france_id:en	7251209a-43b4-45c2-9925-129919e3c7a3
 en:munster	ecobalyse_origins_en_france_scenario:en	reference
 en:munster	ecobalyse_origins_en_france_name:fr	Munster FR
@@ -3078,11 +3461,11 @@ en:mustard	ecobalyse_raw_to_cooked_ratio:en	0.856
 en:mustard	ecobalyse_inedible_part:en	0.1
 en:mustard	ecobalyse_transport_cooling:en	always
 en:mustard	ecobalyse_category:en	fruits_and_vegetables
-en:mustard	ecobalyse_proxy_id:en	d87bdd32-d698-4044-ae20-15b96c65f680
-en:mustard	ecobalyse_proxy_scenario:en	reference
-en:mustard	ecobalyse_proxy_name:fr	Moutarde FR (2025)
-en:mustard	ecobalyse_proxy_alias:en	mustard-2025
-en:mustard	ecobalyse_proxy_default_origin:en	FR
+en:mustard	ecobalyse_id:en	d87bdd32-d698-4044-ae20-15b96c65f680
+en:mustard	ecobalyse_scenario:en	reference
+en:mustard	ecobalyse_name:fr	Moutarde FR (2025)
+en:mustard	ecobalyse_alias:en	mustard-2025
+en:mustard	ecobalyse_default_origin:en	FR
 en:mustard	ecobalyse_origins_en_france_id:en	d87bdd32-d698-4044-ae20-15b96c65f680
 en:mustard	ecobalyse_origins_en_france_scenario:en	reference
 en:mustard	ecobalyse_origins_en_france_name:fr	Moutarde FR (2025)
@@ -3183,6 +3566,12 @@ en:oat	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:oat	ecobalyse_origins_en_europe_and_maghreb_name:fr	Avoine UE
 en:oat	ecobalyse_origins_en_europe_and_maghreb_alias:en	oats-eu
 en:oat	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:oat	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en	1af0933a-0139-480c-832d-053513d0ccba
+en:oat	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en	organic
+en:oat	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr	Avoine Bio (2025)
+en:oat	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en	oats-organic-2025
+en:oat	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en	REM
+en:oat	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_visibility:en	false
 en:oat	ecobalyse_labels_en_organic_origins_en_france_id:en	b837dc4f-3e6a-5471-a0d2-12a3080f7893
 en:oat	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:oat	ecobalyse_labels_en_organic_origins_en_france_name:fr	Avoine Bio
@@ -3204,11 +3593,35 @@ en:oat-flour	ecobalyse_scenario:en	import
 en:oat-flour	ecobalyse_name:fr	Farine d'avoine Origine Inconnue
 en:oat-flour	ecobalyse_alias:en	oat-flour-default
 en:oat-flour	ecobalyse_default_origin:en	
+en:oat-flour	ecobalyse_labels_en_organic_id:en	84fce162-aadc-4ab7-ae58-fb529a9267d9
+en:oat-flour	ecobalyse_labels_en_organic_scenario:en	organic
+en:oat-flour	ecobalyse_labels_en_organic_name:fr	Farine d'avoine Origine Inconnue BIO
+en:oat-flour	ecobalyse_labels_en_organic_alias:en	oat-flour-default-organic
+en:oat-flour	ecobalyse_labels_en_organic_default_origin:en	
+en:oat-flour	ecobalyse_labels_en_organic_visibility:en	false
 en:oat-flour	ecobalyse_origins_en_france_id:en	c39d5c50-74c3-4841-9c57-b615e65c54eb
 en:oat-flour	ecobalyse_origins_en_france_scenario:en	reference
 en:oat-flour	ecobalyse_origins_en_france_name:fr	Farine d'avoine FR
 en:oat-flour	ecobalyse_origins_en_france_alias:en	oat-flour-fr
 en:oat-flour	ecobalyse_origins_en_france_default_origin:en	FR
+en:oilseed	ecobalyse_density_g_per_ml:en	0.24
+en:oilseed	ecobalyse_crop_group:en	AUTRES OLEAGINEUX
+en:oilseed	ecobalyse_raw_to_cooked_ratio:en	2.33
+en:oilseed	ecobalyse_inedible_part:en	0
+en:oilseed	ecobalyse_transport_cooling:en	always
+en:oilseed	ecobalyse_category:en	legumes
+en:oilseed	ecobalyse_id:en	4b3c39a6-496c-416c-a42a-8d4c2fc788da
+en:oilseed	ecobalyse_scenario:en	reference
+en:oilseed	ecobalyse_name:fr	Tourteau FR (2025)
+en:oilseed	ecobalyse_alias:en	oilseed-feed-2025
+en:oilseed	ecobalyse_default_origin:en	FR
+en:oilseed	ecobalyse_visibility:en	false
+en:oilseed	ecobalyse_origins_en_france_id:en	4b3c39a6-496c-416c-a42a-8d4c2fc788da
+en:oilseed	ecobalyse_origins_en_france_scenario:en	reference
+en:oilseed	ecobalyse_origins_en_france_name:fr	Tourteau FR (2025)
+en:oilseed	ecobalyse_origins_en_france_alias:en	oilseed-feed-2025
+en:oilseed	ecobalyse_origins_en_france_default_origin:en	FR
+en:oilseed	ecobalyse_origins_en_france_visibility:en	false
 en:okra	ecobalyse_density_g_per_ml:en	0.9
 en:okra	ecobalyse_crop_group:en	LEGUMES-FLEURS
 en:okra	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -3241,6 +3654,12 @@ en:olive	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:olive	ecobalyse_origins_en_europe_and_maghreb_name:fr	Olive UE (2025)
 en:olive	ecobalyse_origins_en_europe_and_maghreb_alias:en	olive-eu-2025
 en:olive	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:olive	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en	25543778-46ab-419e-a7d8-5c0cd37d8dbd
+en:olive	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en	organic
+en:olive	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr	Olive Bio (2025)
+en:olive	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en	olive-organic-2025
+en:olive	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en	REM
+en:olive	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_visibility:en	false
 en:olive	ecobalyse_labels_en_organic_origins_en_france_id:en	11a04a20-c84d-5a44-a1bb-6ae88eb7bf30
 en:olive	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:olive	ecobalyse_labels_en_organic_origins_en_france_name:fr	Olives Bio
@@ -3257,11 +3676,11 @@ en:olive-oil	ecobalyse_raw_to_cooked_ratio:en	1
 en:olive-oil	ecobalyse_inedible_part:en	0
 en:olive-oil	ecobalyse_transport_cooling:en	none
 en:olive-oil	ecobalyse_category:en	other_food_items
-en:olive-oil	ecobalyse_proxy_id:en	f1b219e6-7a77-429b-b372-461e3ad0d3bd
-en:olive-oil	ecobalyse_proxy_scenario:en	import
-en:olive-oil	ecobalyse_proxy_name:fr	Huile d'olive UE (2025)
-en:olive-oil	ecobalyse_proxy_alias:en	olive-oil-eu-2025
-en:olive-oil	ecobalyse_proxy_default_origin:en	REM
+en:olive-oil	ecobalyse_id:en	f1b219e6-7a77-429b-b372-461e3ad0d3bd
+en:olive-oil	ecobalyse_scenario:en	import
+en:olive-oil	ecobalyse_name:fr	Huile d'olive UE (2025)
+en:olive-oil	ecobalyse_alias:en	olive-oil-eu-2025
+en:olive-oil	ecobalyse_default_origin:en	REM
 en:olive-oil	ecobalyse_origins_en_europe_and_maghreb_id:en	f1b219e6-7a77-429b-b372-461e3ad0d3bd
 en:olive-oil	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:olive-oil	ecobalyse_origins_en_europe_and_maghreb_name:fr	Huile d'olive UE (2025)
@@ -3304,6 +3723,12 @@ en:orange	ecobalyse_scenario:en	import
 en:orange	ecobalyse_name:fr	Oranges Origine Inconnue
 en:orange	ecobalyse_alias:en	orange-default
 en:orange	ecobalyse_default_origin:en	
+en:orange	ecobalyse_labels_en_organic_id:en	e33e5b25-d557-4e3a-ad2f-04e8b68972a1
+en:orange	ecobalyse_labels_en_organic_scenario:en	organic
+en:orange	ecobalyse_labels_en_organic_name:fr	Orange, pulpe, crue Origine Inconnue BIO
+en:orange	ecobalyse_labels_en_organic_alias:en	orange-pulp-raw-default-organic
+en:orange	ecobalyse_labels_en_organic_default_origin:en	
+en:orange	ecobalyse_labels_en_organic_visibility:en	false
 en:orange	ecobalyse_origins_en_europe_and_maghreb_id:en	ab3925fc-577b-5a3c-ae6f-fdacd155d565
 en:orange	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:orange	ecobalyse_origins_en_europe_and_maghreb_name:fr	Oranges UE
@@ -3341,6 +3766,11 @@ en:papaya	ecobalyse_scenario:en	import
 en:papaya	ecobalyse_name:fr	Papaye Origine Inconnue
 en:papaya	ecobalyse_alias:en	papaya-default
 en:papaya	ecobalyse_default_origin:en	
+en:papaya	ecobalyse_origins_en_france_overseas_id:en	d570f7df-ca64-505b-ac16-da2685b71722
+en:papaya	ecobalyse_origins_en_france_overseas_scenario:en	reference
+en:papaya	ecobalyse_origins_en_france_overseas_name:fr	Papaye FR Outre-Mer
+en:papaya	ecobalyse_origins_en_france_overseas_alias:en	papaya-fr-overseas
+en:papaya	ecobalyse_origins_en_france_overseas_default_origin:en	ROF
 en:papaya	ecobalyse_labels_en_organic_origins_en_france_id:en	80ce7b21-6bfb-5976-b28c-e34e8ee5a841
 en:papaya	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:papaya	ecobalyse_labels_en_organic_origins_en_france_name:fr	Papaye Bio
@@ -3356,11 +3786,11 @@ en:parmigiano-reggiano	ecobalyse_raw_to_cooked_ratio:en	1
 en:parmigiano-reggiano	ecobalyse_inedible_part:en	0
 en:parmigiano-reggiano	ecobalyse_transport_cooling:en	none
 en:parmigiano-reggiano	ecobalyse_category:en	other_food_items
-en:parmigiano-reggiano	ecobalyse_proxy_id:en	646aaee7-b9eb-4050-9e2a-0a4015258b1e
-en:parmigiano-reggiano	ecobalyse_proxy_scenario:en	reference
-en:parmigiano-reggiano	ecobalyse_proxy_name:fr	Parmesan FR
-en:parmigiano-reggiano	ecobalyse_proxy_alias:en	parmesan-cheese-fr
-en:parmigiano-reggiano	ecobalyse_proxy_default_origin:en	FR
+en:parmigiano-reggiano	ecobalyse_id:en	646aaee7-b9eb-4050-9e2a-0a4015258b1e
+en:parmigiano-reggiano	ecobalyse_scenario:en	reference
+en:parmigiano-reggiano	ecobalyse_name:fr	Parmesan FR
+en:parmigiano-reggiano	ecobalyse_alias:en	parmesan-cheese-fr
+en:parmigiano-reggiano	ecobalyse_default_origin:en	FR
 en:parmigiano-reggiano	ecobalyse_origins_en_france_id:en	646aaee7-b9eb-4050-9e2a-0a4015258b1e
 en:parmigiano-reggiano	ecobalyse_origins_en_france_scenario:en	reference
 en:parmigiano-reggiano	ecobalyse_origins_en_france_name:fr	Parmesan FR
@@ -3398,6 +3828,12 @@ en:parsnip	ecobalyse_scenario:en	import
 en:parsnip	ecobalyse_name:fr	Panais Origine Inconnue
 en:parsnip	ecobalyse_alias:en	parsnip-default
 en:parsnip	ecobalyse_default_origin:en	
+en:parsnip	ecobalyse_origins_en_europe_and_maghreb_id:en	a8eddc41-ee96-50f5-839e-f224502d27f0
+en:parsnip	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:parsnip	ecobalyse_origins_en_europe_and_maghreb_name:fr	Panais UE
+en:parsnip	ecobalyse_origins_en_europe_and_maghreb_alias:en	parsnip-eu
+en:parsnip	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:parsnip	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:parsnip	ecobalyse_labels_en_organic_origins_en_france_id:en	cf2765a3-3e9b-50c5-b3e0-21a950c5cdce
 en:parsnip	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:parsnip	ecobalyse_labels_en_organic_origins_en_france_name:fr	Panais Bio
@@ -3430,11 +3866,11 @@ en:pasta	ecobalyse_raw_to_cooked_ratio:en	2.259
 en:pasta	ecobalyse_inedible_part:en	0.2
 en:pasta	ecobalyse_transport_cooling:en	none
 en:pasta	ecobalyse_category:en	cereals
-en:pasta	ecobalyse_proxy_id:en	fb86bf1d-1862-4255-8361-d1228c7403c6
-en:pasta	ecobalyse_proxy_scenario:en	import
-en:pasta	ecobalyse_proxy_name:fr	Pâtes BE (blé GLO + élec BE)
-en:pasta	ecobalyse_proxy_alias:en	pasta-glo-be
-en:pasta	ecobalyse_proxy_default_origin:en	REM
+en:pasta	ecobalyse_id:en	fb86bf1d-1862-4255-8361-d1228c7403c6
+en:pasta	ecobalyse_scenario:en	import
+en:pasta	ecobalyse_name:fr	Pâtes BE (blé GLO + élec BE)
+en:pasta	ecobalyse_alias:en	pasta-glo-be
+en:pasta	ecobalyse_default_origin:en	REM
 en:pasta	ecobalyse_origins_en_europe_and_maghreb_id:en	fb86bf1d-1862-4255-8361-d1228c7403c6
 en:pasta	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:pasta	ecobalyse_origins_en_europe_and_maghreb_name:fr	Pâtes BE (blé GLO + élec BE)
@@ -3445,6 +3881,27 @@ en:pasta	ecobalyse_origins_en_france_scenario:en	reference
 en:pasta	ecobalyse_origins_en_france_name:fr	Pâtes FR
 en:pasta	ecobalyse_origins_en_france_alias:en	pasta
 en:pasta	ecobalyse_origins_en_france_default_origin:en	FR
+en:pea	ecobalyse_density_g_per_ml:en	1
+en:pea	ecobalyse_crop_group:en	PROTEAGINEUX
+en:pea	ecobalyse_raw_to_cooked_ratio:en	1
+en:pea	ecobalyse_inedible_part:en	0
+en:pea	ecobalyse_transport_cooling:en	none
+en:pea	ecobalyse_category:en	other_food_items
+en:pea	ecobalyse_id:en	6444663c-f3ef-4afa-a36d-767aa44ab8f9
+en:pea	ecobalyse_scenario:en	import
+en:pea	ecobalyse_name:fr	Petits pois, écossés, crus Origine Inconnue
+en:pea	ecobalyse_alias:en	pea-shelled-raw-default
+en:pea	ecobalyse_default_origin:en	
+en:pea	ecobalyse_labels_en_organic_origins_en_france_id:en	fc6a3ecf-e661-4c38-a982-a3d053b77d0e
+en:pea	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:pea	ecobalyse_labels_en_organic_origins_en_france_name:fr	Petits pois, écossés, crus BIO
+en:pea	ecobalyse_labels_en_organic_origins_en_france_alias:en	pea-shelled-raw-fr-organic
+en:pea	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:pea	ecobalyse_origins_en_france_id:en	79cca60b-cfb3-42b8-9847-4f5473cb61b7
+en:pea	ecobalyse_origins_en_france_scenario:en	reference
+en:pea	ecobalyse_origins_en_france_name:fr	Petits pois, écossés, crus FR
+en:pea	ecobalyse_origins_en_france_alias:en	pea-shelled-raw-fr
+en:pea	ecobalyse_origins_en_france_default_origin:en	FR
 en:peach	ecobalyse_density_g_per_ml:en	1
 en:peach	ecobalyse_crop_group:en	VERGERS
 en:peach	ecobalyse_raw_to_cooked_ratio:en	1
@@ -3456,6 +3913,12 @@ en:peach	ecobalyse_scenario:en	import
 en:peach	ecobalyse_name:fr	Pêche, pulpe et peau, crue Origine Inconnue
 en:peach	ecobalyse_alias:en	peach-pulp-and-skin-raw-default
 en:peach	ecobalyse_default_origin:en	
+en:peach	ecobalyse_labels_en_organic_id:en	b35b9a8b-9ce4-4da2-a1f8-a40e67d75784
+en:peach	ecobalyse_labels_en_organic_scenario:en	organic
+en:peach	ecobalyse_labels_en_organic_name:fr	Pêche, pulpe et peau, crue Origine Inconnue BIO
+en:peach	ecobalyse_labels_en_organic_alias:en	peach-pulp-and-skin-raw-default-organic
+en:peach	ecobalyse_labels_en_organic_default_origin:en	
+en:peach	ecobalyse_labels_en_organic_visibility:en	false
 en:peach	ecobalyse_origins_en_europe_and_maghreb_id:en	fa9e9f34-acc9-4974-89c4-003d2428f502
 en:peach	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:peach	ecobalyse_origins_en_europe_and_maghreb_name:fr	Pêche UE (2025)
@@ -3503,6 +3966,12 @@ en:pear	ecobalyse_scenario:en	import
 en:pear	ecobalyse_name:fr	Poire, pulpe, crue Origine Inconnue
 en:pear	ecobalyse_alias:en	pear-pulp-raw-default
 en:pear	ecobalyse_default_origin:en	
+en:pear	ecobalyse_labels_en_organic_id:en	6ef29e13-8619-4b36-bb86-c6acda52207b
+en:pear	ecobalyse_labels_en_organic_scenario:en	organic
+en:pear	ecobalyse_labels_en_organic_name:fr	Poire, pulpe, crue Origine Inconnue BIO
+en:pear	ecobalyse_labels_en_organic_alias:en	pear-pulp-raw-default-organic
+en:pear	ecobalyse_labels_en_organic_default_origin:en	
+en:pear	ecobalyse_labels_en_organic_visibility:en	false
 en:pear	ecobalyse_origins_en_europe_and_maghreb_id:en	bb00f430-ffda-46a3-ba45-267b0064a43e
 en:pear	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:pear	ecobalyse_origins_en_europe_and_maghreb_name:fr	Poire UE (2025)
@@ -3596,6 +4065,17 @@ en:pineapple	ecobalyse_scenario:en	import
 en:pineapple	ecobalyse_name:fr	Ananas par défaut (2025)
 en:pineapple	ecobalyse_alias:en	pineapple-non-eu-2025
 en:pineapple	ecobalyse_default_origin:en	
+en:pineapple	ecobalyse_labels_en_organic_id:en	68f905ed-2116-468a-ba47-ae983f0f839f
+en:pineapple	ecobalyse_labels_en_organic_scenario:en	organic
+en:pineapple	ecobalyse_labels_en_organic_name:fr	Ananas, pulpe, cru Origine Inconnue BIO
+en:pineapple	ecobalyse_labels_en_organic_alias:en	pineapple-pulp-raw-default-organic
+en:pineapple	ecobalyse_labels_en_organic_default_origin:en	
+en:pineapple	ecobalyse_labels_en_organic_visibility:en	false
+en:pineapple	ecobalyse_origins_en_france_overseas_id:en	d3c1b683-ba25-5bbb-a249-c4cb6b3331bb
+en:pineapple	ecobalyse_origins_en_france_overseas_scenario:en	reference
+en:pineapple	ecobalyse_origins_en_france_overseas_name:fr	Ananas FR Outre-Mer
+en:pineapple	ecobalyse_origins_en_france_overseas_alias:en	pineapple-fr-overseas
+en:pineapple	ecobalyse_origins_en_france_overseas_default_origin:en	ROF
 en:pineapple	ecobalyse_origins_en_europe_and_maghreb_id:en	ca64d40e-3ab7-5479-9b38-3ab8dcc56431
 en:pineapple	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:pineapple	ecobalyse_origins_en_europe_and_maghreb_name:fr	Ananas UE Antilles
@@ -3731,16 +4211,22 @@ en:pork	ecobalyse_raw_to_cooked_ratio:en	1
 en:pork	ecobalyse_inedible_part:en	0
 en:pork	ecobalyse_transport_cooling:en	none
 en:pork	ecobalyse_category:en	other_food_items
-en:pork	ecobalyse_proxy_id:en	6fb662dc-583f-47d5-814f-2cc6a8c1f3b9
-en:pork	ecobalyse_proxy_scenario:en	reference
-en:pork	ecobalyse_proxy_name:fr	Viande de porc (alim. ani. 100% FR)
-en:pork	ecobalyse_proxy_alias:en	pork-fr-bbc-2025
-en:pork	ecobalyse_proxy_default_origin:en	FR
+en:pork	ecobalyse_id:en	6fb662dc-583f-47d5-814f-2cc6a8c1f3b9
+en:pork	ecobalyse_scenario:en	reference
+en:pork	ecobalyse_name:fr	Viande de porc (alim. ani. 100% FR)
+en:pork	ecobalyse_alias:en	pork-fr-bbc-2025
+en:pork	ecobalyse_default_origin:en	FR
 en:pork	ecobalyse_origins_en_france_id:en	6fb662dc-583f-47d5-814f-2cc6a8c1f3b9
 en:pork	ecobalyse_origins_en_france_scenario:en	reference
 en:pork	ecobalyse_origins_en_france_name:fr	Viande de porc (alim. ani. 100% FR)
 en:pork	ecobalyse_origins_en_france_alias:en	pork-fr-bbc-2025
 en:pork	ecobalyse_origins_en_france_default_origin:en	FR
+en:pork	ecobalyse_labels_en_organic_origins_en_france_id:en	eb795534-730a-561b-b520-15d11a670927
+en:pork	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:pork	ecobalyse_labels_en_organic_origins_en_france_name:fr	Porc Bio
+en:pork	ecobalyse_labels_en_organic_origins_en_france_alias:en	pork-organic
+en:pork	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:pork	ecobalyse_labels_en_organic_origins_en_france_visibility:en	false
 en:potato	ecobalyse_density_g_per_ml:en	1.1
 en:potato	ecobalyse_crop_group:en	LEGUMES-FLEURS
 en:potato	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -3778,16 +4264,39 @@ en:potato-starch	ecobalyse_scenario:en	import
 en:potato-starch	ecobalyse_name:fr	Fécule de pomme de terre par défaut (2025)
 en:potato-starch	ecobalyse_alias:en	potato-starch-2025
 en:potato-starch	ecobalyse_default_origin:en	
+en:poultry	ecobalyse_density_g_per_ml:en	1.05
+en:poultry	ecobalyse_raw_to_cooked_ratio:en	0.755
+en:poultry	ecobalyse_inedible_part:en	0.05
+en:poultry	ecobalyse_transport_cooling:en	none
+en:poultry	ecobalyse_category:en	other_food_items
+en:poultry	ecobalyse_id:en	c7b79f39-3672-530e-8966-f612b67de746
+en:poultry	ecobalyse_scenario:en	import
+en:poultry	ecobalyse_name:fr	Volaille Origine Inconnue
+en:poultry	ecobalyse_alias:en	poultry-default
+en:poultry	ecobalyse_default_origin:en	
+en:poultry	ecobalyse_visibility:en	false
+en:poultry	ecobalyse_labels_en_organic_origins_en_france_id:en	f7082531-2885-5883-9f07-d15e07899873
+en:poultry	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:poultry	ecobalyse_labels_en_organic_origins_en_france_name:fr	Volaille Bio
+en:poultry	ecobalyse_labels_en_organic_origins_en_france_alias:en	poultry-organic
+en:poultry	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:poultry	ecobalyse_labels_en_organic_origins_en_france_visibility:en	false
+en:poultry	ecobalyse_origins_en_france_id:en	7fbeb096-3076-55a7-b5e2-341ba3e1d59e
+en:poultry	ecobalyse_origins_en_france_scenario:en	reference
+en:poultry	ecobalyse_origins_en_france_name:fr	Volaille FR
+en:poultry	ecobalyse_origins_en_france_alias:en	poultry-fr
+en:poultry	ecobalyse_origins_en_france_default_origin:en	FR
+en:poultry	ecobalyse_origins_en_france_visibility:en	false
 en:powdered-egg-white	ecobalyse_density_g_per_ml:en	0.24
 en:powdered-egg-white	ecobalyse_raw_to_cooked_ratio:en	1
 en:powdered-egg-white	ecobalyse_inedible_part:en	0
 en:powdered-egg-white	ecobalyse_transport_cooling:en	none
 en:powdered-egg-white	ecobalyse_category:en	other_food_items
-en:powdered-egg-white	ecobalyse_proxy_id:en	7fe451fd-77c8-46f3-b7ae-c050a08b7be8
-en:powdered-egg-white	ecobalyse_proxy_scenario:en	reference
-en:powdered-egg-white	ecobalyse_proxy_name:fr	poudre de blanc d'oeuf FR (2025)
-en:powdered-egg-white	ecobalyse_proxy_alias:en	egg-white-powder-fr-2025
-en:powdered-egg-white	ecobalyse_proxy_default_origin:en	FR
+en:powdered-egg-white	ecobalyse_id:en	7fe451fd-77c8-46f3-b7ae-c050a08b7be8
+en:powdered-egg-white	ecobalyse_scenario:en	reference
+en:powdered-egg-white	ecobalyse_name:fr	poudre de blanc d'oeuf FR (2025)
+en:powdered-egg-white	ecobalyse_alias:en	egg-white-powder-fr-2025
+en:powdered-egg-white	ecobalyse_default_origin:en	FR
 en:powdered-egg-white	ecobalyse_origins_en_france_id:en	7fe451fd-77c8-46f3-b7ae-c050a08b7be8
 en:powdered-egg-white	ecobalyse_origins_en_france_scenario:en	reference
 en:powdered-egg-white	ecobalyse_origins_en_france_name:fr	poudre de blanc d'oeuf FR (2025)
@@ -3892,6 +4401,44 @@ en:quinoa	ecobalyse_origins_en_france_scenario:en	reference
 en:quinoa	ecobalyse_origins_en_france_name:fr	Quinoa FR
 en:quinoa	ecobalyse_origins_en_france_alias:en	quinoa-fr
 en:quinoa	ecobalyse_origins_en_france_default_origin:en	FR
+en:rabbit	ecobalyse_density_g_per_ml:en	1
+en:rabbit	ecobalyse_raw_to_cooked_ratio:en	0.755
+en:rabbit	ecobalyse_inedible_part:en	0.05
+en:rabbit	ecobalyse_transport_cooling:en	none
+en:rabbit	ecobalyse_category:en	other_food_items
+en:rabbit	ecobalyse_id:en	1e72c100-92f9-54e3-8289-d8efc3890acc
+en:rabbit	ecobalyse_scenario:en	import
+en:rabbit	ecobalyse_name:fr	Lapin Origine Inconnue
+en:rabbit	ecobalyse_alias:en	rabbit-default
+en:rabbit	ecobalyse_default_origin:en	
+en:rabbit	ecobalyse_visibility:en	false
+en:rabbit	ecobalyse_labels_en_organic_origins_en_france_id:en	9f9c8201-bf32-5562-be28-a637b6a6f7b7
+en:rabbit	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:rabbit	ecobalyse_labels_en_organic_origins_en_france_name:fr	Lapin Bio
+en:rabbit	ecobalyse_labels_en_organic_origins_en_france_alias:en	rabbit-organic
+en:rabbit	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:rabbit	ecobalyse_labels_en_organic_origins_en_france_visibility:en	false
+en:rabbit	ecobalyse_origins_en_france_id:en	0d3c6e8c-bd97-5011-9011-1d7771db43b0
+en:rabbit	ecobalyse_origins_en_france_scenario:en	reference
+en:rabbit	ecobalyse_origins_en_france_name:fr	Lapin FR
+en:rabbit	ecobalyse_origins_en_france_alias:en	rabbit-fr
+en:rabbit	ecobalyse_origins_en_france_default_origin:en	FR
+en:rabbit	ecobalyse_origins_en_france_visibility:en	false
+en:raclette	ecobalyse_density_g_per_ml:en	1
+en:raclette	ecobalyse_raw_to_cooked_ratio:en	1
+en:raclette	ecobalyse_inedible_part:en	0
+en:raclette	ecobalyse_transport_cooling:en	none
+en:raclette	ecobalyse_category:en	other_food_items
+en:raclette	ecobalyse_id:en	065b585d-b876-4f55-baa5-123965c4b0b7
+en:raclette	ecobalyse_scenario:en	reference
+en:raclette	ecobalyse_name:fr	Raclette (fromage) FR
+en:raclette	ecobalyse_alias:en	raclette-cheese-fr
+en:raclette	ecobalyse_default_origin:en	FR
+en:raclette	ecobalyse_origins_en_france_id:en	065b585d-b876-4f55-baa5-123965c4b0b7
+en:raclette	ecobalyse_origins_en_france_scenario:en	reference
+en:raclette	ecobalyse_origins_en_france_name:fr	Raclette (fromage) FR
+en:raclette	ecobalyse_origins_en_france_alias:en	raclette-cheese-fr
+en:raclette	ecobalyse_origins_en_france_default_origin:en	FR
 en:radish	ecobalyse_density_g_per_ml:en	0.6
 en:radish	ecobalyse_crop_group:en	LEGUMES-FLEURS
 en:radish	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -3971,6 +4518,12 @@ en:raspberry	ecobalyse_scenario:en	import
 en:raspberry	ecobalyse_name:fr	Framboise Origine Inconnue
 en:raspberry	ecobalyse_alias:en	raspberry-default
 en:raspberry	ecobalyse_default_origin:en	
+en:raspberry	ecobalyse_labels_en_organic_id:en	8ee35dca-6785-4a2f-9b9c-5ee34f58ca83
+en:raspberry	ecobalyse_labels_en_organic_scenario:en	organic
+en:raspberry	ecobalyse_labels_en_organic_name:fr	Jus Framboise Origine Inconnue BIO
+en:raspberry	ecobalyse_labels_en_organic_alias:en	raspberry-juice-default-organic
+en:raspberry	ecobalyse_labels_en_organic_default_origin:en	
+en:raspberry	ecobalyse_labels_en_organic_visibility:en	false
 en:raspberry	ecobalyse_origins_en_europe_and_maghreb_id:en	0bc3b0d6-cb4b-556b-bed4-6bcc6c89387b
 en:raspberry	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:raspberry	ecobalyse_origins_en_europe_and_maghreb_name:fr	Framboise UE
@@ -3996,11 +4549,11 @@ en:reblochon	ecobalyse_raw_to_cooked_ratio:en	1
 en:reblochon	ecobalyse_inedible_part:en	0
 en:reblochon	ecobalyse_transport_cooling:en	none
 en:reblochon	ecobalyse_category:en	other_food_items
-en:reblochon	ecobalyse_proxy_id:en	d85576e1-ba3a-4ec7-80d5-c106f780498a
-en:reblochon	ecobalyse_proxy_scenario:en	reference
-en:reblochon	ecobalyse_proxy_name:fr	Reblochon FR (2025)
-en:reblochon	ecobalyse_proxy_alias:en	reblochon-2025
-en:reblochon	ecobalyse_proxy_default_origin:en	FR
+en:reblochon	ecobalyse_id:en	d85576e1-ba3a-4ec7-80d5-c106f780498a
+en:reblochon	ecobalyse_scenario:en	reference
+en:reblochon	ecobalyse_name:fr	Reblochon FR (2025)
+en:reblochon	ecobalyse_alias:en	reblochon-2025
+en:reblochon	ecobalyse_default_origin:en	FR
 en:reblochon	ecobalyse_origins_en_france_id:en	d85576e1-ba3a-4ec7-80d5-c106f780498a
 en:reblochon	ecobalyse_origins_en_france_scenario:en	reference
 en:reblochon	ecobalyse_origins_en_france_name:fr	Reblochon FR (2025)
@@ -4054,11 +4607,11 @@ en:red-wine	ecobalyse_raw_to_cooked_ratio:en	1
 en:red-wine	ecobalyse_inedible_part:en	0
 en:red-wine	ecobalyse_transport_cooling:en	none
 en:red-wine	ecobalyse_category:en	other_food_items
-en:red-wine	ecobalyse_proxy_id:en	6621c18e-85de-4683-82be-7b236e68bc48
-en:red-wine	ecobalyse_proxy_scenario:en	reference
-en:red-wine	ecobalyse_proxy_name:fr	Vin rouge FR (2025)
-en:red-wine	ecobalyse_proxy_alias:en	red-wine-2025
-en:red-wine	ecobalyse_proxy_default_origin:en	FR
+en:red-wine	ecobalyse_id:en	6621c18e-85de-4683-82be-7b236e68bc48
+en:red-wine	ecobalyse_scenario:en	reference
+en:red-wine	ecobalyse_name:fr	Vin rouge FR (2025)
+en:red-wine	ecobalyse_alias:en	red-wine-2025
+en:red-wine	ecobalyse_default_origin:en	FR
 en:red-wine	ecobalyse_origins_en_france_id:en	6621c18e-85de-4683-82be-7b236e68bc48
 en:red-wine	ecobalyse_origins_en_france_scenario:en	reference
 en:red-wine	ecobalyse_origins_en_france_name:fr	Vin rouge FR (2025)
@@ -4112,11 +4665,11 @@ en:refined-rapeseed-oil	ecobalyse_raw_to_cooked_ratio:en	1
 en:refined-rapeseed-oil	ecobalyse_inedible_part:en	0
 en:refined-rapeseed-oil	ecobalyse_transport_cooling:en	none
 en:refined-rapeseed-oil	ecobalyse_category:en	other_food_items
-en:refined-rapeseed-oil	ecobalyse_proxy_id:en	c3697176-e682-43c3-b16a-3992ff8f1404
-en:refined-rapeseed-oil	ecobalyse_proxy_scenario:en	reference
-en:refined-rapeseed-oil	ecobalyse_proxy_name:fr	Huile de colza (raffinée) FR (2025)
-en:refined-rapeseed-oil	ecobalyse_proxy_alias:en	refined-rapeseed-oil-2025
-en:refined-rapeseed-oil	ecobalyse_proxy_default_origin:en	FR
+en:refined-rapeseed-oil	ecobalyse_id:en	c3697176-e682-43c3-b16a-3992ff8f1404
+en:refined-rapeseed-oil	ecobalyse_scenario:en	reference
+en:refined-rapeseed-oil	ecobalyse_name:fr	Huile de colza (raffinée) FR (2025)
+en:refined-rapeseed-oil	ecobalyse_alias:en	refined-rapeseed-oil-2025
+en:refined-rapeseed-oil	ecobalyse_default_origin:en	FR
 en:refined-rapeseed-oil	ecobalyse_origins_en_france_id:en	c3697176-e682-43c3-b16a-3992ff8f1404
 en:refined-rapeseed-oil	ecobalyse_origins_en_france_scenario:en	reference
 en:refined-rapeseed-oil	ecobalyse_origins_en_france_name:fr	Huile de colza (raffinée) FR (2025)
@@ -4128,11 +4681,11 @@ en:refined-soya-oil	ecobalyse_raw_to_cooked_ratio:en	1
 en:refined-soya-oil	ecobalyse_inedible_part:en	0
 en:refined-soya-oil	ecobalyse_transport_cooling:en	none
 en:refined-soya-oil	ecobalyse_category:en	other_food_items
-en:refined-soya-oil	ecobalyse_proxy_id:en	188a3d66-f214-4821-9bac-7e8fdc715721
-en:refined-soya-oil	ecobalyse_proxy_scenario:en	reference
-en:refined-soya-oil	ecobalyse_proxy_name:fr	Huile de soja (raffinée) FR (2025)
-en:refined-soya-oil	ecobalyse_proxy_alias:en	refined-soybean-oil-2025
-en:refined-soya-oil	ecobalyse_proxy_default_origin:en	FR
+en:refined-soya-oil	ecobalyse_id:en	188a3d66-f214-4821-9bac-7e8fdc715721
+en:refined-soya-oil	ecobalyse_scenario:en	reference
+en:refined-soya-oil	ecobalyse_name:fr	Huile de soja (raffinée) FR (2025)
+en:refined-soya-oil	ecobalyse_alias:en	refined-soybean-oil-2025
+en:refined-soya-oil	ecobalyse_default_origin:en	FR
 en:refined-soya-oil	ecobalyse_origins_en_france_id:en	188a3d66-f214-4821-9bac-7e8fdc715721
 en:refined-soya-oil	ecobalyse_origins_en_france_scenario:en	reference
 en:refined-soya-oil	ecobalyse_origins_en_france_name:fr	Huile de soja (raffinée) FR (2025)
@@ -4144,11 +4697,11 @@ en:refined-sunflower-oil	ecobalyse_raw_to_cooked_ratio:en	1
 en:refined-sunflower-oil	ecobalyse_inedible_part:en	0
 en:refined-sunflower-oil	ecobalyse_transport_cooling:en	none
 en:refined-sunflower-oil	ecobalyse_category:en	other_food_items
-en:refined-sunflower-oil	ecobalyse_proxy_id:en	583d00ab-0340-444b-9581-71175f0a937b
-en:refined-sunflower-oil	ecobalyse_proxy_scenario:en	reference
-en:refined-sunflower-oil	ecobalyse_proxy_name:fr	Huile de tournesol (raffinée) FR (2025)
-en:refined-sunflower-oil	ecobalyse_proxy_alias:en	refined-sunflower-oil-2025
-en:refined-sunflower-oil	ecobalyse_proxy_default_origin:en	FR
+en:refined-sunflower-oil	ecobalyse_id:en	583d00ab-0340-444b-9581-71175f0a937b
+en:refined-sunflower-oil	ecobalyse_scenario:en	reference
+en:refined-sunflower-oil	ecobalyse_name:fr	Huile de tournesol (raffinée) FR (2025)
+en:refined-sunflower-oil	ecobalyse_alias:en	refined-sunflower-oil-2025
+en:refined-sunflower-oil	ecobalyse_default_origin:en	FR
 en:refined-sunflower-oil	ecobalyse_origins_en_france_id:en	583d00ab-0340-444b-9581-71175f0a937b
 en:refined-sunflower-oil	ecobalyse_origins_en_france_scenario:en	reference
 en:refined-sunflower-oil	ecobalyse_origins_en_france_name:fr	Huile de tournesol (raffinée) FR (2025)
@@ -4222,6 +4775,12 @@ en:rice-flour	ecobalyse_scenario:en	import
 en:rice-flour	ecobalyse_name:fr	Farine de riz Origine Inconnue
 en:rice-flour	ecobalyse_alias:en	rice-flour-default
 en:rice-flour	ecobalyse_default_origin:en	
+en:rice-flour	ecobalyse_labels_en_organic_id:en	91148f1f-8aaa-45c1-952c-32262208c03e
+en:rice-flour	ecobalyse_labels_en_organic_scenario:en	organic
+en:rice-flour	ecobalyse_labels_en_organic_name:fr	Farine de riz Origine Inconnue BIO
+en:rice-flour	ecobalyse_labels_en_organic_alias:en	rice-flour-default-organic
+en:rice-flour	ecobalyse_labels_en_organic_default_origin:en	
+en:rice-flour	ecobalyse_labels_en_organic_visibility:en	false
 en:rice-flour	ecobalyse_origins_en_france_id:en	08c1c93d-67dd-41ed-b01b-45c8fb79b709
 en:rice-flour	ecobalyse_origins_en_france_scenario:en	reference
 en:rice-flour	ecobalyse_origins_en_france_name:fr	Farine de riz FR
@@ -4232,11 +4791,11 @@ en:roquefort	ecobalyse_raw_to_cooked_ratio:en	1
 en:roquefort	ecobalyse_inedible_part:en	0
 en:roquefort	ecobalyse_transport_cooling:en	none
 en:roquefort	ecobalyse_category:en	other_food_items
-en:roquefort	ecobalyse_proxy_id:en	547c7bb5-1958-415e-a386-8bc7176dfb73
-en:roquefort	ecobalyse_proxy_scenario:en	reference
-en:roquefort	ecobalyse_proxy_name:fr	Roquefort FR
-en:roquefort	ecobalyse_proxy_alias:en	roquefort-cheese-fr
-en:roquefort	ecobalyse_proxy_default_origin:en	FR
+en:roquefort	ecobalyse_id:en	547c7bb5-1958-415e-a386-8bc7176dfb73
+en:roquefort	ecobalyse_scenario:en	reference
+en:roquefort	ecobalyse_name:fr	Roquefort FR
+en:roquefort	ecobalyse_alias:en	roquefort-cheese-fr
+en:roquefort	ecobalyse_default_origin:en	FR
 en:roquefort	ecobalyse_origins_en_france_id:en	547c7bb5-1958-415e-a386-8bc7176dfb73
 en:roquefort	ecobalyse_origins_en_france_scenario:en	reference
 en:roquefort	ecobalyse_origins_en_france_name:fr	Roquefort FR
@@ -4253,6 +4812,12 @@ en:rutabaga	ecobalyse_scenario:en	import
 en:rutabaga	ecobalyse_name:fr	Rutabaga Origine Inconnue
 en:rutabaga	ecobalyse_alias:en	rutabaga-default
 en:rutabaga	ecobalyse_default_origin:en	
+en:rutabaga	ecobalyse_origins_en_europe_and_maghreb_id:en	94de0d0c-56a7-53e2-b949-4757beb7ba8f
+en:rutabaga	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:rutabaga	ecobalyse_origins_en_europe_and_maghreb_name:fr	Rutabaga UE
+en:rutabaga	ecobalyse_origins_en_europe_and_maghreb_alias:en	rutabaga-eu
+en:rutabaga	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:rutabaga	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:rutabaga	ecobalyse_labels_en_organic_origins_en_france_id:en	479a03cd-30e3-5b93-a621-51125b1cab1a
 en:rutabaga	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:rutabaga	ecobalyse_labels_en_organic_origins_en_france_name:fr	Rutabaga Bio
@@ -4263,6 +4828,38 @@ en:rutabaga	ecobalyse_origins_en_france_scenario:en	reference
 en:rutabaga	ecobalyse_origins_en_france_name:fr	Rutabaga FR
 en:rutabaga	ecobalyse_origins_en_france_alias:en	rutabaga-fr
 en:rutabaga	ecobalyse_origins_en_france_default_origin:en	FR
+en:saint-marcellin	ecobalyse_density_g_per_ml:en	1
+en:saint-marcellin	ecobalyse_raw_to_cooked_ratio:en	1
+en:saint-marcellin	ecobalyse_inedible_part:en	0
+en:saint-marcellin	ecobalyse_transport_cooling:en	none
+en:saint-marcellin	ecobalyse_category:en	other_food_items
+en:saint-marcellin	ecobalyse_id:en	79459a80-f24e-47c6-ba8c-25285d662ecd
+en:saint-marcellin	ecobalyse_scenario:en	reference
+en:saint-marcellin	ecobalyse_name:fr	Saint-Marcellin FR
+en:saint-marcellin	ecobalyse_alias:en	saint-marcellin-cheese-fr
+en:saint-marcellin	ecobalyse_default_origin:en	FR
+en:saint-marcellin	ecobalyse_origins_en_france_id:en	79459a80-f24e-47c6-ba8c-25285d662ecd
+en:saint-marcellin	ecobalyse_origins_en_france_scenario:en	reference
+en:saint-marcellin	ecobalyse_origins_en_france_name:fr	Saint-Marcellin FR
+en:saint-marcellin	ecobalyse_origins_en_france_alias:en	saint-marcellin-cheese-fr
+en:saint-marcellin	ecobalyse_origins_en_france_default_origin:en	FR
+en:salmon	ecobalyse_density_g_per_ml:en	1
+en:salmon	ecobalyse_raw_to_cooked_ratio:en	1
+en:salmon	ecobalyse_inedible_part:en	0.2
+en:salmon	ecobalyse_transport_cooling:en	none
+en:salmon	ecobalyse_category:en	other_food_items
+en:salmon	ecobalyse_id:en	cacf491b-5529-4e0c-af3f-75ab1d007655
+en:salmon	ecobalyse_scenario:en	import
+en:salmon	ecobalyse_name:fr	Saumon cru UE (2025)
+en:salmon	ecobalyse_alias:en	salmon-raw-eu-2025
+en:salmon	ecobalyse_default_origin:en	REM
+en:salmon	ecobalyse_visibility:en	false
+en:salmon	ecobalyse_origins_en_europe_and_maghreb_id:en	cacf491b-5529-4e0c-af3f-75ab1d007655
+en:salmon	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:salmon	ecobalyse_origins_en_europe_and_maghreb_name:fr	Saumon cru UE (2025)
+en:salmon	ecobalyse_origins_en_europe_and_maghreb_alias:en	salmon-raw-eu-2025
+en:salmon	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:salmon	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:salsify	ecobalyse_density_g_per_ml:en	0.9
 en:salsify	ecobalyse_crop_group:en	LEGUMES-FLEURS
 en:salsify	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -4274,6 +4871,12 @@ en:salsify	ecobalyse_scenario:en	import
 en:salsify	ecobalyse_name:fr	Salsifi Origine Inconnue
 en:salsify	ecobalyse_alias:en	salsify-default
 en:salsify	ecobalyse_default_origin:en	
+en:salsify	ecobalyse_origins_en_europe_and_maghreb_id:en	ffda5241-c267-5ff7-a9fa-5c4edf6c085b
+en:salsify	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:salsify	ecobalyse_origins_en_europe_and_maghreb_name:fr	Salsifi UE
+en:salsify	ecobalyse_origins_en_europe_and_maghreb_alias:en	salsify-eu
+en:salsify	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:salsify	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:salsify	ecobalyse_labels_en_organic_origins_en_france_id:en	56c00e71-a245-5b91-aec6-5a8e566e3360
 en:salsify	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:salsify	ecobalyse_labels_en_organic_origins_en_france_name:fr	Salsifi Bio
@@ -4290,16 +4893,39 @@ en:salt	ecobalyse_raw_to_cooked_ratio:en	1
 en:salt	ecobalyse_inedible_part:en	0
 en:salt	ecobalyse_transport_cooling:en	none
 en:salt	ecobalyse_category:en	other_food_items
-en:salt	ecobalyse_proxy_id:en	77defb24-cec3-4de9-8388-63229d1052fb
-en:salt	ecobalyse_proxy_scenario:en	reference
-en:salt	ecobalyse_proxy_name:fr	Sel (2025)
-en:salt	ecobalyse_proxy_alias:en	salt-2025
-en:salt	ecobalyse_proxy_default_origin:en	FR
+en:salt	ecobalyse_id:en	77defb24-cec3-4de9-8388-63229d1052fb
+en:salt	ecobalyse_scenario:en	reference
+en:salt	ecobalyse_name:fr	Sel (2025)
+en:salt	ecobalyse_alias:en	salt-2025
+en:salt	ecobalyse_default_origin:en	FR
 en:salt	ecobalyse_origins_en_france_id:en	77defb24-cec3-4de9-8388-63229d1052fb
 en:salt	ecobalyse_origins_en_france_scenario:en	reference
 en:salt	ecobalyse_origins_en_france_name:fr	Sel (2025)
 en:salt	ecobalyse_origins_en_france_alias:en	salt-2025
 en:salt	ecobalyse_origins_en_france_default_origin:en	FR
+en:sardine	ecobalyse_density_g_per_ml:en	1
+en:sardine	ecobalyse_raw_to_cooked_ratio:en	1
+en:sardine	ecobalyse_inedible_part:en	0.2
+en:sardine	ecobalyse_transport_cooling:en	none
+en:sardine	ecobalyse_category:en	other_food_items
+en:sardine	ecobalyse_id:en	79ce12b6-db5c-43c8-be48-44deb8f704e1
+en:sardine	ecobalyse_scenario:en	import
+en:sardine	ecobalyse_name:fr	Sardine par défaut (2025)
+en:sardine	ecobalyse_alias:en	sardine-non-eu-2025
+en:sardine	ecobalyse_default_origin:en	
+en:sardine	ecobalyse_visibility:en	false
+en:sardine	ecobalyse_origins_en_europe_and_maghreb_id:en	f7c74916-6951-4074-acd9-42dbe97dbb32
+en:sardine	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:sardine	ecobalyse_origins_en_europe_and_maghreb_name:fr	Sardine UE (2025)
+en:sardine	ecobalyse_origins_en_europe_and_maghreb_alias:en	sardine-eu-2025
+en:sardine	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:sardine	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
+en:sardine	ecobalyse_origins_en_france_id:en	3a892ff6-4689-4053-96e7-0f9038894fae
+en:sardine	ecobalyse_origins_en_france_scenario:en	reference
+en:sardine	ecobalyse_origins_en_france_name:fr	Sardine FR (2025)
+en:sardine	ecobalyse_origins_en_france_alias:en	sardine-fr-2025
+en:sardine	ecobalyse_origins_en_france_default_origin:en	FR
+en:sardine	ecobalyse_origins_en_france_visibility:en	false
 en:savoy-cabbage	ecobalyse_density_g_per_ml:en	0.9
 en:savoy-cabbage	ecobalyse_crop_group:en	LEGUMES-FLEURS
 en:savoy-cabbage	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -4429,6 +5055,17 @@ en:sheeps-milk	ecobalyse_origins_en_france_scenario:en	reference
 en:sheeps-milk	ecobalyse_origins_en_france_name:fr	Lait de brebis FR
 en:sheeps-milk	ecobalyse_origins_en_france_alias:en	sheep-milk-fr
 en:sheeps-milk	ecobalyse_origins_en_france_default_origin:en	FR
+en:shrimp	ecobalyse_density_g_per_ml:en	1
+en:shrimp	ecobalyse_raw_to_cooked_ratio:en	0.819
+en:shrimp	ecobalyse_inedible_part:en	0.2
+en:shrimp	ecobalyse_transport_cooling:en	always
+en:shrimp	ecobalyse_category:en	fish_and_shellfish
+en:shrimp	ecobalyse_id:en	74a86477-3ec2-4f7a-b717-c1794d399e84
+en:shrimp	ecobalyse_scenario:en	import
+en:shrimp	ecobalyse_name:fr	Crevettes fraîches par défaut (2025)
+en:shrimp	ecobalyse_alias:en	fresh-shrimps-2025
+en:shrimp	ecobalyse_default_origin:en	
+en:shrimp	ecobalyse_visibility:en	false
 en:snail	ecobalyse_density_g_per_ml:en	1.05
 en:snail	ecobalyse_raw_to_cooked_ratio:en	0.819
 en:snail	ecobalyse_inedible_part:en	0.4
@@ -4523,11 +5160,11 @@ en:soy-milk	ecobalyse_raw_to_cooked_ratio:en	1
 en:soy-milk	ecobalyse_inedible_part:en	0
 en:soy-milk	ecobalyse_transport_cooling:en	none
 en:soy-milk	ecobalyse_category:en	other_food_items
-en:soy-milk	ecobalyse_proxy_id:en	f2f3c3f0-c7d1-4a3c-ad2f-f3659c9b546b
-en:soy-milk	ecobalyse_proxy_scenario:en	import
-en:soy-milk	ecobalyse_proxy_name:fr	Lait de soja FR (2025)
-en:soy-milk	ecobalyse_proxy_alias:en	soy-milk-2025
-en:soy-milk	ecobalyse_proxy_default_origin:en	FR
+en:soy-milk	ecobalyse_id:en	f2f3c3f0-c7d1-4a3c-ad2f-f3659c9b546b
+en:soy-milk	ecobalyse_scenario:en	import
+en:soy-milk	ecobalyse_name:fr	Lait de soja FR (2025)
+en:soy-milk	ecobalyse_alias:en	soy-milk-2025
+en:soy-milk	ecobalyse_default_origin:en	FR
 en:soy-milk	ecobalyse_origins_en_france_id:en	f2f3c3f0-c7d1-4a3c-ad2f-f3659c9b546b
 en:soy-milk	ecobalyse_origins_en_france_scenario:en	import
 en:soy-milk	ecobalyse_origins_en_france_name:fr	Lait de soja FR (2025)
@@ -4565,6 +5202,12 @@ en:soya-bean	ecobalyse_origins_en_france_scenario:en	reference
 en:soya-bean	ecobalyse_origins_en_france_name:fr	Soja FR
 en:soya-bean	ecobalyse_origins_en_france_alias:en	soybean-fr
 en:soya-bean	ecobalyse_origins_en_france_default_origin:en	FR
+en:soya-bean	ecobalyse_labels_en_organic_origins_en_france_id:en	4879c02e-05e5-5567-84e5-b7d6d9d3f22a
+en:soya-bean	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:soya-bean	ecobalyse_labels_en_organic_origins_en_france_name:fr	Soja Bio
+en:soya-bean	ecobalyse_labels_en_organic_origins_en_france_alias:en	soybean-organic
+en:soya-bean	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:soya-bean	ecobalyse_labels_en_organic_origins_en_france_visibility:en	false
 en:soya-flour	ecobalyse_density_g_per_ml:en	1
 en:soya-flour	ecobalyse_crop_group:en	AUTRES OLEAGINEUX
 en:soya-flour	ecobalyse_raw_to_cooked_ratio:en	1
@@ -4576,6 +5219,12 @@ en:soya-flour	ecobalyse_scenario:en	import
 en:soya-flour	ecobalyse_name:fr	Farine de soja Origine Inconnue
 en:soya-flour	ecobalyse_alias:en	soy-flour-default
 en:soya-flour	ecobalyse_default_origin:en	
+en:soya-flour	ecobalyse_labels_en_organic_id:en	ce3993fb-23d3-4dc8-be22-af9c240ace13
+en:soya-flour	ecobalyse_labels_en_organic_scenario:en	organic
+en:soya-flour	ecobalyse_labels_en_organic_name:fr	Farine de soja Origine Inconnue BIO
+en:soya-flour	ecobalyse_labels_en_organic_alias:en	soy-flour-default-organic
+en:soya-flour	ecobalyse_labels_en_organic_default_origin:en	
+en:soya-flour	ecobalyse_labels_en_organic_visibility:en	false
 en:soya-flour	ecobalyse_origins_en_france_id:en	09272c02-2492-4428-bff1-bca793db8593
 en:soya-flour	ecobalyse_origins_en_france_scenario:en	reference
 en:soya-flour	ecobalyse_origins_en_france_name:fr	Farine de soja FR
@@ -4587,11 +5236,11 @@ en:spaghetti-squash	ecobalyse_raw_to_cooked_ratio:en	0.856
 en:spaghetti-squash	ecobalyse_inedible_part:en	0.2
 en:spaghetti-squash	ecobalyse_transport_cooling:en	always
 en:spaghetti-squash	ecobalyse_category:en	fruits_and_vegetables
-en:spaghetti-squash	ecobalyse_proxy_id:en	14335872-a8d9-4496-b771-cb80c21ad604
-en:spaghetti-squash	ecobalyse_proxy_scenario:en	import
-en:spaghetti-squash	ecobalyse_proxy_name:fr	Courge UE (2025)
-en:spaghetti-squash	ecobalyse_proxy_alias:en	squash-eu-2025
-en:spaghetti-squash	ecobalyse_proxy_default_origin:en	REM
+en:spaghetti-squash	ecobalyse_id:en	14335872-a8d9-4496-b771-cb80c21ad604
+en:spaghetti-squash	ecobalyse_scenario:en	import
+en:spaghetti-squash	ecobalyse_name:fr	Courge UE (2025)
+en:spaghetti-squash	ecobalyse_alias:en	squash-eu-2025
+en:spaghetti-squash	ecobalyse_default_origin:en	REM
 en:spaghetti-squash	ecobalyse_origins_en_europe_and_maghreb_id:en	14335872-a8d9-4496-b771-cb80c21ad604
 en:spaghetti-squash	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:spaghetti-squash	ecobalyse_origins_en_europe_and_maghreb_name:fr	Courge UE (2025)
@@ -4711,11 +5360,11 @@ en:squid	ecobalyse_raw_to_cooked_ratio:en	0.819
 en:squid	ecobalyse_inedible_part:en	0.2
 en:squid	ecobalyse_transport_cooling:en	always
 en:squid	ecobalyse_category:en	fish_and_shellfish
-en:squid	ecobalyse_proxy_id:en	1bcc2d19-8352-4cf8-bb55-81444a15d398
-en:squid	ecobalyse_proxy_scenario:en	reference
-en:squid	ecobalyse_proxy_name:fr	Calmar FR (2025)
-en:squid	ecobalyse_proxy_alias:en	squid-fr-2025
-en:squid	ecobalyse_proxy_default_origin:en	FR
+en:squid	ecobalyse_id:en	1bcc2d19-8352-4cf8-bb55-81444a15d398
+en:squid	ecobalyse_scenario:en	reference
+en:squid	ecobalyse_name:fr	Calmar FR (2025)
+en:squid	ecobalyse_alias:en	squid-fr-2025
+en:squid	ecobalyse_default_origin:en	FR
 en:squid	ecobalyse_origins_en_france_id:en	1bcc2d19-8352-4cf8-bb55-81444a15d398
 en:squid	ecobalyse_origins_en_france_scenario:en	reference
 en:squid	ecobalyse_origins_en_france_name:fr	Calmar FR (2025)
@@ -4790,11 +5439,11 @@ en:sunflower	ecobalyse_raw_to_cooked_ratio:en	1
 en:sunflower	ecobalyse_inedible_part:en	0.5
 en:sunflower	ecobalyse_transport_cooling:en	none
 en:sunflower	ecobalyse_category:en	other_food_items
-en:sunflower	ecobalyse_proxy_id:en	23cd53c5-4b66-4b7c-892f-fe74054f66e5
-en:sunflower	ecobalyse_proxy_scenario:en	import
-en:sunflower	ecobalyse_proxy_name:fr	Tournesol UE
-en:sunflower	ecobalyse_proxy_alias:en	sunflower-eu
-en:sunflower	ecobalyse_proxy_default_origin:en	REM
+en:sunflower	ecobalyse_id:en	23cd53c5-4b66-4b7c-892f-fe74054f66e5
+en:sunflower	ecobalyse_scenario:en	import
+en:sunflower	ecobalyse_name:fr	Tournesol UE
+en:sunflower	ecobalyse_alias:en	sunflower-eu
+en:sunflower	ecobalyse_default_origin:en	REM
 en:sunflower	ecobalyse_origins_en_europe_and_maghreb_id:en	23cd53c5-4b66-4b7c-892f-fe74054f66e5
 en:sunflower	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:sunflower	ecobalyse_origins_en_europe_and_maghreb_name:fr	Tournesol UE
@@ -4816,11 +5465,11 @@ en:sunflower-oil	ecobalyse_raw_to_cooked_ratio:en	1
 en:sunflower-oil	ecobalyse_inedible_part:en	0
 en:sunflower-oil	ecobalyse_transport_cooling:en	none
 en:sunflower-oil	ecobalyse_category:en	other_food_items
-en:sunflower-oil	ecobalyse_proxy_id:en	3cfab110-363e-442a-9170-1af337fe9ea3
-en:sunflower-oil	ecobalyse_proxy_scenario:en	import
-en:sunflower-oil	ecobalyse_proxy_name:fr	Huile de tournesol par défaut (2025)
-en:sunflower-oil	ecobalyse_proxy_alias:en	sunflower-oil-2025
-en:sunflower-oil	ecobalyse_proxy_default_origin:en	REM
+en:sunflower-oil	ecobalyse_id:en	3cfab110-363e-442a-9170-1af337fe9ea3
+en:sunflower-oil	ecobalyse_scenario:en	import
+en:sunflower-oil	ecobalyse_name:fr	Huile de tournesol par défaut (2025)
+en:sunflower-oil	ecobalyse_alias:en	sunflower-oil-2025
+en:sunflower-oil	ecobalyse_default_origin:en	REM
 en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_id:en	3cfab110-363e-442a-9170-1af337fe9ea3
 en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_name:fr	Huile de tournesol par défaut (2025)
@@ -4894,6 +5543,12 @@ en:sweetcorn	ecobalyse_scenario:en	import
 en:sweetcorn	ecobalyse_name:fr	Maïs doux par défaut (2025)
 en:sweetcorn	ecobalyse_alias:en	sweet-corn-br-2025
 en:sweetcorn	ecobalyse_default_origin:en	
+en:sweetcorn	ecobalyse_origins_en_europe_and_maghreb_id:en	20c97ec2-4950-4cb6-ac9d-a3a97b63c4ea
+en:sweetcorn	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:sweetcorn	ecobalyse_origins_en_europe_and_maghreb_name:fr	Maïs doux UE (2025)
+en:sweetcorn	ecobalyse_origins_en_europe_and_maghreb_alias:en	sweet-corn-eu-2025
+en:sweetcorn	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:sweetcorn	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:sweetcorn	ecobalyse_labels_en_organic_origins_en_france_id:en	741c0970-2823-430a-b4e4-e61ce08ea95a
 en:sweetcorn	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:sweetcorn	ecobalyse_labels_en_organic_origins_en_france_name:fr	Maïs doux Bio (2025)
@@ -4973,6 +5628,27 @@ en:taro-tuber	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:taro-tuber	ecobalyse_labels_en_organic_origins_en_france_name:fr	Taro, tubercule Bio
 en:taro-tuber	ecobalyse_labels_en_organic_origins_en_france_alias:en	taro-tuber-organic
 en:taro-tuber	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:tarragon	ecobalyse_density_g_per_ml:en	0.5
+en:tarragon	ecobalyse_crop_group:en	AUTRES CULTURES INDUSTRIELLES
+en:tarragon	ecobalyse_raw_to_cooked_ratio:en	1
+en:tarragon	ecobalyse_inedible_part:en	0.2
+en:tarragon	ecobalyse_transport_cooling:en	none
+en:tarragon	ecobalyse_category:en	other_food_items
+en:tarragon	ecobalyse_id:en	a2f47dd6-71bc-5e3f-b501-48b4bb524a55
+en:tarragon	ecobalyse_scenario:en	import
+en:tarragon	ecobalyse_name:fr	Estragon frais HORS UE
+en:tarragon	ecobalyse_alias:en	tarragon-fresh-non-eu
+en:tarragon	ecobalyse_default_origin:en	
+en:tarragon	ecobalyse_origins_en_europe_and_maghreb_id:en	4671039d-bdd2-58d9-bd3d-d33855775740
+en:tarragon	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:tarragon	ecobalyse_origins_en_europe_and_maghreb_name:fr	Estragon frais UE
+en:tarragon	ecobalyse_origins_en_europe_and_maghreb_alias:en	tarragon-fresh-eu
+en:tarragon	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:tarragon	ecobalyse_origins_en_france_id:en	ad8bbde9-e11c-5302-ab26-4a354f0e90ba
+en:tarragon	ecobalyse_origins_en_france_scenario:en	reference
+en:tarragon	ecobalyse_origins_en_france_name:fr	Estragon frais FR
+en:tarragon	ecobalyse_origins_en_france_alias:en	tarragon-fresh-fr
+en:tarragon	ecobalyse_origins_en_france_default_origin:en	FR
 en:tomato	ecobalyse_density_g_per_ml:en	0.447
 en:tomato	ecobalyse_crop_group:en	LEGUMES-FLEURS
 en:tomato	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -4984,6 +5660,12 @@ en:tomato	ecobalyse_scenario:en	import
 en:tomato	ecobalyse_name:fr	Tomate sous serre chauffée par défaut
 en:tomato	ecobalyse_alias:en	tomato-heated-greenhouse-fr
 en:tomato	ecobalyse_default_origin:en	
+en:tomato	ecobalyse_labels_en_organic_id:en	2095f522-6cc1-4512-97b8-4c73b6b173ef
+en:tomato	ecobalyse_labels_en_organic_scenario:en	organic
+en:tomato	ecobalyse_labels_en_organic_name:fr	Tomate, pelée, appertisée, égouttée Origine Inconnue BIO
+en:tomato	ecobalyse_labels_en_organic_alias:en	tomato-peeled-canned-drained-default-organic
+en:tomato	ecobalyse_labels_en_organic_default_origin:en	
+en:tomato	ecobalyse_labels_en_organic_visibility:en	false
 en:tomato	ecobalyse_origins_en_europe_and_maghreb_id:en	85641d75-149d-4863-a1a8-463e71a85fc2
 en:tomato	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:tomato	ecobalyse_origins_en_europe_and_maghreb_name:fr	Tomate UE
@@ -5021,11 +5703,11 @@ en:tomato-juice	ecobalyse_raw_to_cooked_ratio:en	1
 en:tomato-juice	ecobalyse_inedible_part:en	0
 en:tomato-juice	ecobalyse_transport_cooling:en	none
 en:tomato-juice	ecobalyse_category:en	other_food_items
-en:tomato-juice	ecobalyse_proxy_id:en	65e6f518-e5fc-4fda-9af9-287d26e2bbe1
-en:tomato-juice	ecobalyse_proxy_scenario:en	import
-en:tomato-juice	ecobalyse_proxy_name:fr	Jus de tomate UE (2025)
-en:tomato-juice	ecobalyse_proxy_alias:en	tomato-juice-eu-2025
-en:tomato-juice	ecobalyse_proxy_default_origin:en	REM
+en:tomato-juice	ecobalyse_id:en	65e6f518-e5fc-4fda-9af9-287d26e2bbe1
+en:tomato-juice	ecobalyse_scenario:en	import
+en:tomato-juice	ecobalyse_name:fr	Jus de tomate UE (2025)
+en:tomato-juice	ecobalyse_alias:en	tomato-juice-eu-2025
+en:tomato-juice	ecobalyse_default_origin:en	REM
 en:tomato-juice	ecobalyse_origins_en_europe_and_maghreb_id:en	65e6f518-e5fc-4fda-9af9-287d26e2bbe1
 en:tomato-juice	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:tomato-juice	ecobalyse_origins_en_europe_and_maghreb_name:fr	Jus de tomate UE (2025)
@@ -5042,26 +5724,61 @@ en:tomato-sauce	ecobalyse_raw_to_cooked_ratio:en	0.856
 en:tomato-sauce	ecobalyse_inedible_part:en	0
 en:tomato-sauce	ecobalyse_transport_cooling:en	always
 en:tomato-sauce	ecobalyse_category:en	fruits_and_vegetables
-en:tomato-sauce	ecobalyse_proxy_id:en	bdae67c5-ac20-417b-9094-8755ae1ab42b
-en:tomato-sauce	ecobalyse_proxy_scenario:en	reference
-en:tomato-sauce	ecobalyse_proxy_name:fr	Sauce tomate FR (2025)
-en:tomato-sauce	ecobalyse_proxy_alias:en	tomato-sauce-2025
-en:tomato-sauce	ecobalyse_proxy_default_origin:en	FR
+en:tomato-sauce	ecobalyse_id:en	bdae67c5-ac20-417b-9094-8755ae1ab42b
+en:tomato-sauce	ecobalyse_scenario:en	reference
+en:tomato-sauce	ecobalyse_name:fr	Sauce tomate FR (2025)
+en:tomato-sauce	ecobalyse_alias:en	tomato-sauce-2025
+en:tomato-sauce	ecobalyse_default_origin:en	FR
 en:tomato-sauce	ecobalyse_origins_en_france_id:en	bdae67c5-ac20-417b-9094-8755ae1ab42b
 en:tomato-sauce	ecobalyse_origins_en_france_scenario:en	reference
 en:tomato-sauce	ecobalyse_origins_en_france_name:fr	Sauce tomate FR (2025)
 en:tomato-sauce	ecobalyse_origins_en_france_alias:en	tomato-sauce-2025
 en:tomato-sauce	ecobalyse_origins_en_france_default_origin:en	FR
+en:triticale	ecobalyse_density_g_per_ml:en	0.72
+en:triticale	ecobalyse_crop_group:en	AUTRES CEREALES
+en:triticale	ecobalyse_raw_to_cooked_ratio:en	2.259
+en:triticale	ecobalyse_inedible_part:en	0
+en:triticale	ecobalyse_transport_cooling:en	none
+en:triticale	ecobalyse_category:en	cereals
+en:triticale	ecobalyse_proxy_id:en	585c8bb1-1aaa-4c33-a5c1-84c886bb7ec3
+en:triticale	ecobalyse_proxy_scenario:en	organic
+en:triticale	ecobalyse_proxy_name:fr	Triricale Bio (2025)
+en:triticale	ecobalyse_proxy_alias:en	triticale-organic-2025
+en:triticale	ecobalyse_proxy_default_origin:en	
+en:triticale	ecobalyse_proxy_visibility:en	false
+en:triticale	ecobalyse_labels_en_organic_id:en	585c8bb1-1aaa-4c33-a5c1-84c886bb7ec3
+en:triticale	ecobalyse_labels_en_organic_scenario:en	organic
+en:triticale	ecobalyse_labels_en_organic_name:fr	Triricale Bio (2025)
+en:triticale	ecobalyse_labels_en_organic_alias:en	triticale-organic-2025
+en:triticale	ecobalyse_labels_en_organic_default_origin:en	
+en:triticale	ecobalyse_labels_en_organic_visibility:en	false
+en:trout	ecobalyse_density_g_per_ml:en	1
+en:trout	ecobalyse_raw_to_cooked_ratio:en	0.819
+en:trout	ecobalyse_inedible_part:en	0.2
+en:trout	ecobalyse_transport_cooling:en	always
+en:trout	ecobalyse_category:en	fish_and_shellfish
+en:trout	ecobalyse_id:en	dc27661f-3ffa-4f85-b9bb-0028bc7c5fef
+en:trout	ecobalyse_scenario:en	reference
+en:trout	ecobalyse_name:fr	Truite d'élevage FR (2025)
+en:trout	ecobalyse_alias:en	large-trout-2025
+en:trout	ecobalyse_default_origin:en	FR
+en:trout	ecobalyse_visibility:en	false
+en:trout	ecobalyse_origins_en_france_id:en	dc27661f-3ffa-4f85-b9bb-0028bc7c5fef
+en:trout	ecobalyse_origins_en_france_scenario:en	reference
+en:trout	ecobalyse_origins_en_france_name:fr	Truite d'élevage FR (2025)
+en:trout	ecobalyse_origins_en_france_alias:en	large-trout-2025
+en:trout	ecobalyse_origins_en_france_default_origin:en	FR
+en:trout	ecobalyse_origins_en_france_visibility:en	false
 en:turkey	ecobalyse_density_g_per_ml:en	1
 en:turkey	ecobalyse_raw_to_cooked_ratio:en	0.755
 en:turkey	ecobalyse_inedible_part:en	0
 en:turkey	ecobalyse_transport_cooling:en	always
 en:turkey	ecobalyse_category:en	poultry
-en:turkey	ecobalyse_proxy_id:en	b5395f5f-e011-4c65-9a6c-85dd77d10d2c
-en:turkey	ecobalyse_proxy_scenario:en	reference
-en:turkey	ecobalyse_proxy_name:fr	Viande de dinde FR (2025)
-en:turkey	ecobalyse_proxy_alias:en	turkey-2025
-en:turkey	ecobalyse_proxy_default_origin:en	FR
+en:turkey	ecobalyse_id:en	b5395f5f-e011-4c65-9a6c-85dd77d10d2c
+en:turkey	ecobalyse_scenario:en	reference
+en:turkey	ecobalyse_name:fr	Viande de dinde FR (2025)
+en:turkey	ecobalyse_alias:en	turkey-2025
+en:turkey	ecobalyse_default_origin:en	FR
 en:turkey	ecobalyse_origins_en_france_id:en	b5395f5f-e011-4c65-9a6c-85dd77d10d2c
 en:turkey	ecobalyse_origins_en_france_scenario:en	reference
 en:turkey	ecobalyse_origins_en_france_name:fr	Viande de dinde FR (2025)
@@ -5089,6 +5806,12 @@ en:turnip	ecobalyse_scenario:en	import
 en:turnip	ecobalyse_name:fr	Navet Origine Inconnue
 en:turnip	ecobalyse_alias:en	turnip-default
 en:turnip	ecobalyse_default_origin:en	
+en:turnip	ecobalyse_origins_en_europe_and_maghreb_id:en	88d8d0b5-c399-5d7a-8636-d027d40e4e5e
+en:turnip	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:turnip	ecobalyse_origins_en_europe_and_maghreb_name:fr	Navet UE
+en:turnip	ecobalyse_origins_en_europe_and_maghreb_alias:en	turnip-eu
+en:turnip	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:turnip	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:turnip	ecobalyse_labels_en_organic_origins_en_france_id:en	7e64fe4d-001c-42eb-9307-13c8a21d2805
 en:turnip	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
 en:turnip	ecobalyse_labels_en_organic_origins_en_france_name:fr	Navet Bio (2025)
@@ -5110,6 +5833,11 @@ en:vanilla	ecobalyse_scenario:en	import
 en:vanilla	ecobalyse_name:fr	Extrait de vanille, alcoolique ou aqueux HORS UE
 en:vanilla	ecobalyse_alias:en	vanilla-non-eu
 en:vanilla	ecobalyse_default_origin:en	
+en:vanilla	ecobalyse_origins_en_france_overseas_id:en	56776050-b4f4-5db7-a878-2e2003fff390
+en:vanilla	ecobalyse_origins_en_france_overseas_scenario:en	reference
+en:vanilla	ecobalyse_origins_en_france_overseas_name:fr	Extrait de vanille, alcoolique ou aqueux FR Outre-Mer
+en:vanilla	ecobalyse_origins_en_france_overseas_alias:en	vanilla-fr-overseas
+en:vanilla	ecobalyse_origins_en_france_overseas_default_origin:en	ROF
 en:vanilla	ecobalyse_origins_en_europe_and_maghreb_id:en	a8cc0638-9d79-5974-8343-e6cfa913ec5b
 en:vanilla	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:vanilla	ecobalyse_origins_en_europe_and_maghreb_name:fr	Extrait de vanille, alcoolique ou aqueux UE Antilles
@@ -5120,11 +5848,11 @@ en:veal-meat	ecobalyse_raw_to_cooked_ratio:en	0.792
 en:veal-meat	ecobalyse_inedible_part:en	0
 en:veal-meat	ecobalyse_transport_cooling:en	always
 en:veal-meat	ecobalyse_category:en	red_meats
-en:veal-meat	ecobalyse_proxy_id:en	221cd239-f1ae-4a2f-9fdc-dc73df5f95ab
-en:veal-meat	ecobalyse_proxy_scenario:en	reference
-en:veal-meat	ecobalyse_proxy_name:fr	Viande de veau FR (2025)
-en:veal-meat	ecobalyse_proxy_alias:en	veal-meat-2025
-en:veal-meat	ecobalyse_proxy_default_origin:en	FR
+en:veal-meat	ecobalyse_id:en	221cd239-f1ae-4a2f-9fdc-dc73df5f95ab
+en:veal-meat	ecobalyse_scenario:en	reference
+en:veal-meat	ecobalyse_name:fr	Viande de veau FR (2025)
+en:veal-meat	ecobalyse_alias:en	veal-meat-2025
+en:veal-meat	ecobalyse_default_origin:en	FR
 en:veal-meat	ecobalyse_origins_en_france_id:en	221cd239-f1ae-4a2f-9fdc-dc73df5f95ab
 en:veal-meat	ecobalyse_origins_en_france_scenario:en	reference
 en:veal-meat	ecobalyse_origins_en_france_name:fr	Viande de veau FR (2025)
@@ -5136,11 +5864,11 @@ en:vegetable-blend	ecobalyse_raw_to_cooked_ratio:en	0.856
 en:vegetable-blend	ecobalyse_inedible_part:en	0
 en:vegetable-blend	ecobalyse_transport_cooling:en	always
 en:vegetable-blend	ecobalyse_category:en	fruits_and_vegetables
-en:vegetable-blend	ecobalyse_proxy_id:en	5ecb6c61-0a0f-4c00-a8e0-713c97929c7c
-en:vegetable-blend	ecobalyse_proxy_scenario:en	reference
-en:vegetable-blend	ecobalyse_proxy_name:fr	Mélange de légumes (2025)
-en:vegetable-blend	ecobalyse_proxy_alias:en	vegetable-mix-2025
-en:vegetable-blend	ecobalyse_proxy_default_origin:en	FR
+en:vegetable-blend	ecobalyse_id:en	5ecb6c61-0a0f-4c00-a8e0-713c97929c7c
+en:vegetable-blend	ecobalyse_scenario:en	reference
+en:vegetable-blend	ecobalyse_name:fr	Mélange de légumes (2025)
+en:vegetable-blend	ecobalyse_alias:en	vegetable-mix-2025
+en:vegetable-blend	ecobalyse_default_origin:en	FR
 en:vegetable-blend	ecobalyse_origins_en_france_id:en	5ecb6c61-0a0f-4c00-a8e0-713c97929c7c
 en:vegetable-blend	ecobalyse_origins_en_france_scenario:en	reference
 en:vegetable-blend	ecobalyse_origins_en_france_name:fr	Mélange de légumes (2025)
@@ -5152,11 +5880,11 @@ en:virgin-hazelnut-oil	ecobalyse_raw_to_cooked_ratio:en	1
 en:virgin-hazelnut-oil	ecobalyse_inedible_part:en	0
 en:virgin-hazelnut-oil	ecobalyse_transport_cooling:en	none
 en:virgin-hazelnut-oil	ecobalyse_category:en	other_food_items
-en:virgin-hazelnut-oil	ecobalyse_proxy_id:en	00603559-120a-4aa4-b12b-2eda1705e064
-en:virgin-hazelnut-oil	ecobalyse_proxy_scenario:en	reference
-en:virgin-hazelnut-oil	ecobalyse_proxy_name:fr	Huile de noisette (vierge) FR (2025)
-en:virgin-hazelnut-oil	ecobalyse_proxy_alias:en	virgin-hazelnut-oil-2025
-en:virgin-hazelnut-oil	ecobalyse_proxy_default_origin:en	FR
+en:virgin-hazelnut-oil	ecobalyse_id:en	00603559-120a-4aa4-b12b-2eda1705e064
+en:virgin-hazelnut-oil	ecobalyse_scenario:en	reference
+en:virgin-hazelnut-oil	ecobalyse_name:fr	Huile de noisette (vierge) FR (2025)
+en:virgin-hazelnut-oil	ecobalyse_alias:en	virgin-hazelnut-oil-2025
+en:virgin-hazelnut-oil	ecobalyse_default_origin:en	FR
 en:virgin-hazelnut-oil	ecobalyse_origins_en_france_id:en	00603559-120a-4aa4-b12b-2eda1705e064
 en:virgin-hazelnut-oil	ecobalyse_origins_en_france_scenario:en	reference
 en:virgin-hazelnut-oil	ecobalyse_origins_en_france_name:fr	Huile de noisette (vierge) FR (2025)
@@ -5193,11 +5921,11 @@ en:water	ecobalyse_raw_to_cooked_ratio:en	1
 en:water	ecobalyse_inedible_part:en	0
 en:water	ecobalyse_transport_cooling:en	none
 en:water	ecobalyse_category:en	other_food_items
-en:water	ecobalyse_proxy_id:en	36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
-en:water	ecobalyse_proxy_scenario:en	import
-en:water	ecobalyse_proxy_name:fr	Eau du robinet UE (2025)
-en:water	ecobalyse_proxy_alias:en	tap-water-2025
-en:water	ecobalyse_proxy_default_origin:en	REM
+en:water	ecobalyse_id:en	36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
+en:water	ecobalyse_scenario:en	import
+en:water	ecobalyse_name:fr	Eau du robinet UE (2025)
+en:water	ecobalyse_alias:en	tap-water-2025
+en:water	ecobalyse_default_origin:en	REM
 en:water	ecobalyse_origins_en_europe_and_maghreb_id:en	36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
 en:water	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:water	ecobalyse_origins_en_europe_and_maghreb_name:fr	Eau du robinet UE (2025)
@@ -5235,11 +5963,11 @@ en:wheat-flour	ecobalyse_raw_to_cooked_ratio:en	1
 en:wheat-flour	ecobalyse_inedible_part:en	0
 en:wheat-flour	ecobalyse_transport_cooling:en	none
 en:wheat-flour	ecobalyse_category:en	other_food_items
-en:wheat-flour	ecobalyse_proxy_id:en	a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
-en:wheat-flour	ecobalyse_proxy_scenario:en	import
-en:wheat-flour	ecobalyse_proxy_name:fr	Farine UE (2025)
-en:wheat-flour	ecobalyse_proxy_alias:en	flour-2025
-en:wheat-flour	ecobalyse_proxy_default_origin:en	REM
+en:wheat-flour	ecobalyse_id:en	a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+en:wheat-flour	ecobalyse_scenario:en	import
+en:wheat-flour	ecobalyse_name:fr	Farine UE (2025)
+en:wheat-flour	ecobalyse_alias:en	flour-2025
+en:wheat-flour	ecobalyse_default_origin:en	REM
 en:wheat-flour	ecobalyse_origins_en_europe_and_maghreb_id:en	a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
 en:wheat-flour	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
 en:wheat-flour	ecobalyse_origins_en_europe_and_maghreb_name:fr	Farine UE (2025)
@@ -5255,16 +5983,39 @@ en:whey	ecobalyse_raw_to_cooked_ratio:en	1
 en:whey	ecobalyse_inedible_part:en	0
 en:whey	ecobalyse_transport_cooling:en	none
 en:whey	ecobalyse_category:en	other_food_items
-en:whey	ecobalyse_proxy_id:en	33d2f3c2-ffa2-4b96-811e-50c1c8670e26
-en:whey	ecobalyse_proxy_scenario:en	reference
-en:whey	ecobalyse_proxy_name:fr	Poudre de lactosérum FR (2025)
-en:whey	ecobalyse_proxy_alias:en	whey-2025
-en:whey	ecobalyse_proxy_default_origin:en	FR
+en:whey	ecobalyse_id:en	33d2f3c2-ffa2-4b96-811e-50c1c8670e26
+en:whey	ecobalyse_scenario:en	reference
+en:whey	ecobalyse_name:fr	Poudre de lactosérum FR (2025)
+en:whey	ecobalyse_alias:en	whey-2025
+en:whey	ecobalyse_default_origin:en	FR
 en:whey	ecobalyse_origins_en_france_id:en	33d2f3c2-ffa2-4b96-811e-50c1c8670e26
 en:whey	ecobalyse_origins_en_france_scenario:en	reference
 en:whey	ecobalyse_origins_en_france_name:fr	Poudre de lactosérum FR (2025)
 en:whey	ecobalyse_origins_en_france_alias:en	whey-2025
 en:whey	ecobalyse_origins_en_france_default_origin:en	FR
+en:white-beans	ecobalyse_density_g_per_ml:en	1
+en:white-beans	ecobalyse_crop_group:en	LEGUMES-FLEURS
+en:white-beans	ecobalyse_raw_to_cooked_ratio:en	1
+en:white-beans	ecobalyse_inedible_part:en	0
+en:white-beans	ecobalyse_transport_cooling:en	none
+en:white-beans	ecobalyse_category:en	other_food_items
+en:white-beans	ecobalyse_id:en	882c0d42-7f99-4ff5-ae5f-85277082e5f7
+en:white-beans	ecobalyse_scenario:en	import
+en:white-beans	ecobalyse_name:fr	Haricot blanc, appertisé, égoutté Origine Inconnue
+en:white-beans	ecobalyse_alias:en	white-bean-canned-drained-default
+en:white-beans	ecobalyse_default_origin:en	
+en:white-beans	ecobalyse_labels_en_organic_origins_en_france_id:en	069dc73e-78b4-417f-aa18-cc090b3639c3
+en:white-beans	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
+en:white-beans	ecobalyse_labels_en_organic_origins_en_france_name:fr	Haricot blanc, appertisé, égoutté FR BIO
+en:white-beans	ecobalyse_labels_en_organic_origins_en_france_alias:en	white-bean-canned-drained-fr-organic
+en:white-beans	ecobalyse_labels_en_organic_origins_en_france_default_origin:en	FR
+en:white-beans	ecobalyse_labels_en_organic_origins_en_france_visibility:en	false
+en:white-beans	ecobalyse_origins_en_france_id:en	2fd1d4d5-e704-48eb-bb02-89779300bc03
+en:white-beans	ecobalyse_origins_en_france_scenario:en	reference
+en:white-beans	ecobalyse_origins_en_france_name:fr	Haricot blanc, appertisé, égoutté FR
+en:white-beans	ecobalyse_origins_en_france_alias:en	white-bean-canned-drained-fr
+en:white-beans	ecobalyse_origins_en_france_default_origin:en	FR
+en:white-beans	ecobalyse_origins_en_france_visibility:en	false
 en:white-cabbage	ecobalyse_density_g_per_ml:en	0.9
 en:white-cabbage	ecobalyse_crop_group:en	LEGUMES-FLEURS
 en:white-cabbage	ecobalyse_raw_to_cooked_ratio:en	0.856
@@ -5302,6 +6053,12 @@ en:wholemeal-barley	ecobalyse_scenario:en	import
 en:wholemeal-barley	ecobalyse_name:fr	Orge entière HORS UE
 en:wholemeal-barley	ecobalyse_alias:en	barley-whole-non-eu
 en:wholemeal-barley	ecobalyse_default_origin:en	
+en:wholemeal-barley	ecobalyse_origins_en_europe_and_maghreb_id:en	6cf9e844-ecdf-5ab5-adee-41a45d709ab1
+en:wholemeal-barley	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:wholemeal-barley	ecobalyse_origins_en_europe_and_maghreb_name:fr	Orge entière UE
+en:wholemeal-barley	ecobalyse_origins_en_europe_and_maghreb_alias:en	barley-whole-eu
+en:wholemeal-barley	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:wholemeal-barley	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
 en:wholemeal-barley	ecobalyse_origins_en_france_id:en	00150a93-dea5-55d1-ba56-990d4fa43592
 en:wholemeal-barley	ecobalyse_origins_en_france_scenario:en	reference
 en:wholemeal-barley	ecobalyse_origins_en_france_name:fr	Orge entière FR
@@ -5349,11 +6106,11 @@ en:yogurt	ecobalyse_raw_to_cooked_ratio:en	1
 en:yogurt	ecobalyse_inedible_part:en	0.2
 en:yogurt	ecobalyse_transport_cooling:en	none
 en:yogurt	ecobalyse_category:en	other_food_items
-en:yogurt	ecobalyse_proxy_id:en	0e77146c-be67-4f16-b072-f4fdb43b4acf
-en:yogurt	ecobalyse_proxy_scenario:en	reference
-en:yogurt	ecobalyse_proxy_name:fr	Fromage blanc FR (2025)
-en:yogurt	ecobalyse_proxy_alias:en	yogurt-2025
-en:yogurt	ecobalyse_proxy_default_origin:en	FR
+en:yogurt	ecobalyse_id:en	0e77146c-be67-4f16-b072-f4fdb43b4acf
+en:yogurt	ecobalyse_scenario:en	reference
+en:yogurt	ecobalyse_name:fr	Fromage blanc FR (2025)
+en:yogurt	ecobalyse_alias:en	yogurt-2025
+en:yogurt	ecobalyse_default_origin:en	FR
 en:yogurt	ecobalyse_origins_en_france_id:en	0e77146c-be67-4f16-b072-f4fdb43b4acf
 en:yogurt	ecobalyse_origins_en_france_scenario:en	reference
 en:yogurt	ecobalyse_origins_en_france_name:fr	Fromage blanc FR (2025)
@@ -5430,6 +6187,12 @@ en:chicken	ecobalyse_proxy_scenario:en	import
 en:chicken	ecobalyse_proxy_name:fr	Blanc de poulet cru (alim. ani. 100%BR) par défaut
 en:chicken	ecobalyse_proxy_alias:en	chicken-breast-br-max
 en:chicken	ecobalyse_proxy_default_origin:en	
+en:chicken	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	e57ae0e0-6277-427f-9090-087c97008966
+en:chicken	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
+en:chicken	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Blanc de poulet cru UE (2025)
+en:chicken	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	chicken-breast-eu-2025
+en:chicken	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
+en:chicken	ecobalyse_proxy_origins_en_europe_and_maghreb_visibility:en	false
 en:chicken	ecobalyse_proxy_labels_en_organic_origins_en_france_id:en	b19b0dc0-3478-46a0-b8a1-3225ea939ff1
 en:chicken	ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en	organic
 en:chicken	ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr	Blanc de poulet cru Bio
@@ -5515,6 +6278,26 @@ en:coffee	ecobalyse_proxy_scenario:en	import
 en:coffee	ecobalyse_proxy_name:fr	Café moulu par défaut (2025)
 en:coffee	ecobalyse_proxy_alias:en	coffee-ground-2025
 en:coffee	ecobalyse_proxy_default_origin:en	
+en:ham	ecobalyse_proxy_density_g_per_ml:en	1
+en:ham	ecobalyse_proxy_raw_to_cooked_ratio:en	1
+en:ham	ecobalyse_proxy_inedible_part:en	0
+en:ham	ecobalyse_proxy_transport_cooling:en	none
+en:ham	ecobalyse_proxy_category:en	other_food_items
+en:ham	ecobalyse_proxy_id:en	755225f1-f0c5-497f-b8a9-263828a84a22
+en:ham	ecobalyse_proxy_scenario:en	reference
+en:ham	ecobalyse_proxy_name:fr	Jambon cuit FR (2025)
+en:ham	ecobalyse_proxy_alias:en	cooked-ham-2025
+en:ham	ecobalyse_proxy_default_origin:en	FR
+en:ham	ecobalyse_proxy_labels_en_organic_origins_en_france_id:en	4de5e41e-3271-4489-aa27-a973e4045082
+en:ham	ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en	organic
+en:ham	ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr	Jambon cuit Bio (2025)
+en:ham	ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en	cooked-ham-organic-2025
+en:ham	ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en	FR
+en:ham	ecobalyse_proxy_origins_en_france_id:en	755225f1-f0c5-497f-b8a9-263828a84a22
+en:ham	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:ham	ecobalyse_proxy_origins_en_france_name:fr	Jambon cuit FR (2025)
+en:ham	ecobalyse_proxy_origins_en_france_alias:en	cooked-ham-2025
+en:ham	ecobalyse_proxy_origins_en_france_default_origin:en	FR
 en:fish	ecobalyse_proxy_density_g_per_ml:en	1
 en:fish	ecobalyse_proxy_raw_to_cooked_ratio:en	1
 en:fish	ecobalyse_proxy_inedible_part:en	0.2
@@ -5729,6 +6512,12 @@ en:milk-proteins	ecobalyse_proxy_scenario:en	import
 en:milk-proteins	ecobalyse_proxy_name:fr	Lait par défaut (2025)
 en:milk-proteins	ecobalyse_proxy_alias:en	milk-non-eu-2025
 en:milk-proteins	ecobalyse_proxy_default_origin:en	
+en:milk-proteins	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	dbba1f04-b86c-42aa-96f9-93cfcdf4a141
+en:milk-proteins	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
+en:milk-proteins	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Lait UE (2025)
+en:milk-proteins	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	milk-eu-2025
+en:milk-proteins	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
+en:milk-proteins	ecobalyse_proxy_origins_en_europe_and_maghreb_visibility:en	false
 en:milk-proteins	ecobalyse_proxy_origins_en_france_id:en	8f3863e7-f981-4367-90a2-e1aaa096a6e0
 en:milk-proteins	ecobalyse_proxy_origins_en_france_scenario:en	reference
 en:milk-proteins	ecobalyse_proxy_origins_en_france_name:fr	Lait FR (2025)
@@ -5787,6 +6576,22 @@ en:red-bean	ecobalyse_proxy_origins_en_france_scenario:en	reference
 en:red-bean	ecobalyse_proxy_origins_en_france_name:fr	Haricots rouges FR
 en:red-bean	ecobalyse_proxy_origins_en_france_alias:en	red-bean-dried-fr
 en:red-bean	ecobalyse_proxy_origins_en_france_default_origin:en	FR
+en:linseed-oil	ecobalyse_proxy_density_g_per_ml:en	1
+en:linseed-oil	ecobalyse_proxy_crop_group:en	PLANTES A FIBRES
+en:linseed-oil	ecobalyse_proxy_raw_to_cooked_ratio:en	1
+en:linseed-oil	ecobalyse_proxy_inedible_part:en	0
+en:linseed-oil	ecobalyse_proxy_transport_cooling:en	none
+en:linseed-oil	ecobalyse_proxy_category:en	other_food_items
+en:linseed-oil	ecobalyse_proxy_id:en	61ede109-0eed-4aa3-93bb-aacf132b6bdd
+en:linseed-oil	ecobalyse_proxy_scenario:en	reference
+en:linseed-oil	ecobalyse_proxy_name:fr	Huile de lin (raffinée) FR (2025)
+en:linseed-oil	ecobalyse_proxy_alias:en	refined-linseed-oil-2025
+en:linseed-oil	ecobalyse_proxy_default_origin:en	FR
+en:linseed-oil	ecobalyse_proxy_origins_en_france_id:en	61ede109-0eed-4aa3-93bb-aacf132b6bdd
+en:linseed-oil	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:linseed-oil	ecobalyse_proxy_origins_en_france_name:fr	Huile de lin (raffinée) FR (2025)
+en:linseed-oil	ecobalyse_proxy_origins_en_france_alias:en	refined-linseed-oil-2025
+en:linseed-oil	ecobalyse_proxy_origins_en_france_default_origin:en	FR
 en:palm-oil	ecobalyse_proxy_density_g_per_ml:en	1
 en:palm-oil	ecobalyse_proxy_crop_group:en	AUTRES CULTURES INDUSTRIELLES
 en:palm-oil	ecobalyse_proxy_raw_to_cooked_ratio:en	1
@@ -5819,6 +6624,33 @@ en:palm-fat	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
 en:palm-fat	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Huile de palme (raffinée) UE (2025)
 en:palm-fat	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	refined-palm-oil-2025
 en:palm-fat	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
+en:peanut-oil	ecobalyse_proxy_density_g_per_ml:en	1
+en:peanut-oil	ecobalyse_proxy_crop_group:en	PROTEAGINEUX
+en:peanut-oil	ecobalyse_proxy_raw_to_cooked_ratio:en	1
+en:peanut-oil	ecobalyse_proxy_inedible_part:en	0
+en:peanut-oil	ecobalyse_proxy_transport_cooling:en	none
+en:peanut-oil	ecobalyse_proxy_category:en	other_food_items
+en:peanut-oil	ecobalyse_proxy_id:en	c704400c-9108-49a8-a79a-b830eccb6b5e
+en:peanut-oil	ecobalyse_proxy_scenario:en	import
+en:peanut-oil	ecobalyse_proxy_name:fr	Huile d'arachide (raffinée) par défaut (2025)
+en:peanut-oil	ecobalyse_proxy_alias:en	refined-peanut-oil-2025
+en:peanut-oil	ecobalyse_proxy_default_origin:en	
+en:soya-oil	ecobalyse_proxy_density_g_per_ml:en	1
+en:soya-oil	ecobalyse_proxy_crop_group:en	PROTEAGINEUX
+en:soya-oil	ecobalyse_proxy_raw_to_cooked_ratio:en	1
+en:soya-oil	ecobalyse_proxy_inedible_part:en	0
+en:soya-oil	ecobalyse_proxy_transport_cooling:en	none
+en:soya-oil	ecobalyse_proxy_category:en	other_food_items
+en:soya-oil	ecobalyse_proxy_id:en	188a3d66-f214-4821-9bac-7e8fdc715721
+en:soya-oil	ecobalyse_proxy_scenario:en	reference
+en:soya-oil	ecobalyse_proxy_name:fr	Huile de soja (raffinée) FR (2025)
+en:soya-oil	ecobalyse_proxy_alias:en	refined-soybean-oil-2025
+en:soya-oil	ecobalyse_proxy_default_origin:en	FR
+en:soya-oil	ecobalyse_proxy_origins_en_france_id:en	188a3d66-f214-4821-9bac-7e8fdc715721
+en:soya-oil	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:soya-oil	ecobalyse_proxy_origins_en_france_name:fr	Huile de soja (raffinée) FR (2025)
+en:soya-oil	ecobalyse_proxy_origins_en_france_alias:en	refined-soybean-oil-2025
+en:soya-oil	ecobalyse_proxy_origins_en_france_default_origin:en	FR
 en:wheat	ecobalyse_proxy_density_g_per_ml:en	0.77
 en:wheat	ecobalyse_proxy_crop_group:en	BLE TENDRE
 en:wheat	ecobalyse_proxy_raw_to_cooked_ratio:en	2.259
@@ -5908,6 +6740,12 @@ en:soya	ecobalyse_proxy_origins_en_france_scenario:en	reference
 en:soya	ecobalyse_proxy_origins_en_france_name:fr	Soja FR
 en:soya	ecobalyse_proxy_origins_en_france_alias:en	soybean-fr
 en:soya	ecobalyse_proxy_origins_en_france_default_origin:en	FR
+en:soya	ecobalyse_proxy_labels_en_organic_origins_en_france_id:en	4879c02e-05e5-5567-84e5-b7d6d9d3f22a
+en:soya	ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en	organic
+en:soya	ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr	Soja Bio
+en:soya	ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en	soybean-organic
+en:soya	ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en	FR
+en:soya	ecobalyse_proxy_labels_en_organic_origins_en_france_visibility:en	false
 en:tea	ecobalyse_proxy_density_g_per_ml:en	0.9
 en:tea	ecobalyse_proxy_crop_group:en	DIVERS
 en:tea	ecobalyse_proxy_raw_to_cooked_ratio:en	1
@@ -5956,29 +6794,3 @@ en:vinegar	ecobalyse_proxy_origins_en_france_scenario:en	reference
 en:vinegar	ecobalyse_proxy_origins_en_france_name:fr	Vinaigre d'alcool FR (2025)
 en:vinegar	ecobalyse_proxy_origins_en_france_alias:en	vinegar-alcohol-2025
 en:vinegar	ecobalyse_proxy_origins_en_france_default_origin:en	FR
-en:white-beans	ecobalyse_proxy_density_g_per_ml:en	0.8
-en:white-beans	ecobalyse_proxy_crop_group:en	LEGUMINEUSES A GRAIN
-en:white-beans	ecobalyse_proxy_raw_to_cooked_ratio:en	0.856
-en:white-beans	ecobalyse_proxy_inedible_part:en	0.2
-en:white-beans	ecobalyse_proxy_transport_cooling:en	always
-en:white-beans	ecobalyse_proxy_category:en	fruits_and_vegetables
-en:white-beans	ecobalyse_proxy_id:en	ec4b37fd-34ee-54d7-9283-02344bd529ba
-en:white-beans	ecobalyse_proxy_scenario:en	import
-en:white-beans	ecobalyse_proxy_name:fr	Haricots blancs séchés Origine Inconnue
-en:white-beans	ecobalyse_proxy_alias:en	white-bean-dried-default
-en:white-beans	ecobalyse_proxy_default_origin:en	
-en:white-beans	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	6fb8faac-9315-5292-8ec0-4cc570b980a9
-en:white-beans	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
-en:white-beans	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Haricots blancs séchés UE
-en:white-beans	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	white-bean-dried-eu
-en:white-beans	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
-en:white-beans	ecobalyse_proxy_labels_en_organic_origins_en_france_id:en	39e00dfd-bde5-59c9-a2d0-21531ead2035
-en:white-beans	ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en	organic
-en:white-beans	ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr	Haricots blancs séchés Bio
-en:white-beans	ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en	white-bean-dried-organic
-en:white-beans	ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en	FR
-en:white-beans	ecobalyse_proxy_origins_en_france_id:en	4aec2ecb-6f87-5501-a22a-a06ab4842fca
-en:white-beans	ecobalyse_proxy_origins_en_france_scenario:en	reference
-en:white-beans	ecobalyse_proxy_origins_en_france_name:fr	Haricots blancs séchés FR
-en:white-beans	ecobalyse_proxy_origins_en_france_alias:en	white-bean-dried-fr
-en:white-beans	ecobalyse_proxy_origins_en_france_default_origin:en	FR

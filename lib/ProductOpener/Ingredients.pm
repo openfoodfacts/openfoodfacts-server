@@ -3867,6 +3867,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# ecobalyse_labels_organic (if the product is organic)
 		# ecobalyse_origins_france (if the product comes from france)
 		# ecobalyse_origins_en_europe_and_maghreb (if the product comes from Europe and Maghreb region)
+		# ecobalyse_origins_en_france_overseas (if the product comes from France overseas, e.g. Guadeloupe)
 		# ecobalyse (else)
 
 		# List of suffixes
@@ -3888,6 +3889,14 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		{
 			push @suffixes, "_labels_en_organic_origins_en_europe_and_maghreb";
 		}
+		# If the ingredient is both organic and from France overseas...
+		if (    (defined $ingredient_ref->{labels})
+			and ($ingredient_ref->{labels} =~ /\ben:organic\b/)
+			and (defined $ingredient_ref->{origins})
+			and (get_geographical_area($ingredient_ref->{origins}) eq "france_overseas"))
+		{
+			push @suffixes, "_labels_en_organic_origins_en_france_overseas";
+		}
 		# If the ingredient is organic...
 		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
 			push @suffixes, "_labels_en_organic";
@@ -3901,10 +3910,25 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
 			push @suffixes, "_origins_en_europe_and_maghreb";
 		}
+		# If the ingredient is from France overseas...
+		if (    (defined $ingredient_ref->{origins})
+			and (get_geographical_area($ingredient_ref->{origins}) eq "france_overseas"))
+		{
+			push @suffixes, "_origins_en_france_overseas";
+		}
 		push @suffixes, '';
 
 		# First try an exact match, and then a proxy match
-		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
+		my @prefixes = ("ecobalyse", "ecobalyse_proxy");
+		# If the ingredient has its own proxy but no exact match of its own,
+		# its proxy is more specific than an exact match inherited from a parent
+		# (e.g. en:chicken has a chicken breast proxy, and its parent en:poultry has an exact match)
+		if (    (not defined get_property("ingredients", $ingredient_ref->{id}, "ecobalyse_id:en"))
+			and (defined get_property("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy_id:en")))
+		{
+			@prefixes = ("ecobalyse_proxy", "ecobalyse");
+		}
+		foreach my $prefix (@prefixes) {
 			# Loop through each suffix to retrieve ecobalyse code
 			foreach my $suffix (@suffixes) {
 				# Construct the property name using the prefix and suffix
@@ -3950,6 +3974,8 @@ reference to the name of the country
 
 =head4 $ecobalyse_area
 
+"fr" (France), "eu" (Europe and Maghreb), "france_overseas" (France d'outre-mer) or "" (other / unknown)
+
 =cut
 
 sub get_geographical_area ($originid) {
@@ -3963,6 +3989,10 @@ sub get_geographical_area ($originid) {
 	}
 	if ($originid eq "en:france") {
 		$ecobalyse_area = "fr";
+	}
+	# France overseas (France d'outre-mer, ROF in Ecobalyse): e.g. en:guadeloupe, en:reunion
+	if (($originid eq "en:france-overseas") or (is_a("origins", $originid, "en:france-overseas"))) {
+		$ecobalyse_area = "france_overseas";
 	}
 
 	return $ecobalyse_area;

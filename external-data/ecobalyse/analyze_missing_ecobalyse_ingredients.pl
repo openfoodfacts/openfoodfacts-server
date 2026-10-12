@@ -42,6 +42,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Display qw/add_params_to_query/;
+use ProductOpener::EnvironmentalImpact qw/get_ecobalyse_ingredients_quantities/;
 
 use Getopt::Long;
 use Data::Dumper;
@@ -181,62 +182,41 @@ while (my $product_ref = $cursor->next) {
 
 	$products_with_ingredients++;
 
-	# Per-product accumulators for coverage statistics
-	my $product_total_quantity = 0;
-	my $product_ecobalyse_quantity = 0;
+	# Leaf ingredients with the quantities and Ecobalyse ids used to compute the environmental impact
+	# (same function as in EnvironmentalImpact.pm, so that the coverage matches the real calculation)
+	my $quantities_ref = get_ecobalyse_ingredients_quantities($full_product_ref);
+	my $product_total_quantity = $quantities_ref->{total_quantity};
+	my $product_ecobalyse_quantity = $quantities_ref->{total_quantity_with_ecobalyse_id};
 	my $product_taxonomy_quantity = 0;
 
-	# Traverse ingredient tree to find leaf ingredients
-	my @ingredients_queue = @{$full_product_ref->{ingredients}};
+	foreach my $leaf_ref (@{$quantities_ref->{ingredients}}) {
+		$leaf_ingredients_total++;
 
-	while (@ingredients_queue) {
-		my $ingredient_ref = shift @ingredients_queue;
+		# Leaf ingredients without a quantity are not sent to Ecobalyse and not counted in coverage,
+		# but they are still listed in the missing ingredients (with a 0 quantity)
+		my $quantity = $leaf_ref->{quantity};
+		my $has_ecobalyse = defined $leaf_ref->{ecobalyse_id};
 
-		if (defined $ingredient_ref->{ingredients} && ref($ingredient_ref->{ingredients}) eq 'ARRAY') {
-			# Has sub-ingredients, not a leaf
-			push @ingredients_queue, @{$ingredient_ref->{ingredients}};
+		# Check if in taxonomy (for all leaf ingredients)
+		my $ingredient_id = $leaf_ref->{ingredient}{id};
+		my $in_taxonomy = 0;
+		if (defined $ingredient_id && $ingredient_id ne '') {
+			$in_taxonomy = exists_taxonomy_tag("ingredients", $ingredient_id) ? 1 : 0;
 		}
-		else {
-			# This is a leaf ingredient
-			$leaf_ingredients_total++;
 
-			# Get quantity estimate (computed for all leaf ingredients for coverage stats)
-			my $quantity = $ingredient_ref->{quantity_estimate} // $ingredient_ref->{percent_estimate}
-				// $ingredient_ref->{percent};
-			$quantity = 0 unless defined $quantity;
-			$quantity += 0;    # Ensure numeric
+		if ($in_taxonomy and defined $quantity) {
+			$product_taxonomy_quantity += $quantity;
+		}
 
-			$product_total_quantity += $quantity;
+		if (!$has_ecobalyse) {
+			$leaf_ingredients_missing_ecobalyse++;
 
-			# Check if it has ecobalyse_id or ecobalyse_proxy_id
-			my $has_ecobalyse
-				= (defined $ingredient_ref->{ecobalyse_id} || defined $ingredient_ref->{ecobalyse_proxy_id});
+			next unless defined $ingredient_id && $ingredient_id ne '';
 
-			if ($has_ecobalyse) {
-				$product_ecobalyse_quantity += $quantity;
-			}
-
-			# Check if in taxonomy (for all leaf ingredients)
-			my $ingredient_id = $ingredient_ref->{id};
-			my $in_taxonomy = 0;
-			if (defined $ingredient_id && $ingredient_id ne '') {
-				$in_taxonomy = exists_taxonomy_tag("ingredients", $ingredient_id) ? 1 : 0;
-			}
-
-			if ($in_taxonomy) {
-				$product_taxonomy_quantity += $quantity;
-			}
-
-			if (!$has_ecobalyse) {
-				$leaf_ingredients_missing_ecobalyse++;
-
-				next unless defined $ingredient_id && $ingredient_id ne '';
-
-				# Accumulate stats
-				$stats{$ingredient_id}{count}++;
-				$stats{$ingredient_id}{quantity} += $quantity;
-				$stats{$ingredient_id}{in_taxonomy} = $in_taxonomy;
-			}
+			# Accumulate stats
+			$stats{$ingredient_id}{count}++;
+			$stats{$ingredient_id}{quantity} += $quantity // 0;
+			$stats{$ingredient_id}{in_taxonomy} = $in_taxonomy;
 		}
 	}
 
