@@ -3,7 +3,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:wheat-flour",
          "ingredients" : [
             {
@@ -28,7 +29,8 @@
       },
       {
          "ciqual_proxy_food_code" : "19044",
-         "ecobalyse_code" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "ecobalyse_proxy_id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "ecobalyse_proxy_name" : "Poudre de lait écrémé FR -2025-",
          "id" : "en:milk-powder",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 22.9166666666667,
@@ -51,7 +53,8 @@
       },
       {
          "ciqual_food_code" : "22002",
-         "ecobalyse_code" : "egg-indoor-code3",
+         "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+         "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
          "id" : "en:egg-yolk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.72916666666667,
@@ -63,7 +66,8 @@
       },
       {
          "ciqual_food_code" : "22001",
-         "ecobalyse_code" : "egg-indoor-code3",
+         "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+         "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
          "id" : "en:egg-white",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.86458333333334,
@@ -75,7 +79,8 @@
       },
       {
          "ciqual_food_code" : "15004",
-         "ecobalyse_code" : "hazelnut-unshelled-non-eu",
+         "ecobalyse_id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7",
+         "ecobalyse_name" : "Noisette, décortiquée Origine Inconnue",
          "id" : "en:hazelnut-paste",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 1.43229166666667,
@@ -87,6 +92,8 @@
       },
       {
          "ciqual_proxy_food_code" : "15055",
+         "ecobalyse_id" : "aad23c3a-2025-53c3-b9b1-3705ac076ec5",
+         "ecobalyse_name" : "Noix de cajou Origine Inconnue",
          "id" : "en:cashew-nuts",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.716145833333336,
@@ -98,6 +105,8 @@
       },
       {
          "ciqual_food_code" : "11013",
+         "ecobalyse_id" : "cc48ac13-6a7c-5032-8138-1fefeff09404",
+         "ecobalyse_name" : "Graines de moutarde Origine Inconnue",
          "id" : "en:mustard-seed",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.358072916666671,
@@ -109,6 +118,8 @@
       },
       {
          "ciqual_food_code" : "15010",
+         "ecobalyse_id" : "33408c9c-e1fd-506c-983c-ff92a6160e4d",
+         "ecobalyse_name" : "Graines de sésame Origine Inconnue",
          "id" : "en:sesame-seeds",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.179036458333336,
@@ -130,7 +141,8 @@
          "vegetarian" : "yes"
       },
       {
-         "ecobalyse_code" : "celery-eu",
+         "ecobalyse_id" : "30ceca68-7047-5ac6-8abe-786e5bc98005",
+         "ecobalyse_name" : "Céleri Origine Inconnue",
          "id" : "en:celery",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0447591145833357,
@@ -142,6 +154,8 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_proxy_name" : "Sel -2025-",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0447591145833428,
@@ -230,15 +244,11 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:cashew-nuts",
-      "en:mustard-seed",
-      "en:salt",
-      "en:sesame-seeds",
       "en:sour-cream",
       "en:soya-lecithin",
       "en:wheat"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 7,
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 13,
    "lc" : "en",
    "misc_tags" : [

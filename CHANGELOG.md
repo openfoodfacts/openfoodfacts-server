@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.113.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.112.0...v2.113.0) (2026-10-06)
+
+
+### Features
+
+* match OFF data (categories, ingredients, packaging) to Ecobalyse input data ([#14646](https://github.com/openfoodfacts/openfoodfacts-server/issues/14646)) ([7a06f78](https://github.com/openfoodfacts/openfoodfacts-server/commit/7a06f78779a70411bc9af3d2c7352a8dad8b7ada))
+* **Nutrition:** allow “kg” for carbon footprint ([#14822](https://github.com/openfoodfacts/openfoodfacts-server/issues/14822)) ([8cfd1ad](https://github.com/openfoodfacts/openfoodfacts-server/commit/8cfd1ad1e820e0880db0a769a7da4f29bfa84210))
+
+
+### Bug Fixes
+
+* escape dots in regexp_escape ([25dcc1e](https://github.com/openfoodfacts/openfoodfacts-server/commit/25dcc1ed2ce5261dadf7784743a3e857d4fabf46))
+* escape dots in regexp_escape ([#14816](https://github.com/openfoodfacts/openfoodfacts-server/issues/14816)) ([25dcc1e](https://github.com/openfoodfacts/openfoodfacts-server/commit/25dcc1ed2ce5261dadf7784743a3e857d4fabf46))
+* multiple processings in ingredient parsing e.g. beans (dried, rehydrated) ([#14739](https://github.com/openfoodfacts/openfoodfacts-server/issues/14739)) ([3cb317b](https://github.com/openfoodfacts/openfoodfacts-server/commit/3cb317be998fcb3f1e3ee781dc43ef3dc1f6adeb))
+* normalize bold mathematical unicode characters (𝐌𝐢𝐥𝐤), improve allergens with underscores preparsing ([#14717](https://github.com/openfoodfacts/openfoodfacts-server/issues/14717)) ([6438b3f](https://github.com/openfoodfacts/openfoodfacts-server/commit/6438b3f6f5a365925239ccedc2588180ce80e5f1))
+* rename test fixture to allow checkout on Windows ([#14811](https://github.com/openfoodfacts/openfoodfacts-server/issues/14811)) ([b637b73](https://github.com/openfoodfacts/openfoodfacts-server/commit/b637b73d77c4f9e3731bdaf44e99494a7e212eab))
+* restore protected decimal commas in stored ingredient names ([80a963f](https://github.com/openfoodfacts/openfoodfacts-server/commit/80a963f354a8f2d0b278c81c0b3eb6f552ee5226))
+* restore protected decimal commas in stored ingredient names ([#14815](https://github.com/openfoodfacts/openfoodfacts-server/issues/14815)) ([80a963f](https://github.com/openfoodfacts/openfoodfacts-server/commit/80a963f354a8f2d0b278c81c0b3eb6f552ee5226))
+* stop dosage contexts and emphasis markup from creating junk ([89c5b1d](https://github.com/openfoodfacts/openfoodfacts-server/commit/89c5b1d8964ecca922ff4762f3d1a8b91e87f99d))
+* stop dosage contexts and emphasis markup from creating junk ingredients ([#14814](https://github.com/openfoodfacts/openfoodfacts-server/issues/14814)) ([89c5b1d](https://github.com/openfoodfacts/openfoodfacts-server/commit/89c5b1d8964ecca922ff4762f3d1a8b91e87f99d))
+
 ## [2.112.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.111.0...v2.112.0) (2026-10-02)
 
 

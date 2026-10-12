@@ -7,7 +7,8 @@
          "id" : "en:oil",
          "ingredients" : [
             {
-               "ecobalyse_code" : "sunflower-non-eu",
+               "ecobalyse_proxy_id" : "23cd53c5-4b66-4b7c-892f-fe74054f66e5",
+               "ecobalyse_proxy_name" : "Tournesol UE",
                "id" : "en:sunflower",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 75,
@@ -18,7 +19,8 @@
                "vegetarian" : "yes"
             },
             {
-               "ecobalyse_code" : "rapeseed-non-eu",
+               "ecobalyse_id" : "c1be6c42-5f21-5afc-af09-1cd4c2f426b6",
+               "ecobalyse_name" : "Colza Origine Inconnue",
                "id" : "en:rapeseed",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 25,
