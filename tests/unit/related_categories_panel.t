@@ -3,6 +3,8 @@
 use ProductOpener::PerlStandards;
 
 use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Display;
@@ -46,28 +48,36 @@ my $data_module = mock 'ProductOpener::Data' => (
 	override => [
 		single_param => sub ($name) {
 			return scalar $form{$name};
-		}
-	]
-);
-
-my $memcached_module = mock 'Cache::Memcached::Fast' => (
-	override => [
-		get => sub ($memd, $key) {
-			return $cache{$key};
 		},
-		set => sub ($memd, $key, $value, $ttl) {
-			$cache{$key} = $value;
-			return 1;
+		get_http_request_header => sub ($header_name) {
+			return;
 		},
 	]
 );
 
-sub build_panel ($tagtype, $tagid, $options_ref, $request_ref = {}) {
-	$ProductOpener::Display::lc = "en";
+{
+	## no critic (Modules::RequireFilenameMatchesPackage)
+	package Local::InMemoryMemd;
+	sub new {return bless {}, shift;}
+
+	sub get ($self, $key) {
+		return $cache{$key};
+	}
+
+	sub set ($self, $key, $value, $ttl) {
+		$cache{$key} = $value;
+		return 1;
+	}
+}
+
+$ProductOpener::Cache::memd = Local::InMemoryMemd->new();
+
+sub build_panel ($tagtype, $tagid, $options_ref, $request_ref = {}, $target_lc = "en") {
+	$ProductOpener::Display::lc = $target_lc;
 	my $tag_ref = {};
 	$request_ref->{cc} //= "world";
-	create_tag_knowledge_panels($tag_ref, "en", $request_ref->{cc}, $options_ref, $tagtype, $tagid, $request_ref);
-	return $tag_ref->{knowledge_panels_en};
+	create_tag_knowledge_panels($tag_ref, $target_lc, $request_ref->{cc}, $options_ref, $tagtype, $tagid, $request_ref);
+	return $tag_ref->{"knowledge_panels_" . $target_lc};
 }
 
 sub reset_state () {
@@ -100,7 +110,7 @@ is(
 	"happy path - parents then children"
 );
 my @parents = map {$_->{values}[0]{text}} @{$tables_ref->[0]{table_element}{rows}};
-ok((grep {$_ eq "Breakfasts"} @parents), "happy path - parent listed") or diag explain \@parents;
+ok((grep {$_ eq "Breakfasts"} @parents), "happy path - parent listed") or diag Dumper \@parents;
 my @children_rows = @{$tables_ref->[1]{table_element}{rows}};
 is(
 	[map {$_->{values}[1]{text}} @children_rows],
@@ -111,8 +121,19 @@ is(
 	[map {$_->{values}[0]{text}} @children_rows],
 	["Mueslis", "Cereal flakes", "Porridge", "Puffed cereals"],
 	"children names, tie sorted by name; non children and the category itself are not listed"
-) or diag explain \@children_rows;
-like($children_rows[0]{values}[0]{url}, qr/\/mueslis$/, "child links to its page");
+) or diag Dumper \@children_rows;
+like($children_rows[0]{values}[0]{url}, qr{/facets/categories/Mueslis$}, "child links to its page");
+like($tables_ref->[0]{table_element}{rows}[0]{values}[0]{url}, qr{/facets/categories/Breakfasts$},
+	"parent links to its page");
+
+# tie sorted by localized name, not by id: in French "Céréales soufflées" (en:puffed-cereals) comes before "Porridge"
+reset_state();
+$panels_ref = build_panel("categories", $category_id, {%on}, {}, "fr");
+is(
+	[map {$_->{values}[0]{text}} @{$panels_ref->{related_categories}{elements}[1]{table_element}{rows}}[2, 3]],
+	["Céréales soufflées", "Porridge"],
+	"tie sorted by localized name"
+);
 
 # the query matches on the category only for the world
 is($queries[0][0], {'$match' => {categories_tags => $category_id}}, "world - match on the category only");
@@ -122,9 +143,9 @@ reset_state();
 build_panel("categories", $category_id, {%on}, {cc => "fr", country => "en:france"});
 is($queries[0][0]{'$match'}{countries_tags}, "en:france", "country - match includes the country");
 
-# not a category
+# not a category, even with an id that exists in the categories taxonomy
 reset_state();
-$panels_ref = build_panel("labels", "en:organic", {%on});
+$panels_ref = build_panel("labels", $category_id, {%on});
 ok(!exists $panels_ref->{related_categories}, "labels - no related_categories panel");
 is(scalar @queries, 0, "labels - no query");
 
@@ -134,7 +155,7 @@ $panels_ref = build_panel("categories", "en:not-a-category", {%on});
 ok(!exists $panels_ref->{related_categories}, "unknown category - no panel");
 is(scalar @queries, 0, "unknown category - no query");
 
-# failures: no panel, other panels unaffected, no die
+# failures: no panel, no die
 foreach my $failure (
 	["query unavailable", sub {$can_use_off_query = 0}],
 	["no response", sub {$aggregate_response = undef}],

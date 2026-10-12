@@ -26,7 +26,7 @@
                         "values": [
                             {
                                 "text": "[% edq(display_taxonomy_tag_name('categories', parent)) %]",
-                                "url": "[% formatted_subdomain %][% canonicalize_taxonomy_tag_link('categories', parent) %]"
+                                "url": "[% formatted_subdomain %]/facets[% canonicalize_taxonomy_tag_link('categories', parent) %]"
                             },
                         ]
                     },
@@ -57,7 +57,7 @@
                         "values": [
                             {
                                 "text": "[% edq(display_taxonomy_tag_name('categories', child.id)) %]",
-                                "url": "[% formatted_subdomain %][% canonicalize_taxonomy_tag_link('categories', child.id) %]"
+                                "url": "[% formatted_subdomain %]/facets[% canonicalize_taxonomy_tag_link('categories', child.id) %]"
                             },
                             {
                                 "text": "[% child.count %]"
