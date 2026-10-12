@@ -100,6 +100,10 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
 		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
 
+	# Activate related categories knowledge panel (category tag pages) only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panel_related_categories}
+		= normalize_boolean(single_param("activate_knowledge_panel_related_categories"));
+
 	# Specify if we knowledge panels are requested from the app or the website
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
 	# possible values: "web", "app"
