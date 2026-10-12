@@ -20,7 +20,9 @@ remove_all_users();
 my $ua = new_client();
 create_user($ua, \%default_user_form);
 
-my $code = '200000000376';
+# 13 digits barcode, so that it is not normalized in urls
+my $code = '2000000000376';
+# products need to be sold in France to be listed on the French subdomains
 edit_product(
 	$ua,
 	{
@@ -30,6 +32,21 @@ edit_product(
 			lang => 'en',
 			product_name => "Organic carrots",
 			labels => "en:organic",
+			countries => "en:france",
+		)
+	}
+);
+# a product without the organic label, for the facet page with a negative tag
+edit_product(
+	$ua,
+	{
+		%{dclone(\%empty_product_form)},
+		(
+			code => '2000000000377',
+			lang => 'en',
+			product_name => "Carrots",
+			categories => "en:carrots",
+			countries => "en:france",
 		)
 	}
 );
@@ -44,7 +61,8 @@ sub get_language_selector_link ($path, $subdomain, $target_subdomain) {
 	ok($response->is_success, "GET $path on $subdomain") or diag $response->status_line;
 	# only look at the links in the country and language selection menu
 	my ($menu) = $response->decoded_content =~ /class="country_language_selection">(.*?)<\/ul>\s*<\/li>\s*<\/ul>/s;
-	if ((defined $menu) and ($menu =~ /<a href="\/\/\Q$target_subdomain\E\.[^\/"]+([^"]*)">/)) {
+	# links have a scheme (http://) in the actual pages (it is removed in the stored expected results)
+	if ((defined $menu) and ($menu =~ /<a href="(?:https?:)?\/\/\Q$target_subdomain\E\.[^\/"]+([^"]*)">/)) {
 		return $1;
 	}
 	diag("no link to $target_subdomain found in the language selection menu");
