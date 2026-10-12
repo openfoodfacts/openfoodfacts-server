@@ -65,6 +65,7 @@ BEGIN {
 		&display_search_results
 		&display_error
 		&display_error_and_exit
+		&is_api_request
 
 		&compare_product_nutrition_facts_to_categories
 		&data_to_display_nutrition_table
@@ -797,7 +798,7 @@ sub init_request ($request_ref = {}) {
 	my $signed_in_oidc = process_auth_header($request_ref, $r);
 	if ($signed_in_oidc < 0) {
 		# We were sent a bad bearer token
-		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
+		# Otherwise we return an error (in JSON for v0 / v1 / v2 API queries, and in HTML for web pages)
 		if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
 			and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
 		{
@@ -805,7 +806,7 @@ sub init_request ($request_ref = {}) {
 				"init_request - init_user error - display error page",
 				{init_user_error => $request_ref->{init_user_error}}
 			) if $log->is_debug();
-			display_error_and_exit($request_ref, $signed_in_oidc, 403);
+			display_error_and_exit($request_ref, lang("api_message_invalid_token"), 403);
 		}
 	}
 
@@ -836,7 +837,7 @@ sub init_request ($request_ref = {}) {
 				{init_user_error => $request_ref->{init_user_error}}
 			) if $log->is_debug();
 		}
-		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
+		# Otherwise we return an error (in JSON for v0 / v1 / v2 API queries, and in HTML for web pages)
 		else {
 			$log->debug(
 				"init_request - init_user error - display error page",
@@ -1075,11 +1076,73 @@ The request is not terminated by this function, it will continue to run.
 
 =cut
 
+=head2 is_api_request ( $request_ref )
+
+Return 1 if the request is an API request (for which errors should be returned in JSON instead of HTML):
+
+- API requests routed by Routing.pm (e.g. /api/v2/product/[code]) for which $request_ref->{api} is set
+- API requests detected in display.pl before routing (e.g. authentication errors), for which $request_ref->{api_request} is set
+- requests to the CGI scripts of the API (e.g. /cgi/product_jqm2.pl for the WRITE API)
+- requests with a json, jsonp or xml parameter
+
+=cut
+
+# CGI scripts that are part of the API (see docs/api/ref/api.yaml)
+my %api_cgi_scripts = map {$_ => 1} qw(
+	product_jqm2.pl
+	product_jqm_multilingual.pl
+	product_image_upload.pl
+	product_image_crop.pl
+	product_image_unselect.pl
+	ingredients.pl
+	nutrients.pl
+	suggest.pl
+);
+
+sub is_api_request ($request_ref) {
+
+	if ((defined $request_ref->{api}) or ($request_ref->{api_request})) {
+		return 1;
+	}
+
+	my $script_name = $ENV{SCRIPT_NAME} // '';
+	if (($script_name =~ /\/cgi\/([^\/]+)$/) and (exists $api_cgi_scripts{$1})) {
+		return 1;
+	}
+
+	foreach my $parameter ('json', 'jsonp', 'xml') {
+		if (single_param($parameter)) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
 sub display_error ($request_ref, $error_message, $status_code) {
 
 	$log->debug("display_error",
 		{error_message => $error_message, status_code => $status_code, request_ref => sanitize($request_ref)})
 		if $log->is_debug();
+
+	# For API requests, return the error in JSON (or JSONP / XML if requested) instead of an HTML page
+	# using the same format as other errors of the API v0 / v1 / v2 (e.g. product not found)
+	if (is_api_request($request_ref)) {
+		# Error messages can contain HTML (e.g. a link to reset a password): keep only the text
+		my $message = $error_message // '';
+		$message =~ s/<[^>]*>//g;
+		$message = decode_entities($message);
+		$message =~ s/\s+/ /g;
+		$message =~ s/^ | $//g;
+
+		$request_ref->{status_code} = $status_code;
+		$request_ref->{structured_response} = {
+			status => 0,
+			status_verbose => $message,
+		};
+		display_structured_response($request_ref);
+		return;
+	}
 
 	# We need to remove the canonical URL from the request so that it does not get displayed in the error page
 	# This is needed in particular for facet pages like /some-facet/some-spam-value-that-we-don-t-want-to-output-in-the-error-page

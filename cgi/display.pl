@@ -52,6 +52,12 @@ $request_ref->{method} = $r->method();
 $log->debug("display.pl - start", {env_query_string => $env_query_string, request_ref => sanitize($request_ref)})
 	if $log->is_debug();
 
+# Record that we have an API request (any version), so that errors that happen before the request is routed
+# (e.g. bad user id and password) are returned in JSON instead of in an HTML page
+if ($env_query_string =~ m!^(?:/org/[^/]+)?/?api/v\d!) {
+	$request_ref->{api_request} = 1;
+}
+
 # Special behaviors for API v3 requests, starting by /api/v3 or on pro platform /org/org-id/api/v3
 my $api_pattern = qr!^(?:/org/[^/]+)?/?api/v(3(\.\d+)?)/!;
 my $method_pattern = qr/^(POST|PUT|PATCH)$/;
