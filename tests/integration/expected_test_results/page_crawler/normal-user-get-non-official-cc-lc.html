@@ -401,7 +401,9 @@
     setBannerCookie('donation_arm', arm, 30);
   }
 
-  const gone = ['donation_march_2026', 'donation_dismiss', 'donation_done'].some((name) => getBannerCookie(name) !== '');
+  const optedOut = ['donation_dismiss', 'donation_done'].some((name) => getBannerCookie(name) !== '');
+  // the classic close (donation_march_2026) only ever hid the top banner, so the old arm keeps the footer
+  const gone = optedOut || getBannerCookie('donation_march_2026') !== '';
   const closeButton = bannerID.querySelector('.donation-banner__close');
   if (arm === 'new') {
     bannerID.style.display = 'none';
@@ -530,7 +532,7 @@
   });
 
   document.addEventListener('DOMContentLoaded', async function () {
-    if (arm === 'old') {
+    if (arm === 'old' && !optedOut) {
       showClassic();
     } else if (gone) {
       removeBanners();
