@@ -9308,12 +9308,17 @@ CSS
 
 			my $col_name = lang("preparation_" . $preparation) . " " . $per_lang . " (" . $source . ")";
 
+			my $short_name = $per . " (" . $source . ")";
+			if ($preparation eq "prepared") {
+				$short_name = lc(lang("preparation_prepared")) . " " . $short_name;
+			}
+
 			$columns{$col_id} = {
 				scope => "product",
 				preparation => $preparation,
 				per => $per,
 				name => $col_name,
-				short_name => $per,
+				short_name => $short_name,
 				class => "product",
 			};
 
