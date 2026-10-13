@@ -217,7 +217,7 @@ duck and goose confits, preserved gizzards and livers, `en:salted-dried-cod`,
 are not under `en:canned-foods` (albacore, pilchards, cod liver), and fish fillets in oil
 (anchovy, mackerel, sardine). Marinated anchovies, rollmops and pickled herring stay refrigerated.
 
-`ingredients_processing:en: undef` (cancels the inherited value) added to `xx:sashimi`,
+`ingredients_processing:en: en:none` (cancels the inherited value) added to `xx:sashimi`,
 `en:meal-replacements`, `en:non-frozen-dough-based-meals-to-prepare`,
 `en:frozen-dough-based-meals-to-prepare`, `en:prepared-salads`, `en:semi-preserved-foods`.
 `ingredients_processing:en: en:cooked` added back to `en:pasta-salads`, `en:rice-salads`,
@@ -234,15 +234,9 @@ are not under `en:canned-foods` (albacore, pilchards, cod liver), and fish fille
 - **Processing** (`get_ecobalyse_transformation_entries()`):
   - the property of a category is ignored when a more specific category of the product
     (a descendant) also has the property, so that children can override parents;
-  - the value `undef` means no processing;
+  - the value `en:none` (or any processing without an Ecobalyse transformation) means no processing;
   - properties of unrelated categories are combined;
   - canning supersedes cooking (canning includes cooking).
-
-### Taxonomy linter: `scripts/taxonomies/lint_taxonomy.pl`
-
-The linter canonicalized the special value `undef` of taxonomy-referencing properties to
-`en:undef`, which disabled the "stop inheritance" semantics of `get_inherited_property()`.
-`undef` is now kept as-is.
 
 ### Tests
 

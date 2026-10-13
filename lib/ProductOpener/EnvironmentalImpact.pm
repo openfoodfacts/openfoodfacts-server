@@ -644,7 +644,7 @@ Each returned entry is a hashref with keys: id, name, name_fr, ecs, unit.
 Returns an empty list when no transformation applies.
 
 The ingredients_processing:en property of a category overrides the property of its parent categories
-(e.g. en:sashimi has the value "undef" to cancel the en:cooked value of en:meals).
+(e.g. xx:sashimi has the value en:none to cancel the en:cooked value of en:meals).
 Properties of categories that are not parents of each other are combined
 (e.g. en:canned-soups is both a canned food and a meal).
 
@@ -696,8 +696,8 @@ sub get_ecobalyse_transformation_entries ($product_ref) {
 			if grep {($_ ne $category_id) and is_a("categories", $_, $category_id)} @categories_with_processing;
 
 		my $processing = $processing_for_category{$category_id};
-		next if $processing eq "undef";
 
+		# Values without an Ecobalyse transformation (e.g. en:none) do not add any transformation
 		for my $proc_id (split(/,/, $processing)) {
 			$proc_id =~ s/^\s+|\s+$//g;
 			next if $proc_id eq '';
