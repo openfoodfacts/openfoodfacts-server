@@ -342,25 +342,50 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 	return;
 }
 
+=head2 escape_json_string_content($string)
+
+Escape the content of a JSON string literal, without the surrounding quotes.
+
+The backslash is escaped first, otherwise the backslash we add for a quote would be escaped again
+by the next pass, and the quote would not be escaped at all: the escaper used to skip a quote that
+was preceded by a backslash, which left the value able to escape the string it is interpolated
+into. The control characters (tab, and the other C0 characters) are escaped as well, because JSON
+does not allow them unescaped inside a string, and they are what a value reaching a template
+through a product field is most likely to contain.
+
+=cut
+
+sub escape_json_string_content ($string) {
+
+	return '' if not defined $string;
+
+	# The backslash first: it must not escape the backslashes we add for the other characters
+	$string =~ s/\\/\\\\/g;
+
+	$string =~ s/"/\\"/g;
+
+	# \R matches all Unicode newline sequences. The other C0 control characters are escaped as
+	# \uXXXX, including the tab (\x09), which \R does not match and which JSON does not allow
+	# unescaped inside a string.
+	$string =~ s/\R/\\n/g;
+	$string =~ s/([\x00-\x09\x0b-\x1f\x7f])/sprintf("\\u%04x", ord($1))/ge;
+
+	return $string;
+}
+
 =head2 convert_multiline_string_to_singleline($line)
 
 Helper function to allow to enter multiline strings in JSON templates.
 The function converts the multiline string into a single line string.
 
-New lines are converted to \n, and quotes " and \ are escaped if not escaped already.
+New lines are converted to \n, and quotes " and \ are escaped, together with the control
+characters that JSON does not allow unescaped inside a string.
 
 =cut
 
 sub convert_multiline_string_to_singleline ($line) {
 
-	# Escape " and \ unless they have been escaped already
-	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
-	$line =~ s/(?<!\\)("|\\)/\\$1/g;
-
-	# \R will match all Unicode newline sequence
-	$line =~ s/\R/\\n/sg;
-
-	return '"' . $line . '"';
+	return '"' . escape_json_string_content($line) . '"';
 }
 
 =head2 convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces($line)
@@ -368,7 +393,9 @@ sub convert_multiline_string_to_singleline ($line) {
 Helper function to allow to enter multiline strings in JSON templates.
 The function converts the multiline string into a single line string.
 
-Line breaks are converted to spaces, and multiple spaces are converted to a single space.
+Line breaks are converted to spaces, and multiple spaces are converted to a single space. Quotes "
+and \ are escaped, together with the control characters that JSON does not allow unescaped inside a
+string (see escape_json_string_content()).
 
 This function is useful in templates where we use IF statements etc. to generate a single value like a title.
 
@@ -376,15 +403,11 @@ This function is useful in templates where we use IF statements etc. to generate
 
 sub convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces ($line) {
 
-	# Escape " and \ unless they have been escaped already
-	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
-	$line =~ s/(?<!\\)("|\\)/\\$1/g;
-
 	$line =~ s/\s+/ /g;
 	$line =~ s/^\s+//;
 	$line =~ s/\s+$//;
 
-	return '"' . $line . '"';
+	return '"' . escape_json_string_content($line) . '"';
 }
 
 =head2 create_panel_from_json_template ( $panel_id, $panel_template, $panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
