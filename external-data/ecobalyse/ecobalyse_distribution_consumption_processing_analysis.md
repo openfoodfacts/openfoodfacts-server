@@ -249,9 +249,9 @@ The linter canonicalized the special value `undef` of taxonomy-referencing prope
 - `tests/unit/ecobalyse_transformation_matching.t`: new cases with realistic `categories_tags`:
   `canned_soup` (canning only), `sashimi` (none), `semi_preserved_anchovies` (none),
   `coleslaw` (none), `pasta_salad` (cooking). `multiple_transformations` now returns canning only.
-- `tests/unit/ecobalyse.t`: the expected payloads change (distribution / preparation for frozen
-  green beans). The mocked Ecobalyse responses need to be regenerated with a real API token
-  (`ECOBALYSE_API_TOKEN=... prove -v tests/unit/ecobalyse.t --update-expected-results`).
+- `tests/unit/ecobalyse.t`: `fr-frozen-green-beans` now sends `distribution: frozen` and
+  `preparation: ["freezing"]`; the mocked Ecobalyse response was regenerated with the real API:
+  distribution ecs 0.28 → 1.05, preparation ecs 0 → 0.51, total ecs 35.6 → 36.9 (per 100 g).
 
 ## Follow-ups (not done yet)
 
