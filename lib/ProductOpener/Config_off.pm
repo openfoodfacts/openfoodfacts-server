@@ -1234,8 +1234,11 @@ $options{nova_groups_tags} = {
 	"categories/en:honeys" => 2,
 	"categories/en:maple-syrups" => 2,
 	"categories/en:starches" => 2,
+	# baking powders are usually 1 to 3 additives. The additives are heavily used in ultraprocessed foods.
+	"categories/en:baking-powders" => 2,
 
 	# group 3 tags will not be applied to food identified as group 2
+	"ingredients/en:baking-powder" => 3,
 
 	# group 3 ingredients from nova paper
 
@@ -1283,6 +1286,9 @@ $options{nova_groups_tags} = {
 	"additives/en:e250" => 3,    # sodium nitrite
 	"additives/en:e251" => 3,    # potassium nitrate
 	"additives/en:e252" => 3,    # sodium nitrite
+	"additives/en:e334" => 3,    # sodium carbonates
+	"additives/en:e500" => 3,    # sodium carbonates
+	"additives/en:e503" => 3,    # ammonium carbonates
 
 	# tags only found in group 4
 
@@ -1323,6 +1329,8 @@ $options{nova_groups_tags} = {
 	# has glucose as parent, so can be removed aleene@2018-10-09
 
 	# other ingredients that we can consider as ultra-processed
+	"ingredients/en:wheat-protein" => 4,
+	# is very close to gluten and produced/used in the same way
 
 	"ingredients/en:dextrose" => 4,
 	# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09
