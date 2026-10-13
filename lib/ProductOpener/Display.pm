@@ -5408,7 +5408,15 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $request_parameters_ref = get_products_collection_request_parameters($request_ref);
 
 	$request_ref->{data_debug} = init_data_debug();
-	$request_ref->{structured_response} = get_cache_results($key, \$request_ref->{data_debug});
+
+	# Logged in users who sort products by modification or creation date (e.g. editors
+	# looking at the latest edits) need to see up to date results, so we don't use the cache
+	if ((defined $request_ref->{user_id}) and (($sort_by eq 'last_modified_t') or ($sort_by eq 'created_t'))) {
+		$request_ref->{data_debug} .= "not using cache: logged in user sorting by $sort_by\n";
+	}
+	else {
+		$request_ref->{structured_response} = get_cache_results($key, \$request_ref->{data_debug});
+	}
 
 	if (not defined $request_ref->{structured_response}) {
 
