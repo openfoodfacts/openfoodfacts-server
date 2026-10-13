@@ -878,7 +878,8 @@ sub clean_fields ($product_ref) {
 
 					# dashes/dots/spaces -> allow matching dashes/dot/spaces
 					# e.g. "bons.mayennais" matches "bons mayennais"
-					$brand =~ s/(\s|\.|-|_)/\(\\s|\\.|-|_\)/g;
+					# regexp_escape escapes dots, so we match "\." here
+					$brand =~ s/(\s|\\\.|-|_)/\(\\s|\\.|-|_\)/g;
 
 					$product_ref->{$field} =~ s/\s+$brand$//i;
 				}

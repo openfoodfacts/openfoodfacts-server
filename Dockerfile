@@ -4,11 +4,15 @@ ARG USER_UID=1000
 ARG USER_GID=1000
 # options for cpan installs
 ARG CPANMOPTS=""
+# Cache busting argument to force rebuilds when needed
+ARG CACHE_BUST=""
 
 ######################
 # Base modperl image stage
 ######################
 FROM debian:trixie-slim AS modperl
+
+ARG CACHE_BUST
 
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
@@ -176,7 +180,18 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libpng-dev \
         libwebp-dev
 
-RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm -o /tmp/cpm && \
+# cpm is downloaded from a pinned commit instead of the tip of the main branch, and its sha256 is
+# verified before it is used. It is made executable and run as root by this build, and it then
+# installs every Perl dependency listed in the cpanfile, so content served from a mutable branch
+# would otherwise change our image without anyone reviewing it.
+#
+# To update cpm, bump both arguments at once, and keep the hash that the pinned commit serves:
+#   curl -fsSL https://raw.githubusercontent.com/skaji/cpm/<commit>/cpm | sha256sum
+ARG CPM_COMMIT=1e93312a5e801b1f3a27182309a8e62c16e9d7c5
+ARG CPM_SHA256=2e7cdae8f84a673384d40e2486aa236955b7f69547d66f9920564c05b330f9e0
+RUN curl -fsSL "https://raw.githubusercontent.com/skaji/cpm/${CPM_COMMIT}/cpm" -o /tmp/cpm && \
+    echo "${CPM_SHA256}  /tmp/cpm" >/tmp/cpm.sha256 && \
+    sha256sum -c /tmp/cpm.sha256 && \
     mv /tmp/cpm /usr/bin/cpm && \
     chmod +x /usr/bin/cpm && \
     /usr/bin/cpm --version
@@ -231,6 +246,24 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     export PERL5LIB="/tmp/local/lib/perl5/" && \
     cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
 
+# The bundled tz.sqlite3 ships in WAL journal mode. WAL requires a writable
+# directory (for -wal/-shm sidecar files) even for read-only access, which
+# fails in our read-only deployments. Convert the database to the standard
+# rollback journal mode (DELETE); read-only opens then need no write access.
+# NOTE: the journal mode is stored in the database file header, so the change
+# survives the COPY into the runnable stage.
+RUN set -e && \
+    export PERL5LIB="$PO_LIB_DIR/lib/perl5/" && \
+    perl -MDBI -e ' \
+        my @files = glob("$ENV{PO_LIB_DIR}/lib/perl5/*/DateTime/Lite/tz.sqlite3"); \
+        die "tz.sqlite3 not found\n" unless scalar @files; \
+        foreach my $file (@files) { \
+            my $dbh = DBI->connect("dbi:SQLite:dbname=$file", "", ""); \
+            $dbh->do("PRAGMA journal_mode=DELETE"); \
+            $dbh->disconnect; \
+        } \
+    '
+
 ######################
 # backend production image stage
 ######################
@@ -280,6 +313,10 @@ COPY --chown=www-data:www-data . /opt/product-opener/
 EXPOSE 80
 COPY ./docker/docker-entrypoint.sh /
 WORKDIR /opt/product-opener/
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost/api/v3/health || exit 1
+
 USER www-data
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 # default command is apache2ctl start

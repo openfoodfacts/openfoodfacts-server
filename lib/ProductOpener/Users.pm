@@ -77,6 +77,9 @@ BEGIN {
 
 		&check_session
 		&open_user_session
+		&remove_user_session
+		&remove_all_user_sessions
+		&is_stale_user_session
 
 		&generate_token
 
@@ -883,24 +886,6 @@ sub send_welcome_emails($user_ref) {
 	$email_content =~ s/\{\{NAME\}\}/$user_name/g;
 	my $error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
 
-	my $admin_mail_body = <<EMAIL
-
-Bonjour,
-
-Inscription d'un utilisateur :
-
-name: $user_ref->{name}
-email: $user_ref->{email}
-x: https://x.com/$user_ref->{x}
-newsletter: $user_ref->{newsletter}
-discussion: $user_ref->{discussion}
-lc: $language
-cc: $user_cc
-
-EMAIL
-		;
-	$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
-
 	return $error;
 }
 
@@ -1024,7 +1009,7 @@ sub remove_old_sessions ($user_ref) {
 	my $max_session = 10;
 
 	# Check if we need to delete the oldest session
-	# delete $user_ref->{'user_session'};
+	# delete $user_ref->{'user_sessions'};
 	if ((scalar keys %{$user_ref->{'user_sessions'}}) >= $max_session) {
 		my %user_session_stored = %{$user_ref->{'user_sessions'}};
 
@@ -1038,6 +1023,131 @@ sub remove_old_sessions ($user_ref) {
 		}
 	}
 	return;
+}
+
+=head2 remove_user_session ($user_id, $user_session)
+
+Delete a session from the user data, so that it can no longer be used to authenticate.
+
+A session was only removed when there were more than 10 of them, so a session that was signed out
+(or that was invalidated by a credential change) stayed valid until the account opened 10 more of
+them.
+
+Does nothing if the user or the session is not known.
+
+=head3 Arguments
+
+=head4 String $user_id - the user the session belongs to
+
+=head4 String $user_session - the session to delete
+
+=head3 Return value
+
+1 if the session was found and deleted, 0 otherwise
+
+=cut
+
+sub remove_user_session ($user_id, $user_session) {
+
+	if ((not defined $user_id) or (not defined $user_session)) {
+		return 0;
+	}
+
+	my $user_ref = retrieve_user_preferences($user_id);
+
+	if (not defined $user_ref) {
+		$log->info("cannot remove the session of a user that does not exist", {user_id => $user_id})
+			if $log->is_info();
+		return 0;
+	}
+
+	if (not defined $user_ref->{'user_sessions'}{$user_session}) {
+		return 0;
+	}
+
+	delete $user_ref->{'user_sessions'}{$user_session};
+	store_user_preferences($user_ref);
+
+	$log->info("session removed", {user_id => $user_id}) if $log->is_info();
+
+	return 1;
+}
+
+=head2 remove_all_user_sessions ($user_id)
+
+Delete every session of a user, so that none of them can authenticate any more. Called after a
+credential change, so that a session obtained with the old credentials is not usable any more.
+
+=head3 Arguments
+
+=head4 String $user_id - the user whose sessions are deleted
+
+=head3 Return value
+
+The number of sessions that were deleted
+
+=cut
+
+sub remove_all_user_sessions ($user_id) {
+
+	if (not defined $user_id) {
+		return 0;
+	}
+
+	my $user_ref = retrieve_user_preferences($user_id);
+
+	if (not defined $user_ref) {
+		return 0;
+	}
+
+	my $removed = scalar keys %{$user_ref->{'user_sessions'} // {}};
+
+	$user_ref->{'user_sessions'} = {};
+	store_user_preferences($user_ref);
+
+	$log->info("all the sessions of the user were removed", {user_id => $user_id, removed => $removed})
+		if $log->is_info();
+
+	return $removed;
+}
+
+=head2 is_stale_user_session ($session_ref)
+
+Returns 1 if the session is older than the maximum session lifetime.
+
+A session that is stored forever can be replayed forever: nothing deleted it when the user signed
+out, and nothing shortened its life, so the cookie of a stolen session stayed valid for as long as
+the account did not open 10 other sessions. Refusing a session older than the configured maximum
+bounds that, and also discards the stale entries that are already stored.
+
+A session stored without a timestamp is not considered stale: it was written before the timestamp
+was recorded, and refusing it would sign out the users we cannot reason about.
+
+=head3 Arguments
+
+=head4 Hash ref $session_ref - the stored session, as found in $user_ref->{user_sessions}
+
+=head3 Return value
+
+1 if the session is older than the maximum session lifetime, 0 otherwise
+
+=cut
+
+sub is_stale_user_session ($session_ref) {
+
+	my $max_lifetime = $options{user_session_max_lifetime};
+
+	if ((not defined $max_lifetime) or (not defined $session_ref) or (not defined $session_ref->{time})) {
+		return 0;
+	}
+
+	if ((time() - $session_ref->{time}) > $max_lifetime) {
+		$log->info("session is older than the maximum session lifetime", {age => time() - $session_ref->{time}})
+			if $log->is_info();
+		return 1;
+	}
+
+	return 0;
 }
 
 =head2 generate_session_cookie($user_id, $user_session)
@@ -1438,6 +1548,17 @@ sub init_user ($request_ref) {
 	# Remove persistent cookie if user is logging out
 	if ((defined request_param($request_ref, 'length')) and (request_param($request_ref, 'length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
+
+		# Expiring the cookie is not enough: the session is still stored server side, so the same
+		# cookie would authenticate again. Read it before we drop it, and delete it.
+		if (defined cookie($cookie_name)) {
+			my %logout_cookie = cookie($cookie_name);
+			remove_user_session($logout_cookie{'user_id'}, $logout_cookie{'user_session'});
+		}
+		elsif (defined single_param('user_session')) {
+			remove_user_session(single_param('user_id'), single_param('user_session'));
+		}
+
 		my $session = {};
 		$request_ref->{cookie} = cookie(
 			-name => $cookie_name,
@@ -1626,19 +1747,10 @@ sub init_user ($request_ref) {
 					}
 				) if $log->is_debug();
 
-				# Try to keep sessions opened for users with dynamic IPs
-				my $short_ip = sub ($) {
-					my $ip = shift;
-					# Remove the last two bytes
-					$ip =~ s/(\.\d+){2}$//;
-					return $ip;
-				};
-
 				if (   (not defined $user_ref->{'user_sessions'})
 					or (not defined $user_session)
-					or (not defined $user_ref->{'user_sessions'}{$user_session}))
-					# disable the restriction of sessions by ip address (issue 6842 57E0 C2C7 F629 E4CE 5605 42)
-					#	or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
+					or (not defined $user_ref->{'user_sessions'}{$user_session})
+					or (is_stale_user_session($user_ref->{'user_sessions'}{$user_session})))
 				{
 					$log->debug("no matching session for user") if $log->is_debug();
 					$user_id = undef;
@@ -1778,33 +1890,6 @@ sub set_owner_id ($request_ref) {
 	return;
 }
 
-=head2 is_ip_known_or_whitelisted ()
-
-This sub introduces a server option to whitelist IPs for all cookies.
-
-=cut
-
-sub is_ip_known_or_whitelisted ($user_ref, $user_session, $ip, $shorten_ip) {
-
-	my $short_ip = $shorten_ip->($ip);
-
-	if (    (defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-		and ($shorten_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) eq $short_ip))
-	{
-		return 1;
-	}
-
-	if (defined $server_options{ip_whitelist_session_cookie}) {
-		foreach (@{$server_options{ip_whitelist_session_cookie}}) {
-			if ($_ eq $ip) {
-				return 1;
-			}
-		}
-	}
-
-	return 0;
-}
-
 sub check_session ($user_id, $user_session) {
 
 	$log->debug("checking session", {user_id => $user_id, users_session => $user_session}) if $log->is_debug();
@@ -1828,6 +1913,7 @@ sub check_session ($user_id, $user_session) {
 			   (not defined $user_ref->{'user_sessions'})
 			or (not defined $user_session)
 			or (not defined $user_ref->{'user_sessions'}{$user_session})
+			or (is_stale_user_session($user_ref->{'user_sessions'}{$user_session}))
 			# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
 			# or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr())))
 

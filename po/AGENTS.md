@@ -31,12 +31,29 @@ Web addresses must route users to their localized interfaces.
 * Verify all localized URLs point to the correct regional subdomain.
 * If the source string contains `world.openfoodfacts.org` (or a variant), ensure the translated string adapts the prefix to match the target language code of the filename, it should be lowercase, we dont support language variants, so convert pt_BR to pt, zh_TW to zh
     * *Example:* If reviewing `fr.po`, `world.openfoodfacts.org` must become `world-fr.openfoodfacts.org` or `fr.openfoodfacts.org` depending on standard routing.
+* Ensure that images actually resolve. Here is an example from a po file which does not resolve because https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-cv.svg does not exist.
+```
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-cv.svg"
+```
+Translations of pages like this will fail because the symlink in openfoodfacts-web does not exist. If you want to approve those kind of translations, you should open a PR against openfoodfacts-web, or propose the person agent who invoked you to do so. Note that in some languages not using the roman alphabet, it might not be customary to translate URLs.
+```
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/ଖୋଲା-ସୌନ୍ଦର୍ଯ୍ୟ-ତଥ୍ୟ-ମୋବାଇଲ୍-ଆପ୍"
+```
 
 ### 4. 🧠 Contextual & Typographical Quality
 Do not stop at explicit errors. Proactively review for fluency and typographical rules.
 * **Fluency:** Hunt for overly literal, robotic, or "Google Translate-style" direct translations. Propose natural, native-sounding alternatives.
 * **Typography:** Respect locale-specific typography. (e.g., French requires non-breaking spaces before `: ; ? !`, German uses `„ “` quotation marks, Japanese uses `「」`, etc.).
 * **Tone:** Maintain a helpful, inclusive, and community-driven tone.
+
+### 5. Ensure consistency between common.pot and en.po
+* The strings must be in the same order, and all there in the 2 files
+* po/common/en.po must have source and target text identical, and complete
 
 ## 🛠️ Execution & Output Format
 When reviewing a PR, you must interact directly with the diff and provide actionable feedback.
