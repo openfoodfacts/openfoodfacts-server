@@ -1088,6 +1088,8 @@ sub display_error ($request_ref, $error_message, $status_code) {
 	delete $request_ref->{canon_rel_url};
 	delete $request_ref->{url};
 	delete $request_ref->{current_link};
+	# the language selector of error pages links to the home page of the other languages
+	delete $request_ref->{language_neutral_link};
 
 	my $html = "<p>$error_message</p>";
 	$request_ref->{status_code} = $status_code;

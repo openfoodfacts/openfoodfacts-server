@@ -22,7 +22,7 @@ create_user($ua, \%default_user_form);
 
 # 13 digits barcode, so that it is not normalized in urls
 my $code = '2000000000376';
-# products need to be sold in France to be listed on the French subdomains
+# products need to be sold in France to be listed on the French country subdomains (fr, fr-en)
 edit_product(
 	$ua,
 	{
@@ -69,18 +69,21 @@ sub get_language_selector_link ($path, $subdomain, $target_subdomain) {
 	return;
 }
 
+# Facet pages are tested on the world subdomains, as their products are not filtered by country:
+# the French version (world-fr) links to the English version (world)
 subtest 'Facet page' => sub {
-	my $link = get_language_selector_link('/facets/labels/en:organic', 'fr-en', 'fr');
-	is($link, '/facets/labels/en:organic', 'link to the French version of the facet page');
+	my $link = get_language_selector_link('/facets/labels/en:organic', 'world-fr', 'world');
+	is($link, '/facets/labels/en:organic', 'link to the English version of the facet page');
 
-	my $response = $ua_no_redirect->get(construct_test_url($link, 'fr'));
+	# the link uses the canonical tag id, which is redirected to the translated tag name on other language subdomains
+	my $response = $ua_no_redirect->get(construct_test_url($link, 'world-fr'));
 	is($response->code, 302, 'the French subdomain redirects to its canonical url');
 	like($response->header('Location'), qr{/facets/labels/}, 'redirect to the labels facet');
 	unlike($response->header('Location'), qr{en:organic}, 'redirect to the French name of the label');
 };
 
 subtest 'Facet page with a negative tag and a group by' => sub {
-	my $link = get_language_selector_link('/facets/labels/-en:organic/categories', 'fr-en', 'fr');
+	my $link = get_language_selector_link('/facets/labels/-en:organic/categories', 'world-fr', 'world');
 	is($link, '/facets/labels/-en:organic/categories', 'link keeps the negative tag and the group by');
 };
 
