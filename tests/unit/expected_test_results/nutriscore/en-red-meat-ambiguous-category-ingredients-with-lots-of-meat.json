@@ -30,7 +30,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [
             {
                "ecobalyse_name" : "Viande de porc -alim. ani. 100% FR-",
@@ -58,11 +58,14 @@
                "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
                "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
             }
+         ],
+         "preparation" : [
+            "refrigeration"
          ]
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
@@ -82,6 +85,9 @@
                   "amount" : 1,
                   "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27"
                }
+            ],
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"

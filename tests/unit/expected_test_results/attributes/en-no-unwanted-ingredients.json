@@ -451,7 +451,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [
             {
                "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
@@ -467,11 +467,14 @@
                "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
                "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
             }
+         ],
+         "preparation" : [
+            "refrigeration"
          ]
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
@@ -483,6 +486,9 @@
                   "amount" : 1,
                   "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec"
                }
+            ],
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -1046,7 +1052,7 @@
       "en:packagings-empty",
       "en:packagings-not-complete",
       "en:packagings-number-of-components-0",
-      "en:storage-conditions-not-set"
+      "en:storage-conditions-set"
    ],
    "nova_group" : 4,
    "nova_group_debug" : "",
@@ -1222,6 +1228,10 @@
    "pnns_groups_2_tags" : [
       "cheese",
       "known"
+   ],
+   "storage_conditions" : "en:refrigerated",
+   "storage_conditions_tags" : [
+      "en:refrigerated"
    ],
    "tags_sources" : {
       "allergens" : {

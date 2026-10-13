@@ -37,7 +37,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [
             {
                "ecobalyse_name" : "Soja Origine Inconnue",
@@ -65,11 +65,14 @@
                "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
                "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
             }
+         ],
+         "preparation" : [
+            "refrigeration"
          ]
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
@@ -89,6 +92,9 @@
                   "amount" : 1,
                   "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
                }
+            ],
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"

@@ -316,6 +316,11 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 			my @not_found = ();
 			my %different = ();    # better track it to display only differing values
 			foreach my $v (@values) {
+				# "undef" is a special value that stops the inheritance of the property from parents
+				if ($v eq "undef") {
+					push(@canon_values, $v);
+					next;
+				}
 				my $exists;
 				my $canon_value = canonicalize_taxonomy_tag($lc, $prop_tagtype, $v, \$exists);
 				push(@canon_values, $canon_value);
