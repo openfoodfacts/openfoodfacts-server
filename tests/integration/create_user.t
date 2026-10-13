@@ -61,6 +61,22 @@ foreach my $args_ref (["name", "click http://test.com"], ["faxnumber", "0"]) {
 	$testnum++;
 }
 
+# spam bots send newsletter=1: the user is not created, but we pretend it was
+{
+	my $userid = "bobnewsletter";
+	my %create_user_args
+		= (%default_user_form, (newsletter => "1", userid => $userid, email => "$userid\@example.com"));
+	my $logid = tail_log_start("$BASE_DIRS{LOGS}/user_spam.log");
+	# post directly: create_user_legacy() would wait for the welcome email job, that is never created
+	$response = $ua->post(construct_test_url("/cgi/user.pl", "world"), Content => \%create_user_args);
+	my $logged = tail_log_read($logid);
+	is($response->{_rc}, 200, "Status ok for spam with newsletter=1");
+	unlike($response->content, qr/class="error_page"/, "No error in the page for spam with newsletter=1");
+	like($response->content, qr/<!-- loggedin-->/, "Fake success page for spam with newsletter=1");
+	like($logged, qr/\b$userid\b/, "newsletter=1 in spam log");
+	is(retrieve_user($userid), undef, "User not created for spam with newsletter=1");
+}
+
 # Check copes with no country specified
 $ua = new_client();
 %create_user_args

@@ -430,7 +430,11 @@ if ($action eq 'display') {
 
 elsif ($action eq 'process') {
 
-	if (($type eq 'add') or ($type =~ /^edit/)) {
+	if ($request_ref->{fake_user_creation}) {
+		# spam registration: do not create the user, but display the same page as for a real creation
+		$log->info("user form - fake user creation for spam", {userid => $user_ref->{userid}}) if $log->is_info();
+	}
+	elsif (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
 	}
 	elsif (get_oidc_implementation_level() < 5 and $type eq 'delete') {

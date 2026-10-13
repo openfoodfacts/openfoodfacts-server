@@ -512,6 +512,21 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		display_error_and_exit($request_ref, "", 200);
 	}
 
+	# Spam bots that register accounts with random names send newsletter=1
+	# (the web form and the apps send "on")
+	# We do not create the account, but we pretend that it was created,
+	# so that the bot does not notice and does not change its requests
+	if (($type eq 'add') and ((single_param('newsletter') // '') eq '1')) {
+		open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
+		print $log remote_addr() . "\t"
+			. time() . "\t"
+			. $user_ref->{userid} . "\t"
+			. ($user_ref->{name} // '') . "\t"
+			. "newsletter\n";
+		close($log);
+		$request_ref->{fake_user_creation} = 1;
+	}
+
 	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
 
 	$log->debug("check_user_form", {type => $type, user_ref => $user_ref, email => $email}) if $log->is_debug();
