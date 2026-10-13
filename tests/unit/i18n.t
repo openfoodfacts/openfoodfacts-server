@@ -8,7 +8,7 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::I18N qw/:all/;
+use ProductOpener::I18N;
 use ProductOpener::Config qw/:all/;
 
 # Ensure that <<site_name>> is not translated - https://github.com/openfoodfacts/openfoodfacts-server/issues/1648
