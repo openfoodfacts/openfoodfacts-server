@@ -425,7 +425,7 @@ my @tests = (
 my $cosmetic_product_ref = {lc => "en", ingredients_text => "FD&C Yellow No. 5, glycerin"};
 parse_ingredients_text_service($cosmetic_product_ref, {}, []);
 is(scalar(@{$cosmetic_product_ref->{ingredients}}), 2, "Numbered cosmetic colorant stays one ingredient");
-like($cosmetic_product_ref->{ingredients}[0]{text}, qr/No\\.\\s*5/i, "The number stays attached to the colorant");
+like($cosmetic_product_ref->{ingredients}[0]{text}, qr/No\.\s*5/i, "The number stays attached to the colorant");
 
 foreach my $test_ref (@tests) {
 
