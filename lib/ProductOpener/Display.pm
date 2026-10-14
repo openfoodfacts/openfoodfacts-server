@@ -5983,7 +5983,9 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 		$html .= "<p>" . lang("error_database") . "</p>";
 	}
 	elsif ($count == 0) {
-		$html .= "<p>" . lang("no_products") . "</p>";
+		# No products found: export_csv already sent headers,
+		# so we must Not render an HTML page.
+		return;
 	}
 	elsif ($count > $max_count) {
 		$html .= "<p>" . sprintf(lang("error_too_many_products_to_export"), $count, $export_limit) . "</p>";
@@ -10110,6 +10112,10 @@ XML
 
 sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 
+	# Deep offsets are expensive to serve and cheap to ask for, so the number of changes that can
+	# be skipped before the first one is bounded
+	my $max_skip = $options{max_recent_changes_skip} // 10_000;
+
 	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
@@ -10125,6 +10131,10 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 		$limit = $options{max_recent_changes_page_size};
 	}
 
+	# A page size of 0 (page_size=0, or a value that is not a number) would make the pagination
+	# divide by zero, and MongoDB would read a limit of 0 as "no limit"
+	$limit = 1 if $limit < 1;
+
 	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
@@ -10139,6 +10149,15 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 		$page = 1;
 	}
 
+	# The page and the page size are bounded separately, so their product can be much larger than
+	# either of them (1000 pages of 1000 changes = a skip of 999,000). MongoDB has to walk over
+	# every skipped document on a $natural sort, so bound the offset itself and keep the last page
+	# that is served below it.
+	if ($skip > $max_skip) {
+		$skip = $max_skip - ($limit - 1);
+		$page = int($skip / $limit) + 1;
+	}
+
 	# support for returning structured results in json / xml etc.
 
 	$request_ref->{structured_response} = {
@@ -10151,10 +10170,13 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 	my $sort_ref = Tie::IxHash->new();
 	$sort_ref->Push('$natural' => -1);
 
-	$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
+	# The count is only used to render the pagination, and the pages we can serve end at $max_skip,
+	# so stop counting there instead of counting the whole collection on every request
+	$log->debug("Counting MongoDB documents for query", {query => $query_ref, limit => $max_skip + $limit})
+		if $log->is_debug();
 	my $count = execute_query(
 		sub {
-			return get_recent_changes_collection()->count_documents($query_ref);
+			return get_recent_changes_collection()->count_documents($query_ref, {limit => $max_skip + $limit});
 		}
 	);
 	$log->debug("MongoDB count query ok", {error => $@, count => $count}) if $log->is_debug();
