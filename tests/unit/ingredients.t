@@ -1475,6 +1475,15 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "Nordisk rapsolja, vatten, socker",
 		}
 	],
+	# Sheep's and goat's milk
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/14853
+	[
+		'en-sheep-and-goat-milk',
+		{
+			lc => "en",
+			ingredients_text => "Pasteurised sheep's and goat's milk, salt, starter culture, rennet.",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
