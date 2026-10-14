@@ -600,5 +600,32 @@ is(
 	'input set columns have distinct short names'
 ) or diag Dumper $input_sets_table_ref->{nutrition_table}{header};
 
+# Test that aggregated set column short names are formatted correctly (fixes #14778)
+for my $case (
+	{preparation => "as_sold", expected => "100g"},
+	{preparation => "unprepared", expected => "100g"},
+	{preparation => "prepared", expected => "prepared 100g"},
+) {
+	my $table_ref = data_to_display_nutrition_table(
+		{
+			nutrition => {
+				aggregated_set => {
+					preparation => $case->{preparation},
+					per => "100g",
+				},
+			},
+		},
+		undef,
+		{},
+		0
+	);
+	is(
+		[map {$_->{short_name} // ()} @{$table_ref->{nutrition_table}{header}{columns}}],
+		[$case->{expected}],
+		"aggregated set ($case->{preparation}) short name is $case->{expected}"
+	) or diag Dumper $table_ref->{nutrition_table}{header};
+}
+
 done_testing();
+
 
