@@ -464,6 +464,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#handling-errors-and-downtime-for-write-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling errors and downtime for WRITE requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2610,6 +2621,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#handling-errors-and-downtime-for-write-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling errors and downtime for WRITE requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2826,6 +2848,13 @@ Are you going to use our API? Please <strong>read this documentation <ins>entire
 <p>If your requests come from your users directly (ex: mobile app), the rate limits apply per user.</p>
 <p>If you need to fetch more than a few hundred products, we ask you to <a href="https://world.openfoodfacts.org/data">download the data as a CSV or JSONL file directly</a>. If you need to download images in bulk, we <a href="how-to-download-images/">have a guide for that</a>.</p>
 <p>To protect our infrastructure from abusive crawl, we also added global rate-limits on the website and API endpoints, irrespective of the IP address. A HTTP 503 response (Service Not Available) will be returned if these limits are exceeded.</p>
+<h3 id="handling-errors-and-downtime-for-write-requests">Handling errors and downtime for WRITE requests<a class="headerlink" href="#handling-errors-and-downtime-for-write-requests" title="Permanent link">#</a></h3>
+<p>The server can be temporarily unavailable (maintenance, high load, or the global rate-limits above). To avoid losing your users' contributions, we recommend that you:</p>
+<ul>
+<li><strong>Queue WRITE requests</strong> (product edits, image uploads…) in your app, and only remove them from the queue once the server has confirmed the request succeeded.</li>
+<li><strong>Retry with exponential backoff</strong> when a request fails because of a network error, a timeout, or an HTTP 429 or 5xx (e.g. 503) response: wait a few seconds before the first retry, then double the delay at each attempt, adding some random jitter so that all your users do not retry at the same time.</li>
+<li><strong>Limit the number of retries</strong>, and do not retry requests that failed because of a client error (other 4xx responses): fix the request instead.</li>
+</ul>
 <p>If you expect your app to generate a lot of API traffic, we <strong>strongly encourage you to host a local instance of Product Opener (or another custom API backend)</strong>, and use the daily exports to update your local database.</p>
 <h3 id="if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps">If your users do not expect a result immediately (e.g., Inventory apps)<a class="headerlink" href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" title="Permanent link">#</a></h3>
 <ul>
