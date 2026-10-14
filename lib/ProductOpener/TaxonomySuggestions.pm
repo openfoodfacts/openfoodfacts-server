@@ -139,7 +139,6 @@ sub get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $str
 	# The key carries the versions of the things the answer depends on, so that a change to any of
 	# them is picked up instead of being answered from an entry that is a day old:
 	# - $suggestions_cache_version, raised by a change to the matching or to what is returned
-	# - the taxonomies version, raised when translations or synonyms are loaded
 	# - for the packaging taxonomies, the time the popular statistics file was last written,
 	#   because those suggestions come from product data and not from the taxonomy
 	my $stats_file_mtime = 0;
@@ -152,7 +151,6 @@ sub get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $str
 		"get_taxonomy_suggestions",
 		{
 			cache_version => $suggestions_cache_version,
-			taxonomies_version => get_taxonomies_version(),
 			stats_file_mtime => $stats_file_mtime,
 			tagtype => $tagtype,
 			search_lc => $search_lc,
@@ -201,17 +199,14 @@ Generate a sorted list of canonicalized taxonomy entries from which we will gene
 =cut
 
 # The list of entries does not depend on the string being searched for, but it does depend on the
-# translations, which change when a taxonomy is loaded or when user contributed translations are
-# merged in. The cache key therefore carries get_taxonomies_version(), so a process picks the new
-# translations up without having to be told to rebuild.
-#
+# translations.
 # The packaging taxonomies are not cached: their leading entries are the ones most used for a
 # country and a category, so they come from product data and depend on the context.
 
 my %sorted_entries_cache = ();
 
 sub _sorted_entries_cache_key ($country, $tagtype, $search_lc) {
-	return join("\t", get_taxonomies_version(), $country, $tagtype, $search_lc);
+	return join("\t", $country, $tagtype, $search_lc);
 }
 
 sub _get_sorted_entries ($country, $tagtype, $search_lc, $context_ref) {
@@ -497,7 +492,7 @@ sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 
 sub _get_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 
-	my $key = join("\t", get_taxonomies_version(), $tagtype, $search_lc);
+	my $key = join("\t", $tagtype, $search_lc);
 
 	if (not exists $suggestions_index{$key}) {
 
