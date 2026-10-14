@@ -90632,7 +90632,7 @@ ciqual_food_code:en: 11304
 ciqual_food_name:en: Veal stock, prepacked
 ciqual_food_name:fr: Fond de veau, préemballé
 
-< en: Broths
+< en: broths
 en: Dashi
 xx: Dashi
 cs: Daši
@@ -90640,6 +90640,7 @@ eo: Daŝio
 hu: Dasi
 ja: 出汁
 ko: 다시
+pl: Dashi
 zh: 出汁
 description:en: Dashi is a class of soup and cooking stock used in Japanese cuisines
 wikidata:en: Q851746
@@ -97036,9 +97037,10 @@ ciqual_food_code:en: 40305
 ciqual_food_name:en: Sweetbread, calf, sautéed/pan-fried
 ciqual_food_name:fr: Ris, veau, braisé ou sauté/poêlé
 
-< en: Meat
+# < en: meat
 en: Meat for osso buco, osso buco meat
 fr: Viande pour osso buco
+pl: Mięso do ossobuco
 
 < en: Meat for osso buco
 < en: Veal meat
@@ -97666,6 +97668,7 @@ fr: Produits de montagne
 hr: Planinskih proizvoda
 it: Prodotti di montagna
 nl: Bergproducten
+pl: Produkty górskie
 zh: 高山产品
 wikidata:en: Q3406714
 #wikidata:en:Q2831936 (italy)
@@ -98540,6 +98543,7 @@ nl: Paddestoelenpoeders
 
 en: Pastas and dumplings
 fr: Pâtes et bouchées farcies
+pl: Świeże makarony oraz pierogi i kluski
 
 # <en:dough
 < en: Plant-based foods
@@ -99004,6 +99008,7 @@ it: Trofie
 #en:Pastas
 en: Wheat vermicelli
 it: Vermicelli
+pl: Vermicelli pszenne
 zh: 小麦细面条
 
 < en: Pastas
@@ -99795,7 +99800,7 @@ en: Raviolis, Ravioli
 xx: Ravioli
 ar: رافيولي
 bg: Равиоли
-cs: ravioly
+cs: Ravioly
 el: ραβιόλια
 eo: Ravioloj
 fa: راویولی
@@ -99807,6 +99812,7 @@ ja: ラビオリ
 kk: Равиоли
 ko: 라비올리
 lt: Ravioliai, virti įdaryti makaronai
+pl: Ravioli
 ru: Равиоли
 sk: Raviola
 th: ราวีโอลี
@@ -99862,10 +99868,10 @@ agribalyse_proxy_food_name:fr: Lasagnes ou canelloni aux légumes et au fromage 
 
 < en: Stuffed pastas
 < xx: Dumplings
-en: pierogi
+en: Pierogi
 cs: pirohy
 hr: Pirogi
-pl: pierogi
+pl: Pierogi
 ru: пероги
 sk: pirohy
 ua: пироги, вареники
@@ -100499,7 +100505,7 @@ hr: Rezanci
 it: Noodle
 ja: 麺
 nl: Noedels
-pl: Kluski, Nudle
+pl: Nudle
 ru: Лапша
 sv: Nudlar
 zh: 面条, 面
@@ -100564,7 +100570,7 @@ hr: Rižin vermicelli
 it: Vermicelli di riso
 ja: 米の麺
 nl: Rijstvermicellis
-pl: Makaroniki ryżowe
+pl: Vermicelli ryżowe
 ru: Рисовая лапша
 sv: Risnudlar
 zh: 米粉
@@ -100607,7 +100613,7 @@ hr: Sušeni rižini rezanci
 it: Vermicelli di riso secchi
 ja: 乾燥した米の麺
 nl: Droge rijstnoedels
-pl: Suszone makaroniki ryżowe
+pl: Suszony makaron ryżowy, Suszone nudle ryżowe
 ru: Сушеные рисовые лапши
 sv: Torkade risnudlar
 zh: 干米面条
@@ -101806,6 +101812,7 @@ hr: Pite od jabuka
 it: Torte di mele
 ja: アップルパイ
 nl: Appeltaarten
+pl: Szarlotki, Jabłeczniki, Tarty jabłkowe
 agribalyse_food_code:en: 23490
 ciqual_food_code:en: 23490
 ciqual_food_name:en: Apple tart
@@ -106470,6 +106477,7 @@ hr: Albacore
 ja: ビンナガ
 la: Thunnus alalunga
 nl: Witte tonijn
+pl: Tuńczyk biały, Tuńczyk albakora, Tuńczyk długopłetwy
 zh: 长鳍金枪鱼
 agribalyse_food_code:en: 26076
 ciqual_food_code:en: 26076
@@ -108033,8 +108041,13 @@ en: Egg salads substitutes, Egg spreads substitutes
 fr: Substituts de salades d'œufs, Substituts de tartinades d'œufs, Substituts de tartinades d'oeufs
 
 en: Vegan products
+cs: Veganské produkty, Veganské výrobky
+de: Vegane Produkte
 fr: Produits veganes
 nl: Veganistische producten
+pl: Produkty wegańskie, Wegańskie produkty
+ru: Веганские продукты
+uk: Веганські продукти
 zh: 纯素产品
 incompatible_with:en: categories:en:bee-products, categories:en:dairies, categories:en:eggs-and-their-products, categories:en:meats-and-their-products
 
@@ -110896,6 +110909,7 @@ hr: Agavini sirupi
 it: Sciroppi d'agave
 ja: アガベシロップ
 nl: Agavesiropen
+pl: Syropy z agawy, Nektary z agawy
 zh: 龙舌兰糖浆
 agribalyse_food_code:en: 31089
 ciqual_food_code:en: 31089
@@ -114934,6 +114948,7 @@ de: Agata Kartoffeln
 fr: Pommes de terre Agata
 hr: Agata krumpir
 nl: Agata aardappelen
+pl: Ziemniaki Agata
 zh: 阿加塔土豆
 sales_format:en: weight, package
 wikidata:en: Q373973
@@ -115739,6 +115754,7 @@ lt: Rabarbaras, Rabarbarai
 lv: rabarber
 nl: rabarber
 nn: rabarbra
+pl: Rabarbar, Rabarbary, Rabarbar kędzierzawy
 pt: Ruibarbo
 ro: Revent
 ru: ревень
@@ -120685,6 +120701,7 @@ hr: Agar-agar
 it: Agar-Agar
 ja: 寒天
 nl: Agar-agar, Agar
+pl: Agar-agar, Agar
 agribalyse_food_code:en: 11084
 ciqual_food_code:en: 11084
 ciqual_food_name:en: Seaweed, agar, raw
@@ -120699,6 +120716,7 @@ zh: 琼脂粉
 en: Caviar substitutes, Artificial caviar, Imitation caviar
 da: Kaviarerstatninger
 fr: Substituts du caviar, Imitation de caviar
+pl: Zamienniki kawioru, Imitacje kawioru, Sztuczny kawior
 ru: Искусственная икра
 sv: Kaviarersättningar
 uk: Штучна ікра
@@ -120711,6 +120729,7 @@ wikidata:en: Q4420444
 en: Plant-based caviar substitutes, Vegan caviar substitutes, Plant-based caviars, Vegan caviars
 da: Plantebaserede kaviarer, Veganske kaviarer
 fr: Caviars végétaux, Caviar végétal
+pl: Roślinne zamienniki kawioru
 sv: Växtbaserade kaviarer, Veganska kaviarer
 
 < en: Caviar substitutes
@@ -121506,6 +121525,7 @@ storage_conditions:en: en:frozen
 < en: Potato wedges
 en: Frozen potato wedges
 da: Frosne kartoffelbåde
+pl: Mrożone ziemniaki łódeczki
 sv: Frysta potatisklyftor, Djupfryst klyftpotatis
 
 < en: Frozen potatoes
@@ -121964,6 +121984,7 @@ hr: Proteinske pločice
 it: Barrette proteiche
 ja: プロテインバー
 nl: Proteinerepen
+pl: Batony proteinowe
 pt: Barras de proteínas
 ro: Batoane proteice
 ru: Протеиновые батончики
@@ -122720,6 +122741,7 @@ fr: Crêpes et galettes
 hr: Crêpes i galettes
 it: Crêpe e galette
 nl: Pannenkoeken en galettes
+pl: Crêpes i galettes, Naleśniki pszenne i gryczane
 ru: Блины
 zh: 可丽饼和法式咸薄饼
 
@@ -122786,7 +122808,7 @@ nl: Pannenkoeken, crêpe, pannenkoek, pannekoeken
 nn: pannekake
 nv: Abeʼ neesmaasí
 oc: Pescajon
-pl: Naleśnik
+pl: Naleśniki, Crêpe, Naleśnik
 pt: crepe
 ro: Clătită
 ru: Тонкие блинчики
@@ -123359,6 +123381,7 @@ en: Plant-based breaded cutlets, Vegan breaded cutlets, Plant-based schnitzels, 
 da: Plantebaserede schnitzler, Veganske schnitzler, Vegansk schnitzel
 nb: Plantebaserte snitsler, Veganske snitsler
 nn: Plantebaserte snitslar, Veganske snitslar
+pl: Roślinne kotlety panierowane, Roślinne sznycle, Wegańskie sznycle, Wegańskie kotlety panierowane
 sv: Växtbaserade schnitzlar, Veganska schnitzlar, Vegansk schnitzel
 
 < en: Breaded products
@@ -123452,6 +123475,7 @@ ciqual_proxy_food_name:fr: Haché végétal à base de soja, préemballé
 < en: Vegetarian grounds
 en: Plant-based grounds, Plant-based minces, Vegan grounds, Vegan minces
 fr: Hachés végétales
+pl: Wegańskie mielone
 
 < en: Meat analogues from soy or wheat proteins
 < en: Plant-based grounds
@@ -124726,6 +124750,7 @@ it: Puré
 ja: ピュレ, ピューレ
 nl: Puree, Moes
 nl_be: Puree, Moes
+pl: Purée, Puree
 ru: Пюре
 zh: 泥状食品
 wikidata:en: Q636056
@@ -125247,6 +125272,7 @@ it: Terrine
 ja: テリーヌ
 nl: Terrines, Vleespotten, Terrine, Vleespo
 nl_be: Vleespottten, Vleespot, Terrines, Terrine
+pl: Terriny
 pt: Terrinas
 zh: 法式冻派
 nova:en: 3
@@ -125826,6 +125852,7 @@ fr: Aides culinaires, Aides à la cuisine, Autres aides culinaires
 he: מסייעי אפייה, תומכי אפייה, עוזרי אפייה, עזרי אפייה, חומרי אפייה
 hr: Pomoćnici u kuhanju
 nl: Kookhulpmiddelen, Voedselhulpmiddelen
+pl: Pomocnicy kuchenni, Bazy i dodatki kulinarne
 ru: Кулинарные добавки
 zh: 厨房神器
 
@@ -125899,6 +125926,7 @@ nl: Xanthaangom
 #Things you put on slices of bread during meals that consist mainly of bread
 en: Bread coverings
 nl: Broodbeleggen, Broodbeleg
+pl: Obkład do kanapek, Dodatki do kanapek, Dodatki do chleba, Obkład, Obkład do chleba
 zh: 面包罩
 
 < nl: Broodbeleggen
@@ -125911,6 +125939,7 @@ fr: Décorations alimentaires
 hr: Ukrasi za hranu
 it: Decorazioni alimentari
 nl: Levensmiddeldecoraties, Levensmiddeldecoratie
+pl: Dekoracje spożywcze
 zh: 食品装饰品
 
 < en: Bread coverings
@@ -126167,6 +126196,7 @@ fr: Risottos aux cèpes
 xx: Dumplings
 en: Dumplings
 lt: Koldūnai
+pl: Pierogi i kluski nadziewane
 sv: Dumplingar
 wikidata:en: Q1854639
 
@@ -126240,6 +126270,7 @@ xx: Gyoza
 fr: Gyoza, Gyosa, Ravioli japonais
 ja: 餃子, ギョウザ
 nl: Gyoza, Japanse ravioli
+pl: Pierożki gyoza
 wikidata:en: Q107015868
 
 < en: Gyoza
@@ -126533,6 +126564,7 @@ nl: Forelterinnes, Forelterrine
 en: Specific products
 fr: Produits spécifiques
 nl: Specifieke producten
+pl: Specyficzne produkty
 zh: 特定产品
 
 < en: Specific products
@@ -126982,12 +127014,14 @@ de: Füllung
 fr: farces
 hr: Punjenje
 it: Stuffing
+pl: Farsze, Nadzienia
 zh: 馅料
 
 < en: Frozen foods
 < en: stuffing
 en: Frozen stuffing
 fr: farces surgelées
+pl: Farsze mrożone, Nadzienia mrożone
 
 < en: insects
 en: Dried deffated black soldier fly protein
