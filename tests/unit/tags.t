@@ -251,8 +251,31 @@ is(canonicalize_taxonomy_tag("fr", "test", "kéfir 2.5%"), "en:kefir-2-5");
 # Following should be 2.5% instead of 2.5 % for English
 is(display_taxonomy_tag("en", "test", "en:kefir-2-5"), "Kefir 2.5 %");
 is(display_taxonomy_tag("de", "test", "en:kefir-2-5"), "Kefir 2.5 %");
-# Following string has a lower comma ‚ instead of a normal comma
-is(display_taxonomy_tag("fr", "test", "en:kefir-2-5"), "Kéfir 2‚5 %");
+# The taxonomy stores "Kéfir 2,5 %", and sanitize_taxonomy_line() turns the comma into a
+# U+201A lower comma so that it is not mistaken for a value separator when the taxonomy is
+# loaded. That marker must not be displayed: French uses a plain comma as decimal separator.
+is(display_taxonomy_tag("fr", "test", "en:kefir-2-5"), "Kéfir 2,5 %");
+
+# Displaying a name with plain commas must not change the identifiers computed from it, as
+# get_string_id_for_lang() turns both the comma and the U+201A lower comma into a "-".
+is(canonicalize_taxonomy_tag("fr", "test", "Kéfir 2,5 %"),
+	"en:kefir-2-5", "a name with a plain comma can still be canonicalized");
+is(canonicalize_taxonomy_tag("fr", "test", "Kéfir 2\N{U+201A}5 %"),
+	"en:kefir-2-5", "a name with a lower comma can still be canonicalized");
+is(
+	get_string_id_for_lang("fr", "Kéfir 2,5 %"),
+	get_string_id_for_lang("fr", "Kéfir 2\N{U+201A}5 %"),
+	"the identifier does not depend on the comma used in the name"
+);
+
+# taxonomy_display_name() turns the markers used when loading taxonomies into display characters
+is(taxonomy_display_name("Fruits\N{U+201A} vegetables\N{U+201A} legumes"), "Fruits, vegetables, legumes");
+is(taxonomy_display_name("Fruits, vegetables, legumes"), "Fruits, vegetables, legumes");
+is(taxonomy_display_name("Salt"), "Salt");
+is(taxonomy_display_name(undef), undef);
+is(taxonomy_display_name(""), "");
+# a name can hold several commas, and the marker must not be treated as a digit group separator
+is(taxonomy_display_name("1,000,000\N{U+201A}5 g"), "1,000,000,5 g");
 
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "correcteurs-d-acidite"), "correcteurs-acidite");
 is(ProductOpener::Tags::remove_stopwords("ingredients", "fr", "yaourt-a-la-fraise"), "yaourt-fraise");
