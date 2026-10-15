@@ -6545,9 +6545,37 @@ msgctxt "environmental_cost_stage"
 msgid "Stage"
 msgstr "Étape"
 
-msgctxt "environmental_cost_ecs"
-msgid "Points per 100 g"
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
 msgstr "Points pour 100 g"
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr "Points pour 100 ml"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr "Points pour le produit ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr "{points} points pour le produit ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr "{points} points pour 100 g"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr "{points} points pour 100 ml"
+
+msgctxt "environmental_cost_estimated_quantity"
+msgid "The product quantity is unknown: the environmental cost for the product is computed for an estimated quantity, based on the packaging."
+msgstr "La quantité du produit est inconnue : le coût environnemental pour le produit est calculé pour une quantité estimée, à partir de l'emballage."
 
 msgctxt "environmental_cost_ingredients"
 msgid "Ingredients"

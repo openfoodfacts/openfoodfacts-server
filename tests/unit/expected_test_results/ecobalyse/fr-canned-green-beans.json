@@ -28,19 +28,19 @@
             {
                "ecobalyse_name" : "Haricots verts Origine Inconnue",
                "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
-               "mass" : 66.6666666666667,
+               "mass" : 246.666666666667,
                "name" : "haricots verts"
             },
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 16.6666666666667,
+               "mass" : 61.6666666666667,
                "name" : "eau"
             },
             {
                "ecobalyse_name" : "Sel -2025-",
                "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-               "mass" : 16.6666666666667,
+               "mass" : 61.6666666666666,
                "name" : "sel"
             }
          ],
@@ -53,9 +53,12 @@
                "name_fr" : "Pot en verre pour crème de marrons - 370g - Proxy"
             }
          ],
+         "reference_quantity" : 370,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g",
          "transform" : {
             "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-            "mass" : 100,
+            "mass" : 370.0,
             "name" : "Canning fruits or vegetables, industrial, 1kg of canned product {FR} U",
             "name_fr" : "Mise en conserve"
          }
@@ -66,15 +69,15 @@
             "ingredients" : [
                {
                   "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
-                  "mass" : 66.6666666666667
+                  "mass" : 246.666666666667
                },
                {
                   "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 16.6666666666667
+                  "mass" : 61.6666666666667
                },
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 16.6666666666667
+                  "mass" : 61.6666666666666
                }
             ],
             "packaging" : [
@@ -85,7 +88,7 @@
             ],
             "transform" : {
                "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-               "mass" : 100
+               "mass" : 370.0
             }
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -94,12 +97,12 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 0.236318
+                  "ecs" : 0.874376
                },
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 4.41124
+                     "ecs" : 8.01887
                   },
                   "road" : 0,
                   "roadCooled" : 600,
@@ -111,32 +114,32 @@
                "ecs" : 17.23
             },
             "perKg" : {
-               "ecs" : 396.583
+               "ecs" : 237.828
             },
             "preparation" : {
                "ecs" : 0
             },
-            "preparedMass" : 0.0933333,
+            "preparedMass" : 0.345333,
             "recipe" : {
                "ingredientsTotal" : {
-                  "ecs" : 4.99427
+                  "ecs" : 18.4788
                },
                "total" : {
-                  "ecs" : 15.1369
+                  "ecs" : 56.0065
                },
                "totalBonusImpact" : {
                   "cropDiversity" : 0,
-                  "hedges" : -0.000112,
+                  "hedges" : -0.0004144,
                   "permanentPasture" : 0,
-                  "plotSize" : -0.00132
+                  "plotSize" : -0.004884
                },
                "transform" : {
-                  "ecs" : 1.954
+                  "ecs" : 7.2298
                },
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 8.18863
+                     "ecs" : 30.2979
                   },
                   "road" : 3320,
                   "roadCooled" : 2660,
@@ -145,20 +148,20 @@
                }
             },
             "scoring" : {
-               "all" : 396.583,
-               "biodiversity" : 156.772,
-               "climate" : 110.891,
-               "health" : 47.5736,
-               "resources" : 81.4145
+               "all" : 237.828,
+               "biodiversity" : 99.8472,
+               "climate" : 58.6897,
+               "health" : 28.7463,
+               "resources" : 50.5653
             },
             "total" : {
-               "ecs" : 37.0145
+               "ecs" : 82.1298
             },
-            "totalMass" : 0.308133,
+            "totalMass" : 0.560133,
             "transports" : {
                "air" : 0,
                "impacts" : {
-                  "ecs" : 12.5999
+                  "ecs" : 38.3168
                },
                "road" : 3320,
                "roadCooled" : 3260,
@@ -167,7 +170,9 @@
             }
          }
       },
-      "ecs" : 37.0145
+      "ecs_per_100g_or_100ml" : 22.1972432432432,
+      "ecs_per_product" : 82.1298,
+      "ecs_unit" : "g"
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
@@ -250,6 +255,7 @@
    "lc" : "fr",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-called",
       "en:ecobalyse-api-success"

@@ -34,7 +34,7 @@
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 94,
+               "mass" : 940,
                "name" : "sugar"
             }
          ],
@@ -46,7 +46,10 @@
                "name" : "Sugar, 1000g | Packaging System, Proxy Pack, Cardboard {FR} U",
                "name_fr" : "Sachet en papier pour sucre - 1000g - Proxy"
             }
-         ]
+         ],
+         "reference_quantity" : 1000,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -54,7 +57,7 @@
             "ingredients" : [
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 94
+                  "mass" : 940
                }
             ],
             "packaging" : [
@@ -171,6 +174,7 @@
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

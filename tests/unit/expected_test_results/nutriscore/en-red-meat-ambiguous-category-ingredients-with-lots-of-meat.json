@@ -35,19 +35,19 @@
             {
                "ecobalyse_name" : "Viande de porc -alim. ani. 100% FR-",
                "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
-               "mass" : 61,
+               "mass" : 201.3,
                "name" : "pork meat"
             },
             {
                "ecobalyse_name" : "Viande d'agneau -désossée- FR",
                "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
-               "mass" : 20,
+               "mass" : 66,
                "name" : "lamb meat"
             },
             {
                "ecobalyse_name" : "Sel -2025-",
                "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-               "mass" : 9,
+               "mass" : 29.7,
                "name" : "salt"
             }
          ],
@@ -59,7 +59,10 @@
                "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
                "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
             }
-         ]
+         ],
+         "reference_quantity" : 330,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -67,15 +70,15 @@
             "ingredients" : [
                {
                   "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
-                  "mass" : 61
+                  "mass" : 201.3
                },
                {
                   "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
-                  "mass" : 20
+                  "mass" : 66
                },
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 9
+                  "mass" : 29.7
                }
             ],
             "packaging" : [
@@ -237,6 +240,7 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-c-2023-c",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-not-computed",

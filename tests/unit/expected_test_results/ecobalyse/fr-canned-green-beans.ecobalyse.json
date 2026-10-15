@@ -2,12 +2,12 @@
    "results" : {
       "distribution" : {
          "total" : {
-            "ecs" : 0.236318
+            "ecs" : 0.874376
          },
          "transports" : {
             "air" : 0,
             "impacts" : {
-               "ecs" : 4.41124
+               "ecs" : 8.01887
             },
             "road" : 0,
             "roadCooled" : 600,
@@ -19,32 +19,32 @@
          "ecs" : 17.23
       },
       "perKg" : {
-         "ecs" : 396.583
+         "ecs" : 237.828
       },
       "preparation" : {
          "ecs" : 0
       },
-      "preparedMass" : 0.0933333,
+      "preparedMass" : 0.345333,
       "recipe" : {
          "ingredientsTotal" : {
-            "ecs" : 4.99427
+            "ecs" : 18.4788
          },
          "total" : {
-            "ecs" : 15.1369
+            "ecs" : 56.0065
          },
          "totalBonusImpact" : {
             "cropDiversity" : 0,
-            "hedges" : -0.000112,
+            "hedges" : -0.0004144,
             "permanentPasture" : 0,
-            "plotSize" : -0.00132
+            "plotSize" : -0.004884
          },
          "transform" : {
-            "ecs" : 1.954
+            "ecs" : 7.2298
          },
          "transports" : {
             "air" : 0,
             "impacts" : {
-               "ecs" : 8.18863
+               "ecs" : 30.2979
             },
             "road" : 3320,
             "roadCooled" : 2660,
@@ -53,20 +53,20 @@
          }
       },
       "scoring" : {
-         "all" : 396.583,
-         "biodiversity" : 156.772,
-         "climate" : 110.891,
-         "health" : 47.5736,
-         "resources" : 81.4145
+         "all" : 237.828,
+         "biodiversity" : 99.8472,
+         "climate" : 58.6897,
+         "health" : 28.7463,
+         "resources" : 50.5653
       },
       "total" : {
-         "ecs" : 37.0145
+         "ecs" : 82.1298
       },
-      "totalMass" : 0.308133,
+      "totalMass" : 0.560133,
       "transports" : {
          "air" : 0,
          "impacts" : {
-            "ecs" : 12.5999
+            "ecs" : 38.3168
          },
          "road" : 3320,
          "roadCooled" : 3260,

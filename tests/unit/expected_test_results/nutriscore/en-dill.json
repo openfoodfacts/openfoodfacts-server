@@ -53,7 +53,10 @@
                "name" : "Fresh herbs, 100g | Packaging System, Proxy Pack, Plastic film {FR} U",
                "name_fr" : "Sachet en plastique (PP) pour herbes aromatiques - 100g - Proxy"
             }
-         ]
+         ],
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -145,6 +148,7 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:ecobalyse-ingredients-matched-between-0-and-9",
       "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",

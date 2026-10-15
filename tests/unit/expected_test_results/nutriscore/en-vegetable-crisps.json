@@ -38,13 +38,13 @@
             {
                "ecobalyse_name" : "Panais Origine Inconnue",
                "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
-               "mass" : 70,
+               "mass" : 196,
                "name" : "parsnip"
             },
             {
                "ecobalyse_name" : "Betterave Origine Inconnue",
                "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
-               "mass" : 30,
+               "mass" : 84,
                "name" : "red beet"
             }
          ],
@@ -56,7 +56,10 @@
                "name" : "Starters, Exotic products, 280g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
                "name_fr" : "Barquette en plastique (PET) pour entrées, produits exotiques - 280g - Proxy"
             }
-         ]
+         ],
+         "reference_quantity" : 280,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -64,11 +67,11 @@
             "ingredients" : [
                {
                   "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
-                  "mass" : 70
+                  "mass" : 196
                },
                {
                   "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
-                  "mass" : 30
+                  "mass" : 84
                }
             ],
             "packaging" : [
@@ -175,6 +178,7 @@
       "en:nutrition-fruits-vegetables-legumes-from-category-en-parsnip-crisps",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

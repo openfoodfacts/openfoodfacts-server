@@ -1,0 +1,220 @@
+{
+   "categories" : "haricots verts surgelés",
+   "categories_hierarchy" : [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:legumes-and-their-products",
+      "en:frozen-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:legumes",
+      "en:vegetable-based-foods-and-beverages",
+      "en:vegetables-based-foods",
+      "en:vegetables",
+      "en:frozen-plant-based-foods",
+      "en:frozen-legumes",
+      "en:frozen-vegetables",
+      "en:green-beans",
+      "en:frozen-green-beans"
+   ],
+   "categories_lc" : "fr",
+   "categories_tags" : [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:legumes-and-their-products",
+      "en:frozen-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:legumes",
+      "en:vegetable-based-foods-and-beverages",
+      "en:vegetables-based-foods",
+      "en:vegetables",
+      "en:frozen-plant-based-foods",
+      "en:frozen-legumes",
+      "en:frozen-vegetables",
+      "en:green-beans",
+      "en:frozen-green-beans"
+   ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Haricots verts Origine Inconnue",
+               "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
+               "mass" : 1000,
+               "name" : "haricots verts"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "packaging" : [
+            {
+               "category" : "en:frozen-foods",
+               "id" : "3b312971-e9a3-4da1-ad35-bb37a647310a",
+               "name" : "Vegetables cooked frozen, 500g | Packaging System, N0, All, Tray with cardboard case {FR} U",
+               "name_fr" : "Etui en carton et barquette en plastique (PP) pour légumes, surgelés - 500g"
+            }
+         ],
+         "reference_quantity" : 1000,
+         "reference_quantity_source" : "product_quantity",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
+                  "mass" : 1000
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "3b312971-e9a3-4da1-ad35-bb37a647310a"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      },
+      "ecobalyse_response" : {
+         "results" : {
+            "distribution" : {
+               "total" : {
+                  "ecs" : 2.84847
+               },
+               "transports" : {
+                  "air" : 0,
+                  "impacts" : {
+                     "ecs" : 14.0804
+                  },
+                  "road" : 0,
+                  "roadCooled" : 600,
+                  "sea" : 0,
+                  "seaCooled" : 0
+               }
+            },
+            "packaging" : {
+               "ecs" : 15.15
+            },
+            "perKg" : {
+               "ecs" : 232.263
+            },
+            "preparation" : {
+               "ecs" : 0
+            },
+            "preparedMass" : 0.9,
+            "recipe" : {
+               "ingredientsTotal" : {
+                  "ecs" : 66.96
+               },
+               "total" : {
+                  "ecs" : 176.958
+               },
+               "totalBonusImpact" : {
+                  "cropDiversity" : 0,
+                  "hedges" : 0,
+                  "permanentPasture" : 0,
+                  "plotSize" : 0
+               },
+               "transform" : {
+                  "ecs" : 0
+               },
+               "transports" : {
+                  "air" : 0,
+                  "impacts" : {
+                     "ecs" : 109.998
+                  },
+                  "road" : 0,
+                  "roadCooled" : 2660,
+                  "sea" : 0,
+                  "seaCooled" : 18000
+               }
+            },
+            "scoring" : {
+               "all" : 232.263,
+               "biodiversity" : 111.884,
+               "climate" : 54.0386,
+               "health" : 27.4969,
+               "resources" : 38.8304
+            },
+            "total" : {
+               "ecs" : 209.036
+            },
+            "totalMass" : 0.98354,
+            "transports" : {
+               "air" : 0,
+               "impacts" : {
+                  "ecs" : 124.078
+               },
+               "road" : 0,
+               "roadCooled" : 3260,
+               "sea" : 0,
+               "seaCooled" : 18000
+            }
+         }
+      },
+      "ecs_per_100g_or_100ml" : 20.9036,
+      "ecs_per_product" : 209.036,
+      "ecs_unit" : "g"
+   },
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "20061",
+         "ecobalyse_id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
+         "ecobalyse_name" : "Haricots verts Origine Inconnue",
+         "id" : "en:green-bean",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "haricots verts",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:green-bean"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:green-bean",
+      "en:legume",
+      "en:pod-and-seed-vegetable",
+      "en:vegetable"
+   ],
+   "ingredients_text" : "haricots verts",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 1,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-reference-quantity-from-product-quantity",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
+   ],
+   "product_quantity" : 1000,
+   "product_quantity_unit" : "g",
+   "quantity" : "1 kg",
+   "testid" : "fr-frozen-green-beans-1kg",
+   "unknown_ingredients_n" : 0
+}

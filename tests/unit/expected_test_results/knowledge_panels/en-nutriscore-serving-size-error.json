@@ -111,7 +111,10 @@
                "name" : "Cookies, 200g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
                "name_fr" : "Barquette en plastique (PP) pour cookies - 200g - Proxy"
             }
-         ]
+         ],
+         "reference_quantity" : 200,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -2112,6 +2115,7 @@
       "en:all-ingredients-with-specified-percent",
       "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",

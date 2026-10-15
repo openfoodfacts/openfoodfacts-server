@@ -446,43 +446,43 @@
             {
                "ecobalyse_name" : "Farine UE -2025-",
                "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-               "mass" : 54.5454545454545,
+               "mass" : 155.454545454545,
                "name" : "wheat flour"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 12.5,
+               "mass" : 35.625,
                "name" : "sugar"
             },
             {
                "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
                "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-               "mass" : 12.5,
+               "mass" : 35.625,
                "name" : "eggs"
             },
             {
                "ecobalyse_name" : "Fraise par défaut -2025-",
                "id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
-               "mass" : 10.2272727272727,
+               "mass" : 29.1477272727273,
                "name" : "strawberries"
             },
             {
                "ecobalyse_name" : "Huile de colza par défaut -2025-",
                "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
-               "mass" : 2.55681818181818,
+               "mass" : 7.28693181818181,
                "name" : "rapeseed oil"
             },
             {
                "ecobalyse_name" : "Noix de macadamia Origine Inconnue",
                "id" : "02a9df90-91c4-5bf0-900a-9efa6ffcfaf6",
-               "mass" : 1.27840909090909,
+               "mass" : 3.64346590909092,
                "name" : "macadamia nuts"
             },
             {
                "ecobalyse_name" : "Sel -2025-",
                "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-               "mass" : 0.125,
+               "mass" : 0.35625,
                "name" : "salt"
             }
          ],
@@ -494,7 +494,10 @@
                "name" : "Other desserts - cat C, 285g | Packaging System, N0, All, Cardboard box {FR} U",
                "name_fr" : "Boîte en carton, barquette aluminium, sachet plastique (PEBD) pour gâteau - 330g"
             }
-         ]
+         ],
+         "reference_quantity" : 285,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -502,31 +505,31 @@
             "ingredients" : [
                {
                   "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 54.5454545454545
+                  "mass" : 155.454545454545
                },
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 12.5
+                  "mass" : 35.625
                },
                {
                   "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-                  "mass" : 12.5
+                  "mass" : 35.625
                },
                {
                   "id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
-                  "mass" : 10.2272727272727
+                  "mass" : 29.1477272727273
                },
                {
                   "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
-                  "mass" : 2.55681818181818
+                  "mass" : 7.28693181818181
                },
                {
                   "id" : "02a9df90-91c4-5bf0-900a-9efa6ffcfaf6",
-                  "mass" : 1.27840909090909
+                  "mass" : 3.64346590909092
                },
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 0.125
+                  "mass" : 0.35625
                }
             ],
             "packaging" : [
@@ -1263,6 +1266,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-skipped",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",

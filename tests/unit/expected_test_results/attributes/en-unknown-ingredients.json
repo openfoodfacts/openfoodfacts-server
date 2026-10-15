@@ -452,7 +452,10 @@
                "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
                "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
             }
-         ]
+         ],
+         "reference_quantity" : 200,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -946,6 +949,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",

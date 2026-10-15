@@ -456,13 +456,13 @@
             {
                "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
                "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-               "mass" : 62.5,
+               "mass" : 125.0,
                "name" : "palm oil"
             },
             {
                "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
                "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
-               "mass" : 9.375,
+               "mass" : 18.75,
                "name" : "sea salt"
             }
          ],
@@ -474,7 +474,10 @@
                "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
                "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
             }
-         ]
+         ],
+         "reference_quantity" : 200,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -482,11 +485,11 @@
             "ingredients" : [
                {
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 62.5
+                  "mass" : 125.0
                },
                {
                   "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
-                  "mass" : 9.375
+                  "mass" : 18.75
                }
             ],
             "packaging" : [
@@ -1049,6 +1052,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-70-and-79",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",

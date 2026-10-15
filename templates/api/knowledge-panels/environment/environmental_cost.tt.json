@@ -1,8 +1,10 @@
+[% IF panel.unit == 'ml' %][% SET per_100_key = 'f_environmental_cost_for_100ml' %][% SET per_100_column_key = 'environmental_cost_points_for_100ml' %][% ELSE %][% SET per_100_key = 'f_environmental_cost_for_100g' %][% SET per_100_column_key = 'environmental_cost_points_for_100g' %][% END %]
 {
     "level": "info",
     "topics": ["environment"],
     "title_element": {
-        "title": "[% edq(lang('environmental_cost_title')) %]: [% panel.ecs %] [% edq(lang('points')) %] [% edq(lang('per_100g')) %]"
+        "title": "[% edq(lang('environmental_cost_title')) %]",
+        "subtitle": "[% IF panel.has_per_product %][% edq(f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity })) %] - [% END %][% edq(f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) %]"
     },
     "elements": [
         {
@@ -11,6 +13,15 @@
                 "html": "[% edq(lang('environmental_cost_description')) %]"
             }
         },
+        [% IF panel.estimated_quantity %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": "[% edq(lang('environmental_cost_estimated_quantity')) %]"
+            }
+        },
+        [% END %]
         {
             "element_type": "table",
             "table_element": {
@@ -22,54 +33,27 @@
                         "text": "[% edq(lang('environmental_cost_stage')) %]",
                         "type": "text"
                     },
+                    [% IF panel.has_per_product %]
                     {
-                        "text": "[% edq(lang('environmental_cost_ecs')) %]",
+                        "text": "[% edq(f_lang('f_environmental_cost_points_for_product', { 'quantity' => panel.quantity })) %]",
+                        "type": "text"
+                    },
+                    [% END %]
+                    {
+                        "text": "[% edq(lang(per_100_column_key)) %]",
                         "type": "text"
                     }
                 ],
                 "rows": [
+                    [% FOREACH row IN panel.rows %]
                     {
                         "values": [
-                            { "text": "[% edq(lang('environmental_cost_ingredients')) %]" },
-                            { "text": "[% panel.ecs_ingredients %]" }
+                            { "text": "[% edq(lang(row.label)) %]" },
+                            [% IF panel.has_per_product %]{ "text": "[% row.per_product %]" },[% END %]
+                            { "text": "[% row.per_100 %]" }
                         ]
-                    },
-                    {
-                        "values": [
-                            { "text": "[% edq(lang('environmental_cost_processing')) %]" },
-                            { "text": "[% panel.ecs_processing %]" }
-                        ]
-                    },
-                    {
-                        "values": [
-                            { "text": "[% edq(lang('environmental_cost_packaging')) %]" },
-                            { "text": "[% panel.ecs_packaging %]" }
-                        ]
-                    },
-                    {
-                        "values": [
-                            { "text": "[% edq(lang('environmental_cost_transport')) %]" },
-                            { "text": "[% panel.ecs_transport %]" }
-                        ]
-                    },
-                    {
-                        "values": [
-                            { "text": "[% edq(lang('environmental_cost_distribution')) %]" },
-                            { "text": "[% panel.ecs_distribution %]" }
-                        ]
-                    },
-                    {
-                        "values": [
-                            { "text": "[% edq(lang('environmental_cost_preparation')) %]" },
-                            { "text": "[% panel.ecs_preparation %]" }
-                        ]
-                    },
-                    {
-                        "values": [
-                            { "text": "[% edq(lang('environmental_cost_total')) %]" },
-                            { "text": "[% panel.ecs %]" }
-                        ]
-                    }
+                    }[% UNLESS loop.last %],[% END %]
+                    [% END %]
                 ]
             }
         }

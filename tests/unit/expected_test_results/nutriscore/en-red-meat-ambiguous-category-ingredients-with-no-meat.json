@@ -38,13 +38,13 @@
             {
                "ecobalyse_name" : "Farine UE -2025-",
                "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-               "mass" : 13.625,
+               "mass" : 44.9625,
                "name" : "wheat flour"
             },
             {
                "ecobalyse_name" : "Sel -2025-",
                "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-               "mass" : 12.625,
+               "mass" : 41.6625,
                "name" : "salt"
             }
          ],
@@ -56,7 +56,10 @@
                "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
                "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
             }
-         ]
+         ],
+         "reference_quantity" : 330,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -64,11 +67,11 @@
             "ingredients" : [
                {
                   "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 13.625
+                  "mass" : 44.9625
                },
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 12.625
+                  "mass" : 41.6625
                }
             ],
             "packaging" : [
@@ -199,6 +202,7 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:ecobalyse-ingredients-matched-between-20-and-29",
       "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",

@@ -48,19 +48,19 @@
             {
                "ecobalyse_name" : "Jus de pomme FR -2025-",
                "id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
-               "mass" : 70.5,
+               "mass" : 1057.5,
                "name" : "apple juice"
             },
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 14.75,
+               "mass" : 221.25,
                "name" : "water"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 2.25,
+               "mass" : 33.75,
                "name" : "sugar"
             }
          ],
@@ -72,7 +72,10 @@
                "name" : "Soft drinks, 1500g | Packaging System, Proxy Pack, Plastic bottles {FR} U",
                "name_fr" : "Bouteille en plastique (PET) pour boisson sans alcool - 1500g - Proxy"
             }
-         ]
+         ],
+         "reference_quantity" : 1500,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -80,15 +83,15 @@
             "ingredients" : [
                {
                   "id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
-                  "mass" : 70.5
+                  "mass" : 1057.5
                },
                {
                   "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 14.75
+                  "mass" : 221.25
                },
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 2.25
+                  "mass" : 33.75
                }
             ],
             "packaging" : [
@@ -238,6 +241,7 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-c-2023-c",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:ecobalyse-ingredients-matched-between-80-and-89",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

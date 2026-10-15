@@ -9,6 +9,7 @@ use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/
 use ProductOpener::Paths qw/ensure_dir_created_or_die/;
 use ProductOpener::ProductsTags qw/compute_field_tags/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::LoadData qw/load_data/;
 
 load_data();
@@ -67,6 +68,7 @@ my @tests = (
 		}
 	],
 	# Canned vegetables: matches canning transformation
+	# No product quantity: the quantity of the packaging entry is used as the reference quantity
 	[
 		'fr-canned-green-beans',
 		{
@@ -76,12 +78,31 @@ my @tests = (
 		}
 	],
 	# Frozen green beans: matches freezing transformation
+	# No product quantity: the quantity of the packaging entry is used as the reference quantity
 	[
 		'fr-frozen-green-beans',
 		{
 			lc => "fr",
 			ingredients_text => "haricots verts",
 			categories => "haricots verts surgelés",
+		}
+	],
+	# Same with a product quantity
+	[
+		'fr-frozen-green-beans-1kg',
+		{
+			lc => "fr",
+			ingredients_text => "haricots verts",
+			categories => "haricots verts surgelés",
+			quantity => "1 kg",
+		}
+	],
+	# No product quantity and no packaging: impacts are computed for 100 g only
+	[
+		'fr-apricots-no-quantity-no-packaging',
+		{
+			lc => "fr",
+			ingredients_text => "abricots",
 		}
 	],
 );
@@ -133,6 +154,7 @@ foreach my $test_ref (@tests) {
 		compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	}
 
+	normalize_product_quantity_and_serving_size($product_ref);
 	extract_ingredients_from_text($product_ref);
 
 	# Run the environmental impact estimation service, which will prepare the Ecobalyse request payload

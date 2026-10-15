@@ -46,25 +46,25 @@
             {
                "ecobalyse_name" : "Oranges Origine Inconnue",
                "id" : "cb58f1d0-634f-5582-9c13-a12e80474e77",
-               "mass" : 47,
+               "mass" : 470,
                "name" : "Orange"
             },
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 32,
+               "mass" : 320,
                "name" : "Water"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 11,
+               "mass" : 110,
                "name" : "Sugar"
             },
             {
                "ecobalyse_name" : "Carotte, découpée, crue Origine Inconnue",
                "id" : "f084ba40-39ed-4e42-95d6-2ed30666e7b3",
-               "mass" : 10,
+               "mass" : 100,
                "name" : "Carrots"
             }
          ],
@@ -76,7 +76,10 @@
                "name" : "Nectars, 1000g | Packaging System, Proxy Pack, Plastic bottles {FR} U",
                "name_fr" : "Bouteille en plastique (PET) pour nectars - 1000g - Proxy"
             }
-         ]
+         ],
+         "reference_quantity" : 1000,
+         "reference_quantity_source" : "packaging",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -84,19 +87,19 @@
             "ingredients" : [
                {
                   "id" : "cb58f1d0-634f-5582-9c13-a12e80474e77",
-                  "mass" : 47
+                  "mass" : 470
                },
                {
                   "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 32
+                  "mass" : 320
                },
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 11
+                  "mass" : 110
                },
                {
                   "id" : "f084ba40-39ed-4e42-95d6-2ed30666e7b3",
-                  "mass" : 10
+                  "mass" : 100
                }
             ],
             "packaging" : [
@@ -240,6 +243,7 @@
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:ecobalyse-reference-quantity-from-packaging",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
