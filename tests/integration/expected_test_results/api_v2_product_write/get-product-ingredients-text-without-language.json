@@ -414,6 +414,7 @@
                   "name" : "salt"
                }
             ],
+            "ingredients_coverage_percent" : 83,
             "packaging" : [
                {
                   "category" : "en:sausages",
@@ -597,6 +598,8 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
+         "en:ecobalyse-api-skipped",
+         "en:ecobalyse-ingredients-matched-between-80-and-89",
          "en:environmental-score-not-computed",
          "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-not-computed",
