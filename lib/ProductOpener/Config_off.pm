@@ -224,6 +224,11 @@ $options{export_limit} = 10000;
 # Recent changes limits
 $options{default_recent_changes_page_size} = 20;
 $options{max_recent_changes_page_size} = 1000;
+# Maximum number of changes that can be skipped before the first one returned. MongoDB walks over
+# every skipped document on a $natural sort, and both page and page size are capped separately,
+# so without this a request for the last allowed page of the largest allowed page size asks for a
+# skip of 999,000.
+$options{max_recent_changes_skip} = 10_000;
 
 # List of products limits
 $options{default_api_products_page_size} = 20;
@@ -1325,6 +1330,8 @@ $options{nova_groups_tags} = {
 	# has glucose as parent, so can be removed aleene@2018-10-09
 
 	# other ingredients that we can consider as ultra-processed
+	"ingredients/en:wheat-protein" => 4,
+	# is very close to gluten and produced/used in the same way
 
 	"ingredients/en:dextrose" => 4,
 	# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09

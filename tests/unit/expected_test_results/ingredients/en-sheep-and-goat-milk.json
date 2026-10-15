@@ -1,0 +1,113 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "19250",
+         "ecobalyse_id" : "e5b6e5a2-07c0-5a37-950c-a1087fe0712f",
+         "ecobalyse_name" : "Lait de brebis Origine Inconnue",
+         "id" : "en:sheep-and-goat-milk",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "processing" : "en:pasteurised",
+         "text" : "sheep's and goat's milk",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_proxy_name" : "Sel -2025-",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "salt",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:microbial-culture",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "starter culture",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:rennet",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "rennet",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+         "en:microbial-culture",
+         "en:rennet"
+      ],
+      "en:non-vegan" : [
+         "en:sheep-and-goat-milk"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:sheep-and-goat-milk",
+      "en:salt",
+      "en:microbial-culture",
+      "en:rennet"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:sheep-and-goat-milk",
+      "en:goat-milk",
+      "en:sheep-milk",
+      "en:milk",
+      "en:dairy",
+      "en:salt",
+      "en:microbial-culture",
+      "en:ferment",
+      "en:rennet",
+      "en:coagulating-enzyme",
+      "en:enzyme"
+   ],
+   "ingredients_text" : "Pasteurised sheep's and goat's milk, salt, starter culture, rennet.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:microbial-culture",
+      "en:rennet"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:microbial-culture",
+      "en:rennet"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 4,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
