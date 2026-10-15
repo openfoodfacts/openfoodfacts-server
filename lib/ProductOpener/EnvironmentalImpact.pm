@@ -145,13 +145,15 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 {
 	delete $product_ref->{environmental_impact};    # clear previous environmental impact data
 
-	# Remove Ecobalyse API status misc tags from previous runs
+	# Remove Ecobalyse API status and ingredients coverage misc tags from previous runs
 	if (defined $product_ref->{misc_tags}) {
-		$product_ref->{misc_tags} = [grep {$_ !~ /^en:ecobalyse-api-/} @{$product_ref->{misc_tags}}];
+		$product_ref->{misc_tags}
+			= [grep {$_ !~ /^en:ecobalyse-(api-|ingredients-matched-)/} @{$product_ref->{misc_tags}}];
 	}
 
-	# indicate that the service is modifying the "ingredients" structure
+	# indicate that the service is modifying the "environmental_impact" and "misc_tags" structures
 	$updated_product_fields_ref->{environmental_impact} = 1;
+	$updated_product_fields_ref->{misc_tags} = 1;
 
 	# If undefined ingredients, do nothing
 	return if not defined $product_ref->{ingredients};
