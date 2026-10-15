@@ -351,6 +351,12 @@ foreach my $series (@search_series, "nutrition_grades") {
 	}
 }
 
+# Highlight the products of a specific brand in the graph
+$graph_ref->{series_brand} = remove_tags_and_quote(decode utf8 => single_param("series_brand"));
+if ($graph_ref->{series_brand} eq '') {
+	delete $graph_ref->{series_brand};
+}
+
 if ($action eq 'display') {
 
 	$template_data_ref->{search_terms} = $search_terms;
@@ -583,6 +589,8 @@ if ($action eq 'display') {
 			};
 
 	}
+
+	$template_data_ref->{series_brand} = $graph_ref->{series_brand};
 
 	$request_ref->{styles} .= <<CSS
 .select2-container--default .select2-results > .select2-results__options {
@@ -825,6 +833,10 @@ elsif ($action eq 'process') {
 		if ($graph_ref->{"series_$series"}) {
 			$current_link .= "\&series_$series=on";
 		}
+	}
+
+	if (defined $graph_ref->{series_brand}) {
+		$current_link .= "\&series_brand=" . URI::Escape::XS::encodeURIComponent($graph_ref->{series_brand});
 	}
 
 	$request_ref->{current_link} = $current_link;
