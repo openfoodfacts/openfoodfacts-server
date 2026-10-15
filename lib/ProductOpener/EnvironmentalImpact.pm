@@ -54,6 +54,7 @@ BEGIN {
 		&get_ecobalyse_packaging_entry
 		&get_ecobalyse_transformation_entries
 		&filter_ecobalyse_response_for_open_data
+		&get_ecobalyse_ingredients_quantities
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -170,42 +171,28 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Add ingredients
 	# We only add leaf ingredients (without their parents)
 
-	my @ingredients_queue = @{$product_ref->{ingredients} // []};
-	my $total_ingredients_quantity = 0;
-	my $total_ingredients_quantity_with_ecobalyse_id = 0;
+	my $ingredients_quantities_ref = get_ecobalyse_ingredients_quantities($product_ref);
+	my $total_ingredients_quantity = $ingredients_quantities_ref->{total_quantity};
 
-	while (@ingredients_queue) {
-		my $ingredient_ref = shift @ingredients_queue;
-		if (defined $ingredient_ref->{ingredients}) {
-			push @ingredients_queue, @{$ingredient_ref->{ingredients}};
-		}
-		else {
-			# We use the quantity_estimate if available (not set by the current product opener % estimation),
-			# or the percent_estimate
-			my $quantity = $ingredient_ref->{quantity_estimate} // $ingredient_ref->{percent_estimate};
-			next unless defined $quantity;
+	foreach my $leaf_ref (@{$ingredients_quantities_ref->{ingredients}}) {
+		my $quantity = $leaf_ref->{quantity};
+		my $id = $leaf_ref->{ecobalyse_id};
+		next unless defined $quantity and defined $id;
 
-			$total_ingredients_quantity += $quantity;
-
-			my $id = $ingredient_ref->{ecobalyse_id} || $ingredient_ref->{ecobalyse_proxy_id};
-			if (defined $id) {
-				$total_ingredients_quantity_with_ecobalyse_id += $quantity;
-				push @{$payload_ref->{ingredients}},
-					{
-					id => $id,
-					mass => $quantity,
-					};
-				# Also store the ingredient in the ecobalyse_input structure for debugging and analysis
-				push @{$product_ref->{environmental_impact}{ecobalyse_input}{ingredients}},
-					{
-					id => $id,
-					mass => $quantity,
-					name => $ingredient_ref->{text} // '',
-					ecobalyse_name => $ingredient_ref->{ecobalyse_name} || $ingredient_ref->{ecobalyse_proxy_name}
-						// '',
-					};
-			}
-		}
+		my $ingredient_ref = $leaf_ref->{ingredient};
+		push @{$payload_ref->{ingredients}},
+			{
+			id => $id,
+			mass => $quantity,
+			};
+		# Also store the ingredient in the ecobalyse_input structure for debugging and analysis
+		push @{$product_ref->{environmental_impact}{ecobalyse_input}{ingredients}},
+			{
+			id => $id,
+			mass => $quantity,
+			name => $ingredient_ref->{text} // '',
+			ecobalyse_name => $ingredient_ref->{ecobalyse_name} || $ingredient_ref->{ecobalyse_proxy_name} // '',
+			};
 	}
 
 	# Add transformations / processing
@@ -353,6 +340,80 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	}
 
 	return;
+}
+
+=head2 get_ecobalyse_ingredients_quantities ($product_ref)
+
+Return the leaf ingredients of a product (ingredients without sub-ingredients) with the
+quantity and Ecobalyse id that are used to compute the environmental impact.
+
+The quantity is the quantity_estimate if available (not set by the current product opener % estimation),
+or the percent_estimate. Leaf ingredients without a quantity are not counted in the totals
+(they are not sent to Ecobalyse).
+
+=head3 Arguments
+
+=head4 $product_ref
+
+=head3 Return value
+
+A hash reference with:
+
+=over
+
+=item ingredients
+
+Reference to an array of hashes, one for each leaf ingredient: ingredient (reference to the ingredient),
+quantity (undef if no quantity), ecobalyse_id (ecobalyse_id or ecobalyse_proxy_id, undef if none).
+
+=item total_quantity
+
+Sum of the quantities of the leaf ingredients.
+
+=item total_quantity_with_ecobalyse_id
+
+Sum of the quantities of the leaf ingredients that have an Ecobalyse id or proxy id.
+
+=back
+
+=cut
+
+sub get_ecobalyse_ingredients_quantities ($product_ref) {
+
+	my @leaf_ingredients = ();
+	my $total_quantity = 0;
+	my $total_quantity_with_ecobalyse_id = 0;
+
+	my @ingredients_queue = @{$product_ref->{ingredients} // []};
+
+	while (@ingredients_queue) {
+		my $ingredient_ref = shift @ingredients_queue;
+		if (defined $ingredient_ref->{ingredients}) {
+			push @ingredients_queue, @{$ingredient_ref->{ingredients}};
+		}
+		else {
+			my $quantity = $ingredient_ref->{quantity_estimate} // $ingredient_ref->{percent_estimate};
+			my $id = $ingredient_ref->{ecobalyse_id} || $ingredient_ref->{ecobalyse_proxy_id};
+
+			push @leaf_ingredients,
+				{
+				ingredient => $ingredient_ref,
+				quantity => $quantity,
+				ecobalyse_id => $id,
+				};
+
+			next unless defined $quantity;
+
+			$total_quantity += $quantity;
+			$total_quantity_with_ecobalyse_id += $quantity if defined $id;
+		}
+	}
+
+	return {
+		ingredients => \@leaf_ingredients,
+		total_quantity => $total_quantity,
+		total_quantity_with_ecobalyse_id => $total_quantity_with_ecobalyse_id,
+	};
 }
 
 sub call_ecobalyse($url, $payload_ref, $testid) {

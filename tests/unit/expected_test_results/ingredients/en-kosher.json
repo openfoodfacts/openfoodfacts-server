@@ -30,6 +30,8 @@
          "vegetarian" : "maybe"
       },
       {
+         "ecobalyse_id" : "046dbc17-d453-526e-9d3d-d79706f48b88",
+         "ecobalyse_name" : "Boeuf Origine Inconnue",
          "id" : "en:beef-gelatin",
          "is_in_taxonomy" : 1,
          "labels" : "en:kosher",
@@ -87,10 +89,8 @@
       "en:beef-gelatin"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:beef-gelatin"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "misc_tags" : [

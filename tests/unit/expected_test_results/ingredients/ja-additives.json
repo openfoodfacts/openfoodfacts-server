@@ -3,6 +3,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9510",
+         "ecobalyse_proxy_id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
+         "ecobalyse_proxy_name" : "Fécule de pomme de terre par défaut -2025-",
          "id" : "en:modified-starch",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 55,
@@ -49,6 +51,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9510",
+         "ecobalyse_proxy_id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
+         "ecobalyse_proxy_name" : "Fécule de pomme de terre par défaut -2025-",
          "id" : "en:modified-starch",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.8125,
@@ -193,12 +197,11 @@
       "en:e262i",
       "en:e415",
       "en:e640i",
-      "en:modified-starch",
       "en:vegetable-pigment",
       "en:vitamin-c",
       "en:vitamin-e"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 9,
+   "ingredients_without_ecobalyse_ids_n" : 8,
    "known_ingredients_n" : 11,
    "lc" : "ja",
    "misc_tags" : [

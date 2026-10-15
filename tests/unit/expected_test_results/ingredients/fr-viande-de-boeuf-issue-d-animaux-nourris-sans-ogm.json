@@ -3,6 +3,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "6101",
+         "ecobalyse_proxy_id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8",
+         "ecobalyse_proxy_name" : "Viande de boeuf sans os par défaut",
          "id" : "en:beef-meat",
          "is_in_taxonomy" : 1,
          "labels" : "en:fed-without-gmos",
@@ -50,10 +52,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:beef-meat"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "misc_tags" : [
