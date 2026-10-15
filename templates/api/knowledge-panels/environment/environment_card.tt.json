@@ -13,7 +13,15 @@
             "panel_element": {
                 "panel_id": "environmental_score",
             },
-        },      
+        },
+        [% IF panels.environmental_cost.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "environmental_cost",
+            },
+        },
+        [% END %]
         [% IF panels.carbon_footprint.defined %]
         {
             "element_type": "panel_group",
@@ -61,6 +69,14 @@
             },
         },
         [% END %]        
+        [% IF panels.forest_footprint.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "forest_footprint",
+            },
+        },
+        [% END %]
         [% IF product.environmental_score_data.adjustments.production_system.value.defined AND product.environmental_score_data.adjustments.production_system.value != 0 %]
         {
             "element_type": "panel_group",

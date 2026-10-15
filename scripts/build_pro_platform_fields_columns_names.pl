@@ -20,21 +20,68 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Lang qw/@Langs/;
+use Term::ANSIColor;
 
-print STDERR "building pro platform fields columns names for all languages\n";
-
-# Generate the files that match potential column names from producers to OFF fields
-foreach my $l (@Langs) {
-	print STDERR "building fields columns names for language: $l\n";
-	build_fields_columns_names_for_lang($l);
+sub print_error ($msg) {
+	print STDERR colored("error: ", 'red'), "$msg\n";
+	return;
 }
 
-print STDERR "done building tags taxonomy\n";
+sub print_info ($msg) {
+	print colored("$msg", 'bold'), "\n";
+	return;
+}
 
-exit(0);
+sub print_success ($msg) {
+	print colored("$msg", 'green bold'), "\n";
+	return;
+}
+
+my $is_terminal = -t STDOUT;    ## no critic (InputOutput::ProhibitInteractiveTest) - we don't want to add progress output to logs
+my $built_count = 0;
+my $total_count = scalar @Langs;
+
+sub print_status ($language) {
+	my $label = "Building ($built_count/$total_count): ";
+	$label = colored($label, 'bold green') if $is_terminal;
+	print $label . "$language\n";
+	return;
+}
+
+print_info("Building producer column mappings for $total_count languages");
+
+if ($total_count == 0) {
+	print_error("No languages found. Run scripts/build_lang.pl before building producer column mappings.");
+	exit(1);
+}
+
+# Generate the files that match potential column names from producers to OFF fields
+my $has_any_errors = 0;
+foreach my $l (@Langs) {
+	print_status($l);
+
+	my $success = eval {
+		build_fields_columns_names_for_lang($l);
+		1;
+	};
+
+	$built_count++;
+	if (!$success) {
+		$has_any_errors = 1;
+		my $error = $@ || "unknown error";
+		chomp $error;
+		print_error("Failed to build producer column mappings for $l: $error");
+	}
+}
+
+if (!$has_any_errors) {
+	print_success("All producer column mappings built successfully");
+}
+
+exit($has_any_errors ? 1 : 0);

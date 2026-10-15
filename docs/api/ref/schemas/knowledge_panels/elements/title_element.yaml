@@ -6,14 +6,17 @@ description: The title of a panel.
 properties:
   name:
     type: string
-    description: A short name of this panel, not including any actual values
+    description: A short name of this panel, not including any actual values. e.g. "Fat"
   title:
+    type: string
+  subtitle:
     type: string
   type:
     type: string
     enum:
       - grade
       - percentage
+      - string
     description: 'Used to indicate how the value of this item is measured, such as "grade" for Nutri-Score and Green-Score or "percentage" for Salt'
   grade:
     type: string
@@ -30,6 +33,9 @@ properties:
   value:
     type: number
     description: 'The numeric value of the panel, where the type is "percentage"'
+  value_string:
+    type: string
+    description: 'The string value of the panel, for cases where the value is not numeric'
   icon_url:
     type: string
   icon_color_from_evaluation:

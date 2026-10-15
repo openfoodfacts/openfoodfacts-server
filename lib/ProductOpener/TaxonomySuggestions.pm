@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -187,12 +187,12 @@ sub generate_sorted_list_of_taxonomy_entries ($country, $tagtype, $search_lc, $c
 		@tags = generate_popular_suggestions_according_to_context($country, $tagtype, $search_lc, $context_ref,
 			\%seen_tags);
 
+		# Sort the remaining entries alphabetically before adding them
+		my @all_tags = sort({cmp_taxonomy_tags_alphabetically($tagtype, $search_lc, $a, $b)}
+			keys %{$translations_to{$tagtype}});
+
 		# add all remaining entries in alphabetical order
-		foreach my $tag (
-			sort({cmp_taxonomy_tags_alphabetically($tagtype, $search_lc, $a, $b)}
-				keys %{$translations_to{$tagtype}})
-			)
-		{
+		foreach my $tag (@all_tags) {
 			next if defined $seen_tags{$tag};
 			push @tags, $tag;
 		}

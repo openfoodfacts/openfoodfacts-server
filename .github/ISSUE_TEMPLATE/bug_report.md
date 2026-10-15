@@ -24,7 +24,7 @@ assignees: ""
 - <!-- Why it's important, optional, delete if empty -->
 
 ### Screenshot/Mockup/Before-After
-<!-- Add a screenshot or a mockup to help others visualize the probem or solution, optional, delete if empty -->
+<!-- Add a screenshot or a mockup to help others visualize the problem or solution, optional, delete if empty -->
 
 ### Part of
 - #525 <!-- Add the issue number preceded by # (that also allows searching by name for similar issues) --> 

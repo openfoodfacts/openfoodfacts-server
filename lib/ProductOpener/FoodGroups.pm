@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -54,9 +54,12 @@ use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Food qw/is_beverage_for_nutrition_score_2021/;
 
 use Log::Any qw($log);
+
+use Data::DeepAccess qw(deep_get);
 
 # Note: the %pnns structure is a hash of sub-groups (aka "PNNS groups 2") to groups (aka "PNNN groups 1").
 # The structure is used by compute_pnns_groups() that will be replaced by compute_food_groups()
@@ -113,6 +116,9 @@ my %pnns = (
 
 	"Alcoholic beverages" => "Alcoholic beverages",
 
+	"Baby foods" => "Baby foods",
+	"Baby milks" => "Baby foods",
+
 	"unknown" => "unknown",
 
 );
@@ -160,7 +166,6 @@ sub compute_pnns_groups ($product_ref) {
 		if (    (defined $properties{categories}{$categoryid})
 			and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"}))
 		{
-
 			# skip the sweetened / unsweetened if it is alcoholic
 			next
 				if (
@@ -268,7 +273,7 @@ sub compute_food_groups ($product_ref) {
 	compute_pnns_groups($product_ref);
 
 	# Put back the original categories_tags so that they match what is in the taxonomy field
-	# if there is a mistmatch it can cause tags to be added multiple times (e.g. with imports)
+	# if there is a mismatch it can cause tags to be added multiple times (e.g. with imports)
 	if (defined $product_ref->{original_categories_tags}) {
 		$product_ref->{categories_tags} = [@{$product_ref->{original_categories_tags}}];
 		delete $product_ref->{original_categories_tags};
@@ -324,9 +329,10 @@ sub temporarily_change_categories_for_food_groups_computation ($product_ref) {
 	if (    ($product_ref->{nutrition_score_beverage})
 		and (not has_tag($product_ref, "categories", "en:instant-beverages")))
 	{
+		my $alcohol_100g = deep_get($product_ref, qw(nutrition aggregated_set nutrients alcohol value));
 
-		if (defined $product_ref->{nutriments}{"alcohol_100g"}) {
-			if ($product_ref->{nutriments}{"alcohol_100g"} < 1) {
+		if (defined $alcohol_100g) {
+			if ($alcohol_100g < 1) {
 				if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
 					remove_tag($product_ref, "categories", "en:alcoholic-beverages");
 				}

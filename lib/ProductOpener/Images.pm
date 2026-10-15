@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -279,7 +279,9 @@ HTML
 		$html .= <<HTML;
 	<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
-<div class=\"select_crop\" id=\"$id\"></div>
+<div class=\"select_crop\" id=\"$id\">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 HTML
 	}
@@ -363,11 +365,17 @@ sub display_select_crop_init ($object_ref) {
 
 	my $images_json = JSON::MaybeXS->new->encode(\@images);
 
+	# The image editor web component reads the uploaded images and the image path
+	# from window.imageEditorConfig (it cannot have attributes: the select_crop
+	# markup is cloned when a language tab is added).
 	return <<HTML
 
-	\$([]).selectcrop('init_images', $images_json);
-	\$(".select_crop").selectcrop('init', {img_path : "//images.$server_domain/images/products/$path/"});
-	\$(".select_crop").selectcrop('show');
+	window.imageEditorConfig = { images: $images_json, img_path: "//images.$server_domain/images/products/$path/" };
+	if (window.imageFieldUI) {
+		window.imageFieldUI.setImages(window.imageEditorConfig.images);
+		window.imageFieldUI.init(\$(".select_crop"), { img_path : window.imageEditorConfig.img_path });
+		window.imageFieldUI.show(\$(".select_crop"));
+	}
 
 HTML
 		;
@@ -886,7 +894,7 @@ sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, 
 
 	# debug message passed back to apps in case of an error
 
-	$$debug_string_ref = "product_id: $product_ref->{id} - user_id: $user_id - imagefield: $imagefield";
+	$$debug_string_ref = "product_id: $product_ref->{id} - user_id: " . ($user_id // '') . " - imagefield: $imagefield";
 
 	my $filehandle;
 
@@ -1014,7 +1022,7 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 			$extension eq 'jpeg' and $extension = 'jpg';
 		}
 
-		my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
+		my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . ($` // ''));
 
 		$imgid = ($product_ref->{max_imgid} || 0) + 1;
 
@@ -1634,6 +1642,7 @@ Select and possibly crop an uploaded image to represent the front, ingredients, 
  1: crop done
 -1: image not found
 -2: image cannot be read
+-3: no stored dimensions for the requested coordinates_image_size
 
 =cut
 
@@ -1736,6 +1745,21 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 	my $oh = $source->Get('height');
 	my $w = $product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{w};
 	my $h = $product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{h};
+
+	# Check that stored dimensions exist for the requested coordinates_image_size
+	if (!$w || !$h) {
+		$log->error(
+			"missing or zero image dimensions for coordinates_image_size",
+			{
+				product_id => $product_id,
+				imgid => $imgid,
+				coordinates_image_size => $coordinates_image_size,
+				w => $w,
+				h => $h
+			}
+		) if $log->is_error();
+		return -3;
+	}
 
 	if (($angle % 180) == 90) {
 		my $z = $w;
@@ -2100,7 +2124,7 @@ sub add_images_urls_to_product ($product_ref, $target_lc, $specific_image_type =
 		# e.g. when we get partial product data from MongoDB or off-query
 		# when reading a full product with retrieve_product(), the conversion should already have been done
 		# try to convert it to the new schema
-		if (not defined $product_ref->{images}{uploaded} and not defined $product_ref->{images}{selected}) {
+		if ((not defined $product_ref->{images}{uploaded}) and (not defined $product_ref->{images}{selected})) {
 			ProductOpener::ProductSchemaChanges::convert_schema_1001_to_1002_refactor_images_object($product_ref);
 		}
 
@@ -2561,10 +2585,11 @@ sub extract_text_from_image ($product_ref, $image_type, $image_lc, $field, $requ
 	# DOCUMENT_TEXT_DETECTION does not bring significant advantages
 	# See https://github.com/openfoodfacts/openfoodfacts-server/issues/9723
 	{type => 'TEXT_DETECTION'},
-	{type => 'LOGO_DETECTION'},
-	{type => 'LABEL_DETECTION'},
-	{type => 'SAFE_SEARCH_DETECTION'},
-	{type => 'FACE_DETECTION'},
+	# Disable other Cloud Vision temporarily to save credits
+	# {type => 'LOGO_DETECTION'},
+	# {type => 'LABEL_DETECTION'},
+	# {type => 'SAFE_SEARCH_DETECTION'},
+	# {type => 'FACE_DETECTION'},
 );
 
 @CLOUD_VISION_FEATURES_TEXT = ({type => 'TEXT_DETECTION'});

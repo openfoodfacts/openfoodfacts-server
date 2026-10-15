@@ -7,7 +7,8 @@
     "expand_for": "large",
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% edq(lang('nutrition_data_table')) %]",
+        "title": "[% IF panel.title.defined %][% edq(panel.title) %][% ELSE %][% edq(lang('nutrition_data_table')) %][% END %]",
+        [% IF panel.subtitle.defined %]"subtitle": "[% edq(panel.subtitle) %]",[% END %]
         "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
         "icon_color_from_evaluation": true,
     },
@@ -55,13 +56,8 @@
                                 "style": "max-width:15rem",
                             },
                             [% FOREACH column IN row.columns %]
-                            {
-                                [% IF column.type == 'normal' %]
-                                    "text": "[% column.value %]",
-                                [% ELSE %]
-                                    // only display the % difference compared to category
-                                    "text": "[% column.percent %]",
-                                [% END %]
+                            {  
+                                 "text": "[% column.value %]",
                                 [% IF column.evaluation.defined %]
                                     "evaluation": "[% column.evaluation %]",
                                 [% END %]
@@ -73,6 +69,11 @@
                 ]
             }
         },
-
+        {
+            "element_type": "panel",
+             "panel_element": {
+                "panel_id": "nutrition_facts_table_with_input_sets",
+            },  
+        }
     ]
 }

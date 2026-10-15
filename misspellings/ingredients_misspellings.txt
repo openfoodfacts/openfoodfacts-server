@@ -1,0 +1,36 @@
+# Misspellings in ingredient lists
+# These are corrections we are 100% certain about - the misspelled form is
+# never the intended spelling.
+#
+# BEFORE adding an entry, verify:
+# - The correction is correct in ALL cases
+# - The misspelled form is common (not seen only a few times)
+#
+# Format: lc:misspelled -> correct
+# lc: is a 2-letter language code, or xx for all languages
+
+de:modifzierte -> modifizierte
+
+# OCR "com" for "corn". Adding the bare word too is tempting, but maybe false-positive prone
+en:comflour -> cornflour
+en:com flour -> corn flour
+en:comstarch -> cornstarch
+en:com starch -> corn starch
+en:sweetcom -> sweetcorn
+
+# OCR l for i
+en:lodate -> iodate
+en:lodide -> iodide
+en:lodine -> iodine
+en:lodised -> iodised
+en:lodized -> iodized
+
+fr:ceuf -> œuf
+fr:ceufs -> œufs
+
+fr:dacidité -> d'acidité    # in a lot of product data from Carrefour
+
+fr:dès -> dés   # might match "dès l'ouverture", but should not be in ingredients list
+
+fr:euf -> œuf
+fr:eufs -> œufs
