@@ -33,7 +33,7 @@ sub product_with_ecs (%args) {
 		environmental_impact => {
 			($source ne "default" ? (ecs_per_product => $ecs) : ()),
 			ecs_per_100g_or_100ml => (looks_like_number($ecs) ? $ecs * 100 / $reference_quantity : $ecs),
-			ecs_unit => $unit,
+			ecs_per => "100$unit",
 			ecobalyse_input => {
 				reference_quantity => $reference_quantity,
 				reference_quantity_unit => $unit,
@@ -68,10 +68,6 @@ sub get_rows ($panel_ref) {
 	};
 }
 
-sub has_warning ($panel_ref) {
-	return scalar grep {($_->{text_element}{type} // '') eq "warning"} @{$panel_ref->{elements}};
-}
-
 # Not shown to regular users
 is(get_panel(product_with_ecs(), {}), undef, "panel not shown to regular users");
 
@@ -100,7 +96,6 @@ is(
 	},
 	"breakdown values for the product and for 100 g"
 );
-ok(!has_warning($panel_ref), "no estimated quantity warning");
 
 # Product sold by volume: values for 100 ml, product quantity as entered
 $panel_ref = get_panel(product_with_ecs(reference_quantity => 750, unit => "ml", quantity => "0.75 l", ecs => 150),
@@ -111,16 +106,7 @@ is(
 	"subtitle with values for the product and for 100 ml"
 );
 
-# Product quantity estimated from the packaging: warning
-$panel_ref = get_panel(product_with_ecs(source => "packaging", quantity => undef), {moderator => 1});
-is(
-	$panel_ref->{title_element}{subtitle},
-	"200 points for the product (500 g) - 40.0 points for 100 g",
-	"subtitle with estimated quantity"
-);
-ok(has_warning($panel_ref), "estimated quantity warning");
-
-# No product quantity and no packaging: values for 100 g only
+# No product quantity: values for 100 g only
 $panel_ref = get_panel(product_with_ecs(source => "default", reference_quantity => 100, ecs => 50), {moderator => 1});
 is($panel_ref->{title_element}{subtitle}, "50.0 points for 100 g", "subtitle with values for 100 g only");
 is(get_rows($panel_ref)->{Total}, ["50.0"], "breakdown values for 100 g only");

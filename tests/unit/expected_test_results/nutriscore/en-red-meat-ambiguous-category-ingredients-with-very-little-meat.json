@@ -38,51 +38,44 @@
             {
                "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
                "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-               "mass" : 177.65,
+               "mass" : 53.8333333333333,
                "name" : "eggs"
             },
             {
                "ecobalyse_name" : "Farine UE -2025-",
                "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-               "mass" : 79.475,
+               "mass" : 24.0833333333333,
                "name" : "wheat flour"
             },
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 39.7375,
+               "mass" : 12.0416666666667,
                "name" : "water"
             },
             {
                "ecobalyse_name" : "Farine de riz Origine Inconnue",
                "id" : "9db59fb1-143d-420d-a0b8-a5887c6def60",
-               "mass" : 19.86875,
+               "mass" : 6.02083333333333,
                "name" : "rice flour"
             },
             {
                "ecobalyse_name" : "Viande d'agneau -désossée- FR",
                "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
-               "mass" : 6.6,
+               "mass" : 2,
                "name" : "lamb"
             },
             {
                "ecobalyse_name" : "Sel -2025-",
                "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-               "mass" : 6.66874999999998,
+               "mass" : 2.02083333333333,
                "name" : "salt"
             }
          ],
          "ingredients_coverage_percent" : 100,
-         "packaging" : [
-            {
-               "category" : "en:sausages",
-               "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
-               "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
-               "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
-            }
-         ],
-         "reference_quantity" : 330,
-         "reference_quantity_source" : "packaging",
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
@@ -91,33 +84,27 @@
             "ingredients" : [
                {
                   "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-                  "mass" : 177.65
+                  "mass" : 53.8333333333333
                },
                {
                   "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 79.475
+                  "mass" : 24.0833333333333
                },
                {
                   "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 39.7375
+                  "mass" : 12.0416666666667
                },
                {
                   "id" : "9db59fb1-143d-420d-a0b8-a5887c6def60",
-                  "mass" : 19.86875
+                  "mass" : 6.02083333333333
                },
                {
                   "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
-                  "mass" : 6.6
+                  "mass" : 2
                },
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 6.66874999999998
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27"
+                  "mass" : 2.02083333333333
                }
             ]
          },
@@ -299,7 +286,7 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
-      "en:ecobalyse-reference-quantity-from-packaging",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-not-computed",

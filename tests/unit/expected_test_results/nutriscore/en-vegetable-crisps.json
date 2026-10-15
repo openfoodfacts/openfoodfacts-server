@@ -38,27 +38,20 @@
             {
                "ecobalyse_name" : "Panais Origine Inconnue",
                "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
-               "mass" : 196,
+               "mass" : 70,
                "name" : "parsnip"
             },
             {
                "ecobalyse_name" : "Betterave Origine Inconnue",
                "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
-               "mass" : 84,
+               "mass" : 30,
                "name" : "red beet"
             }
          ],
          "ingredients_coverage_percent" : 100,
-         "packaging" : [
-            {
-               "category" : "en:appetizers",
-               "id" : "f755207c-ed56-4666-9b0e-4f2c515f7f18",
-               "name" : "Starters, Exotic products, 280g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-               "name_fr" : "Barquette en plastique (PET) pour entrées, produits exotiques - 280g - Proxy"
-            }
-         ],
-         "reference_quantity" : 280,
-         "reference_quantity_source" : "packaging",
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
@@ -67,17 +60,11 @@
             "ingredients" : [
                {
                   "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
-                  "mass" : 196
+                  "mass" : 70
                },
                {
                   "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
-                  "mass" : 84
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "f755207c-ed56-4666-9b0e-4f2c515f7f18"
+                  "mass" : 30
                }
             ]
          },
@@ -178,7 +165,7 @@
       "en:nutrition-fruits-vegetables-legumes-from-category-en-parsnip-crisps",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
-      "en:ecobalyse-reference-quantity-from-packaging",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

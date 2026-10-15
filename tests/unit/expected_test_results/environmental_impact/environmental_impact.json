@@ -11,49 +11,42 @@
             {
                "ecobalyse_name" : "",
                "id" : "9b476f8e-08c2-4406-9198-1fb2e007f000",
-               "mass" : 185.0,
+               "mass" : 50,
                "name" : "Sucre"
             },
             {
                "ecobalyse_name" : "",
                "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-               "mass" : 92.5,
+               "mass" : 25,
                "name" : "huile de palme"
             },
             {
                "ecobalyse_name" : "",
                "id" : "60184de2-cc9e-4618-924a-b8fecf080c8b",
-               "mass" : 48.1,
+               "mass" : 13,
                "name" : "NOISETTES"
             },
             {
                "ecobalyse_name" : "",
                "id" : "33d2f3c2-ffa2-4b96-811e-50c1c8670e26",
-               "mass" : 32.19,
+               "mass" : 8.7,
                "name" : "LAIT écrémé en poudre"
             },
             {
                "ecobalyse_name" : "",
                "id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
-               "mass" : 12.21,
+               "mass" : 3.3,
                "name" : "cacao maigre"
             }
          ],
          "ingredients_coverage_percent" : 100,
-         "packaging" : [
-            {
-               "category" : "en:canned-foods",
-               "id" : "1686b240-6292-4eae-ad10-0525404cbb10",
-               "name" : "Chestnut cream or canned, 370g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Pot en verre pour crème de marrons - 370g - Proxy"
-            }
-         ],
-         "reference_quantity" : 370,
-         "reference_quantity_source" : "packaging",
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g",
          "transform" : {
             "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-            "mass" : 370.0,
+            "mass" : 100,
             "name" : "Canning fruits or vegetables, industrial, 1kg of canned product {FR} U",
             "name_fr" : "Mise en conserve"
          }
@@ -64,34 +57,28 @@
             "ingredients" : [
                {
                   "id" : "9b476f8e-08c2-4406-9198-1fb2e007f000",
-                  "mass" : 185.0
+                  "mass" : 50
                },
                {
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 92.5
+                  "mass" : 25
                },
                {
                   "id" : "60184de2-cc9e-4618-924a-b8fecf080c8b",
-                  "mass" : 48.1
+                  "mass" : 13
                },
                {
                   "id" : "33d2f3c2-ffa2-4b96-811e-50c1c8670e26",
-                  "mass" : 32.19
+                  "mass" : 8.7
                },
                {
                   "id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
-                  "mass" : 12.21
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "1686b240-6292-4eae-ad10-0525404cbb10"
+                  "mass" : 3.3
                }
             ],
             "transform" : {
                "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-               "mass" : 370.0
+               "mass" : 100
             }
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -100,12 +87,12 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 0.875937
+                  "ecs" : 0.23674
                },
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 5.20152
+                     "ecs" : 0.867306
                   },
                   "road" : 600,
                   "roadCooled" : 0,
@@ -114,35 +101,35 @@
                }
             },
             "packaging" : {
-               "ecs" : 17.23
+               "ecs" : 0
             },
             "perKg" : {
-               "ecs" : 582.588
+               "ecs" : 527.024
             },
             "preparation" : {
                "ecs" : 0
             },
-            "preparedMass" : 0.34595,
+            "preparedMass" : 0.0935,
             "recipe" : {
                "ingredientsTotal" : {
-                  "ecs" : 132.307
+                  "ecs" : 35.7587
                },
                "total" : {
-                  "ecs" : 178.239
+                  "ecs" : 48.1727
                },
                "totalBonusImpact" : {
                   "cropDiversity" : 0,
-                  "hedges" : -1.443,
+                  "hedges" : -0.39,
                   "permanentPasture" : 0,
-                  "plotSize" : -4.72823
+                  "plotSize" : -1.2779
                },
                "transform" : {
-                  "ecs" : 7.2298
+                  "ecs" : 1.954
                },
                "transports" : {
                   "air" : 18000,
                   "impacts" : {
-                     "ecs" : 38.702
+                     "ecs" : 10.46
                   },
                   "road" : 9300,
                   "roadCooled" : 0,
@@ -151,20 +138,20 @@
                }
             },
             "scoring" : {
-               "all" : 582.588,
-               "biodiversity" : 272.06,
-               "climate" : 174.427,
-               "health" : 64.6232,
-               "resources" : 89.384
+               "all" : 527.024,
+               "biodiversity" : 251.34,
+               "climate" : 156.84,
+               "health" : 57.9032,
+               "resources" : 78.8292
             },
             "total" : {
-               "ecs" : 201.546
+               "ecs" : 49.2767
             },
-            "totalMass" : 0.56075,
+            "totalMass" : 0.0935,
             "transports" : {
                "air" : 18000,
                "impacts" : {
-                  "ecs" : 43.9035
+                  "ecs" : 11.3273
                },
                "road" : 9900,
                "roadCooled" : 0,
@@ -173,9 +160,8 @@
             }
          }
       },
-      "ecs_per_100g_or_100ml" : 54.4718918918919,
-      "ecs_per_product" : 201.546,
-      "ecs_unit" : "g"
+      "ecs_per" : "100g",
+      "ecs_per_100g_or_100ml" : 49.2767
    },
    "ingredients" : [
       {
@@ -234,7 +220,7 @@
       }
    ],
    "misc_tags" : [
-      "en:ecobalyse-reference-quantity-from-packaging",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-called",
       "en:ecobalyse-api-success"

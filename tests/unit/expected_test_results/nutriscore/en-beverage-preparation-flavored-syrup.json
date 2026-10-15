@@ -42,33 +42,26 @@
             {
                "ecobalyse_name" : "Jus de pomme FR -2025-",
                "id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
-               "mass" : 312.5,
+               "mass" : 62.5,
                "name" : "apple juice"
             },
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 93.75,
+               "mass" : 18.75,
                "name" : "water"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 46.875,
+               "mass" : 9.375,
                "name" : "sugar"
             }
          ],
          "ingredients_coverage_percent" : 90,
-         "packaging" : [
-            {
-               "category" : "en:syrups",
-               "id" : "a358ef07-0591-489f-808d-2b94a7396eb2",
-               "name" : "Sirop, 500g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-               "name_fr" : "Bouteille en acier pour sirop - 500g - Proxy"
-            }
-         ],
-         "reference_quantity" : 500,
-         "reference_quantity_source" : "packaging",
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
@@ -77,21 +70,15 @@
             "ingredients" : [
                {
                   "id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
-                  "mass" : 312.5
+                  "mass" : 62.5
                },
                {
                   "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 93.75
+                  "mass" : 18.75
                },
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 46.875
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a358ef07-0591-489f-808d-2b94a7396eb2"
+                  "mass" : 9.375
                }
             ]
          },
@@ -223,7 +210,7 @@
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-d-2023-d",
-      "en:ecobalyse-reference-quantity-from-packaging",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

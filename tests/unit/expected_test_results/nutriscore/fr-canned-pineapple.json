@@ -54,37 +54,30 @@
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 296,
+               "mass" : 80,
                "name" : "eau"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 37,
+               "mass" : 10,
                "name" : "sucre"
             },
             {
                "ecobalyse_name" : "Ananas par défaut -2025-",
                "id" : "c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a",
-               "mass" : 37,
+               "mass" : 10,
                "name" : "ananas"
             }
          ],
          "ingredients_coverage_percent" : 100,
-         "packaging" : [
-            {
-               "category" : "en:canned-foods",
-               "id" : "1686b240-6292-4eae-ad10-0525404cbb10",
-               "name" : "Chestnut cream or canned, 370g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Pot en verre pour crème de marrons - 370g - Proxy"
-            }
-         ],
-         "reference_quantity" : 370,
-         "reference_quantity_source" : "packaging",
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g",
          "transform" : {
             "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-            "mass" : 370,
+            "mass" : 100,
             "name" : "Canning fruits or vegetables, industrial, 1kg of canned product {FR} U",
             "name_fr" : "Mise en conserve"
          }
@@ -95,26 +88,20 @@
             "ingredients" : [
                {
                   "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 296
+                  "mass" : 80
                },
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 37
+                  "mass" : 10
                },
                {
                   "id" : "c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a",
-                  "mass" : 37
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "1686b240-6292-4eae-ad10-0525404cbb10"
+                  "mass" : 10
                }
             ],
             "transform" : {
                "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-               "mass" : 370
+               "mass" : 100
             }
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -254,7 +241,7 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-a-2023-b",
-      "en:ecobalyse-reference-quantity-from-packaging",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

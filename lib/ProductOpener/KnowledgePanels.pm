@@ -850,16 +850,13 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 	my $input_ref = $environmental_impact_ref->{ecobalyse_input} // {};
 	my $reference_quantity = $input_ref->{reference_quantity};
 	return unless looks_like_number($reference_quantity) and $reference_quantity > 0;
-	my $unit = ($environmental_impact_ref->{ecs_unit} // '') eq 'ml' ? 'ml' : 'g';
+	my $unit = ($environmental_impact_ref->{ecs_per} // '') eq '100ml' ? 'ml' : 'g';
 
 	my $ecs_per_product = $environmental_impact_ref->{ecs_per_product};
 	my $has_per_product = looks_like_number($ecs_per_product);
 
-	# Quantity of the product: we display the quantity entered by users if we used it
-	my $quantity
-		= (($input_ref->{reference_quantity_source} // '') eq 'product_quantity')
-		? ($product_ref->{quantity} // "$reference_quantity $unit")
-		: "$reference_quantity $unit";
+	# Quantity of the product: we display the quantity entered by users
+	my $quantity = $product_ref->{quantity} // "$reference_quantity $unit";
 
 	# The breakdown values returned by Ecobalyse are for the reference quantity, and they sum up to the total ECS
 	my $results_ref = deep_get($environmental_impact_ref, qw(ecobalyse_response results)) // {};
@@ -892,7 +889,6 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 		has_per_product => $has_per_product,
 		ecs_per_product => ($has_per_product ? format_ecs_value($ecs_per_product) : ""),
 		quantity => $quantity,
-		estimated_quantity => (($input_ref->{reference_quantity_source} // '') eq 'packaging'),
 		rows => \@rows_data,
 	};
 

@@ -48,33 +48,26 @@
             {
                "ecobalyse_name" : "Jus de pomme FR -2025-",
                "id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
-               "mass" : 1057.5,
+               "mass" : 70.5,
                "name" : "apple juice"
             },
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 221.25,
+               "mass" : 14.75,
                "name" : "water"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 33.75,
+               "mass" : 2.25,
                "name" : "sugar"
             }
          ],
          "ingredients_coverage_percent" : 87,
-         "packaging" : [
-            {
-               "category" : "en:soft-drinks",
-               "id" : "931774ee-c237-4bf9-8330-a84a5c64b2da",
-               "name" : "Soft drinks, 1500g | Packaging System, Proxy Pack, Plastic bottles {FR} U",
-               "name_fr" : "Bouteille en plastique (PET) pour boisson sans alcool - 1500g - Proxy"
-            }
-         ],
-         "reference_quantity" : 1500,
-         "reference_quantity_source" : "packaging",
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
@@ -83,21 +76,15 @@
             "ingredients" : [
                {
                   "id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
-                  "mass" : 1057.5
+                  "mass" : 70.5
                },
                {
                   "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 221.25
+                  "mass" : 14.75
                },
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 33.75
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "931774ee-c237-4bf9-8330-a84a5c64b2da"
+                  "mass" : 2.25
                }
             ]
          },
@@ -229,7 +216,7 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
-      "en:ecobalyse-reference-quantity-from-packaging",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-80-and-89",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

@@ -44,22 +44,15 @@
             {
                "ecobalyse_name" : "Huile de colza par défaut -2025-",
                "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
-               "mass" : 500,
+               "mass" : 100,
                "name" : "Huile de colza"
             }
          ],
          "ingredients_coverage_percent" : 100,
-         "packaging" : [
-            {
-               "category" : "en:rapeseed-oils",
-               "id" : "1843135c-3fb4-49e9-a691-1e1a6029c1df",
-               "name" : "Rapeseed oil, 0,5L | Packaging System, N0, All, Glass bottle {FR} U",
-               "name_fr" : "Bouteille en verre pour huile végétale (sauf huile d'olive) - 0,5L à 0,75L"
-            }
-         ],
-         "reference_quantity" : 500,
-         "reference_quantity_source" : "packaging",
-         "reference_quantity_unit" : "ml"
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -67,13 +60,7 @@
             "ingredients" : [
                {
                   "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
-                  "mass" : 500
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "1843135c-3fb4-49e9-a691-1e1a6029c1df"
+                  "mass" : 100
                }
             ]
          },
@@ -154,7 +141,7 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
-      "en:ecobalyse-reference-quantity-from-packaging",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

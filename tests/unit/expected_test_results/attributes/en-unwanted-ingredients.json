@@ -456,27 +456,20 @@
             {
                "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
                "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-               "mass" : 125.0,
+               "mass" : 62.5,
                "name" : "palm oil"
             },
             {
                "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
                "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
-               "mass" : 18.75,
+               "mass" : 9.375,
                "name" : "sea salt"
             }
          ],
          "ingredients_coverage_percent" : 71,
-         "packaging" : [
-            {
-               "category" : "en:cheeses",
-               "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec",
-               "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
-               "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
-            }
-         ],
-         "reference_quantity" : 200,
-         "reference_quantity_source" : "packaging",
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
@@ -485,17 +478,11 @@
             "ingredients" : [
                {
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 125.0
+                  "mass" : 62.5
                },
                {
                   "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
-                  "mass" : 18.75
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec"
+                  "mass" : 9.375
                }
             ]
          },
@@ -1052,7 +1039,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-70-and-79",
-      "en:ecobalyse-reference-quantity-from-packaging",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",

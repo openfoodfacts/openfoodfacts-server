@@ -2,12 +2,12 @@
    "results" : {
       "distribution" : {
          "total" : {
-            "ecs" : 0.874376
+            "ecs" : 0.236318
          },
          "transports" : {
             "air" : 0,
             "impacts" : {
-               "ecs" : 8.01887
+               "ecs" : 1.33616
             },
             "road" : 0,
             "roadCooled" : 600,
@@ -16,35 +16,35 @@
          }
       },
       "packaging" : {
-         "ecs" : 17.23
+         "ecs" : 0
       },
       "perKg" : {
-         "ecs" : 237.828
+         "ecs" : 179.029
       },
       "preparation" : {
          "ecs" : 0
       },
-      "preparedMass" : 0.345333,
+      "preparedMass" : 0.0933333,
       "recipe" : {
          "ingredientsTotal" : {
-            "ecs" : 18.4788
+            "ecs" : 4.99427
          },
          "total" : {
-            "ecs" : 56.0065
+            "ecs" : 15.1369
          },
          "totalBonusImpact" : {
             "cropDiversity" : 0,
-            "hedges" : -0.0004144,
+            "hedges" : -0.000112,
             "permanentPasture" : 0,
-            "plotSize" : -0.004884
+            "plotSize" : -0.00132
          },
          "transform" : {
-            "ecs" : 7.2298
+            "ecs" : 1.954
          },
          "transports" : {
             "air" : 0,
             "impacts" : {
-               "ecs" : 30.2979
+               "ecs" : 8.18863
             },
             "road" : 3320,
             "roadCooled" : 2660,
@@ -53,20 +53,20 @@
          }
       },
       "scoring" : {
-         "all" : 237.828,
-         "biodiversity" : 99.8472,
-         "climate" : 58.6897,
-         "health" : 28.7463,
-         "resources" : 50.5653
+         "all" : 179.029,
+         "biodiversity" : 78.7639,
+         "climate" : 39.3557,
+         "health" : 21.7732,
+         "resources" : 39.1397
       },
       "total" : {
-         "ecs" : 82.1298
+         "ecs" : 16.7094
       },
-      "totalMass" : 0.560133,
+      "totalMass" : 0.0933333,
       "transports" : {
          "air" : 0,
          "impacts" : {
-            "ecs" : 38.3168
+            "ecs" : 9.52479
          },
          "road" : 3320,
          "roadCooled" : 3260,

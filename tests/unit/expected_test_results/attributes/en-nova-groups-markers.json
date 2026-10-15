@@ -435,33 +435,26 @@
             {
                "ecobalyse_name" : "Lait de vache HORS UE",
                "id" : "413dbd30-f224-580c-bf02-51664910430e",
-               "mass" : 114.285714285714,
+               "mass" : 57.1428571428571,
                "name" : "Cow milk"
             },
             {
                "ecobalyse_name" : "Sel -2025-",
                "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-               "mass" : 42.8571428571429,
+               "mass" : 21.4285714285714,
                "name" : "salt"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 5.0,
+               "mass" : 2.5,
                "name" : "sugar"
             }
          ],
          "ingredients_coverage_percent" : 81,
-         "packaging" : [
-            {
-               "category" : "en:cheeses",
-               "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec",
-               "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
-               "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
-            }
-         ],
-         "reference_quantity" : 200,
-         "reference_quantity_source" : "packaging",
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
@@ -470,21 +463,15 @@
             "ingredients" : [
                {
                   "id" : "413dbd30-f224-580c-bf02-51664910430e",
-                  "mass" : 114.285714285714
+                  "mass" : 57.1428571428571
                },
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 42.8571428571429
+                  "mass" : 21.4285714285714
                },
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 5.0
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec"
+                  "mass" : 2.5
                }
             ]
          },
@@ -1074,7 +1061,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-skipped",
       "en:ecobalyse-ingredients-matched-between-80-and-89",
-      "en:ecobalyse-reference-quantity-from-packaging",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",

@@ -5,7 +5,7 @@ use JSON;
 
 use ProductOpener::PerlStandards;
 use ProductOpener::Test qw/init_expected_results compare_to_expected_results/;
-use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
+use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service get_ecobalyse_reference_quantity/;
 use ProductOpener::Paths qw/ensure_dir_created_or_die/;
 use ProductOpener::ProductsTags qw/compute_field_tags/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
@@ -68,7 +68,7 @@ my @tests = (
 		}
 	],
 	# Canned vegetables: matches canning transformation
-	# No product quantity: the quantity of the packaging entry is used as the reference quantity
+	# No product quantity: impacts are computed for 100 g only, and the packaging is not sent
 	[
 		'fr-canned-green-beans',
 		{
@@ -78,7 +78,7 @@ my @tests = (
 		}
 	],
 	# Frozen green beans: matches freezing transformation
-	# No product quantity: the quantity of the packaging entry is used as the reference quantity
+	# No product quantity: impacts are computed for 100 g only, and the packaging is not sent
 	[
 		'fr-frozen-green-beans',
 		{
@@ -106,6 +106,17 @@ my @tests = (
 		}
 	],
 );
+
+# Reference quantity of product for which we send the ingredients to Ecobalyse
+is([get_ecobalyse_reference_quantity({product_quantity => 500, product_quantity_unit => "g"})],
+	[500, "g", "product_quantity"]);
+is([get_ecobalyse_reference_quantity({product_quantity => 750, product_quantity_unit => "ml"})],
+	[750, "ml", "product_quantity"]);
+# Unknown or unlikely product quantities: 100 g or 100 ml depending on the nutrition data
+is([get_ecobalyse_reference_quantity({})], [100, "g", "default"]);
+is([get_ecobalyse_reference_quantity({product_quantity => 0.5, product_quantity_unit => "g"})], [100, "g", "default"]);
+is([get_ecobalyse_reference_quantity({product_quantity => 2, product_quantity_unit => "unit"})], [100, "g", "default"]);
+is([get_ecobalyse_reference_quantity({nutrition => {aggregated_set => {per => "100ml"}}})], [100, "ml", "default"]);
 
 # For each test, when the expected results are updated, the Ecobalyse mock response is saved to a file name [testid].json
 
