@@ -636,6 +636,18 @@ run_deps: clone_deps
 	@for dep in ${DEPS} ; do \
 		cd "${DEPS_DIR}/$$dep" && $(MAKE) run; \
 	done
+	@if [ -n "${COMMON_NET_NAME}" ]; then \
+		echo "🥫 Ensuring shared network ${COMMON_NET_NAME} exists and shared services are attached..."; \
+		docker network create "${COMMON_NET_NAME}" 2>/dev/null || true; \
+		for proj in off_shared off_auth; do \
+			for container_id in $$(docker compose -p $$proj ps -q 2>/dev/null); do \
+				docker network connect "${COMMON_NET_NAME}" "$$container_id" 2>/dev/null || true; \
+			done; \
+		done; \
+		for container_id in $$(docker ps -q -f "name=off_shared" 2>/dev/null); do \
+			docker network connect "${COMMON_NET_NAME}" "$$container_id" 2>/dev/null || true; \
+		done; \
+	fi
 
 
 # Clone dependent projects without running them (used to pull in yml for tests)

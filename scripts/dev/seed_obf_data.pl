@@ -21,7 +21,7 @@ use Modern::Perl '2017';
 use open ':std', ':encoding(UTF-8)';
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Products qw/init_product store_product analyze_and_enrich_product_data/;
+use ProductOpener::Products qw/init_product store_product analyze_and_enrich_product_data retrieve_product/;
 use ProductOpener::ProductsTags qw/set_field_input_tags_for_source/;
 use ProductOpener::BeautyProducts qw/specific_processes_for_beauty_product/;
 
@@ -79,6 +79,10 @@ my @sample_products = (
 say "🥫 Seeding sample OBF cosmetic products into MongoDB...";
 for my $p (@sample_products) {
 	my $code = $p->{code};
+	if (defined retrieve_product($code, 1)) {
+		say "  -> Product $code already exists, skipping...";
+		next;
+	}
 	say "  -> Seeding product $code ($p->{product_name})...";
 	my $product_ref = init_product("off-dev", "org-none", $code, "world");
 	for my $k (keys %$p) {

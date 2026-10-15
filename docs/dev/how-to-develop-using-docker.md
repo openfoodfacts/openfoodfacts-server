@@ -281,6 +281,6 @@ On staging servers, multiple flavors run concurrently side-by-side using directo
 2. **Shared Services Network**:
    - Common infrastructure (shared MongoDB, Redis) is managed via [`openfoodfacts-shared-services`](https://github.com/openfoodfacts/openfoodfacts-shared-services) and joined over flavor-scoped shared networks (`COMMON_NET_NAME`, e.g. `off_shared_network`, `obf_shared_network`) to prevent backend/minion service alias collisions.
 3. **Collision Avoidance**:
-   - Unique `COMPOSE_PROJECT_NAME` prefixes (`po_off`, `po_obf`) isolate container names and default bridge networks.
-   - Distinct ports (80 vs 81) and isolated Minion queues prevent task collisions, while shared volumes (`po_products`, `po_off_product_images`) ensure product history is preserved when products transition between flavors.
+   - Unique `COMPOSE_PROJECT_NAME` prefixes (`po_off`, `po_obf`) isolate container names, default bridge networks, and product volumes (`po_off_products`, `po_obf_products`).
+   - Distinct ports (80 vs 81) and isolated Minion queues prevent task collisions between flavors.
 
