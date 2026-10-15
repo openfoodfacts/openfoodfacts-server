@@ -71,6 +71,7 @@ BEGIN {
 		&display_product
 		&display_product_api
 		&display_product_history
+		&get_language_neutral_link
 
 		&get_search_field_path_components
 		&get_search_field_title_and_details
@@ -1087,6 +1088,8 @@ sub display_error ($request_ref, $error_message, $status_code) {
 	delete $request_ref->{canon_rel_url};
 	delete $request_ref->{url};
 	delete $request_ref->{current_link};
+	# the language selector of error pages links to the home page of the other languages
+	delete $request_ref->{language_neutral_link};
 
 	my $html = "<p>$error_message</p>";
 	$request_ref->{status_code} = $status_code;
@@ -1537,6 +1540,8 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	$request_ref->{content_ref} = \$html;
 	if ($textid ne 'index') {
 		$request_ref->{canon_url} = "/$textid";
+		# text ids are recognized on all language subdomains, and redirected to the translated route
+		$request_ref->{language_neutral_link} = "/$textid";
 	}
 
 	display_page($request_ref);
@@ -3110,6 +3115,51 @@ HEADER
 	return;
 }
 
+=head2 _language_neutral_tag_path ($tagtype, $tagid, $tag_prefix)
+
+Return a path for a tag (e.g. /states/en:to-be-completed) that is recognized on all language subdomains:
+the tag type is in English, and the tag id is the canonical tag id (prefixed with its language code for taxonomized tags).
+
+=cut
+
+sub _language_neutral_tag_path ($tagtype, $tagid, $tag_prefix = undef) {
+
+	my $tag_lc = '';
+	if ($tagid =~ /^(\w\w):/) {
+		$tag_lc = "$1:";
+		$tagid = $';
+	}
+	if ($tagid =~ /[^a-zA-Z0-9-]/) {
+		$tagid = URI::Escape::XS::encodeURIComponent($tagid);
+	}
+
+	return "/" . $tag_type_plural{$tagtype}{en} . "/" . ($tag_prefix // '') . $tag_lc . $tagid;
+}
+
+=head2 get_language_neutral_link ($request_ref)
+
+Return a link (path and query parameters, HTML escaped) to the current page that can be used on the subdomain of another language,
+so that the language selector can send users to the same page in another language.
+
+The link is set by the functions that display the different types of pages (products, tags, texts..),
+in $request_ref->{language_neutral_link}. The subdomain of the other language then redirects
+to the canonical url of the page in its language.
+
+If the page does not have such a link, the home page "/" is returned.
+
+=cut
+
+sub get_language_neutral_link ($request_ref) {
+
+	if (not defined $request_ref->{language_neutral_link}) {
+		return "/";
+	}
+
+	my $link = $request_ref->{language_neutral_link} . extension_and_query_parameters_to_redirect_url($request_ref);
+
+	return encode_entities($link, '<>&"\'');
+}
+
 =head2 canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref)
 
 This function goes through the tags filters from the request and canonicalizes them.
@@ -3121,6 +3171,8 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 	$request_ref->{current_link} = '/facets';
 	$request_ref->{world_current_link} = '/facets';
+	# link to the same page that can be used on another language subdomain (see get_language_neutral_link())
+	$request_ref->{language_neutral_link} = '/facets';
 
 	my $header_meta_noindex = 0;    # Will be set if one of the tags is related to a user
 	my $redirect_to_canonical_url = 0;    # Will be set if one of the tags is not canonical
@@ -3179,6 +3231,9 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 				if $log->is_debug();
 		}
 
+		$request_ref->{language_neutral_link}
+			.= _language_neutral_tag_path($tagtype, $canon_tagid // $new_tagid, $tag_prefix);
+
 		$tag_ref->{canon_tagid} = $canon_tagid;
 		$tag_ref->{new_tagid} = $new_tagid;
 		$tag_ref->{new_tagid_path} = '/facets' . $new_tagid_path;
@@ -3195,6 +3250,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 	if (defined $request_ref->{groupby_tagtype}) {
 		$request_ref->{current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
+		$request_ref->{language_neutral_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
 	}
 
 	# If the query contained tags in non-canonical form, redirect to the form with the canonical tags
@@ -7712,6 +7768,8 @@ sub display_page ($request_ref) {
 	my $en = 0;
 	my $langs = '';
 	my $selected_lang = '';
+	# Link to the current page in the other languages (or to the home page if we cannot link to the current page)
+	my $language_neutral_link = get_language_neutral_link($request_ref);
 
 	foreach my $olc (@{$country_languages{$request_ref->{cc}}}, 'en') {
 		if ($olc eq 'en') {
@@ -7729,11 +7787,19 @@ sub display_page ($request_ref) {
 			}
 			if (($olc eq $lc)) {
 				$selected_lang
-					= "<a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a>\n";
+					= "<a href=\""
+					. format_subdomain($osubdomain)
+					. $language_neutral_link . "\">"
+					. ($Langs{$olc} // $olc)
+					. "</a>\n";
 			}
 			else {
 				$langs
-					.= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a></li>";
+					.= "<li><a href=\""
+					. format_subdomain($osubdomain)
+					. $language_neutral_link . "\">"
+					. ($Langs{$olc} // $olc)
+					. "</a></li>";
 			}
 		}
 	}
@@ -8151,6 +8217,9 @@ JS
 	$description = sprintf(lang("product_description_$flavor"), $title);
 
 	$request_ref->{canon_url} = product_url($product_ref);
+
+	# A product url without the product name is redirected to the canonical url in the language of the subdomain
+	$request_ref->{language_neutral_link} = "/" . $tag_type_singular{products}{en} . "/" . $code;
 
 	if ($lc eq 'en') {
 		$request_ref->{canon_url} = get_world_subdomain() . product_url($product_ref);

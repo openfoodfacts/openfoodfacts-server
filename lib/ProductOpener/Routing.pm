@@ -432,6 +432,8 @@ sub api_route($request_ref) {
 #
 sub search_route($request_ref) {
 	$request_ref->{search} = 1;
+	# the search route is the same in all languages (used by the language selector, see get_language_neutral_link())
+	$request_ref->{language_neutral_link} = "/search";
 	set_request_stats_value($request_ref->{stats}, "route", "search");
 	$request_ref->{rate_limiter_bucket} = "search";
 	return 1;
