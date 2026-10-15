@@ -493,7 +493,7 @@ paths:
         The `fields` parameter accepts a comma-separated list of field names:
 
         * `name` – localized names of entries
-        * `synonyms` – localized synonyms
+        * `synonyms` – localized synonyms (requires `name` to also be requested in `fields`)
         * `parents` – direct parent entry IDs
         * `children` – direct child entry IDs
 
@@ -504,6 +504,10 @@ paths:
         property with `inherited:` (e.g. `inherited:vegan:en`).
 
         If `fields` is omitted, all fields are returned.
+
+        Note: Entries that have direct parents in the taxonomy may include
+        the `parents` field (as `[]`) even when `parents` is not explicitly
+        requested in `fields`.
 
         ### Include flags
 
@@ -528,7 +532,10 @@ paths:
           description: |
             Comma-separated list of taxonomy entry IDs to retrieve
             (e.g. `en:organic,en:fair-trade`).
-          required: true
+
+            Optional if `include_root_entries=1` is specified,
+            otherwise required to identify which entries to retrieve.
+          required: false
           schema:
             type: string
             example: "en:organic,en:fair-trade"
@@ -548,6 +555,10 @@ paths:
             Comma-separated list of fields to include in the response.
             Accepted values include `name`, `synonyms`, `parents`, `children`,
             and any taxonomy property name (e.g. `description`, `vegan:en`).
+
+            Note that `synonyms` requires `name` to also be requested.
+            Entries with direct parents may include the `parents` field (as `[]`)
+            even when not explicitly requested.
 
             Prefix a property with `inherited:` to include values inherited
             from parent entries (e.g. `inherited:vegan:en`).
