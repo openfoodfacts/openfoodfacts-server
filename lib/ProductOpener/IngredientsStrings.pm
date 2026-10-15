@@ -239,6 +239,7 @@ $symbols_regexp = join('|', @symbols);
 		["L. reuteri", "lactobacillus reuteri"],
 		["L. rhamnosus", "lactobacillus rhamnosus"],
 		["S. thermophilus", "streptococcus thermophilus"],
+		["Str. thermophilus", "streptococcus thermophilus"],
 	],
 
 	en => [
