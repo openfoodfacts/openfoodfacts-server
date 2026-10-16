@@ -125,7 +125,7 @@ my $tests_ref = [
 			nutriment_salt_unit => 'mg',
 			nutriment_sugars => '12.5',
 		},
-		expected_type => "html",
+		# errors of API requests are returned in JSON
 		expected_status_code => 403,
 	},
 	{
@@ -182,7 +182,7 @@ my $tests_ref = [
 		headers_in => {
 			'Authorization' => 'Bearer 4711',
 		},
-		expected_type => "html",
+		# errors of API requests are returned in JSON
 		expected_status_code => 403,
 	},
 
