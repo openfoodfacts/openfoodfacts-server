@@ -71,6 +71,7 @@ BEGIN {
 		&display_product
 		&display_product_api
 		&display_product_history
+		&get_product_history_revisions
 
 		&get_search_field_path_components
 		&get_search_field_title_and_details
@@ -9864,10 +9865,33 @@ sub display_rev_info ($product_ref, $rev) {
 
 }
 
-sub display_product_history ($request_ref, $code, $product_ref) {
+=head2 get_product_history_revisions ( $product_ref, $max_revisions = undef )
 
-	if ($product_ref->{rev} <= 0) {
-		return;
+Load the changes history of a product, and return the list of revisions, most recent first.
+
+It is used both to display the history on the website, and to create the product history knowledge panel.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+=head4 maximum number of revisions $max_revisions (optional)
+
+If specified, only the $max_revisions most recent revisions are returned.
+
+=head3 Return value
+
+Reference to an array of revisions. Each revision is a hash with the following keys:
+number, t (timestamp), userid, uuid, app_version, clientid, diffs (text describing the changes) and comment.
+
+=cut
+
+sub get_product_history_revisions ($product_ref, $max_revisions = undef) {
+
+	my @revisions = ();
+
+	if ((not defined $product_ref->{rev}) or ($product_ref->{rev} <= 0)) {
+		return \@revisions;
 	}
 
 	my $path = product_path($product_ref);
@@ -9877,14 +9901,10 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 	}
 
 	my $current_rev = $product_ref->{rev};
-	my @revisions = ();
 
 	foreach my $change_ref (reverse @{$changes_ref}) {
 
-		my $userid = get_change_userid_or_uuid($change_ref);
-		my $uuid = $change_ref->{app_uuid};
-		my $app_version = $change_ref->{app_version};
-		my $comment = _format_comment($change_ref->{comment});
+		last if ((defined $max_revisions) and (scalar @revisions >= $max_revisions));
 
 		my $change_rev = $change_ref->{rev};
 
@@ -9897,15 +9917,29 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 		push @revisions,
 			{
 			number => $change_rev,
-			date => display_date_tag($change_ref->{t}),
-			userid => $userid,
-			uuid => $uuid,
-			app_version => $app_version,
+			t => $change_ref->{t},
+			userid => get_change_userid_or_uuid($change_ref),
+			uuid => $change_ref->{app_uuid},
+			app_version => $change_ref->{app_version},
 			clientid => $change_ref->{clientid},
 			diffs => compute_changes_diff_text($change_ref),
-			comment => $comment
+			comment => _format_comment($change_ref->{comment}),
 			};
+	}
 
+	return \@revisions;
+}
+
+sub display_product_history ($request_ref, $code, $product_ref) {
+
+	if ($product_ref->{rev} <= 0) {
+		return;
+	}
+
+	my $revisions_ref = get_product_history_revisions($product_ref);
+
+	foreach my $revision_ref (@{$revisions_ref}) {
+		$revision_ref->{date} = display_date_tag($revision_ref->{t});
 	}
 
 	my $template_data_ref = {
@@ -9914,7 +9948,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			return display_tag_link('editors', $uid);
 		},
 		this_product_url => product_url($product_ref),
-		revisions => \@revisions,
+		revisions => $revisions_ref,
 		product => $product_ref,
 	};
 
@@ -10099,6 +10133,10 @@ XML
 
 sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 
+	# Deep offsets are expensive to serve and cheap to ask for, so the number of changes that can
+	# be skipped before the first one is bounded
+	my $max_skip = $options{max_recent_changes_skip} // 10_000;
+
 	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
@@ -10114,6 +10152,10 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 		$limit = $options{max_recent_changes_page_size};
 	}
 
+	# A page size of 0 (page_size=0, or a value that is not a number) would make the pagination
+	# divide by zero, and MongoDB would read a limit of 0 as "no limit"
+	$limit = 1 if $limit < 1;
+
 	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
@@ -10128,6 +10170,15 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 		$page = 1;
 	}
 
+	# The page and the page size are bounded separately, so their product can be much larger than
+	# either of them (1000 pages of 1000 changes = a skip of 999,000). MongoDB has to walk over
+	# every skipped document on a $natural sort, so bound the offset itself and keep the last page
+	# that is served below it.
+	if ($skip > $max_skip) {
+		$skip = $max_skip - ($limit - 1);
+		$page = int($skip / $limit) + 1;
+	}
+
 	# support for returning structured results in json / xml etc.
 
 	$request_ref->{structured_response} = {
@@ -10140,10 +10191,13 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 	my $sort_ref = Tie::IxHash->new();
 	$sort_ref->Push('$natural' => -1);
 
-	$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
+	# The count is only used to render the pagination, and the pages we can serve end at $max_skip,
+	# so stop counting there instead of counting the whole collection on every request
+	$log->debug("Counting MongoDB documents for query", {query => $query_ref, limit => $max_skip + $limit})
+		if $log->is_debug();
 	my $count = execute_query(
 		sub {
-			return get_recent_changes_collection()->count_documents($query_ref);
+			return get_recent_changes_collection()->count_documents($query_ref, {limit => $max_skip + $limit});
 		}
 	);
 	$log->debug("MongoDB count query ok", {error => $@, count => $count}) if $log->is_debug();
