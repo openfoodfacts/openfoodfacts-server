@@ -251,11 +251,11 @@ sub create_category_related_categories_panel ($tag_ref, $target_lc, $target_cc, 
 	my @parents = get_tag_with_parents("categories", $category_id);
 	shift @parents;
 
-	my %children = map {$_ => 1} get_tag_direct_children("categories", $category_id);
+	my %is_child = map {$_ => 1} get_tag_direct_children("categories", $category_id);
 
 	my @children = ();
-	if (%children) {
-		my $counts_ref = get_children_product_counts($category_id, \%children, $request_ref);
+	if (%is_child) {
+		my $counts_ref = get_children_product_counts($category_id, \%is_child, $request_ref);
 		if (not defined $counts_ref) {
 			return;
 		}
@@ -279,7 +279,7 @@ sub create_category_related_categories_panel ($tag_ref, $target_lc, $target_cc, 
 	return "related_categories";
 }
 
-sub get_children_product_counts ($category_id, $children_ref, $request_ref) {
+sub get_children_product_counts ($category_id, $is_child_ref, $request_ref) {
 
 	my %match = (categories_tags => $category_id);
 	if ((defined $request_ref->{country}) and ($request_ref->{cc} ne 'world')) {
@@ -312,15 +312,15 @@ sub get_children_product_counts ($category_id, $children_ref, $request_ref) {
 		return;
 	}
 
-	$counts_ref = select_children_counts($results, $children_ref);
+	$counts_ref = select_children_counts($results, $is_child_ref);
 	set_cache_results($key, $counts_ref, \$data_debug);
 
 	return $counts_ref;
 }
 
-sub select_children_counts ($results_ref, $children_ref) {
+sub select_children_counts ($results_ref, $is_child_ref) {
 
-	return {map {$_->{_id} => $_->{count}} grep {$children_ref->{$_->{_id}}} @{$results_ref}};
+	return {map {$_->{_id} => $_->{count}} grep {$is_child_ref->{$_->{_id}}} @{$results_ref}};
 }
 
 1;
