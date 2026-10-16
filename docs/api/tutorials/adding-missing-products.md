@@ -41,47 +41,66 @@ We perform OCR on incoming images (even non selected ones), and make the JSON av
 
 ## Product Barcode
 
-After the version number, the word `code`, followed by its barcode must be added:
-
-[https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004](https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004)
+Identify the product using the `code` field in the POST request body. The examples below use barcode `0074570036004`. Replace this value with the barcode of the product you want to add or update on the staging server.
 
 ---
 
 ## Credentials
 
-Dave adds his user credentials to the call as follows:
+Send your Open Food Facts username and password as the `user_id` and `password` fields in the POST request body. Keep credentials out of the request URL.
 
-[https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&user_id=myappname&password=](https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&user_id=myappname&password=)**
+The example in the next section shows how to send these fields with curl.
 
 ---
 
 ## Parameters
 
-You can define one or more parameters to add, for example, the brand and the Kosher label:
+This example adds a brand and a label using `add_brands` and `add_labels`, preserving existing values.
 
-- `brands`: Häagen-Dazs
-- `labels`: kosher
+Use the staging server for testing. You need an account registered on https://world.openfoodfacts.net. Replace `YOUR_USERNAME` and `YOUR_PASSWORD` with that account's credentials, and update the example User-Agent with your app's name, version, and contact email.
 
+The `--user off:off` option supplies the staging server's HTTP Basic authentication. This is separate from your Open Food Facts account credentials.
 
-The call looks like this:
+Run this command in a Bash-compatible terminal:
 
-`POST https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&user_id=test&password=test&brands=Häagen-Dazs&labels=kosher`
+```bash
+curl --request POST 'https://world.openfoodfacts.net/cgi/product_jqm2.pl' \
+  --user 'off:off' \
+  --user-agent 'MyApp/1.0 (myapp@example.com)' \
+  --data-urlencode 'user_id=YOUR_USERNAME' \
+  --data-urlencode 'password=YOUR_PASSWORD' \
+  --data-urlencode 'code=0074570036004' \
+  --data-urlencode 'cc=us' \
+  --data-urlencode 'lc=en' \
+  --data-urlencode 'add_brands=Häagen-Dazs' \
+  --data-urlencode 'add_labels=kosher'
+```
 
-We strongly advise to use add_brands and add_labels instead, even on new products, to reduce the potential of your users or your API destroying data by mistake. brands or labels should be used if and only if you retrieve existing values, show them to your users, let them adjust them, and resend the whole dict with the proper format.
+The `--data-urlencode` options send the fields in the POST request body and encode special characters.
+
+Use `brands` or `labels` only when you intend to replace the existing values and have retrieved and reviewed the complete list.
 
 ---
 
 ## Adding Additional Information to Existing Fields
 
-To add additional information to existing parameters, add the prefix `add_` to the parameter name.
+For list fields such as brands, labels, and categories, use the supported `add_` parameter to append values while preserving existing entries.
 
-**Important!** If you don't use the `add_` prefix, the existing values will be deleted.
+For example, this request adds `Desserts` to the product's categories. Use the same staging credentials and User-Agent described above.
 
-**Example**
+```bash
+curl --request POST 'https://world.openfoodfacts.net/cgi/product_jqm2.pl' \
+  --user 'off:off' \
+  --user-agent 'MyApp/1.0 (myapp@example.com)' \
+  --data-urlencode 'user_id=YOUR_USERNAME' \
+  --data-urlencode 'password=YOUR_PASSWORD' \
+  --data-urlencode 'code=0074570036004' \
+  --data-urlencode 'cc=us' \
+  --data-urlencode 'lc=en' \
+  --data-urlencode 'add_categories=Desserts'
+```
 
-`POST https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=0074570036004&user_id=test&password=test&add_categories=Desserts`
-
-To see the complete list of parameters, see the **Parameters** section.
+Using `categories` instead of `add_categories` replaces the existing category list with the values you submit.
 
 ---
 
