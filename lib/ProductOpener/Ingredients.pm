@@ -2175,7 +2175,7 @@ Text to analyze
 					}
 
 					if (    ($between =~ $separators)
-						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
+						and ($` !~ /\s*(origin|origins|origine|origen|origem|alkuperä|ursprung)\s*/i)
 						and ($` !~ /\s*(allergens)\s*/i)
 						and ($between !~ compiled_regexp('^' . $percent_or_quantity_regexp . '$')))
 					{
@@ -2224,7 +2224,7 @@ Text to analyze
 
 							# try to remove the origin and store it as property
 							if ($between
-								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
+								=~ /\s*(?:de origine|d'origine|de origen|de origem|origine|origin|origins|origen|origem|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
 								)
 							{
 								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
@@ -2233,6 +2233,9 @@ Text to analyze
 								$between = '';
 								# rm first occurence (origin:)
 								my $origin_string = $1;
+
+								# "origen de la leche: UE", "origine du lait : France" -> keep what is after the colon
+								$origin_string =~ s/^[^:]*:\s*//;
 
 								# rm additional parenthesis and its content that are sub-ingredient of origing (not parsed for now)
 								# example: "トマト (輸入又は国産 (未満 5%))"" (i.e., "Tomatoes (imported or domestically produced (less than 5%)))"")
@@ -2572,7 +2575,10 @@ Text to analyze
 				$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
 				# try to remove the origin and store it as property
-				if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä|iz)\s?:?\s?\b/i) {
+				if ($ingredient
+					=~ /\b(de origine|d'origine|de origen|de origem|origine|origin|origen|origem|alkuperä|iz)\s?:?\s?\b/i
+					)
+				{
 					$ingredient = $`;
 					my $origin_string = $';
 					# d'origine végétale -> not a geographic origin, add en:vegan
@@ -2917,6 +2923,42 @@ Text to analyze
 								'^the milk chocolate contains vegetable fats in addition to cocoa butter and cocoa solids',
 								'^meat content',
 								'^packaged in a protective atmosphere',
+							],
+
+							'es' => [
+								# headers, footnotes, mentions on the packaging
+								'^ingredientes?$',
+								'^(origen|lote|conservaci[oó]n|al[eé]rgenos|producto|preparaciones?|negrita|en negrita)$',
+								'^(espa[nñ]a|ue|uni[oó]n europea)$',
+								'^(informaci[oó]n|declaraci[oó]n) nutricional',
+								'^(peso neto|peso escurrido|modo de empleo|modo de preparaci[oó]n|fecha de caducidad)\b',
+								'^(para )?al[eé]rgenos\b',
+								'^(y )?sus derivados$',
+								'^no cacahuetes?$',
+								'^corteza no comestible',    # cheese rind
+								'^(de )?(producci[oó]n|agricultura) (controlada|ecol[oó]gica|biol[oó]gica)$',
+								'^(fabricado|elaborado|importado|distribuido|envasado) (por|para)\b',
+								'^envasad[oa] en atm[oó]sfera protectora',
+								'rainforest alliance',
+								'^desarrollad[oa] por quantis',
+								'^(arte|zona) de pesca',
+								'^pa[ií]s de (orde[nñ]o|transformaci[oó]n|origen)',
+								'^origen de la leche',
+								'^para elaborar \d+',
+								'^en proporci[oó]n(es)? variables?$',
+								# storage and use
+								'^(consumir|cons[eé]rvese|conservar|mantener|guardar|agitar|ver|no volver|una vez|cocinar|calentar)\b',
+								'^vez abierto',
+								'^fresco y seco$',
+								# mentions on some ingredients
+								'^contiene (az[uú]cares naturalmente|de forma natural|naturalmente|fenilalanina)',
+								'^(un )?consumo excesivo puede (producir|tener) efectos laxantes',
+								'^(contiene )?una fuente de fenilalanina',
+								'^fuente de fenilalanina',
+								'^(incluida|incluyendo) (la )?lactosa',
+								'^contenido en lactosa',
+								# nutrition facts
+								'^(valor energ[eé]tico|energ[ií]a grasas|hidratos de carbono|de l[ao]s cuales|saturad[ao]s$|l[ií]pidos de l[ao]s cuales)',
 							],
 
 							'fr' => [
@@ -7536,6 +7578,16 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		$text =~ s/Bienenwachs \(weiß und gelb\)/Bienenwachs weiß und gelb/ig;
 	}
 	elsif ($ingredients_lc eq 'es') {
+
+		# "Ingredientes:" header that was not removed at the start of the text
+		# e.g. "Salchichas de pollo, ahumadas. Ingredientes: carne de pollo, ..."
+		$text =~ s/(^|\.\s|,\s)\s*ingredientes\s*(?:\([^()]*\)\s*)?:\s*/$1/ig;
+
+		# aceites vegetales (nabina, girasol en proporciones variables)
+		$text =~ s/\s+en proporci[oó]n(?:es)? variables?\b//ig;
+
+		# acesulfamo Ky sucralosa -> acesulfamo K y sucralosa
+		$text =~ s/\b(acesulfam[eo]?)\s+Ky\b/$1 K y/ig;
 
 		# Special handling for sal as it can mean salt or shorea robusta
 		# aceites vegetales (palma, shea, sal (shorea robusta), hueso de mango)

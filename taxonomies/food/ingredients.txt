@@ -1169,7 +1169,7 @@ cs: bakterie mléčného kvašení, mléčné ferminty
 da: yoghurtkultur, starterkultur, mælkesyrekultur, mælkesyrekulturer, ostekulturer
 de: Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, lebende Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen, Milchfermente
 el: γαλακτικά ένζυμα
-es: fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
+es: fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos, fermentos lácticos activos
 et: juuretis
 fi: maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
 fr: ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt, bactéries lactiques, ferments lactiques naturels, levain lactique
@@ -1224,7 +1224,7 @@ it: coltura di tempeh
 < en: lactic ferments
 en: yogurt culture
 cs: jogurtové kultury
-es: fermentos del yogur
+es: fermentos del yogur, cultivos de yogur, cultivos de yogurt
 fr: cultures de yaourt
 hr: jogurtna kultura, jogurtne kulture, jogurtna baza
 it: fermenti dello yogurt, coltura di yogurt
@@ -1822,6 +1822,7 @@ description:en: CALF RENNET is extracted from the inner mucosa of the fourth sto
 en: vegetarian rennet, vegetable rennet, non animal rennet
 da: vegetabilsk osteløbe
 de: vegetarisches Lab, Labaustauschstoff
+es: cuajo no animal
 fi: kasviperäinen juustonjuoksutin, kasviperäinen juoksete
 fr: Présure végétarienne, présure végétale
 hr: vegetarijansko sirilo
@@ -4047,6 +4048,7 @@ vegetarian:en: yes
 
 < en: yogurt
 en: plain yogurt
+es: yogur natural
 fr: yaourt nature
 hr: običan jogurt
 it: yogurt naturale
@@ -4712,7 +4714,7 @@ bg: суроватъчен пермеат
 ca: permeat de sèrum de la llet, permeat làctic
 da: vallepermeat
 de: Molkenpermeat, Milchpermeat, Molkepermeat
-es: permeado de suerodérivé de la
+es: permeado de suerodérivé de la, permeado de leche, permeado de la leche
 fi: herapermeaatti, maitopermeaatti
 fr: perméat de petit lait
 hr: sirutka prožeti
@@ -5370,7 +5372,7 @@ cy: llaeth enwyn
 da: kærnemælk
 de: Buttermilch, reine Buttermilch
 eo: buterlakto
-es: suero de mantequilla, leche mazada
+es: suero de mantequilla, leche mazada, mazada
 et: pett
 fa: آب‌دوغ
 fi: kirnupiimä, kirnumaito
@@ -8348,7 +8350,7 @@ da: Parmesan, Parmigiano-Reggiano
 de: Parmesan, parmigiano reggiano, Parmigiano Reggiano Käse
 el: Παρμεζάνα
 eo: Parma fromaĝo
-es: queso parmesano
+es: queso parmesano, queso parmigiano reggiano
 et: Parmesan, parma juust
 eu: Parmigiano-Reggiano
 fa: پنیر پارمیجانو
@@ -14044,6 +14046,7 @@ wikidata:en: Q1779264
 en: natural casing
 bg: естествена обвивка
 de: Naturdarm
+es: tripa natural
 fi: luonnonsuoli
 fr: boyau naturel
 hr: prirodno kućište
@@ -14428,7 +14431,7 @@ cs: Škrob
 da: stivelse
 de: Stärke, Stärken, Speisestärke
 el: άμυλο
-es: almidón, fecula
+es: almidón, fecula, almidones
 et: Tärklis
 eu: Almidoi
 fa: نشاسته
@@ -17237,7 +17240,7 @@ da: olivenolie
 de: Olivenöl
 el: Ελαιόλαδο
 eo: Oliv-oleo
-es: aceite de oliva
+es: aceite de oliva, aceite vegetal de oliva
 et: Oliiviõli
 eu: Oliba olio
 fa: روغن زیتون
@@ -19388,7 +19391,7 @@ ca: Vinagre de vi
 cs: vinný ocet, ocet kvasný vinný
 da: Vineddike
 de: Weinessig
-es: vinagre de vino
+es: vinagre de vino, vinagre de uva
 fi: viinietikka
 fr: vinaigre de vin
 hr: vinski ocat
@@ -21972,6 +21975,7 @@ fr: arôme naturel de céleri-rave
 
 < en: flavouring
 en: nature identical flavouring
+es: saborizante idéntico al natural, aromatizante idéntico al natural
 hr: prirodno identična aroma
 it: aroma identico alla natura
 # These substances are chemically purified from an aromatic source or synthesized and have the same chemical composition as natural products.
@@ -22041,7 +22045,7 @@ pl: Naturalne i sztuczne aromaty
 < en: natural flavouring
 en: with other natural flavouring, other natural flavours
 de: mit anderen natürlichen Aromen, andere natürliche Aromen
-es: con otros aromas naturales
+es: con otros aromas naturales, otros aromas naturales
 fi: muut luontaiset aromit
 fr: avec autres arômes naturels, autres arômes naturels
 hr: sa ostalim prirodnim aromama, prirodno identične
@@ -23858,7 +23862,7 @@ it: aroma naturale di fichi
 en: cheese flavouring
 bg: аромат сирене, аромат на сирене
 de: Käsearoma, Käse Aroma
-es: aromas con sabor a queso, aroma queso, aroma de queso
+es: aromas con sabor a queso, aroma queso, aroma de queso, aroma a queso
 fr: Goût fromage
 hr: aroma sira
 hu: sajt ízesítés
@@ -24343,7 +24347,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Smoking_(cooking)
 en: beech wood smoke, beechwood smoke
 cs: kouř z bukového dřeva
 de: Buchenholzrauch, Buchenrauch
-es: Madera de haya ahumada
+es: Madera de haya ahumada, humo de madera de haya
 fi: pyökkipuusavu, pyökistä valmistettu savuaromi
 fr: fumée de bois de hêtre, fumée naturelle au bois de hêtre
 hr: dim bukovine, dim drva bukve, dim bukve
@@ -25540,7 +25544,7 @@ bs: integralna krupica durum pšenice
 da: fuldkorns durumhvede, Fuldkornsdurumhvede
 de: Vollkorn-Hartweizengriß, Vollkorn-Hartweizengrieß
 el: σιμιγδάλι αλέσεως σκληρού σιταριού, σιμιγδάλι ολικής αλέσεως σκληρού σιταριού
-es: sémola de trigo candeal integral
+es: sémola de trigo candeal integral, sémola integral de trigo duro
 fi: durum-täysjyvävehnäjauho
 fr: semoule de blé dur complète, semoule complète de blé dur, semoule de ble dur complet
 hr: integralna krupica durum pšenice, integralne krupice durum pšenice, durum krupica iz pšenice cjelovitog zrna, krupica od durum pšenice od cjelovitog zrna
@@ -30390,7 +30394,7 @@ usda_ndb_name:en: Corn grain, yellow
 en: sweetcorn, sweet corn, sweet corn in kernels, tender sweet maize
 bg: сладка царевица
 de: Süßmais, Süssmais, Zuckermais
-es: maíz dulce, maiz dulce
+es: maíz dulce, maiz dulce, maíz dulce en grano
 fi: sokerimaissi
 fr: maïs doux, mais doux
 hr: kukuruz šećerac
@@ -32079,7 +32083,7 @@ ca: garrofa, farina de garrofa
 cs: carubin
 da: Johannesbrødmel
 de: Carobin, Carobpulver, Johannisbrot, Johannisbrote
-es: Harina de algarroba, harina de garrofin
+es: Harina de algarroba, harina de garrofin, algarroba
 et: Jaanileivapuujahu
 fi: carob
 fr: caroube, farine de caroube
@@ -34699,6 +34703,7 @@ sv: sockerbetssirap
 en: brown sugar syrup
 bg: сироп от кафява захар, кафяв захарен сироп
 de: brauner zuckersirup
+es: jarabe de azúcar moreno
 fi: ruskea sokerisiirappi
 fr: Sirop de sucre brun, sirop de sucre mélassé
 hr: sirup od smeđeg šećera
@@ -36103,7 +36108,7 @@ bg: какао с намалено съдържание на мазнини, к�
 ca: cacau desgreixat
 da: fedtfattig kakao
 de: fettarmer Kakao, magerer Kakao, mageres Kakao
-es: cacao magro, cacao desgrasado
+es: cacao magro, cacao desgrasado, cacao desgrasado natural, cacao natural desgrasado
 fi: vähärasvainen kaakao
 fr: cacao maigre, cacao dégraissé, cacao réduit en matières grasses
 hr: kakao smanjene masti, nemasni kakao, reducirani kakao
@@ -36132,7 +36137,7 @@ cs: kakaová hmota
 da: kakaomasse
 de: Kakaomasse
 el: κακαόμαζα
-es: Pasta de cacao, masa del cacao, masa de cacao
+es: Pasta de cacao, masa del cacao, masa de cacao, licor de cacao
 et: kakaomass, kakaopasta
 fi: kaakaomassa, kaakaomassaa
 fr: pâte de cacao, cacao en pâte, masse de cacao
@@ -38442,7 +38447,7 @@ cy: Lefain
 da: Hævemiddel, hævemidler
 de: Backtriebmittel, Triebmittel
 el: Διογκωτικό αρτοποιίας
-es: Gasificante, Agente leudante, agentes gasificantes, gasificantes, leavenings, leudantes químicos
+es: Gasificante, Agente leudante, agentes gasificantes, gasificantes, leavenings, leudantes químicos, impulsor, impulsores
 et: Kergitusaine
 fa: عامل ورآورنده
 fi: nostatusaine, nostatusaineet
@@ -39114,6 +39119,7 @@ hr: inaktivni suhi kvasac
 < en: inactive sourdough
 < en: wheat sourdough
 en: inactive wheat sourdough
+es: masa madre de trigo inactiva, masa madre inactiva de trigo
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -44071,7 +44077,7 @@ en: lemon oil
 bg: лимоново масло
 da: citronolie
 de: Zitronenöl
-es: Aceite de limón
+es: Aceite de limón, aceite esencial de limón, esencia de limón
 fi: Sitruunaöljy
 fr: essence de citron, huile essentielle de citron, huile de citron
 hr: ulje limuna
@@ -64175,7 +64181,7 @@ da: paprika
 # de: Paprika # also "en: bell pepper", see "en: paprika or bell pepper"
 el: πάπρικα
 eo: papriko
-es: pimentón, paprika
+es: pimentón, paprika, pimentones
 eu: piperrauts
 fa: پاپریکا
 fr: paprika
@@ -71084,7 +71090,7 @@ en: aniseed, anise
 cs: anýz
 da: anis, anisfrø
 de: Anissamen, anis
-es: semilla de anís, anis, matalahúga
+es: semilla de anís, anis, matalahúga, anís en grano
 fi: anis
 fr: anis, graine d'anis vert, anis vert, graine d'anis
 hr: anis, plod anisa
@@ -76158,7 +76164,7 @@ cy: mintys ysbigog
 da: grøn mynte
 de: grüne Minze
 el: δυόσμος
-es: menta verde
+es: menta verde, hierbabuena
 et: rohemünt
 eu: mendabeltz
 fa: نعناع زینتی
@@ -77362,6 +77368,7 @@ pl: lubczyk suszony, suszony lubczyk
 en: lovage root
 da: løvstikkerod
 de: liebstöckelwurzel
+es: raíz de levístico
 fi: lipstikanjuuri
 fr: racine de livèche
 hr: ljupčac korijen
@@ -80593,6 +80600,7 @@ ciqual_food_name:fr: Tisane infusée, non sucrée
 
 < en: plant
 en: tea
+xx: Camellia sinensis
 af: tee
 an: té
 ar: شاي
@@ -81956,6 +81964,7 @@ bg: Спирулина
 bn: স্পিরুলিনা
 el: Σπιρουλίνα
 eo: Spirulino
+es: espirulina
 fi: spirulina, spirulinaa, spirulina-levä, spiruliinaa
 fr: spirulina, spiruline, spiruline crue
 he: ספירולינה
@@ -88028,6 +88037,7 @@ it: ventresca di tonno
 
 < en: tuna
 en: albacore, albacore tuna, white tuna, solid white tuna
+xx: Thunnus alalunga
 af: Albakoor
 ar: تونة بيضاء
 az: Uzunüzgəc tunes
@@ -91977,7 +91987,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mantis_shrimp
 < en: shrimp
 en: whiteleg shrimp, Litopenaeus vannamei
 de: Weißbeingarnele, Litopenaeus vannamei
-es: camarón, Litopenaeus vannamei
+es: camarón, Litopenaeus vannamei, langostino vannamei
 fi: valkokatkarapu, Litopenaeus vannamei
 fr: Crevette à pattes blanches, Litopenaeus vannamei
 hr: kozica pacifička, penaeus vannamei
@@ -93198,7 +93208,7 @@ en: gum base
 cs: žvýkačková báze
 da: gummibase
 de: Kaumasse
-es: base de goma
+es: base de goma, goma base
 fi: purukumin perusmassa, purukumin perusmassaa
 fr: gomme base
 hr: gumena baza, gumi baza
@@ -93825,7 +93835,7 @@ ecobalyse_transport_cooling:en: none
 en: ground coffee
 bg: смляно кафе
 de: gemahlener Kaffee
-es: cafe molido
+es: cafe molido, café molido de tueste natural
 fi: jauhettu kahvi
 fr: café moulu
 hr: mljevena mješavina kavovina, mljevena kava, mješavina mljevene kave
@@ -93986,6 +93996,7 @@ wiktionary:en: instant_coffee
 
 < en: instant coffee
 en: decaffeinated instant coffee
+es: café soluble descafeinado
 fr: Café décaféiné instantané
 it: caffè istantaneo decaffeinato
 ciqual_food_code:en: 18069
@@ -97692,6 +97703,7 @@ en: citrus fibre, citrus fibres
 bg: цитрусови влакнини
 da: citrusfibre
 de: citrusfaser, zitrusfaser, Zitrusfasern, Zitrusfruchtfasern, Citrusfasern
+es: fibra cítrica, fibra de cítricos
 fi: sitruskuitu
 fr: fibre d'agrume, fibre végétale d'agrumes, fibres d'agrumes, fibres d'agrume
 hr: citrusna vlakna, vlakna citrusa
@@ -98992,7 +99004,7 @@ da: nudler
 de: Nudel, Nudeln
 el: νουντλ
 eo: nudelo
-es: fideo
+es: fideo, fideos orientales
 et: nuudel, nuudlid
 eu: fideo
 fa: نودل
@@ -100433,6 +100445,7 @@ pt: chocolate de cobertura
 < en: milk chocolate
 en: milk chocolate coating, couverture milk chocolate
 de: Milchschokoladenkuvertüre, Milchschokoladenüberzug
+es: cobertura de chocolate con leche
 fr: chocolat au lait de couverture, enrobage chocolat au lait
 hr: miliječno čokoladni preljev, preljev okusa mliječne čokolade, preljev od mliječne čokalade, preljev mliječne čokolade
 it: rivestimento di cioccolato al latte
@@ -100876,7 +100889,7 @@ cs: kruton
 da: crouton, croutoner
 de: Croûton, Croutons
 el: κρουτόν
-es: croûton
+es: croûton, picatostes
 et: krutoonid
 eu: ogi-txigorki
 fi: krutonki, krutongit

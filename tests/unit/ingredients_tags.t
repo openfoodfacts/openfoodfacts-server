@@ -304,6 +304,26 @@ my @tests = (
 	],
 	[{lc => "fr", ingredients_text => "huile de palme certifiée durable"}, ['en:palm-oil']],
 	[{lc => "fr", ingredients_text => "huile de palme RSPO"}, ['en:palm-oil']],
+	# Spanish: origins, variable proportions, Ky typo, mentions to ignore
+	[
+		{
+			lc => "es",
+			ingredients_text =>
+				"Leche desnatada (Origen: España), aceites vegetales (nabina, girasol en proporciones variables), edulcorantes (acesulfamo Ky sucralosa), sal. Contiene una fuente de fenilalanina. Un consumo excesivo puede producir efectos laxantes. Conservar en lugar fresco y seco."
+		},
+		['en:skimmed-milk', 'en:vegetable-oil', 'en:e950', 'en:e955', 'en:salt', 'en:rapeseed-oil', 'en:sunflower-oil']
+	],
+	[
+		{
+			lc => "es",
+			ingredients_text =>
+				"Masa madre de trigo inactiva, goma base, almidones, came de cerdo, mazada, espirulina, tripa natural, fibra cítrica"
+		},
+		[
+			'en:inactive-wheat-sourdough', 'en:gum-base', 'en:starch', 'en:pork-meat',
+			'en:buttermilk', 'en:spirulina', 'en:natural-casing', 'en:citrus-fibre'
+		]
+	],
 
 	# Russian and / or
 	[{lc => "ru", ingredients_text => "яблоко и малина"}, ["en:apple", "en:raspberry"]],
