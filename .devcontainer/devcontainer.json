@@ -1,56 +1,22 @@
 {
-  "name": "Perl",
-  "initializeCommand": "make run_deps",
-  "dockerComposeFile": [
-    "../docker-compose.yml",
-    "../docker/dev.yml",
-    "../docker/run.yml",
-    "../docker/devcontainer.yml"
-  ],
-  "containerEnv": {
-    "HOME": "/tmp"
-  },
-  "capAdd": [
-    "SYS_PTRACE"
-  ],
-  "securityOpt": [
-    "seccomp=unconfined"
-  ],
-  "service": "backend",
-  "runServices": [
-    "memcached",
-    "postgres",
-    "dynamicfront",
-    "frontend",
-    "incron",
-    "minion",
-    "redis-listener",
-    "keycloak"
-  ],
-  "workspaceFolder": "/opt/product-opener",
-  "customizations": {
-    "vscode": {
-      "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
-      },
-      "extensions": [
-        "richterger.perl",
-        "d9705996.perl-toolbox",
-        "redhat.vscode-yaml",
-        "dbaeumer.vscode-eslint",
-        "stylelint.vscode-stylelint",
-        "syler.sass-indented",
-        "mrorz.language-gettext",
-        "SonarSource.sonarlint-vscode",
-        "codecov.codecov"
-      ]
-    }
-  },
+  "name": "Open Food Facts - university pilot",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu24.04",
   "features": {
-    "ghcr.io/devcontainers/features/git:1":{},
-    "ghcr.io/devcontainers/features/github-cli:1":{},
-    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages": "libterm-readline-gnu-perl"
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb"
+  },
+  "forwardPorts": [80, 5605],
+  "portsAttributes": {
+    "80": {
+      "label": "Open Food Facts",
+      "onAutoForward": "notify"
+    },
+    "5605": {
+      "label": "Test email",
+      "onAutoForward": "notify"
     }
   }
 }
