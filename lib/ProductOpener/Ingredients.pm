@@ -5491,9 +5491,11 @@ my %phrases_before_ingredients_list = (
 
 	nl => ['(I|i)ngredi(e|ë)nten', 'samenstelling', 'bestanddelen'],
 
-	nb => ['Ingredienser',],
+	nb => ['sammensetning', 'ingredienser',],
 
-	no => ['Sammensetning', 'ingredienser'],
+	nn => ['ingrediensar',],
+
+	no => ['sammensetning', 'ingrediens[ae]r',],
 
 	pl => ['sk[łl]adniki', 'skład',],
 
@@ -5563,11 +5565,13 @@ my %phrases_before_ingredients_list_uppercase = (
 
 	lv => ['SASTĀVS',],
 
-	nb => ['INGREDIENSER',],
+	nb => ['SAMMENSETNING', 'INGREDIENSER',],
 
 	nl => ['INGREDI(E|Ë)NTEN(\s*)', 'INGREDIENSER', 'SAMENSTELLING',],
 
-	no => ['SAMMENSETNING',],
+	nn => ['INGREDIENSAR',],
+
+	no => ['SAMMENSETNING', 'INGREDIENS[AE]R',],
 
 	pl => ['SKŁADNIKI(\s*)', 'SKŁAD',],
 

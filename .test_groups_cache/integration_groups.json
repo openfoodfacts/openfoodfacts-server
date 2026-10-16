@@ -5,9 +5,9 @@
       "tests/integration/api_v3_product_images_upload.t",
       "tests/integration/auth-keycloak.t",
       "tests/integration/create_user.t",
-      "tests/integration/knowledge_panel_escaping.t",
-      "tests/integration/protected_images.t",
-      "tests/integration/unknown_tags.t"
+      "tests/integration/madenearme.t",
+      "tests/integration/protected_product.t",
+      "tests/integration/web_html.t"
     ],
     "total_time": 210.0
   },
@@ -63,8 +63,8 @@
       "tests/integration/api_v3_product_write.t",
       "tests/integration/cors.t",
       "tests/integration/facets.t",
-      "tests/integration/page_crawler.t",
-      "tests/integration/run_cloud_vision_ocr.t"
+      "tests/integration/product_read.t",
+      "tests/integration/session_revocation.t"
     ],
     "total_time": 180.0
   },
@@ -74,8 +74,8 @@
       "tests/integration/api_v3_product_write_nutrition.t",
       "tests/integration/countries.t",
       "tests/integration/fix_non_normalized_codes.t",
-      "tests/integration/product_read.t",
-      "tests/integration/search_v1.t"
+      "tests/integration/product_write.t",
+      "tests/integration/sugar_random_lang.t"
     ],
     "total_time": 180.0
   },
@@ -85,8 +85,8 @@
       "tests/integration/api_v3_taxonomy.t",
       "tests/integration/create_pro_user.t",
       "tests/integration/import_csv_file.t",
-      "tests/integration/product_write.t",
-      "tests/integration/session_revocation.t"
+      "tests/integration/products_comparison.t",
+      "tests/integration/unknown_tags.t"
     ],
     "total_time": 180.0
   },
@@ -96,8 +96,8 @@
       "tests/integration/api_v3_taxonomy_suggestions.t",
       "tests/integration/create_product.t",
       "tests/integration/import_systemeu.t",
-      "tests/integration/products_comparison.t",
-      "tests/integration/sugar_random_lang.t"
+      "tests/integration/protected_images.t",
+      "tests/integration/upload_images.t"
     ],
     "total_time": 180.0
   }

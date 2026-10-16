@@ -71,6 +71,7 @@ BEGIN {
 		&display_product
 		&display_product_api
 		&display_product_history
+		&get_product_history_revisions
 
 		&get_search_field_path_components
 		&get_search_field_title_and_details
@@ -9877,10 +9878,33 @@ sub display_rev_info ($product_ref, $rev) {
 
 }
 
-sub display_product_history ($request_ref, $code, $product_ref) {
+=head2 get_product_history_revisions ( $product_ref, $max_revisions = undef )
 
-	if ($product_ref->{rev} <= 0) {
-		return;
+Load the changes history of a product, and return the list of revisions, most recent first.
+
+It is used both to display the history on the website, and to create the product history knowledge panel.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+=head4 maximum number of revisions $max_revisions (optional)
+
+If specified, only the $max_revisions most recent revisions are returned.
+
+=head3 Return value
+
+Reference to an array of revisions. Each revision is a hash with the following keys:
+number, t (timestamp), userid, uuid, app_version, clientid, diffs (text describing the changes) and comment.
+
+=cut
+
+sub get_product_history_revisions ($product_ref, $max_revisions = undef) {
+
+	my @revisions = ();
+
+	if ((not defined $product_ref->{rev}) or ($product_ref->{rev} <= 0)) {
+		return \@revisions;
 	}
 
 	my $path = product_path($product_ref);
@@ -9890,14 +9914,10 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 	}
 
 	my $current_rev = $product_ref->{rev};
-	my @revisions = ();
 
 	foreach my $change_ref (reverse @{$changes_ref}) {
 
-		my $userid = get_change_userid_or_uuid($change_ref);
-		my $uuid = $change_ref->{app_uuid};
-		my $app_version = $change_ref->{app_version};
-		my $comment = _format_comment($change_ref->{comment});
+		last if ((defined $max_revisions) and (scalar @revisions >= $max_revisions));
 
 		my $change_rev = $change_ref->{rev};
 
@@ -9910,15 +9930,29 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 		push @revisions,
 			{
 			number => $change_rev,
-			date => display_date_tag($change_ref->{t}),
-			userid => $userid,
-			uuid => $uuid,
-			app_version => $app_version,
+			t => $change_ref->{t},
+			userid => get_change_userid_or_uuid($change_ref),
+			uuid => $change_ref->{app_uuid},
+			app_version => $change_ref->{app_version},
 			clientid => $change_ref->{clientid},
 			diffs => compute_changes_diff_text($change_ref),
-			comment => $comment
+			comment => _format_comment($change_ref->{comment}),
 			};
+	}
 
+	return \@revisions;
+}
+
+sub display_product_history ($request_ref, $code, $product_ref) {
+
+	if ($product_ref->{rev} <= 0) {
+		return;
+	}
+
+	my $revisions_ref = get_product_history_revisions($product_ref);
+
+	foreach my $revision_ref (@{$revisions_ref}) {
+		$revision_ref->{date} = display_date_tag($revision_ref->{t});
 	}
 
 	my $template_data_ref = {
@@ -9927,7 +9961,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			return display_tag_link('editors', $uid);
 		},
 		this_product_url => product_url($product_ref),
-		revisions => \@revisions,
+		revisions => $revisions_ref,
 		product => $product_ref,
 	};
 
