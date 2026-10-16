@@ -53,7 +53,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Users qw/%User/;
-use ProductOpener::API qw/add_error/;
+use ProductOpener::API qw/add_error check_user_is_authenticated/;
 
 =head2 read_current_user_permissions_api ( $request_ref )
 
@@ -116,20 +116,12 @@ sub read_current_user_permissions_api ($request_ref) {
 	#
 	# So we use those fields directly, avoiding a redundant retrieve_user() call.
 
-	my $user_id = $request_ref->{user_id};
-
-	unless (defined $user_id) {
-		$log->info("read_current_user_permissions_api - no authenticated user", {}) if $log->is_info();
-		add_error(
-			$response_ref,
-			{
-				message => {id => "authentication_required"},
-				impact => {id => "failure"},
-			},
-			401
-		);
+	# Same authentication check as product writes: $request_ref->{user_id} is set by init_user().
+	if (not check_user_is_authenticated($request_ref, $response_ref)) {
 		return;
 	}
+
+	my $user_id = $request_ref->{user_id};
 
 	# Build the user permissions response using fields already set by init_user().
 	$response_ref->{result} = {id => "user_found"};

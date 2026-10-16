@@ -49,8 +49,9 @@
       "countries_tags" : [
          "en:france"
       ],
+      "created_by_client" : "OFF",
       "created_t" : "--ignore--",
-      "creator" : "openfoodfacts-contributors",
+      "creator" : "tests",
       "data_quality_bugs_tags" : [],
       "data_quality_completeness_tags" : [
          "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
@@ -371,7 +372,7 @@
       ],
       "editors_tags" : [
          "moderator",
-         "openfoodfacts-contributors"
+         "tests"
       ],
       "entry_dates_tags" : "--ignore--",
       "food_groups_tags" : [],
@@ -382,7 +383,7 @@
       "id" : "1234567890100",
       "images" : {},
       "informers_tags" : [
-         "openfoodfacts-contributors"
+         "tests"
       ],
       "interface_version_created" : "20221102/api/v3",
       "interface_version_modified" : "20150316.jqm2",
@@ -403,6 +404,7 @@
       "last_edit_dates_tags" : "--ignore--",
       "last_editor" : "moderator",
       "last_modified_by" : "moderator",
+      "last_modified_by_client" : "OFF",
       "last_modified_t" : "--ignore--",
       "last_updated_t" : "--ignore--",
       "lc" : "en",

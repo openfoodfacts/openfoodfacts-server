@@ -59,6 +59,7 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::API qw/get_initialized_response check_user_permission/;
+use ProductOpener::Permissions qw/is_logged_in/;
 use ProductOpener::APIProductWrite
 	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field update_product_field_api_v2_and_cgi/;
 
@@ -152,7 +153,9 @@ my $original_code = $code;
 
 $code = normalize_code($code);
 
-if (not defined $User_id) {
+# Same authenticated user as API v3: init_user() sets $request_ref->{user_id}.
+# Keep the v2 response body so existing clients can keep reading status_verbose.
+if (not is_logged_in($request_ref)) {
 	$log->info("no user credentials", {code => $code, original_code => $original_code}) if $log->is_info();
 	$response{status} = 0;
 	$response{status_verbose} = 'no user credentials';
