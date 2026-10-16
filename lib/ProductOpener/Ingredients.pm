@@ -2703,9 +2703,10 @@ Text to analyze
 
 							# Some labels synonyms (e.g. "végétal" for vegan) can be part of the name of an ingredient
 							# e.g. "charbon végétal" (E153), "extraits végétaux à pouvoir colorant", "huiles végétales"
-							# Keep the name of the ingredient with the label if it is a known ingredient,
-							# and if the ingredient without the label is not known, or if the label is vegan or vegetarian
-							# (we still remove "bio" from "farine de blé bio" to get "farine de blé")
+							# If the ingredient with the label is a known ingredient, keep its name with the label when:
+							# - the ingredient without the label is not known ("charbon végétal" -> "charbon")
+							# - or the label is vegan or vegetarian, as it changes the ingredient ("huiles végétales" -> "huiles")
+							# Otherwise remove the label from the name (e.g. "farine de blé bio" -> "farine de blé")
 							my $ingredient_is_known = 0;
 							canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient,
 								\$ingredient_is_known);
