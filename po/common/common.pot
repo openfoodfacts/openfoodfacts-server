@@ -6205,6 +6205,11 @@ msgctxt "f_carbon_footprint_per_unit"
 msgid "{kilograms} kg CO₂e per unit"
 msgstr "{kilograms} kg CO₂e per unit"
 
+# variable names between { } must not be translated
+msgctxt "f_carbon_footprint_unit"
+msgid "{unit} CO₂e"
+msgstr "{unit} CO₂e"
+
 msgctxt "average_for_the_category"
 msgid "average for the category"
 msgstr "average for the category"
