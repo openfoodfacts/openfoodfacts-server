@@ -4,6 +4,7 @@ use JSON::MaybeXS;
 use Storable qw(dclone);
 use ProductOpener::API qw(init_api_response);
 use ProductOpener::APIProductServices qw(product_services_api);
+use ProductOpener::Ingredients qw(extract_ingredients_from_text);
 
 sub request ($product, $services = ['parse_ingredients_text']) {
 	my $request = {
@@ -66,5 +67,41 @@ my $empty = dclone($replaced);
 $empty->{ingredients_text} = '';
 my $cleared = request($empty);
 is($cleared->{body_json}{product}{ingredients_sections}, undef, 'API removes sections for empty source');
+
+my $previous = {
+	lc => 'en',
+	product_type => 'petfood',
+	nutrition => {},
+	ingredients_text => 'chicken 60%, water 40%. Meat content: 60%'
+};
+extract_ingredients_from_text($previous);
+$previous->{ingredients_text}
+	= 'With Chicken Ingredients: chicken 4%, water. With Turkey Ingredients: turkey 4%, water.';
+my @quantitative = qw(specific_ingredients ingredients_with_specified_percent_n ingredients_with_specified_percent_sum
+	ingredients_with_unspecified_percent_n ingredients_with_unspecified_percent_sum);
+
+for my $services (['parse_ingredients_text'],
+	['parse_ingredients_text', 'extend_ingredients', 'estimate_ingredients_percent', 'analyze_ingredients'])
+{
+	my $result = request($previous, $services);
+	my $product = $result->{body_json}{product};
+	is(
+		[map {$product->{$_}} @quantitative],
+		[(undef) x scalar @quantitative],
+		'replacing a recipe invalidates old global quantities and total-content declarations'
+	);
+	is([grep {/specified-percent|estimated-ingredients-with/} @{$product->{misc_tags} // []}],
+		[], 'replacing a recipe removes stale quantitative analysis tags');
+	ok(!scalar(grep {!$result->{updated_product_fields}{$_}} (@quantitative, 'misc_tags')),
+		'API reports every invalidated quantitative field');
+}
+extract_ingredients_from_text($previous);
+is(
+	[map {$previous->{$_}} @quantitative],
+	[(undef) x scalar @quantitative],
+	'full reanalysis also leaves unweighted global quantitative summaries indeterminate'
+);
+is([grep {/specified-percent|estimated-ingredients-with/} @{$previous->{misc_tags} // []}],
+	[], 'full reanalysis removes obsolete quantitative tags');
 
 done_testing;

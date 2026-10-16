@@ -9,13 +9,22 @@ our @EXPORT_OK = qw(split_ingredient_sections);
 # Keep source spans separate from the bodies that may be passed to ingredient parsing.
 sub split_ingredient_sections ($text, $lc) {
 	return unless defined $text && $text =~ /\S/ && $lc =~ /^(?:fr|en)$/;
+	# An additives heading may carry a dose reference, "(/kg)" or "(per kg)", but not a list of additives.
+	my $additives = qr/
+		(?:additifs(?:\s*:\s*additifs)?(?:\s+(?:nutritionnels|technologiques|organoleptiques|zootechniques))?
+		|(?:nutritional|technological|sensory|zootechnical)\s+additives|additives)
+		[_*]*(?:\h*\([^()]*\bkg\b[^()]*\)[_*]*)?\h*
+	/xi;
+	# Emphasis marks are read from the start of their run, so that a long run is not rescanned from each of its marks.
+	my $emphasis = qr/(?<![_*])[_*]*/;
 	my @patterns = (
-		['ingredients', qr/[_*]*(?:composition|ingrédients|ingredients)\s*:\s*[_*]*/i],
-		['analytical', qr/[_*]*(?:constituants\s+analytiques|analytical\s+(?:constituents|analysis))\s*:?\s*[_*]*/i],
+		['ingredients', qr/$emphasis(?:composition|ingrédients|ingredients)[_*]*\s*:\s*[_*]*/i],
 		[
-			'additives',
-			qr/[_*]*(?:additifs(?:\s*:\s*additifs)?(?:\s+nutritionnels)?|nutritional\s+additives|additives)(?:[ \t]*\([^)]*\))?[_*]*[ \t]*(?::[ \t]*[_*]*|\R|$)/i
+			'analytical',
+			qr/$emphasis(?:constituants\s+analytiques|analytical\s+(?:constituents|analysis))\s*:?\s*[_*]*/i
 		],
+		# After a colon anywhere in a sentence, or alone on its line.
+		['additives', qr/(?<![\pL\pN])$emphasis$additives:\h*[_*]*|(?:^|(?<=[\r\n]))\h*[_*]*$additives(?:\R|$)/i],
 	);
 	if ($lc eq 'fr') {
 		push @patterns,
@@ -26,7 +35,7 @@ sub split_ingredient_sections ($text, $lc) {
 	}
 	else {
 		# The previous recipe may end immediately before "With" in copied label text.
-		push @patterns, ['recipe', qr/[_*]*With\s+[^:;\r\n]{1,120}?\s+Ingredients\s*:\s*[_*]*/i];
+		push @patterns, ['recipe', qr/${emphasis}With\s+[^:;\r\n]{1,120}?\s+Ingredients\s*:\s*[_*]*/i];
 	}
 	my @markers;
 	for my $pattern (@patterns) {
@@ -34,9 +43,10 @@ sub split_ingredient_sections ($text, $lc) {
 			push @markers, {type => $pattern->[0], start => $-[0], end => $+[0], heading => $&};
 		}
 	}
-	my $kibble = $lc eq 'fr' ? qr/croquettes/ : qr/kibbles?/;
-	my $mixture_start = $lc eq 'fr' ? qr/de\s+croquettes\b/ : qr/(?:of\s+)?(?:[\pL-]+\s+){0,2}kibbles?\b/;
-	my $finished_product = $lc eq 'fr' ? qr/produit\s+fini/ : qr/finished\s+product/;
+	# An interpolated qr keeps its own flags: the case-insensitivity of the matches below does not reach it.
+	my $kibble = $lc eq 'fr' ? qr/croquettes/i : qr/kibbles?/i;
+	my $mixture_start = $lc eq 'fr' ? qr/de\s+croquettes\b/i : qr/(?:of\s+)?(?:[\pL-]+\s+){0,2}kibbles?\b/i;
+	my $finished_product = $lc eq 'fr' ? qr/produit\s+fini/i : qr/finished\s+product/i;
 	while ($text =~ /(?:^|[\r\n]|(?<!\d)\.(?!\d))\s*(\d+(?:[.,]\d+)?\s*%\s+$mixture_start)/ig) {
 		my $start = $-[1];
 		my $description = substr($text, $start);
@@ -77,7 +87,7 @@ sub split_ingredient_sections ($text, $lc) {
 		= $lc eq 'fr'
 		? qr/protéines?(?:\s+brutes?)?|matières\s+grasses(?:\s+brutes?)?|cendres(?:\s+brutes?)?|cellulose(?:\s+brute)?|humidité|calcium|phosphore|sodium|magnésium|potassium|soufre|chlorure|taurine/i
 		: qr/(?:crude\s+)?(?:protein|fat|ash|fib(?:re|er))|moisture|calcium|phosphorus|sodium|magnesium|potassium|sulphur|chloride|taurine/i;
-	my $entry = qr/(?:$labels)\s*:?\s*\d+(?:[.,]\d+)?\s*(?:%|[mk]?g\s*\/\s*kg)/i;
+	my $entry = qr/(?:$labels)\s*(?::\s*)?\d+(?:[.,]\d+)?\s*(?:%|[mk]?g\s*\/\s*kg)/i;
 	my @result;
 	my $inferred = 0;
 	for my $section (@sections) {
