@@ -7378,8 +7378,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# remove urls: "Bilan massique certifié Rainforest Alliance www.ra.org/fr"
 	$text =~ s/\b(?:https?:\/\/|www\.)[^\s,;()]*[^\s,;().]//ig;
 
-	# combined symbols: "ŒUFS*/** entiers frais" -> "ŒUFS*** entiers frais"
-	$text =~ s/(\*+)\s*\/\s*(\*+)/$1$2/g;
+	# combined symbols: "ŒUFS*/** entiers frais" -> "ŒUFS* ** entiers frais"
+	# so that the labels of both symbols are applied to the ingredient
+	$text =~ s/(\*+)\s*\/\s*(\*+)/$1 $2/g;
 
 	# turn special chars to spaces
 	$text =~ s/[\000-\037]/ /g;
