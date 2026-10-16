@@ -1546,7 +1546,7 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 	return $email_ref;
 }
 
-sub init_user ($request_ref) {
+sub init_user ($request_ref, $r = undef) {
 
 	my $user_id = undef;
 	my $user_ref = undef;
@@ -1556,6 +1556,25 @@ sub init_user ($request_ref) {
 	$Org_id = undef;
 	%User = ();
 	%Org = ();
+
+
+	# Note we allow an OAuth token for all oidc_implementation_levels
+	if ($r) {
+		my $signed_in_oidc = process_auth_header($request_ref, $r);
+		if ($signed_in_oidc < 0) {
+			# We were sent a bad bearer token
+			# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
+			if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
+				and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
+			{
+				$log->debug(
+					"init_request - init_user error - display error page",
+					{init_user_error => $request_ref->{init_user_error}}
+				) if $log->is_debug();
+				return ($Lang{api_message_invalid_token}{$lc});
+			}
+		}
+	}
 
 	# Remove persistent cookie if user is logging out
 	if ((defined request_param($request_ref, 'length')) and (request_param($request_ref, 'length') eq 'logout')) {
@@ -1958,6 +1977,88 @@ sub check_session ($user_id, $user_session) {
 sub update_external_login_time ($user_ref) {
 	update_contact_last_login($user_ref);
 	update_last_logged_in_member($user_ref);
+	return;
+}
+
+=head2 process_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if we have a valid user.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+1 if the user has been signed in, -1 if the Bearer token was invalid, 0 otherwise.
+
+=cut
+
+sub process_auth_header ($request_ref, $r) {
+	my $token = _read_auth_header($request_ref, $r);
+	unless ($token) {
+		return 0;
+	}
+
+	my $access_token;
+	# verify token using JWKS (see Auth.pm)
+	eval {$access_token = verify_access_token($token);};
+	my $error = $@;
+	if ($error) {
+		$log->info('Access token invalid', {token => $token}) if $log->is_info();
+	}
+
+	unless ($access_token) {
+		return -1;
+	}
+
+	$request_ref->{access_token} = $token;
+	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
+	unless (defined $user_ref) {
+		$log->info('User not found and not created') if $log->is_info();
+		return -1;
+	}
+	my $user_id = $user_ref->{userid};
+	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
+
+	$request_ref->{oidc_user_id} = $user_id;
+
+	return 1;
+}
+
+=head2 _read_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if it looks like a 
+Bearer token, and if it does, copy it to the request_ref
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+None
+
+=cut
+
+sub _read_auth_header ($request_ref, $r) {
+	my $authorization = $r->headers_in->{Authorization};
+	if ((defined $authorization) and ($authorization =~ /^Bearer (?<token>.+)$/)) {
+		return $+{token};
+	}
+
 	return;
 }
 

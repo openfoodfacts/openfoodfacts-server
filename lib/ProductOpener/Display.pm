@@ -157,7 +157,7 @@ use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_
 use ProductOpener::PackagerCodes
 	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
-use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header sanitize);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request sanitize);
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
@@ -794,23 +794,7 @@ sub init_request ($request_ref = {}) {
 		}
 	) if $log->is_debug();
 
-	# Note we allow an OAuth token for all oidc_implementation_levels
-	my $signed_in_oidc = process_auth_header($request_ref, $r);
-	if ($signed_in_oidc < 0) {
-		# We were sent a bad bearer token
-		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
-		if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
-			and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
-		{
-			$log->debug(
-				"init_request - init_user error - display error page",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
-			display_error_and_exit($request_ref, $signed_in_oidc, 403);
-		}
-	}
-
-	my $error = ProductOpener::Users::init_user($request_ref);
+	my $error = ProductOpener::Users::init_user($request_ref, $r);
 	if ($error) {
 		# We were sent bad user_id / password credentials
 
