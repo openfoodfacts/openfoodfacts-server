@@ -2,9 +2,9 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "17001",
+         "ciqual_food_code" : "17001",
          "from_palm_oil" : "maybe",
-         "id" : "en:oil",
+         "id" : "en:non-hydrogenated-vegetable-oils",
          "ingredients" : [
             {
                "ciqual_food_code" : "16129",
@@ -37,12 +37,10 @@
             }
          ],
          "is_in_taxonomy" : 1,
-         "labels" : "en:vegan",
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "processing" : "en:non-hydrogenated",
-         "text" : "huiles",
+         "text" : "huiles végétales non hydrogénées",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
@@ -64,17 +62,18 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:oil",
+      "en:non-hydrogenated-vegetable-oils",
       "en:palm-oil",
       "en:colza-oil"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:oil",
+      "en:non-hydrogenated-vegetable-oils",
+      "en:vegetable-oil",
+      "en:vegetable-oil-and-fat",
       "en:oil-and-fat",
       "en:palm-oil",
       "en:palm-oil-and-fat",
-      "en:vegetable-oil-and-fat",
       "en:colza-oil",
       "en:rapeseed-oil"
    ],
@@ -86,7 +85,7 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:oil"
+      "en:non-hydrogenated-vegetable-oils"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,

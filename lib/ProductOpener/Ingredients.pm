@@ -1267,13 +1267,21 @@ sub _extract_ingredient_labels ($lc, $ingredient) {
 	my @ingredient_labels;
 	my $last_label;
 	# Uncomposed labels come first so that "fair-trade organic" yields both labels.
-	foreach my $labelid (reverse @labels) {
+	my @ordered_labels = reverse @labels;
+	# Remove external labels before checking whether a dietary word belongs to a known name.
+	@ordered_labels = sort {($a =~ /^en:(?:vegan|vegetarian)$/ ? 1 : 0) <=> ($b =~ /^en:(?:vegan|vegetarian)$/ ? 1 : 0)}
+		@ordered_labels;
+	foreach my $labelid (@ordered_labels) {
 		my $regexp = $labels_regexps{$lc}{$labelid};
 		next unless defined $regexp;
 		while ($ingredient =~ compiled_regexp('\b(' . $regexp . ')\b')) {
-			$last_label = $1;
+			my $matched_label = $1;
 			my $before_the_label = $`;
 			my $after_the_label = $';
+			last
+				if $labelid =~ /^en:(?:vegan|vegetarian)$/
+				&& (parse_processing_from_ingredient($lc, $ingredient))[3];
+			$last_label = $matched_label;
 			$before_the_label = remove_stopwords_from_start_or_end_of_string('labels', $lc, $before_the_label);
 			# Keep stopwords after the label: "cacao biologique de Madagascar" needs "de".
 			$ingredient = $before_the_label . ' ' . $after_the_label;
@@ -2639,22 +2647,6 @@ Text to analyze
 
 				$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
-				# try to remove the origin and store it as property
-				if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä|iz)\s?:?\s?\b/i) {
-					$ingredient = $`;
-					my $origin_string = $';
-					# d'origine végétale -> not a geographic origin, add en:vegan
-					if ($origin_string =~ /vegetal|végétal/i) {
-						$vegan = "yes";
-						$vegetarian = "yes";
-					}
-					else {
-						$origin = join(",",
-							map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)}
-								split(/,/, $origin_string));
-					}
-				}
-
 				my ($ingredient_without_labels, $ingredient_labels_ref, $last_label)
 					= _extract_ingredient_labels($ingredients_lc, $ingredient);
 				if (@{$ingredient_labels_ref}) {
@@ -2669,6 +2661,24 @@ Text to analyze
 						}
 						else {
 							$ingredient = $last_label;
+						}
+					}
+				}
+
+				# Preserve names such as "sous-produits d'origine végétale" before extracting origins.
+				if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä|iz)\s?:?\s?\b/i) {
+					my ($name, $origin_string) = ($`, $');
+					my $known_name = (parse_processing_from_ingredient($ingredients_lc, $ingredient))[3];
+					if ($origin_string =~ /vegetal|végétal/i) {
+						$vegan = "yes";
+						$vegetarian = "yes";
+					}
+					if (not $known_name) {
+						$ingredient = $name;
+						if ($origin_string !~ /vegetal|végétal/i) {
+							$origin = join(",",
+								map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)}
+									split(/,/, $origin_string));
 						}
 					}
 				}
