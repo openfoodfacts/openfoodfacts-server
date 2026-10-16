@@ -1557,7 +1557,6 @@ sub init_user ($request_ref, $r = undef) {
 	%User = ();
 	%Org = ();
 
-
 	# Note we allow an OAuth token for all oidc_implementation_levels
 	if ($r) {
 		my $signed_in_oidc = process_auth_header($request_ref, $r);
