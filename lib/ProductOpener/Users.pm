@@ -1562,16 +1562,7 @@ sub init_user ($request_ref, $r = undef) {
 		my $signed_in_oidc = process_auth_header($request_ref, $r);
 		if ($signed_in_oidc < 0) {
 			# We were sent a bad bearer token
-			# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
-			if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
-				and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
-			{
-				$log->debug(
-					"init_request - init_user error - display error page",
-					{init_user_error => $request_ref->{init_user_error}}
-				) if $log->is_debug();
-				return ($Lang{api_message_invalid_token}{$lc});
-			}
+			return ($Lang{api_message_invalid_token}{$lc});
 		}
 	}
 
