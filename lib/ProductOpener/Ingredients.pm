@@ -1878,6 +1878,67 @@ sub _matches_declared_ingredient_name ($ingredients_lc, $text, $ingredient_id) {
 	return scalar grep {$_ eq $key} @keys;
 }
 
+sub _parse_ingredient_quantity_reference ($lc, $text) {
+	my $quantity_regexp = $percent_or_quantity_regexps{$lc};
+	my $per = $per{$lc} || ' per ';
+	$per =~ s/(?:^|(?<=\|)) +| +(?=\||$)//g;
+	return
+		unless $text =~ compiled_regexp('^\s*(?<input>'
+			. $quantity_regexp
+			. ')\s*(?:'
+			. $per
+			. '|/)\s*'
+			. '(?<reference>'
+			. $quantity_regexp
+			. '(?:\s+(?:de|of)\s+[^,;()]+)?)\s*$');
+	my ($input, $reference_text) = @+{qw(input reference)};
+	$input =~ compiled_regexp('^' . $quantity_regexp . '$') or return;
+	my ($value, $unit) = ($1, $2);
+	return if $unit eq '' || $unit =~ /%/;
+	$reference_text =~ compiled_regexp('^' . $quantity_regexp) or return;
+	my ($reference_value, $reference_unit) = ($1, $2);
+	return if $reference_unit eq '' || $reference_unit =~ /%/;
+	$reference_value = convert_text_value_to_number($lc, $reference_value);
+	return unless $reference_value > 0;
+	my (undef, undef, $grams, $millilitres)
+		= get_ingredient_percent_or_quantity_and_normalized_quantity('', $reference_value, $reference_unit);
+	return unless defined $grams || defined $millilitres;
+	$reference_text =~ s/\s+$//;
+	$reference_text =~ s/\N{U+201A}/,/g;
+	my $reference = {text => $reference_text};
+
+	if (defined $millilitres) {
+		$reference->{quantity_ml} = $millilitres + 0;
+	}
+	else {
+		$reference->{quantity_g} = $grams + 0;
+	}
+	return {value => convert_text_value_to_number($lc, $value), unit => $unit, reference => $reference};
+}
+
+sub _extract_ingredient_equivalents ($lc, $text) {
+	my %markers = (fr => 'équivalente?s?\s+à', en => 'equivalent\s+to');
+	return ($text, undef) unless defined $markers{$lc};
+	return ($text, undef)
+		unless $text =~ compiled_regexp('^(?<name>.+?)\s+(?<statement>'
+			. $markers{$lc}
+			. '\s+(?<percent>\d+(?:[.,‚]\d+)?)\s*%\s+(?:de\s+|d\x27|of\s+)(?<target>.+))$');
+	my ($name, $statement, $percent, $target) = @+{qw(name statement percent target)};
+	my (undef, undef, $id, $recognized) = parse_processing_from_ingredient($lc, $target);
+	return ($text, undef) unless $recognized;
+	$statement =~ s/\N{U+201A}/,/g;
+	return (
+		$name,
+		[
+			{
+				id => get_taxonomyid($lc, $id),
+				text => $statement,
+				percent => convert_text_value_to_number($lc, $percent) + 0
+			}
+		]
+	);
+}
+
 sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
 	my $debug_ingredients = 0;
@@ -2048,6 +2109,7 @@ Text to analyze
 		my $vegan = undef;
 		my $vegetarian = undef;
 		my $size = undef;
+		my $quantity_reference;
 		my @processings = ();
 		my $previous_parser_additive_class;
 		my $started_additive_class_scope = 0;
@@ -2305,6 +2367,14 @@ Text to analyze
 						$debug_ingredients and $log->debug("between is a processing enumeration",
 							{between => $between, processings => \@processings})
 							if $log->is_debug();
+						$between = '';
+					}
+
+					my $reference_statement = _parse_ingredient_quantity_reference($ingredients_lc, $between);
+					if (defined $reference_statement) {
+						$percent_or_quantity_value = $reference_statement->{value};
+						$percent_or_quantity_unit = $reference_statement->{unit};
+						$quantity_reference = $reference_statement->{reference};
 						$between = '';
 					}
 
@@ -2646,6 +2716,7 @@ Text to analyze
 			$ingredient =~ s/(?<!\w)_+//g;
 			$ingredient =~ s/_+(?!\w)//g;
 			next unless $ingredient =~ /\S/;
+			($ingredient, my $equivalents) = _extract_ingredient_equivalents($ingredients_lc, $ingredient);
 
 			$debug_ingredients and $log->debug("analyzing ingredient", {ingredient => $ingredient})
 				if $log->is_debug();
@@ -3365,6 +3436,8 @@ Text to analyze
 					id => get_taxonomyid($ingredients_lc, $ingredient_id),
 					text => $ingredient_text
 				);
+				$ingredient{equivalents} = $equivalents if defined $equivalents;
+				$ingredient{quantity_reference} = $quantity_reference if defined $quantity_reference;
 
 				my $is_additive_class = exists_taxonomy_tag("additives_classes", $ingredient{id});
 				my $is_additive = exists_taxonomy_tag("additives", $ingredient{id});
@@ -4408,12 +4481,14 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			$percent_sum += $ingredient_ref->{percent};
+			# An equivalent is an annotation of a declared proportion, not a complete recipe to rescale.
+			$all_ingredients_have_a_set_percent = 0 if defined $ingredient_ref->{equivalents};
 		}
 		else {
 			$all_ingredients_have_a_set_percent = 0;
 		}
 
-		if (defined $ingredient_ref->{quantity_g}) {
+		if (defined $ingredient_ref->{quantity_g} && !defined $ingredient_ref->{quantity_reference}) {
 			$quantity_sum += $ingredient_ref->{quantity_g};
 		}
 		else {
