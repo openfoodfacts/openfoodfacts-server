@@ -35,20 +35,18 @@ is(canonicalize_taxonomy_tag('en', 'ingredients', 'en:salmon-oil'),
 	'en:salmon-fish-oil', 'the former petfood salmon oil ID canonicalizes to the food entry');
 ok(!exists_taxonomy_tag('ingredients', 'en:salmon-oil'), 'salmon oil has a single canonical entry');
 
-todo 'Shared taxonomy stopword normalization needs the compiler fix in PR #14938' => sub {
-	is(
-		canonicalize_taxonomy_tag('fr', 'ingredients', 'viandes et sous-produits animaux'),
-		'en:meat-and-animal-derivatives',
-		'the plural still identifies the complete compound'
-	);
+is(
+	canonicalize_taxonomy_tag('fr', 'ingredients', 'viandes et sous-produits animaux'),
+	'en:meat-and-animal-derivatives',
+	'the plural still identifies the complete compound'
+);
 
-	my $product = {lc => 'fr', ingredients_text => 'viandes et sous-produits animaux'};
-	parse_ingredients_text_service($product, {}, []);
-	is(
-		[map {$_->{id}} @{$product->{ingredients}}],
-		['en:meat-and-animal-derivatives'],
-		'the plural remains a single ingredient'
-	);
-};
+my $product = {lc => 'fr', ingredients_text => 'viandes et sous-produits animaux'};
+parse_ingredients_text_service($product, {}, []);
+is(
+	[map {$_->{id}} @{$product->{ingredients}}],
+	['en:meat-and-animal-derivatives'],
+	'the plural remains a single ingredient'
+);
 
 done_testing;
