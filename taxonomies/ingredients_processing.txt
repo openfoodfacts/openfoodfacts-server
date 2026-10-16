@@ -200,7 +200,7 @@ uk: фільтрат
 description:en: result of a filtration
 wikidata:en: Q28951388
 
-en: non-homogenized
+en: non-homogenized, non-homogenised
 bg: нехомогенизиран, нехомогенизирано
 ca: no homogeneïtzat
 da: uhomogeniseret
@@ -2074,18 +2074,18 @@ uk: пастеризований, пастеризована, пастеризо
 
 #pasteurisation of 15s under 72–74 °C
 < en: pasteurised
-en: low-pasteurized
+en: low-pasteurized, low-pasteurised
 sv: lågpastöriserad, lågpastöriserat, lågpastöriserade
 
 #pasteurisation of 5s under 80 °C
 < en: pasteurised
-en: high-pasteurized
+en: high-pasteurized, high-pasteurised
 sv: högpastöriserad, högpastöriserat, högpastöriserade
 
 < en: heat treated
 < en: pasteurised
 < en: sterilized
-en: UHT, UHT pasteurised, UHT sterilised, ultra heat treated
+en: UHT, UHT pasteurised, UHT pasteurized, UHT sterilised, UHT sterilized, ultra heat treated
 xx: UHT
 bg: UHT, UHT пастьоризирано, обработена с изключително висока температура
 ca: UHT, esterilitzada UHT
@@ -2199,6 +2199,9 @@ ro: fiert
 sv: kokt, kokta
 uk: відварений, відварена, відварене, відварені, варений, варена, варене, варені
 zh: 熟制
+ecobalyse_transformation:en: a2836bb8-7f45-5cfa-bb00-8b38046291cf
+ecobalyse_transformation_name:en: Cooking, industrial, 1kg of cooked product {FR} U
+ecobalyse_transformation_name:fr: Cuisson
 
 en: distilled
 bg: дестилация, дестилиран
@@ -2669,7 +2672,7 @@ ro: semi confiat, semi confiata, semi confiați, semi confiate
 sv: halv kanderad, halv kanderade, halv kanderade, halv kanderade
 
 #en:crystallized
-en: crystallized
+en: crystallized, crystallised
 bg: кристализиран, кристализирана, кристализирани, кристализирани
 ca: cristal·litzat, cristal·litzada, cristal·litzats, cristal·litzades
 es: cristalizado, cristalizada, cristalizados, cristalizadas
@@ -2726,14 +2729,14 @@ de: ungeschwefelt, ungeschwefelte
 pt: sem sulfitos
 
 # for milk, adjustment of fat content to a desired value either by adding fat-rich product or by fat-poor product
-en: standardized
+en: standardized, standardised
 bg: стандартизирано
 fr: standardisé, standardisée, standardisés, standardisées
 hr: standardizirano
 uk: стандартизований, стандартизована, стандартизоване, стандартизовані
 
 < en: standardized
-en: normalized
+en: normalized, normalised
 uk: нормалізований, нормалізоване, нормалізована, нормалізовані
 
 en: seasoned, with seasoning, with liquid seasoning
@@ -2810,7 +2813,7 @@ pl: niesłodowana, niesłodowany, niesłodowane
 pt: não maltado, não maltada, sem malte
 sv: icke mältad, icke mältat, inte mältade
 
-en: deodorized
+en: deodorized, deodorised
 ca: desodoritzat
 de: desodoriert, desodorierte, desodoriertes, desodorierter, desodorierten, desodoriertem
 es: desodorizado, desodorizada, desodorizados, desodorizadas
@@ -2822,7 +2825,7 @@ pt: desodorizado, desodorizada, desodorizados, desodorizadas
 ro: deodorizat
 uk: деодорований, деодорована, деодороване, деодоровані
 
-en: non-deodorized
+en: non-deodorized, non-deodorised
 de: nicht desodoriert, nicht desodorierte, nicht desodorierten, nicht desodoriertes
 es: no desodorizado, no desodorizada, no desodorizados, no desodorizadas
 fr: non-désodorisée
@@ -2837,7 +2840,7 @@ en: rbst-free
 
 #en:deionized
 
-en: nixtamalized
+en: nixtamalized, nixtamalised
 de: nixtamalisiert, nixtamalisierte, nixtamalisiertes, nixtamalisierten
 es: nixtamalizado, nixtamalizada
 fr: nixtamalisé, nixtamalisée, nixtamalisés, nixtamalisées
@@ -2899,7 +2902,7 @@ pt: refinado fisicamente, refinada fisicamente, refinados fisicamente, refinadas
 #en:Desugared, partially desugared
 #fr:Dessucré, partiellement dessucré
 #hr:bez šećera, sa smanjenom količinom šećera
-en: Homogenized
+en: Homogenized, homogenised
 bg: Хомогенизирано, хомогенизиран, хомогенизирана
 ca: homogeneïtzat
 de: homogenisiert, homogenisierte, homogenisierter, homogenisiertes, homogenisierten, homogenisiertem
@@ -3357,7 +3360,8 @@ pt: nâo hidrogenada
 ro: nehidrogenate, nehidrogenat
 sv: ohärdad, ohärdat, ohärdade, icke-hydrogenerad, icke-hydrogenerat, icke-hydrogenerade
 
-en: hydrolysed, hydrolized
+# note: both hydrolised and hydrolysed are used in British English
+en: hydrolysed, hydrolized, hydrolised
 de: hydrolisiert, hydrolisierte, hydrolisierten, hydrolisiertem, hydrolisierter, hydrolisiertes
 fr: hydrolisé, hydrolisée, hydrolisés, hydrolisées
 hr: hidrolizat, hidrolizirane, hidrolizirano, hidrolizirani
@@ -3544,4 +3548,7 @@ en: preserved
 en: canned, appertised, appertized
 fr: conserve, en conserve, boite, boîte, boite de conserve, boîte de conserve, en boite, en boîte, en boite de conserve, en boîte de conserve, appertisé, appertisée, appertisés, appertisées
 uk: консервований, консервована, консервоване, консервовані
+ecobalyse_transformation:en: a83c94af-6e31-5599-8022-7ae795862a99
+ecobalyse_transformation_name:en: Canning fruits or vegetables, industrial, 1kg of canned product {FR} U
+ecobalyse_transformation_name:fr: Mise en conserve
 

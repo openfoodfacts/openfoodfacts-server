@@ -1,0 +1,30 @@
+{
+   "categories_tags" : [
+      "en:biscuits",
+      "en:olive-oils"
+   ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "packaging" : {
+            "category" : "en:olive-oils",
+            "ecs" : 38.66,
+            "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58",
+            "name" : "Olive oil, 0,75L | Packaging System, N0, All, Glass bottle {FR} U",
+            "name_fr" : "Bouteille en verre et bouchon plastique pour huile d'olive - 0,5L à 1L"
+         }
+      }
+   },
+   "packagings" : [
+      {
+         "material" : "en:plastic",
+         "quantity_per_unit" : 250,
+         "shape" : "en:bag"
+      },
+      {
+         "material" : "en:glass",
+         "quantity_per_unit" : 0.75,
+         "shape" : "en:bottle"
+      }
+   ],
+   "product_quantity" : 0.75
+}
