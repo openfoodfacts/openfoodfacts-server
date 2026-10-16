@@ -1359,6 +1359,13 @@ my @tests = (
 		id => 'de-palm-and-coconut-oil',
 		'lc' => 'de',
 		'ingredients_text' => 'Palm- und Kokosnuss-Pflanzenfett'
+	},
+	# combined symbols: both labels are applied
+	{
+		id => 'fr-combined-symbols',
+		lc => 'fr',
+		ingredients_text =>
+			"Farine de BLÉ*/** 45%, OEUFS entiers*/** 12.5%, sucre*. *Ingrédients issus de l'agriculture biologique. **Ingrédients issus du commerce équitable."
 	}
 );
 

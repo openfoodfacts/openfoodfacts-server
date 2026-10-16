@@ -424,14 +424,9 @@ my @tests = (
 				'text' => 'fromage frais'
 			},
 			{
-				'id' => 'en:cream',
+				'id' => 'en:fresh-cream',
 				'is_in_taxonomy' => 1,
-				'text' => "cr\x{e8}me"
-			},
-			{
-				'id' => "fr:fraîche",
-				'is_in_taxonomy' => 0,
-				'text' => "fra\x{ee}che"
+				'text' => "cr\x{e8}me fra\x{ee}che"
 			},
 			{
 				'id' => 'en:pineapple',
