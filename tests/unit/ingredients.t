@@ -1512,6 +1512,16 @@ puffed orange and caramelized unknown_fruit4.",
 				"Lapte normalizat (98%), cultură starter, condimente în proporţii variabile. Conține o sursă de fenilalanină. A se consuma de preferinţă înainte de: vezi pe ambalaj. Lot: vezi capac. Ambalat în atmosferă protectoare. Valoare energetică: 250 kJ. Producător: SC Exemplu SRL, Str. Florilor nr. 1, Jud. Cluj, România.",
 		}
 	],
+	# “osteløbe (mikrobiel)”
+	[
+		'da-osteloebe-mikrobiel',
+		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000
+		{
+			lc => "da",
+			ingredients_text =>
+				"96 % pasteuriseret _mælk_, 2,8 % salt, kultur (indeholder _mælk_), osteløbe (mikrobiel).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
