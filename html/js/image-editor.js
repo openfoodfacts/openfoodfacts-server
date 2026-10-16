@@ -99,7 +99,15 @@ class ImageEditorComponent extends HTMLElement {
     // Clicking the canvas (without dragging) removes the selection, so that the
     // full image can be saved, as in the previous implementation.
     this.addEventListener('pointerdown', (event) => {
-      this.pointerDown = { x: event.clientX, y: event.clientY };
+      const selection = this.cropper?.getCropperSelection?.();
+      const onSelection = Boolean(
+        selection && event.composedPath().includes(selection)
+      );
+      this.pointerDown = {
+        x: event.clientX,
+        y: event.clientY,
+        onSelection,
+      };
     });
     this.addEventListener('click', (event) => {
       const start = this.pointerDown;
@@ -116,9 +124,15 @@ class ImageEditorComponent extends HTMLElement {
         return;
       }
       const selection = this.cropper.getCropperSelection();
-      if (selection && !selection.hidden && selection.width > 0 && selection.height > 0) {
-        selection.$clear();
+      if (!selection || selection.hidden || selection.width <= 0 || selection.height <= 0) {
+        return;
       }
+      // Do not clear the selection if the click was on the selection itself
+      // or its handles/borders.
+      if (start.onSelection || event.composedPath().includes(selection)) {
+        return;
+      }
+      selection.$clear();
     });
   }
 
