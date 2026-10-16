@@ -1170,11 +1170,14 @@ CSS
 
 		$nutrient_ref->{units_options} = get_unit_options_for_nutrient($nid);
 
+		my @nutrient_pers = get_pers_for_nutrient($product_ref->{product_type}, $nid);
 		foreach my $preparation (@preparations) {
 
-			foreach my $per (@pers) {
+			foreach my $per (@nutrient_pers) {
 
 				my $unit = $default_unit;
+				# A footprint per kg is usually declared in kg CO2e (e.g. 0.48 kg CO2e/kg)
+				$unit = 'kg' if ($nid eq 'carbon-footprint') and ($per eq '1kg');
 				my $value_string = '';
 
 				my $input_set_ref = deep_get($input_sets_hash_ref, $source, $preparation, $per);
@@ -1227,13 +1230,17 @@ CSS
 
 		# If we have only one unit set for the nutrient (across all input sets), set it as the nutrient unit
 		# and we won't display individual unit selectors for each input set
+		# The unit of a carbon footprint is always chosen for each input set: a footprint per 100g or 100ml
+		# and a footprint per kg do not use the same unit (e.g. 52 g CO2e/100ml and 0.48 kg CO2e/kg)
 		my @units = keys %nutrient_units;
-		if (scalar @units == 1) {
-			$nutrient_ref->{unit} = $units[0];
-		}
-		# Otherwise if we don't have any value, set the default unit
-		elsif (scalar @units == 0) {
-			$nutrient_ref->{unit} = $default_unit;
+		if ($nid ne 'carbon-footprint') {
+			if (scalar @units == 1) {
+				$nutrient_ref->{unit} = $units[0];
+			}
+			# Otherwise if we don't have any value, set the default unit
+			elsif (scalar @units == 0) {
+				$nutrient_ref->{unit} = $default_unit;
+			}
 		}
 
 		$nutrient_ref->{shown} = $nutrient_shown;

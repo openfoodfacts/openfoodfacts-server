@@ -1,0 +1,33 @@
+{
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "carbon-footprint" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 310.0
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "carbon-footprint" : {
+                  "unit" : "kg",
+                  "value" : 0.31,
+                  "value_string" : "0.31"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : 100,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   }
+}

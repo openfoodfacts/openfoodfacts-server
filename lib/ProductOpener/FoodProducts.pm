@@ -57,7 +57,7 @@ use ProductOpener::Food
 	qw/assign_categories_properties_to_product compute_nova_group compute_nutriscore compute_nutrient_levels/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Nutrition
-	qw/generate_nutrient_aggregated_set compute_estimated_nutrients add_misc_tags_for_input_nutrition_data_pers/;
+	qw/generate_nutrient_aggregated_set compute_estimated_nutrients add_misc_tags_for_input_nutrition_data_pers get_declared_carbon_footprint_input_set_index/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
 use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
@@ -67,7 +67,7 @@ use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_c
 
 use Log::Any qw($log);
 
-use Data::DeepAccess qw(deep_exists);
+use Data::DeepAccess qw(deep_exists deep_get);
 
 =head2 specific_processes_for_food_product ( $ingredients_ref )
 
@@ -141,7 +141,14 @@ sub specific_processes_for_food_product ($product_ref) {
 
 sub add_labels_from_nutrition_data ($product_ref) {
 
-	if (deep_exists($product_ref, 'nutrition', 'aggregated_set', 'nutrients', 'carbon-footprint'))
+	# A declared footprint may be absent from the aggregated set (e.g. per kg for nutrition facts per 100ml):
+	# it is then displayed from its input set
+	if (
+		deep_exists($product_ref, 'nutrition', 'aggregated_set', 'nutrients', 'carbon-footprint')
+		or defined get_declared_carbon_footprint_input_set_index(
+			$product_ref, deep_get($product_ref, 'nutrition', 'aggregated_set', 'preparation')
+		)
+		)
 
 	{
 		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
