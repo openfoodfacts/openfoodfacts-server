@@ -162,6 +162,7 @@
       "ecobalyse_input" : {
          "distribution" : "ambient",
          "ingredients" : [],
+         "ingredients_coverage_percent" : 0,
          "packaging" : [
             {
                "category" : "en:eggs",
@@ -183,7 +184,9 @@
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -825,6 +828,8 @@
    "main_countries_tags" : [],
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-0-and-9",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",

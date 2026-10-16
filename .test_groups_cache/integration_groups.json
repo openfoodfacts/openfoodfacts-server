@@ -6,9 +6,10 @@
       "tests/integration/auth-keycloak.t",
       "tests/integration/create_user.t",
       "tests/integration/madenearme.t",
-      "tests/integration/protected_product.t"
+      "tests/integration/protected_product.t",
+      "tests/integration/web_html.t"
     ],
-    "total_time": 180.0
+    "total_time": 210.0
   },
   {
     "tests": [
@@ -61,7 +62,7 @@
       "tests/integration/cors.t",
       "tests/integration/facets.t",
       "tests/integration/product_read.t",
-      "tests/integration/unknown_tags.t"
+      "tests/integration/session_revocation.t"
     ],
     "total_time": 180.0
   },
@@ -72,7 +73,7 @@
       "tests/integration/countries.t",
       "tests/integration/fix_non_normalized_codes.t",
       "tests/integration/product_write.t",
-      "tests/integration/upload_images.t"
+      "tests/integration/sugar_random_lang.t"
     ],
     "total_time": 180.0
   },
@@ -83,7 +84,7 @@
       "tests/integration/create_pro_user.t",
       "tests/integration/import_csv_file.t",
       "tests/integration/products_comparison.t",
-      "tests/integration/web_html.t"
+      "tests/integration/unknown_tags.t"
     ],
     "total_time": 180.0
   },
@@ -93,8 +94,9 @@
       "tests/integration/api_v3_taxonomy_suggestions.t",
       "tests/integration/create_product.t",
       "tests/integration/import_systemeu.t",
-      "tests/integration/protected_images.t"
+      "tests/integration/protected_images.t",
+      "tests/integration/upload_images.t"
     ],
-    "total_time": 150.0
+    "total_time": 180.0
   }
 ]
