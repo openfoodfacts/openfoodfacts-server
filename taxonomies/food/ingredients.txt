@@ -10134,6 +10134,25 @@ pl: Zwierzę, zwierzęta, zwierzęcy, zwierzęca, zwierzęce
 pt: Animal
 sv: djur
 
+# < en:animal
+# < en:meat
+en: Meat and animal derivatives
+da: Kød og dyriske biprodukter
+de: Fleisch und tierische Nebenerzeugnisse
+el: Κρέας και παράγωγα ζώων
+et: Liha ja loomsete toiduainete saadused
+fi: Liha ja eläinperäiset jalosteet
+fr: Viande et sous-produits animaux
+hr: Meso i životinjski proizvodi
+it: Carne e sottoprodotti di origine animale
+lv: Gaļa un dzīvnieku produkti
+nl: Vlees en dierlijke bijproducten
+no: Kjøtt og dyriske biprodukter
+pt: Carne e subprodutos de origem animal
+ru: Мясо и продукты животного происхождения
+sl: Meso in živalski izdelki
+sv: Kött och djuriska biprodukter
+
 en: meat
 bg: месо
 bs: meso
@@ -19051,6 +19070,21 @@ wikidata:en: Q1786125
 
 < en: fish oil
 en: salmon fish oil, salmon oil
+da: Lakseolie
+de: Lachsöl
+el: Έλαιο σολομού
+et: Lõheõli
+fi: Lohiöljy
+fr: Huile de saumon
+hr: Lososovo ulje
+it: Olio di salmone
+lv: Laša ella
+nl: Zalmolie
+no: Lakseolje
+pt: Óleo de salmão
+ru: Лососевый жир
+sl: Lososovo olje
+sv: Laxolja
 ciqual_food_code:en: 17645
 ciqual_food_name:en: Salmon oil
 usda_fdc_code:en: 172343
@@ -52689,6 +52723,24 @@ pl: pasta z tamaryndowca
 #                                     V E G E T A B L E S     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# < en:vegetable
+en: Derivatives of vegetable origin
+da: Planteprodukter
+de: Pflanzliche Nebenerzeugnisse
+el: Παράγωγα φυτικής προέλευσης
+et: Taimsete päritolu saadused
+fi: Kasviperäiset jalosteet
+fr: Sous-produits d'origine végétale
+hr: Biljni proizvodi
+it: Sottoprodotti di origine vegetale
+lv: Augu produkti
+nl: Plantafval
+no: Planteprodukter
+pt: Subprodutos de origem vegetal
+ru: Продукты растительного происхождения
+sl: Rastlinski izdelki
+sv: Växtprodukter
 
 en: vegetable, vegetables
 bg: зеленчук, зеленчуци
@@ -91130,6 +91182,16 @@ vegetarian:en: no
 wikidata:en: Q25364
 wikipedia:en: https://en.wikipedia.org/wiki/Crustacean
 
+# < en:crustacean
+en: krill
+xx: krill
+et: Krilli
+fi: Krilli
+hr: krila
+lv: Krila
+ru: криля
+sl: Krilova
+
 < en: crustacean
 fr: extrait de crustacé
 
@@ -104736,4 +104798,3 @@ sv: skållning och surdeg
 #< en: compound
 en: caramelized apple
 fr: pomme caramélisée, pommes caramélisées
-
