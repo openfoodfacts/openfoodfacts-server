@@ -57,7 +57,7 @@ use ProductOpener::Food
 	qw/assign_categories_properties_to_product compute_nova_group compute_nutriscore compute_nutrient_levels/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Nutrition
-	qw/generate_nutrient_aggregated_set compute_estimated_nutrients add_misc_tags_for_input_nutrition_data_pers/;
+	qw/generate_nutrient_aggregated_set compute_estimated_nutrients add_misc_tags_for_input_nutrition_data_pers add_misc_tags_for_energy_from_proteins/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
 use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
@@ -135,6 +135,9 @@ sub specific_processes_for_food_product ($product_ref) {
 
 	# Add misc tags for nutrition data per X (done last as compute_nutriscore() removes misc_tags starting with en:nutrition)
 	add_misc_tags_for_input_nutrition_data_pers($product_ref);
+
+	# Add misc tags for the share of the energy provided by proteins (12 % and 20 % thresholds of EU claims)
+	add_misc_tags_for_energy_from_proteins($product_ref);
 
 	return;
 }
