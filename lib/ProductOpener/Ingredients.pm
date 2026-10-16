@@ -1744,6 +1744,22 @@ sub _calculate_recognition_rate ($ingredients_ref) {
 	return $recognized / scalar(@$ingredients_ref);
 }
 
+sub _matches_declared_ingredient_name ($ingredients_lc, $text, $ingredient_id) {
+	my $name = $translations_to{ingredients}{$ingredient_id}{$ingredients_lc};
+	return 0 unless defined $name;
+	my $lc_tagid = get_string_id_for_lang($ingredients_lc, $name);
+	my $of = $of{$ingredients_lc};
+	# Use source synonyms, without the compiler's generated stopword variants.
+	# Only grammatical "of" connectors and plural endings may be omitted here.
+	my @keys = map {
+		my $source = $_;
+		$source =~ s/$of/ /ig if defined $of;
+		ProductOpener::Tags::remove_plurals($ingredients_lc, get_string_id_for_lang($ingredients_lc, $source));
+	} ($text, @{$synonyms_for{ingredients}{$ingredients_lc}{$lc_tagid} // []});
+	my $key = shift @keys;
+	return scalar grep {$_ eq $key} @keys;
+}
+
 sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
 	my $debug_ingredients = 0;
@@ -3221,16 +3237,20 @@ Text to analyze
 					# Generate the text for the canonicalized parent ingredient (so that we don't get percentages, labels etc. in it)
 					my $parent_ingredient_text
 						= display_taxonomy_tag($ingredients_lc, "ingredients", $parent_ref->{id});
+					my $canonical_child_text = display_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_id);
 
 					my $parent_plus_child_ingredient_text;
+					my $parent_plus_canonical_child_text;
 
 					if ($ingredients_lc eq "en") {
 						# oil (palm) -> palm oil
 						$parent_plus_child_ingredient_text = $ingredient . ' ' . $parent_ingredient_text;
+						$parent_plus_canonical_child_text = $canonical_child_text . ' ' . $parent_ingredient_text;
 					}
 					else {
 						# huile (palme) -> huile palme
 						$parent_plus_child_ingredient_text = $parent_ingredient_text . ' ' . $ingredient;
+						$parent_plus_canonical_child_text = $parent_ingredient_text . ' ' . $canonical_child_text;
 					}
 
 					# Check if the parent + child ingredient is a known ingredient
@@ -3239,7 +3259,24 @@ Text to analyze
 						= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $parent_plus_child_ingredient_text,
 						\$exists_in_taxonomy);
 
-					if ($exists_in_taxonomy) {
+					# Generated stopword variants must not change the meaning of an already known child.
+					if (
+						$exists_in_taxonomy
+						and (
+							   not exists_taxonomy_tag('ingredients', $ingredient_id)
+							or is_a('ingredients', $parent_plus_child_ingredient_id, $ingredient_id)
+							or _matches_declared_ingredient_name(
+								$ingredients_lc, $parent_plus_child_ingredient_text,
+								$parent_plus_child_ingredient_id
+							)
+							or _matches_declared_ingredient_name(
+								$ingredients_lc,
+								$parent_plus_canonical_child_text,
+								$parent_plus_child_ingredient_id
+							)
+						)
+						)
+					{
 						$ingredient_id = $parent_plus_child_ingredient_id;
 						$log->debug(
 							"parse_ingredient_text - parent + child ingredient recognized",

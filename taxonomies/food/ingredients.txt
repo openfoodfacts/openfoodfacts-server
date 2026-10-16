@@ -10148,6 +10148,25 @@ pl: Zwierzę, zwierzęta, zwierzęcy, zwierzęca, zwierzęce
 pt: Animal
 sv: djur
 
+# < en:animal
+# < en:meat
+en: Meat and animal derivatives
+da: Kød og dyriske biprodukter
+de: Fleisch und tierische Nebenerzeugnisse
+el: Κρέας και παράγωγα ζώων
+et: Liha ja loomsete toiduainete saadused
+fi: Liha ja eläinperäiset jalosteet
+fr: Viande et sous-produits animaux
+hr: Meso i životinjski proizvodi
+it: Carne e sottoprodotti di origine animale
+lv: Gaļa un dzīvnieku produkti
+nl: Vlees en dierlijke bijproducten
+no: Kjøtt og dyriske biprodukter
+pt: Carne e subprodutos de origem animal
+ru: Мясо и продукты животного происхождения
+sl: Meso in živalski izdelki
+sv: Kött och djuriska biprodukter
+
 en: meat
 bg: месо
 bs: meso
@@ -16867,7 +16886,7 @@ et: palmituuma
 eu: Palmiste olio
 fa: روغن هسته پالم
 fi: palmuydinöljy, palmunydinöljy, palmuydin, palmunydin, palmunsiemenöljy
-fr: huile de palmiste, huile végétale de palmiste, palmiste
+fr: huile de palmiste, huile végétale de palmiste, palmiste, huile de graine de palmier
 hr: ulje palminih koštica, palmine koštice, palminih koštica, ulja palminih koštica, palmina koštica
 hu: pálmamagolaj, pálmamag
 id: Minyak inti kelapa sawit
@@ -19072,6 +19091,21 @@ wikidata:en: Q1786125
 
 < en: fish oil
 en: salmon fish oil, salmon oil
+da: Lakseolie
+de: Lachsöl
+el: Έλαιο σολομού
+et: Lõheõli
+fi: Lohiöljy
+fr: Huile de saumon
+hr: Lososovo ulje
+it: Olio di salmone
+lv: Laša ella
+nl: Zalmolie
+no: Lakseolje
+pt: Óleo de salmão
+ru: Лососевый жир
+sl: Lososovo olje
+sv: Laxolja
 ciqual_food_code:en: 17645
 ciqual_food_name:en: Salmon oil
 usda_fdc_code:en: 172343
@@ -29297,6 +29331,7 @@ hr: pšenično bubreno brašno
 it: farina di frumento fortificata
 nl: verrijkt tarwebloem
 pl: Wzbogacona mąka pszenna
+pt: farinha de trigo enriquecida, farinha de trigo enriquecida com ferro, farinha de trigo enriquecida com ferro e ácido fólico
 sv: berikat vetemjöl
 
 < en: fortified wheat flour
@@ -39326,7 +39361,7 @@ ciqual_food_name:fr: Fruits rouges, crus (framboises, fraises, groseilles, cassi
 
 < en: fruit
 en: berries, berry
-da: Bær
+da: bær
 de: Beere
 es: bayas
 fi: marja, marjat, marjoja
@@ -39339,6 +39374,7 @@ ja: ベリーズ
 lv: ogas
 nb: bær
 nl: bessen
+nn: bær
 pl: Owoce jagodowe
 pt: Bagas
 ru: Ягоды
@@ -40859,7 +40895,7 @@ pt: suco de manga, sumo de manga
 ru: манговый сок
 
 < en: mango juice
-en: concentrated mango juice
+en: concentrated mango juice, mango juice concentrate, mango juice concentrates
 de: konzentrierter Mangosaft
 es: jugo de mango concentrado
 fr: jus de mangue concentrés
@@ -42472,7 +42508,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gala_(apple)
 < en: green apple
 en: Granny Smith apple, Granny apple
 es: manzana Granny
-fr: pomme Granny, pomme Granny Smith, pommes Grany, pommes Granny Smith
+fr: pomme Granny, pomme Granny Smith, pommes Grany, pommes Granny Smith, Granny Smith
 hr: baka jabuka
 it: mela Granny
 nl: Granny Smith, Granny Smith appel, Granny Smith appels
@@ -42793,7 +42829,7 @@ hr: nefiltrirani sok od jabuke
 it: succo di mela non filtrato
 
 < en: apple juice
-en: concentrated apple juice
+en: concentrated apple juice, apple juice concentrate, apple juice concentrates
 bg: концентриран сок от ябълки
 ca: Suc de poma concentrat
 cs: koncentrát jablečné šťávy
@@ -43410,7 +43446,7 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemou
 wikidata:en: Q1138468
 
 < en: grapefruit juice
-en: concentrated grapefruit juice
+en: concentrated grapefruit juice, grapefruit juice concentrate, grapefruit juice concentrates
 it: succo di pompelmo concentrato
 
 < en: grapefruit juice
@@ -44208,7 +44244,7 @@ en: natural lemon extract
 it: estratto naturale di limone, estratto naturale di limoni
 
 < en: lemon juice
-en: concentrated lemon juice, Lemon juice concentrate
+en: concentrated lemon juice, Lemon juice concentrate, lemon juice concentrates
 bg: концентрат от лимонов сок, концентриран сок от лимони, концентриран лимонов сок
 ca: Suc de llimona concentrat, Concentrat de suc de llimona
 cs: koncentrovaná citrónová šťáva, koncentrovaná citronová šťáva, koncentrát citronové šťávy, koncentrát citrónové šťávy
@@ -44616,7 +44652,7 @@ usda_ndb_code:en: 9221
 usda_ndb_name:en: Tangerine juice, raw
 
 < en: tangerine juice
-en: concentrated mandarin juice
+en: concentrated mandarin juice, mandarin juice concentrate, mandarin juice concentrates
 es: jugo de mandarina concentrado, concentrado de jugo de mandarina
 fi: mandariinimehutiiviste, mandariinitäysmehutiiviste
 fr: Jus de mandarine concentré
@@ -45046,7 +45082,7 @@ en: pure pasteurized orange juice
 it: succo d'arancia puro pastorizzato
 
 < en: orange juice
-en: concentrated orange juice
+en: concentrated orange juice, orange juice concentrate, orange juice concentrates
 de: Orangensaftkonzentrat
 es: Zumo de naranja concentrado, jugo de naranja concentrado
 fi: appelsiinimehutiiviste, appelsiinitäysmehutiiviste
@@ -46000,7 +46036,7 @@ sv: blåbärssaft
 #ru:Черничный сок
 
 < en: blueberry juice
-en: concentrated blueberry juice
+en: concentrated blueberry juice, blueberry juice concentrate, blueberry juice concentrates
 de: Heidelbeer-Saftkonzentrat
 es: concentrado de jugo de arándano
 fr: jus de myrtille concentré
@@ -46792,7 +46828,7 @@ it: succo d'aronia
 pl: sok z aronii, sok aroniowy
 
 < en: chokeberry juice
-en: concentrated chokeberry juice
+en: concentrated chokeberry juice, chokeberry juice concentrate, chokeberry juice concentrates
 de: Aroniasaft-Konzentrat, Aroniasaft Konzentrat, Aroniasaft aus Aroniasaftkonzentrat
 fi: marja-aroniamehutiiviste
 fr: Jus concentré d'aronia
@@ -47324,7 +47360,7 @@ wikidata:en: Q13057671
 
 #process:en: en:concentrated
 < en: date juice
-en: concentrated date juice
+en: concentrated date juice, date juice concentrate, date juice concentrates
 it: succo di datteri concentrato
 #de:Dattelsaftkonzentrat
 #fr:jus de dattes concentré
@@ -49518,7 +49554,7 @@ ciqual_food_name:en: Pineapple juice, pure juice
 #ciqual_food_name:en: Pineapple, in pineapple juice, canned, drained
 
 < en: pineapple juice
-en: concentrated pineapple juice, pineapple juice concentrate
+en: concentrated pineapple juice, pineapple juice concentrate, pineapple juice concentrates
 bg: концентриран сок от ананас
 de: Ananassaftkonzentrat
 es: zumo concentrado de anana, jugo concentrado de anana
@@ -50178,7 +50214,7 @@ pl: sok malinowy z zagęszczonego soku malinowego, sok malinowy z koncentratu
 sv: hallonjuice från koncentrat
 
 < en: raspberry juice
-en: concentrated raspberry juice, raspberry juice concentrate
+en: concentrated raspberry juice, raspberry juice concentrate, raspberry juice concentrates
 de: Himbeerdicksaft
 es: jarabe de frambuesas, sirope de frambuesas
 fi: vadelmamehutiiviste
@@ -51523,7 +51559,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Grape_juice
 
 < en: concentrated juice
 < en: grape juice
-en: concentrated grape juice, grape juice concentrate
+en: concentrated grape juice, grape juice concentrate, grape juice concentrates
 bg: концентриран гроздов сок
 de: Traubensaftkonzentrat
 es: zumo de uva concentrado, jugo de uva concentrado
@@ -51575,7 +51611,7 @@ wikidata:en: Q128305959
 
 < en: concentrated grape juice
 < en: white grape juice
-en: concentrated white grape juice, white grape juice concentrate
+en: concentrated white grape juice, white grape juice concentrate, white grape juice concentrates
 es: zumo de uva blanca concentrado, jugo de uva blanca concentrado
 fi: vaalea rypälemehutiiviste
 fr: jus de raisin blanc concentré
@@ -52744,6 +52780,24 @@ pl: pasta z tamaryndowca
 #                                     V E G E T A B L E S     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# < en:vegetable
+en: Derivatives of vegetable origin
+da: Planteprodukter
+de: Pflanzliche Nebenerzeugnisse
+el: Παράγωγα φυτικής προέλευσης
+et: Taimsete päritolu saadused
+fi: Kasviperäiset jalosteet
+fr: Sous-produits d'origine végétale
+hr: Biljni proizvodi
+it: Sottoprodotti di origine vegetale
+lv: Augu produkti
+nl: Plantafval
+no: Planteprodukter
+pt: Subprodutos de origem vegetal
+ru: Продукты растительного происхождения
+sl: Rastlinski izdelki
+sv: Växtprodukter
 
 en: vegetable, vegetables
 bg: зеленчук, зеленчуци
@@ -56334,7 +56388,7 @@ it: Succo di sedano
 pl: sok z selera
 
 < en: celery juice
-en: concentrated celery juice
+en: concentrated celery juice, celery juice concentrate, celery juice concentrates
 de: Sellerieextrakt, Konzentriertes Selleriesaft
 fi: sellerimehutiiviste
 fr: jus de céleri concentré, jus concentré de céleri
@@ -56685,7 +56739,9 @@ de: Chikoreewurzel, Zichorienwurzel
 fr: racine de chicorée
 hr: cikorija korijen, korijen cikorije
 it: radice di cicoria
+nb: sikorirot, sikorirøtter
 nl: cichoreiwortel
+nn: sikorirot, sikorirøter
 pl: korzeń cykorii, korzenia cykorii
 sv: cikoriarot
 ecobalyse_alias:en: chicory-root-default
@@ -58977,7 +59033,7 @@ it: scalogno rosso
 pl: czerwona szalotka
 
 < en: shallot
-en: concentrated shallot juice
+en: concentrated shallot juice, shallot juice concentrate, shallot juice concentrates
 de: Konzentrierter Zwiebelsaft
 fr: jus d'échalote concentré
 hr: koncentrirani sok od ljutike
@@ -59121,7 +59177,7 @@ wikidata:en: Q1807269
 wikipedia:en: https://en.wikipedia.org/wiki/Leek
 
 < en: leek
-en: concentrated leek juice
+en: concentrated leek juice, leek juice concentrate, leek juice concentrates
 da: koncentreret porresaft
 de: Konzentrierter Porreesaft
 fr: jus de poireau concentré
@@ -60353,7 +60409,7 @@ sv: svartmorotjuice
 # The french pourpre is translated to black in dutch and german
 
 < en: black carrot juice
-en: concentrated black carrot juice
+en: concentrated black carrot juice, black carrot juice concentrate, black carrot juice concentrates
 bg: концентриран сок от черен морков
 de: Schwarzmöhrensaftkonzentrat, konzentrierter Saft aus schwarzer Karotte, schwarzes Karottensaftkonzentrat
 fr: jus de carotte noire concentré, jus concentré de carotte noire, jus de carotte pourpre concentré, jus concentré de carotte pourpre
@@ -60429,7 +60485,7 @@ usda_ndb_name:en: Carrot juice, canned
 # Is used as colour, but always mentioned as such
 
 < en: carrot juice
-en: concentrated carrot juice
+en: concentrated carrot juice, carrot juice concentrate, carrot juice concentrates
 da: koncentreret gulerodsjuice, koncentreret gulerodssaft
 de: Karottensaftkonzentrat, konzentrierter Karottensaft
 es: jugo de zanahoria concentrado
@@ -65471,7 +65527,7 @@ nl: Pompoensap
 pl: sok z dyni, sok dyniowy
 
 < en: pumpkin juice
-en: concentrated pumpkin juice
+en: concentrated pumpkin juice, pumpkin juice concentrate, pumpkin juice concentrates
 da: koncentreret græskarjuice
 de: Kürbissaft aus Konzentrat
 es: zumo de calabaza concentrado, jugo de calabaza concentrado
@@ -76336,7 +76392,7 @@ pl: liść mięty pieprzowej, liście mięty pieprzowej, ziele mięty pieprzowej
 #83 @2021-10-11
 
 < en: peppermint
-en: concentrated peppermint juice
+en: concentrated peppermint juice, peppermint juice concentrate, peppermint juice concentrates
 fr: jus concentré de menthe poivrée
 it: succo di menta piperita concentrato
 
@@ -82846,7 +82902,7 @@ ciqual_food_name:en: Greek-style marinated mushrooms
 ciqual_food_name:fr: Champignon à la grecque
 
 < en: mushroom
-en: concentrated mushroom juice
+en: concentrated mushroom juice, mushroom juice concentrate, mushroom juice concentrates
 de: Pilz-Saftkonzentrat, Pilz Saftkonzentrat
 es: zumo de champiñón concentrado, jugo de champiñón concentrado
 fi: sienimehutiiviste
@@ -91197,6 +91253,16 @@ vegan:en: no
 vegetarian:en: no
 wikidata:en: Q25364
 wikipedia:en: https://en.wikipedia.org/wiki/Crustacean
+
+# < en:crustacean
+en: krill
+xx: krill
+et: Krilli
+fi: Krilli
+hr: krila
+lv: Krila
+ru: криля
+sl: Krilova
 
 < en: crustacean
 fr: extrait de crustacé
@@ -104814,4 +104880,3 @@ sv: skållning och surdeg
 #< en: compound
 en: caramelized apple
 fr: pomme caramélisée, pommes caramélisées
-

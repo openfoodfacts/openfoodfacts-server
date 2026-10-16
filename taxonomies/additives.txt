@@ -579,9 +579,10 @@ lt: E120, Košenilis, karmino rūgštis, karminai
 lv: E120, Košenils, karmīnskābe, karmīni
 mk: E120, кармин
 mt: E120, Kuċċinilja, aċidu karminiku, karminji
-nb: E120, karmin
+nb: E120, karmin, karminer
 nl: E120, Cochenille, karmijnzuur, karmijn
 nl_be: E120, Cochenille, karmijnzuur, karmijn
+nn: E120, karmin, karminar
 oc: E120, Carmin
 pl: E120, Koszenila, kwas karminowy, karminy, Koszelina, Karmina, karmin
 pt: E120, Cochonilha, ácido carmínico, carminas
@@ -596,6 +597,11 @@ tr: E120, Karmin
 uk: E120, Кармін
 vi: E120, Đỏ yên chi
 zh: E120, 胭脂红
+# de-ch:E120, Karmin
+# en-ca:E120, Carmine
+# en-gb:E120, Carmine
+# pt-br:E120, Carmim
+# scn:E120, carminiu
 additives_classes:en: en:colour
 colour_index:en: CI 75470
 description:en: CARMINE, also called cochineal, cochineal extract, crimson lake or carmine lake, natural red 4, C.I. 75470, or E120, is a pigment of a bright-red color obtained from the aluminium salt of carminic acid
@@ -607,11 +613,6 @@ mandatory_additive_class:en: en:colour
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q416860
-# de-ch:E120, Karmin
-# en-ca:E120, Carmine
-# en-gb:E120, Carmine
-# pt-br:E120, Carmim
-# scn:E120, carminiu
 # wikidata:en:Q320617
 wikipedia:en: https://en.wikipedia.org/wiki/Carmine
 
@@ -8612,8 +8613,9 @@ it: E331, Citrati di sodio
 lt: E331, natrio citratas
 lv: E331, nātrija citrāts
 mt: E331, ċitrat tas-sodju
-nb: E331, Natriumsitrater
+nb: E331, natriumsitrater
 nl: E331, Natriumcitraten
+nn: E331, natriumsitrat
 pl: E331, cytryniany sodu
 ro: citrați de sodiu, citrati de sodiu
 ru: E331, Натрия гидроцетрат
@@ -8845,7 +8847,9 @@ fr: E333, Citrates de calcium, Citrate de calcium
 hr: E333, kalcijevi citrati
 hu: E333, Kalcium-citrátok, Kalcium-citrát
 it: E333, Citrato di calcio, calcio citrato
+nb: E333, kalsiumsitrat, kalsiumsitrater
 nl: E333, Calciumcitraten
+nn: E333, kalsiumsitrat
 pl: E333, Cytryniany wapnia, cytrynian wapnia
 pt: E333, Citrato de cálcio
 ru: E333, Цитрат кальция
@@ -16869,7 +16873,7 @@ es: E503(ii), Bicarbonato de amonio, Carbonato ácido de amonio, Bicarbonato am�
 et: E503(ii), Ammooniumvesinikkarbonaat
 fa: E503(ii), بی‌کربنات آمونیوم
 fi: E503(ii), Ammoniumvetykarbonaatti, Ammoniumvetykarbonaattia, hirvensarvisuola
-fr: E503(ii), Carbonate acide d'ammonium, bicarbonate d'ammonium
+fr: E503(ii), Carbonate acide d'ammonium, bicarbonate d'ammonium, hydrogénocarbonate d'ammonium
 gl: E503(ii), Bicarbonato amónico
 hi: E503(ii), अमोनियम बाईकार्बोनेट
 hr: E503(ii), amonijev hidrogen karbonat, amonijev hidrogenkarbonat, amonijev bikarbonat
@@ -23611,7 +23615,9 @@ ja: E955, スクラロース
 lt: E955, Sukralozė
 lv: E955, Sukraloze
 mt: E955, Sukralożju
+nb: E955, sukralose
 nl: E955, Sucralose
+nn: E955, sukralose
 pl: E955, Sukraloza, Splenda
 pt: E955, Sucralose
 ro: E955, Sucraloză, sucraloza
