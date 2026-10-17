@@ -1494,6 +1494,16 @@ puffed orange and caramelized unknown_fruit4.",
 				"_Sojabasis_ (Wasser, geschälte _Sojabohnen_ (10,4%)], Kokosmilch (4,3%) (Kokoscreme, Wasser), Zucker, Tricalciumcitrat, Säureregulatoren (Natriumcitrate, Citronensäure), Stabilisator (Pektine), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherol-tatige Extract, Fettsäureester der Ascorbinsäure), Vitamine (B12, D2), Joghurtkulturen (Str. Thermophilus, L. bulgaricus).",
 		}
 	],
+	# “osteløbe (mikrobiel)”
+	[
+		'da-osteloebe-mikrobiel',
+		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000
+		{
+			lc => "da",
+			ingredients_text =>
+				"96 % pasteuriseret _mælk_, 2,8 % salt, kultur (indeholder _mælk_), osteløbe (mikrobiel).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
