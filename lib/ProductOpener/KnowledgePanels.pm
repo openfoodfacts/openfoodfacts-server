@@ -1581,6 +1581,13 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 
 		# Create a first panel with the aggregated set and comparison to category (if any)
 		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
+
+		# Offer an action to add the nutrition facts if none have been entered
+		my $input_sets_ref = deep_get($product_ref, "nutrition", "input_sets");
+		if ((not defined $input_sets_ref) or (scalar @$input_sets_ref == 0)) {
+			$panel_data_ref->{nutrition_facts_missing} = 1;
+		}
+
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
