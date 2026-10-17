@@ -8,6 +8,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Nutrition qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Config qw/%options/;
 
 use Data::DeepAccess qw(deep_get);
 
@@ -2253,6 +2254,63 @@ compare_to_expected_results(
 		$food_product_ref->{nutrition}{no_nutrition_data_on_packaging},
 		"no nutrition data checkbox: the flag is set for food products"
 	);
+}
+
+# Regression tests for unit-aware conversion of nutrient values to the wanted per reference (#14929).
+# Pet food aggregated sets are per 1kg, so values coming from per-100g input sets must be rescaled.
+
+{
+	my $previous_product_type = $options{product_type};
+	$options{product_type} = "petfood";
+
+	my $input_sets_ref = [
+		{
+			source => "packaging",
+			preparation => "as_sold",
+			per => "100g",
+			per_quantity => 100,
+			per_unit => "g",
+			nutrients => {
+				proteins => {
+					value => 2.5,
+					unit => "g",
+				},
+			},
+		},
+	];
+
+	my $aggregated_set_ref = generate_nutrient_aggregated_set_from_sets($input_sets_ref);
+	is($aggregated_set_ref->{per}, "1kg", "petfood aggregated set is per 1kg");
+	is($aggregated_set_ref->{nutrients}{proteins}{value},
+		25, "petfood aggregated set rescales 2.5 g of proteins per 100g to 25 g per 1kg");
+
+	$options{product_type} = $previous_product_type;
+}
+
+# Direct unit tests for convert_nutrient_to_100g
+
+{
+	my $nutrient_ref;
+
+	$nutrient_ref = {value => 2.5, unit => "g"};
+	ProductOpener::Nutrition::convert_nutrient_to_100g($nutrient_ref, "100g", 100, "g", "1kg");
+	is($nutrient_ref->{value}, 25, "convert_nutrient_to_100g: 2.5 per 100g -> 25 per 1kg");
+
+	$nutrient_ref = {value => 2.5, unit => "g"};
+	ProductOpener::Nutrition::convert_nutrient_to_100g($nutrient_ref, "100g", 100, "g", "100g");
+	is($nutrient_ref->{value}, 2.5, "convert_nutrient_to_100g: 2.5 per 100g -> 2.5 per 100g");
+
+	$nutrient_ref = {value => 25, unit => "g"};
+	ProductOpener::Nutrition::convert_nutrient_to_100g($nutrient_ref, "1kg", 1000, "g", "1kg");
+	is($nutrient_ref->{value}, 25, "convert_nutrient_to_100g: 25 per 1kg -> 25 per 1kg (no double scaling)");
+
+	$nutrient_ref = {value => 25, unit => "g"};
+	ProductOpener::Nutrition::convert_nutrient_to_100g($nutrient_ref, "1kg", 1000, "g", "100g");
+	is($nutrient_ref->{value}, 2.5, "convert_nutrient_to_100g: 25 per 1kg -> 2.5 per 100g");
+
+	$nutrient_ref = {value => 25, unit => "g"};
+	ProductOpener::Nutrition::convert_nutrient_to_100g($nutrient_ref, "100ml", 100, "ml", "1l");
+	is($nutrient_ref->{value}, 250, "convert_nutrient_to_100g: 25 per 100ml -> 250 per 1l");
 }
 
 done_testing();
