@@ -1554,6 +1554,7 @@ sub init_user ($request_ref, $r = undef) {
 
 	$User_id = undef;
 	$Org_id = undef;
+	$Owner_id = undef;
 	%User = ();
 	%Org = ();
 
@@ -1562,7 +1563,7 @@ sub init_user ($request_ref, $r = undef) {
 		my $signed_in_oidc = process_auth_header($request_ref, $r);
 		if ($signed_in_oidc < 0) {
 			# We were sent a bad bearer token
-			return ($Lang{api_message_invalid_token}{$lc});
+			return "invalid_token";
 		}
 	}
 
@@ -1617,7 +1618,7 @@ sub init_user ($request_ref, $r = undef) {
 				$user_id = undef;
 				$log->info('bad user') if $log->is_info();
 				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lc});
+				return "error_bad_login_password";
 			}
 		}
 	}
@@ -1640,7 +1641,7 @@ sub init_user ($request_ref, $r = undef) {
 					$user_id = undef;
 					$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 				else {
 					$user_id = $user_ref->{userid};
@@ -1654,7 +1655,7 @@ sub init_user ($request_ref, $r = undef) {
 				$user_id = _get_account_by_mail($user_id);
 				# Trigger an error
 				unless (defined $user_id) {
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 			}
 		}
@@ -1685,7 +1686,7 @@ sub init_user ($request_ref, $r = undef) {
 							{encrypted_password => $user_ref->{'encrypted_password'}}
 						) if $log->is_info();
 						# Trigger an error
-						return ($Lang{error_bad_login_password}{$lc});
+						return "error_bad_login_password";
 					}
 					# We have the right login/password
 					elsif (
@@ -1704,7 +1705,7 @@ sub init_user ($request_ref, $r = undef) {
 					$user_id = undef;
 					$log->info("bad user") if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 			}
 			else {
@@ -1719,7 +1720,7 @@ sub init_user ($request_ref, $r = undef) {
 					$user_id = undef;
 					$log->info('bad password - input does not match stored hash') if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 				# We have the right login/password
 				elsif (

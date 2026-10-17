@@ -802,10 +802,14 @@ sub init_request ($request_ref = {}) {
 		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
 			$log->debug("init_request - init_user error - API v3: continue", {init_user_error => $error})
 				if $log->is_debug();
+			if ($error eq "error_bad_login_password") {
+				# Use a generic API error message without the link to the login page
+				$error = "invalid_user_id_and_password";
+			}
 			add_error(
 				$request_ref->{api_response},
 				{
-					message => {id => "invalid_user_id_and_password"},
+					message => {id => $error},
 					impact => {id => "failure"},
 				},
 				403
@@ -821,7 +825,11 @@ sub init_request ($request_ref = {}) {
 		else {
 			$log->debug("init_request - init_user error - display error page", {init_user_error => $error})
 				if $log->is_debug();
-			display_error_and_exit($request_ref, $error, 403);
+			if ($error eq "invalid_token") {
+				# Use the API message for invalid tokens
+				$error = "api_message_invalid_token";
+			}
+			display_error_and_exit($request_ref, $Lang{$error}{$lc}, 403);
 		}
 	}
 
