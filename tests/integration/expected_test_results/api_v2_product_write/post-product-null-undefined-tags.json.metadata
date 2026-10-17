@@ -1,0 +1,20 @@
+{
+   "api_call" : {
+      "body" : {
+         "brands" : "null",
+         "categories" : "null, Cookies, undefined",
+         "cc" : "be",
+         "code" : "1234567890400",
+         "labels" : "undefined",
+         "lc" : "fr",
+         "password" : "testtest",
+         "product_name" : "Product name",
+         "stores" : "null, Carrefour",
+         "user_id" : "tests"
+      },
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_jqm_multilingual.pl"
+   }
+}

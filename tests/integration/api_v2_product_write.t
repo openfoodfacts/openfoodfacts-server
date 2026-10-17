@@ -635,6 +635,31 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.6/product/1234567890342',
 	},
+	# "null" and "undefined" values sent by some apps must not become tags
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/11933
+	{
+		test_case => 'post-product-null-undefined-tags',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => "testtest",
+			cc => "be",
+			lc => "fr",
+			code => "1234567890400",
+			product_name => "Product name",
+			categories => "null, Cookies, undefined",
+			labels => "undefined",
+			brands => "null",
+			stores => "null, Carrefour",
+		}
+	},
+	{
+		test_case => 'get-product-null-undefined-tags',
+		method => 'GET',
+		path => '/api/v2/product/1234567890400',
+		query_string => '?fields=categories_tags,labels_tags,brands_tags,stores_tags',
+	},
 
 ];
 
