@@ -9218,12 +9218,17 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			$name_per_xxg = $col_name . "<br>" . lang("nutrition_data_per_100g");
 		}
 
+		my $short_name = $per;
+		if (defined $preparation && $preparation ne 'unprepared' && $preparation ne 'as_sold') {
+			$short_name = lc(lang("preparation_" . $preparation)) . " " . $short_name;
+		}
+
 		$columns{$preparation . "_" . $per} = {
 			scope => "product",
 			preparation => $preparation,
 			per => $per,
 			name => $name_per_xxg,
-			short_name => $per,
+			short_name => $short_name,
 			class => "product",
 		};
 
@@ -9310,12 +9315,20 @@ CSS
 
 			my $col_name = lang("preparation_" . $preparation) . " " . $per_lang . " (" . $source . ")";
 
+			my $short_name = $per;
+			if (defined $source && $source ne '' && $source ne 'packaging') {
+				$short_name .= " (" . $source . ")";
+			}
+			if (defined $preparation && $preparation ne 'unprepared' && $preparation ne 'as_sold') {
+				$short_name = lc(lang("preparation_" . $preparation)) . " " . $short_name;
+			}
+
 			$columns{$col_id} = {
 				scope => "product",
 				preparation => $preparation,
 				per => $per,
 				name => $col_name,
-				short_name => $per,
+				short_name => $short_name,
 				class => "product",
 			};
 
