@@ -241,6 +241,8 @@ my @labels = (
 	"en:krav", "en:whole-grain",
 );
 my %labels_regexps = ();
+# The order in which labels are removed from ingredients, set with the regexps
+my @ordered_labels = ();
 
 # Needs to be called after Tags.pm has loaded taxonomies
 
@@ -314,6 +316,14 @@ sub init_labels_regexps() {
 			#print STDERR "labels_regexps - label_lc: $label_lc - labelid: $labelid - regexp: $label_regexp\n";
 		}
 	}
+
+	# Uncomposed labels come first so that "fair-trade organic" yields both labels.
+	my @uncomposed_first = reverse @labels;
+	# Remove external labels before checking whether a dietary word belongs to a known name.
+	@ordered_labels = (
+		(grep {!/^en:(?:vegan|vegetarian)$/} @uncomposed_first),
+		(grep {/^en:(?:vegan|vegetarian)$/} @uncomposed_first)
+	);
 
 	return;
 }
@@ -1240,40 +1250,92 @@ English first element for that ingredient (en:pear, for example)
 
 =cut
 
+# Recognising a name can go through the processing prefixes and suffixes, and checking the declared names of a name
+# with a conjunction preparses all its synonyms. Both are slow and the same names come back all the time
+# ("huiles et graisses végétales"): remember the answers, up to a limit.
+my %known_ingredient_names = ();
+my %conjunction_names = ();
+my $names_cache_limit = 5000;
+
 # Structural decisions must retain conjunctions when comparing generated synonyms.
 sub _canonicalize_ingredient ($lc, $text, $exists_ref = undef) {
 	my $exists;
 	my $id = canonicalize_taxonomy_tag($lc, 'ingredients', $text, \$exists);
 	my $conjunction = $and{$lc} || ' and ';
 	if ($exists && $text =~ /$conjunction/i) {
-		my $conjunction_keys = join('|', map {quotemeta(get_string_id_for_lang($lc, $_))} split(/\|/, $conjunction));
-		my @synonyms = get_taxonomy_tag_synonyms($lc, 'ingredients', $id);
-		# Declared names must also survive the same preparsing as the ingredient text.
-		my @keys = map {
-			my $key = get_string_id_for_lang($lc, $_);
-			$key =~ s/(?<=-)(?:$conjunction_keys)(?=-)/zzingredientconjunctionzz/g;
-			ProductOpener::Tags::remove_plurals($lc, ProductOpener::Tags::remove_stopwords('ingredients', $lc, $key));
-		} ($text, @synonyms, map {preparse_ingredients_text($lc, $_)} @synonyms);
-		my $key = shift @keys;
-		$exists = scalar grep {$_ eq $key} @keys;
-		$id = "$lc:$text" unless $exists;
+		# Checking the declared names of a name with a conjunction preparses all its synonyms: do it once per name.
+		my $cache_key = "$lc\t$text";
+		if (not exists $conjunction_names{$cache_key}) {
+			%conjunction_names = () if scalar(keys %conjunction_names) >= $names_cache_limit;
+			$conjunction_names{$cache_key} = _canonicalize_name_with_conjunction($lc, $text, $id, $conjunction);
+		}
+		($id, $exists) = @{$conjunction_names{$cache_key}};
 	}
 	$$exists_ref = $exists ? 1 : 0 if defined $exists_ref;
 	return $id;
 }
 
+sub _canonicalize_name_with_conjunction ($lc, $text, $id, $conjunction) {
+	my $conjunction_keys = join('|', map {quotemeta(get_string_id_for_lang($lc, $_))} split(/\|/, $conjunction));
+	my @synonyms = get_taxonomy_tag_synonyms($lc, 'ingredients', $id);
+	# Declared names must also survive the same preparsing as the ingredient text.
+	my @keys = map {
+		my $key = get_string_id_for_lang($lc, $_);
+		$key =~ s/(?<=-)(?:$conjunction_keys)(?=-)/zzingredientconjunctionzz/g;
+		ProductOpener::Tags::remove_plurals($lc, ProductOpener::Tags::remove_stopwords('ingredients', $lc, $key));
+	} ($text, @synonyms, map {preparse_ingredients_text($lc, $_)} @synonyms);
+	my $key = shift @keys;
+	my $exists = scalar grep {$_ eq $key} @keys;
+	return [$exists ? $id : "$lc:$text", $exists];
+}
+
+sub _split_explicit_ingredient_origin ($ingredient) {
+	my ($start, $end);
+	while ($ingredient =~ /\b(?:de origine|d'origine|origine|origin|alkuperä|iz)\s?:?\s?\b/ig) {
+		($start, $end) = ($-[0], $+[0]);
+	}
+	return ($ingredient, undef) unless defined $end;
+	return (substr($ingredient, 0, $start), substr($ingredient, $end));
+}
+
+sub _is_known_ingredient_name ($lc, $name) {
+	my $key = "$lc\t$name";
+	if (not exists $known_ingredient_names{$key}) {
+		%known_ingredient_names = () if scalar(keys %known_ingredient_names) >= $names_cache_limit;
+		$known_ingredient_names{$key} = (parse_processing_from_ingredient($lc, $name))[3] ? 1 : 0;
+	}
+	return $known_ingredient_names{$key};
+}
+
 # Share label removal between structural lookups and final ingredient analysis.
+# A dietary word that belongs to a known name stays in it: it is returned in a separate list
+# so that the caller can still record what it claims.
 sub _extract_ingredient_labels ($lc, $ingredient) {
 	my @ingredient_labels;
+	my @kept_dietary_labels;
 	my $last_label;
-	# Uncomposed labels come first so that "fair-trade organic" yields both labels.
-	foreach my $labelid (reverse @labels) {
+	# Parsing the whole name is costly: decide once whether a dietary word belongs to a known name.
+	my $dietary_word_in_known_name;
+	foreach my $labelid (@ordered_labels) {
 		my $regexp = $labels_regexps{$lc}{$labelid};
 		next unless defined $regexp;
+		my $is_dietary = $labelid =~ /^en:(?:vegan|vegetarian)$/;
 		while ($ingredient =~ compiled_regexp('\b(' . $regexp . ')\b')) {
-			$last_label = $1;
+			my $matched_label = $1;
 			my $before_the_label = $`;
 			my $after_the_label = $';
+			if ($is_dietary) {
+				my ($name, $origin) = _split_explicit_ingredient_origin($ingredient);
+				# "d'origine végétale ou animale" does not describe a diet.
+				last if defined $origin && $origin =~ /animal/i;
+				$name = $ingredient if !defined $origin || $origin =~ /vegetal|végétal/i;
+				$dietary_word_in_known_name //= _is_known_ingredient_name($lc, $name);
+				if ($dietary_word_in_known_name) {
+					push @kept_dietary_labels, $labelid;
+					last;
+				}
+			}
+			$last_label = $matched_label;
 			$before_the_label = remove_stopwords_from_start_or_end_of_string('labels', $lc, $before_the_label);
 			# Keep stopwords after the label: "cacao biologique de Madagascar" needs "de".
 			$ingredient = $before_the_label . ' ' . $after_the_label;
@@ -1282,7 +1344,19 @@ sub _extract_ingredient_labels ($lc, $ingredient) {
 	}
 	$ingredient =~ s/\s+/ /g;
 	$ingredient =~ s/^\s+|\s+$//g;
-	return ($ingredient, [uniq(@ingredient_labels)], $last_label);
+	return ($ingredient, [uniq(@ingredient_labels)], $last_label, [uniq(@kept_dietary_labels)]);
+}
+
+# "huile végétale" -> "huile": the generic name of a plant parent, to compose it with its children.
+sub _remove_dietary_words ($lc, $text) {
+	foreach my $labelid ('en:vegan', 'en:vegetarian') {
+		my $regexp = $labels_regexps{$lc}{$labelid};
+		next unless defined $regexp;
+		$text =~ s/${\compiled_regexp('\b(' . $regexp . ')\b')}//g;
+	}
+	$text =~ s/\s+/ /g;
+	$text =~ s/^\s+|\s+$//g;
+	return $text;
 }
 
 sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
@@ -2548,6 +2622,8 @@ Text to analyze
 
 		my $i = 0;    # Counter for ingredients, used to know if it is the last ingredient
 		my $parenthetical_labels = $labels;
+		# What is given inline belongs to one ingredient, unlike what is given in parentheses.
+		my ($parenthetical_origin, $parenthetical_vegan, $parenthetical_vegetarian) = ($origin, $vegan, $vegetarian);
 
 		# Note: we use a while loop instead of a foreach as we may modify the array @ingredients when we split ingredients
 		$debug_ingredients
@@ -2557,6 +2633,7 @@ Text to analyze
 		while (@ingredients) {
 
 			$labels = $parenthetical_labels;
+			($origin, $vegan, $vegetarian) = ($parenthetical_origin, $parenthetical_vegan, $parenthetical_vegetarian);
 			my $ingredient = shift @ingredients;
 			chomp($ingredient);
 
@@ -2639,24 +2716,12 @@ Text to analyze
 
 				$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
-				# try to remove the origin and store it as property
-				if ($ingredient =~ /\b(de origine|d'origine|origine|origin|alkuperä|iz)\s?:?\s?\b/i) {
-					$ingredient = $`;
-					my $origin_string = $';
-					# d'origine végétale -> not a geographic origin, add en:vegan
-					if ($origin_string =~ /vegetal|végétal/i) {
-						$vegan = "yes";
-						$vegetarian = "yes";
-					}
-					else {
-						$origin = join(",",
-							map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)}
-								split(/,/, $origin_string));
-					}
-				}
-
-				my ($ingredient_without_labels, $ingredient_labels_ref, $last_label)
+				my ($ingredient_without_labels, $ingredient_labels_ref, $last_label, $kept_labels_ref)
 					= _extract_ingredient_labels($ingredients_lc, $ingredient);
+				foreach my $kept_label (@{$kept_labels_ref}) {
+					$vegetarian = "yes";
+					$vegan = "yes" if $kept_label eq "en:vegan";
+				}
 				if (@{$ingredient_labels_ref}) {
 					$labels
 						= join(', ', uniq((defined $labels ? split(/,\s*/, $labels) : ()), @{$ingredient_labels_ref}));
@@ -2669,6 +2734,30 @@ Text to analyze
 						}
 						else {
 							$ingredient = $last_label;
+						}
+					}
+				}
+
+				# Preserve names such as "sous-produits d'origine végétale" before extracting origins.
+				my ($name, $origin_string) = _split_explicit_ingredient_origin($ingredient);
+				if (defined $origin_string) {
+					my $plant_origin = $origin_string =~ /vegetal|végétal/i;
+					# "d'origine végétale ou animale" states nothing about the ingredient.
+					my $vegan_origin = $plant_origin && $origin_string !~ /animal/i;
+					if ($vegan_origin) {
+						$vegan = "yes";
+						$vegetarian = "yes";
+					}
+					# Only a plant origin can be part of a name, a geographic origin always leaves it.
+					my $known_name
+						= $vegan_origin && (parse_processing_from_ingredient($ingredients_lc, $ingredient))[3];
+					if (not $known_name) {
+						$ingredient = $name;
+						if (not $plant_origin) {
+							my $origins = join(",",
+								map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)}
+									split(/,/, $origin_string));
+							$origin = $origins if $origins ne '';
 						}
 					}
 				}
@@ -3190,55 +3279,72 @@ Text to analyze
 						= display_taxonomy_tag($ingredients_lc, "ingredients", $parent_ref->{id});
 					my $canonical_child_text = display_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_id);
 
-					my $parent_plus_child_ingredient_text;
-					my $parent_plus_canonical_child_text;
-
-					if ($ingredients_lc eq "en") {
-						# oil (palm) -> palm oil
-						$parent_plus_child_ingredient_text = $ingredient . ' ' . $parent_ingredient_text;
-						$parent_plus_canonical_child_text = $canonical_child_text . ' ' . $parent_ingredient_text;
-					}
-					else {
-						# huile (palme) -> huile palme
-						$parent_plus_child_ingredient_text = $parent_ingredient_text . ' ' . $ingredient;
-						$parent_plus_canonical_child_text = $parent_ingredient_text . ' ' . $canonical_child_text;
-					}
-
-					# Check if the parent + child ingredient is a known ingredient
-					my $exists_in_taxonomy;
-					my $parent_plus_child_ingredient_id
-						= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $parent_plus_child_ingredient_text,
-						\$exists_in_taxonomy);
-
-					# Generated stopword variants must not change the meaning of an already known child.
-					if (
-						$exists_in_taxonomy
-						and (
-							   not exists_taxonomy_tag('ingredients', $ingredient_id)
-							or is_a('ingredients', $parent_plus_child_ingredient_id, $ingredient_id)
-							or _matches_declared_ingredient_name(
-								$ingredients_lc, $parent_plus_child_ingredient_text,
-								$parent_plus_child_ingredient_id
-							)
-							or _matches_declared_ingredient_name(
-								$ingredients_lc,
-								$parent_plus_canonical_child_text,
-								$parent_plus_child_ingredient_id
+					# A plant parent such as "huile végétale" may only compose with its children by its generic name:
+					# "huile végétale (maïs)" -> "huile maïs"
+					foreach my $parent_text (
+						uniq(
+							grep {length} (
+								$parent_ingredient_text, _remove_dietary_words($ingredients_lc, $parent_ingredient_text)
 							)
 						)
 						)
 					{
-						$ingredient_id = $parent_plus_child_ingredient_id;
-						$log->debug(
-							"parse_ingredient_text - parent + child ingredient recognized",
-							{
-								parent => $parent_ingredient_text,
-								child => $ingredient,
-								parent_plus_child_ingredient_text => $parent_plus_child_ingredient_text,
-								parent_plus_child_ingredient_id => $parent_plus_child_ingredient_id
-							}
+						my $parent_plus_child_ingredient_text;
+						my $parent_plus_canonical_child_text;
 
-						) if $log->is_debug();
+						if ($ingredients_lc eq "en") {
+							# oil (palm) -> palm oil
+							$parent_plus_child_ingredient_text = $ingredient . ' ' . $parent_text;
+							$parent_plus_canonical_child_text = $canonical_child_text . ' ' . $parent_text;
+						}
+						else {
+							# huile (palme) -> huile palme
+							$parent_plus_child_ingredient_text = $parent_text . ' ' . $ingredient;
+							$parent_plus_canonical_child_text = $parent_text . ' ' . $canonical_child_text;
+						}
+
+						# Check if the parent + child ingredient is a known ingredient
+						my $exists_in_taxonomy;
+						my $parent_plus_child_ingredient_id
+							= canonicalize_taxonomy_tag($ingredients_lc, "ingredients",
+							$parent_plus_child_ingredient_text,
+							\$exists_in_taxonomy);
+
+						# Generated stopword variants must not change the meaning of an already known child.
+						# The generic name of a plant parent must not turn a known child into the parent itself:
+						# "bouillon" + "légumes" is the broth again, which says nothing about this ingredient.
+						if (
+							$exists_in_taxonomy
+							and not($parent_text ne $parent_ingredient_text
+								and $parent_plus_child_ingredient_id eq $parent_ref->{id}
+								and exists_taxonomy_tag('ingredients', $ingredient_id))
+							and (
+								   not exists_taxonomy_tag('ingredients', $ingredient_id)
+								or is_a('ingredients', $parent_plus_child_ingredient_id, $ingredient_id)
+								or _matches_declared_ingredient_name(
+									$ingredients_lc, $parent_plus_child_ingredient_text,
+									$parent_plus_child_ingredient_id
+								)
+								or _matches_declared_ingredient_name(
+									$ingredients_lc, $parent_plus_canonical_child_text,
+									$parent_plus_child_ingredient_id
+								)
+							)
+							)
+						{
+							$ingredient_id = $parent_plus_child_ingredient_id;
+							$log->debug(
+								"parse_ingredient_text - parent + child ingredient recognized",
+								{
+									parent => $parent_text,
+									child => $ingredient,
+									parent_plus_child_ingredient_text => $parent_plus_child_ingredient_text,
+									parent_plus_child_ingredient_id => $parent_plus_child_ingredient_id
+								}
+
+							) if $log->is_debug();
+							last;
+						}
 					}
 				}
 
