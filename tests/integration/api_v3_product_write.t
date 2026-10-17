@@ -26,6 +26,9 @@ create_user($ua, \%create_user_args);
 my $auth_header = $ua->default_headers->header('Authorization');
 $log->debug('test token header', {header => $auth_header}) if $log->is_debug();
 
+# Product writes now require authentication. Keep an anonymous client for the rejection cases.
+my $anon_ua = new_client();
+
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	{
@@ -434,11 +437,32 @@ my $tests_ref = [
 			}
 		}'
 	},
+	# Unauthenticated product edits are rejected and must not create a product
+	{
+		test_case => 'patch-unauthenticated',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890099',
+		ua => $anon_ua,
+		body => '{
+			"product": {
+				"product_name_en": "Should not be saved"
+			}
+		}',
+		expected_status_code => 401,
+	},
+	{
+		test_case => 'get-product-unauthenticated',
+		method => 'GET',
+		path => '/api/v3/product/1234567890099',
+		ua => $anon_ua,
+		expected_status_code => 404,
+	},
 	# Test authentication - HTTP Basic Auth
 	{
 		test_case => 'patch-auth-good-password',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890014',
+		ua => $anon_ua,
 		body => '{
 			"user_id": "tests",
 			"password": "testtest",
@@ -459,6 +483,7 @@ my $tests_ref = [
 		test_case => 'patch-auth-bad-user-password',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890015',
+		ua => $anon_ua,
 		body => '{
 			"user_id": "tests",
 			"password": "bad password",
@@ -481,6 +506,7 @@ my $tests_ref = [
 		test_case => 'patch-auth-good-oauth-token',
 		method => 'PATCH',
 		path => '/api/v3/product/2234567890001',
+		ua => $anon_ua,
 		body => '{
 			"fields": "creator,editors_tags,packagings,created_by_client,last_modified_by_client",
 			"tags_lc": "en",
@@ -502,6 +528,7 @@ my $tests_ref = [
 		test_case => 'patch-auth-bad-oauth-token',
 		method => 'PATCH',
 		path => '/api/v3/product/2234567890002',
+		ua => $anon_ua,
 		body => '{
 			"fields": "creator,editors_tags,packagings",
 			"tags_lc": "en",
@@ -800,6 +827,6 @@ my $tests_ref = [
 	},
 ];
 
-execute_api_tests(__FILE__, $tests_ref);
+execute_api_tests(__FILE__, $tests_ref, $ua);
 
 done_testing();

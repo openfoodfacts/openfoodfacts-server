@@ -48,6 +48,7 @@ my $tests_ref = [
 		test_case => 'setup-create-product',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890100',
+		ua => $ua,
 		body => '{
 			"tags_lc": "en",
 			"product": {
@@ -118,7 +119,7 @@ my $tests_ref = [
 			},
 			"fields": "updated"
 		}',
-		expected_status_code => 403,
+		expected_status_code => 401,
 	},
 	# Change the product code with API v3, with a normal account
 	{
@@ -156,6 +157,7 @@ my $tests_ref = [
 		test_case => 'setup-create-product',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567891234',
+		ua => $ua,
 		body => '{
 			"tags_lc": "en",
 			"product": {
@@ -210,6 +212,7 @@ my $tests_ref = [
 		test_case => 'setup-create-product-b',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890202',
+		ua => $ua,
 		body => '{
 			"tags_lc": "en",
 			"product": {
@@ -327,6 +330,7 @@ my $tests_ref = [
 		test_case => 'setup-create-product-2',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890200',
+		ua => $ua,
 		body => '{
 			"tags_lc": "en",
 			"product": {
@@ -413,6 +417,7 @@ my $tests_ref = [
 		test_case => 'setup-create-product-3',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890300',
+		ua => $ua,
 		body => '{
 			"product": {
 				"product_name_en": "Test product 3",
@@ -467,6 +472,7 @@ my $tests_ref = [
 		test_case => 'setup-create-product-3b',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890302',
+		ua => $ua,
 		body => '{
 			"product": {
 				"product_name_en": "Test product 3",
