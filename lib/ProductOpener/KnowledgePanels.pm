@@ -1259,7 +1259,8 @@ sub create_manufacturing_place_panel ($product_ref, $target_lc, $target_cc, $opt
 
 Creates a knowledge panel card that contains all knowledge panels related to health.
 
-This panel card is created for food, pet food, and beauty products.
+This panel card is created for food, pet food, and beauty products,
+and for other products only when we have a health recommendation for them (e.g. the tobacco health warning).
 
 =head3 Arguments
 
@@ -1277,6 +1278,10 @@ This parameter sets the desired language for the user facing strings.
 We may display country specific recommendations from health authorities, or country specific scores.
 
 =head4 options reference $options_ref
+
+=head3 Return value
+
+1 if the health card was created, 0 otherwise.
 
 =cut
 
@@ -1330,6 +1335,17 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	if (feature_enabled("nutrition")) {
 		create_serving_size_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
+	# Without ingredients, nutrition facts or a health recommendation (e.g. the tobacco health warning),
+	# the health card would be empty (e.g. for toilet paper or batteries on Open Products Facts)
+	my $panels_ref = $product_ref->{"knowledge_panels_" . $target_lc};
+	if (    (not feature_enabled("ingredients"))
+		and (not feature_enabled("nutrition"))
+		and (not defined $panels_ref->{recommendation_health})
+		and (not defined $panels_ref->{recommendation_health2}))
+	{
+		return 0;
 	}
 
 	my $panel_data_ref = {
