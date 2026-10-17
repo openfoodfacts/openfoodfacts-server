@@ -1059,7 +1059,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20261012 - stable identities and complete taxonomy stopwords";
+my $BUILD_TAGS_VERSION = "20261016 - unaccent Romanian, stable identities and complete taxonomy stopwords";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
