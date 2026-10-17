@@ -53,6 +53,9 @@ BEGIN {
 		&request_param
 		&get_http_request_header
 		&create_user_agent
+		&is_post_request
+		&is_cross_site_request
+		&require_same_origin_post
 	);    #the functions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -312,6 +315,133 @@ sub create_user_agent {
 	$ua->agent("Mozilla/5.0 (compatible; Open Food Facts/$version; +https://world.$server_domain)");
 
 	return $ua;
+}
+
+=head2 is_post_request($request_ref)
+
+Checks that the request method is C<POST>.
+
+State changing endpoints should refuse other methods, so that a state change cannot
+be triggered by a simple link or image tag: the session cookie is issued with
+C<SameSite=Lax>, which means that browsers do send it for cross-site top-level GET
+navigations.
+
+=head3 Parameters
+
+=head4 $request_ref - Reference to the request object.
+
+The C<method> field is used, falling back on the C<REQUEST_METHOD> environment
+variable.
+
+=head3 Return value
+
+Returns true (C<1>) if the request method is C<POST>, and false (C<0>) otherwise.
+
+The function does not set any response status code: the caller is responsible for
+rejecting the request, for example by returning a 405 Method Not Allowed status code.
+
+=cut
+
+sub is_post_request ($request_ref) {
+	my $method = $request_ref->{method} // $ENV{REQUEST_METHOD} // '';
+	return !!($method eq 'POST');
+}
+
+=head2 is_cross_site_request()
+
+Returns true if the request was triggered by another site, based on the
+C<Sec-Fetch-Site> header sent by browsers.
+
+C<Sec-Fetch-Site> cannot be set by scripts, so a request coming from another site
+can be identified without relying on C<Origin> or C<Referer> (which can be missing).
+
+=head3 Return value
+
+Returns true (C<1>) if C<Sec-Fetch-Site> is C<cross-site>, and false (C<0>)
+otherwise: C<same-origin>, C<same-site> and C<none> requests are not cross site
+requests, and non browser clients (curl, mobile apps, our integration tests) do not
+send the header at all.
+
+=cut
+
+sub is_cross_site_request () {
+	my $sec_fetch_site = get_http_request_header('Sec-Fetch-Site');
+	return !!0 unless defined $sec_fetch_site;
+	return !!(lc($sec_fetch_site) eq 'cross-site');
+}
+
+=head2 require_same_origin_post($request_ref)
+
+Checks that a request can be attributed to our own origin, in order to protect
+cookie authenticated endpoints against CSRF (cross site request forgery).
+
+The request method is not checked here, see is_post_request().
+
+The function returns true only if both of the following checks pass:
+
+=over 4
+
+=item * the request is not a cross site request (see is_cross_site_request()).
+
+C<Sec-Fetch-Site> is set by browsers on all requests, and cannot be set by scripts:
+C<same-origin> for requests coming from our own pages, C<cross-site> for requests
+triggered by another site. Requests coming from another site are rejected, whatever
+their C<Origin> header is. The other values are accepted: C<same-site> requests
+(e.g. from another of our subdomains) are rejected by the C<Origin> check below, and
+C<none> is sent for requests typed in the address bar.
+
+=item * if the request has an C<Origin> header, its host (e.g. C<world.openfoodfacts.org>) is equal to the host the request was sent to (the C<Host> header, including the port if any).
+
+Browsers always send the C<Origin> header for POST requests, and they always send
+the C<Host> header of the site they are posting to, so requests coming from another
+origin are rejected.
+
+The host of the request is used instead of C<$request_ref->{formatted_subdomain}>
+because that value can be different from the host the request was sent to: it is
+computed from the configuration and it can be overridden by C<cc> and C<lc>
+request parameters. The scheme is not compared, as it can be terminated by a
+reverse proxy before the request reaches us.
+
+Non browser clients (curl, mobile apps) do not send the C<Origin> and C<Sec-Fetch-Site>
+headers, so the checks are skipped if they are not present.
+
+=back
+
+Note: an anti-CSRF token is not verified here, as it is handled separately.
+
+=head3 Parameters
+
+=head4 $request_ref - Reference to the request object.
+
+=head3 Return value
+
+Returns true (C<1>) if the request can be attributed to our own origin, and false
+(C<0>) otherwise.
+
+The function does not set any response status code: the caller is responsible
+for rejecting the request, for example by returning a 403 Forbidden status code.
+
+=cut
+
+sub require_same_origin_post ($request_ref) {
+
+	return !!0 if (is_cross_site_request());
+
+	my $origin = get_http_request_header('Origin');
+	# Non browser clients do not send an Origin header
+	return !!1 unless defined $origin;
+
+	# Keep the host:port of the Origin header, e.g. world.openfoodfacts.org
+	my ($origin_host) = ($origin =~ m{^(?:[^:/?#]+:)?//([^/?#]+)});
+	my $r = Apache2::RequestUtil->request();
+	my $host = $r->hostname();
+
+	if ((not defined $origin_host) or (not defined $host) or ($host eq '')) {
+		$log->warn("require_same_origin_post: could not get the Origin ($origin) or Host ($host) header");
+		return !!0;
+	}
+
+	return !!($origin_host eq $host);
 }
 
 1;

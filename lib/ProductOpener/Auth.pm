@@ -64,7 +64,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Cache qw/generate_cache_key safe_cache_get safe_cache_set/;
 use ProductOpener::Display qw/display_error_and_exit/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
-use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
+use ProductOpener::URL qw/get_cookie_domain format_subdomain should_use_secure_cookies/;
 use ProductOpener::Users qw/$User_id retrieve_user store_user_preferences generate_token init_user open_user_session/;
 use ProductOpener::Lang qw/$lc lang/;
 
@@ -636,7 +636,11 @@ sub generate_oidc_cookie ($nonce, $return_url) {
 		'-path' => '/',
 		'-domain' => $cookie_domain,
 		'-samesite' => 'Lax',
+		# The nonce binds the OIDC callback to this browser: script must not be able to read or
+		# forge it, and it must not travel over plaintext HTTP.
+		'-httponly' => 1,
 	};
+	$cookie_ref->{'-secure'} = 1 if should_use_secure_cookies();
 
 	return cookie(%$cookie_ref);
 }

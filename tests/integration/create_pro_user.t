@@ -125,4 +125,60 @@ normalize_org_for_test_comparison($org_cmp_ref);
 compare_to_expected_results($org_cmp_ref, "$expected_result_dir/org-after-validation.json",
 	$update_expected_results, {desc => "org validated"});
 
+# The moderation organization is set from a page displaying a form,
+# which is submitted with a POST request
+
+$resp = get_page($moderator_ua, "/cgi/user.pl?type=edit_owner&pro_moderator_owner=org-acme-inc");
+like(
+	$resp->decoded_content,
+	qr/ name="pro_moderator_owner" value="org-acme-inc"/,
+	"the moderation organization is prefilled in the form"
+);
+like(
+	$resp->decoded_content,
+	qr/You are currently viewing products from org-acme-inc/,
+	"the current moderation organization is displayed"
+);
+like($resp->decoded_content, qr/ name="action" value="process"/, "the form is submitted with action=process");
+like($resp->decoded_content, qr/ name="userid" value="promoderator"/, "the form is submitted for the current user");
+
+# The state change must not be reachable with a GET request
+$resp = $moderator_ua->get(
+	construct_test_url("/cgi/user.pl?type=edit_owner&action=process&pro_moderator_owner=org-acme-inc"));
+is($resp->code, 405, "setting the moderation organization with a GET request is not allowed");
+
+# Submit the form, like the browser does with all the fields of the form
+$resp = $moderator_ua->post(
+	construct_test_url("/cgi/user.pl"),
+	Content => {
+		type => "edit_owner",
+		action => "process",
+		userid => $pro_moderator_user_form{userid},
+		pro_moderator_owner => "org-acme-inc",
+		submit => "submit",
+	}
+);
+is($resp->code, 302, "submitting the form redirects to the organization page");
+my $pro_moderator_ref = retrieve_user($pro_moderator_user_form{userid});
+is($pro_moderator_ref->{pro_moderator_owner}, "org-acme-inc", "the moderation organization is set");
+
+# A moderation organization that does not exist is refused, and the current one is kept
+$resp = $moderator_ua->post(
+	construct_test_url("/cgi/user.pl"),
+	Content => {
+		type => "edit_owner",
+		action => "process",
+		userid => $pro_moderator_user_form{userid},
+		pro_moderator_owner => "org-does-not-exist",
+		submit => "submit",
+	}
+);
+ok(html_displays_error($resp->decoded_content), "an unknown moderation organization is refused");
+$pro_moderator_ref = retrieve_user($pro_moderator_user_form{userid});
+is($pro_moderator_ref->{pro_moderator_owner}, "org-acme-inc",
+	"the moderation organization is unchanged after an invalid submission");
+
+# Note: the /org/<orgid> route is not tested here, as it only exists when the
+# producers platform is enabled, and it is disabled in the test environment.
+
 done_testing();
