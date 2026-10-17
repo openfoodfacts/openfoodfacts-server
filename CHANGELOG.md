@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.116.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.115.0...v2.116.0) (2026-10-17)
+
+
+### Features
+
+* 14586 - donate page v2 (hybrid Donorbox form, A/B per page view) ([#14590](https://github.com/openfoodfacts/openfoodfacts-server/issues/14590)) ([5789b3d](https://github.com/openfoodfacts/openfoodfacts-server/commit/5789b3dbcddf90600989de5f5451acae3f44fa9b))
+* donate page events carry interval, currency, a snapped amount, form steps and failures ([#14633](https://github.com/openfoodfacts/openfoodfacts-server/issues/14633)) ([623c0f6](https://github.com/openfoodfacts/openfoodfacts-server/commit/623c0f60cc8f0b6e1f887ef07ed37e52879998f3))
+* show the new donation banner layouts to half of the visitors ([#14796](https://github.com/openfoodfacts/openfoodfacts-server/issues/14796)) ([b172f13](https://github.com/openfoodfacts/openfoodfacts-server/commit/b172f13d72beb2564d16ed24d20839c5fb90d5dd))
+
+
+### Bug Fixes
+
+* load taxonomy stopwords before resolving ingredients ([#14938](https://github.com/openfoodfacts/openfoodfacts-server/issues/14938)) ([0da1c87](https://github.com/openfoodfacts/openfoodfacts-server/commit/0da1c876470c340d5a70a7adbf5fc520e5ee801e)), closes [#14934](https://github.com/openfoodfacts/openfoodfacts-server/issues/14934)
+* **Nutrition:** localize nutrition table values ([#14893](https://github.com/openfoodfacts/openfoodfacts-server/issues/14893)) ([0af32e0](https://github.com/openfoodfacts/openfoodfacts-server/commit/0af32e0fa2fa2affc158fe45c24249a8eb707551))
+
 ## [2.115.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.114.0...v2.115.0) (2026-10-16)
 
 
