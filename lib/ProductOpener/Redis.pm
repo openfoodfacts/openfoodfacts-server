@@ -85,6 +85,44 @@ our $sent_warning_about_missing_redis_url = 0;
 # Specific logger to track rate-limiter operations
 our $ratelimiter_log = Log::Any->get_logger(category => 'ratelimiter');
 
+# Number of seconds we wait for Redis to answer a rate-limiter command: the rate-limiter runs
+# in the request path, so a slow or unreachable Redis must not stall the request.
+
+our $rate_limit_redis_timeout = 1;
+
+=head2 _rate_limit_timeout_timer ($cv)
+
+Return a timer that sends $cv after $rate_limit_redis_timeout seconds, so that a caller waiting
+for a reply from the asynchronous Redis client does not wait for ever.
+
+The connect and write timeouts of the client still apply: this timer only bounds the wait for a
+reply that never comes.
+
+=cut
+
+sub _rate_limit_timeout_timer ($cv) {
+
+	# Time::HiRes::time() and not AE::now(): AnyEvent only updates its own clock when it runs
+	# the event loop, and a timer created before the loop has run is scheduled against the value
+	# of the previous run (which is why the EV backend can fire the first timer of a process
+	# straight away). We only act on the timer if it really waited, so that we do not give up on
+	# a reply that Redis has not had the time to send yet.
+	my $started_at = Time::HiRes::time();
+	my $timer;
+	$timer = AE::timer(
+		$rate_limit_redis_timeout,
+		0,
+		sub {
+			if ((Time::HiRes::time() - $started_at) > ($rate_limit_redis_timeout / 10)) {
+				$cv->send("timeout while waiting for Redis");
+			}
+			return;
+		}
+	);
+
+	return $timer;
+}
+
 =head2 init_redis($is_reconnect=0)
 
 init $redis_client or re-init it if we where disconnected
@@ -682,12 +720,34 @@ sub get_rate_limit_user_requests ($ip, $bucket) {
 		init_redis();
 	}
 	my $resp;
+	my $reply_error;
 	if (defined $redis_client) {
 		$ratelimiter_log->debug("Getting rate-limit user requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
 		my $current_minute = int(time() / 60);
-		eval {$resp = $redis_client->get("po-rate-limit:$ip:$bucket:$current_minute");};
+		eval {
+			# AnyEvent::RipeRedis is asynchronous: it hands the reply over to the callback below,
+			# and returns nothing itself. We have to run the event loop until we get it, otherwise
+			# the counter we are asking for is silently discarded and the rate-limiter sees no
+			# request at all, and never blocks anyone.
+			my $cv = AE::cv;
+			my $timer = _rate_limit_timeout_timer($cv);
+			$redis_client->get(
+				"po-rate-limit:$ip:$bucket:$current_minute",
+				sub {
+					my ($reply, $err) = @_;
+					$resp = $reply;
+					$cv->send($err);
+					return;
+				}
+			);
+			$reply_error = $cv->recv;
+			undef $timer;
+		};
 		$error = $@;
+		if (($error eq "") and (defined $reply_error)) {
+			$error = $reply_error;
+		}
 	}
 	else {
 		$error = "Can't connect to Redis";
@@ -699,6 +759,7 @@ sub get_rate_limit_user_requests ($ip, $bucket) {
 		$redis_client = undef;
 	}
 	else {
+		# An undefined reply means that there is no counter for this bucket for this minute yet
 		if (defined $resp) {
 			$resp = int($resp);
 		}
@@ -718,6 +779,8 @@ sub get_rate_limit_user_requests ($ip, $bucket) {
 Increment the number of requests according to the Redis rate-limiter for the current minute for the given user and bucket.
 The expiration of the counter is set to 59 seconds.
 See https://redis.com/glossary/rate-limiting/ for more information.
+
+Returns the new number of requests, or undef if the rate-limiter is not configured or if an error occurs.
 
 =head3 Arguments
 
@@ -747,18 +810,64 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 		$ratelimiter_log->debug("Trying to reconnect to Redis") if $ratelimiter_log->is_debug();
 		init_redis();
 	}
+	my $count;
+	my @errors;
 	if (defined $redis_client) {
 		$ratelimiter_log->debug("Incrementing rate-limit requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
 		my $current_minute = int(time() / 60);
+		my $key = "po-rate-limit:$ip:$bucket:$current_minute";
 		eval {
+			# As for the read above, we have to wait for the replies of the asynchronous client,
+			# otherwise the commands may not even be sent before the request is answered.
+			my $cv = AE::cv;
+			my $timer = _rate_limit_timeout_timer($cv);
 			# Use a MULTI/EXEC block to increment the counter and set the expiration atomically
-			$redis_client->multi();
-			$redis_client->incr("po-rate-limit:$ip:$bucket:$current_minute");
-			$redis_client->expire("po-rate-limit:$ip:$bucket:$current_minute", 59);
-			$redis_client->exec();
+			$redis_client->multi(
+				sub {
+					my ($reply, $err) = @_;
+					push @errors, "multi: $err" if defined $err;
+					return;
+				}
+			);
+			$redis_client->incr(
+				$key,
+				sub {
+					my ($reply, $err) = @_;
+					push @errors, "incr: $err" if defined $err;
+					return;
+				}
+			);
+			$redis_client->expire(
+				$key, 59,
+				sub {
+					my ($reply, $err) = @_;
+					push @errors, "expire: $err" if defined $err;
+					return;
+				}
+			);
+			# EXEC replies with the results of the queued commands, so it is the one we wait for
+			$redis_client->exec(
+				sub {
+					my ($reply, $err) = @_;
+					if (defined $err) {
+						push @errors, "exec: $err";
+					}
+					elsif (ref($reply) eq 'ARRAY') {
+						$count = $reply->[0];
+					}
+					$cv->send;
+					return;
+				}
+			);
+			my $timeout_error = $cv->recv;
+			push @errors, $timeout_error if defined $timeout_error;
+			undef $timer;
 		};
 		$error = $@;
+		if (($error eq "") and scalar @errors) {
+			$error = join("; ", @errors);
+		}
 	}
 	else {
 		$error = "Can't connect to Redis";
@@ -768,6 +877,7 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 			if $ratelimiter_log->is_error();
 		# ask for eventual reconnection for next call
 		$redis_client = undef;
+		return;
 	}
 	else {
 		$ratelimiter_log->debug("Incremented number of requests from Redis rate-limiter",
@@ -775,7 +885,7 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 			if $ratelimiter_log->is_debug();
 	}
 
-	return;
+	return defined $count ? int($count) : undef;
 
 }
 
