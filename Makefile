@@ -9,6 +9,8 @@ endif
 SHELL := $(shell which bash)
 # some vars
 ENV_FILE ?= .env
+# Local overrides, also loaded by direnv. Override to /dev/null to ignore them.
+ENVRC ?= .envrc
 NAME = "ProductOpener"
 VERSION = $(shell cat version.txt)
 MOUNT_POINT ?= /mnt
@@ -38,19 +40,74 @@ endif
 export MSYS_NO_PATHCONV=1
 
 # load env variables
-# also takes into account envrc (direnv file)
 ifneq (,$(wildcard ./${ENV_FILE}))
     -include ${ENV_FILE}
-    -include .envrc
     export
 endif
+
+# .envrc holds local overrides (and is what direnv loads). It is included after
+# .env so that it wins, and unconditionally: -include on a missing file is a no-op,
+# whereas skipping it whenever .env is absent would silently disable per-worktree
+# isolation (see the PO_AGENT_ID block below).
+-include ${ENVRC}
+export
 
 ifneq (${EXTRA_ENV_FILE},'')
     -include ${EXTRA_ENV_FILE}
     export
 endif
 
-HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
+#------#
+# Per-worktree isolation #
+#------#
+# `make agent` writes PO_AGENT_ID and the two ports to .envrc.
+# When PO_AGENT_ID is set we derive per-worktree names so that several worktrees
+# (or several agents) can run `make dev` on the same machine at the same time.
+# When it is empty, which is the default, every name below is byte-identical to
+# what it has always been, so a single-worktree setup needs no change at all.
+#
+# The compose files rename networks/volumes/images from PO_AGENT_PREFIX and
+# PO_AGENT_SUFFIX, and from PRODUCT_OPENER_NETWORK for the default network. We
+# always export those (rather than letting compose compute them from PO_AGENT_ID)
+# because compose's ${VAR:+word} treats an empty-but-set VAR as true, which would
+# produce names like product-opener_.
+PO_AGENT_ID ?=
+PO_AGENT_PREFIX := $(if $(strip $(PO_AGENT_ID)),$(strip $(PO_AGENT_ID))_,)
+PO_AGENT_SUFFIX := $(if $(strip $(PO_AGENT_ID)),_$(strip $(PO_AGENT_ID)),)
+export PO_AGENT_ID
+export PO_AGENT_PREFIX
+export PO_AGENT_SUFFIX
+
+# Resolved values, with the same fallbacks as .env, used by the guard below.
+PO_HOST_PORT := $(or $(strip $(PRODUCT_OPENER_HOST_PORT)),80)
+PO_SERVER_PORT := $(or $(strip $(PRODUCT_OPENER_PORT)),80)
+
+ifneq ($(strip $(PO_AGENT_ID)),)
+    export COMPOSE_PROJECT_NAME := $(or $(strip $(COMPOSE_PROJECT_NAME)),po_off)_$(strip $(PO_AGENT_ID))
+    # Config2_docker.pm folds this into $server_domain, so it has to stay in sync
+    # with PRODUCT_OPENER_PORT or every generated URL/redirect is wrong.
+    export PRODUCT_OPENER_DOMAIN := $(strip $(PO_AGENT_ID)).$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
+    export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN)
+    # The default compose network of the Product Opener stack. Without this every
+    # worktree would share it, and Docker DNS would answer `backend`, `frontend`
+    # and world.$PRODUCT_OPENER_DOMAIN for all of them at once. This is separate
+    # from COMMON_NET_NAME, which names the network shared with MongoDB, Redis,
+    # PostgreSQL and Keycloak (see docker/run.yml).
+    export PRODUCT_OPENER_NETWORK := $(or $(strip $(PRODUCT_OPENER_NETWORK)),product-opener)_$(strip $(PO_AGENT_ID))
+endif
+
+# Hosts entries for PRODUCT_OPENER_DOMAIN, derived from it so they cannot drift
+# away from the configured domain (this list used to be hardcoded to
+# productopener.localhost, which no longer is the domain we serve).
+HOSTS=127.0.0.1 ${PRODUCT_OPENER_DOMAIN} world.${PRODUCT_OPENER_DOMAIN} fr.${PRODUCT_OPENER_DOMAIN} static.${PRODUCT_OPENER_DOMAIN} ssl-api.${PRODUCT_OPENER_DOMAIN} fr-en.${PRODUCT_OPENER_DOMAIN}
+
+# Base URL of the dev instance, used by the messages the targets below print.
+# Derived from PRODUCT_OPENER_DOMAIN and the published host port, both of which
+# per-worktree isolation changes, so these messages stay correct. The port is
+# omitted when it is the default 80.
+PO_URL_HOST := world.$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
+PO_URL_PORT := $(if $(filter 80,$(or $(strip $(PRODUCT_OPENER_HOST_PORT)),80)),,:$(strip $(PRODUCT_OPENER_HOST_PORT)))
+PO_URL := http://$(PO_URL_HOST)$(PO_URL_PORT)/
 # commands aliases
 DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # docker command that do not need the shared network
@@ -117,14 +174,14 @@ goodbye:
 # Local #
 #-------#
 dev: hello build init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
-	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
+	@echo "🥫 You should be able to access your local install of Open Food Facts at $(PO_URL)"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~4M products)."
 
 #-------#
 # CI    #
 #-------#
 dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
-	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
+	@echo "🥫 You should be able to access your local install of Open Food Facts at $(PO_URL)"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~4M products)."
 
 edit_etc_hosts:
@@ -158,10 +215,10 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE_BUILD} build ${args} ${container} 2>&1
 
-_up: run_deps
+_up: run_deps check_agent_ports
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
-	@echo "🥫 started service at http://openfoodfacts.localhost"
+	@echo "🥫 started service at $(PO_URL)"
 
 up: build create_folders _up
 
@@ -185,12 +242,12 @@ reset: hdown up
 restart: run_deps
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
-	@echo "🥫  started service at http://openfoodfacts.localhost"
+	@echo "🥫  started service at $(PO_URL)"
 
 restart_backend:
 	@echo "🥫 Restarting backend container …"
 	${DOCKER_COMPOSE} restart backend
-	@echo "🥫 Apache restarted successfully at http://openfoodfacts.localhost"
+	@echo "🥫 Apache restarted successfully at $(PO_URL)"
 
 stop: stop_deps
 	@echo "🥫 Stopping containers …"
@@ -622,11 +679,23 @@ rotate_logs:
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
-# Run dependent projects
+# Run dependent projects.
+# The sync happens in the recipe, not as a sibling prerequisite: with
+# `make --jobs=N` the two would run in parallel, and the sync could land before
+# clone_deps had created deps/, silently leaving the dependencies shared.
 run_deps: clone_deps
+	@PO_SHARED_DATA="$(PO_SHARED_DATA)" DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --sync-deps
 	@for dep in ${DEPS} ; do \
 		cd "${DEPS_DIR}/$$dep" && $(MAKE) run; \
 	done
+
+# Keep this worktree's .envrc and the dependencies' .envrc in sync with its agent
+# id. Runs on every run_deps, not only in `make agent`, so that a worktree whose
+# deps were cloned afterwards, or whose .envrc was lost or edited by hand, still
+# ends up isolated. It is a no-op when PO_AGENT_ID is unset, which is what CI
+# relies on.
+sync_agent_deps:
+	@PO_SHARED_DATA="$(PO_SHARED_DATA)" DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --sync-deps
 
 
 # Clone dependent projects without running them (used to pull in yml for tests)
@@ -661,6 +730,71 @@ stop_deps:
 #-----------#
 # Utilities #
 #-----------#
+
+# Writes .envrc so that this worktree gets its own container/network/volume/image
+# names, its own domain and its own host port. Run it once per worktree.
+# No coordination needed: ID defaults to one derived from the directory name and
+# claimed atomically, so concurrent agents never collide.
+# See docs/dev/how-to-run-several-worktrees.md
+agent:
+	@PO_SHARED_DATA="$(PO_SHARED_DATA)" DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh $(if $(ID),--id "$(ID)",) $(if $(PORT),--port "$(PORT)",)
+
+# Which ids are in use on this machine, and on which ports.
+list-agents:
+	@DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --list
+
+# Drop this worktree's generated block and give its id/port back.
+# Pass ID=<id> to also free an entry left behind by a worktree that no longer exists.
+release-agent:
+	@DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --release $(if $(ID),--id "$(ID)",)
+
+# Fail loudly rather than silently fighting over host port 80 with another worktree.
+check_agent_ports:
+ifneq ($(strip $(PO_AGENT_ID)),)
+	@if [ "$(PO_HOST_PORT)" = "80" ] && [ "$(ALLOW_SHARED_PORT)" != "1" ]; then \
+		echo "❌ PO_AGENT_ID=$(PO_AGENT_ID) is set but the frontend would still publish host port 80,"; \
+		echo "   so another worktree on this machine would collide with it."; \
+		echo "   Fix: run 'make agent ID=$(PO_AGENT_ID)' again, or set PRODUCT_OPENER_HOST_PORT and"; \
+		echo "   PRODUCT_OPENER_PORT in .envrc. Set ALLOW_SHARED_PORT=1 to override."; \
+		exit 1; \
+	fi
+	@if [ "$(PO_HOST_PORT)" != "$(PO_SERVER_PORT)" ]; then \
+		echo "❌ PRODUCT_OPENER_HOST_PORT=$(PO_HOST_PORT) but PRODUCT_OPENER_PORT=$(PO_SERVER_PORT)."; \
+		echo "   Config2_docker.pm derives its server domain from PRODUCT_OPENER_PORT, so a mismatch"; \
+		echo "   makes the app generate URLs and redirects pointing at another port."; \
+		echo "   Set both to the same value in .envrc."; \
+		exit 1; \
+	fi
+	@if [ "$(PO_SHARED_DATA)" != "1" ]; then \
+		for f in ${DEPS_DIR}/openfoodfacts-shared-services/.envrc ${DEPS_DIR}/openfoodfacts-auth/.envrc; do \
+			if ! grep -q "_$(PO_AGENT_ID)" "$$f" 2>/dev/null; then \
+				echo "❌ $$f does not mention $(PO_AGENT_ID), so MongoDB, Redis, PostgreSQL and"; \
+				echo "   Keycloak would stay shared with the other worktrees. Their Redis streams"; \
+				echo "   (user-deleted, user-registered, user-updated) are global, so one worktree"; \
+				echo "   would then act on another worktree's user events."; \
+				echo "   Fix: run 'make agent' again, or set PO_SHARED_DATA=1 in .envrc to share"; \
+				echo "   them deliberately."; \
+				exit 1; \
+			fi; \
+		done; \
+	fi
+else
+	@:
+endif
+
+# Effective (post-derivation) configuration, handy to debug a worktree or to assert
+# in CI that per-worktree isolation is applied.
+print-agent-config:
+	@echo "PO_AGENT_ID=$(PO_AGENT_ID)"
+	@echo "PO_AGENT_PREFIX=$(PO_AGENT_PREFIX)"
+	@echo "PO_AGENT_SUFFIX=$(PO_AGENT_SUFFIX)"
+	@echo "COMPOSE_PROJECT_NAME=$(COMPOSE_PROJECT_NAME)"
+	@echo "PRODUCT_OPENER_DOMAIN=$(PRODUCT_OPENER_DOMAIN)"
+	@echo "PRODUCT_OPENER_HOST_PORT=$(PRODUCT_OPENER_HOST_PORT)"
+	@echo "PRODUCT_OPENER_PORT=$(PRODUCT_OPENER_PORT)"
+	@echo "MINION_QUEUE=$(MINION_QUEUE)"
+	@echo "PRODUCT_OPENER_NETWORK=$(PRODUCT_OPENER_NETWORK)"
+	@echo "COMMON_NET_NAME=$(COMMON_NET_NAME)"
 
 guard-%: # guard clause for targets that require an environment variable (usually used as an argument)
 	@ if [ "${${*}}" = "" ]; then \
