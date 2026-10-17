@@ -182,8 +182,13 @@ my $tests_ref = [
 		headers_in => {
 			'Authorization' => 'Bearer 4711',
 		},
-		expected_type => "html",
+		# Assert the authentication error independently of the Apache worker's user menu.
+		expected_type => "none",
 		expected_status_code => 403,
+		headers => {
+			'Content-Type' => '/^text\/html(?:;|$)/',
+		},
+		response_content_must_match => '<p>-1</p>',
 	},
 
 	# Nutrition facts: test that we provide backward compatibility for the old field names
