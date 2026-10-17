@@ -9,11 +9,11 @@ our @EXPORT_OK = qw(split_ingredient_sections);
 # Keep source spans separate from the bodies that may be passed to ingredient parsing.
 sub split_ingredient_sections ($text, $lc) {
 	return unless defined $text && $text =~ /\S/ && $lc =~ /^(?:fr|en)$/;
-	# An additives heading may carry a dose reference, "(/kg)" or "(per kg)", but not a list of additives.
+	# An additives heading may carry a dose reference, "(/kg)", "(per kg)" or "par kg", but not a list of additives.
 	my $additives = qr/
 		(?:additifs(?:\s*:\s*additifs)?(?:\s+(?:nutritionnels|technologiques|organoleptiques|zootechniques))?
 		|(?:nutritional|technological|sensory|zootechnical)\s+additives|additives)
-		[_*]*(?:\h*\([^()]*\bkg\b[^()]*\)[_*]*)?\h*
+		[_*]*(?:(?:\h*\([^()]*\bkg\b[^()]*\)|\h+(?:par|per|au)\h+kg\b)[_*]*)?\h*
 	/xi;
 	# Emphasis marks are read from the start of their run, so that a long run is not rescanned from each of its marks.
 	my $emphasis = qr/(?<![_*])[_*]*/;

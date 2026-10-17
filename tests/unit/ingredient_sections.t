@@ -50,8 +50,12 @@ is($origin_field->{ingredients_sections}[0]{ingredients}[0]{origins},
 	'en:france', 'the origin field applies to the ingredients of their section');
 is(scalar @{$origin_field->{specific_ingredients}}, 1, 'the origin field entry is not duplicated by the sections');
 
-for my $heading ("Additifs nutritionnels\x{a0}: Vitamine E 100 mg",
-	"Additifs nutritionnels\x{a0}(/kg)\x{a0}: Vitamine E 100 mg")
+for my $heading (
+	"Additifs nutritionnels\x{a0}: Vitamine E 100 mg",
+	"Additifs nutritionnels\x{a0}(/kg)\x{a0}: Vitamine E 100 mg",
+	'ADDITIFS PAR KG : Vitamine E 100 mg',
+	'Additifs au kg : Vitamine E 100 mg'
+	)
 {
 	my $spaced = {
 		lc => 'fr',
