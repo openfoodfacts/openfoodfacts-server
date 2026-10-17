@@ -217,6 +217,10 @@ $flavor = 'off';
 <meta name="theme-color" content="#ffffff">
 HTML
 	,
+	# Ecobalyse API minimum ingredients coverage percentage (0-100)
+	# Only call Ecobalyse API if ingredients with ecobalyse IDs cover at least this percentage
+	ecobalyse_min_ingredients_coverage_percent => $ProductOpener::Config2::ecobalyse_min_ingredients_coverage_percent
+		// 80,
 );
 
 $options{export_limit} = 10000;
