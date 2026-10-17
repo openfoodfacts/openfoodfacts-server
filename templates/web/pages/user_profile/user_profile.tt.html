@@ -1,22 +1,27 @@
 <!-- start templates/[% template.name %] -->
 [% IF edit_profile %]
-	<!-- Edit product page -->
-	<div class="edit_button">
-		<a href="/cgi/user.pl?userid=[% userid %]&type=edit&action=display" class="button small" title= "[% edq(lang('edit_user_profile')) %]">
-			[% display_icon('edit') %]
-			<span class="show-for-large-up">[% lang("edit_user_profile") %]</span>
-		</a>
-	</div>
+<!-- Edit product page -->
+<div class="edit_button">
+	<a href="/cgi/user.pl?userid=[% userid %]&type=edit&action=display" class="button small"
+		title="[% edq(lang('edit_user_profile')) %]">
+		[% display_icon('edit') %]
+		<span class="show-for-large-up">[% lang("edit_user_profile") %]</span>
+	</a>
+</div>
 [% END %]
 
 [% IF admin %]
-	<p>Email: [% email %]</p>
+<p>Email: [% email %]</p>
 [% END %]
 
 <p>[% lang("contributor_since") %][% sep %]: [% display_date_tag(registered_t) %]</p>
 
+[% IF org_id %]
+<p>[% lang("this_is_a_pro_account") %]</p>
+[% END %]
+
 [% FOREACH link IN links %]
-	&rarr; <a href="[% link.url %]">[% link.text %]</a><br>
+&rarr; <a href="[% link.url %]">[% link.text %]</a><br>
 [% END %]
 
 <!-- end templates/[% template.name %] -->
