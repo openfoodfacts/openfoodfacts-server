@@ -106,10 +106,20 @@ sub normalize_packager_codes ($codes) {
 		return "$countrycode $code1.$code2/$code3 EC";
 	};
 
+	# Countries whose approval numbers have no officially significant inner
+	# separators: written variants of the same code differ only by spacing or
+	# punctuation, so the ID is normalized like UK codes.
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/14961
+	my %strip_separators_countries = (map { $_ => 1 } qw(be dk at pl cz nl pt de));
+
 	my $normalize_ce_code = sub ($countrycode, $code) {
 
 		$countrycode = uc($countrycode);
 		$code = uc($code);
+		if ($strip_separators_countries{lc $countrycode}) {
+			# keep only the separators between country, ID and EC suffix
+			$code =~ s/\s|-|_|\.|\///g;
+		}
 		return "$countrycode $code EC";
 	};
 
