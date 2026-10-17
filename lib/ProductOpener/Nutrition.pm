@@ -1952,6 +1952,25 @@ sub assign_nutrition_values_from_request_object ($request_ref, $product_ref) {
 					$ignore_set = 1;
 				}
 
+				# The source and per are used in field names and in the display of the nutrition facts,
+				# so we only accept the characters that can be used for CSV imports
+				foreach my $field (qw/source per/) {
+					my $field_value = $input_set_ref->{$field};
+					if ((defined $field_value) and ($field_value ne "") and ($field_value !~ /^[a-zA-Z0-9_-]+$/)) {
+						add_error(
+							$response_ref,
+							{
+								message => {id => "unrecognized_value"},
+								field =>
+									{id => "nutrition.inputs_sets[$input_set_index].$field", value => $field_value},
+								impact => {id => "input_set_ignored"},
+							},
+							200
+						);
+						$ignore_set = 1;
+					}
+				}
+
 				if ($ignore_set) {
 					next;
 				}
