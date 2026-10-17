@@ -433,7 +433,7 @@
          [% IF value.evaluation.defined %]
              class="[% show_evaluation.${value.evaluation}.td_color %]"
          [% END %]>
-            [% value.text %]
+            [% IF value.url %]<a href="[% value.url %]">[% value.text %]</a>[% ELSE %][% value.text %][% END %]
         </span>
     [% END %]
 

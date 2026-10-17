@@ -1475,6 +1475,25 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "Nordisk rapsolja, vatten, socker",
 		}
 	],
+	# Sheep's and goat's milk
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/14853
+	[
+		'en-sheep-and-goat-milk',
+		{
+			lc => "en",
+			ingredients_text => "Pasteurised sheep's and goat's milk, salt, starter culture, rennet.",
+		}
+	],
+	# “Str. Thermophilus” abbreviation
+	[
+		'de-str-thermophilus',
+		# https://de.openfoodfacts.org/produkt/5411188119098/natur-mit-kokosnuss-alpro
+		{
+			lc => "de",
+			ingredients_text =>
+				"_Sojabasis_ (Wasser, geschälte _Sojabohnen_ (10,4%)], Kokosmilch (4,3%) (Kokoscreme, Wasser), Zucker, Tricalciumcitrat, Säureregulatoren (Natriumcitrate, Citronensäure), Stabilisator (Pektine), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherol-tatige Extract, Fettsäureester der Ascorbinsäure), Vitamine (B12, D2), Joghurtkulturen (Str. Thermophilus, L. bulgaricus).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
