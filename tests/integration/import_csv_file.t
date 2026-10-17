@@ -30,6 +30,9 @@ my $outputs_dir = "$test_dir/outputs/$test_id/";
 sub fake_download_image ($image_url) {
 
 	my $fname = (split(m|/|, $image_url))[-1];
+	# Sanitize URL query characters so the fixture filename is valid on Windows.
+	# NTFS does not allow '?', '&', or '=' in filenames.
+	$fname =~ s/[?&=]/_/g;
 	my $image_path = $inputs_dir . $fname;
 	my $response = qobj(
 		is_success => qmeth {return (-e $image_path);},
@@ -54,7 +57,7 @@ sub fake_download_image ($image_url) {
 sub fake_lwp_get_virus_scan_retry {
 	my ($ua, $url, @headers) = @_;
 	if ($url =~ m{^https://drive\.usercontent\.google\.com/download\?}) {
-		my $image_path = $inputs_dir . "uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0";
+		my $image_path = $inputs_dir . "uc_export_download_id_1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0";
 		open(my $image, "<", $image_path);
 		binmode($image);
 		read $image, my $content, -s $image;

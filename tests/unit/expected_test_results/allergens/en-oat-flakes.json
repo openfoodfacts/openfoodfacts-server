@@ -4,6 +4,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "9311",
+         "ecobalyse_id" : "d8198264-e84f-51c9-9d54-1908734fe17f",
+         "ecobalyse_name" : "Avoine HORS UE",
          "id" : "en:oat-flakes",
          "is_in_taxonomy" : 1,
          "labels" : "en:whole-grain",
@@ -47,10 +49,8 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:oat-flakes"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "lang" : "en",
    "languages" : {

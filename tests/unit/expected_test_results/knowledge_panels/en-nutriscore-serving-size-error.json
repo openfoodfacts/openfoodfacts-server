@@ -99,6 +99,36 @@
    "ecoscore_tags" : [
       "c"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [],
+         "ingredients_coverage_percent" : 0,
+         "packaging" : [
+            {
+               "category" : "en:biscuits",
+               "id" : "99353d1b-77a3-4fcd-8c99-25ef7dd404c5",
+               "name" : "Cookies, 200g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+               "name_fr" : "Barquette en plastique (PP) pour cookies - 200g - Proxy"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "99353d1b-77a3-4fcd-8c99-25ef7dd404c5"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -1045,7 +1075,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint grade:</strong> \n                    A\n                </p>\n                <p>No ingredient associated with a deforestation risk.</p>\n                <p><strong>Total Forest Footprint:</strong> \n                    0.00 \n                    m² per kg of food\n                </p>\n                \n                ",
+                  "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/actu/2026/09/lempreinte-foret-sinvite-dans-les-telephones-des-francais/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint grade:</strong> \n                    A\n                </p>\n                <p>No ingredient associated with a deforestation risk.</p>\n                <p><strong>Total Forest Footprint:</strong> \n                    0.000 \n                    m² per kg of food\n                </p>\n                \n                ",
                   "type" : "summary"
                }
             },
@@ -1061,10 +1091,10 @@
          "level" : "info",
          "title_element" : {
             "grade" : "a",
-            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-a.svg",
             "name" : "Forest Footprint",
             "subtitle" : "No ingredient associated with a deforestation risk.",
-            "title" : "Forest Footprint A  - No deforestation risk",
+            "title" : "No deforestation risk",
             "type" : "grade"
          },
          "topics" : [
@@ -1673,7 +1703,7 @@
                            {
                               "level" : 0,
                               "style" : "max-width:15rem",
-                              "text" : "Fruits‚ vegetables‚ legumes"
+                              "text" : "Fruits, vegetables, legumes"
                            },
                            {
                               "text" : "~ 100 %"
@@ -1853,7 +1883,7 @@
                            {
                               "level" : 0,
                               "style" : "max-width:15rem",
-                              "text" : "Fruits‚ vegetables‚ legumes"
+                              "text" : "Fruits, vegetables, legumes"
                            },
                            {
                               "text" : "~ 100 %"
@@ -2080,6 +2110,8 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:all-ingredients-with-specified-percent",
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-0-and-9",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
@@ -2089,6 +2121,8 @@
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
