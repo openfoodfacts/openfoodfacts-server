@@ -7,7 +7,7 @@
     "evaluation": "unknown",
     "title_element": {
         
-        "title": "[% edq(lang('environmental_score_packaging_missing_information')) %]",
+        "title": [% lang('environmental_score_packaging_missing_information') | js %],
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,
         "evaluation": "neutral",                
@@ -39,19 +39,19 @@
     [% IF NOT product.environmental_score_data.adjustments.packaging.value.defined %]
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% edq(lang('packaging')) %]",
+        "title": [% lang('packaging') | js %],
     [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -15 %]
     "evaluation": "bad",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging_impact_high')) %]",
+        "title": [% lang('environmental_score_packaging_impact_high') | js %],
     [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -5 %]
     "evaluation": "average",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging_impact_medium')) %]",    
+        "title": [% lang('environmental_score_packaging_impact_medium') | js %]    ,
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging_impact_low')) %]",
+        "title": [% lang('environmental_score_packaging_impact_low') | js %],
     [% END %]
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,

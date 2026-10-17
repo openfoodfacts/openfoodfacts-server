@@ -4,7 +4,7 @@ var job_info_state;
 
 (function poll() {
   \$.ajax({
-    url: '/cgi/import_products_categories_job_status.pl?import_id=[% import_id %]',
+    url: '/cgi/import_products_categories_job_status.pl?import_id=[% import_id | uri %]',
     success: function(data) {
       \$('#result').text(data.job_info.state);
 	  job_info_state = data.job_info.state;

@@ -4,7 +4,7 @@
         "environment"
     ],
     "title_element": {
-        "title": "[% edq(lang('packaging_materials')) %]",           
+        "title": [% lang('packaging_materials') | js %]           ,
     },    
     "expanded": true,
     "elements": [
@@ -12,10 +12,10 @@
             "element_type": "table",
             "table_element": {
                 "id": "packaging_materials",
-                "title": "[% edq(lang('packaging_materials')) %]",
+                "title": [% lang('packaging_materials') | js %],
                 "columns": [                
                     { 
-                        "text": "[% edq(lang('packaging_material')) %]",
+                        "text": [% lang('packaging_material') | js %],
                         "type": "text",
                     },
                     { 
@@ -23,13 +23,13 @@
                         "type": "text",
                     },                        
                     { 
-                        "text": "[% edq(lang('packaging_weight_total')) %]",
+                        "text": [% lang('packaging_weight_total') | js %],
                         "type": "text",
                     },
                     // packaging weight per 100g of product is computed only if we have a quantity
                     [% IF product.product_quantity %]
                     { 
-                        "text": "[% edq(lang('packaging_weight_100g')) %]",
+                        "text": [% lang('packaging_weight_100g') | js %],
                         "type": "text",
                     },
                     [% END %]
@@ -49,7 +49,7 @@
                                     "values": [
                                         {
                                             [% IF parent_material == 'all' %]
-                                            "text": "[% edq(lang('total')) %]",
+                                            "text": [% lang('total') | js %],
                                             [% ELSE %]
                                             "text": "[% display_taxonomy_tag_name('packaging_materials',parent_material) %]"
                                             [% END %]

@@ -1,29 +1,29 @@
 <!-- start templates/[% template.name %] -->
-<label for="[% field %]">
-    [% fieldtype %]
+<label for="[% field | html %]">
+    [% fieldtype | html %]
     [% IF language.defined %]
-        (<span class="tab_language">[% language %]</span>)
+        (<span class="tab_language">[% language | html %]</span>)
     [% END %]
     [% IF owner_field %]
-    <span class="material-icons size-20" title="[% edq(lang("information_provided_by_the_manufacturer")) %]">factory</span>
+    <span class="material-icons size-20" title="[% lang("information_provided_by_the_manufacturer") | html %]">factory</span>
     [% END %]
 </label>
 
 [% IF field.match('infocard') || field.match('^packaging_text') || field.match('^ingredients_text')  %]
-    <textarea [% IF protected_field %]disabled [% END %] name="[% field %]" id="[% field %]" lang="${display_lc}">[% value %]</textarea>
+    <textarea [% IF protected_field %]disabled [% END %] name="[% field | html %]" id="[% field | html %]" lang="${display_lc}">[% value | html %]</textarea>
 [% ELSE %]
-    <input type="text" [% IF protected_field %]disabled [% END %]name="[% field %]" id="[% field %]" class="text [% class %]" value="[% value %]" lang="[% display_lc %]" data-autocomplete="[% autocomplete %]" />
+    <input type="text" [% IF protected_field %]disabled [% END %]name="[% field | html %]" id="[% field | html %]" class="text [% class | html %]" value="[% value | html %]" lang="[% display_lc | html %]" data-autocomplete="[% autocomplete | html %]" />
 [% END %]
 
 
 [% FOREACH field_note IN field_notes %]
     [% IF field_note.note.defined %]
-        <p class="note">&rarr; [% field_note.note %]</p>
+        <p class="note">&rarr; [% field_note.note | html %]</p>
     [% END %]
 [% END %]
 
 [% IF field_type_examples.defined %]
-    <p class="example">[% examples %] [% field_type_examples %]</p>
+    <p class="example">[% examples | html %] [% field_type_examples | html %]</p>
 [% END %]
 
 <!-- end templates/[% template.name %] -->

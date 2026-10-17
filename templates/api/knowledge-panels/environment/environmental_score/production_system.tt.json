@@ -6,7 +6,7 @@
     [% IF product.environmental_score_data.adjustments.production_system.value == 0 %]
     "evaluation": "neutral",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_production_system_no_labels_with_environmental_benefits')) %]",
+        "title": [% lang('environmental_score_production_system_no_labels_with_environmental_benefits') | js %],
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/agriculture.svg",
         "icon_size": "small",
@@ -17,13 +17,13 @@
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/agriculture.svg",
         "icon_size": "small",
-        "subtitle": "[% edq(lang('bonus')) %][% sep %]: +[% product.environmental_score_data.adjustments.production_system.value %]",
+        "subtitle": [% (lang('bonus') _ sep _ ': +' _ product.environmental_score_data.adjustments.production_system.value) | js %],
         [% IF product.environmental_score_data.adjustments.production_system.value.defined AND product.environmental_score_data.adjustments.production_system.value >= 20 %]
-            "title": "[% edq(lang('environmental_score_production_system_labels_with_environmental_benefits_very_high')) %]",
+            "title": [% lang('environmental_score_production_system_labels_with_environmental_benefits_very_high') | js %],
         [% ELSIF product.environmental_score_data.adjustments.production_system.value.defined AND product.environmental_score_data.adjustments.production_system.value >= 15 %]
-            "title": "[% edq(lang('environmental_score_production_system_labels_with_environmental_benefits_high')) %]",
+            "title": [% lang('environmental_score_production_system_labels_with_environmental_benefits_high') | js %],
         [% ELSE %]
-            "title": "[% edq(lang('environmental_score_production_system_labels_with_environmental_benefits')) %]",
+            "title": [% lang('environmental_score_production_system_labels_with_environmental_benefits') | js %],
         [% END %]
         },
         "elements": [

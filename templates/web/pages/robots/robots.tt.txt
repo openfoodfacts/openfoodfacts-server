@@ -9,7 +9,7 @@ Disallow: /cgi
 Disallow: /code
 Disallow: /api
 [% FOREACH path IN disallow_paths_localized -%]
-Disallow: /[% path %]
+Disallow: /[% path | uri %]
 [% END %]
 
 # Disallow: Bingbot (temporary test)

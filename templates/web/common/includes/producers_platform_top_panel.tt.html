@@ -19,9 +19,9 @@
                 <form method="post" action="/cgi/user.pl">
                     <input type="hidden" name="type" value="edit_owner">
                     <input type="hidden" name="action" value="process">
-                    <input type="hidden" name="userid" value="[% user_id %]">
-                    <input type="text" name="pro_moderator_owner" value="" placeholder="[% edq(lang('pro_moderator_edit_owner_placeholder')) %]">
-                    <input type="submit" name=".submit" value="[% edq(lang('pro_moderator_edit_owner')) %]" class="button small">
+                    <input type="hidden" name="userid" value="[% user_id | html %]">
+                    <input type="text" name="pro_moderator_owner" value="" placeholder="[% lang('pro_moderator_edit_owner_placeholder') | html %]">
+                    <input type="submit" name=".submit" value="[% lang('pro_moderator_edit_owner') | html %]" class="button small">
                 </form>
             </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="small-12 column v-space-short">
             <div class="panel">
                 <p>[% lang("you_are_on_the_public_database") %]<br>
-                    <a href="[% producers_platform_url %]">[% lang("manage_your_products_on_the_producers_platform") %]</a>
+                    <a href="[% producers_platform_url | url %]">[% lang("manage_your_products_on_the_producers_platform") %]</a>
                 </p>
             </div>
         </div>
