@@ -478,6 +478,140 @@ paths:
             application/json:
               schema:
                 $ref: ./responses/get_preferences.yaml
+  /api/v2/taxonomy:
+    get:
+      summary: Get Taxonomy Entries
+      description: |
+        Generate an extract of a taxonomy for specific tags, fields and languages,
+        and return it as a JSON object.
+
+        The response is a map keyed by taxonomy entry ID. Each entry contains
+        localized names, synonyms, parent/child relationships, and taxonomy
+        properties, depending on the requested fields and languages.
+
+        ### Fields parameter
+
+        The `fields` parameter accepts a comma-separated list of field names:
+
+        * `name` – localized names of entries
+        * `synonyms` – localized synonyms (requires `name` to also be requested in `fields`)
+        * `parents` – direct parent entry IDs
+        * `children` – direct child entry IDs
+
+        Properties can be requested by name (e.g. `description`) or by
+        name and language (e.g. `vegan:en`).
+
+        To include properties inherited from parent entries, prefix the
+        property with `inherited:` (e.g. `inherited:vegan:en`).
+
+        If `fields` is omitted, all fields are returned.
+
+        Note: Entries that have direct parents in the taxonomy may include
+        the `parents` field (as `[]`) even when `parents` is not explicitly
+        requested in `fields`.
+
+        ### Include flags
+
+        * `include_children=1` – include entries for all direct children
+          of the requested tags
+        * `include_parents=1` – include entries for all direct parents
+          of the requested tags
+        * `include_root_entries=1` – include all root entries of the taxonomy
+
+        ### Example
+
+        ```
+        GET /api/v2/taxonomy?tagtype=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
+        ```
+      tags:
+        - Taxonomy
+      operationId: get-taxonomy
+      parameters:
+        - $ref: "./parameters/tagtype.yaml#/components/parameters/Tagtype"
+        - name: tags
+          in: query
+          description: |
+            Comma-separated list of taxonomy entry IDs to retrieve
+            (e.g. `en:organic,en:fair-trade`).
+
+            Optional if `include_root_entries=1` is specified,
+            otherwise required to identify which entries to retrieve.
+          required: false
+          schema:
+            type: string
+            example: "en:organic,en:fair-trade"
+        - name: lc
+          in: query
+          description: |
+            Comma-separated list of 2-letter language codes for which to
+            return localized names, synonyms, and properties
+            (e.g. `en,fr`).
+          required: false
+          schema:
+            type: string
+            example: "en,fr"
+        - name: fields
+          in: query
+          description: |
+            Comma-separated list of fields to include in the response.
+            Accepted values include `name`, `synonyms`, `parents`, `children`,
+            and any taxonomy property name (e.g. `description`, `vegan:en`).
+
+            Note that `synonyms` requires `name` to also be requested.
+            Entries with direct parents may include the `parents` field (as `[]`)
+            even when not explicitly requested.
+
+            Prefix a property with `inherited:` to include values inherited
+            from parent entries (e.g. `inherited:vegan:en`).
+
+            If omitted, all fields are returned.
+          required: false
+          schema:
+            type: string
+            example: "name,description,children"
+        - name: include_children
+          in: query
+          description: |
+            When set to `1`, the response includes entries for all direct
+            children of the requested tags.
+          required: false
+          schema:
+            type: string
+            enum:
+              - "0"
+              - "1"
+            example: "1"
+        - name: include_parents
+          in: query
+          description: |
+            When set to `1`, the response includes entries for all direct
+            parents of the requested tags.
+          required: false
+          schema:
+            type: string
+            enum:
+              - "0"
+              - "1"
+            example: "1"
+        - name: include_root_entries
+          in: query
+          description: |
+            When set to `1`, the response includes all root entries
+            of the taxonomy (entries without parents).
+          required: false
+          schema:
+            type: string
+            enum:
+              - "0"
+              - "1"
+            example: "0"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/get_taxonomy.yaml
   /cgi/session.pl:
     post:
       summary: Login Session
@@ -683,3 +817,5 @@ tags:
     description: Endpoints for personalized search and recommendations.
   - name: Authentication
     description: Endpoints for user authentication and session management.
+  - name: Taxonomy
+    description: Endpoints for retrieving taxonomy data (categories, labels, ingredients, etc.).
