@@ -1,4 +1,4 @@
-﻿x-backend-conf: &backend-conf
+x-backend-conf: &backend-conf
   image: openfoodfacts-server/backend:dev
   build:
     context: .
@@ -138,4 +138,4 @@ volumes:
 networks:
   # this is a specific network to enable pro platform to join the postgres db
   minion_db:
-    name: ${PO_COMMON_PREFIX:-}minion_db
+    name: ${PO_COMMON_PREFIX:-}${PRODUCT_OPENER_FLAVOR_SHORT:-off}_minion_db

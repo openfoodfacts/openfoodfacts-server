@@ -205,119 +205,82 @@ The best way to do it, most of the time, is `docker compose down && docker compo
 To juggle between multiple local deployments (e.g: to run different flavors of Open Food Facts on the same host),
 there are different possible strategies.
 
-### a set env script
+### Switching Flavors and Environments with `setenv.sh`
 
-docker compose takes its settings from, in decreasing priority:
-* the environment
-* the `.env` file
-
-So one strategy to have a different instance,
-can be to keep the same `.env` file, but override some env variables to tweak the configuration.
-This is a good strategy for the pro platform.
-
-For this case we have a 
-[`setenv.sh`](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/env/setenv.sh)
-script.
-
-To use it, open a terminal, where you want to be in pro environment and simply use:
+Docker Compose takes its settings from the environment, which overrides values in `.env`.
+To juggle between flavors (`off`, `obf`, `opf`, `opff`) or the producers platform (`off-pro`), use the [`env/setenv.sh`](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/env/setenv.sh) script:
 
 ```bash
-. setenv.sh off-pro
-```
-
-then you can use whatever docker compose command.
-
-**Note:** This terminal will remain in `pro` mode until you end its session.
-
-See also [Developing on the producers platform](how-to-develop-producer-platform.md)
-
-### different .env file
-
-This strategy might be the right one if your settings differ a lot.
-
-You will need:
-
-* Multiple `.env` files (one per deployment), such as:
-
-  * `.env.off` : configuration for Open Food Facts dev env.
-  * `.env.off-pro` : configuration for Open Food Facts Producer's Platform dev env.
-  * `.env.obf`: configuration for Open Beauty Facts dev env.
-  * `.env.opff`: configuration for Open Pet Food Facts dev env.
-
-
-* `COMPOSE_PROJECT_NAME`, `COMPOSE_PROFILES`,  `PRODUCT_OPENER_DOMAIN`, `PRODUCT_OPENER_PORT`, `PRODUCT_OPENER_FLAVOR` and `PRODUCT_OPENER_FLAVOR_SHORT` set to different values in each `.env` file, so that container names across deployments are unique and frontend containers don't port-conflict with each other. See example below.
-
-To switch between configurations, set `ENV_FILE` before running `make` commands,
-(or `docker compose` command):
-
-``` sh
-ENV_FILE=.env.off-pro make up # starts the OFF Producer's Platform containers.
-ENV_FILE=.env.obf     make up # starts the OBF containers.
-ENV_FILE=.env.opff    make up # starts the OPFF containers.
-```
-
-or export it to keep it for a while:
-
-``` sh
-export ENV_FILE=.env.off # going to work on OFF for a while
+# To run Open Food Facts (default)
+source env/setenv.sh off
 make up
-make restart
-make down
-make log
+
+# To run Open Beauty Facts
+source env/setenv.sh obf
+make up
+
+# To run Open Products Facts
+source env/setenv.sh opf
+make up
+
+# To run Open Pet Food Facts
+source env/setenv.sh opff
+make up
+
+# To run the Producers Platform
+source env/setenv.sh off-pro
+make up
 ```
 
-A good strategy is to have multiple terminals open, one for each deployment:
+`setenv.sh` automatically unsets previous flavor-specific variables to prevent variable bleed across sessions, sources `env/env.<flavor>`, sets `EXTRA_ENV_FILE=env/env.<flavor>`, and prefixes your shell prompt with `(<flavor>)`.
 
-* `off` [Terminal 1]:
-  ``` sh
-  export ENV_FILE=.env.off
-  make up
-  ```
+### Flavor Isolation Details
 
-* `off-pro` [Terminal 2]:
-  ``` sh
-  export ENV_FILE=.env.off-pro
-  make up
-  ```
+Each flavor configuration in `env/env.<flavor>` provides complete isolation:
 
-* `obf` [Terminal 3]:
-  ``` sh
-  export ENV_FILE=.env.obf
-  make up
-  ```
+| Setting | Open Food Facts (`off`) | Open Beauty Facts (`obf`) | Open Products Facts (`opf`) | Open Pet Food Facts (`opff`) |
+| :--- | :--- | :--- | :--- | :--- |
+| `COMPOSE_PROJECT_NAME` | `po_off` | `po_obf` | `po_opf` | `po_opff` |
+| `PRODUCT_OPENER_DOMAIN` | `openfoodfacts.localhost` | `openbeautyfacts.localhost` | `openproductsfacts.localhost` | `openpetfoodfacts.localhost` |
+| `PRODUCT_OPENER_PORT` | `80` | `81` | `82` | `83` |
+| `PRODUCT_OPENER_NETWORK` | `product-opener` | `po_obf_network` | `po_opf_network` | `po_opff_network` |
+| `MONGODB_DATABASE` | `off` | `obf` | `opf` | `opff` |
+| `POSTGRES_DB` | `minion` | `minion_obf` | `minion_opf` | `minion_opff` |
+| `MINION_QUEUE` | `openfoodfacts.localhost` | `openbeautyfacts.localhost` | `openproductsfacts.localhost` | `openpetfoodfacts.localhost` |
 
-* `opff` [Terminal 3]:
-  ``` sh
-  export ENV_FILE=.env.opff
-  make up
-  ```
+- **Network Aliases**: Frontend network aliases are dynamically generated based on `${PRODUCT_OPENER_DOMAIN}`, preventing alias conflicts when instances run side-by-side.
+- **Minion Queues**: Backend jobs are queued to the flavor's specific `${MINION_QUEUE}`, ensuring jobs are handled exclusively by the corresponding flavor worker.
+- **Databases**: PostgreSQL task queue databases and MongoDB collections are completely partitioned by flavor.
 
-**Note:** the above case of 4 deployments is ***a bit ambitious***, since ProductOpener's `backend` container takes about ~6GB of RAM to run, meaning that the above 4 deployments would require a total of 24GB of RAM available.
+### Testing Open Beauty Facts (OBF) Locally
 
-**Example:** if you already have Open Food Facts up and running and you would like to have Open Beauty Facts as well. Then, copy `.env` to `.env.obf` and modify the following variables:
-``` sh
-COMPOSE_PROJECT_NAME=po_off
-COMPOSE_PROFILES=off
-PRODUCT_OPENER_DOMAIN=openfoodfacts.localhost
-PRODUCT_OPENER_PORT=80
-PRODUCT_OPENER_FLAVOR=openfoodfacts
-PRODUCT_OPENER_FLAVOR_SHORT=off
-```
-to
-``` sh
-COMPOSE_PROJECT_NAME=po_obf
-COMPOSE_PROFILES=off
-PRODUCT_OPENER_DOMAIN=openbeautyfacts.localhost
-PRODUCT_OPENER_PORT=81
-PRODUCT_OPENER_HOST_PORT=81
-PRODUCT_OPENER_NETWORK=po_obf_network
-PRODUCT_OPENER_FLAVOR=openbeautyfacts
-PRODUCT_OPENER_FLAVOR_SHORT=obf
-MONGODB_DATABASE=obf
-```
-Run:
-``` sh
-export ENV_FILE=.env.obf
-make dev
-```
-If you have error like `Errors in the labels taxonomy definition at /opt/product-opener/lib/ProductOpener/Tags.pm line 1622.`, due to conflict between taxonomies, a small hack is to comment the lines (it appears 2 times in the file) raising error in the **Tags.pm** file. 
+To test OBF locally without colliding with an existing Open Food Facts deployment:
+
+1. **Activate OBF Environment:**
+   ```bash
+   source env/setenv.sh obf
+   ```
+2. **Start Containers & Seed Sample Data:**
+   ```bash
+   make dev
+   ```
+   *(Alternatively, if running `make up`, manually seed data with `make import_sample_data_obf`)*
+3. **Access the Application:**
+   Open [http://openbeautyfacts.localhost:81](http://openbeautyfacts.localhost:81) or [http://world.openbeautyfacts.localhost:81](http://world.openbeautyfacts.localhost:81) in your browser.
+
+- **Port Mapping**: OBF binds to host port `81` (`PRODUCT_OPENER_PORT=81`), allowing it to run concurrently alongside OFF on port `80`.
+- **Network Aliases**: Nginx frontend containers register `${PRODUCT_OPENER_DOMAIN}` aliases (`openbeautyfacts.localhost` and `world.openbeautyfacts.localhost`) on the Docker network, ensuring internal routing is distinct from `openfoodfacts.localhost`.
+
+### Staging Multi-Instance Deployment
+
+On staging servers, multiple flavors run concurrently side-by-side using directory isolation:
+
+1. **Independent Directory Checkouts**:
+   - `/srv/off` checked out with `env/env.off` running on port 80.
+   - `/srv/obf` checked out with `env/env.obf` running on port 81.
+2. **Shared Services Network**:
+   - Common infrastructure (shared MongoDB, Redis) is managed via [`openfoodfacts-shared-services`](https://github.com/openfoodfacts/openfoodfacts-shared-services) and joined over flavor-scoped shared networks (`COMMON_NET_NAME`, e.g. `off_shared_network`, `obf_shared_network`) to prevent backend/minion service alias collisions.
+3. **Collision Avoidance**:
+   - Unique `COMPOSE_PROJECT_NAME` prefixes (`po_off`, `po_obf`) isolate container names, default bridge networks, and product volumes (`po_off_products`, `po_obf_products`).
+   - Distinct ports (80 vs 81) and isolated Minion queues prevent task collisions between flavors.
+

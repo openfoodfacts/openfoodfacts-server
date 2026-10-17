@@ -12,6 +12,8 @@ x-backend-conf: &backend-conf
     - POSTGRES_HOST
     - POSTGRES_USER
     - POSTGRES_PASSWORD
+    - POSTGRES_DB
+    - MINION_QUEUE
     - ROBOTOFF_URL
     - QUERY_URL
     - EVENTS_URL
@@ -99,7 +101,7 @@ services:
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
-      - POSTGRES_DB=minion
+      - POSTGRES_DB=${POSTGRES_DB:-minion}
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 10s
@@ -141,8 +143,8 @@ services:
     networks:
       default:
         aliases:
-          - openfoodfacts.localhost
-          - world.openfoodfacts.localhost
+          - ${PRODUCT_OPENER_DOMAIN:-openfoodfacts.localhost}
+          - world.${PRODUCT_OPENER_DOMAIN:-openfoodfacts.localhost}
     ports:
       - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
     volumes:
