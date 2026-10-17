@@ -1250,26 +1250,43 @@ English first element for that ingredient (en:pear, for example)
 
 =cut
 
+# Recognising a name can go through the processing prefixes and suffixes, and checking the declared names of a name
+# with a conjunction preparses all its synonyms. Both are slow and the same names come back all the time
+# ("huiles et graisses végétales"): remember the answers, up to a limit.
+my %known_ingredient_names = ();
+my %conjunction_names = ();
+my $names_cache_limit = 5000;
+
 # Structural decisions must retain conjunctions when comparing generated synonyms.
 sub _canonicalize_ingredient ($lc, $text, $exists_ref = undef) {
 	my $exists;
 	my $id = canonicalize_taxonomy_tag($lc, 'ingredients', $text, \$exists);
 	my $conjunction = $and{$lc} || ' and ';
 	if ($exists && $text =~ /$conjunction/i) {
-		my $conjunction_keys = join('|', map {quotemeta(get_string_id_for_lang($lc, $_))} split(/\|/, $conjunction));
-		my @synonyms = get_taxonomy_tag_synonyms($lc, 'ingredients', $id);
-		# Declared names must also survive the same preparsing as the ingredient text.
-		my @keys = map {
-			my $key = get_string_id_for_lang($lc, $_);
-			$key =~ s/(?<=-)(?:$conjunction_keys)(?=-)/zzingredientconjunctionzz/g;
-			ProductOpener::Tags::remove_plurals($lc, ProductOpener::Tags::remove_stopwords('ingredients', $lc, $key));
-		} ($text, @synonyms, map {preparse_ingredients_text($lc, $_)} @synonyms);
-		my $key = shift @keys;
-		$exists = scalar grep {$_ eq $key} @keys;
-		$id = "$lc:$text" unless $exists;
+		# Checking the declared names of a name with a conjunction preparses all its synonyms: do it once per name.
+		my $cache_key = "$lc\t$text";
+		if (not exists $conjunction_names{$cache_key}) {
+			%conjunction_names = () if scalar(keys %conjunction_names) >= $names_cache_limit;
+			$conjunction_names{$cache_key} = _canonicalize_name_with_conjunction($lc, $text, $id, $conjunction);
+		}
+		($id, $exists) = @{$conjunction_names{$cache_key}};
 	}
 	$$exists_ref = $exists ? 1 : 0 if defined $exists_ref;
 	return $id;
+}
+
+sub _canonicalize_name_with_conjunction ($lc, $text, $id, $conjunction) {
+	my $conjunction_keys = join('|', map {quotemeta(get_string_id_for_lang($lc, $_))} split(/\|/, $conjunction));
+	my @synonyms = get_taxonomy_tag_synonyms($lc, 'ingredients', $id);
+	# Declared names must also survive the same preparsing as the ingredient text.
+	my @keys = map {
+		my $key = get_string_id_for_lang($lc, $_);
+		$key =~ s/(?<=-)(?:$conjunction_keys)(?=-)/zzingredientconjunctionzz/g;
+		ProductOpener::Tags::remove_plurals($lc, ProductOpener::Tags::remove_stopwords('ingredients', $lc, $key));
+	} ($text, @synonyms, map {preparse_ingredients_text($lc, $_)} @synonyms);
+	my $key = shift @keys;
+	my $exists = scalar grep {$_ eq $key} @keys;
+	return [$exists ? $id : "$lc:$text", $exists];
 }
 
 sub _split_explicit_ingredient_origin ($ingredient) {
@@ -1279,6 +1296,15 @@ sub _split_explicit_ingredient_origin ($ingredient) {
 	}
 	return ($ingredient, undef) unless defined $end;
 	return (substr($ingredient, 0, $start), substr($ingredient, $end));
+}
+
+sub _is_known_ingredient_name ($lc, $name) {
+	my $key = "$lc\t$name";
+	if (not exists $known_ingredient_names{$key}) {
+		%known_ingredient_names = () if scalar(keys %known_ingredient_names) >= $names_cache_limit;
+		$known_ingredient_names{$key} = (parse_processing_from_ingredient($lc, $name))[3] ? 1 : 0;
+	}
+	return $known_ingredient_names{$key};
 }
 
 # Share label removal between structural lookups and final ingredient analysis.
@@ -1303,7 +1329,7 @@ sub _extract_ingredient_labels ($lc, $ingredient) {
 				# "d'origine végétale ou animale" does not describe a diet.
 				last if defined $origin && $origin =~ /animal/i;
 				$name = $ingredient if !defined $origin || $origin =~ /vegetal|végétal/i;
-				$dietary_word_in_known_name //= (parse_processing_from_ingredient($lc, $name))[3] ? 1 : 0;
+				$dietary_word_in_known_name //= _is_known_ingredient_name($lc, $name);
 				if ($dietary_word_in_known_name) {
 					push @kept_dietary_labels, $labelid;
 					last;
