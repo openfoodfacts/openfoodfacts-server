@@ -31,7 +31,7 @@
       "tests/integration/delete_user.t",
       "tests/integration/minion_job_status.t",
       "tests/integration/protected_images.t",
-      "tests/integration/unknown_tags.t"
+      "tests/integration/translate_taxonomy.t"
     ],
     "total_time": 210.0
   },
@@ -43,7 +43,7 @@
       "tests/integration/export.t",
       "tests/integration/modify_user.t",
       "tests/integration/protected_product.t",
-      "tests/integration/upload_images.t"
+      "tests/integration/unknown_tags.t"
     ],
     "total_time": 210.0
   },
@@ -55,7 +55,7 @@
       "tests/integration/external_sources.t",
       "tests/integration/oidc_signin.t",
       "tests/integration/recent_changes.t",
-      "tests/integration/web_html.t"
+      "tests/integration/upload_images.t"
     ],
     "total_time": 210.0
   },
@@ -66,9 +66,10 @@
       "tests/integration/cors.t",
       "tests/integration/facets.t",
       "tests/integration/oidc_signout.t",
-      "tests/integration/recipes_stats.t"
+      "tests/integration/recipes_stats.t",
+      "tests/integration/web_html.t"
     ],
-    "total_time": 180.0
+    "total_time": 210.0
   },
   {
     "tests": [

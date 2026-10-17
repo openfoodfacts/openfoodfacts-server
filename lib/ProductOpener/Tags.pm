@@ -146,6 +146,7 @@ BEGIN {
 		&cc_to_country
 
 		&add_user_translation
+		&translation_value_is_valid
 		&load_users_translations_for_lc
 		&add_users_translations_to_taxonomy
 
@@ -4733,15 +4734,72 @@ sub canonicalize_allergens_taxonomy_tag($ingredients_lc, $ingredient_or_allergen
 	return $allergenid;
 }
 
+=head2 translation_value_is_valid ($value)
+
+Returns 1 if $value can be stored in a users translation file, and 0 otherwise.
+
+A translation record is one line of tab separated values, and
+load_users_translations_for_lc() reads it back with a chomp() and a split() on tabs: the columns
+it recovers are the time, the user id that is shown as the author of the translation, and the
+source and target tags. A value holding a control character therefore changes the shape of the
+record instead of its content. A tab shifts the remaining values into the wrong columns, and a
+newline or a carriage return adds records: a request could forge a record that is attributed to
+another user, or one that replaces a translation another contributor wrote.
+
+remove_tags_and_quote(), which cgi/translate_taxonomy.pl passes the values through, trims
+whitespace at the ends of a value but keeps a tab or a newline in the middle of one.
+
+=head3 Arguments
+
+=head4 String $value - the value to check
+
+=head3 Return value
+
+1 if the value can be stored, 0 otherwise
+
+=cut
+
+sub translation_value_is_valid ($value) {
+
+	if (not defined $value) {
+		return 0;
+	}
+
+	return $value !~ /[\x00-\x1f\x7f]/;
+}
+
 sub add_user_translation ($tag_lc, $tagtype, $user, $from, $to) {
+
+	# The tagtype and the language code select the file we append to, and they come from the
+	# request in cgi/translate_taxonomy.pl: only accept a known taxonomy and a language code.
+	# The character check also rejects '/', '\', '..' and NUL, which remove_tags_and_quote()
+	# does not remove, and which would let a request direct the write to another directory.
+	if (($tagtype !~ /^[a-z0-9_]+$/) or ($tag_lc !~ /^[a-z]{2,3}$/) or (not defined $taxonomy_fields{$tagtype})) {
+		$log->warn("add_user_translation - refusing an unknown tagtype or language code",
+			{tagtype => $tagtype, tag_lc => $tag_lc})
+			if $log->is_warn();
+		return 0;
+	}
+
+	# The values are stored as one tab separated record per line: a control character in one of
+	# them would change the shape of the record rather than its content.
+	foreach my $value_ref (\$user, \$from, \$to) {
+		if (not translation_value_is_valid(${$value_ref})) {
+			$log->warn("add_user_translation - refusing a value with control characters",
+				{tagtype => $tagtype, tag_lc => $tag_lc})
+				if $log->is_warn();
+			return 0;
+		}
+	}
 
 	ensure_dir_created_or_die($BASE_DIRS{USERS_TRANSLATIONS});
 
-	open(my $LOG, ">>:encoding(UTF-8)", "$BASE_DIRS{USERS_TRANSLATIONS}/$tagtype.$tag_lc.txt");
+	open(my $LOG, ">>:encoding(UTF-8)", "$BASE_DIRS{USERS_TRANSLATIONS}/$tagtype.$tag_lc.txt")
+		or die("Cannot append to $BASE_DIRS{USERS_TRANSLATIONS}/$tagtype.$tag_lc.txt : $!\n");
 	print $LOG join("\t", (time(), $user, $from, $to)) . "\n";
 	close $LOG;
 
-	return;
+	return 1;
 }
 
 sub load_users_translations_for_lc ($users_translations_ref, $tagtype, $tag_lc) {
