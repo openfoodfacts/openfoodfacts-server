@@ -209,6 +209,9 @@ $ProductOpener::Config::options{rate_limit_facet_tags_unregistered} = 5;
 $ProductOpener::Config::options{rate_limit_facet_tags_registered} = 10;
 $ProductOpener::Config::options{rate_limit_facet_tags_crawl_bot} = 10;
 $ProductOpener::Config::options{rate_limit_product} = 100;
+# Number of requests per minute for the OCR endpoints (cgi/ingredients.pl, cgi/nutrition.pl and
+# cgi/packaging.pl). Each request can cost a call to the Google Cloud Vision API.
+$ProductOpener::Config::options{rate_limit_ocr} = 10;
 
 # Rate limit allow list
 $ProductOpener::Config::options{rate_limit_allow_list} = {

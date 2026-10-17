@@ -48,6 +48,7 @@ BEGIN {
 		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
+		$google_cloud_vision_timeout
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$brevo_api_key
@@ -117,6 +118,9 @@ $memd_servers = ["memcached:11211"];
 $tesseract_ocr_available = $ENV{TESSERACT_OCR_AVAILABLE} // 1;    # Set to 0 to disable Tesseract OCR
 $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
 $google_cloud_vision_api_url = $ENV{GOOGLE_CLOUD_VISION_API_URL} || "https://vision.googleapis.com/v1/images:annotate";
+# Timeout in seconds for a call to the Google Cloud Vision API. Without one, a stalled call keeps
+# the Apache worker or the Minion worker busy for the default timeout of the user agent.
+$google_cloud_vision_timeout = $ENV{GOOGLE_CLOUD_VISION_TIMEOUT} // 30;
 
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
