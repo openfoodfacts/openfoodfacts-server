@@ -461,13 +461,12 @@ elsif ($action eq 'display') {
 
 elsif ($action eq 'process') {
 
-	# Reject state changes that are not origin-bound POST requests
-	is_post_request($request_ref)
-		or display_error_and_exit($request_ref, $Lang{error_invalid_method}{$lc}, 405);
-	require_same_origin_post($request_ref)
-		or display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
-
-	if (($type eq 'add') or ($type =~ /^edit/)) {
+	if ($request_ref->{is_spam}) {
+		# spam: do not create or update the user, but display the same page as if we did
+		$log->info("user form - spam, user not created or updated", {userid => $user_ref->{userid}})
+			if $log->is_info();
+	}
+	elsif (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
 	}
 	elsif (get_oidc_implementation_level() < 5 and $type eq 'delete') {
