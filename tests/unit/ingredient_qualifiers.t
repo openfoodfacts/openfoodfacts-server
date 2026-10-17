@@ -118,4 +118,12 @@ for my $text ('colorant végétal', 'extraits végétaux', 'bouillon végétal')
 	is($kept->{ingredients}[0]{vegan}, 'yes', "$text keeps what its dietary word claims");
 }
 
+my $broth = parse('bouillon de légumes bio (sel, farine de riz, légumes, huile de tournesol)')->[0];
+is($broth->{id}, 'en:vegetable-broth', 'the broth keeps its identity');
+is(
+	[map {$_->{id}} @{$broth->{ingredients}}],
+	[qw(en:salt en:rice-flour en:vegetable en:sunflower-oil)],
+	'a child that only gives the generic name back is not turned into its parent'
+);
+
 done_testing;

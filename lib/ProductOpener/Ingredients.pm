@@ -3311,8 +3311,13 @@ Text to analyze
 							\$exists_in_taxonomy);
 
 						# Generated stopword variants must not change the meaning of an already known child.
+						# The generic name of a plant parent must not turn a known child into the parent itself:
+						# "bouillon" + "légumes" is the broth again, which says nothing about this ingredient.
 						if (
 							$exists_in_taxonomy
+							and not($parent_text ne $parent_ingredient_text
+								and $parent_plus_child_ingredient_id eq $parent_ref->{id}
+								and exists_taxonomy_tag('ingredients', $ingredient_id))
 							and (
 								   not exists_taxonomy_tag('ingredients', $ingredient_id)
 								or is_a('ingredients', $parent_plus_child_ingredient_id, $ingredient_id)
