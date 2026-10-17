@@ -27,7 +27,7 @@
 # TODO: factorize code with search_and_export_products() function
 # from ./lib/ProductOpener/Display.pm
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -64,8 +64,7 @@ my $export_rdf = 0;
 
 init_emb_codes();
 
-sub xml_escape_NFC($) {
-	my $s = shift;
+sub xml_escape_NFC ($s) {
 	if (defined $s) {
 		$s = sanitize_field_content($s);
 		return xml_escape(NFC($s));    # NFC is provided by Unicode::Normalize

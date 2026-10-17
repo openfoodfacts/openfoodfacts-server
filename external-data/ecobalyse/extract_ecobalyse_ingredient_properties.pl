@@ -39,7 +39,7 @@
 #   prefer non-organic, then origin priority (None > ROF > REM > FR, France last).
 # - "Origin none does not mean proxy" — None origin entries are regular variants.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 use JSON;
 use ProductOpener::Config qw/:all/;

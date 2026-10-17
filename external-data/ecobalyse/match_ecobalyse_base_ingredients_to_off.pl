@@ -24,7 +24,7 @@
 # using canonicalize_taxonomy_tag(). It produces a TSV mapping file and
 # prints statistics to STDOUT.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 use JSON;
 use ProductOpener::Config qw/:all/;

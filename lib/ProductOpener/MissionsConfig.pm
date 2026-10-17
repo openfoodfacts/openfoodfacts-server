@@ -21,7 +21,7 @@
 package ProductOpener::MissionsConfig;
 
 use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 BEGIN {

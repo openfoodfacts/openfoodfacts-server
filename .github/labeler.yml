@@ -719,12 +719,7 @@ Nutrition facts:
   - changed-files:
       - any-glob-to-any-file: "lib/ProductOpener/PackagerCodes.pm"
       - any-glob-to-any-file: "tests/unit/packager_codes.t"
-      - any-glob-to-any-file: "scripts/packager-codes/de-packagers-refresh.pl"
-      - any-glob-to-any-file: "scripts/packager-codes/ee-packagers-xml2tsv.pl"
-      - any-glob-to-any-file: "scripts/packager-codes/es-packagers-html2csv.pl"
       - any-glob-to-any-file: "scripts/packager-codes/fi-packagers-xls2csv.pl"
-      - any-glob-to-any-file: "scripts/packager-codes/fr-packagers-refresh.pl"
-      - any-glob-to-any-file: "scripts/packager-codes/se-packagers-html2tsv.pl"
       - any-glob-to-any-file: "scripts/packager-codes/si-packagers-refresh.py"
       - any-glob-to-any-file: "scripts/update_packager_codes.pl"
       - any-glob-to-any-file: "scripts/update_packager_codes_fsa_ratings.pl"
@@ -782,7 +777,7 @@ Poland:
 
 Spain:
   - changed-files:
-      - any-glob-to-any-file: "scripts/packager-codes/es-packagers-html2csv.pl"
+      - any-glob-to-any-file: "scripts/packager-codes/main.py"
 
 Austria:
   - changed-files:
