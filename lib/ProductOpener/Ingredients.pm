@@ -53,6 +53,7 @@ package ProductOpener::Ingredients;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
+use ProductOpener::Ingredients::Sections qw(split_ingredient_sections);
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -537,7 +538,8 @@ sub extract_ingredients_from_image ($product_ref, $image_type, $image_lc, $ocr_e
 
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
 		$results_ref->{ingredients_text_from_image}
-			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $image_lc);
+			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image},
+			$image_lc, $product_ref->{product_type} // $options{product_type});
 
 		# fix common OCR misreads
 		apply_misspelling_replacements("ingredients", $image_lc, \$results_ref->{ingredients_text_from_image});
@@ -1961,7 +1963,165 @@ sub _extract_ingredient_equivalents ($lc, $text) {
 	);
 }
 
+# Reset the specific ingredients to those that come from the fields of the product:
+# the origin of ingredients field and the labels.
+sub _set_specific_ingredients_from_fields ($product_ref) {
+
+	$product_ref->{specific_ingredients} = [];
+
+	# It is possible that we could have origins info listed without having ingredients listed
+	# (also in unit tests)
+	# so we fall back to the main language of the product in that case
+	my $origin_lc = get_or_select_ingredients_lc($product_ref) || $product_ref->{lc};
+
+	# Ingredients origins may be listed in the origin field
+	# e.g. "Origin of the rice: Thailand."
+	if (defined $product_ref->{"origin_" . $origin_lc}) {
+		parse_origins_from_text($product_ref, $product_ref->{"origin_" . $origin_lc}, $origin_lc);
+	}
+
+	# Add specific ingredients from labels
+	add_specific_ingredients_from_labels($product_ref);
+
+	return;
+}
+
+sub _has_unweighted_ingredient_recipes ($product_ref) {
+	my $sections = $product_ref->{ingredients_sections};
+	return 0 unless ref $sections eq 'ARRAY';
+	return scalar(grep {ref $_ eq 'HASH' && ($_->{type} // '') eq 'recipe'} @$sections) > 1;
+}
+
+sub _clear_recipe_local_quantities ($ingredients_ref) {
+	for my $ingredient (@{$ingredients_ref // []}) {
+		delete @{$ingredient}{
+			qw(percent percent_min percent_max percent_estimate quantity quantity_g quantity_ml quantity_reference equivalents)
+		};
+		_clear_recipe_local_quantities($ingredient->{ingredients}) if defined $ingredient->{ingredients};
+	}
+	return;
+}
+
+sub _clear_unweighted_recipe_estimates ($product_ref, $updated_product_fields_ref = {}) {
+	_clear_recipe_local_quantities($product_ref->{ingredients});
+	for my $field (
+		qw(ingredients_percent_analysis estimate_ingredients_percent_service
+		ingredients_with_specified_percent_n ingredients_with_specified_percent_sum
+		ingredients_with_unspecified_percent_n ingredients_with_unspecified_percent_sum)
+		)
+	{
+		delete $product_ref->{$field};
+		$updated_product_fields_ref->{$field} = 1;
+	}
+	if (defined $product_ref->{specific_ingredients}) {
+		$product_ref->{specific_ingredients} = [
+			grep {
+					   !defined $_->{percent}
+					&& !defined $_->{quantity}
+					&& !defined $_->{quantity_g}
+					&& !defined $_->{quantity_ml}
+			} @{$product_ref->{specific_ingredients}}
+		];
+		delete $product_ref->{specific_ingredients} unless @{$product_ref->{specific_ingredients}};
+	}
+	$updated_product_fields_ref->{specific_ingredients} = 1;
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags} = [
+			grep {
+				!/^en:(?:estimated-ingredients-with-.+|(?:some|all|at-least-5|at-least-10)-ingredients-with-specified-percent)$/
+			} @{$product_ref->{misc_tags}}
+		];
+	}
+	$updated_product_fields_ref->{misc_tags} = 1;
+	$updated_product_fields_ref->{ingredients} = 1;
+	return;
+}
+
+sub _prepare_ingredient_section_bodies ($lc, $sections) {
+	# Apply global symbol footnotes once across recipes, retaining boundaries.
+	# Line breaks stay as they are: the preparse reads them like it does for any other text.
+	my $source = join(' ', map {$_->{_body}} @$sections);
+	my $marker = 'zzingredientsectionboundary';
+	$marker .= 'z' while index($source, $marker) >= 0;
+	# The separator keeps the marker out of a leading "contains ..." phrase, which the preparse would swallow.
+	my @bodies = map {$marker . $_ . 'zz ; ' . $sections->[$_]{_body}} 0 .. $#$sections;
+	my $prepared = preparse_ingredients_text($lc, join(' ; ', @bodies));
+	my @parts = split(/\b\Q$marker\E\d+zz\b/, $prepared, -1);
+	shift @parts;
+	return unless @parts == @$sections;
+	s/^[\s;]+|[\s;]+$//g for @parts;
+	return \@parts;
+}
+
+sub _ingredient_sections_for_product ($product_ref, $lc) {
+	return unless ($product_ref->{product_type} // $options{product_type}) eq 'petfood';
+	return split_ingredient_sections($product_ref->{ingredients_text}, $lc);
+}
+
 sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
+	# Only sections that were really there invalidate what was computed from them.
+	my $had_sections = ref $product_ref->{ingredients_sections} eq 'ARRAY' && @{$product_ref->{ingredients_sections}};
+	my $had_unweighted_recipes = _has_unweighted_ingredient_recipes($product_ref);
+	$updated_product_fields_ref->{ingredients_sections} = 1 if $had_sections;
+	delete $product_ref->{ingredients_sections};
+	_clear_unweighted_recipe_estimates($product_ref, $updated_product_fields_ref) if $had_unweighted_recipes;
+	my ($lc, $sections, $bodies);
+	if (($product_ref->{product_type} // $options{product_type}) eq 'petfood') {
+		# This also reads ingredients_text_<lc> into ingredients_text, which is the text to split.
+		$lc = select_ingredients_lc($product_ref);
+		if (defined $lc && defined $product_ref->{ingredients_text} && $product_ref->{ingredients_text} =~ /\S/) {
+			$sections = _ingredient_sections_for_product($product_ref, $lc);
+			$bodies = defined $sections ? _prepare_ingredient_section_bodies($lc, $sections) : undef;
+		}
+	}
+	if ($had_sections || defined $bodies) {
+		_set_specific_ingredients_from_fields($product_ref);
+		$updated_product_fields_ref->{specific_ingredients} = 1;
+	}
+	return _parse_ingredients_fragment($product_ref, $updated_product_fields_ref, $errors_ref) unless defined $bodies;
+	$product_ref->{ingredients} = [];
+	$product_ref->{ingredients_sections} = $sections;
+	my $unweighted_recipes = _has_unweighted_ingredient_recipes($product_ref);
+	my $field_specific_ingredients = dclone($product_ref->{specific_ingredients} // []);
+
+	for my $i (0 .. $#$sections) {
+		my $section = $sections->[$i];
+		delete $section->{_body};
+		next unless $section->{type} =~ /^(?:ingredients|recipe|additives)$/;
+		# A heading without a body has nothing to parse and no missing field to report.
+		$section->{ingredients} = [];
+		next unless $bodies->[$i] =~ /\S/;
+		my $fragment = {
+			lc => $lc,
+			product_type => 'petfood',
+			ingredients_text => $bodies->[$i],
+			specific_ingredients => dclone($field_specific_ingredients),
+		};
+		_parse_ingredients_fragment($fragment, {}, $errors_ref, 1);
+		# What a section says about the product itself belongs to the product.
+		add_tags_to_field($product_ref, $lc, 'labels', join(',', @{$fragment->{labels_tags}}))
+			if $fragment->{labels_tags};
+		$product_ref->{allergens_from_ingredients} .= $fragment->{allergens_from_ingredients}
+			if defined $fragment->{allergens_from_ingredients};
+		add_properties_from_specific_ingredients($fragment) if @{$fragment->{specific_ingredients}};
+		$section->{ingredients} = $fragment->{ingredients} // [];
+		push @{$product_ref->{ingredients}}, @{dclone($section->{ingredients})};
+		# The entries that come from the fields are already on the product: only those read in the text are new.
+		my @text_entries = @{$fragment->{specific_ingredients}};
+		splice(@text_entries, 0, scalar @$field_specific_ingredients);
+		push @{$product_ref->{specific_ingredients}}, @text_entries unless $unweighted_recipes;
+	}
+	_clear_unweighted_recipe_estimates($product_ref, $updated_product_fields_ref)
+		if _has_unweighted_ingredient_recipes($product_ref);
+	$updated_product_fields_ref->{ingredients} = 1;
+	$updated_product_fields_ref->{ingredients_sections} = 1;
+	delete $product_ref->{specific_ingredients}
+		if defined $product_ref->{specific_ingredients} && !@{$product_ref->{specific_ingredients}};
+	return;
+}
+
+# $preparsed: the text of the sections was already preparsed, and preparsing it again would not give the same text.
+sub _parse_ingredients_fragment ($product_ref, $updated_product_fields_ref, $errors_ref, $preparsed = 0) {
 
 	my $debug_ingredients = 0;
 
@@ -2023,7 +2183,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 			= (defined $product_ref->{specific_ingredients}) ? dclone($product_ref->{specific_ingredients}) : undef;
 	}
 
-	$text = preparse_ingredients_text($ingredients_lc, $text);
+	$text = preparse_ingredients_text($ingredients_lc, $text) unless $preparsed;
 
 	# Remove allergens and traces that have been preparsed
 	# jus de pomme, eau, sucre. Traces possibles de c\x{e9}leri, moutarde et gluten.",
@@ -3665,7 +3825,7 @@ Text to analyze
 		}
 
 		# Call recursively for Parse B
-		parse_ingredients_text_service($product_ref, $updated_product_fields_ref, $errors_ref);
+		_parse_ingredients_fragment($product_ref, $updated_product_fields_ref, $errors_ref, $preparsed);
 
 		# Calculate recognition rates
 		my $rate_a = _calculate_recognition_rate($parse_a_ingredients_ref);
@@ -3879,6 +4039,7 @@ sub compute_ingredients_tags ($product_ref) {
 		# ensure $product_ref->{ingredients_n} is last used as an int so that it is not saved as a strings
 		$product_ref->{ingredients_n} += 0;
 	}
+	_clear_unweighted_recipe_estimates($product_ref) if _has_unweighted_ingredient_recipes($product_ref);
 
 	return;
 }
@@ -3915,21 +4076,7 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 	# - labels (e.g. "British eggs")
 	# - the end of the list of the ingredients. e.g. "Origin of the rice: Thailand"
 
-	$product_ref->{specific_ingredients} = [];
-
-	# It is possible that we could have origins info listed without having ingredients listed
-	# (also in unit tests)
-	# so we fall back to the main language of the product in that case
-	my $origin_lc = get_or_select_ingredients_lc($product_ref) || $product_ref->{lc};
-
-	# Ingredients origins may be listed in the origin field
-	# e.g. "Origin of the rice: Thailand."
-	if (defined $product_ref->{"origin_" . $origin_lc}) {
-		parse_origins_from_text($product_ref, $product_ref->{"origin_" . $origin_lc}, $origin_lc);
-	}
-
-	# Add specific ingredients from labels
-	add_specific_ingredients_from_labels($product_ref);
+	_set_specific_ingredients_from_fields($product_ref);
 
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
 	# to create the ingredients array with nested sub-ingredients arrays
@@ -3948,37 +4095,42 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 		# - Obtain Ciqual codes ready for ingredients estimation from nutrients
 		extend_ingredients_service($product_ref, {}, []);
 
-		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
-
-		# We can be passed an external percent estimate service to call in $services_ref
-		my $ingredients_percent_estimated = 0;
-		if (    (defined $services_ref->{estimate_ingredients_percent})
-			and ($services_ref->{estimate_ingredients_percent} =~ /^recipe_estimator(_.+)?$/))
-		{
-			# Use the recipe estimator service
-			my $services_url = $recipe_estimator_url;
-			# Change the URL for the glop, scipy or cvxpy version of the recipe estimator if specified
-			# /api/v3/estimate_recipe -> /api/v3/estimate_recipe_glop for the glop version, /api/v3/estimate_recipe_scipy for the scipy version, /api/v3/estimate_recipe_cvxpy for the cvxpy version
-			$services_url .= $1 if defined $1;
-			my $services_ref = undef;
-			my $request_ref = {};
-			$ingredients_percent_estimated
-				= add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref,
-				undef);
-		}
-
-		# IF we don't have an estimate_ingredients_percent service or if we had an error when calling it
-		# we compute a simple estimate based on the legacy Product Opener algorithm
-		if (not $ingredients_percent_estimated) {
-			estimate_ingredients_percent_service($product_ref, {}, []);
-			$product_ref->{estimate_ingredients_percent_service} = "product_opener";
-			add_tag($product_ref, "misc", "en:estimated-ingredients-with-product-opener");
+		if (_has_unweighted_ingredient_recipes($product_ref)) {
+			_clear_unweighted_recipe_estimates($product_ref);
 		}
 		else {
-			$product_ref->{estimate_ingredients_percent_service} = $services_ref->{estimate_ingredients_percent};
-			my $service_name = $services_ref->{estimate_ingredients_percent};
-			$service_name =~ s/_/-/g;
-			add_tag($product_ref, "misc", "en:estimated-ingredients-with-" . $service_name);
+			# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
+
+			# We can be passed an external percent estimate service to call in $services_ref
+			my $ingredients_percent_estimated = 0;
+			if (    (defined $services_ref->{estimate_ingredients_percent})
+				and ($services_ref->{estimate_ingredients_percent} =~ /^recipe_estimator(_.+)?$/))
+			{
+				# Use the recipe estimator service
+				my $services_url = $recipe_estimator_url;
+				# Change the URL for the glop, scipy or cvxpy version of the recipe estimator if specified
+				# /api/v3/estimate_recipe -> /api/v3/estimate_recipe_glop for the glop version, /api/v3/estimate_recipe_scipy for the scipy version, /api/v3/estimate_recipe_cvxpy for the cvxpy version
+				$services_url .= $1 if defined $1;
+				my $services_ref = undef;
+				my $request_ref = {};
+				$ingredients_percent_estimated
+					= add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref,
+					undef);
+			}
+
+			# IF we don't have an estimate_ingredients_percent service or if we had an error when calling it
+			# we compute a simple estimate based on the legacy Product Opener algorithm
+			if (not $ingredients_percent_estimated) {
+				estimate_ingredients_percent_service($product_ref, {}, []);
+				$product_ref->{estimate_ingredients_percent_service} = "product_opener";
+				add_tag($product_ref, "misc", "en:estimated-ingredients-with-product-opener");
+			}
+			else {
+				$product_ref->{estimate_ingredients_percent_service} = $services_ref->{estimate_ingredients_percent};
+				my $service_name = $services_ref->{estimate_ingredients_percent};
+				$service_name =~ s/_/-/g;
+				add_tag($product_ref, "misc", "en:estimated-ingredients-with-" . $service_name);
+			}
 		}
 	}
 	else {
@@ -4256,6 +4408,10 @@ sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_
 
 	# Do nothing and return if we don't have the ingredients structure
 	return if not defined $product_ref->{ingredients};
+	if (_has_unweighted_ingredient_recipes($product_ref)) {
+		_clear_unweighted_recipe_estimates($product_ref, $updated_product_fields_ref);
+		return;
+	}
 
 	# Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
 	add_percent_max_for_ingredients_from_nutrition_facts($product_ref);
@@ -6473,7 +6629,23 @@ If there are multiple "Ingredients:" listed, it would keep only the last one if 
 
 =cut
 
-sub cut_ingredients_text_for_lang ($text, $language) {
+sub cut_ingredients_text_for_lang ($text, $language, $product_type = undef) {
+	if (($product_type // $options{product_type}) eq 'petfood') {
+		my $sections = split_ingredient_sections($text, $language);
+		if (defined $sections) {
+			# A global cut at analytical data would also remove what follows them: recipes, additives or more text.
+			# A trailing analytical block alone is cut as usual.
+			my $analytical_seen = 0;
+			for my $section (@$sections) {
+				if ($section->{type} =~ /^(?:recipe|mixture)$/
+					|| ($analytical_seen && $section->{type} ne 'analytical'))
+				{
+					return clean_ingredients_text_for_lang($text, $language);
+				}
+				$analytical_seen = 1 if $section->{type} eq 'analytical';
+			}
+		}
+	}
 
 	$log->debug("cut_ingredients_text_for_lang - start", {language => $language, text => $text}) if $log->is_debug();
 
@@ -8027,7 +8199,19 @@ sub extract_additives_from_text ($product_ref) {
 		return;
 	}
 
-	my $text = preparse_ingredients_text($ingredients_lc, $product_ref->{ingredients_text});
+	my $analysis_text = $product_ref->{ingredients_text};
+	my $preparsed = 0;
+	if (defined $product_ref->{ingredients_sections}) {
+		my $sections = _ingredient_sections_for_product($product_ref, $ingredients_lc);
+		my $bodies = defined $sections ? _prepare_ingredient_section_bodies($ingredients_lc, $sections) : undef;
+		if (defined $bodies) {
+			$analysis_text = join('; ',
+				map {$bodies->[$_]}
+				grep {$sections->[$_]{type} =~ /^(?:ingredients|recipe|additives)$/} 0 .. $#$sections);
+			$preparsed = 1;
+		}
+	}
+	my $text = $preparsed ? $analysis_text : preparse_ingredients_text($ingredients_lc, $analysis_text);
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$ingredients_lc} || " will not match ";
 	$and =~ s/ /-/g;
@@ -8953,6 +9137,7 @@ Estimated percentage of ingredients matching the function.
 =cut
 
 sub estimate_ingredients_matching_function ($product_ref, $match_function_ref) {
+	return if _has_unweighted_ingredient_recipes($product_ref);
 
 	my ($percent, $water_percent);
 
