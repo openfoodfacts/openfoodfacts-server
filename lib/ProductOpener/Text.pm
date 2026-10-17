@@ -236,7 +236,7 @@ sub _get_bundle ($locale) {
 
 }
 
-=head2 get_decimal_formatter( LOCALE )
+=head2 get_decimal_formatter( LOCALE, MAX_DECIMALS )
 
 C<get_decimal_formatter()> formats decimal numbers. It can parse and format decimal numbers in any locale. The formatting is locale sensitive.
 This function allows to control the display of leading and trailing zeros, grouping separators, and the decimal separator.
@@ -247,6 +247,8 @@ The decimal sign could be a '.' (most languages), or it could be a ',' (de - DEC
 
 A scalar variable locale is passed as argument. Locale is two letter language code (ur for Urdu, de for German, en for English, etc)
 
+An optional second argument is the maximum number of decimals to display (3 by default).
+
 =head3 Return values
 
 The function returns a scalar variable that is formatted on the basis of locale.
@@ -255,21 +257,24 @@ The function returns a scalar variable that is formatted on the basis of locale.
 
 %ProductOpener::Text::decimal_formatters = ();
 
-sub get_decimal_formatter ($locale) {
+sub get_decimal_formatter ($locale, $max_decimals = 3) {
 
-	my $decf = $ProductOpener::Text::decimal_formatters{$locale};
+	# formatters depend on the locale and on the maximum number of decimals
+	my $cache_id = ($max_decimals == 3) ? $locale : "$locale:$max_decimals";
+
+	my $decf = $ProductOpener::Text::decimal_formatters{$cache_id};
 	if (defined $decf) {
 		return $decf;
 	}
 
 	my $bundle = _get_bundle($locale);
-	$decf = _build_decimal_formatter($bundle, $locale);
-	$ProductOpener::Text::decimal_formatters{$locale} = $decf;
+	$decf = _build_decimal_formatter($bundle, $locale, $max_decimals);
+	$ProductOpener::Text::decimal_formatters{$cache_id} = $decf;
 	return $decf;
 
 }
 
-sub _build_decimal_formatter ($bundle, $locale) {
+sub _build_decimal_formatter ($bundle, $locale, $max_decimals = 3) {
 	my $pattern = $bundle->{decimal_pattern} // '#,##0.###';
 	my ($major, $minor) = _parse_grouping_from_pattern($pattern);
 	return ProductOpener::Text::Formatter->new(
@@ -277,7 +282,7 @@ sub _build_decimal_formatter ($bundle, $locale) {
 		is_percent => !!0,
 		pattern => $pattern,
 		symbols => $bundle->{symbols},
-		maximum_fraction_digits => 3,
+		maximum_fraction_digits => $max_decimals,
 		major_group => $major,
 		minor_group => $minor,
 	);
@@ -505,6 +510,7 @@ sub _format_percentage ($value, $bundle, $perf) {
 
 	sub pattern {return $_[0]->{pattern};}
 	sub percent_sign {return $_[0]->{symbols}{percent} // '%';}
+	sub plus_sign {return $_[0]->{symbols}{plus} // '+';}
 
 	sub format {
 		my ($self, $number) = @_;
