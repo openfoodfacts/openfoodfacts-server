@@ -50,7 +50,10 @@ if (not defined $User_id) {
 	# Adding a translation writes to the translation files: only let a logged in user do it
 	$status = "not ok - authentication required";
 }
-elsif ((not defined $tagtype) or (not defined $from) or (not defined $to) or ($tagtype eq "")
+elsif ((not defined $tagtype)
+	or (not defined $from)
+	or (not defined $to)
+	or ($tagtype eq "")
 	or ($to eq ""))
 {
 	$status = "not ok - missing tagtype, from or to parameter";
