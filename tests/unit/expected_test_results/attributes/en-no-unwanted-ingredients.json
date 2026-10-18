@@ -460,6 +460,7 @@
                "name" : "palm oil"
             }
          ],
+         "ingredients_coverage_percent" : 66,
          "packaging" : [
             {
                "category" : "en:cheeses",
@@ -486,7 +487,9 @@
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -1018,6 +1021,8 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-60-and-69",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
