@@ -3033,7 +3033,6 @@ Text to analyze
 							'nl' => [
 								'^allergie.informatie$', 'in wisselende verhoudingen',
 								'harde fractie', 'o\.a\.',
-								'en',
 							],
 
 							'pl' => [
