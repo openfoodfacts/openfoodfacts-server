@@ -60,7 +60,7 @@ ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-before-sk-so
 
 $product_ref = {
 	ingredients_text_hr =>
-		"some unknown words for ingredient in hr: 69% pšenično brašno, voda, repičino ulje, stabilizator. glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
+		"some unknown words for ingredient in hr: 69% pšenično brašno, voda, repičino ulje, stabilizator: glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
 	ingredients_text_hu =>
 		"69% búzaliszt, ivóvíz, repceolaj, stabilizátor: glicerin; búzaglutén, savanyúságot szabályozó anyag: almasav; étkezési só, emulgeálószer: zsírsavak mono - és digliceridjei; dextróz, térfogatnövelő szer: nátrium-karbonátok; tartósítószerek: kalcium-propionát, kálium-szorbát; lisztkezelő szer: L-Cisztein.",
 	ingredients_text_sk =>
@@ -79,7 +79,7 @@ ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-before-sk-so
 
 $product_ref = {
 	ingredients_text_hr =>
-		"69% pšenično brašno, voda, repičino ulje, stabilizator. glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
+		"69% pšenično brašno, voda, repičino ulje, stabilizator: glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
 	ingredients_text_hu =>
 		"69% búzaliszt, ivóvíz, repceolaj, stabilizátor: glicerin; búzaglutén, savanyúságot szabályozó anyag: almasav; étkezési só, emulgeálószer: zsírsavak mono - és digliceridjei; dextróz, térfogatnövelő szer: nátrium-karbonátok; tartósítószerek: kalcium-propionát, kálium-szorbát; lisztkezelő szer: L-Cisztein.",
 	ingredients_text_sk =>
@@ -93,7 +93,7 @@ ok(
 
 $product_ref = {
 	ingredients_text_hr =>
-		"some unknown words for ingredient in hr: 69% pšenično brašno, voda, repičino ulje, stabilizator. glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
+		"some unknown words for ingredient in hr: 69% pšenično brašno, voda, repičino ulje, stabilizator: glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
 	ingredients_text_hu =>
 		"69% búzaliszt, ivóvíz, repceolaj, stabilizátor: glicerin; búzaglutén, savanyúságot szabályozó anyag: almasav; étkezési só, emulgeálószer: zsírsavak mono - és digliceridjei; dextróz, térfogatnövelő szer: nátrium-karbonátok; tartósítószerek: kalcium-propionát, kálium-szorbát; lisztkezelő szer: L-Cisztein.",
 	ingredients_text_sk =>
@@ -113,7 +113,7 @@ ok(
 
 $product_ref = {
 	ingredients_text_hr =>
-		"some unknown words for ingredient in hr: 69% pšenično brašno, voda, repičino ulje, stabilizator. glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
+		"some unknown words for ingredient in hr: 69% pšenično brašno, voda, repičino ulje, stabilizator: glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
 	ingredients_text_hu =>
 		"69% not-in-taxonomy, ivóvíz, repceolaj, stabilizátor: glicerin; búzaglutén, savanyúságot szabályozó anyag: almasav; étkezési só, emulgeálószer: zsírsavak mono - és digliceridjei; dextróz, térfogatnövelő szer: nátrium-karbonátok; tartósítószerek: kalcium-propionát, kálium-szorbát; lisztkezelő szer: L-Cisztein.",
 };
@@ -149,7 +149,7 @@ ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-ču
 
 $product_ref = {
 	ingredients_text_hr =>
-		"ingredient-in-hr: 69% pšenično brašno, voda, repičino ulje, stabilizator. glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
+		"ingredient-in-hr: 69% pšenično brašno, voda, repičino ulje, stabilizator: glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
 	ingredients_text_hu =>
 		"69% búzaliszt, ivóvíz, repceolaj, stabilizátor: glicerin; búzaglutén, savanyúságot szabályozó anyag: almasav; étkezési só, emulgeálószer: zsírsavak mono - és digliceridjei; dextróz, térfogatnövelő szer: nátrium-karbonátok; tartósítószerek: kalcium-propionát, kálium-szorbát; lisztkezelő szer: L-Cisztein.",
 };
@@ -163,7 +163,7 @@ $product_ref = {
 	ingredients_text_cs =>
 		"69% pšeničná mouka, pitná voda, řepkový olej, stabilizátor: glycerol; pšeničný lepek, regulátor kyselosti: kyselina jablečná; jedlá sůl, emulgátor: mono - a diglyceridy mastných kyselin; dextróza, kypřící látka: uhličitany sodné; konzervanty: propionan vápenatý, sorban draselný; látka zlepšující mouku: L-cystein. Skladujte v suchu a chraňte před teplem.",
 	ingredients_text_hr =>
-		"69% pšenično brašno, voda, repičino ulje, stabilizator. glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
+		"69% pšenično brašno, voda, repičino ulje, stabilizator: glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
 	ingredients_text_hu =>
 		"69% búzaliszt, ivóvíz, repceolaj, stabilizátor: glicerin; búzaglutén, savanyúságot szabályozó anyag: almasav; étkezési só, emulgeálószer: zsírsavak mono - és digliceridjei; dextróz, térfogatnövelő szer: nátrium-karbonátok; tartósítószerek: kalcium-propionát, kálium-szorbát; lisztkezelő szer: L-Cisztein.",
 	ingredients_text_pl =>
@@ -220,7 +220,7 @@ $product_ref = {
 	ingredients_text_sk =>
 		"69% pšeničná múka, pitná voda, repkový olej, stabilizátor, glycerol; pšeničný glutén, regulátor kyslosti, kyselina jablčná; jedlá soľ, emulgátor, mono - a diglyceridy mastných kyselín; dextróza, kypriaca látka, uhličitany sodné; konzervačné látky, propionan vápenatý, sorban draselný; múku upravujúca látka, L-cystein.",
 	ingredients_text_hr =>
-		"69% pšenično brašno, voda, repičino ulje, stabilizator. glicerol; pšenični gluten, regulator kiselosti, jabučna kiselina; kuhinjska sol, emulgator, mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje, natrijevi karbonati; konzervansi, kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna, L-cistein. Čuvati na suhom mjestu.",
+		"69% pšenično brašno, voda, repičino ulje, stabilizator, glicerol; pšenični gluten, regulator kiselosti, jabučna kiselina; kuhinjska sol, emulgator, mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje, natrijevi karbonati; konzervansi, kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna, L-cistein. Čuvati na suhom mjestu.",
 	ingredients_text_sl =>
 		"69% pšenična moka, voda, olje oljne ogrščice, stabilizator, glicerol; pšenični gluten, sredstvo za uravnavanje kislosti, jabolčna kislina ; nejodirana sol, emulgator, mono - in diglicerid! maščobnih kislin; dekstroza, sredstvo za vzhajanje, natrijevi karbonati; konzervansa, kalcijev propionat , kalijev sorbat; sredstvo za obdelavo moke, L-cistein. Uporabno najmanj do: glej odtis na zadnji strani embalaže.",
 };
