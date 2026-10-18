@@ -2012,7 +2012,7 @@ th: โปรตีนสูง
 description:en: In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en: High proteins
-en: Rich in vegetable protein
+en: Rich in plant protein, Rich in vegetable protein
 ca: Ric en proteïna vegetal
 de: Reich an pflanzlichem Eiweiß
 es: Rico en proteínas vegetal
@@ -2022,6 +2022,7 @@ hu: Növényi fehérjékben gazdag
 it: Ricca di proteini vegetali
 nl: Rijk aan plantaardige eiwitten
 pt: Rico em proteínas vegetais, rico em proteína vegetal
+sv: Rik på växtprotein, Rik på protein från växter
 
 en: Calcium source, Source of calcium, With calcium
 xx: Calcium source
@@ -2084,6 +2085,9 @@ nl: Bron van fosfor
 pt: Fonte de fósforo
 ru: Источник фосфора
 th: แหล่งโฟสฟอรัส
+description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en: vitamin source, source of vitamins, with vitamins
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Vitamin A source, Source of vitamin A
@@ -2265,7 +2269,7 @@ tr: C Vitamini kaynağı
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 xx:en: Vitamin C source
 
-en: Vitamin D source, Source of vitamin D, With vitamin D2
+en: Vitamin D source, Source of vitamin D
 xx: Vitamin D source
 bg: Източник на витамин D
 ca: Font de Vitamina D
@@ -2284,6 +2288,24 @@ ru: Источник витамина D
 sv: D-vitaminkälla
 th: แหล่งของวิตามินดี
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+< en: Vitamin D source
+en: Vitamin D2 source, With vitamin D2, source of vitamin D2
+xx: Vitamin D2 source
+bg: Източник на витамин D2
+ca: Font de Vitamina D2
+de: Vitamin D2-Quelle
+es: Fuente de vitamina D2
+fi: D2-vitamiinin lähde
+fr: Source de vitamine D2
+hr: izvor vitamina D2, visoka vsebnost vitamina D2
+hu: D2-vitaminforrás
+it: Fonte di vitamina D2
+nl: Bron van Vitamine D2
+pl: Źródło witaminy D2
+pt: Fonte de vitamina D2
+ru: Источник витамина D2
+sv: Källa till vitamin D2, D2-vitaminkälla
 
 en: Vitamin E source, Source of vitamin E
 xx: Vitamin E source
@@ -2743,22 +2765,30 @@ label_categories:en: en:Health
 en: Low fat, low in fat
 xx: low fat
 ca: Baix en greixos
-da: Fedtfattig, Naturligt fedtfattig
+da: Fedtfattig
 de: Fettarm
 es: Bajo en grasas, Bajo contenido en grasas
-fi: Vähärasvainen, Vähän rasvaa, Luonnostaan vähärasvainen
+fi: Vähärasvainen, Vähän rasvaa
 fr: Peu de matière grasse, Peu gras, faible teneur en matière grasse, pauvre en matière grasse, pauvre en matières grasses
 he: דל שומן
 hr: nisko u mastima, s niskim sadržajem masti
 hu: Zsírszegény, Alacsony zsírtartalmú
 it: Basso contenuto di grassi, A basso contenuto di grassi
-nb: Lavt fettinnhold, Naturlig lavt fettinnhold
+nb: Lavt fettinnhold
 nl: Vetarm
 pt: Baixo teor de gordura, baixo teor de gorduras, baixo em gorduras
 ru: низкожирный
-sv: Låg fetthalt, Naturligt låg fetthalt
+sv: Låg fetthalt
 th: ไขมันต่ำ
 description:en: In EU, a claim that a food is low fat may only be made where the product contains no more than 3 g of fat per 100 g for solids or 1,5 g of fat per 100 ml for liquids (1,8 g of fat per 100 ml for semi-skimmed milk). (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+< en: Low fat
+en: Naturally low fat, Naturally low in fat
+da: Naturligt fedtfattig
+fi: Luonnostaan vähärasvainen
+nb: Naturlig lavt fettinnhold
+sv: Naturligt låg fetthalt
+comment:en: EU: “Where a food naturally meets the condition(s) […] for the use of a nutritional claim, the term ‘naturally/natural’ may be used as a prefix to the claim.”
 
 < en: Low fat
 en: Reduced fat, Less fat
@@ -5590,13 +5620,13 @@ he: נטול לקטוז
 hr: bez laktoze
 hu: Laktózmentes, laktóz mentes, természetes módon laktózmentes
 id: Bebas laktosa
-it: Senza lattosio, Naturalmente senza lattosio
+it: Senza lattosio
 ja: ラクトースフリー
 ko: 락토스 프리
 lt: Be laktozės
 lv: Bez laktozes
 ms: Tanpa laktosa
-nb: Laktosefri, Uten laktose, Naturlig laktosefri
+nb: Laktosefri, Uten laktose
 nl: Lactosevrij, Vrij van lactose
 pl: Bez laktozy
 pt: Sem lactose, 0% lactose, livre de lactose
@@ -5605,7 +5635,7 @@ ru: Без лактозы
 sk: Bez laktozy
 sl: Brez laktoze
 sq: Pa laktozë
-sv: Laktosfri, Laktosfritt, Naturligt laktosfri
+sv: Laktosfri, Laktosfritt
 th: ไม่มีแลคโตส
 tr: Laktozsuz
 uk: Без лактози
@@ -5613,6 +5643,15 @@ vi: Không chứa lactose
 zh: 无乳糖
 incompatible_with:en: labels:en:contains-lactose
 opposite:en: en:contains-lactose
+
+< en: No lactose
+en: Naturally lactose free
+da: Naturligt laktosefri
+fi: Luontaisesti laktoositon
+it: Naturalmente senza lattosio
+nb: Naturlig laktosefri
+sv: Naturligt laktosfri
+comment:en: EU: “Where a food naturally meets the condition(s) […] for the use of a nutritional claim, the term ‘naturally/natural’ may be used as a prefix to the claim.”
 
 en: Contains lactose
 bg: Съдържа лактоза
