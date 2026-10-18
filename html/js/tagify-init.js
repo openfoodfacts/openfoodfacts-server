@@ -145,36 +145,14 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
 
         if (maximumRecentEntriesPerTag) {
 
-            let obj;
+            const obj = get_last_tags();
 
-            try {
-                obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-            } catch (err) {
-                if (err.name == "NS_ERROR_FILE_CORRUPTED") {
-                    obj = null;
-                }
-            }
-
-            const tag = event.detail.data.value;
-            if (obj === null) {
-                obj = {};
-                obj[el.id] = [tag];
-            } else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
-                obj[el.id] = [tag];
-            } else if (obj[el.id].indexOf(tag) == -1) {
-                if (obj[el.id].length >= maximumRecentEntriesPerTag) {
-                    obj[el.id].pop();
-                }
-
-                obj[el.id].unshift(tag);
-            }
+            obj[el.id] = update_tag_recents(obj[el.id], event.detail.data.value, maximumRecentEntriesPerTag);
 
             try {
                 window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-            } catch (err) {
-                if (err.name == "NS_ERROR_FILE_CORRUPTED") {
-                    // Don't to anything
-                }
+            } catch {
+                // Don't do anything if the local storage is not writable (e.g. Firefox private mode)
             }
 
         }
@@ -196,23 +174,54 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
 
 function get_recents(tagfield, maximumRecentEntriesPerTag) {
     if (maximumRecentEntriesPerTag > 0) {
-        let obj;
-        try {
-            obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-        } catch (e) {
-            if (e.name == "NS_ERROR_FILE_CORRUPTED") {
-                obj = null;
-            }
-        }
+        const obj = get_last_tags();
 
-        if (
-            obj !== null &&
-            typeof obj[tagfield] !== "undefined" &&
-            obj[tagfield] !== null
-        ) {
+        if (Array.isArray(obj[tagfield])) {
             return obj[tagfield];
         }
     }
 
     return [];
+}
+
+// Read the tags history saved in the local storage
+function get_last_tags() {
+    let obj = null;
+
+    try {
+        obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+    } catch {
+        // Ignore values we cannot read or parse (corrupted value, local storage not readable):
+        // the history is simply built again from the tags added from now on
+        obj = null;
+    }
+
+    if (obj === null || typeof obj !== "object") {
+        obj = {};
+    }
+
+    return obj;
+}
+
+// Add a tag to the history of a field, and keep the history ordered by most recently used:
+// the tag is moved to the top, even if it was already in the history, and the least recently
+// used tag is dropped when the tag is not in the history yet and the history is full
+function update_tag_recents(recents_ref, tag, maximumRecentEntriesPerTag) {
+    const history = Array.isArray(recents_ref) ? recents_ref.slice() : [];
+
+    const previousIndex = history.indexOf(tag);
+    if (previousIndex >= 0) {
+        history.splice(previousIndex, 1);
+    } else if (history.length >= maximumRecentEntriesPerTag) {
+        history.pop();
+    }
+
+    history.unshift(tag);
+
+    // Drop the tags that do not fit anymore, e.g. if the maximum was lowered
+    if (history.length > maximumRecentEntriesPerTag) {
+        history.length = maximumRecentEntriesPerTag;
+    }
+
+    return history;
 }
