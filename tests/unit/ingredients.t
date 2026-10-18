@@ -1466,6 +1466,34 @@ puffed orange and caramelized unknown_fruit4.",
 				"vet (plantaardige oorsprong), gelatine (dierlijke oorsprong), natuurlijke aroma's (plantaardig), E120 (dierlijk)",
 		}
 	],
+	# Origin adjectives
+	[
+		'sv-nordisk-rapsolja',
+		# https://se.openfoodfacts.org/product/7311442111401/vegansk-majonn%C3%A4s-kavli
+		{
+			lc => "sv",
+			ingredients_text => "Nordisk rapsolja, vatten, socker",
+		}
+	],
+	# Sheep's and goat's milk
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/14853
+	[
+		'en-sheep-and-goat-milk',
+		{
+			lc => "en",
+			ingredients_text => "Pasteurised sheep's and goat's milk, salt, starter culture, rennet.",
+		}
+	],
+	# “Str. Thermophilus” abbreviation
+	[
+		'de-str-thermophilus',
+		# https://de.openfoodfacts.org/produkt/5411188119098/natur-mit-kokosnuss-alpro
+		{
+			lc => "de",
+			ingredients_text =>
+				"_Sojabasis_ (Wasser, geschälte _Sojabohnen_ (10,4%)], Kokosmilch (4,3%) (Kokoscreme, Wasser), Zucker, Tricalciumcitrat, Säureregulatoren (Natriumcitrate, Citronensäure), Stabilisator (Pektine), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherol-tatige Extract, Fettsäureester der Ascorbinsäure), Vitamine (B12, D2), Joghurtkulturen (Str. Thermophilus, L. bulgaricus).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

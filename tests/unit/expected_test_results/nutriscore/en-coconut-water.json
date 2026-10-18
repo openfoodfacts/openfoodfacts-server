@@ -53,28 +53,17 @@
       "ecobalyse_input" : {
          "distribution" : "ambient",
          "ingredients" : [],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 0
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
-               }
-            ]
+            "ingredients" : []
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:unsweetened-beverages",
@@ -149,6 +138,8 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-d-2023-c",
+      "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
