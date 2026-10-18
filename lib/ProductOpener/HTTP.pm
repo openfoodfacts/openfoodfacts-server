@@ -104,9 +104,11 @@ sub write_http_response_headers($request_ref) {
 	my $http_response_headers_ref = $request_ref->{http_response_headers};
 	return unless $http_response_headers_ref;
 	my $r = Apache2::RequestUtil->request();
-	foreach my $header_name (sort keys %$http_response_headers_ref) {
-		my $header_value = $http_response_headers_ref->{$header_name};
-		$r->err_headers_out->set($header_name, $header_value);
+	if ((defined $r) and ($r->can('err_headers_out'))) {
+		foreach my $header_name (sort keys %$http_response_headers_ref) {
+			my $header_value = $http_response_headers_ref->{$header_name};
+			$r->err_headers_out->set($header_name, $header_value);
+		}
 	}
 	return;
 }

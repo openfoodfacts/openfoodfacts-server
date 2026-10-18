@@ -79,6 +79,7 @@ use ProductOpener::Permissions qw/has_permission/;
 use ProductOpener::GeoIP qw/get_country_for_ip_api/;
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
+use ProductOpener::HTTP qw/write_http_response_headers/;
 
 use ProductOpener::APIAttributeGroups qw/attribute_groups_api preferences_api/;
 use ProductOpener::APICurrentUser qw/read_current_user_permissions_api/;
@@ -404,6 +405,9 @@ sub send_api_response ($request_ref) {
 	my $content_type = $request_ref->{api_response}{content_type} || $request_ref->{content_type} || 'application/json';
 	delete $request_ref->{api_response}{content_type};
 
+	# Set HTTP response headers on Apache request object
+	write_http_response_headers($request_ref);
+
 	# If the handler pre-built its own response object (e.g. health checks returning
 	# an RFC-compliant body), use that directly and bypass the standard API wrapper.
 	my $body_ref = delete $request_ref->{api_response}{body} // $request_ref->{api_response};
@@ -411,8 +415,20 @@ sub send_api_response ($request_ref) {
 	# Make sure we include convert_blessed to cater for blessed objects, like booleans
 	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical->utf8->encode($body_ref);
 
+	my %headers = (
+		-status => $status_code,
+		-type => $content_type,
+		-charset => 'utf-8',
+	);
+	if (defined $request_ref->{http_response_headers}) {
+		foreach my $header_name (keys %{$request_ref->{http_response_headers}}) {
+			my $cgi_header_key = "-$header_name";
+			$headers{$cgi_header_key} = $request_ref->{http_response_headers}{$header_name};
+		}
+	}
+
 	# CORS headers are now handled by nginx
-	print header(-status => $status_code, -type => $content_type, -charset => 'utf-8');
+	print header(%headers);
 	# write json response
 	print $json;
 
