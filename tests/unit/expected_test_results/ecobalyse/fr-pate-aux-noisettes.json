@@ -36,14 +36,7 @@
                "name" : "LAIT écrémé en poudre"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 92
       },
       "ecobalyse_request" : {
          "data" : {
@@ -65,12 +58,6 @@
                   "id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
                   "mass" : 10.2
                }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
-               }
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -84,7 +71,7 @@
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 10.0969
+                     "ecs" : 0.858958
                   },
                   "road" : 600,
                   "roadCooled" : 0,
@@ -93,10 +80,10 @@
                }
             },
             "packaging" : {
-               "ecs" : 79.89
+               "ecs" : 0
             },
             "perKg" : {
-               "ecs" : 1813.75
+               "ecs" : 851.246
             },
             "preparation" : {
                "ecs" : 0
@@ -130,20 +117,20 @@
                }
             },
             "scoring" : {
-               "all" : 1813.75,
-               "biodiversity" : 933.53,
-               "climate" : 411.256,
-               "health" : 178.619,
-               "resources" : 290.794
+               "all" : 851.246,
+               "biodiversity" : 574.798,
+               "climate" : 106.735,
+               "health" : 62.2229,
+               "resources" : 108.025
             },
             "total" : {
-               "ecs" : 167.953
+               "ecs" : 78.8254
             },
-            "totalMass" : 1.0885,
+            "totalMass" : 0.0926,
             "transports" : {
                "air" : 0,
                "impacts" : {
-                  "ecs" : 15.5192
+                  "ecs" : 6.28126
                },
                "road" : 9240,
                "roadCooled" : 0,
@@ -152,7 +139,7 @@
             }
          }
       },
-      "ecs" : 167.953
+      "ecs" : 78.8254
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
@@ -283,7 +270,10 @@
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener"
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
    ],
    "quantity" : "400g",
    "testid" : "fr-pate-aux-noisettes",
