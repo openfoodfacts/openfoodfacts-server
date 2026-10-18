@@ -43,6 +43,32 @@
       "en:tomatoes",
       "en:cherry-tomatoes"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Tomates cerises HORS UE",
+               "id" : "b1a8cec8-95ff-50f5-aa88-9446a8b574a8",
+               "mass" : 100,
+               "name" : "cherry tomatoes"
+            }
+         ],
+         "ingredients_coverage_percent" : 100
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "b1a8cec8-95ff-50f5-aa88-9446a8b574a8",
+                  "mass" : 100
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:vegetables",
    "food_groups_tags" : [
@@ -58,7 +84,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20172",
-         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
+         "ecobalyse_id" : "b1a8cec8-95ff-50f5-aa88-9446a8b574a8",
+         "ecobalyse_name" : "Tomates cerises HORS UE",
          "id" : "en:cherry-tomato",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -114,6 +141,8 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"

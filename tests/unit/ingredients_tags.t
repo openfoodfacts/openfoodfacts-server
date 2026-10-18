@@ -9,7 +9,7 @@ $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
-use ProductOpener::Tags qw/canonicalize_taxonomy_tag exists_taxonomy_tag init_emb_codes/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag exists_taxonomy_tag init_emb_codes is_a/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 
 init_emb_codes();
@@ -36,7 +36,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "arôme naturel"}, ["en:natural-flavouring"],],
 	[
 		{lc => "fr", ingredients_text => "arôme naturel de pomme avec d'autres arômes naturels"},
-		["en:natural-apple-flavouring", "en:natural-flavouring"],
+		["fr:arome-naturel-de-pomme-avec-autres-aromes-naturels"],
 	],
 	[
 		{
@@ -103,7 +103,7 @@ my @tests = (
 	],
 	[
 		{lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"},
-		["en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:vitamin-c", "en:ergocalciferol"],
+		["en:vitamins", "en:vitamin-a", "en:e101i", "en:vitamin-b12", "en:vitamin-c", "en:ergocalciferol"],
 	],
 
 	[{lc => "it", ingredients_text => "sale e spezie"}, ["en:salt", "en:spice"],],
@@ -181,7 +181,7 @@ my @tests = (
 		["en:e162", "en:e160c", "en:e100"],
 	],
 
-	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
+	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:fat", "en:colza-oil"]],
 
 	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
 	[
@@ -300,7 +300,7 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)"
 		},
-		['en:non-hydrogenated-vegetable-oils', 'en:palm-oil', 'en:colza-oil']
+		['en:oil', 'en:palm-oil', 'en:colza-oil']
 	],
 	[{lc => "fr", ingredients_text => "huile de palme certifiée durable"}, ['en:palm-oil']],
 	[{lc => "fr", ingredients_text => "huile de palme RSPO"}, ['en:palm-oil']],
@@ -337,6 +337,12 @@ foreach my $test_ref (@tests) {
 	extract_ingredients_from_text($product_ref);
 
 	is($product_ref->{ingredients_original_tags}, $expected_tags) or diag Dumper $product_ref;
+}
+
+my $compound = 'fr:arome-naturel-de-pomme-avec-autres-aromes-naturels';
+ok(exists_taxonomy_tag('ingredients', $compound), 'the declared French flavouring compound is known');
+for my $parent ('en:natural-apple-flavouring', 'en:natural-flavouring') {
+	ok(is_a('ingredients', $compound, $parent), "the flavouring compound retains $parent");
 }
 
 my $before = "";

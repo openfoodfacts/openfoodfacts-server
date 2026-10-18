@@ -241,6 +241,7 @@ it: Prodotti artigianali
 lt: Amatininkų gaminiai
 nl: Ambachtelijke producten, Ambachtelijk product, Ambachtelijk produkt
 nl_be: Ambachtelijke producten
+pl: Produkty rzemieślnicze
 pt: Produtos caseiras
 ro: Produse artizanale
 zh: 手工制品
@@ -1594,6 +1595,7 @@ lv: Kimči
 mn: Кимчи
 ms: Kimchi
 my: ကင်ချီ
+pl: Kimchi
 ru: Кимчхи
 sk: Kimčchi
 sl: Kimči
@@ -1772,6 +1774,7 @@ fr: Kits de fabrication d'alcool
 hr: Pribor za pravljenje alkohola
 it: Kit per la produzione di alcolici
 nl: Alcohol maak kits
+pl: Zestawy do produkcji alkoholu
 pt: Kits para fazer álcool
 zh: 酿酒套件
 gpc_category_code:en: 10000142
@@ -2437,6 +2440,7 @@ hr: Opatsko pivo
 hu: Apátsági sörök
 it: Birre d'abbazia
 nl: Abdijbieren
+pl: Piwa opackie, Piwa klasztorne
 zh: 修道院艾尔啤酒
 agribalyse_food_code:en: 5011
 ciqual_food_code:en: 5011
@@ -3821,7 +3825,7 @@ protected_name_file_number:en: PGI-FR-01975
 protected_name_type:en: gi
 wikidata:en: Q43013270
 
-< en: Spirit drinks
+< en: Hard liquors
 de: Deutsche Spirituosen
 en: German spirit drinks
 es: Bebidas espirituosas alemanas
@@ -3831,6 +3835,7 @@ hu: Német szeszesitalok
 it: Bevande alcoliche tedesche
 lt: Vokietijos spiritiniai gėrimai
 nl: Duitse sterke dranken
+pl: Niemieckie napoje alkoholowe, Niemieckie spirytualia
 pt: Bebidas espirituosas alemãs
 ru: Немецкие крепкие напитки
 zh: 德国烈酒
@@ -4093,13 +4098,14 @@ wikidata:en: Q3643740
 
 < en: Brandys
 < en: Distilled beverages
-de: Obstbrand
 en: Fruit brandy
 bar: Obstla
+de: Obstbrand
 fi: Hedelmäviina
 hr: Voćna rakija
 hu: Gyümölcspárlat
 no: Obstler
+pl: Okowita owocowa, Okowita z owoców
 sv: Obstler
 wikidata:en: Q222216
 
@@ -5397,7 +5403,7 @@ protected_name_type:en: gi
 
 < en: French rums
 fr: Rhum de la Guyane
-origins:en: en:french-guyana
+origins:en: en:french-guiana
 protected_name_file_number:en: PGI-FR-02066
 protected_name_type:en: gi
 wikidata:en: Q110722095
@@ -6168,6 +6174,7 @@ wikidata:en: Q917361
 < en: Eaux de vie
 en: Tuzemsky, Tuzemak, Tuzemsky rum
 cs: Tuzemský, Tuzemák
+pl: Tuzemsky, Tuzemak
 
 < en: Non-alcoholic beverages
 fr: Daïquiri sans alcool
@@ -10000,6 +10007,7 @@ lt: Labos nakties arbatos mišiniai
 nl: Goede nachtrusttheeën, Goede nachtrustthee
 
 < en: Herbal tea blends
+en: Relaxing herbal tea blends
 es: Infusiones relajantes
 
 < en: Herbal tea blends
@@ -10648,6 +10656,13 @@ fr: Thés Hojicha, Hojicha, Bancha Hojicha
 hr: Hōjicha čajevi
 nl: Hojicha
 wikidata:en: Q1652744
+
+< en: Roasted Japanese green teas
+en: Tencha teas
+
+< en: Tencha teas
+en: Matcha powders
+xx: Matcha
 
 < en: Green teas
 en: Chinese green teas, Chinese green tea
@@ -12799,6 +12814,7 @@ hr: 10% crnog vina
 hu: 10%-os vörösbor
 it: Vino rosso al 10%
 nl: 10% rode wijn
+pl: 10% czerwone wino
 pt: 10% vinho tinto
 ru: 10% красное вино
 zh: 10% 红葡萄酒
@@ -17299,6 +17315,8 @@ protected_name_type:en: pdo
 wikidata:en: Q1137604
 
 < en: Wines from France
+en: Crémant d'Alsace
+xx: Crémant d'Alsace
 fr: Crémant d'Alsace
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-A0917
@@ -27926,9 +27944,9 @@ protected_name_file_number:en: PGI-IT-A0789
 protected_name_type:en: pgi
 
 < en: Wines from Italy
-hr: Vino marsala
 en: Marsala wine
 fr: Marsala
+hr: Vino marsala
 it: Marsala
 agribalyse_food_code:en: 1015
 ciqual_food_code:en: 1015
@@ -32644,6 +32662,7 @@ fi: ateriakitit
 fr: Kits repas, Kits pour repas, Kits culinaires, Kit repas, Kit pour repas, Kit culinaire
 hr: Setovi obroka
 nl: Maaltijdpakketten
+pl: Zestawy posiłkowe
 zh: 快煮餐
 gpc_category_code:en: 10000292
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a vegetable based not ready to eat, prepared/processed product, such as Potato, Cabbage, Eggplant or any other vegetable with other ingredients, such as meat, poultry, fish, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as minced beef in a Shepherd's Pie or Duck with Vegetables. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough Based, Grain Based, Dairy/Egg Based products. They may or may not contain a sauce. These products require cooking prior to consumption. These products have been specially treated or packaged to extend their consumable life. Includes not ready to eat self stable Ready-Made Meals where a Vegetable Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all prepared and processed and unprepared and unprocessed vegetables to which no recipe has been applied.Excludes products such as Frozen and Perishable Not Ready to Eat and all Ready to Eat Vegetable-Based Prepared/Processed Products and all Prepared and Processed Vegetables.
@@ -32798,6 +32817,7 @@ nl: Gevulde Koeken
 en: Biscuits and crackers
 fr: Biscuits sucrés & biscuits apéritifs
 nl: Biscuits en crackers
+pl: Ciastka i krakersy, Herbatniki i krakersy
 zh: 饼干和薄脆饼干
 intake24_category_code:en: BSCT
 
@@ -32841,7 +32861,7 @@ nb: kjeks
 nl: Koekjes, biscuit, biscuits
 nn: Kjeks
 oc: biscuèit
-pl: herbatnik
+pl: Ciastka, Herbatniki
 pt: biscoitos, Biscoito
 ro: Biscuiți, Biscuit, Fursecuri, biscuiti
 ru: бисквит
@@ -33117,13 +33137,18 @@ nl: Haverkoekjes, Haverkoekje
 ru: Печенье овсяное, овсяное печенье
 sv: Havrekex
 
-# Swedish-style biscuits made with rolled oats instead of flour
+# Biscuits with a (subjective) threshold of at least 20% rolled oats
 < en: Oatmeal biscuits
+en: Rolled oats biscuits
+fr: Biscuits aux flocons d'avoine
+
+# Swedish-style biscuits made with rolled oats instead of flour
+< en: Rolled oats biscuits
 en: Plain rolled oats biscuits
 fr: Biscuits aux flocons d'avoine nature
 
 < en: Chocolate biscuits
-< en: Oatmeal biscuits
+< en: Rolled oats biscuits
 en: Chocolate rolled oats biscuits
 fr: Biscuits aux flocons d'avoine au chocolat
 
@@ -33900,6 +33925,7 @@ hu: Rántott termékek
 it: Prodotti impanati
 lt: Duonos gaminiai
 nl: Gepaneerde producten
+pl: Produkty panierowane
 ru: Хлебные продукты
 sv: Panerade produkter
 zh: 裹面包糠产品
@@ -34077,6 +34103,7 @@ it: Pane alle noci
 nl: Notenbroden
 
 < en: Breads
+en: Multigrain breads, Multi-grain breads
 fr: Pains multicéréales, Pains aux céréales
 nl: Meergranenbroden
 
@@ -34364,6 +34391,8 @@ wikidata:en: Q452383
 
 < en: German bakery products
 < en: Gingerbreads
+en: Nuremberg gingerbread
+xx: Nürnberger Lebkuchen
 de: Nürnberger Lebkuchen
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-0670
@@ -36446,7 +36475,7 @@ nl: Cakes
 nn: kake
 oc: pastisson
 pa: ਕੇਕ
-pl: Ciasto, ciasta
+pl: Ciasta, Ciasto
 pt: bolos, bolo
 qu: Pastil
 ro: Prăjitură
@@ -37292,6 +37321,7 @@ hr: puding
 it: Puddings
 lt: Pudingai
 nl: Puddings, Pudding
+pl: Puddingi
 ru: Пудинги, Пудинг
 food_groups:en: en:dairy-desserts
 intake24_category_code:en: PUDS
@@ -37880,7 +37910,7 @@ hu: Cukrász áruk
 it: Dolci, dolce
 lt: Saldumynai
 nl: Zoetwaren, Confiserie, Suikerwerk
-pl: Cukiernie
+pl: Wyroby cukiernicze
 pt: Confeitaria
 ru: Кондитерские изделия
 sv: Konfekt
@@ -38088,11 +38118,11 @@ en: Chocolates
 bg: Шоколади
 ca: Xocolata
 cs: Čokolády
-da: Chokolader, chokolade
+da: Chokolader, Chokolade
 de: Schokoladen, Schokolade
 es: Chocolates
 fi: suklaat
-fr: Chocolats, chocolat, Chocolat en tablette
+fr: Chocolats, chocolat
 he: שוקולדים
 hr: čokolade, čokolada
 hu: Csokoládék
@@ -38104,7 +38134,7 @@ pl: Czekolada
 pt: Chocolates
 ro: Ciocolată, ciocolata
 ru: Шоколад, шоколадные продукты
-sv: Choklad
+sv: Choklader
 th: ช็อกโกแลต
 tr: Çikolatalar, Çikolatalı ürünler
 zh: 巧克力
@@ -38127,6 +38157,13 @@ protected_name_type:en: pgi
 wikidata:en: Q1790835
 
 < en: Chocolates
+en: Chocolate bars
+fi: Suklaalevyt
+fr: Chocolats en tablette, Tablette de chocolat, Chocolat en tablette
+hr: Štanglica čokolade
+lt: Šokolado plytelės, Šokolado plytelė
+
+< en: Chocolates
 en: Assorted chocolates
 de: Verschiedene Schokoladen
 es: Surtido de chocolates
@@ -38142,14 +38179,26 @@ comment:en: This category refers to assorted chocolate squares and bars, not bon
 #wikidata:en:Q5103648 Life is like a wikipedia disambiguation page.
 
 < en: Chocolates
-en: Plant milk chocolates
+< en: Vegan products
+en: Plant milk chocolates, Plant-based milk chocolates, Vegan milk chocolates
 fi: Kasvimaitosuklaat
 fr: Chocolats au lait végétal
 hr: Biljne mliječne čokolade
 nl: Plantaardige melkchocolade, Plantaardige melkchocolades
 
+< en: Chocolate bars
+< en: Plant milk chocolates
+en: Plant milk chocolate bars, Plant-based milk chocolate bars, Vegan milk chocolate bars
+fi: Kasvimaitosuklaalevyt
+hr: Štanglica biljne mliječne čokolade
+
+< en: Plant milk chocolate bars
+en: Plain plant milk chocolate bars, Plain plant-based milk chocolate bars, Plain vegan milk chocolate bars
+incompatible_with:en: categories:en:flavoured-plant-milk-chocolate-bars
+
+< en: Chocolate bars
 < en: Dark chocolates
-en: Dark chocolate bar
+en: Dark chocolate bars, Dark chocolate bar
 fr: Chocolats noirs en tablette
 
 < en: Chocolates
@@ -38157,7 +38206,7 @@ en: Milk chocolates, milk chocolate
 bg: Млечен шоколад
 ca: Xocolata amb llet
 cs: Mléčné čokolády
-da: Lys chokolader, lys chokolade, mælkechokolader, mælkechokolade
+da: Mælkechokolader, Mælkechokolade, Lyse chokolader, Lys chokolade
 de: Milchschokoladen
 es: Chocolates con leche
 fi: maitosuklaat
@@ -38173,10 +38222,11 @@ pl: Czekolada mleczna
 pt: Chocolates de leite, chocolate de leite
 ro: Ciocolată cu lapte
 ru: Молочный шоколад, Шоколад молочный
-sv: Mjölkchoklad, ljus choklad
+sv: Mjölkchoklader, Ljusa choklader
 tr: Sütlü çikolata
 zh: 牛奶巧克力
 agribalyse_proxy_food_code:en: 31004
+plant_alternative:en: en:plant-milk-chocolates
 wikidata:en: Q2164820
 #all agribalyse milk chocolate categories have the same CO2 score
 
@@ -38207,16 +38257,27 @@ it: Stampi di cioccolato al latte
 lt: Pieniški šokolado formos
 nl: Melkchocoladevormen, Melkchocolade figuren
 
+< en: Chocolate bars
 < en: Milk chocolates
-en: Milk chocolate bar
+en: Milk chocolate bars, Milk chocolate bar
 fi: Maitosuklaalevyt
 fr: Tablette de chocolat au lait, Chocolat au lait en tablette
 hr: Štanglica mliječne čokolade
 lt: Pieniškos šokolado plytelės, pieniška šokolado plytelė
+agribalyse_proxy_food_code:en: 31004
+ciqual_proxy_food_code:en: 31004
+ciqual_proxy_food_name:en: Milk chocolate bar
+ciqual_proxy_food_name:fr: Chocolat au lait, tablette
+plant_alternative:en: en:plant-milk-chocolate-bars
+
+< en: Milk chocolate bars
+en: Plain milk chocolate bars
 agribalyse_food_code:en: 31004
 ciqual_food_code:en: 31004
 ciqual_food_name:en: Milk chocolate bar
 ciqual_food_name:fr: Chocolat au lait, tablette
+incompatible_with:en: categories:en:flavoured-milk-chocolates
+plant_alternative:en: en:plain-plant-milk-chocolate-bars
 
 < en: Chocolates with sweeteners
 < en: Milk chocolates
@@ -38231,9 +38292,9 @@ lt: Pieniški šokoladai su saldikliais
 nl: Melkchocolade met zoetstoffen
 pt: Chocolates de leite com adoçantes
 
-< en: Chocolates with sweeteners
-< en: Milk chocolates
-en: Milk chocolate bar without sugar with sweeteners
+< en: Milk chocolate bars
+< en: Milk chocolates with sweeteners
+en: Milk chocolate bars without sugar with sweeteners, Milk chocolate bar without sugar with sweeteners
 fr: Chocolat au lait en tablette sans sucres ajoutés avec édulcorants
 hr: Mliječna čokolada bez šećera sa zaslađivačima
 lt: Pieniškos šokolado plytelės be cukraus su saldikliais
@@ -38262,23 +38323,33 @@ hu: Csokoládék extra finom tejjel
 lt: Šokoladai su itin geru pienu
 nl: Chocola met extra fijne melk
 
+< en: Chocolates with rice
 < en: Milk chocolates
-< en: Rice chocolates
-en: Rice milk chocolates
+en: Milk chocolates with rice, Rice milk chocolates
 fr: Chocolats au lait au riz
 hr: Čokolade od rižinog mlijeka
 it: Cioccolato al latte con riso
 lt: Ryžių pieno šokoladai
 nl: Chocolade-rijstmelk
+comment:en: these are milk chocolates with (usually puffed) rice, not chocolates made with rice milk
 
 < en: Cereal chocolates
 < en: Milk chocolates
-en: Puffed cereal milk chocolates, Milk chocolate bar with puffed cereals, Milk chocolate bar with popped cereals
-fr: Chocolats au lait aux céréales croustillantes, Chocolat au lait en tablette aux céréales croustillantes
+en: Milk chocolates with puffed cereals, Puffed cereal milk chocolates
+fr: Chocolats au lait aux céréales croustillantes
 hr: Lisnate mliječne čokolade od žitarica
 it: Cioccolato al latte con cereali
 lt: Pieniško šokolado plytelės su pūstais dribsniais
 nl: Melkchocolade met granen
+agribalyse_food_code:en: 31009
+ciqual_food_code:en: 31009
+ciqual_food_name:en: Milk chocolate bar, with puffed/popped cereals
+ciqual_food_name:fr: Chocolat au lait aux céréales croustillantes, tablette
+
+< en: Milk chocolate bars
+< en: Milk chocolates with puffed cereals
+en: Milk chocolate bars with puffed cereals, Milk chocolate bar with popped cereals
+fr: Chocolat au lait en tablette aux céréales croustillantes
 agribalyse_food_code:en: 31009
 ciqual_food_code:en: 31009
 ciqual_food_name:en: Milk chocolate bar, with puffed/popped cereals
@@ -38302,8 +38373,8 @@ ru: Шоколад с миндалём
 sv: Choklad med mandlar, choklad med mandel
 tr: Bademli çikolata
 
-< en: Chocolates
-en: Milk chocolate bar with nougat, Toblerone
+< en: Milk chocolate bars
+en: Milk chocolate bars with nougat, Milk chocolate bar with nougat, Toblerone
 es: Barra de chocolate con leche y nougat, Toblerone
 fr: Barre de chocolat au lait avec nougat, Toblerone
 hr: Pločica mliječne čokolade s nugatom
@@ -38348,16 +38419,21 @@ fr: Chocolats à la praline
 hr: Čokolade s pralinama
 ja: プラリネチョコレート
 
-< en: Chocolates
-en: Rice chocolates
+< en: Chocolates with cereals
+en: Chocolates with rice, Rice chocolates
 fr: Chocolats au riz
 hr: Rižine čokolade
 it: Cioccolato con riso
+lt: Šokoladai su ryžiais
+nl: Chocola met rijst
+
+< en: Chocolates with rice
+en: Chocolates with puffed rice
 lt: Šokoladai su pūstais ryžiais
 nl: Chocola met gepofte rijst
 
 < en: Chocolates
-en: Cereal chocolates
+en: Chocolates with cereals, Cereal chocolates
 bg: Шоколади с житни зърна
 da: Chokolade med korn
 de: Getreideschokolade
@@ -38398,8 +38474,12 @@ sv: Vit choklad
 tr: Beyaz çikolata
 zh: 白巧克力
 agribalyse_proxy_food_code:en: 31010
+ciqual_proxy_food_code:en: 31010
+ciqual_proxy_food_name:en: White chocolate bar
+ciqual_proxy_food_name:fr: Chocolat blanc, tablette
 wikidata:en: Q742385
 
+< en: Chocolate bars
 < en: White chocolates
 en: White chocolate bars
 fr: Chocolat blanc en tablette, Tablette de chocolat blanc
@@ -38532,6 +38612,18 @@ it: Cioccolato aromatizzato
 lt: Aromatizuoti šokoladai
 nl: Gearomatiseerde chocola
 
+< en: Flavoured chocolates
+< en: Plant milk chocolates
+en: Flavoured plant milk chocolates
+fr: Chocolats au lait végétal aromatisés
+hr: Aromatizirane biljne mliječne čokolade
+
+< en: Flavoured plant milk chocolates
+< en: Plant milk chocolate bars
+en: Flavoured plant milk chocolate bars
+hr: Štanglica aromatizirane biljne mliječne čokolade
+incompatible_with:en: categories:en:plain-plant-milk-chocolate-bars
+
 < en: Dark chocolates
 < en: Flavoured chocolates
 en: Flavoured dark chocolates
@@ -38549,6 +38641,7 @@ de: Aromatisierte Milchschokolade
 fr: Chocolats au lait aromatisés
 hr: Aromatizirane mliječne čokolade
 lt: Aromatizuoti pieniški šokoladai
+incompatible_with:en: categories:en:plain-milk-chocolate-bars
 
 < en: Flavoured chocolates
 < en: White chocolates
@@ -38934,8 +39027,8 @@ it: Cioccolato fondente con zenzero, cioccolato fondente allo zenzero
 lt: Juodi šokoladai su imbieru
 nl: Pure chocolade met gember
 
-< en: Dark chocolates
-en: Dark chocolate bar with less than 70% cocoa
+< en: Dark chocolate bars
+en: Dark chocolate bars with less than 70% cocoa, Dark chocolate bar with less than 70% cocoa
 fr: Chocolat noir à moins de 70% de cacao en tablette, Tablettes de chocolat noir à moins de 70% de cacao
 hr: Crna čokolada s manje od 70% kakaa
 lt: Juodos šokolado plytelės su mažiau nei 70% kakavos
@@ -38955,8 +39048,8 @@ ciqual_food_code:en: 31072
 ciqual_food_name:en: Dark chocolate, filled with mint confectionery
 ciqual_food_name:fr: Chocolat noir fourrage confiseur à la menthe
 
-< en: Dark chocolates
-en: Dark chocolate bar with more than 70% cocoa
+< en: Dark chocolate bars
+en: Dark chocolate bars with 70% cocoa or more, Dark chocolate bar with more than 70% cocoa
 fr: Chocolat noir en tablette extra dégustation à 70% de cacao minimum
 hr: Crna čokolada s više od 70% kakaa
 lt: Juodos šokolado plytelės su daugiau nei 70% kakavos
@@ -39781,6 +39874,7 @@ fr: crocodiles gélifiés
 hr: Gumeni krokodili
 lt: Guminukai krokodilai
 nl: Gummi krokodillen
+pl: Żelki-krokodyle
 
 < en: Gummi candies
 en: Gummy bananas
@@ -39845,6 +39939,7 @@ fr: Bonbons acidulés gélifiés
 hr: Kiseli gumeni bomboni
 lt: Rūgštūs guminukai
 nl: Zure gummi snoep
+pl: Kwaśne żelki
 zh: 酸沙软糖
 
 < en: Gummi candies
@@ -40999,6 +41094,7 @@ ru: Консервы
 th: อาหารกระป๋อง
 tr: Konserve gıda, Konserve besin, Konserve yiyecek, Konserve ürünler, Konserve mamüller, Kavanozlu gıda, Kavanozlu besin, Kavanozlu yiyecek
 zh: 罐头食品, 罐装食品, 罐頭食品, 醃製品
+ingredients_processing:en: en:canned
 storage_conditions:en: en:ambient
 wikidata:en: Q18396746
 
@@ -41330,16 +41426,7 @@ ciqual_food_code:en: 25549
 ciqual_food_name:en: Crepe or buckwheat crepe, filled with cheese and bechamel sauce
 ciqual_food_name:fr: Crêpe ou Galette fourrée béchamel fromage
 
-< en: Crêpes and galettes
-en: Galettes
-de: Galetten
-fr: Galettes
-hr: Galete
-it: Gallette
-ja: ガレット
-nl: Galettes
-
-< en: Crêpes and galettes
+< en: Crêpes and pancakes
 en: Ham and mushroom pancake in cheese sauce
 fr: Ficelle picarde
 hr: Palačinka od šunke i gljiva u umaku od sira
@@ -41348,6 +41435,7 @@ agribalyse_food_code:en: 26256
 ciqual_food_code:en: 26256
 ciqual_food_name:en: Ham and mushroom pancake in cheese sauce
 
+< en: Crêpes and pancakes
 < en: Meals
 en: Filled buckwheat crepes
 fr: Galettes fourrées, Galettes de blé noir fourrées
@@ -41447,16 +41535,6 @@ agribalyse_food_code:en: 25572
 ciqual_food_code:en: 25572
 ciqual_food_name:en: Crepe or buckwheat crepe, filled with scallops
 ciqual_food_name:fr: Crêpe ou Galette aux noix de St Jacques
-
-< en: Galettes
-en: Plain buckwheat crepes
-fr: Galettes de blé noir, galette de blé noir, galette de sarazin, galettes de sarrasin, galette de sarrasin, galettes de sarazin, crêpe au sarrasin
-hr: Obične palačinke od heljde
-it: Crespelle al grano saraceno
-agribalyse_food_code:en: 23801
-ciqual_food_code:en: 23801
-ciqual_food_name:en: Buckwheat crepe, plain, prepacked
-ciqual_food_name:fr: Galette de sarrasin, nature, préemballée
 
 < en: Meals
 en: Pork sausage stew with cabbage carrots and potatoes
@@ -41585,6 +41663,12 @@ hr: Kavijar od sterleta
 en: Nut and seed mixes, nuts and seeds mixes, Mixes of nuts and seeds
 nl: Noten en zaden mengsels
 comment:en: for mixes of nuts and seeds
+
+# contains mainly nuts, seeds and dried fruits in various proportion, can contain a small amount of other things. e.g. chocolate
+< en: Breakfast
+< en: Plant-based foods
+en: Nut seed and dried fruit mixes for breakfast
+fr: Mélanges de graines fruits à coques et fruits pour petit-déjeuner
 
 < en: Plant-based foods
 en: Dried fruit and seed mixes
@@ -42256,6 +42340,10 @@ de: geschrotete braune Leinsamen, geschrotete braune Leinsaaten, geschrotete bra
 es: Lino marrón molido
 hr: Mljevene sjemenke smeđeg lana
 nl: Gemalen bruin lijnzaad
+
+< en: seeds
+en: Hemp seeds
+fr: Graines de chanvre
 
 < en: Cereal grains
 en: Freekeh
@@ -46073,6 +46161,8 @@ protected_name_type:en: pdo
 wikidata:en: Q747119
 
 < en: Greek cheeses
+en: Kefalograviera
+xx: Kefalograviera
 el: Κεφαλογραβιέρα, Kefalograviera
 origins:en: en:greece
 protected_name_file_number:en: PDO-GR-0444
@@ -46313,6 +46403,8 @@ protected_name_type:en: pgi
 wikidata:en: Q1591487
 
 < en: Danish cheeses
+en: Danbo
+xx: Danbo
 bg: Данбо
 da: Danbo
 es: Queso Danbo, Danbo
@@ -46955,7 +47047,7 @@ ar: جبن قريش
 bg: Зърнесто сирене
 cs: Cottage
 da: Hytteost
-de: Hüttenkäse
+de: Hüttenkäse, körniger Frischkäse
 el: Τυρί κότατζ
 es: Cottage
 et: Kodujuust
@@ -47750,16 +47842,16 @@ ciqual_food_code:en: 12815
 ciqual_food_name:en: Cheese, dry, from goat's milk
 
 < en: Goat cheeses
+en: Goat cheese logs, Cheese buche from goat's milk
 es: Rulo de cabra, Rulo de queso de cabra
-en: Cheese buche from goat's milk
 fr: Bûche de chèvre
 hr: Sir buče od kozjeg mlijeka
 agribalyse_food_code:en: 12812
 ciqual_food_code:en: 12812
 ciqual_food_name:en: Cheese, from goat's milk, fresh, from pasteurised milk
 
-< en: Goat cheeses
-en: Light cheese buche from goat's milk
+< en: Goat cheese logs
+en: Light goat cheese logs, Light cheese buche from goat's milk
 fr: Bûche de chèvre allégée en matière grasse
 agribalyse_food_code:en: 12813
 ciqual_food_code:en: 12813
@@ -48445,8 +48537,10 @@ origins:en: en:italy
 wikidata:en: Q896436
 
 < en: Italian cheeses
-it: Caciocavallo Silano
+en: Caciocavallo Silano
+xx: Caciocavallo Silano
 bg: Качокавало
+it: Caciocavallo Silano
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0003
 protected_name_type:en: pdo
@@ -48737,6 +48831,7 @@ ciqual_food_code:en: 12120
 ciqual_food_name:en: Parmesan cheese, from cow's milk
 oqali_family:en: fr:Fromages - Parmesan et assimiles
 origins:en: en:italy
+plant_alternative:en: en:parmesan-style-cheese-substitutes
 protected_name_file_number:en: PDO-IT-0016
 protected_name_type:en: pdo
 wikidata:en: Q155922
@@ -49253,6 +49348,8 @@ protected_name_file_number:en: PGI-RO-02473
 protected_name_type:en: pgi
 
 < en: Romanian cheeses
+en: Telemea from Ibăneşti
+xx: Telemea de Ibăneşti
 ro: Telemea de Ibăneşti
 origins:en: en:romania
 protected_name_file_number:en: PDO-RO-01182
@@ -49840,6 +49937,8 @@ oqali_family:en: fr:Fromages - Fromage a raclette
 
 < en: French cheeses
 < en: Raclette cheese from cow's milk
+en: Raclette from Savoie
+xx: Raclette de Savoie
 fr: Raclette de Savoie
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-02095, PGI-FR-02095-AM02
@@ -50851,6 +50950,7 @@ sv: Filmjölk
 
 < en: Fermented dairy desserts with fruits
 < fi: Viili
+en: Filmjölk with fruits
 se: Filmjölk med frukt
 sv: Filmjölk med frukt
 
@@ -54154,6 +54254,12 @@ nl: Babycompotes
 en: Meringue roulades
 
 < en: Desserts
+en: Hotteok
+xx: Hotteok
+description:en: Korean dessert consisting of a dough filled with brown sugar, honey or nuts.
+Wikidata:en: Q496999
+
+< en: Desserts
 < en: Pastas and dumplings
 en: Sweet stuffed pastas
 fr: Pâtes farcies sucrées
@@ -54553,9 +54659,10 @@ hr: Lagani kompoti
 nl: Light compotes
 
 < en: Compotes
-fr: Compotes sans sucres, purées de fruits
+en: Sugar-free compotes
 de: Zuckerfreie Kompotte, Fruchtpürees
 es: Compotas sin azúcar, purés de frutas
+fr: Compotes sans sucres, purées de fruits
 it: Composte senza zuccheri, puree di frutta
 nl: Suikervrije compotes, vruchtenpuree
 
@@ -54823,6 +54930,7 @@ it: Composte mela e fico
 lt: Figų ir obuolių tyrė
 
 < en: Apple compotes
+en: Apple and cherry compotes
 fr: Compotes pommes cerise
 it: Composte mela e ciliegia
 lt: Vyšnių ir obuolių tyrė
@@ -65239,7 +65347,7 @@ lt: Grūdų sviestai
 nl: Pastas van granen
 pt: Manteigas de cereais
 
-< en: Cereal butters
+< en: Oilseed purees
 en: Tahini, Sesame seed butters, Mashed sesame, Tahini sesame paste
 bg: Тахан, Сусамов тахан
 de: Tahin, Sesammus
@@ -65471,6 +65579,14 @@ sv: Bakpulver
 zh: 复配膨松剂
 google_product_taxonomy_id:en: 2803
 wikidata:en: Q29476
+
+< en: Baking powders
+en: Baker's ammonia, E503, Hartshorn
+de: Hirschhornsalz, Ammoniumhydrogencarbonat
+dk: Hjortetaksalt
+pl: Wodorowęglan amonu, Amoniak
+sv: Hjorthornssalt
+nova:en: 2
 
 < en: Food additives
 fr: Poudres à lever
@@ -66167,11 +66283,6 @@ ciqual_food_name:en: Potato, pre-fried into cubes, frozen, cooked
 ciqual_food_name:fr: Pomme de terre rissolée, surgelée, cuite
 
 < en: Frozen fried potatoes
-da: Frosne kartoffelkroketter
-fr: Croquettes de pommes de terre surgelées
-hr: Smrznuti kroketi od krumpira
-
-< en: Frozen fried potatoes
 fr: Quartiers de pommes de terre surgelés
 
 < en: Frozen fried potatoes
@@ -66305,6 +66416,27 @@ gpc_category_name:en: Ice Cream/Ice Novelties (Frozen)
 intake24_category_code:en: ICEC
 pnns_group_2:en: Ice cream
 who_id:en: 5
+
+< en: Ice creams and sorbets
+en: Mochi ice cream
+es: Helado de mochi
+fr: Mochi glacés
+hr: Mochi sladoled
+ja: 餅アイス, もちアイス
+lt: Mochi ledai
+wikidata:en: Q977539
+
+< en: Ice creams and sorbets
+en: Cookie dough covered ice cream balls
+fr: Boules de glace enrobées de pâte à cookie
+
+< en: Ice creams and sorbets
+en: Iced nougat
+fr: Nougat glacé
+agribalyse_food_code:en: 39529
+ciqual_food_code:en: 39529
+ciqual_food_name:en: Iced nougat
+ciqual_food_name:fr: Nougat glacé
 
 < en: Ice creams and sorbets
 en: Frozen sticks
@@ -67354,23 +67486,6 @@ it: Torte e pasticcini congelati
 lt: Šaldyti tortai ir pyragaičiai, šaldyti pyragaičiai
 nl: Diepvriesgebak
 
-< en: Ice creams and sorbets
-en: Mochi ice cream
-es: Helado de mochi
-fr: Mochi glacés
-hr: Mochi sladoled
-ja: 餅アイス, もちアイス
-lt: Mochi ledai
-wikidata:en: Q977539
-
-< en: Ice creams and sorbets
-en: Iced nougat
-fr: Nougat glacé
-agribalyse_food_code:en: 39529
-ciqual_food_code:en: 39529
-ciqual_food_name:en: Iced nougat
-ciqual_food_name:fr: Nougat glacé
-
 < en: Frozen foods
 fr: Viennoiseries surgelées
 nl: Diepvriesbroden
@@ -67701,6 +67816,8 @@ protected_name_type:en: pgi
 
 < en: Belgian endives
 < en: Belgian vegetables
+en: Brussels soil-grown Belgian endives
+xx: Brussels grondwitloof
 nl: Brussels grondwitloof
 origins:en: en:belgium
 protected_name_file_number:en: PGI-BE-0535
@@ -67866,6 +67983,8 @@ protected_name_file_number:en: PGI-ES-0664, PGI-ES-0664-AM01
 protected_name_type:en: pgi
 
 < en: Spanish fruits
+en: Ribera del Xúquer persimmons
+xx: Kaki Ribera del Xúquer
 es: Kaki Ribera del Xúquer
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0114, PDO-ES-0114-AM02
@@ -70965,6 +71084,8 @@ season_in_country_fr:en: 6,7,8,9
 
 < en: French fruits
 < en: Muskmelons
+en: Quercy melons
+xx: Melon du Quercy
 fr: Melon du Quercy
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0086
@@ -70972,6 +71093,8 @@ protected_name_type:en: pgi
 
 < en: French fruits
 < en: Muskmelons
+en: Guadeloupe melons
+xx: Melon de Guadeloupe
 fr: Melon de Guadeloupe
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0844
@@ -70979,6 +71102,8 @@ protected_name_type:en: pgi
 
 < en: French fruits
 < en: Muskmelons
+en: Haut-Poitou melons
+xx: Melon du Haut-Poitou
 fr: Melon du Haut-Poitou
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0029
@@ -71692,6 +71817,7 @@ fr: Reine-Claudes fraîches
 season_in_country_fr:en: 9
 
 < en: Fresh plums
+en: Fresh quetsche plums
 fr: Quetsches fraîches
 season_in_country_fr:en: 8,9,10
 
@@ -73870,6 +73996,10 @@ intake24_category_code:en: COND
 wikidata:en: Q773108
 
 < en: Condiments
+en: curry-roux
+ja: カレールウ
+
+< en: Condiments
 en: Gravy
 xx: Gravy
 ar: جريفي
@@ -75738,6 +75868,8 @@ nl: Gemalen gedroogde verse thijm
 pl: Tymianek suszony mielony
 
 < en: Thyme
+en: Thyme from Provence
+xx: Thym de Provence
 fr: Thym de Provence
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-01364
@@ -80687,10 +80819,10 @@ protected_name_type:en: pgi
 wikidata:en: Q1570335
 
 < en: Sausages
-de: Bratwürste, Bratwurst
-xx: Bratwurst
 en: Bratwursts, Bratwurst sausages
+xx: Bratwurst
 da: Bratwurster, Bratwurstpølser
+de: Bratwürste, Bratwurst
 sv: Bratvurstar, Bratwurstar
 plant_alternative:en: en:plant-based-bratwursts
 wikidata:en: Q899882
@@ -80740,6 +80872,8 @@ de: Burenwurst
 de: Mettwurst
 
 < en: German meat products
+en: Greussen salami
+xx: Greußener Salami
 de: Greußener Salami
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-1266
@@ -80781,6 +80915,8 @@ protected_name_type:en: pgi
 wikidata:en: Q1029851
 
 < en: Hungarian meat products
+en: Csabai sausages
+xx: Csabai kolbász, Csabai vastagkolbász
 hu: Csabai kolbász, Csabai vastagkolbász
 origins:en: en:hungary
 protected_name_file_number:en: PGI-HU-0390
@@ -80788,6 +80924,8 @@ protected_name_type:en: pgi
 wikidata:en: Q870187
 
 < en: Hungarian meat products
+en: Budapest winter salami
+xx: Budapesti téliszalámi
 hu: Budapesti téliszalámi
 origins:en: en:hungary
 protected_name_file_number:en: PGI-HU-0396
@@ -82075,8 +82213,8 @@ agribalyse_proxy_food_name:en: Tomato sauce, with onions, prepacked
 agribalyse_proxy_food_name:fr: Sauce tomate aux oignons, préemballée
 
 < en: Tomato sauces
-fr: Sauces puttanesca
 en: Puttanesca sauces
+fr: Sauces puttanesca
 wikidata:en: Q60823349
 
 < en: Tomato sauces
@@ -82601,6 +82739,7 @@ tr: Hazır yemek
 zh: 菜肴
 food_groups:en: en:one-dish-meals
 incompatible_with:en: categories:en:beverages
+ingredients_processing:en: en:cooked
 nova:en: 3
 pnns_group_2:en: One-dish meals
 wikidata:en: Q3391775
@@ -82927,8 +83066,8 @@ hr: Povrće nems
 it: Nems di verdure
 nl: Groenteloempias
 
+< en: Meals with pork
 < en: Nems
-< en: Pork meals
 en: Pork nems, Egg roll with cooked pork, Nem with cooked pork
 es: Nems De Cerdo
 fr: Nems au porc, Nem au porc cuit, Pâté impérial au porc cuit
@@ -83662,6 +83801,15 @@ wikidata:en: Q612283
 en: Meals with falafels
 fr: Plats préparés aux falafels
 
+< en: Meals
+en: Meals with tofu
+fr: Plats préparés au tofu
+
+< en: Meals with tofu
+< en: Vegetarian meals
+en: Vegetarian meals with tofu
+fr: Plats préparés végétariens au tofu
+
 # This category shouldn't be under en:Meats and their products (it is for products which main ingredient is meat)
 < en: Meals
 en: Meals with meat
@@ -83750,7 +83898,7 @@ lt: Patiekalai su triušiena ar kiškiena
 nl: Konijn- of Haasmaaltijden
 
 < en: Meals with rabbit or hare
-en: Rabbit dishes
+en: Meals with rabbit, Rabbit dishes
 fi: Jänisruoat
 fr: Plats au lapin, plats à base de lapin, Plats à base de viande de lapin, plats préparés à base de lapin
 hr: Jela od kunića
@@ -83759,7 +83907,7 @@ nl: Konijnmaaltijden
 wikidata:en: Q55568930
 
 < en: Jugging
-< en: Rabbit dishes
+< en: Meals with rabbit
 en: Jugged rabbits
 fr: Civets de lapin, Civet de lapin
 hr: Vrcali zečevi
@@ -83767,35 +83915,35 @@ lt: Triušienos troškinys
 nl: Gestoofde konijn
 wikidata:en: Q16540064
 
-< en: Rabbit dishes
+< en: Meals with rabbit
 fr: Lapin à la liégeoise
 wikidata:en: Q3217743
 
-< en: Rabbit dishes
+< en: Meals with rabbit
 fr: Lapin à la tournaisienne
 wikidata:en: Q3217745
 
 < en: Meals with rabbit or hare
-en: Hare dishes
+en: Meals with hare, Hare dishes
 fr: Plats au lièvre, plats à base de lièvre, Plats à base de viande de lièvre, plats préparés à base de lièvre
 hr: Jela od zeca
 lt: Patiekalai su kiškiena
 nl: Hazevleesmaaltijden
 
-< en: Hare dishes
 < en: Jugging
+< en: Meals with hare
 en: Jugged hares
 fr: Civet de lièvre
 hr: Jugged hares
 nl: Gestoofde haas
 wikidata:en: Q16540068
 
-< en: Hare dishes
+< en: Meals with hare
 fr: Compotée de lièvre
 wikidata:en: Q2990689
 
 < en: Meals with meat
-en: Beef dishes, Beef meals
+en: Meals with beef, Beef dishes, Beef meals
 bg: Говежди ястия
 ca: Plats de bou, Menjars amb bou
 de: Rindfleischgerichte
@@ -83813,23 +83961,23 @@ ru: Блюда из говядины
 intake24_category_code:en: BDSH
 
 < en: Meals with meat
-en: Sheep dishes, sheep meat dishes, sheepmeat meals
+en: Meals with sheep, Sheep dishes, sheep meat dishes, sheepmeat meals
 fi: lammasruokalajit
 fr: Plats au mouton, plats à base de mouton, plats à base de viande de mouton, plats à base de viande ovine
 hr: Jela od ovaca
 lt: Avienos mėsos patiekalai
 nl: Schapenvleesmaaltijden
 
-< en: Sheep dishes
+< en: Meals with sheep
 en: Lamb cottage pies, Lamb shepherd's pies
 
-< en: sheep dishes
+< en: Meals with sheep
 en: Tripoux, Tripous
 fr: Tripoux, Tripous
 wikidata:en: Q3106401
 
-< en: Beef dishes
-en: Veal meat dishes
+< en: Meals with beef
+en: Meals with veal meat, Veal meat dishes
 de: Kalbfleischgerichte, Kalbsfleischgerichte
 fi: vasikka-aterioita
 fr: Plats au veau, plats à base de viande de veau, plats à base de veau, plats préparés à base de veau
@@ -83841,16 +83989,16 @@ agribalyse_food_code:en: 8903
 ciqual_food_code:en: 8903
 ciqual_food_name:en: Veal quenelle, in sauce
 
-< en: Veal meat dishes
+< en: Meals with veal meat
 fr: Veau marengo
 
-< en: Veal meat dishes
+< en: Meals with veal meat
 fr: Sauté de veau
 
-< en: Veal meat dishes
+< en: Meals with veal meat
 fr: Axoa de veau
 
-< en: Veal meat dishes
+< en: Meals with veal meat
 en: Veal blanquettes, Veal blanquette, Veal stew in white sauce
 fr: Blanquettes de veau, blanquettes de veaux, blanquette de veau
 hr: Teleći kolačić
@@ -83869,11 +84017,11 @@ fr: Blanquettes de veau sans accompagnements
 en: Veal blanquettes with side dishes
 fr: Blanquettes de veau avec accompagnements
 
-< en: Beef dishes
+< en: Meals with veal meat
 en: Beef Wellington
 
 # cottage pie is the first synonyme because more products are called cottage pie than sheperd's pie
-< en: Beef dishes
+< en: Meals with beef
 en: Beef cottage pies, Shepherd's pie, Cottage pie with meat
 fr: Hachis parmentier, parmentiers de bœuf, Hachis Parmentier au boeuf
 hr: Pastirska pita
@@ -83887,12 +84035,12 @@ ciqual_food_name:fr: Hachis Parmentier à la viande
 wikidata:en: Q2303056
 wikidata:fr: Q2838339
 
-< en: Beef dishes
+< en: Meals with beef
 < en: Tajine
 en: Beef tajine
 fr: Tajine de boeuf
 
-< en: Beef dishes
+< en: Meals with beef
 en: Beef stews
 fr: Ragoûts de boeuf
 hr: Goveđi gulaš
@@ -83958,7 +84106,7 @@ en: Frozen beef carpaccio
 fr: Carpaccio de boeuf surgelé, Carpaccio de bœuf surgelé
 
 < en: Meals with meat
-en: Pork meals
+en: Meals with pork, Pork meals
 bg: Ястия със свинско
 ca: Aliments del porc
 da: Svinekød måltider
@@ -83975,7 +84123,7 @@ pt: Refeiçoes com porco
 ru: блюда из свинины
 zh: 猪肉餐
 
-< en: Pork meals
+< en: Meals with pork
 en: Caramel pork
 fr: Porc au caramel
 hr: Karamel svinjetina
@@ -83985,11 +84133,11 @@ ciqual_food_code:en: 25207
 ciqual_food_name:en: Pork with caramel sauce
 wikidata:en: Q16480872
 
-< en: Pork meals
+< en: Meals with pork
 en: Lychee pork
 wikidata:en: Q15895670
 
-< en: Pork meals
+< en: Meals with pork
 en: Pork snout in salad dressing sauce, Pork snout in salad sauce, Pork snout in salad dressing
 fr: Museau de porc vinaigrette, Museau de porc sauce vinaigrette
 agribalyse_food_code:en: 8406
@@ -83998,7 +84146,7 @@ ciqual_food_name:en: Pork snout in salad dressing sauce
 ciqual_food_name:fr: Museau de porc vinaigrette
 
 < en: Meals with meat
-en: Poultry meals
+en: Meals with poultry, Poultry meals
 ca: Menjars d'aus de corral
 de: Geflügelgerichte, Pouletgerichte
 es: Comidas de aves
@@ -84015,7 +84163,7 @@ agribalyse_proxy_food_code:en: 25190
 ciqual_proxy_food_code:en: 25190
 ciqual_proxy_food_name:en: Chicken, Basque style
 
-< en: Poultry meals
+< en: Meals with poultry
 en: Cockerel in red wine sauce
 fr: Coq au vin
 agribalyse_food_code:en: 25121
@@ -84031,15 +84179,15 @@ wikidata:en: Q2996892
 fr: Coq au vin jaune, Coq au vin jaune et aux morilles
 wikidata:en: Q2996891
 
-< en: Poultry meals
+< en: Meals with poultry
 en: Goose meals
 fr: Plats à l'oie, plats à base d’oie, Plats à base d’oies, plats préparés à base d'oie
 hr: Jela od gusaka
 lt: Žąsienos patiekalai
 nl: Ganzevleesmaaltijden
 
-< en: Poultry meals
-en: Duck dishes
+< en: Meals with poultry
+en: Meals with duck, Duck dishes
 de: Entengerichte
 es: Platos de pato
 fi: Ankka-ateriat
@@ -84054,45 +84202,45 @@ agribalyse_food_code:en: 25058
 ciqual_food_code:en: 25058
 ciqual_food_name:en: Duck with sauce (green pepper sauce, hunter-style sauce,etc.)
 
-< en: Duck dishes
+< en: Meals with duck
 en: Shepherd's pie with duck
 fr: Parmentiers de canard, Parmentier de canard
 agribalyse_food_code:en: 25587
 ciqual_food_code:en: 25587
 ciqual_food_name:en: Shepherd's pie with duck, cooked
 
-< en: Duck dishes
+< en: Meals with duck
 en: Shepherd's pie with duck uncooked
 fr: Parmentier de canard non cuit
 agribalyse_food_code:en: 25195
 ciqual_food_code:en: 25195
 ciqual_food_name:en: Shepherd's pie with duck
 
-< en: Duck dishes
+< en: Meals with duck
 en: Blanquettes of duck, Blanquette of duck
 fr: Blanquettes de canard, Blanquette de canard
 hr: Pokrivači od patke
 nl: Blanquette van eend
 
-< en: Poultry meals
-en: Turkey dishes
+< en: Meals with poultry
+en: Meals with turkey, Turkey dishes
 fi: Kalkkunaruokalajit
 fr: Plats à la dinde, plats à base de dinde, plats préparés à base de dinde
 hr: Jela od puretine
 lt: Kalakutienos patiekalai
 nl: Kalkoenvleesmaaltijden, Kalkoenenvleesmaaltijden
 
-< en: Turkey dishes
-en: Christmas Turkeys, Xmas Turkeys
+< en: Meals with turkey
+en: Christmas Turkeys, Xmas Turkey
 fr: Dindes de Noël, Dinde de Noël
 hr: Božićni purići
 nl: Kerstkalkoens
 
-< en: Poultry meals
+< en: Meals with poultry
 fr: Poule au pot
 wikidata:en: Q3400256
 
-< en: Poultry meals
+< en: Meals with poultry
 en: Cooked curing salted roast poultry
 fr: Rôti de volaille en salaison cuit
 agribalyse_food_code:en: 28976
@@ -84100,7 +84248,11 @@ ciqual_food_code:en: 28976
 ciqual_food_name:en: Salt curing roast poultry, cooked
 ciqual_food_name:fr: Rôti de volaille en salaison, cuit
 
-< en: Poultry meals
+< en: Meals with poultry
+en: Poultry blanquettes
+fr: Blanquettes de volaille
+
+< en: Meals with poultry
 en: Meals with chicken
 ca: Aliments amb pollastre
 de: Hühnerfleischgerichte
@@ -84118,6 +84270,7 @@ ru: Блюда из курицы
 intake24_category_code:en: CDSH
 
 < en: Meals with chicken
+< en: Poultry blanquettes
 en: Chicken blanquettes
 fr: Blanquettes de poulet
 
@@ -86021,7 +86174,7 @@ hr: Cassoulets s toulouse kobasicom
 nl: Cassoulet uit Toulouse
 
 < en: Cassoulets
-< en: Duck dishes
+< en: Meals with duck
 en: Cassoulets with duck confit, White bean stew with duck, Canned white bean stew with duck
 fr: Cassoulets au confit de canard, Cassoulet au canard, Cassoulet au canard appertisé, Cassoulet au canard en conserve
 hr: Cassoulets s pačjim confitom
@@ -86032,6 +86185,7 @@ ciqual_food_name:en: White bean stew, with duck or goose, canned
 ciqual_food_name:fr: Cassoulet au canard ou oie, appertisé
 
 < en: Cassoulets
+< en: Meals with pork
 en: Pork cassoulets, White bean stew with pork, Canned white bean stew with pork
 fr: Cassoulet au porc, Cassoulet au porc en conserve, Cassoulet au porc appertisé
 hr: Svinjski cassoulets
@@ -86325,9 +86479,13 @@ en: Frozen potato buns
 da: Frosne kartoffelboller
 sv: Frysta potatisbullar
 
+< en: Frozen fried potatoes
 < en: Frozen plant-based foods
 < en: Potato croquettes
 en: Frozen potato croquettes
+da: Frosne kartoffelkroketter
+fr: Croquettes de pommes de terre surgelées
+hr: Smrznuti kroketi od krumpira
 sv: Frysta potatiskroketter
 
 < en: Breaded products
@@ -87014,14 +87172,18 @@ wikidata:en: Q177
 
 < en: Meals
 < en: Pizzas pies and quiches
-it: Calzone
+en: Calzones, Calzone
+xx: Calzone
 fr: Calzone, Pizzas calzone
+it: Calzone
 ja: カルツォーネ
 
 < it: Calzone
+en: Ham calzones
 fr: Calzones au jambon
 
 < it: Calzone
+en: Chicken calzones
 fr: Calzones au poulet
 
 < en: Products without gluten
@@ -87029,12 +87191,15 @@ fr: Calzones au poulet
 fr: Calzones sans gluten
 
 < it: Calzone
+en: Ham and cheese calzones
 fr: Calzones jambon fromage
 
 < it: Calzone
+en: Cheese calzones
 fr: Calzones au fromage
 
 < it: Calzone
+en: Pepperoni calzones
 fr: Calzones peperoni
 
 < en: Pizzas
@@ -87119,8 +87284,14 @@ ciqual_proxy_food_code:en: 25472
 ciqual_proxy_food_name:en: Pizza, vegetables or pizza 4 seasons
 ciqual_proxy_food_name:fr: Pizza aux légumes ou Pizza 4 saisons
 
+< en: Vegan pizzas
+en: Vegan margherita pizzas, Vegan margherita pizza
+da: Veganske margherita-pizzaer
+fr: Pizzas margherita véganes
+sv: Veganska margherita-pizzor
+
+< en: Meals with pork
 < en: Pizzas
-< en: Pork meals
 en: Pizza with ham and cheese, Ham and cheese pizza
 de: Pizza mit Schinken und Käse
 es: Pizza con jamón y queso, Pizza jamón y queso
@@ -87136,6 +87307,7 @@ ciqual_food_code:en: 25435
 ciqual_food_name:en: Pizza, ham and cheese
 ciqual_food_name:fr: Pizza jambon fromage
 
+< en: Meals with chicken
 < en: Pizzas
 en: Chicken pizza
 es: Pizza de pollo
@@ -87173,6 +87345,7 @@ ja: ペパロニピザ
 lt: Pepperoni picos, Picos su pepperoni
 nl: Pepperonipizzas
 
+< en: Meals with tuna
 < en: Pizzas
 en: Tuna pizzas, Tuna pizza
 bg: Пица с риба тон
@@ -87201,6 +87374,7 @@ ciqual_food_code:en: 25463
 ciqual_food_name:en: Pizza, seafood
 ciqual_food_name:fr: Pizza aux fruits de mer
 
+< en: Meals with salmon
 < en: Pizzas
 en: Salmon pizza
 bg: Пица със сьомга
@@ -87247,8 +87421,8 @@ hr: Pizza s tartufima
 lt: Picos su valgomais trumais
 nl: Truffelpizzas
 
+< en: Meals with pork
 < en: Pizzas
-< en: Pork meals
 en: Ham pizzas
 bg: Пица с шунка
 de: Schinkenpizzas
@@ -87886,6 +88060,20 @@ en: Prepared vegan salads, Vegan prepared salads, Vegan salads
 sv: Veganska sallader
 incompatible_with:en: categories:en:salads-with-meat, categories:en:salads-with-fish
 
+< en: Prepared vegan salads
+en: Plant-based shrimp salads, Vegan shrimp salads
+da: Plantebaserede rejesalater, Veganske rejesalater
+sv: Växtbaserade räksallader, Veganska räksallader
+incompatible_with:en: categories:en:shrimp-salads
+
+< en: Plant-based shrimp salads
+en: Plant-based skagenröror, Vegan skagenröras, Vegan Swedish shrimp salads
+da: Plantebaserede skagenrører, Veganske skagenrører, Vegansk skagenröra
+nb: Plantebaserte skagenrører, Veganske skagenrører
+nn: Plantebaserte skagenrører, Veganske skagenrører
+sv: Växtbaserade skagenröror, Vegansk skagenröra
+incompatible_with:en: categories:en:skagenröror
+
 #TODO
 
 < en: Prepared salads
@@ -88088,8 +88276,8 @@ agribalyse_food_code:en: 25606
 ciqual_food_code:en: 25606
 ciqual_food_name:en: Prepared potatoes salad, home-made
 
+< en: Meals with pork
 < en: Piemontese salads
-< en: Pork meals
 < en: Salads with meat
 en: Piemontese salads with ham
 fr: Salades piémontaises au jambon, piémontaises au jambon
@@ -88222,13 +88410,13 @@ ja: ミートパイ
 lt: Pyragai su mėsa, Mėsos pyragai
 wikidata:en: Q5367573
 
-< en: Beef dishes
+< en: Meals with beef
 < en: Meat pies
 en: Beef pies
 fr: Tourtes au bœuf, tourtes au boeuf
 
+< en: Meals with pork
 < en: Meat pies
-< en: Pork meals
 en: Pork pies
 lt: Pyragai su kiauliena
 wikidata:en: Q3304394
@@ -88364,11 +88552,13 @@ en: Ground meats
 de: Hackfleisch
 fr: Viandes hachées
 hr: Mljeveno meso
+plant_alternative:en: en:plant-based-grounds
 
 < en: Frozen meats
 < en: Ground meats
 en: Frozen ground meats
 fr: Viandes hachées surgelées
+plant_alternative:en: en:frozen-plant-based-grounds
 
 < en: Beef
 #Should contain products with >99% beef only
@@ -88395,6 +88585,7 @@ lt: Keptos mėsos
 ciqual_food_code:en: 6999
 ciqual_food_name:en: Meat, cooked (average)
 ciqual_food_name:fr: Viande cuite (aliment moyen)
+ingredients_processing:en: en:cooked
 
 < en: Cooked meats
 en: Smoked cooked meats, Smoked cooked meat
@@ -91926,6 +92117,7 @@ en: Breaded meat cutlets
 de: Schnitzel
 fr: Escalopes de viande panées
 hr: Pohani mesni kotleti
+plant_alternative:en: en:plant-based-breaded-cutlets
 
 < en: Breaded meat cutlets
 en: Frozen breaded meat cutlets
@@ -94488,6 +94680,8 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Turkey Sausages - Prepared/Processed
 
 < en: Sausages
+en: Merguez, Merguez sausages
+xx: Merguez
 fr: Merguez
 agribalyse_food_code:en: 30150
 ciqual_food_code:en: 30150
@@ -94896,6 +95090,7 @@ nl: Rookworsten, Gerookte worsten
 pl: Kiełbasy wędzone, Kiełbasa wędzona
 
 < en: Prepared meats
+en: Black and white puddings, Boudins
 fr: Boudins, Boudin
 ciqual_food_code:en: 8705
 ciqual_food_name:en: Black or white pudding (blood sausage), sautéed (average)
@@ -95168,8 +95363,10 @@ ciqual_food_name:en: Mortadella with pistachios, pure pork
 
 < en: Italian meat products
 < en: Mortadella pure pork
-it: Mortadella Bologna
+en: Bologna mortadella
+xx: Mortadella Bologna
 fr: Mortadelle de Bologne
+it: Mortadella Bologna
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0325
 protected_name_type:en: pgi
@@ -99669,6 +99866,7 @@ agribalyse_proxy_food_name:en: Lasagna or cannelloni with vegetables and goat ch
 agribalyse_proxy_food_name:fr: Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
 
 < en: Stuffed pastas
+< xx: Dumplings
 en: pierogi
 cs: pirohy
 hr: Pirogi
@@ -99830,13 +100028,13 @@ agribalyse_proxy_food_code:en: 25192
 agribalyse_proxy_food_name:en: Ravioli filled with vegetables, in tomato sauce, canned
 agribalyse_proxy_food_name:fr: Raviolis aux légumes, sauce tomate, appertisés
 
+< en: Meals with poultry
 < en: Meat ravioli
-< en: Poultry meals
 fr: Ravioli à la volaille, Raviolis volaille, raviolis à la volaille, raviolis au poulet
 de: Geflügelravioli, Geflügel-Ravioli
 nl: Gevogelteraviolis
 
-< en: Beef dishes
+< en: Meals with beef
 < en: Meat ravioli
 en: Beef ravioli
 de: Rindfleischravioli, Rindfleisch-Ravioli
@@ -102084,6 +102282,7 @@ ciqual_food_code:en: 25434
 ciqual_food_name:en: Sandwich made with panini bread, raw cured ham, mozzarella cheese and tomato
 
 < en: Paninis
+en: Chicken paninis
 fr: Panini au poulet
 nl: Kippaninis
 
@@ -103916,6 +104115,7 @@ pt: Crustáceos, crustáceo
 se: Kräftdjur
 sv: Kräftdjur
 ciqual_food_code:en: 10043
+incompatible_with:en: categories:en:vegan-products, labels:en:vegetarian
 
 < en: Crustaceans
 en: Spider crab
@@ -104012,6 +104212,7 @@ fr: Écrevisse cuite surgelée
 < en: Seafood
 en: Shrimp preparations
 fr: Préparations aux crevettes
+incompatible_with:en: categories:en:vegan-products, labels:en:vegetarian
 
 < en: Appetizers
 < en: Shrimp preparations
@@ -104257,6 +104458,7 @@ fr: Poissons et dérivés
 hr: Ribama i njihovim proizvodima
 nl: Vis- en afgeleide producten
 zh: 鱼类及其制品
+incompatible_with:en: categories:en:vegan-products, labels:en:vegan
 
 < en: Fishes and their products
 en: Fishes, fish
@@ -104281,6 +104483,7 @@ ru: Рыба
 sv: Fiskar, fisk
 tr: Balık
 zh: 鱼类
+incompatible_with:en: categories:en:vegan-products, labels:en:vegetarian
 intake24_category_code:en: RWFH
 plant_alternative:en: en:fish-analogues
 wikidata:en: Q600396
@@ -107583,9 +107786,47 @@ ciqual_food_code:en: 25037
 ciqual_food_name:en: Fish or seafood au gratin, intended to be cook
 ciqual_food_name:fr: Gratin ou cassolette de poisson et / ou fruits de mer, à cuire
 
+< en: Prepared salads
 < en: Seafood
 en: Seafood salads
 fr: Salades de fruits de mer
+it: Insalata di mare
+ja: シーフードサラダ
+nl: Zeevruchtensalade
+wikidata:en: Q3799069
+
+< en: Seafood salads
+< en: Shrimp preparations
+en: Shrimp salads
+da: Rejesalater
+fi: Katkarapusalaatti
+nb: Rekesalat
+nn: Rekesalat
+sv: Räksallad
+incompatible_with:en: categories:en:plant-based-shrimp-salads
+plant_alternative:en: en:plant-based-shrimp-salads
+wikidata:en: Q10658425
+
+< en: Shrimp salads
+en: Skagenröror, Skagenröras, Swedish shrimp salads
+xx: Skagenröror, Skagenröra
+bn: স্কাগেনরোরা
+da: Skagenrører
+eo: Sveda salikoka salatoj
+fi: Skagenröror, Katkaraputahna
+fr: Salades de crevettes à la crème
+ja: スカーイェンレラ
+ml: സ്ക്കാൻഗെൻറോറ
+nb: Skagenrører
+nn: Skagenrører
+pa: ਸਕੇਗਨਰੋਰਾ
+ru: Скагенрора
+sq: Kokteji suedez me karkaleca deti
+sv: Skagenröror, Skagenröra
+zh: 瑞典鸡尾酒虾
+incompatible_with:en: categories:en:plant-based-skagenröror
+plant_alternative:en: en:plant-based-skagenröror
+wikidata:en: Q10669607
 
 < en: Seafood
 en: Marinated seafood
@@ -107806,6 +108047,7 @@ incompatible_with:en: categories:en:bee-products, categories:en:dairies, categor
 < en: Plant-based spreads
 < en: Salted spreads
 < en: Vegan products
+en: Vegan onion schmalz
 de: Veganes Zwiebelschmalz
 
 < en: Plant-based spreads
@@ -111124,6 +111366,7 @@ zh: 罐头蔬菜
 gpc_category_code:en: 10000272
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of vegetables combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, that have gone through further manufacturing processes, such as reformed, cooked, dried, salted or smoked, however these products can also be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Perishable Prepared and Processed Vegetables, all Unprepared and Unprocessed Vegetables, all Fruit, Nuts and Seeds.
 gpc_category_name:en: Vegetables - Prepared/Processed (Shelf Stable)
+ingredients_processing:en: en:canned
 who_id:en: 16
 
 < en: Artichokes
@@ -111576,6 +111819,7 @@ ciqual_food_name:en: Onion, pickled in vinegar
 ciqual_food_name:fr: Oignon au vinaigre
 
 < en: Pickled onions
+en: Silverskin onions
 nl: Zilveruitjes
 
 < en: Vegetable pickles
@@ -113788,6 +114032,16 @@ origins:en: en:spain
 protected_name_file_number:en: PGI-ES-0228
 protected_name_type:en: pgi
 
+< en: Garlics
+en: black garlic
+de: schwarzer Knoflauch
+es: ajo negro
+fr: Ail noir
+it: aglio nero
+nl: zwarte knoflook
+sv: svart vitlök
+description:en: Black garlic is aged whole garlic (Allium sativum), traditionally associated with East Asia, particularly Korea, Japan and Thailand, and now produced and used worldwide. Fresh bulbs are held for several weeks at controlled high temperature (about 60-90°C) and humidity, without additives. The Maillard reaction turns the cloves black, soft and sticky. The taste is sweet and savoury with umami notes, reminiscent of balsamic vinegar, molasses and tamarind, and without raw garlic's sharpness. It is used in sauces, dressings, spreads, marinades, risotto, meat dishes and desserts. Nutritionally, it contains natural sugars, amino acids, and antioxidant compounds such as polyphenols, with minimal fat.
+
 < en: Allium neapolitanum
 fr: Ail blanc de Lomagne
 xx: Ail blanc de Lomagne
@@ -114107,10 +114361,12 @@ gpc_category_description:en: Definition: This standard applies to loose leaf/mul
 gpc_category_name:en: Loose Leaf/Multileaf Lettuce Other
 
 < en: Lettuces
+en: Little gem lettuces, Sucrines
 fr: Sucrines
 sales_format:en: weight, package
 
 < en: Lettuces
+en: Fresh lettuces
 fr: Laitue fraîche
 season_in_country_fr:en: 5,6,7,8,9
 
@@ -114152,6 +114408,7 @@ ciqual_food_name:fr: Laitue iceberg, crue
 sales_format:en: weight, package
 
 < en: Lettuces
+en: Batavia lettuces, Batavia
 fr: Batavia
 agribalyse_proxy_food_code:en: 20200
 agribalyse_proxy_food_name:en: Iceberg lettuce, raw
@@ -116349,6 +116606,8 @@ intake24_category_code:fr: C000
 sales_format:en: weight, package
 
 < en: Vegetables
+en: Radicchio
+xx: Radicchio
 it: Radicchio
 ja: ラディッキオ
 
@@ -121581,6 +121840,7 @@ agribalyse_proxy_food_name:fr: Toasts ou Canapés salés, garnitures diverses
 wikidata:en: Q1032806
 
 < en: Appetizers
+< en: Crêpes and pancakes
 fr: Blinis
 nl: Blinis
 agribalyse_food_code:en: 23805
@@ -121702,6 +121962,53 @@ ru: Батончики
 zh: 棒状零食
 food_groups:en: en:biscuits-and-cakes
 pnns_group_2:en: Biscuits and cakes
+
+< en: Bars
+en: Protein bars
+bg: Протеинови блокчета
+ca: Barretes de proteïna, barres de proteïna
+cs: Proteinové tyčinky
+de: Proteinriegel, Eiweißriegel
+es: Barritas de proteínas
+fi: proteiinipatukat
+fr: Barres protéinées
+he: חטיפי חלבון
+hr: Proteinske pločice
+it: Barrette proteiche
+ja: プロテインバー
+nl: Proteinerepen
+pt: Barras de proteínas
+ro: Batoane proteice
+ru: Протеиновые батончики
+zh: 蛋白质棒
+wikidata:en: Q7251457
+
+< en: Energy bars
+< en: Protein bars
+en: Protein Energy Bars
+de: Protein-Energie-Riegel
+fr: Barres énergétiques protéinées
+hr: Proteinske energetske pločice
+it: Barrette Energetiche Proteiche
+nl: Proteïne energierepen
+zh: 蛋白质能量棒
+
+< en: Bars
+en: Energy bars
+bg: Енергийни блокчета
+cs: Energetické tyčinky
+de: Energieriegel, Energie-Riegel
+es: Barritas energéticas
+fi: energiapatukat
+fr: Barres énergétiques
+he: חטיפים אנרגיה
+hr: Energetske pločice
+it: Barrette energetiche
+nl: Energierepen
+pl: Batony energetyczne
+zh: 能量棒
+google_product_taxonomy_id:en: 2984
+wikidata:en: Q1699821
 
 #Sweet snack made of quark and sugar. It can be filled with jam or coated in chocolate
 < en: Bars
@@ -122315,6 +122622,7 @@ ciqual_food_code:en: 7738
 ciqual_food_name:en: Brioche, filled with fruits
 
 < en: Viennoiseries
+en: Gâches
 fr: Gâches
 
 < fr: Gâches
@@ -122417,7 +122725,7 @@ fr: Civet de zourites
 wikidata:en: Q16540075
 
 # Note: most products under en:Crêpes and galettes are not meals, it should not be put under en:meals
-en: Crêpes and galettes
+en: Crêpes and pancakes, Crêpes and galettes
 ca: Creps i coques
 de: Crêpes und Galetten
 es: Crêpes y galettes
@@ -122429,7 +122737,7 @@ nl: Pannenkoeken en galettes
 ru: Блины
 zh: 可丽饼和法式咸薄饼
 
-< en: Crêpes and galettes
+< en: Crêpes and pancakes
 en: Pancakes
 de: Pfannkuchen
 es: Tortitas
@@ -122440,8 +122748,21 @@ it: Pancake
 ja: パンケーキ
 nl: Pancakes
 
+< en: Crêpes and pancakes
+en: Æbleskiver, Aebleskiver, Ebleskiver, Ebelskiver
+xx: Æbleskiver
+da: Æbleskiver
+sv: Danska äppelskivor, Danska munkar, Danska æbleskiver
+wikidata:en: Q5395567
+
+< en: Crêpes and pancakes
+en: Poffertjes
+xx: Poffertjes
+nl: Poffertjes
+wikidata:en: Q283740
+
 # <en:compound
-< en: Crêpes and galettes
+< en: Crêpes and pancakes
 en: Crêpes, Crêpe, crepe, crepes
 ar: بان كيك
 az: krep
@@ -122523,45 +122844,39 @@ wikidata:en: Q12200
 wikipedia:en: https://en.wikipedia.org/wiki/Crêpe
 
 < en: Crêpes
-en: Plain crepes
-fr: Crêpe nature
-agribalyse_food_code:en: 23800
-ciqual_food_code:en: 23800
-ciqual_food_name:en: Crepe, plain, prepacked, room temperature
-ciqual_food_name:fr: Crêpe, nature, préemballée, rayon température ambiante
+en: Plain sweet crêpes, Plain crepes, Sugared crêpes
+de: Gezuckerte Crêpes
+fi: makeat letut
+fr: Crêpes nature sucrées, Crêpe nature, Crêpes sucrées, Crêpes de froment, crêpe de froment
+hr: Pošećerene palačinke
+it: Crepes zuccherate
+nl: Zoete pannenkoeken, zoete pannenkoek, zoet flensjes
+food_groups:en: en:biscuits-and-cakes
+pnns_group_2:en: Biscuits and cakes
 
-< en: Plain crepes
-en: Refrigerated plain crepes
+< en: Plain sweet crêpes
+en: Refrigerated plain crêpes
 fr: Crêpes nature rayon frais
 agribalyse_food_code:en: 23799
 ciqual_food_code:en: 23799
 ciqual_food_name:en: Crepe, plain, prepacked, refrigerated
 ciqual_food_name:fr: Crêpe, nature, préemballée, rayon frais
 
-< en: Sweet filled crêpes
-en: Crepes filled with sugar
-fr: Crêpes fourrées au sucre
-agribalyse_food_code:en: 23815
-ciqual_food_code:en: 23815
-ciqual_food_name:en: Crepe filled with sugar, prepacked
-ciqual_food_name:fr: Crêpe préemballée, fourrée au sucre
+< en: Plain sweet crêpes
+en: Shelf-stable plain crêpes
+fr: Crêpes nature rayon température ambiante
+agribalyse_food_code:en: 23800
+ciqual_food_code:en: 23800
+ciqual_food_name:en: Crepe, plain, prepacked, room temperature
+ciqual_food_name:fr: Crêpe, nature, préemballée, rayon température ambiante
 
 < en: Crêpes
-fr: Crêpes de froment, crêpe de froment
-agribalyse_proxy_food_code:en: 23799
-agribalyse_proxy_food_name:en: Crepe, plain, prepacked, refrigerated
-agribalyse_proxy_food_name:fr: Crêpe, nature, préemballée, rayon frais
+en: Crêpes with alcohol
+fr: Crêpes à l'alcool
 
-< en: Crêpes
-en: Sugared crêpes
-de: Gezuckerte Crêpes
-fi: makeat letut
-fr: Crêpes sucrées
-hr: Pošećerene palačinke
-it: Crepes zuccherate
-nl: Zoete pannenkoeken, zoete pannenkoek, zoet flensjes
-food_groups:en: en:biscuits-and-cakes
-pnns_group_2:en: Biscuits and cakes
+< en: Crêpes with alcohol
+en: Crêpes with rum
+fr: Crêpes au rhum
 
 < en: Crêpes
 en: Filled crêpes
@@ -122578,16 +122893,35 @@ fr: Crêpes fourrées sucrées
 hr: Slatke punjene palačinke
 nl: Zoete gevulde pannenkoeken
 
+< en: Sweet filled crêpes
+en: Crepes filled with sugar
+fr: Crêpes fourrées au sucre
+agribalyse_food_code:en: 23815
+ciqual_food_code:en: 23815
+ciqual_food_name:en: Crepe filled with sugar, prepacked
+ciqual_food_name:fr: Crêpe préemballée, fourrée au sucre
+
+< en: Crêpes and pancakes
+en: Plain buckwheat crepes
+fr: Galettes de blé noir, galette de blé noir, galette de sarazin, galettes de sarrasin, galette de sarrasin, galettes de sarazin, crêpe au sarrasin
+hr: Obične palačinke od heljde
+it: Crespelle al grano saraceno
+agribalyse_food_code:en: 23801
+ciqual_food_code:en: 23801
+ciqual_food_name:en: Buckwheat crepe, plain, prepacked
+ciqual_food_name:fr: Galette de sarrasin, nature, préemballée
+
 < en: Filled crêpes
+< en: Meals
 en: Savoury filled crêpes, Salty filled crêpes
 fr: Crêpes fourrées salées
 hr: Slanim punjenim palačinkama
 nl: Hartige gevulde pannenkoeken
 
 < en: Sweet filled crêpes
-en: Filled crêpes with chocolate, Home-made crepes filled with chocolate spread
+en: Filled crêpes with chocolate, Home-made crepes filled with chocolate spread, Prepacked Crepes filled with chocolate
 de: Crêpes gefüllt mit Schokolade
-fr: Crêpes fourrées au chocolat, Crêpes au chocolat, Crêpes maison fourrées au chocolat
+fr: Crêpes fourrées au chocolat, Crêpes au chocolat, Crêpes maison fourrées au chocolat, Crêpes préemballées fourrées au chocolat
 hr: Punjene palačinke s čokoladom
 nl: Pannenkoeken gevuld met chocola
 agribalyse_food_code:en: 23829
@@ -122603,12 +122937,6 @@ agribalyse_food_code:en: 23821
 ciqual_food_code:en: 23821
 ciqual_food_name:en: Crepe, filled with chocolate or chocolate and hazelnut spread, home-made
 ciqual_food_name:fr: Crêpe maison, fourrée au chocolat ou à la pâte à tartiner chocolat et noisettes
-
-< en: Sweet filled crêpes
-en: Prepacked Crepes filled with chocolate
-fr: Crêpes préemballées fourrées au chocolat
-ciqual_food_code:en: 23829
-ciqual_food_name:en: Crepe filled with chocolate, prepacked
 
 < en: Sweet filled crêpes
 en: Filled crêpes with jam, Home-made crepes filled with jam
@@ -122633,8 +122961,8 @@ ciqual_food_code:en: 23830
 ciqual_food_name:en: Crepe filled with strawberries, prepacked
 ciqual_food_name:fr: Crêpe préemballée, fourrée fraise
 
-< en: Crêpes and galettes
-en: Frozen crêpes and galettes
+< en: Crêpes and pancakes
+en: Frozen crêpes and pancakes, Frozen crêpes and galettes
 fr: Crêpes et galettes surgelées
 
 en: Fish and meat and eggs, Fish meat eggs
@@ -123023,10 +123351,29 @@ hr: Zamjene za frikandel
 
 < en: Breaded products
 < en: Meat analogues
-en: Breaded cutlets substitutes, Schnitzel substitutes, Schnitzel substituts
-fr: Susbtituts des escalopes panés
+en: Breaded cutlets substitutes, Schnitzel substitutes, Vegetarian schnitzels
+da: Vegetariske schnitzler, Vegetarisk schnitzel
+fr: Susbtituts des escalopes panés, Schnitzel substituts
 hr: Zamjene za pohane kotlete
+nb: Vegetarianske snitsler, Vegetariske snitsler
+nn: Vegetarianske snitslar, Vegetariske snitslar
 pl: Zastępniki kotletów panierowanych
+sv: Vegetarianska schnitzlar, Vegetariska schnitzlar, Vegoschnitzlar, Vegoschnitzel
+
+< en: Breaded cutlets substitutes
+en: Breaded cutlets substitutes with cheese, Cheese schnitzel substitutes, Vegetarian cheese schnitzels
+da: Vegetariske osteschnitzler, Vegetarisk osteschnitzel
+nb: Vegetarianske ostesnitsler, Vegetariske ostesnitsler
+nn: Vegetarianske ostesnitslar, Vegetariske ostesnitslar
+sv: Vegetarianska ostschnitzlar, Vegetariska ostschnitzlar, Vego ostschnitzlar, Vego ostschnitzel
+
+< en: Breaded cutlets substitutes
+< en: Vegan products
+en: Plant-based breaded cutlets, Vegan breaded cutlets, Plant-based schnitzels, Vegan schnitzels
+da: Plantebaserede schnitzler, Veganske schnitzler, Vegansk schnitzel
+nb: Plantebaserte snitsler, Veganske snitsler
+nn: Plantebaserte snitslar, Veganske snitslar
+sv: Växtbaserade schnitzlar, Veganska schnitzlar, Vegansk schnitzel
 
 < en: Breaded products
 < en: Meat analogues
@@ -123110,11 +123457,35 @@ de: Vegetarisches Gehacktes, Gemüsehack, Vegetarisches Hackfleisch
 fr: Hachés végétaux
 hr: Vegetarijanska podloga
 pl: Mielone wegetariańskie, Wegetariańskie mielone
+agribalyse_proxy_food_code:en: 30181
+ciqual_proxy_food_code:en: 30181
+ciqual_proxy_food_name:en: Soy-based minced, prepacked
+ciqual_proxy_food_name:fr: Haché végétal à base de soja, préemballé
+
+< en: Vegan products
+< en: Vegetarian grounds
+en: Plant-based grounds, Plant-based minces, Vegan grounds, Vegan minces
+fr: Hachés végétales
+
+< en: Meat analogues from soy or wheat proteins
+< en: Plant-based grounds
+en: Soy-based grounds, Soy-based minces, Soy-based minced prepacked
+fr: Hachés végétales à base de soja
+agribalyse_food_code:en: 30181
+ciqual_food_code:en: 30181
+ciqual_food_name:en: Soy-based minced, prepacked
+ciqual_food_name:fr: Haché végétal à base de soja, préemballé
+incompatible_with:en: labels:en:no-soy
 
 < en: Frozen plant-based foods
 < en: Vegetarian grounds
-en: Frozen vegetarian grounds, frozen veggie grounds
+en: Frozen vegetarian grounds, Frozen veggie grounds
 fr: Hachés végétaux surgelés
+
+< en: Frozen vegetarian grounds
+< en: Plant-based grounds
+en: Frozen plant-based grounds, Frozen plant-based minces, Frozen vegan grounds, Frozen vegan minces
+fr: Hachés végétales surgelés
 
 #Patties are a very generic term for anything flat baked in a pan
 < en: Meat alternatives
@@ -123365,7 +123736,7 @@ sv: Växtbaserade tonfiskar, Veganska tonfiskar
 < en: Dairy substitutes
 < en: Plant-based foods
 < en: Vegan products
-en: Cheese substitutes, Non-dairy cheeses, Plant cheeses, Vegan cheeses
+en: Cheese substitutes, Non-dairy cheeses, Plant cheeses, Plant-based cheeses, Vegan cheeses
 ar: جبن نباتي
 da: Veganske oste
 de: Milchfreie Käse, Pflanzliche Käse, Käseersatz, Vegane Käse, Vegane Käsealternative
@@ -123423,6 +123794,15 @@ ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, shred
 ciqual_proxy_food_name:fr: Spécialité végétale type fromage râpé, sans soja, préemballée
 
 < en: Cheese substitutes
+en: Cubed cheese substitutes, Diced plant-based cheeses
+da: Veganske ostetern
+sv: Tärnade veganska ostar
+agribalyse_proxy_food_code:en: 1029_1
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, sliced
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage en tranche, sans soja, préemballée
+
+< en: Cheese substitutes
 en: Cheddar cheese substitutes, Non-dairy cheddars, Vegan cheddars
 da: Veganske oste med cheddarsmag
 fr: Substituts de fromage saveur cheddar
@@ -123441,6 +123821,65 @@ sv: Veganska skivar med smak av cheddar
 < en: Shredded cheese substitutes
 en: Shredded cheddar cheese substitutes
 fr: Substituts du fromage râpé saveur cheddar
+
+< en: Cheese substitutes
+en: Emmentaler cheese substitutes, Non-dairy emmentaler cheeses, Vegan emmentaler cheeses, Plant-based emmentaler cheeses, Vegan Swiss cheeses
+da: Veganske emmentaleroste, Veganske ost med emmentalersmag
+fr: Substituts de fromage saveur emmental
+sv: Veganska emmentalerostar, Veganska ostar med smak av emmentaler
+
+< en: Emmentaler cheese substitutes
+< en: Sliced cheese substitutes
+en: Sliced emmentaler cheese substitutes, Plant-based slices with emmentaler flavour
+da: Veganske skiver med emmentalersmag
+de: Vegane Genuss-Scheiben Emmentaler Geschmack
+fr: Tranches végétales saveur emmental
+nl: Plantaardige plakken met emmentaler-smaak
+sv: Veganska skivar med smak av emmentaler
+
+< en: Cheese substitutes
+en: Feta-style cheese substitutes, Non-dairy fetas, Vegan fetas, Salad cheese substitutes, Vegan salad cheeses
+da: Veganske salatoste, Veganske ost med fetasmag
+fr: Substituts de fromage saveur feta
+sv: Veganska vitostar, Veganska ostar med smak av feta
+
+< en: Cheese substitutes
+< en: Cubed cheese substitutes
+en: Cubed feta-style cheese substitutes, Diced feta-style cheese substitutes
+da: Veganske salatostetern, Veganske ostetern med fetasmag
+sv: Tärnade veganska vitostar, Tärnade veganska ostar med smak av feta
+
+< en: Cheese substitutes
+en: Gouda cheese substitutes, Non-dairy gouda cheeses, Vegan gouda cheeses, Plant-based gouda cheeses
+da: Veganske goudaoste, Veganske ost med goudasmag
+fr: Substituts de fromage saveur gouda
+sv: Veganska goudaostar, Veganska ostar med smak av gouda
+
+< en: Gouda cheese substitutes
+< en: Sliced cheese substitutes
+en: Sliced gouda cheese substitutes, Plant-based slices with gouda flavour
+da: Veganske skiver med goudasmag
+de: Vegane Genuss-Scheiben Gouda Geschmack
+fr: Tranches végétales saveur gouda
+nl: Plantaardige plakken met gouda-smaak
+sv: Veganska skivar med smak av gouda
+
+< en: Cheese substitutes
+en: Mozzarella cheese substitutes, Non-dairy mozzarella cheeses, Vegan mozzarella cheeses, Plant-based mozzarella cheeses
+da: Veganske mozzarellaoste, Veganske ost med mozzarellasmag
+fr: Substituts de fromage saveur mozzarella
+sv: Veganska mozzarellaostar, Veganska ostar med smak av mozzarella
+
+< en: Cheese substitutes
+en: Parmesan-style cheese substitutes, Non-dairy parmesans, Vegan parmesans
+da: Veganske oste med parmesansmag
+fr: Substituts de fromage saveur parmesan
+sv: Veganska ostar med smak av parmesan
+
+< en: Parmesan-style cheese substitutes
+< en: Shredded cheese substitutes
+en: Shredded parmesan-style cheese substitutes
+fr: Substituts du fromage râpé saveur parmesan
 
 < en: Legumes and their products
 en: Puffed pulse cakes, pulse cakes, cakes of pulses
@@ -125303,54 +125742,6 @@ nl: Proteineshakes
 ro: Shake-uri cu proteine, Shake-uri proteice
 
 < en: Bodybuilding supplements
-en: Protein bars
-bg: Протеинови блокчета
-ca: Barretes de proteïna, barres de proteïna
-cs: Proteinové tyčinky
-de: Proteinriegel, Eiweißriegel
-es: Barritas de proteínas
-fi: proteiinipatukat
-fr: Barres protéinées
-he: חטיפי חלבון
-hr: Proteinske pločice
-it: Barrette proteiche
-ja: プロテインバー
-nl: Proteinerepen
-pt: Barras de proteínas
-ro: Batoane proteice
-ru: Протеиновые батончики
-zh: 蛋白质棒
-wikidata:en: Q7251457
-
-< en: Energy bars
-< en: Protein bars
-en: Protein Energy Bars
-de: Protein-Energie-Riegel
-fr: Barres énergétiques protéinées
-hr: Proteinske energetske pločice
-it: Barrette Energetiche Proteiche
-nl: Proteïne energierepen
-zh: 蛋白质能量棒
-
-< en: Bars
-< en: Bodybuilding supplements
-en: Energy bars
-bg: Енергийни блокчета
-cs: Energetické tyčinky
-de: Energieriegel, Energie-Riegel
-es: Barritas energéticas
-fi: energiapatukat
-fr: Barres énergétiques
-he: חטיפים אנרגיה
-hr: Energetske pločice
-it: Barrette energetiche
-nl: Energierepen
-pl: Batony energetyczne
-zh: 能量棒
-google_product_taxonomy_id:en: 2984
-wikidata:en: Q1699821
-
-< en: Bodybuilding supplements
 en: BCAA, Branched-chain amino acids
 de: verzweigtkettige Aminosäuren
 fi: BCAA, Branched-chain amino acids, Haaroittuneet aminohapot
@@ -126823,14 +127214,6 @@ agribalyse_food_code:en: 28913
 ciqual_food_code:en: 28913
 ciqual_food_name:en: Cooked ham, choice, rind less and fatless
 ciqual_food_name:fr: Jambon cuit, choix, découenné dégraissé
-
-< en: meat-alternatives
-en: Soy-based minced prepacked
-fr: Haché végétal à base de soja préemballé
-agribalyse_food_code:en: 30181
-ciqual_food_code:en: 30181
-ciqual_food_name:en: Soy-based minced, prepacked
-ciqual_food_name:fr: Haché végétal à base de soja, préemballé
 
 < en: chickens
 en: Chicken leg meat and skin raw
