@@ -2089,19 +2089,19 @@ my @tests = (
 			{
 				'id' => 'en:rice',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'ris'
 			},
 			{
 				'id' => 'en:potato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'kartofler'
 			},
 			{
 				'id' => 'en:potato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'kartofler'
 			},
 			{
