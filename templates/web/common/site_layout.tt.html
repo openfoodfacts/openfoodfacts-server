@@ -454,11 +454,24 @@
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_translators_link')) %]">[% lang('footer_translators') %]</a></li>
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_partners_link')) %]">[% lang('footer_partners') %]</a></li>
               <li><a class="button small white-button radius" href="[% edq(lang('footer_data_link')) %]">[% lang('footer_data') %]</a></li>
+              [% IF flavor && flavor != 'off' %]
+              <li><a class="button small white-button radius" href="https://world.openfoodfacts.org">Open Food Facts</a></li>
+              [% END %]
+              [% IF flavor != 'obf' %]
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_obf_link')) %]">[% lang('footer_obf') %]</a></li>
+              [% END %]
+              [% IF flavor != 'opf' %]
               <li><a class="button small white-button radius" href="[% edq(lang('footer_opf_link')) %]">[% lang('footer_opf') %]</a></li>
+              [% END %]
+              [% IF flavor != 'opff' %]
               <li><a class="button small white-button radius" href="[% edq(lang('footer_opff_link')) %]">[% lang('footer_opff') %]</a></li>
+              [% END %]
+              [% IF flavor != 'op' %]
               <li><a class="button small white-button radius" href="[% edq(lang('footer_op_link')) %]">[% lang('footer_op') %]</a></li>
+              [% END %]
+              [% IF !server_options_producers_platform %]
 							<li><a class="button small white-button radius" href="[% producers_platform_url %]">[% edq(lang('footer_pro')) %]</a></li>
+              [% END %]
 						</ul>
 					</div>
 				</div>
