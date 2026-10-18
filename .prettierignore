@@ -1,13 +1,49 @@
+# Prettier is scoped to JavaScript, CSS and SCSS.
+#
+# `npm run format` and `npm run format:check` run `prettier --write .` and
+# `prettier --check .`, the same as in the other Open Food Facts repositories.
+# The glob below keeps that to the file types we actually want to reformat:
+# everything is ignored first, then only JS/CSS/SCSS is added back in.
+#
+# Note: the exclusions for vendored files must stay *below* these lines, since a
+# later rule wins over an earlier one.
+*
+
+!*/
+!*.js
+!*.mjs
+!*.cjs
+!*.css
+!*.scss
+
+# Dependencies
+node_modules/
+
+# Build output
 html/js/dist/
+html/css/dist/
+docs/assets/simple.min.css
+
+# Vendored libraries. Checked in, but not ours to reformat.
+howmuchsugar/
+html/css/normalize.css
 html/js/datatables.*.js
+html/js/datatables.css
 html/js/jquery*.js
+html/js/jquery.nivo.zoom.pack.js
 html/js/sigma.*.js
 html/js/hc-sticky.js
 html/js/scrollNav.js
 html/js/stikelem.js
+html/js/nivo-zoom*.css
+html/js/custom-nivo-zoom.css
 
-html/css/dist/
+# Translated by Crowdin. Reformatting fights with every translation sync.
+html/donate/
 
-scripts/obsolete/
+# Perl-templated JavaScript: `[% ... %]` is not valid JavaScript.
+templates/
+
+# Expected test results and obsolete scripts
 tests/
-
+scripts/obsolete/

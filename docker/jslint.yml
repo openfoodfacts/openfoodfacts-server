@@ -5,6 +5,7 @@ services:
     volumes:
       # linting conf
       - ./eslint.config.mjs:/opt/product-opener/eslint.config.mjs
+      - ./.prettierrc:/opt/product-opener/.prettierrc
       - ./.prettierignore:/opt/product-opener/.prettierignore
       # extra files to lint
       - ./scripts:/opt/product-opener/scripts

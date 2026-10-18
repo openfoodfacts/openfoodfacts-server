@@ -1,5 +1,5 @@
-import gulp from "gulp";
 import concat from "gulp-concat";
+import gulp from "gulp";
 import gulpSass from "gulp-sass";
 import gzip from "gulp-gzip";
 import minifyCSS from "gulp-csso";

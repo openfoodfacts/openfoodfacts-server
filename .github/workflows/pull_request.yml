@@ -79,7 +79,7 @@ jobs:
     - name: gulp build
       run: make front_build
     - name: lint
-      run: make front_lint
+      run: make front_check
     - name: Verify package-lock is the right one
       run: |
         cp package-lock.json package-lock.json.orig
