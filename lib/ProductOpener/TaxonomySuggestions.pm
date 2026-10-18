@@ -465,9 +465,13 @@ sub _search_lc_and_string ($search_lc, $string) {
 	return ($1, substr($string, 3));
 }
 
+# Returns a hash of canonical tagid -> entry, not an ordered list. The expensive part of the
+# suggestion work (resolving the display name and normalizing the synonyms) does not depend on
+# the context, so it can be shared between requests; the order the entries are scanned in does,
+# so the order is taken from the list of entries the request came in with instead.
 sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 
-	my @entries = ();
+	my %entries = ();
 
 	foreach my $canon_tagid (@$tags_ref) {
 
@@ -484,10 +488,10 @@ sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 			@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
 		);
 
-		push @entries, {tagid => $canon_tagid, tag => $tag, synonyms => \@synonyms};
+		$entries{$canon_tagid} = {tag => $tag, synonyms => \@synonyms};
 	}
 
-	return \@entries;
+	return \%entries;
 }
 
 sub _get_suggestions_index ($tagtype, $search_lc, $tags_ref) {
@@ -509,7 +513,7 @@ sub _get_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 			{
 				tagtype => $tagtype,
 				search_lc => $search_lc,
-				entries => scalar(@{$suggestions_index{$key}})
+				entries => scalar(keys %{$suggestions_index{$key}})
 			}
 		) if $log->is_debug();
 	}
@@ -562,7 +566,7 @@ sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $sear
 		$tags_ref, $tagtype, $effective_lc, $effective_string, $options_ref);
 }
 
-sub _filter_suggestions ($index_ref, $tags_ref, $tagtype, $search_lc, $string, $options_ref) {
+sub _filter_suggestions ($entries_ref, $tags_ref, $tagtype, $search_lc, $string, $options_ref) {
 
 	my $original_lc = $search_lc;
 
@@ -619,8 +623,13 @@ sub _filter_suggestions ($index_ref, $tags_ref, $tagtype, $search_lc, $string, $
 		# fuzzy match whole words with other words between them
 		my $fuzzystringid = join(".*", split("-", $stringid));
 
-		foreach my $entry_ref (@$index_ref) {
-			my $canon_tagid = $entry_ref->{tagid};
+		# Scan the entries in the order they were given. For the packaging taxonomies that order
+		# is the popularity ranking for this country, categories and shape, so it changes from one
+		# request to the next; the shared index only holds the resolved names and the normalized
+		# synonyms, which do not.
+		foreach my $canon_tagid (@$tags_ref) {
+			my $entry_ref = $entries_ref->{$canon_tagid};
+			next if not defined $entry_ref;
 			# just_synonyms are not real entries
 			next if defined $just_synonyms{$tagtype}{$canon_tagid};
 
