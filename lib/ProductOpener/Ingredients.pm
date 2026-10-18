@@ -3031,8 +3031,10 @@ Text to analyze
 							],
 
 							'nl' => [
-								'^allergie.informatie$', 'in wisselende verhoudingen',
-								'harde fractie', 'o\.a\.',
+								'^allergie.informatie$',
+								'in wisselende verhoudingen',
+								'harde fractie',
+								'o\.a\.',    # "onder andere" = "among others"
 							],
 
 							'pl' => [
