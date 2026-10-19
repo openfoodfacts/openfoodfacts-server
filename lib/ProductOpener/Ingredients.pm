@@ -7540,8 +7540,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
 
-	# mono-glycéride -> monoglycérides
-	$text =~ s/\b(mono|di)\s?-\s?([a-z])/$1$2/ig;
+	# mono-glycéride -> monoglycérides, but keep "di- et triphosphates" apart
+	$text =~ s/\b(mono|di)\s?-\s?(?=(?:$and_without_spaces)\s)/$1- /ig;
+	$text =~ s/\b(mono|di)\s?-\s?(?!(?:$and_without_spaces)\s)([a-z])/$1$2/ig;
 	$text =~ s/\bmono\s-\s/mono- /ig;
 	$text =~ s/\bmono\s/mono- /ig;
 	#  émulsifiant mono-et diglycérides d'acides gras

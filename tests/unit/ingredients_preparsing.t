@@ -1428,4 +1428,15 @@ foreach my $test (
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "code variants and conjunctions: $test->[1]");
 }
 
+foreach my $test (
+	['di - et triphosphate', 'di- et triphosphate'],
+	['di- et triphosphate', 'di- et triphosphate'],
+	['di-et triphosphates', 'di- et triphosphates'],
+	['mono-et diglycérides', 'mono- et diglycérides'],
+	['di-glycérides', 'diglycérides'],
+	)
+{
+	is(preparse_ingredients_text('fr', $test->[0]), $test->[1], "mono- and di- prefixes: $test->[0]");
+}
+
 done_testing();
