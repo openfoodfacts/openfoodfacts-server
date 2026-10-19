@@ -414,11 +414,34 @@ subtest 'compute_attribute_nutrient_level panel_id' => sub {
 	is($attr_known_nutrient_data_lc->{panel_id},
 		'nutrient_level_salt', 'nutrient_level sets panel_id even when target_lc is data');
 
+	my $attr_known_saturated_fat = ProductOpener::Attributes::compute_attribute_nutrient_level(
+		{
+			nutrient_levels => {'saturated-fat' => 'low'},
+			nutrition => {aggregated_set => {nutrients => {'saturated-fat' => {value => 0.5}}}}
+		},
+		'en', 'low',
+		'saturated-fat'
+	);
+	is(
+		$attr_known_saturated_fat->{panel_id},
+		'nutrient_level_saturated-fat',
+		'saturated-fat nutrient_level matches knowledge panel id'
+	);
+
 	my $attr_unknown_nutrient_data_lc
 		= ProductOpener::Attributes::compute_attribute_nutrient_level({}, 'data', 'low', 'salt');
 	is($attr_unknown_nutrient_data_lc->{panel_id},
 		'nutrition_facts_table',
 		'unknown nutrient level sets panel_id to nutrition_facts_table when target_lc is data');
+};
+
+subtest 'compute_attribute_forest_footprint panel_id' => sub {
+	my $attr_uncomputed = ProductOpener::Attributes::compute_attribute_forest_footprint({}, 'en');
+	ok(!exists $attr_uncomputed->{panel_id}, 'uncomputed forest footprint has no panel_id');
+
+	my $attr_computed = ProductOpener::Attributes::compute_attribute_forest_footprint(
+		{forest_footprint_2026 => {grade => 'a', total_footprint_per_kg => 0.2}}, 'en');
+	is($attr_computed->{panel_id}, 'forest_footprint', 'computed forest footprint sets panel_id');
 };
 
 done_testing();

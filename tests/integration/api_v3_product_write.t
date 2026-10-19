@@ -786,6 +786,18 @@ my $tests_ref = [
 			}
 		}',
 	},
+	# misspelled brand
+	{
+		test_case => 'patch-misspelled-brand',
+		method => 'PATCH',
+		path => '/api/v3.6/product/test',
+		body => '{
+			"fields" : "updated,brands,brands_tags",
+			"product": { 
+				"brands_tags_add": ["Marks & Spencers", "Some other brand"]
+			}
+		}',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
