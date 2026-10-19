@@ -33137,13 +33137,18 @@ nl: Haverkoekjes, Haverkoekje
 ru: Печенье овсяное, овсяное печенье
 sv: Havrekex
 
-# Swedish-style biscuits made with rolled oats instead of flour
+# Biscuits with a (subjective) threshold of at least 20% rolled oats
 < en: Oatmeal biscuits
+en: Rolled oats biscuits
+fr: Biscuits aux flocons d'avoine
+
+# Swedish-style biscuits made with rolled oats instead of flour
+< en: Rolled oats biscuits
 en: Plain rolled oats biscuits
 fr: Biscuits aux flocons d'avoine nature
 
 < en: Chocolate biscuits
-< en: Oatmeal biscuits
+< en: Rolled oats biscuits
 en: Chocolate rolled oats biscuits
 fr: Biscuits aux flocons d'avoine au chocolat
 
@@ -41659,6 +41664,12 @@ en: Nut and seed mixes, nuts and seeds mixes, Mixes of nuts and seeds
 nl: Noten en zaden mengsels
 comment:en: for mixes of nuts and seeds
 
+# contains mainly nuts, seeds and dried fruits in various proportion, can contain a small amount of other things. e.g. chocolate
+< en: Breakfast
+< en: Plant-based foods
+en: Nut seed and dried fruit mixes for breakfast
+fr: Mélanges de graines fruits à coques et fruits pour petit-déjeuner
+
 < en: Plant-based foods
 en: Dried fruit and seed mixes
 fr: Mélange de graines et fruits secs
@@ -47036,7 +47047,7 @@ ar: جبن قريش
 bg: Зърнесто сирене
 cs: Cottage
 da: Hytteost
-de: Hüttenkäse
+de: Hüttenkäse, körniger Frischkäse
 el: Τυρί κότατζ
 es: Cottage
 et: Kodujuust
@@ -87077,7 +87088,7 @@ description:en: heated sandwich filled like a pizza
 
 < en: Meals
 en: Pizza sub toasts
-fr: Tartines salés à cuire, Tartines style pizza
+fr: Tartines salées à cuire, Tartines style pizza
 description:en: heated bread topped like a pizza
 
 < en: Frozen foods
