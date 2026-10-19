@@ -4451,7 +4451,7 @@ lt: Palinka
 nl: Palinka
 pl: Palinca, Pálinka
 pt: Palinca
-ro: Palincă
+ro: Pálinka
 ru: Палинка
 sv: Pálinka
 uk: Палінка
@@ -116320,13 +116320,14 @@ it: Pomodori ciliegini
 ja: ミニトマト
 la: Solanum lycopersicum var. cerasiforme, Lycopersicon lycopersicum var. cerasiforme, Lycopersicon esculentum var. cerasiforme
 nl: Kerstomaten
+pl: Pomidory koktajlowe, Pomidor koktajlowy, Pomidorów koktajlowych, Pomidorki koktajlowe
 sv: Körsbärstomater
-#wikidata:en:Q67448115
 agribalyse_food_code:en: 20172
 ciqual_food_code:en: 20172
 ciqual_food_name:en: Tomato, cherry, raw
 ciqual_food_name:fr: Tomate cerise, crue
 sales_format:en: weight, package
+#wikidata:en:Q67448115
 wikidata:en: Q6540634
 
 < en: Tomatoes
@@ -116942,17 +116943,17 @@ wikidata:en: Q56395863
 < en: Tomatoes and their products
 en: Dried tomatoes, Sun-dried tomatoes, Dried tomato, Sun-dried tomato
 bg: Сушени домати
-da: soltørrede tomater
+da: Soltørrede tomater
 de: Getrocknete Tomaten
 es: Tomates secos, Tomates deshidratados, Tomates desecados
-fi: kuivatut tomaatit
+fi: Kuivatut tomaatit
 fr: Tomates séchées, Tomate séchée
 hr: Sušene rajčice
 it: Pomodori essiccati
 ja: 干しトマト, ドライトマト
 nl: Gedroogde tomaten
 pl: Pomidory suszone
-sv: soltorkade tomater
+sv: Soltorkade tomater
 agribalyse_food_code:en: 20189
 ciqual_food_code:en: 20189
 ciqual_food_name:en: Tomato, dried
@@ -116968,12 +116969,12 @@ nl: Natuurlijk gedroogde tomaten
 pl: Naturalne pomidory suszone
 
 < en: Dried tomatoes
-en: Dried tomato in oil, Dried tomatoes in oil, Sun-dried tomato in oil, Sun-dried tomatoes in oil, Rehydrated dried tomatoes in oil
+en: Dried tomatoes in oil, Dried tomato in oil, Sun-dried tomato in oil, Sun-dried tomatoes in oil, Rehydrated dried tomatoes in oil
 bg: Сушени домати в олио
 da: Soltørrede tomater i olie
-de: getrocknete Tomaten in Öl
+de: Getrocknete Tomaten in Öl
 es: Tomates secos en aceite, Tomates secos rehidratados en aceite
-fi: kuivattuja tomaatteja öljyssä
+fi: Kuivattuja tomaatteja öljyssä
 fr: Tomates séchées à l'huile, Tomate séchée à l'huile, Tomates séchées réhydratées à l'huile
 hr: Sušene rajčice u ulju
 it: Pomodoro essiccato sott'olio
@@ -116984,6 +116985,37 @@ agribalyse_food_code:en: 20256
 ciqual_food_code:en: 20256
 ciqual_food_name:en: Tomato, dried, in oil
 ciqual_food_name:fr: Tomate, séchée, à l'huile
+
+< en: Dried tomatoes
+en: Dried cherry tomatoes, Sun-dried cherry tomatoes, Dried cherry tomato, Sun-dried cherry tomato
+bg: Сушени чери домати
+da: Soltørrede cherrytomater
+de: Getrocknete Kirschtomaten
+es: Tomates cherry secos
+fi: Kuivattuja kirsikkatomaatit
+fr: Tomates cerises séchées, Tomate cerise séchée
+hr: Sušene cherry rajčice
+nl: Gedroogde kerstomaten
+pl: Pomidory koktajlowe suszone
+sv: Soltorkade körsbärstomater
+
+< en: Dried cherry tomatoes
+< en: Dried tomatoes in oil
+en: Dried cherry tomatoes in oil, Dried cherry tomato in oil, Sun-dried cherry tomato in oil, Sun-dried cherry tomatoes in oil, Rehydrated dried cherry tomatoes in oil
+bg: Сушени чери домати в олио
+da: Soltørrede cherrytomater i olie
+de: Getrocknete Kirschtomaten in Öl
+es: Tomates cherry secos en aceite, Tomates cherry secos rehidratados en aceite
+fi: Kuivattuja kirsikkatomaatteja öljyssä
+fr: Tomates cerises séchées à l'huile, Tomate cerise séchée à l'huile, Tomates cerises séchées réhydratées à l'huile
+hr: Sušene cherry rajčice u ulju
+nl: Gedroogde kerstomaten op olie
+pl: Pomidory koktajlowe suszone w oleju
+sv: Soltorkade körsbärstomater i olja
+agribalyse_proxy_food_code:en: 20256
+ciqual_proxy_food_code:en: 20256
+ciqual_proxy_food_name:en: Tomato, dried, in oil
+ciqual_proxy_food_name:fr: Tomate, séchée, à l'huile
 
 < en: Condiments
 < en: Dried plant-based foods

@@ -1428,7 +1428,7 @@ foreach my $test (
 foreach my $test (
 	['pt', 'INS 500ii, INS 450iii', 'e500ii, e450iii'],
 	['ro', 'apă și sare', 'apă și sare'],
-	['ro', 'lapte şi soia', 'lapte şi soia'],
+	['ro', 'lapte şi soia', 'lapte și soia'],    # ş (cedilla) is normalized to ș (comma below)
 	['ro', 'E 330 şi E 331', 'e330, e331'],
 	)
 {
