@@ -53,6 +53,9 @@ var google_drive_import_code_sources = {
 	"previous_photo": "[% edq(lang('using_previous_code')) %]"
 };
 
+// Thumbnails are served from the images subdomain
+var google_drive_import_images_subdomain = "[% images_subdomain %]";
+
 function googleDriveImportEscape(text) {
 	return \$('<div>').text(text === undefined || text === null ? "" : String(text)).html();
 }
@@ -97,7 +100,7 @@ function displayGoogleDriveImportStatus(data) {
 		\$.each(progress.results || [], function (index, result) {
 			rows += "<tr><td style=\"min-width:120px;\">";
 			if (result.thumbnail_url) {
-				rows += '<img src="' + googleDriveImportEscape(result.thumbnail_url) + '" alt="">';
+				rows += '<img src="' + googleDriveImportEscape(google_drive_import_images_subdomain + result.thumbnail_url) + '" alt="">';
 			}
 			rows += "</td><td>" + googleDriveImportEscape(result.file) + "</td><td>";
 			if (result.code) {
