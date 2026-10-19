@@ -123,15 +123,15 @@
   }
   .select2-container--default .select2-selection--single .select2-selection__rendered {
     color: $white !important;
-    }
+  }
   .select2-container--default .select2-selection--multiple,
   .select2-container--default .select2-selection--single {
     background-color: transparent;
     border: 0px solid #aaa;
     color: $white;
-  .select2-selection__clear {
-    display: none !important; 
-  }
+    .select2-selection__clear {
+      display: none !important;
+    }
     .select2-selection__placeholder,
     .select2-selection__arrow,
     .select2-selection__arrow b,
@@ -186,7 +186,9 @@
         .toggle-topbar a {
           color: $oceanblue;
           span::after {
-            box-shadow: 0 0 0 1px $oceanblue, 0 7px 0 1px $oceanblue,
+            box-shadow:
+              0 0 0 1px $oceanblue,
+              0 7px 0 1px $oceanblue,
               0 14px 0 1px $oceanblue;
           }
         }

@@ -18,15 +18,15 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Map as LeafletMap, Marker, TileLayer } from 'leaflet';
-import { MarkerClusterGroup } from 'leaflet.markercluster';
+import { Map as LeafletMap, Marker, TileLayer } from "leaflet";
+import { MarkerClusterGroup } from "leaflet.markercluster";
 
 export function displayMap(containerId, pointers) {
   const map = new LeafletMap(containerId, { maxZoom: 12 });
 
-  const tileLayer = new TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  const tileLayer = new TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   });
   tileLayer.addTo(map);
 
@@ -35,7 +35,21 @@ export function displayMap(containerId, pointers) {
 
   for (const pointer of pointers) {
     const marker = new Marker(pointer.geo);
-    marker.bindPopup('<a href="' + pointer.url + '">' + pointer.product_name + '</a><br>' + pointer.brands + "<br>" + '<a href="' + pointer.url + '">' + pointer.img + '</a><br>' + pointer.origins);
+    marker.bindPopup(
+      '<a href="' +
+        pointer.url +
+        '">' +
+        pointer.product_name +
+        "</a><br>" +
+        pointer.brands +
+        "<br>" +
+        '<a href="' +
+        pointer.url +
+        '">' +
+        pointer.img +
+        "</a><br>" +
+        pointer.origins
+    );
     layers.push(marker);
   }
 

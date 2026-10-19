@@ -23,7 +23,7 @@ const baseGlobals = {
   setInterval: "readonly",
   clearInterval: "readonly",
   AbortController: "readonly",
-  Option: "readonly"
+  Option: "readonly",
 };
 
 export default defineConfig([
@@ -52,15 +52,15 @@ export default defineConfig([
       "scss/_off.scss",
       "scss/sveetoy/mixins/_flexbox.scss",
       "scss/sveetoy/mixins/_spaces.scss",
-      "scss/sveetoy/utils/_functions.scss"
-    ]
+      "scss/sveetoy/utils/_functions.scss",
+    ],
   },
   {
     files: ["gulpfile.mjs", "html/js/*.js"],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: "script",
-      globals: baseGlobals
+      globals: baseGlobals,
     },
     rules: {
       ...js.configs.recommended.rules,
@@ -214,25 +214,32 @@ export default defineConfig([
       "symbol-description": "error",
       "unicode-bom": ["error", "never"],
       "vars-on-top": "off",
-      yoda: "off"
-    }
+      yoda: "off",
+    },
   },
   {
-    files: ["gulpfile.mjs", "html/js/display-list-of-tags.js", "html/js/display-map.js", "html/js/display-tag.js", "html/js/image-editor.js", "html/js/rewind-browser.js"],
+    files: [
+      "gulpfile.mjs",
+      "html/js/display-list-of-tags.js",
+      "html/js/display-map.js",
+      "html/js/display-tag.js",
+      "html/js/image-editor.js",
+      "html/js/rewind-browser.js",
+    ],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: "module",
-      globals: baseGlobals
+      globals: baseGlobals,
     },
     rules: {
-      ...js.configs.recommended.rules
-    }
+      ...js.configs.recommended.rules,
+    },
   },
   {
     files: ["html/js/display.js", "html/js/product-multilingual.js"],
     rules: {
-      "no-unused-vars": "off"
-    }
+      "no-unused-vars": "off",
+    },
   },
   {
     files: ["html/css/*.css"],
@@ -243,15 +250,15 @@ export default defineConfig([
       // !important is used deliberately in this codebase.
       "css/no-important": "off",
       "css/font-family-fallbacks": "off",
-      "css/no-empty-blocks": "off"
-    }
+      "css/no-empty-blocks": "off",
+    },
   },
   {
     files: ["scss/**/*.scss"],
     plugins: { css },
     language: "css/css",
     languageOptions: {
-      customSyntax: scss
+      customSyntax: scss,
     },
     extends: ["css/recommended"],
     rules: {
@@ -269,11 +276,11 @@ export default defineConfig([
       // !important is used deliberately in this codebase.
       "css/no-important": "off",
       "css/font-family-fallbacks": "off",
-      "css/no-empty-blocks": "off"
-    }
+      "css/no-empty-blocks": "off",
+    },
   },
 
   // Must be last: this turns off every rule that conflicts with Prettier.
   // Formatting is handled by Prettier, see .prettierrc.
-  prettierConfig
+  prettierConfig,
 ]);

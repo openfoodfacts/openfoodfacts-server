@@ -7,7 +7,6 @@ import sassLib from "sass";
 import svgmin from "gulp-svgmin";
 import terser from "gulp-terser";
 
-
 const sass = gulpSass(sassLib);
 
 function sassLogAndExit(error) {
@@ -65,7 +64,7 @@ function handleMultipleImageFormats(path) {
 const imagesSrc = [
   "./node_modules/leaflet/dist/**/*.png",
   ...handleMultipleImageFormats(
-    "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/assets/**/*",
+    "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/assets/**/*"
   ),
 ];
 
@@ -78,15 +77,15 @@ export function icons() {
       svgmin({
         // @ts-ignore
         configFile: "icons/svgo.config.js",
-      }),
+      })
     )
     .pipe(gulp.dest("./html/images/icons/dist"))
-    .on('error', gulpLogAndExit);
+    .on("error", gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
     .pipe(gulp.dest("./html/images/icons/dist"))
-    .on('error', gulpLogAndExit);
+    .on("error", gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -96,12 +95,12 @@ export function attributesIcons() {
     .src("*.svg", { cwd: "./html/images/attributes/src" })
     .pipe(svgmin())
     .pipe(gulp.dest("./html/images/attributes/dist"))
-    .on('error', gulpLogAndExit);
+    .on("error", gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
     .pipe(gulp.dest("./html/images/attributes/dist"))
-    .on('error', gulpLogAndExit);
+    .on("error", gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -116,16 +115,16 @@ export function css() {
         errLogToConsole: true,
         outputStyle: "expanded",
         loadPaths: ["./node_modules"],
-      }).on("error", sassLogAndExit),
+      }).on("error", sassLogAndExit)
     )
     .pipe(minifyCSS())
-    .pipe(gulp.dest("./html/css/dist", { sourcemaps: '.' }))
-    .on('error', gulpLogAndExit);
+    .pipe(gulp.dest("./html/css/dist", { sourcemaps: "." }))
+    .on("error", gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
     .pipe(gulp.dest("./html/css/dist"))
-    .on('error', gulpLogAndExit);
+    .on("error", gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -138,13 +137,13 @@ export function copyJs() {
       sourcemaps: true,
     })
     .pipe(terser())
-    .pipe(gulp.dest("./html/js/dist", { sourcemaps: '.' }))
-    .on('error', gulpLogAndExit);
+    .pipe(gulp.dest("./html/js/dist", { sourcemaps: "." }))
+    .on("error", gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
     .pipe(gulp.dest("./html/js/dist"))
-    .on('error', gulpLogAndExit);
+    .on("error", gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -155,79 +154,88 @@ export function buildJs() {
   const processed = gulp
     .src(jsSrc, { sourcemaps: true })
     .pipe(terser())
-    .pipe(gulp.dest("./html/js/dist", { sourcemaps: '.' }))
-    .on('error', gulpLogAndExit);
+    .pipe(gulp.dest("./html/js/dist", { sourcemaps: "." }))
+    .on("error", gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
     .pipe(gulp.dest("./html/js/dist"))
-    .on('error', gulpLogAndExit);
+    .on("error", gulpLogAndExit);
 
   return processed && compressed;
 }
 
 function buildjQueryUi() {
   const processed = gulp
-    .src([
-      "./node_modules/jquery-ui/ui/jquery-patch.js",
-      "./node_modules/jquery-ui/ui/version.js",
-      "./node_modules/jquery-ui/ui/widget.js",
-      "./node_modules/jquery-ui/ui/position.js",
-      "./node_modules/jquery-ui/ui/keycode.js",
-      "./node_modules/jquery-ui/ui/unique-id.js",
-      "./node_modules/jquery-ui/ui/widgets/autocomplete.js",
-      "./node_modules/jquery-ui/ui/widgets/menu.js",
-    ], { sourcemaps: true })
+    .src(
+      [
+        "./node_modules/jquery-ui/ui/jquery-patch.js",
+        "./node_modules/jquery-ui/ui/version.js",
+        "./node_modules/jquery-ui/ui/widget.js",
+        "./node_modules/jquery-ui/ui/position.js",
+        "./node_modules/jquery-ui/ui/keycode.js",
+        "./node_modules/jquery-ui/ui/unique-id.js",
+        "./node_modules/jquery-ui/ui/widgets/autocomplete.js",
+        "./node_modules/jquery-ui/ui/widgets/menu.js",
+      ],
+      { sourcemaps: true }
+    )
     .pipe(terser())
     .pipe(concat("jquery-ui.js"))
-    .pipe(gulp.dest("./html/js/dist", { sourcemaps: '.' }))
-    .on('error', gulpLogAndExit);
+    .pipe(gulp.dest("./html/js/dist", { sourcemaps: "." }))
+    .on("error", gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
     .pipe(gulp.dest("./html/js/dist"))
-    .on('error', gulpLogAndExit);
+    .on("error", gulpLogAndExit);
 
   return processed && compressed;
 }
 
 function jQueryUiThemes() {
   const processed = gulp
-    .src([
-      "./node_modules/jquery-ui/themes/base/core.css",
-      "./node_modules/jquery-ui/themes/base/autocomplete.css",
-      "./node_modules/jquery-ui/themes/base/menu.css",
-      "./node_modules/jquery-ui/themes/base/theme.css",
-    ], { sourcemaps: true })
+    .src(
+      [
+        "./node_modules/jquery-ui/themes/base/core.css",
+        "./node_modules/jquery-ui/themes/base/autocomplete.css",
+        "./node_modules/jquery-ui/themes/base/menu.css",
+        "./node_modules/jquery-ui/themes/base/theme.css",
+      ],
+      { sourcemaps: true }
+    )
     .pipe(minifyCSS())
     .pipe(concat("jquery-ui.css"))
-    .pipe(gulp.dest("./html/css/dist/jqueryui/themes/base", { sourcemaps: '.' }))
-    .on('error', gulpLogAndExit);
+    .pipe(gulp.dest("./html/css/dist/jqueryui/themes/base", { sourcemaps: "." }))
+    .on("error", gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
     .pipe(gulp.dest("./html/css/dist/jqueryui/themes/base"))
-    .on('error', gulpLogAndExit);
+    .on("error", gulpLogAndExit);
 
   return processed && compressed;
 }
 
 function copyCss() {
   const processed = gulp
-    .src([
-      "./node_modules/leaflet/dist/leaflet.css",
-      "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.css",
-      "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.Default.css",
-      "./node_modules/select2/dist/css/select2.min.css",
-    ], { sourcemaps: true })
+    .src(
+      [
+        "./node_modules/leaflet/dist/leaflet.css",
+        "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.css",
+        "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.Default.css",
+        "./node_modules/select2/dist/css/select2.min.css",
+      ],
+      { sourcemaps: true }
+    )
     .pipe(minifyCSS())
-    .pipe(gulp.dest("./html/css/dist", { sourcemaps: '.' }))
-    .on('error', gulpLogAndExit);
+    .pipe(gulp.dest("./html/css/dist", { sourcemaps: "." }))
+    .on("error", gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
     .pipe(gulp.dest("./html/css/dist"))
-    .on('error', gulpLogAndExit);
+    .on("error", gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -258,11 +266,8 @@ function watchAll() {
 }
 export { watchAll as watch };
 
-export const dynamic = gulp.series(
-  gulp.parallel(...buildTasks),
-  function startWatch(done) {
-    console.log("Build succeeded start watching for css and js changes");
-    watchAll();
-    done();
-  },
-);
+export const dynamic = gulp.series(gulp.parallel(...buildTasks), function startWatch(done) {
+  console.log("Build succeeded start watching for css and js changes");
+  watchAll();
+  done();
+});

@@ -9,21 +9,18 @@
   font-style: normal;
   font-weight: 400;
   src: url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
-  src: local(""),
+  src:
+    local(""),
     url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.eot?#iefix")
       format("embedded-opentype"),
-    /* IE6-IE8 */
-      url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.woff2")
+    /* IE6-IE8 */ url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.woff2")
       format("woff2"),
     /* Super Modern Browsers */
-      url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.woff")
-      format("woff"),
-    /* Modern Browsers */
-      url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.ttf")
+      url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.woff") format("woff"),
+    /* Modern Browsers */ url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.ttf")
       format("truetype"),
     /* Safari, Android, iOS */
-      url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.svg#PublicSans")
-      format("svg"); /* Legacy iOS */
+      url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.svg#PublicSans") format("svg"); /* Legacy iOS */
 }
 
 /* plus-jakarta-sans-regular - cyrillic-ext_latin_latin-ext_vietnamese */
@@ -33,7 +30,8 @@
   font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.woff2")
+  src:
+    url("/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.woff2")
       format("woff2"),
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
       url("/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.ttf")
@@ -68,7 +66,9 @@ $material-icons: "Material Icons";
   font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("/fonts/material-icons-v139.woff2") format("woff2"),
+  src:
+    local(""),
+    url("/fonts/material-icons-v139.woff2") format("woff2"),
     url("/fonts/material-icons-v139.ttf") format("truetype");
 }
 
@@ -986,29 +986,24 @@ html[dir="rtl"] {
 // CSS filters to color SVG images
 // Filters generated from https://codepen.io/sosuke/pen/Pjoqqp
 .filter-green {
-  filter: invert(43%) sepia(100%) saturate(320%) hue-rotate(93deg)
-    brightness(89%) contrast(97%);
+  filter: invert(43%) sepia(100%) saturate(320%) hue-rotate(93deg) brightness(89%) contrast(97%);
 }
 
 .filter-red {
   // loss: 4.0, close enough
-  filter: invert(43%) sepia(45%) saturate(992%) hue-rotate(314deg)
-    brightness(99%) contrast(89%);
+  filter: invert(43%) sepia(45%) saturate(992%) hue-rotate(314deg) brightness(99%) contrast(89%);
 }
 
 .filter-orange {
-  filter: invert(83%) sepia(20%) saturate(6233%) hue-rotate(327deg)
-    brightness(101%) contrast(90%);
+  filter: invert(83%) sepia(20%) saturate(6233%) hue-rotate(327deg) brightness(101%) contrast(90%);
 }
 
 .filter-darkorange {
-  filter: invert(47%) sepia(24%) saturate(4013%) hue-rotate(4deg)
-    brightness(98%) contrast(86%);
+  filter: invert(47%) sepia(24%) saturate(4013%) hue-rotate(4deg) brightness(98%) contrast(86%);
 }
 
 .filter-grey {
-  filter: invert(30%) sepia(0%) saturate(0%) hue-rotate(29deg) brightness(97%)
-    contrast(89%);
+  filter: invert(30%) sepia(0%) saturate(0%) hue-rotate(29deg) brightness(97%) contrast(89%);
 }
 
 /* Accessibility: Adding focus styles on the outer-box of the fake checkbox used for the Foundation switch to classify products according to one's preferences */
@@ -1303,8 +1298,7 @@ $border-pink: #ff6e78;
     text-align: center;
     z-index: 1;
     p {
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
       font-size: 25px;
       font-weight: 700;
       line-height: 35px;
@@ -1322,7 +1316,7 @@ $border-pink: #ff6e78;
     align-items: center;
     img {
       transform: translatey(-15px);
-    } 
+    }
     @media #{$medium-up} {
       width: 60%;
     }
@@ -1357,8 +1351,7 @@ $border-pink: #ff6e78;
         width: 90%;
       }
       p {
-        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-          sans-serif;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
         font-size: 15px;
         color: black;
         font-weight: bolder;
@@ -1795,10 +1788,7 @@ a.panel_title {
 .button:hover,
 button:focus,
 button:hover {
-  background-color: color.scale(
-    $button-bg-color,
-    $lightness: $button-function-factor * -0.5
-  );
+  background-color: color.scale($button-bg-color, $lightness: $button-function-factor * -0.5);
   color: #fff;
 }
 
@@ -1937,8 +1927,7 @@ button:hover {
 
 .moderator-only::before {
   content: "\1F6E1";
-  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji",
-    "EmojiSymbols", sans-serif;
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", sans-serif;
   position: absolute;
   left: 5px;
   top: 50%;
@@ -1957,7 +1946,9 @@ button:hover {
   padding: 5px 10px;
   border-radius: 5px;
   opacity: 1;
-  transition: opacity 0.3s, visibility 0.3s;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
   visibility: visible;
 }
 
@@ -1982,10 +1973,7 @@ div.form-field-with-btn {
   }
 
   & [id^="file_input_button_"] {
-    background-color: color.scale(
-      $button-bg-color,
-      $lightness: $button-function-factor * -0.5
-    );
+    background-color: color.scale($button-bg-color, $lightness: $button-function-factor * -0.5);
     color: #fff;
   }
 }
@@ -2027,5 +2015,5 @@ div.form-field-with-btn {
 
 // Capitalize language name in product edit form tabs
 .tab_language::first-letter {
-  text-transform: capitalize
+  text-transform: capitalize;
 }

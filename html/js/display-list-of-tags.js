@@ -20,12 +20,12 @@
 
 /*global lang*/
 
-import jsVectorMap from 'jsvectormap';
+import jsVectorMap from "jsvectormap";
 // eslint-disable-next-line sort-imports
-import './world-merc.js';
+import "./world-merc.js";
 
 function getServerDomain() {
-  return (/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i).exec(globalThis.location.href)[1];
+  return /^https?:\/\/([^/?#]+)(?:[/?#]|$)/i.exec(globalThis.location.href)[1];
 }
 
 export function displayWorldMap(selector, countries) {
@@ -41,7 +41,7 @@ export function displayWorldMap(selector, countries) {
     map: "world_merc",
     visualizeData: {
       values: countries_map_data,
-      scale: ["#008C8C", "#ff8714"]
+      scale: ["#008C8C", "#ff8714"],
     },
     onRegionTooltipShow: (_e, tooltip, index) => {
       let label = countries_map_names[index];

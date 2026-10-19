@@ -25,7 +25,8 @@ $off-radius: 6px;
   border: none;
   font-weight: 500;
   transition: background 0.2s;
-  &:hover, &.tagify__tag--active {
+  &:hover,
+  &.tagify__tag--active {
     background: $off-green-dark;
   }
 }
@@ -38,8 +39,8 @@ $off-radius: 6px;
 .tagify__dropdown {
   border-radius: $off-radius;
   border: 1px solid $off-border;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
 
 // Responsive adjustments
 @media (max-width: 1024px) {

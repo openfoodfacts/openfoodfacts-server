@@ -32,8 +32,9 @@ const availabilityCache = new Map();
  * @returns {string} A sanitized id-safe slug.
  */
 function safeId(str) {
-
-  return String(str).toLowerCase().replace(/[^a-z0-9_-]/g, "-"); // NOSONAR (regex replace, replaceAll not applicable)
+  return String(str)
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]/g, "-"); // NOSONAR (regex replace, replaceAll not applicable)
 }
 
 /**
@@ -43,7 +44,6 @@ function safeId(str) {
  * @returns {string} Human readable section label.
  */
 function prettySectionName(sectionId) {
-
   return sectionId.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
@@ -112,7 +112,7 @@ function getExternalKnowledgePanelsOptin(sectionId, panelId) {
 function setExternalKnowledgePanelsOptin(sectionId, panelId, enabled) {
   globalThis.localStorage.setItem(
     `external_panel_${sectionId}_${panelId}`,
-    enabled ? "true" : "false",
+    enabled ? "true" : "false"
   );
 }
 
@@ -126,10 +126,10 @@ function setExternalKnowledgePanelsOptin(sectionId, panelId, enabled) {
 function interpolateUrl(urlTemplate, productData) {
   const pd = productData || {};
 
-  return String(urlTemplate
-    ).replaceAll("$code", encodeURIComponent(pd.code || "")
-    ).replaceAll("$lc", encodeURIComponent(pd.language || "")
-    ).replaceAll("$cc", encodeURIComponent(pd.country || ""));
+  return String(urlTemplate)
+    .replaceAll("$code", encodeURIComponent(pd.code || ""))
+    .replaceAll("$lc", encodeURIComponent(pd.language || ""))
+    .replaceAll("$cc", encodeURIComponent(pd.country || ""));
 }
 
 /**
@@ -167,10 +167,12 @@ function matchesFilters(panel, ctx, opts) {
   const catOk = ignoreCategory
     ? true
     : !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
-  const countryOk = !f.countries?.length || (ctx.country ? f.countries.includes(ctx.country) : true);
+  const countryOk =
+    !f.countries?.length || (ctx.country ? f.countries.includes(ctx.country) : true);
   const langOk = !f.languages?.length || (ctx.language ? f.languages.includes(ctx.language) : true);
   const typeOk =
-    !f.product_types?.length || (ctx.product_type ? f.product_types.includes(ctx.product_type) : true);
+    !f.product_types?.length ||
+    (ctx.product_type ? f.product_types.includes(ctx.product_type) : true);
 
   return catOk && countryOk && langOk && typeOk;
 }
@@ -184,7 +186,6 @@ function matchesFilters(panel, ctx, opts) {
  * @returns {boolean} True if the panel is visible.
  */
 function isPanelVisible(sectionId, panel, ctx) {
-
   return (
     canSeeByScope(panel) &&
     matchesFilters(panel, ctx) &&
@@ -200,7 +201,6 @@ function isPanelVisible(sectionId, panel, ctx) {
  */
 async function isPanelAvailable(url) {
   if (!url) {
-
     return true;
   }
 
@@ -223,7 +223,6 @@ async function isPanelAvailable(url) {
       return true;
     }
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.debug("HEAD check failed for external panel", { url, error: e });
   }
 
@@ -238,7 +237,6 @@ async function isPanelAvailable(url) {
       availabilityCache.set(url, { checkedAt: Date.now(), status: get.status });
     }
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.debug("GET check failed for external panel, treating as available", { url, error: e });
   }
 
@@ -303,7 +301,6 @@ function clearExternalSections() {
 function syncNavbarExternalSections(visibleSectionsOrdered) {
   const navbar = document.querySelector("#navbar ul.inline-list");
   if (!navbar) {
-
     return;
   }
 
@@ -353,7 +350,6 @@ function syncNavbarExternalSections(visibleSectionsOrdered) {
 function enableSmoothScrollAndHighlight() {
   const navbar = document.querySelector("#navbar ul.inline-list");
   if (!navbar) {
-
     return;
   }
 
@@ -397,7 +393,7 @@ function enableSmoothScrollAndHighlight() {
           }
         }
       },
-      { passive: true },
+      { passive: true }
     );
     globalThis.scrollSpyBoundExtPanels = true;
   }
@@ -441,7 +437,7 @@ function appendProvidedByInline(summaryEl, panel, language) {
   small.className = "provider-by";
   small.textContent = `${providedByText} `;
 
-  if ((/^https?:\/\//i).test(panel.provider_website ?? "")) {
+  if (/^https?:\/\//i.test(panel.provider_website ?? "")) {
     const a = document.createElement("a");
     a.href = panel.provider_website;
     a.target = "_blank";
@@ -477,11 +473,12 @@ function appendKnowledgePanel(details, url) {
  * @param {Object} ctx - Filtering context.
  * @returns {Promise<{sectionId:string,el:HTMLElement|null,hasAnyRenderedPanel:boolean}>} Render result.
  */
-/* eslint-disable complexity */
-async function buildSectionElement(section, ctx) {
-  const visiblePanels = section.panels.filter((panel) => isPanelVisible(section.sectionId, panel, ctx));
-  if (!visiblePanels.length) {
 
+async function buildSectionElement(section, ctx) {
+  const visiblePanels = section.panels.filter((panel) =>
+    isPanelVisible(section.sectionId, panel, ctx)
+  );
+  if (!visiblePanels.length) {
     return { sectionId: section.sectionId, el: null, hasAnyRenderedPanel: false };
   }
 
@@ -555,7 +552,6 @@ async function buildSectionElement(section, ctx) {
     const url = interpolateUrl(panel.knowledge_panel_url, globalThis.productData || {});
     const key = `${section.sectionId}::${panel.id}`;
 
-    // eslint-disable-next-line no-await-in-loop
     const available = availabilityCache.has(url)
       ? availabilityCache.get(url).status !== 404
       : await isPanelAvailable(url);
@@ -574,13 +570,11 @@ async function buildSectionElement(section, ctx) {
   }
 
   if (!hasAnyRenderedPanel) {
-
     return { sectionId: section.sectionId, el: null, hasAnyRenderedPanel: false };
   }
 
   return { sectionId: section.sectionId, el: sectionDiv, hasAnyRenderedPanel: true };
 }
-/* eslint-enable complexity */
 
 /**
  * Full render path.
@@ -594,15 +588,13 @@ async function renderFull(parent, parentAnchor, ctx) {
   const visible = [];
   let insertAfter = parentAnchor;
   for (const section of allPanelsBySection) {
-    // eslint-disable-next-line no-await-in-loop
     const built = await buildSectionElement(section, ctx);
     if (!built.hasAnyRenderedPanel || !built.el) {
       continue;
     }
     if (insertAfter?.nextSibling) {
       parent.insertBefore(built.el, insertAfter.nextSibling);
-    }
-    else {
+    } else {
       parent.appendChild(built.el);
     }
     insertAfter = built.el;
@@ -625,7 +617,7 @@ async function renderPartial(parent, parentAnchor, ctx, onlySet) {
     if (!onlySet.has(section.sectionId)) {
       continue;
     }
-    // eslint-disable-next-line no-await-in-loop
+
     const built = await buildSectionElement(section, ctx);
     const existing = document.getElementById(`external_section_${safeId(section.sectionId)}`);
     if (!built.hasAnyRenderedPanel || !built.el) {
@@ -646,16 +638,16 @@ async function renderPartial(parent, parentAnchor, ctx, onlySet) {
       }
     }
   }
-  const currentVisible = Array.from(document.querySelectorAll(".external-section[id]")
-    ).map((el) => {
+  const currentVisible = Array.from(document.querySelectorAll(".external-section[id]"))
+    .map((el) => {
       const id = el.id;
       const prefix = "external_section_";
       const sid = id.startsWith(prefix) ? id.slice(prefix.length) : id;
       const orig = allPanelsBySection.find((s) => safeId(s.sectionId) === sid);
 
       return orig ? { sectionId: orig.sectionId, label: orig.label } : null;
-    }
-    ).filter(Boolean);
+    })
+    .filter(Boolean);
   syncNavbarExternalSections(currentVisible);
   enableSmoothScrollAndHighlight();
 }
@@ -681,7 +673,6 @@ async function renderExternalKnowledgeSections(opts) {
     document.querySelector("section.row");
 
   if (!parentAnchor?.parentNode) {
-    // eslint-disable-next-line no-console
     console.error("Cannot find anchor section to insert external panels");
 
     return;
@@ -726,7 +717,7 @@ function buildPreferenceRow(section, panel, ctx, language) {
     icon.alt = panel.provider_name || panel.name || "";
     icon.setAttribute(
       "style",
-      "width:22px;height:22px;object-fit:contain;border-radius:50%;background:#fff;margin-top:2px;",
+      "width:22px;height:22px;object-fit:contain;border-radius:50%;background:#fff;margin-top:2px;"
     );
     labelEl.appendChild(icon);
   }
@@ -743,7 +734,9 @@ function buildPreferenceRow(section, panel, ctx, language) {
   // Availability notice when checked but 404
   const key = `${section.sectionId}::${panel.id}`;
   if (checkbox.checked && notFoundPanels.has(key)) {
-    const msg = (typeof globalThis.lang === "function" && lang().external_panel_unavailable) || t("panel_unavailable", language);
+    const msg =
+      (typeof globalThis.lang === "function" && lang().external_panel_unavailable) ||
+      t("panel_unavailable", language);
     const warn = document.createElement("span");
     warn.className = "external-panel-unavailable";
     warn.setAttribute("style", "margin-left:.5rem;font-size:.9em;color:#b20000;");
@@ -754,7 +747,8 @@ function buildPreferenceRow(section, panel, ctx, language) {
 
   // Category mismatch notice for the list only
   const f = panel.filters || {};
-  const categoryMatches = !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
+  const categoryMatches =
+    !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
   if (!categoryMatches) {
     const msgCat =
       (typeof globalThis.lang === "function" && lang().external_panel_unavailable_for_product) ||
@@ -781,7 +775,7 @@ function buildPreferenceRow(section, panel, ctx, language) {
  * @param {HTMLElement} container - Target element to render into.
  * @returns {void}
  */
-/* eslint-disable complexity */
+
 function renderExternalPanelsOptinPreferences(container) {
   if (!container) {
     return;
@@ -795,12 +789,15 @@ function renderExternalPanelsOptinPreferences(container) {
 
     const card = document.createElement("div");
     card.className = "card";
-    card.setAttribute("style", "background:#fff;margin-top:2em;margin-bottom:2em;padding:2em 2em 1em 2em;");
+    card.setAttribute(
+      "style",
+      "background:#fff;margin-top:2em;margin-bottom:2em;padding:2em 2em 1em 2em;"
+    );
 
     for (const section of allPanelsBySection) {
       // Relax category only for the list
       const scoppablePanels = section.panels.filter(
-        (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx, { ignoreCategory: true }),
+        (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx, { ignoreCategory: true })
       );
       if (scoppablePanels.length) {
         anyItem = true;
@@ -831,7 +828,11 @@ function renderExternalPanelsOptinPreferences(container) {
       const cbs = container.querySelectorAll?.(".optin_external_panel") ?? [];
       for (const cb of cbs) {
         cb.addEventListener("change", async function onChange() {
-          setExternalKnowledgePanelsOptin(this.dataset?.sectionId, this.dataset?.panelId, this.checked);
+          setExternalKnowledgePanelsOptin(
+            this.dataset?.sectionId,
+            this.dataset?.panelId,
+            this.checked
+          );
           await renderExternalKnowledgeSections({ only: new Set([this.dataset?.sectionId]) });
           renderExternalPanelsOptinPreferences(container);
         });
@@ -842,7 +843,6 @@ function renderExternalPanelsOptinPreferences(container) {
     }
   });
 }
-/* eslint-enable complexity */
 
 /**
  * Returns true if at least one panel could produce a preference line.
