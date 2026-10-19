@@ -35,6 +35,7 @@ use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Mail qw/:all/;
+use ProductOpener::Producers qw/@photos_upload_add_fields/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -67,8 +68,7 @@ else {
 
 	# Enable adding field values for photos uploaded
 
-	my @add_fields
-		= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries);
+	my @add_fields = @photos_upload_add_fields;
 	my %add_fields_labels = ();
 	my @add_fields_options = {value => 'add_tag', label => lang("add_tag_field")};
 
