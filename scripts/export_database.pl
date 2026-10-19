@@ -98,6 +98,32 @@ sub sanitize_field_content {
 	return $content;
 }
 
+# count_lines("filename")
+#
+# Counts the number of lines in a text file, reading it in chunks so that
+# large files (several GB for the CSV export) are not loaded in memory.
+# Returns 0 if the file does not exist or cannot be read.
+#
+# The number of lines is a reliable proxy for the number of exported
+# products: every field written to the CSV passes through
+# sanitize_field_content(), which replaces control characters
+# (including \n and \r) by spaces, so no CSV row can span multiple lines.
+sub count_lines($) {
+	my $filename = shift;
+
+	open(my $IN, '<', $filename) or return 0;
+
+	my $lines = 0;
+	my $buffer;
+	while (sysread($IN, $buffer, 64 * 1024 * 1024)) {
+		$lines += ($buffer =~ tr/\n//);
+	}
+
+	close $IN;
+
+	return $lines;
+}
+
 # Record if the script had errors
 my $errors = 0;
 
@@ -544,23 +570,39 @@ XML
 	close $OUT;
 	close $BAD;
 
-	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
-	my $csv_size_old = (-s $csv_filename) // 0;
+	# only overwrite the previous dump if the new one has enough product rows,
+	# to reduce failed runs breaking the dump.
+	#
+	# We used to compare file sizes in bytes (new file > 99% of old file),
+	# but that wrongly rejects valid exports whenever the column layout
+	# changes: e.g. after the tags schema restructure of #13239 removed the
+	# plain text versions of tag fields (about 20% of the file), every new
+	# export was smaller than the old file, so the old file was never
+	# replaced and the export stayed frozen on its previous content (#15024).
+	# The number of product rows is independent of the column layout, while
+	# still rejecting truncated exports (e.g. if MongoDB fails halfway).
+	# The new export contains 1 header line + $count product rows, and the
+	# old export contains 1 header line on top of its product rows.
+	my $csv_rows_new = $count;
+	my $csv_rows_old = 0;
+	if (-e $csv_filename) {
+		$csv_rows_old = count_lines($csv_filename) - 1;
+		$csv_rows_old = 0 if ($csv_rows_old < 0);
+	}
 
 	print
 		"Sort lines by code, and add header line: add $csv_filename.temp.header + $csv_filename.temp to $csv_filename.temp2\n";
 	system("(cat $csv_filename.temp.header && (sort $csv_filename.temp)) > $csv_filename.temp2");
 	unlink "$csv_filename.temp";
 	unlink "$csv_filename.temp.header";
-	my $csv_size_new = (-s "$csv_filename.temp2") // 0;
-	# guard: we replace target file only if it's big enough (to avoid replacing valid export by a broken one)
-	if ($csv_size_new >= $csv_size_old * 0.99) {
+	# guard: we replace target file only if it has enough product rows (to avoid replacing a valid export by a broken one)
+	if ($csv_rows_new >= $csv_rows_old * 0.99) {
 		unlink $csv_filename;
 		rename "$csv_filename.temp2", $csv_filename;
 	}
 	else {
 		print STDERR
-			"Not overwriting previous CSV $csv_filename - Old size = $csv_size_old, new size = $csv_size_new.\n";
+			"Not overwriting previous CSV $csv_filename - Old rows = $csv_rows_old, new rows = $csv_rows_new.\n";
 		unlink "$csv_filename.temp2";
 		$errors++;
 	}
