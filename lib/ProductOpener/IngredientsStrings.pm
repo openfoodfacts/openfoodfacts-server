@@ -239,6 +239,7 @@ $symbols_regexp = join('|', @symbols);
 		["L. reuteri", "lactobacillus reuteri"],
 		["L. rhamnosus", "lactobacillus rhamnosus"],
 		["S. thermophilus", "streptococcus thermophilus"],
+		["Str. thermophilus", "streptococcus thermophilus"],
 	],
 
 	en => [
@@ -287,6 +288,7 @@ $symbols_regexp = join('|', @symbols);
 		["mod.", "modifisert"],
 		["fort.middel", "fortykningsmiddel"],
 		["veg.", "vegetabilsk"],
+		["pr.", "per"],
 	],
 
 	ru => [
@@ -321,8 +323,10 @@ $symbols_regexp = join('|', @symbols);
 	fr => " de la | de | du | des | d'| de l'",
 	is => " af ",
 	it => " di | d'",
-	nl => " van ",
 	nb => " av ",
+	nl => " van ",
+	nn => " av ",
+	no => " av ",
 	sv => " av ",
 );
 
@@ -334,7 +338,10 @@ $symbols_regexp = join('|', @symbols);
 	fr => " de la | de | du | des | d'| de l'",
 	hr => " iz ",
 	it => " dal | della | dalla | dagli | dall'",
+	nb => " fra ",
 	nl => " uit ",
+	nn => " frå ",
+	no => " fra | frå ",
 	pl => " z | ze ",
 	sv => " från ",
 );
@@ -361,9 +368,10 @@ $symbols_regexp = join('|', @symbols);
 	lv => " un ",
 	mg => " sy ",
 	ms => " dan ",
-	nl => " en ",
 	nb => " og ",
+	nl => " en ",
 	nn => " og ",
+	no => " og ",
 	oc => " e ",
 	pl => " i ",
 	pt => " e ",
@@ -391,6 +399,8 @@ $symbols_regexp = join('|', @symbols);
 	is => " og af ",
 	it => " e di | e d'",
 	nb => " og av ",
+	nn => " og av ",
+	no => " og av ",
 	sv => " och av ",
 );
 
@@ -405,8 +415,10 @@ $symbols_regexp = join('|', @symbols);
 	is => " og | eða | og/eða | og / eða ",
 	it => " e | o | e/o | e / o",
 	ja => "又は",    # or
-	nl => " en/of | en / of ",
 	nb => " og | eller | og/eller | og / eller ",
+	nl => " en/of | en / of ",
+	nn => " og | eller | og/eller | og / eller ",
+	no => " og | eller | og/eller | og / eller ",
 	pl => " i | oraz | lub | albo ",
 	ru => " и | или | и/или | и / или ",
 	sv => " och | eller | och/eller | och / eller ",
@@ -415,9 +427,14 @@ $symbols_regexp = join('|', @symbols);
 %the = (
 	en => " the ",
 	es => " el | la | los | las ",
+	da => " den | det | de ",
 	fr => " le | la | les | l'",
 	it => " il | lo | la | i | gli | le | l'",
+	nb => " den | det | de ",
 	nl => " de | het ",
+	nn => " den | det | de ",
+	no => " den | det | de ",
+	sv => " den | det | de ",
 );
 
 # Strings to identify phrases like "75g per 100g of finished product"
@@ -428,7 +445,10 @@ $symbols_regexp = join('|', @symbols);
 	fr => " pour | par ",
 	hr => " na ",
 	it => " per ",
+	nb => " (?:per|pr.) ",
 	nl => " per ",
+	nn => " (?:per|pr.) ",
+	no => " (?:per|pr.) ",
 	sv => "((?: bär)|(?:\, varav tillsatt socker \\d+\\s*g))? per ",
 );
 
@@ -461,27 +481,37 @@ including localized strings like "minimum"
 	fr => "(?:(?:é|e)labor(?:é|e)|fabriqu(?:é|e)|pr(?:é|e)par(?:é|e)|produit)(?:e)?(?:s)? (?:avec|à partir)",
 	hr => "(?:proizvedeno od|sadrži)",
 	nl => "bereid met",
-	sv => "är",
+	sv => "är|med",
 );
 
 %min_regexp = (
 	en => "min|min\.|minimum",
 	ca => "min|min\.|mín|mín\.|mínim|minim",
 	cs => "min|min\.",
+	da => "min\.|minimum|mindst",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
 	hr => "min|min\.|mini|minimum",
+	nb => "min\.|minimum",
+	nn => "min\.|minimum",
+	no => "min\.|minimum",
 	pl => "min|min\.|minimum",
+	sv => "minimum|minst",
 );
 
 %max_regexp = (
 	en => "max|max\.|maximum",
 	ca => "max|max\.|màxim",
 	cs => "max|max\.",
+	da => "maks\.|maksimum|højst",
 	es => "max|max\.|máximo",
 	fr => "max|max\.|maxi|maximum",
 	hr => "max|max\.|maxi|maximum",
+	nb => "maks\.|maksimum",
+	nn => "maks\.|maksimum",
+	no => "maks\.|maksimum",
 	pl => "max|max\.|maximum",
+	sv => "max|maximum|högst",
 );
 
 # Words that can be ignored after a percent
@@ -506,6 +536,7 @@ including localized strings like "minimum"
 	nb => "[eé]n|[eé]i|ett?",
 	nl => "een",
 	nn => "[eé]in|[eé]i|eitt?",
+	no => "[eé]i?n|[eé]i|ei?tt?",
 	sv => "en|ett",
 );
 

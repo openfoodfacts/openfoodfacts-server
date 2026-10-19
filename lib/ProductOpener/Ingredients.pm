@@ -1744,6 +1744,22 @@ sub _calculate_recognition_rate ($ingredients_ref) {
 	return $recognized / scalar(@$ingredients_ref);
 }
 
+sub _matches_declared_ingredient_name ($ingredients_lc, $text, $ingredient_id) {
+	my $name = $translations_to{ingredients}{$ingredient_id}{$ingredients_lc};
+	return 0 unless defined $name;
+	my $lc_tagid = get_string_id_for_lang($ingredients_lc, $name);
+	my $of = $of{$ingredients_lc};
+	# Use source synonyms, without the compiler's generated stopword variants.
+	# Only grammatical "of" connectors and plural endings may be omitted here.
+	my @keys = map {
+		my $source = $_;
+		$source =~ s/$of/ /ig if defined $of;
+		ProductOpener::Tags::remove_plurals($ingredients_lc, get_string_id_for_lang($ingredients_lc, $source));
+	} ($text, @{$synonyms_for{ingredients}{$ingredients_lc}{$lc_tagid} // []});
+	my $key = shift @keys;
+	return scalar grep {$_ eq $key} @keys;
+}
+
 sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
 	my $debug_ingredients = 0;
@@ -3032,11 +3048,75 @@ Text to analyze
 								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?ze\s+\d+\s?g(?>\s+\w*)*$' # "produktu wyprodukowano ze 133 g mięsa wieprzowego"
 							],
 
+							# The cedilla forms ş and ţ are normalized to ș and ț in preparse_ingredients_text(),
+							# diacritics are often missing: use [ăa] [âa] [îi] [șs] [țt]
 							'ro' => [
-								'in proporţie variabilă',
-								'Informatiile scrise cu majuscule sunt destinate persoanelor cu intolerante sau alergice',
-								'Ambalat in atmosfera protectoare',
-								'poate con(ț|t)ine urme de',    # can contain traces of
+								# in variable proportions
+								'^[îi]n propor[țt]i[ei]? (variabil[ăae]?|variate)$',
+								# allergens in capitals
+								'^informa[țt]iile scrise cu (majuscule|litere (ingro[șs]ate|bold))',
+								'^pentru alergici',
+								'^alergeni$',
+								'^poate con[țt]ine( urme de)?$',    # may contain traces of
+								'^con[țt]ine o surs[ăa] de fenilalanin[ăa]',    # contains a source of phenylalanine
+								'^con[țt]ine [îi]ndulcitori?$',    # contains sweeteners
+								'^ingrediente$',
+								# "lapte și produse derivate" in traces
+								'^([șs]i )?(alte )?(produse )?derivate( ale acestuia| din lapte)?$',
+								# packaged in protective atmosphere / vacuum
+								'^(produs )?ambala[tț][ăei]*( [îi]n)? (atmosfer[ăa]|vid)',
+								# best before, use by
+								'^a se consuma',
+								'^(a se consuma )?de preferin[țt][ăa]',
+								'^[îi]nainte de( data| sf[âa]r[șs]itul)?',
+								'^expir[ăa]',
+								'^data (expir[ăa]rii|durabilit[ăa][țt]ii|fabrica[țt]iei|ambal[ăa]rii)',
+								'^termen(ul)? de valabilitate',
+								# storage
+								'^a se (p[ăa]stra|depozita|re[țt]ine|agita|consuma|servi)\b',
+								'^a nu se\b',
+								'^condi[țt]ii de (p[ăa]strare|depozitare)',
+								'^dup[ăa] deschidere',
+								'^ferit[ăe]? de',
+								'^(la )?loc (uscat|r[ăa]coros)',
+								'^r[ăa]coros$',
+								'\d\s*°\s*c\b',    # temperature
+								'^min(im|imum)?\.?$',
+								# lot, net quantity
+								'^(nr\.?|num[ăa]r(ul)?)( de)? lot',
+								'^lot(ul)?\b',
+								'^nr\.?$',
+								'^cantitate(a)? net[ăa]',
+								# nutrition facts
+								'^valoare(a)? (energetic[ăa]|nutri[țt]ional[ăa])',
+								'^valori(le)? nutri[țt]ionale',
+								'^(declara[țt]ie|informa[țt]ii) nutri[țt]ional[ăe]',
+								'^din care (zaharuri|acizi gra[șs]i)',
+								'^glucide$',
+								'^energie$',
+								'^\d+([.,]\d+)?\s*(kj|kcal)\b',
+								'^consumul de referin[țt][ăa]',
+								'^vnr\b',
+								# manufacturer, distributor, address
+								'^(produc[ăa]tor|fabricant|distribuitor|importator|ambalator)\b',
+								'^(produs|fabricat|ambalat|distribuit|importat) (de|pentru)\b',
+								'^(produs|fabricat) [îi]n ',    # made in
+								'^(str|jud|tel|fax|cod po[șs]tal)\b',
+								'^sector(ul)? \d',
+								'^s\.?c\.?\s',    # S.C. (company)
+								'\bs\.?r\.?l\.?$',    # S.R.L. (company)
+								'\bnr\.?\s*\d*$',    # street number
+								'^(rom[âa]nia|republica moldova|moldova|bucure[șs]ti|chi[șs]in[ăa]u)$',
+								'^www\.',
+								'^e-?mail\b',
+								# see packaging
+								'^vezi\b',
+								'^a se vedea',
+								# instructions
+								'^mod(ul)? de (utilizare|preparare|preg[ăa]tire|[îi]ntrebuin[țt]are|servire)',
+								# processing of the whole product
+								'^produs (pasteurizat|sterilizat|tratat termic|ultrapasteurizat|refrigerat|congelat|ambalat)',
+								'^(pasteurizat|sterilizat|standardizat|omogenizat|ultrapasteurizat|tratat termic)( [șs]i (pasteurizat|sterilizat|standardizat|omogenizat|ultrapasteurizat))*$',
 							],
 
 							'ru' => [
@@ -3062,6 +3142,7 @@ Text to analyze
 								'^Förpackat i en skyddande atmosfär$',    # packaged in a protective atmosphere
 								'^Mjölkchokladen innehåller minst',
 								'^kan innehälla(?: spår av)?',    # may contain (traces of)
+								'^(?:fri|fritt|fria) från ',    # free from
 								'^Mjölken är pastöriserad$',
 								'innehåller \d+\s*(?:g|%)',
 								'är maskinellt urkärnade$',    # pitted by machine
@@ -3157,16 +3238,20 @@ Text to analyze
 					# Generate the text for the canonicalized parent ingredient (so that we don't get percentages, labels etc. in it)
 					my $parent_ingredient_text
 						= display_taxonomy_tag($ingredients_lc, "ingredients", $parent_ref->{id});
+					my $canonical_child_text = display_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_id);
 
 					my $parent_plus_child_ingredient_text;
+					my $parent_plus_canonical_child_text;
 
 					if ($ingredients_lc eq "en") {
 						# oil (palm) -> palm oil
 						$parent_plus_child_ingredient_text = $ingredient . ' ' . $parent_ingredient_text;
+						$parent_plus_canonical_child_text = $canonical_child_text . ' ' . $parent_ingredient_text;
 					}
 					else {
 						# huile (palme) -> huile palme
 						$parent_plus_child_ingredient_text = $parent_ingredient_text . ' ' . $ingredient;
+						$parent_plus_canonical_child_text = $parent_ingredient_text . ' ' . $canonical_child_text;
 					}
 
 					# Check if the parent + child ingredient is a known ingredient
@@ -3175,7 +3260,24 @@ Text to analyze
 						= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $parent_plus_child_ingredient_text,
 						\$exists_in_taxonomy);
 
-					if ($exists_in_taxonomy) {
+					# Generated stopword variants must not change the meaning of an already known child.
+					if (
+						$exists_in_taxonomy
+						and (
+							   not exists_taxonomy_tag('ingredients', $ingredient_id)
+							or is_a('ingredients', $parent_plus_child_ingredient_id, $ingredient_id)
+							or _matches_declared_ingredient_name(
+								$ingredients_lc, $parent_plus_child_ingredient_text,
+								$parent_plus_child_ingredient_id
+							)
+							or _matches_declared_ingredient_name(
+								$ingredients_lc,
+								$parent_plus_canonical_child_text,
+								$parent_plus_child_ingredient_id
+							)
+						)
+						)
+					{
 						$ingredient_id = $parent_plus_child_ingredient_id;
 						$log->debug(
 							"parse_ingredient_text - parent + child ingredient recognized",
@@ -5491,9 +5593,11 @@ my %phrases_before_ingredients_list = (
 
 	nl => ['(I|i)ngredi(e|ë)nten', 'samenstelling', 'bestanddelen'],
 
-	nb => ['Ingredienser',],
+	nb => ['sammensetning', 'ingredienser',],
 
-	no => ['Sammensetning', 'ingredienser'],
+	nn => ['ingrediensar',],
+
+	no => ['sammensetning', 'ingrediens[ae]r',],
 
 	pl => ['sk[łl]adniki', 'skład',],
 
@@ -5563,11 +5667,13 @@ my %phrases_before_ingredients_list_uppercase = (
 
 	lv => ['SASTĀVS',],
 
-	nb => ['INGREDIENSER',],
+	nb => ['SAMMENSETNING', 'INGREDIENSER',],
 
 	nl => ['INGREDI(E|Ë)NTEN(\s*)', 'INGREDIENSER', 'SAMENSTELLING',],
 
-	no => ['SAMMENSETNING',],
+	nn => ['INGREDIENSAR',],
+
+	no => ['SAMMENSETNING', 'INGREDIENS[AE]R',],
 
 	pl => ['SKŁADNIKI(\s*)', 'SKŁAD',],
 
@@ -7216,6 +7322,13 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# Normalize Unicode bold and stylistic-variant characters to plain ASCII
 	$text = normalize_unicode_letter_variants($text);
+
+	# Romanian: normalize the legacy cedilla forms ş and ţ to the correct comma below forms ș and ț
+	# so that regexps (traces, phrases to ignore etc.) only need to handle one form
+	if ($ingredients_lc eq 'ro') {
+		# ş ţ Ş Ţ -> ș ț Ș Ț
+		$text =~ tr/\x{15F}\x{163}\x{15E}\x{162}/\x{219}\x{21B}\x{218}\x{21A}/;
+	}
 
 	# zero width space
 	$text =~ s/\x{200B}/-/g;
