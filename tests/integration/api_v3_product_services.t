@@ -3,15 +3,19 @@
 use ProductOpener::PerlStandards;
 
 use Test2::V0;
-use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
+use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
 use File::Basename "dirname";
 
 use Storable qw(dclone);
 
 wait_application_ready(__FILE__);
+remove_all_users();
+
+my $ua = new_client();
+create_user($ua, {%default_user_form, email => 'product_services@example.com'});
 
 # Sample product
 
@@ -203,6 +207,33 @@ JSON
 	}
 }
 JSON
+	},
+
+	# estimate_environmental_impact sends the ingredients we are given to a third party service
+	# operated by us, with a token that belongs to the organization running the server:
+	# an anonymous caller must not be able to spend it
+
+	{
+		test_case => 'estimate-environmental-impact-service-anonymous',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["estimate_environmental_impact"],'
+			. $product_hazelnut_spread_json . '}',
+		expected_status_code => 401,
+	},
+	# Control: the same request from an identified caller is accepted
+	# (the product has no ingredients, so no request is sent to the third party service)
+	{
+		test_case => 'estimate-environmental-impact-service-authenticated',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		ua => $ua,
+		body => '{
+			"services":["estimate_environmental_impact"],
+			"product":{
+				"product_name": "My hazelnut spread"
+			}}',
 	},
 
 ];
