@@ -27,6 +27,7 @@ jobs:
     outputs:
       code_modified: ${{ steps.filter.outputs.code }}
       taxonomy_only: ${{ steps.filter.outputs.any_non_taxonomy == 'false' }}
+      # Single source of truth: 'no-coverage' also means Devel::Cover is off for the test jobs.
       test_timing_profile: ${{ (github.event_name != 'pull_request' || steps.filter.outputs.any_non_taxonomy != 'false') && 'coverage' || 'no-coverage' }}
       perl_sbom: ${{ steps.filter-some.outputs.perl_sbom }}
       docker_sbom: ${{ steps.filter-some.outputs.docker_sbom }}
@@ -626,7 +627,7 @@ jobs:
     env:
       CI_TEST_GROUP_PLAN: "1"
       TEST_TIMING_PROFILE: ${{ needs.filter.outputs.test_timing_profile }}
-      COVER_OPTS: ${{ (github.event_name != 'pull_request' || needs.filter.outputs.taxonomy_only != 'true') && '-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' || '' }}
+      COVER_OPTS: ${{ needs.filter.outputs.test_timing_profile == 'coverage' && '-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' || '' }}
     strategy:
       fail-fast: false
       matrix:
@@ -730,7 +731,7 @@ jobs:
     env:
       CI_TEST_GROUP_PLAN: "1"
       TEST_TIMING_PROFILE: ${{ needs.filter.outputs.test_timing_profile }}
-      COVER_OPTS: ${{ (github.event_name != 'pull_request' || needs.filter.outputs.taxonomy_only != 'true') && '-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' || '' }}
+      COVER_OPTS: ${{ needs.filter.outputs.test_timing_profile == 'coverage' && '-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' || '' }}
     strategy:
       fail-fast: false
       matrix:
