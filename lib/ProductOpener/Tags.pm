@@ -2881,6 +2881,9 @@ sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
 	}
 
 	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
+		# Taxonomies are loaded when Tags.pm is loaded, and then again by load_data():
+		# skip the ones that are already loaded (taxonomies that failed to load are retried)
+		next if $loaded_taxonomies{$taxonomyid};
 		$log->info("loading taxonomy $taxonomyid");
 		retrieve_tags_taxonomy($taxonomyid, $die_if_some_taxonomies_cannot_be_loaded);
 	}
