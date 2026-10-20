@@ -295,7 +295,8 @@ sub password_signin ($username, $password, $request_ref) {
 		$access_token->{access_token},
 		# use absolute time instead of relative time
 		$time + $access_token->{expires_in},
-		$id_token
+		# return the raw JWT string (not the decoded token), as it is needed as id_token_hint at sign-out
+		$access_token->{id_token}
 	);
 }
 
@@ -474,8 +475,13 @@ sub start_signout ($request_ref) {
 		= $end_session_endpoint
 		. '?post_logout_redirect_uri='
 		. uri_escape($signout_callback_uri)
-		. '&id_token_hint='
-		. uri_escape($id_token)
+		. (
+		# sessions opened through password_signin used to store the decoded id token (a hash ref)
+		# instead of the JWT string: in that case, identify the client with client_id instead
+		ref($id_token)
+		? '&client_id=' . uri_escape($oidc_options{client_id})
+		: '&id_token_hint=' . uri_escape($id_token)
+		)
 		. '&state='
 		. uri_escape($nonce);
 
