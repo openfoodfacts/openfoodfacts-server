@@ -45,6 +45,7 @@
       "ecobalyse_input" : {
          "distribution" : "ambient",
          "ingredients" : [],
+         "ingredients_coverage_percent" : 0,
          "packaging" : [
             {
                "category" : "en:herbs",
@@ -66,7 +67,9 @@
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
@@ -142,6 +145,8 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a"
    ],

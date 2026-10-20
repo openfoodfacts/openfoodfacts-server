@@ -80,6 +80,7 @@ use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use JSON::MaybeXS;
 use Encode;
 use Data::DeepAccess qw(deep_get);
+use Scalar::Util qw(looks_like_number);
 use boolean;
 
 =head1 FUNCTIONS
@@ -99,6 +100,10 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	# Activate physical activity knowledge panel only when specified
 	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
 		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
+
+	# Activate product history knowledge panel only when specified (it is shown only to logged in users)
+	$knowledge_panels_options_ref->{activate_knowledge_panel_product_history}
+		= normalize_boolean(single_param("activate_knowledge_panel_product_history"));
 
 	# Specify if we knowledge panels are requested from the app or the website
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
@@ -823,6 +828,54 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 	return;
 }
 
+=head2 create_environmental_cost_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates the Environmental Cost knowledge panel displaying Ecobalyse ECS breakdown.
+
+The ingredients quantities we send to Ecobalyse are estimated for 100 g of final product
+(e.g. more than 100 g of potatoes may be needed to make 100 g of chips),
+so we consider that the impacts (in points) returned by Ecobalyse are for 100 g of product.
+
+Note: Ecobalyse applies its own ingredients to final product ratios (e.g. for 100 g of apricots,
+the impacts are reported for 80 g of product), so this is an approximation for now.
+
+=cut
+
+sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+	my $ecs = $product_ref->{environmental_impact}{ecs};
+	return unless looks_like_number($ecs);
+
+	# Only show Environmental Cost panel to moderators and admins
+	return unless $options_ref->{moderator} || $options_ref->{admin};
+
+	# Round ECS values to 2 decimal places
+	# (the values come from an external API: return an empty string if the value is not a number)
+	my $format_ecs = sub {
+		my $value = shift // 0;
+		return "" unless looks_like_number($value);
+		return sprintf("%.2f", $value);
+	};
+
+	# The breakdown values sum up to the total ECS
+	my $results_ref = deep_get($product_ref, qw(environmental_impact ecobalyse_response results)) // {};
+
+	my $panel_data_ref = {
+		ecs => $format_ecs->($ecs),
+		ecs_ingredients => $format_ecs->(deep_get($results_ref, qw(recipe ingredientsTotal ecs))),
+		ecs_processing => $format_ecs->(deep_get($results_ref, qw(recipe transform ecs))),
+		ecs_packaging => $format_ecs->(deep_get($results_ref, qw(packaging ecs))),
+		# Transports of ingredients + distribution transports
+		ecs_transport => $format_ecs->(deep_get($results_ref, qw(transports impacts ecs))),
+		ecs_distribution => $format_ecs->(deep_get($results_ref, qw(distribution total ecs))),
+		ecs_preparation => $format_ecs->(deep_get($results_ref, qw(preparation ecs))),
+	};
+
+	create_panel_from_json_template("environmental_cost", "api/knowledge-panels/environment/environmental_cost.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return;
+}
+
 =head2 create_environment_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains all knowledge panels related to the environment.
@@ -855,6 +908,9 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	# Create Environmental-Score related panels
 	if ($options{product_type} eq "food") {
 		create_environmental_score_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Create Environmental Cost panel (Ecobalyse ECS) if we have ECS data
+		create_environmental_cost_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 		if (
 				(defined $product_ref->{environmental_score_data})
