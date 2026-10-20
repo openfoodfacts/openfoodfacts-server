@@ -855,6 +855,7 @@
                   "name" : "palm oil"
                }
             ],
+            "ingredients_coverage_percent" : 94,
             "packaging" : [
                {
                   "category" : "",
@@ -1193,6 +1194,8 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
+         "en:ecobalyse-api-skipped",
+         "en:ecobalyse-ingredients-matched-between-90-and-100",
          "en:environmental-score-changed",
          "en:environmental-score-computed",
          "en:environmental-score-grade-changed",
