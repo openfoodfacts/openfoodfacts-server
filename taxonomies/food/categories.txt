@@ -68079,12 +68079,13 @@ origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0849
 protected_name_type:en: pdo
 
-< en: Olives
+< en: Green olives
 < en: Vegetables from Spain
 es: Aceituna Aloreña de Málaga
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0785
 protected_name_type:en: pdo
+wikidata:en: Q5656396
 
 < en: Vegetables from Spain
 es: Papas Antiguas de Canarias
@@ -119787,7 +119788,7 @@ cs: Olivy
 da: Oliven
 de: Oliven
 es: Aceitunas, Olivas
-fi: oliivit
+fi: Oliivit
 fr: Olives
 he: זיתים
 hr: Masline
@@ -119799,7 +119800,7 @@ pl: Oliwki
 pt: Azeitonas
 ro: Măsline
 ru: Оливки, Маслины
-sv: Oliver, oliv
+sv: Oliver, Oliv
 tr: Zeytin
 agribalyse_proxy_food_code:en: 13147
 agribalyse_proxy_food_name:en: Olive, green, stuffed (anchovy, sweet peppers, etc…)
@@ -119819,6 +119820,19 @@ en: Refrigerated olives
 gpc_category_code:en: 10000238
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of olive from the olive tree, such as Sevillana, Manzanilla and Ascolane, that have no added ingredients or flavourings and can be in various forms, whole, diced, sliced or cut. These products can be/must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Pickles and Shelf Stable Olives.
 gpc_category_name:en: Olives (Perishable)
+
+< en: Olives
+en: Olives in brine
+da: Oliven i saltlage
+fr: Olives en saumure
+hr: Masline u salamuri
+it: Olive in salamoia
+nl: Olijven op zout
+sv: Oliver i saltlag
+# picked black instead of green for ciqual due to being numbered first
+ciqual_proxy_food_code:en: 13032
+ciqual_proxy_food_name:en: Olives, black, in brine
+ciqual_proxy_food_name:fr: Olive noire, en saumure
 
 < en: French vegetables
 < en: Olives
@@ -119849,10 +119863,10 @@ protected_name_type:en: pdo
 < en: Olives
 en: Black olives
 bg: Черни маслини
-da: sorte oliven
-de: schwarze Oliven
+da: Sorte oliven
+de: Schwarze Oliven
 es: Aceitunas negras
-fi: mustat oliivit
+fi: Mustat oliivit
 fr: Olives noires, Olive noire
 hr: Crne masline
 it: Olive nere
@@ -119862,8 +119876,9 @@ pl: Czarne oliwki
 pt: Azeitonas pretas
 ro: Măsline negre
 ru: Маслины чёрные, Чёрные маслины, Оливки чёрные, Чёрные оливки
-sv: svarta oliver
+sv: Svarta oliver
 tr: Siyah zeytin
+wikidata:en: Q56475549
 
 < en: Black olives
 < en: French vegetables
@@ -119871,16 +119886,34 @@ fr: Olives noires de Nyons
 origins:en: en:france, en:nyons
 protected_name_file_number:en: PDO-FR-0374
 protected_name_type:en: pdo
+wikidata:en: Q3350637
 
 < en: Black olives
+< en: Olives in brine
 en: Black olives in brine
 bg: Черни маслини в саламура
+da: Sorte oliven i saltlage
 fr: Olives noires en saumure
 hr: Crne masline u salamuri
 it: Olive nere in brina
+nl: Zwarte olijven op zout
+sv: Svarta oliver i saltlag
 ciqual_food_code:en: 13032
 ciqual_food_name:en: Olives, black, in brine
 ciqual_food_name:fr: Olive noire, en saumure
+
+< en: Black olives in brine
+< en: Black pitted olives
+en: Black pitted olives in brine, Pitted black olives in brine
+da: Sorte oliven uden sten i saltlage
+fr: Olives noires dénoyautées en saumure
+hr: Crne masline bez koštice u salamuri
+it: Olive nere snocciolate in salamoia
+nl: Ontpitte zwarte olijven op zout
+sv: Urkärnade svarta oliver i saltlag
+ciqual_proxy_food_code:en: 13032
+ciqual_proxy_food_name:en: Olives, black, in brine
+ciqual_proxy_food_name:fr: Olive noire, en saumure
 
 < en: Black olives
 en: Black olives in oil, Greek olives
@@ -119924,7 +119957,7 @@ ca: Olives verdes
 da: Grønne oliven
 de: Grüne Oliven
 es: Aceitunas verdes
-fi: vihreät oliivit
+fi: Vihreät oliivit
 fr: Olives vertes
 he: זיתים ירוקים
 hr: Zelene masline
@@ -119936,11 +119969,13 @@ pl: Zielone oliwki
 pt: Azeitonas verdes
 ro: Măsline verzi
 ru: Оливки зелёные, Зелёные оливки, Маслины зелёные, Зелёные маслины
+sv: Gröna oliver
 tr: Yeşil zeytin
 agribalyse_proxy_food_code:en: 13147
 agribalyse_proxy_food_name:en: Olive, green, stuffed (anchovy, sweet peppers, etc…)
 agribalyse_proxy_food_name:fr: Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
 # No Green or black olives in AGB. Only Stuffed olives.
+wikidata:en: Q26879770
 
 < en: Cracked olives
 fr: Olives cassées de la Vallée des Baux-de-Provence
@@ -119980,14 +120015,16 @@ es: Aceitunas verdes partidas aliñadas a la gazpacha
 < en: Pitted olives
 en: Green pitted olives, pitted green olives
 bg: Зелени маслини без костилка
-de: grüne kernlose Oliven, grüne entsteinte Oliven
+da: Grønne oliven uden sten
+de: Grüne kernlose Oliven, Grüne entsteinte Oliven
 es: Aceitunas verdes deshuesadas, Aceitunas verdes sin hueso
-fi: kivettömät vihreät oliivit
+fi: Kivettömät vihreät oliivit
 fr: Olives vertes dénoyautées
 hr: Zelene masline bez koštice
 it: Olive verdi snocciolate
 nl: Ontpitte groene olijven
 ru: Зелёные оливки без косточки, Зелёные маслины без косточки, Оливки зелёные без косточки, Маслины зелёные без косточки
+sv: Urkärnade gröna oliver
 
 < en: Green pitted olives
 < en: Marinated olives
@@ -120076,15 +120113,31 @@ hr: Cijele marinirane zelene masline
 nl: Gemarineerde hele olijven
 
 < en: Green olives
+< en: Olives in brine
 en: Green olives in brine
+da: Grønne oliven i saltlage
 fr: Olives vertes en saumure
 hr: Zelene masline u salamuri
 it: Olive verdi in salamoia
 nl: Groene olijven op zout
 pl: Zielone oliwki w zalewie
+sv: Gröna oliver i saltlag
 ciqual_food_code:en: 13033
 ciqual_food_name:en: Olives, green, in brine
 ciqual_food_name:fr: Olive verte, en saumure
+
+< en: Green olives in brine
+< en: Green pitted olives
+en: Green pitted olives in brine, Pitted green olives in brine
+da: Grønne oliven uden sten i saltlage
+fr: Olives vertes dénoyautées en saumure
+hr: Zelene masline bez koštice u salamuri
+it: Olive verdi snocciolate in salamoia
+nl: Ontpitte groene olijven op zout
+sv: Urkärnade gröna oliver i saltlag
+ciqual_proxy_food_code:en: 13033
+ciqual_proxy_food_name:en: Olives, green, in brine
+ciqual_proxy_food_name:fr: Olive verte, en saumure
 
 < en: Olives
 en: Marinated olives
@@ -120101,29 +120154,31 @@ pl: Oliwki marynowane
 < en: Olives
 en: Pitted olives
 bg: Обезкостени маслини
-de: kernlose Oliven, Entsteinte Oliven
+da: Oliven uden sten
+de: Kernlose Oliven, Entsteinte Oliven
 es: Aceitunas deshuesadas, Aceitunas sin hueso
-fi: kivettömät oliivit
+fi: Kivettömät oliivit
 fr: Olives dénoyautées
 hr: Masline bez koštice
 it: Olive snocciolate, Olive denocciolate
 nl: Ontpitte olijven
 ru: Оливки без косточки, Маслины без косточки
-sv: urkärnade oliver
+sv: Urkärnade oliver
 
 < en: Black olives
 < en: Pitted olives
 en: Black pitted olives, Pitted black olives
 bg: Черни обезкостени маслини
-de: schwarze entsteinte Oliven
+da: Sorte oliven uden sten
+de: Schwarze entsteinte Oliven
 es: Aceitunas negras deshuesadas, Aceitunas negras sin hueso
-fi: mustat kivettömät oliivit
+fi: Mustat kivettömät oliivit
 fr: Olives noires dénoyautées
 hr: Crne masline bez koštice
 it: Olive nere snocciolate
 nl: Zwarte ontpitte olijven
 ru: Чёрные маслины без косточки, Чёрные оливки без косточки, Оливки чёрные без косточки, Маслины чёрные без косточки
-sv: urkärnade svarta oliver, svarta urkärnade oliver
+sv: Urkärnade svarta oliver, Svarta urkärnade oliver
 
 < en: Black olives
 fr: Olives noires de la Vallée des Baux-de-Provence
