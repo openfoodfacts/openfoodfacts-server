@@ -35,13 +35,13 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:rennet",
+         "id" : "en:vegetarian-rennet",
          "is_in_taxonomy" : 1,
          "labels" : "en:vegan",
          "percent_estimate" : 5,
          "percent_max" : 25,
          "percent_min" : 0,
-         "text" : "rennet",
+         "text" : "non-animal rennet",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -77,7 +77,7 @@
       "en:e428",
       "en:Charcoal",
       "en:ferment",
-      "en:rennet",
+      "en:vegetarian-rennet",
       "en:flavouring"
    ],
    "ingredients_percent_analysis" : 1,
@@ -85,6 +85,7 @@
       "en:e428",
       "en:Charcoal",
       "en:ferment",
+      "en:vegetarian-rennet",
       "en:rennet",
       "en:coagulating-enzyme",
       "en:enzyme",
@@ -100,7 +101,7 @@
       "en:e428",
       "en:ferment",
       "en:flavouring",
-      "en:rennet"
+      "en:vegetarian-rennet"
    ],
    "ingredients_without_ciqual_codes_n" : 5,
    "ingredients_without_ecobalyse_ids" : [
@@ -108,7 +109,7 @@
       "en:e428",
       "en:ferment",
       "en:flavouring",
-      "en:rennet"
+      "en:vegetarian-rennet"
    ],
    "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 4,

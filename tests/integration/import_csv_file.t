@@ -12,7 +12,7 @@ use HTTP::Response;
 
 use File::Path qw/make_path remove_tree/;
 
-use ProductOpener::Config '$data_root';
+use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Producers qw/load_csv_or_excel_file convert_file/;
 use ProductOpener::Products "retrieve_product";
@@ -30,6 +30,9 @@ my $outputs_dir = "$test_dir/outputs/$test_id/";
 sub fake_download_image ($image_url) {
 
 	my $fname = (split(m|/|, $image_url))[-1];
+	# Sanitize URL query characters so the fixture filename is valid on Windows.
+	# NTFS does not allow '?', '&', or '=' in filenames.
+	$fname =~ s/[?&=]/_/g;
 	my $image_path = $inputs_dir . $fname;
 	my $response = qobj(
 		is_success => qmeth {return (-e $image_path);},
@@ -54,7 +57,7 @@ sub fake_download_image ($image_url) {
 sub fake_lwp_get_virus_scan_retry {
 	my ($ua, $url, @headers) = @_;
 	if ($url =~ m{^https://drive\.usercontent\.google\.com/download\?}) {
-		my $image_path = $inputs_dir . "uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0";
+		my $image_path = $inputs_dir . "uc_export_download_id_1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0";
 		open(my $image, "<", $image_path);
 		binmode($image);
 		read $image, my $content, -s $image;
@@ -84,6 +87,19 @@ sub fake_lwp_get_permission_denied {
 		'<html><body>You need permission to access this file.</body></html>'
 	);
 }
+
+# The image url of an import is fetched from inside our network, so download_image() refuses a url
+# that does not resolve to a globally routable address. If this mock is called, that check did not
+# happen and the import could be used to reach our internal services (here: the metadata service of
+# the cloud we run on, and our own loopback interface).
+sub fake_lwp_get_should_not_be_called {
+	my ($ua, $url, @headers) = @_;
+	die("an image was downloaded from $url, which should have been refused");
+}
+
+# The Google Drive cases above mock the HTTP layer, but download_image() still checks the addresses
+# the urls resolve to: allow the (mocked) Google Drive hosts so that the tests do not need DNS.
+$server_options{allowed_image_download_hosts} = ["drive.google.com", "drive.usercontent.google.com"];
 
 my @tests = (
 	{
@@ -147,6 +163,13 @@ my @tests = (
 		test_case => "google_drive_image_permission_denied",
 		csv_files => ["google_drive_image_permission_denied.csv"],
 		mock_lwp_get => \&fake_lwp_get_permission_denied,
+	},
+	# An image url that does not resolve to a globally routable address must not be fetched:
+	# the products are imported, but end up with no image.
+	{
+		test_case => "private_image_url",
+		csv_files => ["private_image_url.csv"],
+		mock_lwp_get => \&fake_lwp_get_should_not_be_called,
 	},
 );
 
