@@ -641,6 +641,7 @@
                   "name" : "palm oil"
                }
             ],
+            "ingredients_coverage_percent" : 94,
             "packaging" : [
                {
                   "category" : "",
@@ -2690,7 +2691,7 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "0.0502 g"
+                                 "text" : "0.05 g"
                               }
                            ]
                         },
@@ -2702,7 +2703,7 @@
                                  "text" : "Sodium"
                               },
                               {
-                                 "text" : "~ 0.02008 g"
+                                 "text" : "~ 0.02 g"
                               }
                            ]
                         },
@@ -2711,10 +2712,10 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ legumes"
+                                 "text" : "Fruits, vegetables, legumes"
                               },
                               {
-                                 "text" : "~ 58.3333333333333 %"
+                                 "text" : "~ 58.333 %"
                               }
                            ]
                         }
@@ -2803,7 +2804,7 @@
                                  "text" : "8.5 g"
                               },
                               {
-                                 "text" : "~ 8.50916666666665 g"
+                                 "text" : "~ 8.509 g"
                               }
                            ]
                         },
@@ -2839,7 +2840,7 @@
                                  "text" : "10.5 g"
                               },
                               {
-                                 "text" : "~ 7.51770833333333 g"
+                                 "text" : "~ 7.518 g"
                               }
                            ]
                         },
@@ -2857,7 +2858,7 @@
                                  "text" : "12.5 g"
                               },
                               {
-                                 "text" : "~ 7.0328125 g"
+                                 "text" : "~ 7.033 g"
                               }
                            ]
                         },
@@ -2875,7 +2876,7 @@
                                  "text" : "2 g"
                               },
                               {
-                                 "text" : "~ 0.758333333333333 g"
+                                 "text" : "~ 0.758 g"
                               }
                            ]
                         },
@@ -2893,7 +2894,7 @@
                                  "text" : "4.5 g"
                               },
                               {
-                                 "text" : "~ 2.16375 g"
+                                 "text" : "~ 2.164 g"
                               }
                            ]
                         },
@@ -2905,13 +2906,13 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "0.0502 g"
+                                 "text" : "0.05 g"
                               },
                               {
                                  "text" : "50.2 mg"
                               },
                               {
-                                 "text" : "~ 0.0561979166666667 g"
+                                 "text" : "~ 0.056 g"
                               }
                            ]
                         },
@@ -2923,13 +2924,13 @@
                                  "text" : "Sodium"
                               },
                               {
-                                 "text" : "~ 0.02008 g"
+                                 "text" : "~ 0.02 g"
                               },
                               {
                                  "text" : "?"
                               },
                               {
-                                 "text" : "~ 0.0223072916666667 g"
+                                 "text" : "~ 0.022 g"
                               }
                            ]
                         },
@@ -2938,16 +2939,16 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ legumes"
+                                 "text" : "Fruits, vegetables, legumes"
                               },
                               {
-                                 "text" : "~ 58.3333333333333 %"
+                                 "text" : "~ 58.333 %"
                               },
                               {
                                  "text" : "?"
                               },
                               {
-                                 "text" : "~ 58.3333333333333 %"
+                                 "text" : "~ 58.333 %"
                               }
                            ]
                         }
@@ -3358,6 +3359,8 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
+         "en:ecobalyse-api-skipped",
+         "en:ecobalyse-ingredients-matched-between-90-and-100",
          "en:environmental-score-changed",
          "en:environmental-score-computed",
          "en:environmental-score-grade-changed",
