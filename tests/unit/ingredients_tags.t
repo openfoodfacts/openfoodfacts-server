@@ -9,7 +9,7 @@ $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
-use ProductOpener::Tags qw/canonicalize_taxonomy_tag exists_taxonomy_tag init_emb_codes/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag exists_taxonomy_tag init_emb_codes is_a/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 
 init_emb_codes();
@@ -36,7 +36,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "arôme naturel"}, ["en:natural-flavouring"],],
 	[
 		{lc => "fr", ingredients_text => "arôme naturel de pomme avec d'autres arômes naturels"},
-		["en:natural-apple-flavouring", "en:natural-flavouring"],
+		["fr:arome-naturel-de-pomme-avec-autres-aromes-naturels"],
 	],
 	[
 		{
@@ -181,7 +181,7 @@ my @tests = (
 		["en:e162", "en:e160c", "en:e100"],
 	],
 
-	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:fat", "en:colza-oil"]],
+	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
 
 	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
 	[
@@ -300,10 +300,65 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)"
 		},
-		['en:oil', 'en:palm-oil', 'en:colza-oil']
+		['en:non-hydrogenated-vegetable-oils', 'en:palm-oil', 'en:colza-oil']
 	],
 	[{lc => "fr", ingredients_text => "huile de palme certifiée durable"}, ['en:palm-oil']],
 	[{lc => "fr", ingredients_text => "huile de palme RSPO"}, ['en:palm-oil']],
+	# label synonyms that are part of the name of an ingredient
+	[
+		{lc => "fr", ingredients_text => "colorants : charbon végétal, extraits végétaux à pouvoir colorant (curcuma)"},
+		['en:e153', 'fr:extraits-vegetaux-a-pouvoir-colorant', 'en:turmeric']
+	],
+	[
+		{lc => "fr", ingredients_text => "huile de palme biologique, farine de blé bio"},
+		['en:palm-oil', 'en:wheat-flour']
+	],
+	# processing or end of the name of the ingredient after the closing parenthesis
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"sucre, cacao maigre (11 % de beurre de cacao) en poudre (20%), cacahuètes (arachides) grillées*, oignons (France) émincés 5%, chocolat (sucre, cacao) noir. *issu de l'agriculture biologique"
+		},
+		[
+			'en:sugar', 'en:fat-reduced-cocoa-powder', 'en:roasted-peanut', 'en:onion',
+			'en:dark-chocolate', 'en:cocoa-butter', 'en:sugar', 'en:cocoa'
+		]
+	],
+	[{lc => "fr", ingredients_text => "Sulfate de cuivre (II) pentahydraté"}, ['en:e519']],
+	# footnotes and mentions that are not ingredients
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Farine de blé*, ŒUFS*/** entiers frais, sucre*, sel. *Ingrédients issus de l'agriculture biologique. **Œufs de poules élevées en plein air. Fabriqué dans un atelier utilisant également : céleri, soja."
+		},
+		['en:wheat-flour', 'en:whole-fresh-eggs', 'en:sugar', 'en:salt', 'en:free-range-chicken-eggs']
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Lait*, sel. *Issu d'animaux nés, élevés, abattus et transformés en France. Elaboré à partir de lait origine France. Traces de: fruits à coque, soja."
+		},
+		['en:milk', 'en:salt']
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, beurre de cacao¹, jus de citron concentré (si nécessaire pour réguler l'acidité). ¹Bilan massique certifié Rainforest Alliance. www.ra.org/fr"
+		},
+		['en:sugar', 'en:cocoa-butter', 'en:concentrated-lemon-juice']
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Ingrédients (pourcentages exprimés sur le poids total) : farine de blé\" 50%, sucre de canne\". \"ingrédients issus de l agriculture biologique"
+		},
+		['en:wheat-flour', 'en:cane-sugar']
+	],
 
 	# Russian and / or
 	[{lc => "ru", ingredients_text => "яблоко и малина"}, ["en:apple", "en:raspberry"]],
@@ -337,6 +392,12 @@ foreach my $test_ref (@tests) {
 	extract_ingredients_from_text($product_ref);
 
 	is($product_ref->{ingredients_original_tags}, $expected_tags) or diag Dumper $product_ref;
+}
+
+my $compound = 'fr:arome-naturel-de-pomme-avec-autres-aromes-naturels';
+ok(exists_taxonomy_tag('ingredients', $compound), 'the declared French flavouring compound is known');
+for my $parent ('en:natural-apple-flavouring', 'en:natural-flavouring') {
+	ok(is_a('ingredients', $compound, $parent), "the flavouring compound retains $parent");
 }
 
 my $before = "";

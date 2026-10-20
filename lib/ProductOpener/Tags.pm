@@ -314,6 +314,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 
 %stopwords = ();
 %just_synonyms = ();
+
 my %just_tags = ();    # does not include synonyms that are only synonyms
 my %synonyms = ();
 %synonyms_for = ();
@@ -770,6 +771,11 @@ sub load_tags_images ($lc, $tagtype) {
 # Cache the stopwords regexps to remove stopwords from strings and tagids
 my %stopwords_regexps = ();
 
+sub _invalidate_stopwords_regexps ($tagtype) {
+	delete $stopwords_regexps{$_} for grep {index($_, "$tagtype.") == 0} keys %stopwords_regexps;
+	return;
+}
+
 =head2 remove_stopwords_from_start_or_end_of_string ( $tagtype, $lc, $string )
 
 Remove stopwords (that are specific to each category) from the start or end of a string that has not been normalized.
@@ -1054,7 +1060,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20260806 - fix the computation of levels for parents";
+my $BUILD_TAGS_VERSION = "20261016 - unaccent Romanian, stable identities and complete taxonomy stopwords";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -1371,6 +1377,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	# * <lc>.strings contains an array of stop words
 	# * <lc>.orig the original lines as a string
 	$stopwords{$tagtype} = {};
+	_invalidate_stopwords_regexps($tagtype);
 	# synonyms track know synonyms and associate to their tagid, by language
 	# Note that it contains synonyms and extended synonyms
 	# tagtype -> lc -> tagid stores the lc tagid for this tagid
@@ -1424,6 +1431,31 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		$log->debug('load_tags_taxonomy', {tagtype => $tagtype}) if $log->is_debug();
 
+		# All sources must contribute their stopwords before synonym lookups compile regexps.
+		while (<$IN>) {
+			my $line = sanitize_taxonomy_line($_);
+			next unless $line =~ /^stopwords:(\w\w):(\s*)(.*)/;
+			# stop words definition
+			my $lc = $1;
+			my $rest = $3;
+			# store an orig version as is (but spaces)
+			$stopwords{$tagtype}{$lc . ".orig"} .= "stopwords:$lc:$rest\n";
+			$line = $rest;
+			$line =~ s/^\s+//;    # normalize spaces
+			my @tags = split(/\s*,\s*/, $line);    # split on comma
+			foreach my $tag (@tags) {
+				my $tagid = get_string_id_for_lang($lc, $tag);
+				next if $tagid eq '';
+				defined $stopwords{$tagtype}{$lc} or $stopwords{$tagtype}{$lc} = [];
+				defined $stopwords{$tagtype}{$lc . ".strings"} or $stopwords{$tagtype}{$lc . ".strings"} = [];
+				# normalized version
+				push @{$stopwords{$tagtype}{$lc}}, $tagid;
+				# full text version
+				push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
+			}
+		}
+		seek($IN, 0, 0) or die("Cannot rewind $file_path: $!\n");
+
 		# 1st phase: read translations and synonyms
 
 		my $line_number = 0;
@@ -1441,33 +1473,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			}
 
 			# handle lines of comments
-			next if ($line =~ /^\#/);
+			next if ($line =~ /^\#/ or $line =~ /^stopwords:/);
 
 			#print "new_line: $line\n";
 			if ($line =~ /^</) {
 				# Parent
 				# Ignore in first pass as it may be a synonym, or a translation, for the canonical parent
 			}
-			elsif ($line =~ /^stopwords:(\w\w):(\s*)(.*)/) {
-				# stop words definition
-				my $lc = $1;
-				my $rest = $3;
-				# store an orig version as is (but spaces)
-				$stopwords{$tagtype}{$lc . ".orig"} .= "stopwords:$lc:$rest\n";
-				$line = $rest;
-				$line =~ s/^\s+//;    # normalize spaces
-				my @tags = split(/\s*,\s*/, $line);    # split on comma
-				foreach my $tag (@tags) {
-					my $tagid = get_string_id_for_lang($lc, $tag);
-					next if $tagid eq '';
-					defined $stopwords{$tagtype}{$lc} or $stopwords{$tagtype}{$lc} = [];
-					defined $stopwords{$tagtype}{$lc . ".strings"} or $stopwords{$tagtype}{$lc . ".strings"} = [];
-					# normalized version
-					push @{$stopwords{$tagtype}{$lc}}, $tagid;
-					# full text version
-					push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
-				}
-			}
+
 			elsif ($line =~ /^(synonyms:)?(\w\w):(.*)/) {
 				# line with regular entry or a synonyms entry
 				my $qualifier = $1;    # eventual synonyms prefix
@@ -1498,7 +1511,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					foreach my $tag2 (@tags) {
 
 						my $tag = $tag2;
-						my $possible_canon_tagid = get_lc_tagid($synonyms{$tagtype}, $lc, $tagtype, $tag, "");
+						# Normalized search variants must not merge distinct declared concepts.
+						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{get_string_id_for_lang($lc, $tag)};
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
 							$lc_tagid = $possible_canon_tagid;
@@ -1844,6 +1858,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					}
 
 					$tagid2 = remove_plurals($lc, $tagid2);
+					next if $tagid2 eq "";
 
 					if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
 						# this is a new synonym, add it using same canonical tagid
@@ -2663,6 +2678,7 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 
 	$loaded_taxonomies{$tagtype} = 1;
 	$stopwords{$tagtype} = $taxonomy_ref->{stopwords};
+	_invalidate_stopwords_regexps($tagtype);
 	$synonyms{$tagtype} = $taxonomy_ref->{synonyms};
 	$synonyms_for{$tagtype} = $taxonomy_ref->{synonyms_for};
 	$synonyms_for_extended{$tagtype} = $taxonomy_ref->{synonyms_for_extended};
