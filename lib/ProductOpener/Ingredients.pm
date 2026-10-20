@@ -7783,6 +7783,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# -> "mono- et diglycérides", "di- et triphosphates", "tri- and dicalcium phosphate"
 	my $multi_prefix = '(?:mono|di|tri|tetra|poly)';
 	$text =~ s/\b($multi_prefix)\s?-\s?($and_without_spaces)\s+(?=$multi_prefix)/$1- $2 /ig;
+	# same with another short word (typo, or "and" in another language), so that the dash is not a separator
+	# and we keep 1 ingredient: "mono - ti digliceride" -> "mono- ti digliceride"
+	$text =~ s/\b($multi_prefix)\s?-\s?(\p{L}{1,3})\s+(?=$multi_prefix)/$1- $2 /ig;
 	# "mono et diglycérides" -> "mono- et diglycérides"
 	$text =~ s/\b($multi_prefix)\s+($and_without_spaces)\s+(?=$multi_prefix)/$1- $2 /ig;
 	# "mono-diglycérides", "mono - di-glycérides" -> "mono- et diglycérides"

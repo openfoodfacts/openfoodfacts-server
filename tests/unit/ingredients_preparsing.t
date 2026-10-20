@@ -1456,7 +1456,7 @@ foreach my $test (
 	['de', "Mono - und Diglyceride von Speisefettsäuren", "Mono- und Diglyceride von Speisefettsäuren"],
 	['nl', "mono - en diglyceriden van vetzuren", "mono- en diglyceriden van vetzuren"],
 	['pl', "mono - i diglicerydy kwasów tłuszczowych", "mono- i diglicerydy kwasów tłuszczowych"],
-	['ro', "mono-şi digliceride ale acizilor grași", "mono- şi digliceride ale acizilor grași"],
+	['ro', "mono-şi digliceride ale acizilor grași", "mono- și digliceride ale acizilor grași"],
 	# mono-diglycérides -> mono- et diglycérides
 	['fr', "mono-diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
 	['fr', "mono - diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
@@ -1473,10 +1473,13 @@ foreach my $test (
 	['fr', "di-acétate de sodium, di-phosphates", "diacétate de sodium, diphosphates"],
 	['de', "Mono - natriumglutamat", "Mononatriumglutamat"],
 	['en', "tri-calcium phosphate", "tri-calcium phosphate"],
-	# not joined: short words, and "and" in another language than the ingredients list
+	# not joined to short words
 	['en', "di-t-butyl hydroxyhydrocinnamate", "di-t-butyl hydroxyhydrocinnamate"],
-	['en', "mono - und Diglyceride", "mono - und Diglyceride"],
-	['fr', "mono - and diglycerides", "mono - and diglycerides"],
+	# short word that is not "and" in the language of the ingredients list (typo or other language):
+	# not joined, but the dash is not kept as a separator
+	['en', "mono - und Diglyceride", "mono- und Diglyceride"],
+	['fr', "mono - and diglycerides", "mono- and diglycerides"],
+	['ro', "mono - ti digliceride ale acizilor grași", "mono- ti digliceride ale acizilor grași"],
 	)
 {
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2],
