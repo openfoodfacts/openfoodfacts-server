@@ -1359,6 +1359,13 @@ my @tests = (
 		id => 'de-palm-and-coconut-oil',
 		'lc' => 'de',
 		'ingredients_text' => 'Palm- und Kokosnuss-Pflanzenfett'
+	},
+	# combined symbols: both labels are applied
+	{
+		id => 'fr-combined-symbols',
+		lc => 'fr',
+		ingredients_text =>
+			"Farine de BLÉ*/** 45%, OEUFS entiers*/** 12.5%, sucre*. *Ingrédients issus de l'agriculture biologique. **Ingrédients issus du commerce équitable."
 	}
 );
 
@@ -1421,7 +1428,7 @@ foreach my $test (
 foreach my $test (
 	['pt', 'INS 500ii, INS 450iii', 'e500ii, e450iii'],
 	['ro', 'apă și sare', 'apă și sare'],
-	['ro', 'lapte şi soia', 'lapte şi soia'],
+	['ro', 'lapte şi soia', 'lapte și soia'],    # ş (cedilla) is normalized to ș (comma below)
 	['ro', 'E 330 şi E 331', 'e330, e331'],
 	)
 {
