@@ -1,0 +1,16 @@
+{
+   "api_call" : {
+      "body" : {
+         "product" : {
+            "product_name" : "My hazelnut spread"
+         },
+         "services" : [
+            "estimate_environmental_impact"
+         ]
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/api/v3/product_services"
+   }
+}

@@ -44,6 +44,7 @@
                "name" : "sel"
             }
          ],
+         "ingredients_coverage_percent" : 100,
          "packaging" : [
             {
                "category" : "en:canned-foods",
@@ -248,7 +249,10 @@
    "known_ingredients_n" : 3,
    "lc" : "fr",
    "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
    ],
    "testid" : "fr-canned-green-beans",
    "unknown_ingredients_n" : 0
