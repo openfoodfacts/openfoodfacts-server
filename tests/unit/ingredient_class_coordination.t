@@ -20,6 +20,12 @@ for my $text ('Minerals & Vitamins', 'Minerals and Vitamins', 'Vitamins and Mine
 	is([grep {exists $_->{ingredients}} @$ingredients], [], "$text has no invented class-to-class hierarchy");
 }
 
+is(
+	[map {$_->{id}} @{parse('Minerals and taurine')}],
+	['en:minerals', 'en:taurine'],
+	'a class and a named substance remain siblings'
+);
+
 for my $text ('Minerals & Vitamins & Amino acids', 'Amino acids and Minerals and Vitamins') {
 	my $classes = parse($text);
 	is(

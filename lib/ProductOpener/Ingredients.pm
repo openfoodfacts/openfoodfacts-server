@@ -6510,15 +6510,10 @@ sub separate_additive_class ($ingredients_lc, $additive_class, $spaces, $colon, 
 	$after =~ s/^(.*?)$separators(.*)$/$1/;
 	#print STDERR "separate_additive_class - after 2 : $after\n";
 
-	# A coordinated class is a peer, not a substance belonging to this class.
-	# Separate it with a comma so that additive extraction, which splits on separators, still sees both classes.
-	my $conjunction = $and;
-	$conjunction =~ s/(?:^|(?<=\|)) +| +(?=\||$)//g;
-	if ($after =~ /^\s*(?:$conjunction)\s+(.+?)(?:\s+(?:$conjunction)\s+.*)?$/i) {
-		my $next_class = canonicalize_taxonomy_tag($ingredients_lc, 'ingredients', $1);
-		# Vitamins are the only nutrient class that is not in additives_classes.
-		return $additive_class . ', '
-			if exists_taxonomy_tag('additives_classes', $next_class) || $next_class eq 'en:vitamins';
+	# A class directly followed by "and" starts a list, not its substance.
+	# Check before stopword removal, and keep a comma so additive extraction sees each item.
+	if ((" $after" =~ s/\s+/ /gr) =~ /^(?:$and)/i) {
+		return $additive_class . ", ";
 	}
 
 	# also look if we have additive 1 and additive 2
