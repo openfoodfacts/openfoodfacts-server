@@ -87,13 +87,24 @@ class TestPlansAndHistory(TestWorkspace):
             grouper.timing_file.write_text(data)
             self.assertEqual(self.generate(DynamicTestGrouper('unit'))[0]['total_time'], 30)
 
-    def test_profiles_do_not_mix_and_unknown_or_deleted_tests_are_discarded(self):
+    def test_profile_histories_do_not_mix_and_unknown_or_deleted_tests_are_discarded(self):
         file = self.add_test('file.t')
         covered = DynamicTestGrouper('unit', profile='coverage')
         covered._save_cache(covered.timing_file, {file: 123, 'tests/unit/deleted.t': 900})
         plain = DynamicTestGrouper('unit', profile='no-coverage')
         self.assertEqual(covered.load_timings(), {file: 123})
-        self.assertEqual(self.generate(plain)[0]['total_time'], 30)
+        self.assertEqual(plain.load_timings(), {})
+
+    def test_no_coverage_plan_borrows_only_what_it_has_not_measured(self):
+        measured, borrowed = self.add_test('measured.t'), self.add_test('borrowed.t')
+        self.add_test('never_measured.t')
+        covered = DynamicTestGrouper('unit', profile='coverage')
+        covered._save_cache(covered.timing_file, {measured: 100, borrowed: 200})
+        plain = DynamicTestGrouper('unit', profile='no-coverage')
+        plain._save_cache(plain.timing_file, {measured: 40})
+        self.assertEqual(plain.plan_timings(), {measured: 40, borrowed: 200})
+        self.assertEqual(plain.load_timings(), {measured: 40})
+        self.assertEqual(sum(group['total_time'] for group in self.generate(plain)), 40 + 200 + 30)
 
     def test_zero_duration_tests_still_fill_every_group(self):
         files = [self.add_test(f'file_{i}.t') for i in range(8)]

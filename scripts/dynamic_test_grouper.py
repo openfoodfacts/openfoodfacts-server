@@ -92,6 +92,16 @@ class DynamicTestGrouper:
         return {test: duration for test, value in data.items()
                 if test in known_tests and (duration := valid_duration(value)) is not None}
 
+    def plan_timings(self):
+        """Own history first; `no-coverage` borrows `coverage` timings it has not measured yet."""
+        timings = self.load_timings()
+        if self.profile == 'coverage':
+            return timings
+        # shortcut: coverage runs are slower in absolute terms but weigh files alike,
+        # which is what balancing needs; drop this once no-coverage history is rich enough.
+        borrowed = DynamicTestGrouper(self.test_type, profile='coverage').load_timings()
+        return {**borrowed, **timings}
+
     def calculate_optimal_group_count(self, test_files, timings):
         if not test_files:
             return 0
@@ -105,7 +115,7 @@ class DynamicTestGrouper:
     def generate_test_groups(self):
         """Reconcile the current files and timings on every plan generation."""
         test_files = self._discover_test_files()
-        timings = self.load_timings()
+        timings = self.plan_timings()
         if self.num_groups is None:
             self.num_groups = self.calculate_optimal_group_count(test_files, timings)
         else:

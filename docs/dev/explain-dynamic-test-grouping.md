@@ -24,7 +24,11 @@ setup and teardown, rather than individual assertion times. Only known,
 unambiguously matched files with valid durations and successful suites count.
 
 Coverage and no-coverage timings are stored separately. Taxonomy-only PRs use
-`no-coverage`; other PRs and main-branch unit runs use `coverage`.
+`no-coverage`; other PRs and main-branch unit runs use `coverage`. The
+`no-coverage` history stays sparse, because few recent PRs are taxonomy-only. A
+`no-coverage` plan therefore borrows the `coverage` timing for any file it has
+not measured yet. Borrowed values are only used for planning and are never copied
+into the `no-coverage` history.
 
 ## CI data flow
 
