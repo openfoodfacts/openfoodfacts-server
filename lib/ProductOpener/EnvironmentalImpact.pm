@@ -215,6 +215,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 	my $ingredients_quantities_ref = get_ecobalyse_ingredients_quantities($product_ref);
 	my $total_ingredients_quantity = $ingredients_quantities_ref->{total_quantity};
+	my $total_ingredients_quantity_with_ecobalyse_id = $ingredients_quantities_ref->{total_quantity_with_ecobalyse_id};
 
 	foreach my $leaf_ref (@{$ingredients_quantities_ref->{ingredients}}) {
 		my $quantity = $leaf_ref->{quantity};

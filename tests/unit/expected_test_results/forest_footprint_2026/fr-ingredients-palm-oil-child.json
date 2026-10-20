@@ -30,13 +30,7 @@
    },
    "ingredients" : [
       {
-<<<<<<< HEAD
-         "ciqual_proxy_food_code" : "17001",
-         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
-         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
-=======
          "ciqual_food_code" : "17001",
->>>>>>> main
          "from_palm_oil" : "maybe",
          "id" : "en:vegetable-oil",
          "ingredients" : [
@@ -147,15 +141,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-<<<<<<< HEAD
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
-=======
    "ingredients_without_ecobalyse_ids" : [
       "en:vegetable-oil"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
->>>>>>> main
    "known_ingredients_n" : 5,
    "lc" : "fr",
    "misc_tags" : [
