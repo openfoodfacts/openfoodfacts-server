@@ -49,6 +49,9 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --compute-history	compute history and completeness
 --check-quality	run quality checks
 --compute-codes
+--compute-ecobalyse	call the Ecobalyse API to compute the environmental cost (existing results are reused if the request did not change)
+	e.g. retry products with stale results: --query misc_tags=en:ecobalyse-results-stale --compute-ecobalyse
+--force-ecobalyse-call	with --compute-ecobalyse, call the Ecobalyse API even if the request did not change
 --fix-serving-size-mg-to-ml
 --fix-product-id-missing-owner-prefix	fix products on the pro platform where the _id field is missing the owner prefix (e.g. code instead of org-xxx/code)
 --index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
@@ -78,7 +81,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::EnvironmentalScore qw(compute_environmental_score);
-use ProductOpener::EnvironmentalImpact qw(estimate_environmental_impact_service);
+use ProductOpener::EnvironmentalImpact qw(estimate_environmental_impact_service format_ecobalyse_call_stats);
 use ProductOpener::Packaging
 	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
 use ProductOpener::ForestFootprint2026 qw(compute_forest_footprint_2026);
@@ -150,6 +153,7 @@ my $mongodb_to_mongodb = '';
 my $compute_environmental_score = '';
 my $compute_forest_footprint = '';
 my $compute_ecobalyse = '';
+my $force_ecobalyse_call = '';
 my $fix_nutrition_data_per = '';
 my $fix_nutrition_data = '';
 my $compute_main_countries = '';
@@ -198,6 +202,7 @@ GetOptions(
 	"compute-environmental_score" => \$compute_environmental_score,
 	"compute-forest-footprint" => \$compute_forest_footprint,
 	"compute-ecobalyse" => \$compute_ecobalyse,
+	"force-ecobalyse-call" => \$force_ecobalyse_call,
 	"check-quality" => \$check_quality,
 	"compute-sort-key" => \$compute_sort_key,
 	"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
@@ -1417,7 +1422,8 @@ while (my $product_ref = $cursor->next) {
 		if ($compute_ecobalyse) {
 			my @errors = ();
 			# skip_ecobalyse_call = 0 means we actually call the API
-			estimate_environmental_impact_service($product_ref, {}, \@errors, 0);
+			# (unless the request is the same as for the existing results, and --force-ecobalyse-call is not set)
+			estimate_environmental_impact_service($product_ref, {}, \@errors, 0, $force_ecobalyse_call);
 			# Do not mark products with failed Ecobalyse calls as processed (with the new update_key),
 			# so that they can be retried in a later run
 			next if @errors;
@@ -1717,6 +1723,9 @@ print STDERR "products_changed: $products_changed\n";
 print STDERR "products_new_version_created: $products_new_version_created\n";
 print STDERR "products_silently_updated: $products_silently_updated\n";
 print STDERR "products_pushed_to_redis: $products_pushed_to_redis\n";
+
+# Ecobalyse API calls made with --compute-ecobalyse or by analyze_and_enrich_product_data()
+print STDERR format_ecobalyse_call_stats();
 
 # List orgs with products that had their to-be-exported status fixed
 if ($fix_to_be_exported) {

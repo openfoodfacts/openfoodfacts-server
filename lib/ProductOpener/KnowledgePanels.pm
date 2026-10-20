@@ -894,6 +894,8 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 		ecs_per_product => ($has_per_product ? format_ecs_value($ecs_per_product) : ""),
 		quantity => $quantity,
 		rows => \@rows_data,
+		# The results were computed before the latest changes to the product (we could not get new results)
+		stale => ($environmental_impact_ref->{ecobalyse_stale} ? 1 : 0),
 	};
 
 	create_panel_from_json_template("environmental_cost", "api/knowledge-panels/environment/environmental_cost.tt.json",
