@@ -90,28 +90,19 @@ is(normalize_packager_codes("SI 917 ES"), "SI 917 EC", "SI: normalized code corr
 is(normalize_packager_codes("DK 1234 EF"), "DK 1234 EC", "DK: normalized code correctly");
 is(
 	normalize_packager_codes(normalize_packager_codes("CZ 62870058 ES")),
-	"CZ 62870058 EC", "CZ: normalizing code twice does not change it any more than normalizing once"
+	"CZ 62870058 EC",
+	"CZ: normalizing code twice does not change it any more than normalizing once"
 );
-is(
-	normalize_packager_codes(normalize_packager_codes("DK 1234 EF")),
-	"DK 1234 EC", "DK: normalizing code twice does not change it any more than normalizing once"
-);
+is(normalize_packager_codes(normalize_packager_codes("DK 1234 EF")),
+	"DK 1234 EC", "DK: normalizing code twice does not change it any more than normalizing once");
 is(
 	localize_packager_code(normalize_packager_codes("CZ 62870058 ES")),
-	"CZ 62870058 ES", "CZ: round-tripped code correctly"
+	"CZ 62870058 ES",
+	"CZ: round-tripped code correctly"
 );
-is(
-	localize_packager_code(normalize_packager_codes("HU 12345 ES")),
-	"HU 12345 ES", "HU: round-tripped code correctly"
-);
-is(
-	localize_packager_code(normalize_packager_codes("SI 917 ES")),
-	"SI 917 ES", "SI: round-tripped code correctly"
-);
-is(
-	localize_packager_code(normalize_packager_codes("DK 1234 EF")),
-	"DK 1234 EF", "DK: round-tripped code correctly"
-);
+is(localize_packager_code(normalize_packager_codes("HU 12345 ES")), "HU 12345 ES", "HU: round-tripped code correctly");
+is(localize_packager_code(normalize_packager_codes("SI 917 ES")), "SI 917 ES", "SI: round-tripped code correctly");
+is(localize_packager_code(normalize_packager_codes("DK 1234 EF")), "DK 1234 EF", "DK: round-tripped code correctly");
 
 # Guards: suffix-less and collision-prone formats stay untouched
 is(normalize_packager_codes("LT 12-345 A"), "LT 12-345 A", "LT: official suffix-less format stays unchanged");
