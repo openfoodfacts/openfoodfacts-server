@@ -48,7 +48,7 @@ EXTRABOLD_URL = (
     "source/components/ui/fonts/Marianne-ExtraBold.woff2"
 )
 
-DEFAULT_OUTPUT = Path(__file__).resolve().parents[2] / "conf/nginx/njs/environmental_cost_label_data.js"
+OUTPUT = Path(__file__).resolve().parents[2] / "conf/nginx/njs/environmental_cost_label_data.js"
 
 CHARS = "0123456789 "
 UNITS = {"g": " pts/100g", "ml": " pts/100ml"}
@@ -61,12 +61,9 @@ def fetch(url_or_path):
     return Path(url_or_path).read_bytes()
 
 
-def kerning_table(font):
-    """Return a function giving the GPOS pair kerning (in font units) between two glyph names.
-
-    Only the "kern" feature with pair adjustment lookups (type 2, possibly wrapped
-    in extension lookups) is supported, which is what Marianne uses."""
-    gpos = font["GPOS"].table
+def pair_adjustment_subtables(ttfont):
+    """Pair adjustment subtables (GPOS lookup type 2, possibly wrapped in extension lookups) of the "kern" feature"""
+    gpos = ttfont["GPOS"].table
     lookup_indexes = set()
     for feature_record in gpos.FeatureList.FeatureRecord:
         if feature_record.FeatureTag == "kern":
@@ -80,37 +77,52 @@ def kerning_table(font):
                 subtable = subtable.ExtSubTable
             if subtable.LookupType == 2:
                 subtables.append(subtable)
+    return subtables
+
+
+def x_advance(record):
+    return getattr(record.Value1, "XAdvance", 0) or 0
+
+
+def pair_kerning(subtable, left, right):
+    """Kerning between two glyph names in one pair adjustment subtable (0 if none)"""
+    coverage = subtable.Coverage.glyphs
+    if left not in coverage:
+        return 0
+    if subtable.Format == 1:
+        # Format 1: list of pairs for each first glyph
+        pair_set = subtable.PairSet[coverage.index(left)]
+        record = next((r for r in pair_set.PairValueRecord if r.SecondGlyph == right), None)
+        return x_advance(record) if record is not None else 0
+    if subtable.Format == 2:
+        # Format 2: kerning between classes of glyphs
+        class1 = subtable.ClassDef1.classDefs.get(left, 0)
+        class2 = subtable.ClassDef2.classDefs.get(right, 0)
+        return x_advance(subtable.Class1Record[class1].Class2Record[class2])
+    return 0
+
+
+def kerning_table(ttfont):
+    """Return a function giving the GPOS pair kerning (in font units) between two glyph names.
+
+    Only the "kern" feature with pair adjustment lookups is supported, which is what Marianne uses.
+    The first subtable with a non zero kerning for the pair is used."""
+    subtables = pair_adjustment_subtables(ttfont)
 
     def kern(left, right):
-        for subtable in subtables:
-            coverage = subtable.Coverage.glyphs
-            if left not in coverage:
-                continue
-            if subtable.Format == 1:
-                pair_set = subtable.PairSet[coverage.index(left)]
-                for record in pair_set.PairValueRecord:
-                    if record.SecondGlyph == right:
-                        return getattr(record.Value1, "XAdvance", 0) or 0
-            elif subtable.Format == 2:
-                class1 = subtable.ClassDef1.classDefs.get(left, 0)
-                class2 = subtable.ClassDef2.classDefs.get(right, 0)
-                record = subtable.Class1Record[class1].Class2Record[class2]
-                value = getattr(record.Value1, "XAdvance", 0) or 0
-                if value:
-                    return value
-        return 0
+        return next((value for value in (pair_kerning(t, left, right) for t in subtables) if value), 0)
 
     return kern
 
 
 class Font:
     def __init__(self, data):
-        self.font = TTFont(io.BytesIO(data))
-        self.cmap = self.font.getBestCmap()
-        self.glyph_set = self.font.getGlyphSet()
-        self.hmtx = self.font["hmtx"]
-        self.upm = self.font["head"].unitsPerEm
-        self.kern = kerning_table(self.font)
+        self.ttfont = TTFont(io.BytesIO(data))
+        self.cmap = self.ttfont.getBestCmap()
+        self.glyph_set = self.ttfont.getGlyphSet()
+        self.hmtx = self.ttfont["hmtx"]
+        self.upm = self.ttfont["head"].unitsPerEm
+        self.kern = kerning_table(self.ttfont)
 
     def glyph_name(self, char):
         return self.cmap[ord(char)]
@@ -156,7 +168,6 @@ def main():
     parser.add_argument("--extrabold", default=EXTRABOLD_URL, help="Marianne ExtraBold font (URL or file)")
     parser.add_argument("--medium", default=MEDIUM_URL, help="Marianne Medium font (URL or file)")
     parser.add_argument("--ecopass-simple-ts", default=ECOPASS_SIMPLE_TS_URL, help="ecopass simple.ts (URL or file)")
-    parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
     args = parser.parse_args()
 
     simple_ts = fetch(args.ecopass_simple_ts).decode("utf-8")
@@ -186,8 +197,8 @@ def main():
         "// See conf/nginx/njs/README.md\n"
         f"export default {json.dumps(data, ensure_ascii=False, separators=(',', ':'))};\n"
     )
-    Path(args.output).write_text(output, encoding="utf-8")
-    print(f"Wrote {args.output} ({len(output)} bytes)")
+    OUTPUT.write_text(output, encoding="utf-8")
+    print(f"Wrote {OUTPUT} ({len(output)} bytes)")
 
 
 if __name__ == "__main__":
