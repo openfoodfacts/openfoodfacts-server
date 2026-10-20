@@ -5,18 +5,28 @@ on:
   issue_comment:
     types: [created, edited]
 
+permissions:
+  # The comments reactions and the pull request metadata read below need these; the push of
+  # the changes uses the release token, passed to the push step only.
+  contents: read
+  issues: write
+  pull-requests: read
+
 jobs:
   # Action to update test results by issuing /lint
   run_lint:
     name: "On demand linting"
+    # These actions run the code of the pull request, in the context of this repository: only
+    # let a user who has write access to the repository trigger them
     if: |
       github.event.issue.pull_request &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) &&
       (github.event.comment.body == '/lint')
     runs-on: ubuntu-latest
     steps:
     - &step-reaction-seen
       name: Add “seen” reaction to comment
-      uses: peter-evans/create-or-update-comment@v5
+      uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       with:
         comment-id: ${{ github.event.comment.id }}
         reactions: eyes
@@ -31,20 +41,23 @@ jobs:
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
-        GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ github.token }}
     - &checkout-fork-repo
       name: Checkout
-      uses: actions/checkout@v7
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         # we need to checkout the fork repository
         # see https://github.com/stefanzweifel/git-auto-commit-action?tab=readme-ov-file#workflow-should-run-in-base-repository
         fetch-depth: 1
         repository: "${{ steps.get-branch.outputs.repository }}"
         ref: "${{ steps.get-branch.outputs.branch }}"
-        # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
-        # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
-        # So this is a personal access token
-        token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        # The linting and tests steps below run the code of the pull request, so no
+        # credential may be left in the workspace: it would be readable from .git/config by
+        # that code. The token of this workflow is only used to read the pull request.
+        # The push of the changes uses the release token, added to the remote by the
+        # authenticate-for-push step, once the code of the pull request has run.
+        token: ${{ github.token }}
+        persist-credentials: false
     # we need origin/main to have comparison linting work !
     - &fetch-origin-main
       name: Fetch origin/main
@@ -54,8 +67,18 @@ jobs:
     - &run-linting
       name: Run linting
       run: make lint front_lint
+    - &authenticate-for-push
+      name: Authenticate for the push
+      # Add the release token to the remote just before pushing, and only to this step: we
+      # can't use GITHUB_TOKEN here because, github actions can't trigger actions
+      # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
+      # So this is a personal access token
+      run: git remote set-url origin "https://x-access-token:${RELEASE_PLEASE_TOKEN}@github.com/${REPOSITORY}.git"
+      env:
+        RELEASE_PLEASE_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+        REPOSITORY: "${{ steps.get-branch.outputs.repository }}"
     - name: Push changes if needed
-      uses: stefanzweifel/git-auto-commit-action@v7
+      uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
       with:
         commit_message: "chore: Linting changes"
         branch: "${{ steps.get-branch.outputs.branch }}"
@@ -68,7 +91,7 @@ jobs:
         create_branch: no
     - &step-reaction-completed
       name: Add “completed” reaction to comment
-      uses: peter-evans/create-or-update-comment@v5
+      uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       with:
         comment-id: ${{ github.event.comment.id }}
         reactions: rocket
@@ -77,8 +100,10 @@ jobs:
   # Action to update test results by issuing /update_tests_results
   update_test_results:
     name: "On demand Update Tests Results"
+    # See the comment on the run_lint job
     if: |
       github.event.issue.pull_request &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) &&
       (github.event.comment.body == '/update_tests_results')
     runs-on: ubuntu-latest
     steps:
@@ -88,14 +113,17 @@ jobs:
     - &run-update-tests-results
       name: Run update tests results
       run: make update_tests_results
+    - *authenticate-for-push
     - name: Push changes if needed
-      uses: stefanzweifel/git-auto-commit-action@v7
+      uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
       with:
         commit_message: "test: Update tests results"
         branch: "${{ steps.get-branch.outputs.branch }}"
+        file_pattern: 'tests/**/expected_test_results/**'
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
+        add_options: '--all'
         push_options: ""
         status_options: '--untracked-files=no'
         skip_dirty_check: false
@@ -105,8 +133,10 @@ jobs:
   # Action to lint _and_ update test results in one go
   lint_and_update_test_results:
     name: "On demand linting and updating of test results"
+    # See the comment on the run_lint job
     if: |
       github.event.issue.pull_request &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) &&
       ((github.event.comment.body == '/lint+update_test_results') ||
       (github.event.comment.body == '/lint+update_tests_results'))
     runs-on: ubuntu-latest
@@ -115,10 +145,13 @@ jobs:
     - *get-repository-owner-branch
     - *checkout-fork-repo
     - *fetch-origin-main
+    - name: Create folders
+      run: make create_folders
     - *run-linting
     - *run-update-tests-results
+    - *authenticate-for-push
     - name: Push changes if needed
-      uses: stefanzweifel/git-auto-commit-action@v7
+      uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
       with:
         commit_message: "chore: Linting and test results changes"
         branch: "${{ steps.get-branch.outputs.branch }}"

@@ -28,7 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Auth qw/write_auth_deprecated_headers/;
@@ -99,7 +99,6 @@ if (single_param('jqm')) {
 	}
 	my $data = encode_json(\%response);
 
-	write_cors_headers();
 	write_auth_deprecated_headers();
 	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
