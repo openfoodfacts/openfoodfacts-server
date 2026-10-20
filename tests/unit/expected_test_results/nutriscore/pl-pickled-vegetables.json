@@ -74,14 +74,7 @@
                "name" : "chrzan"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 82
       },
       "ecobalyse_request" : {
          "data" : {
@@ -110,12 +103,6 @@
                {
                   "id" : "a4b546fa-a89a-5373-82aa-e94112e3fd48",
                   "mass" : 7.83333333333334
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
                }
             ]
          },
@@ -277,6 +264,8 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-c-2023-d",
+      "en:ecobalyse-ingredients-matched-between-80-and-89",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"

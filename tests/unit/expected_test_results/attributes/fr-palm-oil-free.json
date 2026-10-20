@@ -435,14 +435,7 @@
                "name" : "sucre"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 90
       },
       "ecobalyse_request" : {
          "data" : {
@@ -459,12 +452,6 @@
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
                   "mass" : 9.375
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
                }
             ]
          },
@@ -853,6 +840,8 @@
    "lc" : "fr",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-computed",

@@ -7,7 +7,11 @@
          "transports" : {
             "air" : 0,
             "impacts" : {
+<<<<<<< HEAD
                "ecs" : 10.1656
+=======
+               "ecs" : 0.858958
+>>>>>>> main
             },
             "road" : 600,
             "roadCooled" : 0,
@@ -16,10 +20,14 @@
          }
       },
       "packaging" : {
-         "ecs" : 79.89
+         "ecs" : 0
       },
       "perKg" : {
+<<<<<<< HEAD
          "ecs" : 1892.84
+=======
+         "ecs" : 851.246
+>>>>>>> main
       },
       "preparation" : {
          "ecs" : 0
@@ -53,6 +61,7 @@
          }
       },
       "scoring" : {
+<<<<<<< HEAD
          "all" : 1892.84,
          "biodiversity" : 919.543,
          "climate" : 505.552,
@@ -63,10 +72,26 @@
          "ecs" : 189.284
       },
       "totalMass" : 1.0959,
+=======
+         "all" : 851.246,
+         "biodiversity" : 574.798,
+         "climate" : 106.735,
+         "health" : 62.2229,
+         "resources" : 108.025
+      },
+      "total" : {
+         "ecs" : 78.8254
+      },
+      "totalMass" : 0.0926,
+>>>>>>> main
       "transports" : {
          "air" : 18000,
          "impacts" : {
+<<<<<<< HEAD
             "ecs" : 27.6924
+=======
+            "ecs" : 6.28126
+>>>>>>> main
          },
          "road" : 11900,
          "roadCooled" : 0,

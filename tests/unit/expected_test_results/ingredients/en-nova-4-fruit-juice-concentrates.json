@@ -3,15 +3,20 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
+<<<<<<< HEAD
          "ecobalyse_id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
          "ecobalyse_name" : "Jus de pomme FR -2025-",
          "id" : "en:apple-juice",
+=======
+         "ecobalyse_proxy_id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
+         "ecobalyse_proxy_name" : "Jus de pomme FR -2025-",
+         "id" : "en:concentrated-apple-juice",
+>>>>>>> main
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "processing" : "en:concentrated",
-         "text" : "apple juice",
+         "text" : "apple juice concentrates",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
@@ -29,10 +34,11 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:apple-juice"
+      "en:concentrated-apple-juice"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
+      "en:concentrated-apple-juice",
       "en:apple-juice",
       "en:fruit-juice",
       "en:fruit",
