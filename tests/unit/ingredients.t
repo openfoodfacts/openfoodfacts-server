@@ -1466,6 +1466,52 @@ puffed orange and caramelized unknown_fruit4.",
 				"vet (plantaardige oorsprong), gelatine (dierlijke oorsprong), natuurlijke aroma's (plantaardig), E120 (dierlijk)",
 		}
 	],
+	# Origin adjectives
+	[
+		'sv-nordisk-rapsolja',
+		# https://se.openfoodfacts.org/product/7311442111401/vegansk-majonn%C3%A4s-kavli
+		{
+			lc => "sv",
+			ingredients_text => "Nordisk rapsolja, vatten, socker",
+		}
+	],
+	# Sheep's and goat's milk
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/14853
+	[
+		'en-sheep-and-goat-milk',
+		{
+			lc => "en",
+			ingredients_text => "Pasteurised sheep's and goat's milk, salt, starter culture, rennet.",
+		}
+	],
+	# “Str. Thermophilus” abbreviation
+	[
+		'de-str-thermophilus',
+		# https://de.openfoodfacts.org/produkt/5411188119098/natur-mit-kokosnuss-alpro
+		{
+			lc => "de",
+			ingredients_text =>
+				"_Sojabasis_ (Wasser, geschälte _Sojabohnen_ (10,4%)], Kokosmilch (4,3%) (Kokoscreme, Wasser), Zucker, Tricalciumcitrat, Säureregulatoren (Natriumcitrate, Citronensäure), Stabilisator (Pektine), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherol-tatige Extract, Fettsäureester der Ascorbinsäure), Vitamine (B12, D2), Joghurtkulturen (Str. Thermophilus, L. bulgaricus).",
+		}
+	],
+	# Romanian: legacy cedilla forms (ş ţ) and missing diacritics
+	[
+		'ro-cedilla-and-missing-diacritics',
+		{
+			lc => "ro",
+			ingredients_text =>
+				"Faina alba de grau, zahar, ulei de rapiţă, emulsifianti (lecitina din floarea soarelui, mono - şi digliceride ale acizilor graşi), conservanti: sorbat de potasiu si benzoat de sodiu, ţelină. Poate conţine urme de muştar, lapte şi produse derivate.",
+		}
+	],
+	# Romanian: phrases that are not ingredients
+	[
+		'ro-ignore-phrases',
+		{
+			lc => "ro",
+			ingredients_text =>
+				"Lapte normalizat (98%), cultură starter, condimente în proporţii variabile. Conține o sursă de fenilalanină. A se consuma de preferinţă înainte de: vezi pe ambalaj. Lot: vezi capac. Ambalat în atmosferă protectoare. Valoare energetică: 250 kJ. Producător: SC Exemplu SRL, Str. Florilor nr. 1, Jud. Cluj, România.",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

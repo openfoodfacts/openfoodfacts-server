@@ -33,6 +33,51 @@ is(
 	'"<a href=\"https://agribalyse.ademe.fr/app/aliments/[% product.environmental_score_data.agribalyse.code %]\">"'
 );
 
+# The escaped value has to be valid JSON on its own: it is interpolated into a JSON string in the
+# panel, and the panel is not built at all if it does not parse.
+# JSON does not allow the control characters unescaped inside a string, and the backslash has to be
+# escaped before the quote, otherwise the escaper used to leave a quote unescaped when the value
+# already contained a backslash.
+
+foreach my $test_case (
+	['a plain value', 'a value', '"a value"'],
+	['a quote', 'say "hello"', '"say \\"hello\\""'],
+	['a trailing backslash', 'a value\\', '"a value\\\\"'],
+	['a backslash before a quote', 'a\\"b', '"a\\\\\\"b"'],
+	['a tab', "a\tvalue", '"a\\u0009value"'],
+	['a control character', "a\x01value", '"a\\u0001value"'],
+	['a newline', "a\nvalue", '"a\\nvalue"'],
+	['a carriage return', "a\rvalue", '"a\\nvalue"'],
+	# \R matches the vertical tab and the form feed too, and they become \n
+	['a vertical tab', "a\x0bvalue", '"a\\nvalue"'],
+	['a form feed', "a\x0cvalue", '"a\\nvalue"'],
+	['a delete character', "a\x7fvalue", '"a\\u007fvalue"'],
+	['an undefined value', undef, '""'],
+	)
+{
+	my ($desc, $value, $expected) = @{$test_case};
+	my $escaped = ProductOpener::KnowledgePanels::convert_multiline_string_to_singleline($value);
+	is($escaped, $expected, "$desc is escaped for a JSON string");
+
+	my $ok = eval {decode_json('{"h":' . $escaped . '}')->{h}; 1};
+	ok($ok, "$desc produces valid JSON") or diag($@);
+}
+
+# The same for the variant that collapses whitespace: the value must still be valid JSON
+
+foreach my $test_case (
+	['a tab', "a\t\tvalue", '"a value"'],
+	['a control character', "a\x01value", '"a\\u0001value"'],
+	['a backslash before a quote', 'a\\"b', '"a\\\\\\"b"'],
+	)
+{
+	my ($desc, $value, $expected) = @{$test_case};
+	my $escaped
+		= ProductOpener::KnowledgePanels::convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces(
+		$value);
+	is($escaped, $expected, "$desc is escaped for a JSON string (without line breaks)");
+}
+
 load_data();
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
