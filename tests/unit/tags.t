@@ -566,6 +566,16 @@ is(canonicalize_taxonomy_tag('fr', 'packaging_materials', 'Gaz / CO2 - Dioxide d
 my $regexps_ref = generate_regexps_matching_taxonomy_entries("test", "list_of_regexps", {});
 compare_to_expected_results($regexps_ref, "$expected_result_dir/regexps.json", $update_expected_results);
 
+# with include_xx, all xx synonyms should be added to all languages,
+# even languages with very few translations (e.g. nn has only 1 unit) (entries are iterated in hash order)
+my $units_regexps_ref = generate_regexps_matching_taxonomy_entries("units", "unique_regexp", {include_xx => 1});
+foreach my $language ("nn", "nb", "en") {
+	my %units = map {$_ => 1} split(/\|/, $units_regexps_ref->{$language});
+	foreach my $unit ("g", "kg", "mg", "ml", "l") {
+		ok($units{$unit}, "xx unit $unit is included in the units regexp for $language");
+	}
+}
+
 # xx: entries for ingredients should be used to match in all languages
 is(canonicalize_taxonomy_tag('pl', 'ingredients', 'Lactobacillus bulgaricus'), "en:lactobacillus-bulgaricus");
 

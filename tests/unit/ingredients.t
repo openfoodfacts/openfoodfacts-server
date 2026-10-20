@@ -801,6 +801,14 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 				made with 150 g of tomatoes per 100ml, prepared with: 50% of potatoes"
 		}
 	],
+	# units from the xx language need to be recognized in languages with few unit translations
+	[
+		"nn-specific-ingredients-quantity-per-100g",
+		{
+			lc => "nn",
+			ingredients_text => "Bringebær 80%, vatn, fortjukkingsmiddel (pektin). 80 g bær pr. 100 g."
+		}
+	],
 	[
 		"fr-content-of-ingredient",
 		{

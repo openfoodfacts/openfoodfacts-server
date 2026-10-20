@@ -726,7 +726,7 @@ sub unit_only_string ($ingredients_lc, $string) {
 		grep {length} (
 			_compound_unit_regexp_alternatives(), @UNIT_ACTIVITY_NUMERATORS,
 			@UNIT_MASS_NUMERATORS, "(?i:\N{U+00B5}g|\N{U+03BC}g|ug)",
-			$units_regexps{$ingredients_lc} || '',
+			$units_regexps{$ingredients_lc} // $units_regexps{xx} // '',
 		)
 	);
 	$units =~ s{\\/}{(?:/|\N{U+2044}|\N{U+FF0F})}g;
@@ -757,7 +757,7 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		# shorter taxonomy tokens such as "mg" or "g".
 		# After protect_compound_unit_slashes the solidus is U+2044, so rewrite
 		# taxonomy-escaped slashes to accept /, U+2044 and fullwidth ／.
-		my $units_regexp_in_lc = $units_regexps{$ingredients_lc} || '';
+		my $units_regexp_in_lc = $units_regexps{$ingredients_lc} // $units_regexps{xx} // '';
 		$units_regexp_in_lc =~ s{\\/}{(?:/|\N{U+2044}|\N{U+FF0F})}g;
 		my $compound_units = join('|', _compound_unit_regexp_alternatives());
 		my $activity_units = join('|', @UNIT_ACTIVITY_NUMERATORS);
