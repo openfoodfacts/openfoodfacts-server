@@ -53,6 +53,9 @@ BEGIN {
 		&request_param
 		&get_http_request_header
 		&create_user_agent
+		&ip_is_not_public
+		&resolve_host_addresses
+		&url_is_fetchable
 		&is_post_request
 		&is_cross_site_request
 		&require_same_origin_post
@@ -68,6 +71,8 @@ use Encode;
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset cookie url_param);
 use Data::DeepAccess qw(deep_get);
 use LWP::UserAgent;
+use Socket qw(AF_INET AF_INET6 SOCK_STREAM inet_ntop);
+use URI;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::RequestStats qw(:all);
@@ -315,6 +320,252 @@ sub create_user_agent {
 	$ua->agent("Mozilla/5.0 (compatible; Open Food Facts/$version; +https://world.$server_domain)");
 
 	return $ua;
+}
+
+# Address ranges that are not globally routable: fetching an url that resolves to one of them lets
+# a caller reach services that are only reachable from inside our network (databases, caches, the
+# internal web servers, or the 169.254.169.254 metadata service of the cloud we run on).
+# IPv4 prefixes: "this" network, RFC1918, carrier grade NAT, loopback, link-local (metadata
+# service), IETF protocol assignments, the documentation and benchmarking ranges, 6to4 relay
+# anycast, multicast and reserved space (which includes the broadcast address).
+
+my @non_public_ipv4_prefixes = (
+	["0.0.0.0", 8],
+	["10.0.0.0", 8],
+	["100.64.0.0", 10],
+	["127.0.0.0", 8],
+	["169.254.0.0", 16],
+	["172.16.0.0", 12],
+	["192.0.0.0", 24],
+	["192.0.2.0", 24],
+	["192.88.99.0", 24],
+	["192.168.0.0", 16],
+	["198.18.0.0", 15],
+	["198.51.100.0", 24],
+	["203.0.113.0", 24],
+	["224.0.0.0", 4],
+	["240.0.0.0", 4],
+);
+
+# IPv6 prefixes: unspecified, loopback, discard-only, documentation, unique local (RFC4193),
+# link-local, site-local (deprecated) and multicast.
+
+my @non_public_ipv6_prefixes = (
+	["::", 128],
+	["::1", 128],
+	["100::", 64],
+	["2001:db8::", 32],
+	["fc00::", 7],
+	["fe80::", 10],
+	["fec0::", 10],
+	["ff00::", 8],
+);
+
+=head2 ip_is_not_public($ip_address)
+
+Returns 1 if an IPv4 or IPv6 address is not globally routable: loopback, private, carrier grade
+NAT, link-local (including the 169.254.169.254 metadata service), unique local, site-local,
+multicast, documentation, benchmarking or reserved space. IPv4-mapped and IPv4-compatible IPv6
+addresses are classified on the IPv4 address they carry.
+
+Returns 0 for a globally routable address, and 1 for a value that is not an address at all: an
+address we cannot classify is not an address we want to fetch.
+
+=head3 Arguments
+
+=head4 $ip_address - string: an IPv4 or IPv6 address, in its usual textual form
+
+=head3 Return value
+
+1 if the address is not globally routable or cannot be parsed, 0 if it is
+
+=cut
+
+sub ip_is_not_public ($ip_address) {
+
+	# An IPv6 address can carry a scope id (fe80::1%eth0): it is not part of the address itself,
+	# and an address that needs one is a link-local address
+	$ip_address =~ s/%.*$// if defined $ip_address;
+
+	my $address_bytes = (defined $ip_address) ? Socket::inet_pton(AF_INET, $ip_address) : undef;
+
+	if (defined $address_bytes) {
+		foreach my $prefix (@non_public_ipv4_prefixes) {
+			return 1 if ip_address_matches_prefix($address_bytes, AF_INET, $prefix->[0], $prefix->[1]);
+		}
+		return 0;
+	}
+
+	$address_bytes = (defined $ip_address) ? Socket::inet_pton(AF_INET6, $ip_address) : undef;
+
+	if (defined $address_bytes) {
+		# IPv4-mapped (::ffff:a.b.c.d) and IPv4-compatible (::a.b.c.d) addresses are classified
+		# on the IPv4 address they carry, so that ::ffff:127.0.0.1 is not seen as public
+		if (    (substr($address_bytes, 0, 10) eq ("\0" x 10))
+			and ((substr($address_bytes, 10, 2) eq ("\xff\xff")) or (substr($address_bytes, 10, 2) eq ("\0\0"))))
+		{
+			return ip_is_not_public(join(".", unpack("C4", substr($address_bytes, 12, 4))));
+		}
+
+		foreach my $prefix (@non_public_ipv6_prefixes) {
+			return 1 if ip_address_matches_prefix($address_bytes, AF_INET6, $prefix->[0], $prefix->[1]);
+		}
+		return 0;
+	}
+
+	# Not an address that we can classify
+	return 1;
+}
+
+=head2 ip_address_matches_prefix($address_bytes, $family, $prefix, $prefix_length)
+
+Returns 1 if the packed address ($address_bytes, in the given address family) starts with the
+given prefix, or 0 if it does not. Not exported, only used by ip_is_not_public().
+
+=cut
+
+sub ip_address_matches_prefix ($address_bytes, $family, $prefix, $prefix_length) {
+
+	my $prefix_bytes = Socket::inet_pton($family, $prefix);
+	return 0 if not defined $prefix_bytes;
+
+	my $full_bytes = int($prefix_length / 8);
+
+	return 0 if substr($address_bytes, 0, $full_bytes) ne substr($prefix_bytes, 0, $full_bytes);
+
+	my $remaining_bits = $prefix_length % 8;
+
+	if ($remaining_bits) {
+		my $mask = (0xFF << (8 - $remaining_bits)) & 0xFF;
+		return 0
+			if ((ord(substr($address_bytes, $full_bytes, 1)) & $mask)
+			!= (ord(substr($prefix_bytes, $full_bytes, 1)) & $mask));
+	}
+
+	return 1;
+}
+
+=head2 resolve_host_addresses($host)
+
+Returns an array ref with the addresses a host name resolves to, or an empty array ref if it does
+not resolve. An address written literally in the url is returned as it is, without asking for a
+DNS resolution.
+
+=head3 Arguments
+
+=head4 $host - string: a host name or an IP address
+
+=head3 Return value
+
+array ref with the IPv4 and IPv6 addresses the host resolves to (possibly empty)
+
+=cut
+
+sub resolve_host_addresses ($host) {
+
+	return [] if (not defined $host) or ($host eq "");
+
+	if (defined Socket::inet_pton(AF_INET, $host) or defined Socket::inet_pton(AF_INET6, $host)) {
+		return [$host];
+	}
+
+	my ($error, @entries) = Socket::getaddrinfo($host, undef, {socktype => SOCK_STREAM});
+
+	if ($error) {
+		$log->debug("host does not resolve", {host => $host, error => $error}) if $log->is_debug();
+		return [];
+	}
+
+	my @addresses = ();
+
+	foreach my $entry (@entries) {
+		# The address is unpacked from the sockaddr of the family we asked the resolver for
+		my $numeric_address;
+
+		if (defined $entry->{family}) {
+			if ($entry->{family} == AF_INET) {
+				(undef, $numeric_address) = Socket::unpack_sockaddr_in($entry->{addr});
+				$numeric_address = Socket::inet_ntop(AF_INET, $numeric_address);
+			}
+			elsif ($entry->{family} == AF_INET6) {
+				(undef, $numeric_address) = Socket::unpack_sockaddr_in6($entry->{addr});
+				$numeric_address = Socket::inet_ntop(AF_INET6, $numeric_address);
+			}
+		}
+
+		if ((defined $numeric_address) and (not grep {$_ eq $numeric_address} @addresses)) {
+			push @addresses, $numeric_address;
+		}
+	}
+
+	return \@addresses;
+}
+
+=head2 url_is_fetchable($url, $allowed_hosts_ref)
+
+Returns 1 if an url can be fetched from the server: its scheme is http or https, it has a host,
+and every address that host resolves to is globally routable. Otherwise returns 0.
+
+The second argument defaults to the hosts that an operator listed in
+$server_options{allowed_image_download_hosts}: those are fetched without resolving them, for an
+operator who imports from a supplier serving images from a non globally routable address.
+
+Note that the address is resolved again by the HTTP client: a host name whose DNS answer changes
+between our check and the request can still be reached (DNS rebinding). Pinning the address would
+mean connecting to it ourselves, which would break virtual hosting and the TLS certificate check.
+
+=head3 Arguments
+
+=head4 $url - string: the url that would be fetched
+
+=head4 $allowed_hosts_ref - optional array ref: host names that are fetched without a check
+
+=head3 Return value
+
+1 if the url can be fetched, 0 otherwise
+
+=cut
+
+sub url_is_fetchable ($url, $allowed_hosts_ref = $server_options{allowed_image_download_hosts}) {
+
+	my $uri = (defined $url) ? URI->new($url) : undef;
+
+	if (   (not defined $uri)
+		or (not defined $uri->scheme)
+		or ($uri->scheme !~ /^https?$/i)
+		or (not defined $uri->host)
+		or ($uri->host eq ""))
+	{
+		$log->debug("url has no http(s) scheme or no host", {url => $url}) if $log->is_debug();
+		return 0;
+	}
+
+	my $host = $uri->host;
+
+	if (defined $allowed_hosts_ref) {
+		foreach my $allowed_host (@{$allowed_hosts_ref}) {
+			return 1 if lc($allowed_host) eq lc($host);
+		}
+	}
+
+	my $addresses_ref = resolve_host_addresses($host);
+
+	if (not scalar @{$addresses_ref}) {
+		$log->warn("url host does not resolve", {url => $url, host => $host}) if $log->is_warn();
+		return 0;
+	}
+
+	foreach my $ip_address (@{$addresses_ref}) {
+		if (ip_is_not_public($ip_address)) {
+			$log->warn(
+				"url resolves to an address that is not globally routable",
+				{url => $url, host => $host, ip_address => $ip_address}
+			) if $log->is_warn();
+			return 0;
+		}
+	}
+
+	return 1;
 }
 
 =head2 is_post_request($request_ref)
