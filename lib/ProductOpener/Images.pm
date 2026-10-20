@@ -171,11 +171,11 @@ use boolean;
 
 =head1 SUPPORTED IMAGE TYPES
 
-gif, jpeg, jpf, png, heic
+gif, jpeg, jpf, png, heic, heif
 
 =cut
 
-my $supported_extensions = "gif|jpeg|jpg|png|heic";
+my $supported_extensions = "gif|jpeg|jpg|png|heic|heif";
 
 =head2 VALID IMAGE TYPES
 
