@@ -1,0 +1,184 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_name" : "Farine UE -2025-",
+         "id" : "en:white-wheat-flour",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 56.25,
+         "percent_max" : 100,
+         "percent_min" : 12.5,
+         "text" : "Faina alba de grau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 21.875,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "zahar",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "17130",
+         "ecobalyse_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_name" : "Huile de colza par défaut -2025-",
+         "from_palm_oil" : "no",
+         "id" : "en:rapeseed-oil",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.9375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "ulei de rapiță",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sunflower-lecithin",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.46875,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "lecitina din floarea soarelui",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "additive_class" : "en:emulsifier",
+         "from_palm_oil" : "maybe",
+         "id" : "en:e471",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.734375,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "mono-și digliceride ale acizilor grași",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "additive_class" : "en:preservative",
+         "id" : "en:e202",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.3671875,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "sorbat de potasiu",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "additive_class" : "en:preservative",
+         "id" : "en:e211",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "benzoat de sodiu",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ecobalyse_id" : "30ceca68-7047-5ac6-8abe-786e5bc98005",
+         "ecobalyse_name" : "Céleri Origine Inconnue",
+         "id" : "en:celery",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "țelină",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:may-contain-palm-oil" : [
+         "en:e471"
+      ],
+      "en:maybe-vegan" : [
+         "en:sugar",
+         "en:e471"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:e471"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:may-contain-palm-oil",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "ro",
+   "ingredients_n" : 8,
+   "ingredients_n_tags" : [
+      "8",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:white-wheat-flour",
+      "en:sugar",
+      "en:rapeseed-oil",
+      "en:sunflower-lecithin",
+      "en:e471",
+      "en:e202",
+      "en:e211",
+      "en:celery"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:white-wheat-flour",
+      "en:wheat-flour",
+      "en:cereal-flour",
+      "en:wheat",
+      "en:flour",
+      "en:cereal",
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:rapeseed-oil",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
+      "en:sunflower-lecithin",
+      "en:e322i",
+      "en:e322",
+      "en:e471",
+      "en:e202",
+      "en:e211",
+      "en:celery",
+      "en:stalk-vegetable",
+      "en:vegetable"
+   ],
+   "ingredients_text" : "Faina alba de grau, zahar, ulei de rapiţă, emulsifianti (lecitina din floarea soarelui, mono - şi digliceride ale acizilor graşi), conservanti: sorbat de potasiu si benzoat de sodiu, ţelină. Poate conţine urme de muştar, lapte şi produse derivate.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 8,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:celery",
+      "en:e202",
+      "en:e211",
+      "en:e471",
+      "en:sunflower-lecithin"
+   ],
+   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e202",
+      "en:e211",
+      "en:e471",
+      "en:sunflower-lecithin"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 8,
+   "lc" : "ro",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
