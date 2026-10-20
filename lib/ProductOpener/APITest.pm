@@ -857,7 +857,8 @@ sub execute_request ($test_ref, $ua) {
 	# We would need to re-construct the url
 	my $final_url = $response->request->uri;
 	if ($url ne $final_url) {
-		diag("Warning: redirects are not supported by APITest.pm!!! Got a redirect to " . $final_url);
+		my $case_desc = defined $test_case ? " in test case '$test_case'" : "";
+		diag("⚠️  [APITest] Warning$case_desc: redirects are not supported by APITest.pm! (requested '$url', redirected to '$final_url')");
 	}
 
 	# Remove cookies set in the test request (but not other cookies like session cookies)

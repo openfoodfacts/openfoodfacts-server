@@ -77,19 +77,46 @@ jobs:
         cache: 'npm'
         cache-dependency-path: 'package-lock.json'
     - name: gulp build
-      run: make front_build
+      run: |
+        echo "::group::📦 Building frontend assets (npm run build)"
+        echo "🚀 Starting frontend asset build via make front_build..."
+        if make front_build; then
+          echo -e "\033[1;32m✅ Frontend build completed successfully.\033[0m"
+          echo "::endgroup::"
+        else
+          echo "::endgroup::"
+          echo "::error title=Frontend Build Failed::'npm run build' failed during frontend compilation"
+          echo -e "\033[1;31m❌ Frontend build failed! Check the build logs above for details.\033[0m"
+          exit 1
+        fi
     - name: lint
-      run: make front_lint
+      run: |
+        echo "::group::🕵️ Linting frontend code (npm run lint)"
+        echo "🔍 Running JavaScript, CSS, and SCSS linters via make front_lint..."
+        if make front_lint; then
+          echo -e "\033[1;32m✅ Frontend linting passed cleanly with no errors.\033[0m"
+          echo "::endgroup::"
+        else
+          echo "::endgroup::"
+          echo "::error title=Frontend Lint Failed::ESLint or Stylelint found issues in frontend files"
+          echo -e "\033[1;31m❌ Frontend linting failed! Check the lint errors above.\033[0m"
+          exit 1
+        fi
     - name: Verify package-lock is the right one
       run: |
+        echo "::group::🔒 Verifying package-lock.json consistency"
         cp package-lock.json package-lock.json.orig
         make update_package_lock
         if ! diff -q package-lock.json.orig package-lock.json
         then
-          echo "Package lock is not up to date, please run make update_package_lock"
+          echo "::endgroup::"
+          echo "::error title=Package Lock Outdated::package-lock.json is not up to date, please run make update_package_lock"
+          echo -e "\033[1;31m❌ Package lock is not up to date! Run 'make update_package_lock' to synchronize it.\033[0m"
           diff -u package-lock.json.orig package-lock.json
           exit 1
         fi
+        echo -e "\033[1;32m✅ package-lock.json is up-to-date.\033[0m"
+        echo "::endgroup::"
 
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
@@ -299,22 +326,31 @@ jobs:
           echo "export USER_GID=$(id -g)" >> .envrc
 
       - name: Rebuild taxonomies for Open Food Facts (off)
-        run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        run: |
+          echo "::group::🥫 Rebuilding taxonomies for Open Food Facts (off)"
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+          echo "::endgroup::"
 
       - name: Rebuild taxonomies for Open Beauty Facts (obf)
         run: |
+          echo "::group::🥫 Rebuilding taxonomies for Open Beauty Facts (obf)"
           source env/setenv.sh obf
           make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+          echo "::endgroup::"
 
       - name: Rebuild taxonomies for Open Products Facts (opf)
         run: |
+          echo "::group::🥫 Rebuilding taxonomies for Open Products Facts (opf)"
           source env/setenv.sh opf
           make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+          echo "::endgroup::"
 
       - name: Rebuild taxonomies for Open Pet Food Facts (opff)
         run: |
+          echo "::group::🥫 Rebuilding taxonomies for Open Pet Food Facts (opff)"
           source env/setenv.sh opff
           make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+          echo "::endgroup::"
 
   build_frontend:
     name: 🏗 Build frontend image for tests
@@ -401,18 +437,33 @@ jobs:
         image: "openfoodfacts-server/backend:dev"
         download_tmp_dir: ${{ runner.temp }}
     - name: build taxonomies (should use cache)
-      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      run: |
+        echo "::group::🥫 Building taxonomies (using cache)"
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        echo "::endgroup::"
     - name: check taxonomies
-      run: make check_taxonomies
+      run: |
+        echo "::group::🥫 Checking taxonomies consistency"
+        make check_taxonomies
+        echo "::endgroup::"
     - name: check perltidy
-      run: make check_perltidy
       if: needs.filter.outputs.taxonomy_only == 'false'
+      run: |
+        echo "::group::🐪 Checking Perl formatting with perltidy"
+        make check_perltidy
+        echo "::endgroup::"
     - name: check perlcritic
-      run: make check_critic
       if: needs.filter.outputs.taxonomy_only == 'false'
+      run: |
+        echo "::group::🐪 Checking Perl best practices with perlcritic"
+        make check_critic
+        echo "::endgroup::"
     - name: check perl
-      run: make check_perl
       if: needs.filter.outputs.taxonomy_only == 'false'
+      run: |
+        echo "::group::🐪 Checking Perl syntax compilation"
+        make check_perl
+        echo "::endgroup::"
 
   generate_perl_sbom:
     name: 📦 Generate Perl SBOM
@@ -673,24 +724,33 @@ jobs:
     # Build test-specific taxonomies and language files
     # These use the cached taxonomies from build_backend when possible
     - name: Build taxonomies for tests
-      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      run: |
+        echo "::group::🥫 Building taxonomies for unit tests"
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        echo "::endgroup::"
     - name: Build language files for tests
-      run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      run: |
+        echo "::group::🌐 Building language files for unit tests"
+        make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        echo "::endgroup::"
 
     # Run unit tests for this specific test group (parallel execution)
     # Matrix strategy splits tests across 6 parallel jobs for faster execution
     # Now uses dynamically generated groups for optimal load balancing
     - name: Run unit test group ${{ matrix.test-group }}
       run: |
+        echo "::group::🧪 Executing unit test group ${{ matrix.test-group }}"
         echo "🥫 Running dynamically balanced unit test group ${{ matrix.test-group }}..."
         make codecov_prepare
         make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" unit_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        echo "::endgroup::"
 
     # Update timing data after test execution for future optimization
     # This enables the system to learn and improve load balancing over time
     - name: Update test timing data
       if: always()
       run: |
+        echo "::group::⏱️ Updating test timing metrics"
         echo "🥫 Updating timing data from test results..."
         if [ -d "tests/unit/outputs" ] && [ "$(ls -A tests/unit/outputs/*.xml 2>/dev/null)" ]; then
           python3 scripts/dynamic_test_grouper.py --type=unit --update-timings --junit-dir=tests/unit/outputs
@@ -698,6 +758,12 @@ jobs:
         else
           echo "🥫 No JUnit XML files found, skipping timing update"
         fi
+        echo "::endgroup::"
+
+    - name: 📊 Summarize unit test results
+      if: always()
+      run: |
+        python3 scripts/summarize_test_results.py --junit-dir=tests/unit/outputs --type=unit --group=${{ matrix.test-group }}
 
     # Generate coverage results for this test group
     # Codecov will automatically merge coverage from all parallel test groups
@@ -794,10 +860,17 @@ jobs:
         FILE: "${{ steps.downloadfrontendimage.outputs.download_path }}"
       run: rm $FILE
 
+    # Build test-specific taxonomies and language files
     - name: Build taxonomies for tests
-      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      run: |
+        echo "::group::🥫 Building taxonomies for integration tests"
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        echo "::endgroup::"
     - name: Build language files for tests
-      run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      run: |
+        echo "::group::🌐 Building language files for integration tests"
+        make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        echo "::endgroup::"
 
     # Run integration tests for this specific test group (parallel execution)
     # Matrix strategy splits tests across 9 parallel jobs (more than unit tests)
@@ -805,15 +878,18 @@ jobs:
     # Now uses dynamically generated groups for optimal load balancing
     - name: Run integration test group ${{ matrix.test-group }}
       run: |
+        echo "::group::🧪 Executing integration test group ${{ matrix.test-group }}"
         echo "🥫 Running dynamically balanced integration test group ${{ matrix.test-group }}..."
         make codecov_prepare
         make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" integration_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        echo "::endgroup::"
 
     # Update timing data after test execution for future optimization
     # Integration test timing data is especially valuable due to higher variance
     - name: Update test timing data
       if: always()
       run: |
+        echo "::group::⏱️ Updating integration test timing metrics"
         echo "🥫 Updating integration test timing data from test results..."
         if [ -d "tests/integration/outputs" ] && [ "$(ls -A tests/integration/outputs/*.xml 2>/dev/null)" ]; then
           python3 scripts/dynamic_test_grouper.py --type=integration --update-timings --junit-dir=tests/integration/outputs
@@ -821,6 +897,12 @@ jobs:
         else
           echo "🥫 No JUnit XML files found, skipping timing update"
         fi
+        echo "::endgroup::"
+
+    - name: 📊 Summarize integration test results
+      if: always()
+      run: |
+        python3 scripts/summarize_test_results.py --junit-dir=tests/integration/outputs --type=integration --group=${{ matrix.test-group }}
 
     # Generate coverage results for this test group
     # Codecov will automatically merge coverage from all parallel test groups
@@ -859,12 +941,29 @@ jobs:
     steps:
       - name: Check if unit and integration tests succeeded or fail
         run: |
-          if [ ${{ needs.build_backend.result }} != "success" ] || [ ${{ needs.unit_tests.result }} = "failure" ] || [ ${{ needs.integration_tests.result }} = "failure" ]
+          echo "============================================================"
+          echo "📋 FINAL TEST EXECUTION STATUS SUMMARY"
+          echo "============================================================"
+          echo "• Backend Build:     ${{ needs.build_backend.result }}"
+          echo "• Unit Tests:        ${{ needs.unit_tests.result }}"
+          echo "• Integration Tests: ${{ needs.integration_tests.result }}"
+          echo "============================================================"
+
+          if [ -n "$GITHUB_STEP_SUMMARY" ]; then
+            echo "## 🐪 Perl Test Suite Final Status" >> $GITHUB_STEP_SUMMARY
+            echo "| Component | Status |" >> $GITHUB_STEP_SUMMARY
+            echo "| :--- | :---: |" >> $GITHUB_STEP_SUMMARY
+            echo "| 🏗️ **Backend Dev Image Build** | ${{ needs.build_backend.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+            echo "| 🐪 **Perl Unit Tests** | ${{ needs.unit_tests.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+            echo "| 🐪 **Perl Integration Tests** | ${{ needs.integration_tests.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "${{ needs.build_backend.result }}" != "success" ] || [ "${{ needs.unit_tests.result }}" = "failure" ] || [ "${{ needs.integration_tests.result }}" = "failure" ]
           then
-            echo "Some tests did fail"
+            echo -e "\033[1;31m❌ Some tests or build jobs failed! Review the detailed test summaries above.\033[0m"
             exit 1
           else
-            echo "All Perl unit and integration test groups finished."
+            echo -e "\033[1;32m✅ All Perl unit and integration test groups finished successfully! 🎉\033[0m"
           fi
 
   tests_dev:
