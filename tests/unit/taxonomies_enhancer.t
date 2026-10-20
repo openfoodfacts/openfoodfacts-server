@@ -185,13 +185,14 @@ ok(
 ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-čuvati-na-suhom-mjestu"),
 	'hr has one stop word as well')
 	or diag Dumper $product_ref;
+# Romanian is unaccented (and ş / ţ are normalized to ș / ț), so the old orthography is now recognized
 ok(
-	has_tag(
+	!has_tag(
 		$product_ref,
 		"taxonomies_enhancer",
 		"ingredients-ro-mono-\x{15f}i-digliceride-ale-acizilor-gra\x{15f}i-is-possible-typo-for-ro-mono-\x{219}i-digliceride-ale-acizilor-gra\x{219}i"
 	),
-	'ro emulsifier kept whole is flagged as old orthography typo'
+	'ro emulsifier with old orthography (cedilla) is no longer flagged as a typo'
 ) or diag Dumper $product_ref;
 
 $product_ref = {
@@ -430,7 +431,7 @@ ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-ču
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"ingredients-ro-carbonara-de-sodiu-is-possible-typo-for-ro-carbonați-de-sodiu"
+		"ingredients-ro-carbonara-de-sodiu-is-possible-typo-for-ro-carbonati-de-sodiu"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo in taxonomy'
 ) or diag Dumper $product_ref;
@@ -455,7 +456,7 @@ ok(
 	has_tag(
 		$product_ref,
 		"taxonomies_enhancer",
-		"ingredients-ro-monoti-digliceride-ale-acizilor-graşi-is-possible-typo-for-ro-mono-și-digliceride-ale-acizilor-grași"
+		"ingredients-ro-monoti-digliceride-ale-acizilor-grasi-is-possible-typo-for-ro-mono-si-digliceride-ale-acizilor-grasi"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo or synonym'
 ) or diag Dumper $product_ref;

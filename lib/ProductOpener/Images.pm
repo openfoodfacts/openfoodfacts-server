@@ -152,7 +152,7 @@ use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::URL qw/format_subdomain/;
-use ProductOpener::Users qw/%User/;
+use ProductOpener::Users qw/%User is_admin_user/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::ProductSchemaChanges;    # needed for convert_schema_1001_to_1002_refactor_images_object()
 use ProductOpener::Booleans qw/normalize_boolean/;
@@ -1387,9 +1387,26 @@ The owner id of the product from which the image is moved.
 
 The function returns an error message if there was an error, or undef if the operation was successful.
 
+=head3 Notes
+
+Moving or trashing an uploaded image is a moderator action, so the function refuses to run
+for any other principal, even if a caller forgets to check that itself. The equivalent check on
+the API v3 route is the "image_delete" permission, which ProductOpener::Permissions maps to
+admin-or-moderator.
+
 =cut
 
 sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
+
+	# Deleting or relocating another contributor's uploaded image is a moderator action:
+	# do not rely on the caller having checked that.
+	if (not(is_admin_user($user_id) or $User{moderator})) {
+		$log->warn(
+			"process_image_move - user does not have permission to move or delete images",
+			{user_id => $user_id, code => $code, imgids => $imgids, move_to => $move_to}
+		) if $log->is_warn();
+		return "error - no permission";
+	}
 
 	# move images only to trash or another valid barcode (number)
 	if (($move_to ne 'trash') and (not is_valid_code($move_to))) {
