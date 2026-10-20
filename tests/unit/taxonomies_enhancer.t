@@ -473,14 +473,16 @@ ok(
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo or synonym'
 ) or diag Dumper $product_ref;
-# Degenerate tag: flags agent de afanare as a typo of itself (distance 0). Fires again
-# with the comma form of the class terms, which keeps it as an ingredient entry.
+# No longer fires: since the Romanian unaccent normalization of #14965, the fixture
+# text "agent de afanare" (without diacritics) is recognized as the ro synonym
+# "Agent de afânare" of the raising agent entry, so it is in the taxonomy and can no
+# longer be flagged as a degenerate typo of itself (distance 0).
 ok(
-	has_tag(
+	!has_tag(
 		$product_ref, "taxonomies_enhancer",
 		"ingredients-ro-agent-de-afanare-is-possible-typo-for-ro-agent-de-afanare"
 	),
-	'cs-hr-hu-pl-ro-sk-sl, ro typo or synonym again'
+	'cs-hr-hu-pl-ro-sk-sl, ro agent de afanare is a known translation, not a typo'
 ) or diag Dumper $product_ref;
 
 # example based on 20201845
