@@ -80,8 +80,8 @@ while (my $product_path = $iter->()) {
 			print("Would renormalize $product_id: $product_ref->{emb_codes}\n");
 		}
 		else {
-			store_product("renormalize-packager-codes-script", $product_ref,
-				"Renormalize packager codes (issue #14961)");
+			store_product("renormalize-packager-codes-script",
+				$product_ref, "Renormalize packager codes (issue #14961)");
 		}
 	}
 }
