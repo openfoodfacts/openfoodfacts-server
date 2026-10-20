@@ -167,6 +167,12 @@ $flavor = "opff";
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# Romanian: diacritics (ă â î ș ț, and the legacy cedilla forms ş ţ) are very often missing,
+	# and there are very few conflicts in ingredients, labels etc. (ă vs a mostly marks the definite article)
+	ro => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	# English has very few accented words, and they are very often not accented by users or in ingredients lists etc.
 	en => {
 		unaccent => 1,
@@ -221,6 +227,11 @@ $options{export_limit} = 10000;
 # Recent changes limits
 $options{default_recent_changes_page_size} = 20;
 $options{max_recent_changes_page_size} = 1000;
+# Maximum number of changes that can be skipped before the first one returned. MongoDB walks over
+# every skipped document on a $natural sort, and both page and page size are capped separately,
+# so without this a request for the last allowed page of the largest allowed page size asks for a
+# skip of 999,000.
+$options{max_recent_changes_skip} = 10_000;
 
 # List of products limits
 $options{default_api_products_page_size} = 20;
@@ -608,7 +619,10 @@ $options{import_export_fields_groups} = [
 	["packaging"],
 	[
 		"other",
-		["conservation_conditions", "warning", "preparation", "nova_group_producer", "customer_service", "link",]
+		[
+			"conservation_conditions", "warning", "preparation", "nova_group_producer",
+			"customer_service", "link", "teams",
+		]
 	],
 	[
 		"images",
