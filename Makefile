@@ -524,12 +524,12 @@ build_taxonomies_test: create_folders
 build_pro_platform: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	@echo "🥫 build pro platform"
-	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e PRODUCER_MAPPINGS_CACHE_KEY="${PRODUCER_MAPPINGS_CACHE_KEY}" backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
 
 build_pro_platform_test: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
 	@echo "🥫 build pro platform"
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e PRODUCER_MAPPINGS_CACHE_KEY="${PRODUCER_MAPPINGS_CACHE_KEY}" backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
 
 
 

@@ -94,6 +94,8 @@ jobs:
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
+    outputs:
+      producer_mappings_cache_key: ${{ steps.producer_mappings_key.outputs.key }}
     permissions:
       contents: read
       # needed to use cache-to type=registry for buildx
@@ -161,6 +163,13 @@ jobs:
             }}
           load: true                   # loads the image into local docker daemon
           tags: openfoodfacts-server/backend:dev
+
+      - name: Check and compute producer mappings cache key
+        id: producer_mappings_key
+        run: |
+          bash scripts/tests/test_producer_mappings_cache_key.sh
+          echo "key=$(bash .github/scripts/producer_mappings_cache_key.sh)" >> "$GITHUB_OUTPUT"
+
       # Clean up BuildKit cache duplication to free space for Docker save
       - name: Clean up duplicate BuildKit cache and additional space
         run: |
@@ -611,6 +620,8 @@ jobs:
     name: 🐪 Perl Unit Tests Only
     needs: [filter, build_backend, calculate_test_matrix]
     runs-on: ubuntu-latest
+    env:
+      PRODUCER_MAPPINGS_CACHE_KEY: ${{ needs.build_backend.outputs.producer_mappings_cache_key }}
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     strategy:
       fail-fast: false
@@ -629,6 +640,13 @@ jobs:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
+
+    # Every unit shard builds the same complete mapping set on a cache miss.
+    - name: Cache producer column mappings
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ./build-cache/pro
+        key: ${{ needs.build_backend.outputs.producer_mappings_cache_key }}
 
     # Cache dynamic test groups and timing data
     # This enables persistent learning and avoids regenerating groups unnecessarily
@@ -872,6 +890,8 @@ jobs:
     needs: [filter, build_backend, build_frontend]
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     runs-on: ubuntu-latest
+    env:
+      PRODUCER_MAPPINGS_CACHE_KEY: ${{ needs.build_backend.outputs.producer_mappings_cache_key }}
 
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -883,6 +903,11 @@ jobs:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
+    - name: Cache producer column mappings
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ./build-cache/pro
+        key: ${{ needs.build_backend.outputs.producer_mappings_cache_key }}
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@d5e9b6d62ef3f9762f6553c8178c2d925acc0409 # v2.1.0

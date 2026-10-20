@@ -26,6 +26,9 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Lang qw/@Langs/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::ProducerMappingsCache qw/mappings_cache_valid write_mappings_cache_manifest/;
+use File::Path qw/remove_tree/;
 use Term::ANSIColor;
 
 sub print_error ($msg) {
@@ -61,6 +64,28 @@ if ($total_count == 0) {
 	exit(1);
 }
 
+# CI opts in with a key covering the source inputs and runtime build configuration.
+# Include the runtime configuration so other flavors cannot reuse OFF mappings.
+my $cache_key = $ENV{PRODUCER_MAPPINGS_CACHE_KEY} // '';
+my $cache_directory = "$BASE_DIRS{CACHE_BUILD}/pro";
+if ($cache_key ne '') {
+	$cache_key = join(':',
+		$cache_key,
+		$ENV{PRODUCT_OPENER_FLAVOR_SHORT},
+		$server_options{producers_platform} // 0,
+		$server_domain);
+	if (mappings_cache_valid($cache_directory, $cache_key, \@Langs)) {
+		print_success("Using cached producer column mappings for $total_count languages");
+		exit(0);
+	}
+
+	# Invalidate before writing anything: failed or interrupted builds must never be cache hits.
+	if (-e "$cache_directory/manifest.sha256") {
+		unlink("$cache_directory/manifest.sha256") or die("Cannot invalidate producer mappings cache: $!\n");
+	}
+	remove_tree("$cache_directory/fields_column_names");
+}
+
 # Generate the files that match potential column names from producers to OFF fields
 my $has_any_errors = 0;
 foreach my $l (@Langs) {
@@ -81,6 +106,7 @@ foreach my $l (@Langs) {
 }
 
 if (!$has_any_errors) {
+	write_mappings_cache_manifest($cache_directory, $cache_key, \@Langs) if $cache_key ne '';
 	print_success("All producer column mappings built successfully");
 }
 
