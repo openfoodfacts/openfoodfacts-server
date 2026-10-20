@@ -1,23 +1,20 @@
-"""Execute the workflow's real summary gate across success and skipped states."""
+"""Execute the real summary gate script across success and skipped states."""
 
 import os
 from pathlib import Path
 import re
 import subprocess
-import textwrap
 import unittest
 
-WORKFLOW = Path(__file__).resolve().parents[2] / '.github/workflows/pull_request.yml'
+ROOT = Path(__file__).resolve().parents[2]
+WORKFLOW = ROOT / '.github/workflows/pull_request.yml'
+GATE = ROOT / '.github/scripts/check_test_jobs.sh'
 
 
 class TestSummaryGate(unittest.TestCase):
     def test_required_jobs_cannot_be_failed_cancelled_or_unexpectedly_skipped(self):
-        workflow = WORKFLOW.read_text()
-        marker = '      - name: Check required test jobs\n'
-        self.assertIn(marker, workflow, 'summary must check the coordinator and required shards')
-        section = workflow.split(marker, 1)[1]
-        section = section.split('\n  tests_dev:', 1)[0]
-        script = textwrap.dedent(section.split('        run: |\n', 1)[1])
+        self.assertIn('run: bash .github/scripts/check_test_jobs.sh', WORKFLOW.read_text(),
+                      'summary must run the gate script')
         base = dict(os.environ, FILTER_RESULT='success', BUILD_RESULT='success',
                     CODE_MODIFIED='true', MATRIX_RESULT='success', UNIT_RESULT='success',
                     INTEGRATION_RESULT='success', EVENT_NAME='pull_request')
@@ -31,7 +28,7 @@ class TestSummaryGate(unittest.TestCase):
         cases.append(({'CODE_MODIFIED': ''}, False))
         for changes, expected in cases:
             with self.subTest(changes=changes):
-                result = subprocess.run(['bash', '-c', script], env=dict(base, **changes),
+                result = subprocess.run(['bash', str(GATE)], env=dict(base, **changes),
                                         capture_output=True, text=True)
                 self.assertEqual(result.returncode == 0, expected, result.stdout + result.stderr)
 

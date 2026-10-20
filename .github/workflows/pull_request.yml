@@ -843,6 +843,11 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
+      # The rules live in a script so scripts/tests can run them directly.
+      # If this checkout fails the required check fails too, which is the safe side.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: .github/scripts
       - name: Check required test jobs
         env:
           FILTER_RESULT: ${{ needs.filter.result }}
@@ -852,27 +857,7 @@ jobs:
           UNIT_RESULT: ${{ needs.unit_tests.result }}
           INTEGRATION_RESULT: ${{ needs.integration_tests.result }}
           EVENT_NAME: ${{ github.event_name }}
-        run: |
-          if [ "$FILTER_RESULT" != success ] || [ "$BUILD_RESULT" != success ]; then
-            echo "The path filter and backend build must succeed."
-            exit 1
-          fi
-          case "$CODE_MODIFIED" in
-            true)
-              [ "$MATRIX_RESULT" = success ] && [ "$UNIT_RESULT" = success ] || exit 1
-              case "$EVENT_NAME" in
-                pull_request) [ "$INTEGRATION_RESULT" = success ] || exit 1 ;;
-                push) [ "$INTEGRATION_RESULT" = skipped ] || exit 1 ;;
-                *) exit 1 ;;
-              esac
-              ;;
-            false)
-              [ "$MATRIX_RESULT" = skipped ] && [ "$UNIT_RESULT" = skipped ] \
-                && [ "$INTEGRATION_RESULT" = skipped ] || exit 1
-              ;;
-            *) exit 1 ;;
-          esac
-          echo "All required Perl test jobs succeeded."
+        run: bash .github/scripts/check_test_jobs.sh
 
   tests_dev:
     name: 🧪 Test make dev
