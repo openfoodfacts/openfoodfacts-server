@@ -109,14 +109,7 @@
                "name" : "butter"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 100
       },
       "ecobalyse_request" : {
          "data" : {
@@ -133,12 +126,6 @@
                {
                   "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
                   "mass" : 16.6666666666667
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
                }
             ]
          },
@@ -1159,7 +1146,7 @@
                               "text" : "Energy"
                            },
                            {
-                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
                            }
                         ]
                      },
@@ -1171,7 +1158,7 @@
                               "text" : "Fat"
                            },
                            {
-                              "text" : "~ 14.0666666666667 g"
+                              "text" : "~ 14.067 g"
                            }
                         ]
                      },
@@ -1183,7 +1170,7 @@
                               "text" : "Saturated fat"
                            },
                            {
-                              "text" : "~ 9.27833333333333 g"
+                              "text" : "~ 9.278 g"
                            }
                         ]
                      },
@@ -1195,7 +1182,7 @@
                               "text" : "Carbohydrates"
                            },
                            {
-                              "text" : "~ 78.1166666666667 g"
+                              "text" : "~ 78.117 g"
                            }
                         ]
                      },
@@ -1207,7 +1194,7 @@
                               "text" : "Sugars"
                            },
                            {
-                              "text" : "~ 66.9383333333333 g"
+                              "text" : "~ 66.938 g"
                            }
                         ]
                      },
@@ -1231,7 +1218,7 @@
                               "text" : "Fiber"
                            },
                            {
-                              "text" : "~ 1.13333333333333 g"
+                              "text" : "~ 1.133 g"
                            }
                         ]
                      },
@@ -1243,7 +1230,7 @@
                               "text" : "Proteins"
                            },
                            {
-                              "text" : "~ 1.71833333333333 g"
+                              "text" : "~ 1.718 g"
                            }
                         ]
                      },
@@ -1255,7 +1242,7 @@
                               "text" : "Salt"
                            },
                            {
-                              "text" : "~ 0.0246 g"
+                              "text" : "~ 0.025 g"
                            }
                         ]
                      },
@@ -1264,7 +1251,7 @@
                            {
                               "level" : 0,
                               "style" : "max-width:15rem",
-                              "text" : "Fruits‚ vegetables‚ legumes"
+                              "text" : "Fruits, vegetables, legumes"
                            },
                            {
                               "text" : "~ 0 %"
@@ -1332,13 +1319,13 @@
                               "text" : "Energy"
                            },
                            {
-                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
                            },
                            {
                               "text" : "?"
                            },
                            {
-                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
                            }
                         ]
                      },
@@ -1350,13 +1337,13 @@
                               "text" : "Fat"
                            },
                            {
-                              "text" : "~ 14.0666666666667 g"
+                              "text" : "~ 14.067 g"
                            },
                            {
                               "text" : "?"
                            },
                            {
-                              "text" : "~ 14.0666666666667 g"
+                              "text" : "~ 14.067 g"
                            }
                         ]
                      },
@@ -1368,13 +1355,13 @@
                               "text" : "Saturated fat"
                            },
                            {
-                              "text" : "~ 9.27833333333333 g"
+                              "text" : "~ 9.278 g"
                            },
                            {
                               "text" : "?"
                            },
                            {
-                              "text" : "~ 9.27833333333333 g"
+                              "text" : "~ 9.278 g"
                            }
                         ]
                      },
@@ -1386,13 +1373,13 @@
                               "text" : "Carbohydrates"
                            },
                            {
-                              "text" : "~ 78.1166666666667 g"
+                              "text" : "~ 78.117 g"
                            },
                            {
                               "text" : "?"
                            },
                            {
-                              "text" : "~ 78.1166666666667 g"
+                              "text" : "~ 78.117 g"
                            }
                         ]
                      },
@@ -1404,13 +1391,13 @@
                               "text" : "Sugars"
                            },
                            {
-                              "text" : "~ 66.9383333333333 g"
+                              "text" : "~ 66.938 g"
                            },
                            {
                               "text" : "?"
                            },
                            {
-                              "text" : "~ 66.9383333333333 g"
+                              "text" : "~ 66.938 g"
                            }
                         ]
                      },
@@ -1428,7 +1415,7 @@
                               "text" : "20 g"
                            },
                            {
-                              "text" : "~ 66.6666666666667 g"
+                              "text" : "~ 66.667 g"
                            }
                         ]
                      },
@@ -1440,13 +1427,13 @@
                               "text" : "Fiber"
                            },
                            {
-                              "text" : "~ 1.13333333333333 g"
+                              "text" : "~ 1.133 g"
                            },
                            {
                               "text" : "?"
                            },
                            {
-                              "text" : "~ 1.13333333333333 g"
+                              "text" : "~ 1.133 g"
                            }
                         ]
                      },
@@ -1458,13 +1445,13 @@
                               "text" : "Proteins"
                            },
                            {
-                              "text" : "~ 1.71833333333333 g"
+                              "text" : "~ 1.718 g"
                            },
                            {
                               "text" : "?"
                            },
                            {
-                              "text" : "~ 1.71833333333333 g"
+                              "text" : "~ 1.718 g"
                            }
                         ]
                      },
@@ -1476,13 +1463,13 @@
                               "text" : "Salt"
                            },
                            {
-                              "text" : "~ 0.0246 g"
+                              "text" : "~ 0.025 g"
                            },
                            {
                               "text" : "?"
                            },
                            {
-                              "text" : "~ 0.0246 g"
+                              "text" : "~ 0.025 g"
                            }
                         ]
                      },
@@ -1491,7 +1478,7 @@
                            {
                               "level" : 0,
                               "style" : "max-width:15rem",
-                              "text" : "Fruits‚ vegetables‚ legumes"
+                              "text" : "Fruits, vegetables, legumes"
                            },
                            {
                               "text" : "~ 0 %"
@@ -1698,6 +1685,8 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-not-computed",

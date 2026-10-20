@@ -12,7 +12,7 @@ use HTTP::Response;
 
 use File::Path qw/make_path remove_tree/;
 
-use ProductOpener::Config '$data_root';
+use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Producers qw/load_csv_or_excel_file convert_file/;
 use ProductOpener::Products "retrieve_product";
@@ -88,6 +88,19 @@ sub fake_lwp_get_permission_denied {
 	);
 }
 
+# The image url of an import is fetched from inside our network, so download_image() refuses a url
+# that does not resolve to a globally routable address. If this mock is called, that check did not
+# happen and the import could be used to reach our internal services (here: the metadata service of
+# the cloud we run on, and our own loopback interface).
+sub fake_lwp_get_should_not_be_called {
+	my ($ua, $url, @headers) = @_;
+	die("an image was downloaded from $url, which should have been refused");
+}
+
+# The Google Drive cases above mock the HTTP layer, but download_image() still checks the addresses
+# the urls resolve to: allow the (mocked) Google Drive hosts so that the tests do not need DNS.
+$server_options{allowed_image_download_hosts} = ["drive.google.com", "drive.usercontent.google.com"];
+
 my @tests = (
 	{
 		test_case => "test",
@@ -150,6 +163,13 @@ my @tests = (
 		test_case => "google_drive_image_permission_denied",
 		csv_files => ["google_drive_image_permission_denied.csv"],
 		mock_lwp_get => \&fake_lwp_get_permission_denied,
+	},
+	# An image url that does not resolve to a globally routable address must not be fetched:
+	# the products are imported, but end up with no image.
+	{
+		test_case => "private_image_url",
+		csv_files => ["private_image_url.csv"],
+		mock_lwp_get => \&fake_lwp_get_should_not_be_called,
 	},
 );
 

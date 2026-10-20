@@ -72,6 +72,7 @@
                "name" : "salt"
             }
          ],
+         "ingredients_coverage_percent" : 100,
          "packaging" : [
             {
                "category" : "en:sausages",
@@ -295,6 +296,8 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-not-computed",
       "en:nutrition-data-per-100g"
    ],
