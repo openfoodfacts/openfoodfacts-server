@@ -5046,11 +5046,17 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 				}
 				$is_main_translation = 0;
 			}
+		}
+	}
 
-			# Add xx entries
-			if (($options_ref->{include_xx}) and ($language ne 'xx') and (defined $synonyms_regexps{"xx"})) {
-				push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
-			}
+	# Add xx entries to all other languages
+	# This needs to be done once all entries have been processed: entries are iterated in hash order,
+	# so adding xx synonyms while iterating would only add the xx synonyms of the entries processed so far.
+	# e.g. a language with only 1 translated unit would randomly miss the xx unit "g"
+	if (($options_ref->{include_xx}) and (defined $synonyms_regexps{"xx"})) {
+		foreach my $language (keys %synonyms_regexps) {
+			next if $language eq 'xx';
+			push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
 		}
 	}
 
