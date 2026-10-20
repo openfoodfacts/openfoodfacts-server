@@ -620,8 +620,6 @@ jobs:
     name: 🐪 Perl Unit Tests Only
     needs: [filter, build_backend, calculate_test_matrix]
     runs-on: ubuntu-latest
-    env:
-      PRODUCER_MAPPINGS_CACHE_KEY: ${{ needs.build_backend.outputs.producer_mappings_cache_key }}
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     strategy:
       fail-fast: false
@@ -647,6 +645,11 @@ jobs:
       with:
         path: ./build-cache/pro
         key: ${{ needs.build_backend.outputs.producer_mappings_cache_key }}
+
+    # Exported from a step rather than a job-level env: other workflow changes
+    # also add an env block to this job, and a second one makes the file invalid.
+    - name: Pass the producer mappings key to make
+      run: echo "PRODUCER_MAPPINGS_CACHE_KEY=${{ needs.build_backend.outputs.producer_mappings_cache_key }}" >> "$GITHUB_ENV"
 
     # Cache dynamic test groups and timing data
     # This enables persistent learning and avoids regenerating groups unnecessarily
@@ -890,8 +893,6 @@ jobs:
     needs: [filter, build_backend, build_frontend]
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     runs-on: ubuntu-latest
-    env:
-      PRODUCER_MAPPINGS_CACHE_KEY: ${{ needs.build_backend.outputs.producer_mappings_cache_key }}
 
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -908,6 +909,8 @@ jobs:
       with:
         path: ./build-cache/pro
         key: ${{ needs.build_backend.outputs.producer_mappings_cache_key }}
+    - name: Pass the producer mappings key to make
+      run: echo "PRODUCER_MAPPINGS_CACHE_KEY=${{ needs.build_backend.outputs.producer_mappings_cache_key }}" >> "$GITHUB_ENV"
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@d5e9b6d62ef3f9762f6553c8178c2d925acc0409 # v2.1.0
