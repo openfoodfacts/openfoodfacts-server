@@ -4451,7 +4451,7 @@ lt: Palinka
 nl: Palinka
 pl: Palinca, Pálinka
 pt: Palinca
-ro: Palincă
+ro: Pálinka
 ru: Палинка
 sv: Pálinka
 uk: Палінка
@@ -12676,6 +12676,19 @@ wikidata:en: Q282
 en: Vegan wines, Vegan-friendly wines
 da: Veganske vin
 sv: Veganska viner
+
+< en: Wines
+en: Kosher wines
+ar: نبيذ كوشير
+bn: কোশের ওয়াইন
+es: Vinos kosher
+fr: Vins casher
+he: יינות כשרים
+hi: कोशर वाइन
+id: Minuman anggur kosher
+pt: Vinhos kosher
+zh: 犹太洁食葡萄酒
+wikidata:en: Q2896889
 
 # should this fall under wines?
 < en: Wines
@@ -68079,12 +68092,13 @@ origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0849
 protected_name_type:en: pdo
 
-< en: Olives
+< en: Green olives
 < en: Vegetables from Spain
 es: Aceituna Aloreña de Málaga
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0785
 protected_name_type:en: pdo
+wikidata:en: Q5656396
 
 < en: Vegetables from Spain
 es: Papas Antiguas de Canarias
@@ -86529,6 +86543,30 @@ en: Vegan meals
 description:en: Should be distinguished from vegetable meals, that might contain animal products
 
 < en: Meals
+en: Halal meals, Halal prepared meals
+ar: وجبات جاهزة حلال
+bn: হালাল প্রস্তুত খাবার
+es: Comidas preparadas halal, Platos preparados halal
+fr: Plats préparés halal, Plats cuisinés halal
+he: ארוחות מוכנות חלאל
+hi: हलाल तैयार भोजन
+id: Makanan siap saji halal
+pt: Refeições preparadas halal, Pratos preparados halal
+zh: 清真菜肴
+
+< en: Meals
+en: Kosher meals, Kosher prepared meals
+ar: وجبات جاهزة كوشير
+bn: কোশের প্রস্তুত খাবার
+es: Comidas preparadas kosher, Platos preparados kosher
+fr: Plats préparés casher, Plats cuisinés casher
+he: ארוחות מוכנות כשרות
+hi: कोशर तैयार भोजन
+id: Makanan siap saji kosher
+pt: Refeições preparadas kosher, Pratos preparados kosher
+zh: 犹太洁食菜肴
+
+< en: Meals
 en: Gratins
 de: Gratins
 fi: gratiinit
@@ -86904,39 +86942,32 @@ en: Prepared sweet potatoes
 nl: Geprepareerde zoete aardappelen
 
 < en: Carrots
-en: Grated carrots
+en: Grated carrots, Unseasoned grated carrots, Unseasoned shredded carrots
 de: Geriebene Karotten, geraspelte Karotten
 es: Zanahorias ralladas
 fi: raastetut porkkanat
-fr: Carottes râpées
-hr: Ribana mrkva
+fr: Carottes râpées, Carottes râpées non assaisonnées
+hr: Ribana mrkva, Nezačinjenu ribanu mrkvu
 it: Carote grattugiate
 ja: すりおろした人参
-lt: Tarkuotos morkos
+lt: Tarkuotos morkos, Tarkuotos morkos be prieskonių
 nl: Geraspte wortelen
 pl: Tarta marchew
 tr: Rendelenmiş havuç
-agribalyse_food_code:en: 26257
 wikidata:en: Q22708802
 
-< en: Carrot salads
-en: Seasoned grated carrots, Seasoned shredded carrots
+< en: Prepared vegetables
+en: Carrot salads, Seasoned grated carrots, Seasoned shredded carrots
 de: Gewürzte geriebene Karotten
 fi: maustetut raastetut porkkanat
-fr: Carottes râpées assaisonnées
+fr: Salades de carottes, Carottes râpées assaisonnées
 hr: Začinjenu naribanu mrkvu
 lt: Tarkuotos morkos su prieskoniais
-nl: Aangemaakte geraspte wortels
-
-< en: Grated carrots
-en: Unseasoned grated carrots, Unseasoned shredded carrots
-fr: Carottes râpées non assaisonnées
-hr: Nezačinjenu ribanu mrkvu
-lt: Tarkuotos morkos be prieskonių
-
-< en: Prepared vegetables
-en: Carrot salads
-nl: Wortelsalades
+nl: Wortelsalades, Aangemaakte geraspte wortels
+agribalyse_food_code:en: 26257
+ciqual_food_code:en: 26257
+ciqual_food_name:en: Grated carrot salad, with sauce, prepacked
+ciqual_food_name:fr: Salade de carottes râpées, avec sauce, préemballée
 
 < en: Prepared vegetables
 en: Green beans wrapped in bacon
@@ -87088,7 +87119,7 @@ description:en: heated sandwich filled like a pizza
 
 < en: Meals
 en: Pizza sub toasts
-fr: Tartines salés à cuire, Tartines style pizza
+fr: Tartines salées à cuire, Tartines style pizza
 description:en: heated bread topped like a pizza
 
 < en: Frozen foods
@@ -89106,6 +89137,30 @@ lt: Mėsos kukuliai
 nl: Gehaktballen
 pt: Almôndegas
 
+< en: Meat balls
+en: Halal meat balls, Halal meatballs
+ar: كرات لحم حلال
+bn: হালাল মাংসের বল, হালাল মিটবল
+es: Albóndigas halal
+fr: Boulettes de viande halal
+he: כדורי בשר חלאל
+hi: हलाल मांस के गोले
+id: Bola-bola daging halal
+pt: Almôndegas halal
+zh: 清真肉丸
+
+< en: Meat balls
+en: Kosher meat balls, Kosher meatballs
+ar: كرات لحم كوشير
+bn: কোশের মাংসের বল, কোশের মিটবল
+es: Albóndigas kosher
+fr: Boulettes de viande casher
+he: כדורי בשר כשרים
+hi: कोशर मांस के गोले
+id: Bola-bola daging kosher
+pt: Almôndegas kosher
+zh: 犹太洁食肉丸
+
 # to be added to soups
 < en: Meat balls
 en: Small meat balls
@@ -90745,6 +90800,18 @@ wikidata:en: Q429518
 # TODO : in the file I have, the same number is named Cordon bleu de volaille
 
 < en: Cordons bleus
+en: Halal cordons bleus
+ar: كوردون بلو حلال
+bn: হালাল কর্ডন ব্লু
+es: Cordon bleu halal
+fr: Cordons bleus halal
+he: קורדון בלו חלאל
+hi: हलाल कॉर्डन ब्लू
+id: Cordon bleu halal
+pt: Cordon bleu halal
+zh: 清真蓝带肉排
+
+< en: Cordons bleus
 en: Poultry cordons bleus
 fr: Cordons bleus de volaille
 
@@ -92065,6 +92132,28 @@ agribalyse_proxy_food_name:en: Poultry nuggets
 < en: Breaded chicken
 en: Frozen breaded chicken
 fr: Poulets panés surgelés, Poulet pané surgelé
+
+< en: Breaded products
+en: Halal nuggets
+ar: ناجتس حلال
+bn: হালাল নাগেটস
+es: Nuggets halal
+fr: Nuggets halal
+he: נאגטס חלאל
+hi: हलाल नगेट्स
+id: Nugget halal
+pt: Nuggets halal
+
+< en: Breaded products
+en: Kosher nuggets
+ar: ناجتس كوشير
+bn: কোশের নাগেটস
+es: Nuggets kosher
+fr: Nuggets casher
+he: נאגטס כשרים
+hi: कोशर नगेट्स
+id: Nugget kosher
+pt: Nuggets kosher
 
 < en: Breaded products
 < en: Meat preparations
@@ -94460,6 +94549,30 @@ ciqual_food_code:en: 30780
 ciqual_food_name:en: Sausage (average)
 ciqual_food_name:fr: Saucisse (aliment moyen)
 intake24_category_code:en: SSGS
+
+< en: Sausages
+en: Halal sausages
+ar: نقانق حلال
+bn: হালাল সসেজ
+es: Salchichas halal
+fr: Saucisses halal
+he: נקניקיות חלאל
+hi: हलाल सॉसेज
+id: Sosis halal
+pt: Salsichas halal
+zh: 清真香肠
+
+< en: Sausages
+en: Kosher sausages
+ar: نقانق كوشير
+bn: কোশের সসেজ
+es: Salchichas kosher
+fr: Saucisses casher
+he: נקניקיות כשרות
+hi: कोशर सॉसेज
+id: Sosis kosher
+pt: Salsichas kosher
+zh: 犹太洁食香肠
 
 < en: Prepared beef meats
 < en: Sausages
@@ -102418,6 +102531,30 @@ nl: Hamburgers
 ru: Гамбургер
 intake24_category_code:en: BRGS
 wikidata:en: Q6663
+
+< en: Hamburgers
+en: Halal hamburgers, Halal burgers
+ar: هامبرغر حلال
+bn: হালাল হ্যামবার্গার, হালাল বার্গার
+es: Hamburguesas halal
+fr: Hamburgers halal, Burgers halal
+he: המבורגרים חלאל
+hi: हलाल हैमबर्गर
+id: Hamburger halal
+pt: Hambúrgueres halal
+zh: 清真汉堡
+
+< en: Hamburgers
+en: Kosher hamburgers, Kosher burgers
+ar: هامبرغر كوشير
+bn: কোশের হ্যামবার্গার, কোশের বার্গার
+es: Hamburguesas kosher
+fr: Hamburgers casher, Burgers casher
+he: המבורגרים כשרים
+hi: कोशर हैमबर्गर
+id: Hamburger kosher
+pt: Hambúrgueres kosher
+zh: 犹太洁食汉堡
 
 < en: Hamburgers
 en: Hamburgers from fast food
@@ -116320,13 +116457,14 @@ it: Pomodori ciliegini
 ja: ミニトマト
 la: Solanum lycopersicum var. cerasiforme, Lycopersicon lycopersicum var. cerasiforme, Lycopersicon esculentum var. cerasiforme
 nl: Kerstomaten
+pl: Pomidory koktajlowe, Pomidor koktajlowy, Pomidorów koktajlowych, Pomidorki koktajlowe
 sv: Körsbärstomater
-#wikidata:en:Q67448115
 agribalyse_food_code:en: 20172
 ciqual_food_code:en: 20172
 ciqual_food_name:en: Tomato, cherry, raw
 ciqual_food_name:fr: Tomate cerise, crue
 sales_format:en: weight, package
+#wikidata:en:Q67448115
 wikidata:en: Q6540634
 
 < en: Tomatoes
@@ -116942,17 +117080,17 @@ wikidata:en: Q56395863
 < en: Tomatoes and their products
 en: Dried tomatoes, Sun-dried tomatoes, Dried tomato, Sun-dried tomato
 bg: Сушени домати
-da: soltørrede tomater
+da: Soltørrede tomater
 de: Getrocknete Tomaten
 es: Tomates secos, Tomates deshidratados, Tomates desecados
-fi: kuivatut tomaatit
+fi: Kuivatut tomaatit
 fr: Tomates séchées, Tomate séchée
 hr: Sušene rajčice
 it: Pomodori essiccati
 ja: 干しトマト, ドライトマト
 nl: Gedroogde tomaten
 pl: Pomidory suszone
-sv: soltorkade tomater
+sv: Soltorkade tomater
 agribalyse_food_code:en: 20189
 ciqual_food_code:en: 20189
 ciqual_food_name:en: Tomato, dried
@@ -116968,12 +117106,12 @@ nl: Natuurlijk gedroogde tomaten
 pl: Naturalne pomidory suszone
 
 < en: Dried tomatoes
-en: Dried tomato in oil, Dried tomatoes in oil, Sun-dried tomato in oil, Sun-dried tomatoes in oil, Rehydrated dried tomatoes in oil
+en: Dried tomatoes in oil, Dried tomato in oil, Sun-dried tomato in oil, Sun-dried tomatoes in oil, Rehydrated dried tomatoes in oil
 bg: Сушени домати в олио
 da: Soltørrede tomater i olie
-de: getrocknete Tomaten in Öl
+de: Getrocknete Tomaten in Öl
 es: Tomates secos en aceite, Tomates secos rehidratados en aceite
-fi: kuivattuja tomaatteja öljyssä
+fi: Kuivattuja tomaatteja öljyssä
 fr: Tomates séchées à l'huile, Tomate séchée à l'huile, Tomates séchées réhydratées à l'huile
 hr: Sušene rajčice u ulju
 it: Pomodoro essiccato sott'olio
@@ -116984,6 +117122,37 @@ agribalyse_food_code:en: 20256
 ciqual_food_code:en: 20256
 ciqual_food_name:en: Tomato, dried, in oil
 ciqual_food_name:fr: Tomate, séchée, à l'huile
+
+< en: Dried tomatoes
+en: Dried cherry tomatoes, Sun-dried cherry tomatoes, Dried cherry tomato, Sun-dried cherry tomato
+bg: Сушени чери домати
+da: Soltørrede cherrytomater
+de: Getrocknete Kirschtomaten
+es: Tomates cherry secos
+fi: Kuivattuja kirsikkatomaatit
+fr: Tomates cerises séchées, Tomate cerise séchée
+hr: Sušene cherry rajčice
+nl: Gedroogde kerstomaten
+pl: Pomidory koktajlowe suszone
+sv: Soltorkade körsbärstomater
+
+< en: Dried cherry tomatoes
+< en: Dried tomatoes in oil
+en: Dried cherry tomatoes in oil, Dried cherry tomato in oil, Sun-dried cherry tomato in oil, Sun-dried cherry tomatoes in oil, Rehydrated dried cherry tomatoes in oil
+bg: Сушени чери домати в олио
+da: Soltørrede cherrytomater i olie
+de: Getrocknete Kirschtomaten in Öl
+es: Tomates cherry secos en aceite, Tomates cherry secos rehidratados en aceite
+fi: Kuivattuja kirsikkatomaatteja öljyssä
+fr: Tomates cerises séchées à l'huile, Tomate cerise séchée à l'huile, Tomates cerises séchées réhydratées à l'huile
+hr: Sušene cherry rajčice u ulju
+nl: Gedroogde kerstomaten op olie
+pl: Pomidory koktajlowe suszone w oleju
+sv: Soltorkade körsbärstomater i olja
+agribalyse_proxy_food_code:en: 20256
+ciqual_proxy_food_code:en: 20256
+ciqual_proxy_food_name:en: Tomato, dried, in oil
+ciqual_proxy_food_name:fr: Tomate, séchée, à l'huile
 
 < en: Condiments
 < en: Dried plant-based foods
@@ -119755,7 +119924,7 @@ cs: Olivy
 da: Oliven
 de: Oliven
 es: Aceitunas, Olivas
-fi: oliivit
+fi: Oliivit
 fr: Olives
 he: זיתים
 hr: Masline
@@ -119767,7 +119936,7 @@ pl: Oliwki
 pt: Azeitonas
 ro: Măsline
 ru: Оливки, Маслины
-sv: Oliver, oliv
+sv: Oliver, Oliv
 tr: Zeytin
 agribalyse_proxy_food_code:en: 13147
 agribalyse_proxy_food_name:en: Olive, green, stuffed (anchovy, sweet peppers, etc…)
@@ -119787,6 +119956,19 @@ en: Refrigerated olives
 gpc_category_code:en: 10000238
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of olive from the olive tree, such as Sevillana, Manzanilla and Ascolane, that have no added ingredients or flavourings and can be in various forms, whole, diced, sliced or cut. These products can be/must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Pickles and Shelf Stable Olives.
 gpc_category_name:en: Olives (Perishable)
+
+< en: Olives
+en: Olives in brine
+da: Oliven i saltlage
+fr: Olives en saumure
+hr: Masline u salamuri
+it: Olive in salamoia
+nl: Olijven op zout
+sv: Oliver i saltlag
+# picked black instead of green for ciqual due to being numbered first
+ciqual_proxy_food_code:en: 13032
+ciqual_proxy_food_name:en: Olives, black, in brine
+ciqual_proxy_food_name:fr: Olive noire, en saumure
 
 < en: French vegetables
 < en: Olives
@@ -119817,10 +119999,10 @@ protected_name_type:en: pdo
 < en: Olives
 en: Black olives
 bg: Черни маслини
-da: sorte oliven
-de: schwarze Oliven
+da: Sorte oliven
+de: Schwarze Oliven
 es: Aceitunas negras
-fi: mustat oliivit
+fi: Mustat oliivit
 fr: Olives noires, Olive noire
 hr: Crne masline
 it: Olive nere
@@ -119830,8 +120012,9 @@ pl: Czarne oliwki
 pt: Azeitonas pretas
 ro: Măsline negre
 ru: Маслины чёрные, Чёрные маслины, Оливки чёрные, Чёрные оливки
-sv: svarta oliver
+sv: Svarta oliver
 tr: Siyah zeytin
+wikidata:en: Q56475549
 
 < en: Black olives
 < en: French vegetables
@@ -119839,16 +120022,34 @@ fr: Olives noires de Nyons
 origins:en: en:france, en:nyons
 protected_name_file_number:en: PDO-FR-0374
 protected_name_type:en: pdo
+wikidata:en: Q3350637
 
 < en: Black olives
+< en: Olives in brine
 en: Black olives in brine
 bg: Черни маслини в саламура
+da: Sorte oliven i saltlage
 fr: Olives noires en saumure
 hr: Crne masline u salamuri
 it: Olive nere in brina
+nl: Zwarte olijven op zout
+sv: Svarta oliver i saltlag
 ciqual_food_code:en: 13032
 ciqual_food_name:en: Olives, black, in brine
 ciqual_food_name:fr: Olive noire, en saumure
+
+< en: Black olives in brine
+< en: Black pitted olives
+en: Black pitted olives in brine, Pitted black olives in brine
+da: Sorte oliven uden sten i saltlage
+fr: Olives noires dénoyautées en saumure
+hr: Crne masline bez koštice u salamuri
+it: Olive nere snocciolate in salamoia
+nl: Ontpitte zwarte olijven op zout
+sv: Urkärnade svarta oliver i saltlag
+ciqual_proxy_food_code:en: 13032
+ciqual_proxy_food_name:en: Olives, black, in brine
+ciqual_proxy_food_name:fr: Olive noire, en saumure
 
 < en: Black olives
 en: Black olives in oil, Greek olives
@@ -119892,7 +120093,7 @@ ca: Olives verdes
 da: Grønne oliven
 de: Grüne Oliven
 es: Aceitunas verdes
-fi: vihreät oliivit
+fi: Vihreät oliivit
 fr: Olives vertes
 he: זיתים ירוקים
 hr: Zelene masline
@@ -119904,11 +120105,13 @@ pl: Zielone oliwki
 pt: Azeitonas verdes
 ro: Măsline verzi
 ru: Оливки зелёные, Зелёные оливки, Маслины зелёные, Зелёные маслины
+sv: Gröna oliver
 tr: Yeşil zeytin
 agribalyse_proxy_food_code:en: 13147
 agribalyse_proxy_food_name:en: Olive, green, stuffed (anchovy, sweet peppers, etc…)
 agribalyse_proxy_food_name:fr: Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
 # No Green or black olives in AGB. Only Stuffed olives.
+wikidata:en: Q26879770
 
 < en: Cracked olives
 fr: Olives cassées de la Vallée des Baux-de-Provence
@@ -119948,14 +120151,16 @@ es: Aceitunas verdes partidas aliñadas a la gazpacha
 < en: Pitted olives
 en: Green pitted olives, pitted green olives
 bg: Зелени маслини без костилка
-de: grüne kernlose Oliven, grüne entsteinte Oliven
+da: Grønne oliven uden sten
+de: Grüne kernlose Oliven, Grüne entsteinte Oliven
 es: Aceitunas verdes deshuesadas, Aceitunas verdes sin hueso
-fi: kivettömät vihreät oliivit
+fi: Kivettömät vihreät oliivit
 fr: Olives vertes dénoyautées
 hr: Zelene masline bez koštice
 it: Olive verdi snocciolate
 nl: Ontpitte groene olijven
 ru: Зелёные оливки без косточки, Зелёные маслины без косточки, Оливки зелёные без косточки, Маслины зелёные без косточки
+sv: Urkärnade gröna oliver
 
 < en: Green pitted olives
 < en: Marinated olives
@@ -120044,15 +120249,31 @@ hr: Cijele marinirane zelene masline
 nl: Gemarineerde hele olijven
 
 < en: Green olives
+< en: Olives in brine
 en: Green olives in brine
+da: Grønne oliven i saltlage
 fr: Olives vertes en saumure
 hr: Zelene masline u salamuri
 it: Olive verdi in salamoia
 nl: Groene olijven op zout
 pl: Zielone oliwki w zalewie
+sv: Gröna oliver i saltlag
 ciqual_food_code:en: 13033
 ciqual_food_name:en: Olives, green, in brine
 ciqual_food_name:fr: Olive verte, en saumure
+
+< en: Green olives in brine
+< en: Green pitted olives
+en: Green pitted olives in brine, Pitted green olives in brine
+da: Grønne oliven uden sten i saltlage
+fr: Olives vertes dénoyautées en saumure
+hr: Zelene masline bez koštice u salamuri
+it: Olive verdi snocciolate in salamoia
+nl: Ontpitte groene olijven op zout
+sv: Urkärnade gröna oliver i saltlag
+ciqual_proxy_food_code:en: 13033
+ciqual_proxy_food_name:en: Olives, green, in brine
+ciqual_proxy_food_name:fr: Olive verte, en saumure
 
 < en: Olives
 en: Marinated olives
@@ -120069,29 +120290,31 @@ pl: Oliwki marynowane
 < en: Olives
 en: Pitted olives
 bg: Обезкостени маслини
-de: kernlose Oliven, Entsteinte Oliven
+da: Oliven uden sten
+de: Kernlose Oliven, Entsteinte Oliven
 es: Aceitunas deshuesadas, Aceitunas sin hueso
-fi: kivettömät oliivit
+fi: Kivettömät oliivit
 fr: Olives dénoyautées
 hr: Masline bez koštice
 it: Olive snocciolate, Olive denocciolate
 nl: Ontpitte olijven
 ru: Оливки без косточки, Маслины без косточки
-sv: urkärnade oliver
+sv: Urkärnade oliver
 
 < en: Black olives
 < en: Pitted olives
 en: Black pitted olives, Pitted black olives
 bg: Черни обезкостени маслини
-de: schwarze entsteinte Oliven
+da: Sorte oliven uden sten
+de: Schwarze entsteinte Oliven
 es: Aceitunas negras deshuesadas, Aceitunas negras sin hueso
-fi: mustat kivettömät oliivit
+fi: Mustat kivettömät oliivit
 fr: Olives noires dénoyautées
 hr: Crne masline bez koštice
 it: Olive nere snocciolate
 nl: Zwarte ontpitte olijven
 ru: Чёрные маслины без косточки, Чёрные оливки без косточки, Оливки чёрные без косточки, Маслины чёрные без косточки
-sv: urkärnade svarta oliver, svarta urkärnade oliver
+sv: Urkärnade svarta oliver, Svarta urkärnade oliver
 
 < en: Black olives
 fr: Olives noires de la Vallée des Baux-de-Provence
