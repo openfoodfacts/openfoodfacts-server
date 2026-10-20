@@ -2,18 +2,7 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "id" : "en:meat",
-         "is_in_taxonomy" : 1,
-         "percent" : 36,
-         "percent_estimate" : 36,
-         "percent_max" : 36,
-         "percent_min" : 36,
-         "text" : "viandes",
-         "vegan" : "no",
-         "vegetarian" : "no"
-      },
-      {
-         "id" : "fr:sous-produits animaux",
+         "id" : "en:meat-and-animal-derivatives",
          "ingredients" : [
             {
                "id" : "en:beef",
@@ -26,19 +15,19 @@
                "vegetarian" : "no"
             }
          ],
-         "is_in_taxonomy" : 0,
+         "is_in_taxonomy" : 1,
          "percent" : 36,
          "percent_estimate" : 36,
          "percent_max" : 36,
          "percent_min" : 36,
-         "text" : "sous-produits animaux"
+         "text" : "viandes et sous-produits animaux"
       },
       {
          "id" : "en:cereal",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 21,
-         "percent_max" : 28,
-         "percent_min" : 14,
+         "percent_estimate" : 34,
+         "percent_max" : 36,
+         "percent_min" : 32,
          "text" : "céréales",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -49,16 +38,16 @@
             {
                "id" : "fr:inuline de chicorée",
                "is_in_taxonomy" : 0,
-               "percent_estimate" : 7,
-               "percent_max" : 14,
-               "percent_min" : 0,
+               "percent_estimate" : 30,
+               "percent_max" : 32,
+               "percent_min" : 28,
                "text" : "inuline de chicorée"
             }
          ],
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 7,
-         "percent_max" : 14,
-         "percent_min" : 0,
+         "percent_estimate" : 30,
+         "percent_max" : 32,
+         "percent_min" : 28,
          "text" : "sous-produits",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -66,17 +55,10 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:meat",
          "en:beef"
       ],
       "en:non-vegetarian" : [
-         "en:meat",
          "en:beef"
-      ],
-      "en:palm-oil-content-unknown" : [
-         "fr:sous-produits animaux",
-         "fr:sous-produits",
-         "fr:inuline de chicorée"
       ],
       "en:vegan-status-unknown" : [
          "fr:inuline de chicorée"
@@ -91,14 +73,13 @@
       "en:non-vegetarian"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 6,
+   "ingredients_n" : 5,
    "ingredients_n_tags" : [
-      "6",
+      "5",
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:meat",
-      "fr:sous-produits animaux",
+      "en:meat-and-animal-derivatives",
       "en:cereal",
       "fr:sous-produits",
       "en:beef",
@@ -106,8 +87,7 @@
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:meat",
-      "fr:sous-produits animaux",
+      "en:meat-and-animal-derivatives",
       "en:cereal",
       "fr:sous-produits",
       "en:beef",
@@ -115,33 +95,31 @@
       "fr:inuline de chicorée"
    ],
    "ingredients_text" : "viandes et sous-produits animaux (36%, dont 4% de bœuf), céréales, sous-produits d'origine végétale (dont 0,4% d'inuline de chicorée)",
-   "ingredients_with_specified_percent_n" : 1,
-   "ingredients_with_specified_percent_sum" : 36,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
-   "ingredients_with_unspecified_percent_sum" : 64,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:beef",
       "en:cereal",
-      "en:meat",
+      "en:meat-and-animal-derivatives",
       "fr:inuline de chicorée",
-      "fr:sous-produits",
-      "fr:sous-produits animaux"
+      "fr:sous-produits"
    ],
-   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ciqual_codes_n" : 5,
    "ingredients_without_ecobalyse_ids" : [
       "en:beef",
       "en:cereal",
-      "en:meat",
+      "en:meat-and-animal-derivatives",
       "fr:inuline de chicorée",
-      "fr:sous-produits",
-      "fr:sous-produits animaux"
+      "fr:sous-produits"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 6,
+   "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 3,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
-   "unknown_ingredients_n" : 3
+   "unknown_ingredients_n" : 2
 }

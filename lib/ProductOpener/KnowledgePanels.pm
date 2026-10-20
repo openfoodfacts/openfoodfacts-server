@@ -80,6 +80,7 @@ use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use JSON::MaybeXS;
 use Encode;
 use Data::DeepAccess qw(deep_get);
+use Scalar::Util qw(looks_like_number);
 use boolean;
 
 =head1 FUNCTIONS
@@ -99,6 +100,10 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	# Activate physical activity knowledge panel only when specified
 	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
 		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
+
+	# Activate product history knowledge panel only when specified (it is shown only to logged in users)
+	$knowledge_panels_options_ref->{activate_knowledge_panel_product_history}
+		= normalize_boolean(single_param("activate_knowledge_panel_product_history"));
 
 	# Specify if we knowledge panels are requested from the app or the website
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
@@ -342,25 +347,50 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 	return;
 }
 
+=head2 escape_json_string_content($string)
+
+Escape the content of a JSON string literal, without the surrounding quotes.
+
+The backslash is escaped first, otherwise the backslash we add for a quote would be escaped again
+by the next pass, and the quote would not be escaped at all: the escaper used to skip a quote that
+was preceded by a backslash, which left the value able to escape the string it is interpolated
+into. The control characters (tab, and the other C0 characters) are escaped as well, because JSON
+does not allow them unescaped inside a string, and they are what a value reaching a template
+through a product field is most likely to contain.
+
+=cut
+
+sub escape_json_string_content ($string) {
+
+	return '' if not defined $string;
+
+	# The backslash first: it must not escape the backslashes we add for the other characters
+	$string =~ s/\\/\\\\/g;
+
+	$string =~ s/"/\\"/g;
+
+	# \R matches all Unicode newline sequences. The other C0 control characters are escaped as
+	# \uXXXX, including the tab (\x09), which \R does not match and which JSON does not allow
+	# unescaped inside a string.
+	$string =~ s/\R/\\n/g;
+	$string =~ s/([\x00-\x09\x0b-\x1f\x7f])/sprintf("\\u%04x", ord($1))/ge;
+
+	return $string;
+}
+
 =head2 convert_multiline_string_to_singleline($line)
 
 Helper function to allow to enter multiline strings in JSON templates.
 The function converts the multiline string into a single line string.
 
-New lines are converted to \n, and quotes " and \ are escaped if not escaped already.
+New lines are converted to \n, and quotes " and \ are escaped, together with the control
+characters that JSON does not allow unescaped inside a string.
 
 =cut
 
 sub convert_multiline_string_to_singleline ($line) {
 
-	# Escape " and \ unless they have been escaped already
-	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
-	$line =~ s/(?<!\\)("|\\)/\\$1/g;
-
-	# \R will match all Unicode newline sequence
-	$line =~ s/\R/\\n/sg;
-
-	return '"' . $line . '"';
+	return '"' . escape_json_string_content($line) . '"';
 }
 
 =head2 convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces($line)
@@ -368,7 +398,9 @@ sub convert_multiline_string_to_singleline ($line) {
 Helper function to allow to enter multiline strings in JSON templates.
 The function converts the multiline string into a single line string.
 
-Line breaks are converted to spaces, and multiple spaces are converted to a single space.
+Line breaks are converted to spaces, and multiple spaces are converted to a single space. Quotes "
+and \ are escaped, together with the control characters that JSON does not allow unescaped inside a
+string (see escape_json_string_content()).
 
 This function is useful in templates where we use IF statements etc. to generate a single value like a title.
 
@@ -376,15 +408,11 @@ This function is useful in templates where we use IF statements etc. to generate
 
 sub convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces ($line) {
 
-	# Escape " and \ unless they have been escaped already
-	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
-	$line =~ s/(?<!\\)("|\\)/\\$1/g;
-
 	$line =~ s/\s+/ /g;
 	$line =~ s/^\s+//;
 	$line =~ s/\s+$//;
 
-	return '"' . $line . '"';
+	return '"' . escape_json_string_content($line) . '"';
 }
 
 =head2 create_panel_from_json_template ( $panel_id, $panel_template, $panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
@@ -800,6 +828,54 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 	return;
 }
 
+=head2 create_environmental_cost_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates the Environmental Cost knowledge panel displaying Ecobalyse ECS breakdown.
+
+The ingredients quantities we send to Ecobalyse are estimated for 100 g of final product
+(e.g. more than 100 g of potatoes may be needed to make 100 g of chips),
+so we consider that the impacts (in points) returned by Ecobalyse are for 100 g of product.
+
+Note: Ecobalyse applies its own ingredients to final product ratios (e.g. for 100 g of apricots,
+the impacts are reported for 80 g of product), so this is an approximation for now.
+
+=cut
+
+sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+	my $ecs = $product_ref->{environmental_impact}{ecs};
+	return unless looks_like_number($ecs);
+
+	# Only show Environmental Cost panel to moderators and admins
+	return unless $options_ref->{moderator} || $options_ref->{admin};
+
+	# Round ECS values to 2 decimal places
+	# (the values come from an external API: return an empty string if the value is not a number)
+	my $format_ecs = sub {
+		my $value = shift // 0;
+		return "" unless looks_like_number($value);
+		return sprintf("%.2f", $value);
+	};
+
+	# The breakdown values sum up to the total ECS
+	my $results_ref = deep_get($product_ref, qw(environmental_impact ecobalyse_response results)) // {};
+
+	my $panel_data_ref = {
+		ecs => $format_ecs->($ecs),
+		ecs_ingredients => $format_ecs->(deep_get($results_ref, qw(recipe ingredientsTotal ecs))),
+		ecs_processing => $format_ecs->(deep_get($results_ref, qw(recipe transform ecs))),
+		ecs_packaging => $format_ecs->(deep_get($results_ref, qw(packaging ecs))),
+		# Transports of ingredients + distribution transports
+		ecs_transport => $format_ecs->(deep_get($results_ref, qw(transports impacts ecs))),
+		ecs_distribution => $format_ecs->(deep_get($results_ref, qw(distribution total ecs))),
+		ecs_preparation => $format_ecs->(deep_get($results_ref, qw(preparation ecs))),
+	};
+
+	create_panel_from_json_template("environmental_cost", "api/knowledge-panels/environment/environmental_cost.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return;
+}
+
 =head2 create_environment_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains all knowledge panels related to the environment.
@@ -832,6 +908,9 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	# Create Environmental-Score related panels
 	if ($options{product_type} eq "food") {
 		create_environmental_score_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Create Environmental Cost panel (Ecobalyse ECS) if we have ECS data
+		create_environmental_cost_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 		if (
 				(defined $product_ref->{environmental_score_data})

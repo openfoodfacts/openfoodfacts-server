@@ -88,6 +88,52 @@
    "ecoscore_tags" : [
       "unknown"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 66.6666666666667,
+               "name" : "Sugar"
+            },
+            {
+               "ecobalyse_name" : "Farine UE -2025-",
+               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "mass" : 16.6666666666667,
+               "name" : "wheat flour"
+            },
+            {
+               "ecobalyse_name" : "Beurre à 39-41% MG, léger, doux Origine Inconnue",
+               "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
+               "mass" : 16.6666666666667,
+               "name" : "butter"
+            }
+         ],
+         "ingredients_coverage_percent" : 100
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 66.6666666666667
+               },
+               {
+                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+                  "mass" : 16.6666666666667
+               },
+               {
+                  "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
+                  "mass" : 16.6666666666667
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -355,7 +401,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
@@ -367,7 +414,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_proxy_name" : "Farine UE -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -379,7 +427,8 @@
       },
       {
          "ciqual_proxy_food_code" : "16400",
-         "ecobalyse_code" : "bbda834e-1548-4682-a461-c367dc1ce517",
+         "ecobalyse_id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
+         "ecobalyse_name" : "Beurre à 39-41% MG, léger, doux Origine Inconnue",
          "id" : "en:butter",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -1099,7 +1148,7 @@
                               "text" : "Energy"
                            },
                            {
-                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
                            }
                         ]
                      },
@@ -1111,7 +1160,7 @@
                               "text" : "Fat"
                            },
                            {
-                              "text" : "~ 14.0666666666667 g"
+                              "text" : "~ 14.067 g"
                            }
                         ]
                      },
@@ -1123,7 +1172,7 @@
                               "text" : "Saturated fat"
                            },
                            {
-                              "text" : "~ 9.27833333333333 g"
+                              "text" : "~ 9.278 g"
                            }
                         ]
                      },
@@ -1135,7 +1184,7 @@
                               "text" : "Carbohydrates"
                            },
                            {
-                              "text" : "~ 78.1166666666667 g"
+                              "text" : "~ 78.117 g"
                            }
                         ]
                      },
@@ -1147,7 +1196,7 @@
                               "text" : "Sugars"
                            },
                            {
-                              "text" : "~ 66.9383333333333 g"
+                              "text" : "~ 66.938 g"
                            }
                         ]
                      },
@@ -1159,7 +1208,7 @@
                               "text" : "Fiber"
                            },
                            {
-                              "text" : "~ 1.13333333333333 g"
+                              "text" : "~ 1.133 g"
                            }
                         ]
                      },
@@ -1171,7 +1220,7 @@
                               "text" : "Proteins"
                            },
                            {
-                              "text" : "~ 1.71833333333333 g"
+                              "text" : "~ 1.718 g"
                            }
                         ]
                      },
@@ -1183,7 +1232,7 @@
                               "text" : "Salt"
                            },
                            {
-                              "text" : "~ 0.0246 g"
+                              "text" : "~ 0.025 g"
                            }
                         ]
                      },
@@ -1192,7 +1241,7 @@
                            {
                               "level" : 0,
                               "style" : "max-width:15rem",
-                              "text" : "Fruits‚ vegetables‚ legumes"
+                              "text" : "Fruits, vegetables, legumes"
                            },
                            {
                               "text" : "~ 0 %"
@@ -1255,10 +1304,10 @@
                               "text" : "Energy"
                            },
                            {
-                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
                            },
                            {
-                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
                            }
                         ]
                      },
@@ -1270,10 +1319,10 @@
                               "text" : "Fat"
                            },
                            {
-                              "text" : "~ 14.0666666666667 g"
+                              "text" : "~ 14.067 g"
                            },
                            {
-                              "text" : "~ 14.0666666666667 g"
+                              "text" : "~ 14.067 g"
                            }
                         ]
                      },
@@ -1285,10 +1334,10 @@
                               "text" : "Saturated fat"
                            },
                            {
-                              "text" : "~ 9.27833333333333 g"
+                              "text" : "~ 9.278 g"
                            },
                            {
-                              "text" : "~ 9.27833333333333 g"
+                              "text" : "~ 9.278 g"
                            }
                         ]
                      },
@@ -1300,10 +1349,10 @@
                               "text" : "Carbohydrates"
                            },
                            {
-                              "text" : "~ 78.1166666666667 g"
+                              "text" : "~ 78.117 g"
                            },
                            {
-                              "text" : "~ 78.1166666666667 g"
+                              "text" : "~ 78.117 g"
                            }
                         ]
                      },
@@ -1315,10 +1364,10 @@
                               "text" : "Sugars"
                            },
                            {
-                              "text" : "~ 66.9383333333333 g"
+                              "text" : "~ 66.938 g"
                            },
                            {
-                              "text" : "~ 66.9383333333333 g"
+                              "text" : "~ 66.938 g"
                            }
                         ]
                      },
@@ -1330,10 +1379,10 @@
                               "text" : "Fiber"
                            },
                            {
-                              "text" : "~ 1.13333333333333 g"
+                              "text" : "~ 1.133 g"
                            },
                            {
-                              "text" : "~ 1.13333333333333 g"
+                              "text" : "~ 1.133 g"
                            }
                         ]
                      },
@@ -1345,10 +1394,10 @@
                               "text" : "Proteins"
                            },
                            {
-                              "text" : "~ 1.71833333333333 g"
+                              "text" : "~ 1.718 g"
                            },
                            {
-                              "text" : "~ 1.71833333333333 g"
+                              "text" : "~ 1.718 g"
                            }
                         ]
                      },
@@ -1360,10 +1409,10 @@
                               "text" : "Salt"
                            },
                            {
-                              "text" : "~ 0.0246 g"
+                              "text" : "~ 0.025 g"
                            },
                            {
-                              "text" : "~ 0.0246 g"
+                              "text" : "~ 0.025 g"
                            }
                         ]
                      },
@@ -1372,7 +1421,7 @@
                            {
                               "level" : 0,
                               "style" : "max-width:15rem",
-                              "text" : "Fruits‚ vegetables‚ legumes"
+                              "text" : "Fruits, vegetables, legumes"
                            },
                            {
                               "text" : "~ 0 %"
@@ -1576,6 +1625,8 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-not-computed",
