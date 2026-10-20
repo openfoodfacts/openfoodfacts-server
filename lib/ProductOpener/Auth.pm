@@ -471,11 +471,7 @@ sub start_signout ($request_ref) {
 	# random private token to identify the sign-out process
 	my $nonce = generate_token(64);
 	my $end_session_endpoint = $oidc_configuration->{end_session_endpoint};
-	my $redirect_url
-		= $end_session_endpoint
-		. '?post_logout_redirect_uri='
-		. uri_escape($signout_callback_uri)
-		. (
+	my $redirect_url = $end_session_endpoint . '?post_logout_redirect_uri=' . uri_escape($signout_callback_uri) . (
 		# sessions opened through password_signin used to store the decoded id token (a hash ref)
 		# instead of the JWT string: in that case, identify the client with client_id instead
 		ref($id_token)
