@@ -672,6 +672,10 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 # Usage: make unit_test_group TEST_GROUP=1
 # Groups are dynamically balanced by execution time using greedy algorithm
 
+# CI consumes the coordinator's plan without making a new one in each shard.
+ifeq ($(CI_TEST_GROUP_PLAN),1)
+include .test_groups_cache/unit_groups.mk
+else
 # Generate dynamic test groups if not cached or if forced
 .test_groups_cache/unit_groups.mk: scripts/dynamic_test_grouper.py
 	@echo "🥫 Generating dynamic unit test groups (auto-calculated count)..."
@@ -680,6 +684,7 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 
 # Include the dynamically generated groups
 -include .test_groups_cache/unit_groups.mk
+endif
 
 # Get unit test group tests from dynamically generated groups
 get_unit_group_tests = $(UNIT_GROUP_$(1)_TESTS)
@@ -689,6 +694,9 @@ unit_test_group: create_folders build_pro_platform_test
 ifeq ($(TEST_GROUP),)
 	$(error TEST_GROUP is required. Usage: make unit_test_group TEST_GROUP=1)
 endif
+ifeq ($(strip $(call get_unit_group_tests,$(TEST_GROUP))),)
+	$(error Empty or unknown unit test group $(TEST_GROUP); regenerate the test plan)
+endif
 	@echo "🥫 Running unit test group $(TEST_GROUP) …"
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/unit/outputs/
@@ -697,8 +705,6 @@ endif
 	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 Unit test group $(TEST_GROUP) completed successfully"
-	# Update timing data from test results
-	@python3 scripts/dynamic_test_grouper.py --type=unit --update-timings --junit-dir=tests/unit/outputs/
 
 # Force regeneration of unit test groups (ignores cache)
 regenerate_unit_groups:
@@ -710,6 +716,10 @@ regenerate_unit_groups:
 # Usage: make integration_test_group TEST_GROUP=1
 # Groups are dynamically balanced by execution time using greedy algorithm
 
+# CI consumes the coordinator's plan without making a new one in each shard.
+ifeq ($(CI_TEST_GROUP_PLAN),1)
+include .test_groups_cache/integration_groups.mk
+else
 # Generate dynamic integration test groups if not cached or if forced
 .test_groups_cache/integration_groups.mk: scripts/dynamic_test_grouper.py
 	@echo "🥫 Generating dynamic integration test groups (auto-calculated count)..."
@@ -718,6 +728,7 @@ regenerate_unit_groups:
 
 # Include the dynamically generated groups
 -include .test_groups_cache/integration_groups.mk
+endif
 
 # Get the tests for a specific group from dynamically generated groups
 get_group_tests = $(INTEGRATION_GROUP_$(1)_TESTS)
@@ -725,6 +736,9 @@ get_group_tests = $(INTEGRATION_GROUP_$(1)_TESTS)
 integration_test_group: create_folders
 ifeq ($(TEST_GROUP),)
 	$(error TEST_GROUP is required. Usage: make integration_test_group TEST_GROUP=1)
+endif
+ifeq ($(strip $(call get_group_tests,$(TEST_GROUP))),)
+	$(error Empty or unknown integration test group $(TEST_GROUP); regenerate the test plan)
 endif
 	@echo "🥫 Running integration test group $(TEST_GROUP) …"
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
@@ -735,8 +749,6 @@ endif
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend yath test --renderer=Formatter --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 Integration test group $(TEST_GROUP) completed successfully"
-	# Update timing data from test results
-	@python3 scripts/dynamic_test_grouper.py --type=integration --update-timings --junit-dir=tests/integration/outputs/
 
 # Force regeneration of integration test groups (ignores cache)
 regenerate_integration_groups:
