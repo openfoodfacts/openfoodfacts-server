@@ -1670,4 +1670,19 @@ is(
 	'known ingredients and dosages survive mixed known and unknown codes on separate lines'
 );
 
+# L-amino acids present in the amino-acid taxonomy should also
+# be recognized as food ingredients.
+my $l_amino_acids = {
+	lc => 'en',
+	ingredients_text => 'L-glutamine, L-arginine, L-isoleucine, L-leucine',
+};
+
+extract_ingredients_from_text($l_amino_acids);
+
+is(
+	[map {[$_->{id}, $_->{is_in_taxonomy}]} @{$l_amino_acids->{ingredients}}],
+	[['en:l-glutamine', 1], ['en:l-arginine', 1], ['en:l-isoleucine', 1], ['en:e641', 1],],
+	'L-amino acids are recognized as food ingredients',
+);
+
 done_testing();
