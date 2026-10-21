@@ -140,11 +140,14 @@
             {
                "ecobalyse_name" : "Banane par défaut -2025-",
                "id" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
-               "mass" : 100.0,
+               "mass" : 100,
                "name" : "Banane"
             }
          ],
-         "ingredients_coverage_percent" : 100
+         "ingredients_coverage_percent" : 100,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -152,7 +155,7 @@
             "ingredients" : [
                {
                   "id" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
-                  "mass" : 100.0
+                  "mass" : 100
                }
             ]
          },
@@ -499,6 +502,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-skipped",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-computed",

@@ -62,7 +62,10 @@
                "name" : "sól"
             }
          ],
-         "ingredients_coverage_percent" : 82
+         "ingredients_coverage_percent" : 82,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -243,6 +246,7 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-c-2023-d",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-80-and-89",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

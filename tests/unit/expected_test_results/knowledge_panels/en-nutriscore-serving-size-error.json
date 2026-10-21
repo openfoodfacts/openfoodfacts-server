@@ -104,25 +104,15 @@
          "distribution" : "ambient",
          "ingredients" : [],
          "ingredients_coverage_percent" : 0,
-         "packaging" : [
-            {
-               "category" : "en:biscuits",
-               "id" : "99353d1b-77a3-4fcd-8c99-25ef7dd404c5",
-               "name" : "Cookies, 200g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-               "name_fr" : "Barquette en plastique (PP) pour cookies - 200g - Proxy"
-            }
-         ]
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "99353d1b-77a3-4fcd-8c99-25ef7dd404c5"
-               }
-            ]
+            "ingredients" : []
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
@@ -2112,6 +2102,7 @@
       "en:all-ingredients-with-specified-percent",
       "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
