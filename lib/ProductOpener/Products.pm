@@ -102,6 +102,7 @@ BEGIN {
 
 		&process_product_edit_rules
 		&preprocess_product_field
+		&add_teams_to_product
 		&product_data_is_protected
 
 		&make_sure_numbers_are_stored_as_numbers
@@ -3673,27 +3674,49 @@ $product_ref
 sub add_user_teams ($product_ref) {
 
 	if (defined $User_id) {
-
-		for (my $i = 1; $i <= 3; $i++) {
-
-			my $added_teams = 0;
-
-			if (defined $User{"team_" . $i}) {
-
-				my $teamid = get_string_id_for_lang("no_language", $User{"team_" . $i});
-				if ($teamid ne "") {
-					add_tag($product_ref, "teams", $teamid);
-					$added_teams++;
-				}
-			}
-
-			if ($added_teams) {
-				$product_ref->{teams} = join(',', @{$product_ref->{teams_tags}});
-			}
-		}
+		add_teams_to_product($product_ref, map {$User{"team_" . $_}} (1 .. 3));
 	}
 
 	return;
+}
+
+=head2 add_teams_to_product ( $product_ref, @teams )
+
+Add one or more teams to the teams_tags array of a product, and update the teams field accordingly.
+Existing teams are kept.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head4 @teams
+
+List of team names (undefined or empty values are ignored)
+
+=head3 Return value
+
+Number of teams added.
+
+=cut
+
+sub add_teams_to_product ($product_ref, @teams) {
+
+	my $added_teams = 0;
+	my $valid_teams = 0;
+
+	foreach my $team (grep {defined} @teams) {
+		my $teamid = get_string_id_for_lang("no_language", $team);
+		if ($teamid ne "") {
+			$added_teams += add_tag($product_ref, "teams", $teamid);
+			$valid_teams++;
+		}
+	}
+
+	if ($valid_teams) {
+		$product_ref->{teams} = join(',', @{$product_ref->{teams_tags}});
+	}
+
+	return $added_teams;
 }
 
 =head2 product_data_is_protected ( $product_ref )
