@@ -1290,8 +1290,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		and (($options{product_type} eq "food") or ($options{product_type} eq "petfood")))
 	{
 		@tagtypes = (
-			"additives_classes", "additives", "minerals", "vitamins", "amino_acids",
-			"nucleotides", "other_nutritional_substances", "ingredients"
+			"additives_classes", "additives", "minerals", "vitamins",
+			"amino_acids", "nucleotides", "other_nutritional_substances", "ingredients"
 		);
 	}
 
