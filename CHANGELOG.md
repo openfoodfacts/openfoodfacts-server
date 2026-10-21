@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.116.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.116.0...v2.116.1) (2026-10-21)
+
+
+### Bug Fixes
+
+* do not load taxonomies twice when calling load_data() ([#15058](https://github.com/openfoodfacts/openfoodfacts-server/issues/15058)) ([8242b76](https://github.com/openfoodfacts/openfoodfacts-server/commit/8242b7618baae6ff143fcf2b654d1f774b0d7dcd))
+* Ignore unknown French product name placeholder ([#14050](https://github.com/openfoodfacts/openfoodfacts-server/issues/14050)) ([6fbf856](https://github.com/openfoodfacts/openfoodfacts-server/commit/6fbf8562df9b7618036b4e36b6295009e3617f5a))
+* preparse "di - et triphosphates" and other mono/di/tri prefixes ([#15040](https://github.com/openfoodfacts/openfoodfacts-server/issues/15040)) ([220e004](https://github.com/openfoodfacts/openfoodfacts-server/commit/220e0041e6caa67a9c9cf5c8a616ee66f213f261))
+* taxonomies enhancer - do not parse ingredients again when there is only 1 language ([#15060](https://github.com/openfoodfacts/openfoodfacts-server/issues/15060)) ([826d5f7](https://github.com/openfoodfacts/openfoodfacts-server/commit/826d5f756ea05b4bfbeeb0a49d34c8db87eecfbd))
+
 ## [2.116.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.115.0...v2.116.0) (2026-10-20)
 
 

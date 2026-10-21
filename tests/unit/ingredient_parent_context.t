@@ -14,7 +14,7 @@ local $BASE_DIRS{PUBLIC_DATA} = "$tmp/public";
 local $options{product_type} = 'food';
 local $ENV{TAXONOMY_NO_GET_FROM_CACHE} = 1;
 make_path("$tmp/src/food", "$tmp/cache", "$tmp/public");
-for my $name (qw(additives_classes additives minerals vitamins nucleotides other_nutritional_substances)) {
+for my $name (qw(additives_classes additives minerals vitamins amino_acids nucleotides other_nutritional_substances)) {
 	open(my $out, '>:encoding(UTF-8)', "$tmp/src/$name.txt") or die $!;
 	close($out) or die $!;
 }
