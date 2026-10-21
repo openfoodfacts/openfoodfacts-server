@@ -3,7 +3,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "4003",
-         "ecobalyse_code" : "potato-industry-fr",
+         "ecobalyse_id" : "999485a8-08af-5135-bf2c-48ce04c68f81",
+         "ecobalyse_name" : "Pomme de terre Origine Inconnue",
          "id" : "en:potato",
          "is_in_taxonomy" : 1,
          "origins" : "en:france,en:italy",
@@ -33,9 +34,10 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:potato",
-      "en:vegetable",
+      "en:starchy-root-vegetable",
+      "en:tuber",
       "en:root-vegetable",
-      "en:tuber"
+      "en:vegetable"
    ],
    "ingredients_text" : "Pomme de Terre (France et Italie)",
    "ingredients_with_specified_percent_n" : 0,
