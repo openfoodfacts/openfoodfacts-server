@@ -400,7 +400,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
       apt-get update || true \
     ) && \
     apt-get install -y --no-install-recommends \
-        wget \
         gzip \
         pigz \
         tar

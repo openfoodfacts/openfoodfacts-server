@@ -1595,11 +1595,9 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 
 =head2 download_file_to($url, $output_file)
 
-Download an url to a local file, with wget.
+Download an url to a local file, with LWP::UserAgent.
 
-The url comes from the data file of a supplier: it must be an http or https url, and wget is called
-without a shell, with the options before the url, so that no content of the data file can add an
-option to wget or a command to the line we run.
+The url comes from the data file of a supplier: it must be an http or https url.
 
 Returns 1 if the file was downloaded, 0 otherwise.
 
@@ -1613,12 +1611,26 @@ sub download_file_to ($url, $output_file) {
 		return 0;
 	}
 
-	# -- tells wget that the arguments after it are urls, even if one starts with a dash
-	my $status = system("wget", "-O", $output_file, "--", $url);
+	require LWP::UserAgent;
+	require File::Basename;
+	require File::Path;
+	my $dir = File::Basename::dirname($output_file);
+	File::Path::make_path($dir) unless -d $dir;
 
-	if ($status != 0) {
-		$log->warn("wget failed", {url => $url, output_file => $output_file, status => $status})
+	my $ua = LWP::UserAgent->new(timeout => 30, agent => "OpenFoodFacts Perl ImportConvert/1.0");
+	$ua->env_proxy;
+	my $response = $ua->get($url, ':content_file' => $output_file);
+
+	if (!$response->is_success) {
+		$log->warn("download failed",
+			{url => $url, output_file => $output_file, status => $response->status_line})
 			if $log->is_warn();
+		# Leave an empty file behind (like wget does on failure), so that -s
+		# returns 0 and a later run retries the download instead of assuming
+		# a partial download is complete.
+		if (open(my $fh, '>', $output_file)) {
+			close($fh);
+		}
 		return 0;
 	}
 
