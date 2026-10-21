@@ -8,7 +8,8 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
+use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes %packager_codes/;
+use ProductOpener::Display qw/get_packager_code_coordinates/;
 
 # initial tests
 is(normalize_packager_codes("emb54253"), "EMB 54253");
@@ -82,5 +83,21 @@ is(normalize_packager_codes("EE 110 EÜ"), "EE 110 EC", "EE: normalized code cor
 is(normalize_packager_codes(normalize_packager_codes("EE 110 EÜ")),
 	"EE 110 EC", "EE: normalizing code twice does not change it any more than normalizing once");
 is(localize_packager_code(normalize_packager_codes("EE 110 EÜ")), "EE 110 EÜ", "EE: round-tripped code correctly");
+
+# get_packager_code_coordinates
+$packager_codes{"test-code-empty-coords"} = { lat => "", lng => "", cc => "fr" };
+my ($empty_lat, $empty_lng) = get_packager_code_coordinates("test-code-empty-coords");
+is($empty_lat, undef, "Empty latitude returns undef");
+is($empty_lng, undef, "Empty longitude returns undef");
+
+$packager_codes{"test-code-invalid-coords"} = { lat => "invalid", lng => "not-a-number", cc => "fr" };
+my ($invalid_lat, $invalid_lng) = get_packager_code_coordinates("test-code-invalid-coords");
+is($invalid_lat, undef, "Invalid non-numeric latitude returns undef");
+is($invalid_lng, undef, "Invalid non-numeric longitude returns undef");
+
+$packager_codes{"test-code-valid-coords"} = { lat => "48.12", lng => "-2.45", cc => "fr" };
+my ($valid_lat, $valid_lng) = get_packager_code_coordinates("test-code-valid-coords");
+is($valid_lat, "48.12", "Valid latitude returned correctly");
+is($valid_lng, "-2.45", "Valid longitude returned correctly");
 
 done_testing();

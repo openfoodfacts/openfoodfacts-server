@@ -124,6 +124,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use Scalar::Util qw(looks_like_number);
 use ProductOpener::HTTP
 	qw(set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve retrieve_object);
@@ -7253,8 +7254,8 @@ sub get_packager_code_coordinates ($emb_code) {
 			# some lat/lng have , for floating point numbers
 			$lat = $emb_code_data{lat};
 			$lng = $emb_code_data{lng};
-			$lat =~ s/,/\./g;
-			$lng =~ s/,/\./g;
+			$lat =~ s/,/\./g if defined $lat;
+			$lng =~ s/,/\./g if defined $lng;
 		}
 		elsif (exists $emb_code_data{fsa_rating_business_geo_lat}) {
 			$lat = $emb_code_data{fsa_rating_business_geo_lat};
@@ -7270,6 +7271,12 @@ sub get_packager_code_coordinates ($emb_code) {
 		}
 	}
 
+	# treat empty or non-numeric coordinates as missing so fallback to city coordinates can be used
+	if (!defined $lat || !looks_like_number($lat) || !defined $lng || !looks_like_number($lng)) {
+		$lat = undef;
+		$lng = undef;
+	}
+
 	my $city_code = get_city_code($emb_code);
 
 	init_emb_codes() unless %emb_codes_geo;
@@ -7278,17 +7285,16 @@ sub get_packager_code_coordinates ($emb_code) {
 		# some lat/lng have , for floating point numbers
 		$lat = $emb_codes_geo{$city_code}[0];
 		$lng = $emb_codes_geo{$city_code}[1];
-		$lat =~ s/,/\./g;
-		$lng =~ s/,/\./g;
+		$lat =~ s/,/\./g if defined $lat;
+		$lng =~ s/,/\./g if defined $lng;
 	}
 
-	# filter out empty coordinates
-	if ((not defined $lat) or (not defined $lng)) {
+	# filter out empty or invalid coordinates
+	if (!defined $lat || !looks_like_number($lat) || !defined $lng || !looks_like_number($lng)) {
 		return (undef, undef);
 	}
 
 	return ($lat, $lng);
-
 }
 
 # an iterator over a cursor to unify cases between mongodb and external data (like filtered jsonl)
