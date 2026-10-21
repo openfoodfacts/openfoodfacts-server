@@ -9190,6 +9190,7 @@ fr: Données nutritionnelles manquantes - fibres présentes sur les photos
 description:en: Fibers are mentioned on photos, but are not present in the inputed nutrition table
 
 < en: Fibers warnings
+< en: Data quality errors
 en: Missing nutrition facts - fibers present on nutrition photos
 description:en: Fibers are mentioned on nutrition photos, but are not present in the inputed nutrition table
 
@@ -9327,7 +9328,7 @@ description:pl: Wszystkie składniki mają określony procent.
 description:pt: Todos os ingredientes têm uma percentagem especificada.
 description:ru: У всех ингредиентов указан процент.
 
-< en: Ingredients warnings
+< en: Ingredients errors
 en: Ingredients - 100 percent unknown
 ar: المكونات - 100 بالمائة غير معروفة
 bg: Съставки - 100 процента неизвестни
@@ -9399,7 +9400,7 @@ ru: Ингредиенты - 70 процентов неизвестны
 zh: 成分 - 百分之70未知
 description:en: There are 70 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
 
-< en: Ingredients warnings
+< en: Ingredients errors
 en: Ingredients - 80 percent unknown
 ar: المكونات - 80 بالمائة غير معروفة
 bg: Съставки - 80 процента неизвестни
@@ -9435,7 +9436,7 @@ ru: Ингредиенты - 90 процентов неизвестны
 zh: 成分 - 百分之90未知
 description:en: There are 90 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
 
-< en: Ingredients warnings
+< en: Ingredients errors
 en: Ingredients - extracted ingredient from picture with more than 100 percent
 description:en: At least one ingredient has a percentage greater than 100% after extracting the ingredients from the picture
 
@@ -9443,7 +9444,7 @@ description:en: At least one ingredient has a percentage greater than 100% after
 en: Ingredients - Ingredient tag length greater than 100
 description:en: Having ingredients with a lot of letter might indicate a parsing error. Words with 100 characters are very rare in almost all languages.
 
-< en: Ingredients warnings
+< en: Ingredients errors
 en: Ingredients - Ingredient tag length greater than 200
 description:en: Having ingredients with a lot of letter might indicate a parsing error. Words with 200 characters are very rare in almost all languages.
 
@@ -9527,7 +9528,7 @@ description:de: In einer Zutatenliste gibt es 7 verschiedene Sprachen. Zum Beisp
 description:es: Hay 7 idiomas diferentes en una lista de ingredientes. Por ejemplo, la lista de ingredientes en francés solo debería incluir el idioma declarado, y los otros idiomas deberían moverse a una lista de ingredientes para alemán, italiano...
 description:fr: Il y a 7 langues différentes dans une liste d'ingrédients. Par exemple, la liste d'ingrédients en français ne devrait inclure que la langue déclarée, et les autres langues devraient être déplacées vers une liste d'ingrédients pour l'allemand, l'italien...
 
-< en: Ingredients warnings
+< en: Ingredients errors
 en: Ingredients - Number of languages - above 1
 description:en: The ingredient list is available in more than 1 language.
 description:ca: La llista d'ingredients està disponible en més d'1 idioma.
@@ -9577,7 +9578,7 @@ description:en: There are over 4 different languages in one ingredient list. For
 en: Ingredients - Number of languages - above 5
 description:en: There are over 5 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
 
-< en: Ingredients warnings
+< en: Ingredients errors
 en: Ingredients - Percent analysis not OK
 description:en: The percentages of the ingredients are not consistent and could not be successfully estimated.
 description:ca: Els percentatges dels ingredients no són coherents i no s'han pogut estimar correctament.
