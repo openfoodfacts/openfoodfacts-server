@@ -184,7 +184,7 @@ eval {
 =cut
 
 sub execute_query ($sub) {
-	return $sub->(@_);
+	return $sub->();
 }
 
 sub execute_aggregate_tags_query ($query) {
@@ -390,7 +390,9 @@ sub get_mongodb_client ($timeout = undef) {
 			eval {
 				_mongo_monitoring_callback($event);
 				1;
-			} or $log->error('MongoDB monitoring callback error', {error => $@}) if $log->is_error();
+			} or do {
+				$log->error('MongoDB monitoring callback error', {error => $@}) if $log->is_error();
+			};
 		},
 	);
 
@@ -570,7 +572,6 @@ sub _mongo_monitoring_callback ($event) {
 	elsif ($event->{type} eq 'command_succeeded') {
 		if (exists $spans{$event->{requestId}}) {
 			my $span = delete $spans{$event->{requestId}};
-			$span->status(1);
 			$o->{tracer}->enqueue($span);
 		}
 	}

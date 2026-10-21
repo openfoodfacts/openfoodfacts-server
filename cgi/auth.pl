@@ -105,7 +105,7 @@ if (single_param("body")) {
 }
 
 my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
-$span->set_attribute('http.response.status_code', $status) if (defined $span);
+$span->attr('http.response.status_code', $status) if (defined $span);
 $r->rflush;
 
 # Setting the status makes mod_perl append a default error to the body
