@@ -111,7 +111,7 @@ if (not defined $code) {
 	}
 	else {
 
-		if ((defined $file) and ($file =~ /\.(gif|jpeg|jpg|png|heic)$/i)) {
+		if ((defined $file) and ($file =~ /\.(gif|jpeg|jpg|png|heic|heif)$/i)) {
 
 			$log->debug("scan barcode in image file", {file => $file}) if $log->is_debug();
 

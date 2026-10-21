@@ -169,7 +169,7 @@ $symbols_regexp = join('|', @symbols);
 	fi =>
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää myös pieniä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
-		"peut contenir des traces de toutes les autres|transformé dans une usine manipulant|traces d'allergènes potentielles de|peut contenir des traces d'autres|traces d'allergènes potentielles|il peut contenir des traces de|il peut contenir des traces|peut contenir des traces de|traces éventuelles d'autres|traces eventuelles d'autres|peut contenir des traces|peut également contenir|traces potentielles de|traces éventuelles de|traces eventuelles de|présence possible de|trace potentielle de|traces possibles de|trace éventuelle de|trace eventuelle de|traces potentielles|traces éventuelles|traces eventuelles|qui manipule aussi|trace possible de|présence possible|trace potentielle|qui utilise aussi|traces possibles|trace éventuelle|trace eventuelle|traces d'autres|trace possible|peut contenir|qui manipule|manipulisant|qui utilise|utilisant|traces|trace",
+		"peut contenir des traces de toutes les autres|transformé dans une usine manipulant|traces d'allergènes potentielles de|peut contenir des traces d'autres|traces d'allergènes potentielles|il peut contenir des traces de|il peut contenir des traces|peut contenir des traces de|traces éventuelles d'autres|traces eventuelles d'autres|peut contenir des traces|peut également contenir|traces potentielles de|traces éventuelles de|traces eventuelles de|présence possible de|trace potentielle de|traces possibles de|trace éventuelle de|trace eventuelle de|traces potentielles|traces éventuelles|traces eventuelles|qui manipule aussi|trace possible de|présence possible|trace potentielle|qui utilise également|utilisant également|qui utilise aussi|utilisant aussi|traces possibles|trace éventuelle|trace eventuelle|traces d'autres|trace possible|peut contenir|qui manipule|manipulisant|qui utilise|utilisant|traces|trace",
 	hr =>
 		"mogući ostaci|mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
 	hu => "nyomokban|tartalmazhat",
@@ -726,7 +726,7 @@ sub unit_only_string ($ingredients_lc, $string) {
 		grep {length} (
 			_compound_unit_regexp_alternatives(), @UNIT_ACTIVITY_NUMERATORS,
 			@UNIT_MASS_NUMERATORS, "(?i:\N{U+00B5}g|\N{U+03BC}g|ug)",
-			$units_regexps{$ingredients_lc} || '',
+			$units_regexps{$ingredients_lc} // $units_regexps{xx} // '',
 		)
 	);
 	$units =~ s{\\/}{(?:/|\N{U+2044}|\N{U+FF0F})}g;
@@ -757,7 +757,7 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		# shorter taxonomy tokens such as "mg" or "g".
 		# After protect_compound_unit_slashes the solidus is U+2044, so rewrite
 		# taxonomy-escaped slashes to accept /, U+2044 and fullwidth ／.
-		my $units_regexp_in_lc = $units_regexps{$ingredients_lc} || '';
+		my $units_regexp_in_lc = $units_regexps{$ingredients_lc} // $units_regexps{xx} // '';
 		$units_regexp_in_lc =~ s{\\/}{(?:/|\N{U+2044}|\N{U+FF0F})}g;
 		my $compound_units = join('|', _compound_unit_regexp_alternatives());
 		my $activity_units = join('|', @UNIT_ACTIVITY_NUMERATORS);

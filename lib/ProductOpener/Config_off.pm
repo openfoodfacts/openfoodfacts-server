@@ -175,6 +175,12 @@ $flavor = 'off';
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# Romanian: diacritics (ă â î ș ț, and the legacy cedilla forms ş ţ) are very often missing,
+	# and there are very few conflicts in ingredients, labels etc. (ă vs a mostly marks the definite article)
+	ro => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	sk => {
 		unaccent => 1,
 		lowercase => 1,
@@ -271,6 +277,14 @@ $options{users_who_can_upload_small_images} = {
 			qw (
 				slack_channel_edit-alert
 			)
+		],
+	},
+
+	{
+		name => "Ignore unknown French product name placeholder",
+		actions => [
+			["ignore_if_regexp_match_product_name", '^\\s*produit inconnu\\s*$'],
+			["ignore_if_regexp_match_product_name_fr", '^\\s*produit inconnu\\s*$'],
 		],
 	},
 
@@ -734,7 +748,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 # improvements
 # ingredients_analysis
 # ingredients_processing:
-# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# ingredients (additives_classes, additives, minerals, vitamins, amino_acids, nucleotides, other_nutritional_substances): labels
 # labels: categories
 # languages:
 # minerals
@@ -972,7 +986,7 @@ $options{import_export_fields_groups} = [
 			"preparation", "nutriscore_score_producer",
 			"nutriscore_grade_producer", "nova_group_producer",
 			"recipe_idea", "customer_service",
-			"link",
+			"link", "teams",
 		]
 	],
 	[
