@@ -7,10 +7,16 @@ use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 $Data::Dumper::Sortkeys = 1;
+$Data::Dumper::Indent = 1;
+
 use Log::Any::Adapter 'TAP';
+use CGI qw/Delete param/;
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # code normalization
 is(normalize_code('036000291452'), '0036000291452', 'should add leading 0 to valid UPC12');
@@ -276,6 +282,25 @@ is(preprocess_product_field('packaging', 'Aluminium, Can, abc@gmail.com'), 'Alum
 is(preprocess_product_field('labels', 'email@example.com, Green Dot'), ', Green Dot');
 is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, ');
 
+# Test edit rules for product names
+Delete('product_name');
+param('product_name', 'Produit inconnu');
+ok(process_product_edit_rules({code => '1234567890123'}), 'placeholder product name should not block the edit');
+ok(!defined param('product_name'), 'placeholder product name should be ignored');
+
+Delete('product_name_fr');
+param('product_name_fr', '  produit inconnu  ');
+ok(
+	process_product_edit_rules({code => '1234567890123'}),
+	'localized placeholder product name should not block the edit'
+);
+ok(!defined param('product_name_fr'), 'localized placeholder product name should be ignored');
+
+param('product_name', 'Pate a tartiner noisette');
+ok(process_product_edit_rules({code => '1234567890123'}), 'real product name should not block the edit');
+is(param('product_name'), 'Pate a tartiner noisette', 'real product name should be kept');
+Delete('product_name');
+
 is(split_code("26153689"), "000/002/615/3689");
 
 # test review_product_type, to migrate product in other flavor if category tag is provided
@@ -334,9 +359,106 @@ is(product_id_from_path("$BASE_DIRS{PRODUCTS}/123/456/789/product"), "123456789"
 # Test is_valid_code()
 
 is(is_valid_code('1234567890123'), 1, 'valid EAN13 code');
+is(is_valid_code('1234567890123456789012345'), 1, 'valid 25 digit product code');
+is(is_valid_code('1' x 40), 1, 'valid 40 digit product code');
+is(is_valid_code('1' x 41), '', '41 digit code is too long');
 is(is_valid_code('123'), '', '3 digit code');
 is(is_valid_code('00000123'), '', '3 digit code with leading 0s');
 is(is_valid_code('1234567890123456789012345678901234567890123456789012345678901234567890'), '', 'too long code');
 is(is_valid_code(undef), '', 'undefined code');
+
+my @tests = (
+	[
+		'compute_completeness_and_missing_tags',
+		{
+			brands => 'Carrefour',
+			brands_tags => ['xx:carrefour'],
+			product_name => 'Test Product',
+			categories_tags => ['en:beverages', 'en:carbonated-drinks'],
+		},
+	],
+	[
+		# Product types for which the nutrition feature is disabled (e.g. beauty products) must not
+		# have the en:nutrition-photo-to-be-selected and en:nutrition-facts-to-be-completed states,
+		# otherwise they could never be complete.
+		'compute_completeness_and_missing_tags_beauty',
+		{
+			product_type => 'beauty',
+			brands => 'Test brand',
+			brands_tags => ['xx:test-brand'],
+			product_name => 'Test shampoo',
+			quantity => '250 ml',
+			packaging => 'Bottle',
+			packaging_tags => ['en:bottle'],
+			categories_tags => ['en:shampoos'],
+			origins => 'France',
+			origins_tags => ['en:france'],
+			emb_codes => 'EMB 12345',
+			expiration_date => '01/2030',
+			ingredients_text => 'Aqua, Sodium Laureth Sulfate',
+		},
+		# The product has all the photos it needs: front, ingredients and packaging, but no nutrition photo
+		{
+			uploaded_images => {1 => 1},
+			selected_images => {front_en => 1, ingredients_en => 1, packaging_en => 1},
+		},
+	],
+);
+
+foreach my $test_ref (@tests) {
+
+	my $testid = $test_ref->[0];
+	my $product_ref = $test_ref->[1];
+	my $current_ref = $test_ref->[2] // {};
+
+	# Run the test
+
+	compute_completeness_and_missing_tags($product_ref, $current_ref, {});
+
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
+
+# Check explicitly the states of the beauty product, as they are the point of the test above
+my $beauty_product_ref = $tests[1][1];
+is([grep {/^en:nutrition/} @{$beauty_product_ref->{states_tags}}], [], 'beauty products do not have nutrition states');
+is($beauty_product_ref->{complete}, 1, 'beauty products can be complete without nutrition facts and photo');
+
+my @uploaded_images_misc_tags_tests = (
+	[0, []],
+	[1, ['en:number-of-uploaded-images-1-to-3']],
+	[3, ['en:number-of-uploaded-images-1-to-3']],
+	[4, ['en:number-of-uploaded-images-4-to-6']],
+	[6, ['en:number-of-uploaded-images-4-to-6']],
+	[7, ['en:number-of-uploaded-images-7-to-10']],
+	[10, ['en:number-of-uploaded-images-7-to-10']],
+	[11, ['en:number-of-uploaded-images-11-to-50']],
+	[50, ['en:number-of-uploaded-images-11-to-50']],
+	[51, ['en:number-of-uploaded-images-51-to-100']],
+	[100, ['en:number-of-uploaded-images-51-to-100']],
+	[101, ['en:number-of-uploaded-images-more-than-100']],
+);
+
+foreach my $test_ref (@uploaded_images_misc_tags_tests) {
+	my ($uploaded_images_n, $expected_tags_ref) = @$test_ref;
+	my %uploaded_images = ();
+	foreach my $imgid (1 .. $uploaded_images_n) {
+		$uploaded_images{$imgid} = 1;
+	}
+	my $product_ref = {misc_tags => ['en:unrelated-tag', 'en:number-of-uploaded-images-4-to-6'],};
+	my $current_ref = {
+		uploaded_images => \%uploaded_images,
+		selected_images => {},
+	};
+
+	compute_completeness_and_missing_tags($product_ref, $current_ref, {});
+
+	is(
+		$product_ref->{misc_tags},
+		['en:unrelated-tag', @$expected_tags_ref],
+		"misc tags for $uploaded_images_n uploaded images preserve unrelated tag order"
+	);
+	is([grep {/^en:number-of-uploaded-images-/} @{$product_ref->{states_tags}}],
+		[], 'uploaded image count tags are not exposed as product states');
+}
 
 done_testing();

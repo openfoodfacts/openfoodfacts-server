@@ -85,6 +85,7 @@ use LWP::UserAgent;
 use LWP::UserAgent::Plugin 'Retry';
 use HTTP::Request;
 use URI::Escape::XS qw/uri_escape/;
+use HTML::Entities;
 
 # Initialize some constants
 
@@ -170,7 +171,7 @@ sub signin_callback ($request_ref) {
 			start_authorize($request_ref);
 		}
 		else {
-			display_error_and_exit($request_ref, $error, 500);
+			display_error_and_exit($request_ref, encode_entities($error), 500);
 		}
 
 		return;
@@ -294,7 +295,8 @@ sub password_signin ($username, $password, $request_ref) {
 		$access_token->{access_token},
 		# use absolute time instead of relative time
 		$time + $access_token->{expires_in},
-		$id_token
+		# return the raw JWT string (not the decoded token), as it is needed as id_token_hint at sign-out
+		$access_token->{id_token}
 	);
 }
 
@@ -424,6 +426,10 @@ sub access_to_protected_resource ($request_ref) {
 
 	$log->info('request is ok', $request_ref) if $log->is_info();
 
+	# Already logged in. Redirect to the requested url
+	if (defined $request_ref->{return_url}) {
+		redirect_to_url($request_ref, 302, $request_ref->{return_url});
+	}
 	return;
 }
 
@@ -465,12 +471,13 @@ sub start_signout ($request_ref) {
 	# random private token to identify the sign-out process
 	my $nonce = generate_token(64);
 	my $end_session_endpoint = $oidc_configuration->{end_session_endpoint};
-	my $redirect_url
-		= $end_session_endpoint
-		. '?post_logout_redirect_uri='
-		. uri_escape($signout_callback_uri)
-		. '&id_token_hint='
-		. uri_escape($id_token)
+	my $redirect_url = $end_session_endpoint . '?post_logout_redirect_uri=' . uri_escape($signout_callback_uri) . (
+		# sessions opened through password_signin used to store the decoded id token (a hash ref)
+		# instead of the JWT string: in that case, identify the client with client_id instead
+		ref($id_token)
+		? '&client_id=' . uri_escape($oidc_options{client_id})
+		: '&id_token_hint=' . uri_escape($id_token)
+		)
 		. '&state='
 		. uri_escape($nonce);
 
@@ -651,7 +658,23 @@ Returns: The verified access token or undefined if verification fails.
 sub verify_access_token ($access_token_string) {
 	get_oidc_configuration();
 
-	my $access_token_verified = decode_jwt(token => $access_token_string, kid_keys => $jwks);
+	# Bind the token to this relying party: signature alone is not sufficient, because every client
+	# in the realm is signed by the same JWKS keys.
+	# Note: decode_jwt throws on signature / iss / alg failure, so trap it
+	# to honor the documented undef-on-failure contract.
+	my $access_token_verified = eval {
+		decode_jwt(
+			token => $access_token_string,
+			kid_keys => $jwks,
+			verify_iss => $oidc_configuration->{issuer},
+			accepted_alg => ['RS256'],
+		);
+	};
+	if (my $error = $@) {
+		chomp $error;
+		$log->info('Access token verification failed', {error => $error}) if $log->is_info();
+		return;
+	}
 	unless ($access_token_verified) {
 		return;
 	}
