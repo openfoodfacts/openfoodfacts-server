@@ -12,9 +12,14 @@ on:
     # on merge to main, build and publish
     branches: [ "main" ]
 
+permissions:
+  contents: read
+
 jobs:
   documentation:
     name: Documentation
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
 
     steps:

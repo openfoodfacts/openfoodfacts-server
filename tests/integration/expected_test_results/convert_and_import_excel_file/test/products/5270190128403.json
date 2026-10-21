@@ -140,18 +140,14 @@
             {
                "ecobalyse_name" : "Banane par défaut -2025-",
                "id" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
-               "mass" : 100.0,
+               "mass" : 100,
                "name" : "Banane"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 100,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -159,13 +155,7 @@
             "ingredients" : [
                {
                   "id" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
-                  "mass" : 100.0
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+                  "mass" : 100
                }
             ]
          },
@@ -510,6 +500,9 @@
    "main_countries_tags" : [],
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-computed",

@@ -486,14 +486,11 @@
                "name" : "salt"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "79d05fb1-d000-41f4-850b-54afd8d2dc9c",
-               "name" : "Other desserts - cat C, 285g | Packaging System, N0, All, Cardboard box {FR} U",
-               "name_fr" : "Boîte en carton, barquette aluminium, sachet plastique (PEBD) pour gâteau - 330g"
-            }
-         ]
+         "ingredients_coverage_percent" : 93,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -526,12 +523,6 @@
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                   "mass" : 0.125
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "79d05fb1-d000-41f4-850b-54afd8d2dc9c"
                }
             ]
          },
@@ -1260,6 +1251,9 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
