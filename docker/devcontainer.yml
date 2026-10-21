@@ -2,4 +2,7 @@ services:
   backend:
     build:
       args:
-        CPANMOPTS: "${CPANMOPTS:---with-develop --with-feature=off_server_dev_tools}"
+        # NOTE: the pinned cpm no longer accepts --with-feature (fatal
+        # "Unknown option") and enables the develop phase by default, so
+        # selecting the dev-tools feature is just --feature=<name>.
+        CPANMOPTS: "${CPANMOPTS:---feature=off_server_dev_tools}"

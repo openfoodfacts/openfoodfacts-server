@@ -1,0 +1,21 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+	// Perl LSP via Docker (same backend image as `make up`).
+	// Ports editors/claude-code/.lsp.json from
+	// https://github.com/tree-sitter-perl/perl-lsp (command perl-lsp,
+	// extensions .pl/.pm/.t, diagnostics on) to OpenCode, with the server
+	// running inside openfoodfacts-server/backend:dev so CPAN modules in
+	// PERL5LIB (/opt/perl/local/lib/perl5) resolve like the live backend.
+	// See docker/perl-lsp-docker.sh for the same-path mount rationale.
+	"lsp": {
+		"perl": {
+			"command": ["bash", "docker/perl-lsp-docker.sh"],
+			"extensions": [".pl", ".pm", ".t"]
+		},
+		// Disable the stale global example (image "perl-lsp" does not exist,
+		// ${workspaceFolder} is not expanded by OpenCode, missing .t).
+		"perl-docker": {
+			"disabled": true
+		}
+	}
+}

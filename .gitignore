@@ -129,3 +129,7 @@ __pycache__/
 *.pyo
 *.pyd
 test_matomo_events.html
+
+# OpenCode: local perl-lsp binary + LSP cache (per-arch download, not committed)
+.opencode/bin/
+.opencode/perl-lsp-cache/
