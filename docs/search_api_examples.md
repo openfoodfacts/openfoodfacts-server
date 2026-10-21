@@ -28,7 +28,3 @@ https://world.openfoodfacts.org/cgi/search.pl?search_terms=milk&countries_tags=e
 Example:
 
 https://world.openfoodfacts.org/cgi/search.pl?search_terms=milk&countries_tags=en:india&nutrition_grade_tags=a&json=1
-
-
-
-
