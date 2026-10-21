@@ -148,7 +148,10 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref) . "\n";
 # sto dupms
 if ($products_file || $images_file) {
 	# harvest products'code from mongo db
-	my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})->query($query_ref)->fields({"code" => 1})
+	my $cursor
+		= get_products_collection({timeout => 3 * 60 * 60 * 1000})
+		->query($query_ref)
+		->fields({"code" => 1})
 		->sort({code => 1});
 
 	$cursor->immortal(1);
@@ -174,22 +177,81 @@ if ($products_file || $images_file) {
 	close($out);
 
 	if (defined $products_file) {
-		my $tar_cmd = "cvf";
-		if ($products_file =~ /\.gz$/) {
-			$tar_cmd = "cvfz";
+		print STDERR "Creating tar archive $products_file from $BASE_DIRS{PRODUCTS} using $tmp_file\n";
+		eval {
+			require Archive::Tar;
+			require Cwd;
+			require File::Find;
+			open(my $list_fh, "<", $tmp_file) or die "Cannot read $tmp_file: $!";
+			my @rel_paths = grep {$_ ne ""} map {chomp; $_} <$list_fh>;
+			close($list_fh);
+			my $cwd = Cwd::getcwd();
+			chdir $BASE_DIRS{PRODUCTS} or die "Cannot chdir to $BASE_DIRS{PRODUCTS}: $!";
+			my @all_files;
+			File::Find::find(
+				{
+					wanted => sub {
+						return if -d $_ && $_ eq ".";
+						# Store relative path from $BASE_DIRS{PRODUCTS}
+						my $rel = $File::Find::name;
+						$rel =~ s|^\./||;
+						push @all_files, $rel if -f $File::Find::name || -d $File::Find::name;
+					},
+					no_chdir => 0,
+				},
+				@rel_paths
+			);
+			# Fallback: if find collected nothing (e.g. empty dirs), add rel_paths directly
+			if (!@all_files) {
+				@all_files = @rel_paths;
+			}
+			my $tar = Archive::Tar->new;
+			$tar->add_files(@all_files);
+			my $compress = ($products_file =~ /\.gz$/) ? 1 : 0;
+			$tar->write($products_file, $compress);
+			chdir $cwd or die "Cannot chdir back to $cwd: $!";
+		};
+		if ($@) {
+			warn "Failed to create tar $products_file: $@\n";
 		}
-		print STDERR "Executing tar command: tar $tar_cmd $products_file -C $BASE_DIRS{PRODUCTS} -T $tmp_file\n";
-		system("tar $tar_cmd $products_file -C $BASE_DIRS{PRODUCTS} -T $tmp_file > /dev/null 2>&1");
 	}
 
 	if (defined $images_file) {
-		my $tar_cmd = "cvf";
-		# Probably not a good idea to compress images, but allow it anyway
-		if ($images_file =~ /\.gz$/) {
-			$tar_cmd = "cvfz";
+		print STDERR "Creating tar archive $images_file from $BASE_DIRS{PRODUCTS_IMAGES} using $tmp_file\n";
+		eval {
+			require Archive::Tar;
+			require Cwd;
+			require File::Find;
+			open(my $list_fh, "<", $tmp_file) or die "Cannot read $tmp_file: $!";
+			my @rel_paths = grep {$_ ne ""} map {chomp; $_} <$list_fh>;
+			close($list_fh);
+			my $cwd = Cwd::getcwd();
+			chdir $BASE_DIRS{PRODUCTS_IMAGES} or die "Cannot chdir to $BASE_DIRS{PRODUCTS_IMAGES}: $!";
+			my @all_files;
+			File::Find::find(
+				{
+					wanted => sub {
+						return if -d $_ && $_ eq ".";
+						my $rel = $File::Find::name;
+						$rel =~ s|^\./||;
+						push @all_files, $rel if -f $File::Find::name || -d $File::Find::name;
+					},
+					no_chdir => 0,
+				},
+				@rel_paths
+			);
+			if (!@all_files) {
+				@all_files = @rel_paths;
+			}
+			my $tar = Archive::Tar->new;
+			$tar->add_files(@all_files);
+			my $compress = ($images_file =~ /\.gz$/) ? 1 : 0;
+			$tar->write($images_file, $compress);
+			chdir $cwd or die "Cannot chdir back to $cwd: $!";
+		};
+		if ($@) {
+			warn "Failed to create tar $images_file: $@\n";
 		}
-		print STDERR "Executing tar command: tar $tar_cmd $images_file -C $BASE_DIRS{PRODUCTS_IMAGES} -T $tmp_file\n";
-		system("tar $tar_cmd $images_file -C $BASE_DIRS{PRODUCTS_IMAGES} -T $tmp_file > /dev/null 2>&1");
 	}
 
 	print STDERR "$i products exported.\n";
