@@ -1,5 +1,3 @@
 {
-   "products" : 18,
-   "rows" : 50,
-   "status" : "success"
+   "error" : "Cannot read Excel file tests/integration//inputs/convert_and_import_excel_file/packagings-mousquetaires.xlsx: XLSX parser cannot parse data: Can't open file 'tests/integration//inputs/convert_and_import_excel_file/packagings-mousquetaires.xlsx' as a zip file at /opt/product-opener/lib/ProductOpener/Producers.pm line 158.\n"
 }
