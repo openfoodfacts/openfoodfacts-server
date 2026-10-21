@@ -9,15 +9,3 @@ INTEGRATION_GROUP_6_TESTS := api_v2_product_read.t api_v3_product_write.t cors.t
 INTEGRATION_GROUP_7_TESTS := api_v2_product_write.t api_v3_product_write_nutrition.t countries.t fix_non_normalized_codes.t oidc_signout.t recipes_stats.t
 INTEGRATION_GROUP_8_TESTS := api_v3_health.t api_v3_taxonomy.t create_pro_user.t image_move_authorization.t page_crawler.t remove_documents_by_ids.t
 INTEGRATION_GROUP_9_TESTS := api_v3_product_images_selected.t api_v3_taxonomy_suggestions.t create_product.t import_csv_file.t product_history_knowledge_panel.t run_cloud_vision_ocr.t
-
-# Group Statistics:
-# Group 1: 7 tests, 3m 30s
-# Group 2: 7 tests, 3m 30s
-# Group 3: 7 tests, 3m 30s
-# Group 4: 7 tests, 3m 30s
-# Group 5: 7 tests, 3m 30s
-# Group 6: 7 tests, 3m 30s
-# Group 7: 6 tests, 3m 0s
-# Group 8: 6 tests, 3m 0s
-# Group 9: 6 tests, 3m 0s
-# Max group time: 4m, Min: 3m, Avg: 3m
