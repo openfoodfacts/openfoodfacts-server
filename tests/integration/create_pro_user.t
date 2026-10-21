@@ -175,8 +175,8 @@ $resp = $moderator_ua->post(
 );
 ok(html_displays_error($resp->decoded_content), "an unknown moderation organization is refused");
 $pro_moderator_ref = retrieve_user($pro_moderator_user_form{userid});
-is($pro_moderator_ref->{pro_moderator_owner}, "org-acme-inc",
-	"the moderation organization is unchanged after an invalid submission");
+is($pro_moderator_ref->{pro_moderator_owner},
+	"org-acme-inc", "the moderation organization is unchanged after an invalid submission");
 
 # Note: the /org/<orgid> route is not tested here, as it only exists when the
 # producers platform is enabled, and it is disabled in the test environment.
