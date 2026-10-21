@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# make "mongoexport | gzip > new.X && mv new.X X" fail when mongoexport fails,
+# otherwise an empty gzip replaces the previous good export
+set -o pipefail
+
 # load error report utils
 . error_report_utils.sh
 
