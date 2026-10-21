@@ -54,23 +54,11 @@
                "name" : "salt"
             }
          ],
-<<<<<<< HEAD
          "ingredients_coverage_percent" : 100,
-         "packaging" : [
-            {
-               "category" : "en:sausages",
-               "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
-               "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
-               "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
-            }
-         ]
-=======
-         "ingredients_coverage_percent" : 26,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
->>>>>>> main
       },
       "ecobalyse_request" : {
          "data" : {
@@ -209,14 +197,9 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
-<<<<<<< HEAD
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
-=======
-      "en:ecobalyse-reference-quantity-from-default",
-      "en:ecobalyse-ingredients-matched-between-20-and-29",
-      "en:ecobalyse-api-not-called",
->>>>>>> main
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"

@@ -52,7 +52,6 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-<<<<<<< HEAD
          "ingredients" : [
             {
                "ecobalyse_name" : "Noix de coco décortiquée HORS UE",
@@ -61,14 +60,10 @@
                "name" : "coconut water"
             }
          ],
-         "ingredients_coverage_percent" : 100
-=======
-         "ingredients" : [],
-         "ingredients_coverage_percent" : 0,
+         "ingredients_coverage_percent" : 100,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
->>>>>>> main
       },
       "ecobalyse_request" : {
          "data" : {
@@ -156,14 +151,9 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-d-2023-c",
-<<<<<<< HEAD
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
-=======
-      "en:ecobalyse-reference-quantity-from-default",
-      "en:ecobalyse-ingredients-matched-between-0-and-9",
-      "en:ecobalyse-api-not-called",
->>>>>>> main
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
