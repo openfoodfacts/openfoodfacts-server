@@ -39,14 +39,10 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
-         "packaging" : [
-            {
-               "category" : "en:sugars",
-               "id" : "ada440c9-f18f-4df5-bac6-4145040320e0",
-               "name" : "Sugar, 1000g | Packaging System, Proxy Pack, Cardboard {FR} U",
-               "name_fr" : "Sachet en papier pour sucre - 1000g - Proxy"
-            }
-         ]
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -55,12 +51,6 @@
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
                   "mass" : 100
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "ada440c9-f18f-4df5-bac6-4145040320e0"
                }
             ]
          },
@@ -151,6 +141,7 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-d-2023-e",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
