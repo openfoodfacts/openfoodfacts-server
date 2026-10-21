@@ -185,13 +185,14 @@ ok(
 ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-čuvati-na-suhom-mjestu"),
 	'hr has one stop word as well')
 	or diag Dumper $product_ref;
+# Romanian is unaccented (and ş / ţ are normalized to ș / ț), so the old orthography is now recognized
 ok(
-	has_tag(
+	!has_tag(
 		$product_ref,
 		"taxonomies_enhancer",
 		"ingredients-ro-mono-\x{15f}i-digliceride-ale-acizilor-gra\x{15f}i-is-possible-typo-for-ro-mono-\x{219}i-digliceride-ale-acizilor-gra\x{219}i"
 	),
-	'ro emulsifier kept whole is flagged as old orthography typo'
+	'ro emulsifier with old orthography (cedilla) is no longer flagged as a typo'
 ) or diag Dumper $product_ref;
 
 $product_ref = {
@@ -363,7 +364,7 @@ $product_ref = {
 	ingredients_text_it =>
 		"_latte_ scremato reidratato, zucchero, burro di cacao, acqua, pasta di cacao, olio di cocco, sciroppo di glucosio, sciroppo di glucosio-fruttosio, _latte_ intero in polvere, _lattosio_ e proteine del _latte_, _burro_ concentrato, emulsionanti (E471, lecitina di _soia_, E476), baccelli di vaniglia, addensanti (E410, E412, E407), aroma naturale di vaniglia (contiene _latte_), aromi, coloranti (E160a)",
 	ingredients_text_nl =>
-		"gerehydrateerde magere _melk_, suiker, cacaoboter, water, cacaomassa, kokosolie, glucosestroop, glucose-fructosestroop, volle _melkpoeder_, _lactose_, _melkeiwitten_, _boterconcentraat_, emulgatoren (E471, _sojalecithine_, E476), uitgepuue gemalen vanillestokjes, stabilisatoren (E410, E412, E407), natuurlijk vanillearoma (met _melk_), aroma, kleurstof (E160a)",
+		"gerehydrateerde magere _melk_, suiker, cacaoboter, water, cacaomassa, kokosolie, glucosestroop, glucose-fructosestroop, volle _melkpoeder_, _lactose_, _melkeiwitten_, _boterconcentraat_, emulgatoren (E471, _sojalecithine_, E476), uitgeputte gemalen vanillestokjes, stabilisatoren (E410, E412, E407), natuurlijk vanillearoma (met _melk_), aroma, kleurstof (E160a)",
 	ingredients_text_sv =>
 		"_skummjölk_, socker, kakaosmör, vatten, kakaomassa, kokosolja, glukossirap, glukos-fruktossirap, _helmjölkspulver_, vasslepulver (_mjölk_), _mjölkfett_, emulgeringsmedel (E471, _sojalecitin_, E476), vaniljstångbitar, stabiliseringsmedel (E410, E412, E407), naturlig vaniljarom (_mjölk_), arom, färgämne (E160a)",
 };
@@ -378,7 +379,7 @@ ok(
 ok(!has_tag($product_ref, "taxonomies_enhancer", "ingredients-hu-szinezek-is-possible-typo-for-hu-szinezek"),
 	'hu 1/2 typo')
 	or diag Dumper $product_ref;
-ok(!has_tag($product_ref, "taxonomies_enhancer", "ingredients-hu-glukozsirup-is-possible-typo-for-hu-glukozszirup"),
+ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-hu-glukozsirup-is-possible-typo-for-hu-glukozszirup"),
 	'hu 2/2 typo')
 	or diag Dumper $product_ref;
 
@@ -430,7 +431,7 @@ ok(has_tag($product_ref, "taxonomies_enhancer", "possible-stop-word-after-hr-ču
 ok(
 	has_tag(
 		$product_ref, "taxonomies_enhancer",
-		"ingredients-ro-carbonara-de-sodiu-is-possible-typo-for-ro-carbonați-de-sodiu"
+		"ingredients-ro-carbonara-de-sodiu-is-possible-typo-for-ro-carbonati-de-sodiu"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo in taxonomy'
 ) or diag Dumper $product_ref;
@@ -455,7 +456,7 @@ ok(
 	has_tag(
 		$product_ref,
 		"taxonomies_enhancer",
-		"ingredients-ro-monoti-digliceride-ale-acizilor-graşi-is-possible-typo-for-ro-mono-și-digliceride-ale-acizilor-grași"
+		"ingredients-ro-monoti-digliceride-ale-acizilor-grasi-is-possible-typo-for-ro-mono-si-digliceride-ale-acizilor-grasi"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo or synonym'
 ) or diag Dumper $product_ref;

@@ -460,14 +460,11 @@
                "name" : "palm oil"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "en:cheeses",
-               "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec",
-               "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
-               "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
-            }
-         ]
+         "ingredients_coverage_percent" : 66,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -477,16 +474,12 @@
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
                   "mass" : 66.6666666666667
                }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec"
-               }
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -1018,6 +1011,9 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-60-and-69",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
