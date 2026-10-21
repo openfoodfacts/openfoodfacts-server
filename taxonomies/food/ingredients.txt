@@ -1066,7 +1066,7 @@ be: Ферменты
 bg: закваска, закваски, българска закваска, млечнокисели култури, симбиотична закваска, стартерни млечнокисели култури, стартерна култура, стартерни култури, млечно кисели култури, млечно-киселинна култура, млечнокисела закваска
 ca: ferment, ferments
 cs: Kvasnice
-da: gæret
+da: gæret, kultur
 de: fermentiert
 es: fermentos
 fi: hapate, hapatteet, käyte, käyteaine
@@ -1143,7 +1143,7 @@ en: microbial culture, culture, active cultures, live cultures, starter culture,
 bg: микробна култура, живи култури
 ca: Cultiu microbiològic
 cs: Mikrobiální kultura, startovací kultura
-da: aktive kulturer, levende kulturer
+da: mikrobiel kultur, aktive kulturer, levende kulturer
 de: mikrobielle Kultur, Kulturen
 es: Cultivo microbiano
 fi: mikrobiviljelmä, viljelmä
@@ -1812,7 +1812,7 @@ vegetarian:en: no
 < en: animal-based rennet
 en: calf rennet
 de: Kälberlab
-es: cuajo bovino
+es: cuajo de ternera, cuajo bovino
 fi: vasikanjuoksute, naudanjuoksute, vasikkaperäinen juoksute, nautaperäinen juoksute
 fr: présure de veau, présure bovine
 hr: teleće sirilo
@@ -1838,7 +1838,7 @@ vegetarian:en: yes
 < en: vegetarian rennet
 en: microbial rennet
 cs: mikrobiální syřidlo
-da: mikrobiel osteløbe, mikrobiel løbe
+da: mikrobiel osteløbe, mikrobiel løbe, osteløbe (mikrobiel)
 de: mikrobielles Lab, mikrobiologisches Lab
 es: cuajo microbial, Cuajo microbiano
 fi: mikrobiperäinen juoksute, mikrobiologinen juoksute, mikrobinen juoksute
@@ -7495,7 +7495,7 @@ eo: Gaŭdo-fromaĝo
 es: queso gouda
 eu: Gouda gazta
 fa: پنیر گودا
-fi: goudajuusto, goudajuustoa
+fi: goudajuusto, goudajuustoa, Gouda-juusto
 fr: gouda, fromage gouda, gouda au lait de vache
 he: חאודה
 hr: gouda, gouda sir
@@ -8679,7 +8679,7 @@ ca: Ricotta
 cs: Ricotta
 cv: Рикота
 da: Ricotta
-de: Ricotta
+de: Ricotta, Ricotta-Käse
 eo: Ricotta
 es: Requesón
 et: Ricotta, Ricotta juust
@@ -9199,7 +9199,7 @@ nl: kaassmaak
 < en: cheese
 fr: préparation fromagère
 ca: preparació de formatges
-de: käsezubereitung
+de: käsezubereitung, Schmelzkäsezubereitung
 es: preparación de quesos
 
 < en: cheese
@@ -12608,6 +12608,13 @@ ifct_food_code:en: O048
 ifct_food_name:en: Pork, shoulder
 wikidata:en: Q2255700
 wikipedia:de: https://de.wikipedia.org/wiki/Schweinebug
+
+# < en: compound
+fr: pavé au poivre
+
+# < en: compound
+< en: pork meat
+fr: rosettte de lyon
 
 < en: pork shoulder
 fr: Epaule séchée de porc
@@ -22146,6 +22153,10 @@ nl: chilipepersmaak
 sv: chilipepparsmak
 
 < en: flavouring
+fr: arôme de houblon
+nl: hoparoma's
+
+< en: flavouring
 en: sweet chili pepper flavouring
 da: sød chilipeppersmag, sød chili-smag, sød chili smag
 fr: base aromatisante piment doux
@@ -22445,6 +22456,14 @@ fi: luontainen chiliaromi
 fr: arôme naturel de piment
 hr: prirodna aroma ljute papričice
 it: aroma naturale di peperoncino piccante
+
+< en: natural flavouring
+en: natural lychee flavour
+fr: arôme naturel de litchi
+
+< en: natural flavouring
+en: passion fruit flavouring
+fr: arôme naturel de fruit de la passion
 
 < en: natural flavouring
 en: natural blueberry flavouring
@@ -25468,7 +25487,7 @@ el: σιμιγδάλισκληρού σιταριού
 es: sémola de trigo duro, sémola de trigo candeal
 et: durumnisujahu, durum nisujahu
 fi: durumvehnäsuurimo
-fr: semoule de blé dur, semoule de blé dure
+fr: semoule de blé dur, semoule de blé dure, semoule de blé dur fine
 ga: seimilín cruithneachta dúraim
 hr: krupica durum pšenice, krupica od durum pšenice, krupica iz durum pšenice, durum pšenična krupica, pšenična krupica durum
 hu: durumbúzadara, durum búzadara
@@ -104923,3 +104942,4 @@ sv: skållning och surdeg
 #< en: compound
 en: caramelized apple
 fr: pomme caramélisée, pommes caramélisées
+

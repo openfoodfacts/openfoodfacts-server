@@ -80,6 +80,8 @@ jobs:
       run: make front_build
     - name: lint
       run: make front_lint
+    - name: Javascript unit tests
+      run: npm run test:js
     - name: Verify package-lock is the right one
       run: |
         cp package-lock.json package-lock.json.orig
@@ -612,6 +614,8 @@ jobs:
     needs: [filter, build_backend, calculate_test_matrix]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    env:
+      COVER_OPTS: ${{ (github.event_name != 'pull_request' || needs.filter.outputs.taxonomy_only != 'true') && '-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' || '' }}
     strategy:
       fail-fast: false
       matrix:
@@ -683,8 +687,10 @@ jobs:
     - name: Run unit test group ${{ matrix.test-group }}
       run: |
         echo "🥫 Running dynamically balanced unit test group ${{ matrix.test-group }}..."
-        make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" unit_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        if [ -n "$COVER_OPTS" ]; then
+          make codecov_prepare
+        fi
+        make COVER_OPTS="$COVER_OPTS" DOCKER_LOCAL_DATA="$(pwd)" unit_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
     # Update timing data after test execution for future optimization
     # This enables the system to learn and improve load balancing over time
@@ -702,14 +708,14 @@ jobs:
     # Generate coverage results for this test group
     # Codecov will automatically merge coverage from all parallel test groups
     - name: Generate coverage results
-      if: needs.filter.outputs.taxonomy_only == 'false'
+      if: env.COVER_OPTS != ''
       run: |
         make coverage_txt
         make codecov
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.0.0v7
-      if: needs.filter.outputs.taxonomy_only == 'false'
+      if: env.COVER_OPTS != ''
       with:
         files: cover_db/codecov.json
         report_type: coverage
@@ -718,7 +724,7 @@ jobs:
         name: unit-coverage-${{ matrix.test-group }}
 
     - name: Upload test results to Codecov
-      if: ${{ needs.filter.outputs.taxonomy_only == 'false' && !cancelled() }}
+      if: ${{ env.COVER_OPTS != '' && !cancelled() }}
       uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.0.0v7
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
@@ -731,6 +737,8 @@ jobs:
     needs: [filter, build_backend, build_frontend, calculate_test_matrix]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    env:
+      COVER_OPTS: ${{ (github.event_name != 'pull_request' || needs.filter.outputs.taxonomy_only != 'true') && '-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' || '' }}
     strategy:
       fail-fast: false
       matrix:
@@ -806,8 +814,10 @@ jobs:
     - name: Run integration test group ${{ matrix.test-group }}
       run: |
         echo "🥫 Running dynamically balanced integration test group ${{ matrix.test-group }}..."
-        make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" integration_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+        if [ -n "$COVER_OPTS" ]; then
+          make codecov_prepare
+        fi
+        make COVER_OPTS="$COVER_OPTS" DOCKER_LOCAL_DATA="$(pwd)" integration_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
     # Update timing data after test execution for future optimization
     # Integration test timing data is especially valuable due to higher variance
@@ -825,14 +835,14 @@ jobs:
     # Generate coverage results for this test group
     # Codecov will automatically merge coverage from all parallel test groups
     - name: Generate coverage results
-      if: needs.filter.outputs.taxonomy_only == 'false'
+      if: env.COVER_OPTS != ''
       run: |
         make coverage_txt
         make codecov
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.0.0v7
-      if: needs.filter.outputs.taxonomy_only == 'false'
+      if: env.COVER_OPTS != ''
       with:
         files: cover_db/codecov.json
         token: ${{ secrets.CODECOV_TOKEN }}
@@ -841,7 +851,7 @@ jobs:
         name: integration-coverage-${{ matrix.test-group }}
 
     - name: Upload test results to Codecov
-      if: ${{ needs.filter.outputs.taxonomy_only == 'false' && !cancelled() }}
+      if: ${{ env.COVER_OPTS != '' && !cancelled() }}
       uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.0.0v7
       with:
         token: ${{ secrets.CODECOV_TOKEN }}

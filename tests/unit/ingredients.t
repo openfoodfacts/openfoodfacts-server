@@ -801,6 +801,14 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 				made with 150 g of tomatoes per 100ml, prepared with: 50% of potatoes"
 		}
 	],
+	# units from the xx language need to be recognized in languages with few unit translations
+	[
+		"nn-specific-ingredients-quantity-per-100g",
+		{
+			lc => "nn",
+			ingredients_text => "Bringebær 80%, vatn, fortjukkingsmiddel (pektin). 80 g bær pr. 100 g."
+		}
+	],
 	[
 		"fr-content-of-ingredient",
 		{
@@ -1512,6 +1520,16 @@ puffed orange and caramelized unknown_fruit4.",
 				"Lapte normalizat (98%), cultură starter, condimente în proporţii variabile. Conține o sursă de fenilalanină. A se consuma de preferinţă înainte de: vezi pe ambalaj. Lot: vezi capac. Ambalat în atmosferă protectoare. Valoare energetică: 250 kJ. Producător: SC Exemplu SRL, Str. Florilor nr. 1, Jud. Cluj, România.",
 		}
 	],
+	# “osteløbe (mikrobiel)”
+	[
+		'da-osteloebe-mikrobiel',
+		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000
+		{
+			lc => "da",
+			ingredients_text =>
+				"96 % pasteuriseret _mælk_, 2,8 % salt, kultur (indeholder _mælk_), osteløbe (mikrobiel).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
@@ -1668,6 +1686,18 @@ is(
 	],
 	[['en:protein', undef], ['en:manganese', '3 mg'], ['en:choline', '58 mg'], ['en:taurine', '660 mg']],
 	'known ingredients and dosages survive mixed known and unknown codes on separate lines'
+);
+
+# Amino acids from the amino_acids taxonomy are included in the ingredients taxonomy
+my $amino_acids = {
+	lc => 'en',
+	ingredients_text => 'L-glutamine, L-arginine, L-isoleucine, L-leucine',
+};
+extract_ingredients_from_text($amino_acids);
+is(
+	[map {[$_->{id}, $_->{is_in_taxonomy}]} @{$amino_acids->{ingredients}}],
+	[['en:l-glutamine', 1], ['en:l-arginine', 1], ['en:l-isoleucine', 1], ['en:e641', 1]],
+	'amino acids from the amino_acids taxonomy are recognized as ingredients'
 );
 
 done_testing();
