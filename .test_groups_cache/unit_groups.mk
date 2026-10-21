@@ -6,12 +6,3 @@ UNIT_GROUP_3_TESTS := all_pod_correct.t auth_oidc_cache.t contribution_knowledge
 UNIT_GROUP_4_TESTS := allergens.t auth_oidc_state_validation.t convert_gs1_xml_to_json.t dataqualityfood_labels.t ecobalyse_packaging_matching.t food_groups.t images.t ingredients.t ingredients_nutriscore.t ingredients_tags.t match_ingredient_origin.t nutrition_ciqual.t packaging_stats.t product_edit_form.t redis.t store.t taxonomy_suggestions.t units.t
 UNIT_GROUP_5_TESTS := allergens_tags.t booleans.t cursor.t display.t ecobalyse_response_filter.t forest_footprint.t import.t ingredients_analysis.t ingredients_origin_field.t knowledge_panels.t nova.t nutrition_estimation.t parse_origins_from_text.t product_schema_changes.t reuse_knowledge_panels.t tags.t taxonomy_suggestions_index.t url_is_fetchable.t
 UNIT_GROUP_6_TESTS := analyze_and_enrich_product_data.t brevo.t data_quality_tags_panel.t download_file_to.t ecobalyse_transformation_matching.t forest_footprint_2026.t import_convert_carrefour_france.t ingredients_clean.t ingredients_parsing_todo.t knowledge_panels_environmental_cost.t numbers.t org_join_crm.t paths.t products.t routing.t tags_unit.t templates.t vitamins.t
-
-# Group Statistics:
-# Group 1: 18 tests, 9m 0s
-# Group 2: 18 tests, 9m 0s
-# Group 3: 18 tests, 9m 0s
-# Group 4: 18 tests, 9m 0s
-# Group 5: 18 tests, 9m 0s
-# Group 6: 18 tests, 9m 0s
-# Max group time: 9m, Min: 9m, Avg: 9m
