@@ -103,7 +103,7 @@
             {
                "ecobalyse_name" : "Huile d'olive UE -2025-",
                "id" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
-               "mass" : 100,
+               "mass" : 750.0,
                "name" : "Olive oil"
             }
          ],
@@ -115,7 +115,10 @@
                "name" : "Olive oil, 0,75L | Packaging System, N0, All, Glass bottle {FR} U",
                "name_fr" : "Bouteille en verre et bouchon plastique pour huile d'olive - 0,5L à 1L"
             }
-         ]
+         ],
+         "reference_quantity" : 750,
+         "reference_quantity_source" : "product_quantity",
+         "reference_quantity_unit" : "ml"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -123,7 +126,7 @@
             "ingredients" : [
                {
                   "id" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
-                  "mass" : 100
+                  "mass" : 750.0
                }
             ],
             "packaging" : [
@@ -603,6 +606,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-skipped",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-reference-quantity-from-product-quantity",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
