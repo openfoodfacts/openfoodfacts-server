@@ -237,13 +237,11 @@ A hash ref with:
 
 =over
 
-=item images - array ref of hashes with id, name, path (name prefixed with the subfolder names), mime_type and resource_key,
-sorted by path
+=item images - array ref of hashes with id, name, path (name prefixed with the subfolder names), mime_type and resource_key, sorted by path
 
 =item skipped - number of files that are not images
 
-=item error - an error id if the folder could not be listed: google_drive_no_api_key, google_drive_folder_not_found,
-google_drive_folder_too_many_items or google_drive_api_error
+=item error - an error id if the folder could not be listed: google_drive_no_api_key, google_drive_folder_not_found, google_drive_folder_too_many_items or google_drive_api_error
 
 =item error_message - details about the error, if any
 

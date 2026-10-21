@@ -22,7 +22,7 @@ function addAddFieldValue(target, field_values_number) {
 
 //On tag field value change
 \$(document).on("change", ".tag-add-field-value > input", function(e){
-    var field_value_number = parseInt(e.target.name.substr(e.target.name.length - 1));
+    var field_value_number = parseInt(e.target.name.replace(/^.*_/, ""), 10);
     //If it's the last field value, add one more
     if(!isNaN(field_value_number) && \$("#tag_" + (field_value_number + 1).toString()).length === 0){
         addAddFieldValue(e.target, field_value_number + 1);
@@ -30,7 +30,7 @@ function addAddFieldValue(target, field_values_number) {
 });
 
 \$(document).on("change", ".tag-add-field > select", function(e){
-    var field_value_number = parseInt(e.target.name.substr(e.target.name.length - 1));
+    var field_value_number = parseInt(e.target.name.replace(/^.*_/, ""), 10);
     //If it's the last field value, add one more
     if(!isNaN(field_value_number) && \$("#tag_" + (field_value_number + 1).toString()).length === 0){
         addAddFieldValue(e.target, field_value_number + 1);

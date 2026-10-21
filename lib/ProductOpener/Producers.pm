@@ -1961,7 +1961,7 @@ Fields that producers can add values to for all the products of the photos they 
 =cut
 
 @photos_upload_add_fields
-	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries);
+	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries teams);
 
 =head2 import_product_image_file ( $args_ref )
 
@@ -1976,8 +1976,7 @@ If the product code is not specified, we try to get it:
 
 =item by scanning the barcode in the image
 
-=item otherwise by using the code of the previous image (for producers that send a photo of the barcode,
-followed by photos of the other sides of the product)
+=item otherwise by using the code of the previous image (for producers that send a photo of the barcode, followed by photos of the other sides of the product)
 
 =back
 
@@ -2013,8 +2012,7 @@ A hash ref with:
 
 =head4 add_field_values - optional array ref of hashes with a field and a value, added to the product
 
-=head4 field_values_added_for_codes - hash ref of the codes for which the field values have already been added:
-field values are added only once per product
+=head4 field_values_added_for_codes - hash ref of the codes for which the field values have already been added: field values are added only once per product
 
 =head3 Return value
 
@@ -2055,7 +2053,7 @@ sub import_product_image_file ($args_ref) {
 		}
 		else {
 
-			if ($filename =~ /\.(gif|jpeg|jpg|png|heic)$/i) {
+			if ($filename =~ /\.(gif|jpeg|jpg|png|heic|heif)$/i) {
 
 				$log->debug("scan barcode in image file", {filename => $filename}) if $log->is_debug();
 
@@ -2458,8 +2456,7 @@ A hash ref with:
 
 =item total, processed - number of images to process, and processed
 
-=item results - array of hashes with the file name (path), code, code_source (file_name, scan, previous_photo),
-product_url, thumbnail_url, error and info (e.g. image already uploaded)
+=item results - array of hashes with the file name (path), code, code_source (file_name, scan, previous_photo), product_url, thumbnail_url, error and info (e.g. image already uploaded)
 
 =back
 

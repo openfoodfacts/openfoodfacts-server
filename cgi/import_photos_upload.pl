@@ -309,18 +309,31 @@ var images_processed = 0;
 				{name : "comment", value : "fields added through photos upload on producer platform"}
 			];
 
+			// Group the values by field, so that the same field can be selected in several rows
+			// (e.g. Teams: A and Teams: B). Each value can also contain comma separated values (e.g. Teams: A, B)
 			var i = 0;
 			var n = 0;
+			var fields = [];
+			var field_values = {};
 			while (\$('#tag_' + i).length > 0) {
-				if ((\$('#tag_' + i).val() != '') && ((\$('#tagtype_' + i).val() != 'add_tag'))) {
-					data.push({
-						name : "add_" + \$('#tagtype_' + i).val(),
-						value: \$('#tag_' + i).val()
-					});
-					n++;
+				var field = \$('#tagtype_' + i).val();
+				var value = \$.trim(\$('#tag_' + i).val());
+				if ((value != '') && (field) && (field != 'add_tag')) {
+					if (typeof field_values[field] === 'undefined') {
+						field_values[field] = [];
+						fields.push(field);
+					}
+					field_values[field].push(value);
 				}
 				i++;
 			}
+			fields.forEach(function (field) {
+				data.push({
+					name : "add_" + field,
+					value: field_values[field].join(", ")
+				});
+				n++;
+			});
 
 			console.log(data);
 
