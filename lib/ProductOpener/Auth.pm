@@ -146,23 +146,23 @@ one. Comparing the parsed host also takes care of both, and of a port.
 sub is_allowed_return_url ($url, $subdomain) {
 
 	if ((not defined $url) or (not defined $subdomain)) {
-		return 0;
+		return !!0;
 	}
 
 	my $uri = URI->new($url);
 
 	if (not defined $uri->scheme) {
-		return 0;
+		return !!0;
 	}
 
 	if ($uri->scheme !~ /^https?$/i) {
-		return 0;
+		return !!0;
 	}
 
 	my $host = $uri->host;
 
 	if ((not defined $host) or ($host eq "")) {
-		return 0;
+		return !!0;
 	}
 
 	my $expected_host = lc($subdomain) . '.' . lc($server_domain);
@@ -171,10 +171,10 @@ sub is_allowed_return_url ($url, $subdomain) {
 		$log->info("not redirecting to a url that is not ours",
 			{url => $url, host => $host, expected_host => $expected_host})
 			if $log->is_info();
-		return 0;
+		return !!0;
 	}
 
-	return 1;
+	return !!1;
 }
 
 =head2 checked_return_url ($url, $request_ref)
