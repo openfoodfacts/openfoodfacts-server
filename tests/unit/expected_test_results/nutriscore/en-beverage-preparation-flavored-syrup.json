@@ -59,14 +59,10 @@
             }
          ],
          "ingredients_coverage_percent" : 90,
-         "packaging" : [
-            {
-               "category" : "en:syrups",
-               "id" : "a358ef07-0591-489f-808d-2b94a7396eb2",
-               "name" : "Sirop, 500g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-               "name_fr" : "Bouteille en acier pour sirop - 500g - Proxy"
-            }
-         ]
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -83,12 +79,6 @@
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
                   "mass" : 9.375
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a358ef07-0591-489f-808d-2b94a7396eb2"
                }
             ]
          },
@@ -220,6 +210,7 @@
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-d-2023-d",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

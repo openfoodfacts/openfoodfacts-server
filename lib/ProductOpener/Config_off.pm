@@ -978,7 +978,7 @@ $options{import_export_fields_groups} = [
 			"preparation", "nutriscore_score_producer",
 			"nutriscore_grade_producer", "nova_group_producer",
 			"recipe_idea", "customer_service",
-			"link",
+			"link", "teams",
 		]
 	],
 	[

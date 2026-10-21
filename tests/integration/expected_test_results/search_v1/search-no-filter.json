@@ -451,7 +451,10 @@
                      "name" : "Sparkling wine, 75cl | Packaging System, N0, All, Glass bottle (green) 560g with cork stopper {FR} U",
                      "name_fr" : "Bouteille en verre vert de 560g pour vin effervescent - 75cl"
                   }
-               ]
+               ],
+               "reference_quantity" : 100,
+               "reference_quantity_source" : "product_quantity",
+               "reference_quantity_unit" : "g"
             },
             "ecobalyse_request" : {
                "data" : {
@@ -728,6 +731,7 @@
          "misc_tags" : [
             "en:ecobalyse-api-skipped",
             "en:ecobalyse-ingredients-matched-between-90-and-100",
+            "en:ecobalyse-reference-quantity-from-product-quantity",
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
             "en:forest-footprint-b",
@@ -1578,7 +1582,10 @@
                      "name" : "rice"
                   }
                ],
-               "ingredients_coverage_percent" : 25
+               "ingredients_coverage_percent" : 25,
+               "reference_quantity" : 100,
+               "reference_quantity_source" : "product_quantity",
+               "reference_quantity_unit" : "g"
             },
             "ecobalyse_request" : {
                "data" : {
@@ -1719,6 +1726,7 @@
          "misc_tags" : [
             "en:ecobalyse-api-not-called",
             "en:ecobalyse-ingredients-matched-between-20-and-29",
+            "en:ecobalyse-reference-quantity-from-product-quantity",
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
             "en:forest-footprint-not-computed",
@@ -2318,7 +2326,10 @@
                      "name" : "eggs"
                   }
                ],
-               "ingredients_coverage_percent" : 100
+               "ingredients_coverage_percent" : 100,
+               "reference_quantity" : 100,
+               "reference_quantity_source" : "product_quantity",
+               "reference_quantity_unit" : "ml"
             },
             "ecobalyse_request" : {
                "data" : {
@@ -2540,6 +2551,7 @@
          "misc_tags" : [
             "en:ecobalyse-api-skipped",
             "en:ecobalyse-ingredients-matched-between-90-and-100",
+            "en:ecobalyse-reference-quantity-from-product-quantity",
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
             "en:forest-footprint-b",
@@ -3364,7 +3376,10 @@
                      "name" : "palm oil"
                   }
                ],
-               "ingredients_coverage_percent" : 100
+               "ingredients_coverage_percent" : 100,
+               "reference_quantity" : 100,
+               "reference_quantity_source" : "product_quantity",
+               "reference_quantity_unit" : "g"
             },
             "ecobalyse_request" : {
                "data" : {
@@ -3553,6 +3568,7 @@
          "misc_tags" : [
             "en:ecobalyse-api-skipped",
             "en:ecobalyse-ingredients-matched-between-90-and-100",
+            "en:ecobalyse-reference-quantity-from-product-quantity",
             "en:environmental-score-not-computed",
             "en:estimated-ingredients-with-product-opener",
             "en:forest-footprint-computed",
@@ -4533,7 +4549,10 @@
                      "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
                      "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
                   }
-               ]
+               ],
+               "reference_quantity" : 100,
+               "reference_quantity_source" : "product_quantity",
+               "reference_quantity_unit" : "g"
             },
             "ecobalyse_request" : {
                "data" : {
@@ -4678,6 +4697,7 @@
          "misc_tags" : [
             "en:ecobalyse-api-skipped",
             "en:ecobalyse-ingredients-matched-between-90-and-100",
+            "en:ecobalyse-reference-quantity-from-product-quantity",
             "en:environmental-score-changed",
             "en:environmental-score-computed",
             "en:environmental-score-grade-changed",
@@ -5702,7 +5722,10 @@
                      "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
                      "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
                   }
-               ]
+               ],
+               "reference_quantity" : 100,
+               "reference_quantity_source" : "product_quantity",
+               "reference_quantity_unit" : "g"
             },
             "ecobalyse_request" : {
                "data" : {
@@ -5878,6 +5901,7 @@
          "misc_tags" : [
             "en:ecobalyse-api-skipped",
             "en:ecobalyse-ingredients-matched-between-90-and-100",
+            "en:ecobalyse-reference-quantity-from-product-quantity",
             "en:environmental-score-changed",
             "en:environmental-score-computed",
             "en:environmental-score-grade-changed",

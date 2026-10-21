@@ -457,6 +457,7 @@
                "name" : "high fructose corn syrup"
             }
          ],
+<<<<<<< HEAD
          "ingredients_coverage_percent" : 84,
          "packaging" : [
             {
@@ -466,6 +467,13 @@
                "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
             }
          ]
+=======
+         "ingredients_coverage_percent" : 81,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+>>>>>>> main
       },
       "ecobalyse_request" : {
          "data" : {
@@ -486,12 +494,6 @@
                {
                   "id" : "06dffb5c-07ad-48de-9630-632f4c84e02d",
                   "mass" : 3.21428571428572
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec"
                }
             ]
          },
@@ -1082,6 +1084,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-skipped",
       "en:ecobalyse-ingredients-matched-between-80-and-89",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",

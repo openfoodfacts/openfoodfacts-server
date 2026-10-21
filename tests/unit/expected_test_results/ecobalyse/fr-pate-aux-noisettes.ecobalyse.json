@@ -2,12 +2,20 @@
    "results" : {
       "distribution" : {
          "total" : {
+<<<<<<< HEAD
             "ecs" : 0.253198
+=======
+            "ecs" : 0.937844
+>>>>>>> main
          },
          "transports" : {
             "air" : 0,
             "impacts" : {
+<<<<<<< HEAD
                "ecs" : 0.9276
+=======
+               "ecs" : 3.43583
+>>>>>>> main
             },
             "road" : 600,
             "roadCooled" : 0,
@@ -24,6 +32,7 @@
       "preparation" : {
          "ecs" : 0
       },
+<<<<<<< HEAD
       "preparedMass" : 0.1,
       "recipe" : {
          "ingredientsTotal" : {
@@ -31,12 +40,21 @@
          },
          "total" : {
             "ecs" : 98.9754
+=======
+      "preparedMass" : 0.3704,
+      "recipe" : {
+         "ingredientsTotal" : {
+            "ecs" : 289.239
+         },
+         "total" : {
+            "ecs" : 310.928
+>>>>>>> main
          },
          "totalBonusImpact" : {
             "cropDiversity" : 0,
-            "hedges" : -0.011975,
+            "hedges" : -0.0478998,
             "permanentPasture" : 0,
-            "plotSize" : -0.0362388
+            "plotSize" : -0.144955
          },
          "transform" : {
             "ecs" : 0
@@ -44,7 +62,11 @@
          "transports" : {
             "air" : 18000,
             "impacts" : {
+<<<<<<< HEAD
                "ecs" : 17.5268
+=======
+               "ecs" : 21.6892
+>>>>>>> main
             },
             "road" : 11300,
             "roadCooled" : 0,
@@ -60,13 +82,23 @@
          "resources" : 120.321
       },
       "total" : {
+<<<<<<< HEAD
          "ecs" : 100.156
       },
       "totalMass" : 0.1,
+=======
+         "ecs" : 315.301
+      },
+      "totalMass" : 0.3704,
+>>>>>>> main
       "transports" : {
          "air" : 18000,
          "impacts" : {
+<<<<<<< HEAD
             "ecs" : 18.4544
+=======
+            "ecs" : 25.125
+>>>>>>> main
          },
          "road" : 11900,
          "roadCooled" : 0,

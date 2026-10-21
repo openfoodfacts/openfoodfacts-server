@@ -404,7 +404,7 @@
                {
                   "ecobalyse_name" : "Viande de porc -alim. ani. 100% FR-",
                   "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
-                  "mass" : 66.6666666666667,
+                  "mass" : 166.666666666667,
                   "name" : "Pork meat"
                },
                {
@@ -416,7 +416,7 @@
                {
                   "ecobalyse_name" : "Sel -2025-",
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 16.6666666666667,
+                  "mass" : 41.6666666666666,
                   "name" : "salt"
                }
             ],
@@ -428,7 +428,10 @@
                   "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
                   "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
                }
-            ]
+            ],
+            "reference_quantity" : 250,
+            "reference_quantity_source" : "product_quantity",
+            "reference_quantity_unit" : "g"
          },
          "ecobalyse_request" : {
             "data" : {
@@ -436,7 +439,7 @@
                "ingredients" : [
                   {
                      "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
-                     "mass" : 66.6666666666667
+                     "mass" : 166.666666666667
                   },
                   {
                      "id" : "1402fd8a-d473-51fd-9d07-b4c0eb798dcc",
@@ -444,7 +447,7 @@
                   },
                   {
                      "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                     "mass" : 16.6666666666667
+                     "mass" : 41.6666666666666
                   }
                ],
                "packaging" : [
@@ -610,6 +613,7 @@
       "misc_tags" : [
          "en:ecobalyse-api-skipped",
          "en:ecobalyse-ingredients-matched-between-80-and-89",
+         "en:ecobalyse-reference-quantity-from-product-quantity",
          "en:environmental-score-not-computed",
          "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-not-computed",

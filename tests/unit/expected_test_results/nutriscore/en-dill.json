@@ -44,6 +44,7 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
+<<<<<<< HEAD
          "ingredients" : [
             {
                "ecobalyse_name" : "Aneth, frais HORS UE",
@@ -61,10 +62,19 @@
                "name_fr" : "Sachet en plastique (PP) pour herbes aromatiques - 100g - Proxy"
             }
          ]
+=======
+         "ingredients" : [],
+         "ingredients_coverage_percent" : 0,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+>>>>>>> main
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
+<<<<<<< HEAD
             "ingredients" : [
                {
                   "id" : "e849f2db-b8d3-5456-a771-bd23d88b1e66",
@@ -77,6 +87,9 @@
                   "id" : "9f2c95d7-a7db-44e0-9a52-c09ad35ea488"
                }
             ]
+=======
+            "ingredients" : []
+>>>>>>> main
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       }
@@ -155,8 +168,14 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+<<<<<<< HEAD
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
+=======
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-api-not-called",
+>>>>>>> main
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a"
    ],
