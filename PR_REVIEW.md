@@ -7,7 +7,10 @@ The volume of PRs keeps increasing. Here are a few shortcuts and tips to help us
 * Add any relevant missing labels
 * Invoke Coderabbit if the changes are substantial / complex. @coderabbitai review to trigger one, we are rate limited, so do one or two every hour
 * Check PRs that are duplicate of one-another, and add a little comment on both linking to the other one.
-* (Reviewers) Adding the P1 Candidate label to impactful PRs that seem reasonably mergeable 
+* (Reviewers) Adding the P1 Candidate label to impactful PRs that seem reasonably mergeable
+
+### Additional ideas
+* If you are confident about a PR or someone else's PR, you can enable the Automerge option (warning it will automerge if tests pass, use it wisely please ! Not on "potentially controversial" PRs, on trivial PRs or complex PRs after review, and you're just waiting for a final test run to pass)
 
 ### Useful links
 * PR that are interesting to be reviewed first: https://github.com/openfoodfacts/openfoodfacts-server/pulls?q=is%3Apr+state%3Aopen+label%3A%22%F0%9F%8E%AF+P1+candidate%22
