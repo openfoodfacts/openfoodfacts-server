@@ -3,7 +3,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_code" : "2bf307e8-8cb0-400b-a4f1-cf615d9e96f4",
+         "ecobalyse_id" : "413dbd30-f224-580c-bf02-51664910430e",
+         "ecobalyse_name" : "Lait de vache HORS UE",
          "id" : "en:cow-s-milk",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -49,13 +50,13 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:cow-s-milk",
-      "en:dairy",
       "en:milk",
+      "en:dairy",
       "en:kefir-lactic-ferment",
-      "en:ferment",
-      "en:microbial-culture",
+      "en:kefir-ferment",
       "en:lactic-ferments",
-      "en:kefir-ferment"
+      "en:ferment",
+      "en:microbial-culture"
    ],
    "ingredients_text" : "Leche entera pasteurizada de vaca*, fermentos lácticos de gránulos de kéfir. *Procedente e agricultura ecológica.",
    "ingredients_with_specified_percent_n" : 0,
