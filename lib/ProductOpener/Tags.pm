@@ -4882,7 +4882,7 @@ The type of the tag (e.g. categories, labels, allergens)
 sub cmp_taxonomy_tags_alphabetically ($tagtype, $target_lc, $a, $b) {
 
 	return ($translations_to{$tagtype}{$a}{$target_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
-		cmp($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
+		cmp ($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
 }
 
 # To avoid doing file operations for each call to get_knowledge_content (e.g. for each ingredient of a product),
