@@ -130,14 +130,10 @@
                "name" : "refined palm oil"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 56,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -155,16 +151,12 @@
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
                   "mass" : 0.347222222222229
                }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
-               }
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -1577,7 +1569,7 @@
                               "text" : "Energy"
                            },
                            {
-                              "text" : "~ 872.333333333333 kJ<br>(205 kcal)"
+                              "text" : "~ 872.333 kJ<br>(206 kcal)"
                            }
                         ]
                      },
@@ -1589,7 +1581,7 @@
                               "text" : "Fat"
                            },
                            {
-                              "text" : "~ 19.6572916666667 g"
+                              "text" : "~ 19.657 g"
                            }
                         ]
                      },
@@ -1601,7 +1593,7 @@
                               "text" : "Saturated fat"
                            },
                            {
-                              "text" : "~ 3.12836805555556 g"
+                              "text" : "~ 3.128 g"
                            }
                         ]
                      },
@@ -1613,7 +1605,7 @@
                               "text" : "Carbohydrates"
                            },
                            {
-                              "text" : "~ 48.3244097222222 g"
+                              "text" : "~ 48.324 g"
                            }
                         ]
                      },
@@ -1625,7 +1617,7 @@
                               "text" : "Sugars"
                            },
                            {
-                              "text" : "~ 1.64600694444444 g"
+                              "text" : "~ 1.646 g"
                            }
                         ]
                      },
@@ -1637,7 +1629,7 @@
                               "text" : "Fiber"
                            },
                            {
-                              "text" : "~ 4.00836805555556 g"
+                              "text" : "~ 4.008 g"
                            }
                         ]
                      },
@@ -1649,7 +1641,7 @@
                               "text" : "Proteins"
                            },
                            {
-                              "text" : "~ 5.65458333333333 g"
+                              "text" : "~ 5.655 g"
                            }
                         ]
                      },
@@ -1661,7 +1653,7 @@
                               "text" : "Salt"
                            },
                            {
-                              "text" : "~ 0.105711805555556 g"
+                              "text" : "~ 0.106 g"
                            }
                         ]
                      },
@@ -1733,10 +1725,10 @@
                               "text" : "Energy"
                            },
                            {
-                              "text" : "~ 872.333333333333 kJ<br>(205 kcal)"
+                              "text" : "~ 872.333 kJ<br>(206 kcal)"
                            },
                            {
-                              "text" : "~ 872.333333333333 kJ<br>(205 kcal)"
+                              "text" : "~ 872.333 kJ<br>(206 kcal)"
                            }
                         ]
                      },
@@ -1748,10 +1740,10 @@
                               "text" : "Fat"
                            },
                            {
-                              "text" : "~ 19.6572916666667 g"
+                              "text" : "~ 19.657 g"
                            },
                            {
-                              "text" : "~ 19.6572916666667 g"
+                              "text" : "~ 19.657 g"
                            }
                         ]
                      },
@@ -1763,10 +1755,10 @@
                               "text" : "Saturated fat"
                            },
                            {
-                              "text" : "~ 3.12836805555556 g"
+                              "text" : "~ 3.128 g"
                            },
                            {
-                              "text" : "~ 3.12836805555556 g"
+                              "text" : "~ 3.128 g"
                            }
                         ]
                      },
@@ -1778,10 +1770,10 @@
                               "text" : "Carbohydrates"
                            },
                            {
-                              "text" : "~ 48.3244097222222 g"
+                              "text" : "~ 48.324 g"
                            },
                            {
-                              "text" : "~ 48.3244097222222 g"
+                              "text" : "~ 48.324 g"
                            }
                         ]
                      },
@@ -1793,10 +1785,10 @@
                               "text" : "Sugars"
                            },
                            {
-                              "text" : "~ 1.64600694444444 g"
+                              "text" : "~ 1.646 g"
                            },
                            {
-                              "text" : "~ 1.64600694444444 g"
+                              "text" : "~ 1.646 g"
                            }
                         ]
                      },
@@ -1808,10 +1800,10 @@
                               "text" : "Fiber"
                            },
                            {
-                              "text" : "~ 4.00836805555556 g"
+                              "text" : "~ 4.008 g"
                            },
                            {
-                              "text" : "~ 4.00836805555556 g"
+                              "text" : "~ 4.008 g"
                            }
                         ]
                      },
@@ -1823,10 +1815,10 @@
                               "text" : "Proteins"
                            },
                            {
-                              "text" : "~ 5.65458333333333 g"
+                              "text" : "~ 5.655 g"
                            },
                            {
-                              "text" : "~ 5.65458333333333 g"
+                              "text" : "~ 5.655 g"
                            }
                         ]
                      },
@@ -1838,10 +1830,10 @@
                               "text" : "Salt"
                            },
                            {
-                              "text" : "~ 0.105711805555556 g"
+                              "text" : "~ 0.106 g"
                            },
                            {
-                              "text" : "~ 0.105711805555556 g"
+                              "text" : "~ 0.106 g"
                            }
                         ]
                      },
@@ -2102,6 +2094,9 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-50-and-59",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-computed",

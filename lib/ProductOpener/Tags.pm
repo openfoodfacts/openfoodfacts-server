@@ -314,6 +314,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 
 %stopwords = ();
 %just_synonyms = ();
+
 my %just_tags = ();    # does not include synonyms that are only synonyms
 my %synonyms = ();
 %synonyms_for = ();
@@ -770,6 +771,11 @@ sub load_tags_images ($lc, $tagtype) {
 # Cache the stopwords regexps to remove stopwords from strings and tagids
 my %stopwords_regexps = ();
 
+sub _invalidate_stopwords_regexps ($tagtype) {
+	delete $stopwords_regexps{$_} for grep {index($_, "$tagtype.") == 0} keys %stopwords_regexps;
+	return;
+}
+
 =head2 remove_stopwords_from_start_or_end_of_string ( $tagtype, $lc, $string )
 
 Remove stopwords (that are specific to each category) from the start or end of a string that has not been normalized.
@@ -1054,7 +1060,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20260806 - fix the computation of levels for parents";
+my $BUILD_TAGS_VERSION = "20261020 - faster computation of extended synonyms";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -1278,14 +1284,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		@tagtypes = ("countries", "origins");
 	}
 
-	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
+	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, amino acids, nucleotides and other nutritional substances taxonomies
 	elsif ( ($tagtype eq "ingredients")
 		and (defined $options{product_type})
 		and (($options{product_type} eq "food") or ($options{product_type} eq "petfood")))
 	{
 		@tagtypes = (
 			"additives_classes", "additives", "minerals", "vitamins",
-			"nucleotides", "other_nutritional_substances", "ingredients"
+			"amino_acids", "nucleotides", "other_nutritional_substances", "ingredients"
 		);
 	}
 
@@ -1371,6 +1377,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	# * <lc>.strings contains an array of stop words
 	# * <lc>.orig the original lines as a string
 	$stopwords{$tagtype} = {};
+	_invalidate_stopwords_regexps($tagtype);
 	# synonyms track know synonyms and associate to their tagid, by language
 	# Note that it contains synonyms and extended synonyms
 	# tagtype -> lc -> tagid stores the lc tagid for this tagid
@@ -1424,6 +1431,31 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		$log->debug('load_tags_taxonomy', {tagtype => $tagtype}) if $log->is_debug();
 
+		# All sources must contribute their stopwords before synonym lookups compile regexps.
+		while (<$IN>) {
+			my $line = sanitize_taxonomy_line($_);
+			next unless $line =~ /^stopwords:(\w\w):(\s*)(.*)/;
+			# stop words definition
+			my $lc = $1;
+			my $rest = $3;
+			# store an orig version as is (but spaces)
+			$stopwords{$tagtype}{$lc . ".orig"} .= "stopwords:$lc:$rest\n";
+			$line = $rest;
+			$line =~ s/^\s+//;    # normalize spaces
+			my @tags = split(/\s*,\s*/, $line);    # split on comma
+			foreach my $tag (@tags) {
+				my $tagid = get_string_id_for_lang($lc, $tag);
+				next if $tagid eq '';
+				defined $stopwords{$tagtype}{$lc} or $stopwords{$tagtype}{$lc} = [];
+				defined $stopwords{$tagtype}{$lc . ".strings"} or $stopwords{$tagtype}{$lc . ".strings"} = [];
+				# normalized version
+				push @{$stopwords{$tagtype}{$lc}}, $tagid;
+				# full text version
+				push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
+			}
+		}
+		seek($IN, 0, 0) or die("Cannot rewind $file_path: $!\n");
+
 		# 1st phase: read translations and synonyms
 
 		my $line_number = 0;
@@ -1441,33 +1473,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			}
 
 			# handle lines of comments
-			next if ($line =~ /^\#/);
+			next if ($line =~ /^\#/ or $line =~ /^stopwords:/);
 
 			#print "new_line: $line\n";
 			if ($line =~ /^</) {
 				# Parent
 				# Ignore in first pass as it may be a synonym, or a translation, for the canonical parent
 			}
-			elsif ($line =~ /^stopwords:(\w\w):(\s*)(.*)/) {
-				# stop words definition
-				my $lc = $1;
-				my $rest = $3;
-				# store an orig version as is (but spaces)
-				$stopwords{$tagtype}{$lc . ".orig"} .= "stopwords:$lc:$rest\n";
-				$line = $rest;
-				$line =~ s/^\s+//;    # normalize spaces
-				my @tags = split(/\s*,\s*/, $line);    # split on comma
-				foreach my $tag (@tags) {
-					my $tagid = get_string_id_for_lang($lc, $tag);
-					next if $tagid eq '';
-					defined $stopwords{$tagtype}{$lc} or $stopwords{$tagtype}{$lc} = [];
-					defined $stopwords{$tagtype}{$lc . ".strings"} or $stopwords{$tagtype}{$lc . ".strings"} = [];
-					# normalized version
-					push @{$stopwords{$tagtype}{$lc}}, $tagid;
-					# full text version
-					push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
-				}
-			}
+
 			elsif ($line =~ /^(synonyms:)?(\w\w):(.*)/) {
 				# line with regular entry or a synonyms entry
 				my $qualifier = $1;    # eventual synonyms prefix
@@ -1498,7 +1511,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					foreach my $tag2 (@tags) {
 
 						my $tag = $tag2;
-						my $possible_canon_tagid = get_lc_tagid($synonyms{$tagtype}, $lc, $tagtype, $tag, "");
+						# Normalized search variants must not merge distinct declared concepts.
+						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{get_string_id_for_lang($lc, $tag)};
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
 							$lc_tagid = $possible_canon_tagid;
@@ -1563,8 +1577,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					if (
 							(defined $synonyms{$tagtype}{$lc}{$tagid})
 						and ($synonyms{$tagtype}{$lc}{$tagid} ne $lc_tagid)
-						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
-						and (not($tagtype eq 'additives'))
 						# we have some exception when we merge packaging shapes and materials
 						# in packaging
 						and (not($tagtype eq 'packaging'))
@@ -1693,9 +1705,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 			foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
 
-				# this list will contain all tags that are possible synonyms
+				# this hash will contain all tags that are possible synonyms
 				# that are smaller than current tag and that we may substitute in it
-				my @smaller_synonyms = ();
+				# the value is the rank of the tag in the sort order below,
+				# so that candidates are tried in the same order as they were added
+				my %smaller_synonyms = ();
+				my $smaller_synonyms_rank = 0;
 
 				# synonyms don't support non roman languages at this point
 				next if ($lc eq 'ar');
@@ -1723,15 +1738,30 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					if (scalar @{$synonyms_for{$tagtype}{$lc}{$lc_tagid1}} > 1) {
 						# limit length of synonyms for performance
 						if (length($tagid) < (30 / $pass)) {
-							push @smaller_synonyms, $tagid;
+							$smaller_synonyms{$tagid} = $smaller_synonyms_rank++;
 							#print "$tagid (canon: $lc_tagid1) has other synonyms\n";
 						}
 					}
 
-					# try each candidate synonyms
-					foreach my $tagid2 (@smaller_synonyms) {
+					# A smaller synonym can only be substituted if it matches whole words of $tagid
+					# so instead of testing all smaller synonyms, we look up each sequence of consecutive words
+					# (tagids never start or end with a dash, and never contain 2 consecutive dashes)
+					my @words = split(/-/, $tagid);
+					next if @words < 2;
+					my %candidates = ();
+					for (my $i = 0; $i <= $#words; $i++) {
+						my $words_sequence = $words[$i];
+						for (my $j = $i; $j <= $#words; $j++) {
+							$words_sequence .= '-' . $words[$j] if $j > $i;
+							last if length($words_sequence) > $max_length;    # avoid generating long strings
+							if (exists $smaller_synonyms{$words_sequence}) {
+								$candidates{$words_sequence} = $smaller_synonyms{$words_sequence};
+							}
+						}
+					}
 
-						last if length($tagid2) > $max_length;    # avoid generating long strings
+					# try each candidate synonyms
+					foreach my $tagid2 (sort {$candidates{$a} <=> $candidates{$b}} keys %candidates) {
 
 						# try to avoid looping:
 						# e.g. bio, agriculture biologique, biologique -> agriculture bio -> agriculture agriculture biologique etc.
@@ -1846,6 +1876,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					}
 
 					$tagid2 = remove_plurals($lc, $tagid2);
+					next if $tagid2 eq "";
 
 					if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
 						# this is a new synonym, add it using same canonical tagid
@@ -2665,6 +2696,7 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 
 	$loaded_taxonomies{$tagtype} = 1;
 	$stopwords{$tagtype} = $taxonomy_ref->{stopwords};
+	_invalidate_stopwords_regexps($tagtype);
 	$synonyms{$tagtype} = $taxonomy_ref->{synonyms};
 	$synonyms_for{$tagtype} = $taxonomy_ref->{synonyms_for};
 	$synonyms_for_extended{$tagtype} = $taxonomy_ref->{synonyms_for_extended};
@@ -2849,6 +2881,9 @@ sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
 	}
 
 	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
+		# Taxonomies are loaded when Tags.pm is loaded, and then again by load_data():
+		# skip the ones that are already loaded (taxonomies that failed to load are retried)
+		next if $loaded_taxonomies{$taxonomyid};
 		$log->info("loading taxonomy $taxonomyid");
 		retrieve_tags_taxonomy($taxonomyid, $die_if_some_taxonomies_cannot_be_loaded);
 	}
@@ -5014,11 +5049,17 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 				}
 				$is_main_translation = 0;
 			}
+		}
+	}
 
-			# Add xx entries
-			if (($options_ref->{include_xx}) and ($language ne 'xx') and (defined $synonyms_regexps{"xx"})) {
-				push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
-			}
+	# Add xx entries to all other languages
+	# This needs to be done once all entries have been processed: entries are iterated in hash order,
+	# so adding xx synonyms while iterating would only add the xx synonyms of the entries processed so far.
+	# e.g. a language with only 1 translated unit would randomly miss the xx unit "g"
+	if (($options_ref->{include_xx}) and (defined $synonyms_regexps{"xx"})) {
+		foreach my $language (keys %synonyms_regexps) {
+			next if $language eq 'xx';
+			push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
 		}
 	}
 

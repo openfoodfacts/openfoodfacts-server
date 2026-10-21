@@ -436,6 +436,7 @@
                   "name" : "water"
                }
             ],
+            "ingredients_coverage_percent" : 75,
             "packaging" : [
                {
                   "category" : "",
@@ -443,7 +444,10 @@
                   "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
                   "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
                }
-            ]
+            ],
+            "reference_quantity" : 100,
+            "reference_quantity_source" : "product_quantity",
+            "reference_quantity_unit" : "g"
          },
          "ecobalyse_request" : {
             "data" : {
@@ -462,7 +466,9 @@
                ]
             },
             "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-         }
+         },
+         "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+         "ecobalyse_skipped" : 1
       },
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups_tags" : [],
@@ -582,6 +588,9 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
+         "en:ecobalyse-api-not-called",
+         "en:ecobalyse-ingredients-matched-between-70-and-79",
+         "en:ecobalyse-reference-quantity-from-product-quantity",
          "en:environmental-score-not-computed",
          "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-computed",

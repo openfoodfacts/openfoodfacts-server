@@ -241,6 +241,7 @@ it: Prodotti artigianali
 lt: Amatininkų gaminiai
 nl: Ambachtelijke producten, Ambachtelijk product, Ambachtelijk produkt
 nl_be: Ambachtelijke producten
+pl: Produkty rzemieślnicze
 pt: Produtos caseiras
 ro: Produse artizanale
 zh: 手工制品
@@ -1594,6 +1595,7 @@ lv: Kimči
 mn: Кимчи
 ms: Kimchi
 my: ကင်ချီ
+pl: Kimchi
 ru: Кимчхи
 sk: Kimčchi
 sl: Kimči
@@ -1772,6 +1774,7 @@ fr: Kits de fabrication d'alcool
 hr: Pribor za pravljenje alkohola
 it: Kit per la produzione di alcolici
 nl: Alcohol maak kits
+pl: Zestawy do produkcji alkoholu
 pt: Kits para fazer álcool
 zh: 酿酒套件
 gpc_category_code:en: 10000142
@@ -2437,6 +2440,7 @@ hr: Opatsko pivo
 hu: Apátsági sörök
 it: Birre d'abbazia
 nl: Abdijbieren
+pl: Piwa opackie, Piwa klasztorne
 zh: 修道院艾尔啤酒
 agribalyse_food_code:en: 5011
 ciqual_food_code:en: 5011
@@ -3821,7 +3825,7 @@ protected_name_file_number:en: PGI-FR-01975
 protected_name_type:en: gi
 wikidata:en: Q43013270
 
-< en: Spirit drinks
+< en: Hard liquors
 de: Deutsche Spirituosen
 en: German spirit drinks
 es: Bebidas espirituosas alemanas
@@ -3831,6 +3835,7 @@ hu: Német szeszesitalok
 it: Bevande alcoliche tedesche
 lt: Vokietijos spiritiniai gėrimai
 nl: Duitse sterke dranken
+pl: Niemieckie napoje alkoholowe, Niemieckie spirytualia
 pt: Bebidas espirituosas alemãs
 ru: Немецкие крепкие напитки
 zh: 德国烈酒
@@ -4093,13 +4098,14 @@ wikidata:en: Q3643740
 
 < en: Brandys
 < en: Distilled beverages
-de: Obstbrand
 en: Fruit brandy
 bar: Obstla
+de: Obstbrand
 fi: Hedelmäviina
 hr: Voćna rakija
 hu: Gyümölcspárlat
 no: Obstler
+pl: Okowita owocowa, Okowita z owoców
 sv: Obstler
 wikidata:en: Q222216
 
@@ -4445,7 +4451,7 @@ lt: Palinka
 nl: Palinka
 pl: Palinca, Pálinka
 pt: Palinca
-ro: Palincă
+ro: Pálinka
 ru: Палинка
 sv: Pálinka
 uk: Палінка
@@ -5397,7 +5403,7 @@ protected_name_type:en: gi
 
 < en: French rums
 fr: Rhum de la Guyane
-origins:en: en:french-guyana
+origins:en: en:french-guiana
 protected_name_file_number:en: PGI-FR-02066
 protected_name_type:en: gi
 wikidata:en: Q110722095
@@ -6168,6 +6174,7 @@ wikidata:en: Q917361
 < en: Eaux de vie
 en: Tuzemsky, Tuzemak, Tuzemsky rum
 cs: Tuzemský, Tuzemák
+pl: Tuzemsky, Tuzemak
 
 < en: Non-alcoholic beverages
 fr: Daïquiri sans alcool
@@ -10000,6 +10007,7 @@ lt: Labos nakties arbatos mišiniai
 nl: Goede nachtrusttheeën, Goede nachtrustthee
 
 < en: Herbal tea blends
+en: Relaxing herbal tea blends
 es: Infusiones relajantes
 
 < en: Herbal tea blends
@@ -12669,6 +12677,19 @@ en: Vegan wines, Vegan-friendly wines
 da: Veganske vin
 sv: Veganska viner
 
+< en: Wines
+en: Kosher wines
+ar: نبيذ كوشير
+bn: কোশের ওয়াইন
+es: Vinos kosher
+fr: Vins casher
+he: יינות כשרים
+hi: कोशर वाइन
+id: Minuman anggur kosher
+pt: Vinhos kosher
+zh: 犹太洁食葡萄酒
+wikidata:en: Q2896889
+
 # should this fall under wines?
 < en: Wines
 en: Cooking wines
@@ -12806,6 +12827,7 @@ hr: 10% crnog vina
 hu: 10%-os vörösbor
 it: Vino rosso al 10%
 nl: 10% rode wijn
+pl: 10% czerwone wino
 pt: 10% vinho tinto
 ru: 10% красное вино
 zh: 10% 红葡萄酒
@@ -17306,6 +17328,8 @@ protected_name_type:en: pdo
 wikidata:en: Q1137604
 
 < en: Wines from France
+en: Crémant d'Alsace
+xx: Crémant d'Alsace
 fr: Crémant d'Alsace
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-A0917
@@ -27933,9 +27957,9 @@ protected_name_file_number:en: PGI-IT-A0789
 protected_name_type:en: pgi
 
 < en: Wines from Italy
-hr: Vino marsala
 en: Marsala wine
 fr: Marsala
+hr: Vino marsala
 it: Marsala
 agribalyse_food_code:en: 1015
 ciqual_food_code:en: 1015
@@ -32651,6 +32675,7 @@ fi: ateriakitit
 fr: Kits repas, Kits pour repas, Kits culinaires, Kit repas, Kit pour repas, Kit culinaire
 hr: Setovi obroka
 nl: Maaltijdpakketten
+pl: Zestawy posiłkowe
 zh: 快煮餐
 gpc_category_code:en: 10000292
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a vegetable based not ready to eat, prepared/processed product, such as Potato, Cabbage, Eggplant or any other vegetable with other ingredients, such as meat, poultry, fish, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as minced beef in a Shepherd's Pie or Duck with Vegetables. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough Based, Grain Based, Dairy/Egg Based products. They may or may not contain a sauce. These products require cooking prior to consumption. These products have been specially treated or packaged to extend their consumable life. Includes not ready to eat self stable Ready-Made Meals where a Vegetable Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all prepared and processed and unprepared and unprocessed vegetables to which no recipe has been applied.Excludes products such as Frozen and Perishable Not Ready to Eat and all Ready to Eat Vegetable-Based Prepared/Processed Products and all Prepared and Processed Vegetables.
@@ -32805,6 +32830,7 @@ nl: Gevulde Koeken
 en: Biscuits and crackers
 fr: Biscuits sucrés & biscuits apéritifs
 nl: Biscuits en crackers
+pl: Ciastka i krakersy, Herbatniki i krakersy
 zh: 饼干和薄脆饼干
 intake24_category_code:en: BSCT
 
@@ -32848,7 +32874,7 @@ nb: kjeks
 nl: Koekjes, biscuit, biscuits
 nn: Kjeks
 oc: biscuèit
-pl: herbatnik
+pl: Ciastka, Herbatniki
 pt: biscoitos, Biscoito
 ro: Biscuiți, Biscuit, Fursecuri, biscuiti
 ru: бисквит
@@ -33124,13 +33150,18 @@ nl: Haverkoekjes, Haverkoekje
 ru: Печенье овсяное, овсяное печенье
 sv: Havrekex
 
-# Swedish-style biscuits made with rolled oats instead of flour
+# Biscuits with a (subjective) threshold of at least 20% rolled oats
 < en: Oatmeal biscuits
+en: Rolled oats biscuits
+fr: Biscuits aux flocons d'avoine
+
+# Swedish-style biscuits made with rolled oats instead of flour
+< en: Rolled oats biscuits
 en: Plain rolled oats biscuits
 fr: Biscuits aux flocons d'avoine nature
 
 < en: Chocolate biscuits
-< en: Oatmeal biscuits
+< en: Rolled oats biscuits
 en: Chocolate rolled oats biscuits
 fr: Biscuits aux flocons d'avoine au chocolat
 
@@ -33907,6 +33938,7 @@ hu: Rántott termékek
 it: Prodotti impanati
 lt: Duonos gaminiai
 nl: Gepaneerde producten
+pl: Produkty panierowane
 ru: Хлебные продукты
 sv: Panerade produkter
 zh: 裹面包糠产品
@@ -34084,6 +34116,7 @@ it: Pane alle noci
 nl: Notenbroden
 
 < en: Breads
+en: Multigrain breads, Multi-grain breads
 fr: Pains multicéréales, Pains aux céréales
 nl: Meergranenbroden
 
@@ -34371,6 +34404,8 @@ wikidata:en: Q452383
 
 < en: German bakery products
 < en: Gingerbreads
+en: Nuremberg gingerbread
+xx: Nürnberger Lebkuchen
 de: Nürnberger Lebkuchen
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-0670
@@ -36453,7 +36488,7 @@ nl: Cakes
 nn: kake
 oc: pastisson
 pa: ਕੇਕ
-pl: Ciasto, ciasta
+pl: Ciasta, Ciasto
 pt: bolos, bolo
 qu: Pastil
 ro: Prăjitură
@@ -37299,6 +37334,7 @@ hr: puding
 it: Puddings
 lt: Pudingai
 nl: Puddings, Pudding
+pl: Puddingi
 ru: Пудинги, Пудинг
 food_groups:en: en:dairy-desserts
 intake24_category_code:en: PUDS
@@ -37887,7 +37923,7 @@ hu: Cukrász áruk
 it: Dolci, dolce
 lt: Saldumynai
 nl: Zoetwaren, Confiserie, Suikerwerk
-pl: Cukiernie
+pl: Wyroby cukiernicze
 pt: Confeitaria
 ru: Кондитерские изделия
 sv: Konfekt
@@ -39851,6 +39887,7 @@ fr: crocodiles gélifiés
 hr: Gumeni krokodili
 lt: Guminukai krokodilai
 nl: Gummi krokodillen
+pl: Żelki-krokodyle
 
 < en: Gummi candies
 en: Gummy bananas
@@ -39915,6 +39952,7 @@ fr: Bonbons acidulés gélifiés
 hr: Kiseli gumeni bomboni
 lt: Rūgštūs guminukai
 nl: Zure gummi snoep
+pl: Kwaśne żelki
 zh: 酸沙软糖
 
 < en: Gummi candies
@@ -41638,6 +41676,12 @@ hr: Kavijar od sterleta
 en: Nut and seed mixes, nuts and seeds mixes, Mixes of nuts and seeds
 nl: Noten en zaden mengsels
 comment:en: for mixes of nuts and seeds
+
+# contains mainly nuts, seeds and dried fruits in various proportion, can contain a small amount of other things. e.g. chocolate
+< en: Breakfast
+< en: Plant-based foods
+en: Nut seed and dried fruit mixes for breakfast
+fr: Mélanges de graines fruits à coques et fruits pour petit-déjeuner
 
 < en: Plant-based foods
 en: Dried fruit and seed mixes
@@ -46130,6 +46174,8 @@ protected_name_type:en: pdo
 wikidata:en: Q747119
 
 < en: Greek cheeses
+en: Kefalograviera
+xx: Kefalograviera
 el: Κεφαλογραβιέρα, Kefalograviera
 origins:en: en:greece
 protected_name_file_number:en: PDO-GR-0444
@@ -46370,6 +46416,8 @@ protected_name_type:en: pgi
 wikidata:en: Q1591487
 
 < en: Danish cheeses
+en: Danbo
+xx: Danbo
 bg: Данбо
 da: Danbo
 es: Queso Danbo, Danbo
@@ -47012,7 +47060,7 @@ ar: جبن قريش
 bg: Зърнесто сирене
 cs: Cottage
 da: Hytteost
-de: Hüttenkäse
+de: Hüttenkäse, körniger Frischkäse
 el: Τυρί κότατζ
 es: Cottage
 et: Kodujuust
@@ -47807,16 +47855,16 @@ ciqual_food_code:en: 12815
 ciqual_food_name:en: Cheese, dry, from goat's milk
 
 < en: Goat cheeses
+en: Goat cheese logs, Cheese buche from goat's milk
 es: Rulo de cabra, Rulo de queso de cabra
-en: Cheese buche from goat's milk
 fr: Bûche de chèvre
 hr: Sir buče od kozjeg mlijeka
 agribalyse_food_code:en: 12812
 ciqual_food_code:en: 12812
 ciqual_food_name:en: Cheese, from goat's milk, fresh, from pasteurised milk
 
-< en: Goat cheeses
-en: Light cheese buche from goat's milk
+< en: Goat cheese logs
+en: Light goat cheese logs, Light cheese buche from goat's milk
 fr: Bûche de chèvre allégée en matière grasse
 agribalyse_food_code:en: 12813
 ciqual_food_code:en: 12813
@@ -48502,8 +48550,10 @@ origins:en: en:italy
 wikidata:en: Q896436
 
 < en: Italian cheeses
-it: Caciocavallo Silano
+en: Caciocavallo Silano
+xx: Caciocavallo Silano
 bg: Качокавало
+it: Caciocavallo Silano
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0003
 protected_name_type:en: pdo
@@ -49311,6 +49361,8 @@ protected_name_file_number:en: PGI-RO-02473
 protected_name_type:en: pgi
 
 < en: Romanian cheeses
+en: Telemea from Ibăneşti
+xx: Telemea de Ibăneşti
 ro: Telemea de Ibăneşti
 origins:en: en:romania
 protected_name_file_number:en: PDO-RO-01182
@@ -49898,6 +49950,8 @@ oqali_family:en: fr:Fromages - Fromage a raclette
 
 < en: French cheeses
 < en: Raclette cheese from cow's milk
+en: Raclette from Savoie
+xx: Raclette de Savoie
 fr: Raclette de Savoie
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-02095, PGI-FR-02095-AM02
@@ -50909,6 +50963,7 @@ sv: Filmjölk
 
 < en: Fermented dairy desserts with fruits
 < fi: Viili
+en: Filmjölk with fruits
 se: Filmjölk med frukt
 sv: Filmjölk med frukt
 
@@ -54617,9 +54672,10 @@ hr: Lagani kompoti
 nl: Light compotes
 
 < en: Compotes
-fr: Compotes sans sucres, purées de fruits
+en: Sugar-free compotes
 de: Zuckerfreie Kompotte, Fruchtpürees
 es: Compotas sin azúcar, purés de frutas
+fr: Compotes sans sucres, purées de fruits
 it: Composte senza zuccheri, puree di frutta
 nl: Suikervrije compotes, vruchtenpuree
 
@@ -54887,6 +54943,7 @@ it: Composte mela e fico
 lt: Figų ir obuolių tyrė
 
 < en: Apple compotes
+en: Apple and cherry compotes
 fr: Compotes pommes cerise
 it: Composte mela e ciliegia
 lt: Vyšnių ir obuolių tyrė
@@ -66239,11 +66296,6 @@ ciqual_food_name:en: Potato, pre-fried into cubes, frozen, cooked
 ciqual_food_name:fr: Pomme de terre rissolée, surgelée, cuite
 
 < en: Frozen fried potatoes
-da: Frosne kartoffelkroketter
-fr: Croquettes de pommes de terre surgelées
-hr: Smrznuti kroketi od krumpira
-
-< en: Frozen fried potatoes
 fr: Quartiers de pommes de terre surgelés
 
 < en: Frozen fried potatoes
@@ -67777,6 +67829,8 @@ protected_name_type:en: pgi
 
 < en: Belgian endives
 < en: Belgian vegetables
+en: Brussels soil-grown Belgian endives
+xx: Brussels grondwitloof
 nl: Brussels grondwitloof
 origins:en: en:belgium
 protected_name_file_number:en: PGI-BE-0535
@@ -67942,6 +67996,8 @@ protected_name_file_number:en: PGI-ES-0664, PGI-ES-0664-AM01
 protected_name_type:en: pgi
 
 < en: Spanish fruits
+en: Ribera del Xúquer persimmons
+xx: Kaki Ribera del Xúquer
 es: Kaki Ribera del Xúquer
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0114, PDO-ES-0114-AM02
@@ -68036,12 +68092,13 @@ origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0849
 protected_name_type:en: pdo
 
-< en: Olives
+< en: Green olives
 < en: Vegetables from Spain
 es: Aceituna Aloreña de Málaga
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0785
 protected_name_type:en: pdo
+wikidata:en: Q5656396
 
 < en: Vegetables from Spain
 es: Papas Antiguas de Canarias
@@ -71041,6 +71098,8 @@ season_in_country_fr:en: 6,7,8,9
 
 < en: French fruits
 < en: Muskmelons
+en: Quercy melons
+xx: Melon du Quercy
 fr: Melon du Quercy
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0086
@@ -71048,6 +71107,8 @@ protected_name_type:en: pgi
 
 < en: French fruits
 < en: Muskmelons
+en: Guadeloupe melons
+xx: Melon de Guadeloupe
 fr: Melon de Guadeloupe
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0844
@@ -71055,6 +71116,8 @@ protected_name_type:en: pgi
 
 < en: French fruits
 < en: Muskmelons
+en: Haut-Poitou melons
+xx: Melon du Haut-Poitou
 fr: Melon du Haut-Poitou
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0029
@@ -71768,6 +71831,7 @@ fr: Reine-Claudes fraîches
 season_in_country_fr:en: 9
 
 < en: Fresh plums
+en: Fresh quetsche plums
 fr: Quetsches fraîches
 season_in_country_fr:en: 8,9,10
 
@@ -75818,6 +75882,8 @@ nl: Gemalen gedroogde verse thijm
 pl: Tymianek suszony mielony
 
 < en: Thyme
+en: Thyme from Provence
+xx: Thym de Provence
 fr: Thym de Provence
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-01364
@@ -80767,10 +80833,10 @@ protected_name_type:en: pgi
 wikidata:en: Q1570335
 
 < en: Sausages
-de: Bratwürste, Bratwurst
-xx: Bratwurst
 en: Bratwursts, Bratwurst sausages
+xx: Bratwurst
 da: Bratwurster, Bratwurstpølser
+de: Bratwürste, Bratwurst
 sv: Bratvurstar, Bratwurstar
 plant_alternative:en: en:plant-based-bratwursts
 wikidata:en: Q899882
@@ -80820,6 +80886,8 @@ de: Burenwurst
 de: Mettwurst
 
 < en: German meat products
+en: Greussen salami
+xx: Greußener Salami
 de: Greußener Salami
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-1266
@@ -80861,6 +80929,8 @@ protected_name_type:en: pgi
 wikidata:en: Q1029851
 
 < en: Hungarian meat products
+en: Csabai sausages
+xx: Csabai kolbász, Csabai vastagkolbász
 hu: Csabai kolbász, Csabai vastagkolbász
 origins:en: en:hungary
 protected_name_file_number:en: PGI-HU-0390
@@ -80868,6 +80938,8 @@ protected_name_type:en: pgi
 wikidata:en: Q870187
 
 < en: Hungarian meat products
+en: Budapest winter salami
+xx: Budapesti téliszalámi
 hu: Budapesti téliszalámi
 origins:en: en:hungary
 protected_name_file_number:en: PGI-HU-0396
@@ -82155,8 +82227,8 @@ agribalyse_proxy_food_name:en: Tomato sauce, with onions, prepacked
 agribalyse_proxy_food_name:fr: Sauce tomate aux oignons, préemballée
 
 < en: Tomato sauces
-fr: Sauces puttanesca
 en: Puttanesca sauces
+fr: Sauces puttanesca
 wikidata:en: Q60823349
 
 < en: Tomato sauces
@@ -86421,9 +86493,13 @@ en: Frozen potato buns
 da: Frosne kartoffelboller
 sv: Frysta potatisbullar
 
+< en: Frozen fried potatoes
 < en: Frozen plant-based foods
 < en: Potato croquettes
 en: Frozen potato croquettes
+da: Frosne kartoffelkroketter
+fr: Croquettes de pommes de terre surgelées
+hr: Smrznuti kroketi od krumpira
 sv: Frysta potatiskroketter
 
 < en: Breaded products
@@ -86465,6 +86541,30 @@ description:en: Should be distinguished from vegetable meals, that might contain
 < en: Vegetarian meals
 en: Vegan meals
 description:en: Should be distinguished from vegetable meals, that might contain animal products
+
+< en: Meals
+en: Halal meals, Halal prepared meals
+ar: وجبات جاهزة حلال
+bn: হালাল প্রস্তুত খাবার
+es: Comidas preparadas halal, Platos preparados halal
+fr: Plats préparés halal, Plats cuisinés halal
+he: ארוחות מוכנות חלאל
+hi: हलाल तैयार भोजन
+id: Makanan siap saji halal
+pt: Refeições preparadas halal, Pratos preparados halal
+zh: 清真菜肴
+
+< en: Meals
+en: Kosher meals, Kosher prepared meals
+ar: وجبات جاهزة كوشير
+bn: কোশের প্রস্তুত খাবার
+es: Comidas preparadas kosher, Platos preparados kosher
+fr: Plats préparés casher, Plats cuisinés casher
+he: ארוחות מוכנות כשרות
+hi: कोशर तैयार भोजन
+id: Makanan siap saji kosher
+pt: Refeições preparadas kosher, Pratos preparados kosher
+zh: 犹太洁食菜肴
 
 < en: Meals
 en: Gratins
@@ -86842,39 +86942,32 @@ en: Prepared sweet potatoes
 nl: Geprepareerde zoete aardappelen
 
 < en: Carrots
-en: Grated carrots
+en: Grated carrots, Unseasoned grated carrots, Unseasoned shredded carrots
 de: Geriebene Karotten, geraspelte Karotten
 es: Zanahorias ralladas
 fi: raastetut porkkanat
-fr: Carottes râpées
-hr: Ribana mrkva
+fr: Carottes râpées, Carottes râpées non assaisonnées
+hr: Ribana mrkva, Nezačinjenu ribanu mrkvu
 it: Carote grattugiate
 ja: すりおろした人参
-lt: Tarkuotos morkos
+lt: Tarkuotos morkos, Tarkuotos morkos be prieskonių
 nl: Geraspte wortelen
 pl: Tarta marchew
 tr: Rendelenmiş havuç
-agribalyse_food_code:en: 26257
 wikidata:en: Q22708802
 
-< en: Carrot salads
-en: Seasoned grated carrots, Seasoned shredded carrots
+< en: Prepared vegetables
+en: Carrot salads, Seasoned grated carrots, Seasoned shredded carrots
 de: Gewürzte geriebene Karotten
 fi: maustetut raastetut porkkanat
-fr: Carottes râpées assaisonnées
+fr: Salades de carottes, Carottes râpées assaisonnées
 hr: Začinjenu naribanu mrkvu
 lt: Tarkuotos morkos su prieskoniais
-nl: Aangemaakte geraspte wortels
-
-< en: Grated carrots
-en: Unseasoned grated carrots, Unseasoned shredded carrots
-fr: Carottes râpées non assaisonnées
-hr: Nezačinjenu ribanu mrkvu
-lt: Tarkuotos morkos be prieskonių
-
-< en: Prepared vegetables
-en: Carrot salads
-nl: Wortelsalades
+nl: Wortelsalades, Aangemaakte geraspte wortels
+agribalyse_food_code:en: 26257
+ciqual_food_code:en: 26257
+ciqual_food_name:en: Grated carrot salad, with sauce, prepacked
+ciqual_food_name:fr: Salade de carottes râpées, avec sauce, préemballée
 
 < en: Prepared vegetables
 en: Green beans wrapped in bacon
@@ -87026,7 +87119,7 @@ description:en: heated sandwich filled like a pizza
 
 < en: Meals
 en: Pizza sub toasts
-fr: Tartines salés à cuire, Tartines style pizza
+fr: Tartines salées à cuire, Tartines style pizza
 description:en: heated bread topped like a pizza
 
 < en: Frozen foods
@@ -87110,14 +87203,18 @@ wikidata:en: Q177
 
 < en: Meals
 < en: Pizzas pies and quiches
-it: Calzone
+en: Calzones, Calzone
+xx: Calzone
 fr: Calzone, Pizzas calzone
+it: Calzone
 ja: カルツォーネ
 
 < it: Calzone
+en: Ham calzones
 fr: Calzones au jambon
 
 < it: Calzone
+en: Chicken calzones
 fr: Calzones au poulet
 
 < en: Products without gluten
@@ -87125,12 +87222,15 @@ fr: Calzones au poulet
 fr: Calzones sans gluten
 
 < it: Calzone
+en: Ham and cheese calzones
 fr: Calzones jambon fromage
 
 < it: Calzone
+en: Cheese calzones
 fr: Calzones au fromage
 
 < it: Calzone
+en: Pepperoni calzones
 fr: Calzones peperoni
 
 < en: Pizzas
@@ -89037,6 +89137,30 @@ lt: Mėsos kukuliai
 nl: Gehaktballen
 pt: Almôndegas
 
+< en: Meat balls
+en: Halal meat balls, Halal meatballs
+ar: كرات لحم حلال
+bn: হালাল মাংসের বল, হালাল মিটবল
+es: Albóndigas halal
+fr: Boulettes de viande halal
+he: כדורי בשר חלאל
+hi: हलाल मांस के गोले
+id: Bola-bola daging halal
+pt: Almôndegas halal
+zh: 清真肉丸
+
+< en: Meat balls
+en: Kosher meat balls, Kosher meatballs
+ar: كرات لحم كوشير
+bn: কোশের মাংসের বল, কোশের মিটবল
+es: Albóndigas kosher
+fr: Boulettes de viande casher
+he: כדורי בשר כשרים
+hi: कोशर मांस के गोले
+id: Bola-bola daging kosher
+pt: Almôndegas kosher
+zh: 犹太洁食肉丸
+
 # to be added to soups
 < en: Meat balls
 en: Small meat balls
@@ -90676,6 +90800,18 @@ wikidata:en: Q429518
 # TODO : in the file I have, the same number is named Cordon bleu de volaille
 
 < en: Cordons bleus
+en: Halal cordons bleus
+ar: كوردون بلو حلال
+bn: হালাল কর্ডন ব্লু
+es: Cordon bleu halal
+fr: Cordons bleus halal
+he: קורדון בלו חלאל
+hi: हलाल कॉर्डन ब्लू
+id: Cordon bleu halal
+pt: Cordon bleu halal
+zh: 清真蓝带肉排
+
+< en: Cordons bleus
 en: Poultry cordons bleus
 fr: Cordons bleus de volaille
 
@@ -91996,6 +92132,28 @@ agribalyse_proxy_food_name:en: Poultry nuggets
 < en: Breaded chicken
 en: Frozen breaded chicken
 fr: Poulets panés surgelés, Poulet pané surgelé
+
+< en: Breaded products
+en: Halal nuggets
+ar: ناجتس حلال
+bn: হালাল নাগেটস
+es: Nuggets halal
+fr: Nuggets halal
+he: נאגטס חלאל
+hi: हलाल नगेट्स
+id: Nugget halal
+pt: Nuggets halal
+
+< en: Breaded products
+en: Kosher nuggets
+ar: ناجتس كوشير
+bn: কোশের নাগেটস
+es: Nuggets kosher
+fr: Nuggets casher
+he: נאגטס כשרים
+hi: कोशर नगेट्स
+id: Nugget kosher
+pt: Nuggets kosher
 
 < en: Breaded products
 < en: Meat preparations
@@ -94392,6 +94550,30 @@ ciqual_food_name:en: Sausage (average)
 ciqual_food_name:fr: Saucisse (aliment moyen)
 intake24_category_code:en: SSGS
 
+< en: Sausages
+en: Halal sausages
+ar: نقانق حلال
+bn: হালাল সসেজ
+es: Salchichas halal
+fr: Saucisses halal
+he: נקניקיות חלאל
+hi: हलाल सॉसेज
+id: Sosis halal
+pt: Salsichas halal
+zh: 清真香肠
+
+< en: Sausages
+en: Kosher sausages
+ar: نقانق كوشير
+bn: কোশের সসেজ
+es: Salchichas kosher
+fr: Saucisses casher
+he: נקניקיות כשרות
+hi: कोशर सॉसेज
+id: Sosis kosher
+pt: Salsichas kosher
+zh: 犹太洁食香肠
+
 < en: Prepared beef meats
 < en: Sausages
 en: Beef sausages, Beef sausage
@@ -94611,6 +94793,8 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Turkey Sausages - Prepared/Processed
 
 < en: Sausages
+en: Merguez, Merguez sausages
+xx: Merguez
 fr: Merguez
 agribalyse_food_code:en: 30150
 ciqual_food_code:en: 30150
@@ -95019,6 +95203,7 @@ nl: Rookworsten, Gerookte worsten
 pl: Kiełbasy wędzone, Kiełbasa wędzona
 
 < en: Prepared meats
+en: Black and white puddings, Boudins
 fr: Boudins, Boudin
 ciqual_food_code:en: 8705
 ciqual_food_name:en: Black or white pudding (blood sausage), sautéed (average)
@@ -95291,8 +95476,10 @@ ciqual_food_name:en: Mortadella with pistachios, pure pork
 
 < en: Italian meat products
 < en: Mortadella pure pork
-it: Mortadella Bologna
+en: Bologna mortadella
+xx: Mortadella Bologna
 fr: Mortadelle de Bologne
+it: Mortadella Bologna
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0325
 protected_name_type:en: pgi
@@ -99792,6 +99979,7 @@ agribalyse_proxy_food_name:en: Lasagna or cannelloni with vegetables and goat ch
 agribalyse_proxy_food_name:fr: Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
 
 < en: Stuffed pastas
+< xx: Dumplings
 en: pierogi
 cs: pirohy
 hr: Pirogi
@@ -102207,6 +102395,7 @@ ciqual_food_code:en: 25434
 ciqual_food_name:en: Sandwich made with panini bread, raw cured ham, mozzarella cheese and tomato
 
 < en: Paninis
+en: Chicken paninis
 fr: Panini au poulet
 nl: Kippaninis
 
@@ -102342,6 +102531,30 @@ nl: Hamburgers
 ru: Гамбургер
 intake24_category_code:en: BRGS
 wikidata:en: Q6663
+
+< en: Hamburgers
+en: Halal hamburgers, Halal burgers
+ar: هامبرغر حلال
+bn: হালাল হ্যামবার্গার, হালাল বার্গার
+es: Hamburguesas halal
+fr: Hamburgers halal, Burgers halal
+he: המבורגרים חלאל
+hi: हलाल हैमबर्गर
+id: Hamburger halal
+pt: Hambúrgueres halal
+zh: 清真汉堡
+
+< en: Hamburgers
+en: Kosher hamburgers, Kosher burgers
+ar: هامبرغر كوشير
+bn: কোশের হ্যামবার্গার, কোশের বার্গার
+es: Hamburguesas kosher
+fr: Hamburgers casher, Burgers casher
+he: המבורגרים כשרים
+hi: कोशर हैमबर्गर
+id: Hamburger kosher
+pt: Hambúrgueres kosher
+zh: 犹太洁食汉堡
 
 < en: Hamburgers
 en: Hamburgers from fast food
@@ -107971,6 +108184,7 @@ incompatible_with:en: categories:en:bee-products, categories:en:dairies, categor
 < en: Plant-based spreads
 < en: Salted spreads
 < en: Vegan products
+en: Vegan onion schmalz
 de: Veganes Zwiebelschmalz
 
 < en: Plant-based spreads
@@ -111742,6 +111956,7 @@ ciqual_food_name:en: Onion, pickled in vinegar
 ciqual_food_name:fr: Oignon au vinaigre
 
 < en: Pickled onions
+en: Silverskin onions
 nl: Zilveruitjes
 
 < en: Vegetable pickles
@@ -114283,10 +114498,12 @@ gpc_category_description:en: Definition: This standard applies to loose leaf/mul
 gpc_category_name:en: Loose Leaf/Multileaf Lettuce Other
 
 < en: Lettuces
+en: Little gem lettuces, Sucrines
 fr: Sucrines
 sales_format:en: weight, package
 
 < en: Lettuces
+en: Fresh lettuces
 fr: Laitue fraîche
 season_in_country_fr:en: 5,6,7,8,9
 
@@ -114328,6 +114545,7 @@ ciqual_food_name:fr: Laitue iceberg, crue
 sales_format:en: weight, package
 
 < en: Lettuces
+en: Batavia lettuces, Batavia
 fr: Batavia
 agribalyse_proxy_food_code:en: 20200
 agribalyse_proxy_food_name:en: Iceberg lettuce, raw
@@ -116239,13 +116457,14 @@ it: Pomodori ciliegini
 ja: ミニトマト
 la: Solanum lycopersicum var. cerasiforme, Lycopersicon lycopersicum var. cerasiforme, Lycopersicon esculentum var. cerasiforme
 nl: Kerstomaten
+pl: Pomidory koktajlowe, Pomidor koktajlowy, Pomidorów koktajlowych, Pomidorki koktajlowe
 sv: Körsbärstomater
-#wikidata:en:Q67448115
 agribalyse_food_code:en: 20172
 ciqual_food_code:en: 20172
 ciqual_food_name:en: Tomato, cherry, raw
 ciqual_food_name:fr: Tomate cerise, crue
 sales_format:en: weight, package
+#wikidata:en:Q67448115
 wikidata:en: Q6540634
 
 < en: Tomatoes
@@ -116525,6 +116744,8 @@ intake24_category_code:fr: C000
 sales_format:en: weight, package
 
 < en: Vegetables
+en: Radicchio
+xx: Radicchio
 it: Radicchio
 ja: ラディッキオ
 
@@ -116859,17 +117080,17 @@ wikidata:en: Q56395863
 < en: Tomatoes and their products
 en: Dried tomatoes, Sun-dried tomatoes, Dried tomato, Sun-dried tomato
 bg: Сушени домати
-da: soltørrede tomater
+da: Soltørrede tomater
 de: Getrocknete Tomaten
 es: Tomates secos, Tomates deshidratados, Tomates desecados
-fi: kuivatut tomaatit
+fi: Kuivatut tomaatit
 fr: Tomates séchées, Tomate séchée
 hr: Sušene rajčice
 it: Pomodori essiccati
 ja: 干しトマト, ドライトマト
 nl: Gedroogde tomaten
 pl: Pomidory suszone
-sv: soltorkade tomater
+sv: Soltorkade tomater
 agribalyse_food_code:en: 20189
 ciqual_food_code:en: 20189
 ciqual_food_name:en: Tomato, dried
@@ -116885,12 +117106,12 @@ nl: Natuurlijk gedroogde tomaten
 pl: Naturalne pomidory suszone
 
 < en: Dried tomatoes
-en: Dried tomato in oil, Dried tomatoes in oil, Sun-dried tomato in oil, Sun-dried tomatoes in oil, Rehydrated dried tomatoes in oil
+en: Dried tomatoes in oil, Dried tomato in oil, Sun-dried tomato in oil, Sun-dried tomatoes in oil, Rehydrated dried tomatoes in oil
 bg: Сушени домати в олио
 da: Soltørrede tomater i olie
-de: getrocknete Tomaten in Öl
+de: Getrocknete Tomaten in Öl
 es: Tomates secos en aceite, Tomates secos rehidratados en aceite
-fi: kuivattuja tomaatteja öljyssä
+fi: Kuivattuja tomaatteja öljyssä
 fr: Tomates séchées à l'huile, Tomate séchée à l'huile, Tomates séchées réhydratées à l'huile
 hr: Sušene rajčice u ulju
 it: Pomodoro essiccato sott'olio
@@ -116901,6 +117122,37 @@ agribalyse_food_code:en: 20256
 ciqual_food_code:en: 20256
 ciqual_food_name:en: Tomato, dried, in oil
 ciqual_food_name:fr: Tomate, séchée, à l'huile
+
+< en: Dried tomatoes
+en: Dried cherry tomatoes, Sun-dried cherry tomatoes, Dried cherry tomato, Sun-dried cherry tomato
+bg: Сушени чери домати
+da: Soltørrede cherrytomater
+de: Getrocknete Kirschtomaten
+es: Tomates cherry secos
+fi: Kuivattuja kirsikkatomaatit
+fr: Tomates cerises séchées, Tomate cerise séchée
+hr: Sušene cherry rajčice
+nl: Gedroogde kerstomaten
+pl: Pomidory koktajlowe suszone
+sv: Soltorkade körsbärstomater
+
+< en: Dried cherry tomatoes
+< en: Dried tomatoes in oil
+en: Dried cherry tomatoes in oil, Dried cherry tomato in oil, Sun-dried cherry tomato in oil, Sun-dried cherry tomatoes in oil, Rehydrated dried cherry tomatoes in oil
+bg: Сушени чери домати в олио
+da: Soltørrede cherrytomater i olie
+de: Getrocknete Kirschtomaten in Öl
+es: Tomates cherry secos en aceite, Tomates cherry secos rehidratados en aceite
+fi: Kuivattuja kirsikkatomaatteja öljyssä
+fr: Tomates cerises séchées à l'huile, Tomate cerise séchée à l'huile, Tomates cerises séchées réhydratées à l'huile
+hr: Sušene cherry rajčice u ulju
+nl: Gedroogde kerstomaten op olie
+pl: Pomidory koktajlowe suszone w oleju
+sv: Soltorkade körsbärstomater i olja
+agribalyse_proxy_food_code:en: 20256
+ciqual_proxy_food_code:en: 20256
+ciqual_proxy_food_name:en: Tomato, dried, in oil
+ciqual_proxy_food_name:fr: Tomate, séchée, à l'huile
 
 < en: Condiments
 < en: Dried plant-based foods
@@ -119672,7 +119924,7 @@ cs: Olivy
 da: Oliven
 de: Oliven
 es: Aceitunas, Olivas
-fi: oliivit
+fi: Oliivit
 fr: Olives
 he: זיתים
 hr: Masline
@@ -119684,7 +119936,7 @@ pl: Oliwki
 pt: Azeitonas
 ro: Măsline
 ru: Оливки, Маслины
-sv: Oliver, oliv
+sv: Oliver, Oliv
 tr: Zeytin
 agribalyse_proxy_food_code:en: 13147
 agribalyse_proxy_food_name:en: Olive, green, stuffed (anchovy, sweet peppers, etc…)
@@ -119704,6 +119956,19 @@ en: Refrigerated olives
 gpc_category_code:en: 10000238
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of olive from the olive tree, such as Sevillana, Manzanilla and Ascolane, that have no added ingredients or flavourings and can be in various forms, whole, diced, sliced or cut. These products can be/must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Pickles and Shelf Stable Olives.
 gpc_category_name:en: Olives (Perishable)
+
+< en: Olives
+en: Olives in brine
+da: Oliven i saltlage
+fr: Olives en saumure
+hr: Masline u salamuri
+it: Olive in salamoia
+nl: Olijven op zout
+sv: Oliver i saltlag
+# picked black instead of green for ciqual due to being numbered first
+ciqual_proxy_food_code:en: 13032
+ciqual_proxy_food_name:en: Olives, black, in brine
+ciqual_proxy_food_name:fr: Olive noire, en saumure
 
 < en: French vegetables
 < en: Olives
@@ -119734,10 +119999,10 @@ protected_name_type:en: pdo
 < en: Olives
 en: Black olives
 bg: Черни маслини
-da: sorte oliven
-de: schwarze Oliven
+da: Sorte oliven
+de: Schwarze Oliven
 es: Aceitunas negras
-fi: mustat oliivit
+fi: Mustat oliivit
 fr: Olives noires, Olive noire
 hr: Crne masline
 it: Olive nere
@@ -119747,8 +120012,9 @@ pl: Czarne oliwki
 pt: Azeitonas pretas
 ro: Măsline negre
 ru: Маслины чёрные, Чёрные маслины, Оливки чёрные, Чёрные оливки
-sv: svarta oliver
+sv: Svarta oliver
 tr: Siyah zeytin
+wikidata:en: Q56475549
 
 < en: Black olives
 < en: French vegetables
@@ -119756,16 +120022,34 @@ fr: Olives noires de Nyons
 origins:en: en:france, en:nyons
 protected_name_file_number:en: PDO-FR-0374
 protected_name_type:en: pdo
+wikidata:en: Q3350637
 
 < en: Black olives
+< en: Olives in brine
 en: Black olives in brine
 bg: Черни маслини в саламура
+da: Sorte oliven i saltlage
 fr: Olives noires en saumure
 hr: Crne masline u salamuri
 it: Olive nere in brina
+nl: Zwarte olijven op zout
+sv: Svarta oliver i saltlag
 ciqual_food_code:en: 13032
 ciqual_food_name:en: Olives, black, in brine
 ciqual_food_name:fr: Olive noire, en saumure
+
+< en: Black olives in brine
+< en: Black pitted olives
+en: Black pitted olives in brine, Pitted black olives in brine
+da: Sorte oliven uden sten i saltlage
+fr: Olives noires dénoyautées en saumure
+hr: Crne masline bez koštice u salamuri
+it: Olive nere snocciolate in salamoia
+nl: Ontpitte zwarte olijven op zout
+sv: Urkärnade svarta oliver i saltlag
+ciqual_proxy_food_code:en: 13032
+ciqual_proxy_food_name:en: Olives, black, in brine
+ciqual_proxy_food_name:fr: Olive noire, en saumure
 
 < en: Black olives
 en: Black olives in oil, Greek olives
@@ -119809,7 +120093,7 @@ ca: Olives verdes
 da: Grønne oliven
 de: Grüne Oliven
 es: Aceitunas verdes
-fi: vihreät oliivit
+fi: Vihreät oliivit
 fr: Olives vertes
 he: זיתים ירוקים
 hr: Zelene masline
@@ -119821,11 +120105,13 @@ pl: Zielone oliwki
 pt: Azeitonas verdes
 ro: Măsline verzi
 ru: Оливки зелёные, Зелёные оливки, Маслины зелёные, Зелёные маслины
+sv: Gröna oliver
 tr: Yeşil zeytin
 agribalyse_proxy_food_code:en: 13147
 agribalyse_proxy_food_name:en: Olive, green, stuffed (anchovy, sweet peppers, etc…)
 agribalyse_proxy_food_name:fr: Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
 # No Green or black olives in AGB. Only Stuffed olives.
+wikidata:en: Q26879770
 
 < en: Cracked olives
 fr: Olives cassées de la Vallée des Baux-de-Provence
@@ -119865,14 +120151,16 @@ es: Aceitunas verdes partidas aliñadas a la gazpacha
 < en: Pitted olives
 en: Green pitted olives, pitted green olives
 bg: Зелени маслини без костилка
-de: grüne kernlose Oliven, grüne entsteinte Oliven
+da: Grønne oliven uden sten
+de: Grüne kernlose Oliven, Grüne entsteinte Oliven
 es: Aceitunas verdes deshuesadas, Aceitunas verdes sin hueso
-fi: kivettömät vihreät oliivit
+fi: Kivettömät vihreät oliivit
 fr: Olives vertes dénoyautées
 hr: Zelene masline bez koštice
 it: Olive verdi snocciolate
 nl: Ontpitte groene olijven
 ru: Зелёные оливки без косточки, Зелёные маслины без косточки, Оливки зелёные без косточки, Маслины зелёные без косточки
+sv: Urkärnade gröna oliver
 
 < en: Green pitted olives
 < en: Marinated olives
@@ -119961,15 +120249,31 @@ hr: Cijele marinirane zelene masline
 nl: Gemarineerde hele olijven
 
 < en: Green olives
+< en: Olives in brine
 en: Green olives in brine
+da: Grønne oliven i saltlage
 fr: Olives vertes en saumure
 hr: Zelene masline u salamuri
 it: Olive verdi in salamoia
 nl: Groene olijven op zout
 pl: Zielone oliwki w zalewie
+sv: Gröna oliver i saltlag
 ciqual_food_code:en: 13033
 ciqual_food_name:en: Olives, green, in brine
 ciqual_food_name:fr: Olive verte, en saumure
+
+< en: Green olives in brine
+< en: Green pitted olives
+en: Green pitted olives in brine, Pitted green olives in brine
+da: Grønne oliven uden sten i saltlage
+fr: Olives vertes dénoyautées en saumure
+hr: Zelene masline bez koštice u salamuri
+it: Olive verdi snocciolate in salamoia
+nl: Ontpitte groene olijven op zout
+sv: Urkärnade gröna oliver i saltlag
+ciqual_proxy_food_code:en: 13033
+ciqual_proxy_food_name:en: Olives, green, in brine
+ciqual_proxy_food_name:fr: Olive verte, en saumure
 
 < en: Olives
 en: Marinated olives
@@ -119986,29 +120290,31 @@ pl: Oliwki marynowane
 < en: Olives
 en: Pitted olives
 bg: Обезкостени маслини
-de: kernlose Oliven, Entsteinte Oliven
+da: Oliven uden sten
+de: Kernlose Oliven, Entsteinte Oliven
 es: Aceitunas deshuesadas, Aceitunas sin hueso
-fi: kivettömät oliivit
+fi: Kivettömät oliivit
 fr: Olives dénoyautées
 hr: Masline bez koštice
 it: Olive snocciolate, Olive denocciolate
 nl: Ontpitte olijven
 ru: Оливки без косточки, Маслины без косточки
-sv: urkärnade oliver
+sv: Urkärnade oliver
 
 < en: Black olives
 < en: Pitted olives
 en: Black pitted olives, Pitted black olives
 bg: Черни обезкостени маслини
-de: schwarze entsteinte Oliven
+da: Sorte oliven uden sten
+de: Schwarze entsteinte Oliven
 es: Aceitunas negras deshuesadas, Aceitunas negras sin hueso
-fi: mustat kivettömät oliivit
+fi: Mustat kivettömät oliivit
 fr: Olives noires dénoyautées
 hr: Crne masline bez koštice
 it: Olive nere snocciolate
 nl: Zwarte ontpitte olijven
 ru: Чёрные маслины без косточки, Чёрные оливки без косточки, Оливки чёрные без косточки, Маслины чёрные без косточки
-sv: urkärnade svarta oliver, svarta urkärnade oliver
+sv: Urkärnade svarta oliver, Svarta urkärnade oliver
 
 < en: Black olives
 fr: Olives noires de la Vallée des Baux-de-Provence
@@ -122539,6 +122845,7 @@ ciqual_food_code:en: 7738
 ciqual_food_name:en: Brioche, filled with fruits
 
 < en: Viennoiseries
+en: Gâches
 fr: Gâches
 
 < fr: Gâches

@@ -94,6 +94,12 @@ autoload("ProductOpener::Config_$flavor");
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# Romanian: diacritics (ă â î ș ț, and the legacy cedilla forms ş ţ) are very often missing,
+	# and there are very few conflicts in ingredients, labels etc. (ă vs a mostly marks the definite article)
+	ro => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	sk => {
 		unaccent => 1,
 		lowercase => 1,

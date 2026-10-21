@@ -64,14 +64,11 @@
                "name" : "sugar"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "en:soft-drinks",
-               "id" : "931774ee-c237-4bf9-8330-a84a5c64b2da",
-               "name" : "Soft drinks, 1500g | Packaging System, Proxy Pack, Plastic bottles {FR} U",
-               "name_fr" : "Bouteille en plastique (PET) pour boisson sans alcool - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 87,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -88,12 +85,6 @@
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
                   "mass" : 2.25
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "931774ee-c237-4bf9-8330-a84a5c64b2da"
                }
             ]
          },
@@ -237,6 +228,9 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-c-2023-c",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-80-and-89",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
