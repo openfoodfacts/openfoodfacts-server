@@ -11,7 +11,7 @@ $Data::Dumper::Terse = 1;
 #use Log::Any::Adapter 'TAP', filter => "none";
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Producers qw/init_fields_columns_names_for_lang match_column_name_to_field normalize_column_name/;
+use ProductOpener::Producers qw/build_fields_columns_names_for_lang match_column_name_to_field normalize_column_name/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
@@ -19,12 +19,14 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 my $inputs_dir = "$test_dir/inputs/$test_id/";
 
 # Generate the files that match potential column names from producers to OFF fields
+# We build only the languages this test needs, so that unit tests do not need
+# scripts/build_pro_platform_fields_columns_names.pl to be run for all languages beforehand
 foreach my $l (qw(en fr es)) {
-	init_fields_columns_names_for_lang($l)
+	build_fields_columns_names_for_lang($l);
 	# 2023/04/24: the files are growing too much (currently 100Mb), which is too much for GitHub
 	# commenting out this test
 	#compare_to_expected_results(
-	#	init_fields_columns_names_for_lang($l),
+	#	build_fields_columns_names_for_lang($l),
 	#	$expected_result_dir . "/column_names_$l.json",
 	#	$update_expected_results
 	#);
