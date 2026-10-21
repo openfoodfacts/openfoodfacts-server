@@ -52,6 +52,7 @@
             }
          ],
          "ingredients_coverage_percent" : 90,
+<<<<<<< HEAD
          "packaging" : [
             {
                "category" : "en:sausages",
@@ -63,6 +64,12 @@
          "preparation" : [
             "refrigeration"
          ]
+=======
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+>>>>>>> main
       },
       "ecobalyse_request" : {
          "data" : {
@@ -80,6 +87,7 @@
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                   "mass" : 9
                }
+<<<<<<< HEAD
             ],
             "packaging" : [
                {
@@ -89,6 +97,8 @@
             ],
             "preparation" : [
                "refrigeration"
+=======
+>>>>>>> main
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -243,6 +253,7 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-c-2023-c",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-not-computed",

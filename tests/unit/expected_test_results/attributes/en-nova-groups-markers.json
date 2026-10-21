@@ -452,6 +452,7 @@
             }
          ],
          "ingredients_coverage_percent" : 81,
+<<<<<<< HEAD
          "packaging" : [
             {
                "category" : "en:cheeses",
@@ -463,6 +464,12 @@
          "preparation" : [
             "refrigeration"
          ]
+=======
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+>>>>>>> main
       },
       "ecobalyse_request" : {
          "data" : {
@@ -480,6 +487,7 @@
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
                   "mass" : 2.5
                }
+<<<<<<< HEAD
             ],
             "packaging" : [
                {
@@ -489,6 +497,8 @@
             ],
             "preparation" : [
                "refrigeration"
+=======
+>>>>>>> main
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -1077,6 +1087,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-skipped",
       "en:ecobalyse-ingredients-matched-between-80-and-89",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
