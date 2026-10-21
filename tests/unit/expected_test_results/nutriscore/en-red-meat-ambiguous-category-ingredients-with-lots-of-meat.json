@@ -52,14 +52,10 @@
             }
          ],
          "ingredients_coverage_percent" : 90,
-         "packaging" : [
-            {
-               "category" : "en:sausages",
-               "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
-               "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
-               "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
-            }
-         ]
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -76,12 +72,6 @@
                {
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                   "mass" : 9
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27"
                }
             ]
          },
@@ -237,6 +227,7 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-c-2023-c",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-not-computed",

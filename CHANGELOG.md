@@ -1,5 +1,46 @@
 # Changelog
 
+## [2.116.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.116.0...v2.116.1) (2026-10-21)
+
+
+### Bug Fixes
+
+* do not load taxonomies twice when calling load_data() ([#15058](https://github.com/openfoodfacts/openfoodfacts-server/issues/15058)) ([8242b76](https://github.com/openfoodfacts/openfoodfacts-server/commit/8242b7618baae6ff143fcf2b654d1f774b0d7dcd))
+* Ignore unknown French product name placeholder ([#14050](https://github.com/openfoodfacts/openfoodfacts-server/issues/14050)) ([6fbf856](https://github.com/openfoodfacts/openfoodfacts-server/commit/6fbf8562df9b7618036b4e36b6295009e3617f5a))
+* preparse "di - et triphosphates" and other mono/di/tri prefixes ([#15040](https://github.com/openfoodfacts/openfoodfacts-server/issues/15040)) ([220e004](https://github.com/openfoodfacts/openfoodfacts-server/commit/220e0041e6caa67a9c9cf5c8a616ee66f213f261))
+* taxonomies enhancer - do not parse ingredients again when there is only 1 language ([#15060](https://github.com/openfoodfacts/openfoodfacts-server/issues/15060)) ([826d5f7](https://github.com/openfoodfacts/openfoodfacts-server/commit/826d5f756ea05b4bfbeeb0a49d34c8db87eecfbd))
+
+## [2.116.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.115.0...v2.116.0) (2026-10-20)
+
+
+### Features
+
+* 14586 - donate page v2 (hybrid Donorbox form, A/B per page view) ([#14590](https://github.com/openfoodfacts/openfoodfacts-server/issues/14590)) ([5789b3d](https://github.com/openfoodfacts/openfoodfacts-server/commit/5789b3dbcddf90600989de5f5451acae3f44fa9b))
+* add teams to the producers platform photos upload form ([#15039](https://github.com/openfoodfacts/openfoodfacts-server/issues/15039)) ([1bb3d3d](https://github.com/openfoodfacts/openfoodfacts-server/commit/1bb3d3d80e971830cc3e67a085c82e7e840f6976))
+* allow HEIC/HEIF files in producers photo import ([#15028](https://github.com/openfoodfacts/openfoodfacts-server/issues/15028)) ([7f6c67e](https://github.com/openfoodfacts/openfoodfacts-server/commit/7f6c67e3adab62c0b491e3f864f421b20d74f82b))
+* better recognition of Romanian ingredients ([#14965](https://github.com/openfoodfacts/openfoodfacts-server/issues/14965)) ([60a4836](https://github.com/openfoodfacts/openfoodfacts-server/commit/60a48362ee1cd13dd3b5d699a84ae540b81878fd))
+* donate page events carry interval, currency, a snapped amount, form steps and failures ([#14633](https://github.com/openfoodfacts/openfoodfacts-server/issues/14633)) ([623c0f6](https://github.com/openfoodfacts/openfoodfacts-server/commit/623c0f60cc8f0b6e1f887ef07ed37e52879998f3))
+* Ecobalyse environmental cost per product and per 100 g / 100 ml ([#14962](https://github.com/openfoodfacts/openfoodfacts-server/issues/14962)) ([b28cc1e](https://github.com/openfoodfacts/openfoodfacts-server/commit/b28cc1ed1636805d0e386d0a3a0af6f6c4f84c42))
+* show the new donation banner layouts to half of the visitors ([#14796](https://github.com/openfoodfacts/openfoodfacts-server/issues/14796)) ([b172f13](https://github.com/openfoodfacts/openfoodfacts-server/commit/b172f13d72beb2564d16ed24d20839c5fb90d5dd))
+
+
+### Bug Fixes
+
+* add all xx taxonomy synonyms to all languages, independently of hash order ([#15047](https://github.com/openfoodfacts/openfoodfacts-server/issues/15047)) ([9bb8b77](https://github.com/openfoodfacts/openfoodfacts-server/commit/9bb8b77081f885a6a99b8c00d09534c5cc3eea05))
+* better recognition of French ingredients (labels in names, text after parenthesis, footnotes) ([#14974](https://github.com/openfoodfacts/openfoodfacts-server/issues/14974)) ([38bd2af](https://github.com/openfoodfacts/openfoodfacts-server/commit/38bd2af0e6baac6c3af09bac2afdbd738406769d))
+* build taxonomies ~30x faster (ingredients: 18 min -&gt; 30 s) ([#15051](https://github.com/openfoodfacts/openfoodfacts-server/issues/15051)) ([3a493ab](https://github.com/openfoodfacts/openfoodfacts-server/commit/3a493ab32871b20086acbb4ac6dde39c0b044187))
+* disable CSV exports ([#15055](https://github.com/openfoodfacts/openfoodfacts-server/issues/15055)) ([9b17f64](https://github.com/openfoodfacts/openfoodfacts-server/commit/9b17f649940a0531a529e531a366cfa938c81b18))
+* don't crash image upload when Imager cannot read the image ([#15056](https://github.com/openfoodfacts/openfoodfacts-server/issues/15056)) ([f09cfce](https://github.com/openfoodfacts/openfoodfacts-server/commit/f09cfce5342857cda933081bd1c2869f778271c6))
+* **images:** prevent crop selection from deselecting when clicking on or inside borders ([#14959](https://github.com/openfoodfacts/openfoodfacts-server/issues/14959)) ([#15017](https://github.com/openfoodfacts/openfoodfacts-server/issues/15017)) ([b1fe1eb](https://github.com/openfoodfacts/openfoodfacts-server/commit/b1fe1ebe505e1ef472cd586322a6e0d2b7f28607))
+* invalid id_token_hint on sign-out after password login ([#15052](https://github.com/openfoodfacts/openfoodfacts-server/issues/15052)) ([59c504d](https://github.com/openfoodfacts/openfoodfacts-server/commit/59c504d2d7c6216f96e8c2586c2e79355664f07b))
+* load taxonomy stopwords before resolving ingredients ([#14938](https://github.com/openfoodfacts/openfoodfacts-server/issues/14938)) ([0da1c87](https://github.com/openfoodfacts/openfoodfacts-server/commit/0da1c876470c340d5a70a7adbf5fc520e5ee801e)), closes [#14934](https://github.com/openfoodfacts/openfoodfacts-server/issues/14934)
+* **Nutrition:** localize nutrition table values ([#14893](https://github.com/openfoodfacts/openfoodfacts-server/issues/14893)) ([0af32e0](https://github.com/openfoodfacts/openfoodfacts-server/commit/0af32e0fa2fa2affc158fe45c24249a8eb707551))
+* scale pet food values correctly in the per 1kg aggregated set ([#14876](https://github.com/openfoodfacts/openfoodfacts-server/issues/14876)) ([7681c01](https://github.com/openfoodfacts/openfoodfacts-server/commit/7681c012e07060d0bcb6d3e9a369f2bb01a06263))
+* **security:** only fetch import images from globally routable addresses ([#14905](https://github.com/openfoodfacts/openfoodfacts-server/issues/14905)) ([7f60de6](https://github.com/openfoodfacts/openfoodfacts-server/commit/7f60de656ed8244fe2ea2ad4579f53d8aa17a9bb))
+* **security:** require an identified caller for the credential-spending services ([#14899](https://github.com/openfoodfacts/openfoodfacts-server/issues/14899)) ([46c62a5](https://github.com/openfoodfacts/openfoodfacts-server/commit/46c62a5d52e8e5b3c5c12f23a3f55d236cf08124))
+* **security:** require moderator to move or delete product images ([#14897](https://github.com/openfoodfacts/openfoodfacts-server/issues/14897)) ([c2117e0](https://github.com/openfoodfacts/openfoodfacts-server/commit/c2117e0bb82a7e53b5c51d0ba7b373e88c772a7f))
+* User data from the previous request was being used when reporting invalid access token errors ([#14976](https://github.com/openfoodfacts/openfoodfacts-server/issues/14976)) ([0a15d2d](https://github.com/openfoodfacts/openfoodfacts-server/commit/0a15d2dc43ef92c9a9bf8f1d3719a00ab544c0b8)), closes [#14935](https://github.com/openfoodfacts/openfoodfacts-server/issues/14935)
+
 ## [2.115.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.114.0...v2.115.0) (2026-10-16)
 
 
