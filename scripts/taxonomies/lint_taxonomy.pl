@@ -377,11 +377,43 @@ sub add_entry_id($entry_ref, $errors_ref) {
 	return;
 }
 
+# For a regular entry, choose which language line must come first (the line defining the entry id).
+# Rules agreed with taxonomists (issue #14963):
+# - zz: and xx: first lines are deliberate canonical ids (e.g. zz:energy-kcal in nutrients, xx:kg in units),
+#   they are never moved
+# - otherwise, if an en: line exists, it becomes the first line (xx: then comes second, see cmp_on_language)
+# - otherwise the current first line is kept
+# return the (possibly new) entry id line and the remaining language lines
+sub choose_entry_id_line($entry_id_line, $entries_ref) {
+	my %entries = %$entries_ref;
+	return ($entry_id_line, \%entries) unless defined $entry_id_line->{lc};    # stopwords / synonyms
+	my $current_lc = lc($entry_id_line->{lc});
+	return ($entry_id_line, \%entries) if ($current_lc eq "en" || $current_lc eq "xx" || $current_lc eq "zz");
+	my ($en_key) = grep {lc($_) eq "en"} (keys %entries);
+	return ($entry_id_line, \%entries) unless defined $en_key;
+	# swap: en: becomes the entry id line, the former first line goes back with other languages
+	# comments above the former first line usually describe the whole entry, so they stay at the top
+	my $new_entry_id_line = {
+		%{$entries{$en_key}},
+		lc => $en_key,
+		type => "entry_id",
+		previous => [@{$entry_id_line->{previous}}, @{$entries{$en_key}{previous}}],
+	};
+	delete $entries{$en_key};
+	$entries{$entry_id_line->{lc}} = {%$entry_id_line, type => "entry_lc", previous => []};
+	return ($new_entry_id_line, \%entries);
+}
+
 # lint lines of an entry
 sub lint_entry($entry_ref, $do_sort, $normalize_commas = 1) {
 	my @parents = @{$entry_ref->{parents}};
 	my $entry_id_line = $entry_ref->{entry_id_line};
 	my %entries = %{$entry_ref->{entries}};
+	if ($do_sort && defined $entry_id_line) {
+		my $entries_ref;
+		($entry_id_line, $entries_ref) = choose_entry_id_line($entry_id_line, \%entries);
+		%entries = %$entries_ref;
+	}
 	my %props = %{$entry_ref->{props}};
 	my @original_lines = @{$entry_ref->{original_lines}};
 	my @tail_lines = @{$entry_ref->{tail_lines}};
@@ -490,8 +522,24 @@ sub check_linted($entry_ref, $linted_output) {
 	return;
 }
 
+# warn when a regular entry has no en: translation (xx: entries are language independent and need none)
+sub check_missing_en($entry_ref) {
+	my $entry_id_line = $entry_ref->{entry_id_line};
+	return unless (($entry_ref->{type} eq "entry") && (defined $entry_id_line) && (defined $entry_id_line->{lc}));
+	my @lcs = map {lc($_)} ($entry_id_line->{lc}, keys %{$entry_ref->{entries}});
+	return if (grep {$_ eq "en" or $_ eq "xx"} @lcs);
+	return {
+		severity => "Warning",
+		type => "Completeness",
+		entry_start_line => $entry_ref->{start_line},
+		entry_id_line => $entry_id_line->{line},
+		message => "No en: translation, please add one (it will then become the first line)\n",
+	};
+}
+
 # lint or check the taxonomy
-sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort, $normalize_commas = 1) {
+sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort, $normalize_commas = 1, $warn_missing_en = 0)
+{
 	my @errors = ();
 	while (my $entry_ref = $entries_iterator->()) {
 		my @entry_errors = @{$entry_ref->{errors}};
@@ -508,7 +556,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort, $norm
 		}
 		if ($is_check) {
 			# search for linting error only if there is no other errors
-			if (!@entry_errors) {
+			if (!has_errors(\@entry_errors)) {
 				my $lint_error = check_linted($entry_ref, $linted_output);
 				push(@entry_errors, $lint_error) if $lint_error;
 			}
@@ -532,6 +580,10 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort, $norm
 					}
 				);
 			}
+		}
+		if ($warn_missing_en) {
+			my $missing_en = check_missing_en($entry_ref);
+			push(@entry_errors, $missing_en) if $missing_en;
 		}
 		# register errors globally
 		@errors = (@errors, @entry_errors);
@@ -573,15 +625,22 @@ If an error is encountered on an entry, this part of the taxonomy won't be linte
 --verbose: print additional info about progress on stderr
 --quiet: do not display errors on stderr
 --no-sort: do not sort lines of each taxonomy entries
+--warn-missing-en: warn about entries that have no en: (nor xx:) translation
 TXT
 		;
 	my $is_check;
 	my $is_quiet;
 	my $is_verbose;
 	my $no_sort;
+	my $warn_missing_en;
 
-	GetOptions("check" => \$is_check, "verbose" => \$is_verbose, "quiet" => \$is_quiet, "no-sort" => \$no_sort)
-		or die("Error in command line arguments.\n\n" . $usage);
+	GetOptions(
+		"check" => \$is_check,
+		"verbose" => \$is_verbose,
+		"quiet" => \$is_quiet,
+		"no-sort" => \$no_sort,
+		"warn-missing-en" => \$warn_missing_en
+	) or die("Error in command line arguments.\n\n" . $usage);
 
 	my @in_files = @ARGV;
 	my $tmp_dir = File::Temp->newdir();
@@ -620,7 +679,8 @@ TXT
 		if ($file =~ m{/beauty/ingredients}) {
 			$normalize_commas = 0;
 		}
-		my $errors_ref = lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, !$no_sort, $normalize_commas);
+		my $errors_ref = lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, !$no_sort, $normalize_commas,
+			$warn_missing_en);
 		close($fd);
 		close($out);
 		if ((!$is_check) and $out_path) {
