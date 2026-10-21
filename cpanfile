@@ -157,6 +157,7 @@ on 'develop' => sub {
   requires 'Test::Perl::Critic', '>=1.04', '<2.0'; # perl-critic refuse to install without this explicit deps
   requires 'Perl::Critic', '>= 1.140, < 2.0'; # libperl-critic-perl has 1.132 vs 1.138, and all the depended on packages are old too.
   requires 'Devel::DebugHooks'; # provides Apache::DB compat layer for remote debugging via mod_perl
+  requires 'PadWalker'; # hard requirement of the VS Code Perl Debug Adapter (Nihilus118.perl-debugger)
 
   requires 'Perl::Tidy';
   requires 'Perl::Critic';
@@ -172,10 +173,10 @@ on 'develop' => sub {
 feature "off_server_dev_tools", "Optional development tools" => sub {
   # Modules needed to ease development but not need to run CI tasks or automated tests
   # on GitHub, or for production
-  # For docker, use CPANMOPTS=--with-develop  --with-feature=off_server_dev_tools
+  # For docker, use CPANMOPTS=--feature=off_server_dev_tools
+  # (the pinned cpm enables the develop phase by default and uses
+  # --feature=<name> instead of the removed --with-develop/--with-feature).
   requires 'Devel::REPL';
   requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
-  requires 'Perl::LanguageServer';
-  requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency
 };
 

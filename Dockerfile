@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.2
+# syntax=docker/dockerfile:1
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
@@ -159,7 +159,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # for dev
         # gnu readline
         libreadline-dev \
-        # IO::AIO needed by Perl::LanguageServer
+        # libperl-dev (XS builds; formerly also needed by Perl::LanguageServer)
         libperl-dev \
         # needed to build Apache2::Connection::XForwardedFor
         libapache2-mod-perl2-dev \
@@ -276,6 +276,26 @@ RUN rm /etc/apache2/sites-enabled/000-default.conf
 COPY --from=builder /tmp/local/ /opt/perl/local/
 ENV PERL5LIB="/opt/product-opener/lib/:/opt/perl/local/lib/perl5/"
 ENV PATH="/opt/perl/local/bin:${PATH}"
+
+# perl-lsp: fast Perl language server in Rust (https://github.com/tree-sitter-perl/perl-lsp).
+# Replaces the old Perl::LanguageServer (removed from cpanfile). Pinned release,
+# arch-aware musl static binary; the --version check fails the build on a bad download.
+ARG PERL_LSP_VERSION=0.8.0
+ARG PERL_LSP_SHA256_X86_64=5f2987ca867cca2c73d3b93e2a2e99f471fecb0b7c6cdb8c4c1ca11252822939
+ARG PERL_LSP_SHA256_AARCH64=d0968285b8be9e92bfd8985b9c14f2a51949e74b61663527dd80350dc5e1fce0
+RUN set -eux; \
+    arch="$(dpkg --print-architecture)"; \
+    case "$arch" in \
+        amd64) asset="perl-lsp-x86_64-unknown-linux-musl.tar.gz"; sha="${PERL_LSP_SHA256_X86_64}" ;; \
+        arm64) asset="perl-lsp-aarch64-unknown-linux-musl.tar.gz"; sha="${PERL_LSP_SHA256_AARCH64}" ;; \
+        *) echo "unsupported architecture for perl-lsp: $arch" >&2; exit 1 ;; \
+    esac; \
+    curl -fsSL "https://github.com/tree-sitter-perl/perl-lsp/releases/download/v${PERL_LSP_VERSION}/${asset}" -o /tmp/perl-lsp.tar.gz; \
+    echo "${sha}  /tmp/perl-lsp.tar.gz" | sha256sum -c -; \
+    tar -xzf /tmp/perl-lsp.tar.gz -C /usr/local/bin perl-lsp; \
+    chmod +x /usr/local/bin/perl-lsp; \
+    rm /tmp/perl-lsp.tar.gz; \
+    perl-lsp --version
 # Set up apache2 to use npm prefork
 RUN \
     a2dismod mpm_event && \
