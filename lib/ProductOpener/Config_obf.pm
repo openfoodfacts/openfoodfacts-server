@@ -586,7 +586,7 @@ $options{import_export_fields_groups} = [
 	["packaging"],
 	[
 		"other",
-		["link",]
+		["link", "teams",]
 	],
 	[
 		"images",
