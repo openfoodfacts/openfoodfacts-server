@@ -1,0 +1,112 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+         "ecobalyse_name" : "Lait par défaut -2025-",
+         "id" : "en:milk",
+         "is_in_taxonomy" : 1,
+         "percent" : 98,
+         "percent_estimate" : 98,
+         "percent_max" : 98,
+         "percent_min" : 98,
+         "processing" : "en:standardized",
+         "text" : "Lapte",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:microbial-culture",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.33333333333333,
+         "percent_max" : 2,
+         "percent_min" : 0.666666666666667,
+         "text" : "cultură starter",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:condiment",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.333333333333336,
+         "percent_max" : 1.33333333333333,
+         "percent_min" : 0,
+         "text" : "condimente în proporții variabile",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "ro:Cluj",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 0.333333333333343,
+         "percent_max" : 0.666666666666664,
+         "percent_min" : 0,
+         "text" : "Cluj"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:milk"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "ro:Cluj"
+      ],
+      "en:vegan-status-unknown" : [
+         "ro:Cluj"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "ro:Cluj"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "ro",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:milk",
+      "en:microbial-culture",
+      "en:condiment",
+      "ro:Cluj"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:milk",
+      "en:dairy",
+      "en:microbial-culture",
+      "en:ferment",
+      "en:condiment",
+      "ro:Cluj"
+   ],
+   "ingredients_text" : "Lapte normalizat (98%), cultură starter, condimente în proporţii variabile. Conține o sursă de fenilalanină. A se consuma de preferinţă înainte de: vezi pe ambalaj. Lot: vezi capac. Ambalat în atmosferă protectoare. Valoare energetică: 250 kJ. Producător: SC Exemplu SRL, Str. Florilor nr. 1, Jud. Cluj, România.",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 98,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 2.00000000000001,
+   "ingredients_without_ciqual_codes" : [
+      "en:condiment",
+      "en:microbial-culture",
+      "ro:Cluj"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:condiment",
+      "en:microbial-culture",
+      "ro:Cluj"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 3,
+   "lc" : "ro",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 1
+}

@@ -24,12 +24,12 @@ vm.runInThisContext(readFileSync(new URL("../../html/js/tagify-init.js", import.
     filename: "tagify-init.js"
 });
 
-const {get_last_tags, get_recents, initializeTagifyInput, update_tag_recents} = globalThis;
+const {addTagsToRecentTags, getTagsToCommit, get_recents, initializeTagifyInput, readRecentTags, update_tag_recents} = globalThis;
 
 const MAXIMUM = 10;
 
 // Replace Tagify by a stub that only records the event handlers, so that we can
-// simulate tags being added to a field
+// simulate tags being added to or edited in a field
 function install_fake_tagify() {
     const handlers = {};
     const tagify = {
@@ -43,6 +43,10 @@ function install_fake_tagify() {
         },
         add_tag: function (value) {
             handlers["add"]({detail: {data: {value: value}}});
+        },
+        edit_tag: function (oldValue, newValue) {
+            handlers["edit:start"]({detail: {data: {value: oldValue}}});
+            handlers["edit:updated"]({detail: {data: {value: newValue}}});
         }
     };
 
@@ -53,28 +57,36 @@ function install_fake_tagify() {
     return tagify;
 }
 
-// Add tags to a history, the same way the tag inputs do when a tag is added to a field
-function add_tags(initial_tags, tags) {
-    return tags.reduce(function (history, tag) {
-        return update_tag_recents(history, tag, MAXIMUM);
-    }, initial_tags);
-}
-
 function store_history(field, history) {
     local_storage["po_last_tags"] = JSON.stringify({[field]: history});
 }
 
+function clear_history() {
+    delete local_storage["po_last_tags"];
+}
+
+// Mimic the submit handler of product-multilingual.js: only the tags that are
+// still submitted are committed to the history
+function submit_field(el, maximum, submittedTags) {
+    const tagsToCommit = getTagsToCommit(el, submittedTags);
+    if (tagsToCommit.length) {
+        addTagsToRecentTags([{id: el.id, maximum: maximum, tags: tagsToCommit}]);
+    }
+    return tagsToCommit;
+}
+
 test("a tag that is not in the history yet is added at the top", function () {
-    assert.deepEqual(add_tags([], ["Bio", "AOP", "Label Rouge"]), ["Label Rouge", "AOP", "Bio"]);
+    assert.deepEqual(update_tag_recents([], "Bio", MAXIMUM), ["Bio"]);
+    assert.deepEqual(update_tag_recents(["Bio"], "AOP", MAXIMUM), ["AOP", "Bio"]);
 });
 
 test("a tag that is already in the history is moved back to the top", function () {
-    assert.deepEqual(add_tags(["AOP", "Bio"], ["Bio"]), ["Bio", "AOP"]);
-    assert.deepEqual(add_tags(["AOP", "Bio", "Label Rouge"], ["AOP"]), ["AOP", "Bio", "Label Rouge"]);
+    assert.deepEqual(update_tag_recents(["AOP", "Bio"], "Bio"), ["Bio", "AOP"]);
+    assert.deepEqual(update_tag_recents(["AOP", "Bio", "Label Rouge"], "AOP"), ["AOP", "Bio", "Label Rouge"]);
 });
 
 test("a tag that is added twice is only kept once", function () {
-    const history = add_tags(["AOP", "Bio"], ["Bio", "Bio"]);
+    const history = update_tag_recents(update_tag_recents(["AOP", "Bio"], "Bio", MAXIMUM), "Bio", MAXIMUM);
 
     assert.deepEqual(history, ["Bio", "AOP"]);
     assert.equal(history.length, 2);
@@ -98,13 +110,6 @@ test("adding a new tag to a full history drops the least recently used tag", fun
 
     // "C" is the least recently used tag, so it is the one that is dropped for a new tag
     assert.deepEqual(update_tag_recents(history, "D", 3), ["D", "A", "B"]);
-});
-
-test("the history never grows above the maximum number of tags", function () {
-    const history = add_tags([], ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]);
-
-    assert.deepEqual(history, ["L", "K", "J", "I", "H", "G", "F", "E", "D", "C"]);
-    assert.equal(history.length, MAXIMUM);
 });
 
 test("a history longer than the maximum number of tags is trimmed", function () {
@@ -135,7 +140,7 @@ test("get_recents returns no tag for an unknown field, or when the history is di
 test("a value that cannot be parsed is ignored instead of breaking the history", function () {
     local_storage["po_last_tags"] = "{not json";
 
-    assert.deepEqual(get_last_tags(), {});
+    assert.deepEqual(readRecentTags(), {});
     assert.deepEqual(get_recents("categories", MAXIMUM), []);
 });
 
@@ -145,41 +150,127 @@ test("a value that is not a list of tags is ignored", function () {
     assert.deepEqual(get_recents("categories", MAXIMUM), []);
 });
 
-test("the tags added to a field are saved in the history of that field", function () {
-    delete local_storage["po_last_tags"];
+test("adding a tag does not write to the history before submit", function () {
+    clear_history();
 
     const tagify = install_fake_tagify();
-    initializeTagifyInput({id: "categories", dataset: {}}, MAXIMUM);
+    const el = {id: "categories", dataset: {}};
+    initializeTagifyInput(el, MAXIMUM);
+
+    tagify.add_tag("Bio");
+
+    // Typos and tags removed before saving must not be remembered (issue #15004)
+    assert.deepEqual(local_storage["po_last_tags"], undefined);
+    assert.deepEqual(get_recents("categories", MAXIMUM), []);
+});
+
+test("the tags added to a field are committed on submit, in field order", function () {
+    clear_history();
+
+    const tagify = install_fake_tagify();
+    const el = {id: "categories", dataset: {}};
+    initializeTagifyInput(el, MAXIMUM);
 
     tagify.add_tag("Bio");
     tagify.add_tag("AOP");
     tagify.add_tag("Label Rouge");
+    submit_field(el, MAXIMUM, ["Bio", "AOP", "Label Rouge"]);
 
-    assert.deepEqual(get_recents("categories", MAXIMUM), ["Label Rouge", "AOP", "Bio"]);
+    assert.deepEqual(get_recents("categories", MAXIMUM), ["Bio", "AOP", "Label Rouge"]);
     assert.deepEqual(get_recents("labels", MAXIMUM), []);
 });
 
-test("the tags added to a field are saved from the most recently used one", function () {
-    delete local_storage["po_last_tags"];
+test("committed tags move back to the top in most recently used order", function () {
+    store_history("labels", ["Bio", "AOP", "Label Rouge"]);
 
     const tagify = install_fake_tagify();
-    initializeTagifyInput({id: "labels", dataset: {}}, MAXIMUM);
+    const el = {id: "labels", dataset: {}};
+    initializeTagifyInput(el, MAXIMUM);
 
-    ["Bio", "AOP", "Bio", "Label Rouge", "AOP"].forEach(function (tag) {
-        tagify.add_tag(tag);
-    });
+    // Re-add "AOP", already in the history: it moves back to the top (issue #15005)
+    tagify.add_tag("AOP");
+    submit_field(el, MAXIMUM, ["Bio", "AOP", "Label Rouge"]);
 
-    assert.deepEqual(get_recents("labels", MAXIMUM), ["AOP", "Label Rouge", "Bio"]);
+    assert.deepEqual(get_recents("labels", MAXIMUM), ["AOP", "Bio", "Label Rouge"]);
+
+    // New history, re-add the least recently used tag
+    store_history("labels", ["A", "B", "C"]);
+    const tagify2 = install_fake_tagify();
+    const el2 = {id: "labels", dataset: {}};
+    initializeTagifyInput(el2, MAXIMUM);
+    tagify2.add_tag("C");
+    submit_field(el2, MAXIMUM, ["A", "B", "C"]);
+
+    assert.deepEqual(get_recents("labels", MAXIMUM), ["C", "A", "B"]);
+});
+
+test("committing a re-added tag moves it to the top", function () {
+    store_history("labels", ["A", "B", "C"]);
+
+    // Direct commit, as done on submit: "C" was already used, it moves to the top
+    addTagsToRecentTags([{id: "labels", maximum: 3, tags: ["C"]}]);
+
+    assert.deepEqual(get_recents("labels", 3), ["C", "A", "B"]);
+});
+
+test("committing a new tag to a full history drops the least recently used tag", function () {
+    store_history("labels", ["A", "B", "C"]);
+
+    addTagsToRecentTags([{id: "labels", maximum: 3, tags: ["D"]}]);
+
+    // "C" is the least recently used tag, so it is the one that is dropped
+    assert.deepEqual(get_recents("labels", 3), ["D", "A", "B"]);
+});
+
+test("the history never grows above the maximum number of tags", function () {
+    clear_history();
+
+    addTagsToRecentTags([{id: "labels", maximum: MAXIMUM, tags: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]}]);
+
+    const history = get_recents("labels", MAXIMUM);
+    assert.deepEqual(history, ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]);
+    assert.equal(history.length, MAXIMUM);
+});
+
+test("tags removed before submit are not committed", function () {
+    clear_history();
+
+    const tagify = install_fake_tagify();
+    const el = {id: "categories", dataset: {}};
+    initializeTagifyInput(el, MAXIMUM);
+
+    tagify.add_tag("Bio");
+    tagify.add_tag("Typo");
+    // Only "Bio" is still submitted, "Typo" was removed before saving
+    submit_field(el, MAXIMUM, ["Bio"]);
+
+    assert.deepEqual(get_recents("categories", MAXIMUM), ["Bio"]);
+});
+
+test("edited tags are committed on submit", function () {
+    clear_history();
+
+    const tagify = install_fake_tagify();
+    const el = {id: "categories", dataset: {}};
+    initializeTagifyInput(el, MAXIMUM);
+
+    tagify.add_tag("Bio");
+    tagify.edit_tag("Bio", "AOP");
+    submit_field(el, MAXIMUM, ["AOP"]);
+
+    assert.deepEqual(get_recents("categories", MAXIMUM), ["AOP"]);
 });
 
 test("nothing is saved for a field that does not keep a history", function () {
-    delete local_storage["po_last_tags"];
+    clear_history();
 
     const tagify = install_fake_tagify();
     // The product preferences pass 0 as maximumRecentEntriesPerTag, to not store any recent tag
-    initializeTagifyInput({id: "attribute_unwanted_ingredients_tags", dataset: {}}, 0);
+    const el = {id: "attribute_unwanted_ingredients_tags", dataset: {}};
+    initializeTagifyInput(el, 0);
 
     tagify.add_tag("en:palm-oil");
+    submit_field(el, 0, ["en:palm-oil"]);
 
     assert.deepEqual(local_storage["po_last_tags"], undefined);
 });

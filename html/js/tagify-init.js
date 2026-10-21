@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2025 Association Open Food Facts
+// Copyright (C) 2011-2026 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -21,9 +21,13 @@
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global Tagify*/
-/*exported initializeTagifyInput*/
+/*exported initializeTagifyInput, getTagsToCommit, addTagsToRecentTags*/
 
 // Note: this function is used in product-multilingual.js and product-preferences.js to select unwanted ingredients
+
+// The tags history is kept per input element (and saved in the local storage per field id) so that
+// two fields never mix their suggestions, even though they are edited on the same page.
+const recentTagsByInput = new WeakMap(); // input element -> { maximum, tagsToCommit }
 
 function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     const input = new Tagify(el, {
@@ -40,6 +44,13 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     let debounceTimer;
     const timeoutWait = 300;
     let value = "";
+
+    // Tags added or edited by the user during this session.
+    // They are only added to the tags history when the form is submitted, see addTagsToRecentTags()
+    const tagsToCommit = new Set();
+    recentTagsByInput.set(el, { maximum: maximumRecentEntriesPerTag, tagsToCommit });
+    // Value of the tag being edited, to avoid committing a tag the user opened but did not change
+    let tagValueBeforeEdit = null;
 
     function updateSuggestions(show) {
         if (value) {
@@ -106,6 +117,7 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     });
 
     input.on("edit:start", function (event) {
+        tagValueBeforeEdit = event.detail.data.value;
         autocompleteWithSearch(event.detail.data.value);
     });
 
@@ -117,7 +129,15 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
         }
     });
 
-    input.on("edit:updated", function () {
+    input.on("edit:updated", function (event) {
+        // Remember the new value, so that it is committed to the tags history on submit.
+        // The data is empty when the tag was emptied out and removed, and the event is not
+        // triggered at all when the edition is reverted (Esc).
+        const newValue = event.detail.data && event.detail.data.value;
+        if (newValue && newValue !== tagValueBeforeEdit) {
+            tagsToCommit.add(newValue);
+        }
+        tagValueBeforeEdit = null;
         value = "";
         updateSuggestions(false);
     });
@@ -141,21 +161,9 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
 
     input.on("add", function (event) {
 
-        // Store the last tags in localStorage if maximumRecentEntriesPerTag > 0
-
-        if (maximumRecentEntriesPerTag) {
-
-            const obj = get_last_tags();
-
-            obj[el.id] = update_tag_recents(obj[el.id], event.detail.data.value, maximumRecentEntriesPerTag);
-
-            try {
-                window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-            } catch {
-                // Don't do anything if the local storage is not writable (e.g. Firefox private mode)
-            }
-
-        }
+        // Remember the tag, it will only be added to the tags history on submit,
+        // so that tags that are never submitted (typos, wrong tags) are not remembered
+        tagsToCommit.add(event.detail.data.value);
 
         value = "";
         updateSuggestions(false);
@@ -172,35 +180,80 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     });
 }
 
+// Return the tags that the user added or edited for the input, and that are actually
+// present in the submitted tags. Tags that were added and then removed are not returned.
+function getTagsToCommit(el, submittedTags) {
+    const state = recentTagsByInput.get(el);
+    if (!state || !state.maximum || !state.tagsToCommit.size) {
+        return [];
+    }
+
+    return submittedTags.filter((tag) => state.tagsToCommit.has(tag));
+}
+
+// Add the given tags to the tags history of each field, so that they are suggested
+// the next time the field is edited. Called once for the whole page, so that the tags
+// history is only read and written once.
+// entries is an array of { id: field id, maximum: maximum number of tags to keep, tags: tags to add }
+function addTagsToRecentTags(entries) {
+    const store = readRecentTags();
+
+    for (const { id, maximum, tags } of entries) {
+        // Deduplicate the committed tags, keeping the first occurrence (field order)
+        const seen = new Set();
+        const uniqueTags = [];
+        for (const tag of tags) {
+            if (!seen.has(tag)) {
+                seen.add(tag);
+                uniqueTags.push(tag);
+            }
+        }
+        // Keep the history ordered by most recently used (issue #15005):
+        // apply the single-tag helper from last to first, so that committed tags
+        // end up first in field order and re-added tags move back to the top.
+        let history = Array.isArray(store[id]) ? store[id] : [];
+        for (let i = uniqueTags.length - 1; i >= 0; i--) {
+            history = update_tag_recents(history, uniqueTags[i], maximum);
+        }
+        store[id] = history;
+    }
+
+    writeRecentTags(store);
+}
+
 function get_recents(tagfield, maximumRecentEntriesPerTag) {
     if (maximumRecentEntriesPerTag > 0) {
-        const obj = get_last_tags();
+        const recents = readRecentTags()[tagfield];
 
-        if (Array.isArray(obj[tagfield])) {
-            return obj[tagfield];
+        if (Array.isArray(recents)) {
+            return recents;
         }
     }
 
     return [];
 }
 
-// Read the tags history saved in the local storage
-function get_last_tags() {
-    let obj = null;
+// Read the tags history saved in the local storage, indexed by field id
+function readRecentTags() {
+    let store;
 
     try {
-        obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
+        store = JSON.parse(window.localStorage.getItem("po_last_tags"));
     } catch {
-        // Ignore values we cannot read or parse (corrupted value, local storage not readable):
-        // the history is simply built again from the tags added from now on
-        obj = null;
+        // Ignore corrupted values and local storage errors (e.g. Firefox private mode):
+        // the history is simply rebuilt from the tags committed from now on
+        store = null;
     }
 
-    if (obj === null || typeof obj !== "object") {
-        obj = {};
-    }
+    return (store === null || typeof store !== "object") ? {} : store;
+}
 
-    return obj;
+function writeRecentTags(store) {
+    try {
+        window.localStorage.setItem("po_last_tags", JSON.stringify(store));
+    } catch {
+        // Nothing to do if the local storage is not writable
+    }
 }
 
 // Add a tag to the history of a field, and keep the history ordered by most recently used:
