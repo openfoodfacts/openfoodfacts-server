@@ -3,6 +3,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
+         "ecobalyse_proxy_id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
+         "ecobalyse_proxy_name" : "Jus de pomme FR -2025-",
          "id" : "en:apple-juice",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -14,6 +16,8 @@
       },
       {
          "ciqual_food_code" : "13010",
+         "ecobalyse_id" : "e73f79ca-ba84-5369-81b9-863fcd496e5b",
+         "ecobalyse_name" : "Coing HORS UE",
          "id" : "en:quince",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -25,6 +29,8 @@
       },
       {
          "ciqual_food_code" : "11082",
+         "ecobalyse_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:sea-salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0,
@@ -84,12 +90,9 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:apple-juice",
-      "en:quince",
-      "en:sea-salt",
       "en:sodium-chloride"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 4,
    "lc" : "fr",
    "misc_tags" : [
