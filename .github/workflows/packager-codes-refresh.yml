@@ -1,0 +1,61 @@
+name: Packager codes refresh
+
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+  # Allow to be run manually
+  workflow_dispatch:
+  schedule:
+  # Run at 19:00 UTC on the 1st day of each month
+  - cron: "0 19 1 * *"
+
+jobs:
+  update-assets:
+    if: github.repository_owner == 'openfoodfacts'
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+    - name: Set up Python
+      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      with:
+        python-version: '3.11'
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-gdbm
+
+    - name: Install Python dependencies
+      run: |
+        pip install -r scripts/packager-codes/requirements.txt
+
+    - name: Upgrade assets
+      run: |
+        cd scripts/packager-codes
+        bash update_all_packager_codes.sh
+
+    - name: Check for uncommitted changes
+      id: check-changes
+      uses: mskri/check-uncommitted-changes-action@2b152539dd033c3a26e0dd1d8b9a0c8e4d3a8a19 # v1.0.1
+      
+    - name: Create Pull Request
+      if: steps.check-changes.outputs.outcome == failure()
+      id: cpr
+      uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+      with:
+        base: develop
+        commit-message: Update packager codes assets
+        committer: GitHub <noreply@github.com>
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        signoff: false
+        branch: auto-update-assets
+        delete-branch: true
+        title: 'chore: Update assets'
+        body: |
+          Automated update of asset cache

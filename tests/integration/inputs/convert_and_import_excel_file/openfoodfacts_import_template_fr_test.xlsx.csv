@@ -1,0 +1,319 @@
+,Code-barres,"Identifiant produit du producteur","Identifiant de version du producteur","Langue principale","Nom du produit","Nom abrégé du produit","Dénomination générique",Quantité,"Poids net","Poids égoutté",Volume,"Taille d'une portion",Conditionnements,Marques,"Propriétaire de la marque",Catégories,Labels,Pays,Magasins,"Produit retiré du marché","Date de retrait","Durées d'utilisation après ouverture","Origines des ingrédients","Origine du produit et/ou de ses ingrédients","Lieux de fabrication ou de transformation",Producteur,"Codes de traçabilité","Liste des ingrédients",Allergènes,Traces,"Énergie (kJ) pour 100 g / 100 ml","Énergie (kcal) pour 100 g / 100 ml","Matières grasses pour 100 g / 100 ml","Acides gras saturés pour 100 g / 100 ml","Glucides pour 100 g / 100 ml","Sucres pour 100 g / 100 ml","Fibres alimentaires pour 100 g / 100 ml","Protéines pour 100 g / 100 ml","Sel pour 100 g / 100 ml","Sodium pour 100 g / 100 ml","Alcool pour 100 g / 100 ml","Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive pour 100 g / 100 ml","Fruits‚ légumes et noix - séchés pour 100 g / 100 ml","Instruction de recyclage et/ou informations d'emballage","Consignes de recyclage - A recycler","Consignes de recyclage - A jeter","Emballage 1 - Nombre d'éléments","Emballage 1 - Forme","Emballage 1 - Matière","Emballage 1 - Recyclage","Emballage 1 - Poids d'un élément vide","Emballage 1 - Quantité de produit contenue par élément","Emballage 2 - Nombre d'éléments","Emballage 2 - Forme","Emballage 2 - Matière","Emballage 2 - Recyclage","Emballage 2 - Poids d'un élément vide","Emballage 2 - Quantité de produit contenue par élément","Emballage 3 - Nombre d'éléments","Emballage 3 - Forme","Emballage 3 - Matière","Emballage 3 - Recyclage","Emballage 3 - Poids d'un élément vide","Emballage 3 - Quantité de produit contenue par élément","Emballage 4 - Nombre d'éléments","Emballage 4 - Forme","Emballage 4 - Matière","Emballage 4 - Recyclage","Emballage 4 - Poids d'un élément vide","Emballage 4 - Quantité de produit contenue par élément","Emballage 5 - Nombre d'éléments","Emballage 5 - Forme","Emballage 5 - Matière","Emballage 5 - Recyclage","Emballage 5 - Poids d'un élément vide","Emballage 5 - Quantité de produit contenue par élément","Conditions de conservation",Avertissement,Préparation,"Score Nutri-Score",Nutri-Score,"Groupe NOVA","Idée recette","Service consommateur","Lien vers la page du produit sur le site officiel du fabricant","Lien vers la photo de face du produit","Lien vers la photo de la liste des ingrédients","Lien vers la photo du tableau nutritionnel","Lien vers la photo des instructions de recyclage et/ou d'information d'emballage","Lien vers une autre photo du produit","Type de la photo du produit"
+Description,"Le code-barres tel qu'il apparaît sur le produit.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Code interne utilisé par le producteur pour identifier le produit, différent du code-barres.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Code interne utilisé par le producteur pour identifier une version spécifique d'un produit lorsqu'il évolue.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Si l'emballage du produit est en plusieurs langues, indiquez la langue la plus facilement visible sur le produit.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Nom du produit avec des abbréviations figurant sur les tickets de caisse
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champs recommandés - Si cette information existe et qu'elle est pertinente vis-à-vis de ce produit, il est recommandé de la fournir. Ainsi, il sera plus facile de retrouver ce produit et les données produits seront plus utiles.
+
+","Spécifiez la valeur et l'unité.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Spécifiez la valeur et l'unité.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Spécifiez la valeur et l'unité.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Spécifiez la valeur et l'unité.
+
+Si le tableau nutritionnel contient des valeurs pour le produit préparé, indiquez la taille totale d'une portion de produit préparé (incluant l'eau ou le lait ajouté).
+
+Champs recommandés - Si cette information existe et qu'elle est pertinente vis-à-vis de ce produit, il est recommandé de la fournir. Ainsi, il sera plus facile de retrouver ce produit et les données produits seront plus utiles.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Type de conditionnement, format, matière
+
+Champs recommandés - Si cette information existe et qu'elle est pertinente vis-à-vis de ce produit, il est recommandé de la fournir. Ainsi, il sera plus facile de retrouver ce produit et les données produits seront plus utiles.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Il suffit d'indiquer la catégorie la plus spécifique, les catégories ""parentes"" seront ajoutées automatiquement.
+
+Il est très important d'indiquer la catégorie du produit pour qu'il puisse être facilement trouvable sur la plateforme, et pour que nous puissions calculer le Nutri-Score
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Indiquez les labels les plus spécifiques. Les catégories ""parentes"" comme 'Bio' ou 'Commerce équitable' seront ajoutées automatiquement.
+
+Certaines étiquettes comme le label bio sont utilisées pour filtrer ou ordonner les résultats, c'est pourquoi il est fortement recommandé de les indiquer.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Pays dans lesquels le produit est largement distribué (hors magasins spécialisés dans l'import)
+
+Champs recommandés - Si cette information existe et qu'elle est pertinente vis-à-vis de ce produit, il est recommandé de la fournir. Ainsi, il sera plus facile de retrouver ce produit et les données produits seront plus utiles.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Enseigne du magasin où vous avez acheté ou vu le produit
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Entrez Oui, O ou 1 si le produit n'est plus disponible en magasin.
+
+Champs recommandés - Si cette information existe et qu'elle est pertinente vis-à-vis de ce produit, il est recommandé de la fournir. Ainsi, il sera plus facile de retrouver ce produit et les données produits seront plus utiles.
+
+","Format: AAAA-MM-JJ ou AAAA-MM ou AAAA
+
+Champs recommandés - Si cette information existe et qu'elle est pertinente vis-à-vis de ce produit, il est recommandé de la fournir. Ainsi, il sera plus facile de retrouver ce produit et les données produits seront plus utiles.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Indiquée dans un logo en forme de pot ouvert, avec un nombre de mois. Par exemple 12 M.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Ce champ ne doit contenir que la liste de pays d'origine des ingrédients, séparés par des virgules
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Mentions sur l'emballage indiquant le lieu de fabrication et/ou l'origine des ingrédients
+
+Texte ou phrases indiquant l'origine du produit et / ou de ses ingrédients.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+En Europe, le code est une ellipse contenant les deux initiales du pays suivies par un nombre et CE.
+
+Champs recommandés - Si cette information existe et qu'elle est pertinente vis-à-vis de ce produit, il est recommandé de la fournir. Ainsi, il sera plus facile de retrouver ce produit et les données produits seront plus utiles.
+
+","Conserver l'ordre, indiquer le % lorsqu'il est précisé, séparer par une virgule ou - , Utiliser les ( ) pour  les ingrédients d'un ingrédient, indiquer les allergènes entre _ : farine de _blé_
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","En cas de valeurs multiples, séparez-les avec des virgules.
+
+Indiquer les ingrédients des mentions ""Peut contenir des traces de"", ""Fabriqué dans un atelier qui utilise aussi"" etc.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : kJ
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : kcal
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : g
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : g
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : g
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : g
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : g
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : g
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : g
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : g
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : % vol
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : %
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Spécifiez la valeur et l'unité, ou utilisez l'unité par défaut : %
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Lister toutes les parties de l'emballage séparées par une virgule ou un retour à la ligne, avec leur quantité (ex : 1 ou 6), leur type (ex : bouteille, boîte, canette), le matériau (ex : plastique, métal, aluminium), et si possible leur taille (ex: 33cl) ainsi que les instructions de recyclage.
+
+Essayez d'être aussi précis que possible. Pour le plastique, merci d'indiquer s'il est opaque ou transparent, coloré, PET ou PEHD.
+
+Les données de ce champ seront combinées avec toutes les données fournies pour chaque partie de l'emballage. Il est possible de fournir l'un ou l'autre, ou les deux.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Champs recommandés - Si cette information existe et qu'elle est pertinente vis-à-vis de ce produit, il est recommandé de la fournir. Ainsi, il sera plus facile de retrouver ce produit et les données produits seront plus utiles.
+
+","Champs recommandés - Si cette information existe et qu'elle est pertinente vis-à-vis de ce produit, il est recommandé de la fournir. Ainsi, il sera plus facile de retrouver ce produit et les données produits seront plus utiles.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Score Nutri-Score (valeur numérique à partir de laquelle la note de A à E est attribuée)
+
+Open Food Facts calcule le Nutri-Score selon les informations fournies (catégorie et informations nutritionnelles). Si le score que nous calculons est différent du score que vous fournissez, vous recevrez une notification privée sur votre plateforme producteur afin que nous puissions résoudre cette disparité.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Note Nutri-Score de A à E affichée sur l'étiquette du produit
+
+Open Food Facts calcule le Nutri-Score selon les informations fournies (catégorie et informations nutritionnelles). Si la note que nous calculons est différent de la note que vous fournissez, vous recevrez une notification privée sur votre plateforme producteur afin que nous puissions résoudre cette disparité.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Les photos du produits peuvent aussi être fournies séparément, via la fonction ""Importer des photos de produits"" depuis votre plateforme producteur.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Les photos du produits peuvent aussi être fournies séparément, via la fonction ""Importer des photos de produits"" depuis votre plateforme producteur.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Les photos du produits peuvent aussi être fournies séparément, via la fonction ""Importer des photos de produits"" depuis votre plateforme producteur.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Les photos du produits peuvent aussi être fournies séparément, via la fonction ""Importer des photos de produits"" depuis votre plateforme producteur.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+","Les photos du produits peuvent aussi être fournies séparément, via la fonction ""Importer des photos de produits"" depuis votre plateforme producteur.
+
+Champ facultatif - Si disponible, cette information sera affichée sur la page produit.
+
+","Les photos du produits peuvent aussi être fournies séparément, via la fonction ""Importer des photos de produits"" depuis votre plateforme producteur.
+
+Champ obligatoire - Tous les produits devraient fournir cette information.
+
+"
+"Exemple :",3228857000838,,,,"Sandwich américain nature",,,"550 g",,,,,,Harrys,,"Pains de mie tranchés","Bio, sans additifs",,,,,,"Espagne, France, Italie",,,,,"farine de blé 65%, eau, sucre, huile de colza, sel, vinaigre, levure, farine d'haricots, gluten de blé, arôme",Gluten,"Oeufs, lait, fruits à coque, graines de sésame, soja",1172,271,4.1,0.4,48.9,7.7,3.9,7.6,1.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://drive.google.com/file/d/1N6K0GOy8ZrO21732XF1M6klhRrzyAaaP/view?usp=sharing,https://drive.google.com/file/d/14181RIHe89KN2aPzT3C2NQYqFZficOwE/view?usp=drive_link,https://drive.google.com/file/d/1e8sW-Xp5QXc41V5ry-hLn8T8s13fvS38/view?usp=sharing,,,
+,5228857000838,,,,"A test product",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,5228857000839,432,,,"Another test product",,"produit de test",,,,,33,,Testo,,"Test products",Bio,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,"A line that should be ignored",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Another line that should be ignored",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

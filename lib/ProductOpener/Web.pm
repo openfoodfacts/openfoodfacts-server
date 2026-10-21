@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -17,6 +17,8 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -39,30 +41,34 @@ use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
 use ProductOpener::Store qw(:all);
-use ProductOpener::Display qw(:all);
+use ProductOpener::Display qw($tt display_possible_improvement_description process_template);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
 use ProductOpener::Orgs qw(:all);
-use ProductOpener::Lang qw(:all);
+use ProductOpener::Lang qw($lc @Langs lang);
 use ProductOpener::Images qw(:all);
+use ProductOpener::ConfigEnv qw/:all/;
 
 use Template;
 use Log::Log4perl;
+use Unicode::Collate;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&display_field
 		&display_data_quality_issues_and_improvement_opportunities
-		&display_data_quality_description
 		&display_knowledge_panel
 		&get_languages_options_list
+		&get_countries_options_list
 	);    #the fucntions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
+
+my $unicode_collate = Unicode::Collate->new();
 
 =head1 FUNCTIONS
 
@@ -97,7 +103,7 @@ sub display_field ($product_ref, $field) {
 			to_do => [],
 			done => [],
 		);
-		my $state_items = $product_ref->{$field . "_hierarchy"};
+		my $state_items = $product_ref->{$field . "_tags"};
 		foreach my $val (@{$state_items}) {
 			if (index($val, 'empty') != -1 or $val =~ /(en:|-)to-be-/sxmn) {
 				push(@{$states{to_do}}, $val);
@@ -133,10 +139,10 @@ sub display_field ($product_ref, $field) {
 			}
 		}
 		elsif (defined $taxonomy_fields{$field}) {
-			$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
+			$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_tags"});
 		}
-		elsif ((defined $tags_fields{$field}) and (defined $value)) {
-			$value = display_tags_list($field, $value);
+		elsif (defined $tags_fields{$field}) {
+			$value = display_tags_list($field, $product_ref->{$field . "_tags"});
 		}
 
 		if ((defined $value) and ($value ne '')) {
@@ -271,16 +277,25 @@ sub display_knowledge_panel ($product_ref, $panels_ref, $panel_id) {
 
 	my $html = '';
 
+	# Return undef if there is no panel with the given id
+	if (not defined $panels_ref->{$panel_id}) {
+		return;
+	}
+
 	my $template_data_ref = {
 		product => $product_ref,
 		panels => $panels_ref,
 		panel_id => $panel_id,
+		nutripatrol_url => $nutripatrol_url,
 	};
 
 	process_template('web/panels/panel.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
 	return $html;
 }
+
+# cache for languages_options_list
+my %lang_options_cache = ();
 
 =head2 get_languages_options_list( $target_lc )
 
@@ -291,27 +306,84 @@ The data structured can be passed to HTML templates to construction a list of op
 
 sub get_languages_options_list ($target_lc) {
 
+	return $lang_options_cache{$target_lc} if (defined $lang_options_cache{$target_lc});
+
 	my @lang_options = ();
 
 	my %lang_labels = ();
 	foreach my $l (@Langs) {
-		$lang_labels{$l} = display_taxonomy_tag($target_lc, 'languages', $language_codes{$l});
+		my $label = display_taxonomy_tag($target_lc, 'languages', $language_codes{$l});
+		# remove eventual language prefix
+		$label =~ s/^\w\w://;
+		$lang_labels{$l} = $label;
 	}
 
-	my @lang_values = sort {$lang_labels{$a} cmp $lang_labels{$b}} @Langs;
+	my @lang_values = sort {$unicode_collate->cmp($lang_labels{$a}, $lang_labels{$b})} @Langs;
 
-	foreach my $l (@lang_values) {
+	foreach my $lang_code (@lang_values) {
 
 		push(
 			@lang_options,
 			{
-				value => $l,
-				label => $lang_labels{$l},
+				value => $lang_code,
+				label => $lang_labels{$lang_code},
 			}
 		);
 	}
 
+	# cache
+	$lang_options_cache{$target_lc} = \@lang_options;
+
 	return \@lang_options;
+}
+
+# cache for get_countries
+my %countries_options_lists = ();
+
+=head2 get_countries_options_list( $target_lc )
+
+Generates all the countries name in the $target_lc language suitable for an select option list
+
+=head3 Arguments
+
+=head4 $target_lc - language code for labels
+
+=head4 $exclude_world - boolean to exclude 'World' from list
+
+=head3 Return value
+
+A reference to a list of hashes with every country code and their label in the $lc language
+[{value => "fr", label => "France"},…]
+
+=cut
+
+sub get_countries_options_list ($target_lc, $exclude_world = 1) {
+	# if already computed send it back
+	my @countries_list = ();
+	if (defined $countries_options_lists{$target_lc}) {
+		@countries_list = @{$countries_options_lists{$target_lc}};
+	}
+	else {
+		# compute countries list
+		my @tags_list = get_all_taxonomy_entries("countries");
+		foreach my $tag (@tags_list) {
+			my $country = display_taxonomy_tag($target_lc, "countries", $tag);
+			# remove eventual language prefix
+			my $country_no_code = $country;
+			$country_no_code =~ s/^\w\w://;
+			# Adding to the list the modified string
+			push @countries_list, {value => $tag, label => $country_no_code, prefixed => $country};
+		}
+		# sort by name
+		@countries_list = sort {$unicode_collate->cmp($a->{label}, $b->{label})} @countries_list;
+		# cache
+		$countries_options_lists{$target_lc} = \@countries_list;
+	}
+	if ($exclude_world) {
+		# remove world
+		@countries_list = grep {$_->{value} ne "world"} @countries_list;
+	}
+	return \@countries_list;
 }
 
 1;

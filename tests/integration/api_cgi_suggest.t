@@ -2,20 +2,18 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [

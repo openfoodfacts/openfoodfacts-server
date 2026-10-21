@@ -1,0 +1,23 @@
+{
+   "code" : "1234567890012",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "images.selected.front.invalid_lc"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "invalid_language_code",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "product" : {},
+   "status" : "success_with_errors",
+   "warnings" : []
+}

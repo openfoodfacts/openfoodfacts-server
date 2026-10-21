@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -27,19 +27,10 @@ ProductOpener::Data - methods to create or get the mongoDB client and fetch "dat
 The module implements the methods required to fetch certain collections from the MongoDB database.
 The functions used in this module are responsible for executing queries, to get connection to database and also to select the collection required.
 
-The module exposes 2 distinct kinds of collections, products and products_tags, returned by the Data::get_products_collections
-and the Data::get_products_tags_collections methods respectively.
-
 The products collection contains a complete document for each product in the OpenFoodFacts database which exposes all
 available information about the product.
 
-The products_tags collection contains a stripped down version of the data in the products collection, where each
-product entry has a select few fields, including fields used in tags. The main purpose of having this copy is to
-improve performance of aggregate queries for an improved user experience and more efficient resource usage. This
-collection was initially proposed in L<issue#1610|https://github.com/openfoodfacts/openfoodfacts-server/issues/1610> on
-GitHub, where some additional context is available.
-
-Obsolete products that have been withdrawn from the market have separate collections: products_obsolete and products_obsolete_tags
+Obsolete products that have been withdrawn from the market have separate collections: products_obsolete
 
 =cut
 
@@ -51,15 +42,21 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&init_data_debug
+		&can_use_off_query
+		&can_use_cache_results
 		&execute_query
 		&execute_aggregate_tags_query
 		&execute_count_tags_query
+		&execute_product_query
 		&get_database
 		&get_collection
 		&get_products_collection
 		&get_emb_codes_collection
 		&get_recent_changes_collection
 		&remove_documents_by_ids
+		&get_orgs_collection
+		&perform_health_check
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -67,22 +64,95 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use experimental 'smartmatch';
-
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Cursor;
+use ProductOpener::Health qw/:all/;
+use ProductOpener::HTTP qw/request_param single_param get_http_request_header create_user_agent/;
 
+use Storable qw(freeze);
 use MongoDB;
-use Tie::IxHash;
-use JSON::PP;
+use JSON::MaybeXS;
+use CGI ':cgi-lib';
 use Log::Any qw($log);
-
-use Action::CircuitBreaker;
-use Action::Retry;
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 my $client;
-my $action = Action::CircuitBreaker->new();
 
 =head1 FUNCTIONS
+
+=head2 init_data_debug ($request_ref)
+
+Initializes the data_debug variable that will list parameters and info related to data queries
+
+=cut
+
+sub init_data_debug () {
+
+	my $data_debug = "data_debug start\n";
+
+	return $data_debug;
+}
+
+=head2 can_use_off_query ($data_debug_ref)
+
+Determine if we can use off_query backend:
+- off_query URL needs to be set in the configuration
+- off_query parameter is 1 (defaults to 1, pass off_query=0 to disable off_query)
+- we are not on the producers platform
+
+=cut
+
+sub can_use_off_query ($data_debug_ref) {
+
+	# TODO: pass parameters inside $request_ref instead, so that we don't have to call single_param() here
+	my $param_off_query = single_param("off_query") || 1;
+	my $platform = $server_options{producers_platform} ? "producers" : "public";
+
+	$$data_debug_ref .= "off_query: $param_off_query\n";
+	$$data_debug_ref .= "platform: $platform\n";
+	$$data_debug_ref .= "query_url: " . ($query_url || '') . "\n";
+
+	# use !! operator to convert to boolean
+	my $can_use_off_query
+		= !!(($param_off_query) and (not $platform eq 'producers') and ($query_url));
+
+	$$data_debug_ref .= "can_use_off_query: $can_use_off_query\n";
+	return $can_use_off_query;
+}
+
+=head2 can_use_cache_results ($data_debug_ref)
+
+Determine if we can use cached results:
+- no_cache parameter is not set
+- we are not on the producers platform
+- Cache-Control header is not set to no-cache
+
+=head3 parameters
+
+=head4 $data_debug_ref - ref string
+
+This parameter is modified to add debug information.
+
+=cut
+
+sub can_use_cache_results ($data_debug_ref) {
+
+	my $param_no_cache = single_param("no_cache");
+	my $cache_control = get_http_request_header("Cache-Control");
+	my $platform = $server_options{producers_platform} ? "producers" : "public";
+
+	$$data_debug_ref .= "Cache-Control: $cache_control\n" if defined $cache_control;
+	$$data_debug_ref .= "no_cache: $param_no_cache\n" if defined $param_no_cache;
+	$$data_debug_ref .= "platform: $platform\n";
+
+	my $can_use_cache = not(($platform eq 'producers')
+		or ($param_no_cache)
+		or ((defined $cache_control) and ($cache_control =~ /no-cache/i)));
+
+	$$data_debug_ref .= "can_use_cache: $can_use_cache\n";
+
+	return $can_use_cache;
+}
 
 =head2 execute_query( $subroutine )
 
@@ -109,39 +179,97 @@ eval {
 =cut
 
 sub execute_query ($sub) {
-
-	return Action::Retry->new(
-		attempt_code => sub {$action->run($sub)},
-		on_failure_code => sub {my ($error, $h) = @_; die $error;},    # by default Action::Retry would return undef
-			# If we didn't get results from MongoDB, the server is probably overloaded
-			# Do not retry the query, as it will make things worse
-		strategy => {Fibonacci => {max_retries_number => 0,}},
-	)->run();
+	return $sub->();
 }
 
-sub execute_aggregate_tags_query ($aggregate_parameters) {
-	return execute_tags_query('aggregate', $aggregate_parameters);
+sub execute_aggregate_tags_query ($query) {
+	return execute_tags_query('aggregate', $query);
 }
 
-sub execute_count_tags_query ($query_ref) {
-	return execute_tags_query('count', $query_ref);
+sub execute_count_tags_query ($query) {
+	return execute_tags_query('count', $query);
 }
 
-sub execute_tags_query ($type, $parameters) {
+sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit, $skip, $data_debug_ref) {
+
+	defined $$data_debug_ref or $$data_debug_ref = "data_debug start\n";
+
+	# If possible, send to off-query, unless off_query is set to 0
+	if (can_use_off_query($data_debug_ref)) {
+
+		$$data_debug_ref .= "using off_query\n";
+
+		# Convert sort into an array so that the order of keys is not ambiguous
+		# Note: some queries may not have a sort (currently the case for the experimental recipe stats queries for parent_ingredients)
+		# e.g. https://world.openfoodfacts.org/search?categories_tags=en:pizzas&parent_ingredients=cheese,flour,tomato,olive%20oil
+		my @sort_array = ();
+		if (defined $sort_ref) {
+			foreach my $k ($sort_ref->Keys) {
+				push(@sort_array, [$k, $sort_ref->FETCH($k)]);
+			}
+		}
+
+		my $results = execute_tags_query(
+			'find',
+			{
+				filter => $query_ref,
+				projection => $fields_ref,
+				sort => \@sort_array,
+				limit => $limit,
+				skip => $skip
+			}
+		);
+
+		if (defined $results) {
+			$$data_debug_ref .= "got results from off_query\n";
+			return ProductOpener::Cursor->new($results);
+		}
+		else {
+			$$data_debug_ref .= "no results from off_query\n";
+		}
+	}
+	else {
+		$$data_debug_ref .= "not using off_query\n";
+	}
+
+	my $cursor = get_products_collection($parameters_ref)->query($query_ref)->fields($fields_ref);
+	if ($sort_ref) {
+		$cursor = $cursor->sort($sort_ref);
+	}
+	if ($limit) {
+		$cursor = $cursor->limit($limit);
+	}
+	if ($skip) {
+		$cursor = $cursor->skip($skip);
+	}
+
+	$$data_debug_ref .= "got results from MongoDB\n";
+
+	return $cursor;
+}
+
+# $json_utf8 has utf8 enabled: it decodes UTF8 bytes
+my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
+
+sub execute_tags_query ($type, $query) {
 	if ((defined $query_url) and (length($query_url) > 0)) {
 		$query_url =~ s/^\s+|\s+$//g;
-		my $path = "$query_url/$type";
-		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $path, {query => $parameters})
+		my $params = Vars();
+		my $url = URI->new("$query_url/$type");
+		$url->query_form($params);
+		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $url, {query => $query})
 			if $log->is_debug();
 
-		my $ua = LWP::UserAgent->new();
+		my $ua = create_user_agent();
+		# Add a timeout to the HTTP query
+		$ua->timeout(15);
 		my $resp = $ua->post(
-			$path,
-			Content => encode_json($parameters),
+			$url,
+			Content => encode_json($query),
 			'Content-Type' => 'application/json; charset=utf-8'
 		);
 		if ($resp->is_success) {
-			return decode_json($resp->decoded_content);
+			return $json_utf8->decode($resp->decoded_content);
 		}
 		else {
 			$log->warn(
@@ -184,16 +312,6 @@ This is useful when moving products to another flavour
 If set to a true value, the function returns a collection that contains only obsolete products,
 otherwise it returns the collection with products that are not obsolete.
 
-=head4 tags
-
-If set to a true value, the function may return a smaller collection that contains only the *_tags fields,
-in order to speed aggregate queries. The smaller collection is created every night,
-and may therefore contain slightly stale data.
-
-As of 2023/03/13, we return the products_tags collection for non obsolete products.
-For obsolete products, we currently return the products_obsolete collection, but we might
-create a separate products_obsolete_tags collection in the future, if it becomes necessary to create one.
-
 =head3 Return values
 
 Returns a mongoDB collection object.
@@ -206,11 +324,6 @@ sub get_products_collection ($parameters_ref = {}) {
 	if ($parameters_ref->{obsolete}) {
 		$collection .= '_obsolete';
 	}
-	# We don't have a products_obsolete_tags collection at this point
-	# if it changes, the following elsif should be changed to a if
-	elsif ($parameters_ref->{tags}) {
-		$collection .= '_tags';
-	}
 	return get_collection($database, $collection, $parameters_ref->{timeout});
 }
 
@@ -220,6 +333,10 @@ sub get_emb_codes_collection ($timeout = undef) {
 
 sub get_recent_changes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
+}
+
+sub get_orgs_collection ($timeout = undef) {
+	return get_collection($mongodb, 'orgs', $timeout);
 }
 
 sub get_collection ($database, $collection, $timeout = undef) {
@@ -292,12 +409,14 @@ correspond to the _id field
 =head3 Return values
 
 Returns a hash with:
-<dl>
-  <dt>removed</dt>
-  <dd>int - number of effectively removed items</dd>
-  <dt>errors</dt>
-  <dd>ref to a list of errors</dd>
-</dl>
+
+	<dl>
+	  <dt>removed</dt>
+	  <dd>int - number of effectively removed items</dd>
+	  <dt>errors</dt>
+	  <dd>ref to a list of errors</dd>
+	</dl>
+
 =cut
 
 sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) {
@@ -328,6 +447,78 @@ sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) 
 	}
 
 	return {removed => $removed, errors => \@errors};
+}
+
+=head2 perform_health_check()
+
+Verify that OFF_QUERY (C<$query_url>) is reachable and report response time.
+
+=cut
+
+sub perform_health_check() {
+	if ((not defined $query_url) or ($query_url eq '')) {
+		return [
+			{
+				status => $status_warn,
+				componentType => 'system',
+				output => 'OFF_QUERY URL is not configured',
+				time => current_time_iso8601(),
+			}
+		];
+	}
+
+	my $url = $query_url;
+	$url =~ s/^\s+|\s+$//g;
+
+	my $start = [gettimeofday()];
+	my ($ok, $code, $error);
+
+	eval {
+		my $ua = create_user_agent();
+		$ua->timeout(5);
+		my $response = $ua->get($url);
+		$code = $response->code;
+		$ok = defined($code) && ($code < 500);
+		1;
+	} or do {
+		$error = $@;
+		$ok = 0;
+	};
+
+	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
+	my $time = current_time_iso8601();
+
+	my $links = {self => sanitize_url($url)};
+
+	if ($ok) {
+		return [
+			{
+				status => $status_pass,
+				componentType => 'system',
+				observedValue => $duration_ms,
+				observedUnit => 'ms',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
+
+	my $output
+		= defined($error) && ($error ne '')
+		? "OFF_QUERY endpoint request failed: $error"
+		: "OFF_QUERY endpoint unavailable" . (defined($code) ? " (HTTP $code)" : '');
+
+	return [
+		{
+			status => $status_fail,
+			componentType => 'system',
+			output => $output,
+			observedValue => $duration_ms,
+			observedUnit => 'ms',
+			time => $time,
+			links => $links,
+		}
+	];
 }
 
 1;

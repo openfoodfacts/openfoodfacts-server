@@ -27,14 +27,16 @@ use ProductOpener::PerlStandards
 	binmode(STDOUT, ":encoding(UTF-8)");
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Images qw/@CLOUD_VISION_FEATURES_FULL send_image_to_cloud_vision/;
+use ProductOpener::Redis qw/push_ocr_ready_to_redis/;
 
 use AnyEvent::Inotify::Simple;
 use Log::Any qw($log);
 use Log::Any::Adapter 'TAP';
 use EV;
 
-open(my $LOG, ">>", "$data_root/logs/run_cloud_vision_ocr.log");
+open(my $LOG, ">>", "$BASE_DIRS{LOGS}/run_cloud_vision_ocr.log");
 
 sub send_file_to_ocr ($file) {
 	my $destination = readlink $file;
@@ -49,9 +51,12 @@ sub send_file_to_ocr ($file) {
 	# compute arguments
 
 	my $code;
+	my $imgid;
 
-	if ($file =~ /^([^\.]*)\.(\d+)\./) {
+	if ($file =~ /^([^\.]*)\.(\d+)\.(\d+)/) {
+		# the format of the image file is {timestamp}.{code}.{imgid}.jpg
 		$code = $2;
+		$imgid = $3;
 	}
 
 	my $path = $destination;
@@ -72,23 +77,16 @@ sub send_file_to_ocr ($file) {
 	$json_file .= ".json.gz";
 
 	print $LOG "file: $file destination: $destination code: $code image_url: $image_url json_file: $json_file\n";
-	open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+	open(my $gv_logs, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/cloud_vision.log");
 
 	my $cloudvision_ref = send_image_to_cloud_vision($file, $json_file, \@CLOUD_VISION_FEATURES_FULL, $gv_logs);
 
 	if (defined $cloudvision_ref) {
-
-		# Call robotoff to process the image and/or json from Cloud Vision
-		my $robotoff_response = send_image_to_robotoff($code, $image_url, $json_url, $auth . "api." . $server_domain);
-		if ($robotoff_response->is_success) {
-			print $LOG "--> robotoff success: " . $robotoff_response->decoded_content . "\n";
-		}
-		else {
-			print $LOG "--> robotoff error: " . $robotoff_response->status_line . "\n";
-		}
-
 		unlink($file);
 	}
+
+	# We notify that the OCR file is ready on Redis
+	push_ocr_ready_to_redis($code, $imgid, $json_url);
 	return;
 }
 

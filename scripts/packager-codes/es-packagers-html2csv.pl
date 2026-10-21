@@ -23,9 +23,8 @@
 use utf8;
 use open qw(:std :utf8);
 use Modern::Perl '2017';
-use experimental 'smartmatch';
 
-use List::Util qw( all );
+use List::Util qw( all any );
 
 use CHI ();
 use Data::Table ();
@@ -81,7 +80,7 @@ sub clean_col {
 sub clean_row {
 	my ($row_ref) = @_;
 
-	return [map {clean_col $_ } @{$row_ref}];
+	return [map {clean_col $_} @{$row_ref}];
 }
 
 sub build_headers {
@@ -104,7 +103,10 @@ sub fill_cache {
 			quote_char => q{"}
 		);
 
-		return if not all {$_ ~~ @headers} @address_columns;
+		return if not all {
+			my $column = $_;
+			any {$_ eq $column} @headers;
+		} @address_columns;
 
 		foreach my $row_ref (@{$row_refs}) {
 			if ($row_ref->{'lat'} && $row_ref->{'lng'}) {
@@ -242,7 +244,7 @@ my $tables_f = fmap_scalar {
 
 	my $ht_ref = $te_ref->first_table_found;
 	my @headers = build_headers @{clean_row([$ht_ref->hrow])};
-	my @rows = map {clean_row $_ } $ht_ref->rows;
+	my @rows = map {clean_row $_} $ht_ref->rows;
 
 	my $t_ref = Data::Table->new(\@rows, \@headers, 0);
 	$t_ref->addCol(undef, $_) for qw( lat lng );

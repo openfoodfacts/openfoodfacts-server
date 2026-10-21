@@ -2,25 +2,29 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use Test2::V0;
+use Log::Any::Adapter 'TAP';
+use Log::Any qw($log);
 
-use File::Basename "dirname";
+use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
+use ProductOpener::Auth qw/get_token_using_password_credentials/;
 
-use Storable qw(dclone);
+use File::Basename qw/dirname/;
 
-remove_all_users();
+use Storable qw/dclone/;
 
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
+my $auth_header = $ua->default_headers->header('Authorization');
+$log->debug('test token header', {header => $auth_header}) if $log->is_debug();
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
@@ -28,30 +32,33 @@ my $tests_ref = [
 		test_case => 'patch-no-body',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890002',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'patch-broken-json-body',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890003',
-		body => 'not json'
+		body => 'not json',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'patch-no-product',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890004',
-		body => '{}'
+		body => '{}',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'patch-empty-product',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890005',
-		body => '{"product":{}}'
+		body => '{"product":{}}',
 	},
 	{
 		test_case => 'patch-packagings-add-not-array',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890006',
-		body => '{"product": {"packagings_add": {"shape": {"lc_name": "bottle"}}}}'
+		body => '{"product": {"packagings_add": {"shape": {"lc_name": "bottle"}}}}',
 	},
 	{
 		test_case => 'patch-packagings-add-one-component',
@@ -64,19 +71,22 @@ my $tests_ref = [
 		test_case => 'post-packagings',
 		method => 'POST',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}',
+		expected_status_code => 405,
 	},
 	{
 		test_case => 'put-packagings',
 		method => 'PUT',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}',
+		expected_status_code => 405,
 	},
 	{
 		test_case => 'delete-packagings',
 		method => 'DELETE',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}',
+		expected_status_code => 405,
 	},
 	{
 		test_case => 'patch-packagings-add-components-to-existing-product',
@@ -97,7 +107,7 @@ my $tests_ref = [
 						"shape": {"id": "en:box"},
 						"material": {"lc_name": "cardboard"},
 						"recycling": {"lc_name": "to recycle"}
-					}				
+					}
 				]
 			}
 		}'
@@ -249,10 +259,12 @@ my $tests_ref = [
 			}
 		}'
 	},
+	# Note: changing the barcode in test below as we were getting a different rev number locally (1)
+	# versus in GitHub action (2). Not sure why, but not important for the test.
 	{
 		test_case => 'patch-request-fields-all',
 		method => 'PATCH',
-		path => '/api/v3/product/1234567890009',
+		path => '/api/v3/product/1234567890109',
 		body => '{
 			"fields": "all",
 			"tags_lc": "en",
@@ -291,6 +303,24 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890009',
 		body => '{
 			"fields": "ecoscore_data",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bag"},
+						"material": {"lc_name": "plastic"}
+					}
+				]
+			}
+		}'
+	},
+	{
+		test_case => 'patch-request-fields-environmental_score-data',
+		method => 'PATCH',
+		path => '/api/v3.2/product/1234567890009',
+		body => '{
+			"fields": "environmental_score_data",
 			"tags_lc": "en",
 			"product": {
 				"packagings": [
@@ -404,7 +434,7 @@ my $tests_ref = [
 			}
 		}'
 	},
-	# Test authentication
+	# Test authentication - HTTP Basic Auth
 	{
 		test_case => 'patch-auth-good-password',
 		method => 'PATCH',
@@ -444,7 +474,51 @@ my $tests_ref = [
 				]
 			}
 		}',
-		expected_status_code => 200,
+		expected_status_code => 403,
+	},
+	# Test authentication - OAuth token
+	{
+		test_case => 'patch-auth-good-oauth-token',
+		method => 'PATCH',
+		path => '/api/v3/product/2234567890001',
+		body => '{
+			"fields": "creator,editors_tags,packagings,created_by_client,last_modified_by_client",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}
+				]
+			}
+		}',
+		headers_in => {
+			'Authorization' => $auth_header,
+		},
+	},
+	{
+		test_case => 'patch-auth-bad-oauth-token',
+		method => 'PATCH',
+		path => '/api/v3/product/2234567890002',
+		body => '{
+			"fields": "creator,editors_tags,packagings",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}			
+				]
+			}
+		}',
+		headers_in => {
+			'Authorization' => 'Bearer 4711',
+		},
+		expected_status_code => 403,
 	},
 	# Packaging complete
 	{
@@ -586,6 +660,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/123',
 		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
+		expected_status_code => 400,
 	},
 	# code "test" to get results for an empty product without saving anything
 	{
@@ -600,10 +675,12 @@ my $tests_ref = [
 		path => '/api/v3/product/test',
 		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Credentials" => "true",
 		},
-		expected_type => "html",
+		expected_status_code => 204,    # specific return code for OPTIONS requests
+		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
 		test_case => 'patch-unrecognized-field',
@@ -625,6 +702,7 @@ my $tests_ref = [
 		}',
 	},
 	# tags fields
+	# stores_tags is not an array, it will be ignored
 	{
 		test_case => 'patch-tags-fields',
 		method => 'PATCH',
@@ -634,9 +712,30 @@ my $tests_ref = [
 			"product": { 
 				"categories_tags": ["coffee"],
 				"labels_tags": ["en:organic", "fr:max havelaar", "vegan", "Something unrecognized"],
-				"brands_tags": ["Some brand"],
+				"brands_tags": ["Some brand", "Aldi"],
 				"unknown_tags": ["some value"],
-				"stores_tags": "comma,separated,list"
+				"stores_tags": "comma,separated,list",
+				"allergens_tags": ["en:milk", "en:eggs", "en:peanuts", "en:tree-nuts", "en:fish", "en:shellfish", "en:wheat", "en:soy", "en:mango", "kiwi", "Unrecognized Allergen"],
+				"traces_tags": ["en:wheat"]
+			}
+		}',
+	},
+	# tags fields with new tags structure (API v3.6)
+	# stores_tags is not an array, it will be ignored
+	{
+		test_case => 'patch-tags-fields-v3-6',
+		method => 'PATCH',
+		path => '/api/v3.6/product/3234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"categories_tags": ["coffee"],
+				"labels_tags": ["en:organic", "fr:max havelaar", "vegan", "Something unrecognized"],
+				"brands_tags": ["Some brand", "Aldi"],
+				"unknown_tags": ["some value"],
+				"stores_tags": "comma,separated,list",
+				"allergens_tags": ["en:milk", "en:eggs", "en:peanuts", "en:tree-nuts", "en:fish", "en:shellfish", "en:wheat", "en:soy", "en:mango", "kiwi", "Unrecognized Allergen"],
+				"traces_tags": ["en:wheat"]
 			}
 		}',
 	},
@@ -644,14 +743,32 @@ my $tests_ref = [
 	{
 		test_case => 'patch-tags-fields-add',
 		method => 'PATCH',
-		path => '/api/v3/product/1234567890100',
+		path => '/api/v3.6/product/1234567890100',
 		body => '{
 			"fields" : "updated",
 			"product": { 
 				"categories_tags_add": ["en:tea"],
 				"stores_tags_add": ["Carrefour", "Mon Ptit magasin"],
 				"countries_tags_fr_add": ["Italie", "en:spain"],
-				"labels_tags_fr": ["végétarien", "Something unrecognized in French"]
+				"labels_tags_fr": ["végétarien", "Something unrecognized in French"],
+				"traces_tags_add": ["en:molluscs", "en:sesame"]
+			}
+		}',
+	},
+	# add to categories (existing) and stores (empty), replace labels - v3.6
+	{
+		test_case => 'patch-tags-fields-add-v3-6',
+		method => 'PATCH',
+		path => '/api/v3.6/product/3234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"brands_tags_add": ["Another brand"],
+				"categories_tags_add": ["en:tea"],
+				"stores_tags_add": ["Carrefour", "Mon Ptit magasin"],
+				"countries_tags_fr_add": ["Italie", "en:spain"],
+				"labels_tags_fr": ["végétarien", "Something unrecognized in French"],
+				"traces_tags_add": ["en:molluscs", "en:sesame"]
 			}
 		}',
 	},
@@ -666,6 +783,18 @@ my $tests_ref = [
 				"lang": "fr",
 				"categories_tags_fr": ["confiture"],
 				"ingredients_text_fr": "Sucre 300g, pommes 100g"
+			}
+		}',
+	},
+	# misspelled brand
+	{
+		test_case => 'patch-misspelled-brand',
+		method => 'PATCH',
+		path => '/api/v3.6/product/test',
+		body => '{
+			"fields" : "updated,brands,brands_tags",
+			"product": { 
+				"brands_tags_add": ["Marks & Spencers", "Some other brand"]
 			}
 		}',
 	},

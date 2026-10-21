@@ -17,7 +17,7 @@ only 		= 1
 [Modules::ProhibitEvilModules]
 [Modules::RequireBarewordIncludes]
 
-[-Modules::RequireFilenameMatchesPackage]
+[Modules::RequireFilenameMatchesPackage]
 
 [Subroutines::ProhibitExplicitReturnUndef]
 [Subroutines::ProhibitNestedSubs]
@@ -55,6 +55,8 @@ equivalent_modules = ProductOpener::PerlStandards
 
 
 # severity 3
+# Note: we want to tighten these rules on max_nests and max_elsif. 
+# But first we have to refactor non conforming code or add critic exceptions
 [ControlStructures::ProhibitDeepNests]
 max_nests = 11
 [ControlStructures::ProhibitCascadingIfElse]

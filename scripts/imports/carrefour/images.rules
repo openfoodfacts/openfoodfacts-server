@@ -1,0 +1,14 @@
+# Rules used by Import.pm to assign an image file to a specific image type
+# Example file names from Carrefour:
+# 3560070968985.1.jpeg
+# 3270190028505.1.99.jpeg
+# 3270190028505.1.99.jpeg
+#- Avant 1
+#- Arrière  7
+#- 3/4 0
+#- Droite  8
+#- Gauche  2
+#- Dessus 3
+#- Dessous 9
+#- Autre      4
+(\d+)\.1\.(.*)	$1.front.$2

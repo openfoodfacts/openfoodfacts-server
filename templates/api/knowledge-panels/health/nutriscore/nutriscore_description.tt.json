@@ -1,0 +1,38 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        "icon_url": "[% static_subdomain %]/images/icons/dist/info.svg",
+        "icon_size": "small",
+        "title":  "[% edq(lang('nutriscore_explanation_title')) %]",
+        "type": "info",
+    },
+    "elements": [
+        // Explanation of Nutri-Score
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "info",
+                "html": `<p>[% lang("nutriscore_explanation_what_it_is") %]</p>
+<p>
+[% lang("nutriscore_explanation_what_it_takes_into_account") %]
+[% lang("nutriscore_explanation_where_the_data_comes_from") %]
+</p>
+[% IF cc == 'be' || cc == 'es' || cc == 'ch' || cc == 'de' || cc == 'fr' || cc == 'nl' || cc == 'lu' %]
+    <p>[% lang("nutriscore_explanation_recommended_by_public_health_authorities") %]</p>
+[% END %]
+                `,
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+<p>&rarr; <a href="/nutriscore">[% lang('nutriscore_learn_more') %]</a></p>
+`
+            },
+        },
+    ]
+}

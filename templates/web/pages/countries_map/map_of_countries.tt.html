@@ -1,0 +1,10 @@
+<!-- start templates/[% template.name %] -->
+
+<div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
+
+<script type="module">
+  import { displayWorldMap } from '[% static_subdomain %]/js/dist/display-list-of-tags.js';
+  displayWorldMap('#world-map', [% encode_json(mapData) %]);
+</script>
+
+<!-- end templates/[% template.name %] -->

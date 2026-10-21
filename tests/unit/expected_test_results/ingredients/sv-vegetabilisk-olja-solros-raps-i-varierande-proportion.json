@@ -1,0 +1,92 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "17001",
+         "from_palm_oil" : "maybe",
+         "id" : "en:vegetable-oil",
+         "ingredients" : [
+            {
+               "ecobalyse_proxy_id" : "23cd53c5-4b66-4b7c-892f-fe74054f66e5",
+               "ecobalyse_proxy_name" : "Tournesol UE",
+               "id" : "en:sunflower",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 75,
+               "percent_max" : 100,
+               "percent_min" : 50,
+               "text" : "solros",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ecobalyse_id" : "c1be6c42-5f21-5afc-af09-1cd4c2f426b6",
+               "ecobalyse_name" : "Colza Origine Inconnue",
+               "id" : "en:rapeseed",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 25,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "raps i varierande proportion",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "labels" : "en:vegan",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "vegetabilisk olja",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "sv",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:vegetable-oil",
+      "en:sunflower",
+      "en:rapeseed"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:vegetable-oil",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
+      "en:sunflower",
+      "en:plant",
+      "en:rapeseed",
+      "en:root-vegetable",
+      "en:vegetable"
+   ],
+   "ingredients_text" : "vegetabilisk olja (solros, raps i varierande proportion)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:rapeseed",
+      "en:sunflower"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:vegetable-oil"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 3,
+   "lc" : "sv",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

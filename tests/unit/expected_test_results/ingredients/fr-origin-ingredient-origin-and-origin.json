@@ -1,8 +1,12 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "ciqual_food_code" : "4003",
+         "ciqual_proxy_food_code" : "4003",
+         "ecobalyse_id" : "0528ba96-12c6-5f56-8b9f-a2343fc8e12b",
+         "ecobalyse_name" : "Pomme de terre FR",
          "id" : "en:potato",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 46.8874700718276,
          "percent_estimate" : 46.8874700718276,
@@ -11,7 +15,10 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
+         "ecobalyse_name" : "Viande de porc -alim. ani. 100% FR-",
          "id" : "en:pork",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 21.9473264166002,
          "percent_estimate" : 21.9473264166002,
@@ -20,7 +27,11 @@
          "vegetarian" : "no"
       },
       {
+         "ciqual_proxy_food_code" : "19041",
+         "ecobalyse_id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+         "ecobalyse_name" : "Lait FR -2025-",
          "id" : "en:semi-skimmed-milk",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 5.48683160415004,
          "percent_estimate" : 5.48683160415004,
@@ -31,6 +42,7 @@
       {
          "ciqual_food_code" : "19402",
          "id" : "en:single-cream",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 5.48683160415004,
          "percent_estimate" : 5.48683160415004,
@@ -40,7 +52,10 @@
       },
       {
          "ciqual_food_code" : "18066",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 5.48683160415004,
          "percent_estimate" : 5.48683160415004,
@@ -49,7 +64,11 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "16400",
+         "ecobalyse_id" : "bbda834e-1548-4682-a461-c367dc1ce517",
+         "ecobalyse_name" : "Beurre FR -2025-",
          "id" : "en:butter",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
@@ -58,16 +77,23 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11013",
+         "ecobalyse_id" : "d87bdd32-d698-4044-ae20-15b96c65f680",
+         "ecobalyse_name" : "Moutarde FR -2025-",
          "id" : "fr:moutarde-a-l-ancienne",
          "ingredients" : [],
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
-         "text" : "Moutarde à l'ancienne"
+         "text" : "Moutarde à l'ancienne",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
       },
       {
          "ciqual_food_code" : "19402",
          "id" : "en:cream",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
@@ -76,16 +102,25 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11013",
+         "ecobalyse_id" : "d87bdd32-d698-4044-ae20-15b96c65f680",
+         "ecobalyse_name" : "Moutarde FR -2025-",
          "id" : "en:dijon-mustard",
          "ingredients" : [],
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
-         "text" : "Moutarde de Dijon"
+         "text" : "Moutarde de Dijon",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
       },
       {
          "ciqual_food_code" : "31008",
+         "ecobalyse_id" : "87accb8f-37c1-4364-873a-5e8e67fd5811",
+         "ecobalyse_name" : "Miel FR",
          "id" : "en:flower-honey",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
@@ -94,7 +129,9 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11081",
          "id" : "en:spice",
+         "is_in_taxonomy" : 1,
          "origins" : "en:india",
          "percent" : 0.548683160415004,
          "percent_estimate" : 0.548683160415004,
@@ -105,6 +142,7 @@
       {
          "id" : "en:broth",
          "ingredients" : [],
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 0.548683160415004,
          "percent_estimate" : 0.548683160415004,
@@ -112,7 +150,10 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_name" : "Sel -2025-",
          "id" : "en:finegrained-salt",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent" : 0.139664804469274,
          "percent_estimate" : 0.139664804469277,
@@ -132,16 +173,6 @@
       ],
       "en:non-vegetarian" : [
          "en:pork"
-      ],
-      "en:vegan-status-unknown" : [
-         "fr:moutarde-a-l-ancienne",
-         "en:dijon-mustard",
-         "en:broth"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "fr:moutarde-a-l-ancienne",
-         "en:dijon-mustard",
-         "en:broth"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -149,32 +180,7 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:potato",
-      "en:vegetable",
-      "en:root-vegetable",
-      "en:tuber",
-      "en:pork",
-      "en:animal",
-      "en:semi-skimmed-milk",
-      "en:dairy",
-      "en:milk",
-      "en:single-cream",
-      "en:cream",
-      "en:water",
-      "en:butter",
-      "fr:moutarde-a-l-ancienne",
-      "en:mustard",
-      "en:dijon-mustard",
-      "en:flower-honey",
-      "en:added-sugar",
-      "en:honey",
-      "en:spice",
-      "en:condiment",
-      "en:broth",
-      "en:finegrained-salt",
-      "en:salt"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 13,
    "ingredients_n_tags" : [
       "13",
@@ -198,14 +204,15 @@
    "ingredients_percent_analysis" : -1,
    "ingredients_tags" : [
       "en:potato",
-      "en:vegetable",
-      "en:root-vegetable",
+      "en:starchy-root-vegetable",
       "en:tuber",
+      "en:root-vegetable",
+      "en:vegetable",
       "en:pork",
       "en:animal",
       "en:semi-skimmed-milk",
-      "en:dairy",
       "en:milk",
+      "en:dairy",
       "en:single-cream",
       "en:cream",
       "en:water",
@@ -214,8 +221,8 @@
       "en:mustard",
       "en:dijon-mustard",
       "en:flower-honey",
-      "en:added-sugar",
       "en:honey",
+      "en:added-sugar",
       "en:spice",
       "en:condiment",
       "en:broth",
@@ -228,21 +235,27 @@
    "ingredients_with_unspecified_percent_n" : 0,
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [
-      "en:butter",
-      "en:pork",
-      "en:semi-skimmed-milk",
+      "en:broth",
+      "en:pork"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:broth",
+      "en:cream",
+      "en:single-cream",
       "en:spice"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
-   "known_ingredients_n" : 24,
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 13,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
-   "origin_fr" : "Pomme de Terre de France, Porc de France, Lait demi-écrémé de France, Crème liquide de France, Eau de France, Beurre de France, \n\t\t\t\tMoutarde à l'ancienne de France, Crème de France, Moutarde de Dijon de France, Miel de fleurs de France, Epices : Inde, Bouillon de France, Sel fin de France",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent",
+      "en:at-least-5-ingredients-with-specified-percent",
+      "en:at-least-10-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "origin_fr" : "Pomme de Terre de France, Porc de France, Lait demi-écrémé de France, Crème liquide de France, Eau de France, Beurre de France,\n\t\t\t\tMoutarde à l'ancienne de France, Crème de France, Moutarde de Dijon de France, Miel de fleurs de France, Epices : Inde, Bouillon de France, Sel fin de France",
    "specific_ingredients" : [
       {
          "id" : "en:potato",

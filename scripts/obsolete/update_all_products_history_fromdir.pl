@@ -26,8 +26,9 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -44,7 +45,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -58,39 +59,22 @@ GetOptions ( 'products=s' => \@products);
 @products = split(/,/,join(',',@products));
 
 
-sub find_products($$) {
+sub find_products($) {
 
 	my $dir = shift;
-	my $code = shift;
 
-	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
-	foreach my $file (readdir(DH)) {
-		chomp($file);
-		#print "file: $file\n";
-		if ($file eq 'product.sto') {
-			push @products, $code;
-			#print "code: $code\n";
-		}
-		else {
-			$file =~ /\./ and next;
-			if (-d "$dir/$file") {
-				find_products("$dir/$file","$code$file");
-			}
-		}
+	my $next = product_iter($dir);
+	while (my $file = $next->()) {
+		push @products, product_id_from_path($file);
 	}
-	closedir DH;
 
 	return;
 }
 
 
 if (scalar $#products < 0) {
-	find_products("$data_root/products",'');
+	find_products($BASE_DIRS{PRODUCTS});
 }
-
-
-
-
 
 my $count = $#products;
 	
@@ -104,14 +88,14 @@ my $count = $#products;
 		# print STDERR "updating product $code\n";
 		
 		#my $product_ref = retrieve_product($code);
-		my $product_ref = retrieve("$data_root/products/$path/product.sto");
+		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product");
 		
 		if ((defined $product_ref) and ($code ne '')) {
 				
 		$lc = $product_ref->{lc};
 		$lang = $lc;
 		
-		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+		my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 		if (not defined $changes_ref) {
 			$changes_ref = [];
 		}
@@ -133,9 +117,9 @@ my $count = $#products;
 
 				#if ($product_ref->{code} eq '3596710313266') {
 				delete $product_ref->{deleted};
-				store("$data_root/products/$path/product.sto", $product_ref);
+				store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 				$products_collection->save($product_ref);
-				store("$data_root/products/$path/changes.sto", $changes_ref);
+				store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 				#}
 			}
 		}
@@ -148,9 +132,9 @@ my $count = $#products;
 			print "!!! deleted non empty product: $code\n";
 		}
 
-		#store("$data_root/products/$path/product.sto", $product_ref);		
+		#store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);		
 		#$products_collection->save($product_ref);
-		#store("$data_root/products/$path/changes.sto", $changes_ref);
+		#store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 		}
 	}
 

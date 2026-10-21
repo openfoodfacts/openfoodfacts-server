@@ -1,11 +1,15 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:fruit",
          "ingredients" : [
             {
                "ciqual_food_code" : "13050",
+               "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+               "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                "id" : "en:apple",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 45.8333333333333,
                "percent_max" : 100,
                "percent_min" : 16.6666666666667,
@@ -15,7 +19,10 @@
             },
             {
                "ciqual_food_code" : "13005",
+               "ecobalyse_id" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
+               "ecobalyse_name" : "Banane par défaut -2025-",
                "id" : "en:banana",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 14.5833333333333,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -25,7 +32,10 @@
             },
             {
                "ciqual_food_code" : "13008",
+               "ecobalyse_id" : "417a0eff-a10d-4231-839b-d953f644d69c",
+               "ecobalyse_name" : "Cerise, dénoyautée, crue Origine Inconnue",
                "id" : "en:cherry",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 14.5833333333333,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
@@ -35,6 +45,7 @@
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
@@ -46,7 +57,11 @@
          "id" : "en:vegetable",
          "ingredients" : [
             {
+               "ciqual_food_code" : "13004",
+               "ecobalyse_id" : "3c49c70f-7650-44f8-97f1-7490cbabf595",
+               "ecobalyse_name" : "Avocat par défaut -2025-",
                "id" : "en:avocado",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 12.5,
                "percent_max" : 50,
                "percent_min" : 0,
@@ -57,7 +72,10 @@
             },
             {
                "ciqual_food_code" : "20089",
+               "ecobalyse_id" : "f1769f71-8a52-5e10-b3a0-efdc2a1918f8",
+               "ecobalyse_name" : "Radis Origine Inconnue",
                "id" : "en:black-radish",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 12.5,
                "percent_max" : 25,
                "percent_min" : 0,
@@ -67,6 +85,7 @@
                "vegetarian" : "yes"
             }
          ],
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -81,21 +100,7 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:fruit",
-      "en:vegetable",
-      "en:apple",
-      "en:malaceous-fruit",
-      "en:banana",
-      "en:cherry",
-      "en:prunus-species-fruit",
-      "en:avocado",
-      "en:fruit-vegetable",
-      "en:black-radish",
-      "en:root-vegetable",
-      "en:taproot-vegetable",
-      "en:radish"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 7,
    "ingredients_n_tags" : [
       "7",
@@ -122,9 +127,9 @@
       "en:avocado",
       "en:fruit-vegetable",
       "en:black-radish",
-      "en:root-vegetable",
+      "en:radish",
       "en:taproot-vegetable",
-      "en:radish"
+      "en:root-vegetable"
    ],
    "ingredients_text" : "fruits (apple, banana and dried cherry), vegetables (pitted avocado, peeled black radish).",
    "ingredients_with_specified_percent_n" : 0,
@@ -132,16 +137,19 @@
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:avocado"
+      "en:fruit",
+      "en:vegetable"
    ],
-   "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 13,
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:fruit",
+      "en:vegetable"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 7,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

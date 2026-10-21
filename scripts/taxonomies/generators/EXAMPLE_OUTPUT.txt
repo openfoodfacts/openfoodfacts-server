@@ -1,0 +1,132 @@
+# Example Output from Google Product Taxonomy Conversion
+
+This file shows a sample of the generated taxonomy to illustrate the format and content.
+
+## Sample Categories
+
+### Root Category with Translations and Wikidata
+
+en: Animals & Pet Supplies
+xx: Animals & Pet Supplies
+cs: Chovatelství
+da: Dyr og tilbehør til kæledyr
+de: Tiere & Tierbedarf
+es: Productos para mascotas y animales
+fr: Animaux et articles pour animaux de compagnie
+it: Articoli per animali
+ja: ペット・ペット用品
+nl: Dieren
+no: Dyr og kjæledyrutstyr
+pl: Zwierzęta i artykuły dla zwierząt
+pt: Animais e suprimentos para animais de estimação
+ru: Животные и товары для питомцев
+sv: Djur och tillbehör till husdjur
+tr: Hayvanlar ve Evcil Hayvan Ürünleri
+wikidata:en: Q116957923
+
+### Child Category with Parent Relationship
+
+< en: Animals & Pet Supplies
+
+en: Pet Supplies
+xx: Pet Supplies
+cs: Potřeby pro domácí zvířata
+da: Tilbehør til kæledyr
+de: Haustierbedarf
+es: Productos para mascotas
+fr: Articles pour animaux de compagnie
+it: Animali domestici - Articoli
+ja: ペット用品
+nl: Benodigdheden voor huisdieren
+no: Kjæledyrutstyr
+pl: Artykuły dla zwierząt
+pt: Suprimentos para animais de estimação
+ru: Товары для домашних животных
+sv: Tillbehör till husdjur
+tr: Evcil Hayvan Ürünleri
+wikidata:en: Q115921084
+
+### Deeply Nested Category
+
+< en: Pet Supplies
+
+en: Bird Supplies
+xx: Bird Supplies
+cs: Potřeby pro ptáky
+da: Tilbehør til fugle
+de: Vogelbedarf
+es: Productos para pájaros
+fr: Accessoires pour oiseaux
+it: Articoli per uccelli
+ja: 鳥用品
+nl: Benodigdheden voor vogels
+no: Fugleutstyr
+pl: Artykuły dla ptaków
+pt: Suprimentos para pássaros
+ru: Товары для птиц
+sv: Fågeltillbehör
+tr: Kuş Ürünleri
+wikidata:en: Q116958015
+
+< en: Bird Supplies
+
+en: Bird Cage Accessories
+xx: Bird Cage Accessories
+cs: Ptačí klece – příslušenství
+da: Tilbehør til fuglebure
+de: Vogelkäfigzubehör
+es: Accesorios de jaulas para pájaros
+fr: Accessoires pour cages à oiseaux
+it: Articoli per gabbie per uccelli
+ja: 鳥かご用アクセサリー
+nl: Accessoires voor vogelkooien
+no: Fugleburtilbehør
+pl: Akcesoria do klatek dla ptaków
+pt: Acessórios para gaiolas de pássaros
+ru: Аксессуары для птичьих клеток
+sv: Fågelburtillbehör
+tr: Kuş Kafesi Aksesuarları
+wikidata:en: Q117209035
+
+## Statistics
+
+- Total categories: 5,595
+- Languages: 15 (en, fr, de, es, it, nl, pt, cs, da, ja, no, pl, ru, sv, tr)
+- Wikidata mappings: 5,593 (99.9% coverage)
+- Hierarchy depth: Up to 7 levels deep
+
+## Format Features
+
+1. **Parent Relationships**: Indicated by `< en: Parent Category`
+2. **Multiple Synonyms**: Comma-separated for each language
+3. **International Terms**: `xx:` prefix for terms used across languages
+4. **Properties**: 
+   - `wikidata:en: Q123456` - Wikidata Q-ID
+   - `carbon_impact_fr_impactco2:en:` - CO2 equivalent
+   - `unit_name:en:` - Unit name for carbon calculations
+
+## Preserved Data from Existing Taxonomy
+
+If a category existed in the original OPF taxonomy with additional data:
+- Carbon impact values are preserved
+- Custom properties are maintained
+- Additional translations are merged
+- Unit names for environmental calculations
+
+Example:
+
+< en: electronic products
+
+en: Smartphones
+xx: Smartphones
+de: Smartphones
+es: Teléfonos inteligentes
+fr: Smartphones
+carbon_impact_fr_impactco2:en: 85.9
+carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/smartphone
+unit_name:xx: smartphone
+unit_name:en: smartphone
+wikidata:en: Q22645
+
+(Note: This is an illustrative example - Smartphones may not be directly in Google's taxonomy)
+

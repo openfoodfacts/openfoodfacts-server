@@ -3,11 +3,13 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Ingredients qw/extract_additives_from_text/;
 use ProductOpener::Products qw/:all/;
 
 # dummy product for testing
@@ -39,7 +41,10 @@ my @tests = (
 	],
 	[{lc => "fr", ingredients_text => "Laitue, Carmine"}, []],
 	[
-		{lc => "fr", ingredients_text => "poudres à lever (carbonates acides d’ammonium et de sodium, acide citrique)"},
+		{
+			lc => "fr",
+			ingredients_text => "poudres à lever (carbonates acides d’ammonium et de sodium, acide citrique)"
+		},
 		["en:e503ii", "en:e500ii", "en:e330"]
 	],
 	[
@@ -132,7 +137,7 @@ my @tests = (
 			ingredients_text =>
 				"Mleczna baza [syrop glukozowy, oleje roślinne (kokosowy, z ziaren palmowych w zmiennych proporcjach), mleko w proszku odtłuszczone (5%), serwatka (z mleka) w proszku, regulatory kwasowości: fosforan dipotasowy, cytrynian trisodowy, białka mleka, substancja przeciwzbrylajaca: dwutlenek krzemu], cukier, kawa rozpuszczalna (8,7%), kawa zbożowa rozpuszczalna (ekstrakt prażonego jęczmienia i żyta) (6%), węglan magnezu, mleko w proszku pełne (1%), aromat. Produkt może zawierać soję."
 		},
-		["en:e340ii", "en:e331iii", "en:e551"]
+		["en:e340ii", "en:e331iii", "en:e551", "en:e504i"]
 	],
 	[
 		{lc => "pl", ingredients_text => "regulatory kwasowości: kwas cytrynowy i cytryniany sodu."},
@@ -180,6 +185,13 @@ my @tests = (
 		['en:e123']
 	],
 
+	# roman numeral in the name: "azotan(III) sodu" is E250, "azotan sodu" is E251
+	[{lc => "pl", ingredients_text => "konserwant: azotan(III) sodu"}, ["en:e250"]],
+	[{lc => "pl", ingredients_text => "konserwant: Azotan(III) potasu, sól"}, ["en:e249"]],
+	[{lc => "pl", ingredients_text => "konserwant: Azotan potasu"}, ["en:e252"]],
+	[{lc => "pl", ingredients_text => "konserwant: Azotan(III) potasu i azotan(III) sodu"}, ["en:e249", "en:e250"]],
+	[{lc => "en", ingredients_text => "colour: iron (III) oxide"}, ["en:e172ii"]],
+
 	# additive class followed by an ingredient, without a :
 	# this will test the additives entries regexps in Ingredients.pm
 	[
@@ -206,6 +218,95 @@ my @tests = (
 		},
 		[]
 	],
+	# Paprika for color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "paprika for color"
+		},
+		['en:e160c']
+	],
+	# Colored with paprika
+	[
+		{
+			lc => 'en',
+			ingredients_text => "colored with paprika"
+		},
+		['en:e160c']
+	],
+	# oleoresin paprika
+	[
+		{
+			lc => 'en',
+			ingredients_text => "oleoresin paprika"
+		},
+		['en:e160c']
+	],
+	# oleoresin of paprika
+	[
+		{
+			lc => 'en',
+			ingredients_text => "oleoresin of paprika"
+		},
+		['en:e160c']
+	],
+	# paprika added for color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "paprika added for color"
+		},
+		['en:e160c']
+	],
+	# turmeric color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "turmeric color"
+		},
+		['en:e100']
+	],
+	# turmeric for color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "turmeric for color"
+		},
+		['en:e100']
+	],
+
+	# a variant unknown to the taxonomy falls back to the additive: "E330 (i)" is E330,
+	# while "E160a (ii)" is a separate additive
+	[
+		{lc => "en", ingredients_text => "acid: E330 (i), colour: E160a (ii), emulsifier: E450 (ix)"},
+		["en:e330", "en:e160aii", "en:e450ix"]
+	],
+
+	# INS variants
+	[{lc => "en", ingredients_text => "choline citrate"}, []],
+	[{lc => "en", ingredients_text => "emulsifier: choline citrate"}, ["en:e1001iv"]],
+	[{lc => "en", ingredients_text => "water, sugar, blackcurrant extract, bromelain"}, []],
+	[{lc => "en", ingredients_text => "colour: E163(iii)"}, ["en:e163iii"]],
+	[{lc => "en", ingredients_text => "sweetener: E952(iv)"}, ["en:e952iv"]],
+
+	# Vitamin dosages must not create additive tags, even in vitamin lists.
+	[{lc => 'en', ingredients_text => 'vitamin  E 105 mg'}, []],
+	[{lc => 'fr', ingredients_text => 'vitamine E 105,125 mg'}, []],
+	[{lc => 'fr', ingredients_text => 'vitamines A, C et E 105 mg'}, []],
+	[{lc => 'el', ingredients_text => 'βιταμίνη E 105 mg'}, []],
+	[{lc => 'ru', ingredients_text => 'витамин е 105 мг'}, []],
+	[{lc => 'fr', ingredients_text => 'vitamines A, C et E 105 mg, colorant E 120'}, ['en:e120']],
+	[
+		{lc => 'fr', ingredients_text => 'vitamine E 105 mg, E 330, E-160a(ii), INS 471'},
+		['en:e330', 'en:e160aii', 'en:e471']
+	],
+	[{lc => 'ru', ingredients_text => 'е 330'}, ['en:e330']],
+	# 3b405 was moved to the minerals taxonomy: no additive tag for it
+	[{lc => 'fr', ingredients_text => '3B 405, 3B 202, 1b 306(i)'}, ['en:e916', 'en:e306']],
+	[{lc => 'fr', ingredients_text => 'E 330 105 mg, 3b 405 7,2 mg'}, ['en:e330']],
+	[{lc => 'fr', ingredients_text => 'Omega 3b 150mg, Omega 3b 103 mg, Omega E 150 mg'}, []],
+	[{lc => 'fr', ingredients_text => 'E 330 mg, INS 471 mg, 3b 405 mg'}, []],
+	[{lc => 'fr', ingredients_text => 'lot 1B 064, 4B 166, 2B 1003131447, 3b 999'}, []],
 
 );
 
@@ -217,9 +318,9 @@ foreach my $test_ref (@tests) {
 	$product_ref->{categories_tags} = ["en:debug"];
 	$product_ref->{"ingredients_text_" . $product_ref->{lc}} = $product_ref->{ingredients_text};
 
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 
-	is_deeply($product_ref->{additives_original_tags}, $expected_tags) or diag explain $product_ref;
+	is($product_ref->{additives_original_tags}, $expected_tags) or diag Dumper $product_ref;
 }
 
 done_testing();

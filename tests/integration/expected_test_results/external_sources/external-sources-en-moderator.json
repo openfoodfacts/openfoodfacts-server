@@ -1,0 +1,36 @@
+{
+   "errors" : [],
+   "external_sources" : [
+      {
+         "description" : "Indicator of animal suffering computed by product",
+         "filters" : {
+            "categories" : [
+               "en:eggs"
+            ],
+            "countries" : [],
+            "languages" : [],
+            "product_types" : [
+               "food"
+            ]
+         },
+         "icon_url" : "https://lheuredescomptes.org/logo_ES_alpha.svg",
+         "id" : "empreinte_souffrance",
+         "knowledge_panel_url" : "https://api.lheuredescomptes.org/off/v1/knowledge-panel/$code?lang=$lc&country=$cc",
+         "name" : "Suffering Footprint",
+         "privacy_policy_url" : "",
+         "provider_name" : "l'Heure des Comptes",
+         "provider_website" : "https://lheuredescomptes.org/",
+         "scope" : "moderators",
+         "section" : "animal_welfare",
+         "section_title" : "Animal welfare",
+         "user_in_scope" : true
+      }
+   ],
+   "result" : {
+      "id" : "ok",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "warnings" : []
+}

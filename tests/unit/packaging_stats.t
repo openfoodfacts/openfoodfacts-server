@@ -3,15 +3,14 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
-use Test::Number::Delta relative => 1.001;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::PackagingStats qw/:all/;
-use ProductOpener::Test qw/:all/;
+use ProductOpener::PackagingStats qw/add_product_materials_to_stats compute_stats_for_all_materials/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 use ProductOpener::API qw/:all/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));

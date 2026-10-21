@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -30,26 +30,29 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
+use ProductOpener::Store qw/retrieve_object store_object object_exists write_json/;
+use ProductOpener::Texts qw/:all/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag/;
+use ProductOpener::ProductsTags qw/add_tags_to_field/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Products qw/product_path product_path_from_id retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::GeoIP;
+use ProductOpener::HTTP qw/create_user_agent/;
+use ProductOpener::Redis qw/push_product_update_to_redis/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Getopt::Long;
 
 my $year;
@@ -64,7 +67,7 @@ GetOptions(
 	'add-countries' => \$add_countries,
 );
 
-if ((not defined $year) or not((defined $update_popularity) or (defined $update_scans))) {
+if ((not defined $year) or not(1 or (defined $update_popularity) or (defined $update_scans))) {
 	print STDERR <<USAGE
 scanbot.pl processes nginx log files that have been filtered to keep only the OFF apps scans for a particular year.
 
@@ -102,7 +105,7 @@ print STDERR "Running scanbot for year $year\n";
 
 my %codes = ();
 
-my $j = 0;    # API calls (or scans if logs have been filtered to keep only scans)
+my $scans = 0;    # API calls (or scans if logs have been filtered to keep only scans)
 
 # 139.167.246.115 - - [02/Jan/2019:17:46:57 +0100] "GET /api/v0/product/123.json?f
 
@@ -110,23 +113,23 @@ print STDERR "Loading scan logs\n";
 
 # Save scan product data in /data
 # This scan data can then be filtered and used as input for other scripts such as add_nutriscore_to_scanbot_csv.pl
-my $output_dir = "$data_root/data/scanbot.$year";
-if (!-e $output_dir) {
-	mkdir($output_dir, oct(755)) or die("Could not create $output_dir : $!\n");
-}
+my $output_dir = "$BASE_DIRS{PRIVATE_DATA}/scanbot.$year";
+ensure_dir_created_or_die($output_dir);
 
 my %ips = ();
+my $lines = 0;
 
 while (<STDIN>) {
 	my $line = $_;
 	my $ip = $_;
 	$ip =~ s/\s.*//;
 	chomp($ip);
+	$lines++;
 
 	# Get the product code e.g. "GET /api/v0/product/4548022405787.json?fields=image_front_small_url,product_name HTTP/2.0"
-	if ($line =~ / \/api\/v(?:[^\/]+)\/product\/(\d+)/) {
+	# or now: "GET /cgi/display.pl?/api/v3/product/6111242101852/?lc=fr&tags_lc=fr&cc=ma&fields=product_name%2Cproduct_name_languages%2Cbrands%2Ccode%2Cproduct_type%2Cnutrition_grade_fr%2Cimage_ [..]
+	if ($line =~ /(?: |\/cgi\/display.pl\?)\/api\/v(?:[^\/]+)\/product\/(\d+)/) {
 
-		$j++;
 		my $code = $1;
 
 		# Skip bogus codes
@@ -141,18 +144,19 @@ while (<STDIN>) {
 
 		$ips{$ip}++;
 
-		($j % 1000) == 0 and print "Loading scan logs $j\n";
+		$scans++;
+		($scans % 1000) == 0 and print "Loading scan logs $scans\n";
 	}
 }
 
-print STDERR "Loaded scan logs: $j lines\n";
+print STDERR "Loaded scan logs: $scans scans from $lines lines\n";
 
 my $changed_products = 0;
 my $added_countries = 0;
 
 # Count unique ips
 
-my $total_scans = $j;
+my $total_scans = $scans;
 my $total_unique_scans = 0;
 
 foreach my $code (keys %codes) {
@@ -167,15 +171,15 @@ my $ips_n = scalar keys %ips;
 
 print STDERR "Computing GeoIPs for $ips_n ip addresses\n";
 
-$j = 0;
+my $ips = 0;
 
 foreach my $ip (keys %ips) {
-	$j++;
+	$ips++;
 	$geoips{$ip} = ProductOpener::GeoIP::get_country_code_for_ip($ip);
 	if (defined $geoips{$ip}) {
 		$geoips{$ip} = lc($geoips{$ip});
 	}
-	($j % 1000) == 0 and print "$j / $ips_n ips\n";
+	($ips % 1000) == 0 and print "$ips / $ips_n ips\n";
 }
 
 # Compute countries
@@ -188,9 +192,7 @@ my %products_for_countries = ();
 
 my %countries_ranks_for_products = ();
 
-$j = 0;
-
-my $k = 0;
+my $j = 0;
 my $i = 0;
 
 foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $codes{$a}{n}} keys %codes) {
@@ -205,8 +207,8 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 	# next if not defined retrieve_product($code);
 	my $product_id = $code;
 	my $path = product_path_from_id($product_id);
-	my $product_path = "$data_root/products/$path/product.sto";
-	next if !-e $product_path;
+	my $product_path = "$BASE_DIRS{PRODUCTS}/$path/product";
+	next if !object_exists($product_path);
 
 	$countries_ranks_for_products{$code} = {};
 
@@ -232,8 +234,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 	}
 
 	if (($j % 100) == 0) {
-		print "computing countries $j - $i ips \n";
-		$k = 0;
+		print "computing countries $j products - $i ips \n";
 		$i = 0;
 	}
 }
@@ -242,7 +243,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 
 if ($update_scans) {
 
-	my $scans_ref = retrieve_json("$data_root/products/all_products_scans.json");
+	my $scans_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/all_products_scans");
 	if (not defined $scans_ref) {
 		$scans_ref = {};
 	}
@@ -253,7 +254,8 @@ if ($update_scans) {
 		unique_scans_n_by_country => \%countries_for_all_products,
 	};
 
-	store_json("$data_root/products/all_products_scans.json", $scans_ref);
+	#11901: Switch to using store_object after migration. We always want to save these to JSON
+	write_json("$BASE_DIRS{PRODUCTS}/all_products_scans.json", $scans_ref);
 }
 
 print STDERR "Ranking products for all countries\n";
@@ -340,7 +342,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 
 		if ($update_scans) {
 
-			my $scans_ref = retrieve_json("$data_root/products/$path/scans.json");
+			my $scans_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/scans");
 			if (not defined $scans_ref) {
 				$scans_ref = {};
 			}
@@ -352,7 +354,8 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 				unique_scans_rank_by_country => $countries_ranks_for_products{$code},
 			};
 
-			store_json("$data_root/products/$path/scans.json", $scans_ref);
+			#11901: Switch to using store_object after migration. We always want to save these to JSON
+			write_json("$BASE_DIRS{PRODUCTS}/$path/scans.json", $scans_ref);
 		}
 
 		# Update popularity_tags + add countries
@@ -472,9 +475,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 
 					print "notifying slack: $bot\n";
 
-					require LWP::UserAgent;
-
-					my $ua = LWP::UserAgent->new;
+					my $ua = create_user_agent();
 
 					my $server_endpoint
 						= "https://openfoodfacts.slack.com/services/hooks/incoming-webhook?token=jMDE8Fzkz9qD7uC9Lq04fbZH";
@@ -506,8 +507,10 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 			}
 			else {
 				print "updating scan count for $code\n";
-				store("$data_root/products/$path/product.sto", $product_ref);
+				$product_ref->{last_updated_t} = time() + 0;
+				store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 				get_products_collection()->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				push_product_update_to_redis($product_ref, {"userid" => 'scanbot', "comment" => $year}, "updated");
 			}
 		}
 	}
@@ -540,9 +543,7 @@ if (($changed_products > 0) and ($added_countries > 0)) {
 	print $msg;
 
 	if (1) {
-		require LWP::UserAgent;
-
-		my $ua = LWP::UserAgent->new;
+		my $ua = create_user_agent();
 
 		my $server_endpoint
 			= "https://openfoodfacts.slack.com/services/hooks/incoming-webhook?token=jMDE8Fzkz9qD7uC9Lq04fbZH";
@@ -571,5 +572,13 @@ if (($changed_products > 0) and ($added_countries > 0)) {
 close $PRODUCTS;
 close $LOG;
 
-print "products: $i - scans: $j\n";
+print "products: $i - scans: $scans\n";
+
+foreach my $country_code (
+	sort {$countries_for_all_products{$a} <=> $countries_for_all_products{$b}}
+	keys %countries_for_all_products
+	)
+{
+	print "$country_code: $countries_for_all_products{$country_code}\n";
+}
 

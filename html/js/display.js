@@ -19,7 +19,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 /* eslint-disable no-undefined */
-/*exported lang countries*/
+/* exported lang countries */
+/* global _paq */
 
 
 function doWebShare(e) {
@@ -27,24 +28,34 @@ function doWebShare(e) {
 
     if (!window.isSecureContext || navigator.share === undefined) {
         console.error('Error: Unsupported feature: navigator.share');
-
+        
         return;
     }
 
-    var title = this.title;
-    var url = this.href;
-    navigator.share({ title: title, url: url }).then(() => console.info('Successfully sent share'), (error) => console.error('Error sharing: ' + error));
+    const title = this.title;
+    const url = this.href;
+
+    navigator.share({ title: title, url: url }).then(
+        () => {
+            console.info('Successfully sent share');
+
+            if (typeof _paq !== 'undefined') {
+                _paq.push(['trackEvent', 'product', 'share', 'product page']);
+            }
+        },
+        (error) => console.error('Error sharing: ' + error)
+    );
 }
 
 function onLoad() {
-    var buttons = document.getElementsByClassName('share_button');
-    var shareAvailable = window.isSecureContext && navigator.share !== undefined;
+    const buttons = document.getElementsByClassName('share_button');
+    const shareAvailable = window.isSecureContext && navigator.share !== undefined;
 
-    [].forEach.call(buttons, function(button) {
+    [].forEach.call(buttons, function (button) {
         if (shareAvailable) {
             button.style.display = 'block';
 
-            [].forEach.call(button.getElementsByTagName('a'), function(a) {
+            [].forEach.call(button.getElementsByTagName('a'), function (a) {
                 a.addEventListener('click', doWebShare);
             });
         } else {
@@ -61,7 +72,7 @@ function lang() {
             url: document.location.protocol + '//static.' + document.querySelector('html').dataset.serverdomain + '/data/i18n/' + document.querySelector('html').lang + '/lang.json',
             dataType: 'json',
             async: false,
-            success: function(json) {
+            success: function (json) {
                 langData = json;
             }
         });
@@ -78,7 +89,7 @@ function countries() {
             url: '/cgi/countries.pl',
             dataType: 'json',
             async: false,
-            success: function(json) {
+            success: function (json) {
                 countriesData = json;
             }
         });
@@ -89,17 +100,36 @@ function countries() {
 
 window.addEventListener('load', onLoad);
 
-$(function() {
+$(function () {
+    const hostname = window.location.hostname;
+    const domainParts = hostname.split('.');
+    let currentCC = '';
+    
+    if (domainParts.length >= 2) {
+        currentCC = domainParts[0];
+    }
+    if (currentCC === document.querySelector('html').dataset.serverdomain.split('.')[0]) {
+        currentCC = 'world';
+    }
+    if (currentCC) {
+        const allCountries = countries();
+        const currentCountryName = allCountries[currentCC];
+
+        if (currentCountryName) {
+            const newOption = new Option(currentCountryName, currentCC, true, true);
+            $('#select_country').append(newOption);
+        }
+    }
     $("#select_country").select2({
         allowClear: true,
         ajax: {
             url: '/cgi/countries.pl',
             dataType: 'json',
-            processResults: function(data) {
+            processResults: function (data) {
                 const results = [];
-                var worldresult;
+                let worldresult;
                 // eslint-disable-next-line guard-for-in
-                for (var k in data) {
+                for (const k in data) {
                     if (k == 'world') {
                         worldresult = { id: k, text: data[k] };
                     } else {
@@ -109,7 +139,7 @@ $(function() {
 
                 const locale = document.querySelector('html').lang;
 
-                results.sort(function(a, b) {
+                results.sort(function (a, b) {
                     return a.text.localeCompare(b.text, locale);
                 });
                 if (typeof worldresult === 'object') {
@@ -121,14 +151,14 @@ $(function() {
                 };
             }
         }
-    }).on("select2:select", function(e) {
-        var subdomain = e.params.data.id;
+    }).on("select2:select", function (e) {
+        let subdomain = e.params.data.id;
         if (!subdomain) {
             subdomain = 'world';
         }
 
         window.location.href = document.location.protocol + '//' + subdomain + '.' + document.querySelector('html').dataset.serverdomain;
-    }).on("select2:unselect", function() {
+    }).on("select2:unselect", function () {
         window.location.href = document.location.protocol + '//world.' + document.querySelector('html').dataset.serverdomain;
     });
 });

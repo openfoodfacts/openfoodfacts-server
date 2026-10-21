@@ -1,0 +1,41 @@
+{
+   "lc" : "en",
+   "misc_tags" : [
+      "en:packagings-number-of-components-3",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:bottle-cap",
+      "en:label"
+   ],
+   "packaging_text" : "plastic bottle, plastic cap, plastic label",
+   "packagings" : [
+      {
+         "food_contact" : 1,
+         "material" : "en:plastic",
+         "shape" : "en:bottle"
+      },
+      {
+         "food_contact" : 1,
+         "material" : "en:plastic",
+         "shape" : "en:bottle-cap"
+      },
+      {
+         "food_contact" : 0,
+         "material" : "en:plastic",
+         "shape" : "en:label"
+      }
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 3
+}

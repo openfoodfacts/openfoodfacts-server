@@ -1,8 +1,12 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "13014",
+         "ecobalyse_id" : "dd6ebd55-dc52-4e9e-ac79-aa3ed4b3295d",
+         "ecobalyse_name" : "Purée de fraise FR -2025-",
          "id" : "en:strawberry",
+         "is_in_taxonomy" : 1,
          "origins" : "en:france",
          "percent_estimate" : 55.5555555555556,
          "percent_max" : 100,
@@ -13,7 +17,10 @@
       },
       {
          "ciqual_food_code" : "13007",
+         "ecobalyse_id" : "6cc1c2fd-1d30-5ec1-89b5-734d1947b7dd",
+         "ecobalyse_name" : "Cassis HORS UE",
          "id" : "en:blackcurrant",
+         "is_in_taxonomy" : 1,
          "origins" : "en:south-africa",
          "percent_estimate" : 22.2222222222222,
          "percent_max" : 50,
@@ -24,7 +31,10 @@
       },
       {
          "ciqual_food_code" : "13015",
+         "ecobalyse_id" : "0bc3b0d6-cb4b-556b-bed4-6bcc6c89387b",
+         "ecobalyse_name" : "Framboise UE",
          "id" : "en:raspberry",
+         "is_in_taxonomy" : 1,
          "origins" : "en:belgium",
          "percent_estimate" : 11.1111111111111,
          "percent_max" : 33.3333333333333,
@@ -34,7 +44,11 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "13040",
+         "ecobalyse_id" : "a03ee09d-313a-512c-9570-6d5d6660b662",
+         "ecobalyse_name" : "Pamplemousse Origine Inconnue",
          "id" : "en:grapefruit",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 5.55555555555556,
          "percent_max" : 25,
@@ -44,7 +58,11 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "13034",
+         "ecobalyse_id" : "cb58f1d0-634f-5582-9c13-a12e80474e77",
+         "ecobalyse_name" : "Oranges Origine Inconnue",
          "id" : "en:orange",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 2.77777777777778,
          "percent_max" : 20,
@@ -54,7 +72,11 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "13009",
+         "ecobalyse_id" : "4fba3fff-ce86-4827-8c1f-aab86f16e469",
+         "ecobalyse_name" : "Citron, pulpe, cru Origine Inconnue",
          "id" : "en:lemon",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 1.38888888888889,
          "percent_max" : 16.6666666666667,
@@ -64,7 +86,9 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "18100",
          "id" : "en:cocoa",
+         "is_in_taxonomy" : 1,
          "labels" : "en:fair-trade",
          "percent_estimate" : 0.694444444444443,
          "percent_max" : 14.2857142857143,
@@ -75,7 +99,11 @@
       },
       {
          "ciqual_food_code" : "16030",
+         "ecobalyse_id" : "0ea5f5a0-51d9-41da-9ac4-cb60f3ddb86c",
+         "ecobalyse_name" : "Beurre de cacao par défaut -2025-",
+         "from_palm_oil" : "no",
          "id" : "en:cocoa-butter",
+         "is_in_taxonomy" : 1,
          "labels" : "en:fair-trade",
          "percent_estimate" : 0.347222222222221,
          "percent_max" : 12.5,
@@ -86,7 +114,10 @@
       },
       {
          "ciqual_food_code" : "13008",
+         "ecobalyse_id" : "417a0eff-a10d-4231-839b-d953f644d69c",
+         "ecobalyse_name" : "Cerise, dénoyautée, crue Origine Inconnue",
          "id" : "en:cherry",
+         "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 0.347222222222229,
          "percent_max" : 11.1111111111111,
@@ -102,22 +133,7 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:strawberry",
-      "en:fruit",
-      "en:berries",
-      "en:blackcurrant",
-      "en:raspberry",
-      "en:grapefruit",
-      "en:citrus-fruit",
-      "en:orange",
-      "en:lemon",
-      "en:cocoa",
-      "en:plant",
-      "en:cocoa-butter",
-      "en:cherry",
-      "en:prunus-species-fruit"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 9,
    "ingredients_n_tags" : [
       "9",
@@ -137,8 +153,8 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:strawberry",
-      "en:fruit",
       "en:berries",
+      "en:fruit",
       "en:blackcurrant",
       "en:raspberry",
       "en:grapefruit",
@@ -148,6 +164,9 @@
       "en:cocoa",
       "en:plant",
       "en:cocoa-butter",
+      "en:vegetable-fat",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
       "en:cherry",
       "en:prunus-species-fruit"
    ],
@@ -156,20 +175,16 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 9,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:cocoa",
-      "en:grapefruit",
-      "en:lemon",
-      "en:orange"
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cocoa"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
-   "known_ingredients_n" : 14,
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 9,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 98.9583333333333,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 98.9583333333333,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 98.9583333333333,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 98.9583333333333
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

@@ -5,25 +5,64 @@ updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "daily"
+      interval: "monthly"
     open-pull-requests-limit: 300
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
+          - "gulp-babel"
+      gulp:
+        patterns:
+          - "@types/gulp*"
+          - "gulp*"
+        exclude-patterns:
+          - "gulp-babel"
+      jquery:
+        patterns:
+          - "@types/jquery*"
+          - "jquery*"
+      leaflet:
+        patterns:
+          - "leaflet*"
+      lint:
+        patterns:
+          - "@typescript-eslint/*"
+          - "eslint*"
+          - "stylelint*"
+      typescript:
+        patterns:
+          - "ts-node"
+          - "typescript"
+    ignore:
+      - dependency-name: "jquery"
+        versions: [ ">= 3.0.0" ]  # https://github.com/openfoodfacts/openfoodfacts-server/pull/11109
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-        interval: "daily"
+      interval: "monthly"
     open-pull-requests-limit: 300
+    groups:
+      all-actions:
+        patterns:
+          - "*"
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-        interval: "daily"
-    open-pull-requests-limit: 300
-  - package-ecosystem: "docker"
-    directory: "/docker/frontend"
-    schedule:
-        interval: "daily"
+      interval: "monthly"
     open-pull-requests-limit: 300
   - package-ecosystem: "pip"
     directory: "/scripts/packager-codes/non-eu/"
     schedule:
-        interval: "daily"
+      interval: "monthly"
     open-pull-requests-limit: 300
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    allow:
+      - dependency-type: "all"
+    groups:
+      devcontainers:
+        patterns:
+          - "*"

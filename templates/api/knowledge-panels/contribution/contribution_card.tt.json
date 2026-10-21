@@ -6,11 +6,11 @@
         "contribution"
     ],
     "title_element": {
-        "title": "[% lang('contribution_panel_title') %]",
+        "title": "[% edq(lang('contribution_panel_title')) %]",
     },
     "elements": [
-        [%# Panels displaying data_quality errors / warnings / info %]
-        [% FOREACH panel_name IN panel.quality_panels %]
+        [%# Panels displaying data_quality errors / warnings / info, and the product history %]
+        [% FOREACH panel_name IN panel.contribution_panels %]
         {
             "element_type": "panel",
             "panel_element": {

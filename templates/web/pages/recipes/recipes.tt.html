@@ -1,5 +1,4 @@
 <!-- start templates/[% template.name %] -->
-
 <table>
     <caption style="text-align:left">[% lang('recipes_ingredients_statistics') %]</caption>
     <thead>
@@ -57,11 +56,13 @@
         <tr>
             <td>
                 <a href="[% product_url(recipe.product) %]"
-                    [% IF recipe.recipe.warning.defined %] style="color:red"[% END %]
                     title="[% recipe.product.ingredients_text | replace('"', ' ')  %]"
                 >
                     [% product_name_brand_quantity(recipe.product) %]
                 </a>
+                [% IF recipe.recipe.warning.defined %]
+                    -- <span style="color:red">[% recipe.recipe.warning %]</span>
+                [% END %]
             </td>
             [% FOREACH ingredient IN analysis.parent_ingredients %]
                 <td>[% recipe.recipe.$ingredient FILTER format("%.2f"); %]</td>

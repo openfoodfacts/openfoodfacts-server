@@ -1,0 +1,45 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "id" : "ingredients_text",
+            "impact" : {
+               "id" : "skipped_service"
+            },
+            "service" : {
+               "id" : "parse_ingredients_text"
+            }
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "ingredients_lc",
+            "impact" : {
+               "id" : "skipped_service"
+            },
+            "service" : {
+               "id" : "parse_ingredients_text"
+            }
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ],
+   "fields" : [
+      "updated"
+   ],
+   "product" : {},
+   "services" : [
+      "parse_ingredients_text"
+   ],
+   "status" : "success_with_errors",
+   "warnings" : []
+}

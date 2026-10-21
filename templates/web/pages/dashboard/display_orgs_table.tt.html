@@ -1,0 +1,112 @@
+<!-- start templates/[% template.name %] -->
+<style>
+    table#tagstable {
+        width: 100%;
+        table-layout: auto;
+        font-size: 0.9em;
+    }
+
+    table#tagstable th,
+    table#tagstable td {
+        padding: 3.5px;
+    }
+</style>
+
+<form method="GET" action="/cgi/display_org_table.pl">
+    <label for="name">[% lang("name") %]:</label>
+    <input type="text" id="name" name="name" value="[% name | html %]">
+
+    <label for="valid_org">[% lang("verified_status") %]:</label>
+    <select id="valid_org" name="valid_org">
+        <option value="" [% IF !valid_org %]selected[% END %]>-- Select status --</option>
+        <option value="unreviewed" [% IF valid_org == 'unreviewed' %]selected[% END %]>Unreviewed</option>
+        <option value="accepted" [% IF valid_org == 'accepted' %]selected[% END %]>Accepted</option>
+        <option value="rejected" [% IF valid_org == 'rejected' %]selected[% END %]>Rejected</option>
+    </select>
+    
+    <button style="margin-bottom: 30px;" type="submit">[% lang("search") %]</button>
+</form>
+
+[% IF has_orgs %]
+<table id="tagstable">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>[% lang("name") %]</th>
+            <th>[% lang("created_by") %]</th>
+            <th>[% lang("org_id") %]</th>
+            <th>[% lang("verified_status") %]</th>
+            <th>[% lang("creation_date") %]</th>
+            <th>[% lang("last_login") %]</th>
+            <th>[% lang("last_import") %]</th>
+            <th>[% lang("data_sources_p").ucfirst %]</th>
+            <th>[% lang("number_of_products_on_public_platform") %]</th>
+            <th>[% lang("number_of_products_on_producer_platform") %]</th>
+            <th>[% lang("data_quality_errors_p").ucfirst %]</th>
+            <th>[% lang("data_quality_warnings_p").ucfirst %]</th>
+            <th>[% lang("number_of_products_without_nutriscore") %]</th>
+            <th>[% lang("percent_of_products_with_nutriscore") %]</th>
+            <th>[% lang("products_to_be_exported") %]</th>
+            <th>[% lang("products_exported") %]</th>
+            <th>[% lang("opportunities_to_improve_nutriscore") %]</th>
+            <th>[% lang("automated_daily_export_to_public_platform") %]</th>
+            <th>[% lang("date_of_last_update") %]</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% SET count = 1 %]
+        [% FOREACH org IN orgs %]
+        <tr>
+            <td>[% count %]</td>
+	    <td><a href="https://world.openfoodfacts.org/owner/[% org.org_id %]">[% org.name %]</a></td>
+            <td>[% org.creator_email %]</td>
+	    <td>
+		    <a href="/org/[% org.org_id %]">[% org.org_id %]</a>
+		    <a href="/cgi/org.pl?type=edit&orgid=[% org.org_id %]">
+			    <img src="/images/icons/dist/edit.svg" style="height:1em">
+		    </a>
+	    </td>
+            <td>[% org.valid_org %]</td>
+	    <td>[% IF org.created_t %][% display_date_ymd(org.created_t) %][% END %]</td>
+            <td>
+                [% IF org.last_logged_member_t %]
+                    [% display_date_ymd(org.last_logged_member_t) %]
+                [% ELSE %]
+                    &nbsp;
+                [% END %]
+            </td>
+            <td>
+                [% IF org.last_import_t %]
+                    [% display_date_ymd(org.last_import_t) %]
+                [% ELSE %]
+                    &nbsp;
+                [% END %]
+            </td>
+            <td>[% org.last_import_type %]</td>
+	    <td><a href="https://world.openfoodfacts.org/owner/[% org.org_id %]">[% org.data.products.number_of_products_on_public_platform %]</a></td>
+	    <td><a href="https://world.pro.openfoodfacts.org/org/[% org.org_id %]">[% org.data.products.number_of_products_on_producer_platform %]</a></td>
+            <td>[% org.data.products.number_of_data_quality_errors %]</td>
+            <td>[% org.data.products.number_of_data_quality_warnings %]</td>
+            <td>[% org.data.products.number_of_products_without_nutriscore %]</td>
+            <td>[% round(org.data.products.percentage_of_products_with_nutriscore) %]%</td>
+            <td>[% org.data.products.products_to_be_exported %]</td>
+            <td>[% org.data.products.products_exported %]</td>
+            <td>[% org.data.products.opportunities_to_improve_nutriscore %]</td>
+            <td>[% IF org.activate_automated_daily_export_to_public_platform %]automatic[% END %]</td>
+            <td>
+                [% IF org.data.products.date_of_last_update %]
+                    [% display_date_ymd(org.data.products.date_of_last_update) %]
+                [% ELSE %]
+                    &nbsp;
+                [% END %]
+            </td>
+        </tr>
+        [% SET count = count + 1 %]
+        [% END %]
+    </tbody>
+</table>
+[% ELSE %]
+<p style="font-size: 2rem; padding-top: 40px;">No organizations found.</p>
+[% END %]
+
+<!-- end templates/[% template.name %] -->

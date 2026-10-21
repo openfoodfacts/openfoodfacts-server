@@ -1,6 +1,7 @@
 [
    {
       "id" : "en:sugar",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 85,
       "percent_max" : 90,
       "percent_min" : 80,
@@ -8,6 +9,7 @@
    },
    {
       "id" : "en:milk",
+      "is_in_taxonomy" : 1,
       "percent" : 10,
       "percent_estimate" : 10,
       "percent_max" : 10,
@@ -16,6 +18,7 @@
    },
    {
       "id" : "en:water",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 5,
       "percent_max" : 10,
       "percent_min" : 0,

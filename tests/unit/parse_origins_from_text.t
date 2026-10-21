@@ -1,9 +1,9 @@
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 use ProductOpener::Ingredients qw/parse_origins_from_text init_origins_regexps/;
 
@@ -71,7 +71,7 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->{product};
 	my $text = $product_ref->{"origin_" . $product_ref->{lc}};
 
-	parse_origins_from_text($product_ref, $text);
+	parse_origins_from_text($product_ref, $text, $product_ref->{lc});
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results, $test_ref);
 

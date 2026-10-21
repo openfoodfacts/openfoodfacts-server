@@ -26,19 +26,22 @@ def scrape_document_info() -> List[JSONObject]:
         country_name, title, url, publication_date, file_path, section.
     """
     logger.info("Scraping remote document information")
-    cmd = "scrapy runspider --output - --output-format json --loglevel WARN".split(" ")
+    cmd = "scrapy runspider --output - --output-format json --loglevel WARN".split(
+        " ")
     cmd.append(str(SCRAPY_SPIDER_FILE_PATH))
     cmd_res = subprocess.run(cmd, stdout=subprocess.PIPE, check=True)
     return json.loads(cmd_res.stdout.decode())
 
 
 def download_documents(document_info: Sequence[JSONObject], dest_dir: Path) -> None:
-    logger.info("Downloading %s documents into '%s'", len(document_info), dest_dir)
+    logger.info("Downloading %s documents into '%s'",
+                len(document_info), dest_dir)
     dest_dir = Path(dest_dir)
     for i, doc_info in enumerate(document_info):
         dest_path = dest_dir / doc_info["file_path"]
         logger.info(
-            "(%s/%s) Downloading %s", i + 1, len(document_info), doc_info["url"]
+            "(%s/%s) Downloading %s", i +
+            1, len(document_info), doc_info["url"]
         )
         dest_path.parent.mkdir(parents=True, exist_ok=True)
         with urlopen(doc_info["url"]) as response, dest_path.open("wb") as dest_file:
@@ -62,7 +65,8 @@ def document_info_diff(
         )
     ]
     unchanged_names = (
-        set(local_docs.keys()).difference(removed_names).difference(updated_names)
+        set(local_docs.keys()).difference(
+            removed_names).difference(updated_names)
     )
 
     return {

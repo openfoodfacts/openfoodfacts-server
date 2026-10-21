@@ -8,7 +8,19 @@ A hash is calculated for all of the source files used to build a particular taxo
 
 If no cached build is found then the taxonomy is rebuilt and cached locally.
 
-If the GITHUB_TOKEN environemnt variable is set then the cached build is also uploaded to the https://github.com/openfoodfacts/openfoodfacts-build-cache repository. Note that no token is required to download previous cached builds from the repo.
+If the GITHUB_TOKEN environment variable is set then the cached build is also uploaded to the https://github.com/openfoodfacts/openfoodfacts-build-cache repository.
+
+The token is a personal access token, created here: https://github.com/settings/tokens.
+Only the public_repo scope is needed.
+
+Note that no token is required to download previous cached builds from the repo.
+
+# Storage
+
+Cached copies of taxonomy build results are stored in `build-cache/taxonomies`.
+
+If no local cache is available then https://github.com/openfoodfacts/openfoodfacts-build-cache is checked for a copy.
+
 
 # Obtaining a token
 
@@ -20,7 +32,7 @@ In maintaining this code be aware of the following complications...
 
 ## Circular Dependencies
 
-There is a cicular dependency between taxonomies, languages and foods. The foods library is used to create the source for the nutrient_levels taxonomy, which uses transalations from languages. However, languages depends on the languages taxonomy...
+There is a circular dependency between taxonomies, languages and foods. The foods library is used to create the source for the nutrient_levels taxonomy, which uses translations from languages. However, languages depends on the languages taxonomy...
 
 This is currently resolved by building the taxonomy on the fly if it is requested but not currently built.
 

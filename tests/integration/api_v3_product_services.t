@@ -2,16 +2,20 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
 use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-wait_application_ready();
+wait_application_ready(__FILE__);
+remove_all_users();
+
+my $ua = new_client();
+create_user($ua, {%default_user_form, email => 'product_services@example.com'});
 
 # Sample product
 
@@ -57,12 +61,14 @@ my $tests_ref = [
 			"services":["unknown"],
 			"product":{}
 		}',
+		expected_status_code => 400,
 	},
 	# echo service
 	{
 		test_case => 'service-no-body',
 		method => 'POST',
 		path => '/api/v3/product_services',
+		expected_status_code => 400,
 	},
 	{
 		test_case => 'echo-service-hazelnut-spread',
@@ -111,6 +117,125 @@ my $tests_ref = [
 			"services":["estimate_ingredients_percent", "analyze_ingredients"],'
 			. $product_hazelnut_spread_json . '}',
 	},
+
+	# parse_ingredients_text missing ingredients
+	{
+		test_case => 'parse-ingredients-text-service-missing-ingredients',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["parse_ingredients_text"],
+	"product": {
+		"lc": "en"
+	}
+}
+JSON
+	},
+
+	# parse_ingredients_text
+	{
+		test_case => 'parse-ingredients-text-service-lc-fr',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["parse_ingredients_text"],
+	"product": {
+		"ingredients_text": "Sucre, huile de palme, huile de NOISETTES, quelque chose d'inconnu",
+		"lc": "fr"
+	}
+}
+JSON
+	},
+
+	# no lc, should default to en
+	{
+		test_case => 'parse-ingredients-text-service-no-lc',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["parse_ingredients_text"],
+	"product": {
+		"ingredients_text_es": "azúcar, aceite de palma, agua, algo desconocido",
+		"ingredients_text_en": "sugar, palm oil, water, something unknown"
+	}
+}
+JSON
+	},
+
+	# ingredients_text_fr defined, should use it
+	{
+		test_case => 'parse-ingredients-text-service-ingredients-text-fr',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["parse_ingredients_text"],
+	"product": {
+		"ingredients_text_fr": "sucre, huile de palme, eau, quelque chose d'inconnu"
+	}
+}
+JSON
+	},
+
+	# determine_food_contact_of_packaging_components
+	{
+		test_case => 'determine-food-contact-of-packaging-components-service',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["determine_food_contact_of_packaging_components"],
+	"product": {
+		"lc": "en",
+		"packagings": [
+			{
+				"material": "en:plastic",
+				"shape": "en:tray"
+			},
+			{
+				"material": "en:plastic",
+				"shape": "en:film"
+			},
+			{
+				"material": "en:paper",
+				"shape": "en:label"
+			}
+		]
+	}
+}
+JSON
+	},
+
+	# estimate_environmental_impact sends the ingredients we are given to a third party service
+	# operated by us, with a token that belongs to the organization running the server:
+	# an anonymous caller must not be able to spend it
+
+	{
+		test_case => 'estimate-environmental-impact-service-anonymous',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["estimate_environmental_impact"],'
+			. $product_hazelnut_spread_json . '}',
+		expected_status_code => 401,
+	},
+	# Control: the same request from an identified caller is accepted
+	# (the product has no ingredients, so no request is sent to the third party service)
+	{
+		test_case => 'estimate-environmental-impact-service-authenticated',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		ua => $ua,
+		body => '{
+			"services":["estimate_environmental_impact"],
+			"product":{
+				"product_name": "My hazelnut spread"
+			}}',
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

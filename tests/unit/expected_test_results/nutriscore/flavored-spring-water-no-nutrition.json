@@ -1,6 +1,8 @@
 {
+   "allergens_tags" : [],
    "categories" : "flavoured spring water",
    "categories_hierarchy" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:waters",
       "en:flavored-waters",
@@ -23,6 +25,7 @@
       "agribalyse-18012"
    ],
    "categories_tags" : [
+      "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:waters",
       "en:flavored-waters",
@@ -33,8 +36,13 @@
       "en:beverages",
       "en:waters-and-flavored-waters"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "unknown",
+      "summary" : "missing_ingredients"
+   },
    "lc" : "en",
    "misc_tags" : [
+      "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
@@ -43,12 +51,19 @@
       "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
-      "en:nutrition-no-fiber",
+      "en:nutriscore-missing-fiber",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:forest-footprint-unknown"
    ],
-   "nutriments" : {},
+   "nova_group_debug" : "no nova group when the product does not have ingredients",
+   "nova_group_error" : "missing_ingredients",
+   "nova_groups_tags" : [
+      "unknown"
+   ],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
@@ -65,31 +80,36 @@
             "sodium" : null,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 1,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       },
       "2023" : {
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 0,
+            "fiber" : null,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
+            "non_nutritive_sweeteners" : null,
             "proteins" : null,
             "salt" : null,
             "saturated_fat" : null,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 1,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       }
    },
    "nutriscore_2021_tags" : [
@@ -102,16 +122,15 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
-   "nutrition_data_per" : "100g",
-   "nutrition_data_prepared_per" : "100g",
+   "nutriscore_version" : "2023",
+   "nutrition" : {},
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 1,
-   "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+   "nutrition_score_debug" : "missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
    "nutrition_score_warning_no_fiber" : 1,
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "pnns_groups_1" : "Beverages",
@@ -123,5 +142,20 @@
    "pnns_groups_2_tags" : [
       "waters-and-flavored-waters",
       "known"
-   ]
+   ],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces_tags" : []
 }

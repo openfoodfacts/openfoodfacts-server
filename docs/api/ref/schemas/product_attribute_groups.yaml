@@ -1,0 +1,52 @@
+type: object
+description: |
+  Specific data about a product to enable personal ranking
+properties:
+  attribute_groups:
+    type: array
+    description: Each element is an attribute that can help compute a personal ranking for the product
+    items:
+      title: product_attribute_group
+      type: object
+      properties:
+        id:
+          type: string
+          description: |
+            Unique id of the attribute.
+
+            It will be use to match against preferences parameters.
+        status:
+          type: string
+          enum: ["known", "unknown"]
+          description: wether we have the information to really compute this criteria or not.
+        title:
+          type: string
+          description: |
+            A descriptive sentence about the situation of the product concerning attribute
+          example: "Does not contain: Molluscs"
+        match:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 100
+          description: |
+            a numeric value for the match,
+            telling how much the products ranks well for this particular attribute.
+            The higher the value, the better the match.
+        grade:
+          description: every attribute as a grade for a to e
+          type: string
+          enum: ['unknown', 'a', 'b', 'c', 'd', 'e']
+        name:
+          type: string
+          description: The name of attribute, for eventual display
+        icon_url:
+          type: string
+          description: an icon representing the attribute match (often using a color)
+        description:
+          type: string
+          description: An eventual description of the value of the property upon which this attribute is based
+        description_short:
+          type: string
+          description: An eventual short description of the value of the property upon which this attribute is based
+

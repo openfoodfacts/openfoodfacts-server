@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -57,6 +57,7 @@ BEGIN {
 		&check_user_form
 		&process_user_form
 		&check_edit_owner
+		&set_owner_id
 
 		&init_user
 
@@ -64,13 +65,26 @@ BEGIN {
 		&create_password_hash
 		&check_password_hash
 		&retrieve_user
+		&retrieve_user_preferences
+		&retrieve_user_preference_ids
+		&retrieve_user_preferences_by_email
+		&store_user
+		&store_user_preferences
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
 		&is_suspicious_name
+		&retrieve_user_by_email
 
 		&check_session
+		&open_user_session
+		&remove_user_session
+		&remove_all_user_sessions
+		&is_stale_user_session
 
 		&generate_token
+
+		&welcome_user_task
+		&delete_user_task
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -78,18 +92,28 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Mail qw/get_html_email_content send_email_to_admin send_email_to_producers_admin send_html_email/;
+use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::HTTP qw/single_param request_param/;
+use ProductOpener::Orgs
+	qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org update_last_logged_in_member /;
+use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Brevo qw/add_contact_to_list/;
+use ProductOpener::CRM qw/update_contact_last_login/;
+use ProductOpener::Auth qw/:all/;
+use ProductOpener::Keycloak;
+use ProductOpener::URL qw/:all/;
+use ProductOpener::Minion qw/queue_job write_minion_log/;
+use ProductOpener::Tags qw/display_taxonomy_tag_name country_to_cc cc_to_country/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use Email::Valid;
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
@@ -103,12 +127,7 @@ my @user_groups = qw(producer database app bot moderator pro_moderator);
 # Initialize some constants
 
 my $cookie_name = 'session';
-my $cookie_domain = "." . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
-$cookie_domain =~ s/\.pro\./\./;    # e.g. .pro.openfoodfacts.org -> .openfoodfacts.org
-if (defined $server_options{cookie_domain}) {
-	$cookie_domain
-		= "." . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
-}
+my $cookie_domain = get_cookie_domain();
 
 =head1 FUNCTIONS
 
@@ -145,6 +164,7 @@ Returns the salted hashed sequence.
 
 =cut
 
+#11866: Can delete this when we fully implement Keycloak
 sub create_password_hash ($password) {
 
 	return scrypt_hash($password);
@@ -168,6 +188,7 @@ Boolean: This function returns a 1/0 (True or False)
 
 =cut
 
+#11866: Can delete this when we fully implement Keycloak
 sub check_password_hash ($password, $hash) {
 
 	if ($hash =~ /^\$1\$(?:.*)/) {
@@ -195,14 +216,121 @@ Takes in the $user_ref of the user to be deleted
 
 =cut
 
+#11866: Can delete this when we fully implement Keycloak
 sub delete_user ($user_ref) {
-	my $args_ref = {
-		userid => get_string_id_for_lang("no_language", $user_ref->{userid}),
-		email => $user_ref->{email},
-	};
+	if (get_oidc_implementation_level() < 2) {
+		# If Keycloak is not the source of truth then delete from PO first
+		my $args_ref = {
+			userid => get_string_id_for_lang("no_language", $user_ref->{userid}),
+			email => $user_ref->{email},
+		};
 
-	require ProductOpener::Producers;
-	ProductOpener::Producers::queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+	}
+	else {
+		# Delete from Keycloak. This will trigger a Redis event that will then queue the delete_user_task in Minion
+		my $keycloak = ProductOpener::Keycloak->new();
+		$keycloak->delete_user($user_ref->{userid});
+	}
+	return;
+}
+
+# we use user_init() now and not create_user()
+
+=head2 welcome_user_task ($job, $args_ref)
+
+C<welcome_user_task()> Background task that welcomes a user.
+This function sends a welcome mail to the user.
+
+=head3 Arguments
+
+Minion job arguments. $args_ref contains the userid and email
+
+=cut
+
+sub welcome_user_task ($job, $args_ref) {
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	write_minion_log("welcome_user_task - job: $job_id started - args: " . encode_json($args_ref));
+
+	my $userid = $args_ref->{userid};
+	my $user_ref = retrieve_user($userid);
+
+	send_welcome_emails($user_ref);
+
+	write_minion_log("welcome_user_task - job: $job_id done");
+	$job->finish("done");
+
+	return;
+}
+
+=head2 subscribe_user_newsletter_task ($job, $args_ref)
+
+C<subscribe_user_newsletter_task()> Background task that adds the user to Brevo.
+This function uses the Brevo API to add the user to the address.
+
+=head3 Arguments
+
+Minion job arguments. $args_ref contains the userid and email
+
+=cut
+
+sub subscribe_user_newsletter_task ($job, $args_ref) {
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	write_minion_log("subscribe_user_newsletter_task - job: $job_id started - args: " . encode_json($args_ref));
+
+	my $userid = $args_ref->{userid};
+	my $user_ref = retrieve_user($userid);
+	if (not(defined $user_ref)) {
+		$job->fail({errors => ['User with id ' . $userid . ' not found in Keycloak.']});
+		return;
+	}
+	add_contact_to_list(
+		$user_ref->{email}, $user_ref->{userid},
+		display_taxonomy_tag_name("en", "countries", $user_ref->{country}),
+		$user_ref->{preferred_language},
+		$user_ref->{name}
+	);
+
+	write_minion_log("subscribe_user_newsletter_task - job: $job_id done");
+	$job->finish("done");
+
+	return;
+}
+
+=head2 process_user_requested_org_task ($job, $args_ref)
+
+C<process_user_requested_org_task()> Background task that to register a new user with an organization
+
+=head3 Arguments
+
+Minion job arguments. $args_ref contains the userid
+
+=cut
+
+sub process_user_requested_org_task ($job, $args_ref) {
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	write_minion_log("process_user_requested_org_task - job: $job_id started - args: " . encode_json($args_ref));
+
+	my $userid = $args_ref->{userid};
+	my $user_ref = retrieve_user($userid);
+	if (not(defined $user_ref)) {
+		$job->fail({errors => ['User with id ' . $userid . ' not found.']});
+		return;
+	}
+
+	process_user_requested_org($user_ref, {});
+
+	write_minion_log("process_user_requested_org_task - job: $job_id done");
+	$job->finish("done");
 
 	return;
 }
@@ -223,37 +351,31 @@ sub delete_user_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	my $log_message = "delete_user_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	open(my $minion_log, ">>", "$data_root/logs/minion.log");
-	print $minion_log $log_message;
-	close($minion_log);
-
-	print STDERR $log_message;
+	write_minion_log("delete_user_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	my $userid = $args_ref->{userid};
-	# Suffix is a combination of seconds since epoch plus a 16 bit random number
-	my $new_userid = "anonymous-" . lc(encode_base32(pack('LS', time(), rand(65536))));
+	my $new_userid;
+	if (get_oidc_implementation_level() < 2) {
+		# Use the legacy method until we have moved to processing events from Keycloak
+		# Suffix is a combination of seconds since epoch plus a 16 bit random number
+		$new_userid = "anonymous-" . lc(encode_base32(pack('LS', time(), rand(65536))));
+	}
+	else {
+		# Anonymous user id is generated in Keycloak so that it is consistent across product flavors
+		$new_userid = $args_ref->{newuserid};
+	}
 
 	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
 
-	# Remove the user file
-	unlink("$data_root/users/$userid.sto");
-
-	# Remove the e-mail
-	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
-	my $email = $args_ref->{email};
-
-	if ((defined $email) and ($email =~ /\@/)) {
-
-		if (defined $emails_ref->{$email}) {
-			delete $emails_ref->{$email};
-			store("$data_root/users/users_emails.sto", $emails_ref);
-		}
-	}
+	# Remove the user
+	# Note that all flavours will do this, so only one will actually delete the user file
+	# The others should just silently continue
+	remove_user_preferences($args_ref);
 
 	#  re-assign product edits to anonymous-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
 
+	write_minion_log("delete_user_task - job: $job_id done");
 	$job->finish("done");
 
 	return;
@@ -337,7 +459,7 @@ sub is_suspicious_name ($value) {
 	return ((defined $value) and ($value =~ $invite_re) and (not $value =~ $email_re));
 }
 
-=head2 check_user_form($type, $user_ref, $errors_ref)
+=head2 check_user_form($request_ref, $type, $user_ref, $errors_ref)
 
 C<check_user_form()> This method checks and validates the different entries in the user form.
 It also handles Spam-usernames, fields for the organization accounts.
@@ -346,7 +468,10 @@ This will then be used in process_user_form
 
 =head3 Parameters
 
+=head4 Request object $request_ref
+
 =head4 String action type $type
+
 edit / add / delete
 
 =head4 User object $user_ref
@@ -355,47 +480,68 @@ edit / add / delete
 
 =cut
 
-sub check_user_form ($type, $user_ref, $errors_ref) {
+sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 
 	# Removing the tabs, spaces and white space characters
 	# Assigning 'userid' to 0 -- if userid is not defined
 	$user_ref->{userid} = remove_tags_and_quote(single_param('userid'));
 
+	my $spam_reason;
 	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
-	$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
+	if (defined single_param('name')) {
+		$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
 
-	# Check for spam
-	my $is_spam = undef;
-	# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
-	if (is_suspicious_name($user_ref->{name})) {
-		$is_spam = 1;
+		# Check for spam
+		# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
+		if (is_suspicious_name($user_ref->{name})) {
+			$spam_reason = "name";
+		}
 	}
+
 	# check for spam, that may have filled the honeypot faxnumber field
-	if (single_param('faxnumber') ne "") {
-		$is_spam = 1;
+	my $faxnumber = single_param('faxnumber');
+	if ((defined $faxnumber) and ($faxnumber ne "")) {
+		$spam_reason = "faxnumber";
 	}
-	if ($is_spam) {
+
+	# Spam bots that register accounts with random names send newsletter=1
+	# (the web form and the apps send "on")
+	if (($type eq 'add') and ((single_param('newsletter') // '') eq '1')) {
+		$spam_reason = "newsletter";
+	}
+
+	if (defined $spam_reason) {
 		# log the ip
-		open(my $log, ">>", "$data_root/logs/user_spam.log");
-		print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{userid} . "\t" . $user_ref->{name} . "\n";
+		open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
+		print $log remote_addr() . "\t"
+			. time() . "\t"
+			. $user_ref->{userid} . "\t"
+			. ($user_ref->{name} // '') . "\t"
+			. $spam_reason . "\n";
 		close($log);
-		# bail out, return 200 status code
-		display_error_and_exit("", 200);
+		# We do not create or update the account, but we pretend that we did,
+		# so that spammers do not notice and do not change their requests
+		$request_ref->{is_spam} = 1;
 	}
 
 	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
 
 	$log->debug("check_user_form", {type => $type, user_ref => $user_ref, email => $email}) if $log->is_debug();
 
-	if ((defined $email) and ($email ne '') and ($user_ref->{email} ne $email)) {
+	if ((defined $email) and ($email ne '') and (($user_ref->{email} // '') ne $email)) {
 
 		# check that the email is not already used
-		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
-		if ((defined $emails_ref->{$email}) and ($emails_ref->{$email}[0] ne $user_ref->{userid})) {
+		my $user_id_from_mail;
+		my $existing_user = retrieve_user_by_email($email);
+		if (defined $existing_user) {
+			$user_id_from_mail = $existing_user->{userid};
+		}
+		if ((defined $user_id_from_mail) and ($user_id_from_mail ne $user_ref->{userid})) {
+			# email is already associated with an OFF account
 			$log->debug("check_user_form - email already in use",
-				{type => $type, email => $email, existing_userid => $emails_ref->{$email}})
+				{type => $type, email => $email, existing_userid => $user_id_from_mail})
 				if $log->is_debug();
-			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
+			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lc};
 		}
 
 		# Keep old email until the user is saved
@@ -403,6 +549,14 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		$user_ref->{email} = $email;
 	}
 
+	# Country and preferred language
+	# Still allow these to be sent for legacy API support, but don't update if supplied by the preferences form
+	# Which we deduce by the absence of a name field
+	if (defined single_param('name')) {
+		$user_ref->{preferred_language}
+			= remove_tags_and_quote(single_param('preferred_language')) || $request_ref->{lc};
+		$user_ref->{country} = remove_tags_and_quote(single_param('country')) || $request_ref->{country};
+	}
 	# Is there a checkbox to make a professional account
 	if (defined single_param("pro_checkbox")) {
 
@@ -436,12 +590,11 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		$user_ref->{newsletter} = remove_tags_and_quote(single_param('newsletter'));
 		$user_ref->{discussion} = remove_tags_and_quote(single_param('discussion'));
 		$user_ref->{ip} = remote_addr();
-		$user_ref->{initial_lc} = $lc;
-		$user_ref->{initial_cc} = $cc;
 		$user_ref->{initial_user_agent} = user_agent();
 	}
 
-	if ($admin) {
+	if ($request_ref->{admin}) {
+		$user_ref->{crm_user_id} = remove_tags_and_quote(decode utf8 => single_param('crm_user_id')) || undef;
 
 		# Org
 		check_user_org($user_ref, remove_tags_and_quote(decode utf8 => single_param('org')));
@@ -467,59 +620,64 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	$user_ref->{display_barcode} = !!remove_tags_and_quote(single_param("display_barcode"));
 	$user_ref->{edit_link} = !!remove_tags_and_quote(single_param("edit_link"));
 
-	# Check input parameters, redisplay if necessary
+	if (get_oidc_implementation_level() < 5) {
+		# Check input parameters, redisplay if necessary. Delegate all validation to Keycloak from level 5
+		if (length($user_ref->{name}) < 2) {
+			push @{$errors_ref}, $Lang{error_no_name}{$lc};
+		}
+		elsif (length($user_ref->{name}) > 60) {
+			push @{$errors_ref}, $Lang{error_name_too_long}{$lc};
+		}
 
-	if (length($user_ref->{name}) < 2) {
-		push @{$errors_ref}, $Lang{error_no_name}{$lang};
-	}
-	elsif (length($user_ref->{name}) > 60) {
-		push @{$errors_ref}, $Lang{error_name_too_long}{$lang};
-	}
-
-	my $address;
-	eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
-	$address = 0 if $@;
-	if (not $address) {
-		push @{$errors_ref}, $Lang{error_invalid_email}{$lang};
-	}
-	else {
-		# If all checks have passed, reinitialize with modified email
-		$user_ref->{email} = $address;
+		# Show additional fields until Keycloak is managing user registration
+		my $address;
+		eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
+		$address = 0 if $@;
+		$log->debug("check_user_form - address", {mail => $user_ref->{email}, address => $address}) if $log->is_debug();
+		if (not $address) {
+			push @{$errors_ref}, $Lang{error_invalid_email}{$lc};
+		}
+		else {
+			# If all checks have passed, reinitialize with modified email
+			$user_ref->{email} = $address;
+		}
 	}
 
 	if ($type eq 'add') {
-
-		my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
-
 		if (length($user_ref->{userid}) < 2) {
-			push @{$errors_ref}, $Lang{error_no_username}{$lang};
+			push @{$errors_ref}, $Lang{error_no_username}{$lc};
 		}
-		elsif (-e "$data_root/users/$userid.sto") {
-			push @{$errors_ref}, $Lang{error_username_not_available}{$lang};
+		elsif (user_preferences_exists($user_ref->{userid})) {
+			push @{$errors_ref}, $Lang{error_username_not_available}{$lc};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
-			push @{$errors_ref}, $Lang{error_invalid_username}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_username}{$lc};
 		}
-		elsif (length($user_ref->{userid}) > 20) {
-			push @{$errors_ref}, $Lang{error_username_too_long}{$lang};
+		elsif (length($user_ref->{userid}) > 40) {
+			push @{$errors_ref}, $Lang{error_username_too_long}{$lc};
 		}
 
-		if (length(decode utf8 => single_param('password')) < 6) {
-			push @{$errors_ref}, $Lang{error_invalid_password}{$lang};
+		if (get_oidc_implementation_level() < 5 and length(decode utf8 => single_param('password')) < 6) {
+			# Password validation will move to Keycloak once it is managing account management
+			push @{$errors_ref}, $Lang{error_invalid_password}{$lc};
 		}
 	}
 
-	if (param('password') ne single_param('confirm_password')) {
-		push @{$errors_ref}, $Lang{error_different_passwords}{$lang};
-	}
-	elsif (single_param('password') ne '') {
-		$user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => single_param('password')));
+	if (get_oidc_implementation_level() < 5) {
+		# Password validation will move to Keycloak once it is managing account management
+		if (param('password') ne single_param('confirm_password')) {
+			push @{$errors_ref}, $Lang{error_different_passwords}{$lc};
+		}
+		elsif (single_param('password') ne '') {
+			$user_ref->{encrypted_password}
+				= create_password_hash(encode_utf8(decode utf8 => single_param('password')));
+		}
 	}
 
 	return;
 }
 
-=head2 notify_user_requested_org($user_ref, $org_created)
+=head2 notify_user_requested_org($user_ref, $org_created, $request_ref)
 
 Notify admin that a user requested to be part of an org
 
@@ -531,20 +689,27 @@ Notify admin that a user requested to be part of an org
 
 Is the org newly created ?
 
+=head4 Request object $request_ref
+
+the request object
+
 =cut
 
-sub notify_user_requested_org ($user_ref, $org_created) {
+sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
+
+	$log->debug("notify_user_requested_org", {user_ref => $user_ref, org_created => $org_created}) if $log->is_debug();
 
 	# the template for the email, we will build it gradually
 	my $template_data_ref = {
 		userid => $user_ref->{userid},
 		user => $user_ref,
 		requested_org => $user_ref->{requested_org_id},
+		cc => country_to_cc($user_ref->{country}) // $request_ref->{cc},
 	};
 
 	# construct first part of the mail about new pro account
 	my $mail = '';
-	process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail);
+	process_template("emails/user_new_pro_account.tt.txt", $template_data_ref, \$mail, $request_ref);
 	if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 		my $subject = $1;
 		my $body = $';
@@ -561,7 +726,8 @@ sub notify_user_requested_org ($user_ref, $org_created) {
 		# The requested org already exists
 		# build second part of the mail about it and alter the subject
 		$mail = '';
-		process_template("emails/user_new_pro_account_org_request_validated.tt.txt", $template_data_ref, \$mail);
+		process_template("emails/user_new_pro_account_org_request_validated.tt.txt",
+			$template_data_ref, \$mail, $request_ref);
 		if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 			my $subject = $1;
 			my $body = $';
@@ -580,7 +746,8 @@ sub notify_user_requested_org ($user_ref, $org_created) {
 
 	# Send an e-mail notification to admins, with links to the organization
 	$mail = '';
-	process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail);
+	process_template("emails/user_new_pro_account_admin_notification.tt.html", $template_data_ref, \$mail,
+		$request_ref);
 	if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 		my $subject = $1;
 		my $body = $';
@@ -605,7 +772,7 @@ Process it.
 
 =cut
 
-sub process_user_requested_org ($user_ref) {
+sub process_user_requested_org ($user_ref, $request_ref) {
 
 	(defined $user_ref->{requested_org_id}) or return 1;
 
@@ -615,19 +782,41 @@ sub process_user_requested_org ($user_ref) {
 
 	if (not(defined $requested_org_ref)) {
 		# The requested org does not exist, create it
-		my $org_ref = create_org($userid, $user_ref->{requested_org});
+		my $org_ref = create_org($userid, $user_ref->{requested_org}, $user_ref->{country});
+
+		# The following is also done in init_user, but with Keycloak the org won't exist at the time the session is initially created
+		$org_ref->{last_logged_member} = $userid;
+		$org_ref->{last_logged_member_t} = time();
+
 		add_user_to_org($org_ref, $userid, ["admins", "members"]);
 
+		if (get_oidc_implementation_level() > 1) {
+			# Re-load the user if we are processing a Keycloak event as the above may have taken some time
+			$user_ref = retrieve_user($userid);
+		}
 		$user_ref->{org} = $user_ref->{requested_org_id};
 		$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 
 		delete $user_ref->{requested_org};
 		delete $user_ref->{requested_org_id};
 
+		store_user_preferences($user_ref);
+
 		$org_created = 1;
 	}
+	else {
+		my $previous_requested_org_ref = retrieve_org($user_ref->{requested_org_id});
+		if (defined $previous_requested_org_ref) {
+			# Remove user from previous requested org
+			remove_user_by_org_admin($previous_requested_org_ref, $userid);
+		}
+		# The requested org exists
+		# The user waits for approval by an off admin or an org admin
+		add_user_to_org($requested_org_ref, $userid, ["pending"]);
+
+	}
 	# send a notification to admins
-	notify_user_requested_org($user_ref, $org_created);
+	notify_user_requested_org($user_ref, $org_created, $request_ref);
 	return 1;
 }
 
@@ -640,6 +829,7 @@ To be used after check_user_form
 =head3 Parameters
 
 =head4 String action type $type
+
 edit / add / delete
 
 =head4 User object $user_ref
@@ -656,23 +846,13 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 	$log->debug("process_user_form", {type => $type, user_ref => $user_ref}) if $log->is_debug();
 
 	# Professional account with a requested org (existing or new)
-	process_user_requested_org($user_ref);
+	if (get_oidc_implementation_level() < 2) {
+		# Keycloak will trigger this via Redis once it is the source of truth
+		process_user_requested_org($user_ref, $request_ref);
+	}
 
 	# save user
-	store("$data_root/users/$userid.sto", $user_ref);
-
-	# Update email
-	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
-	my $email = $user_ref->{email};
-
-	if ((defined $email) and ($email =~ /\@/)) {
-		$emails_ref->{$email} = [$userid];
-	}
-	if (defined $user_ref->{old_email}) {
-		delete $emails_ref->{$user_ref->{old_email}};
-		delete $user_ref->{old_email};
-	}
-	store("$data_root/users/users_emails.sto", $emails_ref);
+	store_user($user_ref);
 
 	if ($type eq 'add') {
 
@@ -682,33 +862,42 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 		param("user_id", $userid);
 		init_user($request_ref);
 
-		# Fetch the HTML mail template corresponding to the user language, english is the
-		# default if the translation is not available
-		my $email_content = get_html_email_content("user_welcome.html", $user_ref->{initial_lc});
-		my $user_name = $user_ref->{name};
-		# Replace placeholders by user values
-		$email_content =~ s/\{\{USERID\}\}/$userid/g;
-		$email_content =~ s/\{\{NAME\}\}/$user_name/g;
-		$error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
+		if (get_oidc_implementation_level() < 2) {
+			# Send welcome emails until Keycloak becomes the source of truth
+			$error = send_welcome_emails($user_ref);
 
-		my $admin_mail_body = <<EMAIL
+			# Check if the user subscribed to the newsletter
+			if ($user_ref->{newsletter}) {
+				add_contact_to_list(
+					$user_ref->{email}, $user_ref->{userid},
+					display_taxonomy_tag_name("en", "countries", $user_ref->{country}),
+					$user_ref->{preferred_language},
+					$user_ref->{name}
+				);
+			}
+		}
 
-Bonjour,
-
-Inscription d'un utilisateur :
-
-name: $user_ref->{name}
-email: $user_ref->{email}
-twitter: https://twitter.com/$user_ref->{twitter}
-newsletter: $user_ref->{newsletter}
-discussion: $user_ref->{discussion}
-lc: $user_ref->{initial_lc}
-cc: $user_ref->{initial_cc}
-
-EMAIL
-			;
-		$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
+		return $error;
 	}
+	else {
+		return;
+	}
+}
+
+sub send_welcome_emails($user_ref) {
+	# Fetch the HTML mail template corresponding to the user language, english is the
+	# default if the translation is not available
+
+	my $userid = $user_ref->{userid};
+	my $language = $user_ref->{preferred_language};
+	my $user_cc = country_to_cc($user_ref->{country});
+	my $email_content = get_html_email_content("user_welcome.html", $language);
+	my $user_name = $user_ref->{name} || $userid;
+	# Replace placeholders by user values
+	$email_content =~ s/\{\{USERID\}\}/$userid/g;
+	$email_content =~ s/\{\{NAME\}\}/$user_name/g;
+	my $error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
+
 	return $error;
 }
 
@@ -728,16 +917,16 @@ is acting on the pro platform as part of a specific company.
 
 =cut
 
-sub check_edit_owner ($user_ref, $errors_ref) {
+sub check_edit_owner ($user_ref, $errors_ref, $ownerid = undef) {
 
 	# temporarily use the org passed as parameter
-	$user_ref->{pro_moderator_owner}
-		= get_string_id_for_lang("no_language", remove_tags_and_quote(single_param('pro_moderator_owner')));
+	$user_ref->{pro_moderator_owner} = $ownerid // get_string_id_for_lang("no_language",
+		remove_tags_and_quote(decode utf8 => single_param('pro_moderator_owner')));
 
 	# If the owner id looks like a GLN, see if we have a corresponding org
 
 	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
-		my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+		my $glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 		not defined $glns_ref and $glns_ref = {};
 		if (defined $glns_ref->{$user_ref->{pro_moderator_owner}}) {
 			$user_ref->{pro_moderator_owner} = $glns_ref->{$user_ref->{pro_moderator_owner}};
@@ -755,8 +944,8 @@ sub check_edit_owner ($user_ref, $errors_ref) {
 		my $userid = $';
 		# Add check that organization exists when we add org profiles
 
-		if (!-e "$data_root/users/$userid.sto") {
-			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
+		if (!user_preferences_exists($userid)) {
+			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lc}, $userid);
 		}
 		else {
 			$User{pro_moderator_owner} = $user_ref->{pro_moderator_owner};
@@ -804,12 +993,14 @@ If the user is logging in with a correct password, we can update the password ha
 
 =cut
 
+#11866: Can remove this after Keycloak migration
 sub migrate_password_hash ($user_ref) {
 
 	# Migration: take the occasion of having password to upgrade to scrypt, if it is still in crypt format
 	if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
 		$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8 => single_param('password')));
 		$log->info("crypt password upgraded to scrypt_hash") if $log->is_info();
+		store_user($user_ref);
 	}
 	return;
 }
@@ -830,7 +1021,7 @@ sub remove_old_sessions ($user_ref) {
 	my $max_session = 10;
 
 	# Check if we need to delete the oldest session
-	# delete $user_ref->{'user_session'};
+	# delete $user_ref->{'user_sessions'};
 	if ((scalar keys %{$user_ref->{'user_sessions'}}) >= $max_session) {
 		my %user_session_stored = %{$user_ref->{'user_sessions'}};
 
@@ -844,6 +1035,131 @@ sub remove_old_sessions ($user_ref) {
 		}
 	}
 	return;
+}
+
+=head2 remove_user_session ($user_id, $user_session)
+
+Delete a session from the user data, so that it can no longer be used to authenticate.
+
+A session was only removed when there were more than 10 of them, so a session that was signed out
+(or that was invalidated by a credential change) stayed valid until the account opened 10 more of
+them.
+
+Does nothing if the user or the session is not known.
+
+=head3 Arguments
+
+=head4 String $user_id - the user the session belongs to
+
+=head4 String $user_session - the session to delete
+
+=head3 Return value
+
+1 if the session was found and deleted, 0 otherwise
+
+=cut
+
+sub remove_user_session ($user_id, $user_session) {
+
+	if ((not defined $user_id) or (not defined $user_session)) {
+		return 0;
+	}
+
+	my $user_ref = retrieve_user_preferences($user_id);
+
+	if (not defined $user_ref) {
+		$log->info("cannot remove the session of a user that does not exist", {user_id => $user_id})
+			if $log->is_info();
+		return 0;
+	}
+
+	if (not defined $user_ref->{'user_sessions'}{$user_session}) {
+		return 0;
+	}
+
+	delete $user_ref->{'user_sessions'}{$user_session};
+	store_user_preferences($user_ref);
+
+	$log->info("session removed", {user_id => $user_id}) if $log->is_info();
+
+	return 1;
+}
+
+=head2 remove_all_user_sessions ($user_id)
+
+Delete every session of a user, so that none of them can authenticate any more. Called after a
+credential change, so that a session obtained with the old credentials is not usable any more.
+
+=head3 Arguments
+
+=head4 String $user_id - the user whose sessions are deleted
+
+=head3 Return value
+
+The number of sessions that were deleted
+
+=cut
+
+sub remove_all_user_sessions ($user_id) {
+
+	if (not defined $user_id) {
+		return 0;
+	}
+
+	my $user_ref = retrieve_user_preferences($user_id);
+
+	if (not defined $user_ref) {
+		return 0;
+	}
+
+	my $removed = scalar keys %{$user_ref->{'user_sessions'} // {}};
+
+	$user_ref->{'user_sessions'} = {};
+	store_user_preferences($user_ref);
+
+	$log->info("all the sessions of the user were removed", {user_id => $user_id, removed => $removed})
+		if $log->is_info();
+
+	return $removed;
+}
+
+=head2 is_stale_user_session ($session_ref)
+
+Returns 1 if the session is older than the maximum session lifetime.
+
+A session that is stored forever can be replayed forever: nothing deleted it when the user signed
+out, and nothing shortened its life, so the cookie of a stolen session stayed valid for as long as
+the account did not open 10 other sessions. Refusing a session older than the configured maximum
+bounds that, and also discards the stale entries that are already stored.
+
+A session stored without a timestamp is not considered stale: it was written before the timestamp
+was recorded, and refusing it would sign out the users we cannot reason about.
+
+=head3 Arguments
+
+=head4 Hash ref $session_ref - the stored session, as found in $user_ref->{user_sessions}
+
+=head3 Return value
+
+1 if the session is older than the maximum session lifetime, 0 otherwise
+
+=cut
+
+sub is_stale_user_session ($session_ref) {
+
+	my $max_lifetime = $options{user_session_max_lifetime};
+
+	if ((not defined $max_lifetime) or (not defined $session_ref) or (not defined $session_ref->{time})) {
+		return 0;
+	}
+
+	if ((time() - $session_ref->{time}) > $max_lifetime) {
+		$log->info("session is older than the maximum session lifetime", {age => time() - $session_ref->{time}})
+			if $log->is_info();
+		return 1;
+	}
+
+	return 0;
 }
 
 =head2 generate_session_cookie($user_id, $user_session)
@@ -897,13 +1213,23 @@ sub generate_session_cookie ($user_id, $user_session) {
 	return cookie(%$cookie_ref);
 }
 
-=head2 open_user_session($user_ref, $request_ref)
+=head2 open_user_session($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token, $request_ref)
 
 Open a session, store it in the user object, and return a cookie with the session id in the request object.
 
 =head3 Arguments
 
 =head4 User object $user_ref
+
+=head4 OIDC Refresh Token $refresh_token
+
+=head4 Timestamp after which the OIDC Refresh Token cannot be used $refresh_expires_at
+
+=head4 OIDC Access Token $access_token
+
+=head4 Timestamp after which the OIDC Access Token cannot be used $access_expires_at
+
+=head4 OIDC ID Token $id_token
 
 =head4 Request object $request_ref
 
@@ -913,7 +1239,9 @@ The cookie is returned in $request_ref
 
 =cut
 
-sub open_user_session ($user_ref, $request_ref) {
+sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token,
+	$request_ref)
+{
 
 	my $user_id = $user_ref->{'userid'};
 
@@ -928,58 +1256,261 @@ sub open_user_session ($user_ref, $request_ref) {
 	# Store the ip and time corresponding to the given session
 	$user_ref->{'user_sessions'}{$user_session} = {
 		ip => remote_addr(),
-		time => time()
+		time => time(),
+		refresh_token => $refresh_token,
+		refresh_expires_at => $refresh_expires_at,
+		access_token => $access_token,
+		access_expires_at => $access_expires_at,
+		id_token => $id_token
 	};
+	$user_ref->{last_login_t} = time();
 
 	# Store user data
-	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-	store($user_file, $user_ref);
+	store_user_preferences($user_ref);
 
 	$log->debug("session initialized and user info stored") if $log->is_debug();
 
 	$request_ref->{cookie} = generate_session_cookie($user_id, $user_session);
 
-	return;
+	return $user_session;
 }
 
-sub retrieve_user ($user_id) {
-	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+# This just fetches the local data about the user, e.g. sessions. It should not be used if you need access to data
+# that comes from Keycloak, like email, name, locale and country
+sub retrieve_user_preferences ($user_id) {
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	my $user_ref;
 	if (-e $user_file) {
 		$user_ref = retrieve($user_file);
+		if (not defined $user_ref) {
+			$log->info("could not load user", {user_id => $user_id}) if $log->is_info();
+		}
+		else {
+			# Migrate initial_lc and initial_cc if present
+			$user_ref->{preferred_language} //= $user_ref->{initial_lc};
+			$user_ref->{country} //= cc_to_country($user_ref->{initial_cc});
+			delete $user_ref->{initial_lc};
+			delete $user_ref->{initial_cc};
+		}
 	}
 	return $user_ref;
 }
 
-sub is_email_has_off_account ($email) {
+# This fetches the data from Keycloak and merges it into the local data
+# This might take some time so should only be used if you really need all the user information
+sub retrieve_user ($user_id) {
+	my $user_ref = retrieve_user_preferences($user_id);
+	my $keycloak_user_ref;
+	if (get_oidc_implementation_level() > 1) {
+		# Fetch the user from Keycloak once it has become the source of truth
+		# Do this before fetching the local preferences as it can take a while
+		my $keycloak = ProductOpener::Keycloak->new();
+		$keycloak_user_ref = $keycloak->find_user_by_username($user_id);
 
-	# First, check if the email exists in the users_emails.sto file
-	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+		# encrypted_password is write only for OIDC Level 2 and above
+		if ($user_ref) {
+			delete $user_ref->{encrypted_password};
+		}
+	}
+	if ($keycloak_user_ref) {
+		$user_ref //= {};
+		$user_ref->{email} = $keycloak_user_ref->{email};
+		$user_ref->{userid} = $keycloak_user_ref->{userid};
+		$user_ref->{name} = $keycloak_user_ref->{name};
+		$user_ref->{preferred_language} = $keycloak_user_ref->{preferred_language};
+		$user_ref->{country} = $keycloak_user_ref->{country};
 
+		# Don't set requested_org and newsletter here as they are only relevant the first time a user registers
+	}
+
+	return $user_ref;
+}
+
+sub user_preferences_exists ($user_id) {
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	return (-e $user_file);
+}
+
+#11866: Can remove after migration to Keycloak
+sub retrieve_user_preferences_by_email($email) {
+	my $user_ref;
+	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
+	if (not defined $emails_ref->{$email}) {
+		# not found, try with lower case email
+		$email = lc $email;
+	}
 	if (defined $emails_ref->{$email}) {
-		my $user_id = $emails_ref->{$email}[0];
+		$user_ref = retrieve_user_preferences($emails_ref->{$email}[0]);
+	}
+	return $user_ref;
+}
 
-		# Next, check if the user file exists and has the 'userid' field
-		my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-		if (-e $user_file) {
-			my $user_ref = retrieve($user_file);
-			return $user_ref->{userid} if defined $user_ref->{userid};
+# store user information that is not reflected in Keycloak
+sub store_user_preferences ($user_ref) {
+	my $user_preferences = {%$user_ref};
+	if (get_oidc_implementation_level() > 2) {
+		# Make a shallow clone and delete the PII from the user data once Keycloak has become the master source
+		delete $user_preferences->{email};
+		delete $user_preferences->{name};
+		delete $user_preferences->{country};
+		delete $user_preferences->{preferred_language};
+		delete $user_preferences->{initial_lc};
+		delete $user_preferences->{initial_cc};
+	}
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_ref->{userid}) . ".sto";
+	store($user_file, $user_preferences);
+
+	return;
+}
+
+# Store user information that should ultimately be stored in Keycloak
+# There should be nothing calling this once we have fully migrated.
+sub store_user ($user_ref) {
+	my $oidc_implementation_level = get_oidc_implementation_level();
+	if ($oidc_implementation_level < 2) {
+		# We are still using legacy data structures as the source of truth
+
+		my $userid = $user_ref->{userid};
+
+		# Update email
+		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto") // {};
+		my $email = $user_ref->{email};
+
+		if ((defined $email) and ($email =~ /\@/)) {
+			$emails_ref->{$email} = [$userid];
+		}
+		if (defined $user_ref->{old_email}) {
+			delete $emails_ref->{$user_ref->{old_email}};
+			delete $user_ref->{old_email};
+		}
+		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
+	}
+	# save user preferences before we call Keycloak so that session information is saved before Redis can kick in
+	store_user_preferences($user_ref);
+	if ($oidc_implementation_level > 0) {
+		# Sync the user with Keycloak
+		my $keycloak = ProductOpener::Keycloak->new();
+		$keycloak->create_or_update_user($user_ref);
+	}
+
+	return;
+}
+
+sub _find_user_by_email_in_keycloak($email) {
+	my $keycloak = ProductOpener::Keycloak->new();
+	return $keycloak->find_user_by_email($email);
+}
+
+=head2 _get_account_by_mail ($email)
+
+Tries to get a user based on their mail address from Keycloak.
+
+=head3 Arguments
+
+=head4 string $email
+
+Mail address of the user
+
+=head3 Return values
+
+User's user ID
+
+=cut
+
+sub _get_account_by_mail ($email) {
+
+	my $user_ref = _find_user_by_email_in_keycloak($email);
+	unless (defined $user_ref) {
+		return;    # Email is not known in Keycloak
+	}
+
+	return $user_ref->{userid};
+}
+
+# Delete the PO specific user preferences
+sub remove_user_preferences ($user_ref) {
+	my $userid = $user_ref->{userid};
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $userid) . ".sto";
+
+	# Remove the user file
+	unlink($user_file);
+
+	# Remove the e-mail
+	my $oidc_implementation_level = get_oidc_implementation_level();
+	if ($oidc_implementation_level < 2) {
+		# Need to update user_emails until Keycloak becomes the source of truth
+		my $emails_file = "$BASE_DIRS{USERS}/users_emails.sto";
+		if (-e $emails_file) {
+			my $emails_ref = retrieve($emails_file);
+			my $email = $user_ref->{email};
+
+			if ((defined $email) and ($email =~ /\@/)) {
+				if (defined $emails_ref->{$email}) {
+					delete $emails_ref->{$email};
+					store($emails_file, $emails_ref);
+				}
+			}
+		}
+		if ($oidc_implementation_level == 1) {
+			# Keep Keycloak in sync until it has become the source of truth
+			my $keycloak = ProductOpener::Keycloak->new();
+			$keycloak->delete_user($userid);
 		}
 	}
 
-	return;    # Email is not associated with an OFF account
+	return;
+}
+
+sub retrieve_user_preference_ids() {
+	my @userids = ();
+	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the users directory: $!";
+	my @files = sort(readdir(DH));
+	closedir(DH);
+
+	foreach my $userid (@files) {
+		next if $userid eq "." or $userid eq "..";
+		next if $userid eq 'all';
+		next if $userid eq 'users_emails.sto';
+
+		$userid =~ s/\.sto$//;
+		push @userids, $userid;
+	}
+
+	return @userids;
+}
+
+sub retrieve_user_by_email ($email) {
+	if (get_oidc_implementation_level() < 2) {
+		# Use legacy search until Keycloak is fully synced
+		my $user_ref = retrieve_user_preferences_by_email($email);
+		return $user_ref;
+	}
+	else {
+		my $keycloak_user = _find_user_by_email_in_keycloak($email);
+		unless (defined $keycloak_user) {
+			return;    # Email is not known in Keycloak
+		}
+
+		my $user_id = $keycloak_user->{userid};
+		my $user_ref = retrieve_user($user_id);
+		unless ($user_ref) {
+			$log->info('User not found', {user_id => $user_id}) if $log->is_info();
+			return;    # Email is not associated with an OFF account
+		}
+
+		return $user_ref;
+	}
 }
 
 sub remove_user_by_org_admin ($orgid, $user_id) {
-	my $groups_ref = ['admins', 'members'];
+	my $groups_ref = ['admins', 'members', 'pending'];
 	remove_user_from_org($orgid, $user_id, $groups_ref);
 
 	# Reset the 'org' field of the user
-	my $user_ref = retrieve_user($user_id);
+	my $user_ref = retrieve_user_preferences($user_id);
 	delete $user_ref->{org};
 	delete $user_ref->{org_id};
-	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-	store($user_file, $user_ref);
+	store_user_preferences($user_ref);
 	return;
 }
 
@@ -994,10 +1525,10 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 	foreach my $email (@emails) {
 
 		# Check if the email is associated with an OpenFoodFacts account
-		my $user_id = is_email_has_off_account($email);
-		if (defined $user_id) {
+		my $user_ref = retrieve_user_by_email($email);
+		if (defined $user_ref) {
 			# Add the user to the organization
-			add_user_to_org($org_id, $user_id, ["members"]);
+			add_user_to_org($org_id, $user_ref->{userid}, ["members"]);
 			push @emails_added, $email;
 		}
 		else {
@@ -1015,7 +1546,7 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 	return $email_ref;
 }
 
-sub init_user ($request_ref) {
+sub init_user ($request_ref, $r = undef) {
 
 	my $user_id = undef;
 	my $user_ref = undef;
@@ -1023,12 +1554,33 @@ sub init_user ($request_ref) {
 
 	$User_id = undef;
 	$Org_id = undef;
+	$Owner_id = undef;
 	%User = ();
 	%Org = ();
+
+	# Note we allow an OAuth token for all oidc_implementation_levels
+	if ($r) {
+		my $signed_in_oidc = process_auth_header($request_ref, $r);
+		if ($signed_in_oidc < 0) {
+			# We were sent a bad bearer token
+			return "invalid_token";
+		}
+	}
 
 	# Remove persistent cookie if user is logging out
 	if ((defined request_param($request_ref, 'length')) and (request_param($request_ref, 'length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
+
+		# Expiring the cookie is not enough: the session is still stored server side, so the same
+		# cookie would authenticate again. Read it before we drop it, and delete it.
+		if (defined cookie($cookie_name)) {
+			my %logout_cookie = cookie($cookie_name);
+			remove_user_session($logout_cookie{'user_id'}, $logout_cookie{'user_session'});
+		}
+		elsif (defined single_param('user_session')) {
+			remove_user_session(single_param('user_id'), single_param('user_session'));
+		}
+
 		my $session = {};
 		$request_ref->{cookie} = cookie(
 			-name => $cookie_name,
@@ -1037,6 +1589,38 @@ sub init_user ($request_ref) {
 			-path => '/',
 			-domain => "$cookie_domain"
 		);
+	}
+
+	# User was authenticated via OIDC
+	elsif ( (defined $request_ref->{oidc_user_id})
+		and ($request_ref->{oidc_user_id} ne ''))
+	{
+		$user_id = $request_ref->{oidc_user_id};
+
+		$log->context->{user_id} = $user_id;
+		$log->debug("user_id is defined") if $log->is_debug();
+		my $session = undef;
+
+		# If the user exists
+		if (defined $user_id) {
+			$user_ref = retrieve_user($user_id);
+
+			if (defined $user_ref) {
+				$user_id = $user_ref->{'userid'};
+				$log->context->{user_id} = $user_id;
+
+				if (not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
+				{
+					open_user_session($user_ref, undef, undef, undef, undef, undef, $request_ref);
+				}
+			}
+			else {
+				$user_id = undef;
+				$log->info('bad user') if $log->is_info();
+				# Trigger an error
+				return "error_bad_login_password";
+			}
+		}
 	}
 
 	# Retrieve user_id and password from form parameters
@@ -1048,24 +1632,32 @@ sub init_user ($request_ref) {
 		$user_id = remove_tags_and_quote(request_param($request_ref, 'user_id'));
 
 		if ($user_id =~ /\@/) {
-			$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
-			my $emails_ref = retrieve("$data_root/users/users_emails.sto");
-			if (not defined $emails_ref->{$user_id}) {
-				# not found, try with lower case email
-				$user_id = lc $user_id;
-			}
-			if (not defined $emails_ref->{$user_id}) {
-				$user_id = undef;
-				$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
-				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lang});
+			if (get_oidc_implementation_level() < 2) {
+				# Validate user information from legacy files until Keycloak is fully synced
+				$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
+				$user_ref = retrieve_user_preferences_by_email($user_id);
+
+				if (not defined $user_ref) {
+					$user_id = undef;
+					$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
+					# Trigger an error
+					return "error_bad_login_password";
+				}
+				else {
+					$user_id = $user_ref->{userid};
+				}
+
+				$log->info("corresponding user_id", {userid => $user_id}) if $log->is_info();
 			}
 			else {
-				my @userids = @{$emails_ref->{$user_id}};
-				$user_id = $userids[0];
+				# Once registration has moved to Keycloak we are just storing user preferences
+				# but still want to validate the user
+				$user_id = _get_account_by_mail($user_id);
+				# Trigger an error
+				unless (defined $user_id) {
+					return "error_bad_login_password";
+				}
 			}
-
-			$log->info("corresponding user_id", {userid => $user_id}) if $log->is_info();
 		}
 
 		$log->context->{user_id} = $user_id;
@@ -1074,43 +1666,72 @@ sub init_user ($request_ref) {
 
 		# If the user exists
 		if (defined $user_id) {
+			if (get_oidc_implementation_level() < 2) {
+				# Use legacy password checking until back-channel authentication has moved to Keycloak
+				if (not defined $user_ref) {
+					$user_ref = retrieve_user($user_id);
+				}
 
-			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+				if (defined $user_ref) {
+					$user_id = $user_ref->{'userid'};
+					$log->context->{user_id} = $user_id;
 
-			if (-e $user_file) {
-				$user_ref = retrieve($user_file);
-				$user_id = $user_ref->{'userid'};
-				$log->context->{user_id} = $user_id;
+					my $hash_is_correct = check_password_hash(encode_utf8(request_param($request_ref, 'password')),
+						$user_ref->{'encrypted_password'});
+					# We don't have the right password
+					if (not $hash_is_correct) {
+						$user_id = undef;
+						$log->info(
+							"bad password - input does not match stored hash",
+							{encrypted_password => $user_ref->{'encrypted_password'}}
+						) if $log->is_info();
+						# Trigger an error
+						return "error_bad_login_password";
+					}
+					# We have the right login/password
+					elsif (
+						not defined request_param($request_ref, 'no_log')
+						)    # no need to store sessions for internal requests
+					{
+						$log->info("correct password for user provided") if $log->is_info();
 
-				my $hash_is_correct
-					= check_password_hash(encode_utf8(decode utf8 => request_param($request_ref, 'password')),
-					$user_ref->{'encrypted_password'});
-				# We don't have the right password
-				if (not $hash_is_correct) {
+						migrate_password_hash($user_ref);
+
+						open_user_session($user_ref, undef, undef, undef, undef, undef, $request_ref);
+						update_external_login_time($user_ref);
+					}
+				}
+				else {
 					$user_id = undef;
-					$log->info(
-						"bad password - input does not match stored hash",
-						{encrypted_password => $user_ref->{'encrypted_password'}}
-					) if $log->is_info();
+					$log->info("bad user") if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lang});
+					return "error_bad_login_password";
+				}
+			}
+			else {
+				my (
+					$keycloak_user_ref, $refresh_token, $refresh_expires_at,
+					$access_token, $access_expires_at, $id_token
+				) = password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
+				$user_ref = $keycloak_user_ref;
+
+				# We don't have the right password
+				if (not $user_ref) {
+					$user_id = undef;
+					$log->info('bad password - input does not match stored hash') if $log->is_info();
+					# Trigger an error
+					return "error_bad_login_password";
 				}
 				# We have the right login/password
 				elsif (
 					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
 				{
-					$log->info("correct password for user provided") if $log->is_info();
-
-					migrate_password_hash($user_ref);
-
-					open_user_session($user_ref, $request_ref);
+					$user_id = $user_ref->{userid};
+					$log->info("creating OIDC session") if $log->is_info();
+					open_user_session($user_ref, $refresh_token, $refresh_expires_at,
+						$access_token, $access_expires_at, $id_token, $request_ref);
+					update_external_login_time($user_ref);
 				}
-			}
-			else {
-				$user_id = undef;
-				$log->info("bad user") if $log->is_info();
-				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lang});
 			}
 		}
 	}
@@ -1135,34 +1756,23 @@ sub init_user ($request_ref) {
 		}
 
 		if (defined $user_id) {
-			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+			$user_ref = retrieve_user($user_id);
 
-			if (-e $user_file) {
-				$user_ref = retrieve($user_file);
+			if (defined $user_ref) {
 				$log->debug(
 					"initializing user",
 					{
 						user_id => $user_id,
 						user_session => $user_session,
-						stock_session => $user_ref->{'user_sessions'},
 						stock_ip => $user_ref->{'user_last_ip'},
 						current_ip => remote_addr()
 					}
 				) if $log->is_debug();
 
-				# Try to keep sessions opened for users with dynamic IPs
-				my $short_ip = sub ($) {
-					my $ip = shift;
-					# Remove the last two bytes
-					$ip =~ s/(\.\d+){2}$//;
-					return $ip;
-				};
-
 				if (   (not defined $user_ref->{'user_sessions'})
 					or (not defined $user_session)
-					or (not defined $user_ref->{'user_sessions'}{$user_session}))
-					# disable the restriction of sessions by ip address (issue 6842 57E0 C2C7 F629 E4CE 5605 42)
-					#	or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
+					or (not defined $user_ref->{'user_sessions'}{$user_session})
+					or (is_stale_user_session($user_ref->{'user_sessions'}{$user_session})))
 				{
 					$log->debug("no matching session for user") if $log->is_debug();
 					$user_id = undef;
@@ -1181,6 +1791,19 @@ sub init_user ($request_ref) {
 					$log->debug("user identified", {user_id => $user_id, stocked_user_id => $user_ref->{'userid'}})
 						if $log->is_debug();
 					$user_id = $user_ref->{'userid'};
+
+					if (get_oidc_implementation_level() >= 2) {
+						# Add Keycloak information to the session if we are using Keycloak for back-channel authentication
+						#12279 TODO: We should probably remove the access_token, etc. from the user.sto file as it contains PII
+						my $session_ref = $user_ref->{'user_sessions'}{$user_session};
+						$request_ref->{access_token} = $session_ref->{access_token} if $session_ref->{access_token};
+						$request_ref->{access_expires_at} = $session_ref->{access_expires_at}
+							if $session_ref->{access_expires_at};
+						$request_ref->{refresh_token} = $session_ref->{refresh_token} if $session_ref->{refresh_token};
+						$request_ref->{refresh_expires_at} = $session_ref->{refresh_expires_at}
+							if $session_ref->{refresh_expires_at};
+						$request_ref->{id_token} = $session_ref->{id_token} if $session_ref->{id_token};
+					}
 				}
 			}
 			else {
@@ -1239,6 +1862,12 @@ sub init_user ($request_ref) {
 		%Org = ();
 	}
 
+	set_owner_id($request_ref);
+
+	return 0;
+}
+
+sub set_owner_id ($request_ref) {
 	# if products are private, select the owner used to restrict the product set with the owners_tags field
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 
@@ -1276,86 +1905,55 @@ sub init_user ($request_ref) {
 		$Owner_id = undef;
 	}
 
-	return 0;
-}
-
-=head2 is_ip_known_or_whitelisted ()
-
-This sub introduces a server option to whitelist IPs for all cookies.
-
-=cut
-
-sub is_ip_known_or_whitelisted ($user_ref, $user_session, $ip, $shorten_ip) {
-
-	my $short_ip = $shorten_ip->($ip);
-
-	if (    (defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-		and ($shorten_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) eq $short_ip))
-	{
-		return 1;
+	if (defined $Owner_id) {
+		$request_ref->{owner_id} = $Owner_id;
 	}
 
-	if (defined $server_options{ip_whitelist_session_cookie}) {
-		foreach (@{$server_options{ip_whitelist_session_cookie}}) {
-			if ($_ eq $ip) {
-				return 1;
-			}
-		}
-	}
-
-	return 0;
+	return;
 }
 
 sub check_session ($user_id, $user_session) {
 
 	$log->debug("checking session", {user_id => $user_id, users_session => $user_session}) if $log->is_debug();
 
-	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-
 	my $results_ref = {};
 
-	if (-e $user_file) {
-		my $user_ref = retrieve($user_file);
-
-		if (defined $user_ref) {
-			$log->debug(
-				"comparing session with stored user",
-				{
-					user_id => $user_id,
-					user_session => $user_session,
-					stock_session => $user_ref->{'user_sessions'},
-					stock_ip => $user_ref->{'user_last_ip'},
-					current_ip => remote_addr()
-				}
-			) if $log->is_debug();
-
-			if (
-				   (not defined $user_ref->{'user_sessions'})
-				or (not defined $user_session)
-				or (not defined $user_ref->{'user_sessions'}{$user_session})
-				# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-				# or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr())))
-
-				)
+	my $user_ref = retrieve_user($user_id);
+	if (defined $user_ref) {
+		$log->debug(
+			"comparing session with stored user",
 			{
-				$log->debug("no matching session for user") if $log->is_debug();
-				$user_id = undef;
-
+				user_id => $user_id,
+				user_session => $user_session,
+				stock_session => $user_ref->{'user_sessions'},
+				stock_ip => $user_ref->{'user_last_ip'},
+				current_ip => remote_addr()
 			}
-			else {
-				# Get actual user_id (i.e. BIZ or biz -> Biz)
-				$log->debug("user identified", {user_id => $user_id, stocked_user_id => $user_ref->{'userid'}})
-					if $log->is_debug();
+		) if $log->is_debug();
 
-				$user_id = $user_ref->{'userid'};
-				$results_ref->{name} = $user_ref->{name};
-				$results_ref->{email} = $user_ref->{email};
-			}
+		if (
+			   (not defined $user_ref->{'user_sessions'})
+			or (not defined $user_session)
+			or (not defined $user_ref->{'user_sessions'}{$user_session})
+			or (is_stale_user_session($user_ref->{'user_sessions'}{$user_session}))
+			# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
+			# or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr())))
+
+			)
+		{
+			$log->debug("no matching session for user") if $log->is_debug();
+			$user_id = undef;
+
 		}
 		else {
-			$log->info("could not load user", {user_id => $user_id}) if $log->is_info();
-		}
+			# Get actual user_id (i.e. BIZ or biz -> Biz)
+			$log->debug("user identified", {user_id => $user_id, stocked_user_id => $user_ref->{'userid'}})
+				if $log->is_debug();
 
+			$user_id = $user_ref->{'userid'};
+			$results_ref->{name} = $user_ref->{name};
+			$results_ref->{email} = $user_ref->{email};
+		}
 	}
 	else {
 		$log->info("user does not exist", {user_id => $user_id}) if $log->is_info();
@@ -1365,6 +1963,94 @@ sub check_session ($user_id, $user_session) {
 	$results_ref->{user_id} = $user_id;
 
 	return $results_ref;
+}
+
+sub update_external_login_time ($user_ref) {
+	update_contact_last_login($user_ref);
+	update_last_logged_in_member($user_ref);
+	return;
+}
+
+=head2 process_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if we have a valid user.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+1 if the user has been signed in, -1 if the Bearer token was invalid, 0 otherwise.
+
+=cut
+
+sub process_auth_header ($request_ref, $r) {
+	my $token = _read_auth_header($request_ref, $r);
+	unless ($token) {
+		return 0;
+	}
+
+	my $access_token;
+	# verify token using JWKS (see Auth.pm)
+	eval {$access_token = verify_access_token($token);};
+	my $error = $@;
+	if ($error) {
+		$log->info('Access token invalid', {token => $token}) if $log->is_info();
+	}
+
+	unless ($access_token) {
+		return -1;
+	}
+
+	$request_ref->{access_token} = $token;
+	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
+	unless (defined $user_ref) {
+		$log->info('User not found and not created') if $log->is_info();
+		return -1;
+	}
+	my $user_id = $user_ref->{userid};
+	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
+
+	$request_ref->{oidc_user_id} = $user_id;
+
+	return 1;
+}
+
+=head2 _read_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if it looks like a 
+Bearer token, and if it does, copy it to the request_ref
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+None
+
+=cut
+
+sub _read_auth_header ($request_ref, $r) {
+	my $authorization = $r->headers_in->{Authorization};
+	if ((defined $authorization) and ($authorization =~ /^Bearer (?<token>.+)$/)) {
+		return $+{token};
+	}
+
+	return;
 }
 
 1;

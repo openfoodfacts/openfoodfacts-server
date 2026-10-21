@@ -1,8 +1,12 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
+         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 75,
          "percent_max" : 75,
          "percent_min" : 75,
@@ -12,7 +16,10 @@
       },
       {
          "ciqual_food_code" : "13014",
+         "ecobalyse_id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
+         "ecobalyse_name" : "Fraise par défaut -2025-",
          "id" : "en:strawberry-juice",
+         "is_in_taxonomy" : 1,
          "percent" : 20,
          "percent_estimate" : 20,
          "percent_max" : 20,
@@ -22,34 +29,31 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent" : 5,
          "percent_estimate" : 5,
          "percent_max" : 5,
          "percent_min" : 5,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:water",
-      "en:strawberry-juice",
-      "en:fruit",
-      "en:berries",
-      "en:juice",
-      "en:fruit-juice",
-      "en:strawberry",
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
       "3",
@@ -64,32 +68,31 @@
    "ingredients_tags" : [
       "en:water",
       "en:strawberry-juice",
-      "en:fruit",
-      "en:berries",
-      "en:juice",
-      "en:fruit-juice",
+      "en:berry-juice",
       "en:strawberry",
+      "en:fruit-juice",
+      "en:berries",
+      "en:fruit",
+      "en:juice",
       "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide"
+      "en:disaccharide",
+      "en:added-sugar"
    ],
    "ingredients_text" : "Water, strawberry juice 20%, sugar 5%",
    "ingredients_with_specified_percent_n" : 2,
    "ingredients_with_specified_percent_sum" : 25,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 75,
-   "ingredients_without_ciqual_codes" : [
-      "en:sugar"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 10,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 3,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 20,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 20,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 20,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 20
-   },
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "recipe" : {
       "en:fruit" : 20,
       "en:sugar" : 5,

@@ -25,7 +25,8 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
+#11872 Need to use PO Storable
 use Storable qw(lock_store lock_nstore lock_retrieve);
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -33,7 +34,27 @@ use Apache2::Const ();
 use List::Util qw(shuffle);
 use Log::Any qw($log);
 
-my $ids_ref = lock_retrieve("/srv/sugar/data/products_ids.sto");
+use ProductOpener::Paths qw/%BASE_DIRS/;
+
+# this script is used by howmuchsugar to redirect to a new product randomly
+
+my $r = Apache2::RequestUtil->request();
+
+# read site name in apache provided header
+my $lang = $r->headers_in->{"X-Site-Lang"} // 'en';
+
+# The language code is a directory name below. nginx sets the header from the site name for the
+# howmuchsugar virtual hosts, but this script is served by the other virtual hosts too, and those
+# pass the headers of the request through, so check the value before it goes into a path.
+if ($lang !~ /^[a-z]{2,3}$/) {
+	$log->warn("sugar_random - refusing a header that is not a language code", {lang => $lang})
+		if $log->is_warn();
+	$r->status(400);
+	return 400;
+}
+
+my $ids_ref = lock_retrieve($BASE_DIRS{PRIVATE_DATA} . "/sugar/$lang/products_ids.sto")
+	or die("Cannot open sugar/products_ids.sto");
 my @ids = @$ids_ref;
 
 srand();
@@ -43,7 +64,6 @@ my @shuffle = shuffle(@ids);
 my $id = pop(@shuffle);
 
 $log->info("random ids sampled", {ids => scalar(@ids), id => $id}) if $log->is_info();
-my $r = shift;
 
 $r->headers_out->set(Location => "/$id");
 $r->headers_out->set(Pragma => "no-cache");

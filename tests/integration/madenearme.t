@@ -2,7 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use File::Copy "copy";
 use File::Basename "fileparse";
 use File::Temp;
@@ -21,8 +21,11 @@ my @tests = (
 		"testid" => "world-en",
 		"args" => ["world", "en"],
 		"matched_products" =>
-			qr/3 products match the search criteria, of which 2 products have a known production place/,
-		"geopoints" => ['"geo":[43.9753575,2.9912097]', '"geo":[50.3792391,3.0399349]'],
+			qr/3 products match the search criteria, of which 3 products have a known production place/,
+		"geopoints" => [
+			'"geo":[43.9753575,2.9912097]', '"geo":[50.3792391,3.0399349]',
+			'"geo":[48.71119,10.62904]', '"geo":[48.71119,10.62904]'
+		],
 	},
 	{
 		"testid" => "fr-fr",
@@ -52,7 +55,7 @@ foreach my $test_ref (@tests) {
 	# get geopoints
 	my @geopoints = ($html_content =~ m/"geo":\[\d+\.\d+,\d+\.\d+\]/g);
 	# compare geopoints
-	is_deeply(\@geopoints, $test_ref->{geopoints}, "$testid: geopoints");
+	is(\@geopoints, $test_ref->{geopoints}, "$testid: geopoints");
 }
 done_testing();
 1;

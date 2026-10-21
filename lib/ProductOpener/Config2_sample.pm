@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## no critic (RequireFilenameMatchesPackage);
+
 package ProductOpener::Config2;
 
 use utf8;
@@ -30,7 +32,9 @@ BEGIN {
 		$server_domain
 		@ssl_subdomains
 		$data_root
+		$conf_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$mongodb
 		$mongodb_host
@@ -44,8 +48,16 @@ BEGIN {
 		$events_username
 		$events_password
 		$redis_url
+		$folksonomy_url
 		%server_options
-
+		$serialize_to_json
+		$oidc_implementation_level
+		$oidc_discovery_url
+		$oidc_client_id
+		$oidc_client_secret
+		%slack_hook_urls
+		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -60,12 +72,14 @@ $server_domain = "openfoodfacts.org";
 
 # server paths
 $www_root = "/home/off/html";
+$conf_root = "/home/off";
 $data_root = "/home/off";
+$sftp_root = "/home/sftp";
 
 $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 
 $mongodb = "off";    # MongoDB database name
-$mongodb_host = "mongodb://localhost";
+$mongodb_host = "localhost";
 $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
 $memd_servers = ["127.0.0.1:11211"];
@@ -86,12 +100,48 @@ $events_password = '';
 
 $redis_url = '';
 
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
+
 %server_options = (
 
 	cookie_domain => "openfoodfacts.dev",    # if not set, default to $server _domain
 	private_products => 1,    # Make products visible only to the owner
-	export_servers => {public => "off", experiment => "off-exp"},
-	ip_whitelist_session_cookie => ["172.19.0.1"],
+							  # Tells that session_cookie (which is normally limitted by ip)
+							  # can be trusted also for those ip addresses
+	minion_backend => {'Pg' => 'postgresql://off:******@10.1.0.120/minion'},
+	minion_local_queue => "openfoodfacts.org",
+
+	# Only for producers platform
+	# private_products => 0, # 1 to make products visible only to the owner (producer platform)
+	# minion_export_queue => $ENV{PRODUCT_OPENER_DOMAIN},
+	# export_servers => {public => "off", experiment => "off-exp"},
+	# export_data_root => "/mnt/podata/export",
+	# minion_daemon_server_and_port => "http://0.0.0.0:3001",
+	# this one does not seems to be used
+	# minion_admin_server_and_port => "http://0.0.0.0:3003",
+
+	# Hosts that the import feature is allowed to download images from, even if they do not
+	# resolve to a globally routable address (e.g. a supplier serving images from a private
+	# network). By default, an image url is only fetched if it resolves to a globally routable
+	# address, so that the import cannot be used to reach our internal services.
+	# allowed_image_download_hosts => ["images.example.com"],
 );
+
+#11901: Remove once production is migrated
+$serialize_to_json = 2;
+
+$oidc_implementation_level = 1;
+$oidc_client_id = 'OFF';
+$oidc_client_secret = 'A secret';
+$oidc_discovery_url = 'http://10.1.0.104:5600/realms/openfoodfacts/.well-known/openid-configuration';
+
+# associate each channel (by name) with its url (containing auth)
+%slack_hook_urls = ();
+
+# Rate limiter disabled flag - set to 1 to disable application-level rate limiting
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = 0;
 
 1;

@@ -1,0 +1,2301 @@
+{
+   "encoding" : "UTF-8",
+   "catalogue_item_notification:catalogueItemNotificationMessage" : {
+      "transaction" : {
+         "transactionIdentification" : {
+            "entityIdentification" : {
+               "$t" : "DFF37EEB-90AD-45CD-9385-6654FAD65D3B"
+            },
+            "contentOwner" : {
+               "gln" : {
+                  "$t" : "4104420000001"
+               }
+            }
+         },
+         "documentCommand" : {
+            "documentCommandHeader" : {
+               "type" : "CHANGE_BY_REFRESH",
+               "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+               "documentCommandIdentification" : {
+                  "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+                  "contentOwner" : {
+                     "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+                     "gln" : {
+                        "$t" : "4104420000001"
+                     }
+                  },
+                  "entityIdentification" : {
+                     "$t" : "713F0F57-0D7E-455F-A675-0B8E140E4242"
+                  }
+               }
+            },
+            "catalogue_item_notification:catalogueItemNotification" : [
+               {
+                  "documentStatusCode" : {
+                     "$t" : "ORIGINAL"
+                  },
+                  "isReload" : {
+                     "$t" : "true"
+                  },
+                  "catalogueItem" : {
+                     "catalogueItemChildItemLink" : {
+                        "catalogueItem" : {
+                           "tradeItem" : {
+                              "gtin" : {
+                                 "$t" : "04104420249189"
+                              },
+                              "informationProviderOfTradeItem" : {
+                                 "gln" : {
+                                    "$t" : "4104420000001"
+                                 },
+                                 "partyName" : {
+                                    "$t" : "Alnatura GmbH"
+                                 }
+                              },
+                              "gdsnTradeItemClassification" : {
+                                 "gpcCategoryName" : {
+                                    "$t" : "Saucen (ohne Kühlung haltbar)"
+                                 },
+                                 "gpcCategoryDefinition" : {
+                                    "$t" : "Saucen (ohne Kühlung haltbar)"
+                                 },
+                                 "gpcCategoryCode" : {
+                                    "$t" : "10000057"
+                                 }
+                              },
+                              "tradeItemInformation" : {
+                                 "extension" : {
+                                    "promotionalItemInformationModule" : {
+                                       "isTradeItemAPromotionalUnit" : {
+                                          "$t" : "false"
+                                       }
+                                    },
+                                    "tradeItemDataCarrierAndIdentificationModule" : {
+                                       "dataCarrier" : {
+                                          "dataCarrierTypeCode" : {
+                                             "$t" : "EAN_13"
+                                          }
+                                       }
+                                    },
+                                    "packagingMarkingModule" : {
+                                       "packagingMarking" : {
+                                          "packagingMarkedLanguageCode" : {
+                                             "$t" : "fr"
+                                          },
+                                          "hasBatchNumber" : {
+                                             "$t" : "true"
+                                          },
+                                          "packagingDate" : {
+                                             "tradeItemDateOnPackagingTypeCode" : {
+                                                "$t" : "BEST_BEFORE_DATE"
+                                             }
+                                          },
+                                          "isPackagingMarkedReturnable" : {
+                                             "$t" : "false"
+                                          },
+                                          "avpList" : {
+                                             "stringAVP" : {
+                                                "$t" : "EINWEG_OP",
+                                                "attributeName" : "AVPEinwegMehrwegCode"
+                                             }
+                                          },
+                                          "packagingMarkedLabelAccreditationCode" : {
+                                             "$t" : "EU_ORGANIC_FARMING"
+                                          }
+                                       }
+                                    },
+                                    "transportationHazardousClassificationModule" : {
+                                       "transportationClassification" : {
+                                          "regulatedTransportationMode" : {
+                                             "hazardousInformationHeader" : {
+                                                "dangerousGoodsRegulationAgency" : {
+                                                   "$t" : "ADR"
+                                                },
+                                                "dangerousGoodsRegulationCode" : {
+                                                   "$t" : "ZNA"
+                                                }
+                                             }
+                                          }
+                                       }
+                                    },
+                                    "packagingInformationModule" : {
+                                       "packaging" : {
+                                          "packagingTypeCode" : {
+                                             "$t" : "JR"
+                                          },
+                                          "returnableAsset" : {}
+                                       }
+                                    },
+                                    "dietInformationModule" : {
+                                       "dietInformation" : {
+                                          "dietTypeInformation" : [
+                                             {
+                                                "dietTypeCode" : {
+                                                   "$t" : "VEGAN"
+                                                },
+                                                "isDietTypeMarkedOnPackage" : {
+                                                   "$t" : "FALSE"
+                                                }
+                                             },
+                                             {
+                                                "dietTypeCode" : {
+                                                   "$t" : "VEGETARIAN"
+                                                },
+                                                "isDietTypeMarkedOnPackage" : {
+                                                   "$t" : "FALSE"
+                                                }
+                                             }
+                                          ]
+                                       }
+                                    },
+                                    "healthWellnessPackagingMarkingModule" : {
+                                       "healthWellnessPackagingMarking" : {
+                                          "isPackagingMarkedWithIngredients" : {
+                                             "$t" : "true"
+                                          }
+                                       }
+                                    },
+                                    "dairyFishMeatPoultryItemModule" : {
+                                       "dairyFishMeatPoultryInformation" : {
+                                          "fishReportingInformation" : {}
+                                       }
+                                    },
+                                    "allergenInformationModule" : {
+                                       "allergenRelatedInformation" : {
+                                          "allergen" : {
+                                             "allergenTypeCode" : {
+                                                "$t" : "AY"
+                                             },
+                                             "levelOfContainmentCode" : {
+                                                "$t" : "CONTAINS"
+                                             }
+                                          }
+                                       }
+                                    },
+                                    "marketingInformationModule" : {
+                                       "marketingInformation" : {
+                                          "season" : {
+                                             "isTradeItemSeasonal" : {
+                                                "$t" : "FALSE"
+                                             }
+                                          },
+                                          "tradeItemFeatureBenefit" : [
+                                             {
+                                                "$t" : "Bio-Qualität",
+                                                "sequenceNumber" : "1",
+                                                "languageCode" : "de"
+                                             },
+                                             {
+                                                "languageCode" : "de",
+                                                "$t" : "pikante Tomatensauce mit Gemüse und Sojaschnetzel",
+                                                "sequenceNumber" : "2"
+                                             },
+                                             {
+                                                "languageCode" : "de",
+                                                "sequenceNumber" : "3",
+                                                "$t" : "für die schnelle Küche: kurz erhitzt zu Pasta oder Gnocchi und für Lasagne"
+                                             }
+                                          ],
+                                          "tradeItemMarketingMessage" : {
+                                             "$t" : "Sauce bolognese, der Klassiker unter den italienischen Saucen, hier in der vegetarischen Variante: Bio-Tomatensauce mit Gemüse und Sojaschnetzel. Ideal zu Pasta oder Gnocchi und unentbehrlich für vegetarische Lasagne.",
+                                             "languageCode" : "de"
+                                          }
+                                       }
+                                    },
+                                    "variableTradeItemInformationModule" : {
+                                       "variableTradeItemInformation" : {
+                                          "isTradeItemAVariableUnit" : {
+                                             "$t" : "false"
+                                          }
+                                       }
+                                    },
+                                    "tradeItemLifespanModule" : {
+                                       "tradeItemLifespan" : {
+                                          "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                             "$t" : "360"
+                                          }
+                                       }
+                                    },
+                                    "tradeItemHandlingModule" : {},
+                                    "deliveryPurchasingInformationModule" : {
+                                       "deliveryPurchasingInformation" : {
+                                          "startAvailabilityDateTime" : {
+                                             "$t" : "2024-07-01T00:00:00"
+                                          }
+                                       }
+                                    },
+                                    "alcoholInformationModule" : {},
+                                    "dutyFeeTaxInformationModule" : {
+                                       "dutyFeeTaxInformation" : {
+                                          "dutyFeeTaxAgencyCode" : {
+                                             "$t" : "246"
+                                          },
+                                          "dutyFeeTaxTypeCode" : {
+                                             "$t" : "VAT"
+                                          },
+                                          "dutyFeeTax" : {
+                                             "dutyFeeTaxCategoryCode" : {
+                                                "$t" : "LOW"
+                                             }
+                                          }
+                                       }
+                                    },
+                                    "placeOfItemActivityModule" : {
+                                       "importClassification" : {
+                                          "importClassificationValue" : {
+                                             "$t" : "21039090"
+                                          },
+                                          "importClassificationTypeCode" : {
+                                             "$t" : "INTRASTAT"
+                                          }
+                                       },
+                                       "placeOfProductActivity" : {
+                                          "countryOfOrigin" : {
+                                             "countryCode" : {
+                                                "$t" : "276"
+                                             }
+                                          }
+                                       }
+                                    },
+                                    "nutritionalInformationModule" : {
+                                       "nutrientHeader" : {
+                                          "nutrientBasisQuantity" : {
+                                             "$t" : "100.00",
+                                             "measurementUnitCode" : "MLT"
+                                          },
+                                          "nutrientDetail" : [
+                                             {
+                                                "nutrientTypeCode" : {
+                                                   "$t" : "ENER-"
+                                                },
+                                                "quantityContained" : [
+                                                   {
+                                                      "measurementUnitCode" : "E14",
+                                                      "$t" : "81.00000"
+                                                   },
+                                                   {
+                                                      "measurementUnitCode" : "KJO",
+                                                      "$t" : "340.00000"
+                                                   }
+                                                ],
+                                                "measurementPrecisionCode" : {
+                                                   "$t" : "APPROXIMATELY"
+                                                }
+                                             },
+                                             {
+                                                "nutrientTypeCode" : {
+                                                   "$t" : "CHOAVL"
+                                                },
+                                                "measurementPrecisionCode" : {
+                                                   "$t" : "APPROXIMATELY"
+                                                },
+                                                "quantityContained" : {
+                                                   "$t" : "9.10000",
+                                                   "measurementUnitCode" : "GRM"
+                                                }
+                                             },
+                                             {
+                                                "measurementPrecisionCode" : {
+                                                   "$t" : "APPROXIMATELY"
+                                                },
+                                                "quantityContained" : {
+                                                   "$t" : "6.10000",
+                                                   "measurementUnitCode" : "GRM"
+                                                },
+                                                "nutrientTypeCode" : {
+                                                   "$t" : "SUGAR-"
+                                                }
+                                             },
+                                             {
+                                                "measurementPrecisionCode" : {
+                                                   "$t" : "APPROXIMATELY"
+                                                },
+                                                "quantityContained" : {
+                                                   "$t" : "3.90000",
+                                                   "measurementUnitCode" : "GRM"
+                                                },
+                                                "nutrientTypeCode" : {
+                                                   "$t" : "PRO-"
+                                                }
+                                             },
+                                             {
+                                                "quantityContained" : {
+                                                   "measurementUnitCode" : "GRM",
+                                                   "$t" : "2.80000"
+                                                },
+                                                "measurementPrecisionCode" : {
+                                                   "$t" : "APPROXIMATELY"
+                                                },
+                                                "nutrientTypeCode" : {
+                                                   "$t" : "FAT"
+                                                }
+                                             },
+                                             {
+                                                "nutrientTypeCode" : {
+                                                   "$t" : "FIBTG"
+                                                },
+                                                "measurementPrecisionCode" : {
+                                                   "$t" : "APPROXIMATELY"
+                                                },
+                                                "quantityContained" : {
+                                                   "measurementUnitCode" : "GRM",
+                                                   "$t" : "1.90000"
+                                                }
+                                             },
+                                             {
+                                                "measurementPrecisionCode" : {
+                                                   "$t" : "APPROXIMATELY"
+                                                },
+                                                "quantityContained" : {
+                                                   "$t" : "0.85000",
+                                                   "measurementUnitCode" : "GRM"
+                                                },
+                                                "nutrientTypeCode" : {
+                                                   "$t" : "SALTEQ"
+                                                }
+                                             },
+                                             {
+                                                "nutrientTypeCode" : {
+                                                   "$t" : "FASAT"
+                                                },
+                                                "measurementPrecisionCode" : {
+                                                   "$t" : "APPROXIMATELY"
+                                                },
+                                                "quantityContained" : {
+                                                   "$t" : "0.30000",
+                                                   "measurementUnitCode" : "GRM"
+                                                }
+                                             }
+                                          ],
+                                          "preparationStateCode" : {
+                                             "$t" : "UNPREPARED"
+                                          }
+                                       }
+                                    },
+                                    "foodAndBeveragePreparationServingModule" : {
+                                       "preparationServing" : {
+                                          "preparationInstructions" : [
+                                             {
+                                                "$t" : "Soja-Bolognese im Topf kurz erhitzen.",
+                                                "languageCode" : "de"
+                                             },
+                                             {
+                                                "languageCode" : "fr",
+                                                "$t" : "Faire chauffer brièvement la sauce végetarienne avec soja dans une casserole."
+                                             }
+                                          ],
+                                          "preparationTypeCode" : {
+                                             "$t" : "HEAT_AND_SERVE"
+                                          }
+                                       }
+                                    },
+                                    "certificationInformationModule" : {
+                                       "certificationInformation" : [
+                                          {
+                                             "certification" : {
+                                                "certificationEffectiveStartDateTime" : {
+                                                   "$t" : "2024-07-01T14:54:01.090"
+                                                },
+                                                "certificationValue" : {
+                                                   "$t" : "DE-ÖKO-003"
+                                                },
+                                                "certificationEffectiveEndDateTime" : {
+                                                   "$t" : "2025-01-31T00:00:00"
+                                                }
+                                             },
+                                             "certificationStandard" : {
+                                                "$t" : "Organic_Certification"
+                                             },
+                                             "certificationAgency" : {
+                                                "$t" : "EU"
+                                             }
+                                          },
+                                          {
+                                             "certificationAgency" : {
+                                                "$t" : "EU"
+                                             },
+                                             "certificationStandard" : {
+                                                "$t" : "Organic_QualitySymbol"
+                                             },
+                                             "certification" : {
+                                                "certificationEffectiveStartDateTime" : {
+                                                   "$t" : "2024-07-01T14:54:01.090"
+                                                },
+                                                "certificationEffectiveEndDateTime" : {
+                                                   "$t" : "2025-01-31T00:00:00"
+                                                },
+                                                "certificationValue" : {
+                                                   "$t" : "EG"
+                                                }
+                                             }
+                                          }
+                                       ]
+                                    },
+                                    "tradeItemDescriptionModule" : {
+                                       "tradeItemDescriptionInformation" : {
+                                          "functionalName" : [
+                                             {
+                                                "$t" : "Tomatensoßen",
+                                                "languageCode" : "de"
+                                             },
+                                             {
+                                                "languageCode" : "fr",
+                                                "$t" : "alimentaire"
+                                             }
+                                          ],
+                                          "regulatedProductName" : [
+                                             {
+                                                "languageCode" : "de",
+                                                "$t" : "Bio Tomatensauce mit Gemüse und Sojaeiweißerzeugnis"
+                                             },
+                                             {
+                                                "$t" : "Sauce tomate bio aux légumes et protéines de soja texturées",
+                                                "languageCode" : "fr"
+                                             }
+                                          ],
+                                          "descriptionShort" : [
+                                             {
+                                                "$t" : "Vegetarische Soja Bolognese 0,35L",
+                                                "languageCode" : "de"
+                                             },
+                                             {
+                                                "languageCode" : "fr",
+                                                "$t" : "Bolognaise végétarienne au soja 0,3"
+                                             }
+                                          ],
+                                          "brandNameInformation" : {
+                                             "brandName" : {
+                                                "$t" : "Alnatura"
+                                             }
+                                          },
+                                          "tradeItemDescription" : [
+                                             {
+                                                "languageCode" : "de",
+                                                "$t" : "Alnatura Vegetarische Soja Bolognese 0,35L"
+                                             },
+                                             {
+                                                "$t" : "Alnatura Bolognaise végétarienne au soja 0,35l",
+                                                "languageCode" : "fr"
+                                             }
+                                          ]
+                                       }
+                                    },
+                                    "regulatedTradeItemModule" : {
+                                       "regulatoryInformation" : [
+                                          {
+                                             "regulatoryAct" : {
+                                                "$t" : "GHS"
+                                             },
+                                             "regulatoryAgency" : {
+                                                "$t" : "UN"
+                                             },
+                                             "permitIdentification" : {
+                                                "regulatoryPermitIdentification" : {
+                                                   "$t" : "FALSE"
+                                                }
+                                             }
+                                          },
+                                          {
+                                             "permitIdentification" : {
+                                                "regulatoryPermitIdentification" : {
+                                                   "$t" : "DE5306251111978"
+                                                }
+                                             },
+                                             "regulatoryAct" : {
+                                                "$t" : "VerpackG"
+                                             }
+                                          },
+                                          {
+                                             "regulationTypeCode" : {
+                                                "$t" : "BIOCIDE_REGULATION"
+                                             },
+                                             "isTradeItemRegulationCompliant" : {
+                                                "$t" : "NOT_APPLICABLE"
+                                             }
+                                          },
+                                          {
+                                             "regulationTypeCode" : {
+                                                "$t" : "FOOD_INFORMATION_REGULATION"
+                                             }
+                                          }
+                                       ]
+                                    },
+                                    "referencedFileDetailInformationModule" : {
+                                       "referencedFileHeader" : [
+                                          {
+                                             "fileName" : {
+                                                "$t" : "04104420213630_C1C1_s02_v01"
+                                             },
+                                             "isPrimaryFile" : {
+                                                "$t" : "TRUE"
+                                             },
+                                             "fileFormatName" : {
+                                                "$t" : "JPEG"
+                                             },
+                                             "fileEffectiveStartDateTime" : {
+                                                "$t" : "2024-08-16T00:00:00"
+                                             },
+                                             "referencedFileTypeCode" : {
+                                                "$t" : "PRODUCT_IMAGE"
+                                             },
+                                             "uniformResourceIdentifier" : {
+                                                "$t" : "https://mediaservice.alnatura.de/asset/501324310981/image_jopune2a5531f83o52tot4vv52"
+                                             }
+                                          },
+                                          {
+                                             "uniformResourceIdentifier" : {
+                                                "$t" : "https://mediaservice.alnatura.de/asset/501324310981/document_dv733r3ii90pr2i8mlkundlu0f"
+                                             },
+                                             "referencedFileTypeCode" : {
+                                                "$t" : "ORGANIC_CERTIFICATE"
+                                             },
+                                             "fileEffectiveEndDateTime" : {
+                                                "$t" : "2025-01-31T00:00:00"
+                                             },
+                                             "fileName" : {
+                                                "$t" : "kbA_EU_Bio_31012025"
+                                             },
+                                             "fileFormatName" : {
+                                                "$t" : "PDF"
+                                             }
+                                          }
+                                       ]
+                                    },
+                                    "consumerInstructionsModule" : {
+                                       "consumerInstructions" : [
+                                          {
+                                             "consumerStorageInstructions" : {
+                                                "languageCode" : "de",
+                                                "$t" : "Nach dem Öffnen im Kühlschrank aufbewahren und innerhalb von 2 Tagen verbrauchen."
+                                             }
+                                          },
+                                          {
+                                             "consumerStorageInstructions" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "Une fois ouvert, conserver au réfrigérateur et consommer dans les 2 jours."
+                                             }
+                                          }
+                                       ]
+                                    },
+                                    "foodAndBeverageIngredientModule" : {
+                                       "ingredientStatement" : [
+                                          {
+                                             "languageCode" : "de",
+                                             "$t" : "Zutaten: Tomatenmark* einfach konzentriert 46%, Tomaten* passiert 13%, Zwiebeln* 6,8%, Karotten* 6,7%, Paprika* 5,7%, Zucchini* 5,7 %, SOJAEIWEIßERZEUGNIS* 4%, Lauch* 4%, Sonnenblumenöl*, Sojasauce* (Wasser, SOJABOHNEN*, Salz), Zitronensaftkonzentrat*, Maisstärke*, Meersalz, Basilikum*, Knoblauch*, Thymian*, Paprika*, Oregano*, Pfeffer* *aus biologischer Landwirtschaft "
+                                          },
+                                          {
+                                             "$t" : "Ingrédients: Concentré de tomates* à concentration simple 46 %, tomates* en purée 13%, oignons* 6,8%, carottes* 6,7%, poivron* 5,7%, courgettes* 5,7%, protéines de soja texturées* 4%, poireau* 4%, huile de tournesol*, SAUCE SOJA* (Eau, féves de soja*, sel), jus de citron concentré*, amidon de mais*, sel marin, basilic*, ail*, thym*, paprika en poudre* origan*, poivre* *issus de I'agriculture biologique ",
+                                             "languageCode" : "fr"
+                                          }
+                                       ]
+                                    },
+                                    "healthRelatedInformationModule" : {
+                                       "healthRelatedInformation" : {}
+                                    },
+                                    "tradeItemMeasurementsModule" : {
+                                       "tradeItemMeasurements" : {
+                                          "height" : {
+                                             "measurementUnitCode" : "MMT",
+                                             "$t" : "95.000"
+                                          },
+                                          "netContent" : {
+                                             "$t" : "0.350",
+                                             "measurementUnitCode" : "LTR"
+                                          },
+                                          "depth" : {
+                                             "measurementUnitCode" : "MMT",
+                                             "$t" : "87.000"
+                                          },
+                                          "tradeItemWeight" : {
+                                             "netWeight" : {
+                                                "measurementUnitCode" : "GRM",
+                                                "$t" : "375.000"
+                                             },
+                                             "grossWeight" : {
+                                                "$t" : "594.000",
+                                                "measurementUnitCode" : "GRM"
+                                             }
+                                          },
+                                          "width" : {
+                                             "$t" : "87.000",
+                                             "measurementUnitCode" : "MMT"
+                                          }
+                                       }
+                                    },
+                                    "salesInformationModule" : {
+                                       "salesInformation" : {
+                                          "priceComparisonContentTypeCode" : {
+                                             "$t" : "PER_LITRE"
+                                          },
+                                          "isBasePriceDeclarationRelevant" : {
+                                             "$t" : "TRUE"
+                                          },
+                                          "priceComparisonMeasurement" : {
+                                             "$t" : "0.3500",
+                                             "measurementUnitCode" : "LTR"
+                                          }
+                                       }
+                                    },
+                                    "farmingAndProcessingInformationModule" : {
+                                       "tradeItemFarmingAndProcessing" : {
+                                          "geneticallyModifiedDeclarationCode" : {
+                                             "$t" : "FREE_FROM"
+                                          }
+                                       },
+                                       "tradeItemOrganicInformation" : {
+                                          "organicProductPlaceOfFarmingCode" : {
+                                             "$t" : "EU_OR_NON_EU_AGRICULTURE"
+                                          },
+                                          "organicClaim" : {
+                                             "organicTradeItemCode" : {
+                                                "$t" : "2"
+                                             }
+                                          }
+                                       }
+                                    }
+                                 }
+                              },
+                              "tradeItemUnitDescriptorCode" : {
+                                 "$t" : "BASE_UNIT_OR_EACH"
+                              },
+                              "isTradeItemAnInvoiceUnit" : {
+                                 "$t" : "false"
+                              },
+                              "additionalTradeItemIdentification" : {
+                                 "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED",
+                                 "$t" : "127355"
+                              },
+                              "avpList" : {
+                                 "stringAVP" : {
+                                    "attributeName" : "marketingTextShortTextTeaser",
+                                    "$t" : "Wenn es einmal schnell gehen muss, ist die Vegetarische Soja-Bolognese von Alnatura mit 42 Prozent Gemüseanteil einfach ideal. Mit ihrem fruchtig-aromatischen Geschmack passt sie perfekt zu Pasta und Gnocchi. Zur Zubereitung kurz im Topf erhitzen und nach Belieben mit Ricotta, Sahne oder Crème fraÎche verfeinern. "
+                                 }
+                              },
+                              "targetMarket" : {
+                                 "targetMarketCountryCode" : {
+                                    "$t" : "276"
+                                 }
+                              },
+                              "isTradeItemAConsumerUnit" : {
+                                 "$t" : "true"
+                              },
+                              "isTradeItemABaseUnit" : {
+                                 "$t" : "true"
+                              },
+                              "manufacturerOfTradeItem" : {
+                                 "partyName" : {
+                                    "$t" : "Alnatura GmbH"
+                                 },
+                                 "gln" : {
+                                    "$t" : "4104420000001"
+                                 }
+                              },
+                              "brandOwner" : {
+                                 "partyName" : {
+                                    "$t" : "Alnatura GmbH"
+                                 },
+                                 "gln" : {
+                                    "$t" : "4104420000001"
+                                 }
+                              },
+                              "tradeItemSynchronisationDates" : {
+                                 "effectiveDateTime" : {
+                                    "$t" : "2024-08-16T00:00:00"
+                                 },
+                                 "lastChangeDateTime" : {
+                                    "$t" : "2024-07-01T14:54:04.280"
+                                 },
+                                 "publicationDateTime" : {
+                                    "$t" : "2024-07-01T14:54:04.280"
+                                 }
+                              },
+                              "tradeItemContactInformation" : [
+                                 {
+                                    "contactName" : {
+                                       "$t" : "Alnatura GmbH"
+                                    },
+                                    "contactAddress" : {
+                                       "$t" : "Mahatma-Gandhi-Straße 7, DE-64295 Darmstadt"
+                                    },
+                                    "contactTypeCode" : {
+                                       "$t" : "BZL"
+                                    }
+                                 },
+                                 {
+                                    "targetMarketCommunicationChannel" : {
+                                       "communicationChannel" : {
+                                          "communicationChannelCode" : {
+                                             "$t" : "WEBSITE"
+                                          },
+                                          "communicationValue" : {
+                                             "$t" : "www.alnatura.de"
+                                          }
+                                       }
+                                    },
+                                    "contactTypeCode" : {
+                                       "$t" : "CXC"
+                                    }
+                                 }
+                              ],
+                              "isTradeItemAnOrderableUnit" : {
+                                 "$t" : "false"
+                              },
+                              "isTradeItemADespatchUnit" : {
+                                 "$t" : "false"
+                              }
+                           },
+                           "catalogueItemState" : {
+                              "catalogueItemStateCode" : {
+                                 "$t" : "REGISTERED"
+                              }
+                           }
+                        },
+                        "quantity" : {
+                           "$t" : "6"
+                        }
+                     },
+                     "tradeItem" : {
+                        "targetMarket" : {
+                           "targetMarketCountryCode" : {
+                              "$t" : "276"
+                           }
+                        },
+                        "isTradeItemAConsumerUnit" : {
+                           "$t" : "false"
+                        },
+                        "isTradeItemABaseUnit" : {
+                           "$t" : "false"
+                        },
+                        "isTradeItemAnOrderableUnit" : {
+                           "$t" : "true"
+                        },
+                        "isTradeItemADespatchUnit" : {
+                           "$t" : "true"
+                        },
+                        "tradeItemSynchronisationDates" : {
+                           "publicationDateTime" : {
+                              "$t" : "2024-07-01T14:54:05.157"
+                           },
+                           "lastChangeDateTime" : {
+                              "$t" : "2024-07-01T14:54:05.157"
+                           },
+                           "effectiveDateTime" : {
+                              "$t" : "2024-08-16T00:00:00"
+                           }
+                        },
+                        "tradeItemInformation" : {
+                           "extension" : {
+                              "dairyFishMeatPoultryItemModule" : {
+                                 "dairyFishMeatPoultryInformation" : {}
+                              },
+                              "placeOfItemActivityModule" : {
+                                 "placeOfProductActivity" : {
+                                    "countryOfOrigin" : {
+                                       "countryCode" : {
+                                          "$t" : "276"
+                                       }
+                                    }
+                                 }
+                              },
+                              "allergenInformationModule" : {},
+                              "tradeItemDataCarrierAndIdentificationModule" : {
+                                 "dataCarrier" : {
+                                    "dataCarrierTypeCode" : {
+                                       "$t" : "EAN_13"
+                                    }
+                                 }
+                              },
+                              "tradeItemHandlingModule" : {},
+                              "packagingMarkingModule" : {
+                                 "packagingMarking" : {
+                                    "hasBatchNumber" : {
+                                       "$t" : "true"
+                                    },
+                                    "isPackagingMarkedReturnable" : {
+                                       "$t" : "false"
+                                    },
+                                    "packagingDate" : {
+                                       "tradeItemDateOnPackagingTypeCode" : {
+                                          "$t" : "BEST_BEFORE_DATE"
+                                       }
+                                    },
+                                    "packagingMarkedLanguageCode" : {
+                                       "$t" : "fr"
+                                    }
+                                 }
+                              },
+                              "deliveryPurchasingInformationModule" : {
+                                 "deliveryPurchasingInformation" : {
+                                    "startAvailabilityDateTime" : {
+                                       "$t" : "2024-07-01T00:00:00"
+                                    }
+                                 }
+                              },
+                              "packagingInformationModule" : {
+                                 "packaging" : {
+                                    "packagingTypeCode" : {
+                                       "$t" : "CT"
+                                    },
+                                    "returnableAsset" : {}
+                                 }
+                              },
+                              "tradeItemMeasurementsModule" : {
+                                 "tradeItemMeasurements" : {
+                                    "width" : {
+                                       "$t" : "182.000",
+                                       "measurementUnitCode" : "MMT"
+                                    },
+                                    "tradeItemWeight" : {
+                                       "grossWeight" : {
+                                          "$t" : "3609.000",
+                                          "measurementUnitCode" : "GRM"
+                                       }
+                                    },
+                                    "height" : {
+                                       "$t" : "97.000",
+                                       "measurementUnitCode" : "MMT"
+                                    },
+                                    "depth" : {
+                                       "measurementUnitCode" : "MMT",
+                                       "$t" : "264.000"
+                                    }
+                                 }
+                              },
+                              "tradeItemLifespanModule" : {
+                                 "tradeItemLifespan" : {
+                                    "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                       "$t" : "360"
+                                    }
+                                 }
+                              },
+                              "variableTradeItemInformationModule" : {
+                                 "variableTradeItemInformation" : {
+                                    "isTradeItemAVariableUnit" : {
+                                       "$t" : "false"
+                                    }
+                                 }
+                              },
+                              "tradeItemDescriptionModule" : {
+                                 "tradeItemDescriptionInformation" : {
+                                    "functionalName" : [
+                                       {
+                                          "$t" : "Tomatensoßen",
+                                          "languageCode" : "de"
+                                       },
+                                       {
+                                          "$t" : "alimentaire",
+                                          "languageCode" : "fr"
+                                       }
+                                    ],
+                                    "descriptionShort" : [
+                                       {
+                                          "$t" : "Vegetarische Soja Bolognese 0,35L",
+                                          "languageCode" : "de"
+                                       },
+                                       {
+                                          "$t" : "Bolognaise végétarienne au soja 0,3",
+                                          "languageCode" : "fr"
+                                       }
+                                    ],
+                                    "tradeItemDescription" : [
+                                       {
+                                          "languageCode" : "de",
+                                          "$t" : "Alnatura Vegetarische Soja Bolognese 0,35L"
+                                       },
+                                       {
+                                          "languageCode" : "fr",
+                                          "$t" : "Alnatura Bolognaise végétarienne au soja 0,35l"
+                                       }
+                                    ],
+                                    "brandNameInformation" : {
+                                       "brandName" : {
+                                          "$t" : "Alnatura"
+                                       }
+                                    },
+                                    "regulatedProductName" : [
+                                       {
+                                          "languageCode" : "de",
+                                          "$t" : "Bio Tomatensauce mit Gemüse und Sojaeiweißerzeugnis"
+                                       },
+                                       {
+                                          "$t" : "Sauce tomate bio aux légumes et protéines de soja texturées",
+                                          "languageCode" : "fr"
+                                       }
+                                    ]
+                                 }
+                              },
+                              "marketingInformationModule" : {}
+                           }
+                        },
+                        "tradeItemUnitDescriptorCode" : {
+                           "$t" : "CASE"
+                        },
+                        "isTradeItemAnInvoiceUnit" : {
+                           "$t" : "true"
+                        },
+                        "gtin" : {
+                           "$t" : "04104420249196"
+                        },
+                        "informationProviderOfTradeItem" : {
+                           "partyName" : {
+                              "$t" : "Alnatura GmbH"
+                           },
+                           "gln" : {
+                              "$t" : "4104420000001"
+                           }
+                        },
+                        "gdsnTradeItemClassification" : {
+                           "gpcCategoryCode" : {
+                              "$t" : "10000057"
+                           },
+                           "gpcCategoryDefinition" : {
+                              "$t" : "Saucen (ohne Kühlung haltbar)"
+                           },
+                           "gpcCategoryName" : {
+                              "$t" : "Saucen (ohne Kühlung haltbar)"
+                           }
+                        },
+                        "additionalTradeItemIdentification" : {
+                           "$t" : "127355",
+                           "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED"
+                        },
+                        "nextLowerLevelTradeItemInformation" : {
+                           "totalQuantityOfNextLowerLevelTradeItem" : {
+                              "$t" : "6"
+                           },
+                           "quantityOfChildren" : {
+                              "$t" : "1"
+                           },
+                           "childTradeItem" : {
+                              "gtin" : {
+                                 "$t" : "04104420249189"
+                              },
+                              "quantityOfNextLowerLevelTradeItem" : {
+                                 "$t" : "6"
+                              }
+                           }
+                        }
+                     },
+                     "catalogueItemState" : {
+                        "catalogueItemStateCode" : {
+                           "$t" : "REGISTERED"
+                        }
+                     }
+                  },
+                  "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+                  "creationDateTime" : {
+                     "$t" : "2024-07-01T14:54:00.680"
+                  },
+                  "catalogueItemNotificationIdentification" : {
+                     "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+                     "contentOwner" : {
+                        "gln" : {
+                           "$t" : "4104420000001"
+                        },
+                        "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3"
+                     },
+                     "entityIdentification" : {
+                        "$t" : "0088103B-EDBB-4A22-8AC1-3C91A779AC47"
+                     }
+                  },
+                  "documentStructureVersion" : {
+                     "$t" : "3.1"
+                  },
+                  "lastUpdateDateTime" : {
+                     "$t" : "2024-07-01T14:54:00.680"
+                  }
+               },
+               {
+                  "creationDateTime" : {
+                     "$t" : "2024-07-01T14:54:00.680"
+                  },
+                  "catalogueItemNotificationIdentification" : {
+                     "entityIdentification" : {
+                        "$t" : "FD24F384-3F31-47CC-9F67-541966495261"
+                     },
+                     "contentOwner" : {
+                        "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+                        "gln" : {
+                           "$t" : "4104420000001"
+                        }
+                     },
+                     "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3"
+                  },
+                  "catalogueItem" : {
+                     "catalogueItemChildItemLink" : {
+                        "catalogueItem" : {
+                           "catalogueItemState" : {
+                              "catalogueItemStateCode" : {
+                                 "$t" : "REGISTERED"
+                              }
+                           },
+                           "tradeItem" : {
+                              "additionalTradeItemIdentification" : {
+                                 "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED",
+                                 "$t" : "127355"
+                              },
+                              "nextLowerLevelTradeItemInformation" : {
+                                 "totalQuantityOfNextLowerLevelTradeItem" : {
+                                    "$t" : "6"
+                                 },
+                                 "quantityOfChildren" : {
+                                    "$t" : "1"
+                                 },
+                                 "childTradeItem" : {
+                                    "gtin" : {
+                                       "$t" : "04104420249189"
+                                    },
+                                    "quantityOfNextLowerLevelTradeItem" : {
+                                       "$t" : "6"
+                                    }
+                                 }
+                              },
+                              "informationProviderOfTradeItem" : {
+                                 "gln" : {
+                                    "$t" : "4104420000001"
+                                 },
+                                 "partyName" : {
+                                    "$t" : "Alnatura GmbH"
+                                 }
+                              },
+                              "gtin" : {
+                                 "$t" : "04104420249196"
+                              },
+                              "gdsnTradeItemClassification" : {
+                                 "gpcCategoryCode" : {
+                                    "$t" : "10000057"
+                                 },
+                                 "gpcCategoryName" : {
+                                    "$t" : "Saucen (ohne Kühlung haltbar)"
+                                 },
+                                 "gpcCategoryDefinition" : {
+                                    "$t" : "Saucen (ohne Kühlung haltbar)"
+                                 }
+                              },
+                              "tradeItemInformation" : {
+                                 "extension" : {
+                                    "dairyFishMeatPoultryItemModule" : {
+                                       "dairyFishMeatPoultryInformation" : {}
+                                    },
+                                    "placeOfItemActivityModule" : {
+                                       "placeOfProductActivity" : {
+                                          "countryOfOrigin" : {
+                                             "countryCode" : {
+                                                "$t" : "276"
+                                             }
+                                          }
+                                       }
+                                    },
+                                    "allergenInformationModule" : {},
+                                    "tradeItemDataCarrierAndIdentificationModule" : {
+                                       "dataCarrier" : {
+                                          "dataCarrierTypeCode" : {
+                                             "$t" : "EAN_13"
+                                          }
+                                       }
+                                    },
+                                    "tradeItemHandlingModule" : {},
+                                    "packagingInformationModule" : {
+                                       "packaging" : {
+                                          "packagingTypeCode" : {
+                                             "$t" : "CT"
+                                          },
+                                          "returnableAsset" : {}
+                                       }
+                                    },
+                                    "deliveryPurchasingInformationModule" : {
+                                       "deliveryPurchasingInformation" : {
+                                          "startAvailabilityDateTime" : {
+                                             "$t" : "2024-07-01T00:00:00"
+                                          }
+                                       }
+                                    },
+                                    "packagingMarkingModule" : {
+                                       "packagingMarking" : {
+                                          "packagingDate" : {
+                                             "tradeItemDateOnPackagingTypeCode" : {
+                                                "$t" : "BEST_BEFORE_DATE"
+                                             }
+                                          },
+                                          "isPackagingMarkedReturnable" : {
+                                             "$t" : "false"
+                                          },
+                                          "hasBatchNumber" : {
+                                             "$t" : "true"
+                                          },
+                                          "packagingMarkedLanguageCode" : {
+                                             "$t" : "fr"
+                                          }
+                                       }
+                                    },
+                                    "tradeItemLifespanModule" : {
+                                       "tradeItemLifespan" : {
+                                          "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                             "$t" : "360"
+                                          }
+                                       }
+                                    },
+                                    "tradeItemMeasurementsModule" : {
+                                       "tradeItemMeasurements" : {
+                                          "width" : {
+                                             "$t" : "182.000",
+                                             "measurementUnitCode" : "MMT"
+                                          },
+                                          "tradeItemWeight" : {
+                                             "grossWeight" : {
+                                                "$t" : "3609.000",
+                                                "measurementUnitCode" : "GRM"
+                                             }
+                                          },
+                                          "height" : {
+                                             "$t" : "97.000",
+                                             "measurementUnitCode" : "MMT"
+                                          },
+                                          "depth" : {
+                                             "measurementUnitCode" : "MMT",
+                                             "$t" : "264.000"
+                                          }
+                                       }
+                                    },
+                                    "variableTradeItemInformationModule" : {
+                                       "variableTradeItemInformation" : {
+                                          "isTradeItemAVariableUnit" : {
+                                             "$t" : "false"
+                                          }
+                                       }
+                                    },
+                                    "tradeItemDescriptionModule" : {
+                                       "tradeItemDescriptionInformation" : {
+                                          "regulatedProductName" : [
+                                             {
+                                                "languageCode" : "de",
+                                                "$t" : "Bio Tomatensauce mit Gemüse und Sojaeiweißerzeugnis"
+                                             },
+                                             {
+                                                "$t" : "Sauce tomate bio aux légumes et protéines de soja texturées",
+                                                "languageCode" : "fr"
+                                             }
+                                          ],
+                                          "descriptionShort" : [
+                                             {
+                                                "languageCode" : "de",
+                                                "$t" : "Vegetarische Soja Bolognese 0,35L"
+                                             },
+                                             {
+                                                "$t" : "Bolognaise végétarienne au soja 0,3",
+                                                "languageCode" : "fr"
+                                             }
+                                          ],
+                                          "brandNameInformation" : {
+                                             "brandName" : {
+                                                "$t" : "Alnatura"
+                                             }
+                                          },
+                                          "tradeItemDescription" : [
+                                             {
+                                                "languageCode" : "de",
+                                                "$t" : "Alnatura Vegetarische Soja Bolognese 0,35L"
+                                             },
+                                             {
+                                                "$t" : "Alnatura Bolognaise végétarienne au soja 0,35l",
+                                                "languageCode" : "fr"
+                                             }
+                                          ],
+                                          "functionalName" : [
+                                             {
+                                                "languageCode" : "de",
+                                                "$t" : "Tomatensoßen"
+                                             },
+                                             {
+                                                "$t" : "alimentaire",
+                                                "languageCode" : "fr"
+                                             }
+                                          ]
+                                       }
+                                    },
+                                    "marketingInformationModule" : {}
+                                 }
+                              },
+                              "isTradeItemAnInvoiceUnit" : {
+                                 "$t" : "true"
+                              },
+                              "tradeItemUnitDescriptorCode" : {
+                                 "$t" : "CASE"
+                              },
+                              "tradeItemSynchronisationDates" : {
+                                 "lastChangeDateTime" : {
+                                    "$t" : "2024-07-01T14:54:05.157"
+                                 },
+                                 "effectiveDateTime" : {
+                                    "$t" : "2024-08-16T00:00:00"
+                                 },
+                                 "publicationDateTime" : {
+                                    "$t" : "2024-07-01T14:54:05.157"
+                                 }
+                              },
+                              "isTradeItemAnOrderableUnit" : {
+                                 "$t" : "true"
+                              },
+                              "isTradeItemADespatchUnit" : {
+                                 "$t" : "true"
+                              },
+                              "isTradeItemAConsumerUnit" : {
+                                 "$t" : "false"
+                              },
+                              "targetMarket" : {
+                                 "targetMarketCountryCode" : {
+                                    "$t" : "276"
+                                 }
+                              },
+                              "isTradeItemABaseUnit" : {
+                                 "$t" : "false"
+                              }
+                           },
+                           "catalogueItemChildItemLink" : {
+                              "catalogueItem" : {
+                                 "tradeItem" : {
+                                    "isTradeItemAConsumerUnit" : {
+                                       "$t" : "true"
+                                    },
+                                    "targetMarket" : {
+                                       "targetMarketCountryCode" : {
+                                          "$t" : "276"
+                                       }
+                                    },
+                                    "isTradeItemABaseUnit" : {
+                                       "$t" : "true"
+                                    },
+                                    "manufacturerOfTradeItem" : {
+                                       "gln" : {
+                                          "$t" : "4104420000001"
+                                       },
+                                       "partyName" : {
+                                          "$t" : "Alnatura GmbH"
+                                       }
+                                    },
+                                    "brandOwner" : {
+                                       "partyName" : {
+                                          "$t" : "Alnatura GmbH"
+                                       },
+                                       "gln" : {
+                                          "$t" : "4104420000001"
+                                       }
+                                    },
+                                    "tradeItemSynchronisationDates" : {
+                                       "lastChangeDateTime" : {
+                                          "$t" : "2024-07-01T14:54:04.280"
+                                       },
+                                       "effectiveDateTime" : {
+                                          "$t" : "2024-08-16T00:00:00"
+                                       },
+                                       "publicationDateTime" : {
+                                          "$t" : "2024-07-01T14:54:04.280"
+                                       }
+                                    },
+                                    "isTradeItemAnOrderableUnit" : {
+                                       "$t" : "false"
+                                    },
+                                    "tradeItemContactInformation" : [
+                                       {
+                                          "contactName" : {
+                                             "$t" : "Alnatura GmbH"
+                                          },
+                                          "contactAddress" : {
+                                             "$t" : "Mahatma-Gandhi-Straße 7, DE-64295 Darmstadt"
+                                          },
+                                          "contactTypeCode" : {
+                                             "$t" : "BZL"
+                                          }
+                                       },
+                                       {
+                                          "targetMarketCommunicationChannel" : {
+                                             "communicationChannel" : {
+                                                "communicationChannelCode" : {
+                                                   "$t" : "WEBSITE"
+                                                },
+                                                "communicationValue" : {
+                                                   "$t" : "www.alnatura.de"
+                                                }
+                                             }
+                                          },
+                                          "contactTypeCode" : {
+                                             "$t" : "CXC"
+                                          }
+                                       }
+                                    ],
+                                    "isTradeItemADespatchUnit" : {
+                                       "$t" : "false"
+                                    },
+                                    "informationProviderOfTradeItem" : {
+                                       "gln" : {
+                                          "$t" : "4104420000001"
+                                       },
+                                       "partyName" : {
+                                          "$t" : "Alnatura GmbH"
+                                       }
+                                    },
+                                    "gtin" : {
+                                       "$t" : "04104420249189"
+                                    },
+                                    "gdsnTradeItemClassification" : {
+                                       "gpcCategoryDefinition" : {
+                                          "$t" : "Saucen (ohne Kühlung haltbar)"
+                                       },
+                                       "gpcCategoryName" : {
+                                          "$t" : "Saucen (ohne Kühlung haltbar)"
+                                       },
+                                       "gpcCategoryCode" : {
+                                          "$t" : "10000057"
+                                       }
+                                    },
+                                    "tradeItemInformation" : {
+                                       "extension" : {
+                                          "tradeItemHandlingModule" : {},
+                                          "deliveryPurchasingInformationModule" : {
+                                             "deliveryPurchasingInformation" : {
+                                                "startAvailabilityDateTime" : {
+                                                   "$t" : "2024-07-01T00:00:00"
+                                                }
+                                             }
+                                          },
+                                          "dutyFeeTaxInformationModule" : {
+                                             "dutyFeeTaxInformation" : {
+                                                "dutyFeeTaxTypeCode" : {
+                                                   "$t" : "VAT"
+                                                },
+                                                "dutyFeeTaxAgencyCode" : {
+                                                   "$t" : "246"
+                                                },
+                                                "dutyFeeTax" : {
+                                                   "dutyFeeTaxCategoryCode" : {
+                                                      "$t" : "LOW"
+                                                   }
+                                                }
+                                             }
+                                          },
+                                          "alcoholInformationModule" : {},
+                                          "nutritionalInformationModule" : {
+                                             "nutrientHeader" : {
+                                                "preparationStateCode" : {
+                                                   "$t" : "UNPREPARED"
+                                                },
+                                                "nutrientDetail" : [
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "ENER-"
+                                                      },
+                                                      "quantityContained" : [
+                                                         {
+                                                            "$t" : "81.00000",
+                                                            "measurementUnitCode" : "E14"
+                                                         },
+                                                         {
+                                                            "measurementUnitCode" : "KJO",
+                                                            "$t" : "340.00000"
+                                                         }
+                                                      ],
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      }
+                                                   },
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "CHOAVL"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "GRM",
+                                                         "$t" : "9.10000"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      }
+                                                   },
+                                                   {
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "GRM",
+                                                         "$t" : "6.10000"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "SUGAR-"
+                                                      }
+                                                   },
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "PRO-"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "GRM",
+                                                         "$t" : "3.90000"
+                                                      }
+                                                   },
+                                                   {
+                                                      "quantityContained" : {
+                                                         "$t" : "2.80000",
+                                                         "measurementUnitCode" : "GRM"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "FAT"
+                                                      }
+                                                   },
+                                                   {
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "GRM",
+                                                         "$t" : "1.90000"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "FIBTG"
+                                                      }
+                                                   },
+                                                   {
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "GRM",
+                                                         "$t" : "0.85000"
+                                                      },
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "SALTEQ"
+                                                      }
+                                                   },
+                                                   {
+                                                      "nutrientTypeCode" : {
+                                                         "$t" : "FASAT"
+                                                      },
+                                                      "measurementPrecisionCode" : {
+                                                         "$t" : "APPROXIMATELY"
+                                                      },
+                                                      "quantityContained" : {
+                                                         "measurementUnitCode" : "GRM",
+                                                         "$t" : "0.30000"
+                                                      }
+                                                   }
+                                                ],
+                                                "nutrientBasisQuantity" : {
+                                                   "measurementUnitCode" : "MLT",
+                                                   "$t" : "100.00"
+                                                }
+                                             }
+                                          },
+                                          "placeOfItemActivityModule" : {
+                                             "placeOfProductActivity" : {
+                                                "countryOfOrigin" : {
+                                                   "countryCode" : {
+                                                      "$t" : "276"
+                                                   }
+                                                }
+                                             },
+                                             "importClassification" : {
+                                                "importClassificationTypeCode" : {
+                                                   "$t" : "INTRASTAT"
+                                                },
+                                                "importClassificationValue" : {
+                                                   "$t" : "21039090"
+                                                }
+                                             }
+                                          },
+                                          "certificationInformationModule" : {
+                                             "certificationInformation" : [
+                                                {
+                                                   "certification" : {
+                                                      "certificationValue" : {
+                                                         "$t" : "DE-ÖKO-003"
+                                                      },
+                                                      "certificationEffectiveEndDateTime" : {
+                                                         "$t" : "2025-01-31T00:00:00"
+                                                      },
+                                                      "certificationEffectiveStartDateTime" : {
+                                                         "$t" : "2024-07-01T14:54:01.090"
+                                                      }
+                                                   },
+                                                   "certificationAgency" : {
+                                                      "$t" : "EU"
+                                                   },
+                                                   "certificationStandard" : {
+                                                      "$t" : "Organic_Certification"
+                                                   }
+                                                },
+                                                {
+                                                   "certification" : {
+                                                      "certificationEffectiveStartDateTime" : {
+                                                         "$t" : "2024-07-01T14:54:01.090"
+                                                      },
+                                                      "certificationEffectiveEndDateTime" : {
+                                                         "$t" : "2025-01-31T00:00:00"
+                                                      },
+                                                      "certificationValue" : {
+                                                         "$t" : "EG"
+                                                      }
+                                                   },
+                                                   "certificationAgency" : {
+                                                      "$t" : "EU"
+                                                   },
+                                                   "certificationStandard" : {
+                                                      "$t" : "Organic_QualitySymbol"
+                                                   }
+                                                }
+                                             ]
+                                          },
+                                          "foodAndBeveragePreparationServingModule" : {
+                                             "preparationServing" : {
+                                                "preparationInstructions" : [
+                                                   {
+                                                      "languageCode" : "de",
+                                                      "$t" : "Soja-Bolognese im Topf kurz erhitzen."
+                                                   },
+                                                   {
+                                                      "$t" : "Faire chauffer brièvement la sauce végetarienne avec soja dans une casserole.",
+                                                      "languageCode" : "fr"
+                                                   }
+                                                ],
+                                                "preparationTypeCode" : {
+                                                   "$t" : "HEAT_AND_SERVE"
+                                                }
+                                             }
+                                          },
+                                          "tradeItemDescriptionModule" : {
+                                             "tradeItemDescriptionInformation" : {
+                                                "functionalName" : [
+                                                   {
+                                                      "languageCode" : "de",
+                                                      "$t" : "Tomatensoßen"
+                                                   },
+                                                   {
+                                                      "languageCode" : "fr",
+                                                      "$t" : "alimentaire"
+                                                   }
+                                                ],
+                                                "regulatedProductName" : [
+                                                   {
+                                                      "$t" : "Bio Tomatensauce mit Gemüse und Sojaeiweißerzeugnis",
+                                                      "languageCode" : "de"
+                                                   },
+                                                   {
+                                                      "$t" : "Sauce tomate bio aux légumes et protéines de soja texturées",
+                                                      "languageCode" : "fr"
+                                                   }
+                                                ],
+                                                "brandNameInformation" : {
+                                                   "brandName" : {
+                                                      "$t" : "Alnatura"
+                                                   }
+                                                },
+                                                "tradeItemDescription" : [
+                                                   {
+                                                      "languageCode" : "de",
+                                                      "$t" : "Alnatura Vegetarische Soja Bolognese 0,35L"
+                                                   },
+                                                   {
+                                                      "languageCode" : "fr",
+                                                      "$t" : "Alnatura Bolognaise végétarienne au soja 0,35l"
+                                                   }
+                                                ],
+                                                "descriptionShort" : [
+                                                   {
+                                                      "languageCode" : "de",
+                                                      "$t" : "Vegetarische Soja Bolognese 0,35L"
+                                                   },
+                                                   {
+                                                      "languageCode" : "fr",
+                                                      "$t" : "Bolognaise végétarienne au soja 0,3"
+                                                   }
+                                                ]
+                                             }
+                                          },
+                                          "regulatedTradeItemModule" : {
+                                             "regulatoryInformation" : [
+                                                {
+                                                   "regulatoryAct" : {
+                                                      "$t" : "GHS"
+                                                   },
+                                                   "regulatoryAgency" : {
+                                                      "$t" : "UN"
+                                                   },
+                                                   "permitIdentification" : {
+                                                      "regulatoryPermitIdentification" : {
+                                                         "$t" : "FALSE"
+                                                      }
+                                                   }
+                                                },
+                                                {
+                                                   "permitIdentification" : {
+                                                      "regulatoryPermitIdentification" : {
+                                                         "$t" : "DE5306251111978"
+                                                      }
+                                                   },
+                                                   "regulatoryAct" : {
+                                                      "$t" : "VerpackG"
+                                                   }
+                                                },
+                                                {
+                                                   "isTradeItemRegulationCompliant" : {
+                                                      "$t" : "NOT_APPLICABLE"
+                                                   },
+                                                   "regulationTypeCode" : {
+                                                      "$t" : "BIOCIDE_REGULATION"
+                                                   }
+                                                },
+                                                {
+                                                   "regulationTypeCode" : {
+                                                      "$t" : "FOOD_INFORMATION_REGULATION"
+                                                   }
+                                                }
+                                             ]
+                                          },
+                                          "referencedFileDetailInformationModule" : {
+                                             "referencedFileHeader" : [
+                                                {
+                                                   "fileFormatName" : {
+                                                      "$t" : "JPEG"
+                                                   },
+                                                   "referencedFileTypeCode" : {
+                                                      "$t" : "PRODUCT_IMAGE"
+                                                   },
+                                                   "fileEffectiveStartDateTime" : {
+                                                      "$t" : "2024-08-16T00:00:00"
+                                                   },
+                                                   "uniformResourceIdentifier" : {
+                                                      "$t" : "https://mediaservice.alnatura.de/asset/501324310981/image_jopune2a5531f83o52tot4vv52"
+                                                   },
+                                                   "fileName" : {
+                                                      "$t" : "04104420213630_C1C1_s02_v01"
+                                                   },
+                                                   "isPrimaryFile" : {
+                                                      "$t" : "TRUE"
+                                                   }
+                                                },
+                                                {
+                                                   "fileFormatName" : {
+                                                      "$t" : "PDF"
+                                                   },
+                                                   "referencedFileTypeCode" : {
+                                                      "$t" : "ORGANIC_CERTIFICATE"
+                                                   },
+                                                   "fileName" : {
+                                                      "$t" : "kbA_EU_Bio_31012025"
+                                                   },
+                                                   "fileEffectiveEndDateTime" : {
+                                                      "$t" : "2025-01-31T00:00:00"
+                                                   },
+                                                   "uniformResourceIdentifier" : {
+                                                      "$t" : "https://mediaservice.alnatura.de/asset/501324310981/document_dv733r3ii90pr2i8mlkundlu0f"
+                                                   }
+                                                }
+                                             ]
+                                          },
+                                          "consumerInstructionsModule" : {
+                                             "consumerInstructions" : [
+                                                {
+                                                   "consumerStorageInstructions" : {
+                                                      "$t" : "Nach dem Öffnen im Kühlschrank aufbewahren und innerhalb von 2 Tagen verbrauchen.",
+                                                      "languageCode" : "de"
+                                                   }
+                                                },
+                                                {
+                                                   "consumerStorageInstructions" : {
+                                                      "languageCode" : "fr",
+                                                      "$t" : "Une fois ouvert, conserver au réfrigérateur et consommer dans les 2 jours."
+                                                   }
+                                                }
+                                             ]
+                                          },
+                                          "tradeItemMeasurementsModule" : {
+                                             "tradeItemMeasurements" : {
+                                                "height" : {
+                                                   "measurementUnitCode" : "MMT",
+                                                   "$t" : "95.000"
+                                                },
+                                                "netContent" : {
+                                                   "$t" : "0.350",
+                                                   "measurementUnitCode" : "LTR"
+                                                },
+                                                "depth" : {
+                                                   "measurementUnitCode" : "MMT",
+                                                   "$t" : "87.000"
+                                                },
+                                                "tradeItemWeight" : {
+                                                   "netWeight" : {
+                                                      "$t" : "375.000",
+                                                      "measurementUnitCode" : "GRM"
+                                                   },
+                                                   "grossWeight" : {
+                                                      "measurementUnitCode" : "GRM",
+                                                      "$t" : "594.000"
+                                                   }
+                                                },
+                                                "width" : {
+                                                   "measurementUnitCode" : "MMT",
+                                                   "$t" : "87.000"
+                                                }
+                                             }
+                                          },
+                                          "foodAndBeverageIngredientModule" : {
+                                             "ingredientStatement" : [
+                                                {
+                                                   "$t" : "Zutaten: Tomatenmark* einfach konzentriert 46%, Tomaten* passiert 13%, Zwiebeln* 6,8%, Karotten* 6,7%, Paprika* 5,7%, Zucchini* 5,7 %, SOJAEIWEIßERZEUGNIS* 4%, Lauch* 4%, Sonnenblumenöl*, Sojasauce* (Wasser, SOJABOHNEN*, Salz), Zitronensaftkonzentrat*, Maisstärke*, Meersalz, Basilikum*, Knoblauch*, Thymian*, Paprika*, Oregano*, Pfeffer* *aus biologischer Landwirtschaft ",
+                                                   "languageCode" : "de"
+                                                },
+                                                {
+                                                   "languageCode" : "fr",
+                                                   "$t" : "Ingrédients: Concentré de tomates* à concentration simple 46 %, tomates* en purée 13%, oignons* 6,8%, carottes* 6,7%, poivron* 5,7%, courgettes* 5,7%, protéines de soja texturées* 4%, poireau* 4%, huile de tournesol*, SAUCE SOJA* (Eau, féves de soja*, sel), jus de citron concentré*, amidon de mais*, sel marin, basilic*, ail*, thym*, paprika en poudre* origan*, poivre* *issus de I'agriculture biologique "
+                                                }
+                                             ]
+                                          },
+                                          "healthRelatedInformationModule" : {
+                                             "healthRelatedInformation" : {}
+                                          },
+                                          "farmingAndProcessingInformationModule" : {
+                                             "tradeItemOrganicInformation" : {
+                                                "organicClaim" : {
+                                                   "organicTradeItemCode" : {
+                                                      "$t" : "2"
+                                                   }
+                                                },
+                                                "organicProductPlaceOfFarmingCode" : {
+                                                   "$t" : "EU_OR_NON_EU_AGRICULTURE"
+                                                }
+                                             },
+                                             "tradeItemFarmingAndProcessing" : {
+                                                "geneticallyModifiedDeclarationCode" : {
+                                                   "$t" : "FREE_FROM"
+                                                }
+                                             }
+                                          },
+                                          "salesInformationModule" : {
+                                             "salesInformation" : {
+                                                "priceComparisonMeasurement" : {
+                                                   "measurementUnitCode" : "LTR",
+                                                   "$t" : "0.3500"
+                                                },
+                                                "isBasePriceDeclarationRelevant" : {
+                                                   "$t" : "TRUE"
+                                                },
+                                                "priceComparisonContentTypeCode" : {
+                                                   "$t" : "PER_LITRE"
+                                                }
+                                             }
+                                          },
+                                          "tradeItemDataCarrierAndIdentificationModule" : {
+                                             "dataCarrier" : {
+                                                "dataCarrierTypeCode" : {
+                                                   "$t" : "EAN_13"
+                                                }
+                                             }
+                                          },
+                                          "promotionalItemInformationModule" : {
+                                             "isTradeItemAPromotionalUnit" : {
+                                                "$t" : "false"
+                                             }
+                                          },
+                                          "healthWellnessPackagingMarkingModule" : {
+                                             "healthWellnessPackagingMarking" : {
+                                                "isPackagingMarkedWithIngredients" : {
+                                                   "$t" : "true"
+                                                }
+                                             }
+                                          },
+                                          "dietInformationModule" : {
+                                             "dietInformation" : {
+                                                "dietTypeInformation" : [
+                                                   {
+                                                      "isDietTypeMarkedOnPackage" : {
+                                                         "$t" : "FALSE"
+                                                      },
+                                                      "dietTypeCode" : {
+                                                         "$t" : "VEGAN"
+                                                      }
+                                                   },
+                                                   {
+                                                      "dietTypeCode" : {
+                                                         "$t" : "VEGETARIAN"
+                                                      },
+                                                      "isDietTypeMarkedOnPackage" : {
+                                                         "$t" : "FALSE"
+                                                      }
+                                                   }
+                                                ]
+                                             }
+                                          },
+                                          "packagingMarkingModule" : {
+                                             "packagingMarking" : {
+                                                "hasBatchNumber" : {
+                                                   "$t" : "true"
+                                                },
+                                                "isPackagingMarkedReturnable" : {
+                                                   "$t" : "false"
+                                                },
+                                                "packagingDate" : {
+                                                   "tradeItemDateOnPackagingTypeCode" : {
+                                                      "$t" : "BEST_BEFORE_DATE"
+                                                   }
+                                                },
+                                                "packagingMarkedLanguageCode" : {
+                                                   "$t" : "fr"
+                                                },
+                                                "packagingMarkedLabelAccreditationCode" : {
+                                                   "$t" : "EU_ORGANIC_FARMING"
+                                                },
+                                                "avpList" : {
+                                                   "stringAVP" : {
+                                                      "$t" : "EINWEG_OP",
+                                                      "attributeName" : "AVPEinwegMehrwegCode"
+                                                   }
+                                                }
+                                             }
+                                          },
+                                          "transportationHazardousClassificationModule" : {
+                                             "transportationClassification" : {
+                                                "regulatedTransportationMode" : {
+                                                   "hazardousInformationHeader" : {
+                                                      "dangerousGoodsRegulationCode" : {
+                                                         "$t" : "ZNA"
+                                                      },
+                                                      "dangerousGoodsRegulationAgency" : {
+                                                         "$t" : "ADR"
+                                                      }
+                                                   }
+                                                }
+                                             }
+                                          },
+                                          "packagingInformationModule" : {
+                                             "packaging" : {
+                                                "returnableAsset" : {},
+                                                "packagingTypeCode" : {
+                                                   "$t" : "JR"
+                                                }
+                                             }
+                                          },
+                                          "dairyFishMeatPoultryItemModule" : {
+                                             "dairyFishMeatPoultryInformation" : {
+                                                "fishReportingInformation" : {}
+                                             }
+                                          },
+                                          "allergenInformationModule" : {
+                                             "allergenRelatedInformation" : {
+                                                "allergen" : {
+                                                   "levelOfContainmentCode" : {
+                                                      "$t" : "CONTAINS"
+                                                   },
+                                                   "allergenTypeCode" : {
+                                                      "$t" : "AY"
+                                                   }
+                                                }
+                                             }
+                                          },
+                                          "marketingInformationModule" : {
+                                             "marketingInformation" : {
+                                                "season" : {
+                                                   "isTradeItemSeasonal" : {
+                                                      "$t" : "FALSE"
+                                                   }
+                                                },
+                                                "tradeItemFeatureBenefit" : [
+                                                   {
+                                                      "languageCode" : "de",
+                                                      "$t" : "Bio-Qualität",
+                                                      "sequenceNumber" : "1"
+                                                   },
+                                                   {
+                                                      "languageCode" : "de",
+                                                      "sequenceNumber" : "2",
+                                                      "$t" : "pikante Tomatensauce mit Gemüse und Sojaschnetzel"
+                                                   },
+                                                   {
+                                                      "$t" : "für die schnelle Küche: kurz erhitzt zu Pasta oder Gnocchi und für Lasagne",
+                                                      "sequenceNumber" : "3",
+                                                      "languageCode" : "de"
+                                                   }
+                                                ],
+                                                "tradeItemMarketingMessage" : {
+                                                   "$t" : "Sauce bolognese, der Klassiker unter den italienischen Saucen, hier in der vegetarischen Variante: Bio-Tomatensauce mit Gemüse und Sojaschnetzel. Ideal zu Pasta oder Gnocchi und unentbehrlich für vegetarische Lasagne.",
+                                                   "languageCode" : "de"
+                                                }
+                                             }
+                                          },
+                                          "tradeItemLifespanModule" : {
+                                             "tradeItemLifespan" : {
+                                                "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                                   "$t" : "360"
+                                                }
+                                             }
+                                          },
+                                          "variableTradeItemInformationModule" : {
+                                             "variableTradeItemInformation" : {
+                                                "isTradeItemAVariableUnit" : {
+                                                   "$t" : "false"
+                                                }
+                                             }
+                                          }
+                                       }
+                                    },
+                                    "isTradeItemAnInvoiceUnit" : {
+                                       "$t" : "false"
+                                    },
+                                    "tradeItemUnitDescriptorCode" : {
+                                       "$t" : "BASE_UNIT_OR_EACH"
+                                    },
+                                    "avpList" : {
+                                       "stringAVP" : {
+                                          "attributeName" : "marketingTextShortTextTeaser",
+                                          "$t" : "Wenn es einmal schnell gehen muss, ist die Vegetarische Soja-Bolognese von Alnatura mit 42 Prozent Gemüseanteil einfach ideal. Mit ihrem fruchtig-aromatischen Geschmack passt sie perfekt zu Pasta und Gnocchi. Zur Zubereitung kurz im Topf erhitzen und nach Belieben mit Ricotta, Sahne oder Crème fraÎche verfeinern. "
+                                       }
+                                    },
+                                    "additionalTradeItemIdentification" : {
+                                       "$t" : "127355",
+                                       "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED"
+                                    }
+                                 },
+                                 "catalogueItemState" : {
+                                    "catalogueItemStateCode" : {
+                                       "$t" : "REGISTERED"
+                                    }
+                                 }
+                              },
+                              "quantity" : {
+                                 "$t" : "6"
+                              }
+                           }
+                        },
+                        "quantity" : {
+                           "$t" : "144"
+                        }
+                     },
+                     "catalogueItemState" : {
+                        "catalogueItemStateCode" : {
+                           "$t" : "REGISTERED"
+                        }
+                     },
+                     "tradeItem" : {
+                        "isTradeItemADespatchUnit" : {
+                           "$t" : "true"
+                        },
+                        "isTradeItemAnOrderableUnit" : {
+                           "$t" : "false"
+                        },
+                        "tradeItemSynchronisationDates" : {
+                           "lastChangeDateTime" : {
+                              "$t" : "2024-07-01T14:54:06.037"
+                           },
+                           "effectiveDateTime" : {
+                              "$t" : "2024-08-16T00:00:00"
+                           },
+                           "publicationDateTime" : {
+                              "$t" : "2024-07-01T14:54:06.037"
+                           }
+                        },
+                        "isTradeItemABaseUnit" : {
+                           "$t" : "false"
+                        },
+                        "isTradeItemAConsumerUnit" : {
+                           "$t" : "false"
+                        },
+                        "targetMarket" : {
+                           "targetMarketCountryCode" : {
+                              "$t" : "276"
+                           }
+                        },
+                        "nextLowerLevelTradeItemInformation" : {
+                           "quantityOfChildren" : {
+                              "$t" : "1"
+                           },
+                           "childTradeItem" : {
+                              "quantityOfNextLowerLevelTradeItem" : {
+                                 "$t" : "144"
+                              },
+                              "gtin" : {
+                                 "$t" : "04104420249196"
+                              }
+                           },
+                           "totalQuantityOfNextLowerLevelTradeItem" : {
+                              "$t" : "144"
+                           }
+                        },
+                        "additionalTradeItemIdentification" : {
+                           "$t" : "127355",
+                           "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED"
+                        },
+                        "isTradeItemAnInvoiceUnit" : {
+                           "$t" : "false"
+                        },
+                        "tradeItemUnitDescriptorCode" : {
+                           "$t" : "PALLET"
+                        },
+                        "tradeItemInformation" : {
+                           "extension" : {
+                              "placeOfItemActivityModule" : {
+                                 "placeOfProductActivity" : {
+                                    "countryOfOrigin" : {
+                                       "countryCode" : {
+                                          "$t" : "276"
+                                       }
+                                    }
+                                 }
+                              },
+                              "allergenInformationModule" : {},
+                              "tradeItemHierarchyModule" : {
+                                 "tradeItemHierarchy" : {
+                                    "quantityOfCompleteLayersContainedInATradeItem" : {
+                                       "$t" : "9"
+                                    }
+                                 }
+                              },
+                              "dairyFishMeatPoultryItemModule" : {
+                                 "dairyFishMeatPoultryInformation" : {}
+                              },
+                              "packagingInformationModule" : {
+                                 "packaging" : {
+                                    "platformTypeCode" : {
+                                       "$t" : "11"
+                                    },
+                                    "platformTermsAndConditionsCode" : {
+                                       "$t" : "2"
+                                    },
+                                    "returnableAsset" : {},
+                                    "packagingTypeCode" : {
+                                       "$t" : "PX"
+                                    }
+                                 }
+                              },
+                              "deliveryPurchasingInformationModule" : {
+                                 "deliveryPurchasingInformation" : {
+                                    "startAvailabilityDateTime" : {
+                                       "$t" : "2024-07-01T00:00:00"
+                                    }
+                                 }
+                              },
+                              "packagingMarkingModule" : {
+                                 "packagingMarking" : {
+                                    "packagingMarkedLanguageCode" : {
+                                       "$t" : "fr"
+                                    },
+                                    "isPackagingMarkedReturnable" : {
+                                       "$t" : "false"
+                                    },
+                                    "packagingDate" : {
+                                       "tradeItemDateOnPackagingTypeCode" : {
+                                          "$t" : "BEST_BEFORE_DATE"
+                                       }
+                                    },
+                                    "hasBatchNumber" : {
+                                       "$t" : "true"
+                                    }
+                                 }
+                              },
+                              "tradeItemHandlingModule" : {
+                                 "tradeItemHandlingInformation" : {
+                                    "tradeItemStacking" : [
+                                       {
+                                          "stackingFactor" : {
+                                             "$t" : "2"
+                                          },
+                                          "stackingFactorTypeCode" : {
+                                             "$t" : "STORAGE_UNSPECIFIED"
+                                          }
+                                       },
+                                       {
+                                          "stackingFactorTypeCode" : {
+                                             "$t" : "TRANSPORT_UNSPECIFIED"
+                                          },
+                                          "stackingFactor" : {
+                                             "$t" : "1"
+                                          }
+                                       }
+                                    ]
+                                 }
+                              },
+                              "tradeItemDataCarrierAndIdentificationModule" : {
+                                 "dataCarrier" : {
+                                    "dataCarrierTypeCode" : {
+                                       "$t" : "EAN_13"
+                                    }
+                                 }
+                              },
+                              "variableTradeItemInformationModule" : {
+                                 "variableTradeItemInformation" : {
+                                    "isTradeItemAVariableUnit" : {
+                                       "$t" : "false"
+                                    }
+                                 }
+                              },
+                              "tradeItemLifespanModule" : {
+                                 "tradeItemLifespan" : {
+                                    "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                       "$t" : "360"
+                                    }
+                                 }
+                              },
+                              "tradeItemMeasurementsModule" : {
+                                 "tradeItemMeasurements" : {
+                                    "height" : {
+                                       "$t" : "1029.000",
+                                       "measurementUnitCode" : "MMT"
+                                    },
+                                    "depth" : {
+                                       "$t" : "1200.000",
+                                       "measurementUnitCode" : "MMT"
+                                    },
+                                    "width" : {
+                                       "measurementUnitCode" : "MMT",
+                                       "$t" : "800.000"
+                                    },
+                                    "tradeItemWeight" : {
+                                       "grossWeight" : {
+                                          "measurementUnitCode" : "GRM",
+                                          "$t" : "540312.000"
+                                       }
+                                    }
+                                 }
+                              },
+                              "marketingInformationModule" : {},
+                              "tradeItemDescriptionModule" : {
+                                 "tradeItemDescriptionInformation" : {
+                                    "regulatedProductName" : [
+                                       {
+                                          "$t" : "Bio Tomatensauce mit Gemüse und Sojaeiweißerzeugnis",
+                                          "languageCode" : "de"
+                                       },
+                                       {
+                                          "$t" : "Sauce tomate bio aux légumes et protéines de soja texturées",
+                                          "languageCode" : "fr"
+                                       }
+                                    ],
+                                    "descriptionShort" : [
+                                       {
+                                          "languageCode" : "de",
+                                          "$t" : "Vegetarische Soja Bolognese 0,35L"
+                                       },
+                                       {
+                                          "$t" : "Bolognaise végétarienne au soja 0,3",
+                                          "languageCode" : "fr"
+                                       }
+                                    ],
+                                    "tradeItemDescription" : [
+                                       {
+                                          "$t" : "Alnatura Vegetarische Soja Bolognese 0,35L",
+                                          "languageCode" : "de"
+                                       },
+                                       {
+                                          "languageCode" : "fr",
+                                          "$t" : "Alnatura Bolognaise végétarienne au soja 0,35l"
+                                       }
+                                    ],
+                                    "brandNameInformation" : {
+                                       "brandName" : {
+                                          "$t" : "Alnatura"
+                                       }
+                                    },
+                                    "functionalName" : [
+                                       {
+                                          "$t" : "Tomatensoßen",
+                                          "languageCode" : "de"
+                                       },
+                                       {
+                                          "languageCode" : "fr",
+                                          "$t" : "alimentaire"
+                                       }
+                                    ]
+                                 }
+                              }
+                           }
+                        },
+                        "gdsnTradeItemClassification" : {
+                           "gpcCategoryDefinition" : {
+                              "$t" : "Saucen (ohne Kühlung haltbar)"
+                           },
+                           "gpcCategoryName" : {
+                              "$t" : "Saucen (ohne Kühlung haltbar)"
+                           },
+                           "gpcCategoryCode" : {
+                              "$t" : "10000057"
+                           }
+                        },
+                        "informationProviderOfTradeItem" : {
+                           "partyName" : {
+                              "$t" : "Alnatura GmbH"
+                           },
+                           "gln" : {
+                              "$t" : "4104420000001"
+                           }
+                        },
+                        "gtin" : {
+                           "$t" : "04104420254336"
+                        }
+                     }
+                  },
+                  "isReload" : {
+                     "$t" : "true"
+                  },
+                  "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+                  "documentStatusCode" : {
+                     "$t" : "ORIGINAL"
+                  },
+                  "lastUpdateDateTime" : {
+                     "$t" : "2024-07-01T14:54:00.680"
+                  },
+                  "documentStructureVersion" : {
+                     "$t" : "3.1"
+                  }
+               }
+            ],
+            "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3"
+         }
+      },
+      "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+      "xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader http://www.gs1globalregistry.net/3.1/schemas/sbdh/StandardBusinessDocumentHeader.xsd urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd",
+      "sh:StandardBusinessDocumentHeader" : {
+         "sh:Receiver" : {
+            "sh:Identifier" : {
+               "Authority" : "GS1",
+               "$t" : "4049111100007"
+            },
+            "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader"
+         },
+         "sh:Sender" : {
+            "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader",
+            "sh:Identifier" : {
+               "$t" : "4104420000001",
+               "Authority" : "GS1"
+            }
+         },
+         "sh:HeaderVersion" : {
+            "$t" : "1.0"
+         },
+         "sh:DocumentIdentification" : {
+            "sh:TypeVersion" : {
+               "$t" : "3.1"
+            },
+            "sh:Type" : {
+               "$t" : "catalogueItemNotification"
+            },
+            "sh:CreationDateAndTime" : {
+               "$t" : "2018-01-01T00:00:00"
+            },
+            "sh:Standard" : {
+               "$t" : "GS1"
+            },
+            "sh:InstanceIdentifier" : {
+               "$t" : "B14245A3-AA64-4845-8ADC-6E5E61C8073F"
+            },
+            "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader",
+            "sh:MultipleType" : {
+               "$t" : "false"
+            }
+         },
+         "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader"
+      }
+   },
+   "version" : "1.0"
+}

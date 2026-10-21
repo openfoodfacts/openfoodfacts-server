@@ -1,20 +1,28 @@
-name: 'Auto-Label Merge Conflicts on PRs'
+name: '💥 Auto-Label Merge Conflicts on PRs'
 on:
   push:
     branches:
       - main
+  pull_request_target:
+    types: [synchronize]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
-  
+
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-      - uses: mschilde/auto-label-merge-conflicts@master
+      - uses: eps1lon/actions-label-merge-conflict@0273be72a0bbd58fcd71d0d6c02c209b50d1e5e1  # v3.1.0 (2026-05-27)
+        continue-on-error: true  # Don’t mark PRs as failing because this errs
         with:
-          CONFLICT_LABEL_NAME: "merge-conflicts"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MAX_RETRIES: 5
-          WAIT_MS: 5000
+          dirtyLabel: "💥 Merge Conflicts"
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          retryMax: 5
+          # retryAfter is in seconds (the old mschilde action used WAIT_MS in ms)
+          retryAfter: 5

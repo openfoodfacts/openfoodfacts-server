@@ -1,0 +1,14 @@
+{
+    "level": "info",
+    "topics": [
+        "product"
+    ],
+    "expand_for": "large",
+    "evaluation": "neutral",
+    "title_element": {
+        "title": "[% edq(lang(panel.raw_field_name)) %]",
+    },
+    "elements": [
+        [% INCLUDE "api/knowledge-panels/product/product_panel_html.tt.json" %]
+    ]
+}

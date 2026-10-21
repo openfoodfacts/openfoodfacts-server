@@ -1,0 +1,27 @@
+{
+   "code" : "1234567890012",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "image_data_base64"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "image_too_small",
+            "lc_name" : "Image too small",
+            "name" : "Image too small"
+         }
+      }
+   ],
+   "result" : {
+      "id" : "image_not_uploaded",
+      "lc_name" : "Image not uploaded",
+      "name" : "Image not uploaded"
+   },
+   "status" : "failure",
+   "warnings" : []
+}

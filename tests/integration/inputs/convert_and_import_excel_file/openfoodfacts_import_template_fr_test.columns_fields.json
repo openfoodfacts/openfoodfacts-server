@@ -1,0 +1,405 @@
+{
+   "Acides gras saturés pour 100 g / 100 ml" : {
+      "column_id" : "acides-gras-satures-pour-100g",
+      "field" : "saturated-fat_100g_value_unit",
+      "value_unit" : "value_in_g"
+   },
+   "Alcool pour 100 g / 100 ml" : {
+      "column_id" : "alcool-pour-100g",
+      "field" : "alcohol_100g_value_unit"
+   },
+   "Allergènes" : {
+      "column_id" : "allergenes",
+      "field" : "allergens",
+      "value_unit" : "unit"
+   },
+   "Avertissement" : {
+      "column_id" : "avertissement",
+      "field" : "warning",
+      "lc" : "fr"
+   },
+   "Catégories" : {
+      "column_id" : "categories",
+      "field" : "categories",
+      "value_unit" : "unit"
+   },
+   "Code-barres" : {
+      "column_id" : "code-barres",
+      "field" : "code",
+      "value_unit" : "value"
+   },
+   "Codes de traçabilité" : {
+      "column_id" : "codes-de-tracabilite",
+      "field" : "emb_codes"
+   },
+   "Conditionnements" : {
+      "column_id" : "conditionnements",
+      "field" : "packaging"
+   },
+   "Conditions de conservation" : {
+      "column_id" : "conditions-de-conservation",
+      "field" : "conservation_conditions",
+      "lc" : "fr"
+   },
+   "Consignes de recyclage - A jeter" : {
+      "column_id" : "consignes-de-recyclage-a-jeter",
+      "field" : "recycling_instructions_to_discard",
+      "lc" : "fr"
+   },
+   "Consignes de recyclage - A recycler" : {
+      "column_id" : "consignes-de-recyclage-a-recycler",
+      "field" : "recycling_instructions_to_recycle",
+      "lc" : "fr"
+   },
+   "Date de retrait" : {
+      "column_id" : "date-de-retrait",
+      "field" : "obsolete_since_date"
+   },
+   "Durées d'utilisation après ouverture" : {
+      "column_id" : "durees-d-utilisation-apres-ouverture",
+      "field" : "periods_after_opening"
+   },
+   "Dénomination générique" : {
+      "column_id" : "denomination-generique",
+      "field" : "generic_name",
+      "lc" : "fr",
+      "value_unit" : "unit"
+   },
+   "Emballage 1 - Forme" : {
+      "column_id" : "emballage-1-forme",
+      "field" : "packaging_1_shape"
+   },
+   "Emballage 1 - Matière" : {
+      "column_id" : "emballage-1-matiere",
+      "field" : "packaging_1_material"
+   },
+   "Emballage 1 - Nombre d'éléments" : {
+      "column_id" : "emballage-1-nombre-d-elements",
+      "field" : "packaging_1_number_of_units"
+   },
+   "Emballage 1 - Poids d'un élément vide" : {
+      "column_id" : "emballage-1-poids-d-un-element-vide",
+      "field" : "packaging_1_weight_specified"
+   },
+   "Emballage 1 - Quantité de produit contenue par élément" : {
+      "column_id" : "emballage-1-quantite-de-produit-contenue-par-element",
+      "field" : "packaging_1_quantity_per_unit"
+   },
+   "Emballage 1 - Recyclage" : {
+      "column_id" : "emballage-1-recyclage",
+      "field" : "packaging_1_recycling"
+   },
+   "Emballage 2 - Forme" : {
+      "column_id" : "emballage-2-forme",
+      "field" : "packaging_2_shape"
+   },
+   "Emballage 2 - Matière" : {
+      "column_id" : "emballage-2-matiere",
+      "field" : "packaging_2_material"
+   },
+   "Emballage 2 - Nombre d'éléments" : {
+      "column_id" : "emballage-2-nombre-d-elements",
+      "field" : "packaging_2_number_of_units"
+   },
+   "Emballage 2 - Poids d'un élément vide" : {
+      "column_id" : "emballage-2-poids-d-un-element-vide",
+      "field" : "packaging_2_weight_specified"
+   },
+   "Emballage 2 - Quantité de produit contenue par élément" : {
+      "column_id" : "emballage-2-quantite-de-produit-contenue-par-element",
+      "field" : "packaging_2_quantity_per_unit"
+   },
+   "Emballage 2 - Recyclage" : {
+      "column_id" : "emballage-2-recyclage",
+      "field" : "packaging_2_recycling"
+   },
+   "Emballage 3 - Forme" : {
+      "column_id" : "emballage-3-forme",
+      "field" : "packaging_3_shape"
+   },
+   "Emballage 3 - Matière" : {
+      "column_id" : "emballage-3-matiere",
+      "field" : "packaging_3_material"
+   },
+   "Emballage 3 - Nombre d'éléments" : {
+      "column_id" : "emballage-3-nombre-d-elements",
+      "field" : "packaging_3_number_of_units"
+   },
+   "Emballage 3 - Poids d'un élément vide" : {
+      "column_id" : "emballage-3-poids-d-un-element-vide",
+      "field" : "packaging_3_weight_specified"
+   },
+   "Emballage 3 - Quantité de produit contenue par élément" : {
+      "column_id" : "emballage-3-quantite-de-produit-contenue-par-element",
+      "field" : "packaging_3_quantity_per_unit"
+   },
+   "Emballage 3 - Recyclage" : {
+      "column_id" : "emballage-3-recyclage",
+      "field" : "packaging_3_recycling"
+   },
+   "Emballage 4 - Forme" : {
+      "column_id" : "emballage-4-forme",
+      "field" : "packaging_4_shape"
+   },
+   "Emballage 4 - Matière" : {
+      "column_id" : "emballage-4-matiere",
+      "field" : "packaging_4_material"
+   },
+   "Emballage 4 - Nombre d'éléments" : {
+      "column_id" : "emballage-4-nombre-d-elements",
+      "field" : "packaging_4_number_of_units"
+   },
+   "Emballage 4 - Poids d'un élément vide" : {
+      "column_id" : "emballage-4-poids-d-un-element-vide",
+      "field" : "packaging_4_weight_specified"
+   },
+   "Emballage 4 - Quantité de produit contenue par élément" : {
+      "column_id" : "emballage-4-quantite-de-produit-contenue-par-element",
+      "field" : "packaging_4_quantity_per_unit"
+   },
+   "Emballage 4 - Recyclage" : {
+      "column_id" : "emballage-4-recyclage",
+      "field" : "packaging_4_recycling"
+   },
+   "Emballage 5 - Forme" : {
+      "column_id" : "emballage-5-forme",
+      "field" : "packaging_5_shape"
+   },
+   "Emballage 5 - Matière" : {
+      "column_id" : "emballage-5-matiere",
+      "field" : "packaging_5_material"
+   },
+   "Emballage 5 - Nombre d'éléments" : {
+      "column_id" : "emballage-5-nombre-d-elements",
+      "field" : "packaging_5_number_of_units"
+   },
+   "Emballage 5 - Poids d'un élément vide" : {
+      "column_id" : "emballage-5-poids-d-un-element-vide",
+      "field" : "packaging_5_weight_specified"
+   },
+   "Emballage 5 - Quantité de produit contenue par élément" : {
+      "column_id" : "emballage-5-quantite-de-produit-contenue-par-element",
+      "field" : "packaging_5_quantity_per_unit"
+   },
+   "Emballage 5 - Recyclage" : {
+      "column_id" : "emballage-5-recyclage",
+      "field" : "packaging_5_recycling"
+   },
+   "Fibres alimentaires pour 100 g / 100 ml" : {
+      "column_id" : "fibres-alimentaires-pour-100g",
+      "field" : "fiber_100g_value_unit",
+      "value_unit" : "value_in_g"
+   },
+   "Fruits‚ légumes et noix - séchés pour 100 g / 100 ml" : {
+      "column_id" : "fruits-legumes-et-noix-seches-pour-100g",
+      "field" : "fruits-vegetables-nuts-dried_100g_value_unit"
+   },
+   "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive pour 100 g / 100 ml" : {
+      "column_id" : "fruits-legumes-noix-et-huiles-de-colza-noix-et-olive-pour-100g",
+      "field" : "fruits-vegetables-nuts_100g_value_unit"
+   },
+   "Glucides pour 100 g / 100 ml" : {
+      "column_id" : "glucides-pour-100g",
+      "field" : "carbohydrates_100g_value_unit",
+      "value_unit" : "value_in_g"
+   },
+   "Groupe NOVA" : {
+      "column_id" : "groupe-nova",
+      "field" : "nova_group_producer"
+   },
+   "Identifiant de version du producteur" : {
+      "column_id" : "identifiant-de-version-du-producteur",
+      "field" : "producer_version_id"
+   },
+   "Identifiant produit du producteur" : {
+      "column_id" : "identifiant-produit-du-producteur",
+      "field" : "producer_product_id",
+      "value_unit" : "value"
+   },
+   "Idée recette" : {
+      "column_id" : "idee-recette",
+      "field" : "recipe_idea",
+      "lc" : "fr"
+   },
+   "Instruction de recyclage et/ou informations d'emballage" : {
+      "column_id" : "instruction-de-recyclage-et-ou-informations-d-emballage",
+      "field" : "packaging_text",
+      "lc" : "fr"
+   },
+   "Labels" : {
+      "column_id" : "labels",
+      "field" : "labels",
+      "value_unit" : "unit"
+   },
+   "Langue principale" : {
+      "column_id" : "langue-principale",
+      "field" : "lc"
+   },
+   "Lien vers la page du produit sur le site officiel du fabricant" : {
+      "column_id" : "lien-vers-la-page-du-produit-sur-le-site-officiel-du-fabricant",
+      "field" : "link"
+   },
+   "Lien vers la photo de face du produit" : {
+      "column_id" : "lien-vers-la-photo-de-face",
+      "field" : "image_front_url_fr",
+      "value_unit" : "value_unit"
+   },
+   "Lien vers la photo de la liste des ingrédients" : {
+      "column_id" : "lien-vers-la-photo-de-la-liste-des-ingredients",
+      "field" : "image_ingredients_url_fr",
+      "value_unit" : "value_unit"
+   },
+   "Lien vers la photo des instructions de recyclage et/ou d'information d'emballage" : {
+      "column_id" : "lien-vers-la-photo-des-instructions-de-recyclage-et-ou-d-information-d-emballage",
+      "field" : "image_packaging_url_fr"
+   },
+   "Lien vers la photo du tableau nutritionnel" : {
+      "column_id" : "lien-vers-la-photo-du-tableau-nutritionnel",
+      "field" : "image_nutrition_url_fr",
+      "value_unit" : "value_unit"
+   },
+   "Lien vers une autre photo du produit" : {
+      "column_id" : "lien-vers-une-autre-photo",
+      "field" : "image_other_url"
+   },
+   "Lieux de fabrication ou de transformation" : {
+      "column_id" : "lieux-de-fabrication-ou-de-transformation",
+      "field" : "manufacturing_places"
+   },
+   "Liste des ingrédients" : {
+      "column_id" : "liste-des-ingredients",
+      "field" : "ingredients_text",
+      "lc" : "fr",
+      "value_unit" : "value_unit"
+   },
+   "Magasins" : {
+      "column_id" : "magasins",
+      "field" : "stores"
+   },
+   "Marques" : {
+      "column_id" : "marques",
+      "field" : "brands",
+      "value_unit" : "unit"
+   },
+   "Matières grasses pour 100 g / 100 ml" : {
+      "column_id" : "matieres-grasses-pour-100g",
+      "field" : "fat_100g_value_unit",
+      "value_unit" : "value_in_g"
+   },
+   "Nom abrégé du produit" : {
+      "column_id" : "nom-abrege",
+      "field" : "abbreviated_product_name",
+      "lc" : "fr"
+   },
+   "Nom du produit" : {
+      "column_id" : "nom",
+      "field" : "product_name",
+      "lc" : "fr",
+      "value_unit" : "value"
+   },
+   "Nutri-Score" : {
+      "column_id" : "nutri-score",
+      "field" : "nutriscore_grade_producer"
+   },
+   "Origine du produit et/ou de ses ingrédients" : {
+      "column_id" : "origine-du-produit-et-ou-de-ses-ingredients",
+      "field" : "origin",
+      "lc" : "fr"
+   },
+   "Origines des ingrédients" : {
+      "column_id" : "origines-des-ingredients",
+      "field" : "origins",
+      "value_unit" : "unit"
+   },
+   "Pays" : {
+      "column_id" : "pays",
+      "field" : "countries"
+   },
+   "Poids net" : {
+      "column_id" : "poids-net",
+      "field" : "net_weight_value_unit"
+   },
+   "Poids égoutté" : {
+      "column_id" : "poids-egoutte",
+      "field" : "drained_weight_value_unit"
+   },
+   "Producteur" : {
+      "column_id" : "producteur",
+      "field" : "producer",
+      "lc" : "fr"
+   },
+   "Produit retiré du marché" : {
+      "column_id" : "produit-retire-du-marche",
+      "field" : "obsolete"
+   },
+   "Propriétaire de la marque" : {
+      "column_id" : "proprietaire-de-la-marque",
+      "field" : "brand_owner"
+   },
+   "Protéines pour 100 g / 100 ml" : {
+      "column_id" : "proteines-pour-100g",
+      "field" : "proteins_100g_value_unit",
+      "value_unit" : "value_in_g"
+   },
+   "Préparation" : {
+      "column_id" : "preparation",
+      "field" : "preparation",
+      "lc" : "fr"
+   },
+   "Quantité" : {
+      "column_id" : "quantite",
+      "field" : "quantity_value_unit",
+      "value_unit" : "value_unit"
+   },
+   "Score Nutri-Score" : {
+      "column_id" : "score-nutri-score",
+      "field" : "nutriscore_score_producer"
+   },
+   "Sel pour 100 g / 100 ml" : {
+      "column_id" : "sel-pour-100g",
+      "field" : "salt_100g_value_unit",
+      "value_unit" : "value_in_g"
+   },
+   "Service consommateur" : {
+      "column_id" : "service-consommateur",
+      "field" : "customer_service",
+      "lc" : "fr"
+   },
+   "Sodium pour 100 g / 100 ml" : {
+      "column_id" : "sodium-pour-100g",
+      "field" : "sodium_100g_value_unit"
+   },
+   "Sucres pour 100 g / 100 ml" : {
+      "column_id" : "sucres-pour-100g",
+      "field" : "sugars_100g_value_unit",
+      "value_unit" : "value_in_g"
+   },
+   "Taille d'une portion" : {
+      "column_id" : "taille-d-une-portion",
+      "field" : "serving_size_value_unit",
+      "value_unit" : "value"
+   },
+   "Traces" : {
+      "column_id" : "traces",
+      "field" : "traces",
+      "value_unit" : "unit"
+   },
+   "Type de la photo du produit" : {
+      "column_id" : "type-de-la-photo",
+      "field" : "image_other_type"
+   },
+   "Volume" : {
+      "column_id" : "volume",
+      "field" : "volume_value_unit"
+   },
+   "Énergie (kJ) pour 100 g / 100 ml" : {
+      "column_id" : "energie-kj-pour-100g",
+      "field" : "energy-kj_100g_value_unit",
+      "value_unit" : "value_in_kj"
+   },
+   "Énergie (kcal) pour 100 g / 100 ml" : {
+      "column_id" : "energie-kcal-pour-100g",
+      "field" : "energy-kcal_100g_value_unit",
+      "value_unit" : "value_in_kcal"
+   }
+}

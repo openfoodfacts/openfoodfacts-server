@@ -6,9 +6,15 @@ Be sure to also read the [introduction to the API](./index.md)
 
 ## Points to consider before uploading photos
 
+### Why photos are important on Open Food Facts
+* Photos are source and proof of data.
+* They build trust in your edit.
+* They are the fastest and easiest way for your users to contribute
+
 ### Image license
 
 Product images must be under the [Creative Commons Attribution ShareAlike licence](https://creativecommons.org/licenses/by-sa/3.0/deed.en).
+If you don't own the image, don't upload it. Do not upload scraped content from the internet. Only upload content taken by final users. If you have content from producers, please get in touch with producers@openfoodfacts.org before any upload.
 
 That means you should either upload:
 
@@ -24,17 +30,20 @@ Uploading quality photos of a product, its ingredients, and the nutrition table 
 
 In case you upload more than one photo of the front, the ingredients, the nutrition facts, or the product packaging components, beware that only the latest "selected" photo of each category will be displayed on the product page on the website and on the mobile application.
 The older ones are saved and can be "selected" by an API call or via the editing interface (website and mobile application).
-You can also upload some photos that are neither of that 4 categories, but they will not be displayed by default. However, all photos will be saved.
+You can also upload some photos that are neither of those 4 categories, but they will not be displayed by default. However, all photos will be saved.
 
 ### Label Languages
 
-Multilingual products have several photos based on the languages present on the packaging. You can specify the language by adding a lang code suffix to the [image field]((#imagefield)).
+Multilingual products have several photos based on the languages present on the packaging. You can specify the language by adding a lang code suffix to the [image field](#Imagefield).
 
 ## Authentication
 
-The WRITE operations in the OFF API require authentication. Therefore you need a valid `user_id` and `password` to write the photo to 100% Real Orange Juice.
+The WRITE operations in the Open Food Facts API require authentication. Therefore you need a valid `user_id`^[user_id_not_email] and `password` to write the photo to 100% Real Orange Juice.
 
-> Sign up on the [Open Food Facts App](https://world.openfoodfacts.net/) to get your `user_id` and `password` if you dont have one. For more details, visit the [Open Food Facts Authentication](https://openfoodfacts.github.io/openfoodfacts-server/introduction/api/#authentication).
+> Sign up on the [Open Food Facts App](https://world.openfoodfacts.org/) to get your `user_id` and `password` if you don't have one.
+For more details, visit the : [Authentication paragraph in our introduction](../index.md#authentication).
+
+^[user_id_not_email]: user_id is the username of your account. You must not use your email address.
 
 ## Parameters
 
@@ -57,7 +66,7 @@ The barcode of the product.
 
 ### Describing the Post Request
 
-To upload photos to a product, make a `POST` request to the [`Add a Photo to an Existing Product`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_upload.pl) endpoint.
+To upload photos to a product, make a `POST` request to the [`Add a Photo to an Existing Product`](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/images/post-api-v3-product-code-images/) endpoint.
 
 ```text
 https://world.openfoodfacts.net/cgi/product_image_upload.pl

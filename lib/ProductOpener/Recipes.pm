@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -67,7 +67,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/exists_taxonomy_tag is_a/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -83,6 +83,8 @@ to compute the percentage of each parent ingredient.
 =head3 Arguments
 
 =head4 product reference $product_ref
+
+#11872 Find and replace Storable with JSON
 
 Loaded from the MongoDB database, Storable files, or the OFF API.
 

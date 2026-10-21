@@ -30,12 +30,13 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %Org %User/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
+use ProductOpener::Mail qw/send_email_to_producers_admin/;
+use ProductOpener::Producers qw/export_and_import_to_public_database/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -58,7 +59,7 @@ my $title = lang("export_product_data_photos");
 my $html = '';
 
 if (not defined $Owner_id) {
-	display_error_and_exit(lang("no_owner_defined"), 200);
+	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
 # Require moderator status to launch the export / import process,
@@ -118,7 +119,7 @@ if ($action eq "display") {
 		$template_data_ref->{allow_submit} = 1;
 	}
 
-	process_template('web/pages/export_products/export_products.tt.html', $template_data_ref, \$html)
+	process_template('web/pages/export_products/export_products.tt.html', $template_data_ref, \$html, $request_ref)
 		|| ($html .= 'template error: ' . $tt->error());
 }
 
@@ -150,7 +151,7 @@ elsif (($action eq "process") and $allow_submit) {
 		$args_ref->{query}{states_tags} = 'en:to-be-exported';
 	}
 
-	if ($admin) {
+	if ($request_ref->{admin}) {
 		if ((defined single_param("overwrite_owner")) and (single_param("overwrite_owner"))) {
 			$args_ref->{overwrite_owner} = 1;
 		}
@@ -171,7 +172,7 @@ elsif (($action eq "process") and $allow_submit) {
 	$html .= "<p>" . lang("export_job_import") . " - <span id=\"result2\"></span></p>";
 	$html .= "<p>" . lang("export_job_status_update") . " - <span id=\"result3\"></span></p>";
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 	
 var minion_status = {
 	"inactive" : "$Lang{minion_status_inactive}{$lc}",
@@ -296,7 +297,8 @@ EMAIL
 	send_email_to_producers_admin("Export to public database requested: user: $User_id - org: $Org_id",
 		$admin_mail_body);
 
-	process_template('web/pages/export_products_results/export_products_results.tt.html', $template_data_ref2, \$html)
+	process_template('web/pages/export_products_results/export_products_results.tt.html',
+		$template_data_ref2, \$html, $request_ref)
 		|| ($html .= 'template error: ' . $tt->error());
 
 }

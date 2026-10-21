@@ -4,17 +4,17 @@ var timeout = 5000;
 var job_info_state;
 
 var statuses = {
-	"inactive" : "[% lang("job_status_inactive") %]",
-	"active" : "[% lang("job_status_active") %]",
-	"finished" : "[% lang("job_status_finished") %]",
-	"failed" : "[% lang("job_status_failed") %]",
+	"inactive" :  "[% edq(lang('job_status_inactive')) %]",
+	"active" :  "[% edq(lang('job_status_active')) %]",
+	"finished" :  "[% edq(lang('job_status_finished')) %]",
+	"failed" :  "[% edq(lang('job_status_failed')) %]",
 };
 
 (function poll() {
   \$.ajax({
     url: '/cgi/import_file_job_status.pl?file_id=[% process_file_id %]&import_id=[% process_import_id %]',
     success: function(data) {
-      \$('#result').html(statuses[data.job_info.state]);
+      \$('#result').text(statuses[data.job_info.state]);
 	  job_info_state = data.job_info.state;
     },
     complete: function() {
@@ -26,7 +26,7 @@ var statuses = {
 	if (job_info_state == "finished") {
 	}
 	  poll_n++;
-	  \$('#poll').html(poll_n);
+	  \$('#poll').text(poll_n);
     }
   });
 })();
