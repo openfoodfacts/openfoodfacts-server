@@ -152,7 +152,7 @@ use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::URL qw/format_subdomain/;
-use ProductOpener::Users qw/%User/;
+use ProductOpener::Users qw/%User is_admin_user/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::ProductSchemaChanges;    # needed for convert_schema_1001_to_1002_refactor_images_object()
 use ProductOpener::Booleans qw/normalize_boolean/;
@@ -171,11 +171,11 @@ use boolean;
 
 =head1 SUPPORTED IMAGE TYPES
 
-gif, jpeg, jpf, png, heic
+gif, jpeg, jpf, png, heic, heif
 
 =cut
 
-my $supported_extensions = "gif|jpeg|jpg|png|heic";
+my $supported_extensions = "gif|jpeg|jpg|png|heic|heif";
 
 =head2 VALID IMAGE TYPES
 
@@ -279,7 +279,9 @@ HTML
 		$html .= <<HTML;
 	<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
-<div class=\"select_crop\" id=\"$id\"></div>
+<div class=\"select_crop\" id=\"$id\">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 HTML
 	}
@@ -363,11 +365,17 @@ sub display_select_crop_init ($object_ref) {
 
 	my $images_json = JSON::MaybeXS->new->encode(\@images);
 
+	# The image editor web component reads the uploaded images and the image path
+	# from window.imageEditorConfig (it cannot have attributes: the select_crop
+	# markup is cloned when a language tab is added).
 	return <<HTML
 
-	\$([]).selectcrop('init_images', $images_json);
-	\$(".select_crop").selectcrop('init', {img_path : "//images.$server_domain/images/products/$path/"});
-	\$(".select_crop").selectcrop('show');
+	window.imageEditorConfig = { images: $images_json, img_path: "//images.$server_domain/images/products/$path/" };
+	if (window.imageFieldUI) {
+		window.imageFieldUI.setImages(window.imageEditorConfig.images);
+		window.imageFieldUI.init(\$(".select_crop"), { img_path : window.imageEditorConfig.img_path });
+		window.imageFieldUI.show(\$(".select_crop"));
+	}
 
 HTML
 		;
@@ -438,9 +446,18 @@ sub scan_code ($file) {
 		$decoder->set_formats("DataMatrix|QRCode|MicroQRCode|DataBar|DataBarExpanded");
 
 		my $imager = Imager->new();
-		$imager->read(file => $file)
-			or die "Cannot read $file: ", $imager->errstr;
-		my @results = $decoder->decode($imager);
+		# Imager may not support some formats that ImageMagick can read (e.g. HEIC
+		# if Imager::File::HEIF is not installed), so fall back to a PNG conversion
+		if (not $imager->read(file => $file)) {
+			my $read_error = $imager->errstr;
+			my $png_blob = $magick->[0] ? $magick->ImageToBlob(magick => 'png') : undef;
+			if (not(defined $png_blob and $imager->read(data => $png_blob, type => 'png'))) {
+				$log->warn("cannot read file with Imager to scan barcode", {error => $read_error})
+					if $log->is_warn();
+				$imager = undef;
+			}
+		}
+		my @results = defined $imager ? $decoder->decode($imager) : ();
 		# extract results
 		foreach my $result (@results) {
 			if (not($result->is_valid())) {
@@ -1379,9 +1396,26 @@ The owner id of the product from which the image is moved.
 
 The function returns an error message if there was an error, or undef if the operation was successful.
 
+=head3 Notes
+
+Moving or trashing an uploaded image is a moderator action, so the function refuses to run
+for any other principal, even if a caller forgets to check that itself. The equivalent check on
+the API v3 route is the "image_delete" permission, which ProductOpener::Permissions maps to
+admin-or-moderator.
+
 =cut
 
 sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
+
+	# Deleting or relocating another contributor's uploaded image is a moderator action:
+	# do not rely on the caller having checked that.
+	if (not(is_admin_user($user_id) or $User{moderator})) {
+		$log->warn(
+			"process_image_move - user does not have permission to move or delete images",
+			{user_id => $user_id, code => $code, imgids => $imgids, move_to => $move_to}
+		) if $log->is_warn();
+		return "error - no permission";
+	}
 
 	# move images only to trash or another valid barcode (number)
 	if (($move_to ne 'trash') and (not is_valid_code($move_to))) {

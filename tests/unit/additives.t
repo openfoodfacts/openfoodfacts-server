@@ -26,6 +26,18 @@ my @tests = (
 		}
 	],
 
+	# emphasis underscores are allergen markup ("_lait_"): the ingredients
+	# text cleaning must keep them in the stored text, and they must not
+	# create junk additive tags
+	[
+		'fr-emphasis-underscores',
+		{
+			lc => "fr",
+			ingredients_text => "farine, _sucre_, sel",
+			ingredients_text_fr => "farine, _sucre_, sel"
+		}
+	],
+
 	# Make sure acides gras don't get detected as E-570
 	[
 		'fr-acides-gras-false-positive',
