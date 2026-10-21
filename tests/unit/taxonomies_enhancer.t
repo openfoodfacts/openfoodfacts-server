@@ -469,7 +469,7 @@ ok(
 	has_tag(
 		$product_ref,
 		"taxonomies_enhancer",
-		"ingredients-ro-monoti-digliceride-ale-acizilor-grasi-is-possible-typo-for-ro-mono-si-digliceride-ale-acizilor-grasi"
+		"ingredients-ro-mono-ti-digliceride-ale-acizilor-grasi-is-possible-typo-for-ro-mono-si-digliceride-ale-acizilor-grasi"
 	),
 	'cs-hr-hu-pl-ro-sk-sl, ro typo or synonym'
 ) or diag Dumper $product_ref;
