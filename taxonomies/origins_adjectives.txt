@@ -8,6 +8,11 @@
 
 # At this point, please do not automatically add origins or translations so that we can first evaluate how big the risk of false positives is
 
+# Regions
+
+sv: nordisk
+origins:en: en:nordic-countries
+
 # Countries
 
 en: French
@@ -48,4 +53,10 @@ origins:en: en:brittany
 en: Normand
 fr: normand, normande, normands, normandes
 origins:en: en:normandy
+
+# Regions - italy
+
+en: Sicilian
+fr: sicilien, sicilienne, siciliens, siciliennes
+origins:en: en:sicily
 

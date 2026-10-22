@@ -116,6 +116,10 @@ class ImageEditorComponent extends HTMLElement {
         return;
       }
       const selection = this.cropper.getCropperSelection();
+      // Do not clear the selection if the click was on or inside the selection or its handles.
+      if (selection && event.composedPath().includes(selection)) {
+        return;
+      }
       if (selection && !selection.hidden && selection.width > 0 && selection.height > 0) {
         selection.$clear();
       }
