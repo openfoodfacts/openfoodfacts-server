@@ -15,8 +15,7 @@ my $payload = {
 };
 
 my $json = Cpanel::JSON::XS->new->decode(
-	Cpanel::JSON::XS->new->encode(ProductOpener::APIProductServices::_plain_data_for_json($payload))
-);
+	Cpanel::JSON::XS->new->encode(ProductOpener::APIProductServices::_plain_data_for_json($payload)));
 
 is(
 	$json,
