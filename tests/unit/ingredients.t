@@ -1725,7 +1725,7 @@ ProductOpener::Ingredients::parse_ingredients_text_service($compound_percent, {}
 is($compound_percent->{ingredients}[0]{percent}, 95, 'real compound keeps its percentage');
 is($compound_percent->{ingredients}[0]{ingredients}[0]{percent}, 4, 'real compound keeps its child percentage');
 
-my $stray_conjunction = {lc => 'fr', ingredients_text => 'oeufs, et graines de sésame'};
+my $stray_conjunction = {lc => 'fr', product_type => 'food', ingredients_text => 'oeufs, et graines de sésame'};
 extract_ingredients_from_text($stray_conjunction);
 ProductOpener::Ingredients::detect_allergens_from_text($stray_conjunction);
 is($stray_conjunction->{allergens_tags}, ['en:eggs', 'en:sesame-seeds'], 'stray conjunction keeps both allergens');
