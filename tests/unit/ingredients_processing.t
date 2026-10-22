@@ -424,14 +424,9 @@ my @tests = (
 				'text' => 'fromage frais'
 			},
 			{
-				'id' => 'en:cream',
+				'id' => 'en:fresh-cream',
 				'is_in_taxonomy' => 1,
-				'text' => "cr\x{e8}me"
-			},
-			{
-				'id' => "fr:fraîche",
-				'is_in_taxonomy' => 0,
-				'text' => "fra\x{ee}che"
+				'text' => "cr\x{e8}me fra\x{ee}che"
 			},
 			{
 				'id' => 'en:pineapple',
@@ -2089,19 +2084,19 @@ my @tests = (
 			{
 				'id' => 'en:rice',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'ris'
 			},
 			{
 				'id' => 'en:potato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'kartofler'
 			},
 			{
 				'id' => 'en:potato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'kartofler'
 			},
 			{
@@ -3171,8 +3166,50 @@ my @tests = (
 			}
 		]
 
-	]
-
+	],
+	# Flageolets (séchés)
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried',
+				'text' => "Flageolets"
+			}
+		],
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés, réhydratés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried,en:rehydrated',
+				'text' => "Flageolets"
+			}
+		],
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés et réhydratés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried,en:rehydrated',
+				'text' => "Flageolets"
+			}
+		],
+	],
 );
 
 foreach my $test_ref (@tests) {

@@ -37,6 +37,36 @@
       "en:coffees",
       "en:ground-coffees"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Café moulu par défaut -2025-",
+               "id" : "77be5f12-5124-4828-861c-9ce4ed3fa661",
+               "mass" : 100,
+               "name" : "ground coffee"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "77be5f12-5124-4828-861c-9ce4ed3fa661",
+                  "mass" : 100
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:unsweetened-beverages",
    "food_groups_tags" : [
@@ -52,7 +82,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18003",
-         "ecobalyse_code" : "coffee-ground",
+         "ecobalyse_id" : "77be5f12-5124-4828-861c-9ce4ed3fa661",
+         "ecobalyse_name" : "Café moulu par défaut -2025-",
          "id" : "en:ground-coffee",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -113,6 +144,9 @@
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a"
    ],
