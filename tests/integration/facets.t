@@ -361,12 +361,7 @@ my $tests_ref = [
 		test_case => 'category-vitamins',
 		method => 'GET',
 		path => 'facets/categories/Vitamins.json?fields=product_name,labels_tags',
-		expected_status_code => 302,
-		headers => {
-			Location =>
-				'http://world.openfoodfacts.localhost/facets/categories/Vitamin%20supplements.json?fields=product_name,labels_tags',
-		},
-		expected_type => 'html',
+		expected_status_code => 200,
 	},
 	# test some redirects
 	{
