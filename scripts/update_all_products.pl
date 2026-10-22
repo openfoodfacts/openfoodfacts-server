@@ -78,9 +78,10 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::EnvironmentalScore qw(compute_environmental_score);
+use ProductOpener::EnvironmentalImpact qw(estimate_environmental_impact_service);
 use ProductOpener::Packaging
 	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
-use ProductOpener::ForestFootprint qw(compute_forest_footprint);
+use ProductOpener::ForestFootprint2026 qw(compute_forest_footprint_2026);
 use ProductOpener::MainCountries qw(compute_main_countries);
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
@@ -148,6 +149,7 @@ my $delete_old_fields = '';
 my $mongodb_to_mongodb = '';
 my $compute_environmental_score = '';
 my $compute_forest_footprint = '';
+my $compute_ecobalyse = '';
 my $fix_nutrition_data_per = '';
 my $fix_nutrition_data = '';
 my $compute_main_countries = '';
@@ -195,6 +197,7 @@ GetOptions(
 	"compute-carbon" => \$compute_carbon,
 	"compute-environmental_score" => \$compute_environmental_score,
 	"compute-forest-footprint" => \$compute_forest_footprint,
+	"compute-ecobalyse" => \$compute_ecobalyse,
 	"check-quality" => \$check_quality,
 	"compute-sort-key" => \$compute_sort_key,
 	"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
@@ -309,6 +312,7 @@ if (    (not $process_ingredients)
 	and (not $compute_carbon)
 	and (not $compute_environmental_score)
 	and (not $compute_forest_footprint)
+	and (not $compute_ecobalyse)
 	and (not $process_packagings)
 	and (not $check_quality)
 	and (scalar @fields_to_update == 0)
@@ -1407,7 +1411,16 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_forest_footprint) {
-			compute_forest_footprint($product_ref);
+			compute_forest_footprint_2026($product_ref);
+		}
+
+		if ($compute_ecobalyse) {
+			my @errors = ();
+			# skip_ecobalyse_call = 0 means we actually call the API
+			estimate_environmental_impact_service($product_ref, {}, \@errors, 0);
+			# Do not mark products with failed Ecobalyse calls as processed (with the new update_key),
+			# so that they can be retried in a later run
+			next if @errors;
 		}
 
 		if ($compute_main_countries) {
@@ -1566,7 +1579,7 @@ while (my $product_ref = $cursor->next) {
 				# we store the product with the new update_key in the .sto file and the mongodb collection
 
 				# Set last modified time if something was changed
-				if ($any_change) {
+				if ($any_change or $force_new_version) {
 					$product_ref->{last_updated_t} = time() + 0;
 				}
 				else {
