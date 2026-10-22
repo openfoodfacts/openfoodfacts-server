@@ -602,6 +602,7 @@ sub start_signout ($request_ref) {
 		$return_url = $request_ref->{formatted_subdomain};
 	}
 
+	my $id_token = $request_ref->{id_token};
 	unless ($User_id) {
 		# user is not authenticated, nothing to do; sign-out is already done, redirect to home page
 		param('length', 'logout');
