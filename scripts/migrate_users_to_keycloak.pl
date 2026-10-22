@@ -27,7 +27,7 @@ use ProductOpener::Checkpoint;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Keycloak qw/:all/;
+use ProductOpener::Keycloak;
 use ProductOpener::Tags qw/country_to_cc/;
 
 use JSON;

@@ -38,7 +38,6 @@ use ProductOpener::Images
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -83,8 +82,6 @@ $log->debug(
 	}
 ) if $log->is_debug();
 
-write_cors_headers();
-
 # By default, don't select images uploaded (e.g. through the product edit form)
 
 my $select_image = 0;
@@ -114,7 +111,7 @@ if (not defined $code) {
 	}
 	else {
 
-		if ((defined $file) and ($file =~ /\.(gif|jpeg|jpg|png|heic)$/i)) {
+		if ((defined $file) and ($file =~ /\.(gif|jpeg|jpg|png|heic|heif)$/i)) {
 
 			$log->debug("scan barcode in image file", {file => $file}) if $log->is_debug();
 

@@ -51,14 +51,8 @@ requires 'Type::Tiny::XS', '==0.025';
 requires 'GraphViz2'; # deps: libfile-which-perl, libdata-section-simple-perl, libwant-perl, libipc-run3-perl, liblog-handler-perl, libtest-deep-perl
 requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1.3.3. deps: libprobe-perl-perl
 requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
-requires 'DateTime', '>= 1.54, < 2.0'; # libdatetime-perl has 1.46. deps: libclass-singleton-perl
-requires 'DateTime::Locale', '>= 1.32, < 2.0'; # libdatetime-locale-perl has 1.17. deps: libfile-sharedir-install-perl
-requires 'DateTime::Format::ISO8601'; # libdatetime-format-iso8601-perl
 requires 'Crypt::ScryptKDF'; #11866: Delete after Keycloak Migration
 requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05'; # deps: liblocale-maketext-lexicon-perl
-requires 'CLDR::Number::Format::Decimal';
-requires 'CLDR::Number::Format::Percent';
-requires 'CLDR::Number'; # deps: libmath-round-perl, libtest-differences-perl, libsoftware-license-perl
 requires 'Modern::Perl', '>= 1.20200211'; # libmodern-perl-perl has 1.20170117/1.20180901
 requires 'Data::Dumper::AutoEncode'; # deps: libmodule-build-pluggable-perl, libclass-accessor-lite-perl
 requires 'XML::Rules';
@@ -75,6 +69,13 @@ requires 'XML::XML2JSON';
 requires 'Digest::SHA1';
 requires 'Data::Difference';
 requires 'Data::Compare';
+
+# I10N
+requires 'Locale::Unicode', '== 0.4.4';
+requires 'Locale::Unicode::Data', '== 1.9.0';
+requires 'DateTime::Lite', '== 0.9.0';
+requires 'DateTime::Format::Lite', '== 0.1.3';
+requires 'DateTime::Locale::FromCLDR', '== 0.8.7';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -100,8 +101,8 @@ requires 'Apache2::Connection::XForwardedFor';
 
 # GS1 Sunrise 2027
 requires 'GS1::SyntaxEngine::FFI';
-requires 'Imager', '>= 1.025, < 1.026';
-requires 'Imager::zxing', '>= 1.001, < 1.002';
+requires 'Imager';
+requires 'Imager::zxing';
 requires 'Imager::File::AVIF';
 requires 'Imager::File::HEIF';
 requires 'Imager::File::JPEG';
@@ -114,7 +115,7 @@ requires 'Imager::File::WEBP';
 # with the Debian package as it had errors with building with cpan
 # then "cpanm --cpanfile cpanfile --installdeps ." worked
 requires 'OIDC::Lite';
-requires 'Crypt::JWT';
+requires 'Crypt::JWT', '== 0.035';
 
 # To dynamically load Config_*.pm modules
 requires 'Module::Load';
@@ -124,6 +125,8 @@ requires 'Time::HiRes';
 
 # To measure similarity between words and find possible typo
 requires 'Text::Levenshtein';
+# To handle Unicode string graphics and width rendering
+requires 'Unicode::GCString';
 
 # To handle IP and IP blocks white lists
 requires 'Net::CIDR'; # libnet-cidr-perl
@@ -153,7 +156,8 @@ on 'test' => sub {
 on 'develop' => sub {
   requires 'Test::Perl::Critic', '>=1.04', '<2.0'; # perl-critic refuse to install without this explicit deps
   requires 'Perl::Critic', '>= 1.140, < 2.0'; # libperl-critic-perl has 1.132 vs 1.138, and all the depended on packages are old too.
-  requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
+  requires 'Devel::DebugHooks'; # provides Apache::DB compat layer for remote debugging via mod_perl
+
   requires 'Perl::Tidy';
   requires 'Perl::Critic';
   requires 'Devel::Cover';
