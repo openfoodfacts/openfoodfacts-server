@@ -99,14 +99,14 @@ synonyms:it: senza, 0%, zero
 synonyms:nl: zonder, 0%
 synonyms:pt: sem, 0%, livre de, zero
 synonyms:ru: без, 0%, 0 %
-synonyms:sv: utan, inga, ingen, inget, noll, 0%, fritt från, fri från, innehåller inga
+synonyms:sv: utan, ingen, inget, inga, noll, 0%, fri från, fritt från, fria från, innehåller inga
 
 synonyms:fi: lisätty
 synonyms:fr: ajout, adjonction
 synonyms:pt: adicionado, adicionados, adinionada, adicionadas
 synonyms:ru: дополнение, добавка
 
-synonyms:en: carbon, co2
+synonyms:en: carbon, co2, CO₂
 synonyms:bg: въглерод, co2
 synonyms:da: kuldioxid, CO2
 synonyms:es: carbono, co2, CO<sub>2</sub>, CO2
@@ -116,7 +116,7 @@ synonyms:hu: szén, co2
 synonyms:it: carbonio, CO2
 synonyms:pt: carbono, co2
 synonyms:ru: углерод, CO<sub>2</sub>, CO2
-synonyms:sv: koldioxid, CO2
+synonyms:sv: koldioxid, CO2, CO₂
 
 synonyms:en: durable, soutenable, responsable
 synonyms:fi: kestävä, luotettava, vastuullinen
@@ -132,7 +132,7 @@ synonyms:pt: fabrico, fabricado, produção, elaborado, feito
 synonyms:ru: изготовление, производство
 
 synonyms:en: made, manufactured, produced
-synonyms:sv: tillverkad, tillverkat, tillagad, tillagat, producerad, producerat
+synonyms:sv: tillverkad, tillverkat, tillverkade, tillagad, tillagat, tillagade, producerad, producerat, producerade
 
 synonyms:en: fats, fat
 synonyms:fr: matières grasses, MG, gras
@@ -144,7 +144,7 @@ synonyms:fr: naturel, d'origine naturelle, origine naturelle
 synonyms:fi: luontainen, luonnollinen
 synonyms:it: naturale, di origine naturale, origine naturale
 synonyms:pt: natural, de origem natural, origem natural
-synonyms:sv: naturlig, naturligt
+synonyms:sv: naturlig, naturligt, naturliga
 
 synonyms:fr: élevé, élevée, élevés, élevées
 synonyms:pt: elevado, elevados
@@ -165,7 +165,12 @@ synonyms:fr: premier, 1er
 synonyms:fr: français, francais
 # soja francais sans OGM
 
-synonyms:sv: ingrediens, råvara
+synonyms:sv: ingrediens, råvara, ingredienser, råvaror
+
+# rich
+synonyms:sv: rik, rikt, rika
+# enriched
+synonyms:sv: berikad, berikat, berikade
 
 en: 1% for the planet, 1 percent for the planet, one percent for the planet
 bg: 1% за планетата
@@ -200,6 +205,7 @@ sv: 100% naturlig, 100% naturligt, 100% naturliga
 th: ธรรมชาติ 100%
 tr: %100 doğal
 
+< en: vegan
 en: 100% vegetable
 xx: 100% vegetal
 de: 100% pflanzlich
@@ -348,6 +354,7 @@ country:en: en:Ireland, en:Northern Ireland
 en: Free range
 bg: Свободно отглеждане
 ca: Rang lliure
+da: fritgående
 de: Freiland
 es: de corral
 fi: vapaana laiduntava, ulkoilma
@@ -355,9 +362,11 @@ fr: Plein air
 he: גידול חופשי
 hu: Szabad tartású
 it: Allevamento a terra
+nb: frittgående
 nl: Vrije uitloop
 pt: Em liberdade, ao ar livre
 ru: свободный выгул, открытый воздух
+sv: frigående
 label_categories:en: en:Animal welfare
 
 en: French eggs, Eggs from France, Oeufs de France
@@ -383,6 +392,7 @@ pt: Ovos de origem França
 en: Free range eggs
 bg: Яйца от свободно отгледани кокошки
 ca: Ous de gallines lliures
+da: æg fra fritgående høns
 de: Freilandeier, eier aus bodenhaltung
 es: Huevos de gallinas camperas
 fi: ulkokananmunat, ulkokanalasta
@@ -391,9 +401,11 @@ he: ביצי חופש
 hr: iz slobodnog uzgoja, iz štalskog uzgoja, iz štalskog (podnog) uzgoja, iz podnog uzgoja
 hu: Szabad tartású tojás
 it: Uova da allevamento all'aperto, uova da galline allevate all'aperto
+nb: egg fra frittgående høner
 nl: Vrije uitloop eieren
 pl: jaja z chowu na wolnym wybiegu, 1 - jajka z chowu na wolnym wybiegu, 1 - jaja z chowu na wolnym wybiegu
 pt: Ovos de galinhas criadas em liberdade, ovos de galinhas em liberdade, ovos de galinhas livres de gaiolas, ovos de galinhas criadas ao ar livre, ovos de galinhas ao ar livre
+sv: ägg från frigående höns
 
 < en: Free range eggs
 en: Made with free range eggs, Baked with free range eggs
@@ -436,11 +448,21 @@ pt: Porco de fazenda criado ao ar livre
 
 < en: Free range
 en: Free range chicken
+da: fritgående høns
 de: Freilandhühnchen
 fi: ulkokana, vapaana elänyt kana
 hu: Szabad tartású csirke, Szabad tartású tyúk
 it: Polli allevati a terra, galline allevate a terra
+nb: frittgående høner
 pt: Galinhas criadas em liberdade, galinhas em liberdade, galinhas livres de gaiolas, galinhas criadas ao ar livre, galinhas ao ar livre
+sv: frigående höns
+
+< en: Free range
+en: From free range chickens
+da: Fra fritgående høns
+fi: Vapaiden ja ulkoilevien kanojen munista
+nb: Fra frittgående høner
+sv: Från frigående höns
 
 < en: Free range
 en: Free range poultry
@@ -485,7 +507,6 @@ image:de: haltungsform-4.79x90.svg
 de: Haltungsform 5 Bio, Haltungsform Bio, Haltungsform 5
 xx: Haltungsform 5
 image:de: haltungsform-5.79x90.svg
-
 
 de: Neuland
 xx: Neuland
@@ -579,7 +600,6 @@ en: Climate Neutral product, Climate Partner
 de: Klimaneutral Produkt, Climate Partner
 label_categories:en: en:environment
 web:en: https://www.climatepartner.com/en
-
 
 en: Carbon Trust
 xx: Carbon Trust
@@ -860,7 +880,6 @@ xx: International Ice Cream Consortium award best commercial solution 2019
 en: International Ice Cream Consortium award ice cream maker of the year 2019
 xx: International Ice Cream Consortium award ice cream maker of the year 2019
 
-
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best ice cream 2018
 xx: International Ice Cream Consortium award best ice cream 2018
@@ -880,7 +899,6 @@ xx: International Ice Cream Consortium award best commercial solution 2018
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award ice cream maker of the year 2018
 xx: International Ice Cream Consortium award ice cream maker of the year 2018
-
 
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best ice cream 2017
@@ -902,7 +920,6 @@ xx: International Ice Cream Consortium award best commercial solution 2017
 en: International Ice Cream Consortium award ice cream maker of the year 2017
 xx: International Ice Cream Consortium award ice cream maker of the year 2017
 
-
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best ice cream 2016
 xx: International Ice Cream Consortium award best ice cream 2016
@@ -923,7 +940,6 @@ xx: International Ice Cream Consortium award best commercial solution 2016
 en: International Ice Cream Consortium award ice cream maker of the year 2016
 xx: International Ice Cream Consortium award ice cream maker of the year 2016
 
-
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best ice cream 2015
 xx: International Ice Cream Consortium award best ice cream 2015
@@ -939,7 +955,6 @@ xx: International Ice Cream Consortium award best technical solution 2015
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best commercial solution 2015
 xx: International Ice Cream Consortium award best commercial solution 2015
-
 
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best ice cream 2014
@@ -1174,7 +1189,6 @@ fr: PME Plus, PME+, pmeplus
 label_categories:en: en:Social responsibility
 # https://www.label-pmeplus.fr/
 
-
 ########################## FAIR TRADE ##########################
 
 en: Fair trade
@@ -1251,8 +1265,12 @@ fr: Non issu du commerce équitable
 incompatible_with:en: labels:en:fair-trade
 opposite:en: en:fair-trade
 
-# Should not be translated, "Fairtrade International" is a label
+# Should not be translated
+< en: Fair trade
+en: World Fair Trade Organization, WFTO
+xx: World Fair Trade Organization, WFTO
 
+# Should not be translated, "Fairtrade International" is a label
 < en: Fair trade
 en: Fairtrade International, Fairtrade, FLO international, FLO
 xx: Fairtrade International, Fairtrade, FLO international, FLO
@@ -1462,7 +1480,7 @@ tr: Yeşil Nokta
 auth_url:en: https://www.pro-e.org/
 label_categories:en: en:Packaging
 wikidata:en: Q975485
-# en:comment:On packaging, the Green Dot means that for such packaging a financial contribution has been paid to a qualified national packaging recovery organization set up in accordance with the principles defined in European Packaging and Packaging Waste Directive 94/62 and the respective national law.
+#comment:en: On packaging, the Green Dot means that for such packaging a financial contribution has been paid to a qualified national packaging recovery organization set up in accordance with the principles defined in European Packaging and Packaging Waste Directive 94/62 and the respective national law.
 
 fr: Imprim'Vert
 label_categories:en: en:Packaging
@@ -1716,6 +1734,7 @@ pt: Sem adição de polifosfatos, sem adição de polifosfato
 ru: Без добавления полифосфатов
 
 en: Not from concentrate
+da: Ikke fra koncentrat
 sv: Inte från koncentrat
 
 en: Halal
@@ -1802,7 +1821,6 @@ auth_url:fr: https://www.labelrouge.fr/
 label_categories:en: en:Quality, en:Environment
 wikidata:en: Q3214309
 
-
 pl: Gwarancja jakości
 # 36 polish products as of 2020-06-15; https://pl.openfoodfacts.org/label/gwarancja-jako%C5%9Bci
 
@@ -1879,6 +1897,7 @@ en: High fibres, high fibers, Rich in fiber, high fiber
 xx: High fibres
 bg: Високо съдържание на хранителни влакнини
 ca: Alt en fibra, ric en fibra
+da: rig på fibre
 de: ballaststoffreich
 es: Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra, Alto Contenido en Fibra
 fi: runsaskuituinen, paljon kuituja, kuitupitoinen
@@ -1891,7 +1910,7 @@ nb: Fiberrik, rik på fiber
 nl: Vezelrijk, Rijk aan vezels
 pl: wysoka zawartość błonnika
 pt: Rico em fibras, teor elevado de fibras, teor elevado em fibras, alto teor em fibra, alto teor em fibras
-ro: Високо съдържание на хранителни влакнини
+ro: Bogat în fibre, conținut ridicat de fibre
 ru: Обогащено клетчаткой
 sv: Fiberrik, Rik på fiber, Fiberrikt
 th: ใยอาหารสูง
@@ -1913,6 +1932,7 @@ en: source of omega-3, source of omega-3 fatty acids
 xx: source of omega-3
 bg: Натурален източник на омега-3 мастни киселини
 it: sorgente di omega 3, sorgente di omega-3, sorgente di omega3
+sv: källa till omega-3
 description:en: In EU, a claim that a food is a source of omega-3 may only be made where the product contains at least 0,3 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en: Omega-3
@@ -1932,6 +1952,7 @@ nl: Rijk aan Omega 3
 pt: Rico em Ómega 3, Rico em Ómega-3
 ru: Обогащено омега-3 жирами
 sr: Bogata Omega-3 masnim kiselinama
+sv: rik på omega-3
 description:en: In EU, a claim that a food is high in omega-3 may only be made where the product contains at least 0,6 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 80 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 en: high monounsaturated fat
@@ -1948,7 +1969,6 @@ it: ricco di acidi grassi insaturi
 nl: rijk aan onverzadigde vetzuren
 pt: rico em ácidos graxos insaturados
 description:en: In EU, a claim that a food is high in polyunsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from polyunsaturated fat under the condition that polyunsaturated fat provides more than 20 % of energy of the product. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
-
 
 en: Rich in polyunsaturated fatty acids, high polyunsaturated fat
 xx: Rich in polyunsaturated fatty acids
@@ -1994,12 +2014,12 @@ nl: Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
 pl: Wysoka zawartość białka, Bogaty w białko
 pt: Proteínas altas
 ru: Обогащено протеинами
-sv: Proteinrik, Högt proteininnehåll
+sv: Rik på protein, proteinrik, högt proteininnehåll
 th: โปรตีนสูง
 description:en: In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en: High proteins
-en: Rich in vegetable protein
+en: Rich in plant protein, Rich in vegetable protein
 ca: Ric en proteïna vegetal
 de: Reich an pflanzlichem Eiweiß
 es: Rico en proteínas vegetal
@@ -2009,6 +2029,12 @@ hu: Növényi fehérjékben gazdag
 it: Ricca di proteini vegetali
 nl: Rijk aan plantaardige eiwitten
 pt: Rico em proteínas vegetais, rico em proteína vegetal
+sv: Rik på växtprotein, Rik på protein från växter
+
+< en: Rich in plant protein
+en: Rich in soy protein
+sv: Rik på protein från soja
+incompatible_with:en: labels:en:no-soy
 
 en: Calcium source, Source of calcium, With calcium
 xx: Calcium source
@@ -2045,16 +2071,19 @@ nl: bron van magnesium
 pl: Źródło magnezu
 pt: Fonte de magnésio
 ru: источник магния
+sv: källa till magnesium
 th: แหล่งแมกนีเซียม
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: zinc source, source of zinc
 xx: zinc source
 it: fonte di zinco
+sv: källa till zink
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: iodine source, source of iodine
 xx: iodine source
+sv: källa till jod
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Phosphore source
@@ -2070,7 +2099,11 @@ it: Fonte di fosforo
 nl: Bron van fosfor
 pt: Fonte de fósforo
 ru: Источник фосфора
+sv: källa till fosfor
 th: แหล่งโฟสฟอรัส
+description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en: vitamin source, source of vitamins, with vitamins
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Vitamin A source, Source of vitamin A
@@ -2226,13 +2259,16 @@ description:en: In EU, claim that a food is a source of vitamins and/or minerals
 en: source of biotin, Vitamin B7 source
 xx: source of biotin
 it: fonte di biotina, fonte di vitamina B7
+sv: källa till biotin, källa till vitamin B7
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: source of pantothenic acid, Vitamin B5 source
 xx: source of pantothenic acid
+sv: källa till pantotensyra, källa till vitamin B5
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Vitamin C source, Source of vitamin C
+xx: Vitamin C source
 bg: Източник на витамин C
 ca: Font de vitamina C
 de: Vitamin C-Quelle
@@ -2247,12 +2283,11 @@ nl: Bron van Vitamine C
 pl: Źródło witaminy C
 pt: Fonte de vitamina C
 ru: Источник витамина C
-sv: Källa till vitamin C
+sv: Källa till vitamin C, källa till askorbinsyra
 tr: C Vitamini kaynağı
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
-xx:en: Vitamin C source
 
-en: Vitamin D source, Source of vitamin D, With vitamin D2
+en: Vitamin D source, Source of vitamin D
 xx: Vitamin D source
 bg: Източник на витамин D
 ca: Font de Vitamina D
@@ -2268,9 +2303,27 @@ nl: Bron van Vitamine D
 pl: Źródło witaminy D
 pt: Fonte de vitamina D
 ru: Источник витамина D
-sv: D-vitaminkälla
+sv: Källa till vitamin D, D-vitaminkälla
 th: แหล่งของวิตามินดี
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+< en: Vitamin D source
+en: Vitamin D2 source, With vitamin D2, source of vitamin D2
+xx: Vitamin D2 source
+bg: Източник на витамин D2
+ca: Font de Vitamina D2
+de: Vitamin D2-Quelle
+es: Fuente de vitamina D2
+fi: D2-vitamiinin lähde
+fr: Source de vitamine D2
+hr: izvor vitamina D2, visoka vsebnost vitamina D2
+hu: D2-vitaminforrás
+it: Fonte di vitamina D2
+nl: Bron van Vitamine D2
+pl: Źródło witaminy D2
+pt: Fonte de vitamina D2
+ru: Источник витамина D2
+sv: Källa till vitamin D2, D2-vitaminkälla
 
 en: Vitamin E source, Source of vitamin E
 xx: Vitamin E source
@@ -2288,7 +2341,7 @@ nl: Bron van Vitamine E
 pl: Źródło witaminy E
 pt: Fonte de vitamina e
 ru: Источник витамина E
-sv: Källa till vitamin E
+sv: Källa till vitamin E, E-vitaminkälla
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: iron source, Source of iron
@@ -2321,6 +2374,7 @@ nl: Bron van natuurlijke Calcium
 pl: Naturalne źródło wapnia
 pt: Fonte natural de cálcio
 ru: Источник натурального кальция
+sv: naturlig källa till kalcium
 
 en: High in calcium
 xx: High in calcium
@@ -2335,6 +2389,7 @@ it: Ricco di calcio
 nl: Rijk aan Calcium
 pt: Rico em cálcio
 ru: Обогащено кальцием
+sv: rik på kalcium
 th: แคลเซียมสูง
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
@@ -2363,7 +2418,7 @@ it: Arricchito con vitamine
 nl: verrijkt met vitaminen
 pl: Wzbogacane witaminami
 pt: Enriquecido com vitaminas
-sv: Vitaminberikat, Vitaminberikad, Berikad med vitaminer
+sv: Vitaminberikad, Vitaminberikat, Berikad med vitaminer
 
 < en: Enriched with calcium
 < en: Enriched with vitamins
@@ -2371,17 +2426,17 @@ en: Enriched with calcium and vitamins
 sv: Berikad med kalcium & vitaminer
 
 < en: Enriched with vitamins
-en: Enriched with riboflavin
-sv: Berikad med riboflavin
+en: Enriched with riboflavin, Enriched with vitamin B2
+sv: Berikad med riboflavin, berikad med vitamin B2, riboflavinberikad, vitamin B2-berikad
 
 < en: Enriched with vitamins
 en: Enriched with vitamin D
-sv: Berikad med vitamin D
+sv: Berikad med vitamin D, vitamin D-berikad
 
 < en: Enriched with vitamins
 en: Enriched with vitamin B12, B12 enriched
 fr: Enrichi en vitamine B12
-sv: Berikad med vitamin B12
+sv: Berikad med vitamin B12, vitamin B12-berikad
 
 en: Enriched with minerals
 da: Beriget med mineraler
@@ -2391,19 +2446,7 @@ hu: Ásványi anyagokkal dúsított
 it: Arricchito con minerali
 nl: verrijkt met mineralen
 pt: Enriquecido com minerais
-
-en: Rich in iron
-bg: Богато на желязо
-es: Rico en hierro
-fi: Rautapitoinen
-fr: Riche en fer
-hu: Vasban gazdag
-it: Ricco di ferro
-nl: Rijk aan ijzer
-pl: Bogaty w żelazo
-pt: Rico em ferro
-sv: Rika på järn
-tr: Demir açısından zengin
+sv: berikad med mineraler, mineralberikad
 
 en: Rich in potassium
 bg: Богато на калий
@@ -2414,7 +2457,7 @@ it: Ricco di potassio
 nl: Rijk aan kalium
 pl: Bogaty w potas
 pt: Rico em potássio
-sv: Rika på kalium
+sv: rik på kalium
 tr: Demir açısından potasyum
 
 en: In braille
@@ -2730,22 +2773,30 @@ label_categories:en: en:Health
 en: Low fat, low in fat
 xx: low fat
 ca: Baix en greixos
-da: Fedtfattig, Naturligt fedtfattig
+da: Fedtfattig
 de: Fettarm
 es: Bajo en grasas, Bajo contenido en grasas
-fi: Vähärasvainen, Vähän rasvaa, Luonnostaan vähärasvainen
+fi: Vähärasvainen, Vähän rasvaa
 fr: Peu de matière grasse, Peu gras, faible teneur en matière grasse, pauvre en matière grasse, pauvre en matières grasses
 he: דל שומן
 hr: nisko u mastima, s niskim sadržajem masti
 hu: Zsírszegény, Alacsony zsírtartalmú
 it: Basso contenuto di grassi, A basso contenuto di grassi
-nb: Lavt fettinnhold, Naturlig lavt fettinnhold
+nb: Lavt fettinnhold
 nl: Vetarm
 pt: Baixo teor de gordura, baixo teor de gorduras, baixo em gorduras
 ru: низкожирный
-sv: Låg fetthalt, Naturligt låg fetthalt
+sv: Låg fetthalt
 th: ไขมันต่ำ
 description:en: In EU, a claim that a food is low fat may only be made where the product contains no more than 3 g of fat per 100 g for solids or 1,5 g of fat per 100 ml for liquids (1,8 g of fat per 100 ml for semi-skimmed milk). (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+< en: Low fat
+en: Naturally low fat, Naturally low in fat
+da: Naturligt fedtfattig
+fi: Luonnostaan vähärasvainen
+nb: Naturlig lavt fettinnhold
+sv: Naturligt låg fetthalt
+comment:en: EU: “Where a food naturally meets the condition(s) […] for the use of a nutritional claim, the term ‘naturally/natural’ may be used as a prefix to the claim.”
 
 < en: Low fat
 en: Reduced fat, Less fat
@@ -3473,7 +3524,7 @@ ar: بدون سكر مضاف
 bg: Без добавена захар
 ca: Sense sucre afegit, sense sucres afegits
 cs: Bez přidaného cukru, obsahuje přirozeněse vyskytující cukry
-da: Uden tilsat sukker
+da: Uden tilsat sukker, ikke tilsat sukker
 de: Ohne Zuckerzusatz, Ohne zugesetzten Zucker, Enthält von Natur aus Zucker
 el: Χωρίς προσθήκη ζάχαρης
 es: Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
@@ -3514,6 +3565,7 @@ en: No sugar, sugar-free
 xx: no sugar
 bg: Без захар
 ca: Sense sucre, lliure de sucre
+da: sukkerfri, sukkerfrit, sukkerfrie, uden sukker
 de: Ohne Zucker
 es: Sin azúcar, Libre de azúcar, Cero azúcar, sin azúcares
 fi: sokeriton, ei sokeria
@@ -3526,7 +3578,7 @@ nl: Suikervrij, Zonder suiker
 pl: Bez cukru, Nie zawiera cukru
 pt: Sem açúcar, sem açúcares
 ru: Без сахара
-sv: Sockerfri, Sockerfria, Utan socker
+sv: Sockerfri, Sockerfritt, Sockerfria, Utan socker
 th: ไม่มีน้ำตาล
 tr: Şekersiz
 description:en: In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
@@ -3867,6 +3919,14 @@ description:fr: consignée en Suède.
 #image:sv: pant-2kr.61x90.png
 label_categories:en: en:Environment, en:Packaging
 
+sv: pant 3kr
+xx: pant 3kr
+country:en: en:Sweden
+description:en: deposit in Sweden.
+description:fr: consignée en Suède.
+#image:sv: pant-3kr.61x90.png
+label_categories:en: en:Environment, en:Packaging
+
 en: metal recycles forever
 xx: metal recycles forever
 image:en: metal-recycles-forever.89x90.png
@@ -3972,6 +4032,62 @@ description:en: At least 98% of the product's content originates in Canada
 description:fr: Le contenu du produit est originaire du Canada à au moins 98%
 label_categories:en: en:Geographic label
 # https://bureau-concurrence.canada.ca/comment-nous-favorisons-concurrence/education-sensibilisation/publications/indications-produit-canada-fait-canada
+
+# Canadian Geographical Indication (GI): a name identifying a wine, spirit, agricultural
+# product, or food as originating in Canada, protected under the Trademarks Act. The regime
+# originally covered only wines and spirits; it was expanded to agricultural products and
+# food following the 2017 Canada-EU CETA agreement. Administered by the Canadian Intellectual
+# Property Office (CIPO). The 7 specific GI names below were each individually verified live
+# against CIPO's Canadian Trademarks Database (category: Geographical Indications) at
+# https://ised-isde.canada.ca/cipo/trademark-search/srch as of 2026-09-03, and all carry the
+# status "ENTERED ON THE LIST". This is not a claim that the list is exhaustive - the
+# register holds ~900 GI entries in total, the large majority of which are foreign
+# (EU/CETA-reciprocal) indications like Feta or Champagne, out of scope for this entry.
+en: Canadian Geographical Indication, Canadian GI
+xx: Canadian Geographical Indication
+fr: Indication géographique canadienne, IG canadienne
+country:en: en:Canada
+description:en: A name identifying a wine, spirit, agricultural product, or food as originating in Canada, where a quality, reputation, or other characteristic of the product is essentially attributable to that geographic origin, protected under Canada's Trademarks Act.
+description:fr: Un nom identifiant un vin, une boisson spiritueuse, un produit agricole ou un aliment comme étant originaire du Canada, dont une qualité, une réputation ou une autre caractéristique du produit est essentiellement attribuable à cette origine géographique, protégé en vertu de la Loi sur les marques de commerce du Canada.
+label_categories:en: en:Quality, en:Geographic label
+web:en: https://ised-isde.canada.ca/site/canadian-intellectual-property-office/en/ip-roadmap-geographical-indications-canada
+
+< en: Canadian Geographical Indication
+en: Canadian Whisky
+xx: Canadian Whisky
+fr: Whisky canadien
+
+< en: Canadian Geographical Indication
+en: Canadian Rye Whisky
+xx: Canadian Rye Whisky
+fr: Whisky de seigle canadien
+
+< en: Canadian Geographical Indication
+en: Okanagan Valley
+xx: Okanagan Valley
+fr: Vallée de l'Okanagan
+description:en: Wine geographical indication for British Columbia's Okanagan Valley region.
+
+< en: Canadian Geographical Indication
+en: Niagara Peninsula
+xx: Niagara Peninsula
+fr: Péninsule du Niagara
+description:en: Wine geographical indication for Ontario's Niagara Peninsula region.
+
+< en: Canadian Geographical Indication
+en: Ontario Icewine
+xx: Ontario Icewine
+
+< en: Canadian Geographical Indication
+en: Vin de glace du Québec, Quebec Icewine
+xx: Vin de glace du Québec
+fr: Vin de glace du Québec
+
+< en: Canadian Geographical Indication
+en: Maïs sucré de Neuville, Neuville Sweet Corn
+xx: Maïs sucré de Neuville
+fr: Maïs sucré de Neuville
+description:en: Agricultural product geographical indication for sweet corn grown in Neuville, Québec.
 
 # [CL] Chile
 
@@ -4278,6 +4394,11 @@ sv: Tillverkad i Sverige, Tillagat i Sverige, Producerad i Sverige
 label_categories:en: en:Geographic label
 manufacturing_places:en: en:sweden
 
+en: Swedish ingredient
+sv: Svensk råvare, Svensk ingrediens, Råvaren har svenskt ursprung
+label_categories:en: en:Geographic label
+origins:en: en:sweden
+
 en: Made in Swiss, made in Switzerland, swiss made
 bg: Произведено в Швейцария
 ca: Fet a Suïssa
@@ -4418,7 +4539,6 @@ country:en: en:Mexico
 description:en: Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
 label_categories:en: en:Nutrition Grades, en:Health
 
-
 en: Made in the EU, Made in the European Union
 bg: Произведено в ЕС, Произведено в Европейския съюз
 ca: Fet a la UE, Fet a la Unió Europea
@@ -4436,9 +4556,6 @@ pl: Wyprodukowano w UE, Wyprodukowano w Unii Europejskiej
 pt: Feito na UE, fabricado na UE, Feito na UE, Feito na União Europeia, produzido na UE, feito na União Europeia, fabricado na União Europeia, produzido na União Europeia, feito na Europa, fabricado na Europa, produzido na Europa
 #origins:en: en:European Union
 label_categories:en: en:Geographic label
-
-
-
 
 en: Limited edition
 ca: Edició limitada
@@ -5096,6 +5213,7 @@ hu: BPA-mentes
 it: Senza BPA
 nl: Zonder bisfenol A
 pt: Sem Bisfenol A, sem Bisfenol-A, sem BPA
+sv: fri från bisfenol A
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
@@ -5266,8 +5384,8 @@ zh: 低饱和脂肪含量
 description:en: In EU, a claim that a food is low in saturated fat may only be made if the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or 0,75 g/100 ml for liquids and in either case the sum of saturated fatty acids and trans-fatty acids must not provide more than 10 % of energy. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en: Low or no saturated fat
-en: saturated fat-free
-xx: saturated fat-free
+en: No saturated fat, saturated fat-free
+xx: No saturated fat, saturated fat-free
 bg: без наситени мазнини
 ca: sense greixos saturats
 de: ohne gesättigte Fettsäuren
@@ -5424,6 +5542,7 @@ nl: GMO-vrij, Geen GMO, GGO-vrij
 pl: bez GMO
 pt: Sem OGM, Sem Organismos Geneticamente Modificados
 ru: Без ГМО, Без использования ГМО, Не содержит ГМО
+sv: Innehåller inga genetiskt modifierade organismer
 th: ไม่มีจีเอ็มโอ
 incompatible_with:en: labels:en:contains-gmos
 label_categories:en: en:Health, en:Environment
@@ -5509,13 +5628,13 @@ he: נטול לקטוז
 hr: bez laktoze
 hu: Laktózmentes, laktóz mentes, természetes módon laktózmentes
 id: Bebas laktosa
-it: Senza lattosio, Naturalmente senza lattosio
+it: Senza lattosio
 ja: ラクトースフリー
 ko: 락토스 프리
 lt: Be laktozės
 lv: Bez laktozes
 ms: Tanpa laktosa
-nb: Laktosefri, Uten laktose, Naturlig laktosefri
+nb: Laktosefri, Uten laktose
 nl: Lactosevrij, Vrij van lactose
 pl: Bez laktozy
 pt: Sem lactose, 0% lactose, livre de lactose
@@ -5524,7 +5643,7 @@ ru: Без лактозы
 sk: Bez laktozy
 sl: Brez laktoze
 sq: Pa laktozë
-sv: Laktosfri, Laktosfritt, Naturligt laktosfri
+sv: Fri från laktos, Laktosfri, Laktosfritt, Laktosfria
 th: ไม่มีแลคโตส
 tr: Laktozsuz
 uk: Без лактози
@@ -5532,6 +5651,15 @@ vi: Không chứa lactose
 zh: 无乳糖
 incompatible_with:en: labels:en:contains-lactose
 opposite:en: en:contains-lactose
+
+< en: No lactose
+en: Naturally lactose free
+da: Naturligt laktosefri
+fi: Luontaisesti laktoositon
+it: Naturalmente senza lattosio
+nb: Naturlig laktosefri
+sv: Naturligt laktosfri
+comment:en: EU: “Where a food naturally meets the condition(s) […] for the use of a nutritional claim, the term ‘naturally/natural’ may be used as a prefix to the claim.”
 
 en: Contains lactose
 bg: Съдържа лактоза
@@ -5601,6 +5729,9 @@ incompatible_with:en: labels:en:contains-milk
 label_categories:en: en:Allergens
 opposite:en: en:contains-milk
 
+en: No milk protein
+sv: Fri från mjölkprotein
+
 fr: Contrat Biolait
 
 en: Without addition of dairy products
@@ -5666,7 +5797,7 @@ sk: Bez konzervačných látok
 sl: Brez konzervansov
 sq: Pa konservues
 sr: Bez konzervansa
-sv: Utan konserveringsmedel, Innehåller inga konserveringsmedel
+sv: Utan konserveringsmedel, Innehåller inga konserveringsmedel, Bakade utan konserveringsmedel
 th: ไม่ใช้วัตถุกันเสีย
 tr: Koruyucu yok, Koruyucu madde içermez
 uk: Без консервантів
@@ -6012,7 +6143,7 @@ label_categories:en: en:Specific diets
 #                   O R G A N I C   S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#en:description:Labels used for identifying products (and ingredients) that have been grown organically.
+#description:en: Labels used for identifying products (and ingredients) that have been grown organically.
 
 en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture, from organic controlled cultivation
 bg: Био, биологично земеделие, биологично
@@ -6035,10 +6166,10 @@ nb: Økologisk, certificeret økologisk
 nl: Biologisch, biologische, bio, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pl: ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego, z kontrolowanych upraw ekologicznych, z kontrolowanej produkcji ekologicznej, z kontrolowanego rolnictwa ekologicznego, certyfikowany składnik ekologiczny, składnik ekologiczny, produkt pochodzący z kontrolowanych certyfikowanych upraw ekologicznych
 pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica, de produção Biológica
-ro: din agricultură ecologică controlată, din cultură organică controlată
+ro: din agricultură ecologică controlată, din cultură organică controlată, ecologic, ecologică, ecologici, ecologice, bio, organic, organică, din agricultură ecologică, provenit din agricultura ecologică, provenite din agricultura ecologică, ingrediente provenite din agricultura ecologică, ingredient ecologic, ingrediente ecologice
 sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
-sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk, ekologisk råvara
+sv: Ekologisk, ekologiskt, ekologiska, certifierad ekologisk, kontrollerat ekologiskt jordbruk, ekologisk ingrediens, ekologisk råvara, ekologiskt odlat, ekologiskt odlade, eko
 th: ออร์แกนิค
 tr: Organik
 zh: 有机
@@ -6159,6 +6290,18 @@ ca: Vi biodinàmic
 en: India Organic
 country:en: en:India
 wikidata:en: Q17055995
+
+< en: India Organic
+en: Jaivik Bharat
+comment:en: Food Safety and Standard Authority of India’s main organic logo (Jaivik Bharat) - https://jaivikbharat.fssai.gov.in/pdf/faq.pdf
+
+< en: India Organic
+en: NPOP, National Programme for Organic Production
+comment:en: National Programme for Organic Production - National Accreditation Body
+
+< en: India Organic
+en: PGS-India Organic
+comment:en: Participatory Guarantee System (PGS-India) is based on the standards of NPOP but is distinct in its certification procedures - https://jaivikbharat.fssai.gov.in/standard-pgs.php
 
 < en: India Organic
 en: NPOP-NAB-0001
@@ -6339,6 +6482,10 @@ xx: NPOP-NAB-0041
 < en: organic
 fr: Bio équitable en France
 
+# "Équitable en France" is a logo that seems to be only on Biocoop products
+< en: fair trade
+fr: Équitable en France
+
 < en: Organic
 en: EU Organic, European Organic, European leaf, European organic leaf, EU organic farming
 xx: EU Organic
@@ -6363,7 +6510,7 @@ pl: EU Organic, Europejski Organic, Europejski liść, Europejski organiczny li�
 pt: Orgânico EU, Orgânico Europeu, Folha Europeia, Folha Orgânica Europeia
 ro: Organic UE, Organic european, Frunză europeană, Frunză organică europeană, Agricultură organică UE
 ru: ЕС Органический, Европейский органический, Европейский лист, Европейский органический лист, ЕС органическое земледелие
-sv: EU-ekologisk
+sv: EU-ekologisk, EU-ekologisk ingrediens
 tr: AB Organik, Avrupa Organik, Avrupa yaprağı, Avrupa organik yaprağı, AB organik tarım
 uk: ЄС Органічний, Європейський органічний, Європейський лист, Європейський органічний лист, ЄС органічне сільське господарство
 vi: Hữu cơ EU, Hữu cơ Châu Âu, Lá Châu Âu, Lá hữu cơ Châu Âu, Nông nghiệp hữu cơ EU
@@ -7419,7 +7566,6 @@ country:en: en:Croatia
 en: HR-EKO-10
 xx: HR-EKO-10
 country:en: en:Croatia
-
 
 < en: EU Organic
 en: HR-EKO-11
@@ -8644,7 +8790,6 @@ auth_url:en: http://certification.controlunion.com
 country:en: Sri Lanka
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group C: unprocessed aquaculture products and algae,en:EU Group D: processed agricultural products for use as food (*),en:EU Group E: processed agricultural products for use as feed (*),en:EU Group F: vegetative propagating material and seeds for cultivation
 exceptions:en: en:in-conversion products,en:except products covered by Annex III
-
 
 < en: EU organic
 en: LK-BIO-151
@@ -18981,7 +19126,6 @@ country:en: en:Argentina
 image:es: organico-argentina.67x90.png
 wikidata:en: Q101928227
 
-
 < en: Organic
 pt: Produto Orgânico Brasil, Orgânico Brasil, Produto Orgânico do Brasil, Orgânico do Brasil
 auth_url:en: https://www.organicsnet.com.br/certificacao/
@@ -19058,7 +19202,7 @@ nl: Zonder palmolie, Palmolie-vrij, Palmolievrij
 pl: Wolne od oleju palmowego, bez oleju palmowego
 pt: Sem óleo de palma, 0% óleo de palma
 ru: Без пальмового масла
-sv: Utan palmolja, palmoljefri
+sv: Fri från palmolja, Utan palmolja, palmoljefri
 th: ไม่ใช้น้ำมันปาล์ม
 zh: 不含棕榈油
 incompatible_with:en: labels:en:contains-palm-oil
@@ -19359,6 +19503,7 @@ hr: bogat vitaminom A
 hu: A-vitaminban gazdag
 it: Ricco di vitamina A
 pt: Rico en vitamina A
+sv: Rik på vitamin A
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B
@@ -19370,6 +19515,7 @@ hr: bogat vitaminom B
 hu: B-vitaminban gazdag
 it: Ricco di vitamina B
 pt: Rico en vitamina B
+sv: Rik på vitamin B
 
 en: Rich in vitamin B1
 de: Reich an Vitamin B1
@@ -19382,14 +19528,33 @@ hu: B1-vitaminban gazdag
 it: Ricco di vitamina B1
 nl: rijk aan vitamine B1
 pt: Rico em vitamina B1
+sv: Rik på vitamin B1
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B2
 xx: Rich in vitamin B2
+de: Reich an Vitamin B2
+es: Rico en vitamina B2
+fi: runsaasti B2-vitamiinia
+fr: Riche en vitamine B2
+hr: bogat vitaminom B2
+hu: B2-vitaminban gazdag
+it: Ricco di vitamina B2
+pt: Rico en vitamina B2
+sv: Rik på vitamin B2, rik på riboflavin
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B3
 xx: Rich in vitamin B3
+de: Reich an Vitamin B3
+es: Rico en vitamina B3
+fi: runsaasti B3-vitamiinia
+fr: Riche en vitamine B3
+hr: bogat vitaminom B3
+hu: B3-vitaminban gazdag
+it: Ricco di vitamina B3
+pt: Rico en vitamina B3
+sv: Rik på vitamin B3
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B6
@@ -19403,34 +19568,52 @@ hr: bogat vitaminom B6
 hu: B6-vitaminban gazdag
 it: Ricco di vitamina B6
 pt: Rico em vitamina B6
+sv: Rik på vitamin B6
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
-en: high in biotin, high in vitamin b7
+en: high in biotin, high in vitamin B7
 xx: high in biotin
+sv: Rik på biotin, Rik på vitamin B7
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
-en: high in pantothenic acid, high in vitamin b5
+en: high in pantothenic acid, high in vitamin B5
 xx: high in pantothenic acid
+sv: Rik på pantotensyra, Rik på vitamin B5
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: high in phosphore
 xx: high in phosphore
+sv: rik på fosfor
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
-en: high in iron
+en: high in iron, rich in iron
 xx: high in iron
+bg: Богато на желязо
+es: Rico en hierro
+fi: Rautapitoinen
+fr: Riche en fer
+hu: Vasban gazdag
+it: Ricco di ferro
+nl: Rijk aan ijzer
+pl: Bogaty w żelazo
+pt: Rico em ferro
+sv: rik på järn
+tr: Demir açısından zengin
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: high in magnesium
 xx: high in magnesium
+sv: rik på magnesium
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: high in zinc
 xx: high in zinc
+sv: rik på zink
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: high in iodine
 xx: high in iodine
+sv: rik på jod
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B9
@@ -19444,6 +19627,7 @@ hr: bogat vitaminom B9
 hu: B9-vitaminban gazdag
 it: Ricco di vitamina B9
 pt: Rico en vitamina B9
+sv: Rik på vitamin B9
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin B12
@@ -19491,6 +19675,7 @@ hu: D-vitaminban gazdag
 it: Ricco di vitamina D
 nl: rijk aan vitamine D
 pt: Rico em vitamina D
+sv: Rik på vitamin D
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin E
@@ -19504,6 +19689,7 @@ hu: E-vitaminban gazdag
 it: Ricco di vitamina E
 nl: rijk aan vitamine E
 pt: Rico em vitamina E
+sv: Rik på vitamin E
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 < en: Rich in vitamin C
@@ -19513,6 +19699,7 @@ fr: naturellement riche en vitamine C
 hr: prirodno bogato vitaminom C
 it: naturalmente ricco di vitamina C
 pt: rico naturalmente em vitamina C
+sv: naturlig rik på vitamin C
 
 < en: Rich in vitamin E
 en: naturally rich in vitamin E
@@ -19521,6 +19708,7 @@ fr: naturellement riche en vitamine E
 hr: prirodno bogato vitaminom E
 it: naturalmente ricco di vitamina E
 pt: rico naturalmente em vitamina E
+sv: naturlig rik på vitamin E
 
 en: whole grain, wholegrain, wholemeal
 da: fuldkorn
@@ -19537,7 +19725,7 @@ sv: med fullkornsmjöl
 
 #< en:whole grain
 en: Rich in whole grain
-sv: Fullkornsrik
+sv: rik på fullkorn, fullkornsrik
 
 en: The Danish Whole Grain Logo, The Whole Grain Logo
 xx: Vælg fuldkorn først
@@ -19960,7 +20148,6 @@ en: Sustainable fishing method, sustainable fishing technique
 fr: Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
 nl: Duurzame vismethoden
 
-
 < en: fishing method
 en: Trawl fishing
 ca: Pesca d'arrossegament
@@ -20124,7 +20311,7 @@ da: Bæredygtig
 de: Nachhaltig
 es: Sostenible
 hr: Održiv
-it: Sostenibile
+it: Sostenibile, sostenible certificada
 nl: Duurzaam
 pt: Sustentável
 sv: Hållbar, Hållbart, Hållbart producerat och certifierad
@@ -20195,17 +20382,21 @@ en: Sustainable farming, sustainable agriculture
 bg: Устойчиво земеделие
 ca: Agricultura Sostenible
 cs: Udržitelné zemědělství
+da: Bæredygtigt landbrug, fra bæredygtigt landbrug, bæredygtigt dyrkede ingredienser
 de: Nachhaltige Agrikultur
 es: Agricultura sustentable
-fi: Kestävä maatalous
+fi: Kestävä maatalous, kestävän kehityksen mukaisesti kasvatettuja
 fr: Agriculture durable, agriculture soutenable, agriculture raisonnée, culture durable, culture soutenable, culture raisonnée
 he: חקלאות בת־קיימא
 hr: održiva poljoprivreda
 hu: Fenntartható gazdálkodás, Fenntartható gazdálkodásból
 it: Agricoltura sostenibile
+nb: Bærekraftigt jordbrug, fra bærekraftigt jordbrug, bærekraftig dyrkede ingredienser
 nl: Duurzame landbouw
 pl: Zrównoważone rolnictwo
 pt: Agricultura sustentável
+sv: Hållbart jordbruk, från hållbart jordbruk, hållbart odlade ingredienser
+wikidata:en: Q2751054
 
 < en: Sustainable farming
 fr: CRC, Culture raisonnée contrôlée, filière CRC
@@ -20303,19 +20494,17 @@ wikipedia:en: Vegetarianism
 en: Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
 wikidata:en: Q7918353
 
-
-
 < en: Vegetarian
 en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source, free from animal products, vegetable source
 an: vegano
 bg: Веган
 ca: Vegà, Adequat per persones veganes
 cs: Veganské
-da: Vegansk, Velegnet til veganere, vegetabilsk
-de: Vegan
+da: Vegansk, Velegnet til veganere, vegetabilsk, velegnet til veganere og vegetarer
+de: Vegan, veganer
 es: Vegano, Producto vegano, Vegan, Apto para veganos y vegetarianos
 fi: vegaaninen, sopii vegaaneille, kasviperäinen, Sopii vegaaniruokavalioon
-fr: Végétalien, Végan, végétal, végétaux, de plantes, dérivé de plante, dérivés de plante, dérivée de plante, dérivées de plante, origine végétale, non-animal
+fr: Végétalien, Végan, végétal, végétale, végétaux, végétales, de plantes, dérivé de plante, dérivés de plante, dérivée de plante, dérivées de plante, origine végétale, non-animal
 gl: vegano
 he: טבעוני, מתאים לטבעונים
 hr: vegan
@@ -20327,7 +20516,7 @@ nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
 pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos, odpowiedni dla wegan
 sq: vegan
-sv: Vegansk, Passar för veganer, vegetabilisk, vegetabiliskt, vegetabiliskt ursprung, veganska
+sv: Vegansk, veganskt, veganska, 100% vegansk, 100% veganskt, 100% veganska, vegetabilisk, vegetabiliskt, vegetabiliska, vegetabiliskt ursprung, Passar för veganer, vegan
 th: สูตรเจ
 tr: Vegan
 zh: 纯素
@@ -20341,9 +20530,10 @@ opposite:en: en:non-vegan
 wikidata:en: Q7918273
 wikipedia:en: Veganism
 
-en: Non-vegan, not vegan, not suitable for vegans, from animal origin, derived from animals, from animal source
-fr: Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans, d'origine animale, de source animale
+en: Non-vegan, not vegan, not suitable for vegans, from animal origin, derived from animals, from animal source, animal
+fr: Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans, d'origine animale, de source animale, animal, animale, animaux, animales
 hr: nije vegansko
+nl: Niet-veganistisch, niet veganistisch, niet geschikt voor veganisten, van dierlijke oorsprong, afkomstig van dieren, van dierlijke bron, dierlijk
 pl: Niewegańskie, niewegański
 pt: Não-vegan, não vegan, não adequado a vegans, não adequado a uma dieta vegan
 sv: icke-vegansk, icke-veganskt, icke-veganska, animalisk, animaliskt, animaliska
@@ -20567,7 +20757,6 @@ pl: V-Label
 pt: União Vegetariana Europeia, European Vegetarian Union
 sv: Europeiska Vegetariska Unionen
 wikidata:en: Q443112
-
 
 #https://www.v-label.eu/wp-content/uploads/2017/09/vegetarian_FR_front.png
 < en: European Vegetarian Union
@@ -20842,7 +21031,6 @@ pt: Farinha de trigo francesa, farinha de trigo de França, farinha de trigo da 
 ingredients:en: en:wheat-flour
 origins:en: en:france
 
-
 fr: Soja Français, Soja de France, Filière Soja Français, Soja origine France
 pt: Soja francêsa, soja de França, soja da França
 ingredients:en: en:soya
@@ -20902,7 +21090,11 @@ he: מעושן עם עץ אשור
 hu: Bükkfán füstölt
 it: Affumicato con legno di faggio
 pt: Defumado em madeira de faia, defumada em madeira de faia, fumado em madeira de faia, fumada em madeira de faia
-sv: Bokspånsrökt
+sv: bokspånsrökt, bokspånsrökta, rökt med bokspån, rökta med bokspån
+
+< en: Smoked with beech wood
+en: Smoked with Swedish beech wood
+sv: rökt med svenskt bokspån, rökta med svenskt bokspån
 
 en: Smoked with oak wood
 fi: savustettu tammella, tammella savustettu
@@ -20910,6 +21102,18 @@ fr: Fumé au bois de chêne, fumage au bois de chêne
 he: מעושן בעץ אלון
 hu: Tölgyfán füstölt
 pt: Defumado em madeira de carvalho, defumada em madeira de carvalho, fumado em madeira de carvalho, fumada em madeira de carvalho
+sv: ekspånsrökt, ekspånsrökta, rökt med ekspån, rökta med ekspån
+
+< en: Smoked with oak wood
+en: Smoked with Swedish oak wood
+sv: rökt med svenskt ekspån, rökta med svenskt ekspån
+
+en: Smoked with alder wood
+sv: alspånsrökt, alspånsrökta, rökt med alspån, rökta med alspån
+
+< en: Smoked with alder wood
+en: Smoked with Swedish alder wood
+sv: rökt med svenskt alspån, rökta med svenskt alspån
 
 fr: Fumage naturel, fumé naturellement
 pt: Defumado natural, fumado natural, naturalmente defumado, naturalmente fumado
@@ -20999,7 +21203,7 @@ fr: Sans fruits à coque, sans fruits secs, Sans noix
 it: Senza noci, senza frutta secca, senza frutta a guscio
 nl: Zonder noten
 pt: Sem nozes, livre de nozes
-sv: Utan nötter
+sv: Utan nötter, nötfri
 
 # French label
 fr: Saveurs de l'Année
@@ -21254,7 +21458,6 @@ pt: Medalha de prata no Concurso Mundial de Bruxelas 2012
 fr: Médaille d'Argent du Concours Mondial de Bruxelles 2011, Médaille argent concours mondial Bruxelles 2011, Médaille argent Bruxelles 2011
 pt: Medalha de prata no Concurso Mundial de Bruxelas 2011
 
-
 fr: Concours général agricole
 label_categories:en: en:Quality
 wikidata:en: Q2992165
@@ -21506,7 +21709,6 @@ fr: Médaille de bronze du Concours de Bordeaux 2012, Concours de Bordeaux méda
 
 < fr: médaille de bronze du Concours de Bordeaux
 fr: Médaille de bronze du Concours de Bordeaux 2011, Concours de Bordeaux médaille de bronze 2011, Médaille de Bronze Bordeaux 2011 Concours de Bordeaux, Médaille de Bronze Bordeaux 2011
-
 
 #Wine Related labels
 
@@ -21880,6 +22082,14 @@ fr: Médaille de bronze 2023 de la Société Allemande d'Agriculture
 hr: Brončana medalja Njemačkog poljoprivrednog društva 2023
 pt: Medalha de bronze da Sociedade Agrícola Alemã de 2023
 
+< en: Bronze medal of the German Agricultural Society
+en: 2024 Bronze medal of the German Agricultural Society
+de: DLG Bronzener Preis 2024
+
+< en: Bronze medal of the German Agricultural Society
+en: 2025 Bronze medal of the German Agricultural Society
+de: DLG Bronzener Preis 2025
+
 < en: Silver medal of the German Agricultural Society
 en: 2009 Silver medal of the German Agricultural Society
 de: DLG Silberner Preis 2009
@@ -22008,6 +22218,14 @@ fi: Saksan maatalousyhdistyksen hopeamitali 2023
 fr: Médaille d'argent 2023 de la Société Allemande d'Agriculture
 hr: Srebrna medalja Njemačkog poljoprivrednog društva 2023
 pt: Medalha de prata da Sociedade Agrícola Alemã de 2023
+
+< en: Silver medal of the German Agricultural Society
+en: 2024 Silver medal of the German Agricultural Society
+de: DLG Silberner Preis 2024
+
+< en: Silver medal of the German Agricultural Society
+en: 2025 Silver medal of the German Agricultural Society
+de: DLG Silberner Preis 2025
 
 < en: Gold medal of the German Agricultural Society
 en: 2009 Gold medal of the German Agricultural Society
@@ -22147,6 +22365,14 @@ fi: Saksan maatalousyhdistyksen kultamitali 2023
 fr: Médaille d'or 2023 de la Société Allemande d'Agriculture
 hr: Zlatna medalja Njemačkog poljoprivrednog društva 2023
 pt: Medalha de ouro da Sociedade Agrícola Alemã de 2023
+
+< en: Gold medal of the German Agricultural Society
+en: 2024 Gold medal of the German Agricultural Society
+de: DLG Goldener Preis 2024
+
+< en: Gold medal of the German Agricultural Society
+en: 2025 Gold medal of the German Agricultural Society
+de: DLG Goldener Preis 2025
 
 < en: German Agricultural Society
 de: DLG Jährlich Prämiert, DLG Jarhlich Pramiert
@@ -23222,7 +23448,6 @@ fr: Sans hormone, élevé sans hormone
 it: Senza ormoni, allevato senza ormoni
 pt: Sem hormonas, criado sem hormonas, criados sem hormonas, criada sem hormonas, criadas sem hormonas
 
-
 < en: No antibiotics
 < en: Without hormones
 en: Without antibiotics or hormones, Without hormones or antibiotics
@@ -23362,6 +23587,7 @@ wikidata:en: Q5403392
 en: Pasteurized, Pasteurised, pasteurized product
 bg: Пастьоризиран продукт
 ca: Producte pasteuritzat
+da: pasteuriseret, pasteuriserede
 de: Pasteurisiertes Produkt
 es: Producto pasteurizado
 fr: Pasteurisé, produit pasteurisé
@@ -23737,7 +23963,7 @@ bg: Без остатъци от пестициди
 fr: Sans résidus de pesticides, sans résidu de pesticide, zéro résidus de pesticides, zéro résidu de pesticide
 
 # obligation of means: cultivated without pesticides (but can be a specific year, or after flowers bloom)
-en: Pesticide-free, without pesticide, no pesticide
+en: no pesticides, pesticide-free, without pesticide, no pesticide
 bg: Без пестициди
 fr: Sans pesticides, cultivé sans pesticides
 
@@ -23766,8 +23992,8 @@ web:fr: https://prixjuste.be/
 en: Canadian Front-of-package nutrition symbol
 fr: Symbole nutritionnel sur le devant de l'emballage
 country:en: en:Canada
-description:en: In Canada, a front-of-package nutrition symbol is required on foods that are high in one or more of these nutrients: sodium, sugars, saturated fat. The food industry has been given until January 1, 2026 to make this change. However, you may start seeing the front-of-package nutrition symbol earlier.
-description:fr: Au Canada, un symbole nutritionnel sur le devant de l'emballage doit être apposé sur les aliments riches en un ou plusieurs de ces nutriments : sodium, sucres, gras saturés. L'industrie alimentaire a jusqu'au 1er janvier 2026 pour procéder à ce changement. Toutefois, il est possible que vous commenciez à voir le symbole nutritionnel sur la face avant des emballages plus tôt.
+description:en: In Canada, a front-of-package nutrition symbol is required on most prepackaged foods that are high in one or more of these nutrients: sodium, sugars, saturated fat. This requirement has been mandatory since January 1, 2026.
+description:fr: Au Canada, un symbole nutritionnel sur le devant de l'emballage doit être apposé sur la plupart des aliments préemballés riches en un ou plusieurs de ces nutriments : sodium, sucres, gras saturés. Cette exigence est obligatoire depuis le 1er janvier 2026.
 label_categories:en: nutritional-values
 web:en: https://www.canada.ca/en/health-canada/services/food-nutrition/nutrition-labelling/front-package.html
 web:fr: https://www.canada.ca/fr/sante-canada/services/aliments-nutrition/etiquetage-nutritionnel/devant-emballage.html
@@ -23785,7 +24011,6 @@ fr: Élevé en Gras sat. et Sucres (Santé Canada), Élevé en Gras saturés et 
 image:xx: high-in-sat-fat-sugars-health-canada-eleve-en-gras-sat-sucres-sante-canada.171x90.svg
 image:en: high-in-sat-fat-sugars-health-canada.120x90.svg
 image:fr: eleve-en-gras-sat-sucres-sante-canada.120x90.svg
-
 
 < en: Canadian front-of-package nutrition symbol
 en: High in Sugars and Sodium (Health Canada)
@@ -23840,7 +24065,6 @@ fr: Pêche d'une espèce bien gérée
 
 de: Herkunftskennzeichen Deutschland, Gutes aus Deutscher Landwirtschaft, herkunft-deutschland.de, www.herkunft-deutschland.de
 origins:en: en:germany
-
 
 en: Planet-Score
 

@@ -206,7 +206,10 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 
 =cut
 
-# http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
+# Core nutrients mandatory in the Canadian Nutrition Facts table, per the Food and Drug
+# Regulations as amended by SOR/2016-305 (in force for all businesses since 2025-12-14):
+# https://gazette.gc.ca/rp-pr/p2/2016/2016-12-14/html/sor-dors305-eng.html
+# https://inspection.canada.ca/en/food-labels/labelling/industry/nutrition-labelling/nutrition-facts-table
 %nutrients_tables = (
 	off_europe => [
 		(
@@ -273,7 +276,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'inositol-', 'carnitine-',
 			'sulphate-', 'nitrate-',
 			'acidity-', 'carbohydrates-total-',
-			'water-',
+			'dry-residue-', 'water-',
 		)
 	],
 	off_ca => [
@@ -312,17 +315,17 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-serum-proteins-', '-nucleotides-',
 			'salt', '-added-salt-',
 			'sodium', 'alcohol',
-			'#vitamins', 'vitamin-a',
-			'beta-carotene-', 'vitamin-d-',
+			'#vitamins', 'vitamin-a-',
+			'beta-carotene-', 'vitamin-d',
 			'vitamin-d2-', 'vitamin-d3-',
 			'vitamin-e-', 'vitamin-k-',
-			'vitamin-c', 'vitamin-b1-',
+			'vitamin-c-', 'vitamin-b1-',
 			'vitamin-b2-', 'vitamin-pp-',
 			'vitamin-b6-', 'vitamin-b9-',
 			'folates-', 'vitamin-b12-',
 			'biotin-', 'pantothenic-acid-',
 			'#minerals', 'silica-',
-			'bicarbonate-', 'potassium-',
+			'bicarbonate-', 'potassium',
 			'chloride-', 'calcium',
 			'phosphorus-', 'iron',
 			'magnesium-', 'zinc-',
@@ -2218,6 +2221,19 @@ sub compare_nutrients ($a_ref, $b_ref) {
 
 }
 
+# Some ingredients are also additives (e.g. "modified starch" is both the ingredient en:modified-starch
+# and the additive en:e14xx). Use the same key for both, so that they are counted as a single NOVA marker.
+sub get_nova_marker_key ($tagtype, $tagid) {
+	if ($tagtype eq "ingredients") {
+		my $additive_id
+			= canonicalize_taxonomy_tag("en", "additives", display_taxonomy_tag("en", "ingredients", $tagid));
+		if (exists_taxonomy_tag("additives", $additive_id)) {
+			return "additives:" . $additive_id;
+		}
+	}
+	return $tagtype . ':' . $tagid;
+}
+
 sub compute_nova_group ($product_ref) {
 
 	# compute Nova group
@@ -2335,10 +2351,12 @@ sub compute_nova_group ($product_ref) {
 			{
 				$product_ref->{nova_group} = $nova_group;
 				defined $nova_groups_markers{$nova_group} or $nova_groups_markers{$nova_group} = [];
-				# Make sure we don't record the same marker twice (e.g. once from Config.pm, and once from ingredients taxonomy)
-				if (not exists $seen_markers{$tagtype . ':' . $tagid}) {
+				# Make sure we don't record the same marker twice (e.g. once from Config.pm, and once from ingredients taxonomy,
+				# or once as an ingredient and once as an additive)
+				my $marker_key = get_nova_marker_key($tagtype, $tagid);
+				if (not exists $seen_markers{$marker_key}) {
 					push @{$nova_groups_markers{$nova_group}}, [$tagtype, $tagid];
-					$seen_markers{$tagtype . ':' . $tagid} = 1;
+					$seen_markers{$marker_key} = 1;
 				}
 			}
 		}

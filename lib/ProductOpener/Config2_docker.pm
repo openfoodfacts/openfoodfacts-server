@@ -52,6 +52,7 @@ BEGIN {
 		$crowdin_project_key
 		$brevo_api_key
 		$list_id
+		$ecobalyse_api_token
 		$robotoff_url
 		$query_url
 		$events_url
@@ -106,7 +107,9 @@ $sftp_root = "/mnt/podata/sftp";
 $geolite2_path = $ENV{GEOLITE2_PATH};
 
 $mongodb_host = $ENV{MONGODB_HOST} || "mongodb";
-$mongodb = $producers_platform ? "off-pro" : "off";
+my $flavor_short = $ENV{PRODUCT_OPENER_FLAVOR_SHORT} || "off";
+# Note: In production we currently only have one producer platform, for off-pro.
+$mongodb = $ENV{MONGODB_DATABASE} || ($producers_platform ? "${flavor_short}-pro" : $flavor_short);
 $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
 $memd_servers = ["memcached:11211"];
@@ -120,6 +123,8 @@ $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
 
 $brevo_api_key = $ENV{BREVO_API_KEY};
 $list_id = $ENV{BREVO_LIST_ID};
+
+$ecobalyse_api_token = $ENV{ECOBALYSE_API_TOKEN};
 
 my $postgres_host = $ENV{POSTGRES_HOST} || "postgres";
 my $postgres_user = $ENV{POSTGRES_USER};
@@ -171,7 +176,6 @@ $recipe_estimator_service = $ENV{RECIPE_ESTIMATOR_SERVICE} || "product_opener";
 	minion_backend => {Pg => $postgres_url},
 	minion_local_queue => $server_domain,
 	cookie_domain => $ENV{PRODUCT_OPENER_DOMAIN},
-	ip_whitelist_session_cookie => ["", ""],
 );
 
 if ($producers_platform) {

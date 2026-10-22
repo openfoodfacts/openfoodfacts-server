@@ -357,6 +357,10 @@
       "unknown"
    ],
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "unknown",
+      "summary" : "missing_ingredients"
+   },
    "id" : "3560070167470",
    "images" : {
       "selected" : {
@@ -475,6 +479,7 @@
    "max_imgid" : 3,
    "misc_tags" : [
       "en:environmental-score-not-computed",
+      "en:forest-footprint-unknown",
       "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-fiber",
@@ -492,6 +497,8 @@
       "en:packagings-empty",
       "en:packagings-not-complete",
       "en:packagings-number-of-components-0",
+      "en:storage-conditions-not-set",
+      "en:number-of-uploaded-images-1-to-3",
       "en:main-countries-new-product"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",

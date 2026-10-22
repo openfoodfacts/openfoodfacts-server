@@ -245,7 +245,7 @@ reset_owner:
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_taxonomies build_lang build_pro_platform
+init_backend: build_taxonomies build_lang
 
 create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
@@ -273,7 +273,7 @@ refresh_mongodb: run_deps
 
 # this command is used to import data on the mongodb used on staging environment
 import_prod_data: run_deps
-	@cd ${DEPS_DIR}/openfoodfacts-shared-services && $(MAKE) import_prod_data
+	@cd "${DEPS_DIR}/openfoodfacts-shared-services" && $(MAKE) import_prod_data
 
 #--------#
 # Checks #
@@ -288,18 +288,21 @@ front_npm_update:
 front_lint:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint
 
+front_test:
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose run --rm -v "$(PWD)/tests:/opt/product-opener/tests" dynamicfront npm run test:js
+
 front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build
 
 
-checks: front_build front_lint check_perltidy check_perl_fast check_critic check_taxonomies
+checks: front_build front_lint front_test check_perltidy check_perl_fast check_critic check_taxonomies
 
 lint: lint_perltidy lint_taxonomies
 
-tests: build_taxonomies_test build_lang_test build_pro_platform_test unit_test integration_test brands_sort_test
+tests: build_taxonomies_test build_lang_test unit_test integration_test brands_sort_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
-unit_test: create_folders build_pro_platform_test
+unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
@@ -372,7 +375,7 @@ clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
 	${DOCKER_COMPOSE_INT_TEST} down -v --remove-orphans
 
-update_tests_results: build_taxonomies_test build_lang_test build_pro_platform_test update_unit_tests_results update_integration_tests_results
+update_tests_results: build_taxonomies_test build_lang_test update_unit_tests_results update_integration_tests_results
 
 update_unit_tests_results:
 	@echo "🥫 Updated expected unit test results with actuals for easy Git diff"
@@ -521,18 +524,6 @@ build_taxonomies_test: create_folders
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
 
-build_pro_platform: create_folders
-	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
-	@echo "🥫 build pro platform"
-	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
-
-build_pro_platform_test: create_folders
-	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
-	@echo "🥫 build pro platform"
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
-
-
-
 _clean_old_external_volumes:
 # THIS IS A MIGRATION STEP, TO BE REMOVED IN THE FUTURE
 # we need to stop dockers to remove old volumes
@@ -625,22 +616,22 @@ clean: goodbye hdown prune prune_deps prune_cache clean_folders
 # Run dependent projects
 run_deps: clone_deps
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && $(MAKE) run; \
+		cd "${DEPS_DIR}/$$dep" && $(MAKE) run; \
 	done
 
 
 # Clone dependent projects without running them (used to pull in yml for tests)
 clone_deps:
-	@mkdir -p ${DEPS_DIR}; \
+	@mkdir -p "${DEPS_DIR}"; \
 	for dep in ${DEPS} ; do \
 		echo $$dep; \
-		if [ ! -d ${DEPS_DIR}/$$dep ]; then \
+		if [ ! -d "${DEPS_DIR}/$$dep" ]; then \
 			echo "Cloning $$dep"; \
 			git clone --filter=blob:none --sparse \
-				https://github.com/openfoodfacts/$$dep.git ${DEPS_DIR}/$$dep; \
+				https://github.com/openfoodfacts/$$dep.git "${DEPS_DIR}/$$dep"; \
 			echo "Cloned $$dep"; \
 		else \
-			cd ${DEPS_DIR}/$$dep; \
+			cd "${DEPS_DIR}/$$dep"; \
 			git pull || \
 	                  1>&2 echo "Warning: unable to pull latest $$dep; are you online?"; \
 		fi; \
@@ -650,12 +641,12 @@ clone_deps:
 prune_deps: clone_deps
 	@for dep in ${DEPS} ; do \
 		echo "🥫 Pruning $$dep..."; \
-		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
+		cd "${DEPS_DIR}/$$dep" && $(MAKE) prune; \
 	done
 
 stop_deps:
 	@for dep in ${DEPS} ; do \
-		cd ${DEPS_DIR}/$$dep && ( $(MAKE) stop || env -i docker compose stop ) ; \
+		cd "${DEPS_DIR}/$$dep" && ( $(MAKE) stop || env -i docker compose stop ) ; \
 	done
 
 #-----------#
@@ -685,7 +676,7 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 get_unit_group_tests = $(UNIT_GROUP_$(1)_TESTS)
 
 # Unit test group runner for CI parallelization
-unit_test_group: create_folders build_pro_platform_test
+unit_test_group: create_folders
 ifeq ($(TEST_GROUP),)
 	$(error TEST_GROUP is required. Usage: make unit_test_group TEST_GROUP=1)
 endif

@@ -451,39 +451,150 @@
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
+      "environmental_impact" : {
+         "ecobalyse_input" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
+                  "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                  "mass" : 156.25,
+                  "name" : "apple"
+               },
+               {
+                  "ecobalyse_name" : "Lait par défaut -2025-",
+                  "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+                  "mass" : 46.875,
+                  "name" : "milk"
+               },
+               {
+                  "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
+                  "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+                  "mass" : 23.4375,
+                  "name" : "eggs"
+               },
+               {
+                  "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
+                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                  "mass" : 23.4375,
+                  "name" : "palm oil"
+               }
+            ],
+            "ingredients_coverage_percent" : 100,
+            "packaging" : [
+               {
+                  "category" : "",
+                  "id" : "604c4bbf-c35a-4717-bc27-6b80940440c9",
+                  "name" : "Soft cheeses - cat A, 250g | Packaging System, N0, All, Wooden box {FR} U",
+                  "name_fr" : "Boîte en bois pour fromage à pâte molle - 250g"
+               }
+            ],
+            "reference_quantity" : 250,
+            "reference_quantity_source" : "product_quantity",
+            "reference_quantity_unit" : "g"
+         },
+         "ecobalyse_request" : {
+            "data" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                     "mass" : 156.25
+                  },
+                  {
+                     "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+                     "mass" : 46.875
+                  },
+                  {
+                     "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+                     "mass" : 23.4375
+                  },
+                  {
+                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                     "mass" : 23.4375
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "amount" : 1,
+                     "id" : "604c4bbf-c35a-4717-bc27-6b80940440c9"
+                  }
+               ]
+            },
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         }
+      },
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups_tags" : [],
       "forest_footprint_2026" : {
-         "grade" : "c",
+         "grade" : "b",
          "primary_ingredients" : {
+            "en:chicken-and-eggs" : {
+               "footprint_per_kg" : 0.00145833333333333,
+               "grade" : "b",
+               "ingredients" : [
+                  {
+                     "conditions_tags" : [
+                        [
+                           "labels",
+                           "en:organic"
+                        ]
+                     ],
+                     "footprint_per_kg" : 0.00145833333333333,
+                     "matching_tag_id" : "en:egg",
+                     "percent" : 9.375,
+                     "percent_estimate" : 9.375,
+                     "processing_factor" : 1,
+                     "tag_id" : "en:egg",
+                     "tag_type" : "ingredients",
+                     "type" : {
+                        "deforestation_risk" : 0.1,
+                        "name" : "Oeufs Bio",
+                        "soy_feed_factor" : 0.028,
+                        "soy_yield" : 0.18
+                     }
+                  }
+               ]
+            },
             "en:cocoa" : {},
             "en:coffee" : {},
+            "en:other-risky-ingredients" : {
+               "footprint_per_kg" : null,
+               "grade" : "unknown",
+               "ingredients" : [
+                  {
+                     "ingredient_category_id" : "en:dairy",
+                     "ingredient_id" : "en:milk"
+                  }
+               ]
+            },
             "en:palm-oil" : {
-               "footprint_per_kg" : 0.004640625,
-               "grade" : "c",
+               "footprint_per_kg" : 0.0007734375,
+               "grade" : "b",
                "ingredients" : [
                   {
                      "equivalence_ingredient" : 1,
                      "equivalence_ingredient_category" : 1,
-                     "footprint_per_kg" : 0.004640625,
+                     "footprint_per_kg" : 0.0007734375,
                      "ingredient_category_id" : "en:palm-oil",
                      "ingredient_id" : "en:palm-oil-and-fat",
-                     "label_id" : "en:organic",
+                     "label_id" : "en:fair-trade",
                      "origin_footprint" : 0.055,
                      "origin_id" : "en:unknown",
                      "percent" : 9.375,
                      "primary_ingredient_id" : "en:palm-oil",
-                     "risk_factor" : 0.9,
+                     "risk_factor" : 0.15,
                      "transformation_factor" : 1
                   }
                ]
             }
          },
-         "total_footprint_per_kg" : 0.004640625
+         "summary" : "with_primary_ingredients",
+         "total_footprint_per_kg" : 0.00223177083333333
       },
       "forest_footprint_data" : {
          "footprint_per_kg" : 0.00145833333333333,
-         "grade" : "a",
+         "grade" : "b",
          "ingredients" : [
             {
                "conditions_tags" : [
@@ -518,7 +629,8 @@
       "ingredients" : [
          {
             "ciqual_food_code" : "13050",
-            "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+            "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+            "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
             "id" : "en:apple",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 62.5,
@@ -530,7 +642,8 @@
          },
          {
             "ciqual_proxy_food_code" : "19051",
-            "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+            "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+            "ecobalyse_name" : "Lait par défaut -2025-",
             "id" : "en:milk",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 18.75,
@@ -542,7 +655,8 @@
          },
          {
             "ciqual_food_code" : "22000",
-            "ecobalyse_code" : "egg-indoor-code3",
+            "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+            "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
             "id" : "en:egg",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 9.375,
@@ -554,7 +668,8 @@
          },
          {
             "ciqual_food_code" : "16129",
-            "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+            "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+            "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
             "from_palm_oil" : "yes",
             "id" : "en:palm-oil",
             "is_in_taxonomy" : 1,
@@ -582,15 +697,15 @@
       ],
       "ingredients_hierarchy" : [
          "en:apple",
-         "en:fruit",
          "en:malaceous-fruit",
+         "en:fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
          "en:palm-oil",
-         "en:oil-and-fat",
+         "en:palm-oil-and-fat",
          "en:vegetable-oil-and-fat",
-         "en:palm-oil-and-fat"
+         "en:oil-and-fat"
       ],
       "ingredients_lc" : "en",
       "ingredients_n" : 4,
@@ -609,15 +724,15 @@
       "ingredients_sweeteners_n" : 0,
       "ingredients_tags" : [
          "en:apple",
-         "en:fruit",
          "en:malaceous-fruit",
+         "en:fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
          "en:palm-oil",
-         "en:oil-and-fat",
+         "en:palm-oil-and-fat",
          "en:vegetable-oil-and-fat",
-         "en:palm-oil-and-fat"
+         "en:oil-and-fat"
       ],
       "ingredients_text" : "apple, milk, eggs, palm oil",
       "ingredients_text_en" : "apple, milk, eggs, palm oil",
@@ -639,15 +754,15 @@
       "labels" : "Organic, Max Havelaar",
       "labels_hierarchy" : [
          "en:fair-trade",
-         "en:organic",
          "en:fairtrade-international",
+         "en:organic",
          "en:max-havelaar"
       ],
       "labels_lc" : "en",
       "labels_tags" : [
          "en:fair-trade",
-         "en:organic",
          "en:fairtrade-international",
+         "en:organic",
          "en:max-havelaar"
       ],
       "lang" : "en",
@@ -679,10 +794,14 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
+         "en:ecobalyse-api-skipped",
+         "en:ecobalyse-ingredients-matched-between-90-and-100",
+         "en:ecobalyse-reference-quantity-from-product-quantity",
          "en:environmental-score-not-computed",
          "en:estimated-ingredients-with-product-opener",
-         "en:forest-footprint-a",
+         "en:forest-footprint-b",
          "en:forest-footprint-computed",
+         "en:forest-footprint-grade-b",
          "en:nutrients-estimated-from-ingredients",
          "en:nutriscore-estimated-fiber",
          "en:nutriscore-estimated-saturated-fat",
@@ -703,6 +822,7 @@
          "en:packagings-not-empty",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-number-of-components-4",
+         "en:storage-conditions-not-set",
          "en:main-countries-new-product"
       ],
       "nova_group" : 1,
@@ -757,11 +877,21 @@
       },
       "nutriments_estimated" : {
          "alcohol_100g" : 0,
+         "alpha-linolenic-acid_100g" : 0.00598125,
+         "arachidonic-acid_100g" : 0.01125,
          "beta-carotene_100g" : 1.19375e-05,
+         "butyric-acid_100g" : 0.00590625,
          "calcium_100g" : 0.0333875,
+         "capric-acid_100g" : 0.00564375,
+         "caproic-acid_100g" : 0.00590625,
+         "caprylic-acid_100g" : 0.00511875,
          "carbohydrates_100g" : 7.6484375,
+         "chloride_100g" : 0.01875,
          "cholesterol_100g" : 0.03778125,
          "copper_100g" : 2.678125e-05,
+         "crude-ash_100g" : 0.3331259375,
+         "docosahexaenoic-acid_100g" : 0.0084375,
+         "eicosapentaenoic-acid_100g" : 0,
          "energy-kcal_100g" : 134.5875,
          "fiber_100g" : 0.8125,
          "fructose_100g" : 3.77578125,
@@ -770,19 +900,27 @@
          "iodine_100g" : 7.09375e-06,
          "iron_100g" : 0.0002265625,
          "lactose_100g" : 0.924375,
+         "lauric-acid_100g" : 0.01516875,
+         "linoleic-acid_100g" : 0.13018125,
          "magnesium_100g" : 0.00570625,
          "maltose_100g" : 0.00703125,
          "manganese_100g" : 2.73828125e-05,
+         "monounsaturated-fat_100g" : 3.823625,
+         "myristic-acid_100g" : 0.099,
+         "oleic-acid_100g" : 0.3376875,
+         "palmitic-acid_100g" : 4.2813125,
          "pantothenic-acid_100g" : 0.0002590625,
          "phosphorus_100g" : 0.0445625,
          "phylloquinone_100g" : 1.153125e-06,
          "polyols_100g" : 0.36875,
+         "polyunsaturated-fat_100g" : 1.05075625,
          "potassium_100g" : 0.09825,
          "salt_100g" : 0.0496875,
          "saturated-fat_100g" : 4.903125,
          "selenium_100g" : 1.2290625e-06,
          "sodium_100g" : 0.019725,
          "starch_100g" : 0,
+         "stearic-acid_100g" : 0.4686875,
          "sucrose_100g" : 0.51953125,
          "sugars_100g" : 7.2621875,
          "vitamin-a_100g" : 1.739625e-05,
