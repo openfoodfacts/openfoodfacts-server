@@ -12,7 +12,8 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready create_user remove_all_users/;
+use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready create_user/;
+use ProductOpener::Test qw/remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Auth qw/password_signin refresh_access_token/;
 use ProductOpener::Users
