@@ -93,9 +93,11 @@ Generates ecobalyse properties TSV from `processes.json`.
 - `external-data/ecobalyse/base_ingredients_to_off_ingredients_overrides.tsv` (optional)
 - `external-data/ecobalyse/base_ingredients_proxies_for_off_ingredients.tsv` (manual proxies)
 - `external-data/ecobalyse/base_ingredients_auto_proxies.tsv` (from Script 1)
+- `external-data/ecobalyse/off_ingredients_without_ecobalyse_data.tsv` (manual list of OFF ingredients
+  that must not inherit Ecobalyse data from their parents, see below)
 
 **Options**:
-- `--exclude-hidden-entries`: ignore entries with `visible: false` (see below)
+- `--include-hidden-entries`: also use entries with `visible: false` (see below)
 
 **Checks** (warnings, or an error for duplicates):
 - mapped and proxy target tagids must exist in the ingredients taxonomy
@@ -180,11 +182,17 @@ the `ecobalyse_` prefix.
 
 ## Hidden entries (`visible: false`)
 
-Some Ecobalyse entries are hidden in the Ecobalyse UI (`visible: false`), but the
-API accepts them and returns results. Some baseIngredients only have hidden entries
-(e.g. beef, sardine, salmon, cod, shrimp, poultry).
+Some Ecobalyse entries are hidden in the Ecobalyse UI (`visible: false`). The
+Ecobalyse food API does not accept them: `/api/food/ingredients` only lists visible
+ingredients, and `/api/food` returns a 400 error ("Ingrédient introuvable par id")
+for a hidden ingredient id. Some baseIngredients only have hidden entries
+(e.g. sardine, salmon, cod, shrimp, poultry, ground-beef): they get no properties,
+and the corresponding OFF ingredients inherit the properties of their parents in
+the taxonomy (e.g. en:sardine uses the en:fish proxy, en:minced-beef uses en:beef).
 
-By default, hidden entries are used:
+By default, hidden entries are ignored.
+
+With `--include-hidden-entries`, hidden entries are used:
 - the base default is selected among visible entries, or among hidden entries if
   there is no visible entry
 - hidden variants are emitted when they don't collide with a visible variant
@@ -192,8 +200,24 @@ By default, hidden entries are used:
 - hidden entries get a `ecobalyse[_proxy][_variant]_visibility:en: false` property
   (not emitted for visible entries)
 
-Pass `--exclude-hidden-entries` to `extract_ecobalyse_ingredient_properties.pl`
-to ignore hidden entries entirely.
+
+## Inheritance and blocked ingredients
+
+OFF ingredients without their own Ecobalyse properties inherit them from their parents
+in the taxonomy (e.g. en:sardine uses the en:fish proxy, en:duck uses the en:poultry proxy).
+A label or origin variant is only used if it comes from the taxonomy level of the base
+match (`ecobalyse_id` or `ecobalyse_proxy_id`) or from a level below it, so that e.g.
+organic rice flour uses the rice flour base match, and not the organic rice variant
+of its en:rice parent.
+
+Some OFF ingredients must not inherit the data of their parents: e.g. foie gras comes from
+force-fed ducks and geese, with a much higher impact than the chicken breast proxy of
+en:poultry. They are listed in `off_ingredients_without_ecobalyse_data.tsv`, and
+`extract_ecobalyse_ingredient_properties.pl` emits `ecobalyse_id:en: undef` and
+`ecobalyse_proxy_id:en: undef` for them: the `undef` value stops the inheritance from
+the parents (for the ingredient and its children). As variants are only used with a base
+match, blocking the base ids is enough. The script dies if a blocked ingredient has its
+own Ecobalyse data.
 
 ## Default variant selection
 

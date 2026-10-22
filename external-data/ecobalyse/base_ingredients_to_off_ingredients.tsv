@@ -11,12 +11,12 @@ balsamic-vinegar	en:balsamic-vinegar	taxonomy
 bamboo-shoot	en:bamboo-shoot	taxonomy
 banana	en:banana	taxonomy
 barley	en:barley	taxonomy
+barley-flour	en:barley-flour	taxonomy
 barley-whole	en:wholemeal-barley	reordered
 basmati-rice	en:basmati-rice	taxonomy
 bay-leaf	en:bay-leaf	taxonomy
 bean	en:beans	taxonomy
 beef	en:beef	taxonomy
-beef-with-bone	en:beef-bones	taxonomy
 beetroot	en:beetroot	taxonomy
 bell-pepper	en:bell-pepper	taxonomy
 black-currant	en:blackcurrant	taxonomy
@@ -67,6 +67,7 @@ comte-cheese	en:comte	taxonomy
 cooked-ham	en:cooked-ham	taxonomy
 coriander	en:coriander	taxonomy
 corn	en:corn	taxonomy
+corn-flour	en:corn-flour	taxonomy
 cotton-seed	en:cottonseed	taxonomy
 cow-milk	en:cow-s-milk	taxonomy
 crab	en:crab	taxonomy
@@ -85,6 +86,7 @@ elderberry	en:elderberry	taxonomy
 emmental	en:emmental	taxonomy
 endive	en:endive	taxonomy
 extra-virgin-olive-oil	en:extra-virgin-olive-oil	taxonomy
+faisselle	en:faiselle	taxonomy
 fennel	en:fennel	taxonomy
 fig	en:fig	taxonomy
 flageolet-bean	en:flageolets	taxonomy
@@ -92,6 +94,7 @@ flaxseed	en:flax-seed	taxonomy
 french-bean	en:green-bean	taxonomy
 french-fries	en:french-fries	taxonomy
 fresh-cream-cheese	en:fresh-cream-cheese	taxonomy
+fromage-blanc	en:fromage-blanc	taxonomy
 fruit-puree	en:fruit-puree	taxonomy
 garden-peas	en:garden-peas	taxonomy
 garlic	en:garlic	taxonomy
@@ -163,6 +166,7 @@ peach	en:peach	taxonomy
 peanut	en:peanut	taxonomy
 pear	en:pear	taxonomy
 persimmon	en:persimmon	taxonomy
+petit-suisse	en:petit-suisse	taxonomy
 pine-nut	en:pine-nuts	taxonomy
 pineapple	en:pineapple	taxonomy
 pistachio	en:pistachio-nuts	taxonomy
@@ -184,6 +188,7 @@ radish	en:radish	taxonomy
 rapeseed	en:rapeseed	taxonomy
 rapeseed-oil	en:rapeseed-oil	taxonomy
 raspberry	en:raspberry	taxonomy
+raspberry-juice	en:raspberry-juice	taxonomy
 reblochon	en:reblochon	taxonomy
 red-cabbage	en:red-cabbage	taxonomy
 red-currant	en:redcurrant	taxonomy
@@ -208,10 +213,11 @@ sea-salt	en:sea-salt	taxonomy
 seaweed	en:seaweed	taxonomy
 sesame-seed	en:sesame-seeds	taxonomy
 shallot	en:shallot	taxonomy
-sheep-milk	en:sheeps-milk	taxonomy
+sheep-milk	en:sheep-milk	taxonomy
 snail	en:snail	taxonomy
 snow-pea	en:snow-pea	taxonomy
 soft-wheat	en:soft-wheat	taxonomy
+soft-wheat-flour	en:soft-wheat-flour	taxonomy
 sorghum	en:sorghum	taxonomy
 soy-flour	en:soya-flour	taxonomy
 soy-milk	en:soy-milk	taxonomy
@@ -279,16 +285,11 @@ green-olive-pitted	en:green-olive	override
 greengage-plum	en:greengage	override
 hazelnut-in-shell	en:hazelnut	override
 hazelnut-unshelled	en:hazelnut	override
-lamb-conventional-fr-live	en:lamb	override
-lamb-meat-without-bone	en:lamb	override
-lamb-organic-national-average-farm-gate-fr-u-live	en:lamb	override
 large-trout	en:trout	override
 lentils-uncooked	en:lentils	override
 mung-bean-sprouted	en:mung-bean-sprout	override
 mushroom-morel	en:mushroom	override
 parsley-fresh	en:parsley	override
-petit-suisse-10pct-fat	en:petit-suisse	override
-petit-suisse-4pct-fat	en:petit-suisse	override
 salad-lettuce	en:lettuce	override
 salmon-raw	en:salmon	override
 spread-cheese-20-40pct-fat	en:cheese	override

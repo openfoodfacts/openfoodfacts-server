@@ -61,6 +61,7 @@ BEGIN {
 		&parse_ingredients_text_service
 		&extend_ingredients_service
 		&estimate_ingredients_percent_service
+		&get_missing_ecobalyse_ids
 
 		&extract_ingredients_from_image
 
@@ -4201,6 +4202,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		{
 			@prefixes = ("ecobalyse_proxy", "ecobalyse");
 		}
+		my %base_tagids = (ecobalyse => $exact_tagid, ecobalyse_proxy => $proxy_tagid);
 		foreach my $prefix (@prefixes) {
 			# Loop through each suffix to retrieve ecobalyse code
 			foreach my $suffix (@suffixes) {
@@ -4208,17 +4210,29 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 				my $property_name = $prefix . $suffix . "_id" . ":en";
 
 				# Attempt to retrieve the ecobalyse code for the current property name
-				my $ecobalyse_id = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
+				my ($ecobalyse_id, $matching_tagid)
+					= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, $property_name);
+				next if not defined $ecobalyse_id;
 
-				if (defined $ecobalyse_id) {
-					# Assign the ecobalyse code if found
-					$ingredient_ref->{$prefix . "_id"} = $ecobalyse_id;
-					# Also retrieve the corresponding French display name
-					my $name_property = $prefix . $suffix . "_name:fr";
-					my $ecobalyse_name = get_inherited_property("ingredients", $ingredient_ref->{id}, $name_property);
-					$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
-					last;
-				}
+				# A label or origin variant is used only if it comes from the taxonomy level
+				# that has the base match (without label and origin), or from a level below it.
+				# Variants of parents above the base match are for a different product
+				# (e.g. for organic rice flour, en:rice-flour has a base match but no organic variant:
+				# we use the rice flour base match, and not the organic rice variant of the en:rice parent)
+				# Without a base match (e.g. when the base match of the parents is blocked with an "undef"
+				# value, as for foie gras), no variant is used.
+				my $base_tagid = $base_tagids{$prefix};
+				next if not defined $base_tagid;
+				next
+					if ($matching_tagid ne $base_tagid)
+					and (not is_a("ingredients", $matching_tagid, $base_tagid));
+
+				# Assign the ecobalyse code if found
+				$ingredient_ref->{$prefix . "_id"} = $ecobalyse_id;
+				# Also retrieve the corresponding French display name, from the same taxonomy level
+				my $ecobalyse_name = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_name:fr");
+				$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
+				last;
 			}
 			# Exit the loop if a valid ecobalyse code was found
 			last if defined $ingredient_ref->{$prefix . "_id"};
