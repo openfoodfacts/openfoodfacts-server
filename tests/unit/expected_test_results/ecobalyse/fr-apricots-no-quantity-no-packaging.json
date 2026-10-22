@@ -1,0 +1,167 @@
+{
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Abricot, dénoyauté, cru Origine Inconnue",
+               "id" : "3643f86f-16d5-4a0e-8388-d4e52dda125b",
+               "mass" : 100,
+               "name" : "abricots"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "3643f86f-16d5-4a0e-8388-d4e52dda125b",
+                  "mass" : 100
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      },
+      "ecobalyse_response" : {
+         "results" : {
+            "distribution" : {
+               "total" : {
+                  "ecs" : 0.253198
+               },
+               "transports" : {
+                  "air" : 0,
+                  "impacts" : {
+                     "ecs" : 1.4316
+                  },
+                  "road" : 0,
+                  "roadCooled" : 600,
+                  "sea" : 0,
+                  "seaCooled" : 0
+               }
+            },
+            "packaging" : {
+               "ecs" : 0
+            },
+            "perKg" : {
+               "ecs" : 487.846
+            },
+            "preparation" : {
+               "ecs" : 0
+            },
+            "preparedMass" : 0.1,
+            "recipe" : {
+               "ingredientsTotal" : {
+                  "ecs" : 36.1
+               },
+               "total" : {
+                  "ecs" : 47.0998
+               },
+               "totalBonusImpact" : {
+                  "cropDiversity" : 0,
+                  "hedges" : 0,
+                  "permanentPasture" : 0,
+                  "plotSize" : 0
+               },
+               "transform" : {
+                  "ecs" : 0
+               },
+               "transports" : {
+                  "air" : 0,
+                  "impacts" : {
+                     "ecs" : 10.9998
+                  },
+                  "road" : 0,
+                  "roadCooled" : 2660,
+                  "sea" : 0,
+                  "seaCooled" : 18000
+               }
+            },
+            "scoring" : {
+               "all" : 487.846,
+               "biodiversity" : 109.314,
+               "climate" : 49.2558,
+               "health" : 24.5472,
+               "resources" : 304.672
+            },
+            "total" : {
+               "ecs" : 48.7846
+            },
+            "totalMass" : 0.1,
+            "transports" : {
+               "air" : 0,
+               "impacts" : {
+                  "ecs" : 12.4314
+               },
+               "road" : 0,
+               "roadCooled" : 3260,
+               "sea" : 0,
+               "seaCooled" : 18000
+            }
+         }
+      },
+      "ecs_per" : "100g",
+      "ecs_per_100g_or_100ml" : 48.7846
+   },
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "13000",
+         "ecobalyse_id" : "3643f86f-16d5-4a0e-8388-d4e52dda125b",
+         "ecobalyse_name" : "Abricot, dénoyauté, cru Origine Inconnue",
+         "id" : "en:apricot",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "abricots",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:apricot"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:apricot",
+      "en:prunus-species-fruit",
+      "en:fruit"
+   ],
+   "ingredients_text" : "abricots",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 1,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
+   ],
+   "testid" : "fr-apricots-no-quantity-no-packaging",
+   "unknown_ingredients_n" : 0
+}
