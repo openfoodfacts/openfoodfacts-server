@@ -1,0 +1,110 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:minerals",
+         "ingredients" : [
+            {
+               "id" : "en:ferrous-sulfate",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 62.5,
+               "percent_max" : 100,
+               "percent_min" : 25,
+               "text" : "sulfate de fer",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "text" : "Minéraux"
+      },
+      {
+         "id" : "en:e519",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "sulfate de cuivre (ii)",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:iron",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "fer",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:zinc-oxide",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "oxyde de zinc",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:minerals",
+      "en:e519",
+      "en:iron",
+      "en:zinc-oxide",
+      "en:ferrous-sulfate"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:minerals",
+      "en:e519",
+      "en:iron",
+      "en:zinc-oxide",
+      "en:zinc",
+      "en:ferrous-sulfate"
+   ],
+   "ingredients_text" : "Minéraux : sulfate de fer (II), sulfate de cuivre (ii), fer (iii), oxyde de zinc",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e519",
+      "en:ferrous-sulfate",
+      "en:iron",
+      "en:minerals",
+      "en:zinc-oxide"
+   ],
+   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e519",
+      "en:ferrous-sulfate",
+      "en:iron",
+      "en:minerals",
+      "en:zinc-oxide"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 5,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

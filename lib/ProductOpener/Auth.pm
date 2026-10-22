@@ -52,6 +52,8 @@ BEGIN {
 		&get_azp
 		&write_auth_deprecated_headers
 		&start_signout
+		&is_allowed_return_url
+		&checked_return_url
 		&get_oidc_implementation_level
 		&get_oidc_configuration
 	);    # symbols to export on request
@@ -61,6 +63,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Cache qw/generate_cache_key safe_cache_get safe_cache_set/;
 use ProductOpener::Display qw/display_error_and_exit/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
@@ -84,6 +87,7 @@ use LWP::UserAgent;
 use LWP::UserAgent::Plugin 'Retry';
 use HTTP::Request;
 use URI::Escape::XS qw/uri_escape/;
+use HTML::Entities;
 
 # Initialize some constants
 
@@ -96,6 +100,7 @@ my $signout_callback_uri = format_subdomain('world') . '/cgi/oidc_signout_callba
 my $client = undef;
 my $oidc_configuration = undef;
 my $jwks = undef;
+my $oidc_metadata_cache_ttl = 2 * 60 * 60;
 
 =head2 start_authorize($request_ref)
 
@@ -111,14 +116,90 @@ None
 
 =cut
 
+=head2 is_allowed_return_url ($url, $subdomain)
+
+Returns 1 if $url is a url of the site we serve, and can therefore be redirected to after a sign in
+or a sign out.
+
+A return url comes from a request parameter, a cookie or a Referer header, so it has to be checked
+before it is used as a redirect target: an open redirect on the sign in flow is enough to phish a
+user, and to have the browser leak the tokens of the sign in to the site the attacker chose.
+
+The check is an exact match of the host against the expected one. A prefix match is not enough:
+without an end anchor, a url like https://world.openfoodfacts.org.evil.example/ passes a test for
+the https://world.openfoodfacts.org prefix, and the userinfo part of a url
+(https://world.openfoodfacts.org@evil.example/) makes the prefix match while the host is another
+one. Comparing the parsed host also takes care of both, and of a port.
+
+=head3 Arguments
+
+=head4 String $url - the url to check
+
+=head4 String $subdomain - the subdomain the url must be on, e.g. "world"
+
+=head3 Return value
+
+1 if the url is one of ours, 0 otherwise
+
+=cut
+
+sub is_allowed_return_url ($url, $subdomain) {
+
+	if ((not defined $url) or (not defined $subdomain)) {
+		return !!0;
+	}
+
+	my $uri = URI->new($url);
+
+	if (not defined $uri->scheme) {
+		return !!0;
+	}
+
+	if ($uri->scheme !~ /^https?$/i) {
+		return !!0;
+	}
+
+	my $host = $uri->host;
+
+	if ((not defined $host) or ($host eq "")) {
+		return !!0;
+	}
+
+	my $expected_host = lc($subdomain) . '.' . lc($server_domain);
+
+	if (lc($host) ne $expected_host) {
+		$log->info("not redirecting to a url that is not ours",
+			{url => $url, host => $host, expected_host => $expected_host})
+			if $log->is_info();
+		return !!0;
+	}
+
+	return !!1;
+}
+
+=head2 checked_return_url ($url, $request_ref)
+
+Returns $url if it is one of ours (see is_allowed_return_url()), or the home page of the subdomain
+otherwise.
+
+=cut
+
+sub checked_return_url ($url, $request_ref) {
+
+	my $subdomain = $request_ref->{subdomain};
+
+	if (is_allowed_return_url($url, $subdomain)) {
+		return $url;
+	}
+
+	return $request_ref->{formatted_subdomain};
+}
+
 sub start_authorize ($request_ref) {
 	# random private token to identify the sign-in process
 	my $nonce = generate_token(64);
 	my $return_url = $request_ref->{return_url};
-	my $subdomain = $request_ref->{subdomain};
-	if (   (not $return_url)
-		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/)))
-	{
+	if (not is_allowed_return_url($return_url, $request_ref->{subdomain})) {
 		$return_url = $request_ref->{formatted_subdomain};
 	}
 
@@ -168,7 +249,7 @@ sub signin_callback ($request_ref) {
 			start_authorize($request_ref);
 		}
 		else {
-			display_error_and_exit($request_ref, $error, 500);
+			display_error_and_exit($request_ref, encode_entities($error), 500);
 		}
 
 		return;
@@ -185,9 +266,11 @@ sub signin_callback ($request_ref) {
 	my %cookie_ref = cookie($cookie_name);
 	# verify we are in the right sign-in process, thanks to the randomly generated token
 	my $nonce = $cookie_ref{'nonce'};
-	if (not($state eq $nonce)) {
-		$log->info('unexpected nonce', {nonce => $nonce, expected_nonce => $state}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Invalid Nonce during OIDC login', 500);
+	my ($state_is_valid, $error_message, $error_status) = _validate_oidc_state_and_nonce($state, $nonce, 'login');
+	if (not $state_is_valid) {
+		$log->info('invalid OIDC callback state', {nonce => $nonce, expected_nonce => $state, context => 'login'})
+			if $log->is_info();
+		display_error_and_exit($request_ref, $error_message, $error_status);
 	}
 
 	# validation against JWKS
@@ -218,7 +301,31 @@ sub signin_callback ($request_ref) {
 	param('user_session', $user_session);
 	init_user($request_ref);
 
-	return $cookie_ref{'return_url'};
+	# The cookie is written from a request parameter: check it again here, so that a cookie that
+	# was stored before the url was validated cannot redirect to another site either
+	return checked_return_url($cookie_ref{'return_url'}, $request_ref);
+}
+
+=head2 _validate_oidc_state_and_nonce($state, $nonce, $context)
+
+Validate OIDC state and nonce values before comparing them.
+
+=cut
+
+sub _validate_oidc_state_and_nonce ($state, $nonce, $context = 'login') {
+	if ((not defined $state) or ($state eq '')) {
+		return (0, "Missing OIDC state during $context", 400);
+	}
+
+	if ((not defined $nonce) or ($nonce eq '')) {
+		return (0, "Missing OIDC nonce during $context", 400);
+	}
+
+	if ($state ne $nonce) {
+		return (0, "Invalid Nonce during OIDC $context", 500);
+	}
+
+	return (1, undef, undef);
 }
 
 =head2 password_signin($username, $password, $request_ref)
@@ -268,7 +375,8 @@ sub password_signin ($username, $password, $request_ref) {
 		$access_token->{access_token},
 		# use absolute time instead of relative time
 		$time + $access_token->{expires_in},
-		$id_token
+		# return the raw JWT string (not the decoded token), as it is needed as id_token_hint at sign-out
+		$access_token->{id_token}
 	);
 }
 
@@ -398,6 +506,10 @@ sub access_to_protected_resource ($request_ref) {
 
 	$log->info('request is ok', $request_ref) if $log->is_info();
 
+	# Already logged in. Redirect to the requested url, if it is one of ours
+	if (is_allowed_return_url($request_ref->{return_url}, $request_ref->{subdomain})) {
+		redirect_to_url($request_ref, 302, $request_ref->{return_url});
+	}
 	return;
 }
 
@@ -418,10 +530,7 @@ None
 sub start_signout ($request_ref) {
 	# compute return_url, so that after sign out, user will be redirected to the home page
 	my $return_url = single_param('return_url');
-	my $subdomain = $request_ref->{subdomain};
-	if (   (not $return_url)
-		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/sxm)))
-	{
+	if (not is_allowed_return_url($return_url, $request_ref->{subdomain})) {
 		$return_url = $request_ref->{formatted_subdomain};
 	}
 
@@ -439,12 +548,13 @@ sub start_signout ($request_ref) {
 	# random private token to identify the sign-out process
 	my $nonce = generate_token(64);
 	my $end_session_endpoint = $oidc_configuration->{end_session_endpoint};
-	my $redirect_url
-		= $end_session_endpoint
-		. '?post_logout_redirect_uri='
-		. uri_escape($signout_callback_uri)
-		. '&id_token_hint='
-		. uri_escape($id_token)
+	my $redirect_url = $end_session_endpoint . '?post_logout_redirect_uri=' . uri_escape($signout_callback_uri) . (
+		# sessions opened through password_signin used to store the decoded id token (a hash ref)
+		# instead of the JWT string: in that case, identify the client with client_id instead
+		ref($id_token)
+		? '&client_id=' . uri_escape($oidc_options{client_id})
+		: '&id_token_hint=' . uri_escape($id_token)
+		)
 		. '&state='
 		. uri_escape($nonce);
 
@@ -479,15 +589,19 @@ sub signout_callback ($request_ref) {
 	my $state = single_param('state');
 	my %cookie_ref = cookie($cookie_name);
 	my $nonce = $cookie_ref{'nonce'};
-	if (not($state eq $nonce)) {
-		$log->info('unexpected nonce', {nonce => $nonce, expected_nonce => $state}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Invalid Nonce during OIDC logout', 500);
+	my ($state_is_valid, $error_message, $error_status) = _validate_oidc_state_and_nonce($state, $nonce, 'logout');
+	if (not $state_is_valid) {
+		$log->info('invalid OIDC callback state', {nonce => $nonce, expected_nonce => $state, context => 'logout'})
+			if $log->is_info();
+		display_error_and_exit($request_ref, $error_message, $error_status);
 	}
 
 	param('length', 'logout');
 	init_user($request_ref);
 
-	return $cookie_ref{'return_url'};
+	# The cookie is written from a request parameter: check it again here, so that a cookie that
+	# was stored before the url was validated cannot redirect to another site either
+	return checked_return_url($cookie_ref{'return_url'}, $request_ref);
 }
 
 =head2 get_token_using_password_credentials($username, $password)
@@ -623,7 +737,23 @@ Returns: The verified access token or undefined if verification fails.
 sub verify_access_token ($access_token_string) {
 	get_oidc_configuration();
 
-	my $access_token_verified = decode_jwt(token => $access_token_string, kid_keys => $jwks);
+	# Bind the token to this relying party: signature alone is not sufficient, because every client
+	# in the realm is signed by the same JWKS keys.
+	# Note: decode_jwt throws on signature / iss / alg failure, so trap it
+	# to honor the documented undef-on-failure contract.
+	my $access_token_verified = eval {
+		decode_jwt(
+			token => $access_token_string,
+			kid_keys => $jwks,
+			verify_iss => $oidc_configuration->{issuer},
+			accepted_alg => ['RS256'],
+		);
+	};
+	if (my $error = $@) {
+		chomp $error;
+		$log->info('Access token verification failed', {error => $error}) if $log->is_info();
+		return;
+	}
 	unless ($access_token_verified) {
 		return;
 	}
@@ -768,24 +898,36 @@ None.
 =cut
 
 sub get_oidc_configuration () {
-	if (!$jwks) {
-		my $discovery_endpoint = $oidc_options{oidc_discovery_url};
+	if ($oidc_configuration and $jwks) {
+		return $oidc_configuration;
+	}
 
-		$log->info('Original OIDC configuration', {discovery_endpoint => $discovery_endpoint})
-			if $log->is_info();
+	my $discovery_endpoint = $oidc_options{oidc_discovery_url};
 
+	$log->info('Original OIDC configuration', {discovery_endpoint => $discovery_endpoint}) if $log->is_info();
+
+	my $oidc_cache_key = generate_cache_key("oidc_configuration", {discovery_endpoint => $discovery_endpoint});
+
+	if (!$oidc_configuration) {
+		$oidc_configuration = safe_cache_get($oidc_cache_key);
+	}
+
+	if (!$oidc_configuration) {
 		my $discovery_request = HTTP::Request->new(GET => $discovery_endpoint);
 		my $discovery_response = LWP::UserAgent::Plugin->new->request($discovery_request);
-		unless ($discovery_response->is_success) {
+		if ($discovery_response->is_success) {
+			$oidc_configuration = decode_json($discovery_response->content);
+			safe_cache_set($oidc_cache_key, $oidc_configuration, $oidc_metadata_cache_ttl);
+		}
+		else {
 			$log->error('Unable to load OIDC data from IdP',
 				{discovery_endpoint => $discovery_endpoint, response => $discovery_response->content})
 				if $log->is_error();
 			return;
 		}
+	}
 
-		$oidc_configuration = decode_json($discovery_response->content);
-		# $log->info('got discovery document', {discovery => $oidc_configuration}) if $log->is_info();
-
+	if (!$jwks) {
 		_load_jwks_configuration_to_oidc_options($oidc_configuration->{jwks_uri});
 	}
 
@@ -810,6 +952,13 @@ None.
 =cut
 
 sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
+	my $jwks_cache_key = generate_cache_key("oidc_jwks", {jwks_uri => $jwks_uri});
+
+	$jwks = safe_cache_get($jwks_cache_key);
+	if ($jwks) {
+		return;
+	}
+
 	my $jwks_request = HTTP::Request->new(GET => $jwks_uri);
 	my $jwks_response = LWP::UserAgent::Plugin->new->request($jwks_request);
 	unless ($jwks_response->is_success) {
@@ -818,6 +967,7 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	}
 
 	$jwks = decode_json($jwks_response->content);
+	safe_cache_set($jwks_cache_key, $jwks, $oidc_metadata_cache_ttl);
 
 	return;
 }

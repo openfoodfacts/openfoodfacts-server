@@ -53,7 +53,9 @@ if (get_oidc_implementation_level() >= 3) {
 	my $redirect
 		= $oidc_configuration->{issuer}
 		. '/login-actions/reset-credentials?client_id='
-		. uri_escape($oidc_options{client_id});
+		. uri_escape($oidc_options{client_id})
+		. '&kc_locale='
+		. $lc;
 
 	redirect_to_url($request_ref, 302, $redirect);
 }
@@ -186,6 +188,9 @@ else {
 					delete $user_ref->{token};
 
 					store_user($user_ref);
+
+					# A session obtained with the old password must not authenticate any more
+					remove_all_user_sessions($userid);
 
 				}
 				else {
