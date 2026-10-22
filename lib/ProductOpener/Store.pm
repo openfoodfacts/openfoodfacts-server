@@ -48,6 +48,9 @@ BEGIN {
 		&write_json
 		&write_canonical_json
 		&read_json
+
+		$json_for_config
+		$json_for_objects
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -72,8 +75,8 @@ use Carp qw/carp/;
 # Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
 # Can't locate object method "indent_length" via package "JSON::XS"
 # Make sure we include convert_blessed to cater for blessed objects, like booleans
-my $json_for_config = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->canonical->indent->indent_length(1)->utf8;
-my $json_for_objects = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->utf8;
+$json_for_config = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->canonical->indent->indent_length(1)->utf8;
+$json_for_objects = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->utf8;
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
@@ -81,6 +84,9 @@ sub unac_string_perl ($s) {
 
 	$s
 		=~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝŸ/aaaaaaceeeeiiiinooooouuuuyyaaaaaaceeeeiiiinooooouuuuyy/;
+
+	# Romanian: ă, ș and ț (and the legacy cedilla forms ş and ţ)
+	$s =~ tr/ășțşţĂȘȚŞŢ/aststASTST/;
 
 	# alternative methods, slower than above, but more readable and still faster than s///.
 
@@ -152,6 +158,8 @@ sub get_string_id_for_lang ($lc, $string) {
 
 	if ($unaccent) {
 		$string =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
+		# Romanian: ă, ș and ț (and the legacy cedilla forms ş and ţ)
+		$string =~ tr/ășțşţ/astst/;
 		$string =~ s/œ|Œ/oe/g;
 		$string =~ s/æ|Æ/ae/g;
 		$string =~ s/ß|\N{U+1E9E}/ss/g;
@@ -437,7 +445,7 @@ sub store_object ($path, $ref) {
 	}
 	else {
 		# Remove the STO file if it exists
-		if (-e ($sto_path)) {
+		if (-e ($sto_path) || -l ($sto_path)) {
 			unlink($sto_path);
 		}
 	}

@@ -94,6 +94,12 @@ autoload("ProductOpener::Config_$flavor");
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# Romanian: diacritics (ă â î ș ț, and the legacy cedilla forms ş ţ) are very often missing,
+	# and there are very few conflicts in ingredients, labels etc. (ă vs a mostly marks the definite article)
+	ro => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	sk => {
 		unaccent => 1,
 		lowercase => 1,
@@ -191,6 +197,13 @@ $ProductOpener::Config::options{other_servers} = {
 
 # Number of requests per minutes for the search API
 $ProductOpener::Config::options{rate_limit_search} = 10;
+
+# Maximum lifetime of a session, in seconds (30 days). A session stored forever can be replayed
+# forever: signing out only expired the cookie, and nothing else ever deleted the server side
+# entry, so a stolen cookie stayed valid until the account opened 10 other sessions. A session
+# older than this is refused, which also discards the stale entries that are already stored.
+# Set it to undef to accept sessions of any age.
+$ProductOpener::Config::options{user_session_max_lifetime} = 30 * 24 * 60 * 60;
 # Number of requests per minutes for all facets for anonymous users
 $ProductOpener::Config::options{rate_limit_facet_products_unregistered} = 5;
 # Number of requests per minutes for facets for registered users
@@ -236,5 +249,8 @@ $ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
 
 # Slack options
 %ProductOpener::Config::slack_hook_urls = %ProductOpener::Config2::slack_hook_urls || ();
+
+# Health check API key
+$ProductOpener::Config::health_check_api_key = $ProductOpener::Config2::health_check_api_key || undef;
 
 1;

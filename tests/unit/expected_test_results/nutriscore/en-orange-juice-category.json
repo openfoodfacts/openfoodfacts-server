@@ -5,6 +5,7 @@
       "en:beverages-and-beverages-preparations",
       "en:plant-based-foods-and-beverages",
       "en:beverages",
+      "en:fruit-based-foods-and-beverages",
       "en:plant-based-beverages",
       "en:fruit-based-beverages",
       "en:juices-and-nectars",
@@ -31,6 +32,7 @@
       "en:beverages-and-beverages-preparations",
       "en:plant-based-foods-and-beverages",
       "en:beverages",
+      "en:fruit-based-foods-and-beverages",
       "en:plant-based-beverages",
       "en:fruit-based-beverages",
       "en:juices-and-nectars",
@@ -42,6 +44,10 @@
       "en:beverages",
       "en:fruit-juices"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "unknown",
+      "summary" : "missing_ingredients"
+   },
    "lc" : "en",
    "misc_tags" : [
       "en:nutrients-not-estimated-from-ingredients-no-ingredients",
@@ -53,6 +59,7 @@
       "en:nutrition-fruits-vegetables-legumes-from-category-en-fruit-juices",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-c-2023-c",
+      "en:forest-footprint-unknown",
       "en:nutrition-data-per-100g"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",

@@ -609,7 +609,13 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 				or $nutrient_set_ref->{preparation} eq "_prepared"
 		) ? "_prepared" : "";
 		# if per is 100ml then 1002 product version nutrient per field is 100g
-		my $per = $nutrient_set_ref->{per} eq "100ml" ? "_100g" : "_" . $nutrient_set_ref->{per};
+		my $per;
+		if (not defined $nutrient_set_ref->{per}) {
+			$per = "_100g";
+		}
+		else {
+			$per = $nutrient_set_ref->{per} eq "100ml" ? "_100g" : "_" . $nutrient_set_ref->{per};
+		}
 
 		# first create the nutriments and nutriments_estimated fields
 		my $nutriments_ref = {};
@@ -934,7 +940,7 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 
 		# If the tagtype has no taxonomy (e.g. stores, purchase_places), then the input tags are in the "stores" and "purchase_places"
 		# and they don't have a language
-		if (not exists $taxonomy_fields{$tagtype}) {
+		if ((defined $product_ref->{$tagtype}) and (not exists $taxonomy_fields{$tagtype})) {
 			$input_tags_ref = [split(/,\s*/, $product_ref->{$tagtype})];
 		}
 		else {

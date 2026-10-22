@@ -1,0 +1,137 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "fr:Additifs nutritionnels",
+         "ingredients" : [
+            {
+               "id" : "en:retinyl-acetate",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 60,
+               "percent_max" : 100,
+               "percent_min" : 20,
+               "text" : "3a672a vitamine A",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 60,
+         "percent_max" : 100,
+         "percent_min" : 20,
+         "text" : "Additifs nutritionnels"
+      },
+      {
+         "id" : "en:dl-alpha-tocopheryl-acetate",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "vitamine E 3a700",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:ferrous-sulfate",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "3b103 fer",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:taurine",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "taurine 3a370",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "fr:3a700 taurine",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 5,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "3a700 taurine"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:Additifs nutritionnels",
+         "fr:3a700 taurine"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:3a700 taurine"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:3a700 taurine"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:Additifs nutritionnels",
+      "en:dl-alpha-tocopheryl-acetate",
+      "en:ferrous-sulfate",
+      "en:taurine",
+      "fr:3a700 taurine",
+      "en:retinyl-acetate"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:Additifs nutritionnels",
+      "en:dl-alpha-tocopheryl-acetate",
+      "en:vitamin-e",
+      "en:vitamins",
+      "en:ferrous-sulfate",
+      "en:iron",
+      "en:minerals",
+      "en:taurine",
+      "fr:3a700 taurine",
+      "en:retinyl-acetate",
+      "en:vitamin-a"
+   ],
+   "ingredients_text" : "Additifs nutritionnels : 3a672a vitamine A, vitamine E 3a700, 3b103 fer, taurine 3a370, 3a700 taurine",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:dl-alpha-tocopheryl-acetate",
+      "en:ferrous-sulfate",
+      "en:retinyl-acetate",
+      "en:taurine",
+      "fr:3a700 taurine",
+      "fr:Additifs nutritionnels"
+   ],
+   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:dl-alpha-tocopheryl-acetate",
+      "en:ferrous-sulfate",
+      "en:retinyl-acetate",
+      "en:taurine",
+      "fr:3a700 taurine",
+      "fr:Additifs nutritionnels"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 6,
+   "known_ingredients_n" : 4,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}

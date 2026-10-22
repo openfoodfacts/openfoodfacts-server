@@ -1,5 +1,6 @@
 {
    "allergens_tags" : [],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "fr:Filet de saumon sauvage",
@@ -84,7 +85,8 @@
    ],
    "lc" : "fr",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent"
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
    "tags_sources" : {
       "allergens" : {

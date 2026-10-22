@@ -6,19 +6,19 @@
 
 ##### Example
 
-https://world.openfoodfacts.org/categories.json
+https://world.openfoodfacts.org/facets/categories.json
 
 ```json
 {
   "linkeddata": { "wikidata:en": "Q40050" },
-  "url": "https://world.openfoodfacts.net/category/beverages",
+  "url": "https://world.openfoodfacts.net/facets/categories/beverages",
   "name": "Beverages",
   "id": "en:beverages",
   "products": 14196
 }
 ```
 
-Beverages → https://world.openfoodfacts.org/category/beverages → Q40050 → https://www.wikidata.org/wiki/Q40050
+Beverages → https://world.openfoodfacts.org/facets/category/beverages → Q40050 → https://www.wikidata.org/wiki/Q40050
 As you see, you'll get a beautiful image, information about the Quality label... As Wikidata is a Wiki, the knowledge you'll be able to retrieve will increase over time.
 
 #### Retrieving info from Wikipedia and Wikidata 

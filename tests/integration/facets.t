@@ -292,6 +292,22 @@ my $tests_ref = [
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
+	# For score tag types, unknown is a tag value, not a missing field.
+	# nutri-score resolves to the nutriscore tag type.
+	{
+		test_case => 'nutrition-grades_unknown',
+		method => 'GET',
+		path => 'facets/nutrition-grades/unknown.json?fields=product_name,nutrition_grades_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'nutri-score_unknown',
+		method => 'GET',
+		path => 'facets/nutri-score/unknown.json?fields=product_name,nutriscore_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
 	# EU packager code
 	{
 		test_case => 'packager-code_fr-85-222-003-ce',
@@ -339,14 +355,18 @@ my $tests_ref = [
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
-	# facet name that is the same as a facet type
+	# facet alias that is the same as a facet type
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/9708
 	{
 		test_case => 'category-vitamins',
 		method => 'GET',
 		path => 'facets/categories/Vitamins.json?fields=product_name,labels_tags',
-		expected_status_code => 200,
-		sort_products_by => 'product_name',
+		expected_status_code => 302,
+		headers => {
+			Location =>
+				'http://world.openfoodfacts.localhost/facets/categories/Vitamin%20supplements.json?fields=product_name,labels_tags',
+		},
+		expected_type => 'html',
 	},
 	# test some redirects
 	{
@@ -398,6 +418,16 @@ my $tests_ref = [
 			Location => '/facets/ingredients?filter=bon&status=unknown',
 		},
 		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'filtered-facets-world-link-keeps-filter',
+		method => 'GET',
+		subdomain => 'uk',
+		path => '/facets/ingredients?filter=bon&status=unknown',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match =>
+			'http:\/\/world\.openfoodfacts\.localhost\/facets\/ingredients\?filter=bon&amp;status=unknown',
 	},
 	{
 		test_case => 'redirect-facets-agg-with-json',

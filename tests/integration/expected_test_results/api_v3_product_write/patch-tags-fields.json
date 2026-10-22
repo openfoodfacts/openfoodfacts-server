@@ -18,21 +18,6 @@
       }
    ],
    "product" : {
-      "allergens" : "milk, eggs, peanuts, nuts, fish, shellfish, gluten, soybeans, mango, kiwi, Unrecognized Allergen",
-      "allergens_hierarchy" : [
-         "en:eggs",
-         "en:fish",
-         "en:gluten",
-         "en:kiwi",
-         "en:milk",
-         "en:nuts",
-         "en:peanuts",
-         "en:soybeans",
-         "en:Unrecognized Allergen",
-         "en:mango",
-         "en:shellfish"
-      ],
-      "allergens_lc" : "en",
       "allergens_tags" : [
          "en:eggs",
          "en:fish",
@@ -68,13 +53,6 @@
          "Aldi",
          "Some brand"
       ],
-      "categories" : "Coffees",
-      "categories_hierarchy" : [
-         "en:plant-based-foods-and-beverages",
-         "en:plant-based-foods",
-         "en:coffees"
-      ],
-      "categories_lc" : "en",
       "categories_tags" : [
          "en:plant-based-foods-and-beverages",
          "en:plant-based-foods",
@@ -85,40 +63,24 @@
          "Plant-based foods",
          "Coffees"
       ],
-      "labels" : "Organic, Vegan, Max Havelaar, Something unrecognized",
-      "labels_hierarchy" : [
-         "en:vegetarian",
-         "en:fair-trade",
-         "en:organic",
-         "en:fairtrade-international",
-         "en:vegan",
-         "en:max-havelaar",
-         "en:Something unrecognized"
-      ],
-      "labels_lc" : "en",
       "labels_tags" : [
-         "en:vegetarian",
          "en:fair-trade",
-         "en:organic",
+         "en:vegetarian",
          "en:fairtrade-international",
-         "en:vegan",
+         "en:organic",
          "en:max-havelaar",
+         "en:vegan",
          "en:Something unrecognized"
       ],
       "labels_tags_en" : [
-         "Vegetarian",
          "Fair trade",
-         "Organic",
+         "Vegetarian",
          "Fairtrade International",
-         "Vegan",
+         "Organic",
          "Max Havelaar",
+         "Vegan",
          "Something unrecognized"
       ],
-      "traces" : "gluten",
-      "traces_hierarchy" : [
-         "en:gluten"
-      ],
-      "traces_lc" : "en",
       "traces_tags" : [
          "en:gluten"
       ],
