@@ -1708,6 +1708,9 @@ for my $case (
 	['fr', 'sucre et caramel', ['en:sugar', 'en:e150']],
 	['fr', 'viandes et sous-produits animaux 95% (dont poulet 4%)', ['en:meat-and-animal-derivatives']],
 	['fr', 'oeufs, et graines de sésame', ['en:egg', 'en:sesame-seeds']],
+	['fr', 'lait de brebis et de chèvre bio', ['en:sheep-and-goat-milk']],
+	['fr', 'viande et sous-produits animaux bio', ['en:meat-and-animal-derivatives']],
+	['en', 'organic milk and cream', ['en:milk', 'en:cream']],
 	)
 {
 	my ($lc, $text, $ids) = @$case;
