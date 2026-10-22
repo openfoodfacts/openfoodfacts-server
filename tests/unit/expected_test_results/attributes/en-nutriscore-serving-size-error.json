@@ -59,7 +59,7 @@
                "id" : "low_saturated_fat",
                "match" : 0,
                "name" : "Saturated fat",
-               "panel_id" : "nutrient_level_saturated_fat",
+               "panel_id" : "nutrient_level_saturated-fat",
                "status" : "known",
                "title" : "Saturated fat in high quantity"
             }
@@ -269,7 +269,7 @@
                "id" : "additives",
                "match" : 100,
                "name" : "Additives",
-               "panel_id" : "additives",
+               "panel_id" : "ingredients_analysis",
                "status" : "known",
                "title" : "Without additives"
             }
@@ -292,16 +292,16 @@
                "title" : "Green-Score C"
             },
             {
-               "description" : "",
-               "description_short" : "Currently only for products with chicken or eggs",
-               "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "description" : "No ingredient associated with a deforestation risk.",
+               "description_short" : "No deforestation risk",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-a.svg",
                "id" : "forest_footprint",
-               "match" : 0,
-               "name" : "Forest footprint",
+               "match" : 100,
+               "name" : "Forest Footprint",
                "panel_id" : "forest_footprint",
                "status" : "known",
-               "title" : "Forest footprint not computed"
+               "title" : "Forest Footprint A"
             }
          ],
          "id" : "environment",
@@ -433,6 +433,26 @@
    "ecoscore_tags" : [
       "c"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [],
+         "ingredients_coverage_percent" : 0,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : []
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -830,6 +850,12 @@
    ],
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "images" : {
       "selected" : {}
    },
@@ -891,6 +917,9 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:all-ingredients-with-specified-percent",
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
@@ -900,6 +929,8 @@
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
