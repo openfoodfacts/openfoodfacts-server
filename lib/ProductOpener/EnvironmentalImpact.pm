@@ -54,6 +54,10 @@ BEGIN {
 		&get_ecobalyse_packaging_entry
 		&get_ecobalyse_transformation_entries
 		&filter_ecobalyse_response_for_open_data
+		&set_ecobalyse_coverage_misc_tags
+		&get_ecobalyse_reference_quantity
+		&format_ecs_value
+		&call_ecobalyse
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -70,6 +74,7 @@ use Encode qw(decode_utf8 encode_utf8);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Tags qw/is_a get_taxonomy_tag_level get_property/;
+use ProductOpener::ProductsTags qw/add_tag remove_tag/;
 use File::Basename qw/dirname/;
 use Scalar::Util qw/looks_like_number/;
 use Data::DeepAccess qw(deep_exists deep_get);
@@ -105,13 +110,109 @@ Boolean flag indicating whether to skip the Ecobalyse API call, in which case we
 
 =cut
 
+=head2 set_ecobalyse_coverage_misc_tags ($product_ref)
+
+Set misc_tags for Ecobalyse ingredients coverage ranges.
+
+=cut
+
+sub set_ecobalyse_coverage_misc_tags ($product_ref) {
+	return unless defined $product_ref->{environmental_impact}{ecobalyse_input}{ingredients_coverage_percent};
+
+	my $pct = $product_ref->{environmental_impact}{ecobalyse_input}{ingredients_coverage_percent};
+
+	# Remove any existing ecobalyse coverage tags
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags}
+			= [grep {$_ !~ /^en:ecobalyse-ingredients-matched-between-\d+-and-\d+/} @{$product_ref->{misc_tags}}];
+	}
+
+	# Determine range: 0-9, 10-19, ..., 90-100
+	my $range_start = int($pct / 10) * 10;
+	my $range_end = $range_start + 9;
+	# Special case: 90-100% should map to 90-100 range
+	if ($range_start >= 90) {
+		$range_start = 90;
+		$range_end = 100;
+	}
+
+	my $tag = "en:ecobalyse-ingredients-matched-between-$range_start-and-$range_end";
+	add_tag($product_ref, "misc", $tag);
+
+	return;
+}
+
+=head2 get_ecobalyse_reference_quantity ($product_ref)
+
+Determine the quantity of product for which we send the ingredients and packaging to Ecobalyse.
+
+Ecobalyse packaging entries are for a whole package (e.g. a 500 g tray), so we send the ingredients
+for the whole product, so that the returned impacts are consistent for the whole product.
+The impacts per 100 g or 100 ml are then computed from the impacts for the whole product.
+
+The reference quantity is:
+- the product quantity (in g or ml) if it is known,
+- otherwise 100 g or 100 ml (depending on the nutrition data of the product)
+and in that case we do not send the packaging, and we compute only the impacts per 100 g or 100 ml.
+
+=head3 Return values
+
+($quantity, $unit, $source) with $unit = "g" or "ml",
+and $source = "product_quantity" or "default"
+
+=cut
+
+# Product quantities outside of this range are likely to be errors
+my $min_reference_quantity = 1;
+my $max_reference_quantity = 50000;
+
+sub get_ecobalyse_reference_quantity ($product_ref) {
+
+	my $product_quantity = $product_ref->{product_quantity};
+	my $product_quantity_unit = $product_ref->{product_quantity_unit} // '';
+	if (    (looks_like_number($product_quantity))
+		and ($product_quantity_unit =~ /^(g|ml)$/)
+		and ($product_quantity >= $min_reference_quantity)
+		and ($product_quantity <= $max_reference_quantity))
+	{
+		return ($product_quantity + 0, $product_quantity_unit, "product_quantity");
+	}
+
+	# Unknown product quantity: ingredients quantities are estimated for 100 g or 100 ml of product,
+	# depending on the nutrition data
+	my $nutrition_per = deep_get($product_ref, qw(nutrition aggregated_set per)) // '';
+	return (100, ($nutrition_per eq "100ml" ? "ml" : "g"), "default");
+}
+
+=head2 format_ecs_value ($value)
+
+Round an Ecobalyse environmental cost (ECS) value for display:
+1 decimal for values below 100, no decimals for values of 100 and more.
+
+Returns an empty string if the value is not a number (e.g. unexpected value from the Ecobalyse API).
+
+=cut
+
+sub format_ecs_value ($value) {
+	return "" unless looks_like_number($value);
+	return sprintf("%.0f", $value) if abs($value) >= 99.95;
+	return sprintf("%.1f", $value);
+}
+
 sub estimate_environmental_impact_service ($product_ref, $updated_product_fields_ref, $errors_ref,
 	$skip_ecobalyse_call = 0)
 {
 	delete $product_ref->{environmental_impact};    # clear previous environmental impact data
 
-	# indicate that the service is modifying the "ingredients" structure
+	# Remove Ecobalyse misc tags from previous runs
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags}
+			= [grep {$_ !~ /^en:ecobalyse-/} @{$product_ref->{misc_tags}}];
+	}
+
+	# indicate that the service is modifying the "environmental_impact" and "misc_tags" structures
 	$updated_product_fields_ref->{environmental_impact} = 1;
+	$updated_product_fields_ref->{misc_tags} = 1;
 
 	# If undefined ingredients, do nothing
 	return if not defined $product_ref->{ingredients};
@@ -167,6 +268,20 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Keep a separate structure with more information for debugging and analysis
 	$product_ref->{environmental_impact}{ecobalyse_input}{ingredients} = [];
 
+	# Reference quantity of product for which we send the ingredients and packaging to Ecobalyse
+	my ($reference_quantity, $reference_quantity_unit, $reference_quantity_source)
+		= get_ecobalyse_reference_quantity($product_ref);
+	$product_ref->{environmental_impact}{ecobalyse_input}{reference_quantity} = $reference_quantity;
+	$product_ref->{environmental_impact}{ecobalyse_input}{reference_quantity_unit} = $reference_quantity_unit;
+	$product_ref->{environmental_impact}{ecobalyse_input}{reference_quantity_source} = $reference_quantity_source;
+	my $reference_quantity_source_tag = $reference_quantity_source =~ s/_/-/gr;
+	add_tag($product_ref, "misc", "en:ecobalyse-reference-quantity-from-$reference_quantity_source_tag");
+
+	# Ingredients quantities (in g) are estimated for 100 g or 100 ml of product
+	# (depending on the nutrition data, which is used to estimate the ingredients percentages):
+	# we scale them to the reference quantity
+	my $quantity_factor = $reference_quantity / 100;
+
 	# Add ingredients
 	# We only add leaf ingredients (without their parents)
 
@@ -193,13 +308,13 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 				push @{$payload_ref->{ingredients}},
 					{
 					id => $id,
-					mass => $quantity,
+					mass => $quantity * $quantity_factor,
 					};
 				# Also store the ingredient in the ecobalyse_input structure for debugging and analysis
 				push @{$product_ref->{environmental_impact}{ecobalyse_input}{ingredients}},
 					{
 					id => $id,
-					mass => $quantity,
+					mass => $quantity * $quantity_factor,
 					name => $ingredient_ref->{text} // '',
 					ecobalyse_name => $ingredient_ref->{ecobalyse_name} || $ingredient_ref->{ecobalyse_proxy_name}
 						// '',
@@ -207,6 +322,16 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			}
 		}
 	}
+
+	# Compute ingredients coverage percentage and set misc_tags
+	my $ingredients_coverage_percent = 0;
+	if ($total_ingredients_quantity > 0) {
+		$ingredients_coverage_percent
+			= int(($total_ingredients_quantity_with_ecobalyse_id / $total_ingredients_quantity) * 100);
+	}
+	$product_ref->{environmental_impact}{ecobalyse_input}{ingredients_coverage_percent} = $ingredients_coverage_percent;
+
+	set_ecobalyse_coverage_misc_tags($product_ref);
 
 	# Add transformations / processing
 	my @transformation_entries = get_ecobalyse_transformation_entries($product_ref);
@@ -217,13 +342,13 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			@transformation_entries = ($transformation_entries[0]);
 			$payload_ref->{transform} = {
 				id => $transformation_entries[0]->{id},
-				mass => $total_ingredients_quantity,
+				mass => $total_ingredients_quantity * $quantity_factor,
 			};
 			$product_ref->{environmental_impact}{ecobalyse_input}{transform} = {
 				id => $transformation_entries[0]->{id},
 				name => $transformation_entries[0]->{name},
 				name_fr => $transformation_entries[0]->{name_fr},
-				mass => $total_ingredients_quantity,
+				mass => $total_ingredients_quantity * $quantity_factor,
 			};
 		}
 		else {
@@ -235,14 +360,14 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 				push @{$payload_ref->{transformations}},
 					{
 					id => $entry->{id},
-					mass => $total_ingredients_quantity,
+					mass => $total_ingredients_quantity * $quantity_factor,
 					};
 				push @{$product_ref->{environmental_impact}{ecobalyse_input}{transformations}},
 					{
 					id => $entry->{id},
 					name => $entry->{name},
 					name_fr => $entry->{name_fr},
-					mass => $total_ingredients_quantity,
+					mass => $total_ingredients_quantity * $quantity_factor,
 					};
 			}
 		}
@@ -250,8 +375,13 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	}
 
 	# Add packaging
+	# The Ecobalyse packaging entries are for a whole package,
+	# so we send the packaging only if we know the product quantity
 	my $packaging_entry_ref = get_ecobalyse_packaging_entry($product_ref);
-	if (defined $packaging_entry_ref) {
+	if ((defined $packaging_entry_ref) and ($reference_quantity_source ne "product_quantity")) {
+		$product_ref->{environmental_impact}{ecobalyse_input}{packaging_skip_reason} = "unknown_product_quantity";
+	}
+	elsif (defined $packaging_entry_ref) {
 		$payload_ref->{packaging} = [];
 		$product_ref->{environmental_impact}{ecobalyse_input}{packaging} = [];
 		push @{$payload_ref->{packaging}}, {
@@ -280,11 +410,24 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 	$product_ref->{environmental_impact}{ecobalyse_request} = {url => $url_recipe, data => $payload_ref};
 
+	# Check ingredients coverage threshold ($ingredients_coverage_percent was computed above)
+	my $threshold = $options{ecobalyse_min_ingredients_coverage_percent} // 80;
+
+	if ($ingredients_coverage_percent < $threshold) {
+		$log->info(
+			"Skipping Ecobalyse API call: ingredients coverage ${ingredients_coverage_percent}% < ${threshold}%");
+		$product_ref->{environmental_impact}{ecobalyse_skipped} = 1;
+		$product_ref->{environmental_impact}{ecobalyse_skip_reason} = "insufficient_ingredients_coverage";
+		add_tag($product_ref, "misc", "en:ecobalyse-api-not-called");
+		return;
+	}
+
 	if ($skip_ecobalyse_call) {
 		$log->debug(
 			"Skipping Ecobalyse API call, only preparing request payload",
 			{endpoint => $url_recipe, payload => $payload_ref}
 		) if $log->is_debug();
+		add_tag($product_ref, "misc", "en:ecobalyse-api-skipped");
 	}
 	else {
 
@@ -294,15 +437,18 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 		# Send the request and get the response
 		# For tests, we pass a testid to call_ecobalyse() so that the mock response is used instead of a real API call.
+		add_tag($product_ref, "misc", "en:ecobalyse-api-called");
 		my ($response_content, $is_success) = (call_ecobalyse($url_recipe, $payload_ref, $product_ref->{testid}));
 
 		# Parse the JSON response
 		my $response_data_ref;
 		# if the response is JSON, decode it
 
+		my $json_decoded = 1;
 		eval {$response_data_ref = decode_json($response_content);};
 		# Check if the JSON decoding was successful
 		if ($@) {
+			$json_decoded = 0;
 			$log->error("Failed to decode JSON response from Ecobalyse API",
 				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content, error => $@})
 				if $log->is_error();
@@ -312,24 +458,32 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			$response_data_ref = filter_ecobalyse_response_for_open_data($response_data_ref);
 		}
 
-		# Handle the response based on success or failure
-		if ($is_success) {
+		# Access the specific "ecs" value
+		my $ecs_value = $json_decoded ? deep_get($response_data_ref, 'results', 'total', 'ecs') : undef;
 
-			# Access the specific "ecs" value
-			my $ecs_value = deep_get($response_data_ref, 'results', 'total', 'ecs');
-			if (defined $ecs_value) {
-				# If 'ecs' is defined, store it in the product reference
-				$product_ref->{environmental_impact}{ecs} = $ecs_value;
+		# Handle the response based on success or failure
+		# We consider the call successful only if we got a valid JSON response with an ecs value
+		if ($is_success and (defined $ecs_value)) {
+
+			add_tag($product_ref, "misc", "en:ecobalyse-api-success");
+
+			# The impacts returned by Ecobalyse are for the reference quantity of product
+			if ($reference_quantity_source ne "default") {
+				$product_ref->{environmental_impact}{ecs_per_product} = $ecs_value;
 			}
+			$product_ref->{environmental_impact}{ecs_per_100g_or_100ml} = $ecs_value * 100 / $reference_quantity;
+			$product_ref->{environmental_impact}{ecs_per} = "100" . $reference_quantity_unit;
 		}
 		else {
 			# If the request failed, log the error
-			$log->error("send_event request failed",
+			$log->error("Ecobalyse API request failed or returned no ecs value",
 				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content})
 				if $log->is_error();
+			# Add error misc tag
+			add_tag($product_ref, "misc", "en:ecobalyse-api-error");
+			# Store the error response for debugging
+			$product_ref->{environmental_impact}{ecobalyse_error_response} = $response_content;
 			# Add an error message to the errors array
-			$product_ref->{environmental_impact}{ecobalyse_response} = $response_data_ref;
-
 			push @{$errors_ref},
 				{
 				message => {id => "error_response_from_ecobalyse"},
@@ -579,6 +733,11 @@ sub get_ecobalyse_packaging_entry ($product_ref) {
 		my $cat_level = 0;
 		if ($entry_ref->{categories_tagid} and $entry_ref->{categories_tagid} ne '') {
 			$cat_level = get_taxonomy_tag_level('categories', $entry_ref->{categories_tagid});
+		}
+
+		# Skip category less entries if there was no match on material and shape
+		if (($cat_level) == 0 and ($best_material == 0 and ($best_shape == 0))) {
+			next;
 		}
 
 		# Quantity distance: only counted if material and shape both match at all
