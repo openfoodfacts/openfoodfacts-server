@@ -204,20 +204,121 @@ def check_image_exists(img_ref):
 
     return False
 
-def extract_placeholders(text):
-    c_style = re.findall(r'%[0-9]*\$?[sd]', text)
-    html_tags = re.findall(r'</?[a-zA-Z0-9]+[^>]*>', text)
-    brackets = re.findall(r'\{[^}]+\}|%\([^)]+\)s', text)
-    return sorted(c_style + html_tags + brackets)
+def normalize_html_tag(tag_str):
+    tag_str = tag_str.strip()
+    if re.match(r"</\s+[a-zA-Z]", tag_str):
+        return "malformed", tag_str
+    m = re.match(r"</?([a-zA-Z][a-zA-Z0-9]*)\b", tag_str)
+    if not m:
+        return "other", tag_str
+    name = m.group(1).lower()
+    if name == "br":
+        return "tag", "<br>"
+    is_close = tag_str.startswith("</")
+    return "tag", f"</{name}>" if is_close else f"<{name}>"
 
-def check_po_files():
+def validate_placeholders_and_html(po_file, msgid, msgstr):
+    issues = []
+
+    # 1. Check printf specifiers (%s, %d, %i, and positional %1$s, %2$d, etc.)
+    def extract_printf(text):
+        return re.findall(r"%(?:[0-9]+\$)?[sdi]", text)
+
+    def parse_pf(f):
+        m = re.match(r"%([0-9]+\$)?([sdi])", f)
+        t = "d" if m.group(2) == "i" else m.group(2)
+        pos = int(m.group(1).rstrip("$")) if m.group(1) else None
+        return pos, t
+
+    id_pf_raw = extract_printf(msgid)
+    str_pf_raw = extract_printf(msgstr)
+
+    if id_pf_raw or str_pf_raw:
+        id_pf = [parse_pf(f) for f in id_pf_raw]
+        str_pf = [parse_pf(f) for f in str_pf_raw]
+
+        if any(pos is not None for pos, t in str_pf):
+            valid = True
+            for pos, t in str_pf:
+                if pos is None or pos < 1 or pos > len(id_pf):
+                    valid = False
+                    break
+                if t != id_pf[pos - 1][1]:
+                    valid = False
+                    break
+            if not valid or len(str_pf) != len(id_pf):
+                issues.append(f"- **Printf placeholder mismatch** in `{po_file}`: Expected `{id_pf_raw}`, found `{str_pf_raw}` in `{msgstr}`")
+        else:
+            if sorted([t for _, t in id_pf]) != sorted([t for _, t in str_pf]):
+                issues.append(f"- **Printf placeholder mismatch** in `{po_file}`: Expected `{id_pf_raw}`, found `{str_pf_raw}` in `{msgstr}`")
+
+    # 2. Check template variables and brackets ({count}, %(name)s, <NAME>, <USERID>, <tag>, <SITE>, <site_name>)
+    var_pattern = r"\{[^}]+\}|%\([^)]+\)s|<NAME>|<USERID>|<tag>|<SITE>|<site_name>"
+    id_vars = [v.lower() for v in re.findall(var_pattern, msgid, re.IGNORECASE)]
+    str_vars = [v.lower() for v in re.findall(var_pattern, msgstr, re.IGNORECASE)]
+    if sorted(id_vars) != sorted(str_vars):
+        issues.append(f"- **Template variable mismatch** in `{po_file}`: Expected `{id_vars}`, found `{str_vars}` in `{msgstr}`")
+
+    # 3. Check HTML tags
+    clean_id = re.sub(var_pattern, "", msgid, flags=re.IGNORECASE)
+    clean_str = re.sub(var_pattern, "", msgstr, flags=re.IGNORECASE)
+
+    malformed = re.findall(r"</\s+[a-zA-Z0-9]+[^>]*>", clean_str)
+    if malformed:
+        issues.append(f"- **Malformed HTML closing tag** in `{po_file}`: found `{malformed}` in `{msgstr}`")
+
+    def parse_tags(text):
+        tags = []
+        for m in re.finditer(r"</?([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>", text):
+            full = m.group(0)
+            name = m.group(1).lower()
+            if name in ("br", "hr", "img"):
+                tags.append(("void", name))
+            elif full.startswith("</"):
+                tags.append(("close", name))
+            else:
+                tags.append(("open", name))
+        return tags
+
+    id_tags = parse_tags(clean_id)
+    str_tags = parse_tags(clean_str)
+
+    # Check unclosed non-void tags in msgstr
+    str_opens = sorted([name for kind, name in str_tags if kind == "open"])
+    str_closes = sorted([name for kind, name in str_tags if kind == "close"])
+    if str_opens != str_closes:
+        issues.append(f"- **Unclosed HTML tag** in `{po_file}`: opened `{str_opens}`, closed `{str_closes}` in `{msgstr}`")
+
+    # Check structural tags
+    structural_tags = {"a", "p", "b", "i", "strong", "em", "div", "span", "table", "tr", "td", "th", "ul", "ol", "li"}
+    id_struct = sorted([name for kind, name in id_tags if name in structural_tags])
+    str_struct = sorted([name for kind, name in str_tags if name in structural_tags])
+    if id_struct != str_struct:
+        issues.append(f"- **Structural HTML tag mismatch** in `{po_file}`: Expected `{id_struct}`, found `{str_struct}` in `{msgstr}`")
+
+    # Check void tags (br)
+    id_br_count = sum(1 for kind, name in id_tags if name == "br")
+    str_br_count = sum(1 for kind, name in str_tags if name == "br")
+    if id_br_count != str_br_count:
+        issues.append(f"- **Line break (<br>) mismatch** in `{po_file}`: Expected `{id_br_count}` <br>, found `{str_br_count}` in `{msgstr}`")
+
+    return issues
+
+def check_po_files(po_files=None):
     brand_issues = []
     url_issues = []
     image_issues = []
     placeholder_issues = []
     badge_issues = []
     
-    for po_file in glob.glob("po/**/*.po", recursive=True):
+    if po_files is None:
+        target_files = [f for f in sys.argv[1:] if f.endswith('.po') and not f.endswith('en.po')]
+        if target_files:
+            po_files = target_files
+        else:
+            po_files = glob.glob("po/**/*.po", recursive=True)
+
+    for po_file in po_files:
         if 'en.po' in po_file: continue
         locale = os.path.basename(po_file).replace(".po", "")
         url_locale = locale.split("_")[0].lower()
@@ -269,11 +370,8 @@ def check_po_files():
                     if len(msgstr) > 0:
                         brand_issues.append(f"- **{brand}** in `{po_file}`: translated as `{msgstr}` (should not be translated)")
             
-            # Check placeholders
-            id_placeholders = extract_placeholders(msgid)
-            str_placeholders = extract_placeholders(msgstr)
-            if id_placeholders != str_placeholders:
-                placeholder_issues.append(f"- **Placeholder mismatch** in `{po_file}`: Expected `{id_placeholders}`, found `{str_placeholders}` in `{msgstr}`")
+            # Check placeholders and HTML tags
+            placeholder_issues.extend(validate_placeholders_and_html(po_file, msgid, msgstr))
             
             # Check URL consistency
             msgid_urls = re.findall(r'https?://[^\s\"\'>]+', msgid)
