@@ -2663,18 +2663,18 @@
 <li><strong>If your users are outside France, you need to clearly display the experimental disclaimer at least once.</strong></li>
 </ul>
 <h3 id="ensuring-a-good-user-experience-even-with-data-gaps">Ensuring a good user experience (even with data gaps)<a class="headerlink" href="#ensuring-a-good-user-experience-even-with-data-gaps" title="Permanent link">#</a></h3>
-<p><em>We can compute the Green-Score for most of the database, but we're missing some data on some products to make the computation exact, and it won't be computed on some products. <span style={{textDecoration: 'underline'}}>In any case, you need to make sure your users won't be frustrated by implementing the following points:</span></em></p>
+<p><em>We can compute the Green-Score for most of the database, but we're missing some data on some products to make the computation exact, and it won't be computed on some products. &lt;span style={{textDecoration: 'underline'}}&gt;In any case, you need to make sure your users won't be frustrated by implementing the following points:</span></em></p>
 <ul>
 <li>Adding disclaimers when we can’t display the Green-Score<ul>
-<li><strong><span style={{textDecoration: 'underline'}}>Add a message if we have a category but no Green-Score</span></strong><ul>
-<li><em>if "en:categories-completed" _in states_tags</em> <strong><span style={{textDecoration: 'underline'}}>AND</span></strong> ecoscore<em>grade=Null</em><ul>
+<li><strong>&lt;span style={{textDecoration: 'underline'}}&gt;Add a message if we have a category but no Green-Score</span></strong><ul>
+<li><em>if "en:categories-completed" _in states_tags</em> <strong>&lt;span style={{textDecoration: 'underline'}}&gt;AND</span></strong> ecoscore<em>grade=Null</em><ul>
 <li>We could not compute an Green-Score for this product. It might be that the category is not specific enough or that we don't have supporting data for this category. If you believe this is an error, you can email <a href="mailto:contact@example.com">contact@example.com</a></li>
 <li>You can get states with <a href="https://world.openfoodfacts.org/api/v3/product/3414280980209.json?fields=environmental_score_grade,states_tags">https://world.openfoodfacts.org/api/v3/product/3414280980209.json?fields=environmental_score_grade,states_tags </a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><strong><span style={{textDecoration: 'underline'}}>Help the user add the category if it is missing</span></strong><ul>
+<li><strong>&lt;span style={{textDecoration: 'underline'}}&gt;Help the user add the category if it is missing</span></strong><ul>
 <li>You can use our Robotoff API to get your users to validate a prediction<ul>
 <li><a href="https://docs.google.com/document/d/1IoDy0toQrrqtWHvDYp2rEVw84Yq1J0x2pt-0RGTm7h0/edit">Robotoff Questions</a></li>
 </ul>
@@ -2684,7 +2684,7 @@
 </ul>
 </li>
 <li>Adding disclaimers when the Green-Score is computed with a data gap + Asking the users to photograph and/or complete missing information<ul>
-<li><strong><span style={{textDecoration: 'underline'}}>Add a message if no labels are available</span></strong><ul>
+<li><strong>&lt;span style={{textDecoration: 'underline'}}&gt;Add a message if no labels are available</span></strong><ul>
 <li>if "en:labels-to-be-completed" in states_tags<ul>
 <li><code>"The Green-Score takes into account environmental labels. Please take them into photo or edit the product so that they can be taken into account"</code></li>
 </ul>
@@ -2694,7 +2694,7 @@
 <li>You can get states with <a href="https://world.openfoodfacts.org/api/v3/product/3414280980209.json?fields=environmental_score_grade,states_tags">https://world.openfoodfacts.org/api/v3/product/3414280980209.json?fields=environmental_score_grade,states_tags </a></li>
 </ul>
 </li>
-<li><strong><span style={{textDecoration: 'underline'}}>Add a message if no origins are available</span></strong><ul>
+<li><strong>&lt;span style={{textDecoration: 'underline'}}&gt;Add a message if no origins are available</span></strong><ul>
 <li>if "en:origins-to-be-completed" in states_tags<ul>
 <li><code>"The Green-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer."</code></li>
 <li>You can get states with <a href="https://world.openfoodfacts.org/api/v3/product/3414280980209.json?fields=environmental_score_grade,states_tags">https://world.openfoodfacts.org/api/v3/product/3414280980209.json?fields=environmental_score_grade,states_tags </a></li>
@@ -2702,7 +2702,7 @@
 </li>
 </ul>
 </li>
-<li><strong><span style={{textDecoration: 'underline'}}>Add a message if recycling information is missing</span></strong><ul>
+<li><strong>&lt;span style={{textDecoration: 'underline'}}&gt;Add a message if recycling information is missing</span></strong><ul>
 <li>if "en:packaging-photo-to-be-selected" in states_tags<ul>
 <li><a href="https://github.com/openfoodfacts/openfoodfacts-androidapp/issues/3531">Add a button to take a picture of the recycling instructions · Issue #3531 · openfoodfacts/openfoodfacts-androidapp</a></li>
 </ul>
@@ -2716,7 +2716,7 @@
 <li>You can get states with <a href="https://world.openfoodfacts.org/api/v3/product/3414280980209.json?fields=environmental_score_grade,states_tags">https://world.openfoodfacts.org/api/v3/product/3414280980209.json?fields=environmental_score_grade,states_tags</a></li>
 </ul>
 </li>
-<li><strong><span style={{textDecoration: 'underline'}}>Sharing some of your code</span></strong><ul>
+<li><strong>&lt;span style={{textDecoration: 'underline'}}&gt;Sharing some of your code</span></strong><ul>
 <li>You are very welcome to implement data contribution in one of our SDKs. The more apps let their user add photos and data, the more Green-Scores we get.</li>
 </ul>
 </li>
