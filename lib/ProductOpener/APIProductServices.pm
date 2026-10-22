@@ -259,12 +259,12 @@ sub _plain_data_for_json ($value) {
 
 		my $type = reftype($value);
 		return _plain_data_for_json($$value) if $type eq 'SCALAR';
-		return [_plain_data_for_json($_) for @$value] if $type eq 'ARRAY';
+		return [map { _plain_data_for_json($_) } @$value] if $type eq 'ARRAY';
 		return {map { $_ => _plain_data_for_json($value->{$_}) } keys %$value} if $type eq 'HASH';
 		return "$value";
 	}
 
-	return [_plain_data_for_json($_) for @$value] if ref($value) eq 'ARRAY';
+	return [map { _plain_data_for_json($_) } @$value] if ref($value) eq 'ARRAY';
 	return {map { $_ => _plain_data_for_json($value->{$_}) } keys %$value} if ref($value) eq 'HASH';
 	return $value;
 }
