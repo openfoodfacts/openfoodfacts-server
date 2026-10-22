@@ -10,7 +10,7 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use URI::Escape::XS qw/uri_escape/;
 
-use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready create_user/;
+use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready remove_all_users create_user/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Auth qw/is_allowed_return_url/;
 use ProductOpener::Config qw/$server_domain/;

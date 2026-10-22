@@ -625,7 +625,8 @@ sub start_signout ($request_ref) {
 	my $redirect_url = $end_session_endpoint . '?post_logout_redirect_uri=' . uri_escape($signout_callback_uri) . (
 		# sessions opened through password_signin used to store the decoded id token (a hash ref)
 		# instead of the JWT string: in that case, identify the client with client_id instead
-		not $id_token or ref($id_token)
+		not $id_token
+			or ref($id_token)
 		? '&client_id=' . uri_escape($oidc_options{client_id})
 		: '&id_token_hint=' . uri_escape($id_token)
 		)

@@ -13,7 +13,8 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use JSON::MaybeXS;
-use ProductOpener::APITest qw/edit_product login new_client construct_test_url wait_application_ready create_user/;
+use ProductOpener::APITest
+	qw/edit_product login new_client construct_test_url wait_application_ready create_user remove_all_users/;
 use ProductOpener::Test qw/remove_all_products/;
 use ProductOpener::TestDefaults qw/%default_product_form %default_user_form/;
 

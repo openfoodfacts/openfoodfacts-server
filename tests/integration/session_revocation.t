@@ -9,7 +9,7 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 
-use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready create_user/;
+use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready create_user remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/is_stale_user_session retrieve_user_preferences remove_all_user_sessions/;
