@@ -596,6 +596,7 @@
                      "name" : "sugar"
                   }
                ],
+               "ingredients_coverage_percent" : 100,
                "packaging" : [
                   {
                      "category" : "en:cereals-and-their-products",
@@ -603,7 +604,10 @@
                      "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
                      "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
                   }
-               ]
+               ],
+               "reference_quantity" : 100,
+               "reference_quantity_source" : "product_quantity",
+               "reference_quantity_unit" : "g"
             },
             "ecobalyse_request" : {
                "data" : {
@@ -777,6 +781,9 @@
          "main_countries_tags" : [],
          "minerals_tags" : [],
          "misc_tags" : [
+            "en:ecobalyse-api-skipped",
+            "en:ecobalyse-ingredients-matched-between-90-and-100",
+            "en:ecobalyse-reference-quantity-from-product-quantity",
             "en:environmental-score-changed",
             "en:environmental-score-computed",
             "en:environmental-score-grade-changed",

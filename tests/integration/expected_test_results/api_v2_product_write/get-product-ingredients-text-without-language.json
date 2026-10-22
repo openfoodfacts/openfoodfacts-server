@@ -399,21 +399,22 @@
       "entry_dates_tags" : "--ignore--",
       "environmental_impact" : {
          "ecobalyse_input" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "ecobalyse_name" : "Viande de porc -alim. ani. 100% FR-",
                   "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
-                  "mass" : 66.6666666666667,
+                  "mass" : 166.666666666667,
                   "name" : "Pork meat"
                },
                {
                   "ecobalyse_name" : "Sel -2025-",
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 16.6666666666667,
+                  "mass" : 41.6666666666666,
                   "name" : "salt"
                }
             ],
+            "ingredients_coverage_percent" : 83,
             "packaging" : [
                {
                   "category" : "en:sausages",
@@ -421,19 +422,25 @@
                   "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
                   "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
                }
-            ]
+            ],
+            "preparation" : [
+               "refrigeration"
+            ],
+            "reference_quantity" : 250,
+            "reference_quantity_source" : "product_quantity",
+            "reference_quantity_unit" : "g"
          },
          "ecobalyse_request" : {
             "data" : {
-               "distribution" : "ambient",
+               "distribution" : "fresh",
                "ingredients" : [
                   {
                      "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
-                     "mass" : 66.6666666666667
+                     "mass" : 166.666666666667
                   },
                   {
                      "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                     "mass" : 16.6666666666667
+                     "mass" : 41.6666666666666
                   }
                ],
                "packaging" : [
@@ -441,6 +448,9 @@
                      "amount" : 1,
                      "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27"
                   }
+               ],
+               "preparation" : [
+                  "refrigeration"
                ]
             },
             "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -597,6 +607,9 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
+         "en:ecobalyse-api-skipped",
+         "en:ecobalyse-ingredients-matched-between-80-and-89",
+         "en:ecobalyse-reference-quantity-from-product-quantity",
          "en:environmental-score-not-computed",
          "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-not-computed",
@@ -619,7 +632,7 @@
          "en:packagings-empty",
          "en:packagings-not-complete",
          "en:packagings-number-of-components-0",
-         "en:storage-conditions-not-set",
+         "en:storage-conditions-set",
          "en:main-countries-new-product"
       ],
       "nova_group" : 3,
@@ -1004,6 +1017,10 @@
          "en:quantity-completed",
          "en:product-name-to-be-completed",
          "en:photos-to-be-uploaded"
+      ],
+      "storage_conditions" : "en:refrigerated",
+      "storage_conditions_tags" : [
+         "en:refrigerated"
       ],
       "traces" : "en:Moutarde, lait, en:abcd",
       "traces_hierarchy" : [

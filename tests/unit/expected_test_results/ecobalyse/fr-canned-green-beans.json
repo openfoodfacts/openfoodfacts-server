@@ -44,14 +44,11 @@
                "name" : "sel"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "en:canned-foods",
-               "id" : "1686b240-6292-4eae-ad10-0525404cbb10",
-               "name" : "Chestnut cream or canned, 370g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Pot en verre pour crème de marrons - 370g - Proxy"
-            }
-         ],
+         "ingredients_coverage_percent" : 100,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g",
          "transform" : {
             "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
             "mass" : 100,
@@ -76,12 +73,6 @@
                   "mass" : 16.6666666666667
                }
             ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "1686b240-6292-4eae-ad10-0525404cbb10"
-               }
-            ],
             "transform" : {
                "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
                "mass" : 100
@@ -93,12 +84,12 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 0.236318
+                  "ecs" : 0.236433
                },
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 4.41124
+                     "ecs" : 1.33616
                   },
                   "road" : 0,
                   "roadCooled" : 600,
@@ -107,10 +98,10 @@
                }
             },
             "packaging" : {
-               "ecs" : 17.23
+               "ecs" : 0
             },
             "perKg" : {
-               "ecs" : 396.583
+               "ecs" : 179.054
             },
             "preparation" : {
                "ecs" : 0
@@ -121,7 +112,7 @@
                   "ecs" : 4.99427
                },
                "total" : {
-                  "ecs" : 15.1369
+                  "ecs" : 15.1391
                },
                "totalBonusImpact" : {
                   "cropDiversity" : 0,
@@ -135,7 +126,7 @@
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 8.18863
+                     "ecs" : 8.19084
                   },
                   "road" : 3320,
                   "roadCooled" : 2660,
@@ -144,20 +135,20 @@
                }
             },
             "scoring" : {
-               "all" : 396.583,
-               "biodiversity" : 156.772,
-               "climate" : 110.891,
-               "health" : 47.5736,
-               "resources" : 81.4145
+               "all" : 179.054,
+               "biodiversity" : 78.7886,
+               "climate" : 39.3557,
+               "health" : 21.7735,
+               "resources" : 39.1387
             },
             "total" : {
-               "ecs" : 37.0145
+               "ecs" : 16.7117
             },
-            "totalMass" : 0.308133,
+            "totalMass" : 0.0933333,
             "transports" : {
                "air" : 0,
                "impacts" : {
-                  "ecs" : 12.5999
+                  "ecs" : 9.527
                },
                "road" : 3320,
                "roadCooled" : 3260,
@@ -166,7 +157,8 @@
             }
          }
       },
-      "ecs" : 37.0145
+      "ecs_per" : "100g",
+      "ecs_per_100g_or_100ml" : 16.7117
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
@@ -248,7 +240,11 @@
    "known_ingredients_n" : 3,
    "lc" : "fr",
    "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
    ],
    "testid" : "fr-canned-green-beans",
    "unknown_ingredients_n" : 0

@@ -33,7 +33,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [
             {
                "ecobalyse_name" : "Farine UE -2025-",
@@ -48,18 +48,18 @@
                "name" : "salt"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "en:sausages",
-               "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
-               "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
-               "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
-            }
-         ]
+         "ingredients_coverage_percent" : 26,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "refrigeration"
+         ],
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
@@ -70,15 +70,14 @@
                   "mass" : 12.625
                }
             ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27"
-               }
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:processed-meat",
@@ -196,6 +195,9 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-20-and-29",
+      "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"

@@ -37,7 +37,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [
             {
                "ecobalyse_name" : "Soja Origine Inconnue",
@@ -58,18 +58,17 @@
                "name" : "salt"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 100,
+         "preparation" : [
+            "refrigeration"
+         ],
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
@@ -84,11 +83,8 @@
                   "mass" : 1
                }
             ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
-               }
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -215,6 +211,9 @@
       "en:nutrition-fruits-vegetables-legumes-from-category-xx-tofu",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-not-computed",
       "en:nutrition-data-per-100g"
    ],

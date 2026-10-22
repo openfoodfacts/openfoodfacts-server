@@ -14,36 +14,32 @@
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 44.85,
+               "mass" : 179.4,
                "name" : "Sucre"
             },
             {
                "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
                "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-               "mass" : 24.55,
+               "mass" : 98.2,
                "name" : "huile de palme"
             },
             {
                "ecobalyse_name" : "Noisette, décortiquée Origine Inconnue",
                "id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7",
-               "mass" : 13,
+               "mass" : 52,
                "name" : "NOISETTES"
             },
             {
                "ecobalyse_name" : "Poudre de lait écrémé FR -2025-",
                "id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
-               "mass" : 10.2,
+               "mass" : 40.8,
                "name" : "LAIT écrémé en poudre"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 92,
+         "reference_quantity" : 400,
+         "reference_quantity_source" : "product_quantity",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -51,25 +47,19 @@
             "ingredients" : [
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 44.85
+                  "mass" : 179.4
                },
                {
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 24.55
+                  "mass" : 98.2
                },
                {
                   "id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7",
-                  "mass" : 13
+                  "mass" : 52
                },
                {
                   "id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
-                  "mass" : 10.2
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+                  "mass" : 40.8
                }
             ]
          },
@@ -79,12 +69,12 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 0.234461
+                  "ecs" : 0.9383
                },
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 10.0969
+                     "ecs" : 3.44472
                   },
                   "road" : 600,
                   "roadCooled" : 0,
@@ -93,27 +83,27 @@
                }
             },
             "packaging" : {
-               "ecs" : 79.89
+               "ecs" : 0
             },
             "perKg" : {
-               "ecs" : 1813.75
+               "ecs" : 851.385
             },
             "preparation" : {
                "ecs" : 0
             },
-            "preparedMass" : 0.0926,
+            "preparedMass" : 0.3704,
             "recipe" : {
                "ingredientsTotal" : {
-                  "ecs" : 72.3096
+                  "ecs" : 289.239
                },
                "total" : {
-                  "ecs" : 77.7319
+                  "ecs" : 310.97
                },
                "totalBonusImpact" : {
                   "cropDiversity" : 0,
-                  "hedges" : -0.011975,
+                  "hedges" : -0.0478998,
                   "permanentPasture" : 0,
-                  "plotSize" : -0.0362388
+                  "plotSize" : -0.144955
                },
                "transform" : {
                   "ecs" : 0
@@ -121,7 +111,7 @@
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 5.4223
+                     "ecs" : 21.7313
                   },
                   "road" : 8640,
                   "roadCooled" : 0,
@@ -130,20 +120,20 @@
                }
             },
             "scoring" : {
-               "all" : 1813.75,
-               "biodiversity" : 933.53,
-               "climate" : 411.256,
-               "health" : 178.619,
-               "resources" : 290.794
+               "all" : 851.385,
+               "biodiversity" : 574.985,
+               "climate" : 106.735,
+               "health" : 62.2283,
+               "resources" : 108.022
             },
             "total" : {
-               "ecs" : 167.953
+               "ecs" : 315.353
             },
-            "totalMass" : 1.0885,
+            "totalMass" : 0.3704,
             "transports" : {
                "air" : 0,
                "impacts" : {
-                  "ecs" : 15.5192
+                  "ecs" : 25.176
                },
                "road" : 9240,
                "roadCooled" : 0,
@@ -152,7 +142,9 @@
             }
          }
       },
-      "ecs" : 167.953
+      "ecs_per" : "100g",
+      "ecs_per_100g_or_100ml" : 78.83825,
+      "ecs_per_product" : 315.353
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
@@ -283,8 +275,14 @@
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener"
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-reference-quantity-from-product-quantity",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
    ],
+   "product_quantity" : 400,
+   "product_quantity_unit" : "g",
    "quantity" : "400g",
    "testid" : "fr-pate-aux-noisettes",
    "unknown_ingredients_n" : 0
