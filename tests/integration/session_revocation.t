@@ -9,13 +9,20 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 
-use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready/;
+use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready create_user/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/is_stale_user_session retrieve_user_preferences remove_all_user_sessions/;
 
 # Note: the "tests" user is created in the test environment, we log in as that user. The test must
 # not call remove_all_users(), or it would remove the user it needs.
 wait_application_ready(__FILE__);
+remove_all_users();
+
+my $ua = new_client();
+
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+create_user($ua, \%create_user_args);
 
 my $test_user_id = "tests";
 my $test_user_password = 'testtest';
