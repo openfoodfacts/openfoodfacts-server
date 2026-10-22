@@ -1700,4 +1700,34 @@ is(
 	'amino acids from the amino_acids taxonomy are recognized as ingredients'
 );
 
+# Real taxonomy: conjunctions must survive origin extraction and trailing quantities.
+for my $case (
+	['en', 'milk and cream', ['en:milk', 'en:cream']],
+	['en', 'French milk and cream', ['en:milk', 'en:cream']],
+	['en', 'French lactic acid and cultures', ['en:e270', 'en:microbial-culture']],
+	['fr', 'sucre et caramel', ['en:sugar', 'en:e150']],
+	['fr', 'viandes et sous-produits animaux 95% (dont poulet 4%)', ['en:meat-and-animal-derivatives']],
+	['fr', 'oeufs, et graines de sésame', ['en:egg', 'en:sesame-seeds']],
+	)
+{
+	my ($lc, $text, $ids) = @$case;
+	my $product = {lc => $lc, ingredients_text => $text, product_type => 'food'};
+	extract_ingredients_from_text($product);
+	is([map {$_->{id}} @{$product->{ingredients}}], $ids, "real taxonomy conjunction: $text");
+}
+
+my $compound_percent = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text => 'viandes et sous-produits animaux 95% (dont poulet 4%)'
+};
+ProductOpener::Ingredients::parse_ingredients_text_service($compound_percent, {}, []);
+is($compound_percent->{ingredients}[0]{percent}, 95, 'real compound keeps its percentage');
+is($compound_percent->{ingredients}[0]{ingredients}[0]{percent}, 4, 'real compound keeps its child percentage');
+
+my $stray_conjunction = {lc => 'fr', ingredients_text => 'oeufs, et graines de sésame'};
+extract_ingredients_from_text($stray_conjunction);
+ProductOpener::Ingredients::detect_allergens_from_text($stray_conjunction);
+is($stray_conjunction->{allergens_tags}, ['en:eggs', 'en:sesame-seeds'], 'stray conjunction keeps both allergens');
+
 done_testing();
