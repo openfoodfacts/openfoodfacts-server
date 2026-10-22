@@ -29,7 +29,7 @@ my $response = $ua->get($url);
 is($response->{_rc}, 200, "Status ok on creation");
 
 #checking whether the preference were well saved
-my @words = ('bob@example.com', $default_user_form{userid}, $default_user_form{name});
+my @words = ($default_user_form{userid}, $default_user_form{name});
 
 foreach my $word (@words) {
 	like($response->content, qr/\Q$word\E/i, "the word $word is in the page")
@@ -41,10 +41,10 @@ my $user = retrieve_user($default_user_form{userid});
 is($user->{email}, 'bob@example.com', "User sto created");
 
 # try creating a spam user in a new browser
-# it should be denied
+# the user should not be created, but we pretend it was
 $ua = new_client();
 my $testnum = 1;
-foreach my $args_ref (["name", "click http://test.com"], ["faxnumber", "0"]) {
+foreach my $args_ref (["name", "click http://test.com"], ["faxnumber", "0"], ["newsletter", "1"]) {
 	my ($arg_name, $arg_value) = @$args_ref;
 	my $userid = "bob$testnum";
 	my %create_user_args
@@ -52,11 +52,14 @@ foreach my $args_ref (["name", "click http://test.com"], ["faxnumber", "0"]) {
 	my $logid = tail_log_start("$BASE_DIRS{LOGS}/user_spam.log");
 	# Note this intentionally uses the legacy API to test for Spam.
 	# Need to decide whether this test is needed when this is deprecated for Keycloak
-	$response = create_user_legacy($ua, \%create_user_args);
+	# Post directly: create_user_legacy() would wait for the welcome email job, that is never created
+	$response = $ua->post(construct_test_url("/cgi/user.pl", "world"), Content => \%create_user_args);
 	my $logged = tail_log_read($logid);
-	like($response->content, qr/class="error_page"/, "Error in the page - $testnum");
-	# user in spam log
-	like($logged, qr/\b$userid\b/, "Error in spam log - $testnum");
+	is($response->{_rc}, 200, "Status ok - $testnum");
+	unlike($response->content, qr/class="error_page"/, "No error in the page - $testnum");
+	like($response->content, qr/<!-- loggedin-->/, "Fake success page - $testnum");
+	# user in spam log, with the reason
+	like($logged, qr/\b$userid\b.*\t$arg_name$/m, "In spam log - $testnum");
 	is(retrieve_user($userid), undef, "User not created - $testnum");
 	$testnum++;
 }
@@ -69,5 +72,23 @@ create_user($ua, \%create_user_args);
 $user = retrieve_user('bobnocountry');
 is($user->{email}, 'bobnocountry@example.com', "User created");
 is($user->{country}, "", "User created with no country");
+
+# Check legacy method sets locale and country from domain. This is how the Dart SDK currently does it
+my $userid = "bobchit";
+%create_user_args = (
+	userid => $userid,
+	name => $userid,
+	email => "$userid\@example.com",
+	password => 'testtest',
+	confirm_password => 'testtest',
+	action => 'process',
+	type => 'add'
+);
+# Note prefix here needs to be included in dev.yml extra_hosts
+create_user_legacy($ua, \%create_user_args, 0, 'ch-it');
+$user = retrieve_user($userid);
+is($user->{email}, "$userid\@example.com", "Legacy user created");
+is($user->{preferred_language}, "it", "Language set to Italian");
+is($user->{country}, "en:switzerland", "Country set to Switzerland");
 
 done_testing();

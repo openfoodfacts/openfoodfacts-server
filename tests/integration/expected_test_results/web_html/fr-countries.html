@@ -14,10 +14,10 @@
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="Une base de données collaborative, gratuite, libre et ouverte d'ingrédients, de valeurs nutritionnelles et d'informations sur les produits alimentaires du monde entier">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
+    <link rel="manifest" href="/cgi/manifest.pl">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
-<link rel="manifest" href="/images/favicon/off/site.webmanifest">
 <link rel="mask-icon" href="/images/favicon/off/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/images/favicon/off/favicon.ico">
 <meta name="msapplication-TileColor" content="#00aba9">
@@ -34,6 +34,7 @@
     {
         "imports": {
             "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+			"cropperjs": "//static.openfoodfacts.localhost/js/dist/cropper.esm.js",
             "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
             "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
             "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
@@ -69,6 +70,15 @@
 </head>
 <body class="list_of_tags_page">
 
+	
+	<!-- Same slots and values as the app's first three Matomo dimensions: language, country, logged in -->
+	<script>
+		var _paq = window._paq = window._paq || [];
+		_paq.push(['setCustomDimension', 1, 'fr']);
+		_paq.push(['setCustomDimension', 2, 'fr']);
+		_paq.push(['setCustomDimension', 3, 'N']);
+	</script>
+	
 	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -78,6 +88,7 @@
   _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -161,7 +172,7 @@
 									<li class="divider"></li>
 									<li><label>Ajouter des produits</label></li>
                 <!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
-									<li><a href="/application-mobile-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_fr">Installez l'application pour ajouter des produits</a></li>
+									<li><a href="/application-mobile-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_fr">Installez l'application pour ajouter des produits</a></li>
 									<li><a href="/cgi/product.pl?type=search_or_add&action=display">Ajouter un produit</a></li>
 								
 
@@ -186,7 +197,7 @@
 									</select>
 								</li>
 								<li class="has-dropdown">
-									<a href="//fr.openfoodfacts.localhost/">Français</a>
+									<a href="//fr.openfoodfacts.localhost/">français</a>
 
 									<ul class="dropdown">
 										<li><a href="//fr-en.openfoodfacts.localhost/">English</a></li>
@@ -272,7 +283,7 @@
 						<li><a href="/decouvrir" class="top-bar-links">Découvrir</a></li>
 						<li><a href="/contribuer" class="top-bar-links">Contribuer</a></li>
 						<li class="show-for-xlarge-up"><a href="//fr.pro.openfoodfacts.org/" class="top-bar-links">Producteurs</a></li>
-						<li class="flex-grid getapp"><a href="/application-mobile-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=search_and_links_promo_fr" class="buttonbar button" style="top:0;"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2 20h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z"/><path d="M0 0h24v24H0z" fill="none"/></svg> <span class="bt-text">Installer l'app</span></a></li>
+						<li class="flex-grid getapp"><a href="/application-mobile-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=search_and_links_promo_fr" class="buttonbar button" style="top:0;"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2 20h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z"/><path d="M0 0h24v24H0z" fill="none"/></svg> <span class="bt-text">Installer l'app</span></a></li>
 				<!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
           </ul>
 					</section>
@@ -332,84 +343,30 @@
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
+<!-- Donation banner TOP END -->
+<!-- Donation banner @ footer start-->
 
-<!-- Donation banner @ footer -->
-
-
+<!-- Donation banner @ footer end-->
 <!-- end templates/web/common/includes/donate_banner.tt.html -->
 
 								
 
 
 
-<section id="donation-banner-top" class="donation-banner row">
-
-  <div class="donation-banner__left-aside">
-    <div class="donation-banner__hook-section">
-      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
-  </div>
-  <div>
-    <div class="donation-banner__aside">
-      <div class="donation-banner__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2026</h3>
-      </div>
-      <div style="padding:1rem;">
-        <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
-        <ul>
-          <li>
-            garder notre base de données ouverte et accessible à tous,
-            <ul>
-              <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
-            </ul>
-          </li>
-          <li>
-            <p>rester indépendant de l'industrie alimentaire,</p>
-          </li>
-          <li>
-            <p>mobiliser une communauté de citoyens engagés,</p>
-          </li>
-          <li>
-            <p>soutenir l’avancement de la recherche en santé publique.</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="donation-banner__actions-section">
-      <div class="donation-banner__actions-section__financial">
-        <p>
-          
-          (déductible à 66 % de vos impôts: ex. un don de 20€ vous reviendra à 6,80€)
-          
-        </p>
-      </div>
-      <div class="donation-banner__actions-section__donate-button">
-        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
-          <button>JE SOUTIENS</button>
-        </a>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="donation-banner__close">
+<!-- Donation banner TOP start -->
+<section id="donation-banner-top" style="position: relative;">
+  <donation-banner donate-url="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
+  <div class="donation-banner__close" style="position: absolute; top: 0.3rem; right: 0.3rem; z-index: 2;">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
 </section>
 
 <script>
-  let d = new Date();
   let bannerID = document.getElementById('donation-banner-top');
   let getDomain = window.location.origin.split('.');
 
   function setBannerCookie(bcname, bcval, bcexdays) {
+    const d = new Date();
     d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
     let expires = 'expires=' + d.toUTCString();
     // Apply cookie for every domain contains open...facts
@@ -435,12 +392,174 @@
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('donation_march_2026') !== '') {
-    bannerID.style.display = 'none';
+  const crawler = false;
+  let arm = getBannerCookie('donation_arm');
+  if (crawler) {
+    arm = 'old';
   } else {
-    bannerID.style.display = 'flex';
+    if (arm !== 'old' && arm !== 'new') {
+      arm = Math.random() < 0.5 ? 'old' : 'new';
+    }
+    setBannerCookie('donation_arm', arm, 30);
   }
+
+  const optedOut = ['donation_dismiss', 'donation_done'].some((name) => getBannerCookie(name) !== '');
+  // the classic close (donation_march_2026) only ever hid the top banner, so the old arm keeps the footer
+  const gone = optedOut || getBannerCookie('donation_march_2026') !== '';
+  const closeButton = bannerID.querySelector('.donation-banner__close');
+  if (arm === 'new') {
+    bannerID.style.display = 'none';
+    closeButton.style.display = 'none';
+  } else {
+    bannerID.style.display = gone ? 'none' : 'block';
+  }
+
+  function track(action, name) {
+    if (typeof trackMatomoEvent === 'function') {
+      trackMatomoEvent('donation', action, name);
+    }
+  }
+
+  function removeBanners() {
+    bannerID.remove();
+    document.getElementById('donation-banner-footer').remove();
+  }
+
+  function showClassic() {
+    const footer = document.getElementById('donation-banner-footer');
+    footer.style.display = '';
+    bannerID.querySelector('donation-banner').setAttribute('utm-content', 'top:classic:old');
+    footer.setAttribute('utm-content', 'footer:classic:old');
+  }
+
+  function mount(el, variant, name, id) {
+    el.setAttribute('variant', variant);
+    el.setAttribute('news-id', id);
+    el.setAttribute('amounts', '3,5,10');
+    el.setAttribute('country', 'fr');
+    el.setAttribute('utm-content', name);
+    el.style.display = '';
+  }
+
+  function showTop(variant, name, id) {
+    mount(bannerID.querySelector('donation-banner'), variant, name, id);
+    bannerID.style.display = 'block';
+    track('banner_shown', name);
+  }
+
+  function parseFeedDate(value) {
+    return new Date(String(value).replace(' ', 'T'));
+  }
+
+  function covers(item, now) {
+    return Boolean(item) && parseFeedDate(item.start_date) <= now && now <= parseFeedDate(item.end_date);
+  }
+
+  async function feedPhase() {
+    try {
+      const response = await fetch('/data/tagline/web/main.json');
+      if (!response.ok) {
+        return null;
+      }
+      const news = (await response.json()).news || {};
+      const now = new Date();
+      for (const kind of ['banner', 'quiet']) {
+        for (const year of [now.getFullYear(), now.getFullYear() - 1]) {
+          const id = 'donation_' + kind + '_' + year;
+          if (covers(news[id], now)) {
+            return { kind, id };
+          }
+        }
+      }
+    } catch {
+      return null;
+    }
+
+    return null;
+  }
+
+  function whenEngaged(open) {
+    let timer;
+    function fire(trigger) {
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(timer);
+      open(trigger);
+    }
+    function onScroll() {
+      if (window.scrollY >= window.innerHeight) {
+        fire('scroll');
+      }
+    }
+    function wait() {
+      timer = setTimeout(() => (document.hidden ? wait() : fire('dwell')), 15000);
+    }
+    setTimeout(() => {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }, 10000);
+    wait();
+  }
+
+  function sheetOrBar(id) {
+    const sheets = parseInt(getBannerCookie('donation_sheet_n'), 10) || 0;
+    const bars = parseInt(getBannerCookie('donation_bar_n'), 10) || 0;
+    if (getBannerCookie('donation_sheet') === '' && sheets < 3) {
+      whenEngaged(function (trigger) {
+        if (!bannerID.isConnected) {
+          return;
+        }
+        setBannerCookie('donation_sheet', 1, 7);
+        setBannerCookie('donation_sheet_n', sheets + 1, 30);
+        showTop('sheet', 'top:sheet:new:' + trigger, id);
+      });
+    } else if (bars < 10) {
+      setBannerCookie('donation_bar_n', bars + 1, 30);
+      showTop('bar', 'top:bar:new', id);
+    } else {
+      bannerID.remove();
+    }
+  }
+
+  document.addEventListener('donation-banner-state', function (event) {
+    const action = event.detail.action;
+    if (action === 'dismiss') {
+      setBannerCookie('donation_dismiss', 1, 30);
+      removeBanners();
+    } else if (action === 'already-donated') {
+      setBannerCookie('donation_done', 1, 365);
+      removeBanners();
+    } else if (action === 'minimize') {
+      bannerID.remove();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', async function () {
+    if (arm === 'old' && !optedOut) {
+      showClassic();
+    } else if (gone) {
+      removeBanners();
+    } else {
+      const phase = await feedPhase();
+      if (phase === null) {
+        showClassic();
+        bannerID.style.display = 'block';
+        closeButton.style.display = '';
+        track('banner_shown', 'top');
+      } else {
+        mount(document.getElementById('donation-banner-footer'), 'strip', 'footer:strip:new', phase.id);
+        if (phase.kind === 'quiet') {
+          showTop('strip', 'top:strip:new', phase.id);
+        } else if (Foundation.utils.is_small_only()) {
+          sheetOrBar(phase.id);
+        } else {
+          showTop('campaign', 'top:campaign:new', phase.id);
+        }
+      }
+    }
+  });
 </script>
+
+
 
 
 							
@@ -482,27 +601,27 @@
 
 <script type="module">
   import { displayWorldMap } from '//static.openfoodfacts.localhost/js/dist/display-list-of-tags.js';
-  displayWorldMap('#world-map', {"data":{"BE":1,"CH":1,"DE":5,"ES":1,"FR":7,"GB":4,"IT":2},"links":{"BE":"/facets/pays/belgique","CH":"/facets/pays/suisse","DE":"/facets/pays/allemagne","ES":"/facets/pays/espagne","FR":"/facets/pays/france","GB":"/facets/pays/royaume-uni","IT":"/facets/pays/italie"},"names":{"BE":"Belgique","CH":"Suisse","DE":"Allemagne","ES":"Espagne","FR":"France","GB":"Royaume-Uni","IT":"Italie"}});
+  displayWorldMap('#world-map', {"data":{"BE":1,"CH":1,"DE":5,"ES":1,"FR":7,"GB":4,"IT":2},"links":{"BE":"/facets/pays/Belgique","CH":"/facets/pays/Suisse","DE":"/facets/pays/Allemagne","ES":"/facets/pays/Espagne","FR":"/facets/pays/France","GB":"/facets/pays/Royaume-Uni","IT":"/facets/pays/Italie"},"names":{"BE":"Belgique","CH":"Suisse","DE":"Allemagne","ES":"Espagne","FR":"France","GB":"Royaume-Uni","IT":"Italie"}});
 </script>
 
 <!-- end templates/web/pages/countries_map/map_of_countries.tt.html -->
 <p>7 pays :</p><div style="max-width:600px;"><table id="tagstable">
 <thead><tr><th>Pays</th><th>Produits</th><th>*</th></tr></thead>
 <tbody>
-<tr><td><a href="/facets/pays/france" class="tag known">France</a></td>
-<td style="text-align:right"><a href="/facets/pays/france" class="tag known">7</a></td><td></td></tr>
-<tr><td><a href="/facets/pays/allemagne" class="tag known">Allemagne</a></td>
-<td style="text-align:right"><a href="/facets/pays/allemagne" class="tag known">5</a></td><td></td></tr>
-<tr><td><a href="/facets/pays/royaume-uni" class="tag known">Royaume-Uni</a></td>
-<td style="text-align:right"><a href="/facets/pays/royaume-uni" class="tag known">4</a></td><td></td></tr>
-<tr><td><a href="/facets/pays/italie" class="tag known">Italie</a></td>
-<td style="text-align:right"><a href="/facets/pays/italie" class="tag known">2</a></td><td></td></tr>
-<tr><td><a href="/facets/pays/belgique" class="tag known">Belgique</a></td>
-<td style="text-align:right"><a href="/facets/pays/belgique" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/facets/pays/espagne" class="tag known">Espagne</a></td>
-<td style="text-align:right"><a href="/facets/pays/espagne" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/facets/pays/suisse" class="tag known">Suisse</a></td>
-<td style="text-align:right"><a href="/facets/pays/suisse" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/pays/France" class="tag known">France</a></td>
+<td style="text-align:right"><a href="/facets/pays/France" class="tag known">7</a></td><td></td></tr>
+<tr><td><a href="/facets/pays/Allemagne" class="tag known">Allemagne</a></td>
+<td style="text-align:right"><a href="/facets/pays/Allemagne" class="tag known">5</a></td><td></td></tr>
+<tr><td><a href="/facets/pays/Royaume-Uni" class="tag known">Royaume-Uni</a></td>
+<td style="text-align:right"><a href="/facets/pays/Royaume-Uni" class="tag known">4</a></td><td></td></tr>
+<tr><td><a href="/facets/pays/Italie" class="tag known">Italie</a></td>
+<td style="text-align:right"><a href="/facets/pays/Italie" class="tag known">2</a></td><td></td></tr>
+<tr><td><a href="/facets/pays/Belgique" class="tag known">Belgique</a></td>
+<td style="text-align:right"><a href="/facets/pays/Belgique" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/pays/Espagne" class="tag known">Espagne</a></td>
+<td style="text-align:right"><a href="/facets/pays/Espagne" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/pays/Suisse" class="tag known">Suisse</a></td>
+<td style="text-align:right"><a href="/facets/pays/Suisse" class="tag known">1</a></td><td></td></tr>
 </tbody></table></div>
 								</div>
 							</div>
@@ -530,15 +649,15 @@
 						<div class="row">
 							<div class="small-12 medium-12 large-12 v-space-normal column badge-container">
 								<!-- android_app_link - //play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
-								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web&utm_campaign=install_the_app_android_footer_fr"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Disponible sur Google Play" loading="lazy" height="40" width="120"></a>
+								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utm_medium=web&utm_campaign=install_the_app_android_footer_fr"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_French.svg" alt="Disponible sur Google Play" loading="lazy" height="40" width="120"></a>
 
-								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-en.svg" alt="Disponible sur F-Droid" loading="lazy" height="40" width="120"></a>
+								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-fr.svg" alt="Disponible sur F-Droid" loading="lazy" height="40" width="120"></a>
 
 								<!-- android_apk_app_link - //world.openfoodfacts.org/images/apps/off.apk -->
-								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_fr"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="APK Android" loading="lazy" height="40" width="120"></a>
+								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utm_medium=web&utm_campaign=install_the_app_apk_footer_fr"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="APK Android" loading="lazy" height="40" width="120"></a>
 
 								<!-- msgid "//apps.apple.com/app/open-beauty-facts/id1122926380" -->
-								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web&utm_campaign=install_the_app_ios_footer_fr"><img src="/images/misc/appstore/black/appstore_FR.svg" alt="Disponible sur l'App Store"  loading="lazy" height="40" width="120"></a>
+								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utm_medium=web&utm_campaign=install_the_app_ios_footer_fr"><img src="/images/misc/appstore/black/appstore_FR.svg" alt="Disponible sur l'App Store"  loading="lazy" height="40" width="120"></a>
 							</div>
 						</div>
 					</div>
@@ -549,65 +668,15 @@
       			<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
+<!-- Donation banner TOP END -->
+<!-- Donation banner @ footer start-->
 
-<!-- Donation banner @ footer -->
-
-
+<!-- Donation banner @ footer end-->
 <!-- end templates/web/common/includes/donate_banner.tt.html -->
 
 				
 
-<section class="donation-banner-footer row">
-  <div class="donation-banner-footer__left-aside">
-    <div class="donation-banner-footer__hook-section">
-      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
-    </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
-  </div>
-  <div>
-    <div>
-      <div class="donation-banner-footer__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2026</h3>
-      </div>
-      <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
-      <ul>
-        <li>
-          garder notre base de données ouverte et accessible à tous,
-          <ul>
-            <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
-          </ul>
-        </li>
-        <li>
-          <p>rester indépendant de l'industrie alimentaire,</p>
-        </li>
-        <li>
-          <p>mobiliser une communauté de citoyens engagés,</p>
-        </li>
-        <li>
-          <p>soutenir l’avancement de la recherche en santé publique.</p>
-        </li>
-      </ul>
-    </div>
-    <div class="donation-banner-footer__actions-section">
-      <div class="donation-banner-footer__actions-section__financial">
-        <p>
-          Chaque don compte ! Nous apprécions votre soutien pour une plus grande transparence alimentaire dans le monde.
-        </p>
-      </div>
-      <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
-          <button>JE SOUTIENS</button>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<donation-banner id="donation-banner-footer" style="display: none;" donate-url="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
 
 
 			
@@ -620,8 +689,8 @@
 						<p>Rejoignez-nous sur <a href="//slack.openfoodfacts.org">Slack</a></p>
 						<p><a href="//forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">Suivez-nous : 
-							<a href="//x.com/OpenFoodFactsfr"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="x"></a>
-							<a href="//www.facebook.com/OpenFoodFacts.fr"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
+							<a href="//x.com/OpenFoodFactsfr"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="X formerly Twitter"></a>
+							<a href="//www.facebook.com/OpenFoodFacts.fr"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook icon"></a>
 							<a href="//www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
 							
 						</p>
@@ -632,13 +701,17 @@
 						<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
 							<li><a class="button small white-button radius" href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
 							<li><a class="button small white-button radius" href="/open-food-facts-vision-mission-values-and-programs">Vision, mission, valeurs et programmes</a></li>
-							<li><a class="button small white-button radius" href="//support.openfoodfacts.org/help/fr-fr">Questions fréquentes</a></li>
+							<li><a class="button small white-button radius" href="/faq">Questions fréquentes</a></li>
 							<li><a class="button small white-button radius" href="//blog.openfoodfacts.org/fr/">Le blog d'Open Food Facts</a></li>
 							<li><a class="button small white-button radius" href="/presse">Presse</a></li>
 							<li><a class="button small white-button radius" href="//fr.wiki.openfoodfacts.org">Open Food Facts wiki (fr)</a></li>
 							<li><a class="button small white-button radius" href="/cgi/top_translators.pl">Traducteurs</a></li>
 							<li><a class="button small white-button radius" href="/partenaires">Partenaires</a></li>
+              <li><a class="button small white-button radius" href="/data">Données, API et SDK</a></li>
 							<li><a class="button small white-button radius" href="//world-fr.openbeautyfacts.org">Open Beauty Facts - Cosmétiques</a></li>
+              <li><a class="button small white-button radius" href="//world.openproductsfacts.org">Open Products Facts</a></li>
+              <li><a class="button small white-button radius" href="//world.openpetfoodfacts.org">Open Pet Food Facts</a></li>
+              <li><a class="button small white-button radius" href="//prices.openfoodfacts.org/">Open Prices</a></li>
 							<li><a class="button small white-button radius" href="//fr.pro.openfoodfacts.localhost/">Open Food Facts pour les producteurs</a></li>
 						</ul>
 					</div>
@@ -661,8 +734,7 @@
 									<li><a href="/mentions-legales">Mentions légales</a></li>
 									<li><a href="/privacy">Confidentialité</a></li>
 									<li><a href="/conditions-d-utilisation">Conditions d'utilisation</a></li>
-									<li><a href="/data">Données, API et SDK</a></li>
-									<li><a href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Faire un don à l'association Open Food Facts</a></li>
+									<li><a href="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts">Faire un don à l'association Open Food Facts</a></li>
 									<li><a href="//fr.pro.openfoodfacts.org/">Producteurs</a></li>
 									<li><a href="//link.openfoodfacts.org/newsletter-fr">S'abonner à notre newsletter</a></li>
 								</ul>
@@ -703,11 +775,8 @@ let oTable = $('#tagstable').DataTable({
 	]
 });
 
-
 });
 </script>
-
-
 
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
