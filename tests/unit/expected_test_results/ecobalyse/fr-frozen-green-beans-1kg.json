@@ -35,7 +35,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "frozen",
          "ingredients" : [
             {
                "ecobalyse_name" : "Haricots verts Origine Inconnue",
@@ -53,13 +53,16 @@
                "name_fr" : "Etui en carton et barquette en plastique (PP) pour légumes, surgelés - 500g"
             }
          ],
+         "preparation" : [
+            "freezing"
+         ],
          "reference_quantity" : 1000,
          "reference_quantity_source" : "product_quantity",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "frozen",
             "ingredients" : [
                {
                   "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
@@ -71,6 +74,9 @@
                   "amount" : 1,
                   "id" : "3b312971-e9a3-4da1-ad35-bb37a647310a"
                }
+            ],
+            "preparation" : [
+               "freezing"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -79,7 +85,7 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 2.84847
+                  "ecs" : 10.4626
                },
                "transports" : {
                   "air" : 0,
@@ -93,13 +99,13 @@
                }
             },
             "packaging" : {
-               "ecs" : 15.15
+               "ecs" : 15.16
             },
             "perKg" : {
-               "ecs" : 232.263
+               "ecs" : 246.42
             },
             "preparation" : {
-               "ecs" : 0
+               "ecs" : 5.11736
             },
             "preparedMass" : 0.9,
             "recipe" : {
@@ -130,14 +136,14 @@
                }
             },
             "scoring" : {
-               "all" : 232.263,
-               "biodiversity" : 111.884,
-               "climate" : 54.0386,
-               "health" : 27.4969,
-               "resources" : 38.8304
+               "all" : 246.42,
+               "biodiversity" : 113.901,
+               "climate" : 55.8422,
+               "health" : 28.8503,
+               "resources" : 47.8023
             },
             "total" : {
-               "ecs" : 209.036
+               "ecs" : 221.778
             },
             "totalMass" : 0.98354,
             "transports" : {
@@ -153,8 +159,8 @@
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 20.9036,
-      "ecs_per_product" : 209.036
+      "ecs_per_100g_or_100ml" : 22.1778,
+      "ecs_per_product" : 221.778
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [

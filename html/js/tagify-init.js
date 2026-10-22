@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2025 Association Open Food Facts
+// Copyright (C) 2011-2026 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -199,11 +199,23 @@ function addTagsToRecentTags(entries) {
     const store = readRecentTags();
 
     for (const { id, maximum, tags } of entries) {
-        const history = Array.isArray(store[id]) ? store[id] : [];
-        // The newly committed tags come first, in the order they appear in the field, and the tags
-        // already in the history are kept, without duplicates. Ordering the history by most recently
-        // used is tracked in issue #15005.
-        store[id] = [...tags.filter((tag) => !history.includes(tag)), ...history].slice(0, maximum);
+        // Deduplicate the committed tags, keeping the first occurrence (field order)
+        const seen = new Set();
+        const uniqueTags = [];
+        for (const tag of tags) {
+            if (!seen.has(tag)) {
+                seen.add(tag);
+                uniqueTags.push(tag);
+            }
+        }
+        // Keep the history ordered by most recently used (issue #15005):
+        // apply the single-tag helper from last to first, so that committed tags
+        // end up first in field order and re-added tags move back to the top.
+        let history = Array.isArray(store[id]) ? store[id] : [];
+        for (let i = uniqueTags.length - 1; i >= 0; i--) {
+            history = update_tag_recents(history, uniqueTags[i], maximum);
+        }
+        store[id] = history;
     }
 
     writeRecentTags(store);
@@ -242,4 +254,27 @@ function writeRecentTags(store) {
     } catch {
         // Nothing to do if the local storage is not writable
     }
+}
+
+// Add a tag to the history of a field, and keep the history ordered by most recently used:
+// the tag is moved to the top, even if it was already in the history, and the least recently
+// used tag is dropped when the tag is not in the history yet and the history is full
+function update_tag_recents(recents_ref, tag, maximumRecentEntriesPerTag) {
+    const history = Array.isArray(recents_ref) ? recents_ref.slice() : [];
+
+    const previousIndex = history.indexOf(tag);
+    if (previousIndex >= 0) {
+        history.splice(previousIndex, 1);
+    } else if (history.length >= maximumRecentEntriesPerTag) {
+        history.pop();
+    }
+
+    history.unshift(tag);
+
+    // Drop the tags that do not fit anymore, e.g. if the maximum was lowered
+    if (history.length > maximumRecentEntriesPerTag) {
+        history.length = maximumRecentEntriesPerTag;
+    }
+
+    return history;
 }
