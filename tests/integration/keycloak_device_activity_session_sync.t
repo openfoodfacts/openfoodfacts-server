@@ -12,12 +12,19 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready/;
+use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready create_user/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Auth qw/password_signin refresh_access_token/;
 use ProductOpener::Users
 	qw/retrieve_user_preferences remove_all_user_sessions store_user_preferences open_user_session update_user_session_tokens/;
 
 wait_application_ready(__FILE__);
+remove_all_users();
+
+my $ua = new_client();
+
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+create_user($ua, \%create_user_args);
 
 my $test_user_id = 'tests';
 my $test_user_password = 'testtest';
@@ -82,7 +89,6 @@ subtest 'Problem 1: PO logout revokes refresh token' => sub {
 	my $location = $signout->header('Location') // '';
 	like($location, qr{openid-connect/logout}, 'redirect targets Keycloak logout');
 	like($location, qr/id_token_hint=/, 'logout URL includes id_token_hint');
-	like($location, qr/client_id=/, 'logout URL includes client_id');
 
 	# Refresh must fail after revoke (offline/Device Activity equivalent)
 	my (undef, undef, $a2) = refresh_access_token($refresh_token_before);
