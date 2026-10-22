@@ -456,18 +456,24 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [],
          "ingredients_coverage_percent" : 0,
          "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "refrigeration"
+         ],
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : []
+            "distribution" : "fresh",
+            "ingredients" : [],
+            "preparation" : [
+               "refrigeration"
+            ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
@@ -994,7 +1000,7 @@
       "en:packagings-empty",
       "en:packagings-not-complete",
       "en:packagings-number-of-components-0",
-      "en:storage-conditions-not-set"
+      "en:storage-conditions-set"
    ],
    "nova_group_debug" : "no nova group if too many ingredients are unknown: 2 out of 2",
    "nova_group_error" : "too_many_unknown_ingredients",
@@ -1151,6 +1157,10 @@
    "pnns_groups_2_tags" : [
       "cheese",
       "known"
+   ],
+   "storage_conditions" : "en:refrigerated",
+   "storage_conditions_tags" : [
+      "en:refrigerated"
    ],
    "tags_sources" : {
       "allergens" : {
