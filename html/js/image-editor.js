@@ -21,6 +21,7 @@
 /*global lang HTMLElement customElements CustomEvent URLSearchParams*/
 
 import Cropper from 'cropperjs';
+import { selectionAfterImageTransform } from './image-editor-selection.mjs';
 
 const ROTATE_LEFT = -90;
 const ROTATE_RIGHT = 90;
@@ -200,6 +201,25 @@ class ImageEditorComponent extends HTMLElement {
 
     const cropperImage = this.cropper.getCropperImage();
     if (cropperImage) {
+      cropperImage.addEventListener('transform', (event) => {
+        const selection = this.cropper?.getCropperSelection();
+        if (!selection || selection.hidden || selection.width <= 0 || selection.height <= 0) {
+          return;
+        }
+        const bounds = selectionAfterImageTransform(
+          selection,
+          event.detail.oldMatrix,
+          event.detail.matrix,
+          this.naturalWidth,
+          this.naturalHeight,
+        );
+        if (bounds) {
+          selection.x = bounds.x;
+          selection.y = bounds.y;
+          selection.width = bounds.width;
+          selection.height = bounds.height;
+        }
+      });
       cropperImage.$ready().then((image) => {
         // Ignore the result if a newer image has been loaded meanwhile.
         if (token !== this.loadToken) {
