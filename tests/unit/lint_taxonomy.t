@@ -6,7 +6,8 @@ use FindBin qw($Bin);
 use Encode qw(encode_utf8 decode_utf8);
 
 # load the lint script functions (the script only runs its main part when called directly)
-require "$Bin/../../scripts/taxonomies/lint_taxonomy.pl";
+# lint_taxonomy.pl is a script, not a module, so it cannot be loaded with a bareword include
+require "$Bin/../../scripts/taxonomies/lint_taxonomy.pl";    ## no critic (Modules::RequireBarewordIncludes)
 
 # lint a taxonomy given as a string, return the linted text and the list of errors / warnings
 sub lint_string ($input, $warn_missing_en = 0) {
