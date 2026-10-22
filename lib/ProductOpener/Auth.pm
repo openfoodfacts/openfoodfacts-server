@@ -602,9 +602,7 @@ sub start_signout ($request_ref) {
 		$return_url = $request_ref->{formatted_subdomain};
 	}
 
-	my $id_token = $request_ref->{id_token};
-	# id_token_hint must be the raw JWT string (not a decoded hash)
-	unless ($User_id and $id_token and not ref($id_token)) {
+	unless ($User_id) {
 		# user is not authenticated, nothing to do; sign-out is already done, redirect to home page
 		param('length', 'logout');
 		init_user($request_ref);
@@ -626,7 +624,7 @@ sub start_signout ($request_ref) {
 	my $redirect_url = $end_session_endpoint . '?post_logout_redirect_uri=' . uri_escape($signout_callback_uri) . (
 		# sessions opened through password_signin used to store the decoded id token (a hash ref)
 		# instead of the JWT string: in that case, identify the client with client_id instead
-		ref($id_token)
+		not $id_token or ref($id_token)
 		? '&client_id=' . uri_escape($oidc_options{client_id})
 		: '&id_token_hint=' . uri_escape($id_token)
 		)
