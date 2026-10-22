@@ -816,6 +816,17 @@ jobs:
         image: ${{ needs.build_backend.outputs.deps_image }}
         from_artifact: ${{ needs.build_backend.outputs.from_artifact }}
         token: ${{ secrets.GITHUB_TOKEN }}
+    # so that make dev_no_build does not rebuild it
+    - name: Download frontend image from artifacts
+      id: downloadfrontendimage
+      uses: ishworkh/container-image-artifact-download@d5e9b6d62ef3f9762f6553c8178c2d925acc0409 # v2.1.0
+      with:
+        image: "openfoodfacts-server/frontend:dev"
+        download_tmp_dir: ${{ runner.temp }}
+    - name: Remove downloaded frontend image
+      env:
+        FILE: "${{ steps.downloadfrontendimage.outputs.download_path }}"
+      run: rm $FILE
     - name: set right UID and GID in .envrc
       run: |
         rm -f .envrc
