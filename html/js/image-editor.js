@@ -143,8 +143,9 @@ class ImageEditorComponent extends HTMLElement {
       event.preventDefault();
       this.moveMode = !this.moveMode;
       const canvas = this.cropper.getCropperCanvas();
-      const canvasHandle = [...(canvas?.children || [])]
-        .find((element) => element.localName === 'cropper-handle');
+      const canvasHandle = [...(canvas?.children || [])].find(
+        (element) => element.localName === 'cropper-handle',
+      );
       setImageMoveMode(canvasHandle, this.cropper.getCropperSelection(), this.moveMode);
     });
   }
