@@ -82,6 +82,8 @@ jobs:
       run: make front_build
     - name: lint
       run: make front_lint
+    - name: Javascript unit tests
+      run: npm run test:js
     - name: Verify package-lock is the right one
       run: |
         cp package-lock.json package-lock.json.orig

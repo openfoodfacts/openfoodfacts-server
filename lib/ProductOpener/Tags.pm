@@ -1284,14 +1284,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		@tagtypes = ("countries", "origins");
 	}
 
-	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
+	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, amino acids, nucleotides and other nutritional substances taxonomies
 	elsif ( ($tagtype eq "ingredients")
 		and (defined $options{product_type})
 		and (($options{product_type} eq "food") or ($options{product_type} eq "petfood")))
 	{
 		@tagtypes = (
 			"additives_classes", "additives", "minerals", "vitamins",
-			"nucleotides", "other_nutritional_substances", "ingredients"
+			"amino_acids", "nucleotides", "other_nutritional_substances", "ingredients"
 		);
 	}
 
@@ -2881,6 +2881,9 @@ sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
 	}
 
 	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
+		# Taxonomies are loaded when Tags.pm is loaded, and then again by load_data():
+		# skip the ones that are already loaded (taxonomies that failed to load are retried)
+		next if $loaded_taxonomies{$taxonomyid};
 		$log->info("loading taxonomy $taxonomyid");
 		retrieve_tags_taxonomy($taxonomyid, $die_if_some_taxonomies_cannot_be_loaded);
 	}
@@ -5046,11 +5049,17 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 				}
 				$is_main_translation = 0;
 			}
+		}
+	}
 
-			# Add xx entries
-			if (($options_ref->{include_xx}) and ($language ne 'xx') and (defined $synonyms_regexps{"xx"})) {
-				push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
-			}
+	# Add xx entries to all other languages
+	# This needs to be done once all entries have been processed: entries are iterated in hash order,
+	# so adding xx synonyms while iterating would only add the xx synonyms of the entries processed so far.
+	# e.g. a language with only 1 translated unit would randomly miss the xx unit "g"
+	if (($options_ref->{include_xx}) and (defined $synonyms_regexps{"xx"})) {
+		foreach my $language (keys %synonyms_regexps) {
+			next if $language eq 'xx';
+			push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
 		}
 	}
 

@@ -374,7 +374,7 @@ HTML
 # improvements
 # ingredients_analysis
 # ingredients_processing:
-# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# ingredients (additives_classes, additives, minerals, vitamins, amino_acids, nucleotides, other_nutritional_substances): labels
 # labels: categories
 # languages:
 # minerals
