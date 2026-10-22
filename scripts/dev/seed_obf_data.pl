@@ -70,7 +70,8 @@ my @sample_products = (
 		product_type => "beauty",
 		brands => "Dove",
 		categories => "en:lip-balms,en:lip-care",
-		ingredients_text => "Octyldodecanol, Ricinus Communis Seed Oil, Cera Alba, Butyrospermum Parkii Butter, Tocopherol.",
+		ingredients_text =>
+			"Octyldodecanol, Ricinus Communis Seed Oil, Cera Alba, Butyrospermum Parkii Butter, Tocopherol.",
 		quantity => "4.8 g",
 		countries => "en:france",
 	},
