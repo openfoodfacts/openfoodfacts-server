@@ -69,12 +69,12 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 0.937844
+                  "ecs" : 0.9383
                },
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 3.43583
+                     "ecs" : 3.44472
                   },
                   "road" : 600,
                   "roadCooled" : 0,
@@ -86,7 +86,7 @@
                "ecs" : 0
             },
             "perKg" : {
-               "ecs" : 851.246
+               "ecs" : 851.385
             },
             "preparation" : {
                "ecs" : 0
@@ -97,7 +97,7 @@
                   "ecs" : 289.239
                },
                "total" : {
-                  "ecs" : 310.928
+                  "ecs" : 310.97
                },
                "totalBonusImpact" : {
                   "cropDiversity" : 0,
@@ -111,7 +111,7 @@
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 21.6892
+                     "ecs" : 21.7313
                   },
                   "road" : 8640,
                   "roadCooled" : 0,
@@ -120,20 +120,20 @@
                }
             },
             "scoring" : {
-               "all" : 851.246,
-               "biodiversity" : 574.798,
+               "all" : 851.385,
+               "biodiversity" : 574.985,
                "climate" : 106.735,
-               "health" : 62.2229,
-               "resources" : 108.025
+               "health" : 62.2283,
+               "resources" : 108.022
             },
             "total" : {
-               "ecs" : 315.301
+               "ecs" : 315.353
             },
             "totalMass" : 0.3704,
             "transports" : {
                "air" : 0,
                "impacts" : {
-                  "ecs" : 25.125
+                  "ecs" : 25.176
                },
                "road" : 9240,
                "roadCooled" : 0,
@@ -143,8 +143,8 @@
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 78.82525,
-      "ecs_per_product" : 315.301
+      "ecs_per_100g_or_100ml" : 78.83825,
+      "ecs_per_product" : 315.353
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
