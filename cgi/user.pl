@@ -377,7 +377,7 @@ if ($action eq 'display') {
 	{
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 		$template_data_ref->{requested_org_ref} = $requested_org_ref;
-		$template_data_ref->{org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
+		$template_data_ref->{org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref) // '');
 		$template_data_ref->{teams_flag}
 			= not((defined $server_options{private_products}) and ($server_options{private_products}));
 	}
@@ -430,7 +430,12 @@ if ($action eq 'display') {
 
 elsif ($action eq 'process') {
 
-	if (($type eq 'add') or ($type =~ /^edit/)) {
+	if ($request_ref->{is_spam}) {
+		# spam: do not create or update the user, but display the same page as if we did
+		$log->info("user form - spam, user not created or updated", {userid => $user_ref->{userid}})
+			if $log->is_info();
+	}
+	elsif (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
 	}
 	elsif (get_oidc_implementation_level() < 5 and $type eq 'delete') {
