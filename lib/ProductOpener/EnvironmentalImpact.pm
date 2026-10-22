@@ -74,13 +74,28 @@ use Encode qw(decode_utf8 encode_utf8);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Tags qw/is_a get_taxonomy_tag_level get_property/;
-use ProductOpener::ProductsTags qw/add_tag remove_tag/;
+use ProductOpener::ProductsTags qw/get_inherited_property_from_categories_tags add_tag remove_tag/;
 use File::Basename qw/dirname/;
 use Scalar::Util qw/looks_like_number/;
 use Data::DeepAccess qw(deep_exists deep_get);
 
 my $ecobalyse_version
 	= "food";    # "food" or "food2" (the Ecobalyse food2 API is newer and more complete, but not yet fully documented)
+
+# Mapping of OFF storage conditions (inherited from categories) to Ecobalyse food API distribution values
+# (Ecobalyse accepts only "ambient", "fresh" and "frozen")
+my %ecobalyse_distribution_for_storage_conditions = (
+	"en:ambient" => "ambient",
+	"en:refrigerated" => "fresh",
+	"en:frozen" => "frozen",
+);
+
+# Products that are refrigerated or frozen at the distributor are also kept in the fridge or freezer by the consumer:
+# Ecobalyse food API preparation (consumption step) values for each distribution value
+my %ecobalyse_preparation_for_distribution = (
+	"fresh" => "refrigeration",
+	"frozen" => "freezing",
+);
 
 =head1 FUNCTIONS
 
@@ -399,11 +414,23 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	}
 
 	# Add distribution
-	my $distribution = $product_ref->{storage_conditions} || "en:ambient";
-	$distribution =~ s/^[a-z]{2}://;
-	$distribution =~ s/refrigerated/fresh/;
+	# storage_conditions is set by set_storage_conditions() when the product is processed,
+	# but it may be missing when this function is called through the product services API
+	my $storage_conditions
+		= $product_ref->{storage_conditions}
+		|| (get_inherited_property_from_categories_tags($product_ref, "storage_conditions:en"))[0]
+		|| "en:ambient";
+	$storage_conditions = "en:" . $storage_conditions if $storage_conditions !~ /^[a-z]{2}:/;
+	my $distribution = $ecobalyse_distribution_for_storage_conditions{$storage_conditions} // "ambient";
 	$payload_ref->{distribution} = $distribution;
 	$product_ref->{environmental_impact}{ecobalyse_input}{distribution} = $distribution;
+
+	# Add consumer preparation (consumption step)
+	my $preparation = $ecobalyse_preparation_for_distribution{$distribution};
+	if (defined $preparation) {
+		$payload_ref->{preparation} = [$preparation];
+		$product_ref->{environmental_impact}{ecobalyse_input}{preparation} = [$preparation];
+	}
 
 	# API URL
 	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
@@ -774,20 +801,30 @@ based on the ingredients_processing properties of its categories.
 Each returned entry is a hashref with keys: id, name, name_fr, ecs, unit.
 Returns an empty list when no transformation applies.
 
+The ingredients_processing:en property of a category overrides the property of its parent categories
+(e.g. xx:sashimi has the value en:none to cancel the en:cooked value of en:meals).
+Properties of categories that are not parents of each other are combined
+(e.g. en:canned-soups is both a canned food and a meal).
+
+A transformation that includes another one (e.g. canning includes cooking) supersedes it.
+
 =cut
 
 sub get_ecobalyse_transformation_entries ($product_ref) {
 
+	my $cooking_id = 'a2836bb8-7f45-5cfa-bb00-8b38046291cf';
+	my $canning_id = 'a83c94af-6e31-5599-8022-7ae795862a99';
+
 	my %transforms = (
-		'a2836bb8-7f45-5cfa-bb00-8b38046291cf' => {
-			id => 'a2836bb8-7f45-5cfa-bb00-8b38046291cf',
+		$cooking_id => {
+			id => $cooking_id,
 			name => 'Cooking, industrial, 1kg of cooked product {FR} U',
 			name_fr => 'Cuisson',
 			ecs => 17.42,
 			unit => 'kg',
 		},
-		'a83c94af-6e31-5599-8022-7ae795862a99' => {
-			id => 'a83c94af-6e31-5599-8022-7ae795862a99',
+		$canning_id => {
+			id => $canning_id,
 			name => 'Canning fruits or vegetables, industrial, 1kg of canned product {FR} U',
 			name_fr => 'Mise en conserve',
 			ecs => 19.54,
@@ -795,12 +832,30 @@ sub get_ecobalyse_transformation_entries ($product_ref) {
 		},
 	);
 
-	my %seen = ();
-	my @entries = ();
+	# Transformations that are included in other transformations
+	my %superseded_by = ($cooking_id => [$canning_id],);
 
+	# Categories of the product that have the ingredients_processing:en property
+	my @categories_with_processing = ();
+	my %processing_for_category = ();
 	for my $category_id (@{$product_ref->{categories_tags} // []}) {
 		my $processing = get_property("categories", $category_id, "ingredients_processing:en");
 		next unless defined $processing;
+		push @categories_with_processing, $category_id;
+		$processing_for_category{$category_id} = $processing;
+	}
+
+	my %seen = ();
+	my @entries = ();
+
+	for my $category_id (@categories_with_processing) {
+		# Skip the category if a more specific category of the product overrides its property
+		next
+			if grep {($_ ne $category_id) and is_a("categories", $_, $category_id)} @categories_with_processing;
+
+		my $processing = $processing_for_category{$category_id};
+
+		# Values without an Ecobalyse transformation (e.g. en:none) do not add any transformation
 		for my $proc_id (split(/,/, $processing)) {
 			$proc_id =~ s/^\s+|\s+$//g;
 			next if $proc_id eq '';
@@ -810,6 +865,12 @@ sub get_ecobalyse_transformation_entries ($product_ref) {
 			push @entries, $transforms{$transformation_id} if exists $transforms{$transformation_id};
 		}
 	}
+
+	# Remove transformations that are included in other transformations of the product
+	@entries = grep {
+		my $entry_ref = $_;
+		not grep {$seen{$_}} @{$superseded_by{$entry_ref->{id}} // []}
+	} @entries;
 
 	return @entries;
 }

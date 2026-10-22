@@ -1420,6 +1420,12 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 		$html = $` . $';
 	}
 
+	# The index page may not have a h1 title (e.g. on Open Food Facts),
+	# in that case we still need a title for the <title> tag in the HTML head
+	if (($textid eq 'index') and (not defined $title)) {
+		$request_ref->{head_title} = $options{site_name} . ' - ' . $country_name;
+	}
+
 	# Generate a table of content
 
 	if ($html =~ /<toc>/) {
@@ -7611,6 +7617,14 @@ sub display_page ($request_ref) {
 		$canon_title = $title;
 	}
 
+	# Title for the <title> tag in the HTML head: it can be different from the h1 title displayed in the page
+	# (e.g. the index page may not have a h1 title), and it should never be empty
+	my $head_title = $canon_title;
+	if ($head_title eq '') {
+		$head_title = remove_tags_and_quote($request_ref->{head_title} // $options{site_name});
+		$canon_title = $head_title;
+	}
+
 	my $canon_description = '';
 	if (defined $description) {
 		$canon_description = remove_tags_and_quote($description);
@@ -7670,6 +7684,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{canon_url} = $canon_url;
 	$template_data_ref->{meta_description} = $meta_description;
 	$template_data_ref->{canon_title} = $canon_title;
+	$template_data_ref->{head_title} = $head_title;
 	$template_data_ref->{canon_description} = $canon_description;
 	$template_data_ref->{og_images} = $og_images;
 	$template_data_ref->{og_images2} = $og_images2;
