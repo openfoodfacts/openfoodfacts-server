@@ -33,7 +33,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [
             {
                "ecobalyse_name" : "Saumon cru UE -2025-",
@@ -56,13 +56,16 @@
          ],
          "ingredients_coverage_percent" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "refrigeration"
+         ],
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "id" : "cacf491b-5529-4e0c-af3f-75ab1d007655",
@@ -76,6 +79,9 @@
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                   "mass" : 12.625
                }
+            ],
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"

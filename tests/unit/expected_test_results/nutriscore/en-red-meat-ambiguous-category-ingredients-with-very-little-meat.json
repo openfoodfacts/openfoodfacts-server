@@ -33,7 +33,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [
             {
                "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
@@ -74,13 +74,16 @@
          ],
          "ingredients_coverage_percent" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "refrigeration"
+         ],
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
@@ -106,6 +109,9 @@
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                   "mass" : 2.02083333333333
                }
+            ],
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"

@@ -451,7 +451,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [
             {
                "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
@@ -462,18 +462,24 @@
          ],
          "ingredients_coverage_percent" : 66,
          "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "refrigeration"
+         ],
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
                   "mass" : 66.6666666666667
                }
+            ],
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -1042,7 +1048,7 @@
       "en:packagings-empty",
       "en:packagings-not-complete",
       "en:packagings-number-of-components-0",
-      "en:storage-conditions-not-set"
+      "en:storage-conditions-set"
    ],
    "nova_group" : 4,
    "nova_group_debug" : "",
@@ -1218,6 +1224,10 @@
    "pnns_groups_2_tags" : [
       "cheese",
       "known"
+   ],
+   "storage_conditions" : "en:refrigerated",
+   "storage_conditions_tags" : [
+      "en:refrigerated"
    ],
    "tags_sources" : {
       "allergens" : {

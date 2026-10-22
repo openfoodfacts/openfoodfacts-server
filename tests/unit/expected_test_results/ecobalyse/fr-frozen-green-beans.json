@@ -35,7 +35,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "frozen",
          "ingredients" : [
             {
                "ecobalyse_name" : "Haricots verts Origine Inconnue",
@@ -46,18 +46,24 @@
          ],
          "ingredients_coverage_percent" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "freezing"
+         ],
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "frozen",
             "ingredients" : [
                {
                   "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
                   "mass" : 100
                }
+            ],
+            "preparation" : [
+               "freezing"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -66,7 +72,7 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 0.284847
+                  "ecs" : 1.04626
                },
                "transports" : {
                   "air" : 0,
@@ -83,10 +89,10 @@
                "ecs" : 0
             },
             "perKg" : {
-               "ecs" : 214.101
+               "ecs" : 228.247
             },
             "preparation" : {
-               "ecs" : 0
+               "ecs" : 0.511736
             },
             "preparedMass" : 0.09,
             "recipe" : {
@@ -117,14 +123,14 @@
                }
             },
             "scoring" : {
-               "all" : 214.101,
-               "biodiversity" : 107.928,
-               "climate" : 47.0111,
-               "health" : 25.5127,
-               "resources" : 33.636
+               "all" : 228.247,
+               "biodiversity" : 109.944,
+               "climate" : 48.8116,
+               "health" : 26.866,
+               "resources" : 42.6067
             },
             "total" : {
-               "ecs" : 19.269
+               "ecs" : 20.5422
             },
             "totalMass" : 0.09,
             "transports" : {
@@ -140,7 +146,7 @@
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 19.269
+      "ecs_per_100g_or_100ml" : 20.5422
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [

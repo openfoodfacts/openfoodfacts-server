@@ -30,7 +30,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [
             {
                "ecobalyse_name" : "Viande de porc -alim. ani. 100% FR-",
@@ -59,13 +59,16 @@
          ],
          "ingredients_coverage_percent" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "refrigeration"
+         ],
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
@@ -83,6 +86,9 @@
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                   "mass" : 9
                }
+            ],
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"

@@ -1812,7 +1812,7 @@ vegetarian:en: no
 < en: animal-based rennet
 en: calf rennet
 de: Kälberlab
-es: cuajo bovino
+es: cuajo de ternera, cuajo bovino
 fi: vasikanjuoksute, naudanjuoksute, vasikkaperäinen juoksute, nautaperäinen juoksute
 fr: présure de veau, présure bovine
 hr: teleće sirilo
@@ -7569,7 +7569,7 @@ eo: Gaŭdo-fromaĝo
 es: queso gouda
 eu: Gouda gazta
 fa: پنیر گودا
-fi: goudajuusto, goudajuustoa
+fi: goudajuusto, goudajuustoa, Gouda-juusto
 fr: gouda, fromage gouda, gouda au lait de vache
 he: חאודה
 hr: gouda, gouda sir
@@ -8768,7 +8768,7 @@ ca: Ricotta
 cs: Ricotta
 cv: Рикота
 da: Ricotta
-de: Ricotta
+de: Ricotta, Ricotta-Käse
 eo: Ricotta
 es: Requesón
 et: Ricotta, Ricotta juust
@@ -9303,7 +9303,7 @@ nl: kaassmaak
 < en: cheese
 fr: préparation fromagère
 ca: preparació de formatges
-de: käsezubereitung
+de: käsezubereitung, Schmelzkäsezubereitung
 es: preparación de quesos
 
 < en: cheese
@@ -12836,6 +12836,13 @@ ifct_food_code:en: O048
 ifct_food_name:en: Pork, shoulder
 wikidata:en: Q2255700
 wikipedia:de: https://de.wikipedia.org/wiki/Schweinebug
+
+# < en: compound
+fr: pavé au poivre
+
+# < en: compound
+< en: pork meat
+fr: rosettte de lyon
 
 < en: pork shoulder
 fr: Epaule séchée de porc
@@ -22572,6 +22579,10 @@ nl: chilipepersmaak
 sv: chilipepparsmak
 
 < en: flavouring
+fr: arôme de houblon
+nl: hoparoma's
+
+< en: flavouring
 en: sweet chili pepper flavouring
 da: sød chilipeppersmag, sød chili-smag, sød chili smag
 fr: base aromatisante piment doux
@@ -22871,6 +22882,14 @@ fi: luontainen chiliaromi
 fr: arôme naturel de piment
 hr: prirodna aroma ljute papričice
 it: aroma naturale di peperoncino piccante
+
+< en: natural flavouring
+en: natural lychee flavour
+fr: arôme naturel de litchi
+
+< en: natural flavouring
+en: passion fruit flavouring
+fr: arôme naturel de fruit de la passion
 
 < en: natural flavouring
 en: natural blueberry flavouring
@@ -25938,7 +25957,7 @@ el: σιμιγδάλισκληρού σιταριού
 es: sémola de trigo duro, sémola de trigo candeal
 et: durumnisujahu, durum nisujahu
 fi: durumvehnäsuurimo
-fr: semoule de blé dur, semoule de blé dure
+fr: semoule de blé dur, semoule de blé dure, semoule de blé dur fine
 ga: seimilín cruithneachta dúraim
 hr: krupica durum pšenice, krupica od durum pšenice, krupica iz durum pšenice, durum pšenična krupica, pšenična krupica durum
 hu: durumbúzadara, durum búzadara
@@ -58618,6 +58637,7 @@ de: Rote Betesaft, Rote Bete Saft, Rote Beete Saft
 < en: red beetroot juice
 en: red beetroot juice concentrate
 de: Rote Bete-Saftkonzentrat, Rote Betesaft aus Fruchtsaftkonzentrat
+fr: jus concentré de betterave rouge
 #fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
 #nl:geconcentreerd rodebietensap
 
