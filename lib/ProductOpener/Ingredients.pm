@@ -1200,6 +1200,23 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 	return 0;
 }
 
+# Canonicalize an ingredient name, rejecting a match that exists only because the conjunction is a stopword:
+# "milk and cream" must not become "cream" unless a name of the matched entry contains the conjunction.
+# This checks that the conjunction is present, not where it is.
+sub _canonicalize_ingredient ($lc, $text) {
+	my $exists;
+	my $id = canonicalize_taxonomy_tag($lc, 'ingredients', $text, \$exists);
+	my $conjunction = $and{$lc} || ' and ';
+	if (   $exists
+		&& $text =~ /$conjunction/i
+		&& !grep {/$conjunction/i} get_taxonomy_tag_synonyms($lc, 'ingredients', $id))
+	{
+		# Same value as canonicalize_taxonomy_tag() returns for a name that is not in the taxonomy
+		$id = "$lc:$text";
+	}
+	return $id;
+}
+
 =head2 parse_processing_from_ingredient ( $ingredients_lc, $ingredient )
 
 This function extract processing method from one ingredient.
@@ -1239,23 +1256,6 @@ English first element for that ingredient (en:pear, for example)
 0 or 1
 
 =cut
-
-# A matched name must retain the conjunction that separates its ingredients.
-# shortcut: only check conjunction presence; tighten this if real lists require its exact position.
-sub _canonicalize_ingredient ($lc, $text, $exists_ref = undef) {
-	my $exists;
-	my $id = canonicalize_taxonomy_tag($lc, 'ingredients', $text, \$exists);
-	my $conjunction = $and{$lc} || ' and ';
-	if (   $exists
-		&& $text =~ /$conjunction/i
-		&& !grep {/$conjunction/i} get_taxonomy_tag_synonyms($lc, 'ingredients', $id))
-	{
-		$exists = 0;
-		$id = "$lc:$text";
-	}
-	$$exists_ref = $exists ? 1 : 0 if defined $exists_ref;
-	return $id;
-}
 
 sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 	my $ingredient_recognized = 0;
