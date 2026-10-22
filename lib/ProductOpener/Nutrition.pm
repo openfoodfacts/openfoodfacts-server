@@ -266,10 +266,9 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 			@input_sets = @input_sets_with_safe_100g_conversion;
 		}
 		else {
-			my @small_serving_sets = grep {
-				$_->{set}{per} eq "serving"
-					&& unit_to_g($_->{set}{per_quantity}, $_->{set}{per_unit}) < 5
-			} @input_sets;
+			my @small_serving_sets
+				= grep {$_->{set}{per} eq "serving" && unit_to_g($_->{set}{per_quantity}, $_->{set}{per_unit}) < 5}
+				@input_sets;
 			if (@small_serving_sets) {
 				@input_sets = @small_serving_sets;
 				$aggregated_nutrient_set_ref->{per} = "serving";
