@@ -7,10 +7,15 @@
          "ecobalyse_name" : "Tomate sous serre chauffée par défaut",
          "id" : "en:tomato",
          "is_in_taxonomy" : 1,
-         "percent" : 42.5287356321839,
-         "percent_estimate" : 42.5287356321839,
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
          "quantity" : "148 g",
          "quantity_g" : 148,
+         "quantity_reference" : {
+            "quantity_g" : 100,
+            "text" : "100g"
+         },
          "text" : "tomatoes",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -20,10 +25,15 @@
          "ecobalyse_proxy_name" : "Viande de porc -alim. ani. 100% FR-",
          "id" : "en:pork",
          "is_in_taxonomy" : 1,
-         "percent" : 57.4712643678161,
-         "percent_estimate" : 57.4712643678161,
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
          "quantity" : "200 g",
          "quantity_g" : 200,
+         "quantity_reference" : {
+            "quantity_g" : 100,
+            "text" : "100 g of finished product"
+         },
          "text" : "pork",
          "vegan" : "no",
          "vegetarian" : "no"
@@ -52,7 +62,7 @@
       "en:tomato",
       "en:pork"
    ],
-   "ingredients_percent_analysis" : -1,
+   "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:tomato",
       "en:fruit-vegetable",
@@ -61,10 +71,10 @@
       "en:animal"
    ],
    "ingredients_text" : "tomatoes (148 g per 100g), pork (200 g per 100 g of finished product)",
-   "ingredients_with_specified_percent_n" : 2,
-   "ingredients_with_specified_percent_sum" : 100,
-   "ingredients_with_unspecified_percent_n" : 0,
-   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:pork"
    ],
@@ -74,8 +84,6 @@
    "known_ingredients_n" : 2,
    "lc" : "en",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
-      "en:all-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
    "unknown_ingredients_n" : 0

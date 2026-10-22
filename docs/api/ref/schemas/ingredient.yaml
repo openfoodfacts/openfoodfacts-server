@@ -19,6 +19,20 @@ properties:
           type: string
         percent:
           type: number
+  quantity_reference:
+    type: object
+    description: |
+      Reference amount for an ingredient input quantity, e.g. 100 g of finished
+      ketchup for 148 g of tomatoes. The input-to-reference ratio is not an
+      ingredient percentage or a recipe weight for normalization.
+    required: [text]
+    properties:
+      text:
+        type: string
+      quantity_g:
+        type: number
+      quantity_ml:
+        type: number
   ingredients:
     type: array
     description: |

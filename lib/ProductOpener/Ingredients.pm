@@ -1878,6 +1878,62 @@ sub _matches_declared_ingredient_name ($ingredients_lc, $text, $ingredient_id) {
 	return scalar grep {$_ eq $key} @keys;
 }
 
+sub _parse_ingredient_quantity_reference ($lc, $text) {
+	# The parser protects decimal commas as U+201A: restore them so that numbers are matched whole.
+	$text =~ s/\N{U+201A}/,/g;
+	# The variant that also reads the microgram symbols, like the per-100 g branch that precedes it.
+	my $quantity_regexp = $percent_or_quantity_with_symbols_regexps{$lc};
+	my $per = $per{$lc} || ' per ';
+	$per =~ s/(?:^|(?<=\|)) +| +(?=\||$)//g;
+	my $and = $and{$lc} || ' and ';
+	$and =~ s/(?:^|(?<=\|)) +| +(?=\||$)//g;
+	# The name of the finished product stops at the next ingredient.
+	my $name = '(?:(?!\s+(?:' . $and . ')\s+|\s+-\s+)[^,;():/])+';
+	# The reference may name the finished product with the wording of the language or with any name after "of".
+	my @names = ('\s+(?:de|of)\s+' . $name);
+	push @names, '(?:' . $of{$lc} . ')' . $name if defined $of{$lc};
+	unshift @names, $of_finished_product{$lc} if defined $of_finished_product{$lc};
+	return
+		unless $text =~ compiled_regexp('^\s*(?<input>'
+			. $quantity_regexp
+			. ')\s*(?:'
+			. $per
+			. '|/)\s*'
+			. '(?<reference>'
+			. $quantity_regexp . '(?:'
+			. join('|', @names)
+			. ')?)\s*$');
+	my ($input, $reference_text) = @+{qw(input reference)};
+	$input =~ compiled_regexp('^' . $quantity_regexp . '$') or return;
+	my ($value, $unit) = ($1, $2);
+	return if $unit eq '' || $unit =~ /%/;
+	$reference_text =~ compiled_regexp('^' . $quantity_regexp) or return;
+	my ($reference_value, $reference_unit, $reference_suffix) = ($1, $2, $');
+	return if $reference_unit eq '' || $reference_unit =~ /%/;
+	my $quantity_pattern = compiled_regexp($quantity_regexp);
+
+	while ($reference_suffix =~ /$quantity_pattern/g) {
+		# An adjacent declaration is not part of the finished-product name.
+		return if defined $2 && $2 ne '';
+	}
+	$reference_value = convert_text_value_to_number($lc, $reference_value);
+	$reference_value =~ s/,/./;
+	return unless $reference_value > 0;
+	my (undef, undef, $grams, $millilitres)
+		= get_ingredient_percent_or_quantity_and_normalized_quantity('', $reference_value, $reference_unit);
+	return unless defined $grams || defined $millilitres;
+	$reference_text =~ s/\s+$//;
+	my $reference = {text => $reference_text};
+
+	if (defined $millilitres) {
+		$reference->{quantity_ml} = $millilitres + 0;
+	}
+	else {
+		$reference->{quantity_g} = $grams + 0;
+	}
+	return {value => convert_text_value_to_number($lc, $value), unit => $unit, reference => $reference};
+}
+
 sub _extract_ingredient_equivalents ($lc, $text) {
 	my %markers = (fr => 'équivalente?s?\s+à', en => 'equivalent\s+to');
 	return ($text, undef) unless defined $markers{$lc};
@@ -2075,6 +2131,7 @@ Text to analyze
 		my $vegan = undef;
 		my $vegetarian = undef;
 		my $size = undef;
+		my $quantity_reference;
 		my @processings = ();
 		my $previous_parser_additive_class;
 		my $started_additive_class_scope = 0;
@@ -2400,6 +2457,18 @@ Text to analyze
 						$debug_ingredients and $log->debug("between is a processing enumeration",
 							{between => $between, processings => \@processings})
 							if $log->is_debug();
+						$between = '';
+					}
+
+					# A statement needs an ingredient to qualify and must not replace a quantity already read for it.
+					my $reference_statement
+						= ($before =~ /\S/ and not defined $percent_or_quantity_value)
+						? _parse_ingredient_quantity_reference($ingredients_lc, $between)
+						: undef;
+					if (defined $reference_statement) {
+						$percent_or_quantity_value = $reference_statement->{value};
+						$percent_or_quantity_unit = $reference_statement->{unit};
+						$quantity_reference = $reference_statement->{reference};
 						$between = '';
 					}
 
@@ -3620,6 +3689,9 @@ Text to analyze
 					defined $quantity and $ingredient{quantity} = $quantity;
 					defined $quantity_g and $ingredient{quantity_g} = $quantity_g + 0;
 					defined $quantity_ml and $ingredient{quantity_ml} = $quantity_ml + 0;
+					# The reference qualifies the quantity: a percent read later may have replaced it.
+					$ingredient{quantity_reference} = $quantity_reference
+						if defined $quantity_reference and defined $quantity;
 				}
 				if (defined $origin) {
 					$ingredient{origins} = $origin;
@@ -4642,7 +4714,7 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 			$all_ingredients_have_a_set_percent = 0;
 		}
 
-		if (defined $ingredient_ref->{quantity_g}) {
+		if (defined $ingredient_ref->{quantity_g} && !defined $ingredient_ref->{quantity_reference}) {
 			$quantity_sum += $ingredient_ref->{quantity_g};
 		}
 		else {
