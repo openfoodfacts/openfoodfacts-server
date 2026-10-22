@@ -64,8 +64,6 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use experimental 'smartmatch';
-
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Cursor;
 use ProductOpener::Health qw/:all/;
@@ -490,7 +488,7 @@ sub perform_health_check() {
 	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
 	my $time = current_time_iso8601();
 
-	my $links = {self => $url};
+	my $links = {self => sanitize_url($url)};
 
 	if ($ok) {
 		return [

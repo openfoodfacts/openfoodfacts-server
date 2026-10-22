@@ -108,6 +108,8 @@ BEGIN {
 		$serialize_to_json
 
 		$health_check_api_key
+
+		$ecobalyse_api_token
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -164,6 +166,12 @@ $flavor = 'obf';
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# Romanian: diacritics (ă â î ș ț, and the legacy cedilla forms ş ţ) are very often missing,
+	# and there are very few conflicts in ingredients, labels etc. (ă vs a mostly marks the definite article)
+	ro => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	# English has very few accented words, and they are very often not accented by users or in ingredients lists etc.
 	en => {
 		unaccent => 1,
@@ -188,11 +196,11 @@ $flavor = 'obf';
 	site_name => "Open Beauty Facts",
 	product_type => "beauty",
 	og_image_url => "https://static.openbeautyfacts.org/images/logos/obf-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=obf&utf_medium=web",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases",
 	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
-	ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=obf&utf_medium=web",
-	facebook_page_url => "https://www.facebook.com/openfoodfacts?utm_source=obf&utf_medium=web",
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utm_medium=web",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=obf&utm_medium=web",
+	facebook_page_url => "https://www.facebook.com/openfoodfacts?utm_source=obf&utm_medium=web",
 	x_account => "OpenFoodFacts",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
 	favicons => <<HTML
@@ -214,6 +222,11 @@ $options{export_limit} = 10000;
 # Recent changes limits
 $options{default_recent_changes_page_size} = 20;
 $options{max_recent_changes_page_size} = 1000;
+# Maximum number of changes that can be skipped before the first one returned. MongoDB walks over
+# every skipped document on a $natural sort, and both page and page size are capped separately,
+# so without this a request for the last allowed page of the largest allowed page size asks for a
+# skip of 999,000.
+$options{max_recent_changes_skip} = 10_000;
 
 # List of products limits
 $options{default_api_products_page_size} = 20;
@@ -265,6 +278,9 @@ $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
 # or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
 # or "product_opener" to use the legacy Product Opener algorithm
 $recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
+
+# Ecobalyse API token, needs to be generated on https://ecobalyse.beta.gouv.fr/
+$ecobalyse_api_token = $ProductOpener::Config2::ecobalyse_api_token;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
@@ -320,6 +336,7 @@ $analytics = <<HTML
   _paq.push(["setDomains", ["*.openbeautyfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -357,7 +374,7 @@ HTML
 # improvements
 # ingredients_analysis
 # ingredients_processing:
-# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# ingredients (additives_classes, additives, minerals, vitamins, amino_acids, nucleotides, other_nutritional_substances): labels
 # labels: categories
 # languages:
 # minerals
@@ -392,6 +409,8 @@ HTML
 	improvements
 	inci_functions
 	brands
+	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
@@ -567,7 +586,7 @@ $options{import_export_fields_groups} = [
 	["packaging"],
 	[
 		"other",
-		["link",]
+		["link", "teams",]
 	],
 	[
 		"images",

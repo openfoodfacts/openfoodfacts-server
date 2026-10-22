@@ -263,7 +263,7 @@
                "match" : 0,
                "missing" : "Missing ingredients list",
                "name" : "Additives",
-               "panel_id" : "additives",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Additives not computed"
             }
@@ -286,16 +286,16 @@
                "title" : "Green-Score D"
             },
             {
-               "description" : "",
-               "description_short" : "Currently only for products with chicken or eggs",
-               "grade" : "e",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+               "description" : "The Forest Footprint cannot be computed because the ingredient list is missing.",
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-unknown.svg",
                "id" : "forest_footprint",
                "match" : 0,
-               "name" : "Forest footprint",
+               "missing" : "Missing ingredients list",
+               "name" : "Forest Footprint",
                "panel_id" : "forest_footprint",
-               "status" : "known",
-               "title" : "Forest footprint not computed"
+               "status" : "unknown",
+               "title" : "Forest Footprint not available"
             }
          ],
          "id" : "environment",
@@ -822,6 +822,10 @@
       "en:milk-and-dairy-products",
       "en:cheese"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "unknown",
+      "summary" : "missing_ingredients"
+   },
    "images" : {
       "selected" : {}
    },
@@ -841,6 +845,7 @@
       "en:environmental-score-missing-data-origins",
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
+      "en:forest-footprint-unknown",
       "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
@@ -856,7 +861,8 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-empty",
       "en:packagings-not-complete",
-      "en:packagings-number-of-components-0"
+      "en:packagings-number-of-components-0",
+      "en:storage-conditions-not-set"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
    "nova_group_error" : "missing_ingredients",
@@ -873,7 +879,7 @@
             "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
-            "is_cheese" : 1,
+            "is_cheese" : true,
             "is_fat" : 0,
             "is_water" : 0,
             "proteins" : null,
@@ -895,7 +901,7 @@
             "fiber" : null,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
-            "is_cheese" : 1,
+            "is_cheese" : true,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,

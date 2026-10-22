@@ -24,6 +24,14 @@ components:
       schema:
         type: boolean
         example: true
+    ActivateKnowledgePanelProductHistory:
+      name: activate_knowledge_panel_product_history
+      in: query
+      description: 'If true, and if the user is logged in, knowledge panels will include the product_history panel (a table of the changes history of the product, in the contribution card)'
+      required: false
+      schema:
+        type: boolean
+        example: true
     KnowledgePanelsIncluded:
       name: knowledge_panels_included
       in: query

@@ -4,26 +4,15 @@ ARG USER_UID=1000
 ARG USER_GID=1000
 # options for cpan installs
 ARG CPANMOPTS=""
+# Cache busting argument to force rebuilds when needed
+ARG CACHE_BUST=""
 
 ######################
 # Base modperl image stage
 ######################
-FROM debian:bullseye-slim AS modperl
+FROM debian:trixie-slim AS modperl
 
-# BEGIN zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
-
-# Install ca-certificates, so that apt can connect to github pages with HTTPS
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends \
-    ca-certificates
-
-# Add backport repo
-COPY --chown=root:root ./docker/zxing-cpp-backport.gpg /usr/share/keyrings/
-COPY --chown=root:root  ./docker/zxing-cpp-backport.sources /etc/apt/sources.list.d/
-
-# END zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
+ARG CACHE_BUST
 
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
@@ -164,6 +153,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # Test::Number::Delta
         libtest-number-delta-perl \
         libdevel-size-perl \
+        # Net-IDN-Encode (needs Debian patch for Perl 5.40+ compat)
+        libnet-idn-encode-perl \
         gnumeric \
         # for dev
         # gnu readline
@@ -174,21 +165,33 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libapache2-mod-perl2-dev \
         # OpenSSL dev needed by OIDC::Lite
         libssl-dev \
-        # needed for  Imager::File::WEBP
-        libwebpmux3 \
+        # libheif 1.19+ in trixie uses plugins for codec support
+        # needed by Imager::File::HEIF configure test
+        libheif-plugin-x265 \
+        libheif-plugin-libde265 \
         # Imager::zxing - build deps
         pkg-config \
         libzxing-dev \
-        # Imager::zxing - decoders
+        # Imager and Imager::File::* build dependencies
         libavif-dev \
         libde265-dev \
         libheif-dev \
         libjpeg-dev \
         libpng-dev \
-        libwebp-dev \
-        libx265-dev
+        libwebp-dev
 
-RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm -o /tmp/cpm && \
+# cpm is downloaded from a pinned commit instead of the tip of the main branch, and its sha256 is
+# verified before it is used. It is made executable and run as root by this build, and it then
+# installs every Perl dependency listed in the cpanfile, so content served from a mutable branch
+# would otherwise change our image without anyone reviewing it.
+#
+# To update cpm, bump both arguments at once, and keep the hash that the pinned commit serves:
+#   curl -fsSL https://raw.githubusercontent.com/skaji/cpm/<commit>/cpm | sha256sum
+ARG CPM_COMMIT=1e93312a5e801b1f3a27182309a8e62c16e9d7c5
+ARG CPM_SHA256=2e7cdae8f84a673384d40e2486aa236955b7f69547d66f9920564c05b330f9e0
+RUN curl -fsSL "https://raw.githubusercontent.com/skaji/cpm/${CPM_COMMIT}/cpm" -o /tmp/cpm && \
+    echo "${CPM_SHA256}  /tmp/cpm" >/tmp/cpm.sha256 && \
+    sha256sum -c /tmp/cpm.sha256 && \
     mv /tmp/cpm /usr/bin/cpm && \
     chmod +x /usr/bin/cpm && \
     /usr/bin/cpm --version
@@ -210,16 +213,12 @@ ARG PO_LIB_DIR=/tmp/local
 
 WORKDIR /tmp
 
-# Install Product Opener from the workdir.
-COPY ./cpanfile* /tmp/
-# Add ProductOpener runtime dependencies from cpan
-# we also add apt cache as some libraries might be installed from apt
+# run apt update if needed because some package might need to apt install
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
-    # also run apt update if needed because some package might need to apt install
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
     ) && \
@@ -230,10 +229,40 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     export PATH="$PO_LIB_DIR/bin:$PATH" && \
     # first install some dependencies that are not well handled
     cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap" && \
-    cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g && \
     # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
     # without adding an unresolved dependency back into cpanfile.
     cpm install --show-build-log-on-failure -w $(nproc) -g "Test2::Harness::Renderer::JUnit"
+
+# Add ProductOpener runtime dependencies from cpan
+COPY ./cpanfile* /tmp/
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
+    set -x && \
+    # Install package dependencies in $PO_LIB_DIR
+    export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \ 
+    export PERL_MB_OPT="--install_base /tmp/local/" && \
+    export PERL5LIB="/tmp/local/lib/perl5/" && \
+    cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
+
+# The bundled tz.sqlite3 ships in WAL journal mode. WAL requires a writable
+# directory (for -wal/-shm sidecar files) even for read-only access, which
+# fails in our read-only deployments. Convert the database to the standard
+# rollback journal mode (DELETE); read-only opens then need no write access.
+# NOTE: the journal mode is stored in the database file header, so the change
+# survives the COPY into the runnable stage.
+RUN set -e && \
+    export PERL5LIB="$PO_LIB_DIR/lib/perl5/" && \
+    perl -MDBI -e ' \
+        my @files = glob("$ENV{PO_LIB_DIR}/lib/perl5/*/DateTime/Lite/tz.sqlite3"); \
+        die "tz.sqlite3 not found\n" unless scalar @files; \
+        foreach my $file (@files) { \
+            my $dbh = DBI->connect("dbi:SQLite:dbname=$file", "", ""); \
+            $dbh->do("PRAGMA journal_mode=DELETE"); \
+            $dbh->disconnect; \
+        } \
+    '
 
 ######################
 # backend production image stage
@@ -284,6 +313,10 @@ COPY --chown=www-data:www-data . /opt/product-opener/
 EXPOSE 80
 COPY ./docker/docker-entrypoint.sh /
 WORKDIR /opt/product-opener/
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost/api/v3/health || exit 1
+
 USER www-data
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 # default command is apache2ctl start
