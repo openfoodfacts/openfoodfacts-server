@@ -227,7 +227,7 @@ sub generate_nutrient_aggregated_set ($product_ref) {
 
 Generates and returns a hash reference of the aggregated nutrient set from the given list of nutrient sets.
 
-The generated set is a combined set of nutrients with the preferred sources, per references and preparation states 
+The generated set is a combined set of nutrients with the preferred sources, per references and preparation states
 and with normalized units.
 
 =head3 Arguments
@@ -593,13 +593,21 @@ sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_id) {
 
 =head2 convert_nutrient_to_100g
 
-Converts the value of the amount of the nutrient based on the wanted per reference if necessary.
+Converts the value of the amount of the nutrient to the wanted per reference if necessary
+(e.g. per 100g, per 100ml or per 1kg for pet food).
+
+Concentrations and dimensionless values (e.g. %, % vol, mmol/l, pH) do not depend on the quantity of product
+they are declared for, and are left unchanged.
 
 =head3 Arguments
 
 =head4 $nutrient_ref
 
 Hash of the nutrient set with the value to convert
+
+=head4 $original_per
+
+Current per reference of the nutrient set (e.g. 100g, 100ml, 1kg, serving)
 
 =head4 $original_per_quantity
 
@@ -609,24 +617,33 @@ Current per amount of the nutrient
 
 Current per unit of the nutrient
 
-=head4 $wanted_per_quantity
+=head4 $wanted_per
 
-Wanted per amount of the nutrient
-
-=head4 $wanted_per_unit
-
-Wanted per unit of the nutrient
+Wanted per reference (100g, 100ml or 1kg)
 
 =cut
 
 sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quantity, $original_per_unit, $wanted_per) {
+
+	# If the nutrient is unit-less (e.g. pH or glycemic index), or if the unit is a concentration or a
+	# percentage (% of fruits, % vol of alcohol), the value is the same for every per reference
+	if (   (not defined $nutrient_ref->{unit})
+		or ($nutrient_ref->{unit} eq '')
+		or ($nutrient_ref->{unit} eq '%')
+		or ($nutrient_ref->{unit} eq '% vol')
+		or ($nutrient_ref->{unit} eq 'mmol/l'))
+	{
+		return;
+	}
+
 	if ($original_per ne $wanted_per) {
 		my $original_value = $nutrient_ref->{value};
-		my $wanted_per_unit = $wanted_per eq "100g" ? "g" : "ml";
+		my $wanted_per_unit = $wanted_per eq "100ml" ? "ml" : "g";
+		my $wanted_per_quantity = $wanted_per eq "1kg" ? 1000 : 100;
 
 		# set value of nutrient according to wanted per unit
 		my $per_conversion_factor = g_to_unit(unit_to_g($original_per_quantity, $original_per_unit), $wanted_per_unit);
-		$nutrient_ref->{value} = ($original_value * 100) / $per_conversion_factor;
+		$nutrient_ref->{value} = ($original_value * $wanted_per_quantity) / $per_conversion_factor;
 
 	}
 	return;
@@ -952,6 +969,7 @@ Reference to an array of valid unit options for the given nutrient
 sub get_unit_options_for_nutrient ($nid) {
 
 	my @units = ();
+	my $default_unit = default_unit_for_nid($nid);
 
 	if (($nid eq 'alcohol')) {
 		@units = ('% vol');
@@ -976,16 +994,22 @@ sub get_unit_options_for_nutrient ($nid) {
 	{
 		@units = ('%');
 	}
-	elsif ($nid eq 'ph') {
+	# pH, glycemic index, NOVA group, etc.
+	elsif ($default_unit eq '') {
 		@units = ('');
 	}
+	elsif ($nid eq 'carbon-footprint') {
+		@units = ('kg', 'g', 'mg');
+	}
 	else {
-
 		@units = ('g', 'mg', 'µg');
 	}
 
 	my @units_options;
 
+	if ($nid eq 'cocoa') {
+		push @units, '%';
+	}
 	if (defined get_property("nutrients", "zz:$nid", "dv_value:en")) {
 		push @units, '% DV';
 	}
@@ -1235,6 +1259,7 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 			my $recognized_unit = 0;
 			my $lc_unit = lc($unit);
 			$lc_unit =~ s/^\s+|\s+$//g;    # trim spaces
+
 			foreach my $unit_option_ref (@{$valid_units_ref}) {
 				if (lc($unit_option_ref->{id}) eq $lc_unit) {
 					$recognized_unit = 1;
@@ -2601,6 +2626,11 @@ sub convert_salt_to_sodium ($salt_value) {
 	},
 );
 
+# Polyols that can be entered individually in the nutrition facts, without a value for the
+# aggregate "polyols" nutrient. Erythritol is listed here too, but it is handled separately
+# above as it does not contribute any energy, unlike the other polyols.
+my @individual_polyols_nids = ("erythritol", "isomalt", "maltitol", "sorbitol");
+
 =head2 compute_energy_from_nutrients_for_nutrients_set ( $nutrients_ref, $unit )
 
 Computes the energy from other nutrients for a given input set.
@@ -2635,6 +2665,20 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 		and (defined $proteins_value))
 	{
 
+		# If we do not have a value for the aggregate "polyols" nutrient, but we have values for
+		# individual polyols (e.g. isomalt, maltitol, sorbitol, erythritol), compute the polyols
+		# value as the sum of the individual polyols values, so that they are taken into account
+		# in the energy computation below (instead of being counted as regular carbohydrates).
+		my $polyols_value = deep_get($nutrients_ref, "polyols", "value");
+		if (not defined $polyols_value) {
+			foreach my $individual_polyol_nid (@individual_polyols_nids) {
+				my $individual_polyol_value = deep_get($nutrients_ref, $individual_polyol_nid, "value");
+				if (defined $individual_polyol_value) {
+					$polyols_value += $individual_polyol_value;
+				}
+			}
+		}
+
 		foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
 
 			my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$lc_unit};
@@ -2644,19 +2688,19 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 				my $nid_minus = $';
 				$nid = $`;
 
-				# If we are computing carbohydrates minus polyols, and we do not have a value for polyols
-				# but we have a value for erythritol (which is a polyol), then we need to remove erythritol
-				if (($nid_minus eq "polyols") and (not deep_exists($nutrients_ref, $nid_minus, "value"))) {
-					$nid_minus = "erythritol";
+				if ($nid_minus eq "polyols") {
+					$grams -= $polyols_value || 0;
 				}
-				# Similarly for polyols minus erythritol
-				if (($nid eq "polyols") and (not deep_exists($nutrients_ref, $nid, "value"))) {
-					$nid = "erythritol";
+				else {
+					$grams -= deep_get($nutrients_ref, $nid_minus, "value") || 0;
 				}
-
-				$grams -= deep_get($nutrients_ref, $nid_minus, "value") || 0;
 			}
-			$grams += deep_get($nutrients_ref, $nid, "value") || 0;
+			if ($nid eq "polyols") {
+				$grams += $polyols_value || 0;
+			}
+			else {
+				$grams += deep_get($nutrients_ref, $nid, "value") || 0;
+			}
 			$computed_energy += $grams * $energy_per_gram;
 		}
 

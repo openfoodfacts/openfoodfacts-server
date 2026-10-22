@@ -107,8 +107,8 @@ my $promoter_email_index = first_index {
 my $promoter_email = splice(@mails, $promoter_email_index, 1);
 unshift(@mails, $promoter_email);
 
-# we got three
-is(scalar @mails, 3, "3 mails sent on subscription");
+# we got two
+is(scalar @mails, 2, "2 mails sent on subscription");
 # compare
 compare_to_expected_results(\@mails, "$expected_result_dir/mails.json",
 	$update_expected_results, {desc => "mail sent after subscription"});
