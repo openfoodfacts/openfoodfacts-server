@@ -114,7 +114,7 @@ foreach my $test_ref (@tests) {
 
 my $blocked_file = dirname(__FILE__) . "/../../external-data/ecobalyse/off_ingredients_without_ecobalyse_data.tsv";
 open(my $blocked_fh, '<:encoding(UTF-8)', $blocked_file) or die "Cannot open $blocked_file: $!";
-my @blocked_tagids = map {(split /\t/)[0]} grep {!/^#/ and /\S/} map {chomp; $_} <$blocked_fh>;
+my @blocked_tagids = map {(split /\t/)[0]} grep {(not /^#/) and /\S/} map {chomp; $_} <$blocked_fh>;
 close($blocked_fh);
 ok(scalar(grep {$_ eq "en:duck-foie-gras"} @blocked_tagids), "en:duck-foie-gras is blocked");
 
