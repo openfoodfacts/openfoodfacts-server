@@ -20,7 +20,7 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin initializeTagifyInput other_nutrients:writable trackMatomoEvent*/ // we change other_nutrients to remove nutrients when they are added
+/*global lang admin initializeTagifyInput getTagsToCommit addTagsToRecentTags other_nutrients:writable trackMatomoEvent*/ // we change other_nutrients to remove nutrients when they are added
 /* exported upload_image update_nutrition_image_copy */
 
 //Polyfill, just in case
@@ -301,14 +301,28 @@ function initializeTagifyInputs() {
     document.
         getElementById("product_form").
         addEventListener("submit", function () {
+            const recentTags = [];
+
             document.
                 querySelectorAll("input.tagify-me").
                 forEach((input) => {
                     // Parse the Tagify value (JSON string) into an array of objects
                     const tagifyValues = JSON.parse(input.value || "[]");
-                    // Map the objects to their `value` property and join them into a string
-                    input.value = tagifyValues.map((obj) => obj.value).join(",");
+                    // Map the objects to their `value` property
+                    const tags = tagifyValues.map((obj) => obj.value);
+                    // Only remember the tags that are actually submitted (see issue #15004)
+                    const tagsToCommit = getTagsToCommit(input, tags);
+                    if (tagsToCommit.length) {
+                        recentTags.push({ id: input.id, maximum: maximumRecentEntriesPerTag, tags: tagsToCommit });
+                    }
+                    // Join the tags into a string
+                    input.value = tags.join(",");
                 });
+
+            // Add the tags to the tags history, so that they are suggested next time
+            if (recentTags.length) {
+                addTagsToRecentTags(recentTags);
+            }
         });
 }
 
@@ -732,6 +746,7 @@ $(function () {
         const inputRow = $('#add_nutrient_tr');
         nutrientRow.insertBefore(inputRow);
         nutrientRow.show();
+        update_nutrition_image_copy(); 
 
         // remove the selected nutrient from the other_nutrients array
         other_nutrients = other_nutrients.filter(function (item) {
