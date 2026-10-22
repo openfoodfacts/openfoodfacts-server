@@ -49,11 +49,9 @@ my @preconditions = (
 
 foreach my $precondition (@preconditions) {
 	my ($tagid, $property, $expected_defined) = @$precondition;
-	is(
-		defined(ingredient_property($tagid, $property)) ? 1 : 0,
+	is(defined(ingredient_property($tagid, $property)) ? 1 : 0,
 		$expected_defined,
-		"taxonomy precondition: $tagid " . ($expected_defined ? "has" : "does not have") . " $property"
-	);
+		"taxonomy precondition: $tagid " . ($expected_defined ? "has" : "does not have") . " $property");
 }
 
 my @tests = (
@@ -81,20 +79,16 @@ my @tests = (
 		"ecobalyse", "en:beef", "ecobalyse_labels_en_organic_origins_en_france",
 	],
 	[
-		"French sardine: French variant of the fish proxy",
-		{id => "en:sardine", origins => "en:france"},
-		"ecobalyse_proxy", "en:fish", "ecobalyse_proxy_origins_en_france",
+		"French sardine: French variant of the fish proxy", {id => "en:sardine", origins => "en:france"},
+		"ecobalyse_proxy", "en:fish",
+		"ecobalyse_proxy_origins_en_france",
 	],
 	[
-		"French duck: French variant of the poultry proxy",
-		{id => "en:duck", origins => "en:france"},
-		"ecobalyse_proxy", "en:poultry", "ecobalyse_proxy_origins_en_france",
+		"French duck: French variant of the poultry proxy", {id => "en:duck", origins => "en:france"},
+		"ecobalyse_proxy", "en:poultry",
+		"ecobalyse_proxy_origins_en_france",
 	],
-	[
-		"rabbit: rabbit proxy",
-		{id => "en:rabbit"},
-		"ecobalyse_proxy", "en:rabbit", "ecobalyse_proxy",
-	],
+	["rabbit: rabbit proxy", {id => "en:rabbit"}, "ecobalyse_proxy", "en:rabbit", "ecobalyse_proxy",],
 );
 
 foreach my $test_ref (@tests) {
