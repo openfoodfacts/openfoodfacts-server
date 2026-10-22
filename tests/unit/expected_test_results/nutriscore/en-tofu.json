@@ -37,7 +37,7 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [
             {
                "ecobalyse_name" : "Soja Origine Inconnue",
@@ -59,13 +59,16 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "preparation" : [
+            "refrigeration"
+         ],
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [
                {
                   "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
@@ -79,6 +82,9 @@
                   "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
                   "mass" : 1
                }
+            ],
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
