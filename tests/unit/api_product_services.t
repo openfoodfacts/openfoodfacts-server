@@ -6,7 +6,8 @@ use Test2::V0;
 use Cpanel::JSON::XS;
 use ProductOpener::APIProductServices;
 
-my $blessed_value = bless(\"1", "Test::BlessedScalar");
+my $scalar_value = "1";
+my $blessed_value = bless(\$scalar_value, "Test::BlessedScalar");
 my $payload = {
 	product => {
 		packaging_recycling => $blessed_value,
