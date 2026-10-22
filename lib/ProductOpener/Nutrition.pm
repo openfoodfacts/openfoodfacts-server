@@ -595,13 +595,21 @@ sub get_per_quantity_and_unit ($per) {
 
 =head2 convert_nutrient_to_100g
 
-Converts the value of the amount of the nutrient based on the wanted per reference if necessary.
+Converts the value of the amount of the nutrient to the wanted per reference if necessary
+(e.g. per 100g, per 100ml or per 1kg for pet food).
+
+Concentrations and dimensionless values (e.g. %, % vol, mmol/l, pH) do not depend on the quantity of product
+they are declared for, and are left unchanged.
 
 =head3 Arguments
 
 =head4 $nutrient_ref
 
 Hash of the nutrient set with the value to convert
+
+=head4 $original_per
+
+Current per reference of the nutrient set (e.g. 100g, 100ml, 1kg, serving)
 
 =head4 $original_per_quantity
 
@@ -619,12 +627,13 @@ Wanted per reference of the nutrient (e.g. "100g", "100ml", "1kg", "1l")
 
 sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quantity, $original_per_unit, $wanted_per) {
 
-	# If the nutrient is unit-less (e.g. pH or glycemic index), or if the unit is % or "% vol" (alcohol)
-	# The value is the same for 100g or per serving
+	# If the nutrient is unit-less (e.g. pH or glycemic index), or if the unit is a concentration or a
+	# percentage (% of fruits, % vol of alcohol), the value is the same for every per reference
 	if (   (not defined $nutrient_ref->{unit})
 		or ($nutrient_ref->{unit} eq '')
 		or ($nutrient_ref->{unit} eq '%')
-		or ($nutrient_ref->{unit} eq '% vol'))
+		or ($nutrient_ref->{unit} eq '% vol')
+		or ($nutrient_ref->{unit} eq 'mmol/l'))
 	{
 		return;
 	}

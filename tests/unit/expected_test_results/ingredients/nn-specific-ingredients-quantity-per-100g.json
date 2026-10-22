@@ -1,0 +1,97 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "13015",
+         "ecobalyse_id" : "d93befed-4e46-58c0-ae12-f80cbdb79012",
+         "ecobalyse_name" : "Framboise Origine Inconnue",
+         "id" : "en:raspberry",
+         "is_in_taxonomy" : 1,
+         "percent" : 80,
+         "percent_estimate" : 80,
+         "percent_max" : 80,
+         "percent_min" : 80,
+         "text" : "Bringebær",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 15,
+         "percent_max" : 20,
+         "percent_min" : 10,
+         "text" : "vatn",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "additive_class" : "en:thickener",
+         "id" : "en:e440",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 10,
+         "percent_min" : 0,
+         "text" : "pektin",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "nn",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:raspberry",
+      "en:water",
+      "en:e440"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:raspberry",
+      "en:berries",
+      "en:fruit",
+      "en:water",
+      "en:e440"
+   ],
+   "ingredients_text" : "Bringebær 80%, vatn, fortjukkingsmiddel (pektin). 80 g bær pr. 100 g.",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 80,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 20,
+   "ingredients_without_ciqual_codes" : [
+      "en:e440"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e440"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 3,
+   "lc" : "nn",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "specific_ingredients" : [
+      {
+         "id" : "en:berries",
+         "ingredient" : "bær",
+         "quantity" : "80 g",
+         "quantity_g" : 80,
+         "text" : "80 g bær pr. 100 g"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

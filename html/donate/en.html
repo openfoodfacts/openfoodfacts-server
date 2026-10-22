@@ -994,16 +994,20 @@
 
                 widget.dataset.offTrackingRegistered = '1';
 
-                // Donorbox itself sets page-id to page_select_amount while loading
-                var observer = new MutationObserver(function () {
+                // Donorbox itself sets page-id to page_select_amount while loading, and writes a
+                // preset amount back unchanged, so only a new amount value counts as a start
+                var observer = new MutationObserver(function (records) {
                   var page = widget.getAttribute('page-id');
-                  if (!started && (widget.getAttribute('amount') || (page && page !== 'page_select_amount'))) {
+                  var amountChanged = records.some(function (record) {
+                    return record.attributeName === 'amount' && record.oldValue !== widget.getAttribute('amount');
+                  });
+                  if (!started && (amountChanged || (page && page !== 'page_select_amount'))) {
                     started = true;
                     observer.disconnect();
                     track('form_started');
                   }
                 });
-                observer.observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
+                observer.observe(widget, { attributes: true, attributeOldValue: true, attributeFilter: ['amount', 'page-id'] });
                 // the observer above stops after the first change; steps keep counting
                 new MutationObserver(trackStep).observe(widget, { attributes: true, attributeFilter: ['amount', 'page-id'] });
 

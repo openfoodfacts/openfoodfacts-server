@@ -446,9 +446,18 @@ sub scan_code ($file) {
 		$decoder->set_formats("DataMatrix|QRCode|MicroQRCode|DataBar|DataBarExpanded");
 
 		my $imager = Imager->new();
-		$imager->read(file => $file)
-			or die "Cannot read $file: ", $imager->errstr;
-		my @results = $decoder->decode($imager);
+		# Imager may not support some formats that ImageMagick can read (e.g. HEIC
+		# if Imager::File::HEIF is not installed), so fall back to a PNG conversion
+		if (not $imager->read(file => $file)) {
+			my $read_error = $imager->errstr;
+			my $png_blob = $magick->[0] ? $magick->ImageToBlob(magick => 'png') : undef;
+			if (not(defined $png_blob and $imager->read(data => $png_blob, type => 'png'))) {
+				$log->warn("cannot read file with Imager to scan barcode", {error => $read_error})
+					if $log->is_warn();
+				$imager = undef;
+			}
+		}
+		my @results = defined $imager ? $decoder->decode($imager) : ();
 		# extract results
 		foreach my $result (@results) {
 			if (not($result->is_valid())) {

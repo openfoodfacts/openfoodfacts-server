@@ -26,7 +26,7 @@
             {
                "ecobalyse_name" : "Huile d'olive -extra vierge- UE -2025-",
                "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
-               "mass" : 100,
+               "mass" : 750,
                "name" : "Huile d'olive vierge extra"
             }
          ],
@@ -38,7 +38,10 @@
                "name" : "Olive oil, 0,75L | Packaging System, N0, All, Glass bottle {FR} U",
                "name_fr" : "Bouteille en verre et bouchon plastique pour huile d'olive - 0,5L à 1L"
             }
-         ]
+         ],
+         "reference_quantity" : 750,
+         "reference_quantity_source" : "product_quantity",
+         "reference_quantity_unit" : "ml"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -46,7 +49,7 @@
             "ingredients" : [
                {
                   "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
-                  "mass" : 100
+                  "mass" : 750
                }
             ],
             "packaging" : [
@@ -62,12 +65,12 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 0.253198
+                  "ecs" : 1.89991
                },
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 4.91257
+                     "ecs" : 10.9703
                   },
                   "road" : 600,
                   "roadCooled" : 0,
@@ -76,21 +79,21 @@
                }
             },
             "packaging" : {
-               "ecs" : 38.66
+               "ecs" : 38.67
             },
             "perKg" : {
-               "ecs" : 973.181
+               "ecs" : 603.75
             },
             "preparation" : {
                "ecs" : 0
             },
-            "preparedMass" : 0.1,
+            "preparedMass" : 0.75,
             "recipe" : {
                "ingredientsTotal" : {
-                  "ecs" : 49.38
+                  "ecs" : 370.35
                },
                "total" : {
-                  "ecs" : 53.4924
+                  "ecs" : 401.273
                },
                "totalBonusImpact" : {
                   "cropDiversity" : 0,
@@ -104,7 +107,7 @@
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 4.11236
+                     "ecs" : 30.9225
                   },
                   "road" : 2660,
                   "roadCooled" : 0,
@@ -113,20 +116,20 @@
                }
             },
             "scoring" : {
-               "all" : 973.181,
-               "biodiversity" : 451.194,
-               "climate" : 157.121,
-               "health" : 96.1446,
-               "resources" : 268.723
+               "all" : 603.75,
+               "biodiversity" : 319.018,
+               "climate" : 37.8731,
+               "health" : 51.6024,
+               "resources" : 195.299
             },
             "total" : {
-               "ecs" : 97.3181
+               "ecs" : 452.813
             },
-            "totalMass" : 0.5296,
+            "totalMass" : 1.1796,
             "transports" : {
                "air" : 0,
                "impacts" : {
-                  "ecs" : 9.02493
+                  "ecs" : 41.8928
                },
                "road" : 3260,
                "roadCooled" : 0,
@@ -135,7 +138,9 @@
             }
          }
       },
-      "ecs" : 97.3181
+      "ecs_per" : "100ml",
+      "ecs_per_100g_or_100ml" : 60.3750666666667,
+      "ecs_per_product" : 452.813
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
@@ -191,10 +196,13 @@
    "lc" : "fr",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-reference-quantity-from-product-quantity",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-called",
       "en:ecobalyse-api-success"
    ],
+   "product_quantity" : 750,
+   "product_quantity_unit" : "ml",
    "quantity" : "0.75l",
    "testid" : "fr-olive-oil-category-with-ingredients-no-packaging",
    "unknown_ingredients_n" : 0
