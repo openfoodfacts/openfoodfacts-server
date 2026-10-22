@@ -1325,11 +1325,48 @@ my @tests = (
 			'INGREDIENTS Greek Style Yogurt (Milk) (85%), Water, Sugar, Coconut Milk (2%), Desiccated Coconut, Maize Starch, Flavourings, Lactic Acid, Live Bacterial Cultures [Bifidobacterium, Lactobacillus bulgaricus, Streptococcus thermophilus].'
 	},
 	{
+		id => 'bold-single-character',
+		lc => 'en',
+		ingredients_text => "Whey Powder (\x{1D40C} Milk)",
+	},
+	{
+		id => 'bold-multichar',
+		lc => 'en',
+		ingredients_text => "Sugar, \x{1D412}\x{1D428}\x{1D432}\x{1D41A} Lecithin, Salt",
+	},
+	{
+		id => 'bold-fullwidth',
+		lc => 'en',
+		ingredients_text => "Whey Power (\x{FF2C}\x{FF21}\x{FF22})",
+	},
+	# Allergens between underscores
+	{
+		id => 'en-allergens-between-underscores',
+		lc => 'en',
+		ingredients_text => "Sugar, _Milk_, Salt, _Soy_, _Sour cream_, false_positive, _other_ _false positives_",
+	},
+	{
+		id => 'de-allergens-between-underscores',
+		lc => 'de',
+		ingredients_text => "Zucker, _Milch_, Salz, _Soja_, _Sesam_öl",
+	},
+	{
+		id => 'fr-allergens-between-underscores',
+		lc => 'fr',
+		ingredients_text => "Eau, BLE, _CELERI_, __GLUTEN__, _poisson_, FRAISE, _banane_, lupin, _mollusque_"
+	},
+	{
 		id => 'de-palm-and-coconut-oil',
 		'lc' => 'de',
 		'ingredients_text' => 'Palm- und Kokosnuss-Pflanzenfett'
+	},
+	# combined symbols: both labels are applied
+	{
+		id => 'fr-combined-symbols',
+		lc => 'fr',
+		ingredients_text =>
+			"Farine de BLÉ*/** 45%, OEUFS entiers*/** 12.5%, sucre*. *Ingrédients issus de l'agriculture biologique. **Ingrédients issus du commerce équitable."
 	}
-
 );
 
 foreach my $test_ref (@tests) {
@@ -1370,7 +1407,7 @@ foreach my $test (
 
 # Food and feed codes share whitespace handling, without consuming a dosage.
 foreach my $test (
-	['3B 103, 3B 202, 3B 405, 3B 502, 3B 603, 3B 801', '3b103, 3b202, 3b405, 3B 502, 3b603, 3b801'],
+	['3B 103, 3B 202, 3B 405, 3B 502, 3B 603, 3B 801', '3b103, 3b202, 3b405, 3b502, 3b603, 3b801'],
 	["3b\t103, 3a\x{a0}672a, E  330", '3b103, 3a672a, e330'],
 	['1b 306(i), 1b306(ii), 3a 825ii', '1b306(i), 1b306(ii), 3a825ii'],
 	['3b 103 105 mg, E 330 105 mg', '3b103 105 mg, e330 105 mg'],
@@ -1391,11 +1428,62 @@ foreach my $test (
 foreach my $test (
 	['pt', 'INS 500ii, INS 450iii', 'e500ii, e450iii'],
 	['ro', 'apă și sare', 'apă și sare'],
-	['ro', 'lapte şi soia', 'lapte şi soia'],
+	['ro', 'lapte şi soia', 'lapte și soia'],    # ş (cedilla) is normalized to ș (comma below)
 	['ro', 'E 330 şi E 331', 'e330, e331'],
 	)
 {
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "code variants and conjunctions: $test->[1]");
+}
+
+# mono-, di-, tri- prefixes (examples from products)
+foreach my $test (
+	# prefix followed by "and" in the language of the ingredients list, and another prefix
+	['fr', "di - et triphosphates", "di- et triphosphates"],
+	['fr', "di-et triphosphates", "di- et triphosphates"],
+	['fr', "di - et polyphosphates", "di- et polyphosphates"],
+	['fr', "tri - et diphosphates", "tri- et diphosphates"],
+	['de', "Di - und Triphosphate", "Di- und Triphosphate"],
+	['en', "di - and triphosphates", "di- and triphosphates"],
+	['it', "di - e trifosfati", "di- e trifosfati"],
+	['en', "tri - and dicalcium phosphate", "tri- and dicalcium phosphate"],
+	['en', "tri- and dicalcium phosphate", "tri- and dicalcium phosphate"],
+	['fr', "mono - et diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['fr', "mono-et diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['fr', "mono et diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['en', "mono - and diglycerides", "mono- and diglycerides"],
+	['en', "mono-and diglycerides", "mono- and diglycerides"],
+	['en', "mono - & diglycerides", "mono- and diglycerides"],
+	['de', "Mono - und Diglyceride von Speisefettsäuren", "Mono- und Diglyceride von Speisefettsäuren"],
+	['nl', "mono - en diglyceriden van vetzuren", "mono- en diglyceriden van vetzuren"],
+	['pl', "mono - i diglicerydy kwasów tłuszczowych", "mono- i diglicerydy kwasów tłuszczowych"],
+	['ro', "mono-şi digliceride ale acizilor grași", "mono- și digliceride ale acizilor grași"],
+	# mono-diglycérides -> mono- et diglycérides
+	['fr', "mono-diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['fr', "mono - diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['en', "mono-diglycerides", "mono- and diglycerides"],
+	['en', "mono-di-glycerides", "mono- and diglycerides"],
+	['es', "mono-diglicéridos de ácidos grasos", "mono- y diglicéridos de ácidos grasos"],
+	# prefix joined to the next word
+	['fr', "di-glycérides d'acides gras", "diglycérides d'acides gras"],
+	[
+		'en',
+		"mono-sodium glutamate, mono - calcium phosphate, di-potassium phosphate",
+		"monosodium glutamate, monocalcium phosphate, dipotassium phosphate"
+	],
+	['fr', "di-acétate de sodium, di-phosphates", "diacétate de sodium, diphosphates"],
+	['de', "Mono - natriumglutamat", "Mononatriumglutamat"],
+	['en', "tri-calcium phosphate", "tri-calcium phosphate"],
+	# not joined to short words
+	['en', "di-t-butyl hydroxyhydrocinnamate", "di-t-butyl hydroxyhydrocinnamate"],
+	# short word that is not "and" in the language of the ingredients list (typo or other language):
+	# not joined, but the dash is not kept as a separator
+	['en', "mono - und Diglyceride", "mono- und Diglyceride"],
+	['fr', "mono - and diglycerides", "mono- and diglycerides"],
+	['ro', "mono - ti digliceride ale acizilor grași", "mono- ti digliceride ale acizilor grași"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2],
+		"mono, di, tri prefixes: $test->[0] / $test->[1]");
 }
 
 done_testing();
