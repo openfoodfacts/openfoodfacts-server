@@ -9,7 +9,7 @@ $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
-use ProductOpener::Tags qw/canonicalize_taxonomy_tag exists_taxonomy_tag init_emb_codes/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag exists_taxonomy_tag init_emb_codes is_a/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 
 init_emb_codes();
@@ -18,7 +18,7 @@ init_emb_codes();
 
 my @tests = (
 	[{lc => "en", ingredients_text => "sugar and water"}, ["en:sugar", "en:water"],],
-	[{lc => "en", ingredients_text => "something and something else"}, ["en:something-and-something-else",],],
+	[{lc => "en", ingredients_text => "something and something else"}, ["en:something and something else",],],
 	[
 		{lc => "en", ingredients_text => "apple juice, water and sugar. May contain celery, mustard and gluten."},
 		["en:apple-juice", "en:water", "en:sugar"],
@@ -27,7 +27,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "lait demi-écrémé 67%"}, ["en:semi-skimmed-milk"]],
 	[
 		{lc => "fr", ingredients_text => "Saveur vanille : lait demi-écrémé 77%, sucre"},
-		["fr:saveur-vanille", "en:sugar", "en:semi-skimmed-milk"],
+		["fr:Saveur vanille", "en:sugar", "en:semi-skimmed-milk"],
 	],
 	[{lc => "fr", ingredients_text => "lécithine de soja"}, ["en:soya-lecithin",],],
 	[{lc => "fr", ingredients_text => "sel et épices"}, ["en:salt", "en:spice"],],
@@ -36,7 +36,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "arôme naturel"}, ["en:natural-flavouring"],],
 	[
 		{lc => "fr", ingredients_text => "arôme naturel de pomme avec d'autres arômes naturels"},
-		["en:natural-apple-flavouring", "en:natural-flavouring"],
+		["fr:arome-naturel-de-pomme-avec-autres-aromes-naturels"],
 	],
 	[
 		{
@@ -44,10 +44,7 @@ my @tests = (
 			ingredients_text =>
 				"Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"
 		},
-		[
-			"en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:natural-flavouring",
-			"en:tea-extract", "en:e330"
-		],
+		["en:volvic-natural-mineral-water", "en:sugar", "en:e330", "en:natural-flavouring", "en:tea-extract",],
 	],
 	[
 		{
@@ -78,10 +75,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "Traces de moutarde"}, [],],
 
 	[{lc => "es", ingredients_text => "Quinoa"}, ["en:quinoa",],],
-	[
-		{lc => "es", ingredients_text => "aromas y antioxidante: ácido cítrico"},
-		["en:flavouring", "en:antioxidant", "en:e330",],
-	],
+	[{lc => "es", ingredients_text => "aromas y antioxidante: ácido cítrico"}, ["en:flavouring", "en:e330",],],
 	[{lc => "es", ingredients_text => "aromas y antioxidante"}, ["en:flavouring", "en:antioxidant",],],
 	[{lc => "es", ingredients_text => "manzanas 10% y naranjas 5%"}, ["en:apple", "en:orange",],],
 	[
@@ -90,7 +84,7 @@ my @tests = (
 			ingredients_text =>
 				"sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara."
 		},
-		["en:salt", "en:acid", "en:e330"],
+		["en:salt", "en:e330"],
 	],
 
 	[{lc => "fi", ingredients_text => "valkosipuli ja suola"}, ["en:garlic", "en:salt",],],
@@ -100,16 +94,16 @@ my @tests = (
 			ingredients_text =>
 				"Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"
 		},
-		["en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250"],
+		["en:sugar", "en:spice", "en:e300", "en:e250"],
 	],
 	[{lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, ["en:e951", "en:e950"],],
 	[
 		{lc => "fi", ingredients_text => "Värit (Punajuuriväri, Paprikauute, Kurkumiini)"},
-		["en:colour", "en:e162", "en:e160c", "en:e100"],
+		["en:e162", "en:e160c", "en:e100"],
 	],
 	[
 		{lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"},
-		["en:vitamins", "en:vitamin-a", "en:e101", "en:vitamin-b12", "en:vitamin-c", "en:ergocalciferol"],
+		["en:vitamins", "en:vitamin-a", "en:e101i", "en:vitamin-b12", "en:vitamin-c", "en:ergocalciferol"],
 	],
 
 	[{lc => "it", ingredients_text => "sale e spezie"}, ["en:salt", "en:spice"],],
@@ -121,7 +115,7 @@ my @tests = (
 			ingredients_text =>
 				"Zucker, Gewürze, Antioxidations-mittel: Ascorbinsäure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."
 		},
-		["en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250"],
+		["en:sugar", "en:spice", "en:e300", "en:e250"],
 	],
 
 	[
@@ -159,7 +153,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "Artichaut coupe"}, ["en:artichoke"],],
 	[{lc => "fr", ingredients_text => "Banane cuite"}, ["en:banana"],],
 	[{lc => "fr", ingredients_text => "Banane coupée cuite"}, ["en:banana"],],
-	[{lc => "fr", ingredients_text => "Fromage étrange à pâte cuite"}, ["fr:fromage-etrange-a-pate-cuite"],],
+	[{lc => "fr", ingredients_text => "Fromage étrange à pâte cuite"}, ["fr:Fromage étrange à pâte cuite"],],
 	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
 	[{lc => "fr", ingredients_text => "Lamelles de bananes déshydratées"}, ["en:banana"],],
 	[
@@ -179,20 +173,20 @@ my @tests = (
 			ingredients_text =>
 				"Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"
 		},
-		["en:water", "en:e290", "en:sweetener", "en:e951", "en:e950"],
+		["en:water", "en:carbonic-acid", "en:e951", "en:e950"],
 	],
 	[{lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, ["en:e951", "en:e950"],],
 	[
 		{lc => "de", ingredients_text => "Farbstoffe (Betenrot, Paprikaextrakt, Kurkumin)"},
-		["en:colour", "en:e162", "en:e160c", "en:e100"],
+		["en:e162", "en:e160c", "en:e100"],
 	],
 
 	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
 
-	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait-cru-de-lapin"]],
+	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
 	[
 		{lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"},
-		["en:aubergine", "en:raw-ham", "fr:jambon-de-montagne-cru"]
+		["en:aubergine", "en:raw-ham", "fr:jambon de montagne cru"]
 	],
 	[
 		{lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"},
@@ -230,12 +224,12 @@ my @tests = (
 		{lc => "en", ingredients_text => "Organic 100% juice (organic pear, organic apple), natural flavor."},
 		['en:juice', 'en:natural-flavouring', 'en:pear-juice', 'en:apple-juice']
 	],
-	[{lc => "en", ingredients_text => "au jus (beef stock, water)"}, ['en:au-jus', 'en:beef-broth', 'en:water']],
+	[{lc => "en", ingredients_text => "au jus (beef stock, water)"}, ['en:au jus', 'en:beef-broth', 'en:water']],
 	# pure juice is a label, and currently not an ingredient
 	# it makes the sub ingredients being discarded
 	# recognize unknown ingredients that are labels as labels only if they
 	# don't have sub-ingredients
-	[{lc => "en", ingredients_text => "pure juice (orange juice)"}, ['en:pure-juice', 'en:orange-juice']],
+	[{lc => "en", ingredients_text => "pure juice (orange juice)"}, ['en:pure juice', 'en:orange-juice']],
 	# using vegan in case we add "pure juice" as an ingredient at some point
 	[{lc => "en", ingredients_text => "vegan (orange juice)"}, ['en:orange-juice']],
 
@@ -254,7 +248,7 @@ my @tests = (
 	# caramel: e150, match e150c
 	[{lc => "es", ingredients_text => "caramelo E-150c"}, ["en:e150c"]],
 	# mismatch between name and number
-	[{lc => "fr", ingredients_text => "acide citrique E120"}, ["fr:acide-citrique-e120"]],
+	[{lc => "fr", ingredients_text => "acide citrique E120"}, ["fr:acide citrique e120"]],
 
 	# removal of "allergy advice..." in %ignore_regexps
 	[
@@ -296,7 +290,7 @@ my @tests = (
 		{lc => "fr", ingredients_text => "72% saumon MSC, colin d'Alaska certifié MSC, Cabillaud labellisé MSC"},
 		['en:salmon', 'en:alaska-pollock', 'en:cod']
 	],
-	[{lc => "fr", ingredients_text => "poisson ascorbique"}, ["fr:poisson-ascorbique"],],
+	[{lc => "fr", ingredients_text => "poisson ascorbique"}, ["fr:poisson ascorbique"],],
 	# AOP
 	[{lc => "fr", ingredients_text => "piment d'Espelette AOP"}, ["en:espelette-chili-pepper"],],
 
@@ -310,6 +304,61 @@ my @tests = (
 	],
 	[{lc => "fr", ingredients_text => "huile de palme certifiée durable"}, ['en:palm-oil']],
 	[{lc => "fr", ingredients_text => "huile de palme RSPO"}, ['en:palm-oil']],
+	# label synonyms that are part of the name of an ingredient
+	[
+		{lc => "fr", ingredients_text => "colorants : charbon végétal, extraits végétaux à pouvoir colorant (curcuma)"},
+		['en:e153', 'fr:extraits-vegetaux-a-pouvoir-colorant', 'en:turmeric']
+	],
+	[
+		{lc => "fr", ingredients_text => "huile de palme biologique, farine de blé bio"},
+		['en:palm-oil', 'en:wheat-flour']
+	],
+	# processing or end of the name of the ingredient after the closing parenthesis
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"sucre, cacao maigre (11 % de beurre de cacao) en poudre (20%), cacahuètes (arachides) grillées*, oignons (France) émincés 5%, chocolat (sucre, cacao) noir. *issu de l'agriculture biologique"
+		},
+		[
+			'en:sugar', 'en:fat-reduced-cocoa-powder', 'en:roasted-peanut', 'en:onion',
+			'en:dark-chocolate', 'en:cocoa-butter', 'en:sugar', 'en:cocoa'
+		]
+	],
+	[{lc => "fr", ingredients_text => "Sulfate de cuivre (II) pentahydraté"}, ['en:e519']],
+	# footnotes and mentions that are not ingredients
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Farine de blé*, ŒUFS*/** entiers frais, sucre*, sel. *Ingrédients issus de l'agriculture biologique. **Œufs de poules élevées en plein air. Fabriqué dans un atelier utilisant également : céleri, soja."
+		},
+		['en:wheat-flour', 'en:whole-fresh-eggs', 'en:sugar', 'en:salt', 'en:free-range-chicken-eggs']
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Lait*, sel. *Issu d'animaux nés, élevés, abattus et transformés en France. Elaboré à partir de lait origine France. Traces de: fruits à coque, soja."
+		},
+		['en:milk', 'en:salt']
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, beurre de cacao¹, jus de citron concentré (si nécessaire pour réguler l'acidité). ¹Bilan massique certifié Rainforest Alliance. www.ra.org/fr"
+		},
+		['en:sugar', 'en:cocoa-butter', 'en:concentrated-lemon-juice']
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Ingrédients (pourcentages exprimés sur le poids total) : farine de blé\" 50%, sucre de canne\". \"ingrédients issus de l agriculture biologique"
+		},
+		['en:wheat-flour', 'en:cane-sugar']
+	],
 
 	# Russian and / or
 	[{lc => "ru", ingredients_text => "яблоко и малина"}, ["en:apple", "en:raspberry"]],
@@ -324,11 +373,12 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
 	[
 		{lc => "fr", ingredients_text => "Ingrédient inconnu coupée et cuite au naturel"},
-		["fr:ingredient-inconnu-coupee-et-cuite-au-naturel"],
+		["fr:Ingrédient inconnu coupée et cuite au naturel"],
 	],
-	[{lc => "fr", ingredients_text => "Ingrédient inconnu et sel"}, ["fr:ingredient-inconnu", "en:salt"],],
-	[{lc => "fr", ingredients_text => "Sel et ingrédient inconnu"}, ["en:salt", "fr:ingredient-inconnu"],],
-	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown-fruit"],],
+	[{lc => "fr", ingredients_text => "Ingrédient inconnu et sel"}, ["fr:Ingrédient inconnu", "en:salt"],],
+	[{lc => "fr", ingredients_text => "Sel et ingrédient inconnu"}, ["en:salt", "fr:ingrédient inconnu"],],
+	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown fruit"],],
+	[{lc => "en", ingredients_text => "colour (Natural Red 4, mg/kg 1b306(i))"}, ["en:e120", "en:mg/kg 1b306"],],
 
 );
 
@@ -342,6 +392,12 @@ foreach my $test_ref (@tests) {
 	extract_ingredients_from_text($product_ref);
 
 	is($product_ref->{ingredients_original_tags}, $expected_tags) or diag Dumper $product_ref;
+}
+
+my $compound = 'fr:arome-naturel-de-pomme-avec-autres-aromes-naturels';
+ok(exists_taxonomy_tag('ingredients', $compound), 'the declared French flavouring compound is known');
+for my $parent ('en:natural-apple-flavouring', 'en:natural-flavouring') {
+	ok(is_a('ingredients', $compound, $parent), "the flavouring compound retains $parent");
 }
 
 my $before = "";

@@ -38,6 +38,7 @@ use Log::Any qw($log);
 
 use ProductOpener::Auth qw/get_oidc_configuration get_token_using_client_credentials get_oidc_implementation_level/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Health qw/:all/;
 use ProductOpener::Tags qw/country_to_cc cc_to_country/;
 use ProductOpener::Cache qw/$memd/;
 
@@ -45,6 +46,7 @@ use JSON;
 use LWP::UserAgent;
 use LWP::UserAgent::Plugin 'Retry';
 use HTTP::Request;
+use Time::HiRes qw/gettimeofday tv_interval/;
 use URI::Escape::XS qw/uri_escape/;
 
 sub new($class) {
@@ -293,6 +295,43 @@ sub delete_user ($self, $userid) {
 	return;
 }
 
+=head2 set_user_enabled ($userid, $enabled)
+
+Enable or disable a user in Keycloak. A disabled user cannot log in.
+Unlike delete_user(), this is reversible and it does not trigger a user-deleted event.
+
+=head3 Arguments
+
+=head4 User id $userid
+
+=head4 Boolean $enabled
+
+=head3 Return Value
+
+1 if the user was found and updated, 0 if the user does not exist in Keycloak.
+
+=cut
+
+sub set_user_enabled ($self, $userid, $enabled) {
+	my $existing_user = $self->find_keycloak_user_by_username($userid, 1);
+	return 0 if not defined $existing_user;
+
+	my $token = $self->get_or_refresh_token();
+
+	my $request = HTTP::Request->new(PUT => $self->{users_endpoint} . '/' . $existing_user->{id});
+	$request->header('Content-Type' => 'application/json');
+	$request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	$request->content(encode_json({enabled => ($enabled ? $JSON::PP::true : $JSON::PP::false)}));
+
+	my $response = LWP::UserAgent::Plugin->new->request($request);
+	unless ($response->is_success) {
+		die $response->content;
+	}
+	$memd->delete("user/$userid");
+
+	return 1;
+}
+
 =head2 find_user_by_username ($username)
 
 Try to find a user in Keycloak by their username.
@@ -419,6 +458,90 @@ sub _find_user_by_single_attribute_exact ($self, $name, $value, $brief = 0) {
 	my $json_response = $search_user_response->decoded_content(charset => 'UTF-8');
 	my $users = decode_json($json_response);
 	return $$users[0];
+}
+
+=head2 perform_health_check()
+
+Verify Keycloak back-channel and front-channel endpoint reachability.
+
+=cut
+
+sub perform_health_check() {
+	my $oidc_configuration = get_oidc_configuration();
+	if (not defined $oidc_configuration) {
+		my $time = current_time_iso8601();
+		return [
+			{
+				status => $status_fail,
+				componentName => 'back_channel',
+				componentType => 'system',
+				output => 'OIDC configuration is unavailable',
+				time => $time,
+			},
+			{
+				status => $status_fail,
+				componentName => 'front_channel',
+				componentType => 'system',
+				output => 'OIDC configuration is unavailable',
+				time => $time,
+			}
+		];
+	}
+
+	my @endpoint_checks = (
+		{
+			componentName => 'back_channel',
+			url => $oidc_configuration->{token_endpoint},
+			description => 'Keycloak back-channel endpoint',
+		},
+		{
+			componentName => 'front_channel',
+			url => $oidc_configuration->{issuer} . '/account',
+			description => 'Keycloak front-channel endpoint',
+		},
+	);
+
+	my @results;
+	foreach my $endpoint_check (@endpoint_checks) {
+		my $start = [gettimeofday()];
+		my ($ok, $code, $error);
+
+		eval {
+			my $response = LWP::UserAgent::Plugin->new->get($endpoint_check->{url});
+			$code = $response->code;
+			$ok = defined($code) && ($code < 500);
+			1;
+		} or do {
+			$error = $@;
+			$ok = 0;
+		};
+
+		my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
+		my $output;
+		if ($ok) {
+			$output = $endpoint_check->{description} . " reachable (HTTP $code)";
+		}
+		elsif (defined($error) && ($error ne '')) {
+			$output = $endpoint_check->{description} . " request failed: $error";
+		}
+		else {
+			$output = $endpoint_check->{description} . " unavailable" . (defined($code) ? " (HTTP $code)" : '');
+		}
+
+		my %result = (
+			status => $ok ? $status_pass : $status_fail,
+			componentName => $endpoint_check->{componentName},
+			componentType => 'system',
+			observedValue => $duration_ms,
+			observedUnit => 'ms',
+			time => current_time_iso8601(),
+			links => {self => $endpoint_check->{url}},
+		);
+		$result{output} = $output if not $ok;
+		push @results, \%result;
+	}
+
+	return \@results;
 }
 
 1;

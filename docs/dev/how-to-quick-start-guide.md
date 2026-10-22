@@ -4,7 +4,7 @@ This guide will allow you to rapidly build a ready-to-use development environmen
 As an alternative to setting up your environment locally, follow the [Gitpod how-to guide](how-to-use-gitpod.md)
 to instantly provision a ready-to-code development environment in the cloud.
 
-First setup time estimate is `~10min` with the following specs:
+First setup time estimate is `~10min` with the following **recommended** specs:
 * `8 GB` of RAM dedicated to Docker client
 * `6` cores dedicated to Docker client
 * `12 MB/s` internet speed
@@ -116,7 +116,7 @@ After successfully installing WSL, you need to set up your Linux distribution an
 
 If you use Docker Desktop:
 
-- ensure you allow enough memory for your VMs (at least 4G)
+- ensure you allow enough memory for your VMs (**minimum 4 GB, 8 GB recommended**)
 - ensure you Enabled host networking (in Resources / Network)
 
 #### macOS Users: Use VirtioFS to Avoid File Sync Issues
