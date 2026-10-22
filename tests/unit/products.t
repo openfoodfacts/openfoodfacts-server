@@ -10,6 +10,7 @@ $Data::Dumper::Sortkeys = 1;
 $Data::Dumper::Indent = 1;
 
 use Log::Any::Adapter 'TAP';
+use CGI qw/Delete param/;
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -281,6 +282,25 @@ is(preprocess_product_field('packaging', 'Aluminium, Can, abc@gmail.com'), 'Alum
 is(preprocess_product_field('labels', 'email@example.com, Green Dot'), ', Green Dot');
 is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, ');
 
+# Test edit rules for product names
+Delete('product_name');
+param('product_name', 'Produit inconnu');
+ok(process_product_edit_rules({code => '1234567890123'}), 'placeholder product name should not block the edit');
+ok(!defined param('product_name'), 'placeholder product name should be ignored');
+
+Delete('product_name_fr');
+param('product_name_fr', '  produit inconnu  ');
+ok(
+	process_product_edit_rules({code => '1234567890123'}),
+	'localized placeholder product name should not block the edit'
+);
+ok(!defined param('product_name_fr'), 'localized placeholder product name should be ignored');
+
+param('product_name', 'Pate a tartiner noisette');
+ok(process_product_edit_rules({code => '1234567890123'}), 'real product name should not block the edit');
+is(param('product_name'), 'Pate a tartiner noisette', 'real product name should be kept');
+Delete('product_name');
+
 is(split_code("26153689"), "000/002/615/3689");
 
 # test review_product_type, to migrate product in other flavor if category tag is provided
@@ -402,5 +422,43 @@ foreach my $test_ref (@tests) {
 my $beauty_product_ref = $tests[1][1];
 is([grep {/^en:nutrition/} @{$beauty_product_ref->{states_tags}}], [], 'beauty products do not have nutrition states');
 is($beauty_product_ref->{complete}, 1, 'beauty products can be complete without nutrition facts and photo');
+
+my @uploaded_images_misc_tags_tests = (
+	[0, []],
+	[1, ['en:number-of-uploaded-images-1-to-3']],
+	[3, ['en:number-of-uploaded-images-1-to-3']],
+	[4, ['en:number-of-uploaded-images-4-to-6']],
+	[6, ['en:number-of-uploaded-images-4-to-6']],
+	[7, ['en:number-of-uploaded-images-7-to-10']],
+	[10, ['en:number-of-uploaded-images-7-to-10']],
+	[11, ['en:number-of-uploaded-images-11-to-50']],
+	[50, ['en:number-of-uploaded-images-11-to-50']],
+	[51, ['en:number-of-uploaded-images-51-to-100']],
+	[100, ['en:number-of-uploaded-images-51-to-100']],
+	[101, ['en:number-of-uploaded-images-more-than-100']],
+);
+
+foreach my $test_ref (@uploaded_images_misc_tags_tests) {
+	my ($uploaded_images_n, $expected_tags_ref) = @$test_ref;
+	my %uploaded_images = ();
+	foreach my $imgid (1 .. $uploaded_images_n) {
+		$uploaded_images{$imgid} = 1;
+	}
+	my $product_ref = {misc_tags => ['en:unrelated-tag', 'en:number-of-uploaded-images-4-to-6'],};
+	my $current_ref = {
+		uploaded_images => \%uploaded_images,
+		selected_images => {},
+	};
+
+	compute_completeness_and_missing_tags($product_ref, $current_ref, {});
+
+	is(
+		$product_ref->{misc_tags},
+		['en:unrelated-tag', @$expected_tags_ref],
+		"misc tags for $uploaded_images_n uploaded images preserve unrelated tag order"
+	);
+	is([grep {/^en:number-of-uploaded-images-/} @{$product_ref->{states_tags}}],
+		[], 'uploaded image count tags are not exposed as product states');
+}
 
 done_testing();

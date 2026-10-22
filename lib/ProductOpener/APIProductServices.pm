@@ -297,6 +297,12 @@ my %service_functions = (
 		\&ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service,
 );
 
+# Services that are not local computations: they send the data they are given to a service
+# operated by us, using a token (or a quota) that belongs to the organization running this
+# server. They must not be dispatched for a caller we cannot attribute that spend to.
+
+my %services_requiring_authenticated_caller = (estimate_environmental_impact => 1,);
+
 sub check_product_services_api_input ($request_ref) {
 
 	my $response_ref = $request_ref->{api_response};
@@ -392,10 +398,7 @@ sub product_services_api ($request_ref) {
 
 		foreach my $service (@{$request_body_ref->{services}}) {
 			my $service_function = $service_functions{$service};
-			if (defined $service_function) {
-				&$service_function($product_ref, $request_ref->{updated_product_fields}, $response_ref->{errors});
-			}
-			else {
+			if (not defined $service_function) {
 				add_error(
 					$response_ref,
 					{
@@ -404,6 +407,24 @@ sub product_services_api ($request_ref) {
 						impact => {id => "failure"},
 					}
 				);
+			}
+			elsif ($services_requiring_authenticated_caller{$service}
+				and (not defined $request_ref->{user_id}))
+			{
+				$log->info("product_services_api - service requires an authenticated caller", {service => $service})
+					if $log->is_info();
+				add_error(
+					$response_ref,
+					{
+						message => {id => "authentication_required"},
+						field => {id => "services", value => $service},
+						impact => {id => "failure"},
+					},
+					401
+				);
+			}
+			else {
+				&$service_function($product_ref, $request_ref->{updated_product_fields}, $response_ref->{errors});
 			}
 		}
 
