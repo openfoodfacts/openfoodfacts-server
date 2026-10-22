@@ -54,7 +54,7 @@ $ua->timeout(15);
 sub send_scans($fully_loaded = 0) {
 	# Skip if there are no scans
 	return if $scans eq "{";
-	print '[' . localtime() . "] $scan_count products processed...";
+	$checkpoint->log("$scan_count products processed...");
 	# Remove last comma
 	chop($scans);
 	$scans .= '}';
@@ -64,11 +64,11 @@ sub send_scans($fully_loaded = 0) {
 		'Content-Type' => 'application/json; charset=utf-8'
 	);
 	if (!$resp->is_success) {
-		print '[' . localtime() . $query_post_url . " resp: " . $resp->status_line . "\n" . $scans . "\n";
+		$checkpoint->log($query_post_url . " resp: " . $resp->status_line . "\n" . $scans);
 		die;
 	}
 
-	print '[' . localtime() . "] Sent to off-query.\n";
+	$checkpoint->log("...sent to off-query");
 	$scans = '{';
 
 	return 1;
