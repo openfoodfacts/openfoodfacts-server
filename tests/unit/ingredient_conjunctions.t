@@ -59,7 +59,7 @@ fr: arôme naturel de pomme
 
 < en: natural flavouring
 < en: natural apple flavouring
-fr: arôme naturel de pomme avec autres arômes naturels
+fr: arôme naturel de pomme avec autres arômes naturels, arôme naturel de pomme et arômes naturels
 
 TAXONOMY
 close($out) or die $!;

@@ -1240,23 +1240,18 @@ English first element for that ingredient (en:pear, for example)
 
 =cut
 
-# Structural decisions must retain conjunctions when comparing generated synonyms.
+# A matched name must retain the conjunction that separates its ingredients.
+# shortcut: only check conjunction presence; tighten this if real lists require its exact position.
 sub _canonicalize_ingredient ($lc, $text, $exists_ref = undef) {
 	my $exists;
 	my $id = canonicalize_taxonomy_tag($lc, 'ingredients', $text, \$exists);
 	my $conjunction = $and{$lc} || ' and ';
-	if ($exists && $text =~ /$conjunction/i) {
-		my $conjunction_keys = join('|', map {quotemeta(get_string_id_for_lang($lc, $_))} split(/\|/, $conjunction));
-		my @synonyms = get_taxonomy_tag_synonyms($lc, 'ingredients', $id);
-		# Declared names must also survive the same preparsing as the ingredient text.
-		my @keys = map {
-			my $key = get_string_id_for_lang($lc, $_);
-			$key =~ s/(?<=-)(?:$conjunction_keys)(?=-)/zzingredientconjunctionzz/g;
-			ProductOpener::Tags::remove_plurals($lc, ProductOpener::Tags::remove_stopwords('ingredients', $lc, $key));
-		} ($text, @synonyms, map {preparse_ingredients_text($lc, $_)} @synonyms);
-		my $key = shift @keys;
-		$exists = scalar grep {$_ eq $key} @keys;
-		$id = "$lc:$text" unless $exists;
+	if (   $exists
+		&& $text =~ /$conjunction/i
+		&& !grep {/$conjunction/i} get_taxonomy_tag_synonyms($lc, 'ingredients', $id))
+	{
+		$exists = 0;
+		$id = "$lc:$text";
 	}
 	$$exists_ref = $exists ? 1 : 0 if defined $exists_ref;
 	return $id;
@@ -2524,9 +2519,9 @@ Text to analyze
 			my $ingredient2 = $';
 
 			# check if the whole ingredient is an ingredient
-			my $compound_name = $before;
-			$compound_name =~ s/${\compiled_regexp('\s' . $percent_or_quantity_regexp . '$')}//;
-			my $canon_ingredient = _canonicalize_ingredient($ingredients_lc, $compound_name);
+			my $whole_ingredient = $before;
+			$whole_ingredient =~ s/${\compiled_regexp('\s' . $percent_or_quantity_regexp . '$')}//;
+			my $canon_ingredient = _canonicalize_ingredient($ingredients_lc, $whole_ingredient);
 
 			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
 
