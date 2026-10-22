@@ -36,7 +36,7 @@ my @sample_products = (
 		categories => "en:shampoos,en:hair-care",
 		ingredients_text => "Aqua, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Glycerin, Parfum, Citric Acid.",
 		quantity => "250 ml",
-		countries => "en:france,en:world",
+		countries => "en:france",
 	},
 	{
 		code => "3337871321234",
@@ -48,7 +48,7 @@ my @sample_products = (
 		categories => "en:body-creams,en:moisturizers",
 		ingredients_text => "Aqua, Glycerin, Dimethicone, Hydrogenated Polyisobutene, Cetearyl Alcohol, Niacinamide.",
 		quantity => "200 ml",
-		countries => "en:france,en:world",
+		countries => "en:france",
 	},
 	{
 		code => "8001090123456",
@@ -60,7 +60,7 @@ my @sample_products = (
 		categories => "en:toothpastes,en:oral-care",
 		ingredients_text => "Aqua, Sorbitol, Hydrated Silica, Sodium Lauryl Sulfate, Aroma, Sodium Fluoride.",
 		quantity => "75 ml",
-		countries => "en:france,en:world",
+		countries => "en:france",
 	},
 	{
 		code => "3052503123456",
@@ -72,7 +72,7 @@ my @sample_products = (
 		categories => "en:lip-balms,en:lip-care",
 		ingredients_text => "Octyldodecanol, Ricinus Communis Seed Oil, Cera Alba, Butyrospermum Parkii Butter, Tocopherol.",
 		quantity => "4.8 g",
-		countries => "en:france,en:world",
+		countries => "en:france",
 	},
 );
 

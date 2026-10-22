@@ -245,7 +245,7 @@ Each flavor configuration in `env/env.<flavor>` provides complete isolation:
 | `PRODUCT_OPENER_PORT` | `80` | `81` | `82` | `83` |
 | `PRODUCT_OPENER_NETWORK` | `product-opener` | `po_obf_network` | `po_opf_network` | `po_opff_network` |
 | `MONGODB_DATABASE` | `off` | `obf` | `opf` | `opff` |
-| `POSTGRES_DB` | `minion` | `minion_obf` | `minion_opf` | `minion_opff` |
+| `POSTGRES_DB` | `minion` | `minion` | `minion` | `minion` |
 | `MINION_QUEUE` | `openfoodfacts.localhost` | `openbeautyfacts.localhost` | `openproductsfacts.localhost` | `openpetfoodfacts.localhost` |
 
 - **Network Aliases**: Frontend network aliases are dynamically generated based on `${PRODUCT_OPENER_DOMAIN}`, preventing alias conflicts when instances run side-by-side.

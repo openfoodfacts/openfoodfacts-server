@@ -629,14 +629,35 @@ run_deps: clone_deps
 	done
 	@if [ -n "${COMMON_NET_NAME}" ]; then \
 		echo "🥫 Ensuring shared network ${COMMON_NET_NAME} exists and shared services are attached..."; \
-		docker network create "${COMMON_NET_NAME}" 2>/dev/null || true; \
+		if ! docker network inspect "${COMMON_NET_NAME}" >/dev/null 2>&1; then \
+			if ! err=$$(docker network create "${COMMON_NET_NAME}" 2>&1); then \
+				if ! echo "$$err" | grep -qi "already exists"; then \
+					echo "Failed to create shared network ${COMMON_NET_NAME}: $$err" >&2; \
+					exit 1; \
+				fi; \
+			fi; \
+		fi; \
 		for proj in off_shared off_auth; do \
 			for container_id in $$(docker compose -p $$proj ps -q 2>/dev/null); do \
-				docker network connect "${COMMON_NET_NAME}" "$$container_id" 2>/dev/null || true; \
+				if ! docker inspect "$$container_id" --format '{{json .NetworkSettings.Networks}}' 2>/dev/null | grep -q "\"${COMMON_NET_NAME}\""; then \
+					if ! err=$$(docker network connect "${COMMON_NET_NAME}" "$$container_id" 2>&1); then \
+						if ! echo "$$err" | grep -qi "already exists"; then \
+							echo "Failed to connect $$container_id to ${COMMON_NET_NAME}: $$err" >&2; \
+							exit 1; \
+						fi; \
+					fi; \
+				fi; \
 			done; \
 		done; \
 		for container_id in $$(docker ps -q -f "name=off_shared" 2>/dev/null); do \
-			docker network connect "${COMMON_NET_NAME}" "$$container_id" 2>/dev/null || true; \
+			if ! docker inspect "$$container_id" --format '{{json .NetworkSettings.Networks}}' 2>/dev/null | grep -q "\"${COMMON_NET_NAME}\""; then \
+				if ! err=$$(docker network connect "${COMMON_NET_NAME}" "$$container_id" 2>&1); then \
+					if ! echo "$$err" | grep -qi "already exists"; then \
+						echo "Failed to connect $$container_id to ${COMMON_NET_NAME}: $$err" >&2; \
+						exit 1; \
+					fi; \
+				fi; \
+			fi; \
 		done; \
 	fi
 
