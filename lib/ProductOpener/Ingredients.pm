@@ -1878,6 +1878,33 @@ sub _matches_declared_ingredient_name ($ingredients_lc, $text, $ingredient_id) {
 	return scalar grep {$_ eq $key} @keys;
 }
 
+sub _extract_ingredient_equivalents ($lc, $text) {
+	my %markers = (fr => 'équivalente?s?\s+à', en => 'equivalent\s+to');
+	return ($text, undef) unless defined $markers{$lc};
+	return ($text, undef)
+		unless $text =~ compiled_regexp('^(?<name>.+?)\s+(?<statement>'
+			. $markers{$lc}
+			. '\s+(?<percent>\d+(?:[.,‚]\d+)?)\s*%\s+(?:de\s+|d\x27|of\s+)(?<target>.+))$');
+	my ($name, $statement, $percent, $target) = @+{qw(name statement percent target)};
+	# The name must be an ingredient: neither the percent of a sub-ingredient nor a label alone.
+	return ($text, undef) unless $name =~ /[^\W\d_]/;
+	my ($name_without_labels) = _extract_ingredient_labels($lc, $name);
+	return ($text, undef) if $name_without_labels eq '';
+	my (undef, undef, $id, $recognized) = parse_processing_from_ingredient($lc, $target);
+	return ($text, undef) unless $recognized;
+	$statement =~ s/\N{U+201A}/,/g;
+	return (
+		$name,
+		[
+			{
+				id => get_taxonomyid($lc, $id),
+				text => $statement,
+				percent => convert_text_value_to_number($lc, $percent) + 0
+			}
+		]
+	);
+}
+
 sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
 	my $debug_ingredients = 0;
@@ -2711,6 +2738,7 @@ Text to analyze
 			$ingredient =~ s/(?<!\w)_+//g;
 			$ingredient =~ s/_+(?!\w)//g;
 			next unless $ingredient =~ /\S/;
+			($ingredient, my $equivalents) = _extract_ingredient_equivalents($ingredients_lc, $ingredient);
 
 			$debug_ingredients and $log->debug("analyzing ingredient", {ingredient => $ingredient})
 				if $log->is_debug();
@@ -3563,6 +3591,7 @@ Text to analyze
 					id => get_taxonomyid($ingredients_lc, $ingredient_id),
 					text => $ingredient_text
 				);
+				$ingredient{equivalents} = $equivalents if defined $equivalents;
 
 				my $is_additive_class = exists_taxonomy_tag("additives_classes", $ingredient{id});
 				my $is_additive = exists_taxonomy_tag("additives", $ingredient{id});
@@ -4606,6 +4635,8 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			$percent_sum += $ingredient_ref->{percent};
+			# An equivalent is an annotation of a declared proportion, not a complete recipe to rescale.
+			$all_ingredients_have_a_set_percent = 0 if defined $ingredient_ref->{equivalents};
 		}
 		else {
 			$all_ingredients_have_a_set_percent = 0;

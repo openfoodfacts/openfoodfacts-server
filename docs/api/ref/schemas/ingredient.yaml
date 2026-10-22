@@ -3,6 +3,22 @@ title: ingredient
 properties:
   id:
     type: string
+  equivalents:
+    type: array
+    description: |
+      Declared equivalents of this ingredient, such as fresh carrot equivalent
+      for dried carrots. These annotations are not additional ingredients and
+      their percentages are not used as actual ingredient percentages.
+    items:
+      type: object
+      required: [id, text, percent]
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        percent:
+          type: number
   ingredients:
     type: array
     description: |
