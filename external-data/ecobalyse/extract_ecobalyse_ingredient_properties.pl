@@ -30,8 +30,8 @@
 # optional overrides file for baseIngredients that cannot be resolved.
 #
 # Key behavior:
-# - ALL variant entries (including hidden ones with visible=false, unless
-#   --exclude-hidden-entries is passed) are emitted as non-proxy properties (e.g.,
+# - ALL visible variant entries (and hidden ones with visible=false if
+#   --include-hidden-entries is passed) are emitted as non-proxy properties (e.g.,
 #   ecobalyse_labels_en_organic_origins_en_france_id:en).
 # - If no None+non-organic entry exists naturally, we create a base fallback entry
 #   (no label, no origin) by copying values from the best available entry:
@@ -40,6 +40,9 @@
 #   Ecobalyse), an organic-only fallback uses the ecobalyse_proxy_ prefix.
 # - The ecobalyse_proxy_ prefix is otherwise used for proxies: OFF ingredients that
 #   use the data of another baseIngredient (manual and auto-generated proxy files).
+# - OFF ingredients listed in off_ingredients_without_ecobalyse_data.tsv get
+#   ecobalyse_id:en and ecobalyse_proxy_id:en "undef" properties, to stop the inheritance
+#   of Ecobalyse data from their parents (e.g. foie gras must not use the en:poultry proxy).
 # - "Origin none does not mean proxy" — None origin entries are regular variants.
 
 use Modern::Perl '2017';
@@ -53,13 +56,14 @@ binmode(STDIN, ":encoding(UTF-8)");
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-# By default, entries with visible=false are used: they are hidden in the Ecobalyse UI,
-# but the API accepts them (e.g. beef, sardine and other fish only have hidden entries).
-# Visible entries are preferred over hidden ones when selecting the default entry.
-# Hidden entries get a ecobalyse_[variant]_visibility:en:false property.
-my $exclude_hidden_entries = 0;
-GetOptions("exclude-hidden-entries" => \$exclude_hidden_entries)
-	or die("Usage: $0 [--exclude-hidden-entries]\n");
+# By default, entries with visible=false are ignored: they are hidden in the Ecobalyse UI,
+# and the Ecobalyse food API rejects them ("Ingrédient introuvable par id").
+# With --include-hidden-entries, they are used: visible entries are preferred over
+# hidden ones when selecting the default entry, and hidden entries get a
+# ecobalyse_[variant]_visibility:en:false property.
+my $include_hidden_entries = 0;
+GetOptions("include-hidden-entries" => \$include_hidden_entries)
+	or die("Usage: $0 [--include-hidden-entries]\n");
 
 # Hardcoded paths
 my $processes_file = "external-data/ecobalyse/processes.json";
@@ -67,6 +71,7 @@ my $mapping_file = "external-data/ecobalyse/base_ingredients_to_off_ingredients.
 my $overrides_file = "external-data/ecobalyse/base_ingredients_to_off_ingredients_overrides.tsv";
 my $proxies_file = "external-data/ecobalyse/base_ingredients_proxies_for_off_ingredients.tsv";
 my $auto_proxies_file = "external-data/ecobalyse/base_ingredients_auto_proxies.tsv";
+my $blocked_file = "external-data/ecobalyse/off_ingredients_without_ecobalyse_data.tsv";
 my $output_file = "external-data/ecobalyse/ecobalyse_ingredient_properties.csv";
 
 # Load base_ingredients → tagid mapping (from Script 1 output + overrides)
@@ -208,6 +213,7 @@ my $global_props = 0;
 my $variant_props = 0;
 my $matched_tags = 0;
 my $unmatched_bases = 0;
+my $blocked_tags = 0;
 
 TAGID: for my $tagid (sort keys %tagid_to_entries) {
 	$matched_tags++;
@@ -359,6 +365,30 @@ for my $source_base (sort keys %base_to_proxy_tagids) {
 	}
 }
 
+# Block inheritance for OFF ingredients that must not use the Ecobalyse data of their parents
+# (e.g. foie gras would otherwise use the chicken breast proxy of en:poultry):
+# the "undef" value stops the propagation of the property from the parents of the ingredient.
+# Blocking the base ids is enough: label and origin variants are only used with a base id.
+if (-f $blocked_file) {
+	my %tagids_with_data = map {$_->[0] => 1} @output_rows;
+	open my $bfh, '<:encoding(UTF-8)', $blocked_file
+		or die "Cannot open $blocked_file: $!";
+	while (my $line = <$bfh>) {
+		chomp $line;
+		next if $line =~ /^#/ || $line =~ /^\s*$/;
+		my ($tagid) = split /\t/, $line;
+		if (not exists_taxonomy_tag("ingredients", $tagid)) {
+			push @warnings, "Blocked: $tagid: tagid does not exist in the ingredients taxonomy";
+			next;
+		}
+		die "Blocked: $tagid has Ecobalyse data, remove it from $blocked_file or from the matches\n"
+			if $tagids_with_data{$tagid};
+		push @output_rows, [$tagid, "ecobalyse_id:en", "undef"], [$tagid, "ecobalyse_proxy_id:en", "undef"];
+		$blocked_tags++;
+	}
+	close $bfh;
+}
+
 # Count unmatched baseIngredients: baseIngredients in processes.json without an OFF tagid
 # (some of them are used as proxy sources, e.g. fish-secondary-ingredient)
 my @unmatched_bases = grep {not defined resolve_tagid($_)} sort keys %base_to_entries;
@@ -382,6 +412,7 @@ say "  Unmatched baseIngredients (no OFF tagid): $unmatched_bases (used as proxy
 	. scalar(@unmatched_proxy_sources) . ")";
 say "  Global properties: $global_props";
 say "  Variant properties: $variant_props";
+say "  Blocked tagids (no Ecobalyse data, no inheritance): $blocked_tags";
 
 open my $out_fh, '>:encoding(UTF-8)', $output_file
 	or die "Cannot open $output_file for writing: $!";
@@ -399,11 +430,11 @@ say STDERR "Processed $matched_tags tagids";
 
 # --- Subroutines ---
 
-# Entries to use for a baseIngredient: all entries, or only visible ones
-# if --exclude-hidden-entries is passed
+# Entries to use for a baseIngredient: only visible entries, or all entries
+# if --include-hidden-entries is passed
 sub usable_entries {
 	my ($entries_ref) = @_;
-	return @$entries_ref unless $exclude_hidden_entries;
+	return @$entries_ref if $include_hidden_entries;
 	return grep {$_->{visible} // 1} @$entries_ref;
 }
 

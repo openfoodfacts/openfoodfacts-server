@@ -5,6 +5,10 @@
 #
 # Format: target_tagid<TAB>source_baseIngredient
 en:chicken	chicken-breast
+# no visible generic poultry or rabbit entries in Ecobalyse: use chicken breast
+# (foie gras is excluded in off_ingredients_without_ecobalyse_data.tsv)
+en:poultry	chicken-breast
+en:rabbit	chicken-breast
 en:corn-syrup	glucose-syrup
 en:cocoa-paste	cocoa-bean
 en:cream	fresh-cream-cheese
@@ -27,7 +31,6 @@ en:milk-proteins	milk
 en:wheat-gluten	soft-wheat
 en:instant-coffee	coffee-ground
 en:vinegar  vinegar-alcohol
-en:beef-meat	beef-without-bone
 en:soya	soybean
 en:coconut-oil	unknown-oil
 en:coffee	coffee-ground
