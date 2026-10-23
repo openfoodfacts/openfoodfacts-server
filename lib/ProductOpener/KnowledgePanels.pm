@@ -66,6 +66,7 @@ use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Nutrition qw/has_no_nutrition_data_on_packaging has_non_estimated_nutrition_data/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Images qw/data_to_display_image/;
@@ -1609,8 +1610,9 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 
 		# Offer an action to add the nutrition facts if none have been entered
-		my $input_sets_ref = deep_get($product_ref, "nutrition", "input_sets");
-		if ((not defined $input_sets_ref) or (scalar @$input_sets_ref == 0)) {
+		if (    not has_no_nutrition_data_on_packaging($product_ref)
+			and not has_non_estimated_nutrition_data($product_ref))
+		{
 			$panel_data_ref->{nutrition_facts_missing} = 1;
 		}
 
