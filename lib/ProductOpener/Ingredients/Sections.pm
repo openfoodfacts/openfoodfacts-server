@@ -2,6 +2,7 @@ package ProductOpener::Ingredients::Sections;
 
 use ProductOpener::PerlStandards;
 use Exporter qw(import);
+use JSON::MaybeXS;
 
 our @EXPORT_OK = qw(split_ingredient_sections);
 
@@ -82,8 +83,59 @@ sub split_ingredient_sections ($text, $lc) {
 		push @sections, $section;
 	}
 
-	return unless @boundaries;
-	return \@sections;
+	my $labels
+		= $lc eq 'fr'
+		? qr/protéines?(?:\s+brutes?)?|matières\s+grasses(?:\s+brutes?)?|cendres(?:\s+brutes?)?|cellulose(?:\s+brute)?|humidité|calcium|phosphore|sodium|magnésium|potassium|soufre|chlorure|taurine/i
+		: qr/(?:crude\s+)?(?:protein|fat|ash|fib(?:re|er))|moisture|calcium|phosphorus|sodium|magnesium|potassium|sulphur|chloride|taurine/i;
+	my $entry = qr/(?:$labels)\s*(?::\s*)?\d+(?:[.,]\d+)?\s*(?:%|[mk]?g\s*\/\s*kg)/i;
+	my @result;
+	my $inferred = 0;
+	for my $section (@sections) {
+		my $body = $section->{_body};
+		my ($start, $end);
+		if ($section->{type} =~ /^(?:ingredients|recipe)$/) {
+			while ($body =~ /(?<!\pL)$entry(?:[\s,;]+$entry){2,}/g) {
+				my ($run, $run_start, $run_end) = ($&, $-[0], $+[0]);
+				my $markers
+					= ($run =~ /cendres|\bash\b/i ? 1 : 0)
+					+ ($run =~ /cellulose|\bfib(?:re|er)\b/i ? 1 : 0)
+					+ ($run =~ /humidité|\bmoisture\b/i ? 1 : 0);
+				if ($markers >= 2) {
+					($start, $end) = ($run_start, $run_end);
+					last;
+				}
+			}
+		}
+		if (defined $start) {
+			my $header_length = length($section->{text}) - length($body);
+			my $prefix = {
+				%$section,
+				text => substr($section->{text}, 0, $header_length + $start),
+				_body => substr($body, 0, $start)
+			};
+			push @result, $prefix if $prefix->{_body} =~ /\S/;
+			my $suffix = substr($body, $end);
+			my $analytics = substr($body, $start, $end - $start);
+			if ($suffix !~ /[^\s.]/) {
+				$analytics .= $suffix;
+				$suffix = '';
+			}
+			push @result,
+				{
+				type => 'analytical',
+				text => $analytics,
+				_body => $analytics,
+				inferred => JSON::MaybeXS::true()
+				};
+			push @result, {type => 'ingredients', text => $suffix, _body => $suffix} if $suffix =~ /\S/;
+			$inferred = 1;
+		}
+		else {
+			push @result, $section;
+		}
+	}
+	return unless @boundaries || $inferred;
+	return \@result;
 }
 
 1;

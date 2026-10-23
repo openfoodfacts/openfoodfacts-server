@@ -46,6 +46,16 @@ ok($sectioned->{updated_product_fields}{ingredients_sections}, 'API tracks secti
 unlike(JSON::MaybeXS->new->encode($sectioned->{api_response}),
 	qr/"_body"/, 'public API does not expose temporary section parsing data');
 
+my $inferred = request(
+	{
+		lc => 'en',
+		product_type => 'petfood',
+		ingredients_text => "chicken, oil\ncrude protein 8%\ncrude ash 2%\ncrude fibre 1%"
+	}
+);
+like(JSON::MaybeXS->new->encode($inferred->{api_response}),
+	qr/"inferred"\s*:\s*true/, 'inferred boundary is serialized as a JSON boolean');
+
 my $replaced = dclone($sectioned->{body_json}{product});
 $replaced->{ingredients_text} = 'sel';
 my $replacement = request($replaced);

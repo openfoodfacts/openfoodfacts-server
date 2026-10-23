@@ -38,4 +38,20 @@ for my $text (
 	is(split_ingredient_sections($text, 'fr'), undef, 'an ingredient phrase does not become a heading');
 }
 
+for my $case (
+	['fr', "poulet, huile 10%\nprotéines 8%\ncendres 2%\ncellulose 1%"],
+	['en', "chicken, oil 10%\ncrude protein 8%\ncrude ash 2%\ncrude fibre 1%"],
+	)
+{
+	my ($lc, $text) = @$case;
+	my $sections = split_ingredient_sections($text, $lc);
+	is([map {$_->{type}} @{$sections // []}], ['ingredients', 'analytical'], 'untitled analytical data is separated');
+	is($sections->[1]{inferred}, 1, 'an inferred boundary is identified as such');
+	is(join('', map {$_->{text}} @$sections), $text, 'inferred spans preserve the complete source text');
+}
+
+for my $text ("cendres 2%\ncellulose 1%", "protéines 8%\ncendres 2%\ncendres 1%") {
+	is(split_ingredient_sections($text, 'fr'), undef, 'too few distinct analytical indicators do not create a section');
+}
+
 done_testing;
