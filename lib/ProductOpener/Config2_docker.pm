@@ -176,6 +176,13 @@ $recipe_estimator_service = $ENV{RECIPE_ESTIMATOR_SERVICE} || "product_opener";
 	minion_backend => {Pg => $postgres_url},
 	minion_local_queue => $server_domain,
 	cookie_domain => $ENV{PRODUCT_OPENER_DOMAIN},
+	# The session and OIDC cookies carry the authentication credential, so they must not be sent over
+	# plaintext HTTP. A Secure cookie is however never sent back over plain HTTP, so flagging it on
+	# a HTTP-only instance makes sign-in fail silently.
+	# Local development serves port 80 only, and Safari refuses to store Secure cookies even on the
+	# trustworthy *.localhost origin, so it is disabled there, like @ssl_subdomains above.
+	# Set PRODUCT_OPENER_SECURE_COOKIES=1 to check production behaviour from a local dev instance.
+	secure_cookies => $ENV{PRODUCT_OPENER_SECURE_COOKIES} // ($is_localhost ? 0 : 1),
 );
 
 if ($producers_platform) {
