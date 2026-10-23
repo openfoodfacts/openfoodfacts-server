@@ -44,8 +44,15 @@
    "environmental_impact" : {
       "ecobalyse_input" : {
          "distribution" : "ambient",
-         "ingredients" : [],
-         "ingredients_coverage_percent" : 0,
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Aneth, frais HORS UE",
+               "id" : "e849f2db-b8d3-5456-a771-bd23d88b1e66",
+               "mass" : 100,
+               "name" : "dill"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
@@ -54,12 +61,15 @@
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : []
+            "ingredients" : [
+               {
+                  "id" : "e849f2db-b8d3-5456-a771-bd23d88b1e66",
+                  "mass" : 100
+               }
+            ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      },
-      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
-      "ecobalyse_skipped" : 1
+      }
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
@@ -72,6 +82,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "11093",
+         "ecobalyse_id" : "e849f2db-b8d3-5456-a771-bd23d88b1e66",
+         "ecobalyse_name" : "Aneth, frais HORS UE",
          "id" : "en:dill",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -111,10 +123,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:dill"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "minerals_tags" : [],
@@ -136,8 +146,8 @@
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
       "en:ecobalyse-reference-quantity-from-default",
-      "en:ecobalyse-ingredients-matched-between-0-and-9",
-      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a"
    ],
