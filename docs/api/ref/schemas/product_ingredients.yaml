@@ -55,6 +55,9 @@ properties:
           items:
             # Keep the named component to avoid expanding another recursive tree in Spectral.
             $ref: "../api.yaml#/components/schemas/Ingredient"
+        inferred:
+          type: boolean
+          description: True when the analytical boundary was inferred without a heading.
   ingredients_analysis:
     type: object
     properties:
