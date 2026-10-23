@@ -39,8 +39,7 @@ sub _mock_password_auth () {
 				return (
 					{userid => $test_user_id},
 					$refresh_token, time() + 3600,
-					'access-1', time() + 300,
-					'id-token-1'
+					'access-1', time() + 300, 'id-token-1'
 				);
 			},
 			revoke_token => sub ($token, $hint = 'refresh_token') {
