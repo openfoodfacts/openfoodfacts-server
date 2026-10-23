@@ -83,4 +83,7 @@ foreach my $flavor (qw(off obf opf opff)) {
 	ok(-e "$www_root/images/logos/$flavor-logo-icon-light.svg", "$flavor logo asset exists");
 }
 
+# Test that site_layout template compiles with dynamic footer project buttons (issue #14940)
+ok($tt->template("web/common/site_layout.tt.html"), "site_layout template parses successfully");
+
 done_testing();
