@@ -28,6 +28,27 @@ properties:
       like estimate on their quantity.
     items:
       $ref: "./ingredient.yaml"
+  ingredients_sections:
+    type: array
+    description: |
+      Sections identified in pet-food ingredient text. Composition and additive
+      sections contain their own parsed ingredient trees. Analytical data
+      retains its source text as an annotation.
+    items:
+      type: object
+      required: [type, text]
+      properties:
+        type:
+          type: string
+          enum: [ingredients, analytical, additives]
+        text:
+          type: string
+          description: Source text for this section, including any heading.
+        ingredients:
+          type: array
+          items:
+            # Keep the named component to avoid expanding another recursive tree in Spectral.
+            $ref: "../api.yaml#/components/schemas/Ingredient"
   ingredients_analysis:
     type: object
     properties:
