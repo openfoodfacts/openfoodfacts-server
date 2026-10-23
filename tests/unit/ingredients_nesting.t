@@ -430,20 +430,20 @@ like($cosmetic_product_ref->{ingredients}[0]{text}, qr/No\.\s*5/i, "The number s
 # Number abbreviations must be followed by a digit to avoid splitting.
 # A standalone "no." before another ingredient remains a sentence separator.
 foreach my $case (
-    ["en", "FD&C Yellow No. 5, glycerin", 2, qr/No\.\s*5/i],
-    ["lt", "Maistinis geltonasis CI Nr. 3, cukrus", 2, qr/Nr\.\s*3/i],
-    ["fr", "Orange CI n. 4, sucre", 2, qr/\bn\.\s*4/i],
-    ["en", "Gluten no. Milk powder", 2, undef],
-    ["en", "Contains peanuts NO. Sugar", 2, undef],
-    )
+	["en", "FD&C Yellow No. 5, glycerin", 2, qr/No\.\s*5/i],
+	["lt", "Maistinis geltonasis CI Nr. 3, cukrus", 2, qr/Nr\.\s*3/i],
+	["fr", "Orange CI n. 4, sucre", 2, qr/\bn\.\s*4/i],
+	["en", "Gluten no. Milk powder", 2, undef],
+	["en", "Contains peanuts NO. Sugar", 2, undef],
+	)
 {
-    my ($lc, $text, $expected_count, $numbered_name) = @$case;
-    my $product_ref = {lc => $lc, ingredients_text => $text};
-    parse_ingredients_text_service($product_ref, {}, []);
-    is(scalar(@{$product_ref->{ingredients}}), $expected_count, "$text: ingredient count");
-    if (defined $numbered_name) {
-        like($product_ref->{ingredients}[0]{text}, $numbered_name, "$text: number stays with ingredient");
-    }
+	my ($lc, $text, $expected_count, $numbered_name) = @$case;
+	my $product_ref = {lc => $lc, ingredients_text => $text};
+	parse_ingredients_text_service($product_ref, {}, []);
+	is(scalar(@{$product_ref->{ingredients}}), $expected_count, "$text: ingredient count");
+	if (defined $numbered_name) {
+	    like($product_ref->{ingredients}[0]{text}, $numbered_name, "$text: number stays with ingredient");
+	}
 }
 
 foreach my $test_ref (@tests) {
