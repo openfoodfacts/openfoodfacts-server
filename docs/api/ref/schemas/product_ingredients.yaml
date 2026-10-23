@@ -31,19 +31,25 @@ properties:
   ingredients_sections:
     type: array
     description: |
-      Sections identified in pet-food ingredient text. Composition and additive
-      sections contain their own parsed ingredient trees. Analytical data
-      retains its source text as an annotation.
+      Sections identified in pet-food ingredient text. Composition, recipe and
+      additive sections contain their own parsed ingredient trees. Analytical
+      data and mixture descriptions retain their source text as annotations.
+      For multiple recipes without known proportions, the legacy ingredients
+      array is qualitative: local quantities remain in these section trees,
+      and global percentage estimates are not produced.
     items:
       type: object
       required: [type, text]
       properties:
         type:
           type: string
-          enum: [ingredients, analytical, additives]
+          enum: [ingredients, recipe, analytical, additives, mixture]
         text:
           type: string
           description: Source text for this section, including any heading.
+        name:
+          type: string
+          description: Recipe heading with emphasis markup removed.
         ingredients:
           type: array
           items:
