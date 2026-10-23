@@ -1588,9 +1588,9 @@ authenticate the current request.
 sub _is_explicit_session_login_request ($request_ref) {
 	my $script_name = $request_ref->{script_name} // '';
 	return (
-		($script_name eq '/cgi/auth.pl')
-		  or ($script_name eq '/cgi/login.pl')
-		  or ($script_name eq '/cgi/session.pl')
+			   ($script_name eq '/cgi/auth.pl')
+			or ($script_name eq '/cgi/login.pl')
+			or ($script_name eq '/cgi/session.pl')
 	) ? 1 : 0;
 }
 

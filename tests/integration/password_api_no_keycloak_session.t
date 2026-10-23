@@ -89,8 +89,8 @@ subtest 'API password auth does not persist a Product Opener session' => sub {
 		}
 	);
 	ok(!$got_session_cookie, 'API password auth does not set a session cookie');
-	is(count_po_sessions($test_user_id), $po_sessions_before,
-		'API password auth does not store a Product Opener session');
+	is(count_po_sessions($test_user_id),
+		$po_sessions_before, 'API password auth does not store a Product Opener session');
 };
 
 subtest 'explicit auth.pl login still creates a lasting session' => sub {
@@ -115,8 +115,7 @@ subtest 'explicit auth.pl login still creates a lasting session' => sub {
 		}
 	);
 	ok($got_session_cookie, 'auth.pl sets a session cookie');
-	ok(count_po_sessions($test_user_id) > $po_sessions_before,
-		'auth.pl stores a Product Opener session');
+	ok(count_po_sessions($test_user_id) > $po_sessions_before, 'auth.pl stores a Product Opener session');
 };
 
 done_testing();
