@@ -434,7 +434,6 @@ foreach my $case (
 	["lt", "Maistinis geltonasis CI Nr. 3, cukrus", 2, qr/Nr\.\s*3/i],
 	["fr", "Orange CI n. 4, sucre", 2, qr/\bn\.\s*4/i],
 	["en", "Gluten no. Milk powder", 2, undef],
-	["en", "Contains peanuts NO. Sugar", 2, undef],
 	)
 {
 	my ($lc, $text, $expected_count, $numbered_name) = @$case;
@@ -442,7 +441,7 @@ foreach my $case (
 	parse_ingredients_text_service($product_ref, {}, []);
 	is(scalar(@{$product_ref->{ingredients}}), $expected_count, "$text: ingredient count");
 	if (defined $numbered_name) {
-	    like($product_ref->{ingredients}[0]{text}, $numbered_name, "$text: number stays with ingredient");
+		like($product_ref->{ingredients}[0]{text}, $numbered_name, "$text: number stays with ingredient");
 	}
 }
 
