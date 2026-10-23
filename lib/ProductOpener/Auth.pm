@@ -49,7 +49,6 @@ BEGIN {
 		&retrieve_user_using_token
 		&get_token_using_client_credentials
 		&get_token_using_password_credentials
-		&revoke_refresh_token_session
 		&get_azp
 		&write_auth_deprecated_headers
 		&start_signout
@@ -332,7 +331,7 @@ sub _validate_oidc_state_and_nonce ($state, $nonce, $context = 'login') {
 	return (1, undef, undef);
 }
 
-=head2 password_signin($username, $password, $request_ref, $options_ref = {})
+=head2 password_signin($username, $password, $request_ref, $persistent = 1)
 
 Signs in the user with a username and password, and returns the user's ID, refresh token, refresh token expiration time, access token, and access token expiration time.
 
@@ -346,15 +345,10 @@ We support this to enable passing user and password in the request json. This is
 
 =head4 Request object $request_ref
 
-=head4 Options hash ref $options_ref
+=head4 Boolean $persistent
 
-Optional. Supported keys:
-
-=over
-
-=item * offline_access - if true (default), request the offline_access scope so the session can be refreshed. Set to false for per-request API password authentication that must not leave a lasting Device Activity session.
-
-=back
+If true (default), request offline_access so the session can be refreshed. Set to false for
+per-request API password authentication that must not leave a lasting Device Activity session.
 
 =head3 Return Values
 
@@ -362,13 +356,13 @@ A list containing the user ref, refresh token, refresh token expiration time, ac
 
 =cut
 
-sub password_signin ($username, $password, $request_ref, $options_ref = {}) {
+sub password_signin ($username, $password, $request_ref, $persistent = 1) {
 	unless ($username and $password) {
 		return;
 	}
 
 	my $time = time;
-	my $access_token = get_token_using_password_credentials($username, $password, $options_ref);
+	my $access_token = get_token_using_password_credentials($username, $password, $persistent);
 	unless ($access_token) {
 		return;
 	}
@@ -692,7 +686,7 @@ sub signout_callback ($request_ref) {
 	return checked_return_url($cookie_ref{'return_url'}, $request_ref);
 }
 
-=head2 get_token_using_password_credentials($username, $password, $options_ref = {})
+=head2 get_token_using_password_credentials($username, $password, $persistent = 1)
 
 Gets a token for the user.
 
@@ -706,15 +700,10 @@ and Client Secret.
 
 =head4 Password given at sign-in $password
 
-=head4 Options hash ref $options_ref
+=head4 Boolean $persistent
 
-Optional. Supported keys:
-
-=over
-
-=item * offline_access - if true (default), include the offline_access scope. Set to false for one-shot API authentication that should not create a lasting offline session.
-
-=back
+If true (default), include the offline_access scope. Set to false for one-shot API
+authentication that should not create a lasting offline session.
 
 =head3 Return values
 
@@ -722,16 +711,12 @@ Open ID Access token, or undefined if sign-in wasn't successful.
 
 =cut
 
-sub get_token_using_password_credentials ($username, $password, $options_ref = {}) {
+sub get_token_using_password_credentials ($username, $password, $persistent = 1) {
 	get_oidc_configuration();
 
 	# Default to offline_access for interactive / explicit login callers. Per-request API
 	# password auth opts out so Keycloak Device Activity is not filled with offline sessions.
-	my $want_offline_access = 1;
-	if ((ref $options_ref eq 'HASH') and (exists $options_ref->{offline_access})) {
-		$want_offline_access = $options_ref->{offline_access} ? 1 : 0;
-	}
-	my $scope = $want_offline_access ? 'openid%20profile%20offline_access' : 'openid%20profile';
+	my $scope = $persistent ? 'openid%20profile%20offline_access' : 'openid%20profile';
 
 	# Build a request and emit it using our app specific key
 	# to authenticate user
@@ -757,61 +742,6 @@ sub get_token_using_password_credentials ($username, $password, $options_ref = {
 
 	my $access_token = decode_json($token_response->content);
 	return $access_token;
-}
-
-=head2 revoke_refresh_token_session($refresh_token)
-
-Revokes the Keycloak (OIDC) session bound to a refresh token.
-
-Password grants always create a Keycloak session (visible under Device Activity), even
-without offline_access. For per-request API authentication with user_id+password we
-authenticate once and immediately revoke that session so it does not linger.
-
-Uses Keycloak's back-channel logout with the refresh token, which ends only that session.
-
-=head3 Arguments
-
-=head4 Refresh token $refresh_token
-
-=head3 Return values
-
-1 if the logout request succeeded, 0 otherwise.
-
-=cut
-
-sub revoke_refresh_token_session ($refresh_token) {
-	unless ($refresh_token) {
-		return 0;
-	}
-
-	get_oidc_configuration();
-	my $logout_endpoint = $oidc_configuration->{end_session_endpoint};
-	unless ($logout_endpoint) {
-		$log->info('no end_session_endpoint configured; cannot revoke refresh token session')
-			if $log->is_info();
-		return 0;
-	}
-
-	my $logout_request = HTTP::Request->new(POST => $logout_endpoint);
-	$logout_request->header('Content-Type' => 'application/x-www-form-urlencoded');
-	$logout_request->content('client_id='
-			. uri_escape($oidc_options{client_id})
-			. '&client_secret='
-			. uri_escape($oidc_options{client_secret})
-			. '&refresh_token='
-			. uri_escape($refresh_token));
-
-	my $logout_response = LWP::UserAgent::Plugin->new->request($logout_request);
-	unless ($logout_response->is_success) {
-		$log->info(
-			'failed to revoke refresh token session',
-			{status => $logout_response->code, content => $logout_response->content}
-		) if $log->is_info();
-		return 0;
-	}
-
-	$log->debug('revoked refresh token session') if $log->is_debug();
-	return 1;
 }
 
 =head2 get_token_using_client_credentials()

@@ -2,7 +2,7 @@
 
 # Per-request API auth with user_id+password must not open a Product Opener session cookie,
 # and must revoke the Keycloak session created by the password grant. Explicit login
-# (auth.pl / login.pl) still creates a lasting session. See #15091.
+# (auth.pl / login.pl / session.pl) still creates a lasting session. See #15091.
 
 use ProductOpener::PerlStandards;
 
@@ -10,7 +10,7 @@ use Test2::V0;
 
 use ProductOpener::APITest qw/construct_test_url create_user_in_keycloak new_client wait_application_ready/;
 use ProductOpener::Auth
-	qw/get_oidc_configuration get_oidc_implementation_level get_token_using_password_credentials revoke_refresh_token_session/;
+	qw/get_oidc_configuration get_oidc_implementation_level get_token_using_password_credentials revoke_token/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
@@ -55,13 +55,13 @@ sub can_refresh ($refresh_token) {
 	return $token_response->is_success ? 1 : 0;
 }
 
-subtest 'password grant without offline_access can be revoked' => sub {
-	my $token = get_token_using_password_credentials($test_user_id, $test_user_password, {offline_access => 0});
-	ok($token, 'password grant without offline_access succeeds');
+subtest 'password grant without persistent session can be revoked' => sub {
+	my $token = get_token_using_password_credentials($test_user_id, $test_user_password, 0);
+	ok($token, 'password grant without persistent session succeeds');
 	ok($token->{refresh_token}, 'online session still returns a refresh token');
 	unlike($token->{scope} // '', qr/\boffline_access\b/, 'scope does not include offline_access');
 
-	ok(revoke_refresh_token_session($token->{refresh_token}), 'refresh token session is revoked');
+	ok(revoke_token($token->{refresh_token}, 'refresh_token'), 'refresh token session is revoked');
 	ok(!can_refresh($token->{refresh_token}), 'revoked refresh token cannot be reused');
 };
 
