@@ -117,6 +117,14 @@ sub compute_product_recipe ($product_ref, $parent_ingredients_ref) {
 		return;
 	}
 
+	# Without any percent, as for a product with several unweighted recipes, there is no recipe to compute
+	if (    (not defined $product_ref->{ingredients_percent_analysis})
+		and (not grep {defined $_->{percent_estimate} or defined $_->{percent}} @{$product_ref->{ingredients}}))
+	{
+		$log->debug("compute recipe for product - no percent", {code => $product_ref->{code}}) if $log->is_debug();
+		return;
+	}
+
 	my $recipe_ref = {"unknown" => 0, "other" => 0};
 
 	foreach my $parent_ingredient (@{$parent_ingredients_ref}) {
