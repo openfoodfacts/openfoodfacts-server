@@ -433,8 +433,8 @@ foreach my $case (
     ["en", "FD&C Yellow No. 5, glycerin", 2, qr/No\.\s*5/i],
     ["lt", "Maistinis geltonasis CI Nr. 3, cukrus", 2, qr/Nr\.\s*3/i],
     ["fr", "Orange CI n. 4, sucre", 2, qr/\bn\.\s*4/i],
-    ["en", "Gluten: no. Milk powder", 2, undef],
-    ["en", "Contains peanuts: NO. Sugar", 2, undef],
+    ["en", "Gluten no. Milk powder", 2, undef],
+    ["en", "Contains peanuts NO. Sugar", 2, undef],
     )
 {
     my ($lc, $text, $expected_count, $numbered_name) = @$case;
