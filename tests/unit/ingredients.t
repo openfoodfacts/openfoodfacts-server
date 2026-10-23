@@ -1700,4 +1700,23 @@ is(
 	'amino acids from the amino_acids taxonomy are recognized as ingredients'
 );
 
+# Labels in sub-ingredients describe the parent ingredient, they must not be added to the product (issue #14058)
+my $label_in_sub_ingredients = {
+	lc => 'da',
+	ingredients_text => 'hvedemel, emulgator (vegetabilsk, E471 og E472e), vallepulver (mælk)',
+};
+extract_ingredients_from_text($label_in_sub_ingredients);
+compute_field_tags($label_in_sub_ingredients, 'da', 'labels');
+is([grep {$_ eq 'en:vegan'} @{$label_in_sub_ingredients->{labels_tags} // []}],
+	[], 'label in sub-ingredients is not added to the product');
+
+my $label_at_top_level = {
+	lc => 'da',
+	ingredients_text => 'hvedemel, sukker, velegnet til veganere',
+};
+extract_ingredients_from_text($label_at_top_level);
+compute_field_tags($label_at_top_level, 'da', 'labels');
+is([grep {$_ eq 'en:vegan'} @{$label_at_top_level->{labels_tags} // []}],
+	['en:vegan'], 'label at the top level is added to the product');
+
 done_testing();
