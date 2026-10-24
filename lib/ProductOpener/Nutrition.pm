@@ -574,6 +574,25 @@ sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_id) {
 	return;
 }
 
+=head2 get_per_quantity_and_unit($per)
+
+Returns the quantity and the unit corresponding to a nutrition per reference,
+or an empty list if the per reference is not a known quantity reference.
+
+get_per_quantity_and_unit("100g") returns (100, "g")
+get_per_quantity_and_unit("1kg") returns (1000, "g")
+get_per_quantity_and_unit("serving") returns an empty list
+
+=cut
+
+sub get_per_quantity_and_unit ($per) {
+	return (100, "g") if $per eq "100g";
+	return (100, "ml") if $per eq "100ml";
+	return (1000, "g") if $per eq "1kg";
+	return (1000, "ml") if $per eq "1l";
+	return;
+}
+
 =head2 convert_nutrient_to_100g
 
 Converts the value of the amount of the nutrient to the wanted per reference if necessary
@@ -602,7 +621,7 @@ Current per unit of the nutrient
 
 =head4 $wanted_per
 
-Wanted per reference (100g, 100ml or 1kg)
+Wanted per reference of the nutrient (e.g. "100g", "100ml", "1kg", "1l")
 
 =cut
 
@@ -620,14 +639,26 @@ sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quanti
 	}
 
 	if ($original_per ne $wanted_per) {
-		my $original_value = $nutrient_ref->{value};
-		my $wanted_per_unit = $wanted_per eq "100ml" ? "ml" : "g";
-		my $wanted_per_quantity = $wanted_per eq "1kg" ? 1000 : 100;
 
-		# set value of nutrient according to wanted per unit
-		my $per_conversion_factor = g_to_unit(unit_to_g($original_per_quantity, $original_per_unit), $wanted_per_unit);
-		$nutrient_ref->{value} = ($original_value * $wanted_per_quantity) / $per_conversion_factor;
+		# Get the quantity and unit of the wanted per reference (e.g. "1kg" -> 1000 g)
+		my ($wanted_per_quantity, $wanted_per_unit) = get_per_quantity_and_unit($wanted_per);
 
+		# If the wanted per reference is not a known quantity reference (e.g. "serving"),
+		# we do not know how to convert the value, so we leave it unchanged.
+		if (defined $wanted_per_quantity) {
+			my $original_value = $nutrient_ref->{value};
+
+			# Convert the original and wanted per references to their standard unit (g for mass, ml for volume),
+			# then scale the nutrient value from the original basis to the wanted basis.
+			# e.g. 2.5 g of proteins per 100 g is 25 g of proteins per 1 kg.
+			my $original_per_in_standard_unit = unit_to_g($original_per_quantity, $original_per_unit);
+			my $wanted_per_in_standard_unit = unit_to_g($wanted_per_quantity, $wanted_per_unit);
+
+			if ($original_per_in_standard_unit) {
+				$nutrient_ref->{value}
+					= ($original_value * $wanted_per_in_standard_unit) / $original_per_in_standard_unit;
+			}
+		}
 	}
 	return;
 }
@@ -699,22 +730,12 @@ sub set_per_quantity_and_unit($product_ref, $input_set_ref) {
 	if (defined $input_set_ref) {
 		my $per = deep_get($input_set_ref, qw/per/);
 		return if not defined $per;
-		# Set the per quantity and unit for 100g, 100ml, 1l and 1kg
-		if ($per eq "100g") {
-			$input_set_ref->{per_quantity} = 100;
-			$input_set_ref->{per_unit} = "g";
-		}
-		elsif ($per eq "100ml") {
-			$input_set_ref->{per_quantity} = 100;
-			$input_set_ref->{per_unit} = "ml";
-		}
-		elsif ($per eq "1kg") {
-			$input_set_ref->{per_quantity} = 1000;
-			$input_set_ref->{per_unit} = "g";
-		}
-		elsif ($per eq "1l") {
-			$input_set_ref->{per_quantity} = 1000;
-			$input_set_ref->{per_unit} = "ml";
+
+		# Set the per quantity and unit for 100g, 100ml, 1kg and 1l
+		my ($per_quantity, $per_unit) = get_per_quantity_and_unit($per);
+		if (defined $per_quantity) {
+			$input_set_ref->{per_quantity} = $per_quantity;
+			$input_set_ref->{per_unit} = $per_unit;
 		}
 		# If possible convert per serving to quantity + unit from product
 		elsif ($per eq "serving") {
