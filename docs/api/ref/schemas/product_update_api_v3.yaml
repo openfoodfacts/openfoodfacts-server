@@ -13,6 +13,16 @@ allOf:
         $ref: ./packagings/packagings-write.yaml
       packagings_complete:
         $ref: ./packagings/packagings_complete.yaml
+      components:
+        type: array
+        description: Replace the product components array
+        items:
+          $ref: ./components/component-write.yaml
+      components_add:
+        type: array
+        description: Append items to existing product components array
+        items:
+          $ref: ./components/component-write.yaml
       lang:
         type: string
         minLength: 2
