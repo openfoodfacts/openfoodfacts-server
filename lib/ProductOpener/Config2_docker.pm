@@ -174,7 +174,7 @@ $recipe_estimator_service = $ENV{RECIPE_ESTIMATOR_SERVICE} || "product_opener";
 %server_options = (
 	producers_platform => $producers_platform,
 	minion_backend => {Pg => $postgres_url},
-	minion_local_queue => $server_domain,
+	minion_local_queue => $ENV{MINION_QUEUE} || $server_domain,
 	cookie_domain => $ENV{PRODUCT_OPENER_DOMAIN},
 );
 
