@@ -144,7 +144,8 @@ $cbrackets = qr/(?![\N{U+276F}|\N{U+301E}|\N{U+301F}|\N{U+FF09}])[\p{Pe}]/i;
 $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|\N{U+FF08}|( $dashes ))|(\/|\N{U+FF0F})/i
 	;    # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
 
-$separators = qr/($stops\s|$commas|$separators_except_comma)/i;
+# Do not split numbered names such as "FD&C Yellow No. 5", "CI Nr. 3", "CI n. 4".
+$separators = qr/((?!(?<=\b(?:no|nr|n))$stops\s*\d)$stops\s|$commas|$separators_except_comma)/i;
 
 # Symbols to indicate labels like organic, fairtrade etc.
 @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)', '¹', '²');
