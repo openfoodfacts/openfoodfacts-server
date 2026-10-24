@@ -8,10 +8,18 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 
-use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready/;
+use ProductOpener::APITest qw/construct_test_url create_user login new_client wait_application_ready/;
 use ProductOpener::Images ();
+use ProductOpener::Test qw/remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
 wait_application_ready(__FILE__);
+remove_all_users();
+
+my $setup_ua = new_client();
+
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+create_user($setup_ua, \%create_user_args);
 
 my @paths = ('/cgi/ingredients.pl', '/cgi/nutrition.pl', '/cgi/packaging.pl');
 
