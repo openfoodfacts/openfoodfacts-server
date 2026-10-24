@@ -9361,14 +9361,14 @@ CSS
 	my @nutrients = @{$nutrients_tables{$nutrient_table || "off_europe"}}
 		;    # Note: some tests may not have $nutrient_table initialized
 
-	my $decf = get_decimal_formatter($lc);
+	my $decf = get_decimal_formatter($lc, 2);
 	my $perf = get_percent_formatter($lc, 0);
 
 	# Nutrition values are stored in a language independent format (e.g. 1.1 and 1300.366),
 	# so they have to be formatted to use the decimal and thousand separators of the current language.
 	# Values that are not numbers (e.g. "?") are returned unchanged.
 
-	# The formatter rounds to 3 decimals, so values that are close to 0 need more decimals
+	# The formatter rounds to 2 decimals, so values that are close to 0 need more decimals
 	# (very small values can also be stored using the e notation: 7.18e-05)
 	my $decf_small = get_decimal_formatter($lc, 6);
 
