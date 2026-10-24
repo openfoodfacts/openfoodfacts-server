@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -30,7 +30,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/single_param redirect_to_url/;
+use ProductOpener::HTTP qw/single_param redirect_to_url is_post_request require_same_origin_post/;
 use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
@@ -1354,6 +1354,13 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 }
 elsif ($action eq 'process') {
+
+	# Reject state changes that are not origin-bound POST requests
+	is_post_request($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_invalid_method}{$lc}, 405);
+	require_same_origin_post($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+
 	# process the form
 
 	my $template_data_ref_process = {type => $type};

@@ -1,0 +1,25 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF pro_moderator_owner %]
+	<p>[% f_lang('f_pro_moderator_owner_set', {organization => pro_moderator_owner}) %]</p>
+[% ELSE %]
+	<p>[% lang('pro_moderator_owner_not_set') %]</p>
+[% END %]
+
+<p>[% lang('pro_moderator_edit_owner_description') %]</p>
+
+<form method="post" action="/cgi/user.pl" id="user_edit_owner_form">
+
+	<label for="pro_moderator_owner">[% lang('org_id') %]</label>
+	<input type="text" id="pro_moderator_owner" name="pro_moderator_owner" value="[% pro_moderator_owner %]"
+		placeholder="[% edq(lang('pro_moderator_edit_owner_placeholder')) %]">
+
+	<input type="hidden" name="type" value="edit_owner">
+	<input type="hidden" name="action" value="process">
+	<input type="hidden" name="userid" value="[% userid %]">
+
+	<input type="submit" name="submit" value="[% edq(lang('save')) %]" class="button small">
+
+</form>
+
+<!-- end templates/[% template.name %] -->
