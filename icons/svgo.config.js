@@ -4,7 +4,7 @@ module.exports = {
   plugins: [
     {
       name: "removeViewBox",
-      active: false,
+      active: false
     },
     {
       name: "removeDimensions",
@@ -13,12 +13,12 @@ module.exports = {
     {
       name: "addClassesToSVGElement",
       active: true,
-      params: { className: "icon" },
+      params: { className: "icon" }
     },
     {
       name: "addAttributesToSVGElement",
       active: true,
-      params: { attributes: [{ "aria-hidden": "true", focusable: "false" }] },
+      params: { attributes: [{ "aria-hidden": "true", focusable: "false" }] }
     },
   ],
 };

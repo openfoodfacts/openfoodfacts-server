@@ -2,6 +2,7 @@
    Author: mapstertech
    Source https://github.com/mapstertech/mapster-right-hand-rule-fixer/blob/d374e4153ba26c2100b509f59e5a5fe616e267dd/lib/rewind-browser.js */
 export class GeoJSONRewind {
+
   static rewindRing(ring, dir) {
     let area = 0,
       err = 0;
@@ -12,7 +13,7 @@ export class GeoJSONRewind {
       err += Math.abs(area) >= Math.abs(k) ? area - m + k : k - m + area;
       area = m;
     }
-
+    // eslint-disable-next-line no-mixed-operators
     if (area + err >= 0 !== Boolean(dir)) {
       ring.reverse();
     }
@@ -39,19 +40,23 @@ export class GeoJSONRewind {
     const type = gj?.type;
     let i;
 
-    if (type === "FeatureCollection") {
+    if (type === 'FeatureCollection') {
       for (i = 0; i < gj.features.length; i++) {
         GeoJSONRewind.rewind(gj.features[i], outer);
       }
-    } else if (type === "GeometryCollection") {
+
+    } else if (type === 'GeometryCollection') {
       for (i = 0; i < gj.geometries.length; i++) {
         GeoJSONRewind.rewind(gj.geometries[i], outer);
       }
-    } else if (type === "Feature") {
+
+    } else if (type === 'Feature') {
       GeoJSONRewind.rewind(gj.geometry, outer);
-    } else if (type === "Polygon") {
+
+    } else if (type === 'Polygon') {
       GeoJSONRewind.rewindRings(gj.coordinates, outer);
-    } else if (type === "MultiPolygon") {
+
+    } else if (type === 'MultiPolygon') {
       for (i = 0; i < gj.coordinates.length; i++) {
         GeoJSONRewind.rewindRings(gj.coordinates[i], outer);
       }

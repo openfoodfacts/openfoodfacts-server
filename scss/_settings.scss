@@ -49,15 +49,15 @@
 // a. Base
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // This is the default html and body font-size for the base rem value.
-$rem-base: 14px;
+ $rem-base: 14px;
 // Allows the use of rem-calc() or lower-bound() in your settings
-@import "foundation-sites/scss/foundation/functions";
+@import 'foundation-sites/scss/foundation/functions';
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-$base-font-size: $rem-base;
+ $base-font-size:  $rem-base;
 // The $base-font-size is 100% while $base-line-height is 150%
 // $base-line-height: 150%;
 // We use this to control whether or not CSS classes come through in the gem files.
@@ -74,22 +74,34 @@ $column-gutter: rem-calc(12);
 // c. Global
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // We use these to define default font stacks
-$font-family-sans-serif: "Public Sans", Helvetica, Roboto, Arial, sans-serif;
-$font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-$font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
+$font-family-sans-serif:
+'Public Sans',
+Helvetica,
+Roboto,
+Arial,
+sans-serif;
+$font-family-serif: Georgia,
+Cambria,
+"Times New Roman",
+Times,
+serif;
+$font-family-monospace: Consolas,
+"Liberation Mono",
+Courier,
+monospace;
 // We use these to define default font weights
 $font-weight-normal: normal;
 $font-weight-bold: bold;
-$white: #ffffff;
-$ghost: #fafafa;
-$snow: #f9f9f9;
-$vapor: #f6f6f6;
-$white-smoke: #f5f5f5;
-$silver: #efefef;
-$smoke: #eeeeee;
-$gainsboro: #dddddd;
-$iron: #cccccc;
-$base: #aaaaaa;
+$white: #FFFFFF;
+$ghost: #FAFAFA;
+$snow: #F9F9F9;
+$vapor: #F6F6F6;
+$white-smoke: #F5F5F5;
+$silver: #EFEFEF;
+$smoke: #EEEEEE;
+$gainsboro: #DDDDDD;
+$iron: #CCCCCC;
+$base: #AAAAAA;
 $aluminum: #999999;
 $jumbo: #888888;
 $monsoon: #777777;
@@ -105,7 +117,7 @@ $primary-color: $primary-button-color;
 // $secondary-color: #e7e7e7;
 $secondary-color: $secondary-button-color;
 $alert-color: #ff0000;
-$success-color: #4fa125;
+$success-color: #4FA125;
 $warning-color: #ff7e00;
 $info-color: $secondary-button-color-dark;
 //$info-color: $white;
@@ -127,8 +139,8 @@ $global-radius: 8px;
 $global-rounded: 1000px;
 // We use these to control inset shadow shiny edges and depressions.
 $shiny-edge-size: 0 1px 0;
-$shiny-edge-color: rgba($white, 0.5);
-$shiny-edge-active-color: rgba($black, 0.2);
+$shiny-edge-color: rgba($white, .5);
+$shiny-edge-active-color: rgba($black, .2);
 // d. Media Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 $small-breakpoint: em-calc(640);
@@ -153,14 +165,7 @@ $xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})";
 $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})";
 $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
-$retina: (
-  "#{$screen} and (-webkit-min-device-pixel-ratio: 2)",
-  "#{$screen} and (min--moz-device-pixel-ratio: 2)",
-  "#{$screen} and (-o-min-device-pixel-ratio: 2/1)",
-  "#{$screen} and (min-device-pixel-ratio: 2)",
-  "#{$screen} and (min-resolution: 192dpi)",
-  "#{$screen} and (min-resolution: 2dppx)"
-);
+$retina: ( "#{$screen} and (-webkit-min-device-pixel-ratio: 2)", "#{$screen} and (min--moz-device-pixel-ratio: 2)", "#{$screen} and (-o-min-device-pixel-ratio: 2/1)", "#{$screen} and (min-device-pixel-ratio: 2)", "#{$screen} and (min-resolution: 192dpi)", "#{$screen} and (min-resolution: 2dppx)");
 // Legacy
 $small: $medium-up;
 $medium: $medium-up;
@@ -181,8 +186,8 @@ $header-font-weight: $font-weight-normal;
 $header-font-style: normal;
 $header-font-color: $jet;
 $header-line-height: 1.4;
-$header-top-margin: 0.2rem;
-$header-bottom-margin: 0.5rem;
+$header-top-margin: .2rem;
+$header-bottom-margin: .5rem;
 $header-text-rendering: optimizeLegibility;
 // We use these to control header font sizes
 $h1-font-size: rem-calc(42);
@@ -202,8 +207,8 @@ $h6-font-reduction: 0;
 $subheader-line-height: 1.4;
 $subheader-font-color: color.scale($header-font-color, $lightness: 35%);
 $subheader-font-weight: $font-weight-normal;
-$subheader-top-margin: 0.2rem;
-$subheader-bottom-margin: 0.5rem;
+$subheader-top-margin: .2rem;
+$subheader-bottom-margin: .5rem;
 // A general <small> styling
 $small-font-size: 60%;
 $small-font-color: color.scale($header-font-color, $lightness: 35%);
@@ -247,7 +252,7 @@ $list-ordered-side-margin: 1.4rem;
 $list-side-margin-no-bullet: 0;
 $list-nested-margin: rem-calc(20);
 $definition-list-header-weight: $font-weight-bold;
-$definition-list-header-margin-bottom: 0.3rem;
+$definition-list-header-margin-bottom: .3rem;
 $definition-list-margin-bottom: rem-calc(12);
 // We use these to style blockquotes
 $blockquote-font-color: color.scale($header-font-color, $lightness: 35%);
@@ -402,7 +407,7 @@ $info-button-border-color: $info-button-bg-hover;
 $button-radius: $global-radius;
 $button-round: $global-rounded;
 // We use this to set default opacity and cursor for disabled buttons.
-$button-disabled-opacity: 0.7;
+$button-disabled-opacity: .7;
 $button-disabled-cursor: $cursor-default-value;
 // 06. Button Groups
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1032,7 +1037,7 @@ $switch-height-lrg: 2.5rem;
 $switch-bottom-margin: 0rem;
 // We use these to style the switch-paddle
 $switch-paddle-bg: $white;
-$switch-paddle-transition-speed: 0.15s;
+$switch-paddle-transition-speed: .15s;
 $switch-paddle-transition-ease: ease-out;
 $switch-active-color: $primary-color;
 // 30. Tables
@@ -1153,7 +1158,7 @@ $topbar-link-text-transform: none;
 $topbar-link-padding: ($topbar-height / 3);
 $topbar-back-link-size: rem-calc(18);
 $topbar-link-dropdown-padding: rem-calc(20);
-$topbar-button-font-size: 0.75rem;
+$topbar-button-font-size: .75rem;
 $topbar-button-top: 7px;
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: $oil;
@@ -1169,7 +1174,7 @@ $topbar-dropdown-link-bg-hover: $chocolate;
 $topbar-dropdown-link-weight: $font-weight-normal;
 $topbar-dropdown-toggle-size: 5px;
 $topbar-dropdown-toggle-color: $white;
-$topbar-dropdown-toggle-alpha: 0.4;
+$topbar-dropdown-toggle-alpha: .4;
 $topbar-dropdown-label-color: $black;
 //$topbar-dropdown-label-text-transform: uppercase;
 //$topbar-dropdown-label-font-weight: $font-weight-bold;

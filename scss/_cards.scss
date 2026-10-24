@@ -20,11 +20,11 @@ $card-divider-background: $lightskyblue !default;
 
 /// Default border style.
 /// @type List
-$card-border: 1px solid #e0e0e09f !default;
+$card-border: 1px solid #E0E0E09f !default;
 
 /// Default card shadow.
 /// @type List
-$card-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+$card-shadow: 0 4px 4px rgba(0,0,0,0.1);
 
 /// Default border radius.
 /// @type List
@@ -32,7 +32,7 @@ $card-border-radius: 24px;
 
 /// Default padding.
 /// @type Number
-$card-padding: 24px;
+$card-padding:24px;
 
 /// Default bottom margin.
 /// @type number
@@ -53,9 +53,11 @@ $card-margin-bottom: $panel-padding !default;
   $radius: $card-border-radius,
   $shadow: $card-shadow
 ) {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
 
   margin-bottom: $margin;
 
@@ -74,9 +76,14 @@ $card-margin-bottom: $panel-padding !default;
 }
 
 /// Adds styles for a card divider.
-@mixin card-divider($background: $card-divider-background, $padding: $card-padding) {
-  display: flex;
-  flex: 0 1 auto;
+@mixin card-divider(
+  $background: $card-divider-background,
+  $padding: $card-padding
+) {
+
+    display: flex;
+    flex: 0 1 auto;
+
 
   padding: $padding;
   background: $background;
@@ -87,8 +94,12 @@ $card-margin-bottom: $panel-padding !default;
 }
 
 /// Adds styles for a card section.
-@mixin card-section($padding: $card-padding) {
-  flex: 1 0 auto;
+@mixin card-section(
+  $padding: $card-padding
+) {
+
+    flex: 1 0 auto;
+
 
   padding: $padding;
 

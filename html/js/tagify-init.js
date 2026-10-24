@@ -30,20 +30,20 @@
 const recentTagsByInput = new WeakMap(); // input element -> { maximum, tagsToCommit }
 
 function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
-  const input = new Tagify(el, {
-    autocomplete: true,
-    whitelist: get_recents(el.id, maximumRecentEntriesPerTag) || [],
-    dropdown: {
-      highlightFirst: false,
-      enabled: 0,
-      maxItems: 100,
-    },
-  });
+    const input = new Tagify(el, {
+        autocomplete: true,
+        whitelist: get_recents(el.id, maximumRecentEntriesPerTag) || [],
+        dropdown: {
+            highlightFirst: false,
+            enabled: 0,
+            maxItems: 100
+        }
+    });
 
-  let abortController;
-  let debounceTimer;
-  const timeoutWait = 300;
-  let value = "";
+    let abortController;
+    let debounceTimer;
+    const timeoutWait = 300;
+    let value = "";
 
     // Tags added or edited by the user during this session.
     // They are only added to the tags history when the form is submitted, see addTagsToRecentTags()
@@ -66,22 +66,51 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
             }
         }
     }
-  }
 
-  function autocompleteWithSearch(newValue) {
-    value = newValue;
-    input.whitelist = null; // reset the whitelist
+    function autocompleteWithSearch(newValue) {
+        value = newValue;
+        input.whitelist = null; // reset the whitelist
 
-    if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
-      clearTimeout(debounceTimer);
+        if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
+            clearTimeout(debounceTimer);
 
-      debounceTimer = setTimeout(function () {
-        // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
-        if (abortController) {
-          abortController.abort();
+            debounceTimer = setTimeout(function () {
+                // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
+                if (abortController) {
+                    abortController.abort();
+                }
+
+                abortController = new AbortController();
+
+                fetch(el.dataset.autocomplete + "&string=" + value + "&get_synonyms=1", {
+                    signal: abortController.signal
+                }).
+                    then((RES) => RES.json()).
+                    then(function (json) {
+                        const lc = (/^\w\w:/).exec(value);
+                        let whitelist = Object.values(json.matched_synonyms);
+                        if (lc) {
+                            whitelist = whitelist.map(function (e) {
+                                return {"value": lc + e, "searchBy": e};
+                            });
+                        }
+                        const synonymMap = Object.create(null);
+                        // eslint-disable-next-line guard-for-in
+                        for (const k in json.matched_synonyms) {
+                            synonymMap[json.matched_synonyms[k]] = k;
+                        }
+                        input.synonymMap = synonymMap;
+                        input.whitelist = whitelist;
+                        updateSuggestions(true); // render the suggestions dropdown
+                    });
+            }, timeoutWait);
         }
+        updateSuggestions(true);
+    }
 
-        abortController = new AbortController();
+    input.on("input", function (event) {
+        autocompleteWithSearch(event.detail.value);
+    });
 
     input.on("edit:input", function (event) {
         autocompleteWithSearch(event.detail.data.newValue);
@@ -121,57 +150,34 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
             let synonymName = e.getAttribute("value");
             const lc = (/^\w\w:/).exec(synonymName);
             if (lc) {
-              whitelist = whitelist.map(function (e) {
-                return { value: lc + e, searchBy: e };
-              });
+                synonymName = synonymName.substring(3);
             }
-            const synonymMap = Object.create(null);
-            // eslint-disable-next-line guard-for-in
-            for (const k in json.matched_synonyms) {
-              synonymMap[json.matched_synonyms[k]] = k;
+            const canonicalName = input.synonymMap[synonymName];
+            if (canonicalName && canonicalName !== synonymName) {
+                e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
             }
-            input.synonymMap = synonymMap;
-            input.whitelist = whitelist;
-            updateSuggestions(true); // render the suggestions dropdown
-          });
-      }, timeoutWait);
-    }
-    updateSuggestions(true);
-  }
+        });
+    });
 
-  input.on("input", function (event) {
-    autocompleteWithSearch(event.detail.value);
-  });
+    input.on("add", function (event) {
 
         // Remember the tag, it will only be added to the tags history on submit,
         // so that tags that are never submitted (typos, wrong tags) are not remembered
         tagsToCommit.add(event.detail.data.value);
 
-        obj[el.id].unshift(tag);
-      }
+        value = "";
+        updateSuggestions(false);
+    });
 
-      try {
-        window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-      } catch (err) {
-        if (err.name == "NS_ERROR_FILE_CORRUPTED") {
-          // Don't to anything
-        }
-      }
-    }
+    input.on("focus", function () {
+        value = "";
+        updateSuggestions(false);
+    });
 
-    value = "";
-    updateSuggestions(false);
-  });
-
-  input.on("focus", function () {
-    value = "";
-    updateSuggestions(false);
-  });
-
-  input.on("blur", function () {
-    value = "";
-    updateSuggestions(false);
-  });
+    input.on("blur", function () {
+        value = "";
+        updateSuggestions(false);
+    });
 }
 
 // Return the tags that the user added or edited for the input, and that are actually

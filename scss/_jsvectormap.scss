@@ -4,7 +4,7 @@ $border-color: #e5e7eb !default;
 $box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !default;
 
 // Tooltip
-$tooltip-shadow: 1px 2px 12px rgba(0, 0, 0, 0.2) !default;
+$tooltip-shadow: 1px 2px 12px rgba(0, 0, 0, .2) !default;
 $tooltip-font-family: sans-serif, Verdana !default;
 $tooltip-bg-color: $primary-button-color !default;
 $tooltip-radius: 3px !default;
@@ -22,9 +22,9 @@ $zoom-btns-width: 15px !default;
 $series-container-right: 15px !default;
 
 // Legends
-$legend-background-color: #fff !default;
+$legend-background-color: #FFF !default;
 $legend-radius: 0.25rem !default;
-$legend-margin-left: 0.75rem !default;
+$legend-margin-left: .75rem !default;
 $legend-padding: 0.6rem !default;
 
 // Legend title
@@ -32,7 +32,7 @@ $legend-title-padding-bottom: 0.5rem !default;
 $legend-title-margin-bottom: 0.575rem !default;
 
 // Legend ticks
-$legend-tick-margin-top: 0.575rem !default;
+$legend-tick-margin-top: .575rem !default;
 $legend-tick-sample-radius: 4px !default;
 $legend-tick-sample-height: 16px !default;
 $legend-tick-sample-width: 16px !default;
@@ -40,15 +40,8 @@ $legend-tick-text-font-size: 12px !default;
 $legend-tick-text-margin-top: 3px !default;
 
 // Global resets
-svg {
-  touch-action: none;
-}
-image,
-text,
-.#{$classPrefix}zoomin,
-.#{$classPrefix}zoomout {
-  user-select: none;
-}
+svg { touch-action: none }
+image, text, .#{$classPrefix}zoomin, .#{$classPrefix}zoomout { user-select: none }
 
 // jsVectorMap container
 .#{$classPrefix}container {
@@ -85,17 +78,17 @@ text,
   position: absolute;
   line-height: 10px;
   cursor: pointer;
-  color: #fff;
+  color: #FFF;
   height: 15px;
   width: 15px;
   left: 10px;
 
   &.#{$classPrefix}zoomout {
-    top: 30px;
+    top: 30px
   }
 
   &.#{$classPrefix}zoomin {
-    top: 10px;
+    top: 10px
   }
 }
 
@@ -105,14 +98,10 @@ text,
   position: absolute;
 
   // horizontal
-  &.#{$classPrefix}series-h {
-    bottom: 15px;
-  }
+  &.#{$classPrefix}series-h { bottom: 15px }
 
   // Vertical
-  &.#{$classPrefix}series-v {
-    top: 15px;
-  }
+  &.#{$classPrefix}series-v { top: 15px }
 
   // Legends
   .#{$classPrefix}legend {
@@ -145,7 +134,7 @@ text,
 
         .#{$classPrefix}legend-tick-sample {
           border-radius: $legend-tick-sample-radius;
-          margin-right: 0.65rem;
+          margin-right: .65rem;
           height: $legend-tick-sample-height;
           width: $legend-tick-sample-width;
           float: left;
@@ -167,8 +156,6 @@ text,
   animation: jvm-line-animation 10s linear forwards infinite;
 
   @keyframes jvm-line-animation {
-    from {
-      stroke-dashoffset: 250;
-    }
+    from { stroke-dashoffset: 250; }
   }
 }

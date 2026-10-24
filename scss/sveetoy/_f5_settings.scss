@@ -3,10 +3,10 @@ $include-sv-classes: true !default;
 @import "foundation-sites/scss/foundation/functions";
 $white: #ffffff;
 $black: #000000;
-$lightblue: #d9e5f2;
+$lightblue:#D9E5F2;
 $lightskyblue: $lightskyblue;
 $deepskyblue4: #00688b;
-$gray25: #4f4f4f;
+$gray25: #4F4F4F;
 $gray82: #d0d0d0;
 $gray88: #e0e0e0;
 $gray94: #f0f0f0;
@@ -52,12 +52,7 @@ $include-sveetoy-typography: $include-sveetoy-classes;
 // A1. Sveetoys Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // Common available breakpoints taken from Foundation breakpoints
-$sveetoy-breakpoints: (
-  small: $small-up,
-  medium: $medium-up,
-  large: $large-up,
-  xlarge: $xlarge-up,
-);
+$sveetoy-breakpoints: ( small: $small-up, medium: $medium-up, large: $large-up, xlarge: $xlarge-up, );
 // A2. Sveetoys colors
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // NOTE: You should put these color names (not the schemes) at top of your
@@ -65,81 +60,28 @@ $sveetoy-breakpoints: (
 // Sveetoy settings
 $white: #ffffff;
 $black: #000000;
-$white-color-scheme: (
-  font-color: $gray25,
-  background-color: $white,
-);
-$black-color-scheme: (
-  background-color: $black,
-);
-$lightskyblue-color-scheme: (
-  background-color: $lightskyblue,
-);
-$skyblue-color-scheme: (
-  background-color: $skyblue,
-);
-$oceanblue-color-scheme: (
-  font-color: $white,
-  background-color: $oceanblue,
-  link-color: $lightskyblue,
-  link-color-hover: $white,
-);
+$white-color-scheme: ( font-color: $gray25, background-color: $white, );
+$black-color-scheme: ( background-color: $black, );
+$lightskyblue-color-scheme: ( background-color: $lightskyblue, );
+$skyblue-color-scheme: ( background-color: $skyblue, );
+$oceanblue-color-scheme: (font-color: $white, background-color: $oceanblue,link-color:$lightskyblue,link-color-hover:$white );
 $sveetoy-colors-scheme-default: $white-color-scheme;
-$sveetoy-colors-schemes: (
-  white: $white-color-scheme,
-  black: $black-color-scheme,
-  lightskyblue: $lightskyblue-color-scheme,
-  oceanblue: $oceanblue-color-scheme,
-  skyblue: $skyblue-color-scheme,
-);
-$sveetoy-color-text-palette: (
-  white: $white,
-  black: $black,
-  oceanblue: $oceanblue,
-  dark: $gray25,
-);
+$sveetoy-colors-schemes: ( white: $white-color-scheme, black: $black-color-scheme, lightskyblue: $lightskyblue-color-scheme, oceanblue:$oceanblue-color-scheme, skyblue:$skyblue-color-scheme);
+$sveetoy-color-text-palette: ( white: $white, black: $black, oceanblue: $oceanblue, dark:$gray25);
 // A3. Sveetoys typography
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // Thickness
 $font-weight-thin: 100;
 $font-weight-strong: 900;
-$font-weight-medium: 600;
+$font-weight-medium:600;
 // <small/> sizes
-$sveetoy-smalls: (
-  small: 75%,
-  big: 120%,
-  large: 150%,
-);
+$sveetoy-smalls: ( small: 75%, big: 120%, large: 150%, );
 // .underline features
-$sveetoy-underline-thickness: (
-  thin: (
-    size: rem-calc(1px),
-    style: solid,
-  ),
-  normal: (
-    size: rem-calc(3px),
-    style: solid,
-  ),
-  bold: (
-    size: rem-calc(5px),
-    style: solid,
-  ),
-);
-$sveetoy-underline-widths: (
-  tiny: 5%,
-  short: 15%,
-  normal: 40%,
-  //default
-  large: 70%,
-  full: 100%,
-);
-$sveetoy-underline-distances: (
-  far: 2rem,
-  near: 0.5rem,
-  normal: 1rem,
-  //default
-  sticked: 0,
-);
+$sveetoy-underline-thickness: ( thin: ( size: rem-calc(1px), style: solid, ), normal: ( size: rem-calc(3px), style: solid, ), bold: ( size: rem-calc(5px), style: solid, ), );
+$sveetoy-underline-widths: ( tiny: 5%, short: 15%, normal: 40%, //default
+large: 70%, full: 100%, );
+$sveetoy-underline-distances: ( far: 2rem, near: 0.5rem, normal: 1rem, //default
+sticked: 0, );
 $sveetoy-underline-colors: $sveetoy-color-text-palette;
 $sveetoy-underline-default-color: $black;
 // Horizontal rule
@@ -150,56 +92,20 @@ $sveetoy-hr-default-color: $sveetoy-underline-default-color;
 // A4. Sveetoys spaces
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // Defines default space sizes with their breakpoint values
-$sveetoy-space-tiny: (
-  small: 0.25rem,
-  medium: 0.375rem,
-  large: 0.5rem,
-  xlarge: 0.75rem,
-) !default;
-$sveetoy-space-short: (
-  small: 0.5rem,
-  medium: 0.625rem,
-  large: 1rem,
-  xlarge: 1.25rem,
-) !default;
-$sveetoy-space-normal: (
-  small: 0.75rem,
-  medium: 1rem,
-  large: 1.5rem,
-  xlarge: 2rem,
-) !default;
-$sveetoy-space-large: (
-  small: 1rem,
-  medium: 1.5rem,
-  large: 2rem,
-  xlarge: 2.5rem,
-) !default;
-$sveetoy-space-wide: (
-  small: 1.5rem,
-  medium: 2.25rem,
-  large: 3rem,
-  xlarge: 4rem,
-) !default;
+$sveetoy-space-tiny: ( small: 0.25rem, medium: 0.375rem, large: 0.5rem, xlarge: 0.75rem, ) !default;
+$sveetoy-space-short: ( small: 0.5rem, medium: 0.625rem, large: 1rem, xlarge: 1.25rem, ) !default;
+$sveetoy-space-normal: ( small: 0.75rem, medium: 1rem, large: 1.5rem, xlarge: 2rem, ) !default;
+$sveetoy-space-large: ( small: 1rem, medium: 1.5rem, large: 2rem, xlarge: 2.5rem, ) !default;
+$sveetoy-space-wide: ( small: 1.5rem, medium: 2.25rem, large: 3rem, xlarge: 4rem, ) !default;
 // Space scheme
-$sveetoy-spaces: (
-  tiny: $sveetoy-space-tiny,
-  short: $sveetoy-space-short,
-  normal: $sveetoy-space-normal,
-  large: $sveetoy-space-large,
-  wide: $sveetoy-space-wide,
-) !default;
+$sveetoy-spaces: ( tiny: $sveetoy-space-tiny, short: $sveetoy-space-short, normal: $sveetoy-space-normal, large: $sveetoy-space-large, wide: $sveetoy-space-wide, ) !default;
 // Define button variables using default Foundation values
 $button-tny: rem-calc(10);
 $button-sml: rem-calc(14);
 $button-med: rem-calc(16);
 $button-lrg: rem-calc(18);
 // Use button variables for .modest feature
-$sveetoy-button-modests: (
-  tiny: $button-tny * 0.5,
-  small: $button-sml * 0.5,
-  medium: $button-med * 0.5,
-  large: $button-lrg * 0.5,
-);
+$sveetoy-button-modests: ( tiny: $button-tny * 0.5, small: $button-sml * 0.5, medium: $button-med * 0.5, large: $button-lrg * 0.5, );
 // Button color scheme
 $sveetoy-button-colors-schemes: $sveetoy-colors-schemes;
 // A5. Sveetoys Boxes

@@ -18,8 +18,8 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { FeatureGroup, GeoJSON, LatLngBounds, Map as LeafletMap, Marker, TileLayer } from "leaflet";
-import { GeoJSONRewind } from "./rewind-browser.js";
+import { FeatureGroup, GeoJSON, LatLngBounds, Map as LeafletMap, Marker, TileLayer } from 'leaflet';
+import { GeoJSONRewind } from './rewind-browser.js';
 
 let cachedMap;
 function ensureLeafletMap() {
@@ -27,21 +27,21 @@ function ensureLeafletMap() {
     return cachedMap;
   }
 
-  const tagDescription = document.getElementById("tag_description");
+  const tagDescription = document.getElementById('tag_description');
   if (tagDescription) {
-    tagDescription.classList.remove("large-12");
-    tagDescription.classList.add("large-9");
+    tagDescription.classList.remove('large-12');
+    tagDescription.classList.add('large-9');
   }
 
-  const tagMap = document.getElementById("tag_map");
+  const tagMap = document.getElementById('tag_map');
   if (tagMap) {
-    tagMap.style.display = "";
+    tagMap.style.display = '';
   }
 
-  const map = new LeafletMap("container");
-  const tileLayer = new TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  const map = new LeafletMap('container');
+  const tileLayer = new TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   });
   tileLayer.addTo(map);
 
@@ -90,19 +90,17 @@ async function addWikidataObjectToMap(map, id) {
 }
 
 async function getOpenStreetMapFromWikidata(id) {
-  const endpointUrl = "https://query.wikidata.org/sparql";
+  const endpointUrl = 'https://query.wikidata.org/sparql';
   const sparqlQuery = `SELECT ?OpenStreetMap_Relations_ID WHERE {
     wd:${id} wdt:P402 ?OpenStreetMap_Relations_ID.
   }`;
   const settings = {
-    headers: { Accept: "application/sparql-results+json" },
+    headers: { Accept: 'application/sparql-results+json' }
   };
 
   const response = await fetch(`${endpointUrl}?query=${encodeURIComponent(sparqlQuery)}`, settings);
   if (!response.ok) {
-    throw new Error(
-      `Wikidata SPARQL endpoint returned status ${response.status}: ${response.statusText} for ID: ${id}`
-    );
+    throw new Error(`Wikidata SPARQL endpoint returned status ${response.status}: ${response.statusText} for ID: ${id}`);
   }
 
   const data = await response.json();
@@ -112,13 +110,9 @@ async function getOpenStreetMapFromWikidata(id) {
 
 async function getGeoJsonFromOsmRelation(id) {
   try {
-    const response = await fetch(
-      `https://polygons.openstreetmap.fr/get_geojson.py?params=0&id=${encodeURIComponent(id)}`
-    );
+    const response = await fetch(`https://polygons.openstreetmap.fr/get_geojson.py?params=0&id=${encodeURIComponent(id)}`);
     if (!response.ok) {
-      console.error(
-        `Failed to fetch GeoJSON for OSM relation ${id}: ${response.status} ${response.statusText}`
-      );
+      console.error(`Failed to fetch GeoJSON for OSM relation ${id}: ${response.status} ${response.statusText}`);
 
       return;
     }
@@ -166,6 +160,7 @@ export async function displayMap(pointers, wikidataObjects) {
   // Sequentially add Wikidata objects (API calls) - keep await in loop.
   for (const wikidataObject of wikidataObjects) {
     if (wikidataObject !== null) {
+      // eslint-disable-next-line no-await-in-loop
       await addWikidataObjectToMap(map, wikidataObject);
     }
   }

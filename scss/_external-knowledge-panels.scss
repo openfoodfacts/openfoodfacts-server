@@ -5,9 +5,9 @@
   border: 1px solid #e8e8e8;
   background: #fff;
   padding: 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   position: relative;
-  transition: box-shadow 0.15s ease;
+  transition: box-shadow .15s ease;
 }
 
 .external-section details {
@@ -31,8 +31,8 @@
 .external-section summary.provider-summary {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 0.8rem 0.35rem 1rem;
+  gap: .5rem;
+  padding: .7rem .8rem .35rem 1rem;
   cursor: pointer;
   background: transparent;
   border: 0;
@@ -42,17 +42,14 @@
   color: #2a2a2a;
   user-select: none;
   position: relative;
-  transition:
-    background-color 0.12s ease,
-    box-shadow 0.12s ease,
-    border-radius 0.12s ease;
+  transition: background-color .12s ease, box-shadow .12s ease, border-radius .12s ease;
 }
 .external-section summary.provider-summary:hover {
   background-color: #fafafa;
 }
 
 .external-section summary.provider-summary:active {
-  box-shadow: 0 0 0 3px rgba(76, 159, 254, 0.18);
+  box-shadow: 0 0 0 3px rgba(76,159,254,.18);
   border-radius: 8px;
 }
 
@@ -62,21 +59,21 @@
   object-fit: contain;
   border-radius: 50%;
   background: #fff;
-  margin-inline: 0 0.35rem;
+  margin-inline: 0 .35rem;
 }
 
 .external-section .provider-name {
   font-size: 1.05rem;
   font-weight: 700;
   color: #1f1f1f;
-  letter-spacing: 0.01em;
-  margin-inline-end: 0.4rem;
+  letter-spacing: .01em;
+  margin-inline-end: .4rem;
 }
 
 .external-section .provider-desc {
   color: #555;
-  font-size: 0.95rem;
-  margin-inline-start: 0.5rem;
+  font-size: .95rem;
+  margin-inline-start: .5rem;
   font-weight: 400;
   flex: 1;
 }
@@ -87,9 +84,7 @@
   text-align: center;
   font-size: 1.05rem;
   color: #666;
-  transition:
-    transform 0.18s ease,
-    color 0.12s ease;
+  transition: transform .18s ease, color .12s ease;
   transform-origin: 50% 45%;
   pointer-events: none;
 }
@@ -102,19 +97,19 @@
   border: 0;
   border-top: 1px solid #eee;
   box-shadow: 0 1px 0 #f7f7f7 inset;
-  margin: 0.35rem 0 0.8rem;
+  margin: .35rem 0 .8rem;
 }
 
 /* Fallback/error */
 .external-section .kp-error,
 .external-section .kp-fallback {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  margin-top: .5rem;
+  font-size: .9rem;
   color: #666;
   background: #fafafa;
   border: 1px dashed #e2e2e2;
   border-radius: 8px;
-  padding: 0.75rem;
+  padding: .75rem;
 }
 
 /* Print */

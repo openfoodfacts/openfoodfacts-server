@@ -1,7 +1,9 @@
 // Barcode Scanner Modal
 const barcodeScanner = document.querySelector("barcode-scanner");
 const barcodeScannerModal = document.getElementById("barcode-scanner-modal");
-const barcodeCloseButton = barcodeScannerModal.querySelector(".modal-close-button");
+const barcodeCloseButton = barcodeScannerModal.querySelector(
+  ".modal-close-button"
+);
 
 // Get references to the barcode modal button and input
 const barcodeModalButton = document.getElementById("barcode-modal-button");
@@ -35,7 +37,9 @@ function onBarcodeDetected(barcode) {
 
 // Handle barcode scanner state changes
 barcodeScanner.addEventListener("barcode-scanner-state", function (e) {
-  const barcodeScannerButton = document.getElementById("barcode-scanner-button");
+  const barcodeScannerButton = document.getElementById(
+    "barcode-scanner-button"
+  );
   if (e.detail.state === "detector-available") {
     barcodeScannerButton.parentElement.classList.remove("is_hidden");
   } else if (e.detail.state === "detected") {
@@ -56,6 +60,8 @@ function openModal() {
 
 // Initialize the barcode scanner button
 document.addEventListener("DOMContentLoaded", function () {
-  const barcodeScannerButton = document.getElementById("barcode-scanner-button");
+  const barcodeScannerButton = document.getElementById(
+    "barcode-scanner-button"
+  );
   barcodeScannerButton.addEventListener("click", openModal);
 });

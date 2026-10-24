@@ -6,12 +6,13 @@
 
 $sveetoy-colors-schemes: () !default;
 * {
-  ///
-  /// Various color variants from color schemes
-  ///
-  @each $name, $scheme in $sveetoy-colors-schemes {
-    &.bg-#{$name} {
-      @include sveetoy-bg-colors($scheme, $apply-border: false);
+    ///
+    /// Various color variants from color schemes
+    ///
+    @each $name,
+    $scheme in $sveetoy-colors-schemes {
+        &.bg-#{$name} {
+            @include sveetoy-bg-colors($scheme, $apply-border: false);
+        }
     }
-  }
 }

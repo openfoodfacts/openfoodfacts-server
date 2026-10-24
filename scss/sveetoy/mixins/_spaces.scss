@@ -40,43 +40,38 @@ $sveetoy-breakpoints: () !default;
 ///     $prop (string): Property name to define, default is 'padding' but it
 ///         can 'margin' also.
 ///
-@mixin sveetoy-apply-spaces(
-  $definitions,
-  $axis: "vertical",
-  $default: "small",
-  $sides: ("start", "end"),
-  $prop: "padding"
-) {
-  $space-start: top;
-  $space-end: bottom;
-  @if $axis== "horizontal" {
-    $space-start: left;
-    $space-end: right;
-  }
-  @if $definitions !=null {
-    @if map-get($definitions, $default) ==null {
-      @error "Given space definition must contain at least the '#{$default}' key";
+@mixin sveetoy-apply-spaces($definitions, $axis: "vertical", $default: "small", $sides: ("start", "end"), $prop: "padding") {
+    $space-start: top;
+    $space-end: bottom;
+    @if $axis=="horizontal" {
+        $space-start: left;
+        $space-end: right;
     }
-    // Default size comes from 'small'
-    @if index($sides, "start") {
-      #{$prop}-#{$space-start}: map-get($definitions, $default);
-    }
-    @if index($sides, "end") {
-      #{$prop}-#{$space-end}: map-get($definitions, $default);
-    }
-    // Breakpoints
-    @each $name, $size in $definitions {
-      // Ignore default size, also dont try to use an unknowed breakpoint
-      @if $name !=$default and map-get($sveetoy-breakpoints, $name) {
-        @media #{map-get($sveetoy-breakpoints, $name)} {
-          @if index($sides, "start") {
-            #{$prop}-#{$space-start}: $size;
-          }
-          @if index($sides, "end") {
-            #{$prop}-#{$space-end}: $size;
-          }
+    @if $definitions !=null {
+        @if map-get($definitions, $default)==null {
+            @error "Given space definition must contain at least the '#{$default}' key";
         }
-      }
+        // Default size comes from 'small'
+        @if index($sides, "start") {
+            #{$prop}-#{$space-start}: map-get($definitions, $default);
+        }
+        @if index($sides, "end") {
+            #{$prop}-#{$space-end}: map-get($definitions, $default);
+        }
+        // Breakpoints
+        @each $name,
+        $size in $definitions {
+            // Ignore default size, also dont try to use an unknowed breakpoint
+            @if $name !=$default and map-get($sveetoy-breakpoints, $name) {
+                @media #{map-get($sveetoy-breakpoints, $name)} {
+                    @if index($sides, "start") {
+                        #{$prop}-#{$space-start}: $size;
+                    }
+                    @if index($sides, "end") {
+                        #{$prop}-#{$space-end}: $size;
+                    }
+                }
+            }
+        }
     }
-  }
 }
