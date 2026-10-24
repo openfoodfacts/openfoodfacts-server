@@ -71,7 +71,6 @@ Reference to the request object.
 
 sub taxonomy_canonicalize_tags_api ($request_ref) {
 
-	# If an OIDC Bearer token is presented, it must carry the products:read scope
 	return if (not require_scope_if_token_present($request_ref, 'products:read'));
 
 	my $response_ref = $request_ref->{api_response};
@@ -152,7 +151,6 @@ Reference to the request object.
 
 sub taxonomy_display_tags_api ($request_ref) {
 
-	# If an OIDC Bearer token is presented, it must carry the products:read scope
 	return if (not require_scope_if_token_present($request_ref, 'products:read'));
 
 	my $response_ref = $request_ref->{api_response};

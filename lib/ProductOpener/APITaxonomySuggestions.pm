@@ -70,7 +70,6 @@ sub taxonomy_suggestions_api ($request_ref) {
 
 	$log->debug("taxonomy_suggestions_api - start", {request => $request_ref}) if $log->is_debug();
 
-	# If an OIDC Bearer token is presented, it must carry the products:read scope
 	return if (not require_scope_if_token_present($request_ref, 'products:read'));
 
 	my $response_ref = $request_ref->{api_response};
