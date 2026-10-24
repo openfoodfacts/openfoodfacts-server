@@ -13,6 +13,31 @@ use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_co
 # initial tests
 is(normalize_packager_codes("emb54253"), "EMB 54253");
 
+# renormalize_packager_codes_field - updates existing products after
+# normalization rules change (https://github.com/openfoodfacts/openfoodfacts-server/issues/14961)
+use ProductOpener::ProductsTags qw/renormalize_packager_codes_field/;
+
+my $de_product_ref = {emb_codes => "DE BY-777-23 EC"};
+is(renormalize_packager_codes_field($de_product_ref), 1, "DE: product with old normalization is modified");
+is($de_product_ref->{emb_codes}, "DE BY77723 EC", "DE: emb_codes field is renormalized");
+is($de_product_ref->{emb_codes_tags}, ["de-by77723-ec"], "DE: emb_codes_tags are refreshed");
+
+is(renormalize_packager_codes_field($de_product_ref), 0,
+	"DE: renormalizing an already renormalized product does not change it");
+
+my $uk_product_ref = {emb_codes => "UK LK-002 EC"};
+is(renormalize_packager_codes_field($uk_product_ref), 1, "UK: legacy split code is renormalized");
+is($uk_product_ref->{emb_codes}, "UK LK002 EC", "UK: legacy split code is merged into the current spelling");
+is($uk_product_ref->{emb_codes_tags}, ["uk-lk002-ec"], "UK: emb_codes_tags are refreshed");
+
+my $it_product_ref = {emb_codes => "IT 180-1 EC"};
+is(renormalize_packager_codes_field($it_product_ref), 0, "IT: separators that are part of the code are preserved");
+is($it_product_ref->{emb_codes_tags}, ["it-180-1-ec"], "IT: emb_codes_tags are unchanged");
+
+my $no_code_product_ref = {};
+is(renormalize_packager_codes_field($no_code_product_ref), 0, "products without packager code are not modified");
+
+
 is(normalize_packager_codes("ES 12.0664/C CE"), "ES 12.0664/C EC");
 is(normalize_packager_codes("ES 12.0664/C EC"), "ES 12.0664/C EC");
 is(normalize_packager_codes("ES 12.0664/C EC, ES 14.0434/A EC"), "ES 12.0664/C EC, ES 14.0434/A EC");
@@ -57,10 +82,28 @@ is(normalize_packager_codes("RS-1022"), "RS 1022 EC", "RS: normalized code corre
 is(normalize_packager_codes("RS-40-004"), "RS 40-004 EC", "RS: normalized code correctly");
 is(normalize_packager_codes("RS-1"), "RS 1 EC", "RS: normalized code correctly");
 
-# normalize_ce_code
-is(normalize_packager_codes("de by-718 ec"), "DE BY-718 EC", "DE: normalized code correctly");
+# normalize_ce_code - countries whose inner separators are insignificant are stripped,
+# as done for UK codes, so that differently written variants of the same code
+# are stored as one tag (https://github.com/openfoodfacts/openfoodfacts-server/issues/14961)
+is(normalize_packager_codes("de by-718 ec"), "DE BY718 EC", "DE: normalized code correctly");
 is(normalize_packager_codes(normalize_packager_codes("de by-718 ec")),
-	"DE BY-718 EC", "DE: normalizing code twice does not change it any more than normalizing once");
+	"DE BY718 EC", "DE: normalizing code twice does not change it any more than normalizing once");
+
+is(normalize_packager_codes("de by-777-23 ec"), "DE BY77723 EC", "DE: inner separators stripped");
+is(normalize_packager_codes("de by77723 ec"), "DE BY77723 EC", "DE: inner separators stripped");
+is(normalize_packager_codes("nl z-0160 eg"), "NL Z0160 EC", "NL: inner separators stripped");
+is(normalize_packager_codes("nl z0160 eg"), "NL Z0160 EC", "NL: inner separators stripped");
+is(normalize_packager_codes("be m-322-a ec"), "BE M322A EC", "BE: inner separators stripped");
+is(normalize_packager_codes("be m322-a ec"), "BE M322A EC", "BE: inner separators stripped");
+is(normalize_packager_codes("pt c-249-1p ec"), "PT C2491P EC", "PT: inner separators stripped");
+is(normalize_packager_codes("at 30-960 eg"), "AT 30960 EC", "AT: inner separators stripped");
+is(normalize_packager_codes("pl 22-121-818 we"), "PL 22121818 EC", "PL: inner separators stripped");
+is(normalize_packager_codes(normalize_packager_codes("at 30-960 eg")),
+	"AT 30960 EC", "AT: normalizing code twice does not change it any more than normalizing once");
+
+# countries whose inner separators are significant are left untouched
+is(normalize_packager_codes("it 180-1 ec"), "IT 180-1 EC", "IT: inner separators preserved");
+is(normalize_packager_codes("it 1801 ec"), "IT 1801 EC", "IT: inner separators preserved");
 
 is(normalize_packager_codes("PL 14281601 WE"), "PL 14281601 EC", "PL: normalized code correctly");
 is(
