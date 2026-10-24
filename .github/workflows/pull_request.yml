@@ -27,6 +27,8 @@ jobs:
     outputs:
       code_modified: ${{ steps.filter.outputs.code }}
       taxonomy_only: ${{ steps.filter.outputs.any_non_taxonomy == 'false' }}
+      # Single source of truth: 'no-coverage' also means Devel::Cover is off for the test jobs.
+      test_timing_profile: ${{ (github.event_name != 'pull_request' || steps.filter.outputs.any_non_taxonomy != 'false') && 'coverage' || 'no-coverage' }}
       perl_sbom: ${{ steps.filter-some.outputs.perl_sbom }}
       docker_sbom: ${{ steps.filter-some.outputs.docker_sbom }}
       frontend_sbom: ${{ steps.filter-some.outputs.frontend_sbom }}
@@ -289,10 +291,6 @@ jobs:
 
       - name: Setup Git and Restore Taxonomies
         run: ./.github/scripts/setup_git.sh
-
-      # Update dynamic test groups before running tests
-      - name: Update dynamic test groups
-        run: ./.github/scripts/update_test_groups.sh
 
         # Set up environment variables for proper Docker user/group permissions
       - name: Set up user environment for Docker
@@ -575,18 +573,20 @@ jobs:
       with:
         fetch-depth: 1
 
-    # Cache dynamic test groups and timing data
-    - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-      id: test_groups_cache
+    # Only the weekly default-branch workflow writes timing snapshots.
+    - uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
-        path: ./.test_groups_cache
-        key: test-groups-${{ hashFiles('tests/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.py') }}
-        restore-keys: |
-          test-groups-${{ hashFiles('tests/**/*.t') }}-
-          test-groups-
+        path: .test_timing_history/v2
+        key: test-timings-v2-snapshot-${{ github.run_id }}-${{ github.run_attempt }}
+        restore-keys: test-timings-v2-snapshot-
 
-    - name: Calculate optimal test group counts
+    - name: Check test grouping regressions
+      run: python3 -m unittest discover -s scripts/tests -p 'test_*.py'
+
+    - name: Create the shared test plan and matrix
       id: matrix
+      env:
+        TEST_TIMING_PROFILE: ${{ needs.filter.outputs.test_timing_profile }}
       run: |
         echo "🥫 Calculating optimal test group counts..."
 
@@ -607,15 +607,29 @@ jobs:
         # Display the calculated matrix
         cat matrix_config.json
 
+    - name: Share the exact test plan with every shard
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: test-plan
+        overwrite: true
+        path: |
+          .test_groups_cache/*_groups.mk
+          .test_groups_cache/plan.json
+        include-hidden-files: true
+        if-no-files-found: error
+        retention-days: 14
+
   unit_tests:
     # for now "🐪 Perl Unit Tests" is the expected label for end of tests,
     # so we had "Only" here to not get confused
     name: 🐪 Perl Unit Tests Only
     needs: [filter, build_backend, calculate_test_matrix]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true' && needs.calculate_test_matrix.outputs.unit_test_groups != '[]'
     env:
-      COVER_OPTS: ${{ (github.event_name != 'pull_request' || needs.filter.outputs.taxonomy_only != 'true') && '-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' || '' }}
+      CI_TEST_GROUP_PLAN: "1"
+      TEST_TIMING_PROFILE: ${{ needs.filter.outputs.test_timing_profile }}
+      COVER_OPTS: ${{ needs.filter.outputs.test_timing_profile == 'coverage' && '-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' || '' }}
     strategy:
       fail-fast: false
       matrix:
@@ -634,33 +648,15 @@ jobs:
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
 
-    # Cache dynamic test groups and timing data
-    # This enables persistent learning and avoids regenerating groups unnecessarily
-    - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-      id: test_groups_cache
+    - name: Download the coordinator's shared test plan
+      uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
       with:
-        path: ./.test_groups_cache
-        key: test-groups-unit-${{ hashFiles('tests/unit/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.py') }}
-        restore-keys: |
-          test-groups-unit-${{ hashFiles('tests/unit/**/*.t') }}-
-          test-groups-unit-
+        name: test-plan
+        path: .test_groups_cache
 
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
 
-    # Update dynamic test groups before running tests
-    # This ensures optimal load balancing based on historical timing data
-    - name: Update dynamic test groups
-      run: |
-        echo "🥫 Checking and updating dynamic test groups..."
-        ./.github/scripts/update_test_groups.sh
-
-        # Ensure .mk files are regenerated for current test discovery
-        echo "🥫 Regenerating unit test groups for Makefile..."
-        python3 scripts/dynamic_test_grouper.py --type=unit --force > .test_groups_cache/unit_groups.mk
-
-    # Download the Docker image built in build_backend job as an artifact
-    # This reuses the cached Docker image instead of rebuilding it
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@d5e9b6d62ef3f9762f6553c8178c2d925acc0409 # v2.1.0
@@ -692,18 +688,16 @@ jobs:
         fi
         make COVER_OPTS="$COVER_OPTS" DOCKER_LOCAL_DATA="$(pwd)" unit_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
-    # Update timing data after test execution for future optimization
-    # This enables the system to learn and improve load balancing over time
-    - name: Update test timing data
-      if: always()
-      run: |
-        echo "🥫 Updating timing data from test results..."
-        if [ -d "tests/unit/outputs" ] && [ "$(ls -A tests/unit/outputs/*.xml 2>/dev/null)" ]; then
-          python3 scripts/dynamic_test_grouper.py --type=unit --update-timings --junit-dir=tests/unit/outputs
-          echo "🥫 Timing data updated successfully"
-        else
-          echo "🥫 No JUnit XML files found, skipping timing update"
-        fi
+    # Immutable, per-shard artifacts avoid cache races and are visible to the
+    # weekly trusted workflow even when this PR comes from a fork.
+    # Timings are only telemetry: a missing report warns instead of failing the shard.
+    - name: Upload successful shard timings
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: test-timings-v2-${{ env.TEST_TIMING_PROFILE }}-unit-${{ matrix.test-group }}-attempt-${{ github.run_attempt }}
+        path: tests/unit/outputs/junit_group_${{ matrix.test-group }}.xml
+        if-no-files-found: warn
+        retention-days: 14
 
     # Generate coverage results for this test group
     # Codecov will automatically merge coverage from all parallel test groups
@@ -736,9 +730,11 @@ jobs:
     name: 🐪 Perl Integration Tests
     needs: [filter, build_backend, build_frontend, calculate_test_matrix]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true' && needs.calculate_test_matrix.outputs.integration_test_groups != '[]'
     env:
-      COVER_OPTS: ${{ (github.event_name != 'pull_request' || needs.filter.outputs.taxonomy_only != 'true') && '-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' || '' }}
+      CI_TEST_GROUP_PLAN: "1"
+      TEST_TIMING_PROFILE: ${{ needs.filter.outputs.test_timing_profile }}
+      COVER_OPTS: ${{ needs.filter.outputs.test_timing_profile == 'coverage' && '-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' || '' }}
     strategy:
       fail-fast: false
       matrix:
@@ -755,30 +751,14 @@ jobs:
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
 
-    # Cache dynamic test groups and timing data for integration tests
-    # Integration tests typically have more variable execution times
-    - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-      id: test_groups_cache
+    - name: Download the coordinator's shared test plan
+      uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
       with:
-        path: ./.test_groups_cache
-        key: test-groups-integration-${{ hashFiles('tests/integration/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.py') }}
-        restore-keys: |
-          test-groups-integration-${{ hashFiles('tests/integration/**/*.t') }}-
-          test-groups-integration-
+        name: test-plan
+        path: .test_groups_cache
 
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
-
-    # Update dynamic test groups before running tests
-    # Integration tests benefit more from timing-based grouping due to variable execution times
-    - name: Update dynamic test groups
-      run: |
-        echo "🥫 Checking and updating dynamic integration test groups..."
-        ./.github/scripts/update_test_groups.sh
-
-        # Ensure .mk files are regenerated for current test discovery
-        echo "🥫 Regenerating integration test groups for Makefile..."
-        python3 scripts/dynamic_test_grouper.py --type=integration --force > .test_groups_cache/integration_groups.mk
 
     - name: Download backend image from artifacts
       id: downloadbackendimage
@@ -819,18 +799,16 @@ jobs:
         fi
         make COVER_OPTS="$COVER_OPTS" DOCKER_LOCAL_DATA="$(pwd)" integration_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
-    # Update timing data after test execution for future optimization
-    # Integration test timing data is especially valuable due to higher variance
-    - name: Update test timing data
-      if: always()
-      run: |
-        echo "🥫 Updating integration test timing data from test results..."
-        if [ -d "tests/integration/outputs" ] && [ "$(ls -A tests/integration/outputs/*.xml 2>/dev/null)" ]; then
-          python3 scripts/dynamic_test_grouper.py --type=integration --update-timings --junit-dir=tests/integration/outputs
-          echo "🥫 Integration test timing data updated successfully"
-        else
-          echo "🥫 No JUnit XML files found, skipping timing update"
-        fi
+    # Immutable, per-shard artifacts avoid cache races and are visible to the
+    # weekly trusted workflow even when this PR comes from a fork.
+    # Timings are only telemetry: a missing report warns instead of failing the shard.
+    - name: Upload successful shard timings
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: test-timings-v2-${{ env.TEST_TIMING_PROFILE }}-integration-${{ matrix.test-group }}-attempt-${{ github.run_attempt }}
+        path: tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
+        if-no-files-found: warn
+        retention-days: 14
 
     # Generate coverage results for this test group
     # Codecov will automatically merge coverage from all parallel test groups
@@ -863,19 +841,25 @@ jobs:
     # if all tests did run correctly acknowledge the branch protection rule
     # use the name that is settled in branch protection rules, although it's not fully correct
     name: 🐪 Perl unit tests
-    needs: [build_backend, unit_tests, integration_tests]
+    needs: [filter, build_backend, calculate_test_matrix, unit_tests, integration_tests]
     runs-on: ubuntu-latest
     if: always()
     steps:
-      - name: Check if unit and integration tests succeeded or fail
-        run: |
-          if [ ${{ needs.build_backend.result }} != "success" ] || [ ${{ needs.unit_tests.result }} = "failure" ] || [ ${{ needs.integration_tests.result }} = "failure" ]
-          then
-            echo "Some tests did fail"
-            exit 1
-          else
-            echo "All Perl unit and integration test groups finished."
-          fi
+      # The rules live in a script so scripts/tests can run them directly.
+      # If this checkout fails the required check fails too, which is the safe side.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: .github/scripts
+      - name: Check required test jobs
+        env:
+          FILTER_RESULT: ${{ needs.filter.result }}
+          BUILD_RESULT: ${{ needs.build_backend.result }}
+          CODE_MODIFIED: ${{ needs.filter.outputs.code_modified }}
+          MATRIX_RESULT: ${{ needs.calculate_test_matrix.result }}
+          UNIT_RESULT: ${{ needs.unit_tests.result }}
+          INTEGRATION_RESULT: ${{ needs.integration_tests.result }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: bash .github/scripts/check_test_jobs.sh
 
   tests_dev:
     name: 🧪 Test make dev
