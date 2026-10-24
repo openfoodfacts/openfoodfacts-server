@@ -42,6 +42,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&get_rate_limit_user_requests
 		&increment_rate_limit_requests
+		&decrement_rate_limit_requests
 		&subscribe_to_redis_streams
 		&push_product_update_to_redis
 		&push_ocr_ready_to_redis
@@ -777,6 +778,66 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 
 	return;
 
+}
+
+=head2 decrement_rate_limit_requests ($ip, $bucket)
+
+Decrement the number of requests for the given user and bucket in the Redis rate-limiter for the
+current minute. Used when a request is moved from one bucket to another one, so that the counters
+of both buckets add up to the number of requests that were made.
+
+=head3 Arguments
+
+=head4 String $ip
+
+The IP address of the user who is making the request.
+
+=head4 String $bucket
+
+The rate-limit bucket that the request is removed from.
+
+=cut
+
+sub decrement_rate_limit_requests ($ip, $bucket) {
+	if (!$redis_url) {
+		if (!$sent_warning_about_missing_redis_url) {
+			$ratelimiter_log->warn("Redis URL not provided, rate-limiting is disabled") if $ratelimiter_log->is_warn();
+			$sent_warning_about_missing_redis_url = 1;
+		}
+		return;
+	}
+
+	my $error = "";
+	if (!defined $redis_client) {
+		$ratelimiter_log->debug("Trying to reconnect to Redis") if $ratelimiter_log->is_debug();
+		init_redis();
+	}
+	if (defined $redis_client) {
+		$ratelimiter_log->debug("Decrementing rate-limit requests", {ip => $ip, bucket => $bucket})
+			if $ratelimiter_log->is_debug();
+		my $current_minute = int(time() / 60);
+		eval {
+			$redis_client->multi();
+			$redis_client->decr("po-rate-limit:$ip:$bucket:$current_minute");
+			$redis_client->exec();
+		};
+		$error = $@;
+	}
+	else {
+		$error = "Can't connect to Redis";
+	}
+	if (!($error eq "")) {
+		$ratelimiter_log->error("Failed to decrement number of requests from Redis rate-limiter", {error => $error})
+			if $ratelimiter_log->is_error();
+		$redis_client = undef;
+	}
+	else {
+		$ratelimiter_log->debug("Decremented number of requests from Redis rate-limiter",
+			{ip => $ip, bucket => $bucket})
+			if $ratelimiter_log->is_debug();
+	}
+
+	return;
 }
 
 =head2 perform_health_check()
