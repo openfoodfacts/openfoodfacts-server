@@ -1870,14 +1870,40 @@ Checks related to specific product labels.
 
 =cut
 
+sub is_explicit_label ($product_ref, $label_id) {
+
+	if (defined $product_ref->{tags_sources} and defined $product_ref->{tags_sources}{labels}) {
+		my %input_tags = ();
+		foreach my $source (keys %{$product_ref->{tags_sources}{labels}}) {
+			if (defined $product_ref->{tags_sources}{labels}{$source}{tags}) {
+				foreach my $tag (@{$product_ref->{tags_sources}{labels}{$source}{tags}}) {
+					$input_tags{$tag} = 1;
+				}
+			}
+		}
+		my @input_tags = keys %input_tags;
+		if (@input_tags) {
+			my @explicit_labels = gen_tags_list_with_parents("en", "labels", \@input_tags);
+			foreach my $tag (@explicit_labels) {
+				return 1 if $tag eq $label_id;
+			}
+			return 0;
+		}
+	}
+	return has_tag($product_ref, "labels", $label_id);
+}
+
 sub check_labels ($product_ref) {
 	# compare label claim and ingredients
 
 	# Vegan label: check that there is no non-vegan ingredient.
 	# Vegetarian label: check that there is no non-vegetarian ingredient.
 
+	my $has_explicit_vegetarian = is_explicit_label($product_ref, "en:vegetarian");
+	my $has_explicit_vegan = is_explicit_label($product_ref, "en:vegan");
+
 	# this also include en:vegan that is a child of en:vegetarian
-	if (defined $product_ref->{labels_tags} && has_tag($product_ref, "labels", "en:vegetarian")) {
+	if (defined $product_ref->{labels_tags} && $has_explicit_vegetarian) {
 		if (defined $product_ref->{ingredients}) {
 			my @ingredients = @{$product_ref->{ingredients}};
 
@@ -1908,7 +1934,7 @@ sub check_labels ($product_ref) {
 				}
 
 				if (not $ignore_vegan_vegetarian_facet) {
-					if (has_tag($product_ref, "labels", "en:vegan")) {
+					if ($has_explicit_vegan) {
 						# vegan
 						if (defined $ingredient_ref->{"vegan"}) {
 							if ($ingredient_ref->{"vegan"} eq 'no') {
