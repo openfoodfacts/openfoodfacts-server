@@ -1,0 +1,709 @@
+{
+   "category_stats" : 1,
+   "comparisons" : [
+      {
+         "checked" : 1,
+         "col_id" : "compare_0",
+         "count" : 100,
+         "link" : "/facets/categories/de:aufstriche",
+         "name" : "Aufstriche"
+      }
+   ],
+   "nutrition_table" : {
+      "header" : {
+         "columns" : [
+            {
+               "class" : "product",
+               "col_id" : "as_sold_100g",
+               "name" : "Wie verkauft<br>für 100 g / 100 ml",
+               "per" : "100g",
+               "preparation" : "as_sold",
+               "scope" : "product",
+               "short_name" : "100g"
+            },
+            {
+               "class" : "compare_0",
+               "col_id" : "compare_0",
+               "name" : "Verglichen mit: Aufstriche",
+               "scope" : "comparisons"
+            },
+            {
+               "class" : "stats",
+               "col_id" : "mean",
+               "name" : "Durchschnitt",
+               "scope" : "categories"
+            },
+            {
+               "class" : "stats",
+               "col_id" : "std",
+               "name" : "Standardabweichung",
+               "scope" : "categories"
+            },
+            {
+               "class" : "stats",
+               "col_id" : "min",
+               "name" : "Minimum",
+               "scope" : "categories"
+            },
+            {
+               "class" : "stats",
+               "col_id" : "10",
+               "name" : "10. Quantil",
+               "scope" : "categories"
+            },
+            {
+               "class" : "stats",
+               "col_id" : "50",
+               "name" : "Median",
+               "scope" : "categories"
+            },
+            {
+               "class" : "stats",
+               "col_id" : "90",
+               "name" : "90. Quantil",
+               "scope" : "categories"
+            },
+            {
+               "class" : "stats",
+               "col_id" : "max",
+               "name" : "Maximum",
+               "scope" : "categories"
+            }
+         ],
+         "name" : "Nährwertangaben"
+      },
+      "id" : "nutrition",
+      "rows" : [
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : " property=\"food:energyPer100g\" content=\"1890.5\"",
+                  "type" : "normal",
+                  "value" : "1.890,5 kJ<br>(452 kcal)"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : "+26 %",
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "1.500 kj (359 kcal) (+26 %)"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "1.234,57 kj"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Energie",
+            "nid" : "energy"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : " property=\"food:fatPer100g\" content=\"12.34\"",
+                  "type" : "normal",
+                  "value" : "12,34 g"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : "-19 %",
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "10 g (-19 %)"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "0,05 g"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fett",
+            "nid" : "fat"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               }
+            ],
+            "level" : 1,
+            "name" : "gesättigte Fettsäuren",
+            "nid" : "saturated-fat"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : " property=\"food:carbohydratesPer100g\" content=\"14.0666666666667\"",
+                  "type" : "normal",
+                  "value" : "14,07 g"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : "+0 %",
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "14 g (~0 %)"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Kohlenhydrate",
+            "nid" : "carbohydrates"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : " property=\"food:sugarsPer100g\" content=\"7.18e-05\"",
+                  "type" : "normal",
+                  "value" : "0,000072 g"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               }
+            ],
+            "level" : 1,
+            "name" : "Zucker",
+            "nid" : "sugars"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Ballaststoffe",
+            "nid" : "fiber"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Eiweiß",
+            "nid" : "proteins"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : " property=\"food:saltPer100g\" content=\"0.0502\"",
+                  "type" : "normal",
+                  "value" : "0,05 g"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : "+11 %",
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "0,6 g (+11 %)"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Salz",
+            "nid" : "salt"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               },
+               {
+                  "class" : "stats",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "category_stats",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Früchte, Gemüse, Hülsenfrüchte",
+            "nid" : "fruits-vegetables-legumes"
+         }
+      ]
+   }
+}
