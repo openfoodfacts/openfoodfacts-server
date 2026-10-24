@@ -988,6 +988,15 @@
                   }
                },
                {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : "Could you add the nutrition facts?"
+                  },
+                  "element_type" : "action"
+               },
+               {
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "nutrition_facts_table_with_input_sets"
