@@ -335,7 +335,8 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			);
 			create_panel_from_json_template("packaging_simplified",
 				"api/knowledge-panels/environment/packaging_simplified.tt.json",
-				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+				{ packaging_image => data_to_display_image($product_ref, "packaging", $target_lc) },
+				$product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 			create_panel_from_json_template(
 				"environmental_labels_simplified",
 				"api/knowledge-panels/environment/environmental_labels_simplified.tt.json",
@@ -959,6 +960,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	}
 
 	# Create panel for packaging components, and packaging materials
+	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc);
 	create_panel_from_json_template("packaging", "api/knowledge-panels/environment/packaging.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	create_panel_from_json_template("packaging_materials",
