@@ -58,6 +58,7 @@ BEGIN {
 		&set_ecobalyse_coverage_misc_tags
 		&get_ecobalyse_reference_quantity
 		&format_ecs_value
+		&get_environmental_cost_label_path
 		&call_ecobalyse
 
 	);    # symbols to export on request
@@ -202,8 +203,8 @@ sub get_ecobalyse_reference_quantity ($product_ref) {
 
 =head2 format_ecs_value ($value)
 
-Round an Ecobalyse environmental cost (ECS) value for display:
-1 decimal for values below 100, no decimals for values of 100 and more.
+Round an Ecobalyse environmental cost (ECS) value to an integer for display,
+as on the label image (see get_environmental_cost_label_path()).
 
 Returns an empty string if the value is not a number (e.g. unexpected value from the Ecobalyse API).
 
@@ -211,8 +212,39 @@ Returns an empty string if the value is not a number (e.g. unexpected value from
 
 sub format_ecs_value ($value) {
 	return "" unless looks_like_number($value);
-	return sprintf("%.0f", $value) if abs($value) >= 99.95;
-	return sprintf("%.1f", $value);
+	# + 0 to turn "-0" into "0"
+	return sprintf("%.0f", $value) + 0;
+}
+
+=head2 get_environmental_cost_label_path ($ecs_per_product, $ecs_per_100, $unit)
+
+Return the path of the French "coût environnemental" label image (SVG), with the cost for the product
+and the cost for 100 g or 100 ml. e.g. /images/environmental-cost/v1/360-154-g.svg
+
+The images are rendered on the fly by nginx (see conf/nginx/njs/README.md), and need to be prefixed
+with the static subdomain.
+
+The label needs both values, rounded to integers from 0 to 99999 (the charter allows from 2 to 5 digits).
+
+Returns undef if the values are missing or out of range.
+
+=head3 Arguments
+
+=head4 $ecs_per_product - environmental cost for the whole product
+
+=head4 $ecs_per_100 - environmental cost for 100 g or 100 ml
+
+=head4 $unit - "g" or "ml"
+
+=cut
+
+sub get_environmental_cost_label_path ($ecs_per_product, $ecs_per_100, $unit) {
+	return unless looks_like_number($ecs_per_product) and looks_like_number($ecs_per_100);
+	return unless ($unit eq "g") or ($unit eq "ml");
+	return unless $ecs_per_product >= 0 and $ecs_per_100 >= 0;
+	my ($per_product, $per_100) = map {format_ecs_value($_)} ($ecs_per_product, $ecs_per_100);
+	return unless $per_product <= 99999 and $per_100 <= 99999;
+	return "/images/environmental-cost/v1/$per_product-$per_100-$unit.svg";
 }
 
 sub estimate_environmental_impact_service ($product_ref, $updated_product_fields_ref, $errors_ref,
