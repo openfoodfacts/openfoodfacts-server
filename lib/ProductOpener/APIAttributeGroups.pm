@@ -29,7 +29,7 @@ ProductOpener::APITaxonomy - implementation of APIs to return the list of availa
 package ProductOpener::APIAttributeGroups;
 
 use ProductOpener::PerlStandards;
-use ProductOpener::Auth qw/require_scope/;
+use ProductOpener::Auth qw/require_scope_if_token_present/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -115,7 +115,7 @@ Reference to the request object.
 sub preferences_api ($request_ref) {
 
 	# If an OIDC Bearer token is presented, it must carry the products:read scope
-	return if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:read')));
+	return if (not require_scope_if_token_present($request_ref, 'products:read''));
 
 	my $response_ref = $request_ref->{api_response};
 
@@ -178,7 +178,7 @@ This parameter sets the desired language for the user facing strings.
 sub display_attribute_groups_api ($request_ref, $target_lc) {
 
 	# If an OIDC Bearer token is presented, it must carry the products:read scope
-	return if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:read')));
+	return if (not require_scope_if_token_present($request_ref, 'products:read''));
 
 	if (not defined $target_lc) {
 		$target_lc = $lc;

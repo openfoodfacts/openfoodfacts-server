@@ -50,6 +50,8 @@ BEGIN {
 		&has_access_token_scope
 		&get_token_scopes
 		&require_scope
+		&require_scope_if_token_present
+		&enforce_scope_if_token_present
 		&retrieve_user_using_token
 		&get_token_using_client_credentials
 		&get_token_using_password_credentials
@@ -888,7 +890,7 @@ sub _verify_access_token_type_header ($access_token_string) {
 
 	# Decode the base64url-encoded header segment
 	my $base64 = $header_segment;
-	$base64 =~ tr/-_/\/+/;
+	$base64 =~ tr/-_/+\//;
 	my $padding = length($base64) % 4;
 	$base64 .= '=' x (4 - $padding) if $padding;
 	my $header_json = eval {decode_base64($base64)};
@@ -972,7 +974,8 @@ An array reference containing the scopes.
 sub get_token_scopes ($access_token_verified) {
 	return [] unless defined $access_token_verified;
 	my $scope_string = $access_token_verified->{scope} // '';
-	return [split(/\s+/, $scope_string)];
+	# split(' ', ...) strips leading whitespace, unlike split(/\s+/, ...)
+	return [split(' ', $scope_string)];
 }
 
 =head2 has_access_token_scope($access_token_verified, $required_scope)
@@ -1058,13 +1061,17 @@ sub require_scope ($request_ref, $scope) {
 		return 0;
 	}
 
-	my $access_token = eval {verify_access_token($access_token_string);};
-	if (my $error = $@) {
-		chomp $error;
-		$log->info('require_scope - token verification failed', {error => $error, scope => $scope})
-			if $log->is_info();
-		_add_insufficient_scope_error($request_ref, $scope);
-		return 0;
+	# Reuse the token already verified in process_auth_header() during init_request()
+	# to avoid a second JWKS decode per request. Fall back to verifying here for
+	# callers that did not go through init_request() (e.g. Keycloak admin token checks).
+	my $access_token = $request_ref->{access_token_verified};
+	if ((not defined $access_token) or (($request_ref->{access_token_verified_string} // '') ne $access_token_string)) {
+		$access_token = verify_access_token($access_token_string);
+		# Cache the result (even undef would be re-verified, so only cache defined tokens)
+		if (defined $access_token) {
+			$request_ref->{access_token_verified} = $access_token;
+			$request_ref->{access_token_verified_string} = $access_token_string;
+		}
 	}
 
 	unless (defined $access_token) {
@@ -1081,6 +1088,82 @@ sub require_scope ($request_ref, $scope) {
 		if $log->is_info();
 	_add_insufficient_scope_error($request_ref, $scope);
 	return !!0;
+}
+
+=head2 require_scope_if_token_present($request_ref, $scope)
+
+Checks the required scope only when an OIDC Bearer token was presented.
+
+This is the common case for endpoints that still accept legacy authentication
+(session cookie, user_id + password) alongside OIDC: unauthenticated requests
+(without a Bearer token) pass through so that legacy auth can be evaluated
+downstream, while Bearer requests must carry the required scope.
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+
+=head4 The scope that must be present in the token. $scope
+
+=head3 Return values
+
+1 if no token was presented or the token has the scope, 0 otherwise (in which
+case an error has been added to $request_ref->{api_response} and the request
+should not proceed).
+
+=cut
+
+sub require_scope_if_token_present ($request_ref, $scope) {
+	if (not defined $request_ref->{access_token}) {
+		return !!1;
+	}
+	return require_scope($request_ref, $scope) ? !!1 : !!0;
+}
+
+=head2 enforce_scope_if_token_present($request_ref, $scope)
+
+CGI helper for the "If an OIDC Bearer token is presented, it must carry the
+scope" guard shared by the image CGI scripts.
+
+If no Bearer token was presented, returns 1 immediately so legacy session auth
+applies. If a token was presented but lacks the scope, sends an RFC 6750
+compliant 403 JSON response with a WWW-Authenticate header and exits.
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+
+=head4 The scope that must be present in the token. $scope
+
+=head3 Return values
+
+1 if the request may proceed. Does not return otherwise (exits with 403).
+
+=cut
+
+sub enforce_scope_if_token_present ($request_ref, $scope) {
+	if (not defined $request_ref->{access_token}) {
+		return !!1;
+	}
+	if (require_scope($request_ref, $scope)) {
+		return !!1;
+	}
+	my $r = eval {Apache2::RequestUtil->request();};
+	# _add_insufficient_scope_error() above already set the WWW-Authenticate
+	# header via err_headers_out; keep it for non-mod_perl contexts too.
+	my $data = encode_json({status => 'status not ok', error => 'insufficient_scope'});
+	if (defined $r) {
+		$r->err_headers_out->set('WWW-Authenticate' => 'Bearer error="insufficient_scope"');
+		print header(-status => 403, -type => 'application/json', -charset => 'utf-8') . $data;
+		eval {$r->rflush();};
+		eval {$r->status(200);};
+		# rflush + status(200) sends the 403 body while preventing mod_perl
+		# from appending its default error page (see cgi/auth.pl and API::send_api_response).
+	}
+	else {
+		print header(-status => 403, -type => 'application/json', -charset => 'utf-8') . $data;
+	}
+	exit(0);
 }
 
 =head2 _add_insufficient_scope_error($request_ref, $scope)

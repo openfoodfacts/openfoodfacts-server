@@ -2078,6 +2078,8 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	$request_ref->{access_token} = $token;
+	$request_ref->{access_token_verified} = $access_token;
+	$request_ref->{access_token_verified_string} = $token;
 	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
 	unless (defined $user_ref) {
 		$log->info('User not found and not created') if $log->is_info();

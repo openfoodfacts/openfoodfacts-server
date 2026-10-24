@@ -29,7 +29,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Products qw/normalize_code product_id_for_owner product_path_from_id/;
 use ProductOpener::Display qw/init_request/;
-use ProductOpener::Auth qw/require_scope/;
+use ProductOpener::Auth qw/enforce_scope_if_token_present/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 
@@ -40,14 +40,7 @@ use Log::Any qw($log);
 my $request_ref = ProductOpener::Display::init_request();
 
 # If an OIDC Bearer token is presented, it must carry the products:write scope
-if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:write'))) {
-	my $r = shift;
-	$r->status(403);
-	$r->headers_out->set('WWW-Authenticate' => 'Bearer error="insufficient_scope"');
-	my $data = encode_json({status => 'status not ok', error => 'insufficient_scope'});
-	print header(-type => 'application/json', -charset => 'utf-8') . $data;
-	exit(0);
-}
+enforce_scope_if_token_present($request_ref, 'products:write');
 
 my $code = normalize_code(single_param('code'));
 my $product_id = product_id_for_owner($Owner_id, $code);

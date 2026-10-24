@@ -159,7 +159,7 @@ use ProductOpener::PackagerCodes
 	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
 use ProductOpener::API qw(add_error customize_response_for_product process_api_request sanitize);
-use ProductOpener::Auth qw/require_scope/;
+use ProductOpener::Auth qw/require_scope_if_token_present/;
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
@@ -9703,7 +9703,7 @@ This function is used only for api v0, v1 and v2. API v3 + uses APIProductRead.p
 sub display_product_api ($request_ref) {
 
 	# If an OIDC Bearer token is presented, it must carry the products:read scope
-	return if (defined $request_ref->{access_token} and not(require_scope($request_ref, 'products:read')));
+	return if (not require_scope_if_token_present($request_ref, 'products:read''));
 
 	my $cc = $request_ref->{cc};
 
