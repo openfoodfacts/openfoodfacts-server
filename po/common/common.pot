@@ -5462,9 +5462,14 @@ msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
 msgstr ""
 
+msgctxt "attribute_forest_footprint_not_computed_title"
+msgid "Forest Footprint not computed"
+msgstr ""
+
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
 msgstr ""
+
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
 msgstr ""
@@ -6562,9 +6567,33 @@ msgctxt "environmental_cost_stage"
 msgid "Stage"
 msgstr "Stage"
 
-msgctxt "environmental_cost_ecs"
-msgid "Points per 100 g"
-msgstr "Points per 100 g"
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
+msgstr "Points for 100 g"
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr "Points for 100 ml"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr "Points for the product ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr "{points} points for the product ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr "{points} points for 100 g"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr "{points} points for 100 ml"
 
 msgctxt "environmental_cost_ingredients"
 msgid "Ingredients"

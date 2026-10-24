@@ -158,7 +158,7 @@ use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_
 use ProductOpener::PackagerCodes
 	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
-use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header sanitize);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request sanitize);
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
@@ -789,36 +789,22 @@ sub init_request ($request_ref = {}) {
 		}
 	) if $log->is_debug();
 
-	# Note we allow an OAuth token for all oidc_implementation_levels
-	my $signed_in_oidc = process_auth_header($request_ref, $r);
-	if ($signed_in_oidc < 0) {
-		# We were sent a bad bearer token
-		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
-		if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
-			and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
-		{
-			$log->debug(
-				"init_request - init_user error - display error page",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
-			display_error_and_exit($request_ref, $signed_in_oidc, 403);
-		}
-	}
-
-	my $error = ProductOpener::Users::init_user($request_ref);
+	my $error = ProductOpener::Users::init_user($request_ref, $r);
 	if ($error) {
 		# We were sent bad user_id / password credentials
 
 		# If it is an API v3 query, the error will be handled by API::process_api_request()
 		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
-			$log->debug(
-				"init_request - init_user error - API v3: continue",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
+			$log->debug("init_request - init_user error - API v3: continue", {init_user_error => $error})
+				if $log->is_debug();
+			if ($error eq "error_bad_login_password") {
+				# Use a generic API error message without the link to the login page
+				$error = "invalid_user_id_and_password";
+			}
 			add_error(
 				$request_ref->{api_response},
 				{
-					message => {id => "invalid_user_id_and_password"},
+					message => {id => $error},
 					impact => {id => "failure"},
 				},
 				403
@@ -827,18 +813,18 @@ sub init_request ($request_ref = {}) {
 		# /cgi/auth.pl returns a JSON body
 		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
 		elsif ($r->uri() =~ /\/cgi\/auth\.pl/) {
-			$log->debug(
-				"init_request - init_user error - /cgi/auth.pl: continue",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
+			$log->debug("init_request - init_user error - /cgi/auth.pl: continue", {init_user_error => $error})
+				if $log->is_debug();
 		}
 		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
 		else {
-			$log->debug(
-				"init_request - init_user error - display error page",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
-			display_error_and_exit($request_ref, $error, 403);
+			$log->debug("init_request - init_user error - display error page", {init_user_error => $error})
+				if $log->is_debug();
+			if ($error eq "invalid_token") {
+				# Use the API message for invalid tokens
+				$error = "api_message_invalid_token";
+			}
+			display_error_and_exit($request_ref, $Lang{$error}{$lc}, 403);
 		}
 	}
 
@@ -1426,6 +1412,12 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	if ($html =~ /<h1>(.*?)<\/h1>/) {
 		$title = $1;
 		$html = $` . $';
+	}
+
+	# The index page may not have a h1 title (e.g. on Open Food Facts),
+	# in that case we still need a title for the <title> tag in the HTML head
+	if (($textid eq 'index') and (not defined $title)) {
+		$request_ref->{head_title} = $options{site_name} . ' - ' . $country_name;
 	}
 
 	# Generate a table of content
@@ -7620,6 +7612,14 @@ sub display_page ($request_ref) {
 		$canon_title = $title;
 	}
 
+	# Title for the <title> tag in the HTML head: it can be different from the h1 title displayed in the page
+	# (e.g. the index page may not have a h1 title), and it should never be empty
+	my $head_title = $canon_title;
+	if ($head_title eq '') {
+		$head_title = remove_tags_and_quote($request_ref->{head_title} // $options{site_name});
+		$canon_title = $head_title;
+	}
+
 	my $canon_description = '';
 	if (defined $description) {
 		$canon_description = remove_tags_and_quote($description);
@@ -7679,6 +7679,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{canon_url} = $canon_url;
 	$template_data_ref->{meta_description} = $meta_description;
 	$template_data_ref->{canon_title} = $canon_title;
+	$template_data_ref->{head_title} = $head_title;
 	$template_data_ref->{canon_description} = $canon_description;
 	$template_data_ref->{og_images} = $og_images;
 	$template_data_ref->{og_images2} = $og_images2;
@@ -10381,8 +10382,8 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 		${$ingredients_list_ref}
 			.= '<table id="ordered_ingredients_list" style="border-collapse:collapse;width:100%;font-size:0.85rem">'
 			. "\n<thead><tr>"
-			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Ingredient</th>'
-			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Taxonomy ID</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ingredient</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">taxonomy_id</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th>'

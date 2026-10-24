@@ -75,6 +75,7 @@ use ProductOpener::KnowledgePanelsIngredients qw/:all/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
 use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel/;
+use ProductOpener::EnvironmentalImpact qw/format_ecs_value/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use JSON::MaybeXS;
@@ -830,11 +831,12 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 
 =head2 create_environmental_cost_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
-Creates the Environmental Cost knowledge panel displaying Ecobalyse ECS breakdown.
+Creates the Environmental Cost knowledge panel displaying Ecobalyse ECS breakdown,
+for the whole product (if we know or can estimate the product quantity) and for 100 g or 100 ml.
 
-The ingredients quantities we send to Ecobalyse are estimated for 100 g of final product
-(e.g. more than 100 g of potatoes may be needed to make 100 g of chips),
-so we consider that the impacts (in points) returned by Ecobalyse are for 100 g of product.
+The ingredients and packaging are sent to Ecobalyse for a reference quantity of product
+(see ProductOpener::EnvironmentalImpact::get_ecobalyse_reference_quantity()),
+so the impacts returned by Ecobalyse are for the reference quantity.
 
 Note: Ecobalyse applies its own ingredients to final product ratios (e.g. for 100 g of apricots,
 the impacts are reported for 80 g of product), so this is an approximation for now.
@@ -842,32 +844,56 @@ the impacts are reported for 80 g of product), so this is an approximation for n
 =cut
 
 sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
-	my $ecs = $product_ref->{environmental_impact}{ecs};
-	return unless looks_like_number($ecs);
+	my $environmental_impact_ref = $product_ref->{environmental_impact} // {};
+	my $ecs_per_100 = $environmental_impact_ref->{ecs_per_100g_or_100ml};
+	return unless looks_like_number($ecs_per_100);
 
 	# Only show Environmental Cost panel to moderators and admins
 	return unless $options_ref->{moderator} || $options_ref->{admin};
 
-	# Round ECS values to 2 decimal places
-	# (the values come from an external API: return an empty string if the value is not a number)
-	my $format_ecs = sub {
-		my $value = shift // 0;
-		return "" unless looks_like_number($value);
-		return sprintf("%.2f", $value);
-	};
+	my $input_ref = $environmental_impact_ref->{ecobalyse_input} // {};
+	my $reference_quantity = $input_ref->{reference_quantity};
+	return unless looks_like_number($reference_quantity) and $reference_quantity > 0;
+	my $unit = ($environmental_impact_ref->{ecs_per} // '') eq '100ml' ? 'ml' : 'g';
 
-	# The breakdown values sum up to the total ECS
-	my $results_ref = deep_get($product_ref, qw(environmental_impact ecobalyse_response results)) // {};
+	my $ecs_per_product = $environmental_impact_ref->{ecs_per_product};
+	my $has_per_product = looks_like_number($ecs_per_product);
+
+	# Quantity of the product: we display the quantity entered by users
+	my $quantity = $product_ref->{quantity} // "$reference_quantity $unit";
+
+	# The breakdown values returned by Ecobalyse are for the reference quantity, and they sum up to the total ECS
+	my $results_ref = deep_get($environmental_impact_ref, qw(ecobalyse_response results)) // {};
+	my @rows = (
+		["environmental_cost_ingredients", qw(recipe ingredientsTotal ecs)],
+		["environmental_cost_processing", qw(recipe transform ecs)],
+		["environmental_cost_packaging", qw(packaging ecs)],
+		# Transports of ingredients + distribution transports
+		["environmental_cost_transport", qw(transports impacts ecs)],
+		["environmental_cost_distribution", qw(distribution total ecs)],
+		["environmental_cost_preparation", qw(preparation ecs)],
+		["environmental_cost_total", qw(total ecs)],
+	);
+	my @rows_data = ();
+	foreach my $row_ref (@rows) {
+		my ($label, @path) = @$row_ref;
+		# missing values are 0, non numeric values are displayed as an empty string
+		my $value = deep_get($results_ref, @path) // 0;
+		push @rows_data,
+			{
+			label => $label,
+			per_product => format_ecs_value($value),
+			per_100 => (looks_like_number($value) ? format_ecs_value($value * 100 / $reference_quantity) : ""),
+			};
+	}
 
 	my $panel_data_ref = {
-		ecs => $format_ecs->($ecs),
-		ecs_ingredients => $format_ecs->(deep_get($results_ref, qw(recipe ingredientsTotal ecs))),
-		ecs_processing => $format_ecs->(deep_get($results_ref, qw(recipe transform ecs))),
-		ecs_packaging => $format_ecs->(deep_get($results_ref, qw(packaging ecs))),
-		# Transports of ingredients + distribution transports
-		ecs_transport => $format_ecs->(deep_get($results_ref, qw(transports impacts ecs))),
-		ecs_distribution => $format_ecs->(deep_get($results_ref, qw(distribution total ecs))),
-		ecs_preparation => $format_ecs->(deep_get($results_ref, qw(preparation ecs))),
+		ecs_per_100 => format_ecs_value($ecs_per_100),
+		unit => $unit,
+		has_per_product => $has_per_product,
+		ecs_per_product => ($has_per_product ? format_ecs_value($ecs_per_product) : ""),
+		quantity => $quantity,
+		rows => \@rows_data,
 	};
 
 	create_panel_from_json_template("environmental_cost", "api/knowledge-panels/environment/environmental_cost.tt.json",
@@ -1259,7 +1285,8 @@ sub create_manufacturing_place_panel ($product_ref, $target_lc, $target_cc, $opt
 
 Creates a knowledge panel card that contains all knowledge panels related to health.
 
-This panel card is created for food, pet food, and beauty products.
+This panel card is created for food, pet food, and beauty products,
+and for other products only when we have a health recommendation for them (e.g. the tobacco health warning).
 
 =head3 Arguments
 
@@ -1277,6 +1304,10 @@ This parameter sets the desired language for the user facing strings.
 We may display country specific recommendations from health authorities, or country specific scores.
 
 =head4 options reference $options_ref
+
+=head3 Return value
+
+1 if the health card was created, 0 otherwise.
 
 =cut
 
@@ -1330,6 +1361,17 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	if (feature_enabled("nutrition")) {
 		create_serving_size_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
+	# Without ingredients, nutrition facts or a health recommendation (e.g. the tobacco health warning),
+	# the health card would be empty (e.g. for toilet paper or batteries on Open Products Facts)
+	my $panels_ref = $product_ref->{"knowledge_panels_" . $target_lc};
+	if (    (not feature_enabled("ingredients"))
+		and (not feature_enabled("nutrition"))
+		and (not defined $panels_ref->{recommendation_health})
+		and (not defined $panels_ref->{recommendation_health2}))
+	{
+		return 0;
 	}
 
 	my $panel_data_ref = {

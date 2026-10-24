@@ -69,6 +69,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		$IMPORT_MAX_PACKAGING_COMPONENTS
+		$IMPORT_MAX_IMAGE_REDIRECTS
 
 		&import_csv_file
 		&import_products_categories_from_public_database
@@ -112,13 +113,14 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
-use ProductOpener::HTTP qw/create_user_agent/;
+use ProductOpener::HTTP qw/create_user_agent url_is_fetchable/;
 use ProductOpener::Nutrition
 	qw/assign_nutrition_values_from_imported_csv_product_old_fields assign_nutrition_values_from_imported_csv_product/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
+use HTTP::Response;
 use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
@@ -131,6 +133,7 @@ use Digest::MD5 qw(md5_hex);
 use Data::Difference qw(data_diff);
 
 $IMPORT_MAX_PACKAGING_COMPONENTS = 10;
+$IMPORT_MAX_IMAGE_REDIRECTS = 5;
 
 # private function to import images from dir
 # args:
@@ -629,10 +632,38 @@ sub get_google_drive_confirm_download_url ($html) {
 # download image at given url parameter
 sub download_image ($image_url) {
 
-	my $ua = create_user_agent(timeout => 10);
+	my $ua = create_user_agent(timeout => 10, max_size => 20_000_000);
+	$ua->protocols_allowed(['http', 'https']);
+	# We follow the redirects ourselves (below), so that we check the address they point at:
+	# by default LWP follows up to 7 of them without any check
+	$ua->max_redirect(0);
 
-	$log->debug("downloading image", {image_url => $image_url}) if $log->is_debug();
-	my $response = $ua->get($image_url, 'Accept' => '*/*');
+	my $url = $image_url;
+	my $response;
+
+	# The url comes from an uploaded import file: it must resolve to a globally routable address,
+	# otherwise the import could be used to reach the services we can reach but the importer
+	# cannot (databases, caches, internal web servers, cloud metadata service)
+	foreach my $hop (0 .. $IMPORT_MAX_IMAGE_REDIRECTS) {
+
+		if (not url_is_fetchable($url)) {
+			$log->warn("not downloading an image from an url that cannot be fetched",
+				{image_url => $image_url, url => $url})
+				if $log->is_warn();
+			return HTTP::Response->new(403, "Blocked url");
+		}
+
+		$log->debug("downloading image", {image_url => $url}) if $log->is_debug();
+		$response = $ua->get($url, 'Accept' => '*/*');
+
+		last if not $response->is_redirect;
+
+		my $location = $response->header('Location');
+		last if not defined $location;
+
+		# The redirect can point at an address we did not check: it is checked at the next iteration
+		$url = URI->new_abs($location, $url)->as_string();
+	}
 
 	# CloudFlare seems to be blocking our default agent at Carrefour, so we try with a different one if we get a 403
 	if ($response->code == 403) {
@@ -648,7 +679,8 @@ sub download_image ($image_url) {
 		and (($response->header('Content-Type') // '') =~ m{^text/html}))
 	{
 		my $confirm_url = get_google_drive_confirm_download_url($response->decoded_content);
-		if (defined $confirm_url) {
+		# The confirm url is built from the response we got, so it is checked as well
+		if ((defined $confirm_url) and (url_is_fetchable($confirm_url))) {
 			$log->debug("got a Google Drive virus scan warning page, retrying with confirm url",
 				{image_url => $image_url, confirm_url => $confirm_url})
 				if $log->is_debug();
@@ -2421,6 +2453,19 @@ sub import_csv_file ($args_ref) {
 			}
 		}
 
+		# Teams (e.g. exported from the producers platform): they are added to the existing teams,
+		# as the product may also have been edited on the public platform by users who belong to other teams
+		if ((defined $imported_product_ref->{teams}) and ($imported_product_ref->{teams} !~ /^\s*$/)) {
+			if (add_teams_to_product($product_ref, split(/,/, $imported_product_ref->{teams}))) {
+				$log->debug("added teams", {code => $code, teams => $imported_product_ref->{teams}})
+					if $log->is_debug();
+				push @modified_fields, "teams";
+				$modified++;
+				$stats_ref->{products_info_added}{$code} = 1;
+				$stats_ref->{"products_info_added_field_teams"}{$code} = 1;
+			}
+		}
+
 		# Tags sources input fields of the form tags_sources.[tags field].[source].tags/last_update_t
 		import_tags_sources_fields(
 			$args_ref, $imported_product_ref, $product_ref, $stats_ref, \$modified,
@@ -2662,7 +2707,8 @@ sub import_csv_file ($args_ref) {
 			# We may have several URLs separated by commas
 			foreach my $image_url (split(/\s*,\s*/, $imported_product_ref->{$field})) {
 
-				if ($image_url =~ /^http/) {
+				# download_image() checks the url again, against the addresses it resolves to
+				if ($image_url =~ /^https?:\/\//i) {
 
 					# Create a local filename from the url
 
