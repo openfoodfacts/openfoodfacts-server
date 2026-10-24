@@ -12,6 +12,7 @@ use ProductOpener::APITest qw/construct_test_url create_user login new_client wa
 use ProductOpener::Images ();
 use ProductOpener::Test qw/remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
+use JSON::MaybeXS qw/decode_json/;
 
 wait_application_ready(__FILE__);
 remove_all_users();
@@ -53,6 +54,15 @@ foreach my $path (@paths) {
 	my $response = $ua->get(construct_test_url($path . '?' . $query));
 	isnt($response->code, 403, "$path does not refuse a logged in caller asking for the paid OCR engine")
 		or diag($response->status_line);
+	# Even though google_cloud_vision was asked for, the response must report the server default:
+	# the request parameter must not select who pays.
+	my $results_ref = eval {decode_json($response->decoded_content)};
+	ok(defined $results_ref, "$path returns JSON for a logged in caller") or next;
+	is(
+		$results_ref->{ocr_engine},
+		ProductOpener::Images::select_ocr_engine(undef, 0),
+		"$path ignores the requested engine and uses the server default"
+	);
 }
 
 # The engine that was asked for in the request is ignored: select_ocr_engine() falls back to the
