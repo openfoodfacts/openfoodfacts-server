@@ -45,7 +45,7 @@
 #   of Ecobalyse data from their parents (e.g. foie gras must not use the en:poultry proxy).
 # - "Origin none does not mean proxy" — None origin entries are regular variants.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 use JSON;
 use ProductOpener::Config qw/:all/;
