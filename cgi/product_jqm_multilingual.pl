@@ -429,6 +429,13 @@ else {
 		}
 	}
 
+	# add_teams=Team A, Team B : add teams (e.g. from the photos upload form of the producers platform)
+	# teams are not taxonomized and not writable tags fields, so they are added directly to teams_tags
+	if (($server_options{producers_platform}) and (defined single_param("add_teams"))) {
+		add_teams_to_product($product_ref,
+			split(/,/, remove_tags_and_quote(decode utf8 => join(',', multi_param("add_teams")))));
+	}
+
 	# Nutrition data
 
 	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
