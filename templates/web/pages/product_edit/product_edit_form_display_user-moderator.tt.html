@@ -16,4 +16,12 @@
 
 </form>
 
+<script>
+document.getElementById("product_form").addEventListener("submit", function () {
+  if (typeof _paq !== "undefined") {
+    _paq.push(['trackEvent', 'Product', 'Delete product page']);
+  }
+});
+</script>
+
 <!-- end templates/[% template.name %] -->
