@@ -55,7 +55,7 @@ jobs:
 
     # use `sudo -u off touch /home/off/off-net/NO_DEPLOY` to stop deployment on staging 
     - name: Check for an eventual NO_DEPLOY file to put deployment on hold
-      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -72,7 +72,7 @@ jobs:
 
     - name: Wait for frontend container build workflow
       id: wait-build
-      uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
+      uses: lewagon/wait-on-check-action@v1.9.1
       timeout-minutes: 10
       with:
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -84,7 +84,7 @@ jobs:
 
     - name: Wait for backend container build workflow
       id: wait-build2
-      uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
+      uses: lewagon/wait-on-check-action@v1.9.1
       timeout-minutes: 10
       with:
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -95,7 +95,7 @@ jobs:
         allowed-conclusions: success
         
     - name: Checkout git repository
-      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -120,7 +120,7 @@ jobs:
           git checkout -qf ${{ github.sha }}
 
     - name: Set environment variables
-      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -190,7 +190,7 @@ jobs:
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf
 
     - name: Create Docker volumes and network
-      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -205,7 +205,7 @@ jobs:
 
     - name: wait for docker images to be available
       # we sometimes have the images not ready immediately after build, so we prefer to wait for it
-      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -233,7 +233,7 @@ jobs:
           done
 
     - name: initialize the backend
-      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -249,7 +249,7 @@ jobs:
 
     # NOTE: the mongodb and redis containers are deployed by openfoodfacts-shared-services 
     - name: Start services
-      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -269,7 +269,7 @@ jobs:
           make prod_up
 
     - name: Check services are up
-      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
+      uses: appleboy/ssh-action@v1.2.5
       if: ${{ always() }}
       with:
         host: ${{ env.SSH_HOST }}
@@ -283,7 +283,7 @@ jobs:
           make livecheck
 
     - name: Cleanup obsolete Docker objects
-      uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
+      uses: appleboy/ssh-action@v1.2.5
       if: ${{ always() }}
       with:
         host: ${{ env.SSH_HOST }}
@@ -296,7 +296,7 @@ jobs:
           cd ${{ matrix.env }} && \
           make prune
 
-    - uses: basos9/grafana-annotation-action@0b97c65550aa3d1ac30082aae76095e153e951b4 # v1.1.0
+    - uses: basos9/grafana-annotation-action@v1.1.0
       if: ${{ always() }}
       with:
         apiHost: https://grafana.openfoodfacts.org
