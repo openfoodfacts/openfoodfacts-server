@@ -1575,6 +1575,25 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 	return $email_ref;
 }
 
+=head2 _is_explicit_session_login_request($request_ref)
+
+True when the current CGI script is an explicit login endpoint that should open a lasting
+Product Opener / Keycloak session (auth.pl, login.pl, or session.pl).
+
+Other scripts that accept user_id+password (legacy mobile / API password auth) must only
+authenticate the current request.
+
+=cut
+
+sub _is_explicit_session_login_request ($request_ref) {
+	my $script_name = $request_ref->{script_name} // '';
+	return (
+			   ($script_name eq '/cgi/auth.pl')
+			or ($script_name eq '/cgi/login.pl')
+			or ($script_name eq '/cgi/session.pl')
+	) ? 1 : 0;
+}
+
 sub init_user ($request_ref, $r = undef) {
 
 	my $user_id = undef;
@@ -1738,10 +1757,18 @@ sub init_user ($request_ref, $r = undef) {
 				}
 			}
 			else {
+				# Explicit login endpoints (auth.pl / login.pl / session.pl) may create a lasting
+				# session with offline_access. Per-request API auth with user_id+password must not
+				# (#15091).
+				my $persist_session = _is_explicit_session_login_request($request_ref)
+					&& (not defined request_param($request_ref, 'no_log'));
+
 				my (
 					$keycloak_user_ref, $refresh_token, $refresh_expires_at,
 					$access_token, $access_expires_at, $id_token
-				) = password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
+					)
+					= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')),
+					$request_ref, $persist_session);
 				$user_ref = $keycloak_user_ref;
 
 				# We don't have the right password
@@ -1751,15 +1778,22 @@ sub init_user ($request_ref, $r = undef) {
 					# Trigger an error
 					return "error_bad_login_password";
 				}
-				# We have the right login/password
-				elsif (
-					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
-				{
-					$user_id = $user_ref->{userid};
+
+				$user_id = $user_ref->{userid};
+
+				if ($persist_session) {
 					$log->info("creating OIDC session") if $log->is_info();
 					open_user_session($user_ref, $refresh_token, $refresh_expires_at,
 						$access_token, $access_expires_at, $id_token, $request_ref);
 					update_external_login_time($user_ref);
+				}
+				else {
+					# Authenticate this request only: no Product Opener session cookie, and revoke
+					# the Keycloak session created by the password grant so Device Activity is clean.
+					$log->info("password authenticated without persisting session") if $log->is_info();
+					if ($refresh_token) {
+						revoke_token($refresh_token, 'refresh_token');
+					}
 				}
 			}
 		}
