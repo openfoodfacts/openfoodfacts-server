@@ -21,15 +21,22 @@ my $setup_ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($setup_ua, \%create_user_args);
 
+my %ids_for_path = (
+	'/cgi/ingredients.pl' => 'ingredients_en',
+	'/cgi/nutrition.pl' => 'nutrition_en',
+	'/cgi/packaging.pl' => 'packaging_en',
+);
+
 my @paths = ('/cgi/ingredients.pl', '/cgi/nutrition.pl', '/cgi/packaging.pl');
 
-my $query = 'code=3017620422002&id=ingredients_en&process_image=1';
+my $code = 'code=3017620422002&process_image=1';
 
 # An anonymous caller is refused before any OCR is started
 
 my $anonymous_ua = new_client();
 
 foreach my $path (@paths) {
+	my $query = $code . '&id=' . $ids_for_path{$path};
 	my $response = $anonymous_ua->get(construct_test_url($path . '?' . $query));
 	is($response->code, 403, "$path refuses an anonymous caller");
 	like($response->decoded_content, qr/Permission denied/, "$path returns the permission error");
@@ -42,7 +49,8 @@ my $ua = new_client();
 login($ua, "tests", 'testtest');
 
 foreach my $path (@paths) {
-	my $response = $ua->get(construct_test_url($path . '?' . $query . '&ocr_engine=google_cloud_vision'));
+	my $query = $code . '&id=' . $ids_for_path{$path} . '&ocr_engine=google_cloud_vision';
+	my $response = $ua->get(construct_test_url($path . '?' . $query));
 	isnt($response->code, 403, "$path does not refuse a logged in caller asking for the paid OCR engine")
 		or diag($response->status_line);
 }

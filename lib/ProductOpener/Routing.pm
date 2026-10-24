@@ -1116,6 +1116,9 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 			$limit = $options{rate_limit_facet_tags_unregistered};
 		}
 	}
+	elsif ($rate_limit_bucket eq "ocr") {
+		$limit = $options{rate_limit_ocr};
+	}
 	$request_ref->{rate_limiter_limit} = $limit;
 
 	if (
