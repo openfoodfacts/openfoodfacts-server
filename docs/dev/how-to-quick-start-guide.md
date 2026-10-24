@@ -4,7 +4,7 @@ This guide will allow you to rapidly build a ready-to-use development environmen
 As an alternative to setting up your environment locally, follow the [Gitpod how-to guide](how-to-use-gitpod.md)
 to instantly provision a ready-to-code development environment in the cloud.
 
-First setup time estimate is `~10min` with the following **recommended** specs:
+First setup time estimate is `10-30min` with the following **recommended** specs:
 * `8 GB` of RAM dedicated to Docker client
 * `6` cores dedicated to Docker client
 * `12 MB/s` internet speed
@@ -218,6 +218,11 @@ git checkout gh-pages
 Before running the `docker compose` deployment, you can review and configure
 Product Opener's environment (`.env` file).
 
+> **`.env` is tracked by git.** Editing it works, but it then shows up in
+> `git status` and risks being committed by accident. Prefer putting your
+> overrides in `.envrc`, which is git-ignored — see the note at the end of this
+> section.
+
 The `.env` file contains ProductOpener default settings:
 
 | Field | Description |
@@ -237,6 +242,7 @@ The `.env` file contains ProductOpener default settings:
 
 The `.env` file also contains some useful Docker Compose variables:
 * `COMPOSE_PROJECT_NAME` is the compose project name that sets the **prefix to every container name**. Do not update this unless you know what you're doing.
+  If you work in several git worktrees on the same machine, `make agent` sets this (and the network, volume, image and port names) for you: see [How to run several worktrees on one machine](how-to-run-several-worktrees.md).
 * `COMPOSE_FILE` is the `;`-separated list of Docker compose files that are included in the deployment:
   * For a **development**-like environment, set it to `docker-compose.yml;docker/dev.yml` (default)
   * For a **production**-like environment, set it to `docker-compose.yml;docker/prod.yml;docker/mongodb.yml`
@@ -249,6 +255,9 @@ The `.env` file also contains some useful Docker Compose variables:
 **Note:**
 Instead of modifying `.env` (and risk committing it inadvertently),
 you can also set needed variables in your shell; they will override `.env` values.
+This applies to `docker compose` commands, but **not** to `make`: the `Makefile`
+includes `.env` itself, and a makefile assignment always wins over an inherited
+environment variable. Use `.envrc` for overrides that must apply to `make`.
 Consider creating a `.envrc` file that you source each time you need to work on the project.
 On linux and macOS, you can automatically do it if you [use direnv](how-to-use-direnv.md).
 
@@ -259,6 +268,21 @@ From the repository root, run:
 ```bash
 make dev
 ```
+
+> **Working in a git worktree, or sharing this machine with another agent?**
+> Run `make agent` once, before `make dev`. It gives the worktree its own
+> container, network, volume and image names, its own domain and its own host
+> port, so several worktrees can run `make dev` side by side instead of fighting
+> over port 80 and over Docker DNS names such as `backend`. It takes no arguments:
+>
+> ```bash
+> make agent    # prints the URL it settled on, e.g. http://world.w11790.openfoodfacts.localhost:8081/
+> ```
+>
+> Re-running it reuses the same id and port, so your URL stays stable. Use
+> `make list-agents` to see the other worktrees on the machine, and
+> `make release-agent` to undo. See
+> [How to run several worktrees on one machine](how-to-run-several-worktrees.md).
 
 ### Parallel execution with make
 
@@ -302,21 +326,54 @@ The command will run 2 subcommands:
 
 * You might not immediately see the test products: create an account, login, and they should appear.
 
+* **After editing a Perl module, restart the backend container** or your change
+  will not take effect:
+
+  ```bash
+  make restart_backend
+  ```
+
+  Your code is bind-mounted into the container, so files are saved immediately,
+  but mod_perl keeps the previously loaded module in memory and only reloads it on
+  a restart. Frontend changes under `scss/` and `html/js/` do not need this.
+
 * For a full description of available make targets, see [Docker / Makefile commands](ref-docker-commands.md)
 
-**Hosts file:**
+**Hosts file (usually not needed):**
 
-Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `openfoodfacts.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
+The default `PRODUCT_OPENER_DOMAIN` in `.env` is `openfoodfacts.localhost`, and
+current Linux, macOS and Windows resolve `*.localhost` to `127.0.0.1` on their own
+(RFC 6761), so most browsers need **no** hosts file entry at all. It is also
+unnecessary when the containers run under WSL2 and you browse from Windows.
+
+Only if you actually hit name-resolution errors, add the following to your hosts
+file (Linux/macOS: `/etc/hosts`; Windows:
+`C:\Windows\System32\drivers\etc\hosts`):
 
 ```text
-127.0.0.1 world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
+127.0.0.1 openfoodfacts.localhost world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
 ```
+
+Or let the Makefile append it for you, idempotently:
+
+```bash
+make edit_etc_hosts
+```
+
+Do not edit system files unless you actually hit this error. Tools that do not
+special-case `*.localhost` (`curl`, `wget`, some resolvers) may still need the
+entry.
 
 **You're done! Check `http://openfoodfacts.localhost/`.**
 
 ### Going further
 
 To learn more about developing with Docker, see the [Docker developer's guide](how-to-develop-using-docker.md).
+
+If you work in several [git worktrees](https://git-scm.com/docs/git-worktree) on
+the same machine (for example several agents on the same repository), each one
+needs its own container names, domain and port: see
+[How to run several worktrees on one machine](how-to-run-several-worktrees.md).
 
 To have all site pages on your dev instance, see [Using pages from openfoodfacts-web](how-to-use-pages-from-openfoodfacts-web.md)
 
@@ -346,6 +403,9 @@ After registering, Keycloak will ask you to verify your email address. In the lo
 3. Click on the email to open it
 4. Click the verification link inside the email
 5. Your account will be activated!
+
+This step is **required locally and is not a bug**: until you click the link the
+account stays inactive and cannot log in.
 
 ## Visual Studio Code
 

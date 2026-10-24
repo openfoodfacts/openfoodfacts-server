@@ -141,8 +141,14 @@ services:
     networks:
       default:
         aliases:
-          - openfoodfacts.localhost
-          - world.openfoodfacts.localhost
+          # Derive these from PRODUCT_OPENER_DOMAIN instead of hardcoding them:
+          # with a non-default domain (flavours, deployments, per-worktree
+          # isolation) the literals used to point at a name this container does
+          # not serve, because nginx only declares ${PRODUCT_OPENER_DOMAIN} and
+          # *.${PRODUCT_OPENER_DOMAIN} (see conf/nginx-docker/nginx.conf).
+          # Note: docker/dev.yml adds the other subdomains on top of these.
+          - ${PRODUCT_OPENER_DOMAIN}
+          - world.${PRODUCT_OPENER_DOMAIN}
     ports:
       - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
     volumes:
@@ -207,6 +213,13 @@ volumes:
 
 networks:
   default:
+    # Several instances of Product Opener on one machine must not share this
+    # network: Docker DNS answers `backend`, `frontend`, `postgres` and
+    # `world.$PRODUCT_OPENER_DOMAIN` for every container attached to it, so they
+    # would round-robin between instances. `make agent` sets
+    # PRODUCT_OPENER_NETWORK per git worktree; deployments can set it too. The
+    # default keeps the historical name.
+    # See docs/dev/how-to-run-several-worktrees.md
     name: ${PRODUCT_OPENER_NETWORK:-product-opener}
 
 
