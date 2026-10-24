@@ -103,8 +103,8 @@ sub get_or_refresh_token ($self) {
 	}
 
 	# Validate that the admin token is bound to the expected audience and carries the standard
-	# API scopes (see AUDIENCE_AND_SCOPES.md). A validation failure is only a warning during
-	# migration, as the Keycloak Admin API does not enforce the audience claim itself.
+	# API scopes. A validation failure is only a warning during migration, as the Keycloak
+	# Admin API does not enforce the audience claim itself.
 	if (my $error = _validate_admin_token($self->{token})) {
 		$log->warn('Keycloak admin token validation failed', {error => $error}) if $log->is_warn();
 	}

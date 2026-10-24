@@ -73,6 +73,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Cache qw/generate_cache_key safe_cache_get safe_cache_set/;
 use ProductOpener::Display qw/display_error_and_exit/;
+use ProductOpener::API qw/add_error/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
 use ProductOpener::Users
