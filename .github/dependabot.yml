@@ -27,9 +27,11 @@ updates:
           - "leaflet*"
       lint:
         patterns:
+          - "@eslint/*"
+          - "@humanwhocodes/*"
           - "@typescript-eslint/*"
           - "eslint*"
-          - "stylelint*"
+          - "prettier*"
       typescript:
         patterns:
           - "ts-node"

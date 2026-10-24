@@ -79,7 +79,7 @@ jobs:
     - name: gulp build
       run: make front_build
     - name: lint
-      run: make front_lint
+      run: make front_check
     - name: Javascript unit tests
       run: npm run test:js
     - name: Verify package-lock is the right one

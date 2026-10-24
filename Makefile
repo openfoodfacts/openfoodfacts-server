@@ -285,8 +285,17 @@ update_package_lock:
 front_npm_update:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm update
 
-front_lint:
+# Verify only, never writes files. Used in CI.
+# `npm run format:check` is left out on purpose: the Prettier reformat of the
+# existing sources (59 files) is not done yet, so enabling it here would turn
+# CI red. Add it back in the PR that reformatts the files.
+front_check:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint
+
+# Rewrites the sources in place. Run locally before committing.
+front_lint:
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint:fix
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run format
 
 front_test:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose run --rm -v "$(PWD)/tests:/opt/product-opener/tests" dynamicfront npm run test:js
@@ -294,10 +303,11 @@ front_test:
 front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build
 
+checks: front_build front_check check_perltidy check_perl_fast check_critic check_taxonomies
 
 checks: front_build front_lint front_test check_perltidy check_perl_fast check_critic check_taxonomies
 
-lint: lint_perltidy lint_taxonomies
+lint: lint_perltidy lint_taxonomies front_lint
 
 tests: build_taxonomies_test build_lang_test unit_test integration_test brands_sort_test
 
