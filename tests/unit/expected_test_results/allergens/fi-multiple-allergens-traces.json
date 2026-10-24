@@ -10,6 +10,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_proxy_id" : "eb95f8d6-e3c0-556b-acff-91c7773f5b33",
+         "ecobalyse_proxy_name" : "Blé tendre Origine Inconnue",
          "id" : "en:wheat",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
@@ -20,8 +22,9 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "20534",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ciqual_food_code" : "20534",
+         "ecobalyse_id" : "83804056-27f7-5a8e-a1fe-0958ab01a46a",
+         "ecobalyse_name" : "Lupin Origine Inconnue",
          "id" : "en:lupin-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -32,9 +35,12 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11081",
          "id" : "en:spice",
          "ingredients" : [
             {
+               "ecobalyse_proxy_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "ecobalyse_proxy_name" : "Soja Origine Inconnue",
                "id" : "en:soya",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 8.33333333333333,
@@ -46,15 +52,20 @@
             },
             {
                "ciqual_food_code" : "11013",
+               "ecobalyse_id" : "d87bdd32-d698-4044-ae20-15b96c65f680",
+               "ecobalyse_name" : "Moutarde FR -2025-",
                "id" : "en:mustard",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 4.16666666666666,
                "percent_max" : 16.6666666666667,
                "percent_min" : 0,
-               "text" : "sinappi"
+               "text" : "sinappi",
+               "vegan" : "maybe",
+               "vegetarian" : "yes"
             },
             {
-               "ecobalyse_code" : "celery-eu",
+               "ecobalyse_id" : "30ceca68-7047-5ac6-8abe-786e5bc98005",
+               "ecobalyse_name" : "Céleri Origine Inconnue",
                "id" : "en:celery",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 4.16666666666666,
@@ -75,17 +86,14 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "en:mustard"
-      ],
-      "en:vegetarian-status-unknown" : [
+      "en:maybe-vegan" : [
          "en:mustard"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:maybe-vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "fi",
    "ingredients_n" : 6,
@@ -106,12 +114,12 @@
       "en:wheat",
       "en:cereal",
       "en:lupin-flour",
-      "en:vegetable",
-      "en:pod-and-seed-vegetable",
       "en:flour",
-      "en:legume",
-      "en:pulse",
       "en:lupin-bean",
+      "en:pulse",
+      "en:legume",
+      "en:pod-and-seed-vegetable",
+      "en:vegetable",
       "en:spice",
       "en:condiment",
       "en:soya",
@@ -129,17 +137,13 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:celery",
-      "en:soya",
+      "en:soya"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
       "en:spice"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:mustard",
-      "en:soya",
-      "en:spice",
-      "en:wheat"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 6,
    "lang" : "fi",
    "languages" : {

@@ -28,15 +28,128 @@
       "en:meals",
       "en:soups"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Soja Origine Inconnue",
+               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "mass" : 30,
+               "name" : "soy beans"
+            },
+            {
+               "ecobalyse_name" : "Soja Origine Inconnue",
+               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "mass" : 25,
+               "name" : "soy beans"
+            },
+            {
+               "ecobalyse_name" : "Soja Origine Inconnue",
+               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "mass" : 20,
+               "name" : "soy beans"
+            },
+            {
+               "ecobalyse_name" : "Soja Origine Inconnue",
+               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "mass" : 15,
+               "name" : "soy beans"
+            },
+            {
+               "ecobalyse_name" : "Soja Origine Inconnue",
+               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+               "mass" : 10,
+               "name" : "soy beans"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g",
+         "transform" : {
+            "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+            "mass" : 100,
+            "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
+            "name_fr" : "Cuisson"
+         }
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+                  "mass" : 30
+               },
+               {
+                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+                  "mass" : 25
+               },
+               {
+                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+                  "mass" : 20
+               },
+               {
+                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+                  "mass" : 15
+               },
+               {
+                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+                  "mass" : 10
+               }
+            ],
+            "transform" : {
+               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+               "mass" : 100
+            }
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:one-dish-meals",
    "food_groups_tags" : [
       "en:composite-foods",
       "en:one-dish-meals"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "not_computed",
+      "primary_ingredients" : {
+         "en:other-risky-ingredients" : {
+            "footprint_per_kg" : null,
+            "grade" : "unknown",
+            "ingredients" : [
+               {
+                  "ingredient_category_id" : "en:soya",
+                  "ingredient_id" : "en:soya-bean"
+               },
+               {
+                  "ingredient_category_id" : "en:soya",
+                  "ingredient_id" : "en:soya-bean"
+               },
+               {
+                  "ingredient_category_id" : "en:soya",
+                  "ingredient_id" : "en:soya-bean"
+               },
+               {
+                  "ingredient_category_id" : "en:soya",
+                  "ingredient_id" : "en:soya-bean"
+               },
+               {
+                  "ingredient_category_id" : "en:soya",
+                  "ingredient_id" : "en:soya-bean"
+               }
+            ]
+         }
+      },
+      "summary" : "with_other_risky_ingredients"
+   },
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "20901",
+         "ciqual_food_code" : "20901",
+         "ecobalyse_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+         "ecobalyse_name" : "Soja Origine Inconnue",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 30,
@@ -48,7 +161,9 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "20901",
+         "ciqual_food_code" : "20901",
+         "ecobalyse_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+         "ecobalyse_name" : "Soja Origine Inconnue",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 25,
@@ -61,7 +176,9 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "20901",
+         "ciqual_food_code" : "20901",
+         "ecobalyse_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+         "ecobalyse_name" : "Soja Origine Inconnue",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 20,
@@ -74,7 +191,9 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "20901",
+         "ciqual_food_code" : "20901",
+         "ecobalyse_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+         "ecobalyse_name" : "Soja Origine Inconnue",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 15,
@@ -87,7 +206,9 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "20901",
+         "ciqual_food_code" : "20901",
+         "ecobalyse_id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
+         "ecobalyse_name" : "Soja Origine Inconnue",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 10,
@@ -124,11 +245,11 @@
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:soya-bean",
-      "en:vegetable",
-      "en:pod-and-seed-vegetable",
-      "en:legume",
       "en:pulse",
-      "en:soya"
+      "en:soya",
+      "en:legume",
+      "en:pod-and-seed-vegetable",
+      "en:vegetable"
    ],
    "ingredients_text" : "soy beans 30%, cooked soy beans 25%, soy beans powder 20%, cut freeze dried soy beans 15%, soy beans flour 10%",
    "ingredients_with_specified_percent_n" : 5,
@@ -137,10 +258,8 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:soya-bean"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 5,
    "lc" : "en",
    "minerals_tags" : [],
@@ -157,6 +276,10 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
+      "en:forest-footprint-not-computed",
       "en:nutrition-data-per-100g"
    ],
    "nova_group" : 3,
@@ -204,7 +327,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 0,
+            "negative_points_max" : 0,
             "positive_points" : 11,
+            "positive_points_max" : 0,
             "proteins" : 20,
             "proteins_points" : 5,
             "proteins_value" : 20,
@@ -417,6 +542,14 @@
                "unit" : "% vol",
                "value" : 0
             },
+            "alpha-linolenic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.29
+            },
             "calcium" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -448,6 +581,14 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0.00088
+            },
+            "crude-ash" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 4.79
             },
             "energy" : {
                "source" : "packaging",
@@ -510,6 +651,22 @@
                "unit" : "g",
                "value" : 0.0157
             },
+            "lauric-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.017
+            },
+            "linoleic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 9.04
+            },
             "magnesium" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -526,6 +683,46 @@
                "unit" : "g",
                "value" : 0.00226
             },
+            "monounsaturated-fat" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 4.41
+            },
+            "myristic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.045
+            },
+            "oleic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 4.35
+            },
+            "palmitic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.93
+            },
+            "pantothenic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.00136
+            },
             "phosphorus" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -541,6 +738,14 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0.5
+            },
+            "polyunsaturated-fat" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 10.8
             },
             "potassium" : {
                "modifier" : "~",
@@ -587,6 +792,14 @@
                "unit" : "g",
                "value" : 12.3
             },
+            "stearic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.7
+            },
             "sucrose" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -601,6 +814,22 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 1.5
+            },
+            "vitamin-b1" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.00087
+            },
+            "vitamin-b2" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.00087
             },
             "vitamin-b6" : {
                "modifier" : "~",
@@ -625,6 +854,14 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0.00085
+            },
+            "vitamin-pp" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.00162
             },
             "water" : {
                "modifier" : "~",
@@ -698,6 +935,12 @@
                   "value" : 0,
                   "value_string" : "0"
                },
+               "alpha-linolenic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 1.29,
+                  "value_string" : "1.29"
+               },
                "calcium" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -721,6 +964,12 @@
                   "unit" : "g",
                   "value" : 0.00088,
                   "value_string" : "0.00088"
+               },
+               "crude-ash" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 4.79,
+                  "value_string" : "4.79"
                },
                "energy" : {
                   "modifier" : "~",
@@ -766,6 +1015,18 @@
                   "value" : 0.0157,
                   "value_string" : "0.0157"
                },
+               "lauric-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.017,
+                  "value_string" : "0.017"
+               },
+               "linoleic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 9.04,
+                  "value_string" : "9.04"
+               },
                "magnesium" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -778,6 +1039,36 @@
                   "value" : 0.00226,
                   "value_string" : "0.00226"
                },
+               "monounsaturated-fat" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 4.41,
+                  "value_string" : "4.41"
+               },
+               "myristic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.045,
+                  "value_string" : "0.045"
+               },
+               "oleic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 4.35,
+                  "value_string" : "4.35"
+               },
+               "palmitic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 1.93,
+                  "value_string" : "1.93"
+               },
+               "pantothenic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.00136,
+                  "value_string" : "0.00136"
+               },
                "phosphorus" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -789,6 +1080,12 @@
                   "unit" : "g",
                   "value" : 0.5,
                   "value_string" : "0.5"
+               },
+               "polyunsaturated-fat" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 10.8,
+                  "value_string" : "10.8"
                },
                "potassium" : {
                   "modifier" : "~",
@@ -809,6 +1106,12 @@
                   "value_computed" : 0.0075,
                   "value_string" : "0.0075"
                },
+               "saturated-fat" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 2.72,
+                  "value_string" : "2.72"
+               },
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -822,6 +1125,12 @@
                   "value" : 12.3,
                   "value_string" : "12.3"
                },
+               "stearic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.7,
+                  "value_string" : "0.7"
+               },
                "sucrose" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -833,6 +1142,18 @@
                   "unit" : "g",
                   "value" : 7.33,
                   "value_string" : "7.33"
+               },
+               "vitamin-b1" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.00087,
+                  "value_string" : "0.00087"
+               },
+               "vitamin-b2" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.00087,
+                  "value_string" : "0.00087"
                },
                "vitamin-b6" : {
                   "modifier" : "~",
@@ -851,6 +1172,12 @@
                   "unit" : "g",
                   "value" : 0.00085,
                   "value_string" : "0.00085"
+               },
+               "vitamin-pp" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.00162,
+                  "value_string" : "0.00162"
                },
                "water" : {
                   "modifier" : "~",

@@ -53,7 +53,6 @@ BEGIN {
 		&normalize_requested_code
 		&customize_response_for_product
 		&check_user_permission
-		&process_auth_header
 		&sanitize
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -63,7 +62,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers request_param/;
+use ProductOpener::HTTP qw/request_param/;
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc lang_in_other_lc/;
@@ -411,17 +410,7 @@ sub send_api_response ($request_ref) {
 	# Make sure we include convert_blessed to cater for blessed objects, like booleans
 	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical->utf8->encode($body_ref);
 
-	# add headers
-	# We need to send the header Access-Control-Allow-Credentials=true so that websites
-	# such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
-	# can read the resulting response.
-	my $allow_credentials = 0;
-	if (   ($request_ref->{query_string} =~ "/auth.pl")
-		or (($request_ref->{api_action} // '') eq 'current_user'))
-	{
-		$allow_credentials = 1;
-	}
-	write_cors_headers($allow_credentials);
+	# CORS headers are now handled by nginx
 	print header(-status => $status_code, -type => $content_type, -charset => 'utf-8');
 	# write json response
 	print $json;
@@ -455,13 +444,13 @@ my $dispatch_table = {
 	product => {
 		GET => \&read_product_api,
 		HEAD => \&read_product_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 		PATCH => \&write_product_api,
 	},
 	# Product image upload
 	product_images => {
 		POST => \&upload_product_image_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 		DELETE => \&delete_product_image_api,
 	},
 	# Product revert
@@ -472,31 +461,31 @@ my $dispatch_table = {
 	# Product services
 	product_services => {
 		POST => \&product_services_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 	},
 	# Taxonomy suggestions
 	taxonomy_suggestions => {
 		GET => \&taxonomy_suggestions_api,
 		HEAD => \&taxonomy_suggestions_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 	},
 	# Taxonomy canonicalize tags
 	taxonomy_canonicalize_tags => {
 		GET => \&taxonomy_canonicalize_tags_api,
 		HEAD => \&taxonomy_canonicalize_tags_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 	},
 	# Taxonomy diplay tags
 	taxonomy_display_tags => {
 		GET => \&taxonomy_display_tags_api,
 		HEAD => \&taxonomy_display_tags_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 	},
 	# Tag read
 	tag => {
 		GET => \&read_tag_api,
 		HEAD => \&read_tag_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 	},
 	geoip => {
 		GET => \&get_country_for_ip_api,
@@ -505,24 +494,24 @@ my $dispatch_table = {
 	attribute_groups => {
 		GET => \&attribute_groups_api,
 		HEAD => \&attribute_groups_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 	},
 	# Attributes preferences
 	preferences => {
 		GET => \&preferences_api,
 		HEAD => \&preferences_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 	},
 	# External sources (translated)
 	external_sources => {
 		GET => \&external_sources_api,
 		HEAD => \&external_sources_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 	},
 	# Current user: GET /api/v3/current-user/permissions
 	current_user => {
 		GET => \&read_current_user_permissions_api,
-		OPTIONS => sub {return;},    # Just return CORS headers
+		OPTIONS => sub {return;},
 	},
 	health => {
 		GET => \&read_health_api,
@@ -1185,95 +1174,6 @@ sub check_user_permission ($request_ref, $response_ref, $permission) {
 	}
 
 	return $has_permission;
-}
-
-=head2 process_auth_header ( $request_ref, $r )
-
-Using the Authorization HTTP header, check if we have a valid user.
-
-=head3 Parameters
-
-=head4 $request_ref (input)
-
-Reference to the request object.
-
-=head4 $r (input)
-
-Reference to the Apache2 request object
-
-=head3 Return value
-
-1 if the user has been signed in, -1 if the Bearer token was invalid, 0 otherwise.
-
-=cut
-
-sub process_auth_header ($request_ref, $r) {
-	my $token = _read_auth_header($request_ref, $r);
-	unless ($token) {
-		return 0;
-	}
-
-	my $access_token;
-	# verify token using JWKS (see Auth.pm)
-	eval {$access_token = verify_access_token($token);};
-	my $error = $@;
-	if ($error) {
-		$log->info('Access token invalid', {token => $token}) if $log->is_info();
-	}
-
-	unless ($access_token) {
-		add_error(
-			$request_ref->{api_response},
-			{
-				message => {id => 'invalid_token'},
-				impact => {id => 'failure'},
-			}
-		);
-		return -1;
-	}
-
-	$request_ref->{access_token} = $token;
-	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
-	unless (defined $user_ref) {
-		$log->info('User not found and not created') if $log->is_info();
-		display_error_and_exit($request_ref, 'Authentication error', 401);
-	}
-	my $user_id = $user_ref->{userid};
-	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
-
-	$request_ref->{oidc_user_id} = $user_id;
-
-	return 1;
-}
-
-=head2 _read_auth_header ( $request_ref, $r )
-
-Using the Authorization HTTP header, check if it looks like a 
-Bearer token, and if it does, copy it to the request_ref
-
-=head3 Parameters
-
-=head4 $request_ref (input)
-
-Reference to the request object.
-
-=head4 $r (input)
-
-Reference to the Apache2 request object
-
-=head3 Return value
-
-None
-
-=cut
-
-sub _read_auth_header ($request_ref, $r) {
-	my $authorization = $r->headers_in->{Authorization};
-	if ((defined $authorization) and ($authorization =~ /^Bearer (?<token>.+)$/)) {
-		return $+{token};
-	}
-
-	return;
 }
 
 1;
