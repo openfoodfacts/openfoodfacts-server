@@ -293,6 +293,49 @@ is($product_ref->{stores_tags}, ["intermarche"]);
 compute_field_tags($product_ref, "de", "stores");
 is($product_ref->{stores_tags}, ["intermarche"]);
 
+# "null" and "undefined" values sent by some apps must not become tags
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/11933
+
+$product_ref = {"categories" => "null, Pommes, undefined, NULL"};
+compute_field_tags($product_ref, "fr", "categories");
+ok(has_tag($product_ref, "categories", "en:apples"), "real category kept") or diag Dumper $product_ref;
+is([grep {/:(?:null|undefined)$/} @{$product_ref->{categories_tags}}], [], "no null/undefined categories")
+	or diag Dumper $product_ref;
+is([grep {/:(?:null|undefined)$/} @{$product_ref->{categories_hierarchy}}],
+	[], "no null/undefined in categories hierarchy")
+	or diag Dumper $product_ref;
+
+$product_ref = {"categories" => "undefined"};
+compute_field_tags($product_ref, "en", "categories");
+is($product_ref->{categories_tags}, [], "only undefined gives no category") or diag Dumper $product_ref;
+
+$product_ref = {"stores" => "null, Intermarché, Undefined"};
+compute_field_tags($product_ref, "fr", "stores");
+is($product_ref->{stores_tags}, ["intermarche"], "no null/undefined stores") or diag Dumper $product_ref;
+
+$product_ref = {"brands" => "Null"};
+compute_field_tags($product_ref, "fr", "brands");
+is($product_ref->{brands_tags}, [], "no null brand") or diag Dumper $product_ref;
+
+# Same for input tags set by the API (v2 and v3) through set_field_input_tags_for_source()
+$product_ref = {};
+set_field_input_tags_for_source($product_ref, "fr", "categories", "test", "null, Pommes, undefined, NULL");
+ok(has_tag($product_ref, "categories", "en:apples"), "input: real category kept") or diag Dumper $product_ref;
+is([grep {/:(?:null|undefined)$/i} @{$product_ref->{categories_tags}}], [], "input: no null/undefined categories")
+	or diag Dumper $product_ref;
+is($product_ref->{tags_sources}{categories}{test}{tags}, ["en:apples"], "input: null/undefined not stored")
+	or diag Dumper $product_ref;
+
+$product_ref = {};
+set_field_input_tags_for_source($product_ref, "fr", "stores", "test", "null, Carrefour, Undefined");
+is([grep {/^(?:null|undefined)$/i} @{$product_ref->{stores_tags}}], [], "input: no null/undefined stores")
+	or diag Dumper $product_ref;
+is(scalar @{$product_ref->{stores_tags}}, 1, "input: real store kept") or diag Dumper $product_ref;
+
+$product_ref = {};
+set_field_input_tags_for_source($product_ref, "fr", "brands", "test", "Null");
+is($product_ref->{brands_tags} // [], [], "input: no null brand") or diag Dumper $product_ref;
+
 # Test add_tags_to_field
 
 $product_ref = {
