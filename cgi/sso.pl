@@ -45,5 +45,5 @@ my $response_ref = check_session($user_id, $user_session);
 
 my $data = encode_json($response_ref);
 
-write_auth_deprecated_headers();
+write_auth_deprecated_headers({endpoint => 'cgi/sso.pl', flow => 'json_session_check'});
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
