@@ -66,7 +66,7 @@
       "tests/integration/cors.t",
       "tests/integration/facets.t",
       "tests/integration/oidc_signin.t",
-      "tests/integration/rate_limit_redis.t",
+      "tests/integration/recent_changes.t",
       "tests/integration/upload_images.t"
     ],
     "total_time": 210.0
@@ -78,7 +78,7 @@
       "tests/integration/countries.t",
       "tests/integration/fix_non_normalized_codes.t",
       "tests/integration/oidc_signout.t",
-      "tests/integration/recent_changes.t",
+      "tests/integration/recipes_stats.t",
       "tests/integration/web_html.t"
     ],
     "total_time": 210.0
@@ -101,7 +101,7 @@
       "tests/integration/create_product.t",
       "tests/integration/import_csv_file.t",
       "tests/integration/product_history_knowledge_panel.t",
-      "tests/integration/remove_documents_by_ids.t"
+      "tests/integration/return_url_allowlist.t"
     ],
     "total_time": 180.0
   }
