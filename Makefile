@@ -426,12 +426,12 @@ check_perl:
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
 	test -z "${TO_CHECK}" || \
-	  ${DOCKER_COMPOSE_BUILD} run --rm backend \
+	  ${DOCKER_COMPOSE_BUILD} run --rm -e CPU_COUNT backend \
 		${CHECK_PERL} ${TO_CHECK}
 
 # check only specified files/directories or with custom flags (e.g. make check_perl_args args="--no-fast-fail lib/")
 check_perl_args:
-	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend \
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps -e CPU_COUNT backend \
 		${CHECK_PERL} $(args)
 
 # check with perltidy

@@ -25,6 +25,7 @@
 
 use ProductOpener::PerlStandards;
 use File::Find;
+use File::Temp qw(tempfile);
 use Term::ANSIColor;
 use Getopt::Long qw(:config);
 
@@ -68,13 +69,18 @@ sub gitignore_to_regex ($pattern) {
 	$regex =~ s/([.+^$()\[\]{}|\\])/\\$1/g;
 
 	# Handle **
-	$regex =~ s{/\*\*/}{/(?:[^/]*/)*?}g;
-	$regex =~ s{^\*\*/}{(?:[^/]*/)*?}g;
-	$regex =~ s{/\*\*$}{/(?:.*)?}g;
+	my $recursive_directory_placeholder = "\x{E000}";
+	my $trailing_globstar_placeholder = "\x{E001}";
+	$regex =~ s{/\*\*/}{/$recursive_directory_placeholder}g;
+	$regex =~ s{^\*\*/}{$recursive_directory_placeholder}g;
+	$regex =~ s{/\*\*$}{/$trailing_globstar_placeholder}g;
 
 	# Handle * and ?
 	$regex =~ s/\*/[^\\\/]*/g;
 	$regex =~ s/\?/[^\\\/]/g;
+
+	$regex =~ s/\Q$recursive_directory_placeholder\E/(?:[^\/]*\/)*?/g;
+	$regex =~ s/\Q$trailing_globstar_placeholder\E/(?:.*)?/g;
 
 	if ($pattern =~ m{/}) {
 		if ($pattern =~ m{^/}) {
@@ -188,9 +194,8 @@ if (!@files) {
 my $total = scalar @files;
 print colored("Checking $total files using $max_workers workers ...\n", "bold white");
 
-my %running;    # pid => { file => ..., pipe => ... }
+my %running;    # pid => { file => ..., output => ... }
 my @failed;
-my $finished = 0;
 my $started = 0;
 my $fast_failing = 0;
 
@@ -206,40 +211,37 @@ sub terminate_workers() {
 
 sub wait_for_worker() {
 	my $pid = wait();
-	if ($pid <= 0) {
-		return;    # No children
-	}
-
+	return if $pid <= 0;
+	my $status = $?;
 	my $job = delete $running{$pid};
 	my $file = $job->{file};
-	my $fh = $job->{pipe};
+	my $output_fh = $job->{output};
+	seek($output_fh, 0, 0) or die "Cannot seek worker output for $file: $!";
+	my $output = do {local $/; <$output_fh> // ''};
+	close $output_fh;
 
-	# Read any output from the pipe
-	my $output = do {local $/; <$fh>};
-	close $fh;
-
-	if ($? != 0 && !$fast_failing) {
-		# Check if it was a real failure or if we killed it
-		# (If we killed it, $? will indicate a signal)
-		my $was_signaled = $? & 127;
-
-		if (!$was_signaled) {
+	if ($status != 0 && !$fast_failing) {
+		if (my $signal = $status & 127) {
+			print "\n" . colored("error: ", "bold red") . "Worker for $file terminated by signal $signal.\n";
+		}
+		else {
 			print "\n" . colored("error: ", "bold red") . "Syntax error in $file:\n";
+		}
+		if (length $output) {
 			# Indent each line of the output with a tab and color it red
 			my $indented_output = $output;
 			$indented_output =~ s/^/\t/mg;
 			print colored($indented_output, "red") . "\n";
-			push @failed, $file;
+		}
+		push @failed, $file;
 
-			if (!$no_fast_fail) {
-				$fast_failing = 1;
-				print colored("warning: ", "bold yellow")
-					. "Fast-fail enabled, terminating remaining workers... (pass --no-fast-fail to disable)\n";
-				terminate_workers();
-			}
+		if (!$no_fast_fail) {
+			$fast_failing = 1;
+			print colored("warning: ", "bold yellow")
+				. "Fast-fail enabled, terminating remaining workers... (pass --no-fast-fail to disable)\n";
+			terminate_workers();
 		}
 	}
-	$finished++;
 	return;
 }
 
@@ -271,8 +273,8 @@ foreach my $file (@files) {
 	# Print progress: "(started/total) Checking [file]" in light gray (standard white)
 	print colored(sprintf("\r(%d/%d) Checking %-60.60s", $started, $total, $file), "white");
 
-	# Create a pipe to capture child output
-	pipe(my $read_fh, my $write_fh) or die colored("error: ", "bold red") . "Pipe failed: $!";
+	# Capture output in a temporary file so workers cannot block on a full pipe.
+	my ($output_fh) = tempfile(UNLINK => 1);
 
 	my $pid = fork();
 	if (!defined $pid) {
@@ -281,12 +283,10 @@ foreach my $file (@files) {
 
 	if ($pid == 0) {
 		# Child process
-		close $read_fh;
-
-		# Redirect STDOUT and STDERR to the pipe
-		open STDOUT, '>&', $write_fh or die "Can't dup STDOUT: $!";
-		open STDERR, '>&', $write_fh or die "Can't dup STDERR: $!";
-		close $write_fh;
+		# Redirect STDOUT and STDERR to the temporary file
+		open STDOUT, '>&', $output_fh or die "Can't dup STDOUT: $!";
+		open STDERR, '>&', $output_fh or die "Can't dup STDERR: $!";
+		close $output_fh;
 
 		$ENV{PO_NO_LOAD_DATA} = 1;
 
@@ -298,8 +298,7 @@ foreach my $file (@files) {
 	}
 	else {
 		# Parent process
-		close $write_fh;
-		$running{$pid} = {file => $file, pipe => $read_fh};
+		$running{$pid} = {file => $file, output => $output_fh};
 	}
 }
 
