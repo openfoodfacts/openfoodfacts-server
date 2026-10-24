@@ -15,6 +15,7 @@ use ProductOpener::KnowledgePanels qw/:all/;
 use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::Display qw/$knowledge_panels_options_ref/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
 use ProductOpener::Config qw/%options/;
 
@@ -238,6 +239,27 @@ foreach my $test_ref (@tests) {
 		"health card with a health recommendation"
 	);
 	ok(defined $product_ref->{knowledge_panels_en}{health_card});
+}
+
+foreach my $analyzed (0, 1) {
+	my $product_ref = {lc => "en"};
+	if ($analyzed) {
+		$product_ref->{categories_tags} = ["en:biscuits"];
+		$product_ref->{ingredients_text} = "wheat flour, sugar";
+		analyze_and_enrich_product_data($product_ref, get_initialized_response());
+	}
+	$knowledge_panels_options_ref = {};
+	initialize_knowledge_panels_options($knowledge_panels_options_ref, {});
+	$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = 1;
+	create_knowledge_panels($product_ref, "en", "world", $knowledge_panels_options_ref, {});
+	my $panels_ref = $product_ref->{knowledge_panels_en};
+	foreach my $panel_id ("origins_of_ingredients", "origins_of_ingredients_simplified") {
+		is(defined $panels_ref->{$panel_id} ? 1 : 0, $analyzed, "$panel_id panel analyzed=$analyzed");
+	}
+	my @listed_ids
+		= map {@{$_->{panel_group_element}{panel_ids} // []}} @{$panels_ref->{environment_card_simplified}{elements}};
+	is((grep {$_ eq "origins_of_ingredients_simplified"} @listed_ids) ? 1 : 0,
+		$analyzed, "environment_card_simplified lists the origins panel analyzed=$analyzed");
 }
 
 done_testing();

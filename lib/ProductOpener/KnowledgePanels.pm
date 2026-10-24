@@ -323,11 +323,13 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 				"api/knowledge-panels/environment/environment_card_simplified.tt.json",
 				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 			# Simplified environmental panels
-			create_panel_from_json_template(
-				"origins_of_ingredients_simplified",
-				"api/knowledge-panels/environment/origins_of_ingredients_simplified.tt.json",
-				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
-			);
+			if (defined deep_get($product_ref, qw/environmental_score_data adjustments origins_of_ingredients/)) {
+				create_panel_from_json_template(
+					"origins_of_ingredients_simplified",
+					"api/knowledge-panels/environment/origins_of_ingredients_simplified.tt.json",
+					{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+				);
+			}
 			create_panel_from_json_template(
 				"threatened_species_simplified",
 				"api/knowledge-panels/environment/threatened_species_simplified.tt.json",
@@ -971,8 +973,8 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	# Create panel for manufacturing place
 	create_manufacturing_place_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
-	# Origins of ingredients for the environment card, for food, pet food and beauty products
-	if (feature_enabled("ingredients")) {
+	# Origins of ingredients for the environment card, only when the environmental score has computed them
+	if (defined deep_get($product_ref, qw/environmental_score_data adjustments origins_of_ingredients/)) {
 		create_panel_from_json_template("origins_of_ingredients",
 			"api/knowledge-panels/environment/origins_of_ingredients.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
