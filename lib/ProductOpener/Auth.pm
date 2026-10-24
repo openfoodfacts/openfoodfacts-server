@@ -896,11 +896,8 @@ sub _verify_access_token_type_header ($access_token_string) {
 		return 'malformed token';
 	}
 	$base64 .= '=' x (4 - $remainder) if $remainder;
-	my $header_json = eval {decode_base64($base64)};
-	if (my $error = $@) {
-		chomp $error;
-		return "cannot decode token header: $error";
-	}
+	# Note: decode_base64 does not die on invalid input, it returns undef.
+	my $header_json = decode_base64($base64);
 	unless (defined $header_json) {
 		return 'cannot decode token header';
 	}
@@ -936,14 +933,15 @@ Returns: The verified ID token or undefined if verification fails.
 sub verify_id_token ($id_token_string) {
 	get_oidc_configuration();
 
-	my $id_token = OIDC::Lite::Model::IDToken->load($id_token_string);
-	my $id_token_verified = eval {
-		decode_jwt(
+	my ($id_token, $id_token_verified) = eval {
+		my $loaded = OIDC::Lite::Model::IDToken->load($id_token_string);
+		my $verified = decode_jwt(
 			token => $id_token_string,
 			kid_keys => $jwks,
 			verify_iss => $oidc_configuration->{issuer},
 			accepted_alg => ['RS256'],
 		);
+		($loaded, $verified);
 	};
 	if (my $error = $@) {
 		chomp $error;

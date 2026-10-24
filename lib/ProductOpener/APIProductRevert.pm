@@ -66,7 +66,7 @@ sub revert_product_api ($request_ref) {
 
 	$log->debug("revert_product_api - start", {request => $request_ref}) if $log->is_debug();
 
-	return if (not require_scope_if_token_present($request_ref, 'products:write''));
+	return if (not require_scope_if_token_present($request_ref, 'products:write'));
 
 	my $response_ref = $request_ref->{api_response};
 
