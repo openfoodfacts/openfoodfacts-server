@@ -122,6 +122,12 @@ $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 	# minion_daemon_server_and_port => "http://0.0.0.0:3001",
 	# this one does not seems to be used
 	# minion_admin_server_and_port => "http://0.0.0.0:3003",
+
+	# Hosts that the import feature is allowed to download images from, even if they do not
+	# resolve to a globally routable address (e.g. a supplier serving images from a private
+	# network). By default, an image url is only fetched if it resolves to a globally routable
+	# address, so that the import cannot be used to reach our internal services.
+	# allowed_image_download_hosts => ["images.example.com"],
 );
 
 #11901: Remove once production is migrated

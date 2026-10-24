@@ -27,6 +27,36 @@
       "en:sweeteners",
       "en:sugars"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 100,
+               "name" : "sugar"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 100
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:sweets",
    "food_groups_tags" : [
@@ -42,7 +72,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -110,6 +141,9 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-d-2023-e",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a"
    ],
@@ -158,7 +192,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 15,
+            "negative_points_max" : 0,
             "positive_points" : 0,
+            "positive_points_max" : 0,
             "proteins" : 0,
             "proteins_points" : 0,
             "proteins_value" : 0,

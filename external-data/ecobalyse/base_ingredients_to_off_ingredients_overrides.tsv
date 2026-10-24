@@ -1,0 +1,36 @@
+# Overrides for baseIngredients that cannot be resolved via canonicalize_taxonomy_tag
+# Format: baseIngredient<TAB>OFF tagid
+# These map Ecobalyse baseIngredient names to existing OFF ingredient taxonomy tagids
+# when the baseIngredient name doesn't directly canonicalize to the tagid.
+cantal-cheese	en:cantal
+chestnut-husked	en:chestnut
+chestnut-inshell	en:chestnut
+coconut-dehusked	en:coconut
+feta-type-cheese	en:feta
+fourme-dambert-cheese	en:fourme-d-ambert
+greek-yogurt-sheep-milk	en:greek-yogurt
+green-bean-cut-raw	en:green-bean
+green-olive-pitted	en:green-olive
+greengage-plum	en:greengage
+hazelnut-in-shell	en:hazelnut
+hazelnut-unshelled	en:hazelnut
+large-trout	en:trout
+lentils-uncooked	en:lentils
+mushroom-morel	en:mushroom
+parsley-fresh	en:parsley
+salad-lettuce	en:lettuce
+salmon-raw	en:salmon
+spread-cheese-20-40pct-fat	en:cheese
+spring-pea	en:green-peas
+squash	en:spaghetti-squash
+squash-with-skin-raw	en:butternut-squash
+strawberry-coulis	en:strawberry
+tomato-concentrated	en:tomato-concentrate
+walnut-husked	en:walnut
+walnut-inshell	en:walnut
+white-bean-canned-drained	en:white-beans
+almond-shelled-with-skin	en:almond
+fresh-shrimps	en:shrimp
+# "flour" is currently always wheat flour in Ecobalyse - 2026/10/10
+flour	en:wheat-flour
+mung-bean-sprouted	en:mung-bean-sprout

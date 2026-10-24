@@ -93,6 +93,27 @@ if ($r->method_number == Apache2::Const::M_OPTIONS) {
 	exit(0);
 }
 
+# Moving or trashing an uploaded image destroys or relocates another contributor's work and
+# writes a new revision of the product, so it is a moderator action.
+# This endpoint was reachable without any authentication: the restriction existed only in the
+# edit form ([% IF moderator %] in product_edit_form_display.tt.html) and in the front-end
+# JavaScript, while the same sink is gated by the moderator-only "image_delete" permission on
+# the API v3 route (see ProductOpener::Permissions and APIProductImagesUpload).
+if (not($request_ref->{admin} or $request_ref->{moderator})) {
+	$log->warn("no permission to move or delete images", {ip => remote_addr(), code => $code})
+		if $log->is_warn();
+	my %response = (status => 'status not ok');
+	$response{error} = "error - no permission";
+	my $data = encode_json(\%response);
+	print header(-status => 403, -type => 'application/json', -charset => 'utf-8') . $data;
+	# Flush the 403 response, then reset the status to 200: setting an error status without
+	# flushing makes mod_perl append its default error page to our JSON body, and drop the
+	# status we asked for (see the comment in cgi/auth.pl).
+	$r->rflush;
+	$r->status(200);
+	exit(0);
+}
+
 if ((not defined $code) or ($code eq '')) {
 
 	$log->warn("no code");

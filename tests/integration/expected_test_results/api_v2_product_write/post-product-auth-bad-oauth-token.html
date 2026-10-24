@@ -73,7 +73,7 @@
 		var _paq = window._paq = window._paq || [];
 		_paq.push(['setCustomDimension', 1, 'fr']);
 		_paq.push(['setCustomDimension', 2, 'be']);
-		_paq.push(['setCustomDimension', 3, 'Y']);
+		_paq.push(['setCustomDimension', 3, 'N']);
 	</script>
 	
 	<!-- Matomo -->
@@ -209,35 +209,11 @@
 
 					<ul class="right">
 						
-							<li class="has-dropdown">
-								<a href="#" class="userlink h-space-tiny">
-									<span class="material-icons">
-										account_circle
-									</span>
-									Test
+							<li class="h-space-tiny has-form">
+								<a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Fbe-fr.openfoodfacts.localhost" class="round button secondary">
+									<span class="material-icons material-symbols-button">account_circle</span>
+									Se connecter
 								</a>
-								<ul class="dropdown">
-									<li><a href="//keycloak:8080/realms/openfoodfacts/account?referrer=OFF&referrer_uri=http%3A%2F%2Fbe-fr.openfoodfacts.localhost" target="_blank" rel="noopener"><span class="material-icons">account_box</span> Paramètres du compte</a></li>
-										<li><a href="/cgi/user.pl?type=edit&userid=tests"><span class="material-icons">settings</span> Préférences</a></li>
-
-									
-
-									
-									
-									<li class="divider"></li>
-									<li><label>Vos contributions</label></li>
-									<li><a href="/facets/contributeurs/tests">Produits ajoutés</a></li>
-									<li><a href="/facets/editeurs/tests">Produits modifiés</a></li>
-									<li><a href="/facets/photographes/tests">Produits photographiés</a></li>
-									
-									<li class="divider"></li>
-									<li class="has-form">
-										<form method="post" action="/cgi/oidc_signout.pl">
-											
-											<input type="submit" name=".submit" value="Se déconnecter" class="button small">
-										</form>
-									</li>
-								</ul>
 							</li>
 						
 					</ul>
@@ -317,7 +293,7 @@
 	
 		<nav class="tab-bar hide">
 			<div class="left-small">
-				<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix loggedin">
+				<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix anonymous">
 				<svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
 				</a>
 			</div>
@@ -373,6 +349,7 @@
 								
 
 
+
 <!-- Donation banner TOP start -->
 <section id="donation-banner-top" style="position: relative;">
   <donation-banner donate-url="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
@@ -382,11 +359,11 @@
 </section>
 
 <script>
-  let d = new Date();
   let bannerID = document.getElementById('donation-banner-top');
   let getDomain = window.location.origin.split('.');
 
   function setBannerCookie(bcname, bcval, bcexdays) {
+    const d = new Date();
     d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
     let expires = 'expires=' + d.toUTCString();
     // Apply cookie for every domain contains open...facts
@@ -412,11 +389,171 @@
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('donation_march_2026') !== '') {
-    bannerID.style.display = 'none';
+  const crawler = false;
+  let arm = getBannerCookie('donation_arm');
+  if (crawler) {
+    arm = 'old';
   } else {
-    bannerID.style.display = 'block';
+    if (arm !== 'old' && arm !== 'new') {
+      arm = Math.random() < 0.5 ? 'old' : 'new';
+    }
+    setBannerCookie('donation_arm', arm, 30);
   }
+
+  const optedOut = ['donation_dismiss', 'donation_done'].some((name) => getBannerCookie(name) !== '');
+  // the classic close (donation_march_2026) only ever hid the top banner, so the old arm keeps the footer
+  const gone = optedOut || getBannerCookie('donation_march_2026') !== '';
+  const closeButton = bannerID.querySelector('.donation-banner__close');
+  if (arm === 'new') {
+    bannerID.style.display = 'none';
+    closeButton.style.display = 'none';
+  } else {
+    bannerID.style.display = gone ? 'none' : 'block';
+  }
+
+  function track(action, name) {
+    if (typeof trackMatomoEvent === 'function') {
+      trackMatomoEvent('donation', action, name);
+    }
+  }
+
+  function removeBanners() {
+    bannerID.remove();
+    document.getElementById('donation-banner-footer').remove();
+  }
+
+  function showClassic() {
+    const footer = document.getElementById('donation-banner-footer');
+    footer.style.display = '';
+    bannerID.querySelector('donation-banner').setAttribute('utm-content', 'top:classic:old');
+    footer.setAttribute('utm-content', 'footer:classic:old');
+  }
+
+  function mount(el, variant, name, id) {
+    el.setAttribute('variant', variant);
+    el.setAttribute('news-id', id);
+    el.setAttribute('amounts', '3,5,10');
+    el.setAttribute('country', 'be');
+    el.setAttribute('utm-content', name);
+    el.style.display = '';
+  }
+
+  function showTop(variant, name, id) {
+    mount(bannerID.querySelector('donation-banner'), variant, name, id);
+    bannerID.style.display = 'block';
+    track('banner_shown', name);
+  }
+
+  function parseFeedDate(value) {
+    return new Date(String(value).replace(' ', 'T'));
+  }
+
+  function covers(item, now) {
+    return Boolean(item) && parseFeedDate(item.start_date) <= now && now <= parseFeedDate(item.end_date);
+  }
+
+  async function feedPhase() {
+    try {
+      const response = await fetch('/data/tagline/web/main.json');
+      if (!response.ok) {
+        return null;
+      }
+      const news = (await response.json()).news || {};
+      const now = new Date();
+      for (const kind of ['banner', 'quiet']) {
+        for (const year of [now.getFullYear(), now.getFullYear() - 1]) {
+          const id = 'donation_' + kind + '_' + year;
+          if (covers(news[id], now)) {
+            return { kind, id };
+          }
+        }
+      }
+    } catch {
+      return null;
+    }
+
+    return null;
+  }
+
+  function whenEngaged(open) {
+    let timer;
+    function fire(trigger) {
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(timer);
+      open(trigger);
+    }
+    function onScroll() {
+      if (window.scrollY >= window.innerHeight) {
+        fire('scroll');
+      }
+    }
+    function wait() {
+      timer = setTimeout(() => (document.hidden ? wait() : fire('dwell')), 15000);
+    }
+    setTimeout(() => {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }, 10000);
+    wait();
+  }
+
+  function sheetOrBar(id) {
+    const sheets = parseInt(getBannerCookie('donation_sheet_n'), 10) || 0;
+    const bars = parseInt(getBannerCookie('donation_bar_n'), 10) || 0;
+    if (getBannerCookie('donation_sheet') === '' && sheets < 3) {
+      whenEngaged(function (trigger) {
+        if (!bannerID.isConnected) {
+          return;
+        }
+        setBannerCookie('donation_sheet', 1, 7);
+        setBannerCookie('donation_sheet_n', sheets + 1, 30);
+        showTop('sheet', 'top:sheet:new:' + trigger, id);
+      });
+    } else if (bars < 10) {
+      setBannerCookie('donation_bar_n', bars + 1, 30);
+      showTop('bar', 'top:bar:new', id);
+    } else {
+      bannerID.remove();
+    }
+  }
+
+  document.addEventListener('donation-banner-state', function (event) {
+    const action = event.detail.action;
+    if (action === 'dismiss') {
+      setBannerCookie('donation_dismiss', 1, 30);
+      removeBanners();
+    } else if (action === 'already-donated') {
+      setBannerCookie('donation_done', 1, 365);
+      removeBanners();
+    } else if (action === 'minimize') {
+      bannerID.remove();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', async function () {
+    if (arm === 'old' && !optedOut) {
+      showClassic();
+    } else if (gone) {
+      removeBanners();
+    } else {
+      const phase = await feedPhase();
+      if (phase === null) {
+        showClassic();
+        bannerID.style.display = 'block';
+        closeButton.style.display = '';
+        track('banner_shown', 'top');
+      } else {
+        mount(document.getElementById('donation-banner-footer'), 'strip', 'footer:strip:new', phase.id);
+        if (phase.kind === 'quiet') {
+          showTop('strip', 'top:strip:new', phase.id);
+        } else if (Foundation.utils.is_small_only()) {
+          sheetOrBar(phase.id);
+        } else {
+          showTop('campaign', 'top:campaign:new', phase.id);
+        }
+      }
+    }
+  });
 </script>
 
 
@@ -430,7 +567,7 @@
 							<div class="row">
 								<div class="small-12 column">
 									<h1 class="if-empty-dnone">Erreur</h1>
-									<p>-1</p>
+									<p>Jeton d'accès non valide</p>
 								</div>
 							</div>
 						
@@ -484,7 +621,7 @@
 
 				
 
-<donation-banner donate-url="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
+<donation-banner id="donation-banner-footer" style="display: none;" donate-url="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
 
 
 			
@@ -517,8 +654,8 @@
 							<li><a class="button small white-button radius" href="/partenaires">Partenaires</a></li>
               <li><a class="button small white-button radius" href="/data">Données, API et SDK</a></li>
 							<li><a class="button small white-button radius" href="//world-fr.openbeautyfacts.org">Open Beauty Facts - Cosmétiques</a></li>
-              <li><a class="button small white-button radius" href="//world.openproductsfacts.org">Open Products Facts</a></li>
-              <li><a class="button small white-button radius" href="//world.openpetfoodfacts.org">Open Pet Food Facts</a></li>
+              <li><a class="button small white-button radius" href="//world-fr.openproductsfacts.org">Open Products Facts</a></li>
+              <li><a class="button small white-button radius" href="//world-fr.openpetfoodfacts.org">Open Pet Food Facts</a></li>
               <li><a class="button small white-button radius" href="//prices.openfoodfacts.org/">Open Prices</a></li>
 							<li><a class="button small white-button radius" href="//be-fr.pro.openfoodfacts.localhost/">Open Food Facts pour les producteurs</a></li>
 						</ul>

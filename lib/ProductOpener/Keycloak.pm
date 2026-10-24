@@ -345,6 +345,43 @@ sub delete_user ($self, $userid) {
 	return;
 }
 
+=head2 set_user_enabled ($userid, $enabled)
+
+Enable or disable a user in Keycloak. A disabled user cannot log in.
+Unlike delete_user(), this is reversible and it does not trigger a user-deleted event.
+
+=head3 Arguments
+
+=head4 User id $userid
+
+=head4 Boolean $enabled
+
+=head3 Return Value
+
+1 if the user was found and updated, 0 if the user does not exist in Keycloak.
+
+=cut
+
+sub set_user_enabled ($self, $userid, $enabled) {
+	my $existing_user = $self->find_keycloak_user_by_username($userid, 1);
+	return 0 if not defined $existing_user;
+
+	my $token = $self->get_or_refresh_token();
+
+	my $request = HTTP::Request->new(PUT => $self->{users_endpoint} . '/' . $existing_user->{id});
+	$request->header('Content-Type' => 'application/json');
+	$request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	$request->content(encode_json({enabled => ($enabled ? $JSON::PP::true : $JSON::PP::false)}));
+
+	my $response = LWP::UserAgent::Plugin->new->request($request);
+	unless ($response->is_success) {
+		die $response->content;
+	}
+	$memd->delete("user/$userid");
+
+	return 1;
+}
+
 =head2 find_user_by_username ($username)
 
 Try to find a user in Keycloak by their username.

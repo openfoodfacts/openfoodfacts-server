@@ -292,6 +292,22 @@ my $tests_ref = [
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
+	# For score tag types, unknown is a tag value, not a missing field.
+	# nutri-score resolves to the nutriscore tag type.
+	{
+		test_case => 'nutrition-grades_unknown',
+		method => 'GET',
+		path => 'facets/nutrition-grades/unknown.json?fields=product_name,nutrition_grades_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'nutri-score_unknown',
+		method => 'GET',
+		path => 'facets/nutri-score/unknown.json?fields=product_name,nutriscore_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
 	# EU packager code
 	{
 		test_case => 'packager-code_fr-85-222-003-ce',
