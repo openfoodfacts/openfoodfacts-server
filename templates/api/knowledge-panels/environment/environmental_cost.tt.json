@@ -13,6 +13,15 @@
                 "html": "[% edq(lang('environmental_cost_description')) %]"
             }
         },
+        [% IF panel.stale %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": "[% edq(lang('environmental_cost_stale')) %]"
+            }
+        },
+        [% END %]
         {
             "element_type": "table",
             "table_element": {

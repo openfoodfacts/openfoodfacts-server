@@ -76,6 +76,22 @@ foreach my $role (qw(moderator admin)) {
 	ok(defined get_panel(product_with_ecs(), {$role => 1}), "panel shown to $role");
 }
 
+# Warning note only for stale results (computed before the latest changes to the product)
+sub get_warnings ($panel_ref) {
+	return [
+		map {$_->{text_element}{html}}
+		grep {$_->{element_type} eq "text" and ($_->{text_element}{type} // '') eq "warning"} @{$panel_ref->{elements}}
+	];
+}
+is(get_warnings(get_panel(product_with_ecs(), {moderator => 1})), [], "no warning for up to date results");
+my $stale_product_ref = product_with_ecs();
+$stale_product_ref->{environmental_impact}{ecobalyse_stale} = 1;
+is(
+	get_warnings(get_panel($stale_product_ref, {moderator => 1})),
+	["This environmental cost was computed before the latest changes to the product and may not be up to date."],
+	"warning for stale results"
+);
+
 # Known product quantity: values for the whole product and for 100 g
 my $panel_ref = get_panel(product_with_ecs(), {moderator => 1});
 is(
