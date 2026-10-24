@@ -59,9 +59,9 @@ function folskonomy_engine_init() {
  * (Use //ajax... so that https or http is selected as appropriate to avoid "mixed content".)
  */
 
-@import url("https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.css");
+
 @import url("https://rawgit.com/free-jqgrid/jqGrid/master/css/ui.jqgrid.css");
-@import url("https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+
 
 .feus {
   margin-bottom: 1rem;
@@ -396,7 +396,7 @@ function delPropertyValue(_this) {
   /* curl -X 'DELETE' \
         'https://api.folksonomy.openfoodfacts.org/product/3760256070970/Test1620205047424?version=1' \
         -H 'accept: application/json' \
-        -H 'Authorization: Bearer charlesnepote__U0da47a42-eb96-4386-b2eb-6e1657b7f969'
+        -H 'Authorization: Bearer ...'
     */
   console.log("FEUS - delPropertyValue() - start");
   console.log($(_this).parent().text());
@@ -443,7 +443,7 @@ function addKV(_code, _k, _v, _owner) {
   /* curl -X 'POST' \
                 'https://api.folksonomy.openfoodfacts.org/product' \
                 -H 'accept: application/json' \
-                -H 'Authorization: Bearer charlesnepote__U68ee7c02-20ff-42ab-a5a7-9436df6d5300' \
+                -H 'Authorization: Bearer ...' \
                 -H 'Content-Type: application/json' \
                 -d '{
                     "product": "3760256070970",
@@ -622,7 +622,7 @@ function updatePropertyValue(_code, _k, _v, _owner, _version) {
   /* curl -X 'PUT' \
                 'https://api.folksonomy.openfoodfacts.org/product' \
                 -H 'accept: application/json' \
-                -H 'Authorization: Bearer charlesnepote__U68ee7c02-20ff-42ab-a5a7-9436df6d5300' \
+                -H 'Authorization: Bearer ...' \
                 -H 'Content-Type: application/json' \
                 -d '{
                     "product": "3760256070970",
