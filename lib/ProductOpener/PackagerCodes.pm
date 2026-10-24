@@ -61,7 +61,7 @@ use ProductOpener::Lang qw/lang/;
 
 use Log::Any qw($log);
 
-$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey|eu|eü";
+$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey|eu|eü|es|ef";
 
 sub normalize_packager_codes ($codes) {
 
