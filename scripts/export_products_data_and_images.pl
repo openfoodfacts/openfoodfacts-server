@@ -36,7 +36,6 @@ use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Getopt::Long;
-use CGI qw(:cgi :cgi-lib);
 use ProductOpener::Data qw/get_products_collection/;
 
 binmode(STDOUT, ":encoding(UTF-8)");
@@ -68,16 +67,16 @@ export_products_data_and_images.pl --query field_name=field_value --query other_
 TXT
 	;
 
-my %query_fields_values = ();
 my $query_codes_from_file;
 my $products_file;
 my $images_file;
 my $jsonl_file;
 my $mongo_file;
 my $sample_mod;
+my $query_params_ref = {};    # filters for mongodb query
 
 GetOptions(
-	"query=s%" => \%query_fields_values,
+	"query=s%" => $query_params_ref,
 	"query-codes-from-file=s" => \$query_codes_from_file,
 	"images-file=s" => \$images_file,
 	"products-file=s" => \$products_file,
@@ -91,18 +90,15 @@ print STDERR "export_products_data_and_images.pl
 - query fields values:
 ";
 
-# build the query
-my $query_ref = {};
-my $request_ref = {};
-
-foreach my $field (sort keys %query_fields_values) {
-	print STDERR "-- $field: $query_fields_values{$field}\n";
-	param($field, $query_fields_values{$field});
+foreach my $field (sort keys %$query_params_ref) {
+	print STDERR "-- $field: $query_params_ref->{$field}\n";
 }
 
 # Construct the MongoDB query
 
-add_params_to_query($request_ref, $query_ref);
+my $query_ref = {};
+
+add_params_to_query($query_params_ref, $query_ref);
 
 use boolean;
 
@@ -148,7 +144,10 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref) . "\n";
 # sto dupms
 if ($products_file || $images_file) {
 	# harvest products'code from mongo db
-	my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})->query($query_ref)->fields({"code" => 1})
+	my $cursor
+		= get_products_collection({timeout => 3 * 60 * 60 * 1000})
+		->query($query_ref)
+		->fields({"code" => 1})
 		->sort({code => 1});
 
 	$cursor->immortal(1);
