@@ -11,7 +11,7 @@ A local cache is a copy of OFF data stored directly on your system or server. Th
 
 - **FoodVisor Contributed (Python/MongoDB) backend:** The FoodVisor startup contributed a few years ago <a href="https://github.com/openfoodfacts/openfoodfacts-apirestpython">a Python-based backend with a MongoDB export</a>, providing a solid starting point for caching in Python environments.
 - **Project-Specific Caches:** Several OFF projects like open-prices and robotoff have implemented local caches for their own needs. While not immediately reusable, they can serve as valuable references.
-- **SDKs** We have [a number of official SDKs](../api.md#sdks) that can be leveraged as part of a caching backend. Please leverage and contribute to those 🙏
+- **SDKs:** We have [a number of official SDKs](../api.md#sdks) that can be leveraged as part of a caching backend. Please leverage and contribute to those 🙏
 - **You can start a project within Open Food Facts to solve this**
 
 ### Need for Diverse Solutions

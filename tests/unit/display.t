@@ -16,10 +16,11 @@ use ProductOpener::Lang qw/$lc lang separator_before_colon/;
 use ProductOpener::HTTP qw/request_param/;
 use ProductOpener::Tags qw/build_tags_taxonomy build_all_taxonomies/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Text qw(get_decimal_formatter get_percent_formatter);
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
-# date tests
+# date tests - LTR and RTL with different formats/symbols
 my $t = 1472292529;
 $lc = 'en';
 is(display_date($t), 'August 27, 2016, 12:08:49 PM CEST');
@@ -27,6 +28,52 @@ is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">August 27, 2016, 
 $lc = 'de';
 is(display_date($t), '27. August 2016, 12:08:49 CEST');
 is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">27. August 2016, 12:08:49 CEST</time>');
+# LTR Asian (ja) - year-month-day order
+$lc = 'ja';
+is(display_date($t), '2016年8月27日 12:08:49 CEST');
+is(display_date_tag($t), '<time datetime="2016-08-27T12:08:49">2016年8月27日 12:08:49 CEST</time>');
+# LTR Cyrillic with NBSP group (ru) - day month genitive
+$lc = 'ru';
+is(display_date($t),
+	"27 \x{0430}\x{0432}\x{0433}\x{0443}\x{0441}\x{0442}\x{0430} 2016\x{202f}\x{0433}., 12:08:49 CEST");
+is(display_date_tag($t),
+	"<time datetime=\"2016-08-27T12:08:49\">27 \x{0430}\x{0432}\x{0433}\x{0443}\x{0441}\x{0442}\x{0430} 2016\x{202f}\x{0433}., 12:08:49 CEST</time>"
+);
+# RTL Arabic
+$lc = 'ar';
+is(display_date($t), "27 \x{0623}\x{063A}\x{0633}\x{0637}\x{0633} 2016\x{060C} 12:08:49 \x{0645} CEST");
+is(display_date_tag($t),
+	"<time datetime=\"2016-08-27T12:08:49\">27 \x{0623}\x{063A}\x{0633}\x{0637}\x{0633} 2016\x{060C} 12:08:49 \x{0645} CEST</time>"
+);
+# RTL Hebrew
+$lc = 'he';
+is(display_date($t), "27 \x{05D1}\x{05D0}\x{05D5}\x{05D2}\x{05D5}\x{05E1}\x{05D8} 2016, 12:08:49 CEST");
+is(display_date_tag($t),
+	"<time datetime=\"2016-08-27T12:08:49\">27 \x{05D1}\x{05D0}\x{05D5}\x{05D2}\x{05D5}\x{05E1}\x{05D8} 2016, 12:08:49 CEST</time>"
+);
+# RTL Persian (fa) - different prefix/suffix
+$lc = 'fa';
+is(display_date($t), "27 \x{0627}\x{0648}\x{062A} 2016\x{060C} \x{0633}\x{0627}\x{0639}\x{062A} 12:08:49 (CEST)");
+is(display_date_tag($t),
+	"<time datetime=\"2016-08-27T12:08:49\">27 \x{0627}\x{0648}\x{062A} 2016\x{060C} \x{0633}\x{0627}\x{0639}\x{062A} 12:08:49 (CEST)</time>"
+);
+# Indian grouping locale (hi)
+$lc = 'hi';
+is(display_date($t), "27 \x{0905}\x{0917}\x{0938}\x{094D}\x{0924} 2016, 12:08:49 pm CEST");
+is(display_date_tag($t),
+	"<time datetime=\"2016-08-27T12:08:49\">27 \x{0905}\x{0917}\x{0938}\x{094D}\x{0924} 2016, 12:08:49 pm CEST</time>");
+
+# Number formatting for other locales (LTR/RTL, different symbols) - ensures I18N refactor works
+# LTR: ja (standard), ru (NBSP group, comma decimal), hi (Indian)
+is(get_decimal_formatter('ja')->format(1234567.89), "1,234,567.89");
+is(get_decimal_formatter('ru')->format(1234567.89), "1\N{U+00A0}234\N{U+00A0}567,89");
+is(get_decimal_formatter('hi')->format(1234567.89), "12,34,567.89");
+is(get_percent_formatter('ru', 2)->format(0.025), "2,5\N{U+00A0}%");
+# RTL: ar (LRM), ar-SA (Arabic percent), he (simple)
+is(get_decimal_formatter('ar')->format(1234567.89), "1,234,567.89");
+is(get_percent_formatter('ar', 0)->format(0.025), "2\N{U+200E}%\N{U+200E}");
+is(get_percent_formatter('ar-SA', 0)->format(0.025), "2\N{U+066A}");
+is(get_percent_formatter('he', 0)->format(0.025), "2%");
 
 # is(
 #	display_field({link => "https://www.brouwerijdebrabandere.be/fr/marques/bavik-super-pils"}, "link"),
@@ -129,10 +176,10 @@ my $display_module = mock 'ProductOpener::Display' => (
 	]
 );
 
-display_tag($facets_ref);
+display_tag_page($facets_ref);
 
-is($facets_ref->{'current_link'}, '/facets/categories/breads/data-quality');
-is($facets_ref->{'redirect'}, '/facets/categories/breads/data-quality');
+is($facets_ref->{'current_link'}, '/facets/categories/Breads/data-quality');
+is($facets_ref->{'redirect'}, '/facets/categories/Breads/data-quality');
 
 $request_ref->{body_json}{labels_tags} = 'en:organic';
 is(request_param($request_ref, 'unexisting_field'), undef);
@@ -439,6 +486,73 @@ foreach my $test_ref (@display_tests) {
 
 }
 
+# Test that the nutrition values are localized: they are stored in a language independent format
+# (e.g. 1.1 and 1300.366), so they must be displayed with the decimal and thousand separators of the
+# current language, and comparison percentages must use the percent and plus signs of the language.
+# Values are also rounded for display (as in the rest of the website), and values that are not 0
+# must not be displayed as a 0.
+# Also test the category stats column, and the energy value in kcal in the comparison column.
+
+my $product_localized_ref = {
+	nutrition_data => "on",
+	serving_size => "100g",
+	serving_quantity => 100,
+	nutrition_data_per => "100g",
+	product_type => "food",
+	code => "0000109165808",
+	id => "0000109165808",
+	categories => "",
+	categories_tags => [],
+	# category stats, displayed in a column
+	stats => 1,
+	values => {
+		energy => {mean => 1234.5678},
+		fat => {mean => 0.0502},
+	},
+	nutrition => {
+		aggregated_set => {
+			nutrients => {
+				energy => {unit => "kJ", value => 1890.5},
+				fat => {unit => "g", value => 12.34},
+				carbohydrates => {unit => "g", value => 14.0666666666667},
+				salt => {unit => "g", value => 0.0502},
+				sugars => {unit => "g", value => 0.0000718},
+			},
+			preparation => "as_sold",
+			per => "100g",
+		}
+	}
+};
+
+my $comparisons_localized_ref = [
+	{
+		name => "Aufstriche",
+		n => 1,
+		count => 100,
+		show => 1,
+		link => "/facets/categories/de:aufstriche",
+		id => "de:aufstriche",
+		nutrients => {
+			energy => {mean => 1500, mean_percent => 25.5},
+			fat => {mean => 10, mean_percent => -19},
+			carbohydrates => {mean => 14, mean_percent => 0.2},
+			salt => {mean => 0.6, mean_percent => 11},
+		},
+	}
+];
+
+$lc = 'de';
+
+my $nutrition_facts_panel_localized
+	= data_to_display_nutrition_table($product_localized_ref, $comparisons_localized_ref, {styles => ''});
+
+compare_to_expected_results(
+	$nutrition_facts_panel_localized, "$expected_result_dir/nutrition-facts-table-localized.json",
+	$update_expected_results, {id => 'nutrition-facts-table-localized'}
+);
+
+$lc = 'en';
+
 # test the generation of the comparison column of products with the new nutrition schema (version 1003)
 my @comparison_tests = (
 	[
@@ -506,5 +620,24 @@ is([ProductOpener::Display::get_search_field_title_and_details("additives_n")],
 is([ProductOpener::Display::get_search_field_title_and_details("nova_group")],
 	["NOVA group", "", "", "allowDecimals:false,\n"]);
 is([ProductOpener::Display::get_search_field_title_and_details("fat")], ["Fat", " (g for 100 g / 100 ml)", "g", ""]);
+
+# canonicalize_request_tags_and_redirect_to_canonical_url
+my $tags_ref = ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url(
+	{tags => [{tagtype => "stores", tagid => "Super Marché"}]});
+is(
+	$tags_ref,
+	[
+		{
+			'canon_tagid' => undef,
+			'display_tag' => "Super March\x{e9}",
+			'new_tagid' => "Super March\x{e9}",
+			'new_tagid_path' => '/facets/stores/Super%20March%C3%A9',
+			'tagid' => "Super March\x{e9}",
+			'tagtype' => 'stores',
+			'tagtype_name' => 'store',
+			'tagtype_path' => '/facets/stores'
+		}
+	]
+) or diag Dumper $tags_ref;
 
 done_testing();

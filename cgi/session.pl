@@ -28,10 +28,10 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Lang qw/lang/;
-use ProductOpener::Auth qw/write_auth_deprecated_headers/;
+use ProductOpener::Auth qw/is_allowed_return_url write_auth_deprecated_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -66,8 +66,7 @@ if (defined $User_id) {
 			$url = "/cgi/product.pl?type=edit&code=$code";
 		}
 	}
-	elsif ( (defined $referer)
-		and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/)
+	elsif (is_allowed_return_url($referer, $subdomain)
 		and (not($referer =~ /(?:login|session|user|reset_password)\.pl/)))
 	{
 		$url = $referer;
@@ -78,7 +77,9 @@ if (defined $User_id) {
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
 		write_auth_deprecated_headers({endpoint => 'cgi/session.pl', flow => 'redirect_after_login'});
-		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
+		if (defined $request_ref->{cookie}) {
+			$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
+		}
 		$r->headers_out->set(Location => "$url");
 		$r->status(302);
 		return 302;
