@@ -17,18 +17,18 @@
 
 <form id="select_format_form" action="/cgi/import_file_process.pl" method="POST" enctype="multipart/form-data">
 
-    <input type="submit" class="button small" value="[% edq(lang('import_data')) %]">
+    <input type="submit" class="button small" value="[% lang('import_data') | html %]">
     [% selected_columns_count %]
 
     <table id="select_fields" aria-label="data table">
         <tr>
             <th id="column_in_file">[% lang("column_in_file") %]</th>
-            <th id="field_on_site"  colspan="2">[% field_on_site %]</th>
+            <th id="field_on_site"  colspan="2">[% field_on_site | html %]</th>
         </tr>
 
         [% FOREACH data_row IN table_data_rows %]
             <tr id="column_[% data_row.col %]" class="column_row">
-                <td>[% data_row.column_without_tags %]</td>
+                <td>[% data_row.column_without_tags | html %]</td>
                 <td>
                     <select class="select2_field" name="select_field_[% data_row.col %]" id="select_field_[% data_row.col %]" style="width:420px">
                         <option></option>
@@ -38,16 +38,16 @@
             </tr>
 
             <tr id="column_info_[% data_row.col %]" class="column_info_row" style="display:none">
-                <td>[% data_row.examples %]</td>
-                <td colspan="2" id="column_instructions_[% data_row.col %]">[% data_row.instructions %]</td>
+                <td>[% data_row.examples | html %]</td>
+                <td colspan="2" id="column_instructions_[% data_row.col | html %]">[% data_row.instructions | html %]</td>
             </tr>
         [% END %]
 
     </table>
 
     <input type="hidden" name="columns_fields_json" id="columns_fields_json">
-    <input type="hidden" name="file_id" id="file_id" value="[% file_id %]">
-    <input type="submit" class="button small" value="[% edq(lang('import_data')) %]">
+    <input type="hidden" name="file_id" id="file_id" value="[% file_id | html %]">
+    <input type="submit" class="button small" value="[% lang('import_data') | html %]">
     [% selected_columns_count %]
 
 </form>

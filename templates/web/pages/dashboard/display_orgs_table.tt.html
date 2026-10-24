@@ -58,15 +58,15 @@
         [% FOREACH org IN orgs %]
         <tr>
             <td>[% count %]</td>
-	    <td><a href="https://world.openfoodfacts.org/owner/[% org.org_id %]">[% org.name %]</a></td>
-            <td>[% org.creator_email %]</td>
+	    <td><a href="https://world.openfoodfacts.org/owner/[% org.org_id | uri %]">[% org.name | html %]</a></td>
+            <td>[% org.creator_email | html %]</td>
 	    <td>
-		    <a href="/org/[% org.org_id %]">[% org.org_id %]</a>
-		    <a href="/cgi/org.pl?type=edit&orgid=[% org.org_id %]">
+		    <a href="/org/[% org.org_id | uri %]">[% org.org_id | html %]</a>
+		    <a href="/cgi/org.pl?type=edit&orgid=[% org.org_id | uri %]">
 			    <img src="/images/icons/dist/edit.svg" style="height:1em">
 		    </a>
 	    </td>
-            <td>[% org.valid_org %]</td>
+            <td>[% org.valid_org | html %]</td>
 	    <td>[% IF org.created_t %][% display_date_ymd(org.created_t) %][% END %]</td>
             <td>
                 [% IF org.last_logged_member_t %]
@@ -82,9 +82,9 @@
                     &nbsp;
                 [% END %]
             </td>
-            <td>[% org.last_import_type %]</td>
-	    <td><a href="https://world.openfoodfacts.org/owner/[% org.org_id %]">[% org.data.products.number_of_products_on_public_platform %]</a></td>
-	    <td><a href="https://world.pro.openfoodfacts.org/org/[% org.org_id %]">[% org.data.products.number_of_products_on_producer_platform %]</a></td>
+            <td>[% org.last_import_type | html %]</td>
+	    <td><a href="https://world.openfoodfacts.org/owner/[% org.org_id | uri %]">[% org.data.products.number_of_products_on_public_platform | html %]</a></td>
+	    <td><a href="https://world.pro.openfoodfacts.org/org/[% org.org_id | uri %]">[% org.data.products.number_of_products_on_producer_platform | html %]</a></td>
             <td>[% org.data.products.number_of_data_quality_errors %]</td>
             <td>[% org.data.products.number_of_data_quality_warnings %]</td>
             <td>[% org.data.products.number_of_products_without_nutriscore %]</td>

@@ -8,8 +8,8 @@
 [% IF NOT (product.packagings.size) %]
     "evaluation": "unknown",
     "title_element": {
-        "name": "[% edq(lang('environmental_score_packaging')) %]",
-        "value_string": "[% edq(lang('missing_data')) %]",
+        "name": [% lang('environmental_score_packaging') | js %],
+        "value_string": [% lang('missing_data') | js %],
         "type": "string",
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,
@@ -43,21 +43,21 @@
     [% IF NOT product.environmental_score_data.adjustments.packaging.value.defined %]
     "evaluation": "unknown",
     "title_element": {
-        "value_string": "[% edq(lang('impact_non_assessed')) %]",
+        "value_string": [% lang('impact_non_assessed') | js %],
     [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -15 %]
     "evaluation": "bad",
     "title_element": {
-        "value_string": "[% edq(lang('high_impact')) %]",
+        "value_string": [% lang('high_impact') | js %],
     [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -5 %]
     "evaluation": "average",
     "title_element": {
-        "value_string": "[% edq(lang('medium_impact')) %]",    
+        "value_string": [% lang('medium_impact') | js %]    ,
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
-        "value_string": "[% edq(lang('low_impact')) %]",
+        "value_string": [% lang('low_impact') | js %],
     [% END %]
-        "name": "[% edq(lang('environmental_score_packaging')) %]",
+        "name": [% lang('environmental_score_packaging') | js %],
         "type": "string",
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,

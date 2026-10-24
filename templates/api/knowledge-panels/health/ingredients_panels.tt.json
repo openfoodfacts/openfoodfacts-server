@@ -2,7 +2,7 @@
 {
     "element_type": "panel_group",
     "panel_group_element": {
-        "title": "[% edq(lang('ingredients')) %]",
+        "title": [% lang('ingredients') | js %],
         "type": "subcard",
         "panel_group_id": "ingredients",
         "panel_ids": [
@@ -24,7 +24,7 @@
 {
     "element_type": "panel_group",
     "panel_group_element": {
-        "title": "[% edq(lang('attribute_group_processing_name')).ucfirst %]",
+        "title": [% lang('attribute_group_processing_name').ucfirst | js %],
         "panel_ids": ["nova"],
     },
 }, 
@@ -33,7 +33,7 @@
 {
     "element_type": "panel_group",
     "panel_group_element": {
-        "title": "[% edq(lang('additives_p')).ucfirst %]",
+        "title": [% lang('additives_p').ucfirst | js %],
         "panel_ids": ["additives"],
     },
 }, 
@@ -42,7 +42,7 @@
 {
     "element_type": "panel_group",
     "panel_group_element": {
-        "title":  "[% edq(lang('ingredients_analysis')) %]",
+        "title":  [% lang('ingredients_analysis') | js %],
         "panel_ids": [
             "ingredients_analysis",
             [% IF panels.ingredients_analysis_details.defined %]

@@ -5,8 +5,8 @@
 
             <div class="tag_navigation">
                 [% FOREACH tag IN tags %]
-                    <a href="[% tag.tagtype_path %]">[% tag.tagtype_name.ucfirst %]</a>[% sep %]:
-                    <a href="[% tag.new_tagid_path %]">[% tag.tag_prefix %][% tag.display_tag.ucfirst %]</a>
+                    <a href="[% tag.tagtype_path %]">[% tag.tagtype_name.ucfirst | html %]</a>[% sep %]:
+                    <a href="[% tag.new_tagid_path %]">[% tag.tag_prefix | html %][% tag.display_tag.ucfirst | html %]</a>
                     [% IF loop.last %][% ELSE %] / [% END %]
                 [% END %]
             </div>
@@ -21,7 +21,7 @@
 
                 [% IF canon_url %]
                 <div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
-                    <a href="[% canon_url %]" class="button small" title="[% title %]">
+                    <a href="[% canon_url | url %]" class="button small" title="[% title | html %]">
                         [% display_icon('share') %]
                         <span class="show-for-large-up"> [% lang('share') %]</span>
                     </a>
@@ -56,12 +56,12 @@
 
             [% IF country != 'en:world' %]
             <p>[% lang('countries_s').ucfirst %][% sep %]: [% display_taxonomy_tag("countries", country) %]
-                - <a href="[% world_link_url | html %]">[% world_link %]</a>
+                - <a href="[% world_link_url %]">[% world_link | html %]</a>
             </p>
             [% END %]
 
             [% IF products_title %]
-            <h2 class="products_title">[% products_title %]</h2>
+            <h2 class="products_title">[% products_title | html %]</h2>
             [% END %]
         </div>
 
@@ -75,15 +75,15 @@
                 <div id="facet_panels_content"></div>
             </div>
             <!-- Fetching facet knowledge panel -->                
-            <script>
-                    let facet_kp = "[% facets_kp_url %]";
-                    let params = "?facet_tag=[% tags.0.tagtype %]&value_tag=[% tags.0.canon_tagid %]";
-                    if ("[% tags.1.tagid.defined %]") {
-                        params += "&sec_facet_tag=[% tags.1.tagtype %]&sec_value_tag=[% tags.1.canon_tagid %]"
+                <script>
+                    let facet_kp = [% facets_kp_url | js %];
+                    let params = "?facet_tag=" + [% tags.0.tagtype | js %] + "&value_tag=" + [% tags.0.canon_tagid | js %];
+                    if ([% IF tags.1.tagid.defined %]1[% ELSE %]0[% END %]) {
+                        params += "&sec_facet_tag=[% tags.1.tagtype | uri %]&sec_value_tag=[% tags.1.canon_tagid | uri %]"
                     }
 
                     // Adding language code to get translated data
-                    params += "&lang_code=[% lc %]&country=[% country_code %]";
+                    params += "&lang_code=" + [% lc | js %] + "&country=" + [% country_code | js %];
 
                     fetch(facet_kp + params)
                         .then((response) => {

@@ -22,11 +22,11 @@
     <div class="block v-space-tiny product_banner_unranked" id="prodHead">
         <div class="row h-space-normal">
             <div class="large-12 flex-grid ">
-                <h1 class="title-3" property="food:name" itemprop="name">[% title %]</h1>
+                <h1 class="title-3" property="food:name" itemprop="name">[% title | html %]</h1>
                 <div class="buttons_prod">
                     <!-- Edit product page -->
                     <div class="edit_button">
-                        <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small white-button round" title="[% edq(lang('edit_product_page')) %]">
+                        <a href="/cgi/product.pl?type=edit&code=[% code | uri %]" class="button small white-button round" title="[% lang('edit_product_page') | html %]">
                             <span class="material-icons size-20 ">
                             edit
                             </span>
@@ -36,7 +36,7 @@
 
                     <!-- Share -->
                     <div class="share_button" style="display:none;">
-                        <a href="[% request_ref.canon_url %]" class="button small" title="[% title %]">
+                        <a href="[% request_ref.canon_url | url %]" class="button small" title="[% title | html %]">
                             <span class="material-icons size-20 ">
                             share
                             </span>
@@ -49,7 +49,7 @@
                     [% IF user_moderator %]
                     <!-- Delete product page -->
                         <div class="delete_button">
-                            <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small alert" title="[% edq(lang('delete_product_page')) %]">
+                            <a href="/cgi/product.pl?type=delete&code=[% code | uri %]" class="button small alert" title="[% lang('delete_product_page') | html %]">
                                 <span class="material-icons size-20 ">
                                 delete
                                 </span>
@@ -60,7 +60,7 @@
 
                     [% IF server_options_producers_platform %]
                         <div class="delete_button">
-                            <a href="/cgi/export_products.pl?query_code=[% code %]" class="button small" title="[% edq(lang('export_product_page')) %]">
+                            <a href="/cgi/export_products.pl?query_code=[% code | uri %]" class="button small" title="[% lang('export_product_page') | html %]">
                                 <span class="material-icons size-20 ">
                                 publish
                                 </span>
@@ -120,16 +120,16 @@
                     [% END %]
 
 
-                    <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h1>
+                    <h2 class="title-1" property="food:name" itemprop="name">[% title | html %]</h1>
 
                     [% IF server_options_producers_platform %]
-                        <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
+                        <p>→ <a href="[% public_product_url | url %]">[% lang("product_page_on_the_public_database") %]</a></p>
                     [% END %]
 
             <!-- Obsolete product -->
             [% IF product_is_obsolete %]
                 <div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
-                    [% warning %]
+                    [% warning | html %]
                 </div>
             [% END %]
 
@@ -153,18 +153,18 @@
             <!-- owner -->
             [% IF owner %]
                 <p>
-                    [% FILTER format(lang("sources_manufacturer")) %]<a href="/facets[% canonicalize_taxonomy_tag_link("editors", owner) %]">[% owner_org.name %]</a>[% END %]
+                    [% FILTER format(lang("sources_manufacturer")) %]<a href="/facets[% canonicalize_taxonomy_tag_link("editors", owner) | uri %]">[% owner_org.name | html %]</a>[% END %]
 
                     [% IF owner_org.customer_service.email || owner_org.customer_service.link || owner_org.customer_service.phone %]
                             - [% lang("customer_service") %][% sep %]:
                             [% IF owner_org.customer_service.email %]
-                                [% display_icon('email') %] <a href="mailto:[% owner_org.customer_service.email %]">[% owner_org.customer_service.email %]</a>
+                                [% display_icon('email') %] <a href="mailto:[% owner_org.customer_service.email | uri %]">[% owner_org.customer_service.email | html %]</a>
                             [% ELSIF owner_org.customer_service.link %]
-                                [% display_icon('email') %] <a href="[% owner_org.customer_service.link %]">[% lang("contact_form") %]</a>
+                                [% display_icon('email') %] <a href="[% owner_org.customer_service.link | url %]">[% lang("contact_form") %]</a>
                             [% END %]
 
                             [% IF owner_org.customer_service.phone %]
-                                [% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% owner_org.customer_service.phone %]">[% owner_org.customer_service.phone %]</a></span>
+                                [% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% owner_org.customer_service.phone | uri %]">[% owner_org.customer_service.phone | html %]</a></span>
                             [% END %]
                     [% END %]
                 </p>
@@ -175,13 +175,13 @@
                             <div id="barcode_div">
                                 <!-- Display only text of the code if mobile -->
                                 <div id="barcode_div_code">
-                                    <p id="barcode_paragraph">[% lang("barcode") %]: <br id="barcode_br"><span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>[% upc %]</p>
+                                    <p id="barcode_paragraph">[% lang("barcode") %]: <br id="barcode_br"><span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code | html %]</span>[% upc | html %]</p>
                                 </div>
                                 <!-- Display with SVG if not mobile -->
                                 <div id="barcode_div_svg">
                                     <svg id="barcode_svg"
                                         jsbarcode-format="[% IF code.length == 13 %]EAN13[% ELSIF code.length == 8 %]EAN8[% ELSE %]CODE128[% END %]"
-                                        jsbarcode-value="[% code %]"
+                                        jsbarcode-value="[% code | html %]"
                                         jsbarcode-displayValue="false"
                                         jsbarcode-height="40">
                                     </svg>
@@ -205,10 +205,10 @@
                                 }
                             }
                             </script>
-                            <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
+                            <div property="gr:hasEAN_UCC-13" content="[% code | html %]" datatype="xsd:string"></div>
                         [% ELSE %]
                          [%# put in DOM for folksonomy %]
-                          <span id="barcode"  style="display: none;">[% code %]</span>
+                          <span id="barcode"  style="display: none;">[% code | html %]</span>
                         [% END %]
 
                         [% product_fields %]
@@ -432,7 +432,7 @@
 
 
         <div class="edit_button center text-center" >
-            <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small">
+            <a href="/cgi/product.pl?type=edit&code=[% code | uri %]" class="button small">
                 [% display_icon('edit') %]
                 [% lang('edit_product_page') %]
             </a>
@@ -449,12 +449,12 @@
             <div class="card">
                 <div class="reblock card-section">
                     <div class="large-12 column">
-                        <folksonomy-editor product-code="[% code %]" page-type="[% IF is_user %]edit[% ELSE %]view[%END%]">
+                        <folksonomy-editor product-code="[% code | html %]" page-type="[% IF is_user %]edit[% ELSE %]view[%END%]">
                         </folksonomy-editor>
                     </div>
                     [% IF not is_user %]
                     <div class="edit_button center text-center" >
-                        <a href=[% IF oidc_implementation_level < 3 %]"/cgi/session.pl"[% ELSE %]"/cgi/oidc_signin.pl?return_url=[% uri_escape(formatted_subdomain _  this_product_url _ '#folksonomy_editor') %]"[% END %] class="button small">
+                        <a href=[% IF oidc_implementation_level < 3 %]"/cgi/session.pl"[% ELSE %]"/cgi/oidc_signin.pl?return_url=[% (formatted_subdomain _ this_product_url _ '#folksonomy_editor') | uri %]"[% END %] class="button small">
                             [% display_icon('edit') %]
                             [% lang('signin_to_edit_fe_properties') %]
                         </a>

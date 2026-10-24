@@ -1,29 +1,29 @@
-[% IF user.requested_org_id %]
-Subject: New pro account for existing org [% user.requested_org_id %] - [% user.userid %]
+ [% IF user.requested_org_id %]
+Subject: New pro account for existing org [% user.requested_org_id | html %] - [% user.userid | html %]
 [% ELSE %]
-Subject: New pro account for new org [% user.org_id %] - [% user.userid %]
+Subject: New pro account for new org [% user.org_id | html %] - [% user.userid | html %]
 [% END %]
 
 <!-- start templates/[% template.name %] -->
 
-org_id: [% user.org_id or user.requested_org_id %]<br>
-org_name: [% user.org or user.requested_org %]<br>
-userid: [% user.userid %]<br>
-name: [% user.name %]<br>
-email: [% user.email %]<br>
-lc: [% user.preferred_language %]<br>
-cc: [% cc %]<br>
+org_id: [% (user.org_id or user.requested_org_id) | html %]<br>
+org_name: [% (user.org or user.requested_org) | html %]<br>
+userid: [% user.userid | html %]<br>
+name: [% user.name | html %]<br>
+email: [% user.email | html %]<br>
+lc: [% user.preferred_language | html %]<br>
+cc: [% cc | html %]<br>
 
-<a href="https://world.openfoodfacts.org/cgi/org.pl?type=edit&orgid=[% user.org or user.requested_org %]">Access org [% user.org or user.requested_org %] to validate if it is a real organization</a>
+<a href="https://world.openfoodfacts.org/cgi/org.pl?type=edit&orgid=[% (user.org or user.requested_org) | uri %]">Access org [% (user.org or user.requested_org) | html %] to validate if it is a real organization</a>
 <br>
-<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-[% user.org_id or user.requested_org_id %]">Access the pro platform as organization [% user.requested_org_id %]</a>
+<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-[% (user.org_id or user.requested_org_id) | uri %]">Access the pro platform as organization [% user.requested_org_id | html %]</a>
 <br>
 <br>
-<a href="mailto:[% user.email %]?subject=[% mail_subject_new_pro_account %]&cc=producteurs@openfoodfacts.org&body=[% mail_body_new_pro_account %]">E-mail de relance</a>
+<a href="mailto:[% user.email | uri %]?subject=[% mail_subject_new_pro_account | uri %]&cc=producteurs@openfoodfacts.org&body=[% mail_body_new_pro_account | uri %]">E-mail de relance</a>
 <br>
 <br>
 [% IF user.requested_org_id %]
-<a href="mailto:[% user.email %]?subject=[% mail_subject_new_pro_account_org_request_validated %]&cc=producteurs@openfoodfacts.org&body=[% mail_body_new_pro_account_org_request_validated %]">E-mail de rattachement à l'organisation</a>
+<a href="mailto:[% user.email | uri %]?subject=[% mail_subject_new_pro_account_org_request_validated | uri %]&cc=producteurs@openfoodfacts.org&body=[% mail_body_new_pro_account_org_request_validated | uri %]">E-mail de rattachement à l'organisation</a>
 <br>
 <br>
 [% END %]
@@ -52,15 +52,15 @@ Here is the tabular data for the producer if they are not in the tracking spread
 </thead>
 <tbody>
   <tr>
-    <td>[% user.org_id or user.requested_org_id %]</td>
+    <td>[% (user.org_id or user.requested_org_id) | html %]</td>
     <td>Signed up to the platform on [% display_date_ymd(time_t) %]</td>
-    <td>[% cc %]</td>
-    <td>[% user.name %]</td>
+    <td>[% cc | html %]</td>
+    <td>[% user.name | html %]</td>
     <td></td>
-    <td>[% user.org_id or user.requested_org_id %]</td>
+    <td>[% (user.org_id or user.requested_org_id) | html %]</td>
     <td></td>
     <td>Yes</td>
-    <td>[% user.email %]</td>
+    <td>[% user.email | html %]</td>
   </tr>
 </tbody>
 </table>
