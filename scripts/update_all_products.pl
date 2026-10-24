@@ -40,6 +40,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --query some_field=-some_value	match products that don't have some_value for some_field
 --query some_field=value1,value2	match products that have value1 and value2 for some_field (must be a _tags field)
 --query some_field=value1\|value2	match products that have value1 or value2 for some_field (must be a _tags field)
+--query-codes-from-file	read product codes from a text file (one per line) and update those products instead of issuing a MongoDB query
 --analyze-and-enrich-product-data	run all the analysis and enrichments
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
@@ -65,6 +66,7 @@ use ProductOpener::Store qw/retrieve_object store_object/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Images qw/process_image_crop/;
 use ProductOpener::Lang qw/$lc/;
@@ -76,9 +78,10 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::EnvironmentalScore qw(compute_environmental_score);
+use ProductOpener::EnvironmentalImpact qw(estimate_environmental_impact_service);
 use ProductOpener::Packaging
 	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
-use ProductOpener::ForestFootprint qw(compute_forest_footprint);
+use ProductOpener::ForestFootprint2026 qw(compute_forest_footprint_2026);
 use ProductOpener::MainCountries qw(compute_main_countries);
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
@@ -93,6 +96,7 @@ use Encode;
 use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
 use Data::Compare;
+use Time::Local;
 
 use Log::Any::Adapter 'TAP';
 
@@ -145,6 +149,7 @@ my $delete_old_fields = '';
 my $mongodb_to_mongodb = '';
 my $compute_environmental_score = '';
 my $compute_forest_footprint = '';
+my $compute_ecobalyse = '';
 my $fix_nutrition_data_per = '';
 my $fix_nutrition_data = '';
 my $compute_main_countries = '';
@@ -159,12 +164,19 @@ my $fix_obsolete;
 my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
 my $add_product_type = '';    # Add product type to products that don't have it, based on off/opf/obf/opff flavor
 my $force_new_version = 0;
+my $fix_to_be_exported = 0
+	; # Reset the en:to-be-exported status for product that have en:exported with the last_exported_t data within a specific time frame
+
+my %fix_to_be_exported_orgs = ()
+	; # Used to record which orgs had products with en:exported status that were updated with the --fix-to-be-exported option.
 
 my $query_params_ref = {};    # filters for mongodb query
+my $query_codes_from_file = '';    # file with product codes to update
 
 GetOptions(
 	"key=s" => \$key,    # string
 	"query=s%" => $query_params_ref,
+	"query-codes-from-file=s" => \$query_codes_from_file,
 	"count" => \$count,
 	"just-print-codes" => \$just_print_codes,
 	"fields=s" => \@fields_to_update,
@@ -185,6 +197,7 @@ GetOptions(
 	"compute-carbon" => \$compute_carbon,
 	"compute-environmental_score" => \$compute_environmental_score,
 	"compute-forest-footprint" => \$compute_forest_footprint,
+	"compute-ecobalyse" => \$compute_ecobalyse,
 	"check-quality" => \$check_quality,
 	"compute-sort-key" => \$compute_sort_key,
 	"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
@@ -226,6 +239,7 @@ GetOptions(
 	"fix-obsolete" => \$fix_obsolete,
 	"fix-last-modified-t" => \$fix_last_modified_t,
 	"add-product-type" => \$add_product_type,
+	"fix-to-be-exported" => \$fix_to_be_exported,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -298,6 +312,7 @@ if (    (not $process_ingredients)
 	and (not $compute_carbon)
 	and (not $compute_environmental_score)
 	and (not $compute_forest_footprint)
+	and (not $compute_ecobalyse)
 	and (not $process_packagings)
 	and (not $check_quality)
 	and (scalar @fields_to_update == 0)
@@ -308,6 +323,7 @@ if (    (not $process_ingredients)
 	and (not $fix_obsolete)
 	and (not $fix_last_modified_t)
 	and (not $add_product_type)
+	and (not $fix_to_be_exported)
 	and (not $analyze_and_enrich_product_data))
 {
 	die("Missing fields to update or --count option:\n$usage");
@@ -329,6 +345,29 @@ load_data();
 my $query_ref = {};
 
 add_params_to_query($query_params_ref, $query_ref);
+
+if ($query_codes_from_file) {
+	my @codes = ();
+	open(my $in, "<", "$query_codes_from_file") or die("Cannot read $query_codes_from_file: $!\n");
+	while (<$in>) {
+		if ($_ =~ /^(\d+)/) {
+			push @codes, $1;
+		}
+	}
+	close($in);
+	$query_ref->{"code"} = {'$in' => \@codes};
+}
+
+# --fix-to-be-exported: filter on states_tags en:exported
+# and last_exported_t between April 1st 2026 and June 2nd 2026
+# as we had an issue with exports to the public platform silently failing and products marked as exported  without actually being exported
+# we want to reset the en:to-be-exported status for those products so that they can be exported correctly.
+if ($fix_to_be_exported) {
+	$query_ref->{'states_tags'} = 'en:exported';
+	my $start_t = timegm(0, 0, 0, 1, 4 - 1, 2026 - 1900);    # April 1st 2026
+	my $end_t = timegm(0, 0, 0, 2, 6 - 1, 2026 - 1900);    # June 2nd 2026
+	$query_ref->{'last_exported_t'} = {'$gte' => $start_t, '$lte' => $end_t};
+}
 
 # Query products on the pro platform where _id is missing the owner prefix
 # (e.g. _id = "5060323905388" instead of "org-xxx/5060323905388")
@@ -1347,6 +1386,22 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
+		# Fix products to_be_exported status if last_exported_t is within a specific time frame, as we had an issue with exports to the public platform silently failing and products marked as exported  without actually being exported
+		# The en:exported states_tag and the last_exported_t have been added to the query,
+		# so we can apply the fix to all selected products in this loop
+		if ($fix_to_be_exported) {
+			# Remove en:exported from states_tags and add en:to-be-exported
+
+			print STDERR "fixing to_be_exported status for product $code\n";
+			remove_tag($product_ref, "states", "en:exported");
+			add_tag($product_ref, "states", "en:to-be-exported");
+			$product_values_changed = 1;
+			# Record the org from the owner field
+			defined $fix_to_be_exported_orgs{$product_ref->{owner}}
+				or $fix_to_be_exported_orgs{$product_ref->{owner}} = 0;
+			$fix_to_be_exported_orgs{$product_ref->{owner}}++;
+		}
+
 		if ($process_packagings) {
 			analyze_and_combine_packaging_data($product_ref, $response_ref);
 		}
@@ -1356,7 +1411,16 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_forest_footprint) {
-			compute_forest_footprint($product_ref);
+			compute_forest_footprint_2026($product_ref);
+		}
+
+		if ($compute_ecobalyse) {
+			my @errors = ();
+			# skip_ecobalyse_call = 0 means we actually call the API
+			estimate_environmental_impact_service($product_ref, {}, \@errors, 0);
+			# Do not mark products with failed Ecobalyse calls as processed (with the new update_key),
+			# so that they can be retried in a later run
+			next if @errors;
 		}
 
 		if ($compute_main_countries) {
@@ -1515,7 +1579,7 @@ while (my $product_ref = $cursor->next) {
 				# we store the product with the new update_key in the .sto file and the mongodb collection
 
 				# Set last modified time if something was changed
-				if ($any_change) {
+				if ($any_change or $force_new_version) {
 					$product_ref->{last_updated_t} = time() + 0;
 				}
 				else {
@@ -1653,5 +1717,13 @@ print STDERR "products_changed: $products_changed\n";
 print STDERR "products_new_version_created: $products_new_version_created\n";
 print STDERR "products_silently_updated: $products_silently_updated\n";
 print STDERR "products_pushed_to_redis: $products_pushed_to_redis\n";
+
+# List orgs with products that had their to-be-exported status fixed
+if ($fix_to_be_exported) {
+	print "\nOrgs with products that had their to-be-exported status fixed:\n";
+	foreach my $org (sort keys %fix_to_be_exported_orgs) {
+		print "$org\t" . $fix_to_be_exported_orgs{$org} . "\n";
+	}
+}
 
 exit(0);
