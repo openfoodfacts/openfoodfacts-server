@@ -204,30 +204,33 @@ def check_image_exists(img_ref):
 
     return False
 
-def normalize_html_tag(tag_str):
-    tag_str = tag_str.strip()
-    if re.match(r"</\s+[a-zA-Z]", tag_str):
-        return "malformed", tag_str
-    m = re.match(r"</?([a-zA-Z][a-zA-Z0-9]*)\b", tag_str)
-    if not m:
-        return "other", tag_str
-    name = m.group(1).lower()
-    if name == "br":
-        return "tag", "<br>"
-    is_close = tag_str.startswith("</")
-    return "tag", f"</{name}>" if is_close else f"<{name}>"
-
 def validate_placeholders_and_html(po_file, msgid, msgstr):
     issues = []
 
-    # 1. Check printf specifiers (%s, %d, %i, and positional %1$s, %2$d, etc.)
+    # 1. Check printf specifiers, e.g. %s, %d, %i, %u, %f, and positional %1$s, %2$d, etc.
+    # Supports width/precision/length (e.g. %02d, %.2f, %ld) but deliberately NOT
+    # printf flags (-, +, space, #, 0, ') to avoid matching literal percentages
+    # in prose such as "5% of members" or "100% free" ("% o", "% f").
+    # %% is an escaped percent, not a placeholder.
+    PRINTF_RE = re.compile(
+        r"%%|%((?:[0-9]+\$)?)(?:\*|[0-9]+)?(?:\.(?:\*|[0-9]+))?"
+        r"(?:hh|h|l|ll|j|z|t|L)?([diuoxXfFeEgGaAcCs])"
+    )
+
     def extract_printf(text):
-        return re.findall(r"%(?:[0-9]+\$)?[sdi]", text)
+        found = []
+        for m in PRINTF_RE.finditer(text):
+            if m.group(0) == "%%":
+                continue
+            found.append(m.group(0))
+        return found
 
     def parse_pf(f):
-        m = re.match(r"%([0-9]+\$)?([sdi])", f)
-        t = "d" if m.group(2) == "i" else m.group(2)
-        pos = int(m.group(1).rstrip("$")) if m.group(1) else None
+        m = PRINTF_RE.fullmatch(f)
+        t = m.group(2).lower()
+        if t == "i":
+            t = "d"
+        pos = int(m.group(1)[:-1]) if m.group(1) else None
         return pos, t
 
     id_pf_raw = extract_printf(msgid)
@@ -272,7 +275,7 @@ def validate_placeholders_and_html(po_file, msgid, msgstr):
         for m in re.finditer(r"</?([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>", text):
             full = m.group(0)
             name = m.group(1).lower()
-            if name in ("br", "hr", "img"):
+            if name in ("br", "hr", "img") or full.rstrip().endswith("/>"):
                 tags.append(("void", name))
             elif full.startswith("</"):
                 tags.append(("close", name))
@@ -280,27 +283,64 @@ def validate_placeholders_and_html(po_file, msgid, msgstr):
                 tags.append(("open", name))
         return tags
 
+    def check_nesting(tags):
+        stack = []
+        for kind, name in tags:
+            if kind == "void":
+                continue
+            if kind == "open":
+                stack.append(name)
+            elif not stack:
+                return f"stray closing `</{name}>` with no matching open tag"
+            elif stack[-1] == name:
+                stack.pop()
+            else:
+                return f"expected `</{stack[-1]}>` but found `</{name}>` (mismatched nesting, open stack `{stack}`)"
+        if stack:
+            return f"unclosed tags `{stack}`"
+        return None
+
     id_tags = parse_tags(clean_id)
     str_tags = parse_tags(clean_str)
 
-    # Check unclosed non-void tags in msgstr
-    str_opens = sorted([name for kind, name in str_tags if kind == "open"])
-    str_closes = sorted([name for kind, name in str_tags if kind == "close"])
-    if str_opens != str_closes:
-        issues.append(f"- **Unclosed HTML tag** in `{po_file}`: opened `{str_opens}`, closed `{str_closes}` in `{msgstr}`")
+    # Stack-based nesting validation on the translation (catches <p><b></p></b> etc.)
+    nesting_error = check_nesting(str_tags)
+    if nesting_error:
+        str_opens = sorted([name for kind, name in str_tags if kind == "open"])
+        str_closes = sorted([name for kind, name in str_tags if kind == "close"])
+        if str_opens != str_closes:
+            issues.append(f"- **Unclosed HTML tag** in `{po_file}`: opened `{str_opens}`, closed `{str_closes}` in `{msgstr}`")
+        else:
+            issues.append(f"- **Mismatched HTML nesting** in `{po_file}`: {nesting_error} in `{msgstr}`")
 
-    # Check structural tags
-    structural_tags = {"a", "p", "b", "i", "strong", "em", "div", "span", "table", "tr", "td", "th", "ul", "ol", "li"}
+    # Check structural tags. Core layout/link tags require parity; sub/sup only
+    # flag DROPPED tags (translations may legitimately upgrade plain "CO2" to
+    # "CO<sub>2</sub>"). English ordinal suffixes (5<sup>th</sup>) are exempt:
+    # languages may drop or rewrite them (5., 5e, ...).
+    structural_tags = {"a", "p", "b", "i", "strong", "em", "div", "span",
+                       "table", "tr", "td", "th", "ul", "ol", "li", "sub", "sup"}
+    core_tags = structural_tags - {"sub", "sup"}
     id_struct = sorted([name for kind, name in id_tags if name in structural_tags])
     str_struct = sorted([name for kind, name in str_tags if name in structural_tags])
-    if id_struct != str_struct:
-        issues.append(f"- **Structural HTML tag mismatch** in `{po_file}`: Expected `{id_struct}`, found `{str_struct}` in `{msgstr}`")
+    if re.search(r"<sup>\s*(?:th|st|nd|rd)\s*</sup>", clean_id, flags=re.IGNORECASE):
+        id_struct = [n for n in id_struct if n != "sup"]
+        str_struct = [n for n in str_struct if n != "sup"]
+    id_core = sorted([n for n in id_struct if n in core_tags])
+    str_core = sorted([n for n in str_struct if n in core_tags])
+    if id_core != str_core:
+        issues.append(f"- **Structural HTML tag mismatch** in `{po_file}`: Expected `{id_core}`, found `{str_core}` in `{msgstr}`")
+    else:
+        from collections import Counter
+        missing = list((Counter(n for n in id_struct if n in ("sub", "sup")) - Counter(n for n in str_struct if n in ("sub", "sup"))).elements())
+        if missing:
+            issues.append(f"- **Structural HTML tag mismatch** in `{po_file}`: Missing `{sorted(missing)}` (expected `{sorted(id_struct)}`, found `{sorted(str_struct)}`) in `{msgstr}`")
 
-    # Check void tags (br)
-    id_br_count = sum(1 for kind, name in id_tags if name == "br")
-    str_br_count = sum(1 for kind, name in str_tags if name == "br")
-    if id_br_count != str_br_count:
-        issues.append(f"- **Line break (<br>) mismatch** in `{po_file}`: Expected `{id_br_count}` <br>, found `{str_br_count}` in `{msgstr}`")
+    # Check void tags (br, hr, img): flag dropped tags; extra tags are harmless.
+    for void_name in ("br", "hr", "img"):
+        id_count = sum(1 for kind, name in id_tags if name == void_name)
+        str_count = sum(1 for kind, name in str_tags if name == void_name)
+        if str_count < id_count:
+            issues.append(f"- **Void tag (<{void_name}>) mismatch** in `{po_file}`: Expected `{id_count}` <{void_name}>, found `{str_count}` in `{msgstr}`")
 
     return issues
 
