@@ -1,0 +1,18 @@
+# Default server configuration - nginx_status
+#
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name _;
+
+	# nginx_status configuration, need for Munin
+	location /nginx_status {
+		stub_status on;
+		access_log   off;
+		allow 127.0.0.0/8;     # loopback aka localhost
+		allow 10.0.0.0/8;      # proxmox private range
+		allow 172.16.0.0/12;   # docker IP range
+                allow 192.168.0.0/16;
+		deny all;              # deny all other hosts 
+	}
+}

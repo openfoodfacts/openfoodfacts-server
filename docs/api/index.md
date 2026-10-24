@@ -21,13 +21,13 @@ The Open Food Facts API enables developers to get information like ingredients a
 
 ## Before You Start
 
-- The Open Food Facts database is available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).
+- The Open Food Facts database is available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/)
 - The individual contents of the database are available under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).
 - Product images are available under the [Creative Commons Attribution ShareAlike](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license. They may contain graphical elements subject to copyright or other rights that may, in some cases, be reproduced (quotation rights or fair use).
 
 Before using the API, please :
 
-1. Read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use)
+1. Read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use) and [our wiki page about ODbL](https://wiki.openfoodfacts.org/ODBL_License).
 2. **Tell us how you'll use it** by filling out this short form:  
    👉 [Fill out the API usage form](https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform)
    This helps us understand real-world uses of the API and prioritize improvements.
@@ -58,6 +58,14 @@ If your requests come from your users directly (ex: mobile app), the rate limits
 If you need to fetch more than a few hundred products, we ask you to [download the data as a CSV or JSONL file directly](https://world.openfoodfacts.org/data). If you need to download images in bulk, we [have a guide for that](./how-to-download-images.md).
 
 To protect our infrastructure from abusive crawl, we also added global rate-limits on the website and API endpoints, irrespective of the IP address. A HTTP 503 response (Service Not Available) will be returned if these limits are exceeded.
+
+### Handling errors and downtime for WRITE requests
+
+The server can be temporarily unavailable (maintenance, high load, or the global rate-limits above). To avoid losing your users' contributions, we recommend that you:
+
+- **Queue WRITE requests** (product edits, image uploads…) in your app, and only remove them from the queue once the server has confirmed the request succeeded.
+- **Retry with exponential backoff** when a request fails because of a network error, a timeout, or an HTTP 429 or 5xx (e.g. 503) response: wait a few seconds before the first retry, then double the delay at each attempt, adding some random jitter so that all your users do not retry at the same time.
+- **Limit the number of retries**, and do not retry requests that failed because of a client error (other 4xx responses): fix the request instead.
 
 If you expect your app to generate a lot of API traffic, we **strongly encourage you to host a local instance of Product Opener (or another custom API backend)**, and use the daily exports to update your local database.
 
@@ -111,7 +119,7 @@ Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/)
 
 You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.
 
-We however ask that you send the [`app_name`, `app_version` and `app_uuid` parameters](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl) in your write queries.
+We however ask that you send the [`app_name`, `app_version` and `app_uuid` parameters](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/products/post-cgi-product_jqm2.pl/) in your write queries.
 
 - `app_name=MyApp`
 - `app_version=1.1`
@@ -161,7 +169,7 @@ Structured (filter-based) search by categories, brands, nutrients, and other fie
 
 ## Help
 
-- Try the [FAQ](https://support.openfoodfacts.org/help/en-gb/12-api) - to answer most of your questions.
+- Try the [FAQ](https://world.openfoodfacts.org/faq#api-data-reuse) - to answer most of your questions.
 - Didn't get what you wanted? Contact the Team on the [#api Slack Channel][slack_url].
 - [Report Bugs][report_bugs] on the Open Food Facts GitHub repository.
 - Do you have an issue or feature request? You can submit it [on GitHub](https://github.com/openfoodfacts/openfoodfacts-server/issues/new) too.
@@ -181,16 +189,15 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 
 > **Warning**: Before exploring any SDK, please read the [Before You Start section](#before-you-start).
 >
-> Also, remember to check the [API Reference Documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) first to verify if the problem is in SDK implementation or in the API itself.
+> Also, remember to check the [API Reference Documentation](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/ref-v2/) first to verify if the problem is in SDK implementation or in the API itself.
 
-- Cordova: [GitHub (old Open Food Facts official app)](https://github.com/openfoodfacts/openfoodfacts-cordova-app)
 - DART: [GitHub](https://github.com/openfoodfacts/openfoodfacts-dart) - [Package on pub.dev](https://pub.dev/packages/openfoodfacts)
 - Elixir: [GitHub](https://github.com/openfoodfacts/openfoodfacts-elixir) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C758AFX0S)
 - Go: [GitHub](https://github.com/openfoodfacts/openfoodfacts-go) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C14LGGCUV)
 - Java: [GitHub](https://github.com/openfoodfacts/openfoodfacts-java) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
 - Spring Boot: [GitHub](https://github.com/openfoodfacts/openfoodfacts-springboot-starter) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
 - Kotlin: [GitHub](https://github.com/openfoodfacts/openfoodfacts-kotlin) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C045VU7NXS9)
-- NodeJS: [GitHub](https://github.com/openfoodfacts/openfoodfacts-nodejs) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JQQ28P8)
+- JavaScript: [GitHub](https://github.com/openfoodfacts/openfoodfacts-js) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JQQ28P8)
 - PHP: [GitHub](https://github.com/openfoodfacts/openfoodfacts-php) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)
 - PHP (Laravel): [GitHub](https://github.com/openfoodfacts/openfoodfacts-laravel) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)
 - Python: [GitHub](https://github.com/openfoodfacts/openfoodfacts-python), published on [pypi](https://pypi.org/project/openfoodfacts/) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C13993JDD)

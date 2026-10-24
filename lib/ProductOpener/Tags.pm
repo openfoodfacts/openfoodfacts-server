@@ -60,6 +60,7 @@ BEGIN {
 		&sanitize_taxonomy_line
 
 		&is_a
+		&get_taxonomy_tag_level
 
 		&get_property
 		&get_property_with_fallbacks
@@ -96,12 +97,14 @@ BEGIN {
 		&display_taxonomy_tag_name
 		&display_taxonomy_tag_link
 		&get_taxonomy_tag_and_link_for_lang
+		&taxonomy_display_name
 
 		&get_tag_image
 
 		&display_tag_name
 		&display_tag_link
 		&display_tags_list
+		&display_tag_and_parents_taxonomy
 		&display_parents_and_children
 		&display_tags_hierarchy
 		&export_tags_hierarchy
@@ -154,6 +157,7 @@ BEGIN {
 		&get_all_taxonomy_entries
 		&get_taxonomy_tag_synonyms
 
+		&generate_regexps_matching_taxonomy_stopwords
 		&generate_regexps_matching_taxonomy_entries
 
 		&cmp_taxonomy_tags_alphabetically
@@ -163,6 +167,7 @@ BEGIN {
 		&create_property_to_tag_mapping_table
 
 		&get_taxonomy_tag_path
+		&get_tag_with_parents
 
 		&get_minimal_tags_subset
 		&gen_tags_list_with_parents
@@ -182,7 +187,6 @@ use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
 use ProductOpener::Texts qw/$lang_dir/;
 use ProductOpener::HTTP qw/create_user_agent/;
-use ProductOpener::IngredientsStrings qw/%may_contain_regexps/;
 use ProductOpener::PackagerCodes qw/$ec_code_regexp/;
 
 use Clone qw(clone);
@@ -236,6 +240,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	codes => 1,
 	debug => 1,
 	environment_impact_level => 1,
+	storage_conditions_tags => 1,
 	data_sources => 1,
 	teams => 1,
 	categories_properties => 1,
@@ -310,13 +315,14 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 
 %stopwords = ();
 %just_synonyms = ();
+
 my %just_tags = ();    # does not include synonyms that are only synonyms
 my %synonyms = ();
 %synonyms_for = ();
 my %synonyms_for_extended = ();
 %translations_from = ();
 %translations_to = ();
-%level = ();
+%level = ();    # level of a tag is the maximum length of the chain of children from that tag to a leaf
 my %direct_parents = ();
 my %direct_children = ();
 my %all_parents = ();
@@ -721,6 +727,26 @@ sub is_a ($tagtype, $child, $parent) {
 	return $found;
 }
 
+=head2 get_taxonomy_tag_level ($tagtype, $tagid)
+
+Determine the taxonomy level (depth) of a tag. Higher means more specific. Returns 0 if undefined.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tagid
+
+The tag id for which we want to get the taxonomy level.
+
+=cut
+
+sub get_taxonomy_tag_level ($tagtype, $tagid) {
+	return $level{$tagtype}{$tagid} // 0;
+}
+
 sub load_tags_images ($lc, $tagtype) {
 
 	defined $tags_images{$lc} or $tags_images{$lc} = {};
@@ -745,6 +771,11 @@ sub load_tags_images ($lc, $tagtype) {
 
 # Cache the stopwords regexps to remove stopwords from strings and tagids
 my %stopwords_regexps = ();
+
+sub _invalidate_stopwords_regexps ($tagtype) {
+	delete $stopwords_regexps{$_} for grep {index($_, "$tagtype.") == 0} keys %stopwords_regexps;
+	return;
+}
 
 =head2 remove_stopwords_from_start_or_end_of_string ( $tagtype, $lc, $string )
 
@@ -824,19 +855,19 @@ sub remove_stopwords ($tagtype, $lc, $tagid) {
 			$uppercased_stopwords_overrides = 1;
 		}
 
-		if (not defined $stopwords_regexps{$tagtype . '.' . $lc}) {
-			$stopwords_regexps{$tagtype . '.' . $lc} = join('|', uniq(@{$stopwords{$tagtype}{$lc}}));
-		}
-
-		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc};
-
 		# In Japanese, do not require a word boundary, and do not introduce a hyphen
+		# In other languages, require a word boundary, and replace stopwords with a hyphen
+		# The regexp is compiled once: the tagtype and language change from one call to the next
+		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc} //= do {
+			my $stopwords = join('|', uniq(@{$stopwords{$tagtype}{$lc}}));
+			($lc eq 'ja') ? qr/$stopwords/ : qr/(^|-)($stopwords)(-($stopwords))*(-|$)/;
+		};
+
 		if ($lc eq 'ja') {
 			$tagid =~ s/$regexp//g;
 		}
-		# In other languages, require a word boundary, and replace stopwords with a hyphen
 		else {
-			$tagid =~ s/(^|-)($regexp)(-($regexp))*(-|$)/-/g;
+			$tagid =~ s/$regexp/-/g;
 		}
 
 		$tagid =~ tr/-/-/s;
@@ -904,6 +935,43 @@ sub sanitize_taxonomy_line ($line) {
 	$line =~ s/\s+$//;
 
 	return $line;
+}
+
+=head2 taxonomy_display_name( $name )
+
+Turn a name loaded from a taxonomy into a name ready to be displayed to users.
+
+=head3 Arguments
+
+=head4 $name - a name (or list of names) loaded from a taxonomy
+
+=head3 Notes
+
+Taxonomy files escape the commas that are part of a name (e.g. "Fruits\, vegetables\, legumes"),
+because a plain comma separates the values of a line. sanitize_taxonomy_line() replaces those
+escaped commas by a U+201A lower comma when loading the taxonomy.
+
+The lower comma must be kept in the loaded taxonomies, as it ends up in the identifiers computed
+by get_string_id_for_lang(), but it must not be shown to users, which would display
+"Fruits‚ vegetables‚ legumes" instead of "Fruits, vegetables, legumes".
+
+Both characters are turned into "-" when computing an identifier, so replacing the lower comma by
+a plain comma does not change any identifier, nor the lookups that are keyed on them.
+
+=head3 Return values
+
+The name with the U+201A lower commas replaced by plain commas.
+
+=cut
+
+sub taxonomy_display_name ($name) {
+
+	if (defined $name) {
+		$name =~ s/\N{U+201A}/,/g;
+	}
+
+	return $name;
+
 }
 
 =head2 get_lc_tagid( $synonyms_ref, $lc, $tagtype, $tag, $warning )
@@ -993,7 +1061,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20260413 - do not capitalize the first letter of all entries names and synonyms";
+my $BUILD_TAGS_VERSION = "20261020 - faster computation of extended synonyms";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -1249,14 +1317,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		@tagtypes = ("countries", "origins");
 	}
 
-	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
+	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, amino acids, nucleotides and other nutritional substances taxonomies
 	elsif ( ($tagtype eq "ingredients")
 		and (defined $options{product_type})
 		and (($options{product_type} eq "food") or ($options{product_type} eq "petfood")))
 	{
 		@tagtypes = (
 			"additives_classes", "additives", "minerals", "vitamins",
-			"nucleotides", "other_nutritional_substances", "ingredients"
+			"amino_acids", "nucleotides", "other_nutritional_substances", "ingredients"
 		);
 	}
 
@@ -1342,6 +1410,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	# * <lc>.strings contains an array of stop words
 	# * <lc>.orig the original lines as a string
 	$stopwords{$tagtype} = {};
+	_invalidate_stopwords_regexps($tagtype);
 	# synonyms track know synonyms and associate to their tagid, by language
 	# Note that it contains synonyms and extended synonyms
 	# tagtype -> lc -> tagid stores the lc tagid for this tagid
@@ -1402,6 +1471,31 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		$log->debug('load_tags_taxonomy', {tagtype => $tagtype}) if $log->is_debug();
 
+		# All sources must contribute their stopwords before synonym lookups compile regexps.
+		while (<$IN>) {
+			my $line = sanitize_taxonomy_line($_);
+			next unless $line =~ /^stopwords:(\w\w):(\s*)(.*)/;
+			# stop words definition
+			my $lc = $1;
+			my $rest = $3;
+			# store an orig version as is (but spaces)
+			$stopwords{$tagtype}{$lc . ".orig"} .= "stopwords:$lc:$rest\n";
+			$line = $rest;
+			$line =~ s/^\s+//;    # normalize spaces
+			my @tags = split(/\s*,\s*/, $line);    # split on comma
+			foreach my $tag (@tags) {
+				my $tagid = get_string_id_for_lang($lc, $tag);
+				next if $tagid eq '';
+				defined $stopwords{$tagtype}{$lc} or $stopwords{$tagtype}{$lc} = [];
+				defined $stopwords{$tagtype}{$lc . ".strings"} or $stopwords{$tagtype}{$lc . ".strings"} = [];
+				# normalized version
+				push @{$stopwords{$tagtype}{$lc}}, $tagid;
+				# full text version
+				push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
+			}
+		}
+		seek($IN, 0, 0) or die("Cannot rewind $file_path: $!\n");
+
 		# 1st phase: read translations and synonyms
 
 		my $line_number = 0;
@@ -1419,32 +1513,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			}
 
 			# handle lines of comments
-			next if ($line =~ /^\#/);
+			next if ($line =~ /^\#/ or $line =~ /^stopwords:/);
 
 			#print "new_line: $line\n";
 			if ($line =~ /^</) {
 				# Parent
 				# Ignore in first pass as it may be a synonym, or a translation, for the canonical parent
-			}
-			elsif ($line =~ /^stopwords:(\w\w):(\s*)(.*)/) {
-				# stop words definition
-				my $lc = $1;
-				my $rest = $3;
-				# store an orig version as is (but spaces)
-				$stopwords{$tagtype}{$lc . ".orig"} .= "stopwords:$lc:$rest\n";
-				$line = $rest;
-				$line =~ s/^\s+//;    # normalize spaces
-				my @tags = split(/\s*,\s*/, $line);    # split on comma
-				foreach my $tag (@tags) {
-					my $tagid = &$get_id($lc, $tag);
-					next if $tagid eq '';
-					defined $stopwords{$tagtype}{$lc} or $stopwords{$tagtype}{$lc} = [];
-					defined $stopwords{$tagtype}{$lc . ".strings"} or $stopwords{$tagtype}{$lc . ".strings"} = [];
-					# normalized version
-					push @{$stopwords{$tagtype}{$lc}}, $tagid;
-					# full text version
-					push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
-				}
 			}
 			elsif ($line =~ /^(synonyms:)?(\w\w):(.*)/) {
 				# line with regular entry or a synonyms entry
@@ -1476,7 +1550,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					foreach my $tag2 (@tags) {
 
 						my $tag = $tag2;
-						my $possible_canon_tagid = get_lc_tagid($synonyms{$tagtype}, $lc, $tagtype, $tag, "");
+						# Normalized search variants must not merge distinct declared concepts.
+						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{get_string_id_for_lang($lc, $tag)};
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
 							$lc_tagid = $possible_canon_tagid;
@@ -1541,8 +1616,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					if (
 							(defined $synonyms{$tagtype}{$lc}{$tagid})
 						and ($synonyms{$tagtype}{$lc}{$tagid} ne $lc_tagid)
-						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
-						and (not($tagtype eq 'additives'))
 						# we have some exception when we merge packaging shapes and materials
 						# in packaging
 						and (not($tagtype eq 'packaging'))
@@ -1817,6 +1890,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					}
 
 					$tagid2 = remove_plurals($lc, $tagid2);
+					next if $tagid2 eq "";
 
 					if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
 						# this is a new synonym, add it using same canonical tagid
@@ -2046,20 +2120,21 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		}    # wikipedia file
 
 		# Compute all parents, breadth first
+		# Also compute the level of each tag
+		# The level of leaves is 1, the level of their parents is 2, etc.
+		# If a parent has multiple children, its level is the maximum of the levels of its children + 1
+		# So the level of a tag is the maximum length of the chain of children from that tag to a leaf
+		# The level of each tag is used in gen_tags_list_with_parents() to sort the resulting tags
 
-		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";
-
-		my %longest_parent = ();
-
-		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {
+		# Loop over all tags, and for each tag, loop over its parents, then their parents, etc.
 		foreach my $tagid (sort keys %{$translations_to{$tagtype}}) {
-
-			# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first - tagid: $tagid\n";
 
 			my @queue = ();
 
 			if (defined $direct_parents{$tagtype}{$tagid}) {
-				@queue = sort keys %{$direct_parents{$tagtype}{$tagid}};
+				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
+					push @queue, [$parentid, 2, {$tagid => 1, $parentid => 1}];
+				}
 			}
 			elsif (not defined $just_synonyms{$tagtype}{$tagid}) {
 				# Keep track of entries that are at the root level
@@ -2068,39 +2143,54 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 			if (not defined $level{$tagtype}{$tagid}) {
 				$level{$tagtype}{$tagid} = 1;
-				if (defined $direct_parents{$tagtype}{$tagid}) {
-					$longest_parent{$tagid} = (sort keys %{$direct_parents{$tagtype}{$tagid}})[0];
-				}
 			}
 
 			my %seen = ();
+			my %seen_with_level = ();
+			my %seen_cycle = ();
 
 			while ($#queue > -1) {
-				my $parentid = shift @queue;
-				#print "- $parentid\n";
+				my ($parentid, $parent_level, $path_ref) = @{shift @queue};
 
 				if ($parentid eq $tagid) {
 					my $msg = "$tagid is a parent of itself\n";
 					push(@taxonomy_errors, _taxonomy_error("ERROR", "circular_parent", $msg));
 				}
-				elsif (not defined $seen{$parentid}) {
+				elsif (not defined $seen_with_level{"$parentid\t$parent_level"}) {
 					defined $all_parents{$tagtype}{$tagid} or $all_parents{$tagtype}{$tagid} = [];
-					push @{$all_parents{$tagtype}{$tagid}}, $parentid;
-					$seen{$parentid} = 1;
+					if (not defined $seen{$parentid}) {
+						push @{$all_parents{$tagtype}{$tagid}}, $parentid;
+						$seen{$parentid} = 1;
+					}
+					$seen_with_level{"$parentid\t$parent_level"} = 1;
 
-					if (not defined $level{$tagtype}{$parentid}) {
-						$level{$tagtype}{$parentid} = 2;
-						$longest_parent{$tagid} = $parentid;
+					# Check that the level of the parent is at least the level of the child + 1 (parent level)
+					if ((not defined $level{$tagtype}{$parentid}) or ($level{$tagtype}{$parentid} < $parent_level)) {
+						$level{$tagtype}{$parentid} = $parent_level;
 					}
 
+					# Add the parent's parents to the queue
 					if (defined $direct_parents{$tagtype}{$parentid}) {
 						foreach my $grandparentid (sort keys %{$direct_parents{$tagtype}{$parentid}}) {
-							push @queue, $grandparentid;
+							if (defined $path_ref->{$grandparentid}) {
+								my $cycle_key = "$parentid\t$grandparentid";
+								if (not defined $seen_cycle{$cycle_key}) {
+									my $msg
+										= "$tagid has an indirect circular parent relation through $parentid -> $grandparentid\n";
+									push(@taxonomy_errors, _taxonomy_error("ERROR", "circular_parent", $msg));
+									$seen_cycle{$cycle_key} = 1;
+								}
+								next;
+							}
+
+							my $grandparent_level = $parent_level + 1;
+							my %next_path = %{$path_ref};
+							$next_path{$grandparentid} = 1;
+							push @queue, [$grandparentid, $grandparent_level, \%next_path];
 							if (   (not defined $level{$tagtype}{$grandparentid})
-								or ($level{$tagtype}{$grandparentid} <= $level{$tagtype}{$parentid}))
+								or ($level{$tagtype}{$grandparentid} < $grandparent_level))
 							{
-								$level{$tagtype}{$grandparentid} = $level{$tagtype}{$parentid} + 1;
-								$longest_parent{$parentid} = $grandparentid;
+								$level{$tagtype}{$grandparentid} = $grandparent_level;
 							}
 						}
 					}
@@ -2117,12 +2207,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				$key = '! synonyms ';    # synonyms first
 			}
 			if (defined $all_parents{$tagtype}{$tagid}) {
-				# sort parents according to level
-				@{$all_parents{$tagtype}{$tagid}} = sort {
-					(((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0)
-						<=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0))
-						|| ($a cmp $b)
-				} @{$all_parents{$tagtype}{$tagid}};
 				$key .= '> ' . join((' > ', reverse @{$all_parents{$tagtype}{$tagid}})) . ' ';
 			}
 			$key .= '> ' . $tagid;
@@ -2155,7 +2239,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			$taxonomy_full_json{$tagid} = {name => {}};
 			$taxonomy_extended_json{$tagid} = {name => {}};
 
-			# print "taxonomy - compute all children - $tagid - level: $level{$tagtype}{$tagid} - longest: $longest_parent{$tagid} - syn: $just_synonyms{$tagtype}{$tagid} - sort_key: $sort_key_parents{$tagid} \n";
 			if (defined $direct_parents{$tagtype}{$tagid}) {
 				$taxonomy_json{$tagid}{parents} = [];
 				$taxonomy_full_json{$tagid}{parents} = [];
@@ -2645,6 +2728,7 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 
 	$loaded_taxonomies{$tagtype} = 1;
 	$stopwords{$tagtype} = $taxonomy_ref->{stopwords};
+	_invalidate_stopwords_regexps($tagtype);
 	$synonyms{$tagtype} = $taxonomy_ref->{synonyms};
 	$synonyms_for{$tagtype} = $taxonomy_ref->{synonyms_for};
 	$synonyms_for_extended{$tagtype} = $taxonomy_ref->{synonyms_for_extended};
@@ -2829,6 +2913,9 @@ sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
 	}
 
 	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
+		# Taxonomies are loaded when Tags.pm is loaded, and then again by load_data():
+		# skip the ones that are already loaded (taxonomies that failed to load are retried)
+		next if $loaded_taxonomies{$taxonomyid};
 		$log->info("loading taxonomy $taxonomyid");
 		retrieve_tags_taxonomy($taxonomyid, $die_if_some_taxonomies_cannot_be_loaded);
 	}
@@ -2856,6 +2943,20 @@ my %and = (
 	pt => " e ",
 );
 
+=head2 gen_tags_hierarchy_taxonomy($tag_lc, $tagtype, $tags_list)
+
+Generate a list of tags including the parents of the tags in the input list.
+
+Tags are sorted by level (length of the longest chain of children: 1 for leaf nodes) and then alphabetically.
+
+=head3 Parameters
+
+=head4 tag type $tagtype
+
+=head4 comma-separated list of tags $tags_list
+
+=cut
+
 sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 
 	# $tags_list  ->  comma-separated list of tags, not in a specific order
@@ -2870,6 +2971,8 @@ sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 =head2 gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref)
 
 Generate a list of tags including the parents of the tags in the input list.
+
+Tags are sorted by level (length of the longest chain of children: 1 for leaf nodes) and then alphabetically.
 
 =head3 Parameters
 
@@ -2953,6 +3056,25 @@ sub gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref) {
 	} keys %tags;
 
 	return @sorted_list;
+}
+
+=head2 get_tag_with_parents ($tagtype, $tagid)
+
+Given a canonical tagid, return a list of the tag and all its parents,
+sorted by closeness to the tag (the tag itself first, then its parents, then the parents of the parents, etc.)
+and alphabetical order for parents with the same closeness.
+
+=cut
+
+sub get_tag_with_parents ($tagtype, $tagid) {
+
+	my @tag_with_parents = ($tagid);
+
+	if (defined $all_parents{$tagtype}{$tagid}) {
+		push @tag_with_parents, @{$all_parents{$tagtype}{$tagid}};
+	}
+
+	return @tag_with_parents;
 }
 
 sub gen_ingredients_tags_hierarchy_taxonomy ($tag_lc, $tags_list) {
@@ -3122,9 +3244,9 @@ sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = un
 
 	$target_lc =~ s/_.*//;
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
-
+	my $tagurl = get_tag_url_id($tagtype, $tag);
 	my $path = $tag_type_plural{$tagtype}{$target_lc};
-	return "/$path/" . ($tag_prefix // '') . $tag;
+	return "/$path/" . ($tag_prefix // '') . $tagurl;
 }
 
 # The display_taxonomy_tag_link function makes many calls to other functions, in particular it calls twice display_taxonomy_tag_link
@@ -3137,7 +3259,7 @@ sub display_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
 	$target_lc =~ s/_.*//;
 	$tag = display_taxonomy_tag($target_lc, $taxonomy, $tag);
 	my $tagid = $tag;
-	my $tagurl = $tag;
+	my $tagurl = get_tag_url_id($tagtype, $tagid);
 
 	my $tag_lc;
 	if ($tag =~ /^(\w\w):/) {
@@ -3693,24 +3815,61 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
 	}
 
-	if (($taxonomy eq "ingredients") or ($taxonomy eq "packaging") or ($taxonomy =~ /^additives/)) {
-		# convert E-number + name to E-number only if the number match the name
+	if (   ($taxonomy eq "ingredients")
+		or ($taxonomy eq "packaging")
+		or ($taxonomy =~ /^additives/)
+		or ($taxonomy =~ /^(vitamins|minerals|amino_acids|nucleotides|other_nutritional_substances)$/))
+	{
+		# A food or feed code can refine its accompanying name only when both
+		# resolve to the same entry, or the code denotes a child of that entry.
+		my $code_regexp = qr/(?:e|[1-9][ab])\d{3,4}[a-z]*/i;
 		my $additive_tagid;
 		my $name;
-		if ($tagid =~ /^(e\d.*?)-(.*)$/i) {
+		if ($tagid =~ /^($code_regexp)-(.+)$/) {
 			$additive_tagid = $1;
 			$name = $2;
 		}
-		elsif ($tagid =~ /^(.*)-(e\d.*?)$/i) {
+		elsif ($tagid =~ /^(.+)-($code_regexp)$/) {
 			$name = $1;
 			$additive_tagid = $2;
 		}
 		if (defined $name) {
-			my $name_id = canonicalize_taxonomy_tag($tag_lc, "additives", $name, $exists_in_taxonomy_ref);
-			# caramelo e150c -> name_id is e150
-			if (("en:" . $additive_tagid) =~ /^$name_id/) {
-				return "en:" . $additive_tagid;
+			my $code_taxonomy
+				= ($taxonomy eq 'packaging' or ($taxonomy eq 'ingredients' and $additive_tagid =~ /^e/i))
+				? 'additives'
+				: $taxonomy;
+			my ($code_exists, $name_exists);
+			my $code_id = canonicalize_taxonomy_tag('xx', $code_taxonomy, $additive_tagid, \$code_exists);
+			my $name_id = canonicalize_taxonomy_tag($tag_lc, $code_taxonomy, $name, \$name_exists);
+			# Some E-number variants (notably E150c / E150) have no parent edge.
+			my $e_variant = ($name_id =~ /^en:e\d{3,4}[a-h]?$/ and $code_id =~ /^\Q$name_id\E[a-z]+$/);
+			# A repeated prefix ("E E110") is not an accompanying ingredient name.
+			my $repeated_prefix = ($name eq 'e' and $additive_tagid =~ /^e/i);
+			if ($code_exists
+				and ($repeated_prefix or ($name_exists and (is_a($code_taxonomy, $code_id, $name_id) or $e_variant))))
+			{
+				$$exists_in_taxonomy_ref = 1 if defined $exists_in_taxonomy_ref;
+				return $code_id;
 			}
+		}
+	}
+
+	# EU feed additive code (Regulation 1831/2003) + name, or name + code: "3a672a vitamine A", "vitamine E 3a700"
+	# keep the entry of the code if the name is the same entry or one of its parents
+	my ($feed_code, $feed_code_name);
+	if ($tagid =~ /^(\d[a-e]\d{3}[a-z]*)-(.+)$/) {
+		($feed_code, $feed_code_name) = ($1, $2);
+	}
+	elsif ($tagid =~ /^(.+)-(\d[a-e]\d{3}[a-z]*)$/) {
+		($feed_code_name, $feed_code) = ($1, $2);
+	}
+	if (defined $feed_code) {
+		my $feed_code_exists = 0;
+		my $feed_code_id = canonicalize_taxonomy_tag($tag_lc, $tagtype, $feed_code, \$feed_code_exists);
+		my $name_id = canonicalize_taxonomy_tag($tag_lc, $tagtype, $feed_code_name);
+		if ($feed_code_exists and is_a($taxonomy, $feed_code_id, $name_id)) {
+			$$exists_in_taxonomy_ref = 1 if defined $exists_in_taxonomy_ref;
+			return $feed_code_id;
 		}
 	}
 
@@ -4222,7 +4381,8 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 	#$log->debug("display_taxonomy_tag",
 	#	{target_lc => $target_lc, tagtype => $tagtype, tag => $tag, tagid => $tagid, display => $display});
 
-	return $display;
+	# The U+201A lower commas are markers used when loading the taxonomy, they should not be displayed
+	return taxonomy_display_name($display);
 
 }
 
@@ -4802,6 +4962,38 @@ sub add_users_translations_to_taxonomy ($tagtype) {
 	return;
 }
 
+=head2 generate_regexps_matching_taxonomy_stopwords($taxonomy)
+
+Create regular expressions that will match stopwords of a taxonomy.
+
+=head3 Arguments
+
+=head4 $taxonomy
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head3 Return values
+
+A reference to a hash of strings, with the language code as key, and a string containing a regular expression
+that will match all stopwords of the taxonomy in that language.
+
+=cut
+
+sub generate_regexps_matching_taxonomy_stopwords ($taxonomy) {
+
+	my $result_ref = {};
+
+	foreach my $language (sort keys %{$stopwords{$taxonomy}}) {
+		my $stopwords_ref = deep_get(\%stopwords, $taxonomy, $language . ".strings");
+		if (defined $stopwords_ref) {
+			my $regexp = join('|', map {regexp_escape($_)} @$stopwords_ref);
+			$result_ref->{$language} = $regexp;
+		}
+	}
+
+	return $result_ref;
+}
+
 =head2 generate_regexps_matching_taxonomy_entries($taxonomy, $return_type, $options_ref)
 
 Create regular expressions that will match entries of a taxonomy.
@@ -4840,11 +5032,23 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 
 	foreach my $tagid (get_all_taxonomy_entries($taxonomy)) {
 
-		foreach my $language (sort keys %{$translations_to{$taxonomy}{$tagid}}) {
+		# Create the regexp entries for xx language first, so that we can add it to all other languages
+		my $xx_generated = 0;
+		foreach my $language ("xx", sort keys %{$translations_to{$taxonomy}{$tagid}}) {
+
+			# Generate xx only once
+			if ($language eq 'xx') {
+				next if $xx_generated;
+				$xx_generated = 1;
+			}
 
 			defined $synonyms_regexps{$language} or $synonyms_regexps{$language} = [];
 
 			# the synonyms below also contain the main translation as the first entry
+			# (3rd element of the pairs below), used to deterministically pick the
+			# entry that keeps a synonym listed for several entries
+
+			my $is_main_translation = 1;
 
 			foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
 
@@ -4870,17 +5074,40 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 					$synonym =~ s/( |-)/\(\?: \|-\)/g;
 				}
 
-				push @{$synonyms_regexps{$language}}, [$tagid, $synonym];
+				push @{$synonyms_regexps{$language}}, [$tagid, $synonym, $is_main_translation];
 
 				if ((my $unaccented_synonym = unac_string_perl($synonym)) ne $synonym) {
-					push @{$synonyms_regexps{$language}}, [$tagid, $unaccented_synonym];
+					push @{$synonyms_regexps{$language}}, [$tagid, $unaccented_synonym, $is_main_translation];
 				}
+				$is_main_translation = 0;
 			}
 		}
 	}
 
-	# We want to match the longest strings first
+	# Add xx entries to all other languages
+	# This needs to be done once all entries have been processed: entries are iterated in hash order,
+	# so adding xx synonyms while iterating would only add the xx synonyms of the entries processed so far.
+	# e.g. a language with only 1 translated unit would randomly miss the xx unit "g"
+	if (($options_ref->{include_xx}) and (defined $synonyms_regexps{"xx"})) {
+		foreach my $language (keys %synonyms_regexps) {
+			next if $language eq 'xx';
+			push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
+		}
+	}
 
+	# Unique the synonyms
+	# A synonym can be listed for several entries (e.g. "dry roasted" for both
+	# en:dry-baked and en:dry-roasted). Keep it for the entry for which it is the
+	# main translation, or for the first entry id otherwise, so that the result
+	# does not depend on the hash order in which the taxonomy entries were iterated
+	foreach my $language (keys %synonyms_regexps) {
+		my %seen = ();
+		@{$synonyms_regexps{$language}} = sort {($a->[1] cmp $b->[1]) || ($b->[2] <=> $a->[2]) || ($a->[0] cmp $b->[0])}
+			@{$synonyms_regexps{$language}};
+		$synonyms_regexps{$language} = [grep {!$seen{$_->[1]}++} @{$synonyms_regexps{$language}}];
+	}
+
+	# We want to match the longest strings first
 	if ($return_type eq 'unique_regexp') {
 		foreach my $language (keys %synonyms_regexps) {
 			$result_ref->{$language} = join('|',
@@ -4891,8 +5118,9 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 	}
 	elsif ($return_type eq 'list_of_regexps') {
 		foreach my $language (keys %synonyms_regexps) {
-			@{$result_ref->{$language}}
-				= sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])} @{$synonyms_regexps{$language}};
+			# the third element is only used to pick which entry keeps a shared synonym
+			@{$result_ref->{$language}} = map {[$_->[0], $_->[1]]}
+				sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])} @{$synonyms_regexps{$language}};
 		}
 	}
 	else {
@@ -4932,7 +5160,7 @@ The type of the tag (e.g. categories, labels, allergens)
 sub cmp_taxonomy_tags_alphabetically ($tagtype, $target_lc, $a, $b) {
 
 	return ($translations_to{$tagtype}{$a}{$target_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
-		cmp($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
+		cmp ($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
 }
 
 # To avoid doing file operations for each call to get_knowledge_content (e.g. for each ingredient of a product),
@@ -5081,6 +5309,8 @@ Returns the path of the tag in the taxonomy (from the root to the tag, included)
 
 If there are multiple parents for the tag (or one of its parents), we take the first parent.
 
+See also: get_tags_parents() if you need a list with all parents.
+
 =head3 Arguments
 
 =head4 $tagtype
@@ -5089,7 +5319,7 @@ If there are multiple parents for the tag (or one of its parents), we take the f
 
 =head3 Return value
 
-The path of the tag in the taxonomy (from the root to the tag, included), as an array of tagids.
+The path of the tag in the taxonomy (from the root to the tag, included), as a reference to an array of tagids.
 
 =cut
 

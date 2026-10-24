@@ -41,7 +41,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers single_param redirect_to_url/;
+use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Tags qw/%language_fields %tags_fields/;
 use ProductOpener::ProductsTags qw/add_tags_to_field compute_field_tags/;
 use ProductOpener::URL qw/format_subdomain/;
@@ -204,7 +204,6 @@ else {
 		$response{status_verbose} = 'Edit against edit rules';
 
 		my $data = encode_json(\%response);
-		write_cors_headers();
 		print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 		exit(0);
@@ -306,7 +305,6 @@ else {
 
 		my $data = encode_json(\%response);
 
-		write_cors_headers();
 		print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 		exit(0);
@@ -428,6 +426,13 @@ else {
 		}
 	}
 
+	# add_teams=Team A, Team B : add teams (e.g. from the photos upload form of the producers platform)
+	# teams are not taxonomized and not writable tags fields, so they are added directly to teams_tags
+	if (($server_options{producers_platform}) and (defined single_param("add_teams"))) {
+		add_teams_to_product($product_ref,
+			split(/,/, remove_tags_and_quote(decode utf8 => join(',', multi_param("add_teams")))));
+	}
+
 	# Nutrition data
 
 	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
@@ -455,7 +460,6 @@ else {
 
 my $data = encode_json(\%response);
 
-write_cors_headers();
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 exit(0);

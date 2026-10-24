@@ -71,6 +71,7 @@ BEGIN {
 		&display_product
 		&display_product_api
 		&display_product_history
+		&get_product_history_revisions
 
 		&get_search_field_path_components
 		&get_search_field_title_and_details
@@ -124,7 +125,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
+	qw(set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve retrieve_object);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -141,6 +142,7 @@ use ProductOpener::Missions qw(:all);
 use ProductOpener::MissionsConfig qw(:all);
 use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw(:all);
+use ProductOpener::Numbers qw/$number_regexp/;
 use ProductOpener::Text
 	qw(escape_char escape_single_quote_and_newlines get_decimal_formatter get_percent_formatter remove_tags_and_quote);
 use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
@@ -156,7 +158,7 @@ use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_
 use ProductOpener::PackagerCodes
 	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
-use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header sanitize);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request sanitize);
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
@@ -172,17 +174,12 @@ use URI::Escape::XS qw/uri_escape/;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use HTML::Entities;
-use DateTime;
-use DateTime::Locale;
-use experimental 'smartmatch';
+use DateTime::Lite;
 use MongoDB;
 use Tie::IxHash;
 use JSON::MaybeXS;
 use Text::CSV;
 use XML::Simple;
-use CLDR::Number;
-use CLDR::Number::Format::Decimal;
-use CLDR::Number::Format::Percent;
 use Storable qw(dclone freeze);
 use boolean;
 use Excel::Writer::XLSX;
@@ -193,6 +190,7 @@ use Log::Log4perl;
 use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
+use List::Util qw(any);
 
 use Apache2::Request ();
 use Apache2::RequestUtil ();
@@ -301,6 +299,12 @@ $tt = Template->new(
 				# Use uc() on first character which works correctly with UTF-8
 				# when utf8 flag is set (Template Toolkit handles this with ENCODING => 'UTF-8')
 				return uc(substr($text, 0, 1)) . substr($text, 1);
+			},
+			js => sub {
+				my $text = shift;
+				return '' unless defined $text;
+				# Encode the text as a JSON string for safe inclusion in JavaScript
+				return $json_utf8->encode($text);
 			},
 		},
 	}
@@ -732,7 +736,7 @@ sub init_request ($request_ref = {}) {
 	# If lc is not one of the official languages of the country and if the request comes from
 	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
 	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
-	if ((!($lc ~~ $country_languages{$cc})) or $subdomain =~ /^(ssl-)?api/) {
+	if ((!any {$_ eq $lc} @{$country_languages{$cc}}) or $subdomain =~ /^(ssl-)?api/) {
 		# Use robots.txt with disallow: / for all agents
 		$request_ref->{deny_all_robots_txt} = 1;
 
@@ -791,36 +795,22 @@ sub init_request ($request_ref = {}) {
 		}
 	) if $log->is_debug();
 
-	# Note we allow an OAuth token for all oidc_implementation_levels
-	my $signed_in_oidc = process_auth_header($request_ref, $r);
-	if ($signed_in_oidc < 0) {
-		# We were sent a bad bearer token
-		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
-		if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
-			and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
-		{
-			$log->debug(
-				"init_request - init_user error - display error page",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
-			display_error_and_exit($request_ref, $signed_in_oidc, 403);
-		}
-	}
-
-	my $error = ProductOpener::Users::init_user($request_ref);
+	my $error = ProductOpener::Users::init_user($request_ref, $r);
 	if ($error) {
 		# We were sent bad user_id / password credentials
 
 		# If it is an API v3 query, the error will be handled by API::process_api_request()
 		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
-			$log->debug(
-				"init_request - init_user error - API v3: continue",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
+			$log->debug("init_request - init_user error - API v3: continue", {init_user_error => $error})
+				if $log->is_debug();
+			if ($error eq "error_bad_login_password") {
+				# Use a generic API error message without the link to the login page
+				$error = "invalid_user_id_and_password";
+			}
 			add_error(
 				$request_ref->{api_response},
 				{
-					message => {id => "invalid_user_id_and_password"},
+					message => {id => $error},
 					impact => {id => "failure"},
 				},
 				403
@@ -829,18 +819,18 @@ sub init_request ($request_ref = {}) {
 		# /cgi/auth.pl returns a JSON body
 		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
 		elsif ($r->uri() =~ /\/cgi\/auth\.pl/) {
-			$log->debug(
-				"init_request - init_user error - /cgi/auth.pl: continue",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
+			$log->debug("init_request - init_user error - /cgi/auth.pl: continue", {init_user_error => $error})
+				if $log->is_debug();
 		}
 		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
 		else {
-			$log->debug(
-				"init_request - init_user error - display error page",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
-			display_error_and_exit($request_ref, $error, 403);
+			$log->debug("init_request - init_user error - display error page", {init_user_error => $error})
+				if $log->is_debug();
+			if ($error eq "invalid_token") {
+				# Use the API message for invalid tokens
+				$error = "api_message_invalid_token";
+			}
+			display_error_and_exit($request_ref, $Lang{$error}{$lc}, 403);
 		}
 	}
 
@@ -989,21 +979,13 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 sub _get_date ($t) {
 
 	if (defined $t) {
-		my @codes = DateTime::Locale->codes;
-		my $locale;
-		if (grep {$_ eq $lc} @codes) {
-			$locale = DateTime::Locale->load($lc);
-		}
-		else {
-			$locale = DateTime::Locale->load('en');
-		}
-
-		my $dt = DateTime->from_epoch(
-			locale => $locale,
+		my $dt = DateTime::Lite->from_epoch(
+			locale => $lc,
 			time_zone => $reference_timezone,
 			epoch => $t
 		);
 		return $dt;
+
 	}
 	else {
 		return;
@@ -1129,7 +1111,6 @@ that require a lot of resources (especially aggregation queries).
 =cut
 
 sub display_no_index_page_and_exit () {
-	write_cors_headers();
 	my $html
 		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>NOINDEX</h1><p>We detected that your browser is a web crawling bot, and this page should not be indexed by web crawlers. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
 	my $http_headers_ref = {
@@ -1157,7 +1138,6 @@ Return a page with a 429 status code and a message explaining that the user is s
 =cut
 
 sub display_too_many_requests_page_and_exit() {
-	write_cors_headers();
 	my $http_headers_ref = {
 		'-status' => 429,
 		'-charset' => 'UTF-8',
@@ -1438,6 +1418,12 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	if ($html =~ /<h1>(.*?)<\/h1>/) {
 		$title = $1;
 		$html = $` . $';
+	}
+
+	# The index page may not have a h1 title (e.g. on Open Food Facts),
+	# in that case we still need a title for the <title> tag in the HTML head
+	if (($textid eq 'index') and (not defined $title)) {
+		$request_ref->{head_title} = $options{site_name} . ' - ' . $country_name;
 	}
 
 	# Generate a table of content
@@ -2135,7 +2121,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			my $data_sort;
 
 			my @sameAs = ();
-			if ($tagtype eq 'nutrition_grades') {
+			if (($tagtype eq 'nutrition_grades') or ($tagtype eq 'nutriscore')) {
 				my $grade;
 				if ($tagid =~ /^[abcde]$/) {
 					$grade = uc($tagid);
@@ -2360,6 +2346,8 @@ HTML
 		# Nutri-Score nutrition grades colors histogram / Environmental-Score / NOVA groups histogram
 
 		if (   ($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+			or ($request_ref->{groupby_tagtype} eq 'nutriscore')
+			or ($request_ref->{groupby_tagtype} eq 'ecoscore')
 			or ($request_ref->{groupby_tagtype} eq 'environmental_score')
 			or ($request_ref->{groupby_tagtype} eq 'nova_groups'))
 		{
@@ -2371,7 +2359,9 @@ HTML
 			my $y_title = lang("number_of_products");
 			my $x_title = lang($request_ref->{groupby_tagtype} . "_p");
 
-			if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
+			if (   ($request_ref->{groupby_tagtype} eq 'nutrition_grades')
+				or ($request_ref->{groupby_tagtype} eq 'nutriscore'))
+			{
 				$categories = "'A','B','C','D','E','" . lang("not_applicable") . "','" . lang("unknown") . "'";
 				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
@@ -2379,7 +2369,9 @@ HTML
 					$series_data .= (($products{$nutrition_grade} || 0) + 0) . ',';
 				}
 			}
-			elsif ($request_ref->{groupby_tagtype} eq 'environmental_score') {
+			elsif (($request_ref->{groupby_tagtype} eq 'ecoscore')
+				or ($request_ref->{groupby_tagtype} eq 'environmental_score'))
+			{
 				$categories = "'A+','A','B','C','D','E','F','" . lang("not_applicable") . "','" . lang("unknown") . "'";
 				$colors = "'#1E8F4E','#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
@@ -4301,6 +4293,9 @@ HTML
 
 		$tag_template_data_ref->{world_link} = $world_link;
 		$tag_template_data_ref->{world_link_url} = get_world_subdomain() . $request_ref->{world_current_link};
+		if ($request_ref->{query_parameters}) {
+			$tag_template_data_ref->{world_link_url} .= '?' . $request_ref->{query_parameters};
+		}
 
 	}
 
@@ -4890,7 +4885,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					# if the value is "unknown", we need to add a condition on the field being empty
 
 					my @tagtype_allowing_unknown_as_value
-						= qw(nutrition_grades nova_groups environmental_score pnns_groups_1 pnns_groups_2 food_groups);
+						= qw(nutrition_grades nutriscore nova_groups ecoscore environmental_score pnns_groups_1 pnns_groups_2 food_groups);
 					# warning: unknown is a value for pnns_groups_1 and 2
 					if (
 						(
@@ -5084,14 +5079,14 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		{request_ref => sanitize($request_ref), query_ref => $query_ref, sort_by => $sort_by})
 		if $log->is_debug();
 
+	add_params_and_filters_to_query($request_ref, $query_ref);
+
 	# 2026-03-04 - due to heavy load from bots, disabling 2nd level facets unless the user
 	#  is logged in
 	if ((not defined $User_id) and ($request_ref->{page} > 10)) {
 		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
 		return;
 	}
-
-	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
 	}
@@ -5210,6 +5205,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	$template_data_ref->{sort_options} = [];
 
+	my $current_link = $request_ref->{current_link};
+	if (index($current_link, "?") == -1) {
+		$current_link .= "?";
+	}
+	else {
+		$current_link .= "&";
+	}
 	# Nutri-Score and Environmental-Score are only for food products
 	# and currently scan data is only loaded for Open Food Facts
 	if (feature_enabled("popularity")) {
@@ -5217,7 +5219,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "popularity",
-			link => $request_ref->{current_link} . "?sort_by=popularity",
+			link => $current_link . "sort_by=popularity",
 			name => lang("sort_by_popularity")
 			};
 	}
@@ -5225,7 +5227,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "nutriscore_score",
-			link => $request_ref->{current_link} . "?sort_by=nutriscore_score",
+			link => $current_link . "sort_by=nutriscore_score",
 			name => lang("sort_by_nutriscore_score")
 			};
 	}
@@ -5234,7 +5236,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "environmental_score_score",
-			link => $request_ref->{current_link} . "?sort_by=environmental_score_score",
+			link => $current_link . "sort_by=environmental_score_score",
 			name => lang("sort_by_environmental_score_score")
 			};
 	}
@@ -5242,13 +5244,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	push @{$template_data_ref->{sort_options}},
 		{
 		value => "created_t",
-		link => $request_ref->{current_link} . "?sort_by=created_t",
+		link => $current_link . "sort_by=created_t",
 		name => lang("sort_by_created_t")
 		};
 	push @{$template_data_ref->{sort_options}},
 		{
 		value => "last_modified_t",
-		link => $request_ref->{current_link} . "?sort_by=last_modified_t",
+		link => $current_link . "sort_by=last_modified_t",
 		name => lang("sort_by_last_modified_t")
 		};
 
@@ -5318,8 +5320,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"ecoscore_data.environmental_score_not_applicable_for_category" => 1,
 			"ecoscore_grade" => 1,
 			"ecoscore_score" => 1,
-			"forest_footprint_data.grade" => 1,
-			"forest_footprint_data.footprint_per_kg" => 1,
+			"forest_footprint_2026.grade" => 1,
+			"forest_footprint_2026.total_footprint_per_kg" => 1,
+			"forest_footprint_2026.summary" => 1,
+			"forest_footprint_2026.primary_ingredients" => 1,
 			"ingredients_analysis_tags" => 1,
 			"ingredients_n" => 1,
 			"labels_tags" => 1,
@@ -5972,7 +5976,9 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 		$html .= "<p>" . lang("error_database") . "</p>";
 	}
 	elsif ($count == 0) {
-		$html .= "<p>" . lang("no_products") . "</p>";
+		# No products found: export_csv already sent headers,
+		# so we must Not render an HTML page.
+		return;
 	}
 	elsif ($count > $max_count) {
 		$html .= "<p>" . sprintf(lang("error_too_many_products_to_export"), $count, $export_limit) . "</p>";
@@ -6034,7 +6040,7 @@ sub get_search_field_path_components ($field) {
 	}
 	# forest footprint
 	elsif ($field eq "forest_footprint") {
-		@fields = ('forest_footprint_data', 'footprint_per_kg');
+		@fields = ('forest_footprint_2026', 'total_footprint_per_kg');
 	}
 	# we assume other fields are nutrients ids
 	else {
@@ -7611,6 +7617,14 @@ sub display_page ($request_ref) {
 		$canon_title = $title;
 	}
 
+	# Title for the <title> tag in the HTML head: it can be different from the h1 title displayed in the page
+	# (e.g. the index page may not have a h1 title), and it should never be empty
+	my $head_title = $canon_title;
+	if ($head_title eq '') {
+		$head_title = remove_tags_and_quote($request_ref->{head_title} // $options{site_name});
+		$canon_title = $head_title;
+	}
+
 	my $canon_description = '';
 	if (defined $description) {
 		$canon_description = remove_tags_and_quote($description);
@@ -7670,6 +7684,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{canon_url} = $canon_url;
 	$template_data_ref->{meta_description} = $meta_description;
 	$template_data_ref->{canon_title} = $canon_title;
+	$template_data_ref->{head_title} = $head_title;
 	$template_data_ref->{canon_description} = $canon_description;
 	$template_data_ref->{og_images} = $og_images;
 	$template_data_ref->{og_images2} = $og_images2;
@@ -9349,6 +9364,27 @@ CSS
 	my $decf = get_decimal_formatter($lc);
 	my $perf = get_percent_formatter($lc, 0);
 
+	# Nutrition values are stored in a language independent format (e.g. 1.1 and 1300.366),
+	# so they have to be formatted to use the decimal and thousand separators of the current language.
+	# Values that are not numbers (e.g. "?") are returned unchanged.
+
+	# The formatter rounds to 3 decimals, so values that are close to 0 need more decimals
+	# (very small values can also be stored using the e notation: 7.18e-05)
+	my $decf_small = get_decimal_formatter($lc, 6);
+
+	my $format_value = sub ($value) {
+		# accept numbers in the e notation, e.g. 7.18e-05, and reject other values like "?"
+		if (defined($value) and ($value =~ /^[+-]?($number_regexp)(?:[eE][+-]?\d+)?$/)) {
+			my $formatted_value = $decf->format($value);
+			# do not display a value that is not 0 as a 0
+			if (($value != 0) and (($formatted_value =~ /^0\D?$/) or (($value . ' ') =~ /e/))) {
+				return $decf_small->format($value);
+			}
+			return $formatted_value;
+		}
+		return $value;
+	};
+
 	foreach my $nutrient (@nutrients) {
 
 		next if $nutrient =~ /^\#/;
@@ -9423,16 +9459,10 @@ CSS
 
 						# energy-kcal is already in kcal
 						if ($nid eq 'energy-kcal') {
-							$stat_value = $stat_value;
+							$stat_value = $format_value->($stat_value);
 						}
 						else {
-							$stat_value = $decf->format(g_to_unit($stat_value, $unit));
-						}
-
-						# too small values are converted to e notation: 7.18e-05
-						if (($stat_value . ' ') =~ /e/) {
-							# use %f (outputs extras 0 in the general case)
-							$stat_value = sprintf("%f", g_to_unit($stat_value, $unit));
+							$stat_value = $format_value->(g_to_unit($stat_value, $unit));
 						}
 
 						$values = "$stat_value $unit";
@@ -9448,24 +9478,20 @@ CSS
 					my $comparison_ref = $comparisons_ref->[$1];
 					my $value = deep_get($comparison_ref, "nutrients", $nid, "mean");
 					my $value_percent = deep_get($comparison_ref, "nutrients", $nid, "mean_percent");
+					# Keep the unformatted value, as $value is replaced by its formatted version below
+					my $unformatted_value = $value;
 
 					if (defined $comparison_ref->{nutrients}{$nid}) {
 						# energy-kcal is already in kcal
 						if ($nid eq 'energy-kcal') {
-							$value = $value;
+							$value = $format_value->($value);
 						}
 						else {
-							$value = $decf->format(g_to_unit($value, $unit));
+							$value = $format_value->(g_to_unit($value, $unit));
 						}
 					}
 
 					if (defined $value) {
-						# too small values are converted to e notation: 7.18e-05
-						if (($value . ' ') =~ /e/) {
-							# use %f (outputs extras 0 in the general case)
-							$value = sprintf("%f", g_to_unit($value, $unit));
-						}
-
 						$values = "$value $unit";
 					}
 
@@ -9477,10 +9503,12 @@ CSS
 					elsif (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 						# Use the actual value in kcal if we have it
 						my $value_in_kcal = deep_get($comparison_ref, "nutrients", $nid . "-kcal", "mean");
+						# Otherwise convert the value in kj
 						if (not defined $value_in_kcal) {
-							$value_in_kcal = g_to_unit($comparison_ref->{nutrients}{$nid}, 'kcal');
+							$value_in_kcal = g_to_unit($unformatted_value, 'kcal');
 						}
-						$values .= " (" . sprintf("%d", $value_in_kcal) . ' kcal)';
+						# kcal values are displayed as integers
+						$values .= " (" . $format_value->(sprintf("%.0f", $value_in_kcal)) . ' kcal)';
 					}
 
 					$percent = deep_get($comparison_ref, "nutrients", $nid, "mean_percent");
@@ -9491,11 +9519,12 @@ CSS
 						# issue 2273 -  minus signs are rendered with different characters in different locales, e.g. Finnish
 						# so just test positivity of numeric value
 						if ($percent_numeric_value > 0) {
-							$percent = "+" . $percent;
+							# the plus sign can include directionality marks in RTL locales
+							$percent = $perf->plus_sign . $percent;
 						}
-						# If percent is close to 0, just put "-"
+						# If percent is close to 0, just display an approximate 0 %
 						if (sprintf("%.0f", $percent_numeric_value) eq "0") {
-							$values .= " (~0%)";
+							$values .= " (~" . $perf->format(0) . ")";
 						}
 						else {
 							$values .= " (" . $percent . ")";
@@ -9532,6 +9561,10 @@ CSS
 						}
 					}
 
+					# Keep a version of the value formatted for the current language,
+					# so that it can also be used for the % DV value added below
+					my $formatted_value = $value;
+
 					# FIXME: if the packaging / manufacturer input set has the nutrient in the unspecified_nutrients array,
 					# we used to display a "-" sign."
 					if (0) {
@@ -9543,15 +9576,7 @@ CSS
 					}
 					else {
 
-						my $formatted_value = $value;
-
-						if ($value ne '?') {
-							# too small values are converted to e notation: 7.18e-05
-							if (($formatted_value . ' ') =~ /e/) {
-								# use %f (outputs extras 0 in the general case)
-								$formatted_value = sprintf("%f", $value);
-							}
-						}
+						$formatted_value = $format_value->($value);
 
 						if (defined $nutrient_set_unit) {
 							$value_unit = "$formatted_value $nutrient_set_unit";
@@ -9578,7 +9603,9 @@ CSS
 									$value_in_kcal = '?';
 								}
 							}
-							$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
+							# kcal values are displayed as integers
+							($value_in_kcal ne '?') and $value_in_kcal = sprintf("%.0f", $value_in_kcal);
+							$value_unit .= "<br>(" . $format_value->($value_in_kcal) . ' kcal)';
 						}
 					}
 
@@ -9588,7 +9615,7 @@ CSS
 							and (defined $unit)
 							and ($nutrient_set_unit eq '% DV'))
 						{
-							$value_unit .= ' (' . $value . ' ' . $nutrient_set_unit . ')';
+							$value_unit .= ' (' . $formatted_value . ' ' . $nutrient_set_unit . ')';
 						}
 					}
 
@@ -9852,10 +9879,33 @@ sub display_rev_info ($product_ref, $rev) {
 
 }
 
-sub display_product_history ($request_ref, $code, $product_ref) {
+=head2 get_product_history_revisions ( $product_ref, $max_revisions = undef )
 
-	if ($product_ref->{rev} <= 0) {
-		return;
+Load the changes history of a product, and return the list of revisions, most recent first.
+
+It is used both to display the history on the website, and to create the product history knowledge panel.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+=head4 maximum number of revisions $max_revisions (optional)
+
+If specified, only the $max_revisions most recent revisions are returned.
+
+=head3 Return value
+
+Reference to an array of revisions. Each revision is a hash with the following keys:
+number, t (timestamp), userid, uuid, app_version, clientid, diffs (text describing the changes) and comment.
+
+=cut
+
+sub get_product_history_revisions ($product_ref, $max_revisions = undef) {
+
+	my @revisions = ();
+
+	if ((not defined $product_ref->{rev}) or ($product_ref->{rev} <= 0)) {
+		return \@revisions;
 	}
 
 	my $path = product_path($product_ref);
@@ -9865,14 +9915,10 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 	}
 
 	my $current_rev = $product_ref->{rev};
-	my @revisions = ();
 
 	foreach my $change_ref (reverse @{$changes_ref}) {
 
-		my $userid = get_change_userid_or_uuid($change_ref);
-		my $uuid = $change_ref->{app_uuid};
-		my $app_version = $change_ref->{app_version};
-		my $comment = _format_comment($change_ref->{comment});
+		last if ((defined $max_revisions) and (scalar @revisions >= $max_revisions));
 
 		my $change_rev = $change_ref->{rev};
 
@@ -9885,15 +9931,29 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 		push @revisions,
 			{
 			number => $change_rev,
-			date => display_date_tag($change_ref->{t}),
-			userid => $userid,
-			uuid => $uuid,
-			app_version => $app_version,
+			t => $change_ref->{t},
+			userid => get_change_userid_or_uuid($change_ref),
+			uuid => $change_ref->{app_uuid},
+			app_version => $change_ref->{app_version},
 			clientid => $change_ref->{clientid},
 			diffs => compute_changes_diff_text($change_ref),
-			comment => $comment
+			comment => _format_comment($change_ref->{comment}),
 			};
+	}
 
+	return \@revisions;
+}
+
+sub display_product_history ($request_ref, $code, $product_ref) {
+
+	if ($product_ref->{rev} <= 0) {
+		return;
+	}
+
+	my $revisions_ref = get_product_history_revisions($product_ref);
+
+	foreach my $revision_ref (@{$revisions_ref}) {
+		$revision_ref->{date} = display_date_tag($revision_ref->{t});
 	}
 
 	my $template_data_ref = {
@@ -9902,7 +9962,7 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 			return display_tag_link('editors', $uid);
 		},
 		this_product_url => product_url($product_ref),
-		revisions => \@revisions,
+		revisions => $revisions_ref,
 		product => $product_ref,
 	};
 
@@ -9959,7 +10019,6 @@ sub display_structured_response ($request_ref) {
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
 		my $status_code = $request_ref->{status_code} // "200";
-		write_cors_headers();
 		print header(
 			-status => $status_code,
 			-type => 'text/xml',
@@ -9987,7 +10046,6 @@ sub display_structured_response ($request_ref) {
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
-			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'text/javascript',
@@ -9997,7 +10055,6 @@ sub display_structured_response ($request_ref) {
 				. $data . ");";
 		}
 		else {
-			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
@@ -10083,13 +10140,16 @@ XML
 XML
 		;
 
-	write_cors_headers();
 	print header(-type => 'application/rss+xml', -charset => 'utf-8') . $xml;
 
 	return;
 }
 
 sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
+
+	# Deep offsets are expensive to serve and cheap to ask for, so the number of changes that can
+	# be skipped before the first one is bounded
+	my $max_skip = $options{max_recent_changes_skip} // 10_000;
 
 	add_params_and_filters_to_query($request_ref, $query_ref);
 
@@ -10106,6 +10166,10 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 		$limit = $options{max_recent_changes_page_size};
 	}
 
+	# A page size of 0 (page_size=0, or a value that is not a number) would make the pagination
+	# divide by zero, and MongoDB would read a limit of 0 as "no limit"
+	$limit = 1 if $limit < 1;
+
 	$request_ref->{page_size} = $limit;
 
 	my $skip = 0;
@@ -10120,6 +10184,15 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 		$page = 1;
 	}
 
+	# The page and the page size are bounded separately, so their product can be much larger than
+	# either of them (1000 pages of 1000 changes = a skip of 999,000). MongoDB has to walk over
+	# every skipped document on a $natural sort, so bound the offset itself and keep the last page
+	# that is served below it.
+	if ($skip > $max_skip) {
+		$skip = $max_skip - ($limit - 1);
+		$page = int($skip / $limit) + 1;
+	}
+
 	# support for returning structured results in json / xml etc.
 
 	$request_ref->{structured_response} = {
@@ -10132,10 +10205,13 @@ sub display_recent_changes ($request_ref, $query_ref, $limit, $page) {
 	my $sort_ref = Tie::IxHash->new();
 	$sort_ref->Push('$natural' => -1);
 
-	$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
+	# The count is only used to render the pagination, and the pages we can serve end at $max_skip,
+	# so stop counting there instead of counting the whole collection on every request
+	$log->debug("Counting MongoDB documents for query", {query => $query_ref, limit => $max_skip + $limit})
+		if $log->is_debug();
 	my $count = execute_query(
 		sub {
-			return get_recent_changes_collection()->count_documents($query_ref);
+			return get_recent_changes_collection()->count_documents($query_ref, {limit => $max_skip + $limit});
 		}
 	);
 	$log->debug("MongoDB count query ok", {error => $@, count => $count}) if $log->is_debug();
@@ -10311,8 +10387,8 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 		${$ingredients_list_ref}
 			.= '<table id="ordered_ingredients_list" style="border-collapse:collapse;width:100%;font-size:0.85rem">'
 			. "\n<thead><tr>"
-			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Ingredient</th>'
-			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Taxonomy ID</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ingredient</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">taxonomy_id</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th>'

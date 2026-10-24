@@ -9,8 +9,8 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fats",
-      "en:vegetable-fats",
       "en:olive-tree-products",
+      "en:vegetable-fats",
       "en:vegetable-oils",
       "en:olive-oils"
    ],
@@ -34,17 +34,43 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fats",
-      "en:vegetable-fats",
       "en:olive-tree-products",
+      "en:vegetable-fats",
       "en:vegetable-oils",
       "en:olive-oils"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [],
+         "ingredients_coverage_percent" : 0,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : []
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:fats",
    "food_groups_tags" : [
       "en:fats-and-sauces",
       "en:fats"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "ingredients" : [
       {
          "id" : "en:some very fancy but unrecognized way of writing olive oil",
@@ -113,6 +139,11 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-api-not-called",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
    ],
    "nova_group_debug" : "no nova group if too many ingredients are unknown: 1 out of 1",
@@ -152,7 +183,9 @@
             "is_fat" : 1,
             "is_water" : 0,
             "negative_points" : 12,
+            "negative_points_max" : 0,
             "positive_points" : 5,
+            "positive_points_max" : 0,
             "proteins" : 0,
             "proteins_points" : 0,
             "proteins_value" : 0,

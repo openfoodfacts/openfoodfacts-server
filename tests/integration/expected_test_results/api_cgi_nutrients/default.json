@@ -782,7 +782,7 @@
          "display_in_edit_form" : false,
          "id" : "fruits-vegetables-legumes",
          "important" : true,
-         "name" : "Fruits‚ vegetables‚ legumes",
+         "name" : "Fruits, vegetables, legumes",
          "unit" : "%"
       },
       {
@@ -889,6 +889,13 @@
          "important" : false,
          "name" : "Total carbohydrates (includes fiber)",
          "unit" : "g"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "dry-residue",
+         "important" : false,
+         "name" : "Dry residue",
+         "unit" : "mg"
       },
       {
          "display_in_edit_form" : false,

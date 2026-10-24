@@ -406,7 +406,7 @@ msgstr ""
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Belarusian.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -415,7 +415,7 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Гэты прадукт яшчэ не знаходзіцца ў базе даных <<site_name>>. Не маглі б вы сфатаграфаваць прадукт, штрых-код, спіс інгрэдыентаў і звесткі аб пажыўнасці, каб дадаць іх на <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+msgstr "<p>Гэты прадукт яшчэ не знаходзіцца ў базе даных <<site_name>>. Не маглі б вы сфатаграфаваць прадукт, штрых-код, спіс інгрэдыентаў і звесткі аб пажыўнасці, каб дадаць іх на <a href=\"https://world-be.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Загадзя дзякуй!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -692,7 +692,7 @@ msgstr "Ахвяраваць на Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-be.openfoodfacts.org/akhvyaravats-na-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -976,8 +976,8 @@ msgstr "Найбольш частыя пытанні"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "https://support.openfoodfacts.org/help/en-gb"
-msgstr "https://support.openfoodfacts.org/help/en-gb"
+msgid "/faq"
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1760,11 +1760,6 @@ msgstr ""
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
@@ -2766,7 +2761,7 @@ msgstr ""
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
 msgstr ""
 
 msgctxt "website"
@@ -3394,7 +3389,7 @@ msgstr ""
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Дапамажыце перакласці %s на %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
@@ -4249,27 +4244,27 @@ msgstr ""
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "Я ўжо зрабіў ахвяраванне або мне не цікава. Схаваць банер."
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "Незалежны і грамадскі праект для празрыстасці харчовых прадуктаў?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Дадзеныя аб харчовых прадуктах для даследаванняў, якія паляпшаюць грамадскае здароўе?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Больш просты і лепшы выбар ежы па вашых уласных крытэрыях?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "Нам патрэбна ваша падтрымка!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "Калі ласка, ахвяруйце"
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -4942,7 +4937,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "«Зялёны бал» — гэта экалагічны бал ад A+ да F, які дазваляе лёгка параўноўваць уплыў харчовых прадуктаў на навакольнае асяроддзе."
+msgstr "Green-Score — гэта экалагічны бал ад A+ да F, які дазваляе лёгка параўноўваць уплыў харчовых прадуктаў на навакольнае асяроддзе."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4955,7 +4950,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "«Зялёны бал» — гэта экалагічны бал ад A+ да F, які дазваляе лёгка параўноўваць уплыў харчовых прадуктаў на навакольнае асяроддзе."
+msgstr "Green-Score — гэта экалагічны бал ад A+ да F, які дазваляе лёгка параўноўваць уплыў харчовых прадуктаў на навакольнае асяроддзе."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5879,7 +5874,7 @@ msgstr ""
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "«Зялёны бал» быў першапачаткова распрацаваны для Францыі, і цяпер ён распаўсюджваецца на іншыя еўрапейскія краіны. Формула «Зялёнага бала» можа змяняцца, бо яна рэгулярна ўдасканальваецца, каб зрабіць яе больш дакладнай і лепшай для кожнай краіны."
+msgstr "Green-Score быў першапачаткова распрацаваны для Францыі, і цяпер ён распаўсюджваецца на іншыя еўрапейскія краіны. Формула Green-Score можа змяняцца, бо яна рэгулярна ўдасканальваецца, каб зрабіць яе больш дакладнай і лепшай для кожнай краіны."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5998,7 +5993,7 @@ msgstr ""
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "Калі ласка, падтрымайце наш збор сродкаў на {year} год"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6032,9 +6027,49 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr ""
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr "Нам усё яшчэ патрэбна 120 000 еўра, каб завяршыць 2026 год!"
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr "Станьце мецэнатам Open Food Facts"
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr "Кожны месяц мы абслугоўваем 8 мільёнаў наведвальнікаў, і ў шмат разоў больш праз API. Ваша падтрымка важная для:"
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr "падтрымання Open Food Facts адкрытым і даступным для ўсіх,"
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr "падтрымкі інфраструктуры, вэб-сайта, мабільнага дадатку і API невялікай пастаяннай камандай"
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "заставацца незалежнымі ад харчовай прамысловасці,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr "падтрымкі супольнасці"
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr "падтрымкі навукі"
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr "Калі б кожны наведвальнік у гэтым месяцы націснуў на Ахвяраваць і даў усяго 1 еўра, мы б атрымалі больш за 8 гадавых бюджэтаў!"
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Ахвяраваць"
+
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr ""
+msgstr "Ахвяраваць"
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
@@ -7586,7 +7621,7 @@ msgstr ""
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr ""
+msgstr "/images/misc/f-droid/svg/get-it-on-be.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7962,6 +7997,10 @@ msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
 msgstr ""
@@ -7985,4 +8024,36 @@ msgstr ""
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "Этыкетка"
 
