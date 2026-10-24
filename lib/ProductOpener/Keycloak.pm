@@ -136,11 +136,8 @@ sub _validate_admin_token ($token) {
 		return 'missing access token';
 	}
 
-	my $access_token = eval {verify_access_token($token->{access_token});};
-	if (my $error = $@) {
-		chomp $error;
-		return "token verification failed: $error";
-	}
+	# verify_access_token traps decode failures internally and returns undef.
+	my $access_token = verify_access_token($token->{access_token});
 	unless (defined $access_token) {
 		return 'token verification failed';
 	}
