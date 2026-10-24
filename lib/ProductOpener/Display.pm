@@ -3193,7 +3193,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 	# If the query contained tags in non-canonical form, redirect to the form with the canonical tags
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
-	if ($redirect_to_canonical_url) {
+	if ($redirect_to_canonical_url && ($request_ref->{extension} // '') ne 'json') {
 		$request_ref->{redirect} = $request_ref->{formatted_subdomain} . $request_ref->{current_link};
 		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
 
