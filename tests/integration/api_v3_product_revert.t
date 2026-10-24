@@ -46,6 +46,7 @@ my $tests_ref = [
 		test_case => 'setup-create-product',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890100',
+		ua => $ua,
 		body => '{
 			"product": {
 				"product_name_en": "Test product",
@@ -62,6 +63,7 @@ my $tests_ref = [
 		test_case => 'setup-update-product',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890100',
+		ua => $ua,
 		body => '{
 			"product": { 
 				"product_name_en": "Test product updated",

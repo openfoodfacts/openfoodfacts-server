@@ -103,6 +103,8 @@ paths:
       description: |-
         This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "code" path component needs to contain the value "test" instead of a barcode.
 
+        Authentication is required (session, user id and password, or Bearer token). Unauthenticated requests are rejected with HTTP 401 and no product data is saved. New image uploads use POST /api/v3/product/{code}/images and remain available without authentication.
+
         New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
 
         Important: this new Product WRITE API has been deployed in production, but it is still under development, and it may change.
@@ -256,6 +258,8 @@ paths:
                           quantity_value: 200
                           quantity_unit: ml
                           weight: 80
+        "401":
+          description: Authentication required. The request did not include a logged-in user.
       security:
         - cookieAuth: []
           userAgentAuth: []

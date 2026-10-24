@@ -256,6 +256,9 @@ paths:
       description: |
         This updates a product.
 
+        Authentication is required. Requests without a logged-in user are rejected and no product data is saved.
+        New image uploads use a separate endpoint and remain available without authentication.
+
         Note: If the barcode exists then you will be editing the existing product,
         However if it doesn''t you will be creating a new product with that unique barcode,
         and adding properties to the product.

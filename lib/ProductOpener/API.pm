@@ -52,6 +52,7 @@ BEGIN {
 		&decode_json_request_body
 		&normalize_requested_code
 		&customize_response_for_product
+		&check_user_is_authenticated
 		&check_user_permission
 		&sanitize
 	);    # symbols to export on request
@@ -74,7 +75,7 @@ use ProductOpener::Attributes qw/compute_attributes/;
 use ProductOpener::KnowledgePanels qw/create_knowledge_panels initialize_knowledge_panels_options/;
 use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::Packaging qw/%packaging_taxonomies/;
-use ProductOpener::Permissions qw/has_permission/;
+use ProductOpener::Permissions qw/has_permission is_logged_in/;
 use ProductOpener::GeoIP qw/get_country_for_ip_api/;
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
@@ -1126,6 +1127,50 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		}
 	}
 	return $customized_product_ref;
+}
+
+=head2 check_user_is_authenticated ($request_ref, $response_ref)
+
+Check that the request has an authenticated user before processing an API request.
+
+init_user() sets $request_ref->{user_id} from a session, user id and password, or a Bearer token.
+This is the same check as the current-user API.
+
+If the user is not authenticated, an authentication_required error is added and the HTTP status is set to 401.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $response_ref (output)
+
+Reference to the response object.
+
+=head3 Return value
+
+1 if the user is authenticated, 0 otherwise.
+
+=cut
+
+sub check_user_is_authenticated ($request_ref, $response_ref) {
+
+	if (is_logged_in($request_ref)) {
+		return 1;
+	}
+
+	$log->info("check_user_is_authenticated - no authenticated user", {}) if $log->is_info();
+	add_error(
+		$response_ref,
+		{
+			message => {id => "authentication_required"},
+			impact => {id => "failure"},
+		},
+		401
+	);
+
+	return 0;
 }
 
 =head2 check_user_permission ($request_ref, $response_ref, $permission)
