@@ -3,12 +3,11 @@ on:
   push:
     branches:
       - main
-
 permissions:
   contents: write
-  pull-requests: write
+  checks: read
   actions: read
-
+  pull-requests: write
 jobs:
   release-please:
     runs-on: ubuntu-latest

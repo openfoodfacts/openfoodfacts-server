@@ -1,0 +1,77 @@
+{
+   "results" : {
+      "distribution" : {
+         "total" : {
+            "ecs" : 10.4626
+         },
+         "transports" : {
+            "air" : 0,
+            "impacts" : {
+               "ecs" : 14.0804
+            },
+            "road" : 0,
+            "roadCooled" : 600,
+            "sea" : 0,
+            "seaCooled" : 0
+         }
+      },
+      "packaging" : {
+         "ecs" : 15.16
+      },
+      "perKg" : {
+         "ecs" : 246.42
+      },
+      "preparation" : {
+         "ecs" : 5.11736
+      },
+      "preparedMass" : 0.9,
+      "recipe" : {
+         "ingredientsTotal" : {
+            "ecs" : 66.96
+         },
+         "total" : {
+            "ecs" : 176.958
+         },
+         "totalBonusImpact" : {
+            "cropDiversity" : 0,
+            "hedges" : 0,
+            "permanentPasture" : 0,
+            "plotSize" : 0
+         },
+         "transform" : {
+            "ecs" : 0
+         },
+         "transports" : {
+            "air" : 0,
+            "impacts" : {
+               "ecs" : 109.998
+            },
+            "road" : 0,
+            "roadCooled" : 2660,
+            "sea" : 0,
+            "seaCooled" : 18000
+         }
+      },
+      "scoring" : {
+         "all" : 246.42,
+         "biodiversity" : 113.901,
+         "climate" : 55.8422,
+         "health" : 28.8503,
+         "resources" : 47.8023
+      },
+      "total" : {
+         "ecs" : 221.778
+      },
+      "totalMass" : 0.98354,
+      "transports" : {
+         "air" : 0,
+         "impacts" : {
+            "ecs" : 124.078
+         },
+         "road" : 0,
+         "roadCooled" : 3260,
+         "sea" : 0,
+         "seaCooled" : 18000
+      }
+   }
+}

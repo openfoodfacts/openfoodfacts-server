@@ -440,7 +440,7 @@ subtest 'compute_attribute_forest_footprint panel_id' => sub {
 	ok(!exists $attr_uncomputed->{panel_id}, 'uncomputed forest footprint has no panel_id');
 
 	my $attr_computed = ProductOpener::Attributes::compute_attribute_forest_footprint(
-		{forest_footprint_data => {grade => 'a', footprint_per_kg => 0.2}}, 'en');
+		{forest_footprint_2026 => {grade => 'a', total_footprint_per_kg => 0.2}}, 'en');
 	is($attr_computed->{panel_id}, 'forest_footprint', 'computed forest footprint sets panel_id');
 };
 

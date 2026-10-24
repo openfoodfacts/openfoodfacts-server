@@ -16,8 +16,7 @@
    "additives_tags" : [],
    "allergens_imported" : "en:eggs",
    "allergens_tags" : [
-      "en:eggs",
-      "lc:ŒUFS"
+      "en:eggs"
    ],
    "amino_acids_tags" : [],
    "brands" : "Auchan",
@@ -158,6 +157,39 @@
       "test-user"
    ],
    "entry_dates_tags" : "--ignore--",
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [],
+         "ingredients_coverage_percent" : 0,
+         "packaging" : [
+            {
+               "category" : "en:eggs",
+               "id" : "a560affc-90ca-4219-b4a3-6520906e834c",
+               "name" : "Eggs, powder, 800g | Packaging System, Proxy Pack, Steel {FR} U",
+               "name_fr" : "Pot en acier pour œufs en poudre - 800g - Proxy"
+            }
+         ],
+         "reference_quantity" : 380,
+         "reference_quantity_source" : "product_quantity",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "a560affc-90ca-4219-b4a3-6520906e834c"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -559,6 +591,12 @@
       "en:fish-meat-eggs",
       "en:eggs"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "a",
+      "primary_ingredients" : {},
+      "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+      "total_footprint_per_kg" : 0
+   },
    "generic_name_fr" : "6 œufs de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite).",
    "generic_name_fr_imported" : "6 œufs de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite).",
    "id" : "3596710520787",
@@ -792,6 +830,9 @@
    "main_countries_tags" : [],
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-reference-quantity-from-product-quantity",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
@@ -801,6 +842,8 @@
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-2021-a-2023-a",
       "en:nutriscore-2021-same-as-2023",
@@ -851,7 +894,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 4,
+            "negative_points_max" : 0,
             "positive_points" : 5,
+            "positive_points_max" : 0,
             "proteins" : 13,
             "proteins_points" : 5,
             "proteins_value" : 13.0,
@@ -1357,7 +1402,7 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : [
-               "lc:ŒUFS"
+               "en:eggs"
             ]
          },
          "packaging" : {

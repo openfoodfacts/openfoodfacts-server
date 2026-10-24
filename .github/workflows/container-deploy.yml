@@ -10,6 +10,7 @@ on:
 permissions:
   contents: read
   actions: read
+  checks: read
 
 # Note on secrets used for connection
 # SSH_PRIVATE_KEY is the private key (shared between VM and host)
@@ -103,7 +104,6 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        continue-on-error: false
         script: |
           # while we would use shallow clone on a normal repo,
           # comparison is too costly for this project and takes too much time, so we use a regular clone
@@ -129,7 +129,6 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        continue-on-error: false
         script: |
           # Go to repository directory
           cd ${{ matrix.env }}
@@ -200,7 +199,6 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make create_external_volumes && \
@@ -217,7 +215,6 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 25m
-        continue-on-error: false
         script: |
           waited=0
           for IMAGE_TYPE in frontend backend
@@ -246,7 +243,6 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 25m
-        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make init_backend
@@ -263,7 +259,6 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 15m
-        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make hdown && \
@@ -284,7 +279,6 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make livecheck
@@ -299,7 +293,6 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make prune
