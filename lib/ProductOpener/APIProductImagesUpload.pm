@@ -65,7 +65,6 @@ sub delete_product_image_api ($request_ref) {
 
 	$log->debug("image_product_delete_api - start", {request => $request_ref}) if $log->is_debug();
 
-	# If an OIDC Bearer token is presented, it must carry the products:write scope
 	return if (not require_scope_if_token_present($request_ref, 'products:write''));
 
 	my $response_ref = $request_ref->{api_response};
@@ -145,7 +144,6 @@ sub upload_product_image_api ($request_ref) {
 
 	$log->debug("image_product_upload_api - start", {request => sanitize($request_ref)}) if $log->is_debug();
 
-	# If an OIDC Bearer token is presented, it must carry the products:write scope
 	return if (not require_scope_if_token_present($request_ref, 'products:write''));
 
 	my $response_ref = $request_ref->{api_response};

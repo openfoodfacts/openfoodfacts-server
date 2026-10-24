@@ -67,7 +67,6 @@ $log->debug("calling init()", {query_string => $env});
 
 my $request_ref = ProductOpener::Display::init_request();
 
-# If an OIDC Bearer token is presented, it must carry the products:write scope
 enforce_scope_if_token_present($request_ref, 'products:write');
 
 $log->debug(
