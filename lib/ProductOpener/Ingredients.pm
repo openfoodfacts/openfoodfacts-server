@@ -1201,6 +1201,48 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 	return 0;
 }
 
+# Clean what is left of an ingredient after a processing was removed from it
+sub clean_ingredient_after_removing_processing ($ingredient, $and) {
+
+	# remove starting or ending " and "
+	# viande traitée en salaison et cuite -> viande et
+	$ingredient =~ s/($and)+$//i;
+	$ingredient =~ s/^($and)+//i;
+	# trim leading and trailing whitespaces or hyphens
+	$ingredient =~ s/(\s|-)+$//;
+	$ingredient =~ s/^(\s|-)+//;
+	# remove extra spaces
+	$ingredient =~ s/\s+/ /g;
+
+	return $ingredient;
+}
+
+# When a processing synonym is removed from inside an ingredient, a long synonym can also remove
+# a word that belongs to the rest of the ingredient.
+# e.g. removing "concentré de" from "jus concentré de baies de sureau" gives "jus baies de sureau",
+# but we need the "de" to then remove "jus de" and get "baies de sureau".
+# This returns the ingredients we get by removing a shorter synonym of the same processing instead
+# (e.g. "concentré"), so that the rest of the removed text is kept (e.g. "jus de baies de sureau").
+sub get_alternatives_with_shorter_processing_synonyms ($entries_ref, $processing, $text_before, $removed_text,
+	$text_after, $and)
+{
+	my @alternatives = ();
+
+	foreach my $entry_ref (@$entries_ref) {
+		next if $entry_ref->{processing} ne $processing;
+
+		foreach my $regexp (@{$entry_ref->{inside}}) {
+			# the shorter synonym must be at the start of the removed text
+			if (($removed_text =~ $regexp) and ($-[0] == 0) and ($+[0] < length($removed_text))) {
+				push @alternatives, clean_ingredient_after_removing_processing($text_before . $' . $text_after, $and);
+				last;
+			}
+		}
+	}
+
+	return @alternatives;
+}
+
 =head2 parse_processing_from_ingredient ( $ingredients_lc, $ingredient )
 
 This function extract processing method from one ingredient.
@@ -1263,6 +1305,10 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 		my $found_a_known_ingredient = 0;
 		my $new_ingredient = $ingredient;
 		my @new_processings = ();
+		# if we don't find a known ingredient, we try again with a shorter synonym of the processings
+		# that were removed from inside the ingredient (see get_alternatives_with_shorter_processing_synonyms)
+		my @alternatives = ();
+		my $trying_alternatives = 0;
 		my $removed_a_processing = 1;    # remove prefixes / suffixes one by one
 		while ($removed_a_processing) {
 			$removed_a_processing = 0;
@@ -1290,12 +1336,14 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 							and $log->trace("processing - checking processing regexps",
 							{new_ingredient => $new_ingredient, regexp => $ingredient_processing_ref->{pattern}});
 
-						# $` and $' are dynamically scoped to the block with the match:
+						# $`, $& and $' are dynamically scoped to the block with the match:
 						# consume them before leaving it
 						my $matched = 0;
+						my ($text_before, $removed_text, $text_after);
 						foreach my $regexp (@{$ingredient_processing_ref->{$pass}}) {
 							if ($new_ingredient =~ $regexp) {
-								$new_ingredient = $` . $';
+								($text_before, $removed_text, $text_after) = ($`, $&, $');
+								$new_ingredient = $text_before . $text_after;
 								$matched = 1;
 								last;
 							}
@@ -1322,15 +1370,20 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 								push @new_processings, $processing;
 							}
 
-							# remove starting or ending " and "
-							# viande traitée en salaison et cuite -> viande et
-							$new_ingredient =~ s/($and)+$//i;
-							$new_ingredient =~ s/^($and)+//i;
-							# trim leading and trailing whitespaces or hyphens
-							$new_ingredient =~ s/(\s|-)+$//;
-							$new_ingredient =~ s/^(\s|-)+//;
-							# remove extra spaces
-							$new_ingredient =~ s/\s+/ /g;
+							$new_ingredient = clean_ingredient_after_removing_processing($new_ingredient, $and);
+
+							if (($pass eq "inside") and (not $trying_alternatives)) {
+								foreach my $alternative_ingredient (
+									get_alternatives_with_shorter_processing_synonyms(
+										$compiled_ingredients_processing_ref->{entries},
+										$processing, $text_before, $removed_text, $text_after, $and
+									)
+									)
+								{
+									push @alternatives,
+										{ingredient => $alternative_ingredient, processings => [@new_processings]};
+								}
+							}
 
 							# Stop if we now have a known ingredient.
 							# e.g. "jambon cru en tranches" -> keep "jambon cru".
@@ -1361,6 +1414,29 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 							last;
 						}
 					}
+				}
+			}
+
+			# If we can't remove more processings and did not find a known ingredient,
+			# try again from an alternative where a shorter processing synonym was removed
+			if ((not $removed_a_processing) and (not $found_a_known_ingredient) and (@alternatives)) {
+				my $alternative_ref = shift @alternatives;
+				$trying_alternatives = 1;
+				$new_ingredient = $alternative_ref->{ingredient};
+				@new_processings = @{$alternative_ref->{processings}};
+				# continue removing processings from the alternative
+				$removed_a_processing = 1;
+
+				$debug_parse_processing_from_ingredient
+					and $log->is_debug()
+					and $log->debug(
+					"processing - trying alternative with a shorter processing synonym",
+					{ingredient => $ingredient, new_ingredient => $new_ingredient}
+					);
+
+				my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
+				if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+					$found_a_known_ingredient = 1;
 				}
 			}
 		}

@@ -527,11 +527,40 @@ my @tests = (
 		]
 	],
 
-	# test for jus and concentré with extra "de"
-	#	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
-	#		[
-	#		]
-	#	],
+	# "concentré de" is removed from inside the ingredient, but the "de" is needed to remove "jus de"
+	[
+		{lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
+		[
+			{
+				'id' => 'en:elderberry',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:concentrated,en:juice',
+				'text' => 'baies de sureau'
+			}
+		]
+	],
+	[
+		{lc => "fr", ingredients_text => "eau, jus concentré de cassis 20%, sucre"},
+		[
+			{
+				'id' => 'en:water',
+				'is_in_taxonomy' => 1,
+				'text' => 'eau'
+			},
+			{
+				'id' => 'en:blackcurrant',
+				'is_in_taxonomy' => 1,
+				'percent' => 20,
+				'processing' => 'en:concentrated,en:juice',
+				'text' => 'cassis'
+			},
+			{
+				'id' => 'en:sugar',
+				'is_in_taxonomy' => 1,
+				'text' => 'sucre'
+			}
+		]
+	],
 
 	##################################################################
 	#
