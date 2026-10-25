@@ -83,26 +83,77 @@ is(normalize_packager_codes(normalize_packager_codes("EE 110 EÜ")),
 	"EE 110 EC", "EE: normalizing code twice does not change it any more than normalizing once");
 is(localize_packager_code(normalize_packager_codes("EE 110 EÜ")), "EE 110 EÜ", "EE: round-tripped code correctly");
 
-# ES suffix (CZ/HU/SI) and EF suffix (DK) in $ec_code_regexp
-is(normalize_packager_codes("CZ 62870058 ES"), "CZ 62870058 EC", "CZ: normalized code correctly");
-is(normalize_packager_codes("HU 12345 ES"), "HU 12345 EC", "HU: normalized code correctly");
-is(normalize_packager_codes("SI 917 ES"), "SI 917 EC", "SI: normalized code correctly");
-is(normalize_packager_codes("DK 1234 EF"), "DK 1234 EC", "DK: normalized code correctly");
+# Country-scoped ES suffix (CZ/HU/SI/SK) and EF suffix (DK)
+foreach my $test_ref (
+	["CZ 62870058 ES", "CZ 62870058 EC"],
+	["HU 12345 ES", "HU 12345 EC"],
+	["SI 917 ES", "SI 917 EC"],
+	["SK 121 ES", "SK 121 EC"],
+	["DK 1234 EF", "DK 1234 EC"],
+	)
+{
+	my ($local_code, $ec_code) = @{$test_ref};
+	my $normalized_code = normalize_packager_codes($local_code);
+
+	# Check the canonical intermediate value, not just the localized round-trip.
+	is($normalized_code, $ec_code, "$local_code: normalized to the canonical EC code");
+	is(normalize_packager_codes($normalized_code), $ec_code, "$local_code: normalization is idempotent");
+	is(localize_packager_code($normalized_code), $local_code, "$local_code: localized suffix is restored");
+}
+
+foreach my $test_ref (
+	["cz-62870058-es", "CZ 62870058 EC"],
+	["HU_12345_ES", "HU 12345 EC"],
+	["SI.917.ES", "SI 917 EC"],
+	["SK/121/ES", "SK 121 EC"],
+	["dk-1234-ef", "DK 1234 EC"],
+	["CZ 12-345 ES", "CZ 12-345 EC"],
+	["DK 12-34 EF", "DK 12-34 EC"],
+	)
+{
+	my ($input, $expected) = @{$test_ref};
+	is(normalize_packager_codes($input), $expected, "$input: suffix separators normalize without changing the ID");
+}
+
 is(
-	normalize_packager_codes(normalize_packager_codes("CZ 62870058 ES")),
-	"CZ 62870058 EC",
-	"CZ: normalizing code twice does not change it any more than normalizing once"
+	normalize_packager_codes("CZ 62870058 ES,DK 1234 EF, SK 121 ES, DE BY-718 EG"),
+	"CZ 62870058 EC,DK 1234 EC, SK 121 EC, DE BY-718 EC",
+	"Mixed country codes normalize independently, preserving existing suffix handling"
 );
-is(normalize_packager_codes(normalize_packager_codes("DK 1234 EF")),
-	"DK 1234 EC", "DK: normalizing code twice does not change it any more than normalizing once");
-is(
-	localize_packager_code(normalize_packager_codes("CZ 62870058 ES")),
-	"CZ 62870058 ES",
-	"CZ: round-tripped code correctly"
-);
-is(localize_packager_code(normalize_packager_codes("HU 12345 ES")), "HU 12345 ES", "HU: round-tripped code correctly");
-is(localize_packager_code(normalize_packager_codes("SI 917 ES")), "SI 917 ES", "SI: round-tripped code correctly");
-is(localize_packager_code(normalize_packager_codes("DK 1234 EF")), "DK 1234 EF", "DK: round-tripped code correctly");
+
+# ES and EF must not become generic suffixes for other countries.
+foreach my $country (qw(FR DE UK IT LT US)) {
+	foreach my $suffix (qw(ES EF)) {
+		my $code = "$country 12345 $suffix";
+		is(normalize_packager_codes($code), $code, "$country: unsupported $suffix suffix stays unchanged");
+	}
+}
+
+# Reject mismatched suffixes and suffix-like letters without code boundaries.
+foreach my $code (
+	"CZ 12345 EF",
+	"HU 12345 EF",
+	"SI 917 EF",
+	"SK 121 EF",
+	"DK 1234 ES",
+	"CZ 62870058ES",
+	"HU 12345ES",
+	"SI 917ES",
+	"SK 121ES",
+	"DK 1234EF",
+	"CZE 121 ES",
+	"DKFOO 1234 EF",
+	"CZ 12345 ES EXTRA",
+	"DK 1234 EF EXTRA",
+	"ES 12.0664/C ES",
+	"ES 12.0664/C EF",
+	)
+{
+	is(normalize_packager_codes($code), $code, "$code: not a supported standalone country-specific suffix");
+}
+
+is(normalize_packager_codes("Les Mousquetaires"), "LES MOUSQUETAIRES", "Plural endings are not EC suffixes");
+is(normalize_packager_codes("Lait des Alpes"), "LAIT DES ALPES", "ES inside ordinary text is not an EC suffix");
 
 # Guards: suffix-less and collision-prone formats stay untouched
 is(normalize_packager_codes("LT 12-345 A"), "LT 12-345 A", "LT: official suffix-less format stays unchanged");

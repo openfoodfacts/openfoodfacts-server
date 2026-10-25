@@ -61,7 +61,7 @@ use ProductOpener::Lang qw/lang/;
 
 use Log::Any qw($log);
 
-$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey|eu|eü|es|ef";
+$ec_code_regexp = "ce|eec|ec|eg|we|ek|ey|eu|eü";
 
 sub normalize_packager_codes ($codes) {
 
@@ -177,6 +177,13 @@ sub normalize_packager_codes ($codes) {
 	$codes =~ s{ $rs_pat }
 			   {$+{start} . $normalize_rs_ce_code->('rs', $+{code})}iegxsm;
 
+	# ES and EF are country-specific suffixes, not endings in arbitrary words.
+	# Require separators around the ID and a suffix at the end of the code.
+	$codes
+		=~ s/(^|,\s*)(cz|hu|si|sk)(?:$sep_pat)+(\w(?:\w|$sep_pat)*?)(?:$sep_pat)+es(?=\s*(?:,|$))/$1 . $normalize_ce_code->($2,$3)/ieg;
+	$codes
+		=~ s/(^|,\s*)(dk)(?:$sep_pat)+(\w(?:\w|$sep_pat)*?)(?:$sep_pat)+ef(?=\s*(?:,|$))/$1 . $normalize_ce_code->($2,$3)/ieg;
+
 	$codes
 		=~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
 
@@ -202,6 +209,7 @@ my %local_ec = (
 	PL => "WE",
 	PT => "CE",
 	SI => "ES",
+	SK => "ES",
 	UK => "EC",
 );
 
