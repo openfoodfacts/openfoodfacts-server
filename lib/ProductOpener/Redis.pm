@@ -714,9 +714,9 @@ sub get_rate_limit_user_requests ($ip, $bucket) {
 	return;
 }
 
-=head2 increment_rate_limit_requests ($ip, $bucket)
+=head2 increment_rate_limit_requests ($ip, $bucket, $minute)
 
-Increment the number of requests according to the Redis rate-limiter for the current minute for the given user and bucket.
+Increment the number of requests according to the Redis rate-limiter for the given minute (current minute by default) for the given user and bucket.
 The expiration of the counter is set to 59 seconds.
 See https://redis.com/glossary/rate-limiting/ for more information.
 
@@ -730,9 +730,15 @@ The IP address of the user who is making the request.
 
 The rate-limit bucket that is being requested.
 
+=head4 Integer $minute
+
+The minute the request is accounted in, as returned by int(time() / 60). Defaults to the current minute.
+Passing the minute explicitly keeps the increment and the stored accounting minute in sync across a minute boundary.
+
 =cut
 
-sub increment_rate_limit_requests ($ip, $bucket) {
+sub increment_rate_limit_requests ($ip, $bucket, $minute) {
+	$minute //= int(time() / 60);
 	if (!$redis_url) {
 		# No Redis URL provided, we can't increment the number of requests
 		if (!$sent_warning_about_missing_redis_url) {
@@ -751,12 +757,11 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 	if (defined $redis_client) {
 		$ratelimiter_log->debug("Incrementing rate-limit requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
-		my $current_minute = int(time() / 60);
 		eval {
 			# Use a MULTI/EXEC block to increment the counter and set the expiration atomically
 			$redis_client->multi();
-			$redis_client->incr("po-rate-limit:$ip:$bucket:$current_minute");
-			$redis_client->expire("po-rate-limit:$ip:$bucket:$current_minute", 59);
+			$redis_client->incr("po-rate-limit:$ip:$bucket:$minute");
+			$redis_client->expire("po-rate-limit:$ip:$bucket:$minute", 59);
 			$redis_client->exec();
 		};
 		$error = $@;
@@ -780,11 +785,17 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 
 }
 
-=head2 decrement_rate_limit_requests ($ip, $bucket)
+=head2 decrement_rate_limit_requests ($ip, $bucket, $minute)
 
 Decrement the number of requests for the given user and bucket in the Redis rate-limiter for the
-current minute. Used when a request is moved from one bucket to another one, so that the counters
-of both buckets add up to the number of requests that were made.
+given minute (current minute by default). Used when a request is moved from one bucket to another
+one, or when a counted request turns out to be exempt, so that the counters add up to the number
+of requests that were made.
+
+The minute must be the one the request was accounted in (stored as rate_limiter_accounted_minute):
+using the current minute instead leaves the original count intact across a minute boundary and
+decrements the next window instead. A rollback for an expired or missing counter is a no-op and
+never recreates the key, so it cannot undercount the window or leave persistent keys behind.
 
 =head3 Arguments
 
@@ -796,9 +807,14 @@ The IP address of the user who is making the request.
 
 The rate-limit bucket that the request is removed from.
 
+=head4 Integer $minute
+
+The minute the request was accounted in, as returned by int(time() / 60). Defaults to the current minute.
+
 =cut
 
-sub decrement_rate_limit_requests ($ip, $bucket) {
+sub decrement_rate_limit_requests ($ip, $bucket, $minute) {
+	$minute //= int(time() / 60);
 	if (!$redis_url) {
 		if (!$sent_warning_about_missing_redis_url) {
 			$ratelimiter_log->warn("Redis URL not provided, rate-limiting is disabled") if $ratelimiter_log->is_warn();
@@ -815,11 +831,15 @@ sub decrement_rate_limit_requests ($ip, $bucket) {
 	if (defined $redis_client) {
 		$ratelimiter_log->debug("Decrementing rate-limit requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
-		my $current_minute = int(time() / 60);
+		my $key = "po-rate-limit:$ip:$bucket:$minute";
 		eval {
-			$redis_client->multi();
-			$redis_client->decr("po-rate-limit:$ip:$bucket:$current_minute");
-			$redis_client->exec();
+			# Only decrement an existing counter: decr() on a missing key would create it at -1
+			# without an expiry, undercounting that window and leaking a persistent key. The key
+			# already carries the TTL set by increment_rate_limit_requests(), so we leave it
+			# untouched instead of refreshing it.
+			if ($redis_client->exists($key)) {
+				$redis_client->decr($key);
+			}
 		};
 		$error = $@;
 	}

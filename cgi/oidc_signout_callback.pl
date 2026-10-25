@@ -33,7 +33,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Auth qw/signout_callback/;
-use ProductOpener::Display qw/init_request/;
+use ProductOpener::Display qw/display_too_many_requests_page_and_exit init_request/;
 use ProductOpener::HTTP qw/redirect_to_url/;
 use ProductOpener::Routing qw/analyze_request/;
 use ProductOpener::URL qw/format_subdomain/;
@@ -44,6 +44,11 @@ $log->info('start') if $log->is_info();
 
 my $request_ref = init_request();
 analyze_request($request_ref);
+
+# init_request() defers enforcement for routed requests: block here on the final bucket
+if ($request_ref->{rate_limiter_blocking}) {
+	display_too_many_requests_page_and_exit();
+}
 
 my $return_url = signout_callback($request_ref);
 unless (defined $return_url) {

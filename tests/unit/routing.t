@@ -5,7 +5,8 @@ use utf8;
 
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 use ProductOpener::Routing qw/analyze_request load_routes/;
-use ProductOpener::RateLimiter qw/account_request_for_rate_limiting move_rate_limit_accounting set_rate_limit_bucket/;
+use ProductOpener::RateLimiter
+	qw/account_request_for_rate_limiting move_rate_limit_accounting rollback_rate_limit_accounting set_rate_limit_bucket/;
 use ProductOpener::Lang qw/$lc/;
 
 use Test2::V0;
@@ -357,6 +358,8 @@ foreach my $test_ref (@tests) {
 	# Set $lc global because currently analyze_request uses the global $lc
 	$lc = $test_ref->{input_request}{lc};
 	analyze_request($test_ref->{input_request});
+	# The accounting minute is time-dependent and is not part of the snapshot
+	delete $test_ref->{input_request}{rate_limiter_accounted_minute};
 	compare_to_expected_results(
 		$test_ref->{input_request},
 		"$expected_result_dir/$test_ref->{id}.json",
@@ -396,15 +399,20 @@ foreach my $test_ref (@tests) {
 
 {
 
-	my @counted_buckets = ();
+	my @incremented_buckets = ();
+	my @decremented_buckets = ();
 	my $module = mock 'ProductOpener::RateLimiter' => (
 		override => [
 			increment_rate_limit_requests => sub {
-				my $ip_address = shift;
-				my $bucket = shift;
-				push @counted_buckets, $bucket;
+				my ($ip_address, $bucket, $minute) = @_;
+				push @incremented_buckets, $bucket;
 				return;
-			}
+			},
+			decrement_rate_limit_requests => sub {
+				my ($ip_address, $bucket, $minute) = @_;
+				push @decremented_buckets, $bucket;
+				return;
+			},
 		]
 	);
 
@@ -414,35 +422,136 @@ foreach my $test_ref (@tests) {
 	account_request_for_rate_limiting($request_ref);
 	is($request_ref->{rate_limiter_bucket}, "other", "a request without a bucket is counted in 'other'");
 	is($request_ref->{rate_limiter_accounted_bucket}, "other", "the request is accounted for");
-	is(scalar @counted_buckets, 1, "the request is counted once");
+	is(scalar @incremented_buckets, 1, "the request is counted once");
+	is(defined $request_ref->{rate_limiter_accounted_minute}, 1, "the accounting minute is stored");
 
-	# A route that sets a bucket moves the count, so that both counters add up
+	# A route that sets a bucket only changes the bucket: the count moves when the accounting is
+	# refreshed, so that eligibility for the new bucket is checked before it is incremented
 	set_rate_limit_bucket($request_ref, "product");
 	is($request_ref->{rate_limiter_bucket}, "product", "the route bucket is set");
-	is($request_ref->{rate_limiter_accounted_bucket}, "product", "the count moved to the new bucket");
-	is(scalar @counted_buckets, 2, "the request is counted again in the new bucket");
-	is($counted_buckets[1], "product", "the second count is for the route bucket");
+	is($request_ref->{rate_limiter_accounted_bucket}, "other", "the count has not moved yet");
+	is(scalar @incremented_buckets, 1, "setting the bucket does not count the request again");
+	is(scalar @decremented_buckets, 0, "setting the bucket does not move the count yet");
 
-	# Setting the same bucket again does not count the request twice
-	set_rate_limit_bucket($request_ref, "product");
-	is(scalar @counted_buckets, 2, "the request is not counted twice in the same bucket");
-
-	# move_rate_limit_accounting() only refreshes the limit when the count has already moved
+	# move_rate_limit_accounting() moves the count to the new bucket
 	move_rate_limit_accounting($request_ref);
-	is(scalar @counted_buckets, 2, "the limit is refreshed without counting the request again");
+	is($request_ref->{rate_limiter_accounted_bucket}, "product", "the count moved to the new bucket");
+	is(scalar @incremented_buckets, 2, "the request is counted in the new bucket");
+	is($incremented_buckets[1], "product", "the second count is for the route bucket");
+	is(scalar @decremented_buckets, 1, "the count is removed from the previous bucket");
+	is($decremented_buckets[0], "other", "the removed count is the one of the previous bucket");
+
+	# Setting the same bucket again and refreshing does not count the request twice
+	set_rate_limit_bucket($request_ref, "product");
+	move_rate_limit_accounting($request_ref);
+	is(scalar @incremented_buckets, 2, "the request is not counted twice in the same bucket");
+	is(scalar @decremented_buckets, 1, "the count is not moved when the bucket does not change");
 
 	# A request that was not accounted for (init_request() was not called) is counted when the
 	# accounting is asked for, in the bucket that was set in the meantime
 	my $not_accounted_ref = {no_index => 0, rate_limiter_bucket => "facet_tags"};
 	move_rate_limit_accounting($not_accounted_ref);
 	is($not_accounted_ref->{rate_limiter_accounted_bucket}, "facet_tags", "the request is accounted for");
-	is(scalar @counted_buckets, 3, "the request is counted once");
+	is(scalar @incremented_buckets, 3, "the request is counted once");
 
 	# A no-index page (an empty page returned to known web crawlers) is not counted
 	my $no_index_ref = {no_index => 1, rate_limiter_bucket => "other"};
 	is(account_request_for_rate_limiting($no_index_ref), 0, "a no-index page is not accounted for");
 	is($no_index_ref->{rate_limiter_accounted_bucket}, undef, "a no-index page is not counted");
-	is(scalar @counted_buckets, 3, "a no-index page does not increment a counter");
+	is(scalar @incremented_buckets, 3, "a no-index page does not increment a counter");
+
+	# A request counted by init_request() that routing later marks no-index (for example a crawler
+	# paginating a facet) backs its count out instead of consuming the quota
+	my $crawler_ref = {no_index => 0};
+	account_request_for_rate_limiting($crawler_ref);
+	my $increments_before_crawler = scalar @incremented_buckets;
+	set_rate_limit_bucket($crawler_ref, "facet_products");
+	$crawler_ref->{no_index} = 1;
+	move_rate_limit_accounting($crawler_ref);
+	is($crawler_ref->{rate_limiter_accounted_bucket}, undef, "the no-index count is rolled back");
+	is($crawler_ref->{rate_limiter_blocking}, 0, "a no-index page is never blocking");
+	is(scalar @decremented_buckets, 2, "the init_request() count is removed");
+	is(scalar @incremented_buckets,
+		$increments_before_crawler, "the route bucket is never incremented for a no-index page");
+}
+
+# The limit is checked before the final bucket is incremented, as it was before accounting moved
+# to init_request(): a search limit of 10 blocks the 11th request, not the 10th
+
+{
+
+	my $limit_module = mock 'ProductOpener::RateLimiter' => (
+		override => [
+			remote_addr => sub {
+				return "1.2.3.4";
+			},
+			get_rate_limit_user_requests => sub {
+				return 9;
+			},
+			increment_rate_limit_requests => sub {return;},
+			decrement_rate_limit_requests => sub {return;},
+		]
+	);
+
+	my $request_ref = {no_index => 0, rate_limiter_bucket => "search"};
+	account_request_for_rate_limiting($request_ref);
+	is($request_ref->{rate_limiter_blocking}, 0, "9 previous requests do not block (limit 10)");
+}
+
+{
+
+	my $limit_module = mock 'ProductOpener::RateLimiter' => (
+		override => [
+			remote_addr => sub {
+				return "1.2.3.4";
+			},
+			get_rate_limit_user_requests => sub {
+				return 10;
+			},
+			increment_rate_limit_requests => sub {return;},
+			decrement_rate_limit_requests => sub {return;},
+		]
+	);
+
+	my $request_ref = {no_index => 0, rate_limiter_bucket => "search"};
+	account_request_for_rate_limiting($request_ref);
+	is($request_ref->{rate_limiter_blocking}, 1, "10 previous requests block (limit 10)");
+}
+
+# The initialization-then-routing flow checks the final bucket before incrementing it
+
+{
+
+	my %counts = (other => 0, search => 9);
+	my $flow_module = mock 'ProductOpener::RateLimiter' => (
+		override => [
+			remote_addr => sub {
+				return "1.2.3.4";
+			},
+			get_rate_limit_user_requests => sub {
+				my ($ip, $bucket) = @_;
+				return $counts{$bucket};
+			},
+			increment_rate_limit_requests => sub {
+				my ($ip, $bucket, $minute) = @_;
+				$counts{$bucket}++;
+				return;
+			},
+			decrement_rate_limit_requests => sub {
+				my ($ip, $bucket, $minute) = @_;
+				$counts{$bucket}--;
+				return;
+			},
+		]
+	);
+
+	my $request_ref = {no_index => 0};
+	account_request_for_rate_limiting($request_ref);
+	set_rate_limit_bucket($request_ref, "search");
+	move_rate_limit_accounting($request_ref);
+	is($request_ref->{rate_limiter_blocking}, 0, "the 10th search request is not blocked (limit 10)");
+	is($counts{other}, 0, "the init_request() count moved out of 'other'");
+	is($counts{search}, 10, "the search counter holds the 10 requests");
 }
 
 done_testing();

@@ -31,8 +31,7 @@ use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/request_param single_param get_http_request_header/;
-use ProductOpener::RateLimiter qw/move_rate_limit_accounting set_rate_limit_bucket/;
-use ProductOpener::Redis qw/decrement_rate_limit_requests/;
+use ProductOpener::RateLimiter qw/move_rate_limit_accounting rollback_rate_limit_accounting set_rate_limit_bucket/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
 use ProductOpener::Food qw/%nutrients_lists/;
@@ -162,17 +161,12 @@ my $is_intake24_request = (defined $user_agent_header) && ($user_agent_header =~
 # moves the count, so that the search counter is the one that is checked. For intake24 requests,
 # the count is removed instead, as they are exempt from rate limiting.
 if ($is_intake24_request) {
-	# Back out of the count made by init_request(): intake24 requests are exempt
-	if (    (not $rate_limiter_disabled)
-		and (defined $request_ref->{rate_limiter_accounted_bucket}))
-	{
-		ProductOpener::Redis::decrement_rate_limit_requests(remote_addr(),
-			$request_ref->{rate_limiter_accounted_bucket});
-		$request_ref->{rate_limiter_accounted_bucket} = undef;
+	# Back out of the count made by init_request(): intake24 requests are exempt. The rollback
+	# uses the minute the request was accounted in and also clears rate_limiter_blocking, so an
+	# already exhausted "other" bucket cannot reject an exempt request.
+	if (not $rate_limiter_disabled) {
+		rollback_rate_limit_accounting($request_ref);
 		$request_ref->{rate_limiter_bucket} = undef;
-		$request_ref->{rate_limiter_user_requests} = undef;
-		$request_ref->{rate_limiter_limit} = undef;
-		$request_ref->{rate_limiter_blocking} = 0;
 	}
 }
 else {

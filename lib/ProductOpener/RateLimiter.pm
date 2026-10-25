@@ -33,6 +33,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&account_request_for_rate_limiting
 		&move_rate_limit_accounting
+		&rollback_rate_limit_accounting
 		&set_rate_limit_bucket
 		&set_rate_limit_attributes
 		&check_and_update_rate_limits
@@ -62,26 +63,15 @@ our $ratelimiter_log = Log::Any->get_logger(category => 'ratelimiter');
 
 =head2 set_rate_limit_bucket ($request_ref)
 
-Set the rate-limit bucket of the request, and move the accounting to it if the request has already
-been accounted for in another bucket (the bucket of a route is set after init_request() has run).
+Set the rate-limit bucket of the request. The accounting itself is deferred to
+move_rate_limit_accounting(): checking eligibility before incrementing the final bucket preserves
+the pre-increment boundary semantics (a limit of 10 blocks the 11th request, not the 10th).
 
 Returns the bucket that is now set.
 
 =cut
 
 sub set_rate_limit_bucket ($request_ref, $bucket) {
-
-	if (    defined $request_ref->{rate_limiter_bucket}
-		and ($request_ref->{rate_limiter_bucket} ne $bucket)
-		and (defined $request_ref->{rate_limiter_accounted_bucket}))
-	{
-		# The request was counted in another bucket: move the count, so that the counters of both
-		# buckets add up to the number of requests that were made
-		my $ip_address = remote_addr();
-		decrement_rate_limit_requests($ip_address, $request_ref->{rate_limiter_accounted_bucket});
-		increment_rate_limit_requests($ip_address, $bucket);
-		$request_ref->{rate_limiter_accounted_bucket} = $bucket;
-	}
 
 	$request_ref->{rate_limiter_bucket} = $bucket;
 
@@ -214,7 +204,11 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 Count the request in the rate-limit bucket of the request, and set the rate-limiter attributes.
 
 A request without a bucket is counted in the "other" bucket: every request is accounted for, and a
-route that wants a different bucket sets it afterwards (see set_rate_limit_bucket()).
+route that wants a different bucket sets it afterwards (see set_rate_limit_bucket() and
+move_rate_limit_accounting()).
+
+The eligibility check reads the counter before incrementing it, so a limit of 10 blocks the 11th
+request of the minute, not the 10th.
 
 Returns 1 if the request was counted, 0 if it was not (no-index page, or rate-limiter disabled).
 
@@ -231,12 +225,46 @@ sub account_request_for_rate_limiting ($request_ref) {
 
 	my $ip_address = remote_addr();
 
-	# Set rate-limiter related request attributes
+	# Set rate-limiter related request attributes from the counter before this request increments
+	# it, then count the request in the same minute that is stored for later rollbacks
 	set_rate_limit_attributes($request_ref, $ip_address);
 
-	# Increment the number of requests performed by the user for the current minute
-	increment_rate_limit_requests($ip_address, $request_ref->{rate_limiter_bucket});
+	my $minute = int(time() / 60);
+	increment_rate_limit_requests($ip_address, $request_ref->{rate_limiter_bucket}, $minute);
 	$request_ref->{rate_limiter_accounted_bucket} = $request_ref->{rate_limiter_bucket};
+	$request_ref->{rate_limiter_accounted_minute} = $minute;
+
+	return 1;
+}
+
+=head2 rollback_rate_limit_accounting($request_ref)
+
+Undo a previous accounting made by account_request_for_rate_limiting(): decrement the bucket the
+request was counted in, using the minute it was accounted in, and reset the accounting and result
+attributes (rate_limiter_accounted_bucket, rate_limiter_accounted_minute, rate_limiter_user_requests,
+rate_limiter_limit, rate_limiter_blocking). Used when a counted request turns out to be exempt
+(intake24 searches) or to serve an empty no-index page to a crawler.
+
+Returns 1 if a count was rolled back, 0 if the request had not been accounted for.
+
+=cut
+
+sub rollback_rate_limit_accounting ($request_ref) {
+
+	if (not defined $request_ref->{rate_limiter_accounted_bucket}) {
+		return 0;
+	}
+
+	decrement_rate_limit_requests(
+		remote_addr(),
+		$request_ref->{rate_limiter_accounted_bucket},
+		$request_ref->{rate_limiter_accounted_minute}
+	);
+	$request_ref->{rate_limiter_accounted_bucket} = undef;
+	$request_ref->{rate_limiter_accounted_minute} = undef;
+	$request_ref->{rate_limiter_user_requests} = undef;
+	$request_ref->{rate_limiter_limit} = undef;
+	$request_ref->{rate_limiter_blocking} = 0;
 
 	return 1;
 }
@@ -250,6 +278,13 @@ limit that is checked is the one of the new bucket.
 
 sub move_rate_limit_accounting ($request_ref) {
 
+	# Routing can mark a request no-index only after init_request() has already counted it (for
+	# example a crawler paginating a facet): an empty no-index response must not consume the quota
+	if ($request_ref->{no_index}) {
+		rollback_rate_limit_accounting($request_ref);
+		return;
+	}
+
 	# The request has not been accounted for (init_request() was not called, as in the route tests):
 	# count it now, in the bucket the route has set
 	if (not defined $request_ref->{rate_limiter_accounted_bucket}) {
@@ -257,9 +292,21 @@ sub move_rate_limit_accounting ($request_ref) {
 		return;
 	}
 
-	# The count has been moved to the new bucket by set_rate_limit_bucket(): only the limit to
-	# check changes
-	set_rate_limit_attributes($request_ref, remote_addr());
+	# The bucket did not change: only the limit to check may need a refresh, the request is
+	# already counted
+	if (defined $request_ref->{rate_limiter_bucket}
+		and ($request_ref->{rate_limiter_bucket} eq $request_ref->{rate_limiter_accounted_bucket}))
+	{
+		set_rate_limit_attributes($request_ref, remote_addr());
+		return;
+	}
+
+	# The route changed the bucket after init_request() counted the request in another bucket: move
+	# the count, so that the counters of both buckets add up to the number of requests that were
+	# made. Eligibility for the new bucket is checked before it is incremented, preserving the
+	# pre-increment boundary semantics.
+	rollback_rate_limit_accounting($request_ref);
+	account_request_for_rate_limiting($request_ref);
 	return;
 }
 

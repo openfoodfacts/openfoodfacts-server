@@ -551,6 +551,8 @@ sub init_request ($request_ref = {}) {
 	$request_ref->{rate_limiter_bucket} = undef;
 	# The bucket the request has been counted in, if it was counted
 	$request_ref->{rate_limiter_accounted_bucket} = undef;
+	# The minute the request was accounted in, used to roll the count back from the right window
+	$request_ref->{rate_limiter_accounted_minute} = undef;
 	# Number of requests the user did in the last minute
 	$request_ref->{rate_limiter_user_requests} = undef;
 	# Limit of requests for the specific bucket (and/or user)
@@ -941,6 +943,17 @@ CSS
 	# It runs after the user is authenticated, as the limit of some buckets depends on it.
 	if (not $rate_limiter_disabled) {
 		ProductOpener::RateLimiter::account_request_for_rate_limiting($request_ref);
+		# Enforce the limit of the default "other" bucket for the entry points that never reach
+		# the router: they are counted here and have no later check. cgi/display.pl (script_name
+		# is undef) and cgi/search.pl keep deferred enforcement, until their final bucket and
+		# exemptions are known; when $options{rate_limit_other} is undef, blocking stays 0 and
+		# the requests are only counted.
+		if (    $request_ref->{rate_limiter_blocking}
+			and defined $request_ref->{script_name}
+			and ($request_ref->{script_name} ne "/cgi/search.pl"))
+		{
+			display_too_many_requests_page_and_exit();
+		}
 	}
 
 	return $request_ref;
