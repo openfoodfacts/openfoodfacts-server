@@ -332,6 +332,36 @@ sub set_user_enabled ($self, $userid, $enabled) {
 	return 1;
 }
 
+sub reset_user_password ($self, $id) {
+	my $keycloak_user;
+	if ($id =~ /\@/) {
+		$keycloak_user = $self->find_keycloak_user_by_email($id, 1);
+		$log->debug('reset_password_by_email', {'keycloak_user' => $keycloak_user, id => $id})
+			if $log->is_debug();
+	}
+	else {
+		$keycloak_user = $self->find_keycloak_user_by_username($id, 1);
+		$log->debug('reset_password_by_username', {'keycloak_user' => $keycloak_user, id => $id})
+			if $log->is_debug();
+	}
+	if ($keycloak_user and $keycloak_user->{id}) {
+		my $token = $self->get_or_refresh_token();
+
+		my $request = HTTP::Request->new(
+			PUT => $self->{users_endpoint} . '/' . $keycloak_user->{id} . '/execute-actions-email');
+		$request->header('Content-Type' => 'application/json');
+		$request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+		$request->content(encode_json(['UPDATE_PASSWORD']));
+
+		# Don't do anything special on failure
+		my $response = LWP::UserAgent::Plugin->new->request($request);
+		unless ($response->is_success) {
+			$log->warn('reset_password', {'content' => $response->content, id => $id})
+				if $log->is_warn();
+		}
+	}
+}
+
 =head2 find_user_by_username ($username)
 
 Try to find a user in Keycloak by their username.
@@ -373,7 +403,11 @@ A hashmap reference with user information from Keycloak.
 =cut
 
 sub find_user_by_email ($self, $email) {
-	return keycloak_to_user_ref($self->_find_user_by_single_attribute_exact('email', $email));
+	return keycloak_to_user_ref($self->find_keycloak_user_by_email($email));
+}
+
+sub find_keycloak_user_by_email ($self, $email, $brief = 0) {
+	return $self->_find_user_by_single_attribute_exact('email', $email, $brief);
 }
 
 sub keycloak_to_user_ref ($keycloak_user_ref) {
