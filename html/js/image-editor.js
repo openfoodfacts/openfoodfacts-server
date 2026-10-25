@@ -114,9 +114,9 @@ class ImageEditorComponent extends HTMLElement {
       if (!event.composedPath().includes(this.cropContainer)) {
         return;
       }
-      // The full-canvas handle receives clicks in both selection and image
-      // move mode. Those clicks must not clear the crop selection.
-      if (event.composedPath().some((element) => element?.localName === 'cropper-handle')) {
+      // The full-canvas handle receives clicks in move mode. Those clicks must
+      // not clear the crop selection.
+      if (this.moveMode) {
         return;
       }
       if (Math.hypot(event.clientX - start.x, event.clientY - start.y) > 3) {
