@@ -7,6 +7,7 @@ use Test2::Tools::Mock qw/mock/;
 use ProductOpener::HTTP ();
 
 our $host = 'world.openfoodfacts.org';
+our $port = 80;
 
 my %headers_in = (Origin => undef, 'Sec-Fetch-Site' => undef);
 
@@ -23,7 +24,8 @@ my $http_mock = mock 'ProductOpener::HTTP' => (
 # require_same_origin_post() gets the host of the request with $r->hostname()
 my $request_util_mock
 	= mock 'Apache2::RequestUtil' => (add => [request => sub {return bless {}, 'Apache2::RequestRec'}]);
-my $request_rec_mock = mock 'Apache2::RequestRec' => (add => [hostname => sub {return $host}]);
+my $request_rec_mock
+	= mock 'Apache2::RequestRec' => (add => [hostname => sub {return $host}, get_server_port => sub {return $port}]);
 
 subtest 'is_post_request' => sub {
 	ok(ProductOpener::HTTP::is_post_request({method => 'POST'}), 'POST is a POST request');
@@ -103,9 +105,32 @@ subtest 'the port must match' => sub {
 	ok(!ProductOpener::HTTP::require_same_origin_post({}), 'another port is rejected');
 
 	{
-		local $host = "world.openfoodfacts.org:8080";
+		local $port = 8080;
 		ok(ProductOpener::HTTP::require_same_origin_post({}),
 			'the same host and port is accepted when the request was sent to that port');
+		$headers_in{'Origin'} = "https://$host:8081";
+		ok(!ProductOpener::HTTP::require_same_origin_post({}), 'different non-default ports are rejected');
+		$headers_in{'Origin'} = "https://$host";
+		ok(!ProductOpener::HTTP::require_same_origin_post({}), 'an omitted port does not match a non-default port');
+	}
+
+	for my $request_port (80, 443) {
+		local $port = $request_port;
+		for my $scheme ('http', 'https') {
+			$headers_in{'Origin'} = "$scheme://$host";
+			ok(ProductOpener::HTTP::require_same_origin_post({}),
+				"$scheme default port matches request port $port behind a proxy");
+			my $default_port = $scheme eq 'https' ? 443 : 80;
+			$headers_in{'Origin'} = "$scheme://$host:$default_port";
+			ok(ProductOpener::HTTP::require_same_origin_post({}), 'an explicit default port is also accepted');
+		}
+	}
+};
+
+subtest 'invalid origins are rejected' => sub {
+	for my $origin ('null', '', 'https://', "https://attacker.example\@$host", "ftp://$host") {
+		$headers_in{'Origin'} = $origin;
+		ok(!ProductOpener::HTTP::require_same_origin_post({}), "invalid origin $origin is rejected");
 	}
 };
 

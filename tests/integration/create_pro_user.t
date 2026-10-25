@@ -136,8 +136,8 @@ like(
 );
 like(
 	$resp->decoded_content,
-	qr/You are currently viewing products from org-acme-inc/,
-	"the current moderation organization is displayed"
+	qr/You are currently viewing your own products/,
+	"the unsaved prefill is not displayed as the current moderation organization"
 );
 like($resp->decoded_content, qr/ name="action" value="process"/, "the form is submitted with action=process");
 like($resp->decoded_content, qr/ name="userid" value="promoderator"/, "the form is submitted for the current user");
@@ -161,6 +161,31 @@ $resp = $moderator_ua->post(
 is($resp->code, 302, "submitting the form redirects to the organization page");
 my $pro_moderator_ref = retrieve_user($pro_moderator_user_form{userid});
 is($pro_moderator_ref->{pro_moderator_owner}, "org-acme-inc", "the moderation organization is set");
+
+# A query parameter changes only the input, even when an owner has already been saved.
+$resp = get_page($moderator_ua, "/cgi/user.pl?type=edit_owner&pro_moderator_owner=org-another-org");
+like(
+	$resp->decoded_content,
+	qr/You are currently viewing products from org-acme-inc/,
+	"the message still shows the saved moderation organization"
+);
+like(
+	$resp->decoded_content,
+	qr/ name="pro_moderator_owner" value="org-another-org"/,
+	"the query parameter takes precedence for the input"
+);
+$resp = get_page($moderator_ua, "/cgi/user.pl?type=edit_owner&pro_moderator_owner=");
+like(
+	$resp->decoded_content,
+	qr/ name="pro_moderator_owner" value=""/,
+	"an explicitly empty query parameter clears the input"
+);
+$resp = get_page($moderator_ua, "/cgi/user.pl?type=edit_owner");
+like(
+	$resp->decoded_content,
+	qr/ name="pro_moderator_owner" value="org-acme-inc"/,
+	"the input falls back to the saved moderation organization"
+);
 
 # A moderation organization that does not exist is refused, and the current one is kept
 $resp = $moderator_ua->post(

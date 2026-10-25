@@ -67,6 +67,7 @@ use vars @EXPORT_OK;
 
 use Apache2::RequestIO();
 use Apache2::RequestRec();
+use Apache2::RequestUtil();
 use Encode;
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset cookie url_param);
 use Data::DeepAccess qw(deep_get);
@@ -641,7 +642,7 @@ their C<Origin> header is. The other values are accepted: C<same-site> requests
 (e.g. from another of our subdomains) are rejected by the C<Origin> check below, and
 C<none> is sent for requests typed in the address bar.
 
-=item * if the request has an C<Origin> header, its host (e.g. C<world.openfoodfacts.org>) is equal to the host the request was sent to (the C<Host> header, including the port if any).
+=item * if the request has an C<Origin> header, its hostname and port match the request hostname and port.
 
 Browsers always send the C<Origin> header for POST requests, and they always send
 the C<Host> header of the site they are posting to, so requests coming from another
@@ -651,7 +652,8 @@ The host of the request is used instead of C<$request_ref->{formatted_subdomain}
 because that value can be different from the host the request was sent to: it is
 computed from the configuration and it can be overridden by C<cc> and C<lc>
 request parameters. The scheme is not compared, as it can be terminated by a
-reverse proxy before the request reaches us.
+reverse proxy before the request reaches us. Default HTTP and HTTPS ports are
+treated as equivalent for the same reason; non-default ports must match.
 
 Non browser clients (curl, mobile apps) do not send the C<Origin> and C<Sec-Fetch-Site>
 headers, so the checks are skipped if they are not present.
@@ -682,8 +684,8 @@ sub require_same_origin_post ($request_ref) {
 	# Non browser clients do not send an Origin header
 	return !!1 unless defined $origin;
 
-	# Keep the host:port of the Origin header, e.g. world.openfoodfacts.org
-	my ($origin_host) = ($origin =~ m{^(?:[^:/?#]+:)?//([^/?#]+)});
+	my $origin_uri = URI->new($origin);
+	my $origin_host = $origin_uri->isa('URI::http') ? $origin_uri->host() : undef;
 	my $r = Apache2::RequestUtil->request();
 	my $host = $r->hostname();
 
@@ -692,7 +694,17 @@ sub require_same_origin_post ($request_ref) {
 		return !!0;
 	}
 
-	return !!($origin_host eq $host);
+	return !!0 if defined $origin_uri->userinfo();
+	return !!0 if lc($origin_host) ne lc($host);
+
+	# Apache exposes the port separately from hostname(). TLS may end at a proxy,
+	# so compare default HTTP/HTTPS ports as equivalent, while keeping other ports.
+	my $origin_port = $origin_uri->port();
+	my $request_port = $r->get_server_port();
+	$origin_port = 0 if $origin_port == $origin_uri->default_port();
+	$request_port = 0 if ($request_port == 80) or ($request_port == 443);
+
+	return !!($origin_port == $request_port);
 }
 
 1;

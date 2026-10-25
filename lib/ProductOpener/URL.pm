@@ -179,8 +179,8 @@ current request).
 sub is_https_request() {
 
 	# mod_ssl sets HTTPS in the request environment, REDIRECT_HTTPS is set by rewrite based setups
-	return 1 if $ENV{HTTPS};
-	return 1 if $ENV{REDIRECT_HTTPS};
+	return 1 if ($ENV{HTTPS} // '') =~ /\A(?:on|1|true|yes)\z/i;
+	return 1 if ($ENV{REDIRECT_HTTPS} // '') =~ /\A(?:on|1|true|yes)\z/i;
 
 	# request() is only implemented when mod_perl has loaded its registry, which is not the case for
 	# the command line scripts and unit tests that also load this module

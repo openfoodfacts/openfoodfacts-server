@@ -164,8 +164,10 @@ if (($type eq 'edit_owner') and ($action eq 'display')) {
 	}
 
 	my $template_data_ref_edit_owner = {
-		pro_moderator_owner => $user_ref->{pro_moderator_owner}
-			// remove_tags_and_quote(single_param('pro_moderator_owner') // ''),
+		stored_pro_moderator_owner => $user_ref->{pro_moderator_owner},
+		pro_moderator_owner => defined single_param('pro_moderator_owner')
+		? remove_tags_and_quote(single_param('pro_moderator_owner'))
+		: ($user_ref->{pro_moderator_owner} // ''),
 		userid => $userid,
 	};
 

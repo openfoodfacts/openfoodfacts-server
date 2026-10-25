@@ -190,6 +190,14 @@ my $response_ref = ProductOpener::API::get_initialized_response();
 my $type = single_param('type') || 'search_or_add';
 my $action = single_param('action') || 'display';
 
+if (($action eq 'process') or (($type eq 'search_or_add') and ($action ne 'display'))) {
+	# Check before product creation, image uploads, or edit processing can change files.
+	is_post_request($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_invalid_method}{$lc}, 405);
+	require_same_origin_post($request_ref)
+		or display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+}
+
 my $comment = 'Modification : ';
 
 my @errors = ();
@@ -1354,12 +1362,6 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 }
 elsif ($action eq 'process') {
-
-	# Reject state changes that are not origin-bound POST requests
-	is_post_request($request_ref)
-		or display_error_and_exit($request_ref, $Lang{error_invalid_method}{$lc}, 405);
-	require_same_origin_post($request_ref)
-		or display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 
 	# process the form
 
