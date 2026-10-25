@@ -458,14 +458,6 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 				# skip energy (we should have only energy-kj and/or energy-kcal in sets, so it should not happen)
 				next if $nutrient eq "energy";
 
-				# If energy was already established from a higher-priority set (either as energy-kj or energy-kcal),
-				# do not accept energy-kj or energy-kcal from a lower-priority set.
-				if (    ($nutrient eq "energy-kj" or $nutrient eq "energy-kcal")
-					and exists $aggregated_nutrient_set_ref->{nutrients}{"energy"})
-				{
-					next;
-				}
-
 				if (!exists $aggregated_nutrient_set_ref->{nutrients}{$nutrient}) {
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}
 						= clone($nutrient_set_ref->{nutrients}{$nutrient});
@@ -498,15 +490,15 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 
 			# We also add a energy nutrient (in kJ) which is equal to the energy-kj nutrient if it exists,
 			# or the energy-kcal set (with the value converted to kJ) if energy-kj does not exist
-			if (!exists $aggregated_nutrient_set_ref->{nutrients}{"energy"}) {
-				if (    exists $aggregated_nutrient_set_ref->{nutrients}{"energy-kj"}
-					and exists $aggregated_nutrient_set_ref->{nutrients}{"energy-kj"}{value})
+			if (!defined $aggregated_nutrient_set_ref->{nutrients}{"energy"}{value}) {
+				if (    defined $aggregated_nutrient_set_ref->{nutrients}{"energy-kj"}
+					and defined $aggregated_nutrient_set_ref->{nutrients}{"energy-kj"}{value})
 				{
 					$aggregated_nutrient_set_ref->{nutrients}{"energy"}
 						= clone($aggregated_nutrient_set_ref->{nutrients}{"energy-kj"});
 				}
-				elsif ( exists $aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"}
-					and exists $aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"}{value})
+				elsif ( defined $aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"}
+					and defined $aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"}{value})
 				{
 					$aggregated_nutrient_set_ref->{nutrients}{"energy"}
 						= clone($aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"});
