@@ -581,9 +581,7 @@ XML
 	# replaced and the export stayed frozen on its previous content (#15024).
 	# The number of product rows is independent of the column layout, while
 	# still rejecting truncated exports (e.g. if MongoDB fails halfway).
-	# The new export contains 1 header line + $count product rows, and the
-	# old export contains 1 header line on top of its product rows.
-	my $csv_rows_new = $count;
+	# Both exports contain one header line in addition to their product rows.
 	my $csv_rows_old = 0;
 	if (-e $csv_filename) {
 		$csv_rows_old = count_lines($csv_filename) - 1;
@@ -595,6 +593,8 @@ XML
 	system("(cat $csv_filename.temp.header && (sort $csv_filename.temp)) > $csv_filename.temp2");
 	unlink "$csv_filename.temp";
 	unlink "$csv_filename.temp.header";
+	# Count the final output, since sorting can fail after all products have been processed.
+	my $csv_rows_new = count_lines("$csv_filename.temp2") - 1;
 	# guard: we replace target file only if it has enough product rows (to avoid replacing a valid export by a broken one)
 	if ($csv_rows_new >= $csv_rows_old * 0.99) {
 		unlink $csv_filename;
