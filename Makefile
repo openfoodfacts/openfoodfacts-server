@@ -71,6 +71,12 @@ endif
 # always export those (rather than letting compose compute them from PO_AGENT_ID)
 # because compose's ${VAR:+word} treats an empty-but-set VAR as true, which would
 # produce names like product-opener_.
+#
+# The derived values below are also written to .envrc by `make agent`, so that
+# host-side processes that never go through make (notably the Dev Containers
+# host-side Compose invocation, via direnv) see the same settings. The guards
+# leave already-suffixed values alone, so sourcing .envrc never applies the
+# prefix twice.
 PO_AGENT_ID ?=
 PO_AGENT_PREFIX := $(if $(strip $(PO_AGENT_ID)),$(strip $(PO_AGENT_ID))_,)
 PO_AGENT_SUFFIX := $(if $(strip $(PO_AGENT_ID)),_$(strip $(PO_AGENT_ID)),)
@@ -83,17 +89,41 @@ PO_HOST_PORT := $(or $(strip $(PRODUCT_OPENER_HOST_PORT)),80)
 PO_SERVER_PORT := $(or $(strip $(PRODUCT_OPENER_PORT)),80)
 
 ifneq ($(strip $(PO_AGENT_ID)),)
-    export COMPOSE_PROJECT_NAME := $(or $(strip $(COMPOSE_PROJECT_NAME)),po_off)_$(strip $(PO_AGENT_ID))
+    _AGENT := $(strip $(PO_AGENT_ID))
+    # Only suffix when not already suffixed (e.g. via .envrc loaded with direnv).
+    ifeq ($(filter %_$(_AGENT),$(strip $(COMPOSE_PROJECT_NAME))),)
+        export COMPOSE_PROJECT_NAME := $(or $(strip $(COMPOSE_PROJECT_NAME)),po_off)_$(_AGENT)
+    endif
     # Config2_docker.pm folds this into $server_domain, so it has to stay in sync
     # with PRODUCT_OPENER_PORT or every generated URL/redirect is wrong.
-    export PRODUCT_OPENER_DOMAIN := $(strip $(PO_AGENT_ID)).$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
-    export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN)
+    ifeq ($(filter $(_AGENT).%,$(strip $(PRODUCT_OPENER_DOMAIN))),)
+        export PRODUCT_OPENER_DOMAIN := $(_AGENT).$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
+    endif
+    ifeq ($(filter $(_AGENT).%,$(strip $(MINION_QUEUE))),)
+        export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN)
+    endif
     # The default compose network of the Product Opener stack. Without this every
     # worktree would share it, and Docker DNS would answer `backend`, `frontend`
     # and world.$PRODUCT_OPENER_DOMAIN for all of them at once. This is separate
     # from COMMON_NET_NAME, which names the network shared with MongoDB, Redis,
     # PostgreSQL and Keycloak (see docker/run.yml).
-    export PRODUCT_OPENER_NETWORK := $(or $(strip $(PRODUCT_OPENER_NETWORK)),product-opener)_$(strip $(PO_AGENT_ID))
+    ifeq ($(filter %_$(_AGENT),$(strip $(PRODUCT_OPENER_NETWORK))),)
+        export PRODUCT_OPENER_NETWORK := $(or $(strip $(PRODUCT_OPENER_NETWORK)),product-opener)_$(_AGENT)
+    endif
+    # The network Product Opener uses to reach its own dependency stack (see
+    # docker/run.yml). Derived here, before any recipe runs, so that adding
+    # PO_SHARED_DATA=1 and running `make up` does not keep using the isolated
+    # network that make loaded from .envrc before run_deps removed it on disk.
+    # When sharing, any stale isolation suffix is dropped so PO agrees with the
+    # dependencies, which fall back to their default when their .envrc is removed.
+    _DEPS_ABS := $(abspath $(or $(strip $(DEPS_DIR)),$(CURDIR)/deps))
+    _CUR_ABS := $(abspath $(CURDIR))
+    _DEPS_SHARED := $(if $(findstring $(_CUR_ABS)/,$(_DEPS_ABS)/),,1)
+    ifeq ($(strip $(PO_SHARED_DATA)),1)
+        export COMMON_NET_NAME := off_shared_network
+    else ifneq ($(_DEPS_SHARED),1)
+        export COMMON_NET_NAME := off_shared_network_$(_AGENT)
+    endif
 endif
 
 # Hosts entries for PRODUCT_OPENER_DOMAIN, derived from it so they cannot drift
@@ -691,8 +721,13 @@ clone_deps:
 	@mkdir -p "${DEPS_DIR}"; \
 	for dep in ${DEPS} ; do \
 		echo $$dep; \
-		if [ ! -d "${DEPS_DIR}/$$dep" ]; then \
-			echo "Cloning $$dep"; \
+		if [ ! -d "${DEPS_DIR}/$$dep/.git" ]; then \
+			if [ -e "${DEPS_DIR}/$$dep" ]; then \
+				echo "Removing incomplete checkout ${DEPS_DIR}/$$dep (no .git) and cloning $$dep"; \
+				rm -rf "${DEPS_DIR}/$$dep"; \
+			else \
+				echo "Cloning $$dep"; \
+			fi; \
 			git clone --filter=blob:none --sparse \
 				https://github.com/openfoodfacts/$$dep.git "${DEPS_DIR}/$$dep"; \
 			echo "Cloned $$dep"; \

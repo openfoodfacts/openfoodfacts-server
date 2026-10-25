@@ -37,8 +37,11 @@ other. `make agent`:
   get different ids rather than both settling on the same one,
 * derives every host port it needs from that slot, and skips a slot whose ports
   something else already holds,
-* reuses the same id and slot if the worktree already has them, so the URL is
-  stable across re-runs.
+* reserves the actual frontend port atomically (including a `PORT=` override),
+  so two stopped worktrees cannot both register the same port,
+* reuses the same id, slot and frontend port if the worktree already has them,
+  so the URL is stable across re-runs — including while its containers are up,
+  and including an earlier `PORT=` override.
 
 It prints what it settled on:
 
@@ -109,13 +112,22 @@ free port range of its own.
 
 `make agent` writes a **generated, git-ignored block** to `.envrc`. It replaces
 that block on every run and leaves any other line you put in `.envrc` (such as
-`USER_UID` or `CPANMOPTS`) untouched.
+`USER_UID` or `CPANMOPTS`) untouched. Besides `PO_AGENT_ID` and the ports, the
+block carries the fully resolved `COMPOSE_PROJECT_NAME`, `PRODUCT_OPENER_DOMAIN`,
+`PRODUCT_OPENER_NETWORK` and `MINION_QUEUE`, so host-side processes that never go
+through the Makefile (notably the Dev Containers host-side Compose invocation,
+via direnv) see the same settings as `make print-agent-config`. The Makefile
+leaves already-resolved values alone, so sourcing `.envrc` never applies the
+prefix twice.
 
 It also writes a generated block into each dependency checkout, in
 `deps/openfoodfacts-shared-services/.envrc` and `deps/openfoodfacts-auth/.envrc`.
 Both of those `Makefile`s load `.env` first and then `.envrc`, and both git-ignore
-`.envrc`, which is exactly the override they need. `make run_deps` refreshes those
-files, so a worktree whose `deps/` was cloned after `make agent` is still isolated.
+`.envrc`, which is exactly the override they need. On a fresh worktree without
+checkouts yet, those files are skipped rather than created early (creating the
+directories would make `clone_deps` mistake them for checkouts and skip the
+clone); `make run_deps` writes them right after cloning, so a worktree whose
+`deps/` was cloned after `make agent` is still isolated.
 
 To check what a worktree resolved to:
 
@@ -190,6 +202,11 @@ does not exist, and `make import_sample_data` fails with
 MongoDB's WiredTiger cache is lowered to 1 GB per worktree
 (`PO_AGENT_MONGO_CACHE_SIZE` overrides it), because the shared default of 8 GB
 would exhaust the machine with several instances.
+
+Keycloak's advertised URL follows its published port
+(`KC_HOSTNAME=http://auth.openfoodfacts.localhost:<keycloak-port>` in the auth
+`.envrc`): leaving the shared `:5600` default would make `Auth.pm` redirect
+logins to another worktree's Keycloak.
 
 ### What is deliberately *not* isolated
 
@@ -269,18 +286,24 @@ domain.
 
 `PO_AGENT_ID` is the single knob. `make agent` writes it to `.envrc`, and:
 
-* the **Makefile** derives `COMPOSE_PROJECT_NAME`, `PRODUCT_OPENER_DOMAIN` and
-  `MINION_QUEUE` by appending the id. It does this *only* in the Makefile, so
-  `make agent` must not write them as well or the prefix would be applied twice.
-  It also derives `PRODUCT_OPENER_NETWORK` here, which is what `docker-compose.yml`
-  uses for the default network.
+* the **Makefile** derives `COMPOSE_PROJECT_NAME`, `PRODUCT_OPENER_DOMAIN`,
+  `MINION_QUEUE` and `PRODUCT_OPENER_NETWORK` by appending the id, but leaves
+  already-resolved values alone (which is what `.envrc` now carries for
+  direnv-loaded shells and the Dev Containers host-side Compose invocation).
+  It also derives `COMMON_NET_NAME` up front, so adding `PO_SHARED_DATA=1` and
+  running `make up` does not keep using the isolated network that was loaded
+  from `.envrc` before `run_deps` removed it on disk.
 * `scripts/dev-agent-env.sh` keeps a small registry (`~/.cache/off-agents`) mapping
   id to slot and directory. Two different things have to be unique and are enforced
   differently: the **slot** by a `.slot-<n>` lock file that is created once and
-  never rewritten, and the **id** by writing its registry entry with
-  `set -o noclobber`, once, at the very end. Both are atomic on POSIX filesystems.
-  If a run fails after claiming, the claim is given back, so the registry never
-  keeps a worktree that has no slot.
+  never rewritten, the **frontend port** (including `PORT=` overrides) by a
+  `.port-<n>` lock file, and the **id** by writing its registry entry with
+  `set -o noclobber`, once, at the very end. All three are atomic on POSIX
+  filesystems. If a run fails after claiming, both the id entry (first) and the
+  locks are given back, so the registry never keeps a worktree that has no slot,
+  and a retry never reuses a stale entry without holding a lock.
+* the **compose files** derive network, volume and image names from
+  `PO_AGENT_PREFIX` / `PO_AGENT_SUFFIX`, which the Makefile computes from the id.
 * the **compose files** derive network, volume and image names from
   `PO_AGENT_PREFIX` / `PO_AGENT_SUFFIX`, which the Makefile computes from the id.
   Compose's `${VAR:+word}` treats an *empty but set* variable as true, which
@@ -292,8 +315,12 @@ historical names, byte for byte.
 
 `.github/scripts/check_worktree_isolation.sh` asserts all of it in CI: that the
 default configuration is unchanged, that an isolated worktree is fully suffixed
-(dependencies included), that five worktrees racing for the same directory name
-still get distinct ids, slots and ports, that `PO_SHARED_DATA=1` shares again and
+(dependencies and `KC_HOSTNAME` included), that five worktrees racing for the same
+directory name still get distinct ids, slots and ports, that a fresh worktree
+without checkouts gains no dependency `.envrc` until after the clone, that a
+re-run without `--port` keeps its recorded frontend port, that a frontend port
+reserved by one worktree is refused for another, that a failed claim rolls back
+both the id entry and the slot, that `PO_SHARED_DATA=1` shares again and
 is remembered, that an id owned by another worktree is refused, and that a
 `DEPS_DIR` outside the worktree is reported as shared rather than silently
 overwritten. You can run it locally at any time.
@@ -325,11 +352,15 @@ also makes raw `docker compose` commands see the prefix.
   the isolated dependencies per worktree. Two or three concurrent worktrees is
   usually the practical limit; measure before adding more.
   `PO_SHARED_DATA=1` brings the dependency part back down to about 250 MB.
-* **Devcontainer.** `.devcontainer/devcontainer.json` forwards `PO_AGENT_ID` and
-  the two affixes into the container, but the *host-side* compose invocation is
-  what decides container and volume names. Export the variables in your shell
-  (or use direnv) before reopening the folder in the devcontainer, otherwise the
-  devcontainer silently falls back to the shared names.
+* **Devcontainer.** `.devcontainer/devcontainer.json` forwards the resolved
+  isolation settings into the container, but the *host-side* compose invocation
+  is what decides container and volume names. Load the worktree's `.envrc` in
+  your host shell — with [direnv](how-to-use-direnv.md), or with
+  `set -a; source .envrc` / `eval "$(make print-agent-config | sed 's/^/export /')"` —
+  **before** reopening the folder in the devcontainer, otherwise the devcontainer
+  silently falls back to the shared names. `make agent` writes the resolved
+  `COMPOSE_PROJECT_NAME`, `PRODUCT_OPENER_DOMAIN`, `PRODUCT_OPENER_NETWORK` and
+  `MINION_QUEUE` to `.envrc` exactly so direnv can provide them.
 * **Tests** keep using their own project name and `PO_COMMON_PREFIX=test_`. If
   `PO_AGENT_ID` is set in your shell they simply become suffixed too, which is
   harmless: the test project name becomes `po_off_w11790_test`.
