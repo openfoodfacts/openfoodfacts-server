@@ -737,7 +737,7 @@ release-agent:
 	@DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --release $(if $(ID),--id "$(ID)",)
 
 # Fail loudly rather than silently fighting over host port 80 with another worktree.
-check_agent_ports:
+check_agent_ports: run_deps
 ifneq ($(strip $(PO_AGENT_ID)),)
 	@if [ "$(PO_HOST_PORT)" = "80" ] && [ "$(ALLOW_SHARED_PORT)" != "1" ]; then \
 		echo "❌ PO_AGENT_ID=$(PO_AGENT_ID) is set but the frontend would still publish host port 80,"; \
