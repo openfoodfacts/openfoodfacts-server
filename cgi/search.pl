@@ -170,6 +170,9 @@ if ($is_intake24_request) {
 			$request_ref->{rate_limiter_accounted_bucket});
 		$request_ref->{rate_limiter_accounted_bucket} = undef;
 		$request_ref->{rate_limiter_bucket} = undef;
+		$request_ref->{rate_limiter_user_requests} = undef;
+		$request_ref->{rate_limiter_limit} = undef;
+		$request_ref->{rate_limiter_blocking} = 0;
 	}
 }
 else {
