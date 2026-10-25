@@ -3193,7 +3193,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 	# If the query contained tags in non-canonical form, redirect to the form with the canonical tags
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
-	if ($redirect_to_canonical_url && ($request_ref->{extension} // '') ne 'json') {
+	if ($redirect_to_canonical_url && !defined $request_ref->{api}) {
 		$request_ref->{redirect} = $request_ref->{formatted_subdomain} . $request_ref->{current_link};
 		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
 
@@ -4308,7 +4308,8 @@ HTML
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
 			my $current_value = deep_get($request_ref, "body_json", $field_name);
-			my $new_value = ($tag_ref->{tag_prefix} // '') . ($tag_ref->{canon_tagid} // $tag_ref->{tagid});
+			my $new_value = ($tag_ref->{tag_prefix} // '')
+				. ($tag_ref->{canon_tagid} // $tag_ref->{new_tagid} // $tag_ref->{tagid});
 			if ($current_value) {
 				$new_value = $current_value . ',' . $new_value;
 			}

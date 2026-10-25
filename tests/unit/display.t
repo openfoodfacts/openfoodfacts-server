@@ -645,9 +645,10 @@ is(
 my $json_facet_request_ref = {
 	tags => [{tagtype => "categories", tagid => "breakfast-cereals"}],
 	extension => "json",
+	api => "v0",
 };
 ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url($json_facet_request_ref);
-is($json_facet_request_ref->{redirect}, undef, "JSON facet requests are not redirected");
+is($json_facet_request_ref->{redirect}, undef, "API facet requests are not redirected");
 
 my $html_facet_request_ref = {tags => [{tagtype => "categories", tagid => "breakfast-cereals"}]};
 ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url($html_facet_request_ref);
