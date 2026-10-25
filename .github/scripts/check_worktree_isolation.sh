@@ -51,7 +51,7 @@ wait
 
 # give any straggler a moment to write its entry (slow CI disks)
 for _ in 1 2 3 4 5 6 7 8 9 10; do
-    registered="$(find "$COORD/cache/off-agents" -maxdepth 1 -type f ! -name '.port-*' 2>/dev/null | grep -c . || true)"
+    registered="$(find "$COORD/cache/off-agents" -maxdepth 1 -type f ! -name '.port-*' ! -name '.slot-*' 2>/dev/null | grep -c . || true)"
     [ "$registered" -ge 5 ] && break
     sleep 1
 done
@@ -59,7 +59,7 @@ done
 mapfile -t COORD_IDS < <(
     for entry in "$COORD/cache/off-agents"/*; do
         case "$(basename "$entry")" in
-            .port-*) continue ;;
+            .port-* | .slot-*) continue ;;
         esac
         basename "$entry"
     done
@@ -67,7 +67,7 @@ mapfile -t COORD_IDS < <(
 mapfile -t COORD_SLOTS < <(
     for entry in "$COORD/cache/off-agents"/*; do
         case "$(basename "$entry")" in
-            .slot-*) continue ;;
+            .port-* | .slot-*) continue ;;
         esac
         sed -n 1p "$entry"
     done
@@ -95,28 +95,40 @@ echo "✅ concurrent worktrees derive distinct ids, slots and ports without coor
 
 # 1. the generator. Run it from a throwaway worktree so that it writes its
 # .envrc files there instead of into the real deps/ checkouts.
+# A fresh worktree has no dependency checkouts yet: the generator must not
+# create their directories early, or clone_deps would mistake them for checkouts
+# and skip the clone. Overrides land once the checkouts exist (see below).
 WT="$WORK_DIR/wt"
 mkdir -p "$WT"
 (cd "$WT" && ENVRC="$WT/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" --id "$AGENT_ID" --port "$AGENT_PORT" >/dev/null)
+cp "$WT/.envrc" "$WORK_DIR/envrc"
+[ ! -e "$WT/deps/openfoodfacts-shared-services/.envrc" ] ||
+    fail "a fresh worktree without dependency checkouts must not gain a shared-services .envrc (clone_deps would skip the clone)"
+[ ! -e "$WT/deps/openfoodfacts-auth/.envrc" ] ||
+    fail "a fresh worktree without dependency checkouts must not gain an auth .envrc (clone_deps would skip the clone)"
+echo "✅ the generator defers dependency overrides until the checkouts exist"
+
+# Simulate the post-clone state, then synchronize: this is what `make run_deps`
+# does right after clone_deps.
+mkdir -p "$WT/deps/openfoodfacts-shared-services" "$WT/deps/openfoodfacts-auth"
+touch "$WT/deps/openfoodfacts-shared-services/docker-compose.yml" "$WT/deps/openfoodfacts-auth/docker-compose.yml"
+(cd "$WT" && ENVRC="$WT/.envrc" DEPS_DIR="$WT/deps" "$REPO_ROOT/scripts/dev-agent-env.sh" --id "$AGENT_ID" --port "$AGENT_PORT" >/dev/null)
 cp "$WT/.envrc" "$WORK_DIR/envrc"
 
 for expected in \
     "export PO_AGENT_ID=${AGENT_ID}" \
     "export PO_AGENT_PREFIX=${AGENT_ID}_" \
     "export PO_AGENT_SUFFIX=_${AGENT_ID}" \
+    "export COMPOSE_PROJECT_NAME=po_off_${AGENT_ID}" \
+    "export PRODUCT_OPENER_DOMAIN=${AGENT_ID}.openfoodfacts.localhost" \
     "export PRODUCT_OPENER_HOST_PORT=${AGENT_PORT}" \
-    "export PRODUCT_OPENER_PORT=${AGENT_PORT}"; do
+    "export PRODUCT_OPENER_PORT=${AGENT_PORT}" \
+    "export PRODUCT_OPENER_NETWORK=product-opener_${AGENT_ID}" \
+    "export MINION_QUEUE=${AGENT_ID}.openfoodfacts.localhost"; do
     grep -qxF "$expected" "$WORK_DIR/envrc" ||
         fail "generated .envrc is missing '$expected'"
 done
-# COMPOSE_PROJECT_NAME and PRODUCT_OPENER_DOMAIN are derived by the Makefile:
-# if the generator wrote them too, they would get the prefix applied twice.
-for forbidden in COMPOSE_PROJECT_NAME PRODUCT_OPENER_DOMAIN MINION_QUEUE; do
-    if grep -qE "^export ${forbidden}=" "$WORK_DIR/envrc"; then
-        fail "generated .envrc must not set ${forbidden} (the Makefile derives it)"
-    fi
-done
-echo "✅ the generator writes the expected .envrc"
+echo "✅ the generator writes the expected .envrc, including host-side settings for Dev Containers"
 
 # MongoDB, Redis, PostgreSQL and Keycloak must be isolated too, because Keycloak
 # publishes user-deleted/user-registered/user-updated to Redis and every instance
@@ -149,7 +161,43 @@ for entry in "openfoodfacts-shared-services 127.0.0.1:$((8180 + AGENT_SLOT))" \
     grep -qF "$needle" "$WT/deps/$dep/.envrc" ||
         fail "$dep does not carry its isolated port ${needle}"
 done
+# Keycloak must advertise this worktree's instance, not the shared :5600 default
+# that Auth.pm uses for login redirects.
+grep -qx "export KC_HOSTNAME=http://auth.openfoodfacts.localhost:$((8480 + AGENT_SLOT))" \
+    "$WT/deps/openfoodfacts-auth/.envrc" ||
+    fail "openfoodfacts-auth does not advertise its isolated Keycloak URL (KC_HOSTNAME)"
 echo "✅ MongoDB, Redis, PostgreSQL and Keycloak are isolated per worktree"
+
+# Re-running without --port must keep the recorded frontend port, not revert to
+# 8080 + slot.
+(cd "$WT" && "$REPO_ROOT/scripts/dev-agent-env.sh" --id "$AGENT_ID" >/dev/null)
+grep -qx "export PRODUCT_OPENER_HOST_PORT=${AGENT_PORT}" "$WT/.envrc" ||
+    fail "re-running without --port did not preserve the recorded frontend port ${AGENT_PORT}"
+grep -qx "export PRODUCT_OPENER_PORT=${AGENT_PORT}" "$WT/.envrc" ||
+    fail "re-running without --port did not preserve the recorded server port ${AGENT_PORT}"
+echo "✅ a re-run without --port preserves the recorded frontend port"
+
+# A second worktree must not be able to reserve the same frontend port.
+DUP="$WORK_DIR/dup"
+mkdir -p "$DUP"
+if (cd "$DUP" && ENVRC="$DUP/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" --id ci-dup --port "$AGENT_PORT" >/dev/null 2>&1); then
+    fail "a second worktree reserving frontend port ${AGENT_PORT} should have failed"
+fi
+[ ! -f "$XDG_CACHE_HOME/off-agents/ci-dup" ] ||
+    fail "the failed duplicate-port claim left a stale id entry for ci-dup"
+echo "✅ a frontend port reserved by one worktree is refused for another"
+
+# A failure after the claim (e.g. an invalid --port) must roll back both the id
+# entry and the slot lock, or a retry would reuse the stale entry without a lock
+# and hand two worktrees the same ports.
+BAD="$WORK_DIR/bad"
+mkdir -p "$BAD"
+if (cd "$BAD" && ENVRC="$BAD/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" --id ci-bad --port bogus >/dev/null 2>&1); then
+    fail "an invalid --port should have failed"
+fi
+[ ! -f "$XDG_CACHE_HOME/off-agents/ci-bad" ] ||
+    fail "the failed claim left a stale id entry for ci-bad (slot lock was freed but the id was not)"
+echo "✅ a failed claim rolls back both the id entry and the slot"
 
 # PO_SHARED_DATA=1 must opt back out, and be remembered in .envrc
 (cd "$WT" && PO_SHARED_DATA=1 ENVRC="$WT/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" >/dev/null)
@@ -202,6 +250,8 @@ for pair in \
     "PRODUCT_OPENER_DOMAIN=${AGENT_ID}.openfoodfacts.localhost" \
     "PRODUCT_OPENER_HOST_PORT=${AGENT_PORT}" \
     "PRODUCT_OPENER_PORT=${AGENT_PORT}" \
+    "PRODUCT_OPENER_NETWORK=product-opener_${AGENT_ID}" \
+    "COMMON_NET_NAME=off_shared_network_${AGENT_ID}" \
     "MINION_QUEUE=${AGENT_ID}.openfoodfacts.localhost"; do
     grep -qxF "$pair" <<<"$effective" ||
         fail "make print-agent-config did not derive '$pair'"
