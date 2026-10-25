@@ -30,3 +30,8 @@ indent_style = unset
 indent_size = unset
 insert_final_newline = unset
 trim_trailing_whitespace = false
+
+# TSV files: use tabs (data files with tab-separated values)
+[*.tsv]
+indent_style = tab
+trim_trailing_whitespace = false

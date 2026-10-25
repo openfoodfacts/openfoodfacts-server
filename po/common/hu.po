@@ -415,7 +415,7 @@ msgstr "Elérhető a Google Playen"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Ez a termék jelenleg nem szerepel az <<site_name>> adatbázisában. Tudna készíteni néhány képet a termékről, a termék vonalkódjáról, az összetevők listájáról és a tápértékadatokról, hogy azok elérhetőek legyenek az <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>-on?</p>\n"
+msgstr "<p>Ez a termék jelenleg nem szerepel az <<site_name>> adatbázisában. Tudna készíteni néhány képet a termékről, a termék vonalkódjáról, az összetevők listájáról és a tápértékadatokról, hogy azok elérhetőek legyenek az <a href=\"https://world-hu.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>-on?</p>\n"
 "<p>Előre is köszönjük!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -692,7 +692,7 @@ msgstr "Adományozzon az Open Food Facts programnak"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://hu.openfoodfacts.org/donate-to-open-food-facts-hu"
+msgstr "https://world-hu.openfoodfacts.org/tamogassa-az-open-food-facts-et"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -976,8 +976,8 @@ msgstr "Gyakran ismételt kérdések (FAQ)"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "https://support.openfoodfacts.org/help/en-gb"
-msgstr "https://support.openfoodfacts.org/help"
+msgid "/faq"
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -2774,9 +2774,9 @@ msgstr "A világ minden tájáról származó eredmények megtekintése"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
 msgstr "Az információk és adatok a termék csomagolásáról, címkéjéről kell származzanak (és nem az internetről, vagy a gyártó weboldaláról), és a fotókat Önnek kell készítenie.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Miért fontos ez?</a>"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Miért fontos ez?</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -6043,23 +6043,23 @@ msgstr "TÁMOGATOM"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr ""
+msgstr "Még 120 000 €-ra van szükségünk 2026 befejezéséhez!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr ""
+msgstr "Legyen az Open Food Facts támogatója"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr ""
+msgstr "Havonta 8 millió látogatót szolgálunk ki, és ennek többszörösét az API-n keresztül. Támogatása elengedhetetlen a következőkhöz:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr ""
+msgstr "hogy az Open Food Facts nyitott és mindenki számára elérhető maradjon,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr ""
+msgstr "az infrastruktúra, a weboldal, a mobilalkalmazás és az API fenntartása egy kis állandó csapattal"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6067,15 +6067,15 @@ msgstr "függetlennek maradni az élelmiszeripartól,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr ""
+msgstr "a közösség támogatása"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr ""
+msgstr "a tudomány támogatása"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr ""
+msgstr "Ha ebben a hónapban minden látogató az Adományozás gombra kattintana és csak 1 €-t adna, éves költségvetésünk több mint nyolcszorosát gyűjtenénk össze!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"

@@ -518,7 +518,7 @@ my $tests_ref = [
 		headers_in => {
 			'Authorization' => 'Bearer 4711',
 		},
-		expected_status_code => 400,
+		expected_status_code => 403,
 	},
 	# Packaging complete
 	{
@@ -783,6 +783,18 @@ my $tests_ref = [
 				"lang": "fr",
 				"categories_tags_fr": ["confiture"],
 				"ingredients_text_fr": "Sucre 300g, pommes 100g"
+			}
+		}',
+	},
+	# misspelled brand
+	{
+		test_case => 'patch-misspelled-brand',
+		method => 'PATCH',
+		path => '/api/v3.6/product/test',
+		body => '{
+			"fields" : "updated,brands,brands_tags",
+			"product": { 
+				"brands_tags_add": ["Marks & Spencers", "Some other brand"]
 			}
 		}',
 	},

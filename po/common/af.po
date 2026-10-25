@@ -563,11 +563,11 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Skenk aan Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world-af.openfoodfacts.org/skenk-aan-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -839,8 +839,8 @@ msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "https://support.openfoodfacts.org/help/en-gb"
-msgstr ""
+msgid "/faq"
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -2617,7 +2617,7 @@ msgstr ""
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
 msgstr ""
 
 msgctxt "website"
@@ -3248,7 +3248,7 @@ msgstr ""
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Help om die %s na %s te vertaal"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
@@ -4099,27 +4099,27 @@ msgstr ""
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "Ek het reeds geskenk of stel nie belang nie. Versteek banier."
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "'n Onafhanklike en burgergedrewe projek vir voedseldeursigtigheid?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Voedselprodukdata vir navorsing wat openbare gesondheid verbeter?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Makliker en beter voedselkeuses volgens jou eie kriteria?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "Ons het jou ondersteuning nodig!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "Skenk Asseblief"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
@@ -5823,9 +5823,49 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr ""
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr "Ons benodig nog €120,000 om 2026 te voltooi!"
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr "Word 'n beskermheer van Open Food Facts"
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr "Elke maand bedien ons 8 miljoen besoekers, en baie meer deur die API. Jou ondersteuning is noodsaaklik om:"
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr "Open Food Facts oop en beskikbaar vir almal te hou,"
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr "infrastruktuur, die webwerf, mobiele toepassing en API met 'n klein permanente span te ondersteun"
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "onafhanklik van die voedselbedryf te bly,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr "die gemeenskap te ondersteun"
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr "wetenskap te ondersteun"
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr "As elke besoeker hierdie maand op Skenk klik en net 1€ gee, sou ons meer as 8 keer ons jaarlikse begroting kry!"
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Skenk"
+
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr ""
+msgstr "Skenk"
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"

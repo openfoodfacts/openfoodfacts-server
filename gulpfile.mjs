@@ -31,6 +31,7 @@ const jsSrc = [
   "./html/js/rewind-browser.js",
   "./html/js/external-knowledge-panels.js",
   "./html/js/matomo-events.js",
+  "./html/js/image-editor.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
@@ -48,8 +49,7 @@ const jsLibSrc = [
   "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
   "./node_modules/blueimp-file-upload/js/*.js",
   "./node_modules/@yaireo/tagify/dist/tagify.js",
-  "./node_modules/cropperjs/dist/cropper.js",
-  "./node_modules/jquery-cropper/dist/jquery-cropper.js",
+  "./node_modules/cropperjs/dist/cropper.esm.js",
   "./node_modules/highcharts/highcharts.js",
   "./node_modules/jsvectormap/dist/jsvectormap.esm.js",
   "./node_modules/jsvectormap/dist/maps/world-merc.js",
@@ -218,7 +218,6 @@ function copyCss() {
       "./node_modules/leaflet/dist/leaflet.css",
       "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.css",
       "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.Default.css",
-      "./node_modules/cropperjs/dist/cropper.css",
       "./node_modules/select2/dist/css/select2.min.css",
     ], { sourcemaps: true })
     .pipe(minifyCSS())
