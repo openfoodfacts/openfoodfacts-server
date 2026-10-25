@@ -22,8 +22,8 @@ is(renormalize_packager_codes_field($de_product_ref), 1, "DE: product with old n
 is($de_product_ref->{emb_codes}, "DE BY77723 EC", "DE: emb_codes field is renormalized");
 is($de_product_ref->{emb_codes_tags}, ["de-by77723-ec"], "DE: emb_codes_tags are refreshed");
 
-is(renormalize_packager_codes_field($de_product_ref), 0,
-	"DE: renormalizing an already renormalized product does not change it");
+is(renormalize_packager_codes_field($de_product_ref),
+	0, "DE: renormalizing an already renormalized product does not change it");
 
 my $uk_product_ref = {emb_codes => "UK LK-002 EC"};
 is(renormalize_packager_codes_field($uk_product_ref), 1, "UK: legacy split code is renormalized");
@@ -36,7 +36,6 @@ is($it_product_ref->{emb_codes_tags}, ["it-180-1-ec"], "IT: emb_codes_tags are u
 
 my $no_code_product_ref = {};
 is(renormalize_packager_codes_field($no_code_product_ref), 0, "products without packager code are not modified");
-
 
 is(normalize_packager_codes("ES 12.0664/C CE"), "ES 12.0664/C EC");
 is(normalize_packager_codes("ES 12.0664/C EC"), "ES 12.0664/C EC");

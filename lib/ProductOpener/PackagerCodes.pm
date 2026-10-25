@@ -110,7 +110,7 @@ sub normalize_packager_codes ($codes) {
 	# separators: written variants of the same code differ only by spacing or
 	# punctuation, so the ID is normalized like UK codes.
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/14961
-	my %strip_separators_countries = (map { $_ => 1 } qw(be dk at pl cz nl pt de));
+	my %strip_separators_countries = (map {$_ => 1} qw(be dk at pl cz nl pt de));
 
 	my $normalize_ce_code = sub ($countrycode, $code) {
 
