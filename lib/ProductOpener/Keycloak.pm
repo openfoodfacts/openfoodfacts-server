@@ -360,6 +360,8 @@ sub reset_user_password ($self, $id) {
 				if $log->is_warn();
 		}
 	}
+
+	return;
 }
 
 =head2 find_user_by_username ($username)
