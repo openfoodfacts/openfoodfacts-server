@@ -3,6 +3,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "15041",
+         "ecobalyse_id" : "f470bfc2-9272-4897-8083-42787e3df37d",
+         "ecobalyse_name" : "Amande, décortiquée, avec peau Origine Inconnue",
          "id" : "en:almond",
          "is_in_taxonomy" : 1,
          "origins" : "en:california",
@@ -132,10 +134,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:almond"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [

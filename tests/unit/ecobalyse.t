@@ -5,10 +5,11 @@ use JSON;
 
 use ProductOpener::PerlStandards;
 use ProductOpener::Test qw/init_expected_results compare_to_expected_results/;
-use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
+use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service get_ecobalyse_reference_quantity/;
 use ProductOpener::Paths qw/ensure_dir_created_or_die/;
 use ProductOpener::ProductsTags qw/compute_field_tags/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::LoadData qw/load_data/;
 
 load_data();
@@ -67,6 +68,7 @@ my @tests = (
 		}
 	],
 	# Canned vegetables: matches canning transformation
+	# No product quantity: impacts are computed for 100 g only, and the packaging is not sent
 	[
 		'fr-canned-green-beans',
 		{
@@ -76,6 +78,7 @@ my @tests = (
 		}
 	],
 	# Frozen green beans: matches freezing transformation
+	# No product quantity: impacts are computed for 100 g only, and the packaging is not sent
 	[
 		'fr-frozen-green-beans',
 		{
@@ -84,7 +87,36 @@ my @tests = (
 			categories => "haricots verts surgelés",
 		}
 	],
+	# Same with a product quantity
+	[
+		'fr-frozen-green-beans-1kg',
+		{
+			lc => "fr",
+			ingredients_text => "haricots verts",
+			categories => "haricots verts surgelés",
+			quantity => "1 kg",
+		}
+	],
+	# No product quantity and no packaging: impacts are computed for 100 g only
+	[
+		'fr-apricots-no-quantity-no-packaging',
+		{
+			lc => "fr",
+			ingredients_text => "abricots",
+		}
+	],
 );
+
+# Reference quantity of product for which we send the ingredients to Ecobalyse
+is([get_ecobalyse_reference_quantity({product_quantity => 500, product_quantity_unit => "g"})],
+	[500, "g", "product_quantity"]);
+is([get_ecobalyse_reference_quantity({product_quantity => 750, product_quantity_unit => "ml"})],
+	[750, "ml", "product_quantity"]);
+# Unknown or unlikely product quantities: 100 g or 100 ml depending on the nutrition data
+is([get_ecobalyse_reference_quantity({})], [100, "g", "default"]);
+is([get_ecobalyse_reference_quantity({product_quantity => 0.5, product_quantity_unit => "g"})], [100, "g", "default"]);
+is([get_ecobalyse_reference_quantity({product_quantity => 2, product_quantity_unit => "unit"})], [100, "g", "default"]);
+is([get_ecobalyse_reference_quantity({nutrition => {aggregated_set => {per => "100ml"}}})], [100, "ml", "default"]);
 
 # For each test, when the expected results are updated, the Ecobalyse mock response is saved to a file name [testid].json
 
@@ -133,6 +165,7 @@ foreach my $test_ref (@tests) {
 		compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	}
 
+	normalize_product_quantity_and_serving_size($product_ref);
 	extract_ingredients_from_text($product_ref);
 
 	# Run the environmental impact estimation service, which will prepare the Ecobalyse request payload
