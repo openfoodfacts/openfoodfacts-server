@@ -1072,6 +1072,33 @@ msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world-fr.openbeautyfacts.org"
 
+# Do not translate Open Products Facts
+msgctxt "footer_opf"
+msgid "Open Products Facts"
+msgstr "Open Products Facts"
+
+msgctxt "footer_opf_link"
+msgid "https://world.openproductsfacts.org"
+msgstr "https://world-fr.openproductsfacts.org"
+
+# Do not translate Open Pet Food Facts
+msgctxt "footer_opff"
+msgid "Open Pet Food Facts"
+msgstr "Open Pet Food Facts"
+
+msgctxt "footer_opff_link"
+msgid "https://world.openpetfoodfacts.org"
+msgstr "https://world-fr.openpetfoodfacts.org"
+
+# Do not translate Open Prices
+msgctxt "footer_op"
+msgid "Open Prices"
+msgstr "Open Prices"
+
+msgctxt "footer_op_link"
+msgid "https://prices.openfoodfacts.org/"
+msgstr "https://prices.openfoodfacts.org/"
+
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
 msgstr "Open Food Facts pour les producteurs"
@@ -1766,6 +1793,14 @@ msgstr "Notes nutritionnelles"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Note nutritionnelle"
+
+msgctxt "nutriscore_p"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+msgctxt "nutriscore_s"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -7394,6 +7429,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Catégorie, étiquettes, ingrédients, allergènes, informations nutritionnelles, photos etc."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr "Catégorie, étiquettes, ingrédients, allergènes, photos etc."
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr "Catégorie, étiquettes, ingrédients, caractéristiques du produit, photos etc."
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Catégorie, étiquettes, ingrédients, allergènes, informations nutritionnelles, photos etc."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Si les informations ne correspondent pas à celles figurant sur l'emballage, vous pouvez les compléter ou les corriger. Merci !"
@@ -7401,6 +7448,18 @@ msgstr "Si les informations ne correspondent pas à celles figurant sur l'emball
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts est une base de données collaborative, et chaque contribution est utile pour tous."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Beauty Facts est une base de données collaborative, et chaque contribution est utile pour tous."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Products Facts est une base de données collaborative, et chaque contribution est utile pour tous."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Pet Food Facts est une base de données collaborative, et chaque contribution est utile pour tous."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7728,6 +7787,10 @@ msgstr "Ajoutez des produits avec une catégorie, une liste d'ingrédients et de
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "En contact avec l'aliment"
+
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr "En contact avec le produit"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
@@ -8207,3 +8270,32 @@ msgstr "La viande de volaille et ses dérivés (œufs), même élevés en France
 msgctxt "forest_footprint_2026_labels_description"
 msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
 msgstr "La présence de certains labels peut grandement contribuer à réduire le risque de déforestation, via la présence de critères environnementaux et/ou via une meilleure rémunération des producteurs et productrices."
+
+msgctxt "product_history_revision"
+msgid "Revision"
+msgstr "Révision"
+
+msgctxt "product_history_date"
+msgid "Date"
+msgstr "Date"
+
+msgctxt "product_history_contributor"
+msgid "Contributor"
+msgstr "Contributeur"
+
+msgctxt "product_history_changes"
+msgid "Changes"
+msgstr "Modifications"
+
+msgctxt "product_history_comment"
+msgid "Comment"
+msgstr "Commentaire"
+
+msgctxt "product_history_most_recent_changes"
+msgid "Only the most recent changes are shown."
+msgstr "Seules les modifications les plus récentes sont affichées."
+
+msgctxt "product_history_see_full_history"
+msgid "See the full changes history"
+msgstr "Voir l'historique complet des modifications"
+
