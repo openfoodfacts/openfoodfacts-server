@@ -2202,13 +2202,16 @@ wikidata:en: Q3506176
 wikipedia:en: https://en.wikipedia.org/wiki/Fermented_milk_products
 
 < en:milk
+en: infant formula, baby formula, baby milk
+
+< en:infant formula
 en: First age baby milk powder, First milk powder, First infant milk formula in powder
 fr: Lait 1er âge en poudre soluble, Lait premier âge en poudre soluble, Préparation pour nourrissons en poudre soluble
 ciqual_food_code:en: 3000
 ciqual_food_name:en: Baby milk, first age, powder
 ciqual_food_name:fr: Lait 1er âge, poudre soluble (préparation pour nourrissons)
 
-< en:milk
+< en:infant formula
 en: Second age baby milk powder, Second milk powder, Second infant milk formula in powder
 fr: Lait 2ème âge en poudre soluble, Lait deuxième âge en poudre soluble, Préparation de suite en poudre soluble
 ciqual_food_code:en: 3002
@@ -2844,7 +2847,7 @@ fr: lait enrichi de crème
 hr: mlijeko obogaćeno vrhnjem
 it: latte arrichito con crema
 
-< en:milk
+< en:infant formula
 en: Follow-on milk
 ca: llet de seguiment
 de: Folgemilch
@@ -3530,6 +3533,7 @@ it: panna da caffè
 nl: koffieroom
 # 14@2019-06-06
 
+< en:milk
 < en:compound
 en: sweetened condensed milk, condensed milk with sugar
 bg: подсладено кондензирано мляко
@@ -3832,7 +3836,7 @@ sv: pastöriserad mjölk och grädde
 
 ###################### LACTOSE and MINERALS related stuff ######################
 
-#< en:added sugar
+< en:sugar
 en: disaccharide
 bg: дизахарид
 ca: disacàrid
@@ -3981,7 +3985,7 @@ hu: tejből kivont ásványi anyagok, ásványi anyagok tejből
 it: minerali del latte
 nl: melkmineralen
 ro: minerale din lapte
-comment:en: A mix of minerals that should be inn the minerals taxonomy.
+comment:en: A mix of minerals that should be in the minerals taxonomy.
 description:en: Milk minerals refer to the naturally occurring minerals found in milk, either as free ions in the liquid phase or bound to proteins (especially casein micelles).
 vegan:en: no
 vegetarian:en: yes
@@ -4054,6 +4058,7 @@ hr: običan jogurt
 it: yogurt naturale
 pl: jogurt naturalny
 
+< en:yogurt
 < en:compound
 en: sweetened plain yogurt
 ca: iogurt natural ensucrat
@@ -11675,7 +11680,7 @@ wikidata:en: Q1124327
 wikipedia:en: https://en.wikipedia.org/wiki/Horse_meat
 # ingredient/fr:viande-de-cheval has 21 products in 4 languages @2020-05-21
 
-< en:compound
+< en:process
 en: patty, patties
 fi: pihvi
 fr: steak
@@ -13264,7 +13269,7 @@ pl: osłonka
 
 # description:en:COLLAGEN is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
 
-< en:animal part
+< en:protein
 en: collagen
 an: Colachén
 ar: كولاجين
@@ -13318,8 +13323,8 @@ uk: Колаген
 vi: Collagen
 zh: 膠原蛋白
 # ingredient/fr:collagène has 128 products in 4 languages @2019-04-21
-vegan:en: no
-vegetarian:en: no
+vegan:en: maybe
+vegetarian:en: maybe
 # sco:collagen
 # sr-ec:колаген
 # sr-el:kolagen
@@ -15087,6 +15092,7 @@ hr: nehidrogenizirani biljni loj
 < en:vegetable fat
 fr: matières grasses végétales de colza, matières grasses de colza
 
+< en:vegetable fat
 < en:compound
 fr: préparation de matières grasses végétales
 fi: kasvirasvavalmiste
