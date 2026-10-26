@@ -6580,9 +6580,33 @@ msgctxt "environmental_cost_stage"
 msgid "Stage"
 msgstr "Stage"
 
-msgctxt "environmental_cost_ecs"
-msgid "Points per 100 g"
-msgstr "Points per 100 g"
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
+msgstr "Points for 100 g"
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr "Points for 100 ml"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr "Points for the product ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr "{points} points for the product ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr "{points} points for 100 g"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr "{points} points for 100 ml"
 
 msgctxt "environmental_cost_ingredients"
 msgid "Ingredients"
@@ -6611,10 +6635,6 @@ msgstr "Preparation"
 msgctxt "environmental_cost_total"
 msgid "Total"
 msgstr "Total"
-
-msgctxt "points"
-msgid "points"
-msgstr "points"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -7892,6 +7912,10 @@ msgstr "Search for products in the same category without added sugars:"
 msgctxt "per_100g"
 msgid "for 100 g"
 msgstr "for 100 g"
+
+msgctxt "points"
+msgid "points"
+msgstr "points"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
