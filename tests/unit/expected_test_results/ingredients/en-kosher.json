@@ -1,7 +1,10 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "11082",
+         "ecobalyse_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:sea-salt",
          "is_in_taxonomy" : 1,
          "labels" : "en:kosher",
@@ -13,7 +16,9 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "12999",
+         "ciqual_food_code" : "12999",
+         "ecobalyse_id" : "c137c5b5-ec74-45b5-a270-30cfe74f5924",
+         "ecobalyse_name" : "Spécialité fromagère non affinée à tartiner 20 à 40 % MG nature ou aromatisée -ex: ail et fines herbes- Origine Inconnue",
          "id" : "en:american-cheese",
          "is_in_taxonomy" : 1,
          "labels" : "en:kosher",
@@ -25,6 +30,8 @@
          "vegetarian" : "maybe"
       },
       {
+         "ecobalyse_id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8",
+         "ecobalyse_name" : "Viande de boeuf sans os par défaut",
          "id" : "en:beef-gelatin",
          "is_in_taxonomy" : 1,
          "labels" : "en:kosher",
@@ -66,12 +73,12 @@
       "en:sea-salt",
       "en:salt",
       "en:american-cheese",
-      "en:dairy",
       "en:cheese",
+      "en:dairy",
       "en:beef-gelatin",
-      "en:animal",
       "en:beef",
-      "en:e428"
+      "en:e428",
+      "en:animal"
    ],
    "ingredients_text" : "kosher sea salt, kosher american cheese, kosher bovine gelatine",
    "ingredients_with_specified_percent_n" : 0,
@@ -82,19 +89,12 @@
       "en:beef-gelatin"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:american-cheese",
-      "en:beef-gelatin",
-      "en:sea-salt"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

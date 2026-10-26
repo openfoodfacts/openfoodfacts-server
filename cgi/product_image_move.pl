@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -28,7 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
@@ -75,15 +75,31 @@ my $request_ref = ProductOpener::Display::init_request();
 $log->debug("parsing code", {user => $User_id, code => $code, cc => $request_ref->{cc}, lc => $lc, ip => remote_addr()})
 	if $log->is_debug();
 
-# Add a CORS header to allow cross-domain requests (especially from Nutripatrol)
 my $r = Apache2::RequestUtil->request();
-# We need to allows credentials (cookies) to authenticate the user
-my $allow_credentials = 1;
-my $sub_domain_only = 1;
-write_cors_headers($allow_credentials, $sub_domain_only);
 
 # If the requests is an OPTIONS request, we return the headers and exit
 if ($r->method_number == Apache2::Const::M_OPTIONS) {
+	exit(0);
+}
+
+# Moving or trashing an uploaded image destroys or relocates another contributor's work and
+# writes a new revision of the product, so it is a moderator action.
+# This endpoint was reachable without any authentication: the restriction existed only in the
+# edit form ([% IF moderator %] in product_edit_form_display.tt.html) and in the front-end
+# JavaScript, while the same sink is gated by the moderator-only "image_delete" permission on
+# the API v3 route (see ProductOpener::Permissions and APIProductImagesUpload).
+if (not($request_ref->{admin} or $request_ref->{moderator})) {
+	$log->warn("no permission to move or delete images", {ip => remote_addr(), code => $code})
+		if $log->is_warn();
+	my %response = (status => 'status not ok');
+	$response{error} = "error - no permission";
+	my $data = encode_json(\%response);
+	print header(-status => 403, -type => 'application/json', -charset => 'utf-8') . $data;
+	# Flush the 403 response, then reset the status to 200: setting an error status without
+	# flushing makes mod_perl append its default error page to our JSON body, and drop the
+	# status we asked for (see the comment in cgi/auth.pl).
+	$r->rflush;
+	$r->status(200);
 	exit(0);
 }
 
@@ -200,7 +216,7 @@ if ($move_to ne 'trash') {
 			Clone->import(qw( clone ));
 
 			foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'lang',
-				'nutriments')
+				'nutrition')
 			{
 				if (defined $product_ref->{$field}) {
 					$new_product_ref->{$field} = clone($product_ref->{$field});

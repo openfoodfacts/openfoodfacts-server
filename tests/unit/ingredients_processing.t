@@ -48,10 +48,9 @@ my @tests = (
 				'text' => 'tomatoes'
 			},
 			{
-				'id' => 'en:garlic',
+				'id' => 'en:garlic-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => 'garlic'
+				'text' => 'garlic powder'
 			},
 			{
 				'id' => 'en:aubergine',
@@ -408,9 +407,10 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:pasteurized-creme-fraiche',
+				'text' => "cr\x{e8}me fra\x{ee}che",
 				'is_in_taxonomy' => 1,
-				'text' => "cr\x{e8}me fra\x{ee}che pasteuris\x{e9}e"
+				'id' => 'en:fresh-cream',
+				'processing' => 'en:pasteurised',
 			},
 			{
 				'id' => 'en:banana',
@@ -424,14 +424,9 @@ my @tests = (
 				'text' => 'fromage frais'
 			},
 			{
-				'id' => 'en:cream',
+				'id' => 'en:fresh-cream',
 				'is_in_taxonomy' => 1,
-				'text' => "cr\x{e8}me"
-			},
-			{
-				'id' => "fr:fraiche",
-				'is_in_taxonomy' => 0,
-				'text' => "fra\x{ee}che"
+				'text' => "cr\x{e8}me fra\x{ee}che"
 			},
 			{
 				'id' => 'en:pineapple',
@@ -597,10 +592,9 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:onion',
+				'id' => 'en:onion-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => 'ui'
+				'text' => 'uipoeder'
 			}
 		]
 	],
@@ -898,31 +892,31 @@ my @tests = (
 			{
 				'id' => 'en:shallot',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:geschält',
+				'processing' => 'en:peeled-or-shelled',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:geschält',
+				'processing' => 'en:peeled-or-shelled',
 				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
 				'is_in_taxonomy' => 1,
-				'processing' => "de:geschält",
+				'processing' => "en:peeled-or-shelled",
 				'text' => 'mandeln'
 			},
 			{
 				'id' => 'en:passionfruit',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:ungeschält',
+				'processing' => 'en:unpeeled-or-unshelled',
 				'text' => 'passionsfrucht'
 			},
 			{
 				'id' => 'en:celery',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:ungeschält',
+				'processing' => 'en:unpeeled-or-unshelled',
 				'text' => 'sellerie'
 			}
 		]
@@ -1083,37 +1077,40 @@ my @tests = (
 				'text' => 'acerolakirschen'
 			},
 			{
-				'id' => 'de:zweifach-konzentriert',
+				'id' => 'de:zweifach konzentriert',
 				'is_in_taxonomy' => 0,
 				'text' => 'zweifach konzentriert'
 			},
+			# The following is a false positive, we should not match 2 as a quantity, as it means 2 times concentrated.
+			# Probably not very frequent.
 			{
-				'id' => 'de:2-fach-konzentriert',
+				'id' => 'de:fach konzentriert',
 				'is_in_taxonomy' => 0,
-				'text' => '2 fach konzentriert'
+				'quantity' => '2',
+				'text' => 'fach konzentriert'
 			},
 			{
-				'id' => 'de:doppelt-konzentriertes',
+				'id' => 'de:doppelt konzentriertes',
 				'is_in_taxonomy' => 0,
 				'text' => 'doppelt konzentriertes'
 			},
 			{
-				'id' => 'de:zweifach-konzentriertes',
+				'id' => 'de:zweifach konzentriertes',
 				'is_in_taxonomy' => 0,
 				'text' => 'zweifach konzentriertes'
 			},
 			{
-				'id' => 'de:2-fach-konzentriert',
+				'id' => 'de:2-fach konzentriert',
 				'is_in_taxonomy' => 0,
 				'text' => '2-fach konzentriert'
 			},
 			{
-				'id' => 'de:dreifach-konzentriert',
+				'id' => 'de:dreifach konzentriert',
 				'is_in_taxonomy' => 0,
 				'text' => 'dreifach konzentriert'
 			},
 			{
-				'id' => 'de:200fach-konzentriertes',
+				'id' => 'de:200fach konzentriertes',
 				'is_in_taxonomy' => 0,
 				'text' => '200fach konzentriertes'
 			},
@@ -1272,7 +1269,7 @@ my @tests = (
 			{
 				'id' => 'en:celery',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:frischgemahlen',
+				'processing' => 'en:freshly-ground',
 				'text' => 'sellerie'
 			}
 		]
@@ -1344,7 +1341,7 @@ my @tests = (
 				'text' => 'Papaya'
 			},
 			{
-				'id' => 'en:kiwi',
+				'id' => 'en:kiwifruit',
 				'is_in_taxonomy' => 1,
 				'processing' => 'en:freeze-dried',
 				'text' => 'Kiwi'
@@ -1660,7 +1657,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:handgeschnitten',
+				'processing' => 'en:hand-cut',
 				'text' => "haselnüsse"
 			}
 		]
@@ -1813,17 +1810,10 @@ my @tests = (
 				'text' => 'slanina'
 			},
 			{
-				'id' => 'en:antioxidant',
+				'id' => 'en:rosemary',
 				'is_in_taxonomy' => 1,
-				'text' => 'antioksidans',
-				'ingredients' => [
-					{
-						'id' => "en:rosemary",
-						'is_in_taxonomy' => 1,
-						'processing' => "en:extract",
-						'text' => "ru\x{17e}marina"
-					}
-				],
+				'processing' => 'en:extract',
+				'text' => "ru\x{17e}marina",
 			},
 		]
 	],
@@ -2094,19 +2084,19 @@ my @tests = (
 			{
 				'id' => 'en:rice',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'ris'
 			},
 			{
 				'id' => 'en:potato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'kartofler'
 			},
 			{
 				'id' => 'en:potato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'kartofler'
 			},
 			{
@@ -2280,7 +2270,7 @@ my @tests = (
 				'text' => 'perunat'
 			},
 			{
-				'id' => 'fi:maidon-kuiva-aineet',
+				'id' => 'fi:maidon kuiva-aineet',
 				'is_in_taxonomy' => 0,
 				'text' => 'maidon kuiva-aineet'
 			},
@@ -2296,7 +2286,7 @@ my @tests = (
 				'text' => 'uuniperuna'
 			},
 			{
-				'id' => 'fi:pakastetut-uuniperunat',
+				'id' => 'fi:pakastetut uuniperunat',
 				'is_in_taxonomy' => 0,
 				'text' => 'pakastetut uuniperunat'
 			},
@@ -2307,7 +2297,7 @@ my @tests = (
 				'text' => 'ananas'
 			},
 			{
-				'id' => 'fi:paahdetut-banaanit',
+				'id' => 'fi:paahdetut banaanit',
 				'is_in_taxonomy' => 0,
 				'text' => 'paahdetut banaanit'
 			},
@@ -2377,7 +2367,7 @@ my @tests = (
 				'text' => 'poteter'
 			},
 			{
-				'id' => 'nb:kuttede-poteter',
+				'id' => 'nb:kuttede poteter',
 				'is_in_taxonomy' => 0,
 				'text' => 'kuttede poteter'
 			},
@@ -2400,7 +2390,7 @@ my @tests = (
 				'text' => 'poteter'
 			},
 			{
-				'id' => 'nb:malte-poteter',
+				'id' => 'nb:malte poteter',
 				'is_in_taxonomy' => 0,
 				'text' => 'malte poteter'
 			},
@@ -2416,12 +2406,12 @@ my @tests = (
 				'text' => 'potet'
 			},
 			{
-				'id' => 'nb:bakt-potet',
+				'id' => 'nb:bakt potet',
 				'is_in_taxonomy' => 0,
 				'text' => 'bakt potet'
 			},
 			{
-				'id' => 'nb:ufrosne-bakte-poteter',
+				'id' => 'nb:ufrosne bakte poteter',
 				'is_in_taxonomy' => 0,
 				'text' => 'ufrosne bakte poteter'
 			},
@@ -2438,7 +2428,7 @@ my @tests = (
 				'text' => 'bananer'
 			},
 			{
-				'id' => "nb:dehydrert-gressl\x{f8}k",
+				'id' => "nb:dehydrert gressl\x{f8}k",
 				'is_in_taxonomy' => 0,
 				'text' => "dehydrert gressl\x{f8}k"
 			},
@@ -2529,7 +2519,7 @@ my @tests = (
 				'text' => 'potatis'
 			},
 			{
-				'id' => "sv:mj\x{f6}lkfasta-\x{e4}mnen",
+				'id' => "sv:mj\x{f6}lkfasta \x{e4}mnen",
 				'is_in_taxonomy' => 0,
 				'text' => "mj\x{f6}lkfasta \x{e4}mnen"
 			},
@@ -2558,7 +2548,7 @@ my @tests = (
 				'text' => 'ananas'
 			},
 			{
-				'id' => 'sv:rostade-bananer',
+				'id' => 'sv:rostade bananer',
 				'is_in_taxonomy' => 0,
 				'text' => 'rostade bananer'
 			},
@@ -2569,7 +2559,7 @@ my @tests = (
 				'text' => "gr\x{e4}sl\x{f6}k"
 			},
 			{
-				'id' => 'sv:rehydrerade-bananer',
+				'id' => 'sv:rehydrerade bananer',
 				'is_in_taxonomy' => 0,
 				'text' => 'rehydrerade bananer'
 			}
@@ -2668,14 +2658,13 @@ my @tests = (
 				'text' => "\x{3c0}\x{3b1}\x{3c4}\x{3ac}\x{3c4}\x{3b1}"
 			},
 			{
-				'id' => 'en:onion',
+				'id' => 'en:onion-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => "\x{3ba}\x{3c1}\x{3b5}\x{3bc}\x{3bc}\x{3cd}\x{3b4}\x{3b9}"
+				'text' => "κρεμμύδι σε σκόνη"
 			},
 			{
 				'id' =>
-					"el:\x{3c0}\x{3bf}\x{3c5}\x{3c1}\x{3ad}-\x{3ba}\x{3c1}\x{3b5}\x{3bc}\x{3bc}\x{3c5}\x{3b4}\x{3b9}\x{3bf}\x{3cd}",
+					"el:\x{3c0}\x{3bf}\x{3c5}\x{3c1}\x{3ad} \x{3ba}\x{3c1}\x{3b5}\x{3bc}\x{3bc}\x{3c5}\x{3b4}\x{3b9}\x{3bf}\x{3cd}",
 				'is_in_taxonomy' => 0,
 				'text' =>
 					"\x{3c0}\x{3bf}\x{3c5}\x{3c1}\x{3ad} \x{3ba}\x{3c1}\x{3b5}\x{3bc}\x{3bc}\x{3c5}\x{3b4}\x{3b9}\x{3bf}\x{3cd}"
@@ -3077,7 +3066,150 @@ my @tests = (
 			}
 		],
 	],
+	# sv; two different note marks getting parsed the same
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/13024
+	[
+		{
+			lc => "sv",
+			ingredients_text => 'dadelsirap¹. ¹Från kontrollerat ekologiskt jordbruk.'
+		},
+		[
+			# This should match the below test exactly
+			{
+				'id' => 'en:date',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:syrup',
+				'text' => "dadel"
+			}
+		],
+	],
+	[
+		{
+			lc => "sv",
+			ingredients_text => 'dadelsirap*. *Från kontrollerat ekologiskt jordbruk.'
+		},
+		[
+			# This should match the above test exactly
+			{
+				'id' => 'en:date',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:syrup',
+				'text' => "dadel"
+			}
+		],
+	],
+	# fr: en conserve, en boite (used in cooking recipes)
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"asperges en conserve, thon en conserve, thon en boite, tomates concentrées, champignons en boîte de conserve, tomates séchées, oignons en poudre, poudre de carottes, poulet en poudre, olives appertisées"
+		},
+		[
 
+			{
+				'processing' => 'en:canned',
+				'text' => 'asperges',
+				'id' => 'en:asparagus',
+				'is_in_taxonomy' => 1
+			},
+			{
+				'id' => 'en:canned-tuna',
+				'is_in_taxonomy' => 1,
+				'text' => 'thon en conserve'
+			},
+			{
+				'processing' => 'en:canned',
+				'text' => 'thon',
+				'id' => 'en:tuna',
+				'is_in_taxonomy' => 1
+			},
+			{
+				'processing' => 'en:concentrated',
+				'id' => 'en:tomato',
+				'is_in_taxonomy' => 1,
+				'text' => 'tomates'
+			},
+			{
+				'text' => 'champignons',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:mushroom',
+				'processing' => 'en:canned'
+			},
+			{
+				'id' => 'en:tomato',
+				'is_in_taxonomy' => 1,
+				'text' => 'tomates',
+				'processing' => 'en:dried'
+			},
+			{
+				'text' => 'oignons en poudre',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:onion-powder'
+			},
+			{
+				'id' => 'en:carrot-powder',
+				'is_in_taxonomy' => 1,
+				'text' => 'poudre de carottes'
+			},
+			{
+				'processing' => 'en:powder',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:chicken',
+				'text' => 'poulet'
+			},
+			{
+				'text' => 'olives',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:olive',
+				'processing' => 'en:canned'
+			}
+		]
+
+	],
+	# Flageolets (séchés)
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried',
+				'text' => "Flageolets"
+			}
+		],
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés, réhydratés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried,en:rehydrated',
+				'text' => "Flageolets"
+			}
+		],
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés et réhydratés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried,en:rehydrated',
+				'text' => "Flageolets"
+			}
+		],
+	],
 );
 
 foreach my $test_ref (@tests) {
