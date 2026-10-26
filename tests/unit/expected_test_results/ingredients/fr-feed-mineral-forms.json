@@ -1,0 +1,114 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:minerals",
+         "ingredients" : [
+            {
+               "id" : "en:zinc-sulfate",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 78.7685774946921,
+               "text" : "Sulfate de zinc monohydraté",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 78.7685774946921,
+         "percent_estimate" : 78.7685774946921,
+         "quantity" : "37.1 mg",
+         "quantity_g" : 0.0371,
+         "text" : "Substances minérales"
+      },
+      {
+         "id" : "en:manganous-oxide",
+         "is_in_taxonomy" : 1,
+         "percent" : 6.79405520169851,
+         "percent_estimate" : 6.79405520169851,
+         "quantity" : "3.2 mg",
+         "quantity_g" : 0.0032,
+         "text" : "Oxyde de manganèse (II)",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e519",
+         "is_in_taxonomy" : 1,
+         "percent" : 10.1910828025478,
+         "percent_estimate" : 10.1910828025478,
+         "quantity" : "4.8 mg",
+         "quantity_g" : 0.0048,
+         "text" : "Sulfate de cuivre (II) pentahydraté",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e916",
+         "is_in_taxonomy" : 1,
+         "percent" : 4.24628450106157,
+         "percent_estimate" : 4.24628450106158,
+         "quantity" : "2 mg",
+         "quantity_g" : 0.002,
+         "text" : "Iodate de calcium anhydre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:minerals",
+      "en:manganous-oxide",
+      "en:e519",
+      "en:e916",
+      "en:zinc-sulfate"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:minerals",
+      "en:manganous-oxide",
+      "en:manganese",
+      "en:e519",
+      "en:e916",
+      "en:zinc-sulfate",
+      "en:zinc"
+   ],
+   "ingredients_text" : "Substances minérales : Sulfate de zinc monohydraté : 37,1 mg, Oxyde de manganèse (II) : 3,2 mg, Sulfate de cuivre (II) pentahydraté : 4,8 mg, Iodate de calcium anhydre : 2 mg",
+   "ingredients_with_specified_percent_n" : 3,
+   "ingredients_with_specified_percent_sum" : 21.2314225053079,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 78.7685774946921,
+   "ingredients_without_ciqual_codes" : [
+      "en:e519",
+      "en:e916",
+      "en:manganous-oxide",
+      "en:minerals",
+      "en:zinc-sulfate"
+   ],
+   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:e519",
+      "en:e916",
+      "en:manganous-oxide",
+      "en:minerals",
+      "en:zinc-sulfate"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 5,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
