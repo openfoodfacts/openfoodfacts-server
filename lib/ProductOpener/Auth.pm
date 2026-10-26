@@ -56,6 +56,8 @@ BEGIN {
 		&checked_return_url
 		&get_oidc_implementation_level
 		&get_oidc_configuration
+		&refresh_access_token
+		&revoke_token
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -67,7 +69,8 @@ use ProductOpener::Cache qw/generate_cache_key safe_cache_get safe_cache_set/;
 use ProductOpener::Display qw/display_error_and_exit/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
-use ProductOpener::Users qw/$User_id retrieve_user store_user_preferences generate_token init_user open_user_session/;
+use ProductOpener::Users
+	qw/$User_id retrieve_user store_user_preferences generate_token init_user open_user_session update_user_session_tokens/;
 use ProductOpener::Lang qw/$lc lang/;
 
 use OIDC::Lite;
@@ -448,10 +451,18 @@ A list containing the user's ID, new refresh token, refresh token expiration tim
 =cut
 
 sub refresh_access_token ($refresh_token) {
+	unless ($refresh_token) {
+		return;
+	}
+
 	my $time = time;
 	my $current_client = _get_client();
-	my $access_token = $current_client->refresh_access_token(refresh_token => $refresh_token,)
-		or die $current_client->errstr;
+	my $access_token = $current_client->refresh_access_token(refresh_token => $refresh_token);
+	unless ($access_token) {
+		# Expected when the Keycloak session was signed out (e.g. Device Activity)
+		$log->info('Could not refresh access token', {error => $current_client->errstr}) if $log->is_info();
+		return;
+	}
 
 	return (
 		$access_token->{refresh_token}, $time + $access_token->{refresh_expires_in},
@@ -499,6 +510,24 @@ sub access_to_protected_resource ($request_ref) {
 			start_authorize($request_ref);
 			return;
 		}
+
+		# Persist rotated tokens; Keycloak refresh tokens are single-use when rotated
+		$request_ref->{refresh_token} = $refresh_token;
+		$request_ref->{refresh_expires_at} = $refresh_expires_at;
+		$request_ref->{access_token} = $access_token;
+		$request_ref->{access_expires_at} = $access_expires_at;
+		if (defined cookie('session')) {
+			my %session = cookie('session');
+			if ($User_id and $session{'user_session'}) {
+				my $user_ref = retrieve_user($User_id);
+				if (defined $user_ref) {
+					update_user_session_tokens(
+						$user_ref, $session{'user_session'}, $refresh_token,
+						$refresh_expires_at, $access_token, $access_expires_at
+					);
+				}
+			}
+		}
 	}
 
 	# ID Token validation
@@ -511,6 +540,45 @@ sub access_to_protected_resource ($request_ref) {
 		redirect_to_url($request_ref, 302, $request_ref->{return_url});
 	}
 	return;
+}
+
+=head2 revoke_token ($token, $token_type_hint)
+
+Best-effort revocation of an OIDC token (typically the refresh token) at the IdP.
+Used on Product Opener sign-out so Keycloak Device Activity no longer lists the session.
+
+=cut
+
+sub revoke_token ($token, $token_type_hint = 'refresh_token') {
+	unless ($token) {
+		return;
+	}
+
+	my $oidc_configuration_ref = get_oidc_configuration();
+	my $revocation_endpoint = $oidc_configuration_ref ? $oidc_configuration_ref->{revocation_endpoint} : undef;
+	unless ($revocation_endpoint) {
+		$log->info('OIDC revocation_endpoint not available') if $log->is_info();
+		return;
+	}
+
+	my $token_request = HTTP::Request->new(POST => $revocation_endpoint);
+	$token_request->header('Content-Type' => 'application/x-www-form-urlencoded');
+	$token_request->content('client_id='
+			. uri_escape($oidc_options{client_id})
+			. '&client_secret='
+			. uri_escape($oidc_options{client_secret})
+			. '&token='
+			. uri_escape($token)
+			. '&token_type_hint='
+			. uri_escape($token_type_hint));
+	my $token_response = LWP::UserAgent::Plugin->new->request($token_request);
+	unless ($token_response->is_success) {
+		$log->info('token revocation failed', {status => $token_response->code, content => $token_response->content})
+			if $log->is_info();
+		return;
+	}
+
+	return 1;
 }
 
 =head2 start_signout($request_ref)
@@ -535,7 +603,7 @@ sub start_signout ($request_ref) {
 	}
 
 	my $id_token = $request_ref->{id_token};
-	unless ($User_id and $id_token) {
+	unless ($User_id) {
 		# user is not authenticated, nothing to do; sign-out is already done, redirect to home page
 		param('length', 'logout');
 		init_user($request_ref);
@@ -545,13 +613,20 @@ sub start_signout ($request_ref) {
 
 	get_oidc_configuration();
 
+	# Revoke the refresh/offline token so Device Activity drops this client session.
+	# end_session alone can clear the browser SSO session while leaving offline sessions listed.
+	if ($request_ref->{refresh_token}) {
+		revoke_token($request_ref->{refresh_token}, 'refresh_token');
+	}
+
 	# random private token to identify the sign-out process
 	my $nonce = generate_token(64);
 	my $end_session_endpoint = $oidc_configuration->{end_session_endpoint};
 	my $redirect_url = $end_session_endpoint . '?post_logout_redirect_uri=' . uri_escape($signout_callback_uri) . (
 		# sessions opened through password_signin used to store the decoded id token (a hash ref)
 		# instead of the JWT string: in that case, identify the client with client_id instead
-		ref($id_token)
+		not $id_token
+			or ref($id_token)
 		? '&client_id=' . uri_escape($oidc_options{client_id})
 		: '&id_token_hint=' . uri_escape($id_token)
 		)
