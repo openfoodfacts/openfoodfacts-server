@@ -44,25 +44,15 @@
          "distribution" : "ambient",
          "ingredients" : [],
          "ingredients_coverage_percent" : 0,
-         "packaging" : [
-            {
-               "category" : "en:olive-oils",
-               "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58",
-               "name" : "Olive oil, 0,75L | Packaging System, N0, All, Glass bottle {FR} U",
-               "name_fr" : "Bouteille en verre et bouchon plastique pour huile d'olive - 0,5L à 1L"
-            }
-         ]
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
             "distribution" : "ambient",
-            "ingredients" : [],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58"
-               }
-            ]
+            "ingredients" : []
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
@@ -149,6 +139,7 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-0-and-9",
       "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",
@@ -192,7 +183,9 @@
             "is_fat" : 1,
             "is_water" : 0,
             "negative_points" : 12,
+            "negative_points_max" : 0,
             "positive_points" : 5,
+            "positive_points_max" : 0,
             "proteins" : 0,
             "proteins_points" : 0,
             "proteins_value" : 0,
