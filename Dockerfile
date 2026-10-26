@@ -266,8 +266,8 @@ RUN set -e && \
 
 ######################
 # backend dependencies stage: everything but Product Opener code
-# CI uses it as the dev/test image (the code is bind-mounted, see docker/dev.yml),
-# which lets it reuse the image as long as dependencies do not change.
+# Kept lean on purpose: this is the base of the production image
+# (see runnable / prod below), so no dev-only tools here.
 ######################
 FROM modperl AS backend-deps
 
@@ -279,25 +279,6 @@ COPY --from=builder /tmp/local/ /opt/perl/local/
 ENV PERL5LIB="/opt/product-opener/lib/:/opt/perl/local/lib/perl5/"
 ENV PATH="/opt/perl/local/bin:${PATH}"
 
-# perl-lsp: fast Perl language server in Rust (https://github.com/tree-sitter-perl/perl-lsp).
-# Replaces the old Perl::LanguageServer (removed from cpanfile). Pinned release,
-# arch-aware musl static binary; the --version check fails the build on a bad download.
-ARG PERL_LSP_VERSION=0.8.0
-ARG PERL_LSP_SHA256_X86_64=5f2987ca867cca2c73d3b93e2a2e99f471fecb0b7c6cdb8c4c1ca11252822939
-ARG PERL_LSP_SHA256_AARCH64=d0968285b8be9e92bfd8985b9c14f2a51949e74b61663527dd80350dc5e1fce0
-RUN set -eux; \
-    arch="$(dpkg --print-architecture)"; \
-    case "$arch" in \
-        amd64) asset="perl-lsp-x86_64-unknown-linux-musl.tar.gz"; sha="${PERL_LSP_SHA256_X86_64}" ;; \
-        arm64) asset="perl-lsp-aarch64-unknown-linux-musl.tar.gz"; sha="${PERL_LSP_SHA256_AARCH64}" ;; \
-        *) echo "unsupported architecture for perl-lsp: $arch" >&2; exit 1 ;; \
-    esac; \
-    curl -fsSL "https://github.com/tree-sitter-perl/perl-lsp/releases/download/v${PERL_LSP_VERSION}/${asset}" -o /tmp/perl-lsp.tar.gz; \
-    echo "${sha}  /tmp/perl-lsp.tar.gz" | sha256sum -c -; \
-    tar -xzf /tmp/perl-lsp.tar.gz -C /usr/local/bin perl-lsp; \
-    chmod +x /usr/local/bin/perl-lsp; \
-    rm /tmp/perl-lsp.tar.gz; \
-    perl-lsp --version
 # Set up apache2 to use npm prefork
 RUN \
     a2dismod mpm_event && \
@@ -341,6 +322,37 @@ USER www-data
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 # default command is apache2ctl start
 CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+######################
+# backend dev/test stage: backend-deps + dev-only tools
+# CI and local dev use it as the dev/test image (the code is bind-mounted,
+# see docker/dev.yml), which lets them reuse the image as long as
+# dependencies do not change. Never used as a base for prod.
+######################
+FROM backend-deps AS backend-dev
+
+# perl-lsp: fast Perl language server in Rust (https://github.com/tree-sitter-perl/perl-lsp).
+# Replaces the old Perl::LanguageServer (removed from cpanfile). Pinned release,
+# arch-aware musl static binary; the --version check fails the build on a bad download.
+# Deliberately dev-only: keeps the attack surface and size of the prod image down.
+ARG PERL_LSP_VERSION=0.8.0
+ARG PERL_LSP_SHA256_X86_64=5f2987ca867cca2c73d3b93e2a2e99f471fecb0b7c6cdb8c4c1ca11252822939
+ARG PERL_LSP_SHA256_AARCH64=d0968285b8be9e92bfd8985b9c14f2a51949e74b61663527dd80350dc5e1fce0
+USER root
+RUN set -eux; \
+    arch="$(dpkg --print-architecture)"; \
+    case "$arch" in \
+        amd64) asset="perl-lsp-x86_64-unknown-linux-musl.tar.gz"; sha="${PERL_LSP_SHA256_X86_64}" ;; \
+        arm64) asset="perl-lsp-aarch64-unknown-linux-musl.tar.gz"; sha="${PERL_LSP_SHA256_AARCH64}" ;; \
+        *) echo "unsupported architecture for perl-lsp: $arch" >&2; exit 1 ;; \
+    esac; \
+    curl -fsSL "https://github.com/tree-sitter-perl/perl-lsp/releases/download/v${PERL_LSP_VERSION}/${asset}" -o /tmp/perl-lsp.tar.gz; \
+    echo "${sha}  /tmp/perl-lsp.tar.gz" | sha256sum -c -; \
+    tar -xzf /tmp/perl-lsp.tar.gz -C /usr/local/bin perl-lsp; \
+    chmod +x /usr/local/bin/perl-lsp; \
+    rm /tmp/perl-lsp.tar.gz; \
+    perl-lsp --version
+USER www-data
 
 ######################
 # backend production image stage

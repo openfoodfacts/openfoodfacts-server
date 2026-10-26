@@ -19,7 +19,7 @@ concurrency:
 
 permissions:
   contents: read
-  # needed to pull the backend-deps image built by build_backend
+  # needed to pull the backend-dev image built by build_backend
   packages: read
 
 jobs:
@@ -95,8 +95,9 @@ jobs:
           exit 1
         fi
 
-  # This builds the backend-deps image (the backend image without Product Opener code,
-  # which is bind-mounted by docker/dev.yml anyway) and pushes it to ghcr.io,
+  # This builds the backend-dev image (the backend image without Product Opener code,
+  # which is bind-mounted by docker/dev.yml anyway, plus dev-only tools like perl-lsp)
+  # and pushes it to ghcr.io,
   # tagged by a hash of the files it depends on, so it is only rebuilt when dependencies change.
   # Following jobs pull it (see .github/actions/load-backend-image).
   # Fork PRs can't push to ghcr.io: if the image does not exist yet, it is passed as an artifact instead.
@@ -104,7 +105,7 @@ jobs:
     name: 🏗 Build backend dev image for tests
     permissions:
       contents: read
-      # needed to push the backend-deps image and buildx cache
+      # needed to push the backend-dev image and buildx cache
       packages: write
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
@@ -139,7 +140,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Compute registry refs for backend-deps image and Buildkit cache
+      - name: Compute registry refs for backend-dev image and Buildkit cache
         id: registry_ref
         env:
           DEPS_HASH: ${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }}
@@ -147,10 +148,10 @@ jobs:
         run: |
           echo "registry_ref=ghcr.io/${{ github.repository }}/backend-buildx-cache:${DEPS_HASH}" >> $GITHUB_OUTPUT
           # the image is built for the runner's user ids
-          echo "deps_image=ghcr.io/${{ github.repository }}/backend-deps:${DEPS_HASH}-${{ steps.user_ids.outputs.uid }}-${{ steps.user_ids.outputs.gid }}" >> $GITHUB_OUTPUT
+          echo "deps_image=ghcr.io/${{ github.repository }}/backend-dev:${DEPS_HASH}-${{ steps.user_ids.outputs.uid }}-${{ steps.user_ids.outputs.gid }}" >> $GITHUB_OUTPUT
           echo "can_push=${CAN_PUSH}" >> $GITHUB_OUTPUT
 
-      - name: Check if backend-deps image already exists
+      - name: Check if backend-dev image already exists
         id: deps_image
         env:
           IMAGE: ${{ steps.registry_ref.outputs.deps_image }}
@@ -171,13 +172,13 @@ jobs:
           driver: docker-container
           use: true
 
-      - name: Build backend-deps image with cache
+      - name: Build backend-dev image with cache
         if: steps.deps_image.outputs.exists != 'true'
         uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
           file: ./Dockerfile
-          target: backend-deps
+          target: backend-dev
           build-args: |
             USER_UID=${{ steps.user_ids.outputs.uid }}
             USER_GID=${{ steps.user_ids.outputs.gid }}
@@ -198,7 +199,7 @@ jobs:
           # only the registry tag here, or push would try to push the local name to docker.io
           tags: ${{ steps.registry_ref.outputs.deps_image }}
 
-      - name: Tag backend-deps image as backend:dev
+      - name: Tag backend-dev image as backend:dev
         env:
           IMAGE: ${{ steps.registry_ref.outputs.deps_image }}
           EXISTS: ${{ steps.deps_image.outputs.exists }}
@@ -389,7 +390,7 @@ jobs:
       with:
         filePath: perl-sbom.json
 
-  # Note: the backend image used in this workflow is the backend-deps image (without Product Opener code),
+  # Note: the backend image used in this workflow is the backend-dev image (without Product Opener code),
   # the full production image is scanned by container-build.yml
   generate_docker_sbom:
     name: 📦 Generate Docker SBOM

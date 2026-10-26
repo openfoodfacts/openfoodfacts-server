@@ -1,11 +1,11 @@
 name: Load backend dev image
 description: >
   Make the backend image built by the build_backend job available
-  as openfoodfacts-server/backend:dev, either by pulling the backend-deps image from ghcr.io,
+  as openfoodfacts-server/backend:dev, either by pulling the backend-dev image from ghcr.io,
   or, for fork PRs that could not push it, by downloading it from the workflow artifacts.
 inputs:
   image:
-    description: backend-deps image reference on ghcr.io (build_backend's deps_image output)
+    description: backend-dev image reference on ghcr.io (build_backend's deps_image output)
     required: true
   from_artifact:
     description: "'true' to download the image from the artifacts instead of pulling it (build_backend's from_artifact output)"
@@ -24,7 +24,7 @@ runs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ inputs.token }}
-    - name: Pull backend-deps image
+    - name: Pull backend-dev image
       if: inputs.from_artifact != 'true'
       shell: bash
       env:

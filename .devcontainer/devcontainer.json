@@ -31,7 +31,7 @@
     "vscode": {
       "settings": {
         "terminal.integrated.shell.linux": "/bin/bash",
-        // perl-lsp is baked into the backend image (see Dockerfile);
+        // perl-lsp is baked into the backend-dev image (see Dockerfile);
         // use it instead of the extension's auto-downloaded binary.
         "perl-lsp.path": "/usr/local/bin/perl-lsp",
         // The perlcritic language server pipes buffer text via stdin from its

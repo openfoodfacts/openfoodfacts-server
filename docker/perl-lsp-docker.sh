@@ -17,9 +17,9 @@
 # - The image already contains /opt/perl/local/lib/perl5 (built from
 #   cpanfile), so no host Perl setup is needed.
 #
-# Prerequisite: image exists (`make build` / `make up`). Images built from the
-# current Dockerfile already contain perl-lsp in PATH; otherwise a host copy at
-# .opencode/bin/perl-lsp (musl static release) is mounted in as a fallback.
+# Prerequisite: image exists (`make build` / `make up`). Dev images built from the
+# backend-dev target already contain perl-lsp in PATH (prod images do not);
+# otherwise a host copy at .opencode/bin/perl-lsp (musl static release) is mounted in as a fallback.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
