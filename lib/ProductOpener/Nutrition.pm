@@ -458,7 +458,9 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 				# skip energy (we should have only energy-kj and/or energy-kcal in sets, so it should not happen)
 				next if $nutrient eq "energy";
 
-				if (!exists $aggregated_nutrient_set_ref->{nutrients}{$nutrient}) {
+				if (   !exists $aggregated_nutrient_set_ref->{nutrients}{$nutrient}
+					|| !defined $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value})
+				{
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}
 						= clone($nutrient_set_ref->{nutrients}{$nutrient});
 					delete $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_string};
@@ -490,16 +492,12 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 
 			# We also add a energy nutrient (in kJ) which is equal to the energy-kj nutrient if it exists,
 			# or the energy-kcal set (with the value converted to kJ) if energy-kj does not exist
-			if (!defined $aggregated_nutrient_set_ref->{nutrients}{"energy"}{value}) {
-				if (    defined $aggregated_nutrient_set_ref->{nutrients}{"energy-kj"}
-					and defined $aggregated_nutrient_set_ref->{nutrients}{"energy-kj"}{value})
-				{
+			if (!defined deep_get($aggregated_nutrient_set_ref, qw/nutrients energy value/)) {
+				if (defined deep_get($aggregated_nutrient_set_ref, qw/nutrients energy-kj value/)) {
 					$aggregated_nutrient_set_ref->{nutrients}{"energy"}
 						= clone($aggregated_nutrient_set_ref->{nutrients}{"energy-kj"});
 				}
-				elsif ( defined $aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"}
-					and defined $aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"}{value})
-				{
+				elsif (defined deep_get($aggregated_nutrient_set_ref, qw/nutrients energy-kcal value/)) {
 					$aggregated_nutrient_set_ref->{nutrients}{"energy"}
 						= clone($aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"});
 					convert_nutrient_to_standard_unit($aggregated_nutrient_set_ref->{nutrients}{"energy"}, "energy");

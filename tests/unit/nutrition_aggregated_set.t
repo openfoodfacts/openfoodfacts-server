@@ -8,7 +8,7 @@ use ProductOpener::Food qw/check_availability_of_nutrients_needed_for_nutriscore
 use ProductOpener::Tags qw/init_taxonomies/;
 
 # Initialize taxonomies so nutrient units (e.g. % for crude-protein, crude-ash) are available
-init_taxonomies(1);
+init_taxonomies(0);
 
 # Concentrations and dimensionless values do not change with the quantity of product
 for my $unit ('%', '% vol', '', 'mmol/l') {
@@ -115,14 +115,12 @@ for my $unit ('%', '% vol', '', 'mmol/l') {
 			aggregated_set => $aggregate,
 		},
 	};
-	my ($nutrients_available, $preparation, $estimated) = check_availability_of_nutrients_needed_for_nutriscore($product_ref);
+	my ($nutrients_available, $preparation, $estimated)
+		= check_availability_of_nutrients_needed_for_nutriscore($product_ref);
 	is($nutrients_available, 1, 'nutrients_available is 1 for Nutri-Score');
 	is($estimated, 0, 'nutrients are not flagged as estimated');
-	ok(
-		!defined $product_ref->{nutrition_grades_tags}
-			|| $product_ref->{nutrition_grades_tags}[0] ne 'unknown',
-		'nutrition_grades_tags is not set to unknown'
-	);
+	ok(!defined $product_ref->{nutrition_grades_tags} || $product_ref->{nutrition_grades_tags}[0] ne 'unknown',
+		'nutrition_grades_tags is not set to unknown');
 }
 
 # Neighbouring Test 1 (Scenario B): Existing valid packaging energy-kj remains correct when estimate exists
@@ -207,7 +205,8 @@ for my $unit ('%', '% vol', '', 'mmol/l') {
 		}
 	];
 	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
-	is($aggregate->{nutrients}{'energy-kj'}{value}, 1286.29, 'estimated energy-kj populated when no higher-priority energy exists');
+	is($aggregate->{nutrients}{'energy-kj'}{value},
+		1286.29, 'estimated energy-kj populated when no higher-priority energy exists');
 	is($aggregate->{nutrients}{'energy-kj'}{source}, 'estimate', 'energy-kj source is estimate');
 	is($aggregate->{nutrients}{energy}{value}, 1286.29, 'energy populated from estimate');
 	is($aggregate->{nutrients}{energy}{source}, 'estimate', 'energy source is estimate');
@@ -272,8 +271,10 @@ for my $unit ('%', '% vol', '', 'mmol/l') {
 		}
 	];
 	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
-	is($aggregate->{nutrients}{energy}{value}, 1882, 'energy value derived from packaging even if passed after estimate');
-	is($aggregate->{nutrients}{energy}{source}, 'packaging', 'energy source is packaging even if passed after estimate');
+	is($aggregate->{nutrients}{energy}{value},
+		1882, 'energy value derived from packaging even if passed after estimate');
+	is($aggregate->{nutrients}{energy}{source}, 'packaging',
+		'energy source is packaging even if passed after estimate');
 	is($aggregate->{nutrients}{'energy-kcal'}{value}, 450, 'energy-kcal preserved from packaging');
 	is($aggregate->{nutrients}{'energy-kcal'}{source}, 'packaging', 'energy-kcal source is packaging');
 	is($aggregate->{nutrients}{'energy-kj'}{value}, 1286.29, 'energy-kj populated from estimate');
@@ -334,7 +335,8 @@ for my $unit ('%', '% vol', '', 'mmol/l') {
 	];
 	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
 	is($aggregate->{nutrients}{energy}{value}, 1200, 'energy falls back to estimate when packaging energy is undef');
-	is($aggregate->{nutrients}{energy}{source}, 'estimate', 'energy source falls back to estimate when packaging energy is undef');
+	is($aggregate->{nutrients}{energy}{source},
+		'estimate', 'energy source falls back to estimate when packaging energy is undef');
 }
 
 done_testing();
