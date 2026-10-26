@@ -1,0 +1,15 @@
+# Manual proxy configuration for Ecobalyse packaging entries.
+#
+# Each row tells the matcher that the given Ecobalyse entry (identified by its
+# UUID in column 1) also applies to the OFF categories listed (comma-separated)
+# in column 4. The columns are:
+#
+#   ecobalyse_id <TAB> name_en <TAB> name_fr <TAB> categories
+#
+# The category specificity of a matched proxy is computed from the level of the
+# matched category (via get_taxonomy_tag_level), so no special handling is needed:
+# a proxy for a more specific category scores higher than one for a broader category.
+#
+# This file starts empty (Phase 1). Entries are added manually in Phase 2 as
+# needed to improve coverage for products whose exact category is not present in
+# the Ecobalyse data.

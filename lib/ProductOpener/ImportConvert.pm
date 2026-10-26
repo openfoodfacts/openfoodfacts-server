@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -72,6 +72,8 @@ BEGIN {
 		&get_list_of_files
 
 		&load_csv_file
+
+		&download_file_to
 
 		&load_xml_file
 
@@ -878,7 +880,8 @@ sub clean_fields ($product_ref) {
 
 					# dashes/dots/spaces -> allow matching dashes/dot/spaces
 					# e.g. "bons.mayennais" matches "bons mayennais"
-					$brand =~ s/(\s|\.|-|_)/\(\\s|\\.|-|_\)/g;
+					# regexp_escape escapes dots, so we match "\." here
+					$brand =~ s/(\s|\\\.|-|_)/\(\\s|\\.|-|_\)/g;
 
 					$product_ref->{$field} =~ s/\s+$brand$//i;
 				}
@@ -892,6 +895,14 @@ sub clean_fields ($product_ref) {
 
 		if (not defined $product_ref->{$field}) {
 			# print STDERR "undefined value for field $field\n";
+			next;
+		}
+
+		# If we have a single dash, return it
+		# single dash is used to indicate the value for this field is no value (e.g. for tags)
+		# We used a dash to distinguish between undefined values and empty values in the CSV file
+		if ($product_ref->{$field} =~ /^\s*-\s*/) {
+			$product_ref->{$field} = '-';
 			next;
 		}
 
@@ -926,8 +937,7 @@ sub clean_fields ($product_ref) {
 		$product_ref->{$field} =~ s/^\s*//;
 		$product_ref->{$field} =~ s/(\s|-|_|;|,)*$//;
 
-		# Don't remove a single dash -, it is used to indicate an existing value should be deleted
-		if (($product_ref->{$field} =~ /^(\s|-|\.|_)$/) and ($product_ref->{$field} ne '-')) {
+		if ($product_ref->{$field} =~ /^(\s|-|\.|_)$/) {
 			$product_ref->{$field} = "";
 		}
 
@@ -1583,6 +1593,38 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 	return 0;
 }
 
+=head2 download_file_to($url, $output_file)
+
+Download an url to a local file, with wget.
+
+The url comes from the data file of a supplier: it must be an http or https url, and wget is called
+without a shell, with the options before the url, so that no content of the data file can add an
+option to wget or a command to the line we run.
+
+Returns 1 if the file was downloaded, 0 otherwise.
+
+=cut
+
+sub download_file_to ($url, $output_file) {
+
+	if ((not defined $url) or ($url !~ m{^https?://}i)) {
+		$log->warn("not downloading a file from a url that is not http(s)", {url => $url, output_file => $output_file})
+			if $log->is_warn();
+		return 0;
+	}
+
+	# -- tells wget that the arguments after it are urls, even if one starts with a dash
+	my $status = system("wget", "-O", $output_file, "--", $url);
+
+	if ($status != 0) {
+		$log->warn("wget failed", {url => $url, output_file => $output_file, status => $status})
+			if $log->is_warn();
+		return 0;
+	}
+
+	return 1;
+}
+
 sub load_csv_file ($options_ref) {
 
 	my $file = $options_ref->{file};
@@ -1721,15 +1763,16 @@ sub load_csv_file ($options_ref) {
 						$file =~ s/[^A-Za-z0-9-_\.]/_/g;
 
 						# get big images from equadis
-						$csv_product_ref->{$source_field} =~ s/thumb=true&//;
+						my $url = $csv_product_ref->{$source_field} // "";
+						$url =~ s/thumb=true&//;
 
 						# do not download again images that we already have
 						# but try again if the size is 0
 
 						if ((!-e "$dir/$file") or ((-s "$dir/$file") < 10000)) {
 
-							# print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
-							system("wget \"" . $csv_product_ref->{$source_field} . "\" -O $dir/$file");
+							# print STDERR "downloading image: wget $url -O $dir/$file\n";
+							download_file_to($url, "$dir/$file");
 							sleep 2;    # there seems to be some limit as we received 403 Forbidden responses
 						}
 					}

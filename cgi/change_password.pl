@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -29,7 +29,8 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/$tt display_page init_request process_template display_error_and_exit/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
-use ProductOpener::Users qw/$User_id check_password_hash create_password_hash retrieve_user store_user/;
+use ProductOpener::Users
+	qw/$User_id check_password_hash create_password_hash remove_all_user_sessions retrieve_user store_user/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
@@ -89,6 +90,10 @@ if (get_oidc_implementation_level() < 5) {
 			$user_ref->{encrypted_password}
 				= create_password_hash(encode_utf8(decode utf8 => single_param('password')));
 			store_user($user_ref);
+
+			# A session obtained with the old password must not authenticate any more
+			remove_all_user_sessions($user_ref->{userid});
+
 			$template_data_ref->{success} = 1;
 		}
 	}

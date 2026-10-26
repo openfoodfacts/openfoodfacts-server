@@ -24,17 +24,61 @@ create_user($ua, \%create_user_args);
 
 my @products = (
 	{
+		# this product has less than 95% ingredients with nutrition data, so nutrients won't be estimated
 		%{dclone(\%default_product_form)},
 		(
 			code => '4260392550101',
-			product_name => "Some product",
-			generic_name => "Tester",
-			ingredients_text => "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
-			categories => "cookies",
-			labels => "organic",
 			origin => "france",
 			packaging_text_en =>
 				"1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
+			nutriment_salt => '50.2',
+			nutriment_salt_unit => 'mg',
+			nutriment_sugars => '12.5',
+			"nutriment_saturated-fat" => '5.6',
+			nutriment_fiber => 2,
+			"nutriment_energy-kj" => 400,
+			nutriment_proteins => 4.5,
+			nutriment_carbohydrates => 10.5,
+			nutriment_fat => 8.5,
+		)
+	},
+	# product with 100% of ingredients with nutrition data, so nutrients will be estimated
+	{
+		%{dclone(\%default_product_form)},
+		(
+			lc => "en",
+			lang => "en",
+			code => '200000000035',
+			product_name => "Some product 2 with all ingredients having nutrition data",
+			generic_name => "Tester 2",
+			ingredients_text => "milk, eggs, sugar",
+			categories => "cookies",
+			nutriment_salt => '50.2',
+			nutriment_salt_unit => 'mg',
+			nutriment_sugars => '12.5',
+			"nutriment_saturated-fat" => '5.6',
+			nutriment_fiber => 2,
+			"nutriment_energy-kj" => 400,
+			nutriment_proteins => 4.5,
+			nutriment_carbohydrates => 10.5,
+			nutriment_fat => 8.5,
+		)
+	},
+	# product with tags fields, to test new tags schema in v3.6
+	{
+		%{dclone(\%default_product_form)},
+		(
+			lc => "en",
+			lang => "en",
+			code => '200000000036',
+			product_name => "Some product 3 with tags fields",
+			generic_name => "Tester 3",
+			ingredients_text => "milk, eggs, sugar",
+			origin => "france",
+			categories => "cookies, coffee",
+			labels => "EU organic, fair trade",
+			stores => "Carrefour, Méga-Marché",
+			emb_codes => "FR 56081 CE, FR 56082 CE",
 		)
 	},
 );
@@ -292,7 +336,57 @@ my $tests_ref = [
 		query_string => '?fields=knowledge_panels&activate_knowledge_panels_simplified=true',
 		expected_status_code => 200,
 	},
-
+	# v3.5 new nutrition schema
+	{
+		test_case => 'get-existing-product-api-v3-5',
+		method => 'GET',
+		path => '/api/v3.5/product/4260392550101',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-with-estimated-nutrients',
+		method => 'GET',
+		path => '/api/v3/product/200000000035',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-with-estimated-nutrients-api-v3-5',
+		method => 'GET',
+		path => '/api/v3.5/product/200000000035',
+		expected_status_code => 200,
+	},
+	# v3.6 new tags schema
+	{
+		test_case => 'get-existing-product-new-tags-schema-api-v3-6',
+		method => 'GET',
+		path => '/api/v3.6/product/200000000036',
+		expected_status_code => 200,
+	},
+	# Those fields don't exist in v3.6
+	{
+		test_case => 'get-existing-product-new-tags-schema-api-v3-6-fields',
+		method => 'GET',
+		path => '/api/v3.6/product/200000000036',
+		query_string => '?fields=stores,emb_codes,categories,origins,labels',
+		expected_status_code => 200,
+	},
+	# _tags fields exist in v3.6
+	{
+		test_case => 'get-existing-product-new-tags-schema-api-v3-6-tags-fields',
+		method => 'GET',
+		path => '/api/v3.6/product/200000000036',
+		query_string => '?fields=labels_tags,stores_tags,emb_codes_tags,categories_tags,origins_tags',
+		expected_status_code => 200,
+	},
+	# in v3.5, asking for ?fields=stores,emb_codes,origin should still work and return the correct fields
+	# even if we don't ask for stores_tags
+	{
+		test_case => 'get-existing-product-new-tags-schema-api-v3-5-fields',
+		method => 'GET',
+		path => '/api/v3.5/product/200000000036',
+		query_string => '?fields=stores,emb_codes,origins,categories,labels',
+		expected_status_code => 200,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

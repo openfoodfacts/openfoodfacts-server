@@ -1,0 +1,5 @@
+# Large parameters for uploads
+# Normally used on producers platform
+client_max_body_size 400M;
+client_body_timeout 1200s;
+client_header_timeout 1200s;

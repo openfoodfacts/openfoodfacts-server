@@ -417,10 +417,12 @@
    "environmental_score_tags" : [
       "b"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+         "ecobalyse_name" : "Lait par défaut -2025-",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "origins" : "en:england",
@@ -468,6 +470,7 @@
    "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
       "en:packagings-number-of-components-2",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
@@ -478,12 +481,6 @@
       "en:environmental-score-changed",
       "en:environmental-score-grade-changed"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "packaging_materials_tags" : [
       "en:hdpe-2-high-density-polyethylene",
       "en:pet-1-polyethylene-terephthalate"
