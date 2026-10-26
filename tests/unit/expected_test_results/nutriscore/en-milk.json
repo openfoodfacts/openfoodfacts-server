@@ -1,8 +1,4 @@
 {
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories" : "milk",
    "categories_hierarchy" : [
@@ -34,6 +30,10 @@
       "en:milk-and-dairy-products",
       "en:milk-and-yogurt"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "unknown",
+      "summary" : "missing_ingredients"
+   },
    "lc" : "en",
    "misc_tags" : [
       "en:nutrients-not-estimated-from-ingredients-no-ingredients",
@@ -43,7 +43,9 @@
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-a-2023-b"
+      "en:nutriscore-2021-a-2023-b",
+      "en:forest-footprint-unknown",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
    "nova_group_error" : "missing_ingredients",
@@ -80,7 +82,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 1,
+            "negative_points_max" : 0,
             "positive_points" : 2,
+            "positive_points_max" : 0,
             "proteins" : 3.3,
             "proteins_points" : 2,
             "proteins_value" : 3.3,
@@ -417,9 +421,19 @@
       "milk-and-yogurt",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : []
 }

@@ -1,7 +1,8 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "id" : "en:mechanicaly-separated-poultry-meat",
+         "id" : "en:mechanicaly separated poultry meat",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 100,
          "percent_max" : 100,
@@ -11,13 +12,13 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "en:mechanicaly-separated-poultry-meat"
+         "en:mechanicaly separated poultry meat"
       ],
       "en:vegan-status-unknown" : [
-         "en:mechanicaly-separated-poultry-meat"
+         "en:mechanicaly separated poultry meat"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:mechanicaly-separated-poultry-meat"
+         "en:mechanicaly separated poultry meat"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -32,11 +33,11 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:mechanicaly-separated-poultry-meat"
+      "en:mechanicaly separated poultry meat"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:mechanicaly-separated-poultry-meat"
+      "en:mechanicaly separated poultry meat"
    ],
    "ingredients_text" : "mechanicaly separated poultry meat",
    "ingredients_with_specified_percent_n" : 0,
@@ -44,14 +45,17 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:mechanicaly-separated-poultry-meat"
+      "en:mechanicaly separated poultry meat"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:mechanicaly-separated-poultry-meat"
+      "en:mechanicaly separated poultry meat"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 0,
    "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 1
 }

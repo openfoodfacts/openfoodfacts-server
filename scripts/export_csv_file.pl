@@ -72,6 +72,7 @@ my $extra_fields = '';
 my $separator = "\t";
 my $include_images_paths = 0;
 my $query_codes_from_file = '';
+my $export_nutrition_aggregated_set = 0;
 my $export_computed_fields = 0;
 my $export_canonicalized_tags_fields = 0;
 
@@ -84,6 +85,7 @@ GetOptions(
 	"separator=s" => \$separator,
 	"include-images-paths" => \$include_images_paths,
 	"query-codes-from-file=s" => \$query_codes_from_file,
+	"export-nutrition-aggregated-set" => \$export_nutrition_aggregated_set,
 	"export-computed-fields" => \$export_computed_fields,
 	"export-canonicalized-tags-fields" => \$export_canonicalized_tags_fields,
 ) or die("Error in command line arguments:\n\n$usage");
@@ -135,6 +137,10 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref);
 # CSV export
 
 my $args_ref = {filehandle => *STDOUT, separator => $separator, query => $query_ref};
+
+if ($export_nutrition_aggregated_set) {
+	$args_ref->{export_nutrition_aggregated_set} = 1;
+}
 
 if ($export_computed_fields) {
 	$args_ref->{export_computed_fields} = 1;

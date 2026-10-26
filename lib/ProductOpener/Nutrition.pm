@@ -47,7 +47,6 @@ BEGIN {
 		&get_specific_nutrition_input_set
 		&get_nutrition_input_sets_in_a_hash
 		&convert_nutrition_input_sets_hash_to_array
-		&get_source_for_site_and_org
 		&get_preparations_for_product_type
 		&get_pers_for_product_type
 		&get_default_per_for_product
@@ -73,6 +72,8 @@ BEGIN {
 		%energy_from_nutrients
 		&get_nutrient_from_nutrient_set_in_default_unit
 		&default_unit_for_nid
+		&add_misc_tags_for_input_nutrition_data_pers
+		&sort_sets_by_priority
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -82,11 +83,13 @@ use vars @EXPORT_OK;
 
 use Clone qw/clone/;
 
-use ProductOpener::Tags qw/:all get_inherited_property_from_categories_tags/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::API qw/add_error add_warning/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 
 # FIXME: remove single_param and use request_param
@@ -203,6 +206,7 @@ None
 =cut
 
 sub generate_nutrient_aggregated_set ($product_ref) {
+
 	if (!defined $product_ref) {
 		return;
 	}
@@ -223,7 +227,7 @@ sub generate_nutrient_aggregated_set ($product_ref) {
 
 Generates and returns a hash reference of the aggregated nutrient set from the given list of nutrient sets.
 
-The generated set is a combined set of nutrients with the preferred sources, per references and preparation states 
+The generated set is a combined set of nutrients with the preferred sources, per references and preparation states
 and with normalized units.
 
 =head3 Arguments
@@ -269,7 +273,7 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 			}
 			else {
 				my $standard_unit = get_standard_unit($input_sets[0]{set}{per_unit});
-				if ($standard_unit eq "g") {
+				if ((not defined $standard_unit) or ($standard_unit eq "g")) {
 					$aggregated_nutrient_set_ref->{per} = "100g";
 				}
 				elsif ($standard_unit eq "ml") {
@@ -302,50 +306,53 @@ Reference to array of unsorted input nutrient sets
 
 =cut
 
+my %preparation_priority = (
+	prepared => 0,
+	as_sold => 1,
+	_default => 2,
+);
+
+my %source_priority = (
+	manufacturer => 0,
+	packaging => 1,
+	usda => 2,
+	estimate => 3,
+	_default => 4,
+);
+
+my %per_priority = (
+	"100g" => 0,
+	"100ml" => 1,
+	"1l" => 2,    # for water
+	"1kg" => 3,    # for pet food
+	serving => 4,
+	_default => 5,
+);
+
 sub sort_sets_by_priority ($input_sets_ref) {
-	my %source_priority = (
-		manufacturer => 0,
-		packaging => 1,
-		usda => 2,
-		estimate => 3,
-		_default => 4,
-	);
-
-	my %per_priority = (
-		"100g" => 0,
-		"100ml" => 1,
-		"1l" => 2,    # for water
-		"1kg" => 3,    # for pet food
-		serving => 4,
-		_default => 5,
-	);
-
-	my %preparation_priority = (
-		prepared => 0,
-		as_sold => 1,
-		_default => 2,
-	);
 
 	@$input_sets_ref =
 
 		sort {
-		my $source_key_a = defined $a->{source} ? $a->{source} : '_default';
-		my $source_key_b = defined $b->{source} ? $b->{source} : '_default';
-		my $source_a = $source_priority{$source_key_a};
-		my $source_b = $source_priority{$source_key_b};
+		my $source_a
+			= defined $source_priority{$a->{source}} ? $source_priority{$a->{source}} : $source_priority{_default};
+		my $source_b
+			= defined $source_priority{$b->{source}} ? $source_priority{$b->{source}} : $source_priority{_default};
 
-		my $per_key_a = defined $a->{per} ? $a->{per} : '_default';
-		my $per_key_b = defined $b->{per} ? $b->{per} : '_default';
-		my $per_a = $per_priority{$per_key_a};
-		my $per_b = $per_priority{$per_key_b};
+		my $per_a = defined $per_priority{$a->{per}} ? $per_priority{$a->{per}} : $per_priority{_default};
+		my $per_b = defined $per_priority{$b->{per}} ? $per_priority{$b->{per}} : $per_priority{_default};
 
-		my $preparation_key_a = defined $a->{preparation} ? $a->{preparation} : '_default';
-		my $preparation_key_b = defined $b->{preparation} ? $b->{preparation} : '_default';
-		my $preparation_a = $preparation_priority{$preparation_key_a};
-		my $preparation_b = $preparation_priority{$preparation_key_b};
+		my $preparation_a
+			= defined $preparation_priority{$a->{preparation}}
+			? $preparation_priority{$a->{preparation}}
+			: $preparation_priority{_default};
+		my $preparation_b
+			= defined $preparation_priority{$b->{preparation}}
+			? $preparation_priority{$b->{preparation}}
+			: $preparation_priority{_default};
 
-		# sort priority : source then per then preparation
-		return $preparation_a <=> $preparation_b || $per_a <=> $per_b || $source_a <=> $source_b;
+		# sort priority : preparation, source, per
+		return ($preparation_a <=> $preparation_b) || ($source_a <=> $source_b) || ($per_a <=> $per_b);
 		} @$input_sets_ref;
 
 	return @$input_sets_ref;
@@ -569,13 +576,21 @@ sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_id) {
 
 =head2 convert_nutrient_to_100g
 
-Converts the value of the amount of the nutrient based on the wanted per reference if necessary.
+Converts the value of the amount of the nutrient to the wanted per reference if necessary
+(e.g. per 100g, per 100ml or per 1kg for pet food).
+
+Concentrations and dimensionless values (e.g. %, % vol, mmol/l, pH) do not depend on the quantity of product
+they are declared for, and are left unchanged.
 
 =head3 Arguments
 
 =head4 $nutrient_ref
 
 Hash of the nutrient set with the value to convert
+
+=head4 $original_per
+
+Current per reference of the nutrient set (e.g. 100g, 100ml, 1kg, serving)
 
 =head4 $original_per_quantity
 
@@ -585,24 +600,33 @@ Current per amount of the nutrient
 
 Current per unit of the nutrient
 
-=head4 $wanted_per_quantity
+=head4 $wanted_per
 
-Wanted per amount of the nutrient
-
-=head4 $wanted_per_unit
-
-Wanted per unit of the nutrient
+Wanted per reference (100g, 100ml or 1kg)
 
 =cut
 
 sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quantity, $original_per_unit, $wanted_per) {
+
+	# If the nutrient is unit-less (e.g. pH or glycemic index), or if the unit is a concentration or a
+	# percentage (% of fruits, % vol of alcohol), the value is the same for every per reference
+	if (   (not defined $nutrient_ref->{unit})
+		or ($nutrient_ref->{unit} eq '')
+		or ($nutrient_ref->{unit} eq '%')
+		or ($nutrient_ref->{unit} eq '% vol')
+		or ($nutrient_ref->{unit} eq 'mmol/l'))
+	{
+		return;
+	}
+
 	if ($original_per ne $wanted_per) {
 		my $original_value = $nutrient_ref->{value};
-		my $wanted_per_unit = $wanted_per eq "100g" ? "g" : "ml";
+		my $wanted_per_unit = $wanted_per eq "100ml" ? "ml" : "g";
+		my $wanted_per_quantity = $wanted_per eq "1kg" ? 1000 : 100;
 
 		# set value of nutrient according to wanted per unit
 		my $per_conversion_factor = g_to_unit(unit_to_g($original_per_quantity, $original_per_unit), $wanted_per_unit);
-		$nutrient_ref->{value} = ($original_value * 100) / $per_conversion_factor;
+		$nutrient_ref->{value} = ($original_value * $wanted_per_quantity) / $per_conversion_factor;
 
 	}
 	return;
@@ -729,6 +753,11 @@ sub get_nutrition_input_sets_in_a_hash($product_ref) {
 	if ((defined $input_sets_ref) and (ref $input_sets_ref eq 'ARRAY')) {
 		foreach my $set_ref (@{$input_sets_ref}) {
 			if (exists $set_ref->{source} and exists $set_ref->{preparation} and exists $set_ref->{per}) {
+				# Normalize "_prepared" to "prepared" for backwards compatibility
+				# with products stored via old-style API params before the fix
+				if ($set_ref->{preparation} eq "_prepared") {
+					$set_ref->{preparation} = "prepared";
+				}
 				$input_sets_hash_ref->{$set_ref->{source}}{$set_ref->{preparation}}{$set_ref->{per}} = $set_ref;
 			}
 		}
@@ -816,46 +845,6 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_re
 		if $log->is_debug();
 
 	return $input_sets_ref;
-}
-
-=head2 get_source_for_site_and_org ( $org_id = undef )
-
-Returns the default source of nutrition data for the current site and organization.
-
-=head3 Arguments
-
-=head4 $org_id
-
-Organization id
-
-=head3 Return values
-
-- "packaging" for the public platform
-- "manufacturer" for the pro platform
-
-=cut
-
-sub get_source_for_site_and_org ($org_id = undef) {
-
-	my $source = "packaging";
-	if ($server_options{producers_platform}) {
-		$source = "manufacturer";
-		if (defined $org_id) {
-			# e.g. org-database-usda
-			if ($org_id =~ /^org-database-(.+)$/) {
-				$source = "database-" . $1;
-			}
-			# e.g. org-label-gmo-project (in practice labels should not send nutrition data)
-			if ($org_id =~ /^org-label-(.+)$/) {
-				$source = "label-" . $1;
-			}
-			# At some point we used the pro platform to allow users to bulk enter data (e.g. for scan parties)
-			elsif ($org_id =~ /^user-(.+)$/) {
-				$source = "packaging";
-			}
-		}
-	}
-	return $source;
 }
 
 =head2 get_preparations_for_product_type
@@ -963,6 +952,7 @@ Reference to an array of valid unit options for the given nutrient
 sub get_unit_options_for_nutrient ($nid) {
 
 	my @units = ();
+	my $default_unit = default_unit_for_nid($nid);
 
 	if (($nid eq 'alcohol')) {
 		@units = ('% vol');
@@ -987,16 +977,22 @@ sub get_unit_options_for_nutrient ($nid) {
 	{
 		@units = ('%');
 	}
-	elsif ($nid eq 'ph') {
+	# pH, glycemic index, NOVA group, etc.
+	elsif ($default_unit eq '') {
 		@units = ('');
 	}
+	elsif ($nid eq 'carbon-footprint') {
+		@units = ('kg', 'g', 'mg');
+	}
 	else {
-
 		@units = ('g', 'mg', 'µg');
 	}
 
 	my @units_options;
 
+	if ($nid eq 'cocoa') {
+		push @units, '%';
+	}
 	if (defined get_property("nutrients", "zz:$nid", "dv_value:en")) {
 		push @units, '% DV';
 	}
@@ -1246,6 +1242,7 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 			my $recognized_unit = 0;
 			my $lc_unit = lc($unit);
 			$lc_unit =~ s/^\s+|\s+$//g;    # trim spaces
+
 			foreach my $unit_option_ref (@{$valid_units_ref}) {
 				if (lc($unit_option_ref->{id}) eq $lc_unit) {
 					$recognized_unit = 1;
@@ -1358,7 +1355,7 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 		# Assign all the nutrient values
 
 		# We can have nutrient values for the product as sold, or prepared
-		foreach my $preparation ("as_sold", "_prepared") {
+		foreach my $preparation ("as_sold", "prepared") {
 
 			my $preparation_suffix = ($preparation eq "as_sold") ? "" : "_prepared";
 
@@ -1500,6 +1497,16 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 
 	# We use a temporary input sets hash to ease setting values
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+
+	# Product types for which the nutrition feature is disabled (e.g. beauty products) have no valid
+	# input set (no preparation and no per), so their nutrition facts cannot be edited nutrient by nutrient.
+	# Some of those products still have nutrition data (added before the feature was disabled, or imported):
+	# checking the "no nutrition data" checkbox deletes it, as the product edit API v2 already does.
+	if ((not feature_enabled("nutrition", $product_ref)) and (has_no_nutrition_data_on_packaging($product_ref))) {
+		delete $input_sets_hash_ref->{$source};
+		# The flag itself is not relevant for those products, we only use it as a way to delete the data
+		delete $product_ref->{nutrition}{no_nutrition_data_on_packaging};
+	}
 
 	# Assign all the nutrient values
 
@@ -1803,7 +1810,7 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 					$stats_ref->{"products_with_nutrition" . $type}{$code} = 1;
 
 					# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
-					if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+					if (($nid eq "energy") and (defined $unit) and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
 						$nid = "energy-" . lc($unit);
 					}
 
@@ -2321,7 +2328,12 @@ The nutrition fields sort keys will be prefixed by this sort key.
 
 =cut
 
-sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populated_fields_ref, $sort_key) {
+sub add_nutrition_fields_from_product_to_populated_fields(
+	$product_ref, $populated_fields_ref, $sort_key,
+	$export_nutrition_estimate = 0,
+	$export_nutrition_aggregated_set = 0
+	)
+{
 
 	if (not defined $product_ref->{nutrition}) {
 		return;
@@ -2337,7 +2349,48 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 	}
 
 	# Aggregated set: not needed at first for exporting and importing data as it is generated from the input sets
-	# TODO: export when $export_args_ref->{export_nutrition_aggregated_set} = 1;
+	# Only export when $export_args_ref->{export_nutrition_aggregated_set} = 1;
+	if ($export_nutrition_aggregated_set) {
+		foreach my $field ("per_quantity", "per_unit") {
+			if (defined deep_get($product_ref, "nutrition", "aggregated_set", $field)) {
+				$populated_fields_ref->{"nutrition.aggregated_set.${field}"}
+					= $sort_key . '_0-aggregated_set_' . sprintf("%02d", $item_number) . '-' . $field;
+			}
+		}
+
+		# Nutrients in the aggregated set
+		my $nutrients_ref = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients");
+		if ((defined $nutrients_ref) and ref($nutrients_ref) eq 'HASH') {
+			my $nutrient_number = 0;
+			foreach my $nutrient (@{$nutrients_tables{off_europe}}) {
+
+				next if $nutrient =~ /^\#/;
+				my $nid = $nutrient;
+
+				$nutrient_number++;
+
+				$nid =~ s/^(-|!)+//g;
+				$nid =~ s/-$//g;
+
+				next if $nid =~ /^nutrition-score/;
+
+				my $nutrient_ref = $nutrients_ref->{$nid};
+
+				if ((defined $nutrient_ref) and (ref($nutrient_ref) eq 'HASH')) {
+					foreach my $field ("modifier", "value_string", "value", "unit") {
+						if (defined $nutrient_ref->{$field}) {
+							$populated_fields_ref->{"nutrition.aggregated_set.nutrients.${nid}.${field}"}
+								= $sort_key
+								. '_2-aggregated_set_nutrients_'
+								. sprintf("%03d", $nutrient_number) . '-'
+								. $nid . '_'
+								. $field;
+						}
+					}
+				}
+			}
+		}
+	}
 
 	# Input sets
 
@@ -2345,6 +2398,12 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
 	if (defined $input_sets_hash_ref) {
 		foreach my $source (sort keys %{$input_sets_hash_ref}) {
+
+			# Skip the estimate input set if we don't want to export it
+			if (($source eq "estimate") and (not $export_nutrition_estimate)) {
+				next;
+			}
+
 			foreach my $preparation (sort keys %{$input_sets_hash_ref->{$source}}) {
 				foreach my $per (sort keys %{$input_sets_hash_ref->{$source}{$preparation}}) {
 
@@ -2550,6 +2609,11 @@ sub convert_salt_to_sodium ($salt_value) {
 	},
 );
 
+# Polyols that can be entered individually in the nutrition facts, without a value for the
+# aggregate "polyols" nutrient. Erythritol is listed here too, but it is handled separately
+# above as it does not contribute any energy, unlike the other polyols.
+my @individual_polyols_nids = ("erythritol", "isomalt", "maltitol", "sorbitol");
+
 =head2 compute_energy_from_nutrients_for_nutrients_set ( $nutrients_ref, $unit )
 
 Computes the energy from other nutrients for a given input set.
@@ -2584,6 +2648,20 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 		and (defined $proteins_value))
 	{
 
+		# If we do not have a value for the aggregate "polyols" nutrient, but we have values for
+		# individual polyols (e.g. isomalt, maltitol, sorbitol, erythritol), compute the polyols
+		# value as the sum of the individual polyols values, so that they are taken into account
+		# in the energy computation below (instead of being counted as regular carbohydrates).
+		my $polyols_value = deep_get($nutrients_ref, "polyols", "value");
+		if (not defined $polyols_value) {
+			foreach my $individual_polyol_nid (@individual_polyols_nids) {
+				my $individual_polyol_value = deep_get($nutrients_ref, $individual_polyol_nid, "value");
+				if (defined $individual_polyol_value) {
+					$polyols_value += $individual_polyol_value;
+				}
+			}
+		}
+
 		foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
 
 			my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$lc_unit};
@@ -2593,19 +2671,19 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 				my $nid_minus = $';
 				$nid = $`;
 
-				# If we are computing carbohydrates minus polyols, and we do not have a value for polyols
-				# but we have a value for erythritol (which is a polyol), then we need to remove erythritol
-				if (($nid_minus eq "polyols") and (not deep_exists($nutrients_ref, $nid_minus, "value"))) {
-					$nid_minus = "erythritol";
+				if ($nid_minus eq "polyols") {
+					$grams -= $polyols_value || 0;
 				}
-				# Similarly for polyols minus erythritol
-				if (($nid eq "polyols") and (not deep_exists($nutrients_ref, $nid, "value"))) {
-					$nid = "erythritol";
+				else {
+					$grams -= deep_get($nutrients_ref, $nid_minus, "value") || 0;
 				}
-
-				$grams -= deep_get($nutrients_ref, $nid_minus, "value") || 0;
 			}
-			$grams += deep_get($nutrients_ref, $nid, "value") || 0;
+			if ($nid eq "polyols") {
+				$grams += $polyols_value || 0;
+			}
+			else {
+				$grams += deep_get($nutrients_ref, $nid, "value") || 0;
+			}
 			$computed_energy += $grams * $energy_per_gram;
 		}
 
@@ -2849,6 +2927,42 @@ sub default_unit_for_nid ($nid) {
 	}
 
 	return "g";
+}
+
+=head2 add_misc_tags_for_input_nutrition_data_pers ( $product_ref )
+
+Add misc tags for the different pers used in the input nutrition data,
+to make it easier to filter products based on the pers used in their nutrition data.
+(e.g. to find all ice creams with per 100ml)
+
+Estimates are not included.
+
+add_tag($product_ref, "misc", "en:nutrition-data-per-100g") if we have at least one input set with per 100g;
+
+=cut
+
+sub add_misc_tags_for_input_nutrition_data_pers($product_ref) {
+
+	# Go through each input set, check the pers used, add misc tags accordingly
+	my $inputs_sets_array_ref = deep_get($product_ref, "nutrition", "input_sets");
+
+	if (defined $inputs_sets_array_ref) {
+		foreach my $input_set_ref (@{$inputs_sets_array_ref}) {
+			my $source = $input_set_ref->{source} || "";
+			my $per = $input_set_ref->{per} || "";
+
+			# skip estimate from ingredients
+			if ($source eq "estimate") {
+				next;
+			}
+
+			if (defined $per) {
+				add_tag($product_ref, "misc", "en:nutrition-data-per-${per}");
+			}
+		}
+	}
+
+	return;
 }
 
 1;

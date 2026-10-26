@@ -1,0 +1,18 @@
+{
+   "errors" : [
+      {
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "authentication_required",
+            "lc_name" : "Authentication required",
+            "name" : "Authentication required"
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}
