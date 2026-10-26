@@ -362,6 +362,7 @@
 								
 
 
+
 <!-- Donation banner TOP start -->
 <section id="donation-banner-top" style="position: relative;">
   <donation-banner donate-url="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
@@ -371,11 +372,11 @@
 </section>
 
 <script>
-  let d = new Date();
   let bannerID = document.getElementById('donation-banner-top');
   let getDomain = window.location.origin.split('.');
 
   function setBannerCookie(bcname, bcval, bcexdays) {
+    const d = new Date();
     d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
     let expires = 'expires=' + d.toUTCString();
     // Apply cookie for every domain contains open...facts
@@ -401,11 +402,171 @@
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('donation_march_2026') !== '') {
-    bannerID.style.display = 'none';
+  const crawler = false;
+  let arm = getBannerCookie('donation_arm');
+  if (crawler) {
+    arm = 'old';
   } else {
-    bannerID.style.display = 'block';
+    if (arm !== 'old' && arm !== 'new') {
+      arm = Math.random() < 0.5 ? 'old' : 'new';
+    }
+    setBannerCookie('donation_arm', arm, 30);
   }
+
+  const optedOut = ['donation_dismiss', 'donation_done'].some((name) => getBannerCookie(name) !== '');
+  // the classic close (donation_march_2026) only ever hid the top banner, so the old arm keeps the footer
+  const gone = optedOut || getBannerCookie('donation_march_2026') !== '';
+  const closeButton = bannerID.querySelector('.donation-banner__close');
+  if (arm === 'new') {
+    bannerID.style.display = 'none';
+    closeButton.style.display = 'none';
+  } else {
+    bannerID.style.display = gone ? 'none' : 'block';
+  }
+
+  function track(action, name) {
+    if (typeof trackMatomoEvent === 'function') {
+      trackMatomoEvent('donation', action, name);
+    }
+  }
+
+  function removeBanners() {
+    bannerID.remove();
+    document.getElementById('donation-banner-footer').remove();
+  }
+
+  function showClassic() {
+    const footer = document.getElementById('donation-banner-footer');
+    footer.style.display = '';
+    bannerID.querySelector('donation-banner').setAttribute('utm-content', 'top:classic:old');
+    footer.setAttribute('utm-content', 'footer:classic:old');
+  }
+
+  function mount(el, variant, name, id) {
+    el.setAttribute('variant', variant);
+    el.setAttribute('news-id', id);
+    el.setAttribute('amounts', '3,5,10');
+    el.setAttribute('country', 'fr');
+    el.setAttribute('utm-content', name);
+    el.style.display = '';
+  }
+
+  function showTop(variant, name, id) {
+    mount(bannerID.querySelector('donation-banner'), variant, name, id);
+    bannerID.style.display = 'block';
+    track('banner_shown', name);
+  }
+
+  function parseFeedDate(value) {
+    return new Date(String(value).replace(' ', 'T'));
+  }
+
+  function covers(item, now) {
+    return Boolean(item) && parseFeedDate(item.start_date) <= now && now <= parseFeedDate(item.end_date);
+  }
+
+  async function feedPhase() {
+    try {
+      const response = await fetch('/data/tagline/web/main.json');
+      if (!response.ok) {
+        return null;
+      }
+      const news = (await response.json()).news || {};
+      const now = new Date();
+      for (const kind of ['banner', 'quiet']) {
+        for (const year of [now.getFullYear(), now.getFullYear() - 1]) {
+          const id = 'donation_' + kind + '_' + year;
+          if (covers(news[id], now)) {
+            return { kind, id };
+          }
+        }
+      }
+    } catch {
+      return null;
+    }
+
+    return null;
+  }
+
+  function whenEngaged(open) {
+    let timer;
+    function fire(trigger) {
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(timer);
+      open(trigger);
+    }
+    function onScroll() {
+      if (window.scrollY >= window.innerHeight) {
+        fire('scroll');
+      }
+    }
+    function wait() {
+      timer = setTimeout(() => (document.hidden ? wait() : fire('dwell')), 15000);
+    }
+    setTimeout(() => {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }, 10000);
+    wait();
+  }
+
+  function sheetOrBar(id) {
+    const sheets = parseInt(getBannerCookie('donation_sheet_n'), 10) || 0;
+    const bars = parseInt(getBannerCookie('donation_bar_n'), 10) || 0;
+    if (getBannerCookie('donation_sheet') === '' && sheets < 3) {
+      whenEngaged(function (trigger) {
+        if (!bannerID.isConnected) {
+          return;
+        }
+        setBannerCookie('donation_sheet', 1, 7);
+        setBannerCookie('donation_sheet_n', sheets + 1, 30);
+        showTop('sheet', 'top:sheet:new:' + trigger, id);
+      });
+    } else if (bars < 10) {
+      setBannerCookie('donation_bar_n', bars + 1, 30);
+      showTop('bar', 'top:bar:new', id);
+    } else {
+      bannerID.remove();
+    }
+  }
+
+  document.addEventListener('donation-banner-state', function (event) {
+    const action = event.detail.action;
+    if (action === 'dismiss') {
+      setBannerCookie('donation_dismiss', 1, 30);
+      removeBanners();
+    } else if (action === 'already-donated') {
+      setBannerCookie('donation_done', 1, 365);
+      removeBanners();
+    } else if (action === 'minimize') {
+      bannerID.remove();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', async function () {
+    if (arm === 'old' && !optedOut) {
+      showClassic();
+    } else if (gone) {
+      removeBanners();
+    } else {
+      const phase = await feedPhase();
+      if (phase === null) {
+        showClassic();
+        bannerID.style.display = 'block';
+        closeButton.style.display = '';
+        track('banner_shown', 'top');
+      } else {
+        mount(document.getElementById('donation-banner-footer'), 'strip', 'footer:strip:new', phase.id);
+        if (phase.kind === 'quiet') {
+          showTop('strip', 'top:strip:new', phase.id);
+        } else if (Foundation.utils.is_small_only()) {
+          sheetOrBar(phase.id);
+        } else {
+          showTop('campaign', 'top:campaign:new', phase.id);
+        }
+      }
+    }
+  });
 </script>
 
 
@@ -2141,7 +2302,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            1200 kJ<br>(300 kcal)
+            1 200 kJ<br>(300 kcal)
         </span>
     
                     </td>
@@ -2201,7 +2362,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            0.5 g
+            0,5 g
         </span>
     
                     </td>
@@ -2381,7 +2542,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 0.4 g
+            ~ 0,4 g
         </span>
     
                     </td>
@@ -2399,7 +2560,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
              style="padding-left: 0rem;"
          
          >
-            Fruits‚ légumes‚ légumes secs
+            Fruits, légumes, légumes secs
         </span>
     
                     </td>
@@ -2411,7 +2572,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 37.5 %
+            ~ 37,5 %
         </span>
     
                     </td>
@@ -2509,7 +2670,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            1200 kJ<br>(300 kcal)
+            1 200 kJ<br>(300 kcal)
         </span>
     
                     </td>
@@ -2521,7 +2682,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            1200 kJ<br>(300 kcal)
+            1 200 kJ<br>(300 kcal)
         </span>
     
                     </td>
@@ -2533,7 +2694,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 1011.665 kJ<br>(240 kcal)
+            ~ 1 011,665 kJ<br>(240 kcal)
         </span>
     
                     </td>
@@ -2587,7 +2748,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 5.7873 g
+            ~ 5,787 g
         </span>
     
                     </td>
@@ -2617,7 +2778,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            0.5 g
+            0,5 g
         </span>
     
                     </td>
@@ -2629,7 +2790,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            0.5 g
+            0,5 g
         </span>
     
                     </td>
@@ -2641,7 +2802,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 3.250525 g
+            ~ 3,251 g
         </span>
     
                     </td>
@@ -2695,7 +2856,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 39.78295 g
+            ~ 39,783 g
         </span>
     
                     </td>
@@ -2749,7 +2910,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 9.08645 g
+            ~ 9,086 g
         </span>
     
                     </td>
@@ -2803,7 +2964,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 3.8815 g
+            ~ 3,881 g
         </span>
     
                     </td>
@@ -2857,7 +3018,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 5.0453 g
+            ~ 5,045 g
         </span>
     
                     </td>
@@ -2911,7 +3072,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 0.532565 g
+            ~ 0,533 g
         </span>
     
                     </td>
@@ -2941,7 +3102,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 0.4 g
+            ~ 0,4 g
         </span>
     
                     </td>
@@ -2965,7 +3126,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 0.202586 g
+            ~ 0,203 g
         </span>
     
                     </td>
@@ -2983,7 +3144,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
              style="padding-left: 0rem;"
          
          >
-            Fruits‚ légumes‚ légumes secs
+            Fruits, légumes, légumes secs
         </span>
     
                     </td>
@@ -2995,7 +3156,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 37.5 %
+            ~ 37,5 %
         </span>
     
                     </td>
@@ -3019,7 +3180,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
          <span
          
          >
-            ~ 37.5 %
+            ~ 37,5 %
         </span>
     
                     </td>
@@ -4521,7 +4682,7 @@ Tartes aux pommes
     
            <div class="panel_text">
              <table id="ordered_ingredients_list" style="border-collapse:collapse;width:100%;font-size:0.85rem">
-<thead><tr><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Ingredient</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Taxonomy ID</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual_proxy</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">percent</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">min</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">max</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">origin</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">labels</th></tr></thead>
+<thead><tr><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ingredient</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">taxonomy_id</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual_proxy</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">percent</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">min</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">max</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">origin</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">labels</th></tr></thead>
 <tbody>
 <tr><td style="padding:2px 6px"><span>Farine de blé</span></td><td style="padding:2px 6px">en:wheat-flour</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px">9410</td><td style="text-align:right;padding:2px 6px">45.5</td><td style="text-align:right;padding:2px 6px">11.0</td><td style="text-align:right;padding:2px 6px">80.0</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
 <tr><td style="padding:2px 6px"><span>pommes</span></td><td style="padding:2px 6px">en:apple</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px"></td><td style="padding:2px 6px">13050</td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">27.5</td><td style="text-align:right;padding:2px 6px">10.0</td><td style="text-align:right;padding:2px 6px">45.0</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
@@ -7098,7 +7259,7 @@ un outil de la Direction générale de la concurrence, de la consommation et de 
 
 				
 
-<donation-banner donate-url="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
+<donation-banner id="donation-banner-footer" style="display: none;" donate-url="//world-fr.openfoodfacts.org/faire-un-don-a-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
 
 
 			
@@ -7131,8 +7292,8 @@ un outil de la Direction générale de la concurrence, de la consommation et de 
 							<li><a class="button small white-button radius" href="/partenaires">Partenaires</a></li>
               <li><a class="button small white-button radius" href="/data">Données, API et SDK</a></li>
 							<li><a class="button small white-button radius" href="//world-fr.openbeautyfacts.org">Open Beauty Facts - Cosmétiques</a></li>
-              <li><a class="button small white-button radius" href="//world.openproductsfacts.org">Open Products Facts</a></li>
-              <li><a class="button small white-button radius" href="//world.openpetfoodfacts.org">Open Pet Food Facts</a></li>
+              <li><a class="button small white-button radius" href="//world-fr.openproductsfacts.org">Open Products Facts</a></li>
+              <li><a class="button small white-button radius" href="//world-fr.openpetfoodfacts.org">Open Pet Food Facts</a></li>
               <li><a class="button small white-button radius" href="//prices.openfoodfacts.org/">Open Prices</a></li>
 							<li><a class="button small white-button radius" href="//fr.pro.openfoodfacts.localhost/">Open Food Facts pour les producteurs</a></li>
 						</ul>

@@ -5635,11 +5635,19 @@ en: France overseas
 en: Guadeloupe
 xx: Guadeloupe
 
+# Réunion, French Guiana, Martinique and Mayotte are defined in countries.txt,
+# we only add the en:france-overseas parent here (same canonical names as in countries.txt)
 < en: Africa
 < en: France overseas
-en: Réunion Island
-xx: Réunion Island
-fr: Île de la Réunion
+en: Réunion
+
+< en: Africa
+< en: France overseas
+en: Mayotte
+
+< en: Central America
+< en: France overseas
+en: Martinique
 
 < en: Central America
 < en: France overseas
@@ -5648,7 +5656,8 @@ xx: French Antilles
 fr: Antilles françaises
 
 < en: France overseas
-en: French Guyana
+en: French Guiana, French Guyana
+fr: Guyane
 
 # Canada provinces/territories
 

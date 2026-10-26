@@ -381,8 +381,16 @@ sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 		}
 	}
 
-	# sync CRM
-	if ($org_ref->{valid_org} eq 'accepted') {
+	# Sync the CRM, but not for a user who only asked to join: they are in the pending group until
+	# an org admin accepts them, and syncing there wrote the requester into the org's CRM company
+	# record before any org admin had approved them. Accepting a pending user goes through
+	# add_user_to_org() with the members group, which still syncs.
+	if (
+		($org_ref->{valid_org} eq 'accepted')
+		and (  (is_user_in_org_group($org_ref, $user_id, "members"))
+			or (is_user_in_org_group($org_ref, $user_id, "admins")))
+		)
+	{
 		#11867: Move to a job if not an admin
 		add_user_to_company($user_id, $org_ref->{crm_org_id});
 	}
