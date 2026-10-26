@@ -605,7 +605,8 @@ for my $case (
 	{preparation => "as_sold", expected => "100g"},
 	{preparation => "unprepared", expected => "100g"},
 	{preparation => "prepared", expected => "prepared 100g"},
-) {
+	)
+{
 	my $table_ref = data_to_display_nutrition_table(
 		{
 			nutrition => {
@@ -627,5 +628,4 @@ for my $case (
 }
 
 done_testing();
-
 
