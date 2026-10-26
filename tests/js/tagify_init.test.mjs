@@ -32,8 +32,11 @@ const MAXIMUM = 10;
 // simulate tags being added to or edited in a field
 function install_fake_tagify() {
     const handlers = {};
+    const scope = {addEventListener: function (event, handler) { this[event] = handler; }};
+    let focusCount = 0;
     const tagify = {
-        DOM: {},
+        DOM: {scope, input: {focus: function () { focusCount++; }}},
+        get focusCount() { return focusCount; },
         whitelist: null,
         dropdown: {show: function () {}},
         on: function (event, handler) {
@@ -56,6 +59,25 @@ function install_fake_tagify() {
 
     return tagify;
 }
+
+test("clicking a tag field label or empty border focuses the editable input", function () {
+    const tagify = install_fake_tagify();
+    const label = {addEventListener: function (event, handler) { this[event] = handler; }};
+    const el = {id: "labels", dataset: {}, labels: [label]};
+    initializeTagifyInput(el, MAXIMUM);
+
+    let prevented = false;
+    label.click({preventDefault: function () { prevented = true; }});
+    assert.equal(prevented, true);
+    assert.equal(tagify.focusCount, 1);
+
+    tagify.DOM.scope.click({target: tagify.DOM.scope});
+    assert.equal(tagify.focusCount, 2);
+
+    // Clicking a tag or its remove/edit button must keep Tagify's own behavior.
+    tagify.DOM.scope.click({target: {}});
+    assert.equal(tagify.focusCount, 2);
+});
 
 function store_history(field, history) {
     local_storage["po_last_tags"] = JSON.stringify({[field]: history});
