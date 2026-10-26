@@ -40,6 +40,27 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
         }
     });
 
+    // Tagify hides the original input and uses a contenteditable element instead.
+    // Clicking its label or the empty border can otherwise focus the wrapper,
+    // leaving keyboard events directed away from the text entry area.
+    function focusTextInput() {
+        input.DOM.input.focus();
+    }
+
+    for (const label of el.labels || []) {
+        label.addEventListener("click", function (event) {
+            // Prevent the label's default action from refocusing the hidden input.
+            event.preventDefault();
+            focusTextInput();
+        });
+    }
+    input.DOM.scope.addEventListener("click", function (event) {
+        // Keep Tagify's own interactions with existing tags and their controls.
+        if (event.target === input.DOM.scope) {
+            focusTextInput();
+        }
+    });
+
     let abortController;
     let debounceTimer;
     const timeoutWait = 300;
