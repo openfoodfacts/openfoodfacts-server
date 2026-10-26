@@ -63,6 +63,7 @@ paths:
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelClient"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelsSimplified"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelPhysicalActivities"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelProductHistory"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsIncluded"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsExcluded"
       responses:
@@ -119,7 +120,7 @@ paths:
         - name: code
           in: path
           description: |
-            The barcode of the product to to create or update, or "test" to analyze the product data sent without creating or updating a product.
+            The barcode of the product to create or update, or "test" to analyze the product data sent without creating or updating a product.
           required: true
           style: simple
           explode: false
