@@ -3,7 +3,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "13043",
-         "ecobalyse_code" : "fa9e9f34-acc9-4974-89c4-003d2428f502",
+         "ecobalyse_id" : "fa9e9f34-acc9-4974-89c4-003d2428f502",
+         "ecobalyse_name" : "Pêche UE -2025-",
          "id" : "en:peach",
          "is_in_taxonomy" : 1,
          "origins" : "en:spain",
@@ -64,8 +65,8 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:peach",
-      "en:fruit",
       "en:prunus-species-fruit",
+      "en:fruit",
       "en:Some unknown ingredient",
       "en:another unknown ingredient"
    ],

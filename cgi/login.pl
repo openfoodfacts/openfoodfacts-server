@@ -31,7 +31,8 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$User_id check_password_hash retrieve_user/;
 use ProductOpener::Lang qw/lang/;
-use ProductOpener::Auth qw/password_signin access_to_protected_resource get_oidc_implementation_level/;
+use ProductOpener::Auth
+	qw/is_allowed_return_url password_signin access_to_protected_resource get_oidc_implementation_level/;
 
 use Apache2::Const -compile => qw(OK :http);
 use CGI qw/:cgi :form escapeHTML/;
@@ -44,7 +45,12 @@ my $request_ref = ProductOpener::Display::init_request();
 $log->info('start') if $log->is_info();
 
 my $r = shift;
+# The redirect parameter is copied into a Location header below, so check that it is one of our
+# own urls before it is used for anything
 my $redirect = single_param('redirect');
+if (not is_allowed_return_url($redirect, $request_ref->{subdomain})) {
+	$redirect = undef;
+}
 
 if (get_oidc_implementation_level() < 2) {
 	# Keep legacy method until we are using Keycloak for all backchannel user verification

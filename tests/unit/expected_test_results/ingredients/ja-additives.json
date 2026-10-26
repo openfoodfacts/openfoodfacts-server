@@ -3,6 +3,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9510",
+         "ecobalyse_proxy_id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
+         "ecobalyse_proxy_name" : "Fécule de pomme de terre par défaut -2025-",
          "id" : "en:modified-starch",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 55,
@@ -36,7 +38,8 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:trehalose",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.625,
@@ -48,6 +51,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9510",
+         "ecobalyse_proxy_id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
+         "ecobalyse_proxy_name" : "Fécule de pomme de terre par défaut -2025-",
          "id" : "en:modified-starch",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.8125,
@@ -78,7 +83,9 @@
                "percent_estimate" : 0.703125,
                "percent_max" : 14.2857142857143,
                "percent_min" : 0,
-               "text" : "アミノ酸等"
+               "text" : "アミノ酸等",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -158,9 +165,9 @@
       "en:e262i",
       "en:e262",
       "en:trehalose",
-      "en:added-sugar",
-      "en:disaccharide",
       "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
       "en:e640i",
       "en:e640",
       "en:condiment",
@@ -192,12 +199,11 @@
       "en:e262i",
       "en:e415",
       "en:e640i",
-      "en:modified-starch",
       "en:vegetable-pigment",
       "en:vitamin-c",
       "en:vitamin-e"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 9,
+   "ingredients_without_ecobalyse_ids_n" : 8,
    "known_ingredients_n" : 11,
    "lc" : "ja",
    "misc_tags" : [
