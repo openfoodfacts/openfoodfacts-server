@@ -20,8 +20,11 @@
 
 /*global lang HTMLElement customElements CustomEvent URLSearchParams*/
 
+import {
+  createDeferredSelectionClear,
+  setImageMoveMode,
+} from './image-editor-move-mode.mjs';
 import Cropper from 'cropperjs';
-import { setImageMoveMode } from './image-editor-move-mode.mjs';
 
 const ROTATE_LEFT = -90;
 const ROTATE_RIGHT = 90;
@@ -68,6 +71,7 @@ class ImageEditorComponent extends HTMLElement {
     this.naturalHeight = 0;
     this.loadToken = 0;
     this.moveMode = false;
+    this.pendingSelectionClear = createDeferredSelectionClear();
   }
 
   connectedCallback() {
@@ -128,7 +132,7 @@ class ImageEditorComponent extends HTMLElement {
         return;
       }
       if (selection && !selection.hidden && selection.width > 0 && selection.height > 0) {
-        selection.$clear();
+        this.pendingSelectionClear.schedule(() => selection.$clear());
       }
     });
     this.cropContainer.addEventListener('dblclick', (event) => {
@@ -140,6 +144,7 @@ class ImageEditorComponent extends HTMLElement {
         return;
       }
 
+      this.pendingSelectionClear.cancel();
       event.preventDefault();
       this.moveMode = !this.moveMode;
       const canvas = this.cropper.getCropperCanvas();
