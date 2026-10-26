@@ -1,0 +1,10 @@
+[paths]
+data_folder = "data"
+export_folder = "data/export"
+fdc_downloaded_file = "FDC.zip"
+result_file = "fdc_export.csv"
+raw_fdc_json_file = "fdc.json"
+nutrients_mapping_file = "nutrient_map.csv"
+
+[download_links]
+fdc_json_url = "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_branded_food_json_2025-12-18.zip"

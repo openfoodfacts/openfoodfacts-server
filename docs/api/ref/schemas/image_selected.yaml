@@ -1,0 +1,131 @@
+components:
+  schemas:
+    ImagesSelected:
+      type: object
+      title: Selected images
+      description: |-
+        List of all images selected by users or manufacturers.
+        Those images are typically displayed to users, and are used in edit mode to crop images with specific information
+        for specific languages. (See images.uploaded)
+      properties:
+        front:
+          description: |
+            Front images of the full product in languages shown on the packaging.
+            In most cases we have a front image selected for only one language,
+            unless the product has different packagings for different countries with the same barcode,
+            or if the product has two front sides (e.g. in bilingual countries).
+          patternProperties:
+            '(?<language_code>\w\w)':
+              oneOf:
+                - type: object
+                  description: |
+                    Front image in the language given by the 2 letter 'language_code'.
+                  $ref: "#/components/schemas/ImageSelected"
+                - type: "null"
+                  writeOnly: true
+                  description: |
+                    Write only value to unselect a selected image
+        ingredients:
+          description: |
+            Cropped images of the ingredients list in languages shown on the packaging.
+          patternProperties:
+            '(?<language_code>\w\w)':
+              oneOf:
+                - type: object
+                  description: |
+                    Ingredient list image in the language given by the 2 letter 'language_code'.
+                  $ref: "#/components/schemas/ImageSelected"
+                - type: "null"
+                  writeOnly: true
+                  description: |
+                    Write only value to unselect a selected image              
+        nutrition:
+          description: |
+            Cropped images of the nutrition facts table / list in languages shown on the packaging.
+          patternProperties:
+            '(?<language_code>\w\w)':
+              oneOf:
+                - type: object
+                  description: |
+                    Nutrition facts image in the language given by the 2 letter 'language_code'.
+                  $ref: "#/components/schemas/ImageSelected"
+                - type: "null"
+                  writeOnly: true
+                  description: |
+                    Write only value to unselect a selected image
+        packaging:
+          description: |
+            Cropped images of the packaging / recycling information in languages shown on the packaging.
+          patternProperties:
+            '(?<language_code>\w\w)':
+              oneOf:
+                - type: object
+                  description: |
+                    Packaging / recycling information image in the language given by the 2 letter 'language_code'.
+                  $ref: "#/components/schemas/ImageSelected"
+                - type: "null"
+                  writeOnly: true
+                  description: |
+                    Write only value to unselect a selected image
+    ImageSelected:
+      type: object
+      title: Selected image
+      description: |
+        Images selected (and possibly cropped or rotated) to show an area of interest
+        (front of product, ingredients, nutrition facts, packaging info) in a specific language.
+      properties:
+        imgid:
+          type: integer
+          example: 12
+          description: |
+            The imgid of the original/source image edited (rotated, cropped, normalized etc) to produce the selected image.
+            When uploading a new image and selecting it, the imgid will be automatically assigned by the server, and this field should not be passed.
+            When selecting a previously uploaded image, the imgid must be passed to identify the source image.
+        rev:
+          type: integer
+          example: 65
+          description: "The revision number of the product when the image was selected."
+          readOnly: true
+        generation:
+          type: object
+          description: |
+            Properties to specify if the image is cropped, rotated, normalized or with the white background removed.
+          properties:
+            angle:
+              type: integer
+              example: 0
+              description: The angle of the image rotation (if it was rotated). Only supported values are 0, 90, 180, 270.
+            coordinates_image_size:
+              type: string
+              description: Possible values are "full" or "400". Indicates if the crop coordinates are relative to the full image, or to a resized version (max width and max height = 400)
+              example: "full"
+            normalize:
+              type: boolean
+              description: Normalize colors. Default is false.
+            white_magic:
+              type: boolean
+              description: |
+                Try to remove the background for photos taken on a white background. Default is false.
+            x1:
+              type: integer
+              description: |
+                The x coordinate of the top left corner of the area of interest.
+                If the image is rotated, the coordinates are relative to the rotated image.
+            x2:
+              type: string
+              description: |
+                The x coordinate of the bottom right corner of the area of interest.
+                If the image is rotated, the coordinates are relative to the rotated image.
+            y1:
+              type: string
+              description: |
+                The y coordinate of the top left corner of the area of interest.
+                If the image is rotated, the coordinates are relative to the rotated image.
+            y2:
+              type: string
+              description: |
+                The y coordinate of the bottom right corner of the area of interest.
+                If the image is rotated, the coordinates are relative to the rotated image. 
+        sizes:
+          readOnly: true
+          $ref: "./image_sizes.yaml#/components/schemas/ImageSizes"

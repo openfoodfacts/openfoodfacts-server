@@ -1,4 +1,5 @@
 node_modules
+deps/
 .devcontainer
 .git
 .github
@@ -40,4 +41,29 @@ packager-codes/*.csv
 packager-codes/*.tsv
 packager-codes/*.py
 packager-codes/*.json
-taxonomies*/**/*.sto
+taxonomies*/**/*.json
+
+# untracked data dirs (see .gitignore): they are volumes or bind mounts at runtime,
+# and baking them into the image only makes it bigger and slower to build and move around.
+# In particular build-cache/ holds the taxonomies cache restored by CI (~2 GB uncompressed).
+build-cache/
+sftp/
+tmp/
+dist/
+products/
+users/
+orgs/
+lang/
+imports/
+new_images/
+deleted.images/
+deleted_products/
+deleted_products_images/
+deleted_private_products/
+export_files/
+html/data/
+html/dump/
+html/files/
+html/exports/
+html/images/products/
+cover_db/

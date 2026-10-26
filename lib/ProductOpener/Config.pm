@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -22,6 +22,7 @@ package ProductOpener::Config;
 
 use utf8;
 use Modern::Perl '2017';
+use Exporter qw< import >;
 
 # Config.pm will dynamically load Config_off.pm or Config_obf.pm etc.
 # based on the value of the PRODUCT_OPENER_FLAVOR_SHORT environment variable
@@ -42,7 +43,7 @@ autoload("ProductOpener::Config_$flavor");
 # tag ids are also used in URLs.
 
 # unaccent:
-# - useful when accents are sometimes ommited (e.g. in French accents are often not present on capital letters),
+# - useful when accents are sometimes omitted (e.g. in French accents are often not present on capital letters),
 # either in print, or when typed by users.
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
@@ -67,7 +68,7 @@ autoload("ProductOpener::Config_$flavor");
 		lowercase => 1,
 	},
 	# French has very few actual conflicts caused by unaccenting (one counter example is "pâtes" and "pâtés")
-	# Accents or often not present in capital letters (beginning of word, or in all caps text).
+	# Accents are often not present in capital letters (beginning of word, or in all caps text).
 	fr => {
 		unaccent => 1,
 		lowercase => 1,
@@ -93,6 +94,12 @@ autoload("ProductOpener::Config_$flavor");
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# Romanian: diacritics (ă â î ș ț, and the legacy cedilla forms ş ţ) are very often missing,
+	# and there are very few conflicts in ingredients, labels etc. (ă vs a mostly marks the definite article)
+	ro => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	sk => {
 		unaccent => 1,
 		lowercase => 1,
@@ -111,17 +118,17 @@ autoload("ProductOpener::Config_$flavor");
 
 %ProductOpener::Config::admins = map {$_ => 1} qw(
 	alex-off
-	cha-delh
 	charlesnepote
-	gala-nafikova
+	galina-off
+	meriem1994
 	hangy
 	manoncorneille
+	mellie-mellow
 	raphael0202
 	stephane
 	tacinte
 	teolemon
 	g123k
-	valimp
 );
 
 =head2 Available product types and flavors
@@ -144,6 +151,16 @@ $ProductOpener::Config::options{product_types_domains} = {
 	petfood => "openpetfoodfacts.org",
 	beauty => "openbeautyfacts.org",
 	product => "openproductsfacts.org"
+};
+
+$ProductOpener::Config::options{product_types_preparations} = {
+	food => ["as_sold", "prepared"],
+	petfood => ["as_sold"],
+};
+
+$ProductOpener::Config::options{product_types_pers} = {
+	food => ["100g", "100ml", "1l", "serving"],
+	petfood => ["1kg"],
 };
 
 $ProductOpener::Config::options{other_servers} = {
@@ -180,6 +197,13 @@ $ProductOpener::Config::options{other_servers} = {
 
 # Number of requests per minutes for the search API
 $ProductOpener::Config::options{rate_limit_search} = 10;
+
+# Maximum lifetime of a session, in seconds (30 days). A session stored forever can be replayed
+# forever: signing out only expired the cookie, and nothing else ever deleted the server side
+# entry, so a stolen cookie stayed valid until the account opened 10 other sessions. A session
+# older than this is refused, which also discards the stale entries that are already stored.
+# Set it to undef to accept sessions of any age.
+$ProductOpener::Config::options{user_session_max_lifetime} = 30 * 24 * 60 * 60;
 # Number of requests per minutes for all facets for anonymous users
 $ProductOpener::Config::options{rate_limit_facet_products_unregistered} = 5;
 # Number of requests per minutes for facets for registered users
@@ -194,6 +218,7 @@ $ProductOpener::Config::options{rate_limit_product} = 100;
 
 # Rate limit allow list
 $ProductOpener::Config::options{rate_limit_allow_list} = {
+	# Internal servers
 	'146.59.148.140' => 1,    # OVH1
 	'51.210.154.203' => 1,    # OVH2
 	'51.210.32.79' => 1,    # OVH3
@@ -204,6 +229,28 @@ $ProductOpener::Config::options{rate_limit_allow_list} = {
 	'213.36.253.208' => 1,    # off2
 	'45.147.209.254' => 1,    # Moji server (actually OSM proxy, Moji only has ipv6)
 	'217.182.132.133' => 1,    # ks1
+							   # Journalists
+	'194.51.35.103' => 1,    # FranceTV
 };
+
+# Rate limit allow list blocks
+$ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
+	# Schools
+	'163.5.0.0/16'    # EPITECH https://bgpview.io/prefix/163.5.0.0/16
+];
+
+# OIDC options.
+%ProductOpener::Config::oidc_options = (
+	client_id => $ProductOpener::Config2::oidc_client_id,
+	client_secret => $ProductOpener::Config2::oidc_client_secret,
+	oidc_implementation_level => $ProductOpener::Config2::oidc_implementation_level,
+	oidc_discovery_url => $ProductOpener::Config2::oidc_discovery_url
+);
+
+# Slack options
+%ProductOpener::Config::slack_hook_urls = %ProductOpener::Config2::slack_hook_urls || ();
+
+# Health check API key
+$ProductOpener::Config::health_check_api_key = $ProductOpener::Config2::health_check_api_key || undef;
 
 1;

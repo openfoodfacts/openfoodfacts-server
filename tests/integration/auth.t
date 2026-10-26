@@ -11,15 +11,15 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+# This code intentionally uses the legacy auth method rather than going via Keycloak
+# Can be removed once legacy auth is deprecated
 create_user($ua, \%create_user_args);
 
 # TODO: add more tests !
@@ -53,8 +53,6 @@ my $tests_ref = [
 execute_api_tests(__FILE__, $tests_ref);
 
 # Test auth.pl with authenticated user
-create_user($ua, \%default_user_form);
-
 my $auth_ua = new_client();
 login($auth_ua, "tests", 'testtest');
 

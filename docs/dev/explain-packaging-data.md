@@ -74,21 +74,21 @@ The values for each input field ("packaging" tag field and "packaging_text_[lang
 
 [^parse_packaging_from_text_phrase]: parse_packaging_from_text_phrase() function in [/lib/ProductOpener/Packagings.pm](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/lib/ProductOpener/Packaging.pm)
 
-For instance, if the "packaging" field contains "Plastic bottle, box, cardboard", we will use the packaging shapes, materials and recycling taxonomies to create a list of 3 packaging components: {shape:"en:bottle", material:"en:plastic"}, {shape:"en:box"}, {material:"en:cardboard"}.
+For instance, if the "packaging" field contains "Plastic bottle, box, cardboard", we will use the packaging shapes, materials and recycling taxonomies to create a list of 3 packaging components: `{shape:"en:bottle", material:"en:plastic"}, {shape:"en:box"}, {material:"en:cardboard"}`.
 
-And if the "packaging_text_en" field contains "PET bottle to recycle, box to reuse", we will create 2 more packaging components: {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}, {shape:"box", recycling:"reuse"}.
+And if the "packaging_text_en" field contains "PET bottle to recycle, box to reuse", we will create 2 more packaging components: `{shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}, {shape:"box", recycling:"reuse"}`.
 
 #### Merge packaging components
 
-The 3 + 2 = 5 resulting packaging components are then added one by one in the packagings structure. When their attributes are compatible, the packaging units are merged[^analyze_and_combine_packaging_data]. For instance {shape:"en:box"} and {material:"en:cardboard"} have non conflicting attributes, so they are merged into {shape:"en:box", material:"en:cardboard"}. Note that it is possible that this is a mistake, and that the "box" and "cardboard" tags concern in fact different components.
+The 3 + 2 = 5 resulting packaging components are then added one by one in the packagings structure. When their attributes are compatible, the packaging units are merged[^analyze_and_combine_packaging_data]. For instance `{shape:"en:box"} and {material:"en:cardboard"} have non conflicting attributes, so they are merged into {shape:"en:box", material:"en:cardboard"}`. Note that it is possible that this is a mistake, and that the "box" and "cardboard" tags concern in fact different components.
 
 [^analyze_and_combine_packaging_data]: analyze_and_combine_packaging_data() function in [/lib/ProductOpener/Packagings.pm](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/lib/ProductOpener/Packaging.pm)
 
-Similarly, as "en:plastic" is a parent of "en:pet-polyethylene-terephthalate" in the packaging_materials taxonomy, we can merge {shape:"en:bottle", material:"en:plastic"} with {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"} into {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}.
+Similarly, as "en:plastic" is a parent of "en:pet-polyethylene-terephthalate" in the packaging_materials taxonomy, we can merge `{shape:"en:bottle", material:"en:plastic"} with {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"} into {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}`.
 
 The resulting structure is:
 
-```
+```json title="How the resulting packagings data structure is created"
 packagings: [
     {
         material: "en:pet-polyethylene-terephthalate",
@@ -142,7 +142,7 @@ We could have a way (e.g. a checkbox) that users could use to indicate all compo
 
 We could discard the existing "packaging" tags field, and replace it with an API to allow clients to add partial information about packaging components.
 
-For instance, if Robotoff detects that the product is in a plastic bottle by analyzing a product photo, it could send {shape:"bottle", material:"en:plastic"} and it would be added / combined with the existing "packagings" data.
+For instance, if Robotoff detects that the product is in a plastic bottle by analyzing a product photo, it could send `{shape:"bottle", material:"en:plastic"}` and it would be added / combined with the existing "packagings" data.
 
 ### Keep the "packaging_text_[language code]" field
 

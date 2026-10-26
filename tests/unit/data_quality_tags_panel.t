@@ -25,21 +25,21 @@ my @tests = (
 		id => "no_user_no_panel",
 		desc => "No panel if user is not logged in",
 		tag_type => "data_quality_errors",
-		product => {data_quality_errors_tags => ["en:energy-value-in-kcal-does-not-match-value-in-kj"]},
+		product => {data_quality_errors_tags => ["en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj"]},
 		options => {user_logged_in => undef},
 	},
 	{
 		id => "not_web_no_panel",
 		tag_type => "data_quality_errors",
 		desc => "No panel if not from web",
-		product => {data_quality_errors_tags => ["en:energy-value-in-kcal-does-not-match-value-in-kj"]},
+		product => {data_quality_errors_tags => ["en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj"]},
 		options => {knowledge_panels_client => "mobile"},
 	},
 	{
 		id => "one_error_one_action",
 		desc => "A panel with one error of one action type",
 		tag_type => "data_quality_errors",
-		product => {data_quality_errors_tags => ["en:energy-value-in-kcal-does-not-match-value-in-kj"]},
+		product => {data_quality_errors_tags => ["en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj"]},
 	},
 	{
 		id => "one_warning_one_action",
@@ -66,7 +66,7 @@ my @tests = (
 		tag_type => "data_quality_errors",
 		product => {
 			data_quality_errors_tags => [
-				"en:energy-value-in-kcal-does-not-match-value-in-kj",
+				"en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
 				"en:nutrition-saturated-fat-greater-than-fat",
 				"en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
 				"en:detected-category-from-name-and-ingredients-may-be-missing-baby-milks",
@@ -95,10 +95,11 @@ foreach my $test_ref (@tests) {
 	my $test_id = $test_ref->{id};
 	my %product = (%default_product, %{$test_ref->{product} // {}});
 	my %options = (%default_options, %{$test_ref->{options} // {}});
+	my $request_ref = {};
 	# set language
 	$ProductOpener::Display::lc = "en";
 	# run
-	create_data_quality_panel($test_ref->{tag_type}, \%product, "en", "world", \%options);
+	create_data_quality_panel($test_ref->{tag_type}, \%product, "en", "world", \%options, $request_ref);
 	my $panels_ref = $product{"knowledge_panels_en"};
 	compare_to_expected_results($panels_ref, "$expected_result_dir/$test_id.json", $update_expected_results, $test_ref);
 }

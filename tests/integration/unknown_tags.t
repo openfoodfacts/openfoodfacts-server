@@ -15,11 +15,9 @@ use ProductOpener::Cache qw/$memd/;
 # We need to flush memcached so that cached queries from other tests (e.g. web_html.t) don't interfere with this test
 $memd->flush_all;
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $ua = new_client();
 
@@ -60,17 +58,17 @@ my $tests_ref = [
 	{
 		test_case => 'country-france-exists',
 		method => 'GET',
-		path => '/facets/countries/france',
+		path => '/facets/countries/France',
 		expected_status_code => 200,
 		expected_type => 'html',
 	},
 	{
 		test_case => 'country-cambodia-exists-but-empty',
 		method => 'GET',
-		path => '/facets/countries/cambodia',
+		path => '/facets/countries/Cambodia',
 		expected_status_code => 200,
 		expected_type => 'html',
-		response_content_must_match => 'cambodia',
+		response_content_must_match => 'Cambodia',
 	},
 	{
 		test_case => 'country-doesnotexist',
@@ -104,11 +102,12 @@ my $tests_ref = [
 		expected_type => 'html',
 		response_content_must_not_match => 'someunknownandemptyingredient',
 	},
+	# 2025-06-02: for unregistered users, we now return a 401 for 2 level facets
 	{
 		test_case => 'country-doesnotexist-ingredients-apple',
 		method => 'GET',
 		path => '/facets/countries/doesnotexist/ingredients/apple',
-		expected_status_code => 404,
+		expected_status_code => 401,
 		expected_type => 'html',
 		response_content_must_not_match => 'doesnotexist',
 	},

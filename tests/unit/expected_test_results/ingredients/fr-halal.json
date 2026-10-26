@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:meat",
@@ -12,6 +13,8 @@
          "vegetarian" : "no"
       },
       {
+         "ecobalyse_id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8",
+         "ecobalyse_name" : "Viande de boeuf sans os par défaut",
          "id" : "en:beef-gelatin",
          "is_in_taxonomy" : 1,
          "labels" : "en:halal",
@@ -65,18 +68,6 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:meat",
-      "en:beef-gelatin",
-      "en:animal",
-      "en:beef",
-      "en:e428",
-      "en:collagen",
-      "en:duck-foie-gras",
-      "en:poultry",
-      "en:duck",
-      "en:duck-liver"
-   ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
@@ -93,14 +84,14 @@
    "ingredients_tags" : [
       "en:meat",
       "en:beef-gelatin",
-      "en:animal",
       "en:beef",
       "en:e428",
+      "en:animal",
       "en:collagen",
       "en:duck-foie-gras",
-      "en:poultry",
+      "en:duck-liver",
       "en:duck",
-      "en:duck-liver"
+      "en:poultry"
    ],
    "ingredients_text" : "viande halal, gélatine de boeuf halal, collagène halal, foie gras de canard halal",
    "ingredients_with_specified_percent_n" : 0,
@@ -114,19 +105,15 @@
    ],
    "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
-      "en:beef-gelatin",
       "en:collagen",
       "en:duck-foie-gras",
       "en:meat"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
-   "known_ingredients_n" : 10,
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 4,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

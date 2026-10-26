@@ -13,6 +13,8 @@ PRODUCERS=(
     agena3000
     carrefour
     intermarche
+    nestledeutschland
+    systemeu
 )
 for PRODUCER in "${PRODUCERS[@]}"
 do
@@ -20,6 +22,14 @@ do
   script_path="scripts/imports/${PRODUCER}/run_${PRODUCER}_import.sh"
   [[ -e $script_path ]] || >&2 echo "No script found for $PRODUCER"
   ./$script_path
+
+  # some producers like carrefour have a specific script to import images, we run it if it exists
+  images_script_path="scripts/imports/${PRODUCER}/run_${PRODUCER}_import_images.sh"
+  if [[ -e $images_script_path ]]
+  then
+    echo "STARTING $PRODUCER IMPORT IMAGES SCRIPT"
+    ./$images_script_path
+  fi
 done
 
 # export

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -58,7 +58,8 @@ use Log::Log4perl qw(get_logger);
 use Text::Levenshtein qw(distance);
 
 use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
-use ProductOpener::Tags qw/add_tag get_taxonomy_tag_synonyms is_a/;
+use ProductOpener::Tags qw/get_taxonomy_tag_synonyms is_a/;
+use ProductOpener::ProductsTags qw/add_tag/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 
 # Configure Log4perl
@@ -141,6 +142,8 @@ sub parse_ingredients_for_language {
 	my $lang = ($key =~ s/^ingredients_text_//r);
 
 	# Apply parse on given lang
+	$ingredients_hash->{"lc"} = $lang;
+	$ingredients_hash->{"lang"} = $lang;
 	$ingredients_hash->{"ingredients_lc"} = $lang;
 	$ingredients_hash->{"ingredients_text"} = lc($ingredients_hash->{"ingredients_text_" . $lang});
 
@@ -152,6 +155,8 @@ sub parse_ingredients_for_language {
 	$ingredients_hash->{$lang} = \@flat_ingredients;
 
 	# Deleting unnecessary keys created by the parse_ingredients_text_service, ensure they exist before deletion
+	delete $ingredients_hash->{"lc"} if exists $ingredients_hash->{"lc"};
+	delete $ingredients_hash->{"lang"} if exists $ingredients_hash->{"lang"};
 	delete $ingredients_hash->{"ingredients"} if exists $ingredients_hash->{"ingredients"};
 	delete $ingredients_hash->{"ingredients_lc"} if exists $ingredients_hash->{"ingredients_lc"};
 	delete $ingredients_hash->{"ingredients_text"} if exists $ingredients_hash->{"ingredients_text"};
@@ -371,12 +376,13 @@ sub detect_missing_stop_words_after_list {
 			}
 		}
 	}
-	if (scalar(@{$ingredients1}) > 0
-		&& $translation_difference_count / scalar(@{$ingredients1}) > $translation_difference_accepted_percentage)
+	my $ingredients1_length = scalar(@{$ingredients1});
+	if (   $ingredients1_length > 0
+		&& $translation_difference_count / $ingredients1_length > $translation_difference_accepted_percentage)
 	{
 		$log->debug(
-			"check_ingredients_between_languages > detect_missing_stop_words_after_list -   too much difference between languages to raise warning. diff/total > tolerance: $translation_difference_count / $#$ingredients1 = "
-				. $translation_difference_count / $#$ingredients1 . " > "
+			"check_ingredients_between_languages > detect_missing_stop_words_after_list -   too much difference between languages to raise warning. diff/total > tolerance: $translation_difference_count / $ingredients1_length = "
+				. $translation_difference_count / $ingredients1_length . " > "
 				. $translation_difference_accepted_percentage)
 			if $log->is_debug();
 		return;
@@ -563,10 +569,6 @@ sub detect_missing_ingredients {
 	my ($ingredients1, $ingredients2, $lang1, $lang2, $missing_ingredients, $ingredients_typo, $mismatch_in_taxonomy)
 		= @_;
 
-	$log->debug(
-		"check_ingredients_between_languages > detect_missing_ingredients - start,  lang1 is $lang1, lang2 is $lang2")
-		if $log->is_debug();
-
 	foreach my $i (0 .. $#$ingredients1) {
 		if ($ingredients1->[$i]{is_in_taxonomy} && !$ingredients2->[$i]{is_in_taxonomy}) {
 			$log->debug(
@@ -701,10 +703,16 @@ sub check_ingredients_between_languages {
 	foreach my $key (keys %{$product_ref}) {
 		# ingredients_text_fi yes, ingredients_text_with_allergens_fi no
 		if ($key =~ /^ingredients_text_[a-z]{2}$/) {
+			# empty lists are always skipped by not_enough_known_ingredients(), no need to parse them
+			next if ((not defined $product_ref->{$key}) or ($product_ref->{$key} eq ''));
 			$ingredients_hash{$key} = $product_ref->{$key};
 			$log->debug("Added key: $key with value: $product_ref->{$key}") if $log->is_debug();
 		}
 	}
+
+	# We need at least 2 ingredients lists to compare,
+	# return now to avoid parsing the ingredients again (they are already parsed in the main language)
+	return if ((scalar keys %ingredients_hash) < 2);
 
 	# Process each key in the product reference to parse ingredients for each language
 	foreach my $key (keys %ingredients_hash) {
@@ -723,10 +731,6 @@ sub check_ingredients_between_languages {
 
 	foreach my $lang1 (keys %ingredients_hash) {
 		foreach my $lang2 (keys %ingredients_hash) {
-			$log->debug(
-				"check_ingredients_between_languages -   next iteration lang1 (ref): $lang1 and lang2 (analyzed): $lang2"
-			) if $log->is_debug();
-
 			# Reminder: ingredients1 is the reference and missing stop words or missing ingredients are searched into ingredients2 only
 			next
 				if $lang1 eq $lang2

@@ -1,0 +1,16 @@
+type: object
+description: |
+  Quantity of a nutrient
+
+  (per 100g, per 100ml or per serving) in a standard unit (g or ml)
+allOf:
+  - type: object
+    properties:
+      value_string:
+        type: string
+        description: |
+          A string representing the value of the quantity.
+        examples:
+          - "2.0"
+          - "4.1"
+  - $ref: "../schemas/nutrient_values_v3_base.yaml"

@@ -27,17 +27,16 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$subdomain init_request/;
+use ProductOpener::Texts qw/:all/;
+use ProductOpener::Display qw/init_request/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Lang qw/$lc lang/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::MaybeXS;
+use boolean;
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -45,7 +44,8 @@ my $short_name = $options{site_name};
 my $long_name = $short_name;
 
 # https://stackoverflow.com/a/16533563/11963
-$short_name =~ s/\b([A-Z])[a-z]+(?=\s+[A-Z][a-z])|\G(?!^)\s+([A-Z])[a-z]+/$1$2/g;
+$short_name
+	=~ s/\b([A-Z])[a-z]+(?=\s+[A-Z][a-z])|\G(?!^)\s+([A-Z])[a-z]+/((defined $1) ? $1 : '') . ((defined $2) ? $2 : '')/ge;
 
 if ($request_ref->{cc} eq 'world') {
 	$long_name .= " " . uc($lc);
@@ -60,11 +60,11 @@ my %manifest = (
 	lang => $lc,
 	name => $long_name,
 	short_name => $short_name,
-	description => lang('site_description'),
-	start_url => format_subdomain($subdomain),
+	description => lang("site_description_$flavor"),
+	start_url => $request_ref->{formatted_subdomain},
 	scope => '/',
 	display => 'standalone',
-	prefer_related_applications => $JSON::MaybeXS::true,
+	prefer_related_applications => true,
 );
 
 my @keys = qw(theme_color icons related_applications background_color);
@@ -72,7 +72,7 @@ foreach my $key (@keys) {
 	$manifest{$key} = $options{manifest}{$key} if $options{manifest}{$key};
 }
 
-my $data = encode_json(\%manifest);
+my $data = $json_for_objects->canonical->encode(\%manifest);
 
 print "Content-Type: application/manifest+json; charset=UTF-8\r\nCache-Control: max-age=86400\r\n\r\n" . $data;
 

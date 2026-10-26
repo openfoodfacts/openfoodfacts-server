@@ -36,6 +36,7 @@ use ProductOpener::Paths qw/:all/;
 use ProductOpener::GS1
 	qw/generate_gs1_confirmation_message init_csv_fields print_unknown_entries_in_gs1_maps read_gs1_json_file write_off_csv_file/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::LoadData qw/load_data/;
 
 my $usage = <<TXT
 Converts multiple JSON files in the GS1 format to a single CSV file in the Open Food Facts format
@@ -58,6 +59,9 @@ if ((not defined $input_dir) or (not defined $output)) {
 	print $usage;
 	exit();
 }
+
+# We need to load taxonomies to correctly map GS1 data (e.g. GPC categories)
+load_data();
 
 if ((defined $confirmation_dir) and not(-e $confirmation_dir)) {
 	mkdir($confirmation_dir, oct(755)) or die("Could not create $confirmation_dir : $!\n");

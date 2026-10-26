@@ -28,10 +28,10 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/retrieve_user store_user/;
+use ProductOpener::Users qw/retrieve_user_preferences store_user/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
@@ -49,7 +49,7 @@ use JSON::MaybeXS;
 
 my $user_id = $ARGV[0];
 
-my $user_ref = retrieve_user($user_id);
+my $user_ref = retrieve_user_preferences($user_id);
 
 if (defined $user_ref) {
 	ProductOpener::Missions::compute_missions_for_user($user_ref);

@@ -19,8 +19,8 @@ use ProductOpener::Test qw/:all/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
+wait_application_ready(__FILE__);
 remove_all_products();
-wait_application_ready();
 
 # a very small image to avoid having too large request json object
 my $sample_products_path = dirname(__FILE__) . "/inputs/sample-products/";

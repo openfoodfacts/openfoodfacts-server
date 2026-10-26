@@ -11,7 +11,7 @@ properties:
     name: additives_tags
     description: |
       The additives_tags in english of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/additives) has a list of possible values for `additives`.
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/additives) has a list of possible values for `additives`. Translated values are available at https://static.openfoodfacts.org/data/taxonomies/additives.json
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -25,7 +25,7 @@ properties:
     name: allergens_tags
     description: |
       The allergens_tags in english of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/allergens) has a list of possible values for `allergens`.
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/allergens) has a list of possible values for `allergens`. Translated values are available at https://static.openfoodfacts.org/data/taxonomies/allergens.json
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -39,7 +39,7 @@ properties:
     name: brands_tags
     description: |
       The brands_tags of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/brands) has a list of possible values for `brands`.
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/brands) has a list of possible values for `brands`. Taxonomized values are available at https://static.openfoodfacts.org/data/taxonomies/brands.json
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -53,7 +53,7 @@ properties:
     name: categories_tags
     description: |
       The category of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/categories) has a list of possible values for `categories`.
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/categories) has a list of possible values for `categories`. Translated values are available at https://static.openfoodfacts.org/data/taxonomies/categories.json
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -67,7 +67,7 @@ properties:
     name: countries_tags_en
     description: |
       The countries_tags_en of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/countries) shows a list of possible values for `countries`.
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/countries) shows a list of possible values for `countries`. Translated values are available at https://static.openfoodfacts.org/data/taxonomies/countries.json
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -93,7 +93,7 @@ properties:
     name: labels_tags
     description: |
       The labels_tags in english of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/labels) has a list of possible values for `labels`.
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/labels) has a list of possible values for `labels`.
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -106,7 +106,7 @@ properties:
     name: manufacturing_places_tags
     description: |
       The manufacturing_places_tags of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/manufacturing-places) has a list of possible values for `manufacturing-places`.
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/manufacturing-places) has a list of possible values for `manufacturing-places`.
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -120,7 +120,7 @@ properties:
     name: nutrition_grades_tags
     description: |
       The nutrition_grades_tags of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/nutrition-grades) has a list of possible values for `nutrition-grades`.
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/nutrition-grades) has a list of possible values for `nutrition-grades`.
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -132,7 +132,7 @@ properties:
     in: query
     name: origins_tags
     description: |
-      The origins_tags of product(s) you are searching for.
+      The origins_tags of product(s) you are searching for. The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/origins) has a list of possible values for `origins`.
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -146,7 +146,7 @@ properties:
     name: packaging_tags_de
     description: |
       The packaging_tag in german of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/packaging) has a list of possible values for `packaging`.
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/packaging) has a list of possible values for `packaging`. 
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -172,8 +172,7 @@ properties:
     name: states_tags
     description: |
       The states_tags in english of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/states) has a list of possible values for `states`.
-
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/states) has a list of possible values for `states`. Translated values are available at https://static.openfoodfacts.org/data/taxonomies/states.json
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
   stores_tags:
@@ -198,7 +197,7 @@ properties:
     name: traces_tags
     description: |
       The traces_tags of product(s) you are searching for.
-      The [OFF App](https://world.openfoodfacts.org/traces) shows a list of possible values for `traces`.
+      The [Open Food Facts Web App](https://world.openfoodfacts.org/facets/traces) shows a list of possible values for `traces`.
 
       You can use multiple values by using a comma separated list.
       You can add a "-" before values to avoid matching a tag.
@@ -227,14 +226,14 @@ properties:
             You can add a "-" before values to avoid matching a tag.
       examples:
         - packaging_tags_de:
-          summary: packaging in german
+          summary: packaging in German
           value:
             packaging_tags_de: "de:Flasche"
         - origins_tags_fr:
-          summary: origins in french
+          summary: origins in French
           value:
             origins_tags_fr: "fr:France"
         - categories_tags_en:
-          summary: categories in english
+          summary: categories in English
           value:
             categories_tags_en: "en:Beer"

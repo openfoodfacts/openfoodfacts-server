@@ -5,7 +5,7 @@ properties:
   comment:
     type: string
     description: |
-      A comment on the contribution.
+      A comment on the contribution. It will be shown in product changes history.
       Adding meaningful comments help moderators and users understand a single product history.
   app_name:
     type: string

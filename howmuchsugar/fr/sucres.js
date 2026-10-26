@@ -611,8 +611,8 @@
 					
 					
 					$("#score").html('' + total + ' / ' + maxpoints);
-					$("#score_share").html('<p>Partagez votre score sur Twitter :<br/>' +
-'<iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation" src="http://platform.twitter.com/widgets/tweet_button.html?via=CombienDeSucres&amp;size=large&amp;count=none&amp;lang=fr&amp;text='
+					$("#score_share").html('<p>Partagez votre score sur x :<br/>' +
+'<iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation" src="http://platform.x.com/widgets/tweet_button.html?via=CombienDeSucres&amp;size=large&amp;count=none&amp;lang=fr&amp;text='
 + total + "%2F" + maxpoints + "%20!%20J'en%20connais%20un%20morceau%20en%20sucre%2C%20et%20vous%20%3F"
 + '&amp;url=http%3A%2F%2Fcombiendesucres.fr" style="width:200px;height:30px;"></iframe></p>'
 					);

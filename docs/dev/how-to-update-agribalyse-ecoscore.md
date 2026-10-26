@@ -28,7 +28,7 @@ db.products.update({}, { $unset: { "ecoscore_data.previous_data": 0 } });
 
 You can then use the following script from a backend bash shell to update products:
 
-```
+``` sh
 ./update_all_products.pl --fields categories --compute-ecoscore
 ```
 

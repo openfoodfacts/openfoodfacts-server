@@ -40,24 +40,29 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/get_products_collection remove_documents_by_ids/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Store qw/retrieve sto_iter store/;
+use ProductOpener::Store qw/retrieve_object store_object object_path_exists/;
 use Getopt::Long;
 
 # how many operations in bulk write
 my $BULK_WRITE_SIZE = 100;
 
-sub find_non_normalized_sto ($product_path) {
+sub find_non_normalized_sto ($product_path, $out, $verbose = 1) {
 	# find all .sto files that have a non normalized code
 	# we take a very brute force approach on filename
 	# return a list with path, product_id and normalized_id
-	my $iter = sto_iter($BASE_DIRS{PRODUCTS}, qr/product\.sto$/i);
+	my $iter = product_iter();
 	my @anomalous = ();
+	my $products_count = 0;
 	while (my $product_path = $iter->()) {
+		if ($verbose and (not($products_count % 10000))) {
+			print($out "$products_count processed\n") unless !$out;
+		}
+		$products_count += 1;
 		my $product_code = product_id_from_path($product_path);
 		my $normalized_code = normalize_code($product_code);
 		if ($product_code ne $normalized_code) {
 			# we intentionally use a simple retrieve, to avoid processing
-			my $product_ref = retrieve($product_path);
+			my $product_ref = retrieve_object($product_path);
 			# skip deleted
 			next if $product_ref->{deleted};
 			# item to normalize
@@ -80,28 +85,28 @@ sub move_product_to ($product_path, $product_id, $normalized_id) {
 
 sub delete_product ($product_path) {
 	# we must use retrieve because path might be invalid for retrieve_product
-	my $product_ref = retrieve($product_path);
+	my $product_ref = retrieve_object($product_path);
 	$product_ref->{deleted} = "on";
 	# and we use store, as we used retrieve
-	store($product_path, $product_ref);
+	store_object($product_path, $product_ref);
 	return;
 }
 
 sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 	my @actions = ();
-	my @items = find_non_normalized_sto($product_path);
+	my @items = find_non_normalized_sto($product_path, $out);
 	foreach my $item (@items) {
 		my ($product_path, $product_id, $normalized_id) = @$item;
 		my $new_path = product_path_from_id($normalized_id);
 		# handle a special case where previous id is higly broken …
 		# and moving would not work
 		my $path_from_old_id = product_path_from_id($product_id);
-		my $is_duplicate = (-e "$BASE_DIRS{PRODUCTS}/$new_path");
+		my $is_duplicate = (object_path_exists("$BASE_DIRS{PRODUCTS}/$new_path"));
 		my $is_invalid = $path_from_old_id eq "invalid";
-		# print "product_path: $product_path - new_path: $new_path - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid - path_from_old_id: $path_from_old_id\n";
+		# print "product_path: $product_path - new_path: $new_path - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid - path_from_old_id: $path_from_old_id\n";
 		# we could have different codes but the same path: EAN8 padded with 5 0s
 		# it happens in the test
-		if ($new_path eq $path_from_old_id) {
+		if (($new_path eq $path_from_old_id) and not $is_invalid) {
 			# we should change the code to the normalized code, store the new product, and remove the old code from MongoDB
 			move_product_to($product_path, $product_id, $normalized_id) unless $dry_run;
 			push(@actions, "Updated product in place: $product_id and $normalized_id have the same path $product_path");
@@ -165,7 +170,7 @@ sub fix_int_barcodes_sto ($int_ids_ref, $dry_run) {
 			my $path = product_path_from_id($product_ref->{code});
 			if (!$dry_run) {
 				# Silently replace values in sto (no rev)
-				store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+				store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 				# Refresh mongodb
 				if ($product_ref->{deleted}) {
 					$products_collection->delete_one({"_id" => $product_ref->{_id}});
@@ -219,8 +224,8 @@ sub remove_non_normalized_mongo ($dry_run, $out) {
 
 	# we will first collect then erase
 	my @ids_to_remove = ();
-	# 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-	my $socket_timeout_ms = 2 * 60000;
+	# 4 mins, instead of 30s default, to not die as easily if mongodb is busy.
+	my $socket_timeout_ms = 4 * 60000;
 	my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
 	my $cursor = $products_collection->query({})->fields({_id => 1, code => 1});
 	$cursor->immortal(1);
@@ -260,16 +265,18 @@ fix_non_normalized_codes.pl is a script that updates checks and fix for products
 Options:
 
 --dry-run	do not do any processing just print what would be done
+--skip-sto  do not check for sto files
 TXT
 	;
 
 my $dry_run = 0;
-GetOptions("dry-run" => \$dry_run,)
+my $skip_sto = 0;
+GetOptions("dry-run" => \$dry_run, "skip-sto" => \$skip_sto,)
 	or die("Error in command line arguments:\n\n$usage");
 
 # fix errors on filesystem
 my $product_path = $BASE_DIRS{PRODUCTS};
-fix_non_normalized_sto($product_path, $dry_run, \*STDOUT);
+fix_non_normalized_sto($product_path, $dry_run, \*STDOUT) unless $skip_sto;
 # now that we don't have any non normalized codes on filesystem, we can fix Mongodb
 remove_int_barcode_mongo($dry_run, \*STDOUT);
 remove_non_normalized_mongo($dry_run, \*STDOUT);

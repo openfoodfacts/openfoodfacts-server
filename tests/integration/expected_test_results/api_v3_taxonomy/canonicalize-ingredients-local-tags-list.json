@@ -1,0 +1,32 @@
+{
+   "canonical_tags" : [
+      {
+         "exists_in_taxonomy" : true,
+         "tag" : "en:banana"
+      },
+      {
+         "exists_in_taxonomy" : true,
+         "tag" : "en:pineapple"
+      },
+      {
+         "exists_in_taxonomy" : true,
+         "tag" : "en:garden-peas"
+      },
+      {
+         "exists_in_taxonomy" : true,
+         "tag" : "en:spinach"
+      },
+      {
+         "exists_in_taxonomy" : false,
+         "tag" : "fr:unknown ingredient"
+      },
+      {
+         "exists_in_taxonomy" : false,
+         "tag" : "de:Other Unknown Ingredient"
+      }
+   ],
+   "canonical_tags_list" : "en:banana,en:pineapple,en:garden-peas,en:spinach,fr:unknown ingredient,de:Other Unknown Ingredient",
+   "errors" : [],
+   "status" : "success",
+   "warnings" : []
+}

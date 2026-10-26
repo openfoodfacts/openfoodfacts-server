@@ -8,7 +8,6 @@ use ProductOpener::Routing qw/analyze_request load_routes/;
 use ProductOpener::Lang qw/$lc/;
 
 use Test2::V0;
-use Mock::Quick;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
@@ -230,6 +229,23 @@ my @tests = (
 		}
 	},
 	{
+		id => 'products-codes-gs1-formats',
+		desc => 'products with multiple various GS1 format barcodes',
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string =>
+				'products/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200+%1D010356470399997210ABC123%1D1524050431030002753922499',
+			no_index => '0',
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		}
+	},
+	{
 		id => 'product-french',
 		desc => 'product translated in french',
 		lc => "fr",
@@ -345,6 +361,34 @@ foreach my $test_ref (@tests) {
 		"$expected_result_dir/$test_ref->{id}.json",
 		$update_expected_results, $test_ref
 	);
+}
+
+# Test rate limit whitelist
+
+{
+
+	my $request_ref = {rate_limiter_bucket => "search",};
+
+	# Mock the get_rate_limit_user_requests method called in set_rate_limit_attributes()
+	# Note: even though the original method is in ProductOpener::Redis,
+	# we need to mock the method in ProductOpener::Routing
+	my $redis_module = mock 'ProductOpener::Routing' => (
+		override => [
+			get_rate_limit_user_requests => sub {
+				my $bucket = shift;
+				my $user_id = shift;
+				print "bucket: $bucket, user_id: $user_id\n";
+				return 100;
+			}
+		]
+	);
+
+	ProductOpener::Routing::set_rate_limit_attributes($request_ref, "1.2.3.4");
+	is($request_ref->{rate_limiter_blocking}, 1, "IP not in rate limit whitelist");
+
+	ProductOpener::Routing::set_rate_limit_attributes($request_ref, "163.5.3.4");
+	is($request_ref->{rate_limiter_blocking}, 0, "IP in rate limit whitelist");
+
 }
 
 done_testing();

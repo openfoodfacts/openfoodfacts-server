@@ -1,0 +1,16 @@
+title: action_element
+type: object
+properties:
+  title:
+    type: string
+  actions:
+    type: array
+    description: The ids of the actions to show.
+    items:
+      type: string
+      description: The id of the action to show.
+      examples:
+        - edit_product
+        - add_categories
+description: The action element is used to display a title and a list of actions like editing a product or adding categories.
+

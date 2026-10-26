@@ -29,11 +29,15 @@ sub test_template($) {
 			chomp($file);
 			next if $file eq '.';
 			next if $file eq '..';
+			# Ignore README files
+			next if $file =~ /\.md$/;
 
 			test_template($path . '/' . $file);
 		}
 	}
 	else {
+		# Skip README.md files as they are documentation, not templates
+		return if $path =~ /README\.md$/;
 
 		ok($path =~ /\.tt\./) or diag("file $path does not contain .tt.");
 
@@ -45,5 +49,38 @@ sub test_template($) {
 }
 
 test_template(".");
+
+my $report_problem_template = "api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json";
+
+foreach my $flavor (qw(off obf opf opff)) {
+	my $rendered_template = "";
+	my $template_data_ref = {
+		flavor => $flavor,
+		static_subdomain => "https://static.example.org",
+		panel => {nutripatrol_enabled => 0},
+		edq => sub {return shift;},
+		lang => sub {return "generic_" . shift;},
+		lang_flavor => sub {return shift . "_" . $flavor;},
+	};
+
+	ok($tt->process($report_problem_template, $template_data_ref, \$rendered_template),
+		"report problem template renders for the $flavor flavor");
+	like(
+		$rendered_template,
+		qr{"subtitle": "incomplete_or_incorrect_data_subtitle_$flavor"},
+		"report problem subtitle uses the $flavor translation"
+	);
+	like(
+		$rendered_template,
+		qr{https://static\.example\.org/images/logos/$flavor-logo-icon-light\.svg},
+		"report problem icon uses the $flavor logo"
+	);
+	like(
+		$rendered_template,
+		qr{incomplete_or_incorrect_data_content_correct_$flavor},
+		"report problem content uses the $flavor translation"
+	);
+	ok(-e "$www_root/images/logos/$flavor-logo-icon-light.svg", "$flavor logo asset exists");
+}
 
 done_testing();

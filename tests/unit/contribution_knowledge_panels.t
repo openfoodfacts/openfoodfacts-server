@@ -17,8 +17,9 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 my %default_product = (
 	code => "120989380970",
 	product_name => "dummy",
-	data_quality_errors_tags =>
-		["en:energy-value-in-kcal-does-not-match-value-in-kj", "en:nutrition-saturated-fat-greater-than-fat",],
+	data_quality_errors_tags => [
+		"en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj", "en:nutrition-saturated-fat-greater-than-fat",
+	],
 	knowledge_panels_en => {},
 );
 
@@ -72,7 +73,8 @@ foreach my $test_ref (@tests) {
 	create_contribution_card_panel(
 		\%product,
 		$test_ref->{"lc"} // $default_lc,
-		$test_ref->{"cc"} // $default_cc, \%options
+		$test_ref->{"cc"} // $default_cc,
+		\%options, {}
 	);
 	# we are only interested in knowledge_panels
 	my $panels_ref = $product{knowledge_panels_en};

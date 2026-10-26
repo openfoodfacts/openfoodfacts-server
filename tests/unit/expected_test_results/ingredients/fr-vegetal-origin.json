@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "from_palm_oil" : "maybe",
@@ -8,10 +9,13 @@
          "percent_max" : 100,
          "percent_min" : 33.3333333333333,
          "text" : "mono- et diglycérides d'acides gras",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "17001",
+         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
          "from_palm_oil" : "maybe",
          "id" : "en:oil",
          "is_in_taxonomy" : 1,
@@ -19,8 +23,8 @@
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "huile",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:e428",
@@ -29,8 +33,8 @@
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "gélatine",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -43,12 +47,6 @@
       "en:may-contain-palm-oil",
       "en:vegan",
       "en:vegetarian"
-   ],
-   "ingredients_hierarchy" : [
-      "en:e471",
-      "en:oil",
-      "en:oil-and-fat",
-      "en:e428"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 3,
@@ -75,23 +73,18 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:e428",
-      "en:e471",
-      "en:oil"
+      "en:e471"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:e428",
-      "en:e471",
-      "en:oil"
+      "en:e471"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
-   "known_ingredients_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 3,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

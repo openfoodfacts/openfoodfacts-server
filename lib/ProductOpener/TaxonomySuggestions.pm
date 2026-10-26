@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -39,6 +39,7 @@ BEGIN {
 		&get_taxonomy_suggestions_with_synonyms
 		&get_taxonomy_suggestions
 		&generate_sorted_list_of_taxonomy_entries
+		&clear_suggestions_index
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -47,8 +48,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/get_string_id_for_lang retrieve_json/;
-use ProductOpener::Display qw/$country/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve_config/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/@sorted_packager_codes normalize_packager_codes/;
@@ -60,21 +60,27 @@ use Data::DeepAccess qw(deep_exists deep_get);
 # We use a global variable in order to load the packaging stats only once
 my $categories_packagings_stats_for_suggestions_ref;
 
+# Bumped whenever the way suggestions are matched or returned changes, and part of the result cache
+# key. The cached suggestions live for a day and the key is built from the request, so a change to
+# this module is otherwise invisible until they expire: a deployment keeps answering from entries
+# that the previous code wrote. Raise it in the same commit as the change.
+my $suggestions_cache_version = 2;
+
+sub categories_packagings_stats_file() {
+
+	my $file = "$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_stats.all.popular";
+	return $file if -e $file;
+
+	# In dev environments, we provide a sample stats file in the data-default directory
+	# so that we can run tests with meaningful and unchanging data
+	return "$BASE_DIRS{PRIVATE_DATA}-default/categories_stats/categories_packagings_stats.all.popular";
+}
+
 sub load_categories_packagings_stats_for_suggestions() {
 	if (not defined $categories_packagings_stats_for_suggestions_ref) {
-		my $file = "$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_stats.all.popular.json";
-		# In dev environments, we provide a sample stats file in the data-default directory
-		# so that we can run tests with meaningful and unchanging data
-		if (!-e $file) {
-			my $default_file
-				= "$BASE_DIRS{PRIVATE_DATA}-default/categories_stats/categories_packagings_stats.all.popular.json";
-			$log->debug("local packaging stats file does not exist, will use default",
-				{file => $file, default_file => $default_file})
-				if $log->is_debug();
-			$file = $default_file;
-		}
+		my $file = categories_packagings_stats_file();
 		$log->debug("loading packaging stats", {file => $file}) if $log->is_debug();
-		$categories_packagings_stats_for_suggestions_ref = retrieve_json($file);
+		$categories_packagings_stats_for_suggestions_ref = retrieve_config($file);
 		if (not defined $categories_packagings_stats_for_suggestions_ref) {
 			$log->debug("unable to load packaging stats", {file => $file}) if $log->is_debug();
 		}
@@ -82,15 +88,17 @@ sub load_categories_packagings_stats_for_suggestions() {
 	return $categories_packagings_stats_for_suggestions_ref;
 }
 
-=head2 get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $context_ref, $options_ref )
+=head2 get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $string, $context_ref, $options_ref )
 
 Generate taxonomy suggestions with matched synonyms information.
 
-=head2 get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref )
+=head2 get_taxonomy_suggestions ($country, $tagtype, $search_lc, $string, $context_ref, $options_ref )
 
 Generate taxonomy suggestions (without matched synonyms information).
 
 =head3 Parameters
+
+=head4 $country		country id (e.g. "en:world", "en:united-states")
 
 =head4 $tagtype		id of the taxonomy (required)
 
@@ -108,12 +116,13 @@ Hash of fields that can be taken into account to generate relevant suggestions
 
 =head3 Note
 
-The results of this function are cached for 1 day using memcached.
-Restart memcached if you want fresh results (e.g. when taxonomy are category stats change).
+The results of this function are cached for 1 day using memcached. The key carries the version of
+this module, the version of the taxonomies and, for the packaging taxonomies, the time the popular
+statistics file was last written, so results that no longer apply are not served from the cache.
 
 =cut
 
-sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
+sub get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $string, $context_ref, $options_ref) {
 
 	$log->debug(
 		"get_taxonomy_suggestions - start",
@@ -127,9 +136,22 @@ sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $cont
 	) if $log->is_debug();
 
 	# Check if we have cached suggestions
+	# The key carries the versions of the things the answer depends on, so that a change to any of
+	# them is picked up instead of being answered from an entry that is a day old:
+	# - $suggestions_cache_version, raised by a change to the matching or to what is returned
+	# - for the packaging taxonomies, the time the popular statistics file was last written,
+	#   because those suggestions come from product data and not from the taxonomy
+	my $stats_file_mtime = 0;
+	if (($tagtype eq "packaging_shapes") or ($tagtype eq "packaging_materials")) {
+		my @stats = stat(categories_packagings_stats_file());
+		$stats_file_mtime = $stats[9] if defined $stats[9];
+	}
+
 	my $key = generate_cache_key(
 		"get_taxonomy_suggestions",
 		{
+			cache_version => $suggestions_cache_version,
+			stats_file_mtime => $stats_file_mtime,
 			tagtype => $tagtype,
 			search_lc => $search_lc,
 			string => $string,
@@ -143,10 +165,15 @@ sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $cont
 	if (not defined $results_ref) {
 		$log->debug("suggestions are not cached", {key => $key}) if $log->is_debug();
 
-		my @tags = generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref);
+		my @tags = generate_sorted_list_of_taxonomy_entries($country, $tagtype, $search_lc, $context_ref);
+		my $tags_ref = \@tags;
 
-		my @filtered_tags
-			= filter_suggestions_matching_string_with_synonyms(\@tags, $tagtype, $search_lc, $string, $options_ref);
+		# The entry list is the process's own, so the index can be kept and reused between
+		# requests; it is dropped by clear_suggestions_index() when the taxonomies are rebuilt
+		my ($effective_lc, $effective_string) = _search_lc_and_string($search_lc, $string);
+
+		my @filtered_tags = _filter_suggestions(_get_suggestions_index($tagtype, $effective_lc, $tags_ref),
+			$tags_ref, $tagtype, $effective_lc, $effective_string, $options_ref);
 		$results_ref = \@filtered_tags;
 
 		$log->debug("storing suggestions in cache", {key => $key}) if $log->is_debug();
@@ -159,19 +186,70 @@ sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $cont
 	return @$results_ref;
 }
 
-sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
+sub get_taxonomy_suggestions ($country, $tagtype, $search_lc, $string, $context_ref, $options_ref) {
 	return
 		map {$_->{tag}}
-		get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
+		get_taxonomy_suggestions_with_synonyms($country, $tagtype, $search_lc, $string, $context_ref, $options_ref);
 }
 
-=head2 generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref)
+=head2 generate_sorted_list_of_taxonomy_entries($couuntry, $tagtype, $search_lc, $context_ref)
 
 Generate a sorted list of canonicalized taxonomy entries from which we will generate suggestions
 
 =cut
 
-sub generate_sorted_list_of_taxonomy_entries ($tagtype, $search_lc, $context_ref) {
+# The list of entries does not depend on the string being searched for, but it does depend on the
+# translations.
+# The packaging taxonomies are not cached: their leading entries are the ones most used for a
+# country and a category, so they come from product data and depend on the context.
+
+my %sorted_entries_cache = ();
+
+sub _sorted_entries_cache_key ($country, $tagtype, $search_lc) {
+	return join("\t", $country, $tagtype, $search_lc);
+}
+
+sub _get_sorted_entries ($country, $tagtype, $search_lc, $context_ref) {
+
+	my $key = _sorted_entries_cache_key($country, $tagtype, $search_lc);
+
+	if (not exists $sorted_entries_cache{$key}) {
+
+		my @tags = _generate_sorted_list_of_taxonomy_entries($country, $tagtype, $search_lc, $context_ref);
+
+		$sorted_entries_cache{$key} = \@tags;
+
+		# a move of the version makes every older key unreachable, so start over rather than grow
+		if (scalar(keys %sorted_entries_cache) > 8) {
+			%sorted_entries_cache = ();
+			$sorted_entries_cache{$key} = \@tags;
+		}
+
+		$log->debug(
+			"cached the sorted entries",
+			{
+				tagtype => $tagtype,
+				search_lc => $search_lc,
+				cc => $country,
+				entries => scalar(@tags)
+			}
+		) if $log->is_debug();
+	}
+
+	return $sorted_entries_cache{$key};
+}
+
+sub generate_sorted_list_of_taxonomy_entries ($country, $tagtype, $search_lc, $context_ref) {
+
+	if (($tagtype eq "packaging_shapes") or ($tagtype eq "packaging_materials")) {
+		return _generate_sorted_list_of_taxonomy_entries($country, $tagtype, $search_lc, $context_ref);
+	}
+
+	my $tags_ref = _get_sorted_entries($country, $tagtype, $search_lc, $context_ref);
+	return @{$tags_ref};
+}
+
+sub _generate_sorted_list_of_taxonomy_entries ($country, $tagtype, $search_lc, $context_ref) {
 
 	my @tags;
 	my %seen_tags = ();    # Used to not add the same tag several times
@@ -183,14 +261,23 @@ sub generate_sorted_list_of_taxonomy_entries ($tagtype, $search_lc, $context_ref
 	# search for entries in a taxonomy
 	else {
 		# Generate popular suggestions
-		@tags = generate_popular_suggestions_according_to_context($tagtype, $search_lc, $context_ref, \%seen_tags);
+		@tags = generate_popular_suggestions_according_to_context($country, $tagtype, $search_lc, $context_ref,
+			\%seen_tags);
+
+		# Sort the remaining entries alphabetically before adding them.
+		# The entries are decorated with the string they sort on first: cmp_taxonomy_tags_alphabetically()
+		# looks the translation up on both sides of every comparison, and sorting the categories
+		# taxonomy is about 200000 comparisons for 14736 entries, so doing that lookup once per entry
+		# instead of once per side of every comparison is the difference between the sort taking a
+		# large part of a request and taking a small one. Perl's sort is stable, so entries that
+		# translate to the same string keep the order they have here, as they did before.
+		my @decorated
+			= map {[$_, $translations_to{$tagtype}{$_}{$search_lc} || $translations_to{$tagtype}{$_}{"xx"} || $_]}
+			keys %{$translations_to{$tagtype}};
+		my @all_tags = map {$_->[0]} sort({$a->[1] cmp $b->[1]} @decorated);
 
 		# add all remaining entries in alphabetical order
-		foreach my $tag (
-			sort({cmp_taxonomy_tags_alphabetically($tagtype, $search_lc, $a, $b)}
-				keys %{$translations_to{$tagtype}})
-			)
-		{
+		foreach my $tag (@all_tags) {
 			next if defined $seen_tags{$tag};
 			push @tags, $tag;
 		}
@@ -199,7 +286,7 @@ sub generate_sorted_list_of_taxonomy_entries ($tagtype, $search_lc, $context_ref
 	return @tags;
 }
 
-=head2 generate_popular_suggestions_according_to_context($tagtype, $search_lc, $context_ref, $seen_tags_ref)
+=head2 generate_popular_suggestions_according_to_context($country, $tagtype, $search_lc, $context_ref, $seen_tags_ref)
 
 Given a specific context (e.g. the product's country, categories, or the packaging component shape),
 we can generate popular suggestions sorted by popularity in this context.
@@ -210,7 +297,7 @@ For other taxonomy types, an empty list is returned.
 
 =cut
 
-sub generate_popular_suggestions_according_to_context ($tagtype, $search_lc, $context_ref, $seen_tags_ref) {
+sub generate_popular_suggestions_according_to_context ($country, $tagtype, $search_lc, $context_ref, $seen_tags_ref) {
 
 	my @tags = ();
 
@@ -323,32 +410,115 @@ sub match_stringids ($stringid, $fuzzystringid, $synonymid) {
 	return "none";
 }
 
-# best_match is used to see how well matches the best matching synonym
+# Per-process index of what a suggestion request needs for every entry of a taxonomy.
+#
+# A request that misses the result cache used to sort every entry of the taxonomy and then, for
+# each of them, normalize its display text and every one of its synonyms, which meant tens of
+# thousands of Unicode NFC normalizations per request. None of that work depends on the string
+# being searched for: the same entries are walked in the same order for every query.
+#
+# The index holds, per taxonomy and per search language, the display text of every entry and the
+# normalized synonyms of every entry, so a request is a loop over strings that already exist.
+#
+# It is deliberately not shared through memcached or redis: the display map of the categories
+# taxonomy alone is about 1.2 MB per language in Storable, which is larger than the default
+# memcached item size, and a shared cache would turn a pointer dereference into a multi-megabyte
+# read on every keystroke. Workers are long lived, so one copy per process is cheaper.
+#
+# It also holds no product data: the entries come from the taxonomy, and the only suggestions that
+# depend on products - packaging shapes and materials - are read from a separate precomputed file.
+# It therefore only goes stale if the taxonomies are rebuilt inside the same process, which is
+# what build_all_taxonomies() does, and operators can drop it with clear_suggestions_index().
 
-sub best_match ($search_lc, $stringid, $fuzzystringid, $synonyms_ref) {
+my %suggestions_index = ();
+my @suggestions_index_order = ();
 
-	my $best_type = "none";
-	my $best_match = 0;
+# How many (taxonomy, language) indexes to keep. A handful of languages are hot at a time, and
+# the categories taxonomy is the largest at about 1.2 MB per language, so this bounds the memory
+# a worker spends on this at roughly 10 MB.
+my $suggestions_index_max = 8;
 
-	foreach my $synonym (@$synonyms_ref) {
-		my $synonymid = get_string_id_for_lang($search_lc, $synonym);
-		my $match = match_stringids($stringid, $fuzzystringid, $synonymid);
-		# Prefer to use the earlier ones from the list for when the canonical name has the same match type as a synonym
-		next if $match eq "none" or $match eq $best_type;
-		if ($match eq "start") {
-			# Best match, we can return without looking at the other synonyms
-			$best_type = $match;
-			$best_match = $synonym;
-			last;
-		}
-		elsif (($match eq "inside")
-			or (($match eq "fuzzy") and ($best_type eq "none")))
-		{
-			$best_type = $match;
-			$best_match = $synonym;
-		}
+=head2 clear_suggestions_index()
+
+Drop the per-process index of taxonomy entries used to answer suggestion requests. Call it after
+rebuilding the taxonomies in a process that also serves suggestions, otherwise the process keeps
+answering from the entries it had indexed before the rebuild.
+
+=cut
+
+sub clear_suggestions_index() {
+	%suggestions_index = ();
+	@suggestions_index_order = ();
+	%sorted_entries_cache = ();
+	return;
+}
+
+# If the search string begins with a language code, it is searched in that language. This has to be
+# decided before the index is picked, because the index holds the display text and the synonyms the
+# scan matches against, and both are language dependent.
+sub _search_lc_and_string ($search_lc, $string) {
+
+	if ((not defined $string) or ($string !~ /^(\w\w):/)) {
+		return ($search_lc, $string);
 	}
-	return {type => $best_type, match => $best_match};
+
+	return ($1, substr($string, 3));
+}
+
+# Returns a hash of canonical tagid -> entry, not an ordered list. The expensive part of the
+# suggestion work (resolving the display name and normalizing the synonyms) does not depend on
+# the context, so it can be shared between requests; the order the entries are scanned in does,
+# so the order is taken from the list of entries the request came in with instead.
+sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref) {
+
+	my %entries = ();
+
+	foreach my $canon_tagid (@$tags_ref) {
+
+		my $tag = display_taxonomy_tag($search_lc, $tagtype, $canon_tagid);
+		my $tag_xx = display_taxonomy_tag("xx", $tagtype, $canon_tagid);
+
+		# Synonyms in the search language, and in the wildcard xx: language. Each one is
+		# normalized in the search language, which is what the scan matched before.
+		my @synonyms = map {
+			my $synonym = $_;
+			[get_string_id_for_lang($search_lc, $synonym), $synonym]
+		} (
+			@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
+			@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
+		);
+
+		$entries{$canon_tagid} = {tag => $tag, synonyms => \@synonyms};
+	}
+
+	return \%entries;
+}
+
+sub _get_suggestions_index ($tagtype, $search_lc, $tags_ref) {
+
+	my $key = join("\t", $tagtype, $search_lc);
+
+	if (not exists $suggestions_index{$key}) {
+
+		$suggestions_index{$key} = _build_suggestions_index($tagtype, $search_lc, $tags_ref);
+		push @suggestions_index_order, $key;
+
+		# keep the memory bounded: drop the index that was added first
+		if (scalar(@suggestions_index_order) > $suggestions_index_max) {
+			delete $suggestions_index{shift @suggestions_index_order};
+		}
+
+		$log->debug(
+			"built the suggestions index",
+			{
+				tagtype => $tagtype,
+				search_lc => $search_lc,
+				entries => scalar(keys %{$suggestions_index{$key}})
+			}
+		) if $log->is_debug();
+	}
+
+	return $suggestions_index{$key};
 }
 
 =head2 filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
@@ -389,6 +559,15 @@ An array of suggestions hashes with the following fields:
 
 sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
 
+	# Callers can pass any list of entries, so index exactly that list rather than a cached one
+	my ($effective_lc, $effective_string) = _search_lc_and_string($search_lc, $string);
+
+	return _filter_suggestions(_build_suggestions_index($tagtype, $effective_lc, $tags_ref),
+		$tags_ref, $tagtype, $effective_lc, $effective_string, $options_ref);
+}
+
+sub _filter_suggestions ($entries_ref, $tags_ref, $tagtype, $search_lc, $string, $options_ref) {
+
 	my $original_lc = $search_lc;
 
 	# Limit the maximum number of results
@@ -411,12 +590,6 @@ sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $sear
 	# undefined string
 	if (not defined $string) {
 		$string = "";
-	}
-
-	# if search string begins with a language code, use it for search
-	if ($string =~ /^(\w\w):/) {
-		$search_lc = $1;
-		$string = $';
 	}
 
 	my @suggestions = ();    # Suggestions starting with the string
@@ -450,51 +623,57 @@ sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $sear
 		# fuzzy match whole words with other words between them
 		my $fuzzystringid = join(".*", split("-", $stringid));
 
+		# Scan the entries in the order they were given. For the packaging taxonomies that order
+		# is the popularity ranking for this country, categories and shape, so it changes from one
+		# request to the next; the shared index only holds the resolved names and the normalized
+		# synonyms, which do not.
 		foreach my $canon_tagid (@$tags_ref) {
+			my $entry_ref = $entries_ref->{$canon_tagid};
+			next if not defined $entry_ref;
 			# just_synonyms are not real entries
 			next if defined $just_synonyms{$tagtype}{$canon_tagid};
 
-			# We will match synonyms in the search language, and in the wildcard xx: language
-			my $tag = display_taxonomy_tag($search_lc, $tagtype, $canon_tagid);
-			my $tag_xx = display_taxonomy_tag("xx", $tagtype, $canon_tagid);
+			# best_match() inlined: this runs for every entry of the taxonomy on a request that
+			# finds nothing, so a call per entry and the loop it owns are worth avoiding
+			my $best_type = "none";
+			my $best_synonym = 0;
 
-			# Build a list of normalized synonyms in the search language and the wildcard xx: language
-			my @synonyms = (
-				@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
-				@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
-			);
-
-			# check how well the synonyms match the input string
-			my $best_match = best_match($search_lc, $stringid, $fuzzystringid, \@synonyms);
-
-			$log->debug(
-				"synonyms for canon_tagid",
-				{
-					tagtype => $tagtype,
-					canon_tagid => $canon_tagid,
-					tag => $tag,
-					synonyms => \@synonyms,
-					best_match => $best_match
+			foreach my $synonym_pair_ref (@{$entry_ref->{synonyms}}) {
+				my $match = match_stringids($stringid, $fuzzystringid, $synonym_pair_ref->[0]);
+				# Prefer to use the earlier ones from the list for when the canonical name has the
+				# same match type as a synonym
+				next if $match eq "none" or $match eq $best_type;
+				if ($match eq "start") {
+					# Best match, we can return without looking at the other synonyms
+					$best_type = $match;
+					$best_synonym = $synonym_pair_ref->[1];
+					last;
 				}
-			) if $log->is_debug();
+				elsif (($match eq "inside")
+					or (($match eq "fuzzy") and ($best_type eq "none")))
+				{
+					$best_type = $match;
+					$best_synonym = $synonym_pair_ref->[1];
+				}
+			}
 
 			my $suggestion_ref = {
-				tag => $tag,
-				matched_synonym => $best_match->{match}
+				tag => $entry_ref->{tag},
+				matched_synonym => $best_synonym
 			};
 			# matching at start, best matches
-			if ($best_match->{type} eq "start") {
+			if ($best_type eq "start") {
 				push @suggestions, $suggestion_ref;
 				# count matches at start so that we can return only if we have enough matches
 				$suggestions_count++;
 				last if $suggestions_count >= $limit;
 			}
 			# matching inside
-			elsif ($best_match->{type} eq "inside") {
+			elsif ($best_type eq "inside") {
 				push @suggestions_c, $suggestion_ref;
 			}
 			# fuzzy match
-			elsif ($best_match->{type} eq "fuzzy") {
+			elsif ($best_type eq "fuzzy") {
 				push @suggestions_f, $suggestion_ref;
 			}
 		}

@@ -27,15 +27,16 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Store qw/retrieve_object/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/product_id_for_owner product_path_from_id retrieve_product/;
+use ProductOpener::Products
+	qw/product_id_for_owner product_path_from_id retrieve_product product_id_from_path product_iter/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -61,31 +62,17 @@ GetOptions('products=s' => \@products, 'owner=s' => \$owner);
 
 my $d = 0;
 
-sub find_products($$) {
+sub find_products($) {
 
 	my $dir = shift;
-	my $code = shift;
 
-	my $dh;
-
-	opendir $dh, "$dir" or die "could not open $dir directory: $!\n";
-	foreach my $file (sort readdir($dh)) {
-		chomp($file);
-		#print "file: $file\n";
-		if ($file eq 'product.sto') {
-			push @products, $code;
-			$d++;
-			(($d % 1000) == 1) and print "$d products - $code\n";
-			#print "code: $code\n";
-		}
-		else {
-			$file =~ /\./ and next;
-			if (-d "$dir/$file") {
-				find_products("$dir/$file", "$code$file");
-			}
-		}
+	my $next = product_iter($dir);
+	while (my $file = $next->()) {
+		my $code = product_id_from_path($file);
+		push @products, $code;
+		$d++;
+		(($d % 1000) == 1) and print "$d products - $code\n";
 	}
-	closedir $dh or print "could not close $dir dir: $!\n";
 
 	return;
 }
@@ -95,10 +82,10 @@ if (scalar $#products < 0) {
 		if (not defined $owner) {
 			die("The owner must be specified on the producers platform");
 		}
-		find_products("$BASE_DIRS{PRODUCTS}/$owner", '');
+		find_products("$BASE_DIRS{PRODUCTS}/$owner");
 	}
 	else {
-		find_products($BASE_DIRS{PRODUCTS}, '');
+		find_products($BASE_DIRS{PRODUCTS});
 	}
 }
 
@@ -119,8 +106,8 @@ foreach my $code (@products) {
 	my $path = product_path_from_id($product_id);
 
 	#my $product_ref = retrieve_product($code);
-	my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/product.sto")
-		or print "not defined $BASE_DIRS{PRODUCTS}/$path/product.sto\n";
+	my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product")
+		or print "not defined $BASE_DIRS{PRODUCTS}/$path/product\n";
 
 	if ((defined $product_ref)) {
 

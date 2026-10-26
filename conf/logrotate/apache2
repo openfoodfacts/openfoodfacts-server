@@ -18,8 +18,11 @@
 	fi
     endscript
     postrotate
-	if pgrep -f ^/usr/sbin/apache2 > /dev/null; then
-	    invoke-rc.d apache2 reload 2>&1 | logger -t apache2.logrotate
+	if systemctl is-active --quiet apache2.service; then
+	    systemctl reload apache2.service 2>&1 | logger -t apache2.logrotate
+	fi
+	if systemctl is-active --quiet apache2@priority.service; then
+	    systemctl reload apache2@priority.service 2>&1 | logger -t apache2@priority.logrotate
 	fi
     endscript
 }

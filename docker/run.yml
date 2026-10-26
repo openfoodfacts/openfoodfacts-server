@@ -9,6 +9,20 @@ services:
     networks:
       # Needed to access MongoDB and Redis
       shared_network:
+  redis-listener:
+    networks:
+      # Needed to access MongoDB and Redis
+      shared_network:
+
+  incron:
+    networks:
+      # Needed to access Redis
+      shared_network:
+
+  frontend:
+    networks:
+      # Needed to proxy to keycloak
+      shared_network:
 
 networks:
   # This network allows access to shared services like MongoDB and Redis

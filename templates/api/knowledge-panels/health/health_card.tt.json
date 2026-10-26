@@ -17,6 +17,15 @@
         },
         [% END %]
 
+        [% IF panels.recommendation_health2.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "recommendation_health2",
+            },
+        },
+        [% END %]        
+
         [% IF knowledge_panels_options.knowledge_panels_client == 'disabled-web' %]
 
             [% IF feature_enabled("ingredients") %]

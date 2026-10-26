@@ -26,6 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON::MaybeXS;
+#11872 Need to use PO Storable
 use Storable qw(lock_store lock_nstore lock_retrieve);
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -41,6 +42,16 @@ my $r = Apache2::RequestUtil->request();
 
 # read site name in apache provided header
 my $lang = $r->headers_in->{"X-Site-Lang"} // 'en';
+
+# The language code is a directory name below. nginx sets the header from the site name for the
+# howmuchsugar virtual hosts, but this script is served by the other virtual hosts too, and those
+# pass the headers of the request through, so check the value before it goes into a path.
+if ($lang !~ /^[a-z]{2,3}$/) {
+	$log->warn("sugar_random - refusing a header that is not a language code", {lang => $lang})
+		if $log->is_warn();
+	$r->status(400);
+	return 400;
+}
 
 my $ids_ref = lock_retrieve($BASE_DIRS{PRIVATE_DATA} . "/sugar/$lang/products_ids.sto")
 	or die("Cannot open sugar/products_ids.sto");

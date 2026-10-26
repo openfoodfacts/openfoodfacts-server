@@ -36,6 +36,7 @@ use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::HTTP qw/single_param/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -90,8 +91,7 @@ elsif ($action eq "process") {
 		or print STDERR "Could not move $BASE_DIRS{IMPORT_FILES}/$Owner_id to $deleted_dir/import_files : $!\n";
 	dirmove("$BASE_DIRS{EXPORT_FILES}/$Owner_id", "$deleted_dir/export_files")
 		or print STDERR "Could not move $BASE_DIRS{EXPORT_FILES}/$Owner_id to $deleted_dir/export_files : $!\n";
-	dirmove("$BASE_DIRS{PRODUCTS}/$Owner_id", "$deleted_dir/products")
-		or print STDERR "Could not move $BASE_DIRS{PRODUCTS}/$Owner_id to $deleted_dir/products : $!\n";
+	move_object("$BASE_DIRS{PRODUCTS}/$Owner_id", "$deleted_dir/products");
 	dirmove("$BASE_DIRS{PRODUCTS_IMAGES}/$Owner_id", "$deleted_dir/images")
 		or print STDERR "Could not move $BASE_DIRS{PRODUCTS_IMAGES}/$Owner_id to $deleted_dir/images : $!\n";
 

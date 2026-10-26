@@ -61,10 +61,11 @@ TXT
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve store/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Store qw/retrieve_object/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::EnvironmentalScore qw(compute_environmental_score);
@@ -244,7 +245,7 @@ foreach my $code (@codes) {
 	my $url = "";
 
 	# Go through all product revisions
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 
 	# If we don't have a changes.sto file, the product is not in the database
 	if (defined $changes_ref) {
@@ -265,7 +266,7 @@ foreach my $code (@codes) {
 				$rev = $revs;    # was not set before June 2012
 			}
 
-			my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
+			my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
 
 			if (defined $product_ref) {
 

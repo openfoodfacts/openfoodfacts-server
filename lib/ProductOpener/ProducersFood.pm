@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -48,9 +48,9 @@ BEGIN {
 use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::Food
-	qw(%categories_nutriments_per_country check_availability_of_nutrients_needed_for_nutriscore compute_nutriscore_data);
+use ProductOpener::Food qw(check_availability_of_nutrients_needed_for_nutriscore compute_nutriscore_data);
 use ProductOpener::Nutriscore qw(:all);
+use ProductOpener::Stats qw(%categories_stats_per_country);
 
 use Log::Any qw($log);
 use Storable qw(dclone);
@@ -84,130 +84,8 @@ of nutrients like sugar, salt, saturated fat, fiber, proteins etc.
 
 sub detect_possible_improvements_nutriscore ($product_ref, $version = 2023) {
 
-	if ($version == 2021) {
-		detect_possible_improvements_nutriscore_2021($product_ref);
-	}
-	else {
+	if ($version == 2023) {
 		detect_possible_improvements_nutriscore_2023($product_ref);
-	}
-
-	return;
-}
-
-=head2 detect_possible_improvements_nutriscore_2021 ( $product_ref )
-
-Detect products that can get a better NutriScore grade with a slight variation
-of nutrients like sugar, salt, saturated fat, fiber, proteins etc.
-
-=cut
-
-sub detect_possible_improvements_nutriscore_2021 ($product_ref) {
-
-	$log->debug("detect_possible_improvements_nutriscore_2021 - start") if $log->debug();
-
-	return if not defined $product_ref->{nutriscore_data};
-
-	# Reduce negative nutrients
-
-	foreach my $nutrient (qw(sugars saturated_fat sodium)) {
-
-		my $lower_value = get_value_with_one_less_negative_point($product_ref->{nutriscore_data}, $nutrient);
-
-		if (defined $lower_value) {
-			my $new_nutriscore_data_ref = dclone($product_ref->{nutriscore_data});
-			$new_nutriscore_data_ref->{$nutrient} = $lower_value;
-			my ($new_nutriscore_score, $new_nutriscore_grade)
-				= ProductOpener::Food::compute_nutriscore_score_and_grade($new_nutriscore_data_ref, 2023);
-
-			# Store the result of the experiment
-			$product_ref->{nutriscore_data}{$nutrient . "_lower"} = $lower_value;
-			$product_ref->{nutriscore_data}{$nutrient . "_lower_score"} = $new_nutriscore_score;
-			$product_ref->{nutriscore_data}{$nutrient . "_lower_grade"} = $new_nutriscore_grade;
-
-			my $nutrient_short = $nutrient;
-			($nutrient eq "saturated_fat") and $nutrient_short = "saturated-fat";
-
-			if ($new_nutriscore_grade lt $product_ref->{nutriscore_grade}) {
-				my $difference = $product_ref->{nutriscore_data}{$nutrient} - $lower_value;
-				my $difference_percent = $difference / $product_ref->{nutriscore_data}{$nutrient} * 100;
-
-				my $improvements_tag;
-
-				if ($difference_percent <= 5) {
-					$improvements_tag = "en:better-nutri-score-with-slightly-less-" . $nutrient_short;
-				}
-				elsif ($difference_percent <= 10) {
-					$improvements_tag = "en:better-nutri-score-with-less-" . $nutrient_short;
-				}
-
-				if ($improvements_tag) {
-					push @{$product_ref->{improvements_tags}}, $improvements_tag;
-					$product_ref->{improvements_data}{$improvements_tag} = {
-						current_nutriscore_grade => $product_ref->{nutriscore_grade},
-						new_nutriscore_grade => $new_nutriscore_grade,
-						nutrient => $nutrient,
-						current_value => $product_ref->{nutriscore_data}{$nutrient},
-						new_value => $lower_value,
-						difference_percent => $difference_percent,
-					};
-				}
-			}
-		}
-	}
-
-	# Increase positive nutrients
-
-	foreach my $nutrient (qw(fruits_vegetables_nuts_colza_walnut_olive_oils fiber proteins)) {
-
-		# Skip if the current value of the nutrient is 0
-		next
-			if ((not defined $product_ref->{nutriscore_data}{$nutrient})
-			or ($product_ref->{nutriscore_data}{$nutrient} == 0));
-
-		my $higher_value = get_value_with_one_more_positive_point($product_ref->{nutriscore_data}, $nutrient);
-
-		if (defined $higher_value) {
-			my $new_nutriscore_data_ref = dclone($product_ref->{nutriscore_data});
-			$new_nutriscore_data_ref->{$nutrient} = $higher_value;
-			my ($new_nutriscore_score, $new_nutriscore_grade)
-				= ProductOpener::Food::compute_nutriscore_score_and_grade($new_nutriscore_data_ref);
-
-			# Store the result of the experiment
-			$product_ref->{nutriscore_data}{$nutrient . "_higher"} = $higher_value;
-			$product_ref->{nutriscore_data}{$nutrient . "_higher_score"} = $new_nutriscore_score;
-			$product_ref->{nutriscore_data}{$nutrient . "_higher_grade"} = $new_nutriscore_grade;
-
-			my $nutrient_short = $nutrient;
-			($nutrient eq "fruits_vegetables_nuts_colza_walnut_olive_oils")
-				and $nutrient_short = "fruits-and-vegetables";
-
-			if ($new_nutriscore_grade lt $product_ref->{nutriscore_grade}) {
-				my $difference = $higher_value - $product_ref->{nutriscore_data}{$nutrient};
-				my $difference_percent = $difference / $product_ref->{nutriscore_data}{$nutrient} * 100;
-
-				my $improvements_tag;
-
-				if ($difference_percent <= 5) {
-					$improvements_tag = "en:better-nutri-score-with-slightly-more-" . $nutrient_short;
-
-				}
-				elsif ($difference_percent <= 10) {
-					$improvements_tag = "en:better-nutri-score-with-more-" . $nutrient_short;
-				}
-
-				if ($improvements_tag) {
-					push @{$product_ref->{improvements_tags}}, $improvements_tag;
-					$product_ref->{improvements_data}{$improvements_tag} = {
-						current_nutriscore_grade => $product_ref->{nutriscore_grade},
-						new_nutriscore_grade => $new_nutriscore_grade,
-						nutrient => $nutrient,
-						current_value => $product_ref->{nutriscore_data}{$nutrient},
-						new_value => $higher_value,
-						difference_percent => $difference_percent,
-					};
-				}
-			}
-		}
 	}
 
 	return;
@@ -264,14 +142,13 @@ sub detect_possible_improvements_nutriscore_2023 ($product_ref) {
 				my $new_product_ref = dclone($product_ref);
 
 				# Populate the data structure that will be passed to Food::Nutriscore
-				my ($nutrients_available, $prepared, $nutriments_field)
+				my ($nutrients_available, $preparation, $estimated)
 					= check_availability_of_nutrients_needed_for_nutriscore($new_product_ref);
 
 				# Skip products with estimated nutrients
-				next if $nutriments_field eq "nutriments_estimated";
+				next if $estimated;
 
-				my $new_nutriscore_ref
-					= compute_nutriscore_data($new_product_ref, $prepared, $nutriments_field, $version);
+				my $new_nutriscore_ref = compute_nutriscore_data($new_product_ref, $preparation, $version);
 
 				# Overwrite the value of the nutrient in the Nutri-Score data
 				$new_nutriscore_ref->{$nutrient} = $new_value;
@@ -338,7 +215,7 @@ to identify possible improvement opportunities.
 
 sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 
-	my $categories_nutriments_ref = $categories_nutriments_per_country{"world"};
+	my $categories_stats_ref = $categories_stats_per_country{"world"};
 
 	$log->debug("detect_possible_improvements_compare_nutrition_facts - start") if $log->debug();
 
@@ -349,8 +226,8 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 
 	while (
 		($i >= 0)
-		and not((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
-			and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]}{nutriments}))
+		and not((defined $categories_stats_ref->{$product_ref->{categories_tags}[$i]})
+			and (defined $categories_stats_ref->{$product_ref->{categories_tags}[$i]}{values}))
 		)
 	{
 		$i--;
@@ -380,7 +257,7 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 
 			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
 				and ($product_ref->{nutriments}{$nid . "_100g"} ne "")
-				and (defined $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}))
+				and (defined $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}))
 			{
 
 				$log->debug(
@@ -388,8 +265,8 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 					{
 						nid => $nid,
 						product_100g => $product_ref->{nutriments}{$nid . "_100g"},
-						category_100g => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"},
-						category_std => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+						category_100g => $categories_stats_ref->{$specific_category}{values}{$nid}{"mean"},
+						category_std => $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					}
 				) if $log->is_debug();
 
@@ -399,8 +276,8 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 
 				if (
 					$product_ref->{nutriments}{$nid . "_100g"} > (
-						$categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"}
-							+ 2 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+						$categories_stats_ref->{$specific_category}{values}{$nid}{"mean"}
+							+ 2 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
 					)
 				{
@@ -410,8 +287,8 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 				}
 				elsif (
 					$product_ref->{nutriments}{$nid . "_100g"} > (
-						$categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"}
-							+ 1 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+						$categories_stats_ref->{$specific_category}{values}{$nid}{"mean"}
+							+ 1 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
 					)
 				{
@@ -425,7 +302,7 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 						nid => $nid,
 						category => $specific_category,
 						product_100g => $product_ref->{nutriments}{$nid . "_100g"},
-						category_100g => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"},
+						category_100g => $categories_stats_ref->{$specific_category}{values}{$nid}{"mean"},
 					};
 				}
 			}

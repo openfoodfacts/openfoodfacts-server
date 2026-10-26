@@ -31,6 +31,7 @@ use ProductOpener::Orgs qw( list_org_ids retrieve_org store_org send_rejection_e
 use ProductOpener::CRM qw( init_crm_data sync_org_with_crm );
 use ProductOpener::Store qw( retrieve store );
 use ProductOpener::Data qw( :all );
+use ProductOpener::Checkpoint;
 use Log::Any::Adapter 'TAP';
 use Encode;
 
@@ -52,22 +53,21 @@ my $dump_t = 1721061880;    # 2024-07-15 16:40:00
 # read the list of orgs to sync, one per line (stdin or file)
 my %orgs_to_accept = map {chomp; $_ => 1} <>;
 
-# load checkpoint
-# rm /mnt/podata/tmp/orgs_synced.checkpoint
-my $checkpoint_file = "$BASE_DIRS{CACHE_TMP}/orgs_synced.checkpoint";
-my $checkpoint;
-if (!-e $checkpoint_file) {
-	`touch $checkpoint_file`;
-}
-open($checkpoint, '+<:encoding(UTF-8)', $checkpoint_file) or die "Could not open file: $!";
-my %orgs_processed = map {chomp; $_ => 1} <$checkpoint>;
+# load checkpoint. Add a "resume" argument to resume from the last checkpoint
+my $checkpoint = ProductOpener::Checkpoint->new;
+my $last_org_processed = $checkpoint->{value};
+my $can_process = $last_org_processed ? 0 : 1;
 
 foreach my $org_id (sort(list_org_ids())) {
+	if (not $can_process and $org_id == $last_org_processed) {
+		$can_process = 1;
+		next;
+	}
+	next if not $can_process;
 
 	$org_id = decode utf8 => $org_id;
 	my $org_ref = retrieve_org($org_id);
 
-	next if exists $orgs_processed{$org_id};
 	next if $org_ref->{created_t} > $dump_t;
 
 	my $org_name = $org_ref->{name};
@@ -96,5 +96,5 @@ foreach my $org_id (sort(list_org_ids())) {
 	my $orgs_collection = get_orgs_collection();
 	$orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
 
-	print $checkpoint "$org_id\n";
+	$checkpoint->update($org_id);
 }

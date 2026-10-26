@@ -1,0 +1,38 @@
+{
+   "allergens_tags" : [
+      "en:gluten",
+      "en:milk",
+      "en:nuts"
+   ],
+   "lang" : "fi",
+   "languages" : {},
+   "languages_codes" : {},
+   "languages_hierarchy" : [],
+   "languages_tags" : [
+      "en:0"
+   ],
+   "lc" : "fi",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:milk",
+               "en:nuts",
+               "en:gluten"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces_tags" : []
+}

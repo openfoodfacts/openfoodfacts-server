@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -126,14 +126,14 @@ sub convert_carrefour_france_files ($file_handle, $files_ref) {
 		elsif ($file =~ /(\d+)_(\d+)_(\w+).xml/) {
 
 			$code = $2;
-			print STDERR "File $file - Code: $code\n";
+			# print STDERR "File $file - Code: $code\n";
 		}
 		else {
 			# print STDERR "Skipping file $file: unrecognized file name format\n";
 			next;
 		}
 
-		print STDERR "Reading file $file\n";
+		# print STDERR "Reading file $file\n";
 
 		if ($file =~ /_text/) {
 			# General info about the product, ingredients
@@ -571,15 +571,15 @@ sub convert_carrefour_france_files ($file_handle, $files_ref) {
 
 	print_stats();
 
-	print STDERR "$xml_errors xml errors\n";
+	# print STDERR "$xml_errors xml errors\n";
 
-	foreach my $file (@xml_errors) {
-		#print STDERR $file . "\n";
-	}
+	# foreach my $file (@xml_errors) {
+	# 	print STDERR $file . "\n";
+	# }
 
-	foreach my $nutrient (sort {$nutrients{$b} <=> $nutrients{$a}} keys %nutrients) {
-		#print STDERR $nutrient . "\t" . $nutrients{$nutrient} . "\n";
-	}
+	# foreach my $nutrient (sort {$nutrients{$b} <=> $nutrients{$a}} keys %nutrients) {
+	# 	print STDERR $nutrient . "\t" . $nutrients{$nutrient} . "\n";
+	# }
 	return;
 }
 

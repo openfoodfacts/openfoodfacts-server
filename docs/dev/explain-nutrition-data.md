@@ -1,3 +1,5 @@
+# Explain nutrition data
+
 Product fields:
  - nutrition_data_per: Whether it is per "serving" or "100g"
  - serving_size: Entered data from packaging
