@@ -332,6 +332,14 @@ my $tests_ref = [
 		sort_products_by => 'product_name',
 	},
 	{
+		test_case => 'contributor-alice-case-normalization',
+		method => 'GET',
+		path => 'facets/contributors/ALICE.json?fields=product_name',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match => '"count"\s*:\s*13',
+	},
+	{
 		test_case => 'contributor-bob',
 		method => 'GET',
 		path => 'facets/contributors/bob.json?fields=product_name',

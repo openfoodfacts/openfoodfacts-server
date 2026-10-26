@@ -4303,7 +4303,7 @@ HTML
 
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 		if ($tag_ref->{tagtype} eq 'users') {
-			deep_set($request_ref, "body_json", "creator", $tag_ref->{tagid});
+			deep_set($request_ref, "body_json", "creator", $tag_ref->{new_tagid} // $tag_ref->{tagid});
 		}
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
