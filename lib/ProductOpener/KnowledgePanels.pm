@@ -1632,6 +1632,9 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 			$panel_data_ref->{nutrition_facts_missing} = 1;
 		}
 
+		# Mark this panel to be expanded for large screens by default
+		$panel_data_ref->{expand_for} = "large";
+
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);

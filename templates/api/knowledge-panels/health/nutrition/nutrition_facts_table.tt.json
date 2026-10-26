@@ -4,7 +4,9 @@
         "health"
     ],
     "expanded": false,
-    "expand_for": "large",
+    [% IF panel.expand_for.defined %]
+    "expand_for": "[% panel.expand_for %]",
+    [% END %]
     "evaluation": "unknown",
     "title_element": {
         "title": "[% IF panel.title.defined %][% edq(panel.title) %][% ELSE %][% edq(lang('nutrition_data_table')) %][% END %]",
