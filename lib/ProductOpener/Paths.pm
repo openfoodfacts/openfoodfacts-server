@@ -122,6 +122,14 @@ Directory containing txt taxonomies
 
 $BASE_DIRS{TAXONOMIES_SRC} = _source_dir() . "/taxonomies";
 
+=head2 $BASE_DIRS{MISSPELLINGS_SRC}
+
+Directory containing misspelling correction files
+
+=cut
+
+$BASE_DIRS{MISSPELLINGS_SRC} = _source_dir() . "/misspellings";
+
 =head2 $BASE_DIRS{CONF}
 
 Directory containing configuration files
@@ -137,6 +145,14 @@ Directory for private data
 =cut
 
 $BASE_DIRS{PRIVATE_DATA} = "$data_root/data";
+
+=head2 $BASE_DIRS{PRIVATE_DATA_TESTS}
+
+Directory for private data used in tests, such as category stats
+
+=cut
+
+$BASE_DIRS{PRIVATE_DATA_TESTS} = _source_dir() . "/tests/data";
 
 =head2 $BASE_DIRS{LANG}
 

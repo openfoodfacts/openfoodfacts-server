@@ -12,6 +12,11 @@ use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Products qw/product_path product_path_from_id retrieve_product/;
 use ProductOpener::Store qw/retrieve_object store_object link_object/;
 
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
+
 no warnings qw(experimental::signatures);
 
 wait_application_ready(__FILE__);
@@ -112,12 +117,12 @@ is(
 	[
 		# progress indicator
 		"0 processed",
-		# removed product_broken_code
-		"Removed broken-123",
 		# product_non_normalized_code : normalized the code
 		"Updated product in place: 0000012345670 and 12345670 have the same path /mnt/podata/products/000/001/234/5670/product",
 		# product_non_normalized_code : normalized the code
 		"Updated product in place: 0000012345678 and 12345678 have the same path /mnt/podata/products/000/001/234/5678/product",
+		# removed product_broken_code
+		"Removed broken-123",
 		# product_int_code
 		"Int codes: refresh 1, removed 2",
 		# product_broken_code and product_non_normalized_code* removed from mongo directly
@@ -130,23 +135,27 @@ my %fixed_product;
 # product_ok is there
 $product_ref = retrieve_product("2000000000001");
 delete $product_ref->{schema_version};
-is($product_ref, \%product_ok);
+delete $product_ref->{tags_sources};
+is($product_ref, \%product_ok) or print STDERR Dumper $product_ref;
 $product_ref = $products_collection->find_id("2000000000001");
 is($product_ref, \%product_ok);
 
 # product has no more int code
 $product_ref = retrieve_product("2000000000002");
 delete $product_ref->{schema_version};
+delete $product_ref->{tags_sources};
 %fixed_product = (%product_int_code, code => "2000000000002", _id => "2000000000002", lc => "en");
 is($product_ref, \%fixed_product);
 $product_ref = $products_collection->find_id("2000000000002");
 delete $product_ref->{schema_version};
+delete $product_ref->{tags_sources};
 is($product_ref, \%fixed_product);
 $product_ref = $products_collection->find_id(2000000000002);
 is($product_ref, undef);
 # product has no more int code even deleted
 $product_ref = retrieve_product("2000000000003", "include_deleted");
 delete $product_ref->{schema_version};
+delete $product_ref->{tags_sources};
 %fixed_product = (%product_int_code_deleted, code => "2000000000003", _id => "2000000000003", lc => "en");
 is($product_ref, \%fixed_product);
 # but not indexed

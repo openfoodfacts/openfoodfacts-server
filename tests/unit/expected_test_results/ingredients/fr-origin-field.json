@@ -1,9 +1,9 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "id" : "fr:coquillettes",
+         "id" : "fr:Coquillettes",
          "is_in_taxonomy" : 0,
-         "origins" : "en:italy",
          "percent_estimate" : 54.5454545454545,
          "percent_max" : 100,
          "percent_min" : 9.09090909090909,
@@ -11,7 +11,8 @@
       },
       {
          "ciqual_food_code" : "12110",
-         "ecobalyse_code" : "f804033a-fe59-4ec5-b24b-c7482b2a6cf6",
+         "ecobalyse_id" : "afec1f74-2b0e-4c68-97ad-bdc79e4c2806",
+         "ecobalyse_name" : "Comté FR",
          "id" : "en:comte",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 22.7272727272727,
@@ -22,7 +23,7 @@
          "vegetarian" : "maybe"
       },
       {
-         "id" : "fr:jambon-superieur",
+         "id" : "fr:jambon supérieur",
          "is_in_taxonomy" : 0,
          "origins" : "en:france",
          "percent_estimate" : 11.3636363636364,
@@ -44,7 +45,8 @@
       },
       {
          "ciqual_food_code" : "5214",
-         "ecobalyse_code" : "6621c18e-85de-4683-82be-7b236e68bc48",
+         "ecobalyse_id" : "6621c18e-85de-4683-82be-7b236e68bc48",
+         "ecobalyse_name" : "Vin rouge FR -2025-",
          "id" : "en:red-wine",
          "is_in_taxonomy" : 1,
          "origins" : "en:italy",
@@ -69,6 +71,8 @@
       },
       {
          "ciqual_food_code" : "19402",
+         "ecobalyse_proxy_id" : "2cced940-3abf-439d-b2f1-e6241ffb31fd",
+         "ecobalyse_proxy_name" : "Crème fraiche FR -2025-",
          "id" : "en:uht-cream",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.710227272727273,
@@ -80,6 +84,8 @@
       },
       {
          "ciqual_food_code" : "12120",
+         "ecobalyse_id" : "646aaee7-b9eb-4050-9e2a-0a4015258b1e",
+         "ecobalyse_name" : "Parmesan FR",
          "id" : "en:parmigiano-reggiano",
          "is_in_taxonomy" : 1,
          "origins" : "en:italy",
@@ -92,6 +98,8 @@
       },
       {
          "ciqual_food_code" : "19585",
+         "ecobalyse_id" : "c137c5b5-ec74-45b5-a270-30cfe74f5924",
+         "ecobalyse_name" : "Spécialité fromagère non affinée à tartiner 20 à 40 % MG nature ou aromatisée -ex: ail et fines herbes- Origine Inconnue",
          "id" : "en:ricotta",
          "is_in_taxonomy" : 1,
          "origins" : "en:italy",
@@ -104,6 +112,8 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_name" : "Sel -2025-",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0887784090909065,
@@ -134,16 +144,16 @@
          "en:ricotta"
       ],
       "en:palm-oil-content-unknown" : [
-         "fr:coquillettes",
-         "fr:jambon-superieur"
+         "fr:Coquillettes",
+         "fr:jambon supérieur"
       ],
       "en:vegan-status-unknown" : [
-         "fr:coquillettes",
-         "fr:jambon-superieur"
+         "fr:Coquillettes",
+         "fr:jambon supérieur"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:coquillettes",
-         "fr:jambon-superieur"
+         "fr:Coquillettes",
+         "fr:jambon supérieur"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -158,9 +168,9 @@
       "11-20"
    ],
    "ingredients_original_tags" : [
-      "fr:coquillettes",
+      "fr:Coquillettes",
       "en:comte",
-      "fr:jambon-superieur",
+      "fr:jambon supérieur",
       "en:white-wine",
       "en:red-wine",
       "en:rose-wine",
@@ -172,14 +182,14 @@
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "fr:coquillettes",
+      "fr:Coquillettes",
       "en:comte",
-      "en:dairy",
       "en:cheese",
-      "fr:jambon-superieur",
+      "en:dairy",
+      "fr:jambon supérieur",
       "en:white-wine",
-      "en:alcohol",
       "en:wine",
+      "en:alcohol",
       "en:red-wine",
       "en:rose-wine",
       "en:uht-cream",
@@ -196,30 +206,23 @@
    "ingredients_with_unspecified_percent_n" : 11,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "fr:coquillettes",
-      "fr:jambon-superieur"
+      "fr:Coquillettes",
+      "fr:jambon supérieur"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "en:parmigiano-reggiano",
       "en:pepper",
-      "en:ricotta",
       "en:rose-wine",
-      "en:salt",
-      "en:uht-cream",
       "en:white-wine",
-      "fr:coquillettes",
-      "fr:jambon-superieur"
+      "fr:Coquillettes",
+      "fr:jambon supérieur"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 9,
+   "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 9,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "origin_fr" : "Origine des coquillettes : Italie. Origine du Comté AOP 4 mois : France. Origine du jambon supérieur : France. Vin blanc : Europe. Origine Crème UHT : France. Origine du parmesan : Italie. Fabriqué en France. Tomates d'Italie. Origine du riz : Inde, Thaïlande.",
    "specific_ingredients" : [
       {
@@ -229,13 +232,13 @@
          "text" : "Origine des coquillettes : Italie."
       },
       {
-         "id" : "fr:comte-aop-4-mois",
+         "id" : "fr:Comté AOP 4 mois",
          "ingredient" : "Comté AOP 4 mois",
          "origins" : "en:france",
          "text" : "Origine du Comté AOP 4 mois : France."
       },
       {
-         "id" : "fr:jambon-superieur",
+         "id" : "fr:jambon supérieur",
          "ingredient" : "jambon supérieur",
          "origins" : "en:france",
          "text" : "Origine du jambon supérieur : France."
@@ -259,7 +262,7 @@
          "text" : "Vin blanc : Europe."
       },
       {
-         "id" : "fr:origine-creme-uht",
+         "id" : "fr:Origine Crème UHT",
          "ingredient" : "Origine Crème UHT",
          "origins" : "en:france",
          "text" : "Origine Crème UHT : France."

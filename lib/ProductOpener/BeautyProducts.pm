@@ -51,7 +51,6 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text/;
-use ProductOpener::Food qw/compute_nutrition_data_per_100g_and_per_serving assign_categories_properties_to_product/;
 
 use Log::Any qw($log);
 
@@ -74,9 +73,6 @@ sub specific_processes_for_beauty_product ($product_ref) {
 	$product_ref->{ingredients_lc} = select_ingredients_lc($product_ref);
 	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
-
-	# Serving size
-	compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
 	return;
 }
