@@ -277,7 +277,7 @@
       {
          "attributes" : [
             {
-               "description_short" : "1 ultra-processing marker",
+               "description_short" : "3 ultra-processing markers",
                "grade" : "e",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                "id" : "nova",
@@ -1029,10 +1029,6 @@
    "nova_groups_markers" : {
       "3" : [
          [
-            "additives",
-            "en:e202"
-         ],
-         [
             "categories",
             "en:cheeses"
          ],
@@ -1044,7 +1040,15 @@
       "4" : [
          [
             "additives",
+            "en:e202"
+         ],
+         [
+            "additives",
             "en:e322"
+         ],
+         [
+            "ingredients",
+            "en:e202"
          ]
       ]
    },
