@@ -21,16 +21,16 @@
     [% IF (current_link.defined) && !(jqm.defined) %]
       [% IF !(server_options_producers_platform) %]
       [% IF country != 'en:world' %]
-        <p>&rarr; <a href= "[% world_subdomain %][% current_link %]"> [% lang('view_results_from_the_entire_world') %]</a></p>
+        <p>&rarr; <a href= "[% world_subdomain | html %][% current_link | html %]"> [% lang('view_results_from_the_entire_world') %]</a></p>
       [% END %]
       [% END %]
       <!-- display a permalink if the url is for a script that may have POST parameters -->
       [% IF current_link.match('/(search|search.pl)') %]
-        <p>&rarr; <a href="[% current_link %]">[% lang('search_link') %]</a></p>
+        <p>&rarr; <a href="[% current_link | html %]">[% lang('search_link') %]</a></p>
       [% END %]
     [% END %]
     [% IF (current_link_query_edit.defined) && !(jqm.defined) %]
-      <p>&rarr; <a href="[% current_link_query_edit %]">[% lang('search_edit') %]</a></p>
+      <p>&rarr; <a href="[% current_link_query_edit | html %]">[% lang('search_edit') %]</a></p>
     [% END %]
   </div>
 </div>
@@ -42,11 +42,11 @@
       [% IF count <= export_limit %]
       <ul>
         <li>
-          <a href="[% current_link_query_download %]&amp;format=xlsx">[% lang('search_download_xlsx') %]</a>
+          <a href="[% current_link_query_download | html %]&amp;format=xlsx">[% lang('search_download_xlsx') %]</a>
           ([% lang('search_download_xlsx_description') %])
         </li>
         <li>
-          <a href="[% current_link_query_download %]&amp;format=csv">[% lang('search_download_csv') %]</a>
+          <a href="[% current_link_query_download | html %]&amp;format=csv">[% lang('search_download_csv') %]</a>
           ([% lang('search_download_csv_description') %])
         </li>
       </ul>
@@ -73,7 +73,7 @@
           <ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
           [% FOREACH sort_option IN sort_options %]
             <li>
-              <a href="[% sort_option.link %]" onclick="\$.cookie('last_sort_by', '[% sort_option.value | uri %]', { expires: 180, path: '/' });">[% sort_option.name | html %]</a>
+              <a href="[% sort_option.link | html %]" onclick="\$.cookie('last_sort_by', '[% sort_option.value | html %]', { expires: 180, path: '/' });">[% sort_option.name | html %]</a>
             </li>
         [% END %]
           </ul>
@@ -88,7 +88,7 @@
           <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
           [% FOREACH newtagtype IN current_drilldown_fields %]
             <li>
-              <a href="[% IF newtagtype.current_link == '' %]/facets[% ELSE %][% newtagtype.current_link %][% END %]/[% newtagtype.tag_type_plural | uri %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a>
+              <a href="[% IF newtagtype.current_link == '' %]/facets[% ELSE %][% newtagtype.current_link | html %][% END %]/[% newtagtype.tag_type_plural | html %]"[% newtagtype.nofollow %]>[% lang("${newtagtype.tagtype}_p") FILTER ucfirst %]</a>
             </li>
           [% END %]
           </ul>

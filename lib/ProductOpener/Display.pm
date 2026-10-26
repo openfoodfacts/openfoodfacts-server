@@ -304,7 +304,14 @@ $tt = Template->new(
 				my $text = shift;
 				return '' unless defined $text;
 				# Encode the text as a JSON string for safe inclusion in JavaScript
-				return $json->encode($text);
+				my $encoded = $json->encode($text);
+				# Escape <, > and & so the JSON string cannot break out of an
+				# HTML <script> block (e.g. a value containing </script>).
+				# \uXXXX escapes are valid JSON and decode to the same characters.
+				$encoded =~ s/</\\u003c/g;
+				$encoded =~ s/>/\\u003e/g;
+				$encoded =~ s/&/\\u0026/g;
+				return $encoded;
 			},
 		},
 	}
@@ -5549,8 +5556,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			# For non API queries, we will display the products in a template (this is for SEO, before personal search products are displayed through Javascript)
 			if (not defined $request_ref->{api}) {
 				my $product_display_name = $product_ref->{product_display_name} // '';
-				# Prevent the quantity "750 g" to be split on two lines
-				$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
+				# Stored product names are pre-escaped (e.g. '"' as '&quot;'), while the
+				# template escapes with | html. Decode here to avoid double-escaping.
+				$product_display_name = HTML::Entities::decode_entities($product_display_name);
+				# Prevent the quantity "750 g" to be split on two lines.
+				# Use a real non-breaking space (not the '&nbsp;' entity),
+				# as | html would double-escape '&nbsp;' to '&amp;nbsp;'.
+				$product_display_name =~ s/(.*) (.*?)/$1\xA0$2/;
 
 				push @{$template_data_ref->{structured_response_products}},
 					{
@@ -8136,6 +8148,11 @@ JS
 	}
 
 	$title = product_name_brand_quantity($product_ref);
+	# Product fields are stored pre-escaped at write time (see
+	# preprocess_product_field / remove_tags_and_quote, e.g. '"' is stored
+	# as '&quot;'). Templates now escape with | html, so decode here to
+	# avoid double-escaping (which would display '&quot;' literally).
+	$title = HTML::Entities::decode_entities($title);
 	my $titleid = get_string_id_for_lang($lc, product_name_brand($product_ref));
 
 	if (not $title) {

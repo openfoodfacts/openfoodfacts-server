@@ -172,7 +172,7 @@
 									[% user.name | html %]
 								</a>
 								<ul class="dropdown">
-									[% IF oidc_implementation_level < 5 %]<li><a href="/cgi/user.pl?type=edit&amp;userid=[% user_id | uri %]"><span class="material-icons">settings</span> [% lang('edit_user') %]</a></li>[% ELSE %]<li><a href="[% keycloak_account_link %]" target="_blank" rel="noopener"><span class="material-icons">account_box</span> [% lang('edit_user') %]</a></li>
+									[% IF oidc_implementation_level < 5 %]<li><a href="/cgi/user.pl?type=edit&amp;userid=[% user_id | uri %]"><span class="material-icons">settings</span> [% lang('edit_user') %]</a></li>[% ELSE %]<li><a href="[% keycloak_account_link | html %]" target="_blank" rel="noopener"><span class="material-icons">account_box</span> [% lang('edit_user') %]</a></li>
 										<li><a href="/cgi/user.pl?type=edit&amp;userid=[% user_id | uri %]"><span class="material-icons">settings</span> [% lang('edit_user_preferences') %]</a></li>[% END %]
 
 									[% IF org_id %]
@@ -189,9 +189,9 @@
 									[% IF !(server_options_producers_platform) %]
 									<li class="divider"></li>
 									<li><label>[% lang('your_contributions') %]</label></li>
-									<li><a href="/facets[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
-									<li><a href="/facets[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
-									<li><a href="/facets[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
+									<li><a href="/facets[% canonicalize_taxonomy_tag_link("users", user_id) | html %]">[% lang('products_added') %]</a></li>
+									<li><a href="/facets[% canonicalize_taxonomy_tag_link("editors", user_id) | html %]">[% lang('products_edited') %]</a></li>
+									<li><a href="/facets[% canonicalize_taxonomy_tag_link("photographers", user_id) | html %]">[% lang('products_photographed') %]</a></li>
 									[% END %]
 									<li class="divider"></li>
 									<li class="has-form">
@@ -310,7 +310,7 @@
 					<a href="[% mobile.link | html %]&amp;utm_campaign=mobile-app-top-banner-[% language | uri %]" id="mobile-app-top-banner" class="button large expand success">
 					<div class="row collapse">
 						<div class="small-6 columns">
-							[% mobile.text %]
+							[% mobile.text | html %]
 						</div>
 						<div class="small-6 columns">
 							[% IF mobile.system == "ios" %]

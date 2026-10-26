@@ -274,7 +274,7 @@
 
     [% IF text_element.source_url.defined %]
         <em>[% lang("source") %][% sep %]:
-            <a href="[% text_element.source_url %]">[% text_element.source_text | html %]
+            <a href="[% text_element.source_url | html %]">[% text_element.source_text | html %]
                 [% IF text_element.source_lc.defined && text_element.source_lc != lc %]
                 <!-- source is in a different language than the interface -->
                 ([% text_element.source_language | html %])
@@ -306,7 +306,7 @@
     [% FOREACH action IN action_element.actions %]
         <div>
             <a class="button small action-[% action | html %]"
-                href="[% product_action_url(product.code, action) %]">
+                href="[% product_action_url(product.code, action) | html %]">
                 [% lang("action_$action") %]
             </a>
         </div>
@@ -325,13 +325,13 @@
     #---------------------------------------------------------------------- ~%]
 
     [% image_element = element_ref.image_element %]
-    [% IF image_element.link_url.defined %]<a href="[% image_element.link_url %]">[% END %]
-        <img src="[% image_element.url %]" alt="[% image_element.alt | html %]">
+    [% IF image_element.link_url.defined %]<a href="[% image_element.link_url | html %]">[% END %]
+        <img src="[% image_element.url | html %]" alt="[% image_element.alt | html %]">
     [% IF image_element.link_url.defined %]</a>[% END %]
 
     [% IF image_element.source_url.defined %]
     <div class="image_source" style="font-style:italic">[% lang("source") %][% sep %]:
-        <a href="[% image_element.source_url %]">[% image_element.source_text | html %]
+        <a href="[% image_element.source_url | html %]">[% image_element.source_text | html %]
             [% IF image_element.source_lc.defined && image_element.source_lc != lc %]
             <!-- source is in a different language than the interface -->
             ([% image_element.source_language | html %])
