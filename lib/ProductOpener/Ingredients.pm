@@ -61,6 +61,7 @@ BEGIN {
 		&parse_ingredients_text_service
 		&extend_ingredients_service
 		&estimate_ingredients_percent_service
+		&get_missing_ecobalyse_ids
 
 		&extract_ingredients_from_image
 
@@ -1127,7 +1128,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ca => "(?:origen)",
 		cs => "(?:země původu)",
 		da => "(?:oprindelse)",
-		de => "(?:ursprungsland|herkunftsland)",
+		de => "(?:ursprungsland|herkunftsland|Herkunft)",
 		el => "(?:χώρα προέλευσης|προέλευση)",
 		es => "(?:origen)",
 		et => "(?:päritolu(?:riik)?)",
@@ -3191,9 +3192,10 @@ Text to analyze
 							],
 
 							'nl' => [
-								'^allergie.informatie$', 'in wisselende verhoudingen',
-								'harde fractie', 'o\.a\.',
-								'en',
+								'^allergie.informatie$',
+								'in wisselende verhoudingen',
+								'harde fractie',
+								'o\.a\.',    # "onder andere" = "among others"
 							],
 
 							'pl' => [
@@ -4132,6 +4134,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# ecobalyse_labels_organic (if the product is organic)
 		# ecobalyse_origins_france (if the product comes from france)
 		# ecobalyse_origins_en_europe_and_maghreb (if the product comes from Europe and Maghreb region)
+		# ecobalyse_origins_en_france_overseas (if the product comes from France overseas, e.g. Guadeloupe)
 		# ecobalyse (else)
 
 		# List of suffixes
@@ -4153,6 +4156,14 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		{
 			push @suffixes, "_labels_en_organic_origins_en_europe_and_maghreb";
 		}
+		# If the ingredient is both organic and from France overseas...
+		if (    (defined $ingredient_ref->{labels})
+			and ($ingredient_ref->{labels} =~ /\ben:organic\b/)
+			and (defined $ingredient_ref->{origins})
+			and (get_geographical_area($ingredient_ref->{origins}) eq "france_overseas"))
+		{
+			push @suffixes, "_labels_en_organic_origins_en_france_overseas";
+		}
 		# If the ingredient is organic...
 		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
 			push @suffixes, "_labels_en_organic";
@@ -4166,27 +4177,62 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
 			push @suffixes, "_origins_en_europe_and_maghreb";
 		}
+		# If the ingredient is from France overseas...
+		if (    (defined $ingredient_ref->{origins})
+			and (get_geographical_area($ingredient_ref->{origins}) eq "france_overseas"))
+		{
+			push @suffixes, "_origins_en_france_overseas";
+		}
 		push @suffixes, '';
 
 		# First try an exact match, and then a proxy match
-		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
+		my @prefixes = ("ecobalyse", "ecobalyse_proxy");
+		# If the proxy comes from a closer level of the taxonomy than the exact match,
+		# the proxy is more specific and is tried first
+		# (e.g. en:chicken has a chicken breast proxy, and its parent en:poultry has an exact match:
+		# en:chicken and its children like en:chicken-fillet should use the chicken breast proxy)
+		my (undef, $exact_tagid)
+			= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, "ecobalyse_id:en");
+		my (undef, $proxy_tagid)
+			= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy_id:en");
+		if (    (defined $exact_tagid)
+			and (defined $proxy_tagid)
+			and ($proxy_tagid ne $exact_tagid)
+			and (is_a("ingredients", $proxy_tagid, $exact_tagid)))
+		{
+			@prefixes = ("ecobalyse_proxy", "ecobalyse");
+		}
+		my %base_tagids = (ecobalyse => $exact_tagid, ecobalyse_proxy => $proxy_tagid);
+		foreach my $prefix (@prefixes) {
 			# Loop through each suffix to retrieve ecobalyse code
 			foreach my $suffix (@suffixes) {
 				# Construct the property name using the prefix and suffix
 				my $property_name = $prefix . $suffix . "_id" . ":en";
 
 				# Attempt to retrieve the ecobalyse code for the current property name
-				my $ecobalyse_id = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
+				my ($ecobalyse_id, $matching_tagid)
+					= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, $property_name);
+				next if not defined $ecobalyse_id;
 
-				if (defined $ecobalyse_id) {
-					# Assign the ecobalyse code if found
-					$ingredient_ref->{$prefix . "_id"} = $ecobalyse_id;
-					# Also retrieve the corresponding French display name
-					my $name_property = $prefix . $suffix . "_name:fr";
-					my $ecobalyse_name = get_inherited_property("ingredients", $ingredient_ref->{id}, $name_property);
-					$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
-					last;
-				}
+				# A label or origin variant is used only if it comes from the taxonomy level
+				# that has the base match (without label and origin), or from a level below it.
+				# Variants of parents above the base match are for a different product
+				# (e.g. for organic rice flour, en:rice-flour has a base match but no organic variant:
+				# we use the rice flour base match, and not the organic rice variant of the en:rice parent)
+				# Without a base match (e.g. when the base match of the parents is blocked with an "undef"
+				# value, as for foie gras), no variant is used.
+				my $base_tagid = $base_tagids{$prefix};
+				next if not defined $base_tagid;
+				next
+					if ($matching_tagid ne $base_tagid)
+					and (not is_a("ingredients", $matching_tagid, $base_tagid));
+
+				# Assign the ecobalyse code if found
+				$ingredient_ref->{$prefix . "_id"} = $ecobalyse_id;
+				# Also retrieve the corresponding French display name, from the same taxonomy level
+				my $ecobalyse_name = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_name:fr");
+				$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
+				last;
 			}
 			# Exit the loop if a valid ecobalyse code was found
 			last if defined $ingredient_ref->{$prefix . "_id"};
@@ -4215,6 +4261,8 @@ reference to the name of the country
 
 =head4 $ecobalyse_area
 
+"fr" (France), "eu" (Europe and Maghreb), "france_overseas" (France d'outre-mer) or "" (other / unknown)
+
 =cut
 
 sub get_geographical_area ($originid) {
@@ -4228,6 +4276,10 @@ sub get_geographical_area ($originid) {
 	}
 	if ($originid eq "en:france") {
 		$ecobalyse_area = "fr";
+	}
+	# France overseas (France d'outre-mer, ROF in Ecobalyse): e.g. en:guadeloupe, en:reunion
+	if (($originid eq "en:france-overseas") or (is_a("origins", $originid, "en:france-overseas"))) {
+		$ecobalyse_area = "france_overseas";
 	}
 
 	return $ecobalyse_area;
@@ -5914,6 +5966,7 @@ my %phrases_after_ingredients_list = (
 		'DURCHSCHNITTLICHE NÄHRWERTE',
 		'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
 		'für Allergene',
+		'g\. U\.',
 		# 'Kakao: \d\d\s?% mindestens.', # allergens can appear after.
 		'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)',    #Nährwertangaben pro 100g
 		'N(â|a|ä)hrwerte je',
@@ -7778,12 +7831,24 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
 
-	# mono-glycéride -> monoglycérides
-	$text =~ s/\b(mono|di)\s?-\s?([a-z])/$1$2/ig;
-	$text =~ s/\bmono\s-\s/mono- /ig;
-	$text =~ s/\bmono\s/mono- /ig;
-	#  émulsifiant mono-et diglycérides d'acides gras
-	$text =~ s/mono($and_without_spaces) /mono- $1 /ig;
+	# mono-, di-, tri-, tetra- and poly- prefixes followed by "and" and another prefix:
+	# "mono - et diglycérides", "mono-et diglycérides", "di - et triphosphates", "tri - and dicalcium phosphate"
+	# -> "mono- et diglycérides", "di- et triphosphates", "tri- and dicalcium phosphate"
+	my $multi_prefix = '(?:mono|di|tri|tetra|poly)';
+	$text =~ s/\b($multi_prefix)\s?-\s?($and_without_spaces)\s+(?=$multi_prefix)/$1- $2 /ig;
+	# same with another short word (typo, or "and" in another language), so that the dash is not a separator
+	# and we keep 1 ingredient: "mono - ti digliceride" -> "mono- ti digliceride"
+	$text =~ s/\b($multi_prefix)\s?-\s?(\p{L}{1,3})\s+(?=$multi_prefix)/$1- $2 /ig;
+	# "mono et diglycérides" -> "mono- et diglycérides"
+	$text =~ s/\b($multi_prefix)\s+($and_without_spaces)\s+(?=$multi_prefix)/$1- $2 /ig;
+	# "mono-diglycérides", "mono - di-glycérides" -> "mono- et diglycérides"
+	my ($first_and) = split(/\|/, $and);
+	$first_and =~ s/^\s+|\s+$//g;
+	$text =~ s/\b(mono)\s?-\s?(?=di\s?-?\s?gl[iy]c)/$1- $first_and /ig;
+	# mono-glycéride -> monoglycérides, di-potassium -> dipotassium
+	# only before words of 4+ letters, so that we do not join "and" words of other languages ("mono - und")
+	# or "di-t-butyl"
+	$text =~ s/\b(mono|di)\s?-\s?(\p{L}{4})/$1$2/ig;
 
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
@@ -8604,7 +8669,9 @@ sub replace_allergen ($language, $product_ref, $allergen, $before) {
 	if ($language eq $ingredients_lc) {
 		# skip allergens like "moutarde et céleri" (will be caught later by replace_allergen_between_separators)
 		if (not(($language eq 'fr') and $allergen =~ / et /i)) {
-			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
+			my $tagid = canonicalize_taxonomy_tag($language, "allergens", $allergen);
+			my $allergen_tag = exists_taxonomy_tag("allergens", $tagid) ? $tagid : ($language . ':' . $allergen);
+			$product_ref->{$field . "_from_ingredients"} .= $allergen_tag . ', ';
 		}
 	}
 
@@ -8628,7 +8695,7 @@ sub replace_allergen_in_caps ($language, $product_ref, $allergen, $before) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $ingredients_lc) {
-			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
+			$product_ref->{$field . "_from_ingredients"} .= $tagid . ', ';
 		}
 		return '<span class="allergen">' . $allergen . '</span>';
 	}
@@ -8694,7 +8761,7 @@ sub replace_allergen_between_separators ($language, $product_ref, $start_separat
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $ingredients_lc) {
-			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
+			$product_ref->{$field . "_from_ingredients"} .= $tagid . ', ';
 		}
 		return
 			  $start_separator
@@ -8883,7 +8950,7 @@ sub detect_allergens_from_text ($product_ref) {
 		my $allergens_from_ingredients = $product_ref->{$field . "_from_ingredients"} // "";
 		$allergens_from_ingredients =~ s/,\s$//;    # remove last comma
 
-		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc};
+		my $tag_lc = $ingredients_lc || $product_ref->{lc};
 
 		# Set the tags_source "ingredients" for allergens and traces detected from ingredients
 		set_field_input_tags_for_source($product_ref, $tag_lc, $field, "ingredients", $allergens_from_ingredients);

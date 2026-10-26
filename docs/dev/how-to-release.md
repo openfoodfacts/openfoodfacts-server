@@ -47,10 +47,6 @@ To deploy you need to execute the following steps:
    ```bash
    sudo -u off bash -c "cd /srv/$SERVICE; source env/setenv.sh $SERVICE; ./scripts/taxonomies/build_tags_taxonomy.pl --jobs=4;./scripts/build_lang.pl"
    ```
-1. on the PRO platform, also rebuild the fields columns names
-   ```bash
-   sudo -u off bash -c "cd /srv/$SERVICE;source env/setenv.sh $SERVICE;./scripts/build_pro_platform_fields_columns_names.pl"
-   ```
 1. update openfoodfacts-web content (using version you just released):
    ```bash
    sudo -u off bash -c "cd /srv/openfoodfacts-web/; git fetch; git checkout $WEB_VERSION"
