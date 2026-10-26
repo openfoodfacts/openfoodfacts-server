@@ -99,7 +99,7 @@
                "name" : "Sugar"
             },
             {
-               "ecobalyse_name" : "Farine UE -2025-",
+               "ecobalyse_name" : "Farine UE agrégée -2025-",
                "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                "mass" : 16.6666666666667,
                "name" : "wheat flour"
@@ -111,14 +111,10 @@
                "name" : "butter"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 100,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -135,12 +131,6 @@
                {
                   "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
                   "mass" : 16.6666666666667
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
                }
             ]
          },
@@ -427,8 +417,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
+         "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_name" : "Farine UE agrégée -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -866,7 +856,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Taxonomy ID</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>Sugar</span></td><td style=\"padding:2px 6px\">en:sugar</td><td style=\"padding:2px 6px\">maybe</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">31016</td><td style=\"text-align:right;padding:2px 6px\">66.7</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>wheat flour</span></td><td style=\"padding:2px 6px\">en:wheat-flour</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">9410</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>butter</span></td><td style=\"padding:2px 6px\">en:butter</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">16400</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
+                  "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">taxonomy_id</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>Sugar</span></td><td style=\"padding:2px 6px\">en:sugar</td><td style=\"padding:2px 6px\">maybe</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">31016</td><td style=\"text-align:right;padding:2px 6px\">66.7</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>wheat flour</span></td><td style=\"padding:2px 6px\">en:wheat-flour</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">9410</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>butter</span></td><td style=\"padding:2px 6px\">en:butter</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">16400</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
                }
             },
             {
@@ -1161,7 +1151,7 @@
                               "text" : "Energy"
                            },
                            {
-                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
                            }
                         ]
                      },
@@ -1173,7 +1163,7 @@
                               "text" : "Fat"
                            },
                            {
-                              "text" : "~ 14.0666666666667 g"
+                              "text" : "~ 14.067 g"
                            }
                         ]
                      },
@@ -1185,7 +1175,7 @@
                               "text" : "Saturated fat"
                            },
                            {
-                              "text" : "~ 9.27833333333333 g"
+                              "text" : "~ 9.278 g"
                            }
                         ]
                      },
@@ -1197,7 +1187,7 @@
                               "text" : "Carbohydrates"
                            },
                            {
-                              "text" : "~ 78.1166666666667 g"
+                              "text" : "~ 78.117 g"
                            }
                         ]
                      },
@@ -1209,7 +1199,7 @@
                               "text" : "Sugars"
                            },
                            {
-                              "text" : "~ 66.9383333333333 g"
+                              "text" : "~ 66.938 g"
                            }
                         ]
                      },
@@ -1221,7 +1211,7 @@
                               "text" : "Fiber"
                            },
                            {
-                              "text" : "~ 1.13333333333333 g"
+                              "text" : "~ 1.133 g"
                            }
                         ]
                      },
@@ -1233,7 +1223,7 @@
                               "text" : "Proteins"
                            },
                            {
-                              "text" : "~ 1.71833333333333 g"
+                              "text" : "~ 1.718 g"
                            }
                         ]
                      },
@@ -1245,7 +1235,7 @@
                               "text" : "Salt"
                            },
                            {
-                              "text" : "~ 0.0246 g"
+                              "text" : "~ 0.025 g"
                            }
                         ]
                      },
@@ -1317,10 +1307,10 @@
                               "text" : "Energy"
                            },
                            {
-                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
                            },
                            {
-                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
                            }
                         ]
                      },
@@ -1332,10 +1322,10 @@
                               "text" : "Fat"
                            },
                            {
-                              "text" : "~ 14.0666666666667 g"
+                              "text" : "~ 14.067 g"
                            },
                            {
-                              "text" : "~ 14.0666666666667 g"
+                              "text" : "~ 14.067 g"
                            }
                         ]
                      },
@@ -1347,10 +1337,10 @@
                               "text" : "Saturated fat"
                            },
                            {
-                              "text" : "~ 9.27833333333333 g"
+                              "text" : "~ 9.278 g"
                            },
                            {
-                              "text" : "~ 9.27833333333333 g"
+                              "text" : "~ 9.278 g"
                            }
                         ]
                      },
@@ -1362,10 +1352,10 @@
                               "text" : "Carbohydrates"
                            },
                            {
-                              "text" : "~ 78.1166666666667 g"
+                              "text" : "~ 78.117 g"
                            },
                            {
-                              "text" : "~ 78.1166666666667 g"
+                              "text" : "~ 78.117 g"
                            }
                         ]
                      },
@@ -1377,10 +1367,10 @@
                               "text" : "Sugars"
                            },
                            {
-                              "text" : "~ 66.9383333333333 g"
+                              "text" : "~ 66.938 g"
                            },
                            {
-                              "text" : "~ 66.9383333333333 g"
+                              "text" : "~ 66.938 g"
                            }
                         ]
                      },
@@ -1392,10 +1382,10 @@
                               "text" : "Fiber"
                            },
                            {
-                              "text" : "~ 1.13333333333333 g"
+                              "text" : "~ 1.133 g"
                            },
                            {
-                              "text" : "~ 1.13333333333333 g"
+                              "text" : "~ 1.133 g"
                            }
                         ]
                      },
@@ -1407,10 +1397,10 @@
                               "text" : "Proteins"
                            },
                            {
-                              "text" : "~ 1.71833333333333 g"
+                              "text" : "~ 1.718 g"
                            },
                            {
-                              "text" : "~ 1.71833333333333 g"
+                              "text" : "~ 1.718 g"
                            }
                         ]
                      },
@@ -1422,10 +1412,10 @@
                               "text" : "Salt"
                            },
                            {
-                              "text" : "~ 0.0246 g"
+                              "text" : "~ 0.025 g"
                            },
                            {
-                              "text" : "~ 0.0246 g"
+                              "text" : "~ 0.025 g"
                            }
                         ]
                      },
@@ -1638,6 +1628,9 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-not-computed",

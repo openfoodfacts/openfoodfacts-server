@@ -16,8 +16,7 @@
    "additives_tags" : [],
    "allergens_imported" : "en:eggs",
    "allergens_tags" : [
-      "en:eggs",
-      "lc:ŒUFS"
+      "en:eggs"
    ],
    "amino_acids_tags" : [],
    "brands" : "Auchan",
@@ -162,6 +161,7 @@
       "ecobalyse_input" : {
          "distribution" : "ambient",
          "ingredients" : [],
+         "ingredients_coverage_percent" : 0,
          "packaging" : [
             {
                "category" : "en:eggs",
@@ -169,7 +169,10 @@
                "name" : "Eggs, powder, 800g | Packaging System, Proxy Pack, Steel {FR} U",
                "name_fr" : "Pot en acier pour œufs en poudre - 800g - Proxy"
             }
-         ]
+         ],
+         "reference_quantity" : 380,
+         "reference_quantity_source" : "product_quantity",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -183,7 +186,9 @@
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -825,6 +830,9 @@
    "main_countries_tags" : [],
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-reference-quantity-from-product-quantity",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
@@ -886,7 +894,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 4,
+            "negative_points_max" : 0,
             "positive_points" : 5,
+            "positive_points_max" : 0,
             "proteins" : 13,
             "proteins_points" : 5,
             "proteins_value" : 13.0,
@@ -1392,7 +1402,7 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : [
-               "lc:ŒUFS"
+               "en:eggs"
             ]
          },
          "packaging" : {

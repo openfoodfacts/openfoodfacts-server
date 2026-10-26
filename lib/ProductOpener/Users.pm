@@ -77,6 +77,7 @@ BEGIN {
 
 		&check_session
 		&open_user_session
+		&update_user_session_tokens
 		&remove_user_session
 		&remove_all_user_sessions
 		&is_stale_user_session
@@ -486,7 +487,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	# Assigning 'userid' to 0 -- if userid is not defined
 	$user_ref->{userid} = remove_tags_and_quote(single_param('userid'));
 
-	my $is_spam = undef;
+	my $spam_reason;
 	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
 	if (defined single_param('name')) {
 		$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
@@ -494,22 +495,34 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		# Check for spam
 		# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
 		if (is_suspicious_name($user_ref->{name})) {
-			$is_spam = 1;
+			$spam_reason = "name";
 		}
 	}
 
 	# check for spam, that may have filled the honeypot faxnumber field
 	my $faxnumber = single_param('faxnumber');
 	if ((defined $faxnumber) and ($faxnumber ne "")) {
-		$is_spam = 1;
+		$spam_reason = "faxnumber";
 	}
-	if ($is_spam) {
+
+	# Spam bots that register accounts with random names send newsletter=1
+	# (the web form and the apps send "on")
+	if (($type eq 'add') and ((single_param('newsletter') // '') eq '1')) {
+		$spam_reason = "newsletter";
+	}
+
+	if (defined $spam_reason) {
 		# log the ip
 		open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
-		print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{userid} . "\t" . $user_ref->{name} . "\n";
+		print $log remote_addr() . "\t"
+			. time() . "\t"
+			. $user_ref->{userid} . "\t"
+			. ($user_ref->{name} // '') . "\t"
+			. $spam_reason . "\n";
 		close($log);
-		# bail out, return 200 status code
-		display_error_and_exit($request_ref, "", 200);
+		# We do not create or update the account, but we pretend that we did,
+		# so that spammers do not notice and do not change their requests
+		$request_ref->{is_spam} = 1;
 	}
 
 	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
@@ -1263,6 +1276,34 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 	return $user_session;
 }
 
+=head2 update_user_session_tokens($user_ref, $user_session, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at)
+
+Update OIDC tokens stored for an existing Product Opener session and persist them.
+Needed after a refresh so rotated refresh tokens stay usable on the next request.
+
+=cut
+
+sub update_user_session_tokens ($user_ref, $user_session, $refresh_token, $refresh_expires_at, $access_token,
+	$access_expires_at)
+{
+	if ((not defined $user_ref) or (not defined $user_session)) {
+		return 0;
+	}
+
+	my $session_ref = $user_ref->{'user_sessions'}{$user_session};
+	if (not defined $session_ref) {
+		return 0;
+	}
+
+	$session_ref->{refresh_token} = $refresh_token;
+	$session_ref->{refresh_expires_at} = $refresh_expires_at;
+	$session_ref->{access_token} = $access_token;
+	$session_ref->{access_expires_at} = $access_expires_at;
+	store_user_preferences($user_ref);
+
+	return 1;
+}
+
 # This just fetches the local data about the user, e.g. sessions. It should not be used if you need access to data
 # that comes from Keycloak, like email, name, locale and country
 sub retrieve_user_preferences ($user_id) {
@@ -1534,7 +1575,7 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 	return $email_ref;
 }
 
-sub init_user ($request_ref) {
+sub init_user ($request_ref, $r = undef) {
 
 	my $user_id = undef;
 	my $user_ref = undef;
@@ -1542,8 +1583,18 @@ sub init_user ($request_ref) {
 
 	$User_id = undef;
 	$Org_id = undef;
+	$Owner_id = undef;
 	%User = ();
 	%Org = ();
+
+	# Note we allow an OAuth token for all oidc_implementation_levels
+	if ($r) {
+		my $signed_in_oidc = process_auth_header($request_ref, $r);
+		if ($signed_in_oidc < 0) {
+			# We were sent a bad bearer token
+			return "invalid_token";
+		}
+	}
 
 	# Remove persistent cookie if user is logging out
 	if ((defined request_param($request_ref, 'length')) and (request_param($request_ref, 'length') eq 'logout')) {
@@ -1596,7 +1647,7 @@ sub init_user ($request_ref) {
 				$user_id = undef;
 				$log->info('bad user') if $log->is_info();
 				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lc});
+				return "error_bad_login_password";
 			}
 		}
 	}
@@ -1619,7 +1670,7 @@ sub init_user ($request_ref) {
 					$user_id = undef;
 					$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 				else {
 					$user_id = $user_ref->{userid};
@@ -1633,7 +1684,7 @@ sub init_user ($request_ref) {
 				$user_id = _get_account_by_mail($user_id);
 				# Trigger an error
 				unless (defined $user_id) {
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 			}
 		}
@@ -1664,7 +1715,7 @@ sub init_user ($request_ref) {
 							{encrypted_password => $user_ref->{'encrypted_password'}}
 						) if $log->is_info();
 						# Trigger an error
-						return ($Lang{error_bad_login_password}{$lc});
+						return "error_bad_login_password";
 					}
 					# We have the right login/password
 					elsif (
@@ -1683,7 +1734,7 @@ sub init_user ($request_ref) {
 					$user_id = undef;
 					$log->info("bad user") if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 			}
 			else {
@@ -1698,7 +1749,7 @@ sub init_user ($request_ref) {
 					$user_id = undef;
 					$log->info('bad password - input does not match stored hash') if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 				# We have the right login/password
 				elsif (
@@ -1781,6 +1832,45 @@ sub init_user ($request_ref) {
 						$request_ref->{refresh_expires_at} = $session_ref->{refresh_expires_at}
 							if $session_ref->{refresh_expires_at};
 						$request_ref->{id_token} = $session_ref->{id_token} if $session_ref->{id_token};
+
+						# Keep PO sessions in sync with Keycloak Device Activity:
+						# refresh expired access tokens; if refresh fails the IdP session is gone.
+						if (    (defined $request_ref->{access_expires_at})
+							and ($request_ref->{access_expires_at} < time)
+							and (defined $request_ref->{refresh_token}))
+						{
+							my ($new_refresh_token, $new_refresh_expires_at, $new_access_token, $new_access_expires_at)
+								= ProductOpener::Auth::refresh_access_token($request_ref->{refresh_token});
+							if ($new_access_token) {
+								update_user_session_tokens($user_ref, $user_session,
+									$new_refresh_token, $new_refresh_expires_at,
+									$new_access_token, $new_access_expires_at);
+								$request_ref->{refresh_token} = $new_refresh_token;
+								$request_ref->{refresh_expires_at} = $new_refresh_expires_at;
+								$request_ref->{access_token} = $new_access_token;
+								$request_ref->{access_expires_at} = $new_access_expires_at;
+							}
+							else {
+								$log->info('OIDC refresh failed; signing user out locally', {user_id => $user_id})
+									if $log->is_info();
+								remove_user_session($user_id, $user_session);
+								$user_id = undef;
+								$user_ref = undef;
+								delete $request_ref->{access_token};
+								delete $request_ref->{access_expires_at};
+								delete $request_ref->{refresh_token};
+								delete $request_ref->{refresh_expires_at};
+								delete $request_ref->{id_token};
+								my $session = {};
+								$request_ref->{cookie} = cookie(
+									-name => $cookie_name,
+									-expires => '-1d',
+									-value => $session,
+									-path => '/',
+									-domain => "$cookie_domain"
+								);
+							}
+						}
 					}
 				}
 			}
@@ -1946,6 +2036,88 @@ sub check_session ($user_id, $user_session) {
 sub update_external_login_time ($user_ref) {
 	update_contact_last_login($user_ref);
 	update_last_logged_in_member($user_ref);
+	return;
+}
+
+=head2 process_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if we have a valid user.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+1 if the user has been signed in, -1 if the Bearer token was invalid, 0 otherwise.
+
+=cut
+
+sub process_auth_header ($request_ref, $r) {
+	my $token = _read_auth_header($request_ref, $r);
+	unless ($token) {
+		return 0;
+	}
+
+	my $access_token;
+	# verify token using JWKS (see Auth.pm)
+	eval {$access_token = verify_access_token($token);};
+	my $error = $@;
+	if ($error) {
+		$log->info('Access token invalid', {token => $token}) if $log->is_info();
+	}
+
+	unless ($access_token) {
+		return -1;
+	}
+
+	$request_ref->{access_token} = $token;
+	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
+	unless (defined $user_ref) {
+		$log->info('User not found and not created') if $log->is_info();
+		return -1;
+	}
+	my $user_id = $user_ref->{userid};
+	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
+
+	$request_ref->{oidc_user_id} = $user_id;
+
+	return 1;
+}
+
+=head2 _read_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if it looks like a 
+Bearer token, and if it does, copy it to the request_ref
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+None
+
+=cut
+
+sub _read_auth_header ($request_ref, $r) {
+	my $authorization = $r->headers_in->{Authorization};
+	if ((defined $authorization) and ($authorization =~ /^Bearer (?<token>.+)$/)) {
+		return $+{token};
+	}
+
 	return;
 }
 

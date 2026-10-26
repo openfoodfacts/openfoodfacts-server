@@ -2,12 +2,12 @@
    "results" : {
       "distribution" : {
          "total" : {
-            "ecs" : 0.234461
+            "ecs" : 1.01328
          },
          "transports" : {
             "air" : 0,
             "impacts" : {
-               "ecs" : 10.0969
+               "ecs" : 3.72
             },
             "road" : 600,
             "roadCooled" : 0,
@@ -16,59 +16,59 @@
          }
       },
       "packaging" : {
-         "ecs" : 79.89
+         "ecs" : 0
       },
       "perKg" : {
-         "ecs" : 1813.75
+         "ecs" : 1001.71
       },
       "preparation" : {
          "ecs" : 0
       },
-      "preparedMass" : 0.0926,
+      "preparedMass" : 0.4,
       "recipe" : {
          "ingredientsTotal" : {
-            "ecs" : 72.3096
+            "ecs" : 325.795
          },
          "total" : {
-            "ecs" : 77.7319
+            "ecs" : 395.952
          },
          "totalBonusImpact" : {
             "cropDiversity" : 0,
-            "hedges" : -0.011975,
+            "hedges" : -0.0478998,
             "permanentPasture" : 0,
-            "plotSize" : -0.0362388
+            "plotSize" : -0.144955
          },
          "transform" : {
             "ecs" : 0
          },
          "transports" : {
-            "air" : 0,
+            "air" : 18000,
             "impacts" : {
-               "ecs" : 5.4223
+               "ecs" : 70.1578
             },
-            "road" : 8640,
+            "road" : 11300,
             "roadCooled" : 0,
             "sea" : 54000,
             "seaCooled" : 0
          }
       },
       "scoring" : {
-         "all" : 1813.75,
-         "biodiversity" : 933.53,
-         "climate" : 411.256,
-         "health" : 178.619,
-         "resources" : 290.794
+         "all" : 1001.71,
+         "biodiversity" : 587.58,
+         "climate" : 223.565,
+         "health" : 70.8176,
+         "resources" : 120.289
       },
       "total" : {
-         "ecs" : 167.953
+         "ecs" : 400.686
       },
-      "totalMass" : 1.0885,
+      "totalMass" : 0.4,
       "transports" : {
-         "air" : 0,
+         "air" : 18000,
          "impacts" : {
-            "ecs" : 15.5192
+            "ecs" : 73.8778
          },
-         "road" : 9240,
+         "road" : 11900,
          "roadCooled" : 0,
          "sea" : 54000,
          "seaCooled" : 0
