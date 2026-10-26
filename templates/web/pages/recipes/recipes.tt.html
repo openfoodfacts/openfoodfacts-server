@@ -55,7 +55,7 @@
     [% FOREACH recipe IN recipes %]
         <tr>
             <td>
-                <a href="[% product_url(recipe.product) | url %]"
+                <a href="[% product_url(recipe.product) | html %]"
                     title="[% recipe.product.ingredients_text | replace('"', ' ') | html  %]"
                 >
                     [% product_name_brand_quantity(recipe.product) | html %]

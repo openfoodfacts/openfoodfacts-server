@@ -21,7 +21,7 @@
 
                 [% IF canon_url %]
                 <div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
-                    <a href="[% canon_url | url %]" class="button small" title="[% title | html %]">
+                    <a href="[% canon_url | html %]" class="button small" title="[% title | html %]">
                         [% display_icon('share') %]
                         <span class="show-for-large-up"> [% lang('share') %]</span>
                     </a>
@@ -56,7 +56,7 @@
 
             [% IF country != 'en:world' %]
             <p>[% lang('countries_s').ucfirst %][% sep %]: [% display_taxonomy_tag("countries", country) %]
-                - <a href="[% world_link_url %]">[% world_link | html %]</a>
+                - <a href="[% world_link_url | html %]">[% world_link | html %]</a>
             </p>
             [% END %]
 

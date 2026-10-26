@@ -103,7 +103,7 @@
             [% END %]
         >
             [% IF panel.title_element.icon_url.defined %]
-            <img src="[% panel.title_element.icon_url | url %]"
+            <img src="[% panel.title_element.icon_url | html %]"
                 style="[%  IF panel.title_element.icon_size == 'very_small' %]height: 24px;
                        [%~ ELSIF panel.title_element.icon_size == 'small' %]height:36px;
                        [%~ ELSE %]height:72px;
@@ -166,7 +166,7 @@
         [% END %]
 
         [% IF panel_group_element.icon_url.defined %]
-        <img src="[% panel_group_element.icon_url | url %]"
+        <img src="[% panel_group_element.icon_url | html %]"
             style="[%  IF panel_group_element.icon_size == 'very_small' %]height: 24px;
                    [%~ ELSIF panel_group_element.icon_size == 'small' %]height:36px;
                    [%~ ELSE %]height:72px;
@@ -219,7 +219,7 @@
     #---------------------------------------------------------------------- ~%]
 
     [% IF text_element.icon_url.defined %]
-    	<img src="[% text_element.icon_url | url %]"
+    	<img src="[% text_element.icon_url | html %]"
     	    style="height:72px;float:left;margin-right:1rem;"
     	    alt="[% IF text_element.icon_alt.defined %][% text_element.icon_alt | html %][% ELSE %]icon[% END %]"
     	    [% IF text_element.icon_color_from_evaluation %]
@@ -413,7 +413,7 @@
     #---------------------------------------------------------------------- ~%]
 
      [% IF value.icon_url %]
-         <span class="icon"><img src="[% value.icon_url | url %]" alt="icon"></span>
+         <span class="icon"><img src="[% value.icon_url | html %]" alt="icon"></span>
      [% END %]
 
      [% IF value.percent.defined %]

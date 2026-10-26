@@ -3,14 +3,14 @@
     "level": "info",
     "topics": ["environment"],
     "title_element": {
-        "title": "[% edq(lang('environmental_cost_title')) %]",
-        "subtitle": "[% IF panel.has_per_product %][% edq(f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity })) %] - [% END %][% edq(f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) %]"
+        "title": [% lang('environmental_cost_title') | js %],
+        "subtitle": [% IF panel.has_per_product %][% (f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity }) _ ' - ' _ f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) | js %][% ELSE %][% f_lang(per_100_key, { 'points' => panel.ecs_per_100 }) | js %][% END %]
     },
     "elements": [
         {
             "element_type": "text",
             "text_element": {
-                "html": "[% edq(lang('environmental_cost_description')) %]"
+                "html": [% lang('environmental_cost_description') | js %]
             }
         },
         {
@@ -18,20 +18,20 @@
             "table_element": {
                 "id": "environmental_cost_breakdown",
                 "table_type": "default",
-                "title": "[% edq(lang('ecs_breakdown')) %]",
+                "title": [% lang('ecs_breakdown') | js %],
                 "columns": [
                     {
-                        "text": "[% edq(lang('environmental_cost_stage')) %]",
+                        "text": [% lang('environmental_cost_stage') | js %],
                         "type": "text"
                     },
                     [% IF panel.has_per_product %]
                     {
-                        "text": "[% edq(f_lang('f_environmental_cost_points_for_product', { 'quantity' => panel.quantity })) %]",
+                        "text": [% f_lang('f_environmental_cost_points_for_product', { 'quantity' => panel.quantity }) | js %],
                         "type": "text"
                     },
                     [% END %]
                     {
-                        "text": "[% edq(lang(per_100_column_key)) %]",
+                        "text": [% lang(per_100_column_key) | js %],
                         "type": "text"
                     }
                 ],
@@ -39,7 +39,7 @@
                     [% FOREACH row IN panel.rows %]
                     {
                         "values": [
-                            { "text": "[% edq(lang(row.label)) %]" },
+                            { "text": [% lang(row.label) | js %] },
                             [% IF panel.has_per_product %]{ "text": "[% row.per_product %]" },[% END %]
                             { "text": "[% row.per_100 %]" }
                         ]

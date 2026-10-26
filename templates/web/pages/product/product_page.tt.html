@@ -36,7 +36,7 @@
 
                     <!-- Share -->
                     <div class="share_button" style="display:none;">
-                        <a href="[% request_ref.canon_url | url %]" class="button small" title="[% title | html %]">
+                        <a href="[% request_ref.canon_url | html %]" class="button small" title="[% title | html %]">
                             <span class="material-icons size-20 ">
                             share
                             </span>
@@ -123,7 +123,7 @@
                     <h2 class="title-1" property="food:name" itemprop="name">[% title | html %]</h1>
 
                     [% IF server_options_producers_platform %]
-                        <p>→ <a href="[% public_product_url | url %]">[% lang("product_page_on_the_public_database") %]</a></p>
+                        <p>→ <a href="[% public_product_url | html %]">[% lang("product_page_on_the_public_database") %]</a></p>
                     [% END %]
 
             <!-- Obsolete product -->
@@ -160,7 +160,7 @@
                             [% IF owner_org.customer_service.email %]
                                 [% display_icon('email') %] <a href="mailto:[% owner_org.customer_service.email | uri %]">[% owner_org.customer_service.email | html %]</a>
                             [% ELSIF owner_org.customer_service.link %]
-                                [% display_icon('email') %] <a href="[% owner_org.customer_service.link | url %]">[% lang("contact_form") %]</a>
+                                [% display_icon('email') %] <a href="[% owner_org.customer_service.link | html %]">[% lang("contact_form") %]</a>
                             [% END %]
 
                             [% IF owner_org.customer_service.phone %]

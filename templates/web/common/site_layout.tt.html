@@ -10,13 +10,13 @@
 	<meta property="fb:app_id" content="[% fb_config | html %]">
     <meta property="og:type" content="[% og_type | html %]">
     <meta property="og:title" content="[% canon_title | html %]">
-    <meta property="og:url" content="[% canon_url | url %]">
+    <meta property="og:url" content="[% canon_url | html %]">
     [% og_images %]
     [% og_images2 %]
     <meta property="og:description" content="[% canon_description | html %]">
     [% options_favicons %]
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="[% canon_url | url %]">
+    <link rel="canonical" href="[% canon_url | html %]">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') | uri %].css?v=[% css_timestamp %]" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
@@ -97,12 +97,12 @@
 							</a>
 							<ul class="dropdown">
 								[% IF !(server_options_producers_platform) %]
-									<li><a href="[% lang('menu_discover_link') | url %]">[% lang('menu_discover') %]</a></li>
-									<li><a href="[% lang('menu_contribute_link') | url %]">[% lang('menu_contribute') %]</a></li>
+									<li><a href="[% lang('menu_discover_link') | html %]">[% lang('menu_discover') %]</a></li>
+									<li><a href="[% lang('menu_contribute_link') | html %]">[% lang('menu_contribute') %]</a></li>
 									<li class="divider"></li>
 									<li><label>[% lang("add_products") %]</label></li>
                 <!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
-									<li><a href="[% lang_flavor('get_the_app_link') | url %]?utm_source=off&utm_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_[% language | uri %]">[% lang('install_the_app_to_add_products') %]</a></li>
+									<li><a href="[% lang_flavor('get_the_app_link') | html %]?utm_source=off&utm_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_[% language | uri %]">[% lang('install_the_app_to_add_products') %]</a></li>
 									<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
 								[% ELSE %]
 									<li><label>[% lang("import_and_export_products") %]</label></li>
@@ -219,7 +219,7 @@
 					<ul class="title-area">
 						<li class="name">
 							<div style="position:relative;max-width:292px;">
-								<a href="[% IF server_options_producers_platform %][% owner_pretty_path | url %][% ELSE %]/[% END %]">
+								<a href="[% IF server_options_producers_platform %][% owner_pretty_path | html %][% ELSE %]/[% END %]">
 								<img id="logo" src="[% static_subdomain %]/images/logos/[% flavor %]-logo-horizontal-light.svg" alt="[% options.site_name %]" style="margin:8px;height:48px;width:auto;">
 								[% IF server_options_producers_platform %]
 								<span id="professionals" style="position:absolute;bottom:2px;right:8px;line-height:1rem;font-size:1.2rem;">professionals</span>
@@ -254,10 +254,10 @@
 							</li>
 						</ul>
 					<ul class="search_and_links">
-						<li><a href="[% lang('menu_discover_link') | url %]" class="top-bar-links">[% lang('menu_discover') %]</a></li>
-						<li><a href="[% lang('menu_contribute_link') | url %]" class="top-bar-links">[% lang('menu_contribute') %]</a></li>
-						<li class="show-for-xlarge-up"><a href="[% lang('footer_producers_link') | url %]" class="top-bar-links">[% lang('footer_producers') %]</a></li>
-						<li class="flex-grid getapp"><a href="[% lang_flavor('get_the_app_link') | url %]?utm_source=off&utm_medium=web&utm_campaign=search_and_links_promo_[% language | uri %]" class="buttonbar button" style="top:0;">[% display_icon('phone_android') %] <span class="bt-text">[% lang('get_the_app') %]</span></a></li>
+						<li><a href="[% lang('menu_discover_link') | html %]" class="top-bar-links">[% lang('menu_discover') %]</a></li>
+						<li><a href="[% lang('menu_contribute_link') | html %]" class="top-bar-links">[% lang('menu_contribute') %]</a></li>
+						<li class="show-for-xlarge-up"><a href="[% lang('footer_producers_link') | html %]" class="top-bar-links">[% lang('footer_producers') %]</a></li>
+						<li class="flex-grid getapp"><a href="[% lang_flavor('get_the_app_link') | html %]?utm_source=off&utm_medium=web&utm_campaign=search_and_links_promo_[% language | uri %]" class="buttonbar button" style="top:0;">[% display_icon('phone_android') %] <span class="bt-text">[% lang('get_the_app') %]</span></a></li>
 				<!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
           </ul>
 					</section>
@@ -307,7 +307,7 @@
 
 				[% IF mobile %]
         <!-- For reference: mobile.link = https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner -->
-					<a href="[% mobile.link | url %]&utm_campaign=mobile-app-top-banner-[% language | uri %]" id="mobile-app-top-banner" class="button large expand success">
+					<a href="[% mobile.link | html %]&utm_campaign=mobile-app-top-banner-[% language | uri %]" id="mobile-app-top-banner" class="button large expand success">
 					<div class="row collapse">
 						<div class="small-6 columns">
 							[% mobile.text %]
@@ -315,11 +315,11 @@
 						<div class="small-6 columns">
 							[% IF mobile.system == "ios" %]
               <!-- ios_app_icon_url = "/images/misc/appstore/black/appstore_US.svg" -->
-									<img src="[% lang('ios_app_icon_url') | url %]" alt="[% lang('ios_app_icon_alt_text') | html %]">
+									<img src="[% lang('ios_app_icon_url') | html %]" alt="[% lang('ios_app_icon_alt_text') | html %]">
 							[% ELSIF mobile.system == "android" %]
-									<img src="[% lang('android_app_icon_url') | url %]" alt="[% lang('android_app_icon_alt_text') | html %]">
+									<img src="[% lang('android_app_icon_url') | html %]" alt="[% lang('android_app_icon_alt_text') | html %]">
 							[% ELSIF mobile.system == "windows" %]
-									<img src="[% lang('windows_phone_app_icon_url') | url %]" alt="[% lang('windows_phone_app_icon_alt_text') | html %]">
+									<img src="[% lang('windows_phone_app_icon_url') | html %]" alt="[% lang('windows_phone_app_icon_alt_text') | html %]">
 							[% END %]
 
 						</div>
@@ -405,15 +405,15 @@
 						<div class="row">
 							<div class="small-12 medium-12 large-12 v-space-normal column badge-container">
 								<!-- android_app_link - https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
-								<a  href="[% options.android_app_link | url %]&utm_campaign=install_the_app_android_footer_[% language | uri %]"><img src="[% lang('android_app_icon_url') | url %]" alt="[% lang('android_app_icon_alt_text') | html %]" loading="lazy" height="40" width="120"></a>
+								<a  href="[% options.android_app_link | html %]&utm_campaign=install_the_app_android_footer_[% language | uri %]"><img src="[% lang('android_app_icon_url') | html %]" alt="[% lang('android_app_icon_alt_text') | html %]" loading="lazy" height="40" width="120"></a>
 
-								<a href="[% options.f_droid_app_link | url %]"><img src="[% lang('f_droid_app_icon_url') | url %]" alt="[% lang('f_droid_app_icon_alt_text') | html %]" loading="lazy" height="40" width="120"></a>
+								<a href="[% options.f_droid_app_link | html %]"><img src="[% lang('f_droid_app_icon_url') | html %]" alt="[% lang('f_droid_app_icon_alt_text') | html %]" loading="lazy" height="40" width="120"></a>
 
 								<!-- android_apk_app_link - https://world.openfoodfacts.org/images/apps/off.apk -->
-								<a href="[% options.android_apk_app_link | url %]?utm_source=off&utm_medium=web&utm_campaign=install_the_app_apk_footer_[% language | uri %]"><img src="[% lang('android_apk_app_icon_url') | url %]" alt="[% lang('android_apk_app_icon_alt_text') | html %]" loading="lazy" height="40" width="120"></a>
+								<a href="[% options.android_apk_app_link | html %]?utm_source=off&utm_medium=web&utm_campaign=install_the_app_apk_footer_[% language | uri %]"><img src="[% lang('android_apk_app_icon_url') | html %]" alt="[% lang('android_apk_app_icon_alt_text') | html %]" loading="lazy" height="40" width="120"></a>
 
 								<!-- msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380" -->
-								<a href="[% options.ios_app_link | url %]&utm_campaign=install_the_app_ios_footer_[% language | uri %]"><img src="[% lang('ios_app_icon_url') | url %]" alt="[% lang('ios_app_icon_alt_text') | html %]"  loading="lazy" height="40" width="120"></a>
+								<a href="[% options.ios_app_link | html %]&utm_campaign=install_the_app_ios_footer_[% language | uri %]"><img src="[% lang('ios_app_icon_url') | html %]" alt="[% lang('ios_app_icon_alt_text') | html %]"  loading="lazy" height="40" width="120"></a>
 							</div>
 						</div>
 					</div>
@@ -445,20 +445,20 @@
 					<div class="small-12 large-6 columns project v-space-normal">
 						<h3 class="title-5 text-medium">[% lang('footer_discover_the_project') %]</h3>
 						<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
-							<li><a class="button small white-button radius" href="[% lang('footer_who_we_are_link') | url %]">[% lang('footer_who_we_are') %]</a></li>
-							<li><a class="button small white-button radius" href="[% lang('footer_vision_link') | url %]">[% lang('footer_vision') %]</a></li>
-							<li><a class="button small white-button radius" href="[% lang('footer_faq_link') | url %]">[% lang('footer_faq') %]</a></li>
-							<li><a class="button small white-button radius" href="[% lang('footer_blog_link') | url %]">[% lang('footer_blog') %]</a></li>
-							<li><a class="button small white-button radius" href="[% lang('footer_press_link') | url %]">[% lang('footer_press') %]</a></li>
-							<li><a class="button small white-button radius" href="[% lang('footer_wiki_link') | url %]">[% lang('footer_wiki') %]</a></li>
-							<li><a class="button small white-button radius" href="[% lang('footer_translators_link') | url %]">[% lang('footer_translators') %]</a></li>
-							<li><a class="button small white-button radius" href="[% lang('footer_partners_link') | url %]">[% lang('footer_partners') %]</a></li>
-              <li><a class="button small white-button radius" href="[% lang('footer_data_link') | url %]">[% lang('footer_data') %]</a></li>
-							<li><a class="button small white-button radius" href="[% lang('footer_obf_link') | url %]">[% lang('footer_obf') %]</a></li>
-              <li><a class="button small white-button radius" href="[% lang('footer_opf_link') | url %]">[% lang('footer_opf') %]</a></li>
-              <li><a class="button small white-button radius" href="[% lang('footer_opff_link') | url %]">[% lang('footer_opff') %]</a></li>
-              <li><a class="button small white-button radius" href="[% lang('footer_op_link') | url %]">[% lang('footer_op') %]</a></li>
-							<li><a class="button small white-button radius" href="[% producers_platform_url | url %]">[% lang('footer_pro') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_who_we_are_link') | html %]">[% lang('footer_who_we_are') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_vision_link') | html %]">[% lang('footer_vision') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_faq_link') | html %]">[% lang('footer_faq') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_blog_link') | html %]">[% lang('footer_blog') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_press_link') | html %]">[% lang('footer_press') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_wiki_link') | html %]">[% lang('footer_wiki') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_translators_link') | html %]">[% lang('footer_translators') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_partners_link') | html %]">[% lang('footer_partners') %]</a></li>
+              <li><a class="button small white-button radius" href="[% lang('footer_data_link') | html %]">[% lang('footer_data') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_obf_link') | html %]">[% lang('footer_obf') %]</a></li>
+              <li><a class="button small white-button radius" href="[% lang('footer_opf_link') | html %]">[% lang('footer_opf') %]</a></li>
+              <li><a class="button small white-button radius" href="[% lang('footer_opff_link') | html %]">[% lang('footer_opff') %]</a></li>
+              <li><a class="button small white-button radius" href="[% lang('footer_op_link') | html %]">[% lang('footer_op') %]</a></li>
+							<li><a class="button small white-button radius" href="[% producers_platform_url | html %]">[% lang('footer_pro') %]</a></li>
 						</ul>
 					</div>
 				</div>
@@ -477,11 +477,11 @@
 								<p>[% lang_flavor('footer_tagline') %]</p>
 
 								<ul class="inline-list text-center text-small">
-									<li><a href="[% lang('footer_legal_link') | url %]">[% lang('footer_legal') %]</a></li>
-									<li><a href="[% lang('footer_privacy_link') | url %]">[% lang('footer_privacy') %]</a></li>
-									<li><a href="[% lang('footer_terms_link') | url %]">[% lang('footer_terms') %]</a></li>
-									<li><a href="[% lang('donate_link') | url %]">[% lang('donate') %]</a></li>
-									<li><a href="[% lang('footer_producers_link') | url %]">[% lang('footer_producers') %]</a></li>
+									<li><a href="[% lang('footer_legal_link') | html %]">[% lang('footer_legal') %]</a></li>
+									<li><a href="[% lang('footer_privacy_link') | html %]">[% lang('footer_privacy') %]</a></li>
+									<li><a href="[% lang('footer_terms_link') | html %]">[% lang('footer_terms') %]</a></li>
+									<li><a href="[% lang('donate_link') | html %]">[% lang('donate') %]</a></li>
+									<li><a href="[% lang('footer_producers_link') | html %]">[% lang('footer_producers') %]</a></li>
 									<li><a href="https://link.openfoodfacts.org/newsletter-[% language | uri %]">[% lang('subscribe_to_our_newsletter') %]</a></li>
 								</ul>
 							</div>
