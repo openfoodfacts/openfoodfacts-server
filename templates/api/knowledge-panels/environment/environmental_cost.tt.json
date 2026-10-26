@@ -1,0 +1,52 @@
+[% IF panel.unit == 'ml' %][% SET per_100_key = 'f_environmental_cost_for_100ml' %][% SET per_100_column_key = 'environmental_cost_points_for_100ml' %][% ELSE %][% SET per_100_key = 'f_environmental_cost_for_100g' %][% SET per_100_column_key = 'environmental_cost_points_for_100g' %][% END %]
+{
+    "level": "info",
+    "topics": ["environment"],
+    "title_element": {
+        "title": "[% edq(lang('environmental_cost_title')) %]",
+        "subtitle": "[% IF panel.has_per_product %][% edq(f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity })) %] - [% END %][% edq(f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) %]"
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": "[% edq(lang('environmental_cost_description')) %]"
+            }
+        },
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "environmental_cost_breakdown",
+                "table_type": "default",
+                "title": "[% edq(lang('ecs_breakdown')) %]",
+                "columns": [
+                    {
+                        "text": "[% edq(lang('environmental_cost_stage')) %]",
+                        "type": "text"
+                    },
+                    [% IF panel.has_per_product %]
+                    {
+                        "text": "[% edq(f_lang('f_environmental_cost_points_for_product', { 'quantity' => panel.quantity })) %]",
+                        "type": "text"
+                    },
+                    [% END %]
+                    {
+                        "text": "[% edq(lang(per_100_column_key)) %]",
+                        "type": "text"
+                    }
+                ],
+                "rows": [
+                    [% FOREACH row IN panel.rows %]
+                    {
+                        "values": [
+                            { "text": "[% edq(lang(row.label)) %]" },
+                            [% IF panel.has_per_product %]{ "text": "[% row.per_product %]" },[% END %]
+                            { "text": "[% row.per_100 %]" }
+                        ]
+                    }[% UNLESS loop.last %],[% END %]
+                    [% END %]
+                ]
+            }
+        }
+    ]
+}

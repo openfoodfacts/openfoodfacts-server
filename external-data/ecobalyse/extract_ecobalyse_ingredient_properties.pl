@@ -1,0 +1,595 @@
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+#
+# Product Opener
+# Copyright (C) 2011-2024 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maurice, France
+#
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# This script reads processes.json from Ecobalyse (filtered to food2 scope +
+# ingredient category) and generates a TSV file of properties to add to the
+# ingredients taxonomy (ingredients.txt).
+#
+# Unlike earlier approaches, this script does NOT read existing ecobalyse properties
+# from the taxonomy — it is fully data-driven.
+# It uses canonicalize_taxonomy_tag() exclusively for tagid resolution, with an
+# optional overrides file for baseIngredients that cannot be resolved.
+#
+# Key behavior:
+# - ALL visible variant entries (and hidden ones with visible=false if
+#   --include-hidden-entries is passed) are emitted as non-proxy properties (e.g.,
+#   ecobalyse_labels_en_organic_origins_en_france_id:en).
+# - If no None+non-organic entry exists naturally, we create a base fallback entry
+#   (no label, no origin) by copying values from the best available entry:
+#   prefer non-organic, then origin priority (None > ROF > REM > FR, France last).
+#   A non-organic fallback uses the ecobalyse_ prefix (the origin can be changed in
+#   Ecobalyse), an organic-only fallback uses the ecobalyse_proxy_ prefix.
+# - The ecobalyse_proxy_ prefix is otherwise used for proxies: OFF ingredients that
+#   use the data of another baseIngredient (manual and auto-generated proxy files).
+# - OFF ingredients listed in off_ingredients_without_ecobalyse_data.tsv get
+#   ecobalyse_id:en and ecobalyse_proxy_id:en "undef" properties, to stop the inheritance
+#   of Ecobalyse data from their parents (e.g. foie gras must not use the en:poultry proxy).
+# - "Origin none does not mean proxy" — None origin entries are regular variants.
+
+use Modern::Perl '2017';
+use utf8;
+use JSON;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use Getopt::Long;
+
+binmode(STDIN, ":encoding(UTF-8)");
+binmode(STDOUT, ":encoding(UTF-8)");
+binmode(STDERR, ":encoding(UTF-8)");
+
+# By default, entries with visible=false are ignored: they are hidden in the Ecobalyse UI,
+# and the Ecobalyse food API rejects them ("Ingrédient introuvable par id").
+# With --include-hidden-entries, they are used: visible entries are preferred over
+# hidden ones when selecting the default entry, and hidden entries get a
+# ecobalyse_[variant]_visibility:en:false property.
+my $include_hidden_entries = 0;
+GetOptions("include-hidden-entries" => \$include_hidden_entries)
+	or die("Usage: $0 [--include-hidden-entries]\n");
+
+# Hardcoded paths
+my $processes_file = "external-data/ecobalyse/processes.json";
+my $mapping_file = "external-data/ecobalyse/base_ingredients_to_off_ingredients.tsv";
+my $overrides_file = "external-data/ecobalyse/base_ingredients_to_off_ingredients_overrides.tsv";
+my $proxies_file = "external-data/ecobalyse/base_ingredients_proxies_for_off_ingredients.tsv";
+my $auto_proxies_file = "external-data/ecobalyse/base_ingredients_auto_proxies.tsv";
+my $blocked_file = "external-data/ecobalyse/off_ingredients_without_ecobalyse_data.tsv";
+my $output_file = "external-data/ecobalyse/ecobalyse_ingredient_properties.csv";
+
+# Load base_ingredients → tagid mapping (from Script 1 output + overrides)
+my %base_to_tagid;
+for my $file ($mapping_file, $overrides_file) {
+	next unless defined $file && -f $file;
+	open my $tfh, '<:encoding(UTF-8)', $file
+		or die "Cannot open $file: $!";
+	while (my $line = <$tfh>) {
+		chomp $line;
+		next if $line =~ /^#/ || $line =~ /^\s*$/;
+		my ($base, $tagid, $source) = split /[\t ]+/, $line, 3;
+		$base_to_tagid{$base} = $tagid if defined $base && defined $tagid;
+	}
+	close $tfh;
+}
+say STDERR "  Loaded " . scalar(keys %base_to_tagid) . " baseIngredient -> tagid mappings";
+
+my @warnings;
+
+# Initialize taxonomies for canonicalize_taxonomy_tag fallback and tagid validation
+init_taxonomies(0);
+
+# Check that the mapped OFF tagids exist in the taxonomy
+for my $base (sort keys %base_to_tagid) {
+	next if exists_taxonomy_tag("ingredients", $base_to_tagid{$base});
+	push @warnings, "Mapping: $base -> $base_to_tagid{$base}: tagid does not exist in the ingredients taxonomy";
+}
+
+# Load proxies: source_baseIngredient -> [target_tagid, ...]
+# A single source baseIngredient can be a proxy for multiple OFF tagids
+# (e.g. glucose-syrup -> en:corn-syrup, en:glucose-fructose-syrup, en:fructose-syrup).
+# Proxies are loaded from both the manual proxies file and the auto-generated
+# proxies file (transforming qualifiers, generated by match_ecobalyse_base_ingredients_to_off.pl).
+# An OFF tagid can only have one proxy: the first one is kept (manual proxies first).
+my %base_to_proxy_tagids;
+my %proxy_target_to_source;
+for my $pfile ($proxies_file, $auto_proxies_file) {
+	next unless defined $pfile && -f $pfile;
+	open my $pfh, '<:encoding(UTF-8)', $pfile
+		or die "Cannot open $pfile: $!";
+	while (my $line = <$pfh>) {
+		chomp $line;
+		next if $line =~ /^#/ || $line =~ /^\s*$/;
+		my ($target_tagid, $source_base) = split /[\t ]+/, $line, 2;
+		next unless defined $source_base && defined $target_tagid && $source_base ne '';
+		if (not exists_taxonomy_tag("ingredients", $target_tagid)) {
+			push @warnings, "Proxy: $source_base -> $target_tagid: tagid does not exist in the ingredients taxonomy";
+			next;
+		}
+		if (exists $proxy_target_to_source{$target_tagid}) {
+			push @warnings,
+				"Proxy: $source_base -> $target_tagid ignored, $target_tagid already has proxy $proxy_target_to_source{$target_tagid}";
+			next;
+		}
+		$proxy_target_to_source{$target_tagid} = $source_base;
+		push @{$base_to_proxy_tagids{$source_base}}, $target_tagid;
+	}
+	close $pfh;
+}
+say STDERR "  Loaded " . scalar(keys %base_to_proxy_tagids) . " proxy source ingredients";
+
+# Load processes.json, filter: food2 in scopes AND ingredient in categories
+die "Cannot open $processes_file: $!" unless -f $processes_file;
+my $raw_json;
+{
+	local $/;
+	open my $json_fh, '<:raw', $processes_file
+		or die "Cannot open $processes_file: $!";
+	$raw_json = <$json_fh>;
+	close $json_fh;
+}
+my $json = JSON->new->utf8->allow_nonref;
+my $all_entries = $json->decode($raw_json);
+die "processes.json is not an array" unless ref($all_entries) eq 'ARRAY';
+say STDERR "Loaded " . scalar(@$all_entries) . " entries from processes.json";
+
+# Filter: food2 in scopes AND ingredient in categories
+my @filtered;
+ENTRY: for my $item (@$all_entries) {
+	my $scopes = $item->{scopes};
+	next unless defined $scopes && ref($scopes) eq 'ARRAY';
+	next unless grep {$_ eq 'food2'} @$scopes;
+	my $categories = $item->{categories};
+	next unless defined $categories && ref($categories) eq 'ARRAY';
+	next unless grep {$_ eq 'ingredient'} @$categories;
+	push @filtered, $item;
+}
+say STDERR "Filtered to " . scalar(@filtered) . " entries (food2 + ingredient)";
+
+# Build tagid -> [entries] lookup from filtered entries.
+# Multiple baseIngredients can canonicalize to the same tagid (e.g. chard and
+# swiss-chard both resolve to en:chard), so we merge by tagid.
+# Also build a base_ingredient -> [entries] lookup for proxy sources that don't
+# have a taxonomy match (e.g. fish-secondary-ingredient).
+my %tagid_to_entries;
+my %base_to_entries;
+my $has_metadata = 0;
+my $missing_metadata = 0;
+my %tagid_seen_base;
+for my $item (@filtered) {
+	my $meta = $item->{metadata};
+	if (defined $meta && exists $meta->{ingredient}) {
+		$has_metadata++;
+		my $base = $meta->{ingredient}{baseIngredient};
+		if (defined $base) {
+			push @{$base_to_entries{$base}}, $item;
+			my $tagid = resolve_tagid($base);
+			if (defined $tagid) {
+				push @{$tagid_to_entries{$tagid}}, $item;
+				$tagid_seen_base{$tagid} = [] unless exists $tagid_seen_base{$tagid};
+				push @{$tagid_seen_base{$tagid}}, $base;
+			}
+		}
+	}
+	else {
+		$missing_metadata++;
+	}
+}
+say STDERR "  Entries with metadata.ingredient: $has_metadata";
+say STDERR "  Entries missing metadata.ingredient: $missing_metadata";
+
+# DefaultOrigin priority: None (proxy) highest, then ROF, REM, FR
+#   None → rest of world (out of EU/Maghreb)
+#   ROF  → France d'outre-mer
+#   REM  → Région - Europe et Maghreb
+#   FR   → France (lowest priority, selected last)
+my %default_origin_priority = (
+	'' => 0,    # None/undefined
+	'None' => 0,    # explicit None string
+	'ROF' => 1,    # France d'outre-mer
+	'REM' => 2,    # Région - Europe et Maghreb
+	'FR' => 3,    # France (lowest priority, selected last)
+);
+
+my @output_rows;
+my %tagids_with_own_data;
+my $global_props = 0;
+my $variant_props = 0;
+my $matched_tags = 0;
+my $unmatched_bases = 0;
+my $blocked_tags = 0;
+
+TAGID: for my $tagid (sort keys %tagid_to_entries) {
+	$matched_tags++;
+	my $entries_ref = $tagid_to_entries{$tagid};
+
+	my @usable = usable_entries($entries_ref);
+	unless (@usable) {
+		my @unique_bases = do {
+			my %seen;
+			grep {!$seen{$_}++} @{$tagid_seen_base{$tagid}};
+		};
+		my $bases = join(",", @unique_bases);
+		push @warnings, "No usable (visible) entries for $bases ($tagid)";
+		next TAGID;
+	}
+	$tagids_with_own_data{$tagid} = 1;
+
+	# The base default is selected among visible entries, or among hidden entries
+	# if there is no visible entry
+	my @default_pool = default_pool(@usable);
+
+	# Find the "base default" entry: None origin + non-organic (no label, no origin)
+	my @base_defaults = grep {is_none_origin($_) && !is_organic($_)} @default_pool;
+
+	if (@base_defaults) {
+		# Natural base default exists — emit as ecobalyse_id:en (non-proxy)
+		my @sorted
+			= sort {($a->{metadata}{ingredient}{scenario} // '') cmp ($b->{metadata}{ingredient}{scenario} // '')}
+			@base_defaults;
+		emit_global_props($tagid, $sorted[0], 'ecobalyse');
+		emit_variant_entry($tagid, $sorted[0], 'ecobalyse', '');
+	}
+	else {
+		# No natural base default — create a fallback base default
+		# by copying from the best available entry (non-organic preferred, France last).
+		# A non-organic fallback is emitted as ecobalyse_id:en: it is the ingredient's own
+		# entry, only its default origin differs, and the origin is a parameter that can be
+		# changed in Ecobalyse. An organic-only fallback is emitted as ecobalyse_proxy_id:en,
+		# as the organic label cannot be changed.
+		my @non_organic = grep {!is_organic($_)} @default_pool;
+		my @candidates = @non_organic ? @non_organic : @default_pool;
+		my @sorted = sort {
+			($default_origin_priority{$a->{metadata}{defaultOrigin} // ''} // 99)
+				<=> ($default_origin_priority{$b->{metadata}{defaultOrigin} // ''} // 99)
+		} @candidates;
+		emit_global_props($tagid, $sorted[0], 'ecobalyse');
+		emit_variant_entry($tagid, $sorted[0], (@non_organic ? 'ecobalyse' : 'ecobalyse_proxy'), '');
+	}
+
+	# Emit all OTHER usable entries as non-proxy variants
+	my %seen_variants;
+	for my $entry (
+		sort {
+			($default_origin_priority{$a->{metadata}{defaultOrigin} // ''} // 99)
+				<=> ($default_origin_priority{$b->{metadata}{defaultOrigin} // ''} // 99)
+				|| ($b->{visible} // 1) <=> ($a->{visible} // 1)
+				|| ($a->{metadata}{ingredient}{scenario} // '') cmp ($b->{metadata}{ingredient}{scenario} // '')
+		} @usable
+		)
+	{
+		my $variant_key = get_variant_key($entry);
+		next if $seen_variants{$variant_key}++;
+		next if $variant_key eq '';    # skip base default (already emitted above)
+
+		# "Origin none does not mean proxy" — always use ecobalyse_ prefix
+		emit_variant_entry($tagid, $entry, 'ecobalyse', $variant_key);
+	}
+}
+
+# Emit proxy properties: for each source_baseIngredient -> [target_tagid, ...],
+# find the source baseIngredient's default entry and emit ecobalyse_proxy_ properties
+# on each target tagid.
+my $proxies_added = 0;
+for my $source_base (sort keys %base_to_proxy_tagids) {
+	my @target_tagids = @{$base_to_proxy_tagids{$source_base}};
+
+	# Find the entries for the source baseIngredient in processes.json
+	my $entries_ref;
+	if (exists $base_to_tagid{$source_base} && defined $base_to_tagid{$source_base}) {
+		my $source_tagid = $base_to_tagid{$source_base};
+		$entries_ref = $tagid_to_entries{$source_tagid} if exists $tagid_to_entries{$source_tagid};
+	}
+	# Fallback: look up by base ingredient name directly (for proxy sources
+	# that don't have a taxonomy match, e.g. fish-secondary-ingredient)
+	$entries_ref //= $base_to_entries{$source_base} if exists $base_to_entries{$source_base};
+
+	unless (defined $entries_ref) {
+		push @warnings, "Proxy: source baseIngredient $source_base not found in processes.json";
+		next;
+	}
+
+	my @usable = usable_entries($entries_ref);
+	unless (@usable) {
+		push @warnings, "Proxy: no usable (visible) entries for $source_base -> " . join(",", @target_tagids);
+		next;
+	}
+
+	# Find the "base default" entry: None origin + non-organic
+	my @default_pool = default_pool(@usable);
+	my @base_defaults = grep {is_none_origin($_) && !is_organic($_)} @default_pool;
+	my $default_entry;
+	if (@base_defaults) {
+		my @sorted
+			= sort {($a->{metadata}{ingredient}{scenario} // '') cmp ($b->{metadata}{ingredient}{scenario} // '')}
+			@base_defaults;
+		$default_entry = $sorted[0];
+	}
+	else {
+		# No natural base default — use best available entry (non-organic preferred, France last)
+		my @non_organic = grep {!is_organic($_)} @default_pool;
+		my @candidates = @non_organic ? @non_organic : @default_pool;
+		my @sorted = sort {
+			($default_origin_priority{$a->{metadata}{defaultOrigin} // ''} // 99)
+				<=> ($default_origin_priority{$b->{metadata}{defaultOrigin} // ''} // 99)
+		} @candidates;
+		$default_entry = $sorted[0];
+	}
+
+	for my $target_tagid (@target_tagids) {
+
+		# Do not add a proxy to an OFF tagid that has its own Ecobalyse data
+		if ($tagids_with_own_data{$target_tagid}) {
+			push @warnings, "Proxy: $source_base -> $target_tagid ignored, $target_tagid has its own Ecobalyse data";
+			next;
+		}
+
+		# Emit global + variant properties on the target tagid with proxy prefix
+		emit_global_props($target_tagid, $default_entry, 'ecobalyse_proxy');
+		emit_variant_entry($target_tagid, $default_entry, 'ecobalyse_proxy', '');
+
+		# Emit variant-specific properties for other usable entries (all as proxy)
+		my %seen_variants;
+		for my $entry (
+			sort {
+				($default_origin_priority{$a->{metadata}{defaultOrigin} // ''} // 99)
+					<=> ($default_origin_priority{$b->{metadata}{defaultOrigin} // ''} // 99)
+					|| ($b->{visible} // 1) <=> ($a->{visible} // 1)
+					|| ($a->{metadata}{ingredient}{scenario} // '') cmp ($b->{metadata}{ingredient}{scenario} // '')
+			} @usable
+			)
+		{
+			my $variant_key = get_variant_key($entry);
+			next if $seen_variants{$variant_key}++;
+			next if $variant_key eq '';    # skip base default (already emitted)
+			emit_variant_entry($target_tagid, $entry, 'ecobalyse_proxy', $variant_key);
+		}
+
+		$proxies_added++;
+	}
+}
+
+# Block inheritance for OFF ingredients that must not use the Ecobalyse data of their parents
+# (e.g. foie gras would otherwise use the chicken breast proxy of en:poultry):
+# the "undef" value stops the propagation of the property from the parents of the ingredient.
+# Blocking the base ids is enough: label and origin variants are only used with a base id.
+if (-f $blocked_file) {
+	my %tagids_with_data = map {$_->[0] => 1} @output_rows;
+	open my $bfh, '<:encoding(UTF-8)', $blocked_file
+		or die "Cannot open $blocked_file: $!";
+	while (my $line = <$bfh>) {
+		chomp $line;
+		next if $line =~ /^#/ || $line =~ /^\s*$/;
+		my ($tagid) = split /\t/, $line;
+		if (not exists_taxonomy_tag("ingredients", $tagid)) {
+			push @warnings, "Blocked: $tagid: tagid does not exist in the ingredients taxonomy";
+			next;
+		}
+		die "Blocked: $tagid has Ecobalyse data, remove it from $blocked_file or from the matches\n"
+			if $tagids_with_data{$tagid};
+		push @output_rows, [$tagid, "ecobalyse_id:en", "undef"], [$tagid, "ecobalyse_proxy_id:en", "undef"];
+		$blocked_tags++;
+	}
+	close $bfh;
+}
+
+# Count unmatched baseIngredients: baseIngredients in processes.json without an OFF tagid
+# (some of them are used as proxy sources, e.g. fish-secondary-ingredient)
+my @unmatched_bases = grep {not defined resolve_tagid($_)} sort keys %base_to_entries;
+my @unmatched_proxy_sources = grep {exists $base_to_proxy_tagids{$_}} @unmatched_bases;
+$unmatched_bases = scalar @unmatched_bases;
+
+# Check that there is only one value for each tagid + property
+my %seen_properties;
+my @duplicate_properties
+	= grep {$seen_properties{$_}++ == 1} map {"$_->[0] $_->[1]"} @output_rows;
+if (@duplicate_properties) {
+	die "Duplicate properties in output (conflicting Ecobalyse data for the same OFF ingredient):\n  "
+		. join("\n  ", @duplicate_properties) . "\n";
+}
+
+# Write output
+my $total_rows = scalar @output_rows;
+say "Generated $total_rows property rows";
+say "  Matched tagids: $matched_tags";
+say "  Unmatched baseIngredients (no OFF tagid): $unmatched_bases (used as proxy source: "
+	. scalar(@unmatched_proxy_sources) . ")";
+say "  Global properties: $global_props";
+say "  Variant properties: $variant_props";
+say "  Blocked tagids (no Ecobalyse data, no inheritance): $blocked_tags";
+
+open my $out_fh, '>:encoding(UTF-8)', $output_file
+	or die "Cannot open $output_file for writing: $!";
+for my $row (@output_rows) {
+	print $out_fh join("\t", @$row) . "\n";
+}
+close $out_fh;
+say "Wrote $total_rows properties to $output_file";
+
+for my $w (@warnings) {
+	say STDERR "WARNING: $w";
+}
+
+say STDERR "Processed $matched_tags tagids";
+
+# --- Subroutines ---
+
+# Entries to use for a baseIngredient: only visible entries, or all entries
+# if --include-hidden-entries is passed
+sub usable_entries {
+	my ($entries_ref) = @_;
+	return @$entries_ref if $include_hidden_entries;
+	return grep {$_->{visible} // 1} @$entries_ref;
+}
+
+# Entries to select the base default from: visible entries are preferred,
+# hidden entries are used only if there is no visible entry
+sub default_pool {
+	my @entries = @_;
+	my @visible = grep {$_->{visible} // 1} @entries;
+	return @visible ? @visible : @entries;
+}
+
+sub resolve_tagid {
+	my ($base) = @_;
+
+	# Use pre-built mapping file
+	if (exists $base_to_tagid{$base}) {
+		return $base_to_tagid{$base};
+	}
+
+	# Fallback: canonicalize_taxonomy_tag
+	my $exists = 0;
+	my $tagid = canonicalize_taxonomy_tag("en", "ingredients", $base, \$exists);
+	return $tagid if $exists;
+	return;
+}
+
+sub get_variant_key {
+	my ($entry) = @_;
+	my $meta = $entry->{metadata} // {};
+	my $ing = $meta->{ingredient} // {};
+	my $scenario = $ing->{scenario} // '';
+	my $default_origin = $meta->{defaultOrigin};
+	$default_origin = '' unless defined $default_origin;
+
+	my $suffix = '';
+
+	# Organic scenario adds _labels_en_organic
+	if ($scenario eq 'organic') {
+		$suffix .= '_labels_en_organic';
+	}
+
+	# defaultOrigin determines the origin prefix component
+	if ($default_origin eq 'FR') {
+		$suffix .= '_origins_en_france';
+	}
+	elsif ($default_origin eq 'REM') {
+		$suffix .= '_origins_en_europe_and_maghreb';
+	}
+	elsif ($default_origin eq 'ROF') {
+		# France d'outre-mer -> en:france-overseas in the origins taxonomy
+		$suffix .= '_origins_en_france_overseas';
+	}
+	# None does not add an origin suffix
+
+	return $suffix;
+}
+
+sub is_none_origin {
+	my ($entry) = @_;
+	my $meta = $entry->{metadata} // {};
+	my $default_origin = $meta->{defaultOrigin};
+	$default_origin = '' unless defined $default_origin;
+	return ($default_origin eq '' || $default_origin eq 'None');
+}
+
+sub is_organic {
+	my ($entry) = @_;
+	my $meta = $entry->{metadata} // {};
+	my $ing = $meta->{ingredient} // {};
+	return (($ing->{scenario} // '') eq 'organic');
+}
+
+sub emit_global_props {
+	my ($tagid, $entry, $prefix) = @_;
+	my $meta = $entry->{metadata} // {};
+	my $ing = $meta->{ingredient} // {};
+
+	if (defined $ing->{density}) {
+		push @output_rows, [$tagid, "${prefix}_density_g_per_ml:en", $ing->{density}];
+		$global_props++;
+	}
+	if (defined $ing->{cropGroup}) {
+		push @output_rows, [$tagid, "${prefix}_crop_group:en", $ing->{cropGroup}];
+		$global_props++;
+	}
+	if (defined $ing->{rawToCookedRatio}) {
+		push @output_rows, [$tagid, "${prefix}_raw_to_cooked_ratio:en", $ing->{rawToCookedRatio}];
+		$global_props++;
+	}
+	if (defined $ing->{inediblePart}) {
+		push @output_rows, [$tagid, "${prefix}_inedible_part:en", $ing->{inediblePart}];
+		$global_props++;
+	}
+
+	# transportCooling derived from "transported_cooled" in categories
+	# category derived from "material_type:" in categories
+	my $categories = $entry->{categories};
+	if (defined $categories && ref($categories) eq 'ARRAY') {
+		my $transport_cooling = grep({$_ eq 'transported_cooled'} @$categories) ? 'always' : 'none';
+		push @output_rows, [$tagid, "${prefix}_transport_cooling:en", $transport_cooling];
+		$global_props++;
+
+		for my $cat (@$categories) {
+			if ($cat =~ /^material_type:(.+)$/) {
+				push @output_rows, [$tagid, "${prefix}_category:en", $1];
+				$global_props++;
+				last;
+			}
+		}
+	}
+
+	return;
+}
+
+sub emit_variant_entry {
+	my ($tagid, $entry, $prefix, $variant_key) = @_;
+	if ($variant_key ne '') {
+		$prefix .= $variant_key;
+	}
+	my $meta = $entry->{metadata} // {};
+	my $ing = $meta->{ingredient} // {};
+
+	# ID
+	push @output_rows, [$tagid, "${prefix}_id:en", $entry->{id}];
+	$variant_props++;
+
+	# Scenario
+	if (defined $ing->{scenario}) {
+		push @output_rows, [$tagid, "${prefix}_scenario:en", $ing->{scenario}];
+		$variant_props++;
+	}
+
+	# Name (displayName)
+	if (defined $entry->{displayName}) {
+		push @output_rows, [$tagid, "${prefix}_name:fr", $entry->{displayName}];
+		$variant_props++;
+	}
+
+	# Alias
+	if (defined $entry->{alias}) {
+		push @output_rows, [$tagid, "${prefix}_alias:en", $entry->{alias}];
+		$variant_props++;
+	}
+
+	# Default origin
+	my $default_origin = $meta->{defaultOrigin};
+	$default_origin = '' unless defined $default_origin;
+	push @output_rows, [$tagid, "${prefix}_default_origin:en", $default_origin];
+	$variant_props++;
+
+	# Visibility: only emitted for hidden entries (visible=false in Ecobalyse)
+	if (not($entry->{visible} // 1)) {
+		push @output_rows, [$tagid, "${prefix}_visibility:en", "false"];
+		$variant_props++;
+	}
+
+	return;
+}

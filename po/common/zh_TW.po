@@ -977,8 +977,8 @@ msgstr "常見問答集"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "https://support.openfoodfacts.org/help/en-gb"
-msgstr "https://support.openfoodfacts.org/help/zh-tw"
+msgid "/faq"
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -2771,9 +2771,9 @@ msgstr "檢視輸入文字的結果"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
 msgstr "訊息和資料皆必須來自產品包裝和標籤（不可取自其他網站或製造商網站），而且照片必須是由您自己拍攝的。<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">這為什麼重要</a>"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">這為什麼重要</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3404,7 +3404,7 @@ msgstr "協助翻譯 %s 至 %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
-msgstr ""
+msgstr "您可以為下列尚未翻譯成您語言的詞條提供翻譯建議。藍色連結與黑色文字（皆為英文）分別顯示未本地化的產品以及原始詞條（含以逗號分隔的同義詞）。請於文字欄位輸入翻譯（含同義詞），然後點擊「儲存」按鈕。感謝您！"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3412,7 +3412,7 @@ msgstr "僅顯不含翻譯擱置中的項目"
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "同時顯示包含您或其他使用者擱置中翻譯的項目。"
 
 msgctxt "translated"
 msgid "translated"
@@ -4255,23 +4255,23 @@ msgstr ""
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "我已經捐款或不感興趣。隱藏橫幅。"
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "一個獨立且由公民引導的食品透明度專案？"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "用於促進公眾健康的食品研究數據？"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "根據您自己的標準，更輕鬆地做出更好的食物選擇？"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "我們需要您的支持！"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
@@ -6004,7 +6004,7 @@ msgstr ""
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "請支持我們的 {year} 年募捐活動"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6040,39 +6040,39 @@ msgstr ""
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr ""
+msgstr "我們仍需要 120,000 歐元來完成 2026 年！"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr ""
+msgstr "成為 Open Food Facts 的贊助者"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr ""
+msgstr "每個月，我們為 800 萬訪客提供服務，並透過 API 提供數倍的服務。您的支持對以下各方面至關重要："
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr ""
+msgstr "保持 Open Food Facts 開放並向所有人提供，"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr ""
+msgstr "透過一支小型常設團隊支援基礎設施、網站、行動應用程式與 API"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
-msgstr ""
+msgstr "保持獨立於食品產業，"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr ""
+msgstr "支援社群"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr ""
+msgstr "支援科學研究"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr ""
+msgstr "如果本月每位訪客都點擊「贊助」並僅捐款 1 歐元，我們將獲得超過我們年度預算 8 倍的資金！"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"

@@ -320,7 +320,7 @@
                "description" : "No ingredient associated with a deforestation risk.",
                "description_short" : "No deforestation risk",
                "grade" : "a",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-a.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-a.svg",
                "id" : "forest_footprint",
                "match" : 100,
                "name" : "Forest Footprint",
@@ -454,6 +454,32 @@
    "ecoscore_tags" : [
       "d"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "fresh",
+         "ingredients" : [],
+         "ingredients_coverage_percent" : 0,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "refrigeration"
+         ],
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "fresh",
+            "ingredients" : [],
+            "preparation" : [
+               "refrigeration"
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      },
+      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+      "ecobalyse_skipped" : 1
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -943,6 +969,9 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
@@ -952,6 +981,8 @@
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
@@ -969,7 +1000,7 @@
       "en:packagings-empty",
       "en:packagings-not-complete",
       "en:packagings-number-of-components-0",
-      "en:storage-conditions-not-set"
+      "en:storage-conditions-set"
    ],
    "nova_group_debug" : "no nova group if too many ingredients are unknown: 2 out of 2",
    "nova_group_error" : "too_many_unknown_ingredients",
@@ -1126,6 +1157,10 @@
    "pnns_groups_2_tags" : [
       "cheese",
       "known"
+   ],
+   "storage_conditions" : "en:refrigerated",
+   "storage_conditions_tags" : [
+      "en:refrigerated"
    ],
    "tags_sources" : {
       "allergens" : {

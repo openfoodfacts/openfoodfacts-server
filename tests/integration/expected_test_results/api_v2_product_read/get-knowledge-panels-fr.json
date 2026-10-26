@@ -687,7 +687,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                <p><strong>Empreinte Forêt</strong></p>\n                <p>L'Empreinte Forêt est une méthodologie développée par l'association <a href=\"https://envol-vert.org/\">Envol Vert</a> pour estimer le risque de déforestation lié à notre consommation.\n                &rarr; <a href=\"https://envol-vert.org/\">Plus d'informations sur la méthodologie</a></p>\n\n                \n                <p><strong>Note de l'Empreinte Forêt :</strong> \n                    B\n                </p>\n                <p>Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels.</p>\n                <p><strong>Empreinte Forêt totale :</strong> \n                    0.004 \n                    m² par kg d'aliment\n                </p>\n                \n                ",
+                     "html" : "\n                <p><strong>Empreinte Forêt</strong></p>\n                <p>L'Empreinte Forêt est une méthodologie développée par l'association <a href=\"https://envol-vert.org/\">Envol Vert</a> pour estimer le risque de déforestation lié à notre consommation.\n                &rarr; <a href=\"https://envol-vert.org/actu/2026/09/lempreinte-foret-sinvite-dans-les-telephones-des-francais/\">Plus d'informations sur la méthodologie</a></p>\n\n                \n                <p><strong>Note de l'Empreinte Forêt :</strong> \n                    B\n                </p>\n                <p>Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels.</p>\n                <p><strong>Empreinte Forêt totale :</strong> \n                    0.004 \n                    m² par kg d'aliment\n                </p>\n                \n                ",
                      "type" : "summary"
                   }
                },
@@ -699,159 +699,10 @@
                   }
                },
                {
-                  "element_type" : "table",
-                  "table_element" : {
-                     "columns" : [
-                        {
-                           "text" : "Ingrédient",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "% dans le produit",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Ingrédient primaire",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Facteur de transformation",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Origine du produit et/ou de ses ingrédients",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Empreinte Forêt pour l'origine",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Label",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Risque de déforestation",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Empreinte Forêt<br><span style=\"font-weight:normal\">(m² par kg d'aliment)</span>",
-                           "type" : "text"
-                        }
-                     ],
-                     "id" : "forest_footprint_2026_en:palm-oil_table",
-                     "rows" : [
-                        {
-                           "values" : [
-                              {
-                                 "text" : "huile et matière grasse de palme"
-                              },
-                              {
-                                 "text" : "5.21 %"
-                              },
-                              {
-                                 "text" : "huile de palme"
-                              },
-                              {
-                                 "text" : "1.00"
-                              },
-                              {
-                                 "text" : "Inconnu"
-                              },
-                              {
-                                 "text" : "0.055"
-                              },
-                              {
-                                 "text" : "Bio"
-                              },
-                              {
-                                 "text" : "85 %"
-                              },
-                              {
-                                 "text" : "0.002"
-                              }
-                           ]
-                        }
-                     ],
-                     "title" : "huile de palme"
-                  }
-               },
-               {
                   "element_type" : "text",
                   "text_element" : {
                      "html" : "\n                <h3>Ingrédients nécessitant du soja</h3>\n                <p>L'Empreinte Forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation.</p>\n                <p><strong>Note de l'ingrédient primaire :</strong> B</p>\n                <p><strong>Empreinte Forêt totale :</strong> 0.002 m² par kg d'aliment</p>\n                <p>La viande de volaille et ses dérivés (œufs), même élevés en France, contribuent largement à la déforestation via leur alimentation : le soja. La France importe deux tiers de son soja du Brésil, où sa culture participe à détruire l’Amazonie.</p>\n                ",
                      "type" : "summary"
-                  }
-               },
-               {
-                  "element_type" : "table",
-                  "table_element" : {
-                     "columns" : [
-                        {
-                           "text" : "Ingrédient",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Type",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "% dans le produit",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Facteur de transformation<br><span style=\"font-weight:normal\">(% d'aliments après transformation)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Facteur de l'alimentation au soja<br><span style=\"font-weight:normal\">(kg de soja par kg d'aliment)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Rendement du soja<br><span style=\"font-weight:normal\">(kg de soja par m²)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Risque de déforestation<br><span style=\"font-weight:normal\">(%)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Empreinte Forêt<br><span style=\"font-weight:normal\">(m² par kg d'aliment)</span>",
-                           "type" : "text"
-                        }
-                     ],
-                     "id" : "forest_footprint_2026_en:chicken-and-eggs_table",
-                     "rows" : [
-                        {
-                           "values" : [
-                              {
-                                 "text" : "œuf"
-                              },
-                              {
-                                 "text" : "Oeufs Bio"
-                              },
-                              {
-                                 "text" : "10.42 %"
-                              },
-                              {
-                                 "text" : "100 %"
-                              },
-                              {
-                                 "text" : "0.028"
-                              },
-                              {
-                                 "text" : "0.18"
-                              },
-                              {
-                                 "text" : "10 %"
-                              },
-                              {
-                                 "text" : "0.002"
-                              }
-                           ]
-                        }
-                     ],
-                     "title" : "en:chicken-and-eggs"
                   }
                },
                {
@@ -873,10 +724,10 @@
             "level" : "info",
             "title_element" : {
                "grade" : "b",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-b.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-b.svg",
                "name" : "Empreinte Forêt",
                "subtitle" : "Présence d'un ou plusieurs ingrédients à risque de déforestation, mais risque faible au regard de leur quantité, origine et/ou labels.",
-               "title" : "Empreinte Forêt B  - Risque faible de déforestation",
+               "title" : "Risque faible de déforestation",
                "type" : "grade"
             },
             "topics" : [
@@ -1151,7 +1002,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Taxonomy ID</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>apple</span></td><td style=\"padding:2px 6px\">en:apple</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">13050</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">58.3</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>milk</span></td><td style=\"padding:2px 6px\">en:milk</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">19051</td><td style=\"text-align:right;padding:2px 6px\">20.8</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>eggs</span></td><td style=\"padding:2px 6px\">en:egg</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">22000</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">10.4</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>palm oil</span></td><td style=\"padding:2px 6px\">en:palm-oil</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">16129</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">5.2</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">25.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>curcumin</span></td><td style=\"padding:2px 6px\">en:e100</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">20.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>soy lecithin</span></td><td style=\"padding:2px 6px\">en:soya-lecithin</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">42200</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
+                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">taxonomy_id</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>apple</span></td><td style=\"padding:2px 6px\">en:apple</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">13050</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">58.3</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>milk</span></td><td style=\"padding:2px 6px\">en:milk</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">19051</td><td style=\"text-align:right;padding:2px 6px\">20.8</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>eggs</span></td><td style=\"padding:2px 6px\">en:egg</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">22000</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">10.4</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>palm oil</span></td><td style=\"padding:2px 6px\">en:palm-oil</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">16129</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">5.2</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">25.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>curcumin</span></td><td style=\"padding:2px 6px\">en:e100</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">20.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>soy lecithin</span></td><td style=\"padding:2px 6px\">en:soya-lecithin</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">42200</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
                   }
                },
                {
@@ -1829,7 +1680,7 @@
                                  "text" : "Matières grasses"
                               },
                               {
-                                 "text" : "8.5 g"
+                                 "text" : "8,5 g"
                               }
                            ]
                         },
@@ -1841,7 +1692,7 @@
                                  "text" : "Acides gras saturés"
                               },
                               {
-                                 "text" : "5.6 g"
+                                 "text" : "5,6 g"
                               }
                            ]
                         },
@@ -1853,7 +1704,7 @@
                                  "text" : "Glucides"
                               },
                               {
-                                 "text" : "10.5 g"
+                                 "text" : "10,5 g"
                               }
                            ]
                         },
@@ -1865,7 +1716,7 @@
                                  "text" : "Sucres"
                               },
                               {
-                                 "text" : "12.5 g"
+                                 "text" : "12,5 g"
                               }
                            ]
                         },
@@ -1889,7 +1740,7 @@
                                  "text" : "Protéines"
                               },
                               {
-                                 "text" : "4.5 g"
+                                 "text" : "4,5 g"
                               }
                            ]
                         },
@@ -1901,7 +1752,7 @@
                                  "text" : "Sel"
                               },
                               {
-                                 "text" : "0.0502 g"
+                                 "text" : "0,05 g"
                               }
                            ]
                         },
@@ -1913,7 +1764,7 @@
                                  "text" : "Sodium"
                               },
                               {
-                                 "text" : "~ 0.02008 g"
+                                 "text" : "~ 0,02 g"
                               }
                            ]
                         },
@@ -1922,10 +1773,10 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ légumes‚ légumes secs"
+                                 "text" : "Fruits, légumes, légumes secs"
                               },
                               {
-                                 "text" : "~ 58.3333333333333 %"
+                                 "text" : "~ 58,333 %"
                               }
                            ]
                         }
@@ -1996,7 +1847,7 @@
                                  "text" : "400 kJ<br>(96 kcal)"
                               },
                               {
-                                 "text" : "~ 405.125 kJ<br>(97 kcal)"
+                                 "text" : "~ 405,125 kJ<br>(97 kcal)"
                               }
                            ]
                         },
@@ -2008,13 +1859,13 @@
                                  "text" : "Matières grasses"
                               },
                               {
-                                 "text" : "8.5 g"
+                                 "text" : "8,5 g"
                               },
                               {
-                                 "text" : "8.5 g"
+                                 "text" : "8,5 g"
                               },
                               {
-                                 "text" : "~ 8.50916666666665 g"
+                                 "text" : "~ 8,509 g"
                               }
                            ]
                         },
@@ -2026,13 +1877,13 @@
                                  "text" : "Acides gras saturés"
                               },
                               {
-                                 "text" : "5.6 g"
+                                 "text" : "5,6 g"
                               },
                               {
-                                 "text" : "5.6 g"
+                                 "text" : "5,6 g"
                               },
                               {
-                                 "text" : "~ 3.206 g"
+                                 "text" : "~ 3,206 g"
                               }
                            ]
                         },
@@ -2044,13 +1895,13 @@
                                  "text" : "Glucides"
                               },
                               {
-                                 "text" : "10.5 g"
+                                 "text" : "10,5 g"
                               },
                               {
-                                 "text" : "10.5 g"
+                                 "text" : "10,5 g"
                               },
                               {
-                                 "text" : "~ 7.51770833333333 g"
+                                 "text" : "~ 7,518 g"
                               }
                            ]
                         },
@@ -2062,13 +1913,13 @@
                                  "text" : "Sucres"
                               },
                               {
-                                 "text" : "12.5 g"
+                                 "text" : "12,5 g"
                               },
                               {
-                                 "text" : "12.5 g"
+                                 "text" : "12,5 g"
                               },
                               {
-                                 "text" : "~ 7.0328125 g"
+                                 "text" : "~ 7,033 g"
                               }
                            ]
                         },
@@ -2086,7 +1937,7 @@
                                  "text" : "2 g"
                               },
                               {
-                                 "text" : "~ 0.758333333333333 g"
+                                 "text" : "~ 0,758 g"
                               }
                            ]
                         },
@@ -2098,13 +1949,13 @@
                                  "text" : "Protéines"
                               },
                               {
-                                 "text" : "4.5 g"
+                                 "text" : "4,5 g"
                               },
                               {
-                                 "text" : "4.5 g"
+                                 "text" : "4,5 g"
                               },
                               {
-                                 "text" : "~ 2.16375 g"
+                                 "text" : "~ 2,164 g"
                               }
                            ]
                         },
@@ -2116,13 +1967,13 @@
                                  "text" : "Sel"
                               },
                               {
-                                 "text" : "0.0502 g"
+                                 "text" : "0,05 g"
                               },
                               {
-                                 "text" : "50.2 mg"
+                                 "text" : "50,2 mg"
                               },
                               {
-                                 "text" : "~ 0.0561979166666667 g"
+                                 "text" : "~ 0,056 g"
                               }
                            ]
                         },
@@ -2134,13 +1985,13 @@
                                  "text" : "Sodium"
                               },
                               {
-                                 "text" : "~ 0.02008 g"
+                                 "text" : "~ 0,02 g"
                               },
                               {
                                  "text" : "?"
                               },
                               {
-                                 "text" : "~ 0.0223072916666667 g"
+                                 "text" : "~ 0,022 g"
                               }
                            ]
                         },
@@ -2149,16 +2000,16 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ légumes‚ légumes secs"
+                                 "text" : "Fruits, légumes, légumes secs"
                               },
                               {
-                                 "text" : "~ 58.3333333333333 %"
+                                 "text" : "~ 58,333 %"
                               },
                               {
                                  "text" : "?"
                               },
                               {
-                                 "text" : "~ 58.3333333333333 %"
+                                 "text" : "~ 58,333 %"
                               }
                            ]
                         }
