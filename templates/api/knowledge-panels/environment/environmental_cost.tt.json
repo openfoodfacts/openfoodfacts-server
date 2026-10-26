@@ -40,8 +40,8 @@
                     {
                         "values": [
                             { "text": [% lang(row.label) | js %] },
-                            [% IF panel.has_per_product %]{ "text": "[% row.per_product %]" },[% END %]
-                            { "text": "[% row.per_100 %]" }
+                            [% IF panel.has_per_product %]{ "text": [% row.per_product | js %] },[% END %]
+                            { "text": [% row.per_100 | js %] }
                         ]
                     }[% UNLESS loop.last %],[% END %]
                     [% END %]

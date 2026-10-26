@@ -398,7 +398,7 @@
                     </div>
                     [% IF moderator %]
                         <div class="small-4 medium-4 large-2 xlarge-2 columns">
-                            <a href="/cgi/product.pl?type=delete&code=[% code | uri %]" class="button postfix small secondary alert" title="[% lang('delete_product_page') | html %]">
+                            <a href="/cgi/product.pl?type=delete&amp;code=[% code | uri %]" class="button postfix small secondary alert" title="[% lang('delete_product_page') | html %]">
                                 [% display_icon('delete') %] [% lang('delete') %]
                             </a>
                         </div>

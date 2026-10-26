@@ -14,21 +14,21 @@ email: [% user.email | html %]<br>
 lc: [% user.preferred_language | html %]<br>
 cc: [% cc | html %]<br>
 
-<a href="https://world.openfoodfacts.org/cgi/org.pl?type=edit&orgid=[% (user.org or user.requested_org) | uri %]">Access org [% (user.org or user.requested_org) | html %] to validate if it is a real organization</a>
+<a href="https://world.openfoodfacts.org/cgi/org.pl?type=edit&amp;orgid=[% (user.org or user.requested_org) | uri %]">Access org [% (user.org or user.requested_org) | html %] to validate if it is a real organization</a>
 <br>
-<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-[% (user.org_id or user.requested_org_id) | uri %]">Access the pro platform as organization [% user.requested_org_id | html %]</a>
+<a href="https://world.pro.openfoodfacts.org/cgi/user.pl?action=process&amp;type=edit_owner&amp;pro_moderator_owner=org-[% (user.org_id or user.requested_org_id) | uri %]">Access the pro platform as organization [% user.requested_org_id | html %]</a>
 <br>
 <br>
-<a href="mailto:[% user.email | uri %]?subject=[% mail_subject_new_pro_account | uri %]&cc=producteurs@openfoodfacts.org&body=[% mail_body_new_pro_account | uri %]">E-mail de relance</a>
+<a href="mailto:[% user.email | uri %]?subject=[% mail_subject_new_pro_account | uri %]&amp;cc=producteurs@openfoodfacts.org&amp;body=[% mail_body_new_pro_account | uri %]">E-mail de relance</a>
 <br>
 <br>
 [% IF user.requested_org_id %]
-<a href="mailto:[% user.email | uri %]?subject=[% mail_subject_new_pro_account_org_request_validated | uri %]&cc=producteurs@openfoodfacts.org&body=[% mail_body_new_pro_account_org_request_validated | uri %]">E-mail de rattachement à l'organisation</a>
+<a href="mailto:[% user.email | uri %]?subject=[% mail_subject_new_pro_account_org_request_validated | uri %]&amp;cc=producteurs@openfoodfacts.org&amp;body=[% mail_body_new_pro_account_org_request_validated | uri %]">E-mail de rattachement à l'organisation</a>
 <br>
 <br>
 [% END %]
 <br>
-<a href="https://connect.openfoodfacts.org/web#cids=1&menu_id=111&action=139&model=res.partner&view_type=list">Go to Connect</a>
+<a href="https://connect.openfoodfacts.org/web#cids=1&amp;menu_id=111&amp;action=139&amp;model=res.partner&amp;view_type=list">Go to Connect</a>
 <br>
 Here is the tabular data for the producer if they are not in the tracking spreadsheet yet.
 <br>

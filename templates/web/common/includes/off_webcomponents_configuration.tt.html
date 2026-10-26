@@ -2,12 +2,12 @@
   language-code="[% language_code | html %]"
   country-code="[% country_code | html %]"
   robotoff-configuration='{
-    "apiUrl": "[% robotoff_domain | html %]/api/v1",
-    "imgUrl": "[% images_domain | html %]/images/products"
+    "apiUrl": [% (robotoff_domain _ '/api/v1') | js %],
+    "imgUrl": [% (images_domain _ '/images/products') | js %]
   }'
   [% IF (folksonomy_uri.defined) && (folksonomy_uri.length> 0) %]
   folksonomy-configuration='{
-  "apiUrl": "[% folksonomy_uri | html %]"
+  "apiUrl": [% folksonomy_uri | js %]
   }'
   [% END %]
   openfoodfacts-api-url="[% api_domain | html %]"

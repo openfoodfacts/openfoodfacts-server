@@ -2,7 +2,7 @@
 [% IF edit_profile %]
 	<!-- Edit product page -->
 	<div class="edit_button">
-		<a href="/cgi/user.pl?userid=[% userid | uri %]&type=edit&action=display" class="button small" title= "[% lang('edit_user_profile') | html %]">
+		<a href="/cgi/user.pl?userid=[% userid | uri %]&amp;type=edit&amp;action=display" class="button small" title= "[% lang('edit_user_profile') | html %]">
 			[% display_icon('edit') %]
 			<span class="show-for-large-up">[% lang("edit_user_profile") %]</span>
 		</a>

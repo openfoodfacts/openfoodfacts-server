@@ -26,7 +26,7 @@
                 <div class="buttons_prod">
                     <!-- Edit product page -->
                     <div class="edit_button">
-                        <a href="/cgi/product.pl?type=edit&code=[% code | uri %]" class="button small white-button round" title="[% lang('edit_product_page') | html %]">
+                        <a href="/cgi/product.pl?type=edit&amp;code=[% code | uri %]" class="button small white-button round" title="[% lang('edit_product_page') | html %]">
                             <span class="material-icons size-20 ">
                             edit
                             </span>
@@ -49,7 +49,7 @@
                     [% IF user_moderator %]
                     <!-- Delete product page -->
                         <div class="delete_button">
-                            <a href="/cgi/product.pl?type=delete&code=[% code | uri %]" class="button small alert" title="[% lang('delete_product_page') | html %]">
+                            <a href="/cgi/product.pl?type=delete&amp;code=[% code | uri %]" class="button small alert" title="[% lang('delete_product_page') | html %]">
                                 <span class="material-icons size-20 ">
                                 delete
                                 </span>
@@ -432,7 +432,7 @@
 
 
         <div class="edit_button center text-center" >
-            <a href="/cgi/product.pl?type=edit&code=[% code | uri %]" class="button small">
+            <a href="/cgi/product.pl?type=edit&amp;code=[% code | uri %]" class="button small">
                 [% display_icon('edit') %]
                 [% lang('edit_product_page') %]
             </a>

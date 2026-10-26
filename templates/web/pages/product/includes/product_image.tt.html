@@ -7,7 +7,7 @@
 		<p>[% creativecommons %][% original_link %]</p>
 		<p>[% attribution %]</p>
 	</figcaption>
-	<a class="button small action-report_product_to_nutripatrol" href="[% nutripatrol_url %]/flag/image/?barcode=[% code | uri %]&image_id=[% original_id | uri %]&source=web&flavor=[% flavor | uri %]">
+	<a class="button small action-report_product_to_nutripatrol" href="[% nutripatrol_url | html %]/flag/image/?barcode=[% code | uri %]&amp;image_id=[% original_id | uri %]&amp;source=web&amp;flavor=[% flavor | uri %]">
 		[% lang('action_report_image_to_nutripatrol') %]
 	</a>
 </figure>
