@@ -453,7 +453,7 @@ Unit to get symbol of.
 =head3 Return values
 
 The symbol used to represent the given unit.
-Returns undef if the unit isn’t recognised.
+Returns undef if the unit isn't recognised.
 
 =cut
 
