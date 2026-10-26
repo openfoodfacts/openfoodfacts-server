@@ -265,9 +265,11 @@ RUN set -e && \
     '
 
 ######################
-# backend production image stage
+# backend dependencies stage: everything but Product Opener code
+# CI uses it as the dev/test image (the code is bind-mounted, see docker/dev.yml),
+# which lets it reuse the image as long as dependencies do not change.
 ######################
-FROM modperl AS runnable
+FROM modperl AS backend-deps
 
 # Prepare Apache to include our custom config
 RUN rm /etc/apache2/sites-enabled/000-default.conf
@@ -307,8 +309,6 @@ RUN \
     # logs dir
     mkdir -p /var/log/apache2/ && \
     chown www-data:www-data -R /var/log
-# Install Product Opener from the workdir
-COPY --chown=www-data:www-data . /opt/product-opener/
 
 EXPOSE 80
 COPY ./docker/docker-entrypoint.sh /
@@ -321,6 +321,14 @@ USER www-data
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 # default command is apache2ctl start
 CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+######################
+# backend production image stage
+######################
+FROM backend-deps AS runnable
+
+# Install Product Opener from the workdir
+COPY --chown=www-data:www-data . /opt/product-opener/
 
 ######################
 # Prod image is default
