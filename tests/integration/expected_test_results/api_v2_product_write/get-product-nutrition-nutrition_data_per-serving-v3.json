@@ -5,6 +5,7 @@
       "_id" : "1234567890008",
       "_keywords" : [
          "field",
+         "glycemic-index",
          "nutrition",
          "old",
          "per",
@@ -384,6 +385,10 @@
          "unknown"
       ],
       "food_groups_tags" : [],
+      "forest_footprint_2026" : {
+         "grade" : "unknown",
+         "summary" : "missing_ingredients"
+      },
       "id" : "1234567890008",
       "images" : {
          "selected" : {
@@ -395,6 +400,14 @@
       ],
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
+      "labels" : "glycemic-index",
+      "labels_hierarchy" : [
+         "en:glycemic-index"
+      ],
+      "labels_lc" : "en",
+      "labels_tags" : [
+         "en:glycemic-index"
+      ],
       "lang" : "en",
       "languages" : {
          "en:english" : 1
@@ -418,6 +431,7 @@
       "main_countries_tags" : [],
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:forest-footprint-unknown",
          "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-category",
          "en:nutriscore-missing-nutrition-data",
@@ -553,6 +567,20 @@
                   "unit" : "g",
                   "value" : 4.5
                },
+               "glycemic-index" : {
+                  "source" : "packaging",
+                  "source_index" : 1,
+                  "source_per" : "serving",
+                  "unit" : "",
+                  "value" : 4
+               },
+               "ph" : {
+                  "source" : "packaging",
+                  "source_index" : 1,
+                  "source_per" : "serving",
+                  "unit" : "",
+                  "value" : 7.2
+               },
                "proteins" : {
                   "source" : "packaging",
                   "source_index" : 0,
@@ -661,6 +689,16 @@
                      "unit" : "g",
                      "value" : 2,
                      "value_string" : "2"
+                  },
+                  "glycemic-index" : {
+                     "unit" : "",
+                     "value" : 4,
+                     "value_string" : "4"
+                  },
+                  "ph" : {
+                     "unit" : "",
+                     "value" : 7.2,
+                     "value_string" : "7.2"
                   }
                },
                "per" : "serving",

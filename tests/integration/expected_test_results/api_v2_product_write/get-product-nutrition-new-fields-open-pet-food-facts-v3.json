@@ -45,69 +45,15 @@
       "created_t" : "--ignore--",
       "creator" : "tests",
       "data_quality_bugs_tags" : [],
-      "data_quality_completeness_tags" : [
-         "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
-         "en:ingredients-en-photo-to-be-selected",
-         "en:ingredients-en-to-be-completed",
-         "en:nutrition-photo-to-be-selected",
-         "en:categories-to-be-completed",
-         "en:nutrition-completed",
-         "en:packaging-photo-to-be-selected",
-         "en:packagings-completed",
-         "en:front-photo-to-be-selected",
-         "en:product-name-completed",
-         "en:quantity-to-be-completed",
-         "en:brands-to-be-completed",
-         "en:expiration-date-to-be-completed"
-      ],
-      "data_quality_dimensions" : {
-         "accuracy" : {
-            "overall" : "0.00"
-         },
-         "completeness" : {
-            "general_information" : "0.20",
-            "ingredients" : "0.00",
-            "nutrition" : "0.33",
-            "overall" : "0.25",
-            "packaging" : "0.50"
-         }
-      },
+      "data_quality_completeness_tags" : [],
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
-         "en:no-packaging-data",
-         "en:food-groups-1-unknown",
-         "en:food-groups-2-unknown",
-         "en:food-groups-3-unknown"
+         "en:no-packaging-data"
       ],
       "data_quality_tags" : [
-         "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
-         "en:ingredients-en-photo-to-be-selected",
-         "en:ingredients-en-to-be-completed",
-         "en:nutrition-photo-to-be-selected",
-         "en:categories-to-be-completed",
-         "en:nutrition-completed",
-         "en:packaging-photo-to-be-selected",
-         "en:packagings-completed",
-         "en:front-photo-to-be-selected",
-         "en:product-name-completed",
-         "en:quantity-to-be-completed",
-         "en:brands-to-be-completed",
-         "en:expiration-date-to-be-completed",
-         "en:no-packaging-data",
-         "en:food-groups-1-unknown",
-         "en:food-groups-2-unknown",
-         "en:food-groups-3-unknown",
-         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:environmental-score-packaging-packaging-data-missing",
-         "en:environmental-score-production-system-no-label",
-         "en:environmental-score-threatened-species-ingredients-missing"
+         "en:no-packaging-data"
       ],
-      "data_quality_warnings_tags" : [
-         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:environmental-score-packaging-packaging-data-missing",
-         "en:environmental-score-production-system-no-label",
-         "en:environmental-score-threatened-species-ingredients-missing"
-      ],
+      "data_quality_warnings_tags" : [],
       "ecoscore_tags" : [
          "unknown"
       ],
@@ -362,12 +308,11 @@
          "unknown"
       ],
       "food_groups_tags" : [],
-      "id" : "2234567890002",
-      "images" : {
-         "selected" : {
-            "ingredients" : {}
-         }
+      "forest_footprint_2026" : {
+         "grade" : "unknown",
+         "summary" : "missing_ingredients"
       },
+      "id" : "2234567890002",
       "informers_tags" : [
          "tests"
       ],
@@ -396,6 +341,7 @@
       "main_countries_tags" : [],
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:forest-footprint-unknown",
          "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-category",
          "en:nutriscore-missing-fiber",
