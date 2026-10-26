@@ -1,0 +1,22 @@
+# The sizes taxonomy is used for ingredients parsing, in particular for cooking recipes ingredients
+# that frequently contain phrases like "2 small carrots", "3 courgettes de taille moyenne"
+
+stopwords:en: size, sized
+stopwords:fr: de, taille, calibre
+
+en: large
+fr: grand, grande, grands, grandes
+conversion_factor:en: 1.5
+
+en: big
+fr: gros, grosse, grosses
+conversion_factor:en: 1.5
+
+en: medium, average
+fr: moyen, moyenne, moyens, moyennes
+conversion_factor:en: 1
+
+en: small
+fr: petit, petite, petits, petites
+conversion_factor:en: 0.75
+

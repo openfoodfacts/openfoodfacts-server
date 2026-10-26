@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -61,13 +61,14 @@ BEGIN {
 		$events_password
 
 		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 		$facets_kp_url
 		$redis_url
 		$folksonomy_url
 		$process_global_redis_events
 
 		$recipe_estimator_url
-		$recipe_estimator_scipy_url
+		$recipe_estimator_service
 
 		$mongodb
 		$mongodb_host
@@ -105,6 +106,10 @@ BEGIN {
 
 		$build_cache_repo
 		$serialize_to_json
+
+		$health_check_api_key
+
+		$ecobalyse_api_token
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -161,6 +166,12 @@ $flavor = "opf";
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# Romanian: diacritics (ă â î ș ț, and the legacy cedilla forms ş ţ) are very often missing,
+	# and there are very few conflicts in ingredients, labels etc. (ă vs a mostly marks the definite article)
+	ro => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	# English has very few accented words, and they are very often not accented by users or in ingredients lists etc.
 	en => {
 		unaccent => 1,
@@ -184,11 +195,13 @@ $flavor = "opf";
 %options = (
 	site_name => "Open Products Facts",
 	product_type => "product",
-	og_image_url => "https://static.openfoodfacts.org/images/logos/opf-logo-vertical-white-social-media-preview.png",
-	#android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=opf&utf_medium=web",
-	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opf&utf_medium=web",
-	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opf&utf_medium=web",
-	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?&utm_source=opf&utf_medium=web",
+	og_image_url =>
+		"https://static.openproductsfacts.org/images/logos/opf-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases",
+	android_app_link =>
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opf&utm_medium=web",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opf&utm_medium=web",
+	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?&utm_source=opf&utm_medium=web",
 	#x_account => "OpenBeautyFacts",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
 	favicons => <<HTML
@@ -210,6 +223,11 @@ $options{export_limit} = 10000;
 # Recent changes limits
 $options{default_recent_changes_page_size} = 20;
 $options{max_recent_changes_page_size} = 1000;
+# Maximum number of changes that can be skipped before the first one returned. MongoDB walks over
+# every skipped document on a $natural sort, and both page and page size are capped separately,
+# so without this a request for the last allowed page of the largest allowed page size asks for a
+# skip of 999,000.
+$options{max_recent_changes_skip} = 10_000;
 
 # List of products limits
 $options{default_api_products_page_size} = 20;
@@ -250,13 +268,20 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
 
-# recipe-estimator product service
-# To test a locally running recipe-estimator with product opener in a docker dev environment:
-# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-
+# Set this to your instance of https://recipe-estimator.openfoodfacts.org/api/v3/estimate_recipe
+# to enable recipe estimation features in Product Opener
 $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
-$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
+# To test a locally running recipe-estimator with Product Opener in a docker dev environment:
+# run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:5521/api/v3/estimate_recipe";
+
+# Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
+# or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
+# or "product_opener" to use the legacy Product Opener algorithm
+$recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
+
+# Ecobalyse API token, needs to be generated on https://ecobalyse.beta.gouv.fr/
+$ecobalyse_api_token = $ProductOpener::Config2::ecobalyse_api_token;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
@@ -272,6 +297,10 @@ $process_global_redis_events = 0;
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
+# If $rate_limiter_disabled is set to 1, rate limiting is completely disabled
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = $ProductOpener::Config2::rate_limiter_disabled;
 
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features
@@ -308,6 +337,7 @@ $analytics = <<HTML
   _paq.push(["setDomains", ["*.openproductsfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -345,7 +375,7 @@ HTML
 # improvements
 # ingredients_analysis
 # ingredients_processing:
-# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# ingredients (additives_classes, additives, minerals, vitamins, amino_acids, nucleotides, other_nutritional_substances): labels
 # labels: categories
 # languages:
 # minerals
@@ -371,11 +401,14 @@ HTML
 	origins
 	packaging_shapes packaging_materials packaging_recycling packaging
 	labels categories
+	nutrients
 	misc
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
 	brands
+	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
@@ -548,7 +581,7 @@ $options{import_export_fields_groups} = [
 	["packaging"],
 	[
 		"other",
-		["customer_service", "link",]
+		["customer_service", "link", "teams",]
 	],
 	[
 		"images",
@@ -562,8 +595,11 @@ $options{import_export_fields_groups} = [
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
-$options{attribute_groups}
-	= [["labels", ["labels_organic", "labels_fair_trade"]], ["environment", ["repairability_index_france",]],];
+$options{attribute_groups} = [
+	["labels", ["labels_organic", "labels_fair_trade"]],
+	["environment", ["repairability_index_france",]],
+	["ingredients_analysis", ["unwanted_ingredients"]]
+];
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {

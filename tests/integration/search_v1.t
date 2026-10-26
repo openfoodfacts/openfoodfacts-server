@@ -91,10 +91,10 @@ my @products = (
 		(
 			code => '2000000000466',
 			product_name => "More vegan breakfast cereals without palm oil",
-			ingredients_text => "apple, water",
+			ingredients_text => "apple, water, sugar 20%",
 			origin => "UK",
 			countries => "United Kingdom, Ireland",
-			categories => "breakfast cereals"
+			categories => "breakfast cereals",
 		)
 	}
 	#
@@ -185,7 +185,15 @@ my $tests_ref = [
 		path => '/cgi/search.pl?action=process&json=1&fields=attribute_groups',
 		cookies => [{name => "attribute_unwanted_ingredients_tags", value => "en:water"}],
 		expected_status_code => 200,
-	}
+	},
+	# Search on nutrients
+	# Note: the test products have no nutrition facts set, but they get estimated nutrition facts from ingredients
+	{
+		test_case => 'search-nutrient-sugar-greater-than-15g',
+		method => 'GET',
+		path => '/cgi/search.pl?action=process&json=1&sugars_100g=>15',
+		expected_status_code => 200,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -56,6 +56,8 @@ BEGIN {
 		$oidc_client_id
 		$oidc_client_secret
 		%slack_hook_urls
+		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -108,7 +110,6 @@ $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 	private_products => 1,    # Make products visible only to the owner
 							  # Tells that session_cookie (which is normally limitted by ip)
 							  # can be trusted also for those ip addresses
-	ip_whitelist_session_cookie => ["172.19.0.1"],
 	minion_backend => {'Pg' => 'postgresql://off:******@10.1.0.120/minion'},
 	minion_local_queue => "openfoodfacts.org",
 
@@ -120,6 +121,12 @@ $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 	# minion_daemon_server_and_port => "http://0.0.0.0:3001",
 	# this one does not seems to be used
 	# minion_admin_server_and_port => "http://0.0.0.0:3003",
+
+	# Hosts that the import feature is allowed to download images from, even if they do not
+	# resolve to a globally routable address (e.g. a supplier serving images from a private
+	# network). By default, an image url is only fetched if it resolves to a globally routable
+	# address, so that the import cannot be used to reach our internal services.
+	# allowed_image_download_hosts => ["images.example.com"],
 );
 
 #11901: Remove once production is migrated
@@ -132,5 +139,9 @@ $oidc_discovery_url = 'http://10.1.0.104:5600/realms/openfoodfacts/.well-known/o
 
 # associate each channel (by name) with its url (containing auth)
 %slack_hook_urls = ();
+
+# Rate limiter disabled flag - set to 1 to disable application-level rate limiting
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = 0;
 
 1;

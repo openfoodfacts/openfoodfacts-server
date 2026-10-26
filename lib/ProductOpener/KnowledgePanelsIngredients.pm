@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -55,6 +55,7 @@ use vars @EXPORT_OK;
 use ProductOpener::KnowledgePanels
 	qw(create_panel_from_json_template add_taxonomy_properties_in_target_languages_to_object);
 use ProductOpener::Tags qw(:all);
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Display qw/:all/;
@@ -199,7 +200,8 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 		my $added_sugars_percent_estimate = estimate_added_sugars_percent_from_ingredients($product_ref);
 
 		# Get the % of added sugars from the nutrition facts if it is available
-		my $added_sugars_percent_nutrition_facts = deep_get($product_ref, qw(nutriments added-sugars_100g));
+		my $added_sugars_percent_nutrition_facts
+			= deep_get($product_ref, qw(nutrition aggregated_set nutrients added-sugars value));
 
 		my $panel_data_ref = {
 			ingredients_added_sugars => \@added_sugars_ingredients,
@@ -209,14 +211,14 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 
 		# Get the most specific category so that we can link to the category without added sugars
 		# Skip products that are in the "en:sweeteners" category
-		if (    (defined $product_ref->{categories_hierarchy})
-			and (scalar @{$product_ref->{categories_hierarchy}} > 0)
+		if (    (defined $product_ref->{categories_tags})
+			and (scalar @{$product_ref->{categories_tags}} > 0)
 			and not(has_tag($product_ref, "categories", "en:sweeteners")))
 		{
 			my $category_id;
 
 			# Find the most specific taxonomy that exists in the categories taxonomy
-			foreach my $category_id2 (reverse @{$product_ref->{categories_hierarchy}}) {
+			foreach my $category_id2 (reverse @{$product_ref->{categories_tags}}) {
 				if (exists_taxonomy_tag("categories", $category_id2)) {
 					$category_id = $category_id2;
 					last;

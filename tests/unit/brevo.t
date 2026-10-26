@@ -59,12 +59,12 @@ my $expected_headers = {
 	'::std_case' => {'api-key' => 'Api-Key'},
 	'accept' => 'application/json',
 	'api-key' => 'abcdef1234',
-	'content-length' => 123,
+	'content-length' => 135,
 	'content-type' => 'application/json',
 };
 my $expected_content = {
 	email => 'abc@example.com',
-	attributes => {USERNAME => 'elly', COUNTRY => 'world', LANGUAGE => 'english'},
+	attributes => {USERID => 'elly', COUNTRY => 'world', LANGUAGE => 'en', NOM => 'Elly Roger'},
 	listIds => ["123456789"],
 };
 
@@ -73,7 +73,7 @@ my $expected_content = {
 	my @mocks = do_mock("abcdef1234", "123456789", "200", "OK", '{"status": "success"}');
 
 	# Call the function
-	my $result = add_contact_to_list('abc@example.com', 'elly', 'world', 'english');
+	my $result = add_contact_to_list('abc@example.com', 'elly', 'world', 'en', 'Elly Roger');
 
 	is($result, 1, 'Contact added successfully');
 
@@ -90,7 +90,7 @@ my $expected_content = {
 	my @mocks = do_mock("abcdef1234", "123456789", "500", "Internal Server Error", '{"status": "error"}');
 
 	# Call the function
-	my $result = add_contact_to_list('abc@example.com', 'elly', 'world', 'english');
+	my $result = add_contact_to_list('abc@example.com', 'elly', 'world', 'en', "Elly Roger");
 
 	is($result, 0, 'Contact not added due to bad response');
 	# Verify the sent data structures using is
@@ -105,7 +105,7 @@ my $expected_content = {
 	my @mocks = do_mock(undef, "123456789", "200", "OK", '{"status": "success"}');
 
 	# Call the function
-	my $result = add_contact_to_list('abc@example.com', 'elly', 'world', 'english');
+	my $result = add_contact_to_list('abc@example.com', 'elly', 'world', 'english', 'Elly Roger');
 
 	is($result, -1, 'API not called due to no key');
 	# Verify the sent data structures using is

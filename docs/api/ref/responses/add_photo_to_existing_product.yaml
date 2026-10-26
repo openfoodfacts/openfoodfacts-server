@@ -42,6 +42,7 @@ properties:
     example: status ok
   imagefield:
     type: string
+    pattern: '^(((front|ingredients|nutrition|packaging)_[a-z]{2})|other)$'
     example: front_en
   code:
     type: string
