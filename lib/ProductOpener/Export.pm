@@ -247,6 +247,28 @@ sub export_csv ($args_ref) {
 
 	$log->debug("export_csv - start", {args_ref => $args_ref}) if $log->is_debug();
 
+	# Defence in depth: on the producers platform, refuse to run a query that selects
+	# products of another owner than the one the export was requested for.
+	#
+	# owner_id is set by ProductOpener::Producers::export_and_import_to_public_database()
+	# from the requesting user's own owner id, while the query is assembled by the caller
+	# (and, for cgi/export_products.pl, partly from request parameters). A mismatch means
+	# the tenant scope was overridden, which would export another organization's private
+	# data. The read path enforces the same scope by applying the owner filter after the
+	# caller's filters have been merged, see ProductOpener::Display::add_country_and_owner_filters_to_query().
+	if (    (defined $server_options{private_products})
+		and $server_options{private_products}
+		and (defined $args_ref->{owner_id})
+		and (defined $query_ref->{owner})
+		and ($query_ref->{owner} ne $args_ref->{owner_id}))
+	{
+		$log->error(
+			"export_csv - refusing to export products of another owner",
+			{query_owner => $query_ref->{owner}, owner_id => $args_ref->{owner_id}}
+		) if $log->is_error();
+		die("export_csv - query owner does not match the requested owner id\n");
+	}
+
 	# We have products in 2 MongoDB collections:
 	# - products: current products
 	# - products_obsolete: obsolete products (withdrawn from the market)
