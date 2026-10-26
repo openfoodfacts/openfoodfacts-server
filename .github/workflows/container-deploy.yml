@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   checks: read
 
 # Note on secrets used for connection
