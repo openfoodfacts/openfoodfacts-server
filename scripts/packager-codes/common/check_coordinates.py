@@ -21,6 +21,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import csv
 import math
+import os
 from collections import defaultdict
 from statistics import median
 from typing import Dict, Iterable, List, Optional, Tuple
@@ -32,6 +33,9 @@ GROUP_COLUMNS = ('postalcode',)
 REPORT_FIELDS = ['line', 'code', 'group', 'lat', 'lng', 'reason', 'distance_km', 'group_lat', 'group_lng', 'group_size']
 
 EARTH_RADIUS_KM = 6371.0
+
+# packager-codes/ directory at the root of the repository
+PACKAGER_CODES_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'packager-codes'))
 
 
 def haversine_km(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
@@ -154,9 +158,18 @@ def _report(line: int, row: Dict[str, str], code_col: str, group: str, reason: s
     return issue
 
 
-def read_packager_file(path: str) -> Tuple[List[str], List[Dict[str, str]]]:
-    """Read a packager CSV/TSV file, guessing the delimiter from the header line."""
-    with open(path, newline='', encoding='utf-8-sig') as f:
+def read_packager_file(path: str, base_dir: str = PACKAGER_CODES_DIR) -> Tuple[List[str], List[Dict[str, str]]]:
+    """
+    Read a packager CSV/TSV file, guessing the delimiter from the header line.
+
+    Raises:
+        ValueError: If the file is not inside base_dir
+    """
+    base_dir = os.path.realpath(base_dir)
+    real_path = os.path.realpath(path)
+    if os.path.commonpath([base_dir, real_path]) != base_dir:
+        raise ValueError(f"{path} is not in {base_dir}")
+    with open(real_path, newline='', encoding='utf-8-sig') as f:
         first_line = f.readline()
         delimiter = '\t' if first_line.count('\t') > first_line.count(';') else ';'
         f.seek(0)

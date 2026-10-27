@@ -130,7 +130,7 @@ def test_check_rows_without_group():
 def test_read_packager_file_semicolon(tmp_path):
     path = tmp_path / "XX-merge-UTF-8.csv"
     path.write_text("code;name;lat;lng\nXX 1 EC;Foo;45.1;5.2\n", encoding="utf-8")
-    header, rows = read_packager_file(str(path))
+    header, rows = read_packager_file(str(path), base_dir=str(tmp_path))
     assert header == ['code', 'name', 'lat', 'lng']
     assert rows == [{'code': 'XX 1 EC', 'name': 'Foo', 'lat': '45.1', 'lng': '5.2'}]
 
@@ -138,6 +138,18 @@ def test_read_packager_file_semicolon(tmp_path):
 def test_read_packager_file_tab(tmp_path):
     path = tmp_path / "XX-merge-UTF-8.tsv"
     path.write_text("code\tname; with semicolon\tlat\tlng\nXX 1\tFoo\t45.1\t5.2\n", encoding="utf-8")
-    header, rows = read_packager_file(str(path))
+    header, rows = read_packager_file(str(path), base_dir=str(tmp_path))
     assert header == ['code', 'name; with semicolon', 'lat', 'lng']
     assert rows[0]['lat'] == '45.1'
+
+
+def test_read_packager_file_outside_base_dir(tmp_path):
+    base_dir = tmp_path / "packager-codes"
+    base_dir.mkdir()
+    path = tmp_path / "other.csv"
+    path.write_text("code;lat;lng\n", encoding="utf-8")
+    with pytest.raises(ValueError):
+        read_packager_file(str(path), base_dir=str(base_dir))
+    with pytest.raises(ValueError):
+        read_packager_file(str(base_dir / ".." / "other.csv"), base_dir=str(base_dir))
+

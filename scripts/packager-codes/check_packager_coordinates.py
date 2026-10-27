@@ -40,7 +40,7 @@ def parse_args(argv=None):
         description="Report suspicious coordinates in a packager codes CSV/TSV file. "
                     "Points far from the median of their group (e.g. postal code) are reported. "
                     "The input file is not modified.")
-    parser.add_argument('file', help='packager codes file (; or tab separated, with a header line)')
+    parser.add_argument('file', help='packager codes file in the packager-codes/ directory (; or tab separated, with a header line)')
     parser.add_argument('--code', help='code column (default: first column)')
     parser.add_argument('--lat', help=f"latitude column (default: one of {', '.join(LAT_COLUMNS)})")
     parser.add_argument('--lng', help=f"longitude column (default: one of {', '.join(LNG_COLUMNS)})")
@@ -52,7 +52,6 @@ def parse_args(argv=None):
     parser.add_argument('--min-group-size', type=int, default=3,
                         help='do not check groups with fewer valid points (default: 3)')
     parser.add_argument('--report-missing', action='store_true', help='also report rows without coordinates')
-    parser.add_argument('--output', help='write the report to this file instead of stdout')
     return parser.parse_args(argv)
 
 
@@ -69,7 +68,10 @@ def resolve_column(header, requested, candidates, label, required=True):
 
 def main(argv=None):
     args = parse_args(argv)
-    header, rows = read_packager_file(args.file)
+    try:
+        header, rows = read_packager_file(args.file)
+    except ValueError as e:
+        sys.exit(f"Error: {e}")
     if not header:
         sys.exit(f"Error: {args.file} is empty")
 
@@ -83,14 +85,9 @@ def main(argv=None):
                         max_distance_km=args.max_distance_km, min_group_size=args.min_group_size,
                         report_missing=args.report_missing)
 
-    out = open(args.output, 'w', newline='', encoding='utf-8') if args.output else sys.stdout
-    try:
-        writer = csv.DictWriter(out, fieldnames=REPORT_FIELDS, delimiter=';')
-        writer.writeheader()
-        writer.writerows(issues)
-    finally:
-        if args.output:
-            out.close()
+    writer = csv.DictWriter(sys.stdout, fieldnames=REPORT_FIELDS, delimiter=';')
+    writer.writeheader()
+    writer.writerows(issues)
 
     if group_col is None:
         print("Warning: no group column, only invalid coordinates were checked (use --group)", file=sys.stderr)
