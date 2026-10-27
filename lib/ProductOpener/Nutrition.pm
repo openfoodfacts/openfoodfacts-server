@@ -450,6 +450,8 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 			and exists $nutrient_set_ref->{nutrients}
 			and ref $nutrient_set_ref->{nutrients} eq 'HASH')
 		{
+			$aggregated_nutrient_set_ref->{nutrients} //= {};
+
 			foreach my $nutrient (sort keys %{$nutrient_set_ref->{nutrients}}) {
 
 				# for each nutrient, set its values if values are not already present in aggregated set
