@@ -122,7 +122,9 @@ my $lines = 0;
 while (<STDIN>) {
 	my $line = $_;
 	my $ip = $_;
-	$ip =~ s/\s.*//;
+	# The IP field can contain a list of forwarded IPs (e.g. "1.2.3.4, 1.2.3.4" or "1.2.3.4, 5.6.7.8"):
+	# keep only the first one, which is the client IP
+	$ip =~ s/[,\s].*//;
 	chomp($ip);
 	$lines++;
 
