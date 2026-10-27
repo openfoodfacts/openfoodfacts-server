@@ -10,11 +10,19 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use URI::Escape::XS qw/uri_escape/;
 
-use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready/;
+use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready create_user/;
+use ProductOpener::Test qw/remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Auth qw/is_allowed_return_url/;
 use ProductOpener::Config qw/$server_domain/;
 
 wait_application_ready(__FILE__);
+remove_all_users();
+
+my $ua = new_client();
+
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+create_user($ua, \%create_user_args);
 
 my $our_url = "https://world.$server_domain/cgi/product.pl";
 
@@ -66,7 +74,7 @@ ok(not(is_allowed_return_url("https://proXworld.$server_domain/cgi/product.pl", 
 # Through the endpoint: cgi/login.pl copied the redirect parameter into a Location header without
 # any check at all
 
-my $ua = new_client();
+$ua = new_client();
 login($ua, "tests", 'testtest');
 # do not follow the redirect: we check the Location header of the response itself
 $ua->max_redirect(0);
