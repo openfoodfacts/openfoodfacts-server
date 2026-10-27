@@ -1840,9 +1840,9 @@ pt: Bebidas alcoólicas à base de cerveja
 ru: Алкогольные напитки на основе пива
 
 < en: Beer-based alcoholic beverages
+< en: Mixed beer drinks
 en: Shandy, Beer with lemonade
 cy: Siandi
-de: Biermischgetränk, Biermixgetränk
 eo: Limonadbiero
 es: Refajo
 fi: Shandy
@@ -1862,6 +1862,12 @@ ciqual_food_code:en: 5004
 ciqual_food_name:en: Shandy (beer + lemonade)
 ciqual_food_name:fr: Panaché (limonade et bière)
 wikidata:en: Q13527031
+
+< en: Beer-based alcoholic beverages
+en: Mixed beer drinks, Beer mixes, Beer mixed drinks
+de: Biermischgetränke, Biermischgetränk, Biermixgetränk
+fr: Mélanges à base de bière
+description:en: Beer mixed with a soft drink, a juice or another non-alcoholic drink: shandy (beer with lemonade), beer with cola, with an energy drink, with fruit juice...
 
 < en: Shandy
 en: Shandy with less than 1° of alcohol
@@ -6627,6 +6633,12 @@ ciqual_proxy_food_name:en: Fruit soft drink, still (fruit juice content unspecif
 ciqual_proxy_food_name:fr: Boisson plate aux fruits (teneur en jus non spécifiée), sucrée
 
 < en: Fruit soft drinks
+en: Mixed fruit soft drinks, Multifruit soft drinks
+de: Mehrfrucht-Erfrischungsgetränke
+fr: Boissons rafraîchissantes multifruits
+description:en: Soft drinks with a small amount of juice from two or more fruits (less than in nectars).
+
+< en: Fruit soft drinks
 < en: Still soft drinks
 en: Still fruit soft drinks, Still fruit soft drink
 fr: Boissons plates aux fruits, Boisson plate aux fruits, Boisson aux fruits plate
@@ -7115,6 +7127,17 @@ it: Aranciate, Bibite gassate all'arancia, Bibite gassate al gusto di arancia
 lt: Apelsinų gaivieji gėrimai, Gazuotas apelsinų gaivusis gėrimas
 nl: Sinas, Sinasappelfrisdranken
 wikidata:en: Q17069317
+
+< en: Sodas
+en: Mixed-flavour sodas, Mixed flavour sodas
+fr: Sodas aux arômes mélangés
+description:en: Sodas with a mix of flavours (e.g. tutti frutti), and no fruit juice.
+
+< en: Orange soft drinks
+en: Orange-flavoured sodas without juice, Orange flavoured sodas without fruit juice
+de: Orangenlimonaden ohne Saft
+fr: Sodas aromatisés à l'orange sans jus
+description:en: Orange soft drinks with orange flavouring only, and no orange juice.
 
 < en: Fruit sodas
 en: Sodas with exotic fruits
@@ -8375,6 +8398,11 @@ ru: Мультифруктовые соки
 agribalyse_proxy_food_code:en: 2002
 agribalyse_proxy_food_name:en: Mixed fruits juice, pure juice, multivitamin
 agribalyse_proxy_food_name:fr: Jus multifruit, pur jus, multivitaminé
+
+< en: Multifruit juices
+en: Apricot and orange juices, Apricot-orange juices
+de: Aprikosen-Orangensäfte
+fr: Jus d'abricot et d'orange
 
 < en: Multifruit juices
 < en: Multivitamin juices
@@ -35172,6 +35200,18 @@ fi: Ruisnäkkileivät
 fr: Pains croustillants au seigle
 sv: Rågknäckebröd
 
+< en: Crispbreads (wholemeal)
+en: Wholemeal wheat crispbreads
+de: Weizenvollkornknäckebrote
+fr: Pains croustillants complets au blé
+
+< en: Crispbreads (wholemeal)
+< en: Rye crispbreads
+en: Wholemeal rye crispbreads
+de: Vollkorn-Roggenknäckebrote
+fi: Täysjyväruisnäkkileivät
+fr: Pains croustillants complets au seigle
+
 < en: Crispbreads
 en: Crispbreads (wholemeal), Crispbreads(wholemeal)
 da: Fuldkornsknækbrød, Knækbrød (fuldkorn)
@@ -35491,6 +35531,7 @@ sv: Rågbröd
 wikidata:en: Q3302944
 
 < en: Breads
+< en: Multigrain breads
 en: Rye-and-wheat breads, Rye-and-wheat bread
 bg: Ръжeнo-пшеничен хляб
 de: Roggen- und Weizenbrote
@@ -35500,6 +35541,13 @@ hr: Raženi i pšenični kruhovi
 lt: Ruginės ir kvietinės duonos, ruginė ir kvietinė duona
 nl: Rogge-graanbroden
 ru: Хлеб ржано-пшеничный, Ржано-пшеничный хлеб
+
+< en: Rye-and-wheat breads
+< en: Wholemeal breads
+en: Wholemeal rye-and-wheat breads
+de: Roggen-Weizen-Vollkornbrote
+fi: Täysjyväruis-vehnäleivät
+fr: Pains complets de seigle et de blé
 
 < en: Breads
 en: Bran bread, Whole-grain bread
@@ -49631,6 +49679,18 @@ de: Schnittkäse
 fr: Fromages à pâte mi-dure
 nl: Halfharde kazen
 
+< en: Cow cheeses
+< en: Semi-hard cheeses
+en: Oltermanni
+xx: Oltermanni
+description:en: Finnish semi-hard cheese made from cow's milk (originally a Valio cheese).
+
+< en: Cow cheeses
+< en: Semi-hard cheeses
+en: Turunmaa
+xx: Turunmaa
+description:en: Finnish semi-hard cheese made from cow's milk.
+
 < en: Semi-hard cheeses from ewe's milk
 ro: Branza de burduf
 
@@ -50529,6 +50589,11 @@ sl: Kisla smetana
 sv: Gräddfil
 food_groups:en: en:milk-and-yogurt
 pnns_group_2:en: Milk and yogurt
+
+< en: Sour creams
+en: Flavoured sour creams, Flavored sour creams
+fr: Crèmes aigres aromatisées
+description:en: Sour creams with added herbs, onion, garlic or other flavourings.
 
 < en: Sour creams
 de: Saure Sahne
@@ -54875,6 +54940,12 @@ ciqual_food_name:en: Apple compote
 ciqual_food_name:fr: Compote de pomme
 comment:en: In dutch there is a difference between compote and moes. The former has pieces in it, while the later is more finely ground.
 wikidata:en: Q618345
+
+< en: Compotes
+en: Mixed fruit compotes, Multifruit compotes
+de: Kompotte aus gemischten Früchten
+fr: Compotes de fruits mélangés, Compotes multifruits
+description:en: Compotes made from two or more fruits (e.g. apple-pear, apple-strawberry).
 
 < en: Compotes
 en: Banana pulp
@@ -74199,6 +74270,12 @@ ru: Подливка
 sv: Sky
 intake24_category_code:en: CUBE
 
+< en: Gravy
+en: Gravy granules, Instant gravy granules
+de: Instant-Bratensaucen
+fr: Sauces au jus instantanées en granulés
+description:en: Dehydrated gravy in granules, to be mixed with hot water.
+
 < en: Condiments
 en: Borș
 xx: Borș, Bors
@@ -80489,12 +80566,17 @@ en: Sweet mustards
 de: Süße Senfe, Süßer Senf
 es: Mostazas dulces
 fi: Makeat sinapit
-fr: Moutardes douces
+fr: Moutardes sucrées
 hr: Slatke gorušice
 hu: Édes mustár
 it: Senapi dolci
 nl: Zoete mosterds
 pl: Musztardy słodkie
+
+< en: Mustards
+en: Mild mustards
+de: Milde Senfe
+fr: Moutardes douces
 
 < en: Mustards
 en: Sweet and strong mustards, Sweet and spicy mustards, Sötstark mustards
@@ -83556,6 +83638,19 @@ ciqual_food_code:en: 25031
 ciqual_food_name:en: Paëlla
 ciqual_food_name:fr: Paëlla
 wikidata:en: Q212121
+
+< en: Meals with meat
+< en: Rice dishes
+en: Rice dishes with meat and vegetables
+de: Reisgerichte mit Fleisch und Gemüse
+fr: Plats de riz à la viande et aux légumes
+description:en: Dishes made of rice, meat and vegetables (e.g. chicken and vegetable rice, jambalaya).
+
+< en: Rice dishes
+en: Rice and vegetable dishes, Vegetable rice dishes
+de: Reisgerichte mit Gemüse
+fr: Plats de riz aux légumes
+description:en: Dishes made of rice and vegetables, without meat or fish (e.g. vegetable risotto, vegetable fried rice). Rice dishes with meat and vegetables are a separate category.
 
 < en: Rice dishes
 en: Risottos
@@ -88338,6 +88433,7 @@ ciqual_food_name:fr: Salade composée avec viande ou poisson, appertisée, égou
 < en: Prepared and canned salad with fish
 fr: Salades de thon en conserve
 
+< en: Composed salads
 < en: Prepared salads
 fr: Salades nicoises
 wikidata:en: Q209486
@@ -88469,6 +88565,12 @@ agribalyse_food_code:en: 25628
 ciqual_food_code:en: 25628
 ciqual_food_name:en: Caesar's salad (salad, chicken, croûtons, sauce)
 ciqual_food_name:fr: Salade César au poulet (salade verte, fromage, croûtos, sauce)
+
+< en: Prepared salads
+en: Composed salads, Mixed salads with egg meat or fish
+de: Gemischte Salate mit Ei oder Fleisch oder Fisch
+fr: Salades composées garnies
+description:en: Prepared salads that mix vegetables with egg, meat and/or fish, often with mayonnaise or a dressing (e.g. salade niçoise, chef's salad). Salads with only vegetables, or based on pasta, rice or legumes, are separate categories.
 
 < en: Prepared salads
 en: Vegetable salads
@@ -96434,6 +96536,12 @@ ciqual_food_name:en: Salami, pure pork
 < en: Salami
 en: Italian salami
 
+< en: Salami
+en: German salami
+de: Deutsche Salami
+fr: Salamis allemands
+description:en: Salami of German type, finely minced and often smoked (e.g. Cervelatwurst).
+
 < en: Italian salami
 < en: Pork salami
 en: Spianata
@@ -102910,6 +103018,12 @@ fr: Sandwichs aux crudités
 hr: Sendviči sa sirovim povrćem
 nl: Rauwkostsandwiches
 wikidata:en: Q7918342
+
+< en: Sandwiches
+en: Sandwiches with meat and vegetables
+de: Sandwiches mit Fleisch und Gemüse
+fr: Sandwichs à la viande et aux crudités
+description:en: Sandwiches filled with meat (chicken, ham, beef...) and vegetables (salad, tomato...). Sandwiches with only meat, or with cheese, egg or fish, are not included.
 
 #fr:Tartines fraîches
 #wikidata:en:Q6559431
