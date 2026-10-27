@@ -3622,6 +3622,7 @@ wikidata:en: Q4880002
 
 ################################# Non-alcoholic beers #################################
 
+< en: Cocktails
 < en: Non-alcoholic beverages
 en: Alcohol-free cocktails, Alcohol-free juice and syrup-based cocktails
 fr: Cocktails sans alcool, Cocktail sans alcool à base de jus de fruits et de sirop
@@ -5757,14 +5758,14 @@ ciqual_food_name:en: Gin
 google_product_taxonomy_id:en: 1671
 wikidata:en: Q959362
 
-< en: Cocktails
+< en: Alcoholic cocktails
 #do not confuse with the biscuit spritz
 < en: Wine-based drinks
 en: Spritz cocktails
 fr: Cocktails spritz
 
 < en: Alcoholic beverages
-< en: Cocktails
+< en: Alcoholic cocktails
 en: Whiskey-based cocktail
 de: Whisky-basierter Cocktail
 es: Cóctel a base de whisky
@@ -6045,6 +6046,7 @@ en: Perry, pear cider
 fr: Poiré, jus de poires fermenté, Boisson fermentée à base de poires
 
 < en: Alcoholic beverages
+< en: Alcoholic cocktails
 en: Kir Royal, Kir Royale, Champagne kir, Cocktail of champagne with red fruit liqueur
 fr: Kir royal, Kir au champagne, Kir royal au champagne
 agribalyse_food_code:en: 1019
@@ -6053,6 +6055,7 @@ ciqual_food_name:en: Champagne kir (Cocktail of champagne with red fruit liqueur
 ciqual_food_name:fr: Kir royal (au champagne)
 
 < en: Alcoholic beverages
+< en: Alcoholic cocktails
 en: Kir, Cocktail of white wine with red fruit liqueur
 fr: Kir au vin blanc
 agribalyse_food_code:en: 1018
@@ -6133,6 +6136,7 @@ agribalyse_proxy_food_code:en: 1022
 agribalyse_proxy_food_name:en: Cocktail, punch type, 16% alcohol
 agribalyse_proxy_food_name:fr: Cocktail type punch, 16% alcool
 
+< en: Alcoholic cocktails
 < en: Punchs
 en: Punch cocktail with 16% alcohol, Punch with 16% alcohol
 fr: Cocktail type punch à 16% d'alcool, Punch à 16% d'alcool
@@ -6142,7 +6146,7 @@ ciqual_food_name:en: Cocktail, punch type, 16% alcohol
 ciqual_food_name:fr: Cocktail type punch, 16% alcool
 
 < en: Alcoholic beverages
-< en: Cocktails
+< en: Alcoholic cocktails
 en: Rum-based cocktail
 fr: Cocktail à base de rhum
 hu: Rumalapú koktélok
@@ -6152,12 +6156,20 @@ ciqual_food_code:en: 1012
 ciqual_food_name:en: Rum-based cocktail
 ciqual_food_name:fr: Cocktail à base de rhum
 
-< en: Alcoholic beverages
+< en: Beverages
 en: Cocktails, Cocktail drinks
 de: Cocktails
 es: Cócteles
 fr: Cocktails
 it: Cocktail
+
+< en: Alcoholic beverages
+< en: Cocktails
+en: Alcoholic cocktails
+de: Alkoholische Cocktails
+es: Cócteles alcohólicos
+fr: Cocktails alcoolisés
+it: Cocktail alcolici
 
 < en: Rum-based cocktail
 en: Daiquiri
@@ -8374,7 +8386,7 @@ ciqual_food_code:en: 2002
 ciqual_food_name:en: Mixed fruits juice, pure juice, multivitamin
 ciqual_food_name:fr: Jus multifruit, pur jus, multivitaminé
 
-< en: Multifruit juices
+< en: Fruit juices
 en: Multivitamin juices
 de: Multivitaminsäfte
 fr: Jus multivitaminés
@@ -9537,7 +9549,6 @@ ru: Томатный сок, Томатные соки
 zh: 番茄汁
 wikidata:en: Q787325
 
-< en: Concentrated tomato products
 < en: Tomato juices
 en: Concentrated tomato juices
 bg: Доматен сок от концентрат
@@ -79294,7 +79305,6 @@ agribalyse_proxy_food_code:en: 11158
 agribalyse_proxy_food_name:en: Sauce, butter, prepacked
 agribalyse_proxy_food_name:fr: Sauce au beurre, préemballée
 
-< en: Roux
 < en: Sauces
 en: White sauces
 de: Weiße Saucen
@@ -82834,7 +82844,7 @@ ciqual_food_name:fr: Tomate, concentré, appertisé
 google_product_taxonomy_id:en: 6922
 wikidata:en: Q1499073
 
-< en: Canned tomato products
+< en: Tomatoes and their products
 en: Concentrated tomato products
 fr: Produits à base de tomates concentrées
 
@@ -95000,7 +95010,6 @@ protected_name_file_number:en: PGI-GB-0882
 protected_name_type:en: pgi
 wikidata:en: Q16998891
 
-< en: Fresh sausages
 < en: Sausages
 en: Traditional Cumberland Sausage
 origins:en: en:united-kingdom
@@ -95136,7 +95145,6 @@ gpc_category_code:en: 10005837
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a food made from ground turkey meat, which may be prepared using a specific, regionally based process. The ground meat is mixed with other ingredients such as animal fat, salt, spices, herbs, vegetables or fruit and then typically packed in a casing, which may be link shaped or form a rope or ring, or sold without a casing such as bologna and some frankfurters. Some sausages are cooked during processing and may be preserved by curing, drying in cool air, or smoking. Definition Excludes: Excludes products such as vegetarian sausages made from meat substitutes as well as pate.
 gpc_category_name:en: Turkey Sausages - Prepared/Processed
 
-< en: Fresh sausages
 < en: Sausages
 en: Merguez, Merguez sausages
 xx: Merguez
@@ -95146,6 +95154,11 @@ ciqual_food_code:en: 30150
 ciqual_food_name:en: Merguez sausage, raw
 ciqual_food_name:fr: Merguez, crue
 wikidata:en: Q1754504
+
+< en: Fresh sausages
+< en: Merguez
+en: Fresh merguez, Raw merguez
+fr: Merguez crues, Merguez fraîches
 
 < en: Frozen meats
 < fr: Merguez
@@ -95190,6 +95203,7 @@ ciqual_food_name:en: Merguez sausage, beef and mutton, raw
 ciqual_food_name:fr: Merguez, boeuf et mouton, crue
 
 < en: Beef and mutton merguez sausages
+< en: Cooked sausages
 en: Cooked beef and mutton merguez sausages
 fr: Merguez de boeuf et mouton cuites
 agribalyse_food_code:en: 30155
@@ -95365,7 +95379,6 @@ fr: Fouets au roquefort
 fr: Fouets aux pignons
 
 < en: French sausages
-< en: Fresh sausages
 en: Chipolatas, Chipolata slim sausage
 xx: Chipolatas
 agribalyse_food_code:en: 30115
@@ -95374,12 +95387,18 @@ ciqual_food_name:en: Chipolata slim sausage, raw
 ciqual_food_name:fr: Chipolata, crue
 
 < en: Chipolatas
+< en: Cooked sausages
 en: Cooked chipolata sausages
 fr: Chipolatas cuites
 agribalyse_food_code:en: 30005
 ciqual_food_code:en: 30005
 ciqual_food_name:en: Chipolata sausage, cooked
 ciqual_food_name:fr: Chipolata, cuite
+
+< en: Chipolatas
+< en: Fresh sausages
+en: Fresh chipolatas, Raw chipolatas
+fr: Chipolatas crues, Chipolatas fraîches
 
 < en: Chipolatas
 fr: Chipolatas aux herbes, Chipolats herbes
@@ -95501,7 +95520,6 @@ it: Knack industriali
 nl: Industriële knakworst
 
 < en: French sausages
-< en: Fresh sausages
 en: Toulouse sausages
 de: Toulouser Würstchen
 es: Salchichas de Toulouse
@@ -95514,15 +95532,16 @@ ciqual_food_name:en: Toulouse sausage, raw
 ciqual_food_name:fr: Saucisse de Toulouse, crue
 wikidata:en: Q3474165
 
-< en: Fresh sausages
+< en: Sausages
 en: Breakfast sausages
 
-< en: Fresh sausages
 < en: Italian meat products
+< en: Sausages
 en: Italian sausages, Salsiccia
 fr: Saucisses italiennes
 it: Salsiccia fresca
 
+< en: Cooked sausages
 < en: Toulouse sausages
 en: Cooked Toulouse sausage
 fr: Saucisses de Toulouse cuites
@@ -95530,6 +95549,11 @@ agribalyse_food_code:en: 30011
 ciqual_food_code:en: 30011
 ciqual_food_name:en: Toulouse sausage, cooked
 ciqual_food_name:fr: Saucisse de Toulouse, cuite
+
+< en: Fresh sausages
+< en: Toulouse sausages
+en: Fresh Toulouse sausages, Raw Toulouse sausages
+fr: Saucisses de Toulouse crues, Saucisses de Toulouse fraîches
 
 < en: French sausages
 en: Sausages from Savoy, Savoy sausages
@@ -126354,9 +126378,14 @@ zh: 维生素
 wikidata:en: Q130148368
 
 < en: Dietary supplements
-en: Omega-3 supplements, Fish oil supplements
+en: Omega-3 supplements
 de: Omega-3-Nahrungsergänzungsmittel
 fr: Compléments alimentaires d'oméga-3
+
+< en: Omega-3 supplements
+en: Fish oil supplements
+de: Fischölkapseln
+fr: Compléments alimentaires d'huile de poisson
 
 < en: Dietary supplements
 en: Vitamin and mineral supplements
