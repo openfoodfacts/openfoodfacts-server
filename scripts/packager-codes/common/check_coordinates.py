@@ -158,18 +158,25 @@ def _report(line: int, row: Dict[str, str], code_col: str, group: str, reason: s
     return issue
 
 
-def read_packager_file(path: str, base_dir: str = PACKAGER_CODES_DIR) -> Tuple[List[str], List[Dict[str, str]]]:
+def find_packager_file(country_code: str, base_dir: str = PACKAGER_CODES_DIR) -> str:
     """
-    Read a packager CSV/TSV file, guessing the delimiter from the header line.
+    Find the packager file of a country (e.g. FR-merge-UTF-8.csv for 'fr').
+
+    The returned path is built from the directory listing, never from the argument.
 
     Raises:
-        ValueError: If the file is not inside base_dir
+        ValueError: If no file is found for the country
     """
-    base_dir = os.path.realpath(base_dir)
-    real_path = os.path.realpath(path)
-    if os.path.commonpath([base_dir, real_path]) != base_dir:
-        raise ValueError(f"{path} is not in {base_dir}")
-    with open(real_path, newline='', encoding='utf-8-sig') as f:
+    prefix = f"{country_code.strip().upper()}-merge"
+    for name in sorted(os.listdir(base_dir)):
+        if name.upper().startswith(prefix.upper()) and name.lower().endswith(('.csv', '.tsv')):
+            return os.path.join(base_dir, name)
+    raise ValueError(f"no packager file for country '{country_code}' in {base_dir}")
+
+
+def read_packager_file(path: str) -> Tuple[List[str], List[Dict[str, str]]]:
+    """Read a packager CSV/TSV file, guessing the delimiter from the header line."""
+    with open(path, newline='', encoding='utf-8-sig') as f:
         first_line = f.readline()
         delimiter = '\t' if first_line.count('\t') > first_line.count(';') else ';'
         f.seek(0)

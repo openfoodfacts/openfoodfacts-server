@@ -23,8 +23,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Report suspicious coordinates in a packager codes file (read-only).
 
 Examples:
-    python3 check_packager_coordinates.py ../../packager-codes/DK-merge-UTF-8.csv
-    python3 check_packager_coordinates.py ../../packager-codes/FR-merge-UTF-8.csv \\
+    python3 check_packager_coordinates.py DK
+    python3 check_packager_coordinates.py FR \\
         --code "Numéro agrément/Approval number" --group "Numero de département"
 """
 import argparse
@@ -32,15 +32,16 @@ import csv
 import sys
 
 from common.check_coordinates import (GROUP_COLUMNS, LAT_COLUMNS, LNG_COLUMNS, REPORT_FIELDS,
-                                      check_rows, find_column, read_packager_file)
+                                      check_rows, find_column, find_packager_file, read_packager_file)
 
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(
-        description="Report suspicious coordinates in a packager codes CSV/TSV file. "
+        description="Report suspicious coordinates in the packager codes file of a country "
+                    "(packager-codes/<COUNTRY_CODE>-merge-UTF-8.csv or .tsv). "
                     "Points far from the median of their group (e.g. postal code) are reported. "
-                    "The input file is not modified.")
-    parser.add_argument('file', help='packager codes file in the packager-codes/ directory (; or tab separated, with a header line)')
+                    "The file is not modified.")
+    parser.add_argument('country', help='country code of the file, e.g. FR')
     parser.add_argument('--code', help='code column (default: first column)')
     parser.add_argument('--lat', help=f"latitude column (default: one of {', '.join(LAT_COLUMNS)})")
     parser.add_argument('--lng', help=f"longitude column (default: one of {', '.join(LNG_COLUMNS)})")
@@ -69,11 +70,13 @@ def resolve_column(header, requested, candidates, label, required=True):
 def main(argv=None):
     args = parse_args(argv)
     try:
-        header, rows = read_packager_file(args.file)
+        path = find_packager_file(args.country)
     except ValueError as e:
         sys.exit(f"Error: {e}")
+    header, rows = read_packager_file(path)
     if not header:
-        sys.exit(f"Error: {args.file} is empty")
+        sys.exit(f"Error: {path} is empty")
+    print(f"Checking {path}", file=sys.stderr)
 
     code_col = resolve_column(header, args.code, header[:1], 'code')
     lat_col = resolve_column(header, args.lat, LAT_COLUMNS, 'lat')

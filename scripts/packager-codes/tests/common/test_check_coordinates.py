@@ -1,6 +1,6 @@
 import pytest
 from common.check_coordinates import (haversine_km, find_column, parse_coordinates,
-                                      check_rows, read_packager_file)
+                                      check_rows, find_packager_file, read_packager_file)
 
 
 def make_row(code, postalcode, lat, lng):
@@ -130,7 +130,7 @@ def test_check_rows_without_group():
 def test_read_packager_file_semicolon(tmp_path):
     path = tmp_path / "XX-merge-UTF-8.csv"
     path.write_text("code;name;lat;lng\nXX 1 EC;Foo;45.1;5.2\n", encoding="utf-8")
-    header, rows = read_packager_file(str(path), base_dir=str(tmp_path))
+    header, rows = read_packager_file(str(path))
     assert header == ['code', 'name', 'lat', 'lng']
     assert rows == [{'code': 'XX 1 EC', 'name': 'Foo', 'lat': '45.1', 'lng': '5.2'}]
 
@@ -138,18 +138,23 @@ def test_read_packager_file_semicolon(tmp_path):
 def test_read_packager_file_tab(tmp_path):
     path = tmp_path / "XX-merge-UTF-8.tsv"
     path.write_text("code\tname; with semicolon\tlat\tlng\nXX 1\tFoo\t45.1\t5.2\n", encoding="utf-8")
-    header, rows = read_packager_file(str(path), base_dir=str(tmp_path))
+    header, rows = read_packager_file(str(path))
     assert header == ['code', 'name; with semicolon', 'lat', 'lng']
     assert rows[0]['lat'] == '45.1'
 
 
-def test_read_packager_file_outside_base_dir(tmp_path):
-    base_dir = tmp_path / "packager-codes"
-    base_dir.mkdir()
-    path = tmp_path / "other.csv"
-    path.write_text("code;lat;lng\n", encoding="utf-8")
-    with pytest.raises(ValueError):
-        read_packager_file(str(path), base_dir=str(base_dir))
-    with pytest.raises(ValueError):
-        read_packager_file(str(base_dir / ".." / "other.csv"), base_dir=str(base_dir))
+# tests for find_packager_file function
 
+def test_find_packager_file(tmp_path):
+    for name in ["FR-merge-UTF-8.csv", "SE-merge-UTF-8.tsv", "UK-merge.csv", "FR-notes.txt"]:
+        (tmp_path / name).write_text("", encoding="utf-8")
+    assert find_packager_file("fr", base_dir=str(tmp_path)) == str(tmp_path / "FR-merge-UTF-8.csv")
+    assert find_packager_file("SE", base_dir=str(tmp_path)) == str(tmp_path / "SE-merge-UTF-8.tsv")
+    assert find_packager_file("uk", base_dir=str(tmp_path)) == str(tmp_path / "UK-merge.csv")
+
+
+@pytest.mark.parametrize("country", ["DE", "../FR", ""])
+def test_find_packager_file_not_found(tmp_path, country):
+    (tmp_path / "FR-merge-UTF-8.csv").write_text("", encoding="utf-8")
+    with pytest.raises(ValueError):
+        find_packager_file(country, base_dir=str(tmp_path))
