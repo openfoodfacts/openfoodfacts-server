@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 
 use Data::Dumper;
 
