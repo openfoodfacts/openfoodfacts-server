@@ -1,5 +1,9 @@
 // Keep an axis-aligned crop selection over the same part of the image when the
 // image's transform changes (for example, zooming or rotating it).
+export function shouldAdjustSelectionForImageTransform({ imageSourceLoading, moveMode }) {
+  return !imageSourceLoading && !moveMode;
+}
+
 export function selectionAfterImageTransform(selection, oldMatrix, newMatrix, imageWidth, imageHeight) {
   const [a, b, c, d, e, f] = oldMatrix;
   const determinant = (a * d) - (b * c);

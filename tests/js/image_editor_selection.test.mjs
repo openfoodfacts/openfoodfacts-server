@@ -1,9 +1,35 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { selectionAfterImageTransform } from "../../html/js/image-editor-selection.mjs";
+const source = await readFile(new URL("../../html/js/image-editor-selection.js", import.meta.url), "utf8");
+const {
+    selectionAfterImageTransform,
+    shouldAdjustSelectionForImageTransform,
+} = await import(`data:text/javascript;base64,${Buffer.from(source).toString("base64")}`);
 
 const identity = [1, 0, 0, 1, 0, 0];
+
+test("does not adjust the crop while a replacement image is loading", () => {
+    assert.equal(
+        shouldAdjustSelectionForImageTransform({imageSourceLoading: true, moveMode: false}),
+        false
+    );
+});
+
+test("does not adjust the crop while the image is being moved beneath it", () => {
+    assert.equal(
+        shouldAdjustSelectionForImageTransform({imageSourceLoading: false, moveMode: true}),
+        false
+    );
+});
+
+test("adjusts the crop for user image transforms in selection mode", () => {
+    assert.equal(
+        shouldAdjustSelectionForImageTransform({imageSourceLoading: false, moveMode: false}),
+        true
+    );
+});
 
 test("keeps the selection in place for an unchanged image transform", () => {
     assert.deepEqual(
