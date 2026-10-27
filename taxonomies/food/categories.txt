@@ -33404,12 +33404,12 @@ ro: Biscuiți cu ciocolată neagră
 
 # Biscuits type granola, pepito, mc vities and other digestive biscuits covered with chocolate
 < en: Chocolate-covered biscuits
-< en: Wholemeal biscuits
+< en: Wholemeal wheat biscuits
 en: Digestives covered with chocolate
 fr: Sablés nappés de chocolat
 
 < en: Biscuits
-en: Wholemeal biscuits, Digestive biscuits, Digestives
+en: Wholemeal wheat biscuits, Wholemeal biscuits
 de: Vollkornkekse
 fr: Biscuits complets
 
@@ -37062,7 +37062,6 @@ protected_name_file_number:en: PGI-IT-0795
 protected_name_type:en: pgi
 
 < en: Cakes
-< en: Chocolate-based cakes
 en: Marble cakes, Marble cake
 de: Marmorkuchen
 fr: Gâteaux marbrés, gâteau marbré
@@ -37571,15 +37570,14 @@ hr: Speculoos kolači od sira
 nl: Speculooscheesecakes, Speculooscheesecake, Kandijcheesecake
 
 < en: Cakes
-< en: Chocolate-based cakes
-en: Chocolate cakes
+en: Chocolate cakes, Chocolate-based cakes
 bg: Шоколадов сладкиш
 ca: Pastissos de xocolata
 da: Chokoladekage
 de: Schokoladenkuchen
 es: Pasteles de chocolate
 fi: suklaakakut
-fr: Gâteaux au chocolat
+fr: Gâteaux au chocolat, Gâteaux à base de chocolat
 he: עוגות שוקולד
 hr: Čokoladni kolači
 hu: Csokoládés sütemények
@@ -37594,10 +37592,6 @@ agribalyse_food_code:en: 23585
 ciqual_food_code:en: 23585
 ciqual_food_name:en: Chocolate cake
 wikidata:en: Q30186
-
-< en: Cakes
-en: Chocolate-based cakes
-fr: Gâteaux à base de chocolat
 
 < en: Chocolate cakes
 en: Molten chocolate cakes, Chocolate lava cake, Chocolate cake with melting centre
@@ -37690,6 +37684,7 @@ en: Mooncake
 fr: Gâteau de lune
 
 < en: Desserts
+< en: Sweet dumplings
 xx: Tangyuan, tang yuan
 
 < en: Frozen desserts
@@ -83641,7 +83636,6 @@ lt: Kvinojos patiekalai
 nl: Quinoaschotels
 
 < en: Legume dishes
-< en: Meals
 en: Lentil dishes
 de: Linsengerichte
 fi: Linssiruoat
@@ -86405,7 +86399,6 @@ hr: Riblje čorbe
 nl: Visbouillons
 
 < en: Legume dishes
-< en: Meals
 en: Bean dishes
 de: Bohnengerichte
 fr: Plats à base de haricots
@@ -87489,7 +87482,6 @@ fr: Calzones au fromage
 en: Pepperoni calzones
 fr: Calzones peperoni
 
-< en: Pizzas
 < en: Pizzas with meat
 en: Regina pizza, Pizza with ham and cheese and mushrooms
 de: Pizza Regina
@@ -87579,7 +87571,6 @@ fr: Pizzas margherita véganes
 sv: Veganska margherita-pizzor
 
 < en: Meals with pork
-< en: Pizzas
 < en: Pizzas with meat
 en: Pizza with ham and cheese, Ham and cheese pizza
 de: Pizza mit Schinken und Käse
@@ -87614,7 +87605,6 @@ ciqual_food_code:en: 26272
 ciqual_food_name:en: Pizza, chicken
 ciqual_food_name:fr: Pizza au poulet
 
-< en: Pizzas
 < en: Pizzas with meat
 en: Chorizo pizzas, Chorizo pizza, Salami pizza
 de: Chorizo Pizzas
@@ -87629,7 +87619,6 @@ ciqual_food_name:en: Pizza, chorizo or salami
 ciqual_food_name:fr: Pizza au chorizo ou salami
 wikidata:en: Q47471931
 
-< en: Pizzas
 < en: Pizzas with meat
 en: Pepperoni pizzas
 de: Salami Pizzas
@@ -87684,7 +87673,6 @@ ciqual_food_name:en: Pizza, salmon
 ciqual_food_name:fr: Pizza au saumon
 wikidata:en: Q54223338
 
-< en: Pizzas
 < en: Pizzas with meat
 en: Bolognese pizzas, Pizza bolognese-style with meat
 de: Pizza Bolognese
@@ -87986,8 +87974,31 @@ wikidata:en: Q158382
 
 < xx: Dumplings
 en: Sweet dumplings
+fr: Dumplings sucrés
+
+< en: Sweet dumplings
+en: Steamed yeast dumplings
+de: Dampfnudeln, Hefeklöße
+pl: Kluski na parze
+
+< en: Knödel
+< en: Sweet dumplings
+en: Sweet Knödel
 de: Süße Knödel
 fr: Knödel sucrés
+
+< en: Steamed yeast dumplings
+< en: Sweet Knödel
+xx: Germknödel
+en: Germknödel
+
+< en: Sweet Knödel
+en: Fruit Knödel, Fruit dumplings
+cs: Ovocné knedlíky
+de: Obstknödel, Fruchtknödel, Marillenknödel, Zwetschgenknödel
+fr: Knödel aux fruits
+hu: Gyümölcsös gombóc, Szilvás gombóc
+pl: Knedle z owocami, Knedle ze śliwkami
 
 < en: Frozen foods
 < en: Knödel
@@ -88475,6 +88486,7 @@ en: Greek salads, Greek salad, Horiatiki
 de: Griechische Salate
 el: Χωριάτικη σαλάτα
 fr: Salades grecques
+description:en: Salad of tomatoes, cucumber, onion, feta cheese and olives, dressed with olive oil.
 
 < en: Plant-based spreads
 < en: Salted spreads
@@ -101447,7 +101459,7 @@ nl: Strudel
 wikidata:en: Q59170
 
 < en: Strudels
-en: Cheese strudels, Curd cheese strudels
+en: Quark strudels, Curd cheese strudels
 de: Topfenstrudel, Quarkstrudel
 fr: Strudels au fromage blanc
 
@@ -126867,7 +126879,6 @@ fr: Friands à la saucisse
 hr: Prijatelji kobasica
 nl: Worst friands
 
-< en: Friands
 en: Sausage rolls
 de: Wurstrollen
 fr: Feuilletés à la saucisse
@@ -127161,6 +127172,13 @@ nl: Groentetortellini
 
 < en: Meals
 xx: Varenyky, vareniki
+
+< en: Sweet dumplings
+< en: Sweet stuffed pastas
+< xx: Varenyky
+en: Sweet varenyky, Sweet vareniki
+ru: Сладкие вареники, Вареники с вишней, Вареники с клубникой
+uk: Солодкі вареники, Вареники з вишнями
 
 < en: Frozen foods
 < xx: Varenyky
