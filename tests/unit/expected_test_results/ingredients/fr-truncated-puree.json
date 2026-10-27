@@ -14,6 +14,8 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8",
+         "ecobalyse_name" : "Viande de boeuf sans os par défaut",
          "id" : "en:beef",
          "is_in_taxonomy" : 1,
          "percent" : 35.4330708661417,
@@ -97,11 +99,10 @@
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "en:beef",
       "en:fat",
       "en:fruit-juice"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 4,
    "lc" : "fr",
    "misc_tags" : [

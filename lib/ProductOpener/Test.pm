@@ -1139,8 +1139,8 @@ sub _delete_user_from_keycloak ($user) {
 		confess('Could not get token to manage users with keycloak_users_endpoint');
 	}
 
-	my $keycloak_users_endpoint = ProductOpener::Keycloak->new()->{users_endpoint};
-	my $delete_user_request = HTTP::Request->new(DELETE => $keycloak_users_endpoint . '/' . $user->{id});
+	my $keycloak_user_endpoint = ProductOpener::Keycloak->new()->get_user_endpoint($user);
+	my $delete_user_request = HTTP::Request->new(DELETE => $keycloak_user_endpoint);
 	$delete_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
 	my $delete_user_response = LWP::UserAgent->new->request($delete_user_request);
 	unless ($delete_user_response->is_success) {

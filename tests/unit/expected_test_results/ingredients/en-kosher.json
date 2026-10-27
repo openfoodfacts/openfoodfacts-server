@@ -30,6 +30,8 @@
          "vegetarian" : "maybe"
       },
       {
+         "ecobalyse_id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8",
+         "ecobalyse_name" : "Viande de boeuf sans os par défaut",
          "id" : "en:beef-gelatin",
          "is_in_taxonomy" : 1,
          "labels" : "en:kosher",
@@ -87,10 +89,8 @@
       "en:beef-gelatin"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:beef-gelatin"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "misc_tags" : [

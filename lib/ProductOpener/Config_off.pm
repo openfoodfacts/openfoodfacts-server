@@ -23,7 +23,7 @@
 package ProductOpener::Config;
 
 use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 BEGIN {
@@ -175,6 +175,12 @@ $flavor = 'off';
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# Romanian: diacritics (ă â î ș ț, and the legacy cedilla forms ş ţ) are very often missing,
+	# and there are very few conflicts in ingredients, labels etc. (ă vs a mostly marks the definite article)
+	ro => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 	sk => {
 		unaccent => 1,
 		lowercase => 1,
@@ -217,6 +223,10 @@ $flavor = 'off';
 <meta name="theme-color" content="#ffffff">
 HTML
 	,
+	# Ecobalyse API minimum ingredients coverage percentage (0-100)
+	# Only call Ecobalyse API if ingredients with ecobalyse IDs cover at least this percentage
+	ecobalyse_min_ingredients_coverage_percent => $ProductOpener::Config2::ecobalyse_min_ingredients_coverage_percent
+		// 80,
 );
 
 $options{export_limit} = 10000;
@@ -224,6 +234,11 @@ $options{export_limit} = 10000;
 # Recent changes limits
 $options{default_recent_changes_page_size} = 20;
 $options{max_recent_changes_page_size} = 1000;
+# Maximum number of changes that can be skipped before the first one returned. MongoDB walks over
+# every skipped document on a $natural sort, and both page and page size are capped separately,
+# so without this a request for the last allowed page of the largest allowed page size asks for a
+# skip of 999,000.
+$options{max_recent_changes_skip} = 10_000;
 
 # List of products limits
 $options{default_api_products_page_size} = 20;
@@ -262,6 +277,14 @@ $options{users_who_can_upload_small_images} = {
 			qw (
 				slack_channel_edit-alert
 			)
+		],
+	},
+
+	{
+		name => "Ignore unknown French product name placeholder",
+		actions => [
+			["ignore_if_regexp_match_product_name", '^\\s*produit inconnu\\s*$'],
+			["ignore_if_regexp_match_product_name_fr", '^\\s*produit inconnu\\s*$'],
 		],
 	},
 
@@ -725,7 +748,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 # improvements
 # ingredients_analysis
 # ingredients_processing:
-# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# ingredients (additives_classes, additives, minerals, vitamins, amino_acids, nucleotides, other_nutritional_substances): labels
 # labels: categories
 # languages:
 # minerals
@@ -963,7 +986,7 @@ $options{import_export_fields_groups} = [
 			"preparation", "nutriscore_score_producer",
 			"nutriscore_grade_producer", "nova_group_producer",
 			"recipe_idea", "customer_service",
-			"link",
+			"link", "teams",
 		]
 	],
 	[
@@ -1230,8 +1253,11 @@ $options{nova_groups_tags} = {
 	"categories/en:honeys" => 2,
 	"categories/en:maple-syrups" => 2,
 	"categories/en:starches" => 2,
+	# baking powders are usually 1 to 3 additives. The additives are heavily used in ultraprocessed foods.
+	"categories/en:baking-powders" => 2,
 
 	# group 3 tags will not be applied to food identified as group 2
+	"ingredients/en:baking-powder" => 3,
 
 	# group 3 ingredients from nova paper
 
@@ -1279,6 +1305,9 @@ $options{nova_groups_tags} = {
 	"additives/en:e250" => 3,    # sodium nitrite
 	"additives/en:e251" => 3,    # potassium nitrate
 	"additives/en:e252" => 3,    # sodium nitrite
+	"additives/en:e334" => 3,    # sodium carbonates
+	"additives/en:e500" => 3,    # sodium carbonates
+	"additives/en:e503" => 3,    # ammonium carbonates
 
 	# tags only found in group 4
 
@@ -1319,6 +1348,8 @@ $options{nova_groups_tags} = {
 	# has glucose as parent, so can be removed aleene@2018-10-09
 
 	# other ingredients that we can consider as ultra-processed
+	"ingredients/en:wheat-protein" => 4,
+	# is very close to gluten and produced/used in the same way
 
 	"ingredients/en:dextrose" => 4,
 	# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09
