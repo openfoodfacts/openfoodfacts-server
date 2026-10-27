@@ -115,4 +115,63 @@ subtest 'no_log on auth.pl skips session persistence and revokes' => sub {
 	$users_mock = undef;
 };
 
+subtest 'revoke failure retries once then still authenticates' => sub {
+	delete $ENV{HTTP_COOKIE};
+	my $revoke_calls = 0;
+	my $users_mock = mock 'ProductOpener::Users' => (
+		override => [
+			password_signin => sub {
+				return (
+					{userid => $test_user_id},
+					$refresh_token, time() + 3600,
+					'access-1', time() + 300, 'id-token-1'
+				);
+			},
+			revoke_token => sub {
+				$revoke_calls++;
+				# Fail first attempt, succeed on retry
+				return $revoke_calls >= 2 ? 1 : 0;
+			},
+			open_user_session => sub {return;},
+			update_external_login_time => sub {return;},
+		],
+	);
+
+	my $request_ref = _request_with_password('/cgi/product_jqm_multilingual.pl');
+	is(init_user($request_ref), 0, 'init_user succeeds after revoke retry');
+	is($User_id, $test_user_id, 'request is authenticated despite first revoke failure');
+	is($revoke_calls, 2, 'revoke_token retried once');
+
+	$users_mock = undef;
+};
+
+subtest 'persistent revoke failure still authenticates the request' => sub {
+	delete $ENV{HTTP_COOKIE};
+	my $revoke_calls = 0;
+	my $users_mock = mock 'ProductOpener::Users' => (
+		override => [
+			password_signin => sub {
+				return (
+					{userid => $test_user_id},
+					$refresh_token, time() + 3600,
+					'access-1', time() + 300, 'id-token-1'
+				);
+			},
+			revoke_token => sub {
+				$revoke_calls++;
+				return 0;
+			},
+			open_user_session => sub {return;},
+			update_external_login_time => sub {return;},
+		],
+	);
+
+	my $request_ref = _request_with_password('/cgi/product_jqm_multilingual.pl');
+	is(init_user($request_ref), 0, 'init_user succeeds when revoke keeps failing');
+	is($User_id, $test_user_id, 'valid password still authenticates');
+	is($revoke_calls, 2, 'revoke_token attempted twice then gave up');
+
+	$users_mock = undef;
+};
+
 done_testing();

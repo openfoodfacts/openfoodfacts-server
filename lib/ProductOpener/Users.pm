@@ -1790,9 +1790,18 @@ sub init_user ($request_ref, $r = undef) {
 				else {
 					# Authenticate this request only: no Product Opener session cookie, and revoke
 					# the Keycloak session created by the password grant so Device Activity is clean.
+					# Revocation is best-effort (same as sign-out): retry once on failure, then continue
+					# the request so a transient IdP outage does not reject a valid password.
 					$log->info("password authenticated without persisting session") if $log->is_info();
 					if ($refresh_token) {
-						revoke_token($refresh_token, 'refresh_token');
+						my $revoked = revoke_token($refresh_token, 'refresh_token');
+						if (not $revoked) {
+							$revoked = revoke_token($refresh_token, 'refresh_token');
+						}
+						if (not $revoked) {
+							$log->warn('failed to revoke Keycloak session after password API auth; continuing request')
+								if $log->is_warn();
+						}
 					}
 				}
 			}
