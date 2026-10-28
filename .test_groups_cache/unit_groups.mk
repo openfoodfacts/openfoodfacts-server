@@ -6,12 +6,3 @@ UNIT_GROUP_3_TESTS := all_pod_correct.t auth_oidc_cache.t config_ecobalyse.t dat
 UNIT_GROUP_4_TESTS := allergens.t auth_oidc_state_validation.t contribution_knowledge_panels.t dataqualityfood.t ecobalyse_coverage_misc_tags.t environmental_score.t health.t import_gs1.t ingredients_contents.t ingredients_percent.t knowledge_panels_environmental_cost.t numbers.t nutrition_estimation.t parse_origins_from_text.t product_schema_changes.t redis.t store.t taxonomy_suggestions.t units.t
 UNIT_GROUP_5_TESTS := allergens_tags.t auth_token_refresh_revoke.t convert_gs1_xml_to_json.t dataqualityfood_labels.t ecobalyse_ingredient_ids.t export_owner_scope.t i18n.t ingredient_concentrates.t ingredients_extract.t ingredients_preparsing.t lang.t nutrient_levels.t org_join_crm.t paths.t products.t reuse_knowledge_panels.t tags.t taxonomy_suggestions_index.t update_user_session_tokens.t
 UNIT_GROUP_6_TESTS := analyze_and_enrich_product_data.t booleans.t cursor.t display.t ecobalyse_packaging_matching.t food.t image_move_permission.t ingredient_parent_context.t ingredients_nesting.t ingredients_processing.t load_csv_or_excel_file.t nutriscore.t packager_codes.t petfood_ingredients.t products_comparison.t routing.t tags_unit.t templates.t url_is_fetchable.t
-
-# Group Statistics:
-# Group 1: 20 tests, 10m 0s
-# Group 2: 19 tests, 9m 30s
-# Group 3: 19 tests, 9m 30s
-# Group 4: 19 tests, 9m 30s
-# Group 5: 19 tests, 9m 30s
-# Group 6: 19 tests, 9m 30s
-# Max group time: 10m, Min: 10m, Avg: 10m
