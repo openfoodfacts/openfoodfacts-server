@@ -46,6 +46,8 @@ GetOptions("pretend" => \$pretend) or die("Usage: $0 [--pretend] scanbot.product
 
 my $csv_file = $ARGV[0] or die("Usage: $0 [--pretend] scanbot.products.csv\n");
 
+binmode(STDOUT, ":encoding(UTF-8)");
+
 my $source = get_source_for_site_and_org();
 my %stats = ();
 
@@ -58,6 +60,8 @@ while (my $line = <$in>) {
 	# code, scans_n, unique_scans_n, found, source, added countries + '"' + countries list
 	my ($code, $scans_n, $unique_scans_n, $found, $data_source, $rest) = split(/\t/, $line, 6);
 	next if ((not defined $rest) or ($found ne "FOUND"));
+	# Skip bogus codes (product "0" gets scans from apps that send it when the barcode is not read)
+	next if ($code =~ /^0*$/);
 	my ($added_countries) = split(/"/, $rest);
 	next if ((not defined $added_countries) or ($added_countries eq ""));
 

@@ -137,6 +137,7 @@ while (<STDIN>) {
 
 		# Skip bogus codes
 
+		($code =~ /^0*$/) and next;
 		($code eq "1") and next;
 		($code eq "15600703") and next;
 
