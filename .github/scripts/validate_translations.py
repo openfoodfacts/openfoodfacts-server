@@ -257,14 +257,14 @@ def validate_placeholders_and_html(po_file, msgid, msgstr):
 
     # 2. Check template variables and brackets ({count}, %(name)s, <NAME>, <USERID>, <tag>, <SITE>, <site_name>)
     var_pattern = r"\{[^}]+\}|%\([^)]+\)s|<NAME>|<USERID>|<tag>|<SITE>|<site_name>"
-    id_vars = [v.lower() for v in re.findall(var_pattern, msgid, re.IGNORECASE)]
-    str_vars = [v.lower() for v in re.findall(var_pattern, msgstr, re.IGNORECASE)]
+    id_vars = re.findall(var_pattern, msgid)
+    str_vars = re.findall(var_pattern, msgstr)
     if sorted(id_vars) != sorted(str_vars):
         issues.append(f"- **Template variable mismatch** in `{po_file}`: Expected `{id_vars}`, found `{str_vars}` in `{msgstr}`")
 
     # 3. Check HTML tags
-    clean_id = re.sub(var_pattern, "", msgid, flags=re.IGNORECASE)
-    clean_str = re.sub(var_pattern, "", msgstr, flags=re.IGNORECASE)
+    clean_id = re.sub(var_pattern, "", msgid)
+    clean_str = re.sub(var_pattern, "", msgstr)
 
     malformed = re.findall(r"</\s+[a-zA-Z0-9]+[^>]*>", clean_str)
     if malformed:
