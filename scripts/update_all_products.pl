@@ -581,6 +581,7 @@ while (my $product_ref = $cursor->next) {
 		$lc = $product_ref->{lc};
 
 		my $product_values_changed = 0;
+		my $ecobalyse_temporary_error = 0;
 
 		if ($delete_old_fields) {
 
@@ -1424,9 +1425,11 @@ while (my $product_ref = $cursor->next) {
 			# skip_ecobalyse_call = 0 means we actually call the API
 			# (unless the request is the same as for the existing results, and --force-ecobalyse-call is not set)
 			estimate_environmental_impact_service($product_ref, {}, \@errors, 0, $force_ecobalyse_call);
-			# Do not mark products with failed Ecobalyse calls as processed (with the new update_key),
+			# The product is still saved (with its stale results and the other changes of this run),
+			# but products with temporary Ecobalyse errors are not marked as processed (with the new update_key),
 			# so that they can be retried in a later run
-			next if @errors;
+			$ecobalyse_temporary_error = 1
+				if (@errors and has_tag($product_ref, "misc", "en:ecobalyse-api-temporary-error"));
 		}
 
 		if ($compute_main_countries) {
@@ -1569,7 +1572,7 @@ while (my $product_ref = $cursor->next) {
 
 			# If the product was not changed, we will still save it with the new update_key, so that we don't have to reprocess all products
 			# if the update_all_products.pl script is interrupted
-			$product_ref->{update_key} = $key;
+			$product_ref->{update_key} = $key unless $ecobalyse_temporary_error;
 
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user

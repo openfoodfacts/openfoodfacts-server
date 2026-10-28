@@ -606,17 +606,27 @@ sub estimate_environmental_impact_service (
 			# Add error misc tag
 			add_tag($product_ref, "misc", "en:ecobalyse-api-error");
 
-			# Temporary errors: timeout, no response, server errors, rate limiting, or a response that is not JSON
+			# Temporary errors: timeout, no response, server errors, rate limiting, authentication errors
+			# (e.g. expired API token), or a response that is not JSON
 			# In that case, we keep the previous results (if any) and mark them as stale.
 			# Other errors (e.g. 4xx with a JSON error message) mean that Ecobalyse rejected our request:
 			# the previous results do not apply anymore.
 			my $temporary_error = (
-					   (not $json_decoded)
-					or ((defined $response_code) and (($response_code >= 500) or ($response_code == 429)))
+				(not $json_decoded)
+					or (
+					(defined $response_code)
+					and (  ($response_code >= 500)
+						or ($response_code == 401)
+						or ($response_code == 403)
+						or ($response_code == 408)
+						or ($response_code == 429))
+					)
 			);
 
+			# The tag is also used by update_all_products.pl to retry the product in a later run
+			add_tag($product_ref, "misc", "en:ecobalyse-api-temporary-error") if $temporary_error;
+
 			if ($temporary_error and (defined $previous_environmental_impact_ref)) {
-				add_tag($product_ref, "misc", "en:ecobalyse-api-temporary-error");
 				keep_previous_ecobalyse_results_as_stale($product_ref, $previous_environmental_impact_ref,
 					$response_content);
 			}

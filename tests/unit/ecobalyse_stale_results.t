@@ -91,10 +91,20 @@ ok(has_misc_tag($product_ref, "en:ecobalyse-results-stale"), "timeout: stale mis
 ok(has_misc_tag($product_ref, "en:ecobalyse-api-temporary-error"), "timeout: temporary error misc tag");
 is(scalar @$errors_ref, 1, "timeout: error returned");
 
+# Authentication error (e.g. expired API token) with a JSON error: previous results are still kept as stale
+@mock_response = (encode_json({error => "invalid token"}), 0, 401);
+$errors_ref = [];
+estimate_environmental_impact_service($product_ref, {}, $errors_ref);
+is($mock_calls, 4, "authentication error: API called");
+is($product_ref->{environmental_impact}{ecs_per_100g_or_100ml}, 200, "authentication error: previous results kept");
+ok($product_ref->{environmental_impact}{ecobalyse_stale}, "authentication error: results are stale");
+ok(has_misc_tag($product_ref, "en:ecobalyse-api-temporary-error"), "authentication error: temporary error misc tag");
+is(scalar @$errors_ref, 1, "authentication error: error returned");
+
 # Successful call: results are not stale anymore
 @mock_response = success_response(300);
 estimate_environmental_impact_service($product_ref, {}, []);
-is($mock_calls, 4, "success after stale: API called");
+is($mock_calls, 5, "success after stale: API called");
 is($product_ref->{environmental_impact}{ecs_per_100g_or_100ml}, 300, "success after stale: new results");
 ok(!$product_ref->{environmental_impact}{ecobalyse_stale}, "success after stale: results not stale");
 ok(!has_misc_tag($product_ref, "en:ecobalyse-results-stale"), "success after stale: no stale misc tag");
@@ -104,10 +114,11 @@ ok(!exists $product_ref->{environmental_impact}{ecobalyse_pending_request}, "suc
 $product_ref->{ingredients}[0]{percent_estimate} = 80;
 @mock_response = (encode_json({error => "unknown ingredient"}), 0, 400);
 estimate_environmental_impact_service($product_ref, {}, []);
-is($mock_calls, 5, "rejected request: API called");
+is($mock_calls, 6, "rejected request: API called");
 ok(!exists $product_ref->{environmental_impact}{ecs_per_100g_or_100ml}, "rejected request: previous results removed");
 ok(!has_misc_tag($product_ref, "en:ecobalyse-results-stale"), "rejected request: no stale misc tag");
 ok(has_misc_tag($product_ref, "en:ecobalyse-api-error"), "rejected request: error misc tag");
+ok(!has_misc_tag($product_ref, "en:ecobalyse-api-temporary-error"), "rejected request: no temporary error misc tag");
 
 # Ingredients with a quantity of 0 are not sent to Ecobalyse (it rejects the whole request)
 $product_ref = new_product();
@@ -124,5 +135,9 @@ estimate_environmental_impact_service($product_ref, {}, []);
 ok(!exists $product_ref->{environmental_impact}{ecs_per_100g_or_100ml}, "timeout without previous results: no results");
 ok(!has_misc_tag($product_ref, "en:ecobalyse-results-stale"), "timeout without previous results: no stale misc tag");
 ok(has_misc_tag($product_ref, "en:ecobalyse-api-error"), "timeout without previous results: error misc tag");
+ok(
+	has_misc_tag($product_ref, "en:ecobalyse-api-temporary-error"),
+	"timeout without previous results: temporary error misc tag"
+);
 
 done_testing();
