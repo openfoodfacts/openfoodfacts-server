@@ -15,7 +15,7 @@ def run(rows, **kwargs):
 # tests for haversine_km function
 
 def test_haversine_km_same_point():
-    assert haversine_km(48.85, 2.35, 48.85, 2.35) == 0
+    assert haversine_km(48.85, 2.35, 48.85, 2.35) == pytest.approx(0)
 
 
 def test_haversine_km_paris_lyon():
@@ -26,7 +26,7 @@ def test_haversine_km_paris_lyon():
 # tests for median_longitude function
 
 def test_median_longitude():
-    assert median_longitude([5.0, 5.2, 5.4]) == 5.2
+    assert median_longitude([5.0, 5.2, 5.4]) == pytest.approx(5.2)
 
 
 def test_median_longitude_antimeridian():

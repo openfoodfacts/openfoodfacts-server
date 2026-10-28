@@ -120,48 +120,52 @@ def check_rows(rows: List[Dict[str, str]], code_col: str, lat_col: str, lng_col:
         List of report rows (see REPORT_FIELDS), in input order
     """
     issues = []
-    points = []  # (line, row, group, lat, lng)
+    groups = defaultdict(list)  # group -> [(line, row, lat, lng)]
 
     # line numbers are 1-based and count the header line
     for line, row in enumerate(rows, start=2):
         lat, lng, reason = parse_coordinates(row.get(lat_col), row.get(lng_col))
-        group = ''
-        if group_col:
-            group = (row.get(group_col) or '').strip()
-            if group_prefix:
-                group = group[:group_prefix]
+        group = _group_key(row, group_col, group_prefix)
         if reason:
             if reason != 'missing_coordinates' or report_missing:
                 issues.append(_report(line, row, code_col, group, reason))
-            continue
-        points.append((line, row, group, lat, lng))
+        elif group:
+            groups[group].append((line, row, lat, lng))
 
-    if group_col:
-        groups = defaultdict(list)
-        for point in points:
-            if point[2]:
-                groups[point[2]].append(point)
-
-        for group, members in groups.items():
-            if len(members) < min_group_size:
-                continue
-            center_lat = median(p[3] for p in members)
-            center_lng = median_longitude([p[4] for p in members])
-            for line, row, _, lat, lng in members:
-                distance = haversine_km(lat, lng, center_lat, center_lng)
-                if distance > max_distance_km:
-                    issue = _report(line, row, code_col, group, 'far_from_group')
-                    issue.update({
-                        'lat': lat,
-                        'lng': lng,
-                        'distance_km': round(distance, 1),
-                        'group_lat': round(center_lat, 6),
-                        'group_lng': round(center_lng, 6),
-                        'group_size': len(members),
-                    })
-                    issues.append(issue)
+    for group, members in groups.items():
+        if len(members) >= min_group_size:
+            issues.extend(_far_from_group(group, members, code_col, max_distance_km))
 
     issues.sort(key=lambda issue: issue['line'])
+    return issues
+
+
+def _group_key(row: Dict[str, str], group_col: Optional[str], group_prefix: Optional[int]) -> str:
+    if not group_col:
+        return ''
+    group = (row.get(group_col) or '').strip()
+    return group[:group_prefix] if group_prefix else group
+
+
+def _far_from_group(group: str, members: List[Tuple[int, Dict[str, str], float, float]],
+                    code_col: str, max_distance_km: float) -> List[Dict[str, str]]:
+    """Report the members of a group that are farther than max_distance_km from its median position."""
+    center_lat = median(m[2] for m in members)
+    center_lng = median_longitude([m[3] for m in members])
+    issues = []
+    for line, row, lat, lng in members:
+        distance = haversine_km(lat, lng, center_lat, center_lng)
+        if distance > max_distance_km:
+            issue = _report(line, row, code_col, group, 'far_from_group')
+            issue.update({
+                'lat': lat,
+                'lng': lng,
+                'distance_km': round(distance, 1),
+                'group_lat': round(center_lat, 6),
+                'group_lng': round(center_lng, 6),
+                'group_size': len(members),
+            })
+            issues.append(issue)
     return issues
 
 
