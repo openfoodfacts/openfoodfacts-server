@@ -121,11 +121,13 @@ my $lines = 0;
 
 while (<STDIN>) {
 	my $line = $_;
-	my $ip = $_;
-	# The IP field can contain a list of forwarded IPs (e.g. "1.2.3.4, 1.2.3.4" or "1.2.3.4, 5.6.7.8"):
-	# keep only the first one, which is the client IP
-	$ip =~ s/[,\s].*//;
-	chomp($ip);
+	# The IP field is the X-Forwarded-For header, which can contain a list of IPs (e.g. "1.2.3.4, 1.2.3.4"
+	# or "1.2.3.4, 5.6.7.8"). Keep the last one: it is added by our proxies, while the first ones
+	# can be sent by the client (and spoofed).
+	my $ip = '';
+	if ($line =~ /^([^\s,]+(?:,\s*[^\s,]+)*)\s/) {
+		$ip = (split(/,\s*/, $1))[-1];
+	}
 	$lines++;
 
 	# Get the product code e.g. "GET /api/v0/product/4548022405787.json?fields=image_front_small_url,product_name HTTP/2.0"
