@@ -31,7 +31,7 @@ The script is run by C<generate-doc.yml>
 
 =cut
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Pod::Simple::HTMLBatch;
