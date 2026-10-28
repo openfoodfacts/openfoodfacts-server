@@ -32,7 +32,8 @@ import csv
 import sys
 
 from common.check_coordinates import (GROUP_COLUMNS, LAT_COLUMNS, LNG_COLUMNS, REPORT_FIELDS,
-                                      check_rows, find_column, find_packager_file, read_packager_file)
+                                      check_rows, find_column, find_packager_file, neutralize_formula,
+                                      read_packager_file)
 
 
 def parse_args(argv=None):
@@ -90,7 +91,7 @@ def main(argv=None):
 
     writer = csv.DictWriter(sys.stdout, fieldnames=REPORT_FIELDS, delimiter=';')
     writer.writeheader()
-    writer.writerows(issues)
+    writer.writerows({key: neutralize_formula(value) for key, value in issue.items()} for issue in issues)
 
     if group_col is None:
         print("Warning: no group column, only invalid coordinates were checked (use --group)", file=sys.stderr)

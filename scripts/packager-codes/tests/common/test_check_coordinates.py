@@ -1,5 +1,6 @@
 import pytest
-from common.check_coordinates import (haversine_km, find_column, parse_coordinates,
+from common.check_coordinates import (haversine_km, median_longitude, neutralize_formula,
+                                      find_column, parse_coordinates,
                                       check_rows, find_packager_file, read_packager_file)
 
 
@@ -20,6 +21,33 @@ def test_haversine_km_same_point():
 def test_haversine_km_paris_lyon():
     # Paris - Lyon is about 392 km
     assert haversine_km(48.8566, 2.3522, 45.7640, 4.8357) == pytest.approx(392, abs=5)
+
+
+# tests for median_longitude function
+
+def test_median_longitude():
+    assert median_longitude([5.0, 5.2, 5.4]) == 5.2
+
+
+def test_median_longitude_antimeridian():
+    assert median_longitude([179.8, 179.9, -179.9, -179.8]) == pytest.approx(180.0)
+    assert median_longitude([179.9, -179.9, -179.8]) == pytest.approx(-179.9)
+
+
+# tests for neutralize_formula function
+
+@pytest.mark.parametrize("value, expected", [
+    ("=HYPERLINK(\"x\")", "'=HYPERLINK(\"x\")"),
+    ("+1", "'+1"),
+    ("-1", "'-1"),
+    ("@SUM(A1)", "'@SUM(A1)"),
+    ("FR 01.004.002 CE", "FR 01.004.002 CE"),
+    ("", ""),
+    (-71.8, -71.8),
+    (12, 12),
+])
+def test_neutralize_formula(value, expected):
+    assert neutralize_formula(value) == expected
 
 
 # tests for find_column function
@@ -123,6 +151,16 @@ def test_check_rows_invalid_and_missing():
 def test_check_rows_without_group():
     rows = [make_row('A', '01500', '45.96', '5.34'), make_row('B', '01500', '42.37', '-71.80')]
     assert run(rows) == []
+
+
+def test_check_rows_antimeridian():
+    rows = [
+        make_row('A', '98000', '-17.0', '179.8'),
+        make_row('B', '98000', '-17.0', '179.9'),
+        make_row('C', '98000', '-17.0', '-179.9'),
+        make_row('D', '98000', '-17.0', '-179.8'),
+    ]
+    assert run(rows, group_col='postalcode') == []
 
 
 # tests for read_packager_file function

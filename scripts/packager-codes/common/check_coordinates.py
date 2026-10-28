@@ -47,6 +47,19 @@ def haversine_km(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
     return 2 * EARTH_RADIUS_KM * math.asin(math.sqrt(a))
 
 
+def median_longitude(longitudes: List[float]) -> float:
+    """
+    Median of longitudes, taking the antimeridian into account.
+
+    If the points span more than 180 degrees, they are assumed to cross the
+    antimeridian: negative longitudes are shifted by 360 before taking the median.
+    """
+    if max(longitudes) - min(longitudes) <= 180:
+        return median(longitudes)
+    center = median(lng + 360 if lng < 0 else lng for lng in longitudes)
+    return center - 360 if center > 180 else center
+
+
 def find_column(header: List[str], candidates: Iterable[str]) -> Optional[str]:
     """Return the first header name matching one of the candidates (case-insensitive)."""
     lowered = {name.strip().lower(): name for name in header}
@@ -133,7 +146,7 @@ def check_rows(rows: List[Dict[str, str]], code_col: str, lat_col: str, lng_col:
             if len(members) < min_group_size:
                 continue
             center_lat = median(p[3] for p in members)
-            center_lng = median(p[4] for p in members)
+            center_lng = median_longitude([p[4] for p in members])
             for line, row, _, lat, lng in members:
                 distance = haversine_km(lat, lng, center_lat, center_lng)
                 if distance > max_distance_km:
@@ -156,6 +169,17 @@ def _report(line: int, row: Dict[str, str], code_col: str, group: str, reason: s
     issue = dict.fromkeys(REPORT_FIELDS, '')
     issue.update({'line': line, 'code': (row.get(code_col) or '').strip(), 'group': group, 'reason': reason})
     return issue
+
+
+def neutralize_formula(value):
+    """
+    Prefix text starting with a spreadsheet formula character with a quote, so that
+    values coming from downloaded files are not run as formulas when the report is
+    opened in a spreadsheet. Other values are returned unchanged.
+    """
+    if isinstance(value, str) and value.startswith(('=', '+', '-', '@', '\t', '\r')):
+        return "'" + value
+    return value
 
 
 def find_packager_file(country_code: str, base_dir: str = PACKAGER_CODES_DIR) -> str:
