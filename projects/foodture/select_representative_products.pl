@@ -34,7 +34,8 @@ use Getopt::Long;
 # It replaces the off-query SQL that produced projects/foodture/ranked_products_202602231414.csv:
 # - products are read from the MongoDB JSONL dump (e.g. openfoodfacts-products.jsonl.gz)
 # - only complete products are kept (photos uploaded, ingredients and nutrition facts completed)
-# - categories are recomputed with the current taxonomy from the categories field
+# - categories are recomputed with the current taxonomy from the input tags of all sources (tags_sources),
+# or from the categories field for products with an older schema
 # (stored categories_tags can have old tags and old parents)
 # - a product is a candidate for a country only if it is sold there (countries_tags)
 # - scans by country are read from the scans.json file of each product
@@ -115,15 +116,26 @@ my @complete_states = qw/en:nutrition-facts-completed en:ingredients-completed e
 my %categories_cache = ();
 
 sub get_current_categories ($product_ref) {
-	my $categories = $product_ref->{categories} // '';
-	my $categories_lc = $product_ref->{categories_lc} // $product_ref->{lc} // 'en';
-	if ($categories eq '') {
-		# no categories field: fall back to the stored tags
-		$categories = join(',', @{$product_ref->{categories_tags} // []});
-		$categories_lc = 'en';
+	my ($tag_lc, @input_tags);
+	my $sources_ref = $product_ref->{tags_sources}{categories};
+	if (ref $sources_ref eq 'HASH') {
+		# schema >= 1005: categories_tags is made from the tags of all sources (users, producers etc.)
+		my %tags = map {$_ => 1} map {@{$_->{tags} // []}} grep {ref $_ eq 'HASH'} values %$sources_ref;
+		($tag_lc, @input_tags) = ('en', sort keys %tags);
 	}
-	my $key = "$categories_lc\t$categories";
-	$categories_cache{$key} //= [gen_tags_hierarchy_taxonomy($categories_lc, 'categories', $categories)];
+	elsif (($product_ref->{categories} // '') ne '') {
+		# older schema: categories_tags is made from the categories field
+		($tag_lc, @input_tags) = (
+			$product_ref->{categories_lc} // $product_ref->{lc} // 'en',
+			split(/\s*,\s*/, $product_ref->{categories})
+		);
+	}
+	else {
+		# fall back to the stored tags
+		($tag_lc, @input_tags) = ('en', @{$product_ref->{categories_tags} // []});
+	}
+	my $key = join("\t", $tag_lc, @input_tags);
+	$categories_cache{$key} //= [gen_tags_list_with_parents($tag_lc, 'categories', \@input_tags)];
 	return $categories_cache{$key};
 }
 
