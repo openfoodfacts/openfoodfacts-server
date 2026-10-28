@@ -1377,7 +1377,7 @@ fr: ferments lactiques dont bifidobacterium
 < en: ferment
 en: kefir ferment, kefir ferments, kefir cultures, live kefir cultures, active kefir cultures, kefir grains microflora
 es: fermentos de kéfir, cultivos microbianos de kéfir, levaduras de kéfir, fermentos propios del kéfir
-fr: ferments du kéfir, culture de kéfir, cultures de kéfir
+fr: ferments du kéfir, culture de kéfir, cultures de kéfir, levures de kéfir
 hr: kefirna kultura
 hu: kefirkultúra
 it: coltura di kefir, fermenti di kefir, fermenti vivi di kefir
@@ -22104,6 +22104,10 @@ vegan:en: maybe
 vegetarian:en: maybe
 
 < en: natural flavouring
+fr: arôme naturel de truffe
+pt: Aroma Natural a Trufa
+
+< en: natural flavouring
 de: natürliches Pfirsich– und Holunderblütenaroma mit anderen natürlichen Aromen
 
 < en: natural flavouring
@@ -22387,6 +22391,7 @@ fr: arômes naturels d'orange avec autres arômes naturels, arôme naturel d'ora
 hr: prirodna aroma naranče s drugim prirodnim aromama
 nl: natuurlijk sinaasappelaroma met andere natuurlijke aroma's, natuurlijke sinaasappelaroma's met andere natuurlijke aroma's
 pl: naturalny aromat pomarańczowy z innymi naturalnymi aromatami, naturalny aromat pomarańczowy z innymi aromatami naturalnymi
+ro: arome naturale de portocale cu alte arome naturale
 sv: naturlig apelsinarom med andra naturliga aromer
 
 < en: flavouring
@@ -50560,7 +50565,7 @@ mt: passolina ħamra
 nl: aalbes, rode bes, rode bessen, aalbessen
 pl: czerwona porzeczka, czerwonej porzeczki, czerwonych porzeczek, porzeczki czerwone, czerwone porzeczki
 pt: groselha, groselhas vermelhas
-ro: coacaze rosii, coacăzelor roșii
+ro: coacaze rosii, coacăzelor roșii, coacăze
 ru: красная смородина
 sk: červené ríbezle
 sl: rdeči ribez
@@ -50670,7 +50675,7 @@ nl: Rozenbottel, rozebottel, rozenbottels
 nn: Nype
 os: Уагъылы
 pt: Cinórrodo
-ro: Măceș, măceșelor
+ro: Măceș, măceșelor, măceșe
 ru: Шиповник
 sk: šípka, Ruža šipkova, šípky
 sl: šipek
@@ -51040,6 +51045,8 @@ nb: markjordbær
 nl: bosaardbei
 nn: markjordbær
 pl: poziomka, poziomki, poziomkowy
+pt: morangos silvestres
+ro: fragă, frăguță, frăguțe
 wikidata:en: Q104219130
 wikipedia:en: https://en.wikipedia.org/wiki/Fragaria_vesca
 
@@ -53871,6 +53878,12 @@ en: green leaf lettuce
 usda_fdc_code:en: 169249
 usda_ndb_code:en: 11253
 usda_ndb_name:en: Lettuce, green leaf, raw
+
+< en: lettuce
+en: heart of lettuce
+de: Salatherz
+fr: cœur de laitue
+nl: slaharten
 
 #category/romaine-lettuce
 < en: lettuce
@@ -71971,7 +71984,7 @@ de: Leinsaat geschrotet, geschrotete Leinsaat, geschrotete Leinsamen, Leinsamen 
 < en: flax seed
 en: golden flax seeds, golden linseed, yellow flax seeds
 bg: златно ленено семе
-de: goldgelbe Leinsaat, Gold-Leinsaat
+de: goldgelbe Leinsaat, Gold-Leinsaat, Goldleinsaat
 es: semillas de lino dorado, lino dorado
 fr: graines de lin doré, graines de lin jaune
 hr: sjemenke zlatnog lana
@@ -71987,7 +72000,7 @@ wikidata:en: none
 en: brown flax seeds, brown linseed, Brown flaxseed
 bg: кафяво ленено семе, кафяв лен
 da: brune hørfrø
-de: brauner Leinsamen
+de: brauner Leinsamen, Leinsaat braun
 es: linaza marron, lino marron
 fi: ruskeat pellavansiemenet
 fr: graines de lin brun, lin brun
@@ -73287,7 +73300,7 @@ lv: zāle
 nb: urt, urte
 nl: Kruiden
 pl: Zioło, zioła, ziół, mieszanka ziół, mieszanka ziołowa
-pt: plantas aromáticas
+pt: plantas aromáticas, ervas
 ro: Ierburi, plante aromatice, ierburi aromatice, verdeață, verdețuri
 sl: zelišča
 sv: örter, örtkrydda, örtkryddor, kryddörter
@@ -78327,12 +78340,15 @@ sv: kamomillblomma
 
 < en: camomile
 en: German camomile, Hungarian camomile
+xx: Matricaria chamomilla
 ar: بابونج ألماني
 da: vellugtende kamille
 de: Echte Kamille
 eo: ordinara kamomilo, kuraca kamomilo
-fr: camomille sauvage, matricaire camomille
+es: Matricaria chamomilla, manzanilla de Castilla, manzanilla alemana
+fr: camomille sauvage, matricaire camomille, camomille matricaire, camomille allemande
 hr: Matricaria chamomilla L
+it: Matricaria chamomilla, camomilla comune
 la: Matricaria chamomilla, Matricaria recutita
 pt: camomila-vulgar, camomila-da-alemanha, camomila-dos-alemães
 zh: 德國洋甘菊, 母菊
@@ -78536,7 +78552,7 @@ or: ଧଣିଆ
 os: Чиндзи
 pa: ਧਨੀਆ
 pl: kolender, kolendra, kolendry
-pt: Coentro
+pt: Coentro, coentros
 qu: Kulantru
 ro: Coriandru
 ru: кориандр, кориандр молотый
@@ -79792,6 +79808,7 @@ lv: zaļā olīva
 nl: groene olijven
 no: grønn oliven, grønne oliven
 pl: zielone oliwki, zielona oliwka, zielonych oliwek, oliwki zielone
+pt: azeitona verde
 ro: măsline verzi
 ru: Зелёные оливки
 sv: gröna oliver
@@ -79981,7 +79998,7 @@ de: Orangenblüten
 es: azahar
 eu: laranja-lore
 fa: بهار نارنج
-fr: fleur d'oranger
+fr: fleur d'oranger, pétale d'oranger
 ga: bláth oráiste
 gl: flor de laranxeira
 gn: narã poty
@@ -80455,6 +80472,7 @@ nb: hibiskusblomst
 nl: hibiscusbloem, roselle, hibiscus
 pl: Ketmia szczawiowa, kwiat hibiskusa, hibiskus, hibiskusa, kwiatów hibiskusa
 pt: Vinagreira
+ro: floare de hibiscus, flori de hibiscus
 ru: Розелла
 sd: کٽنبڙو
 su: Rosella
@@ -93642,7 +93660,7 @@ nl: sulfiet, sulfieten
 oc: Sulfit
 pl: Siarczyny, siarczyn
 pt: sulfito, sulfitos, metabissulfito
-ro: Sulfit, sulfiții
+ro: Sulfit, sulfiții, sulfiți
 ru: Сульфиты
 sh: Sulfit
 sk: siričitany
@@ -94631,6 +94649,7 @@ fi: etikkakurkut
 fr: concombres au vinaigre
 hr: ocat krastavci
 it: cetrioli all'aceto
+ro: castraveti în oțet
 
 # <en:cucumber
 # fr:Concombre produit sous serre chauffée
