@@ -423,7 +423,7 @@
                "name" : "eau"
             },
             {
-               "ecobalyse_name" : "Farine UE -2025-",
+               "ecobalyse_name" : "Farine UE agrégée -2025-",
                "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                "mass" : 18.75,
                "name" : "farine"
@@ -738,8 +738,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-         "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 62.5,
@@ -752,7 +752,7 @@
       {
          "ciqual_proxy_food_code" : "9435",
          "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
+         "ecobalyse_proxy_name" : "Farine UE agrégée -2025-",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 18.75,
