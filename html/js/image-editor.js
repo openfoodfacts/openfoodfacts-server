@@ -28,6 +28,7 @@ import Cropper from 'cropperjs';
 import {
   selectionAfterImageTransform,
   shouldAdjustSelectionForImageTransform,
+  waitForImageLoad,
 } from './image-editor-selection.js';
 
 const ROTATE_LEFT = -90;
@@ -455,8 +456,9 @@ class ImageEditorComponent extends HTMLElement {
     }
 
     const sourceToken = this.beginImageSourceLoad();
+    const imageLoad = waitForImageLoad(cropperImage.$image);
     cropperImage.src = targetSrc;
-    const previewLoad = cropperImage.$ready().then((image) => this.finishImagePreviewLoad(
+    const previewLoad = imageLoad.then((image) => this.finishImagePreviewLoad(
       image,
       { previewToken, sourceToken, isNormalized },
     ));

@@ -6,9 +6,33 @@ const source = await readFile(new URL("../../html/js/image-editor-selection.js",
 const {
     selectionAfterImageTransform,
     shouldAdjustSelectionForImageTransform,
+    waitForImageLoad,
 } = await import(`data:text/javascript;base64,${Buffer.from(source).toString("base64")}`);
 
 const identity = [1, 0, 0, 1, 0, 0];
+
+test("waits for the image load event even when the image is cached", async () => {
+    const image = new EventTarget();
+    let loaded = false;
+    const imageLoad = waitForImageLoad(image).then(() => {
+        loaded = true;
+    });
+
+    await Promise.resolve();
+    assert.equal(loaded, false);
+
+    image.dispatchEvent(new Event("load"));
+    await imageLoad;
+    assert.equal(loaded, true);
+});
+
+test("rejects when the replacement image fails to load", async () => {
+    const image = new EventTarget();
+    const imageLoad = waitForImageLoad(image);
+
+    image.dispatchEvent(new Event("error"));
+    await assert.rejects(imageLoad, {message: "Failed to load the image source"});
+});
 
 test("does not adjust the crop while a replacement image is loading", () => {
     assert.equal(

@@ -4,6 +4,26 @@ export function shouldAdjustSelectionForImageTransform({ imageSourceLoading, mov
   return !imageSourceLoading && !moveMode;
 }
 
+export function waitForImageLoad(image) {
+  return new Promise((resolve, reject) => {
+    function cleanup() {
+      image.removeEventListener("load", onLoad);
+      image.removeEventListener("error", onError);
+    }
+    function onLoad() {
+      cleanup();
+      resolve(image);
+    }
+    function onError() {
+      cleanup();
+      reject(new Error("Failed to load the image source"));
+    }
+
+    image.addEventListener("load", onLoad, {once: true});
+    image.addEventListener("error", onError, {once: true});
+  });
+}
+
 export function selectionAfterImageTransform(selection, oldMatrix, newMatrix, imageWidth, imageHeight) {
   const [a, b, c, d, e, f] = oldMatrix;
   const determinant = (a * d) - (b * c);
