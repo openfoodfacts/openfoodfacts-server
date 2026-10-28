@@ -683,20 +683,20 @@ is([ProductOpener::Display::get_search_field_title_and_details("fat")], ["Fat", 
 }
 
 {
-	local %ProductOpener::Display::packager_codes = ("EMB 99999" => {lat => "", lng => ""},);
-	local %ProductOpener::Display::emb_codes_geo = (FREMB00000 => [undef, "-3.75"],);
+	local %ProductOpener::Display::packager_codes = ("FR 29.004.023 CE" => {lat => "", lng => ""},);
+	local %ProductOpener::Display::emb_codes_geo = (FREMB29004 => [undef, "-3.75"],);
 	is(
-		[ProductOpener::Display::get_packager_code_coordinates("EMB 99999")],
+		[ProductOpener::Display::get_packager_code_coordinates("FR 29.004.023 CE")],
 		[undef, undef],
 		"city coordinates with a missing latitude are rejected"
 	);
 }
 
 {
-	local %ProductOpener::Display::packager_codes = ("EMB 99999" => {lat => "", lng => ""},);
-	local %ProductOpener::Display::emb_codes_geo = (FREMB00000 => ["47.85", undef],);
+	local %ProductOpener::Display::packager_codes = ("FR 29.004.023 CE" => {lat => "", lng => ""},);
+	local %ProductOpener::Display::emb_codes_geo = (FREMB29004 => ["47.85", undef],);
 	is(
-		[ProductOpener::Display::get_packager_code_coordinates("EMB 99999")],
+		[ProductOpener::Display::get_packager_code_coordinates("FR 29.004.023 CE")],
 		[undef, undef],
 		"city coordinates with a missing longitude are rejected"
 	);
