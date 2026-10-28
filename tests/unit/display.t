@@ -623,12 +623,8 @@ is([ProductOpener::Display::get_search_field_title_and_details("fat")], ["Fat", 
 
 # Empty packager-code coordinates should fall back to the city coordinates.
 {
-	local %ProductOpener::Display::packager_codes = (
-		"FR 29.004.023 CE" => {lat => "", lng => ""},
-	);
-	local %ProductOpener::Display::emb_codes_geo = (
-		FREMB29004 => ["47.85", "-3.75"],
-	);
+	local %ProductOpener::Display::packager_codes = ("FR 29.004.023 CE" => {lat => "", lng => ""},);
+	local %ProductOpener::Display::emb_codes_geo = (FREMB29004 => ["47.85", "-3.75"],);
 	is(
 		[ProductOpener::Display::get_packager_code_coordinates("FR 29.004.023 CE")],
 		["47.85", "-3.75"],
@@ -637,12 +633,8 @@ is([ProductOpener::Display::get_search_field_title_and_details("fat")], ["Fat", 
 }
 
 {
-	local %ProductOpener::Display::packager_codes = (
-		"FR 29.004.023 CE" => {lat => "unknown", lng => "-3.75"},
-	);
-	local %ProductOpener::Display::emb_codes_geo = (
-		FREMB29004 => ["47.85", "-3.75"],
-	);
+	local %ProductOpener::Display::packager_codes = ("FR 29.004.023 CE" => {lat => "unknown", lng => "-3.75"},);
+	local %ProductOpener::Display::emb_codes_geo = (FREMB29004 => ["47.85", "-3.75"],);
 	is(
 		[ProductOpener::Display::get_packager_code_coordinates("FR 29.004.023 CE")],
 		["47.85", "-3.75"],
