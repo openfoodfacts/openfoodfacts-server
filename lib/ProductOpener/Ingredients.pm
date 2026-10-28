@@ -1305,8 +1305,8 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 		my $found_a_known_ingredient = 0;
 		my $new_ingredient = $ingredient;
 		my @new_processings = ();
-		# if we don't find a known ingredient, we try again with a shorter synonym of the processings
-		# that were removed from inside the ingredient (see get_alternatives_with_shorter_processing_synonyms)
+		# if we don't find a known ingredient, we try again with a shorter synonym of the first processing
+		# that was removed from inside the ingredient (see get_alternatives_with_shorter_processing_synonyms)
 		my @alternatives = ();
 		my $trying_alternatives = 0;
 		my $removed_a_processing = 1;    # remove prefixes / suffixes one by one
@@ -1372,7 +1372,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 
 							$new_ingredient = clean_ingredient_after_removing_processing($new_ingredient, $and);
 
-							if (($pass eq "inside") and (not $trying_alternatives)) {
+							if (($pass eq "inside") and (not $trying_alternatives) and (not @alternatives)) {
 								foreach my $alternative_ingredient (
 									get_alternatives_with_shorter_processing_synonyms(
 										$compiled_ingredients_processing_ref->{entries},
