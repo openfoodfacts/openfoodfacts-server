@@ -9327,13 +9327,15 @@ CSS
 			my $source = deep_get($input_set_ref, "source");
 
 			my $col_name = lang("preparation_" . $preparation) . " " . $per_lang . " (" . $source . ")";
+			my $short_name = $per;
+			$short_name .= " (" . lang($source) . ")" if defined $source;
 
 			$columns{$col_id} = {
 				scope => "product",
 				preparation => $preparation,
 				per => $per,
 				name => $col_name,
-				short_name => $per,
+				short_name => $short_name,
 				class => "product",
 			};
 
