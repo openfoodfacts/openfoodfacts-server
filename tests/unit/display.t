@@ -642,6 +642,36 @@ is([ProductOpener::Display::get_search_field_title_and_details("fat")], ["Fat", 
 	);
 }
 
+{
+	local %ProductOpener::Display::packager_codes = ("FR 29.004.023 CE" => {lat => "48.1", lng => "-3.2"},);
+	local %ProductOpener::Display::emb_codes_geo = (FREMB29004 => ["47.85", "-3.75"],);
+	is(
+		[ProductOpener::Display::get_packager_code_coordinates("FR 29.004.023 CE")],
+		["48.1", "-3.2"],
+		"valid packager-code coordinates are retained"
+	);
+}
+
+{
+	local %ProductOpener::Display::packager_codes = ("FR 29.004.023 CE" => {lat => "48.1"},);
+	local %ProductOpener::Display::emb_codes_geo = (FREMB29004 => ["47.85", "-3.75"],);
+	is(
+		[ProductOpener::Display::get_packager_code_coordinates("FR 29.004.023 CE")],
+		["47.85", "-3.75"],
+		"a coordinate pair with one value missing uses city coordinates"
+	);
+}
+
+{
+	local %ProductOpener::Display::packager_codes = ("EMB 99999" => {lat => "", lng => ""},);
+	local %ProductOpener::Display::emb_codes_geo = (FREMB00000 => ["47.85", "-3.75"],);
+	is(
+		[ProductOpener::Display::get_packager_code_coordinates("EMB 99999")],
+		[undef, undef],
+		"invalid coordinates without a city fallback return no coordinates"
+	);
+}
+
 # canonicalize_request_tags_and_redirect_to_canonical_url
 my $tags_ref = ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url(
 	{tags => [{tagtype => "stores", tagid => "Super Marché"}]});
