@@ -34,10 +34,12 @@ use LWP::UserAgent;
 use JSON::MaybeXS;
 use Text::CSV;
 use Text::CSV_XS;
+use Getopt::Long;
 
 # This script:
 # - reads a list of categories (and other columns) from projects/foodture/foodture_foodex2_categories_mapping_to_off.csv
 # - reads a list of most scanned products by country and category from projects/foodture/ranked_products_202602231414.csv
+# (from off-query) or from the file given with --ranked-file (made by select_representative_products.pl)
 # - for each product matching a category from the first list and 1 country from the EU27
 # + Norway, Switzerland, UK, Serbia and Montenegro),
 # we fetch its data directly from the products folder
@@ -83,6 +85,17 @@ my %countries_names = map {
 		display_taxonomy_tag('en', 'countries', canonicalize_taxonomy_tag('en', 'countries', $_))
 } @countries;
 my @countries_tags = sort keys %countries_names;
+
+my $ranked_file = "projects/foodture/ranked_products_202602231414.csv";
+my $only_output_codes = 0;
+
+GetOptions(
+	"ranked-file=s" => \$ranked_file,
+	"only-output-codes" => \$only_output_codes,
+) or die "Usage: $0 [--ranked-file <file.csv>] [--only-output-codes]\n";
+
+# Years of scans to output
+my @scan_years = (2021 .. 2026);
 
 # Languages to output ingredients in
 my @ingredient_languages = qw/en fr/;
@@ -177,7 +190,6 @@ sub collect_ingredients {
 
 # first pass: read ranked products and group by country/category tags
 print STDERR "Reading ranked products...\n";
-my $ranked_file = "projects/foodture/ranked_products_202602231414.csv";
 open my $RANK, '<:encoding(UTF-8)', $ranked_file or die "Cannot open $ranked_file: $!\n";
 my $parser = Text::CSV_XS->new(
 	{
@@ -274,8 +286,8 @@ for my $j (1 .. 5) {
 	}
 }
 
-# scans for last 5 years
-for my $y (2021 .. 2025) {
+# scans for each year
+for my $y (@scan_years) {
 	push @hdr, "country_scans_${y}", "global_scans_${y}";
 }
 
@@ -317,7 +329,7 @@ while (<$LIST>) {
 			my $scans_ref = {};
 
 			# If we have the --only-output-codes option, don't fetch product data
-			unless ((defined $ARGV[0]) and ($ARGV[0] eq '--only-output-codes')) {
+			unless ($only_output_codes) {
 
 				# ensure product data fetched
 				unless (exists $product_data{$code}) {
@@ -460,10 +472,13 @@ while (<$LIST>) {
 				}
 			}
 
-			# Scan numbers for last 5 years
-			for my $y (2021 .. 2025) {
+			# Scan numbers for each year
+			for my $y (@scan_years) {
 				my $year_scans = $scans_ref->{$y}{unique_scans_n_by_country};
-				push @row, $year_scans->{$cc} // 0, $year_scans->{world} // 0;
+				my $country_scans = $year_scans->{$cc} // 0;
+				# scanbot uses GeoIP country codes: gb for the United Kingdom
+				$country_scans += $year_scans->{gb} // 0 if $cc eq 'uk';
+				push @row, $country_scans, $year_scans->{world} // 0;
 			}
 
 			push @row, encode_json($ingredients_ref // []), encode_json($product_ref->{packagings} // []);
