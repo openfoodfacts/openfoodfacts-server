@@ -9328,7 +9328,7 @@ CSS
 
 			my $col_name = lang("preparation_" . $preparation) . " " . $per_lang . " (" . $source . ")";
 			my $short_name = $per;
-			$short_name .= " (" . lang($source) . ")" if defined $source;
+			$short_name .= " (" . $source . ")" if defined $source;
 
 			$columns{$col_id} = {
 				scope => "product",
