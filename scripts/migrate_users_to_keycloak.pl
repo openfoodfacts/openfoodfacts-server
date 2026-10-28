@@ -27,7 +27,7 @@ use ProductOpener::Checkpoint;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Keycloak qw/:all/;
+use ProductOpener::Keycloak;
 use ProductOpener::Tags qw/country_to_cc/;
 
 use JSON;
@@ -68,8 +68,7 @@ sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	my $existing_user = decode_json($get_user_response->content);
 	my $upsert_user_request;
 	if (scalar @$existing_user) {
-		my $keycloak_id = $existing_user->[0]->{id};
-		$upsert_user_request = HTTP::Request->new(PUT => $keycloak->{users_endpoint} . '/' . $keycloak_id);
+		$upsert_user_request = HTTP::Request->new(PUT => $keycloak->get_user_endpoint($existing_user->[0]));
 	}
 	else {
 		$upsert_user_request = HTTP::Request->new(POST => $keycloak->{users_endpoint});

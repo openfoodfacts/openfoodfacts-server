@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -31,7 +31,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/%tags_fields %taxonomy_fields canonicalize_taxonomy_tag compute_field_tags get_taxonomyid/;
+use ProductOpener::Tags qw/%tags_fields %taxonomy_fields canonicalize_taxonomy_tag get_taxonomyid/;
+use ProductOpener::ProductsTags qw/compute_field_tags/;
 use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc/;

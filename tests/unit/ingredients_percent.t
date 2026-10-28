@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -241,6 +241,14 @@ my @tests = (
 			lc => "sv",
 			ingredients_text =>
 				"Lingon 50%*, socker*, vatten, förtjockningsmedel (pektin), surhetsreglerande medel (citronsyra). *KRAV-certifierad ekologisk ingrediens. Fruktmängd: 50g per 100g. Total mängd socker är 35 g per 100 g sylt. Fruktmängd: 52g per 100 g sylt. Bärmängd: 40 g bär per 100g. Total mängd socker: 45g per 100g sylt. Total mängd socker 44 g, varav tillsatt socker 41g per 100g sylt."
+		},
+	],
+	[
+		'specific-ingredients-sv-2',
+		{
+			lc => "sv",
+			ingredients_text =>
+				"Hjortron* (Sverige), rörsocker*, vatten och pektin. Fruktmängd 55g hjortron per 100g. *= KRAV-Ekologisk."
 		},
 	],
 	[

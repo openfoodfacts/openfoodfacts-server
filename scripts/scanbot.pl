@@ -24,7 +24,7 @@
 # filtered by the app:
 # grep "Official Android App" nginx.access2.log | grep Scan > android_app.log
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -33,7 +33,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/retrieve_object store_object object_exists write_json/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Tags qw/add_tags_to_field canonicalize_taxonomy_tag/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag/;
+use ProductOpener::ProductsTags qw/add_tags_to_field/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;

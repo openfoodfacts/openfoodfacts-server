@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -11,7 +11,8 @@ use Log::Any::Adapter 'TAP';
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/canonicalize_taxonomy_tag compute_field_tags/;
+use ProductOpener::Tags qw/canonicalize_taxonomy_tag/;
+use ProductOpener::ProductsTags qw/compute_field_tags/;
 use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::EnvironmentalScore

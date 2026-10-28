@@ -2,7 +2,7 @@
 
 # This test first convert an Excel files to CSV, then imports it.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 
 use Log::Any::Adapter 'TAP';
 use Mock::Quick qw/qobj qmeth/;
@@ -26,8 +26,7 @@ my $inputs_dir = "$test_dir/inputs/$test_id/";
 my $outputs_dir = "$test_dir/outputs/$test_id/";
 
 # fake image download using input directory instead of distant server
-sub fake_download_image ($) {
-	my $image_url = shift;
+sub fake_download_image ($image_url) {
 
 	# [elbeho] I had a doubt that the warning:
 	# Prototype mismatch: sub ProductOpener::Import::download_image ($) vs none at /opt/perl/local/lib/perl5/Test2/Mock.pm line 452.
@@ -106,7 +105,7 @@ foreach my $test_ref (@tests) {
 	remove_all_orgs();
 
 	# step1: parse xls
-	my ($out, $err, $csv_result) = capture_ouputs(
+	my ($out, $err, $csv_result) = capture_outputs(
 		sub {
 			return scalar load_csv_or_excel_file($excel_file);
 		}
@@ -126,8 +125,9 @@ foreach my $test_ref (@tests) {
 
 	# Compare the converted CSV file to the expected CSV file
 	ensure_expected_results_dir($expected_test_results_dir . "/converted_csv", $update_expected_results);
+	# Note we explicitly save the CSV file in this test for easy diffs and because it does not contain modified dates
 	compare_csv_file_to_expected_results($converted_file, $expected_test_results_dir . "/converted_csv",
-		$update_expected_results, "$test_case - convert csv");
+		$update_expected_results, "$test_case - convert csv", 1);
 	compare_to_expected_results($conv_results_ref,
 		$expected_test_results_dir . "/converted_csv/conversion_results.json",
 		$update_expected_results, {id => "$test_case - convert"});

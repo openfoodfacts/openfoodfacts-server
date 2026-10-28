@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -51,6 +51,18 @@ my @tests = (
 			"quantity_per_unit" => "0"
 		},
 		expected_output => undef,
+	},
+	{
+		desc => "number_of_units above maximum should be rejected",
+		lc => "en",
+		input => {"number_of_units" => 9223372036854775807, "shape" => "en:bottle"},
+		expected_output => {'shape' => 'en:bottle'},
+	},
+	{
+		desc => "number_of_units at maximum (10000) should be accepted",
+		lc => "en",
+		input => {"number_of_units" => 10000, "shape" => "en:bottle"},
+		expected_output => {'number_of_units' => 10000, 'shape' => 'en:bottle'},
 	},
 	{
 		desc => "Value 0 should be considered empty, 1 value is not 0",
@@ -155,7 +167,7 @@ boîte en carton à recycler"
 	],
 
 	# Recycling instructions for the Netherlands
-	# Tests for all types of conatiners
+	# Tests for all types of containers
 	[
 		'packaging_text_nl_fles_glasbak',
 		{

@@ -98,6 +98,16 @@ if (($env_query_string !~ $api_pattern) or ($request_ref->{method} !~ $method_pa
 	}
 }
 
+# Browser preflight requests do not include authentication cookies.
+# Return CORS headers before init_request() tries to authenticate the user.
+if (    ($request_ref->{method} eq 'OPTIONS')
+	and (defined $r->headers_in->{Origin})
+	and (defined $r->headers_in->{'Access-Control-Request-Method'}))
+{
+	print header(-status => 200, -type => 'text/plain', -charset => 'utf-8');
+	return Apache2::Const::OK;
+}
+
 # Initialize the request object, and authenticate the user
 init_request($request_ref);
 
@@ -128,7 +138,8 @@ if ($request_ref->{no_index} eq 1) {
 	return Apache2::Const::OK;
 }
 
-if ($request_ref->{rate_limiter_blocking}) {
+# Block request if rate limit exceeded (only if rate limiter is not disabled)
+if ((not $rate_limiter_disabled) && $request_ref->{rate_limiter_blocking}) {
 	# The request is blocked by the rate limiter:
 	# return directly a "too many requests" empty HTML page
 	display_too_many_requests_page_and_exit();
@@ -170,9 +181,9 @@ if ((defined $request_ref->{api}) and (defined $request_ref->{api_action})) {
 		# /api/v0/search
 		# FIXME: for an unknown reason, using display_search_results() here results in some attributes being randomly not set
 		# because of missing fields like nova_group or nutriscore_data, but not for all products.
-		# this does not seem to happen with display_tag()
+		# this does not seem to happen with display_tag_page()
 		# display_search_results($request_ref);
-		display_tag($request_ref);
+		display_tag_page($request_ref);
 	}
 	elsif ($request_ref->{api_action} =~ /^preferences(_(\w\w))?$/) {
 		# /api/v0/preferences or /api/v0/preferences_[language code]
@@ -230,7 +241,7 @@ elsif (defined $request_ref->{points}) {
 elsif ((defined $request_ref->{groupby_tagtype})
 	or ((defined $request_ref->{tagtype}) and (defined $request_ref->{tagid})))
 {
-	display_tag($request_ref);
+	display_tag_page($request_ref);
 }
 
 exit 0;
