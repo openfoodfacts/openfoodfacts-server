@@ -621,6 +621,35 @@ is([ProductOpener::Display::get_search_field_title_and_details("nova_group")],
 	["NOVA group", "", "", "allowDecimals:false,\n"]);
 is([ProductOpener::Display::get_search_field_title_and_details("fat")], ["Fat", " (g for 100 g / 100 ml)", "g", ""]);
 
+# Empty packager-code coordinates should fall back to the city coordinates.
+{
+	local %ProductOpener::Display::packager_codes = (
+		"FR 29.004.023 CE" => {lat => "", lng => ""},
+	);
+	local %ProductOpener::Display::emb_codes_geo = (
+		FREMB29004 => ["47.85", "-3.75"],
+	);
+	is(
+		[ProductOpener::Display::get_packager_code_coordinates("FR 29.004.023 CE")],
+		["47.85", "-3.75"],
+		"empty packager-code coordinates use city coordinates"
+	);
+}
+
+{
+	local %ProductOpener::Display::packager_codes = (
+		"FR 29.004.023 CE" => {lat => "unknown", lng => "-3.75"},
+	);
+	local %ProductOpener::Display::emb_codes_geo = (
+		FREMB29004 => ["47.85", "-3.75"],
+	);
+	is(
+		[ProductOpener::Display::get_packager_code_coordinates("FR 29.004.023 CE")],
+		["47.85", "-3.75"],
+		"non-numeric packager-code coordinates use city coordinates"
+	);
+}
+
 # canonicalize_request_tags_and_redirect_to_canonical_url
 my $tags_ref = ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url(
 	{tags => [{tagtype => "stores", tagid => "Super Marché"}]});
