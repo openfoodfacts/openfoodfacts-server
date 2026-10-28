@@ -249,7 +249,7 @@ def validate_placeholders_and_html(po_file, msgid, msgstr):
                 if t != id_pf[pos - 1][1]:
                     valid = False
                     break
-            if not valid or len(str_pf) != len(id_pf):
+            if not valid or sorted(p for p, _ in str_pf) != list(range(1, len(id_pf) + 1)):
                 issues.append(f"- **Printf placeholder mismatch** in `{po_file}`: Expected `{id_pf_raw}`, found `{str_pf_raw}` in `{msgstr}`")
         else:
             if sorted([t for _, t in id_pf]) != sorted([t for _, t in str_pf]):
