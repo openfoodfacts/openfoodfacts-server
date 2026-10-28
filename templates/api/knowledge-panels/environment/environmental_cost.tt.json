@@ -4,9 +4,24 @@
     "topics": ["environment"],
     "title_element": {
         "title": "[% edq(lang('environmental_cost_title')) %]",
+        [% IF panel.label_path %]
+        "icon_url": "[% static_subdomain %][% panel.label_path %]",
+        "icon_alt": "[% edq(lang('environmental_cost_title')) %]",
+        [% END %]
         "subtitle": "[% IF panel.has_per_product %][% edq(f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity })) %] - [% END %][% edq(f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) %]"
     },
     "elements": [
+        [% IF panel.label_path %]
+        {
+            "element_type": "image",
+            "image_element": {
+                "url": "[% static_subdomain %][% panel.label_path %]",
+                "alt": "[% edq(f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity })) %] - [% edq(f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) %]",
+                "width": 308,
+                "height": 154
+            }
+        },
+        [% END %]
         {
             "element_type": "text",
             "text_element": {
