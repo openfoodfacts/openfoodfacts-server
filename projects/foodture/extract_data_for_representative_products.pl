@@ -87,12 +87,18 @@ my %countries_names = map {
 my @countries_tags = sort keys %countries_names;
 
 my $ranked_file = "projects/foodture/ranked_products_202602231414.csv";
+my $out_file = "projects/foodture/representative_products.csv";
+my $ingredients_file = "projects/foodture/ingredients_sum.csv";
 my $only_output_codes = 0;
 
 GetOptions(
 	"ranked-file=s" => \$ranked_file,
+	"output=s" => \$out_file,
+	"ingredients-output=s" => \$ingredients_file,
 	"only-output-codes" => \$only_output_codes,
-) or die "Usage: $0 [--ranked-file <file.csv>] [--only-output-codes]\n";
+	)
+	or die
+	"Usage: $0 [--ranked-file <file.csv>] [--output <file.csv>] [--ingredients-output <file.csv>] [--only-output-codes]\n";
 
 # Years of scans to output
 my @scan_years = (2021 .. 2026);
@@ -235,7 +241,6 @@ open my $LIST, '<:encoding(UTF-8)', $list_file or die "Cannot open $list_file: $
 <$LIST>;    # skip header
 
 # prepare output file
-my $out_file = "projects/foodture/representative_products.csv";
 open my $OUT, '>:encoding(UTF-8)', $out_file or die "Cannot write $out_file: $!\n";
 my $csv_out = Text::CSV->new({binary => 1, eol => "\n"})
 	or die "Cannot create CSV writer: " . Text::CSV->error_diag();
@@ -292,6 +297,9 @@ for my $y (@scan_years) {
 }
 
 push @hdr, "ingredients_json", "packaging_json";    # sum of top 10 ingredients percentages
+
+# 1 if the product still has complete data (photos, ingredients, nutrition), as when it was selected
+push @hdr, "complete";
 
 $csv_out->print($OUT, \@hdr);
 
@@ -483,6 +491,12 @@ while (<$LIST>) {
 
 			push @row, encode_json($ingredients_ref // []), encode_json($product_ref->{packagings} // []);
 
+			my %states = map {$_ => 1} @{$product_ref->{states_tags} // []};
+			push @row,
+				(grep {not $states{$_}} qw/en:nutrition-facts-completed en:ingredients-completed en:photos-uploaded/)
+				? 0
+				: 1;
+
 			$csv_out->print($OUT, \@row);
 
 		}
@@ -508,7 +522,6 @@ close $LIST;
 close $OUT;
 
 # Create a second CSV table that lists all ingredients with the sum of their percentages across all products
-my $ingredients_file = "projects/foodture/ingredients_sum.csv";
 open my $ING_OUT, '>:encoding(UTF-8)', $ingredients_file or die "Cannot write $ingredients_file: $!\n";
 my @ingredients_header = (
 	"ingredient_id", "ingredient_exists_in_taxonomy",
