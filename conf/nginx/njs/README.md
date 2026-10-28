@@ -3,9 +3,11 @@
 This directory contains an [njs](https://nginx.org/en/docs/njs/) module that renders the French
 "coût environnemental" label as SVG, directly in nginx, without calling Product Opener (Apache + mod_perl).
 
-It runs on the [QuickJS engine](https://nginx.org/en/docs/njs/engine.html) of njs (`js_engine qjs`):
-the original built-in njs engine is deprecated since njs 1.0.0. The code also runs unchanged on the
-njs engine, with identical output.
+It runs on the default njs engine, both in production (Debian trixie package) and in Docker (nginx.org
+package), so that both use the same configuration. The [QuickJS engine](https://nginx.org/en/docs/njs/engine.html)
+(`js_engine qjs`) is not available in the Debian package. The built-in njs engine is deprecated since njs 1.0.0,
+but the code runs unchanged on QuickJS, with identical output and performance (see the benchmark below):
+switching later only requires adding `js_engine qjs;` to `conf.d/environmental_cost_label.conf`.
 
 ```
 /images/environmental-cost/v1/<cost for the product>-<cost for 100 g or 100 ml>-<g|ml>.svg
@@ -61,7 +63,7 @@ We reuse the frame and the positions of the official generator, with these diffe
   It then outputs `<defs>` with only the glyphs used, `<use>` elements, and the grey box.
 - `environmental_cost_label_data.js`: **generated**, do not edit. It holds the frame, and the outlines,
   advance widths and kerning pairs of the digits and of the " pts/100g" and " pts/100ml" strings.
-- `../conf.d/environmental_cost_label.conf`: `js_engine qjs`, `js_path` and `js_import` (http context).
+- `../conf.d/environmental_cost_label.conf`: `js_path` and `js_import` (http context).
 - `../snippets/environmental-cost-label.include`: the `location` that calls the module. It is kept out of
   `productopener-server.include` so that servers without njs can still include that one. It must be
   included before `productopener-server.include`, whose generic `/images/` location would match first.
@@ -91,24 +93,29 @@ still be confirmed with the Ecobalyse team.
 
 ## Deployment
 
-nginx needs the njs module, version 0.8.6 or later, built with QuickJS:
+nginx needs the njs module (version 0.8 or later). The configuration is the same with and without Docker:
+`conf.d/environmental_cost_label.conf` in the http context, this directory in `/etc/nginx/njs`, and
+`include snippets/environmental-cost-label.include;` in the server block, before
+`include snippets/productopener-server.include;` (whose generic `/images/` location would match first).
+
 - Docker (`Dockerfile.frontend`, based on `nginx:stable`, which ships the `nginx-module-njs` package,
   njs 1.0.2 with nginx 1.30.6 in October 2026). `load_module modules/ngx_http_js_module.so;` is added
   to `/etc/nginx/nginx.conf` when building the image. `docker-compose.yml` mounts
   `conf.d/environmental_cost_label.conf`, `snippets/environmental-cost-label.include`
   and this directory in `/etc/nginx/njs`. `conf/nginx-docker/nginx.conf` includes the snippet.
   **The frontend image must be rebuilt**: an older image without the module fails to start with
-  `unknown directive "js_engine"`.
-- Without Docker (e.g. the openfoodfacts.org production server, `conf/nginx/sites-available/off`):
-  the label is not enabled yet. The server runs nginx 1.18.0, which has no njs module with QuickJS.
-  To enable it:
-  1. Upgrade nginx to a current version from the [nginx.org packages](https://nginx.org/en/linux_packages.html),
-     with the `nginx-module-njs` package.
-  2. Load the module (`load_module modules/ngx_http_js_module.so;` in the main context of `nginx.conf`).
-  3. Link `conf.d/environmental_cost_label.conf` in `/etc/nginx/conf.d/` and this directory to `/etc/nginx/njs`.
-  4. Add `include snippets/environmental-cost-label.include;` before
-     `include snippets/productopener-server.include;` in the server block.
-  5. Check with `nginx -t` before reloading.
+  `unknown directive "js_import"`.
+- Without Docker (the openfoodfacts.org production server, Debian trixie with nginx 1.26.3,
+  `conf/nginx/sites-available/off`, which includes the snippet):
+  1. `apt install libnginx-mod-http-js` (njs 0.8.9). The package loads the module through
+     `/etc/nginx/modules-enabled/`.
+  2. Link `conf.d/environmental_cost_label.conf` in `/etc/nginx/conf.d/` and this directory to `/etc/nginx/njs`.
+  3. Check with `nginx -t` before reloading.
+
+  **Order matters**: install the module and do steps 1-2 before deploying the version of
+  `sites-available/off` that includes the snippet, otherwise `nginx -t` fails (`unknown directive "js_content"`).
+  The label URLs are published by Product Opener in the `environmental_cost` knowledge panel: until the
+  snippet is active on the server that serves the static subdomain, they return a 404 (broken image).
 
 ## Performance benchmark
 

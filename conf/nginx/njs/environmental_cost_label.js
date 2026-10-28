@@ -3,7 +3,7 @@
 // URL: /images/environmental-cost/v1/<cost for the product>-<cost for 100 g or 100 ml>-<g|ml>.svg
 // e.g. /images/environmental-cost/v1/360-154-g.svg
 //
-// Runs on the QuickJS engine of njs (js_engine qjs), see conf/nginx/conf.d/environmental_cost_label.conf
+// Runs on the default njs engine and on QuickJS (js_engine qjs), see conf/nginx/conf.d/environmental_cost_label.conf
 // See README.md in this directory for the design, the sources and the benchmark.
 
 import D from 'environmental_cost_label_data.js';
