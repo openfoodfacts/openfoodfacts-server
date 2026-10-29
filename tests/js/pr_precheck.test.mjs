@@ -14,6 +14,12 @@ test("a maintainer pull request without a linked issue passes", () => {
     assert.deepEqual(findProblems({...outsider, association: "MEMBER", body: "", linkedIssues: []}), []);
 });
 
+test("a taxonomy-only pull request does not need a linked issue", () => {
+    assert.deepEqual(findProblems({...outsider, files: ["taxonomies/food/ingredients.txt"], body: "", linkedIssues: []}), []);
+    assert.equal(findProblems({...outsider, files: ["taxonomies/food/ingredients.txt", "lib/ProductOpener/Food.pm"], body: "", linkedIssues: []}).length, 1);
+    assert.equal(findProblems({...outsider, files: [], body: "", linkedIssues: []}).length, 1);
+});
+
 test("a template change needs a screenshot, a video, or no visible change written down", () => {
     assert.match(findProblems({...visible, body: "### Screenshot or video\n"})[0], /changes the UI/);
     assert.deepEqual(findProblems({...visible, body: "No visible change"}), []);
@@ -46,7 +52,7 @@ function fakeGithub({pr = {}, files = [], comments = [], issues = [], payload = 
         rest: {
             pulls: {
                 get: async () => ({data: {state: "open", draft: false, user: {login: "author", type: "User"}, body: "", labels: [], ...pr}}),
-                listFiles: async () => ({data: files.map((filename) => ({filename}))})
+                listFiles: async () => ({data: files.map((file) => (typeof file === "string" ? {filename: file} : file))})
             },
             issues: {
                 listComments: async () => ({data: comments}),
@@ -66,6 +72,12 @@ const names = (fake) => fake.calls.map(([name]) => name);
 
 test("a pull request with problems gets one comment and the label", async () => {
     const fake = fakeGithub({});
+    await run(fake);
+    assert.deepEqual(names(fake), ["create", "label"]);
+});
+
+test("moving a file into taxonomies still needs a linked issue", async () => {
+    const fake = fakeGithub({files: [{filename: "taxonomies/food.txt", previous_filename: "lib/ProductOpener/Food.pm"}]});
     await run(fake);
     assert.deepEqual(names(fake), ["create", "label"]);
 });

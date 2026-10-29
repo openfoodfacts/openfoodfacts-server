@@ -5,6 +5,8 @@ const LABEL = "needs-author";
 const MEMBERS = ["OWNER", "MEMBER", "COLLABORATOR"];
 // Perl is left out on purpose: most Perl changes alter data, not what the page looks like.
 const VISIBLE_FILES = /^(templates|scss|html\/js|html\/css)\//;
+// Taxonomy edits are small improvements that usually have no issue.
+const TAXONOMY_FILES = /^taxonomies\//;
 const MEDIA = /!\[|<img|<video|user-attachments\/assets\/|\.(png|jpe?g|gif|webp|mp4|mov|webm)\b/i;
 const NO_VISIBLE_CHANGE = /no visible change/i;
 
@@ -22,7 +24,8 @@ function stripComments(text) {
 export function findProblems({body, association, files, authorComments, linkedIssues}) {
     const problems = [];
     const text = stripComments(body);
-    if (!MEMBERS.includes(association) && linkedIssues.length === 0) {
+    const taxonomyOnly = files.length > 0 && files.every((file) => TAXONOMY_FILES.test(file));
+    if (!MEMBERS.includes(association) && linkedIssues.length === 0 && !taxonomyOnly) {
         problems.push("Link the issue this fixes, with `Fixes #123` in the description. Pull requests are only accepted for an issue a maintainer agreed to.");
     }
     const visible = files.some((file) => VISIBLE_FILES.test(file));
@@ -51,7 +54,7 @@ export async function run({github, context}) {
         return;
     }
 
-    const files = (await github.paginate(github.rest.pulls.listFiles, {owner, repo, pull_number: number, per_page: 100})).map((file) => file.filename);
+    const files = (await github.paginate(github.rest.pulls.listFiles, {owner, repo, pull_number: number, per_page: 100})).flatMap((file) => [file.filename, file.previous_filename].filter(Boolean));
     const comments = await github.paginate(github.rest.issues.listComments, {owner, repo, issue_number: number, per_page: 100});
     const authorComments = comments.filter((comment) => comment.user.login === pr.user.login).map((comment) => comment.body);
 
