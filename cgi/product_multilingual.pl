@@ -33,7 +33,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User can_delete_product/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
@@ -348,7 +348,7 @@ else {
 			display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 		}
 		$product_id = product_id_for_owner($Owner_id, $code);
-		$product_ref = retrieve_product($product_id, $User{moderator});
+		$product_ref = retrieve_product($product_id, can_delete_product());
 		if (not defined $product_ref) {
 			display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
@@ -372,7 +372,7 @@ else {
 	}
 }
 
-if (($type eq 'delete') and (not $User{moderator})) {
+if (($type eq 'delete') and (not can_delete_product(undef, undef, undef, $product_ref))) {
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
@@ -1338,7 +1338,7 @@ HTML
 	$request_ref->{page_format} = "banner";
 
 }
-elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
+elsif (($action eq 'display') and ($type eq 'delete') and (can_delete_product(undef, undef, undef, $product_ref))) {
 
 	my $template_data_ref_moderator = {};
 
@@ -1363,11 +1363,11 @@ elsif ($action eq 'process') {
 	$product_ref->{interface_version_modified} = $interface_version;
 
 	# removal is just putting "on" in delete
-	if (($User{moderator}) and ($type eq 'delete')) {
+	if ((can_delete_product(undef, undef, undef, $product_ref)) and ($type eq 'delete')) {
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
 	}
-	elsif (($User{moderator}) and (exists $product_ref->{deleted})) {
+	elsif ((can_delete_product(undef, undef, undef, $product_ref)) and (exists $product_ref->{deleted})) {
 		delete $product_ref->{deleted};
 	}
 

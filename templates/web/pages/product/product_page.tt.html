@@ -46,7 +46,7 @@
                     </div>
 
 
-                    [% IF user_moderator %]
+                    [% IF can_delete %]
                     <!-- Delete product page -->
                         <div class="delete_button">
                             <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small alert" title="[% edq(lang('delete_product_page')) %]">
