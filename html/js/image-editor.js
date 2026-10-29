@@ -24,12 +24,12 @@ import {
   createDeferredSelectionClear,
   setImageMoveMode,
 } from './image-editor-move-mode.mjs';
-import Cropper from 'cropperjs';
 import {
   selectionAfterImageTransform,
   shouldAdjustSelectionForImageTransform,
   waitForImageLoad,
 } from './image-editor-selection.js';
+import Cropper from 'cropperjs';
 
 const ROTATE_LEFT = -90;
 const ROTATE_RIGHT = 90;
