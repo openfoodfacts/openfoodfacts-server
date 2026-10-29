@@ -331,7 +331,7 @@ sub _validate_oidc_state_and_nonce ($state, $nonce, $context = 'login') {
 	return (1, undef, undef);
 }
 
-=head2 password_signin($username, $password, $request_ref)
+=head2 password_signin($username, $password, $request_ref, $persistent = 1)
 
 Signs in the user with a username and password, and returns the user's ID, refresh token, refresh token expiration time, access token, and access token expiration time.
 
@@ -343,19 +343,26 @@ We support this to enable passing user and password in the request json. This is
 
 =head4 The password for password-based authentication. $password
 
+=head4 Request object $request_ref
+
+=head4 Boolean $persistent
+
+If true (default), request offline_access so the session can be refreshed. Set to false for
+per-request API password authentication that must not leave a lasting Device Activity session.
+
 =head3 Return Values
 
 A list containing the user ref, refresh token, refresh token expiration time, access token, access token expiration time, and the ID token
 
 =cut
 
-sub password_signin ($username, $password, $request_ref) {
+sub password_signin ($username, $password, $request_ref, $persistent = 1) {
 	unless ($username and $password) {
 		return;
 	}
 
 	my $time = time;
-	my $access_token = get_token_using_password_credentials($username, $password);
+	my $access_token = get_token_using_password_credentials($username, $password, $persistent);
 	unless ($access_token) {
 		return;
 	}
@@ -679,7 +686,7 @@ sub signout_callback ($request_ref) {
 	return checked_return_url($cookie_ref{'return_url'}, $request_ref);
 }
 
-=head2 get_token_using_password_credentials($username, $password)
+=head2 get_token_using_password_credentials($username, $password, $persistent = 1)
 
 Gets a token for the user.
 
@@ -693,14 +700,23 @@ and Client Secret.
 
 =head4 Password given at sign-in $password
 
+=head4 Boolean $persistent
+
+If true (default), include the offline_access scope. Set to false for one-shot API
+authentication that should not create a lasting offline session.
+
 =head3 Return values
 
 Open ID Access token, or undefined if sign-in wasn't successful.
 
 =cut
 
-sub get_token_using_password_credentials ($username, $password) {
+sub get_token_using_password_credentials ($username, $password, $persistent = 1) {
 	get_oidc_configuration();
+
+	# Default to offline_access for interactive / explicit login callers. Per-request API
+	# password auth opts out so Keycloak Device Activity is not filled with offline sessions.
+	my $scope = $persistent ? 'openid%20profile%20offline_access' : 'openid%20profile';
 
 	# Build a request and emit it using our app specific key
 	# to authenticate user
@@ -714,7 +730,8 @@ sub get_token_using_password_credentials ($username, $password) {
 			. uri_escape($username)
 			. '&password='
 			. uri_escape($password)
-			. "&scope=openid%20profile%20offline_access");
+			. '&scope='
+			. $scope);
 
 	my $token_response = LWP::UserAgent::Plugin->new->request($token_request);
 	unless ($token_response->is_success) {

@@ -49,8 +49,10 @@ export APACHE_MPM_START_SERVERS=4
 # MaxRequestWorkers: maximum number of server processes allowed to start
 export APACHE_MPM_MAX_REQUEST_WORKERS=40
 # MaxConnectionsPerChild: maximum number of requests a server process serves
-# keep this a bit low to avoid memory issues
-export APACHE_MPM_MAX_CONN_PER_CHILD=100
+# a lower value limits memory growth of each (mod_perl) child,
+# but each new child is a fork of a big perl process, which costs a lot of CPU
+# when there is a lot of (fast) requests (e.g. crawlers): 100 was too low
+export APACHE_MPM_MAX_CONN_PER_CHILD=1000
 # specific MPM settings
 if [ "$PRODUCT_OPENER_FLAVOR_SHORT" = "off" ]
 then
