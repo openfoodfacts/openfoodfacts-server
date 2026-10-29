@@ -158,7 +158,7 @@ sub get_google_drive_file_download_url ($file_ref) {
 # List the items directly inside a folder, following pagination.
 # Returns an array ref of files, or undef and an error
 
-sub list_google_drive_folder_items ($ua, $folder_id, $resource_keys_header, $api_key) {
+sub list_google_drive_folder_items ($ua, $folder_id, $resource_keys_header, $api_key, $listed_items_ref) {
 
 	my @items = ();
 	my $page_token;
@@ -208,7 +208,8 @@ sub list_google_drive_folder_items ($ua, $folder_id, $resource_keys_header, $api
 		push @items, @{$content_ref->{files}};
 		$page_token = $content_ref->{nextPageToken};
 
-		if (scalar @items > $GOOGLE_DRIVE_MAX_LISTED_ITEMS) {
+		$$listed_items_ref += scalar @{$content_ref->{files}};
+		if ($$listed_items_ref > $GOOGLE_DRIVE_MAX_LISTED_ITEMS) {
 			return (undef, "google_drive_folder_too_many_items", undef);
 		}
 	} while (defined $page_token);
@@ -262,6 +263,7 @@ sub list_google_drive_folder_images ($folder_id, $resource_key = undef, $api_key
 
 	my @images = ();
 	my $skipped = 0;
+	my $listed_items = 0;
 	my %seen_folders = ();
 
 	# Folders to list: [folder id, resource key, path prefix, depth]
@@ -275,11 +277,11 @@ sub list_google_drive_folder_images ($folder_id, $resource_key = undef, $api_key
 		my $resource_keys_header = (defined $key) ? "$id/$key" : undef;
 
 		my ($items_ref, $error, $error_message)
-			= list_google_drive_folder_items($ua, $id, $resource_keys_header, $api_key);
+			= list_google_drive_folder_items($ua, $id, $resource_keys_header, $api_key, \$listed_items);
 
 		if (not defined $items_ref) {
-			# A subfolder that cannot be listed is skipped, but the folder given by the user must be listed
-			if ($depth == 0) {
+			# Listing limits apply to the whole tree; other inaccessible subfolders are skipped.
+			if (($depth == 0) or ($error eq "google_drive_folder_too_many_items")) {
 				return {images => [], skipped => 0, error => $error, error_message => $error_message};
 			}
 			$log->warn("could not list Google Drive subfolder", {folder_id => $id, error => $error})

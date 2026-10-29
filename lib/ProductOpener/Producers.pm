@@ -2533,24 +2533,33 @@ sub import_photos_from_google_drive_folder ($args_ref, $progress_callback = unde
 			print $out $response->content;
 			close($out);
 
-			my $response_ref = import_product_image_file(
-				{
-					user_id => $User_id,
-					org_id => $Org_id,
-					owner_id => $Owner_id,
-					moderator => $args_ref->{moderator},
-					lc => $lc,
-					country => $args_ref->{country},
-					filename => $image_ref->{name},
-					file_path => $file_path,
-					previous_code => $previous_code,
-					previous_imgid => $previous_imgid,
-					add_field_values => $args_ref->{add_field_values},
-					field_values_added_for_codes => \%field_values_added_for_codes,
-				}
-			);
+			my $response_ref;
+			my $import_succeeded = eval {
+				$response_ref = import_product_image_file(
+					{
+						user_id => $User_id,
+						org_id => $Org_id,
+						owner_id => $Owner_id,
+						moderator => $args_ref->{moderator},
+						lc => $lc,
+						country => $args_ref->{country},
+						filename => $image_ref->{name},
+						file_path => $file_path,
+						previous_code => $previous_code,
+						previous_imgid => $previous_imgid,
+						add_field_values => $args_ref->{add_field_values},
+						field_values_added_for_codes => \%field_values_added_for_codes,
+					}
+				);
+				1;
+			};
+			my $import_error = $@;
 
 			unlink($file_path);
+
+			if (not $import_succeeded) {
+				$response_ref = {status => "status not ok", error => "could not import the image: " . $import_error};
+			}
 
 			my $file_ref = $response_ref->{files}[0] // {};
 

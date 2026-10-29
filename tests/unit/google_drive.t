@@ -167,6 +167,50 @@ $result_ref = list_google_drive_folder_images("private", undef, "test-key");
 is($result_ref->{error}, "google_drive_folder_not_found", "folder not found");
 is($requests[0]{headers}{'X-Goog-Drive-Resource-Keys'}, undef, "no resource key header without a resource key");
 
+# Listing limits count all items across folders and pagination.
+
+{
+	local $ProductOpener::GoogleDrive::GOOGLE_DRIVE_MAX_LISTED_ITEMS = 7;
+	$result_ref = list_google_drive_folder_images("root", undef, "test-key");
+	is($result_ref->{error}, undef, "a tree exactly at the listing limit is allowed");
+}
+
+{
+	local $ProductOpener::GoogleDrive::GOOGLE_DRIVE_MAX_LISTED_ITEMS = 6;
+	@requests = ();
+	$result_ref = list_google_drive_folder_images("root", undef, "test-key");
+	is($result_ref->{error}, "google_drive_folder_too_many_items", "items in subfolders count towards the limit");
+	is($result_ref->{images}, [], "an over-limit tree does not return partial images");
+	is(scalar @requests, 3, "listing stops when the cumulative limit is exceeded");
+}
+
+{
+	local $ProductOpener::GoogleDrive::GOOGLE_DRIVE_MAX_LISTED_ITEMS = 2;
+	local $folders{root} = [[{id => "sub", name => "Subfolder", mimeType => "application/vnd.google-apps.folder"}]];
+	local $folders{sub} = [
+		[{id => "f1", name => "image.jpg", mimeType => "image/jpeg"}],
+		[{id => "d1", name => "Notes", mimeType => "text/plain"}],
+		[{id => "f2", name => "later.jpg", mimeType => "image/jpeg"}],
+	];
+	@requests = ();
+	$result_ref = list_google_drive_folder_images("root", undef, "test-key");
+	is($result_ref->{error}, "google_drive_folder_too_many_items", "a subfolder limit error reaches the caller");
+	is(scalar @requests, 3, "pagination stops before fetching more pages after exceeding the tree limit");
+}
+
+{
+	local $ProductOpener::GoogleDrive::GOOGLE_DRIVE_MAX_LISTED_ITEMS = 5;
+	$result_ref = list_google_drive_folder_images("root", undef, "test-key");
+	is($result_ref->{error}, "google_drive_folder_too_many_items", "the root folder limit error is preserved");
+}
+
+{
+	local $folders{sub};
+	$result_ref = list_google_drive_folder_images("root", undef, "test-key");
+	is($result_ref->{error}, undef, "an inaccessible subfolder is still skipped");
+	is(scalar @{$result_ref->{images}}, 3, "images in accessible folders are kept");
+}
+
 # API error (e.g. invalid key)
 
 $ua_module = mock 'LWP::UserAgent' => (

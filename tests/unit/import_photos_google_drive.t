@@ -34,6 +34,7 @@ my @images = (
 my $listing_ref = {images => \@images, skipped => 2};
 my @downloaded_urls;
 my @import_calls;
+my %import_exceptions;
 
 # id => response of import_product_image_file()
 my %import_responses = (
@@ -94,6 +95,7 @@ my $producers_module = mock 'ProductOpener::Producers' => (
 		import_product_image_file => sub ($args_ref) {
 			my ($id) = $args_ref->{file_path} =~ /-(id\d)\./;
 			push @import_calls, {%$args_ref, id => $id, file_exists => (-e $args_ref->{file_path}) ? 1 : 0};
+			die $import_exceptions{$id} if exists $import_exceptions{$id};
 			return $import_responses{$id};
 		},
 	]
@@ -211,5 +213,32 @@ is($results_ref->{images_in_folder}, 3, "images in folder");
 is($results_ref->{max_images}, 2, "max images");
 is($results_ref->{total}, 2, "only the first images are imported");
 is(scalar @downloaded_urls, 2, "only the first images are downloaded");
+
+# A failed image import is reported without stopping the batch or leaking its file.
+
+@import_calls = ();
+@progress = ();
+$listing_ref = {images => [@images[0 .. 3]], skipped => 0};
+$import_exceptions{id2} = "image processing failed\n";
+$results_ref = import_photos_from_google_drive_folder(
+	{folder_id => "folder", user_id => "producer", owner_id => "org-org"},
+	sub ($progress_ref) {push @progress, $progress_ref->{processed};}
+);
+is($results_ref->{status}, "done", "a per-image exception does not fail the batch");
+is($results_ref->{processed}, 4, "all images are processed after an exception");
+is(scalar @import_calls, 4, "later imports are attempted after an exception");
+is(\@progress, [0, 1, 2, 3, 4], "progress advances for failed and successful images");
+is(
+	$results_ref->{results}[1]{error},
+	"could not import the image: image processing failed\n",
+	"the import exception is recorded for the failed image"
+);
+is($results_ref->{results}[3]{code}, "3001234567890", "a later image is imported successfully");
+is($import_calls[2]{previous_code}, "1234567890128", "an exception preserves the last scanned barcode");
+is($import_calls[2]{previous_imgid}, "", "an exception resets the previous image id");
+
+foreach my $call_ref (@import_calls) {
+	ok(!-e $call_ref->{file_path}, "the downloaded file is deleted for $call_ref->{id}");
+}
 
 done_testing();

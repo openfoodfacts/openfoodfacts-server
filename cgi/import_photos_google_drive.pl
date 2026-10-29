@@ -62,6 +62,7 @@ elsif ($action eq 'start') {
 
 	if (request_method() ne 'POST') {
 		$response{error} = "post_required";
+		$response{error_message} = error_message("post_required");
 	}
 	else {
 		# Field values to add to all the products (same fields as the import photos page)
@@ -112,6 +113,7 @@ elsif ($action eq 'status') {
 		or (($info_ref->{args}[0]{owner_id} // '') ne $Owner_id))
 	{
 		$response{error} = "job_not_found";
+		$response{error_message} = error_message("job_not_found");
 	}
 	else {
 		$response{job_id} = $job_id + 0;
@@ -119,6 +121,7 @@ elsif ($action eq 'status') {
 		$response{import} = $info_ref->{notes}{import};
 		if ($info_ref->{state} eq 'failed') {
 			$response{error} = "job_failed";
+			$response{error_message} = error_message("job_failed");
 		}
 		elsif ((defined $response{import}) and (defined $response{import}{error})) {
 			$response{error} = $response{import}{error};
@@ -131,6 +134,7 @@ elsif ($action eq 'status') {
 }
 else {
 	$response{error} = "unknown_action";
+	$response{error_message} = error_message("unknown_action");
 }
 
 print header(-type => 'application/json', -charset => 'utf-8') . encode_json(\%response);
