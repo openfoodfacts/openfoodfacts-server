@@ -24,7 +24,7 @@
 # filtered by the app:
 # grep "Official Android App" nginx.access2.log | grep Scan > android_app.log
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -34,12 +34,13 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/retrieve_object store_object object_exists write_json/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Tags qw/canonicalize_taxonomy_tag/;
-use ProductOpener::ProductsTags qw/add_tags_to_field/;
+use ProductOpener::ProductsTags qw/generate_field_tags_from_all_sources set_field_input_tags_for_source/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/product_path product_path_from_id retrieve_product store_product/;
+use ProductOpener::Products
+	qw/get_source_for_site_and_org product_path product_path_from_id retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -122,7 +123,9 @@ my $lines = 0;
 while (<STDIN>) {
 	my $line = $_;
 	my $ip = $_;
-	$ip =~ s/\s.*//;
+	# The IP field can contain a list of forwarded IPs (e.g. "1.2.3.4, 1.2.3.4" or "1.2.3.4, 5.6.7.8"):
+	# keep only the first one, which is the client IP
+	$ip =~ s/[,\s].*//;
 	chomp($ip);
 	$lines++;
 
@@ -134,6 +137,7 @@ while (<STDIN>) {
 
 		# Skip bogus codes
 
+		($code =~ /^0*$/) and next;
 		($code eq "1") and next;
 		($code eq "15600703") and next;
 
@@ -407,7 +411,14 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 			}
 
 			# Add countries tags based on scans
-			my $current_countries = $product_ref->{'countries'};
+
+			# Regenerate countries_tags from the input tags of all sources, and remove fields from the old tags schema:
+			# a previous version of scanbot set them with add_tags_to_field(), which replaced countries_tags
+			# with only the added countries
+			delete @{$product_ref}{qw(countries countries_hierarchy countries_lc)};
+			generate_field_tags_from_all_sources($product_ref, "countries");
+
+			my $current_countries = join(",", @{$product_ref->{countries_tags} // []});
 
 			my %existing = ();
 			foreach my $countryid (@{$product_ref->{countries_tags}}) {
@@ -442,8 +453,11 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 					# Do not add countries for products with a code beginning by 2
 					# (codes can be reused by different companies in different countries)
 					if (($add_countries) and ($code !~ /^(02|2)/) and (not exists $existing{$country})) {
-						print "- adding $country to $product_ref->{countries}\n";
-						add_tags_to_field($product_ref, "en", "countries", $country);
+						print "- adding $country to $current_countries\n";
+						# Add the country to the existing countries of the default source ("packaging" on the public platform)
+						# so that it can be removed by users like any other country
+						set_field_input_tags_for_source($product_ref, "en", "countries", get_source_for_site_and_org(),
+							$country, 1);
 						$bot .= "+$country ";
 						$added_countries++;
 						$added_countries_list .= $country . ',';
