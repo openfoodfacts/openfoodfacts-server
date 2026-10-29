@@ -1413,7 +1413,7 @@ sub create_nutriscore_panel ($product_ref, $target_lc, $target_cc, $options_ref,
 		{code => $product_ref->{code}, nutriscore_data => $product_ref->{nutriscore_data}})
 		if $log->is_debug();
 
-	my $panel_data_ref = data_to_display_nutriscore($product_ref);
+	my $panel_data_ref = data_to_display_nutriscore($product_ref, "2021", $target_lc);
 
 	# Nutri-Score panel
 
@@ -1440,7 +1440,7 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 		{code => $product_ref->{code}, nutriscore_data => deep_get($product_ref, qw/nutriscore 2023 data/)})
 		if $log->is_debug();
 
-	my $panel_data_ref = data_to_display_nutriscore($product_ref, $version);
+	my $panel_data_ref = data_to_display_nutriscore($product_ref, $version, $target_lc);
 
 	# Nutri-Score panel
 	my $grade = deep_get($product_ref, "nutriscore", $version, "grade") // "unknown";

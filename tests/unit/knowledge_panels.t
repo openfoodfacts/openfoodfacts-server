@@ -240,4 +240,127 @@ foreach my $test_ref (@tests) {
 	ok(defined $product_ref->{knowledge_panels_en}{health_card});
 }
 
+subtest 'nutriscore knowledge panel not-applicable category explanation' => sub {
+	use ProductOpener::Display qw/data_to_display_nutriscore/;
+
+	my $product_ref = {
+		code => '123456789',
+		misc_tags => ['en:nutriscore-not-applicable'],
+		nutrition_grades_tags => ['not-applicable'],
+		nutriscore_data => {
+			nutriscore_not_applicable_for_category => 'en:baby-foods',
+		},
+		nutriscore => {
+			'2023' => {
+				grade => 'not-applicable',
+				not_applicable_category => 'en:baby-foods',
+			},
+		},
+	};
+
+	# Test Display::data_to_display_nutriscore in en
+	my $data_en = data_to_display_nutriscore($product_ref, '2023', 'en');
+	is($data_en->{nutriscore_grade}, 'not-applicable', 'grade is not-applicable');
+	is($data_en->{nutriscore_unknown_reason_short}, 'Not applicable for the category: Baby foods',
+		'reason short in en');
+	is(
+		$data_en->{nutriscore_warnings},
+		['Nutri-Score cannot currently be calculated for this product category: Baby foods.'],
+		'warning contains category explanation in en'
+	);
+
+	# Test Display::data_to_display_nutriscore in fr
+	my $data_fr = data_to_display_nutriscore($product_ref, '2023', 'fr');
+	is(
+		$data_fr->{nutriscore_unknown_reason_short},
+		'Non applicable pour la catégorie : Aliments pour bébé',
+		'reason short in fr'
+	);
+	is(
+		$data_fr->{nutriscore_warnings},
+		['Le Nutri-Score ne peut pas être calculé actuellement pour cette catégorie de produits : Aliments pour bébé.'],
+		'warning contains category explanation in fr'
+	);
+
+	# Test Knowledge Panel generation with create_nutriscore_2023_panel
+	my $options_ref = {};
+	my $request_ref = {};
+	initialize_knowledge_panels_options($options_ref, $request_ref);
+
+	ProductOpener::KnowledgePanels::create_nutriscore_2023_panel($product_ref, 'en', 'world', $options_ref,
+		$request_ref);
+	my $panel_en = $product_ref->{knowledge_panels_en}{nutriscore_2023};
+	ok(defined $panel_en, 'nutriscore_2023 panel created in en');
+	is(
+		$panel_en->{title_element}{subtitle},
+		'Not applicable for the category: Baby foods',
+		'panel subtitle contains category explanation in en'
+	);
+	is(
+		$panel_en->{elements}[0]{text_element}{html},
+		"Nutri-Score cannot currently be calculated for this product category: Baby foods.\n                    ",
+		'panel warning element explains category exclusion'
+	);
+
+	# Test fallback when category is missing
+	my $product_no_cat = {
+		code => '987654321',
+		misc_tags => ['en:nutriscore-not-applicable'],
+		nutrition_grades_tags => ['not-applicable'],
+		nutriscore => {
+			'2023' => {
+				grade => 'not-applicable',
+			},
+		},
+	};
+	my $data_fallback = data_to_display_nutriscore($product_no_cat, '2023', 'en');
+	is(
+		$data_fallback->{nutriscore_unknown_reason_short},
+		'Not applicable for the category',
+		'fallback short explanation'
+	);
+	is(
+		$data_fallback->{nutriscore_warnings},
+		['Nutri-Score not applicable for this product category.'],
+		'fallback warning message'
+	);
+
+	ProductOpener::KnowledgePanels::create_nutriscore_2023_panel($product_no_cat, 'en', 'world', $options_ref,
+		$request_ref);
+	my $panel_no_cat = $product_no_cat->{knowledge_panels_en}{nutriscore_2023};
+	is($panel_no_cat->{title_element}{subtitle}, 'Not applicable for the category', 'fallback panel subtitle');
+	is(
+		$panel_no_cat->{elements}[0]{text_element}{html},
+		"Nutri-Score not applicable for this product category.\n                    ",
+		'fallback panel warning'
+	);
+
+	# Test precedence in data_to_display_nutriscore: version-specific category takes precedence
+	my $product_mixed = {
+		misc_tags => ['en:nutriscore-not-applicable'],
+		nutrition_grades_tags => ['not-applicable'],
+		nutriscore_data => {
+			nutriscore_not_applicable_for_category => 'en:baby-foods',
+		},
+		nutriscore => {
+			'2023' => {
+				grade => 'not-applicable',
+				not_applicable_category => 'en:alcoholic-beverages',
+			},
+		},
+	};
+	my $data_mixed_2023 = data_to_display_nutriscore($product_mixed, '2023', 'en');
+	is(
+		$data_mixed_2023->{nutriscore_unknown_reason_short},
+		'Not applicable for the category: Alcoholic beverages',
+		'data_to_display_nutriscore prefers 2023 category over legacy nutriscore_data'
+	);
+	my $data_mixed_2021 = data_to_display_nutriscore($product_mixed, '2021', 'en');
+	is(
+		$data_mixed_2021->{nutriscore_unknown_reason_short},
+		'Not applicable for the category: Baby foods',
+		'data_to_display_nutriscore for 2021 falls back to legacy nutriscore_data'
+	);
+};
+
 done_testing();
