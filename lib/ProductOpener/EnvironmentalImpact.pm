@@ -58,8 +58,11 @@ BEGIN {
 		&set_ecobalyse_coverage_misc_tags
 		&get_ecobalyse_reference_quantity
 		&format_ecs_value
+		&ecobalyse_api_call_enabled
 		&get_environmental_cost_label_path
 		&call_ecobalyse
+		&get_ecobalyse_call_stats
+		&format_ecobalyse_call_stats
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -79,6 +82,8 @@ use ProductOpener::Tags qw/is_a get_taxonomy_tag_level get_property/;
 use ProductOpener::ProductsTags qw/get_inherited_property_from_categories_tags add_tag remove_tag/;
 use File::Basename qw/dirname/;
 use Scalar::Util qw/looks_like_number/;
+use Time::HiRes qw/clock_gettime CLOCK_MONOTONIC/;
+use List::Util qw/sum/;
 use Data::DeepAccess qw(deep_exists deep_get);
 
 my $ecobalyse_version
@@ -247,10 +252,91 @@ sub get_environmental_cost_label_path ($ecs_per_product, $ecs_per_100, $unit) {
 	return "/images/environmental-cost/v1/$per_product-$per_100-$unit.svg";
 }
 
-sub estimate_environmental_impact_service ($product_ref, $updated_product_fields_ref, $errors_ref,
-	$skip_ecobalyse_call = 0)
+=head2 ecobalyse_api_call_enabled ()
+
+Return 1 if the Ecobalyse API should be called each time a product is updated or reprocessed:
+the ecobalyse_call_api_on_product_update option must be set, and we need an Ecobalyse API token.
+
+=cut
+
+sub ecobalyse_api_call_enabled () {
+	return ($options{ecobalyse_call_api_on_product_update} and $ecobalyse_api_token) ? 1 : 0;
+}
+
+# Previous environmental impact data has Ecobalyse results if it has an ECS value
+sub _has_ecobalyse_results ($environmental_impact_ref) {
+	return ((defined $environmental_impact_ref)
+			and looks_like_number($environmental_impact_ref->{ecs_per_100g_or_100ml}));
+}
+
+# Copy of a data structure with all numeric values as numbers,
+# as numbers may become strings (or the reverse) when the product is stored and loaded
+sub _normalize_numbers ($value) {
+	return {map {$_ => _normalize_numbers($value->{$_})} keys %$value} if ref($value) eq 'HASH';
+	return [map {_normalize_numbers($_)} @$value] if ref($value) eq 'ARRAY';
+	return looks_like_number($value) ? $value + 0 : $value;
+}
+
+sub _same_ecobalyse_request ($request1_ref, $request2_ref) {
+	return 0 if not(defined $request1_ref and defined $request2_ref);
+	state $json = JSON->new->canonical;
+	return $json->encode(_normalize_numbers($request1_ref)) eq $json->encode(_normalize_numbers($request2_ref));
+}
+
+# Fields of the environmental_impact structure that contain the results of a successful Ecobalyse API call
+my @ecobalyse_results_fields = qw(ecobalyse_response ecs_per_product ecs_per_100g_or_100ml ecs_per ecobalyse_results_t);
+
+=head2 keep_previous_ecobalyse_results_as_stale ($product_ref, $previous_environmental_impact_ref)
+
+When we could not get new results from Ecobalyse (API not called, timeout, server error etc.),
+we keep the previous environmental impact data (input, request and results, so that they stay consistent),
+and we mark the results as stale.
+
+The new request that we could not send or that failed is kept in ecobalyse_pending_request.
+
+=cut
+
+sub keep_previous_ecobalyse_results_as_stale ($product_ref, $previous_environmental_impact_ref, $error_response = undef)
 {
-	delete $product_ref->{environmental_impact};    # clear previous environmental impact data
+	my $new_request_ref = $product_ref->{environmental_impact}{ecobalyse_request};
+
+	$product_ref->{environmental_impact} = $previous_environmental_impact_ref;
+	$previous_environmental_impact_ref->{ecobalyse_stale} = 1;
+	# Keep the time at which the results first became stale
+	$previous_environmental_impact_ref->{ecobalyse_stale_t} //= time();
+	$previous_environmental_impact_ref->{ecobalyse_pending_request} = $new_request_ref;
+	if (defined $error_response) {
+		$previous_environmental_impact_ref->{ecobalyse_error_response} = $error_response;
+	}
+	else {
+		delete $previous_environmental_impact_ref->{ecobalyse_error_response};
+	}
+	add_tag($product_ref, "misc", "en:ecobalyse-results-stale");
+	return;
+}
+
+=head2 estimate_environmental_impact_service ($product_ref, $updated_product_fields_ref, $errors_ref, $skip_ecobalyse_call = 0, $force_ecobalyse_call = 0)
+
+Prepare the Ecobalyse API request for the product, and call the Ecobalyse API to get its environmental cost.
+
+If the request is the same as the one for the existing results, the existing results are reused
+without calling the API (unless $force_ecobalyse_call is set).
+
+If we do not call the API ($skip_ecobalyse_call) or if the call fails because of a temporary error
+(timeout, server error), the existing results are kept and marked as stale (en:ecobalyse-results-stale misc tag).
+
+=cut
+
+sub estimate_environmental_impact_service (
+	$product_ref, $updated_product_fields_ref, $errors_ref,
+	$skip_ecobalyse_call = 0,
+	$force_ecobalyse_call = 0
+	)
+{
+	# clear previous environmental impact data, but keep it so that we can reuse previous results
+	my $previous_environmental_impact_ref = delete $product_ref->{environmental_impact};
+	$previous_environmental_impact_ref = undef
+		if not _has_ecobalyse_results($previous_environmental_impact_ref);
 
 	# Remove Ecobalyse misc tags from previous runs
 	if (defined $product_ref->{misc_tags}) {
@@ -340,7 +426,9 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	foreach my $leaf_ref (@{$ingredients_quantities_ref->{ingredients}}) {
 		my $quantity = $leaf_ref->{quantity};
 		my $id = $leaf_ref->{ecobalyse_id};
-		next unless defined $quantity and defined $id;
+		# Ecobalyse rejects the whole request if an ingredient has a mass of 0
+		# (e.g. ingredients with an estimated percent of 0)
+		next unless defined $quantity and defined $id and $quantity > 0;
 
 		my $ingredient_ref = $leaf_ref->{ingredient};
 		push @{$payload_ref->{ingredients}},
@@ -455,7 +543,8 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# API URL
 	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
 
-	$product_ref->{environmental_impact}{ecobalyse_request} = {url => $url_recipe, data => $payload_ref};
+	my $request_ref = {url => $url_recipe, data => $payload_ref};
+	$product_ref->{environmental_impact}{ecobalyse_request} = $request_ref;
 
 	# Check ingredients coverage threshold ($ingredients_coverage_percent was computed above)
 	my $threshold = $options{ecobalyse_min_ingredients_coverage_percent} // 80;
@@ -469,12 +558,29 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		return;
 	}
 
+	# If the request is the same as the one for the previous results, reuse them
+	if (    (not $force_ecobalyse_call)
+		and (defined $previous_environmental_impact_ref)
+		and _same_ecobalyse_request($previous_environmental_impact_ref->{ecobalyse_request}, $request_ref))
+	{
+		$log->debug("Same Ecobalyse API request as for the previous results, reusing them") if $log->is_debug();
+		foreach my $field (@ecobalyse_results_fields) {
+			$product_ref->{environmental_impact}{$field} = $previous_environmental_impact_ref->{$field}
+				if defined $previous_environmental_impact_ref->{$field};
+		}
+		add_tag($product_ref, "misc", "en:ecobalyse-api-not-called-same-request");
+		return;
+	}
+
 	if ($skip_ecobalyse_call) {
 		$log->debug(
 			"Skipping Ecobalyse API call, only preparing request payload",
 			{endpoint => $url_recipe, payload => $payload_ref}
 		) if $log->is_debug();
 		add_tag($product_ref, "misc", "en:ecobalyse-api-skipped");
+		# The previous results do not correspond to the current product data anymore
+		keep_previous_ecobalyse_results_as_stale($product_ref, $previous_environmental_impact_ref)
+			if defined $previous_environmental_impact_ref;
 	}
 	else {
 
@@ -485,7 +591,8 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		# Send the request and get the response
 		# For tests, we pass a testid to call_ecobalyse() so that the mock response is used instead of a real API call.
 		add_tag($product_ref, "misc", "en:ecobalyse-api-called");
-		my ($response_content, $is_success) = (call_ecobalyse($url_recipe, $payload_ref, $product_ref->{testid}));
+		my ($response_content, $is_success, $response_code)
+			= (call_ecobalyse($url_recipe, $payload_ref, $product_ref->{testid}));
 
 		# Parse the JSON response
 		my $response_data_ref;
@@ -520,6 +627,8 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			}
 			$product_ref->{environmental_impact}{ecs_per_100g_or_100ml} = $ecs_value * 100 / $reference_quantity;
 			$product_ref->{environmental_impact}{ecs_per} = "100" . $reference_quantity_unit;
+			$product_ref->{environmental_impact}{ecobalyse_results_t} = time();
+			$product_ref->{environmental_impact}{ecobalyse_response} = $response_data_ref;
 		}
 		else {
 			# If the request failed, log the error
@@ -528,8 +637,36 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 				if $log->is_error();
 			# Add error misc tag
 			add_tag($product_ref, "misc", "en:ecobalyse-api-error");
-			# Store the error response for debugging
-			$product_ref->{environmental_impact}{ecobalyse_error_response} = $response_content;
+
+			# Temporary errors: timeout, no response, server errors, rate limiting, authentication errors
+			# (e.g. expired API token), or a response that is not JSON
+			# In that case, we keep the previous results (if any) and mark them as stale.
+			# Other errors (e.g. 4xx with a JSON error message) mean that Ecobalyse rejected our request:
+			# the previous results do not apply anymore.
+			my $temporary_error = (
+				(not $json_decoded)
+					or (
+					(defined $response_code)
+					and (  ($response_code >= 500)
+						or ($response_code == 401)
+						or ($response_code == 403)
+						or ($response_code == 408)
+						or ($response_code == 429))
+					)
+			);
+
+			# The tag is also used by update_all_products.pl to retry the product in a later run
+			add_tag($product_ref, "misc", "en:ecobalyse-api-temporary-error") if $temporary_error;
+
+			if ($temporary_error and (defined $previous_environmental_impact_ref)) {
+				keep_previous_ecobalyse_results_as_stale($product_ref, $previous_environmental_impact_ref,
+					$response_content);
+			}
+			else {
+				# Store the error response for debugging
+				$product_ref->{environmental_impact}{ecobalyse_error_response} = $response_content;
+				$product_ref->{environmental_impact}{ecobalyse_response} = $response_data_ref;
+			}
 			# Add an error message to the errors array
 			push @{$errors_ref},
 				{
@@ -542,8 +679,6 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 				service => {id => "estimate_environmental_impact_service"},
 				};
 		}
-
-		$product_ref->{environmental_impact}{ecobalyse_response} = $response_data_ref;
 
 		# If necessary, return error as well
 		# (number of unattributed ingredients,
@@ -630,6 +765,50 @@ sub get_ecobalyse_ingredients_quantities ($product_ref) {
 	};
 }
 
+# Durations and status codes of the Ecobalyse API calls made by this process,
+# so that scripts like update_all_products.pl can report how long the calls take
+# (we only keep the durations and the number of calls per status code, to keep memory low for millions of calls)
+my @ecobalyse_call_durations = ();
+my %ecobalyse_call_codes = ();
+
+=head2 get_ecobalyse_call_stats ()
+
+Return the durations (in seconds) of the Ecobalyse API calls made by this process,
+and the number of calls for each HTTP status code:
+{durations => [0.234, ...], codes => {200 => 10, 500 => 1}}
+
+=cut
+
+sub get_ecobalyse_call_stats () {
+	return {durations => \@ecobalyse_call_durations, codes => \%ecobalyse_call_codes};
+}
+
+=head2 format_ecobalyse_call_stats ()
+
+Return a text summary of the Ecobalyse API calls made by this process:
+number of calls, number per status code, and durations (mean, percentiles, max).
+
+=cut
+
+sub format_ecobalyse_call_stats () {
+	my $n = scalar @ecobalyse_call_durations;
+	return "Ecobalyse API calls: 0\n" if not $n;
+
+	my %codes = %ecobalyse_call_codes;
+	my @durations = sort {$a <=> $b} @ecobalyse_call_durations;
+	my $percentile = sub ($p) {
+		return $durations[int(($n - 1) * $p / 100 + 0.5)];
+	};
+
+	return sprintf(
+		"Ecobalyse API calls: %d (%s)\n"
+			. "Ecobalyse API calls durations (s): total %.1f - mean %.3f - min %.3f - median %.3f - p90 %.3f - p99 %.3f - max %.3f\n",
+		$n, join(", ", map {"$_: $codes{$_}"} sort keys %codes),
+		sum(@durations), sum(@durations) / $n,
+		$durations[0], $percentile->(50), $percentile->(90), $percentile->(99), $durations[-1]
+	);
+}
+
 sub call_ecobalyse($url, $payload_ref, $testid) {
 	# Create a UserAgent object to make the API request
 	my $ua = create_user_agent();
@@ -642,6 +821,8 @@ sub call_ecobalyse($url, $payload_ref, $testid) {
 			if $log->is_error();
 	}
 
+	my $start = clock_gettime(CLOCK_MONOTONIC);
+
 	my $response = $ua->post(
 		$url,
 		Content_Type => 'application/json',
@@ -649,7 +830,13 @@ sub call_ecobalyse($url, $payload_ref, $testid) {
 		Authorization => "Bearer " . $ecobalyse_api_token || "",
 	);
 
-	return ($response->decoded_content, $response->is_success);
+	my $duration = clock_gettime(CLOCK_MONOTONIC) - $start;
+	push @ecobalyse_call_durations, $duration;
+	$ecobalyse_call_codes{$response->code // "none"}++;
+	$log->info("Ecobalyse API call", {duration => sprintf("%.3f", $duration), code => $response->code})
+		if $log->is_info();
+
+	return ($response->decoded_content, $response->is_success, $response->code);
 }
 
 # Packaging data from Ecobalyse is stored in a JSON file (processes_packaging_matched.json) that is loaded and indexed on first call.
