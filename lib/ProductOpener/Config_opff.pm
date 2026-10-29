@@ -23,7 +23,7 @@
 package ProductOpener::Config;
 
 use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 BEGIN {
@@ -384,7 +384,7 @@ XML
 # improvements
 # ingredients_analysis
 # ingredients_processing:
-# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# ingredients (additives_classes, additives, minerals, vitamins, amino_acids, nucleotides, other_nutritional_substances): labels
 # labels: categories
 # languages:
 # minerals
@@ -619,7 +619,10 @@ $options{import_export_fields_groups} = [
 	["packaging"],
 	[
 		"other",
-		["conservation_conditions", "warning", "preparation", "nova_group_producer", "customer_service", "link",]
+		[
+			"conservation_conditions", "warning", "preparation", "nova_group_producer",
+			"customer_service", "link", "teams",
+		]
 	],
 	[
 		"images",

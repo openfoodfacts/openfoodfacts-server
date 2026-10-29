@@ -99,7 +99,7 @@
                "name" : "Sugar"
             },
             {
-               "ecobalyse_name" : "Farine UE -2025-",
+               "ecobalyse_name" : "Farine UE agrégée -2025-",
                "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                "mass" : 16.6666666666667,
                "name" : "wheat flour"
@@ -111,7 +111,10 @@
                "name" : "butter"
             }
          ],
-         "ingredients_coverage_percent" : 100
+         "ingredients_coverage_percent" : 100,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -414,8 +417,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
+         "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_name" : "Farine UE agrégée -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -853,7 +856,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Taxonomy ID</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>Sugar</span></td><td style=\"padding:2px 6px\">en:sugar</td><td style=\"padding:2px 6px\">maybe</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">31016</td><td style=\"text-align:right;padding:2px 6px\">66.7</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>wheat flour</span></td><td style=\"padding:2px 6px\">en:wheat-flour</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">9410</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>butter</span></td><td style=\"padding:2px 6px\">en:butter</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">16400</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
+                  "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">taxonomy_id</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>Sugar</span></td><td style=\"padding:2px 6px\">en:sugar</td><td style=\"padding:2px 6px\">maybe</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">31016</td><td style=\"text-align:right;padding:2px 6px\">66.7</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>wheat flour</span></td><td style=\"padding:2px 6px\">en:wheat-flour</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">9410</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>butter</span></td><td style=\"padding:2px 6px\">en:butter</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">16400</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
                }
             },
             {
@@ -1627,6 +1630,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-skipped",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-not-computed",
