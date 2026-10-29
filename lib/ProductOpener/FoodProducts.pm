@@ -60,6 +60,7 @@ use ProductOpener::Nutrition
 	qw/generate_nutrient_aggregated_set compute_estimated_nutrients add_misc_tags_for_input_nutrition_data_pers/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
+use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service ecobalyse_api_call_enabled/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
 use ProductOpener::ForestFootprint2026 qw/compute_forest_footprint_2026/;
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
@@ -118,11 +119,16 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Environmental analysis
 
 	compute_environmental_score($product_ref);
-	compute_forest_footprint($product_ref);
-	# We are computing a new Forest Footprint 2026 score which is still being refined.
-	# The corresponding knowledge panel is only visible to moderators for now.
-	# Once finalized, we will remove the old forest_footprint data and panel.
-	compute_forest_footprint_2026($product_ref);
+
+	# Ecobalyse environmental cost
+	# last parameter is $skip_ecobalyse_call: unless the API call is enabled in the configuration
+	# (ecobalyse_call_api_on_product_update option + Ecobalyse API token),
+	# we only prepare and store the request payload without calling the Ecobalyse API.
+	# If the request did not change, previous results are reused,
+	# otherwise previous results are kept and marked as stale if we can't get new results.
+	estimate_environmental_impact_service($product_ref, {}, [], not ecobalyse_api_call_enabled());
+
+	compute_forest_footprint_2026($product_ref);    # Also includes compute_forest_footprint()
 
 	# Determine packaging components in contact with food
 	determine_food_contact_of_packaging_components_service($product_ref);

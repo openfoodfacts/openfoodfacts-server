@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 my $usage = <<TXT
@@ -49,6 +49,9 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --compute-history	compute history and completeness
 --check-quality	run quality checks
 --compute-codes
+--compute-ecobalyse	call the Ecobalyse API to compute the environmental cost (existing results are reused if the request did not change)
+	e.g. retry products with stale results: --query misc_tags=en:ecobalyse-results-stale --compute-ecobalyse
+--force-ecobalyse-call	with --compute-ecobalyse, call the Ecobalyse API even if the request did not change
 --fix-serving-size-mg-to-ml
 --fix-product-id-missing-owner-prefix	fix products on the pro platform where the _id field is missing the owner prefix (e.g. code instead of org-xxx/code)
 --index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
@@ -78,9 +81,10 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::EnvironmentalScore qw(compute_environmental_score);
+use ProductOpener::EnvironmentalImpact qw(estimate_environmental_impact_service format_ecobalyse_call_stats);
 use ProductOpener::Packaging
 	qw(analyze_and_combine_packaging_data guess_language_of_packaging_text init_packaging_taxonomies_regexps);
-use ProductOpener::ForestFootprint qw(compute_forest_footprint);
+use ProductOpener::ForestFootprint2026 qw(compute_forest_footprint_2026);
 use ProductOpener::MainCountries qw(compute_main_countries);
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
@@ -148,6 +152,8 @@ my $delete_old_fields = '';
 my $mongodb_to_mongodb = '';
 my $compute_environmental_score = '';
 my $compute_forest_footprint = '';
+my $compute_ecobalyse = '';
+my $force_ecobalyse_call = '';
 my $fix_nutrition_data_per = '';
 my $fix_nutrition_data = '';
 my $compute_main_countries = '';
@@ -195,6 +201,8 @@ GetOptions(
 	"compute-carbon" => \$compute_carbon,
 	"compute-environmental_score" => \$compute_environmental_score,
 	"compute-forest-footprint" => \$compute_forest_footprint,
+	"compute-ecobalyse" => \$compute_ecobalyse,
+	"force-ecobalyse-call" => \$force_ecobalyse_call,
 	"check-quality" => \$check_quality,
 	"compute-sort-key" => \$compute_sort_key,
 	"fix-serving-size-mg-to-ml" => \$fix_serving_size_mg_to_ml,
@@ -309,6 +317,7 @@ if (    (not $process_ingredients)
 	and (not $compute_carbon)
 	and (not $compute_environmental_score)
 	and (not $compute_forest_footprint)
+	and (not $compute_ecobalyse)
 	and (not $process_packagings)
 	and (not $check_quality)
 	and (scalar @fields_to_update == 0)
@@ -572,6 +581,7 @@ while (my $product_ref = $cursor->next) {
 		$lc = $product_ref->{lc};
 
 		my $product_values_changed = 0;
+		my $ecobalyse_temporary_error = 0;
 
 		if ($delete_old_fields) {
 
@@ -1407,7 +1417,19 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_forest_footprint) {
-			compute_forest_footprint($product_ref);
+			compute_forest_footprint_2026($product_ref);
+		}
+
+		if ($compute_ecobalyse) {
+			my @errors = ();
+			# skip_ecobalyse_call = 0 means we actually call the API
+			# (unless the request is the same as for the existing results, and --force-ecobalyse-call is not set)
+			estimate_environmental_impact_service($product_ref, {}, \@errors, 0, $force_ecobalyse_call);
+			# The product is still saved (with its stale results and the other changes of this run),
+			# but products with temporary Ecobalyse errors are not marked as processed (with the new update_key),
+			# so that they can be retried in a later run
+			$ecobalyse_temporary_error = 1
+				if (@errors and has_tag($product_ref, "misc", "en:ecobalyse-api-temporary-error"));
 		}
 
 		if ($compute_main_countries) {
@@ -1550,7 +1572,7 @@ while (my $product_ref = $cursor->next) {
 
 			# If the product was not changed, we will still save it with the new update_key, so that we don't have to reprocess all products
 			# if the update_all_products.pl script is interrupted
-			$product_ref->{update_key} = $key;
+			$product_ref->{update_key} = $key unless $ecobalyse_temporary_error;
 
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user
@@ -1566,7 +1588,7 @@ while (my $product_ref = $cursor->next) {
 				# we store the product with the new update_key in the .sto file and the mongodb collection
 
 				# Set last modified time if something was changed
-				if ($any_change) {
+				if ($any_change or $force_new_version) {
 					$product_ref->{last_updated_t} = time() + 0;
 				}
 				else {
@@ -1704,6 +1726,9 @@ print STDERR "products_changed: $products_changed\n";
 print STDERR "products_new_version_created: $products_new_version_created\n";
 print STDERR "products_silently_updated: $products_silently_updated\n";
 print STDERR "products_pushed_to_redis: $products_pushed_to_redis\n";
+
+# Ecobalyse API calls made with --compute-ecobalyse or by analyze_and_enrich_product_data()
+print STDERR format_ecobalyse_call_stats();
 
 # List orgs with products that had their to-be-exported status fixed
 if ($fix_to_be_exported) {

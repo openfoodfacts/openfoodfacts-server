@@ -2,7 +2,7 @@
 
 # Tests of detecting food-processing terms from taxonomies/ingredients_processing.txt
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -424,14 +424,9 @@ my @tests = (
 				'text' => 'fromage frais'
 			},
 			{
-				'id' => 'en:cream',
+				'id' => 'en:fresh-cream',
 				'is_in_taxonomy' => 1,
-				'text' => "cr\x{e8}me"
-			},
-			{
-				'id' => "fr:fraîche",
-				'is_in_taxonomy' => 0,
-				'text' => "fra\x{ee}che"
+				'text' => "cr\x{e8}me fra\x{ee}che"
 			},
 			{
 				'id' => 'en:pineapple',
@@ -532,11 +527,40 @@ my @tests = (
 		]
 	],
 
-	# test for jus and concentré with extra "de"
-	#	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
-	#		[
-	#		]
-	#	],
+	# "concentré de" is removed from inside the ingredient, but the "de" is needed to remove "jus de"
+	[
+		{lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
+		[
+			{
+				'id' => 'en:elderberry',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:concentrated,en:juice',
+				'text' => 'baies de sureau'
+			}
+		]
+	],
+	[
+		{lc => "fr", ingredients_text => "eau, jus concentré de cassis 20%, sucre"},
+		[
+			{
+				'id' => 'en:water',
+				'is_in_taxonomy' => 1,
+				'text' => 'eau'
+			},
+			{
+				'id' => 'en:blackcurrant',
+				'is_in_taxonomy' => 1,
+				'percent' => 20,
+				'processing' => 'en:concentrated,en:juice',
+				'text' => 'cassis'
+			},
+			{
+				'id' => 'en:sugar',
+				'is_in_taxonomy' => 1,
+				'text' => 'sucre'
+			}
+		]
+	],
 
 	##################################################################
 	#
@@ -1274,7 +1298,7 @@ my @tests = (
 			{
 				'id' => 'en:celery',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:frischgemahlen',
+				'processing' => 'en:freshly-ground',
 				'text' => 'sellerie'
 			}
 		]
@@ -2089,19 +2113,19 @@ my @tests = (
 			{
 				'id' => 'en:rice',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'ris'
 			},
 			{
 				'id' => 'en:potato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'kartofler'
 			},
 			{
 				'id' => 'en:potato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'kartofler'
 			},
 			{
@@ -3103,7 +3127,118 @@ my @tests = (
 			}
 		],
 	],
+	# fr: en conserve, en boite (used in cooking recipes)
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"asperges en conserve, thon en conserve, thon en boite, tomates concentrées, champignons en boîte de conserve, tomates séchées, oignons en poudre, poudre de carottes, poulet en poudre, olives appertisées"
+		},
+		[
 
+			{
+				'processing' => 'en:canned',
+				'text' => 'asperges',
+				'id' => 'en:asparagus',
+				'is_in_taxonomy' => 1
+			},
+			{
+				'id' => 'en:canned-tuna',
+				'is_in_taxonomy' => 1,
+				'text' => 'thon en conserve'
+			},
+			{
+				'processing' => 'en:canned',
+				'text' => 'thon',
+				'id' => 'en:tuna',
+				'is_in_taxonomy' => 1
+			},
+			{
+				'processing' => 'en:concentrated',
+				'id' => 'en:tomato',
+				'is_in_taxonomy' => 1,
+				'text' => 'tomates'
+			},
+			{
+				'text' => 'champignons',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:mushroom',
+				'processing' => 'en:canned'
+			},
+			{
+				'id' => 'en:tomato',
+				'is_in_taxonomy' => 1,
+				'text' => 'tomates',
+				'processing' => 'en:dried'
+			},
+			{
+				'text' => 'oignons en poudre',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:onion-powder'
+			},
+			{
+				'id' => 'en:carrot-powder',
+				'is_in_taxonomy' => 1,
+				'text' => 'poudre de carottes'
+			},
+			{
+				'processing' => 'en:powder',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:chicken',
+				'text' => 'poulet'
+			},
+			{
+				'text' => 'olives',
+				'is_in_taxonomy' => 1,
+				'id' => 'en:olive',
+				'processing' => 'en:canned'
+			}
+		]
+
+	],
+	# Flageolets (séchés)
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried',
+				'text' => "Flageolets"
+			}
+		],
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés, réhydratés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried,en:rehydrated',
+				'text' => "Flageolets"
+			}
+		],
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'Flageolets (séchés et réhydratés)'
+		},
+		[
+			{
+				'id' => 'en:flageolets',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dried,en:rehydrated',
+				'text' => "Flageolets"
+			}
+		],
+	],
 );
 
 foreach my $test_ref (@tests) {

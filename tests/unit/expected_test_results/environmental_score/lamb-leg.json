@@ -402,6 +402,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "21502",
+         "ecobalyse_id" : "d79e0fce-8633-4189-a937-7b8010abafed",
+         "ecobalyse_name" : "Viande d'agneau -désossée- FR",
          "id" : "en:lamb-leg",
          "is_in_taxonomy" : 1,
          "origins" : "en:great-britain",
@@ -409,21 +411,23 @@
          "percent_max" : 100,
          "percent_min" : 100,
          "processing" : "en:fresh",
-         "text" : "lamb leg"
+         "text" : "lamb leg",
+         "vegan" : "no",
+         "vegetarian" : "no"
       }
    ],
    "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
+      "en:non-vegan" : [
          "en:lamb-leg"
       ],
-      "en:vegetarian-status-unknown" : [
+      "en:non-vegetarian" : [
          "en:lamb-leg"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:non-vegan",
+      "en:non-vegetarian"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 1,
@@ -448,10 +452,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:lamb-leg"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [
