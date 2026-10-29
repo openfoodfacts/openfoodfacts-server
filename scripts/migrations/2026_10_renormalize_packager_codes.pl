@@ -34,10 +34,21 @@ remain separate tags (e.g. "DE BY-718 EC" and "DE BY718 EC").
 Example: https://github.com/openfoodfacts/openfoodfacts-server/issues/14961
 
 This script iterates over all products stored on the file system, renormalizes the
-emb_codes field with the current rules, refreshes the emb_codes_tags / cities_tags,
-and stores the products (which also refreshes MongoDB).
+tags in every tags_sources.emb_codes source with the current rules, refreshes
+emb_codes_tags / cities_tags, and stores changed products (which also refreshes MongoDB).
+retrieve_product() upgrades legacy products to the current tags schema before processing.
 
 Use --dry-run to only print the products that would be modified, without saving anything.
+
+=head1 DEPLOYMENT
+
+Deploy the updated normalization and init_packager_codes() together, then reload the
+application processes. The registry loader keeps existing keys and adds normalized
+aliases, so both migrated and unmigrated products can resolve their packager details.
+
+Run this migration with --dry-run, then without it. After the product migration,
+rebuild the registry with scripts/update_packager_codes.pl (make build_packager_codes
+in Docker) and reload the application processes to pick up the rebuilt data.
 
 =cut
 
@@ -50,11 +61,11 @@ use Getopt::Long;
 
 my $usage = <<TXT
 2026_10_renormalize_packager_codes.pl is a script that renormalizes the packager
-codes (emb_codes) field and tags of all stored products with the current normalization rules.
+codes in all sources and the derived tags of stored products with the current normalization rules.
 
 Options:
 
---dry-run	do not do any processing, just print the products that would be modified
+--dry-run	print the products that would be modified, without saving them
 TXT
 	;
 
@@ -77,7 +88,7 @@ while (my $product_path = $iter->()) {
 	if (renormalize_packager_codes_field($product_ref)) {
 		$updated_count++;
 		if ($dry_run) {
-			print("Would renormalize $product_id: $product_ref->{emb_codes}\n");
+			print("Would renormalize $product_id: " . join(", ", @{$product_ref->{emb_codes_tags}}) . "\n");
 		}
 		else {
 			store_product("renormalize-packager-codes-script",
@@ -86,6 +97,7 @@ while (my $product_path = $iter->()) {
 	}
 }
 
-print("Processed $products_count products, $updated_count products updated\n");
+my $action = $dry_run ? "would be updated" : "updated";
+print("Processed $products_count products, $updated_count products $action\n");
 
-return 0;
+exit(0);
