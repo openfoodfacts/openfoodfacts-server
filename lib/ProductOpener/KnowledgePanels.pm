@@ -75,7 +75,7 @@ use ProductOpener::KnowledgePanelsIngredients qw/:all/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
 use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel/;
-use ProductOpener::EnvironmentalImpact qw/format_ecs_value/;
+use ProductOpener::EnvironmentalImpact qw/format_ecs_value get_environmental_cost_label_path/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use JSON::MaybeXS;
@@ -894,6 +894,11 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 		ecs_per_product => ($has_per_product ? format_ecs_value($ecs_per_product) : ""),
 		quantity => $quantity,
 		rows => \@rows_data,
+		# The results were computed before the latest changes to the product (we could not get new results)
+		stale => ($environmental_impact_ref->{ecobalyse_stale} ? 1 : 0),
+		# Image of the label, rendered by nginx, used as the icon of the panel
+		label_path =>
+			($has_per_product ? get_environmental_cost_label_path($ecs_per_product, $ecs_per_100, $unit) : undef),
 	};
 
 	create_panel_from_json_template("environmental_cost", "api/knowledge-panels/environment/environmental_cost.tt.json",
