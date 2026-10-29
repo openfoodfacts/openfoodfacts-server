@@ -9,7 +9,14 @@ const MEDIA = /!\[|<img|<video|user-attachments\/assets\/|\.(png|jpe?g|gif|webp|
 const NO_VISIBLE_CHANGE = /no visible change/i;
 
 function stripComments(text) {
-    return (text || "").replace(/<!--[\s\S]*?-->/g, "");
+    // repeated, because removing one comment can join the pieces of another
+    let previous;
+    let stripped = text || "";
+    do {
+        previous = stripped;
+        stripped = stripped.replace(/<!--[\s\S]*?(?:-->|$)/g, "");
+    } while (stripped !== previous);
+    return stripped;
 }
 
 export function findProblems({body, association, files, authorComments, linkedIssues}) {

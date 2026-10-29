@@ -25,6 +25,8 @@ test("a template change needs a screenshot, a video, or no visible change writte
 test("the template's own hints do not count", () => {
     const body = "<!-- Insert a screenshot or a video ![x](a.png) -->\n<!-- No visible change -->";
     assert.equal(findProblems({...outsider, files: ["scss/_product.scss"], body}).length, 1);
+    assert.equal(findProblems({...outsider, files: ["scss/_product.scss"], body: "<!<!-- -->-- ![x](a.png) -->"}).length, 1);
+    assert.equal(findProblems({...outsider, files: ["scss/_product.scss"], body: "<!-- Insert a screenshot ![x](a.png)"}).length, 1);
 });
 
 test("Perl and test changes do not need a screenshot", () => {
