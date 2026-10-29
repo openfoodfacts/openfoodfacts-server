@@ -107,7 +107,7 @@ test("a label already removed by hand does not fail the run", async () => {
         throw Object.assign(new Error("Not Found"), {status: 404});
     };
     const fake = fakeGithub({pr: {labels: [{name: "needs-author"}]}, issues: [{number: 1, repository, closedByPullRequestsReferences: {nodes: []}}], removeLabel});
-    await run(fake);
+    await assert.doesNotReject(run(fake));
 });
 
 test("a changed problem list updates the comment, an unchanged one is left alone", async () => {
