@@ -53,7 +53,7 @@ use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Lang qw/$lc %Langs/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::API
-	qw/add_error add_warning check_user_permission customize_response_for_product normalize_requested_code/;
+	qw/add_error add_warning check_user_is_authenticated check_user_permission customize_response_for_product normalize_requested_code/;
 use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -619,6 +619,10 @@ sub process_change_product_type_request_if_we_have_one($request_ref, $response_r
 
 Process API v3 WRITE product requests.
 
+The caller must be authenticated. Unauthenticated requests are rejected with HTTP 401
+before any product data is created or updated. Image uploads are handled separately
+and remain available without authentication.
+
 TODO: v0 / v1 / v2 WRITE product requests are still handled by cgi/product_jqm_multilingual.pl which contains similar code.
 Internally, we should be able to upgrade those requests to v3, and then customize the response to make it return the v2 expected response.
 
@@ -629,6 +633,14 @@ sub write_product_api ($request_ref) {
 	$log->debug("write_product_api - start", {request => $request_ref}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
+
+	# Product field updates require an authenticated user so edits can be attributed.
+	# New image uploads are a separate endpoint and stay open to unauthenticated users.
+	# $request_ref->{user_id} is set by init_user(), as for the current-user API.
+	if (not check_user_is_authenticated($request_ref, $response_ref)) {
+		return;
+	}
+
 	my $request_body_ref = $request_ref->{body_json};
 
 	$log->debug("write_product_api - body", {request_body => $request_body_ref}) if $log->is_debug();

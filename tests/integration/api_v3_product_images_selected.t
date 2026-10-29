@@ -3,7 +3,7 @@
 use ProductOpener::PerlStandards;
 
 use Test2::V0;
-use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
+use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/:all/;
 
@@ -20,6 +20,12 @@ my $json = JSON::MaybeXS->new->convert_blessed->utf8->canonical;
 wait_application_ready(__FILE__);
 remove_all_products();
 remove_all_users();
+
+# Selecting an uploaded image is a product edit and requires authentication.
+# The upload itself would still be accepted from an anonymous client.
+my $ua = new_client();
+my %create_user_args = (%default_user_form, (email => 'images-selected@example.com'));
+create_user($ua, \%create_user_args);
 
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
 
@@ -200,6 +206,6 @@ my $tests_ref = [
 
 ];
 
-execute_api_tests(__FILE__, $tests_ref);
+execute_api_tests(__FILE__, $tests_ref, $ua);
 
 done_testing();

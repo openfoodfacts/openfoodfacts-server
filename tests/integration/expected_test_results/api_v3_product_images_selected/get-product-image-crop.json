@@ -37,7 +37,7 @@
       "completeness" : 0.0625,
       "correctors_tags" : [],
       "created_t" : "--ignore--",
-      "creator" : "openfoodfacts-contributors",
+      "creator" : "tests",
       "data_quality_bugs_tags" : [],
       "data_quality_completeness_tags" : [
          "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
@@ -116,7 +116,7 @@
          "unknown"
       ],
       "editors_tags" : [
-         "openfoodfacts-contributors"
+         "tests"
       ],
       "entry_dates_tags" : "--ignore--",
       "environmental_score_data" : {
@@ -489,12 +489,12 @@
                   }
                },
                "uploaded_t" : "--ignore--",
-               "uploader" : "openfoodfacts-contributors"
+               "uploader" : "tests"
             }
          }
       },
       "informers_tags" : [
-         "openfoodfacts-contributors"
+         "tests"
       ],
       "lang" : "en",
       "languages" : {
@@ -520,8 +520,11 @@
          "en:multilingual"
       ],
       "last_edit_dates_tags" : "--ignore--",
+      "last_editor" : "tests",
       "last_image_dates_tags" : "--ignore--",
       "last_image_t" : "--ignore--",
+      "last_modified_by" : "tests",
+      "last_modified_by_client" : "OFF",
       "last_modified_t" : "--ignore--",
       "last_updated_t" : "--ignore--",
       "lc" : "en",
@@ -631,7 +634,7 @@
       "packagings" : [],
       "packagings_materials" : {},
       "photographers_tags" : [
-         "openfoodfacts-contributors"
+         "tests"
       ],
       "pnns_groups_1" : "unknown",
       "pnns_groups_1_tags" : [
