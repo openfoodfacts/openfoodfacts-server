@@ -1315,7 +1315,10 @@
                   "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
                   "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
                }
-            ]
+            ],
+            "reference_quantity" : 100,
+            "reference_quantity_source" : "product_quantity",
+            "reference_quantity_unit" : "g"
          },
          "ecobalyse_request" : {
             "data" : {
@@ -2607,7 +2610,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Taxonomy ID</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>apple</span></td><td style=\"padding:2px 6px\">en:apple</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">13050</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">58.3</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>milk</span></td><td style=\"padding:2px 6px\">en:milk</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">19051</td><td style=\"text-align:right;padding:2px 6px\">20.8</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>eggs</span></td><td style=\"padding:2px 6px\">en:egg</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">22000</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">10.4</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>palm oil</span></td><td style=\"padding:2px 6px\">en:palm-oil</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">16129</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">5.2</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">25.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>curcumin</span></td><td style=\"padding:2px 6px\">en:e100</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">20.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>soy lecithin</span></td><td style=\"padding:2px 6px\">en:soya-lecithin</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">42200</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
+                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">taxonomy_id</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>apple</span></td><td style=\"padding:2px 6px\">en:apple</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">13050</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">58.3</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>milk</span></td><td style=\"padding:2px 6px\">en:milk</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">19051</td><td style=\"text-align:right;padding:2px 6px\">20.8</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>eggs</span></td><td style=\"padding:2px 6px\">en:egg</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">22000</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">10.4</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>palm oil</span></td><td style=\"padding:2px 6px\">en:palm-oil</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">16129</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">5.2</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">25.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>curcumin</span></td><td style=\"padding:2px 6px\">en:e100</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">20.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>soy lecithin</span></td><td style=\"padding:2px 6px\">en:soya-lecithin</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">42200</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
                   }
                },
                {
@@ -3357,7 +3360,7 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "0.0502 g"
+                                 "text" : "0.05 g"
                               }
                            ]
                         },
@@ -3369,7 +3372,7 @@
                                  "text" : "Sodium"
                               },
                               {
-                                 "text" : "~ 0.02008 g"
+                                 "text" : "~ 0.02 g"
                               }
                            ]
                         },
@@ -3381,7 +3384,7 @@
                                  "text" : "Fruits, vegetables, legumes"
                               },
                               {
-                                 "text" : "~ 58.3333333333333 %"
+                                 "text" : "~ 58.333 %"
                               }
                            ]
                         }
@@ -3470,7 +3473,7 @@
                                  "text" : "8.5 g"
                               },
                               {
-                                 "text" : "~ 8.50916666666665 g"
+                                 "text" : "~ 8.509 g"
                               }
                            ]
                         },
@@ -3506,7 +3509,7 @@
                                  "text" : "10.5 g"
                               },
                               {
-                                 "text" : "~ 7.51770833333333 g"
+                                 "text" : "~ 7.518 g"
                               }
                            ]
                         },
@@ -3524,7 +3527,7 @@
                                  "text" : "12.5 g"
                               },
                               {
-                                 "text" : "~ 7.0328125 g"
+                                 "text" : "~ 7.033 g"
                               }
                            ]
                         },
@@ -3542,7 +3545,7 @@
                                  "text" : "2 g"
                               },
                               {
-                                 "text" : "~ 0.758333333333333 g"
+                                 "text" : "~ 0.758 g"
                               }
                            ]
                         },
@@ -3560,7 +3563,7 @@
                                  "text" : "4.5 g"
                               },
                               {
-                                 "text" : "~ 2.16375 g"
+                                 "text" : "~ 2.164 g"
                               }
                            ]
                         },
@@ -3572,13 +3575,13 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "0.0502 g"
+                                 "text" : "0.05 g"
                               },
                               {
                                  "text" : "50.2 mg"
                               },
                               {
-                                 "text" : "~ 0.0561979166666667 g"
+                                 "text" : "~ 0.056 g"
                               }
                            ]
                         },
@@ -3590,13 +3593,13 @@
                                  "text" : "Sodium"
                               },
                               {
-                                 "text" : "~ 0.02008 g"
+                                 "text" : "~ 0.02 g"
                               },
                               {
                                  "text" : "?"
                               },
                               {
-                                 "text" : "~ 0.0223072916666667 g"
+                                 "text" : "~ 0.022 g"
                               }
                            ]
                         },
@@ -3608,13 +3611,13 @@
                                  "text" : "Fruits, vegetables, legumes"
                               },
                               {
-                                 "text" : "~ 58.3333333333333 %"
+                                 "text" : "~ 58.333 %"
                               },
                               {
                                  "text" : "?"
                               },
                               {
-                                 "text" : "~ 58.3333333333333 %"
+                                 "text" : "~ 58.333 %"
                               }
                            ]
                         }
@@ -4027,6 +4030,7 @@
       "misc_tags" : [
          "en:ecobalyse-api-skipped",
          "en:ecobalyse-ingredients-matched-between-90-and-100",
+         "en:ecobalyse-reference-quantity-from-product-quantity",
          "en:environmental-score-changed",
          "en:environmental-score-computed",
          "en:environmental-score-grade-changed",
@@ -4228,7 +4232,9 @@
                "is_fat" : 0,
                "is_water" : 0,
                "negative_points" : 8,
+               "negative_points_max" : 0,
                "positive_points" : 5,
+               "positive_points_max" : 0,
                "proteins" : 4.5,
                "proteins_points" : 2,
                "proteins_value" : 4.5,

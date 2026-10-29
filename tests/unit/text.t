@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -109,6 +109,21 @@ is(normalize_percentages('test 1234% hi', 'he'), "test 1,234% hi");
 # fa - RTL Persian, similar to he
 is(get_decimal_formatter('fa')->format(1234567.89), "1,234,567.89");
 is(normalize_percentages('test 1234% hi', 'fa'), "test 1,234% hi");
+
+# Number of decimals: 3 by default, can be increased for values that are close to 0
+is(get_decimal_formatter('en')->format(0.0000718), "0");
+is(get_decimal_formatter('en', 6)->format(0.0000718), "0.000072");
+is(get_decimal_formatter('de')->format(0.0000718), "0");
+is(get_decimal_formatter('de', 6)->format(0.0000718), "0,000072");
+# the formatters are cached by locale and number of decimals
+is(get_decimal_formatter('de', 6)->format(12.34), "12,34");
+is(get_decimal_formatter('de')->format(12.34), "12,34");
+is(get_decimal_formatter('de', 1)->format(12.34), "12,3");
+
+# Plus sign: can include directionality marks in RTL locales
+is(get_percent_formatter('en', 0)->plus_sign, '+');
+is(get_percent_formatter('de', 0)->plus_sign, '+');
+like(get_percent_formatter('ar', 0)->plus_sign, qr/^[\N{U+200E}\N{U+200F}]*\+[\N{U+200E}\N{U+200F}]*$/);
 
 # Test regexp_escape
 is(regexp_escape('incl.'), 'incl\\.');
