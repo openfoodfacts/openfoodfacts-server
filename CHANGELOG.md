@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.118.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.117.0...v2.118.0) (2026-10-30)
+
+
+### Features
+
+* call Ecobalyse on product updates, keep stale results when the API fails ([#15106](https://github.com/openfoodfacts/openfoodfacts-server/issues/15106)) ([8555e04](https://github.com/openfoodfacts/openfoodfacts-server/commit/8555e04c7040d43435013aaceee67d65b66b1728))
+* import product photos from a public Google Drive folder on the pro platform ([#15044](https://github.com/openfoodfacts/openfoodfacts-server/issues/15044)) ([bf39989](https://github.com/openfoodfacts/openfoodfacts-server/commit/bf3998933e01b8b69174eddfdec003a6da9fc505))
+* provenance line under the product title, shown on half the page views ([#14618](https://github.com/openfoodfacts/openfoodfacts-server/issues/14618)) ([b939404](https://github.com/openfoodfacts/openfoodfacts-server/commit/b939404bdcbd94f1bb936f799e7a2f8094c2a3d4))
+
+
+### Bug Fixes
+
+* Allow redirection to any country subdomain after login / logout ([#15193](https://github.com/openfoodfacts/openfoodfacts-server/issues/15193)) ([fc68d5f](https://github.com/openfoodfacts/openfoodfacts-server/commit/fc68d5f304f173aedda6bb04f9879a77c27a9f8a))
+* keep only the first IP of forwarded IP lists in scanbot ([#15141](https://github.com/openfoodfacts/openfoodfacts-server/issues/15141)) ([d566126](https://github.com/openfoodfacts/openfoodfacts-server/commit/d566126449f0dde931d2e4976c72b0b1ce8248fe))
+* repair failing documentation ([#15178](https://github.com/openfoodfacts/openfoodfacts-server/issues/15178)) ([2b0876c](https://github.com/openfoodfacts/openfoodfacts-server/commit/2b0876c53d0b21aa1f2e9b5a7d3f841565510847))
+
 ## [2.117.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.116.1...v2.117.0) (2026-10-28)
 
 
