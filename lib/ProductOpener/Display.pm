@@ -9209,15 +9209,18 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 
 		my $col_name = lang("preparation_" . $preparation);
 		my $per = deep_get($product_ref, "nutrition", "aggregated_set", "per");
+		my $display_per
+			= ($per // "") eq "serving"
+			? "serving"
+			: ((($product_ref->{product_type} // "") eq "petfood") ? "1kg" : "100g");
 
-		# per is always either 100g or 100ml for food and per 1kg for petfood
-		my $name_per_xxg;
-		if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
-			$name_per_xxg = $col_name . "<br>" . lang("analytical_constituents_per_1kg");
-		}
-		else {
-			$name_per_xxg = $col_name . "<br>" . lang("nutrition_data_per_100g");
-		}
+		my %per_labels = (
+			"100g" => lang("nutrition_data_per_100g"),
+			"100ml" => lang("nutrition_data_per_100g"),
+			"1kg" => lang("analytical_constituents_per_1kg"),
+			serving => lang("nutrition_data_per_serving"),
+		);
+		my $name_per_xxg = $col_name . "<br>" . ($per_labels{$display_per} // lang("nutrition_data_per_100g"));
 
 		$columns{$preparation . "_" . $per} = {
 			scope => "product",
@@ -9622,7 +9625,8 @@ CSS
 					if (defined $value) {
 						my $property = $nid;
 						$property =~ s/-([a-z])/ucfirst($1)/eg;
-						$property .= "Per100g";
+						my $per = $product_ref->{nutrition}{aggregated_set}{per} // "100g";
+						$property .= ($per eq "serving") ? "PerServing" : "Per100g";
 						$rdfa = " property=\"food:$property\" content=\"" . $value . "\"";
 					}
 
