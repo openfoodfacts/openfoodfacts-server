@@ -290,7 +290,7 @@ front_lint:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint
 
 front_test:
-	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose run --rm -v "$(PWD)/tests:/opt/product-opener/tests" dynamicfront npm run test:js
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose run --rm -v "$(PWD)/tests:/opt/product-opener/tests" -v "$(PWD)/.github:/opt/product-opener/.github" dynamicfront npm run test:js
 
 front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build

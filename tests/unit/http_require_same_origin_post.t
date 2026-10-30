@@ -1,5 +1,4 @@
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use Test2::Tools::Mock qw/mock/;
