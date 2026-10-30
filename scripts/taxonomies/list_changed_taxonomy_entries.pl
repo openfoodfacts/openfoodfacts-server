@@ -39,22 +39,39 @@ in child categories also have the parent in their _tags field.
 
 Usage:
 
-list_changed_taxonomy_entries.pl --type categories --from v2.113.0 [--to HEAD] [--list]
+list_changed_taxonomy_entries.pl --types categories[,labels,origins,brands] --from v2.113.0 [--to HEAD] [--list]
 
---from	git revision or file path of the old version of the taxonomy (required)
---to	git revision or file path of the new version of the taxonomy (default: the current working tree)
-
-git is not installed in the backend container: export the old version of the taxonomy on the host first, e.g.
-git show v2.113.0:taxonomies/food/categories.txt > categories.v2.113.0.txt
-and then use --from categories.v2.113.0.txt (and --to with a file exported the same way if the taxonomies directory is not available)
+--types	comma separated list of taxonomies (default: categories), --type is an alias
+--from	git revision, file path or directory of the old version of the taxonomies (required)
+--to	git revision, file path or directory of the new version of the taxonomies (default: the current working tree)
 --list	output one id per line instead of a value for update_all_products.pl --query
+
+A file path can only be used with one type. A directory must contain files named [type].txt (e.g. categories.txt)
+
+If git is not installed in the backend container: export the old version of the taxonomies on the host first, e.g.
+mkdir taxonomies.v2.113.0
+git show v2.113.0:taxonomies/food/categories.txt > taxonomies.v2.113.0/categories.txt
+git show v2.113.0:taxonomies/labels.txt > taxonomies.v2.113.0/labels.txt
+and then use --from taxonomies.v2.113.0 (and --to with files exported the same way if the taxonomies directory is not available)
+
+With one type, the output is the value for update_all_products.pl --query [type]_tags=...
+With several types, the output is one line [type]_tags=[value] for each type that has changes.
 
 Details about the changes are printed on STDERR.
 
-Example:
+Some taxonomies are built from several files (e.g. origins also includes countries.txt), but only the [type].txt file is read:
+an entry that was moved to another file is reported as removed. It is still listed, so that products are reprocessed.
+
+Examples:
 
 ids=\$(./scripts/taxonomies/list_changed_taxonomy_entries.pl --type categories --from v2.113.0)
 ./scripts/update_all_products.pl --fields categories --key reprocess_categories_v2.117.0 --query "categories_tags=\$ids"
+
+./scripts/taxonomies/list_changed_taxonomy_entries.pl --types categories,labels,origins,brands --from v2.113.0 \\
+| while read query; do
+	type=\${query%%_tags=*}
+	./scripts/update_all_products.pl --fields \$type --key reprocess_\${type}_v2.117.0 --query "\$query"
+done
 TXT
 	;
 
@@ -66,13 +83,13 @@ use Getopt::Long;
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-my $type = 'categories';
+my $types = 'categories';
 my $from;
 my $to;
 my $list = 0;
 
 GetOptions(
-	"type=s" => \$type,
+	"types|type=s" => \$types,
 	"from=s" => \$from,
 	"to=s" => \$to,
 	"list" => \$list,
@@ -80,40 +97,48 @@ GetOptions(
 
 defined $from or die("--from is required.\n\n$usage");
 
-# Taxonomy files are in taxonomies/ or taxonomies/food/ etc.
-# Only needed when --from or --to is not a file path
-my $taxonomies_dir = $0;
-$taxonomies_dir =~ s/scripts\/taxonomies\/[^\/]+$/taxonomies/;
-my $path;
+my @types = split(/\s*,\s*/, $types);
 
-sub get_taxonomy_path() {
-	if (not defined $path) {
-		($path) = grep {-e "$taxonomies_dir/$_"} ("$type.txt", map {"$_/$type.txt"} qw(food beauty petfood product));
-		defined $path or die("Could not find the taxonomy file for type $type in $taxonomies_dir\n");
-		$path = "taxonomies/$path";
+foreach my $revision ($from, $to) {
+	if ((defined $revision) and (-f $revision) and (scalar @types > 1)) {
+		die("A file path can only be used with one type, use a directory with [type].txt files instead.\n\n$usage");
 	}
-	return $path;
 }
 
-sub read_taxonomy_file ($revision) {
+# Taxonomy files are in taxonomies/ or taxonomies/food/ etc.
+# Only needed when --from or --to is not a file path or a directory
+my $taxonomies_dir = $0;
+$taxonomies_dir =~ s/scripts\/taxonomies\/[^\/]+$/taxonomies/;
+
+sub get_taxonomy_path ($type) {
+	my ($path) = grep {-e "$taxonomies_dir/$_"} ("$type.txt", map {"$_/$type.txt"} qw(food beauty petfood product));
+	defined $path or die("Could not find the taxonomy file for type $type in $taxonomies_dir\n");
+	return "taxonomies/$path";
+}
+
+sub read_file ($file) {
+	open(my $fh, "<", $file) or die("Could not read $file: $!\n");
+	local $/;
+	my $content = <$fh>;
+	close($fh);
+	return $content;
+}
+
+sub read_taxonomy_file ($type, $revision) {
 	my $content;
 	if ((defined $revision) and (-f $revision)) {
-		open(my $fh, "<", $revision) or die("Could not read $revision: $!\n");
-		local $/;
-		$content = <$fh>;
-		close($fh);
+		$content = read_file($revision);
+	}
+	elsif ((defined $revision) and (-d $revision)) {
+		$content = read_file("$revision/$type.txt");
 	}
 	elsif (defined $revision) {
-		my $path = get_taxonomy_path();
+		my $path = get_taxonomy_path($type);
 		$content = `git show '$revision:$path'`;
 		$? == 0 or die("Could not read $path at revision $revision\n");
 	}
 	else {
-		my $path = get_taxonomy_path();
-		open(my $fh, "<", "$taxonomies_dir/../$path") or die("Could not read $path: $!\n");
-		local $/;
-		$content = <$fh>;
-		close($fh);
+		$content = read_file("$taxonomies_dir/../" . get_taxonomy_path($type));
 	}
 	return decode("UTF-8", $content);
 }
@@ -163,29 +188,42 @@ sub parse_taxonomy ($content) {
 	return (\%entries, \%synonyms);
 }
 
-my ($old_entries_ref, $old_synonyms_ref) = parse_taxonomy(read_taxonomy_file($from));
-my ($new_entries_ref, $new_synonyms_ref) = parse_taxonomy(read_taxonomy_file($to));
+foreach my $type (@types) {
 
-my @ids = ();
+	my ($old_entries_ref, $old_synonyms_ref) = parse_taxonomy(read_taxonomy_file($type, $from));
+	my ($new_entries_ref, $new_synonyms_ref) = parse_taxonomy(read_taxonomy_file($type, $to));
 
-foreach my $id (sort keys %$old_entries_ref) {
+	my @ids = ();
 
-	if (not defined $new_entries_ref->{$id}) {
-		my $new_id = $new_synonyms_ref->{$id} // "(removed)";
-		print STDERR "renamed: $id -> $new_id\n";
-		push @ids, "$id!";
-		next;
+	foreach my $id (sort keys %$old_entries_ref) {
+
+		if (not defined $new_entries_ref->{$id}) {
+			my $new_id = $new_synonyms_ref->{$id} // "(removed)";
+			print STDERR "$type renamed: $id -> $new_id\n";
+			push @ids, "$id!";
+			next;
+		}
+
+		# Map the old parents to the new canonical ids, so that renamed parents are not counted as reparentings
+		my $old_parents = join(",", sort map {$new_synonyms_ref->{$_} // $_} @{$old_entries_ref->{$id}});
+		my $new_parents = join(",", @{$new_entries_ref->{$id}});
+		if ($old_parents ne $new_parents) {
+			print STDERR "$type reparented: $id: [$old_parents] -> [$new_parents]\n";
+			push @ids, $id;
+		}
 	}
 
-	# Map the old parents to the new canonical ids, so that renamed parents are not counted as reparentings
-	my $old_parents = join(",", sort map {$new_synonyms_ref->{$_} // $_} @{$old_entries_ref->{$id}});
-	my $new_parents = join(",", @{$new_entries_ref->{$id}});
-	if ($old_parents ne $new_parents) {
-		print STDERR "reparented: $id: [$old_parents] -> [$new_parents]\n";
-		push @ids, $id;
+	print STDERR scalar(@ids) . " $type entries changed between $from and " . ($to // "the working tree") . "\n";
+
+	if (scalar @types == 1) {
+		print join($list ? "\n" : "|", @ids) . "\n";
+	}
+	elsif (scalar @ids > 0) {
+		if ($list) {
+			print "$type\t$_\n" foreach @ids;
+		}
+		else {
+			print "${type}_tags=" . join("|", @ids) . "\n";
+		}
 	}
 }
-
-print STDERR scalar(@ids) . " entries changed between $from and " . ($to // "the working tree") . "\n";
-
-print join($list ? "\n" : "|", @ids) . "\n";
