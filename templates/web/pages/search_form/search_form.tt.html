@@ -156,8 +156,8 @@
                     <div class="row">
                         [% FOREACH axis IN axes %]
                             <div class="small-12 medium-6 columns">
-                                <label for= "axis_[% axis.id %]">[% lang("axis_${axis.id}") %]</label>
-                                <select class="select2_field" name="axis_[% axis.id %]" id="axis_[% axis.id %]">
+                                <label for= "axis_[% axis.id %]">[% lang("axis_${axis.id}") %][% IF axis.id == 'x' %] *[% END %]</label>
+                                <select class="select2_field" name="axis_[% axis.id %]" id="axis_[% axis.id %]"[% IF axis.id == 'x' %] required="required"[% END %]>
                                     [% FOREACH field IN fields_options %]
                                         <option value="[% field.value %]" label="[% field.label %]"[% IF field.value == axis.selected_field_value %] selected="selected"[% END %]>[% field.label %]</option>
                                     [% END %]

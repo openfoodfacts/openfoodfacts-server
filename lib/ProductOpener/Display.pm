@@ -97,6 +97,9 @@ BEGIN {
 		&add_params_to_query
 		&add_params_and_filters_to_query
 
+		&is_valid_search_graph_field
+		&validate_graph_axes
+
 		&process_template
 
 		@search_series
@@ -6024,7 +6027,112 @@ my %nutrition_grades_colors = (
 # - a direct field like ingredients_n
 # - an indirect field like packagings_materials.all.weight_100g
 
+sub is_valid_search_graph_field ($field) {
+
+	$field //= '';
+
+	# Empty / missing axis is never valid
+	if ($field eq '') {
+		return 0;
+	}
+
+	# Bare "folksonomy" without a property is not valid (form sends
+	# axis_x=folksonomy + axis_x_folksonomy_property=...)
+	if ($field eq 'folksonomy') {
+		return 0;
+	}
+
+	# Folksonomy Engine property, e.g. folksonomy.manufacturer_suggested_retail_price:eu:eur
+	if ($field =~ /^folksonomy\.(.+)$/) {
+		my $property = $1;
+		# Require a non-empty property without whitespace or angle brackets (XSS / injection safety)
+		if (($property ne '') and ($property !~ /[\s<>"']/) and (length($property) <= 300)) {
+			return 1;
+		}
+		return 0;
+	}
+
+	# Allow-listed direct fields
+	if (   ($field =~ /_n$/)
+		or ($field eq "product_quantity")
+		or ($field eq "nova_group")
+		or ($field eq "environmental_score_score")
+		or ($field eq "forest_footprint"))
+	{
+		# Restrict characters to avoid MongoDB dot-notation / operator injection
+		if ($field =~ /^[A-Za-z0-9_-]+$/) {
+			return 1;
+		}
+		return 0;
+	}
+
+	# Packaging fields: packagings_materials.<material>.<subfield>
+	if ($field =~ /^packagings_materials\.([^.]+)\.([^.]+)$/) {
+		my ($material, $subfield) = ($1, $2);
+		if (    ($material =~ /^(all|[A-Za-z0-9_:+-]+)$/)
+			and ($subfield =~ /^(weight|weight_100g|weight_percent)$/))
+		{
+			return 1;
+		}
+		return 0;
+	}
+
+	# Other fields are assumed to be nutrient ids (e.g. "sugars", "saturated-fat").
+	# Nutrient ids only contain lowercase letters, digits and dashes.
+	if ($field =~ /^[a-z0-9-]+$/) {
+		return 1;
+	}
+
+	return 0;
+}
+
+=head2 validate_graph_axes ($graph_ref)
+
+Validate the graph axis parameters before running any MongoDB query or rendering a graph.
+
+Returns a plain-text error message (empty string if valid) so callers can display a
+user-friendly message instead of dying on an empty / invalid field
+(see https://github.com/openfoodfacts/openfoodfacts-server/issues/5607).
+
+Note: the returned string is plain text and may contain translated content.
+Callers must HTML-escape it (e.g. with encode_entities() / escapeHTML())
+before interpolating it into HTML, and use the appropriate escaper for any
+other output context.
+
+=cut
+
+sub validate_graph_axes ($graph_ref) {
+
+	my $axis_x = $graph_ref->{"axis_x"} // '';
+	my $axis_y = $graph_ref->{"axis_y"} // '';
+
+	if (not is_valid_search_graph_field($axis_x)) {
+		my $message = lang("search_graph_missing_axis_x");
+		if ((not defined $message) or ($message eq '')) {
+			$message = "Please select a field for the horizontal (X) axis to generate a graph.";
+		}
+		return $message;
+	}
+
+	# axis_y is optional (histogram when empty or 'products_n'), but must be valid if set
+	if (($axis_y ne '') and ($axis_y ne 'products_n') and (not is_valid_search_graph_field($axis_y))) {
+		my $message = lang("search_graph_invalid_axis_y");
+		if ((not defined $message) or ($message eq '')) {
+			$message = "Please select a valid field for the vertical (Y) axis, or leave it empty for a histogram.";
+		}
+		return $message;
+	}
+
+	return '';
+}
+
 sub get_search_field_path_components ($field) {
+	$field //= '';
+	# Missing / invalid axis: return an empty path so deep_get() safely returns undef
+	# instead of building a bogus ("nutrition", ..., "", "value") path.
+	if (not is_valid_search_graph_field($field)) {
+		return ();
+	}
 	my @fields;
 	# direct fields
 	if (   ($field =~ /_n$/)
@@ -6079,7 +6187,15 @@ Does not include "per 100g" information (already displayed in the tooltip above 
 
 sub get_search_field_title_and_details ($field) {
 
+	$field //= '';
+
 	my ($title, $unit, $unit2, $allow_decimals) = ('', '', '', '');
+
+	# Missing / invalid axis: return empty details instead of querying taxonomies
+	# with an empty id (see issue #5607).
+	if (not is_valid_search_graph_field($field)) {
+		return ($title, $unit, $unit2, $allow_decimals);
+	}
 
 	if ($field eq 'additives_n') {
 		$allow_decimals = "allowDecimals:false,\n";
@@ -6174,7 +6290,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 	foreach my $axis ("x", "y") {
 		# Set the titles and details of each axis
-		my $field = $graph_ref->{"axis_" . $axis};
+		my $field = $graph_ref->{"axis_" . $axis} // '';
 		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
 		$axis_details{$axis} = {
 			title => $title,
@@ -6186,7 +6302,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		# Set the minimum value for the axis (0 in most cases, except for Nutri-Score)
 		$min{$axis} = 0;
 
-		if ($field =~ /^nutrition-score/) {
+		if (($field // '') =~ /^nutrition-score/) {
 			$min{$axis} = -15;
 		}
 
@@ -6203,7 +6319,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 	foreach my $axis ('x', 'y') {
 		# Store the field path components so that we can use them with deep_get() when going through the products
-		my $field = $graph_ref->{"axis_" . $axis};
+		my $field = $graph_ref->{"axis_" . $axis} // '';
 		$fields{$field} = [get_search_field_path_components($field)];
 	}
 
@@ -6217,11 +6333,12 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		foreach my $axis ('x', 'y') {
 
-			my $field = $graph_ref->{"axis_" . $axis};
+			my $field = $graph_ref->{"axis_" . $axis} // '';
 			my $value = deep_get($product_ref, @{$fields{$field}});
 
 			# For nutrients except energy-kcal, convert to the default nutrient unit
-			if ((defined $value) and ($fields{$field}[0] eq "nutrition") and ($field !~ /energy-kcal/)) {
+			if ((defined $value) and (($fields{$field}[0] // '') eq "nutrition") and (($field // '') !~ /energy-kcal/))
+			{
 				$value = g_to_unit($value, (get_property("nutrients", "zz:$field", "unit:en") // 'g'));
 			}
 
@@ -6242,7 +6359,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		# Add values to stats, and set min axis
 		foreach my $axis ('x', 'y') {
-			my $field = $graph_ref->{"axis_" . $axis};
+			my $field = $graph_ref->{"axis_" . $axis} // '';
 			add_product_value_to_stats(\%nutrients, $field, $data{$axis});
 		}
 
@@ -6308,7 +6425,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 	foreach my $axis ("x", "y") {
 		# Set the titles and details of each axis
-		my $field = $graph_ref->{"axis_" . $axis};
+		my $field = $graph_ref->{"axis_" . $axis} // '';
 		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
 		$axis_details{$axis} = {
 			title => $title,
@@ -6320,10 +6437,10 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		# Set the minimum value for the axis (0 in most cases, except for Nutri-Score)
 		$min{$axis} = 0;
 
-		if ($field =~ /^nutrition-score/) {
+		if (($field // '') =~ /^nutrition-score/) {
 			$min{$axis} = -15;
 		}
-		elsif ($field =~ /^folksonomy\./) {
+		elsif (($field // '') =~ /^folksonomy\./) {
 			$min{$axis} = $nutrients{$field}{min} // 0;
 		}
 	}
@@ -6578,7 +6695,7 @@ sub display_histogram ($graph_ref, $products_ref, $request_ref) {
 
 	foreach my $axis ("x") {
 		# Set the titles and details of each axis
-		my $field = $graph_ref->{"axis_" . $axis};
+		my $field = $graph_ref->{"axis_" . $axis} // '';
 		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
 		$axis_details{$axis} = {
 			title => $title,
@@ -6590,7 +6707,7 @@ sub display_histogram ($graph_ref, $products_ref, $request_ref) {
 		# Set the minimum value for the axis (0 in most cases, except for Nutri-Score)
 		$min{$axis} = 0;
 
-		if ($field =~ /^nutrition-score/) {
+		if (($field // '') =~ /^nutrition-score/) {
 			$min{$axis} = -15;
 		}
 	}
@@ -6611,15 +6728,21 @@ sub display_histogram ($graph_ref, $products_ref, $request_ref) {
 	my $min = 10000000000000;
 	my $max = -10000000000000;
 
-	my $field = $graph_ref->{"axis_x"};
+	my $field = $graph_ref->{"axis_x"} // '';
 	my @fields = get_search_field_path_components($field);
+
+	# Invalid / missing axis can happen with crafted URLs even if the form requires axis_x.
+	# Bail out early with an empty string (caller shows the validation message).
+	if (scalar @fields == 0) {
+		return '';
+	}
 
 	foreach my $product_ref (@products) {
 
 		my $value = deep_get($product_ref, @fields);
 
 		# For nutrients except energy-kcal, convert to the default nutrient unit
-		if ((defined $value) and ($fields[0] eq "nutrition") and ($field !~ /energy-kcal/)) {
+		if ((defined $value) and (($fields[0] // '') eq "nutrition") and (($field // '') !~ /energy-kcal/)) {
 			$value = g_to_unit($value, (get_property("nutrients", "zz:$field", "unit:en") // 'g'));
 		}
 
@@ -7068,6 +7191,18 @@ Options for the graph, set by /cgi/search.pl
 
 sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 
+	# Defense in depth for https://github.com/openfoodfacts/openfoodfacts-server/issues/5607 :
+	# never run a graph query with a missing / invalid axis, return a user-friendly message instead.
+	my $axes_error = validate_graph_axes($graph_ref);
+	if ($axes_error ne '') {
+		my $html = search_permalink($request_ref);
+		# HTML context: escape the message (plain text, may contain translations).
+		# See https://github.com/openfoodfacts/openfoodfacts-server/pull/14731
+		$html .= '<div class="alert-box alert">' . encode_entities($axes_error) . '</div>';
+		$log->warn("invalid graph axis", {graph => $graph_ref}) if $log->is_warn();
+		return $html;
+	}
+
 	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	my $cursor;
@@ -7079,9 +7214,9 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	}
 
 	# Limit the fields we retrieve from MongoDB
-	my $fields_ref;
+	my $fields_ref = {};
 
-	if ($graph_ref->{axis_y} ne 'products_n') {
+	if (($graph_ref->{axis_y} // '') ne 'products_n') {
 
 		$fields_ref = {
 			lc => 1,
@@ -7100,17 +7235,20 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 
 	# Add fields for the axis
 	foreach my $axis ('x', 'y') {
-		my $field = $graph_ref->{"axis_$axis"};
+		my $field = $graph_ref->{"axis_$axis"} // '';
 		# If the field starts with folksonomy. , we will get the values from Folksonomy Engine as they are not in MongoDB
-		next if ($field =~ /^folksonomy\.(.+)$/);
+		next if (($field // '') =~ /^folksonomy\.(.+)$/);
 		# histogram has no axis_y value, or it is 'products_n'
 		next
 			if ($axis eq 'y')
 			and ((not defined $graph_ref->{axis_y})
-			or ($graph_ref->{axis_y} eq '')
-			or ($graph_ref->{axis_y} eq 'products_n'));
+			or (($graph_ref->{axis_y} // '') eq '')
+			or (($graph_ref->{axis_y} // '') eq 'products_n'));
+		# Skip invalid fields (validated above, but be defensive against direct sub calls)
+		next if (not is_valid_search_graph_field($field));
 		# Get the field path components
 		my @fields = get_search_field_path_components($field);
+		next if (scalar @fields == 0);
 		# Convert to dot notation to get the MongoDB field
 		$fields_ref->{join(".", @fields)} = 1;
 	}
@@ -7146,8 +7284,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	# If one of the axis is a Folksonomy Engine property, get the property values for the products
 	my @folksonomy_properties = ();
 	foreach my $axis ('x', 'y') {
-		my $field = $graph_ref->{"axis_$axis"};
-		if ($field =~ /^folksonomy\.(.+)$/) {
+		my $field = $graph_ref->{"axis_$axis"} // '';
+		if (($field // '') =~ /^folksonomy\.(.+)$/) {
 			my $property = $1;
 			push @folksonomy_properties, $property;
 		}
@@ -7192,8 +7330,8 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		# 2 axis: scatter plot
 
 		if (   (not defined $graph_ref->{axis_y})
-			or ($graph_ref->{axis_y} eq "")
-			or ($graph_ref->{axis_y} eq 'products_n'))
+			or (($graph_ref->{axis_y} // '') eq "")
+			or (($graph_ref->{axis_y} // '') eq 'products_n'))
 		{
 			$html .= display_histogram($graph_ref, \@products, $request_ref);
 		}
