@@ -8315,3 +8315,79 @@ msgstr "Only the most recent changes are shown."
 msgctxt "product_history_see_full_history"
 msgid "See the full changes history"
 msgstr "See the full changes history"
+
+msgctxt "google_drive_import_title"
+msgid "Import photos from a Google Drive folder"
+msgstr "Import photos from a Google Drive folder"
+
+msgctxt "google_drive_import_description"
+msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+msgstr "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+
+msgctxt "google_drive_folder_url"
+msgid "Google Drive folder URL"
+msgstr "Google Drive folder URL"
+
+msgctxt "google_drive_import_button"
+msgid "Import the photos"
+msgstr "Import the photos"
+
+msgctxt "google_drive_invalid_folder_url"
+msgid "This is not the URL of a Google Drive folder."
+msgstr "This is not the URL of a Google Drive folder."
+
+msgctxt "google_drive_no_api_key"
+msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+msgstr "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+
+msgctxt "google_drive_folder_not_found"
+msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+msgstr "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+
+msgctxt "google_drive_folder_too_many_items"
+msgid "The Google Drive folder contains too many files."
+msgstr "The Google Drive folder contains too many files."
+
+msgctxt "google_drive_api_error"
+msgid "Google Drive returned an error."
+msgstr "Google Drive returned an error."
+
+msgctxt "google_drive_import_listing"
+msgid "Listing the photos of the folder..."
+msgstr "Listing the photos of the folder..."
+
+msgctxt "google_drive_import_photos_in_folder"
+msgid "Photos in the folder"
+msgstr "Photos in the folder"
+
+msgctxt "google_drive_import_skipped_files"
+msgid "Files that are not photos (e.g. videos), not imported"
+msgstr "Files that are not photos (e.g. videos), not imported"
+
+msgctxt "google_drive_import_max_images"
+msgid "The folder contains too many photos, only the first ones are imported"
+msgstr "The folder contains too many photos, only the first ones are imported"
+
+msgctxt "google_drive_import_photos_processed"
+msgid "Photos processed"
+msgstr "Photos processed"
+
+msgctxt "job_not_found"
+msgid "The photo import job could not be found."
+msgstr "The photo import job could not be found."
+
+msgctxt "job_failed"
+msgid "The photo import job failed."
+msgstr "The photo import job failed."
+
+msgctxt "post_required"
+msgid "This action requires a POST request."
+msgstr "This action requires a POST request."
+
+msgctxt "unknown_action"
+msgid "Unknown action."
+msgstr "Unknown action."
+
+msgctxt "google_drive_import_already_running"
+msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
+msgstr "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
