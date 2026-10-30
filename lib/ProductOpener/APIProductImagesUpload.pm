@@ -45,7 +45,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id can_delete_image/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::API
@@ -103,9 +103,9 @@ sub delete_product_image_api ($request_ref) {
 	}
 
 	# Check if the user has permission to delete the image
-	if (check_user_permission($request_ref, $response_ref, "image_delete")) {
-		$log->error("image_product_delete_api - user does not have permission to delete image", {code => $code})
-			if $log->is_error();
+	if (can_delete_image(undef, undef, undef, $product_ref)) {
+		$log->debug("image_product_delete_api - user has permission to delete image", {code => $code})
+			if $log->is_debug();
 
 		my $return_code = delete_uploaded_image_and_associated_selected_images($product_ref, $request_ref->{imgid});
 
@@ -126,6 +126,19 @@ sub delete_product_image_api ($request_ref) {
 				}
 			);
 		}
+	}
+	else {
+		$log->error("image_product_delete_api - user does not have permission to delete image", {code => $code})
+			if $log->is_error();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "no_permission"},
+				field => {id => "permission", value => "image_delete"},
+				impact => {id => "failure"},
+			},
+			403
+		);
 	}
 
 	return;

@@ -31,7 +31,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User can_delete_image/;
 use ProductOpener::Images qw/process_image_move/;
 use ProductOpener::Products qw/:all/;
 
@@ -84,11 +84,13 @@ if ($r->method_number == Apache2::Const::M_OPTIONS) {
 
 # Moving or trashing an uploaded image destroys or relocates another contributor's work and
 # writes a new revision of the product, so it is a moderator action.
+# On the pro platform, members of an organization can also manage images for products
+# belonging to their organization.
 # This endpoint was reachable without any authentication: the restriction existed only in the
-# edit form ([% IF moderator %] in product_edit_form_display.tt.html) and in the front-end
-# JavaScript, while the same sink is gated by the moderator-only "image_delete" permission on
-# the API v3 route (see ProductOpener::Permissions and APIProductImagesUpload).
-if (not($request_ref->{admin} or $request_ref->{moderator})) {
+# edit form ([% IF can_delete %] in product_edit_form_display.tt.html) and in the front-end
+# JavaScript, while the same sink is gated by the "image_delete" permission on the API v3
+# route (see ProductOpener::Permissions and APIProductImagesUpload).
+if (not can_delete_image()) {
 	$log->warn("no permission to move or delete images", {ip => remote_addr(), code => $code})
 		if $log->is_warn();
 	my %response = (status => 'status not ok');

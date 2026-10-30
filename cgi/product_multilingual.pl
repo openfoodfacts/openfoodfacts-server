@@ -33,7 +33,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User can_delete_product/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User can_delete_product can_delete_image/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
@@ -780,6 +780,11 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	my $moderator = 0;
 	if ($User{moderator}) {
+		$moderator = 1;
+	}
+	# On the pro platform, org members can manage images for their products,
+	# so we treat them as moderators for the front-end image management UI.
+	if ((not $moderator) and (can_delete_image())) {
 		$moderator = 1;
 	}
 
