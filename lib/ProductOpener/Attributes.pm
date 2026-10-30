@@ -611,33 +611,19 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
 				: "";
 
 			if (defined $category_name && $category_name =~ /\S/) {
-				my $short_desc = f_lang_in_lc(
+				$attribute_ref->{description_short} = f_lang_in_lc(
 					$target_lc,
 					"f_attribute_nutriscore_not_applicable_description",
 					{category => $category_name}
 				);
-				$short_desc = f_lang_in_lc(
-					"en",
-					"f_attribute_nutriscore_not_applicable_description",
-					{category => $category_name}
-				) if $short_desc eq "";
-				$attribute_ref->{description_short} = $short_desc;
 
-				my $desc = f_lang_in_lc($target_lc, "f_nutriscore_not_applicable_for_category",
+				$attribute_ref->{description} = f_lang_in_lc($target_lc, "f_nutriscore_not_applicable_for_category",
 					{category => $category_name});
-				$desc = f_lang_in_lc("en", "f_nutriscore_not_applicable_for_category", {category => $category_name})
-					if $desc eq "";
-				$attribute_ref->{description} = $desc;
 			}
 			else {
-				my $short_desc = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");
-				$short_desc = lang_in_other_lc("en", "attribute_nutriscore_not_applicable_description_short")
-					if $short_desc eq "";
-				$attribute_ref->{description_short} = $short_desc;
-
-				my $desc = lang_in_other_lc($target_lc, "nutriscore_not_applicable");
-				$desc = lang_in_other_lc("en", "nutriscore_not_applicable") if $desc eq "";
-				$attribute_ref->{description} = $desc;
+				$attribute_ref->{description_short}
+					= lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");
+				$attribute_ref->{description} = lang_in_other_lc($target_lc, "nutriscore_not_applicable");
 			}
 		}
 	}

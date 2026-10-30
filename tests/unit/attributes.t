@@ -480,6 +480,19 @@ subtest 'compute_attribute_nutriscore not-applicable explanations' => sub {
 		'full description explains category non-calculation in fr'
 	);
 
+	# Test untranslated locale falls back to English internally via f_lang_in_lc for full description
+	my $attr_de = ProductOpener::Attributes::compute_attribute_nutriscore($baby_food_product, 'de', 'world');
+	is(
+		$attr_de->{description_short},
+		'Nicht zutreffend für die Kategorie: Babynahrung',
+		'short description uses localized translation in de'
+	);
+	is(
+		$attr_de->{description},
+		'Nutri-Score cannot currently be calculated for this product category: Babynahrung.',
+		'full description uses internal English fallback for untranslated locale'
+	);
+
 	# Test with category under nutriscore.2023.not_applicable_category (e.g. en:alcoholic-beverages)
 	my $beer_product = {
 		nutrition_grades_tags => ['not-applicable'],
