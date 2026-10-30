@@ -4,15 +4,39 @@
     "topics": ["environment"],
     "title_element": {
         "title": [% lang('environmental_cost_title') | js %],
+        [% IF panel.label_path %]
+        "icon_url": "[% static_subdomain %][% panel.label_path %]",
+        "icon_alt": [% lang('environmental_cost_title') | js %],
+        [% END %]
         "subtitle": [% IF panel.has_per_product %][% (f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity }) _ ' - ' _ f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) | js %][% ELSE %][% f_lang(per_100_key, { 'points' => panel.ecs_per_100 }) | js %][% END %]
     },
     "elements": [
+        [% IF panel.label_path %]
+        {
+            "element_type": "image",
+            "image_element": {
+                "url": "[% static_subdomain %][% panel.label_path %]",
+                "alt": [% (f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity }) _ ' - ' _ f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) | js %],
+                "width": 308,
+                "height": 154
+            }
+        },
+        [% END %]
         {
             "element_type": "text",
             "text_element": {
                 "html": [% lang('environmental_cost_description') | js %]
             }
         },
+        [% IF panel.stale %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": [% lang('environmental_cost_stale') | js %]
+            }
+        },
+        [% END %]
         {
             "element_type": "table",
             "table_element": {

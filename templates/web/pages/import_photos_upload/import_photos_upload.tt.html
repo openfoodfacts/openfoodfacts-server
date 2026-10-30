@@ -10,28 +10,29 @@
     <li>[% lang("import_photos_format_nutrition")  %]</li>
 </ul>
 
+<!-- The field values are added to the products of the photos uploaded or imported from Google Drive -->
+<p>[% lang("add_field_values") %]</p>  
+<div class="add_field_values_row">
+    <div class="row">
+        <div class="small-12 medium-12 large-5 columns">
+
+            <select class="tag-add-field" name="tagtype_[% i %]" id="tagtype_[% i %]" value = "">
+                [% FOREACH add_field IN add_fields_options %]                          
+                   <option value="[% add_field.value | html %]" label="[% add_field.label | html %]">[% add_field.label | html %]</option>
+                [% END %]
+            </select>
+           
+        </div>
+
+        <div class="small-12 medium-12 large-7 columns tag-add-field-value">
+            <input type="text" id="tag_[% i %]" name="tag_[% i %]" value="" placeholder="[% lang('add_value') | html %]">
+        </div>
+    </div>
+</div>
+
 <!--Start form-->
 <form id="fileupload" action="/cgi/product_image_upload.pl" method="POST" enctype="multipart/form-data">
 
-    <p>[% lang("add_field_values") %]</p>  
-    <div class="add_field_values_row">
-        <div class="row">
-            <div class="small-12 medium-12 large-5 columns">
-
-                <select class="tag-add-field" name="tagtype_[% i %]" id="tagtype_[% i %]" value = "">
-                    [% FOREACH add_field IN add_fields_options %]                          
-                       <option value="[% add_field.value | html %]" label="[% add_field.label | html %]">[% add_field.label | html %]</option>
-                    [% END %]
-                </select>
-               
-            </div>
-
-            <div class="small-12 medium-12 large-7 columns tag-add-field-value">
-                <input type="text" id="tag_[% i %]" name="tag_[% i %]" value="" placeholder="[% lang('add_value') | html %]">
-            </div>
-        </div>
-    </div>  
-    
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
     <div class="row fileupload-buttonbar">
         <div class="large-7 columns">
@@ -61,6 +62,27 @@
         <tbody class="files"></tbody>
     </table>
 
+</form>
+
+<!-- Import photos from a public Google Drive folder -->
+<form id="google_drive_import_form" action="/cgi/import_photos_google_drive.pl" method="POST">
+    <h3>[% lang("google_drive_import_title") %]</h3>
+    <p>[% lang("google_drive_import_description") %]</p>
+    <input type="hidden" name="action" value="start">
+    <div class="row">
+        <div class="small-12 large-8 columns">
+            <label for="google_drive_folder_url">[% lang("google_drive_folder_url") %]</label>
+            <input type="url" id="google_drive_folder_url" name="folder_url" required placeholder="https://drive.google.com/drive/folders/...">
+        </div>
+        <div class="small-12 large-4 columns">
+            <label>&nbsp;</label>
+            <button type="submit" id="google_drive_import_button" class="button small">[% display_icon('add') %] [% lang("google_drive_import_button") %]</button>
+        </div>
+    </div>
+    <div id="google_drive_import_status" role="status" aria-live="polite"></div>
+    <table role="presentation" class="table table-striped">
+        <tbody id="google_drive_import_results"></tbody>
+    </table>
 </form>
 
 <div id="empty_space_for_equalizer" style="height:200px;width:100px;">&nbsp;</div>

@@ -326,7 +326,9 @@
 
     [% image_element = element_ref.image_element %]
     [% IF image_element.link_url.defined %]<a href="[% image_element.link_url | html %]">[% END %]
-        <img src="[% image_element.url | html %]" alt="[% image_element.alt | html %]">
+        <img src="[% image_element.url | html %]" alt="[% image_element.alt | html %]"
+            [%~ IF image_element.width.defined %] width="[% image_element.width | html %]"[% END %]
+            [%~ IF image_element.height.defined %] height="[% image_element.height | html %]"[% END %]>
     [% IF image_element.link_url.defined %]</a>[% END %]
 
     [% IF image_element.source_url.defined %]

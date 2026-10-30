@@ -51,7 +51,7 @@ msgstr "/application-mobile-open-beauty-facts"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr "et le <a href=\\\"https://www.facebook.com/groups/OpenBeautyFacts/\\\">groupe Facebook des contributeurs</a>"
+msgstr "et le <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">groupe Facebook des contributeurs</a>"
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
@@ -59,7 +59,7 @@ msgstr "Recherche de produit Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Cette page produit est incomplète. Vous pouvez nous aider à la compléter en la modifiant et en ajoutant des données à partir des photos dont nous disposons, ou en prenant d'autres photos à l'aide de l'application mobile universelle pour <a href=\\\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\\\">Android</a> ou <a href=\\\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\\\">iPhone/iPad</a>. Merci !"
+msgstr "Cette page produit est incomplète. Vous pouvez nous aider à la compléter en la modifiant et en ajoutant des données à partir des photos dont nous disposons, ou en prenant d'autres photos à l'aide de l'application mobile universelle pour <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Merci !"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -123,7 +123,7 @@ msgstr "Merci de nous rejoindre !"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr "Vous pouvez maintenant ajouter et modifier des produits sur le web ou avec notre <a href=\\\"%s\\\">application mobile</a> gratuite."
+msgstr "Vous pouvez maintenant ajouter et modifier des produits sur le web ou avec notre <a href=\"%s\">application mobile</a> gratuite."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
@@ -143,7 +143,7 @@ msgstr "Vous pouvez maintenant facilement importer les données et photos de vos
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr "Vous pouvez maintenant ajouter et modifier vos produits et importer leurs données et leurs photos sur notre <a href=\\\"%s\\\">plateforme pour les producteurs</a> gratuite."
+msgstr "Vous pouvez maintenant ajouter et modifier vos produits et importer leurs données et leurs photos sur notre <a href=\"%s\">plateforme pour les producteurs</a> gratuite."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
@@ -167,7 +167,7 @@ msgstr "Accorder/Supprimer le statut d'administrateur"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "Merci d'envoyer un e-mail à <a href=\\\"mailto:producers@openfoodfacts.org\\\">producers@openfoodfacts.org</a> si vous avez des questions."
+msgstr "Merci d'envoyer un e-mail à <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> si vous avez des questions."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -286,7 +286,7 @@ msgstr "Disponible sur Google Play"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Ce produit n'est pas encore dans la base d'<<site_name>>. Pourriez-vous s'il vous plait prendre des photos\\ndu produit, du code barre, de la liste des ingrédients et du tableau nutritionnel pour qu'il soit ajouté sur <a href=\\\"https://fr.openfoodfacts.org\\\" target=\\\"_blank\\\"><<site_name>></a> ?</p>\\n<p>Merci d'avance !</p>\\n"
+msgstr "<p>Ce produit n'est pas encore dans la base d'<<site_name>>. Pourriez-vous s'il vous plait prendre des photos\ndu produit, du code barre, de la liste des ingrédients et du tableau nutritionnel pour qu'il soit ajouté sur <a href=\"https://fr.openfoodfacts.org\" target=\"_blank\"><<site_name>></a> ?</p>\n<p>Merci d'avance !</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -379,7 +379,7 @@ msgstr "Sardines à l'huile d'olive, Mayonnaises allégées, Jus d'orange à bas
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "Il suffit d'indiquer la catégorie la plus spécifique, les catégories \\\"parentes\\\" seront ajoutées automatiquement."
+msgstr "Il suffit d'indiquer la catégorie la plus spécifique, les catégories \"parentes\" seront ajoutées automatiquement."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -692,7 +692,7 @@ msgstr "Erreur"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "Mauvais nom d'utilisateur ou mot de passe. <a href=\\\"/cgi/reset_password.pl\\\">Mot de passe oublié ?</a>"
+msgstr "Mauvais nom d'utilisateur ou mot de passe. <a href=\"/cgi/reset_password.pl\">Mot de passe oublié ?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
@@ -704,7 +704,7 @@ msgstr "Le mot de passe et sa confirmation sont différents."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "L'adresse e-mail est déjà utilisée par un autre utilisateur. Peut-être avez-vous déjà un autre compte ? Vous pouvez <a href=\\\"/cgi/reset_password.pl\\\">réinitialiser le mot de passe</a> de votre autre compte."
+msgstr "L'adresse e-mail est déjà utilisée par un autre utilisateur. Peut-être avez-vous déjà un autre compte ? Vous pouvez <a href=\"/cgi/reset_password.pl\">réinitialiser le mot de passe</a> de votre autre compte."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -800,7 +800,7 @@ msgstr "Si les informations sont incomplètes ou incorrectes, vous pouvez les co
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr "et le <a href=\\\"https://www.facebook.com/groups/openfoodfacts.fr/\\\">groupe Facebook des contributeurs</a>"
+msgstr "et le <a href=\"https://www.facebook.com/groups/openfoodfacts.fr/\">groupe Facebook des contributeurs</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -855,7 +855,7 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr "Suivez nous sur <a href=\\\"https://twitter.com/openfoodfactsfr\\\">Twitter</a>,\\n<a href=\\\"https://www.facebook.com/OpenFoodFacts.fr\\\">Facebook</a> et\\n<a href=\\\"https://www.instagram.com/open.food.facts/\\\">Instagram</a>\\n"
+msgstr "Suivez nous sur <a href=\"https://twitter.com/openfoodfactsfr\">Twitter</a>,\n<a href=\"https://www.facebook.com/OpenFoodFacts.fr\">Facebook</a> et\n<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -1011,7 +1011,7 @@ msgstr "La photo est trop petite. Attention à ne pas envoyer de photos prises s
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr "Le code-barres dans l'image n'a pas pu être lu ou l'image ne contenait pas de code-barres.\\nVous pouvez essayer avec une autre image ou saisir directement le code-barres."
+msgstr "Le code-barres dans l'image n'a pas pu être lu ou l'image ne contenait pas de code-barres.\nVous pouvez essayer avec une autre image ou saisir directement le code-barres."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
@@ -1192,7 +1192,7 @@ msgstr "Bio"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr "Indiquez les labels les plus spécifiques. Les catégories \\\"parentes\\\" comme 'Bio' ou 'Commerce équitable' seront ajoutées automatiquement."
+msgstr "Indiquez les labels les plus spécifiques. Les catégories \"parentes\" comme 'Bio' ou 'Commerce équitable' seront ajoutées automatiquement."
 
 msgctxt "labels_p"
 msgid "labels"
@@ -1254,7 +1254,7 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr "En ajoutant des informations et/ou des photographies, vous acceptez de placer irrévocablement votre contribution sous licence <a href=\\\"https://opendatacommons.org/licenses/dbcl/1.0/\\\">Database Contents Licence 1.0</a>\\npour les informations et sous licence <a href=\\\"https://creativecommons.org/licenses/by-sa/3.0/deed.fr\\\">Creative Commons Paternité - Partage des conditions initiales à l'identique 3.0</a> pour les photos.\\nVous acceptez d'être crédité par les ré-utilisateurs par un lien vers le produit auquel vous contribuez."
+msgstr "En ajoutant des informations et/ou des photographies, vous acceptez de placer irrévocablement votre contribution sous licence <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a>\npour les informations et sous licence <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.fr\">Creative Commons Paternité - Partage des conditions initiales à l'identique 3.0</a> pour les photos.\nVous acceptez d'être crédité par les ré-utilisateurs par un lien vers le produit auquel vous contribuez."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
@@ -1295,7 +1295,7 @@ msgstr "Connectez-vous pour ajouter des produits ou modifier leurs fiches."
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "<p>Vous devez vous connecter pour pouvoir ajouter ou modifier un produit.</p>\\n\\n<p>Si vous n'avez pas encore de compte sur <<site_name>>, vous pouvez <a href=\\\"/cgi/user.pl\\\">vous inscrire en 30 secondes</a>.</p>\\n"
+msgstr "<p>Vous devez vous connecter pour pouvoir ajouter ou modifier un produit.</p>\n\n<p>Si vous n'avez pas encore de compte sur <<site_name>>, vous pouvez <a href=\"/cgi/user.pl\">vous inscrire en 30 secondes</a>.</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1608,7 +1608,7 @@ msgstr "Tableau nutritionnel"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr "Le tableau liste par défaut les nutriments les plus couramment indiqués. Laissez le champ vide s'il n'est pas présent sur l'emballage.<br />Vous pouvez ajouter d'autres nutriments\\n(vitamines, minéraux, cholestérol, oméga 3 et 6 etc.) en tapant les premières lettres de leur nom dans la dernière ligne du tableau."
+msgstr "Le tableau liste par défaut les nutriments les plus couramment indiqués. Laissez le champ vide s'il n'est pas présent sur l'emballage.<br />Vous pouvez ajouter d'autres nutriments\n(vitamines, minéraux, cholestérol, oméga 3 et 6 etc.) en tapant les premières lettres de leur nom dans la dernière ligne du tableau."
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
@@ -1626,7 +1626,7 @@ msgstr "Note nutritionnelle"
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Pour en savoir plus sur <<site_name>>, visitez <a href=\\\"https://blog.openfoodfacts.org/fr/\\\">notre blog</a>!</p>\\n<p>Actualités récentes :</p>\\n"
+msgstr "<p>Pour en savoir plus sur <<site_name>>, visitez <a href=\"https://blog.openfoodfacts.org/fr/\">notre blog</a>!</p>\n<p>Actualités récentes :</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1635,7 +1635,7 @@ msgstr "Actualité"
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr "C'est l'<a href=\\\"/open-food-hunt-2015\\\">Open Food Hunt</a> sur <<site_name>> du samedi 21 février 2015 au dimanche 1er mars 2015 ! Les contributeurs reçoivent\\ndes points Explorateurs pour les produits qu'ils ajoutent, et des points Ambassadeurs pour les nouveaux contributeurs qu'ils recrutent. Les points sont mis à jour toutes\\nles 30 minutes."
+msgstr "C'est l'<a href=\"/open-food-hunt-2015\">Open Food Hunt</a> sur <<site_name>> du samedi 21 février 2015 au dimanche 1er mars 2015 ! Les contributeurs reçoivent\ndes points Explorateurs pour les produits qu'ils ajoutent, et des points Ambassadeurs pour les nouveaux contributeurs qu'ils recrutent. Les points sont mis à jour toutes\nles 30 minutes."
 
 msgctxt "or"
 msgid "or:"
@@ -2039,7 +2039,7 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr "Bonjour <NAME>,\\nVous avez demandé de remettre votre mot de passe à zéro sur https://openfoodfacts.org\\n\\npour le nom d'utilisateur :<USERID>\\n\\nPour poursuivre cette remise à zéro, veuillez cliquer sur le lien ci-dessous.\\nSi vous n'avez pas demandé de remise à zéro de mot de passe, veuillez ignorer ce message.\\n\\n<RESET_URL>\\n\\nÀ bientôt,\\n\\nStéphane\\n\\nhttps://openfoodfacts.org\\n"
+msgstr "Bonjour <NAME>,\nVous avez demandé de remettre votre mot de passe à zéro sur https://openfoodfacts.org\n\npour le nom d'utilisateur :<USERID>\n\nPour poursuivre cette remise à zéro, veuillez cliquer sur le lien ci-dessous.\nSi vous n'avez pas demandé de remise à zéro de mot de passe, veuillez ignorer ce message.\n\n<RESET_URL>\n\nÀ bientôt,\n\nStéphane\n\nhttps://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
@@ -2175,7 +2175,7 @@ msgstr "Graphique sur 2 axes"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>→ en savoir plus sur les graphiques d'<<site_name>>: <a href=\\\"https://blog.openfoodfacts.org/fr/news/des-graphiques-en-3-clics\\\">graphiques en 3 clics</a> (blog).</p>"
+msgstr "<p>→ en savoir plus sur les graphiques d'<<site_name>>: <a href=\"https://blog.openfoodfacts.org/fr/news/des-graphiques-en-3-clics\">graphiques en 3 clics</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2184,7 +2184,7 @@ msgstr "Résultats sur un graphique"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr "Choisissez ce que vous voulez représenter sur l'axe horizontal du graphique pour obtenir un histogramme, et\\nsur les deux axes pour obtenir un nuage de produits."
+msgstr "Choisissez ce que vous voulez représenter sur l'axe horizontal du graphique pour obtenir un histogramme, et\nsur les deux axes pour obtenir un nuage de produits."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
@@ -2404,7 +2404,7 @@ msgstr "écart type, minimum, maximum, 10ème et 90ème centiles"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr "Si vous êtes déjà inscrit sur <SITE>, identifiez-vous (\\\"Se connecter\\\" dans la colonne de droite) avant de remplir ce formulaire."
+msgstr "Si vous êtes déjà inscrit sur <SITE>, identifiez-vous (\"Se connecter\" dans la colonne de droite) avant de remplir ce formulaire."
 
 msgctxt "signout"
 msgid "Sign-out"
@@ -2509,7 +2509,7 @@ msgstr "Lait, Gluten, Arachide, Fruits à coque"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr "Indiquer les ingrédients des mentions \\\"Peut contenir des traces de\\\", \\\"Fabriqué dans un atelier qui utilise aussi\\\" etc."
+msgstr "Indiquer les ingrédients des mentions \"Peut contenir des traces de\", \"Fabriqué dans un atelier qui utilise aussi\" etc."
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2618,7 +2618,7 @@ msgstr "Voir les résultats du monde entier"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Les informations et les données doivent provenir de l'emballage et de l'étiquette du produit (et non pas d'autres sites ou du site du fabricant), et vous devez avoir pris les photos vous-même.<br/>\\n→ <a href=\\\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\\\">Pourquoi c'est important</a>"
+msgstr "Les informations et les données doivent provenir de l'emballage et de l'étiquette du produit (et non pas d'autres sites ou du site du fabricant), et vous devez avoir pris les photos vous-même.<br/>\n→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Pourquoi c'est important</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2726,7 +2726,7 @@ msgstr "Certaines informations et/ou photos de ce produit proviennent de ces sou
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Cette page produit est incomplète. Vous pouvez nous aider à la compléter en la modifiant et en ajoutant des données à partir des photos dont nous disposons, ou en prenant d'autres photos avec l'application mobile pour <a href=\\\"https://android.openfoodfacts.org\\\">Android</a> ou <a href=\\\"https://ios.openfoodfacts.org\\\">iPhone/iPad</a>. Merci !"
+msgstr "Cette page produit est incomplète. Vous pouvez nous aider à la compléter en la modifiant et en ajoutant des données à partir des photos dont nous disposons, ou en prenant d'autres photos avec l'application mobile pour <a href=\"https://android.openfoodfacts.org\">Android</a> ou <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Merci !"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2742,7 +2742,7 @@ msgstr "Nos Traducteurs"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr "Nous voudrions dire MERCI aux formidables traducteurs qui permettent de vous présenter Open Food Facts, Open Beauty Facts et Open Pet Food Facts dans toutes ces langues! <a href=\\\"https://translate.openfoodfacts.org/\\\">Vous pouvez nous rejoindre dans cet effort mondial : il ne nécessite aucune connaissance technique.</a>"
+msgstr "Nous voudrions dire MERCI aux formidables traducteurs qui permettent de vous présenter Open Food Facts, Open Beauty Facts et Open Pet Food Facts dans toutes ces langues! <a href=\"https://translate.openfoodfacts.org/\">Vous pouvez nous rejoindre dans cet effort mondial : il ne nécessite aucune connaissance technique.</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -3232,7 +3232,7 @@ msgstr "Méthodologie"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
-msgstr "Les calculs d'émissions de carbone reposent sur les valeurs de CO<sub>2</sub> par kg de la base FoodGES de l'<a href=\\\"https://www.ademe.fr\\\">ADEME</a>."
+msgstr "Les calculs d'émissions de carbone reposent sur les valeurs de CO<sub>2</sub> par kg de la base FoodGES de l'<a href=\"https://www.ademe.fr\">ADEME</a>."
 
 msgctxt "carbon_footprint_note_sustainable_annual_emissions"
 msgid "Sustainable annual emissions: 2 tons of CO<sub>2</sub> equivalent per person to achieve the goals set in COP21."
@@ -3244,7 +3244,7 @@ msgstr "Les calculs d'empreinte carbone présentent un grand degré d'incertitud
 
 msgctxt "error_too_many_products_to_export"
 msgid "Too many products (%d products, the limit is %d) to export, please download the <a href=\"/data\">complete database export</a> instead."
-msgstr "Trop de produits (%d produits, la limite est %d) à exporter, merci de télécharger <a href=\\\"/data\\\">l'export complet de la base</a> à la place."
+msgstr "Trop de produits (%d produits, la limite est %d) à exporter, merci de télécharger <a href=\"/data\">l'export complet de la base</a> à la place."
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
@@ -3586,7 +3586,7 @@ msgstr "Les données et photos de produits que vous envoyez sur la plate-forme p
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr "Les données et photos du produit seront publiquement disponibles dans la base de données Open Food Facts, disponible sous <a href=\\\"https://opendatacommons.org/licenses/odbl/1.0/\\\">licence \\\"Open Database (Odbl)</a>. Les contenus individuels de la base de données sous disponibles sous licence <a href=\\\"https://opendatacommons.org/licenses/dbcl/1.0/\\\">Database Contents (DbCL)</a>. Les images des produits sont disponibles sous licence <a href=\\\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\\\">Creative Commons Attribution ShareAlike - Cc By-Sa</a>."
+msgstr "Les données et photos du produit seront publiquement disponibles dans la base de données Open Food Facts, disponible sous <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">licence \"Open Database (Odbl)</a>. Les contenus individuels de la base de données sous disponibles sous licence <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents (DbCL)</a>. Les images des produits sont disponibles sous licence <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike - Cc By-Sa</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3746,7 +3746,7 @@ msgstr "Vos produits"
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr "Votre compte n'est associé à aucune entreprise. Vous pouvez envoyer un e-mail à <a href=\\\"mailto:producteurs@openfoodfacts.org\\\">producteurs@openfoodfacts.org</a> pour activer l'accès gratuit à la plateforme pour les producteurs."
+msgstr "Votre compte n'est associé à aucune entreprise. Vous pouvez envoyer un e-mail à <a href=\"mailto:producteurs@openfoodfacts.org\">producteurs@openfoodfacts.org</a> pour activer l'accès gratuit à la plateforme pour les producteurs."
 
 msgctxt "import_products"
 msgid "Import products"
@@ -4009,7 +4009,7 @@ msgstr "Open Food Facts est 100% gratuit et indépendant."
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr "<a href=\\\"\\\">Nous avons besoin de votre aide et de vos dons</a> pour continuer et développer le projet."
+msgstr "<a href=\"\">Nous avons besoin de votre aide et de vos dons</a> pour continuer et développer le projet."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -4035,7 +4035,7 @@ msgstr "Le Nutri-Score peut passer de %s à %s en changeant la valeur %s de %s �
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr "La plateforme dédiée aux producteurs est toujours en développement. Nous effectuons des vérifications manuelles avant d'importer les produits dans la base de données publique. Merci de nous contacter à <a href=\\\"mailto:producteurs@openfoodfacts.org\\\">producteurs@openfoodfacts.org</a> pour mettre à jour la base de données publique."
+msgstr "La plateforme dédiée aux producteurs est toujours en développement. Nous effectuons des vérifications manuelles avant d'importer les produits dans la base de données publique. Merci de nous contacter à <a href=\"mailto:producteurs@openfoodfacts.org\">producteurs@openfoodfacts.org</a> pour mettre à jour la base de données publique."
 
 msgctxt "crm_user_id"
 msgid "Id of corresponding contact in CRM"
@@ -4345,7 +4345,7 @@ msgstr "Ajoutez de nouvelles entrées, synonymes ou traductions à nos listes mu
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr "Rejoignez le canal #ingredients dans <a href=\\\"https://slack.openfoodfacts.org\\\">notre espace de discussion Slack</a> et apprenez-en plus sur <a href=\\\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\\\">l'analyse des ingrédients sur notre wiki</a>, si vous désirez nous aider. Merci !"
+msgstr "Rejoignez le canal #ingredients dans <a href=\"https://slack.openfoodfacts.org\">notre espace de discussion Slack</a> et apprenez-en plus sur <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">l'analyse des ingrédients sur notre wiki</a>, si vous désirez nous aider. Merci !"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
@@ -4468,7 +4468,7 @@ msgstr "Si disponible, cette information sera affichée sur la page produit."
 # product photos here means photos of multiple products
 msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
-msgstr "Les photos du produits peuvent aussi être fournies séparément, via la fonction \\\"Importer des photos de produits\\\" depuis votre plateforme producteur."
+msgstr "Les photos du produits peuvent aussi être fournies séparément, via la fonction \"Importer des photos de produits\" depuis votre plateforme producteur."
 
 # This is linked to a unit test
 msgctxt "attribute_group_labels_name"
@@ -5451,7 +5451,7 @@ msgstr "Certaines des informations des produits de %s proviennent de %s."
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr "Les fabricants peuvent utiliser la <a href=\\\"<producers_platform_url>\\\">plateforme gratuite pour les producteurs</a> d'Open Food Facts pour accéder à ces données et les compléter, et obtenir des rapports, analyses et pistes d'améliorations des produits (par exemple meilleur Nutri-Score)."
+msgstr "Les fabricants peuvent utiliser la <a href=\"<producers_platform_url>\">plateforme gratuite pour les producteurs</a> d'Open Food Facts pour accéder à ces données et les compléter, et obtenir des rapports, analyses et pistes d'améliorations des produits (par exemple meilleur Nutri-Score)."
 
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
@@ -5481,7 +5481,7 @@ msgstr "Vous pouvez modifier la fiche produit pour ajouter une catégorie plus p
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\\\"https://fr.pro.openfoodfacts.org\\\">plateforme gratuite pour les producteurs</a>."
+msgstr "Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>."
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
@@ -5660,12 +5660,12 @@ msgstr "kg CO2 eq/kg de produit"
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\\\"https://fr.pro.openfoodfacts.org\\\">plateforme gratuite pour les producteurs</a>."
+msgstr "Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>."
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "Le <a href=\\\"/green-score\\\">Green-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
+msgstr "Le <a href=\"/green-score\">Green-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
@@ -6464,12 +6464,12 @@ msgstr "Correspondance avec vos préférences"
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr "Rejoignez-nous sur <a href=\\\"{url}\\\">Slack</a>"
+msgstr "Rejoignez-nous sur <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr "Découvrez notre <a href=\\\"{url}\\\">Code de conduite</a>"
+msgstr "Découvrez notre <a href=\"{url}\">Code de conduite</a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
@@ -6485,7 +6485,7 @@ msgstr "Installer l'app!"
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr "Scannez les <span id=\\\"foods\\\">aliments</span> de votre <span id=\\\"everyday\\\">quotidien</span>"
+msgstr "Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -7082,7 +7082,7 @@ msgstr "Date de création"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-msgstr "Open Food Facts participe au projet européen <a href=\\\"https://divinfood.eu/\\\">DIVINFOOD</a> (financé par le programme de recherche et d'innovation Horizon 2020 de l'Union européenne). DIVINFOOD vise à développer des filières alimentaires valorisant des ressources d'agrobiodiversité sous-exploitées afin d'agir contre le déclin de la biodiversité et de répondre aux attentes croissantes des consommateurs pour des produits sains et locaux qui contribuent à des systèmes alimentaires durables."
+msgstr "Open Food Facts participe au projet européen <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (financé par le programme de recherche et d'innovation Horizon 2020 de l'Union européenne). DIVINFOOD vise à développer des filières alimentaires valorisant des ressources d'agrobiodiversité sous-exploitées afin d'agir contre le déclin de la biodiversité et de répondre aux attentes croissantes des consommateurs pour des produits sains et locaux qui contribuent à des systèmes alimentaires durables."
 
 msgctxt "deny"
 msgid "Deny"
