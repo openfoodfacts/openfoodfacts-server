@@ -101,8 +101,21 @@ foreach my $function (\&can_delete_product, \&can_delete_image) {
 	};
 }
 
+# Render a template, and check that it rendered without error,
+# so that a failed rendering does not make the unlike() tests below pass for the wrong reason
+sub render ($template, $template_data_ref) {
+	my $html = '';
+	ok(process_template($template, $template_data_ref, \$html, {lc => 'en'}), "render $template")
+		or diag($ProductOpener::Display::tt->error());
+	return $html;
+}
+
 subtest "Template rendering of delete and manage images controls" => sub {
 
+	# display_icon() reads SVG files that are built with npm, and not available in unit tests
+	my $mock_display = mock 'ProductOpener::Display' => (override => [display_icon => sub ($icon) {"[icon:$icon]"}]);
+
+	my $edit_form = 'web/pages/product_edit/product_edit_form_display.tt.html';
 	my %edit_form_data = (
 		type => 'edit',
 		code => '123456',
@@ -113,62 +126,34 @@ subtest "Template rendering of delete and manage images controls" => sub {
 
 	set_user({}, 'regular_user', undef, undef);
 
-	my $html = '';
-	process_template(
-		'web/pages/product_edit/product_edit_form_display.tt.html',
-		{%edit_form_data, can_delete => 0, can_delete_image => 0},
-		\$html, {lc => 'en'}
-	);
+	my $html = render($edit_form, {%edit_form_data, can_delete => 0, can_delete_image => 0});
 	unlike($html, qr{type=delete}, 'edit form: no delete link without can_delete');
 	unlike($html, qr{manage_images_accordion}, 'edit form: no manage images section without can_delete_image');
 
-	$html = '';
-	process_template(
-		'web/pages/product_edit/product_edit_form_display.tt.html',
-		{%edit_form_data, can_delete => 1, can_delete_image => 0},
-		\$html, {lc => 'en'}
-	);
+	$html = render($edit_form, {%edit_form_data, can_delete => 1, can_delete_image => 0});
 	like($html, qr{type=delete}, 'edit form: delete link with can_delete');
+	like($html, qr{\[icon:delete\]}, 'edit form: display_icon() is mocked');
 	unlike($html, qr{manage_images_accordion}, 'edit form: manage images section depends on can_delete_image');
 
 	# Org member on the producers platform: manage images without the moderator-only style
-	$html = '';
-	process_template(
-		'web/pages/product_edit/product_edit_form_display.tt.html',
-		{%edit_form_data, can_delete => 1, can_delete_image => 1},
-		\$html, {lc => 'en'}
-	);
+	$html = render($edit_form, {%edit_form_data, can_delete => 1, can_delete_image => 1});
 	like($html, qr{manage_images_accordion}, 'edit form: manage images section with can_delete_image');
 	like($html, qr{<a href="#manage_images_drop">}, 'edit form: manage images link is well-formed for non moderators');
 
 	# Moderator: manage images link has the moderator-only class
 	set_user({moderator => 1}, 'mod', undef, undef);
-	$html = '';
-	process_template(
-		'web/pages/product_edit/product_edit_form_display.tt.html',
-		{%edit_form_data, can_delete => 1, can_delete_image => 1},
-		\$html, {lc => 'en'}
-	);
+	$html = render($edit_form, {%edit_form_data, can_delete => 1, can_delete_image => 1});
 	like(
 		$html,
 		qr{<a href="#manage_images_drop" class="moderator-only">},
 		'edit form: manage images link is well-formed for moderators'
 	);
 
-	$html = '';
-	process_template(
-		'web/pages/product/product_page.tt.html',
-		{code => '123456', title => 'Test Product', can_delete => 0},
-		\$html, {lc => 'en'}
-	);
+	my $product_page = 'web/pages/product/product_page.tt.html';
+	$html = render($product_page, {code => '123456', title => 'Test Product', can_delete => 0});
 	unlike($html, qr{type=delete}, 'product page: no delete button without can_delete');
 
-	$html = '';
-	process_template(
-		'web/pages/product/product_page.tt.html',
-		{code => '123456', title => 'Test Product', can_delete => 1},
-		\$html, {lc => 'en'}
-	);
+	$html = render($product_page, {code => '123456', title => 'Test Product', can_delete => 1});
 	like($html, qr{type=delete}, 'product page: delete button with can_delete');
 };
 
