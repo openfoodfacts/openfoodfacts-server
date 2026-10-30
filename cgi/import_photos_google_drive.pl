@@ -36,7 +36,8 @@ use ProductOpener::Display qw/init_request/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Lang qw/$lc lang/;
-use ProductOpener::Producers qw/@photos_upload_add_fields get_minion start_google_drive_photos_import/;
+use ProductOpener::Producers qw/get_minion start_google_drive_photos_import/;
+use ProductOpener::ProductImageUpload qw/@photos_upload_add_fields/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;

@@ -60,10 +60,13 @@ function googleDriveImportEscape(text) {
 	return \$('<div>').text(text === undefined || text === null ? "" : String(text)).html();
 }
 
+// Message kept above the status of the import (e.g. an import is already running)
+var google_drive_import_notice = "";
+
 function displayGoogleDriveImportStatus(data) {
 
 	var status = \$('#google_drive_import_status');
-	var html = "";
+	var html = google_drive_import_notice;
 
 	if (data.state) {
 		html += "<p><strong>" + googleDriveImportEscape(google_drive_import_job_status[data.state] || data.state) + "</strong></p>";
@@ -165,10 +168,15 @@ function pollGoogleDriveImportStatus(job_id) {
 
 	\$('#google_drive_import_button').prop("disabled", true);
 	\$('#google_drive_import_results').html("");
+	google_drive_import_notice = "";
 	displayGoogleDriveImportStatus({});
 
 	\$.post("/cgi/import_photos_google_drive.pl", data, function (result) {
 		if (result.job_id) {
+			// If an import is already running, we show its progress
+			if (result.error) {
+				google_drive_import_notice = '<div class="alert-box warning">' + googleDriveImportEscape(result.error_message || result.error) + '</div>';
+			}
 			displayGoogleDriveImportStatus({ state: "inactive" });
 			pollGoogleDriveImportStatus(result.job_id);
 		}

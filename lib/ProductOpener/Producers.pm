@@ -64,10 +64,8 @@ BEGIN {
 
 		&import_products_categories_from_public_database_task
 
-		@photos_upload_add_fields
-		&import_product_image_file
-		&add_field_values_to_product
 		$GOOGLE_DRIVE_IMPORT_MAX_IMAGES
+		$GOOGLE_DRIVE_DOWNLOAD_RETRY_DELAY
 		&start_google_drive_photos_import
 		&import_photos_from_google_drive_folder
 
@@ -85,21 +83,19 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/%cc_nutrient_table %nutrients_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::Display qw/$nutrient_table display_date/;
+use ProductOpener::Display qw/$nutrient_table/;
 use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Import
 	qw/$IMPORT_MAX_PACKAGING_COMPONENTS download_image import_csv_file import_products_categories_from_public_database/;
 use ProductOpener::ImportConvert qw/clean_fields/;
 use ProductOpener::Minion qw/get_minion write_minion_log/;
+use ProductOpener::ProductImageUpload qw/import_product_image_file/;
 use ProductOpener::Config2;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Orgs qw/update_export_date/;
-use ProductOpener::Images
-	qw/$valid_image_types_regexp get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
-use ProductOpener::APIProductWrite qw/update_product_field_api_v2_and_cgi/;
+use ProductOpener::Images qw/$valid_image_types_regexp/;
 use ProductOpener::GoogleDrive
 	qw/parse_google_drive_folder_url list_google_drive_folder_images get_google_drive_file_download_url/;
-use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -107,7 +103,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
 use Time::Local;
-use Data::DeepAccess qw(deep_exists);
+use File::Temp qw/tempdir/;
 use Data::Dumper;
 use Text::CSV();
 
@@ -1953,420 +1949,6 @@ sub export_and_import_to_public_database ($args_ref) {
 	};
 }
 
-=head2 @photos_upload_add_fields
-
-Fields that producers can add values to for all the products of the photos they upload
-(on the import photos page, and when importing photos from a Google Drive folder).
-
-=cut
-
-@photos_upload_add_fields
-	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries teams);
-
-=head2 import_product_image_file ( $args_ref )
-
-Add an image file uploaded by a user (on the producers platform, or through the product image upload API)
-to a product.
-
-If the product code is not specified, we try to get it:
-
-=over
-
-=item from the file name (e.g. 3001234567890.front_fr.jpg)
-
-=item by scanning the barcode in the image
-
-=item otherwise by using the code of the previous image (for producers that send a photo of the barcode, followed by photos of the other sides of the product)
-
-=back
-
-The product is created if it does not exist yet. If the image type (front, ingredients etc.) is known, the image is selected.
-
-This function is used by cgi/product_image_upload.pl and by the import of photos from a Google Drive folder.
-
-=head3 Arguments
-
-A hash ref with:
-
-=head4 user_id, org_id, owner_id - the user uploading the image and the owner of the product
-
-=head4 moderator - 1 if the user is a moderator
-
-=head4 lc - language of the interface, used to guess the image type from the file name
-
-=head4 country - country of the request, used if the product is created
-
-=head4 code, imagefield - optional: product code and image field (e.g. front_fr) if they are specified
-
-=head4 filename - name of the uploaded file
-
-=head4 file_path - path of the image file on disk, or:
-
-=head4 filehandle - CGI file handle of the uploaded file (read with single_param("files[]"))
-
-=head4 tmp_file_prefix - prefix of the temporary file in which a CGI uploaded file is copied to scan its barcode
-
-=head4 previous_code, previous_imgid - code and image id of the previous image, if any
-
-=head4 source - "product_edit_form" if the image is uploaded through the product edit form
-
-=head4 add_field_values - optional array ref of hashes with a field and a value, added to the product
-
-=head4 field_values_added_for_codes - hash ref of the codes for which the field values have already been added: field values are added only once per product
-
-=head3 Return value
-
-A hash ref with the response of the product image upload API (status, error, files array with the filename,
-code, code_from_file_name, scanned_code, using_previous_code, error or info etc.)
-
-=cut
-
-sub import_product_image_file ($args_ref) {
-
-	my $code = $args_ref->{code};
-	my $imagefield = $args_ref->{imagefield};
-	my $previous_code = $args_ref->{previous_code};
-	my $previous_imgid = $args_ref->{previous_imgid};
-	my $user_id = $args_ref->{user_id};
-	my $tmp_filename;
-
-	# Producers platform: the input file name is files[]
-	# If no code and imagefield is passed, try to guess it from the filename
-
-	my $code_specified = 1;
-	my $filename;
-
-	my $using_previous_code;
-	my $scanned_code;
-	my $code_from_file_name;
-
-	if (not defined $code) {
-
-		$code_specified = 0;
-
-		$filename = $args_ref->{filename} // "";
-
-		($code, $imagefield) = get_code_and_imagefield_from_file_name($args_ref->{lc}, $filename);
-
-		if ($code) {
-			$code_from_file_name = $code;
-		}
-		else {
-
-			if ($filename =~ /\.(gif|jpeg|jpg|png|heic|heif)$/i) {
-
-				$log->debug("scan barcode in image file", {filename => $filename}) if $log->is_debug();
-
-				if (defined $args_ref->{file_path}) {
-					$tmp_filename = $args_ref->{file_path};
-				}
-				elsif (defined $args_ref->{filehandle}) {
-					my $file = $args_ref->{filehandle};
-					my $extension = lc($1);
-					$tmp_filename
-						= get_string_id_for_lang("no_language", ($args_ref->{tmp_file_prefix} // '') . '_' . $`);
-
-					ensure_dir_created_or_die($BASE_DIRS{CACHE_TMP});
-					open(my $out, ">", "$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension");
-					while (my $chunk = <$file>) {
-						print $out $chunk;
-					}
-					close($out);
-					$tmp_filename = "$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension";
-				}
-
-				if (defined $tmp_filename) {
-					$code = scan_code($tmp_filename);
-					if (defined $code) {
-						$code = normalize_code($code);
-						$scanned_code = $code;
-					}
-				}
-			}
-
-			# If we have a previous code, use it
-			if ((not $code) and (defined $previous_code)) {
-				$log->debug("no barcode found in image file, using previous code", {previous_code => $previous_code})
-					if $log->is_debug();
-				$code = $previous_code;
-				$using_previous_code = $previous_code;
-			}
-		}
-	}
-
-	# The image file is on disk: we pass its path instead of the image field to process_image_upload()
-	if (defined $args_ref->{file_path}) {
-		$tmp_filename = $args_ref->{file_path};
-	}
-
-	my $response_ref = {
-		files => [
-			{
-				filename => ($filename // '') . "",    # Make filename a scalar
-			}
-		],
-	};
-
-	if ((not defined $code) or ($code eq '')) {
-
-		$log->warn("no code");
-		$response_ref->{status} = 'status not ok';
-		$response_ref->{error} = lang("image_upload_error_no_barcode_specified_or_found");
-		if (not $code_specified) {
-			# for jquery.fileupload-ui.js
-			$response_ref->{files}[0]{error} = $response_ref->{error};
-		}
-		return $response_ref;
-	}
-
-	$response_ref->{code} = $code;
-
-	my $product_id = product_id_for_owner($args_ref->{owner_id}, $code);
-
-	my $interface_version = '20120622';
-
-	if (not $imagefield) {
-
-		$log->warn("no image field defined");
-		$response_ref->{status} = 'status not ok';
-		$response_ref->{error} = "error - imagefield not defined";
-		return $response_ref;
-	}
-
-	$response_ref->{imagefield} = $imagefield;
-
-	my $path = product_path_from_id($product_id);
-
-	$log->debug("path determined", {imagefield => $imagefield, path => $path});
-
-	if ($path eq 'invalid') {
-		# non numeric code was given
-		$log->warn("no code", {code => $code});
-		$response_ref->{status} = 'status not ok';
-		$response_ref->{error} = "error - invalid product code: $code";
-		$response_ref->{files}[0]{error} = $response_ref->{error};
-		return $response_ref;
-	}
-
-	my $product_ref = retrieve_product($product_id);
-
-	if (not $product_ref) {
-		$log->info("product code does not exist yet, creating product", {code => $code});
-		$product_ref = init_product($user_id, $args_ref->{org_id}, $code, $args_ref->{country});
-		$product_ref->{interface_version_created} = $interface_version;
-		$product_ref->{lc} = $args_ref->{lc};
-		store_product($user_id, $product_ref, "Creating product (image upload)");
-	}
-	else {
-		$log->info("product code already exists", {code => $code});
-	}
-
-	my $proceed_with_edit = process_product_edit_rules($product_ref);
-	$log->debug("edit rules processed", {proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
-	if (not $proceed_with_edit) {
-		return {status => 'status not ok - edit against edit rules'};
-	}
-
-	my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
-	if ((not defined $product_name) or ($product_name eq "")) {
-		$product_name = $code;
-	}
-
-	my $product_url = product_url($product_ref);
-
-	$response_ref->{files}[0]{url} = $product_url;
-	$response_ref->{files}[0]{name} = $product_name;
-
-	# Some apps may be passing a full locale like imagefield=front_pt-BR
-	$imagefield =~ s/^($valid_image_types_regexp)_(\w\w)-.*/$1_$2/;
-
-	# For apps that do not specify the language associated with the image, try to assign one
-	if ($imagefield =~ /^($valid_image_types_regexp)$/) {
-		# If the product exists, use the main language of the product
-		# otherwise if the product was just created above, we will get the current $lc
-		$imagefield .= "_" . $product_ref->{lc};
-	}
-
-	$response_ref->{imagefield} = $imagefield;
-
-	my $imgid;
-	my $debug_string;
-
-	my $imagefield_or_filename = $imagefield;
-	(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
-
-	my $imgid_returncode
-		= process_image_upload($product_ref, $imagefield_or_filename, $user_id, time(), "image upload", \$imgid,
-		\$debug_string);
-
-	$log->debug(
-		"after process_image_upload",
-		{
-			imgid => $imgid,
-			imagefield => $imagefield,
-			imgid_returncode => $imgid_returncode,
-			debug_string => $debug_string
-		}
-	) if $log->is_debug();
-
-	# For backwards compatibility, if we have no imgid (if the image was not uploaded), we return the return code in the imgid field
-	$response_ref->{imgid} = $imgid || $imgid_returncode;
-	if ((defined $imgid) and ($imgid > 0)) {
-		$response_ref->{files}[0]{thumbnailUrl} = "/images/products/$path/$imgid.$thumb_size.jpg";
-	}
-
-	if ($imgid_returncode < 0) {
-		# Error during upload
-		$response_ref->{status} = 'status not ok';
-		$response_ref->{error} = "error";
-		($imgid_returncode == -2) and $response_ref->{error} = "field imgupload_$imagefield not set";
-		($imgid_returncode == -3) and $response_ref->{error} = lang("image_upload_error_image_already_exists");
-		($imgid_returncode == -4) and $response_ref->{error} = lang("image_upload_error_image_too_small");
-		($imgid_returncode == -5) and $response_ref->{error} = lang("image_upload_error_could_not_read_image");
-
-		if (not $code_specified) {
-			# for jquery.fileupload-ui.js
-			if ($imgid_returncode == -3) {
-				$response_ref->{files}[0]{info} = $response_ref->{error};
-			}
-			else {
-				$response_ref->{files}[0]{error} = $response_ref->{error};
-			}
-		}
-
-		if (defined $debug_string) {
-			$response_ref->{debug} = $debug_string;
-		}
-	}
-	else {
-		# Image uploaded successfully
-
-		my $image_data_ref = {
-			imgid => $imgid,
-			thumb_url => "$imgid.${thumb_size}.jpg",
-			crop_url => "$imgid.${crop_size}.jpg",
-		};
-
-		if ($args_ref->{moderator}) {
-			$product_ref = retrieve_product($product_id);
-			$image_data_ref->{uploader} = $product_ref->{images}{uploaded}{$imgid}{uploader};
-			$image_data_ref->{uploaded} = display_date($product_ref->{images}{uploaded}{$imgid}{uploaded_t});
-		}
-
-		$response_ref->{status} = 'status ok';
-		$response_ref->{image} = $image_data_ref;
-
-		# Select the image
-		if ($imagefield =~ /^($valid_image_types_regexp)_(\w\w)$/) {
-
-			my $image_type = $1;
-			my $image_lc = $2;
-			# Changed 2020-03-05: overwrite already selected images
-			# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
-			if (
-				(
-					   (not defined $args_ref->{source})
-					or ($args_ref->{source} ne "product_edit_form")
-					or (not deep_exists($product_ref, "images", "selected", $image_type, $image_lc))
-				)
-				and (not is_protected_image($product_ref, $image_type, $image_lc) or $args_ref->{moderator})
-
-				)
-			{
-				$log->debug("selecting image", {imgid => $imgid, image_type => $image_type, lc => $image_lc})
-					if $log->is_debug();
-				process_image_crop($user_id, $product_ref, $image_type, $image_lc, $imgid, undef);
-			}
-		}
-		# If the image type is "other" and we don't have a front image, assign it
-		# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
-		elsif (
-			($imagefield =~ /^other/)
-			and (
-				(not deep_exists($product_ref, "images", "selected", "front", $product_ref->{lc}))
-				or (    (defined $previous_imgid)
-					and ($previous_imgid eq $product_ref->{images}{selected}{"front"}{$product_ref->{lc}}{imgid}))
-			)
-			)
-		{
-			$log->debug(
-				"selecting front image as we don't have one",
-				{
-					imgid => $imgid,
-					previous_imgid => $previous_imgid,
-					imagefield => $imagefield,
-					front_imagefield => "front_" . $product_ref->{lc}
-				}
-			) if $log->is_debug();
-			process_image_crop($user_id, $product_ref, "front", $product_ref->{lc}, $imgid, undef);
-		}
-	}
-
-	(defined $code) and $response_ref->{files}[0]{code} = $code;
-	(defined $code_from_file_name) and $response_ref->{files}[0]{code_from_file_name} = $code_from_file_name;
-	(defined $scanned_code) and $response_ref->{files}[0]{scanned_code} = $scanned_code;
-	(defined $using_previous_code) and $response_ref->{files}[0]{using_previous_code} = $using_previous_code;
-
-	# Add field values (e.g. a brand) to the product, once per product
-	if (    (defined $args_ref->{add_field_values})
-		and (scalar @{$args_ref->{add_field_values}})
-		and (not $args_ref->{field_values_added_for_codes}{$code}))
-	{
-		$args_ref->{field_values_added_for_codes}{$code} = 1;
-		add_field_values_to_product($product_id, $args_ref->{add_field_values},
-			$user_id, $args_ref->{org_id}, $args_ref->{lc});
-	}
-
-	return $response_ref;
-}
-
-=head2 add_field_values_to_product ( $product_id, $field_values_ref, $user_id, $org_id, $target_lc )
-
-Add values to tags fields of a product (e.g. add a brand), as done with add_[field] parameters
-of the product write API v2 (cgi/product_jqm_multilingual.pl)
-
-=head3 Arguments
-
-=head4 $product_id
-
-=head4 $field_values_ref - array ref of hashes with a field and a value
-
-Fields that are not in @photos_upload_add_fields are ignored.
-
-=head4 $user_id, $org_id
-
-=head4 $target_lc - language of the values
-
-=cut
-
-sub add_field_values_to_product ($product_id, $field_values_ref, $user_id, $org_id, $target_lc) {
-
-	my $product_ref = retrieve_product($product_id);
-	return if not defined $product_ref;
-
-	my %allowed_fields = map {$_ => 1} @photos_upload_add_fields;
-	my $source = get_source_for_site_and_org($org_id);
-	my $added = 0;
-
-	foreach my $field_value_ref (@$field_values_ref) {
-		my $field = $field_value_ref->{field};
-		my $value = $field_value_ref->{value};
-		next if (not defined $field) or (not $allowed_fields{$field}) or (not defined $value) or ($value eq '');
-
-		# update_product_field_api_v2_and_cgi() expects UTF-8 encoded values, as they are when they come from CGI parameters
-		update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, encode_utf8($value), $source, 1);
-		$added++;
-	}
-
-	return if not $added;
-
-	analyze_and_enrich_product_data($product_ref, {});
-
-	store_product($user_id, $product_ref, "fields added through photos upload on producer platform");
-
-	return;
-}
-
 =head2 $GOOGLE_DRIVE_IMPORT_MAX_IMAGES
 
 Maximum number of images imported from a Google Drive folder at once. Images after this number
@@ -2375,6 +1957,25 @@ Maximum number of images imported from a Google Drive folder at once. Images aft
 =cut
 
 $GOOGLE_DRIVE_IMPORT_MAX_IMAGES = 1000;
+
+=head2 get_running_google_drive_photos_import_job_id ( $owner_id )
+
+Return the id of a Google Drive photos import of the owner that is queued or running, or undef
+
+=cut
+
+sub get_running_google_drive_photos_import_job_id ($owner_id) {
+
+	my $jobs
+		= get_minion()->jobs({tasks => ['import_photos_from_google_drive_folder'], states => ['inactive', 'active']});
+
+	while (my $info_ref = $jobs->next) {
+		if (($info_ref->{args}[0]{owner_id} // '') eq ($owner_id // '')) {
+			return $info_ref->{id};
+		}
+	}
+	return;
+}
 
 =head2 start_google_drive_photos_import ( $args_ref )
 
@@ -2386,7 +1987,8 @@ A hash ref with folder_url, user_id, org_id, owner_id, lc, country, add_field_va
 
 =head3 Return value
 
-A hash ref with the job_id, or with an error id: google_drive_invalid_folder_url or google_drive_no_api_key
+A hash ref with the job_id, or with an error id: google_drive_invalid_folder_url, google_drive_no_api_key
+or google_drive_import_already_running (with the job_id of the running import)
 
 =cut
 
@@ -2403,6 +2005,12 @@ sub start_google_drive_photos_import ($args_ref) {
 		return {error => "google_drive_no_api_key"};
 	}
 
+	# One import at a time per owner: two imports would compete to add the same photos to the same products
+	my $running_job_id = get_running_google_drive_photos_import_job_id($args_ref->{owner_id});
+	if (defined $running_job_id) {
+		return {error => "google_drive_import_already_running", job_id => $running_job_id};
+	}
+
 	my $job_args_ref = {%$args_ref, folder_id => $folder_id, resource_key => $resource_key};
 
 	my $job_id
@@ -2411,6 +2019,51 @@ sub start_google_drive_photos_import ($args_ref) {
 		import_photos_from_google_drive_folder => [$job_args_ref] => {queue => $server_options{minion_local_queue}});
 
 	return {job_id => $job_id};
+}
+
+=head2 $GOOGLE_DRIVE_DOWNLOAD_RETRY_DELAY
+
+Seconds to wait before retrying the download of an image after a temporary error (HTTP 429 or 5xx)
+
+=cut
+
+$GOOGLE_DRIVE_DOWNLOAD_RETRY_DELAY = 5;
+
+# Download an image listed in a Google Drive folder to $file_path.
+# Temporary errors (rate limiting, server errors) are retried once.
+# Returns undef on success, or an error message
+
+sub download_google_drive_image ($image_ref, $file_path) {
+
+	my $url = get_google_drive_file_download_url($image_ref);
+
+	# download_image() checks that the URL and the redirects it follows point to globally routable addresses
+	my $response = download_image($url);
+
+	if ((not $response->is_success) and (($response->code == 429) or ($response->code >= 500))) {
+		$log->info("retrying Google Drive image download", {file => $image_ref->{path}, status => $response->code})
+			if $log->is_info();
+		sleep($GOOGLE_DRIVE_DOWNLOAD_RETRY_DELAY);
+		$response = download_image($url);
+	}
+
+	if (not $response->is_success) {
+		return "could not download the image: " . $response->status_line;
+	}
+	if (($response->header('Content-Type') // '') =~ m{^text/html}i) {
+		return "could not download the image: Google Drive returned a web page";
+	}
+
+	my $out;
+	if (not open($out, ">:raw", $file_path)) {
+		$log->error("could not write the downloaded image", {file_path => $file_path, error => $!})
+			if $log->is_error();
+		return "could not save the image";
+	}
+	print $out $response->content;
+	close($out);
+
+	return;
 }
 
 # Return how the code of an image was found, from the response of import_product_image_file()
@@ -2495,8 +2148,9 @@ sub import_photos_from_google_drive_folder ($args_ref, $progress_callback = unde
 	defined $progress_callback and $progress_callback->($results_ref);
 
 	ensure_dir_created_or_die($BASE_DIRS{PRODUCTS_IMAGES});
-	my $tmp_dir = "$BASE_DIRS{CACHE_TMP}/google_drive_import";
-	ensure_dir_created_or_die($tmp_dir);
+	ensure_dir_created_or_die($BASE_DIRS{CACHE_TMP});
+	# Each import downloads to its own temporary directory, so that two imports never share a file
+	my $tmp_dir = tempdir("google_drive_import_XXXXXXXX", DIR => $BASE_DIRS{CACHE_TMP}, CLEANUP => 1);
 
 	my $previous_code;
 	my $previous_imgid;
@@ -2510,32 +2164,16 @@ sub import_photos_from_google_drive_folder ($args_ref, $progress_callback = unde
 
 		# Keep the extension of the file name (e.g. .HEIC) so that the barcode is scanned
 		my ($extension) = $image_ref->{name} =~ /\.(\w+)$/;
-		my $file_path
-			= "$tmp_dir/"
-			. get_string_id_for_lang("no_language", "$Owner_id-$image_ref->{id}") . "."
-			. lc($extension // "jpg");
+		my $file_path = "$tmp_dir/$i." . lc($extension // "jpg");
 
-		# download_image() checks that the URL and the redirects it follows point to globally routable addresses
-		my $response = download_image(get_google_drive_file_download_url($image_ref));
+		my $download_error = download_google_drive_image($image_ref, $file_path);
 
-		if (not $response->is_success) {
-			$result_ref->{error} = "could not download the image: " . $response->status_line;
-		}
-		elsif (($response->header('Content-Type') // '') =~ m{^text/html}i) {
-			$result_ref->{error} = "could not download the image: Google Drive returned a web page";
-		}
-		elsif (not open(my $out, ">:raw", $file_path)) {
-			$log->error("could not write the downloaded image", {file_path => $file_path, error => $!})
-				if $log->is_error();
-			$result_ref->{error} = "could not save the image";
+		if (defined $download_error) {
+			$result_ref->{error} = $download_error;
 		}
 		else {
-			print $out $response->content;
-			close($out);
-
-			my $response_ref;
-			my $import_succeeded = eval {
-				$response_ref = import_product_image_file(
+			my $response_ref = eval {
+				import_product_image_file(
 					{
 						user_id => $User_id,
 						org_id => $Org_id,
@@ -2551,38 +2189,50 @@ sub import_photos_from_google_drive_folder ($args_ref, $progress_callback = unde
 						field_values_added_for_codes => \%field_values_added_for_codes,
 					}
 				);
-				1;
 			};
 			my $import_error = $@;
 
 			unlink($file_path);
 
-			if (not $import_succeeded) {
-				$response_ref = {status => "status not ok", error => "could not import the image: " . $import_error};
-			}
-
-			my $file_ref = $response_ref->{files}[0] // {};
-
-			$result_ref->{code} = $file_ref->{code} // $response_ref->{code};
-			$result_ref->{code_source} = get_code_source($file_ref);
-			$result_ref->{product_url} = $file_ref->{url};
-			$result_ref->{thumbnail_url} = $file_ref->{thumbnailUrl};
-			if (defined $file_ref->{info}) {
-				$result_ref->{info} = $file_ref->{info};
-			}
-			elsif (($response_ref->{status} // "") ne "status ok") {
-				$result_ref->{error} = $file_ref->{error} // $response_ref->{error} // $response_ref->{status};
-			}
-
-			# Same as the import photos page: the code of the next photos is the last scanned code,
-			# and the image id of the photo with the barcode is kept to select the next photo as the front image
-			if (defined $file_ref->{scanned_code}) {
-				$previous_code = $file_ref->{scanned_code};
-				$previous_imgid = (defined $response_ref->{image}) ? $response_ref->{image}{imgid} : "";
+			if (not defined $response_ref) {
+				# Details of the exception (with our file paths) are logged, not shown to the producer
+				$log->error("could not import image from Google Drive",
+					{file => $image_ref->{path}, error => $import_error})
+					if $log->is_error();
+				$result_ref->{error} = "could not process the image";
 			}
 			else {
-				$previous_imgid = "";
+				my $file_ref = $response_ref->{files}[0] // {};
+
+				$result_ref->{code} = $file_ref->{code} // $response_ref->{code};
+				$result_ref->{code_source} = get_code_source($file_ref);
+				$result_ref->{product_url} = $file_ref->{url};
+				$result_ref->{thumbnail_url} = $file_ref->{thumbnailUrl};
+				if (defined $file_ref->{info}) {
+					$result_ref->{info} = $file_ref->{info};
+				}
+				elsif (($response_ref->{status} // "") ne "status ok") {
+					$result_ref->{error} = $file_ref->{error} // $response_ref->{error} // $response_ref->{status};
+				}
+
+				# Same as the import photos page: the code of the next photos is the last scanned code,
+				# and the image id of the photo with the barcode is kept to select the next photo as the front image
+				if (defined $file_ref->{scanned_code}) {
+					$previous_code = $file_ref->{scanned_code};
+					$previous_imgid = (defined $response_ref->{image}) ? $response_ref->{image}{imgid} : "";
+				}
+				else {
+					$previous_imgid = "";
+				}
 			}
+		}
+
+		# If a photo could not be downloaded or processed, we do not know if it had a barcode:
+		# the next photos without a barcode would be added to the wrong product, so we do not
+		# add them to the previous product (they are reported as photos without a barcode)
+		if ((defined $download_error) or (not defined $result_ref->{code})) {
+			$previous_code = undef;
+			$previous_imgid = undef;
 		}
 
 		$log->info("imported image from Google Drive", {i => $i, total => scalar @images, result => $result_ref})

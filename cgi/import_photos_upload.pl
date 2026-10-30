@@ -35,7 +35,7 @@ use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/@photos_upload_add_fields/;
+use ProductOpener::ProductImageUpload qw/@photos_upload_add_fields/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();

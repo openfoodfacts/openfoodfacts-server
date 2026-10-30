@@ -33,7 +33,7 @@ use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Products qw/normalize_code/;
-use ProductOpener::Producers qw/import_product_image_file/;
+use ProductOpener::ProductImageUpload qw/import_product_image_file/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

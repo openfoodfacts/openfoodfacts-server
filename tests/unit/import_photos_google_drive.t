@@ -31,10 +31,17 @@ my @images = (
 	},
 );
 
+my %id_for_name = map {$_->{name} => $_->{id}} @images;
+
 my $listing_ref = {images => \@images, skipped => 2};
 my @downloaded_urls;
 my @import_calls;
 my %import_exceptions;
+# id => list of HTTP status codes returned by successive downloads (200 by default)
+my %download_statuses = (id5 => [404]);
+
+# Do not wait before retrying downloads
+$ProductOpener::Producers::GOOGLE_DRIVE_DOWNLOAD_RETRY_DELAY = 0;
 
 # id => response of import_product_image_file()
 my %import_responses = (
@@ -87,13 +94,15 @@ my $producers_module = mock 'ProductOpener::Producers' => (
 		},
 		download_image => sub ($url) {
 			push @downloaded_urls, $url;
-			if ($url =~ /id=id5/) {
-				return HTTP::Response->new(404, "Not Found");
+			my ($id) = $url =~ /id=(id\d)/;
+			my $status = shift(@{$download_statuses{$id} // []}) // 200;
+			if ($status != 200) {
+				return HTTP::Response->new($status, "Error $status");
 			}
 			return HTTP::Response->new(200, "OK", HTTP::Headers->new(Content_Type => "image/heic"), "image data");
 		},
 		import_product_image_file => sub ($args_ref) {
-			my ($id) = $args_ref->{file_path} =~ /-(id\d)\./;
+			my $id = $id_for_name{$args_ref->{filename}};
 			push @import_calls, {%$args_ref, id => $id, file_exists => (-e $args_ref->{file_path}) ? 1 : 0};
 			die $import_exceptions{$id} if exists $import_exceptions{$id};
 			return $import_responses{$id};
@@ -132,7 +141,7 @@ is(
 		"https://drive.google.com/uc?export=download&id=id4",
 		"https://drive.google.com/uc?export=download&id=id5&resourcekey=0-k",
 	],
-	"images downloaded in order"
+	"images downloaded in order, a 404 is not retried"
 );
 
 is(scalar @import_calls, 4, "the image that could not be downloaded is not processed");
@@ -228,17 +237,84 @@ is($results_ref->{status}, "done", "a per-image exception does not fail the batc
 is($results_ref->{processed}, 4, "all images are processed after an exception");
 is(scalar @import_calls, 4, "later imports are attempted after an exception");
 is(\@progress, [0, 1, 2, 3, 4], "progress advances for failed and successful images");
-is(
-	$results_ref->{results}[1]{error},
-	"could not import the image: image processing failed\n",
-	"the import exception is recorded for the failed image"
-);
+is($results_ref->{results}[1]{error}, "could not process the image",
+	"a generic error is recorded for the failed image");
 is($results_ref->{results}[3]{code}, "3001234567890", "a later image is imported successfully");
-is($import_calls[2]{previous_code}, "1234567890128", "an exception preserves the last scanned barcode");
-is($import_calls[2]{previous_imgid}, "", "an exception resets the previous image id");
+# We do not know if the failed photo had a barcode: the next photos are not added to the previous product
+is($import_calls[2]{previous_code}, undef, "an exception resets the previous code");
+is($import_calls[2]{previous_imgid}, undef, "an exception resets the previous image id");
 
 foreach my $call_ref (@import_calls) {
 	ok(!-e $call_ref->{file_path}, "the downloaded file is deleted for $call_ref->{id}");
+}
+delete $import_exceptions{id2};
+
+# A photo that cannot be downloaded may be the photo of the barcode of a new product:
+# the next photos are not added to the previous product
+
+@import_calls = ();
+@downloaded_urls = ();
+$listing_ref = {images => [@images[0, 4, 1]], skipped => 0};
+%download_statuses = (id5 => [404]);
+$results_ref
+	= import_photos_from_google_drive_folder({folder_id => "folder", user_id => "producer", owner_id => "org-org"});
+is([map {$_->{id}} @import_calls], ["id1", "id2"], "the photo that could not be downloaded is not processed");
+is($import_calls[1]{previous_code}, undef, "a failed download resets the previous code");
+is($import_calls[1]{previous_imgid}, undef, "a failed download resets the previous image id");
+
+# Temporary errors are retried once
+
+@import_calls = ();
+@downloaded_urls = ();
+$listing_ref = {images => [@images[0, 1]], skipped => 0};
+%download_statuses = (id1 => [503], id2 => [429, 503]);
+$results_ref
+	= import_photos_from_google_drive_folder({folder_id => "folder", user_id => "producer", owner_id => "org-org"});
+is(scalar(grep {/id=id1/} @downloaded_urls), 2, "a 503 is retried");
+is($results_ref->{results}[0]{error}, undef, "the retried download succeeded");
+is(scalar(grep {/id=id2/} @downloaded_urls), 2, "a download is retried only once");
+like($results_ref->{results}[1]{error}, qr/could not download the image: 503/, "the second error is reported");
+is([map {$_->{id}} @import_calls], ["id1"], "only the downloaded photo is processed");
+
+# Each import uses its own temporary directory
+
+my ($tmp_dir_1) = $import_calls[0]{file_path} =~ m{^(.*)/[^/]+$};
+@import_calls = ();
+%download_statuses = ();
+import_photos_from_google_drive_folder({folder_id => "folder", user_id => "producer", owner_id => "org-org"});
+my ($tmp_dir_2) = $import_calls[0]{file_path} =~ m{^(.*)/[^/]+$};
+isnt($tmp_dir_1, $tmp_dir_2, "two imports do not share a temporary directory");
+like($tmp_dir_1, qr{/google_drive_import_\w+$}, "temporary directory name");
+
+# Only one import at a time per owner
+
+my @queued_jobs = ({id => 7, args => [{owner_id => "org-other"}]}, {id => 8, args => [{owner_id => "org-org"}]});
+my @enqueued;
+my $fake_minion = mock {} => (
+	add => [
+		jobs => sub ($self, $options_ref) {
+			is($options_ref->{states}, ['inactive', 'active'], "only queued and running jobs are checked");
+			my @jobs = @queued_jobs;
+			return mock {} => (add => [next => sub {return shift @jobs}]);
+		},
+		enqueue => sub ($self, $task, $args_ref, $options_ref) {push @enqueued, $args_ref->[0]{owner_id}; return 9},
+	]
+);
+$producers_module->override(get_minion => sub {return $fake_minion});
+{
+	local $ProductOpener::Config2::google_drive_api_key = "test-key";
+	my $url = "https://drive.google.com/drive/folders/117ceLWnZ6Zyy4Zx9Klpr0Z2vaenwIAv1";
+
+	my $start_ref = start_google_drive_photos_import({folder_url => $url, owner_id => "org-org"});
+	is(
+		$start_ref,
+		{error => "google_drive_import_already_running", job_id => 8},
+		"an owner cannot start a second import"
+	);
+
+	$start_ref = start_google_drive_photos_import({folder_url => $url, owner_id => "org-new"});
+	is($start_ref, {job_id => 9}, "another owner can start an import");
+	is(\@enqueued, ["org-new"], "only the import of the other owner is queued");
 }
 
 done_testing();
