@@ -84,12 +84,12 @@ if ($r->method_number == Apache2::Const::M_OPTIONS) {
 
 # Moving or trashing an uploaded image destroys or relocates another contributor's work and
 # writes a new revision of the product, so it is a moderator action.
-# On the pro platform, members of an organization can also manage images for products
-# belonging to their organization.
+# On the producers platform, members of an organization can also do it: the product is
+# loaded with their owner id, so they can only reach products of their organization.
 # This endpoint was reachable without any authentication: the restriction existed only in the
-# edit form ([% IF can_delete %] in product_edit_form_display.tt.html) and in the front-end
-# JavaScript, while the same sink is gated by the "image_delete" permission on the API v3
-# route (see ProductOpener::Permissions and APIProductImagesUpload).
+# edit form ([% IF can_delete_image %] in product_edit_form_display.tt.html) and in the front-end
+# JavaScript. The API v3 route to the same sink (APIProductImagesUpload) uses the same
+# can_delete_image() check.
 if (not can_delete_image()) {
 	$log->warn("no permission to move or delete images", {ip => remote_addr(), code => $code})
 		if $log->is_warn();

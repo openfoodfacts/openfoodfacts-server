@@ -381,12 +381,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{admin} = $request_ref->{admin};
 	$template_data_ref->{moderator} = $User{moderator};
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
-	if (not defined $template_data_ref->{can_delete}) {
-		$template_data_ref->{can_delete} = can_delete_product(undef, undef, undef, $template_data_ref->{product});
-	}
-	if (not defined $template_data_ref->{can_delete_image}) {
-		$template_data_ref->{can_delete_image} = can_delete_image(undef, undef, undef, $template_data_ref->{product});
-	}
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = sub ($stringid) {
 		return lang_in_other_lc($target_lc, $stringid);
@@ -8297,9 +8291,8 @@ JS
 
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{code} = $code;
-	$template_data_ref->{user_moderator} = $User{moderator};
-	$template_data_ref->{can_delete} = can_delete_product(undef, undef, undef, $product_ref);
-	$template_data_ref->{can_delete_image} = can_delete_image(undef, undef, undef, $product_ref);
+	$template_data_ref->{can_delete} = can_delete_product($product_ref);
+	$template_data_ref->{can_delete_image} = can_delete_image($product_ref);
 
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;

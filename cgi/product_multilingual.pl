@@ -372,7 +372,7 @@ else {
 	}
 }
 
-if (($type eq 'delete') and (not can_delete_product(undef, undef, undef, $product_ref))) {
+if (($type eq 'delete') and (not can_delete_product($product_ref))) {
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
@@ -778,15 +778,8 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Lang strings for product.js
 
-	my $moderator = 0;
-	if ($User{moderator}) {
-		$moderator = 1;
-	}
-	# On the pro platform, org members can manage images for their products,
-	# so we treat them as moderators for the front-end image management UI.
-	if ((not $moderator) and (can_delete_image())) {
-		$moderator = 1;
-	}
+	# Moderators, and org members on the producers platform, can delete and move images
+	my $can_delete_image = can_delete_image($product_ref) ? 1 : 0;
 
 	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
@@ -796,7 +789,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 <script type="text/javascript" src="$static_subdomain/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/canvas-to-blob.js"></script>
 <script type="text/javascript">
-var admin = $moderator;
+var admin = $can_delete_image;
 </script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify-init.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
@@ -1334,6 +1327,8 @@ HTML
 	$template_data_ref_display->{code} = $code;
 	$template_data_ref_display->{display_product_history} = display_product_history($request_ref, $code, $product_ref);
 	$template_data_ref_display->{product} = $product_ref;
+	$template_data_ref_display->{can_delete} = can_delete_product($product_ref);
+	$template_data_ref_display->{can_delete_image} = $can_delete_image;
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html',
 		$template_data_ref_display, \$html, $request_ref)
@@ -1343,7 +1338,7 @@ HTML
 	$request_ref->{page_format} = "banner";
 
 }
-elsif (($action eq 'display') and ($type eq 'delete') and (can_delete_product(undef, undef, undef, $product_ref))) {
+elsif (($action eq 'display') and ($type eq 'delete') and (can_delete_product($product_ref))) {
 
 	my $template_data_ref_moderator = {};
 
@@ -1368,11 +1363,11 @@ elsif ($action eq 'process') {
 	$product_ref->{interface_version_modified} = $interface_version;
 
 	# removal is just putting "on" in delete
-	if ((can_delete_product(undef, undef, undef, $product_ref)) and ($type eq 'delete')) {
+	if ((can_delete_product($product_ref)) and ($type eq 'delete')) {
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
 	}
-	elsif ((can_delete_product(undef, undef, undef, $product_ref)) and (exists $product_ref->{deleted})) {
+	elsif ((can_delete_product($product_ref)) and (exists $product_ref->{deleted})) {
 		delete $product_ref->{deleted};
 	}
 

@@ -7,190 +7,174 @@
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
 
+# Tests for can_delete_product() and can_delete_image(), which share the same rules:
+# admins and moderators can always delete, and on the producers platform, pro moderators
+# and members of the organization that owns the product can delete too.
+
 use ProductOpener::PerlStandards;
 
 use Test2::V0;
 
 use ProductOpener::Config qw/%server_options %admins/;
-use ProductOpener::Users qw/%User $User_id $Org_id $Owner_id can_delete_product/;
+use ProductOpener::Users qw/%User $User_id $Org_id $Owner_id can_delete_product can_delete_image/;
 use ProductOpener::Display qw/process_template/;
 
-# Reset state
-%User = ();
-$User_id = undef;
-$Org_id = undef;
-$Owner_id = undef;
 my $prev_producers_platform = $server_options{producers_platform};
 my $prev_private_products = $server_options{private_products};
 
-subtest "Public platform permissions" => sub {
-	$server_options{producers_platform} = 0;
-	$server_options{private_products} = 0;
+sub set_user ($user_ref, $user_id, $org_id, $owner_id) {
+	%User = %$user_ref;
+	$User_id = $user_id;
+	$Org_id = $org_id;
+	$Owner_id = $owner_id;
+	return;
+}
 
-	# Plain user
-	%User = ();
-	$User_id = 'regular_user';
-	$Org_id = undef;
-	$Owner_id = undef;
-	is(can_delete_product(), 0, 'plain user cannot delete product on public platform');
+my $acme_product_ref = {code => '123456', owner => 'org-acme'};
+my $other_product_ref = {code => '123456', owner => 'org-other'};
 
-	# User with org_id on public platform still cannot delete
-	%User = (org_id => 'acme');
-	$User_id = 'org_user';
-	$Org_id = 'acme';
-	$Owner_id = 'org-acme';
-	is(can_delete_product(), 0, 'user with org cannot delete product on public platform');
+foreach my $function (\&can_delete_product, \&can_delete_image) {
 
-	# Pro moderator on public platform cannot delete
-	%User = (pro_moderator => 1);
-	$User_id = 'promod';
-	$Org_id = undef;
-	$Owner_id = undef;
-	is(can_delete_product(), 0, 'pro_moderator cannot delete product on public platform');
+	my $name = ($function == \&can_delete_product) ? 'can_delete_product' : 'can_delete_image';
 
-	# Moderator can delete
-	%User = (moderator => 1);
-	$User_id = 'mod';
-	is(can_delete_product(), 1, 'moderator can delete product on public platform');
+	subtest "$name - public platform" => sub {
+		$server_options{producers_platform} = 0;
+		$server_options{private_products} = 0;
 
-	# Admin can delete
-	%User = ();
-	$User_id = 'stephane';
-	local $admins{'stephane'} = 1;
-	is(can_delete_product(), 1, 'admin can delete product on public platform');
-};
+		set_user({}, undef, undef, undef);
+		is($function->(), 0, 'anonymous user cannot delete');
 
-subtest "Producers platform permissions" => sub {
-	$server_options{producers_platform} = 1;
-	$server_options{private_products} = 1;
+		set_user({}, 'regular_user', undef, undef);
+		is($function->(), 0, 'plain user cannot delete');
 
-	# Plain user without org on pro platform
-	%User = ();
-	$User_id = 'new_user';
-	$Org_id = undef;
-	$Owner_id = 'user-new_user';
-	is(can_delete_product(), 0, 'user without org cannot delete product on pro platform');
+		set_user({org_id => 'acme'}, 'org_user', 'acme', undef);
+		is($function->($acme_product_ref), 0, 'user with an org cannot delete');
 
-	# Member of an organization on pro platform
-	%User = (org_id => 'acme');
-	$User_id = 'acme_member';
-	$Org_id = 'acme';
-	$Owner_id = 'org-acme';
-	is(can_delete_product(), 1, 'org member can delete product on pro platform even if not moderator or pro_moderator');
+		set_user({pro_moderator => 1}, 'promod', undef, undef);
+		is($function->(), 0, 'pro moderator cannot delete');
 
-	# Org member with product belonging to same org
-	my $acme_product_ref = {code => '123456', owner => 'org-acme'};
-	is(can_delete_product(undef, undef, undef, $acme_product_ref),
-		1, 'org member can delete product belonging to their org');
+		set_user({moderator => 0}, 'not_mod', undef, undef);
+		is($function->(), 0, 'user with moderator set to 0 cannot delete');
 
-	# Org member with product belonging to different org
-	my $other_product_ref = {code => '123456', owner => 'org-other'};
-	is(can_delete_product(undef, undef, undef, $other_product_ref),
-		0, 'org member cannot delete product belonging to another org');
+		set_user({moderator => 1}, 'mod', undef, undef);
+		is($function->(), 1, 'moderator can delete');
 
-	# Pro moderator on pro platform
-	%User = (pro_moderator => 1);
-	$User_id = 'promod';
-	$Org_id = undef;
-	$Owner_id = undef;
-	is(can_delete_product(), 1, 'pro_moderator can delete product on pro platform');
-	is(can_delete_product(undef, undef, undef, $other_product_ref),
-		1, 'pro_moderator can delete any org product on pro platform');
+		set_user({}, 'stephane', undef, undef);
+		local $admins{'stephane'} = 1;
+		is($function->(), 1, 'admin can delete');
+		set_user({}, 'regular_user', undef, undef);
+		is($function->(undef, 'stephane'), 1, 'admin passed as user id can delete');
+	};
 
-	# Moderator on pro platform
-	%User = (moderator => 1);
-	$User_id = 'mod';
-	$Org_id = undef;
-	$Owner_id = undef;
-	is(can_delete_product(), 1, 'moderator can delete product on pro platform');
+	subtest "$name - producers platform" => sub {
+		$server_options{producers_platform} = 1;
+		$server_options{private_products} = 1;
 
-	# Admin on pro platform
-	%User = ();
-	$User_id = 'stephane';
-	local $admins{'stephane'} = 1;
-	is(can_delete_product(), 1, 'admin can delete product on pro platform');
-};
+		set_user({}, undef, undef, undef);
+		is($function->(), 0, 'anonymous user cannot delete');
 
-subtest "Template rendering of delete button" => sub {
-	# Public platform - plain user does not see delete button
-	$server_options{producers_platform} = 0;
-	$server_options{private_products} = 0;
-	%User = ();
-	$User_id = 'regular_user';
-	$Org_id = undef;
-	$Owner_id = undef;
+		set_user({}, 'new_user', undef, 'user-new_user');
+		is($function->(), 0, 'user without org cannot delete');
+		is($function->({code => '123456', owner => 'user-new_user'}),
+			0, 'user without org cannot delete their own product');
 
-	my $html_edit = '';
+		set_user({org_id => 'acme'}, 'acme_member', 'acme', 'org-acme');
+		is($function->(), 1, 'org member can delete');
+		is($function->($acme_product_ref), 1, 'org member can delete product of their org');
+		is($function->({code => '123456'}), 1, 'org member can delete product without owner field');
+		is($function->($other_product_ref), 0, 'org member cannot delete product of another org');
+		is($function->($acme_product_ref, 'acme_member', 'org-other'),
+			0, 'explicit owner id is used instead of $Owner_id');
+		is($function->($other_product_ref, 'acme_member', 'org-other'),
+			1, 'explicit owner id matching the product owner');
+
+		set_user({pro_moderator => 1}, 'promod', undef, undef);
+		is($function->(), 1, 'pro moderator can delete');
+		is($function->($other_product_ref), 1, 'pro moderator can delete product of any org');
+
+		set_user({moderator => 1}, 'mod', undef, undef);
+		is($function->($other_product_ref), 1, 'moderator can delete');
+
+		set_user({}, 'stephane', undef, undef);
+		local $admins{'stephane'} = 1;
+		is($function->($other_product_ref), 1, 'admin can delete');
+	};
+}
+
+subtest "Template rendering of delete and manage images controls" => sub {
+
+	my %edit_form_data = (
+		type => 'edit',
+		code => '123456',
+		errors_index => -1,
+		input_sets => {},
+		pers => [],
+	);
+
+	set_user({}, 'regular_user', undef, undef);
+
+	my $html = '';
 	process_template(
 		'web/pages/product_edit/product_edit_form_display.tt.html',
-		{
-			type => 'edit',
-			code => '123456',
-			errors_index => -1,
-			input_sets => {},
-			pers => [],
-		},
-		\$html_edit,
-		{lc => 'en'}
+		{%edit_form_data, can_delete => 0, can_delete_image => 0},
+		\$html, {lc => 'en'}
 	);
-	unlike($html_edit, qr{type=delete}, 'delete link not rendered on edit form for plain user on public platform');
+	unlike($html, qr{type=delete}, 'edit form: no delete link without can_delete');
+	unlike($html, qr{manage_images_accordion}, 'edit form: no manage images section without can_delete_image');
 
-	my $html_page = '';
-	process_template(
-		'web/pages/product/product_page.tt.html',
-		{
-			code => '123456',
-			title => 'Test Product',
-		},
-		\$html_page,
-		{lc => 'en'}
-	);
-	unlike($html_page, qr{type=delete}, 'delete button not rendered on product page for plain user on public platform');
-
-	# Pro platform - org member sees delete button
-	$server_options{producers_platform} = 1;
-	$server_options{private_products} = 1;
-	%User = (org_id => 'acme');
-	$User_id = 'acme_member';
-	$Org_id = 'acme';
-	$Owner_id = 'org-acme';
-
-	$html_edit = '';
+	$html = '';
 	process_template(
 		'web/pages/product_edit/product_edit_form_display.tt.html',
-		{
-			type => 'edit',
-			code => '123456',
-			errors_index => -1,
-			input_sets => {},
-			pers => [],
-			product => {code => '123456', owner => 'org-acme'},
-		},
-		\$html_edit,
-		{lc => 'en'}
+		{%edit_form_data, can_delete => 1, can_delete_image => 0},
+		\$html, {lc => 'en'}
 	);
-	like($html_edit, qr{type=delete}, 'delete link rendered on edit form for org member on pro platform');
+	like($html, qr{type=delete}, 'edit form: delete link with can_delete');
+	unlike($html, qr{manage_images_accordion}, 'edit form: manage images section depends on can_delete_image');
 
-	$html_page = '';
+	# Org member on the producers platform: manage images without the moderator-only style
+	$html = '';
+	process_template(
+		'web/pages/product_edit/product_edit_form_display.tt.html',
+		{%edit_form_data, can_delete => 1, can_delete_image => 1},
+		\$html, {lc => 'en'}
+	);
+	like($html, qr{manage_images_accordion}, 'edit form: manage images section with can_delete_image');
+	like($html, qr{<a href="#manage_images_drop">}, 'edit form: manage images link is well-formed for non moderators');
+
+	# Moderator: manage images link has the moderator-only class
+	set_user({moderator => 1}, 'mod', undef, undef);
+	$html = '';
+	process_template(
+		'web/pages/product_edit/product_edit_form_display.tt.html',
+		{%edit_form_data, can_delete => 1, can_delete_image => 1},
+		\$html, {lc => 'en'}
+	);
+	like(
+		$html,
+		qr{<a href="#manage_images_drop" class="moderator-only">},
+		'edit form: manage images link is well-formed for moderators'
+	);
+
+	$html = '';
 	process_template(
 		'web/pages/product/product_page.tt.html',
-		{
-			code => '123456',
-			title => 'Test Product',
-			product => {code => '123456', owner => 'org-acme'},
-		},
-		\$html_page,
-		{lc => 'en'}
+		{code => '123456', title => 'Test Product', can_delete => 0},
+		\$html, {lc => 'en'}
 	);
-	like($html_page, qr{type=delete}, 'delete button rendered on product page for org member on pro platform');
+	unlike($html, qr{type=delete}, 'product page: no delete button without can_delete');
+
+	$html = '';
+	process_template(
+		'web/pages/product/product_page.tt.html',
+		{code => '123456', title => 'Test Product', can_delete => 1},
+		\$html, {lc => 'en'}
+	);
+	like($html, qr{type=delete}, 'product page: delete button with can_delete');
 };
 
 # Restore settings
 $server_options{producers_platform} = $prev_producers_platform;
 $server_options{private_products} = $prev_private_products;
-%User = ();
-$User_id = undef;
-$Org_id = undef;
-$Owner_id = undef;
+set_user({}, undef, undef, undef);
 
 done_testing();

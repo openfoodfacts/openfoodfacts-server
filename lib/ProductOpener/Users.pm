@@ -405,52 +405,48 @@ sub is_admin_user ($user_id) {
 	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
 }
 
-=head2 can_delete_product ($user_ref, $user_id, $owner_id, $product_ref)
+=head2 can_delete_product ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id)
 
-Checks if the user has permission to delete a product page.
-On the public platform, only moderators and admins can delete product pages.
-On the pro platform, members of an organization can delete product pages even if they are not moderators or pro_moderators.
-Moderators and pro_moderators can also delete product pages on the pro platform.
+Checks if the current user (%User) has permission to delete a product page,
+or to delete or move images of a product (see can_delete_image()).
+
+Admins and moderators can always delete.
+
+On the producers platform (private products), pro moderators can delete,
+and so can members of an organization (the owner is "org-<org_id>"), for products
+of their organization. Users without an organization cannot delete.
 
 =head3 Parameters
 
-=head4 User object $user_ref
+=head4 Product object $product_ref (optional)
 
-=head4 String user ID $user_id
+If passed, members of an organization can only delete it if it is owned by their organization.
 
-=head4 String owner ID $owner_id
+=head4 String user ID $user_id (optional, defaults to $User_id)
 
-=head4 Product object $product_ref
+=head4 String owner ID $owner_id (optional, defaults to $Owner_id)
 
 =head3 Return values
 
-Boolean: This function returns a 1/0 (True or False) depending on whether the user can delete the product.
+1 if the user can delete the product, 0 otherwise.
 
 =cut
 
-sub can_delete_product ($user_ref = undef, $user_id = undef, $owner_id = undef, $product_ref = undef) {
-	my $u = defined $user_ref ? $user_ref : \%User;
-	my $uid = $user_id // $User_id;
-	my $oid = $owner_id // $Owner_id;
+sub can_delete_product ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id) {
 
 	# Admins and moderators can always delete
-	if ((defined $uid and is_admin_user($uid)) or ($u->{moderator})) {
+	if ((is_admin_user($user_id)) or ($User{moderator})) {
 		return 1;
 	}
 
-	# On the pro platform: pro moderators and members of an organization can delete
-	if ($server_options{producers_platform} || $server_options{private_products}) {
-		if ($u->{pro_moderator}) {
+	# On the producers platform: pro moderators and members of an organization can delete
+	if ($server_options{private_products}) {
+		if ($User{pro_moderator}) {
 			return 1;
 		}
-		if (   ((defined $oid) and ($oid =~ /^org-/))
-			or (defined $Org_id)
-			or (defined $u->{org_id}))
-		{
-			my $expected_owner = $oid
-				// (defined $u->{org_id} ? "org-" . $u->{org_id} : (defined $Org_id ? "org-" . $Org_id : undef));
-			if (defined $product_ref and defined $product_ref->{owner} and defined $expected_owner) {
-				return 0 if $product_ref->{owner} ne $expected_owner;
+		if ((defined $owner_id) and ($owner_id =~ /^org-/)) {
+			if ((defined $product_ref) and (defined $product_ref->{owner}) and ($product_ref->{owner} ne $owner_id)) {
+				return 0;
 			}
 			return 1;
 		}
@@ -459,59 +455,16 @@ sub can_delete_product ($user_ref = undef, $user_id = undef, $owner_id = undef, 
 	return 0;
 }
 
-=head2 can_delete_image ($user_ref, $user_id, $owner_id, $product_ref)
+=head2 can_delete_image ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id)
 
-Checks if the user has permission to delete or move images for a product.
-On the public platform, only moderators and admins can delete images.
-On the pro platform, members of an organization can delete images for products
-belonging to their organization, even if they are not moderators or pro_moderators.
-Moderators, pro_moderators, and admins can also delete images on the pro platform.
+Checks if the current user (%User) has permission to delete or move uploaded images of a product.
 
-=head3 Parameters
-
-=head4 User object $user_ref
-
-=head4 String user ID $user_id
-
-=head4 String owner ID $owner_id
-
-=head4 Product object $product_ref
-
-=head3 Return values
-
-Boolean: This function returns a 1/0 (True or False) depending on whether the user can delete images.
+The rules are the same as for deleting the product itself, see can_delete_product().
 
 =cut
 
-sub can_delete_image ($user_ref = undef, $user_id = undef, $owner_id = undef, $product_ref = undef) {
-	my $u = defined $user_ref ? $user_ref : \%User;
-	my $uid = $user_id // $User_id;
-	my $oid = $owner_id // $Owner_id;
-
-	# Admins and moderators can always delete images
-	if ((defined $uid and is_admin_user($uid)) or ($u->{moderator})) {
-		return 1;
-	}
-
-	# On the pro platform: pro moderators and members of an organization can delete images
-	if ($server_options{producers_platform} || $server_options{private_products}) {
-		if ($u->{pro_moderator}) {
-			return 1;
-		}
-		if (   ((defined $oid) and ($oid =~ /^org-/))
-			or (defined $Org_id)
-			or (defined $u->{org_id}))
-		{
-			my $expected_owner = $oid
-				// (defined $u->{org_id} ? "org-" . $u->{org_id} : (defined $Org_id ? "org-" . $Org_id : undef));
-			if (defined $product_ref and defined $product_ref->{owner} and defined $expected_owner) {
-				return 0 if $product_ref->{owner} ne $expected_owner;
-			}
-			return 1;
-		}
-	}
-
-	return 0;
+sub can_delete_image ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id) {
+	return can_delete_product($product_ref, $user_id, $owner_id);
 }
 
 =head2 check_user_org($user_ref, $new_org)

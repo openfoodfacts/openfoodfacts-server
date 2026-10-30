@@ -103,7 +103,7 @@ sub delete_product_image_api ($request_ref) {
 	}
 
 	# Check if the user has permission to delete the image
-	if (can_delete_image(undef, undef, undef, $product_ref)) {
+	if (can_delete_image($product_ref)) {
 		$log->debug("image_product_delete_api - user has permission to delete image", {code => $code})
 			if $log->is_debug();
 

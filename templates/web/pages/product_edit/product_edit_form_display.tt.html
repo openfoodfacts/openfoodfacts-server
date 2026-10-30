@@ -106,10 +106,10 @@
         </div>
         [% END %]
 
-        [% IF can_delete %]
+        [% IF can_delete_image %]
             <ul id="manage_images_accordion" class="accordion" data-accordion>
                 <li class="accordion-navigation">
-                    <a href="#manage_images_drop"[% IF moderator %] class="moderator-only"][% END %]>[% display_icon('collections') %] [% lang("manage_images") %]</a>
+                    <a href="#manage_images_drop"[% IF moderator %] class="moderator-only"[% END %]>[% display_icon('collections') %] [% lang("manage_images") %]</a>
                     <div id="manage_images_drop" class="content" style="background:#eeeeee">
                         [% display_select_manage %]
                         <p>[% manage_images_info %]</p>
