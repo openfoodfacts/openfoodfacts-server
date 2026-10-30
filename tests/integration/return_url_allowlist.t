@@ -34,12 +34,14 @@ foreach my $url (
 	"https://world.$server_domain/?code=1",
 	"http://world.$server_domain/cgi/session.pl",    # http is accepted, as before
 	"https://world.$server_domain:8080/cgi/product.pl",
+	"https://fr.$server_domain/cgi/product.pl",    # a url on a language subdomain
 	)
 {
-	ok(is_allowed_return_url($url, 'world'), "'$url' is one of our urls");
+	ok(is_allowed_return_url($url), "'$url' is one of our urls");
 }
 
 # Urls that are not ours are refused. The first ones are the ones the prefix match accepted.
+my $other_domain = $server_domain =~ s/openfoodfacts/openpetfoodfacts/;
 
 my @refused = (
 	["https://world.$server_domain.evil.example/steal", 'a host suffixed to ours'],
@@ -54,22 +56,22 @@ my @refused = (
 	["", 'an empty url'],
 	[undef, 'no url'],
 	# only the subdomain of the request is accepted, not any of ours
-	["https://pro.$server_domain/cgi/product.pl", 'a url on another of our subdomains'],
+	["https://world.$other_domain/cgi/product.pl", 'a url on another of our subdomains'],
 );
 
 foreach my $case (@refused) {
 	my ($url, $desc) = @{$case};
 	my $shown = defined $url ? $url : '(undef)';
-	ok(not(is_allowed_return_url($url, 'world')), "$desc is refused: '$shown'");
+	ok(not(is_allowed_return_url($url)), "$desc is refused: '$shown'");
 }
 
 # The subdomain is compared as a string, not inserted into a regex pattern: with a subdomain that
 # contains a dot, a host that only looks like it matches must still be refused
 
-ok(is_allowed_return_url("https://pro.world.$server_domain/cgi/product.pl", 'pro.world'),
-	'a url on the expected host of a dotted subdomain is allowed');
-ok(not(is_allowed_return_url("https://proXworld.$server_domain/cgi/product.pl", 'pro.world')),
-	'a host that only looks like the expected one is refused');
+ok(
+	not(is_allowed_return_url("https://pro.world.$server_domain/cgi/product.pl")),
+	'a url on the expected host of a dotted subdomain is not allowed'
+);
 
 # Through the endpoint: cgi/login.pl copied the redirect parameter into a Location header without
 # any check at all

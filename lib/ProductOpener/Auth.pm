@@ -119,7 +119,7 @@ None
 
 =cut
 
-=head2 is_allowed_return_url ($url, $subdomain)
+=head2 is_allowed_return_url ($url)
 
 Returns 1 if $url is a url of the site we serve, and can therefore be redirected to after a sign in
 or a sign out.
@@ -128,7 +128,8 @@ A return url comes from a request parameter, a cookie or a Referer header, so it
 before it is used as a redirect target: an open redirect on the sign in flow is enough to phish a
 user, and to have the browser leak the tokens of the sign in to the site the attacker chose.
 
-The check is an exact match of the host against the expected one. A prefix match is not enough:
+The check is an exact match of the host against the expected one but excluding the language subdomain.
+A prefix match is not enough:
 without an end anchor, a url like https://world.openfoodfacts.org.evil.example/ passes a test for
 the https://world.openfoodfacts.org prefix, and the userinfo part of a url
 (https://world.openfoodfacts.org@evil.example/) makes the prefix match while the host is another
@@ -138,17 +139,15 @@ one. Comparing the parsed host also takes care of both, and of a port.
 
 =head4 String $url - the url to check
 
-=head4 String $subdomain - the subdomain the url must be on, e.g. "world"
-
 =head3 Return value
 
 1 if the url is one of ours, 0 otherwise
 
 =cut
 
-sub is_allowed_return_url ($url, $subdomain) {
+sub is_allowed_return_url ($url) {
 
-	if ((not defined $url) or (not defined $subdomain)) {
+	if (not defined $url) {
 		return !!0;
 	}
 
@@ -168,7 +167,9 @@ sub is_allowed_return_url ($url, $subdomain) {
 		return !!0;
 	}
 
-	my $expected_host = lc($subdomain) . '.' . lc($server_domain);
+	# Strip language subdomain from the host
+	$host =~ s/^[^.]*\.//;
+	my $expected_host = lc($server_domain);
 
 	if (lc($host) ne $expected_host) {
 		$log->info("not redirecting to a url that is not ours",
@@ -188,10 +189,7 @@ otherwise.
 =cut
 
 sub checked_return_url ($url, $request_ref) {
-
-	my $subdomain = $request_ref->{subdomain};
-
-	if (is_allowed_return_url($url, $subdomain)) {
+	if (is_allowed_return_url($url)) {
 		return $url;
 	}
 
@@ -202,7 +200,7 @@ sub start_authorize ($request_ref) {
 	# random private token to identify the sign-in process
 	my $nonce = generate_token(64);
 	my $return_url = $request_ref->{return_url};
-	if (not is_allowed_return_url($return_url, $request_ref->{subdomain})) {
+	if (not is_allowed_return_url($return_url)) {
 		$return_url = $request_ref->{formatted_subdomain};
 	}
 
@@ -543,7 +541,7 @@ sub access_to_protected_resource ($request_ref) {
 	$log->info('request is ok', $request_ref) if $log->is_info();
 
 	# Already logged in. Redirect to the requested url, if it is one of ours
-	if (is_allowed_return_url($request_ref->{return_url}, $request_ref->{subdomain})) {
+	if (is_allowed_return_url($request_ref->{return_url})) {
 		redirect_to_url($request_ref, 302, $request_ref->{return_url});
 	}
 	return;
@@ -605,7 +603,7 @@ None
 sub start_signout ($request_ref) {
 	# compute return_url, so that after sign out, user will be redirected to the home page
 	my $return_url = single_param('return_url');
-	if (not is_allowed_return_url($return_url, $request_ref->{subdomain})) {
+	if (not is_allowed_return_url($return_url)) {
 		$return_url = $request_ref->{formatted_subdomain};
 	}
 
