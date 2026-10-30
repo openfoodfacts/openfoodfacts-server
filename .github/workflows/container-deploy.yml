@@ -165,6 +165,7 @@ jobs:
           echo "NUTRIPATROL_URL=${{ env.NUTRIPATROL_URL }}" >> .env
           echo "FOLKSONOMY_URL=${{ env.FOLKSONOMY_URL }}" >> .env
           echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env
+          echo "GOOGLE_DRIVE_API_KEY=${{ secrets.GOOGLE_DRIVE_API_KEY }}" >> .env
           echo "CROWDIN_PROJECT_IDENTIFIER=${{ env.CROWDIN_PROJECT_IDENTIFIER }}" >> .env
           echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
           echo "ECOBALYSE_API_TOKEN=${{ secrets.ECOBALYSE_API_TOKEN }}" >> .env

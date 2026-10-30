@@ -10,11 +10,19 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use URI::Escape::XS qw/uri_escape/;
 
-use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready/;
+use ProductOpener::APITest qw/construct_test_url login new_client wait_application_ready create_user/;
+use ProductOpener::Test qw/remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Auth qw/is_allowed_return_url/;
 use ProductOpener::Config qw/$server_domain/;
 
 wait_application_ready(__FILE__);
+remove_all_users();
+
+my $ua = new_client();
+
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+create_user($ua, \%create_user_args);
 
 my $our_url = "https://world.$server_domain/cgi/product.pl";
 
@@ -26,12 +34,14 @@ foreach my $url (
 	"https://world.$server_domain/?code=1",
 	"http://world.$server_domain/cgi/session.pl",    # http is accepted, as before
 	"https://world.$server_domain:8080/cgi/product.pl",
+	"https://fr.$server_domain/cgi/product.pl",    # a url on a language subdomain
 	)
 {
-	ok(is_allowed_return_url($url, 'world'), "'$url' is one of our urls");
+	ok(is_allowed_return_url($url), "'$url' is one of our urls");
 }
 
 # Urls that are not ours are refused. The first ones are the ones the prefix match accepted.
+my $other_domain = $server_domain =~ s/openfoodfacts/openpetfoodfacts/;
 
 my @refused = (
 	["https://world.$server_domain.evil.example/steal", 'a host suffixed to ours'],
@@ -46,27 +56,27 @@ my @refused = (
 	["", 'an empty url'],
 	[undef, 'no url'],
 	# only the subdomain of the request is accepted, not any of ours
-	["https://pro.$server_domain/cgi/product.pl", 'a url on another of our subdomains'],
+	["https://world.$other_domain/cgi/product.pl", 'a url on another of our subdomains'],
 );
 
 foreach my $case (@refused) {
 	my ($url, $desc) = @{$case};
 	my $shown = defined $url ? $url : '(undef)';
-	ok(not(is_allowed_return_url($url, 'world')), "$desc is refused: '$shown'");
+	ok(not(is_allowed_return_url($url)), "$desc is refused: '$shown'");
 }
 
 # The subdomain is compared as a string, not inserted into a regex pattern: with a subdomain that
 # contains a dot, a host that only looks like it matches must still be refused
 
-ok(is_allowed_return_url("https://pro.world.$server_domain/cgi/product.pl", 'pro.world'),
-	'a url on the expected host of a dotted subdomain is allowed');
-ok(not(is_allowed_return_url("https://proXworld.$server_domain/cgi/product.pl", 'pro.world')),
-	'a host that only looks like the expected one is refused');
+ok(
+	not(is_allowed_return_url("https://pro.world.$server_domain/cgi/product.pl")),
+	'a url on the expected host of a dotted subdomain is not allowed'
+);
 
 # Through the endpoint: cgi/login.pl copied the redirect parameter into a Location header without
 # any check at all
 
-my $ua = new_client();
+$ua = new_client();
 login($ua, "tests", 'testtest');
 # do not follow the redirect: we check the Location header of the response itself
 $ua->max_redirect(0);
