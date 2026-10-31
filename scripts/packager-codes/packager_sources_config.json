@@ -147,5 +147,111 @@
         ]
       }
     ]
+  },
+  "uk": {
+    "country_name": "United Kingdom",
+    "geocoding_strategies": [
+      "strategy_remove_city",
+      "strategy_remove_street",
+      "strategy_remove_postalcode"
+    ],
+    "sources": [
+      {
+        "url": "https://www.data.gov.uk/dataset/2c80e0ce-ee1c-4f26-ba6f-1e1ae1bd8ee9/approved-food-establishments",
+        "files": [
+          {
+            "type": "csv",
+            "keyword": "Approved-Establishments-",
+            "header_keywords": [
+              "appno",
+              "tradingname"
+            ],
+            "columns": {
+              "code": 0,
+              "name": 1,
+              "street": 2,
+              "city": 5,
+              "postalcode": 6
+            },
+            "code_format": {
+              "prefix": "GB",
+              "suffix": ""
+            },
+            "normalize_fields": [
+              "code",
+              "name",
+              "street",
+              "city",
+              "postalcode"
+            ],
+            "last_filename": "Approved-Establishments-01-08-2026.csv"
+          }
+        ]
+      },
+      {
+        "url": "https://www.foodstandards.gov.scot/business-guidance/running-a-food-business/publications/approved-establishments-register",
+        "files": [
+          {
+            "type": "excel",
+            "keyword": "Approved%20Establishments%20in%20Scotland.xlsx",
+            "header_keywords": [
+              "approval number",
+              "trading name"
+            ],
+            "columns": {
+              "code": 1,
+              "name": 2,
+              "street": 3,
+              "city": 5,
+              "postalcode": 7
+            },
+            "code_format": {
+              "prefix": "GB",
+              "suffix": ""
+            },
+            "normalize_fields": [
+              "code",
+              "name",
+              "street",
+              "city",
+              "postalcode"
+            ],
+            "last_filename": "Approved%20Establishments%20in%20Scotland.xlsx"
+          }
+        ]
+      },
+      {
+        "url": "https://data.food.gov.uk/catalog/datasets/dae35822-ca4e-41a2-b2af-b10b6163085a",
+        "files": [
+          {
+            "type": "csv",
+            "keyword": "APMS",
+            "header_keywords": [
+              "appno",
+              "tradingname"
+            ],
+            "columns": {
+              "code": 0,
+              "name": 1,
+              "street": 2,
+              "city": 5,
+              "postalcode": 6
+            },
+            "code_format": {
+              "prefix": "UK(NI)",
+              "suffix": "EC"
+            },
+            "normalize_fields": [
+              "code",
+              "name",
+              "street",
+              "city",
+              "postalcode"
+            ],
+            "last_filename": "APMS-NI-August-2026.csv"
+          }
+        ]
+      }
+    ]
   }
 }
