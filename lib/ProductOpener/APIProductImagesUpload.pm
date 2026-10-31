@@ -102,11 +102,18 @@ sub delete_product_image_api ($request_ref) {
 		return;
 	}
 
-	# Check if the user has permission to delete the image
-	if (check_user_permission($request_ref, $response_ref, "image_delete")) {
-		$log->error("image_product_delete_api - user does not have permission to delete image", {code => $code})
-			if $log->is_error();
+	# Check if the user has permission to delete the image (moderator/admin or uploader of the image within 24h)
+	my $image_info = $product_ref->{images}{uploaded}{$imgid};
+	my ($uploader, $uploaded_t);
+	if (defined $image_info) {
+		$uploader = $image_info->{uploader};
+		$uploaded_t = $image_info->{uploaded_t};
+	}
+	my $user_id = $request_ref->{user_id} // $User_id;
+	my $is_uploader = (defined $user_id and $user_id ne '' and defined $uploader and $user_id eq $uploader);
+	my $is_recent = (defined $uploaded_t and (time() - $uploaded_t <= 86400));
 
+	if (($is_uploader && $is_recent) or check_user_permission($request_ref, $response_ref, "image_delete")) {
 		my $return_code = delete_uploaded_image_and_associated_selected_images($product_ref, $request_ref->{imgid});
 
 		if ($return_code > 0) {
