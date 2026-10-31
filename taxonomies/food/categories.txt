@@ -10486,7 +10486,7 @@ en: Teas
 bg: Чай
 ca: Tè
 cs: Čaje
-da: Te
+da: Teer, Te
 de: Tees, Tee
 es: Tés
 fi: teet
@@ -10518,11 +10518,12 @@ gpc_category_name:en: Tea - Bags/Loose
 pnns_group_2:en: Teas and herbal teas and coffees
 wikidata:en: Q6097
 
-< en: Tea leaves
-en: Tea bags, Teas in bags, teas in tea-bags
-de: Teebeutel, Tee in Beuteln, Tee in Teebeuteln
-es: Bolsitas de té, Tés en bolsas, Tés en bolsas de té
-fi: teepussit
+< en: Teas
+en: Teas in tea-bags, Tea bags, Teas in bags
+da: Teer i teposer, Teer i poser, Teposer
+de: Tee in Teebeuteln, Teebeutel, Tee in Beuteln
+es: Tés en bolsas de té, Bolsitas de té, Tés en bolsas
+fi: Teepussit
 fr: Thés en sachets
 hr: Vrećice čaja
 hu: Teafilterek, Teafilter, Filteres teák
@@ -10532,6 +10533,7 @@ lt: Arbatos maišeliai, Arbata maišeliuose, arbata arbatos maišeliuose
 nl: Theezakjes
 pt: Saquinhos de chá, chás em sacos, chás em saquinhos de chá
 ru: Чайные пакетики
+sv: Teer i tepåsar, Teer i påsar, Tepåsar
 tr: Poşet çay, Sallama çay
 zh: 袋茶, 茶包, 袋泡茶
 agribalyse_food_code:en: 18020
@@ -10571,7 +10573,7 @@ ciqual_food_name:en: Black tea, brewed, without sugar
 ciqual_food_name:fr: Thé noir, infusé, non sucré
 
 < en: Black teas
-< en: Flavored teas
+< en: Flavoured teas
 en: Flavored black teas
 de: Aromatisierte schwarze Tees, Aromatisierte Schwarztees
 fi: maustetut mustat teet
@@ -10592,7 +10594,7 @@ hu: Citromos fekete teák, Citromos fekete tea
 lt: Citrinų aromato juodosios arbatos
 nl: Zwarte theeën met citroenaroma, Zwarte thee met citroenaroma, Zwarte thee met citroensmaak
 
-< en: Flavored teas
+< en: Flavoured teas
 en: Teas with bergamot, Bergamot teas
 de: Tees mit Bergamotte, Earl-Grey Tees
 fr: Thés à la bergamote
@@ -10610,7 +10612,7 @@ fr: Thés noirs aromatisés à la bergamote
 hr: Crni čajevi s okusom bergamota
 nl: Zwarte theeën gearomatiseerd met bergamot, Zwarte thee gearomatiseerd met bergamot
 
-< en: Flavored teas
+< en: Flavoured teas
 en: Chaï teas
 de: Chai, Chai Tee
 fr: Thés chaï, thé au lait et aux épices
@@ -10650,10 +10652,10 @@ sv: Fermenterade teer
 wikidata:en: Q16241634
 
 < en: Teas
-en: Flavored teas, Flavoured teas
+en: Flavoured teas, Flavored teas
 de: Aromatisierte Tees
 es: Tés aromatizados
-fi: maustetut teet
+fi: Maustetut teet
 fr: Thés aromatisés, Thé aromatisé, thés parfumés
 hr: Aromatizirani čajevi
 hu: Ízesített teák, Ízesített tea
@@ -10677,7 +10679,7 @@ wikidata:en: Q105616623
 en: Green teas
 bg: Зелен чай
 ca: Te verd
-da: Grøn te
+da: Grønne teer, Grøn te
 de: Grüne Tees, Grüner Tee, Grüntee
 es: Tés verdes
 fi: vihreät teet
@@ -10693,7 +10695,7 @@ pl: Zielona herbata, Herbata zielona
 pt: Chás verdes
 ro: Ceauri verzi, Ceai verde
 ru: Зелёный чай
-sv: Grönt te
+sv: Gröna teer, Grönt te
 tr: Yeşil çay
 zh: 绿茶
 agribalyse_proxy_food_code:en: 18155
@@ -10702,10 +10704,38 @@ agribalyse_proxy_food_name:fr: Thé vert, infusé, non sucré
 wikidata:en: Q484083
 
 < en: Green teas
-fr: Thés verts aromatisés
+< en: Flavoured teas
+en: Flavoured green teas, Flavored green teas
+da: Grønne teer med smag
+de: Aromatisierte grüne Tees
 es: Tés verdes aromatizados
+fi: Maustetut vihreät teet
+fr: Thés verts aromatisés
+hr: Aromatizirani zeleni čajevi
+hu: Ízesített zöld teák
 it: Tè verde aromatizzato
+lt: Aromatizuotos žaliosios arbatos
 nl: Gearomatiseerde groene theeën
+pl: Herbaty zielony aromatyzowane
+pt: Chás verdes com sabor
+sv: Gröna teer med smak
+
+< en: Flavoured green teas
+< en: Teas in tea-bags
+en: Flavoured green teas in tea-bags
+da: Grønne teer med smag i teposer
+de: Aromatisierte grüne Tees in Teebeuteln
+es: Tés verdes aromatizados en bolsas de té
+fi: Maustetut vihreät teepussit
+fr: Thés verts aromatisés en sachets
+hr: Vrećice aromatizirani zeleni čajevi
+hu: Filteres ízesített zöld teák
+it: Bustine di tè verde aromatizzato
+lt: Aromatizuotos žaliosios arbatos maišeliai
+nl: Gearomatiseerde groene theezakjes
+pl: Herbaty zielony aromatyzowane
+pt: Chás verdes com sabor em saquinhos de chá
+sv: Gröna teer med smak i tepåsar
 
 < en: Green teas
 en: Brewed green tea without sugar
@@ -10826,8 +10856,9 @@ fr: Thés verts torréfiés, Thé vert torréifié
 hr: Prženi zeleni čajevi
 nl: Geroosterde groene theeën, Geroosterde groene thee
 
-< en: Flavored teas
+< en: Flavoured teas
 en: Lemon teas
+da: Citronteer, Teer med citron
 de: Zitronentees
 es: Tés con limón, Té sabor limón
 fi: sitruunateet
@@ -10837,9 +10868,25 @@ ja: レモンティ, レモンティー
 lt: Citrinų arbata
 nl: Theeën met citroen, Thee met citroen, Citroentheeën, Citroenthee
 ru: Чаи с лимоном
+sv: Citronteer, Teer med citron
 zh: 柠檬茶
 
-< en: Flavored teas
+< en: Flavoured green teas
+< en: Lemon teas
+en: Green teas with lemon, Green lemon teas
+da: Grønne teer med citron
+de: Grüne Zitronentees
+nl: Groene theeën met citroen
+sv: Gröna teer med citron
+
+< en: Flavoured green teas in tea-bags
+< en: Green teas with lemon
+en: Green teas with lemon in tea-bags
+da: Grønne teer med citron i teposer
+de: Grüne Zitronentees in Teebeuteln
+sv: Gröna teer med citron i tepåsar
+
+< en: Flavoured teas
 en: Vanilla teas
 de: Vanilletees
 es: Tés de vainilla
@@ -10850,7 +10897,7 @@ lt: Vanilinės arbatos
 nl: Vanilletheeën, Vanillethee
 zh: 香草茶
 
-< en: Flavored teas
+< en: Flavoured teas
 en: Mint teas
 de: Minztees
 es: Tés con hierbabuena, Tés a la menta
@@ -10865,7 +10912,7 @@ nl: Munttheeën, Muntthee
 zh: 薄荷茶
 wikidata:en: Q937101
 
-< en: Green teas
+< en: Flavoured green teas
 < en: Mint teas
 en: Green teas with mint
 de: Grüner Tees mit Minze, Grüntees mit Minze
