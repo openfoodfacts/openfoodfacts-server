@@ -4134,6 +4134,7 @@ HTML
 			}
 			elsif ($tagid =~ /\./) {
 				# App user (format "[app id].[app uuid]")
+				# Checked before synthetic app- clients so legacy "app-foo.bar" keeps old behavior.
 
 				my $appid = $`;
 				my $uuid = $';
@@ -4143,6 +4144,18 @@ HTML
 
 				$title = $app_user;
 				$display_tag = $app_user;
+			}
+			elsif ($tagid =~ /^app-[^.]++$/) {
+				# App/client user (format "app-[client_id]", no dot to avoid shadowing legacy app users)
+
+				my $appid = $tagid;
+				$appid =~ s/^app-//;
+				my $app_name = deep_get(\%options, "apps_names", $appid) || $appid;
+				my $app_user = f_lang("f_app_user", {app_name => $app_name});
+
+				$title = $app_user;
+				$display_tag = $app_user;
+				$user_or_org_ref = {userid => $tagid, name => $app_user, is_client => 1};
 			}
 			else {
 
@@ -4181,6 +4194,30 @@ HTML
 						$user_template_data_ref, \$profile_html, $request_ref)
 						or $profile_html
 						= "<p>web/pages/org_profile/org_profile.tt.html template error: " . $tt->error() . "</p>";
+				}
+				elsif ($tagid =~ /^app-[^.]++$/) {
+					# No full profile page for synthetic app/client users
+					$user_template_data_ref->{links} = [
+						{
+							text => sprintf(lang('contributors_products'), $user_or_org_ref->{name} || $tagid),
+							url => "/facets"
+								. canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
+						},
+						{
+							text => sprintf(lang('editors_products'), $user_or_org_ref->{name} || $tagid),
+							url => "/facets"
+								. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
+						},
+						{
+							text => sprintf(lang('photographers_products'), $user_or_org_ref->{name} || $tagid),
+							url => "/facets"
+								. canonicalize_tag_link("photographers", get_string_id_for_lang("no_language", $tagid)),
+						},
+					];
+
+					process_template('web/pages/user_profile/user_profile.tt.html',
+						$user_template_data_ref, \$profile_html)
+						or $profile_html = "<p>user_profile.tt.html template error: " . $tt->error() . "</p>";
 				}
 				else {
 

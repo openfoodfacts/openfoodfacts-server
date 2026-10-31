@@ -1651,22 +1651,36 @@ sub init_user ($request_ref, $r = undef) {
 
 		# If the user exists
 		if (defined $user_id) {
-			$user_ref = retrieve_user($user_id);
-
-			if (defined $user_ref) {
-				$user_id = $user_ref->{'userid'};
-				$log->context->{user_id} = $user_id;
-
-				if (not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
-				{
-					open_user_session($user_ref, undef, undef, undef, undef, undef, $request_ref);
-				}
+			if ($request_ref->{is_client} and $user_id =~ /^app-[^.]++$/) {
+				# Synthetic app/client identity (e.g. M2M client_credentials).
+				# Stateless: no .sto file, no session cookie. Scope enforcement
+				# happens per-endpoint (see #15113), not here.
+				$user_ref = {
+					userid => $user_id,
+					name => $user_id,
+					is_client => builtin::true(),
+				};
 			}
 			else {
-				$user_id = undef;
-				$log->info('bad user') if $log->is_info();
-				# Trigger an error
-				return "error_bad_login_password";
+				$user_ref = retrieve_user($user_id);
+
+				if (defined $user_ref) {
+					$user_id = $user_ref->{'userid'};
+					$log->context->{user_id} = $user_id;
+
+					if (
+						not defined request_param($request_ref, 'no_log')
+						)    # no need to store sessions for internal requests
+					{
+						open_user_session($user_ref, undef, undef, undef, undef, undef, $request_ref);
+					}
+				}
+				else {
+					$user_id = undef;
+					$log->info('bad user') if $log->is_info();
+					# Trigger an error
+					return "error_bad_login_password";
+				}
 			}
 		}
 	}
@@ -2121,17 +2135,54 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	$request_ref->{access_token} = $token;
-	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
-	unless (defined $user_ref) {
-		$log->info('User not found and not created') if $log->is_info();
-		return -1;
+
+	# Service-account (client_credentials) tokens act as the client itself
+	# (synthetic app-<azp> identity), even if a PO user with the service
+	# account username happens to exist via Keycloak/Redis sync.
+	# Require positive service-account evidence: Keycloak sets preferred_username to
+	# "service-account-<clientId>" and azp to "<clientId>" for service accounts.
+	# The username is lowercased by Keycloak while azp keeps its case, so compare
+	# case-insensitively. Checking azp alone is not enough, as regular user
+	# tokens also carry azp.
+	my $azp = $access_token->{azp};
+	my $preferred_username = $access_token->{preferred_username};
+	my $is_service_account
+		= (defined $azp and $azp ne '')
+		&& (defined $preferred_username)
+		&& (lc($preferred_username) eq 'service-account-' . lc($azp));
+
+	if ($is_service_account) {
+		# Lowercase the synthetic id: user / editor / uploader tags are
+		# canonicalized to lowercase everywhere (canonicalize_tag), so a
+		# mixed-case azp must map to the same canonical id for facets,
+		# tag pages and editors_tags matching to work. The exact client id
+		# is kept in oidc_client_id / client_id and in the
+		# created_by_client / last_modified_by_client product fields.
+		my $app_user_id = 'app-' . lc($azp);
+		$log->debug('client_credentials token mapped to synthetic app user',
+			{app_user_id => $app_user_id, azp => $azp, scope => $access_token->{scope}})
+			if $log->is_debug();
+
+		$request_ref->{oidc_user_id} = $app_user_id;
+		$request_ref->{oidc_client_id} = $azp;
+		$request_ref->{client_id} = $azp;
+		$request_ref->{is_client} = builtin::true();
+
+		return 1;
 	}
-	my $user_id = $user_ref->{userid};
-	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 
-	$request_ref->{oidc_user_id} = $user_id;
+	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
+	if (defined $user_ref) {
+		my $user_id = $user_ref->{userid};
+		$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 
-	return 1;
+		$request_ref->{oidc_user_id} = $user_id;
+
+		return 1;
+	}
+
+	$log->info('User not found and not created') if $log->is_info();
+	return -1;
 }
 
 =head2 _read_auth_header ( $request_ref, $r )
