@@ -2644,8 +2644,11 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 	# We need at a minimum carbohydrates, fat and proteins to be defined to compute
 	# energy.
 	if (    (defined $carbohydrates_value)
+		and ($carbohydrates_value ne "")
 		and (defined $fat_value)
-		and (defined $proteins_value))
+		and ($fat_value ne "")
+		and (defined $proteins_value)
+		and ($proteins_value ne ""))
 	{
 
 		# If we do not have a value for the aggregate "polyols" nutrient, but we have values for
