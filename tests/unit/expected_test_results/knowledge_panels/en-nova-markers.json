@@ -1411,7 +1411,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 4 - Ultra processed food and drink products group:</p>\n            <ul>\n            \n                <li>Additive: E150 - Caramel</li>\n            \n                <li>Additive: E322 - Lecithins</li>\n            \n                <li>Ingredient: wheat flour</li>\n            \n            </ul>\n        \n    \n\n"
+                  "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 4 - Ultra processed food and drink products group:</p>\n            <ul>\n            \n                <li>Additive: E150 - Caramel</li>\n            \n                <li>Additive: E322 - Lecithins</li>\n            \n                <li>Ingredient: barley malt extract</li>\n            \n                <li>Ingredient: wheat flour</li>\n            \n            </ul>\n        \n    \n\n"
                }
             },
             {
@@ -1424,7 +1424,7 @@
          "level" : "info",
          "title_element" : {
             "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
-            "subtitle" : "3 ultra-processing markers",
+            "subtitle" : "4 ultra-processing markers",
             "title" : "Ultra-processed foods"
          },
          "topics" : [
@@ -2148,6 +2148,10 @@
          [
             "additives",
             "en:e322"
+         ],
+         [
+            "ingredients",
+            "en:barley-malt-extract"
          ],
          [
             "ingredients",
