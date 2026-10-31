@@ -23,7 +23,7 @@
 package ProductOpener::Config2;
 
 use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 BEGIN {
@@ -49,6 +49,7 @@ BEGIN {
 		$events_password
 		$redis_url
 		$folksonomy_url
+		$google_drive_api_key
 		%server_options
 		$serialize_to_json
 		$oidc_implementation_level
@@ -104,6 +105,10 @@ $redis_url = '';
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features
 $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
+
+# API key restricted to the Google Drive API, used on the producers platform to list the images
+# of public Google Drive folders that producers import photos from. Leave empty to disable the feature.
+$google_drive_api_key = '';
 
 %server_options = (
 

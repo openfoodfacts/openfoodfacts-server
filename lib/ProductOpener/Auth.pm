@@ -126,7 +126,7 @@ None
 
 =cut
 
-=head2 is_allowed_return_url ($url, $subdomain)
+=head2 is_allowed_return_url ($url)
 
 Returns 1 if $url is a url of the site we serve, and can therefore be redirected to after a sign in
 or a sign out.
@@ -135,7 +135,8 @@ A return url comes from a request parameter, a cookie or a Referer header, so it
 before it is used as a redirect target: an open redirect on the sign in flow is enough to phish a
 user, and to have the browser leak the tokens of the sign in to the site the attacker chose.
 
-The check is an exact match of the host against the expected one. A prefix match is not enough:
+The check is an exact match of the host against the expected one but excluding the language subdomain.
+A prefix match is not enough:
 without an end anchor, a url like https://world.openfoodfacts.org.evil.example/ passes a test for
 the https://world.openfoodfacts.org prefix, and the userinfo part of a url
 (https://world.openfoodfacts.org@evil.example/) makes the prefix match while the host is another
@@ -145,17 +146,15 @@ one. Comparing the parsed host also takes care of both, and of a port.
 
 =head4 String $url - the url to check
 
-=head4 String $subdomain - the subdomain the url must be on, e.g. "world"
-
 =head3 Return value
 
 1 if the url is one of ours, 0 otherwise
 
 =cut
 
-sub is_allowed_return_url ($url, $subdomain) {
+sub is_allowed_return_url ($url) {
 
-	if ((not defined $url) or (not defined $subdomain)) {
+	if (not defined $url) {
 		return !!0;
 	}
 
@@ -175,7 +174,9 @@ sub is_allowed_return_url ($url, $subdomain) {
 		return !!0;
 	}
 
-	my $expected_host = lc($subdomain) . '.' . lc($server_domain);
+	# Strip language subdomain from the host
+	$host =~ s/^[^.]*\.//;
+	my $expected_host = lc($server_domain);
 
 	if (lc($host) ne $expected_host) {
 		$log->info("not redirecting to a url that is not ours",
@@ -195,10 +196,7 @@ otherwise.
 =cut
 
 sub checked_return_url ($url, $request_ref) {
-
-	my $subdomain = $request_ref->{subdomain};
-
-	if (is_allowed_return_url($url, $subdomain)) {
+	if (is_allowed_return_url($url)) {
 		return $url;
 	}
 
@@ -209,7 +207,7 @@ sub start_authorize ($request_ref) {
 	# random private token to identify the sign-in process
 	my $nonce = generate_token(64);
 	my $return_url = $request_ref->{return_url};
-	if (not is_allowed_return_url($return_url, $request_ref->{subdomain})) {
+	if (not is_allowed_return_url($return_url)) {
 		$return_url = $request_ref->{formatted_subdomain};
 	}
 
@@ -338,7 +336,7 @@ sub _validate_oidc_state_and_nonce ($state, $nonce, $context = 'login') {
 	return (1, undef, undef);
 }
 
-=head2 password_signin($username, $password, $request_ref)
+=head2 password_signin($username, $password, $request_ref, $persistent = 1)
 
 Signs in the user with a username and password, and returns the user's ID, refresh token, refresh token expiration time, access token, and access token expiration time.
 
@@ -350,19 +348,26 @@ We support this to enable passing user and password in the request json. This is
 
 =head4 The password for password-based authentication. $password
 
+=head4 Request object $request_ref
+
+=head4 Boolean $persistent
+
+If true (default), request offline_access so the session can be refreshed. Set to false for
+per-request API password authentication that must not leave a lasting Device Activity session.
+
 =head3 Return Values
 
 A list containing the user ref, refresh token, refresh token expiration time, access token, access token expiration time, and the ID token
 
 =cut
 
-sub password_signin ($username, $password, $request_ref) {
+sub password_signin ($username, $password, $request_ref, $persistent = 1) {
 	unless ($username and $password) {
 		return;
 	}
 
 	my $time = time;
-	my $access_token = get_token_using_password_credentials($username, $password);
+	my $access_token = get_token_using_password_credentials($username, $password, $persistent);
 	unless ($access_token) {
 		return;
 	}
@@ -543,7 +548,7 @@ sub access_to_protected_resource ($request_ref) {
 	$log->info('request is ok', $request_ref) if $log->is_info();
 
 	# Already logged in. Redirect to the requested url, if it is one of ours
-	if (is_allowed_return_url($request_ref->{return_url}, $request_ref->{subdomain})) {
+	if (is_allowed_return_url($request_ref->{return_url})) {
 		redirect_to_url($request_ref, 302, $request_ref->{return_url});
 	}
 	return;
@@ -605,7 +610,7 @@ None
 sub start_signout ($request_ref) {
 	# compute return_url, so that after sign out, user will be redirected to the home page
 	my $return_url = single_param('return_url');
-	if (not is_allowed_return_url($return_url, $request_ref->{subdomain})) {
+	if (not is_allowed_return_url($return_url)) {
 		$return_url = $request_ref->{formatted_subdomain};
 	}
 
@@ -686,7 +691,7 @@ sub signout_callback ($request_ref) {
 	return checked_return_url($cookie_ref{'return_url'}, $request_ref);
 }
 
-=head2 get_token_using_password_credentials($username, $password)
+=head2 get_token_using_password_credentials($username, $password, $persistent = 1)
 
 Gets a token for the user.
 
@@ -700,14 +705,26 @@ and Client Secret.
 
 =head4 Password given at sign-in $password
 
+=head4 Boolean $persistent
+
+If true (default), include the offline_access scope. Set to false for one-shot API
+authentication that should not create a lasting offline session.
+
 =head3 Return values
 
 Open ID Access token, or undefined if sign-in wasn't successful.
 
 =cut
 
-sub get_token_using_password_credentials ($username, $password) {
+sub get_token_using_password_credentials ($username, $password, $persistent = 1) {
 	get_oidc_configuration();
+
+	# Default to offline_access for interactive / explicit login callers. Per-request API
+	# password auth opts out so Keycloak Device Activity is not filled with offline sessions.
+	my $scope
+		= $persistent
+		? 'openid%20profile%20offline_access%20products:read%20products:write'
+		: 'openid%20profile%20products:read%20products:write';
 
 	# Build a request and emit it using our app specific key
 	# to authenticate user
@@ -721,7 +738,8 @@ sub get_token_using_password_credentials ($username, $password) {
 			. uri_escape($username)
 			. '&password='
 			. uri_escape($password)
-			. "&scope=openid%20profile%20offline_access%20products:read%20products:write");
+			. '&scope='
+			. $scope);
 
 	my $token_response = LWP::UserAgent::Plugin->new->request($token_request);
 	unless ($token_response->is_success) {

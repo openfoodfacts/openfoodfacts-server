@@ -23,7 +23,7 @@
 package ProductOpener::Config2;
 
 use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 BEGIN {
@@ -48,6 +48,7 @@ BEGIN {
 		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
+		$google_drive_api_key
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$brevo_api_key
@@ -118,6 +119,8 @@ $memd_servers = ["memcached:11211"];
 $tesseract_ocr_available = $ENV{TESSERACT_OCR_AVAILABLE} // 1;    # Set to 0 to disable Tesseract OCR
 $google_cloud_vision_api_key = $ENV{GOOGLE_CLOUD_VISION_API_KEY};
 $google_cloud_vision_api_url = $ENV{GOOGLE_CLOUD_VISION_API_URL} || "https://vision.googleapis.com/v1/images:annotate";
+# API key restricted to the Google Drive API, to list the images of public Google Drive folders (producers platform)
+$google_drive_api_key = $ENV{GOOGLE_DRIVE_API_KEY};
 
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
