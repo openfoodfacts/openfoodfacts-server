@@ -2966,15 +2966,19 @@ Text to analyze
 						my $label_id = canonicalize_taxonomy_tag($ingredients_lc, "labels", $ingredient);
 						if (exists_taxonomy_tag("labels", $label_id)) {
 
-							# Add the label to the product
-							add_tags_to_field($product_ref, $ingredients_lc, "labels", $label_id);
-
 							$ingredient_recognized = 1;
 
 							# some labels are in fact ingredients. e.g. "sustainable palm oil"
 							# in that case, add the corresponding ingredient
 
 							my $label_ingredient_id = get_inherited_property("labels", $label_id, "ingredients:en");
+
+							# Add the label to the product.
+							# Inside sub-ingredients, a label that is not specific to an ingredient describes the parent ingredient,
+							# not the whole product: e.g. "emulgator (vegetabilsk, E471 og E472e)" must not add en:vegan (issue #14058)
+							if (($level == 0) or (defined $label_ingredient_id)) {
+								add_tags_to_field($product_ref, $ingredients_lc, "labels", $label_id);
+							}
 
 							$debug_ingredients and $log->debug(
 								"between is a known label",
