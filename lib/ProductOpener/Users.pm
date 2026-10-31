@@ -82,6 +82,9 @@ BEGIN {
 		&remove_all_user_sessions
 		&is_stale_user_session
 
+		&generate_session_cookie
+		&clear_session_cookie
+
 		&generate_token
 
 		&welcome_user_task
@@ -1193,13 +1196,8 @@ sub generate_session_cookie ($user_id, $user_session) {
 	my $session_ref = {'user_id' => $user_id, 'user_session' => $user_session};
 
 	# generate session cookie
-	my $cookie_ref = {
-		'-name' => $cookie_name,
-		'-value' => $session_ref,
-		'-path' => '/',
-		'-domain' => $cookie_domain,
-		'-samesite' => 'Lax',
-	};
+	my $cookie_ref = session_cookie_options();
+	$cookie_ref->{'-value'} = $session_ref;
 
 	if ($length > 0) {
 		# Set a persistent cookie
@@ -1210,6 +1208,62 @@ sub generate_session_cookie ($user_id, $user_session) {
 		# Set a session cookie
 		$log->debug("setting session cookie") if $log->is_debug();
 	}
+
+	return cookie(%$cookie_ref);
+}
+
+=head2 session_cookie_options( )
+
+Return the attributes shared by every cookie set under the session cookie name: only the value and
+the expiry differ between setting and clearing the cookie. Browsers only overwrite an existing
+cookie when name, domain and path match, so keeping the security attributes in one place is what
+guarantees that the cookie we send to clear a session is accepted as an overwrite.
+
+=head3 Arguments
+
+None.
+
+=head3 Return values
+
+A hash reference of C<CGI::cookie()> attributes.
+
+=cut
+
+sub session_cookie_options() {
+
+	my $options_ref = {
+		'-name' => $cookie_name,
+		'-path' => '/',
+		'-domain' => $cookie_domain,
+		'-samesite' => 'Lax',
+		# The cookie value is the credential itself, so it must not be readable by scripts running
+		# under the cookie domain, and it must not be sent over plaintext HTTP.
+		'-httponly' => 1,
+	};
+	$options_ref->{'-secure'} = 1 if should_use_secure_cookies();
+
+	return $options_ref;
+}
+
+=head2 clear_session_cookie( )
+
+Return a cookie that removes the session cookie, with the same attributes as the cookie it replaces.
+
+=head3 Arguments
+
+None.
+
+=head3 Return values
+
+An expired session cookie.
+
+=cut
+
+sub clear_session_cookie() {
+
+	my $cookie_ref = session_cookie_options();
+	$cookie_ref->{'-value'} = {};
+	$cookie_ref->{'-expires'} = '-1d';
 
 	return cookie(%$cookie_ref);
 }
@@ -1629,14 +1683,7 @@ sub init_user ($request_ref, $r = undef) {
 			remove_user_session(single_param('user_id'), single_param('user_session'));
 		}
 
-		my $session = {};
-		$request_ref->{cookie} = cookie(
-			-name => $cookie_name,
-			-expires => '-1d',
-			-value => $session,
-			-path => '/',
-			-domain => "$cookie_domain"
-		);
+		$request_ref->{cookie} = clear_session_cookie();
 	}
 
 	# User was authenticated via OIDC
@@ -1850,14 +1897,7 @@ sub init_user ($request_ref, $r = undef) {
 					$user_id = undef;
 					$user_ref = undef;
 					# Remove the cookie
-					my $session = {};
-					$request_ref->{cookie} = cookie(
-						-name => $cookie_name,
-						-expires => '-1d',
-						-value => $session,
-						-path => '/',
-						-domain => "$cookie_domain"
-					);
+					$request_ref->{cookie} = clear_session_cookie();
 				}
 				else {
 					$log->debug("user identified", {user_id => $user_id, stocked_user_id => $user_ref->{'userid'}})
@@ -1919,28 +1959,14 @@ sub init_user ($request_ref, $r = undef) {
 			}
 			else {
 				# Remove the cookie
-				my $session = {};
-				$request_ref->{cookie} = cookie(
-					-name => $cookie_name,
-					-expires => '-1d',
-					-value => $session,
-					-path => '/',
-					-domain => "$cookie_domain"
-				);
+				$request_ref->{cookie} = clear_session_cookie();
 
 				$user_id = undef;
 			}
 		}
 		else {
 			# Remove the cookie
-			my $session = {};
-			$request_ref->{cookie} = cookie(
-				-name => $cookie_name,
-				-expires => '-1d',
-				-value => $session,
-				-path => '/',
-				-domain => "$cookie_domain"
-			);
+			$request_ref->{cookie} = clear_session_cookie();
 
 			$user_id = undef;
 		}
