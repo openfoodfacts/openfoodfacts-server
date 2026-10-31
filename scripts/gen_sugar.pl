@@ -273,6 +273,8 @@ HTML
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="language" content="en-GB" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <meta property="fb:admins" content="706410516" />
 <meta property="og:site_name" content="How much sugar?"/>
 <meta property="fb:app_id" content="472618429477645" />
@@ -300,7 +302,13 @@ HTML
 
 <style type="text/css" media="all">
 
+*, *:before, *:after {
+	box-sizing: inherit;
+}
 
+html {
+	box-sizing: border-box;
+}
 
 body,html {
 	min-height:101%;
@@ -312,14 +320,20 @@ body,html {
 	background:#d5e5ff;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 h1 {
 	font-size:20px;
 }
 
 #page {
-width:930px;
-padding:30px;
-padding-top:0px;
+max-width:990px;
+width:100%;
+box-sizing:border-box;
+padding:0 30px 30px 30px;
 margin:auto;
 position:relative;
 background: #3163ca;
@@ -336,6 +350,7 @@ float:left;
 margin-right:30px;
 background: white url("sucres_bgl.png") no-repeat top;
 position: relative;
+color: black;
 }
 
 #progress {
@@ -351,6 +366,7 @@ position: relative;
 
 #sugar_cubes {
 width:450px;
+max-width:100%;
 height:750px;
 padding:0px;
 margin:0px;
@@ -359,6 +375,13 @@ overflow:hidden;
 cursor: hand; cursor: pointer;
 position:relative;
 margin-bottom:5px;
+touch-action: none;
+}
+
+#sugar_cubes canvas {
+max-width: 100%;
+height: auto;
+display: block;
 }
 
 #sugar_cubes:active {
@@ -367,10 +390,12 @@ cursor: hand; cursor: pointer; cursor: move;
 
 
 #content {
-width:930px;
+width:100%;
+max-width:930px;
 color:white;
-clear:left;
+clear:both;
 font-size:0.8em;
+box-sizing: border-box;
 }
 
 
@@ -433,6 +458,23 @@ h1 {
 	margin-bottom:10px;
 }
 
+#mice {
+	float:left;
+	width:410px;
+	margin-right:30px;
+	padding:20px;
+	box-sizing:border-box;
+}
+
+#cubes_counter {
+	float:left;
+	width:450px;
+	text-align:center;
+	vertical-align:middle;
+	color:white;
+	box-sizing:border-box;
+}
+
 #cubes {
 	font-size:64px;
 }
@@ -440,13 +482,17 @@ h1 {
 #results {
 	position:absolute;
 	width:311px;
+	max-width:90%;
 	height:311px;
 	bottom:120px;
-	left:54px;
-	background: transparent url("score_bg.png") no-repeat top;
+	left:50%;
+	transform:translateX(-50%);
+	background: transparent url("score_bg.png") no-repeat center top;
+	background-size: contain;
 	color:black;
 	display:none;
 	padding:20px;
+	box-sizing:border-box;
 }
 
 #score {
@@ -467,10 +513,73 @@ h1 {
 	background-color:#ccffff;
 	color:black;
 	display:none;
+	box-sizing:border-box;
 }
 
 #your_answer {
 	color:#aff;
+}
+
+@media (max-width: 960px) {
+	#page {
+		padding: 0 15px 30px 15px;
+	}
+	#main {
+		float: none;
+		width: 100%;
+		max-width: 450px;
+		height: auto !important;
+		margin: 0 auto 20px auto;
+		padding: 20px;
+		box-sizing: border-box;
+		background-size: cover;
+	}
+	#progress {
+		position: static;
+		width: 100%;
+		margin-top: 20px;
+	}
+	#sugar_cubes {
+		float: none;
+		margin: 0 auto 20px auto;
+		height: auto !important;
+	}
+	#sugar_cubes canvas {
+		margin: 0 auto;
+	}
+	#mice {
+		float: none !important;
+		width: 100% !important;
+		max-width: 450px;
+		margin: 0 auto 10px auto !important;
+		padding: 10px 0 !important;
+		text-align: center;
+	}
+	#cubes_counter {
+		float: none !important;
+		width: 100% !important;
+		max-width: 450px;
+		margin: 0 auto 20px auto !important;
+	}
+	#product {
+		float: none;
+		margin: 15px auto;
+	}
+	#help {
+		max-width: calc(100% - 40px);
+	}
+	#results {
+		bottom: 10%;
+	}
+}
+
+@media (max-width: 480px) {
+	#cubes {
+		font-size: 40px;
+	}
+	#score {
+		font-size: 28px;
+	}
 }
 
 </style>
@@ -552,14 +661,14 @@ Then press the <b>✓</b> button to check your answer.</div>
 </div>
 
 
-<div id="mice" style="float:left;width:410px;margin-right:30px;padding:20px;">
+<div id="mice">
 <p>Mice love sugar! Use your mouse to grab pieces of sugar and pile them up or throw them in the air as it pleases you.</p>
 <form style="display:none">
 <input type="button" name="saveButton" id="saveButton" value="Save" onclick="save_drawing(); return false;">
 </form>
 </div>
 
-<div style="float:left;width:450px;text-align:center;vertical-align:center;color:white;">
+<div id="cubes_counter">
 <div id="cubes">0</div><div id="cubes2">&nbsp;small sugar cubes&nbsp;</div><div id="your_answer"></div>
 </div>
 
