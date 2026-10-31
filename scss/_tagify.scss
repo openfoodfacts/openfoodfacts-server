@@ -36,6 +36,12 @@ $off-radius: 6px;
   box-shadow: 0 0 0 2px rgba($off-green, 0.15);
 }
 
+// Keep the input usable between tags, where Tagify's :last-child sizing does not apply.
+.tagify:not(.tagify--mix):not(.tagify--select) > .tagify__input {
+  flex-grow: 1;
+  min-width: 110px;
+}
+
 .tagify__dropdown {
   border-radius: $off-radius;
   border: 1px solid $off-border;

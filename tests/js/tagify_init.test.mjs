@@ -33,7 +33,7 @@ const MAXIMUM = 10;
 function install_fake_tagify() {
     const handlers = {};
     const tagify = {
-        DOM: {},
+        DOM: {input: new EventTarget()},
         whitelist: null,
         dropdown: {show: function () {}},
         on: function (event, handler) {

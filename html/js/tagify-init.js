@@ -40,6 +40,23 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
         }
     });
 
+    // Tagify's own horizontal navigation stops when the suggestions are visible.
+    input.DOM.input.addEventListener("keydown", function (event) {
+        // The dropdown's Backspace handler always removes the last tag, even in the middle.
+        if (event.key === "Backspace" && input.state.dropdown.visible && !input.DOM.input.textContent &&
+            input.DOM.input.isContentEditable && input.settings.backspace === true && !input.state.composing && !event.isComposing) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+            const previousTag = input.getTagElmBeforeInput();
+            if (previousTag) {
+                input.removeTags(previousTag);
+            }
+
+            return;
+        }
+        handleTagifyArrowKey(event, input);
+    }, true);
+
     let abortController;
     let debounceTimer;
     const timeoutWait = 300;
@@ -161,6 +178,11 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
 
     input.on("add", function (event) {
 
+        // Inserting between tags must keep the submitted values in the displayed order.
+        if (input.DOM.input.nextElementSibling) {
+            input.updateValueByDOMTags();
+        }
+
         // Remember the tag, it will only be added to the tags history on submit,
         // so that tags that are never submitted (typos, wrong tags) are not remembered
         tagsToCommit.add(event.detail.data.value);
@@ -178,6 +200,52 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
         value = "";
         updateSuggestions(false);
     });
+}
+
+function handleTagifyArrowKey(event, input) {
+    if (!["ArrowLeft", "ArrowRight"].includes(event.key)) {
+        return;
+    }
+
+    // Handle these keys before Tagify, including when the browser should move the caret.
+    event.stopImmediatePropagation();
+    if (event.isComposing || input.state.composing || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) {
+        return;
+    }
+
+    const editable = input.DOM.input;
+    const selection = window.getSelection();
+    if (!editable.isContentEditable || !selection || !selection.isCollapsed || !selection.rangeCount || !editable.contains(selection.anchorNode)) {
+        return;
+    }
+
+    const towardStart = (event.key === "ArrowLeft") !== (getComputedStyle(editable).direction === "rtl");
+    const remainingText = selection.getRangeAt(0).cloneRange();
+    remainingText.selectNodeContents(editable);
+    if (towardStart) {
+        remainingText.setEnd(selection.anchorNode, selection.anchorOffset);
+    } else {
+        remainingText.setStart(selection.anchorNode, selection.anchorOffset);
+    }
+    if (remainingText.toString()) {
+        return;
+    }
+
+    const adjacentTag = towardStart ? editable.previousElementSibling : editable.nextElementSibling;
+    if (!adjacentTag || !adjacentTag.matches(input.settings.classNames.tagSelector)) {
+        return;
+    }
+
+    event.preventDefault();
+    // Move the tag instead of the focused input to preserve its selection and avoid blur.
+    if (towardStart) {
+        editable.after(adjacentTag);
+    } else {
+        editable.before(adjacentTag);
+    }
+    if (input.state.dropdown.visible) {
+        input.dropdown.position();
+    }
 }
 
 // Return the tags that the user added or edited for the input, and that are actually
