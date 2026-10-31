@@ -657,6 +657,10 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		elsif (length($user_ref->{userid}) > 40) {
 			push @{$errors_ref}, $Lang{error_username_too_long}{$lc};
 		}
+		elsif ($user_ref->{userid} =~ /^app-/) {
+			# Reserved for synthetic M2M app identities (app-<clientId>), see process_auth_header
+			push @{$errors_ref}, $Lang{error_username_not_available}{$lc};
+		}
 
 		if (get_oidc_implementation_level() < 5 and length(decode utf8 => single_param('password')) < 6) {
 			# Password validation will move to Keycloak once it is managing account management

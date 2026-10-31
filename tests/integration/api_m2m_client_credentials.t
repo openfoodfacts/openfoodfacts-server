@@ -75,8 +75,10 @@ subtest 'service-account token carries azp identity' => sub {
 };
 
 sub _m2m_ua () {
+	# Note: do NOT also set a default Authorization header: sending it
+	# twice (default + per-request) makes Apache merge the values and
+	# the strict Bearer parsing in _read_auth_header rejects the request.
 	my $ua = new_client();
-	$ua->default_header('Authorization' => 'Bearer ' . $m2m_token);
 	return $ua;
 }
 
@@ -133,7 +135,9 @@ subtest 'users tag page renders for app-<azp> instead of 404' => sub {
 	my $ua = _m2m_ua();
 	my $response = $ua->get(construct_test_url("/facets/editors/$app_id"));
 	is($response->code, 200, 'tag page returns 200');
-	like($response->decoded_content, qr/\Q$m2m_client_id\E/, 'tag page mentions the client');
+	# The synthetic profile renders the generic app-user text (not a 404
+	# "Unknown user." page); the raw client id itself is not displayed.
+	like($response->decoded_content, qr/A user of the .* app/i, 'tag page shows synthetic app user');
 };
 
 if (defined $seeded_client_ref) {

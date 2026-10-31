@@ -8,7 +8,7 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Users qw/init_user $User_id %User/;
+use ProductOpener::Users qw/check_user_form init_user $User_id %User/;
 
 {
 
@@ -169,6 +169,52 @@ subtest 'tagid classification keeps legacy app users separate' => sub {
 	ok('app-foo.bar' !~ /^app-[^.]++$/, 'legacy appid.uuid does not match synthetic pattern');
 	ok('app-foo.bar' =~ /\./, 'legacy appid.uuid still matches dot rule');
 	ok('org-foo' =~ /^org-/, 'org prefix still matches first');
+};
+
+sub _mock_form_params (%params) {
+	return mock 'ProductOpener::Users' => (
+		override => [
+			single_param => sub {return $params{$_[0]};},
+			get_oidc_implementation_level => sub {return 5;},
+			user_preferences_exists => sub {return 0;},
+			retrieve_user_by_email => sub {return;},
+		],
+	);
+}
+
+sub _form_params_for ($userid) {
+	return (
+		userid => $userid,
+		name => 'Test User',
+		email => "$userid\@example.com",
+		preferred_language => 'en',
+		country => 'France',
+		newsletter => 'on',
+	);
+}
+
+subtest 'userids starting with app- are rejected at registration' => sub {
+	my $form_mock = _mock_form_params(_form_params_for('app-reserved-client'));
+
+	my $request_ref = {lc => 'en', country => 'en:france'};
+	my $user_ref = {};
+	my $errors_ref = [];
+	check_user_form($request_ref, 'add', $user_ref, $errors_ref);
+	is(scalar @{$errors_ref}, 1, 'reserved app- userid produces exactly one error');
+
+	$form_mock = undef;
+};
+
+subtest 'regular userids still pass registration checks' => sub {
+	my $form_mock = _mock_form_params(_form_params_for('bob-regular-user'));
+
+	my $request_ref = {lc => 'en', country => 'en:france'};
+	my $user_ref = {};
+	my $errors_ref = [];
+	check_user_form($request_ref, 'add', $user_ref, $errors_ref);
+	is(scalar @{$errors_ref}, 0, 'regular userid produces no errors');
+
+	$form_mock = undef;
 };
 
 done_testing();

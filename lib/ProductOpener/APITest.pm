@@ -389,25 +389,7 @@ sub create_client_in_keycloak ($client_id) {
 	my $ua = LWP::UserAgent::Plugin->new;
 
 	# Delete any pre-existing client with the same clientId for idempotency
-	my $search_request = HTTP::Request->new(GET => $clients_endpoint . '?clientId=' . uri_escape($client_id));
-	$search_request->header('Accept' => 'application/json');
-	$search_request->header('Authorization' => $auth_header);
-	my $search_response = $ua->request($search_request);
-	unless ($search_response->is_success) {
-		die "Could not list Keycloak clients: " . $search_response->code . ' ' . $search_response->decoded_content;
-	}
-	my $existing_clients_ref = decode_json($search_response->decoded_content);
-	foreach my $existing_client_ref (@{$existing_clients_ref}) {
-		my $delete_request
-			= HTTP::Request->new(DELETE => $clients_endpoint . '/' . uri_escape($existing_client_ref->{id}));
-		$delete_request->header('Authorization' => $auth_header);
-		my $delete_response = $ua->request($delete_request);
-		unless ($delete_response->is_success) {
-			die "Could not delete existing Keycloak client $client_id: "
-				. $delete_response->code . ' '
-				. $delete_response->decoded_content;
-		}
-	}
+	_delete_matching_keycloak_clients($clients_endpoint, $auth_header, $client_id);
 
 	my $client_ref = {
 		clientId => $client_id,
@@ -483,6 +465,23 @@ sub delete_client_in_keycloak ($client_id) {
 	my $clients_endpoint = $keycloak->{users_endpoint} =~ s|/users$|/clients|r;
 	my $token = $keycloak->get_or_refresh_token();
 	my $auth_header = $token->{token_type} . ' ' . $token->{access_token};
+
+	_delete_matching_keycloak_clients($clients_endpoint, $auth_header, $client_id);
+
+	return 1;
+}
+
+=head2 _delete_matching_keycloak_clients($clients_endpoint, $auth_header, $client_id)
+
+Look up Keycloak clients by clientId and delete each match.
+Used to keep client seeding idempotent and to clean up afterwards.
+
+Dies with the HTTP status code in the message so callers can
+distinguish permission errors (e.g. 403 without manage-clients).
+
+=cut
+
+sub _delete_matching_keycloak_clients ($clients_endpoint, $auth_header, $client_id) {
 	my $ua = LWP::UserAgent::Plugin->new;
 
 	my $search_request = HTTP::Request->new(GET => $clients_endpoint . '?clientId=' . uri_escape($client_id));
@@ -505,7 +504,7 @@ sub delete_client_in_keycloak ($client_id) {
 		}
 	}
 
-	return 1;
+	return scalar @{$existing_clients_ref};
 }
 
 =head2 get_token_using_client_credentials_for($client_id, $client_secret, $scope)
