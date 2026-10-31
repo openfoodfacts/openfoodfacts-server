@@ -149,15 +149,15 @@
                     <div class="alert-box info">[% lang('search_graph_note') %]</div>
         
                     <label for="graph_title">[% lang('graph_title') %]</label>
-                    <input type="text" name="graph_title" id="graph_title" value="" />
+                    <input type="text" name="graph_title" id="graph_title" value="[% graph_title | html %]" />
         
                     <p>[% lang('search_graph_instructions') %]</p>
         
                     <div class="row">
                         [% FOREACH axis IN axes %]
                             <div class="small-12 medium-6 columns">
-                                <label for= "axis_[% axis.id %]">[% lang("axis_${axis.id}") %]</label>
-                                <select class="select2_field" name="axis_[% axis.id %]" id="axis_[% axis.id %]">
+                                <label for= "axis_[% axis.id %]">[% lang("axis_${axis.id}") %][% IF axis.id == 'x' %] *[% END %]</label>
+                                <select class="select2_field" name="axis_[% axis.id %]" id="axis_[% axis.id %]"[% IF axis.id == 'x' %] required="required"[% END %]>
                                     [% FOREACH field IN fields_options %]
                                         <option value="[% field.value %]" label="[% field.label %]"[% IF field.value == axis.selected_field_value %] selected="selected"[% END %]>[% field.label %]</option>
                                     [% END %]
@@ -200,7 +200,7 @@
                     <div class="alert-box info">[% lang ('search_map_note') %]</div>
 
                     <label for="map_title">[% lang ('map_title') %]</label>
-                    <input type="text" name="map_title" id="map_title" value="[% map_title %]" />
+                    <input type="text" name="map_title" id="map_title" value="[% map_title | html %]" />
 
                     <input type="submit" name="generate_map" value="[% lang ('search_generate_map') %]" class="button" />
 

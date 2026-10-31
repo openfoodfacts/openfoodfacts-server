@@ -327,16 +327,16 @@ elsif ($limit > $options{max_products_page_size}) {
 
 $request_ref->{page_size} = $limit;
 
-my $graph_ref = {graph_title => remove_tags_and_quote(decode utf8 => single_param("graph_title"))};
-my $map_title = remove_tags_and_quote(decode utf8 => single_param("map_title"));
+my $graph_ref = {graph_title => remove_tags_and_quote(decode utf8 => (single_param("graph_title") // ''))};
+my $map_title = remove_tags_and_quote(decode utf8 => (single_param("map_title") // ''));
 
 foreach my $axis ('x', 'y') {
-	my $axis_field = remove_tags_and_quote(decode utf8 => single_param("axis_$axis"));
+	my $axis_field = remove_tags_and_quote(decode utf8 => (single_param("axis_$axis") // ''));
 	# If the value is "folksonomy", check for the additional folksonomy property parameter
 	if ($axis_field eq 'folksonomy') {
 		my $folksonomy_property
-			= remove_tags_and_quote(decode utf8 => single_param("axis_${axis}_folksonomy_property"));
-		if (defined $folksonomy_property) {
+			= remove_tags_and_quote(decode utf8 => (single_param("axis_${axis}_folksonomy_property") // ''));
+		if ($folksonomy_property ne '') {
 			$axis_field .= ".$folksonomy_property";
 		}
 	}
@@ -354,6 +354,8 @@ foreach my $series (@search_series, "nutrition_grades") {
 if ($action eq 'display') {
 
 	$template_data_ref->{search_terms} = $search_terms;
+	$template_data_ref->{graph_title} = $graph_ref->{graph_title} // '';
+	$template_data_ref->{map_title} = $map_title // '';
 
 	my $active_list = 'active';
 	my $active_map = '';
@@ -470,6 +472,12 @@ if ($action eq 'display') {
 	}
 
 	$axis_labels{"folksonomy"} = lang("folksonomy_property");
+
+	# Empty value is the placeholder ("no field selected"): give it an explicit label
+	# so the dropdown does not show a blank entry, and keep it first in the list.
+	# The X axis <select> is marked required in the template, so browsers block
+	# submitting the graph form without an axis (issue #5607).
+	$axis_labels{""} = lang("select_a_field") || "Select a field";
 
 	my @sorted_axis_values = ("", sort({lc($axis_labels{$a}) cmp lc($axis_labels{$b})} @axis_values));
 
@@ -885,11 +893,29 @@ HTML
 		$graph_ref->{type} = "scatter_plot";
 		$request_ref->{current_link} .= "&graph=1";
 
+		# Validate graph axis before running any MongoDB query.
+		# See https://github.com/openfoodfacts/openfoodfacts-server/issues/5607 :
+		# submitting the graph form without an axis must show a friendly message, not a 500 error.
+		my $axes_error = validate_graph_axes($graph_ref);
+		if ($axes_error ne '') {
+			$request_ref->{title} = lang("search_title_graph");
+			# HTML context: escape the message (plain text, may contain translations).
+			# See https://github.com/openfoodfacts/openfoodfacts-server/pull/14731
+			${$request_ref->{content_ref}}
+				.= search_permalink($request_ref)
+				. '<div class="alert-box alert">'
+				. escapeHTML($axes_error)
+				. '</div>';
+			display_page($request_ref);
+			return;
+		}
+
 		# We want existing values for axis fields, so we add them to the query
 		# unless the field starts with "folksonomy.", as we cannot filter on Folksonomy Engine properties in MongoDB
 		foreach my $axis ('x', 'y') {
 
-			if (($graph_ref->{"axis_$axis"} ne "") and ($graph_ref->{"axis_$axis"} !~ /^folksonomy\./)) {
+			if ((($graph_ref->{"axis_$axis"} // '') ne "") and (($graph_ref->{"axis_$axis"} // '') !~ /^folksonomy\./))
+			{
 				my $field = $graph_ref->{"axis_$axis"};
 				# Get the field path components
 				my @fields = get_search_field_path_components($field);
