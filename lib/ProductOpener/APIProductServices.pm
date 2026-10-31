@@ -71,6 +71,7 @@ The response is in the JSON API v3 response format, with a resulting product obj
 package ProductOpener::APIProductServices;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Auth qw/require_scope_if_token_present/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -355,6 +356,8 @@ sub product_services_api ($request_ref) {
 
 	$log->debug("product_services_api - start", {request => $request_ref}) if $log->is_debug();
 
+	return if (not require_scope_if_token_present($request_ref, 'products:read'));
+
 	my $response_ref = $request_ref->{api_response};
 	my $request_body_ref = $request_ref->{body_json};
 
@@ -446,6 +449,8 @@ Get external sources but translated in target language
 =cut
 
 sub external_sources_api ($request_ref) {
+
+	return if (not require_scope_if_token_present($request_ref, 'products:read'));
 
 	my $target_lc = $request_ref->{lc};
 	my $response_ref = $request_ref->{api_response};

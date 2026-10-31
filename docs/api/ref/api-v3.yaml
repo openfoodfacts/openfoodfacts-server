@@ -94,7 +94,13 @@ paths:
         Retrieve information for a product with a specific barcode.
 
         The fields parameter allows to specify what fields to retrieve.
+
+        When using OIDC authentication, the access token must carry the `products:read` scope.
       operationId: get-api-v3-product-code
+      security:
+        - bearerAuth:
+            - products:read
+          userAgentAuth: []
     patch:
       tags:
         - Products
@@ -259,6 +265,9 @@ paths:
       security:
         - cookieAuth: []
           userAgentAuth: []
+        - bearerAuth:
+            - products:write
+          userAgentAuth: []
   "/api/v3/product/{code}/images":
     post:
       tags:
@@ -315,8 +324,13 @@ paths:
               properties: {}
         description: |
           Image data for the product is passed in the image_data_base64 field as a base64 encoded string.
+
+          When using OIDC authentication, the access token must carry the `products:write` scope.
       security:
         - cookieAuth: []
+          userAgentAuth: []
+        - bearerAuth:
+            - products:write
           userAgentAuth: []
       responses:
         "200":
@@ -396,6 +410,9 @@ paths:
           description: Product or image not found
       security:
         - cookieAuth: []
+          userAgentAuth: []
+        - bearerAuth:
+            - products:write
           userAgentAuth: []
   /api/v3/taxonomy_canonicalize_tags:
     get:
@@ -674,9 +691,14 @@ paths:
                       description: Revision number to revert to
         description: |
           The code and rev fields are mandatory.
+
+          When using OIDC authentication, the access token must carry the `products:write` scope.
       parameters: []
       security:
         - cookieAuth: []
+          userAgentAuth: []
+        - bearerAuth:
+            - products:write
           userAgentAuth: []
   /api/v3/external_sources:
     get:
@@ -878,6 +900,24 @@ components:
       type: apiKey
       in: header
       name: User-Agent
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        OpenID Connect (OIDC) authentication using a Bearer access token issued by Keycloak.
+        The token must be signed with RS256 and carry the `off-api` audience.
+
+        The following scopes are available:
+
+        | Scope | Description |
+        | ----- | ----------- |
+        | `products:read` | Read product data (granted by default to all clients) |
+        | `products:write` | Create and update product data (must be requested explicitly) |
+
+        If the token lacks the required scope, the API returns `403 Forbidden` with a
+        `WWW-Authenticate: Bearer error="insufficient_scope"` header (RFC 6750), so that
+        clients can obtain a new token with the required scope.
 
   schemas:
     ExternalKnowledgePanelList:

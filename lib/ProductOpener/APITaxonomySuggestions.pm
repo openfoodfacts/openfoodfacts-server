@@ -29,6 +29,7 @@ ProductOpener::APITaxonomySuggestions - implementation of READ taxonomy suggesti
 package ProductOpener::APITaxonomySuggestions;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Auth qw/require_scope_if_token_present/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -68,6 +69,8 @@ Reference to the request object.
 sub taxonomy_suggestions_api ($request_ref) {
 
 	$log->debug("taxonomy_suggestions_api - start", {request => $request_ref}) if $log->is_debug();
+
+	return if (not require_scope_if_token_present($request_ref, 'products:read'));
 
 	my $response_ref = $request_ref->{api_response};
 

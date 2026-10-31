@@ -46,6 +46,12 @@ BEGIN {
 		&password_signin
 		&verify_access_token
 		&verify_id_token
+		&verify_access_token_scopes
+		&has_access_token_scope
+		&get_token_scopes
+		&require_scope
+		&require_scope_if_token_present
+		&enforce_scope_if_token_present
 		&retrieve_user_using_token
 		&get_token_using_client_credentials
 		&get_token_using_password_credentials
@@ -67,6 +73,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Cache qw/generate_cache_key safe_cache_get safe_cache_set/;
 use ProductOpener::Display qw/display_error_and_exit/;
+use ProductOpener::API qw/add_error/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
 use ProductOpener::Users
@@ -208,7 +215,7 @@ sub start_authorize ($request_ref) {
 	my $current_client = _get_client();
 	my $redirect_url = $current_client->uri_to_redirect(
 		redirect_uri => $callback_uri,
-		scope => q{openid profile offline_access},
+		scope => q{openid profile offline_access products:read products:write},
 		state => $nonce,
 		)
 		. '&ui_locales='
@@ -714,7 +721,10 @@ sub get_token_using_password_credentials ($username, $password, $persistent = 1)
 
 	# Default to offline_access for interactive / explicit login callers. Per-request API
 	# password auth opts out so Keycloak Device Activity is not filled with offline sessions.
-	my $scope = $persistent ? 'openid%20profile%20offline_access' : 'openid%20profile';
+	my $scope
+		= $persistent
+		? 'openid%20profile%20offline_access%20products:read%20products:write'
+		: 'openid%20profile%20products:read%20products:write';
 
 	# Build a request and emit it using our app specific key
 	# to authenticate user
@@ -827,16 +837,30 @@ Returns: The verified access token or undefined if verification fails.
 sub verify_access_token ($access_token_string) {
 	get_oidc_configuration();
 
-	# Bind the token to this relying party: signature alone is not sufficient, because every client
+	# Bind the token to this resource server: signature alone is not sufficient, because every client
 	# in the realm is signed by the same JWKS keys.
-	# Note: decode_jwt throws on signature / iss / alg failure, so trap it
+	# The audience check (aud claim must contain the configured oidc_audience) ensures the token was
+	# issued for the ProductOpener API and prevents token replay across service boundaries.
+	# A CODE ref is used for verify_aud so that both string and array aud claims are supported
+	# (compatible with Crypt::JWT 0.035 and later).
+	# Note: decode_jwt throws on signature / iss / aud / alg failure, so trap it
 	# to honor the documented undef-on-failure contract.
+	my $expected_audience = $oidc_options{oidc_audience};
 	my $access_token_verified = eval {
 		decode_jwt(
 			token => $access_token_string,
 			kid_keys => $jwks,
 			verify_iss => $oidc_configuration->{issuer},
 			accepted_alg => ['RS256'],
+			$expected_audience
+			? (
+				verify_aud => sub {
+					my ($aud) = @_;
+					my @audiences = ref $aud eq 'ARRAY' ? @$aud : ($aud);
+					return scalar(grep {$_ eq $expected_audience} @audiences) > 0;
+				},
+				)
+			: (),
 		);
 	};
 	if (my $error = $@) {
@@ -848,7 +872,70 @@ sub verify_access_token ($access_token_string) {
 		return;
 	}
 
+	# Verify the token type header as defence-in-depth against JWT confusion
+	# (e.g. an ID token presented as an access token). Keycloak issues typ=JWT,
+	# RFC 9068 access tokens use typ=at+jwt.
+	my $type_error = _verify_access_token_type_header($access_token_string);
+	if ($type_error) {
+		$log->info('Access token type header invalid', {error => $type_error}) if $log->is_info();
+		return;
+	}
+
 	return $access_token_verified;
+}
+
+=head2 _verify_access_token_type_header($access_token_string)
+
+Verifies the typ header of a JWT.
+
+Returns undef if the typ header is acceptable (JWT or at+jwt, case-insensitive),
+otherwise returns an error message.
+
+=head3 Arguments
+
+=head4 The access token string. $access_token_string
+
+=head3 Return values
+
+Undef if valid, an error message otherwise.
+
+=cut
+
+sub _verify_access_token_type_header ($access_token_string) {
+	my ($header_segment) = split(/\./, $access_token_string, 2);
+	if ((not defined $header_segment) or ($header_segment eq '')) {
+		return 'malformed token';
+	}
+
+	# Decode the base64url-encoded header segment
+	my $base64 = $header_segment;
+	$base64 =~ tr/-_/+\//;
+	my $remainder = length($base64) % 4;
+	if ($remainder == 1) {
+		return 'malformed token';
+	}
+	$base64 .= '=' x (4 - $remainder) if $remainder;
+	# Note: decode_base64 does not die on invalid input, it returns undef.
+	my $header_json = decode_base64($base64);
+	unless (defined $header_json) {
+		return 'cannot decode token header';
+	}
+
+	my $header = eval {decode_json($header_json)};
+	if (my $error = $@) {
+		chomp $error;
+		return "invalid token header JSON: $error";
+	}
+	unless (defined $header and ref $header eq 'HASH') {
+		return 'invalid token header';
+	}
+
+	my $typ = $header->{typ} // '';
+	if ($typ !~ /^(at\+jwt|jwt)$/i) {
+		return "unexpected token type '$typ'";
+	}
+
+	return;
 }
 
 =head2 verify_id_token($id_token_string)
@@ -865,14 +952,312 @@ Returns: The verified ID token or undefined if verification fails.
 sub verify_id_token ($id_token_string) {
 	get_oidc_configuration();
 
-	my $id_token = OIDC::Lite::Model::IDToken->load($id_token_string);
-	my $id_token_verified = decode_jwt(token => $id_token_string, kid_keys => $jwks);
+	my ($id_token, $id_token_verified) = eval {
+		my $loaded = OIDC::Lite::Model::IDToken->load($id_token_string);
+		my $verified = decode_jwt(
+			token => $id_token_string,
+			kid_keys => $jwks,
+			verify_iss => $oidc_configuration->{issuer},
+			accepted_alg => ['RS256'],
+		);
+		($loaded, $verified);
+	};
+	if (my $error = $@) {
+		chomp $error;
+		$log->info('ID token verification failed', {error => $error}) if $log->is_info();
+		return;
+	}
 	$log->debug('id_token found', {id_token => $id_token, id_token_verified => $id_token_verified}) if $log->is_debug();
 	unless ($id_token_verified) {
 		return;
 	}
 
 	return $id_token_verified;
+}
+
+=head2 get_token_scopes($access_token_verified)
+
+Extracts the scopes from a verified access token.
+
+The scopes are stored in the space-separated scope claim.
+
+=head3 Arguments
+
+=head4 A verified access token (hash ref). $access_token_verified
+
+=head3 Return values
+
+An array reference containing the scopes.
+
+=cut
+
+sub get_token_scopes ($access_token_verified) {
+	return [] unless defined $access_token_verified;
+	my $scope_string = $access_token_verified->{scope} // '';
+	# split(' ', ...) strips leading whitespace, unlike split(/\s+/, ...)
+	return [split(' ', $scope_string)];
+}
+
+=head2 has_access_token_scope($access_token_verified, $required_scope)
+
+Checks whether a verified access token has a specific scope.
+
+=head3 Arguments
+
+=head4 A verified access token (hash ref). $access_token_verified
+
+=head4 The scope to check for. $required_scope
+
+=head3 Return values
+
+1 if the token has the scope, 0 otherwise.
+
+=cut
+
+sub has_access_token_scope ($access_token_verified, $required_scope) {
+	my $scopes = get_token_scopes($access_token_verified);
+	return scalar(grep {$_ eq $required_scope} @$scopes) > 0 ? !!1 : !!0;
+}
+
+=head2 verify_access_token_scopes($access_token_verified, @required_scopes)
+
+Checks whether a verified access token has all of the required scopes.
+
+This is the authorization step after authentication (verify_access_token):
+a token may be valid for the API (correct audience) but still lack the
+permission (scope) for a specific operation, e.g. products:write for edits.
+
+=head3 Arguments
+
+=head4 A verified access token (hash ref). $access_token_verified
+
+=head4 The scopes that must be present. @required_scopes
+
+=head3 Return values
+
+A list of the missing scopes. An empty list means all required scopes are present.
+
+=cut
+
+sub verify_access_token_scopes ($access_token_verified, @required_scopes) {
+	my %present = map {$_ => 1} @{get_token_scopes($access_token_verified)};
+	return grep {not $present{$_}} @required_scopes;
+}
+
+=head2 require_scope($request_ref, $scope)
+
+Checks whether the authenticated user's access token carries the required scope.
+
+This is the authorization step after authentication (verify_access_token in
+process_auth_header): a token may be valid for the API (correct audience) but still
+lack the permission (scope) for a specific operation, e.g. products:write for edit
+endpoints.
+
+If the scope is missing, the request is rejected with an RFC 6750 compliant error:
+HTTP 403 Forbidden, a WWW-Authenticate header with error="insufficient_scope", and a
+JSON error body. This allows OAuth2 clients to detect that they need to obtain a new
+token with the required scope (e.g. by re-running the authorization code flow with an
+extended scope parameter).
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+
+=head4 The scope that must be present in the token. $scope
+
+=head3 Return values
+
+1 if the token has the scope, 0 otherwise (in which case an error has been added to
+$request_ref->{api_response} and the request should not proceed).
+
+=cut
+
+sub require_scope ($request_ref, $scope) {
+	my $access_token_string = $request_ref->{access_token};
+
+	unless (defined $access_token_string) {
+		$log->info('require_scope - no access token in request', {scope => $scope}) if $log->is_info();
+		_add_insufficient_scope_error($request_ref, $scope);
+		return 0;
+	}
+
+	my $access_token = _verified_token_for_request($request_ref);
+
+	unless (defined $access_token) {
+		$log->info('require_scope - token invalid', {scope => $scope}) if $log->is_info();
+		_add_insufficient_scope_error($request_ref, $scope);
+		return 0;
+	}
+
+	if (has_access_token_scope($access_token, $scope)) {
+		return !!1;
+	}
+
+	$log->info('require_scope - token missing required scope', {scope => $scope})
+		if $log->is_info();
+	_add_insufficient_scope_error($request_ref, $scope);
+	return !!0;
+}
+
+=head2 _verified_token_for_request($request_ref)
+
+Returns the verified access token for the request, reusing the token already
+verified in process_auth_header() during init_request() to avoid a second JWKS
+decode per request. Falls back to verifying here for callers that did not go
+through init_request().
+
+Only defined tokens are cached on the request; an invalid token is re-verified
+on the next call so that key rotation is picked up.
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+
+=head3 Return values
+
+The verified access token hash ref, or undef if there is no token or it is invalid.
+
+=cut
+
+sub _verified_token_for_request ($request_ref) {
+	my $access_token_string = $request_ref->{access_token};
+	unless (defined $access_token_string) {
+		return;
+	}
+	my $access_token = $request_ref->{access_token_verified};
+	if ((not defined $access_token) or (($request_ref->{access_token_verified_string} // '') ne $access_token_string)) {
+		$access_token = verify_access_token($access_token_string);
+		if (defined $access_token) {
+			$request_ref->{access_token_verified} = $access_token;
+			$request_ref->{access_token_verified_string} = $access_token_string;
+		}
+	}
+	return $access_token;
+}
+
+=head2 require_scope_if_token_present($request_ref, $scope)
+
+Checks the required scope only when an OIDC Bearer token was presented.
+
+This is the common case for endpoints that still accept legacy authentication
+(session cookie, user_id + password) alongside OIDC: unauthenticated requests
+(without a Bearer token) pass through so that legacy auth can be evaluated
+downstream, while Bearer requests must carry the required scope.
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+
+=head4 The scope that must be present in the token. $scope
+
+=head3 Return values
+
+1 if no token was presented or the token has the scope, 0 otherwise (in which
+case an error has been added to $request_ref->{api_response} and the request
+should not proceed).
+
+=cut
+
+sub require_scope_if_token_present ($request_ref, $scope) {
+	if (not defined $request_ref->{access_token}) {
+		return !!1;
+	}
+	return require_scope($request_ref, $scope) ? !!1 : !!0;
+}
+
+=head2 enforce_scope_if_token_present($request_ref, $scope)
+
+CGI helper for the "If an OIDC Bearer token is presented, it must carry the
+scope" guard shared by the image CGI scripts.
+
+If no Bearer token was presented, returns 1 immediately so legacy session auth
+applies. If a token was presented but lacks the scope, sends an RFC 6750
+compliant 403 JSON response with a WWW-Authenticate header and exits.
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+
+=head4 The scope that must be present in the token. $scope
+
+=head3 Return values
+
+1 if the request may proceed. Does not return otherwise (exits with 403).
+
+=cut
+
+sub enforce_scope_if_token_present ($request_ref, $scope) {
+	if (not defined $request_ref->{access_token}) {
+		return !!1;
+	}
+	# Intentionally bypasses require_scope() so that no api_response error is
+	# recorded: CGI scripts print their own JSON body and exit, and api_response
+	# is an API-only field that is undef here.
+	my $access_token = _verified_token_for_request($request_ref);
+	if (defined $access_token and has_access_token_scope($access_token, $scope)) {
+		return !!1;
+	}
+	$log->info('enforce_scope_if_token_present - token missing required scope or invalid', {scope => $scope})
+		if $log->is_info();
+	my $r = eval {Apache2::RequestUtil->request();};
+	my $data = encode_json({status => 'status not ok', error => 'insufficient_scope'});
+	if (defined $r) {
+		$r->err_headers_out->set('WWW-Authenticate' =>
+				"Bearer error=\"insufficient_scope\", error_description=\"The request requires higher privileges than provided by the access token (missing scope: $scope)\""
+		);
+		print header(-status => 403, -type => 'application/json', -charset => 'utf-8') . $data;
+		eval {$r->rflush();};
+		eval {$r->status(200);};
+		# rflush + status(200) sends the 403 body while preventing mod_perl
+		# from appending its default error page (see cgi/auth.pl and API::send_api_response).
+	}
+	else {
+		print header(-status => 403, -type => 'application/json', -charset => 'utf-8') . $data;
+	}
+	exit(0);
+}
+
+=head2 _add_insufficient_scope_error($request_ref, $scope)
+
+Adds an RFC 6750 compliant insufficient_scope error to the API response and sets the
+WWW-Authenticate header so that OAuth2 clients can detect that they need a token with
+additional scopes.
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+
+=head4 The missing scope. $scope
+
+=head3 Return values
+
+None.
+
+=cut
+
+sub _add_insufficient_scope_error ($request_ref, $scope) {
+	my $response_ref = $request_ref->{api_response};
+
+	add_error(
+		$response_ref,
+		{
+			message => {id => "insufficient_scope"},
+			field => {id => "scope", value => $scope},
+			impact => {id => "failure"},
+		},
+		403
+	);
+
+	# RFC 6750 section 3.1: the WWW-Authenticate header tells the client
+	# that it needs a new token with the required scope
+	my $r = eval {Apache2::RequestUtil->request();};
+	if (defined $r) {
+		$r->err_headers_out->set('WWW-Authenticate' =>
+				"Bearer error=\"insufficient_scope\", error_description=\"The request requires higher privileges than provided by the access token (missing scope: $scope)\""
+		);
+	}
+
+	return;
 }
 
 =head2 get_azp($access_token)

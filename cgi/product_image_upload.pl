@@ -34,6 +34,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::ProductImageUpload qw/import_product_image_file/;
+use ProductOpener::Auth qw/enforce_scope_if_token_present/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -60,6 +61,8 @@ my $env = $ENV{QUERY_STRING};
 $log->debug("calling init()", {query_string => $env});
 
 my $request_ref = ProductOpener::Display::init_request();
+
+enforce_scope_if_token_present($request_ref, 'products:write');
 
 $log->debug(
 	"parsing code",

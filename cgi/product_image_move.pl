@@ -33,6 +33,7 @@ use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images qw/process_image_move/;
+use ProductOpener::Auth qw/enforce_scope_if_token_present/;
 use ProductOpener::Products qw/:all/;
 
 use Apache2::Const -compile => qw(M_OPTIONS);
@@ -71,6 +72,8 @@ my $env = $ENV{QUERY_STRING};
 $log->debug("calling init()", {query_string => $env});
 
 my $request_ref = ProductOpener::Display::init_request();
+
+enforce_scope_if_token_present($request_ref, 'products:write');
 
 $log->debug("parsing code", {user => $User_id, code => $code, cc => $request_ref->{cc}, lc => $lc, ip => remote_addr()})
 	if $log->is_debug();
