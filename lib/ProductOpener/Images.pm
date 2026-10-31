@@ -335,6 +335,9 @@ sub display_select_crop_init ($object_ref) {
 
 	my $path = product_path($object_ref);
 
+	# Reconcile phantom selected images if any exist (#1866)
+	reconcile_phantom_selected_images($object_ref);
+
 	# Generate JSON data for uploaded images
 	my $uploaded_images_ref = deep_get($object_ref, "images", "uploaded");
 	my @images = ();
@@ -892,7 +895,7 @@ Used to return some debug information to the caller.
 
 =cut
 
-sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref) {
+sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref, $skip_min_size = 0) {
 
 	# $time = shift  ->  usually current time (images just uploaded), except for images moved from another product
 	# $imgid_ref = shift  ->  to return the imgid (new image or existing image)
@@ -942,7 +945,7 @@ sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, 
 	}
 
 	return process_image_upload_using_filehandle($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref,
-		$debug_string_ref);
+		$debug_string_ref, $skip_min_size);
 }
 
 =head2 process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref, $debug_string_ref)
@@ -984,7 +987,7 @@ Used to return some debug information to the caller.
 =cut
 
 sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref,
-	$debug_string_ref)
+	$debug_string_ref, $skip_min_size = 0)
 {
 
 	local $log->context->{uploader} = $user_id;
@@ -1173,7 +1176,8 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 
 		# Check the image is big enough so that we do not get thumbnails from other sites
 		if (
-			(($source->Get('width') < 640) and ($source->Get('height') < 160))
+			(not $skip_min_size)
+			and (($source->Get('width') < 640) and ($source->Get('height') < 160))
 			and (  (not defined $options{users_who_can_upload_small_images})
 				or (not defined $options{users_who_can_upload_small_images}{$user_id}))
 			)
@@ -1191,6 +1195,32 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 			= generate_resized_images($target_image_dir, $imgid, $source, $size_ref, $thumb_size, $crop_size);
 
 		if (not $imagemagick_error) {
+
+			# Reload latest product state from storage to avoid overwriting concurrent changes (issue #12039)
+			my $latest_product_ref = retrieve_product($product_id);
+			if ($latest_product_ref) {
+				if (defined $latest_product_ref->{images}{uploaded}) {
+					$product_ref->{images} //= {};
+					$product_ref->{images}{uploaded} //= {};
+					foreach my $other_imgid (keys %{$latest_product_ref->{images}{uploaded}}) {
+						$product_ref->{images}{uploaded}{$other_imgid} //= $latest_product_ref->{images}{uploaded}{$other_imgid};
+					}
+				}
+				if (defined $latest_product_ref->{images}{selected}) {
+					$product_ref->{images}{selected} //= {};
+					foreach my $type (keys %{$latest_product_ref->{images}{selected}}) {
+						foreach my $image_lc (keys %{$latest_product_ref->{images}{selected}{$type}}) {
+							$product_ref->{images}{selected}{$type}{$image_lc} //= $latest_product_ref->{images}{selected}{$type}{$image_lc};
+						}
+					}
+				}
+				if (defined $latest_product_ref->{max_imgid} && (!defined $product_ref->{max_imgid} || $latest_product_ref->{max_imgid} > $product_ref->{max_imgid})) {
+					$product_ref->{max_imgid} = $latest_product_ref->{max_imgid};
+				}
+				if (defined $latest_product_ref->{rev} && (!defined $product_ref->{rev} || $latest_product_ref->{rev} > $product_ref->{rev})) {
+					$product_ref->{rev} = $latest_product_ref->{rev};
+				}
+			}
 
 			# Update the product image data
 			$log->debug("update the product image data", {imgid => $imgid, product_id => $product_id})
@@ -1473,7 +1503,8 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 					$product_ref->{images}{uploaded}{$imgid}{uploaded_t},
 					"image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{uploaded}{$imgid}{uploader} - time: $product_ref->{images}{uploaded}{$imgid}{uploaded_t}",
 					\$new_imgid,
-					\$debug
+					\$debug,
+					1  # skip_min_size: existing images being moved between products have already been validated
 				);
 				if ($ok < 0) {
 					$log->error(
@@ -1516,7 +1547,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 			}
 
 			# Don't delete images to be moved if they weren't moved correctly
-			if ($ok) {
+			if ($ok > 0) {
 				# Delete images (move them to the deleted.images dir)
 				delete_uploaded_image_and_associated_selected_images($product_ref, $imgid);
 			}
@@ -1745,10 +1776,25 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 
 	$log->trace("cropping image") if $log->is_trace();
 
-	# Check if the image exists in the uploaded images
+	# Check if the image exists in the uploaded images
 	if (not defined $product_ref->{images}{uploaded}{$imgid}) {
-		$log->error("image not found", {product_id => $product_id, imgid => $imgid}) if $log->is_error();
-		return -1;
+		# Check if the image file exists on disk (e.g. from concurrent upload or orphan - issue #1866, #12039)
+		if (-e $source_path) {
+			my $mtime = (stat($source_path))[9] // time();
+			$product_ref->{images}{uploaded}{$imgid} = {
+				uploader   => $user_id,
+				uploaded_t => $mtime,
+				sizes      => {},
+			};
+			if (!defined $product_ref->{max_imgid} || $imgid > $product_ref->{max_imgid}) {
+				$product_ref->{max_imgid} = $imgid;
+			}
+			$log->info("process_image_crop: auto-recovered missing uploaded image $imgid from disk for product $product_id");
+		}
+		else {
+			$log->error("image not found", {product_id => $product_id, imgid => $imgid}) if $log->is_error();
+			return -1;
+		}
 	}
 
 	my $source = Image::Magick->new;
