@@ -332,6 +332,14 @@ my $tests_ref = [
 		sort_products_by => 'product_name',
 	},
 	{
+		test_case => 'contributor-alice-case-normalization',
+		method => 'GET',
+		path => 'facets/contributors/ALICE.json?fields=product_name',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match => '"count"\s*:\s*13',
+	},
+	{
 		test_case => 'contributor-bob',
 		method => 'GET',
 		path => 'facets/contributors/bob.json?fields=product_name',
@@ -361,12 +369,7 @@ my $tests_ref = [
 		test_case => 'category-vitamins',
 		method => 'GET',
 		path => 'facets/categories/Vitamins.json?fields=product_name,labels_tags',
-		expected_status_code => 302,
-		headers => {
-			Location =>
-				'http://world.openfoodfacts.localhost/facets/categories/Vitamin%20supplements.json?fields=product_name,labels_tags',
-		},
-		expected_type => 'html',
+		expected_status_code => 200,
 	},
 	# test some redirects
 	{
