@@ -419,6 +419,62 @@ my @tests = (
 		]
 	],
 
+	[
+		{lc => "fr", ingredients_text => "ferments lactiques, présure (animale), sucre"},
+		[
+			{
+				'id' => 'en:lactic-ferments',
+				'is_in_taxonomy' => 1,
+				'text' => 'ferments lactiques'
+			},
+			{
+				'id' => 'en:animal-based-rennet',
+				'is_in_taxonomy' => 1,
+				'text' => 'présure animale'
+			},
+			{
+				'id' => 'en:sugar',
+				'is_in_taxonomy' => 1,
+				'text' => 'sucre'
+			}
+		]
+	],
+
+	[
+		{lc => "fr", ingredients_text => "présure (végétale)"},
+		[
+			{
+				'id' => 'en:vegetarian-rennet',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:vegan',
+				'text' => 'présure végétale',
+				'vegan' => 'yes',
+				'vegetarian' => 'yes'
+			}
+		]
+	],
+
+	[
+		{lc => "en", ingredients_text => "milk, salt, rennet (animal)"},
+		[
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:salt',
+				'is_in_taxonomy' => 1,
+				'text' => 'salt'
+			},
+			{
+				'id' => 'en:animal-based-rennet',
+				'is_in_taxonomy' => 1,
+				'text' => 'animal rennet'
+			}
+		]
+	],
+
 );
 
 foreach my $test_ref (@tests) {
