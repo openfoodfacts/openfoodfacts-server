@@ -6033,13 +6033,13 @@ sub is_valid_search_graph_field ($field) {
 
 	# Empty / missing axis is never valid
 	if ($field eq '') {
-		return 0;
+		return builtin::false();
 	}
 
 	# Bare "folksonomy" without a property is not valid (form sends
 	# axis_x=folksonomy + axis_x_folksonomy_property=...)
 	if ($field eq 'folksonomy') {
-		return 0;
+		return builtin::false();
 	}
 
 	# Folksonomy Engine property, e.g. folksonomy.manufacturer_suggested_retail_price:eu:eur
@@ -6047,9 +6047,9 @@ sub is_valid_search_graph_field ($field) {
 		my $property = $1;
 		# Require a non-empty property without whitespace or angle brackets (XSS / injection safety)
 		if (($property ne '') and ($property !~ /[\s<>"']/) and (length($property) <= 300)) {
-			return 1;
+			return builtin::true();
 		}
-		return 0;
+		return builtin::false();
 	}
 
 	# Allow-listed direct fields
@@ -6061,9 +6061,9 @@ sub is_valid_search_graph_field ($field) {
 	{
 		# Restrict characters to avoid MongoDB dot-notation / operator injection
 		if ($field =~ /^[A-Za-z0-9_-]+$/) {
-			return 1;
+			return builtin::true();
 		}
-		return 0;
+		return builtin::false();
 	}
 
 	# Packaging fields: packagings_materials.<material>.<subfield>
@@ -6072,18 +6072,18 @@ sub is_valid_search_graph_field ($field) {
 		if (    ($material =~ /^(all|[A-Za-z0-9_:+-]+)$/)
 			and ($subfield =~ /^(weight|weight_100g|weight_percent)$/))
 		{
-			return 1;
+			return builtin::true();
 		}
-		return 0;
+		return builtin::false();
 	}
 
 	# Other fields are assumed to be nutrient ids (e.g. "sugars", "saturated-fat").
 	# Nutrient ids only contain lowercase letters, digits and dashes.
 	if ($field =~ /^[a-z0-9-]+$/) {
-		return 1;
+		return builtin::true();
 	}
 
-	return 0;
+	return builtin::false();
 }
 
 =head2 validate_graph_axes ($graph_ref)
