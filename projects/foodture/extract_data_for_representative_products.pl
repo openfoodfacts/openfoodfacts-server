@@ -34,10 +34,12 @@ use LWP::UserAgent;
 use JSON::MaybeXS;
 use Text::CSV;
 use Text::CSV_XS;
+use Getopt::Long;
 
 # This script:
 # - reads a list of categories (and other columns) from projects/foodture/foodture_foodex2_categories_mapping_to_off.csv
 # - reads a list of most scanned products by country and category from projects/foodture/ranked_products_202602231414.csv
+# (from off-query) or from the file given with --ranked-file (made by select_representative_products.pl)
 # - for each product matching a category from the first list and 1 country from the EU27
 # + Norway, Switzerland, UK, Serbia and Montenegro),
 # we fetch its data directly from the products folder
@@ -83,6 +85,23 @@ my %countries_names = map {
 		display_taxonomy_tag('en', 'countries', canonicalize_taxonomy_tag('en', 'countries', $_))
 } @countries;
 my @countries_tags = sort keys %countries_names;
+
+my $ranked_file = "projects/foodture/ranked_products_202602231414.csv";
+my $out_file = "projects/foodture/representative_products.csv";
+my $ingredients_file = "projects/foodture/ingredients_sum.csv";
+my $only_output_codes = 0;
+
+GetOptions(
+	"ranked-file=s" => \$ranked_file,
+	"output=s" => \$out_file,
+	"ingredients-output=s" => \$ingredients_file,
+	"only-output-codes" => \$only_output_codes,
+	)
+	or die
+	"Usage: $0 [--ranked-file <file.csv>] [--output <file.csv>] [--ingredients-output <file.csv>] [--only-output-codes]\n";
+
+# Years of scans to output
+my @scan_years = (2021 .. 2026);
 
 # Languages to output ingredients in
 my @ingredient_languages = qw/en fr/;
@@ -177,7 +196,6 @@ sub collect_ingredients {
 
 # first pass: read ranked products and group by country/category tags
 print STDERR "Reading ranked products...\n";
-my $ranked_file = "projects/foodture/ranked_products_202602231414.csv";
 open my $RANK, '<:encoding(UTF-8)', $ranked_file or die "Cannot open $ranked_file: $!\n";
 my $parser = Text::CSV_XS->new(
 	{
@@ -223,7 +241,6 @@ open my $LIST, '<:encoding(UTF-8)', $list_file or die "Cannot open $list_file: $
 <$LIST>;    # skip header
 
 # prepare output file
-my $out_file = "projects/foodture/representative_products.csv";
 open my $OUT, '>:encoding(UTF-8)', $out_file or die "Cannot write $out_file: $!\n";
 my $csv_out = Text::CSV->new({binary => 1, eol => "\n"})
 	or die "Cannot create CSV writer: " . Text::CSV->error_diag();
@@ -274,12 +291,15 @@ for my $j (1 .. 5) {
 	}
 }
 
-# scans for last 5 years
-for my $y (2021 .. 2025) {
+# scans for each year
+for my $y (@scan_years) {
 	push @hdr, "country_scans_${y}", "global_scans_${y}";
 }
 
 push @hdr, "ingredients_json", "packaging_json";    # sum of top 10 ingredients percentages
+
+# 1 if the product still has complete data (photos, ingredients, nutrition), as when it was selected
+push @hdr, "complete";
 
 $csv_out->print($OUT, \@hdr);
 
@@ -317,7 +337,7 @@ while (<$LIST>) {
 			my $scans_ref = {};
 
 			# If we have the --only-output-codes option, don't fetch product data
-			unless ((defined $ARGV[0]) and ($ARGV[0] eq '--only-output-codes')) {
+			unless ($only_output_codes) {
 
 				# ensure product data fetched
 				unless (exists $product_data{$code}) {
@@ -460,13 +480,22 @@ while (<$LIST>) {
 				}
 			}
 
-			# Scan numbers for last 5 years
-			for my $y (2021 .. 2025) {
+			# Scan numbers for each year
+			for my $y (@scan_years) {
 				my $year_scans = $scans_ref->{$y}{unique_scans_n_by_country};
-				push @row, $year_scans->{$cc} // 0, $year_scans->{world} // 0;
+				my $country_scans = $year_scans->{$cc} // 0;
+				# scanbot uses GeoIP country codes: gb for the United Kingdom
+				$country_scans += $year_scans->{gb} // 0 if $cc eq 'uk';
+				push @row, $country_scans, $year_scans->{world} // 0;
 			}
 
 			push @row, encode_json($ingredients_ref // []), encode_json($product_ref->{packagings} // []);
+
+			my %states = map {$_ => 1} @{$product_ref->{states_tags} // []};
+			push @row,
+				(grep {not $states{$_}} qw/en:nutrition-facts-completed en:ingredients-completed en:photos-uploaded/)
+				? 0
+				: 1;
 
 			$csv_out->print($OUT, \@row);
 
@@ -493,7 +522,6 @@ close $LIST;
 close $OUT;
 
 # Create a second CSV table that lists all ingredients with the sum of their percentages across all products
-my $ingredients_file = "projects/foodture/ingredients_sum.csv";
 open my $ING_OUT, '>:encoding(UTF-8)', $ingredients_file or die "Cannot write $ingredients_file: $!\n";
 my @ingredients_header = (
 	"ingredient_id", "ingredient_exists_in_taxonomy",
