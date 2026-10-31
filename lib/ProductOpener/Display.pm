@@ -542,10 +542,17 @@ sub init_request ($request_ref = {}) {
 	}
 
 	# Rate-limiter specific settings
-	# Also see set_rate_limit_attributes in Routing.pm
+	# Also see set_rate_limit_attributes in ProductOpener::RateLimiter
 
-	# Each request is (possibly) associated with a rate limiter bucket
+	# Each request is associated with a rate limiter bucket. The request is accounted for in
+	# init_request(), further down, so that every cgi/*.pl entry point is counted: a request
+	# without a bucket set here is counted in the default "other" bucket, and a route that wants
+	# a different bucket moves the count (see set_rate_limit_bucket()).
 	$request_ref->{rate_limiter_bucket} = undef;
+	# The bucket the request has been counted in, if it was counted
+	$request_ref->{rate_limiter_accounted_bucket} = undef;
+	# The minute the request was accounted in, used to roll the count back from the right window
+	$request_ref->{rate_limiter_accounted_minute} = undef;
 	# Number of requests the user did in the last minute
 	$request_ref->{rate_limiter_user_requests} = undef;
 	# Limit of requests for the specific bucket (and/or user)
@@ -928,6 +935,26 @@ CSS
 	set_request_stats_value($request_ref->{stats}, "hostname", $hostname);
 	set_request_stats_value($request_ref->{stats}, "original_query_string", $request_ref->{original_query_string});
 	set_request_stats_value($request_ref->{stats}, "ip", remote_addr());
+
+	# Account the request for the rate-limiter, here and not in the request router: this function
+	# is called by every cgi/*.pl entry point, while the router only sees the requests that are
+	# served by cgi/display.pl (5 of the 52 scripts). Without this, the API v0/v2 scripts, the
+	# producers platform scripts and the OCR scripts were neither counted nor blocked.
+	# It runs after the user is authenticated, as the limit of some buckets depends on it.
+	if (not $rate_limiter_disabled) {
+		ProductOpener::RateLimiter::account_request_for_rate_limiting($request_ref);
+		# Enforce the limit of the default "other" bucket for the entry points that never reach
+		# the router: they are counted here and have no later check. cgi/display.pl (script_name
+		# is undef) and cgi/search.pl keep deferred enforcement, until their final bucket and
+		# exemptions are known; when $options{rate_limit_other} is undef, blocking stays 0 and
+		# the requests are only counted.
+		if (    $request_ref->{rate_limiter_blocking}
+			and defined $request_ref->{script_name}
+			and ($request_ref->{script_name} ne "/cgi/search.pl"))
+		{
+			display_too_many_requests_page_and_exit();
+		}
+	}
 
 	return $request_ref;
 }

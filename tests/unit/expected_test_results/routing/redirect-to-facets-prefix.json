@@ -12,6 +12,7 @@
    "param" : {},
    "query_parameters" : null,
    "query_string" : "categories",
+   "rate_limiter_accounted_bucket" : "facet_tags",
    "rate_limiter_blocking" : 0,
    "rate_limiter_bucket" : "facet_tags",
    "rate_limiter_limit" : 10,

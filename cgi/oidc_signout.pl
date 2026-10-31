@@ -33,7 +33,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Auth qw/start_signout/;
-use ProductOpener::Display qw/init_request display_error_and_exit/;
+use ProductOpener::Display qw/display_too_many_requests_page_and_exit init_request display_error_and_exit/;
 use ProductOpener::Routing qw/analyze_request/;
 use ProductOpener::URL qw/format_subdomain/;
 
@@ -47,6 +47,11 @@ if (not($ENV{'REQUEST_METHOD'} eq 'POST')) {
 }
 
 analyze_request($request_ref);
+
+# init_request() defers enforcement for routed requests: block here on the final bucket
+if ($request_ref->{rate_limiter_blocking}) {
+	display_too_many_requests_page_and_exit();
+}
 
 start_signout($request_ref);
 
