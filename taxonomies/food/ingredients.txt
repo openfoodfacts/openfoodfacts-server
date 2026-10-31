@@ -10135,8 +10135,7 @@ sv: djur
 vegan:en: no
 vegetarian:en: no
 
-# < en:animal
-# < en:meat
+< en: animal
 en: Meat and animal derivatives
 da: Kød og dyriske biprodukter
 de: Fleisch und tierische Nebenerzeugnisse
@@ -10153,6 +10152,26 @@ pt: Carne e subprodutos de origem animal
 ru: Мясо и продукты животного происхождения
 sl: Meso in živalski izdelki
 sv: Kött och djuriska biprodukter
+vegan:en: no
+vegetarian:en: no
+
+< en: animal
+en: Animal derivatives, Animal by-products
+fr: Sous-produits animaux, Sous produits animaux, Sous-produits d'origine animale
+vegan:en: no
+vegetarian:en: no
+
+< en: animal derivatives
+< en: fish
+en: Fish derivatives, Fish by-products
+fr: Sous-produits de poissons, Sous-produits de poisson, Sous produits de poissons
+
+< en: animal
+< en: fish
+en: Fish and fish derivatives, Fish and fish by-products
+fr: Poissons et sous-produits de poissons, Poisson et sous-produits de poisson
+vegan:en: no
+vegetarian:en: no
 
 en: meat
 bg: месо
@@ -50063,6 +50082,9 @@ hr: organski sok od nara
 it: succo di melograno biologico
 
 < en: pomegranate juice
+en: concentrated pomegranate juice, pomegranate juice concentrate, pomegranate juice concentrates
+
+< en: pomegranate juice
 en: pomegranate juice from concentrate, pomegranate juice from natural concentrated pomegranate juice
 de: Granatapfelsaft aus Granatapfelsaftkonzentrat
 fr: jus de grenade à base de concentré, Jus de grenade à base de jus de grenade concentré
@@ -53074,6 +53096,8 @@ pt: Subprodutos de origem vegetal
 ru: Продукты растительного происхождения
 sl: Rastlinski izdelki
 sv: Växtprodukter
+vegan:en: yes
+vegetarian:en: yes
 
 en: vegetable, vegetables
 bg: зеленчук, зеленчуци
