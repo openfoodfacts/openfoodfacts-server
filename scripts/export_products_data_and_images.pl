@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -148,7 +148,10 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref) . "\n";
 # sto dupms
 if ($products_file || $images_file) {
 	# harvest products'code from mongo db
-	my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})->query($query_ref)->fields({"code" => 1})
+	my $cursor
+		= get_products_collection({timeout => 3 * 60 * 60 * 1000})
+		->query($query_ref)
+		->fields({"code" => 1})
 		->sort({code => 1});
 
 	$cursor->immortal(1);

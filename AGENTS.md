@@ -22,7 +22,7 @@ Note that no doc covers *every* target — `grep -E '^[a-z_]+:' Makefile` is the
    ```
    127.0.0.1 world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
    ```
-   to `/etc/hosts` (Linux/macOS) or `C:\Windows\System32\drivers\etc\hosts`. `make edit_etc_hosts` appends the entry idempotently (it derives the names from `$PRODUCT_OPENER_DOMAIN`). Do not edit system files unless you actually hit this error.
+   to `/etc/hosts` (Linux/macOS) or `C:\Windows\System32\drivers\etc\hosts`. `make edit_etc_hosts` (Makefile:130) appends the entry idempotently (it derives the names from `$PRODUCT_OPENER_DOMAIN`). Do not edit system files unless you actually hit this error.
 4. Optional: `cp .env .envrc` and use [direnv](https://direnv.net/) for local overrides. Prefer `.envrc` over editing the tracked `.env` so overrides don't leak into commits.
 5. `make dev` — builds taxonomies, translations and images, then starts everything. **10–30 minutes cold** (network-bound: Docker base images + Debian + Perl modules); a few minutes once layers are cached.
 
@@ -69,7 +69,7 @@ make build_taxonomies_test
 make build_lang_test
 ```
 
-`make tests` chains these for you and is the best way to run everything. Rerun `build_lang_test` after touching any `.pot`/`.po` file.
+`make tests` (Makefile:299) chains these for you and is the best way to run everything. Rerun `build_lang_test` after touching any `.pot`/`.po` file.
 
 ### Regenerating expected results
 
@@ -94,7 +94,7 @@ CI is the arbiter: **both the unit and integration suites are gated** — `tests
 - `make update_package_lock` — CI fails if `package-lock.json` drifts after a `package.json` change.
 - Translation check (`translation-check.yml`) and Spectral linting of `docs/api/ref/*.yaml` (`api-linting.yml`).
 
-> **Caveat:** `check_perltidy`, `check_perl_fast`, `check_critic` and `check_taxonomies` select files via `git diff origin/main --name-only` (the `TO_CHECK` selection in the `Makefile`) and **exit 0 when that list is empty**. On a clone without an `origin/main` ref (e.g. a single-branch clone), they silently check nothing. Verify with `git rev-parse origin/main`; use `make check_perl` and `make lint_perltidy` when you need unconditional coverage.
+> **Caveat:** `check_perltidy`, `check_perl_fast`, `check_critic` and `check_taxonomies` select files via `git diff origin/main --name-only` (the `TO_CHECK` selection in the `Makefile`, Makefile:408) and **exit 0 when that list is empty**. On a clone without an `origin/main` ref (e.g. a single-branch clone), they silently check nothing. Verify with `git rev-parse origin/main`; use `make check_perl` and `make lint_perltidy` when you need unconditional coverage.
 
 ### Manual validation
 

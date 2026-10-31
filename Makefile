@@ -151,6 +151,7 @@ DOCKER_COMPOSE_BUILD=COMPOSE_FILE="${COMPOSE_FILE_BUILD}" ${DOCKER_COMPOSE}
 DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" \
 	GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" \
 	ODOO_CRM_URL="" \
+	GOOGLE_DRIVE_API_KEY="" \
 	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
 	OIDC_IMPLEMENTATION_LEVEL=5 \
@@ -375,11 +376,14 @@ front_npm_update:
 front_lint:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint
 
+front_test:
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose run --rm -v "$(PWD)/tests:/opt/product-opener/tests" dynamicfront npm run test:js
+
 front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build
 
 
-checks: front_build front_lint check_perltidy check_perl_fast check_critic check_taxonomies
+checks: front_build front_lint front_test check_perltidy check_perl_fast check_critic check_taxonomies
 
 lint: lint_perltidy lint_taxonomies
 

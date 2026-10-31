@@ -23,7 +23,7 @@
 use autodie;
 use utf8;
 use open qw(:std :utf8);
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 
 use CHI ();
 use Data::Table ();

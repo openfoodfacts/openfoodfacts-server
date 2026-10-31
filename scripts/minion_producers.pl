@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -66,6 +66,9 @@ plugin Minion => $server_options{minion_backend};
 app->minion->add_task(import_csv_file => \&ProductOpener::Producers::import_csv_file_task);
 
 app->minion->add_task(export_csv_file => \&ProductOpener::Producers::export_csv_file_task);
+
+app->minion->add_task(
+	import_photos_from_google_drive_folder => \&ProductOpener::Producers::import_photos_from_google_drive_folder_task);
 
 app->minion->add_task(
 	update_export_status_for_csv_file => \&ProductOpener::Producers::update_export_status_for_csv_file_task);
