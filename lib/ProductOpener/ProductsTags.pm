@@ -54,6 +54,7 @@ BEGIN {
 		&set_field_input_tags_for_source
 		&generate_field_tags_from_all_sources
 		&compute_field_tags
+		&renormalize_packager_codes_field
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -66,7 +67,7 @@ use ProductOpener::Tags qw/get_inherited_property_from_tags get_property canonic
 	gen_tags_list_with_parents display_taxonomy_tag get_city_code
 	init_emb_codes gen_tags_hierarchy_taxonomy get_minimal_tags_subset
 	%taxonomy_fields %tags_fields %emb_codes_cities/;
-use ProductOpener::Store qw/get_string_id_for_lang/;
+use ProductOpener::Store qw/get_string_id_for_lang encode_canonical_json/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::IngredientsStrings qw/%may_contain_regexps/;
 use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
@@ -600,6 +601,50 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 	}
 
 	return;
+}
+
+=head2 renormalize_packager_codes_field ($product_ref)
+
+Renormalize the packager codes in each tags_sources.emb_codes source with the current
+normalization rules, and refresh the corresponding tags (emb_codes_tags, cities_tags).
+The product must use the current tags schema, as returned by retrieve_product().
+Source metadata, including last_updated_t, is preserved.
+
+Used to migrate existing products after a change of the normalization rules,
+so that differently written variants of the same code merge into one tag.
+See https://github.com/openfoodfacts/openfoodfacts-server/issues/14961
+
+Returns 1 if the product was modified (in place), 0 otherwise.
+
+=cut
+
+sub renormalize_packager_codes_field ($product_ref) {
+
+	my $sources_ref = deep_get($product_ref, "tags_sources", "emb_codes");
+	return 0 if not(defined $sources_ref);
+
+	my $previous = encode_canonical_json([$sources_ref, $product_ref->{emb_codes_tags}, $product_ref->{cities_tags}]);
+
+	foreach my $source_ref (values %{$sources_ref}) {
+		next if not(defined $source_ref->{tags});
+
+		my @normalized_tags = map {
+			# Schema upgrades can preserve raw input rather than canonical tag IDs.
+			my $tag = $_;
+			$tag =~ s/^\s+|\s+$//g;
+			get_string_id_for_lang("no_language", normalize_packager_codes($tag));
+		} @{$source_ref->{tags}};
+		my %seen = ();
+		$source_ref->{tags} = [grep {($_ ne '') and (not $seen{$_}++)} @normalized_tags];
+	}
+
+	init_emb_codes() unless %emb_codes_cities;
+	generate_field_tags_from_all_sources($product_ref, "emb_codes");
+
+	# Repairs to derived tags must also be saved, even when the sources were
+	# already normalized. Compare only the fields this function can change.
+	my $normalized = encode_canonical_json([$sources_ref, $product_ref->{emb_codes_tags}, $product_ref->{cities_tags}]);
+	return ($normalized ne $previous) ? 1 : 0;
 }
 
 1;
