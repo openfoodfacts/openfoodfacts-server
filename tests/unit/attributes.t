@@ -444,5 +444,121 @@ subtest 'compute_attribute_forest_footprint panel_id' => sub {
 	is($attr_computed->{panel_id}, 'forest_footprint', 'computed forest footprint sets panel_id');
 };
 
+subtest 'compute_attribute_nutriscore not-applicable explanations' => sub {
+	# Test with valid category in nutriscore_data (en:baby-foods)
+	my $baby_food_product = {
+		nutrition_grades_tags => ['not-applicable'],
+		nutriscore_data => {
+			nutriscore_not_applicable_for_category => 'en:baby-foods',
+		},
+	};
+
+	my $attr_en = ProductOpener::Attributes::compute_attribute_nutriscore($baby_food_product, 'en', 'world');
+	is($attr_en->{status}, 'known', 'status is known for not-applicable nutriscore');
+	is($attr_en->{title}, 'Nutri-Score not applicable', 'title is correct');
+	is(
+		$attr_en->{description_short},
+		'Not applicable for the category: Baby foods',
+		'short description includes localized category in en'
+	);
+	is(
+		$attr_en->{description},
+		'Nutri-Score cannot currently be calculated for this product category: Baby foods.',
+		'full description explains category non-calculation in en'
+	);
+
+	my $attr_fr = ProductOpener::Attributes::compute_attribute_nutriscore($baby_food_product, 'fr', 'world');
+	is($attr_fr->{title}, 'Nutri-Score non applicable', 'title is correct in fr');
+	is(
+		$attr_fr->{description_short},
+		'Non applicable pour la catégorie : Aliments pour bébé',
+		'short description includes localized category in fr'
+	);
+	is(
+		$attr_fr->{description},
+		'Le Nutri-Score ne peut pas être calculé actuellement pour cette catégorie de produits : Aliments pour bébé.',
+		'full description explains category non-calculation in fr'
+	);
+
+	# Test untranslated locale falls back to English internally via f_lang_in_lc for full description
+	my $attr_de = ProductOpener::Attributes::compute_attribute_nutriscore($baby_food_product, 'de', 'world');
+	is(
+		$attr_de->{description_short},
+		'Nicht zutreffend für die Kategorie: Babynahrung',
+		'short description uses localized translation in de'
+	);
+	is(
+		$attr_de->{description},
+		'Nutri-Score cannot currently be calculated for this product category: Babynahrung.',
+		'full description uses internal English fallback for untranslated locale'
+	);
+
+	# Test with category under nutriscore.2023.not_applicable_category (e.g. en:alcoholic-beverages)
+	my $beer_product = {
+		nutrition_grades_tags => ['not-applicable'],
+		nutriscore => {
+			'2023' => {
+				not_applicable_category => 'en:alcoholic-beverages',
+			},
+		},
+	};
+	my $attr_beer = ProductOpener::Attributes::compute_attribute_nutriscore($beer_product, 'en', 'world');
+	is(
+		$attr_beer->{description_short},
+		'Not applicable for the category: Alcoholic beverages',
+		'resolves category from nutriscore.2023 structure'
+	);
+	is(
+		$attr_beer->{description},
+		'Nutri-Score cannot currently be calculated for this product category: Alcoholic beverages.',
+		'full description resolves category from nutriscore.2023'
+	);
+
+	# Test precedence: nutriscore.2023 takes precedence over stale legacy nutriscore_data
+	my $precedence_product = {
+		nutrition_grades_tags => ['not-applicable'],
+		nutriscore_data => {
+			nutriscore_not_applicable_for_category => 'en:baby-foods',
+		},
+		nutriscore => {
+			'2023' => {
+				not_applicable_category => 'en:alcoholic-beverages',
+			},
+		},
+	};
+	my $attr_precedence = ProductOpener::Attributes::compute_attribute_nutriscore($precedence_product, 'en', 'world');
+	is(
+		$attr_precedence->{description_short},
+		'Not applicable for the category: Alcoholic beverages',
+		'versioned 2023 category takes precedence over legacy nutriscore_data'
+	);
+
+	# Test fallback when category is missing or untranslated
+	my $product_no_category = {nutrition_grades_tags => ['not-applicable'],};
+	my $attr_fallback = ProductOpener::Attributes::compute_attribute_nutriscore($product_no_category, 'en', 'world');
+	is(
+		$attr_fallback->{description_short},
+		'Not applicable for the category',
+		'fallback short description without category'
+	);
+	is(
+		$attr_fallback->{description},
+		'Nutri-Score not applicable for this product category.',
+		'fallback full description without category'
+	);
+	unlike($attr_fallback->{description_short}, qr/:\s*$/, 'short description does not end with empty colon');
+	unlike($attr_fallback->{description}, qr/:\s*\.?$/, 'full description does not end with empty category');
+
+	# Test missing nutrients (unknown) does not produce not-applicable
+	my $product_missing_data = {nutrition_grades_tags => ['unknown'],};
+	my $attr_unknown = ProductOpener::Attributes::compute_attribute_nutriscore($product_missing_data, 'en', 'world');
+	is($attr_unknown->{status}, 'unknown', 'status is unknown for missing data');
+	is(
+		$attr_unknown->{description_short},
+		'Missing data to compute the Nutri-Score',
+		'missing data description preserved'
+	);
+};
+
 done_testing();
 

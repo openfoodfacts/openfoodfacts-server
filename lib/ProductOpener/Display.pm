@@ -8878,7 +8878,7 @@ sub data_to_display_nutrient_levels ($product_ref) {
 	return $result_data_ref;
 }
 
-=head2 data_to_display_nutriscore ($nutriscore_data_ref, $version = "2021" )
+=head2 data_to_display_nutriscore ($product_ref, $version = "2021", $target_lc = undef)
 
 Generates a data structure to display the Nutri-Score.
 
@@ -8888,14 +8888,19 @@ The resulting data structure can be passed to a template to generate HTML or the
 
 =head4 Product reference $product_ref
 
+=head4 Nutri-Score version $version (optional, defaults to "2021")
+
+=head4 Target language code $target_lc (optional, defaults to $lc)
+
 =head3 Return values
 
 Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutriscore ($product_ref, $version = "2021") {
+sub data_to_display_nutriscore ($product_ref, $version = "2021", $target_lc = undef) {
 
+	my $use_lc = $target_lc // $lc // "en";
 	my $result_data_ref = {};
 
 	# Nutri-Score data
@@ -8978,18 +8983,48 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 
 		# Category without Nutri-Score: baby food, alcoholic beverages etc.
 		if (has_tag($product_ref, "misc", "en:nutriscore-not-applicable")) {
-			push @nutriscore_warnings, lang("nutriscore_not_applicable");
+			my $not_applicable_category = deep_get($product_ref, "nutriscore", $version, "not_applicable_category")
+				// deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/)
+				// deep_get($product_ref, "nutriscore", ($version eq "2023" ? "2021" : "2023"),
+				"not_applicable_category");
+
+			my $category_name
+				= (defined $not_applicable_category && $not_applicable_category ne "")
+				? display_taxonomy_tag_name($use_lc, "categories", $not_applicable_category)
+				: "";
+
+			if (defined $category_name && $category_name =~ /\S/) {
+				my $warning
+					= f_lang_in_lc($use_lc, "f_nutriscore_not_applicable_for_category", {category => $category_name});
+				$warning = f_lang_in_lc("en", "f_nutriscore_not_applicable_for_category", {category => $category_name})
+					if $warning eq "";
+				push @nutriscore_warnings, $warning;
+
+				my $short_desc = f_lang_in_lc(
+					$use_lc,
+					"f_attribute_nutriscore_not_applicable_description",
+					{category => $category_name}
+				);
+				$short_desc = f_lang_in_lc(
+					"en",
+					"f_attribute_nutriscore_not_applicable_description",
+					{category => $category_name}
+				) if $short_desc eq "";
+				$result_data_ref->{nutriscore_unknown_reason_short} = $short_desc;
+			}
+			else {
+				my $warning = lang_in_other_lc($use_lc, "nutriscore_not_applicable");
+				$warning = lang_in_other_lc("en", "nutriscore_not_applicable") if $warning eq "";
+				push @nutriscore_warnings, $warning;
+
+				my $short_desc = lang_in_other_lc($use_lc, "attribute_nutriscore_not_applicable_description_short");
+				$short_desc = lang_in_other_lc("en", "attribute_nutriscore_not_applicable_description_short")
+					if $short_desc eq "";
+				$result_data_ref->{nutriscore_unknown_reason_short} = $short_desc;
+			}
+
 			$result_data_ref->{nutriscore_grade} = "not-applicable";
 			$result_data_ref->{nutriscore_unknown_reason} = "not_applicable";
-			$result_data_ref->{nutriscore_unknown_reason_short} = f_lang(
-				"f_attribute_nutriscore_not_applicable_description",
-				{
-					category => display_taxonomy_tag_name(
-						$lc, "categories",
-						deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/)
-					)
-				}
-			);
 		}
 		else {
 
