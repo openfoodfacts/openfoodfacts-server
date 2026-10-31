@@ -105,15 +105,26 @@ nginx needs the njs module (version 0.8 or later). The configuration is the same
   and this directory in `/etc/nginx/njs`. `conf/nginx-docker/nginx.conf` includes the snippet.
   **The frontend image must be rebuilt**: an older image without the module fails to start with
   `unknown directive "js_import"`.
-- Without Docker (the openfoodfacts.org production server, Debian trixie with nginx 1.26.3,
-  `conf/nginx/sites-available/off`, which includes the snippet):
+- Without Docker (the openfoodfacts.org and pro.openfoodfacts.org production servers, Debian trixie with
+  nginx 1.26.3, `conf/nginx/sites-available/off` and `off-pro`, which include the snippet).
+  The other flavors (obf, opf, opff) do not need it: the environmental cost panel is only created for food products,
+  and on the pro platform the label is served by `static.pro.openfoodfacts.org`. On each of the 2 servers:
   1. `apt install libnginx-mod-http-js` (njs 0.8.9). The package loads the module through
      `/etc/nginx/modules-enabled/`.
-  2. Link `conf.d/environmental_cost_label.conf` in `/etc/nginx/conf.d/` and this directory to `/etc/nginx/njs`.
+  2. Link the files from the repository (`/srv/off` or `/srv/off-pro`), as checked by
+     `scripts/deploy/verify-deployment.sh`:
+     ```bash
+     ln -s /srv/off/conf/nginx/snippets/environmental-cost-label.include /etc/nginx/snippets/
+     ln -s /srv/off/conf/nginx/njs /etc/nginx/njs
+     ln -s /srv/off/conf/nginx/conf.d/environmental_cost_label.conf /etc/nginx/conf.d/
+     ```
   3. Check with `nginx -t` before reloading.
 
-  **Order matters**: install the module and do steps 1-2 before deploying the version of
-  `sites-available/off` that includes the snippet, otherwise `nginx -t` fails (`unknown directive "js_content"`).
+  **Order matters**: the module must be installed before deploying the version of `sites-available/off`
+  (or `off-pro`) that includes the snippet, otherwise `nginx -t` fails (`unknown directive "js_content"`).
+  The `conf.d` link must only be created once the file exists in the repository: a dangling link
+  matched by `include /etc/nginx/conf.d/*.conf;` makes `nginx -t` fail. The two other links are only used
+  through the snippet, and can be created in advance.
   The label URLs are published by Product Opener in the `environmental_cost` knowledge panel: until the
   snippet is active on the server that serves the static subdomain, they return a 404 (broken image).
 

@@ -20,6 +20,10 @@ server {
 	# Product Opener needs a root domain + a wildcard for all subdomains
 	server_name pro.openfoodfacts.org *.pro.openfoodfacts.org;
 
+	# environmental cost label rendered with njs (must be before productopener-server.include)
+	# needs the libnginx-mod-http-js package, see conf/nginx/njs/README.md
+	include snippets/environmental-cost-label.include;
+
 	# product opener common directives
 	include snippets/productopener-server.include;
 	include snippets/productopener-uploads-large.include;
