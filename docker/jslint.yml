@@ -4,9 +4,9 @@ services:
     command: ["npm", "run", "lint"]
     volumes:
       # linting conf
-      - ./eslint.config.js:/opt/product-opener/eslint.config.js
-      - ./.stylelintrc.json:/opt/product-opener/.stylelintrc.json
-      - ./.stylelintignore:/opt/product-opener/.stylelintignore
+      - ./eslint.config.mjs:/opt/product-opener/eslint.config.mjs
+      - ./.prettierrc:/opt/product-opener/.prettierrc
+      - ./.prettierignore:/opt/product-opener/.prettierignore
       # extra files to lint
       - ./scripts:/opt/product-opener/scripts
       - ./tests:/opt/product-opener/tests

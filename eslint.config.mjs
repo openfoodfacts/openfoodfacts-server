@@ -1,4 +1,8 @@
-const js = require("@eslint/js");
+import js from "@eslint/js";
+import css from "@eslint/css";
+import { defineConfig } from "eslint/config";
+import prettierConfig from "eslint-config-prettier";
+import { scss } from "@humanwhocodes/scsstree";
 
 const baseGlobals = {
   Foundation: "readonly",
@@ -19,10 +23,10 @@ const baseGlobals = {
   setInterval: "readonly",
   clearInterval: "readonly",
   AbortController: "readonly",
-  Option: "readonly"
+  Option: "readonly",
 };
 
-module.exports = [
+export default defineConfig([
   {
     ignores: [
       "html/js/dist/",
@@ -31,82 +35,72 @@ module.exports = [
       "html/js/sigma.*.js",
       "html/js/hc-sticky.js",
       "html/js/scrollNav.js",
-      "html/js/stikelem.js"
-    ]
+      "html/js/stikelem.js",
+      "html/css/dist/",
+      "scripts/obsolete/",
+      "tests/",
+
+      // Vendored code, checked in but not ours to lint.
+      "howmuchsugar/",
+
+      // Perl-templated JavaScript: `[% ... %]` is not valid JavaScript, so
+      // neither ESLint nor Prettier can parse it.
+      "templates/**/*.tt.js",
+
+      // @humanwhocodes/scsstree cannot parse these yet (it is still a very
+      // early SCSS parser). Drop them from this list once it can.
+      "scss/_off.scss",
+      "scss/sveetoy/mixins/_flexbox.scss",
+      "scss/sveetoy/mixins/_spaces.scss",
+      "scss/sveetoy/utils/_functions.scss",
+    ],
   },
   {
-    files: ["html/js/*.js"],
+    files: ["gulpfile.mjs", "html/js/*.js"],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: "script",
-      globals: baseGlobals
+      globals: baseGlobals,
     },
     rules: {
       ...js.configs.recommended.rules,
       "accessor-pairs": "error",
-      "array-bracket-newline": "error",
-      "array-bracket-spacing": "off",
       "array-callback-return": "error",
-      "array-element-newline": "off",
       "arrow-body-style": "error",
-      "arrow-parens": "error",
-      "arrow-spacing": "error",
       "block-scoped-var": "error",
-      "block-spacing": "error",
-      "brace-style": "off",
       "callback-return": "error",
       camelcase: "off",
       "capitalized-comments": "off",
       "class-methods-use-this": "error",
-      "comma-dangle": "off",
-      "comma-spacing": "off",
-      "comma-style": ["error", "last"],
       complexity: "error",
-      "computed-property-spacing": "off",
       "consistent-return": "off",
       "consistent-this": "error",
-      curly: "error",
       "default-case": "error",
-      "dot-location": "error",
       "dot-notation": "error",
-      "eol-last": "off",
       eqeqeq: "off",
-      "func-call-spacing": "error",
       "func-name-matching": "error",
       "func-names": "off",
       "func-style": ["error", "declaration"],
-      "function-paren-newline": "off",
-      "generator-star-spacing": "error",
       "global-require": "error",
       "guard-for-in": "error",
       "handle-callback-err": "error",
       "id-denylist": "error",
       "id-length": "off",
       "id-match": "error",
-      "implicit-arrow-linebreak": "error",
-      indent: "off",
       "init-declarations": "off",
-      "jsx-quotes": "error",
-      "key-spacing": "off",
-      "keyword-spacing": "off",
       "line-comment-position": "off",
-      "lines-around-comment": "error",
       "lines-around-directive": "error",
       "lines-between-class-members": "error",
       "max-classes-per-file": "error",
       "max-depth": "off",
-      "max-len": "off",
       "max-lines": "off",
       "max-lines-per-function": "off",
       "max-nested-callbacks": "error",
       "max-params": ["error", { max: 5 }],
       "max-statements": "off",
-      "max-statements-per-line": "error",
       "multiline-comment-style": "off",
-      "new-parens": "error",
       "newline-after-var": "off",
       "newline-before-return": "error",
-      "newline-per-chained-call": "off",
       "no-alert": "error",
       "no-array-constructor": "error",
       "no-async-promise-executor": "error",
@@ -115,7 +109,6 @@ module.exports = [
       "no-buffer-constructor": "error",
       "no-caller": "error",
       "no-catch-shadow": "error",
-      "no-confusing-arrow": "error",
       "no-continue": "off",
       "no-div-regex": "error",
       "no-duplicate-imports": "error",
@@ -126,8 +119,6 @@ module.exports = [
       "no-extend-native": "error",
       "no-extra-bind": "error",
       "no-extra-label": "error",
-      "no-extra-parens": "off",
-      "no-floating-decimal": "error",
       "no-implicit-coercion": "error",
       "no-implicit-globals": "off",
       "no-implied-eval": "error",
@@ -142,12 +133,9 @@ module.exports = [
       "no-loop-func": "error",
       "no-magic-numbers": "off",
       "no-misleading-character-class": "error",
-      "no-mixed-operators": ["error", { allowSamePrecedence: true }],
       "no-mixed-requires": "error",
       "no-multi-assign": "error",
-      "no-multi-spaces": "off",
       "no-multi-str": "error",
-      "no-multiple-empty-lines": "off",
       "no-global-assign": "error",
       "no-negated-condition": "error",
       "no-unsafe-negation": "error",
@@ -177,13 +165,10 @@ module.exports = [
       "no-sequences": "error",
       "no-shadow": "off",
       "no-shadow-restricted-names": "error",
-      "no-spaced-func": "error",
       "no-sync": "error",
-      "no-tabs": "off",
       "no-template-curly-in-string": "error",
       "no-ternary": "off",
       "no-throw-literal": "error",
-      "no-trailing-spaces": "off",
       "no-undef-init": "error",
       "no-undefined": "warn",
       "no-underscore-dangle": "error",
@@ -201,18 +186,10 @@ module.exports = [
       "no-var": "warn",
       "no-void": "error",
       "no-warning-comments": "error",
-      "no-whitespace-before-property": "error",
       "no-with": "error",
-      "nonblock-statement-body-position": "error",
-      "object-curly-newline": "error",
-      "object-curly-spacing": "off",
-      "object-property-newline": "off",
       "object-shorthand": "off",
       "one-var": "off",
-      "one-var-declaration-per-line": "error",
       "operator-assignment": ["error", "always"],
-      "operator-linebreak": "off",
-      "padded-blocks": "off",
       "padding-line-between-statements": "error",
       "prefer-arrow-callback": "off",
       "prefer-const": "error",
@@ -224,53 +201,86 @@ module.exports = [
       "prefer-rest-params": "off",
       "prefer-spread": "error",
       "prefer-template": "off",
-      "quote-props": "off",
-      quotes: "off",
       radix: "off",
       "require-atomic-updates": "error",
       "require-await": "error",
       "require-jsdoc": "off",
       "require-unicode-regexp": "off",
-      "rest-spread-spacing": "error",
-      semi: "error",
-      "semi-spacing": ["error", { after: true, before: false }],
-      "semi-style": "off",
       "sort-imports": "error",
       "sort-keys": "off",
       "sort-vars": "off",
-      "space-before-blocks": "off",
-      "space-before-function-paren": "off",
-      "space-in-parens": "off",
-      "space-infix-ops": "off",
-      "space-unary-ops": "off",
       "spaced-comment": "off",
       strict: ["error", "never"],
-      "switch-colon-spacing": "error",
       "symbol-description": "error",
-      "template-curly-spacing": "error",
-      "template-tag-spacing": "error",
       "unicode-bom": ["error", "never"],
       "vars-on-top": "off",
-      "wrap-regex": "error",
-      "yield-star-spacing": "error",
-      yoda: "off"
-    }
+      yoda: "off",
+    },
   },
   {
-    files: ["gulpfile.mjs", "html/js/display-list-of-tags.js", "html/js/display-map.js", "html/js/display-tag.js", "html/js/image-editor.js", "html/js/rewind-browser.js"],
+    files: [
+      "gulpfile.mjs",
+      "html/js/display-list-of-tags.js",
+      "html/js/display-map.js",
+      "html/js/display-tag.js",
+      "html/js/image-editor.js",
+      "html/js/rewind-browser.js",
+    ],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: "module",
-      globals: baseGlobals
+      globals: baseGlobals,
     },
     rules: {
-      ...js.configs.recommended.rules
-    }
+      ...js.configs.recommended.rules,
+    },
   },
   {
     files: ["html/js/display.js", "html/js/product-multilingual.js"],
     rules: {
-      "no-unused-vars": "off"
-    }
-  }
-];
+      "no-unused-vars": "off",
+    },
+  },
+  {
+    files: ["html/css/*.css"],
+    plugins: { css },
+    language: "css/css",
+    extends: ["css/recommended"],
+    rules: {
+      // !important is used deliberately in this codebase.
+      "css/no-important": "off",
+      "css/font-family-fallbacks": "off",
+      "css/no-empty-blocks": "off",
+    },
+  },
+  {
+    files: ["scss/**/*.scss"],
+    plugins: { css },
+    language: "css/css",
+    languageOptions: {
+      customSyntax: scss,
+    },
+    extends: ["css/recommended"],
+    rules: {
+      // These rules reason about CSS semantics that SCSS doesn't share.
+      // See https://github.com/humanwhocodes/scsstree#limitations
+      "css/no-invalid-at-rule-placement": "off",
+      "css/use-baseline": "off",
+      "css/no-invalid-properties": "off",
+
+      // SCSS descriptors inside @mixin/@if are not CSS descriptors, so this
+      // rule reports false positives on nearly every SASS declaration.
+      "css/no-invalid-at-rules": "off",
+
+      // Prettier already normalises the declarations these rules look at, and
+      // !important is used deliberately in this codebase.
+      "css/no-important": "off",
+      "css/font-family-fallbacks": "off",
+      "css/no-empty-blocks": "off",
+    },
+  },
+
+  // Must be last: this turns off every rule that conflicts with Prettier.
+  // Formatting is handled by Prettier, see .prettierrc.
+  prettierConfig,
+]);

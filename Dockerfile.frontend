@@ -19,7 +19,6 @@ RUN usermod --uid "$USER_UID" node && \
     mkdir -p /opt/product-opener/html/images/products && \
     chown node:node -R /opt/product-opener/
 COPY --chown=node:node package*.json .npmrc /opt/product-opener/
-COPY --chown=node:node .snyk /opt/product-opener/
 WORKDIR /opt/product-opener
 USER node
 RUN --mount=type=cache,id=npm-cacache,target=/root/.npm/_cacache npm ci
@@ -29,7 +28,6 @@ COPY --chown=node:node html /opt/product-opener/html
 COPY --chown=node:node icons /opt/product-opener/icons
 COPY --chown=node:node scss /opt/product-opener/scss
 COPY --chown=node:node gulpfile.mjs /opt/product-opener/
-COPY --chown=node:node .snyk /opt/product-opener/
 # https://github.com/openfoodfacts/openfoodfacts-server/pull/5544#issuecomment-914221199
 RUN find . -xtype l | xargs -I {} sh -c "origin=\$(readlink {} | tr '\\\\\\\\' '/') && ln -sf \$origin {}"
 RUN npm run build
