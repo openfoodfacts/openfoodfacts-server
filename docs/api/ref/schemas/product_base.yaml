@@ -7,6 +7,12 @@ required:
 allOf:
   - $ref: ./product_type.yaml
 properties:
+  components:
+    type: array
+    description: |
+      Product components array for multi-food packages (variety packs, meal kits, sachet kits).
+    items:
+      $ref: "./components/component.yaml"
   product_name:
     type: string
     description: |
