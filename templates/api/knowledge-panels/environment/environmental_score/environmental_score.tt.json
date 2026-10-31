@@ -43,7 +43,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% edq(lang('life_cycle_analysis')) %]",
+                "title": [% lang('life_cycle_analysis') | js %],
                 "panel_ids": [
                     "environmental_score_agribalyse",
                 ],
@@ -52,7 +52,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% edq(lang('environmental_score_bonuses_and_maluses')) %]",
+                "title": [% lang('environmental_score_bonuses_and_maluses') | js %],
                 "panel_ids": [
                     [% FOREACH adjustment IN ["production_system", "origins_of_ingredients", "threatened_species", "packaging"] %]
                         [% IF (adjustment == "origins_of_ingredients") or (adjustment == "packaging") or (product.environmental_score_data.adjustments.$adjustment.value != 0) %]
@@ -65,7 +65,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% edq(lang('environmental_score_for_this_product')) %]",
+                "title": [% lang('environmental_score_for_this_product') | js %],
                 "panel_ids": [ "environmental_score_total"],
             },
         },

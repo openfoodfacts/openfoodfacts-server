@@ -5,9 +5,9 @@
     ],
     "expanded": false,
     "title_element": {
-        "name": "[% edq(lang('forest_footprint')) %]",
-        "title": "[% IF product.forest_footprint_2026.grade != 'unknown' && product.forest_footprint_2026.grade != 'not_computed' %][% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description_short")) %][% ELSE %][% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_title")) %][% END %]",
-        "subtitle": "[% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description")) %]",
+        "name": [% lang('forest_footprint') | js %],
+        "title": [% IF product.forest_footprint_2026.grade != 'unknown' && product.forest_footprint_2026.grade != 'not_computed' %][% lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description_short") | js %][% ELSE %][% lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_title") | js %][% END %],
+        "subtitle": [% lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description") | js %],
         [% IF product.forest_footprint_2026.grade == 'not_computed' %]
         "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-2026-white-bg-not-computed.svg",
         [% ELSE %]
@@ -36,7 +36,7 @@
                 <p><strong>[% lang('forest_footprint_2026_overall_grade') %][% sep %]:</strong> 
                     [% product.forest_footprint_2026.grade.ucfirst %]
                 </p>
-                <p>[% edq(lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description")) %]</p>
+                <p>[% lang("attribute_forest_footprint_${product.forest_footprint_2026.grade}_description") %]</p>
                 <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> 
                     [% product.forest_footprint_2026.total_footprint_per_kg FILTER format("%.3f"); %] 
                     [% lang('square_meters_per_kg_of_food') %]
@@ -57,11 +57,11 @@
                 <p><strong>[% lang('forest_footprint_2026_primary_ingredient_grade') %][% sep %]:</strong> [% primary.grade.ucfirst %]</p>
                 <p><strong>[% lang('forest_footprint_2026_primary_ingredient') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.3f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
                 [% IF primary_id == 'en:cocoa' %]
-                <p>[% edq(lang('forest_footprint_2026_primary_ingredient_description_cocoa')) %]</p>
+                <p>[% lang('forest_footprint_2026_primary_ingredient_description_cocoa') %]</p>
                 [% ELSIF primary_id == 'en:palm-oil' %]
-                <p>[% edq(lang('forest_footprint_2026_primary_ingredient_description_palm_oil')) %]</p>
+                <p>[% lang('forest_footprint_2026_primary_ingredient_description_palm_oil') %]</p>
                 [% ELSIF primary_id == 'en:coffee' %]
-                <p>[% edq(lang('forest_footprint_2026_primary_ingredient_description_coffee')) %]</p>
+                <p>[% lang('forest_footprint_2026_primary_ingredient_description_coffee') %]</p>
                 [% END %]
                 `
             }
@@ -74,39 +74,39 @@
                 "title": "[% display_taxonomy_tag("ingredients", primary_id) %]",
                 "columns": [
                     {
-                        "text": "[% edq(lang('ingredients_s')) | ucfirst %]",
+                        "text": [% lang('ingredients_s') | ucfirst | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang('percent_in_product')) %]",
+                        "text": [% lang('percent_in_product') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang('forest_footprint_2026_primary_ingredient')) %]",
+                        "text": [% lang('forest_footprint_2026_primary_ingredient') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang('processing_factor')) %]",
+                        "text": [% lang('processing_factor') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang('origin')) %]",
+                        "text": [% lang('origin') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang('forest_footprint_2026_origin_footprint')) %]",
+                        "text": [% lang('forest_footprint_2026_origin_footprint') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang('forest_footprint_2026_label')) %]",
+                        "text": [% lang('forest_footprint_2026_label') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang('deforestation_risk')) %]",
+                        "text": [% lang('deforestation_risk') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang('forest_footprint')) %]<br><span style=\"font-weight:normal\">([% edq(lang('square_meters_per_kg_of_food')) %])</span>",
+                        "text": [% (lang('forest_footprint') _ '<br><span style="font-weight:normal">(' _ lang('square_meters_per_kg_of_food') _ ')</span>') | js %],
                         "type": "text"
                     },
                 ],
@@ -158,11 +158,11 @@
             "text_element": {
                 "type": "summary",
                 "html": `
-                <h3>[% edq(lang("ingredients_requiring_soy")) %]</h3>
-                <p>[% edq(lang("forest_footprint_one_line_explanation")) %]</p>
+                <h3>[% lang("ingredients_requiring_soy") %]</h3>
+                <p>[% lang("forest_footprint_one_line_explanation") %]</p>
                 <p><strong>[% lang('forest_footprint_2026_primary_ingredient_grade') %][% sep %]:</strong> [% primary.grade.ucfirst %]</p>
                 <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.3f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
-                <p>[% edq(lang('forest_footprint_2026_primary_ingredient_description_chicken_and_eggs')) %]</p>
+                <p>[% lang('forest_footprint_2026_primary_ingredient_description_chicken_and_eggs') %]</p>
                 `
             }
         },
@@ -174,35 +174,35 @@
                 "title": "[% display_taxonomy_tag("ingredients", primary_id) %]",
                 "columns": [
                     {
-                        "text": "[% edq(lang('ingredients_s')) | ucfirst %]",
+                        "text": [% lang('ingredients_s') | ucfirst | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang("type")) %]",
+                        "text": [% lang("type") | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang("percent_in_product")) %]",
+                        "text": [% lang("percent_in_product") | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang("processing_factor")) %]<br><span style=\"font-weight:normal\">([% edq(lang("percent_of_food_after_processing")) %])</span>",
+                        "text": [% (lang("processing_factor") _ '<br><span style="font-weight:normal">(' _ lang("percent_of_food_after_processing") _ ')</span>') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang("soy_feed_factor")) %]<br><span style=\"font-weight:normal\">([% edq(lang("kg_of_soy_per_kg_of_food")) %])</span>",
+                        "text": [% (lang("soy_feed_factor") _ '<br><span style="font-weight:normal">(' _ lang("kg_of_soy_per_kg_of_food") _ ')</span>') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang("soy_yield")) %]<br><span style=\"font-weight:normal\">([% edq(lang("kg_of_soy_per_square_meter")) %])</span>",
+                        "text": [% (lang("soy_yield") _ '<br><span style="font-weight:normal">(' _ lang("kg_of_soy_per_square_meter") _ ')</span>') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang("deforestation_risk")) %]<br><span style=\"font-weight:normal\">(%)</span>",
+                        "text": [% (lang("deforestation_risk") _ '<br><span style="font-weight:normal">(%)</span>') | js %],
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang("forest_footprint")) %]<br><span style=\"font-weight:normal\">([% edq(lang("square_meters_per_kg_of_food")) %])</span>",
+                        "text": [% (lang("forest_footprint") _ '<br><span style="font-weight:normal">(' _ lang("square_meters_per_kg_of_food") _ ')</span>') | js %],
                         "type": "text"
                     }
                 ],

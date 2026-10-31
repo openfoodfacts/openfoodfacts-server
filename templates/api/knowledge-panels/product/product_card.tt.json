@@ -3,7 +3,7 @@
   "expanded": true,
   "topics": ["product"],
   "title_element": {
-    "title": "[% edq(lang('product_information')) %]"
+    "title": [% lang('product_information') | js %]
   },
   "elements": [
     [% INCLUDE "api/knowledge-panels/product/product_tags_panels.tt.json" %]

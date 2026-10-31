@@ -9,7 +9,7 @@
     "expanded": false,
     "title_element": {
         "title": "1 [% panel.unit_name %] = [% co2_kg_per_unit_rounded %] kg CO₂e",
-        "subtitle": "[% edq(lang("average_for_the_category").ucfirst) %][% sep %]: [% panel.category_name %]",
+        "subtitle": [% (lang("average_for_the_category").ucfirst _ sep _ ': ' _ panel.category_name) | js %],
         "icon_url": "[% static_subdomain %]/images/panels/fr-impact-co2/impact-co2.svg",
     },
     "elements": [
@@ -18,7 +18,7 @@
             "text_element": {
                 "type": "summary",
                 "html": `
-                    <p>[% edq(f_lang('f_equal_to_driving_km_in_a_petrol_car',  { 'kilometers' => driving_per_unit_rounded } )) %]</p>
+                    <p>[% f_lang('f_equal_to_driving_km_in_a_petrol_car',  { 'kilometers' => driving_per_unit_rounded } ) %]</p>
                     <p>[% lang("data_source_and_detailed_carbon_impact") %][% sep %]: <a href="[% panel.link %]">Impact CO2 - Catégorie: [% panel.category_name %]</a></p>
                     `
             }

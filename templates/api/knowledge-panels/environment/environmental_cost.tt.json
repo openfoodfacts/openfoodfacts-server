@@ -3,12 +3,12 @@
     "level": "info",
     "topics": ["environment"],
     "title_element": {
-        "title": "[% edq(lang('environmental_cost_title')) %]",
+        "title": [% lang('environmental_cost_title') | js %],
         [% IF panel.label_path %]
         "icon_url": "[% static_subdomain %][% panel.label_path %]",
-        "icon_alt": "[% edq(lang('environmental_cost_title')) %]",
+        "icon_alt": [% lang('environmental_cost_title') | js %],
         [% END %]
-        "subtitle": "[% IF panel.has_per_product %][% edq(f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity })) %] - [% END %][% edq(f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) %]"
+        "subtitle": [% IF panel.has_per_product %][% (f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity }) _ ' - ' _ f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) | js %][% ELSE %][% f_lang(per_100_key, { 'points' => panel.ecs_per_100 }) | js %][% END %]
     },
     "elements": [
         [% IF panel.label_path %]
@@ -16,7 +16,7 @@
             "element_type": "image",
             "image_element": {
                 "url": "[% static_subdomain %][% panel.label_path %]",
-                "alt": "[% edq(f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity })) %] - [% edq(f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) %]",
+                "alt": [% (f_lang('f_environmental_cost_for_product', { 'points' => panel.ecs_per_product, 'quantity' => panel.quantity }) _ ' - ' _ f_lang(per_100_key, { 'points' => panel.ecs_per_100 })) | js %],
                 "width": 308,
                 "height": 154
             }
@@ -25,7 +25,7 @@
         {
             "element_type": "text",
             "text_element": {
-                "html": "[% edq(lang('environmental_cost_description')) %]"
+                "html": [% lang('environmental_cost_description') | js %]
             }
         },
         [% IF panel.stale %]
@@ -33,7 +33,7 @@
             "element_type": "text",
             "text_element": {
                 "type": "warning",
-                "html": "[% edq(lang('environmental_cost_stale')) %]"
+                "html": [% lang('environmental_cost_stale') | js %]
             }
         },
         [% END %]
@@ -42,20 +42,20 @@
             "table_element": {
                 "id": "environmental_cost_breakdown",
                 "table_type": "default",
-                "title": "[% edq(lang('ecs_breakdown')) %]",
+                "title": [% lang('ecs_breakdown') | js %],
                 "columns": [
                     {
-                        "text": "[% edq(lang('environmental_cost_stage')) %]",
+                        "text": [% lang('environmental_cost_stage') | js %],
                         "type": "text"
                     },
                     [% IF panel.has_per_product %]
                     {
-                        "text": "[% edq(f_lang('f_environmental_cost_points_for_product', { 'quantity' => panel.quantity })) %]",
+                        "text": [% f_lang('f_environmental_cost_points_for_product', { 'quantity' => panel.quantity }) | js %],
                         "type": "text"
                     },
                     [% END %]
                     {
-                        "text": "[% edq(lang(per_100_column_key)) %]",
+                        "text": [% lang(per_100_column_key) | js %],
                         "type": "text"
                     }
                 ],
@@ -63,9 +63,9 @@
                     [% FOREACH row IN panel.rows %]
                     {
                         "values": [
-                            { "text": "[% edq(lang(row.label)) %]" },
-                            [% IF panel.has_per_product %]{ "text": "[% row.per_product %]" },[% END %]
-                            { "text": "[% row.per_100 %]" }
+                            { "text": [% lang(row.label) | js %] },
+                            [% IF panel.has_per_product %]{ "text": [% row.per_product | js %] },[% END %]
+                            { "text": [% row.per_100 | js %] }
                         ]
                     }[% UNLESS loop.last %],[% END %]
                     [% END %]

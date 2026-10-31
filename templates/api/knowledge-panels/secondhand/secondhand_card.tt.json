@@ -5,7 +5,7 @@
         "secondhand"
     ],
     "title_element": {
-        "title": "[% edq(lang('secondhand')) %]",
+        "title": [% lang('secondhand') | js %],
     },    
     "elements": [
         [% IF panels.repair_fr_epargnonsnosressources.defined %]

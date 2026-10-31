@@ -6,15 +6,15 @@
     "expanded": false,
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% IF panel.title.defined %][% edq(panel.title) %][% ELSE %][% edq(lang('nutrition_data_table')) %] ([% edq(lang('detailed_data')) %])[% END %]",
-        [% IF panel.subtitle.defined %]"subtitle": "[% edq(panel.subtitle) %]",[% END %]
+        "title": [% IF panel.title.defined %][% panel.title | js %][% ELSE %][% (lang('nutrition_data_table') _ ' (' _ lang('detailed_data') _ ')') | js %][% END %],
+        [% IF panel.subtitle.defined %]"subtitle": [% panel.subtitle | js %],[% END %]
     },
     "elements": [
         {
             "element_type": "table",
             "table_element": {
                 "id": "nutrition_facts_table_with_input_sets",
-                "title": "[% edq(lang('nutrition_data_table')) %]",           
+                "title": [% lang('nutrition_data_table') | js %]           ,
                 "columns": [
                     {
                         "text": "[% panel.nutrition_table.header.name %]",

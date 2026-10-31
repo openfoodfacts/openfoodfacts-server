@@ -285,7 +285,7 @@ $tt = Template->new(
 	{
 		INCLUDE_PATH => $data_root . '/templates',
 		INTERPOLATE => 1,
-		EVAL_PERL => 1,
+		EVAL_PERL => 0,
 		STAT_TTL => 60,    # cache templates in memory for 1 min before checking if the source changed
 		COMPILE_EXT => '.ttc',    # compile templates to Perl code for much faster reload
 		COMPILE_DIR => $data_root . "/tmp/templates",
@@ -304,7 +304,14 @@ $tt = Template->new(
 				my $text = shift;
 				return '' unless defined $text;
 				# Encode the text as a JSON string for safe inclusion in JavaScript
-				return $json_utf8->encode($text);
+				my $encoded = $json->encode($text);
+				# Escape <, > and & so the JSON string cannot break out of an
+				# HTML <script> block (e.g. a value containing </script>).
+				# \uXXXX escapes are valid JSON and decode to the same characters.
+				$encoded =~ s/</\\u003c/g;
+				$encoded =~ s/>/\\u003e/g;
+				$encoded =~ s/&/\\u0026/g;
+				return $encoded;
 			},
 		},
 	}
@@ -398,8 +405,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	};
 	# escaping quotes for use in javascript or json
 	# using short names to favour readability
-	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
-	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
@@ -461,10 +466,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	$template_data_ref->{encode_json} = sub ($var) {
 		return $json->encode($var);
-	};
-
-	$template_data_ref->{uri_escape} = sub ($var) {
-		return uri_escape($var);
 	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
@@ -2671,7 +2672,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 				next;
 			}
 
-			my $new_translation = "";
+			my ($new_translation_label, $new_translation_value, $new_translation_userid) = ("", "", "");
 
 			# Check to see if we already have a user translation
 			if (defined $users_translations_ref->{$lc}{$tagid}) {
@@ -2691,12 +2692,11 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 					next;
 				}
 				# All, Edit or Review mode: show the new translation
-				$new_translation
-					= "<div>"
-					. lang("current_translation") . " : "
-					. $users_translations_ref->{$lc}{$tagid}{to} . " ("
-					. $users_translations_ref->{$lc}{$tagid}{userid}
-					. ")</div>";
+				# Only the untrusted parts are passed to the template,
+				# which escapes them in HTML context.
+				$new_translation_label = lang("current_translation");
+				$new_translation_value = $users_translations_ref->{$lc}{$tagid}{to};
+				$new_translation_userid = $users_translations_ref->{$lc}{$tagid}{userid};
 			}
 			else {
 				$to_be_translated++;
@@ -2752,7 +2752,9 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 					j => $j,
 					tagid => $tagid,
 					google_translate_link => $google_translate_link,
-					new_translation => $new_translation,
+					new_translation_label => $new_translation_label,
+					new_translation_value => $new_translation_value,
+					new_translation_userid => $new_translation_userid,
 					products => $products
 				}
 			);
@@ -5554,8 +5556,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			# For non API queries, we will display the products in a template (this is for SEO, before personal search products are displayed through Javascript)
 			if (not defined $request_ref->{api}) {
 				my $product_display_name = $product_ref->{product_display_name} // '';
-				# Prevent the quantity "750 g" to be split on two lines
-				$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
+				# Stored product names are pre-escaped (e.g. '"' as '&quot;'), while the
+				# template escapes with | html. Decode here to avoid double-escaping.
+				$product_display_name = HTML::Entities::decode_entities($product_display_name);
+				# Prevent the quantity "750 g" to be split on two lines.
+				# Use a real non-breaking space (not the '&nbsp;' entity),
+				# as | html would double-escape '&nbsp;' to '&amp;nbsp;'.
+				$product_display_name =~ s/(.*) (.*?)/$1\xA0$2/;
 
 				push @{$template_data_ref->{structured_response_products}},
 					{
@@ -8141,6 +8148,11 @@ JS
 	}
 
 	$title = product_name_brand_quantity($product_ref);
+	# Product fields are stored pre-escaped at write time (see
+	# preprocess_product_field / remove_tags_and_quote, e.g. '"' is stored
+	# as '&quot;'). Templates now escape with | html, so decode here to
+	# avoid double-escaping (which would display '&quot;' literally).
+	$title = HTML::Entities::decode_entities($title);
 	my $titleid = get_string_id_for_lang($lc, product_name_brand($product_ref));
 
 	if (not $title) {
