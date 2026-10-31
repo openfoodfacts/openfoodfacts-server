@@ -6,6 +6,7 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use ProductOpener::APITest qw/:all/;
+use ProductOpener::Config qw/%admins/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%admin_user_form %default_user_form %moderator_user_form/;
 
@@ -19,6 +20,7 @@ remove_all_users();
 
 # Create an admin
 my $admin_ua = new_client();
+$admins{$admin_user_form{userid}} = 1;
 create_user($admin_ua, \%admin_user_form);
 
 # Create a normal user
