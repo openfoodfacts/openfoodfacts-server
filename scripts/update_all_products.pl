@@ -474,6 +474,26 @@ else {
 }
 $cursor->immortal(1);
 
+# Remove an input tag (e.g. --remove-category) from a taxonomy field
+sub remove_input_tag ($product_ref, $field, $tagid) {
+
+	# Since schema 1004, input tags are stored in tags_sources: remove the tag from all sources
+	# and regenerate the [field]_tags field, so that the tag is not added back the next time the field is regenerated
+	if ((defined $product_ref->{tags_sources}) and (defined $product_ref->{tags_sources}{$field})) {
+		foreach my $source_ref (values %{$product_ref->{tags_sources}{$field}}) {
+			next if not defined $source_ref->{tags};
+			$source_ref->{tags} = [grep {$_ ne $tagid} @{$source_ref->{tags}}];
+		}
+		generate_field_tags_from_all_sources($product_ref, $field);
+	}
+	else {
+		remove_tag($product_ref, $field, $tagid);
+		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_tags"}});
+		compute_field_tags($product_ref, $product_ref->{lc}, $field);
+	}
+	return;
+}
+
 my $products_processed = 0;    # number of products processed by the script
 my $products_changed = 0;    # number of products changed by the script
 my $products_new_version_created = 0;    # number of products with a new version created
@@ -672,15 +692,11 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ((defined $remove_label) and ($remove_label ne "")) {
-			remove_tag($product_ref, "labels", $remove_label);
-			$product_ref->{labels} = join(',', @{$product_ref->{labels_tags}});
-			compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+			remove_input_tag($product_ref, "labels", $remove_label);
 		}
 
 		if ((defined $remove_category) and ($remove_category ne "")) {
-			remove_tag($product_ref, "categories", $remove_category);
-			$product_ref->{categories} = join(',', @{$product_ref->{categories_tags}});
-			compute_field_tags($product_ref, $product_ref->{lc}, "categories");
+			remove_input_tag($product_ref, "categories", $remove_category);
 		}
 
 		if ((defined $remove_nutrient) and ($remove_nutrient ne "")) {
@@ -1226,7 +1242,19 @@ while (my $product_ref = $cursor->next) {
 
 		foreach my $field (@fields_to_update) {
 
-			if (defined $product_ref->{$field}) {
+			# Since schema 1004, input tags are stored in tags_sources (e.g. tags_sources.categories.packaging.tags)
+			# and there is no categories or categories_hierarchy field anymore
+			if ((defined $product_ref->{tags_sources}) and (defined $product_ref->{tags_sources}{$field})) {
+
+				my $old_tags = join(",", @{$product_ref->{$field . "_tags"} // []});
+				# Regenerate the [field]_tags field: input tags are canonicalized again (e.g. if the main id of an entry has changed)
+				# and parents are added (e.g. if new parents were added to an entry)
+				generate_field_tags_from_all_sources($product_ref, $field);
+				if (join(",", @{$product_ref->{$field . "_tags"}}) ne $old_tags) {
+					$product_values_changed = 1;
+				}
+			}
+			elsif (defined $product_ref->{$field}) {
 
 				# Keep a copy of the existing value, in case something bad happens
 				$product_ref->{$field . "_old"} = $product_ref->{$field};

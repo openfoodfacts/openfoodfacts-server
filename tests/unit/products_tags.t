@@ -426,4 +426,26 @@ foreach my $test_ref (@tests) {
 		$update_expected_results, {id => $testid});
 }
 
+# generate_field_tags_from_all_sources: input tags stored with an old id (now a synonym) are canonicalized
+# when generating the tags field, and the parents are regenerated. The input tags of the sources are not changed.
+
+$product_ref = {
+	categories_tags => ['en:dark-chocolate-bar'],
+	tags_sources => {
+		categories => {
+			packaging => {tags => ['en:dark-chocolate-bar']},
+			manufacturer => {tags => ['en:dark-chocolates', 'en:Some unknown category']}
+		}
+	},
+};
+
+generate_field_tags_from_all_sources($product_ref, 'categories');
+
+is($product_ref->{tags_sources}{categories}{packaging}{tags}, ['en:dark-chocolate-bar']);
+is($product_ref->{tags_sources}{categories}{manufacturer}{tags}, ['en:dark-chocolates', 'en:Some unknown category']);
+ok((grep {$_ eq 'en:dark-chocolate-bars'} @{$product_ref->{categories_tags}}), 'categories_tags has the new id');
+ok((grep {$_ eq 'en:chocolate-bars'} @{$product_ref->{categories_tags}}), 'categories_tags has the new parent');
+ok(!(grep {$_ eq 'en:dark-chocolate-bar'} @{$product_ref->{categories_tags}}), 'categories_tags has not the old id');
+ok((grep {$_ eq 'en:Some unknown category'} @{$product_ref->{categories_tags}}), 'categories_tags keeps unknown tags');
+
 done_testing();
