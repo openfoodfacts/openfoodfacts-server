@@ -217,6 +217,9 @@ sub generate_nutrient_aggregated_set ($product_ref) {
 	if (defined $aggregated_set_ref) {
 		deep_set($product_ref, qw/nutrition aggregated_set/, $aggregated_set_ref);
 	}
+	else {
+		delete $product_ref->{nutrition}{aggregated_set};
+	}
 
 	remove_empty_nutrition_data($product_ref);
 
@@ -259,8 +262,12 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 		# ie sets with unknow per quantity
 		@input_sets = grep {defined $_->{set}{per_quantity} && $_->{set}{per_quantity} ne ""} @input_sets;
 
-		# Remove sets that have a per quantity that is less than 5g or 5ml, so that we don't extrapolate very small quantities to 100g
-		@input_sets = grep {unit_to_g($_->{set}{per_quantity}, $_->{set}{per_unit}) >= 5} @input_sets;
+		# Do not extrapolate very small servings to 100g (or 1kg for petfood).
+		# The original values remain available in input_sets, which are serving-scoped.
+		my @input_sets_with_safe_conversion
+			= grep {unit_to_g($_->{set}{per_quantity}, $_->{set}{per_unit}) >= 5} @input_sets;
+		my $has_small_input_set = scalar @input_sets > scalar @input_sets_with_safe_conversion;
+		@input_sets = @input_sets_with_safe_conversion;
 
 		if (defined $input_sets[0] and %{$input_sets[0]} and %{$input_sets[0]{set}}) {
 			# set preparation and per of aggregated set as values of the nutrient_set with the highest priority
@@ -271,7 +278,7 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 			if ($options{product_type} eq "petfood") {
 				$aggregated_nutrient_set_ref->{per} = "1kg";
 			}
-			else {
+			elsif (not defined $aggregated_nutrient_set_ref->{per}) {
 				my $standard_unit = get_standard_unit($input_sets[0]{set}{per_unit});
 				if ((not defined $standard_unit) or ($standard_unit eq "g")) {
 					$aggregated_nutrient_set_ref->{per} = "100g";
@@ -282,6 +289,9 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 			}
 		}
 
+		if (!@input_sets && $has_small_input_set) {
+			return;
+		}
 		set_nutrient_values($aggregated_nutrient_set_ref, @input_sets);
 	}
 	return $aggregated_nutrient_set_ref;
@@ -2966,4 +2976,3 @@ sub add_misc_tags_for_input_nutrition_data_pers($product_ref) {
 }
 
 1;
-
