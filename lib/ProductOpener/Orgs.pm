@@ -445,15 +445,18 @@ sub is_user_in_org_group ($org_id_or_ref, $user_id, $group_id) {
 
 	my $org_ref = org_id_or_ref($org_id_or_ref);
 
+	# Return booleans (!!1 / !!0) and not 1 / 0: the string "0" is false, but "0" is not
+	# (not "0" is false as well), which makes `not is_user_in_org_group(...)` do the opposite
+	# of what the caller expects.
 	if (    (defined $user_id)
 		and (defined $org_ref)
 		and (defined $org_ref->{$group_id})
 		and (defined $org_ref->{$group_id}{$user_id}))
 	{
-		return 1;
+		return !!1;
 	}
 	else {
-		return 0;
+		return !!0;
 	}
 }
 
