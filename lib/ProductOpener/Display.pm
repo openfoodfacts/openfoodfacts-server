@@ -6108,18 +6108,12 @@ sub validate_graph_axes ($graph_ref) {
 
 	if (not is_valid_search_graph_field($axis_x)) {
 		my $message = lang("search_graph_missing_axis_x");
-		if ((not defined $message) or ($message eq '')) {
-			$message = "Please select a field for the horizontal (X) axis to generate a graph.";
-		}
 		return $message;
 	}
 
 	# axis_y is optional (histogram when empty or 'products_n'), but must be valid if set
 	if (($axis_y ne '') and ($axis_y ne 'products_n') and (not is_valid_search_graph_field($axis_y))) {
 		my $message = lang("search_graph_invalid_axis_y");
-		if ((not defined $message) or ($message eq '')) {
-			$message = "Please select a valid field for the vertical (Y) axis, or leave it empty for a histogram.";
-		}
 		return $message;
 	}
 

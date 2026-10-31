@@ -2382,9 +2382,17 @@ msgid "Select what you want to graph on the horizontal axis to obtain a histogra
 msgstr "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
 
+msgctxt "search_graph_invalid_axis_y"
+msgid "Please select a valid field for the vertical (Y) axis, or leave it empty for a histogram."
+msgstr "Please select a valid field for the vertical (Y) axis, or leave it empty for a histogram."
+
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
 msgstr "Permanent link to this graph, shareable by e-mail and on social networks"
+
+msgctxt "search_graph_missing_axis_x"
+msgid "Please select a field for the horizontal (X) axis to generate a graph."
+msgstr "Please select a field for the horizontal (X) axis to generate a graph."
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."

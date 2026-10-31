@@ -477,7 +477,7 @@ if ($action eq 'display') {
 	# so the dropdown does not show a blank entry, and keep it first in the list.
 	# The X axis <select> is marked required in the template, so browsers block
 	# submitting the graph form without an axis (issue #5607).
-	$axis_labels{""} = lang("select_a_field") || "Select a field";
+	$axis_labels{""} = lang("select_a_field");
 
 	my @sorted_axis_values = ("", sort({lc($axis_labels{$a}) cmp lc($axis_labels{$b})} @axis_values));
 
