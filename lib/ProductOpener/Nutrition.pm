@@ -74,6 +74,9 @@ BEGIN {
 		&default_unit_for_nid
 		&add_misc_tags_for_input_nutrition_data_pers
 		&sort_sets_by_priority
+		&add_misc_tags_for_input_nutrition_data_pers
+		&add_misc_tags_for_energy_from_proteins
+		&sort_sets_by_priority
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -2959,6 +2962,70 @@ sub add_misc_tags_for_input_nutrition_data_pers($product_ref) {
 			if (defined $per) {
 				add_tag($product_ref, "misc", "en:nutrition-data-per-${per}");
 			}
+		}
+	}
+
+	return;
+}
+
+=head2 add_misc_tags_for_energy_from_proteins ( $product_ref )
+
+Add misc tags telling which share of the energy of the product is provided by proteins,
+for the thresholds used by EU nutrition claims (Regulation (EC) No 1924/2006):
+
+- 12 %: "source of protein" claim
+- 20 %: "high protein" claim
+
+For each threshold, one of these 2 tags is added:
+
+- en:protein-is-at-least-<threshold>-percent-of-energy
+- en:protein-is-less-than-<threshold>-percent-of-energy
+
+This makes it possible to filter products on the relative energy provided by proteins,
+whether or not they carry a protein claim (e.g. to find products that have a protein claim
+but do not meet the threshold, or products that meet it without claiming it).
+
+The share is computed from the as sold values of the first non estimated input set
+that has them, the same way as the data quality checks of protein label claims
+(see DataQualityFood.pm): proteins (g per 100g or 100ml) multiplied by the energy provided by 1 g of proteins,
+divided by the energy of the product. We use the kcal values if we have them,
+and otherwise the kJ values.
+
+No tag is added if we do not have values for proteins and for energy, or if the energy is not greater than 0.
+
+=cut
+
+sub add_misc_tags_for_energy_from_proteins($product_ref) {
+
+	my $proteins = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "proteins");
+	if (not defined $proteins) {
+		return;
+	}
+
+	# Use kcal if we have it (like the data quality checks of protein claims), otherwise kJ
+	my $energy;
+	my $energy_from_proteins_per_g;
+	foreach my $unit ("kcal", "kj") {
+		my $energy_for_unit
+			= get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "energy-$unit");
+		if ((defined $energy_for_unit) and ($energy_for_unit > 0)) {
+			$energy = $energy_for_unit;
+			$energy_from_proteins_per_g = $energy_from_nutrients{europe}{proteins}{$unit};
+			last;
+		}
+	}
+	if (not defined $energy) {
+		return;
+	}
+
+	# Compare without dividing, so that we do not get rounding issues at the thresholds
+	# (e.g. 25 g of proteins in a product with 500 kcal is exactly 20 % of the energy)
+	foreach my $threshold (12, 20) {
+		if (($proteins * $energy_from_proteins_per_g * 100) >= ($threshold * $energy)) {
+			add_tag($product_ref, "misc", "en:protein-is-at-least-${threshold}-percent-of-energy");
+		}
+		else {
+			add_tag($product_ref, "misc", "en:protein-is-less-than-${threshold}-percent-of-energy");
 		}
 	}
 

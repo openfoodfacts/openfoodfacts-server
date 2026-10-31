@@ -52,7 +52,9 @@
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-c-2023-d",
       "en:forest-footprint-unknown",
-      "en:nutrition-data-per-100g"
+      "en:nutrition-data-per-100g",
+      "en:protein-is-less-than-12-percent-of-energy",
+      "en:protein-is-less-than-20-percent-of-energy"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
    "nova_group_error" : "missing_ingredients",
@@ -392,7 +394,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : "100",
+            "per_quantity" : 100,
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "packaging"
