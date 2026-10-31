@@ -7245,8 +7245,8 @@ sub get_packager_code_coordinates ($emb_code) {
 			# some lat/lng have , for floating point numbers
 			$lat = $emb_code_data{lat};
 			$lng = $emb_code_data{lng};
-			$lat =~ s/,/\./g;
-			$lng =~ s/,/\./g;
+			$lat =~ s/,/\./g if defined $lat;
+			$lng =~ s/,/\./g if defined $lng;
 		}
 		elsif (exists $emb_code_data{fsa_rating_business_geo_lat}) {
 			$lat = $emb_code_data{fsa_rating_business_geo_lat};
@@ -7262,6 +7262,12 @@ sub get_packager_code_coordinates ($emb_code) {
 		}
 	}
 
+	# Empty strings from packager-code data are defined, but are not coordinates.
+	# Clear the pair so that the city coordinates below can be used instead.
+	if (not _valid_coordinate_pair($lat, $lng)) {
+		($lat, $lng) = (undef, undef);
+	}
+
 	my $city_code = get_city_code($emb_code);
 
 	init_emb_codes() unless %emb_codes_geo;
@@ -7270,17 +7276,28 @@ sub get_packager_code_coordinates ($emb_code) {
 		# some lat/lng have , for floating point numbers
 		$lat = $emb_codes_geo{$city_code}[0];
 		$lng = $emb_codes_geo{$city_code}[1];
-		$lat =~ s/,/\./g;
-		$lng =~ s/,/\./g;
+		$lat =~ s/,/\./g if defined $lat;
+		$lng =~ s/,/\./g if defined $lng;
 	}
 
-	# filter out empty coordinates
-	if ((not defined $lat) or (not defined $lng)) {
+	# Filter out missing or non-numeric coordinates.
+	if (not _valid_coordinate_pair($lat, $lng)) {
 		return (undef, undef);
 	}
 
 	return ($lat, $lng);
 
+}
+
+sub _valid_coordinate_pair ($lat, $lng) {
+	return 0 if not defined $lat or not defined $lng;
+
+	foreach my $coordinate ($lat, $lng) {
+		$coordinate =~ s/,/./g;
+		return 0 if $coordinate !~ /^\s*-?(?:\d+(?:\.\d*)?|\.\d+)\s*$/;
+	}
+
+	return 1;
 }
 
 # an iterator over a cursor to unify cases between mongodb and external data (like filtered jsonl)
