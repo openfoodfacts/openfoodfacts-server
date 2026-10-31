@@ -149,7 +149,7 @@
                     <div class="alert-box info">[% lang('search_graph_note') %]</div>
         
                     <label for="graph_title">[% lang('graph_title') %]</label>
-                    <input type="text" name="graph_title" id="graph_title" value="" />
+                    <input type="text" name="graph_title" id="graph_title" value="[% graph_title | html %]" />
         
                     <p>[% lang('search_graph_instructions') %]</p>
         
@@ -200,7 +200,7 @@
                     <div class="alert-box info">[% lang ('search_map_note') %]</div>
 
                     <label for="map_title">[% lang ('map_title') %]</label>
-                    <input type="text" name="map_title" id="map_title" value="[% map_title %]" />
+                    <input type="text" name="map_title" id="map_title" value="[% map_title | html %]" />
 
                     <input type="submit" name="generate_map" value="[% lang ('search_generate_map') %]" class="button" />
 

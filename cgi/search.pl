@@ -354,6 +354,8 @@ foreach my $series (@search_series, "nutrition_grades") {
 if ($action eq 'display') {
 
 	$template_data_ref->{search_terms} = $search_terms;
+	$template_data_ref->{graph_title} = $graph_ref->{graph_title} // '';
+	$template_data_ref->{map_title} = $map_title // '';
 
 	my $active_list = 'active';
 	my $active_map = '';
