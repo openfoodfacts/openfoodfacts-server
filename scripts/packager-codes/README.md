@@ -68,6 +68,16 @@ and look into the `out` file for
 
 and rework the geocode_strategies accordingly and/or use `packager_text_replacements_config.json` to remove typo, unwanted prefix/suffix *etc*.
 
+- check the coordinates (read-only, the file is not modified):
+```
+python3 check_packager_coordinates.py <COUNTRY_CODE> > suspicious.csv
+```
+
+Points farther than 100 km (`--max-distance-km`) from the median of the points with the same postal code are reported, as well as invalid or `0,0` coordinates. This catches addresses geocoded to a namesake place in another region or country. For files that do not use the standard column names, use `--code`, `--lat`, `--lng` and `--group`, e.g. for France:
+```
+python3 check_packager_coordinates.py FR --code "Numéro agrément/Approval number" --group "Numero de département"
+```
+
 
 
 # country and files summary
