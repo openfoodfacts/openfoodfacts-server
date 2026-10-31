@@ -42,9 +42,10 @@
       "tests/unit/packaging_food_contact.t",
       "tests/unit/producers.t",
       "tests/unit/products_teams.t",
-      "tests/unit/spam_user.t",
-      "tests/unit/taxonomies_enhancer.t",
-      "tests/unit/text.t"
+      "tests/unit/send_image_to_cloud_vision.t",
+      "tests/unit/taxonomies.t",
+      "tests/unit/test.t",
+      "tests/unit/url_is_fetchable.t"
     ],
     "total_time": 570.0
   },
@@ -66,9 +67,10 @@
       "tests/unit/packaging_stats.t",
       "tests/unit/product_edit_form.t",
       "tests/unit/recipes.t",
-      "tests/unit/storage_conditions.t",
-      "tests/unit/taxonomy_stopwords.t",
-      "tests/unit/texts.t"
+      "tests/unit/spam_user.t",
+      "tests/unit/taxonomies_enhancer.t",
+      "tests/unit/text.t",
+      "tests/unit/vitamins.t"
     ],
     "total_time": 570.0
   },
@@ -90,9 +92,9 @@
       "tests/unit/parse_origins_from_text.t",
       "tests/unit/product_schema_changes.t",
       "tests/unit/redis.t",
-      "tests/unit/store.t",
-      "tests/unit/taxonomy_suggestions.t",
-      "tests/unit/units.t"
+      "tests/unit/storage_conditions.t",
+      "tests/unit/taxonomy_stopwords.t",
+      "tests/unit/texts.t"
     ],
     "total_time": 570.0
   },

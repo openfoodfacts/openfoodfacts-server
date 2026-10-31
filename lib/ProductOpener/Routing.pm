@@ -47,7 +47,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Products qw/is_valid_code normalize_code product_url/;
 use ProductOpener::Display qw/%index_tag_types_set display_robots_txt_and_exit init_request/;
-use ProductOpener::HTTP qw/extension_and_query_parameters_to_redirect_url redirect_to_url single_param/;
+use ProductOpener::HTTP
+	qw/extension_and_query_parameters_to_redirect_url is_post_request require_same_origin_post redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
@@ -306,8 +307,16 @@ sub org_route($request_ref) {
 		}
 		if (scalar @errors eq 0) {
 			set_owner_id($request_ref);
-			# will save the pro_moderator_owner field
-			store_user_preferences($moderator);
+			# Navigation uses the organization for this request only. Persist it only on an
+			# origin-checked POST, as missing Sec-Fetch-Site does not establish same-origin.
+			if (is_post_request($request_ref) and require_same_origin_post($request_ref)) {
+				# will save the pro_moderator_owner field
+				store_user_preferences($moderator);
+			}
+			else {
+				$log->debug("not saving pro_moderator_owner without an origin-checked POST", {orgid => $orgid})
+					if $log->is_debug();
+			}
 		}
 		else {
 			$request_ref->{status_code} = 404;
