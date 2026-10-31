@@ -31,6 +31,10 @@ indent_size = unset
 insert_final_newline = unset
 trim_trailing_whitespace = false
 
+# Makefiles require tabs for indentation
+[Makefile]
+indent_style = tab
+
 # TSV files: use tabs (data files with tab-separated values)
 [*.tsv]
 indent_style = tab
