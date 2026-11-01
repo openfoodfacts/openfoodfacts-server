@@ -2486,37 +2486,7 @@ Text to analyze
 								elsif (length($between) >= 3) {
 
 									my $labelid = canonicalize_taxonomy_tag($ingredients_lc, "labels", $between);
-
-									my $before_trimmed = $before =~ s/^\s+|\s+$//gr;
-									my $before_plus_between_text
-										= ($ingredients_lc eq "en")
-										? $between . ' ' . $before_trimmed
-										: $before_trimmed . ' ' . $between;
-									my $before_plus_between_id
-										= canonicalize_taxonomy_tag($ingredients_lc, "ingredients",
-										$before_plus_between_text);
-
-									if (
-											exists_taxonomy_tag("labels", $labelid)
-										and not defined get_inherited_property("labels", $labelid, "ingredients:en")
-										and exists_taxonomy_tag("ingredients", $before_plus_between_id)
-										and ($before_plus_between_id ne
-											canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $before_trimmed))
-										)
-									{
-										$debug_ingredients and $log->debug(
-											"between is a known label, but before + between is a different known ingredient",
-											{
-												before => $before,
-												between => $between,
-												before_plus_between_id => $before_plus_between_id
-											}
-										) if $log->is_debug();
-
-										$before = $before_plus_between_text;
-										$between = '';
-									}
-									elsif (exists_taxonomy_tag("labels", $labelid)) {
+									if (exists_taxonomy_tag("labels", $labelid)) {
 										if (defined $labels) {
 											$labels .= ", " . $labelid;
 										}
@@ -2543,6 +2513,35 @@ Text to analyze
 											$between = $label_ingredient_id;
 										}
 										else {
+											my $before_trimmed = $before =~ s/^\s+|\s+$//gr;
+											my $before_plus_between_text
+												= ($ingredients_lc eq "en")
+												? $between . ' ' . $before_trimmed
+												: $before_trimmed . ' ' . $between;
+											my $before_plus_between_id
+												= canonicalize_taxonomy_tag($ingredients_lc, "ingredients",
+												$before_plus_between_text);
+
+											if (
+												exists_taxonomy_tag("ingredients", $before_plus_between_id)
+												and (
+													$before_plus_between_id ne canonicalize_taxonomy_tag(
+														$ingredients_lc, "ingredients", $before_trimmed
+													)
+												)
+												)
+											{
+												$debug_ingredients and $log->debug(
+													"before + between is a different known ingredient",
+													{
+														before => $before,
+														between => $between,
+														before_plus_between_id => $before_plus_between_id
+													}
+												) if $log->is_debug();
+
+												$before = $before_plus_between_text;
+											}
 											$between = '';
 										}
 									}
@@ -3621,7 +3620,7 @@ Text to analyze
 				}
 
 				if (defined $labels) {
-					$ingredient{labels} = $labels;
+					$ingredient{labels} = join(", ", uniq(split(/\s*,\s*/, $labels)));
 
 					# If we have a label for the ingredient that indicates if it is vegan or not, override the value
 					if ($labels =~ /\ben:vegan\b/) {

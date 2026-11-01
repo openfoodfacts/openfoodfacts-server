@@ -430,6 +430,7 @@ my @tests = (
 			{
 				'id' => 'en:animal-based-rennet',
 				'is_in_taxonomy' => 1,
+				'labels' => 'en:non-vegan',
 				'text' => 'présure animale'
 			},
 			{
@@ -470,7 +471,20 @@ my @tests = (
 			{
 				'id' => 'en:animal-based-rennet',
 				'is_in_taxonomy' => 1,
+				'labels' => 'en:non-vegan',
 				'text' => 'animal rennet'
+			}
+		]
+	],
+
+	[
+		{lc => "fr", ingredients_text => "oeufs (plein air)"},
+		[
+			{
+				'id' => 'en:free-range-eggs',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:free-range',
+				'text' => 'oeufs plein air'
 			}
 		]
 	],
