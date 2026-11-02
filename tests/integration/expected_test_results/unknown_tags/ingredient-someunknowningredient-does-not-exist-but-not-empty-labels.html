@@ -351,213 +351,74 @@
 
 								
 
+<!-- Open Food Facts Days 2026 start -->
 
-
-<!-- Donation banner TOP start -->
-<section id="donation-banner-top" style="position: relative;">
-  <donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
-  <div class="donation-banner__close" style="position: absolute; top: 0.3rem; right: 0.3rem; z-index: 2;">
-    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
+<section id="off-days-2026-banner" class="off-days-2026">
+  
+    
+  
+  <div class="off-days-2026__inner">
+    <div class="off-days-2026__title">
+      
+        <p class="off-days-2026__tagline">Focus on Research &amp; Community</p>
+        <h2><a href="//connect.openfoodfacts.org/event/open-food-facts-days-2026-36/register">Open Food Facts Days 2026</a> <img class="off-days-2026__logo" src="/images/logos/off-logo-icon-light.svg" alt="" width="48" height="48"></h2>
+      
+    </div>
+    <a class="off-days-2026__photo" href="//connect.openfoodfacts.org/event/open-food-facts-days-2026-36/register">
+      <img src="/images/misc/donation-banners/off-days-2026-group-photo-crop.jpg" alt="" width="800" height="370">
+    </a>
+    <div class="off-days-2026__card">
+      
+        <p>Fri 13th &ndash; Sat 14th November<br>Paris, France</p>
+        <a class="off-days-2026__button" href="//connect.openfoodfacts.org/event/open-food-facts-days-2026-36/register"><span class="material-icons" aria-hidden="true">edit</span>Register here</a>
+      
+    </div>
+    <button class="off-days-2026__close material-icons" type="button" aria-label="Close" onclick="closeOffDays2026Banner();">close</button>
   </div>
 </section>
 
+<style>
+  /* full width background like the other blocks of the page, content constrained like .row */
+  .off-days-2026 { background: #ffe5bf url("/images/misc/donation-banners/off-days-2026-background.svg") repeat-x center / auto 100%; }
+  .off-days-2026__inner { position: relative; display: flex; align-items: center; gap: 1.5rem; max-width: 1280px; margin: 0 auto; padding: 1rem 2.5rem 1rem 1.5rem; }
+  .off-days-2026__title { flex: 1 1 0; }
+  .off-days-2026__tagline { margin: 0; font-family: Georgia, serif; font-size: 1.4rem; color: #4a2511; }
+  .off-days-2026 h2 { display: flex; align-items: center; gap: 0.5rem; margin: 0; font-size: 2.2rem; font-weight: bold; line-height: 1.1; }
+  #main_container #off-days-2026-banner a { text-decoration: none; }
+  .off-days-2026 h2 a { color: #a34400; }
+  .off-days-2026__logo { height: 1.2em; width: auto; vertical-align: middle; }
+  .off-days-2026__photo { flex: 0 1 400px; }
+  .off-days-2026__photo img { display: block; width: 100%; height: auto; border-radius: 1rem; }
+  .off-days-2026__card { flex: 1 1 0; padding: 1rem 1.5rem; background-color: #e06c00; color: white; border-radius: 1.5rem; text-align: center; }
+  .off-days-2026__card p { margin: 0 0 0.8rem; font-size: 1.3rem; font-weight: bold; line-height: 1.3; }
+  .off-days-2026__button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 2rem; background-color: white; color: #a34400; border: 3px solid white; outline: 2px solid #e06c00; outline-offset: -6px; border-radius: 2rem; font-size: 1.3rem; font-weight: bold; transition: background-color 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s; }
+  .off-days-2026__button:hover, .off-days-2026__button:focus-visible { background-color: #a34400; color: white; outline-color: white; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); }
+  .off-days-2026__close { position: absolute; top: 0.3rem; right: 0.3rem; background: transparent; border: 0; color: #a34400; cursor: pointer; padding: 0; margin: 0; }
+  @media (max-width: 1100px) {
+    .off-days-2026__photo { display: none; }
+  }
+  @media (max-width: 640px) {
+    .off-days-2026__inner { flex-direction: column; align-items: stretch; gap: 0.8rem; padding: 1rem; text-align: center; }
+    .off-days-2026__tagline { font-size: 1.1rem; }
+    .off-days-2026 h2 { justify-content: center; font-size: 1.6rem; }
+    .off-days-2026__card p { font-size: 1.1rem; }
+  }
+</style>
+
 <script>
-  let bannerID = document.getElementById('donation-banner-top');
-  let getDomain = window.location.origin.split('.');
-
-  function setBannerCookie(bcname, bcval, bcexdays) {
+  function closeOffDays2026Banner() {
     const d = new Date();
-    d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
-    let expires = 'expires=' + d.toUTCString();
+    d.setTime(d.getTime() + (30*24*60*60*1000));
     // Apply cookie for every domain contains open...facts
-    let domain = 'domain=.' + getDomain.slice(1).join('.');
-    document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
+    const domain = 'domain=.' + window.location.origin.split('.').slice(1).join('.');
+    document.cookie = 'off_days_2026_closed=1;expires=' + d.toUTCString() + ';' + domain + ';SameSite=None;Secure;path=/';
+    document.getElementById('off-days-2026-banner').style.display = 'none';
   }
-
-  function getBannerCookie(bcname) {
-    const name = bcname + '=';
-    const decodedCookies = decodeURIComponent(document.cookie);
-    const cookies = decodedCookies.split(';');
-    for (const cookie of cookies) {
-      let c = cookie;
-      while (c.charAt(0) == ' ') { c = c.substring(1); }
-      if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-    }
-
-    return '';
+  if (document.cookie.split(';').some((c) => c.trim().startsWith('off_days_2026_closed='))) {
+    document.getElementById('off-days-2026-banner').style.display = 'none';
   }
-
-  function DonationButton() {
-    setBannerCookie('donation_march_2026', 1, 180);
-    bannerID.style.display = 'none';
-  }
-
-  const crawler = false;
-  let arm = getBannerCookie('donation_arm');
-  if (crawler) {
-    arm = 'old';
-  } else {
-    if (arm !== 'old' && arm !== 'new') {
-      arm = Math.random() < 0.5 ? 'old' : 'new';
-    }
-    setBannerCookie('donation_arm', arm, 30);
-  }
-
-  const optedOut = ['donation_dismiss', 'donation_done'].some((name) => getBannerCookie(name) !== '');
-  // the classic close (donation_march_2026) only ever hid the top banner, so the old arm keeps the footer
-  const gone = optedOut || getBannerCookie('donation_march_2026') !== '';
-  const closeButton = bannerID.querySelector('.donation-banner__close');
-  if (arm === 'new') {
-    bannerID.style.display = 'none';
-    closeButton.style.display = 'none';
-  } else {
-    bannerID.style.display = gone ? 'none' : 'block';
-  }
-
-  function track(action, name) {
-    if (typeof trackMatomoEvent === 'function') {
-      trackMatomoEvent('donation', action, name);
-    }
-  }
-
-  function removeBanners() {
-    bannerID.remove();
-    document.getElementById('donation-banner-footer').remove();
-  }
-
-  function showClassic() {
-    const footer = document.getElementById('donation-banner-footer');
-    footer.style.display = '';
-    bannerID.querySelector('donation-banner').setAttribute('utm-content', 'top:classic:old');
-    footer.setAttribute('utm-content', 'footer:classic:old');
-  }
-
-  function mount(el, variant, name, id) {
-    el.setAttribute('variant', variant);
-    el.setAttribute('news-id', id);
-    el.setAttribute('amounts', '3,5,10');
-    el.setAttribute('country', 'world');
-    el.setAttribute('utm-content', name);
-    el.style.display = '';
-  }
-
-  function showTop(variant, name, id) {
-    mount(bannerID.querySelector('donation-banner'), variant, name, id);
-    bannerID.style.display = 'block';
-    track('banner_shown', name);
-  }
-
-  function parseFeedDate(value) {
-    return new Date(String(value).replace(' ', 'T'));
-  }
-
-  function covers(item, now) {
-    return Boolean(item) && parseFeedDate(item.start_date) <= now && now <= parseFeedDate(item.end_date);
-  }
-
-  async function feedPhase() {
-    try {
-      const response = await fetch('/data/tagline/web/main.json');
-      if (!response.ok) {
-        return null;
-      }
-      const news = (await response.json()).news || {};
-      const now = new Date();
-      for (const kind of ['banner', 'quiet']) {
-        for (const year of [now.getFullYear(), now.getFullYear() - 1]) {
-          const id = 'donation_' + kind + '_' + year;
-          if (covers(news[id], now)) {
-            return { kind, id };
-          }
-        }
-      }
-    } catch {
-      return null;
-    }
-
-    return null;
-  }
-
-  function whenEngaged(open) {
-    let timer;
-    function fire(trigger) {
-      window.removeEventListener('scroll', onScroll);
-      clearTimeout(timer);
-      open(trigger);
-    }
-    function onScroll() {
-      if (window.scrollY >= window.innerHeight) {
-        fire('scroll');
-      }
-    }
-    function wait() {
-      timer = setTimeout(() => (document.hidden ? wait() : fire('dwell')), 15000);
-    }
-    setTimeout(() => {
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    }, 10000);
-    wait();
-  }
-
-  function sheetOrBar(id) {
-    const sheets = parseInt(getBannerCookie('donation_sheet_n'), 10) || 0;
-    const bars = parseInt(getBannerCookie('donation_bar_n'), 10) || 0;
-    if (getBannerCookie('donation_sheet') === '' && sheets < 3) {
-      whenEngaged(function (trigger) {
-        if (!bannerID.isConnected) {
-          return;
-        }
-        setBannerCookie('donation_sheet', 1, 7);
-        setBannerCookie('donation_sheet_n', sheets + 1, 30);
-        showTop('sheet', 'top:sheet:new:' + trigger, id);
-      });
-    } else if (bars < 10) {
-      setBannerCookie('donation_bar_n', bars + 1, 30);
-      showTop('bar', 'top:bar:new', id);
-    } else {
-      bannerID.remove();
-    }
-  }
-
-  document.addEventListener('donation-banner-state', function (event) {
-    const action = event.detail.action;
-    if (action === 'dismiss') {
-      setBannerCookie('donation_dismiss', 1, 30);
-      removeBanners();
-    } else if (action === 'already-donated') {
-      setBannerCookie('donation_done', 1, 365);
-      removeBanners();
-    } else if (action === 'minimize') {
-      bannerID.remove();
-    }
-  });
-
-  document.addEventListener('DOMContentLoaded', async function () {
-    if (arm === 'old' && !optedOut) {
-      showClassic();
-    } else if (gone) {
-      removeBanners();
-    } else {
-      const phase = await feedPhase();
-      if (phase === null) {
-        showClassic();
-        bannerID.style.display = 'block';
-        closeButton.style.display = '';
-        track('banner_shown', 'top');
-      } else {
-        mount(document.getElementById('donation-banner-footer'), 'strip', 'footer:strip:new', phase.id);
-        if (phase.kind === 'quiet') {
-          showTop('strip', 'top:strip:new', phase.id);
-        } else if (Foundation.utils.is_small_only()) {
-          sheetOrBar(phase.id);
-        } else {
-          showTop('campaign', 'top:campaign:new', phase.id);
-        }
-      }
-    }
-  });
 </script>
+<!-- Open Food Facts Days 2026 end -->
 
 
 
@@ -697,7 +558,7 @@
 
 				
 
-<donation-banner id="donation-banner-footer" style="display: none;" donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
+<donation-banner id="donation-banner-footer" donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
 
 
 			
