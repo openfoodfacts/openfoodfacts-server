@@ -56,6 +56,8 @@ BEGIN {
 		&checked_return_url
 		&get_oidc_implementation_level
 		&get_oidc_configuration
+		&refresh_access_token
+		&revoke_token
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -67,7 +69,8 @@ use ProductOpener::Cache qw/generate_cache_key safe_cache_get safe_cache_set/;
 use ProductOpener::Display qw/display_error_and_exit/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
-use ProductOpener::Users qw/$User_id retrieve_user store_user_preferences generate_token init_user open_user_session/;
+use ProductOpener::Users
+	qw/$User_id retrieve_user store_user_preferences generate_token init_user open_user_session update_user_session_tokens/;
 use ProductOpener::Lang qw/$lc lang/;
 
 use OIDC::Lite;
@@ -116,7 +119,7 @@ None
 
 =cut
 
-=head2 is_allowed_return_url ($url, $subdomain)
+=head2 is_allowed_return_url ($url)
 
 Returns 1 if $url is a url of the site we serve, and can therefore be redirected to after a sign in
 or a sign out.
@@ -125,7 +128,8 @@ A return url comes from a request parameter, a cookie or a Referer header, so it
 before it is used as a redirect target: an open redirect on the sign in flow is enough to phish a
 user, and to have the browser leak the tokens of the sign in to the site the attacker chose.
 
-The check is an exact match of the host against the expected one. A prefix match is not enough:
+The check is an exact match of the host against the expected one but excluding the language subdomain.
+A prefix match is not enough:
 without an end anchor, a url like https://world.openfoodfacts.org.evil.example/ passes a test for
 the https://world.openfoodfacts.org prefix, and the userinfo part of a url
 (https://world.openfoodfacts.org@evil.example/) makes the prefix match while the host is another
@@ -135,17 +139,15 @@ one. Comparing the parsed host also takes care of both, and of a port.
 
 =head4 String $url - the url to check
 
-=head4 String $subdomain - the subdomain the url must be on, e.g. "world"
-
 =head3 Return value
 
 1 if the url is one of ours, 0 otherwise
 
 =cut
 
-sub is_allowed_return_url ($url, $subdomain) {
+sub is_allowed_return_url ($url) {
 
-	if ((not defined $url) or (not defined $subdomain)) {
+	if (not defined $url) {
 		return !!0;
 	}
 
@@ -165,7 +167,9 @@ sub is_allowed_return_url ($url, $subdomain) {
 		return !!0;
 	}
 
-	my $expected_host = lc($subdomain) . '.' . lc($server_domain);
+	# Strip language subdomain from the host
+	$host =~ s/^[^.]*\.//;
+	my $expected_host = lc($server_domain);
 
 	if (lc($host) ne $expected_host) {
 		$log->info("not redirecting to a url that is not ours",
@@ -185,10 +189,7 @@ otherwise.
 =cut
 
 sub checked_return_url ($url, $request_ref) {
-
-	my $subdomain = $request_ref->{subdomain};
-
-	if (is_allowed_return_url($url, $subdomain)) {
+	if (is_allowed_return_url($url)) {
 		return $url;
 	}
 
@@ -199,7 +200,7 @@ sub start_authorize ($request_ref) {
 	# random private token to identify the sign-in process
 	my $nonce = generate_token(64);
 	my $return_url = $request_ref->{return_url};
-	if (not is_allowed_return_url($return_url, $request_ref->{subdomain})) {
+	if (not is_allowed_return_url($return_url)) {
 		$return_url = $request_ref->{formatted_subdomain};
 	}
 
@@ -328,7 +329,7 @@ sub _validate_oidc_state_and_nonce ($state, $nonce, $context = 'login') {
 	return (1, undef, undef);
 }
 
-=head2 password_signin($username, $password, $request_ref)
+=head2 password_signin($username, $password, $request_ref, $persistent = 1)
 
 Signs in the user with a username and password, and returns the user's ID, refresh token, refresh token expiration time, access token, and access token expiration time.
 
@@ -340,19 +341,26 @@ We support this to enable passing user and password in the request json. This is
 
 =head4 The password for password-based authentication. $password
 
+=head4 Request object $request_ref
+
+=head4 Boolean $persistent
+
+If true (default), request offline_access so the session can be refreshed. Set to false for
+per-request API password authentication that must not leave a lasting Device Activity session.
+
 =head3 Return Values
 
 A list containing the user ref, refresh token, refresh token expiration time, access token, access token expiration time, and the ID token
 
 =cut
 
-sub password_signin ($username, $password, $request_ref) {
+sub password_signin ($username, $password, $request_ref, $persistent = 1) {
 	unless ($username and $password) {
 		return;
 	}
 
 	my $time = time;
-	my $access_token = get_token_using_password_credentials($username, $password);
+	my $access_token = get_token_using_password_credentials($username, $password, $persistent);
 	unless ($access_token) {
 		return;
 	}
@@ -448,10 +456,18 @@ A list containing the user's ID, new refresh token, refresh token expiration tim
 =cut
 
 sub refresh_access_token ($refresh_token) {
+	unless ($refresh_token) {
+		return;
+	}
+
 	my $time = time;
 	my $current_client = _get_client();
-	my $access_token = $current_client->refresh_access_token(refresh_token => $refresh_token,)
-		or die $current_client->errstr;
+	my $access_token = $current_client->refresh_access_token(refresh_token => $refresh_token);
+	unless ($access_token) {
+		# Expected when the Keycloak session was signed out (e.g. Device Activity)
+		$log->info('Could not refresh access token', {error => $current_client->errstr}) if $log->is_info();
+		return;
+	}
 
 	return (
 		$access_token->{refresh_token}, $time + $access_token->{refresh_expires_in},
@@ -499,6 +515,24 @@ sub access_to_protected_resource ($request_ref) {
 			start_authorize($request_ref);
 			return;
 		}
+
+		# Persist rotated tokens; Keycloak refresh tokens are single-use when rotated
+		$request_ref->{refresh_token} = $refresh_token;
+		$request_ref->{refresh_expires_at} = $refresh_expires_at;
+		$request_ref->{access_token} = $access_token;
+		$request_ref->{access_expires_at} = $access_expires_at;
+		if (defined cookie('session')) {
+			my %session = cookie('session');
+			if ($User_id and $session{'user_session'}) {
+				my $user_ref = retrieve_user($User_id);
+				if (defined $user_ref) {
+					update_user_session_tokens(
+						$user_ref, $session{'user_session'}, $refresh_token,
+						$refresh_expires_at, $access_token, $access_expires_at
+					);
+				}
+			}
+		}
 	}
 
 	# ID Token validation
@@ -507,10 +541,49 @@ sub access_to_protected_resource ($request_ref) {
 	$log->info('request is ok', $request_ref) if $log->is_info();
 
 	# Already logged in. Redirect to the requested url, if it is one of ours
-	if (is_allowed_return_url($request_ref->{return_url}, $request_ref->{subdomain})) {
+	if (is_allowed_return_url($request_ref->{return_url})) {
 		redirect_to_url($request_ref, 302, $request_ref->{return_url});
 	}
 	return;
+}
+
+=head2 revoke_token ($token, $token_type_hint)
+
+Best-effort revocation of an OIDC token (typically the refresh token) at the IdP.
+Used on Product Opener sign-out so Keycloak Device Activity no longer lists the session.
+
+=cut
+
+sub revoke_token ($token, $token_type_hint = 'refresh_token') {
+	unless ($token) {
+		return;
+	}
+
+	my $oidc_configuration_ref = get_oidc_configuration();
+	my $revocation_endpoint = $oidc_configuration_ref ? $oidc_configuration_ref->{revocation_endpoint} : undef;
+	unless ($revocation_endpoint) {
+		$log->info('OIDC revocation_endpoint not available') if $log->is_info();
+		return;
+	}
+
+	my $token_request = HTTP::Request->new(POST => $revocation_endpoint);
+	$token_request->header('Content-Type' => 'application/x-www-form-urlencoded');
+	$token_request->content('client_id='
+			. uri_escape($oidc_options{client_id})
+			. '&client_secret='
+			. uri_escape($oidc_options{client_secret})
+			. '&token='
+			. uri_escape($token)
+			. '&token_type_hint='
+			. uri_escape($token_type_hint));
+	my $token_response = LWP::UserAgent::Plugin->new->request($token_request);
+	unless ($token_response->is_success) {
+		$log->info('token revocation failed', {status => $token_response->code, content => $token_response->content})
+			if $log->is_info();
+		return;
+	}
+
+	return 1;
 }
 
 =head2 start_signout($request_ref)
@@ -530,12 +603,12 @@ None
 sub start_signout ($request_ref) {
 	# compute return_url, so that after sign out, user will be redirected to the home page
 	my $return_url = single_param('return_url');
-	if (not is_allowed_return_url($return_url, $request_ref->{subdomain})) {
+	if (not is_allowed_return_url($return_url)) {
 		$return_url = $request_ref->{formatted_subdomain};
 	}
 
 	my $id_token = $request_ref->{id_token};
-	unless ($User_id and $id_token) {
+	unless ($User_id) {
 		# user is not authenticated, nothing to do; sign-out is already done, redirect to home page
 		param('length', 'logout');
 		init_user($request_ref);
@@ -545,13 +618,20 @@ sub start_signout ($request_ref) {
 
 	get_oidc_configuration();
 
+	# Revoke the refresh/offline token so Device Activity drops this client session.
+	# end_session alone can clear the browser SSO session while leaving offline sessions listed.
+	if ($request_ref->{refresh_token}) {
+		revoke_token($request_ref->{refresh_token}, 'refresh_token');
+	}
+
 	# random private token to identify the sign-out process
 	my $nonce = generate_token(64);
 	my $end_session_endpoint = $oidc_configuration->{end_session_endpoint};
 	my $redirect_url = $end_session_endpoint . '?post_logout_redirect_uri=' . uri_escape($signout_callback_uri) . (
 		# sessions opened through password_signin used to store the decoded id token (a hash ref)
 		# instead of the JWT string: in that case, identify the client with client_id instead
-		ref($id_token)
+		not $id_token
+			or ref($id_token)
 		? '&client_id=' . uri_escape($oidc_options{client_id})
 		: '&id_token_hint=' . uri_escape($id_token)
 		)
@@ -604,7 +684,7 @@ sub signout_callback ($request_ref) {
 	return checked_return_url($cookie_ref{'return_url'}, $request_ref);
 }
 
-=head2 get_token_using_password_credentials($username, $password)
+=head2 get_token_using_password_credentials($username, $password, $persistent = 1)
 
 Gets a token for the user.
 
@@ -618,14 +698,23 @@ and Client Secret.
 
 =head4 Password given at sign-in $password
 
+=head4 Boolean $persistent
+
+If true (default), include the offline_access scope. Set to false for one-shot API
+authentication that should not create a lasting offline session.
+
 =head3 Return values
 
 Open ID Access token, or undefined if sign-in wasn't successful.
 
 =cut
 
-sub get_token_using_password_credentials ($username, $password) {
+sub get_token_using_password_credentials ($username, $password, $persistent = 1) {
 	get_oidc_configuration();
+
+	# Default to offline_access for interactive / explicit login callers. Per-request API
+	# password auth opts out so Keycloak Device Activity is not filled with offline sessions.
+	my $scope = $persistent ? 'openid%20profile%20offline_access' : 'openid%20profile';
 
 	# Build a request and emit it using our app specific key
 	# to authenticate user
@@ -639,7 +728,8 @@ sub get_token_using_password_credentials ($username, $password) {
 			. uri_escape($username)
 			. '&password='
 			. uri_escape($password)
-			. "&scope=openid%20profile%20offline_access");
+			. '&scope='
+			. $scope);
 
 	my $token_response = LWP::UserAgent::Plugin->new->request($token_request);
 	unless ($token_response->is_success) {

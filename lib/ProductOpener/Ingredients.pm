@@ -61,6 +61,7 @@ BEGIN {
 		&parse_ingredients_text_service
 		&extend_ingredients_service
 		&estimate_ingredients_percent_service
+		&get_missing_ecobalyse_ids
 
 		&extract_ingredients_from_image
 
@@ -1200,6 +1201,48 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 	return 0;
 }
 
+# Clean what is left of an ingredient after a processing was removed from it
+sub clean_ingredient_after_removing_processing ($ingredient, $and) {
+
+	# remove starting or ending " and "
+	# viande traitée en salaison et cuite -> viande et
+	$ingredient =~ s/($and)+$//i;
+	$ingredient =~ s/^($and)+//i;
+	# trim leading and trailing whitespaces or hyphens
+	$ingredient =~ s/(\s|-)+$//;
+	$ingredient =~ s/^(\s|-)+//;
+	# remove extra spaces
+	$ingredient =~ s/\s+/ /g;
+
+	return $ingredient;
+}
+
+# When a processing synonym is removed from inside an ingredient, a long synonym can also remove
+# a word that belongs to the rest of the ingredient.
+# e.g. removing "concentré de" from "jus concentré de baies de sureau" gives "jus baies de sureau",
+# but we need the "de" to then remove "jus de" and get "baies de sureau".
+# This returns the ingredients we get by removing a shorter synonym of the same processing instead
+# (e.g. "concentré"), so that the rest of the removed text is kept (e.g. "jus de baies de sureau").
+sub get_alternatives_with_shorter_processing_synonyms ($entries_ref, $processing, $text_before, $removed_text,
+	$text_after, $and)
+{
+	my @alternatives = ();
+
+	foreach my $entry_ref (@$entries_ref) {
+		next if $entry_ref->{processing} ne $processing;
+
+		foreach my $regexp (@{$entry_ref->{inside}}) {
+			# the shorter synonym must be at the start of the removed text
+			if (($removed_text =~ $regexp) and ($-[0] == 0) and ($+[0] < length($removed_text))) {
+				push @alternatives, clean_ingredient_after_removing_processing($text_before . $' . $text_after, $and);
+				last;
+			}
+		}
+	}
+
+	return @alternatives;
+}
+
 # Canonicalize an ingredient name, rejecting a match that exists only because the conjunction is a stopword:
 # "milk and cream" must not become "cream" unless a name of the matched entry contains the conjunction.
 # This checks that the conjunction is present, not where it is.
@@ -1279,6 +1322,10 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 		my $found_a_known_ingredient = 0;
 		my $new_ingredient = $ingredient;
 		my @new_processings = ();
+		# if we don't find a known ingredient, we try again with a shorter synonym of the first processing
+		# that was removed from inside the ingredient (see get_alternatives_with_shorter_processing_synonyms)
+		my @alternatives = ();
+		my $trying_alternatives = 0;
 		my $removed_a_processing = 1;    # remove prefixes / suffixes one by one
 		while ($removed_a_processing) {
 			$removed_a_processing = 0;
@@ -1306,12 +1353,14 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 							and $log->trace("processing - checking processing regexps",
 							{new_ingredient => $new_ingredient, regexp => $ingredient_processing_ref->{pattern}});
 
-						# $` and $' are dynamically scoped to the block with the match:
+						# $`, $& and $' are dynamically scoped to the block with the match:
 						# consume them before leaving it
 						my $matched = 0;
+						my ($text_before, $removed_text, $text_after);
 						foreach my $regexp (@{$ingredient_processing_ref->{$pass}}) {
 							if ($new_ingredient =~ $regexp) {
-								$new_ingredient = $` . $';
+								($text_before, $removed_text, $text_after) = ($`, $&, $');
+								$new_ingredient = $text_before . $text_after;
 								$matched = 1;
 								last;
 							}
@@ -1338,15 +1387,20 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 								push @new_processings, $processing;
 							}
 
-							# remove starting or ending " and "
-							# viande traitée en salaison et cuite -> viande et
-							$new_ingredient =~ s/($and)+$//i;
-							$new_ingredient =~ s/^($and)+//i;
-							# trim leading and trailing whitespaces or hyphens
-							$new_ingredient =~ s/(\s|-)+$//;
-							$new_ingredient =~ s/^(\s|-)+//;
-							# remove extra spaces
-							$new_ingredient =~ s/\s+/ /g;
+							$new_ingredient = clean_ingredient_after_removing_processing($new_ingredient, $and);
+
+							if (($pass eq "inside") and (not $trying_alternatives) and (not @alternatives)) {
+								foreach my $alternative_ingredient (
+									get_alternatives_with_shorter_processing_synonyms(
+										$compiled_ingredients_processing_ref->{entries},
+										$processing, $text_before, $removed_text, $text_after, $and
+									)
+									)
+								{
+									push @alternatives,
+										{ingredient => $alternative_ingredient, processings => [@new_processings]};
+								}
+							}
 
 							# Stop if we now have a known ingredient.
 							# e.g. "jambon cru en tranches" -> keep "jambon cru".
@@ -1376,6 +1430,29 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 							last;
 						}
 					}
+				}
+			}
+
+			# If we can't remove more processings and did not find a known ingredient,
+			# try again from an alternative where a shorter processing synonym was removed
+			if ((not $removed_a_processing) and (not $found_a_known_ingredient) and (@alternatives)) {
+				my $alternative_ref = shift @alternatives;
+				$trying_alternatives = 1;
+				$new_ingredient = $alternative_ref->{ingredient};
+				@new_processings = @{$alternative_ref->{processings}};
+				# continue removing processings from the alternative
+				$removed_a_processing = 1;
+
+				$debug_parse_processing_from_ingredient
+					and $log->is_debug()
+					and $log->debug(
+					"processing - trying alternative with a shorter processing synonym",
+					{ingredient => $ingredient, new_ingredient => $new_ingredient}
+					);
+
+				my $new_ingredient_id = _canonicalize_ingredient($ingredients_lc, $new_ingredient);
+				if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+					$found_a_known_ingredient = 1;
 				}
 			}
 		}
@@ -4151,6 +4228,7 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		# ecobalyse_labels_organic (if the product is organic)
 		# ecobalyse_origins_france (if the product comes from france)
 		# ecobalyse_origins_en_europe_and_maghreb (if the product comes from Europe and Maghreb region)
+		# ecobalyse_origins_en_france_overseas (if the product comes from France overseas, e.g. Guadeloupe)
 		# ecobalyse (else)
 
 		# List of suffixes
@@ -4172,6 +4250,14 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		{
 			push @suffixes, "_labels_en_organic_origins_en_europe_and_maghreb";
 		}
+		# If the ingredient is both organic and from France overseas...
+		if (    (defined $ingredient_ref->{labels})
+			and ($ingredient_ref->{labels} =~ /\ben:organic\b/)
+			and (defined $ingredient_ref->{origins})
+			and (get_geographical_area($ingredient_ref->{origins}) eq "france_overseas"))
+		{
+			push @suffixes, "_labels_en_organic_origins_en_france_overseas";
+		}
 		# If the ingredient is organic...
 		if ((defined $ingredient_ref->{labels}) and ($ingredient_ref->{labels} =~ /\ben:organic\b/)) {
 			push @suffixes, "_labels_en_organic";
@@ -4185,27 +4271,62 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		if ((defined $ingredient_ref->{origins}) and (get_geographical_area($ingredient_ref->{origins}) eq "eu")) {
 			push @suffixes, "_origins_en_europe_and_maghreb";
 		}
+		# If the ingredient is from France overseas...
+		if (    (defined $ingredient_ref->{origins})
+			and (get_geographical_area($ingredient_ref->{origins}) eq "france_overseas"))
+		{
+			push @suffixes, "_origins_en_france_overseas";
+		}
 		push @suffixes, '';
 
 		# First try an exact match, and then a proxy match
-		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
+		my @prefixes = ("ecobalyse", "ecobalyse_proxy");
+		# If the proxy comes from a closer level of the taxonomy than the exact match,
+		# the proxy is more specific and is tried first
+		# (e.g. en:chicken has a chicken breast proxy, and its parent en:poultry has an exact match:
+		# en:chicken and its children like en:chicken-fillet should use the chicken breast proxy)
+		my (undef, $exact_tagid)
+			= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, "ecobalyse_id:en");
+		my (undef, $proxy_tagid)
+			= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, "ecobalyse_proxy_id:en");
+		if (    (defined $exact_tagid)
+			and (defined $proxy_tagid)
+			and ($proxy_tagid ne $exact_tagid)
+			and (is_a("ingredients", $proxy_tagid, $exact_tagid)))
+		{
+			@prefixes = ("ecobalyse_proxy", "ecobalyse");
+		}
+		my %base_tagids = (ecobalyse => $exact_tagid, ecobalyse_proxy => $proxy_tagid);
+		foreach my $prefix (@prefixes) {
 			# Loop through each suffix to retrieve ecobalyse code
 			foreach my $suffix (@suffixes) {
 				# Construct the property name using the prefix and suffix
 				my $property_name = $prefix . $suffix . "_id" . ":en";
 
 				# Attempt to retrieve the ecobalyse code for the current property name
-				my $ecobalyse_id = get_inherited_property("ingredients", $ingredient_ref->{id}, $property_name);
+				my ($ecobalyse_id, $matching_tagid)
+					= get_inherited_property_and_matching_tag("ingredients", $ingredient_ref->{id}, $property_name);
+				next if not defined $ecobalyse_id;
 
-				if (defined $ecobalyse_id) {
-					# Assign the ecobalyse code if found
-					$ingredient_ref->{$prefix . "_id"} = $ecobalyse_id;
-					# Also retrieve the corresponding French display name
-					my $name_property = $prefix . $suffix . "_name:fr";
-					my $ecobalyse_name = get_inherited_property("ingredients", $ingredient_ref->{id}, $name_property);
-					$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
-					last;
-				}
+				# A label or origin variant is used only if it comes from the taxonomy level
+				# that has the base match (without label and origin), or from a level below it.
+				# Variants of parents above the base match are for a different product
+				# (e.g. for organic rice flour, en:rice-flour has a base match but no organic variant:
+				# we use the rice flour base match, and not the organic rice variant of the en:rice parent)
+				# Without a base match (e.g. when the base match of the parents is blocked with an "undef"
+				# value, as for foie gras), no variant is used.
+				my $base_tagid = $base_tagids{$prefix};
+				next if not defined $base_tagid;
+				next
+					if ($matching_tagid ne $base_tagid)
+					and (not is_a("ingredients", $matching_tagid, $base_tagid));
+
+				# Assign the ecobalyse code if found
+				$ingredient_ref->{$prefix . "_id"} = $ecobalyse_id;
+				# Also retrieve the corresponding French display name, from the same taxonomy level
+				my $ecobalyse_name = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_name:fr");
+				$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
+				last;
 			}
 			# Exit the loop if a valid ecobalyse code was found
 			last if defined $ingredient_ref->{$prefix . "_id"};
@@ -4234,6 +4355,8 @@ reference to the name of the country
 
 =head4 $ecobalyse_area
 
+"fr" (France), "eu" (Europe and Maghreb), "france_overseas" (France d'outre-mer) or "" (other / unknown)
+
 =cut
 
 sub get_geographical_area ($originid) {
@@ -4247,6 +4370,10 @@ sub get_geographical_area ($originid) {
 	}
 	if ($originid eq "en:france") {
 		$ecobalyse_area = "fr";
+	}
+	# France overseas (France d'outre-mer, ROF in Ecobalyse): e.g. en:guadeloupe, en:reunion
+	if (($originid eq "en:france-overseas") or (is_a("origins", $originid, "en:france-overseas"))) {
+		$ecobalyse_area = "france_overseas";
 	}
 
 	return $ecobalyse_area;

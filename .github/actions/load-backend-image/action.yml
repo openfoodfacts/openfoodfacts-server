@@ -1,0 +1,47 @@
+name: Load backend dev image
+description: >
+  Make the backend image built by the build_backend job available
+  as openfoodfacts-server/backend:dev, either by pulling the backend-deps image from ghcr.io,
+  or, for fork PRs that could not push it, by downloading it from the workflow artifacts.
+inputs:
+  image:
+    description: backend-deps image reference on ghcr.io (build_backend's deps_image output)
+    required: true
+  from_artifact:
+    description: "'true' to download the image from the artifacts instead of pulling it (build_backend's from_artifact output)"
+    required: false
+    default: 'false'
+  token:
+    description: token to log in to ghcr.io
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Login to ghcr.io
+      if: inputs.from_artifact != 'true'
+      uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ inputs.token }}
+    - name: Pull backend-deps image
+      if: inputs.from_artifact != 'true'
+      shell: bash
+      env:
+        IMAGE: ${{ inputs.image }}
+      run: |
+        docker pull --quiet "$IMAGE"
+        docker tag "$IMAGE" openfoodfacts-server/backend:dev
+    - name: Download backend image from artifacts
+      if: inputs.from_artifact == 'true'
+      id: download
+      uses: ishworkh/container-image-artifact-download@d5e9b6d62ef3f9762f6553c8178c2d925acc0409 # v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+        download_tmp_dir: ${{ runner.temp }}
+    - name: Remove downloaded image file
+      if: inputs.from_artifact == 'true'
+      shell: bash
+      env:
+        FILE: ${{ steps.download.outputs.download_path }}
+      run: rm -f "$FILE"

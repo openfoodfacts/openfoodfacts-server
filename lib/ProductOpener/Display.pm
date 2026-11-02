@@ -96,6 +96,7 @@ BEGIN {
 		&count_products
 		&add_params_to_query
 		&add_params_and_filters_to_query
+		&generate_query_cache_key
 
 		&process_template
 
@@ -8291,7 +8292,8 @@ JS
 
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{code} = $code;
-	$template_data_ref->{user_moderator} = $User{moderator};
+	$template_data_ref->{can_delete} = can_delete_product($product_ref);
+	$template_data_ref->{can_delete_image} = can_delete_image($product_ref);
 
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
@@ -10387,8 +10389,8 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 		${$ingredients_list_ref}
 			.= '<table id="ordered_ingredients_list" style="border-collapse:collapse;width:100%;font-size:0.85rem">'
 			. "\n<thead><tr>"
-			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Ingredient</th>'
-			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Taxonomy ID</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ingredient</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">taxonomy_id</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th>'

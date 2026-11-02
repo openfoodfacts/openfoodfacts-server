@@ -441,6 +441,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_proxy_id" : "38788025-a65e-4edf-a92f-aab0b89b0d61",
+         "ecobalyse_proxy_name" : "Blé tendre FR",
          "id" : "en:wheat",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
@@ -479,10 +481,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:wheat"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "misc_tags" : [
