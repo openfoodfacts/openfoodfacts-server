@@ -1840,6 +1840,30 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Alcoholic Pre-mixed Drinks
 wikidata:en: Q1571448
 
+< en: Alcoholic beverages
+en: Beer-like beverages
+de: Bierähnliche Getränke
+es: Bebidas similares a la cerveza
+fr: Boissons alcoolisées de type bière
+it: Bevande simili alla birra
+nl: Bierachtige dranken
+description:en: Alcoholic drinks similar to beer: beer mixed with other drinks (shandy, mixed beer drinks) and alcoholic malt drinks.
+foodex2_code:en: A03MN
+foodex2_common_names:en: Malt drink; Malt beer
+foodex2_extended_name:en: Beer-like beverages
+foodex2_implicit_facets:en: F02.A0ENJ$F28.A0C01$F33.A0C1N
+foodex2_old_code:en: A.01.001540
+foodex2_scope_note:en: The group includes any type of Beer-like beverages such as Malt drink and Malt beer.
+
+< en: Beer-like beverages
+en: Alcoholic malt drinks, Alcoholic malt beverages, Alcoholic malt beers, Flavoured malt beverages, Flavored malt beverages
+de: Alkoholische Malzgetränke, Alkoholhaltige Malzgetränke
+es: Bebidas de malta alcohólicas
+fr: Boissons maltées alcoolisées
+it: Bevande al malto alcoliche
+nl: Alcoholische moutdranken
+description:en: Alcoholic drinks brewed from malt that are sold as malt drinks rather than beer, such as flavoured malt beverages.
+
 < en: Premixed alcoholic beverages
 en: Beer-based alcoholic beverages
 de: Bierbasierte alkoholische Getränke
@@ -1881,6 +1905,7 @@ foodex2_scope_note:en: The group includes any type of Shandy, a mixture of beer 
 wikidata:en: Q13527031
 
 < en: Beer-based alcoholic beverages
+< en: Beer-like beverages
 en: Mixed beer drinks, Beer mixes, Beer mixed drinks
 de: Biermischgetränke, Biermischgetränk, Biermixgetränk
 fr: Mélanges à base de bière
@@ -13510,19 +13535,13 @@ ciqual_food_name:fr: Boisson rafraîchissante sans alcool (aliment moyen)
 incompatible_with:en: categories:en:alcoholic-beverages
 
 < en: Non-alcoholic beverages
-en: Malt drinks, Malt beverages, Beer-like beverages, Malt beers
-de: Malzgetränke, Malzbiere, Malzbier
-es: Bebidas de malta, Maltas
-fr: Boissons maltées, Bières de malt
-nl: Moutdranken, Moutbier
-pl: Napoje słodowe, Piwa słodowe
-description:en: Sweet carbonated drinks brewed from malt like beer but not fermented into alcohol, such as German Malzbier or Caribbean and Latin American malta. Beer mixed with other drinks is under beer-based alcoholic beverages.
-foodex2_code:en: A03MN
-foodex2_common_names:en: Malt drink; Malt beer
-foodex2_extended_name:en: Beer-like beverages
-foodex2_implicit_facets:en: F02.A0ENJ$F28.A0C01$F33.A0C1N
-foodex2_old_code:en: A.01.001540
-foodex2_scope_note:en: The group includes any type of Beer-like beverages such as Malt drink and Malt beer.
+en: Non-alcoholic malt drinks, Non-alcoholic malt beverages
+de: Alkoholfreie Malzgetränke, Malzbier, Malzbiere
+es: Bebidas de malta sin alcohol, Maltas
+fr: Boissons maltées sans alcool
+nl: Alcoholvrije moutdranken, Moutbier
+pl: Bezalkoholowe napoje słodowe
+description:en: Sweet carbonated drinks brewed from malt like beer but not fermented into alcohol, such as German Malzbier or Caribbean and Latin American malta.
 
 < en: Instant beverages
 < en: Variety packs
