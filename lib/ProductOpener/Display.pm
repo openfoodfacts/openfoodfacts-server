@@ -6201,6 +6201,12 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 	my %series = ();
 	my %series_n = ();
 
+	# Products of a specific brand can be highlighted in a separate series (e.g. for producers to compare their products)
+	my $highlighted_brand_id;
+	if ((defined $graph_ref->{series_brand}) and ($graph_ref->{series_brand} ne '')) {
+		$highlighted_brand_id = canonicalize_taxonomy_tag($lc, "brands", $graph_ref->{series_brand});
+	}
+
 	foreach my $axis ('x', 'y') {
 		# Store the field path components so that we can use them with deep_get() when going through the products
 		my $field = $graph_ref->{"axis_" . $axis};
@@ -6256,8 +6262,12 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		# order: organic, organic+fairtrade, organic+fairtrade+sweeteners, organic+sweeteners, fairtrade, fairtrade + sweeteners
 		#
 
+		# Highlighted brand
+		if ((defined $highlighted_brand_id) and (has_tag($product_ref, "brands", $highlighted_brand_id))) {
+			$seriesid = 'highlighted_brand';
+		}
 		# Colors for nutrition grades
-		if ($graph_ref->{"series_nutrition_grades"}) {
+		elsif ($graph_ref->{"series_nutrition_grades"}) {
 			if (defined $product_ref->{"nutrition_grade_fr"}) {
 				$seriesid = $product_ref->{"nutrition_grade_fr"};
 			}
@@ -6330,6 +6340,10 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 	my $series_data = '';
 	my $legend_title = '';
+
+	# The highlighted brand series is displayed separately, after the other series so that it is drawn on top
+	my $highlighted_brand_series = delete $series{highlighted_brand} // '';
+	my $highlighted_brand_n = delete $series_n{highlighted_brand} // 0;
 
 	# Colors for nutrition grades
 	if ($graph_ref->{"series_nutrition_grades"}) {
@@ -6418,10 +6432,31 @@ JS
 				;
 		}
 	}
+
+	if (defined $highlighted_brand_id) {
+		my $brand_name = display_taxonomy_tag_name($lc, "brands", $highlighted_brand_id);
+		# The brand name is provided by the user: encode it as a JavaScript string,
+		# and escape < and > so that it cannot close the <script> element
+		my $name = $json->encode("$brand_name : $highlighted_brand_n $Lang{products}{$lc}");
+		$name =~ s/</\\u003c/g;
+		$name =~ s/>/\\u003e/g;
+		$series_data .= <<JS
+{
+	name: $name,
+	color: 'rgba(204, 0, 204, .9)',
+	marker: { symbol: 'diamond', radius: 7 },
+	zIndex: 10,
+	turboThreshold : 0,
+	data: [ $highlighted_brand_series ]
+},
+JS
+			;
+	}
+
 	$series_data =~ s/,\n$//;
 
 	my $legend_enabled = 'false';
-	if (scalar keys %series > 1) {
+	if ((scalar keys %series) + (defined $highlighted_brand_id ? 1 : 0) > 1) {
 		$legend_enabled = 'true';
 	}
 
