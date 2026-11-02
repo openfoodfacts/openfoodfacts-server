@@ -323,7 +323,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Taxonomy ID</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>water</span></td><td style=\"padding:2px 6px\">en:water</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">18066</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">75.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span class=\"text_info unknown_ingredient\">test_ingredient</span></td><td style=\"padding:2px 6px\">en:test_ingredient</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">25.0</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
+                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">taxonomy_id</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>water</span></td><td style=\"padding:2px 6px\">en:water</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">18066</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">75.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span class=\"text_info unknown_ingredient\">test_ingredient</span></td><td style=\"padding:2px 6px\">en:test_ingredient</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">25.0</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
                   }
                },
                {
@@ -1012,7 +1012,7 @@
                                  "text" : "Matières grasses"
                               },
                               {
-                                 "text" : "8.5 g"
+                                 "text" : "8,5 g"
                               }
                            ]
                         },
@@ -1024,7 +1024,7 @@
                                  "text" : "Acides gras saturés"
                               },
                               {
-                                 "text" : "5.6 g"
+                                 "text" : "5,6 g"
                               }
                            ]
                         },
@@ -1036,7 +1036,7 @@
                                  "text" : "Glucides"
                               },
                               {
-                                 "text" : "10.5 g"
+                                 "text" : "10,5 g"
                               }
                            ]
                         },
@@ -1048,7 +1048,7 @@
                                  "text" : "Sucres"
                               },
                               {
-                                 "text" : "12.5 g"
+                                 "text" : "12,5 g"
                               }
                            ]
                         },
@@ -1072,7 +1072,7 @@
                                  "text" : "Protéines"
                               },
                               {
-                                 "text" : "4.5 g"
+                                 "text" : "4,5 g"
                               }
                            ]
                         },
@@ -1084,7 +1084,7 @@
                                  "text" : "Sel"
                               },
                               {
-                                 "text" : "0.0502 g"
+                                 "text" : "0,05 g"
                               }
                            ]
                         },
@@ -1096,7 +1096,7 @@
                                  "text" : "Sodium"
                               },
                               {
-                                 "text" : "~ 0.02008 g"
+                                 "text" : "~ 0,02 g"
                               }
                            ]
                         },
@@ -1105,7 +1105,7 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ légumes‚ légumes secs"
+                                 "text" : "Fruits, légumes, légumes secs"
                               },
                               {
                                  "text" : "~ 0 %"
@@ -1191,10 +1191,10 @@
                                  "text" : "Matières grasses"
                               },
                               {
-                                 "text" : "8.5 g"
+                                 "text" : "8,5 g"
                               },
                               {
-                                 "text" : "8.5 g"
+                                 "text" : "8,5 g"
                               },
                               {
                                  "text" : "?"
@@ -1209,10 +1209,10 @@
                                  "text" : "Acides gras saturés"
                               },
                               {
-                                 "text" : "5.6 g"
+                                 "text" : "5,6 g"
                               },
                               {
-                                 "text" : "5.6 g"
+                                 "text" : "5,6 g"
                               },
                               {
                                  "text" : "?"
@@ -1227,10 +1227,10 @@
                                  "text" : "Glucides"
                               },
                               {
-                                 "text" : "10.5 g"
+                                 "text" : "10,5 g"
                               },
                               {
-                                 "text" : "10.5 g"
+                                 "text" : "10,5 g"
                               },
                               {
                                  "text" : "?"
@@ -1245,10 +1245,10 @@
                                  "text" : "Sucres"
                               },
                               {
-                                 "text" : "12.5 g"
+                                 "text" : "12,5 g"
                               },
                               {
-                                 "text" : "12.5 g"
+                                 "text" : "12,5 g"
                               },
                               {
                                  "text" : "?"
@@ -1281,10 +1281,10 @@
                                  "text" : "Protéines"
                               },
                               {
-                                 "text" : "4.5 g"
+                                 "text" : "4,5 g"
                               },
                               {
-                                 "text" : "4.5 g"
+                                 "text" : "4,5 g"
                               },
                               {
                                  "text" : "?"
@@ -1299,10 +1299,10 @@
                                  "text" : "Sel"
                               },
                               {
-                                 "text" : "0.0502 g"
+                                 "text" : "0,05 g"
                               },
                               {
-                                 "text" : "50.2 mg"
+                                 "text" : "50,2 mg"
                               },
                               {
                                  "text" : "?"
@@ -1317,7 +1317,7 @@
                                  "text" : "Sodium"
                               },
                               {
-                                 "text" : "~ 0.02008 g"
+                                 "text" : "~ 0,02 g"
                               },
                               {
                                  "text" : "?"
@@ -1332,7 +1332,7 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ légumes‚ légumes secs"
+                                 "text" : "Fruits, légumes, légumes secs"
                               },
                               {
                                  "text" : "~ 0 %"

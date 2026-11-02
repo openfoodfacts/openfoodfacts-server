@@ -19,9 +19,12 @@ cd $DIR
 mongoexport --collection products --host $HOST --db $DB | gzip > new.$PREFIX-products.jsonl.gz && \
 mv new.$PREFIX-products.jsonl.gz $PREFIX-products.jsonl.gz \
 || report_error $? "mongoexport.products"
+mc cp $PREFIX-products.jsonl.gz s3/openfoodfacts-ds || report_error $? "mc.cp"
+
 mongoexport --collection products_obsolete --host $HOST --db $DB | gzip > new.$PREFIX-products_obsolete.jsonl.gz && \
 mv new.$PREFIX-products_obsolete.jsonl.gz $PREFIX-products_obsolete.jsonl.gz \
 || report_error $? "mongoexport.products_obsolete"
+mc cp $PREFIX-products_obsolete.jsonl.gz s3/openfoodfacts-ds || report_error $? "mc.cp"
 
 mongodump --collection products --host $HOST --db $DB --gzip --archive="new.${PREFIX}-mongodbdump.gz" && \
 sha256sum new.$PREFIX-mongodbdump.gz |sed -e 's/new\.//' > new.gz-sha256sum && \
@@ -30,6 +33,7 @@ mv new.${PREFIX}-mongodbdump.gz ${PREFIX}-mongodbdump.gz && \
 mv new.gz-sha256sum gz-sha256sum && \
 mv new.gz-md5sum gz-md5sum \
 || report_error $? "mongodump.products"
+mc cp ${PREFIX}-mongodbdump.gz s3/openfoodfacts-ds || report_error $? "mc.cp"
 
 mongodump --collection products_obsolete --host $HOST --db $DB --gzip --archive="new.${PREFIX}_obsolete-mongodbdump.gz" && \
 sha256sum new.${PREFIX}_obsolete-mongodbdump.gz |sed -e 's/new\.//' > new.obsolete.gz-sha256sum && \
@@ -69,13 +73,6 @@ popd > /dev/null # data/delta
 mongoexport --collection recent_changes --host $HOST --db $DB --fields=_id,comment,code,userid,rev,countries_tags,t,diffs | gzip -9 > "new.${PREFIX}_recent_changes.jsonl.gz" && \
 mv new.${PREFIX}_recent_changes.jsonl.gz ${PREFIX}_recent_changes.jsonl.gz \
 || report_error $? "mongoexport.recent_changes"
-
-# Copy files to AWS S3 using MinIO client
-mc cp \
-    ${PREFIX}-products.jsonl.gz \
-    ${PREFIX}_recent_changes.jsonl.gz \
-    ${PREFIX}-mongodbdump.gz \
-    s3/openfoodfacts-ds \
-  || report_error $? "mc.cp"
+mc cp ${PREFIX}_recent_changes.jsonl.gz s3/openfoodfacts-ds|| report_error $? "mc.cp"
 
 report_failed_commands $0

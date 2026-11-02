@@ -62,6 +62,8 @@ BEGIN {
 		&init_user
 
 		&is_admin_user
+		&can_delete_product
+		&can_delete_image
 		&create_password_hash
 		&check_password_hash
 		&retrieve_user
@@ -77,6 +79,10 @@ BEGIN {
 
 		&check_session
 		&open_user_session
+		&update_user_session_tokens
+		&remove_user_session
+		&remove_all_user_sessions
+		&is_stale_user_session
 
 		&generate_token
 
@@ -399,6 +405,68 @@ sub is_admin_user ($user_id) {
 	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
 }
 
+=head2 can_delete_product ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id)
+
+Checks if the current user (%User) has permission to delete a product page,
+or to delete or move images of a product (see can_delete_image()).
+
+Admins and moderators can always delete.
+
+On the producers platform (private products), pro moderators can delete,
+and so can members of an organization (the owner is "org-<org_id>"), for products
+of their organization. Users without an organization cannot delete.
+
+=head3 Parameters
+
+=head4 Product object $product_ref (optional)
+
+If passed, members of an organization can only delete it if it is owned by their organization.
+
+=head4 String user ID $user_id (optional, defaults to $User_id)
+
+=head4 String owner ID $owner_id (optional, defaults to $Owner_id)
+
+=head3 Return values
+
+1 if the user can delete the product, 0 otherwise.
+
+=cut
+
+sub can_delete_product ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id) {
+
+	# Admins and moderators can always delete
+	if ((is_admin_user($user_id)) or ($User{moderator})) {
+		return 1;
+	}
+
+	# On the producers platform: pro moderators and members of an organization can delete
+	if ($server_options{private_products}) {
+		if ($User{pro_moderator}) {
+			return 1;
+		}
+		if ((defined $owner_id) and ($owner_id =~ /^org-/)) {
+			if ((defined $product_ref) and (defined $product_ref->{owner}) and ($product_ref->{owner} ne $owner_id)) {
+				return 0;
+			}
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+=head2 can_delete_image ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id)
+
+Checks if the current user (%User) has permission to delete or move uploaded images of a product.
+
+The rules are the same as for deleting the product itself, see can_delete_product().
+
+=cut
+
+sub can_delete_image ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id) {
+	return can_delete_product($product_ref, $user_id, $owner_id);
+}
+
 =head2 check_user_org($user_ref, $new_org)
 
 This method checks a new org entry for a user.
@@ -483,7 +551,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	# Assigning 'userid' to 0 -- if userid is not defined
 	$user_ref->{userid} = remove_tags_and_quote(single_param('userid'));
 
-	my $is_spam = undef;
+	my $spam_reason;
 	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
 	if (defined single_param('name')) {
 		$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
@@ -491,22 +559,34 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		# Check for spam
 		# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
 		if (is_suspicious_name($user_ref->{name})) {
-			$is_spam = 1;
+			$spam_reason = "name";
 		}
 	}
 
 	# check for spam, that may have filled the honeypot faxnumber field
 	my $faxnumber = single_param('faxnumber');
 	if ((defined $faxnumber) and ($faxnumber ne "")) {
-		$is_spam = 1;
+		$spam_reason = "faxnumber";
 	}
-	if ($is_spam) {
+
+	# Spam bots that register accounts with random names send newsletter=1
+	# (the web form and the apps send "on")
+	if (($type eq 'add') and ((single_param('newsletter') // '') eq '1')) {
+		$spam_reason = "newsletter";
+	}
+
+	if (defined $spam_reason) {
 		# log the ip
 		open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
-		print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{userid} . "\t" . $user_ref->{name} . "\n";
+		print $log remote_addr() . "\t"
+			. time() . "\t"
+			. $user_ref->{userid} . "\t"
+			. ($user_ref->{name} // '') . "\t"
+			. $spam_reason . "\n";
 		close($log);
-		# bail out, return 200 status code
-		display_error_and_exit($request_ref, "", 200);
+		# We do not create or update the account, but we pretend that we did,
+		# so that spammers do not notice and do not change their requests
+		$request_ref->{is_spam} = 1;
 	}
 
 	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
@@ -1006,7 +1086,7 @@ sub remove_old_sessions ($user_ref) {
 	my $max_session = 10;
 
 	# Check if we need to delete the oldest session
-	# delete $user_ref->{'user_session'};
+	# delete $user_ref->{'user_sessions'};
 	if ((scalar keys %{$user_ref->{'user_sessions'}}) >= $max_session) {
 		my %user_session_stored = %{$user_ref->{'user_sessions'}};
 
@@ -1020,6 +1100,131 @@ sub remove_old_sessions ($user_ref) {
 		}
 	}
 	return;
+}
+
+=head2 remove_user_session ($user_id, $user_session)
+
+Delete a session from the user data, so that it can no longer be used to authenticate.
+
+A session was only removed when there were more than 10 of them, so a session that was signed out
+(or that was invalidated by a credential change) stayed valid until the account opened 10 more of
+them.
+
+Does nothing if the user or the session is not known.
+
+=head3 Arguments
+
+=head4 String $user_id - the user the session belongs to
+
+=head4 String $user_session - the session to delete
+
+=head3 Return value
+
+1 if the session was found and deleted, 0 otherwise
+
+=cut
+
+sub remove_user_session ($user_id, $user_session) {
+
+	if ((not defined $user_id) or (not defined $user_session)) {
+		return 0;
+	}
+
+	my $user_ref = retrieve_user_preferences($user_id);
+
+	if (not defined $user_ref) {
+		$log->info("cannot remove the session of a user that does not exist", {user_id => $user_id})
+			if $log->is_info();
+		return 0;
+	}
+
+	if (not defined $user_ref->{'user_sessions'}{$user_session}) {
+		return 0;
+	}
+
+	delete $user_ref->{'user_sessions'}{$user_session};
+	store_user_preferences($user_ref);
+
+	$log->info("session removed", {user_id => $user_id}) if $log->is_info();
+
+	return 1;
+}
+
+=head2 remove_all_user_sessions ($user_id)
+
+Delete every session of a user, so that none of them can authenticate any more. Called after a
+credential change, so that a session obtained with the old credentials is not usable any more.
+
+=head3 Arguments
+
+=head4 String $user_id - the user whose sessions are deleted
+
+=head3 Return value
+
+The number of sessions that were deleted
+
+=cut
+
+sub remove_all_user_sessions ($user_id) {
+
+	if (not defined $user_id) {
+		return 0;
+	}
+
+	my $user_ref = retrieve_user_preferences($user_id);
+
+	if (not defined $user_ref) {
+		return 0;
+	}
+
+	my $removed = scalar keys %{$user_ref->{'user_sessions'} // {}};
+
+	$user_ref->{'user_sessions'} = {};
+	store_user_preferences($user_ref);
+
+	$log->info("all the sessions of the user were removed", {user_id => $user_id, removed => $removed})
+		if $log->is_info();
+
+	return $removed;
+}
+
+=head2 is_stale_user_session ($session_ref)
+
+Returns 1 if the session is older than the maximum session lifetime.
+
+A session that is stored forever can be replayed forever: nothing deleted it when the user signed
+out, and nothing shortened its life, so the cookie of a stolen session stayed valid for as long as
+the account did not open 10 other sessions. Refusing a session older than the configured maximum
+bounds that, and also discards the stale entries that are already stored.
+
+A session stored without a timestamp is not considered stale: it was written before the timestamp
+was recorded, and refusing it would sign out the users we cannot reason about.
+
+=head3 Arguments
+
+=head4 Hash ref $session_ref - the stored session, as found in $user_ref->{user_sessions}
+
+=head3 Return value
+
+1 if the session is older than the maximum session lifetime, 0 otherwise
+
+=cut
+
+sub is_stale_user_session ($session_ref) {
+
+	my $max_lifetime = $options{user_session_max_lifetime};
+
+	if ((not defined $max_lifetime) or (not defined $session_ref) or (not defined $session_ref->{time})) {
+		return 0;
+	}
+
+	if ((time() - $session_ref->{time}) > $max_lifetime) {
+		$log->info("session is older than the maximum session lifetime", {age => time() - $session_ref->{time}})
+			if $log->is_info();
+		return 1;
+	}
+
+	return 0;
 }
 
 =head2 generate_session_cookie($user_id, $user_session)
@@ -1133,6 +1338,34 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 	$request_ref->{cookie} = generate_session_cookie($user_id, $user_session);
 
 	return $user_session;
+}
+
+=head2 update_user_session_tokens($user_ref, $user_session, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at)
+
+Update OIDC tokens stored for an existing Product Opener session and persist them.
+Needed after a refresh so rotated refresh tokens stay usable on the next request.
+
+=cut
+
+sub update_user_session_tokens ($user_ref, $user_session, $refresh_token, $refresh_expires_at, $access_token,
+	$access_expires_at)
+{
+	if ((not defined $user_ref) or (not defined $user_session)) {
+		return 0;
+	}
+
+	my $session_ref = $user_ref->{'user_sessions'}{$user_session};
+	if (not defined $session_ref) {
+		return 0;
+	}
+
+	$session_ref->{refresh_token} = $refresh_token;
+	$session_ref->{refresh_expires_at} = $refresh_expires_at;
+	$session_ref->{access_token} = $access_token;
+	$session_ref->{access_expires_at} = $access_expires_at;
+	store_user_preferences($user_ref);
+
+	return 1;
 }
 
 # This just fetches the local data about the user, e.g. sessions. It should not be used if you need access to data
@@ -1406,7 +1639,26 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 	return $email_ref;
 }
 
-sub init_user ($request_ref) {
+=head2 _is_explicit_session_login_request($request_ref)
+
+True when the current CGI script is an explicit login endpoint that should open a lasting
+Product Opener / Keycloak session (auth.pl, login.pl, or session.pl).
+
+Other scripts that accept user_id+password (legacy mobile / API password auth) must only
+authenticate the current request.
+
+=cut
+
+sub _is_explicit_session_login_request ($request_ref) {
+	my $script_name = $request_ref->{script_name} // '';
+	return (
+			   ($script_name eq '/cgi/auth.pl')
+			or ($script_name eq '/cgi/login.pl')
+			or ($script_name eq '/cgi/session.pl')
+	) ? 1 : 0;
+}
+
+sub init_user ($request_ref, $r = undef) {
 
 	my $user_id = undef;
 	my $user_ref = undef;
@@ -1414,12 +1666,33 @@ sub init_user ($request_ref) {
 
 	$User_id = undef;
 	$Org_id = undef;
+	$Owner_id = undef;
 	%User = ();
 	%Org = ();
+
+	# Note we allow an OAuth token for all oidc_implementation_levels
+	if ($r) {
+		my $signed_in_oidc = process_auth_header($request_ref, $r);
+		if ($signed_in_oidc < 0) {
+			# We were sent a bad bearer token
+			return "invalid_token";
+		}
+	}
 
 	# Remove persistent cookie if user is logging out
 	if ((defined request_param($request_ref, 'length')) and (request_param($request_ref, 'length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
+
+		# Expiring the cookie is not enough: the session is still stored server side, so the same
+		# cookie would authenticate again. Read it before we drop it, and delete it.
+		if (defined cookie($cookie_name)) {
+			my %logout_cookie = cookie($cookie_name);
+			remove_user_session($logout_cookie{'user_id'}, $logout_cookie{'user_session'});
+		}
+		elsif (defined single_param('user_session')) {
+			remove_user_session(single_param('user_id'), single_param('user_session'));
+		}
+
 		my $session = {};
 		$request_ref->{cookie} = cookie(
 			-name => $cookie_name,
@@ -1457,7 +1730,7 @@ sub init_user ($request_ref) {
 				$user_id = undef;
 				$log->info('bad user') if $log->is_info();
 				# Trigger an error
-				return ($Lang{error_bad_login_password}{$lc});
+				return "error_bad_login_password";
 			}
 		}
 	}
@@ -1480,7 +1753,7 @@ sub init_user ($request_ref) {
 					$user_id = undef;
 					$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 				else {
 					$user_id = $user_ref->{userid};
@@ -1494,7 +1767,7 @@ sub init_user ($request_ref) {
 				$user_id = _get_account_by_mail($user_id);
 				# Trigger an error
 				unless (defined $user_id) {
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 			}
 		}
@@ -1525,7 +1798,7 @@ sub init_user ($request_ref) {
 							{encrypted_password => $user_ref->{'encrypted_password'}}
 						) if $log->is_info();
 						# Trigger an error
-						return ($Lang{error_bad_login_password}{$lc});
+						return "error_bad_login_password";
 					}
 					# We have the right login/password
 					elsif (
@@ -1544,14 +1817,22 @@ sub init_user ($request_ref) {
 					$user_id = undef;
 					$log->info("bad user") if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
 			}
 			else {
+				# Explicit login endpoints (auth.pl / login.pl / session.pl) may create a lasting
+				# session with offline_access. Per-request API auth with user_id+password must not
+				# (#15091).
+				my $persist_session = _is_explicit_session_login_request($request_ref)
+					&& (not defined request_param($request_ref, 'no_log'));
+
 				my (
 					$keycloak_user_ref, $refresh_token, $refresh_expires_at,
 					$access_token, $access_expires_at, $id_token
-				) = password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
+					)
+					= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')),
+					$request_ref, $persist_session);
 				$user_ref = $keycloak_user_ref;
 
 				# We don't have the right password
@@ -1559,17 +1840,33 @@ sub init_user ($request_ref) {
 					$user_id = undef;
 					$log->info('bad password - input does not match stored hash') if $log->is_info();
 					# Trigger an error
-					return ($Lang{error_bad_login_password}{$lc});
+					return "error_bad_login_password";
 				}
-				# We have the right login/password
-				elsif (
-					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
-				{
-					$user_id = $user_ref->{userid};
+
+				$user_id = $user_ref->{userid};
+
+				if ($persist_session) {
 					$log->info("creating OIDC session") if $log->is_info();
 					open_user_session($user_ref, $refresh_token, $refresh_expires_at,
 						$access_token, $access_expires_at, $id_token, $request_ref);
 					update_external_login_time($user_ref);
+				}
+				else {
+					# Authenticate this request only: no Product Opener session cookie, and revoke
+					# the Keycloak session created by the password grant so Device Activity is clean.
+					# Revocation is best-effort (same as sign-out): retry once on failure, then continue
+					# the request so a transient IdP outage does not reject a valid password.
+					$log->info("password authenticated without persisting session") if $log->is_info();
+					if ($refresh_token) {
+						my $revoked = revoke_token($refresh_token, 'refresh_token');
+						if (not $revoked) {
+							$revoked = revoke_token($refresh_token, 'refresh_token');
+						}
+						if (not $revoked) {
+							$log->warn('failed to revoke Keycloak session after password API auth; continuing request')
+								if $log->is_warn();
+						}
+					}
 				}
 			}
 		}
@@ -1610,7 +1907,8 @@ sub init_user ($request_ref) {
 
 				if (   (not defined $user_ref->{'user_sessions'})
 					or (not defined $user_session)
-					or (not defined $user_ref->{'user_sessions'}{$user_session}))
+					or (not defined $user_ref->{'user_sessions'}{$user_session})
+					or (is_stale_user_session($user_ref->{'user_sessions'}{$user_session})))
 				{
 					$log->debug("no matching session for user") if $log->is_debug();
 					$user_id = undef;
@@ -1641,6 +1939,45 @@ sub init_user ($request_ref) {
 						$request_ref->{refresh_expires_at} = $session_ref->{refresh_expires_at}
 							if $session_ref->{refresh_expires_at};
 						$request_ref->{id_token} = $session_ref->{id_token} if $session_ref->{id_token};
+
+						# Keep PO sessions in sync with Keycloak Device Activity:
+						# refresh expired access tokens; if refresh fails the IdP session is gone.
+						if (    (defined $request_ref->{access_expires_at})
+							and ($request_ref->{access_expires_at} < time)
+							and (defined $request_ref->{refresh_token}))
+						{
+							my ($new_refresh_token, $new_refresh_expires_at, $new_access_token, $new_access_expires_at)
+								= ProductOpener::Auth::refresh_access_token($request_ref->{refresh_token});
+							if ($new_access_token) {
+								update_user_session_tokens($user_ref, $user_session,
+									$new_refresh_token, $new_refresh_expires_at,
+									$new_access_token, $new_access_expires_at);
+								$request_ref->{refresh_token} = $new_refresh_token;
+								$request_ref->{refresh_expires_at} = $new_refresh_expires_at;
+								$request_ref->{access_token} = $new_access_token;
+								$request_ref->{access_expires_at} = $new_access_expires_at;
+							}
+							else {
+								$log->info('OIDC refresh failed; signing user out locally', {user_id => $user_id})
+									if $log->is_info();
+								remove_user_session($user_id, $user_session);
+								$user_id = undef;
+								$user_ref = undef;
+								delete $request_ref->{access_token};
+								delete $request_ref->{access_expires_at};
+								delete $request_ref->{refresh_token};
+								delete $request_ref->{refresh_expires_at};
+								delete $request_ref->{id_token};
+								my $session = {};
+								$request_ref->{cookie} = cookie(
+									-name => $cookie_name,
+									-expires => '-1d',
+									-value => $session,
+									-path => '/',
+									-domain => "$cookie_domain"
+								);
+							}
+						}
 					}
 				}
 			}
@@ -1773,6 +2110,7 @@ sub check_session ($user_id, $user_session) {
 			   (not defined $user_ref->{'user_sessions'})
 			or (not defined $user_session)
 			or (not defined $user_ref->{'user_sessions'}{$user_session})
+			or (is_stale_user_session($user_ref->{'user_sessions'}{$user_session}))
 			# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
 			# or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr())))
 
@@ -1805,6 +2143,88 @@ sub check_session ($user_id, $user_session) {
 sub update_external_login_time ($user_ref) {
 	update_contact_last_login($user_ref);
 	update_last_logged_in_member($user_ref);
+	return;
+}
+
+=head2 process_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if we have a valid user.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+1 if the user has been signed in, -1 if the Bearer token was invalid, 0 otherwise.
+
+=cut
+
+sub process_auth_header ($request_ref, $r) {
+	my $token = _read_auth_header($request_ref, $r);
+	unless ($token) {
+		return 0;
+	}
+
+	my $access_token;
+	# verify token using JWKS (see Auth.pm)
+	eval {$access_token = verify_access_token($token);};
+	my $error = $@;
+	if ($error) {
+		$log->info('Access token invalid', {token => $token}) if $log->is_info();
+	}
+
+	unless ($access_token) {
+		return -1;
+	}
+
+	$request_ref->{access_token} = $token;
+	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
+	unless (defined $user_ref) {
+		$log->info('User not found and not created') if $log->is_info();
+		return -1;
+	}
+	my $user_id = $user_ref->{userid};
+	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
+
+	$request_ref->{oidc_user_id} = $user_id;
+
+	return 1;
+}
+
+=head2 _read_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if it looks like a 
+Bearer token, and if it does, copy it to the request_ref
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+None
+
+=cut
+
+sub _read_auth_header ($request_ref, $r) {
+	my $authorization = $r->headers_in->{Authorization};
+	if ((defined $authorization) and ($authorization =~ /^Bearer (?<token>.+)$/)) {
+		return $+{token};
+	}
+
 	return;
 }
 

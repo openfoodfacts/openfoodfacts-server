@@ -8,8 +8,8 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "17440",
-               "ecobalyse_proxy_id" : "3cfab110-363e-442a-9170-1af337fe9ea3",
-               "ecobalyse_proxy_name" : "Huile de tournesol par défaut -2025-",
+               "ecobalyse_id" : "3cfab110-363e-442a-9170-1af337fe9ea3",
+               "ecobalyse_name" : "Huile de tournesol par défaut -2025-",
                "from_palm_oil" : "no",
                "id" : "en:sunflower-oil",
                "is_in_taxonomy" : 1,
@@ -22,6 +22,8 @@
             },
             {
                "ciqual_food_code" : "17420",
+               "ecobalyse_proxy_id" : "188a3d66-f214-4821-9bac-7e8fdc715721",
+               "ecobalyse_proxy_name" : "Huile de soja -raffinée- FR -2025-",
                "from_palm_oil" : "no",
                "id" : "en:soya-oil",
                "is_in_taxonomy" : 1,
@@ -43,11 +45,15 @@
       },
       {
          "ciqual_proxy_food_code" : "17001",
+         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
          "from_palm_oil" : "maybe",
          "id" : "en:oil",
          "ingredients" : [
             {
                "ciqual_food_code" : "17420",
+               "ecobalyse_proxy_id" : "188a3d66-f214-4821-9bac-7e8fdc715721",
+               "ecobalyse_proxy_name" : "Huile de soja -raffinée- FR -2025-",
                "from_palm_oil" : "no",
                "id" : "en:soya-oil",
                "is_in_taxonomy" : 1,
@@ -104,11 +110,9 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:oil",
-      "en:soya-oil",
       "en:vegetable-oil"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 5,
    "lc" : "ru",
    "misc_tags" : [

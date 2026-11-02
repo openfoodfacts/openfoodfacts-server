@@ -4,7 +4,7 @@
 # 1. import some products from files in a XML format from Carrefour France
 # 2. exports the products, and checks that we get the expected exports
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;

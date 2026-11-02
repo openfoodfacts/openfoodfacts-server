@@ -20,6 +20,10 @@
 
 /*global lang HTMLElement customElements CustomEvent URLSearchParams*/
 
+import {
+  createDeferredSelectionClear,
+  setImageMoveMode,
+} from './image-editor-move-mode.mjs';
 import Cropper from 'cropperjs';
 
 const ROTATE_LEFT = -90;
@@ -66,6 +70,8 @@ class ImageEditorComponent extends HTMLElement {
     this.naturalWidth = 0;
     this.naturalHeight = 0;
     this.loadToken = 0;
+    this.moveMode = false;
+    this.pendingSelectionClear = createDeferredSelectionClear();
   }
 
   connectedCallback() {
@@ -112,13 +118,40 @@ class ImageEditorComponent extends HTMLElement {
       if (!event.composedPath().includes(this.cropContainer)) {
         return;
       }
+      // The full-canvas handle receives clicks in move mode. Those clicks must
+      // not clear the crop selection.
+      if (this.moveMode) {
+        return;
+      }
       if (Math.hypot(event.clientX - start.x, event.clientY - start.y) > 3) {
         return;
       }
       const selection = this.cropper.getCropperSelection();
-      if (selection && !selection.hidden && selection.width > 0 && selection.height > 0) {
-        selection.$clear();
+      // Do not clear the selection if the click was on or inside the selection or its handles.
+      if (selection && event.composedPath().includes(selection)) {
+        return;
       }
+      if (selection && !selection.hidden && selection.width > 0 && selection.height > 0) {
+        this.pendingSelectionClear.schedule(() => selection.$clear());
+      }
+    });
+    this.cropContainer.addEventListener('dblclick', (event) => {
+      const handle = event.composedPath().find((element) => (
+        element?.localName === 'cropper-handle'
+        && ['select', 'move'].includes(element.action)
+      ));
+      if (!handle || !this.cropper) {
+        return;
+      }
+
+      this.pendingSelectionClear.cancel();
+      event.preventDefault();
+      this.moveMode = !this.moveMode;
+      const canvas = this.cropper.getCropperCanvas();
+      const canvasHandle = [...(canvas?.children || [])].find(
+        (element) => element.localName === 'cropper-handle',
+      );
+      setImageMoveMode(canvasHandle, this.cropper.getCropperSelection(), this.moveMode);
     });
   }
 
@@ -162,6 +195,7 @@ class ImageEditorComponent extends HTMLElement {
     this.imgid = imgid;
     this.storedImagefield = imagefield || this.imagefield;
     this.angle = 0;
+    this.moveMode = false;
     this.coordinates_image_size = coordinates_image_size;
     this.originalCoordinatesSize = coordinates_image_size;
     this.imageUrl = this.imagePath + imgid + image_size + '.jpg';
