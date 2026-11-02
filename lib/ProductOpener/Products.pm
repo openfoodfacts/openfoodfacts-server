@@ -118,11 +118,15 @@ BEGIN {
 		&is_owner_field
 		&get_source_for_site_and_org
 
+		&reconcile_phantom_selected_images
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
+
+use Fcntl qw(:flock);
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store
@@ -1523,6 +1527,14 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS_IMAGES}/$path");
 	}
 
+	# Exclusive lock per product during persistence to prevent race conditions (#12039)
+	ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS}/$path");
+	my $lock_file = "$BASE_DIRS{PRODUCTS}/$path/.lock";
+	my $lock_fh;
+	if (open($lock_fh, ">>", $lock_file)) {
+		flock($lock_fh, LOCK_EX);
+	}
+
 	# Check lock and previous version
 	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 	if (not defined $changes_ref) {
@@ -1530,7 +1542,31 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	}
 	my $current_rev = scalar @{$changes_ref};
 	if ($rev != $current_rev) {
-		# The product was updated after the form was loaded..
+		# The product was updated concurrently after this product reference was loaded.
+		# Preserve any concurrently uploaded images to prevent race-condition data loss (issue #12039)
+		my $latest_product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product");
+		if ($latest_product_ref && defined $latest_product_ref->{images} && defined $latest_product_ref->{images}{uploaded}) {
+			$product_ref->{images} //= {};
+			$product_ref->{images}{uploaded} //= {};
+			my $target_image_dir = "$BASE_DIRS{PRODUCTS_IMAGES}/$path";
+
+			foreach my $imgid (keys %{$latest_product_ref->{images}{uploaded}}) {
+				if (!exists $product_ref->{images}{uploaded}{$imgid}) {
+					# Check that the image was not legitimately deleted
+					# (legitimate deletion moves the files from $target_image_dir to deleted.images)
+					if (-e "$target_image_dir/$imgid.jpg") {
+						$product_ref->{images}{uploaded}{$imgid} = $latest_product_ref->{images}{uploaded}{$imgid};
+						$log->info("store_product: preserved concurrently uploaded image $imgid for product $code");
+					}
+				}
+			}
+
+			if (defined $latest_product_ref->{max_imgid}) {
+				if (!defined $product_ref->{max_imgid} || $latest_product_ref->{max_imgid} > $product_ref->{max_imgid}) {
+					$product_ref->{max_imgid} = $latest_product_ref->{max_imgid};
+				}
+			}
+		}
 
 		# New product over deleted product?
 		# can be also bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2321
@@ -1541,6 +1577,9 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 			$rev = $current_rev;
 		}
 	}
+
+	# Reconcile phantom selected images if any exist (#1866)
+	reconcile_phantom_selected_images($product_ref);
 
 	# Increment the revision
 	$rev++;
@@ -1662,6 +1701,10 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 		$log->info("store_product - skipped no-op save after product comparison",
 			{code => $code, product_id => $product_id})
 			if $log->is_info();
+		if ($lock_fh) {
+			flock($lock_fh, LOCK_UN);
+			close($lock_fh);
+		}
 		return 1;    # Legacy callers treat store_product() as a success check.
 	}
 
@@ -1704,6 +1747,11 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
 		if $log->is_debug();
 	push_product_update_to_redis($product_ref, $change_ref, $action);
+
+	if ($lock_fh) {
+		flock($lock_fh, LOCK_UN);
+		close($lock_fh);
+	}
 
 	return 1;
 }
@@ -1830,7 +1878,68 @@ sub normalize_product_data($product_ref) {
 	$product_ref->{lang} = $main_lc;
 	$product_ref->{lc} = $main_lc;
 
+	reconcile_phantom_selected_images($product_ref);
+
 	return;
+}
+
+=head2 reconcile_phantom_selected_images ($product_ref)
+
+Checks if any selected image references an image id (imgid) that is missing from
+$product_ref->{images}{uploaded}. If the corresponding image file exists on disk,
+it restores the image metadata into $product_ref->{images}{uploaded} (Issue #1866).
+
+Returns the number of phantom images reconciled.
+
+=cut
+
+sub reconcile_phantom_selected_images ($product_ref) {
+	return 0 unless defined $product_ref && ref($product_ref) eq 'HASH';
+	return 0 unless defined $product_ref->{images} && ref($product_ref->{images}) eq 'HASH';
+
+	my $selected = $product_ref->{images}{selected};
+	return 0 unless defined $selected && ref($selected) eq 'HASH';
+
+	my $uploaded = $product_ref->{images}{uploaded} // {};
+	my $target_dir;
+	my $reconciled = 0;
+
+	foreach my $type (keys %$selected) {
+		next unless ref($selected->{$type}) eq 'HASH';
+		foreach my $lc (keys %{$selected->{$type}}) {
+			my $info = $selected->{$type}{$lc};
+			next unless ref($info) eq 'HASH';
+			my $imgid = $info->{imgid};
+			next unless defined $imgid && $imgid =~ /^\d+$/;
+
+			# If the selected image is not in uploaded, it is a phantom selected image (#1866)
+			if (!exists $uploaded->{$imgid}) {
+				if (!defined $target_dir) {
+					my $path = product_path($product_ref);
+					return 0 if $path eq 'invalid';
+					$target_dir = "$BASE_DIRS{PRODUCTS_IMAGES}/$path";
+				}
+
+				if (-e "$target_dir/$imgid.jpg") {
+					my $mtime = (stat("$target_dir/$imgid.jpg"))[9] // time();
+					my $uploader = $info->{uploader} // 'recovered_phantom';
+					my $sizes = $info->{sizes} // {};
+
+					$product_ref->{images}{uploaded}{$imgid} = {
+						uploader   => $uploader,
+						uploaded_t => $mtime,
+						sizes      => $sizes,
+					};
+					if (!defined $product_ref->{max_imgid} || $imgid > $product_ref->{max_imgid}) {
+						$product_ref->{max_imgid} = $imgid;
+					}
+					$reconciled++;
+					$log->info("reconcile_phantom_selected_images: restored phantom selected image $imgid (${type}_${lc}) for product " . ($product_ref->{code} // ''));
+				}
+			}
+		}
+	}
+	return $reconciled;
 }
 
 sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous_ref) {
