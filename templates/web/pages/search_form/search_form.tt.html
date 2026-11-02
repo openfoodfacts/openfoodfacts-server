@@ -135,7 +135,7 @@
                             </select>
                         </div>
                     </div>
-                    <input type="submit" name="search" class="button" value="[% lang ('search_button') %]" />
+                    <input type="submit" name="search" class="button" value="[% lang ('search_button') %]" formnovalidate="formnovalidate" />
                 </div>
             </li>
             
@@ -202,7 +202,7 @@
                     <label for="map_title">[% lang ('map_title') %]</label>
                     <input type="text" name="map_title" id="map_title" value="[% map_title | html %]" />
 
-                    <input type="submit" name="generate_map" value="[% lang ('search_generate_map') %]" class="button" />
+                    <input type="submit" name="generate_map" value="[% lang ('search_generate_map') %]" class="button" formnovalidate="formnovalidate" />
 
                 </div>
             </li>
@@ -220,7 +220,7 @@
                     <input type="radio" name="format" value="csv" id="format_csv" />
                         <label for="format_csv">[% lang('search_download_csv') %] - [% lang('search_download_csv_description') %]</label><br>
 
-                    <input type="submit" name="download" value="[% edq(lang('search_download_button')) %]" class="button" />
+                    <input type="submit" name="download" value="[% edq(lang('search_download_button')) %]" class="button" formnovalidate="formnovalidate" />
 
                 </div>
             </li>
