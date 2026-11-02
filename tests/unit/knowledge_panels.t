@@ -16,6 +16,7 @@ use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
+use boolean qw/true/;
 use ProductOpener::Config qw/%options/;
 
 is(
@@ -161,6 +162,19 @@ my @tests = (
 						}
 					}
 				]
+			},
+		},
+		target_lc => 'en',
+		target_cc => 'us'
+	},
+	# "no nutrition facts on the packaging" is ticked: no action to add the nutrition facts
+	{
+		'id' => 'en-no-nutrition-data-on-packaging',
+		'product' => {
+			lc => "en",
+			ingredients_text => "Sugar, wheat flour, butter",
+			nutrition => {
+				no_nutrition_data_on_packaging => true,
 			},
 		},
 		target_lc => 'en',
