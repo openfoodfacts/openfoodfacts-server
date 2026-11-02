@@ -975,8 +975,8 @@ msgstr "Pogosto zastavljena vprašanja"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
-msgid "https://support.openfoodfacts.org/help/en-gb"
-msgstr "https://support.openfoodfacts.org/help/sl"
+msgid "/faq"
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -2771,9 +2771,9 @@ msgstr "Oglejte si rezultate iz celega sveta"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
 msgstr "Informacije in podatki morajo izhajati iz embalaže in etikete izdelka (in ne z drugih spletnih mest ali proizvajalčevega mesta), slike pa morate posneti sami.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Zakaj je pomembno</a>"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Zakaj je pomembno</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -6004,7 +6004,7 @@ msgstr ""
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "Prosimo, prispevajte v našo zbiralno akcijo za leto {year}"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6040,39 +6040,39 @@ msgstr ""
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr ""
+msgstr "Še vedno potrebujemo 120.000 € za dokončanje leta 2026!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr ""
+msgstr "Postanite podpornik Open Food Facts"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr ""
+msgstr "Vsak mesec postrežemo 8 milijonov obiskovalcev in še veliko več prek API-ja. Vaša podpora je bistvena za:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr ""
+msgstr "ohranjanje Open Food Facts odprtega in dostopnega vsem,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr ""
+msgstr "podporo infrastrukturi, spletnemu mestu, mobilni aplikaciji in API-ju z majhno stalno ekipo"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
-msgstr ""
+msgstr "ostati neodvisni od živilske industrije,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr ""
+msgstr "podporo skupnosti"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr ""
+msgstr "podporo znanosti"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr ""
+msgstr "Če bi vsak obiskovalec v tem mesecu kliknil Prispevaj in podaril le 1 €, bi zbrali več kot 8-kratnik našega letnega proračuna!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"

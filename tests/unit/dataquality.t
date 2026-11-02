@@ -7,6 +7,7 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 
 use ProductOpener::DataQuality qw/check_quality/;
+use ProductOpener::Config qw(%options %server_options);
 use ProductOpener::ProductsTags qw/has_tag/;
 
 sub check_quality_and_test_product_has_quality_tag($product_ref, $tag, $reason, $yesno) {
@@ -160,5 +161,55 @@ product_with_type_and_code_has_quality_tag('food', '976000000000', 'en:gs1-coupo
 	'product with GTIN-12 has no gs1-coupon-prefix tag because of the barcode prefix 976', 0);
 product_with_type_and_code_has_quality_tag('food', '9760000000000', 'en:gs1-coupon-prefix',
 	'product with GTIN-13 has no gs1-coupon-prefix tag because of the barcode prefix 976', 0);
+
+# Products can be reclassified before being moved to the destination server.
+# Food checks require a food product and food server; common checks remain enabled.
+foreach my $private_products (0, 1) {
+	local $server_options{private_products} = $private_products;
+	foreach my $server_type (qw(food beauty)) {
+		local $options{product_type} = $server_type;
+		foreach my $product_type (qw(food beauty petfood product), undef) {
+			my $effective_type = $product_type // $server_type;
+			my $expect_food = (($server_type eq "food") and ($effective_type eq "food"));
+			my $description
+				= ($product_type // 'legacy') . " product on $server_type server (private: $private_products)";
+			my $product_ref = {
+				code => '9900000000000',
+				lc => 'en',
+				lang => 'en',
+				created_t => 1,
+				# Seed a stale food-only tag to verify that quality is recomputed.
+				data_quality_info_tags => ['en:no-nutrition-data'],
+				data_quality_tags => ['en:no-nutrition-data'],
+			};
+			$product_ref->{product_type} = $product_type if defined $product_type;
+			check_quality($product_ref);
+			is(
+				exists $product_ref->{data_quality_dimensions} ? 1 : 0,
+				$expect_food ? 1 : 0,
+				"$description: food dimensions"
+			);
+			is(
+				exists $product_ref->{improvements_tags} ? 1 : 0,
+				($expect_food and $private_products) ? 1 : 0,
+				"$description: food producer improvements"
+			);
+			is(
+				has_tag($product_ref, 'data_quality', 'en:no-nutrition-data') ? 1 : 0,
+				$expect_food ? 1 : 0,
+				"$description: food-only nutrition check"
+			);
+			ok(
+				has_tag($product_ref, 'data_quality', 'en:gs1-coupon-prefix'),
+				"$description: common barcode check remains enabled"
+			);
+			ok(
+				has_tag($product_ref, 'data_quality', 'en:no-packaging-data'),
+				"$description: common packaging check remains enabled"
+			);
+		}
+	}
+
+}
 
 done_testing();

@@ -2221,6 +2221,19 @@ sub compare_nutrients ($a_ref, $b_ref) {
 
 }
 
+# Some ingredients are also additives (e.g. "modified starch" is both the ingredient en:modified-starch
+# and the additive en:e14xx). Use the same key for both, so that they are counted as a single NOVA marker.
+sub get_nova_marker_key ($tagtype, $tagid) {
+	if ($tagtype eq "ingredients") {
+		my $additive_id
+			= canonicalize_taxonomy_tag("en", "additives", display_taxonomy_tag("en", "ingredients", $tagid));
+		if (exists_taxonomy_tag("additives", $additive_id)) {
+			return "additives:" . $additive_id;
+		}
+	}
+	return $tagtype . ':' . $tagid;
+}
+
 sub compute_nova_group ($product_ref) {
 
 	# compute Nova group
@@ -2338,10 +2351,12 @@ sub compute_nova_group ($product_ref) {
 			{
 				$product_ref->{nova_group} = $nova_group;
 				defined $nova_groups_markers{$nova_group} or $nova_groups_markers{$nova_group} = [];
-				# Make sure we don't record the same marker twice (e.g. once from Config.pm, and once from ingredients taxonomy)
-				if (not exists $seen_markers{$tagtype . ':' . $tagid}) {
+				# Make sure we don't record the same marker twice (e.g. once from Config.pm, and once from ingredients taxonomy,
+				# or once as an ingredient and once as an additive)
+				my $marker_key = get_nova_marker_key($tagtype, $tagid);
+				if (not exists $seen_markers{$marker_key}) {
 					push @{$nova_groups_markers{$nova_group}}, [$tagtype, $tagid];
-					$seen_markers{$tagtype . ':' . $tagid} = 1;
+					$seen_markers{$marker_key} = 1;
 				}
 			}
 		}

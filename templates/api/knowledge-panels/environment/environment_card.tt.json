@@ -13,7 +13,15 @@
             "panel_element": {
                 "panel_id": "environmental_score",
             },
-        },      
+        },
+        [% IF panels.environmental_cost.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "environmental_cost",
+            },
+        },
+        [% END %]
         [% IF panels.carbon_footprint.defined %]
         {
             "element_type": "panel_group",

@@ -1,0 +1,117 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:meat",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 50,
+         "text" : "viande",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "id" : "en:cereal",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 25,
+         "text" : "céréales",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "fr:Constituants analytiques",
+         "ingredients" : [
+            {
+               "id" : "fr:matières minérales",
+               "is_in_taxonomy" : 0,
+               "percent" : 7,
+               "percent_estimate" : 12.5,
+               "text" : "matières minérales"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 12.5,
+         "text" : "Constituants analytiques"
+      },
+      {
+         "id" : "en:protein",
+         "is_in_taxonomy" : 1,
+         "percent" : 22,
+         "percent_estimate" : 12.5,
+         "text" : "protéines",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:meat"
+      ],
+      "en:non-vegetarian" : [
+         "en:meat"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "fr:Constituants analytiques",
+         "fr:matières minérales"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:matières minérales"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:matières minérales"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:meat",
+      "en:cereal",
+      "fr:Constituants analytiques",
+      "en:protein",
+      "fr:matières minérales"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:meat",
+      "en:cereal",
+      "fr:Constituants analytiques",
+      "en:protein",
+      "fr:matières minérales"
+   ],
+   "ingredients_text" : "viande, céréales, Constituants analytiques : matières minérales 7%, protéines 22%",
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 29,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 75,
+   "ingredients_without_ciqual_codes" : [
+      "en:cereal",
+      "en:meat",
+      "en:protein",
+      "fr:Constituants analytiques",
+      "fr:matières minérales"
+   ],
+   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cereal",
+      "en:meat",
+      "en:protein",
+      "fr:Constituants analytiques",
+      "fr:matières minérales"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 3,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}

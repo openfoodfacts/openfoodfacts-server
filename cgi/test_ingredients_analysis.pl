@@ -40,6 +40,7 @@ use ProductOpener::Web qw/get_languages_options_list/;
 use ProductOpener::KnowledgePanels qw/create_knowledge_panels initialize_knowledge_panels_options/;
 use ProductOpener::Web qw/display_knowledge_panel/;
 use ProductOpener::ForestFootprint2026 qw/compute_forest_footprint_2026/;
+use ProductOpener::Food qw/compute_nova_group/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -110,6 +111,8 @@ if ($action eq 'process') {
 	extract_additives_from_text($product_ref);
 
 	compute_forest_footprint_2026($product_ref);
+
+	compute_nova_group($product_ref);
 
 	# Environmental impact
 	my $errors_ref = [];

@@ -1,0 +1,131 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "fr:Additifs nutritionnels",
+         "ingredients" : [
+            {
+               "id" : "en:vitamin-e",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 99.2917190706295,
+               "percent_max" : 99.2718607268154,
+               "percent_min" : 99.2917190706295,
+               "text" : "vitamine E",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent" : 99.2917190706295,
+         "percent_estimate" : 99.2917190706295,
+         "percent_max" : 99.2718607268154,
+         "percent_min" : 99.2917190706295,
+         "quantity" : "15 mg",
+         "quantity_g" : 0.015,
+         "text" : "Additifs nutritionnels"
+      },
+      {
+         "id" : "en:cholecalciferol",
+         "is_in_taxonomy" : 1,
+         "percent" : 0.661944793804197,
+         "percent_estimate" : 0.661944793804197,
+         "percent_max" : 0.642086449990069,
+         "percent_min" : 0.661944793804197,
+         "quantity" : "100 µg",
+         "quantity_g" : 0.0001,
+         "text" : "vitamine D3",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:vitamin-b12",
+         "is_in_taxonomy" : 1,
+         "percent" : 0.0132388958760839,
+         "percent_estimate" : 0.0132388958760839,
+         "percent_max" : 0.0132388958760827,
+         "percent_min" : 0.0330972396902098,
+         "quantity" : "2 µg",
+         "quantity_g" : 2e-06,
+         "text" : "vitamine B12",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:biotin",
+         "is_in_taxonomy" : 1,
+         "percent" : 0.0330972396902098,
+         "percent_estimate" : 0.0330972396902069,
+         "percent_max" : 0.0132388958760827,
+         "percent_min" : 0.0330972396902098,
+         "quantity" : "5 µg",
+         "quantity_g" : 5e-06,
+         "text" : "biotine",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:cholecalciferol"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:cholecalciferol"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:Additifs nutritionnels",
+      "en:cholecalciferol",
+      "en:vitamin-b12",
+      "en:biotin",
+      "en:vitamin-e"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:Additifs nutritionnels",
+      "en:cholecalciferol",
+      "en:vitamin-d",
+      "en:vitamins",
+      "en:vitamin-b12",
+      "en:biotin",
+      "en:vitamin-e"
+   ],
+   "ingredients_text" : "Additifs nutritionnels : vitamine E : 15 mg, vitamine D3 : 100 µg, vitamine B12 : 2 μg, biotine : 5 ug",
+   "ingredients_with_specified_percent_n" : 3,
+   "ingredients_with_specified_percent_sum" : 0.70828092937049,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 99.2917190706295,
+   "ingredients_without_ciqual_codes" : [
+      "en:biotin",
+      "en:cholecalciferol",
+      "en:vitamin-b12",
+      "en:vitamin-e",
+      "fr:Additifs nutritionnels"
+   ],
+   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:biotin",
+      "en:cholecalciferol",
+      "en:vitamin-b12",
+      "en:vitamin-e",
+      "fr:Additifs nutritionnels"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 4,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 1
+}

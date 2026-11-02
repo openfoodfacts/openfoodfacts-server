@@ -69,6 +69,15 @@
 </head>
 <body class="other_page">
 
+	
+	<!-- Same slots and values as the app's first three Matomo dimensions: language, country, logged in -->
+	<script>
+		var _paq = window._paq = window._paq || [];
+		_paq.push(['setCustomDimension', 1, 'en']);
+		_paq.push(['setCustomDimension', 2, 'world']);
+		_paq.push(['setCustomDimension', 3, 'N']);
+	</script>
+	
 	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -341,52 +350,74 @@
 
 								
 
+<!-- Open Food Facts Days 2026 start -->
 
-<!-- Donation banner TOP start -->
-<section id="donation-banner-top" style="position: relative;">
-  <donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
-  <div class="donation-banner__close" style="position: absolute; top: 0.3rem; right: 0.3rem; z-index: 2;">
-    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
+<section id="off-days-2026-banner" class="off-days-2026">
+  
+    
+  
+  <div class="off-days-2026__inner">
+    <div class="off-days-2026__title">
+      
+        <p class="off-days-2026__tagline">Focus on Research &amp; Community</p>
+        <h2><a href="//connect.openfoodfacts.org/event/open-food-facts-days-2026-36/register">Open Food Facts Days 2026</a> <img class="off-days-2026__logo" src="/images/logos/off-logo-icon-light.svg" alt="" width="48" height="48"></h2>
+      
+    </div>
+    <a class="off-days-2026__photo" href="//connect.openfoodfacts.org/event/open-food-facts-days-2026-36/register" tabindex="-1" aria-hidden="true">
+      <img src="/images/misc/donation-banners/off-days-2026-group-photo-crop.jpg" alt="" width="800" height="370" loading="lazy">
+    </a>
+    <div class="off-days-2026__card">
+      
+        <p>Fri 13th &ndash; Sat 14th November<br>Paris, France</p>
+        <a class="off-days-2026__button" href="//connect.openfoodfacts.org/event/open-food-facts-days-2026-36/register"><span class="material-icons" aria-hidden="true">edit</span>Register here</a>
+      
+    </div>
+    <button class="off-days-2026__close material-icons" type="button" aria-label="Close" onclick="closeOffDays2026Banner();">close</button>
   </div>
 </section>
 
+<style>
+  /* full width background like the other blocks of the page, content constrained like .row */
+  .off-days-2026 { background: #ffe5bf url("/images/misc/donation-banners/off-days-2026-background.svg") repeat-x center / auto 100%; }
+  .off-days-2026__inner { position: relative; display: flex; align-items: center; gap: 1.5rem; max-width: 1280px; margin: 0 auto; padding: 1rem 2.5rem 1rem 1.5rem; }
+  .off-days-2026__title { flex: 1 1 0; }
+  .off-days-2026__tagline { margin: 0; font-family: Georgia, serif; font-size: 1.4rem; color: #4a2511; }
+  .off-days-2026 h2 { display: flex; align-items: center; gap: 0.5rem; margin: 0; font-size: 2.2rem; font-weight: bold; line-height: 1.1; }
+  #main_container #off-days-2026-banner a { text-decoration: none; }
+  .off-days-2026 h2 a { color: #a34400; }
+  .off-days-2026__logo { height: 1.2em; width: auto; vertical-align: middle; }
+  .off-days-2026__photo { flex: 0 1 400px; }
+  .off-days-2026__photo img { display: block; width: 100%; height: auto; border-radius: 1rem; }
+  .off-days-2026__card { flex: 1 1 0; padding: 1rem 1.5rem; background-color: #bf5900; color: white; border-radius: 1.5rem; text-align: center; }
+  .off-days-2026__card p { margin: 0 0 0.8rem; font-size: 1.3rem; font-weight: bold; line-height: 1.3; }
+  .off-days-2026__button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 2rem; background-color: white; color: #a34400; border: 3px solid white; outline: 2px solid #bf5900; outline-offset: -6px; border-radius: 2rem; font-size: 1.3rem; font-weight: bold; transition: background-color 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s; }
+  .off-days-2026__button:hover, .off-days-2026__button:focus-visible { background-color: #a34400; color: white; outline-color: white; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); }
+  .off-days-2026__close { position: absolute; top: 0.3rem; right: 0.3rem; background: transparent; border: 0; color: #a34400; cursor: pointer; padding: 0; margin: 0; }
+  @media (max-width: 1100px) {
+    .off-days-2026__photo { display: none; }
+  }
+  @media (max-width: 640px) {
+    .off-days-2026__inner { flex-direction: column; align-items: stretch; gap: 0.8rem; padding: 1rem; text-align: center; }
+    .off-days-2026__tagline { font-size: 1.1rem; }
+    .off-days-2026 h2 { justify-content: center; font-size: 1.6rem; }
+    .off-days-2026__card p { font-size: 1.1rem; }
+  }
+</style>
+
 <script>
-  let d = new Date();
-  let bannerID = document.getElementById('donation-banner-top');
-  let getDomain = window.location.origin.split('.');
-
-  function setBannerCookie(bcname, bcval, bcexdays) {
-    d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
-    let expires = 'expires=' + d.toUTCString();
+  function closeOffDays2026Banner() {
+    const d = new Date();
+    d.setTime(d.getTime() + (30*24*60*60*1000));
     // Apply cookie for every domain contains open...facts
-    let domain = 'domain=.' + getDomain.slice(1).join('.');
-    document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
+    const domain = 'domain=.' + window.location.origin.split('.').slice(1).join('.');
+    document.cookie = 'off_days_2026_closed=1;expires=' + d.toUTCString() + ';' + domain + ';SameSite=None;Secure;path=/';
+    document.getElementById('off-days-2026-banner').style.display = 'none';
   }
-
-  function getBannerCookie(bcname) {
-    const name = bcname + '=';
-    const decodedCookies = decodeURIComponent(document.cookie);
-    const cookies = decodedCookies.split(';');
-    for (const cookie of cookies) {
-      let c = cookie;
-      while (c.charAt(0) == ' ') { c = c.substring(1); }
-      if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-    }
-
-    return '';
-  }
-
-  function DonationButton() {
-    setBannerCookie('donation_march_2026', 1, 180);
-    bannerID.style.display = 'none';
-  }
-
-  if (getBannerCookie('donation_march_2026') !== '') {
-    bannerID.style.display = 'none';
-  } else {
-    bannerID.style.display = 'block';
+  if (document.cookie.split(';').some((c) => c.trim().startsWith('off_days_2026_closed='))) {
+    document.getElementById('off-days-2026-banner').style.display = 'none';
   }
 </script>
+<!-- Open Food Facts Days 2026 end -->
 
 
 
@@ -408,7 +439,7 @@
 		<p>This file was uploaded to product <a href="/product/3300000000013/organic-apple-and-raspberry-pie-with-a-picture-les-tartes-de-robert" rel="about">Organic apple and raspberry pie with a picture – Les tartes de Robert –&nbsp;100 g</a> and is licensed under the <a href="//creativecommons.org/licenses/by-sa/3.0/deed.en" rel="license">Creative Commons Attribution-Share Alike 3.0 Unported</a> license. <a href="/cgi/product_image.pl?code=3300000000013&imgid=1" rel="isBasedOn">(Original Image)</a></p>
 		<p>Attribution: Photo by <a href="/photographers/openfoodfacts-contributors" rel="author">openfoodfacts-contributors</a> per Open Food Facts</p>
 	</figcaption>
-	<a class="button small action-report_product_to_nutripatrol" href="//nutripatrol.openfoodfacts.org/flag/image/?barcode=3300000000013&image_id=1&source=web&flavor=off">
+	<a class="button small action-report_product_to_nutripatrol" href="//nutripatrol.localhost/flag/image/?barcode=3300000000013&image_id=1&source=web&flavor=off">
 		Report this image to our moderators
 	</a>
 </figure>
@@ -467,7 +498,7 @@
 
 				
 
-<donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
+<donation-banner id="donation-banner-footer" donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
 
 
 			
@@ -492,7 +523,7 @@
 						<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
 							<li><a class="button small white-button radius" href="/who-we-are">Who we are</a></li>
 							<li><a class="button small white-button radius" href="/open-food-facts-vision-mission-values-and-programs">Vision, Mission, Values and Programs</a></li>
-							<li><a class="button small white-button radius" href="//support.openfoodfacts.org/help/en-gb">Frequently asked questions</a></li>
+							<li><a class="button small white-button radius" href="/faq">Frequently asked questions</a></li>
 							<li><a class="button small white-button radius" href="//blog.openfoodfacts.org/en/">Open Food Facts blog</a></li>
 							<li><a class="button small white-button radius" href="/press">Press</a></li>
 							<li><a class="button small white-button radius" href="//wiki.openfoodfacts.org">Open Food Facts wiki (en)</a></li>
@@ -553,11 +584,8 @@
 <script>
 $(function() {
 
-
 });
 </script>
-
-
 
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>

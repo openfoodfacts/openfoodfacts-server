@@ -1,0 +1,24 @@
+{
+   "categories_tags" : [
+      "en:biscuits"
+   ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "packaging" : {
+            "category" : "en:biscuits",
+            "ecs" : 5.861,
+            "id" : "f638cfa9-03c1-4702-8811-7d9d7bcb39f2",
+            "name" : "Biscuits, 150g | Packaging System, Proxy Pack, Plastic film {FR} U",
+            "name_fr" : "Sachet en plastique (PP) pour biscuit - 150g - Proxy"
+         }
+      }
+   },
+   "packagings" : [
+      {
+         "material" : "en:plastic",
+         "quantity_per_unit" : 250,
+         "shape" : "en:bag"
+      }
+   ],
+   "product_quantity" : 250
+}

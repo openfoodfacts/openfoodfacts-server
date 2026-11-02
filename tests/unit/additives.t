@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -23,6 +23,18 @@ my @tests = (
 		{
 			lc => "es",
 			ingredients_text => "Agua, vitaminas (B1, C y E), Vitamina B2"
+		}
+	],
+
+	# emphasis underscores are allergen markup ("_lait_"): the ingredients
+	# text cleaning must keep them in the stored text, and they must not
+	# create junk additive tags
+	[
+		'fr-emphasis-underscores',
+		{
+			lc => "fr",
+			ingredients_text => "farine, _sucre_, sel",
+			ingredients_text_fr => "farine, _sucre_, sel"
 		}
 	],
 
