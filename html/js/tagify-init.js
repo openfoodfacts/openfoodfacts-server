@@ -42,8 +42,24 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
 
     let abortController;
     let debounceTimer;
+    let searchRequestId = 0;
     const timeoutWait = 300;
     let value = "";
+
+    const originalDropdownShow = input.dropdown && typeof input.dropdown.show === "function"
+        ? input.dropdown.show
+        : null;
+    if (originalDropdownShow) {
+        input.dropdown.show = function (term) {
+            let searchTerm = term;
+            if (typeof searchTerm === "undefined" && value) {
+                const lc = (/^\w\w:/).exec(value);
+                searchTerm = lc ? value.substring(lc[0].length) : value;
+            }
+
+            return originalDropdownShow.call(this, searchTerm);
+        };
+    }
 
     // Tags added or edited by the user during this session.
     // They are only added to the tags history when the form is submitted, see addTagsToRecentTags()
@@ -69,41 +85,54 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
 
     function autocompleteWithSearch(newValue) {
         value = newValue;
-        input.whitelist = null; // reset the whitelist
+        searchRequestId += 1;
+        input.whitelist = get_recents(el.id, maximumRecentEntriesPerTag) || [];
 
         if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
             clearTimeout(debounceTimer);
+            if (abortController) {
+                abortController.abort();
+            }
 
-            debounceTimer = setTimeout(function () {
-                // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
-                if (abortController) {
-                    abortController.abort();
-                }
+            if (value) {
+                const currentRequestId = searchRequestId;
+                const queryForRequest = value;
+                debounceTimer = setTimeout(function () {
+                    abortController = new AbortController();
 
-                abortController = new AbortController();
+                    fetch(el.dataset.autocomplete + "&string=" + encodeURIComponent(queryForRequest) + "&get_synonyms=1", {
+                        signal: abortController.signal
+                    }).
+                        then((RES) => RES.json()).
+                        then(function (json) {
+                            if (currentRequestId !== searchRequestId) {
+                                return;
+                            }
 
-                fetch(el.dataset.autocomplete + "&string=" + value + "&get_synonyms=1", {
-                    signal: abortController.signal
-                }).
-                    then((RES) => RES.json()).
-                    then(function (json) {
-                        const lc = (/^\w\w:/).exec(value);
-                        let whitelist = Object.values(json.matched_synonyms);
-                        if (lc) {
-                            whitelist = whitelist.map(function (e) {
-                                return {"value": lc + e, "searchBy": e};
-                            });
-                        }
-                        const synonymMap = Object.create(null);
-                        // eslint-disable-next-line guard-for-in
-                        for (const k in json.matched_synonyms) {
-                            synonymMap[json.matched_synonyms[k]] = k;
-                        }
-                        input.synonymMap = synonymMap;
-                        input.whitelist = whitelist;
-                        updateSuggestions(true); // render the suggestions dropdown
-                    });
-            }, timeoutWait);
+                            const lc = (/^\w\w:/).exec(value);
+                            let whitelist = Object.values(json.matched_synonyms);
+                            if (lc) {
+                                whitelist = whitelist.map(function (e) {
+                                    return {"value": lc[0] + e, "searchBy": e};
+                                });
+                            }
+                            const synonymMap = Object.create(null);
+                            // eslint-disable-next-line guard-for-in
+                            for (const k in json.matched_synonyms) {
+                                synonymMap[json.matched_synonyms[k]] = k;
+                            }
+                            input.synonymMap = synonymMap;
+                            input.whitelist = whitelist;
+                            updateSuggestions(true); // render the suggestions dropdown
+                        }).
+                        catch(function (error) {
+                            // Silently ignore AbortError from aborted requests
+                            if (error && error.name !== "AbortError") {
+                                console.error("Taxonomy suggestion request failed:", error);
+                            }
+                        });
+                }, timeoutWait);
+            }
         }
         updateSuggestions(true);
     }
@@ -122,6 +151,13 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     });
 
     input.on("change", function () {
+        clearTimeout(debounceTimer);
+        if (abortController) {
+            abortController.abort();
+        }
+
+        searchRequestId += 1;
+        tagValueBeforeEdit = null;
         value = "";
         updateSuggestions(false);
         if (changeCallback) {
@@ -130,6 +166,13 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     });
 
     input.on("edit:updated", function (event) {
+        clearTimeout(debounceTimer);
+        if (abortController) {
+            abortController.abort();
+        }
+
+        searchRequestId += 1;
+
         // Remember the new value, so that it is committed to the tags history on submit.
         // The data is empty when the tag was emptied out and removed, and the event is not
         // triggered at all when the edition is reverted (Esc).
@@ -140,6 +183,21 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
         tagValueBeforeEdit = null;
         value = "";
         updateSuggestions(false);
+    });
+
+    input.on("edit:keydown", function (event) {
+        const key = event.detail && event.detail.event && event.detail.event.key;
+        if (key === "Escape" || key === "Esc") {
+            clearTimeout(debounceTimer);
+            if (abortController) {
+                abortController.abort();
+            }
+
+            searchRequestId += 1;
+            tagValueBeforeEdit = null;
+            value = "";
+            updateSuggestions(false);
+        }
     });
 
     input.on("dropdown:show", function() {
@@ -165,16 +223,29 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
         // so that tags that are never submitted (typos, wrong tags) are not remembered
         tagsToCommit.add(event.detail.data.value);
 
+        searchRequestId += 1;
+        tagValueBeforeEdit = null;
         value = "";
         updateSuggestions(false);
     });
 
     input.on("focus", function () {
+        if (tagValueBeforeEdit !== null) {
+            return;
+        }
+
         value = "";
         updateSuggestions(false);
     });
 
     input.on("blur", function () {
+        clearTimeout(debounceTimer);
+        if (abortController) {
+            abortController.abort();
+        }
+
+        searchRequestId += 1;
+        tagValueBeforeEdit = null;
         value = "";
         updateSuggestions(false);
     });
