@@ -14,8 +14,12 @@ properties:
     enum:
       - 100g
       - 100ml
+      - 1l
+      - 1kg
       - serving
     description: |
-      The nutrition data on the package can be per serving, per 100g or per 100ml.
+      The nutrition data on the package can be per serving, per 100g, per 100ml, per 1l or per 1kg.
+
+      For a food, `1kg` is only used for the carbon footprint (e.g. 0.48 kg CO₂e per kg of product).
 
       This is essential to understand if values in the `nutrients` object apply for a serving, for 100g or for 100ml.

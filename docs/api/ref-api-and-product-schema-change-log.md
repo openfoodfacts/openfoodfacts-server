@@ -32,6 +32,13 @@ Note: API v3 is under active development, and the API and corresponding product 
 
 ## Schema version and API version change log
 
+### 2026-10-09 — Product version 1004 (no change) — API version 3.6 — Carbon footprint per kg for food
+
+Non-breaking changes:
+- The carbon footprint of a food can be declared per kg (`per: "1kg"`, e.g. 0.48 kg CO₂e per kg of product).
+  It is normalized to 100g in the aggregated nutrition set. It is not converted to an aggregated set per 100ml (no density is assumed): in this case it is only available in `nutrition.input_sets`.
+- The documentation of the `per` values of the input sets now lists `1l` and `1kg`.
+
 ### 2026-05-27 — Product version 1004 — API version 3.6 — New tags schema with tags_sources
 
 Breaking changes for product read API responses:
