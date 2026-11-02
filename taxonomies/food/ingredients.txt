@@ -45995,11 +45995,22 @@ wa: Meuronî
 zh: 欧洲黑莓
 wikidata:en: Q13541716
 
+< en: blackberry
+< en: juice
+fr: jus de mûre à base de jus concentré
+
 < en: berries
 en: mulberry, mulberries
 usda_fdc_code:en: 169913
 usda_ndb_code:en: 9190
 usda_ndb_name:en: Mulberries, raw
+
+###################################################################################################
+#
+#                                Black mulberry
+#
+###################################################################################################
+# description:en:The black mulberry is an edible fruit produced by Morus nigra in the family Moraceae.
 
 < en: mulberry
 en: black mulberry
@@ -46031,15 +46042,21 @@ ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
 eurocode_2_group_3:en: 9.30.62
 
+###################################################################################################
+#
+#                                White mulberry
+#
+###################################################################################################
+# description:en:The white mulberry is an edible fruit produced by Morus alba in the family Moraceae.
+
+# note: This fruit which called "mûre blanche" in French is unrelated to another fruit called "mûre" which is produced by plants of the genus Rubus in the family Rosaceae
+
 < en: mulberry
 en: white mulberry
+fr: mûre blanche
 it: gelso bianco
 pl: morwa biała
 eurocode_2_group_3:en: 9.30.62
-
-< en: blackberry
-< en: juice
-fr: jus de mûre à base de jus concentré
 
 ###################################################################################################
 #
