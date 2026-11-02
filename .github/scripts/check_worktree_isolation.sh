@@ -124,7 +124,7 @@ for expected in \
     "export PRODUCT_OPENER_HOST_PORT=${AGENT_PORT}" \
     "export PRODUCT_OPENER_PORT=${AGENT_PORT}" \
     "export PRODUCT_OPENER_NETWORK=product-opener_${AGENT_ID}" \
-    "export MINION_QUEUE=${AGENT_ID}.openfoodfacts.localhost"; do
+    "export MINION_QUEUE=${AGENT_ID}.openfoodfacts.localhost:${AGENT_PORT}"; do
     grep -qxF "$expected" "$WORK_DIR/envrc" ||
         fail "generated .envrc is missing '$expected'"
 done
@@ -252,7 +252,7 @@ for pair in \
     "PRODUCT_OPENER_PORT=${AGENT_PORT}" \
     "PRODUCT_OPENER_NETWORK=product-opener_${AGENT_ID}" \
     "COMMON_NET_NAME=off_shared_network_${AGENT_ID}" \
-    "MINION_QUEUE=${AGENT_ID}.openfoodfacts.localhost"; do
+    "MINION_QUEUE=${AGENT_ID}.openfoodfacts.localhost:${AGENT_PORT}"; do
     grep -qxF "$pair" <<<"$effective" ||
         fail "make print-agent-config did not derive '$pair'"
 done

@@ -63,6 +63,21 @@ END_MARKER='# <<< make agent (generated) <<<'
 
 WORKTREE_DIR="$(pwd -P)"
 
+# Canonicalise a path: resolve `..` and symlinks so that containment checks
+# cannot be bypassed with DEPS_DIR=../shared-deps or a `deps` symlink pointing
+# outside the worktree. realpath/readlink -m work for paths that do not exist
+# yet (unlike plain realpath, which expands to empty).
+canonical_path() {
+    local p="$1"
+    if command -v realpath >/dev/null 2>&1; then
+        realpath -m "$p" 2>/dev/null && return 0
+    fi
+    if command -v readlink >/dev/null 2>&1; then
+        readlink -m "$p" 2>/dev/null && return 0
+    fi
+    printf '%s' "$p"
+}
+
 die() {
     local message="$*"
     echo "❌ ${message}" >&2
@@ -163,8 +178,10 @@ sanitize_id() {
     printf '%s' "${candidate:0:20}"
 }
 
-# The registry entry for an id is "<slot>\n<directory>". Line 2 may be missing for
-# entries written by an older version.
+# The registry entry for an id is "<slot>\n<directory>\n<frontend port>".
+# Line 3 (the actual frontend host port, including PORT= overrides) may be
+# missing for entries written by an older version; callers fall back to the
+# slot-derived port in that case. Line 2 may be missing for even older versions.
 registry_slot() {
     local id="$1"
     [[ -f "$REGISTRY_DIR/$id" ]] || return 1
@@ -175,6 +192,12 @@ registry_dir_of() {
     local id="$1"
     [[ -f "$REGISTRY_DIR/$id" ]] || return 1
     printf '%s' "$(sed -n 2p "$REGISTRY_DIR/$id")"
+}
+
+registry_port_of() {
+    local id="$1"
+    [[ -f "$REGISTRY_DIR/$id" ]] || return 1
+    printf '%s' "$(sed -n 3p "$REGISTRY_DIR/$id")"
 }
 
 # Two things have to be unique, and they are enforced by two different mechanisms:
@@ -229,20 +252,34 @@ ensure_port_lock() {
     : >"$(port_lock "$port")"
 }
 
-# usage: write_id_entry <slot> <id>
+# usage: write_id_entry <slot> <id> [port]
 write_id_entry() {
-    local slot="$1" id="$2"
-    (set -o noclobber; printf '%s\n%s\n' "$slot" "$WORKTREE_DIR" >"$REGISTRY_DIR/$id") 2>/dev/null
+    local slot="$1" id="$2" port="${3:-}"
+    if [[ -n "$port" ]]; then
+        (set -o noclobber; printf '%s\n%s\n%s\n' "$slot" "$WORKTREE_DIR" "$port" >"$REGISTRY_DIR/$id") 2>/dev/null
+    else
+        (set -o noclobber; printf '%s\n%s\n' "$slot" "$WORKTREE_DIR" >"$REGISTRY_DIR/$id") 2>/dev/null
+    fi
+}
+
+# Refresh the stored frontend port (line 3) after a successful run. Only the
+# owner rewrites its own entry, and only on success, so a concurrent allocator
+# never observes a half-written state for an id it might claim.
+update_registry_port() {
+    local slot="$1" id="$2" port="$3"
+    printf '%s\n%s\n%s\n' "$slot" "$WORKTREE_DIR" "$port" >"$REGISTRY_DIR/$id"
 }
 
 # Undo a claim made during this run, so that a failure does not leave a slot locked.
 # The id entry is removed first: otherwise another worktree could claim the
 # freed slot while the stale id still points at it, and a retry in this
 # worktree would then reuse that stale entry without holding a lock, handing
-# both worktrees the same service ports.
+# both worktrees the same service ports. Only an entry created by this run
+# (CLAIMED_SLOT non-empty) may be rolled back: deleting a reused registration's
+# entry would orphan its slot lock and .envrc, breaking later syncs.
 cleanup_claims() {
     local status=$?
-    if [[ "$status" -ne 0 && ( -n "$CLAIMED_SLOT" || -n "$CLAIMED_PORT" ) && -n "$CLAIMED_ID" ]]; then
+    if [[ "$status" -ne 0 && -n "$CLAIMED_SLOT" && -n "$CLAIMED_ID" ]]; then
         rm -f "$REGISTRY_DIR/$CLAIMED_ID"
     fi
     if [[ "$status" -ne 0 && -n "$CLAIMED_PORT" ]]; then
@@ -278,10 +315,25 @@ port_is_free() {
     return 0
 }
 
+# Whether a host port is reserved as another worktree's frontend port
+# (.port-<n> lock). Stopped worktrees hold no listener, so without this a slot
+# whose derived port equals someone else's PORT= override looks free.
+port_is_reserved() {
+    local port="$1"
+    [[ -f "$REGISTRY_DIR/.port-$port" ]]
+}
+
 slot_is_usable() {
     local slot="$1" service port
     for service in $ALL_SERVICES; do
         port="$(port_for "$service" "$slot")"
+        # A stopped worktree holds no listener, but its frontend reservation
+        # (.port-<n>) still exists. Without this check two stopped worktrees
+        # could claim slots whose derived ports overlap an override, e.g.
+        # alpha PORT=8182 in slot 1 and beta in slot 2 needing mongo 8182.
+        if port_is_reserved "$port"; then
+            return 1
+        fi
         port_is_free "$port" || return 1
     done
     return 0
@@ -326,14 +378,38 @@ slot_is_usable_or_own() {
     return 0
 }
 
+# Dependency ports only (no frontend): reusing our own registration must not
+# fail because an unrelated process bound our unused default frontend port
+# (e.g. slot 1 serving on PORT=9000 while something else holds 8081). The
+# actual FRONTEND_PORT is validated separately later.
+slot_deps_usable_or_own() {
+    local slot="$1" id="${2:-}" service port
+    for service in $ALL_SERVICES; do
+        [[ "$service" == "frontend" ]] && continue
+        port="$(port_for "$service" "$slot")"
+        if [[ -n "$id" ]]; then
+            port_is_free_or_own "$port" "$id" || return 1
+        else
+            port_is_free "$port" || return 1
+        fi
+        if port_is_reserved "$port"; then
+            return 1
+        fi
+    done
+    return 0
+}
+
 # A dependency directory only counts as a checkout once the clone has landed.
 # `make agent` must not create it early: clone_deps treats any existing
 # directory as a checkout and would then skip the clone, leaving no Makefile or
 # Compose file behind. Missing checkouts are skipped here; the post-clone
 # synchronization in `make run_deps` writes their overrides instead.
+# A valid git worktree or submodule carries a `.git` file (not a directory),
+# so accept both: otherwise a valid checkout would be mistaken for incomplete
+# and wiped by `make clone_deps`.
 dep_is_checkout() {
     local dir="$1"
-    [[ -f "$dir/docker-compose.yml" || -d "$dir/.git" ]]
+    [[ -f "$dir/docker-compose.yml" || -e "$dir/.git" ]]
 }
 
 sync_dep_envrc() {
@@ -422,7 +498,9 @@ po_net_name() {
 
 # Where the dependency checkouts live. The Makefile exports DEPS_DIR, as an
 # absolute path; resolve a relative one against the worktree, because that is what
-# the dependency Makefiles will do too.
+# the dependency Makefiles will do too. Canonicalise afterwards so that
+# DEPS_DIR=../shared-deps or a `deps` symlink cannot slip past the prefix check
+# in deps_dir_is_shared while physically living outside the worktree.
 if [[ -n "${DEPS_DIR:-}" ]]; then
     case "$DEPS_DIR" in
         /*) DEPS_ROOT="$DEPS_DIR" ;;
@@ -431,6 +509,7 @@ if [[ -n "${DEPS_DIR:-}" ]]; then
 else
     DEPS_ROOT="$WORKTREE_DIR/deps"
 fi
+DEPS_ROOT="$(canonical_path "$DEPS_ROOT")"
 SHARED_SERVICES_DIR="$DEPS_ROOT/openfoodfacts-shared-services"
 AUTH_DIR="$DEPS_ROOT/openfoodfacts-auth"
 
@@ -439,9 +518,15 @@ SHARED_END='# <<< make agent (generated) <<<'
 
 # A shared DEPS_DIR would mean one .envrc per worktree in the same directory,
 # which cannot work: worktree A would end up configuring worktree B's services.
+# Compare canonical physical paths (resolving `..` and symlinks) consistently
+# with Makefile:119-121, otherwise DEPS_DIR=../shared-deps or a `deps` symlink
+# to a shared directory passes the string-prefix check as internal.
 deps_dir_is_shared() {
-    case "$DEPS_ROOT" in
-        "$WORKTREE_DIR" | "$WORKTREE_DIR"/*) return 1 ;;
+    local deps_c work_c
+    deps_c="$(canonical_path "$DEPS_ROOT")"
+    work_c="$(canonical_path "$WORKTREE_DIR")"
+    case "$deps_c" in
+        "$work_c" | "$work_c"/*) return 1 ;;
         *) return 0 ;;
     esac
 }
@@ -495,7 +580,7 @@ remove_all_dep_envrc() {
 # `make agent` still ends up consistent.
 write_po_envrc() {
     local frontend_port="$1" tmp_envrc shared_data_line net_line
-    local base_domain base_project base_network derived_domain
+    local base_domain base_project base_network derived_domain minion_queue
 
     tmp_envrc="$(mktemp "${TMPDIR:-/tmp}/envrc.XXXXXX")"
 
@@ -545,6 +630,14 @@ write_po_envrc() {
     base_network="$(sed -n 's/^PRODUCT_OPENER_NETWORK=//p' "$ENV_FILE" 2>/dev/null | head -n 1 || true)"
     base_network="${base_network:-product-opener}"
     derived_domain="${ID}.${base_domain}"
+    # Mirror Config2_docker.pm: $server_domain (and therefore the Minion local
+    # queue) is "$domain:$port" when the domain contains localhost and the port
+    # is not 80. Without the port the worker listens on `id.domain` while jobs
+    # are enqueued on `id.domain:port` and user-event/producer jobs stall.
+    minion_queue="${derived_domain}"
+    if [[ "$derived_domain" == *"localhost"* && "$frontend_port" != "80" ]]; then
+        minion_queue="${derived_domain}:${frontend_port}"
+    fi
 
     cat >>"$tmp_envrc" <<EOF
 
@@ -561,7 +654,7 @@ export PRODUCT_OPENER_DOMAIN=${derived_domain}
 export PRODUCT_OPENER_HOST_PORT=${frontend_port}
 export PRODUCT_OPENER_PORT=${frontend_port}
 export PRODUCT_OPENER_NETWORK=${base_network}_${ID}
-export MINION_QUEUE=${derived_domain}
+export MINION_QUEUE=${minion_queue}
 $net_line$shared_data_line$END_MARKER
 EOF
 
@@ -574,19 +667,81 @@ EOF
 
 if [[ "$RELEASE" -eq 1 ]]; then
     released_id="$ID"
-    [[ -n "$released_id" ]] || released_id="$(sed -n 's/^export PO_AGENT_ID=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"
-    released_port="$(sed -n 's/^export PRODUCT_OPENER_HOST_PORT=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"
+    local_id="$(sed -n 's/^export PO_AGENT_ID=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"
+    [[ -n "$released_id" ]] || released_id="$local_id"
+    # The frontend port that belongs to the target id, not to the caller:
+    # line 3 of the registry entry (written on every successful `make agent`).
+    # Older entries have no line 3; fall back to the caller's .envrc only when
+    # releasing our own id, otherwise to the slot-derived frontend port.
+    target_slot=""
+    target_dir=""
+    target_port=""
     if [[ -n "$released_id" && -f "$REGISTRY_DIR/$released_id" ]]; then
-        release_slot_lock "$(sed -n 1p "$REGISTRY_DIR/$released_id" 2>/dev/null || true)"
+        target_slot="$(sed -n 1p "$REGISTRY_DIR/$released_id" 2>/dev/null || true)"
+        target_dir="$(sed -n 2p "$REGISTRY_DIR/$released_id" 2>/dev/null || true)"
+        target_port="$(sed -n 3p "$REGISTRY_DIR/$released_id" 2>/dev/null || true)"
+        case "$target_slot" in
+            '' | *[!0-9]*) target_slot="" ;;
+        esac
+        # Entries predating the slot scheme stored a host port in line 1.
+        if [[ -z "$target_slot" ]]; then
+            old_port="$(sed -n 1p "$REGISTRY_DIR/$released_id" 2>/dev/null || true)"
+            case "$old_port" in
+                '' | *[!0-9]*) ;;
+                *) target_port="${target_port:-$old_port}" ;;
+            esac
+        fi
+        if [[ -n "$target_slot" ]]; then
+            case "$target_slot" in
+                '' | *[!0-9]*) ;;
+                *)
+                    if [[ "$target_slot" -ge "$SLOT_MIN" && "$target_slot" -le "$SLOT_MAX" ]] 2>/dev/null; then
+                        :
+                    else
+                        target_slot=""
+                    fi
+                    ;;
+            esac
+        fi
+        if [[ -z "$target_port" ]]; then
+            if [[ -n "$local_id" && "$local_id" == "$released_id" ]]; then
+                target_port="$(sed -n 's/^export PRODUCT_OPENER_HOST_PORT=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"
+            fi
+            if [[ -z "$target_port" && -n "$target_slot" ]]; then
+                target_port="$(port_for frontend "$target_slot" 2>/dev/null || true)"
+            fi
+        fi
+        if [[ -n "$target_slot" ]]; then
+            release_slot_lock "$target_slot"
+        fi
         rm -f "$REGISTRY_DIR/$released_id"
     fi
-    # Give the frontend port back as well, so another worktree can reuse an
-    # override. Falls back to the slot-derived port when .envrc is already gone.
-    if [[ -n "$released_port" ]]; then
+    # Give the target's frontend port back as well, so another worktree can
+    # reuse an override. Without a registry entry (e.g. no local .envrc and an
+    # unknown --id) there is nothing to free.
+    if [[ -n "$target_port" ]]; then
+        case "$target_port" in
+            '' | *[!0-9]*) ;;
+            *) release_port_lock "$target_port" ;;
+        esac
+    elif [[ -n "$local_id" && "$local_id" == "$released_id" ]]; then
+        # Own entry already gone but no registry port (old entry): fall back to
+        # the slot-derived port from the local .envrc when it is already gone.
+        released_port="$(sed -n 's/^export PRODUCT_OPENER_HOST_PORT=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"
         case "$released_port" in
             '' | *[!0-9]*) ;;
             *) release_port_lock "$released_port" ;;
         esac
+    fi
+    # Only touch the local checkout when releasing its own id. Releasing a
+    # foreign id (make release-agent ID=old from another worktree) must not
+    # free the caller's port or wipe the caller's .envrc and dependency
+    # overrides.
+    if [[ -n "$released_id" && -n "$local_id" && "$local_id" != "$released_id" ]]; then
+        if [[ -n "$released_id" ]]; then
+            echo "🥫 Released id '${released_id}' and its reservations. Local worktree '${local_id}' left alone."
+        fi
+        exit 0
     fi
     remove_all_dep_envrc
     if [[ -f "$ENVRC" ]]; then
@@ -625,10 +780,18 @@ if [[ "$LIST" -eq 1 ]]; then
         esac
         entry_slot="$(sed -n 1p "$entry" 2>/dev/null || true)"
         entry_dir="$(sed -n 2p "$entry" 2>/dev/null || true)"
+        entry_port="$(sed -n 3p "$entry" 2>/dev/null || true)"
         [[ -n "$entry_dir" ]] || entry_dir="(unknown)"
         case "$entry_slot" in
             '' | *[!0-9]*) entry_slot="?" ;;
             *) ;;
+        esac
+        # Prefer the actual frontend port (line 3, including PORT= overrides);
+        # fall back to the slot-derived port for older entries.
+        entry_web="$(port_for frontend "$entry_slot" 2>/dev/null || echo '-')"
+        case "$entry_port" in
+            '' | *[!0-9]*) ;;
+            *) entry_web="$entry_port" ;;
         esac
         # The registry is per user, so another user's worktree would not be listed
         # here. Mark the ones Docker still knows about, to show which are really up.
@@ -639,7 +802,7 @@ if [[ "$LIST" -eq 1 ]]; then
         fi
         printf '%s%-13s %-5s %-5s %-6s %-4s %s\n' \
             "$marker" "$entry_id" "$entry_slot" \
-            "$(port_for frontend "$entry_slot" 2>/dev/null || echo '-')" \
+            "$entry_web" \
             "$(port_for mongodb "$entry_slot" 2>/dev/null || echo '-')" \
             "$(port_for keycloak "$entry_slot" 2>/dev/null || echo '-')" \
             "$entry_dir"
@@ -678,6 +841,8 @@ if [[ "$SYNC_DEPS" -eq 1 ]]; then
     fi
     write_po_envrc "$frontend_port"
     sync_dep_envrc "$SLOT"
+    # Keep the persisted port in sync when repairing an older entry.
+    update_registry_port "$SLOT" "$ID" "$frontend_port" 2>/dev/null || true
     exit 0
 fi
 
@@ -748,6 +913,10 @@ acquire() {
         # Ports published by our own stack do not count: after `make dev` its
         # containers hold every slot-derived port, and that must not force us
         # onto another slot (whose id entry we could not replace anyway).
+        # Only the dependency ports are checked here: the slot-derived frontend
+        # may be held by an unrelated process while this worktree serves on a
+        # PORT= override (e.g. slot 1 on 9000 while something else holds 8081).
+        # The actual FRONTEND_PORT is validated separately below.
         if [[ -n "$owner" ]]; then
             stored="$(registry_slot "$candidate" 2>/dev/null || true)"
             case "$stored" in
@@ -760,7 +929,7 @@ acquire() {
                 stored=""
                 rm -f "$REGISTRY_DIR/$candidate"
             fi
-            if [ -n "$stored" ] && slot_is_usable_or_own "$stored" "$candidate"; then
+            if [ -n "$stored" ] && slot_deps_usable_or_own "$stored" "$candidate"; then
                 ID="$candidate"
                 SLOT="$stored"
                 CLAIMED_SLOT=""
@@ -828,8 +997,14 @@ else
     CLAIMED_PORT="$FRONTEND_PORT"
     # An override must not overlap another claimed slot's frontend or dependency
     # port: both stacks would then publish the same host port at startup.
+    # The own slot is skipped only when the frontend uses its normal port;
+    # with an override (e.g. PORT=8181 in slot 1) the own dependency ports
+    # must still be checked, otherwise frontend and MongoDB publish the same
+    # port.
     for other in $(seq "$SLOT_MIN" "$SLOT_MAX"); do
-        [[ "$other" == "$SLOT" ]] && continue
+        if [[ "$other" == "$SLOT" && "$FRONTEND_PORT" == "$(port_for frontend "$SLOT")" ]]; then
+            continue
+        fi
         [[ -f "$REGISTRY_DIR/.slot-$other" ]] || continue
         for service in $ALL_SERVICES; do
             if [[ "$FRONTEND_PORT" == "$(port_for "$service" "$other")" ]]; then
@@ -853,6 +1028,9 @@ fi
 # Make sure we did not inherit a slot whose ports somebody else already took.
 # Ports published by our own stack do not count (see acquire). The slot-derived
 # frontend is skipped when overridden: only the actual FRONTEND_PORT is checked.
+# Reservations (.port-<n>) are checked too: a stopped worktree holds no
+# listener, but its frontend override still blocks the port. Our own new port
+# (just claimed) and our previous port (released below on success) are allowed.
 {
     busy=""
     for service in $ALL_SERVICES; do
@@ -861,6 +1039,13 @@ fi
         fi
         port="$(port_for "$service" "$SLOT")"
         port_is_free_or_own "$port" "$ID" || busy="$busy $service($port)"
+        if [[ "$port" != "$FRONTEND_PORT" && "$port" != "${recorded_port:-}" ]] && port_is_reserved "$port"; then
+            # Already counted via listeners above in most cases; add only once.
+            case "$busy" in
+                *"($port)"*) ;;
+                *) busy="$busy $service($port-reserved)" ;;
+            esac
+        fi
     done
     if [[ "$FRONTEND_PORT" != "$(port_for frontend "$SLOT")" ]]; then
         port_is_free_or_own "$FRONTEND_PORT" "$ID" || busy="$busy frontend($FRONTEND_PORT)"
@@ -880,6 +1065,21 @@ BASE_DOMAIN="${BASE_DOMAIN:-openfoodfacts.localhost}"
 write_po_envrc "$FRONTEND_PORT"
 
 sync_dep_envrc "$SLOT"
+
+# Persist the actual frontend port (line 3) so that a later release from any
+# worktree can free the right reservation, even without a local .envrc.
+update_registry_port "$SLOT" "$ID" "$FRONTEND_PORT"
+
+# A successful port change (PORT=9000 -> PORT=9001) reserves the new port above
+# but must give the old one back, otherwise .port-9000 stays reserved forever
+# and even release-agent only removes .port-9001. Only after the new
+# configuration and the dependency sync succeeded.
+if [[ -n "${recorded_port:-}" && -n "${recorded_id:-}" && "$recorded_id" == "$ID" && "$recorded_port" != "$FRONTEND_PORT" ]]; then
+    case "$recorded_port" in
+        '' | *[!0-9]*) ;;
+        *) release_port_lock "$recorded_port" ;;
+    esac
+fi
 
 cat <<EOF
 🥫 Worktree '${ID}' is now isolated (slot ${SLOT}).

@@ -100,7 +100,20 @@ ifneq ($(strip $(PO_AGENT_ID)),)
         export PRODUCT_OPENER_DOMAIN := $(_AGENT).$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
     endif
     ifeq ($(filter $(_AGENT).%,$(strip $(MINION_QUEUE))),)
-        export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN)
+        # Mirror Config2_docker.pm: $server_domain is "$domain:$port" when the
+        # domain contains localhost and the server port is not 80, otherwise
+        # just $domain. The worker listens on MINION_QUEUE while jobs are
+        # enqueued on $server_domain, so they must match.
+        _MINION_PORT := $(or $(strip $(PRODUCT_OPENER_PORT)),80)
+        ifneq ($(findstring localhost,$(PRODUCT_OPENER_DOMAIN)),)
+            ifneq ($(_MINION_PORT),80)
+                export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN):$(_MINION_PORT)
+            else
+                export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN)
+            endif
+        else
+            export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN)
+        endif
     endif
     # The default compose network of the Product Opener stack. Without this every
     # worktree would share it, and Docker DNS would answer `backend`, `frontend`
@@ -116,8 +129,12 @@ ifneq ($(strip $(PO_AGENT_ID)),)
     # network that make loaded from .envrc before run_deps removed it on disk.
     # When sharing, any stale isolation suffix is dropped so PO agrees with the
     # dependencies, which fall back to their default when their .envrc is removed.
-    _DEPS_ABS := $(abspath $(or $(strip $(DEPS_DIR)),$(CURDIR)/deps))
-    _CUR_ABS := $(abspath $(CURDIR))
+    # realpath -m canonicalises `..` and symlinks (a `deps` symlink or a
+    # DEPS_DIR=../shared-deps would otherwise pass the prefix check below while
+    # living outside the worktree). It works for paths that do not exist yet,
+    # unlike $(realpath ...), which expands to empty.
+    _DEPS_ABS := $(shell realpath -m $(or $(strip $(DEPS_DIR)),$(CURDIR)/deps) 2>/dev/null || echo $(abspath $(or $(strip $(DEPS_DIR)),$(CURDIR)/deps)))
+    _CUR_ABS := $(shell realpath -m $(CURDIR) 2>/dev/null || echo $(abspath $(CURDIR)))
     _DEPS_SHARED := $(if $(findstring $(_CUR_ABS)/,$(_DEPS_ABS)/),,1)
     ifeq ($(strip $(PO_SHARED_DATA)),1)
         export COMMON_NET_NAME := off_shared_network
@@ -725,7 +742,7 @@ clone_deps:
 	@mkdir -p "${DEPS_DIR}"; \
 	for dep in ${DEPS} ; do \
 		echo $$dep; \
-		if [ ! -d "${DEPS_DIR}/$$dep/.git" ]; then \
+		if [ ! -e "${DEPS_DIR}/$$dep/.git" ]; then \
 			if [ -e "${DEPS_DIR}/$$dep" ]; then \
 				echo "Removing incomplete checkout ${DEPS_DIR}/$$dep (no .git) and cloning $$dep"; \
 				rm -rf "${DEPS_DIR}/$$dep"; \
