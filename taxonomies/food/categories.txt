@@ -1851,12 +1851,6 @@ it: Bevande alcoliche a base di birra
 nl: Bier gebaseerde alcoholische dranken
 pt: Bebidas alcoólicas à base de cerveja
 ru: Алкогольные напитки на основе пива
-foodex2_code:en: A03MN
-foodex2_common_names:en: Malt drink; Malt beer
-foodex2_extended_name:en: Beer-like beverages
-foodex2_implicit_facets:en: F02.A0ENJ$F28.A0C01$F33.A0C1N
-foodex2_old_code:en: A.01.001540
-foodex2_scope_note:en: The group includes any type of Beer-like beverages such as Malt drink and Malt beer.
 
 < en: Mixed beer drinks
 en: Shandy, Beer with lemonade
@@ -13514,6 +13508,21 @@ ciqual_food_code:en: 18029
 ciqual_food_name:en: Non-alcoholic beverage (average)
 ciqual_food_name:fr: Boisson rafraîchissante sans alcool (aliment moyen)
 incompatible_with:en: categories:en:alcoholic-beverages
+
+< en: Non-alcoholic beverages
+en: Malt drinks, Malt beverages, Beer-like beverages, Malt beers
+de: Malzgetränke, Malzbiere, Malzbier
+es: Bebidas de malta, Maltas
+fr: Boissons maltées, Bières de malt
+nl: Moutdranken, Moutbier
+pl: Napoje słodowe, Piwa słodowe
+description:en: Sweet carbonated drinks brewed from malt like beer but not fermented into alcohol, such as German Malzbier or Caribbean and Latin American malta. Beer mixed with other drinks is under beer-based alcoholic beverages.
+foodex2_code:en: A03MN
+foodex2_common_names:en: Malt drink; Malt beer
+foodex2_extended_name:en: Beer-like beverages
+foodex2_implicit_facets:en: F02.A0ENJ$F28.A0C01$F33.A0C1N
+foodex2_old_code:en: A.01.001540
+foodex2_scope_note:en: The group includes any type of Beer-like beverages such as Malt drink and Malt beer.
 
 < en: Instant beverages
 < en: Variety packs
