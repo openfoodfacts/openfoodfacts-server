@@ -2,7 +2,7 @@
 
 const MARKER = "<!-- pr-precheck -->";
 const LABEL = "needs-author";
-const MEMBERS = ["OWNER", "MEMBER", "COLLABORATOR"];
+const MAINTAINER_ROLES = ["admin", "maintain", "write", "triage"];
 // Perl is left out on purpose: most Perl changes alter data, not what the page looks like.
 const VISIBLE_FILES = /^(templates|scss|html\/js|html\/css)\//;
 // Taxonomy edits are small improvements that usually have no issue.
@@ -21,11 +21,11 @@ function stripComments(text) {
     return stripped;
 }
 
-export function findProblems({body, association, files, authorComments, linkedIssues}) {
+export function findProblems({body, maintainer, files, authorComments, linkedIssues}) {
     const problems = [];
     const text = stripComments(body);
     const taxonomyOnly = files.length > 0 && files.every((file) => TAXONOMY_FILES.test(file));
-    if (!MEMBERS.includes(association) && linkedIssues.length === 0 && !taxonomyOnly) {
+    if (!maintainer && linkedIssues.length === 0 && !taxonomyOnly) {
         problems.push("Link the issue this fixes, with `Fixes #123` in the description. Pull requests are only accepted for an issue a maintainer agreed to.");
     }
     const visible = files.some((file) => VISIBLE_FILES.test(file));
@@ -53,6 +53,9 @@ export async function run({github, context}) {
     if (pr.state !== "open" || pr.draft || pr.user.type === "Bot") {
         return;
     }
+    // author_association hides private org membership from this token, and the release bot is a "User"
+    const {role_name: role} = (await github.rest.repos.getCollaboratorPermissionLevel({owner, repo, username: pr.user.login})).data;
+    const maintainer = MAINTAINER_ROLES.includes(role);
 
     const files = (await github.paginate(github.rest.pulls.listFiles, {owner, repo, pull_number: number, per_page: 100})).flatMap((file) => [file.filename, file.previous_filename].filter(Boolean));
     const comments = await github.paginate(github.rest.issues.listComments, {owner, repo, issue_number: number, per_page: 100});
@@ -70,7 +73,7 @@ export async function run({github, context}) {
         .filter((other) => here(other) && other.author?.login !== pr.user.login)
         .map((other) => ({number: other.number, issue: issue.number})));
 
-    const problems = findProblems({body: pr.body, association: event.author_association, files, authorComments, linkedIssues: issues});
+    const problems = findProblems({body: pr.body, maintainer, files, authorComments, linkedIssues: issues});
     const notes = duplicateNotes(otherPullRequests);
     const body = commentBody(problems, notes);
     const existing = comments.find((comment) => comment.user.login === "github-actions[bot]" && comment.body.startsWith(MARKER));
