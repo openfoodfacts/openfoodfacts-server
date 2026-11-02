@@ -1,0 +1,141 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "related_categories" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Categories",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "related_categories_parents",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Canned vegetables",
+                                 "url" : "http://world.openfoodfacts.localhost/facets/categories/Canned%20vegetables"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Carrots",
+                                 "url" : "http://world.openfoodfacts.localhost/facets/categories/Carrots"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Canned plant-based foods",
+                                 "url" : "http://world.openfoodfacts.localhost/facets/categories/Canned%20plant-based%20foods"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Vegetables based foods",
+                                 "url" : "http://world.openfoodfacts.localhost/facets/categories/Vegetables%20based%20foods"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Vegetables",
+                                 "url" : "http://world.openfoodfacts.localhost/facets/categories/Vegetables"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Canned foods",
+                                 "url" : "http://world.openfoodfacts.localhost/facets/categories/Canned%20foods"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Plant-based foods",
+                                 "url" : "http://world.openfoodfacts.localhost/facets/categories/Plant-based%20foods"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Fruits and vegetables based foods",
+                                 "url" : "http://world.openfoodfacts.localhost/facets/categories/Fruits%20and%20vegetables%20based%20foods"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Vegetable-based foods and beverages",
+                                 "url" : "http://world.openfoodfacts.localhost/facets/categories/Vegetable-based%20foods%20and%20beverages"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Plant-based foods and beverages",
+                                 "url" : "http://world.openfoodfacts.localhost/facets/categories/Plant-based%20foods%20and%20beverages"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Belongs to:"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Related categories"
+            },
+            "topics" : [
+               "categories"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "related_categories"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "en:canned-carrots",
+      "tagtype" : "categories"
+   },
+   "tagid" : "en:canned-carrots",
+   "tagtype" : "categories",
+   "warnings" : []
+}

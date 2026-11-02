@@ -24,6 +24,11 @@ import {
   createDeferredSelectionClear,
   setImageMoveMode,
 } from './image-editor-move-mode.mjs';
+import {
+  selectionAfterImageTransform,
+  shouldAdjustSelectionForImageTransform,
+  waitForImageLoad,
+} from './image-editor-selection.js';
 import Cropper from 'cropperjs';
 
 const ROTATE_LEFT = -90;
@@ -72,6 +77,8 @@ class ImageEditorComponent extends HTMLElement {
     this.loadToken = 0;
     this.moveMode = false;
     this.pendingSelectionClear = createDeferredSelectionClear();
+    this.imageSourceLoadToken = 0;
+    this.imageSourceLoading = false;
   }
 
   connectedCallback() {
@@ -191,6 +198,8 @@ class ImageEditorComponent extends HTMLElement {
 
     this.destroyCropper();
     this.loadToken += 1;
+    this.imageSourceLoadToken += 1;
+    this.imageSourceLoading = false;
 
     this.imgid = imgid;
     this.storedImagefield = imagefield || this.imagefield;
@@ -230,6 +239,31 @@ class ImageEditorComponent extends HTMLElement {
 
     const cropperImage = this.cropper.getCropperImage();
     if (cropperImage) {
+      cropperImage.addEventListener('transform', (event) => {
+        if (!shouldAdjustSelectionForImageTransform({
+          imageSourceLoading: this.imageSourceLoading,
+          moveMode: this.moveMode,
+        })) {
+          return;
+        }
+        const selection = this.cropper?.getCropperSelection();
+        if (!selection || selection.hidden || selection.width <= 0 || selection.height <= 0) {
+          return;
+        }
+        const bounds = selectionAfterImageTransform(
+          selection,
+          event.detail.oldMatrix,
+          event.detail.matrix,
+          this.naturalWidth,
+          this.naturalHeight,
+        );
+        if (bounds) {
+          selection.x = bounds.x;
+          selection.y = bounds.y;
+          selection.width = bounds.width;
+          selection.height = bounds.height;
+        }
+      });
       cropperImage.$ready().then((image) => {
         // Ignore the result if a newer image has been loaded meanwhile.
         if (token !== this.loadToken) {
@@ -328,6 +362,48 @@ class ImageEditorComponent extends HTMLElement {
     });
   }
 
+  beginImageSourceLoad() {
+    this.imageSourceLoading = true;
+    this.imageSourceLoadToken += 1;
+
+    return this.imageSourceLoadToken;
+  }
+
+  finishImageSourceLoad(token) {
+    if (token === this.imageSourceLoadToken) {
+      this.imageSourceLoading = false;
+    }
+  }
+
+  finishImagePreviewLoad(image, { previewToken, sourceToken, isNormalized }) {
+    if (sourceToken !== this.imageSourceLoadToken) {
+      return;
+    }
+
+    try {
+      if (previewToken !== this.loadToken
+          || this.normalizeCheckbox.checked !== isNormalized
+          || !this.imgid) {
+        return;
+      }
+
+      this.naturalWidth = image.naturalWidth;
+      this.naturalHeight = image.naturalHeight;
+      this.coordinates_image_size = isNormalized
+        ? '400'
+        : this.originalCoordinatesSize || this.coordinates_image_size;
+      const canvas = this.cropper?.getCropperCanvas();
+      if (canvas && this.naturalWidth && this.naturalHeight) {
+        canvas.style.aspectRatio = `${this.naturalWidth} / ${this.naturalHeight}`;
+        canvas.getBoundingClientRect();
+      }
+      const cropperImage = this.cropper?.getCropperImage();
+      cropperImage?.$center('contain');
+    } finally {
+      this.finishImageSourceLoad(sourceToken);
+    }
+  }
+
   updateImagePreview() {
     if (!this.cropper || !this.imgid) {
       return;
@@ -349,13 +425,26 @@ class ImageEditorComponent extends HTMLElement {
 
     const isNormalized = this.normalizeCheckbox.checked;
     const previewToken = this.loadToken;
+    let targetSrc;
 
     // When normalize is off, the original image is already cached
     // (this.imageUrl / this.originalImageUrl). No need to hit
     // product_image_rotate.pl again for angle=0 without normalize —
     // just restore the cached src and its natural dimensions.
-    if (!isNormalized) {
-      const targetSrc = this.originalImageUrl || this.imageUrl;
+    if (isNormalized) {
+      // Normalized: server returns the 400px image (crop_size=400) with
+      // Normalize applied. Update natural dimensions and canvas aspect after
+      // load so getSelectionCoordinates uses the displayed (400) size.
+      // Without this the coordinates were computed with the previous full-size
+      // naturalWidth/Height, making the crop far too small.
+      targetSrc = '/cgi/product_image_rotate.pl?code=' + encodeURIComponent(this.code)
+        + '&imgid=' + encodeURIComponent(this.imgid)
+        + '&angle=0&normalize=checked';
+      if (cropperImage.getAttribute('src') === targetSrc || cropperImage.src.endsWith(targetSrc)) {
+        return;
+      }
+    } else {
+      targetSrc = this.originalImageUrl || this.imageUrl;
       // Avoid redundant reload if already showing original
       if (cropperImage.getAttribute('src') === targetSrc
           && cropperImage.src.endsWith(targetSrc)) {
@@ -364,72 +453,16 @@ class ImageEditorComponent extends HTMLElement {
 
         return;
       }
-      // Use setAttribute to keep the value comparable; Cropper will handle load
-      cropperImage.src = targetSrc;
-      // The new src is the original (full or .400) — restore natural
-      // dimensions and canvas aspect after it loads. $ready resolves when
-      // the new image is decoded.
-      cropperImage.$ready().then((img) => {
-        if (previewToken !== this.loadToken) {
-          return;
-        }
-        if (this.normalizeCheckbox.checked || !this.imgid) {
-          return;
-        }
-        this.naturalWidth = img.naturalWidth;
-        this.naturalHeight = img.naturalHeight;
-        this.coordinates_image_size = this.originalCoordinatesSize || this.coordinates_image_size;
-        const canvas = this.cropper?.getCropperCanvas();
-        if (canvas && this.naturalWidth && this.naturalHeight) {
-          canvas.style.aspectRatio = `${this.naturalWidth} / ${this.naturalHeight}`;
-          canvas.getBoundingClientRect();
-        }
-        if (this.cropper) {
-          const ci = this.cropper.getCropperImage();
-          if (ci) {
-            ci.$center('contain');
-          }
-        }
-      }).catch(() => { /* ignore load error, status already handled */ });
-
-      return;
     }
 
-    // Normalized: server returns the 400px image (crop_size=400) with
-    // Normalize applied. Update natural dimensions and canvas aspect after
-    // load so getSelectionCoordinates uses the displayed (400) size.
-    // Without this the coordinates were computed with the previous full-size
-    // naturalWidth/Height, making the crop far too small.
-    const url = '/cgi/product_image_rotate.pl?code=' + encodeURIComponent(this.code)
-      + '&imgid=' + encodeURIComponent(this.imgid)
-      + '&angle=0&normalize=checked';
-    if (cropperImage.getAttribute('src') === url || cropperImage.src.endsWith(url)) {
-      return;
-    }
-    cropperImage.src = url;
-    cropperImage.$ready().then((img) => {
-      if (previewToken !== this.loadToken) {
-        return;
-      }
-      if (!this.normalizeCheckbox.checked || !this.imgid) {
-        return;
-      }
-      this.naturalWidth = img.naturalWidth;
-      this.naturalHeight = img.naturalHeight;
-      // product_image_rotate.pl always serves $crop_size (400)
-      this.coordinates_image_size = '400';
-      const canvas = this.cropper?.getCropperCanvas();
-      if (canvas && this.naturalWidth && this.naturalHeight) {
-        canvas.style.aspectRatio = `${this.naturalWidth} / ${this.naturalHeight}`;
-        canvas.getBoundingClientRect();
-      }
-      if (this.cropper) {
-        const ci = this.cropper.getCropperImage();
-        if (ci) {
-          ci.$center('contain');
-        }
-      }
-    }).catch(() => { /* ignore load error */ });
+    const sourceToken = this.beginImageSourceLoad();
+    const imageLoad = waitForImageLoad(cropperImage.$image);
+    cropperImage.src = targetSrc;
+    const previewLoad = imageLoad.then((image) => this.finishImagePreviewLoad(
+      image,
+      { previewToken, sourceToken, isNormalized },
+    ));
+    previewLoad.catch(() => this.finishImageSourceLoad(sourceToken));
   }
 
   async save() {
