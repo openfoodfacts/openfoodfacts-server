@@ -106,14 +106,15 @@
         </div>
         [% END %]
 
-        [% IF moderator %]
+        [% IF user_id || moderator %]
             <ul id="manage_images_accordion" class="accordion" data-accordion>
                 <li class="accordion-navigation">
-                    <a href="#manage_images_drop" class="moderator-only">[% display_icon('collections') %] [% lang("manage_images") %]</a>
+                    <a href="#manage_images_drop" [% IF moderator %]class="moderator-only"[% END %]>[% display_icon('collections') %] [% lang("manage_images") %]</a>
                     <div id="manage_images_drop" class="content" style="background:#eeeeee">
                         [% display_select_manage %]
                         <p>[% manage_images_info %]</p>
                         <a id="delete_images" class="button small disabled">[% display_icon('delete') %] [% lang("delete_the_images") %]</a><br/>
+                        [% IF moderator %]
                         <div class="row">
                             <div class="small-12 medium-5 columns">
                                 <button id="move_images" class="button small disabled">[% display_icon('arrow_right_alt') %] [% lang("move_images_to_another_product") %]</a>
@@ -126,6 +127,7 @@
                             </div>
                         </div>
                         <input type="checkbox" id="copy_data" name="copy_data"><label for="copy_data">[% lang("copy_data") %]</label>
+                        [% END %]
                         <div id="moveimagesmsg"></div>
                     </div>
                 </li>
