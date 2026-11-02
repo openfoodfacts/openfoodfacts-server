@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 use Text::CSV;
 

@@ -34,9 +34,15 @@
                "id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
                "mass" : 40.8,
                "name" : "LAIT écrémé en poudre"
+            },
+            {
+               "ecobalyse_name" : "Poudre de cacao par défaut -2025-",
+               "id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
+               "mass" : 29.6,
+               "name" : "cacao maigre"
             }
          ],
-         "ingredients_coverage_percent" : 92,
+         "ingredients_coverage_percent" : 100,
          "reference_quantity" : 400,
          "reference_quantity_source" : "product_quantity",
          "reference_quantity_unit" : "g"
@@ -60,6 +66,10 @@
                {
                   "id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
                   "mass" : 40.8
+               },
+               {
+                  "id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
+                  "mass" : 29.6
                }
             ]
          },
@@ -69,12 +79,12 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 0.9383
+                  "ecs" : 1.01328
                },
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 3.44472
+                     "ecs" : 3.72
                   },
                   "road" : 600,
                   "roadCooled" : 0,
@@ -86,18 +96,18 @@
                "ecs" : 0
             },
             "perKg" : {
-               "ecs" : 851.385
+               "ecs" : 1001.71
             },
             "preparation" : {
                "ecs" : 0
             },
-            "preparedMass" : 0.3704,
+            "preparedMass" : 0.4,
             "recipe" : {
                "ingredientsTotal" : {
-                  "ecs" : 289.239
+                  "ecs" : 325.795
                },
                "total" : {
-                  "ecs" : 310.97
+                  "ecs" : 395.952
                },
                "totalBonusImpact" : {
                   "cropDiversity" : 0,
@@ -109,33 +119,33 @@
                   "ecs" : 0
                },
                "transports" : {
-                  "air" : 0,
+                  "air" : 18000,
                   "impacts" : {
-                     "ecs" : 21.7313
+                     "ecs" : 70.1578
                   },
-                  "road" : 8640,
+                  "road" : 11300,
                   "roadCooled" : 0,
                   "sea" : 54000,
                   "seaCooled" : 0
                }
             },
             "scoring" : {
-               "all" : 851.385,
-               "biodiversity" : 574.985,
-               "climate" : 106.735,
-               "health" : 62.2283,
-               "resources" : 108.022
+               "all" : 1001.71,
+               "biodiversity" : 587.58,
+               "climate" : 223.565,
+               "health" : 70.8176,
+               "resources" : 120.289
             },
             "total" : {
-               "ecs" : 315.353
+               "ecs" : 400.686
             },
-            "totalMass" : 0.3704,
+            "totalMass" : 0.4,
             "transports" : {
-               "air" : 0,
+               "air" : 18000,
                "impacts" : {
-                  "ecs" : 25.176
+                  "ecs" : 73.8778
                },
-               "road" : 9240,
+               "road" : 11900,
                "roadCooled" : 0,
                "sea" : 54000,
                "seaCooled" : 0
@@ -143,8 +153,8 @@
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 78.83825,
-      "ecs_per_product" : 315.353
+      "ecs_per_100g_or_100ml" : 100.1715,
+      "ecs_per_product" : 400.686
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
@@ -191,8 +201,8 @@
       },
       {
          "ciqual_food_code" : "19054",
-         "ecobalyse_proxy_id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
-         "ecobalyse_proxy_name" : "Poudre de lait écrémé FR -2025-",
+         "ecobalyse_id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "ecobalyse_name" : "Poudre de lait écrémé FR -2025-",
          "id" : "en:skimmed-milk-powder",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 10.2,
@@ -204,6 +214,8 @@
       },
       {
          "ciqual_proxy_food_code" : "18100",
+         "ecobalyse_proxy_id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
+         "ecobalyse_proxy_name" : "Poudre de cacao par défaut -2025-",
          "id" : "en:fat-reduced-cocoa",
          "is_in_taxonomy" : 1,
          "percent" : 7.4,
@@ -267,10 +279,8 @@
    "ingredients_with_unspecified_percent_sum" : 79.6,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:fat-reduced-cocoa"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 5,
    "lc" : "fr",
    "misc_tags" : [

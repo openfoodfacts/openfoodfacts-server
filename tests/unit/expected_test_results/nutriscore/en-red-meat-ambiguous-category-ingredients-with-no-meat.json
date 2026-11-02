@@ -36,7 +36,13 @@
          "distribution" : "fresh",
          "ingredients" : [
             {
-               "ecobalyse_name" : "Farine UE -2025-",
+               "ecobalyse_name" : "Poissons ingrédients secondaires Origine Inconnue",
+               "id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+               "mass" : 73.75,
+               "name" : "salmon"
+            },
+            {
+               "ecobalyse_name" : "Farine UE agrégée -2025-",
                "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                "mass" : 13.625,
                "name" : "wheat flour"
@@ -48,7 +54,7 @@
                "name" : "salt"
             }
          ],
-         "ingredients_coverage_percent" : 26,
+         "ingredients_coverage_percent" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "preparation" : [
             "refrigeration"
@@ -61,6 +67,10 @@
          "data" : {
             "distribution" : "fresh",
             "ingredients" : [
+               {
+                  "id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+                  "mass" : 73.75
+               },
                {
                   "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                   "mass" : 13.625
@@ -75,9 +85,7 @@
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      },
-      "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
-      "ecobalyse_skipped" : 1
+      }
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:processed-meat",
@@ -94,6 +102,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "26036",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:salmon",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 73.75,
@@ -105,8 +115,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
+         "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_name" : "Farine UE agrégée -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 13.625,
@@ -118,8 +128,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_proxy_name" : "Sel -2025-",
+         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_name" : "Sel -2025-",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent" : 1,
@@ -176,10 +186,8 @@
    "ingredients_with_unspecified_percent_sum" : 87.375,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:salmon"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "minerals_tags" : [],
@@ -196,8 +204,8 @@
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
       "en:ecobalyse-reference-quantity-from-default",
-      "en:ecobalyse-ingredients-matched-between-20-and-29",
-      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
@@ -255,7 +263,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 9,
+            "negative_points_max" : 0,
             "positive_points" : 6,
+            "positive_points_max" : 0,
             "proteins" : 50,
             "proteins_points" : 5,
             "proteins_value" : 50,

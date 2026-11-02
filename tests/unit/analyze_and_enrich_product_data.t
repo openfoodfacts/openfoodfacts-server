@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 no warnings qw(experimental::signatures);
 
 use utf8;
