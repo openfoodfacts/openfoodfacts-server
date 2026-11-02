@@ -96,6 +96,7 @@ BEGIN {
 		&count_products
 		&add_params_to_query
 		&add_params_and_filters_to_query
+		&generate_query_cache_key
 
 		&process_template
 
@@ -8291,7 +8292,8 @@ JS
 
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{code} = $code;
-	$template_data_ref->{user_moderator} = $User{moderator};
+	$template_data_ref->{can_delete} = can_delete_product($product_ref);
+	$template_data_ref->{can_delete_image} = can_delete_image($product_ref);
 
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;

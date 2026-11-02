@@ -368,6 +368,13 @@ my $tests_ref = [
 		},
 		expected_type => 'html',
 	},
+	# related categories knowledge panel, on request only (leaf category: no Query call)
+	{
+		test_case => 'api-v3-tag-category-canned-carrots-related-categories',
+		method => 'GET',
+		path => '/api/v3/tag/categories/en:canned-carrots?activate_knowledge_panel_related_categories=1',
+		expected_status_code => 200,
+	},
 	# test some redirects
 	{
 		test_case => 'redirect-facets-singulars',
