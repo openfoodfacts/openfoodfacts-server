@@ -188,19 +188,15 @@
             {
                "ecobalyse_name" : "Lentille Origine Inconnue",
                "id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd",
-               "mass" : 100.0,
+               "mass" : 100,
                "name" : "Lentilles vertes"
             }
          ],
          "ingredients_coverage_percent" : 100,
-         "packaging" : [
-            {
-               "category" : "",
-               "id" : "79d05fb1-d000-41f4-850b-54afd8d2dc9c",
-               "name" : "Other desserts - cat C, 285g | Packaging System, N0, All, Cardboard box {FR} U",
-               "name_fr" : "Boîte en carton, barquette aluminium, sachet plastique (PEBD) pour gâteau - 330g"
-            }
-         ]
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -208,13 +204,7 @@
             "ingredients" : [
                {
                   "id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd",
-                  "mass" : 100.0
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "79d05fb1-d000-41f4-850b-54afd8d2dc9c"
+                  "mass" : 100
                }
             ]
          },
@@ -793,6 +783,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-skipped",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",

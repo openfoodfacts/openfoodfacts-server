@@ -418,7 +418,10 @@
       "ecobalyse_input" : {
          "distribution" : "ambient",
          "ingredients" : [],
-         "ingredients_coverage_percent" : 0
+         "ingredients_coverage_percent" : 0,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -775,6 +778,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-computed",

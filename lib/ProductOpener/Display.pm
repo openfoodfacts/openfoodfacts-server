@@ -96,6 +96,7 @@ BEGIN {
 		&count_products
 		&add_params_to_query
 		&add_params_and_filters_to_query
+		&generate_query_cache_key
 
 		&process_template
 
@@ -1418,6 +1419,12 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	if ($html =~ /<h1>(.*?)<\/h1>/) {
 		$title = $1;
 		$html = $` . $';
+	}
+
+	# The index page may not have a h1 title (e.g. on Open Food Facts),
+	# in that case we still need a title for the <title> tag in the HTML head
+	if (($textid eq 'index') and (not defined $title)) {
+		$request_ref->{head_title} = $options{site_name} . ' - ' . $country_name;
 	}
 
 	# Generate a table of content
@@ -7611,6 +7618,14 @@ sub display_page ($request_ref) {
 		$canon_title = $title;
 	}
 
+	# Title for the <title> tag in the HTML head: it can be different from the h1 title displayed in the page
+	# (e.g. the index page may not have a h1 title), and it should never be empty
+	my $head_title = $canon_title;
+	if ($head_title eq '') {
+		$head_title = remove_tags_and_quote($request_ref->{head_title} // $options{site_name});
+		$canon_title = $head_title;
+	}
+
 	my $canon_description = '';
 	if (defined $description) {
 		$canon_description = remove_tags_and_quote($description);
@@ -7670,6 +7685,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{canon_url} = $canon_url;
 	$template_data_ref->{meta_description} = $meta_description;
 	$template_data_ref->{canon_title} = $canon_title;
+	$template_data_ref->{head_title} = $head_title;
 	$template_data_ref->{canon_description} = $canon_description;
 	$template_data_ref->{og_images} = $og_images;
 	$template_data_ref->{og_images2} = $og_images2;
@@ -8276,7 +8292,8 @@ JS
 
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{code} = $code;
-	$template_data_ref->{user_moderator} = $User{moderator};
+	$template_data_ref->{can_delete} = can_delete_product($product_ref);
+	$template_data_ref->{can_delete_image} = can_delete_image($product_ref);
 
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
@@ -10372,8 +10389,8 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 		${$ingredients_list_ref}
 			.= '<table id="ordered_ingredients_list" style="border-collapse:collapse;width:100%;font-size:0.85rem">'
 			. "\n<thead><tr>"
-			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Ingredient</th>'
-			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Taxonomy ID</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ingredient</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">taxonomy_id</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th>'

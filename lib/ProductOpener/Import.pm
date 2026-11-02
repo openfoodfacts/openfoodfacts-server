@@ -2446,6 +2446,19 @@ sub import_csv_file ($args_ref) {
 			}
 		}
 
+		# Teams (e.g. exported from the producers platform): they are added to the existing teams,
+		# as the product may also have been edited on the public platform by users who belong to other teams
+		if ((defined $imported_product_ref->{teams}) and ($imported_product_ref->{teams} !~ /^\s*$/)) {
+			if (add_teams_to_product($product_ref, split(/,/, $imported_product_ref->{teams}))) {
+				$log->debug("added teams", {code => $code, teams => $imported_product_ref->{teams}})
+					if $log->is_debug();
+				push @modified_fields, "teams";
+				$modified++;
+				$stats_ref->{products_info_added}{$code} = 1;
+				$stats_ref->{"products_info_added_field_teams"}{$code} = 1;
+			}
+		}
+
 		# Tags sources input fields of the form tags_sources.[tags field].[source].tags/last_update_t
 		import_tags_sources_fields(
 			$args_ref, $imported_product_ref, $product_ref, $stats_ref, \$modified,

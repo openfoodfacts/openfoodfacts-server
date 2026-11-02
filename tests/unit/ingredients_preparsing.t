@@ -2,7 +2,7 @@
 
 # Tests of Ingredients::preparse_ingredients_text()
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -1433,6 +1433,57 @@ foreach my $test (
 	)
 {
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "code variants and conjunctions: $test->[1]");
+}
+
+# mono-, di-, tri- prefixes (examples from products)
+foreach my $test (
+	# prefix followed by "and" in the language of the ingredients list, and another prefix
+	['fr', "di - et triphosphates", "di- et triphosphates"],
+	['fr', "di-et triphosphates", "di- et triphosphates"],
+	['fr', "di - et polyphosphates", "di- et polyphosphates"],
+	['fr', "tri - et diphosphates", "tri- et diphosphates"],
+	['de', "Di - und Triphosphate", "Di- und Triphosphate"],
+	['en', "di - and triphosphates", "di- and triphosphates"],
+	['it', "di - e trifosfati", "di- e trifosfati"],
+	['en', "tri - and dicalcium phosphate", "tri- and dicalcium phosphate"],
+	['en', "tri- and dicalcium phosphate", "tri- and dicalcium phosphate"],
+	['fr', "mono - et diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['fr', "mono-et diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['fr', "mono et diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['en', "mono - and diglycerides", "mono- and diglycerides"],
+	['en', "mono-and diglycerides", "mono- and diglycerides"],
+	['en', "mono - & diglycerides", "mono- and diglycerides"],
+	['de', "Mono - und Diglyceride von Speisefettsäuren", "Mono- und Diglyceride von Speisefettsäuren"],
+	['nl', "mono - en diglyceriden van vetzuren", "mono- en diglyceriden van vetzuren"],
+	['pl', "mono - i diglicerydy kwasów tłuszczowych", "mono- i diglicerydy kwasów tłuszczowych"],
+	['ro', "mono-şi digliceride ale acizilor grași", "mono- și digliceride ale acizilor grași"],
+	# mono-diglycérides -> mono- et diglycérides
+	['fr', "mono-diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['fr', "mono - diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['en', "mono-diglycerides", "mono- and diglycerides"],
+	['en', "mono-di-glycerides", "mono- and diglycerides"],
+	['es', "mono-diglicéridos de ácidos grasos", "mono- y diglicéridos de ácidos grasos"],
+	# prefix joined to the next word
+	['fr', "di-glycérides d'acides gras", "diglycérides d'acides gras"],
+	[
+		'en',
+		"mono-sodium glutamate, mono - calcium phosphate, di-potassium phosphate",
+		"monosodium glutamate, monocalcium phosphate, dipotassium phosphate"
+	],
+	['fr', "di-acétate de sodium, di-phosphates", "diacétate de sodium, diphosphates"],
+	['de', "Mono - natriumglutamat", "Mononatriumglutamat"],
+	['en', "tri-calcium phosphate", "tri-calcium phosphate"],
+	# not joined to short words
+	['en', "di-t-butyl hydroxyhydrocinnamate", "di-t-butyl hydroxyhydrocinnamate"],
+	# short word that is not "and" in the language of the ingredients list (typo or other language):
+	# not joined, but the dash is not kept as a separator
+	['en', "mono - und Diglyceride", "mono- und Diglyceride"],
+	['fr', "mono - and diglycerides", "mono- and diglycerides"],
+	['ro', "mono - ti digliceride ale acizilor grași", "mono- ti digliceride ale acizilor grași"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2],
+		"mono, di, tri prefixes: $test->[0] / $test->[1]");
 }
 
 done_testing();

@@ -142,6 +142,11 @@ my @tests = (
 		test_case => "new_tags_updates",
 		csv_files => ["new_tags_1.csv", "new_tags_4_updates.csv"]
 	},
+	# Teams (e.g. exported from the producers platform) are added to existing teams
+	{
+		test_case => "teams",
+		csv_files => ["teams_1.csv", "teams_2.csv"]
+	},
 	# A Google Drive "view" share link should be rewritten to a direct-download link
 	# and the image downloaded, instead of being dropped because the link returns an HTML page
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/14308

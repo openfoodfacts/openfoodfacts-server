@@ -54,7 +54,10 @@
                "name" : "cherry tomatoes"
             }
          ],
-         "ingredients_coverage_percent" : 100
+         "ingredients_coverage_percent" : 100,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -141,6 +144,7 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
@@ -185,7 +189,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 0,
+            "negative_points_max" : 0,
             "positive_points" : 6,
+            "positive_points_max" : 0,
             "proteins" : 0.86,
             "proteins_points" : 0,
             "proteins_value" : 0.86,

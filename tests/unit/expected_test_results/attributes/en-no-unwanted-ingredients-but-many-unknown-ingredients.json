@@ -456,27 +456,23 @@
    ],
    "environmental_impact" : {
       "ecobalyse_input" : {
-         "distribution" : "ambient",
+         "distribution" : "fresh",
          "ingredients" : [],
          "ingredients_coverage_percent" : 0,
-         "packaging" : [
-            {
-               "category" : "en:cheeses",
-               "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec",
-               "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
-               "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
-            }
-         ]
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "refrigeration"
+         ],
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
+            "distribution" : "fresh",
             "ingredients" : [],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec"
-               }
+            "preparation" : [
+               "refrigeration"
             ]
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
@@ -975,6 +971,7 @@
    "misc_tags" : [
       "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-0-and-9",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
@@ -1003,7 +1000,7 @@
       "en:packagings-empty",
       "en:packagings-not-complete",
       "en:packagings-number-of-components-0",
-      "en:storage-conditions-not-set"
+      "en:storage-conditions-set"
    ],
    "nova_group_debug" : "no nova group if too many ingredients are unknown: 2 out of 2",
    "nova_group_error" : "too_many_unknown_ingredients",
@@ -1160,6 +1157,10 @@
    "pnns_groups_2_tags" : [
       "cheese",
       "known"
+   ],
+   "storage_conditions" : "en:refrigerated",
+   "storage_conditions_tags" : [
+      "en:refrigerated"
    ],
    "tags_sources" : {
       "allergens" : {
