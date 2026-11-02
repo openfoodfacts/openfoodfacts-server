@@ -96,6 +96,7 @@ BEGIN {
 		&count_products
 		&add_params_to_query
 		&add_params_and_filters_to_query
+		&generate_query_cache_key
 
 		&process_template
 
