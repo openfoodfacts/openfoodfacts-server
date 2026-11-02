@@ -39,11 +39,49 @@ my @tests = (
 		}'
 	],
 
-	# Multiple applicable transformations: both cooking and canning
+	# Multiple applicable transformations: canning includes cooking, so only canning is kept
 	[
 		'multiple_transformations',
 		'{
 			"categories_tags": ["en:canned-vegetables", "en:cooked-meats"]
+		}'
+	],
+
+	# Canned soups are both canned foods (canning) and meals (cooking): only canning is kept
+	[
+		'canned_soup',
+		'{
+			"categories_tags": ["en:canned-foods", "en:meals", "en:soups", "en:canned-soups"]
+		}'
+	],
+
+	# Sashimi are meals (cooking), but the more specific sashimi category cancels it
+	[
+		'sashimi',
+		'{
+			"categories_tags": ["en:meals", "en:seafood", "xx:sashimi"]
+		}'
+	],
+
+	# Semi-preserved foods are not sterilized: no canning
+	[
+		'semi_preserved_anchovies',
+		'{
+			"categories_tags": ["en:canned-foods", "en:fresh-foods", "en:semi-preserved-foods", "en:semi-preserved-anchovy-in-salt"]
+		}'
+	],
+
+	# Prepared salads are not cooked by default, but pasta salads are
+	[
+		'coleslaw',
+		'{
+			"categories_tags": ["en:meals", "en:prepared-salads", "en:coleslaw"]
+		}'
+	],
+	[
+		'pasta_salad',
+		'{
+			"categories_tags": ["en:meals", "en:prepared-salads", "en:pasta-salads"]
 		}'
 	],
 

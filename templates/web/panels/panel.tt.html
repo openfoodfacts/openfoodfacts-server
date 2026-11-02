@@ -326,7 +326,9 @@
 
     [% image_element = element_ref.image_element %]
     [% IF image_element.link_url.defined %]<a href="[% image_element.link_url %]">[% END %]
-        <img src="[% image_element.url %]" alt="[% image_element.alt %]">
+        <img src="[% image_element.url %]" alt="[% image_element.alt %]"
+            [%~ IF image_element.width.defined %] width="[% image_element.width %]"[% END %]
+            [%~ IF image_element.height.defined %] height="[% image_element.height %]"[% END %]>
     [% IF image_element.link_url.defined %]</a>[% END %]
 
     [% IF image_element.source_url.defined %]
@@ -433,7 +435,7 @@
          [% IF value.evaluation.defined %]
              class="[% show_evaluation.${value.evaluation}.td_color %]"
          [% END %]>
-            [% value.text %]
+            [% IF value.url %]<a href="[% value.url %]">[% value.text %]</a>[% ELSE %][% value.text %][% END %]
         </span>
     [% END %]
 

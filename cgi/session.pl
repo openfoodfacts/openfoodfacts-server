@@ -31,7 +31,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Lang qw/lang/;
-use ProductOpener::Auth qw/write_auth_deprecated_headers/;
+use ProductOpener::Auth qw/is_allowed_return_url write_auth_deprecated_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -56,7 +56,6 @@ if (defined $User_id) {
 	my $r = shift;
 	my $referer = $r->headers_in->{Referer};
 	my $url;
-	my $subdomain = $request_ref->{subdomain};
 
 	if ((defined $next_action) and ($code =~ /^(\d+)$/)) {
 		if ($next_action eq 'product_add') {
@@ -66,8 +65,7 @@ if (defined $User_id) {
 			$url = "/cgi/product.pl?type=edit&code=$code";
 		}
 	}
-	elsif ( (defined $referer)
-		and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/)
+	elsif (is_allowed_return_url($referer)
 		and (not($referer =~ /(?:login|session|user|reset_password)\.pl/)))
 	{
 		$url = $referer;

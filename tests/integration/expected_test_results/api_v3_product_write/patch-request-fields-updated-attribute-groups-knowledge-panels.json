@@ -802,13 +802,22 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ legumes"
+                                 "text" : "Fruits, vegetables, legumes"
                               }
                            ]
                         }
                      ],
                      "title" : "Nutrition facts"
                   }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : "Could you add the nutrition facts?"
+                  },
+                  "element_type" : "action"
                },
                {
                   "element_type" : "panel",
@@ -921,7 +930,7 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ legumes"
+                                 "text" : "Fruits, vegetables, legumes"
                               }
                            ]
                         }

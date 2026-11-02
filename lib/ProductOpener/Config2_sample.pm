@@ -23,7 +23,7 @@
 package ProductOpener::Config2;
 
 use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 BEGIN {
@@ -49,6 +49,7 @@ BEGIN {
 		$events_password
 		$redis_url
 		$folksonomy_url
+		$google_drive_api_key
 		%server_options
 		$serialize_to_json
 		$oidc_implementation_level
@@ -104,6 +105,10 @@ $redis_url = '';
 # enable folksonomy features
 $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 
+# API key restricted to the Google Drive API, used on the producers platform to list the images
+# of public Google Drive folders that producers import photos from. Leave empty to disable the feature.
+$google_drive_api_key = '';
+
 %server_options = (
 
 	cookie_domain => "openfoodfacts.dev",    # if not set, default to $server _domain
@@ -121,6 +126,12 @@ $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 	# minion_daemon_server_and_port => "http://0.0.0.0:3001",
 	# this one does not seems to be used
 	# minion_admin_server_and_port => "http://0.0.0.0:3003",
+
+	# Hosts that the import feature is allowed to download images from, even if they do not
+	# resolve to a globally routable address (e.g. a supplier serving images from a private
+	# network). By default, an image url is only fetched if it resolves to a globally routable
+	# address, so that the import cannot be used to reach our internal services.
+	# allowed_image_download_hosts => ["images.example.com"],
 );
 
 #11901: Remove once production is migrated

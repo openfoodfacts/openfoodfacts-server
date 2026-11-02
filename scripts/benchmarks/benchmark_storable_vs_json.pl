@@ -1,6 +1,5 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
 use utf8;
 use Time::HiRes qw/gettimeofday/;
 

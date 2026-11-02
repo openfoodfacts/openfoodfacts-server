@@ -2,7 +2,7 @@
 
 # Tests of detecting food-processing terms from taxonomies/ingredients_processing.txt
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -424,14 +424,9 @@ my @tests = (
 				'text' => 'fromage frais'
 			},
 			{
-				'id' => 'en:cream',
+				'id' => 'en:fresh-cream',
 				'is_in_taxonomy' => 1,
-				'text' => "cr\x{e8}me"
-			},
-			{
-				'id' => "fr:fraîche",
-				'is_in_taxonomy' => 0,
-				'text' => "fra\x{ee}che"
+				'text' => "cr\x{e8}me fra\x{ee}che"
 			},
 			{
 				'id' => 'en:pineapple',
@@ -532,11 +527,40 @@ my @tests = (
 		]
 	],
 
-	# test for jus and concentré with extra "de"
-	#	[ { lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
-	#		[
-	#		]
-	#	],
+	# "concentré de" is removed from inside the ingredient, but the "de" is needed to remove "jus de"
+	[
+		{lc => "fr", ingredients_text => "jus concentré de baies de sureau"},
+		[
+			{
+				'id' => 'en:elderberry',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:concentrated,en:juice',
+				'text' => 'baies de sureau'
+			}
+		]
+	],
+	[
+		{lc => "fr", ingredients_text => "eau, jus concentré de cassis 20%, sucre"},
+		[
+			{
+				'id' => 'en:water',
+				'is_in_taxonomy' => 1,
+				'text' => 'eau'
+			},
+			{
+				'id' => 'en:blackcurrant',
+				'is_in_taxonomy' => 1,
+				'percent' => 20,
+				'processing' => 'en:concentrated,en:juice',
+				'text' => 'cassis'
+			},
+			{
+				'id' => 'en:sugar',
+				'is_in_taxonomy' => 1,
+				'text' => 'sucre'
+			}
+		]
+	],
 
 	##################################################################
 	#
@@ -2089,19 +2113,19 @@ my @tests = (
 			{
 				'id' => 'en:rice',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'ris'
 			},
 			{
 				'id' => 'en:potato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'kartofler'
 			},
 			{
 				'id' => 'en:potato',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:cooked',
+				'processing' => 'en:boiled',
 				'text' => 'kartofler'
 			},
 			{

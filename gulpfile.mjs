@@ -32,6 +32,7 @@ const jsSrc = [
   "./html/js/external-knowledge-panels.js",
   "./html/js/matomo-events.js",
   "./html/js/image-editor.js",
+  "./html/js/image-editor-move-mode.mjs",
 ];
 
 const sassSrc = "./scss/**/*.scss";

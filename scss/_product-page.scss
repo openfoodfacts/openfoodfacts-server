@@ -8,6 +8,11 @@ $decalTop:48px;
     .flex-grid {
         flex-wrap: nowrap;
     }
+    .provenance {
+        margin: 0 0 0.25rem;
+        font-size: 13px;
+        color: #52443d;
+    }
 }
 #prodNav {
     padding-top :$productsGutter;

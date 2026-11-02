@@ -256,8 +256,7 @@ sub create_or_update_keycloak_user($self, $api_request_ref) {
 	# create request with right headers
 	my $upsert_user_request;
 	if (defined $existing_user) {
-		my $keycloak_id = $existing_user->{id};
-		$upsert_user_request = HTTP::Request->new(PUT => $self->{users_endpoint} . '/' . $keycloak_id);
+		$upsert_user_request = HTTP::Request->new(PUT => $self->get_user_endpoint($existing_user));
 	}
 	else {
 		$upsert_user_request = HTTP::Request->new(POST => $self->{users_endpoint});
@@ -281,8 +280,7 @@ sub delete_user ($self, $userid) {
 			die 'Could not get token to manage users with keycloak_users_endpoint';
 		}
 
-		my $keycloak_id = $existing_user->{id};
-		my $delete_user_request = HTTP::Request->new(DELETE => $self->{users_endpoint} . '/' . $keycloak_id);
+		my $delete_user_request = HTTP::Request->new(DELETE => $self->get_user_endpoint($existing_user));
 		$delete_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
 		# issue the request to keycloak
 		my $response = LWP::UserAgent::Plugin->new->request($delete_user_request);
@@ -290,6 +288,74 @@ sub delete_user ($self, $userid) {
 			die $response->content;
 		}
 		$memd->delete("user/$userid");
+	}
+
+	return;
+}
+
+=head2 set_user_enabled ($userid, $enabled)
+
+Enable or disable a user in Keycloak. A disabled user cannot log in.
+Unlike delete_user(), this is reversible and it does not trigger a user-deleted event.
+
+=head3 Arguments
+
+=head4 User id $userid
+
+=head4 Boolean $enabled
+
+=head3 Return Value
+
+1 if the user was found and updated, 0 if the user does not exist in Keycloak.
+
+=cut
+
+sub set_user_enabled ($self, $userid, $enabled) {
+	my $existing_user = $self->find_keycloak_user_by_username($userid, 1);
+	return 0 if not defined $existing_user;
+
+	my $token = $self->get_or_refresh_token();
+
+	my $request = HTTP::Request->new(PUT => $self->get_user_endpoint($existing_user));
+	$request->header('Content-Type' => 'application/json');
+	$request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	$request->content(encode_json({enabled => ($enabled ? $JSON::PP::true : $JSON::PP::false)}));
+
+	my $response = LWP::UserAgent::Plugin->new->request($request);
+	unless ($response->is_success) {
+		die $response->content;
+	}
+	$memd->delete("user/$userid");
+
+	return 1;
+}
+
+sub reset_user_password ($self, $id) {
+	my $keycloak_user;
+	if ($id =~ /\@/) {
+		$keycloak_user = $self->find_keycloak_user_by_email($id, 1);
+		$log->debug('reset_password_by_email', {'keycloak_user' => $keycloak_user, id => $id})
+			if $log->is_debug();
+	}
+	else {
+		$keycloak_user = $self->find_keycloak_user_by_username($id, 1);
+		$log->debug('reset_password_by_username', {'keycloak_user' => $keycloak_user, id => $id})
+			if $log->is_debug();
+	}
+	if ($keycloak_user and $keycloak_user->{id}) {
+		my $token = $self->get_or_refresh_token();
+
+		my $request = HTTP::Request->new(PUT => $self->get_user_endpoint($keycloak_user) . '/execute-actions-email');
+		$request->header('Content-Type' => 'application/json');
+		$request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+		$request->content(encode_json(['UPDATE_PASSWORD']));
+
+		# Don't do anything special on failure
+		my $response = LWP::UserAgent::Plugin->new->request($request);
+		unless ($response->is_success) {
+			$log->warn('reset_password', {'content' => $response->content, id => $id})
+				if $log->is_warn();
+		}
 	}
 
 	return;
@@ -336,7 +402,11 @@ A hashmap reference with user information from Keycloak.
 =cut
 
 sub find_user_by_email ($self, $email) {
-	return keycloak_to_user_ref($self->_find_user_by_single_attribute_exact('email', $email));
+	return keycloak_to_user_ref($self->find_keycloak_user_by_email($email));
+}
+
+sub find_keycloak_user_by_email ($self, $email, $brief = 0) {
+	return $self->_find_user_by_single_attribute_exact('email', $email, $brief);
 }
 
 sub keycloak_to_user_ref ($keycloak_user_ref) {
@@ -377,6 +447,10 @@ sub get_account_link ($self, $url) {
 		. uri_escape($oidc_options{client_id})
 		. '&referrer_uri='
 		. uri_escape($url);
+}
+
+sub get_user_endpoint ($self, $keycloak_user) {
+	return $self->{users_endpoint} . '/' . uri_escape($keycloak_user->{id});
 }
 
 =head2 _find_user_by_single_attribute_exact ($name, $value)
