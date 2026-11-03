@@ -15,6 +15,10 @@ use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
+# These fixtures cover the generic ingredient parser, including raw feed codes.
+# Pet-food section boundaries and dosages are covered in ingredient_sections.t.
+local $options{product_type} = 'food';
+
 my @tests = (
 
 	# FR
