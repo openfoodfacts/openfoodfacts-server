@@ -82,6 +82,16 @@ for my $case (
 	is($product->{ingredients}[0]{quantity_reference}, undef, "$case->[1] has no reference without its quantity");
 }
 
+for my $text (
+	'tomatoes 20 g (148 g per 100 g of finished product), pork',
+	'tomatoes (148 g per 100 g of finished product) 20 g, pork'
+	)
+{
+	my $tomatoes = parse('en', $text)->{ingredients}[0];
+	is($tomatoes->{quantity_g}, 20, "$text keeps the quantity read last");
+	is($tomatoes->{quantity_reference}, undef, "$text has no reference for another quantity");
+}
+
 for my $case (
 	['en', 'Tomatoes (148 g per 100 g of finished product and salt)'],
 	['en', 'Tomatoes (148 g per 100 g of finished product: salt)'],

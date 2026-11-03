@@ -2132,6 +2132,7 @@ Text to analyze
 		my $vegetarian = undef;
 		my $size = undef;
 		my $quantity_reference;
+		my $quantity_reference_value;
 		my @processings = ();
 		my $previous_parser_additive_class;
 		my $started_additive_class_scope = 0;
@@ -2469,6 +2470,7 @@ Text to analyze
 						$percent_or_quantity_value = $reference_statement->{value};
 						$percent_or_quantity_unit = $reference_statement->{unit};
 						$quantity_reference = $reference_statement->{reference};
+						$quantity_reference_value = $percent_or_quantity_value;
 						$between = '';
 					}
 
@@ -3689,9 +3691,11 @@ Text to analyze
 					defined $quantity and $ingredient{quantity} = $quantity;
 					defined $quantity_g and $ingredient{quantity_g} = $quantity_g + 0;
 					defined $quantity_ml and $ingredient{quantity_ml} = $quantity_ml + 0;
-					# The reference qualifies the quantity: a percent read later may have replaced it.
+					# The reference qualifies its own quantity: a percent or quantity read later may have replaced it.
 					$ingredient{quantity_reference} = $quantity_reference
-						if defined $quantity_reference and defined $quantity;
+						if defined $quantity_reference
+						and defined $quantity
+						and $percent_or_quantity_value eq $quantity_reference_value;
 				}
 				if (defined $origin) {
 					$ingredient{origins} = $origin;
