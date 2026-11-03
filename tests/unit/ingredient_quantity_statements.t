@@ -137,10 +137,14 @@ is($dosages->{ingredients}[0]{quantity}, '20 mg/100g', 'a later statement does n
 my $referenced = parse('en', 'tomatoes (148 g per 100 g), pork (200 g per 100 g of finished product)');
 extract_ingredients_from_text($referenced);
 is(
-	[map {$_->{percent}} @{$referenced->{ingredients}}],
-	[undef, undef],
-	'input-to-output quantities are excluded from recipe-weight normalization'
+	[map {sprintf('%.1f', $_->{percent})} @{$referenced->{ingredients}}],
+	['42.5', '57.5'],
+	'quantities for the same reference are normalized together'
 );
+
+my $mixed = {lc => 'fr', ingredients_text => 'tomates (148 g pour 100 g), sucre 20 g, sel 2 g', nutrition => {}};
+extract_ingredients_from_text($mixed);
+is($mixed->{ingredients}[1]{percent}, undef, 'quantities with and without a reference are not added together');
 
 my $ordinary = parse('en', 'carrots 60 g, tomatoes 40 g');
 extract_ingredients_from_text($ordinary);

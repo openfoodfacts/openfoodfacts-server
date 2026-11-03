@@ -4704,6 +4704,9 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	my $all_ingredients_have_a_set_percent = 1;
 	my $quantity_sum = 0;
 	my $all_ingredients_have_a_set_quantity = 1;
+	# Quantities can only be added if they share the same reference: "148 g per 100 g" and "200 g per 100 g",
+	# not a quantity per 100 g of a component (#3187) and a quantity in the recipe.
+	my %quantity_references;
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			$percent_sum += $ingredient_ref->{percent};
@@ -4714,13 +4717,17 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 			$all_ingredients_have_a_set_percent = 0;
 		}
 
-		if (defined $ingredient_ref->{quantity_g} && !defined $ingredient_ref->{quantity_reference}) {
+		if (defined $ingredient_ref->{quantity_g}) {
 			$quantity_sum += $ingredient_ref->{quantity_g};
+			my $reference = $ingredient_ref->{quantity_reference};
+			$quantity_references{defined $reference ? ($reference->{quantity_g} // "$reference->{quantity_ml} ml") : ''}
+				= 1;
 		}
 		else {
 			$all_ingredients_have_a_set_quantity = 0;
 		}
 	}
+	$all_ingredients_have_a_set_quantity = 0 if keys %quantity_references > 1;
 
 	my $percent_mode;
 
