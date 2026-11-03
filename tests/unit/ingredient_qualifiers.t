@@ -106,6 +106,14 @@ is($mixed->{ingredients}[1]{labels}, undef, 'a mixed plant and animal origin is 
 isnt($mixed->{ingredients}[1]{vegan}, 'yes', 'a mixed plant and animal origin is not a vegan claim');
 is($mixed->{ingredients}[1]{origins}, undef, 'a mixed plant and animal origin is not a geographic origin');
 
+my $animal = parse("riz, sous-produits d'origine animale 4%, gélatine d'origine animale");
+is([map {$_->{id}} @$animal], ['en:rice', 'en:animal-derivatives', 'en:e428'],
+	'an animal origin stays in a known name');
+is($animal->[1]{origins}, undef, 'an animal origin kept in the name is not repeated as an origin');
+is($animal->[2]{origins}, 'fr:animale', 'an animal origin outside a known name is kept as an origin');
+is(parse("riz, gélatine d'origine animale origine France, sel")->[1]{origins},
+	'en:france', 'an animal origin does not replace a geographic origin');
+
 my $inline = {lc => 'fr', ingredients_text => 'huile végétale origine France et gélatine', nutrition => {}};
 extract_ingredients_from_text($inline);
 is($inline->{ingredients}[0]{vegan}, 'yes', 'a plant name keeps its claim');

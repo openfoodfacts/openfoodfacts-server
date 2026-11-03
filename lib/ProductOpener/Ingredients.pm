@@ -2811,7 +2811,6 @@ Text to analyze
 				# Preserve names such as "sous-produits d'origine végétale" before extracting origins.
 				my ($name, $origin_string) = _split_explicit_ingredient_origin($ingredient);
 				if (defined $origin_string) {
-					my $plant_origin = $origin_string =~ /vegetal|végétal/i;
 					# A plant origin can be followed by a geographic one: "sous-produits d'origine végétale origine France".
 					# "d'origine végétale ou animale" states nothing about the ingredient.
 					my $vegan_origin = $ingredient =~ $plant_origin_regexp && $ingredient !~ /animal/i;
@@ -2819,15 +2818,19 @@ Text to analyze
 						$vegan = "yes";
 						$vegetarian = "yes";
 					}
-					# Only a plant origin can be part of a name, a geographic origin always leaves it.
-					my $known_name = $vegan_origin && _is_known_ingredient_name($ingredients_lc, $ingredient);
+					# A plant or animal origin can be part of a name ("sous-produits d'origine animale"),
+					# a geographic origin always leaves it.
+					my $known_name = $ingredient =~ $plant_or_animal_origin_regexp
+						&& _is_known_ingredient_name($ingredients_lc, $ingredient);
 					if (not $known_name) {
 						$ingredient = $name;
-						if (not $plant_origin) {
+						# "gélatine d'origine animale" keeps the animal origin, as "gélatine (origine animale)" does
+						if ($origin_string !~ /vegetal|végétal/i) {
 							my $origins = join(",",
 								map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)}
 									split(/,/, $origin_string));
-							$origin = $origins if $origins ne '';
+							# but does not replace a geographic origin: "gélatine d'origine animale origine France"
+							$origin = $origins if $origins ne '' and not($origin and $origin_string =~ /animal/i);
 						}
 					}
 				}
