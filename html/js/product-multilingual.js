@@ -1070,7 +1070,8 @@ function check_nutrient(nutrient_id, per, preparation, id) {
     if (max) {
         is_above_or_below_max = (Number.isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
         // if the nutrition facts are indicated per serving, the value can be above 100
-        if ((nutrient_value > max) && per_serving && !percent) {
+        // (not the carbon footprint: a tonne of CO2e is implausible whatever the quantity)
+        if ((nutrient_value > max) && per_serving && !percent && nutrient_id != 'carbon-footprint') {
             is_above_or_below_max = false;
         }
         show_warning(is_above_or_below_max, "#"+id, nutrient_id, per, preparation, lang().product_js_enter_value_between_0_and_max.replace('{max}', max));
