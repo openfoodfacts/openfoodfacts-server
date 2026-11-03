@@ -11,6 +11,10 @@
          "percent_estimate" : 42.5287356321839,
          "quantity" : "148 g",
          "quantity_g" : 148,
+         "quantity_reference" : {
+            "quantity_g" : 100,
+            "text" : "100g"
+         },
          "text" : "tomates",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -24,6 +28,10 @@
          "percent_estimate" : 57.4712643678161,
          "quantity" : "200 g",
          "quantity_g" : 200,
+         "quantity_reference" : {
+            "quantity_g" : 100,
+            "text" : "100 g de produit fini"
+         },
          "text" : "porc",
          "vegan" : "no",
          "vegetarian" : "no"

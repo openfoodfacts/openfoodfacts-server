@@ -3,6 +3,36 @@ title: ingredient
 properties:
   id:
     type: string
+  equivalents:
+    type: array
+    description: |
+      Declared equivalents of this ingredient, such as fresh carrot equivalent
+      for dried carrots. These annotations are not additional ingredients and
+      their percentages are not used as actual ingredient percentages.
+    items:
+      type: object
+      required: [id, text, percent]
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        percent:
+          type: number
+  quantity_reference:
+    type: object
+    description: |
+      Reference amount for an ingredient input quantity, e.g. 100 g of finished
+      ketchup for 148 g of tomatoes. The input-to-reference ratio is not an
+      ingredient percentage or a recipe weight for normalization.
+    required: [text]
+    properties:
+      text:
+        type: string
+      quantity_g:
+        type: number
+      quantity_ml:
+        type: number
   ingredients:
     type: array
     description: |
