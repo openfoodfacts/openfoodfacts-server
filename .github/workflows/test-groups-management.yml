@@ -1,5 +1,10 @@
 name: Test Groups Management
 
+# Weekly: merge test timings from recent successful PR runs into the
+# default-branch timing snapshot (cache) and publish a balancing report.
+# Each PR run builds its test plan from that snapshot.
+# See docs/dev/explain-dynamic-test-grouping.md
+
 on:
   schedule:
     - cron: '0 6 * * 1'  # Every Monday at 6 AM UTC
@@ -48,8 +53,9 @@ jobs:
               echo
               echo "## $profile / $test_type"
               echo '```'
+              # Keep the summary comments, drop the Makefile file lists.
               python3 scripts/dynamic_test_grouper.py --type="$test_type" --profile="$profile" \
-                | sed -n '/^# Auto-calculated/p;/^# Group Statistics/,$p'
+                | grep '^#'
               echo '```'
             done
           done
