@@ -23,7 +23,7 @@ my $ecobalyse_mock = mock 'ProductOpener::EnvironmentalImpact' => (
 
 my $rice_id = "cce078cf-3d3e-4153-a0a1-35555b2da639";    # kg
 my $water_id = "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6";    # kg
-my $wine_id = "6621c18e-85de-4683-82be-7b236e68bc48";    # L
+my $wine_id = "6621c18e-85de-4683-82be-7b236e68bc48";    # L (ecobalyse_unit property in the ingredients taxonomy)
 my $cooking_id = "e297d2a0-1945-4f48-838f-fbbb4a6cde72";
 
 # Refrigerated cooked meal of 300 g, with ingredients quantities estimated by the recipe estimator:
@@ -54,7 +54,8 @@ my $product_ref = {
 			text => "vin rouge",
 			quantity_estimate => 10,
 			percent_estimate => 8,
-			ecobalyse_id => $wine_id
+			ecobalyse_id => $wine_id,
+			ecobalyse_unit => "L"
 		},
 	],
 };
