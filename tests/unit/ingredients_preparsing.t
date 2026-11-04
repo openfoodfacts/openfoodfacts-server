@@ -1457,6 +1457,17 @@ foreach my $test (
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "abbreviations: $test->[0] / $test->[1]");
 }
 
+# Ranges in French recipes
+foreach my $test (
+	["2 à 3 gousses d'ail", "2-3 gousses d'ail"],
+	['2 ou 3 œufs', '2-3 œufs'],
+	['1,5 à 2 kg de pommes de terre', '1.5-2 kg de pommes de terre'],
+	['E330 ou 331', 'e330 ou 331'],
+	)
+{
+	is(preparse_ingredients_text('fr', $test->[0]), $test->[1], "ranges: $test->[0]");
+}
+
 # mono-, di-, tri- prefixes (examples from products)
 foreach my $test (
 	# prefix followed by "and" in the language of the ingredients list, and another prefix

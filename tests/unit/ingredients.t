@@ -1155,6 +1155,14 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'fr-recipes-with-common-ingredients',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 kg de pommes de terre à chair ferme, 250 g de semoule fine, 100 g de mie de pain, 4 tranches de pain de campagne, 3 oignons nouveaux, 2 cuillères à soupe d'huile de cuisson, 2 ou 3 œufs",
+		}
+	],
+	[
 		'en-recipes-with-spoons',
 		{
 			lc => 'en',

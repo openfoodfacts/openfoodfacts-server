@@ -7641,8 +7641,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# Ranges in cooking recipes in French
 	if ($ingredients_lc eq 'fr') {
-		# Ranges: "2 à 3 gousses d'ail" -> "2-3 gousses d'ail" (ranges with an hyphen are already parsed)
-		$text =~ s/(?<![\d,.])(\d+(?:[,.]\d+)?)\s+à\s+(\d+(?:[,.]\d+)?)(?=\s)/$1-$2/g;
+		# Ranges: "2 à 3 gousses d'ail", "2 ou 3 œufs" -> "2-3 gousses d'ail" (ranges with an hyphen are already parsed)
+		# Not after a letter, to keep "E330 ou 331"
+		$text =~ s/(?<![\w,.])(\d+(?:[,.]\d+)?)\s+(?:à|ou)\s+(\d+(?:[,.]\d+)?)(?=\s)/$1-$2/g;
 	}
 
 	# Remove _ underscores around allergens, e.g. "_milk_" -> "milk"

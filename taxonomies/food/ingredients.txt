@@ -15165,7 +15165,7 @@ et: Õli
 eu: Olio
 fa: روغن
 fi: öljy, ruokaöljy
-fr: huile, huiles, huile de cuisine
+fr: huile, huiles, huile de cuisine, huile de cuisson
 ga: Ola
 gd: Ola
 gl: Aceite
@@ -25716,7 +25716,7 @@ el: σιμιγδάλισκληρού σιταριού
 es: sémola de trigo duro, sémola de trigo candeal
 et: durumnisujahu, durum nisujahu
 fi: durumvehnäsuurimo
-fr: semoule de blé dur, semoule de blé dure, semoule de blé dur fine
+fr: semoule de blé dur, semoule de blé dure
 ga: seimilín cruithneachta dúraim
 hr: krupica durum pšenice, krupica od durum pšenice, krupica iz durum pšenice, durum pšenična krupica, pšenična krupica durum
 hu: durumbúzadara, durum búzadara
@@ -25760,6 +25760,10 @@ ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: none
 #13020 in 29 @2021-09-28
 wikidata:en: Q95370124
+
+< en: durum wheat semolina
+en: fine semolina, fine durum wheat semolina
+fr: semoule fine, semoules fines, semoule de blé dur fine, semoule fine de blé dur
 
 #<en:durum wheat semolina
 #en:organic durum wheat semolina
@@ -58886,7 +58890,7 @@ es: cebolla de primavera, cebolletas tiernas
 et: roheline sibul
 fa: پیازچه
 fi: vihersipuli, vihersipulit
-fr: oignon vert, cébette, oignon de printemps, oignons verts, cébettes, oignons de printemps
+fr: oignon vert, cébette, oignon de printemps, oignons verts, cébettes, oignons de printemps, oignon nouveau, oignons nouveaux
 he: בצל ירוק
 hi: हरी प्याज
 hr: proljetni luk
@@ -61754,7 +61758,8 @@ ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
 
 < en: potato
-fr: Pommes de terre de consommation à chair ferme
+en: waxy potato, waxy potatoes, firm potato, firm potatoes
+fr: pomme de terre à chair ferme, pommes de terre à chair ferme, pomme de terre de consommation à chair ferme, Pommes de terre de consommation à chair ferme
 
 < en: potato
 en: British potato
@@ -61784,7 +61789,7 @@ usda_fdc_code:en: 168446
 usda_ndb_code:en: 11413
 usda_ndb_name:en: Potato flour
 
-< fr: Pommes de terre de consommation à chair ferme
+< en: waxy potato
 fr: Pommes de terre de consommation à chair ferme bio
 
 < en: potato
@@ -100283,6 +100288,17 @@ vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q7802
 wikipedia:en: https://en.wikipedia.org/wiki/Bread
+
+< en: bread
+en: country bread
+fr: pain de campagne, pains de campagne
+ciqual_food_code:en: 7100
+ciqual_food_name:fr: Pain, baguette ou boule, de campagne
+
+# soft inner part of bread, not to be confused with dry breadcrumbs (chapelure)
+< en: bread
+en: fresh breadcrumbs, fresh bread crumbs, soft breadcrumbs
+fr: mie de pain, mie de pain fraîche
 
 < en: bread
 en: crispbread
