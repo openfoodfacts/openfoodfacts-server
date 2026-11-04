@@ -189,7 +189,6 @@ use ProductOpener::Texts qw/$lang_dir/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::PackagerCodes qw/$ec_code_regexp/;
 
-use Clone qw(clone);
 use List::MoreUtils qw(uniq);
 
 use URI::Escape::XS;
@@ -1855,8 +1854,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 									# register in synonyms
 									$synonyms{$tagtype}{$lc}{$tagid_new} = $lc_tagid1;
 									# and register the substitution happened
+									# Preserve the existing target check: new targets start with no history.
 									$synonym_contains_synonyms{$lc}{$tagid_new}
-										= defined $synonym_contains_synonyms{$lc}{$tagid}
+										= defined $synonym_contains_synonyms{$lc}{$tagid_new}
+										&& defined $synonym_contains_synonyms{$lc}{$tagid}
 										? {%{$synonym_contains_synonyms{$lc}{$tagid}}}
 										: {};
 									$synonym_contains_synonyms{$lc}{$tagid_new}{$lc_tagid2} = 1;
