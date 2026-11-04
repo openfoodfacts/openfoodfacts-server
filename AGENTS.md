@@ -177,3 +177,8 @@ make prune_cache  # docker builder cache for this project
 Do **not** run a bare `docker system prune` — it is unscoped and will remove artifacts belonging to unrelated projects on the same machine.
 
 **Diagnosing a running environment** — `make log`, or `docker compose logs <service>`. Full reset: `make down && make dev`.
+
+### Disclosure
+
+* Always disclose yourself when creating a PR with or on behalf of your user (prompt used, model used, effort)
+* Always add a before / after screenshot if your change is visual
