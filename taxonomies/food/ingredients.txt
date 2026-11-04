@@ -4815,6 +4815,8 @@ ur: ملائی
 uz: Qaymoq
 vi: Kem
 zh: 鮮奶油, 奶油
+agribalyse_proxy_food_code:en: 19410
+agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
 # ast:Crema de lleche
 # bar:Rahm
 # bxr:Сүсэгы
@@ -10422,6 +10424,8 @@ ro: vită
 ru: Говядина
 sv: nötkött
 zh: 牛
+agribalyse_proxy_food_code:en: 6231
+agribalyse_proxy_food_name:fr: Boeuf, à bourguignon ou pot-au-feu, cru
 ecobalyse_alias:en: beef-without-bone-feedlot
 ecobalyse_category:en: red_meats
 ecobalyse_default_origin:en:
@@ -10978,6 +10982,8 @@ pl: Jagnię
 pt: cordeiro
 qu: Achkash
 ru: ягнёнок
+agribalyse_proxy_food_code:en: 21504
+agribalyse_proxy_food_name:fr: Agneau, épaule, crue
 # arc:ܐܡܪܐ
 # nds-nl:Laom
 # scn:Agneddu
@@ -11461,6 +11467,8 @@ wa: Robete
 yi: קיניגל
 za: Douq
 zh: 兔
+agribalyse_food_code:en: 34001
+agribalyse_food_name:fr: Lapin, viande crue
 # aeb-arab:أرنب
 # be-tarask:Трусы
 # bho:खरहा
@@ -12526,6 +12534,8 @@ ru: Свинина
 sv: gris
 tr: domuz
 zh: 猪
+agribalyse_proxy_food_code:en: 28001
+agribalyse_proxy_food_name:fr: Porc, épaule, crue
 ecobalyse_alias:en: pork-fr-bbc-2025
 ecobalyse_category:en: red_meats
 ecobalyse_default_origin:en: FR
@@ -12569,6 +12579,8 @@ sl: svinjsko meso
 sv: fläskkött, griskött, svinkött, fläsk, kött från gris
 tr: domuz eti
 zh: 猪肉
+agribalyse_proxy_food_code:en: 28001
+agribalyse_proxy_food_name:fr: Porc, épaule, crue
 carbon_footprint_fr_foodges_ingredient:fr: Viande de porc
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en: 7.4
@@ -13928,6 +13940,8 @@ hr: teletina
 hu: borjú
 it: vitello
 nl: kalf
+agribalyse_proxy_food_code:en: 6560
+agribalyse_proxy_food_name:fr: Veau, épaule, crue
 nutriscore_red_meat:en: yes
 usda_ndb_proxy_code:en: 17142
 usda_ndb_proxy_name:en: Veal, ground, raw
@@ -15225,6 +15239,8 @@ wa: ôle
 yi: בוימל
 yo: Epo
 zh: 油
+agribalyse_proxy_food_code:en: 17700
+agribalyse_proxy_food_name:fr: Huile combinée (mélange d'huiles)
 # ast:Aceite
 # azb:یاغ
 # be-tarask:алей
@@ -37009,6 +37025,9 @@ wo: sokolaa
 yi: שאקאלאד
 zh: 巧克力
 zu: shokoledi
+# usage:en:chocolate (cocoa mass, sugar, cocoa butter, emulsifiers:lecithins (soy), natural vanilla flavouring)
+agribalyse_proxy_food_code:en: 31085
+agribalyse_proxy_food_name:fr: Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
 # ang:Ceocōlāte
 # arz:شوكولاته
 # ast:Chicolate
@@ -37074,7 +37093,6 @@ carbon_footprint_fr_foodges_value:fr: 4.9
 vegan:en: maybe
 vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Chocolate
-# usage:en:chocolate (cocoa mass, sugar, cocoa butter, emulsifiers:lecithins (soy), natural vanilla flavouring)
 
 < en: chocolate
 en: belgian chocolate
@@ -55618,6 +55636,8 @@ ru: капуста
 sv: kål
 to: kāpisi
 tr: lahana
+agribalyse_proxy_food_code:en: 20069
+agribalyse_proxy_food_name:fr: Chou vert, cru
 # ksh:kappes
 # mdf:капста
 # sco:cabbitch
@@ -63425,6 +63445,8 @@ nl: salade
 ru: зелень
 sv: Sallad
 zh: 沙拉
+agribalyse_proxy_food_code:en: 25604
+agribalyse_proxy_food_name:fr: Salade verte, crue, sans assaisonnement
 #wikipedia:en:https://en.wikipedia.org/wiki/Leaf_vegetable
 #wikipedia:de:https://de.wikipedia.org/wiki/Salatpflanze
 #wikipedia:fr:https://fr.wikipedia.org/wiki/Salade_(plante)
@@ -84952,6 +84974,8 @@ yo: eja
 za: Duzbya
 zh: 鱼, 魚
 zu: inhlanzi
+agribalyse_proxy_food_code:en: 26043
+agribalyse_proxy_food_name:fr: Cabillaud, cru
 allergens:en: en:fish
 #carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 #carbon_footprint_fr_foodges_value:fr:10.2
@@ -100180,6 +100204,8 @@ wo: Mburu
 yi: ברויט
 zh: 麵包
 zu: isinkwa
+agribalyse_proxy_food_code:en: 7001
+agribalyse_proxy_food_name:fr: Pain, baguette, courante
 # ang:hlāf
 # arc:לחמא
 # arz:عيش
@@ -102274,6 +102300,8 @@ it: brodo di manzo
 nl: runderbuillon
 pl: bulion wołowy
 sv: nötköttsbuljong
+agribalyse_proxy_food_code:en: 25930
+agribalyse_proxy_food_name:fr: Bouillon de boeuf, déshydraté reconstitué
 #wikipedia:en:no entry
 ciqual_food_code:en: 11001
 ciqual_food_name:en: Broth, stock or bouillon, beef, dehydrated
@@ -102333,6 +102361,8 @@ it: Brodo di pollame
 ja: 鶏肉スープ
 nl: gevogeltebouillon
 pl: bulion drobiowy
+agribalyse_proxy_food_code:en: 25947
+agribalyse_proxy_food_name:fr: Bouillon de volaille, déshydraté reconstitué
 ciqual_food_code:en: 11174
 ciqual_food_name:en: Broth, stock or bouillon, poultry, dehydrated
 ciqual_food_name:fr: Bouillon de volaille, déshydraté
@@ -102426,6 +102456,8 @@ it: brodo vegetale
 nl: groentebouillon, groentenbouillon
 pl: bulion warzywny, bulion roślinny, bulion wegetariański
 sv: grönsaksbuljong
+agribalyse_proxy_food_code:en: 25948
+agribalyse_proxy_food_name:fr: Bouillon de légumes, déshydraté reconstitué
 vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q42366457
