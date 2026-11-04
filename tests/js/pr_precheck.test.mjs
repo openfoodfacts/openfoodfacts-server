@@ -3,7 +3,7 @@ import test from "node:test";
 
 import {findProblems, run} from "../../.github/scripts/pr_precheck.mjs";
 
-const outsider = {association: "CONTRIBUTOR", files: ["lib/ProductOpener/Food.pm"], authorComments: [], linkedIssues: [{number: 1}]};
+const outsider = {files: ["lib/ProductOpener/Food.pm"], authorComments: [], linkedIssues: [{number: 1}]};
 const visible = {...outsider, files: ["templates/web/pages/product/product_page.tt.html"]};
 
 test("an outside pull request without a linked issue is asked for one", () => {
@@ -11,7 +11,7 @@ test("an outside pull request without a linked issue is asked for one", () => {
 });
 
 test("a maintainer pull request without a linked issue passes", () => {
-    assert.deepEqual(findProblems({...outsider, association: "MEMBER", body: "", linkedIssues: []}), []);
+    assert.deepEqual(findProblems({...outsider, maintainer: true, body: "", linkedIssues: []}), []);
 });
 
 test("a taxonomy-only pull request does not need a linked issue", () => {
@@ -42,7 +42,7 @@ test("Perl and test changes do not need a screenshot", () => {
 const repository = {nameWithOwner: "o/r"};
 const bot = (body) => ({id: 3, user: {type: "Bot", login: "github-actions[bot]"}, body});
 
-function fakeGithub({pr = {}, files = [], comments = [], issues = [], payload = {pull_request: {number: 7, author_association: "CONTRIBUTOR"}}, removeLabel}) {
+function fakeGithub({pr = {}, files = [], comments = [], issues = [], payload = {pull_request: {number: 7}}, role = "read", removeLabel}) {
     const calls = [];
     const record = (name) => async (args) => {
         calls.push([name, args]);
@@ -50,6 +50,9 @@ function fakeGithub({pr = {}, files = [], comments = [], issues = [], payload = 
     const github = {
         paginate: async (method, args) => (await method(args)).data,
         rest: {
+            repos: {
+                getCollaboratorPermissionLevel: async ({username}) => ({data: {role_name: username === "author" ? role : "read"}})
+            },
             pulls: {
                 get: async () => ({data: {state: "open", draft: false, user: {login: "author", type: "User"}, body: "", labels: [], ...pr}}),
                 listFiles: async () => ({data: files.map((file) => (typeof file === "string" ? {filename: file} : file))})
@@ -83,9 +86,27 @@ test("moving a file into taxonomies still needs a linked issue", async () => {
 });
 
 test("a comment on the pull request runs the same check", async () => {
-    const fake = fakeGithub({payload: {issue: {number: 7, author_association: "MEMBER"}}});
+    const fake = fakeGithub({payload: {issue: {number: 7}}});
     await run(fake);
-    assert.deepEqual(names(fake), []);
+    assert.deepEqual(names(fake), ["create", "label"]);
+});
+
+test("maintainers are not asked for a linked issue, but still for a screenshot", async () => {
+    for (const role of ["admin", "maintain", "write", "triage"]) {
+        const noIssue = fakeGithub({role});
+        await run(noIssue);
+        assert.deepEqual(names(noIssue), []);
+        const noScreenshot = fakeGithub({role, files: ["scss/_product.scss"]});
+        await run(noScreenshot);
+        assert.deepEqual(names(noScreenshot), ["create", "label"]);
+        assert.doesNotMatch(noScreenshot.calls[0][1].body, /Link the issue/);
+    }
+});
+
+test("a maintainer pull request flagged earlier is cleaned up", async () => {
+    const fake = fakeGithub({role: "write", pr: {labels: [{name: "needs-author"}]}, comments: [bot("<!-- pr-precheck -->\nold")]});
+    await run(fake);
+    assert.deepEqual(names(fake), ["delete", "unlabel"]);
 });
 
 test("closed, draft and bot pull requests are skipped", async () => {
