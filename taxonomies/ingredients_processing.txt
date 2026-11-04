@@ -2461,9 +2461,16 @@ fr: tiède, tièdes, tiédi, tiédie, tiédis, tiédies
 en: cold
 fr: froid, froide, froids, froides
 
-# "eau glacée", "beurre glacé" in recipes ("glacé" is also used for candied fruits: "fruits glacés" is an ingredient)
-en: ice-cold, iced
+# "eau glacée", "beurre glacé" in recipes
+# "glacé" also means candied (marrons glacés, cerises glacées), frozen (nougat glacé) or iced drinks (thé glacé):
+# those are ingredients, so that they are not parsed as an ingredient + ice-cold
+# "iced" is not a synonym: "iced biscuits" have icing, "iced water" is a synonym of water
+en: ice-cold, ice cold
 fr: glacé, glacée, glacés, glacées
+
+# breakfast cereals: "corn flakes glacés au sucre"
+en: sugar-coated, sugar coated, sugar iced, sugar frosted, frosted
+fr: glacé au sucre, glacée au sucre, glacés au sucre, glacées au sucre, enrobé de sucre, enrobée de sucre, enrobés de sucre, enrobées de sucre
 
 en: hot
 fr: chaud, chaude, chauds, chaudes

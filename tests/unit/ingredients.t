@@ -1163,6 +1163,37 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'fr-recipes-with-numbers-in-words',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"deux carottes, trois œufs, deux gousses d'ail, douze huîtres, dix cl de lait, une pincée de sel, deux noix de beurre",
+		}
+	],
+	[
+		'en-recipes-with-numbers-in-words',
+		{
+			lc => 'en',
+			ingredients_text => "two eggs, three carrots, twelve oysters, a pinch of salt",
+		}
+	],
+	[
+		# "glacé" is ice-cold, except in candied fruits, frozen desserts and iced drinks
+		'fr-recipes-with-glace',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"10 cl d'eau glacée, 50 g de marrons glacés, 50 g de cerises glacées, écorces d'orange glacées, 20 cl de thé glacé, café glacé, nougat glacé, corn flakes glacés au sucre",
+		}
+	],
+	[
+		'en-recipes-with-iced',
+		{
+			lc => 'en',
+			ingredients_text => "iced water, iced tea, iced coffee, sugar iced corn flakes, ice-cold milk",
+		}
+	],
+	[
 		'en-recipes-with-spoons',
 		{
 			lc => 'en',

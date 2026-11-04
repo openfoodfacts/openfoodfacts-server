@@ -1,0 +1,179 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 56.25,
+         "percent_max" : 100,
+         "percent_min" : 12.5,
+         "processing" : "en:ice-cold",
+         "quantity" : "10 cl",
+         "quantity_g" : 100,
+         "quantity_ml" : 100,
+         "text" : "eau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "15024",
+         "ecobalyse_id" : "6adadee7-7f65-5b0b-9361-386750d7c57f",
+         "ecobalyse_name" : "Châtaigne Origine Inconnue",
+         "id" : "en:marron-glace",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 21.875,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "quantity" : "50 g",
+         "quantity_g" : 50,
+         "text" : "marrons glacés",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:glace-cherry",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.9375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "quantity" : "50 g",
+         "quantity_g" : 50,
+         "text" : "cerises glacées"
+      },
+      {
+         "ciqual_food_code" : "31021",
+         "id" : "en:candied-orange-peel",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.46875,
+         "percent_max" : 25.0,
+         "percent_min" : 0,
+         "text" : "écorces d'orange glacées"
+      },
+      {
+         "id" : "en:iced-tea",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.734375,
+         "percent_max" : 20.0,
+         "percent_min" : 0,
+         "quantity" : "20 cl",
+         "quantity_g" : 200,
+         "quantity_ml" : 200,
+         "text" : "thé glacé"
+      },
+      {
+         "id" : "en:iced-coffee",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.3671875,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "café glacé"
+      },
+      {
+         "ciqual_food_code" : "39529",
+         "id" : "en:frozen-nougat",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "nougat glacé"
+      },
+      {
+         "ciqual_food_code" : "9200",
+         "ecobalyse_id" : "11fd6550-211b-5c84-8424-5331b1cb3ca6",
+         "ecobalyse_name" : "Maïs Origine Inconnue",
+         "id" : "en:corn-flakes",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "processing" : "en:sugar-coated",
+         "text" : "corn flakes",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:vegan-status-unknown" : [
+         "en:glace-cherry",
+         "en:candied-orange-peel",
+         "en:iced-tea",
+         "en:iced-coffee",
+         "en:frozen-nougat"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:glace-cherry",
+         "en:candied-orange-peel",
+         "en:iced-tea",
+         "en:iced-coffee",
+         "en:frozen-nougat"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 8,
+   "ingredients_n_tags" : [
+      "8",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:water",
+      "en:marron-glace",
+      "en:glace-cherry",
+      "en:candied-orange-peel",
+      "en:iced-tea",
+      "en:iced-coffee",
+      "en:frozen-nougat",
+      "en:corn-flakes"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:water",
+      "en:marron-glace",
+      "fr:marron",
+      "en:chestnut",
+      "en:tree-nut",
+      "en:nut",
+      "en:glace-cherry",
+      "en:cherry-preparation",
+      "en:preparation",
+      "en:candied-orange-peel",
+      "en:iced-tea",
+      "en:iced-coffee",
+      "en:frozen-nougat",
+      "en:corn-flakes",
+      "en:corn",
+      "en:cereal"
+   ],
+   "ingredients_text" : "10 cl d'eau glacée, 50 g de marrons glacés, 50 g de cerises glacées, écorces d'orange glacées, 20 cl de thé glacé, café glacé, nougat glacé, corn flakes glacés au sucre",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 8,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_without_ciqual_codes" : [
+      "en:glace-cherry",
+      "en:iced-coffee",
+      "en:iced-tea"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:candied-orange-peel",
+      "en:frozen-nougat",
+      "en:glace-cherry",
+      "en:iced-coffee",
+      "en:iced-tea"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 8,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

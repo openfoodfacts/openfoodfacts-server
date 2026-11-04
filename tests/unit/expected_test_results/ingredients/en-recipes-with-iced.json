@@ -1,0 +1,125 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 60,
+         "percent_max" : 100,
+         "percent_min" : 20,
+         "text" : "iced water",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:iced-tea",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "iced tea"
+      },
+      {
+         "id" : "en:iced-coffee",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "iced coffee"
+      },
+      {
+         "ciqual_food_code" : "9200",
+         "ecobalyse_id" : "11fd6550-211b-5c84-8424-5331b1cb3ca6",
+         "ecobalyse_name" : "Maïs Origine Inconnue",
+         "id" : "en:corn-flakes",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "processing" : "en:sugar-coated",
+         "text" : "corn flakes",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+         "ecobalyse_name" : "Lait par défaut -2025-",
+         "id" : "en:milk",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "processing" : "en:ice-cold",
+         "text" : "milk",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:milk"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:iced-tea",
+         "en:iced-coffee"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:iced-tea",
+         "en:iced-coffee"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:water",
+      "en:iced-tea",
+      "en:iced-coffee",
+      "en:corn-flakes",
+      "en:milk"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:water",
+      "en:iced-tea",
+      "en:iced-coffee",
+      "en:corn-flakes",
+      "en:corn",
+      "en:cereal",
+      "en:milk",
+      "en:dairy"
+   ],
+   "ingredients_text" : "iced water, iced tea, iced coffee, sugar iced corn flakes, ice-cold milk",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:iced-coffee",
+      "en:iced-tea"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:iced-coffee",
+      "en:iced-tea"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 5,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

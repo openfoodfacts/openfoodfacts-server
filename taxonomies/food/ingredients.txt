@@ -37730,7 +37730,7 @@ nl: chocolade rijstextrudaat
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-en: water, drinking water, tap water
+en: water, drinking water, tap water, iced water, ice water, ice-cold water
 ab: Аӡы
 af: Water
 am: ውሃ
@@ -37977,6 +37977,18 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q283
 wikipedia:en: https://en.wikipedia.org/wiki/Water
+
+# drink, not tea leaves
+en: iced tea, iced teas, ice tea
+fr: thé glacé, thés glacés
+agribalyse_proxy_food_code:en: 18075
+agribalyse_proxy_food_name:fr: Boisson au thé, aromatisée, sucrée
+
+# drink, not ground coffee
+en: iced coffee, iced coffees
+fr: café glacé, cafés glacés
+agribalyse_proxy_food_code:en: 18004
+agribalyse_proxy_food_name:fr: Café, non instantané, non sucré, prêt à boire
 
 < en: water
 en: distilled water
@@ -45918,7 +45930,7 @@ cs: proslazená pomerančová kůra
 de: kandierte Orangenschalen, Orangeat, Orangenschalen confiert
 es: corteza de naranja confitada
 fi: kandeerattu appelsiininkuori
-fr: écorces d'orange confites, écorces d'oranges confites, orangeat
+fr: écorces d'orange confites, écorces d'oranges confites, orangeat, écorce d'orange glacée, écorces d'orange glacées
 # hr:kandirana narančina korica # see ingredients_processing.txt
 it: scorze d'arancia candite, cubetti di scorza di limone
 nl: gekonfijte sinaasappelschillen
@@ -47337,7 +47349,7 @@ it: preparazione di ciliegie dolci
 en: glacé cherry, glacé cherries
 de: kandierte Kirsche, kandierte Kirschen
 fi: kandeeratut kirsikat
-fr: cerises confites
+fr: cerises confites, cerise confite, cerise glacée, cerises glacées
 hr: glacé trešnja
 it: ciliegia candita
 
@@ -70424,6 +70436,10 @@ fr: marron, marrons
 de: Maronen, Marroni
 it: marroni
 wikidata:en: Q3177204
+
+< fr: marron
+en: marron glacé, marrons glacés, candied chestnut, candied chestnuts
+fr: marron glacé, marrons glacés
 
 < fr: marron
 fr: Marrons UE
@@ -102235,6 +102251,13 @@ ciqual_food_name:fr: Nougat ou touron
 # zh-tw:牛軋糖
 wikidata:en: Q208729
 wikipedia:en: https://en.wikipedia.org/wiki/Nougat
+
+# frozen dessert ("glacé" here does not mean ice-cold)
+en: frozen nougat, nougat glacé
+fr: nougat glacé, nougats glacés
+agribalyse_food_code:en: 39529
+ciqual_food_code:en: 39529
+ciqual_food_name:fr: Nougat glacé
 
 < en: nougat
 fr: morceaux de nougat
