@@ -33,6 +33,7 @@ const jsSrc = [
   "./html/js/matomo-events.js",
   "./html/js/image-editor.js",
   "./html/js/image-editor-move-mode.mjs",
+  "./html/js/image-editor-selection.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
