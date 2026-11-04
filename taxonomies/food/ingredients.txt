@@ -21761,7 +21761,7 @@ pa: ਸੀਡਰ
 #pcd:cite
 pl: cydr, jabłecznik
 pt: sidra
-ro: cidru
+ro: cidru, cidru de mere
 ru: сидр
 sh: cider
 sk: cíder
@@ -39747,6 +39747,7 @@ hr: šumsko voće
 it: frutti di bosco, bacche di bosco
 nl: bosvruchten
 pl: owoce leśne, owoców leśnych
+ro: fructe de pădule
 
 < en: forest berries
 en: forest berries paste
@@ -45995,11 +45996,22 @@ wa: Meuronî
 zh: 欧洲黑莓
 wikidata:en: Q13541716
 
+< en: blackberry
+< en: juice
+fr: jus de mûre à base de jus concentré
+
 < en: berries
 en: mulberry, mulberries
 usda_fdc_code:en: 169913
 usda_ndb_code:en: 9190
 usda_ndb_name:en: Mulberries, raw
+
+###################################################################################################
+#
+#                                Black mulberry
+#
+###################################################################################################
+# description:en:The black mulberry is an edible fruit produced by Morus nigra in the family Moraceae.
 
 < en: mulberry
 en: black mulberry
@@ -46031,15 +46043,21 @@ ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
 eurocode_2_group_3:en: 9.30.62
 
+###################################################################################################
+#
+#                                White mulberry
+#
+###################################################################################################
+# description:en:The white mulberry is an edible fruit produced by Morus alba in the family Moraceae.
+
+# note: This fruit which called "mûre blanche" in French is unrelated to another fruit called "mûre" which is produced by plants of the genus Rubus in the family Rosaceae
+
 < en: mulberry
 en: white mulberry
+fr: mûre blanche
 it: gelso bianco
 pl: morwa biała
 eurocode_2_group_3:en: 9.30.62
-
-< en: blackberry
-< en: juice
-fr: jus de mûre à base de jus concentré
 
 ###################################################################################################
 #
@@ -64466,6 +64484,8 @@ fi: paprikatahna
 fr: Pâte de paprika
 hr: pasta od paprike
 it: pasta di paprika
+nb: paprikapasta
+nn: paprikapasta
 pl: pasta paprykowa
 
 < en: paprika
@@ -69679,6 +69699,7 @@ it: pasta di mandorle
 ja: アーモンドペースト
 pl: pasta z migdałów, pasta migdałowa
 pt: Pasta de amêndoa, pasta de amêndoas
+ro: pastă de migdale
 sv: mandelpasta
 ciqual_proxy_food_code:en: 15201
 ciqual_proxy_food_name:en: Almond paste or marzipan, prepacked
@@ -79721,9 +79742,9 @@ ln: Olive
 lv: olīva
 mk: маслинка
 mt: żebbuġa
+nb: oliven, olivener
 nl: olijven, olijf
-nn: oliven
-no: oliven
+nn: oliven, olivenar
 oc: Oliva
 pl: oliwki, oliwka, oliwek, oliwkowy, oliwkowa, oliwkowe
 pt: axeitonas, azeitona, azeitonas
@@ -79736,6 +79757,19 @@ th: นํ้า
 tr: zeytin
 tt: зәйтүн
 zh: 阿塞图纳
+# aeb-arab:كعبة زيتون
+# ast:Aceituna
+# en-gb:olive
+# ext:Azituna
+# kab:Azemmur
+# nah:Chiyāhualōtl
+# nap:Auliva
+# rue:Олива
+# scn:Aliva
+# tt-cyrl:зәйтүн
+# zh-hans:阿塞图纳
+# zh-hant:阿塞图纳
+# zh-hk:阿塞圖納
 carbon_footprint_fr_foodges_ingredient:fr: Olives "Pays du Sud" en boite
 carbon_footprint_fr_foodges_value:fr: 1.7
 ciqual_food_code:en: 13184
@@ -79759,19 +79793,7 @@ ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
 eurocode_2_group_3:en: 8.40.65
-# aeb-arab:كعبة زيتون
-# ast:Aceituna
-# en-gb:olive
-# ext:Azituna
-# kab:Azemmur
-# nah:Chiyāhualōtl
-# nap:Auliva
-# rue:Олива
-# scn:Aliva
-# tt-cyrl:зәйтүн
-# zh-hans:阿塞图纳
-# zh-hant:阿塞图纳
-# zh-hk:阿塞圖納
+wikidata:en: Q1621080
 wikipedia:en: https://en.wikipedia.org/wiki/Olive
 
 < en: olive
@@ -79810,8 +79832,9 @@ hr: zelene masline
 it: olive verdi
 ja: グリーンオリーブ
 lv: zaļā olīva
+nb: grønn oliven, grønne oliven, grønne olivener
 nl: groene olijven
-no: grønn oliven, grønne oliven
+nn: grøn oliven, grøne oliven, grøne olivenar
 pl: zielone oliwki, zielona oliwka, zielonych oliwek, oliwki zielone
 pt: azeitona verde
 ro: măsline verzi
@@ -97003,7 +97026,7 @@ fi: munanvalkuainen
 fr: blanc d'œuf, blancs d'œufs, albumine d'œuf, blancs d'œuf, blanc d'oeuf, blancs d'oeufs, albumine d'oeuf, blancs d'oeuf, blanc d'œufs
 gl: clara de ovo
 hi: חלבון הביצה
-hr: bjelanjak jajeta, bjelanjak jaja, bjelanjci
+hr: bjelanjak jajeta, bjelanjak jaja, bjelanjci, Bjelanjak
 hu: tojásfehérje
 id: putih telur
 io: Albumeno
@@ -97291,7 +97314,7 @@ gd: buidheagan
 he: חלמון
 hi: अंडे की ज़र्दी
 hr: žumanjak, žumanjak jaja, žumanjci, iz bjelanjka
-hu: tojássárgája
+hu: tojássárgája, tojássárgalé
 hy: Ռեբու
 id: kuning telur
 io: Vitelo
