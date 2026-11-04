@@ -34,15 +34,19 @@ function install_fake_tagify() {
     const handlers = {};
     const scope = {addEventListener: function (event, handler) { this[event] = handler; }};
     let focusCount = 0;
+    const shownSuggestions = [];
     const tagify = {
         DOM: {scope, input: {focus: function () { focusCount++; }}},
         get focusCount() { return focusCount; },
         whitelist: null,
-        dropdown: {show: function () {}},
+        dropdown: {show: function (value) { shownSuggestions.push(value); }},
         on: function (event, handler) {
             handlers[event] = handler;
 
             return tagify;
+        },
+        trigger: function (event, detail) {
+            handlers[event]({detail: detail || {}});
         },
         add_tag: function (value) {
             handlers["add"]({detail: {data: {value: value}}});
@@ -57,6 +61,7 @@ function install_fake_tagify() {
         return tagify;
     };
 
+    tagify.shownSuggestions = shownSuggestions;
     return tagify;
 }
 
@@ -100,6 +105,39 @@ function submit_field(el, maximum, submittedTags) {
 test("a tag that is not in the history yet is added at the top", function () {
     assert.deepEqual(update_tag_recents([], "Bio", MAXIMUM), ["Bio"]);
     assert.deepEqual(update_tag_recents(["Bio"], "AOP", MAXIMUM), ["AOP", "Bio"]);
+});
+
+test("taxonomy suggestions are not shown when the input is blurred before the response arrives", async function () {
+    const previousFetch = globalThis.fetch;
+    let resolveFetch;
+    globalThis.fetch = function () {
+        return new Promise((resolve) => {
+            resolveFetch = resolve;
+        });
+    };
+
+    try {
+        const tagify = install_fake_tagify();
+        const el = {id: "categories", dataset: {autocomplete: "/api/v3/taxonomy_suggestions?tagtype=categories"}};
+        initializeTagifyInput(el, MAXIMUM);
+
+        tagify.trigger("focus");
+        tagify.trigger("input", {value: "fruit"});
+        await new Promise((resolve) => setTimeout(resolve, 350));
+        assert.ok(resolveFetch, "the taxonomy request should have started");
+
+        tagify.trigger("blur");
+        const shownCountAfterBlur = tagify.shownSuggestions.length;
+        resolveFetch({json: function () {
+            return Promise.resolve({matched_synonyms: {fruit: "fruit"}});
+        }});
+        await new Promise((resolve) => setImmediate(resolve));
+        await new Promise((resolve) => setImmediate(resolve));
+
+        assert.equal(tagify.shownSuggestions.length, shownCountAfterBlur);
+    } finally {
+        globalThis.fetch = previousFetch;
+    }
 });
 
 test("a tag that is already in the history is moved back to the top", function () {

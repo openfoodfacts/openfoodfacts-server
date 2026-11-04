@@ -178,6 +178,12 @@ my $ean_check = CheckDigits('ean');
 
 use Scalar::Util qw(blessed looks_like_number);
 
+# FFI::Platypus XS boot creates globals that trigger "Name used only once: possible typo"
+# warnings in scripts run with "perl -w" (global $^W), so load it with $^W off (see #15130)
+BEGIN {
+	local $^W = 0;
+	require GS1::SyntaxEngine::FFI::GS1Encoder;
+}
 use GS1::SyntaxEngine::FFI::GS1Encoder;
 
 =head1 FUNCTIONS
