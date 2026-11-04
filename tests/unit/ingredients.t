@@ -1147,6 +1147,14 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'fr-recipes-with-spoon-abbreviations',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 cuil. à soupe de farine, 2 c.c. de sel, 1 càc de poivre, 1 c. soupe d'huile, 1 c à s de miel, 20 cl de lait tiédi, ⅔ litre d'eau, 3/2 de beurre",
+		}
+	],
+	[
 		'en-recipes-with-spoons',
 		{
 			lc => 'en',

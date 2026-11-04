@@ -267,7 +267,29 @@ $symbols_regexp = join('|', @symbols);
 
 	fi => [["mikro.", "mikrobiologinen"], ["mm.", "muun muassa"], ["sis.", "sisältää"], ["n.", "noin"],],
 
-	fr => [["vit.", "Vitamine"], ["Mat. Gr.", "Matières Grasses"],],
+	fr => [
+		["vit.", "Vitamine"],
+		["Mat. Gr.", "Matières Grasses"],
+		# Spoons in cooking recipes
+		["c. à s.", "cuillère à soupe"],
+		["c.à.s.", "cuillère à soupe"],
+		["c.s.", "cuillère à soupe"],
+		["càs", "cuillère à soupe"],
+		["c. à soupe", "cuillère à soupe"],
+		["c. soupe", "cuillère à soupe"],
+		["c. à table", "cuillère à soupe"],
+		["c. à c.", "cuillère à café"],
+		["c.à.c.", "cuillère à café"],
+		["c.c.", "cuillère à café"],
+		["càc", "cuillère à café"],
+		["c. à café", "cuillère à café"],
+		["c. café", "cuillère à café"],
+		["c. à thé", "cuillère à café"],
+		["c. thé", "cuillère à café"],
+		["c. à dessert", "cuillère à dessert"],
+		["cuil.", "cuillère"],
+		["cuill.", "cuillère"],
+	],
 
 	hr => [
 		["temp.", "temperaturi"],

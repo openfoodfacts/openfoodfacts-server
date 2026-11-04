@@ -128,6 +128,7 @@ use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 use ProductOpener::IngredientsStrings qw/:all/;
+use ProductOpener::Numbers qw/$fraction_regexp convert_fraction_to_number round_to_max_decimal_places/;
 use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
 use ProductOpener::Text qw/normalize_unicode_letter_variants/;
 
@@ -7635,43 +7636,11 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# Fractions at the start of an ingredient, as in cooking recipes:
 	# "½ litre de lait", "1/2 cuillère à café de sel", "1 1/2 tasse de farine" -> "0.5 litre de lait"
 	# Only at the start of an ingredient, so that "lait 1/2 écrémé" is kept.
-	my %vulgar_fractions = ("½" => 1 / 2, "¼" => 1 / 4, "¾" => 3 / 4, "⅓" => 1 / 3, "⅔" => 2 / 3, "⅛" => 1 / 8);
-	my $fraction_to_decimal = sub ($match, $whole, $vulgar_fraction, $numerator, $denominator) {
-		my $value;
-		if (defined $vulgar_fraction) {
-			$value = $vulgar_fractions{$vulgar_fraction};
-		}
-		else {
-			# Keep things like "3/2" or "2/2" that are not fractions of a quantity
-			return $match if $numerator >= $denominator;
-			$value = $numerator / $denominator;
-		}
-		$value += $whole if defined $whole;
-		my $decimal = sprintf("%.2f", $value);
-		$decimal =~ s/\.?0+$//;
-		return $decimal;
-	};
 	$text
-		=~ s/(^|[,;\n]\s*)((?:(\d+)\s*)?(?:([½¼¾⅓⅔⅛])|(?<!\d)([1-7])\s*\/\s*([2-8])))(?=\s|\p{L})/$1 . $fraction_to_decimal->($2, $3, $4, $5, $6)/eg;
+		=~ s{(^|[,;\n]\s*)($fraction_regexp)(?=\s|\p{L})}{$1 . (round_to_max_decimal_places(scalar convert_fraction_to_number($2), 2) // $2)}eg;
 
-	# Cooking recipes in French
+	# Ranges in cooking recipes in French
 	if ($ingredients_lc eq 'fr') {
-		# Spoon abbreviations after a number contain dots that would split the ingredient:
-		# "2 c. à s. de sucre", "1 c.à.c de sel", "3 c.s d'huile", "1 c. à thé" -> "2 cuillère à soupe de sucre"
-		# "cs" and "cc" without dots or "à" are not expanded, as "cc" is also cm3
-		my %spoons = (
-			s => "soupe",
-			soupe => "soupe",
-			table => "soupe",
-			c => "café",
-			"café" => "café",
-			cafe => "café",
-			"thé" => "café",
-			the => "café",
-			dessert => "dessert",
-		);
-		$text
-			=~ s/(\d\s*)c(?:\s*\.\s*(?:[àa]\s*\.?\s*)?|\s*[àa]\s*\.?\s*)(soupe|table|café|cafe|thé|the|dessert|[sc])\b\.?/$1 . "cuillère à " . $spoons{lc($2)}/ieg;
 		# Ranges: "2 à 3 gousses d'ail" -> "2-3 gousses d'ail" (ranges with an hyphen are already parsed)
 		$text =~ s/(?<![\d,.])(\d+(?:[,.]\d+)?)\s+à\s+(\d+(?:[,.]\d+)?)(?=\s)/$1-$2/g;
 	}
@@ -7705,9 +7674,18 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			foreach my $abbreviation_ref (@{$abbreviations{$abbreviations_lc}}) {
 				my $source = $abbreviation_ref->[0];
 				my $target = $abbreviation_ref->[1];
-				$source =~ s/\. /(\\.| |\\. )/g;
-				if ($source =~ /\.$/) {
-					$source =~ s/\.$/(\\. | |\\.)/;
+				# A dot followed by a space matches ". ", "." or " ", other dots match only a dot
+				# "c. à s." matches "c. à s.", "c.à s." and "c à s", "c.s." matches "c.s."
+				my $trailing_dot = ($source =~ s/\.$//);
+				$source = join(
+					'(?:\\.| |\\. )',
+					map {
+						join('\\.', map {quotemeta} split(/\./, $_, -1))
+					} split(/\. /, $source, -1)
+				);
+				# A trailing dot matches ". ", " " or "."
+				if ($trailing_dot) {
+					$source .= '(?:\\. | |\\.)';
 					$target .= " ";
 				}
 				$text =~ s/(\b|^)$source(?= |\b|$)/$target/ig;
