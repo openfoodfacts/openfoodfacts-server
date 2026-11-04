@@ -14,7 +14,7 @@
 
 <script type="module">
   import { displayMap } from '[% static_subdomain %]/js/dist/display-map.js';
-  displayMap('container', [% encode_json(pointers) %]);
+  displayMap('container', [% pointers | js %]);
 </script>
 
 <!-- end templates/[% template.name %] -->
