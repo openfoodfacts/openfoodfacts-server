@@ -2513,6 +2513,8 @@ Text to analyze
 											$between = $label_ingredient_id;
 										}
 										else {
+											# Check if the ingredient before + the label exists as an ingredient (e.g. "présure animale" in French)
+											# in which case we also add the label to the ingredient in order to match the specific ingredient + label
 											my $before_trimmed = $before =~ s/^\s+|\s+$//gr;
 											my $before_plus_between_text
 												= ($ingredients_lc eq "en")
