@@ -5,7 +5,7 @@
          "ciqual_food_code" : "18066",
          "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "ecobalyse_name" : "Eau du robinet UE -2025-",
-         "id" : "en:water",
+         "id" : "en:ice-water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 60,
          "percent_max" : 100,
@@ -45,36 +45,32 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-         "ecobalyse_name" : "Lait par défaut -2025-",
-         "id" : "en:milk",
-         "is_in_taxonomy" : 1,
+         "id" : "en:iced biscuits",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 5,
          "percent_max" : 20,
          "percent_min" : 0,
-         "processing" : "en:ice-cold",
-         "text" : "milk",
-         "vegan" : "no",
-         "vegetarian" : "yes"
+         "text" : "iced biscuits"
       }
    ],
    "ingredients_analysis" : {
-      "en:non-vegan" : [
-         "en:milk"
+      "en:palm-oil-content-unknown" : [
+         "en:iced biscuits"
       ],
       "en:vegan-status-unknown" : [
          "en:iced-tea",
-         "en:iced-coffee"
+         "en:iced-coffee",
+         "en:iced biscuits"
       ],
       "en:vegetarian-status-unknown" : [
          "en:iced-tea",
-         "en:iced-coffee"
+         "en:iced-coffee",
+         "en:iced biscuits"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:non-vegan",
+      "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "en",
@@ -84,42 +80,44 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:water",
+      "en:ice-water",
       "en:iced-tea",
       "en:iced-coffee",
       "en:corn-flakes",
-      "en:milk"
+      "en:iced biscuits"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
+      "en:ice-water",
       "en:water",
       "en:iced-tea",
       "en:iced-coffee",
       "en:corn-flakes",
       "en:corn",
       "en:cereal",
-      "en:milk",
-      "en:dairy"
+      "en:iced biscuits"
    ],
-   "ingredients_text" : "iced water, iced tea, iced coffee, sugar iced corn flakes, ice-cold milk",
+   "ingredients_text" : "iced water, iced tea, iced coffee, sugar iced corn flakes, iced biscuits",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "en:iced biscuits",
       "en:iced-coffee",
       "en:iced-tea"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
+      "en:iced biscuits",
       "en:iced-coffee",
       "en:iced-tea"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
-   "known_ingredients_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 4,
    "lc" : "en",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 1
 }

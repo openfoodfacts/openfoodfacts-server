@@ -1178,7 +1178,7 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
-		# "glacé" is ice-cold, except in candied fruits, frozen desserts and iced drinks
+		# "glacé" in candied fruits, frozen desserts, iced drinks, and ice water
 		'fr-recipes-with-glace',
 		{
 			lc => 'fr',
@@ -1190,7 +1190,7 @@ puffed orange and caramelized unknown_fruit4.",
 		'en-recipes-with-iced',
 		{
 			lc => 'en',
-			ingredients_text => "iced water, iced tea, iced coffee, sugar iced corn flakes, ice-cold milk",
+			ingredients_text => "iced water, iced tea, iced coffee, sugar iced corn flakes, iced biscuits",
 		}
 	],
 	[
