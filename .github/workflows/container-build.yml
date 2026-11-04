@@ -7,6 +7,13 @@ on:
       - deploy-*
     tags:
       - v*.*.*
+    # Docs-only changes don't affect the images (release commits always
+    # touch version.txt too, so releases still build)
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - 'mkdocs.yml'
+      - '.spectral.yaml'
 
 permissions:
   contents: write
