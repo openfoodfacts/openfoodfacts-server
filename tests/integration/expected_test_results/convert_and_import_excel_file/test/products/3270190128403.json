@@ -188,11 +188,12 @@
             {
                "ecobalyse_name" : "Lentille Origine Inconnue",
                "id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd",
-               "mass" : 100,
+               "mass" : 100.0,
                "name" : "Lentilles vertes"
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
@@ -200,15 +201,28 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd",
-                  "mass" : 100
+                  "elements" : [
+                     {
+                        "amount" : 0.1,
+                        "material" : {
+                           "id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Lentilles vertes",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "environmental_score_data" : {
