@@ -10135,8 +10135,7 @@ sv: djur
 vegan:en: no
 vegetarian:en: no
 
-# < en:animal
-# < en:meat
+< en: animal
 en: Meat and animal derivatives
 da: Kød og dyriske biprodukter
 de: Fleisch und tierische Nebenerzeugnisse
@@ -10153,6 +10152,26 @@ pt: Carne e subprodutos de origem animal
 ru: Мясо и продукты животного происхождения
 sl: Meso in živalski izdelki
 sv: Kött och djuriska biprodukter
+vegan:en: no
+vegetarian:en: no
+
+< en: animal
+en: Animal derivatives, Animal by-products
+fr: Sous-produits animaux, Sous produits animaux, Sous-produits d'origine animale
+vegan:en: no
+vegetarian:en: no
+
+< en: animal derivatives
+< en: fish
+en: Fish derivatives, Fish by-products
+fr: Sous-produits de poissons, Sous-produits de poisson, Sous produits de poissons
+
+< en: animal
+< en: fish
+en: Fish and fish derivatives, Fish and fish by-products
+fr: Poissons et sous-produits de poissons, Poisson et sous-produits de poisson
+vegan:en: no
+vegetarian:en: no
 
 en: meat
 bg: месо
@@ -21761,7 +21780,7 @@ pa: ਸੀਡਰ
 #pcd:cite
 pl: cydr, jabłecznik
 pt: sidra
-ro: cidru
+ro: cidru, cidru de mere
 ru: сидр
 sh: cider
 sk: cíder
@@ -22238,7 +22257,7 @@ hr: prirodno identičan okus piletine
 
 < en: with other natural flavouring
 < fr: arôme naturel d'agrumes
-fr: arômes naturels d'agrumes avec autres arômes naturels
+fr: arômes naturels d'agrumes avec autres arômes naturels, arômes naturels d'agrumes et arômes naturels
 da: naturlig citrusaroma med andre naturlige aromaer
 de: natürliches Citrus Aroma mit anderen natürlichen Aromen
 fi: luontainen sitrusaromi ja muut luontaiset aromit
@@ -22390,7 +22409,7 @@ it: aroma citrico
 en: natural orange flavouring with other natural flavouring
 de: natürliches Orangenaroma mit anderen natürlichen Aromen
 fi: luontainen appelsiiniaromi ja muita luontaisia aromeja, luontainen appelsiiniaromi ja muut luontaiset aromit, luontainen appelsiiniaromi joka sisältää muita luontaisia aromeja
-fr: arômes naturels d'orange avec autres arômes naturels, arôme naturel d'orange avec autres arômes naturels
+fr: arômes naturels d'orange avec autres arômes naturels, arôme naturel d'orange avec autres arômes naturels, arômes naturels d'orange et arômes naturels, arôme naturel d'orange et arômes naturels
 hr: prirodna aroma naranče s drugim prirodnim aromama
 nl: natuurlijk sinaasappelaroma met andere natuurlijke aroma's, natuurlijke sinaasappelaroma's met andere natuurlijke aroma's
 pl: naturalny aromat pomarańczowy z innymi naturalnymi aromatami, naturalny aromat pomarańczowy z innymi aromatami naturalnymi
@@ -22473,7 +22492,7 @@ fr: arôme naturel de livèche
 
 < en: natural flavouring
 < en: natural lemon flavouring
-fr: arôme naturel de citron avec autres arômes naturels, arômes naturels de citron avec autres arômes naturels, arôme naturel de citron et autres arômes naturels
+fr: arôme naturel de citron avec autres arômes naturels, arômes naturels de citron avec autres arômes naturels, arôme naturel de citron et autres arômes naturels, arôme naturel de citron et arômes naturels, arômes naturels de citron et arômes naturels
 de: natürliches Zitronenaroma mit anderen natürliche Aromen
 fi: luontainen sitruuna-aromi ja muut luontaiset aromit
 hr: prirodna aroma limuna s drugim prirodnim aromama, prirodna aroma mente citrusa sa ostalim prirodnim aromama
@@ -22482,11 +22501,11 @@ pl: naturalny aromat cytrynowy z innymi naturalnymi aromatami, naturalny aromat 
 
 < en: natural flavouring
 < en: natural lemon flavouring
-fr: arôme naturel de framboise avec autres arômes naturels
+fr: arôme naturel de framboise avec autres arômes naturels, arôme naturel de framboise et arômes naturels
 
 < en: natural flavouring
 < en: natural lemon flavouring
-fr: arôme naturel de pamplemousse avec autres arômes naturels
+fr: arôme naturel de pamplemousse avec autres arômes naturels, arôme naturel de pamplemousse et arômes naturels
 
 < en: natural flavouring
 # derivedFrom:en:lime
@@ -22512,7 +22531,7 @@ nl: natuurlijke citroen en limoen aromas
 
 < en: natural flavouring
 < en: natural lime flavouring
-fr: arôme naturel de citron vert avec autres arômes naturels
+fr: arôme naturel de citron vert avec autres arômes naturels, arôme naturel de citron vert et arômes naturels
 pl: naturalny aromat limonki z innymi naturalnymi aromatami
 # 25@2109-06-06
 
@@ -22767,7 +22786,7 @@ hu: természetes tárkony aroma
 it: aroma naturale di dragoncello
 
 < en: natural tarragon flavouring
-fr: arôme naturel d'estragon avec autres arômes naturels
+fr: arôme naturel d'estragon avec autres arômes naturels, arôme naturel d'estragon et arômes naturels
 fi: luontainen rakuuna-aromi ja muut luontaiset aromit
 
 < en: natural flavouring
@@ -22896,7 +22915,7 @@ pl: naturalny aromat gruszkowy
 
 < en: flavouring
 < en: natural pear flavouring
-fr: arôme naturel de poire avec d'autres arômes naturels
+fr: arôme naturel de poire avec d'autres arômes naturels, arôme naturel de poire et arômes naturels
 
 < en: flavouring
 en: peach flavouring
@@ -22952,7 +22971,7 @@ sv: paprikaarom
 
 < en: natural apple flavouring
 < en: natural flavouring
-fr: arôme naturel de pomme avec autres arômes naturels
+fr: arôme naturel de pomme avec autres arômes naturels, arôme naturel de pomme et arômes naturels
 fi: luontainen omena-aromi ja muut luontaiset aromit
 pl: naturalny aromat jabłkowy z innymi naturalnymi aromatami
 
@@ -23081,7 +23100,7 @@ sv: naturlig solrosoljearom
 
 < en: natural flavouring
 < en: natural pepper flavouring
-fr: arôme naturel de poivre avec autres arômes naturels
+fr: arôme naturel de poivre avec autres arômes naturels, arôme naturel de poivre et arômes naturels
 fi: luontainen pippuriaromi ja muut luontaiset aromit
 
 < en: natural flavouring
@@ -23435,7 +23454,7 @@ en: natural vanilla flavouring with other natural flavourings
 de: natürliches Vanillearoma mit anderen natürlichen Aromen
 es: aroma natural de vainilla con otros aromas naturales
 fi: luontainen vanilja-aromi ja muita luontaisia aromeja, luontainen vanilja-aromi ja muut luontaiset aromit
-fr: arôme naturel de vanille avec d'autres arômes naturels, arôme naturel de vanille avec autres arômes naturels
+fr: arôme naturel de vanille avec d'autres arômes naturels, arôme naturel de vanille avec autres arômes naturels, arôme naturel de vanille et arômes naturels
 hr: prirodna aroma vanilije s drugim prirodnim aromama
 hu: természetes vanília aroma más természetes aromákkal
 it: aroma naturale di vaniglia con altri aromi naturali
@@ -24405,7 +24424,7 @@ hr: prirodne arome aromatičnog bilja
 it: aroma naturale di piante aromatiche
 
 < en: natural flavouring of aromatic plants
-fr: arôme naturel de plantes aromatiques avec autres arômes naturels
+fr: arôme naturel de plantes aromatiques avec autres arômes naturels, arôme naturel de plantes aromatiques et arômes naturels
 de: natürliches Aroma aus aromatischen Pflanzen mit anderen natürlichen Aromen
 es: aroma natural de plantas aromáticas con otros aromas naturales
 it: aroma naturale di piante aromatiche con altri aromi naturali
@@ -39747,6 +39766,7 @@ hr: šumsko voće
 it: frutti di bosco, bacche di bosco
 nl: bosvruchten
 pl: owoce leśne, owoców leśnych
+ro: fructe de pădule
 
 < en: forest berries
 en: forest berries paste
@@ -45995,11 +46015,22 @@ wa: Meuronî
 zh: 欧洲黑莓
 wikidata:en: Q13541716
 
+< en: blackberry
+< en: juice
+fr: jus de mûre à base de jus concentré
+
 < en: berries
 en: mulberry, mulberries
 usda_fdc_code:en: 169913
 usda_ndb_code:en: 9190
 usda_ndb_name:en: Mulberries, raw
+
+###################################################################################################
+#
+#                                Black mulberry
+#
+###################################################################################################
+# description:en:The black mulberry is an edible fruit produced by Morus nigra in the family Moraceae.
 
 < en: mulberry
 en: black mulberry
@@ -46031,15 +46062,21 @@ ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
 eurocode_2_group_3:en: 9.30.62
 
+###################################################################################################
+#
+#                                White mulberry
+#
+###################################################################################################
+# description:en:The white mulberry is an edible fruit produced by Morus alba in the family Moraceae.
+
+# note: This fruit which called "mûre blanche" in French is unrelated to another fruit called "mûre" which is produced by plants of the genus Rubus in the family Rosaceae
+
 < en: mulberry
 en: white mulberry
+fr: mûre blanche
 it: gelso bianco
 pl: morwa biała
 eurocode_2_group_3:en: 9.30.62
-
-< en: blackberry
-< en: juice
-fr: jus de mûre à base de jus concentré
 
 ###################################################################################################
 #
@@ -50063,6 +50100,9 @@ hr: organski sok od nara
 it: succo di melograno biologico
 
 < en: pomegranate juice
+en: concentrated pomegranate juice, pomegranate juice concentrate, pomegranate juice concentrates
+
+< en: pomegranate juice
 en: pomegranate juice from concentrate, pomegranate juice from natural concentrated pomegranate juice
 de: Granatapfelsaft aus Granatapfelsaftkonzentrat
 fr: jus de grenade à base de concentré, Jus de grenade à base de jus de grenade concentré
@@ -53074,6 +53114,8 @@ pt: Subprodutos de origem vegetal
 ru: Продукты растительного происхождения
 sl: Rastlinski izdelki
 sv: Växtprodukter
+vegan:en: yes
+vegetarian:en: yes
 
 en: vegetable, vegetables
 bg: зеленчук, зеленчуци
@@ -69681,6 +69723,7 @@ it: pasta di mandorle
 ja: アーモンドペースト
 pl: pasta z migdałów, pasta migdałowa
 pt: Pasta de amêndoa, pasta de amêndoas
+ro: pastă de migdale
 sv: mandelpasta
 ciqual_proxy_food_code:en: 15201
 ciqual_proxy_food_name:en: Almond paste or marzipan, prepacked
@@ -97007,7 +97050,7 @@ fi: munanvalkuainen
 fr: blanc d'œuf, blancs d'œufs, albumine d'œuf, blancs d'œuf, blanc d'oeuf, blancs d'oeufs, albumine d'oeuf, blancs d'oeuf, blanc d'œufs
 gl: clara de ovo
 hi: חלבון הביצה
-hr: bjelanjak jajeta, bjelanjak jaja, bjelanjci
+hr: bjelanjak jajeta, bjelanjak jaja, bjelanjci, Bjelanjak
 hu: tojásfehérje
 id: putih telur
 io: Albumeno
@@ -97295,7 +97338,7 @@ gd: buidheagan
 he: חלמון
 hi: अंडे की ज़र्दी
 hr: žumanjak, žumanjak jaja, žumanjci, iz bjelanjka
-hu: tojássárgája
+hu: tojássárgája, tojássárgalé
 hy: Ռեբու
 id: kuning telur
 io: Vitelo

@@ -44,6 +44,7 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     let debounceTimer;
     const timeoutWait = 300;
     let value = "";
+    let isFocused = false;
 
     // Tags added or edited by the user during this session.
     // They are only added to the tags history when the form is submitted, see addTagsToRecentTags()
@@ -87,6 +88,12 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
                 }).
                     then((RES) => RES.json()).
                     then(function (json) {
+                        // A taxonomy response can arrive after the field was blurred.
+                        // In that case, updateSuggestions(true) would reopen the dropdown.
+                        if (!isFocused) {
+                            return;
+                        }
+
                         const lc = (/^\w\w:/).exec(value);
                         let whitelist = Object.values(json.matched_synonyms);
                         if (lc) {
@@ -170,11 +177,13 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     });
 
     input.on("focus", function () {
+        isFocused = true;
         value = "";
         updateSuggestions(false);
     });
 
     input.on("blur", function () {
+        isFocused = false;
         value = "";
         updateSuggestions(false);
     });
