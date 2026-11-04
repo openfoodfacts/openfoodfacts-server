@@ -37,7 +37,7 @@
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.46875,
-         "percent_max" : 25.0,
+         "percent_max" : 25,
          "percent_min" : 0,
          "text" : "salt",
          "vegan" : "yes",
@@ -50,7 +50,7 @@
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.734375,
-         "percent_max" : 20.0,
+         "percent_max" : 20,
          "percent_min" : 0,
          "text" : "sugar",
          "vegan" : "maybe",
@@ -152,7 +152,7 @@
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 8,
-   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:another unknown ingredient",
       "en:some unknown ingredient"
