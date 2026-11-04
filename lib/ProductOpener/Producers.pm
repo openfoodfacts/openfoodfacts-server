@@ -56,6 +56,9 @@ BEGIN {
 		&normalize_column_name
 
 		&generate_import_export_columns_groups_for_select2
+		&get_selectable_import_fields
+		&is_import_field_allowed
+		&create_off_columns_to_input_columns_match
 
 		&convert_file
 
@@ -307,6 +310,9 @@ sub create_off_columns_to_input_columns_match ($default_values_ref, $input_heade
 
 	my $col = 0;
 
+	# Fields that this import may target
+	my $selectable_fields_ref = get_selectable_import_fields();
+
 	# Some fields like image_other_url may be present multiple times,
 	# in which case suffix them with .2 , .3 etc.
 	my %seen_fields = ();
@@ -325,6 +331,17 @@ sub create_off_columns_to_input_columns_match ($default_values_ref, $input_heade
 		elsif ((defined $columns_fields_ref->{$columnid}) and (defined $columns_fields_ref->{$columnid}{field})) {
 			$field = $columns_fields_ref->{$columnid}{field};
 			$column = $columnid;
+		}
+
+		# The server decides which fields an import may target: ignore the columns
+		# that are mapped to a field that is not selectable, so that a mapping can
+		# not turn an imported cell into a local image path, an owner, or a source
+		# field of another organization.
+		if ((defined $field) and (not is_import_field_allowed($field, $selectable_fields_ref))) {
+			$log->warn("create_off_columns_to_input_columns_match - ignoring non selectable field",
+				{column => $column, field => $field})
+				if $log->is_warn();
+			$field = undef;
 		}
 
 		if (defined $field) {
@@ -1597,11 +1614,181 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 	return $columns_fields_ref;
 }
 
+# Fields that the mapping interface does not offer, but that our own conversion
+# tools emit (e.g. the GS1 converter maps partyName to org_name) and that
+# import_csv_file understands. They are part of the server side allowlist for
+# that reason, and for that reason only.
+
+my @additional_import_fields = ('org_name');
+
+# Fields that are only selectable by moderators
+
+my @pro_moderator_only_import_fields = ('sources_fields_specific');
+
+=head2 get_import_export_fields_groups ()
+
+Return the list of import/export field groups the current user may pick fields
+from.
+
+Same as C<$options{import_export_fields_groups}>, except that it does not modify
+that global (the moderator-only group is added to the copy that is returned).
+
+=cut
+
+sub get_import_export_fields_groups () {
+
+	my @fields_groups = @{$options{import_export_fields_groups}};
+
+	# Special fields only selectable by moderators
+	if (defined $User{pro_moderator_owner}) {
+		push @fields_groups, ["other", [@pro_moderator_only_import_fields]];
+	}
+
+	return \@fields_groups;
+}
+
+=head2 get_selectable_import_fields ()
+
+Return a hash of the fields an import may target for the current user.
+
+This is the server side counterpart of the field dropdown rendered by
+generate_import_export_columns_groups_for_select2(): a caller supplied column
+mapping may only name fields that are part of this set, which is what keeps an
+import from writing into an arbitrary field (a local image path, the owner of
+another organization, another organization's source fields, ...).
+
+=head3 Return value
+
+Reference to a hash that maps an allowed field name to 1.
+
+=cut
+
+sub get_selectable_import_fields () {
+
+	my %fields = map {$_ => 1} @additional_import_fields;
+
+	# Nutrient table used to generate the nutrition fields of the dropdown
+	my $nutrient_table_id = $nutrient_table // $cc_nutrient_table{off_default};
+
+	foreach my $group_ref (@{get_import_export_fields_groups()}) {
+
+		my $group_id = $group_ref->[0];
+
+		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
+
+			# Nutrients offered by the dropdown
+			foreach my $nutrient (@{$nutrients_tables{$nutrient_table_id} // []}) {
+				next if $nutrient =~ /^\#/;
+				my $nid = $nutrient;
+				$nid =~ s/^(-|!)+//g;
+				$nid =~ s/-$//g;
+				foreach my $per ("100g", "serving") {
+					$fields{$nid . "_" . $per . "_value_unit"} = 1;
+					$fields{$nid . "_prepared_" . $per . "_value_unit"} = 1;
+				}
+			}
+
+			# The automatic column matching proposes every nutrient of the taxonomy,
+			# which can be wider than the nutrient table
+			foreach my $nutrient_tagid (get_all_taxonomy_entries("nutrients")) {
+				(my $nid = $nutrient_tagid) =~ s/^zz://g;
+				next if $nid =~ /\#/;
+				foreach my $per ("100g", "serving") {
+					$fields{$nid . "_" . $per . "_value_unit"} = 1;
+					$fields{$nid . "_prepared_" . $per . "_value_unit"} = 1;
+				}
+			}
+		}
+		elsif ($group_id eq "packaging") {
+
+			foreach
+				my $field ("packaging_text", "recycling_instructions_to_recycle", "recycling_instructions_to_discard")
+			{
+				$fields{$field} = 1;
+			}
+
+			for (my $i = 1; $i <= $IMPORT_MAX_PACKAGING_COMPONENTS; $i++) {
+				foreach my $property ("number_of_units", "shape", "material", "recycling", "weight_specified",
+					"quantity_per_unit")
+				{
+					$fields{"packaging_${i}_${property}"} = 1;
+				}
+			}
+		}
+		else {
+			foreach my $field (@{$group_ref->[1] // []}) {
+
+				# Image columns are offered with a language suffix (image_front_url_fr),
+				# never without one: those are matched by the pattern in
+				# is_import_field_allowed().
+				if (    ($group_id eq "images")
+					and ($field =~ /^image_($valid_image_types_regexp)_url$/))
+				{
+					foreach my $l (keys %language_codes) {
+						next if $l !~ /^[a-z]{2}$/;
+						$fields{$field . "_" . $l} = 1;
+					}
+					next;
+				}
+
+				$fields{$field} = 1;
+			}
+		}
+	}
+
+	return \%fields;
+}
+
+=head2 is_import_field_allowed ( $field, $selectable_fields_ref )
+
+Check that a field name supplied by an importer (or by a conversion fixture) may
+be used as the target of an import.
+
+=head3 Arguments
+
+=head4 $field - required
+
+Field name to check.
+
+=head4 $selectable_fields_ref - undef or result of get_selectable_import_fields()
+
+Passing the set avoids rebuilding it for every column; pass undef to compute it inside the function.
+
+=cut
+
+sub is_import_field_allowed ($field, $selectable_fields_ref) {
+
+	return 0 if not defined $field;
+	return 0 if $field eq '';
+
+	# Control fields that must never be accepted: they would let an import read a
+	# local file into a product image, take ownership of another owner's products,
+	# or write another organization's source fields.
+	return 0 if $field =~ /^sources_fields:/;
+	return 0 if $field =~ /^image_.*_file$/;
+	return 0 if $field =~ /^image_(front|ingredients|nutrition|packaging|other)$/;
+	return 0 if $field eq 'owner';
+	return 0 if $field eq 'imports';
+	return 0 if $field eq 'no_nutrition_data';
+
+	# Language specific image columns are offered with a language suffix
+	return 1 if $field =~ /^image_($valid_image_types_regexp)_url_[a-z]{2}$/;
+
+	# Fields that are only selectable by moderators
+	if ((grep {$_ eq $field} @pro_moderator_only_import_fields) and (defined $User{pro_moderator_owner})) {
+		return 1;
+	}
+
+	$selectable_fields_ref //= get_selectable_import_fields();
+
+	return $selectable_fields_ref->{$field} ? 1 : 0;
+}
+
 # Generate an array of options for select2
 
 sub generate_import_export_columns_groups_for_select2 ($lcs_ref) {    # array of language codes
 
-	my $fields_groups_ref = $options{import_export_fields_groups};
+	my $fields_groups_ref = get_import_export_fields_groups();
 
 	# Sample select2 groups and fields definition format from Config.pm:
 	my $sample_fields_groups_ref = [
@@ -1650,11 +1837,7 @@ sub generate_import_export_columns_groups_for_select2 ($lcs_ref) {    # array of
 		],
 	];
 
-	# Special fields only selectable by moderators
-
-	if (defined $User{pro_moderator_owner}) {
-		push @{$fields_groups_ref}, ["other", ["sources_fields_specific"]];
-	}
+	# Note: the moderator-only fields are added by get_import_export_fields_groups()
 
 	# Create an options array for select2
 
@@ -1882,6 +2065,14 @@ sub export_and_import_to_public_database ($args_ref) {
 	$args_ref->{comment} = "Import from producers platform";
 	$args_ref->{include_obsolete_products} = 1;
 	$args_ref->{include_images_paths} = 1;    # Export file paths to images
+
+	# The CSV file we are going to import is produced by our own exporter, so it
+	# may carry fields that a caller supplied column mapping is not allowed to
+	# name: local image paths inside the images directory, and source fields that
+	# belong to another organization than the exporting one.
+	$args_ref->{allow_local_image_paths} = 1;
+	$args_ref->{allow_any_source_fields} = 1;
+
 	$args_ref->{exported_t} = $started_t;
 
 	if (defined $Org_id) {
