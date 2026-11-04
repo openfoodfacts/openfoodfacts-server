@@ -7674,13 +7674,13 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			foreach my $abbreviation_ref (@{$abbreviations{$abbreviations_lc}}) {
 				my $source = $abbreviation_ref->[0];
 				my $target = $abbreviation_ref->[1];
-				# A dot followed by a space matches ". ", "." or " ", other dots match only a dot
-				# "c. à s." matches "c. à s.", "c.à s." and "c à s", "c.s." matches "c.s."
+				# A dot followed by a space matches ". ", "." or " ", other dots match "." or ". "
+				# "c. à s." matches "c. à s.", "c.à s." and "c à s", "c.s." matches "c.s." and "c. s."
 				my $trailing_dot = ($source =~ s/\.$//);
 				$source = join(
 					'(?:\\.| |\\. )',
 					map {
-						join('\\.', map {quotemeta} split(/\./, $_, -1))
+						join('\\. ?', map {quotemeta} split(/\./, $_, -1))
 					} split(/\. /, $source, -1)
 				);
 				# A trailing dot matches ". ", " " or "."

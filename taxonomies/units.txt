@@ -625,19 +625,20 @@ conversion_factor:en: 5
 standard_unit:en: ml
 
 # Cooking spoons, used in recipes.
-# French abbreviations with dots (c. à s., c.à.c.) are normalized by preparse_ingredients_text()
+# French abbreviations with dots (c. à s., c.à.c.) are also normalized in ingredients lists by preparse_ingredients_text(),
+# they are listed here for other fields like the serving size. "cs" and "cc" are not listed, as "cc" is also cm3
 en: tablespoon, tablespoons, tbsp, tbsps
-fr: cuillère à soupe, cuillères à soupe, cuiller à soupe, cuillers à soupe, cuillerée à soupe, cuillerées à soupe, cuillère à table, cuillères à table
+fr: cuillère à soupe, cuillères à soupe, cuiller à soupe, cuillers à soupe, cuillerée à soupe, cuillerées à soupe, cuillère à table, cuillères à table, c. à s., c. à s, c.à.s., c.à.s, c.s., c.s, càs, c. à soupe, c. soupe, c. à table
 conversion_factor:en: 15
 standard_unit:en: ml
 
 en: dessert spoon, dessert spoons, dessertspoon, dessertspoons
-fr: cuillère à dessert, cuillères à dessert, cuiller à dessert, cuillers à dessert, cuillerée à dessert, cuillerées à dessert
+fr: cuillère à dessert, cuillères à dessert, cuiller à dessert, cuillers à dessert, cuillerée à dessert, cuillerées à dessert, c. à dessert
 conversion_factor:en: 10
 standard_unit:en: ml
 
 en: teaspoon, teaspoons, tsp, tsps
-fr: cuillère à café, cuillères à café, cuiller à café, cuillers à café, cuillerée à café, cuillerées à café, cuillère à thé, cuillères à thé
+fr: cuillère à café, cuillères à café, cuiller à café, cuillers à café, cuillerée à café, cuillerées à café, cuillère à thé, cuillères à thé, c. à c., c. à c, c.à.c., c.à.c, c.c., c.c, càc, c. à café, c. café, c. à thé, c. thé
 conversion_factor:en: 5
 standard_unit:en: ml
 

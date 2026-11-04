@@ -176,11 +176,26 @@ my @serving_sizes = (
 	["2 buns = 20g", "20", "g"],
 	["43 someinvalidunit (430g)", "430", "g"],
 	["1500ml", "1500", "ml"],
+	# Spoons
+	["1 tbsp", "15", "ml"],
+	["2 tsp", "10", "ml"],
+	["1 cuillère à soupe", "15", "ml"],
+	["1 c. à s.", "15", "ml"],
+	["1 c.à.s", "15", "ml"],
+	["1 càs", "15", "ml"],
+	["2 c.c.", "10", "ml"],
+	["1 c. à thé", "5", "ml"],
+	["1 c. à s. (12 g)", "12", "g"],
+	["2 tbsp (32 g)", "32", "g"],
+	["1 cup (30g)", "30", "g"],
 );
 
 foreach my $test_ref (@serving_sizes) {
 	is(normalize_serving_size($test_ref->[0]), $test_ref->[1]) or diag Dumper $test_ref;
-	is(extract_standard_unit($test_ref->[0]), $test_ref->[2]) or diag Dumper $test_ref;
+	# serving_quantity_unit must match serving_quantity
+	my $product_ref = {serving_size => $test_ref->[0]};
+	normalize_product_quantity_and_serving_size($product_ref);
+	is($product_ref->{serving_quantity_unit}, $test_ref->[2]) or diag Dumper $test_ref;
 }
 
 is(get_standard_unit("kg"), "g");

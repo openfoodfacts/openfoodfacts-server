@@ -46,6 +46,7 @@ BEGIN {
 		&unit_to_mmoll
 		&mmoll_to_unit
 
+		&parse_serving_size
 		&normalize_serving_size
 		&normalize_quantity
 		&extract_standard_unit
@@ -374,6 +375,26 @@ sub get_standard_unit ($unit) {
 	return $standard_unit;
 }
 
+=head2 parse_serving_size($serving)
+
+Returns the quantity and the unit (as written) of the serving. Eg.:
+parse_serving_size(1 barquette de 40g) returns (40, "g")
+parse_serving_size(2 tbsp (32 g)) returns (32, "g")
+
+The last quantity with an unit is used, so that "2 tbsp (32 g)" gives 32 g.
+
+=cut
+
+sub parse_serving_size ($serving) {
+
+	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
+	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
+	if ((defined $serving) and ($serving =~ /^(.*[ \(])?(?<quantity>$number_regexp)( )?(?<unit>$units_regexp)\b/i)) {
+		return (convert_string_to_number($+{quantity}), $+{unit});
+	}
+	return;
+}
+
 =head2 normalize_serving_size($serving)
 
 Returns the size in g or ml for the serving. Eg.:
@@ -384,16 +405,11 @@ normalize_serving_size(2.5kg)->returns 2500
 
 sub normalize_serving_size ($serving) {
 
-	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
-	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
-	if ((defined $serving) and ($serving =~ /^(.*[ \(])?(?<quantity>$number_regexp)( )?(?<unit>$units_regexp)\b/i)) {
-		my $q = $+{quantity};
-		my $u = $+{unit};
-		$q = convert_string_to_number($q);
+	my ($q, $u) = parse_serving_size($serving);
 
-		return unit_to_g($q, $u);
-	}
-	return;
+	return if not defined $q;
+
+	return unit_to_g($q, $u);
 }
 
 =head2 normalize_product_quantity_and_serving_size ($product_ref)
@@ -426,7 +442,10 @@ sub normalize_product_quantity_and_serving_size ($product_ref) {
 	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
 		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
 
-		my $serving_quantity_unit = extract_standard_unit($product_ref->{serving_size});
+		# Use the same quantity as serving_quantity: "2 tbsp (32 g)" -> g, not ml
+		my (undef, $serving_unit) = parse_serving_size($product_ref->{serving_size});
+		my $serving_quantity_unit = get_standard_unit($serving_unit)
+			// extract_standard_unit($product_ref->{serving_size});
 		if (defined $serving_quantity_unit) {
 			$product_ref->{serving_quantity_unit} = $serving_quantity_unit;
 		}

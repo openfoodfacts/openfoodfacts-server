@@ -1435,6 +1435,28 @@ foreach my $test (
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "code variants and conjunctions: $test->[1]");
 }
 
+# Abbreviations with dots: a dot followed by a space matches ". ", "." or " ",
+# other dots match "." or ". ", but no other character
+foreach my $test (
+	['en', 'salt, i.a. pepper', 'salt, inter alia pepper'],
+	['en', 'salt, i. a. pepper', 'salt, inter alia pepper'],
+	['es', 'm.g. 20%', 'materia grasa 20%'],
+	['es', 'm. g. 20%', 'materia grasa 20%'],
+	['es', '100 mxg', '100 mxg'],
+	['nb', 'kons.middel (E202)', 'konserveringsmiddel (e202)'],
+	['nb', 'kons. middel (E202)', 'konserveringsmiddel (e202)'],
+	['nb', 'kons-middel (E202)', 'kons-middel (e202)'],
+	['fr', '2 c.s. de sucre', '2 cuillère à soupe de sucre'],
+	['fr', '2 c. s. de sucre', '2 cuillère à soupe de sucre'],
+	['fr', '1 c. à s. de miel', '1 cuillère à soupe de miel'],
+	['fr', '1 c à s de miel', '1 cuillère à soupe de miel'],
+	['fr', '1 c.à.c de sel', '1 cuillère à café de sel'],
+	['fr', 'en cas de doute', 'en cas de doute'],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "abbreviations: $test->[0] / $test->[1]");
+}
+
 # mono-, di-, tri- prefixes (examples from products)
 foreach my $test (
 	# prefix followed by "and" in the language of the ingredients list, and another prefix
