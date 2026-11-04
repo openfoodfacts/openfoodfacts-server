@@ -862,7 +862,7 @@
       "en:packagings-empty",
       "en:packagings-not-complete",
       "en:packagings-number-of-components-0",
-      "en:storage-conditions-not-set"
+      "en:storage-conditions-set"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
    "nova_group_error" : "missing_ingredients",
@@ -953,6 +953,10 @@
    "pnns_groups_2_tags" : [
       "cheese",
       "known"
+   ],
+   "storage_conditions" : "en:refrigerated",
+   "storage_conditions_tags" : [
+      "en:refrigerated"
    ],
    "tags_sources" : {
       "allergens" : {

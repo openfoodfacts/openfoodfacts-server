@@ -59,6 +59,14 @@ If you need to fetch more than a few hundred products, we ask you to [download t
 
 To protect our infrastructure from abusive crawl, we also added global rate-limits on the website and API endpoints, irrespective of the IP address. A HTTP 503 response (Service Not Available) will be returned if these limits are exceeded.
 
+### Handling errors and downtime for WRITE requests
+
+The server can be temporarily unavailable (maintenance, high load, or the global rate-limits above). To avoid losing your users' contributions, we recommend that you:
+
+- **Queue WRITE requests** (product edits, image uploads…) in your app, and only remove them from the queue once the server has confirmed the request succeeded.
+- **Retry with exponential backoff** when a request fails because of a network error, a timeout, or an HTTP 429 or 5xx (e.g. 503) response: wait a few seconds before the first retry, then double the delay at each attempt, adding some random jitter so that all your users do not retry at the same time.
+- **Limit the number of retries**, and do not retry requests that failed because of a client error (other 4xx responses): fix the request instead.
+
 If you expect your app to generate a lot of API traffic, we **strongly encourage you to host a local instance of Product Opener (or another custom API backend)**, and use the daily exports to update your local database.
 
 ### If your users do not expect a result immediately (e.g., Inventory apps)
