@@ -1,0 +1,167 @@
+{
+   "complements" : {
+      "hedges" : -0.609885,
+      "plotSize" : -1.33646
+   },
+   "composition" : [
+      {
+         "complements" : {},
+         "mass" : 0.093,
+         "name" : "Riz long",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 71.3613
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.0557,
+         "name" : "eau",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 5.74814
+         }
+      },
+      {
+         "complements" : {
+            "hedges" : -0.5868,
+            "plotSize" : -1.2456
+         },
+         "mass" : 0.036,
+         "name" : "viande de boeuf",
+         "score" : {
+            "complements" : -1.8324,
+            "ecs" : 211.34
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.0126,
+         "name" : "concentré de tomates",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 4.12053
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.0114,
+         "name" : "poivrons rouges",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 2.09771
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.0105,
+         "name" : "oignons",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 2.39085
+         }
+      },
+      {
+         "complements" : {
+            "hedges" : -0.023004,
+            "plotSize" : -0.08991
+         },
+         "mass" : 0,
+         "name" : "vin rouge",
+         "score" : {
+            "complements" : -0.112914,
+            "ecs" : 1.04863
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.0039,
+         "name" : "huile de colza",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 2.05267
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.0039,
+         "name" : "amidon de riz",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 2.39041
+         }
+      },
+      {
+         "complements" : {
+            "hedges" : -8.0976e-05,
+            "plotSize" : -0.00095436
+         },
+         "mass" : 0.01205,
+         "name" : "sel",
+         "score" : {
+            "complements" : -0.00103534,
+            "ecs" : 1.62036
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.00105,
+         "name" : "ail",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 0.249931
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.044,
+         "name" : "haricots",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 11.8474
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.0038,
+         "name" : "tomates",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 1.04181
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.00095,
+         "name" : "jus de tomates",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 0.22888
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.00095,
+         "name" : "jus de citron concentré",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 0.36511
+         }
+      }
+   ],
+   "productMass" : 0.2898,
+   "score" : {
+      "complements" : -1.94635,
+      "ecs" : 367.41
+   },
+   "stages" : {
+      "assembly" : 0,
+      "distribution" : 0.689943,
+      "endOfLife" : 0,
+      "materials" : 283.987,
+      "packaging" : 0,
+      "transform" : 5.0686,
+      "transports" : 79.6102,
+      "usage" : 0
+   }
+}

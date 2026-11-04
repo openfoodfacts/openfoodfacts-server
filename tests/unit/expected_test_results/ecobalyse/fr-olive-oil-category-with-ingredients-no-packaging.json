@@ -31,10 +31,11 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 750,
          "packaging" : [
             {
                "category" : "en:olive-oils",
-               "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58",
+               "id" : "a10668c6-4d0a-4484-b8e2-4577fe0a2173",
                "name" : "Olive oil, 0,75L | Packaging System, N0, All, Glass bottle {FR} U",
                "name_fr" : "Bouteille en verre et bouchon plastique pour huile d'olive - 0,5L à 1L"
             }
@@ -45,102 +46,67 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
-                  "mass" : 750
+                  "elements" : [
+                     {
+                        "amount" : 0.75,
+                        "material" : {
+                           "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Huile d'olive vierge extra",
+                  "quantity" : 1
                }
             ],
-            "packaging" : [
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "packagings" : [
                {
                   "amount" : 1,
-                  "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58"
+                  "processId" : "a10668c6-4d0a-4484-b8e2-4577fe0a2173"
                }
-            ]
+            ],
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
       "ecobalyse_response" : {
-         "results" : {
-            "distribution" : {
-               "total" : {
-                  "ecs" : 1.89991
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 10.9703
-                  },
-                  "road" : 600,
-                  "roadCooled" : 0,
-                  "sea" : 0,
-                  "seaCooled" : 0
-               }
-            },
-            "packaging" : {
-               "ecs" : 38.67
-            },
-            "perKg" : {
-               "ecs" : 603.75
-            },
-            "preparation" : {
-               "ecs" : 0
-            },
-            "preparedMass" : 0.75,
-            "recipe" : {
-               "ingredientsTotal" : {
+         "complements" : {},
+         "composition" : [
+            {
+               "complements" : {},
+               "mass" : 0.75,
+               "name" : "Huile d'olive vierge extra",
+               "score" : {
+                  "complements" : 0,
                   "ecs" : 370.35
-               },
-               "total" : {
-                  "ecs" : 401.273
-               },
-               "totalBonusImpact" : {
-                  "cropDiversity" : 0,
-                  "hedges" : 0,
-                  "permanentPasture" : 0,
-                  "plotSize" : 0
-               },
-               "transform" : {
-                  "ecs" : 0
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 30.9225
-                  },
-                  "road" : 2660,
-                  "roadCooled" : 0,
-                  "sea" : 0,
-                  "seaCooled" : 0
                }
-            },
-            "scoring" : {
-               "all" : 603.75,
-               "biodiversity" : 319.018,
-               "climate" : 37.8731,
-               "health" : 51.6024,
-               "resources" : 195.299
-            },
-            "total" : {
-               "ecs" : 452.813
-            },
-            "totalMass" : 1.1796,
-            "transports" : {
-               "air" : 0,
-               "impacts" : {
-                  "ecs" : 41.8928
-               },
-               "road" : 3260,
-               "roadCooled" : 0,
-               "sea" : 0,
-               "seaCooled" : 0
             }
+         ],
+         "productMass" : 0.75,
+         "score" : {
+            "complements" : 0,
+            "ecs" : 521.522
+         },
+         "stages" : {
+            "assembly" : 0,
+            "distribution" : 1.78557,
+            "endOfLife" : 0,
+            "materials" : 370.35,
+            "packaging" : 38.67,
+            "transform" : 0,
+            "transports" : 110.716,
+            "usage" : 0
          }
       },
       "ecs_per" : "100ml",
-      "ecs_per_100g_or_100ml" : 60.3750666666667,
-      "ecs_per_product" : 452.813
+      "ecs_per_100g_or_100ml" : 69.5362666666667,
+      "ecs_per_product" : 521.522
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [

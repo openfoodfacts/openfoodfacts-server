@@ -137,33 +137,74 @@
             }
          ],
          "ingredients_coverage_percent" : 61,
+         "ingredients_total_mass" : 61.8055555555556,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 55.5555555555556
+                  "elements" : [
+                     {
+                        "amount" : 0.055556,
+                        "material" : {
+                           "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "wheat flour",
+                  "quantity" : 1
                },
                {
-                  "id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
-                  "mass" : 5.55555555555556
+                  "elements" : [
+                     {
+                        "amount" : 0.005556,
+                        "material" : {
+                           "id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "rice starch",
+                  "quantity" : 1
                },
                {
-                  "id" : "f8fb04c1-c207-4a3c-993f-e5a1b0204dfa",
-                  "mass" : 0.347222222222221
+                  "elements" : [
+                     {
+                        "amount" : 0.000347,
+                        "material" : {
+                           "id" : "f8fb04c1-c207-4a3c-993f-e5a1b0204dfa"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "soy proteins",
+                  "quantity" : 1
                },
                {
-                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 0.347222222222229
+                  "elements" : [
+                     {
+                        "amount" : 0.000347,
+                        "material" : {
+                           "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "refined palm oil",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
       "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
       "ecobalyse_skipped" : 1

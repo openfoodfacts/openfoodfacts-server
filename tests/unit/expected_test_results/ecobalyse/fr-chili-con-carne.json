@@ -1,0 +1,918 @@
+{
+   "categories" : "chili con carne",
+   "categories_hierarchy" : [
+      "en:meals",
+      "en:meals-with-meat",
+      "en:chili-con-carne"
+   ],
+   "categories_lc" : "fr",
+   "categories_tags" : [
+      "en:meals",
+      "en:meals-with-meat",
+      "en:chili-con-carne"
+   ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Riz basmati par défaut -2025-",
+               "id" : "cce078cf-3d3e-4153-a0a1-35555b2da639",
+               "mass" : 93,
+               "name" : "Riz long"
+            },
+            {
+               "ecobalyse_name" : "Eau du robinet UE -2025-",
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 55.7,
+               "name" : "eau"
+            },
+            {
+               "ecobalyse_name" : "Viande de boeuf sans os par défaut",
+               "id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8",
+               "mass" : 36,
+               "name" : "viande de boeuf"
+            },
+            {
+               "ecobalyse_name" : "Purée de tomates par défaut -2025-",
+               "id" : "6523c72b-2c28-474d-9bf8-45e018bbd0be",
+               "mass" : 12.6,
+               "name" : "concentré de tomates"
+            },
+            {
+               "ecobalyse_name" : "Poivron sous serre non chauffée par défaut -2025-",
+               "id" : "d018ec1f-d3c8-4fa1-a70d-bca1b0380c47",
+               "mass" : 11.4,
+               "name" : "poivrons rouges"
+            },
+            {
+               "ecobalyse_name" : "Oignons HORS UE",
+               "id" : "23d64366-18f7-5f10-a3a8-6c15176d16a9",
+               "mass" : 10.5,
+               "name" : "oignons"
+            },
+            {
+               "ecobalyse_name" : "Vin rouge FR -2025-",
+               "id" : "6621c18e-85de-4683-82be-7b236e68bc48",
+               "mass" : 8.1,
+               "name" : "vin rouge"
+            },
+            {
+               "ecobalyse_name" : "Huile de colza par défaut -2025-",
+               "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "mass" : 3.9,
+               "name" : "huile de colza"
+            },
+            {
+               "ecobalyse_name" : "Fécule de pomme de terre par défaut -2025-",
+               "id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
+               "mass" : 3.9,
+               "name" : "amidon de riz"
+            },
+            {
+               "ecobalyse_name" : "Sel -2025-",
+               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "mass" : 12.05,
+               "name" : "sel"
+            },
+            {
+               "ecobalyse_name" : "Ail Origine Inconnue",
+               "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
+               "mass" : 1.04999999999998,
+               "name" : "ail"
+            },
+            {
+               "ecobalyse_name" : "Pois par défaut -2025-",
+               "id" : "134bc97e-e3dc-44de-8ec6-947b608a2d42",
+               "mass" : 44,
+               "name" : "haricots"
+            },
+            {
+               "ecobalyse_name" : "Tomate sous serre chauffée par défaut",
+               "id" : "a96c560e-7959-4698-b533-23f922bb62b9",
+               "mass" : 3.8,
+               "name" : "tomates"
+            },
+            {
+               "ecobalyse_name" : "Jus de tomate UE -2025-",
+               "id" : "65e6f518-e5fc-4fda-9af9-287d26e2bbe1",
+               "mass" : 0.95,
+               "name" : "jus de tomates"
+            },
+            {
+               "ecobalyse_name" : "Jus de citron UE -2025-",
+               "id" : "fd79d142-7e34-45a4-a0d1-59922b4c8d09",
+               "mass" : 0.95,
+               "name" : "jus de citron concentré"
+            }
+         ],
+         "ingredients_coverage_percent" : 99,
+         "ingredients_total_mass" : 297.9,
+         "reference_quantity" : 300,
+         "reference_quantity_source" : "product_quantity",
+         "reference_quantity_unit" : "g",
+         "transformations" : [
+            {
+               "id" : "e297d2a0-1945-4f48-838f-fbbb4a6cde72",
+               "name" : "Cooking",
+               "name_fr" : "Cuisson"
+            }
+         ]
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "components" : [
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.093,
+                        "material" : {
+                           "id" : "cce078cf-3d3e-4153-a0a1-35555b2da639"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "Riz long",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0557,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "eau",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.036,
+                        "material" : {
+                           "id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "viande de boeuf",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0126,
+                        "material" : {
+                           "id" : "6523c72b-2c28-474d-9bf8-45e018bbd0be"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "concentré de tomates",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0114,
+                        "material" : {
+                           "id" : "d018ec1f-d3c8-4fa1-a70d-bca1b0380c47"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "poivrons rouges",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0105,
+                        "material" : {
+                           "id" : "23d64366-18f7-5f10-a3a8-6c15176d16a9"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "oignons",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0081,
+                        "material" : {
+                           "id" : "6621c18e-85de-4683-82be-7b236e68bc48"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "vin rouge",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0039,
+                        "material" : {
+                           "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "huile de colza",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0039,
+                        "material" : {
+                           "id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "amidon de riz",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.01205,
+                        "material" : {
+                           "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "sel",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.00105,
+                        "material" : {
+                           "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "ail",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.044,
+                        "material" : {
+                           "id" : "134bc97e-e3dc-44de-8ec6-947b608a2d42"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "haricots",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0038,
+                        "material" : {
+                           "id" : "a96c560e-7959-4698-b533-23f922bb62b9"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "tomates",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.00095,
+                        "material" : {
+                           "id" : "65e6f518-e5fc-4fda-9af9-287d26e2bbe1"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "jus de tomates",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.00095,
+                        "material" : {
+                           "id" : "fd79d142-7e34-45a4-a0d1-59922b4c8d09"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "jus de citron concentré",
+                  "quantity" : 1
+               }
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_response" : {
+         "complements" : {
+            "hedges" : -0.609885,
+            "plotSize" : -1.33646
+         },
+         "composition" : [
+            {
+               "complements" : {},
+               "mass" : 0.093,
+               "name" : "Riz long",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 71.3613
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.0557,
+               "name" : "eau",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 5.74814
+               }
+            },
+            {
+               "complements" : {
+                  "hedges" : -0.5868,
+                  "plotSize" : -1.2456
+               },
+               "mass" : 0.036,
+               "name" : "viande de boeuf",
+               "score" : {
+                  "complements" : -1.8324,
+                  "ecs" : 211.34
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.0126,
+               "name" : "concentré de tomates",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 4.12053
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.0114,
+               "name" : "poivrons rouges",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 2.09771
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.0105,
+               "name" : "oignons",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 2.39085
+               }
+            },
+            {
+               "complements" : {
+                  "hedges" : -0.023004,
+                  "plotSize" : -0.08991
+               },
+               "mass" : 0,
+               "name" : "vin rouge",
+               "score" : {
+                  "complements" : -0.112914,
+                  "ecs" : 1.04863
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.0039,
+               "name" : "huile de colza",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 2.05267
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.0039,
+               "name" : "amidon de riz",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 2.39041
+               }
+            },
+            {
+               "complements" : {
+                  "hedges" : -8.0976e-05,
+                  "plotSize" : -0.00095436
+               },
+               "mass" : 0.01205,
+               "name" : "sel",
+               "score" : {
+                  "complements" : -0.00103534,
+                  "ecs" : 1.62036
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.00105,
+               "name" : "ail",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 0.249931
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.044,
+               "name" : "haricots",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 11.8474
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.0038,
+               "name" : "tomates",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 1.04181
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.00095,
+               "name" : "jus de tomates",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 0.22888
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.00095,
+               "name" : "jus de citron concentré",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 0.36511
+               }
+            }
+         ],
+         "productMass" : 0.2898,
+         "score" : {
+            "complements" : -1.94635,
+            "ecs" : 367.41
+         },
+         "stages" : {
+            "assembly" : 0,
+            "distribution" : 0.689943,
+            "endOfLife" : 0,
+            "materials" : 283.987,
+            "packaging" : 0,
+            "transform" : 5.0686,
+            "transports" : 79.6102,
+            "usage" : 0
+         }
+      },
+      "ecs_per" : "100g",
+      "ecs_per_100g_or_100ml" : 122.47,
+      "ecs_per_product" : 367.41
+   },
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "9100",
+         "ecobalyse_id" : "cce078cf-3d3e-4153-a0a1-35555b2da639",
+         "ecobalyse_name" : "Riz basmati par défaut -2025-",
+         "id" : "en:long-grain-rice",
+         "is_in_taxonomy" : 1,
+         "percent" : 31,
+         "percent_estimate" : 31,
+         "percent_max" : 31,
+         "percent_min" : 31,
+         "processing" : "en:cooked",
+         "text" : "Riz long",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ecobalyse_proxy_id" : "bc2fea1a-3dc9-515b-b744-7af4222e448f",
+         "ecobalyse_proxy_name" : "Haricots rouges HORS UE",
+         "id" : "en:red-bean",
+         "ingredients" : [
+            {
+               "ecobalyse_id" : "134bc97e-e3dc-44de-8ec6-947b608a2d42",
+               "ecobalyse_name" : "Pois par défaut -2025-",
+               "id" : "en:beans",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 14.6666666666667,
+               "percent_max" : 22,
+               "percent_min" : 7.33333333333333,
+               "text" : "haricots",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "18066",
+               "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_name" : "Eau du robinet UE -2025-",
+               "id" : "en:water",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 3.66666666666667,
+               "percent_max" : 11,
+               "percent_min" : 0,
+               "text" : "eau",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "11058",
+               "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Sel -2025-",
+               "id" : "en:salt",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 3.66666666666667,
+               "percent_max" : 7.33333333333333,
+               "percent_min" : 0,
+               "text" : "sel",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 22,
+         "percent_estimate" : 22,
+         "percent_max" : 22,
+         "percent_min" : 22,
+         "text" : "haricots rouges",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 14.9,
+         "percent_max" : 17.6,
+         "percent_min" : 12.2,
+         "text" : "eau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "6101",
+         "ecobalyse_id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8",
+         "ecobalyse_name" : "Viande de boeuf sans os par défaut",
+         "id" : "en:beef-meat",
+         "is_in_taxonomy" : 1,
+         "percent" : 12,
+         "percent_estimate" : 12,
+         "percent_max" : 12,
+         "percent_min" : 12,
+         "text" : "viande de boeuf",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "20068",
+         "ecobalyse_id" : "6523c72b-2c28-474d-9bf8-45e018bbd0be",
+         "ecobalyse_name" : "Purée de tomates par défaut -2025-",
+         "id" : "en:tomato-concentrate",
+         "is_in_taxonomy" : 1,
+         "percent" : 4.2,
+         "percent_estimate" : 4.2,
+         "percent_max" : 4.2,
+         "percent_min" : 4.2,
+         "text" : "concentré de tomates",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "ciqual_food_code" : "20087",
+         "ecobalyse_id" : "d018ec1f-d3c8-4fa1-a70d-bca1b0380c47",
+         "ecobalyse_name" : "Poivron sous serre non chauffée par défaut -2025-",
+         "id" : "en:red-bell-pepper",
+         "is_in_taxonomy" : 1,
+         "percent" : 3.8,
+         "percent_estimate" : 3.8,
+         "percent_max" : 3.8,
+         "percent_min" : 3.8,
+         "text" : "poivrons rouges",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20034",
+         "ecobalyse_id" : "23d64366-18f7-5f10-a3a8-6c15176d16a9",
+         "ecobalyse_name" : "Oignons HORS UE",
+         "id" : "en:onion",
+         "is_in_taxonomy" : 1,
+         "percent" : 3.5,
+         "percent_estimate" : 3.5,
+         "percent_max" : 3.5,
+         "percent_min" : 3.5,
+         "text" : "oignons",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "5214",
+         "ecobalyse_id" : "6621c18e-85de-4683-82be-7b236e68bc48",
+         "ecobalyse_name" : "Vin rouge FR -2025-",
+         "id" : "en:red-wine",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.7,
+         "percent_max" : 3.5,
+         "percent_min" : 1.9,
+         "text" : "vin rouge",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20047",
+         "ecobalyse_id" : "a96c560e-7959-4698-b533-23f922bb62b9",
+         "ecobalyse_name" : "Tomate sous serre chauffée par défaut",
+         "id" : "en:tomato",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "20047",
+               "ecobalyse_id" : "a96c560e-7959-4698-b533-23f922bb62b9",
+               "ecobalyse_name" : "Tomate sous serre chauffée par défaut",
+               "id" : "en:tomato",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 1.26666666666667,
+               "percent_max" : 1.9,
+               "percent_min" : 0.633333333333333,
+               "text" : "tomates",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "20047",
+               "ecobalyse_id" : "65e6f518-e5fc-4fda-9af9-287d26e2bbe1",
+               "ecobalyse_name" : "Jus de tomate UE -2025-",
+               "id" : "en:tomato-juice",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.316666666666667,
+               "percent_max" : 0.95,
+               "percent_min" : 0,
+               "text" : "jus de tomates",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "2028",
+               "ecobalyse_id" : "fd79d142-7e34-45a4-a0d1-59922b4c8d09",
+               "ecobalyse_name" : "Jus de citron UE -2025-",
+               "id" : "en:concentrated-lemon-juice",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.316666666666667,
+               "percent_max" : 0.633333333333333,
+               "percent_min" : 0,
+               "text" : "jus de citron concentré",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 1.9,
+         "percent_estimate" : 1.9,
+         "percent_max" : 1.9,
+         "percent_min" : 1.9,
+         "text" : "tomates",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "17130",
+         "ecobalyse_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_name" : "Huile de colza par défaut -2025-",
+         "from_palm_oil" : "no",
+         "id" : "en:colza-oil",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.3,
+         "percent_max" : 1.9,
+         "percent_min" : 0.7,
+         "text" : "huile de colza",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "96781",
+         "ecobalyse_proxy_id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
+         "ecobalyse_proxy_name" : "Fécule de pomme de terre par défaut -2025-",
+         "id" : "en:rice-starch",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.3,
+         "percent_max" : 1.9,
+         "percent_min" : 0.7,
+         "text" : "amidon de riz",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11081",
+         "id" : "en:spice",
+         "is_in_taxonomy" : 1,
+         "percent" : 0.7,
+         "percent_estimate" : 0.7,
+         "percent_max" : 0.7,
+         "percent_min" : 0.7,
+         "text" : "épices",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_name" : "Sel -2025-",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.349999999999994,
+         "percent_max" : 0.7,
+         "percent_min" : 0,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "11000",
+         "ecobalyse_id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
+         "ecobalyse_name" : "Ail Origine Inconnue",
+         "id" : "en:garlic",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.349999999999994,
+         "percent_max" : 0.7,
+         "percent_min" : 0,
+         "text" : "ail",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:beef-meat"
+      ],
+      "en:non-vegetarian" : [
+         "en:beef-meat"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 20,
+   "ingredients_n_tags" : [
+      "20",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:long-grain-rice",
+      "en:red-bean",
+      "en:water",
+      "en:beef-meat",
+      "en:tomato-concentrate",
+      "en:red-bell-pepper",
+      "en:onion",
+      "en:red-wine",
+      "en:tomato",
+      "en:colza-oil",
+      "en:rice-starch",
+      "en:spice",
+      "en:salt",
+      "en:garlic",
+      "en:beans",
+      "en:water",
+      "en:salt",
+      "en:tomato",
+      "en:tomato-juice",
+      "en:concentrated-lemon-juice"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:long-grain-rice",
+      "en:rice",
+      "en:red-bean",
+      "en:kidney-bean",
+      "en:pulse",
+      "en:legume",
+      "en:pod-and-seed-vegetable",
+      "en:vegetable",
+      "en:water",
+      "en:beef-meat",
+      "en:beef",
+      "en:meat",
+      "en:animal",
+      "en:tomato-concentrate",
+      "en:concentrate",
+      "en:tomato",
+      "en:fruit-vegetable",
+      "en:red-bell-pepper",
+      "en:bell-pepper",
+      "en:capsicum-annuum",
+      "en:onion",
+      "en:onion-family-vegetable",
+      "en:root-vegetable",
+      "en:red-wine",
+      "en:wine",
+      "en:alcohol",
+      "en:colza-oil",
+      "en:rapeseed-oil",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
+      "en:rice-starch",
+      "en:starch",
+      "en:spice",
+      "en:condiment",
+      "en:salt",
+      "en:garlic",
+      "en:beans",
+      "en:tomato-juice",
+      "en:concentrated-lemon-juice",
+      "en:lemon-juice",
+      "en:fruit-juice",
+      "en:fruit",
+      "en:juice"
+   ],
+   "ingredients_text" : "Riz long cuit 31%, haricots rouges 22% (haricots, eau, sel), eau, viande de boeuf 12%, concentré de tomates 4,2%, poivrons rouges 3,8%, oignons 3,5%, vin rouge, tomates 1,9% (tomates, jus de tomates, jus de citron concentré), huile de colza, amidon de riz, épices 0,7%, sel, ail",
+   "ingredients_with_specified_percent_n" : 6,
+   "ingredients_with_specified_percent_sum" : 55.2,
+   "ingredients_with_unspecified_percent_n" : 12,
+   "ingredients_with_unspecified_percent_sum" : 44.8,
+   "ingredients_without_ciqual_codes" : [
+      "en:beans",
+      "en:red-bean"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:spice"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 20,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:at-least-5-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-reference-quantity-from-product-quantity",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
+   ],
+   "product_quantity" : 300,
+   "product_quantity_unit" : "g",
+   "quantity" : "300 g",
+   "testid" : "fr-chili-con-carne",
+   "unknown_ingredients_n" : 0
+}

@@ -45,10 +45,11 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 1000,
          "packaging" : [
             {
                "category" : "en:frozen-foods",
-               "id" : "3b312971-e9a3-4da1-ad35-bb37a647310a",
+               "id" : "42b785f2-0263-4dde-934d-211617ddb0c8",
                "name" : "Vegetables cooked frozen, 500g | Packaging System, N0, All, Tray with cardboard case {FR} U",
                "name_fr" : "Etui en carton et barquette en plastique (PP) pour légumes, surgelés - 500g"
             }
@@ -62,105 +63,69 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "frozen",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
-                  "mass" : 1000
+                  "elements" : [
+                     {
+                        "amount" : 1,
+                        "material" : {
+                           "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "haricots verts",
+                  "quantity" : 1
                }
             ],
-            "packaging" : [
+            "consumptions" : [
+               "0048f6f5-5f8f-4a34-acde-4e0d909883d4"
+            ],
+            "distribution" : "a7b3d399-4c7b-4556-9826-a79f952feb7f",
+            "packagings" : [
                {
                   "amount" : 1,
-                  "id" : "3b312971-e9a3-4da1-ad35-bb37a647310a"
+                  "processId" : "42b785f2-0263-4dde-934d-211617ddb0c8"
                }
             ],
-            "preparation" : [
-               "freezing"
-            ]
+            "transportOptions" : {
+               "cooling" : true
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
       "ecobalyse_response" : {
-         "results" : {
-            "distribution" : {
-               "total" : {
-                  "ecs" : 10.4626
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 14.0804
-                  },
-                  "road" : 0,
-                  "roadCooled" : 600,
-                  "sea" : 0,
-                  "seaCooled" : 0
-               }
-            },
-            "packaging" : {
-               "ecs" : 15.16
-            },
-            "perKg" : {
-               "ecs" : 246.42
-            },
-            "preparation" : {
-               "ecs" : 5.11736
-            },
-            "preparedMass" : 0.9,
-            "recipe" : {
-               "ingredientsTotal" : {
+         "complements" : {},
+         "composition" : [
+            {
+               "complements" : {},
+               "mass" : 1,
+               "name" : "haricots verts",
+               "score" : {
+                  "complements" : 0,
                   "ecs" : 66.96
-               },
-               "total" : {
-                  "ecs" : 176.958
-               },
-               "totalBonusImpact" : {
-                  "cropDiversity" : 0,
-                  "hedges" : 0,
-                  "permanentPasture" : 0,
-                  "plotSize" : 0
-               },
-               "transform" : {
-                  "ecs" : 0
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 109.998
-                  },
-                  "road" : 0,
-                  "roadCooled" : 2660,
-                  "sea" : 0,
-                  "seaCooled" : 18000
                }
-            },
-            "scoring" : {
-               "all" : 246.42,
-               "biodiversity" : 113.901,
-               "climate" : 55.8422,
-               "health" : 28.8503,
-               "resources" : 47.8023
-            },
-            "total" : {
-               "ecs" : 221.778
-            },
-            "totalMass" : 0.98354,
-            "transports" : {
-               "air" : 0,
-               "impacts" : {
-                  "ecs" : 124.078
-               },
-               "road" : 0,
-               "roadCooled" : 3260,
-               "sea" : 0,
-               "seaCooled" : 18000
             }
+         ],
+         "productMass" : 1,
+         "score" : {
+            "complements" : 0,
+            "ecs" : 345.179
+         },
+         "stages" : {
+            "assembly" : 0,
+            "distribution" : 9.22325,
+            "endOfLife" : 0,
+            "materials" : 66.96,
+            "packaging" : 15.16,
+            "transform" : 0,
+            "transports" : 248.15,
+            "usage" : 5.68596
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 22.1778,
-      "ecs_per_product" : 221.778
+      "ecs_per_100g_or_100ml" : 34.5179,
+      "ecs_per_product" : 345.179
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
