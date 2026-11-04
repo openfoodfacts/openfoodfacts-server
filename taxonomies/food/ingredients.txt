@@ -13621,7 +13621,7 @@ el: χοιρινό στήθος
 eo: porkventraĵo
 es: panza de cerdo
 fi: porsaankylki
-fr: ventre de porc
+fr: ventre de porc, ventrèche, ventrêche
 ga: bolg muiceola
 hr: svinjska potrbušina
 hu: császárszalonna
@@ -13647,6 +13647,18 @@ description:es: La panza de cerdo es la carne procedente de la panza de un cerdo
 wikidata:en: Q1365868
 wikipedia:en: https://en.wikipedia.org/wiki/Pork_belly
 # 169 in 9 languages @2021-09-22
+
+< en: pork meat
+en: guanciale
+xx: guanciale
+ciqual_proxy_food_code:en: 28858
+ciqual_proxy_food_name:fr: Pancetta ou Poitrine roulée sèche
+
+< en: pork meat
+en: sausage meat
+fr: chair à saucisse
+ciqual_food_code:en: 30050
+ciqual_food_name:fr: Chair à saucisse, crue
 
 < en: pork belly
 en: british pork belly
@@ -14626,7 +14638,7 @@ et: maisitärklis
 eu: maizena
 fa: نشاسته ذرت
 fi: maissitärkkelys
-fr: amidon de maïs, amidon de mais, fécule de mais
+fr: amidon de maïs, amidon de mais, fécule de mais, fécule de maïs, maïzena, maizena
 he: עמילן תירס
 hr: kukuruzni škrob, kukuruz škrob
 hu: kukoricakeményítő
@@ -20202,6 +20214,42 @@ wikipedia:en: https://en.wikipedia.org/wiki/Liqueur
 # Likör (Glucosesirup, Wasser, Alkohol, Zucker, Aromen)
 
 < en: liqueur
+en: anise liqueur
+fr: liqueur d'anis, anisette
+
+< en: liqueur
+en: coffee liqueur
+fr: liqueur de café
+
+< en: liqueur
+en: orange liqueur
+fr: liqueur d'orange
+
+< en: orange liqueur
+en: curaçao, curacao
+fr: curaçao, curacao, curaçao bleu, curacao bleu, curaçao blanc
+
+< en: orange liqueur
+en: triple sec
+xx: triple sec
+
+< en: liqueur
+en: crème de cassis, blackcurrant liqueur
+fr: crème de cassis, crême de cassis, liqueur de cassis
+
+< en: liqueur
+en: apricot liqueur
+fr: liqueur d'abricot
+
+< en: liqueur
+en: cherry brandy, cherry liqueur
+fr: cherry brandy, liqueur de cerise
+
+< en: liqueur
+en: Irish cream, whisky cream liqueur
+fr: crème de whisky, crême de whisky, liqueur à la crème de whisky
+
+< en: liqueur
 en: chocolate liqueur
 bg: шоколадов ликьор
 de: Schokoladenlikör
@@ -21650,6 +21698,24 @@ description:pt: bebida alcoólica à base de vinho, com adição de flores ou er
 wikidata:en: Q231088
 wiktionary:en: vermouth
 
+< en: alcohol
+en: Lillet
+xx: Lillet, Lillet blanc, Lillet rouge
+ciqual_proxy_food_code:en: 1007
+ciqual_proxy_food_name:fr: Apéritif à base de vin ou vermouth
+
+< en: vermouth
+en: red vermouth
+fr: vermouth rouge
+
+< en: vermouth
+en: white vermouth
+fr: vermouth blanc
+
+< en: vermouth
+en: dry vermouth
+fr: vermouth dry, vermouth sec
+
 # comment:en: The spelling whiskey is common in Ireland and the United States, while whisky is used in all other whisky-producing countries.
 
 < en: alcohol
@@ -21848,6 +21914,22 @@ ciqual_food_code:en: 1004
 ciqual_food_name:en: Rum
 ciqual_food_name:fr: Rhum
 
+< en: alcohol
+en: cachaça, cachaca
+xx: cachaça, cachaca
+ciqual_proxy_food_code:en: 1004
+ciqual_proxy_food_name:fr: Rhum
+
+< en: alcohol
+en: pastis
+xx: pastis
+ciqual_food_code:en: 1000
+ciqual_food_name:fr: Pastis
+
+< en: alcohol
+en: angostura bitters, angostura
+fr: angostura, angostura bitter, bitter angostura
+
 < en: rum
 en: white rum
 bg: бял ром
@@ -21912,6 +21994,16 @@ carbon_footprint_fr_foodges_ingredient:fr: Bière
 carbon_footprint_fr_foodges_value:fr: 2.7
 
 < en: beer
+en: dark beer, brown beer
+fr: bière brune
+ciqual_food_code:en: 5000
+ciqual_food_name:fr: Bière brune
+
+< en: dark beer
+en: stout
+xx: stout
+
+< en: beer
 en: malt beer
 usda_fdc_code:en: 174141
 usda_ndb_code:en: 14239
@@ -21939,7 +22031,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Absinthe
 < en: alcohol
 en: Chartreuse liqueur
 de: Chartreuse Likör
-fr: Liqueur de Chartreuse, liqueur Chartreuse, liqueur de Chartreuse verte
+fr: Liqueur de Chartreuse, liqueur Chartreuse, liqueur de Chartreuse verte, chartreuse, chartreuse verte, chartreuse jaune
 hr: chartreuse liker
 it: liquore Chartreuse
 wikidata:en: Q779839
@@ -33071,7 +33163,7 @@ usda_ndb_name:en: Sugars, granulated
 < en: sugar
 en: caster sugar
 de: Streuzucker
-fr: sucre semoule
+fr: sucre semoule, sucre fin
 hr: šećer u prahu
 it: zucchero semolato
 description:en: Caster sugar is finer than granulated sugar, but coarser than powdered/icing sugar, with a grain size of about 0.35 mm.
@@ -34002,6 +34094,20 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q6584340
 wikipedia:en: https://en.wikipedia.org/wiki/Syrup
+
+< en: syrup
+en: drink syrup
+fr: sirop à diluer
+ciqual_food_code:en: 18017
+ciqual_food_name:fr: Sirop à diluer, sucré
+
+< en: drink syrup
+en: grenadine syrup
+fr: sirop de grenadine, grenadine
+
+< en: drink syrup
+en: orgeat syrup
+fr: sirop d'orgeat
 
 # nova:en:glucose
 < en: monosaccharide
@@ -37965,7 +38071,7 @@ eo: Karbonata akvo
 es: Agua carbonatada
 et: Gaseeritud vesi, karboniseeritud vesi, mulliga vesi
 fi: soodavesi, hiilihapotettu vesi
-fr: Eau gazeuse, eau acidulée, eau effervescente, eau pétillante, eau gazéifiée, soda club, soda nature, eau gazéifié, eau gazéfiée
+fr: Eau gazeuse, eau acidulée, eau effervescente, eau pétillante, eau gazéifiée, soda club, soda nature, eau gazéifié, eau gazéfiée, soda, eau de seltz
 he: מי סודה
 hr: gazirana voda
 hu: Szódavíz
@@ -39010,7 +39116,7 @@ bg: хранителна мая
 de: nährhefe
 eo: nutra gisto
 fi: ravintohiiva
-fr: levure alimentaire
+fr: levure alimentaire, levure maltée, levure maltée en paillettes, levure diététique
 hr: hranjivi kvasac
 id: ragi nutrisional
 it: lievito alimentare
@@ -55149,6 +55255,17 @@ wikipedia:en: https://en.wikipedia.org/wiki/parsley
 < en: parsley
 en: parsley sprig
 fr: brin de persil, branche de persil
+average_weight_per_unit:en: 1
+
+< en: parsley
+en: parsley bunch
+fr: bouquet de persil, botte de persil
+# average weight: approximate weight of a bunch of fresh herbs sold in France
+average_weight_per_unit:en: 50
+
+< en: parsley
+en: flat-leaf parsley, Italian parsley
+fr: persil plat
 
 < en: fresh herb
 < en: parsley sprig
@@ -59989,6 +60106,18 @@ usda_ndb_proxy_name:en: Chives, raw
 #plant: wikidata:en:Q51148
 wikidata:en: Q61046162
 wikipedia:en: https://en.wikipedia.org/wiki/Chives
+
+< en: chives
+en: chive bunch
+fr: bouquet de ciboulette, botte de ciboulette
+# average weight: approximate weight of a bunch of fresh herbs sold in France
+average_weight_per_unit:en: 25
+
+< en: chives
+en: chive sprig
+fr: brin de ciboulette
+# average weight: approximate weight of a sprig of fresh herbs
+average_weight_per_unit:en: 0.5
 
 < en: chives
 en: fresh chives
@@ -73135,6 +73264,12 @@ wikidata:en: Q2596997
 wikipedia:en: https://en.wikipedia.org/wiki/Condiment
 
 < en: condiment
+en: gomasio, gomashio
+xx: gomasio, gomashio
+ciqual_proxy_food_code:en: 15010
+ciqual_proxy_food_name:fr: Sésame, graine
+
+< en: condiment
 en: powdered condiment
 bg: Подправка на пудра, подправки на пудра
 de: Streuwürze
@@ -73354,6 +73489,12 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en: herb
+en: bouquet garni
+fr: bouquet garni, bouquets garnis
+ciqual_proxy_food_code:en: 11070
+ciqual_proxy_food_name:fr: Thym, frais
+
+< en: herb
 en: fresh herb, fresh herbs
 fr: herbe fraîche, herbes fraîches
 ecobalyse_alias:en: herb-fresh-non-eu
@@ -73492,6 +73633,12 @@ nl: gemengde specerijen
 pl: mieszanka przypraw, mieszanka przyprawowa, mieszanina przypraw, mieszanina przyprawowa
 ro: amestec de condimente
 sv: kryddblandning, kryddmix
+
+< en: mixed spices
+en: quatre épices
+fr: quatre-épices, quatre épices
+ciqual_food_code:en: 11056
+ciqual_food_name:fr: Quatre épices
 
 < en: mixed spices
 en: zaatar, zaatar blend
@@ -75818,6 +75965,12 @@ usda_ndb_proxy_name:en: Coriander (cilantro) leaves, raw
 wikidata:en: Q65523167
 
 < en: coriander leaf
+en: coriander bunch, cilantro bunch
+fr: bouquet de coriandre, botte de coriandre
+# average weight: approximate weight of a bunch of fresh herbs sold in France
+average_weight_per_unit:en: 50
+
+< en: coriander leaf
 en: fresh raw coriander leaf
 ciqual_food_code:en: 11094
 ciqual_food_name:en: Coriander, fresh
@@ -76000,6 +76153,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Dill
 < en: dill
 en: dill sprig
 fr: brin d'aneth, branche d'aneth
+average_weight_per_unit:en: 1
+
+< en: dill
+en: dill bunch
+fr: bouquet d'aneth, botte d'aneth
+# average weight: approximate weight of a bunch of fresh herbs sold in France
+average_weight_per_unit:en: 30
 
 < en: dill sprig
 en: fresh dill sprig
@@ -76169,6 +76329,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/rosemary
 < en: rosemary
 en: rosemary sprig
 fr: brin de romarin, branche de romarin
+average_weight_per_unit:en: 1
 
 < en: rosemary
 en: fresh rosemary
@@ -76445,6 +76606,13 @@ ifct_food_name:en: Mint leaves
 < en: mint
 en: mint sprig
 fr: brin de menthe, branche de menthe
+average_weight_per_unit:en: 1
+
+< en: mint
+en: mint bunch
+fr: bouquet de menthe, botte de menthe
+# average weight: approximate weight of a bunch of fresh herbs sold in France
+average_weight_per_unit:en: 30
 
 < en: mint leaf
 < en: spearmint
@@ -76993,6 +77161,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Thyme
 < en: thyme
 en: thyme sprig
 fr: brin de thym, branche de thym
+average_weight_per_unit:en: 0.5
+
+< en: thyme
+en: thyme bunch
+fr: bouquet de thym, botte de thym
+# average weight: approximate weight of a bunch of fresh herbs sold in France
+average_weight_per_unit:en: 20
 
 < en: thyme
 en: fresh thyme
@@ -77359,6 +77534,12 @@ wikidata:en: Q38859
 wikipedia:en: https://en.wikipedia.org/wiki/Basil
 
 < en: basil
+en: basil bunch
+fr: bouquet de basilic, botte de basilic
+# average weight: approximate weight of a bunch of fresh herbs sold in France
+average_weight_per_unit:en: 30
+
+< en: basil
 < en: fresh herb
 en: Fresh basil
 bg: пресен босилек
@@ -77383,6 +77564,8 @@ pl: liście bazylii
 < en: basil
 en: basil sprig
 fr: brin de basilic, branche de basilic
+# average weight: approximate weight of a sprig of fresh herbs
+average_weight_per_unit:en: 1
 
 < en: Fresh basil
 < en: basil leaf
@@ -99594,13 +99777,29 @@ ciqual_food_name:en: Short crust pastry, raw
 ciqual_food_name:fr: Pâte brisée, crue
 
 < en: dough
-fr: pâte feuilletée
+en: bread dough
+fr: pâte à pain
+ciqual_proxy_food_code:en: 37001
+ciqual_proxy_food_name:fr: Pâte à pizza crue
+
+< en: dough
+en: brick pastry, brik pastry
+fr: feuille de brick, feuilles de brick, feuille de brik, feuilles de brik, pâte à brick, pâte brick
+ciqual_food_code:en: 51550
+ciqual_food_name:fr: Khatfa feuille de brick, préemballée
+
+< en: dough
+en: puff pastry
 de: Blätterteig
+fr: pâte feuilletée
 hr: lisnato tijesto
 it: pasta sfoglia
 nl: bladerdeeg
 carbon_footprint_fr_foodges_ingredient:fr: Pâte à tarte
 carbon_footprint_fr_foodges_value:fr: 7.3
+ciqual_food_code:en: 23420
+ciqual_food_name:en: Puff pastry, with vegetable fat, raw
+ciqual_food_name:fr: Pâte feuilletée, matière grasse végétale, crue
 
 < en: pasta
 en: dried pasta
@@ -102039,6 +102238,10 @@ wikidata:en: Q275068
 wikipedia:en: https://en.wikipedia.org/wiki/Broth
 # brodo (acqua, osso di pollo, sale, spezie, carota, sedano (0,01%), cipolla, porro, scalogno, aglio, piante aromatiche)
 
+< en: broth
+en: dashi
+xx: dashi
+
 #category:en:beef-broth
 < en: beef
 < en: broth
@@ -102318,6 +102521,33 @@ ciqual_proxy_food_code:en: 18010
 ciqual_proxy_food_name:en: Lemonade, with sugar
 wikidata:en: Q893
 wikipedia:en: https://en.wikipedia.org/wiki/Lemonade
+
+en: soft drink, soft drinks, carbonated soft drink
+fr: boisson gazeuse, boissons gazeuses, boisson gazeuse sucrée
+ciqual_food_code:en: 18026
+ciqual_food_name:fr: Boisson gazeuse, sans jus de fruit, sucrée
+
+< en: soft drink
+en: cola
+fr: soda au cola, boisson au cola, boisson rafraîchissante aux extraits végétaux
+ciqual_food_code:en: 18018
+ciqual_food_name:fr: Cola, sucré
+
+< en: soft drink
+en: orange soda
+fr: soda à l'orange, soda orange
+ciqual_food_code:en: 18049
+ciqual_food_name:fr: Boisson gazeuse aux fruits (à moins de 10% de jus), sucrée
+
+< en: soft drink
+en: tonic water, tonic
+fr: tonic, eau tonique
+ciqual_food_code:en: 18344
+ciqual_food_name:fr: Tonic ou bitter, sucré
+
+< en: soft drink
+en: ginger ale
+xx: ginger ale
 
 #< en: compound
 de: kakaohaltiges Getränkepulver
@@ -103175,6 +103405,14 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q178359
 wikipedia:en: https://en.wikipedia.org/wiki/Sauce
+
+< en: sauce
+en: hoisin sauce
+fr: sauce hoisin
+
+< en: sauce
+en: oyster sauce
+fr: sauce d'huîtres, sauce aux huîtres
 
 < en: sauce
 fr: préparation déshydratée pour sauce

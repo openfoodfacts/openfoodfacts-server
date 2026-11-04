@@ -624,6 +624,58 @@ it: cucchiaino metrico
 conversion_factor:en: 5
 standard_unit:en: ml
 
+# Cooking spoons, used in recipes.
+# French abbreviations with dots (c. à s., c.à.c.) are normalized by preparse_ingredients_text()
+en: tablespoon, tablespoons, tbsp, tbsps
+fr: cuillère à soupe, cuillères à soupe, cuiller à soupe, cuillers à soupe, cuillerée à soupe, cuillerées à soupe, cuillère à table, cuillères à table
+conversion_factor:en: 15
+standard_unit:en: ml
+
+en: dessert spoon, dessert spoons, dessertspoon, dessertspoons
+fr: cuillère à dessert, cuillères à dessert, cuiller à dessert, cuillers à dessert, cuillerée à dessert, cuillerées à dessert
+conversion_factor:en: 10
+standard_unit:en: ml
+
+en: teaspoon, teaspoons, tsp, tsps
+fr: cuillère à café, cuillères à café, cuiller à café, cuillers à café, cuillerée à café, cuillerées à café, cuillère à thé, cuillères à thé
+conversion_factor:en: 5
+standard_unit:en: ml
+
+# Glass, used in French recipes ("1 verre de vin blanc"): a standard glass (verre à moutarde) holds about 20 cl
+en: glass, glasses
+fr: verre, verres
+conversion_factor:en: 200
+standard_unit:en: ml
+
+# Small glass of liqueur or spirit ("1 petit verre de kirsch"), about 5 cl
+en: small glass, small glasses
+fr: petit verre, petits verres
+conversion_factor:en: 50
+standard_unit:en: ml
+
+en: large glass, large glasses
+fr: grand verre, grands verres
+conversion_factor:en: 250
+standard_unit:en: ml
+
+# Count units used in recipes, with the "count" standard unit: the ingredient quantity is kept ("2 sachets")
+# but not converted to grams, and they are not used to parse product quantities.
+en: packet, packets
+fr: sachet, sachets, paquet, paquets
+conversion_factor:en: 1
+standard_unit:en: count
+
+# Bunches of herbs ("bouquet de persil") are ingredients with an average weight, like "gousse d'ail"
+en: bunch, bunches
+fr: botte, bottes
+conversion_factor:en: 1
+standard_unit:en: count
+
+en: handful, handfuls
+fr: poignée, poignées
+conversion_factor:en: 1
+standard_unit:en: count
+
 # for "cups", we default to US legal cups.
 en: cup, cups
 da: kop, kopper

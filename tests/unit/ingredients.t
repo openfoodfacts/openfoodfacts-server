@@ -1122,6 +1122,37 @@ puffed orange and caramelized unknown_fruit4.",
 				"3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
 		}
 	],
+	[
+		'fr-recipes-with-spoons-and-ranges',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"2 c. à s. d'huile d'olive, 2 cuillères à soupe de sucre, 1 cuillère à café de sel, 3 c.s de farine, 1 c.à.c de cannelle, 1 càs de miel, 1 cuillerée à dessert de vinaigre, 1 c. à thé de vanille, 2 c. à table de beurre, 2 à 3 gousses d'ail, 10 à 12 % de sucre",
+		}
+	],
+	[
+		'fr-recipes-with-processing-and-count-units',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"poivre du moulin, poivre fraîchement moulu, 10 cl d'eau tiède, 50 g de beurre ramolli, 1 gousse d'ail coupée en deux, 2 gousses d'ail écrasées, pain rassis, 1 œuf battu, 2 sachets de sucre vanillé, 1 bouquet garni, 1 bouquet de persil, 1 botte de radis, 1 poignée de noisettes, 1 verre de vin blanc sec",
+		}
+	],
+	[
+		'fr-recipes-with-fractions-and-herbs',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"½ litre de lait, 1/2 cuillère à café de sel, 1 1/2 tasse de farine, ¼ c. à s. de poivre, 1½ kg de pommes de terre, 1 bouquet de persil, 1 petit bouquet de coriandre, 3 brins de thym, 1 petit verre de kirsch, 1 grand verre de lait",
+		}
+	],
+	[
+		'en-recipes-with-spoons',
+		{
+			lc => 'en',
+			ingredients_text => "2 tbsp olive oil, 1 tablespoon of sugar, 1 tsp salt, 2 teaspoons of cinnamon",
+		}
+	],
 	# percent_or_quantity_regexp
 	[
 		'en-percent-or-quantity-regexp',

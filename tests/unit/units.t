@@ -201,4 +201,10 @@ is(get_unit_symbol("kilogramai"), "kg");
 is(get_unit_symbol(""), "");
 is(get_unit_symbol("this is not a unit"), undef);
 
+# Count units used in recipes (sachet, bouquet...) are not used to parse product quantities
+is(normalize_quantity("10 sachets"), undef);
+is(normalize_quantity("10 sachets de 2 g"), 20);
+is(get_standard_unit("sachet"), undef);
+is(normalize_quantity("1 verre"), 200);
+
 done_testing();

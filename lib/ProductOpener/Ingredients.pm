@@ -7632,6 +7632,50 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# Misspelling corrections (applied early so they don't interfere with other normalizations)
 	apply_misspelling_replacements("ingredients", $ingredients_lc, \$text);
 
+	# Fractions at the start of an ingredient, as in cooking recipes:
+	# "½ litre de lait", "1/2 cuillère à café de sel", "1 1/2 tasse de farine" -> "0.5 litre de lait"
+	# Only at the start of an ingredient, so that "lait 1/2 écrémé" is kept.
+	my %vulgar_fractions = ("½" => 1 / 2, "¼" => 1 / 4, "¾" => 3 / 4, "⅓" => 1 / 3, "⅔" => 2 / 3, "⅛" => 1 / 8);
+	my $fraction_to_decimal = sub ($match, $whole, $vulgar_fraction, $numerator, $denominator) {
+		my $value;
+		if (defined $vulgar_fraction) {
+			$value = $vulgar_fractions{$vulgar_fraction};
+		}
+		else {
+			# Keep things like "3/2" or "2/2" that are not fractions of a quantity
+			return $match if $numerator >= $denominator;
+			$value = $numerator / $denominator;
+		}
+		$value += $whole if defined $whole;
+		my $decimal = sprintf("%.2f", $value);
+		$decimal =~ s/\.?0+$//;
+		return $decimal;
+	};
+	$text
+		=~ s/(^|[,;\n]\s*)((?:(\d+)\s*)?(?:([½¼¾⅓⅔⅛])|(?<!\d)([1-7])\s*\/\s*([2-8])))(?=\s|\p{L})/$1 . $fraction_to_decimal->($2, $3, $4, $5, $6)/eg;
+
+	# Cooking recipes in French
+	if ($ingredients_lc eq 'fr') {
+		# Spoon abbreviations after a number contain dots that would split the ingredient:
+		# "2 c. à s. de sucre", "1 c.à.c de sel", "3 c.s d'huile", "1 c. à thé" -> "2 cuillère à soupe de sucre"
+		# "cs" and "cc" without dots or "à" are not expanded, as "cc" is also cm3
+		my %spoons = (
+			s => "soupe",
+			soupe => "soupe",
+			table => "soupe",
+			c => "café",
+			"café" => "café",
+			cafe => "café",
+			"thé" => "café",
+			the => "café",
+			dessert => "dessert",
+		);
+		$text
+			=~ s/(\d\s*)c(?:\s*\.\s*(?:[àa]\s*\.?\s*)?|\s*[àa]\s*\.?\s*)(soupe|table|café|cafe|thé|the|dessert|[sc])\b\.?/$1 . "cuillère à " . $spoons{lc($2)}/ieg;
+		# Ranges: "2 à 3 gousses d'ail" -> "2-3 gousses d'ail" (ranges with an hyphen are already parsed)
+		$text =~ s/(?<![\d,.])(\d+(?:[,.]\d+)?)\s+à\s+(\d+(?:[,.]\d+)?)(?=\s)/$1-$2/g;
+	}
+
 	# Remove _ underscores around allergens, e.g. "_milk_" -> "milk"
 	remove_underscores_around_allergens($ingredients_lc, \$text);
 

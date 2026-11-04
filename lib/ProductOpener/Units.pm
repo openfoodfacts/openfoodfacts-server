@@ -119,6 +119,10 @@ sub init_units_names() {
 		my $conversion_factor = get_property("units", $tagid, "conversion_factor:en");
 		my $symbol = get_property("units", $tagid, "symbol:en");
 
+		# Count units used in recipes (packet, bunch...) cannot be converted to g or ml,
+		# so we do not use them to parse product quantities like "10 sachets"
+		next if (($standard_unit // '') eq 'count');
+
 		$units{$tagid} = {
 			standard_unit => $standard_unit,
 			conversion_factor => $conversion_factor,

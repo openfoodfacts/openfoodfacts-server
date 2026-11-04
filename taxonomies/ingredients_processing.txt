@@ -404,7 +404,7 @@ wikidata:en: Q104439353
 < en: chopped
 en: finely chopped
 da: finhakket, finhakkede
-fr: finement hachées, finement hachée, finement hachés
+fr: finement hachées, finement hachée, finement hachés, finement haché, haché finement, hachée finement, hachés finement, hachées finement, ciselé, ciselée, ciselés, ciselées
 sv: finhackad, finhackat, finhackade
 wikidata:en: Q26883106
 
@@ -453,7 +453,7 @@ en: crushed, crushing
 bg: натрошенo, натрошен, натрошена, натрошени
 es: aplastada, aplastado, aplastadas, aplastados, triturado, triturada, triturados, trituradas
 fi: murskattu, murskatut
-fr: concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées, broyage
+fr: concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées, broyage, écrasé, écrasée, écrasés, écrasées, pilé, pilée, pilés, pilées
 hr: izdrobljeno, smrvljeno
 hu: zúzott, összetörve, összetört
 nl: gebroken
@@ -579,6 +579,8 @@ sv: grovmalen, grovmald, grovmalet, grovmalt, grovmalna, grovmalda
 < en: ground
 en: freshly ground
 de: frischgemahlen, frischgemahlene, frischgemahlener, frischgemahlenes
+# "poivre du moulin" (pepper from the mill) means freshly ground pepper in recipes
+fr: fraîchement moulu, fraîchement moulue, fraîchement moulus, fraîchement moulues, fraichement moulu, fraichement moulue, fraichement moulus, fraichement moulues, du moulin, au moulin
 hu: frissen őrölt
 
 < en: ground
@@ -705,7 +707,7 @@ bg: наполовина
 ca: meitat, meitats, meitats de
 cs: půlený, půlená, půlené
 de: halbiert, halbierte, halbierter, halbiertes, halbe
-fr: demi
+fr: demi, coupé en deux, coupée en deux, coupés en deux, coupées en deux, en deux, coupé en 2, coupée en 2, coupés en 2, coupées en 2
 hr: polovice
 pl: połówki
 pt: metade, metades
@@ -2451,6 +2453,32 @@ nl: gesmolten
 pl: topiony, topiona, topione
 pt: fundido, fundida, fundidos, fundidas
 sv: smält, smälta, smälta
+
+# Temperature and state of ingredients, mostly found in cooking recipes ("eau tiède", "beurre ramolli")
+en: lukewarm
+fr: tiède, tièdes
+
+en: cold
+fr: froid, froide, froids, froides
+
+en: hot
+fr: chaud, chaude, chauds, chaudes
+
+< en: hot
+en: boiling
+fr: bouillant, bouillante, bouillants, bouillantes
+
+en: softened
+fr: ramolli, ramollie, ramollis, ramollies, mou, mous, pommade, en pommade
+
+en: stale
+fr: rassis, rassise, rassises
+
+en: crumbled
+fr: émietté, émiettée, émiettés, émiettées
+
+en: beaten
+fr: battu, battue, battus, battues
 
 #######################################################################
 #
