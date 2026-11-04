@@ -1468,6 +1468,13 @@ foreach my $test (
 	is(preparse_ingredients_text('fr', $test->[0]), $test->[1], "ranges: $test->[0]");
 }
 
+# Misspellings with a hyphen
+is(
+	preparse_ingredients_text('fr', 'farine, sel-poivre'),
+	'farine, sel, poivre',
+	'misspelling with a hyphen: sel-poivre'
+);
+
 # mono-, di-, tri- prefixes (examples from products)
 foreach my $test (
 	# prefix followed by "and" in the language of the ingredients list, and another prefix

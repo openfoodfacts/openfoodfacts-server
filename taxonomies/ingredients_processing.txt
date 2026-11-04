@@ -430,7 +430,7 @@ ca: a daus, a dauets
 de: würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
 es: en cubitos, encuadritos, en dados, a dados
 fi: kuutioitu, kuutioidut
-fr: en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
+fr: en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d', coupé en dés, coupée en dés, coupés en dés, coupées en dés, coupé en cubes, coupée en cubes, coupés en cubes, coupées en cubes
 hu: kockázott, kockázva, kockára vágva, kockára vágott
 it: dadi, dado, a dadi, a dadini, in dadi, in dadini
 nl: blokjes, in blokjes, blokje
@@ -2460,6 +2460,10 @@ fr: tiède, tièdes, tiédi, tiédie, tiédis, tiédies
 
 en: cold
 fr: froid, froide, froids, froides
+
+# "eau glacée", "beurre glacé" in recipes ("glacé" is also used for candied fruits: "fruits glacés" is an ingredient)
+en: ice-cold, iced
+fr: glacé, glacée, glacés, glacées
 
 en: hot
 fr: chaud, chaude, chauds, chaudes

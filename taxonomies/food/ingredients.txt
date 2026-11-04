@@ -2331,6 +2331,18 @@ wikidata:en: Q34172
 wikipedia:en: https://en.wikipedia.org/wiki/Butter
 
 < en: butter
+en: knob of butter, knobs of butter
+fr: noix de beurre
+# A knob of butter in recipes, about 10 g (2 teaspoons)
+average_weight_per_unit:en: 10
+
+< en: butter
+en: small knob of butter, small knobs of butter
+fr: noisette de beurre, noisettes de beurre
+# A small knob of butter in recipes, about 5 g (1 teaspoon)
+average_weight_per_unit:en: 5
+
+< en: butter
 en: unsalted butter
 ca: mantega sense sal
 de: ungesalzene Butter
@@ -5112,7 +5124,7 @@ ca: crema de llet montada, nata montada
 de: Schlagsahne
 es: crema de leche montada, nata montada
 fi: kermavaahto
-fr: crème fouettée
+fr: crème fouettée, crème chantilly, chantilly
 hr: šlag
 hu: tejszínhab
 it: Panna montata
@@ -5608,6 +5620,8 @@ yi: קעז
 yo: wàràkàsì
 zh: 乾酪
 zu: Ushizi
+agribalyse_proxy_food_code:en: 12115
+agribalyse_proxy_food_name:fr: Emmental ou emmenthal
 ciqual_food_code:en: 12999
 ciqual_food_name:en: Cheese -average-
 # ang:Cīese
@@ -7086,6 +7100,8 @@ nl: verse kaas
 pt: queijo branco
 sl: sveži sir
 sr: sveži sir
+agribalyse_proxy_food_code:en: 19646
+agribalyse_proxy_food_name:fr: Fromage blanc nature, 3% MG environ
 ciqual_food_code:en: 19501
 ciqual_food_name:en: Quark, plain or fruit (average)
 comment:en: This cheese has translation issues as it is very similar to other fresh cheeses
@@ -7914,6 +7930,8 @@ tr: mascarpone
 uk: Маскарпоне
 vi: Mascarpone
 zh: 马斯卡邦尼奶酪
+agribalyse_proxy_food_code:en: 19410
+agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
 # lmo:Mascarpon
 # sco:Mascarpone
 # sr-ec:Маскарпоне
@@ -7929,6 +7947,18 @@ ciqual_food_code:en: 19584
 ciqual_food_name:en: Mascarpone cheese, from cow's milk
 ciqual_food_name:fr: Mascarpone
 description:en: MASCARPONE is an Italian cream cheese coagulated by the addition of certain acidic substances such as lemon juice, vinegar, citric acid or acetic acid.
+ecobalyse_proxy_alias:en: fresh-cream-cheese-2025
+ecobalyse_proxy_category:en: dairy
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_id:en: 2cced940-3abf-439d-b2f1-e6241ffb31fd
+ecobalyse_proxy_name:fr: Crème fraiche FR (2025)
+ecobalyse_proxy_origins_en_france_alias:en: fresh-cream-cheese-2025
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 2cced940-3abf-439d-b2f1-e6241ffb31fd
+ecobalyse_proxy_origins_en_france_name:fr: Crème fraiche FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: reference
+ecobalyse_proxy_transport_cooling:en: always
 wikidata:en: Q209889
 wikipedia:en: https://en.wikipedia.org/wiki/Mascarpone
 
@@ -8448,6 +8478,20 @@ ru: Пекорино
 sv: pecorino, pecorino-ost
 uk: Пекоріно
 zh: 義大利綿羊乾酪
+agribalyse_proxy_food_code:en: 12120
+agribalyse_proxy_food_name:fr: Parmesan
+ecobalyse_proxy_alias:en: parmesan-cheese-fr
+ecobalyse_proxy_category:en: dairy
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_id:en: 646aaee7-b9eb-4050-9e2a-0a4015258b1e
+ecobalyse_proxy_name:fr: Parmesan FR
+ecobalyse_proxy_origins_en_france_alias:en: parmesan-cheese-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 646aaee7-b9eb-4050-9e2a-0a4015258b1e
+ecobalyse_proxy_origins_en_france_name:fr: Parmesan FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: reference
+ecobalyse_proxy_transport_cooling:en: always
 usda_fdc_code:en: 171249
 usda_ndb_code:en: 1038
 usda_ndb_name:en: Cheese, romano
@@ -11793,10 +11837,27 @@ zu: imvu
 # zh-hk:羊
 comment:en: Not convinced of the wikidata translations. The seem to be more “domesticated sheep” than “sheep”. Or the latin name is used.
 description:en: Domestic sheep (Ovis aries) are quadrupedal, ruminant mammals typically kept as livestock.  Sheep are raised for fleeces, meat (lamb, hogget or mutton) , fat and milk.
+ecobalyse_proxy_alias:en: lamb-meat-without-bone
+ecobalyse_proxy_category:en: red_meats
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_id:en: d79e0fce-8633-4189-a937-7b8010abafed
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: lamb-meat-without-bone-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: e07f7703-c4f7-479e-a8ac-bb73d3f08c78
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Viande d'agneau Bio (désossée)
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Viande d'agneau (désossée) FR
+ecobalyse_proxy_origins_en_france_alias:en: lamb-meat-without-bone
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: d79e0fce-8633-4189-a937-7b8010abafed
+ecobalyse_proxy_origins_en_france_name:fr: Viande d'agneau (désossée) FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: reference
+# usage:fr: mouton (graisse et viande)
+ecobalyse_proxy_transport_cooling:en: always
 nutriscore_red_meat:en: yes
 wikidata:en: Q7368
 wikipedia:en: https://en.wikipedia.org/wiki/Sheep
-# usage:fr: mouton (graisse et viande)
 
 < en: sheeps fat
 < en: sheeps meat
@@ -11830,6 +11891,23 @@ ciqual_food_code:en: 21001
 ciqual_food_name:en: Mutton, meat, raw
 comment:en: Some wikidata translation seems to refer to lamb and not mutton.
 description:en: mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
+ecobalyse_proxy_alias:en: lamb-meat-without-bone
+ecobalyse_proxy_category:en: red_meats
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_id:en: d79e0fce-8633-4189-a937-7b8010abafed
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: lamb-meat-without-bone-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: e07f7703-c4f7-479e-a8ac-bb73d3f08c78
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Viande d'agneau Bio (désossée)
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Viande d'agneau (désossée) FR
+ecobalyse_proxy_origins_en_france_alias:en: lamb-meat-without-bone
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: d79e0fce-8633-4189-a937-7b8010abafed
+ecobalyse_proxy_origins_en_france_name:fr: Viande d'agneau (désossée) FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: reference
+ecobalyse_proxy_transport_cooling:en: always
 wikidata:en: Q14566073
 wikipedia:en: https://en.wikipedia.org/wiki/Lamb_and_mutton
 
@@ -13671,6 +13749,18 @@ en: sausage meat
 fr: chair à saucisse
 ciqual_food_code:en: 30050
 ciqual_food_name:fr: Chair à saucisse, crue
+ecobalyse_alias:en: sausage-meat-2025
+ecobalyse_category:en: red_meats
+ecobalyse_default_origin:en: FR
+ecobalyse_id:en: d1eb385a-ad1e-44f5-89d1-640c4c91d353
+ecobalyse_name:fr: Chair à saucisse crue FR (2025)
+ecobalyse_origins_en_france_alias:en: sausage-meat-2025
+ecobalyse_origins_en_france_default_origin:en: FR
+ecobalyse_origins_en_france_id:en: d1eb385a-ad1e-44f5-89d1-640c4c91d353
+ecobalyse_origins_en_france_name:fr: Chair à saucisse crue FR (2025)
+ecobalyse_origins_en_france_scenario:en: reference
+ecobalyse_scenario:en: reference
+ecobalyse_transport_cooling:en: always
 
 < en: pork belly
 en: british pork belly
@@ -15146,6 +15236,12 @@ from_palm_oil:en: maybe
 vegan:en: yes
 vegetarian:en: yes
 
+< en: oil
+en: drizzle of oil
+fr: filet d'huile
+# A drizzle of oil in recipes, about 10 g (2 teaspoons)
+average_weight_per_unit:en: 10
+
 < en: oil and fat
 en: refined vegetable oil
 bg: рафинирано растително масло, рафинирана растителна мазнина
@@ -15853,12 +15949,27 @@ tr: Bitkisel yağ
 uk: Рослинні жири й олії
 vi: Dầu thực vật
 zh: 植物油
+agribalyse_proxy_food_code:en: 17700
+agribalyse_proxy_food_name:fr: Huile combinée (mélange d'huiles)
 # roa-rup:Untulemnu
 # sco:Vegetable ile
 ciqual_food_code:en: 17001
 ciqual_food_name:en: Vegetable oil -average-
 density_g_per_ml:en: 0.92
 description:en: In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
+ecobalyse_proxy_alias:en: rapeseed-oil-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: COLZA
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 96b301d9-d21b-4cea-8903-bd7917e95a30
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en: rapeseed-oil-organic-2025
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_id:en: 51f8e8d2-13c0-446c-bf0a-9272fc46edde
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Huile de colza Bio (2025)
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
+ecobalyse_proxy_name:fr: Huile de colza par défaut (2025)
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 wikipedia:en: https://en.wikipedia.org/wiki/Vegetable_oil
 
 < en: vegetable oil
@@ -17501,6 +17612,11 @@ usda_ndb_proxy_code:en: 4053
 usda_ndb_proxy_name:en: Oil, olive, salad or cooking
 wikidata:en: Q93165
 wikipedia:en: https://en.wikipedia.org/wiki/Olive_oil
+
+< en: drizzle of oil
+< en: olive oil
+en: drizzle of olive oil
+fr: filet d'huile d'olive
 
 < en: olive oil
 en: salad or cooking olive oil
@@ -20855,6 +20971,19 @@ zh: 葡萄酒
 carbon_footprint_fr_foodges_ingredient:fr: Vin France
 carbon_footprint_fr_foodges_value:fr: 1.4
 description:en: WINE is an alcoholic beverage made from fermented grapes.
+ecobalyse_proxy_alias:en: red-wine-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: VIGNES
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_id:en: 6621c18e-85de-4683-82be-7b236e68bc48
+ecobalyse_proxy_name:fr: Vin rouge FR (2025)
+ecobalyse_proxy_origins_en_france_alias:en: red-wine-2025
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 6621c18e-85de-4683-82be-7b236e68bc48
+ecobalyse_proxy_origins_en_france_name:fr: Vin rouge FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: reference
+ecobalyse_proxy_transport_cooling:en: none
 wikidata:en: Q282
 wikipedia:en: https://en.wikipedia.org/wiki/Wine
 
@@ -20997,8 +21126,25 @@ agribalyse_proxy_food_code:en: 5215
 ciqual_proxy_food_code:en: 5215
 ciqual_proxy_food_name:fr: Vin blanc (sec)
 description:en: WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
+ecobalyse_proxy_alias:en: red-wine-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: VIGNES
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_id:en: 6621c18e-85de-4683-82be-7b236e68bc48
+ecobalyse_proxy_name:fr: Vin rouge FR (2025)
+ecobalyse_proxy_origins_en_france_alias:en: red-wine-2025
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 6621c18e-85de-4683-82be-7b236e68bc48
+ecobalyse_proxy_origins_en_france_name:fr: Vin rouge FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: reference
+ecobalyse_proxy_transport_cooling:en: none
 wikidata:en: Q10210
 wikipedia:en: https://en.wikipedia.org/wiki/White_wine
+
+< en: white wine
+en: Jura white wine
+fr: vin blanc du Jura, vins blancs du Jura
 
 < en: white wine
 en: dry white wine
@@ -21017,6 +21163,19 @@ agribalyse_food_code:en: 5215
 ciqual_food_code:en: 5215
 ciqual_food_name:en: Wine, white, dry
 ciqual_food_name:fr: Vin blanc (sec)
+ecobalyse_proxy_alias:en: red-wine-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: VIGNES
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_id:en: 6621c18e-85de-4683-82be-7b236e68bc48
+ecobalyse_proxy_name:fr: Vin rouge FR (2025)
+ecobalyse_proxy_origins_en_france_alias:en: red-wine-2025
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 6621c18e-85de-4683-82be-7b236e68bc48
+ecobalyse_proxy_origins_en_france_name:fr: Vin rouge FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: reference
+ecobalyse_proxy_transport_cooling:en: none
 # 2019-05-29
 wikidata:en: Q11060609
 
@@ -37090,6 +37249,13 @@ agribalyse_proxy_food_name:fr: Chocolat noir à 40% de cacao minimum, à pâtiss
 # zh-tw:朱古力
 carbon_footprint_fr_foodges_ingredient:fr: Chocolat en morceau (noir)
 carbon_footprint_fr_foodges_value:fr: 4.9
+ecobalyse_proxy_alias:en: dark-chocolate-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 6f3939f7-408c-45d5-8653-61f3336bf305
+ecobalyse_proxy_name:fr: Chocolat noir par défaut (2025)
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 vegan:en: maybe
 vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Chocolate
@@ -39934,7 +40100,7 @@ sv: bärsprodukt
 # usage:fr:préparation de fruits rouges 11 % (sirop de glucose-fructose, fruits 4,4 %* (fraise, mûre, myrtille, framboise)
 
 # <compound:en:This is a compound ingredient
-fr: fruits confits
+fr: fruits confits, fruits glacés
 de: Früchte kandiert
 es: frutas confitadas
 fi: kandeeratut hedelmät
@@ -44863,6 +45029,29 @@ carbon_footprint_fr_foodges_value:fr: 0.9
 ciqual_proxy_food_code:en: 13067
 ciqual_proxy_food_name:en: Lime, pulp, raw
 ciqual_proxy_food_name:fr: Citron vert ou Lime, pulpe, cru
+ecobalyse_proxy_alias:en: lemon-pulp-raw-default
+ecobalyse_proxy_category:en: fruits_and_vegetables
+ecobalyse_proxy_crop_group:en: VERGERS
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 4fba3fff-ce86-4827-8c1f-aab86f16e469
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: lemon-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: 87289d0e-18f9-5675-a672-e58cfe59dc41
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Citron Bio
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Citron, pulpe, cru Origine Inconnue
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: lemon-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: aa4ca6bf-2c7c-59d7-ac75-df1cf824f9fe
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Citron UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: lemon-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: f9596969-4a5c-589c-915f-263a1e4e01ba
+ecobalyse_proxy_origins_en_france_name:fr: Citron FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: always
 usda_ndb_proxy_code:en: 9159
 usda_ndb_proxy_name:en: Limes, raw
 wikidata:en: Q13195
@@ -56664,6 +56853,8 @@ wa: Celeri
 yi: סעלערי
 za: Ginzcaiq
 zh: 旱芹
+agribalyse_proxy_food_code:en: 20023
+agribalyse_proxy_food_name:fr: Céleri branche, cru
 # ast:callapazu
 # azb:ایلی کرویز
 # ckb:کەرەوز
@@ -66006,6 +66197,29 @@ zh: 笋瓜
 ciqual_food_code:en: 20166
 ciqual_food_name:en: Pumpkin, pulp, raw
 ciqual_food_name:fr: Citrouille, pulpe, crue
+ecobalyse_proxy_alias:en: squash-eu-2025
+ecobalyse_proxy_category:en: fruits_and_vegetables
+ecobalyse_proxy_crop_group:en: LEGUMES-FLEURS
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_id:en: 14335872-a8d9-4496-b771-cb80c21ad604
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: squash-organic-2025
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: bbee841c-6675-49ae-92da-2064877f6d14
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Courge Bio (2025)
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Courge UE (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: squash-eu-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 14335872-a8d9-4496-b771-cb80c21ad604
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Courge UE (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: squash-fr-2025
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 6689fb67-0118-4dff-b74e-0c8de81ef65b
+ecobalyse_proxy_origins_en_france_name:fr: Courge FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: always
 eurocode_2_group_3:en: 8.40.45
 #arz:قرع كبير
 #dsb:wjelicka banja
@@ -66382,6 +66596,8 @@ ud: Фасоль
 uk: квасоля звичайна
 vi: Đậu cô ve
 zh: 菜豆
+agribalyse_proxy_food_code:en: 20501
+agribalyse_proxy_food_name:fr: Haricot blanc, sec
 # azb:عادی لوْبیا
 # bar:Fisoin
 # chr:ᏚᏯ
@@ -67003,6 +67219,8 @@ nl: witte bonen
 pl: fasola biała
 ru: фасоль белая
 sv: vit böna, vita bönor
+agribalyse_proxy_food_code:en: 20501
+agribalyse_proxy_food_name:fr: Haricot blanc, sec
 ecobalyse_alias:en: white-bean-canned-drained-default
 ecobalyse_category:en: other_food_items
 ecobalyse_crop_group:en: LEGUMES-FLEURS
@@ -67126,6 +67344,8 @@ pl: fasola czerwona, fasoli czerwonej, czerwona fasola
 pt: Feijões vermelhos
 ru: фасоль красная, красная фасоль, Фасоль крупа красная
 sv: röda kidneybönor, kidneybönor
+agribalyse_proxy_food_code:en: 20525
+agribalyse_proxy_food_name:fr: Haricot rouge, sec
 description:en: Red Rajmah (red kidney beans) originates from the Andean region of Central and South America, from where it spread worldwide and became deeply rooted in South Asian cuisine, especially in Punjabi and North Indian cooking. It has a glossy deep-red skin with a soft, creamy interior and a rich, slightly sweet, earthy flavor. Most famously simmered into the classic "rajma" curry with tomatoes, onions, and spices, it's also used in soups, stews, salads, and rice dishes across many cultures. Nutritionally, it provides plant-based protein, dietary fiber, complex carbohydrates, iron, potassium, and folate, making it a globally cherished legume.
 ecobalyse_proxy_alias:en: red-bean-dried-non-eu
 ecobalyse_proxy_category:en: legumes
@@ -72959,6 +73179,14 @@ ciqual_proxy_name:fr: Poivre noir, poudre
 ciqual_proxy_process:en: en:powder
 comment:en: Non-black/white/green peppers are also children of this.
 description:en: Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
+ecobalyse_proxy_alias:en: black-pepper-default
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: DIVERS
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 217df27a-7ab5-5d1d-97a4-8b20db8f4952
+ecobalyse_proxy_name:fr: Poivre noir Origine Inconnue
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 usda_ndb_proxy_code:en: 2030
 usda_ndb_proxy_name:en: Spices, pepper, black
 wikidata:en: Q3143131
@@ -79967,6 +80195,8 @@ th: นํ้า
 tr: zeytin
 tt: зәйтүн
 zh: 阿塞图纳
+agribalyse_proxy_food_code:en: 13147
+agribalyse_proxy_food_name:fr: Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
 # aeb-arab:كعبة زيتون
 # ast:Aceituna
 # en-gb:olive
@@ -100309,6 +100539,24 @@ carbon_footprint_fr_foodges_ingredient:fr: Pain
 carbon_footprint_fr_foodges_value:fr: 1.5
 ciqual_food_code:en: 7000
 ciqual_food_name:en: Bread -average-
+ecobalyse_proxy_alias:en: flour-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: BLE TENDRE
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_id:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en: flour-organic-2025
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_id:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Farine Bio (2025)
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
+ecobalyse_proxy_name:fr: Farine UE agrégée (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: flour-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Farine UE agrégée (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 nova:en: 3
 vegan:en: maybe
 vegetarian:en: yes
@@ -100910,6 +101158,14 @@ wikidata:en: Q13270
 wikipedia:en: https://en.wikipedia.org/wiki/Biscuit
 
 < en: biscuit
+en: ladyfinger, ladyfingers, sponge finger, sponge fingers
+fr: biscuit à la cuillère, biscuits à la cuillère, biscuit à la cuiller, biscuits à la cuiller, boudoir, boudoirs
+agribalyse_food_code:en: 24430
+ciqual_food_code:en: 24430
+ciqual_food_name:en: Biscuit (cookie), sponge fingers or Lady fingers
+ciqual_food_name:fr: Biscuit sec aux œufs à la cuillère (cuiller) ou Boudoir
+
+< en: biscuit
 en: Biscuit pieces, cookie pieces
 de: Keksstücke
 fr: morceaux de biscuits, morceaux de biscuit
@@ -101223,6 +101479,24 @@ vi: Vụn bánh mì
 zh: 麵包屑
 ciqual_food_code:en: 7500
 ciqual_food_name:en: Breadcrumbs
+ecobalyse_proxy_alias:en: flour-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: BLE TENDRE
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_id:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en: flour-organic-2025
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_id:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Farine Bio (2025)
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
+ecobalyse_proxy_name:fr: Farine UE agrégée (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: flour-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Farine UE agrégée (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 vegan:en: maybe
 vegetarian:en: maybe
 # eml:Pan radû
@@ -102260,6 +102534,9 @@ uz: sho'rva
 vi: canh
 yi: יויך
 zh: 清汤
+# brodo (acqua, osso di pollo, sale, spezie, carota, sedano (0,01%), cipolla, porro, scalogno, aglio, piante aromatiche)
+agribalyse_proxy_food_code:en: 25947
+agribalyse_proxy_food_name:fr: Bouillon de volaille, déshydraté reconstitué
 # de-ch:Brühe
 # eml:Brôd
 # en-ca:Broth
@@ -102278,7 +102555,6 @@ zh: 清汤
 # zh-tw:清湯
 wikidata:en: Q275068
 wikipedia:en: https://en.wikipedia.org/wiki/Broth
-# brodo (acqua, osso di pollo, sale, spezie, carota, sedano (0,01%), cipolla, porro, scalogno, aglio, piante aromatiche)
 
 < en: broth
 en: dashi
@@ -102481,6 +102757,8 @@ hr: temeljac od mesa
 it: brodo di carne
 pl: wywar mięsny
 sv: köttbuljong, köttfond
+agribalyse_proxy_food_code:en: 25930
+agribalyse_proxy_food_name:fr: Bouillon de boeuf, déshydraté reconstitué
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q67860017
@@ -104926,6 +105204,19 @@ description:fr: La margarine est une émulsion d'eau et d'huile végétale stabi
 description:it: La margarina è un grasso alimentare, costituito da due fasi: una lipidica (oli e grassi) e una acquosa intimamente mescolate.
 description:nl: Margarine is de benaming die in zwang kwam voor een vervangingsproduct voor boter.
 description:pt: Margarina é termo genérico para identificar gorduras alimentares de origem vegetal usadas em substituição da manteiga.
+ecobalyse_proxy_alias:en: unknown-oil-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: TOURNESOL
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
+ecobalyse_proxy_name:fr: Autres huiles (non encore répertoriées) (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: unknown-oil-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Autres huiles (non encore répertoriées) (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 wikidata:en: Q4287
 wikipedia:en: https://en.wikipedia.org/wiki/Margarine
 

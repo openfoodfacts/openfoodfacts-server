@@ -33,11 +33,13 @@
       },
       {
          "ciqual_food_code" : "1014",
+         "ecobalyse_proxy_id" : "6621c18e-85de-4683-82be-7b236e68bc48",
+         "ecobalyse_proxy_name" : "Vin rouge FR -2025-",
          "id" : "en:white-wine",
          "is_in_taxonomy" : 1,
          "origins" : "en:europe",
          "percent_estimate" : 5.68181818181818,
-         "percent_max" : 25,
+         "percent_max" : 25.0,
          "percent_min" : 0,
          "text" : "vin blanc",
          "vegan" : "maybe",
@@ -51,7 +53,7 @@
          "is_in_taxonomy" : 1,
          "origins" : "en:italy",
          "percent_estimate" : 2.84090909090909,
-         "percent_max" : 20,
+         "percent_max" : 20.0,
          "percent_min" : 0,
          "text" : "vin rouge",
          "vegan" : "maybe",
@@ -59,6 +61,8 @@
       },
       {
          "ciqual_food_code" : "5216",
+         "ecobalyse_proxy_id" : "6621c18e-85de-4683-82be-7b236e68bc48",
+         "ecobalyse_proxy_name" : "Vin rouge FR -2025-",
          "id" : "en:rose-wine",
          "is_in_taxonomy" : 1,
          "origins" : "en:spain",
@@ -117,7 +121,7 @@
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0887784090909065,
-         "percent_max" : 10,
+         "percent_max" : 10.0,
          "percent_min" : 0,
          "text" : "sel",
          "vegan" : "yes",
@@ -125,6 +129,8 @@
       },
       {
          "ciqual_proxy_food_code" : "11015",
+         "ecobalyse_proxy_id" : "217df27a-7ab5-5d1d-97a4-8b20db8f4952",
+         "ecobalyse_proxy_name" : "Poivre noir Origine Inconnue",
          "id" : "en:pepper",
          "is_in_taxonomy" : 1,
          "origins" : "en:nepal",
@@ -204,20 +210,17 @@
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 11,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
    "ingredients_without_ciqual_codes" : [
       "fr:Coquillettes",
       "fr:jambon supérieur"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "en:pepper",
-      "en:rose-wine",
-      "en:white-wine",
       "fr:Coquillettes",
       "fr:jambon supérieur"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 9,
    "lc" : "fr",
    "misc_tags" : [

@@ -37,7 +37,7 @@
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.46875,
-         "percent_max" : 25,
+         "percent_max" : 25.0,
          "percent_min" : 0,
          "text" : "salt",
          "vegan" : "yes",
@@ -50,7 +50,7 @@
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.734375,
-         "percent_max" : 20,
+         "percent_max" : 20.0,
          "percent_min" : 0,
          "text" : "sugar",
          "vegan" : "maybe",
@@ -58,6 +58,8 @@
       },
       {
          "ciqual_proxy_food_code" : "11015",
+         "ecobalyse_proxy_id" : "217df27a-7ab5-5d1d-97a4-8b20db8f4952",
+         "ecobalyse_proxy_name" : "Poivre noir Origine Inconnue",
          "id" : "en:pepper",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 1.3671875,
@@ -150,7 +152,7 @@
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 8,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
    "ingredients_without_ciqual_codes" : [
       "en:another unknown ingredient",
       "en:some unknown ingredient"
@@ -158,11 +160,10 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:another unknown ingredient",
-      "en:pepper",
       "en:some unknown ingredient",
       "en:spice"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [

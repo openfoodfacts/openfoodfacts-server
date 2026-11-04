@@ -52,11 +52,13 @@
       },
       {
          "ciqual_food_code" : "17400",
+         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
          "from_palm_oil" : "no",
          "id" : "en:sesame-oil",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.20833333333333,
-         "percent_max" : 25,
+         "percent_max" : 25.0,
          "percent_min" : 0,
          "text" : "Sesamöl",
          "vegan" : "yes",
@@ -67,7 +69,7 @@
          "id" : "en:soya-lecithin",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.60416666666666,
-         "percent_max" : 20,
+         "percent_max" : 20.0,
          "percent_min" : 0,
          "text" : "Sojalecithin",
          "vegan" : "yes",
@@ -146,10 +148,9 @@
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "de:Zutaten",
-      "en:sesame-oil",
       "en:soya-lecithin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 6,
    "lc" : "de",
    "misc_tags" : [
