@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -192,5 +192,13 @@ is(get_standard_unit("kcal"), "kj");
 is(get_standard_unit("kj"), "kj");
 is(get_standard_unit("mmol/l"), "mmol/l");
 is(get_standard_unit("ppm"), "mmol/l");
+
+is(get_unit_symbol("percent"), "%");
+is(get_unit_symbol("g  "), "g");
+is(get_unit_symbol("kj"), "kJ");
+is(get_unit_symbol("% vol"), "% vol");
+is(get_unit_symbol("kilogramai"), "kg");
+is(get_unit_symbol(""), "");
+is(get_unit_symbol("this is not a unit"), undef);
 
 done_testing();

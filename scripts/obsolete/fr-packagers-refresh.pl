@@ -21,7 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use utf8;
-use Modern::Perl '2019';
+use ProductOpener::PerlStandards;
 
 use Data::Table;
 use Future::Utils qw( fmap_scalar );
