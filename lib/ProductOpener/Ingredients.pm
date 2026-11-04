@@ -1243,6 +1243,23 @@ sub get_alternatives_with_shorter_processing_synonyms ($entries_ref, $processing
 	return @alternatives;
 }
 
+# Canonicalize an ingredient name, rejecting a match that exists only because the conjunction is a stopword:
+# "milk and cream" must not become "cream" unless a name of the matched entry contains the conjunction.
+# This checks that the conjunction is present, not where it is.
+sub _canonicalize_ingredient ($lc, $text) {
+	my $exists;
+	my $id = canonicalize_taxonomy_tag($lc, 'ingredients', $text, \$exists);
+	my $conjunction = $and{$lc} || ' and ';
+	if (   $exists
+		&& $text =~ /$conjunction/i
+		&& !grep {/$conjunction/i} get_taxonomy_tag_synonyms($lc, 'ingredients', $id))
+	{
+		# Same value as canonicalize_taxonomy_tag() returns for a name that is not in the taxonomy
+		$id = "$lc:$text";
+	}
+	return $id;
+}
+
 =head2 parse_processing_from_ingredient ( $ingredients_lc, $ingredient )
 
 This function extract processing method from one ingredient.
@@ -1292,7 +1309,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 	my $and = $and{$ingredients_lc} || " will not match ";
 
 	# canonicalize_taxonomy_tag also remove stopwords, etc.
-	my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
+	my $ingredient_id = _canonicalize_ingredient($ingredients_lc, $ingredient);
 
 	# return if ingredient exists as is
 	if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
@@ -1387,8 +1404,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 
 							# Stop if we now have a known ingredient.
 							# e.g. "jambon cru en tranches" -> keep "jambon cru".
-							my $new_ingredient_id
-								= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
+							my $new_ingredient_id = _canonicalize_ingredient($ingredients_lc, $new_ingredient);
 
 							if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
 								$debug_parse_processing_from_ingredient
@@ -1434,7 +1450,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 					{ingredient => $ingredient, new_ingredient => $new_ingredient}
 					);
 
-				my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
+				my $new_ingredient_id = _canonicalize_ingredient($ingredients_lc, $new_ingredient);
 				if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
 					$found_a_known_ingredient = 1;
 				}
@@ -1442,7 +1458,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 		}
 		if ($found_a_known_ingredient) {
 
-			my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
+			my $new_ingredient_id = _canonicalize_ingredient($ingredients_lc, $new_ingredient);
 			if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
 				$debug_parse_processing_from_ingredient
 					and $log->is_debug()
@@ -2611,7 +2627,9 @@ Text to analyze
 			my $ingredient2 = $';
 
 			# check if the whole ingredient is an ingredient
-			my $canon_ingredient = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $before);
+			my $whole_ingredient = $before;
+			$whole_ingredient =~ s/${\compiled_regexp('\s' . $percent_or_quantity_regexp . '$')}//;
+			my $canon_ingredient = _canonicalize_ingredient($ingredients_lc, $whole_ingredient);
 
 			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
 
