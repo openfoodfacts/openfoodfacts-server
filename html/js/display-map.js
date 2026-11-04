@@ -21,6 +21,141 @@
 import { Map as LeafletMap, Marker, TileLayer } from 'leaflet';
 import { MarkerClusterGroup } from 'leaflet.markercluster';
 
+function isSafeHttpUrl(url) {
+  if (typeof url !== 'string') {
+    return false;
+  }
+
+  const trimmedUrl = url.trim();
+  if (trimmedUrl === '') {
+    return false;
+  }
+
+  try {
+    const parsedUrl = new URL(trimmedUrl, window.location.origin);
+
+    return parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+function toSafeUrl(url) {
+  if (isSafeHttpUrl(url)) {
+    return url.trim();
+  }
+
+  return null;
+}
+
+function createSafeLink(url, text) {
+  const safeUrl = toSafeUrl(url);
+  const content = text ?? '';
+
+  if (safeUrl === null) {
+    const span = document.createElement('span');
+    span.textContent = String(content);
+
+    return span;
+  }
+
+  const link = document.createElement('a');
+  link.setAttribute('href', safeUrl);
+  link.textContent = String(content);
+
+  return link;
+}
+
+function extractImageSrc(img) {
+  if (typeof img !== 'string') {
+    return null;
+  }
+
+  const trimmedImg = img.trim();
+  if (trimmedImg === '') {
+    return null;
+  }
+
+  // Current backend sends a full `<img ...>` HTML string (see
+  // Images::display_image). Never inject that HTML: extract only the src.
+  if (!trimmedImg.startsWith('<')) {
+    return trimmedImg;
+  }
+
+  const match = trimmedImg.match(/<img[^>]*\ssrc\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i);
+
+  return match ? match[1] ?? match[2] ?? match[3] ?? null : null;
+}
+
+function createSafeImage(img, alt) {
+  const src = extractImageSrc(img);
+  if (src === null) {
+    return null;
+  }
+
+  const safeSrc = toSafeUrl(src);
+  if (safeSrc === null) {
+    return null;
+  }
+
+  const image = document.createElement('img');
+  image.setAttribute('src', safeSrc);
+  image.setAttribute('alt', String(alt ?? ''));
+  image.setAttribute('loading', 'lazy');
+
+  return image;
+}
+
+// Server-side `origins` mixes plain text with intentional `<br>` separators.
+// Split on `<br>` and re-emit safe text nodes so injected markup cannot run.
+function appendOrigins(container, origins) {
+  if (origins === null || typeof origins === 'undefined' || origins === '') {
+    return;
+  }
+
+  const parts = String(origins).split(/<br\s*\/?>/i);
+  parts.forEach((part, index) => {
+    if (index > 0) {
+      container.appendChild(document.createElement('br'));
+    }
+
+    if (part !== '') {
+      container.appendChild(document.createTextNode(part));
+    }
+  });
+}
+
+function createPopupContent(pointer) {
+  const container = document.createElement('div');
+
+  container.appendChild(createSafeLink(pointer.url, pointer.product_name ?? ''));
+  container.appendChild(document.createElement('br'));
+
+  const brands = document.createElement('span');
+  brands.textContent = String(pointer.brands ?? '');
+  container.appendChild(brands);
+  container.appendChild(document.createElement('br'));
+
+  const imageLinkUrl = toSafeUrl(pointer.url);
+  const image = createSafeImage(pointer.img, pointer.product_name ?? '');
+  if (image) {
+    if (imageLinkUrl) {
+      const imageLink = document.createElement('a');
+      imageLink.setAttribute('href', imageLinkUrl);
+      imageLink.appendChild(image);
+      container.appendChild(imageLink);
+    } else {
+      container.appendChild(image);
+    }
+
+    container.appendChild(document.createElement('br'));
+  }
+
+  appendOrigins(container, pointer.origins);
+
+  return container;
+}
+
 export function displayMap(containerId, pointers) {
   const map = new LeafletMap(containerId, { maxZoom: 12 });
 
@@ -35,7 +170,7 @@ export function displayMap(containerId, pointers) {
 
   for (const pointer of pointers) {
     const marker = new Marker(pointer.geo);
-    marker.bindPopup('<a href="' + pointer.url + '">' + pointer.product_name + '</a><br>' + pointer.brands + "<br>" + '<a href="' + pointer.url + '">' + pointer.img + '</a><br>' + pointer.origins);
+    marker.bindPopup(() => createPopupContent(pointer));
     layers.push(marker);
   }
 
