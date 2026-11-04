@@ -23,7 +23,7 @@
 package ProductOpener::Config2;
 
 use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 BEGIN {
@@ -49,6 +49,7 @@ BEGIN {
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
 		$google_cloud_vision_timeout
+		$google_drive_api_key
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$brevo_api_key
@@ -121,6 +122,8 @@ $google_cloud_vision_api_url = $ENV{GOOGLE_CLOUD_VISION_API_URL} || "https://vis
 # Timeout in seconds for a call to the Google Cloud Vision API. Without one, a stalled call keeps
 # the Apache worker or the Minion worker busy for the default timeout of the user agent.
 $google_cloud_vision_timeout = $ENV{GOOGLE_CLOUD_VISION_TIMEOUT} // 30;
+# API key restricted to the Google Drive API, to list the images of public Google Drive folders (producers platform)
+$google_drive_api_key = $ENV{GOOGLE_DRIVE_API_KEY};
 
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};

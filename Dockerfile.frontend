@@ -44,6 +44,8 @@ RUN usermod -u "$USER_UID" www-data && \
     apt-get update && apt-get install -y --no-install-recommends curl && \
     rm -rf /var/lib/apt/lists/*
 COPY --from=builder /opt/product-opener/html/ /opt/product-opener/html/
+# load the njs module, used to render the environmental cost label (see conf/nginx/njs/README.md)
+RUN sed -i '1i load_module modules/ngx_http_js_module.so;' /etc/nginx/nginx.conf
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
     CMD curl -f http://localhost/nginx_status || curl -f http://localhost/robots.txt || exit 1

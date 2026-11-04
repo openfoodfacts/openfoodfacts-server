@@ -24,6 +24,14 @@ components:
       schema:
         type: boolean
         example: true
+    ActivateKnowledgePanelRelatedCategories:
+      name: activate_knowledge_panel_related_categories
+      in: query
+      description: 'If true, the knowledge panels of a category will include the related categories panel: the parent categories, and the direct subcategories with their number of products'
+      required: false
+      schema:
+        type: boolean
+        example: true
     ActivateKnowledgePanelProductHistory:
       name: activate_knowledge_panel_product_history
       in: query

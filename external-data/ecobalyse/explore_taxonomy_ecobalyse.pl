@@ -3,7 +3,7 @@
 # This script explores the OFF ingredients taxonomy to check for ecobalyse properties
 # on specific ingredients.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
