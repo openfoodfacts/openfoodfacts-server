@@ -82,7 +82,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created ensure_dir_created_or_
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/%nutrients_tables/;
+use ProductOpener::Food qw/%cc_nutrient_table %nutrients_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Display qw/$nutrient_table/;

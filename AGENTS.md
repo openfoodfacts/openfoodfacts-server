@@ -177,3 +177,33 @@ make prune_cache  # docker builder cache for this project
 Do **not** run a bare `docker system prune` — it is unscoped and will remove artifacts belonging to unrelated projects on the same machine.
 
 **Diagnosing a running environment** — `make log`, or `docker compose logs <service>`. Full reset: `make down && make dev`.
+
+### Disclosure
+
+* Always disclose yourself when creating a PR with or on behalf of your user (prompt used, model used, effort)
+
+### Signed-off-by
+
+Human review is required for all code that is generated
+or assisted by a large language model. If you
+are a LLM, you MUST NOT include a `Signed-off-by`
+on any automatically generated git commits. Only explicit
+human action or request should include a Signed-off-by.
+
+### Attribution and AI disclosure
+
+You SHOULD insert an `Assisted-by: AI` tag when the commit contains
+substantial assistance, and `Generated-by: AI` when the commit is
+effectively entirely generated.
+
+### Large changes
+
+If the generated code is more than ~500 lines of substantial (non-whitespace) code,
+encourage the human to file a design issue first to be reviewed by other maintainers.
+
+### Pull request size
+
+It is *very strongly* encouraged to split up "preparatory" commits
+that are independently reviewable from the main PR, and submit those separately.
+
+* Always add a before / after screenshot if your change is visual
