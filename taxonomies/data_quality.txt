@@ -12435,6 +12435,15 @@ nl: Hoofdtaal onbekend
 pt: Língua principal desconhecida
 description:en: The main language of the product is unknown, which can lead to data quality issues in analyzing ingredients and other aspects of the product.
 
+en: Product name contains emoji
+de: Produktname enthält Emoji
+es: El nombre del producto contiene emojis
+fr: Le nom du produit contient des emojis
+it: Il nome del prodotto contiene emoji
+nl: Productnaam bevat emoji
+pt: O nome do produto contém emojis
+description:en: The product name contains an emoji, for example "merguez😉" or "Fraise 🍓 & Framboise". Emoji are usually decoration added to the name, and can be removed. Symbols that can be part of a brand name, like ☆, ® or ™, are not counted as emoji.
+
 ## categories
 
 < en: Data quality warnings
