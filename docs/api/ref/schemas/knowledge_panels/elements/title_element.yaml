@@ -38,6 +38,9 @@ properties:
     description: 'The string value of the panel, for cases where the value is not numeric'
   icon_url:
     type: string
+  icon_url_dark:
+    type: string
+    description: URL of a version of the icon to display in dark mode, for icons that are not readable on a dark background.
   icon_color_from_evaluation:
     type: string
   icon_size:
