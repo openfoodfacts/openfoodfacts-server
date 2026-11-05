@@ -295,6 +295,40 @@ my @tests = (
 			},
 		},
 	],
+
+	# Products with valid specified percents that were wrongly flagged with ingredients_percent_analysis = -1
+	# (the min / max computation did not converge and bailed out after too many loops)
+	# The optional 3rd element is the expected value of ingredients_percent_analysis
+
+	# Sub-ingredients lists were re-initialized at each loop with the percent_max from the taxonomy,
+	# which deleted the percent_max computed in the previous loop
+	[
+		'fr-sub-ingredients-percent-max-reset',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Lait d'amande* (eau, amandes* 2,8%), sucre de canne non raffiné, amidon de riz*, sel marin."
+		},
+		1
+	],
+
+	# All sub-ingredients have a specified percent, with a sum equal to the parent percent:
+	# floating point errors lowered the percent_max of sub-ingredients again at each loop
+	[
+		'fr-sub-ingredients-all-percents-sum-equal-to-parent',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Céréales 98,5 % (farine complète de blé 66,2 %, farine de seigle 12,1 %, farine de blé 10,1 %, farine de riz 3,2 %, farine de blé malté 2,1 %, farine de sarrasin 1,6 %, farine d'orge 1,6 %, semoule de blé 1,6 %), sucre, lactosérum en poudre (de lait), sel, huile de palme, germes de blé."
+		},
+		1
+	],
+
+	# Impossible values: the first 3 ingredients must each be at least 53%
+	[
+		'fr-impossible-minimum-percent',
+		{lc => "fr", ingredients_text => "Sucre, pâte de cacao, beurre de cacao, Cacao : 53% minimum"}, -1
+	],
 );
 
 foreach my $test_ref (@tests) {
@@ -304,6 +338,10 @@ foreach my $test_ref (@tests) {
 
 	parse_ingredients_text_service($product_ref, {}, {});
 	estimate_ingredients_percent_service($product_ref, {}, {});
+
+	if (defined $test_ref->[2]) {
+		is($product_ref->{ingredients_percent_analysis}, $test_ref->[2], "$testid - ingredients_percent_analysis");
+	}
 
 	compare_to_expected_results(
 		$product_ref->{ingredients},

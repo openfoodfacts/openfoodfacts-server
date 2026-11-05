@@ -4576,6 +4576,8 @@ This function is recursive and it calls itself for each ingredients with sub-ing
 
 =head4 ingredient_ref : nested array of ingredients and sub-ingredients
 
+=head4 is_sub_ingredients_list - 1 when called on the sub-ingredients of an ingredient (default 0)
+
 =head3 Return values
 
 =head4 Negative value - analysis error
@@ -4591,9 +4593,10 @@ The return value is the number of times we adjusted min and max values for ingre
 
 =cut
 
-sub compute_ingredients_percent_min_max_values ($total_min, $total_max, $ingredients_ref) {
+sub compute_ingredients_percent_min_max_values ($total_min, $total_max, $ingredients_ref, $is_sub_ingredients_list = 0)
+{
 
-	init_percent_values($total_min, $total_max, $ingredients_ref);
+	init_percent_values($total_min, $total_max, $ingredients_ref, $is_sub_ingredients_list);
 
 	my $changed = 1;
 	my $changed_total = 0;
@@ -4646,7 +4649,7 @@ sub compute_ingredients_percent_min_max_values ($total_min, $total_max, $ingredi
 	return $changed_total;
 }
 
-=head2 init_percent_values($total_min, $total_max, $ingredients_ref)
+=head2 init_percent_values($total_min, $total_max, $ingredients_ref, $is_sub_ingredients_list)
 
 Initialize the percent, percent_min and percent_max value for each ingredient in list.
 
@@ -4664,9 +4667,12 @@ Otherwise use 0 for percent_min and total_max for percent_max.
 
 =cut
 
-sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
+sub init_percent_values ($total_min, $total_max, $ingredients_ref, $is_sub_ingredients_list) {
 	# Set maximum percentages if defined in the taxonomy (only do this for top-level ingredients)
-	if ($total_max == 100) {
+	# Sub-ingredients lists are initialized again at each iteration of the parent list:
+	# set_percent_max_from_taxonomy() would then delete the percent_max computed in previous iterations,
+	# and the computation would never converge.
+	if (not $is_sub_ingredients_list) {
 		set_percent_max_from_taxonomy($ingredients_ref);
 	}
 
@@ -4887,7 +4893,10 @@ sub set_percent_max_values ($total_min, $total_max, $ingredients_ref) {
 		}
 		my $max_percent_max = $total_max - $sum_of_mins_before - $sum_of_mins_after;
 
-		if (($max_percent_max >= 0) and ($ingredient_ref->{percent_max} > $max_percent_max)) {
+		# Allow a small margin for floating point errors: when all ingredients have a specified percent,
+		# the sum of the other minimums can be slightly off, and the percent_max would then be lowered
+		# again at each iteration after init_percent_values() resets it to the specified percent.
+		if (($max_percent_max >= 0) and ($ingredient_ref->{percent_max} > $max_percent_max + 0.001)) {
 			$ingredient_ref->{percent_max} = $max_percent_max;
 			$changed++;
 		}
@@ -5053,7 +5062,7 @@ sub set_percent_sub_ingredients ($ingredients_ref) {
 			$changed += compute_ingredients_percent_min_max_values(
 				$ingredient_ref->{percent_min},
 				$ingredient_ref->{percent_max},
-				$ingredient_ref->{ingredients}
+				$ingredient_ref->{ingredients}, 1
 			);
 
 			# Set values for ingredient from sub-ingredients values
