@@ -11,16 +11,16 @@
             <label for="target_lc">[% lang("test_ingredients_text_language") %]</label>
             <select name="target_lc" id="target_lc">
                 [% FOREACH language IN lang_options %]
-                    <option value="[% language.value %]" [% IF language.value== target_lc %] selected="selected" [% END %]>[% language.label %]</option>
+                    <option value="[% language.value | html %]" [% IF language.value== target_lc %] selected="selected" [% END %]>[% language.label | html %]</option>
                 [% END %]
             </select>
 
             <br/>
             <label for="ingredients_text">[% lang("test_ingredients_text") %]</label>
-            <textarea id="ingredients_text" name="ingredients_text" style="height:12rem;">[% ingredients_text %]</textarea>
+            <textarea id="ingredients_text" name="ingredients_text" style="height:12rem;">[% ingredients_text | html %]</textarea>
             
-            <input type="hidden" name="type" value="[% type %]"/>
-            <input type="hidden" name="lc" value="[% lc %]"/>
+            <input type="hidden" name="type" value="[% type | html %]"/>
+            <input type="hidden" name="lc" value="[% lc | html %]"/>
             <input type="hidden" name="action" value='process'/>        
 
             <p>[% lang("test_ingredients_select_estimator") %]</p>
@@ -51,7 +51,7 @@
                     <tr>
                         <td>[% display_taxonomy_tag("nutrients", 'zz:' _ nutrient) %]</td>
                         <td>
-                            <input type="text" name="[% nutrient %]" value="[% nutrients_values.$nutrient %]" style="margin:0" />
+                            <input type="text" name="[% nutrient | html %]" value="[% nutrients_values.$nutrient | html %]" style="margin:0" />
                         </td>
                     </tr>
                 [% END %]
@@ -65,7 +65,7 @@
 
 [% IF action == 'process' %]
     <h3>[% lang("test_ingredients_parsing_estimates_and_analysis") %]</h3>
-    <p>[% lang("test_ingredients_percent_estimator") %] [% estimator %]</p>
+    <p>[% lang("test_ingredients_percent_estimator") %] [% estimator | html %]</p>
 
     [% display_ingredients_analysis %]
     <h4>[% lang("ingredients_analysis") %]</h4>

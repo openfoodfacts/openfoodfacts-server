@@ -2,13 +2,13 @@
 
 [% FOREACH tagtype IN tagtypes %]
 
-    <h2>[% tagtype.tagtype_heading %]</h2>
+    <h2>[% tagtype.tagtype_heading | html %]</h2>
 
     [% FOREACH tagid IN tagtype.tagids %]
-        <strong>[% tagid.display_taxonomy_tag %]</strong><br>
+        <strong>[% tagid.display_taxonomy_tag | html %]</strong><br>
 
         [% IF tagid.properties.defined %]
-            <p>[% tagid.properties %]</p>
+            <p>[% tagid.properties | html %]</p>
         [% END %]
 
             [% tagid.description %]

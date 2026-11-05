@@ -5,7 +5,7 @@
         "environment"
     ],
     "title_element": {
-        "title": "[% edq(lang('environment_card_title')) %]",
+        "title": [% lang('environment_card_title') | js %],
     },    
     "elements": [
         {

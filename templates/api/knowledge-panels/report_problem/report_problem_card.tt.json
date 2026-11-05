@@ -6,7 +6,7 @@
         "problems"
     ],
     "title_element": {
-        "title": "[% edq(lang('report_problem_panel_title')) %]",
+        "title": [% lang('report_problem_panel_title') | js %],
     },
     "elements": [
         [% FOREACH panel_name IN panel.report_problem_panels %]

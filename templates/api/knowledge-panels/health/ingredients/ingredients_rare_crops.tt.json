@@ -6,8 +6,8 @@
     "expanded": false,
     "evaluation": "good",
     "title_element": {
-        "title":"[% edq(lang("knowledge_panels_ingredients_rare_crops_title")) %]",
-        "subtitle": "[% edq(lang("knowledge_panels_ingredients_rare_crops_subtitle")) %] [% display_taxonomy_tags_list("ingredients", panel.ingredients_rare_crops) %]",
+        "title":[% lang("knowledge_panels_ingredients_rare_crops_title") | js %],
+        "subtitle": [% (lang("knowledge_panels_ingredients_rare_crops_subtitle") _ ' ' _ display_taxonomy_tags_list("ingredients", panel.ingredients_rare_crops)) | js %],
         "icon_url": "[% static_subdomain %]/images/panels/divinfood/divinfood.png",
     },
     "elements": [
