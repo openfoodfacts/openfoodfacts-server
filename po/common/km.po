@@ -30,7 +30,7 @@ msgstr ""
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr "/កម្មវិធីទូរស័ព្ទបើកចំហសម្រាប់ព័ត៌មានអាហារ"
+msgstr "/open-food-facts-mobile-app"
 
 msgctxt "product_description_off"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
@@ -55,7 +55,7 @@ msgstr "គ្រឿងផ្សំ INCI, អាឡែហ្ស៊ី, សារ
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr "/កម្មវិធីទូរស័ព្ទបើកចំហរ-ការពិតអំពីសម្រស់"
+msgstr "/open-beauty-facts-mobile-app"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
@@ -4975,7 +4975,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "ពិន្ទុបៃតង គឺជាពិន្ទុបរិស្ថានពី A+ ដល់ F ដែលធ្វើឱ្យវាងាយស្រួលក្នុងការប្រៀបធៀបផលប៉ះពាល់នៃផលិតផលអាហារទៅលើបរិស្ថាន។"
+msgstr "Green-Score គឺជាពិន្ទុបរិស្ថានពី A+ ដល់ F ដែលធ្វើឱ្យវាងាយស្រួលក្នុងការប្រៀបធៀបផលប៉ះពាល់នៃផលិតផលអាហារទៅលើបរិស្ថាន។"
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4988,7 +4988,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "ពិន្ទុបៃតង គឺជាពិន្ទុបរិស្ថានពី A+ ដល់ F ដែលធ្វើឱ្យវាងាយស្រួលក្នុងការប្រៀបធៀបផលប៉ះពាល់នៃផលិតផលអាហារទៅលើបរិស្ថាន។"
+msgstr "Green-Score គឺជាពិន្ទុបរិស្ថានពី A+ ដល់ F ដែលធ្វើឱ្យវាងាយស្រួលក្នុងការប្រៀបធៀបផលប៉ះពាល់នៃផលិតផលអាហារទៅលើបរិស្ថាន។"
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5944,7 +5944,7 @@ msgstr ""
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "ដំបូងឡើយ រូបមន្តពិន្ទុបៃតងត្រូវបានបង្កើតឡើងសម្រាប់ប្រទេសបារាំង ហើយវាកំពុងត្រូវបានពង្រីកដល់ប្រទេសដទៃទៀតនៅអឺរ៉ុប។ រូបមន្តពិន្ទុបៃតងអាចនឹងមានការផ្លាស់ប្តូរ ដោយសារវាត្រូវបានកែលម្អជាប្រចាំ ដើម្បីធ្វើឱ្យវាកាន់តែច្បាស់លាស់ និងសមស្របជាងមុនសម្រាប់ប្រទេសនីមួយៗ។"
+msgstr "ដំបូងឡើយ រូបមន្តGreen-Scoreត្រូវបានបង្កើតឡើងសម្រាប់ប្រទេសបារាំង ហើយវាកំពុងត្រូវបានពង្រីកដល់ប្រទេសដទៃទៀតនៅអឺរ៉ុប។ រូបមន្តGreen-Scoreអាចនឹងមានការផ្លាស់ប្តូរ ដោយសារវាត្រូវបានកែលម្អជាប្រចាំ ដើម្បីធ្វើឱ្យវាកាន់តែច្បាស់លាស់ និងសមស្របជាងមុនសម្រាប់ប្រទេសនីមួយៗ។"
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6681,7 +6681,7 @@ msgstr ""
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "ប្រភេទ​ដែល​យើង​មាន​សម្រាប់​ផលិតផល​នេះ​មិន​ច្បាស់លាស់​គ្រប់គ្រាន់​ដើម្បី​គណនា​ពិន្ទុ​បៃតង។ តើអ្នកអាចបន្ថែមប្រភេទផលិតផលច្បាស់លាស់ជាងនេះបានទេ?"
+msgstr "ប្រភេទ​ដែល​យើង​មាន​សម្រាប់​ផលិតផល​នេះ​មិន​ច្បាស់លាស់​គ្រប់គ្រាន់​ដើម្បី​គណនា​Green-Score។ តើអ្នកអាចបន្ថែមប្រភេទផលិតផលច្បាស់លាស់ជាងនេះបានទេ?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
