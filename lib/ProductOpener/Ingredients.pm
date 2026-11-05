@@ -2685,9 +2685,11 @@ Text to analyze
 					if $log->is_debug();
 
 				my $ingredients_recognized = 0;
+				my $labelled_parts = 0;
 
 				foreach my $part (@ingredient_parts) {
-					my ($part_name) = _extract_ingredient_labels($ingredients_lc, $part);
+					my ($part_name, $part_labels_ref) = _extract_ingredient_labels($ingredients_lc, $part);
+					$labelled_parts++ if @$part_labels_ref;
 					# Remove percent
 					$part_name =~ s/${\compiled_regexp('\s' . $percent_or_quantity_regexp . '$')}//;
 
@@ -2698,8 +2700,12 @@ Text to analyze
 					$ingredients_recognized += $is_recognized;
 				}
 				# Split the original parts, so that each part keeps its own labels, even if one name is unknown.
+				# Without labels, keep the whole name when a part is unknown: it is usually a description
+				# of the first part, not another ingredient, and a trailing percentage belongs to the whole name
+				# e.g. "pomme de terre cuite et assaisonnée 12,5%", "saumon kéta et/ou rose du Pacifique 8,10 %",
+				# "viande et gras de porc origine Union Européenne et non-Union Européenne"
 				my $split = ($ingredients_recognized == scalar @ingredient_parts);
-				if ($ingredients_recognized > 0 and not $split) {
+				if ($ingredients_recognized > 0 and $labelled_parts > 0 and not $split) {
 					# Keep a single processed ingredient when only its processing spans are unknown.
 					my ($compound_processings_ref)
 						= parse_processing_from_ingredient($ingredients_lc, $whole_ingredient);
