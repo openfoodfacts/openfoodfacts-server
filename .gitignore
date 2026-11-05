@@ -129,3 +129,8 @@ __pycache__/
 *.pyo
 *.pyd
 test_matomo_events.html
+
+# Runtime CI timing snapshots and canonical plans
+/.test_timing_history/
+/.test_groups_cache/plan.json
+/.test_groups_cache/*_timings.json
