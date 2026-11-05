@@ -607,7 +607,8 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
 				{
 					category => display_taxonomy_tag_name(
 						$target_lc, "categories",
-						deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/)
+						deep_get($product_ref, "nutriscore", $version, "not_applicable_category")
+						// deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/)
 					)
 				}
 			);
