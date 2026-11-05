@@ -99,21 +99,32 @@ ifneq ($(strip $(PO_AGENT_ID)),)
     ifeq ($(filter $(_AGENT).%,$(strip $(PRODUCT_OPENER_DOMAIN))),)
         export PRODUCT_OPENER_DOMAIN := $(_AGENT).$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
     endif
-    ifeq ($(filter $(_AGENT).%,$(strip $(MINION_QUEUE))),)
+    # Only keep a preset MINION_QUEUE when it is exactly what would be derived
+    # below; a PRODUCERS_PLATFORM flip between runs must not leave a stale
+    # queue behind.
+    _MINION_PORT := $(or $(strip $(PRODUCT_OPENER_PORT)),80)
+    _MINION_DOMAIN := $(PRODUCT_OPENER_DOMAIN)
+    ifneq ($(strip $(PRODUCERS_PLATFORM)),)
+        ifneq ($(strip $(PRODUCERS_PLATFORM)),0)
+            _MINION_DOMAIN := pro.$(PRODUCT_OPENER_DOMAIN)
+        endif
+    endif
+    ifneq ($(findstring localhost,$(_MINION_DOMAIN)),)
+        ifneq ($(_MINION_PORT),80)
+            _WANT_MINION_QUEUE := $(_MINION_DOMAIN):$(_MINION_PORT)
+        else
+            _WANT_MINION_QUEUE := $(_MINION_DOMAIN)
+        endif
+    else
+        _WANT_MINION_QUEUE := $(_MINION_DOMAIN)
+    endif
+    ifneq ($(_WANT_MINION_QUEUE),$(strip $(MINION_QUEUE)))
         # Mirror Config2_docker.pm: $server_domain is "$domain:$port" when the
         # domain contains localhost and the server port is not 80, otherwise
-        # just $domain. The worker listens on MINION_QUEUE while jobs are
+        # just $domain — and it carries the `pro.` prefix on the producers
+        # platform. The worker listens on MINION_QUEUE while jobs are
         # enqueued on $server_domain, so they must match.
-        _MINION_PORT := $(or $(strip $(PRODUCT_OPENER_PORT)),80)
-        ifneq ($(findstring localhost,$(PRODUCT_OPENER_DOMAIN)),)
-            ifneq ($(_MINION_PORT),80)
-                export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN):$(_MINION_PORT)
-            else
-                export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN)
-            endif
-        else
-            export MINION_QUEUE := $(PRODUCT_OPENER_DOMAIN)
-        endif
+        export MINION_QUEUE := $(_WANT_MINION_QUEUE)
     endif
     # The default compose network of the Product Opener stack. Without this every
     # worktree would share it, and Docker DNS would answer `backend`, `frontend`
@@ -136,6 +147,13 @@ ifneq ($(strip $(PO_AGENT_ID)),)
     _DEPS_ABS := $(shell realpath -m $(or $(strip $(DEPS_DIR)),$(CURDIR)/deps) 2>/dev/null || echo $(abspath $(or $(strip $(DEPS_DIR)),$(CURDIR)/deps)))
     _CUR_ABS := $(shell realpath -m $(CURDIR) 2>/dev/null || echo $(abspath $(CURDIR)))
     _DEPS_SHARED := $(if $(findstring $(_CUR_ABS)/,$(_DEPS_ABS)/),,1)
+    # Fail closed like the script: a `deps` symlink may point outside even when
+    # the lexical prefix check above passes (abspath resolves `..` but not
+    # symlinks).
+    _DEPS_SYMLINK := $(shell test -L "$(or $(strip $(DEPS_DIR)),$(CURDIR)/deps)" 2>/dev/null && echo 1)
+    ifneq ($(_DEPS_SYMLINK),)
+        _DEPS_SHARED := 1
+    endif
     ifeq ($(strip $(PO_SHARED_DATA)),1)
         export COMMON_NET_NAME := off_shared_network
     else ifneq ($(_DEPS_SHARED),1)
@@ -173,6 +191,9 @@ DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://b
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
 	OIDC_IMPLEMENTATION_LEVEL=5 \
 	PO_COMMON_PREFIX=test_ \
+	PRODUCT_OPENER_DOMAIN=openfoodfacts.localhost \
+	PRODUCT_OPENER_PORT=80 \
+	MINION_QUEUE=openfoodfacts.localhost \
 	docker compose --env-file=${ENV_FILE}
 DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
     REDIS_URL= \

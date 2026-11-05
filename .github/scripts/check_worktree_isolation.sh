@@ -220,6 +220,23 @@ if XDG_CACHE_HOME="$COORD/cache" ENVRC="$OTHER/.envrc" \
 fi
 echo "✅ an id owned by another worktree is refused"
 
+# A copied .envrc must not let one worktree adopt another's identity during
+# dependency synchronization: same projects, same network, overwritten owner.
+COPY="$WORK_DIR/copy"
+mkdir -p "$COPY"
+cp "$WT/.envrc" "$COPY/.envrc"
+if (cd "$COPY" && ENVRC="$COPY/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" --sync-deps >/dev/null 2>&1); then
+    fail "sync-deps with a copied foreign .envrc should have failed"
+fi
+echo "✅ dependency synchronization refuses a foreign registration"
+
+# Without an id, synchronization must leave another worktree's dependency stack
+# alone, even when DEPS_DIR points at it.
+(cd "$OTHER" && DEPS_DIR="$WT/deps" ENVRC="$OTHER/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" --sync-deps >/dev/null 2>&1 || true)
+grep -q "openfoodfacts-auth_${AGENT_ID}" "$WT/deps/openfoodfacts-auth/.envrc" ||
+    fail "sync-deps without an id removed another worktree's isolation settings"
+echo "✅ dependency synchronization without an id leaves foreign stacks alone"
+
 # A DEPS_DIR shared with other worktrees cannot be isolated, and the generator has
 # to say so rather than write per-worktree values into a common directory.
 SHARED_DEPS_OUT="$(cd "$WT" && DEPS_DIR=/tmp/elsewhere ENVRC="$WT/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" --id "$AGENT_ID" 2>&1 >/dev/null || true)"
@@ -257,6 +274,24 @@ for pair in \
         fail "make print-agent-config did not derive '$pair'"
 done
 echo "✅ the Makefile derives the isolated names"
+
+# On the producers platform the Minion queue carries the `pro.` prefix, mirroring
+# Config2_docker.pm's $server_domain. Passed as a command-line assignment: a
+# plain environment export would lose to `.env`'s `PRODUCERS_PLATFORM=0`, since
+# a makefile assignment always beats an inherited variable.
+pro_effective="$(make --no-print-directory ENVRC="$WORK_DIR/envrc" PRODUCERS_PLATFORM=1 print-agent-config 2>/dev/null | grep -E '^[A-Za-z_][A-Za-z0-9_]*=')"
+grep -qxF "MINION_QUEUE=pro.${AGENT_ID}.openfoodfacts.localhost:${AGENT_PORT}" <<<"$pro_effective" ||
+    fail "make print-agent-config did not prefix MINION_QUEUE with pro. when PRODUCERS_PLATFORM=1"
+echo "✅ the Makefile prefixes the Minion queue on the producers platform"
+
+# Same rule on the script side: the generated .envrc carries the prefix.
+PROWT="$WORK_DIR/prowt"
+mkdir -p "$PROWT"
+(cd "$PROWT" && PRODUCERS_PLATFORM=1 ENVRC="$PROWT/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" --id pro1 >/dev/null)
+grep -qE "^export MINION_QUEUE=pro\.pro1\.openfoodfacts\.localhost:[0-9]+$" "$PROWT/.envrc" ||
+    fail "the generated .envrc did not prefix MINION_QUEUE with pro. when PRODUCERS_PLATFORM=1"
+(cd "$PROWT" && ENVRC="$PROWT/.envrc" "$REPO_ROOT/scripts/dev-agent-env.sh" --release >/dev/null)
+echo "✅ the generator prefixes the Minion queue on the producers platform"
 
 # 3. what docker compose makes of it
 #

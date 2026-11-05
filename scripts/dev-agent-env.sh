@@ -66,7 +66,9 @@ WORKTREE_DIR="$(pwd -P)"
 # Canonicalise a path: resolve `..` and symlinks so that containment checks
 # cannot be bypassed with DEPS_DIR=../shared-deps or a `deps` symlink pointing
 # outside the worktree. realpath/readlink -m work for paths that do not exist
-# yet (unlike plain realpath, which expands to empty).
+# yet (unlike plain realpath, which expands to empty). Neither exists on macOS,
+# so fall back to resolving the nearest existing ancestor physically (pwd -P)
+# and appending the remainder lexically.
 canonical_path() {
     local p="$1"
     if command -v realpath >/dev/null 2>&1; then
@@ -74,6 +76,14 @@ canonical_path() {
     fi
     if command -v readlink >/dev/null 2>&1; then
         readlink -m "$p" 2>/dev/null && return 0
+    fi
+    local anchor="$p" rest=""
+    while [[ ! -e "$anchor" && "$anchor" == */* ]]; do
+        rest="$(basename "$anchor")${rest:+/$rest}"
+        anchor="$(dirname "$anchor")"
+    done
+    if [[ -d "$anchor" ]]; then
+        (cd "$anchor" 2>/dev/null && printf '%s' "$(pwd -P)${rest:+/$rest}") && return 0
     fi
     printf '%s' "$p"
 }
@@ -520,11 +530,19 @@ SHARED_END='# <<< make agent (generated) <<<'
 # which cannot work: worktree A would end up configuring worktree B's services.
 # Compare canonical physical paths (resolving `..` and symlinks) consistently
 # with Makefile:119-121, otherwise DEPS_DIR=../shared-deps or a `deps` symlink
-# to a shared directory passes the string-prefix check as internal.
+# to a shared directory passes the string-prefix check as internal. Fail closed:
+# a `deps` symlink (even a dangling one, which the fallback above cannot
+# resolve) and any unresolvable `..` are treated as outside the worktree.
 deps_dir_is_shared() {
     local deps_c work_c
+    if [[ -L "$DEPS_ROOT" ]]; then
+        return 0
+    fi
     deps_c="$(canonical_path "$DEPS_ROOT")"
     work_c="$(canonical_path "$WORKTREE_DIR")"
+    case "$deps_c" in
+        *"/../"* | *"/.." | ".." | "../"*) return 0 ;;
+    esac
     case "$deps_c" in
         "$work_c" | "$work_c"/*) return 1 ;;
         *) return 0 ;;
@@ -634,9 +652,16 @@ write_po_envrc() {
     # queue) is "$domain:$port" when the domain contains localhost and the port
     # is not 80. Without the port the worker listens on `id.domain` while jobs
     # are enqueued on `id.domain:port` and user-event/producer jobs stall.
-    minion_queue="${derived_domain}"
-    if [[ "$derived_domain" == *"localhost"* && "$frontend_port" != "80" ]]; then
-        minion_queue="${derived_domain}:${frontend_port}"
+    # $server_domain is also prefixed with `pro.` on the producers platform, so
+    # the queue carries that prefix too.
+    eff_domain="${derived_domain}"
+    case "${PRODUCERS_PLATFORM:-}" in
+        "" | 0) ;;
+        *) eff_domain="pro.${derived_domain}" ;;
+    esac
+    minion_queue="${eff_domain}"
+    if [[ "$eff_domain" == *"localhost"* && "$frontend_port" != "80" ]]; then
+        minion_queue="${eff_domain}:${frontend_port}"
     fi
 
     cat >>"$tmp_envrc" <<EOF
@@ -823,6 +848,12 @@ if [[ "$SYNC_DEPS" -eq 1 ]]; then
     ID="$(sed -n 's/^export PO_AGENT_ID=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"
     if [[ -z "$ID" ]]; then
         # Not isolated: make sure no leftover from a previous run survives.
+        # But never touch a dependency stack that lives outside this worktree:
+        # it may belong to another worktree whose isolation settings we must
+        # not delete.
+        if deps_dir_is_shared; then
+            exit 0
+        fi
         remove_all_dep_envrc
         exit 0
     fi
@@ -831,6 +862,16 @@ if [[ "$SYNC_DEPS" -eq 1 ]]; then
     if [[ -z "$SLOT" ]]; then
         echo "❌ '${ID}' is not in the agent registry (${REGISTRY_DIR})." >&2
         echo "   Run 'make agent' again to re-register it." >&2
+        exit 1
+    fi
+    # A copied .envrc (foreign ID) must not adopt another worktree's identity:
+    # it would configure the same dependency projects and overwrite the
+    # registry owner, merging both worktrees' services and data.
+    owner="$(registry_dir_of "$ID" 2>/dev/null || true)"
+    if [[ -n "$owner" && "$owner" != "$WORKTREE_DIR" ]]; then
+        echo "❌ '${ID}' is registered to ${owner}, not to this worktree." >&2
+        echo "   Run 'make agent' here to register a slot of its own (copied" >&2
+        echo "   .envrc files are not reused across worktrees)." >&2
         exit 1
     fi
     frontend_port="$(sed -n 's/^export PRODUCT_OPENER_HOST_PORT=//p' "$ENVRC" 2>/dev/null | head -n 1 || true)"

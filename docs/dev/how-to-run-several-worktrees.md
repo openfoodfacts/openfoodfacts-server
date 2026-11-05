@@ -352,18 +352,31 @@ also makes raw `docker compose` commands see the prefix.
   the isolated dependencies per worktree. Two or three concurrent worktrees is
   usually the practical limit; measure before adding more.
   `PO_SHARED_DATA=1` brings the dependency part back down to about 250 MB.
-* **Devcontainer.** `.devcontainer/devcontainer.json` forwards the resolved
-  isolation settings into the container, but the *host-side* compose invocation
-  is what decides container and volume names. Load the worktree's `.envrc` in
+* **Devcontainer.** `.devcontainer/devcontainer.json` forwards only `PO_AGENT_ID`
+  and the two affixes into the container (app-level settings such as
+  `PRODUCT_OPENER_DOMAIN` come from Compose itself — forwarding them via
+  `${localEnv:...}` would set them to empty when the host hasn't exported them
+  and break URL generation). The *host-side* compose invocation is what decides
+  container and volume names, so load the worktree's `.envrc` in
   your host shell — with [direnv](how-to-use-direnv.md), or with
   `set -a; source .envrc` / `eval "$(make print-agent-config | sed 's/^/export /')"` —
   **before** reopening the folder in the devcontainer, otherwise the devcontainer
   silently falls back to the shared names. `make agent` writes the resolved
   `COMPOSE_PROJECT_NAME`, `PRODUCT_OPENER_DOMAIN`, `PRODUCT_OPENER_NETWORK` and
   `MINION_QUEUE` to `.envrc` exactly so direnv can provide them.
+* **Keycloak sessions are not isolated.** Every worktree serves Keycloak on the
+  same hostname (`auth.openfoodfacts.localhost`, only the port differs) with the
+  same `openfoodfacts` realm, and browser cookies are scoped by hostname, not
+  port. Logging in on a second worktree therefore overwrites the first one's
+  Keycloak session cookies. Avoid being logged in on two worktrees in the same
+  browser profile at once.
 * **Tests** keep using their own project name and `PO_COMMON_PREFIX=test_`. If
   `PO_AGENT_ID` is set in your shell they simply become suffixed too, which is
-  harmless: the test project name becomes `po_off_w11790_test`.
+  harmless: the test project name becomes `po_off_w11790_test`. The application
+  URLs inside tests stay canonical: the test Compose targets pin
+  `PRODUCT_OPENER_DOMAIN`, `PRODUCT_OPENER_PORT` and `MINION_QUEUE` back to the
+  shared defaults, so expectations such as the callback URL in
+  `tests/integration/oidc_signin.t` keep matching.
 
 ## See also
 
