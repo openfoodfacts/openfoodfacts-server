@@ -818,6 +818,27 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	);
 	my $ingredient_content = $ingredient_content{$ingredients_lc};
 
+	# content statements of chocolate products, with a minimum, e.g. "Cacao : 46% minimum."
+	# "milk chocolate contains cocoa solids 30% minimum", "cacao 52% minimum dans le chocolat"
+	# The ingredients are restricted, as "Pomme 60% minimum" can be part of the ingredients list
+	my %content_statement = (
+		en => '(?:(?:(?:organic|milk|dark|white|plain)\s+)*chocolate\s+)?(?:contains:?\s+)?'
+			. '(cocoa solids?|cocoa|cacao|milk solids)',
+		fr => '(?:(?:le\s+)?chocolat(?:\s+(?:au lait|noir|blanc))?\s+contient\s+(?:au\s+)?(?:minimum\s+)?)?'
+			. '(cacao|solides de cacao|extrait sec de cacao|mati[èe]re s[èe]che (?:de |issue du |du )lait)'
+			. '(?:\s+dans le chocolat(?:\s+(?:au lait|noir|blanc))?)?',
+	);
+	my $content_statement = $content_statement{$ingredients_lc};
+	# the minimum is required: "cacao 30%" can be part of the ingredients list
+	my $minimum = $min_regexp{$ingredients_lc} || 'do not match';
+	my $number = '\d+(?:[,.\N{U+201A}]\d+)?';
+	my $minimum_lookahead = "(?=(?:(?:$minimum)(?::|\\s)*$number\\s*%|$number\\s*%\\s*(?:$minimum)(?![[:alpha:]])))";
+
+	# ingredient of an intermediate product, e.g. "strawberries in the filling: 49.8%"
+	my %ingredient_in_intermediate_product
+		= (en => '([^,.;:()]+?)\s+in the (?:filling|cream|topping|chocolate|sauce)',);
+	my $ingredient_in_intermediate_product = $ingredient_in_intermediate_product{$ingredients_lc};
+
 	my $prepared_with = $prepared_with{$ingredients_lc} || '';
 
 	while ($ingredient) {
@@ -881,6 +902,33 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 								. '\s*(?:'
 								. $per_100g_regexp
 								. ')?(?:;|,|\.| - |$)'
+						)
+					)
+				)
+				or (
+					# Cacao : 46% minimum. / cocoa solids 34% min.
+					(defined $content_statement)
+					and (
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)'
+								. $content_statement
+								. '(?::|\s)*'
+								. $minimum_lookahead
+								. $percent_or_quantity_regexp
+								. '(?:;|,|\.| - |$)'
+						)
+					)
+				)
+				or (
+					# strawberries in the filling: 49.8%
+					(defined $ingredient_in_intermediate_product)
+					and (
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)'
+								. $ingredient_in_intermediate_product
+								. '\s*:\s*'
+								. $percent_or_quantity_regexp
+								. '(?:;|,|\.| - |$)'
 						)
 					)
 				)
@@ -7646,7 +7694,25 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/\&lt;/</g;
 	$text =~ s/\&gt;/>/g;
 	$text =~ s/\&apos;/'/g;
+	# last, so that "&amp;lt;" is decoded once to "&lt;" and not to "<"
+	$text =~ s/\&amp;/&/g;
 	$text =~ s/’/'/g;
+
+	# GMO threshold, not a percent of the ingredient:
+	# "Jambon de porc issu d'animaux nourris sans OGM (< 0,9%)" -> "... nourris sans OGM"
+	$text =~ s/\b(OGM|GMOs?|OGG|GVO)\s*(?:\(\s*<\s*\d+(?:[,.]\d+)?\s*%\s*\)|<\s*\d+(?:[,.]\d+)?\s*%)/$1/ig;
+
+	# missing separator between ingredients with percents:
+	# "carotte 23,4% oignon 9,9%, chou-fleur 9,9%" -> "carotte 23,4%, oignon 9,9%, chou-fleur 9,9%"
+	# only if the words between the 2 percents are a known ingredient,
+	# and do not start or end with a connector: "lait 3,5% de matière grasse", "fraise 50% ou abricot 50%"
+	my $connectors = "de|du|des|d'|dont|ou|et|and|or|of|with|avec|soit|min|minimum|max|maximum|à|a|au|aux|en|in|at";
+	$text
+		=~ s/(?:(?<=[[:alpha:]*)\]]\s)|(?<=[[:alpha:]*)\]]))(\d+(?:[,.]\d+)?\s*%)\s+([[:alpha:]][^,;.()\[\]{}:%\d*\/-]*?)(?=\s*\d+(?:[,.]\d+)?\s*%)/
+		my ($matched, $percent, $words) = ($&, $1, $2);
+		(($words !~ \/^(?:$connectors)(?:\s|'|$)|\s(?:$connectors)$\/i)
+			and exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $words)))
+		? "$percent, $words" : $matched/ge;
 
 	# remove urls: "Bilan massique certifié Rainforest Alliance www.ra.org/fr"
 	$text =~ s/\b(?:https?:\/\/|www\.)[^\s,;()]*[^\s,;().]//ig;

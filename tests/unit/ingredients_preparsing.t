@@ -1486,4 +1486,22 @@ foreach my $test (
 		"mono, di, tri prefixes: $test->[0] / $test->[1]");
 }
 
+# HTML entities, GMO thresholds and missing separators between ingredients with percents
+foreach my $test (
+	['en', "salt &amp; pepper", "salt and pepper"],
+	# decoded once
+	['en', "salt &amp;lt; pepper", "salt &lt; pepper"],
+	['fr', "Jambon de porc nourri sans OGM (< 0,9%), sel", "Jambon de porc nourri sans OGM, sel"],
+	['fr', "Jambon de porc nourri sans OGM (&lt; 0.9 %), sel", "Jambon de porc nourri sans OGM, sel"],
+	['fr', "Lait de vaches nourries sans OGM <0,9 %, sucre", "Lait de vaches nourries sans OGM, sucre"],
+	['fr', "carotte 23,4% oignon 9,9%, chou-fleur 9,9%", "carotte 23.4%, oignon 9.9%, chou-fleur 9.9%"],
+	# not split: connectors ("ou" is turned to "et"), percent before the ingredient
+	['fr', "lait écrémé à 1,4% de matière grasse 90%", "lait écrémé à 1.4% de matière grasse 90%"],
+	['fr', "Fraise 50% ou abricot 50%", "Fraise 50% et abricot 50%"],
+	['fr', "FARINE, 32,1% BEURRE 5,6% SÉSAME", "FARINE, 32.1% BEURRE 5.6% SÉSAME"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "entities and percents: $test->[1]");
+}
+
 done_testing();
