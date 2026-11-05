@@ -33,10 +33,15 @@ def read_artifact_timings(data, test_files):
             entries = archive.infolist()
             if len(entries) > 100 or sum(entry.file_size for entry in entries) > MAX_JUNIT_BYTES:
                 return {}
+            # Python 3.12 decompresses bzip2/LZMA members in one unbounded call.
+            if any(entry.compress_type not in (zipfile.ZIP_STORED, zipfile.ZIP_DEFLATED) for entry in entries):
+                return {}
             timings = {}
             for entry in entries:
                 if entry.filename.endswith('.xml') and not entry.is_dir():
-                    timings.update(read_junit_timings(archive.read(entry), test_files))
+                    # Reading only the declared size also bounds each inflate call.
+                    with archive.open(entry) as member:
+                        timings.update(read_junit_timings(member.read(entry.file_size), test_files))
             return timings
     except (zipfile.BadZipFile, OSError, RuntimeError, ValueError, NotImplementedError):
         return {}

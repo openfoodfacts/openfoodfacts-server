@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import sys
 import tempfile
+import tracemalloc
 import unittest
 import zipfile
 
@@ -41,6 +42,31 @@ class TestCollectTestTimings(unittest.TestCase):
         data = self.archive({'junit.xml': '<?xml version="1.0" encoding="unknown-encoding"?>'
                              '<testsuite name="tests_unit_file_t" time="12"/>'})
         self.assertEqual(collector.read_artifact_timings(data, ['tests/unit/file.t']), {})
+
+    def test_bzip2_and_lzma_members_are_rejected(self):
+        # Python 3.12 decompresses these in one unbounded call.
+        collector = self.collector()
+        for method in (zipfile.ZIP_BZIP2, zipfile.ZIP_LZMA):
+            buffer = io.BytesIO()
+            with zipfile.ZipFile(buffer, 'w', compression=method) as archive:
+                archive.writestr('junit.xml', '<testsuite name="tests_unit_file_t" time="12"/>')
+            self.assertEqual(collector.read_artifact_timings(buffer.getvalue(), ['tests/unit/file.t']), {})
+
+    def test_understated_size_does_not_inflate_the_whole_member(self):
+        collector = self.collector()
+        buffer = io.BytesIO()
+        with zipfile.ZipFile(buffer, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+            archive.writestr('junit.xml', bytes(30 * 1024 * 1024))
+        data = bytearray(buffer.getvalue())
+        directory = data.rindex(b'PK\x01\x02')
+        data[directory + 24:directory + 28] = (64).to_bytes(4, 'little')  # declared uncompressed size
+        tracemalloc.start()
+        try:
+            self.assertEqual(collector.read_artifact_timings(bytes(data), ['tests/unit/file.t']), {})
+            peak = tracemalloc.get_traced_memory()[1]
+        finally:
+            tracemalloc.stop()
+        self.assertLess(peak, 5 * 1024 * 1024)
 
     def test_merge_preserves_other_profiles_and_uses_median_for_all_shards(self):
         collector = self.collector()
