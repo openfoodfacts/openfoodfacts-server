@@ -1,0 +1,14 @@
+# Standalone component tests: no backend, databases, or development volumes.
+services:
+  browser-test:
+    build:
+      context: ..
+      dockerfile: tests/browser/Dockerfile
+    init: true
+    shm_size: 1gb
+    environment:
+      - TAGIFY_TEST_SOURCE_DIR
+    volumes:
+      - ../html/js:/opt/product-opener/html/js:ro
+      - ../scss:/opt/product-opener/scss:ro
+      - ../tests/browser:/opt/product-opener/tests/browser:ro

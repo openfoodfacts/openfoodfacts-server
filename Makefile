@@ -290,13 +290,16 @@ front_lint:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint
 
 front_test:
-	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose run --rm -v "$(PWD)/tests:/opt/product-opener/tests" dynamicfront npm run test:js
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose run --rm -v "$(PWD)/tests:/opt/product-opener/tests" -v "$(PWD)/.github:/opt/product-opener/.github:ro" dynamicfront npm run test:js
+
+front_browser_test:
+	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_browser_test docker compose -f docker/browser-test.yml run --build --rm browser-test
 
 front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build
 
 
-checks: front_build front_lint front_test check_perltidy check_perl_fast check_critic check_taxonomies
+checks: front_build front_lint front_test front_browser_test check_perltidy check_perl_fast check_critic check_taxonomies
 
 lint: lint_perltidy lint_taxonomies
 
