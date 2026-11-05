@@ -1,5 +1,38 @@
 # Changelog
 
+## [2.119.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.118.0...v2.119.0) (2026-11-02)
+
+
+### Features
+
+* ask for nutrition facts in the empty nutrition facts table panel ([#14886](https://github.com/openfoodfacts/openfoodfacts-server/issues/14886)) ([c15fd24](https://github.com/openfoodfacts/openfoodfacts-server/commit/c15fd246ef9bfff787cc34808fcffffbfcdae616))
+* Open Food Facts Days 2026 banner ([#15229](https://github.com/openfoodfacts/openfoodfacts-server/issues/15229)) ([3a4af76](https://github.com/openfoodfacts/openfoodfacts-server/commit/3a4af765f458f35353edc7b91a7497f24af074aa))
+* related categories knowledge panel for category pages (opt-in) ([#14930](https://github.com/openfoodfacts/openfoodfacts-server/issues/14930)) ([c736fe5](https://github.com/openfoodfacts/openfoodfacts-server/commit/c736fe55b45ac624c66a8f27f8cc4c06579f9b80))
+
+
+### Bug Fixes
+
+* allow org members to delete products and images on the pro platform ([#15197](https://github.com/openfoodfacts/openfoodfacts-server/issues/15197)) ([6f74668](https://github.com/openfoodfacts/openfoodfacts-server/commit/6f746680b06ee2d1f40cde63140a986ee4766a02))
+* environmental cost label: nginx links and off-pro site ([#15179](https://github.com/openfoodfacts/openfoodfacts-server/issues/15179)) ([b70df03](https://github.com/openfoodfacts/openfoodfacts-server/commit/b70df030f68fb684e5a2b9309a5e5616304dda5e))
+* pre-check no longer asks maintainers to link an issue ([#15203](https://github.com/openfoodfacts/openfoodfacts-server/issues/15203)) ([1de3647](https://github.com/openfoodfacts/openfoodfacts-server/commit/1de3647252486bc3fdcb5388a4a290d945f575fd))
+* update_all_products.pl --fields for products with tags_sources (schema 1004) ([#15198](https://github.com/openfoodfacts/openfoodfacts-server/issues/15198)) ([4092110](https://github.com/openfoodfacts/openfoodfacts-server/commit/4092110031a7a46905241ebf37a11f2042033d42))
+
+## [2.118.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.117.0...v2.118.0) (2026-10-30)
+
+
+### Features
+
+* call Ecobalyse on product updates, keep stale results when the API fails ([#15106](https://github.com/openfoodfacts/openfoodfacts-server/issues/15106)) ([8555e04](https://github.com/openfoodfacts/openfoodfacts-server/commit/8555e04c7040d43435013aaceee67d65b66b1728))
+* import product photos from a public Google Drive folder on the pro platform ([#15044](https://github.com/openfoodfacts/openfoodfacts-server/issues/15044)) ([bf39989](https://github.com/openfoodfacts/openfoodfacts-server/commit/bf3998933e01b8b69174eddfdec003a6da9fc505))
+* provenance line under the product title, shown on half the page views ([#14618](https://github.com/openfoodfacts/openfoodfacts-server/issues/14618)) ([b939404](https://github.com/openfoodfacts/openfoodfacts-server/commit/b939404bdcbd94f1bb936f799e7a2f8094c2a3d4))
+
+
+### Bug Fixes
+
+* Allow redirection to any country subdomain after login / logout ([#15193](https://github.com/openfoodfacts/openfoodfacts-server/issues/15193)) ([fc68d5f](https://github.com/openfoodfacts/openfoodfacts-server/commit/fc68d5f304f173aedda6bb04f9879a77c27a9f8a))
+* keep only the first IP of forwarded IP lists in scanbot ([#15141](https://github.com/openfoodfacts/openfoodfacts-server/issues/15141)) ([d566126](https://github.com/openfoodfacts/openfoodfacts-server/commit/d566126449f0dde931d2e4976c72b0b1ce8248fe))
+* repair failing documentation ([#15178](https://github.com/openfoodfacts/openfoodfacts-server/issues/15178)) ([2b0876c](https://github.com/openfoodfacts/openfoodfacts-server/commit/2b0876c53d0b21aa1f2e9b5a7d3f841565510847))
+
 ## [2.117.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.116.1...v2.117.0) (2026-10-28)
 
 
