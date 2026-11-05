@@ -166,7 +166,7 @@ msgstr "Съставки, алергени, добавки, хранителни
 
 msgctxt "search_description_opensearch_opff"
 msgid "Open Pet Food Facts product search"
-msgstr "Отворете търсенето на продукти в Pet Food Facts"
+msgstr "Отворете търсенето на продукти в Open Pet Food Facts"
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -692,7 +692,7 @@ msgstr "Дари на Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-bg.openfoodfacts.org/daryavane-na-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -4995,7 +4995,7 @@ msgstr "Ниско въздействие върху околната среда
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Зеленият рейтинг е екологична оценка от A+ до F, която улеснява сравняването на въздействието на хранителните продукти върху околната среда."
+msgstr "Green-Score е екологична оценка от A+ до F, която улеснява сравняването на въздействието на хранителните продукти върху околната среда."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -5008,12 +5008,12 @@ msgstr "Ниско въздействие върху околната среда
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Зеленият рейтинг е екологична оценка от A+ до F, която улеснява сравняването на въздействието на хранителните продукти върху околната среда."
+msgstr "Green-Score е екологична оценка от A+ до F, която улеснява сравняването на въздействието на хранителните продукти върху околната среда."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "Зелен-Резултат %s"
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5199,22 +5199,22 @@ msgstr "Влияние върху околната среда"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "Резултат Зелен-Резултат"
+msgstr "Резултат Green-Score"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr "Степен Зелен-Резултат"
+msgstr "Степен Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "Подробности за изчисляването на Зелен-Резултат"
+msgstr "Подробности за изчисляването на Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "Информация за Зелен-Резултат"
+msgstr "Информация за Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5964,7 +5964,7 @@ msgstr "Формулата на Green-Score подлежи на промяна, 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Зеленият рейтинг първоначално е разработен за Франция и се разширява и в други европейски страни. Формулата за Зелен рейтинг подлежи на промяна, тъй като редовно се усъвършенства, за да стане по-точна и по-подходяща за всяка страна."
+msgstr "Green-Score първоначално е разработен за Франция и се разширява и в други европейски страни. Формулата за Зелен рейтинг подлежи на промяна, тъй като редовно се усъвършенства, за да стане по-точна и по-подходяща за всяка страна."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6562,7 +6562,7 @@ msgstr "Премахнете избора на изображение"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Благодаря ти"
+msgstr "Научи повече за Nutri-Score"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
