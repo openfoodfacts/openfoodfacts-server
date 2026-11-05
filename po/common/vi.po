@@ -403,10 +403,10 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
+# Please change GetItOnGooglePlay_Badge_Web_color_Vietnamese.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Vietnamese.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Vietnamese.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -5437,59 +5437,59 @@ msgstr "Nó tính toán các chỉ số như Nutri-Score, NOVA và Green-Score, 
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr ""
+msgstr "Dấu chân rừng"
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr ""
+msgstr "Nguy cơ phá rừng thấp (Dấu chân rừng)"
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr ""
+msgstr "Dấu chân rừng tương ứng với nguy cơ phá rừng liên quan đến các thành phần của sản phẩm."
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr ""
+msgstr "Dấu chân rừng A"
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr ""
+msgstr "Dấu chân rừng B"
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr ""
+msgstr "Dấu chân rừng C"
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr ""
+msgstr "Dấu chân rừng D"
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr ""
+msgstr "Không có thành phần nào liên quan đến nguy cơ phá rừng."
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr ""
+msgstr "Có một hoặc nhiều thành phần có nguy cơ phá rừng, nhưng nguy cơ thấp do số lượng, nguồn gốc và/hoặc nhãn chứng nhận."
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr ""
+msgstr "Có một hoặc nhiều thành phần có nguy cơ phá rừng, với nguy cơ trung bình do số lượng, nguồn gốc và/hoặc nhãn chứng nhận."
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr ""
+msgstr "Có một hoặc nhiều thành phần có nguy cơ phá rừng, với nguy cơ cao do số lượng, nguồn gốc và/hoặc nhãn chứng nhận."
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr ""
+msgstr "Chưa tính dấu chân rừng"
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr ""
+msgstr "Có tiềm ẩn nguy cơ phá rừng nhưng chưa được tính toán."
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr ""
+msgstr "Không có nguy cơ phá rừng"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5497,7 +5497,7 @@ msgstr "Nguy cơ thấp về suy thoái rừng"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr ""
+msgstr "Nguy cơ phá rừng trung bình"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5505,15 +5505,15 @@ msgstr "Nguy cơ cao về suy thoái rừng"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr ""
+msgstr "Nguy cơ phá rừng tiềm ẩn chưa được tính"
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr ""
+msgstr "Dấu chân rừng không khả dụng"
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr ""
+msgstr "Không thể tính dấu chân rừng vì thiếu danh sách thành phần."
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
