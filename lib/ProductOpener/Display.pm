@@ -308,6 +308,15 @@ $tt = Template->new(
 				return $json_utf8->encode($text);
 			},
 		},
+		# Global template function (not a filter): [% encode_json(pointers) %]
+		# Filters stringify refs (ARRAY(0x...)), while a function preserves them,
+		# so structures must go through this function. Uses $json (utf8(0))
+		# to return character strings for TT with ENCODING => 'UTF-8'.
+		VARIABLES => {
+			encode_json => sub ($var) {
+				return $json->encode($var);
+			},
+		},
 	}
 );
 
@@ -458,10 +467,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	$template_data_ref->{sprintf} = sub ($var1, $var2) {
 		return sprintf($var1, $var2);
-	};
-
-	$template_data_ref->{encode_json} = sub ($var) {
-		return $json->encode($var);
 	};
 
 	$template_data_ref->{uri_escape} = sub ($var) {
