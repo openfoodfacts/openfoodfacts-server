@@ -7346,28 +7346,29 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 	while (my $product_ref = $products_iter->()) {
 		my $url = $request_ref->{formatted_subdomain} . product_url($product_ref->{code});
 
-		my $manufacturing_places = escape_single_quote_and_newlines($product_ref->{"manufacturing_places"});
+		# Plain-text lines for the map popup. Values are JSON-encoded by the
+		# template and rendered with textContent in display-map.js, so no
+		# HTML building or escaping is needed here.
+		my @origins_lines = ();
+
+		my $manufacturing_places = $product_ref->{"manufacturing_places"} // '';
 		$manufacturing_places =~ s/,( )?/, /g;
 		if ($manufacturing_places ne '') {
-			$manufacturing_places
-				= ucfirst(lang("manufacturing_places_p"))
-				. separator_before_colon($lc) . ": "
-				. $manufacturing_places . "<br>";
+			push @origins_lines,
+				ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places;
 		}
 
-		my $origins = escape_single_quote_and_newlines($product_ref->{origins});
+		my $origins = $product_ref->{origins} // '';
 		$origins =~ s/,( )?/, /g;
 		if ($origins ne '') {
-			$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
+			push @origins_lines, ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins;
 		}
-
-		$origins = $manufacturing_places . $origins;
 
 		my $pointer = {
 			product_name => $product_ref->{product_name},
 			brands => $product_ref->{brands},
 			url => $url,
-			origins => $origins,
+			origins => \@origins_lines,
 			img => display_image($product_ref, "front", $request_ref->{lc}, $thumb_size)
 		};
 
