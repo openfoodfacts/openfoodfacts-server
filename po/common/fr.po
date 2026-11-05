@@ -2398,7 +2398,7 @@ msgstr "Visualiser les résultats sous forme de graphique"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr "Note : ce graphique a été généré par un utilisateur du site <<site_name>>. Le titre, les produits representés et les axes de représentation ont été choisis par l'auteur du graphique."
+msgstr "Note : ce graphique a été généré par un utilisateur. Le titre, les produits representés et les axes de représentation ont été choisis par l'auteur du graphique."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -8320,77 +8320,76 @@ msgstr "Voir l'historique complet des modifications"
 
 msgctxt "google_drive_import_title"
 msgid "Import photos from a Google Drive folder"
-msgstr ""
+msgstr "Importer des photos depuis un dossier Google Drive"
 
 msgctxt "google_drive_import_description"
 msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
-msgstr ""
+msgstr "Partagez le dossier Google Drive avec « Tous les utilisateurs disposant du lien », puis copiez son URL ci-dessous. Les photos du dossier et de ses sous-dossiers sont traitées dans l'ordre de leurs noms de fichier : une photo ne contenant pas de code-barres dans son nom de fichier ou sur l'image est ajoutée au produit de la photo précédente."
 
 msgctxt "google_drive_folder_url"
 msgid "Google Drive folder URL"
-msgstr ""
+msgstr "URL du dossier Google Drive"
 
 msgctxt "google_drive_import_button"
 msgid "Import the photos"
-msgstr ""
+msgstr "Importer les photos"
 
 msgctxt "google_drive_invalid_folder_url"
 msgid "This is not the URL of a Google Drive folder."
-msgstr ""
+msgstr "Ceci n'est pas l'URL d'un dossier Google Drive."
 
 msgctxt "google_drive_no_api_key"
 msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
-msgstr ""
+msgstr "L'importation de photos depuis Google Drive n'est pas disponible : aucune clé d'API Google Drive n'est configurée sur ce serveur."
 
 msgctxt "google_drive_folder_not_found"
 msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
-msgstr ""
+msgstr "Le dossier Google Drive est introuvable. Vérifiez qu'il est partagé avec « Tous les utilisateurs disposant du lien »."
 
 msgctxt "google_drive_folder_too_many_items"
 msgid "The Google Drive folder contains too many files."
-msgstr ""
+msgstr "Le dossier Google Drive contient trop de fichiers."
 
 msgctxt "google_drive_api_error"
 msgid "Google Drive returned an error."
-msgstr ""
+msgstr "Google Drive a renvoyé une erreur."
 
 msgctxt "google_drive_import_listing"
 msgid "Listing the photos of the folder..."
-msgstr ""
+msgstr "Recherche des photos du dossier..."
 
 msgctxt "google_drive_import_photos_in_folder"
 msgid "Photos in the folder"
-msgstr ""
+msgstr "Photos dans le dossier"
 
 msgctxt "google_drive_import_skipped_files"
 msgid "Files that are not photos (e.g. videos), not imported"
-msgstr ""
+msgstr "Fichiers qui ne sont pas des photos (ex. vidéos), non importés"
 
 msgctxt "google_drive_import_max_images"
 msgid "The folder contains too many photos, only the first ones are imported"
-msgstr ""
+msgstr "Le dossier contient trop de photos, seules les premières sont importées"
 
 msgctxt "google_drive_import_photos_processed"
 msgid "Photos processed"
-msgstr ""
+msgstr "Photos traitées"
 
 msgctxt "job_not_found"
 msgid "The photo import job could not be found."
-msgstr ""
+msgstr "La tâche d'importation de photos est introuvable."
 
 msgctxt "job_failed"
 msgid "The photo import job failed."
-msgstr ""
+msgstr "La tâche d'importation de photos a échoué."
 
 msgctxt "post_required"
 msgid "This action requires a POST request."
-msgstr ""
+msgstr "Cette action nécessite une requête POST."
 
 msgctxt "unknown_action"
 msgid "Unknown action."
-msgstr ""
+msgstr "Action inconnue."
 
 msgctxt "google_drive_import_already_running"
 msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
-msgstr ""
-
+msgstr "Une importation de photos depuis Google Drive est déjà en cours. Vous pourrez en démarrer une nouvelle une fois celle-ci terminée."
