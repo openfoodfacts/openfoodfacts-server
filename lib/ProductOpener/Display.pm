@@ -308,13 +308,60 @@ $tt = Template->new(
 				return $json_utf8->encode($text);
 			},
 		},
-		# Global template function (not a filter): [% encode_json(pointers) %]
+		# Global template functions (not filters): e.g. [% encode_json(pointers) %]
 		# Filters stringify refs (ARRAY(0x...)), while a function preserves them,
-		# so structures must go through this function. Uses $json (utf8(0))
+		# so structures must go through a function. Uses $json (utf8(0))
 		# to return character strings for TT with ENCODING => 'UTF-8'.
+		# Only pure / static subs live here: no per-request state ($request_ref,
+		# $target_lc, time()). Per-process stash values override these globals.
 		VARIABLES => {
 			encode_json => sub ($var) {
 				return $json->encode($var);
+			},
+			feature_enabled => \&feature_enabled,
+			# escaping quotes for use in javascript or json
+			# using short names to favour readability
+			esq => sub {escape_char(@_, "\'")},    # esq as escape_single_quote_and_newlines
+			edq => sub {escape_char(@_, '"')},    # edq as escape_double_quote
+			display_icon => \&display_icon,
+			display_date_without_time => \&display_date_without_time,
+			display_date_ymd => \&display_date_ymd,
+			display_date_tag => \&display_date_tag,
+			product_url => \&product_url,
+			product_action_url => \&product_action_url,
+			product_name_brand_quantity => \&product_name_brand_quantity,
+			# These closures read the global $lc at call time, same as before.
+			canonicalize_taxonomy_tag_link => sub ($tagtype, $tag) {
+				return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tag => sub ($tagtype, $tag) {
+				return display_taxonomy_tag($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tag_name => sub ($tagtype, $tag) {
+				return display_taxonomy_tag_name($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tags_list => sub ($tagtype, $tags_ref) {
+				if (defined $tags_ref) {
+					return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_)} @$tags_ref);
+				}
+				else {
+					return "";
+				}
+			},
+			round => sub ($var) {
+				# Check if $var is defined and is numeric
+				if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
+					return sprintf("%.0f", $var);
+				}
+				else {
+					return;
+				}
+			},
+			sprintf => sub ($var1, $var2) {
+				return sprintf($var1, $var2);
+			},
+			uri_escape => sub ($var) {
+				return uri_escape($var);
 			},
 		},
 	}
@@ -354,9 +401,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	# give priority to request_ref lc but eventually fallback to global $lc
 	my $target_lc = $request_ref->{lc} // $lc;
 	# Add functions and values that are passed to all templates
-
-	# Features for each product type
-	$template_data_ref->{feature_enabled} = \&feature_enabled;
 
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
@@ -406,20 +450,9 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{f_lang} = sub ($stringid, $variables_ref) {
 		return f_lang_in_lc($target_lc, $stringid, $variables_ref);
 	};
-	# escaping quotes for use in javascript or json
-	# using short names to favour readability
-	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
-	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
-	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{time_t} = time();
-	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
-	$template_data_ref->{display_date_ymd} = \&display_date_ymd;
-	$template_data_ref->{display_date_tag} = \&display_date_tag;
-	$template_data_ref->{product_url} = \&product_url;
-	$template_data_ref->{product_action_url} = \&product_action_url;
-	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 	$template_data_ref->{has_permission} = sub ($permission) {
 		return has_permission($request_ref, $permission);
 	};
@@ -429,49 +462,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{header} = $request_ref->{header};
 	$template_data_ref->{styles} = $request_ref->{styles};
 	$template_data_ref->{bodyabout} = $request_ref->{bodyabout};
-
-	# Return a link to one taxonomy entry in the target language
-	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
-		return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
-	};
-
-	# Display one taxonomy entry in the target language
-	$template_data_ref->{display_taxonomy_tag} = sub ($tagtype, $tag) {
-		return display_taxonomy_tag($lc, $tagtype, $tag);
-	};
-
-	# Display one taxonomy entry in the target language, without language prefix
-	$template_data_ref->{display_taxonomy_tag_name} = sub ($tagtype, $tag) {
-		return display_taxonomy_tag_name($lc, $tagtype, $tag);
-	};
-
-	# Display a list of taxonomy entries in the target language
-	$template_data_ref->{display_taxonomy_tags_list} = sub ($tagtype, $tags_ref) {
-		if (defined $tags_ref) {
-			return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_)} @$tags_ref);
-		}
-		else {
-			return "";
-		}
-	};
-
-	$template_data_ref->{round} = sub ($var) {
-		# Check if $var is defined and is numeric
-		if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
-			return sprintf("%.0f", $var);
-		}
-		else {
-			return;
-		}
-	};
-
-	$template_data_ref->{sprintf} = sub ($var1, $var2) {
-		return sprintf($var1, $var2);
-	};
-
-	$template_data_ref->{uri_escape} = sub ($var) {
-		return uri_escape($var);
-	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
 }
