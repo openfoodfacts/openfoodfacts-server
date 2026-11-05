@@ -7533,10 +7533,13 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# ingredients are recognized as sub-ingredients, without a percent field
 	# (the estimator treats sub-ingredient lists as exhaustive)
 	if ($ingredients_lc eq 'fr') {
+		# "dont 30% du poids total" is a precision on the percent, not a share
+		my $share_percent = qr{\d+(?:[.,]\d+)?\s*%(?!\s*du\s+poids)\s*(?:d[eu]\s+|d')?}i;
 		$text =~ s{(\(|,\s*)(dont)(\s+[^()]*?(?:\([^()]*\)[^()]*)*?)\)}{
 			my ($separator, $marker, $shares) = ($1, $2, $3);
-			if ($shares =~ s{^\s+\d+(?:[.,]\d+)?\s*%\s*(?:d[eu]\s+|d')?}{}) {
-				$shares =~ s{,\s*\d+(?:[.,]\d+)?\s*%\s*(?:d[eu]\s+|d')?}{, }g;
+			if ($shares =~ s{^\s+$share_percent}{}) {
+				# leave nested parentheses alone: their percents belong to the sub-list
+				$shares =~ s{(\([^()]*\))|,\s*$share_percent}{defined $1 ? $1 : ", "}ge;
 				$separator . $shares . ")"
 			}
 			else {
