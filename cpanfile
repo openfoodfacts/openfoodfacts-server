@@ -53,7 +53,6 @@ requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1
 requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
 requires 'Crypt::ScryptKDF'; #11866: Delete after Keycloak Migration
 requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05'; # deps: liblocale-maketext-lexicon-perl
-requires 'Modern::Perl', '>= 1.20200211'; # libmodern-perl-perl has 1.20170117/1.20180901
 requires 'Data::Dumper::AutoEncode'; # deps: libmodule-build-pluggable-perl, libclass-accessor-lite-perl
 requires 'XML::Rules';
 requires 'Text::CSV', '>= 2.01, < 3.0'; # libtext-csv-perl has 1.95/1.99 vs 2.00.

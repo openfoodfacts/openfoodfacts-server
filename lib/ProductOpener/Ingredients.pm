@@ -1201,6 +1201,114 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 	return 0;
 }
 
+# Clean what is left of an ingredient after a processing was removed from it
+sub clean_ingredient_after_removing_processing ($ingredient, $and) {
+
+	# remove starting or ending " and "
+	# viande traitée en salaison et cuite -> viande et
+	$ingredient =~ s/($and)+$//i;
+	$ingredient =~ s/^($and)+//i;
+	# trim leading and trailing whitespaces or hyphens
+	$ingredient =~ s/(\s|-)+$//;
+	$ingredient =~ s/^(\s|-)+//;
+	# remove extra spaces
+	$ingredient =~ s/\s+/ /g;
+
+	return $ingredient;
+}
+
+# When a processing synonym is removed from inside an ingredient, a long synonym can also remove
+# a word that belongs to the rest of the ingredient.
+# e.g. removing "concentré de" from "jus concentré de baies de sureau" gives "jus baies de sureau",
+# but we need the "de" to then remove "jus de" and get "baies de sureau".
+# This returns the ingredients we get by removing a shorter synonym of the same processing instead
+# (e.g. "concentré"), so that the rest of the removed text is kept (e.g. "jus de baies de sureau").
+sub get_alternatives_with_shorter_processing_synonyms ($entries_ref, $processing, $text_before, $removed_text,
+	$text_after, $and)
+{
+	my @alternatives = ();
+
+	foreach my $entry_ref (@$entries_ref) {
+		next if $entry_ref->{processing} ne $processing;
+
+		foreach my $regexp (@{$entry_ref->{inside}}) {
+			# the shorter synonym must be at the start of the removed text
+			if (($removed_text =~ $regexp) and ($-[0] == 0) and ($+[0] < length($removed_text))) {
+				push @alternatives, clean_ingredient_after_removing_processing($text_before . $' . $text_after, $and);
+				last;
+			}
+		}
+	}
+
+	return @alternatives;
+}
+
+# Canonicalize an ingredient name, rejecting a match that exists only because the conjunction is a stopword:
+# "milk and cream" must not become "cream" unless a name of the matched entry contains the conjunction.
+# This checks that the conjunction is present, not where it is.
+sub _canonicalize_ingredient ($lc, $text) {
+	my $exists;
+	my $id = canonicalize_taxonomy_tag($lc, 'ingredients', $text, \$exists);
+	my $conjunction = $and{$lc} || ' and ';
+	if (   $exists
+		&& $text =~ /$conjunction/i
+		&& !grep {/$conjunction/i} get_taxonomy_tag_synonyms($lc, 'ingredients', $id))
+	{
+		# Same value as canonicalize_taxonomy_tag() returns for a name that is not in the taxonomy
+		$id = "$lc:$text";
+	}
+	return $id;
+}
+
+# Remove the labels (organic, fair-trade...) from an ingredient name.
+# Returns the name without its labels, the list of labels and the last label text found (to name a standalone label).
+sub _extract_ingredient_labels ($lc, $ingredient) {
+	my @ingredient_labels;
+	my $last_label;
+	my $label_regexps_ref = $labels_regexps{$lc} // {};
+	# Start with uncomposed labels first, so that "fair-trade organic" yields both labels.
+	# Vegan and vegetarian labels are checked last, as their synonyms can be part of the name of the ingredient,
+	# e.g. "huile végétale bio" -> "huile végétale" + organic
+	my @dietary_labels = grep {/^en:(vegan|vegetarian)$/} @labels;
+	my @other_labels = grep {!/^en:(vegan|vegetarian)$/} @labels;
+	foreach my $labelid ((reverse @other_labels), (reverse @dietary_labels)) {
+		my $regexp = $label_regexps_ref->{$labelid};
+		next unless defined $regexp;
+		while ($ingredient =~ compiled_regexp('\b(' . $regexp . ')\b')) {
+			my $label = $1;
+			my $before_the_label = $`;
+			my $after_the_label = $';
+			# Remove stopwords before the label, e.g. "Abricots from sustainable farming" -> "Abricots"
+			$before_the_label = remove_stopwords_from_start_or_end_of_string('labels', $lc, $before_the_label);
+			# Keep stopwords after the label: "cacao biologique de Madagascar" needs "de".
+			my $ingredient_without_label = $before_the_label . ' ' . $after_the_label;
+			$ingredient_without_label =~ s/\s+/ /g;
+			push @ingredient_labels, $labelid;
+
+			# Some label synonyms (e.g. "végétal" for vegan) can be part of the name of an ingredient,
+			# e.g. "charbon végétal" (E153), "extraits végétaux à pouvoir colorant", "huiles végétales".
+			# If the ingredient with the label is a known ingredient, keep its name with the label when:
+			# - the ingredient without the label is not known ("charbon végétal" -> "charbon")
+			# - or the label is vegan or vegetarian, as it changes the ingredient ("huiles végétales" -> "huiles")
+			# Otherwise remove the label from the name (e.g. "farine de blé bio" -> "farine de blé").
+			my $ingredient_is_known = 0;
+			canonicalize_taxonomy_tag($lc, 'ingredients', $ingredient, \$ingredient_is_known);
+			if ($ingredient_is_known) {
+				my $ingredient_without_label_is_known = 0;
+				canonicalize_taxonomy_tag($lc, 'ingredients', $ingredient_without_label,
+					\$ingredient_without_label_is_known);
+				last if (not $ingredient_without_label_is_known) or ($labelid =~ /^en:(vegan|vegetarian)$/);
+			}
+
+			$last_label = $label;
+			$ingredient = $ingredient_without_label;
+		}
+	}
+	$ingredient =~ s/\s+/ /g;
+	$ingredient =~ s/^\s+|\s+$//g;
+	return ($ingredient, [uniq(@ingredient_labels)], $last_label);
+}
+
 =head2 parse_processing_from_ingredient ( $ingredients_lc, $ingredient )
 
 This function extract processing method from one ingredient.
@@ -1250,7 +1358,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 	my $and = $and{$ingredients_lc} || " will not match ";
 
 	# canonicalize_taxonomy_tag also remove stopwords, etc.
-	my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
+	my $ingredient_id = _canonicalize_ingredient($ingredients_lc, $ingredient);
 
 	# return if ingredient exists as is
 	if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
@@ -1263,6 +1371,10 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 		my $found_a_known_ingredient = 0;
 		my $new_ingredient = $ingredient;
 		my @new_processings = ();
+		# if we don't find a known ingredient, we try again with a shorter synonym of the first processing
+		# that was removed from inside the ingredient (see get_alternatives_with_shorter_processing_synonyms)
+		my @alternatives = ();
+		my $trying_alternatives = 0;
 		my $removed_a_processing = 1;    # remove prefixes / suffixes one by one
 		while ($removed_a_processing) {
 			$removed_a_processing = 0;
@@ -1290,12 +1402,14 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 							and $log->trace("processing - checking processing regexps",
 							{new_ingredient => $new_ingredient, regexp => $ingredient_processing_ref->{pattern}});
 
-						# $` and $' are dynamically scoped to the block with the match:
+						# $`, $& and $' are dynamically scoped to the block with the match:
 						# consume them before leaving it
 						my $matched = 0;
+						my ($text_before, $removed_text, $text_after);
 						foreach my $regexp (@{$ingredient_processing_ref->{$pass}}) {
 							if ($new_ingredient =~ $regexp) {
-								$new_ingredient = $` . $';
+								($text_before, $removed_text, $text_after) = ($`, $&, $');
+								$new_ingredient = $text_before . $text_after;
 								$matched = 1;
 								last;
 							}
@@ -1322,20 +1436,24 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 								push @new_processings, $processing;
 							}
 
-							# remove starting or ending " and "
-							# viande traitée en salaison et cuite -> viande et
-							$new_ingredient =~ s/($and)+$//i;
-							$new_ingredient =~ s/^($and)+//i;
-							# trim leading and trailing whitespaces or hyphens
-							$new_ingredient =~ s/(\s|-)+$//;
-							$new_ingredient =~ s/^(\s|-)+//;
-							# remove extra spaces
-							$new_ingredient =~ s/\s+/ /g;
+							$new_ingredient = clean_ingredient_after_removing_processing($new_ingredient, $and);
+
+							if (($pass eq "inside") and (not $trying_alternatives) and (not @alternatives)) {
+								foreach my $alternative_ingredient (
+									get_alternatives_with_shorter_processing_synonyms(
+										$compiled_ingredients_processing_ref->{entries},
+										$processing, $text_before, $removed_text, $text_after, $and
+									)
+									)
+								{
+									push @alternatives,
+										{ingredient => $alternative_ingredient, processings => [@new_processings]};
+								}
+							}
 
 							# Stop if we now have a known ingredient.
 							# e.g. "jambon cru en tranches" -> keep "jambon cru".
-							my $new_ingredient_id
-								= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
+							my $new_ingredient_id = _canonicalize_ingredient($ingredients_lc, $new_ingredient);
 
 							if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
 								$debug_parse_processing_from_ingredient
@@ -1363,10 +1481,33 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 					}
 				}
 			}
+
+			# If we can't remove more processings and did not find a known ingredient,
+			# try again from an alternative where a shorter processing synonym was removed
+			if ((not $removed_a_processing) and (not $found_a_known_ingredient) and (@alternatives)) {
+				my $alternative_ref = shift @alternatives;
+				$trying_alternatives = 1;
+				$new_ingredient = $alternative_ref->{ingredient};
+				@new_processings = @{$alternative_ref->{processings}};
+				# continue removing processings from the alternative
+				$removed_a_processing = 1;
+
+				$debug_parse_processing_from_ingredient
+					and $log->is_debug()
+					and $log->debug(
+					"processing - trying alternative with a shorter processing synonym",
+					{ingredient => $ingredient, new_ingredient => $new_ingredient}
+					);
+
+				my $new_ingredient_id = _canonicalize_ingredient($ingredients_lc, $new_ingredient);
+				if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+					$found_a_known_ingredient = 1;
+				}
+			}
 		}
 		if ($found_a_known_ingredient) {
 
-			my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
+			my $new_ingredient_id = _canonicalize_ingredient($ingredients_lc, $new_ingredient);
 			if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
 				$debug_parse_processing_from_ingredient
 					and $log->is_debug()
@@ -2437,6 +2578,37 @@ Text to analyze
 											$between = $label_ingredient_id;
 										}
 										else {
+											# Check if the ingredient before + the label exists as an ingredient (e.g. "présure animale" in French)
+											# in which case we also add the label to the ingredient in order to match the specific ingredient + label
+											my $before_trimmed = $before =~ s/^\s+|\s+$//gr;
+											my $before_plus_between_text
+												= ($ingredients_lc eq "en")
+												? $between . ' ' . $before_trimmed
+												: $before_trimmed . ' ' . $between;
+											my $before_plus_between_id
+												= canonicalize_taxonomy_tag($ingredients_lc, "ingredients",
+												$before_plus_between_text);
+
+											if (
+												exists_taxonomy_tag("ingredients", $before_plus_between_id)
+												and (
+													$before_plus_between_id ne canonicalize_taxonomy_tag(
+														$ingredients_lc, "ingredients", $before_trimmed
+													)
+												)
+												)
+											{
+												$debug_ingredients and $log->debug(
+													"before + between is a different known ingredient",
+													{
+														before => $before,
+														between => $between,
+														before_plus_between_id => $before_plus_between_id
+													}
+												) if $log->is_debug();
+
+												$before = $before_plus_between_text;
+											}
 											$between = '';
 										}
 									}
@@ -2494,17 +2666,16 @@ Text to analyze
 
 		my @ingredients = ();
 
-		# 2 known ingredients separated by "and" ? -> split them in 2 ingredients
-		# We do not split if we found only 1 ingredient, as the "and" could be part of the processing
-		# e.g. "cut and fried potatoes" should not be split to "cut" + "fried potatoes"
+		# Split known ingredients separated by "and", preserving declared compounds.
+		# Coordinated processing such as "cut and fried potatoes" describes a single ingredient.
 		if ($before =~ /$and/i) {
 
-			my $ingredient = $before;
-			my $ingredient1 = $`;
-			my $ingredient2 = $';
+			my @ingredient_parts = split(/$and/i, $before);
 
 			# check if the whole ingredient is an ingredient
-			my $canon_ingredient = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $before);
+			my ($whole_ingredient) = _extract_ingredient_labels($ingredients_lc, $before);
+			$whole_ingredient =~ s/${\compiled_regexp('\s' . $percent_or_quantity_regexp . '$')}//;
+			my $canon_ingredient = _canonicalize_ingredient($ingredients_lc, $whole_ingredient);
 
 			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
 
@@ -2513,26 +2684,30 @@ Text to analyze
 					"parse_ingredient_text - and - whole ingredient >$before< containing 'and' is unknown ingredient")
 					if $log->is_debug();
 
-				# Create a copy of $ingredients1 and $ingredients2, as we will remove percents to $ingredientX,
-				# but we will push $ingredientX_orig if it is a known ingredient after we remove the processing
-				my $ingredient1_orig = $ingredient1;
-				my $ingredient2_orig = $ingredient2;
-
 				my $ingredients_recognized = 0;
 
-				foreach ($ingredient1, $ingredient2) {
+				foreach my $part (@ingredient_parts) {
+					my ($part_name) = _extract_ingredient_labels($ingredients_lc, $part);
 					# Remove percent
-					$_ =~ s/${\compiled_regexp('\s' . $percent_or_quantity_regexp . '$')}//;
+					$part_name =~ s/${\compiled_regexp('\s' . $percent_or_quantity_regexp . '$')}//;
 
 					# Check if we recognize the ingredient
-					(undef, undef, undef, my $is_recognized) = parse_processing_from_ingredient($ingredients_lc, $_);
+					(undef, undef, undef, my $is_recognized)
+						= parse_processing_from_ingredient($ingredients_lc, $part_name);
 
 					$ingredients_recognized += $is_recognized;
 				}
-				# Did we recognize the two ingredients?
-				if ($ingredients_recognized == 2) {
+				# Split the original parts, so that each part keeps its own labels, even if one name is unknown.
+				my $split = ($ingredients_recognized == scalar @ingredient_parts);
+				if ($ingredients_recognized > 0 and not $split) {
+					# Keep a single processed ingredient when only its processing spans are unknown.
+					my ($compound_processings_ref)
+						= parse_processing_from_ingredient($ingredients_lc, $whole_ingredient);
+					$split = (not @$compound_processings_ref);
+				}
+				if ($split) {
 
-					push @ingredients, ($ingredient1_orig, $ingredient2_orig);
+					push @ingredients, @ingredient_parts;
 				}
 				else {
 					$debug_ingredients
@@ -2566,6 +2741,7 @@ Text to analyze
 		}
 
 		my $i = 0;    # Counter for ingredients, used to know if it is the last ingredient
+		my $parenthetical_labels = $labels;
 
 		# Note: we use a while loop instead of a foreach as we may modify the array @ingredients when we split ingredients
 		$debug_ingredients
@@ -2574,6 +2750,7 @@ Text to analyze
 			if $log->is_debug();
 		while (@ingredients) {
 
+			$labels = $parenthetical_labels;
 			my $ingredient = shift @ingredients;
 			chomp($ingredient);
 
@@ -2681,79 +2858,20 @@ Text to analyze
 
 				# Check if we have an ingredient + some specific labels like organic and fair-trade.
 				# If we do, remove the label from the ingredient and add the label to labels
-				if (defined $labels_regexps{$ingredients_lc}) {
-					# start with uncomposed labels first, so that we decompose "fair-trade organic" into "fair-trade, organic"
-					# vegan and vegetarian labels are checked last, as their synonyms can be part of the name of the ingredient
-					# e.g. "huile végétale bio" -> "huile végétale" + organic
-					my @vegan_or_vegetarian_labels = grep {/^en:(vegan|vegetarian)$/} @labels;
-					my @other_labels = grep {!/^en:(vegan|vegetarian)$/} @labels;
-					foreach my $labelid ((reverse @other_labels), (reverse @vegan_or_vegetarian_labels)) {
-						my $regexp = $labels_regexps{$ingredients_lc}{$labelid};
-						#$debug_ingredients and $log->trace("checking labels regexps",
-						#	{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
-						#	if $log->is_trace();
-						if ((defined $regexp) and ($ingredient =~ compiled_regexp('\b(' . $regexp . ')\b'))) {
-
-							my $label = $1;
-
-							# Remove stopwords after or before the label
-							# e.g. "Abricots from sustainable farming" -> "Abricots" + "from" + "sustainable farming" -> "Abricots"
-							my $before_the_label = $`;
-							my $after_the_label = $';
-
-							$before_the_label
-								= remove_stopwords_from_start_or_end_of_string("labels", $ingredients_lc,
-								$before_the_label);
-
-							# Don't remove stopwords on $after_the_label, as it can remove words we want to keep
-							# e.g. "Cacao issu de l'agriculture biologique de Madagascar": need to keep "de" in "Cacao de Madagascar"
-
-							my $ingredient_without_label = $before_the_label . ' ' . $after_the_label;
-							$ingredient_without_label =~ s/\s+/ /g;
-
-							if (defined $labels) {
-								$labels .= ", " . $labelid;
-							}
-							else {
-								$labels = $labelid;
-							}
-
-							# Some labels synonyms (e.g. "végétal" for vegan) can be part of the name of an ingredient
-							# e.g. "charbon végétal" (E153), "extraits végétaux à pouvoir colorant", "huiles végétales"
-							# If the ingredient with the label is a known ingredient, keep its name with the label when:
-							# - the ingredient without the label is not known ("charbon végétal" -> "charbon")
-							# - or the label is vegan or vegetarian, as it changes the ingredient ("huiles végétales" -> "huiles")
-							# Otherwise remove the label from the name (e.g. "farine de blé bio" -> "farine de blé")
-							my $ingredient_is_known = 0;
-							canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient,
-								\$ingredient_is_known);
-							if ($ingredient_is_known) {
-								my $ingredient_without_label_is_known = 0;
-								canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_without_label,
-									\$ingredient_without_label_is_known);
-								next
-									if (not $ingredient_without_label_is_known)
-									or ($labelid =~ /^en:(vegan|vegetarian)$/);
-							}
-
-							$ingredient = $ingredient_without_label;
-
-							# If we matched a label, but no ingredient
-							if ($ingredient =~ /^\s*$/) {
-								# If the ingredient is just the label + sub ingredients (e.g. "vegan (orange juice)")
-								# then we replace the now empty ingredient by the sub ingredients
-								if ((defined $between) and ($between !~ /^\s*$/)) {
-									$ingredient = $between;
-									$between = '';
-								}
-								else {
-									# Otherwise we leave the label in place, so that it can be parsed as a non-ingredient specific label
-									$ingredient = $label;
-								}
-							}
-							$debug_ingredients
-								and $log->debug("found label", {ingredient => $ingredient, labelid => $labelid})
-								if $log->is_debug();
+				my ($ingredient_without_labels, $ingredient_labels_ref, $last_label)
+					= _extract_ingredient_labels($ingredients_lc, $ingredient);
+				if (@{$ingredient_labels_ref}) {
+					$labels
+						= join(', ', uniq((defined $labels ? split(/,\s*/, $labels) : ()), @{$ingredient_labels_ref}));
+					$ingredient = $ingredient_without_labels;
+					if ($ingredient eq '') {
+						# A standalone label can qualify sub-ingredients or the product itself.
+						if ((defined $between) and ($between =~ /\S/)) {
+							$ingredient = $between;
+							$between = '';
+						}
+						else {
+							$ingredient = $last_label;
 						}
 					}
 				}
@@ -3515,7 +3633,7 @@ Text to analyze
 				}
 
 				if (defined $labels) {
-					$ingredient{labels} = $labels;
+					$ingredient{labels} = join(", ", uniq(split(/\s*,\s*/, $labels)));
 
 					# If we have a label for the ingredient that indicates if it is vegan or not, override the value
 					if ($labels =~ /\ben:vegan\b/) {

@@ -96,6 +96,7 @@ BEGIN {
 		&count_products
 		&add_params_to_query
 		&add_params_and_filters_to_query
+		&generate_query_cache_key
 
 		&process_template
 
@@ -308,6 +309,15 @@ $tt = Template->new(
 				return $json_utf8->encode($text);
 			},
 		},
+		# Global template function (not a filter): [% encode_json(pointers) %]
+		# Filters stringify refs (ARRAY(0x...)), while a function preserves them,
+		# so structures must go through this function. Uses $json (utf8(0))
+		# to return character strings for TT with ENCODING => 'UTF-8'.
+		VARIABLES => {
+			encode_json => sub ($var) {
+				return $json->encode($var);
+			},
+		},
 	}
 );
 
@@ -458,10 +468,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	$template_data_ref->{sprintf} = sub ($var1, $var2) {
 		return sprintf($var1, $var2);
-	};
-
-	$template_data_ref->{encode_json} = sub ($var) {
-		return $json->encode($var);
 	};
 
 	$template_data_ref->{uri_escape} = sub ($var) {
@@ -3235,7 +3241,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 	# If the query contained tags in non-canonical form, redirect to the form with the canonical tags
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
-	if ($redirect_to_canonical_url) {
+	if ($redirect_to_canonical_url && !defined $request_ref->{api}) {
 		$request_ref->{redirect} = $request_ref->{formatted_subdomain} . $request_ref->{current_link};
 		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
 
@@ -4345,12 +4351,13 @@ HTML
 
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 		if ($tag_ref->{tagtype} eq 'users') {
-			deep_set($request_ref, "body_json", "creator", $tag_ref->{tagid});
+			deep_set($request_ref, "body_json", "creator", $tag_ref->{new_tagid} // $tag_ref->{tagid});
 		}
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
 			my $current_value = deep_get($request_ref, "body_json", $field_name);
-			my $new_value = ($tag_ref->{tag_prefix} // '') . ($tag_ref->{canon_tagid} // $tag_ref->{tagid});
+			my $new_value = ($tag_ref->{tag_prefix} // '')
+				. ($tag_ref->{canon_tagid} // $tag_ref->{new_tagid} // $tag_ref->{tagid});
 			if ($current_value) {
 				$new_value = $current_value . ',' . $new_value;
 			}
@@ -7373,28 +7380,29 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 	while (my $product_ref = $products_iter->()) {
 		my $url = $request_ref->{formatted_subdomain} . product_url($product_ref->{code});
 
-		my $manufacturing_places = escape_single_quote_and_newlines($product_ref->{"manufacturing_places"});
+		# Plain-text lines for the map popup. Values are JSON-encoded by the
+		# template and rendered with textContent in display-map.js, so no
+		# HTML building or escaping is needed here.
+		my @origins_lines = ();
+
+		my $manufacturing_places = $product_ref->{"manufacturing_places"} // '';
 		$manufacturing_places =~ s/,( )?/, /g;
 		if ($manufacturing_places ne '') {
-			$manufacturing_places
-				= ucfirst(lang("manufacturing_places_p"))
-				. separator_before_colon($lc) . ": "
-				. $manufacturing_places . "<br>";
+			push @origins_lines,
+				ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places;
 		}
 
-		my $origins = escape_single_quote_and_newlines($product_ref->{origins});
+		my $origins = $product_ref->{origins} // '';
 		$origins =~ s/,( )?/, /g;
 		if ($origins ne '') {
-			$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
+			push @origins_lines, ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins;
 		}
-
-		$origins = $manufacturing_places . $origins;
 
 		my $pointer = {
 			product_name => $product_ref->{product_name},
 			brands => $product_ref->{brands},
 			url => $url,
-			origins => $origins,
+			origins => \@origins_lines,
 			img => display_image($product_ref, "front", $request_ref->{lc}, $thumb_size)
 		};
 
@@ -8348,7 +8356,8 @@ JS
 
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{code} = $code;
-	$template_data_ref->{user_moderator} = $User{moderator};
+	$template_data_ref->{can_delete} = can_delete_product($product_ref);
+	$template_data_ref->{can_delete_image} = can_delete_image($product_ref);
 
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;

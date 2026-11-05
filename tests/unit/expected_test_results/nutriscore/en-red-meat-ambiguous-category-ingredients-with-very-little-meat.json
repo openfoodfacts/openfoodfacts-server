@@ -201,7 +201,9 @@
          "percent_estimate" : 2,
          "percent_max" : 2,
          "percent_min" : 2,
-         "text" : "lamb"
+         "text" : "lamb",
+         "vegan" : "no",
+         "vegetarian" : "no"
       },
       {
          "ciqual_food_code" : "11058",
@@ -220,19 +222,17 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:egg"
-      ],
-      "en:vegan-status-unknown" : [
+         "en:egg",
          "en:lamb"
       ],
-      "en:vegetarian-status-unknown" : [
+      "en:non-vegetarian" : [
          "en:lamb"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
-      "en:vegetarian-status-unknown"
+      "en:non-vegetarian"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 6,

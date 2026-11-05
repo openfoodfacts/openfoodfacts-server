@@ -66,6 +66,7 @@ use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Nutrition qw/has_no_nutrition_data_on_packaging has_non_estimated_nutrition_data/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Images qw/data_to_display_image/;
@@ -75,7 +76,7 @@ use ProductOpener::KnowledgePanelsIngredients qw/:all/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
 use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel/;
-use ProductOpener::EnvironmentalImpact qw/format_ecs_value/;
+use ProductOpener::EnvironmentalImpact qw/format_ecs_value get_environmental_cost_label_path/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use JSON::MaybeXS;
@@ -101,6 +102,10 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	# Activate physical activity knowledge panel only when specified
 	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
 		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
+
+	# Activate related categories knowledge panel (category tag pages) only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panel_related_categories}
+		= normalize_boolean(single_param("activate_knowledge_panel_related_categories"));
 
 	# Activate product history knowledge panel only when specified (it is shown only to logged in users)
 	$knowledge_panels_options_ref->{activate_knowledge_panel_product_history}
@@ -323,11 +328,13 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 				"api/knowledge-panels/environment/environment_card_simplified.tt.json",
 				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 			# Simplified environmental panels
-			create_panel_from_json_template(
-				"origins_of_ingredients_simplified",
-				"api/knowledge-panels/environment/origins_of_ingredients_simplified.tt.json",
-				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
-			);
+			if (defined deep_get($product_ref, qw/environmental_score_data adjustments origins_of_ingredients/)) {
+				create_panel_from_json_template(
+					"origins_of_ingredients_simplified",
+					"api/knowledge-panels/environment/origins_of_ingredients_simplified.tt.json",
+					{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+				);
+			}
 			create_panel_from_json_template(
 				"threatened_species_simplified",
 				"api/knowledge-panels/environment/threatened_species_simplified.tt.json",
@@ -894,6 +901,11 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 		ecs_per_product => ($has_per_product ? format_ecs_value($ecs_per_product) : ""),
 		quantity => $quantity,
 		rows => \@rows_data,
+		# The results were computed before the latest changes to the product (we could not get new results)
+		stale => ($environmental_impact_ref->{ecobalyse_stale} ? 1 : 0),
+		# Image of the label, rendered by nginx, used as the icon of the panel
+		label_path =>
+			($has_per_product ? get_environmental_cost_label_path($ecs_per_product, $ecs_per_100, $unit) : undef),
 	};
 
 	create_panel_from_json_template("environmental_cost", "api/knowledge-panels/environment/environmental_cost.tt.json",
@@ -971,8 +983,8 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	# Create panel for manufacturing place
 	create_manufacturing_place_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
-	# Origins of ingredients for the environment card, for food, pet food and beauty products
-	if (feature_enabled("ingredients")) {
+	# Origins of ingredients for the environment card, only when the environmental score has computed them
+	if (defined deep_get($product_ref, qw/environmental_score_data adjustments origins_of_ingredients/)) {
 		create_panel_from_json_template("origins_of_ingredients",
 			"api/knowledge-panels/environment/origins_of_ingredients.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
@@ -1623,6 +1635,13 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 
 		# Create a first panel with the aggregated set and comparison to category (if any)
 		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
+
+		# Offer an action to add the nutrition facts if none have been entered
+		if (    not has_no_nutrition_data_on_packaging($product_ref)
+			and not has_non_estimated_nutrition_data($product_ref))
+		{
+			$panel_data_ref->{nutrition_facts_missing} = 1;
+		}
 
 		# Mark this panel to be expanded for large screens by default
 		$panel_data_ref->{expand_for} = "large";
