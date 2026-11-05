@@ -82,6 +82,14 @@ export function installTagifyFixture() {
 }
 
 export async function setSuggestions(page, visible) {
+    if (!visible) {
+        // Tagify marks the dropdown visible before its deferred DOM insertion.
+        // hide() is a no-op while detached, so let a pending render finish first.
+        await page.waitForFunction(() => {
+            const {tagify} = window;
+            return !tagify.state.dropdown.visible || document.body.contains(tagify.DOM.dropdown);
+        });
+    }
     await page.evaluate((show) => {
         if (show) {
             // Supply deterministic local suggestions after typing clears the

@@ -105,6 +105,32 @@ for (const visible of [false, true]) {
     }
 }
 
+test("hidden suggestions wait for a pending dropdown render", async (t) => {
+    const page = await createPage(t);
+    // Hold the render callback so the race is deterministic: Tagify has marked
+    // the dropdown visible, but hide() is still a no-op while it is detached.
+    await page.evaluate(() => {
+        const {tagify} = window;
+        const render = tagify.dropdown.render;
+        tagify.dropdown.render = () => {
+            window.renderPendingDropdown = render;
+        };
+        tagify.dropdown.show();
+    });
+    await page.waitForFunction(() => typeof window.renderPendingDropdown === "function");
+    assert.equal(await page.evaluate(() => window.tagify.DOM.dropdown.isConnected), false);
+    assert.equal((await getState(page)).suggestionsVisible, true);
+
+    const hiding = setSuggestions(page, false);
+    await page.evaluate(() => {
+        const {tagify} = window;
+        tagify.dropdown.render = window.renderPendingDropdown;
+        tagify.dropdown.render();
+    });
+    await hiding;
+    assert.equal((await getState(page)).suggestionsVisible, false);
+});
+
 test("selecting a suggestion between tags preserves the submitted order", async (t) => {
     const page = await createPage(t, {visible: true, position: 1});
     await page.locator('.tagify__dropdown__item[value="C"]').click();
