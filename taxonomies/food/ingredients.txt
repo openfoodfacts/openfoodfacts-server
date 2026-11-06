@@ -38601,7 +38601,7 @@ pl: kiełki soi
 #process:en: en:peeled
 #process:en: en:shelled
 < en: soya bean
-en: hulled soya bean, husked soya bean, husked soya beans
+en: hulled soya bean
 it: fagioli di soia decorticati
 #da:afskallede sojabønner
 #de:geschälte Sojabohnen
@@ -39364,9 +39364,6 @@ es: extracto de levadura autolizada, extracto autolizado de levadura
 fr: extrait de levure autolysée
 hr: autolizirani ekstrakt kvasca
 it: Estratto di lievito autolizzato
-
-< en: yeast
-en: autolysed yeast, autolyzed yeast
 
 < en: yeast extract
 en: yeast extract aroma, yeast extract flavour
@@ -44108,10 +44105,6 @@ wikidata:en: Q465934
 wikipedia:en: https://en.wikipedia.org/wiki/Kaffir_lime
 
 < en: kaffir lime
-en: kaffir lime zest, kaffir lime peel, makrut lime zest, makrut lime peel
-fr: zeste de combava, zestes de combava
-
-< en: kaffir lime
 < en: spice
 en: kaffir lime leaf, kaffir lime leaves, makrut lime leaf, makrut lime leaves
 de: Kaffirlimettenblatt, Kaffirlimettenblätter, Kaffir limettenblätter, Kaffernlimettenblätter
@@ -44122,9 +44115,10 @@ it: foglia di lime kaffir
 pl: liście kaffiru, liście limonki kaffir
 
 < en: kaffir lime
-en: kaffir lime peel
+en: kaffir lime peel, kaffir lime zest, makrut lime peel, makrut lime zest
 de: Kaffirlimettenschale, Kaffirlimettenschalen, Kaffernlimettenschale
 es: piel de lima Kaffir
+fr: zeste de combava, zestes de combava
 hr: kora kafirske limete
 it: buccia di lime kaffir
 sv: kaffir limeskal
@@ -44405,9 +44399,6 @@ usda_fdc_code:en: 167746
 usda_ndb_code:en: 9150
 usda_ndb_name:en: Lemons, raw, without peel
 wikidata:en: Q1093742
-
-< en: lemon
-en: comminuted lemon, comminuted lemon from concentrate
 
 < en: lemon
 en: lemon peel, lemon rind
@@ -45331,9 +45322,6 @@ usda_ndb_code:en: 9200
 usda_ndb_name:en: Oranges, raw, all commercial varieties
 wikidata:en: Q13191
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_(fruit)
-
-< en: orange
-en: comminuted orange, comminuted orange from concentrate, orange comminute from concentrate
 
 < en: orange
 en: eating orange
@@ -47998,7 +47986,7 @@ pl: ekstrakt z kwiatu czarnego bzu, ekstrakt z kwiatu bzu czarnego, ekstrakt kwi
 sv: fläderblomsextrakt, extrakt av blommor från fläderbusken
 
 < en: berries
-en: rowanberry, rowanberries
+en: rowanberry, rowanberries, rowan berry, rowan berries, rowan
 bg: калина
 cs: jeřabin
 da: rønnebær
@@ -48007,7 +47995,7 @@ el: καρπούς σορβιάς
 es: serbas
 et: hariliku pihlaka
 fi: pihlajanmarjaa
-fr: sorbe, sorbes
+fr: sorbe, sorbes, baie de sorbier, baies de sorbier
 hr: jarebiku
 hu: madárberkenye
 it: sorbe
@@ -48678,14 +48666,9 @@ en: Lukuma
 de: Lúcuma, Lucuma
 it: lucuma
 
-< en: rowan berry
+< en: rowanberry
 en: rowan extract, rowan berry extract
 fr: extrait de sorbier
-
-< en: berries
-en: rowan berry, rowanberry, rowan berries, rowan
-xx: Sorbus aucuparia
-fr: baie de sorbier, baies de sorbier
 
 < en: Lukuma
 en: Lukuma powder, lucuma powder
@@ -51773,10 +51756,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Raisin
 en: flame raisins, flame raisin, chilean flame raisins
 
 < en: raisin
-en: currants, currant, dried currants, dried currant, zante currants
-fr: raisins de Corinthe, raisin de Corinthe
-
-< en: raisin
 en: seedless raisin, seedless raisins
 usda_ndb_proxy_code:en: 9298
 usda_ndb_proxy_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
@@ -51896,7 +51875,7 @@ sv: kaliforniska Thompson-russin utan kärnor
 
 # < en:grape (made from)
 < en: raisin
-en: Corinthian raisins, zante currants
+en: Corinthian raisins, zante currants, currants, currant, dried currants, dried currant
 da: Korend
 de: korinthische Rosinen, Korinthiaki, Korinthe, Korinthen
 es: Pasa de Corinto
