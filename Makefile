@@ -341,16 +341,16 @@ tail:
 codecov_prepare: create_folders
 	@echo "🥫 Preparing to run code coverage…"
 	mkdir -p cover_db
-	${DOCKER_COMPOSE_TEST} run --rm backend cover -delete
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm backend cover -delete
 	mkdir -p cover_db
 
 codecov:
 	@echo "🥫 running cover to generate a report usable by codecov …"
-	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecovbash
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm backend cover -report codecovbash
 
 coverage_txt:
 	@echo "🥫 running cover to generate text report …"
-	${DOCKER_COMPOSE_TEST} run --rm backend cover
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm backend cover
 
 #----------#
 # Services #
@@ -363,7 +363,7 @@ build_lang: create_folders
 
 build_lang_test: create_folders
 # Run build_lang.pl in test env
-	${DOCKER_COMPOSE_TEST} run --rm --no-deps -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm --no-deps -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
@@ -431,9 +431,9 @@ tests: build_taxonomies_test build_lang_test unit_test integration_test brands_s
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} up --quiet-pull -d memcached postgres mongodb
 	@echo "🥫 Running tests with yath (parallel jobs: ${CPU_COUNT})"
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
+	${DOCKER_COMPOSE_TEST} run --quiet-pull ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -445,10 +445,10 @@ integration_test: create_folders
 # this is the place where variables are important
 # Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
 # Also need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
-	${DOCKER_COMPOSE_INT_TEST} up -d frontend
-	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
-	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
-	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d frontend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d dynamicfront
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull --wait postgres
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d backend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
@@ -469,8 +469,8 @@ test-stop:
 # you can also add args= to pass more options to your test command
 test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend ${TEST_CMD} ${args} tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} up --quiet-pull -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm backend ${TEST_CMD} ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 # to update expected results: make test-int test="test-name.t :: --update-expected-results"
@@ -483,9 +483,9 @@ test-int: guard-test create_folders
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
 # Need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
-	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
-	${DOCKER_COMPOSE_INT_TEST} up -d frontend
-	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull --wait postgres
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d frontend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop
@@ -505,14 +505,14 @@ update_tests_results: build_taxonomies_test build_lang_test update_unit_tests_re
 
 update_unit_tests_results:
 	@echo "🥫 Updated expected unit test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend bash tests/update_unit_tests_results.sh
+	${DOCKER_COMPOSE_TEST} up --quiet-pull -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm backend bash tests/update_unit_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
 
 update_integration_tests_results:
 	@echo "🥫 Updated expected integration test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
-	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull --wait postgres
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec backend bash tests/update_integration_tests_results.sh
 	${DOCKER_COMPOSE_INT_TEST} stop
 
@@ -522,7 +522,7 @@ bash:
 
 bash_test:
 	@echo "🥫 Open a bash shell in the test container"
-	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm -w /opt/product-opener backend bash
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl %.t: _FORCE
@@ -648,7 +648,7 @@ build_taxonomies_test: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
 
 _clean_old_external_volumes:
 # THIS IS A MIGRATION STEP, TO BE REMOVED IN THE FUTURE
@@ -899,9 +899,9 @@ endif
 	@echo "🥫 Running unit test group $(TEST_GROUP) …"
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/unit/outputs/
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} up --quiet-pull -d memcached postgres mongodb
 	@echo "🥫 Running all tests in group $(TEST_GROUP) with parallel execution and JUnit XML generation..."
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
+	${DOCKER_COMPOSE_TEST} run --quiet-pull ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 Unit test group $(TEST_GROUP) completed successfully"
 
@@ -942,8 +942,8 @@ endif
 	@echo "🥫 Running integration test group $(TEST_GROUP) …"
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/integration/outputs/
-	${DOCKER_COMPOSE_INT_TEST} up -d frontend
-	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d frontend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d backend
 	@echo "🥫 Running all tests in group $(TEST_GROUP) with both console output and JUnit XML generation..."
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend yath test --renderer=Formatter --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))
 	${DOCKER_COMPOSE_INT_TEST} stop
