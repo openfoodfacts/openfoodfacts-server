@@ -199,6 +199,21 @@ is(
 	"ingredients with a positive impact"
 );
 
+# Ingredient names with special characters (user provided values) keep the panels valid,
+# and they are HTML escaped in html fields
+my $special_name = 'beef "<b>\\';
+my $special_product_ref = product_with_ecs(ingredients => [["sugar", 300, 40, 0], [$special_name, 100, 75, -20]]);
+is(
+	get_rows(get_panel($special_product_ref, {moderator => 1}), "environmental_cost_ingredients")->{$special_name},
+	['Ecobalyse beef "<b>\\', "100", "95", "19", "43 %"],
+	"ingredient name with special characters"
+);
+is(
+	get_texts(get_panel($special_product_ref, {moderator => 1}, "environmental_cost_ecosystem_services"))->[-1],
+	'Ingredients concerned: beef &quot;&lt;b&gt;\\ (-20)',
+	"ingredient name with special characters HTML escaped"
+);
+
 # No positive impact: no calculation and no sub-panel
 $panel_ref = get_panel(product_with_ecs(complements => 0), {moderator => 1});
 is(get_texts($panel_ref), ["Total environmental impact score from Ecobalyse"],

@@ -944,6 +944,15 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 				|| $input_ingredient_ref->{ecobalyse_name}
 				|| $input_ingredient_ref->{id};
 			if (($composition_ref->[$i]{name} // '') ne ($component_name // '')) {
+				$log->warn(
+					"Ecobalyse response component name differs from the request, not showing impacts by ingredient",
+					{
+						code => $product_ref->{code},
+						index => $i,
+						request_name => $component_name,
+						response_name => $composition_ref->[$i]{name}
+					}
+				) if $log->is_warn();
 				@ingredients = ();
 				last;
 			}
@@ -954,7 +963,7 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 			push @ingredients,
 				{
 				name => $component_name,
-				ecobalyse_name => $input_ingredient_ref->{ecobalyse_name},
+				ecobalyse_name => $input_ingredient_ref->{ecobalyse_name} // '',
 				mass => $input_ingredient_ref->{mass} // 0,
 				impacts => $ingredient_ecs - $ingredient_complements,
 				complements => $ingredient_complements,

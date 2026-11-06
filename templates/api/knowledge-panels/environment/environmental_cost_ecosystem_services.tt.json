@@ -52,10 +52,12 @@
             }
         },
         [% IF panel.ingredients_with_complements.size %]
+        [%# Ingredient names are user provided values: they are HTML escaped, and encode_json keeps the JSON valid %]
+        [% ingredients_html = BLOCK %][% lang('environmental_cost_ecosystem_services_ingredients') %] [% FOREACH ingredient IN panel.ingredients_with_complements %][% ingredient.name | html %] ([% ingredient.points %])[% UNLESS loop.last %], [% END %][% END %][% END %]
         {
             "element_type": "text",
             "text_element": {
-                "html": "[% edq(lang('environmental_cost_ecosystem_services_ingredients')) %] [% FOREACH ingredient IN panel.ingredients_with_complements %][% edq(ingredient.name) %] ([% ingredient.points %])[% UNLESS loop.last %], [% END %][% END %]"
+                "html": [% encode_json(ingredients_html) %]
             }
         },
         [% END %]

@@ -144,10 +144,11 @@
                         "values": [
                             [% IF ingredient.other_ingredients %]
                             { "text": "[% edq(f_lang('f_environmental_cost_other_ingredients', { 'number' => ingredient.other_ingredients })) %]" },
-                            { "text": "[% edq(ingredient.ecobalyse_name) %]" },
+                            { "text": [% encode_json(ingredient.ecobalyse_name) %] },
                             [% ELSE %]
-                            { "text": "[% edq(ingredient.name) %]" },
-                            { "text": "[% edq(ingredient.ecobalyse_name) %]" },
+                            [%# Ingredient names are user provided values: encode_json keeps the JSON valid %]
+                            { "text": [% encode_json(ingredient.name) %] },
+                            { "text": [% encode_json(ingredient.ecobalyse_name) %] },
                             [% END %]
                             { "text": "[% ingredient.mass %]" },
                             [% IF panel.has_per_product %]{ "text": "[% ingredient.per_product %]" },[% END %]
