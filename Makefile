@@ -318,7 +318,7 @@ integration_test: create_folders
 	mkdir -p tests/integration/outputs/
 # we launch the server and run tests within same container.
 # this is the place where variables are important
-# Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
+# Start dynamicfront explicitly: it fills the *_dist volumes with the assets of the frontend:dev image (see docker/integration-test.yml)
 # Also need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
 	${DOCKER_COMPOSE_INT_TEST} up -d frontend
 	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
@@ -355,7 +355,8 @@ test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	mkdir -p tests/integration/outputs/
 # we launch the server and run tests within same container
-# we also need dynamicfront for some assets to exists
+# we also need dynamicfront for some assets to exist: they come from the frontend:dev image (see docker/integration-test.yml),
+# so after changing js, css or icons, rebuild it with: make build container=frontend
 # this is the place where variables are important
 # Need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
 	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
