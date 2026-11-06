@@ -1551,8 +1551,7 @@ puffed orange and caramelized unknown_fruit4.",
 		'fr-ingredient-origin-in-the-list',
 		{
 			lc => "fr",
-			ingredients_text =>
-				"Fromage (lait : origine France), sucre, beurre : origine UE, farine",
+			ingredients_text => "Fromage (lait : origine France), sucre, beurre : origine UE, farine",
 		}
 	],
 	[
