@@ -295,6 +295,54 @@ my @tests = (
 			},
 		},
 	],
+
+	# Products with valid specified percents that were wrongly flagged with ingredients_percent_analysis = -1
+	# (the min / max computation did not converge and bailed out after too many loops,
+	# as sub-ingredients lists are re-initialized at each loop, and the same changes were then made again)
+	# The optional 3rd element is the expected value of ingredients_percent_analysis
+
+	# The percent_max from the taxonomy deleted the percent_max computed in the previous loop
+	[
+		'fr-sub-ingredients-percent-max-reset',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Lait d'amande* (eau, amandes* 2,8%), sucre de canne non raffiné, amidon de riz*, sel marin."
+		},
+		1
+	],
+
+	# All sub-ingredients have a specified percent, with a sum equal to the parent percent:
+	# floating point errors lowered the percent_max of sub-ingredients again at each loop
+	[
+		'fr-sub-ingredients-all-percents-sum-equal-to-parent',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Céréales 98,5 % (farine complète de blé 66,2 %, farine de seigle 12,1 %, farine de blé 10,1 %, farine de riz 3,2 %, farine de blé malté 2,1 %, farine de sarrasin 1,6 %, farine d'orge 1,6 %, semoule de blé 1,6 %), sucre, lactosérum en poudre (de lait), sel, huile de palme, germes de blé."
+		},
+		1
+	],
+
+	# Sub-ingredients with specified percents that are not in decreasing order (allowed for ingredients under 2%)
+	[
+		'en-sub-ingredients-percents-not-in-decreasing-order',
+		{lc => "en", ingredients_text => "water, rice 30%, fruits 0.1% (e164 0.5%, natural flavouring 10%)"}, 1
+	],
+
+	# The percent_max of flavourings from the taxonomy (5%) also applies to sub-ingredients
+	# of a parent ingredient without a specified percent
+	[
+		'fr-flavouring-sub-ingredient-percent-max',
+		{
+			lc => "fr",
+			ingredients_text => "preparation pour dessert (lait entier en poudre, arômes naturels, sucre), eau"
+		},
+		1
+	],
+
+	# Impossible values: the first 3 ingredients must each be at least 53%
+	['fr-impossible-minimum-percent', {lc => "fr", ingredients_text => "Sucre, farine, beurre, lait 53%"}, -1],
 );
 
 foreach my $test_ref (@tests) {
@@ -304,6 +352,10 @@ foreach my $test_ref (@tests) {
 
 	parse_ingredients_text_service($product_ref, {}, {});
 	estimate_ingredients_percent_service($product_ref, {}, {});
+
+	if (defined $test_ref->[2]) {
+		is($product_ref->{ingredients_percent_analysis}, $test_ref->[2], "$testid - ingredients_percent_analysis");
+	}
 
 	compare_to_expected_results(
 		$product_ref->{ingredients},

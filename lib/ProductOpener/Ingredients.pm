@@ -5035,6 +5035,12 @@ sub set_percent_min_values ($total_min, $total_max, $ingredients_ref) {
 	return $changed;
 }
 
+# Compare 2 percent values, allowing for floating point errors (relative tolerance, as some values can be very small)
+sub percent_values_are_equal ($value1, $value2) {
+	return 0 if ((not defined $value1) or (not defined $value2));
+	return (abs($value1 - $value2) <= 1e-9 * (abs($value1) + abs($value2)));
+}
+
 sub set_percent_sub_ingredients ($ingredients_ref) {
 
 	my $changed = 0;
@@ -5050,11 +5056,34 @@ sub set_percent_sub_ingredients ($ingredients_ref) {
 
 			# Set values for sub-ingredients from ingredient values
 
-			$changed += compute_ingredients_percent_min_max_values(
+			# The sub-ingredients values are re-initialized by init_percent_values() each time,
+			# and the same min / max adjustments are then made again, so the number of changes
+			# returned is never 0 for some lists (e.g. fixed percents that are not in decreasing order,
+			# or floating point errors when the percents of all sub-ingredients are specified).
+			# To make sure the computation converges, we count only the sub-ingredients
+			# that have different min / max values than before.
+			my @previous_values = map {[$_->{percent_min}, $_->{percent_max}]} @{$ingredient_ref->{ingredients}};
+
+			my $changed_sub_ingredients = compute_ingredients_percent_min_max_values(
 				$ingredient_ref->{percent_min},
 				$ingredient_ref->{percent_max},
 				$ingredient_ref->{ingredients}
 			);
+
+			if ($changed_sub_ingredients < 0) {
+				$changed += $changed_sub_ingredients;
+			}
+			else {
+				my $j = 0;
+				foreach my $sub_ingredient_ref (@{$ingredient_ref->{ingredients}}) {
+					my ($previous_min, $previous_max) = @{$previous_values[$j++]};
+					if (   (not percent_values_are_equal($previous_min, $sub_ingredient_ref->{percent_min}))
+						or (not percent_values_are_equal($previous_max, $sub_ingredient_ref->{percent_max})))
+					{
+						$changed++;
+					}
+				}
+			}
 
 			# Set values for ingredient from sub-ingredients values
 
