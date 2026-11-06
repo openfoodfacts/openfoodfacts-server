@@ -63,7 +63,7 @@ msgstr "og Facebook-gruppen <a href=\"https://www.facebook.com/groups/OpenBeauty
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Åpne produktsøket for Open Beauty Facts"
+msgstr "Åpne produktsøket for skjønnhetsfakta"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -692,7 +692,7 @@ msgstr "Doner til Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-no.openfoodfacts.org/doner-til-open-food-facts-no"
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -977,7 +977,7 @@ msgstr "Ofte stilte spørsmål"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1124,7 +1124,7 @@ msgstr "Ses snart!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr "%d produkter samsvarer med søkekriteriene, hvorav %i produkter har definerte verdier for grafens akser."
+msgstr "%d produkter samsvarer med søkekriteriene, hvorav % i produkter har definerte verdier for grafens akser."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -1335,7 +1335,7 @@ msgstr "Produkter som ikke inneholder ingrediensen %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr "/images/misc/appstore/black/appstore_NO.svg"
+msgstr "/images/misc/appstore/black/appstore_US.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
@@ -2810,8 +2810,7 @@ msgstr "Se resultater fra hele verden"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Informasjon og data må komme fra produktets innpakning og etiketten (og ikke fra andre sider eller produsentens nettside), og du må ha tatt bildene selv.<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Hvorfor det har noe å si</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -4757,7 +4756,7 @@ msgstr "Mangler data for å beregne Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Nutri-Score ikke relevant"
+msgstr "Ernæringsvidde ikke relevant"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5434,59 +5433,59 @@ msgstr "Plattformen beregner indikatorer som Nutri-_core, NOVA og Green-Score, o
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "Skogsavtrykk"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "Lav risiko for avskoging (Skogsavtrykk)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Skogsavtrykket tilsvarer risikoen for avskoging knyttet til ingrediensene."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "Skogsavtrykk A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "Skogsavtrykk B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "Skogsavtrykk C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "Skogsavtrykk D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "Ingen ingrediens knyttet til avskogingsrisiko."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "Tilstedeværelse av én eller flere ingredienser med risiko for avskoging, men lav risiko gitt mengde, opprinnelse og/eller merker."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "Tilstedeværelse av én eller flere ingredienser med risiko for avskoging, med moderat risiko gitt mengde, opprinnelse og/eller merker."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "Tilstedeværelse av én eller flere ingredienser med risiko for avskoging, med høy risiko gitt mengde, opprinnelse og/eller merker."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "Skogsavtrykk ikke beregnet"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "Potensiell avskogingsrisiko, men ennå ikke beregnet."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "Ingen avskogingsrisiko"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5494,7 +5493,7 @@ msgstr "Lav risiko for avskoging"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "Moderat risiko for avskoging"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5502,15 +5501,15 @@ msgstr "Høy risiko for avskoging"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "Potensiell avskogingsrisiko ikke beregnet"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "Skogsavtrykk ikke tilgjengelig"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "Skogsavtrykket kan ikke beregnes fordi ingredienslisten mangler."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -6079,7 +6078,7 @@ msgstr ""
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "Gi et bidrag til innsamlingen vår i {year}"
+msgstr ""
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6115,39 +6114,39 @@ msgstr "JEG STØTTER"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "Vi trenger fortsatt 120 000 € for å fullføre 2026!"
+msgstr ""
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Bli bidragsyter til Open Food Facts"
+msgstr ""
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Hver måned har vi 8 millioner besøkende, og mange ganger flere via API-et. Din støtte er avgjørende for å:"
+msgstr ""
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "holde Open Food Facts åpent og tilgjengelig for alle,"
+msgstr ""
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "støtte infrastrukturen, nettstedet, mobilappen og API-et med et lite fast team"
+msgstr ""
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
-msgstr "forbli uavhengig av næringsmiddelindustrien,"
+msgstr ""
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "støtte fellesskapet"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "støtte vitenskapen"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Hvis hver besøkende denne måneden klikket på Doner og ga bare 1 €, ville vi fått mer enn 8 ganger vårt årlige budsjett!"
+msgstr ""
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6558,7 +6557,7 @@ msgstr ""
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Lær mer om Nutri-Score"
+msgstr "Tusen takk"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
@@ -7282,7 +7281,7 @@ msgstr "Fravær"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr "Dette produktet anses for å være vann ved beregningen av Nutri-Score."
+msgstr "Dette produktet anses for å være vann ved beregningen av Nutri-score."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
@@ -7816,11 +7815,11 @@ msgstr ""
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-no.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-nb.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
-msgstr "Tilgjengelig på F-Droid"
+msgstr ""
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
@@ -8387,3 +8386,4 @@ msgstr ""
 msgctxt "google_drive_import_already_running"
 msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
 msgstr ""
+
