@@ -631,8 +631,7 @@ sub _filter_suggestions ($entries_ref, $tags_ref, $tagtype, $search_lc, $string,
 					foreach my $synonym_pair_ref (@{$entry_ref->{synonyms}}) {
 						next if index($synonym_pair_ref->[0], $category_search_stringid) != 0;
 
-						push @prefix_suggestions,
-							{tag => $entry_ref->{tag}, matched_synonym => $synonym_pair_ref->[1]};
+						push @prefix_suggestions, {tag => $entry_ref->{tag}, matched_synonym => $synonym_pair_ref->[1]};
 						last;
 					}
 					last if scalar(@prefix_suggestions) >= $limit;
