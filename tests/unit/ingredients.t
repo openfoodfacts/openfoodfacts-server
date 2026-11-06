@@ -1761,8 +1761,30 @@ my $variety_coordination = {
 		"Eau de cuisson - Pommes de terre 19,7 % - Epinards 16,0 % - Carottes 10,0 % - Saumon kéta et/ou rose du Pacifique en proportion variable 8,10 % (POISSON) - Panais - Oignons - Haricots verts - Amidon de maïs - Crème (LAIT) - Céleri (CELERI) - Huiles végétales (colza, tournesol) - Sel - Muscade - Poivre noir"
 };
 extract_ingredients_from_text($variety_coordination);
-my ($chum_salmon) = grep {$_->{id} eq 'en:chum-salmon'} @{$variety_coordination->{ingredients}};
-is($chum_salmon->{percent}, 8.1, 'an unknown coordinated part does not take the percentage of the known part');
+is(scalar @{$variety_coordination->{ingredients}}, 16, 'the coordination is split in 2 ingredients');
+is(
+	[map {[$_->{id}, $_->{percent}]} @{$variety_coordination->{ingredients}}[3 .. 5]],
+	[['en:carrot', 10], ['en:chum-salmon', 8.1], ['fr:rose', undef]],
+	'an unknown coordinated part does not take the percentage of the known part'
+);
+
+# When an unknown name is split in 2 later in the parsing, its percent or quantity is not given to both ingredients
+for my $case (
+	['poulet et xyzabc 20%', [['en:chicken', 20, undef], ['fr:xyzabc', undef, undef]]],
+	['xyzabc et poulet 20%', [['fr:xyzabc', undef, undef], ['en:chicken', 20, undef]]],
+	['poulet 10% et xyzabc', [['en:chicken', 10, undef], ['fr:xyzabc', undef, undef]]],
+	['poulet et xyzabc 20 g', [['en:chicken', undef, '20 g'], ['fr:xyzabc', undef, undef]]],
+	)
+{
+	my ($text, $expected) = @$case;
+	my $product = {lc => 'fr', product_type => 'food', ingredients_text => "eau, $text, sel"};
+	extract_ingredients_from_text($product);
+	is(
+		[map {[$_->{id}, $_->{percent}, $_->{quantity}]} @{$product->{ingredients}}],
+		[['en:water', undef, undef], @$expected, ['en:salt', undef, undef]],
+		"$text: the percent or quantity is counted once"
+	);
+}
 
 # 3560071252038: an origin statement with "et" must not create ingredients
 my $origin_statement = {

@@ -2748,6 +2748,8 @@ Text to analyze
 
 		my $i = 0;    # Counter for ingredients, used to know if it is the last ingredient
 		my $parenthetical_labels = $labels;
+		# percent or quantity for the next ingredient, when an unknown ingredient is split in 2 below
+		my $next_percent_or_quantity_ref;
 
 		# Note: we use a while loop instead of a foreach as we may modify the array @ingredients when we split ingredients
 		$debug_ingredients
@@ -2757,6 +2759,10 @@ Text to analyze
 		while (@ingredients) {
 
 			$labels = $parenthetical_labels;
+			if (defined $next_percent_or_quantity_ref) {
+				($percent_or_quantity_value, $percent_or_quantity_unit) = @$next_percent_or_quantity_ref;
+				$next_percent_or_quantity_ref = undef;
+			}
 			my $ingredient = shift @ingredients;
 			chomp($ingredient);
 
@@ -3482,6 +3488,7 @@ Text to analyze
 							my $ingredient2_orig = $ingredient2;
 
 							my $ingredients_recognized = 0;
+							my @is_recognized;
 
 							foreach ($ingredient1, $ingredient2) {
 								# Remove percent
@@ -3491,6 +3498,7 @@ Text to analyze
 								(undef, undef, undef, my $is_recognized)
 									= parse_processing_from_ingredient($ingredients_lc, $_);
 
+								push @is_recognized, $is_recognized;
 								$ingredients_recognized += $is_recognized;
 							}
 							# Did we recognize one of the two ingredients?
@@ -3501,6 +3509,18 @@ Text to analyze
 								$ingredient = $ingredient1_orig;
 								$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
 								unshift @ingredients, "$ingredient2_orig";
+								# A percent or quantity already read for the whole name is not counted twice:
+								# it goes to the first ingredient if it is known, otherwise to the second one
+								# e.g. "Saumon kéta et/ou rose du Pacifique 8,10 %" -> 8.1% for the chum salmon only
+								if ($is_recognized[0]) {
+									$next_percent_or_quantity_ref = [undef, undef];
+								}
+								else {
+									$next_percent_or_quantity_ref
+										= [$percent_or_quantity_value, $percent_or_quantity_unit];
+									$percent_or_quantity_value = undef;
+									$percent_or_quantity_unit = undef;
+								}
 							}
 							else {
 								$debug_ingredients
