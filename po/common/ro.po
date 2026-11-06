@@ -166,7 +166,7 @@ msgstr "Ingrediente, alergeni, aditivi, valori nutriționale, etichete, originea
 
 msgctxt "search_description_opensearch_opff"
 msgid "Open Pet Food Facts product search"
-msgstr "Deschideți căutarea produselor Open Pet Food Facts"
+msgstr "Deschideți căutarea produselor Pet Food Facts"
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -692,7 +692,7 @@ msgstr "Donează pentru Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-ro.openfoodfacts.org/doneaza-pentru-open-food-facts"
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -977,7 +977,7 @@ msgstr "Întrebări frecvente"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1083,7 +1083,7 @@ msgstr ""
 # Do not translate Open Pet Food Facts
 msgctxt "footer_opff"
 msgid "Open Pet Food Facts"
-msgstr "Open Pet Food Facts"
+msgstr "Deschideți Pet Food Facts"
 
 msgctxt "footer_opff_link"
 msgid "https://world.openpetfoodfacts.org"
@@ -1100,7 +1100,7 @@ msgstr ""
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Open Food Facts pentru producători"
+msgstr "Informații despre alimente deschise pentru producători"
 
 msgctxt "for"
 msgid "for"
@@ -2811,8 +2811,7 @@ msgstr "Vedeți rezultatele din toată lumea"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Informațiile și datele trebuie să provină din ambalajul și eticheta produsului (și nu de pe alte site-uri sau site-ul producătorului), și trebuie să fi făcut singur pozele.<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">De ce contează</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -4746,11 +4745,11 @@ msgstr "Nutri-Score-ul este calculat și poate fi luat în considerare pentru to
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr "Nutri-Score %s"
+msgstr "Nutri-Scor %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr "Nutri-Score necunoscut"
+msgstr "Nutri-Scor necunoscut"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
@@ -4758,7 +4757,7 @@ msgstr "Lipsesc date pentru a calcula Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Nutri-Scoree nu este aplicabil"
+msgstr "Scorul Nutri nu este aplicabil"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5435,59 +5434,59 @@ msgstr "Calculează indicatori precum Nutri-Score, NOVA și Green-Score și iden
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "Amprenta forestieră"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "Risc scăzut de defrișare (Amprenta forestieră)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Amprenta forestieră corespunde riscului de defrișare asociat ingredientelor sale."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "Amprenta forestieră A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "Amprenta forestieră B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "Amprenta forestieră C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "Amprenta forestieră D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "Niciun ingredient asociat cu un risc de defrișare."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "Prezența unuia sau mai multor ingrediente cu risc de defrișare, dar risc scăzut având în vedere cantitatea, originea și/sau etichetele."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "Prezența unuia sau mai multor ingrediente cu risc de defrișare, cu risc moderat având în vedere cantitatea, originea și/sau etichetele."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "Prezența unuia sau mai multor ingrediente cu risc de defrișare, cu risc ridicat având în vedere cantitatea, originea și/sau etichetele."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "Amprenta forestieră necalculată"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "Risc potențial de defrișare, dar încă necalculat."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "Fără risc de defrișare"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5495,7 +5494,7 @@ msgstr "Risc scăzut de defrișare"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "Risc moderat de defrișare"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5503,15 +5502,15 @@ msgstr "Risc ridicat de defrișare"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "Risc potențial de defrișare necalculat"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "Amprenta forestieră indisponibilă"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "Amprenta forestieră nu poate fi calculată deoarece lista de ingrediente lipsește."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -5627,7 +5626,7 @@ msgstr "Lipsește o categorie precisă"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Nu am putut calcula Green-Score al acestui produs, deoarece îi lipsesc unele date, ați putea ajuta la completarea acestora?"
+msgstr "Nu am putut calcula Scorul Eco al acestui produs, deoarece îi lipsesc unele date, ați putea ajuta la completarea acestora?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5735,7 +5734,7 @@ msgstr "Unele dintre datele pentru produsele lui %s provin din %s."
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr "Producătorii pot folosi platforma gratuită Open Food Facts <a href=\"<producers_platform_url>\">pentru producătorii</a> pentru a accesa și completa aceste date și pentru a obține rapoarte, analize și oportunități de îmbunătățire a produselor (de ex. Nutri-Score mai bun)."
+msgstr "Producătorii pot folosi <a href=\"<producers_platform_url>\">pentru producătorii</a> pentru a accesa și completa aceste date și pentru a obține rapoarte, analize și oportunități de îmbunătățire a produselor (de ex. Nutri-Score mai bun)."
 
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
@@ -5961,7 +5960,7 @@ msgstr "Formula Green-Score este supusă modificării, deoarece este îmbunătă
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score a fost inițial dezvoltat pentru Franța și este extins în alte țări europene. Formula Scorului Verde este supusă modificărilor, deoarece este îmbunătățită periodic pentru a fi mai precisă și mai potrivită fiecărei țări."
+msgstr "Scorul Verde a fost inițial dezvoltat pentru Franța și este extins în alte țări europene. Formula Scorului Verde este supusă modificărilor, deoarece este îmbunătățită periodic pentru a fi mai precisă și mai potrivită fiecărei țări."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6116,23 +6115,23 @@ msgstr "EU SUSȚIN"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "Mai avem nevoie de 120.000 € pentru a încheia anul 2026!"
+msgstr ""
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Deveniți un susținător al Open Food Facts"
+msgstr ""
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "În fiecare lună deservim 8 milioane de vizitatori, și de multe ori mai mult prin API. Sprijinul dumneavoastră este esențial pentru:"
+msgstr ""
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "a menține Open Food Facts deschis și accesibil tuturor,"
+msgstr ""
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "a susține infrastructura, site-ul web, aplicația mobilă și API-ul cu o echipă mică permanentă"
+msgstr ""
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6140,15 +6139,15 @@ msgstr "să rămână independenți de industria alimentară,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "a sprijini comunitatea"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "a sprijini știința"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Dacă fiecare vizitator din această lună ar face clic pe Donează și ar oferi doar 1 €, am obține de peste 8 ori bugetul nostru anual!"
+msgstr ""
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6559,7 +6558,7 @@ msgstr "Deselectați imaginea"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Aflați mai multe despre Nutri-Score"
+msgstr "Vă mulţumim"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
@@ -6694,7 +6693,7 @@ msgstr "Ați putea adăuga informațiile necesare pentru a calcula Nutri-Score?"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Ați putea adăuga o categorie de produse precisă, astfel încât să putem calcula Green-Score?"
+msgstr "Ați putea adăuga o categorie de produse precisă, astfel încât să putem calcula Scorul Eco?"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
