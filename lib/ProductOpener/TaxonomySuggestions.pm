@@ -666,7 +666,8 @@ sub _filter_suggestions ($entries_ref, $tags_ref, $tagtype, $search_lc, $string,
 		# search for string in a taxonomy
 
 		# normalize string
-		my $stringid = defined($category_search_stringid)
+		my $stringid
+			= defined($category_search_stringid)
 			? $category_search_stringid
 			: get_string_id_for_lang($search_lc, $string);
 		# remove eventual leading or ending "-"
