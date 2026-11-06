@@ -63,7 +63,7 @@ msgstr "a facebooková skupina <a href=\"https://www.facebook.com/groups/OpenBea
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Hledání produktů na Open Beauty Facts"
+msgstr "Hledání produktů na Open Products Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -691,7 +691,7 @@ msgstr "Přispějte na Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-cs.openfoodfacts.org/darujte-open-food-facts"
+msgstr "https://world-cs.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -976,7 +976,7 @@ msgstr "Často kladené otázky"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -2809,8 +2809,7 @@ msgstr "Zobrazit výsledky z celého světa"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Informace a údaje musí pocházet z obalu a štítku produktu (nikoli z jiných stránek nebo stránek výrobce) a musíte si je sami pořídit.<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Proč na tom záleží</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -4756,7 +4755,7 @@ msgstr "Chybějící data pro výpočet Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Nutri-Score se nepoužije"
+msgstr "Nutriční skóre se nepoužije"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -4986,7 +4985,7 @@ msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Nízký dopad na životní prostředí (Green-Score)"
+msgstr "Nízký dopad na životní prostředí (Eko-skóre)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
@@ -4999,7 +4998,7 @@ msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Nízký dopad na životní prostředí (Green-Score)"
+msgstr "Nízký dopad na životní prostředí (Eko-skóre)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
@@ -5433,59 +5432,59 @@ msgstr "Vypočítává ukazatele, jako je Nutri-Score, NOVA a Green-Score, a aut
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "Lesní stopa"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "Nízké riziko odlesňování (Lesní stopa)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Lesní stopa odpovídá riziku odlesňování spojenému s obsaženými složkami."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "Lesní stopa A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "Lesní stopa B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "Lesní stopa C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "Lesní stopa D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "Žádná složka spojená s rizikem odlesňování."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "Přítomnost jedné nebo více složek s rizikem odlesňování, ale nízké riziko vzhledem k množství, původu a/nebo certifikátům."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "Přítomnost jedné nebo více složek s rizikem odlesňování, se středním rizikem vzhledem k množství, původu a/nebo certifikátům."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "Přítomnost jedné nebo více složek s rizikem odlesňování, s vysokým rizikem vzhledem k množství, původu a/nebo certifikátům."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "Lesní stopa nevypočtena"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "Potenciální riziko odlesňování, ale dosud nevypočteno."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "Žádné riziko odlesňování"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5493,7 +5492,7 @@ msgstr "Nízké riziko odlesňování"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "Střední riziko odlesňování"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5501,15 +5500,15 @@ msgstr "Vysoké riziko odlesňování"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "Potenciální riziko odlesňování nevypočteno"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "Lesní stopa není k dispozici"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "Lesní stopu nelze vypočítat, protože chybí seznam složek."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -5613,7 +5612,7 @@ msgstr "Green-Score ještě není pro tuto kategorii použitelný, ale pracujeme
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Green-Score není vypočítáno"
+msgstr "Eko-skóre není vypočítáno"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5767,7 +5766,7 @@ msgstr "Pokud jste výrobcem tohoto produktu, můžete nám zaslat informace pro
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Upozornění: Některé informace potřebné k přesnému výpočtu Green-Score nejsou poskytnuty (viz podrobnosti výpočtu níže)."
+msgstr "Upozornění: Některé informace potřebné k přesnému výpočtu Eco-score nejsou poskytnuty (viz podrobnosti výpočtu níže)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5927,7 +5926,7 @@ msgstr "Pro přesnější výpočet Green-Score můžete upravit stránku produk
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Pro přesnější výpočet Green-Score můžete upravit stránku produktu a přidat je."
+msgstr "Pro přesnější výpočet Eko-skóre můžete upravit stránku produktu a přidat je."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -6557,7 +6556,7 @@ msgstr "Zrušit výběr obrázku"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Zjistěte více o Nutri-Score"
+msgstr "Děkujeme"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
