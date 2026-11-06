@@ -403,10 +403,10 @@ msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# Please change GetItOnGooglePlay_Badge_Web_color_Vietnamese.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Vietnamese.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Vietnamese.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -692,7 +692,7 @@ msgstr "Đóng góp cho Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-vi.openfoodfacts.org/dong-gop-cho-open-food-facts"
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -977,7 +977,7 @@ msgstr "Câu hỏi thường gặp"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1100,7 +1100,7 @@ msgstr ""
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Open Food Facts dành cho nhà sản xuất"
+msgstr "Thông tin thực phẩm công khai dành cho nhà sản xuất"
 
 msgctxt "for"
 msgid "for"
@@ -1796,12 +1796,12 @@ msgstr "Lớp dinh dưỡng"
 # Do not translate
 msgctxt "nutriscore_p"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "Điểm dinh dưỡng"
 
 # Do not translate
 msgctxt "nutriscore_s"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "Điểm dinh dưỡng"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2813,8 +2813,7 @@ msgstr "Xem kết quả từ toàn thế giới"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Thông tin và dữ liệu phải đến từ bao bì và nhãn mác của sản phẩm (và không đến từ các trang khác hoặc các trang của nhà sản xuất), và bạn phải tự chụp ảnh. <br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\"> Lý do cho điều này</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3779,7 +3778,7 @@ msgstr "Dữ liệu sản phẩm và ảnh bạn gửi trên nền tảng dành 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr "Dữ liệu sản phẩm và hình ảnh sẽ được công bố rộng rãi trong cơ sở dữ liệu Open Food Facts, theo <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Các nội dung riêng lẻ của cơ sở dữ liệu có sẵn theo <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Giấy phép Nội dung Cơ sở dữ liệu</a> và hình ảnh sản phẩm có sẵn theo <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">giấy phép Creative Commons Attribution ShareAlike</a>."
+msgstr "Dữ liệu sản phẩm và hình ảnh sẽ được công bố rộng rãi trong cơ sở dữ liệu Open Food Facts, theo <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Các nội dung riêng lẻ của cơ sở dữ liệu có sẵn theo Giấy phép Nội dung Cơ sở dữ liệu <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">và hình ảnh sản phẩm có sẵn theo giấy phép</a> Creative Commons Attribution ShareAlike </a><a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -4028,11 +4027,11 @@ msgstr "Số lượng sản phẩm có cơ hội cải tiến"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr "Bảng này liệt kê các phần có thể để cải thiện chất lượng dinh dưỡng, Nutri-Score và thành phần của các sản phẩm thực phẩm."
+msgstr "Bảng này liệt kê các phần có thể để cải thiện chất lượng dinh dưỡng, Điểm dinh dưỡng và thành phần của các sản phẩm thực phẩm."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr "Để có được kết quả phù hợp, vui lòng đảm bảo dữ liệu sản phẩm đầy đủ (thông tin dinh dưỡng với giá trị chất xơ, trái cây và rau quả để tính Nutri-Score, và một danh mục chính xác để so sánh từng sản phẩm với các sản phẩm tương tự)."
+msgstr "Để có được kết quả phù hợp, vui lòng đảm bảo dữ liệu sản phẩm đầy đủ (thông tin dinh dưỡng với giá trị chất xơ, trái cây và rau quả để tính Điểm dinh dưỡng, và một danh mục chính xác để so sánh từng sản phẩm với các sản phẩm tương tự)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -4101,7 +4100,7 @@ msgstr "Tập tin đã được nhận"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr "Chi tiết về cách tính Nutri-Score"
+msgstr "Chi tiết về cách tính điểm dinh dưỡng"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
@@ -4186,17 +4185,17 @@ msgstr "Điểm dinh dưỡng"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "Điểm dinh dưỡng"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr "Nutri-Score"
+msgstr "Điểm dinh dưỡng"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "Điểm dinh dưỡng"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4228,7 +4227,7 @@ msgstr "Giá trị trung bình cho danh mục %s"
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr "Nutri-Score có thể được thay đổi từ %s thành %s bằng cách thay đổi giá trị %s từ %s thành %s (chênh lệch %s phần trăm)."
+msgstr "Điểm dinh dưỡng có thể được thay đổi từ %s thành %s bằng cách thay đổi giá trị %s từ %s thành %s (chênh lệch %s phần trăm)."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
@@ -4372,19 +4371,19 @@ msgstr "Nhập Danh Mục"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr "Nutri-Score từ nhà sản xuất"
+msgstr "Điểm dinh dưỡng từ nhà sản xuất"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr "Nutri-Score được tính"
+msgstr "Điểm Dinh dưỡng được tính"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr "Nutri-Score từ nhà sản xuất"
+msgstr "Mức điểm dinh dưỡng từ nhà sản xuất"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr "Nutri-Score được tính"
+msgstr "Mức điểm dinh dưỡng được tính"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4609,7 +4608,7 @@ msgstr "Mã nội bộ được nhà sản xuất sử dụng để xác định
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr "Việc cung cấp danh mục là rất quan trọng để giúp sản phẩm có thể được dễ dàng tìm kiếm và tính toán Nutri-Score"
+msgstr "Việc cung cấp danh mục là rất quan trọng để giúp sản phẩm có thể được dễ dàng tìm kiếm và tính toán Điểm dinh dưỡng"
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
@@ -4735,7 +4734,7 @@ msgstr "Chất lượng dinh dưỡng"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "Điểm dinh dưỡng"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4743,20 +4742,20 @@ msgstr "Chất lượng dinh dưỡng tốt (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr "Nutri-Score được tính toán và có thể được tính đến cho tất cả các sản phẩm, ngay cả khi không được hiển thị trên bao bì."
+msgstr "Điểm Dinh Dưỡng được tính toán và có thể được tính đến cho tất cả các sản phẩm, ngay cả khi không được hiển thị trên bao bì."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr "Nutri-Score %s"
+msgstr "Điểm dinh dưỡng %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr "Nutri-Score không xác định"
+msgstr "Điểm dinh dưỡng không xác định"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr "Thiếu dữ liệu để tính Nutri-Score"
+msgstr "Thiếu dữ liệu để tính điểm dinh dưỡng"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
@@ -4873,19 +4872,19 @@ msgstr "Người dùng không xác định."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr "Mức độ muối được tính đến bởi Nutri-Score. Chỉ sử dụng cài đặt này nếu bạn đang thực hiện chế độ ăn kiêng ít muối."
+msgstr "Mức độ muối được tính đến bởi Điểm Dinh Dưỡng. Chỉ sử dụng cài đặt này nếu bạn đang thực hiện chế độ ăn kiêng ít muối."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr "Mức độ đường được tính đến bởi Nutri-Score. Chỉ sử dụng cài đặt này nếu bạn đang thực hiện chế độ ăn kiêng ít đường."
+msgstr "Mức độ đường được tính đến bởi Điểm Dinh Dưỡng. Chỉ sử dụng cài đặt này nếu bạn đang thực hiện chế độ ăn kiêng ít đường."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr "Mức độ chất béo được tính đến bởi Nutri-Score. Chỉ sử dụng cài đặt này nếu bạn đang thực hiện chế độ ăn kiêng ít béo."
+msgstr "Mức độ chất béo được tính đến bởi Điểm Dinh Dưỡng. Chỉ sử dụng cài đặt này nếu bạn đang thực hiện chế độ ăn kiêng ít béo."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "Mức độ chất béo chuyển hóa được tính đến bởi Nutri-Score. Chỉ sử dụng cài đặt này nếu bạn đang thực hiện chế độ ăn kiêng ít chất béo chuyển hóa."
+msgstr "Mức độ chất béo chuyển hóa được tính đến bởi Điểm Dinh Dưỡng. Chỉ sử dụng cài đặt này nếu bạn đang thực hiện chế độ ăn kiêng ít chất béo chuyển hóa."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -4986,7 +4985,7 @@ msgstr "Môi trường"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Điểm sinh thái"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4999,7 +4998,7 @@ msgstr "Điểm Xanh (Green-Score) là thang điểm đánh giá môi trường 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Điểm sinh thái"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -5012,7 +5011,7 @@ msgstr "Điểm Xanh (Green-Score) là thang điểm đánh giá môi trường 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "Green-Score %s"
+msgstr "Điểm sinh thái %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5198,12 +5197,12 @@ msgstr "Tác động môi trường"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "Green-Score"
+msgstr "Điểm số Xanh"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr "Green-Score"
+msgstr "Điểm Xanh"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
@@ -5213,7 +5212,7 @@ msgstr "Chi tiết về cách tính điểm Xanh (Green-Score)"
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "Thông tin về Green-Score"
+msgstr "Thông tin về điểm Xanh"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5250,19 +5249,19 @@ msgstr "Thiếu thông tin dinh dưỡng cho sản phẩm đã chế biến"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Điểm sinh thái"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Điểm sinh thái"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Điểm sinh thái"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Điểm sinh thái"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5437,59 +5436,59 @@ msgstr "Nó tính toán các chỉ số như Nutri-Score, NOVA và Green-Score, 
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "Dấu chân rừng"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "Nguy cơ phá rừng thấp (Dấu chân rừng)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Dấu chân rừng tương ứng với nguy cơ phá rừng liên quan đến các thành phần của sản phẩm."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "Dấu chân rừng A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "Dấu chân rừng B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "Dấu chân rừng C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "Dấu chân rừng D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "Không có thành phần nào liên quan đến nguy cơ phá rừng."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "Có một hoặc nhiều thành phần có nguy cơ phá rừng, nhưng nguy cơ thấp do số lượng, nguồn gốc và/hoặc nhãn chứng nhận."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "Có một hoặc nhiều thành phần có nguy cơ phá rừng, với nguy cơ trung bình do số lượng, nguồn gốc và/hoặc nhãn chứng nhận."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "Có một hoặc nhiều thành phần có nguy cơ phá rừng, với nguy cơ cao do số lượng, nguồn gốc và/hoặc nhãn chứng nhận."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "Chưa tính dấu chân rừng"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "Có tiềm ẩn nguy cơ phá rừng nhưng chưa được tính toán."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "Không có nguy cơ phá rừng"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5497,7 +5496,7 @@ msgstr "Nguy cơ thấp về suy thoái rừng"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "Nguy cơ phá rừng trung bình"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5505,15 +5504,15 @@ msgstr "Nguy cơ cao về suy thoái rừng"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "Nguy cơ phá rừng tiềm ẩn chưa được tính"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "Dấu chân rừng không khả dụng"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "Không thể tính dấu chân rừng vì thiếu danh sách thành phần."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -5542,11 +5541,11 @@ msgstr "Sản phẩm được quét nhiều nhất"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr "Sản phẩm có Nutri-Score tốt nhất"
+msgstr "Sản phẩm có điểm Dinh Dưỡng tốt nhất"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Sản phẩm có Green-Score tốt nhất"
+msgstr "Sản phẩm có Điểm Sinh Thái tốt nhất"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5600,7 +5599,7 @@ msgstr "Người dùng đang bị xóa. Có thể sẽ mất vài phút."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "Green-Score không áp dụng"
+msgstr "Điểm xanh không áp dụng"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5613,11 +5612,11 @@ msgstr "Chưa áp dụng cho danh mục: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Green-Score vẫn chưa áp dụng cho danh mục này, nhưng chúng tôi đang nỗ lực bổ sung hỗ trợ cho danh mục này."
+msgstr "Điểm sinh thái vẫn chưa áp dụng cho danh mục này, nhưng chúng tôi đang nỗ lực bổ sung hỗ trợ cho danh mục này."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Green-Score không được tính"
+msgstr "Điểm sinh thái không được tính"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5629,7 +5628,7 @@ msgstr "Thiếu một danh mục chính xác"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Chúng tôi không thể tính Green-Score cho sản phẩm này vì còn thiếu một số dữ liệu, bạn có thể giúp chúng tôi bổ sung thêm được không?"
+msgstr "Chúng tôi không thể tính Điểm số sinh thái cho sản phẩm này vì còn thiếu một số dữ liệu, bạn có thể giúp chúng tôi bổ sung thêm được không?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5737,7 +5736,7 @@ msgstr "Một số dữ liệu cho sản phẩm của %s đến từ %s."
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr "Các nhà sản xuất có thể sử dụng <a href=\"<producers_platform_url>\"> nền tảng miễn phí dành cho các nhà sản xuất</a> của Open Food Facts để truy cập và hoàn thành dữ liệu này, đồng thời có thêm các báo cáo, phân tích và cơ hội cải tiến sản phẩm (ví dụ: Nutri-Score tốt hơn)."
+msgstr "Các nhà sản xuất có thể sử dụng <a href=\"<producers_platform_url>\"> nền tảng miễn phí dành cho các nhà sản xuất</a> của Open Food Facts để truy cập và hoàn thành dữ liệu này, đồng thời có thêm các báo cáo, phân tích và cơ hội cải tiến sản phẩm (ví dụ: Điểm dinh dưỡng tốt hơn)."
 
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
@@ -5759,7 +5758,7 @@ msgstr ""
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Green-Score chỉ có thể được tính nếu sản phẩm có danh mục đủ chính xác."
+msgstr "Điểm sinh thái chỉ có thể được tính nếu sản phẩm có danh mục đủ chính xác."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
@@ -5771,7 +5770,7 @@ msgstr "Nếu bạn là nhà sản xuất của sản phẩm này, bạn có th�
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Cảnh báo: một số thông tin cần thiết để tính Green-Score với độ chính xác không được cung cấp (xem chi tiết cách tính bên dưới)."
+msgstr "Cảnh báo: một số thông tin cần thiết để tính Điểm sinh thái với độ chính xác không được cung cấp (xem chi tiết cách tính bên dưới)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5926,12 +5925,12 @@ msgstr "Thông tin về bao bì của sản phẩm này không đủ chính xác
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "Để tính toán chính xác hơn Green-Score, bạn có thể chỉnh sửa và bổ sung thêm trang thông tin về sản phẩm."
+msgstr "Để tính toán chính xác hơn Điểm sinh thái, bạn có thể sửa đổi và thêm trang thông tin sản phẩm."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Để tính toán chính xác hơn Green-Score, bạn có thể chỉnh sửa và bổ sung thêm trang thông tin về sản phẩm."
+msgstr "Để tính toán chính xác hơn Điểm sinh thái, bạn có thể chỉnh sửa và bổ sung thêm trang thông tin về sản phẩm."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5953,12 +5952,12 @@ msgstr "Nếu bạn là nhà sản xuất của sản phẩm này, bạn có th�
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/green-score\">Green-Score</a> là điểm số thử nghiệm tóm tắt các tác động môi trường của các sản phẩm thực phẩm."
+msgstr "<a href=\"/green-score\">Điểm sinh thái</a> là điểm số thử nghiệm tóm tắt các tác động môi trường của các sản phẩm thực phẩm."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "Công thức Green-Score có thể thay đổi vì nó thường xuyên được cải tiến để chính xác hơn."
+msgstr "Công thức Điểm Sinh Thái có thể thay đổi vì nó thường xuyên được cải tiến để chính xác hơn."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
@@ -5975,7 +5974,7 @@ msgstr "Hiện chưa rõ tác động đầy đủ của việc vận chuyển �
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "Quét mã vạch để nhận Nutri-Score, Green-Score và hơn thế nữa!"
+msgstr "Quét mã vạch để nhận Điểm dinh dưỡng, Điểm sinh thái và hơn thế nữa!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -6049,7 +6048,7 @@ msgstr "trung bình"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
-msgstr "Lưu ý: Nutri-Score của các loại trà và trà thảo mộc tương ứng với sản phẩm được pha chế chỉ với nước, không có đường hoặc sữa."
+msgstr "Lưu ý: Điểm dinh dưỡng của các loại trà và trà thảo mộc tương ứng với sản phẩm được pha chế chỉ với nước, không có đường hoặc sữa."
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
@@ -6118,23 +6117,23 @@ msgstr "TÔI ỦNG HỘ"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "Chúng tôi vẫn cần 120.000 € để hoàn thành năm 2026!"
+msgstr ""
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Trở thành người bảo trợ của Open Food Facts"
+msgstr ""
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Mỗi tháng, chúng tôi phục vụ 8 triệu khách truy cập và nhiều hơn gấp bội thông qua API. Sự hỗ trợ của bạn là rất cần thiết để:"
+msgstr ""
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "giữ cho Open Food Facts luôn mở và sẵn sàng cho tất cả mọi người,"
+msgstr ""
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "hỗ trợ cơ sở hạ tầng, trang web, ứng dụng di động và API với một đội ngũ thường trực nhỏ"
+msgstr ""
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6142,15 +6141,15 @@ msgstr "vẫn độc lập với ngành công nghiệp thực phẩm,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "hỗ trợ cộng đồng"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "hỗ trợ khoa học"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Nếu mỗi khách truy cập trong tháng này nhấp vào Ủng hộ và chỉ đóng góp 1 €, chúng tôi sẽ có hơn 8 lần ngân sách hàng năm!"
+msgstr ""
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6286,7 +6285,7 @@ msgstr "Điểm cộng và điểm trừ"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Green-Score cho sản phẩm này"
+msgstr "Điểm Sinh Thái cho sản phẩm này"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6314,15 +6313,15 @@ msgstr "Điểm của các sản phẩm có vật liệu đóng gói không th�
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
-msgstr "Nutri-Score không áp dụng cho danh mục sản phẩm này."
+msgstr "Điểm Dinh Dưỡng không áp dụng cho danh mục sản phẩm này."
 
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
-msgstr "Danh mục của sản phẩm phải được xác định để tính Nutri-Score."
+msgstr "Danh mục của sản phẩm phải được xác định để tính Điểm Dinh Dưỡng."
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr "Thông tin dinh dưỡng của sản phẩm phải được xác định để tính Nutri-Score."
+msgstr "Thông tin dinh dưỡng của sản phẩm phải được xác định để tính điểm Dinh Dưỡng."
 
 msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
@@ -6334,7 +6333,7 @@ msgstr "Thông tin dinh dưỡng còn thiếu trong sản phẩm đã chế bi�
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr "Danh mục và thông tin dinh dưỡng của sản phẩm phải được xác định để tính Nutri-Score."
+msgstr "Danh mục và thông tin dinh dưỡng của sản phẩm phải được xác định để tính Điểm Dinh Dưỡng."
 
 msgctxt "health"
 msgid "Health"
@@ -6565,7 +6564,7 @@ msgstr ""
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr "Tìm hiểu thêm về Green-Score"
+msgstr "Tìm hiểu thêm về Điểm Sinh Thái"
 
 # Environmental Cost (Ecobalyse)
 msgctxt "environmental_cost_title"
@@ -6680,7 +6679,7 @@ msgstr "Sử dụng tiêu chí mặc định"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr "Nutri-Score, Green-Score và mức độ chế biến thực phẩm (NOVA)"
+msgstr "Điểm dinh dưỡng, Điểm sinh thái và mức độ chế biến thực phẩm (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
@@ -6692,15 +6691,15 @@ msgstr ""
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr "Bạn có thể thêm thông tin cần thiết để tính toán Nutri-Score không?"
+msgstr "Bạn có thể thêm thông tin cần thiết để tính toán Điểm dinh dưỡng không?"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Bạn có thể thêm phân loại sản phẩm để chúng tôi có thể tính Green-Score không?"
+msgstr "Bạn có thể thêm phân loại sản phẩm để chúng tôi có thể tính Điểm Sinh Thái không?"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "Danh mục chúng tôi có cho sản phẩm này không đủ chính xác để tính Green-Score. Bạn có thể thêm danh mục sản phẩm chính xác hơn không?"
+msgstr "Danh mục chúng tôi có cho sản phẩm này không đủ chính xác để tính Điểm Xanh. Bạn có thể thêm danh mục sản phẩm chính xác hơn không?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7851,7 +7850,7 @@ msgstr "Nông nghiệp hữu cơ và thương mại công bằng"
 
 msgctxt "reset_preferences_details_food"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr "Nutri-Score, Green-Score và mức độ chế biến thực phẩm (NOVA)"
+msgstr "Điểm dinh dưỡng, Điểm sinh thái và mức độ chế biến thực phẩm (NOVA)"
 
 msgctxt "reset_preferences_details_product"
 msgid "Good repairability"
@@ -7867,7 +7866,7 @@ msgstr "Báo cáo hình ảnh này cho người kiểm duyệt của chúng tôi
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "Chúng tôi đang thiếu giá trị khẩu phần ăn và/hoặc đơn vị để tính Nutri-Score"
+msgstr "Chúng tôi đang thiếu giá trị khẩu phần ăn và/hoặc đơn vị để tính Điểm dinh dưỡng"
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
@@ -8390,3 +8389,4 @@ msgstr ""
 msgctxt "google_drive_import_already_running"
 msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
 msgstr ""
+
