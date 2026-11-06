@@ -92,8 +92,6 @@ services:
       - ./html:/opt/product-opener/html/
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
-      - ./gulpfile.mjs:/opt/product-opener/
-      - ./snyk:/opt/product-opener/
     networks:
         default:
           aliases:
