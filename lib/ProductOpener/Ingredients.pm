@@ -6960,14 +6960,27 @@ my %ingredients_categories_and_types = (
 	],
 
 	de => [
+		# oil
+		{
+			categories => ["pflanzliche Öle", "pflanzliches Öl", "Pflanzenöl", "Öle"],
+			# note: "Oliven" and "Sonnenblumen" must be listed before "Olive" and "Sonnenblume",
+			# otherwise the regex matches only the singular and leaves the trailing "n"
+			types => [
+				"Avocado", "Baumwolle", "Distel", "Kokosnuss", "Oliven", "Olive",
+				"Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen", "Sonnenblume",
+			],
+			# Kokosnussöl, Olivenöl (from "Olive"), Sonnenblumenöl (from "Sonnenblume")
+			alternate_names => ["<type>öl", "<type>nöl", "<type>fett", "<type>nfett"],
+		},
 		# oil and fat
 		{
-			categories =>
-				["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle", "Pflanzenfett"],
-			types =>
-				["Avocado", "Baumwolle", "Distel", "Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
+			categories => ["pflanzliches Fett", "pflanzliche Öle und Fette", "Fett", "Pflanzenfett"],
+			types => [
+				"Avocado", "Baumwolle", "Distel", "Kokosnuss", "Oliven", "Olive",
+				"Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen", "Sonnenblume",
+			],
 			# Kokosnussöl, Sonnenblumenfett
-			alternate_names => ["<type>fett", "<type>öl"],
+			alternate_names => ["<type>fett", "<type>nfett", "<type>öl", "<type>nöl"],
 		},
 		# plant protein
 		{
@@ -7392,7 +7405,7 @@ sub init_categories_and_types_regexps($ingredients_lc) {
 				# Also match German "A und B-C" where C is a category (e.g. "Palm und Kokosnuss-Pflanzenfett")
 				# We have |-$and| and | -$and| to match "Palm- und Kokosnuss-Pflanzenfett" and "Palm - und Kokosnuss-Pflanzenfett"
 				types_then_category =>
-					qr/((?:(?:$type_regexp)(?: |\/| \/ | - |- |,|, |$and|-$and| -$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*(?:-)?($category_regexp)?/i,
+					qr/((?:(?:$type_regexp)(?: |\/| \/ | - |- |,|, |$and|-$and| -$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*(?:-)?($category_regexp)/i,
 
 				# fr: huiles végétales en quantité variable et huile de palme -> huile végétale en quantité variable, huile végétale de palme
 				a_et_b_de_c => qr/($category_regexp) et ($category_regexp)(?:$of)?($type_regexp)/i,
@@ -7708,7 +7721,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 					$source =~ s/\.$/(\\. | |\\.)/;
 					$target .= " ";
 				}
-				$text =~ s/(\b|^)$source(?= |\b|$)/$target/ig;
+				# also allow a separator after the abbreviation, e.g. "Parmigiano Reggiano g.U., Salz"
+				$text =~ s/(\b|^)$source(?= |\b|$|$separators)/$target/ig;
 			}
 		}
 	}
