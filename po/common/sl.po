@@ -415,7 +415,7 @@ msgstr "Pridobite ga v Googlu Play"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Tega izdelek še ni v podatkovni bazi <<site_name>>. Prosimo vas, da posnamete nekaj slik izdelka, črtne kode, seznama sestavin in podatkov o hranilni vrednosti, da vnesete dodate na <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p><p>Hvala v naprej!</p>\n"
+msgstr "Tega izdelek še ni v podatkovni bazi <<site_name>>. Prosimo vas, da posnamete nekaj slik izdelka, črtne kode, seznama sestavin in podatkov o hranilni vrednosti, da vnesete dodate na<a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p><p>Hvala v naprej!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -976,7 +976,7 @@ msgstr "Pogosto zastavljena vprašanja"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1331,10 +1331,10 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr "Proizvodi, ki ne vsebujejo sestavine %s"
 
-# Please change appstore_SI.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
+# Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
-msgid "/images/misc/appstore/black/appstore_SI.svg"
-msgstr "/images/misc/appstore/black/appstore_SI.svg"
+msgid "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_US.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
@@ -2809,8 +2809,7 @@ msgstr "Oglejte si rezultate iz celega sveta"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Informacije in podatki morajo izhajati iz embalaže in etikete izdelka (in ne z drugih spletnih mest ali proizvajalčevega mesta), slike pa morate posneti sami.<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Zakaj je pomembno</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -5542,7 +5541,7 @@ msgstr "Izdelki z najboljšim Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Izdelki z najboljšo Green-Score"
+msgstr "Izdelki z najboljšo ekološko oceno"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5613,7 +5612,7 @@ msgstr "Green-Score še ne velja za to kategorijo, izdelava je še v teku."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Green-Score ni izračunana"
+msgstr "Eko-ocena ni izračunana"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5625,7 +5624,7 @@ msgstr "Manjka natančna kategorija"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Green-Score tega izdelka ni mogoče izračunati saj manjkajo določeni podatki. Lahko pomagate pri dokončanju?"
+msgstr "Eko-Skore tega izdelka ni mogoče izračunati saj manjkajo določeni podatki. Lahko pomagate pri dokončanju?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5959,7 +5958,7 @@ msgstr "Formula Green-Score se lahko spreminja, saj se redno izboljšuje, da pos
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score je bila prvotno razvita za Francijo in se razširja tudi na druge evropske države. Formula za Green-Score se lahko spremeni, saj se redno izboljšuje, da bi bila natančnejša in bolj primerna za posamezno državo."
+msgstr "Zelena lestvica je bila prvotno razvita za Francijo in se razširja tudi na druge evropske države. Formula za zeleno lestvico se lahko spremeni, saj se redno izboljšuje, da bi bila natančnejša in bolj primerna za posamezno državo."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6078,7 +6077,7 @@ msgstr ""
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "Prosimo, prispevajte v našo zbiralno akcijo za leto {year}"
+msgstr ""
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6114,39 +6113,39 @@ msgstr ""
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "Še vedno potrebujemo 120.000 € za dokončanje leta 2026!"
+msgstr ""
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Postanite podpornik Open Food Facts"
+msgstr ""
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Vsak mesec postrežemo 8 milijonov obiskovalcev in še veliko več prek API-ja. Vaša podpora je bistvena za:"
+msgstr ""
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "ohranjanje Open Food Facts odprtega in dostopnega vsem,"
+msgstr ""
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "podporo infrastrukturi, spletnemu mestu, mobilni aplikaciji in API-ju z majhno stalno ekipo"
+msgstr ""
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
-msgstr "ostati neodvisni od živilske industrije,"
+msgstr ""
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "podporo skupnosti"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "podporo znanosti"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Če bi vsak obiskovalec v tem mesecu kliknil Prispevaj in podaril le 1 €, bi zbrali več kot 8-kratnik našega letnega proračuna!"
+msgstr ""
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6282,7 +6281,7 @@ msgstr "Bonusi in malusi"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Green-Score ocena za ta izdelek"
+msgstr "Eko-Score ocena za ta izdelek"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -8386,3 +8385,4 @@ msgstr ""
 msgctxt "google_drive_import_already_running"
 msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
 msgstr ""
+
