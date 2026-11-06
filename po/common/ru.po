@@ -977,7 +977,7 @@ msgstr "Часто задаваемые вопросы"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1065,7 +1065,7 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Open Beauty Facts — Open Beauty Facts"
+msgstr "Косметика"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -1078,7 +1078,7 @@ msgstr "Open Products Facts"
 
 msgctxt "footer_opf_link"
 msgid "https://world.openproductsfacts.org"
-msgstr "https://world-ru.openproductsfacts.org"
+msgstr ""
 
 # Do not translate Open Pet Food Facts
 msgctxt "footer_opff"
@@ -1087,16 +1087,16 @@ msgstr "Open Pet Food Facts"
 
 msgctxt "footer_opff_link"
 msgid "https://world.openpetfoodfacts.org"
-msgstr "https://world-ru.openpetfoodfacts.org"
+msgstr ""
 
 # Do not translate Open Prices
 msgctxt "footer_op"
 msgid "Open Prices"
-msgstr "Open Prices"
+msgstr ""
 
 msgctxt "footer_op_link"
 msgid "https://prices.openfoodfacts.org/"
-msgstr "https://prices.openfoodfacts.org/"
+msgstr ""
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
@@ -2814,8 +2814,7 @@ msgstr "Посмотреть результаты со всего мира"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Информация и данные должны поступать с упаковки продукта и этикетки (не со сторонних сайтов или сайта изготовителя). Фотографии должны быть сделаны лично вами.<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Почему это важно</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2936,7 +2935,7 @@ msgstr "Переводчики"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr "Мы хотим сказать СПАСИБО прекрасным переводчикам, благодаря которым люди со всех стран могут пользоваться Open Food Facts, Open Beauty Facts и Open Pet Food Facts. <a href=\"https://translate.openfoodfacts.org/\"> Вы можете присоединиться к нам в этом глобальном усилии: для этого не требуется никаких технических навыков. </a>"
+msgstr "Мы хотим сказать СПАСИБО прекрасным переводчикам, благодаря которым люди со всех стран могут пользоваться Open Food Facts, Open Beauty Facts и Open Pet Facts. <a href=\"https://translate.openfoodfacts.org/\"> Вы можете присоединиться к нам в этом глобальном усилии: для этого не требуется никаких технических навыков. </a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -3017,7 +3016,7 @@ msgstr "Группы NOVA"
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr "Группы NOVA для классификации полуфабрикатов"
+msgstr "Группы Nova для классификации полуфабрикатов"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -4102,7 +4101,7 @@ msgstr "Файл получен"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr "Детали расчета Nutri-Score"
+msgstr "Детали расчета Nutri-core"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
@@ -4322,7 +4321,7 @@ msgstr "Пожалуйста, поддержите"
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_provenance_line"
 msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
-msgstr "От <b>Open Food Facts</b>, свободной базы данных продуктов · создаваемой волонтёрами с 2012 года · данные используют более {apps_count} приложений"
+msgstr ""
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -4995,7 +4994,7 @@ msgstr "Низкая экологическая нагрузка (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "«Green-Score» — это экологическая оценка от A+ до F, которая позволяет легко сравнивать воздействие пищевых продуктов на окружающую среду."
+msgstr "«Зеленый рейтинг» — это экологическая оценка от A+ до F, которая позволяет легко сравнивать воздействие пищевых продуктов на окружающую среду."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -5008,7 +5007,7 @@ msgstr "Низкая экологическая нагрузка (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "«Green-Score» — это экологическая оценка от A+ до F, которая позволяет легко сравнивать воздействие пищевых продуктов на окружающую среду."
+msgstr "«Зеленый рейтинг» — это экологическая оценка от A+ до F, которая позволяет легко сравнивать воздействие пищевых продуктов на окружающую среду."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5341,7 +5340,7 @@ msgstr "Продукты, для которых мы не можем опред�
 
 msgctxt "forest_footprint"
 msgid "Forest Footprint"
-msgstr "Лесной след"
+msgstr ""
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
@@ -5369,7 +5368,7 @@ msgstr "Риск вырубки лесов"
 
 msgctxt "total_forest_footprint"
 msgid "Total Forest Footprint"
-msgstr "Общий лесной след"
+msgstr ""
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -5393,7 +5392,7 @@ msgstr "% в продукте"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the Forest Footprint"
-msgstr "Подробности расчёта лесного следа"
+msgstr ""
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5438,59 +5437,59 @@ msgstr "Он вычисляет такие показатели, как Nutri-Sc
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "Лесной след"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "Низкий риск обезлесения (Лесной след)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Лесной след отражает риск вырубки лесов, связанный с ингредиентами продукта."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "Лесной след A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "Лесной след B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "Лесной след C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "Лесной след D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "Нет ингредиентов, связанных с риском вырубки лесов."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "Наличие одного или нескольких ингредиентов с риском вырубки лесов, но риск низкий с учетом их количества, происхождения и/или маркировки."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "Наличие одного или нескольких ингредиентов с риском вырубки лесов, умеренный риск с учетом их количества, происхождения и/или маркировки."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "Наличие одного или нескольких ингредиентов с риском вырубки лесов, высокий риск с учетом их количества, происхождения и/или маркировки."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "Лесной след не рассчитан"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "Потенциальный риск вырубки лесов, но еще не рассчитан."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "Нет риска вырубки лесов"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5498,7 +5497,7 @@ msgstr "Низкий риск вырубки лесов"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "Средний риск вырубки лесов"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5506,15 +5505,15 @@ msgstr "Высокий риск вырубки лесов"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "Потенциальный риск вырубки лесов не рассчитан"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "Лесной след недоступен"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "Лесной след не может быть рассчитан из-за отсутствия списка ингредиентов."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -5522,11 +5521,11 @@ msgstr "Отсутствует список ингредиентов"
 
 msgctxt "forest_footprint_2026_other_risky_ingredients"
 msgid "Other risky ingredients"
-msgstr "Другие рискованные ингредиенты"
+msgstr ""
 
 msgctxt "forest_footprint_2026_other_risky_ingredients_description"
 msgid "These ingredients are not yet assessed for deforestation risk:"
-msgstr "Эти ингредиенты пока не оцениваются на риск обезлесения:"
+msgstr ""
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
@@ -5756,7 +5755,7 @@ msgstr "Если вы используете один и тот же столб�
 
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "Лесной след рассчитывается с учётом ингредиентов, производство которых требует сои, выращивание которой связано с вырубкой лесов."
+msgstr ""
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -5964,7 +5963,7 @@ msgstr "Формула Green-Score может изменяться, поскол
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Индекс «Green-Score» был первоначально разработан для Франции, и в настоящее время его применение распространяется и на другие европейские страны. Формула расчета индекса «Green-Score» может изменяться, поскольку регулярно совершенствуется для повышения точности и адаптации к особенностям каждой страны."
+msgstr "Индекс «Зеленый рейтинг» был первоначально разработан для Франции, и в настоящее время его применение распространяется и на другие европейские страны. Формула расчета индекса «Зеленый рейтинг» может изменяться, поскольку регулярно совершенствуется для повышения точности и адаптации к особенностям каждой страны."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6571,19 +6570,19 @@ msgstr "Подробнее об Green-Score"
 # Environmental Cost (Ecobalyse)
 msgctxt "environmental_cost_title"
 msgid "Environmental Cost"
-msgstr "Экологические затраты"
+msgstr ""
 
 msgctxt "environmental_cost_description"
 msgid "Total environmental impact score from Ecobalyse"
-msgstr "Общая оценка воздействия на окружающую среду от Ecobalyse"
+msgstr ""
 
 msgctxt "environmental_cost_stale"
 msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
-msgstr "Эта экологическая стоимость была рассчитана до последних изменений в продукте и может быть устаревшей."
+msgstr ""
 
 msgctxt "ecs_breakdown"
 msgid "ECS Breakdown"
-msgstr "Разбивка ECS"
+msgstr ""
 
 msgctxt "environmental_cost_stage"
 msgid "Stage"
@@ -6591,31 +6590,31 @@ msgstr "Этап"
 
 msgctxt "environmental_cost_points_for_100g"
 msgid "Points for 100 g"
-msgstr "Баллов на 100 г"
+msgstr ""
 
 msgctxt "environmental_cost_points_for_100ml"
 msgid "Points for 100 ml"
-msgstr "Баллов на 100 мл"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_points_for_product"
 msgid "Points for the product ({quantity})"
-msgstr "Баллы для продукта ({quantity})"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_for_product"
 msgid "{points} points for the product ({quantity})"
-msgstr "{points} баллов для продукта ({quantity})"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_for_100g"
 msgid "{points} points for 100 g"
-msgstr "{points} баллов на 100 г"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_for_100ml"
 msgid "{points} points for 100 ml"
-msgstr "{points} баллов на 100 мл"
+msgstr ""
 
 msgctxt "environmental_cost_ingredients"
 msgid "Ingredients"
@@ -6627,7 +6626,7 @@ msgstr "Упаковка"
 
 msgctxt "environmental_cost_transport"
 msgid "Transport"
-msgstr "Транспорт"
+msgstr ""
 
 msgctxt "environmental_cost_processing"
 msgid "Processing"
@@ -6689,7 +6688,7 @@ msgstr "Не могли бы вы добавить состав?"
 
 msgctxt "actions_add_nutrition_facts"
 msgid "Could you add the nutrition facts?"
-msgstr "Не могли бы вы добавить пищевую ценность?"
+msgstr ""
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
@@ -7445,11 +7444,11 @@ msgstr "Категория, этикетки, ингредиенты, аллер
 
 msgctxt "incomplete_or_incorrect_data_subtitle_obf"
 msgid "Category, labels, ingredients, allergens, photos etc."
-msgstr "Категория, маркировки, ингредиенты, аллергены, фото и др."
+msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_subtitle_opf"
 msgid "Category, labels, ingredients, product characteristics, photos etc."
-msgstr "Категория, маркировки, ингредиенты, характеристики товара, фото и др."
+msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_subtitle_opff"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
@@ -7465,15 +7464,15 @@ msgstr "Open Food Facts это совместная база данных и к�
 
 msgctxt "incomplete_or_incorrect_data_content_correct_obf"
 msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
-msgstr "Open Beauty Facts — это совместная база данных, и каждый вклад полезен всем."
+msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_content_correct_opf"
 msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
-msgstr "Open Products Facts — это совместная база данных, и каждый вклад полезен всем."
+msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_content_correct_opff"
 msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
-msgstr "Open Pet Food Facts — это совместная база данных, и каждый вклад полезен всем."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7804,7 +7803,7 @@ msgstr "В контакте с едой"
 
 msgctxt "in_contact_with_the_product"
 msgid "In contact with the product"
-msgstr "В контакте с продуктом"
+msgstr ""
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
@@ -7929,7 +7928,7 @@ msgstr ""
 
 msgctxt "points"
 msgid "points"
-msgstr "баллов"
+msgstr ""
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
@@ -8235,27 +8234,27 @@ msgstr ""
 
 msgctxt "forest_footprint_2026_methodology_more_info"
 msgid "More information on the methodology"
-msgstr "Подробнее о методологии"
+msgstr ""
 
 msgctxt "forest_footprint_2026_overall_grade"
 msgid "Forest Footprint grade"
-msgstr "Класс лесного следа"
+msgstr ""
 
 msgctxt "forest_footprint_2026_total"
 msgid "Total Forest Footprint"
-msgstr "Общий лесной след"
+msgstr ""
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
-msgstr "Оценка основного ингредиента"
+msgstr ""
 
 msgctxt "forest_footprint_2026_primary_ingredient"
 msgid "Primary ingredient"
-msgstr "Основной ингредиент"
+msgstr ""
 
 msgctxt "forest_footprint_2026_origin_footprint"
 msgid "Forest Footprint for the origin"
-msgstr "Лесной след страны происхождения"
+msgstr ""
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
@@ -8267,31 +8266,31 @@ msgstr "Неизвестный"
 
 msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
 msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
-msgstr "Производство какао, сосредоточенное в основном в Западной Африке, вносит значительный вклад в вырубку лесов. Например, Кот-д’Ивуар, ведущий производитель какао, потерял 90% своих лесов с 1960-х годов."
+msgstr ""
 
 msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
 msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
-msgstr "Производство пальмового масла, сосредоточенное главным образом в Индонезии и Малайзии, вносит значительный вклад в обезлесение. Борнео потерял более половины своих лесов с 1970-х годов."
+msgstr ""
 
 msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
 msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
-msgstr "Выращивание кофе, сосредоточенное главным образом в Центральной и Южной Америке и Юго-Восточной Азии, приводит к вырубке 130 000 гектаров леса ежегодно с 2000 года."
+msgstr ""
 
 msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
 msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
-msgstr "Производство курятины и яиц, даже выращенных во Франции, вносит значительный вклад в вырубку лесов из-за корма — сои. Франция импортирует две трети сои из Бразилии, где её выращивание ведёт к уничтожению лесов Амазонии."
+msgstr ""
 
 msgctxt "forest_footprint_2026_labels_description"
 msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
-msgstr "Наличие определённых маркировок может значительно снизить риск вырубки лесов благодаря экологическим критериям и/или справедливой оплате труда производителей."
+msgstr ""
 
 msgctxt "related_categories"
 msgid "Related categories"
-msgstr "Связанные категории"
+msgstr ""
 
 msgctxt "product_history_revision"
 msgid "Revision"
-msgstr "Версия"
+msgstr ""
 
 msgctxt "product_history_date"
 msgid "Date"
@@ -8303,7 +8302,7 @@ msgstr "Участник"
 
 msgctxt "product_history_changes"
 msgid "Changes"
-msgstr "Изменения"
+msgstr ""
 
 msgctxt "product_history_comment"
 msgid "Comment"
@@ -8311,15 +8310,15 @@ msgstr "Комментарий"
 
 msgctxt "product_history_most_recent_changes"
 msgid "Only the most recent changes are shown."
-msgstr "Показаны только самые последние изменения."
+msgstr ""
 
 msgctxt "product_history_see_full_history"
 msgid "See the full changes history"
-msgstr "Посмотреть полную историю изменений"
+msgstr ""
 
 msgctxt "google_drive_import_title"
 msgid "Import photos from a Google Drive folder"
-msgstr "Импорт фотографий из папки Google Диска"
+msgstr ""
 
 msgctxt "google_drive_import_description"
 msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
@@ -8327,19 +8326,19 @@ msgstr ""
 
 msgctxt "google_drive_folder_url"
 msgid "Google Drive folder URL"
-msgstr "URL папки Google Диска"
+msgstr ""
 
 msgctxt "google_drive_import_button"
 msgid "Import the photos"
-msgstr "Импортировать фотографии"
+msgstr ""
 
 msgctxt "google_drive_invalid_folder_url"
 msgid "This is not the URL of a Google Drive folder."
-msgstr "Это не URL папки Google Диска."
+msgstr ""
 
 msgctxt "google_drive_no_api_key"
 msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
-msgstr "Импорт фотографий из Google Диска недоступен: на этом сервере не настроен ключ API Google Drive."
+msgstr ""
 
 msgctxt "google_drive_folder_not_found"
 msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
@@ -8347,49 +8346,49 @@ msgstr ""
 
 msgctxt "google_drive_folder_too_many_items"
 msgid "The Google Drive folder contains too many files."
-msgstr "Папка Google Диска содержит слишком много файлов."
+msgstr ""
 
 msgctxt "google_drive_api_error"
 msgid "Google Drive returned an error."
-msgstr "Google Диск вернул ошибку."
+msgstr ""
 
 msgctxt "google_drive_import_listing"
 msgid "Listing the photos of the folder..."
-msgstr "Получение списка фотографий в папке..."
+msgstr ""
 
 msgctxt "google_drive_import_photos_in_folder"
 msgid "Photos in the folder"
-msgstr "Фотографий в папке"
+msgstr ""
 
 msgctxt "google_drive_import_skipped_files"
 msgid "Files that are not photos (e.g. videos), not imported"
-msgstr "Файлы, не являющиеся фотографиями (например, видео), не импортированы"
+msgstr ""
 
 msgctxt "google_drive_import_max_images"
 msgid "The folder contains too many photos, only the first ones are imported"
-msgstr "Папка содержит слишком много фотографий, импортированы только первые"
+msgstr ""
 
 msgctxt "google_drive_import_photos_processed"
 msgid "Photos processed"
-msgstr "Обработано фотографий"
+msgstr ""
 
 msgctxt "job_not_found"
 msgid "The photo import job could not be found."
-msgstr "Задание по импорту фотографий не найдено."
+msgstr ""
 
 msgctxt "job_failed"
 msgid "The photo import job failed."
-msgstr "Задание по импорту фотографий завершилось ошибкой."
+msgstr ""
 
 msgctxt "post_required"
 msgid "This action requires a POST request."
-msgstr "Это действие требует POST-запроса."
+msgstr ""
 
 msgctxt "unknown_action"
 msgid "Unknown action."
-msgstr "Неизвестное действие."
+msgstr ""
 
 msgctxt "google_drive_import_already_running"
 msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
-msgstr "Импорт фотографий из Google Диска уже выполняется. Вы сможете начать новый, когда он завершится."
+msgstr ""
 
