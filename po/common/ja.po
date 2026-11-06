@@ -166,7 +166,7 @@ msgstr "原材料、アレルゲン、添加物、栄養成分表、ラベル、
 
 msgctxt "search_description_opensearch_opff"
 msgid "Open Pet Food Facts product search"
-msgstr "Open Pet Food Facts製品検索を開く"
+msgstr "ペットフードファクト製品検索を開く"
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -977,7 +977,7 @@ msgstr "よくある質問"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1100,7 +1100,7 @@ msgstr ""
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "生産者向けのOpen Food Facts"
+msgstr "生産者向けのオープンフードファクト"
 
 msgctxt "for"
 msgid "for"
@@ -1782,7 +1782,7 @@ msgstr "多くの場合に指定されるデフォルトの栄養成分を表に
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr "Nutri-Scoreを計算するのに不可欠な栄養素。"
+msgstr "栄養スコアを計算するのに不可欠な栄養素。"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -2812,8 +2812,7 @@ msgstr "全世界からの結果を表示"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "情報およびデータは、製品パッケージおよびラベルから取得する必要があります(他のサイトまたは製造元のサイトからではありません)。 あなた自身が撮った写真でなければなりません。<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">なぜ重要なのか</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -4628,7 +4627,7 @@ msgstr "製品ラベルに表示されているAからEまでのNutri-Scoreの�
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr "Open Food Facts は、提供された情報(栄養成分およびカテゴリ)に基づいてNutri-Scoreグレードを計算します。 計算するグレードが提供されるグレードと異なる場合 生産者のプラットフォームに個人的な通知が届き、違いが解決できるようにします。"
+msgstr "Open Food Facts は、提供された情報(栄養成分およびカテゴリ)に基づいて栄養スコアグレードを計算します。 計算するグレードが提供されるグレードと異なる場合 生産者のプラットフォームに個人的な通知が届き、違いが解決できるようにします。"
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
@@ -4759,7 +4758,7 @@ msgstr "Nutri-Scoreの計算をするためのデータが不足しています"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Nutri-Scoreは適用されません"
+msgstr "栄養スコアは適用されません"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -4985,7 +4984,7 @@ msgstr "環境"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "グリーンスコア"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4993,12 +4992,12 @@ msgstr "低環境負荷（Green-Score）"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Scoreは、A+からFまでのGreen-Scoreであり、食品が環境に与える影響を簡単に比較できます。"
+msgstr "グリーンスコアは、A+からFまでの環境スコアであり、食品が環境に与える影響を簡単に比較できます。"
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "グリーンスコア"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -5006,12 +5005,12 @@ msgstr "低環境負荷（Green-Score）"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Scoreは、A+からFまでのGreen-Scoreであり、食品が環境に与える影響を簡単に比較できます。"
+msgstr "グリーンスコアは、A+からFまでの環境スコアであり、食品が環境に与える影響を簡単に比較できます。"
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "Green-Score %s"
+msgstr "グリーンスコア %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5197,22 +5196,22 @@ msgstr "環境への影響"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "Green-Scoreスコア"
+msgstr "グリーンスコアスコア"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr "Green-Scoreグレード"
+msgstr "グリーンスコアグレード"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "Green-Scoreの計算の詳細"
+msgstr "グリーンスコアの計算の詳細"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "Green-Scoreに関する情報"
+msgstr "グリーンスコアに関する情報"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5249,19 +5248,19 @@ msgstr "調理済み製品の栄養成分表示が不足している"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "グリーンスコア"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "グリーンスコア"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "グリーンスコア"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "グリーンスコア"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5436,59 +5435,59 @@ msgstr "Nutri-Score、NOVA、Green-Score などの指標を計算し、それら
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "森林フットプリント"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "森林破壊リスクが低い（森林フットプリント）"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "森林フットプリントは、原材料に関連する森林破壊のリスクを示しています。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "森林フットプリント A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "森林フットプリント B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "森林フットプリント C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "森林フットプリント D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "森林破壊リスクに関連する原材料は含まれていません。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "森林破壊リスクのある原材料が含まれていますが、使用量、原産地、認証ラベルなどを考慮するとリスクは低いです。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "森林破壊リスクのある原材料が含まれており、使用量、原産地、認証ラベルなどを考慮すると中程度のリスクがあります。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "森林破壊リスクのある原材料が含まれており、使用量、原産地、認証ラベルなどを考慮すると高いリスクがあります。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "森林フットプリント未計算"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "潜在的な森林破壊リスクがありますが、まだ計算されていません。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "森林破壊リスクなし"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5496,7 +5495,7 @@ msgstr "低い森林破壊のリスク"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "森林破壊リスク中"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5504,15 +5503,15 @@ msgstr "高い森林破壊のリスク"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "潜在的なリスクは未計算"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "森林フットプリント利用不可"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "原材料名リストがないため、森林フットプリントを計算できません。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -5599,7 +5598,7 @@ msgstr "ユーザーが削除されています。これには数分かかる場
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "Green-Scoreは適用されません"
+msgstr "グリーンスコアは適用されません"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5612,7 +5611,7 @@ msgstr "カテゴリには適用されません: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Green-Scoreはまだこのカテゴリには適用できませんが、サポートの追加に取り組んでいます。"
+msgstr "エコスコアはまだこのカテゴリには適用できませんが、サポートの追加に取り組んでいます。"
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
@@ -5962,7 +5961,7 @@ msgstr "Green-Scoreの計算式は、より正確なものにするために定�
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Scoreは当初フランス向けに開発され、現在他のヨーロッパ諸国にも拡大されています。Green-Scoreの算出式は、各国の状況により適した、より正確なものとなるよう定期的に改良されているため、変更される可能性があります。"
+msgstr "グリーンスコアは当初フランス向けに開発され、現在他のヨーロッパ諸国にも拡大されています。グリーンスコアの算出式は、各国の状況により適した、より正確なものとなるよう定期的に改良されているため、変更される可能性があります。"
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6560,7 +6559,7 @@ msgstr "画像の選択を解除"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Nutri-Scoreについて詳しく知る"
+msgstr "栄養スコアの詳細"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
@@ -6691,15 +6690,15 @@ msgstr ""
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr "Nutri-Scoreの計算に必要な情報を追加していただけますか？"
+msgstr "ニュートリスコアの計算に必要な情報を追加していただけますか？"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Green-Scoreを計算できるように製品を分類していただけますか？"
+msgstr "エコスコアを計算できるように製品を分類していただけますか？"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "この商品のカテゴリーは、Green-Scoreを計算するには精度が足りません。より精度の高い商品カテゴリーを追加していただけますか？"
+msgstr "この商品のカテゴリーは、グリーンスコアを計算するには精度が足りません。より精度の高い商品カテゴリーを追加していただけますか？"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7288,7 +7287,7 @@ msgstr "この製品は、Nutri-Score の計算では水とみなされます。
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr "この製品は、Nutri-Scoreの計算では脂肪、油、ナッツ、種子とみなされます。"
+msgstr "この製品は、栄養スコアの計算では脂肪、油、ナッツ、種子とみなされます。"
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
@@ -7336,7 +7335,7 @@ msgstr "新しいNutri-Scoreのすべての改善点をご覧ください"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr "Nutri-Scoreは、製品の総合的な栄養品質を示すロゴです。"
+msgstr "ニュートリスコアは、製品の総合的な栄養品質を示すロゴです。"
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
