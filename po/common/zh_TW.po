@@ -407,11 +407,11 @@ msgstr ""
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Chinese-Taiwan.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Chinese_Traditional.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
-msgstr "在 Google Play 上下載"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -693,7 +693,7 @@ msgstr "捐贈到 Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-zh.openfoodfacts.org/juanzeng-dao-open-food-facts"
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -978,7 +978,7 @@ msgstr "常見問答集"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1336,7 +1336,7 @@ msgstr "產品不含 %s 成分"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr "/images/misc/appstore/black/appstore_CN_TC.svg"
+msgstr ""
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
@@ -1422,7 +1422,7 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr "通過添加資訊、資料和/或圖像, 您可以同意將您的貢獻不可撤銷地放置在 <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\"> 資料庫內容許可 1.0 </a> 許可下, 以獲取資訊和資料, 並在 <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"> 創意共用歸屬-署名 3.0 </a> 圖像許可證。您接受由 re-users 的連結, 您的產品的貢獻。"
+msgstr "通過添加資訊、資料和/或圖像, 您可以同意將您的貢獻不可撤銷地放置在 <a href=\"Https://opendatacommons.org/licenses/dbcl/1.0/\"> 資料庫內容許可 1.0 </a> 許可下, 以獲取資訊和資料, 並在 href = \"Https://creativecommons.org/licenses/by-sa/3.0/deed.en \"> 創意共用歸屬-署名 3.0 </a> 圖像許可證。您接受由 re-users 的連結, 您的產品的貢獻。"
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
@@ -1563,7 +1563,7 @@ msgstr "此任務已完成:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr "%d 人已完成。"
+msgstr "完成率 %s"
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
@@ -2809,8 +2809,7 @@ msgstr "檢視輸入文字的結果"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "訊息和資料皆必須來自產品包裝和標籤（不可取自其他網站或製造商網站），而且照片必須是由您自己拍攝的。<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">這為什麼重要</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3441,7 +3440,7 @@ msgstr "協助翻譯 %s 至 %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
-msgstr "您可以為下列尚未翻譯成您語言的詞條提供翻譯建議。藍色連結與黑色文字（皆為英文）分別顯示未本地化的產品以及原始詞條（含以逗號分隔的同義詞）。請於文字欄位輸入翻譯（含同義詞），然後點擊「儲存」按鈕。感謝您！"
+msgstr ""
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
@@ -3449,7 +3448,7 @@ msgstr "僅顯不含翻譯擱置中的項目"
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr "同時顯示包含您或其他使用者擱置中翻譯的項目。"
+msgstr ""
 
 msgctxt "translated"
 msgid "translated"
@@ -4292,23 +4291,23 @@ msgstr ""
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr "我已經捐款或不感興趣。隱藏橫幅。"
+msgstr ""
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr "一個獨立且由公民引導的食品透明度專案？"
+msgstr ""
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr "用於促進公眾健康的食品研究數據？"
+msgstr ""
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr "根據您自己的標準，更輕鬆地做出更好的食物選擇？"
+msgstr ""
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr "我們需要您的支持！"
+msgstr ""
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
@@ -4372,7 +4371,7 @@ msgstr ""
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr "計算後Nutri-Score分數"
+msgstr "計算後營養得分分數"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
@@ -4380,7 +4379,7 @@ msgstr ""
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr "計算後Nutri-Score等級"
+msgstr "計算後營養得分等級"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4990,7 +4989,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score是一個從 A+ 到 F 的環境評分，可以方便地比較食品對環境的影響。"
+msgstr "綠色評分是一個從 A+ 到 F 的環境評分，可以方便地比較食品對環境的影響。"
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -5003,7 +5002,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score是一個從 A+ 到 F 的環境評分，可以方便地比較食品對環境的影響。"
+msgstr "綠色評分是一個從 A+ 到 F 的環境評分，可以方便地比較食品對環境的影響。"
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5433,87 +5432,87 @@ msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "森林足跡"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "低森林砍伐風險（森林足跡）"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "森林足跡對應於其成分所涉及的森林砍伐風險。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "森林足跡 A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "森林足跡 B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "森林足跡 C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "森林足跡 D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "不含與森林砍伐風險相關的成分。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "含有一種或多種具有毀林風險的成分，但考量其用量、產地及/或認證標章後，風險較低。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "含有一種或多種具有毀林風險的成分，考量其用量、產地及/或認證標章後，具中度風險。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "含有一種或多種具有毀林風險的成分，考量其用量、產地及/或認證標章後，具高度風險。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "森林足跡未計算"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "存在潛在毀林風險但尚未計算。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "無毀林風險"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
-msgstr "低毀林風險"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "中度毀林風險"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
-msgstr "高度毀林風險"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "潛在毀林風險未計算"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "森林足跡無法取得"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "由於缺少成分清單，無法計算森林足跡。"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
-msgstr "缺少成分清單"
+msgstr ""
 
 msgctxt "forest_footprint_2026_other_risky_ingredients"
 msgid "Other risky ingredients"
@@ -5959,7 +5958,7 @@ msgstr ""
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score系統最初是為法國開發的，目前正在推廣到其他歐洲國家。Green-Score系統的計算公式會定期更新，使其更加精準，更適合各國的實際情況。"
+msgstr "綠色評分系統最初是為法國開發的，目前正在推廣到其他歐洲國家。綠色評分系統的計算公式會定期更新，使其更加精準，更適合各國的實際情況。"
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6045,7 +6044,7 @@ msgstr "中等"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
-msgstr "注意：茶葉和藥草的Nutri-Score，對應於僅用水製備的產品，且不加糖或牛奶。"
+msgstr "注意：茶葉和藥草的營養評分，對應於僅用水製備的產品，且不加糖或牛奶。"
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
@@ -6078,7 +6077,7 @@ msgstr ""
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "請支持我們的 {year} 年募捐活動"
+msgstr ""
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6114,39 +6113,39 @@ msgstr ""
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "我們仍需要 120,000 歐元來完成 2026 年！"
+msgstr ""
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "成為 Open Food Facts 的贊助者"
+msgstr ""
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "每個月，我們為 800 萬訪客提供服務，並透過 API 提供數倍的服務。您的支持對以下各方面至關重要："
+msgstr ""
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "保持 Open Food Facts 開放並向所有人提供，"
+msgstr ""
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "透過一支小型常設團隊支援基礎設施、網站、行動應用程式與 API"
+msgstr ""
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
-msgstr "保持獨立於食品產業，"
+msgstr ""
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "支援社群"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "支援科學研究"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "如果本月每位訪客都點擊「贊助」並僅捐款 1 歐元，我們將獲得超過我們年度預算 8 倍的資金！"
+msgstr ""
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6696,7 +6695,7 @@ msgstr ""
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "該產品的類別不夠精確，無法計算Green-Score。您能否新增更精確的產品類別？"
+msgstr "該產品的類別不夠精確，無法計算綠色評分。您能否新增更精確的產品類別？"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7863,7 +7862,7 @@ msgstr "向我們的版主檢舉此圖片"
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "我們缺少計算Nutri-Score所需的份量值和/或單位"
+msgstr "我們缺少計算營養評分所需的份量值和/或單位"
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
@@ -8386,3 +8385,4 @@ msgstr ""
 msgctxt "google_drive_import_already_running"
 msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
 msgstr ""
+
