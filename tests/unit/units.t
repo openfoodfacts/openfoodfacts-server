@@ -155,6 +155,14 @@ is(normalize_quantity("2 kgr"), 2000);
 is(normalize_quantity("2 kilogramme"), 2000);
 is(normalize_quantity("2 kilogrammes"), 2000);
 
+# Household measures (spoons, glasses, cups) are used only if there is no mass or volume unit
+is(normalize_quantity("1 glass jar 450 g"), 450);
+is(extract_standard_unit("1 glass jar 450 g"), "g");
+is(normalize_quantity("4 bouteilles en verre de 20cl"), 800);
+is(normalize_quantity("450 g (1 glass jar)"), 450);
+is(normalize_quantity("2 tbsp"), 30);
+is(extract_standard_unit("2 tbsp"), "ml");
+
 # . without a 0 before
 is(normalize_quantity(".33L"), 330);
 is(normalize_quantity(".33 l"), 330);
@@ -188,6 +196,13 @@ my @serving_sizes = (
 	["1 c. à s. (12 g)", "12", "g"],
 	["2 tbsp (32 g)", "32", "g"],
 	["1 cup (30g)", "30", "g"],
+	# Mass and volume units win over household measures, whatever the order
+	["6 g (1 c. à soupe)", "6", "g"],
+	["6 g (1 tbsp)", "6", "g"],
+	["30 g (1 cup)", "30", "g"],
+	["1 glass (200 ml)", "200", "ml"],
+	["250 ml (1 verre)", "250", "ml"],
+	["1 verre", "200", "ml"],
 );
 
 foreach my $test_ref (@serving_sizes) {
