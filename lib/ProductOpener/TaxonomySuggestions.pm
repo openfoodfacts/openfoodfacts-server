@@ -517,8 +517,7 @@ sub _get_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 
 	if (not exists $suggestions_index{$key}) {
 
-		$suggestions_index{$key} = _build_suggestions_index($tagtype, $search_lc, $tags_ref,
-			$tagtype eq "categories");
+		$suggestions_index{$key} = _build_suggestions_index($tagtype, $search_lc, $tags_ref, $tagtype eq "categories");
 		push @suggestions_index_order, $key;
 
 		# keep the memory bounded: drop the index that was added first
