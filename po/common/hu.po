@@ -166,7 +166,7 @@ msgstr "Összetevők, allergének, adalékanyagok, tápértékadatok, címkék, 
 
 msgctxt "search_description_opensearch_opff"
 msgid "Open Pet Food Facts product search"
-msgstr "Open Pet Food Facts termékkereső"
+msgstr "Open Food Facts termékkereső"
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -977,7 +977,7 @@ msgstr "Gyakran ismételt kérdések (FAQ)"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -2812,8 +2812,7 @@ msgstr "A világ minden tájáról származó eredmények megtekintése"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Az információk és adatok a termék csomagolásáról, címkéjéről kell származzanak (és nem az internetről, vagy a gyártó weboldaláról), és a fotókat Önnek kell készítenie.<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Miért fontos ez?</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -5220,7 +5219,7 @@ msgstr "Jelenleg kiválasztott beállítások"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr "A preferenciáit a böngészője tárolja, és soha nem küldi el az Open Food Facts vagy bárki más számára."
+msgstr "A preferenciáit a böngészője tárolja, és soha nem küldi el az OpenFoodFacts vagy bárki más számára."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
@@ -5436,59 +5435,59 @@ msgstr "Kiszámol olyan mutatókat, mint a Nutri-Score, a NOVA és a Green-Score
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "Erdőlábnyom"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "Alacsony erdőirtási kockázat (Erdőlábnyom)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Az Erdőlábnyom az összetevőkhöz kapcsolódó erdőirtási kockázatot jelzi."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "Erdőlábnyom A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "Erdőlábnyom B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "Erdőlábnyom C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "Erdőlábnyom D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "Nincs erdőirtási kockázattal összefüggésbe hozható összetevő."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "Egy vagy több erdőirtási kockázatot hordozó összetevő jelenléte, de a mennyiség, származás és/vagy jelölések alapján alacsony kockázat."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "Egy vagy több erdőirtási kockázatot hordozó összetevő jelenléte, közepes kockázattal a mennyiség, származás és/vagy jelölések alapján."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "Egy vagy több erdőirtási kockázatot hordozó összetevő jelenléte, magas kockázattal a mennyiség, származás és/vagy jelölések alapján."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "Erdőlábnyom nincs kiszámítva"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "Potenciális erdőirtási kockázat, de még nincs kiszámítva."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "Nincs erdőirtási kockázat"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5496,7 +5495,7 @@ msgstr "Alacsony erdőirtási kockázat"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "Közepes erdőirtási kockázat"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5504,15 +5503,15 @@ msgstr "Magas erdőirtási kockázat"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "Potenciális erdőirtási kockázat nincs kiszámítva"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "Erdőlábnyom nem elérhető"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "Az Erdőlábnyom nem számítható ki, mert az összetevők listája hiányzik."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -5616,7 +5615,7 @@ msgstr "A Green-Score még nem alkalmazható erre a kategóriára, de dolgozunk 
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Az Green-Score nincs kiszámítva"
+msgstr "Az Eco-score nincs kiszámítva"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5758,7 +5757,7 @@ msgstr ""
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Az Green-Score csak akkor számítható ki, ha a termék kellően pontos kategóriával rendelkezik."
+msgstr "Az Eco-score csak akkor számítható ki, ha a termék kellően pontos kategóriával rendelkezik."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
@@ -6117,23 +6116,23 @@ msgstr "TÁMOGATOM"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "Még 120 000 €-ra van szükségünk 2026 befejezéséhez!"
+msgstr ""
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Legyen az Open Food Facts támogatója"
+msgstr ""
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Havonta 8 millió látogatót szolgálunk ki, és ennek többszörösét az API-n keresztül. Támogatása elengedhetetlen a következőkhöz:"
+msgstr ""
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "hogy az Open Food Facts nyitott és mindenki számára elérhető maradjon,"
+msgstr ""
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "az infrastruktúra, a weboldal, a mobilalkalmazás és az API fenntartása egy kis állandó csapattal"
+msgstr ""
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6141,15 +6140,15 @@ msgstr "függetlennek maradni az élelmiszeripartól,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "a közösség támogatása"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "a tudomány támogatása"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Ha ebben a hónapban minden látogató az Adományozás gombra kattintana és csak 1 €-t adna, éves költségvetésünk több mint nyolcszorosát gyűjtenénk össze!"
+msgstr ""
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
