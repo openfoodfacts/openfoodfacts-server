@@ -63,7 +63,7 @@ msgstr "i Facebook grupa <a href=\"https://www.facebook.com/groups/OpenBeautyFac
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Otvori pretragu proizvoda Open Beauty Facts"
+msgstr "Otvori pretragu proizvoda Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -692,7 +692,7 @@ msgstr "Donirajte Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-hr.openfoodfacts.org/donirajte-open-food-facts"
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -977,7 +977,7 @@ msgstr "Često postavljana pitanja"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1042,7 +1042,7 @@ msgstr "Uvjeti korištenja"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/terms-of-use"
+msgstr "Uvjeti korištenja"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -1051,7 +1051,7 @@ msgstr "O nama"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "/who-we-are"
+msgstr "Tko smo mi"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -1065,7 +1065,7 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Open Open Beauty Facts - Kozmetika"
+msgstr "Otvorene činjenice o ljepoti - Kozmetika"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -1100,7 +1100,7 @@ msgstr ""
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Open Food Facts za proizvođače"
+msgstr "Otvorene činjenice o hrani za proizvođače"
 
 msgctxt "for"
 msgid "for"
@@ -1335,7 +1335,7 @@ msgstr "Proizvodi koji ne sadrže sastojak %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_HR.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
@@ -1534,7 +1534,7 @@ msgstr "Dodaj proizvod"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr "/add-a-product"
+msgstr "Dodaj proizvod"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -2814,8 +2814,7 @@ msgstr "Pogledajte rezultate iz cijelog svijeta"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Informacije i podaci moraju potjecati s pakiranja i etikete proizvoda (a ne s drugih stranica ili stranice proizvođača), a slike morate snimiti sami.<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Zašto je to važno</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -4995,7 +4994,7 @@ msgstr "Nizak utjecaj na okoliš (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score je ekološka ocjena od A+ do F koja olakšava usporedbu utjecaja prehrambenih proizvoda na okoliš."
+msgstr "Zeleni rezultat je ekološka ocjena od A+ do F koja olakšava usporedbu utjecaja prehrambenih proizvoda na okoliš."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -5008,7 +5007,7 @@ msgstr "Nizak utjecaj na okoliš (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score je ekološka ocjena od A+ do F koja olakšava usporedbu utjecaja prehrambenih proizvoda na okoliš."
+msgstr "Zeleni rezultat je ekološka ocjena od A+ do F koja olakšava usporedbu utjecaja prehrambenih proizvoda na okoliš."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5438,59 +5437,59 @@ msgstr "Izračunava pokazatelje kao što su Nutri-Score, NOVA i Green-Score te a
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "Šumski otisak"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "Nizak rizik od krčenja šuma (Šumski otisak)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Šumski otisak odgovara riziku od krčenja šuma povezanom s njegovim sastojcima."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "Šumski otisak A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "Šumski otisak B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "Šumski otisak C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "Šumski otisak D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "Nijedan sastojak nije povezan s rizikom od krčenja šuma."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "Prisutnost jednog ili više sastojaka s rizikom od krčenja šuma, ali nizak rizik s obzirom na količinu, podrijetlo i/ili oznake."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "Prisutnost jednog ili više sastojaka s rizikom od krčenja šuma, s umjerenim rizikom s obzirom na količinu, podrijetlo i/ili oznake."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "Prisutnost jednog ili više sastojaka s rizikom od krčenja šuma, s visokim rizikom s obzirom na količinu, podrijetlo i/ili oznake."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "Šumski otisak nije izračunat"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "Potencijalni rizik od krčenja šuma, ali još nije izračunat."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "Nema rizika od krčenja šuma"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5498,7 +5497,7 @@ msgstr "Nizak rizik od deforestacije"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "Umjeren rizik od krčenja šuma"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5506,15 +5505,15 @@ msgstr "Visok rizik od deforestacije"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "Potencijalni rizik od krčenja šuma nije izračunat"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "Šumski otisak nije dostupan"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "Šumski otisak se ne može izračunati jer nedostaje popis sastojaka."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -5547,7 +5546,7 @@ msgstr "Proizvodi s najboljim Nutri-Scoreom"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Proizvodi s najboljim Green-Score"
+msgstr "Proizvodi s najboljim zelenim rezultatom"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5954,7 +5953,7 @@ msgstr "Ako ste proizvođač ovog proizvoda, možete nam poslati podatke putem n
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/green-score\">Green-Score</a> je eksperimentalni rezultat koji sažima utjecaje prehrambenih proizvoda na okoliš."
+msgstr "<a href=\"/green-score\">Zeleni rezultat</a> je eksperimentalni rezultat koji sažima utjecaje prehrambenih proizvoda na okoliš."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
@@ -5964,7 +5963,7 @@ msgstr "Formula Green-Scorea podložna je promjenama jer se redovito poboljšava
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score izvorno je razvijen za Francusku, a proširuje se i na druge europske zemlje. Formula Zelenog rezultata podložna je promjenama jer se redovito poboljšava kako bi bila preciznija i bolje prilagođena svakoj zemlji."
+msgstr "Zeleni rezultat izvorno je razvijen za Francusku, a proširuje se i na druge europske zemlje. Formula Zelenog rezultata podložna je promjenama jer se redovito poboljšava kako bi bila preciznija i bolje prilagođena svakoj zemlji."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6151,7 +6150,7 @@ msgstr "podržite znanost"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Kad bi svaki posjetitelj ovog mjeseca kliknuo na Donirajte i dao samo 1 €, dobili bismo više od 8 puta naš godišnji proračun!"
+msgstr ""
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
