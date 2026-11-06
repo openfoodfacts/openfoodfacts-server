@@ -63,7 +63,7 @@ msgstr "dan <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\"> grup F
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Open Beauty Facts pencarian produk"
+msgstr "Open Food Facts pencarian produk"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -692,7 +692,7 @@ msgstr "Berdonasi ke Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-id.openfoodfacts.org/donasi-ke-open-food-facts"
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -977,7 +977,7 @@ msgstr "Pertanyaan yang sering diajukan"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -2812,8 +2812,7 @@ msgstr "Lihat hasil dari seluruh dunia"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Informasi dan data harus berasal dari kemasan dan label produk (bukan dari situs lain atau situs produsen), dan Anda harus mengambil gambarnya sendiri.<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Mengapa hal ini penting</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3539,7 +3538,7 @@ msgstr "Unggah berkas spreedsheet (berkas Excel atau berkas CSV dikodekan UTF-8 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr "Anda dapat mengunggah tabel dengan kolom format impor Open Food Facts, atau Anda dapat mengunggah tabel dengan format apa saja dan kemudian memilih kolom-kolom tertentu untuk diimpor."
+msgstr "Anda dapat mengunggah tabel dengan kolom format impor Open Food Fact, atau Anda dapat mengunggah tabel dengan format apa saja dan kemudian memilih kolom-kolom tertentu untuk diimpor."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
@@ -4747,7 +4746,7 @@ msgstr "Nutri-Score dihitung dan dapat diperhitungkan untuk semua produk, meskip
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr "Nutri-Score %s"
+msgstr "Nutri-Skor %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
@@ -4759,7 +4758,7 @@ msgstr "Data yang hilang untuk menghitung Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Nutri-Score tidak berlaku"
+msgstr "Skor Nutrisi tidak berlaku"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5436,59 +5435,59 @@ msgstr "Platform tersebut menghitung indikator seperti Nutri-Score, NOVA, dan Gr
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "Jejak Hutan"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "Risiko deforestasi rendah (Jejak Hutan)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Jejak Hutan sesuai dengan risiko deforestasi yang terkait dengan bahan-bahannya."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "Jejak Hutan A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "Jejak Hutan B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "Jejak Hutan C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "Jejak Hutan D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "Tidak ada bahan yang terkait dengan risiko deforestasi."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "Terdapat satu atau lebih bahan berisiko deforestasi, tetapi risikonya rendah mengingat jumlah, asal, dan/atau labelnya."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "Terdapat satu atau lebih bahan berisiko deforestasi, dengan risiko sedang mengingat jumlah, asal, dan/atau labelnya."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "Terdapat satu atau lebih bahan berisiko deforestasi, dengan risiko tinggi mengingat jumlah, asal, dan/atau labelnya."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "Jejak Hutan belum dihitung"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "Potensi risiko deforestasi tetapi belum dihitung."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "Tidak ada risiko deforestasi"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5496,7 +5495,7 @@ msgstr "Resiko deforestasi rendah"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "Risiko deforestasi sedang"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5504,15 +5503,15 @@ msgstr "Resiko deforestasi tinggi"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "Potensi risiko deforestasi belum dihitung"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "Jejak Hutan tidak tersedia"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "Jejak Hutan tidak dapat dihitung karena daftar bahan tidak ada."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -5962,7 +5961,7 @@ msgstr "Formula Green-Score dapat berubah sewaktu - waktu karena ia secara regul
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score awalnya dikembangkan untuk Prancis dan sedang diperluas ke negara-negara Eropa lainnya. Rumus Green-Score dapat berubah karena secara berkala ditingkatkan agar lebih tepat dan lebih sesuai untuk setiap negara."
+msgstr "Skor Hijau awalnya dikembangkan untuk Prancis dan sedang diperluas ke negara-negara Eropa lainnya. Rumus Skor Hijau dapat berubah karena secara berkala ditingkatkan agar lebih tepat dan lebih sesuai untuk setiap negara."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6141,11 +6140,11 @@ msgstr "tetap independen pada industri makanan,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "mendukung komunitas"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "mendukung sains"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
@@ -6560,7 +6559,7 @@ msgstr "Batalkan pilihan Gambar"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Pelajari lebih lanjut tentang Nutri-Score"
+msgstr "Terima Kasih"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
@@ -6695,11 +6694,11 @@ msgstr "Bisakah Anda menambahkan informasi yang diperlukan untuk menghitung Nutr
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Bisakah Anda menambahkan kategori produk yang tepat sehingga kami dapat menghitung Green-Score?"
+msgstr "Bisakah Anda menambahkan kategori produk yang tepat sehingga kami dapat menghitung Skor Ramah Lingkungan?"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "Kategori yang kami miliki untuk produk ini tidak cukup presisi untuk menghitung Green-Score. Bisakah Anda menambahkan kategori produk yang lebih presisi?"
+msgstr "Kategori yang kami miliki untuk produk ini tidak cukup presisi untuk menghitung Skor Hijau. Bisakah Anda menambahkan kategori produk yang lebih presisi?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7866,7 +7865,7 @@ msgstr "Laporkan gambar ini ke moderator kami"
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "Kami tidak memiliki nilai ukuran porsi dan/atau unit untuk menghitung Nutri-Score"
+msgstr "Kami tidak memiliki nilai ukuran porsi dan/atau unit untuk menghitung Skor Nutrisi"
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
