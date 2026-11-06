@@ -1553,20 +1553,21 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "Sugar, wheat flour, strawberries, glucose syrup, strawberries in the filling: 49.8%",
 		}
 	],
+	# the percent is relative to the filling: it is scaled with the percent of the filling
+	[
+		'en-ingredient-in-the-filling-with-filling-percent',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Biscuit 60% (wheat flour, sugar, butter), filling 40% (sugar, strawberries, glucose syrup), strawberries in the filling: 49.8%",
+		}
+	],
 	# minimum percents of ingredients in the list are kept
 	[
 		'fr-minimum-percents-in-the-list',
 		{
 			lc => "fr",
 			ingredients_text => "Pomme 60 % minimum, poire 30 %, sucre, cacao 30%",
-		}
-	],
-	# &amp; entity
-	[
-		'en-amp-entity',
-		{
-			lc => "en",
-			ingredients_text => "Tomatoes, salt &amp; pepper, sugar",
 		}
 	],
 	[

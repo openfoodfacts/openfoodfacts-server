@@ -111,7 +111,8 @@
       {
          "id" : "en:strawberry",
          "ingredient" : "strawberries",
-         "percent" : 49.8,
+         "intermediate_product" : "en:filling",
+         "percent_in_intermediate_product" : 49.8,
          "text" : "strawberries in the filling: 49.8%"
       }
    ],

@@ -1,0 +1,182 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "24000",
+         "id" : "en:biscuit",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "9410",
+               "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "ecobalyse_name" : "Farine UE agrégée -2025-",
+               "id" : "en:wheat-flour",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 40,
+               "percent_max" : 60,
+               "percent_min" : 20,
+               "text" : "wheat flour",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "31016",
+               "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+               "id" : "en:sugar",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 10,
+               "percent_max" : 30,
+               "percent_min" : 0,
+               "text" : "sugar",
+               "vegan" : "maybe",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "24000",
+               "id" : "en:butter-biscuit",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 10,
+               "percent_max" : 20,
+               "percent_min" : 0,
+               "text" : "butter"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 60,
+         "percent_estimate" : 60,
+         "percent_max" : 60,
+         "percent_min" : 60,
+         "text" : "Biscuit"
+      },
+      {
+         "id" : "en:filling",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "31016",
+               "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+               "id" : "en:sugar",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 26.6666666666667,
+               "percent_max" : 40,
+               "percent_min" : 13.3333333333333,
+               "text" : "sugar",
+               "vegan" : "maybe",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:strawberry-filling",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 6.66666666666667,
+               "percent_max" : 20,
+               "percent_min" : 0,
+               "text" : "strawberries"
+            },
+            {
+               "ciqual_proxy_food_code" : "31016",
+               "ecobalyse_id" : "06dffb5c-07ad-48de-9630-632f4c84e02d",
+               "ecobalyse_name" : "Sirop de glucose FR ou UE ou par défaut -2025-",
+               "id" : "en:glucose-syrup",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 6.66666666666666,
+               "percent_max" : 13.3333333333333,
+               "percent_min" : 0,
+               "text" : "glucose syrup",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 40,
+         "percent_estimate" : 40,
+         "percent_max" : 40,
+         "percent_min" : 40,
+         "text" : "filling",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:vegan-status-unknown" : [
+         "en:butter-biscuit",
+         "en:strawberry-filling"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:butter-biscuit",
+         "en:strawberry-filling"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 8,
+   "ingredients_n_tags" : [
+      "8",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:biscuit",
+      "en:filling",
+      "en:wheat-flour",
+      "en:sugar",
+      "en:butter-biscuit",
+      "en:sugar",
+      "en:strawberry-filling",
+      "en:glucose-syrup"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:biscuit",
+      "en:filling",
+      "en:wheat-flour",
+      "en:cereal-flour",
+      "en:wheat",
+      "en:flour",
+      "en:cereal",
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:butter-biscuit",
+      "en:strawberry-filling",
+      "en:glucose-syrup",
+      "en:glucose",
+      "en:monosaccharide"
+   ],
+   "ingredients_text" : "Biscuit 60% (wheat flour, sugar, butter), filling 40% (sugar, strawberries, glucose syrup), strawberries in the filling: 49.8%",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_without_ciqual_codes" : [
+      "en:filling",
+      "en:strawberry-filling"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:biscuit",
+      "en:butter-biscuit",
+      "en:filling",
+      "en:strawberry-filling"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 8,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "specific_ingredients" : [
+      {
+         "id" : "en:strawberry",
+         "ingredient" : "strawberries",
+         "intermediate_product" : "en:filling",
+         "percent" : 19.92,
+         "percent_in_intermediate_product" : 49.8,
+         "text" : "strawberries in the filling: 49.8%"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

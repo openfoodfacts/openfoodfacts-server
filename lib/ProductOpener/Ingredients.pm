@@ -641,6 +641,49 @@ sub add_properties_from_specific_ingredients ($product_ref) {
 	return;
 }
 
+=head2 scale_specific_ingredients_percent_in_intermediate_products ( product_ref )
+
+Specific ingredients like "strawberries in the filling: 49.8%" have a percent relative to an
+intermediate product (the filling), stored in percent_in_intermediate_product.
+
+If the ingredients list contains exactly one ingredient for that intermediate product with a percent
+(e.g. "filling 40%"), set the percent of the specific ingredient in the product (49.8 * 40 / 100).
+Otherwise the specific ingredient has no percent, so that it is not used as a percent of the product.
+
+=cut
+
+sub scale_specific_ingredients_percent_in_intermediate_products ($product_ref) {
+
+	return if not defined $product_ref->{specific_ingredients};
+
+	foreach my $specific_ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+
+		my $intermediate_product_id = $specific_ingredient_ref->{intermediate_product};
+		my $percent_in_intermediate_product = $specific_ingredient_ref->{percent_in_intermediate_product};
+		next if ((not defined $intermediate_product_id) or (not defined $percent_in_intermediate_product));
+
+		my @intermediate_products_percents = ();
+		my @ingredients = @{$product_ref->{ingredients} || []};
+		while (@ingredients) {
+			my $ingredient_ref = shift @ingredients;
+			if (defined $ingredient_ref->{ingredients}) {
+				unshift @ingredients, @{$ingredient_ref->{ingredients}};
+			}
+			if (    (defined $ingredient_ref->{percent})
+				and (is_a("ingredients", $ingredient_ref->{id}, $intermediate_product_id)))
+			{
+				push @intermediate_products_percents, $ingredient_ref->{percent};
+			}
+		}
+
+		if ((scalar @intermediate_products_percents) == 1) {
+			$specific_ingredient_ref->{percent}
+				= $percent_in_intermediate_product * $intermediate_products_percents[0] / 100;
+		}
+	}
+	return;
+}
+
 =head2 add_percent_max_for_ingredients_from_nutrition_facts ( $product_ref )
 
 Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
@@ -835,9 +878,11 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	my $minimum_lookahead = "(?=(?:(?:$minimum)(?::|\\s)*$number\\s*%|$number\\s*%\\s*(?:$minimum)(?![[:alpha:]])))";
 
 	# ingredient of an intermediate product, e.g. "strawberries in the filling: 49.8%"
-	my %ingredient_in_intermediate_product
-		= (en => '([^,.;:()]+?)\s+in the (?:filling|cream|topping|chocolate|sauce)',);
-	my $ingredient_in_intermediate_product = $ingredient_in_intermediate_product{$ingredients_lc};
+	# the percent is relative to the intermediate product, not to the product
+	my %intermediate_products = (en => 'filling|cream|topping|chocolate|sauce');
+	my $intermediate_products = $intermediate_products{$ingredients_lc};
+	my $ingredient_in_intermediate_product
+		= (defined $intermediate_products) ? '([^,.;:()]+?)\s+in the (?:' . $intermediate_products . ')' : undef;
 
 	my $prepared_with = $prepared_with{$ingredients_lc} || '';
 
@@ -849,6 +894,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		my $matched_text;
 		my ($percent_or_quantity_value, $percent_or_quantity_unit);
 		my $origins;
+		my $intermediate_product;
 
 		# Note: in regular expressions below, use non-capturing groups (starting with (?: )
 		# for all groups, except groups that capture actual data: ingredient name, percent, origins
@@ -950,6 +996,13 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$text = $` . $1 . ' ' . $';
 
 			$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
+
+			# strawberries in the filling: 49.8%
+			if (    (defined $intermediate_products)
+				and ($matched_text =~ /^\W*\Q$ingredient\E\s+in the ($intermediate_products)\b/i))
+			{
+				$intermediate_product = $1;
+			}
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -1079,6 +1132,16 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				defined $quantity and $specific_ingredients_ref->{quantity} = $quantity;
 				defined $quantity_g and $specific_ingredients_ref->{quantity_g} = $quantity_g + 0;
 				defined $quantity_ml and $specific_ingredients_ref->{quantity_ml} = $quantity_ml + 0;
+
+				# the percent is relative to the intermediate product (e.g. the filling), it is turned to a percent
+				# of the product by scale_specific_ingredients_percent_in_intermediate_products() if we know the
+				# percent of the intermediate product
+				if ((defined $intermediate_product) and (defined $specific_ingredients_ref->{percent})) {
+					$specific_ingredients_ref->{intermediate_product}
+						= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $intermediate_product);
+					$specific_ingredients_ref->{percent_in_intermediate_product}
+						= delete $specific_ingredients_ref->{percent};
+				}
 			}
 
 			# Add origin field
@@ -3866,6 +3929,8 @@ Text to analyze
 			$product_ref->{"ingredients_text_" . $ingredients_lc} = $original_ingredients_text_lc;
 		}
 	}
+
+	scale_specific_ingredients_percent_in_intermediate_products($product_ref);
 
 	return;
 }
@@ -7604,6 +7669,53 @@ sub remove_underscores_around_allergens ($ingredients_lc, $text_ref) {
 	return;
 }
 
+=head2 is_missing_separator_between_percents ($ingredients_lc, $before, $words)
+
+In "carotte 23,4% oignon 9,9%", check if the words between the 2 percents ("oignon") are a new ingredient,
+and not a content of the ingredient before the first percent.
+
+=head3 Arguments
+
+=head4 $before
+
+Text before the first percent: "carotte"
+
+=head4 $words
+
+Words between the 2 percents: "oignon"
+
+=head3 Return value
+
+1 if a separator is missing after the first percent, 0 otherwise.
+
+=cut
+
+# words that start or end a description of the percent, not an ingredient:
+# "lait 3,5% de matière grasse", "fraise 50% ou abricot 50%", "lait écrémé à 1,4% de matière grasse"
+my $missing_separator_connectors
+	= "de|du|des|d'|dont|ou|et|and|or|of|with|avec|soit|min|minimum|max|maximum|à|a|au|aux|en|in|at";
+
+# contents of the ingredient before the percent: "lait entier 3,5% matière grasse 90%"
+my $missing_separator_contents = 'mati[èe]res?\s+grasses?|m\.?\s?g\.?|fat|mati[èe]res?\s+s[èe]ches?|extrait sec'
+	. '|dry matter|(?:milk |cocoa |non-fat )?solids|prot[ée]ines?|proteins?';
+
+# cocoa content of chocolate: "chocolat noir 70% cacao 20%" (but "lait anhydre 21,8% cacao 10,9%" are 2 ingredients)
+my $missing_separator_cocoa = 'cacao|cocoa|cocoa solids';
+
+sub is_missing_separator_between_percents ($ingredients_lc, $before, $words) {
+
+	return 0 if $words =~ /^(?:$missing_separator_connectors)(?:\s|'|$)|\s(?:$missing_separator_connectors)$/i;
+	return 0 if $words =~ /^(?:$missing_separator_contents)$/i;
+
+	# last ingredient before the first percent
+	my ($ingredient_before) = ($before =~ /([^,;()\[\]]*)$/);
+	return 0 if (($words =~ /^(?:$missing_separator_cocoa)$/i) and ($ingredient_before =~ /chocola|cocoa|cacao/i));
+
+	return exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $words))
+		? 1
+		: 0;
+}
+
 =head2 preparse_ingredients_text ($ingredients_lc, $text) - normalize the ingredient list to make parsing easier
 
 This function transform the ingredients list in a more normalized list that is easier to parse.
@@ -7704,15 +7816,10 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# missing separator between ingredients with percents:
 	# "carotte 23,4% oignon 9,9%, chou-fleur 9,9%" -> "carotte 23,4%, oignon 9,9%, chou-fleur 9,9%"
-	# only if the words between the 2 percents are a known ingredient,
-	# and do not start or end with a connector: "lait 3,5% de matière grasse", "fraise 50% ou abricot 50%"
-	my $connectors = "de|du|des|d'|dont|ou|et|and|or|of|with|avec|soit|min|minimum|max|maximum|à|a|au|aux|en|in|at";
 	$text
 		=~ s/(?:(?<=[[:alpha:]*)\]]\s)|(?<=[[:alpha:]*)\]]))(\d+(?:[,.]\d+)?\s*%)\s+([[:alpha:]][^,;.()\[\]{}:%\d*\/-]*?)(?=\s*\d+(?:[,.]\d+)?\s*%)/
-		my ($matched, $percent, $words) = ($&, $1, $2);
-		(($words !~ \/^(?:$connectors)(?:\s|'|$)|\s(?:$connectors)$\/i)
-			and exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $words)))
-		? "$percent, $words" : $matched/ge;
+		my ($matched, $before, $percent, $words) = ($&, $`, $1, $2);
+		is_missing_separator_between_percents($ingredients_lc, $before, $words) ? "$percent, $words" : $matched/ge;
 
 	# remove urls: "Bilan massique certifié Rainforest Alliance www.ra.org/fr"
 	$text =~ s/\b(?:https?:\/\/|www\.)[^\s,;()]*[^\s,;().]//ig;
