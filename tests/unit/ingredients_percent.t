@@ -297,11 +297,11 @@ my @tests = (
 	],
 
 	# Products with valid specified percents that were wrongly flagged with ingredients_percent_analysis = -1
-	# (the min / max computation did not converge and bailed out after too many loops)
+	# (the min / max computation did not converge and bailed out after too many loops,
+	# as sub-ingredients lists are re-initialized at each loop, and the same changes were then made again)
 	# The optional 3rd element is the expected value of ingredients_percent_analysis
 
-	# Sub-ingredients lists were re-initialized at each loop with the percent_max from the taxonomy,
-	# which deleted the percent_max computed in the previous loop
+	# The percent_max from the taxonomy deleted the percent_max computed in the previous loop
 	[
 		'fr-sub-ingredients-percent-max-reset',
 		{
@@ -324,11 +324,25 @@ my @tests = (
 		1
 	],
 
-	# Impossible values: the first 3 ingredients must each be at least 53%
+	# Sub-ingredients with specified percents that are not in decreasing order (allowed for ingredients under 2%)
 	[
-		'fr-impossible-minimum-percent',
-		{lc => "fr", ingredients_text => "Sucre, pâte de cacao, beurre de cacao, Cacao : 53% minimum"}, -1
+		'en-sub-ingredients-percents-not-in-decreasing-order',
+		{lc => "en", ingredients_text => "water, rice 30%, fruits 0.1% (e164 0.5%, natural flavouring 10%)"}, 1
 	],
+
+	# The percent_max of flavourings from the taxonomy (5%) also applies to sub-ingredients
+	# of a parent ingredient without a specified percent
+	[
+		'fr-flavouring-sub-ingredient-percent-max',
+		{
+			lc => "fr",
+			ingredients_text => "preparation pour dessert (lait entier en poudre, arômes naturels, sucre), eau"
+		},
+		1
+	],
+
+	# Impossible values: the first 3 ingredients must each be at least 53%
+	['fr-impossible-minimum-percent', {lc => "fr", ingredients_text => "Sucre, farine, beurre, lait 53%"}, -1],
 );
 
 foreach my $test_ref (@tests) {
