@@ -662,21 +662,26 @@ sub scale_specific_ingredients_percent_in_intermediate_products ($product_ref) {
 		my $percent_in_intermediate_product = $specific_ingredient_ref->{percent_in_intermediate_product};
 		next if ((not defined $intermediate_product_id) or (not defined $percent_in_intermediate_product));
 
+		# percents of the intermediate product in the product: the percents of nested ingredients
+		# are relative to their parent, so we multiply them, and we need all of them
 		my @intermediate_products_percents = ();
-		my @ingredients = @{$product_ref->{ingredients} || []};
+		my @ingredients = map {[$_, 100]} @{$product_ref->{ingredients} || []};
 		while (@ingredients) {
-			my $ingredient_ref = shift @ingredients;
+			my ($ingredient_ref, $parent_percent) = @{shift @ingredients};
+			# undef if the percent of the ingredient in the product is unknown
+			my $percent
+				= ((defined $parent_percent) and (defined $ingredient_ref->{percent}))
+				? $parent_percent * $ingredient_ref->{percent} / 100
+				: undef;
 			if (defined $ingredient_ref->{ingredients}) {
-				unshift @ingredients, @{$ingredient_ref->{ingredients}};
+				unshift @ingredients, map {[$_, $percent]} @{$ingredient_ref->{ingredients}};
 			}
-			if (    (defined $ingredient_ref->{percent})
-				and (is_a("ingredients", $ingredient_ref->{id}, $intermediate_product_id)))
-			{
-				push @intermediate_products_percents, $ingredient_ref->{percent};
+			if (is_a("ingredients", $ingredient_ref->{id}, $intermediate_product_id)) {
+				push @intermediate_products_percents, $percent;
 			}
 		}
 
-		if ((scalar @intermediate_products_percents) == 1) {
+		if (((scalar @intermediate_products_percents) == 1) and (defined $intermediate_products_percents[0])) {
 			$specific_ingredient_ref->{percent}
 				= $percent_in_intermediate_product * $intermediate_products_percents[0] / 100;
 		}
@@ -864,18 +869,51 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	# content statements of chocolate products, with a minimum, e.g. "Cacao : 46% minimum."
 	# "milk chocolate contains cocoa solids 30% minimum", "cacao 52% minimum dans le chocolat"
 	# The ingredients are restricted, as "Pomme 60% minimum" can be part of the ingredients list
-	my %content_statement = (
-		en => '(?:(?:(?:organic|milk|dark|white|plain)\s+)*chocolate\s+)?(?:contains:?\s+)?'
-			. '(cocoa solids?|cocoa|cacao|milk solids)',
-		fr => '(?:(?:le\s+)?chocolat(?:\s+(?:au lait|noir|blanc))?\s+contient\s+(?:au\s+)?(?:minimum\s+)?)?'
-			. '(cacao|solides de cacao|extrait sec de cacao|mati[èe]re s[èe]che (?:de |issue du |du )lait)'
-			. '(?:\s+dans le chocolat(?:\s+(?:au lait|noir|blanc))?)?',
+	my %content_statement_prefix = (
+		en => '(?:(?:(?:organic|milk|dark|white|plain)\s+)*chocolate\s+)?(?:contains:?\s+)?',
+		fr => '(?:(?:le\s+)?chocolat(?:\s+(?:au lait|noir|blanc))?\s+contient\s+(?:au\s+)?(?:minimum\s+)?)?',
 	);
-	my $content_statement = $content_statement{$ingredients_lc};
+	my %content_statement_cocoa = (
+		en => 'cocoa solids?|cocoa|cacao',
+		fr => 'cacao|solides de cacao|extrait sec de cacao',
+	);
+	my %content_statement_milk = (
+		en => 'milk solids',
+		fr => 'mati[èe]re s[èe]che (?:de |issue du |du )lait',
+	);
+	my %content_statement_suffix = (fr => '(?:\s+dans le chocolat(?:\s+(?:au lait|noir|blanc))?)?',);
 	# the minimum is required: "cacao 30%" can be part of the ingredients list
 	my $minimum = $min_regexp{$ingredients_lc} || 'do not match';
 	my $number = '\d+(?:[,.\N{U+201A}]\d+)?';
 	my $minimum_lookahead = "(?=(?:(?:$minimum)(?::|\\s)*$number\\s*%|$number\\s*%\\s*(?:$minimum)(?![[:alpha:]])))";
+
+	my $content_statement;
+	if ((defined $percent_or_quantity_regexp) and (defined $content_statement_prefix{$ingredients_lc})) {
+		my $content_statement_regexp = sub ($names) {
+			return
+				  '((?:^|;|,|\.| - )\s*)'
+				. $content_statement_prefix{$ingredients_lc} . '('
+				. $names . ')'
+				. ($content_statement_suffix{$ingredients_lc} // '')
+				. '(?::|\s)*'
+				. $minimum_lookahead
+				. $percent_or_quantity_regexp
+				. '(?:;|,|\.| - |$)';
+		};
+		# a statement is about an ingredient of the list: if the list has no other cocoa,
+		# "Sucre, lait en poudre, cacao 30% minimum, sel" is the cocoa ingredient of the list
+		my $text_without_statements = $text;
+		my $all_statements_regexp = compiled_regexp(
+			$content_statement_regexp->(
+				$content_statement_cocoa{$ingredients_lc} . '|' . $content_statement_milk{$ingredients_lc}
+			)
+		);
+		$text_without_statements =~ s/$all_statements_regexp/ /g;
+		my @names = ();
+		($text_without_statements =~ /cacao|cocoa|chocola/i) and push @names, $content_statement_cocoa{$ingredients_lc};
+		($text_without_statements =~ /lait|milk/i) and push @names, $content_statement_milk{$ingredients_lc};
+		(scalar @names) and $content_statement = $content_statement_regexp->(join('|', @names));
+	}
 
 	# ingredient of an intermediate product, e.g. "strawberries in the filling: 49.8%"
 	# the percent is relative to the intermediate product, not to the product
@@ -953,17 +991,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				)
 				or (
 					# Cacao : 46% minimum. / cocoa solids 34% min.
-					(defined $content_statement)
-					and (
-						$text =~ compiled_regexp(
-								  '((?:^|;|,|\.| - )\s*)'
-								. $content_statement
-								. '(?::|\s)*'
-								. $minimum_lookahead
-								. $percent_or_quantity_regexp
-								. '(?:;|,|\.| - |$)'
-						)
-					)
+					(defined $content_statement) and ($text =~ compiled_regexp($content_statement))
 				)
 				or (
 					# strawberries in the filling: 49.8%
@@ -7693,7 +7721,7 @@ Words between the 2 percents: "oignon"
 # words that start or end a description of the percent, not an ingredient:
 # "lait 3,5% de matière grasse", "fraise 50% ou abricot 50%", "lait écrémé à 1,4% de matière grasse"
 my $missing_separator_connectors
-	= "de|du|des|d'|dont|ou|et|and|or|of|with|avec|soit|min|minimum|max|maximum|à|a|au|aux|en|in|at";
+	= "de|du|des|d|dont|ou|et|and|or|of|with|avec|soit|min|minimum|max|maximum|à|a|au|aux|en|in|at";
 
 # contents of the ingredient before the percent: "lait entier 3,5% matière grasse 90%"
 my $missing_separator_contents = 'mati[èe]res?\s+grasses?|m\.?\s?g\.?|fat|mati[èe]res?\s+s[èe]ches?|extrait sec'

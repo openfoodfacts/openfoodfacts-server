@@ -1500,6 +1500,7 @@ foreach my $test (
 	['fr', "chocolat noir 70% cacao 20%, sucre", "chocolat noir 70% cacao 20%, sucre"],
 	['fr', "lait entier 3,5% matière grasse 90%, sucre", "lait entier 3.5% matière grasse 90%, sucre"],
 	['fr', "LAIT anhydre 21,8% cacao 10,9%", "LAIT anhydre 21.8%, cacao 10.9%"],
+	['fr', "huile de tournesol 5% d'ail 3%", "huile de tournesol 5% d'ail 3%"],
 	['fr', "Fraise 50% ou abricot 50%", "Fraise 50% et abricot 50%"],
 	['fr', "FARINE, 32,1% BEURRE 5,6% SÉSAME", "FARINE, 32.1% BEURRE 5.6% SÉSAME"],
 	)

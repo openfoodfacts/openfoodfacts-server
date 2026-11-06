@@ -1562,6 +1562,32 @@ puffed orange and caramelized unknown_fruit4.",
 				"Biscuit 60% (wheat flour, sugar, butter), filling 40% (sugar, strawberries, glucose syrup), strawberries in the filling: 49.8%",
 		}
 	],
+	# nested filling: the percent of the filling in the product is 50% x 40% = 20%
+	[
+		'en-ingredient-in-the-nested-filling-with-percents',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Cake 50% (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+		}
+	],
+	# nested filling in a cake without a percent: the percent of the filling in the product is unknown
+	[
+		'en-ingredient-in-the-nested-filling-without-parent-percent',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Cake (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+		}
+	],
+	# no other cocoa in the list: "cacao 30% minimum" is the cocoa ingredient, not a content statement
+	[
+		'fr-cocoa-minimum-only-cocoa-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre, lait en poudre, cacao 30% minimum, sel",
+		}
+	],
 	# minimum percents of ingredients in the list are kept
 	[
 		'fr-minimum-percents-in-the-list',
