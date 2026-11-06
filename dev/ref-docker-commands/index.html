@@ -1661,6 +1661,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../how-to-run-several-worktrees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to run several worktrees (or several agents) on one machine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../how-to-update-agribalyse-ecoscore/" class="md-nav__link">
         
   
@@ -2449,6 +2477,26 @@ The main docker compose file <a href="../docker-compose.yml"><code>docker-compos
 <td><code>make dev</code></td>
 <td>Setup a fresh dev environment.</td>
 <td>Run only once, then use the <code>up</code>, <code>down</code>, <code>restart</code> commands.</td>
+</tr>
+<tr>
+<td><code>make agent</code></td>
+<td>Isolate this git worktree from other worktrees on the same machine.</td>
+<td>Run once per worktree, before <code>make dev</code>. No arguments needed: a free id and port are allocated automatically.</td>
+</tr>
+<tr>
+<td><code>make list-agents</code></td>
+<td>List the worktrees registered on this machine, with their ids and ports.</td>
+<td>Use it to find a free <code>ID=</code> when you want to choose one.</td>
+</tr>
+<tr>
+<td><code>make release-agent</code></td>
+<td>Undo <code>make agent</code>: drop the generated block and free the id and port.</td>
+<td>Add <code>ID=&lt;id&gt;</code> to also free an entry left by a deleted worktree.</td>
+</tr>
+<tr>
+<td><code>make print-agent-config</code></td>
+<td>Print the resolved per-worktree configuration (project name, domain, ports).</td>
+<td>Debugging aid for the command above.</td>
 </tr>
 <tr>
 <td><code>make build</code></td>

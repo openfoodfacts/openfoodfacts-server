@@ -2108,6 +2108,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../how-to-run-several-worktrees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to run several worktrees (or several agents) on one machine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../how-to-update-agribalyse-ecoscore/" class="md-nav__link">
         
   
@@ -3205,7 +3233,7 @@
 <p>This guide will allow you to rapidly build a ready-to-use development environment for <strong>Product Opener</strong> running in Docker.
 As an alternative to setting up your environment locally, follow the <a href="../how-to-use-gitpod/">Gitpod how-to guide</a>
 to instantly provision a ready-to-code development environment in the cloud.</p>
-<p>First setup time estimate is <code>~10min</code> with the following <strong>recommended</strong> specs:</p>
+<p>First setup time estimate is <code>10-30min</code> with the following <strong>recommended</strong> specs:</p>
 <ul>
 <li><code>8 GB</code> of RAM dedicated to Docker client</li>
 <li><code>6</code> cores dedicated to Docker client</li>
@@ -3363,6 +3391,12 @@ git<span class="w"> </span>checkout<span class="w"> </span>gh-pages
 </blockquote>
 <p>Before running the <code>docker compose</code> deployment, you can review and configure
 Product Opener's environment (<code>.env</code> file).</p>
+<blockquote>
+<p><strong><code>.env</code> is tracked by git.</strong> Editing it works, but it then shows up in
+<code>git status</code> and risks being committed by accident. Prefer putting your
+overrides in <code>.envrc</code>, which is git-ignored — see the note at the end of this
+section.</p>
+</blockquote>
 <p>The <code>.env</code> file contains ProductOpener default settings:</p>
 <table>
 <thead>
@@ -3424,7 +3458,8 @@ Product Opener's environment (<code>.env</code> file).</p>
 </table>
 <p>The <code>.env</code> file also contains some useful Docker Compose variables:</p>
 <ul>
-<li><code>COMPOSE_PROJECT_NAME</code> is the compose project name that sets the <strong>prefix to every container name</strong>. Do not update this unless you know what you're doing.</li>
+<li><code>COMPOSE_PROJECT_NAME</code> is the compose project name that sets the <strong>prefix to every container name</strong>. Do not update this unless you know what you're doing.
+  If you work in several git worktrees on the same machine, <code>make agent</code> sets this (and the network, volume, image and port names) for you: see <a href="../how-to-run-several-worktrees/">How to run several worktrees on one machine</a>.</li>
 <li><code>COMPOSE_FILE</code> is the <code>;</code>-separated list of Docker compose files that are included in the deployment:<ul>
 <li>For a <strong>development</strong>-like environment, set it to <code>docker-compose.yml;docker/dev.yml</code> (default)</li>
 <li>For a <strong>production</strong>-like environment, set it to <code>docker-compose.yml;docker/prod.yml;docker/mongodb.yml</code></li>
@@ -3441,12 +3476,28 @@ Product Opener's environment (<code>.env</code> file).</p>
 <p><strong>Note:</strong>
 Instead of modifying <code>.env</code> (and risk committing it inadvertently),
 you can also set needed variables in your shell; they will override <code>.env</code> values.
+This applies to <code>docker compose</code> commands, but <strong>not</strong> to <code>make</code>: the <code>Makefile</code>
+includes <code>.env</code> itself, and a makefile assignment always wins over an inherited
+environment variable. Use <code>.envrc</code> for overrides that must apply to <code>make</code>.
 Consider creating a <code>.envrc</code> file that you source each time you need to work on the project.
 On linux and macOS, you can automatically do it if you <a href="../how-to-use-direnv/">use direnv</a>.</p>
 <h2 id="3-build-your-dev-environment">3. Build your dev environment<a class="headerlink" href="#3-build-your-dev-environment" title="Permanent link">#</a></h2>
 <p>From the repository root, run:</p>
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>dev
 </code></pre></div>
+<blockquote>
+<p><strong>Working in a git worktree, or sharing this machine with another agent?</strong>
+Run <code>make agent</code> once, before <code>make dev</code>. It gives the worktree its own
+container, network, volume and image names, its own domain and its own host
+port, so several worktrees can run <code>make dev</code> side by side instead of fighting
+over port 80 and over Docker DNS names such as <code>backend</code>. It takes no arguments:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>agent<span class="w">    </span><span class="c1"># prints the URL it settled on, e.g. http://world.w11790.openfoodfacts.localhost:8081/</span>
+</code></pre></div>
+<p>Re-running it reuses the same id and port, so your URL stays stable. Use
+<code>make list-agents</code> to see the other worktrees on the machine, and
+<code>make release-agent</code> to undo. See
+<a href="../how-to-run-several-worktrees/">How to run several worktrees on one machine</a>.</p>
+</blockquote>
 <h3 id="parallel-execution-with-make">Parallel execution with make<a class="headerlink" href="#parallel-execution-with-make" title="Permanent link">#</a></h3>
 <p>By default, GNU make runs one recipe at a time, sequentially. You may choose to run <code>make dev</code> with multiple jobs in parallel to speed up the build process, particularly operations that involve many network calls (such as building dependencies and downloading assets). Use either:</p>
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>dev<span class="w"> </span>--jobs<span class="o">=</span><span class="m">32</span>
@@ -3484,15 +3535,42 @@ It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": 
 <li>You might not immediately see the test products: create an account, login, and they should appear.</li>
 </ul>
 <ul>
+<li>
+<p><strong>After editing a Perl module, restart the backend container</strong> or your change
+  will not take effect:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>restart_backend
+</code></pre></div>
+<p>Your code is bind-mounted into the container, so files are saved immediately,
+but mod_perl keeps the previously loaded module in memory and only reloads it on
+a restart. Frontend changes under <code>scss/</code> and <code>html/js/</code> do not need this.</p>
+</li>
+</ul>
+<ul>
 <li>For a full description of available make targets, see <a href="../ref-docker-commands/">Docker / Makefile commands</a></li>
 </ul>
-<p><strong>Hosts file:</strong></p>
-<p>Since the default <code>PRODUCT_OPENER_DOMAIN</code> in the <code>.env</code> file is set to <code>openfoodfacts.localhost</code>, add the following to your hosts file (Windows: <code>C:\Windows\System32\drivers\etc\hosts</code>; Linux/MacOSX: <code>/etc/hosts</code>):</p>
-<div class="highlight"><pre><span></span><code>127.0.0.1 world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
+<p><strong>Hosts file (usually not needed):</strong></p>
+<p>The default <code>PRODUCT_OPENER_DOMAIN</code> in <code>.env</code> is <code>openfoodfacts.localhost</code>, and
+current Linux, macOS and Windows resolve <code>*.localhost</code> to <code>127.0.0.1</code> on their own
+(RFC 6761), so most browsers need <strong>no</strong> hosts file entry at all. It is also
+unnecessary when the containers run under WSL2 and you browse from Windows.</p>
+<p>Only if you actually hit name-resolution errors, add the following to your hosts
+file (Linux/macOS: <code>/etc/hosts</code>; Windows:
+<code>C:\Windows\System32\drivers\etc\hosts</code>):</p>
+<div class="highlight"><pre><span></span><code>127.0.0.1 openfoodfacts.localhost world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
 </code></pre></div>
+<p>Or let the Makefile append it for you, idempotently:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>edit_etc_hosts
+</code></pre></div>
+<p>Do not edit system files unless you actually hit this error. Tools that do not
+special-case <code>*.localhost</code> (<code>curl</code>, <code>wget</code>, some resolvers) may still need the
+entry.</p>
 <p><strong>You're done! Check <code>http://openfoodfacts.localhost/</code>.</strong></p>
 <h3 id="going-further">Going further<a class="headerlink" href="#going-further" title="Permanent link">#</a></h3>
 <p>To learn more about developing with Docker, see the <a href="../how-to-develop-using-docker/">Docker developer's guide</a>.</p>
+<p>If you work in several <a href="https://git-scm.com/docs/git-worktree">git worktrees</a> on
+the same machine (for example several agents on the same repository), each one
+needs its own container names, domain and port: see
+<a href="../how-to-run-several-worktrees/">How to run several worktrees on one machine</a>.</p>
 <p>To have all site pages on your dev instance, see <a href="../how-to-use-pages-from-openfoodfacts-web/">Using pages from openfoodfacts-web</a></p>
 <p><a href="../how-to-use-repl/">Using Repl</a> offers you a way to play with perl.</p>
 <p>Specific notes are provided on <a href="../how-to-update-agribalyse-ecoscore/">applying AGRIBALYSE updates to support the Ecoscore</a> calculation.</p>
@@ -3515,6 +3593,8 @@ It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": 
 <li>Click the verification link inside the email</li>
 <li>Your account will be activated!</li>
 </ol>
+<p>This step is <strong>required locally and is not a bug</strong>: until you click the link the
+account stays inactive and cannot log in.</p>
 <h2 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">#</a></h2>
 <p><strong>WARNING</strong>: Devcontainer support is currently experimental. It's recommended to run the normal docker commands before, and stop the containers: <code>make dev down</code>. Note that <code>make dev</code>, <code>make test</code>, and so on may currently conflict with the devcontainer.</p>
 <p>This repository comes with a configuration for Visual Studio Code (VS Code) <a href="https://code.visualstudio.com/docs/remote/containers">development containers (devcontainer)</a>. This enables some Perl support in VS Code without the need to install the correct Perl version and modules on your local machine.</p>
