@@ -7560,6 +7560,7 @@ bg: Грана Падано
 ca: Grana Padano, formatge Grana Padano
 cv: Грана Падано
 da: Grana Padano, Grana Padano ost
+de: Grana Padano Käse
 eo: Грана Падано
 es: Grana Padano, queso Grana Padano
 fi: Grana Padano, Grana Padano -juusto
@@ -8073,7 +8074,7 @@ ca: mozzarella, formatge mozzarella
 cs: mozzarella, sýr mozzarella
 cv: Моцарелла
 cy: Mosarela
-da: mozzarella, mozzarella ost
+da: mozzarella, mozzarella ost, mozzarellaost
 de: Mozzarella, Mozzarella-Käse
 el: Μοτσαρέλα, τυρι Μοτσαρέλλα
 eo: Mocarelo
@@ -9209,10 +9210,20 @@ nl: kaassmaak
 
 #< en: compound
 < en: cheese
-fr: préparation fromagère
+en: cheese preparation
 ca: preparació de formatges
-de: käsezubereitung, Schmelzkäsezubereitung
+de: käsezubereitung
 es: preparación de quesos
+fr: préparation fromagère
+it: preparazione di formaggio, preparazione al formaggio
+
+< en: melted cheese
+# "préparation fromagère" has no legal definition in France (décret n° 2007-628 defines fromage, fromage fondu, spécialité fromagère...)
+< fr: préparation fromagère
+en: melted cheese preparation
+de: Schmelzkäsezubereitung
+fr: préparation de fromage fondu
+it: preparazione al formaggio fuso, preparazione di formaggio fuso
 
 < en: cheese
 en: halloumi, halloumi cheese
@@ -36154,7 +36165,7 @@ bg: млечни протеини, млечен протеин, млечен б�
 bs: mliječne bjelančevina
 ca: Proteina de la llet, proteines de la llet, proteïnes làcties
 cs: mléčnou bílkovinu
-da: mælkeprotein
+da: mælkeprotein, mælkeproteiner
 de: Milcheiweiß, Milcheiweib, Milchprotein, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Milcheiweiss, Milchproteine
 es: proteína de leche, proteinas lacteas
 fi: maitoproteiini, maitoproteiinit
@@ -39389,6 +39400,7 @@ hr: kiselo tijesto
 hu: Kovász
 id: Adonan asam
 is: Súrdeig
+it: pasta acida, pasta madre
 ja: サワードウ
 ko: 사워도
 lt: raugas
@@ -65174,8 +65186,11 @@ nl: biologische tomatenpuree
 
 # fr:purée-de-tomate-mi-réduite could be a synonym of en:tomato-purée
 
+# semi-concentrated tomato: tomato purée concentrated to a lower dry matter content than tomato concentrate
 < en: tomato purée
-fr: purée de tomate mi-réduite, purée de tomates mi-concentrée, purée de tomates mi-réduites
+en: tomato semi-concentrate, semi-concentrated tomato, tomato semi-concentrated puree
+fr: purée de tomate mi-réduite, purée de tomates mi-concentrée, purée de tomates mi-réduites, semi-concentré de tomate, semi-concentré de tomates, purée de tomates semi-concentrée
+it: semiconcentrato di pomodoro, semi-concentrato di pomodoro, passata di pomodoro semiconcentrata
 nl: half ingedikte tomatenpuree
 
 < fr: purée de tomate mi-réduite
