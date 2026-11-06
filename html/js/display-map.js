@@ -21,6 +21,62 @@
 import { Map as LeafletMap, Marker, TileLayer } from 'leaflet';
 import { MarkerClusterGroup } from 'leaflet.markercluster';
 
+function createSafeLink(url, text) {
+  const link = document.createElement('a');
+  link.setAttribute('href', String(url ?? ''));
+  link.textContent = String(text ?? '');
+
+  return link;
+}
+
+function appendTrustedImage(container, imgHtml, url) {
+  if (imgHtml === null || typeof imgHtml === 'undefined' || imgHtml === '') {
+    return;
+  }
+
+  const imageLink = document.createElement('a');
+  imageLink.setAttribute('href', String(url ?? ''));
+  imageLink.innerHTML = String(imgHtml);
+  container.appendChild(imageLink);
+  container.appendChild(document.createElement('br'));
+}
+
+// Server sends `origins` as an array of plain-text lines (see
+// Display::map_of_products). Each line is rendered as inert text.
+function appendOrigins(container, origins) {
+  const lines = origins;
+  if (!Array.isArray(lines)) {
+    return;
+  }
+
+  lines.forEach((line) => {
+    if (line === null || typeof line === 'undefined' || line === '') {
+      return;
+    }
+
+    container.appendChild(document.createTextNode(String(line)));
+    container.appendChild(document.createElement('br'));
+  });
+}
+
+function createPopupContent(pointer) {
+  const container = document.createElement('div');
+
+  container.appendChild(createSafeLink(pointer.url, pointer.product_name ?? ''));
+  container.appendChild(document.createElement('br'));
+
+  const brands = document.createElement('span');
+  brands.textContent = String(pointer.brands ?? '');
+  container.appendChild(brands);
+  container.appendChild(document.createElement('br'));
+
+  appendTrustedImage(container, pointer.img, pointer.url);
+
+  appendOrigins(container, pointer.origins);
+
+  return container;
+}
+
 export function displayMap(containerId, pointers) {
   const map = new LeafletMap(containerId, { maxZoom: 12 });
 
@@ -35,7 +91,7 @@ export function displayMap(containerId, pointers) {
 
   for (const pointer of pointers) {
     const marker = new Marker(pointer.geo);
-    marker.bindPopup('<a href="' + pointer.url + '">' + pointer.product_name + '</a><br>' + pointer.brands + "<br>" + '<a href="' + pointer.url + '">' + pointer.img + '</a><br>' + pointer.origins);
+    marker.bindPopup(() => createPopupContent(pointer));
     layers.push(marker);
   }
 
