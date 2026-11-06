@@ -9189,11 +9189,18 @@ nl: kaassmaak
 
 #< en: compound
 < en: cheese
-fr: préparation fromagère, préparation de fromage fondu
+fr: préparation fromagère
 ca: preparació de formatges
-de: käsezubereitung, Schmelzkäsezubereitung
+de: käsezubereitung
 es: preparación de quesos
-it: preparazione di formaggio, preparazione al formaggio, preparazione al formaggio fuso, preparazione di formaggio fuso
+it: preparazione di formaggio, preparazione al formaggio
+
+# "préparation fromagère" has no legal definition in France (décret n° 2007-628 defines fromage, fromage fondu, spécialité fromagère...)
+< fr: préparation fromagère
+< en: melted cheese
+fr: préparation de fromage fondu
+de: Schmelzkäsezubereitung
+it: preparazione al formaggio fuso, preparazione di formaggio fuso
 
 < en: cheese
 en: halloumi, halloumi cheese
@@ -65061,8 +65068,11 @@ nl: biologische tomatenpuree
 
 # fr:purée-de-tomate-mi-réduite could be a synonym of en:tomato-purée
 
+# semi-concentrated tomato: tomato purée concentrated to a lower dry matter content than tomato concentrate
 < en: tomato purée
-fr: purée de tomate mi-réduite, purée de tomates mi-concentrée, purée de tomates mi-réduites
+en: tomato semi-concentrate, semi-concentrated tomato, tomato semi-concentrated puree
+fr: purée de tomate mi-réduite, purée de tomates mi-concentrée, purée de tomates mi-réduites, semi-concentré de tomate, semi-concentré de tomates, purée de tomates semi-concentrée
+it: semiconcentrato di pomodoro, semi-concentrato di pomodoro, passata di pomodoro semiconcentrata
 nl: half ingedikte tomatenpuree
 
 < fr: purée de tomate mi-réduite
@@ -65134,12 +65144,6 @@ it: concentrato di pomodoro in scatola
 ciqual_food_code:en: 20068
 ciqual_food_name:en: Tomato paste, concentrated, canned
 ciqual_food_name:fr: Tomate, concentré, appertisé
-
-# semi-concentrated tomato: tomato purée concentrated to a lower dry matter content than tomato concentrate
-< en: tomato concentrate
-en: tomato semi-concentrate, semi-concentrated tomato, tomato semi-concentrated puree
-fr: semi-concentré de tomate, semi-concentré de tomates, purée de tomates semi-concentrée
-it: semiconcentrato di pomodoro, semi-concentrato di pomodoro, passata di pomodoro semiconcentrata
 
 # en:double-concentrated-tomato can be a compound ingredient, eg Tomatenmark doppelt konzentriert (Tomaten, Speisesalz)
 
