@@ -63,7 +63,7 @@ msgstr "и Фејсбук група <a href=\"https://www.facebook.com/groups/O
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Отворите претрагу производа Open Beauty Facts"
+msgstr "Отворите претрагу производа Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -328,7 +328,7 @@ msgstr ""
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "Хвала што сте се придружили <<site_name>>"
+msgstr "Кровдин"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -406,7 +406,7 @@ msgstr ""
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Serbian.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -687,11 +687,11 @@ msgstr "Избрисано:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "Донирајте Open Food Facts-у"
+msgstr ""
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-sr.openfoodfacts.org/donirajte-open-food-facts-sr"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -976,7 +976,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -3422,7 +3422,7 @@ msgstr ""
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr "Помозите у превођењу %s на %s"
+msgstr ""
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
@@ -4277,27 +4277,27 @@ msgstr ""
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr "Већ сам донирао или нисам заинтересован. Сакриј банер."
+msgstr ""
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr "Независан пројекат за транспарентност хране који воде грађани?"
+msgstr ""
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr "Подаци о прехрамбеним производима за истраживања која унапређују јавно здравље?"
+msgstr ""
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr "Лакши и бољи избор хране према вашим сопственим критеријумима?"
+msgstr ""
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr "Потребна нам је ваша подршка!"
+msgstr ""
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr "Молимо вас донирајте"
+msgstr ""
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_provenance_line"
@@ -4741,7 +4741,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Nutri-Score се не примењује"
+msgstr "Нутри-скор се не примењује"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -4975,7 +4975,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score је еколошка оцена од А+ до Ф која олакшава упоређивање утицаја прехрамбених производа на животну средину."
+msgstr "Зелени резултат је еколошка оцена од А+ до Ф која олакшава упоређивање утицаја прехрамбених производа на животну средину."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4988,7 +4988,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score је еколошка оцена од А+ до Ф која олакшава упоређивање утицаја прехрамбених производа на животну средину."
+msgstr "Зелени резултат је еколошка оцена од А+ до Ф која олакшава упоређивање утицаја прехрамбених производа на животну средину."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5944,7 +5944,7 @@ msgstr ""
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score је првобитно развијен за Француску и проширује се на друге европске земље. Формула Green-Score подложна је променама јер се редовно побољшава како би била прецизнија и боље прилагођена свакој земљи."
+msgstr "Зелени резултат је првобитно развијен за Француску и проширује се на друге европске земље. Формула Зеленог резултата подложна је променама јер се редовно побољшава како би била прецизнија и боље прилагођена свакој земљи."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6063,7 +6063,7 @@ msgstr ""
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "Молимо вас донирајте нашој кампањи прикупљања средстава за {year}."
+msgstr ""
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6099,47 +6099,47 @@ msgstr ""
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "Још увек нам је потребно 120.000 € да завршимо 2026. годину!"
+msgstr ""
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Постаните покровитељ Open Food Facts-а"
+msgstr ""
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Сваког месеца опслужујемо 8 милиона посетилаца, и вишеструко више преко API-ја. Ваша подршка је од кључног значаја за:"
+msgstr ""
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "одржавање Open Food Facts-а отвореним и доступним свима,"
+msgstr ""
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "подршку инфраструктури, веб сајту, мобилној апликацији и API-ју са малим сталним тимом"
+msgstr ""
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
-msgstr "останак независним од прехрамбене индустрије,"
+msgstr ""
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "подршку заједници"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "подршку науци"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Када би сваки посетилац овог месеца кликнуо на Донирај и дао само 1 €, добили бисмо више од 8 пута наш годишњи буџет!"
+msgstr ""
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
-msgstr "Донирај"
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr "Донирај"
+msgstr ""
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
@@ -7800,7 +7800,7 @@ msgstr ""
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-sr.svg"
+msgstr ""
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7848,7 +7848,7 @@ msgstr "Пријавите ову слику нашим модераторима
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "Недостаје нам вредност величине порције и/или јединица за израчунавање Nutri-Score"
+msgstr "Недостаје нам вредност величине порције и/или јединица за израчунавање Нутри-скора"
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
@@ -8371,3 +8371,4 @@ msgstr ""
 msgctxt "google_drive_import_already_running"
 msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
 msgstr ""
+
