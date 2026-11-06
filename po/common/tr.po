@@ -693,7 +693,7 @@ msgstr "Open Food Facts'e Bağışta Bulunun"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-tr.openfoodfacts.org/open-food-factse-bagista-bulunun"
+msgstr "https://tr.openfoodfacts.org/open-food-factse-bagista-bulununs"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -978,7 +978,7 @@ msgstr "Sıkça sorulan sorular"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1099,7 +1099,7 @@ msgstr ""
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Üreticiler için Open Food Facts"
+msgstr "Üreticiler için Açık Gıda Gerçekleri"
 
 msgctxt "for"
 msgid "for"
@@ -1734,7 +1734,7 @@ msgstr "100 g / 100 ml için"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr "5. yüzdelik"
+msgstr "5 <sup> th </ sup> centile"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1746,7 +1746,7 @@ msgstr "90. yüzdelik"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr "95. yüzdelik"
+msgstr "95 <sup> th </ sup> centile"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -2810,8 +2810,7 @@ msgstr "Tüm dünyadan sonuçları gör"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr "Bilgi ve veriler ürün paketinden ve etiketinden gelmelidir (diğer sitelerden veya üreticinin sitesinden değil) ve fotoğrafları kendiniz çekmiş olmanız gerekir.<br/>\n"
-"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Neden önemlidir</a>"
+msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -4369,11 +4368,11 @@ msgstr "Kategorileri içe aktarın"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr "Üreticiden Nutri-Score puanı"
+msgstr "Üreticiden Nutri-Skor puanı"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr "Hesaplanan Nutri-Score skor"
+msgstr "Hesaplanan Nutri-Puan skor"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
@@ -4381,7 +4380,7 @@ msgstr "Üreticiden Nutri-Score derecesi"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr "Hesaplanan Nutri-Score derecesi"
+msgstr "Hesaplanan Nutri-Skor derecesi"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4987,11 +4986,11 @@ msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Düşük çevresel etki (Green-Score)"
+msgstr "Düşük çevresel etki (Eko-Skor)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
+msgstr "Yeşil Puan, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -5000,11 +4999,11 @@ msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Düşük çevresel etki (Green-Score)"
+msgstr "Düşük çevresel etki (Eko-Skor)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
+msgstr "Yeşil Puan, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5434,59 +5433,59 @@ msgstr "Nutri-Score, NOVA ve Green-Score gibi göstergeleri hesaplar ve bunları
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr "Orman Ayak İzi"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr "Düşük ormansızlaşma riski (Orman Ayak İzi)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Orman Ayak İzi, içeriğindeki maddelerle ilişkili ormansızlaşma riskine karşılık gelir."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr "Orman Ayak İzi A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr "Orman Ayak İzi B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr "Orman Ayak İzi C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr "Orman Ayak İzi D"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr "Ormansızlaşma riskiyle ilişkili hiçbir içerik maddesi bulunmuyor."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr "Ormansızlaşma riski taşıyan bir veya daha fazla içerik mevcut, ancak miktar, menşe ve/veya etiketler göz önüne alındığında risk düşüktür."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr "Ormansızlaşma riski taşıyan bir veya daha fazla içerik mevcut, miktar, menşe ve/veya etiketler göz önüne alındığında orta düzeyde risk."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr "Ormansızlaşma riski taşıyan bir veya daha fazla içerik mevcut, miktar, menşe ve/veya etiketler göz önüne alındığında yüksek risk."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr "Orman Ayak İzi hesaplanmadı"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr "Potansiyel ormansızlaşma riski mevcut ancak henüz hesaplanmadı."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr "Ormansızlaşma riski yok"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5494,7 +5493,7 @@ msgstr "Düşük ormansızlaşma riski"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr "Orta ormansızlaşma riski"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5502,15 +5501,15 @@ msgstr "Yüksek ormansızlaşma riski"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr "Olası ormansızlaşma riski hesaplanmadı"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr "Orman Ayak İzi mevcut değil"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr "İçerik listesi eksik olduğu için Orman Ayak İzi hesaplanamıyor."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -5626,7 +5625,7 @@ msgstr "Kesin bir kategori eksik"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Bazı veriler eksik olduğu için bu ürünün Green-Scoreunu hesaplayamadık, tamamlamanıza yardımcı olabilir misiniz?"
+msgstr "Bazı veriler eksik olduğu için bu ürünün Eko-Skorunu hesaplayamadık, tamamlamanıza yardımcı olabilir misiniz?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5960,7 +5959,7 @@ msgstr "Green-Score formülü, daha kesin hale getirmek için düzenli olarak ge
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score sistemi ilk olarak Fransa için geliştirilmiş olup diğer Avrupa ülkelerine de yaygınlaştırılmaktadır. Green-Score formülü, her ülkeye daha uygun ve daha doğru hale getirilmesi için düzenli olarak geliştirildiğinden değişime tabidir."
+msgstr "Yeşil Puanlama sistemi ilk olarak Fransa için geliştirilmiş olup diğer Avrupa ülkelerine de yaygınlaştırılmaktadır. Yeşil Puanlama formülü, her ülkeye daha uygun ve daha doğru hale getirilmesi için düzenli olarak geliştirildiğinden değişime tabidir."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6143,7 +6142,7 @@ msgstr "topluluğa destek olmak"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "bilimi desteklemek"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
@@ -6283,7 +6282,7 @@ msgstr "Bonuslar ve kötüye kullanımlar"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Bu ürün için Green-Score"
+msgstr "Bu ürün için Eko-Skor"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6693,11 +6692,11 @@ msgstr "Nutri-Score'u hesaplamak için gereken bilgileri ekleyebilir misiniz?"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Green-Scoreu hesaplayabilmemiz için kesin bir ürün kategorisi ekleyebilir misiniz?"
+msgstr "Eko-Skoru hesaplayabilmemiz için kesin bir ürün kategorisi ekleyebilir misiniz?"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "Bu ürün için belirlediğimiz kategori, Green-Scoreı hesaplamak için yeterince kesin değil. Daha kesin bir ürün kategorisi ekleyebilir misiniz?"
+msgstr "Bu ürün için belirlediğimiz kategori, Yeşil Puanı hesaplamak için yeterince kesin değil. Daha kesin bir ürün kategorisi ekleyebilir misiniz?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -8387,3 +8386,4 @@ msgstr ""
 msgctxt "google_drive_import_already_running"
 msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
 msgstr ""
+
