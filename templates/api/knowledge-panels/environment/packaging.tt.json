@@ -22,6 +22,17 @@
                     `
             }
         },
+        [% IF panel.packaging_image.defined %]
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("action_add_packaging_components") %]`,
+                "actions": [
+                    "add_packaging_components"
+                ]
+            }
+        },
+        [% ELSE %]
         {
             "element_type": "action",
             "action_element": {
@@ -31,6 +42,7 @@
                 ]
             }
         },
+        [% END %]
     ],
 [% ELSE %]
     // Environmental-Score currently computed only for food products
