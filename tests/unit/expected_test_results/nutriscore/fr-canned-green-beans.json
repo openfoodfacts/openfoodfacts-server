@@ -231,7 +231,9 @@
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
-      "en:nutrition-data-per-100g"
+      "en:nutrition-data-per-100g",
+      "en:protein-is-at-least-12-percent-of-energy",
+      "en:protein-is-at-least-20-percent-of-energy"
    ],
    "nova_group" : 3,
    "nova_group_debug" : "",
@@ -1054,7 +1056,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : "100",
+            "per_quantity" : 100,
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "packaging"
@@ -1463,7 +1465,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : "100",
+            "per_quantity" : 100,
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "estimate",
