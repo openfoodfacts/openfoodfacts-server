@@ -1079,7 +1079,7 @@ ky: Фермент
 lt: fermentas
 lv: ferments, fermenti
 nb: fermentere, gjære
-nl: Ferment, rijpingscultuur
+nl: Ferment, rijpingscultuur, fermenten
 pl: Fermentacja
 pt: fermento, fermentos
 ru: Фермент, закваска, заквасочные культуры, йогуртовая закваска, с использованием закваски
@@ -24624,6 +24624,7 @@ fr: fumée de bois de hêtre, fumée naturelle au bois de hêtre
 hr: dim bukovine, dim drva bukve, dim bukve
 hu: bükkfán füstölt, bükkfa füst
 it: fumo di faggio
+nl: beukenhoutrook
 pl: dym z drewna bukowego
 ro: fum din lemn de fag
 sk: dym z bukového dreva
@@ -24716,6 +24717,7 @@ fi: lese, leseet
 fr: son
 hr: mekinje
 hu: korpa
+nl: zemelen
 pl: otręby
 ciqual_food_code:en: 9647
 ciqual_food_name:en: Bran -average-
@@ -26752,9 +26754,6 @@ pt: extrato de malte, extracto de malte
 ro: extract de malț, extract de malt
 ru: Экстракт солода, солодовый экстракт, экстракт солодовый
 sv: maltextrakt
-
-< en: malt
-nl: moutmeel
 
 < en: malt extract
 en: dried malt extract
@@ -29223,9 +29222,14 @@ es: harina de malta
 fi: mallasjauho, mallastettu sekaviljajauho
 fr: farine de malt
 hr: sladno brašno
-it: Farina di malto
+it: farina di malto
+nl: moutmeel
 pt: farinha de malte, farinha de malte de cereais
 sv: maltmjöl
+
+< en: malt flour
+en: whole malt flour
+nl: volkoren moutmeel
 
 < en: cereal flour
 < en: wheat
@@ -39440,11 +39444,16 @@ hr: dehidrirano kiselo tijesto
 it: lievito naturale secco
 pl: zakwas w proszku, sproszkowany zakwas
 
+
 < en: dehydrated sourdough
 en: sourdough powder
 da: surdejspulver
 nl: zuurdesempoeder, desempoeder
 sv: surdegspulver
+
+< en: sourdough powder
+en: wholemeal sourdough powder
+nl: volkoren zuurdesempoeder
 
 < en: sourdough
 en: devitalised sourdough
@@ -96778,7 +96787,7 @@ fr: Oeufs d'élevage en plein air, Oeufs élevés en plein air, oeufs plein air,
 hr: jaja slobodnog uzgoja
 it: uova da allevamento a terra, Uova di allevamento all'aperto
 ja: 平飼い卵
-nl: vrije-uitloopei, vrije uitloop ei
+nl: vrije-uitloopei, vrije uitloop ei, vrije-uitloopeieren
 pl: jaja z wolnego wybiegu, jajka z wolnego wybiegu, jaja z chowu na wolnym wybiegu
 
 < en: whole egg
