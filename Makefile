@@ -9,6 +9,8 @@ endif
 SHELL := $(shell which bash)
 # some vars
 ENV_FILE ?= .env
+# Local overrides, also loaded by direnv. Override to /dev/null to ignore them.
+ENVRC ?= .envrc
 NAME = "ProductOpener"
 VERSION = $(shell cat version.txt)
 MOUNT_POINT ?= /mnt
@@ -38,19 +40,139 @@ endif
 export MSYS_NO_PATHCONV=1
 
 # load env variables
-# also takes into account envrc (direnv file)
 ifneq (,$(wildcard ./${ENV_FILE}))
     -include ${ENV_FILE}
-    -include .envrc
     export
 endif
+
+# .envrc holds local overrides (and is what direnv loads). It is included after
+# .env so that it wins, and unconditionally: -include on a missing file is a no-op,
+# whereas skipping it whenever .env is absent would silently disable per-worktree
+# isolation (see the PO_AGENT_ID block below).
+-include ${ENVRC}
+export
 
 ifneq (${EXTRA_ENV_FILE},'')
     -include ${EXTRA_ENV_FILE}
     export
 endif
 
-HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
+#------#
+# Per-worktree isolation #
+#------#
+# `make agent` writes PO_AGENT_ID and the two ports to .envrc.
+# When PO_AGENT_ID is set we derive per-worktree names so that several worktrees
+# (or several agents) can run `make dev` on the same machine at the same time.
+# When it is empty, which is the default, every name below is byte-identical to
+# what it has always been, so a single-worktree setup needs no change at all.
+#
+# The compose files rename networks/volumes/images from PO_AGENT_PREFIX and
+# PO_AGENT_SUFFIX, and from PRODUCT_OPENER_NETWORK for the default network. We
+# always export those (rather than letting compose compute them from PO_AGENT_ID)
+# because compose's ${VAR:+word} treats an empty-but-set VAR as true, which would
+# produce names like product-opener_.
+#
+# The derived values below are also written to .envrc by `make agent`, so that
+# host-side processes that never go through make (notably the Dev Containers
+# host-side Compose invocation, via direnv) see the same settings. The guards
+# leave already-suffixed values alone, so sourcing .envrc never applies the
+# prefix twice.
+PO_AGENT_ID ?=
+PO_AGENT_PREFIX := $(if $(strip $(PO_AGENT_ID)),$(strip $(PO_AGENT_ID))_,)
+PO_AGENT_SUFFIX := $(if $(strip $(PO_AGENT_ID)),_$(strip $(PO_AGENT_ID)),)
+export PO_AGENT_ID
+export PO_AGENT_PREFIX
+export PO_AGENT_SUFFIX
+
+# Resolved values, with the same fallbacks as .env, used by the guard below.
+PO_HOST_PORT := $(or $(strip $(PRODUCT_OPENER_HOST_PORT)),80)
+PO_SERVER_PORT := $(or $(strip $(PRODUCT_OPENER_PORT)),80)
+
+ifneq ($(strip $(PO_AGENT_ID)),)
+    _AGENT := $(strip $(PO_AGENT_ID))
+    # Only suffix when not already suffixed (e.g. via .envrc loaded with direnv).
+    ifeq ($(filter %_$(_AGENT),$(strip $(COMPOSE_PROJECT_NAME))),)
+        export COMPOSE_PROJECT_NAME := $(or $(strip $(COMPOSE_PROJECT_NAME)),po_off)_$(_AGENT)
+    endif
+    # Config2_docker.pm folds this into $server_domain, so it has to stay in sync
+    # with PRODUCT_OPENER_PORT or every generated URL/redirect is wrong.
+    ifeq ($(filter $(_AGENT).%,$(strip $(PRODUCT_OPENER_DOMAIN))),)
+        export PRODUCT_OPENER_DOMAIN := $(_AGENT).$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
+    endif
+    # Only keep a preset MINION_QUEUE when it is exactly what would be derived
+    # below; a PRODUCERS_PLATFORM flip between runs must not leave a stale
+    # queue behind.
+    _MINION_PORT := $(or $(strip $(PRODUCT_OPENER_PORT)),80)
+    _MINION_DOMAIN := $(PRODUCT_OPENER_DOMAIN)
+    ifneq ($(strip $(PRODUCERS_PLATFORM)),)
+        ifneq ($(strip $(PRODUCERS_PLATFORM)),0)
+            _MINION_DOMAIN := pro.$(PRODUCT_OPENER_DOMAIN)
+        endif
+    endif
+    ifneq ($(findstring localhost,$(_MINION_DOMAIN)),)
+        ifneq ($(_MINION_PORT),80)
+            _WANT_MINION_QUEUE := $(_MINION_DOMAIN):$(_MINION_PORT)
+        else
+            _WANT_MINION_QUEUE := $(_MINION_DOMAIN)
+        endif
+    else
+        _WANT_MINION_QUEUE := $(_MINION_DOMAIN)
+    endif
+    ifneq ($(_WANT_MINION_QUEUE),$(strip $(MINION_QUEUE)))
+        # Mirror Config2_docker.pm: $server_domain is "$domain:$port" when the
+        # domain contains localhost and the server port is not 80, otherwise
+        # just $domain — and it carries the `pro.` prefix on the producers
+        # platform. The worker listens on MINION_QUEUE while jobs are
+        # enqueued on $server_domain, so they must match.
+        export MINION_QUEUE := $(_WANT_MINION_QUEUE)
+    endif
+    # The default compose network of the Product Opener stack. Without this every
+    # worktree would share it, and Docker DNS would answer `backend`, `frontend`
+    # and world.$PRODUCT_OPENER_DOMAIN for all of them at once. This is separate
+    # from COMMON_NET_NAME, which names the network shared with MongoDB, Redis,
+    # PostgreSQL and Keycloak (see docker/run.yml).
+    ifeq ($(filter %_$(_AGENT),$(strip $(PRODUCT_OPENER_NETWORK))),)
+        export PRODUCT_OPENER_NETWORK := $(or $(strip $(PRODUCT_OPENER_NETWORK)),product-opener)_$(_AGENT)
+    endif
+    # The network Product Opener uses to reach its own dependency stack (see
+    # docker/run.yml). Derived here, before any recipe runs, so that adding
+    # PO_SHARED_DATA=1 and running `make up` does not keep using the isolated
+    # network that make loaded from .envrc before run_deps removed it on disk.
+    # When sharing, any stale isolation suffix is dropped so PO agrees with the
+    # dependencies, which fall back to their default when their .envrc is removed.
+    # realpath -m canonicalises `..` and symlinks (a `deps` symlink or a
+    # DEPS_DIR=../shared-deps would otherwise pass the prefix check below while
+    # living outside the worktree). It works for paths that do not exist yet,
+    # unlike $(realpath ...), which expands to empty.
+    _DEPS_ABS := $(shell realpath -m $(or $(strip $(DEPS_DIR)),$(CURDIR)/deps) 2>/dev/null || echo $(abspath $(or $(strip $(DEPS_DIR)),$(CURDIR)/deps)))
+    _CUR_ABS := $(shell realpath -m $(CURDIR) 2>/dev/null || echo $(abspath $(CURDIR)))
+    _DEPS_SHARED := $(if $(findstring $(_CUR_ABS)/,$(_DEPS_ABS)/),,1)
+    # Fail closed like the script: a `deps` symlink may point outside even when
+    # the lexical prefix check above passes (abspath resolves `..` but not
+    # symlinks).
+    _DEPS_SYMLINK := $(shell test -L "$(or $(strip $(DEPS_DIR)),$(CURDIR)/deps)" 2>/dev/null && echo 1)
+    ifneq ($(_DEPS_SYMLINK),)
+        _DEPS_SHARED := 1
+    endif
+    ifeq ($(strip $(PO_SHARED_DATA)),1)
+        export COMMON_NET_NAME := off_shared_network
+    else ifneq ($(_DEPS_SHARED),1)
+        export COMMON_NET_NAME := off_shared_network_$(_AGENT)
+    endif
+endif
+
+# Hosts entries for PRODUCT_OPENER_DOMAIN, derived from it so they cannot drift
+# away from the configured domain (this list used to be hardcoded to
+# productopener.localhost, which no longer is the domain we serve).
+HOSTS=127.0.0.1 ${PRODUCT_OPENER_DOMAIN} world.${PRODUCT_OPENER_DOMAIN} fr.${PRODUCT_OPENER_DOMAIN} static.${PRODUCT_OPENER_DOMAIN} ssl-api.${PRODUCT_OPENER_DOMAIN} fr-en.${PRODUCT_OPENER_DOMAIN}
+
+# Base URL of the dev instance, used by the messages the targets below print.
+# Derived from PRODUCT_OPENER_DOMAIN and the published host port, both of which
+# per-worktree isolation changes, so these messages stay correct. The port is
+# omitted when it is the default 80.
+PO_URL_HOST := world.$(or $(strip $(PRODUCT_OPENER_DOMAIN)),openfoodfacts.localhost)
+PO_URL_PORT := $(if $(filter 80,$(or $(strip $(PRODUCT_OPENER_HOST_PORT)),80)),,:$(strip $(PRODUCT_OPENER_HOST_PORT)))
+PO_URL := http://$(PO_URL_HOST)$(PO_URL_PORT)/
 # commands aliases
 DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # docker command that do not need the shared network
@@ -69,6 +191,9 @@ DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://b
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
 	OIDC_IMPLEMENTATION_LEVEL=5 \
 	PO_COMMON_PREFIX=test_ \
+	PRODUCT_OPENER_DOMAIN=openfoodfacts.localhost \
+	PRODUCT_OPENER_PORT=80 \
+	MINION_QUEUE=openfoodfacts.localhost \
 	docker compose --env-file=${ENV_FILE}
 DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
     REDIS_URL= \
@@ -118,14 +243,14 @@ goodbye:
 # Local #
 #-------#
 dev: hello build init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
-	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
+	@echo "🥫 You should be able to access your local install of Open Food Facts at $(PO_URL)"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~4M products)."
 
 #-------#
 # CI    #
 #-------#
 dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
-	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
+	@echo "🥫 You should be able to access your local install of Open Food Facts at $(PO_URL)"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~4M products)."
 
 edit_etc_hosts:
@@ -159,10 +284,10 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE_BUILD} build ${args} ${container} 2>&1
 
-_up: run_deps
+_up: run_deps check_agent_ports
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
-	@echo "🥫 started service at http://openfoodfacts.localhost"
+	@echo "🥫 started service at $(PO_URL)"
 
 up: build create_folders _up
 
@@ -186,12 +311,12 @@ reset: hdown up
 restart: run_deps
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
-	@echo "🥫  started service at http://openfoodfacts.localhost"
+	@echo "🥫  started service at $(PO_URL)"
 
 restart_backend:
 	@echo "🥫 Restarting backend container …"
 	${DOCKER_COMPOSE} restart backend
-	@echo "🥫 Apache restarted successfully at http://openfoodfacts.localhost"
+	@echo "🥫 Apache restarted successfully at $(PO_URL)"
 
 stop: stop_deps
 	@echo "🥫 Stopping containers …"
@@ -216,16 +341,16 @@ tail:
 codecov_prepare: create_folders
 	@echo "🥫 Preparing to run code coverage…"
 	mkdir -p cover_db
-	${DOCKER_COMPOSE_TEST} run --rm backend cover -delete
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm backend cover -delete
 	mkdir -p cover_db
 
 codecov:
 	@echo "🥫 running cover to generate a report usable by codecov …"
-	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecovbash
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm backend cover -report codecovbash
 
 coverage_txt:
 	@echo "🥫 running cover to generate text report …"
-	${DOCKER_COMPOSE_TEST} run --rm backend cover
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm backend cover
 
 #----------#
 # Services #
@@ -238,7 +363,7 @@ build_lang: create_folders
 
 build_lang_test: create_folders
 # Run build_lang.pl in test env
-	${DOCKER_COMPOSE_TEST} run --rm --no-deps -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm --no-deps -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
@@ -306,9 +431,9 @@ tests: build_taxonomies_test build_lang_test unit_test integration_test brands_s
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} up --quiet-pull -d memcached postgres mongodb
 	@echo "🥫 Running tests with yath (parallel jobs: ${CPU_COUNT})"
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
+	${DOCKER_COMPOSE_TEST} run --quiet-pull ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -320,10 +445,10 @@ integration_test: create_folders
 # this is the place where variables are important
 # Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
 # Also need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
-	${DOCKER_COMPOSE_INT_TEST} up -d frontend
-	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
-	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
-	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d frontend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d dynamicfront
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull --wait postgres
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d backend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
@@ -344,8 +469,8 @@ test-stop:
 # you can also add args= to pass more options to your test command
 test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend ${TEST_CMD} ${args} tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} up --quiet-pull -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm backend ${TEST_CMD} ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 # to update expected results: make test-int test="test-name.t :: --update-expected-results"
@@ -358,9 +483,9 @@ test-int: guard-test create_folders
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
 # Need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
-	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
-	${DOCKER_COMPOSE_INT_TEST} up -d frontend
-	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull --wait postgres
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d frontend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_INT_TEST} stop
@@ -380,14 +505,14 @@ update_tests_results: build_taxonomies_test build_lang_test update_unit_tests_re
 
 update_unit_tests_results:
 	@echo "🥫 Updated expected unit test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend bash tests/update_unit_tests_results.sh
+	${DOCKER_COMPOSE_TEST} up --quiet-pull -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm backend bash tests/update_unit_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
 
 update_integration_tests_results:
 	@echo "🥫 Updated expected integration test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
-	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull --wait postgres
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec backend bash tests/update_integration_tests_results.sh
 	${DOCKER_COMPOSE_INT_TEST} stop
 
@@ -397,7 +522,7 @@ bash:
 
 bash_test:
 	@echo "🥫 Open a bash shell in the test container"
-	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --rm -w /opt/product-opener backend bash
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl %.t: _FORCE
@@ -523,7 +648,7 @@ build_taxonomies_test: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
+	${DOCKER_COMPOSE_TEST} run --quiet-pull --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
 
 _clean_old_external_volumes:
 # THIS IS A MIGRATION STEP, TO BE REMOVED IN THE FUTURE
@@ -614,11 +739,23 @@ rotate_logs:
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
-# Run dependent projects
+# Run dependent projects.
+# The sync happens in the recipe, not as a sibling prerequisite: with
+# `make --jobs=N` the two would run in parallel, and the sync could land before
+# clone_deps had created deps/, silently leaving the dependencies shared.
 run_deps: clone_deps
+	@PO_SHARED_DATA="$(PO_SHARED_DATA)" DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --sync-deps
 	@for dep in ${DEPS} ; do \
 		cd "${DEPS_DIR}/$$dep" && $(MAKE) run; \
 	done
+
+# Keep this worktree's .envrc and the dependencies' .envrc in sync with its agent
+# id. Runs on every run_deps, not only in `make agent`, so that a worktree whose
+# deps were cloned afterwards, or whose .envrc was lost or edited by hand, still
+# ends up isolated. It is a no-op when PO_AGENT_ID is unset, which is what CI
+# relies on.
+sync_agent_deps:
+	@PO_SHARED_DATA="$(PO_SHARED_DATA)" DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --sync-deps
 
 
 # Clone dependent projects without running them (used to pull in yml for tests)
@@ -626,8 +763,13 @@ clone_deps:
 	@mkdir -p "${DEPS_DIR}"; \
 	for dep in ${DEPS} ; do \
 		echo $$dep; \
-		if [ ! -d "${DEPS_DIR}/$$dep" ]; then \
-			echo "Cloning $$dep"; \
+		if [ ! -e "${DEPS_DIR}/$$dep/.git" ]; then \
+			if [ -e "${DEPS_DIR}/$$dep" ]; then \
+				echo "Removing incomplete checkout ${DEPS_DIR}/$$dep (no .git) and cloning $$dep"; \
+				rm -rf "${DEPS_DIR}/$$dep"; \
+			else \
+				echo "Cloning $$dep"; \
+			fi; \
 			git clone --filter=blob:none --sparse \
 				https://github.com/openfoodfacts/$$dep.git "${DEPS_DIR}/$$dep"; \
 			echo "Cloned $$dep"; \
@@ -654,6 +796,71 @@ stop_deps:
 # Utilities #
 #-----------#
 
+# Writes .envrc so that this worktree gets its own container/network/volume/image
+# names, its own domain and its own host port. Run it once per worktree.
+# No coordination needed: ID defaults to one derived from the directory name and
+# claimed atomically, so concurrent agents never collide.
+# See docs/dev/how-to-run-several-worktrees.md
+agent:
+	@PO_SHARED_DATA="$(PO_SHARED_DATA)" DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh $(if $(ID),--id "$(ID)",) $(if $(PORT),--port "$(PORT)",)
+
+# Which ids are in use on this machine, and on which ports.
+list-agents:
+	@DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --list
+
+# Drop this worktree's generated block and give its id/port back.
+# Pass ID=<id> to also free an entry left behind by a worktree that no longer exists.
+release-agent:
+	@DEPS_DIR="${DEPS_DIR}" scripts/dev-agent-env.sh --release $(if $(ID),--id "$(ID)",)
+
+# Fail loudly rather than silently fighting over host port 80 with another worktree.
+check_agent_ports: run_deps
+ifneq ($(strip $(PO_AGENT_ID)),)
+	@if [ "$(PO_HOST_PORT)" = "80" ] && [ "$(ALLOW_SHARED_PORT)" != "1" ]; then \
+		echo "❌ PO_AGENT_ID=$(PO_AGENT_ID) is set but the frontend would still publish host port 80,"; \
+		echo "   so another worktree on this machine would collide with it."; \
+		echo "   Fix: run 'make agent ID=$(PO_AGENT_ID)' again, or set PRODUCT_OPENER_HOST_PORT and"; \
+		echo "   PRODUCT_OPENER_PORT in .envrc. Set ALLOW_SHARED_PORT=1 to override."; \
+		exit 1; \
+	fi
+	@if [ "$(PO_HOST_PORT)" != "$(PO_SERVER_PORT)" ]; then \
+		echo "❌ PRODUCT_OPENER_HOST_PORT=$(PO_HOST_PORT) but PRODUCT_OPENER_PORT=$(PO_SERVER_PORT)."; \
+		echo "   Config2_docker.pm derives its server domain from PRODUCT_OPENER_PORT, so a mismatch"; \
+		echo "   makes the app generate URLs and redirects pointing at another port."; \
+		echo "   Set both to the same value in .envrc."; \
+		exit 1; \
+	fi
+	@if [ "$(PO_SHARED_DATA)" != "1" ]; then \
+		for f in ${DEPS_DIR}/openfoodfacts-shared-services/.envrc ${DEPS_DIR}/openfoodfacts-auth/.envrc; do \
+			if ! grep -q "_$(PO_AGENT_ID)" "$$f" 2>/dev/null; then \
+				echo "❌ $$f does not mention $(PO_AGENT_ID), so MongoDB, Redis, PostgreSQL and"; \
+				echo "   Keycloak would stay shared with the other worktrees. Their Redis streams"; \
+				echo "   (user-deleted, user-registered, user-updated) are global, so one worktree"; \
+				echo "   would then act on another worktree's user events."; \
+				echo "   Fix: run 'make agent' again, or set PO_SHARED_DATA=1 in .envrc to share"; \
+				echo "   them deliberately."; \
+				exit 1; \
+			fi; \
+		done; \
+	fi
+else
+	@:
+endif
+
+# Effective (post-derivation) configuration, handy to debug a worktree or to assert
+# in CI that per-worktree isolation is applied.
+print-agent-config:
+	@echo "PO_AGENT_ID=$(PO_AGENT_ID)"
+	@echo "PO_AGENT_PREFIX=$(PO_AGENT_PREFIX)"
+	@echo "PO_AGENT_SUFFIX=$(PO_AGENT_SUFFIX)"
+	@echo "COMPOSE_PROJECT_NAME=$(COMPOSE_PROJECT_NAME)"
+	@echo "PRODUCT_OPENER_DOMAIN=$(PRODUCT_OPENER_DOMAIN)"
+	@echo "PRODUCT_OPENER_HOST_PORT=$(PRODUCT_OPENER_HOST_PORT)"
+	@echo "PRODUCT_OPENER_PORT=$(PRODUCT_OPENER_PORT)"
+	@echo "MINION_QUEUE=$(MINION_QUEUE)"
+	@echo "PRODUCT_OPENER_NETWORK=$(PRODUCT_OPENER_NETWORK)"
+	@echo "COMMON_NET_NAME=$(COMMON_NET_NAME)"
+
 guard-%: # guard clause for targets that require an environment variable (usually used as an argument)
 	@ if [ "${${*}}" = "" ]; then \
    		echo "Environment variable '$*' is not set"; \
@@ -664,6 +871,10 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 # Usage: make unit_test_group TEST_GROUP=1
 # Groups are dynamically balanced by execution time using greedy algorithm
 
+# CI consumes the coordinator's plan without making a new one in each shard.
+ifeq ($(CI_TEST_GROUP_PLAN),1)
+include .test_groups_cache/unit_groups.mk
+else
 # Generate dynamic test groups if not cached or if forced
 .test_groups_cache/unit_groups.mk: scripts/dynamic_test_grouper.py
 	@echo "🥫 Generating dynamic unit test groups (auto-calculated count)..."
@@ -672,6 +883,7 @@ guard-%: # guard clause for targets that require an environment variable (usuall
 
 # Include the dynamically generated groups
 -include .test_groups_cache/unit_groups.mk
+endif
 
 # Get unit test group tests from dynamically generated groups
 get_unit_group_tests = $(UNIT_GROUP_$(1)_TESTS)
@@ -681,16 +893,17 @@ unit_test_group: create_folders
 ifeq ($(TEST_GROUP),)
 	$(error TEST_GROUP is required. Usage: make unit_test_group TEST_GROUP=1)
 endif
+ifeq ($(strip $(call get_unit_group_tests,$(TEST_GROUP))),)
+	$(error Empty or unknown unit test group $(TEST_GROUP); regenerate the test plan)
+endif
 	@echo "🥫 Running unit test group $(TEST_GROUP) …"
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/unit/outputs/
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} up --quiet-pull -d memcached postgres mongodb
 	@echo "🥫 Running all tests in group $(TEST_GROUP) with parallel execution and JUnit XML generation..."
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
+	${DOCKER_COMPOSE_TEST} run --quiet-pull ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 Unit test group $(TEST_GROUP) completed successfully"
-	# Update timing data from test results
-	@python3 scripts/dynamic_test_grouper.py --type=unit --update-timings --junit-dir=tests/unit/outputs/
 
 # Force regeneration of unit test groups (ignores cache)
 regenerate_unit_groups:
@@ -702,6 +915,10 @@ regenerate_unit_groups:
 # Usage: make integration_test_group TEST_GROUP=1
 # Groups are dynamically balanced by execution time using greedy algorithm
 
+# CI consumes the coordinator's plan without making a new one in each shard.
+ifeq ($(CI_TEST_GROUP_PLAN),1)
+include .test_groups_cache/integration_groups.mk
+else
 # Generate dynamic integration test groups if not cached or if forced
 .test_groups_cache/integration_groups.mk: scripts/dynamic_test_grouper.py
 	@echo "🥫 Generating dynamic integration test groups (auto-calculated count)..."
@@ -710,6 +927,7 @@ regenerate_unit_groups:
 
 # Include the dynamically generated groups
 -include .test_groups_cache/integration_groups.mk
+endif
 
 # Get the tests for a specific group from dynamically generated groups
 get_group_tests = $(INTEGRATION_GROUP_$(1)_TESTS)
@@ -718,17 +936,18 @@ integration_test_group: create_folders
 ifeq ($(TEST_GROUP),)
 	$(error TEST_GROUP is required. Usage: make integration_test_group TEST_GROUP=1)
 endif
+ifeq ($(strip $(call get_group_tests,$(TEST_GROUP))),)
+	$(error Empty or unknown integration test group $(TEST_GROUP); regenerate the test plan)
+endif
 	@echo "🥫 Running integration test group $(TEST_GROUP) …"
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/integration/outputs/
-	${DOCKER_COMPOSE_INT_TEST} up -d frontend
-	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d frontend
+	${DOCKER_COMPOSE_INT_TEST} up --quiet-pull -d backend
 	@echo "🥫 Running all tests in group $(TEST_GROUP) with both console output and JUnit XML generation..."
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend yath test --renderer=Formatter --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 Integration test group $(TEST_GROUP) completed successfully"
-	# Update timing data from test results
-	@python3 scripts/dynamic_test_grouper.py --type=integration --update-timings --junit-dir=tests/integration/outputs/
 
 # Force regeneration of integration test groups (ignores cache)
 regenerate_integration_groups:
