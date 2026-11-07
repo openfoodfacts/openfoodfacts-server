@@ -69,6 +69,14 @@ paths:
       responses:
         "200":
           description: OK
+          headers:
+            ETag:
+              schema:
+                type: string
+              description: |
+                Weak entity tag (ETag) for Optimistic Concurrency Control, based on barcode and last_modified_t.
+                Callers should treat the ETag as an opaque / transparent value and should not attempt to parse or interpret it.
+              example: 'W/"3017620422003-1729182300"'
           content:
             application/json:
               schema:
@@ -127,6 +135,16 @@ paths:
           schema:
             type: string
             example: "3017620422003"
+        - name: If-Match
+          in: header
+          required: false
+          schema:
+            type: string
+          description: |
+            Optional entity tag (ETag) or last modified timestamp of the product previously fetched.
+            Callers should treat the ETag as an opaque / transparent value and should not attempt to parse it.
+            If the current product state on the server does not match, the request fails with 412 Precondition Failed.
+          example: 'W/"3017620422003-1729182300"'
       requestBody:
         content:
           application/json:
@@ -256,6 +274,12 @@ paths:
                           quantity_value: 200
                           quantity_unit: ml
                           weight: 80
+        "412":
+          description: Precondition Failed - The product has been modified by another process since last fetched.
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/response-status/response_status.yaml
       security:
         - cookieAuth: []
           userAgentAuth: []
