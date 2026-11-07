@@ -1,0 +1,168 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "23000",
+         "id" : "en:cake",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "9410",
+               "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "ecobalyse_name" : "Farine UE agrégée -2025-",
+               "id" : "en:wheat-flour",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 25,
+               "text" : "wheat flour",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:filling",
+               "ingredients" : [
+                  {
+                     "ciqual_proxy_food_code" : "31016",
+                     "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                     "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+                     "id" : "en:sugar",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 12.5,
+                     "text" : "sugar",
+                     "vegan" : "maybe",
+                     "vegetarian" : "yes"
+                  },
+                  {
+                     "id" : "en:strawberry-filling",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 12.5,
+                     "text" : "strawberries"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent" : 40,
+               "percent_estimate" : 25,
+               "text" : "filling",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            },
+            {
+               "ciqual_food_code" : "22000",
+               "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+               "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
+               "id" : "en:egg",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "eggs",
+               "vegan" : "no",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 50,
+         "percent_estimate" : 50,
+         "text" : "Cake"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 25,
+         "text" : "sugar",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 25,
+         "text" : "water",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:egg"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:strawberry-filling"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:strawberry-filling"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 8,
+   "ingredients_n_tags" : [
+      "8",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:cake",
+      "en:sugar",
+      "en:water",
+      "en:wheat-flour",
+      "en:filling",
+      "en:egg",
+      "en:sugar",
+      "en:strawberry-filling"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:cake",
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:water",
+      "en:wheat-flour",
+      "en:cereal-flour",
+      "en:wheat",
+      "en:flour",
+      "en:cereal",
+      "en:filling",
+      "en:egg",
+      "en:strawberry-filling"
+   ],
+   "ingredients_text" : "Cake 50% (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_without_ciqual_codes" : [
+      "en:filling",
+      "en:strawberry-filling"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cake",
+      "en:filling",
+      "en:strawberry-filling"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 8,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "specific_ingredients" : [
+      {
+         "id" : "en:strawberry",
+         "ingredient" : "strawberries",
+         "intermediate_product" : "en:filling",
+         "percent" : 9.96,
+         "percent_in_intermediate_product" : 49.8,
+         "text" : "strawberries in the filling: 49.8%"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

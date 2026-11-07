@@ -1,5 +1,4 @@
 {
-   "allergens_from_ingredients" : "en:milk, ",
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
@@ -8,7 +7,9 @@
          "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 50,
+         "percent_estimate" : 44,
+         "percent_max" : 63,
+         "percent_min" : 25,
          "text" : "Sucre",
          "vegan" : "maybe",
          "vegetarian" : "yes"
@@ -21,6 +22,8 @@
          "is_in_taxonomy" : 1,
          "percent" : 25,
          "percent_estimate" : 25,
+         "percent_max" : 25,
+         "percent_min" : 25,
          "text" : "LAIT* entier en poudre",
          "vegan" : "no",
          "vegetarian" : "yes"
@@ -36,7 +39,9 @@
                "from_palm_oil" : "yes",
                "id" : "en:palm-oil",
                "is_in_taxonomy" : 1,
-               "percent_estimate" : 6.25,
+               "percent_estimate" : 7.75,
+               "percent_max" : 25,
+               "percent_min" : 1.5,
                "text" : "huile de palme",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -46,6 +51,8 @@
                "id" : "en:palm-kernel-oil",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 6.25,
+               "percent_max" : 12.5,
+               "percent_min" : 0,
                "text" : "huile de palmiste",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -53,7 +60,9 @@
          ],
          "is_in_taxonomy" : 1,
          "labels" : "en:vegan",
-         "percent_estimate" : 12.5,
+         "percent_estimate" : 14,
+         "percent_max" : 25,
+         "percent_min" : 3,
          "text" : "graisse végétale",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -61,13 +70,17 @@
       {
          "id" : "fr:beurre de cacao1",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 6.25,
+         "percent_estimate" : 10,
+         "percent_max" : 23.5,
+         "percent_min" : 3,
          "text" : "beurre de cacao1"
       },
       {
          "id" : "fr:pâte de cacao1",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 3.125,
+         "percent_estimate" : 5,
+         "percent_max" : 15.6666666666667,
+         "percent_min" : 3,
          "text" : "pâte de cacao1"
       },
       {
@@ -77,7 +90,9 @@
          "id" : "en:skimmed-milk-powder",
          "is_in_taxonomy" : 1,
          "percent" : 3,
-         "percent_estimate" : 3,
+         "percent_estimate" : 2,
+         "percent_max" : 3,
+         "percent_min" : 3,
          "text" : "LAIT* écrémé en poudre",
          "vegan" : "no",
          "vegetarian" : "yes"
@@ -89,7 +104,9 @@
          "from_palm_oil" : "no",
          "id" : "en:sunflower-oil",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.0625,
+         "percent_estimate" : 0,
+         "percent_max" : 3,
+         "percent_min" : 0,
          "text" : "huile de tournesol",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -98,7 +115,9 @@
          "additive_class" : "en:emulsifier",
          "id" : "en:e322",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.03125,
+         "percent_estimate" : 0,
+         "percent_max" : 3,
+         "percent_min" : 0,
          "text" : "lécithines",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -106,28 +125,33 @@
       {
          "id" : "en:vanilla-flavouring",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.015625,
+         "percent_estimate" : 0,
+         "percent_max" : 3,
+         "percent_min" : 0,
          "text" : "arômes de vanille",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
       },
       {
-         "ciqual_proxy_food_code" : "18100",
-         "ecobalyse_proxy_id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
-         "ecobalyse_proxy_name" : "Poudre de cacao par défaut -2025-",
-         "id" : "en:cocoa",
+         "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+         "ecobalyse_name" : "Lait par défaut -2025-",
+         "id" : "en:milk",
          "is_in_taxonomy" : 1,
-         "percent" : 30,
-         "percent_estimate" : 0.015625,
-         "text" : "Cacao",
-         "vegan" : "yes",
+         "origins" : "en:european-union,en:non-european-union",
+         "percent_estimate" : 0,
+         "percent_max" : 3,
+         "percent_min" : 0,
+         "text" : "Lait",
+         "vegan" : "no",
          "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
          "en:whole-milk-powder",
-         "en:skimmed-milk-powder"
+         "en:skimmed-milk-powder",
+         "en:milk"
       ],
       "en:palm-oil" : [
          "en:palm-oil",
@@ -163,11 +187,11 @@
       "en:sunflower-oil",
       "en:e322",
       "en:vanilla-flavouring",
-      "en:cocoa",
+      "en:milk",
       "en:palm-oil",
       "en:palm-kernel-oil"
    ],
-   "ingredients_percent_analysis" : -1,
+   "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:sugar",
       "en:disaccharide",
@@ -186,18 +210,17 @@
       "en:e322",
       "en:vanilla-flavouring",
       "en:flavouring",
-      "en:cocoa",
-      "en:plant",
+      "en:milk",
       "en:palm-oil",
       "en:palm-oil-and-fat",
       "en:palm-kernel-oil",
       "en:palm-kernel-oil-and-fat"
    ],
    "ingredients_text" : "Sucre, LAIT* entier en poudre 25%, graisse végétale (palme, palmiste), beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%, huile de tournesol, émulsifiant: lécithines, arômes de vanille. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
-   "ingredients_with_specified_percent_n" : 3,
-   "ingredients_with_specified_percent_sum" : 58,
-   "ingredients_with_unspecified_percent_n" : 8,
-   "ingredients_with_unspecified_percent_sum" : 71.984375,
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 28,
+   "ingredients_with_unspecified_percent_n" : 9,
+   "ingredients_with_unspecified_percent_sum" : 73.0,
    "ingredients_without_ciqual_codes" : [
       "en:e322",
       "en:palm-kernel-oil",
@@ -221,6 +244,14 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
+   ],
+   "specific_ingredients" : [
+      {
+         "id" : "en:cocoa",
+         "ingredient" : "Cacao",
+         "percent" : 30,
+         "text" : "Cacao: 30% minimum dans le chocolat au lait"
+      }
    ],
    "unknown_ingredients_n" : 2
 }
