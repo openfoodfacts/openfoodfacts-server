@@ -401,6 +401,7 @@ HTML
 	packaging_shapes packaging_materials packaging_recycling packaging
 	labels categories
 	ingredients_processing
+	ingredients_inclusion_markers
 	additives vitamins minerals traces
 	ingredients_analysis
 	nutrients misc
