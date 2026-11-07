@@ -30,7 +30,7 @@ msgstr ""
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr "/open-food-facts-mobile-app"
+msgstr "/ачык-ашамлык-фактлары-мобиль-кушымтасы"
 
 msgctxt "product_description_off"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
@@ -55,7 +55,7 @@ msgstr "Ингредиентлар INCI, аллергеннар, өстәмәл�
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr "/open-beauty-facts-mobile-app"
+msgstr "/матурлык фактлары өчен ачык мобиль кушымта"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
@@ -63,7 +63,7 @@ msgstr "һәм өлеш кертүчеләр өчен <a href=\"https://www.face
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Open Beauty Facts продуктын эзләү"
+msgstr "\"Матурлык фактлары\" продуктын ачык эзләү"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -687,11 +687,11 @@ msgstr "Бетерелде:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "Open Food Facts проектына хәйрия кылу"
+msgstr ""
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-tt.openfoodfacts.org/open-food-facts-ka-yardam-itu"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -976,7 +976,7 @@ msgstr "Еш бирелгән сораулар"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -4277,27 +4277,27 @@ msgstr ""
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr "Мин инде хәйрия иттем яки кызыксынмыйм. Баннерны яшерү."
+msgstr ""
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr "Азык-төлек ачыклыгы өчен бәйсез һәм гражданнар җитәкчелегендәге проект?"
+msgstr ""
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr "Халык сәламәтлеген яхшырта торган тикшеренүләр өчен азык-төлек мәгълүматлары?"
+msgstr ""
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr "Үзегезнең критерийларыгыз буенча җиңелрәк һәм яхшырак азык сайлау?"
+msgstr ""
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr "Безгә сезнең ярдәмегез кирәк!"
+msgstr ""
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr "Зинһар, ярдәм итегез"
+msgstr ""
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_provenance_line"
@@ -4975,7 +4975,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score - азык-төлек продуктларының әйләнә-тирә мохиткә йогынтысын чагыштыруны җиңеләйтә торган A+ тан F га кадәрге әйләнә-тирә мохит баллы."
+msgstr "Яшел балл - азык-төлек продуктларының әйләнә-тирә мохиткә йогынтысын чагыштыруны җиңеләйтә торган A+ тан F га кадәрге әйләнә-тирә мохит баллы."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4988,7 +4988,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score - азык-төлек продуктларының әйләнә-тирә мохиткә йогынтысын чагыштыруны җиңеләйтә торган A+ тан F га кадәрге әйләнә-тирә мохит баллы."
+msgstr "Яшел балл - азык-төлек продуктларының әйләнә-тирә мохиткә йогынтысын чагыштыруны җиңеләйтә торган A+ тан F га кадәрге әйләнә-тирә мохит баллы."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -6063,7 +6063,7 @@ msgstr ""
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr "Зинһар, безнең {year} елгы акча җыю кампаниясенә ярдәм итегез"
+msgstr ""
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6099,47 +6099,47 @@ msgstr ""
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "2026 елны тәмамлау өчен безгә әле 120 000 € кирәк!"
+msgstr ""
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Open Food Facts меценаты булыгыз"
+msgstr ""
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Һәр айда без 8 миллион кулланучыга хезмәт күрсәтәбез, һәм API аша тагын да күбрәк. Сезнең ярдәмегез бик мөһим:"
+msgstr ""
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "Open Food Facts проектын һәркем өчен ачык һәм җитәрлек итү,"
+msgstr ""
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "кечкенә даими команда белән инфраструктураны, сайтны, мобиль кушымтаны һәм API-ны тәэмин итү"
+msgstr ""
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
-msgstr "азык-төлек сәнәгатеннән бәйсез булып калу,"
+msgstr ""
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "җәмгыятькә ярдәм итү"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "фәнне үстерү"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Әгәр бу айда һәр кулланучы Ярдәм итү төймәсенә басып 1 € гына бирсә, без еллык бюджетыбыздан 8 тапкыр күбрәк акча җыяр идек!"
+msgstr ""
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
-msgstr "Хәйрия кылу"
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr "Хәйрия кылу"
+msgstr ""
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
@@ -6681,7 +6681,7 @@ msgstr ""
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "Бу продукт өчен булган категория Green-Score исәпләү өчен төгәл түгел. Сез төгәл продукт категориясен өсти аласызмы?"
+msgstr "Бу продукт өчен булган категория яшел-баллны исәпләү өчен төгәл түгел. Сез төгәл продукт категориясен өсти аласызмы?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7864,7 +7864,7 @@ msgstr "Лило эзләү системасы"
 
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
-msgstr "Роботлардан тупас куллану аркасында, без бу битне билгесез кулланучыларга хезмәт итә алмыйбыз. Зинһар, бушлай Open Food Facts счетын булдырыгыз."
+msgstr "Роботлардан тупас куллану аркасында, без бу битне билгесез кулланучыларга хезмәт итә алмыйбыз. Зинһар, бушлай Азык-төлек Фактлары счетын булдырыгыз."
 
 msgctxt "origin_of_ingredients"
 msgid "Origin of ingredients"
@@ -7954,7 +7954,7 @@ msgstr "Кирәк булмаган ингредиентлар"
 
 msgctxt "attribute_unwanted_ingredients_note"
 msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
-msgstr "Бу өстенлек Open Food Facts ингредиентлар исемлеген аңлавына нигезләнгән һәм төгәл булмаска мөмкин, продуктны һәрвакыт үзегез тикшерегез."
+msgstr "Бу өстенлек Ачык азык фактларының ингредиентлар исемлеген аңлавына нигезләнгән һәм төгәл булмаска мөмкин, продуктны һәрвакыт үзегез тикшерегез."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
@@ -7982,7 +7982,7 @@ msgstr ""
 
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
-msgstr "Бу өстенлекләр Open Food Facts ингредиентлар исемлеген аңлавына нигезләнә һәм аның төгәл яки тулы булмавы мөмкинлеге бар, продуктны һәрвакыт үзегез тикшерегез."
+msgstr "Бу өстенлекләр Ачык азык фактларының ингредиентлар исемлеген аңлавына нигезләнә һәм аның төгәл яки тулы булмавы мөмкинлеге бар, продуктны һәрвакыт үзегез тикшерегез."
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Footprint"
