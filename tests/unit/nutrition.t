@@ -16,6 +16,42 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 is(convert_salt_to_sodium(2.5), 1);
 is(convert_sodium_to_salt(1), 2.5);
 
+{
+	my $aggregated_set = generate_nutrient_aggregated_set_from_sets(
+		[
+			{
+				preparation => "as_sold",
+				per => "serving",
+				per_quantity => 3,
+				per_unit => "g",
+				source => "packaging",
+				nutrients => {
+					sugars => {value => 1, unit => "g"},
+				}
+			}
+		]
+	);
+	is($aggregated_set, undef, "small serving nutrition is not used as an aggregated set");
+}
+
+{
+	my $product_ref = {
+		nutrition => {
+			input_sets => [
+				{
+					per => "serving",
+					per_quantity => 3,
+					per_unit => "g",
+					nutrients => {sugars => {value => 1, unit => "g"}},
+				}
+			],
+			aggregated_set => {per => "serving", nutrients => {sugars => {value => 1, unit => "g"}}},
+		}
+	};
+	generate_nutrient_aggregated_set($product_ref);
+	ok(!exists $product_ref->{nutrition}{aggregated_set}, "stale serving aggregate is removed");
+}
+
 # Test the generation of the aggregated set from input sets
 
 my @tests = (
