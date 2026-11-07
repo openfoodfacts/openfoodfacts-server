@@ -215,6 +215,13 @@ volumes:
 
 networks:
   default:
+    # Several instances of Product Opener on one machine must not share this
+    # network: Docker DNS answers `backend`, `frontend`, `postgres` and
+    # `world.$PRODUCT_OPENER_DOMAIN` for every container attached to it, so they
+    # would round-robin between instances. `make agent` sets
+    # PRODUCT_OPENER_NETWORK per git worktree; deployments can set it too. The
+    # default keeps the historical name.
+    # See docs/dev/how-to-run-several-worktrees.md
     name: ${PRODUCT_OPENER_NETWORK:-product-opener}
 
 
