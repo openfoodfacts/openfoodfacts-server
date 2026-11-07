@@ -1198,6 +1198,53 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 
 		return 1;
 	}
+
+	# Ingredient first, after the end of the ingredients list: "... arômes. *Lait : origine UE et/ou non UE (Royaume-Uni)"
+	# Only after a . or ; or a starting *: after a comma or in parenthesis, it can be an ingredient of the list
+	# e.g. "Cheddar 36% : origine Belgique (lait pasteurisé, sel)"
+	my %ingredient_origin_regexp_in_lc = (
+		en => "(?:origins?|country of origin)",
+		fr => "(?:origines?|provenance)",
+	);
+	my $ingredient_origin_regexp = $ingredient_origin_regexp_in_lc{$ingredients_lc};
+	my $origins_list_regexp = '(?:' . $origins_regexp . ')(?:(?:,|' . $and_or . ')(?:\s?)(?:' . $origins_regexp . '))*';
+
+	if (
+			$origins_regexp
+		and (defined $ingredient_origin_regexp)
+		and (
+			$$text_ref =~ compiled_regexp(
+					  '((?:\.|;)\s*\**|^\s*\*+)\s*([^,.;:()*]+?)\s*\**\s*:\s*'
+					. $ingredient_origin_regexp
+					. '\s*:?\s*('
+					. $origins_list_regexp
+					. ')(?:\s*\(\s*('
+					. $origins_list_regexp
+					. ')\s*\))?\s*(?=,|;|\.| - |$)'
+			)
+		)
+		)
+	{
+		# save the match variables before other regexps are run by exists_taxonomy_tag()
+		my ($before, $ingredient, $origins, $origins_in_parenthesis, $prematch, $matched_text, $postmatch)
+			= ($1, $2, $3, $4, $`, $&, $');
+
+		return 0
+			if not exists_taxonomy_tag("ingredients",
+			canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient));
+
+		$matched_ingredient_ref->{ingredient} = $ingredient;
+		# "UE et/ou non UE (Royaume-Uni)": the origins in parenthesis are added
+		$matched_ingredient_ref->{origins}
+			= $origins . ((defined $origins_in_parenthesis) ? ",$origins_in_parenthesis" : '');
+		$matched_ingredient_ref->{matched_text} = $matched_text;
+
+		# Remove the matched text, but keep the separator before it
+		my $separator = ($before =~ /^([.;])/) ? $1 : '';
+		$$text_ref = $prematch . $separator . ' ' . $postmatch;
+
+		return 1;
+	}
 	return 0;
 }
 

@@ -1521,6 +1521,39 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	# “osteløbe (mikrobiel)”
+	# origin statement after the ingredients list, with the ingredient first:
+	# origins of the ingredient in specific_ingredients, not a new ingredient
+	[
+		'fr-ingredient-origin-statement-after-the-list',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, LAIT* entier en poudre 25%, pâte de cacao, arômes de vanille. *Lait: origine UE et/ou non UE (Royaume-Uni)",
+		}
+	],
+	[
+		'fr-ingredients-origin-statements-after-the-list',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Viande de porc, viande de bœuf, sel, dextrose. Porc : origine France. Viande de bœuf : Origine Union Européenne; Sel : origine UE",
+		}
+	],
+	[
+		'en-ingredient-origin-statement-after-the-list',
+		{
+			lc => "en",
+			ingredients_text => "Sugar, whole milk, cocoa butter. Milk: origin France",
+		}
+	],
+	# not an origin statement: ingredients of the list with their origins (in parenthesis, after a comma)
+	[
+		'fr-ingredient-origin-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Fromage (lait : origine France), sucre, beurre : origine UE, farine",
+		}
+	],
 	[
 		'da-osteloebe-mikrobiel',
 		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000
