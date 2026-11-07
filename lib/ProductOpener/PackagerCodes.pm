@@ -106,10 +106,20 @@ sub normalize_packager_codes ($codes) {
 		return "$countrycode $code1.$code2/$code3 EC";
 	};
 
+	# Normalize internal separators for these countries, as for UK codes, so
+	# written variants of an approval number use the same tag.
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/14961
+	# BE is excluded: 1/11 and 11/1, for example, identify different establishments.
+	my %strip_separators_countries = (map {$_ => 1} qw(dk at pl cz nl pt de));
+
 	my $normalize_ce_code = sub ($countrycode, $code) {
 
 		$countrycode = uc($countrycode);
 		$code = uc($code);
+		if ($strip_separators_countries{lc $countrycode}) {
+			# keep only the separators between country, ID and EC suffix
+			$code =~ s/\s|-|_|\.|\///g;
+		}
 		return "$countrycode $code EC";
 	};
 
@@ -252,8 +262,19 @@ sub init_packager_codes() {
 	if (-e "$data_root/packager-codes/packager_codes.sto") {
 		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
 		%packager_codes = %{$packager_codes_ref};
-		# Used to display sorted suggestions in TaxonomySuggestions.pm
-		@sorted_packager_codes = sort keys %packager_codes;
+
+		# The stored registry may still use the previous normalization rules.
+		# Add canonical aliases so newly saved products can resolve their packager,
+		# while keeping the old keys for products that have not been migrated yet.
+		my %canonical_codes = ();
+		foreach my $code (sort keys %{$packager_codes_ref}) {
+			my $canonical_code = get_string_id_for_lang("no_language", normalize_packager_codes($code));
+			$packager_codes{$canonical_code} //= $packager_codes_ref->{$code};
+			$canonical_codes{$canonical_code} = 1;
+		}
+
+		# Suggestions only need the canonical spelling of each code.
+		@sorted_packager_codes = sort keys %canonical_codes;
 	}
 	return;
 }

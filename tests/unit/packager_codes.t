@@ -57,10 +57,32 @@ is(normalize_packager_codes("RS-1022"), "RS 1022 EC", "RS: normalized code corre
 is(normalize_packager_codes("RS-40-004"), "RS 40-004 EC", "RS: normalized code correctly");
 is(normalize_packager_codes("RS-1"), "RS 1 EC", "RS: normalized code correctly");
 
-# normalize_ce_code
-is(normalize_packager_codes("de by-718 ec"), "DE BY-718 EC", "DE: normalized code correctly");
+# normalize_ce_code - countries whose inner separators are insignificant are stripped,
+# as done for UK codes, so that differently written variants of the same code
+# are stored as one tag (https://github.com/openfoodfacts/openfoodfacts-server/issues/14961)
+is(normalize_packager_codes("de by-718 ec"), "DE BY718 EC", "DE: normalized code correctly");
 is(normalize_packager_codes(normalize_packager_codes("de by-718 ec")),
-	"DE BY-718 EC", "DE: normalizing code twice does not change it any more than normalizing once");
+	"DE BY718 EC", "DE: normalizing code twice does not change it any more than normalizing once");
+
+is(normalize_packager_codes("de by-777-23 ec"), "DE BY77723 EC", "DE: inner separators stripped");
+is(normalize_packager_codes("de by77723 ec"), "DE BY77723 EC", "DE: inner separators stripped");
+is(normalize_packager_codes("nl z-0160 eg"), "NL Z0160 EC", "NL: inner separators stripped");
+is(normalize_packager_codes("nl z0160 eg"), "NL Z0160 EC", "NL: inner separators stripped");
+is(normalize_packager_codes("pt c-249-1p ec"), "PT C2491P EC", "PT: inner separators stripped");
+is(normalize_packager_codes("at 30-960 eg"), "AT 30960 EC", "AT: inner separators stripped");
+is(normalize_packager_codes("pl 22-121-818 we"), "PL 22121818 EC", "PL: inner separators stripped");
+is(normalize_packager_codes(normalize_packager_codes("at 30-960 eg")),
+	"AT 30960 EC", "AT: normalizing code twice does not change it any more than normalizing once");
+
+# countries whose inner separators are significant are left untouched
+is(normalize_packager_codes("be m-322-a ec"), "BE M-322-A EC", "BE: inner separators preserved");
+is(normalize_packager_codes("be m322-a ec"), "BE M322-A EC", "BE: inner separators preserved");
+# These identifiers belong to distinct establishments in BE-merge-UTF-8.tsv.
+foreach my $code ("1/11", "11/1", "13/1", "131", "1/31") {
+	is(normalize_packager_codes("BE $code EC"), "BE $code EC", "BE: preserve distinct establishment $code");
+}
+is(normalize_packager_codes("it 180-1 ec"), "IT 180-1 EC", "IT: inner separators preserved");
+is(normalize_packager_codes("it 1801 ec"), "IT 1801 EC", "IT: inner separators preserved");
 
 is(normalize_packager_codes("PL 14281601 WE"), "PL 14281601 EC", "PL: normalized code correctly");
 is(
