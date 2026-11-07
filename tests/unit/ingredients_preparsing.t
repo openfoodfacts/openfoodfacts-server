@@ -2,7 +2,7 @@
 
 # Tests of Ingredients::preparse_ingredients_text()
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -1366,6 +1366,25 @@ my @tests = (
 		lc => 'fr',
 		ingredients_text =>
 			"Farine de BLÉ*/** 45%, OEUFS entiers*/** 12.5%, sucre*. *Ingrédients issus de l'agriculture biologique. **Ingrédients issus du commerce équitable."
+	},
+	# singular types in an oil enumeration: Olive -> Olivenöl, Sonnenblume -> Sonnenblumenöl
+	{
+		id => 'de-vegetable-oils-olive-sunflower',
+		lc => 'de',
+		ingredients_text => 'Zwiebeln, pflanzliche Öle (Olive, Sonnenblume), Öle (Raps und Sonnenblumen)'
+	},
+	# g. U. abbreviation must not be split at the dots
+	{
+		id => 'de-protected-designation-of-origin',
+		lc => 'de',
+		ingredients_text =>
+			'Grana padano g. U. Käse (Milch, Lysozym aus Ei), Pecorino Romano g. U. Käse (Schafsmilch), Parmigiano Reggiano g.U., Salz'
+	},
+	# types without a category must not be grouped under an empty parent
+	{
+		id => 'de-types-without-category',
+		lc => 'de',
+		ingredients_text => 'Zucker, Raps, Sonnenblumen, Salz'
 	}
 );
 

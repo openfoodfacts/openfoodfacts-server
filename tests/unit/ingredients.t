@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -1699,5 +1699,103 @@ is(
 	[['en:l-glutamine', 1], ['en:l-arginine', 1], ['en:l-isoleucine', 1], ['en:e641', 1]],
 	'amino acids from the amino_acids taxonomy are recognized as ingredients'
 );
+
+# Real taxonomy: conjunctions must survive origin extraction and trailing quantities.
+for my $case (
+	['en', 'milk and cream', ['en:milk', 'en:cream']],
+	['en', 'French milk and cream', ['en:milk', 'en:cream']],
+	['en', 'French lactic acid and cultures', ['en:e270', 'en:microbial-culture']],
+	['fr', 'sucre et caramel', ['en:sugar', 'en:e150']],
+	['fr', 'viandes et sous-produits animaux 95% (dont poulet 4%)', ['en:meat-and-animal-derivatives']],
+	['fr', 'oeufs, et graines de sésame', ['en:egg', 'en:sesame-seeds']],
+	['fr', 'lait de brebis et de chèvre bio', ['en:sheep-and-goat-milk']],
+	['fr', 'viande et sous-produits animaux bio', ['en:meat-and-animal-derivatives']],
+	['en', 'organic milk and cream', ['en:milk', 'en:cream']],
+	)
+{
+	my ($lc, $text, $ids) = @$case;
+	my $product = {lc => $lc, ingredients_text => $text, product_type => 'food'};
+	extract_ingredients_from_text($product);
+	is([map {$_->{id}} @{$product->{ingredients}}], $ids, "real taxonomy conjunction: $text");
+}
+
+my $compound_percent = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text => 'viandes et sous-produits animaux 95% (dont poulet 4%)'
+};
+ProductOpener::Ingredients::parse_ingredients_text_service($compound_percent, {}, []);
+is($compound_percent->{ingredients}[0]{percent}, 95, 'real compound keeps its percentage');
+is($compound_percent->{ingredients}[0]{ingredients}[0]{percent}, 4, 'real compound keeps its child percentage');
+
+my $stray_conjunction = {lc => 'fr', product_type => 'food', ingredients_text => 'oeufs, et graines de sésame'};
+extract_ingredients_from_text($stray_conjunction);
+ProductOpener::Ingredients::detect_allergens_from_text($stray_conjunction);
+is($stray_conjunction->{allergens_tags}, ['en:eggs', 'en:sesame-seeds'], 'stray conjunction keeps both allergens');
+
+# Real taxonomy: a coordination without labels whose second part is not a known ingredient
+# (a processing, a variety) keeps its percentage on the known first part
+sub flatten_ingredients ($ingredients_ref) {
+	return map {($_, flatten_ingredients($_->{ingredients} // []))} @$ingredients_ref;
+}
+
+# 3270160137664: "assaisonnée" is a processing of the cooked potato, not another ingredient
+my $processed_coordination = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text =>
+		"Soupe de poissons 40,7% (eau, poissons, carotte, crustacés, concentré de tomate, poireau, vin blanc, sel, ail, oignon frit, huile d'olive, muscade, poivre, fenouil, piment, laurier), eau, pomme de terre cuite et assaisonnée 12,5% (pomme de terre, sel), filet de colin d'Alaska (poissons) 8,5%, moule cuite décoquillée du Pacifique (mollusques) 6,5%, filet de tacaud (poissons) 4,5%, concentré de tomate"
+};
+extract_ingredients_from_text($processed_coordination);
+is(
+	[map {[$_->{id}, $_->{percent}, $_->{processing}]} @{$processed_coordination->{ingredients}}[2 .. 3]],
+	[['en:cooked-potato', 12.5, 'en:seasoned'], ['en:alaskan-pollock-fillet', 8.5, undef]],
+	'a coordinated processing stays on a single ingredient with its percentage'
+);
+
+# 3041091434043: the percentage of "saumon kéta et/ou rose" stays on the chum salmon
+my $variety_coordination = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text =>
+		"Eau de cuisson - Pommes de terre 19,7 % - Epinards 16,0 % - Carottes 10,0 % - Saumon kéta et/ou rose du Pacifique en proportion variable 8,10 % (POISSON) - Panais - Oignons - Haricots verts - Amidon de maïs - Crème (LAIT) - Céleri (CELERI) - Huiles végétales (colza, tournesol) - Sel - Muscade - Poivre noir"
+};
+extract_ingredients_from_text($variety_coordination);
+is(scalar @{$variety_coordination->{ingredients}}, 16, 'the coordination is split in 2 ingredients');
+is(
+	[map {[$_->{id}, $_->{percent}]} @{$variety_coordination->{ingredients}}[3 .. 5]],
+	[['en:carrot', 10], ['en:chum-salmon', 8.1], ['fr:rose', undef]],
+	'an unknown coordinated part does not take the percentage of the known part'
+);
+
+# When an unknown name is split in 2 later in the parsing, its percent or quantity is not given to both ingredients
+for my $case (
+	['poulet et xyzabc 20%', [['en:chicken', 20, undef], ['fr:xyzabc', undef, undef]]],
+	['xyzabc et poulet 20%', [['fr:xyzabc', undef, undef], ['en:chicken', 20, undef]]],
+	['poulet 10% et xyzabc', [['en:chicken', 10, undef], ['fr:xyzabc', undef, undef]]],
+	['poulet et xyzabc 20 g', [['en:chicken', undef, '20 g'], ['fr:xyzabc', undef, undef]]],
+	)
+{
+	my ($text, $expected) = @$case;
+	my $product = {lc => 'fr', product_type => 'food', ingredients_text => "eau, $text, sel"};
+	extract_ingredients_from_text($product);
+	is(
+		[map {[$_->{id}, $_->{percent}, $_->{quantity}]} @{$product->{ingredients}}],
+		[['en:water', undef, undef], @$expected, ['en:salt', undef, undef]],
+		"$text: the percent or quantity is counted once"
+	);
+}
+
+# 3560071252038: an origin statement with "et" must not create ingredients
+my $origin_statement = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text =>
+		"Viande de porc, gras de porc, piments d'Espagne séchés en poudre 3,9%, sel, _lactose_, ail, piment doux séché en poudre 0,5%, sucre, origan, piment de Cayenne séché en poudre 0,1%, muscade, cumin, conservateurs : ascorbate de sodium - nitrate de potassium - nitrite de sodium, ferments, boyau naturel de porc, conservateurs du boyau : sorbate de potassium et natamycine. \n135g de viande de porc mis en œuvre pour 100g de produit fini.\nViande et gras de porc origine Union Européenne et non-Union Européenne (Royaume-Uni)."
+};
+extract_ingredients_from_text($origin_statement);
+my @origin_statement_texts = map {$_->{text}} flatten_ingredients($origin_statement->{ingredients});
+ok((grep {$_ eq 'Viande et gras de porc'} @origin_statement_texts), 'origin statement keeps "viande et gras de porc"');
+is([grep {/Union/i} @origin_statement_texts], [], 'origin statement does not create an ingredient from an origin');
 
 done_testing();

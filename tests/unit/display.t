@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -639,5 +639,19 @@ is(
 		}
 	]
 ) or diag Dumper $tags_ref;
+
+# JSON facet requests must keep their requested taxonomy id. Canonical redirects
+# to display-name URLs can fail on staging and break API clients.
+my $json_facet_request_ref = {
+	tags => [{tagtype => "categories", tagid => "breakfast-cereals"}],
+	extension => "json",
+	api => "v0",
+};
+ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url($json_facet_request_ref);
+is($json_facet_request_ref->{redirect}, undef, "API facet requests are not redirected");
+
+my $html_facet_request_ref = {tags => [{tagtype => "categories", tagid => "breakfast-cereals"}]};
+ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url($html_facet_request_ref);
+isnt($html_facet_request_ref->{redirect}, undef, "HTML facet requests retain canonical redirects");
 
 done_testing();
