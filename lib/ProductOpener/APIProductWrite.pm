@@ -60,7 +60,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Tags qw/%language_fields %writable_tags_fields %tags_fields %taxonomy_fields/;
 use ProductOpener::ProductsTags qw/add_tags_to_field compute_field_tags set_field_input_tags_for_source/;
 use ProductOpener::URL qw(format_subdomain);
-use ProductOpener::Auth qw/get_azp/;
+use ProductOpener::Auth qw/get_azp require_scope_if_token_present/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutrition qw/assign_nutrition_values_from_request_object/;
@@ -627,6 +627,8 @@ Internally, we should be able to upgrade those requests to v3, and then customiz
 sub write_product_api ($request_ref) {
 
 	$log->debug("write_product_api - start", {request => $request_ref}) if $log->is_debug();
+
+	return if (not require_scope_if_token_present($request_ref, 'products:write'));
 
 	my $response_ref = $request_ref->{api_response};
 	my $request_body_ref = $request_ref->{body_json};

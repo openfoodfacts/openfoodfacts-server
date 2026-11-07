@@ -32,6 +32,7 @@ use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
 use ProductOpener::Images qw/is_protected_image process_image_unselect get_image_type_and_image_lc_from_imagefield/;
+use ProductOpener::Auth qw/enforce_scope_if_token_present/;
 use ProductOpener::Products qw/normalize_code product_id_for_owner retrieve_product store_product/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -42,6 +43,8 @@ use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
+
+enforce_scope_if_token_present($request_ref, 'products:write');
 
 my $type = single_param('type') || 'add';
 my $action = single_param('action') || 'display';
