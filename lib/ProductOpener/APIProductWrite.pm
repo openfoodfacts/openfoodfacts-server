@@ -41,6 +41,8 @@ BEGIN {
 		&process_change_product_type_request_if_we_have_one
 		&skip_protected_field
 		&update_images_selected
+		&update_components
+		&update_product_fields
 		&update_product_field_api_v2_and_cgi
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -66,6 +68,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutrition qw/assign_nutrition_values_from_request_object/;
 use ProductOpener::Ingredients qw/%may_contain_regexps/;
 use ProductOpener::Lang qw/%lang_lc/;
+use Storable qw(dclone);
 
 use Encode;
 
@@ -202,6 +205,56 @@ sub update_packagings ($request_ref, $product_ref, $field, $add_to_existing_comp
 	return;
 }
 
+=head2 update_components($request_ref, $product_ref, $field, $add_to_existing_components, $value)
+
+Update product components (multi-food packages: variety packs, meal kits).
+
+=cut
+
+sub update_components ($request_ref, $product_ref, $field, $add_to_existing_components, $value) {
+
+	my $response_ref = $request_ref->{api_response};
+
+	if (ref($value) ne 'ARRAY') {
+		add_error(
+			$response_ref,
+			{
+				message => {id => "invalid_type_must_be_array"},
+				field => {id => $field},
+				impact => {id => "field_ignored"},
+			},
+			200
+		);
+	}
+	else {
+		if (not $add_to_existing_components) {
+			# We will replace the components structure if it already exists
+			$product_ref->{components} = [];
+		}
+		elsif (not defined $product_ref->{components}) {
+			$product_ref->{components} = [];
+		}
+
+		foreach my $input_component_ref (@{$value}) {
+			if (ref($input_component_ref) eq 'HASH') {
+				push @{$product_ref->{components}}, dclone($input_component_ref);
+			}
+			else {
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_type_must_be_object"},
+						field => {id => $field},
+						impact => {id => "field_ignored"},
+					},
+					200
+				);
+			}
+		}
+	}
+	return;
+}
+
 =head2 update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tags, $value)
 
 Update packagings.
@@ -313,6 +366,13 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 			$request_ref->{updated_product_fields}{$field} = 1;
 
 			update_field_with_0_or_1_value($request_ref, $product_ref, $field, $value);
+		}
+		# Multi-food components (variety packs, meal kits with separate nutrition/ingredients)
+		elsif ($field =~ /^(components)(_add)?$/) {
+			$request_ref->{updated_product_fields}{$1} = 1;
+			my $add_to_existing_components = (defined $2) ? 1 : 0;
+
+			update_components($request_ref, $product_ref, $field, $add_to_existing_components, $value);
 		}
 		# language fields
 		elsif ( ($field =~ /^(.*)_(\w\w)$/)
@@ -537,7 +597,7 @@ an error id if there was an error (e.g. no_permisssion or invalid_product_type).
 
 =cut
 
-sub process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref, $new_code) {
+sub process_change_product_code_request_if_we_have_one ($request_ref, $response_ref, $product_ref, $new_code) {
 
 	my $error;
 	# Change of code
@@ -571,7 +631,7 @@ sub process_change_product_code_request_if_we_have_one($request_ref, $response_r
 	return;
 }
 
-sub process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref, $new_product_type) {
+sub process_change_product_type_request_if_we_have_one ($request_ref, $response_ref, $product_ref, $new_product_type) {
 
 	my $error;
 
@@ -814,7 +874,7 @@ If set to 1, we will add the tags to existing values
 
 =cut
 
-sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source, $add_tags = 0) {
+sub update_product_field_api_v2_and_cgi ($product_ref, $target_lc, $field, $value, $source, $add_tags = 0) {
 
 	$log->debug("update_product_field_api_v2_and_cgi", {field => $field, value => $value, source => $source})
 		if $log->is_debug();
