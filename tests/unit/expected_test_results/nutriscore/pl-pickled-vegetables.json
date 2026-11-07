@@ -75,41 +75,100 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "f1769f71-8a52-5e10-b3a0-efdc2a1918f8",
-                  "mass" : 52
+                  "elements" : [
+                     {
+                        "amount" : 0.052,
+                        "material" : {
+                           "id" : "f1769f71-8a52-5e10-b3a0-efdc2a1918f8"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "rzodkiew biała",
+                  "quantity" : 1
                },
                {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 29.9333333333333
+                  "elements" : [
+                     {
+                        "amount" : 0.029933,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "woda",
+                  "quantity" : 1
                },
                {
-                  "id" : "e849f2db-b8d3-5456-a771-bd23d88b1e66",
-                  "mass" : 9.33333333333333
+                  "elements" : [
+                     {
+                        "amount" : 0.009333,
+                        "material" : {
+                           "id" : "e849f2db-b8d3-5456-a771-bd23d88b1e66"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "koper",
+                  "quantity" : 1
                },
                {
-                  "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
-                  "mass" : 0.6
+                  "elements" : [
+                     {
+                        "amount" : 0.0006,
+                        "material" : {
+                           "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "czosnek",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 0.3
+                  "elements" : [
+                     {
+                        "amount" : 0.0003,
+                        "material" : {
+                           "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sól",
+                  "quantity" : 1
                },
                {
-                  "id" : "a4b546fa-a89a-5373-82aa-e94112e3fd48",
-                  "mass" : 7.83333333333334
+                  "elements" : [
+                     {
+                        "amount" : 0.007833,
+                        "material" : {
+                           "id" : "a4b546fa-a89a-5373-82aa-e94112e3fd48"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "chrzan",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "estimate_ingredients_percent_service" : "product_opener",

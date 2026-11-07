@@ -83,6 +83,7 @@ use JSON::MaybeXS;
 use Encode;
 use Data::DeepAccess qw(deep_get);
 use Scalar::Util qw(looks_like_number);
+use List::Util qw(sum);
 use boolean;
 
 =head1 FUNCTIONS
@@ -838,17 +839,52 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 
 =head2 create_environmental_cost_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
-Creates the Environmental Cost knowledge panel displaying Ecobalyse ECS breakdown,
+Creates the Environmental Cost knowledge panel displaying the Ecobalyse environmental cost,
 for the whole product (if we know or can estimate the product quantity) and for 100 g or 100 ml.
 
 The ingredients and packaging are sent to Ecobalyse for a reference quantity of product
 (see ProductOpener::EnvironmentalImpact::get_ecobalyse_reference_quantity()),
 so the impacts returned by Ecobalyse are for the reference quantity.
 
-Note: Ecobalyse applies its own ingredients to final product ratios (e.g. for 100 g of apricots,
-the impacts are reported for 80 g of product), so this is an approximation for now.
+The panel contains:
+
+- how the environmental cost is computed: impacts - positive impact (complements) = environmental cost
+- the impacts of each life cycle stage
+- the impacts of each ingredient (production and transport of the ingredient, as returned by Ecobalyse)
+- a sub-panel with the positive impact of ecosystem services (Ecobalyse complements: hedges, permanent pastures etc.)
+
+Only scores in points are displayed (we are not allowed to display the subscores and physical impacts).
 
 =cut
+
+# Life cycle stages of the Ecobalyse food2 API (stages that are always 0 for food are not displayed)
+my @environmental_cost_stages = (
+	["materials", "environmental_cost_ingredients", "agriculture"],
+	["transform", "environmental_cost_processing", "processing"],
+	["packaging", "environmental_cost_packaging", "packaging"],
+	["transports", "environmental_cost_transport", "transportation"],
+	["distribution", "environmental_cost_distribution", "distribution"],
+	["usage", "environmental_cost_use", "consumption"],
+);
+
+# Ecobalyse complements (positive impact of ecosystem services)
+my @environmental_cost_complements = (
+	["permanentPasture", "environmental_cost_complement_permanent_pasture"],
+	["hedges", "environmental_cost_complement_hedges"],
+	["plotSize", "environmental_cost_complement_plot_size"],
+	["cropDiversity", "environmental_cost_complement_crop_diversity"],
+);
+
+# Number of ingredients displayed in the table of ingredients, the other ones are grouped in one row
+my $environmental_cost_max_ingredients = 6;
+
+# Points with 1 decimal for small values, so that small ingredients and stages do not all show 0
+sub format_environmental_cost_points ($value) {
+	return "" unless looks_like_number($value);
+	return format_ecs_value($value) if abs($value) >= 10;
+	my $formatted = sprintf("%.1f", $value);
+	return $formatted eq "-0.0" ? "0.0" : $formatted;
+}
 
 sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 	my $environmental_impact_ref = $product_ref->{environmental_impact} // {};
@@ -869,29 +905,110 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 	# Quantity of the product: we display the quantity entered by users
 	my $quantity = $product_ref->{quantity} // "$reference_quantity $unit";
 
-	# The breakdown values returned by Ecobalyse are for the reference quantity, and they sum up to the total ECS
-	my $results_ref = deep_get($environmental_impact_ref, qw(ecobalyse_response results)) // {};
-	my @rows = (
-		["environmental_cost_ingredients", qw(recipe ingredientsTotal ecs)],
-		["environmental_cost_processing", qw(recipe transform ecs)],
-		["environmental_cost_packaging", qw(packaging ecs)],
-		# Transports of ingredients + distribution transports
-		["environmental_cost_transport", qw(transports impacts ecs)],
-		["environmental_cost_distribution", qw(distribution total ecs)],
-		["environmental_cost_preparation", qw(preparation ecs)],
-		["environmental_cost_total", qw(total ecs)],
-	);
-	my @rows_data = ();
-	foreach my $row_ref (@rows) {
-		my ($label, @path) = @$row_ref;
+	# The values returned by Ecobalyse are for the reference quantity
+	my $response_ref = $environmental_impact_ref->{ecobalyse_response} // {};
+	my $ecs = deep_get($response_ref, qw(score ecs));
+	my $complements = deep_get($response_ref, qw(score complements));
+	$complements = 0 unless looks_like_number($complements);
+	# Impacts before the positive impact of the complements (complements are negative)
+	my $impacts = looks_like_number($ecs) ? $ecs - $complements : undef;
+
+	# Values for the product (if known) and for 100 g or 100 ml, and share of the impacts
+	my $values = sub ($value) {
+		return {
+			per_product => format_environmental_cost_points($value),
+			per_100 =>
+				(looks_like_number($value) ? format_environmental_cost_points($value * 100 / $reference_quantity) : ""),
+			percent => ((looks_like_number($value) and $impacts) ? 100 * $value / $impacts : undef),
+		};
+	};
+
+	# Impacts of each life cycle stage
+	my @stages = ();
+	foreach my $stage_ref (@environmental_cost_stages) {
+		my ($stage, $label, $icon) = @$stage_ref;
 		# missing values are 0, non numeric values are displayed as an empty string
-		my $value = deep_get($results_ref, @path) // 0;
-		push @rows_data,
+		my $value = deep_get($response_ref, "stages", $stage) // 0;
+		push @stages, {id => $stage, label => $label, icon => $icon, %{$values->($value)}};
+	}
+
+	# Impacts of each ingredient: the components of the request are the ingredients of ecobalyse_input,
+	# in the same order, and the response contains the score of each component (production and transport of the ingredient)
+	my @ingredients = ();
+	my $input_ingredients_ref = $input_ref->{ingredients} // [];
+	my $composition_ref = $response_ref->{composition} // [];
+	if ((scalar @$composition_ref) and (scalar @$composition_ref == scalar @$input_ingredients_ref)) {
+		for (my $i = 0; $i < @$composition_ref; $i++) {
+			# Check that the component is the ingredient (same name as in the request)
+			my $input_ingredient_ref = $input_ingredients_ref->[$i];
+			my $component_name
+				= $input_ingredient_ref->{name}
+				|| $input_ingredient_ref->{ecobalyse_name}
+				|| $input_ingredient_ref->{id};
+			if (($composition_ref->[$i]{name} // '') ne ($component_name // '')) {
+				$log->warn(
+					"Ecobalyse response component name differs from the request, not showing impacts by ingredient",
+					{
+						code => $product_ref->{code},
+						index => $i,
+						request_name => $component_name,
+						response_name => $composition_ref->[$i]{name}
+					}
+				) if $log->is_warn();
+				@ingredients = ();
+				last;
+			}
+			my $ingredient_ecs = deep_get($composition_ref->[$i], qw(score ecs));
+			next unless looks_like_number($ingredient_ecs);
+			my $ingredient_complements = deep_get($composition_ref->[$i], qw(score complements));
+			$ingredient_complements = 0 unless looks_like_number($ingredient_complements);
+			push @ingredients,
+				{
+				name => $component_name,
+				ecobalyse_name => $input_ingredient_ref->{ecobalyse_name} // '',
+				mass => $input_ingredient_ref->{mass} // 0,
+				impacts => $ingredient_ecs - $ingredient_complements,
+				complements => $ingredient_complements,
+				};
+		}
+	}
+	@ingredients = sort {$b->{impacts} <=> $a->{impacts}} @ingredients;
+
+	# Ingredients with a positive impact (complements), before grouping the other ingredients
+	my @ingredients_with_complements
+		= map {{name => $_->{name}, points => format_environmental_cost_points($_->{complements})}}
+		grep {$_->{complements} <= -0.05} @ingredients;
+
+	if (@ingredients > $environmental_cost_max_ingredients + 1) {
+		my @other_ingredients = splice(@ingredients, $environmental_cost_max_ingredients);
+		push @ingredients,
 			{
-			label => $label,
-			per_product => format_ecs_value($value),
-			per_100 => (looks_like_number($value) ? format_ecs_value($value * 100 / $reference_quantity) : ""),
+			other_ingredients => scalar @other_ingredients,
+			ecobalyse_name => join(", ", map {$_->{name}} @other_ingredients),
+			mass => sum(map {$_->{mass}} @other_ingredients),
+			impacts => sum(map {$_->{impacts}} @other_ingredients),
 			};
+	}
+	foreach my $ingredient_ref (@ingredients) {
+		$ingredient_ref->{mass} = sprintf("%.0f", $ingredient_ref->{mass});
+		%$ingredient_ref = (%$ingredient_ref, %{$values->($ingredient_ref->{impacts})});
+	}
+
+	# Quantities of ingredients estimated before cooking can be greater than the quantity of product
+	# when water evaporates during cooking
+	my $ingredients_total_mass = $input_ref->{ingredients_total_mass};
+	my $water_loss
+		= (looks_like_number($ingredients_total_mass) and ($unit eq "g"))
+		? $ingredients_total_mass - $reference_quantity
+		: 0;
+
+	# Positive impact of ecosystem services (complements)
+	my @complements = ();
+	foreach my $complement_ref (@environmental_cost_complements) {
+		my ($complement, $label) = @$complement_ref;
+		my $value = deep_get($response_ref, "complements", $complement);
+		next unless looks_like_number($value) and $value != 0;
+		push @complements, {label => $label, %{$values->($value)}};
 	}
 
 	my $panel_data_ref = {
@@ -900,13 +1017,31 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 		has_per_product => $has_per_product,
 		ecs_per_product => ($has_per_product ? format_ecs_value($ecs_per_product) : ""),
 		quantity => $quantity,
-		rows => \@rows_data,
+		impacts => $values->($impacts),
+		complements => $values->(-$complements),
+		has_complements => ($complements < 0 ? 1 : 0),
+		total => $values->($ecs),
+		stages => \@stages,
+		ingredients => \@ingredients,
+		ingredients_with_complements => \@ingredients_with_complements,
+		ingredients_total_mass => sprintf("%.0f", $ingredients_total_mass // 0),
+		water_loss => ($water_loss >= 1 ? sprintf("%.0f", $water_loss) : 0),
+		reference_quantity => $reference_quantity,
+		complements_rows => \@complements,
 		# The results were computed before the latest changes to the product (we could not get new results)
 		stale => ($environmental_impact_ref->{ecobalyse_stale} ? 1 : 0),
 		# Image of the label, rendered by nginx, used as the icon of the panel
 		label_path =>
 			($has_per_product ? get_environmental_cost_label_path($ecs_per_product, $ecs_per_100, $unit) : undef),
 	};
+
+	if ($panel_data_ref->{has_complements}) {
+		create_panel_from_json_template(
+			"environmental_cost_ecosystem_services",
+			"api/knowledge-panels/environment/environmental_cost_ecosystem_services.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+		);
+	}
 
 	create_panel_from_json_template("environmental_cost", "api/knowledge-panels/environment/environmental_cost.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);

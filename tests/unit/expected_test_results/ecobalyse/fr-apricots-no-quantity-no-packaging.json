@@ -11,101 +11,67 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "3643f86f-16d5-4a0e-8388-d4e52dda125b",
-                  "mass" : 100
+                  "elements" : [
+                     {
+                        "amount" : 0.1,
+                        "material" : {
+                           "id" : "3643f86f-16d5-4a0e-8388-d4e52dda125b"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "abricots",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
       "ecobalyse_response" : {
-         "results" : {
-            "distribution" : {
-               "total" : {
-                  "ecs" : 0.253321
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 1.4316
-                  },
-                  "road" : 0,
-                  "roadCooled" : 600,
-                  "sea" : 0,
-                  "seaCooled" : 0
-               }
-            },
-            "packaging" : {
-               "ecs" : 0
-            },
-            "perKg" : {
-               "ecs" : 487.747
-            },
-            "preparation" : {
-               "ecs" : 0
-            },
-            "preparedMass" : 0.1,
-            "recipe" : {
-               "ingredientsTotal" : {
+         "complements" : {},
+         "composition" : [
+            {
+               "complements" : {},
+               "mass" : 0.1,
+               "name" : "abricots",
+               "score" : {
+                  "complements" : 0,
                   "ecs" : 36.09
-               },
-               "total" : {
-                  "ecs" : 47.0898
-               },
-               "totalBonusImpact" : {
-                  "cropDiversity" : 0,
-                  "hedges" : 0,
-                  "permanentPasture" : 0,
-                  "plotSize" : 0
-               },
-               "transform" : {
-                  "ecs" : 0
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 10.9998
-                  },
-                  "road" : 0,
-                  "roadCooled" : 2660,
-                  "sea" : 0,
-                  "seaCooled" : 18000
                }
-            },
-            "scoring" : {
-               "all" : 487.747,
-               "biodiversity" : 109.314,
-               "climate" : 49.2558,
-               "health" : 24.5509,
-               "resources" : 304.671
-            },
-            "total" : {
-               "ecs" : 48.7747
-            },
-            "totalMass" : 0.1,
-            "transports" : {
-               "air" : 0,
-               "impacts" : {
-                  "ecs" : 12.4314
-               },
-               "road" : 0,
-               "roadCooled" : 3260,
-               "sea" : 0,
-               "seaCooled" : 18000
             }
+         ],
+         "productMass" : 0.1,
+         "score" : {
+            "complements" : 0,
+            "ecs" : 57.5466
+         },
+         "stages" : {
+            "assembly" : 0,
+            "distribution" : 0.195975,
+            "endOfLife" : 0,
+            "materials" : 36.09,
+            "packaging" : 0,
+            "transform" : 0,
+            "transports" : 21.2606,
+            "usage" : 0
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 48.7747
+      "ecs_per_100g_or_100ml" : 57.5466
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [

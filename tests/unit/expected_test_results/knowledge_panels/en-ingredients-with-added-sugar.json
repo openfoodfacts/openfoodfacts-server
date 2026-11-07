@@ -112,29 +112,61 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100.0,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 66.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.066667,
+                        "material" : {
+                           "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Sugar",
+                  "quantity" : 1
                },
                {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "wheat flour",
+                  "quantity" : 1
                },
                {
-                  "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "butter",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "environmental_score_data" : {

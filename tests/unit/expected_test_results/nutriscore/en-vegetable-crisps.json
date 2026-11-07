@@ -49,6 +49,7 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
@@ -56,19 +57,41 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6",
-                  "mass" : 70
+                  "elements" : [
+                     {
+                        "amount" : 0.07,
+                        "material" : {
+                           "id" : "e9444944-a97a-546d-be5e-43ca74efb7e6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "parsnip",
+                  "quantity" : 1
                },
                {
-                  "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
-                  "mass" : 30
+                  "elements" : [
+                     {
+                        "amount" : 0.03,
+                        "material" : {
+                           "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "red beet",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "estimate_ingredients_percent_service" : "product_opener",

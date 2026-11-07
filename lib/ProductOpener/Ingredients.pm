@@ -4461,6 +4461,9 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 				# Also retrieve the corresponding French display name, from the same taxonomy level
 				my $ecobalyse_name = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_name:fr");
 				$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
+				# and the unit, only for ingredients that are not in kg (e.g. L for spring water and wine)
+				my $ecobalyse_unit = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_unit:en");
+				$ingredient_ref->{$prefix . "_unit"} = $ecobalyse_unit if defined $ecobalyse_unit;
 				last;
 			}
 			# Exit the loop if a valid ecobalyse code was found
