@@ -1072,6 +1072,33 @@ msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://es-ca.openbeautyfacts.org/"
 
+# Do not translate Open Products Facts
+msgctxt "footer_opf"
+msgid "Open Products Facts"
+msgstr "Open Products Facts"
+
+msgctxt "footer_opf_link"
+msgid "https://world.openproductsfacts.org"
+msgstr "https://world-ca.openproductsfacts.org"
+
+# Do not translate Open Pet Food Facts
+msgctxt "footer_opff"
+msgid "Open Pet Food Facts"
+msgstr "Open Pet Food Facts"
+
+msgctxt "footer_opff_link"
+msgid "https://world.openpetfoodfacts.org"
+msgstr "https://world-ca.openpetfoodfacts.org"
+
+# Do not translate Open Prices
+msgctxt "footer_op"
+msgid "Open Prices"
+msgstr "Open Prices"
+
+msgctxt "footer_op_link"
+msgid "https://prices.openfoodfacts.org/"
+msgstr "https://prices.openfoodfacts.org/"
+
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
 msgstr ""
@@ -1766,6 +1793,16 @@ msgstr "Graus de nutrició"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Grau de nutrició"
+
+# Do not translate
+msgctxt "nutriscore_p"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# Do not translate
+msgctxt "nutriscore_s"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2989,7 +3026,7 @@ msgstr "Socis"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr "Socis"
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -4282,6 +4319,11 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Feu un donatiu"
 
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_provenance_line"
+msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
+msgstr "D'<b>Open Food Facts</b>, la base de dades d'aliments lliure · creada per persones voluntàries des del 2012 · dades reutilitzades per més de {apps_count} apps"
+
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderació de la plataforma de productors"
@@ -5298,7 +5340,7 @@ msgid "Products for which we currently miss data to determine if they match your
 msgstr "Productes dels quals ens falten dades per determinar si coincideixen amb les vostres preferències"
 
 msgctxt "forest_footprint"
-msgid "Forest footprint"
+msgid "Forest Footprint"
 msgstr "Petjada forestal"
 
 msgctxt "ingredients_requiring_soy"
@@ -5326,7 +5368,7 @@ msgid "Deforestation risk"
 msgstr "Risc de desforestació"
 
 msgctxt "total_forest_footprint"
-msgid "Total forest footprint"
+msgid "Total Forest Footprint"
 msgstr "Petjada forestal total"
 
 msgctxt "square_meters_per_kg_of_food"
@@ -5350,7 +5392,7 @@ msgid "% in product"
 msgstr "% en el producte"
 
 msgctxt "forest_footprint_calculation_details"
-msgid "Details of the calculation of the forest footprint"
+msgid "Details of the calculation of the Forest Footprint"
 msgstr "Detalls del càlcul de la petjada forestal"
 
 msgctxt "you_are_on_the_public_database"
@@ -5395,64 +5437,96 @@ msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score
 msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
-msgid "Forest footprint"
-msgstr "Petjada forestal"
+msgid "Forest Footprint"
+msgstr "Petjada Forestal"
 
 msgctxt "attribute_forest_footprint_setting_name"
-msgid "Low risk of deforestation (Forest footprint)"
-msgstr "Baix risc de desforestació (petjada forestal)"
+msgid "Low risk of deforestation (Forest Footprint)"
+msgstr "Risc baix de desforestació (Petjada Forestal)"
 
 msgctxt "attribute_forest_footprint_setting_note"
-msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "La petjada forestal correspon al risc de desforestació associat als seus ingredients."
+msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
+msgstr "La Petjada Forestal correspon al risc de desforestació associat als seus ingredients."
 
 msgctxt "attribute_forest_footprint_a_title"
-msgid "Very small forest footprint"
-msgstr "Petjada forestal molt petita"
+msgid "Forest Footprint A"
+msgstr "Petjada Forestal A"
 
 msgctxt "attribute_forest_footprint_b_title"
-msgid "Small forest footprint"
-msgstr "Petjada forestal petita"
+msgid "Forest Footprint B"
+msgstr "Petjada Forestal B"
 
 msgctxt "attribute_forest_footprint_c_title"
-msgid "Medium forest footprint"
-msgstr "Petjada forestal mitjana"
+msgid "Forest Footprint C"
+msgstr "Petjada Forestal C"
 
 msgctxt "attribute_forest_footprint_d_title"
-msgid "Large forest footprint"
-msgstr "Petjada forestal gran"
+msgid "Forest Footprint D"
+msgstr "Petjada Forestal D"
 
-msgctxt "attribute_forest_footprint_e_title"
-msgid "Very large forest footprint"
-msgstr "Petjada forestal molt gran"
+msgctxt "attribute_forest_footprint_a_description"
+msgid "No ingredient associated with a deforestation risk."
+msgstr "Cap ingredient associat a un risc de desforestació."
+
+msgctxt "attribute_forest_footprint_b_description"
+msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
+msgstr "Presència d'un o més ingredients amb risc de desforestació, però risc baix atesa la seva quantitat, origen i/o etiquetes."
+
+msgctxt "attribute_forest_footprint_c_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
+msgstr "Presència d'un o més ingredients amb risc de desforestació, amb risc moderat atesa la seva quantitat, origen i/o etiquetes."
+
+msgctxt "attribute_forest_footprint_d_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
+msgstr "Presència d'un o més ingredients amb risc de desforestació, amb risc alt atesa la seva quantitat, origen i/o etiquetes."
 
 msgctxt "attribute_forest_footprint_not_computed_title"
-msgid "Forest footprint not computed"
-msgstr "No s'ha calculat la petjada forestal"
+msgid "Forest Footprint not computed"
+msgstr "Petjada Forestal no calculada"
+
+msgctxt "attribute_forest_footprint_not_computed_description"
+msgid "Potential deforestation risk but not yet computed."
+msgstr "Risc potencial de desforestació però encara no calculat."
 
 msgctxt "attribute_forest_footprint_a_description_short"
-msgid "Almost no risk of deforestation"
-msgstr "Gairebé cap risc de desforestació"
+msgid "No deforestation risk"
+msgstr "Sense risc de desforestació"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
 msgstr "Risc de desforestació baix"
 
 msgctxt "attribute_forest_footprint_c_description_short"
-msgid "Moderate risk of deforestation"
-msgstr "Risc de desforestació moderat"
+msgid "Medium risk of deforestation"
+msgstr "Risc mitjà de desforestació"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
 msgstr "Risc de desforestació alt"
 
-msgctxt "attribute_forest_footprint_e_description_short"
-msgid "Very high risk of deforestation"
-msgstr "Risc de desforestació molt alt"
-
 msgctxt "attribute_forest_footprint_not_computed_description_short"
-msgid "Currently only for products with chicken or eggs"
-msgstr "Actualment només per a productes amb pollastre o ous"
+msgid "Potential deforestation risk not computed"
+msgstr "Risc potencial de desforestació no calculat"
+
+msgctxt "attribute_forest_footprint_unknown_title"
+msgid "Forest Footprint not available"
+msgstr "Petjada Forestal no disponible"
+
+msgctxt "attribute_forest_footprint_unknown_description"
+msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
+msgstr "La Petjada Forestal no es pot calcular perquè falta la llista d'ingredients."
+
+msgctxt "attribute_forest_footprint_unknown_description_short"
+msgid "Missing ingredients list"
+msgstr "Falta llista d'ingredients"
+
+msgctxt "forest_footprint_2026_other_risky_ingredients"
+msgid "Other risky ingredients"
+msgstr "Altres ingredients de risc"
+
+msgctxt "forest_footprint_2026_other_risky_ingredients_description"
+msgid "These ingredients are not yet assessed for deforestation risk:"
+msgstr "Aquests ingredients encara no s'han avaluat quant al risc de desforestació:"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
@@ -5681,8 +5755,8 @@ msgid "If you use the same column on multiple lines to provide images URLs for a
 msgstr "Si utilitzeu la mateixa columna en diverses línies per proporcionar URL d'imatges per a un sol producte, podeu utilitzar aquest camp per indicar el tipus d'imatge: frontal, ingredients, nutrició o embalatge."
 
 msgctxt "forest_footprint_one_line_explanation"
-msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "La petjada forestal es calcula tenint en compte els ingredients la producció dels quals requereix soja, el cultiu de la qual està lligat a la desforestació."
+msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr "La petjada forestal es calcula tenint en compte els ingredients la producció dels quals requereix soja, el cultiu de la qual està vinculat a la desforestació."
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -6494,6 +6568,83 @@ msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
 msgstr "Apreneu més sobre el Green-Score"
 
+# Environmental Cost (Ecobalyse)
+msgctxt "environmental_cost_title"
+msgid "Environmental Cost"
+msgstr "Cost ambiental"
+
+msgctxt "environmental_cost_description"
+msgid "Total environmental impact score from Ecobalyse"
+msgstr "Puntuació d'impacte ambiental total d'Ecobalyse"
+
+msgctxt "environmental_cost_stale"
+msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
+msgstr "Aquest cost ambiental es va calcular abans dels últims canvis al producte i podria no estar actualitzat."
+
+msgctxt "ecs_breakdown"
+msgid "ECS Breakdown"
+msgstr "Desglossament de l'ECS"
+
+msgctxt "environmental_cost_stage"
+msgid "Stage"
+msgstr "Etapa"
+
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
+msgstr "Punts per 100 g"
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr "Punts per 100 ml"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr "Punts per al producte ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr "{points} punts per al producte ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr "{points} punts per 100 g"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr "{points} punts per 100 ml"
+
+msgctxt "environmental_cost_ingredients"
+msgid "Ingredients"
+msgstr "Ingredients"
+
+msgctxt "environmental_cost_packaging"
+msgid "Packaging"
+msgstr "Empaquetament"
+
+msgctxt "environmental_cost_transport"
+msgid "Transport"
+msgstr "Transport"
+
+msgctxt "environmental_cost_processing"
+msgid "Processing"
+msgstr "Processament"
+
+msgctxt "environmental_cost_distribution"
+msgid "Distribution"
+msgstr "Distribució"
+
+msgctxt "environmental_cost_preparation"
+msgid "Preparation"
+msgstr "Preparació"
+
+msgctxt "environmental_cost_total"
+msgid "Total"
+msgstr "Total"
+
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
@@ -6535,6 +6686,10 @@ msgstr "Nutri-Score, Green-Score i nivell de processament d'aliments (NOVA)"
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
 msgstr "Podries afegir la llista d'ingredients?"
+
+msgctxt "actions_add_nutrition_facts"
+msgid "Could you add the nutrition facts?"
+msgstr "Podries afegir la informació nutricional?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
@@ -7287,6 +7442,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Categoria, etiquetes, ingredients, al·lèrgens, informació nutricional, fotos, etc."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr "Categoria, etiquetes, ingredients, al·lèrgens, fotos, etc."
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr "Categoria, etiquetes, ingredients, característiques del producte, fotos, etc."
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Categoria, etiquetes, ingredients, al·lèrgens, informació nutricional, fotos, etc."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Si la informació no coincideix amb la de l'embalatge, podeu completar-la o corregir-la. Gràcies!"
@@ -7294,6 +7461,18 @@ msgstr "Si la informació no coincideix amb la de l'embalatge, podeu completar-l
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts és una base de dades col·laborativa i cada contribució és útil per a tothom."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Beauty Facts és una base de dades col·laborativa i cada aportació és útil per a tothom."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Products Facts és una base de dades col·laborativa i cada aportació és útil per a tothom."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Pet Food Facts és una base de dades col·laborativa i cada aportació és útil per a tothom."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7622,6 +7801,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr ""
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr "En contacte amb el producte"
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr ""
@@ -7742,6 +7925,10 @@ msgstr "Cerca productes de la mateixa categoria sense sucres afegits:"
 msgctxt "per_100g"
 msgid "for 100 g"
 msgstr ""
+
+msgctxt "points"
+msgid "points"
+msgstr "punts"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
@@ -8041,35 +8228,166 @@ msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
 
-msgctxt "forest_footprint_2026"
-msgid "Forest Footprint 2026"
+msgctxt "forest_footprint_2026_methodology"
+msgid "The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption."
 msgstr ""
 
-msgctxt "forest_footprint_2026_under_development"
-msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
-msgstr ""
+msgctxt "forest_footprint_2026_methodology_more_info"
+msgid "More information on the methodology"
+msgstr "Més informació sobre la metodologia"
 
 msgctxt "forest_footprint_2026_overall_grade"
-msgid "Forest footprint grade"
-msgstr ""
+msgid "Forest Footprint grade"
+msgstr "Grau de la petjada forestal"
 
 msgctxt "forest_footprint_2026_total"
-msgid "Total forest footprint"
+msgid "Total Forest Footprint"
 msgstr "Petjada forestal total"
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
-msgstr ""
+msgstr "Grau de l'ingredient principal"
 
 msgctxt "forest_footprint_2026_primary_ingredient"
 msgid "Primary ingredient"
-msgstr ""
+msgstr "Ingredient principal"
 
 msgctxt "forest_footprint_2026_origin_footprint"
-msgid "Forest footprint for the origin"
-msgstr ""
+msgid "Forest Footprint for the origin"
+msgstr "Petjada forestal de l'origen"
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
 msgstr "Etiqueta"
 
+msgctxt "forest_footprint_2026_grade_unknown"
+msgid "Unknown"
+msgstr "Desconegut"
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
+msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
+msgstr "La producció de cacau, concentrada principalment a l'Àfrica occidental, contribueix significativament a la desforestació. Per exemple, Costa d'Ivori, el principal país productor de cacau, ha perdut el 90% dels seus boscos des dels anys seixanta."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
+msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
+msgstr "La producció d'oli de palma, concentrada principalment a Indonèsia i Malàisia, contribueix notablement a la desforestació. Borneo ha perdut més de la meitat dels seus boscos des dels anys setanta."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
+msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
+msgstr "El cultiu de cafè, concentrat principalment a Amèrica Central i del Sud i al Sud-est Asiàtic, és responsable de 130.000 hectàrees de desforestació cada any des del 2000."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
+msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
+msgstr "La producció de pollastre i ous, fins i tot quan es crien a França, contribueix significativament a la desforestació a través de la seva alimentació: la soja. França importa dos terços de la seva soja del Brasil, on el seu cultiu contribueix a la destrucció de l'Amazònia."
+
+msgctxt "forest_footprint_2026_labels_description"
+msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
+msgstr "La presència de certs segells pot ajudar molt a reduir el risc de desforestació, gràcies a la presència de criteris ambientals i/o a una millor remuneració dels productors."
+
+msgctxt "related_categories"
+msgid "Related categories"
+msgstr "Categories relacionades"
+
+msgctxt "product_history_revision"
+msgid "Revision"
+msgstr "Revisió"
+
+msgctxt "product_history_date"
+msgid "Date"
+msgstr "Data"
+
+msgctxt "product_history_contributor"
+msgid "Contributor"
+msgstr "Voluntari/a"
+
+msgctxt "product_history_changes"
+msgid "Changes"
+msgstr "Canvis"
+
+msgctxt "product_history_comment"
+msgid "Comment"
+msgstr ""
+
+msgctxt "product_history_most_recent_changes"
+msgid "Only the most recent changes are shown."
+msgstr "Només es mostren els canvis més recents."
+
+msgctxt "product_history_see_full_history"
+msgid "See the full changes history"
+msgstr "Consulta l'historial complet de canvis"
+
+msgctxt "google_drive_import_title"
+msgid "Import photos from a Google Drive folder"
+msgstr "Importa fotos des d'una carpeta de Google Drive"
+
+msgctxt "google_drive_import_description"
+msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+msgstr ""
+
+msgctxt "google_drive_folder_url"
+msgid "Google Drive folder URL"
+msgstr "URL de la carpeta de Google Drive"
+
+msgctxt "google_drive_import_button"
+msgid "Import the photos"
+msgstr "Importa les fotos"
+
+msgctxt "google_drive_invalid_folder_url"
+msgid "This is not the URL of a Google Drive folder."
+msgstr "Aquest no és l'URL d'una carpeta de Google Drive."
+
+msgctxt "google_drive_no_api_key"
+msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+msgstr "La importació de fotos des de Google Drive no està disponible: no s'ha configurat cap clau d'API de Google Drive en aquest servidor."
+
+msgctxt "google_drive_folder_not_found"
+msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+msgstr ""
+
+msgctxt "google_drive_folder_too_many_items"
+msgid "The Google Drive folder contains too many files."
+msgstr "La carpeta de Google Drive conté massa fitxers."
+
+msgctxt "google_drive_api_error"
+msgid "Google Drive returned an error."
+msgstr "Google Drive ha retornat un error."
+
+msgctxt "google_drive_import_listing"
+msgid "Listing the photos of the folder..."
+msgstr "S'estan llistant les fotos de la carpeta..."
+
+msgctxt "google_drive_import_photos_in_folder"
+msgid "Photos in the folder"
+msgstr "Fotos a la carpeta"
+
+msgctxt "google_drive_import_skipped_files"
+msgid "Files that are not photos (e.g. videos), not imported"
+msgstr "Fitxers que no són fotos (p. ex. vídeos), no importats"
+
+msgctxt "google_drive_import_max_images"
+msgid "The folder contains too many photos, only the first ones are imported"
+msgstr "La carpeta conté massa fotos, només s'importen les primeres"
+
+msgctxt "google_drive_import_photos_processed"
+msgid "Photos processed"
+msgstr "Fotos processades"
+
+msgctxt "job_not_found"
+msgid "The photo import job could not be found."
+msgstr "No s'ha pogut trobar la tasca d'importació de fotos."
+
+msgctxt "job_failed"
+msgid "The photo import job failed."
+msgstr "La tasca d'importació de fotos ha fallat."
+
+msgctxt "post_required"
+msgid "This action requires a POST request."
+msgstr "Aquesta acció requereix una petició POST."
+
+msgctxt "unknown_action"
+msgid "Unknown action."
+msgstr "Acció desconeguda."
+
+msgctxt "google_drive_import_already_running"
+msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
+msgstr "Ja hi ha una importació de fotos de Google Drive en curs. En podràs iniciar una de nova quan acabi."

@@ -25,7 +25,7 @@ msgstr "Open Food Facts dünyanın dört bir yanından besin ürünleriyle ilgil
 
 msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Dünyanın dört bir yanından katılımcı, özgür ve açık gıda ürünleri veritabanı."
+msgstr "Dünyanın dört bir yanındaki ürünlerin bulunduğu işbirlikçi, glütensiz ve açık veritabanı."
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
@@ -130,7 +130,7 @@ msgstr "Tide, Persil"
 
 msgctxt "categories_example_product"
 msgid "Liquid laundry detergent, Powder laundry detergent"
-msgstr ""
+msgstr "Sıvı çamaşır deterjanı, Toz çamaşır deterjanı"
 
 msgctxt "emb_codes_example_product"
 msgid "EMB 67890"
@@ -142,11 +142,11 @@ msgstr "Çamaşır deterjanı"
 
 msgctxt "product_name_example_product"
 msgid "Ultra Clean Lavender Scent"
-msgstr ""
+msgstr "Ultra Temiz Lavanta Kokusu"
 
 msgctxt "ingredients_text_example_product"
 msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
-msgstr ""
+msgstr "UYARI: Eğer bu kategoriye girmiyorsa herhangi bir içerik eklemeyin. Listeler, diğer kategorilerdeki gibi deterjanların ambalajlarında veya çevrimiçi olarak bulunabilir."
 
 # OPFF
 msgctxt "site_description_opff"
@@ -272,7 +272,7 @@ msgstr "Organizasyona katılma talebiniz, organizasyon yöneticisinin onayını 
 
 msgctxt "add_user_requested_org_processing"
 msgid "Your organization request has been received and is being processed."
-msgstr ""
+msgstr "Organizasyonunuzun talebi alınmıştır ve işleme tabiidir."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -416,7 +416,7 @@ msgstr "Google Play'de Mevcut"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Bu ürün henüz <<site_name>> veritabanında mevcut değil. <a href=\"https://world-tr.openfoodfacts.org\" target=\"_blank\"> <<site_name>></a>adresine eklemek için ürün, barkod, içindekiler listesi ve besin değerleri ile ilgili birkaç resim çekebilir misiniz?</p>\n"
+msgstr "<p>Bu ürün henüz <<site_name>> veritabanında mevcut değil. <a href=\"https://tr.openfoodfacts.org\" target=\"_blank\"> <<site_name>></a>adresine eklemek için ürün, barkod, içindekiler listesi ve besin değerleri ile ilgili birkaç resim çekebilir misiniz?</p>\n"
 "<p>Şimdiden teşekkür ederiz!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -1069,6 +1069,33 @@ msgstr "Open Beauty Facts - Kozmetik ürünleri"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world.openbeautyfacts.org"
+
+# Do not translate Open Products Facts
+msgctxt "footer_opf"
+msgid "Open Products Facts"
+msgstr "Open Products Facts"
+
+msgctxt "footer_opf_link"
+msgid "https://world.openproductsfacts.org"
+msgstr ""
+
+# Do not translate Open Pet Food Facts
+msgctxt "footer_opff"
+msgid "Open Pet Food Facts"
+msgstr "Open Pet Food Facts"
+
+msgctxt "footer_opff_link"
+msgid "https://world.openpetfoodfacts.org"
+msgstr ""
+
+# Do not translate Open Prices
+msgctxt "footer_op"
+msgid "Open Prices"
+msgstr ""
+
+msgctxt "footer_op_link"
+msgid "https://prices.openfoodfacts.org/"
+msgstr ""
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
@@ -1761,6 +1788,16 @@ msgstr "Beslenme dereceleri"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Beslenme derecesi"
+
+# Do not translate
+msgctxt "nutriscore_p"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# Do not translate
+msgctxt "nutriscore_s"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4278,6 +4315,11 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Lütfen Bağış Yapın"
 
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_provenance_line"
+msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
+msgstr ""
+
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Üreticilerin platform yönetimi"
@@ -5294,8 +5336,8 @@ msgid "Products for which we currently miss data to determine if they match your
 msgstr "Şu anda tercihlerinizle eşleşip eşleşmediklerini belirlemek için verilerini kaçırdığımız ürünler"
 
 msgctxt "forest_footprint"
-msgid "Forest footprint"
-msgstr "Orman ayak izi"
+msgid "Forest Footprint"
+msgstr ""
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
@@ -5322,8 +5364,8 @@ msgid "Deforestation risk"
 msgstr "Ormansızlaşma riski"
 
 msgctxt "total_forest_footprint"
-msgid "Total forest footprint"
-msgstr "Toplam orman ayak izi"
+msgid "Total Forest Footprint"
+msgstr ""
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -5346,8 +5388,8 @@ msgid "% in product"
 msgstr "üründe %"
 
 msgctxt "forest_footprint_calculation_details"
-msgid "Details of the calculation of the forest footprint"
-msgstr "Orman ayak izinin hesaplanmasına ilişkin ayrıntılar"
+msgid "Details of the calculation of the Forest Footprint"
+msgstr ""
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5391,64 +5433,96 @@ msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score
 msgstr "Nutri-Score, NOVA ve Green-Score gibi göstergeleri hesaplar ve bunları iyileştirmek için otomatik olarak öneriler belirler (örneğin, hafif bir bileşim değişikliğiyle daha iyi bir Nutri-Score derecesi alacak tüm ürünler)."
 
 msgctxt "attribute_forest_footprint_name"
-msgid "Forest footprint"
-msgstr "Orman ayak izi"
+msgid "Forest Footprint"
+msgstr "Orman Ayak İzi"
 
 msgctxt "attribute_forest_footprint_setting_name"
-msgid "Low risk of deforestation (Forest footprint)"
-msgstr "Düşük ormansızlaşma riski (Orman ayak izi)"
+msgid "Low risk of deforestation (Forest Footprint)"
+msgstr "Düşük ormansızlaşma riski (Orman Ayak İzi)"
 
 msgctxt "attribute_forest_footprint_setting_note"
-msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Orman ayak izi, bileşenleriyle ilişkili ormansızlaşma riskine karşılık gelir."
+msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
+msgstr "Orman Ayak İzi, içeriğindeki maddelerle ilişkili ormansızlaşma riskine karşılık gelir."
 
 msgctxt "attribute_forest_footprint_a_title"
-msgid "Very small forest footprint"
-msgstr "Çok küçük orman ayak izi"
+msgid "Forest Footprint A"
+msgstr "Orman Ayak İzi A"
 
 msgctxt "attribute_forest_footprint_b_title"
-msgid "Small forest footprint"
-msgstr "Küçük orman ayak izi"
+msgid "Forest Footprint B"
+msgstr "Orman Ayak İzi B"
 
 msgctxt "attribute_forest_footprint_c_title"
-msgid "Medium forest footprint"
-msgstr "Orta orman ayak izi"
+msgid "Forest Footprint C"
+msgstr "Orman Ayak İzi C"
 
 msgctxt "attribute_forest_footprint_d_title"
-msgid "Large forest footprint"
-msgstr "Büyük orman ayak izi"
+msgid "Forest Footprint D"
+msgstr "Orman Ayak İzi D"
 
-msgctxt "attribute_forest_footprint_e_title"
-msgid "Very large forest footprint"
-msgstr "Çok büyük orman ayak izi"
+msgctxt "attribute_forest_footprint_a_description"
+msgid "No ingredient associated with a deforestation risk."
+msgstr "Ormansızlaşma riskiyle ilişkili hiçbir içerik maddesi bulunmuyor."
+
+msgctxt "attribute_forest_footprint_b_description"
+msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
+msgstr "Ormansızlaşma riski taşıyan bir veya daha fazla içerik mevcut, ancak miktar, menşe ve/veya etiketler göz önüne alındığında risk düşüktür."
+
+msgctxt "attribute_forest_footprint_c_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
+msgstr "Ormansızlaşma riski taşıyan bir veya daha fazla içerik mevcut, miktar, menşe ve/veya etiketler göz önüne alındığında orta düzeyde risk."
+
+msgctxt "attribute_forest_footprint_d_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
+msgstr "Ormansızlaşma riski taşıyan bir veya daha fazla içerik mevcut, miktar, menşe ve/veya etiketler göz önüne alındığında yüksek risk."
 
 msgctxt "attribute_forest_footprint_not_computed_title"
-msgid "Forest footprint not computed"
-msgstr "Orman ayak izi hesaplanmadı"
+msgid "Forest Footprint not computed"
+msgstr "Orman Ayak İzi hesaplanmadı"
+
+msgctxt "attribute_forest_footprint_not_computed_description"
+msgid "Potential deforestation risk but not yet computed."
+msgstr "Potansiyel ormansızlaşma riski mevcut ancak henüz hesaplanmadı."
 
 msgctxt "attribute_forest_footprint_a_description_short"
-msgid "Almost no risk of deforestation"
-msgstr "Neredeyse hiç ormansızlaşma riski yok"
+msgid "No deforestation risk"
+msgstr "Ormansızlaşma riski yok"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
 msgstr "Düşük ormansızlaşma riski"
 
 msgctxt "attribute_forest_footprint_c_description_short"
-msgid "Moderate risk of deforestation"
-msgstr "Orta düzeyde ormansızlaşma riski"
+msgid "Medium risk of deforestation"
+msgstr "Orta ormansızlaşma riski"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
 msgstr "Yüksek ormansızlaşma riski"
 
-msgctxt "attribute_forest_footprint_e_description_short"
-msgid "Very high risk of deforestation"
-msgstr "Çok yüksek ormansızlaşma riski"
-
 msgctxt "attribute_forest_footprint_not_computed_description_short"
-msgid "Currently only for products with chicken or eggs"
-msgstr "Şu anda yalnızca tavuk veya yumurta içeren ürünler"
+msgid "Potential deforestation risk not computed"
+msgstr "Olası ormansızlaşma riski hesaplanmadı"
+
+msgctxt "attribute_forest_footprint_unknown_title"
+msgid "Forest Footprint not available"
+msgstr "Orman Ayak İzi mevcut değil"
+
+msgctxt "attribute_forest_footprint_unknown_description"
+msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
+msgstr "İçerik listesi eksik olduğu için Orman Ayak İzi hesaplanamıyor."
+
+msgctxt "attribute_forest_footprint_unknown_description_short"
+msgid "Missing ingredients list"
+msgstr "Eksik malzemeler listesi"
+
+msgctxt "forest_footprint_2026_other_risky_ingredients"
+msgid "Other risky ingredients"
+msgstr ""
+
+msgctxt "forest_footprint_2026_other_risky_ingredients_description"
+msgid "These ingredients are not yet assessed for deforestation risk:"
+msgstr ""
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
@@ -5503,7 +5577,7 @@ msgstr "Vizyon, Misyon, Değerler ve Programlar"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5677,8 +5751,8 @@ msgid "If you use the same column on multiple lines to provide images URLs for a
 msgstr "Tek bir ürüne ilişkin görsellerin URL'lerini sağlamak için aynı sütunu birden çok satırda kullanırsanız görselin türünü belirtmek için bu alanı kullanabilirsiniz: ön kısım, içindekiler, besin değeri veya ambalaj."
 
 msgctxt "forest_footprint_one_line_explanation"
-msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "Orman ayak izi, üretimi soya fasulyesi gerektiren ve ekimi ormansızlaşmayla bağlantılı olan bileşenler dikkate alınarak hesaplanıyor."
+msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr ""
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -6041,23 +6115,23 @@ msgstr "DESTEKLİYORUM"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "2026 yılını tamamlamak için hâlâ 120.000 €'ya ihtiyacımız var!"
+msgstr "2026 yılını tamamlamamız için €120.000 daha ihtiyacımız var!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Bir Open Food Facts hamisi olun"
+msgstr "Open Food Facts destekçisi olun"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Her ay 8 milyon ziyaretçiye ve API aracılığıyla bunun kat kat fazlasına hizmet veriyoruz. Desteğiniz şunlar için çok önemlidir:"
+msgstr "Her ay 8 milyon ziyaretçiye hizmet veriyoruz ve API aracılığıyla bu sayının çok daha fazlasına ulaşıyoruz. Desteğiniz şu açılardan hayati önem taşımaktadır:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "Open Food Facts'i açık ve herkesin erişimine açık tutmak,"
+msgstr "Open Food Facts'i herkese açık ve erişilebilir tutmak,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "küçük ve daimi bir ekiple altyapıyı, web sitesini, mobil uygulamayı ve API'yi desteklemek"
+msgstr "küçük bir daimi ekiple beraber altyapıyı, websiteye, mobil uygulamaya ve API destek olmak"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6065,7 +6139,7 @@ msgstr "gıda endüstrisinden bağımsız kalmak,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "topluluğu desteklemek"
+msgstr "topluluğa destek olmak"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
@@ -6073,7 +6147,7 @@ msgstr "bilimi desteklemek"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Bu ay her ziyaretçi Bağış Yap'a tıklayıp sadece 1 € verseydi, yıllık bütçemizin 8 katından fazlasını elde ederdik!"
+msgstr "Eğer bu ay sitemizi ziyaret eden her bir ziyaretçi 1€ destek olursa yıllık bütçemizin 8 katından fazlasını toplamış oluruz!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6490,6 +6564,83 @@ msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
 msgstr "Green-Score hakkında daha fazla şey öğrenin"
 
+# Environmental Cost (Ecobalyse)
+msgctxt "environmental_cost_title"
+msgid "Environmental Cost"
+msgstr ""
+
+msgctxt "environmental_cost_description"
+msgid "Total environmental impact score from Ecobalyse"
+msgstr ""
+
+msgctxt "environmental_cost_stale"
+msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
+msgstr ""
+
+msgctxt "ecs_breakdown"
+msgid "ECS Breakdown"
+msgstr ""
+
+msgctxt "environmental_cost_stage"
+msgid "Stage"
+msgstr "Sahne"
+
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
+msgstr ""
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr ""
+
+msgctxt "environmental_cost_ingredients"
+msgid "Ingredients"
+msgstr "Malzemeler"
+
+msgctxt "environmental_cost_packaging"
+msgid "Packaging"
+msgstr "Ambalaj"
+
+msgctxt "environmental_cost_transport"
+msgid "Transport"
+msgstr ""
+
+msgctxt "environmental_cost_processing"
+msgid "Processing"
+msgstr "İşleme"
+
+msgctxt "environmental_cost_distribution"
+msgid "Distribution"
+msgstr "Dağıtım"
+
+msgctxt "environmental_cost_preparation"
+msgid "Preparation"
+msgstr "Hazırlık"
+
+msgctxt "environmental_cost_total"
+msgid "Total"
+msgstr "Toplam"
+
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
@@ -6531,6 +6682,10 @@ msgstr "Nutri-Score, Green-Score ve gıda işleme seviyesi (NOVA)"
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
 msgstr "İçerik listesini ekleyebilir misiniz?"
+
+msgctxt "actions_add_nutrition_facts"
+msgid "Could you add the nutrition facts?"
+msgstr ""
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
@@ -6786,7 +6941,7 @@ msgstr "Ürün güncellendi"
 
 msgctxt "api_result_user_found"
 msgid "User found"
-msgstr ""
+msgstr "Kullanıcı bulundu"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6922,7 +7077,7 @@ msgstr "Geçersiz kullanıcı kimliği ve şifre"
 
 msgctxt "api_message_invalid_token"
 msgid "Invalid access_token"
-msgstr ""
+msgstr "Geçersiz access_token"
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
@@ -7283,6 +7438,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Kategori, etiketler, içerikler, alerjenler, beslenme bilgileri, fotoğraflar vb."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Kategori, etiketler, içerikler, alerjenler, beslenme bilgileri, fotoğraflar vb."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Eğer bilgiler ambalaj üzerindeki bilgilerle eşleşmiyorsa tamamlayabilir veya düzeltebilirsiniz. Teşekkür ederim!"
@@ -7290,6 +7457,18 @@ msgstr "Eğer bilgiler ambalaj üzerindeki bilgilerle eşleşmiyorsa tamamlayabi
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts ortak çalışmaya dayalı bir veri tabanıdır ve her katkı herkes için faydalıdır."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7618,6 +7797,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "Gıda ile temas halinde"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr ""
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "Bize Ulaşın"
@@ -7738,6 +7921,10 @@ msgstr "Aynı kategorideki ilave şeker içermeyen ürünleri arayın:"
 msgctxt "per_100g"
 msgid "for 100 g"
 msgstr "100 gr için"
+
+msgctxt "points"
+msgid "points"
+msgstr ""
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
@@ -8037,21 +8224,21 @@ msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
 
-msgctxt "forest_footprint_2026"
-msgid "Forest Footprint 2026"
+msgctxt "forest_footprint_2026_methodology"
+msgid "The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption."
 msgstr ""
 
-msgctxt "forest_footprint_2026_under_development"
-msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgctxt "forest_footprint_2026_methodology_more_info"
+msgid "More information on the methodology"
 msgstr ""
 
 msgctxt "forest_footprint_2026_overall_grade"
-msgid "Forest footprint grade"
+msgid "Forest Footprint grade"
 msgstr ""
 
 msgctxt "forest_footprint_2026_total"
-msgid "Total forest footprint"
-msgstr "Toplam orman ayak izi"
+msgid "Total Forest Footprint"
+msgstr ""
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
@@ -8062,10 +8249,141 @@ msgid "Primary ingredient"
 msgstr ""
 
 msgctxt "forest_footprint_2026_origin_footprint"
-msgid "Forest footprint for the origin"
+msgid "Forest Footprint for the origin"
 msgstr ""
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
 msgstr "Etiket"
 
+msgctxt "forest_footprint_2026_grade_unknown"
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
+msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
+msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
+msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
+msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
+msgstr ""
+
+msgctxt "forest_footprint_2026_labels_description"
+msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
+msgstr ""
+
+msgctxt "related_categories"
+msgid "Related categories"
+msgstr ""
+
+msgctxt "product_history_revision"
+msgid "Revision"
+msgstr ""
+
+msgctxt "product_history_date"
+msgid "Date"
+msgstr "Tarih"
+
+msgctxt "product_history_contributor"
+msgid "Contributor"
+msgstr "Katkı sağlayan"
+
+msgctxt "product_history_changes"
+msgid "Changes"
+msgstr ""
+
+msgctxt "product_history_comment"
+msgid "Comment"
+msgstr "Yorum"
+
+msgctxt "product_history_most_recent_changes"
+msgid "Only the most recent changes are shown."
+msgstr ""
+
+msgctxt "product_history_see_full_history"
+msgid "See the full changes history"
+msgstr ""
+
+msgctxt "google_drive_import_title"
+msgid "Import photos from a Google Drive folder"
+msgstr ""
+
+msgctxt "google_drive_import_description"
+msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+msgstr ""
+
+msgctxt "google_drive_folder_url"
+msgid "Google Drive folder URL"
+msgstr ""
+
+msgctxt "google_drive_import_button"
+msgid "Import the photos"
+msgstr ""
+
+msgctxt "google_drive_invalid_folder_url"
+msgid "This is not the URL of a Google Drive folder."
+msgstr ""
+
+msgctxt "google_drive_no_api_key"
+msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+msgstr ""
+
+msgctxt "google_drive_folder_not_found"
+msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+msgstr ""
+
+msgctxt "google_drive_folder_too_many_items"
+msgid "The Google Drive folder contains too many files."
+msgstr ""
+
+msgctxt "google_drive_api_error"
+msgid "Google Drive returned an error."
+msgstr ""
+
+msgctxt "google_drive_import_listing"
+msgid "Listing the photos of the folder..."
+msgstr ""
+
+msgctxt "google_drive_import_photos_in_folder"
+msgid "Photos in the folder"
+msgstr ""
+
+msgctxt "google_drive_import_skipped_files"
+msgid "Files that are not photos (e.g. videos), not imported"
+msgstr ""
+
+msgctxt "google_drive_import_max_images"
+msgid "The folder contains too many photos, only the first ones are imported"
+msgstr ""
+
+msgctxt "google_drive_import_photos_processed"
+msgid "Photos processed"
+msgstr ""
+
+msgctxt "job_not_found"
+msgid "The photo import job could not be found."
+msgstr ""
+
+msgctxt "job_failed"
+msgid "The photo import job failed."
+msgstr ""
+
+msgctxt "post_required"
+msgid "This action requires a POST request."
+msgstr ""
+
+msgctxt "unknown_action"
+msgid "Unknown action."
+msgstr ""
+
+msgctxt "google_drive_import_already_running"
+msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
+msgstr ""
