@@ -1,0 +1,14 @@
+[% WRAPPER 'web/common/site_layout.tt.html' %]
+
+<div class="row">
+    <div class="medium-12 large-12 columns">
+        <h1>[% title %]</h1>
+        <ul class="facets-list" style="columns: 2; -webkit-columns: 2; -moz-columns: 2;">
+            [% FOREACH facet IN facets %]
+                <li><a href="[% facet.url %]">[% facet.name %]</a></li>
+            [% END %]
+        </ul>
+    </div>
+</div>
+
+[% END %]
