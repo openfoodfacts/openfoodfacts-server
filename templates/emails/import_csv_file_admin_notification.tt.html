@@ -29,8 +29,8 @@ Subject: Result of import_csv_file.pl: org: [% args.org_id %] - source: [% args.
 <ul>
     [% FOREACH org IN stats.$orgs_stat.keys.sort %]
         <li>
-            <a href="https://world.[% server_domain %]/cgi/user.pl?action=process&type=edit_owner&pro_moderator_owner=org-[% org %]">
-                [% org %]
+            <a href="https://world.pro.[% server_domain %]/cgi/user.pl?type=edit_owner&pro_moderator_owner=org-[% org %]">
+                Set org-[% org %] as your producers platform moderation organization
             </a> (GLN: [% stats.orgs_glns.$org %]) :
             [% stats.$orgs_stat.$org %]
         </li>
