@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.121.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.120.0...v2.121.0) (2026-11-07)
+
+
+### Features
+
+* **dev:** Isolate git worktrees ([#14825](https://github.com/openfoodfacts/openfoodfacts-server/issues/14825)) ([a54b227](https://github.com/openfoodfacts/openfoodfacts-server/commit/a54b2276b9e12715ac23f5fd18bcc34e4bea6412))
+
+
+### Bug Fixes
+
+* preserve recognised ingredient qualifiers ([#14993](https://github.com/openfoodfacts/openfoodfacts-server/issues/14993)) ([100f86a](https://github.com/openfoodfacts/openfoodfacts-server/commit/100f86aa7a93fcabff5452a775de9ed00d9733e6))
+* writable cache directory for www-data in the Docker image ([#15292](https://github.com/openfoodfacts/openfoodfacts-server/issues/15292)) ([caceb8d](https://github.com/openfoodfacts/openfoodfacts-server/commit/caceb8d150a3da5b7d1baed7faf5cc8836dccbab))
+
 ## [2.120.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.119.0...v2.120.0) (2026-11-06)
 
 
