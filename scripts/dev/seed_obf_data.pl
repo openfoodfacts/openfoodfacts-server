@@ -16,8 +16,8 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
 
+use ProductOpener::PerlStandards;
 use utf8;
-use Modern::Perl '2017';
 use open ':std', ':encoding(UTF-8)';
 
 use ProductOpener::Config qw/:all/;
