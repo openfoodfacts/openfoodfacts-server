@@ -453,12 +453,20 @@
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_wiki_link')) %]">[% lang('footer_wiki') %]</a></li>
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_translators_link')) %]">[% lang('footer_translators') %]</a></li>
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_partners_link')) %]">[% lang('footer_partners') %]</a></li>
-              <li><a class="button small white-button radius" href="[% edq(lang('footer_data_link')) %]">[% lang('footer_data') %]</a></li>
+							<li><a class="button small white-button radius" href="[% edq(lang('footer_data_link')) %]">[% lang('footer_data') %]</a></li>
+							[% IF flavor != 'obf' %]
 							<li><a class="button small white-button radius" href="[% edq(lang('footer_obf_link')) %]">[% lang('footer_obf') %]</a></li>
-              <li><a class="button small white-button radius" href="[% edq(lang('footer_opf_link')) %]">[% lang('footer_opf') %]</a></li>
-              <li><a class="button small white-button radius" href="[% edq(lang('footer_opff_link')) %]">[% lang('footer_opff') %]</a></li>
-              <li><a class="button small white-button radius" href="[% edq(lang('footer_op_link')) %]">[% lang('footer_op') %]</a></li>
+							[% END %]
+							[% IF flavor != 'opf' %]
+							<li><a class="button small white-button radius" href="[% edq(lang('footer_opf_link')) %]">[% lang('footer_opf') %]</a></li>
+							[% END %]
+							[% IF flavor != 'opff' %]
+							<li><a class="button small white-button radius" href="[% edq(lang('footer_opff_link')) %]">[% lang('footer_opff') %]</a></li>
+							[% END %]
+							<li><a class="button small white-button radius" href="[% edq(lang('footer_op_link')) %]">[% lang('footer_op') %]</a></li>
+							[% IF !server_options_producers_platform %]
 							<li><a class="button small white-button radius" href="[% producers_platform_url %]">[% edq(lang('footer_pro')) %]</a></li>
+							[% END %]
 						</ul>
 					</div>
 				</div>
@@ -570,7 +578,6 @@
   style="bottom: 10px; right: 20px;">
 </div>
 [% END %]
-
 </body>
 </html>
 
