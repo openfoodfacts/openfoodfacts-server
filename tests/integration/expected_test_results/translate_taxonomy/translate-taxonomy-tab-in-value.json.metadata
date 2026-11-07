@@ -1,0 +1,14 @@
+{
+   "api_call" : {
+      "body" : {
+         "from" : "en:poc-source-tag",
+         "lc" : "en",
+         "tagtype" : "categories",
+         "to" : "poc\ttranslation"
+      },
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/translate_taxonomy.pl"
+   }
+}

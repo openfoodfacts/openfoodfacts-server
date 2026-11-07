@@ -1,0 +1,14 @@
+{
+   "api_call" : {
+      "body" : {
+         "from" : "en:poc-source-tag",
+         "lc" : "en",
+         "tagtype" : "categories",
+         "to" : "poc translation\n1700000000\tpoc-forged-user\ten:poc-forged-tag\tpoc forged translation"
+      },
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/translate_taxonomy.pl"
+   }
+}
