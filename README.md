@@ -54,6 +54,7 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 - We strive to thoughtfully design every feature before we move on to implementation, so that we respect Open Food Facts' graphic charter and nascent design system, while having efficient user flows.
 - [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/design/Qg9URUyrjHgYmnDHXRsTTB/Current-Website-design?m=auto&t=jNwvjRR8nIgOzzJZ-6)
 - Are you a designer? [Join the design team](https://github.com/openfoodfacts/openfoodfacts-design)
+- [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current design and future plans to discuss](https://www.figma.com/file/Qg9URUyrjHgYmnDHXRsTTB/New-website-design-(2022)-(Quentin)?t=00ZMlgxe590W8TRY-0)
 <br><br>
 ## Weekly Meetings
 
@@ -70,9 +71,7 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 ## Feature Sprint
 - We use feature-based sprints, [tracked here](https://github.com/orgs/openfoodfacts/projects/32)
 <br><br>
-## User Interface
--  [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current design and future plans to discuss](https://www.figma.com/file/Qg9URUyrjHgYmnDHXRsTTB/New-website-design-(2022)-(Quentin)?t=00ZMlgxe590W8TRY-0)
-<br><br>
+
 ## Priorities
 - [Top issues](https://github.com/openfoodfacts/openfoodfacts-server/issues/7374)
 - [P1 problems](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aopen%20label%3A%22%F0%9F%8E%AF%20P0%22%20OR%20label%3A%22%F0%9F%8E%AF%20P1%22%20)
@@ -115,8 +114,11 @@ You can help translate the Open Food Facts web version and the app at:
 <br><br>
 ## Helping with HTML and CSS
 
-We have [templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates) Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get started? section).
-In particular, you can [help with issues on the new design](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22%F0%9F%8E%A8%20New%20design%22).
+- We have [templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates) Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get started? section).
+- The content pages live in https://github.com/openfoodfacts/openfoodfacts-web
+
+## Increasing the number of products on Open X Facts by working on data imports from public databases or producers
+The content pages live in https://github.com/openfoodfacts/data-imports
 
 ### Frontend Build Scripts
 
@@ -128,7 +130,7 @@ For more details on how the frontend build system works, see the [Frontend Build
 <br><br>
 ## Who do I talk to?
 
-Join our discussion room at <https://slack.openfoodfacts.org/>. Make sure to join the `#productopener` and `#productopener-alerts` channels. Stéphane, Pierre, Charles or Hangy will be around to help you get started.
+Join our discussion room at <https://slack.openfoodfacts.org/>. Make sure to join the `#productopener` and `#productopener-alerts` channels. Stéphane, Pierre, Alex, Hangy, John-Gom and many others will be around to help you get started.
 <br><br>
 ## Contributors
 
