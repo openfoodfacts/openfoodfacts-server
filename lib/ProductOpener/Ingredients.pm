@@ -518,10 +518,12 @@ sub init_additives_classes_regexps() {
 
 if ((keys %labels_regexps) > 0) {exit;}
 
-sub extract_ingredients_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
+sub extract_ingredients_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref,
+	$ocr_engine_from_request = 0)
+{
 
 	extract_text_from_image($product_ref, $image_type, $image_lc, "ingredients_text_from_image", $ocr_engine,
-		$results_ref);
+		$results_ref, $ocr_engine_from_request);
 
 	# remove nutrition facts etc.
 	if (($results_ref->{status} == 0) and (defined $results_ref->{ingredients_text_from_image})) {
