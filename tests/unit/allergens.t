@@ -419,6 +419,25 @@ is(canonicalize_allergens_taxonomy_tag("fr", "fromage"),
 	"en:milk", "Testing canonicalize_allergens_taxonomy_tag for fromage (fr)");
 is(canonicalize_allergens_taxonomy_tag("en", "tuna"),
 	"en:fish", "Testing canonicalize_allergens_taxonomy_tag for tuna (en)");
+is(canonicalize_allergens_taxonomy_tag("de", "Glutenhaltiges Getreide: Weizen (wie Dinkel und Khorasan-Weizen)"),
+	"en:gluten", "German legal allergen phrase maps despite its clarification");
+is(canonicalize_allergens_taxonomy_tag("de", "Milch (einschließlich Laktose)"),
+	"en:milk", "German milk phrase maps despite its clarification");
+is(canonicalize_allergens_taxonomy_tag("cs", "Bio pšeničná mouka hladká"),
+	"en:gluten", "Czech wheat flour wording maps through the ingredient taxonomy");
+is(canonicalize_allergens_taxonomy_tag("de", "Milchschokoladenpulver"),
+	"de:Milchschokoladenpulver", "A longer unknown word is not matched by an allergen prefix");
+is(canonicalize_allergens_taxonomy_tag("en", "no wheat"),
+	"en:no wheat", "An absence statement is not interpreted as an allergen");
+
+my $allergen_product = {};
+set_field_input_tags_for_source($allergen_product, "de", "allergens", "user",
+	"Glutenhaltiges Getreide: Weizen (wie Dinkel und Khorasan-Weizen), Milch (einschließlich Laktose)");
+is(
+	[sort @{$allergen_product->{allergens_tags}}],
+	["en:gluten", "en:milk"],
+	"clarified allergen phrases are stored as canonical tags"
+);
 
 # Get an allergens id from the ingredients taxonomy, using the allergens:en: property
 is(canonicalize_allergens_taxonomy_tag("en", "monkfish"),
