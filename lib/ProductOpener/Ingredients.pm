@@ -3770,9 +3770,12 @@ Text to analyze
 					# ingredients tags that are too long (greater than 1024, mongodb max index key size)
 					# will cause issues for the mongodb ingredients_tags index, just drop them
 					if (length($ingredient{id}) < 500) {
+						# Keep specified group percentages so that their children are
+						# estimated within the group total, e.g. 63% sweeteners.
+						my $flatten_children
+							= $is_flattenable_additive_class && $between ne '' && !defined $ingredient{percent};
 						# Only require recognizable children when protected compound-unit slashes
 						# could flatten the class into unknown text, e.g. "mg/kg 1b306(i)".
-						my $flatten_children = $is_flattenable_additive_class && $between ne '';
 						if ($flatten_children && $between =~ /\N{U+2044}/) {
 							$flatten_children = 0;
 							foreach my $raw_chunk (split(/$separators/, $between)) {
@@ -3842,12 +3845,17 @@ Text to analyze
 
 								if ((scalar @ingredients) == 0) {
 									$ingredient{ingredients} = [];
+									# Retained additive groups still supply their children's class,
+									# without changing the class of ingredients after the group.
+									my $previous_additive_class = $current_parser_additive_class;
+									$current_parser_additive_class = $ingredient{id} if $is_flattenable_additive_class;
 									$analyze_ingredients_self->(
 										$analyze_ingredients_self,
 										$ingredient{ingredients},
 										$ingredients_ref->[-1],
 										$between_level, $between
 									);
+									$current_parser_additive_class = $previous_additive_class;
 								}
 							}
 						}
