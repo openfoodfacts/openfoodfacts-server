@@ -489,6 +489,42 @@ my @tests = (
 		]
 	],
 
+	[
+		{
+			lc => "nl",
+			ingredients_text =>
+				"emulgatoren: mono - en diglyceriden van vetzuren, mono - en diglyceriden van vetzuren veresterd met monoacetyl - en diacetylwijnsteenzuur"
+		},
+		[
+			{
+				'additive_class' => 'en:emulsifier',
+				'id' => 'en:e471',
+				'is_in_taxonomy' => 1,
+				'text' => 'mono- en diglyceriden van vetzuren'
+			},
+			{
+				'additive_class' => 'en:emulsifier',
+				'id' => 'en:e472e',
+				'is_in_taxonomy' => 1,
+				'text' => 'mono- en diglyceriden van vetzuren veresterd met monoacetyl- en diacetylwijnsteenzuur'
+			}
+		]
+	],
+
+	[
+		{lc => "nl", ingredients_text => "emulgator: mono -  en diglyceriden van vetzuren van plantaardige oorsprong"},
+		[
+			{
+				'id' => 'en:mono-and-diglycerides-of-fatty-acids-of-vegetable-origin',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:vegan',
+				'text' => 'mono- en diglyceriden van vetzuren van plantaardige oorsprong',
+				'vegan' => 'yes',
+				'vegetarian' => 'yes'
+			}
+		]
+	],
+
 );
 
 # A period in "No. 5" is part of a cosmetic colorant name, not an ingredient separator.

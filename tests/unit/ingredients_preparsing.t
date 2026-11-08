@@ -1474,6 +1474,12 @@ foreach my $test (
 	['en', "mono - & diglycerides", "mono- and diglycerides"],
 	['de', "Mono - und Diglyceride von Speisefettsäuren", "Mono- und Diglyceride von Speisefettsäuren"],
 	['nl', "mono - en diglyceriden van vetzuren", "mono- en diglyceriden van vetzuren"],
+	['nl', "emulgator: mono -  en diglyceriden van vetzuren", "emulgator: mono- en diglyceriden van vetzuren"],
+	['nl', "mono  - en diglyceriden", "mono- en diglyceriden"],
+	['nl', "monoacetyl - en diacetylwijnsteenzuur", "monoacetyl- en diacetylwijnsteenzuur"],
+	['nl', "monoacetyl- en diacetylwijnsteenzuur", "monoacetyl- en diacetylwijnsteenzuur"],
+	['de', "Monoacetyl - und Diacetylweinsäureester", "Monoacetyl- und Diacetylweinsäureester"],
+	['nl', "monoacetyl - en suiker", "monoacetyl - en suiker"],
 	['pl', "mono - i diglicerydy kwasów tłuszczowych", "mono- i diglicerydy kwasów tłuszczowych"],
 	['ro', "mono-şi digliceride ale acizilor grași", "mono- și digliceride ale acizilor grași"],
 	# mono-diglycérides -> mono- et diglycérides

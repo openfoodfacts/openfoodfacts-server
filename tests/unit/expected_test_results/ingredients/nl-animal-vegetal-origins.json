@@ -5,18 +5,18 @@
          "from_palm_oil" : "maybe",
          "id" : "en:fat",
          "is_in_taxonomy" : 1,
-         "origins" : "",
+         "labels" : "en:vegan",
          "percent_estimate" : 70,
          "percent_max" : 100,
          "percent_min" : 40,
          "text" : "vet",
-         "vegan" : "maybe",
-         "vegetarian" : "maybe"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:e428",
          "is_in_taxonomy" : 1,
-         "origins" : "",
+         "labels" : "en:non-vegan",
          "percent_estimate" : 15,
          "percent_max" : 50,
          "percent_min" : 0,

@@ -2503,7 +2503,7 @@ Text to analyze
 
 							# try to remove the origin and store it as property
 							if ($between
-								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
+								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.+)$/i
 								)
 							{
 								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
@@ -8113,20 +8113,21 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# "mono - et diglycérides", "mono-et diglycérides", "di - et triphosphates", "tri - and dicalcium phosphate"
 	# -> "mono- et diglycérides", "di- et triphosphates", "tri- and dicalcium phosphate"
 	my $multi_prefix = '(?:mono|di|tri|tetra|poly)';
-	$text =~ s/\b($multi_prefix)\s?-\s?($and_without_spaces)\s+(?=$multi_prefix)/$1- $2 /ig;
+	$text =~ s/\b($multi_prefix)\s*-\s*($and_without_spaces)\s+(?=$multi_prefix)/$1- $2 /ig;
+	$text =~ s/\b($multi_prefix)(\p{L}+)\s*-\s*($and_without_spaces)\s+(?=$multi_prefix\2\p{L})/$1$2- $3 /ig;
 	# same with another short word (typo, or "and" in another language), so that the dash is not a separator
 	# and we keep 1 ingredient: "mono - ti digliceride" -> "mono- ti digliceride"
-	$text =~ s/\b($multi_prefix)\s?-\s?(\p{L}{1,3})\s+(?=$multi_prefix)/$1- $2 /ig;
+	$text =~ s/\b($multi_prefix)\s*-\s*(\p{L}{1,3})\s+(?=$multi_prefix)/$1- $2 /ig;
 	# "mono et diglycérides" -> "mono- et diglycérides"
 	$text =~ s/\b($multi_prefix)\s+($and_without_spaces)\s+(?=$multi_prefix)/$1- $2 /ig;
 	# "mono-diglycérides", "mono - di-glycérides" -> "mono- et diglycérides"
 	my ($first_and) = split(/\|/, $and);
 	$first_and =~ s/^\s+|\s+$//g;
-	$text =~ s/\b(mono)\s?-\s?(?=di\s?-?\s?gl[iy]c)/$1- $first_and /ig;
+	$text =~ s/\b(mono)\s*-\s*(?=di\s?-?\s?gl[iy]c)/$1- $first_and /ig;
 	# mono-glycéride -> monoglycérides, di-potassium -> dipotassium
 	# only before words of 4+ letters, so that we do not join "and" words of other languages ("mono - und")
 	# or "di-t-butyl"
-	$text =~ s/\b(mono|di)\s?-\s?(\p{L}{4})/$1$2/ig;
+	$text =~ s/\b(mono|di)\s*-\s*(\p{L}{4})/$1$2/ig;
 
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
