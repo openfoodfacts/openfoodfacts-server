@@ -28,7 +28,8 @@ RUN npm_version="$(node -p 'require("./package.json").packageManager || ""')" &&
     esac && \
     npm install --global --ignore-scripts "$npm_version"
 USER node
-RUN --mount=type=cache,id=npm-cacache,target=/home/node/.npm/_cacache,uid=$USER_UID,gid=$USER_GID npm ci
+RUN --mount=type=cache,id=npm-cacache,target=/home/node/.npm/_cacache,uid=$USER_UID,gid=$USER_GID \
+    npm ci --ignore-scripts && npm run snyk-protect
 ENV PATH="/opt/product-opener/node_modules/.bin:${PATH}"
 
 COPY --chown=node:node html /opt/product-opener/html
