@@ -35,7 +35,6 @@
     "win32"
   ],
   "dependencies": {
-    "@kristjan.esperanto/leaflet.markercluster": "^3.0.3",
     "@openfoodfacts/openfoodfacts-nodejs": "2.0.0-alpha.36",
     "@openfoodfacts/openfoodfacts-webcomponents": "1.18.3",
     "@webcomponents/webcomponentsjs": "2.8.0",
@@ -48,7 +47,8 @@
     "jquery-ui": "1.14.2",
     "jsbarcode": "^3.12.3",
     "jsvectormap": "^1.7.0",
-    "leaflet": "^2.0.0-alpha.1",
+    "leaflet": "^2.0.0-beta.1",
+    "leaflet.markercluster": "^2.0.0-beta.1",
     "papaparse": "^5.7.0",
     "select2": "^4.1.0"
   },
