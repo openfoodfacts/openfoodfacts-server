@@ -8,7 +8,7 @@ use ProductOpener::Images qw/process_image_move/;
 
 is(ProductOpener::Images::_image_is_too_small(400, 120), 1, 'reject a new small image');
 is(ProductOpener::Images::_image_is_too_small(400, 120, 1), 0, 'allow a small image when moving it');
-is(ProductOpener::Images::_image_is_too_small(400, 160), 0, 'allow an image at the height limit');
+ok(!ProductOpener::Images::_image_is_too_small(400, 160), "allow an image at the height limit");
 
 sub move_result ($upload_result) {
 	my $source_code = '0900000000139';
@@ -34,10 +34,11 @@ sub move_result ($upload_result) {
 			retrieve_product => sub ($product_id) {
 				return $product_id eq 'source-id' ? $source_product : $target_product;
 			},
-			process_image_upload => sub ($product, $path, $user_id, $time, $comment, $imgid_ref, $debug_ref, $allow_small) {
+			process_image_upload =>
+				sub ($product, $path, $user_id, $time, $comment, $imgid_ref, $debug_ref, $allow_small) {
 				$allow_small_image = $allow_small;
 				return $upload_result;
-			},
+				},
 			delete_uploaded_image_and_associated_selected_images => sub ($product, $imgid) {$delete_calls++;},
 			store_product => sub {return;},
 		],

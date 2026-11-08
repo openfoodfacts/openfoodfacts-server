@@ -897,7 +897,9 @@ rejected by the minimum-size check for new uploads.
 
 =cut
 
-sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref, $allow_small_image = 0) {
+sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref,
+	$allow_small_image = 0)
+{
 
 	# $time = shift  ->  usually current time (images just uploaded), except for images moved from another product
 	# $imgid_ref = shift  ->  to return the imgid (new image or existing image)
