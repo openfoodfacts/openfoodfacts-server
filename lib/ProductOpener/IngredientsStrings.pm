@@ -261,7 +261,13 @@ $symbols_regexp = join('|', @symbols);
 		["pr.", "per"],
 	],
 
-	de => [["inkl.", "inklusive"], ["vit.", "vitamin"],],
+	de => [
+		["inkl.", "inklusive"],
+		["vit.", "vitamin"],
+		# geschützte Ursprungsbezeichnung / geschützte geografische Angabe (labels)
+		["g. g. A.", "ggA"],
+		["g. U.", "gU"],
+	],
 
 	es => [["vit.", "vitamina"], ["m.g.", "materia grasa"]],
 
