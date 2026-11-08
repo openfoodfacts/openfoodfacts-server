@@ -73,6 +73,7 @@ BEGIN {
 		&get_nutrient_from_nutrient_set_in_default_unit
 		&default_unit_for_nid
 		&add_misc_tags_for_input_nutrition_data_pers
+		&add_misc_tags_for_protein_energy
 		&sort_sets_by_priority
 
 	);    # symbols to export on request
@@ -105,6 +106,8 @@ use Log::Any qw($log);
 
 use Encode;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
+use POSIX qw/isfinite/;
+use Scalar::Util qw/looks_like_number/;
 use boolean;
 
 =head1 FUNCTIONS
@@ -2931,6 +2934,66 @@ sub default_unit_for_nid ($nid) {
 	return "g";
 }
 
+=head2 add_misc_tags_for_protein_energy ( $product_ref )
+
+Classify products according to whether proteins provide at least 20 percent of
+their total energy, using the normalized aggregated nutrition set. Only the
+threshold result is stored in misc_tags, not a numerical percentage or a label.
+
+The aggregated set ensures that protein and energy values have the same per
+reference and preparation state. Prefer kcal from the same source as the
+aggregated energy, unless it is computed while the aggregated energy is declared.
+Otherwise use the aggregated energy in kJ, with the corresponding protein energy
+factor. Estimated nutrients and inequality modifiers are not used for this
+classification. Missing or invalid data leaves both threshold tags unset.
+
+Existing threshold tags are removed first so that repeated calls and nutrition
+edits do not leave stale classifications.
+
+=cut
+
+sub add_misc_tags_for_protein_energy ($product_ref) {
+
+	my $at_least_tag = "en:protein-is-at-least-20-percent-of-energy";
+	my $less_than_tag = "en:protein-is-less-than-20-percent-of-energy";
+	remove_tag($product_ref, "misc", $at_least_tag);
+	remove_tag($product_ref, "misc", $less_than_tag);
+
+	my $nutrients_ref = deep_get($product_ref, qw/nutrition aggregated_set nutrients/);
+	my $proteins_ref = deep_get($nutrients_ref, "proteins");
+	my $energy_ref = deep_get($nutrients_ref, "energy");
+	return unless defined $proteins_ref and defined $energy_ref;
+
+	# Do not use a lower-priority source's kcal value instead of the selected energy.
+	# Keeping declared kcal also avoids rounding when energy has been converted to kJ.
+	my $energy_kcal_ref = deep_get($nutrients_ref, "energy-kcal");
+	if (    defined $energy_kcal_ref
+		and defined $energy_kcal_ref->{value}
+		and (($energy_kcal_ref->{source_index} // -1) == ($energy_ref->{source_index} // -1))
+		and (($energy_kcal_ref->{modifier} // '') ne '~' or ($energy_ref->{modifier} // '') eq '~'))
+	{
+		$energy_ref = $energy_kcal_ref;
+	}
+
+	my $proteins = $proteins_ref->{value};
+	my $energy = $energy_ref->{value};
+	my $energy_unit = lc($energy_ref->{unit} // '');
+	my $energy_per_gram = $energy_from_nutrients{europe}{proteins}{$energy_unit};
+
+	return unless defined $proteins and defined $energy;
+	return unless looks_like_number($proteins) and looks_like_number($energy);
+	return unless isfinite($proteins) and isfinite($energy);
+	return unless $proteins >= 0 and $energy > 0;
+	return unless ($proteins_ref->{unit} // '') eq 'g' and defined $energy_per_gram;
+	return if ($proteins_ref->{source} // '') eq 'estimate' or ($energy_ref->{source} // '') eq 'estimate';
+	return if ($proteins_ref->{modifier} // '') =~ /[<>]/ or ($energy_ref->{modifier} // '') =~ /[<>]/;
+
+	my $protein_energy = $proteins * $energy_per_gram;
+	add_tag($product_ref, "misc", $protein_energy >= (20 * $energy / 100) ? $at_least_tag : $less_than_tag);
+
+	return;
+}
+
 =head2 add_misc_tags_for_input_nutrition_data_pers ( $product_ref )
 
 Add misc tags for the different pers used in the input nutrition data,
@@ -2968,4 +3031,3 @@ sub add_misc_tags_for_input_nutrition_data_pers($product_ref) {
 }
 
 1;
-
