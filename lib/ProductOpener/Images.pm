@@ -883,6 +883,11 @@ Used to return the number identifying the image to the caller.
 
 Used to return some debug information to the caller.
 
+=head4 Allow small images $allow_small_image
+
+Set when moving an existing image between products. Existing images should not be
+rejected by the minimum-size check for new uploads.
+
 =head3 Return values
 
 -2: imgupload field not set
@@ -892,7 +897,7 @@ Used to return some debug information to the caller.
 
 =cut
 
-sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref) {
+sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref, $allow_small_image = 0) {
 
 	# $time = shift  ->  usually current time (images just uploaded), except for images moved from another product
 	# $imgid_ref = shift  ->  to return the imgid (new image or existing image)
@@ -942,7 +947,7 @@ sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, 
 	}
 
 	return process_image_upload_using_filehandle($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref,
-		$debug_string_ref);
+		$debug_string_ref, $allow_small_image);
 }
 
 =head2 process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref, $debug_string_ref)
@@ -974,6 +979,11 @@ Used to return the number identifying the image to the caller.
 
 Used to return some debug information to the caller.
 
+=head4 Allow small images $allow_small_image
+
+Set when moving an existing image between products. Existing images should not be
+rejected by the minimum-size check for new uploads.
+
 =head3 Return values
 
 -2: imgupload field not set
@@ -984,7 +994,7 @@ Used to return some debug information to the caller.
 =cut
 
 sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref,
-	$debug_string_ref)
+	$debug_string_ref, $allow_small_image = 0)
 {
 
 	local $log->context->{uploader} = $user_id;
@@ -1173,7 +1183,7 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 
 		# Check the image is big enough so that we do not get thumbnails from other sites
 		if (
-			(($source->Get('width') < 640) and ($source->Get('height') < 160))
+			_image_is_too_small($source->Get('width'), $source->Get('height'), $allow_small_image)
 			and (  (not defined $options{users_who_can_upload_small_images})
 				or (not defined $options{users_who_can_upload_small_images}{$user_id}))
 			)
@@ -1255,6 +1265,11 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 	${$imgid_ref} = $imgid;
 
 	return $imgid;
+}
+
+sub _image_is_too_small ($width, $height, $allow_small_image = 0) {
+	return 0 if $allow_small_image;
+	return ($width < 640 && $height < 160);
 }
 
 =head2 remove_images_by_prefix ( $product_ref, $prefix )
@@ -1473,7 +1488,8 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 					$product_ref->{images}{uploaded}{$imgid}{uploaded_t},
 					"image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{uploaded}{$imgid}{uploader} - time: $product_ref->{images}{uploaded}{$imgid}{uploaded_t}",
 					\$new_imgid,
-					\$debug
+					\$debug,
+					1
 				);
 				if ($ok < 0) {
 					$log->error(
@@ -1516,7 +1532,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 			}
 
 			# Don't delete images to be moved if they weren't moved correctly
-			if ($ok) {
+			if (defined $ok and $ok > 0) {
 				# Delete images (move them to the deleted.images dir)
 				delete_uploaded_image_and_associated_selected_images($product_ref, $imgid);
 			}
