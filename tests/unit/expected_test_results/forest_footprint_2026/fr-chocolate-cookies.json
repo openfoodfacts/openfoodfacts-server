@@ -172,6 +172,8 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_proxy_id" : "6f3939f7-408c-45d5-8653-61f3336bf305",
+         "ecobalyse_proxy_name" : "Chocolat noir par défaut -2025-",
          "id" : "en:chocolate",
          "ingredients" : [
             {
@@ -370,10 +372,8 @@
       "en:chocolate"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:chocolate"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 12,
    "lc" : "fr",
    "misc_tags" : [
