@@ -45,9 +45,10 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
+use ProductOpener::KnowledgePanels
+	qw(create_panel_from_json_template add_taxonomy_properties_in_target_languages_to_object);
 use ProductOpener::Tags
-	qw(canonicalize_taxonomy_tag display_taxonomy_tag_name get_property get_tag_with_parents get_tag_direct_children cmp_taxonomy_tags_alphabetically);
+	qw(canonicalize_taxonomy_tag display_taxonomy_tag_name get_knowledge_content get_property get_tag_with_parents get_tag_direct_children cmp_taxonomy_tags_alphabetically);
 use ProductOpener::Packaging qw(load_categories_packagings_materials_stats);
 use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
@@ -87,7 +88,7 @@ Needed for some country specific panels like the Environmental-Score.
 Defines how some panels should be created (or not created)
 
 - deactivate_[panel_id] : do not create a default panel -- currently unimplemented
-- activate_[panel_id] : create an on demand panel -- currently only for physical_activities, related_categories, nova_unknown and efsa_evaluation panels
+- activate_[panel_id] : create an on demand panel -- currently only for physical_activities, related_categories, nova_unknown and additive_facts panels
 
 =head4 tag type $tagtype
 
@@ -139,9 +140,9 @@ sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref,
 			{}, $tag_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		push(@panels, "nova_unknown");
 	}
-	elsif (($tagtype eq "additives") and $options_ref->{activate_knowledge_panel_efsa_evaluation}) {
-		my $created = create_additive_efsa_evaluation_panel($tag_ref, $target_lc, $target_cc, $options_ref,
-			$canon_tagid, $request_ref);
+	elsif (($tagtype eq "additives") and $options_ref->{activate_knowledge_panel_additive_facts}) {
+		my $created
+			= create_additive_facts_panel($tag_ref, $target_lc, $target_cc, $options_ref, $canon_tagid, $request_ref);
 		push(@panels, $created) if $created;
 	}
 	if (@panels) {
@@ -292,64 +293,63 @@ sub create_category_related_categories_panel ($tag_ref, $target_lc, $target_cc, 
 	return "related_categories";
 }
 
-=head2 create_additive_efsa_evaluation_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $additive_id, $request_ref)
+=head2 create_additive_facts_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $additive_id, $request_ref)
 
-Creates a panel with the EFSA evaluation of the additive, its risk of overexposure,
-and the population groups that exceed the acceptable daily intake (ADI) or the NOAEL.
+Creates a panel with facts about the additive from the additives taxonomy:
+description, functions and their purpose, vegan and vegetarian status, and a link to its EFSA evaluation.
 
-The panel is not created if the additive has no EFSA evaluation.
+The panel is not created if the additive has none of these facts.
 
 =cut
 
-sub create_additive_efsa_evaluation_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $additive_id, $request_ref) {
-	my $evaluation = get_property("additives", $additive_id, "efsa_evaluation:en");
-	my $risk = get_property("additives", $additive_id, "efsa_evaluation_overexposure_risk:en");
+sub create_additive_facts_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $additive_id, $request_ref) {
 
-	if (not(defined $evaluation or defined $risk)) {
-		return;
+	my $target_lcs_ref = [$target_lc];
+	if ($target_lc ne "en") {
+		push @$target_lcs_ref, "en";
 	}
 
-	my @exposures = ();
-	if (defined $risk) {
-		$risk =~ s/^en://;
-		if ($risk ne "no") {
-			foreach my $percentile ("mean", "95th") {
-				foreach my $dose ("noael", "adi") {
-					my $exposure = "efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose;
-					my $groups = get_property("additives", $additive_id, "$exposure:en");
-					next if not defined $groups;
-					my %in_groups = map {s/^\s*en:|\s+$//gr => 1} split(/,/, $groups);
-					push(
-						@exposures,
-						{
-							id => $exposure,
-							groups => [grep {$in_groups{$_}} qw(infants toddlers children adolescents adults elderly)]
-						}
-					);
-				}
-			}
+	my $panel_data_ref = {
+		additive_id => $additive_id,
+		additive_description => scalar get_knowledge_content("additives", $additive_id, $target_lc, $target_cc),
+		evaluation => scalar get_property("additives", $additive_id, "efsa_evaluation:en"),
+		evaluation_date => scalar get_property("additives", $additive_id, "efsa_evaluation_date:en"),
+		evaluation_url => scalar get_property("additives", $additive_id, "efsa_evaluation_url:en"),
+	};
+
+	add_taxonomy_properties_in_target_languages_to_object($panel_data_ref, "additives", $additive_id,
+		["wikipedia_url", "wikipedia_title", "wikipedia_abstract"],
+		$target_lcs_ref);
+
+	my $classes = get_property("additives", $additive_id, "additives_classes:en");
+	if (defined $classes) {
+		$panel_data_ref->{classes} = [];
+		foreach my $class (split(/\s*,\s*/, $classes)) {
+			my $class_ref = {id => $class};
+			add_taxonomy_properties_in_target_languages_to_object($class_ref, "additives_classes", $class,
+				["description"], $target_lcs_ref);
+			push(@{$panel_data_ref->{classes}}, $class_ref);
 		}
 	}
 
-	create_panel_from_json_template(
-		"efsa_evaluation",
-		"api/knowledge-panels/tags/additives/efsa_evaluation.tt.json",
-		{
-			additive_id => $additive_id,
-			evaluation => $evaluation,
-			evaluation_date => get_property("additives", $additive_id, "efsa_evaluation_date:en"),
-			evaluation_url => get_property("additives", $additive_id, "efsa_evaluation_url:en"),
-			risk => $risk,
-			exposures => \@exposures,
-		},
-		$tag_ref,
-		$target_lc,
-		$target_cc,
-		$options_ref,
-		$request_ref
-	);
+	my %diet_tags = (yes => "", no => "non-", maybe => "maybe-");
+	foreach my $diet ("vegan", "vegetarian") {
+		my $value = get_property("additives", $additive_id, "$diet:en");
+		next if not defined $value;
+		$value =~ s/^en://;
+		$panel_data_ref->{$diet} = "en:" . $diet_tags{$value} . $diet if exists $diet_tags{$value};
+	}
 
-	return "efsa_evaluation";
+	if (not grep {defined $panel_data_ref->{$_}}
+		qw(additive_description wikipedia_abstract classes vegan vegetarian evaluation))
+	{
+		return;
+	}
+
+	create_panel_from_json_template("additive_facts", "api/knowledge-panels/tags/additives/additive_facts.tt.json",
+		$panel_data_ref, $tag_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return "additive_facts";
 }
 
 sub get_children_product_counts ($category_id, $is_child_ref, $request_ref) {

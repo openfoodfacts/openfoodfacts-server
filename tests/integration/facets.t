@@ -462,35 +462,41 @@ my $tests_ref = [
 		},
 		expected_type => 'html',    # the redirect itself is html
 	},
-	# EFSA evaluation knowledge panel of an additive, on request only
+	# additive facts knowledge panel, on request only
 	{
-		test_case => 'api-v3-tag-additive-e250-efsa-evaluation-panel',
+		test_case => 'api-v3-tag-additive-e322-additive-facts-panel',
 		method => 'GET',
-		path => '/api/v3/tag/additives/e250?activate_knowledge_panel_efsa_evaluation=1',
+		path => '/api/v3/tag/additives/e322?activate_knowledge_panel_additive_facts=1',
 		expected_status_code => 200,
 	},
 	{
-		test_case => 'api-v3-tag-additive-e250-no-efsa-evaluation-panel-by-default',
+		test_case => 'api-v3-tag-additive-e250-additive-facts-panel',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e250?activate_knowledge_panel_additive_facts=1',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-additive-e250-no-additive-facts-panel-by-default',
 		method => 'GET',
 		path => '/api/v3/tag/additives/e250',
 		expected_status_code => 200,
 	},
 	{
-		test_case => 'api-v3-tag-additive-e322-without-efsa-evaluation',
+		test_case => 'api-v3-tag-additive-e330-additive-facts-panel',
 		method => 'GET',
-		path => '/api/v3/tag/additives/e322?activate_knowledge_panel_efsa_evaluation=1',
+		path => '/api/v3/tag/additives/e330?activate_knowledge_panel_additive_facts=1',
 		expected_status_code => 200,
 	},
 	{
-		test_case => 'api-v3-tag-additive-e321-efsa-evaluation-without-risk',
+		test_case => 'api-v3-tag-additive-e100-additive-facts-panel-fr',
 		method => 'GET',
-		path => '/api/v3/tag/additives/e321?activate_knowledge_panel_efsa_evaluation=1',
+		path => '/api/v3/tag/additives/e100?activate_knowledge_panel_additive_facts=1&lc=fr',
 		expected_status_code => 200,
 	},
 	{
-		test_case => 'api-v3-tag-additive-e621-efsa-evaluation-noael',
+		test_case => 'api-v3-tag-additive-unknown-no-additive-facts-panel',
 		method => 'GET',
-		path => '/api/v3/tag/additives/e621?activate_knowledge_panel_efsa_evaluation=1',
+		path => '/api/v3/tag/additives/e99999?activate_knowledge_panel_additive_facts=1',
 		expected_status_code => 200,
 	},
 ];

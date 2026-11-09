@@ -40,10 +40,10 @@ components:
       schema:
         type: boolean
         example: true
-    ActivateKnowledgePanelEfsaEvaluation:
-      name: activate_knowledge_panel_efsa_evaluation
+    ActivateKnowledgePanelAdditiveFacts:
+      name: activate_knowledge_panel_additive_facts
       in: query
-      description: 'If true, the knowledge panels of an additive will include its EFSA evaluation panel: the risk of overexposure, and the population groups exceeding the acceptable daily intake'
+      description: 'If true, the knowledge panels of an additive will include the additive facts panel: description, functions and their purpose, vegan and vegetarian status, and a link to its EFSA evaluation'
       required: false
       schema:
         type: boolean
