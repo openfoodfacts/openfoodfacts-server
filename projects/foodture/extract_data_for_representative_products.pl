@@ -397,7 +397,12 @@ while (<$LIST>) {
 			if (ref $ingredients_ref eq 'ARRAY') {
 				collect_ingredients($_, \%ingredients_percent, \%ingredients_quantity) for @{$ingredients_ref};
 			}
-			my @sorted = sort {$ingredients_quantity{$b} <=> $ingredients_quantity{$a}} keys %ingredients_quantity;
+			# sort by quantity, then by percent (products without a quantity), then by id, so that the order is stable
+			my @sorted = sort {
+					   $ingredients_quantity{$b} <=> $ingredients_quantity{$a}
+					or $ingredients_percent{$b} <=> $ingredients_percent{$a}
+					or $a cmp $b
+			} keys %ingredients_quantity;
 
 			# accumulate into global ingredients sum
 			my $quantity_of_all_ingredients = 0;
