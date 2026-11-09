@@ -1520,7 +1520,6 @@ puffed orange and caramelized unknown_fruit4.",
 				"Lapte normalizat (98%), cultură starter, condimente în proporţii variabile. Conține o sursă de fenilalanină. A se consuma de preferinţă înainte de: vezi pe ambalaj. Lot: vezi capac. Ambalat în atmosferă protectoare. Valoare energetică: 250 kJ. Producător: SC Exemplu SRL, Str. Florilor nr. 1, Jud. Cluj, România.",
 		}
 	],
-	# “osteløbe (mikrobiel)”
 	# origin statement after the ingredients list, with the ingredient first:
 	# origins of the ingredient in specific_ingredients, not a new ingredient
 	[
@@ -1554,6 +1553,23 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "Fromage (lait : origine France), sucre, beurre : origine UE, farine",
 		}
 	],
+	# ingredients list separated by ; : the ingredient is not in the text before, it is an ingredient of the list
+	[
+		'fr-ingredient-origin-in-a-list-separated-by-semicolons',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre; beurre : origine France; farine",
+		}
+	],
+	# a statement with an unknown ingredient does not prevent the next ones from being matched
+	[
+		'fr-ingredient-origin-statement-after-an-unknown-ingredient',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre, lait. Machin : origine France. Lait : origine UE",
+		}
+	],
+	# “osteløbe (mikrobiel)”
 	[
 		'da-osteloebe-mikrobiel',
 		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000
