@@ -1,0 +1,54 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "efsa_evaluation" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Scientific Opinion on the re-evaluation of butylated hydroxytoluene BHT -E 321- as a food additive (2012-03-07)</p>",
+                     "source_text" : "EFSA",
+                     "source_url" : "http://dx.doi.org/10.2903/j.efsa.2012.2588"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "EFSA evaluation"
+            },
+            "topics" : [
+               "additives"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "efsa_evaluation"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "en:e321",
+      "tagtype" : "additives"
+   },
+   "tagid" : "e321",
+   "tagtype" : "additives",
+   "warnings" : []
+}

@@ -1,0 +1,61 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "efsa_evaluation" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much E621 - Monosodium glutamate.</p>\n<p><strong>Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)</strong>: Toddlers, Children</p>\n<p><strong>Groups with more than 50% of members exceeding the acceptable daily intake (ADI)</strong>: Infants, Toddlers, Children, Adolescents, Adults</p>\n<p><strong>Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)</strong>: Infants, Toddlers, Children, Adolescents</p>\n<p><strong>Groups with more than 5% of members exceeding the acceptable daily intake (ADI)</strong>: Infants, Toddlers, Children, Adolescents, Adults, Elderly</p>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Re‐evaluation of glutamic acid -E 620-, sodium glutamate -E 621-, potassium glutamate -E 622-, calcium glutamate -E 623-, ammonium glutamate -E 624- and magnesium glutamate -E 625- as food additives (2017/07/12)</p>",
+                     "source_text" : "EFSA",
+                     "source_url" : "https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2017.4910"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/additives-efsa-evaluation-overexposure-risk-icon-high.svg",
+               "title" : "EFSA evaluation"
+            },
+            "topics" : [
+               "additives"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "efsa_evaluation"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "en:e621",
+      "tagtype" : "additives"
+   },
+   "tagid" : "e621",
+   "tagtype" : "additives",
+   "warnings" : []
+}
