@@ -11,7 +11,9 @@
                "ecobalyse_name" : "Farine UE agrégée -2025-",
                "id" : "en:wheat-flour",
                "is_in_taxonomy" : 1,
-               "percent_estimate" : 25,
+               "percent_estimate" : 50,
+               "percent_max" : 60,
+               "percent_min" : 40,
                "text" : "wheat flour",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -25,7 +27,9 @@
                      "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                      "id" : "en:sugar",
                      "is_in_taxonomy" : 1,
-                     "percent_estimate" : 12.5,
+                     "percent_estimate" : 30,
+                     "percent_max" : 40,
+                     "percent_min" : 20,
                      "text" : "sugar",
                      "vegan" : "maybe",
                      "vegetarian" : "yes"
@@ -33,13 +37,17 @@
                   {
                      "id" : "en:strawberry-filling",
                      "is_in_taxonomy" : 1,
-                     "percent_estimate" : 12.5,
+                     "percent_estimate" : 10,
+                     "percent_max" : 20,
+                     "percent_min" : 0,
                      "text" : "strawberries"
                   }
                ],
                "is_in_taxonomy" : 1,
                "percent" : 40,
-               "percent_estimate" : 25,
+               "percent_estimate" : 40,
+               "percent_max" : 40,
+               "percent_min" : 40,
                "text" : "filling",
                "vegan" : "maybe",
                "vegetarian" : "maybe"
@@ -51,13 +59,17 @@
                "id" : "en:egg",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
+               "percent_max" : 20,
+               "percent_min" : 0,
                "text" : "eggs",
                "vegan" : "no",
                "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 50,
+         "percent_estimate" : 90,
+         "percent_max" : 100,
+         "percent_min" : 80,
          "text" : "Cake"
       },
       {
@@ -66,7 +78,9 @@
          "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 25,
+         "percent_estimate" : 5,
+         "percent_max" : 20,
+         "percent_min" : 0,
          "text" : "sugar",
          "vegan" : "maybe",
          "vegetarian" : "yes"
@@ -77,7 +91,9 @@
          "ecobalyse_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 25,
+         "percent_estimate" : 5,
+         "percent_max" : 20,
+         "percent_min" : 0,
          "text" : "water",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -115,7 +131,7 @@
       "en:sugar",
       "en:strawberry-filling"
    ],
-   "ingredients_percent_analysis" : -1,
+   "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:cake",
       "en:sugar",
@@ -135,7 +151,7 @@
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
-   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:filling",
       "en:strawberry-filling"
