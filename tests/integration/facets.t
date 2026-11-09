@@ -481,6 +481,18 @@ my $tests_ref = [
 		path => '/api/v3/tag/additives/e322?activate_knowledge_panel_efsa_evaluation=1',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'api-v3-tag-additive-e321-efsa-evaluation-without-risk',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e321?activate_knowledge_panel_efsa_evaluation=1',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-additive-e621-efsa-evaluation-noael',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e621?activate_knowledge_panel_efsa_evaluation=1',
+		expected_status_code => 200,
+	},
 ];
 
 # note: we need to execute the tests with bob, because we need authentication
