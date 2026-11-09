@@ -1,0 +1,76 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "additive_facts" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<strong>Carminic acid:</strong> Carminic acid -C22H20O13- is a red glucosidal hydroxyanthrapurin that occurs naturally in some scale insects, such as the cochineal, Armenian cochineal, and Polish cochineal. The insects produce the acid as a deterrent to predators. An aluminum salt of carminic acid is the coloring agent in carmine.  Synonyms are C.I. 75470 and C.I. Natural Red 4. The chemical structure of carminic acid consists of a core anthraquinone structure linked to a glucose sugar unit.  Carminic acid was first synthesized in the laboratory by organic chemists in 1991.",
+                     "source_language" : "English",
+                     "source_lc" : "en",
+                     "source_text" : "Wikipedia",
+                     "source_url" : "https://en.wikipedia.org/wiki/Carminic acid"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p><strong>Functions</strong>:</p>\n<ul>\n<li><strong>Colour</strong>: Colours are substances which add or restore colour in a food, and include natural constituents of foods and natural sources which are normally not consumed as foods as such and not normally used as characteristic ingredients of food.</li>\n</ul>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Non-vegan, Non-vegetarian</p>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p><strong>EFSA evaluation</strong>: Scientific Opinion on the re-evaluation of cochineal, carminic acid, carmines -E 120- as a food additive (2015-11-18)</p>",
+                     "source_text" : "EFSA",
+                     "source_url" : "http://dx.doi.org/10.2903/j.efsa.2015.4288"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "E120 - Cochineal"
+            },
+            "topics" : [
+               "additives"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_facts"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "en:e120",
+      "tagtype" : "additives"
+   },
+   "tagid" : "e120",
+   "tagtype" : "additives",
+   "warnings" : []
+}

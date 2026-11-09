@@ -494,6 +494,12 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 	{
+		test_case => 'api-v3-tag-additive-e120-additive-facts-panel',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e120?activate_knowledge_panel_additive_facts=1',
+		expected_status_code => 200,
+	},
+	{
 		test_case => 'api-v3-tag-additive-unknown-no-additive-facts-panel',
 		method => 'GET',
 		path => '/api/v3/tag/additives/e99999?activate_knowledge_panel_additive_facts=1',

@@ -336,7 +336,6 @@ sub create_additive_facts_panel ($tag_ref, $target_lc, $target_cc, $options_ref,
 	foreach my $diet ("vegan", "vegetarian") {
 		my $value = get_property("additives", $additive_id, "$diet:en");
 		next if not defined $value;
-		$value =~ s/^en://;
 		$panel_data_ref->{$diet} = "en:" . $diet_tags{$value} . $diet if exists $diet_tags{$value};
 	}
 
