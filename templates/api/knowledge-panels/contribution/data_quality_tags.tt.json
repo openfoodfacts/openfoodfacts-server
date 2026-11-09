@@ -22,8 +22,8 @@
         [% icon_name = "data-info" %]
     [% END %]
     "title_element": {
-        "title": "[% edq(lang(panel.tags_type _ '_panel_title')) %]",
-        "subtitle": "[% edq(lang(panel.tags_type _ '_panel_subtitle')) %]",
+        "title": [% lang(panel.tags_type _ '_panel_title') | js %],
+        "subtitle": [% lang(panel.tags_type _ '_panel_subtitle') | js %],
         "icon_url": "[% static_subdomain %]/images/icons/dist/[% icon_name %].svg",
         "icon_color_from_evaluation": true,
     },

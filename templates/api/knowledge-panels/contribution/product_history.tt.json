@@ -7,7 +7,7 @@
     ],
     "expanded": false,
     "title_element": {
-        "title": "[% edq(lang('history')) %]",
+        "title": [% lang('history') | js %],
         "icon_url": "[% static_subdomain %]/images/icons/dist/edit.svg",
     },
     "elements": [
@@ -24,26 +24,26 @@
             "element_type": "table",
             "table_element": {
                 "id": "product_history_table",
-                "title": "[% edq(lang('history')) %]",
+                "title": [% lang('history') | js %],
                 "columns": [
                     {
-                        "text": "[% edq(lang('product_history_revision')) %]",
+                        "text": [% lang('product_history_revision') | js %],
                         "type": "text",
                     },
                     {
-                        "text": "[% edq(lang('product_history_date')) %]",
+                        "text": [% lang('product_history_date') | js %],
                         "type": "text",
                     },
                     {
-                        "text": "[% edq(lang('product_history_contributor')) %]",
+                        "text": [% lang('product_history_contributor') | js %],
                         "type": "text",
                     },
                     {
-                        "text": "[% edq(lang('product_history_changes')) %]",
+                        "text": [% lang('product_history_changes') | js %],
                         "type": "text",
                     },
                     {
-                        "text": "[% edq(lang('product_history_comment')) %]",
+                        "text": [% lang('product_history_comment') | js %],
                         "type": "text",
                     },
                 ],

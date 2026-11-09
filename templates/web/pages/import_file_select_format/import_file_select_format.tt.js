@@ -38,7 +38,9 @@ function init_select_field_option(col) {
 
 			if (field ==  "[% tagtype %]_specific") {
 
-				var input = '<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col +  '" placeholder= "[% edq(lang("${tagtype}_s")) %]" style="width:150px;margin-bottom:0;height:28px;">';
+				const input = $('<input id="select_field_option_tag_' + col + '" name="select_field_option_tag_' + col +  '" style="width:150px;margin-bottom:0;height:28px;">');
+				const placeholder = [% lang("${tagtype}_specific_tag") | js %];
+				input.attr("placeholder", placeholder);
 
 				\$("#select_field_option_" + col).html(input);
 
@@ -54,7 +56,7 @@ function init_select_field_option(col) {
 					columns_fields[column]["tag"] = \$(this).val();
 				});
 
-				instructions += "<p>[% edq(lang('${tagtype}_specific_tag')) %]</p>" + "<p>[% edq(lang('${tagtype}_specific_tag_value')) %]</p>";
+				instructions += "<p>[% lang('${tagtype}_specific_tag') | html %]</p>" + "<p>[% lang('${tagtype}_specific_tag_value') | html %]</p>";
 		
 			}
 		[% END %]
@@ -62,14 +64,14 @@ function init_select_field_option(col) {
 		// Language specific fields: display a language picker
 		if (field.match(/^([% FOREACH language_field IN language_fields %][% language_field %]|[% END %])\$/)) {
 			var select = '<select class="select_language" id="select_field_option_lc_' + col + '" name="select_field_option_lc_' + col + '" style="width:150px">'
-			[% FOREACH language IN lang_options %]
-                select += '<option value="[% language.value %]">[% language.label %]</option>';
+            [% FOREACH language IN lang_options %]
+                select += '<option value="[% language.value | html %]">[% language.label | html %]</option>';
             [% END %]
 			select += '</select>';
 			\$("#select_field_option_" + col).html(select);
 
 			// set selected value from default language, or field language
-			var selected_lc = '[% lc %]';
+			var selected_lc = [% lc | js %];
 			if (columns_fields[column]["lc"]) {
 				selected_lc = columns_fields[column]["lc"];
 			}
@@ -80,7 +82,7 @@ function init_select_field_option(col) {
 
 			// setup a select2 widget
 			\$('#select_field_option_lc_' + col).select2({
-				placeholder: "[% edq(lang('specify')) %]"
+				placeholder: [% lang('specify') | js %]
 			}).on("select2:select", function(e) {
 				var id = e.params.data.id;
 				var col = this.id.replace(/select_field_option_lc_/, '');
@@ -96,36 +98,36 @@ function init_select_field_option(col) {
 			+ '<option></option>';
 
 			if (field.match(/^energy/)) {
-				select += "<option value='value_in_kj'>[% edq(lang('value_in_kj')) %]</option>"
-				+ "<option value='value_in_kcal'>[% edq(lang('value_in_kcal')) %]</option>";
+				select += "<option value='value_in_kj'>[% lang('value_in_kj') | html %]</option>"
+				+ "<option value='value_in_kcal'>[% lang('value_in_kcal') | html %]</option>";
 			}
 			else if (field.match(/weight/)) {
-				select += "<option value='value_in_g'>[% edq(lang('value_in_g')) %]</option>";
+				select += "<option value='value_in_g'>[% lang('value_in_g') | html %]</option>";
 			}
 			else if (field.match(/volume/)) {
-				select += "<option value='value_in_l'>[% edq(lang('value_in_l')) %]</option>"
-				+ "<option value='value_in_dl'>[% edq(lang('value_in_dl')) %]</option>"
-				+ "<option value='value_in_cl'>[% edq(lang('value_in_cl')) %]</option>"
-				+ "<option value='value_in_ml'>[% edq(lang('value_in_ml')) %]</option>";
+				select += "<option value='value_in_l'>[% lang('value_in_l') | html %]</option>"
+				+ "<option value='value_in_dl'>[% lang('value_in_dl') | html %]</option>"
+				+ "<option value='value_in_cl'>[% lang('value_in_cl') | html %]</option>"
+				+ "<option value='value_in_ml'>[% lang('value_in_ml') | html %]</option>";
 			}
 			else if (field.match(/quantity/)) {
-				select += "<option value='value_in_g'>[% edq(lang('value_in_g')) %]</option>"
-				+ "<option value='value_in_l'>[% edq(lang('value_in_l')) %]</option>"
-				+ "<option value='value_in_dl'>[% edq(lang('value_in_dl')) %]</option>"
-				+ "<option value='value_in_cl'>[% edq(lang('value_in_cl')) %]</option>"
-				+ "<option value='value_in_ml'>[% edq(lang('value_in_ml')) %]</option>";
+				select += "<option value='value_in_g'>[% lang('value_in_g') | html %]</option>"
+				+ "<option value='value_in_l'>[% lang('value_in_l') | html %]</option>"
+				+ "<option value='value_in_dl'>[% lang('value_in_dl') | html %]</option>"
+				+ "<option value='value_in_cl'>[% lang('value_in_cl') | html %]</option>"
+				+ "<option value='value_in_ml'>[% lang('value_in_ml') | html %]</option>";
 			}
 			else {
-				select += "<option value='value_in_g'>[% edq(lang('value_in_g')) %]</option>"
-				+ "<option value='value_in_mg'>[% edq(lang('value_in_mg')) %]</option>"
-				+ "<option value='value_in_mcg'>[% edq(lang('value_in_mcg')) %]</option>"
-				+ "<option value='value_in_iu'>[% edq(lang('value_in_iu')) %]</option>"
-				+ "<option value='value_in_percent'>[% edq(lang('value_in_percent')) %]</option>";
+				select += "<option value='value_in_g'>[% lang('value_in_g') | html %]</option>"
+				+ "<option value='value_in_mg'>[% lang('value_in_mg') | html %]</option>"
+				+ "<option value='value_in_mcg'>[% lang('value_in_mcg') | html %]</option>"
+				+ "<option value='value_in_iu'>[% lang('value_in_iu') | html %]</option>"
+				+ "<option value='value_in_percent'>[% lang('value_in_percent') | html %]</option>";
 			}
 
-			select += "<option value='value_unit'>[% edq(lang('value_unit')) %]</option>"
-			+ "<option value='value'>[% edq(lang('value')) %]</option>"
-			+ "<option value='unit'>[% edq(lang('unit')) %]</option>"
+			select += "<option value='value_unit'>[% lang('value_unit') | html %]</option>"
+			+ "<option value='value'>[% lang('value') | html %]</option>"
+			+ "<option value='unit'>[% lang('unit') | html %]</option>"
 			+ "</select>";
 
 			\$("#select_field_option_" + col).html(select);
@@ -135,7 +137,7 @@ function init_select_field_option(col) {
 			}
 
 			\$('#select_field_option_value_unit_' + col).select2({
-				placeholder: "[% edq(lang('specify')) %]"
+				placeholder: [% lang('specify') | js %]
 			}).on("select2:select", function(e) {
 				var id = e.params.data.id;
 				var col = this.id.replace(/select_field_option_value_unit_/, '');
@@ -144,12 +146,12 @@ function init_select_field_option(col) {
 			}).on("select2:unselect", function(e) {
 			});
 
-			instructions += "<p>[% edq(lang('value_unit_dropdown')) %]'</p>"
+			instructions += "<p>[% lang('value_unit_dropdown') | html %]'</p>"
 			+ "<ul>"
-			+ "<li>[% edq(lang('value_unit_dropdown_value_specific_unit')) %]</li>"
-			+ "<li>[% edq(lang('value_unit_dropdown_value_unit')) %]</li>"
-			+ "<li>[% edq(lang('value_unit_dropdown_value')) %]</li>"
-			+ "<li>[% edq(lang('value_unit_dropdown_unit')) %]</li>"
+			+ "<li>[% lang('value_unit_dropdown_value_specific_unit') | html %]</li>"
+			+ "<li>[% lang('value_unit_dropdown_value_unit') | html %]</li>"
+			+ "<li>[% lang('value_unit_dropdown_value') | html %]</li>"
+			+ "<li>[% lang('value_unit_dropdown_unit') | html %]</li>"
 			+ "</ul>";
 		}
 	}
@@ -158,7 +160,7 @@ function init_select_field_option(col) {
 
 function init_select_field() {
 	var options = {
-		placeholder: "[% edq(lang('select_a_field')) %]",
+		placeholder: [% lang('select_a_field') | js %],
 		data:select2_options,
 		allowClear: true
 	};

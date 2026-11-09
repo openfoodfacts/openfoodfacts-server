@@ -4,7 +4,7 @@
         "environment"
     ],
     "title_element": {
-        "title": "[% edq(lang('packaging_materials')) %]",           
+        "title": [% lang('packaging_materials') | js %]           ,
     },    
     "expanded": true,
     "elements": [
@@ -12,30 +12,30 @@
             "element_type": "table",
             "table_element": {
                 "id": "packaging_materials",
-                "title": "[% edq(lang('packaging_materials')) %]",
+                "title": [% lang('packaging_materials') | js %],
                 "columns": [                
                     { 
-                        "text": "[% edq(lang('packaging_material')) %]",
+                        "text": [% lang('packaging_material') | js %],
                         "type": "text",
                     },
                     { 
-                        "text": "[% edq(lang('packaging_material_products_percent_main')) %]",
+                        "text": [% lang('packaging_material_products_percent_main') | js %],
                         "type": "text",
                     },   
                     { 
-                        "text": "[% edq(lang('packaging_weight_100g_mean')) %] ([% edq(lang('relative_to_products_containing_mostly_the_material')) %])",
+                        "text": [% (lang('packaging_weight_100g_mean') _ ' (' _ lang('relative_to_products_containing_mostly_the_material') _ ')') | js %],
                         "type": "text",
                     },                    
                     { 
-                        "text": "[% edq(lang('packaging_material_products_percent')) %]",
+                        "text": [% lang('packaging_material_products_percent') | js %],
                         "type": "text",
                     },                                        
                     { 
-                        "text": "[% edq(lang('packaging_weight_100g_mean')) %] ([% edq(lang('relative_to_products_containing_the_material')) %])",
+                        "text": [% (lang('packaging_weight_100g_mean') _ ' (' _ lang('relative_to_products_containing_the_material') _ ')') | js %],
                         "type": "text",
                     },
                     { 
-                        "text": "[% edq(lang('packaging_weight_100g_mean')) %] ([% edq(lang('relative_to_all_products')) %])",
+                        "text": [% (lang('packaging_weight_100g_mean') _ ' (' _ lang('relative_to_all_products') _ ')') | js %],
                         "type": "text",
                     },
                 ],
@@ -51,7 +51,7 @@
                                 "values": [
                                     [% IF material == 'all' %]
                                     {
-                                        "text": "[% edq(lang('total')) %]",
+                                        "text": [% lang('total') | js %],
                                     },
                                     {
                                         "text": "-"

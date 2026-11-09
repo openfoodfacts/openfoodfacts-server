@@ -7,8 +7,8 @@
         "icon_url": "[% static_subdomain %]/images/icons/dist/lca.svg",
         "icon_color_from_evaluation": true,
         "icon_size": "small",
-        "title": "[% edq(lang('average_impact_of_the_category')) %][% sep %]: [% panel.agribalyse_letter_grade %] (Score: [% panel.agribalyse_score %]/100)",
-        "subtitle": "[% edq(lang('categories_s')) FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name.dquote %]",
+        "title": [% (lang('average_impact_of_the_category') _ sep _ ': ' _ panel.agribalyse_letter_grade _ ' (Score: ' _ panel.agribalyse_score _ '/100)') | js %],
+        "subtitle": [% (lang('categories_s').ucfirst _ sep _ ': ' _ panel.agribalyse_category_name.dquote) | js %],
         "type": "grade",
         "grade": "[% panel.agribalyse_grade_underscore %]",
     },
@@ -39,14 +39,14 @@
             "table_element": {
                 "id": "environmental_score_lca_impacts_by_stages_table",
                 "table_type": "percents",
-                "title": "[% edq(lang('environmental_score_impact_detail_by_stages')) %]",
+                "title": [% lang('environmental_score_impact_detail_by_stages') | js %],
                 "columns": [
                     {
-                        "text": "[% edq(lang('environmental_score_stage')) %]",
+                        "text": [% lang('environmental_score_stage') | js %],
                         "type": "text",
                     },
                     {
-                        "text": "[% edq(lang('environmental_score_impact')) %]",
+                        "text": [% lang('environmental_score_impact') | js %],
                         "type": "percent",
                     }
                 ],
@@ -57,7 +57,7 @@
                         "values": [
                             {
                                 "icon_url": "[% static_subdomain %]/images/icons/dist/[% step %].svg",
-                                "text": "[% edq(lang("environmental_score_$step")) %]"
+                                "text": [% lang("environmental_score_$step") | js %]
                             },
                             {
                                 [% ef_step = "ef_$step" %]

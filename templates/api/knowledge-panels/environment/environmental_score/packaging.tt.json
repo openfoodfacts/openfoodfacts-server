@@ -6,8 +6,8 @@
 [% IF not (product.environmental_score_data.adjustments.packaging.packagings && product.environmental_score_data.adjustments.packaging.packagings.size) %]
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging_missing_information')) %]",
-        "subtitle": "[% edq(lang('malus')) %][% sep %]: [% product.environmental_score_data.adjustments.packaging.value %]",
+        "title": [% lang('environmental_score_packaging_missing_information') | js %],
+        "subtitle": [% (lang('malus') _ sep _ ': ' _ product.environmental_score_data.adjustments.packaging.value) | js %],
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_size": "small",
@@ -26,17 +26,17 @@
     [% IF product.environmental_score_data.adjustments.packaging.value <= -15 %]
     "evaluation": "bad",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging_impact_high')) %]",
+        "title": [% lang('environmental_score_packaging_impact_high') | js %],
     [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -5 %]
     "evaluation": "average",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging_impact_medium')) %]",    
+        "title": [% lang('environmental_score_packaging_impact_medium') | js %]    ,
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging_impact_low')) %]",
+        "title": [% lang('environmental_score_packaging_impact_low') | js %],
     [% END %]
-        "subtitle": "[% edq(lang('malus')) %][% sep %]: [% product.environmental_score_data.adjustments.packaging.value %]",
+        "subtitle": [% (lang('malus') _ sep _ ': ' _ product.environmental_score_data.adjustments.packaging.value) | js %],
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_size": "small",
@@ -46,22 +46,22 @@
             "element_type": "table",
             "table_element": {
                 "id": "environmental_score_packaging_components",
-                "title": "[% edq(lang('packaging_parts')) %]",
+                "title": [% lang('packaging_parts') | js %],
                 "columns": [
                     {
-                        "text": "[% edq(lang('packaging_shape')) %]",
+                        "text": [% lang('packaging_shape') | js %],
                         "type": "text",
                     },
                     { 
-                        "text": "[% edq(lang('packaging_material')) %]",
+                        "text": [% lang('packaging_material') | js %],
                         "type": "text",
                     },
                     { 
-                        "text": "[% edq(lang('packaging_recycling')) %]",
+                        "text": [% lang('packaging_recycling') | js %],
                         "type": "text",
                     },
                     { 
-                        "text": "[% edq(lang('environmental_score_impact')) %]",
+                        "text": [% lang('environmental_score_impact') | js %],
                         "type": "text",
                     }
                 ],
@@ -86,13 +86,13 @@
                             },
                             {
                             [% IF score >= 75 %]
-                                "text": "[% edq(lang('low')) FILTER ucfirst %]",
+                                "text": [% lang('low') | ucfirst | js %],
                                 "evaluation": "good",
                             [% ELSIF score <= 25 %]
-                                "text": "[% edq(lang('high')) FILTER ucfirst %]",
+                                "text": [% lang('high') | ucfirst | js %],
                                 "evaluation": "bad",
                             [% ELSE %]
-                                "text": "[% edq(lang('medium')) FILTER ucfirst %]",
+                                "text": [% lang('medium') | ucfirst | js %],
                                 "evaluation": "neutral",
                             [% END %]
                             }

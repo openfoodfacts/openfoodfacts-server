@@ -6,8 +6,8 @@
     [% IF product.environmental_score_data.adjustments.threatened_species.warning.defined %]
         "evaluation": "neutral",
         "title_element": {
-            "title": "[% edq(lang('may_contain_palm_oil')) %]",
-            "subtitle": "[% edq(lang('missing_ingredients_list')) %]",
+            "title": [% lang('may_contain_palm_oil') | js %],
+            "subtitle": [% lang('missing_ingredients_list') | js %],
             "icon_color_from_evaluation": true,
             "icon_url": "[% static_subdomain %]/images/icons/dist/monkey_uncertain.svg",
         },    
@@ -27,8 +27,8 @@
     [% ELSIF product.environmental_score_data.adjustments.threatened_species.value.defined && product.environmental_score_data.adjustments.threatened_species.value < 0 %]
         "evaluation": "bad",
         "title_element": {
-            "title": "[% edq(lang('contains_palm_oil')) %]",
-            "subtitle": "[% edq(lang('contains_palm_oil_subtitle')) %]",
+            "title": [% lang('contains_palm_oil') | js %],
+            "subtitle": [% lang('contains_palm_oil_subtitle') | js %],
             "icon_url": "[% static_subdomain %]/images/icons/dist/palm-oil.svg",
             "icon_color_from_evaluation": true,
         },
@@ -46,7 +46,7 @@
     [% ELSE %]    
         "evaluation": "good",
         "title_element": {
-            "title": "[% edq(lang('environmental_score_no_species_threatening_ingredients')) %]",
+            "title": [% lang('environmental_score_no_species_threatening_ingredients') | js %],
             "icon_color_from_evaluation": true,
             "icon_url": "[% static_subdomain %]/images/icons/dist/monkey_happy.svg",
         },

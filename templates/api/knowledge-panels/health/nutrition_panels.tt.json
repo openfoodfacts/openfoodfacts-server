@@ -1,7 +1,7 @@
 {
     "element_type": "panel_group",
     "panel_group_element": {
-        "title": "[% edq(lang('nutrition')) %]",
+        "title": [% lang('nutrition') | js %],
         "type": "subcard",
         "panel_group_id": "nutrition",
         [% IF panel.nutrition_image.defined %]
