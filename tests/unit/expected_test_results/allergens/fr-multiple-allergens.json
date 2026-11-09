@@ -85,26 +85,27 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "fr:crème de cassis",
-         "is_in_taxonomy" : 0,
+         "ciqual_food_code" : "1003",
+         "id" : "en:creme-de-cassis",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 9.375,
          "percent_max" : 25,
          "percent_min" : 0,
-         "text" : "crème de cassis"
+         "text" : "crème de cassis",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "fr:crème de cassis"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "fr:crème de cassis"
+      "en:maybe-vegan" : [
+         "en:mustard",
+         "en:creme-de-cassis"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:maybe-vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 7,
@@ -116,7 +117,7 @@
       "en:wheat-flour",
       "en:lupin-bean",
       "en:spice",
-      "fr:crème de cassis",
+      "en:creme-de-cassis",
       "en:soya",
       "en:mustard",
       "en:celery"
@@ -135,7 +136,9 @@
       "en:vegetable",
       "en:spice",
       "en:condiment",
-      "fr:crème de cassis",
+      "en:creme-de-cassis",
+      "en:liqueur",
+      "en:alcohol",
       "en:soya",
       "en:mustard",
       "en:celery",
@@ -151,16 +154,15 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:celery",
-      "en:soya",
-      "fr:crème de cassis"
+      "en:soya"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "en:spice",
-      "fr:crème de cassis"
+      "en:creme-de-cassis",
+      "en:spice"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
-   "known_ingredients_n" : 6,
+   "known_ingredients_n" : 7,
    "lang" : "fr",
    "languages" : {
       "en:french" : 1
@@ -208,5 +210,5 @@
       "en:nuts",
       "en:peanuts"
    ],
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }
