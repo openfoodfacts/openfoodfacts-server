@@ -462,6 +462,10 @@ check_taxonomies:
 	test -z "${TAXONOMIES_TO_CHECK}" || \
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose --check ${TAXONOMIES_TO_CHECK}
 
+check_wikidata:
+	@echo "🥫 Checking new Wikidata mappings"
+	python3 scripts/taxonomies/check_wikidata_mappings.py --base origin/main
+
 lint_taxonomies:
 	@echo "🥫 Linting taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
