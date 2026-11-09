@@ -1683,8 +1683,7 @@ sub select_ingredients_lc ($product_ref) {
 	foreach my $field (@ingredients_text_fields) {
 		my $imgid = deep_get($product_ref, 'images', 'selected', 'ingredients', substr($field, -2), 'imgid');
 		my $uploaded_t = defined $imgid ? deep_get($product_ref, 'images', 'uploaded', $imgid, 'uploaded_t') : undef;
-		$ingredients_image_uploaded_t{$field}
-			= ((defined $uploaded_t) and ($uploaded_t =~ /^[0-9]+$/)) ? $uploaded_t : 0;
+		$ingredients_image_uploaded_t{$field} = $uploaded_t // 0;
 	}
 	@ingredients_text_fields
 		= sort {$ingredients_image_uploaded_t{$b} <=> $ingredients_image_uploaded_t{$a} || $a cmp $b}

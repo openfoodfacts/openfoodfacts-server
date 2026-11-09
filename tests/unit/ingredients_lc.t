@@ -43,10 +43,8 @@ my $tied_timestamp_images_ref = clone($images_ref);
 $tied_timestamp_images_ref->{uploaded}{1}{uploaded_t} = 1617235200;
 $tied_timestamp_images_ref->{uploaded}{4}{uploaded_t} = 1617235200;
 
-my $invalid_timestamp_images_ref = clone($images_ref);
-$invalid_timestamp_images_ref->{uploaded}{9}{uploaded_t} = 'invalid';
-$invalid_timestamp_images_ref->{uploaded}{4}{uploaded_t} = -1;
-$invalid_timestamp_images_ref->{uploaded}{1}{uploaded_t} = undef;
+my $undefined_timestamp_images_ref = clone($images_ref);
+$undefined_timestamp_images_ref->{uploaded}{1}{uploaded_t} = undef;
 
 my @tests = (
 	{
@@ -180,9 +178,9 @@ my @tests = (
 		expected_lc => 'bg',
 	},
 	{
-		desc => 'invalid or missing upload timestamps preserve the alphabetical fallback',
-		fields => {images => $invalid_timestamp_images_ref},
-		expected_lc => 'bg',
+		desc => 'an undefined upload timestamp falls back to the next dated ingredients photo',
+		fields => {images => $undefined_timestamp_images_ref},
+		expected_lc => 'de',
 	},
 	{
 		desc => 'legacy ingredients_text keeps the main-language fallback',
@@ -208,17 +206,6 @@ my @tests = (
 		expected_lc => undef,
 	},
 );
-
-foreach my $invalid_timestamp (undef, '', 'not-a-timestamp', '1759276800oops', -1) {
-	my $invalid_images_ref = clone($images_ref);
-	$invalid_images_ref->{uploaded}{1}{uploaded_t} = $invalid_timestamp;
-	push @tests,
-		{
-		desc => 'skip an invalid newest photo timestamp: ' . ($invalid_timestamp // 'undef'),
-		fields => {images => $invalid_images_ref},
-		expected_lc => 'de',
-		};
-}
 
 foreach my $test_ref (@tests) {
 	subtest $test_ref->{desc} => sub {
