@@ -54,8 +54,8 @@
             "text_element": {
                 "html": `<p><strong>[% lang('additives_efsa_evaluation') %]</strong>[% sep %]: [% panel.evaluation %][% IF panel.evaluation_date %] ([% panel.evaluation_date %])[% END %]</p>`,
                 [% IF panel.evaluation_url %]
-                "source_text": "EFSA",
-                "source_url": "[% panel.evaluation_url %]",
+                "source_text": `EFSA`,
+                "source_url": `[% panel.evaluation_url %]`,
                 [% END %]
             }
         },
