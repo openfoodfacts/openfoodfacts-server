@@ -1,0 +1,21 @@
+# QUID inclusion markers: words introducing a share of the parent in a
+# percentage declaration, e.g. "meat (36%, of which 20% beef)",
+# "viandes (36%, dont 4% de bœuf)", "Fleisch (30%, davon 20% Rind)".
+#
+# The ingredient parser drops a marker directly followed by a percentage so
+# that the share is parsed like any percent-prefix ingredient ("20% beef").
+# A marker NOT followed by a percentage is left alone: nutrition remarks
+# ("dont sucres", "of which saturates", "waarvan suikers") are untouched.
+
+en: of which, including, incl.
+da: hvoraf
+de: davon
+es: de los cuales, de las cuales, de la cual
+fi: josta
+fr: dont
+it: di cui
+nb: hvorav
+nl: waarvan
+pl: w tym
+pt: dos quais, das quais, do qual, da qual
+sv: varav
