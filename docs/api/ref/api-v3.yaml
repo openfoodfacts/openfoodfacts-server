@@ -584,6 +584,7 @@ paths:
       - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
       - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelRelatedCategories"
       - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelNovaUnknown"
+      - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelEfsaEvaluation"
       - schema:
           type: string
           example: categories
@@ -647,6 +648,9 @@ paths:
 
         NOVA groups:
         - Unknown NOVA group (on request): why the NOVA group of some products is unknown
+
+        Additives:
+        - EFSA evaluation (on request): risk of overexposure, and population groups exceeding the acceptable daily intake
   /api/v3/product_revert:
     parameters: []
     post:

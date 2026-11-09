@@ -47,7 +47,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
 use ProductOpener::Tags
-	qw(canonicalize_taxonomy_tag display_taxonomy_tag_name get_tag_with_parents get_tag_direct_children cmp_taxonomy_tags_alphabetically);
+	qw(canonicalize_taxonomy_tag display_taxonomy_tag_name get_property get_tag_with_parents get_tag_direct_children cmp_taxonomy_tags_alphabetically);
 use ProductOpener::Packaging qw(load_categories_packagings_materials_stats);
 use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
@@ -87,7 +87,7 @@ Needed for some country specific panels like the Environmental-Score.
 Defines how some panels should be created (or not created)
 
 - deactivate_[panel_id] : do not create a default panel -- currently unimplemented
-- activate_[panel_id] : create an on demand panel -- currently only for physical_activities, related_categories and nova_unknown panels
+- activate_[panel_id] : create an on demand panel -- currently only for physical_activities, related_categories, nova_unknown and efsa_evaluation panels
 
 =head4 tag type $tagtype
 
@@ -138,6 +138,11 @@ sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref,
 		create_panel_from_json_template("nova_unknown", "api/knowledge-panels/tags/nova_groups/nova_unknown.tt.json",
 			{}, $tag_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		push(@panels, "nova_unknown");
+	}
+	elsif (($tagtype eq "additives") and $options_ref->{activate_knowledge_panel_efsa_evaluation}) {
+		my $created = create_additive_efsa_evaluation_panel($tag_ref, $target_lc, $target_cc, $options_ref,
+			$canon_tagid, $request_ref);
+		push(@panels, $created) if $created;
 	}
 	if (@panels) {
 		my $panel_data_ref = {tags_panels => \@panels};
@@ -285,6 +290,66 @@ sub create_category_related_categories_panel ($tag_ref, $target_lc, $target_cc, 
 	);
 
 	return "related_categories";
+}
+
+=head2 create_additive_efsa_evaluation_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $additive_id, $request_ref)
+
+Creates a panel with the EFSA evaluation of the additive, its risk of overexposure,
+and the population groups that exceed the acceptable daily intake (ADI) or the NOAEL.
+
+The panel is not created if the additive has no EFSA evaluation.
+
+=cut
+
+sub create_additive_efsa_evaluation_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $additive_id, $request_ref) {
+	my $evaluation = get_property("additives", $additive_id, "efsa_evaluation:en");
+	my $risk = get_property("additives", $additive_id, "efsa_evaluation_overexposure_risk:en");
+
+	if (not(defined $evaluation or defined $risk)) {
+		return;
+	}
+
+	my @exposures = ();
+	if (defined $risk) {
+		$risk =~ s/^en://;
+		if ($risk ne "no") {
+			foreach my $percentile ("mean", "95th") {
+				foreach my $dose ("noael", "adi") {
+					my $exposure = "efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose;
+					my $groups = get_property("additives", $additive_id, "$exposure:en");
+					next if not defined $groups;
+					my %in_groups = map {s/^\s*en:|\s+$//gr => 1} split(/,/, $groups);
+					push(
+						@exposures,
+						{
+							id => $exposure,
+							groups => [grep {$in_groups{$_}} qw(infants toddlers children adolescents adults elderly)]
+						}
+					);
+				}
+			}
+		}
+	}
+
+	create_panel_from_json_template(
+		"efsa_evaluation",
+		"api/knowledge-panels/tags/additives/efsa_evaluation.tt.json",
+		{
+			additive_id => $additive_id,
+			evaluation => $evaluation,
+			evaluation_date => get_property("additives", $additive_id, "efsa_evaluation_date:en"),
+			evaluation_url => get_property("additives", $additive_id, "efsa_evaluation_url:en"),
+			risk => $risk,
+			exposures => \@exposures,
+		},
+		$tag_ref,
+		$target_lc,
+		$target_cc,
+		$options_ref,
+		$request_ref
+	);
+
+	return "efsa_evaluation";
 }
 
 sub get_children_product_counts ($category_id, $is_child_ref, $request_ref) {

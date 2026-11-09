@@ -40,6 +40,14 @@ components:
       schema:
         type: boolean
         example: true
+    ActivateKnowledgePanelEfsaEvaluation:
+      name: activate_knowledge_panel_efsa_evaluation
+      in: query
+      description: 'If true, the knowledge panels of an additive will include its EFSA evaluation panel: the risk of overexposure, and the population groups exceeding the acceptable daily intake'
+      required: false
+      schema:
+        type: boolean
+        example: true
     ActivateKnowledgePanelProductHistory:
       name: activate_knowledge_panel_product_history
       in: query

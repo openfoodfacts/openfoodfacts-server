@@ -462,6 +462,25 @@ my $tests_ref = [
 		},
 		expected_type => 'html',    # the redirect itself is html
 	},
+	# EFSA evaluation knowledge panel of an additive, on request only
+	{
+		test_case => 'api-v3-tag-additive-e250-efsa-evaluation-panel',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e250?activate_knowledge_panel_efsa_evaluation=1',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-additive-e250-no-efsa-evaluation-panel-by-default',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e250',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-additive-e322-without-efsa-evaluation',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e322?activate_knowledge_panel_efsa_evaluation=1',
+		expected_status_code => 200,
+	},
 ];
 
 # note: we need to execute the tests with bob, because we need authentication
