@@ -1,0 +1,64 @@
+{
+    "level" :"info",
+    "topics": [
+        "additives"
+    ],
+    "title_element": {
+        "title": "[% edq(display_taxonomy_tag_name('additives', panel.additive_id)) %]",
+    },
+    "expanded": true,
+    "elements": [
+        [% IF panel.additive_description -%]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% panel.additive_description %]`
+            }
+        },
+        [% ELSIF panel.wikipedia_abstract -%]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<strong>[% panel.wikipedia_title %][% sep %]:</strong> [% panel.wikipedia_abstract %]`,
+                "source_text": `Wikipedia`,
+                "source_url": `[% panel.wikipedia_url %]`,
+                "source_lc": "[% panel.wikipedia_url_lc %]",
+                "source_language": "[% panel.wikipedia_url_language %]"
+            }
+        },
+        [% END %]
+        [% IF panel.classes %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<p><strong>[% lang('additives_classes') %]</strong>[% sep %]:</p>
+<ul>
+[%- FOREACH class IN panel.classes %]
+<li><strong>[% display_taxonomy_tag_name('additives_classes', class.id) %]</strong>[% IF class.description %][% sep %]: [% class.description %][% END %]</li>
+[%- END %]
+</ul>`
+            }
+        },
+        [% END %]
+        [% IF panel.vegan OR panel.vegetarian %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<p>[% IF panel.vegan %][% display_taxonomy_tag_name('ingredients_analysis', panel.vegan) %][% END %][% IF panel.vegan AND panel.vegetarian %], [% END %][% IF panel.vegetarian %][% display_taxonomy_tag_name('ingredients_analysis', panel.vegetarian) %][% END %]</p>`
+            }
+        },
+        [% END %]
+        [% IF panel.evaluation %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<p><strong>[% lang('additives_efsa_evaluation') %]</strong>[% sep %]: [% panel.evaluation %][% IF panel.evaluation_date %] ([% panel.evaluation_date %])[% END %]</p>`,
+                [% IF panel.evaluation_url %]
+                "source_text": "EFSA",
+                "source_url": "[% panel.evaluation_url %]",
+                [% END %]
+            }
+        },
+        [% END %]
+    ]
+}

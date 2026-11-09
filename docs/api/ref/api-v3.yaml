@@ -586,7 +586,7 @@ paths:
       - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
       - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelRelatedCategories"
       - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelNovaUnknown"
-      - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelEfsaEvaluation"
+      - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelAdditiveFacts"
       - schema:
           type: string
           example: categories
@@ -655,7 +655,7 @@ paths:
         - Packager name and address, with a link to its location on OpenStreetMap
 
         Additives:
-        - EFSA evaluation (on request): risk of overexposure, and population groups exceeding the acceptable daily intake
+        - Additive facts (on request): description, functions and their purpose, vegan and vegetarian status, and a link to its EFSA evaluation
   /api/v3/product_revert:
     parameters: []
     post:
