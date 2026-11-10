@@ -130,6 +130,14 @@ Directory containing misspelling correction files
 
 $BASE_DIRS{MISSPELLINGS_SRC} = _source_dir() . "/misspellings";
 
+=head2 $BASE_DIRS{RULES}
+
+Directory containing the tags rules files (e.g. rules/food/categories/*.yml, see ProductOpener::TagsRules)
+
+=cut
+
+$BASE_DIRS{RULES} = _source_dir() . "/rules";
+
 =head2 $BASE_DIRS{CONF}
 
 Directory containing configuration files

@@ -16,6 +16,7 @@ requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
 requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
 requires 'JSON::MaybeXS'; # libjson-maybexs-perl
+requires 'YAML::XS'; # libyaml-libyaml-perl - rules files (rules/)
 requires 'Clone'; # libclone-perl
 requires 'Crypt::PasswdMD5'; #11866: Delete after Keycloak Migration
 requires 'Data::Table'; # libdata-table-perl - required by the packager code refresh scripts

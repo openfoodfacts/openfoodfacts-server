@@ -1,0 +1,71 @@
+# Tags rules for broths and bouillon cubes. See rules/README.md for the format.
+#
+# The name alone is not enough: "saveur poulet" / "goût bœuf" cubes can be vegetarian.
+# The broth category alone is not enough either: in the 2026-11-10 dry run, some cubes tagged en:poultry-broth
+# had only flavourings (one even beef flavouring). The rules require a poultry / beef ingredient.
+
+exclusive:
+  - [en:chicken-bouillon-cubes, en:beef-bouillon-cubes]
+
+rules:
+
+  - id: bouillon-cubes-chicken
+    description: Bouillon cubes made with chicken or poultry (FoodEx2 A043G)
+    if:
+      categories: en:bouillon-cubes
+      ingredients:
+        contains: [en:poultry, en:poultry-fat]
+    unless:
+      - categories: en:vegetable-broths
+      - labels: [en:vegetarian, en:vegan]
+    add:
+      categories: en:chicken-bouillon-cubes
+    tests:
+      match:
+        - categories: [en:bouillon-cubes]
+          ingredients: [en:salt, en:palm-oil, {id: en:chicken-fat, percent: 3}, en:yeast-extract]
+        - categories: [en:bouillon-cubes]
+          ingredients: [en:salt, en:chicken-broth, en:onion]
+      no_match:
+        # Name only: could be a vegetarian "saveur poulet" cube
+        - categories: [en:bouillon-cubes]
+          product_name_fr: Bouillon saveur poulet
+          ingredients: [en:salt, en:palm-oil, en:chicken-flavouring]
+        # Category only, no poultry ingredient
+        - categories: [en:bouillon-cubes, en:poultry-broth]
+          ingredients: [en:salt, en:yeast-extract, en:flavouring]
+        - categories: [en:bouillon-cubes, en:vegetable-broths]
+          ingredients: [en:salt, en:chicken-fat]
+        - categories: [en:bouillon-cubes]
+          labels: [en:vegetarian]
+          ingredients: [en:salt, en:chicken-fat]
+        # Chicken and beef: conflict
+        - categories: [en:bouillon-cubes, en:beef-bouillon-cubes]
+          ingredients: [en:salt, en:chicken-fat]
+
+  - id: bouillon-cubes-beef
+    description: Bouillon cubes made with beef (FoodEx2 A043H)
+    if:
+      categories: en:bouillon-cubes
+      ingredients:
+        contains: [en:beef, en:beef-fat]
+    unless:
+      - categories: en:vegetable-broths
+      - labels: [en:vegetarian, en:vegan]
+    add:
+      categories: en:beef-bouillon-cubes
+    tests:
+      match:
+        - categories: [en:bouillon-cubes]
+          ingredients: [en:salt, en:beef-extract, en:onion]
+        - categories: [en:bouillon-cubes, en:beef-broth]
+          ingredients: [en:salt, en:beef-fat]
+      no_match:
+        - categories: [en:bouillon-cubes, en:beef-broth]
+          ingredients: [en:salt, en:beef-flavouring]
+        - categories: [en:bouillon-cubes]
+          product_name_fr: Bouillon goût bœuf
+          ingredients: [en:salt, en:flavouring]
+        - categories: [en:bouillon-cubes]
+          labels: [en:vegan]
+          ingredients: [en:salt, en:beef-extract]
