@@ -558,6 +558,8 @@ subtest 'compute_attribute_nutriscore not-applicable explanations' => sub {
 		'Missing data to compute the Nutri-Score',
 		'missing data description preserved'
 	);
+};
+
 subtest 'compute_attribute_nova explains why the NOVA group is unknown' => sub {
 	my %expected_descriptions = (
 		missing_category => "The category of the product must be specified in order to determine the NOVA group.",
