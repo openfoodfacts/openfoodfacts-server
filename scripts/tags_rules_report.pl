@@ -32,11 +32,16 @@ tags_rules_report.pl --jsonl openfoodfacts-products.jsonl.gz --output report.csv
 	[--rules-ids colas-caffeinated,crispbreads-wholemeal-rye] [--rules-dir rules/food] [--samples 50] [--seed 42]
 	[--products-output products.csv]
 
+tags_rules_report.pl --print-reprocessing-commands [--rules-ids a,b] [--key tags_rules_YYYYMMDD]
+
 Output:
 - report.csv: one line per rule: matches, already in the target, would add, conflicts,
   complete products that would be added, number of countries, top countries.
 - report_samples.csv (next to report.csv): random examples of products the rule would change, for manual review.
 - --products-output: one line per product changed by a rule (code, rule, added tags).
+
+--print-reprocessing-commands: print the update_all_products.pl commands that reprocess the products
+in the required categories of the (selected) rules, and exit. See docs/dev/how-to-reprocess-products-for-tags-rules.md
 TXT
 	;
 
@@ -47,6 +52,7 @@ use ProductOpener::TagsRules qw/:all/;
 use Getopt::Long;
 use Cpanel::JSON::XS;
 use List::Util qw/shuffle/;
+use POSIX qw/strftime/;
 
 my $jsonl;
 my $output;
@@ -55,6 +61,8 @@ my $rules_dir;
 my $samples_n = 50;
 my $seed = 42;
 my $products_output;
+my $print_reprocessing_commands;
+my $key;
 
 GetOptions(
 	"jsonl=s" => \$jsonl,
@@ -64,6 +72,8 @@ GetOptions(
 	"samples=i" => \$samples_n,
 	"seed=i" => \$seed,
 	"products-output=s" => \$products_output,
+	"print-reprocessing-commands" => \$print_reprocessing_commands,
+	"key=s" => \$key,
 ) or die($usage);
 
 $rules_dir //= $BASE_DIRS{RULES} . "/" . ($options{product_type} // "food");
@@ -87,6 +97,15 @@ my @rule_ids = map {$_->{id}} @rules;
 my %required_categories = ();
 foreach my $rule_ref (@rules) {
 	$required_categories{$_} = 1 foreach @{$rule_ref->{required_categories}};
+}
+
+if ($print_reprocessing_commands) {
+	$key //= "tags_rules_" . strftime("%Y%m%d", gmtime());
+	foreach my $category (sort keys %required_categories) {
+		print "./scripts/update_all_products.pl --query categories_tags=$category "
+			. "--analyze-and-enrich-product-data --key $key\n";
+	}
+	exit(0);
 }
 
 (defined $jsonl and defined $output) or die($usage);
