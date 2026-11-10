@@ -444,5 +444,25 @@ subtest 'compute_attribute_forest_footprint panel_id' => sub {
 	is($attr_computed->{panel_id}, 'forest_footprint', 'computed forest footprint sets panel_id');
 };
 
+subtest 'compute_attribute_nova explains why the NOVA group is unknown' => sub {
+	my %expected_descriptions = (
+		missing_category => "The category of the product must be specified in order to determine the NOVA group.",
+		missing_ingredients => "The ingredients of the product must be specified in order to determine the NOVA group.",
+		too_many_unknown_ingredients => "We could not recognize some of the ingredients and determine the NOVA group.",
+	);
+	foreach my $nova_group_error (sort keys %expected_descriptions) {
+		my $attr = ProductOpener::Attributes::compute_attribute_nova({nova_group_error => $nova_group_error}, 'en');
+		is($attr->{status}, 'unknown', "$nova_group_error: NOVA attribute is unknown");
+		is(
+			$attr->{description},
+			$expected_descriptions{$nova_group_error},
+			"$nova_group_error: description explains why the NOVA group is unknown"
+		);
+	}
+
+	my $attr_no_error = ProductOpener::Attributes::compute_attribute_nova({}, 'en');
+	is($attr_no_error->{status}, 'unknown', 'no NOVA group and no error: NOVA attribute is unknown');
+};
+
 done_testing();
 
