@@ -621,16 +621,14 @@ my $comparisons_with_untaxonomized = compare_product_nutrition_facts_to_categori
 		nutrition_data_per => "100g",
 		nutrition => {
 			aggregated_set => {
-				nutrients => { "fat" => { value => 10 } },
+				nutrients => {"fat" => {value => 10}},
 				preparation => "as_sold",
 				per => "100g",
 			}
 		},
 		categories_tags => ["en:vegan", "en:non-existent-category-12345"]
 	},
-	"en",
-	"fr",
-	3
+	"en", "fr", 3
 );
 is(scalar @$comparisons_with_untaxonomized, 0, "untaxonomized categories are ignored for comparisons");
 
