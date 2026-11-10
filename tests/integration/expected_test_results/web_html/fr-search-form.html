@@ -665,7 +665,7 @@
                         <div class="small-8 columns">
                             <select class="select2_field" name="nutriment_0" id="nutriment_0">
                                 
-                                    <option value="" label="" selected="selected"></option>
+                                    <option value="" label="Sélectionnez un champ" selected="selected">Sélectionnez un champ</option>
                                 
                                     <option value="alpha-linolenic-acid" label="Acide alpha-linolénique">Acide alpha-linolénique</option>
                                 
@@ -1003,7 +1003,7 @@
                         <div class="small-8 columns">
                             <select class="select2_field" name="nutriment_1" id="nutriment_1">
                                 
-                                    <option value="" label="" selected="selected"></option>
+                                    <option value="" label="Sélectionnez un champ" selected="selected">Sélectionnez un champ</option>
                                 
                                     <option value="alpha-linolenic-acid" label="Acide alpha-linolénique">Acide alpha-linolénique</option>
                                 
@@ -1384,7 +1384,7 @@
                             </select>
                         </div>
                     </div>
-                    <input type="submit" name="search" class="button" value="Rechercher" />
+                    <input type="submit" name="search" class="button" value="Rechercher" formnovalidate="formnovalidate" />
                 </div>
             </li>
             
@@ -1406,10 +1406,10 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                     <div class="row">
                         
                             <div class="small-12 medium-6 columns">
-                                <label for= "axis_x">Axe horizontal</label>
-                                <select class="select2_field" name="axis_x" id="axis_x">
+                                <label for= "axis_x">Axe horizontal *</label>
+                                <select class="select2_field" name="axis_x" id="axis_x" required="required">
                                     
-                                        <option value="" label="" selected="selected"></option>
+                                        <option value="" label="Sélectionnez un champ" selected="selected">Sélectionnez un champ</option>
                                     
                                         <option value="alpha-linolenic-acid" label="Acide alpha-linolénique">Acide alpha-linolénique</option>
                                     
@@ -1731,7 +1731,7 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                 <label for= "axis_y">Axe vertical</label>
                                 <select class="select2_field" name="axis_y" id="axis_y">
                                     
-                                        <option value="" label="" selected="selected"></option>
+                                        <option value="" label="Sélectionnez un champ" selected="selected">Sélectionnez un champ</option>
                                     
                                         <option value="alpha-linolenic-acid" label="Acide alpha-linolénique">Acide alpha-linolénique</option>
                                     
@@ -2100,7 +2100,7 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                     <label for="map_title">Titre de la carte</label>
                     <input type="text" name="map_title" id="map_title" value="" />
 
-                    <input type="submit" name="generate_map" value="Générer la carte" class="button" />
+                    <input type="submit" name="generate_map" value="Générer la carte" class="button" formnovalidate="formnovalidate" />
 
                 </div>
             </li>
@@ -2118,7 +2118,7 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                     <input type="radio" name="format" value="csv" id="format_csv" />
                         <label for="format_csv">Format CSV - Encodage des caractères : Unicode (UTF-8) - Séparateur : tabulation (tab)</label><br>
 
-                    <input type="submit" name="download" value="Télécharger" class="button" />
+                    <input type="submit" name="download" value="Télécharger" class="button" formnovalidate="formnovalidate" />
 
                 </div>
             </li>
