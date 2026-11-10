@@ -3265,7 +3265,9 @@ sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_ta
 		%fields_in_panel = (additives_classes => 1, efsa_evaluation => 1);
 		# the panel shows the Wikipedia abstract only when there is no curated description
 		$fields_in_panel{wikipedia} = 1
-			if not get_knowledge_content($tagtype, $canon_tagid, $lc, $request_ref->{cc});
+			if (not get_knowledge_content($tagtype, $canon_tagid, $lc, $request_ref->{cc}))
+			and (get_property($tagtype, $canon_tagid, "wikipedia_abstract:$lc")
+			// get_property($tagtype, $canon_tagid, "wikipedia_abstract:en"));
 	}
 
 	foreach my $field_orig (@{$options{"display_tag_" . $tagtype}}) {
@@ -4299,7 +4301,7 @@ HTML
 				if ($panels_created) {
 					$tag_template_data_ref->{tag_panels}
 						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
-					# the additive facts panel says what the additive is, before the legacy risk block
+					# panel before the legacy risk block
 					if (($tagtype eq "additives")
 						and $knowledge_panels_options_ref->{activate_knowledge_panel_additive_facts})
 					{

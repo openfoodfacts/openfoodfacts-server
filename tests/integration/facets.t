@@ -528,18 +528,31 @@ my $tests_ref = [
 		response_content_must_not_match =>
 			'(?s)(Preservatives are substances which prolong.*){2}|(Sodium nitrite is the inorganic compound.*){2}|(Re-evaluation of potassium nitrite.*){2}',
 	},
-	# with a curated description in the panel, the Wikipedia abstract stays in the legacy description
+	# E100 has a Wikipedia link but no abstract: the panel cannot show it, the legacy description keeps it
 	{
-		test_case => 'additive-e250-page-additive-facts-panel-curated-description-fr',
+		test_case => 'additive-e100-page-additive-facts-panel-wikipedia-link-without-abstract',
 		method => 'GET',
-		subdomain => 'fr',
-		path => '/facets/additifs/E250%20-%20Nitrite%20de%20sodium?activate_knowledge_panel_additive_facts=1',
+		path => '/facets/additives/E100%20-%20Curcumin?activate_knowledge_panel_additive_facts=1',
 		expected_status_code => 200,
 		expected_type => 'none',
 		response_content_must_match =>
-			'(?s)^(?=.*Le nitrite de sodium est un conservateur)(?=.*Le nitrite de sodium, de formule NaNO2)',
+			'(?s)^(?=.*panel_additive_facts.*Colours are substances which add)(?=.*en\.wikipedia\.org/wiki/Curcumin)',
 		response_content_must_not_match =>
-			'(?s)(Les conservateurs sont des substances.*){2}|(Re-evaluation of potassium nitrite.*){2}',
+			'(?s)(Colours are substances which add.*){2}|(en\.wikipedia\.org/wiki/Curcumin.*){2}',
+	},
+	# E100 has a curated fr description and a Wikipedia link but no abstract:
+	# the panel shows the curated text, the legacy description keeps the link
+	{
+		test_case => 'additive-e100-page-additive-facts-panel-curated-description-fr',
+		method => 'GET',
+		subdomain => 'fr',
+		path => '/facets/additifs/E100%20-%20Curcumine?activate_knowledge_panel_additive_facts=1',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match =>
+			'(?s)^(?=.*panel_additive_facts.*curcumine ne pr.sente pas de risques connus)(?=.*Les colorants sont des substances)(?=.*re-evaluation of curcumin)(?=.*en\.wikipedia\.org/wiki/Curcumin)',
+		response_content_must_not_match =>
+			'(?s)(curcumine ne pr.sente pas de risques connus.*){2}|(Les colorants sont des substances.*){2}|(re-evaluation of curcumin.*){2}|(en\.wikipedia\.org/wiki/Curcumin.*){2}',
 	},
 ];
 
