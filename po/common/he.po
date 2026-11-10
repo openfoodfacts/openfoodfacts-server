@@ -2813,7 +2813,7 @@ msgstr "צפייה בתוצאות מכל העולם"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr ""
+msgstr "מקור המידע והנתונים חייב להיות אריזת המוצר והתוויות שלו (ולא מאתרים אחרים או מאתר היצרן), ועליך לצלם את התמונות בעצמך.<br/> ← <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">למה זה חשוב</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -6081,7 +6081,7 @@ msgstr "נא לתרום לגיוס התרומות לשנת 2024"
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "נא לתרום לגיוס התרומות שלנו לשנת {year}"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6117,23 +6117,23 @@ msgstr "ארצה לתמוך"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr ""
+msgstr "אנחנו עדיין זקוקים ל־120,000 אירו כדי לסיים את 2026!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "הצטרפות לתמיכה קבועה ב־Open Food Facts"
+msgstr "הצטרפו לתומכי Open Food Facts"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "בכל חודש, אנחנו מספקים שירות ל־8 מיליון מבקרים ורבים מהם דרך ה־API. התמיכה שלך חיונית כדי:"
+msgstr "מדי חודש אנו משרתים 8 מיליון מבקרים, ופי כמה מכך דרך ה־API. התמיכה שלכם חיונית כדי:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "לשמור על מערכת Open Food Facts פתוחה ונגישה לכולם,"
+msgstr "לשמור על Open Food Facts פתוח ונגיש לכולם,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "לתמוך בתשתיות, באתר, ביישומון לניידים וב־API שמחזיק צוות קטן"
+msgstr "לתמוך בתשתית, באתר, באפליקציה וב־API עם צוות קבוע קטן"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6149,7 +6149,7 @@ msgstr "לתמוך במדע"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "אם כל מבקר או מבקרת היו לוחצים על כפתור התרומה ומעניקים רק אירו אחד, היינו מקבלים פי 8 מהתקציב השנתי שלנו!"
+msgstr "אם כל מבקר החודש היה לוחץ על תרומה ונותן רק 1 אירו, היינו מקבלים יותר מפי 8 מהתקציב השנתי שלנו!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6550,7 +6550,7 @@ msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
 msgstr "יש לציין את רכיבי המוצר לפי הסדר כדי לאתר את קבוצת ה־NOVA."
 
-msgctxt "nova_group_too_many_unknown_ingredient"
+msgctxt "nova_group_too_many_unknown_ingredients"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
 msgstr "לא הצלחנו לזהות חלק מהרכיבים ולאתר את קבוצת ה־NOVA."
 
