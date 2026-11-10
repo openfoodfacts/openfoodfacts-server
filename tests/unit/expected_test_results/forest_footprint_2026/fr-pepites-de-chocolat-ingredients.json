@@ -68,6 +68,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31005",
+         "ecobalyse_proxy_id" : "6f3939f7-408c-45d5-8653-61f3336bf305",
+         "ecobalyse_proxy_name" : "Chocolat noir par défaut -2025-",
          "id" : "en:chocolate-chunk",
          "ingredients" : [
             {
@@ -120,6 +122,8 @@
       },
       {
          "ciqual_proxy_food_code" : "31005",
+         "ecobalyse_proxy_id" : "6f3939f7-408c-45d5-8653-61f3336bf305",
+         "ecobalyse_proxy_name" : "Chocolat noir par défaut -2025-",
          "id" : "en:chocolate-chunk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.375,
@@ -131,6 +135,8 @@
       },
       {
          "ciqual_food_code" : "31004",
+         "ecobalyse_proxy_id" : "6f3939f7-408c-45d5-8653-61f3336bf305",
+         "ecobalyse_proxy_name" : "Chocolat noir par défaut -2025-",
          "id" : "en:milk-chocolate",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.375,
@@ -186,11 +192,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:chocolate-chunk",
-      "en:milk-chocolate"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 6,
    "lc" : "fr",
    "misc_tags" : [
