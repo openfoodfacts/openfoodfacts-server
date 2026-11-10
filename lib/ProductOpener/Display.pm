@@ -4299,6 +4299,12 @@ HTML
 				if ($panels_created) {
 					$tag_template_data_ref->{tag_panels}
 						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
+					# the additive facts panel says what the additive is, before the legacy risk block
+					if (($tagtype eq "additives")
+						and $knowledge_panels_options_ref->{activate_knowledge_panel_additive_facts})
+					{
+						$tag_template_data_ref->{tag_panels_first} = 1;
+					}
 				}
 			}
 		}

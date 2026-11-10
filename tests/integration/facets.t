@@ -516,6 +516,7 @@ my $tests_ref = [
 			'(?s)^(?=.*<b>Functions</b>)(?=.*Sodium nitrite is the inorganic compound)(?=.*<b>EFSA evaluation</b>)(?=.*class="exposure_table")',
 		response_content_must_not_match => 'panel_additive_facts',
 	},
+	# the panel (what the additive is) comes before the legacy risk block
 	{
 		test_case => 'additive-e250-page-additive-facts-panel-shown-once',
 		method => 'GET',
@@ -523,7 +524,7 @@ my $tests_ref = [
 		expected_status_code => 200,
 		expected_type => 'none',
 		response_content_must_match =>
-			'(?s)^(?=.*panel_additive_facts)(?=.*Preservatives are substances which prolong)(?=.*Sodium nitrite is the inorganic compound)(?=.*Re-evaluation of potassium nitrite)(?=.*high risk of consuming too much)(?=.*class="exposure_table")',
+			'(?s)^(?=.*panel_additive_facts.*high risk of consuming too much)(?=.*Preservatives are substances which prolong)(?=.*Sodium nitrite is the inorganic compound)(?=.*Re-evaluation of potassium nitrite)(?=.*class="exposure_table")',
 		response_content_must_not_match =>
 			'(?s)(Preservatives are substances which prolong.*){2}|(Sodium nitrite is the inorganic compound.*){2}|(Re-evaluation of potassium nitrite.*){2}',
 	},
