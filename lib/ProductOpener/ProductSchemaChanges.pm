@@ -70,8 +70,9 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
 use ProductOpener::Nutrition
-	qw/default_unit_for_nid generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
+	qw/default_unit_for_nid generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data sort_sets_by_priority/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Units qw/unit_to_g/;
 use ProductOpener::Products qw/get_source_for_site_and_org/;
 
 # on the pro platform, we need to know the org to set the correct source for schema upgrades
@@ -592,25 +593,45 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 		delete $product_ref->{no_nutrition_data};
 	}
 
-	# if no aggregated set then we do not return nutrition information
+	# If there is no aggregated set, small serving-only values can still be
+	# returned in the legacy serving fields. They must not be extrapolated to 100g.
 	# Note: We might have some nutrition data that cannot be incorporated in the aggregated set
 	# e.g. an input set per serving, but without a serving quantity: in that case we do not have an aggregated set
 
 	my $aggregated_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
+	my $nutrient_set_ref = $aggregated_set_ref;
+	my $serving_only_fallback = false;
+	if (!defined $nutrient_set_ref || !%{$nutrient_set_ref}) {
+		my $input_sets_ref = deep_get($product_ref, "nutrition", "nutrient_sets") // [];
+		my @small_serving_sets = grep {
+			($_->{per} // "") eq "serving"
+				&& defined $_->{per_quantity}
+				&& defined $_->{per_unit}
+				&& unit_to_g($_->{per_quantity}, $_->{per_unit}) > 0
+				&& unit_to_g($_->{per_quantity}, $_->{per_unit}) < 5
+		} @{$input_sets_ref};
+		sort_sets_by_priority(\@small_serving_sets);
+		if (@small_serving_sets) {
+			$nutrient_set_ref = $small_serving_sets[0];
+			$serving_only_fallback = true;
+		}
+	}
 
-	if (!defined $aggregated_set_ref || !%{$aggregated_set_ref}) {
+	if (!defined $nutrient_set_ref || !%{$nutrient_set_ref}) {
 		delete $product_ref->{nutrition};
 	}
 
 	else {
-		my $nutrient_set_ref = $product_ref->{nutrition}{aggregated_set};
 		my $preparation_state = (
 				   $nutrient_set_ref->{preparation} eq "prepared"
 				or $nutrient_set_ref->{preparation} eq "_prepared"
 		) ? "_prepared" : "";
 		# if per is 100ml then 1002 product version nutrient per field is 100g
 		my $per;
-		if (not defined $nutrient_set_ref->{per}) {
+		if ($serving_only_fallback) {
+			$per = "_serving";
+		}
+		elsif (not defined $nutrient_set_ref->{per}) {
 			$per = "_100g";
 		}
 		else {
@@ -673,11 +694,11 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 		# then add other useful data on the nutrients to the product
 		if ($preparation_state eq "") {
 			$product_ref->{nutrition_data} = "on";
-			$product_ref->{nutrition_data_per} = $product_ref->{nutrition}{aggregated_set}{per};
+			$product_ref->{nutrition_data_per} = $serving_only_fallback ? "serving" : $product_ref->{nutrition}{aggregated_set}{per};
 		}
 		else {
 			$product_ref->{nutrition_data_prepared} = "on";
-			$product_ref->{nutrition_data_prepared_per} = $product_ref->{nutrition}{aggregated_set}{per};
+			$product_ref->{nutrition_data_prepared_per} = $serving_only_fallback ? "serving" : $product_ref->{nutrition}{aggregated_set}{per};
 		}
 
 		# finally remove the nutrition field of the 1003 product version if deletion on
