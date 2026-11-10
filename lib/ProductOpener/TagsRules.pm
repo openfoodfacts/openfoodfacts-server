@@ -45,17 +45,25 @@ Principles:
 
 =over
 
-=item * Rules only add tags. They never remove tags. Rules must be close to 100% certain.
+=item *
+
+Rules only add tags. They never remove tags. Rules must be close to 100% certain.
 Weaker signals add data quality warnings instead of tags, so that the product can be reviewed.
 
-=item * Rules are flat: they are evaluated against the tags that come from the sources other than "rules",
+=item *
+
+Rules are flat: they are evaluated against the tags that come from the sources other than "rules",
 so the output of a rule is never the input of another rule.
 
-=item * A rule never adds a category that is incompatible with a category the product already has
+=item *
+
+A rule never adds a category that is incompatible with a category the product already has
 (exclusive groups in the rules files, and the incompatible_with:en property of the categories taxonomy).
 It adds the en:category-rules-conflict data quality warning instead.
 
-=item * Tags added by rules are stored in tags_sources.[field].rules, with a "rules" sub-key that lists the rule ids
+=item *
+
+Tags added by rules are stored in tags_sources.[field].rules, with a "rules" sub-key that lists the rule ids
 for each tag. They are recomputed on every product update.
 
 =back
@@ -167,13 +175,21 @@ A hash ref:
 
 =over
 
-=item * rules: list of compiled rules, in file order
+=item *
 
-=item * by_category: required category => list of rules
+rules: list of compiled rules, in file order
 
-=item * exclusive: category => list of the other categories in its exclusive groups
+=item *
 
-=item * errors: list of validation errors (strings). Rules with errors are not included in "rules".
+by_category: required category => list of rules
+
+=item *
+
+exclusive: category => list of the other categories in its exclusive groups
+
+=item *
+
+errors: list of validation errors (strings). Rules with errors are not included in "rules".
 
 =back
 
@@ -428,13 +444,21 @@ Conditions are compiled to closures that take an evaluation context (see _new_co
 
 =over
 
-=item * A mapping: all keys must match (AND).
+=item *
 
-=item * all: [conditions]: all must match. any: [conditions]: at least one must match.
+A mapping: all keys must match (AND).
 
-=item * not: condition: the condition must not match. A list means "none of the conditions match".
+=item *
 
-=item * unless (at the rule level): a list of conditions, or a mapping: the rule does not apply if any of the
+all: [conditions]: all must match. any: [conditions]: at least one must match.
+
+=item *
+
+not: condition: the condition must not match. A list means "none of the conditions match".
+
+=item *
+
+unless (at the rule level): a list of conditions, or a mapping: the rule does not apply if any of the
 list items, or any of the mapping keys, matches.
 
 =back
@@ -953,9 +977,13 @@ Evaluate the rules for a product. Pure function: the product is not modified.
 
 =over
 
-=item * rules: a ruleset returned by load_tags_rules() (default: get_tags_rules() for the product type)
+=item *
 
-=item * rule_ids: list of rule ids: only evaluate those rules
+rules: a ruleset returned by load_tags_rules() (default: get_tags_rules() for the product type)
+
+=item *
+
+rule_ids: list of rule ids: only evaluate those rules
 
 =back
 
@@ -965,14 +993,22 @@ A hash ref:
 
 =over
 
-=item * added: field => { tag => [rule ids] }. Fields are the targets of the add actions (e.g. categories,
+=item *
+
+added: field => { tag => [rule ids] }. Fields are the targets of the add actions (e.g. categories,
 data_quality_warnings). Conflicts add the en:category-rules-conflict tag to data_quality_warnings.
 
-=item * matched: list of the ids of the rules whose conditions matched
+=item *
 
-=item * already: rule id => list of the tags the rule would add, but that the product already has
+matched: list of the ids of the rules whose conditions matched
 
-=item * conflicts: list of { rule, tag, with } for categories that were not added because of a conflict
+=item *
+
+already: rule id => list of the tags the rule would add, but that the product already has
+
+=item *
+
+conflicts: list of { rule, tag, with } for categories that were not added because of a conflict
 
 =back
 
