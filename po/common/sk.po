@@ -692,7 +692,7 @@ msgstr "Prispejte na Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-sk.openfoodfacts.org/prispejte-na-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -2812,7 +2812,8 @@ msgstr "Zobraziť výsledky z celého sveta"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr ""
+msgstr "Informácie a údaje musia pochádzať z balenia a etikety produktu (a nie z iných stránok alebo stránok výrobcu) a musíte si ich urobiť sami.<br/>\n"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Prečo na tom záleží</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3439,7 +3440,7 @@ msgstr "Príliš veľa produktov (%d produktov, limit je %d) na export, stiahnit
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr "Pomôžte preložiť %s ako %s"
+msgstr "Pomôžte preložiť %s do %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
@@ -4294,27 +4295,27 @@ msgstr ""
 
 msgctxt "donation_banner_hide"
 msgid "I have already donated or I'm not interested. Hide the banner."
-msgstr ""
+msgstr "Už som daroval(a) alebo nemám záujem. Skryť banner."
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "Nezávislý a občanmi vedený projekt pre transparentnosť potravín?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Údaje o potravinách pre výskum, ktorý zlepšuje verejné zdravie?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Jednoduchší a lepší výber potravín podľa vašich vlastných kritérií?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
-msgstr ""
+msgstr "Potrebujeme vašu podporu!"
 
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
-msgstr ""
+msgstr "Podporte nás"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_provenance_line"
@@ -6080,7 +6081,7 @@ msgstr ""
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "Prispejte prosím na našu zbierku na rok {year}"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -6116,23 +6117,23 @@ msgstr ""
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr ""
+msgstr "Na dokončenie roka 2026 stále potrebujeme 120 000 €!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr ""
+msgstr "Staňte sa mecenášom Open Food Facts"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr ""
+msgstr "Každý mesiac obslúžime 8 miliónov návštevníkov a mnohonásobne viac prostredníctvom API. Vaša podpora je nevyhnutná pre:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr ""
+msgstr "udržanie Open Food Facts otvoreným a dostupným pre všetkých,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr ""
+msgstr "podporu infraštruktúry, webovej stránky, mobilnej aplikácie a API malým stálym tímom"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6140,15 +6141,15 @@ msgstr ""
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr ""
+msgstr "podporu komunity"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr ""
+msgstr "podporu vedy"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr ""
+msgstr "Ak by každý návštevník v tomto mesiaci klikol na Darovať a daroval len 1 €, získali by sme viac ako 8-násobok nášho ročného rozpočtu!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6549,7 +6550,7 @@ msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
 msgstr ""
 
-msgctxt "nova_group_too_many_unknown_ingredient"
+msgctxt "nova_group_too_many_unknown_ingredients"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
 msgstr ""
 
