@@ -100,7 +100,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 	return sub {
 		# re-init at start and after returning each entry
 		my @parents = ();    # lines defining parents
-		my $entry_id_line = undef;    # line defining entry id, we don't want to change it's position
+		my $entry_id_line = undef;    # first line defining entry id
 		my %entries = ();    # lines defining synonyms
 		my %props = ();    # lines defining properties
 		my @original_lines = ();
@@ -389,6 +389,9 @@ sub lint_entry($entry_ref, $do_sort, $normalize_commas = 1) {
 	my @output_lines = ();
 	# sort items
 	my (@sorted_entries, @sorted_props);
+	if (defined $entry_id_line && defined $entry_id_line->{lc}) {
+		$entries{$entry_id_line->{lc}} = $entry_id_line;
+	}
 	if ($do_sort) {
 		@parents = sort {$a->{line} cmp $b->{line}} @parents;
 		@sorted_entries = sort cmp_on_language (keys %entries);
@@ -399,12 +402,12 @@ sub lint_entry($entry_ref, $do_sort, $normalize_commas = 1) {
 		@sorted_entries = sort {$entries{$a}{line_num} <=> $entries{$b}{line_num}} (keys %entries);
 		@sorted_props = sort {$props{$a}{line_num} <=> $props{$b}{line_num}} (keys %props);
 	}
-	# print parents, line id, synonyms, sorted props
+	# print parents, line id (if not a language entry, e.g. synonyms or stopwords), synonyms, sorted props
 	for my $parent (@parents) {
 		push @output_lines, @{$parent->{previous}};
 		push @output_lines, normalized_line($parent, $normalize_commas);
 	}
-	if (defined $entry_id_line) {
+	if (defined $entry_id_line && !defined $entry_id_line->{lc}) {
 		push @output_lines, @{$entry_id_line->{previous}};
 		push @output_lines, normalized_line($entry_id_line, $normalize_commas);
 	}
