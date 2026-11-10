@@ -1,136 +1,222 @@
+/* eslint-disable no-underscore-dangle */
+
 // Matomo tracking
-var _paq = window._paq = window._paq || [];
+window._paq = window._paq || [];
+const paq = window._paq;
+
 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+
 // Donorbox puts the donor's name and email on this URL; Matomo gets only the utm_* part
-_paq.push(["setCustomUrl", location.origin + location.pathname + location.search.replace(/[?&](?!utm_)[^&]*/g, "").replace(/^&/, "?")]);
-_paq.push(["setCookieDomain", "*.openfoodfacts.org"]);
-_paq.push(["setDomains", ["*.openfoodfacts.org"]]);
-_paq.push(["setDoNotTrack", true]);
-_paq.push(["disableCookies"]);
-_paq.push(['enableHeartBeatTimer']);
-_paq.push(['trackPageView']);
-_paq.push(['enableLinkTracking']);
-(function() {
-  var u="//analytics.openfoodfacts.org/";
-  _paq.push(['setTrackerUrl', u+'matomo.php']);
-  _paq.push(['setSiteId', '5']);
-  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-  g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-})();
+const sanitizedSearch = window.location.search.replace(/[?&](?!utm_)[^&]*/g, "").replace(/^&/, "?");
+paq.push(["setCustomUrl", window.location.origin + window.location.pathname + sanitizedSearch]);
+paq.push(["setCookieDomain", "*.openfoodfacts.org"]);
+paq.push(["setDomains", ["*.openfoodfacts.org"]]);
+paq.push(["setDoNotTrack", true]);
+paq.push(["disableCookies"]);
+paq.push(["enableHeartBeatTimer"]);
+paq.push(["trackPageView"]);
+paq.push(["enableLinkTracking"]);
 
-// Donorbox redirect params (id, first_name, last_name, email, amount, currency, country, duration;
-// Pro/Premium or the Tracking add-on, help centre checked 2026-09-18). duration values are
-// undocumented, hence the loose match.
-(function () {
-  var params = new URLSearchParams(location.search);
-  var page = document.getElementById('donate-thanks');
-  if (!page) return;
-  var title = page.querySelector('h1');
-  var titleTemplate = page.querySelector('.thanks-title-tpl').textContent;
-  var lead = page.querySelector('.thanks-lead');
-  var leadTemplates = {};
-  var leadTplEls = page.querySelectorAll('.thanks-lead-tpl');
-  var i;
-  for (i = 0; i < leadTplEls.length; i++) {
-    leadTemplates[leadTplEls[i].getAttribute('data-interval')] = leadTplEls[i].textContent;
+function initMatomoTracker() {
+  const trackerUrl = "//analytics.openfoodfacts.org/";
+  paq.push(["setTrackerUrl", trackerUrl + "matomo.php"]);
+  paq.push(["setSiteId", "5"]);
+
+  const scriptEl = document.createElement("script");
+  scriptEl.async = true;
+  scriptEl.src = trackerUrl + "matomo.js";
+
+  const firstScript = document.getElementsByTagName("script")[0];
+  if (firstScript && firstScript.parentNode) {
+    firstScript.parentNode.insertBefore(scriptEl, firstScript);
   }
-  var LOOKUPS_PER_UNIT = 250;
+}
 
-  function intervalFrom(value) {
-    value = String(value || '').toLowerCase();
-    if (/month|^1 m$/.test(value)) {
-      return '1 M';
-    }
-    if (/year|annual|^1 y$/.test(value)) {
-      return '1 Y';
-    }
-    if (/one|once|^1 t$/.test(value)) {
-      return '1 T';
-    }
-    return '';
+initMatomoTracker();
+
+// Donorbox redirect params helper
+function intervalFrom(rawInterval) {
+  const value = String(rawInterval || "").toLowerCase();
+
+  if ((/month|^1 m$/).test(value)) {
+    return "1 M";
   }
 
-  var name = (params.get('first_name') || '').trim().slice(0, 40);
-  var amount = Number(params.get('amount'));
-  var interval = intervalFrom(params.get('duration'));
-  var currency = (params.get('currency') || '').toLowerCase();
-  var inFrance = /^fr\./.test(location.hostname) || /^(fr|france)$/i.test(params.get('country') || '');
-  var source = params.get('utm_content') || params.get('utm_campaign') || '';
-  try {
-    if (!(amount > 0)) {
-      amount = Number(sessionStorage.donation_amount);
-    }
-    if (!interval) {
-      interval = intervalFrom(sessionStorage.donation_interval);
-    }
-    if (!currency) {
-      currency = sessionStorage.donation_currency || '';
-    }
-    if (!source) {
-      source = sessionStorage.donation_source || '';
-    }
-  } catch (e) {}
-  history.replaceState(null, '', location.pathname + location.search.replace(/[?&](?!utm_)[^&]*/g, '').replace(/^&/, '?'));
-
-  if (name) {
-    title.textContent = titleTemplate.replace('{name}', function () { return name; });
+  if ((/year|annual|^1 y$/).test(value)) {
+    return "1 Y";
   }
-  if (isFinite(amount) && amount > 0 && interval) {
-    var amountText = (currency === 'usd' ? '$' : '€') + amount.toLocaleString('en', { minimumFractionDigits: amount % 1 ? 2 : 0, maximumFractionDigits: 2 });
-    var lookups = amount * LOOKUPS_PER_UNIT / (interval === '1 Y' ? 12 : 1);
-    lead.textContent = leadTemplates[interval]
-      .replace('{amount}', amountText)
-      .replace('{lookups}', Math.round(lookups).toLocaleString('en'));
-    page.querySelector('.thanks-upgrade-text').textContent = page.querySelector('.thanks-upgrade-tpl').textContent.replace('{amount}', amountText);
-    if (interval === '1 T') {
-      page.querySelector('.thanks-upgrade').hidden = false;
-      _paq.push(['trackEvent', 'donation', 'upgrade_shown', source || 'direct']);
-    }
-  }
-  page.querySelector('.thanks-fr').hidden = !inFrance;
 
-  var shareLink = page.querySelector('.thanks-share-link').textContent;
-  var shareText = page.querySelector('.thanks-share-text').textContent + ' ' + shareLink;
-  var copiedLabel = page.querySelector('.thanks-copied-tpl').textContent;
-  var shareButtons = page.querySelectorAll('.thanks-share-btn');
-  var shareUrls = {
-    mastodon: 'https://mastodon.social/share?text=' + encodeURIComponent(shareText),
-    bluesky: 'https://bsky.app/intent/compose?text=' + encodeURIComponent(shareText),
-    linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareLink)
+  if ((/one|once|^1 t$/).test(value)) {
+    return "1 T";
+  }
+
+  return "";
+}
+
+function setDonateCookie(name, value, days) {
+  const expiry = new Date();
+  expiry.setTime(expiry.getTime() + (days * 24 * 60 * 60 * 1000));
+  const domain = "domain=." + window.location.origin.split(".").slice(1).join(".");
+  document.cookie = name + "=" + value + ";expires=" + expiry.toUTCString() + ";" + domain + ";SameSite=None;Secure;path=/";
+}
+
+function setupShareButtons(page, shareText, shareLink) {
+  const copiedLabel = page.querySelector(".thanks-copied-tpl").textContent;
+  const shareButtons = page.querySelectorAll(".thanks-share-btn");
+  const shareUrls = {
+    mastodon: "https://mastodon.social/share?text=" + encodeURIComponent(shareText),
+    bluesky: "https://bsky.app/intent/compose?text=" + encodeURIComponent(shareText),
+    linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(shareLink)
   };
-  for (i = 0; i < shareButtons.length; i++) {
-    var target = shareButtons[i].getAttribute('data-share');
+
+  for (let i = 0; i < shareButtons.length; i++) {
+    const button = shareButtons[i];
+    const target = button.getAttribute("data-share");
     if (shareUrls[target]) {
-      shareButtons[i].href = shareUrls[target];
+      button.href = shareUrls[target];
     }
-    shareButtons[i].addEventListener('click', function (event) {
-      var button = event.currentTarget;
-      _paq.push(['trackEvent', 'donation', 'share_clicked', button.getAttribute('data-share')]);
-      if (button.getAttribute('data-share') === 'copy') {
-        var copyLabel = button.textContent;
-        if (!navigator.clipboard) {
-          window.prompt(copyLabel, shareLink);
-          return;
-        }
-        navigator.clipboard.writeText(shareLink).then(function () {
+
+    button.addEventListener("click", () => {
+      paq.push(["trackEvent", "donation", "share_clicked", target]);
+      if (target === "copy" && navigator.clipboard) {
+        navigator.clipboard.writeText(shareLink).then(() => {
           button.textContent = copiedLabel;
-        }, function () {
-          window.prompt(copyLabel, shareLink);
         });
       }
     });
   }
-  page.querySelector('.thanks-share-section').hidden = false;
 
-  function setDonateCookie(name, value, days) {
-    var expiry = new Date();
-    expiry.setTime(expiry.getTime() + days * 24 * 60 * 60 * 1000);
-    var domain = 'domain=.' + location.origin.split('.').slice(1).join('.');
-    document.cookie = name + '=' + value + ';expires=' + expiry.toUTCString() + ';' + domain + ';SameSite=None;Secure;path=/';
+  page.querySelector(".thanks-share-section").hidden = false;
+}
+
+function readSessionStorageFallbacks(initial) {
+  const result = {
+    amount: initial.amount,
+    interval: initial.interval,
+    currency: initial.currency,
+    source: initial.source
+  };
+
+  try {
+    if (!(result.amount > 0) && window.sessionStorage.donation_amount) {
+      result.amount = Number(window.sessionStorage.donation_amount);
+    }
+    if (!result.interval && window.sessionStorage.donation_interval) {
+      result.interval = intervalFrom(window.sessionStorage.donation_interval);
+    }
+    if (!result.currency && window.sessionStorage.donation_currency) {
+      result.currency = window.sessionStorage.donation_currency;
+    }
+    if (!result.source && window.sessionStorage.donation_source) {
+      result.source = window.sessionStorage.donation_source;
+    }
+  } catch {
+
+    // SessionStorage may be restricted in some private browsing configurations
   }
-  setDonateCookie('donation_done', 1, 365);
-  setDonateCookie('donation_march_2026', 1, 365);
 
-  _paq.push(['trackEvent', 'donation', 'thanks_landed', source || 'direct']);
-})();
+  return result;
+}
+
+function parseDonationParams() {
+  const params = new window.URLSearchParams(window.location.search);
+  const name = (params.get("first_name") || "").trim().slice(0, 40);
+  const rawAmount = Number(params.get("amount"));
+  const rawInterval = intervalFrom(params.get("duration"));
+  const rawCurrency = (params.get("currency") || "").toLowerCase();
+  const rawSource = params.get("utm_content") || params.get("utm_campaign") || "";
+
+  const fallbacks = readSessionStorageFallbacks({
+    amount: rawAmount,
+    currency: rawCurrency,
+    interval: rawInterval,
+    source: rawSource
+  });
+
+  const isFrenchHost = (/^fr\./).test(window.location.hostname);
+  const isFrenchCountry = (/^(fr|france)$/i).test(params.get("country") || "");
+
+  return {
+    amount: fallbacks.amount,
+    currency: fallbacks.currency,
+    inFrance: isFrenchHost || isFrenchCountry,
+    interval: fallbacks.interval,
+    name,
+    source: fallbacks.source
+  };
+}
+
+function renderDonationImpact(page, donation, leadTemplates) {
+  const amount = donation.amount;
+  const interval = donation.interval;
+  const currency = donation.currency;
+  const source = donation.source;
+
+  if (!Number.isFinite(amount) || amount <= 0 || !interval) {
+    return;
+  }
+
+  const currencySymbol = currency === "usd" ? "$" : "€";
+  const fractionDigits = amount % 1 ? 2 : 0;
+  const amountFormatted = amount.toLocaleString("en", {
+    maximumFractionDigits: 2,
+    minimumFractionDigits: fractionDigits
+  });
+  const amountText = currencySymbol + amountFormatted;
+  const intervalDivisor = interval === "1 Y" ? 12 : 1;
+  const lookups = (amount * 250) / intervalDivisor;
+  const roundedLookups = Math.round(lookups).toLocaleString("en");
+
+  const templateWithAmount = leadTemplates[interval].replace("{amount}", amountText);
+  page.querySelector(".thanks-lead").textContent = templateWithAmount.replace("{lookups}", roundedLookups);
+
+  const upgradeTpl = page.querySelector(".thanks-upgrade-tpl").textContent;
+  page.querySelector(".thanks-upgrade-text").textContent = upgradeTpl.replace("{amount}", amountText);
+
+  if (interval === "1 T") {
+    page.querySelector(".thanks-upgrade").hidden = false;
+    paq.push(["trackEvent", "donation", "upgrade_shown", source || "direct"]);
+  }
+}
+
+function initDonateThanks() {
+  const page = document.getElementById("donate-thanks");
+  if (!page) {
+    return;
+  }
+
+  const donation = parseDonationParams();
+
+  if (window.history && window.history.replaceState) {
+    const cleanSearch = window.location.search.replace(/[?&](?!utm_)[^&]*/g, "").replace(/^&/, "?");
+    window.history.replaceState(null, "", window.location.pathname + cleanSearch);
+  }
+
+  if (donation.name) {
+    const title = page.querySelector("h1");
+    const titleTemplate = page.querySelector(".thanks-title-tpl").textContent;
+    title.textContent = titleTemplate.replace("{name}", () => donation.name);
+  }
+
+  const leadTemplates = {};
+  const leadTplEls = page.querySelectorAll(".thanks-lead-tpl");
+  for (let i = 0; i < leadTplEls.length; i++) {
+    leadTemplates[leadTplEls[i].getAttribute("data-interval")] = leadTplEls[i].textContent;
+  }
+
+  renderDonationImpact(page, donation, leadTemplates);
+
+  page.querySelector(".thanks-fr").hidden = !donation.inFrance;
+
+  const shareLink = page.querySelector(".thanks-share-link").textContent;
+  const shareText = page.querySelector(".thanks-share-text").textContent + " " + shareLink;
+  setupShareButtons(page, shareText, shareLink);
+
+  setDonateCookie("donation_done", 1, 365);
+  setDonateCookie("donation_march_2026", 1, 365);
+
+  paq.push(["trackEvent", "donation", "thanks_landed", donation.source || "direct"]);
+}
+
+initDonateThanks();
