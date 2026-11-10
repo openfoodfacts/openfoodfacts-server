@@ -691,7 +691,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world-iu.openfoodfacts.org/open-food-facts-tunirruti"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -1549,7 +1549,7 @@ msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "Mission:"
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
@@ -2044,7 +2044,7 @@ msgstr ""
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr ""
+msgstr "Normalise colours"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
@@ -2441,7 +2441,7 @@ msgstr ""
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Use a different colour for the following products:"
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2457,7 +2457,7 @@ msgstr ""
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr ""
+msgstr "Use nutrition grades colours"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2722,7 +2722,7 @@ msgstr ""
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr ""
+msgstr "Username or e-mail address:"
 
 msgctxt "username"
 msgid "User name"
@@ -2904,7 +2904,7 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr "-"
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -3090,7 +3090,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
@@ -3490,11 +3490,11 @@ msgstr ""
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "Revision number:"
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "Edited by:"
 
 msgctxt "rev_previous"
 msgid "Previous version"
@@ -4319,7 +4319,7 @@ msgstr ""
 
 msgctxt "pro_moderator_edit_owner_description"
 msgid "To see products from a specific user or organization, enter its id below. Leave field empty to unset."
-msgstr ""
+msgstr "To see products from a specific user or organization, enter its id. Leave field empty to unset."
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
@@ -4511,7 +4511,7 @@ msgstr ""
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
-msgstr ""
+msgstr "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others:"
 
 msgctxt "help_improve_ingredients_analysis_1"
 msgid "Edit this product page to correct spelling mistakes in the ingredients list, and/or to remove ingredients in other languages and sentences that are not related to the ingredients."
@@ -4524,7 +4524,7 @@ msgstr ""
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr ""
+msgstr "If you would like to help, join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>. Thank you!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
@@ -5907,7 +5907,7 @@ msgstr ""
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr ""
+msgstr "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
@@ -5939,7 +5939,7 @@ msgstr ""
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr ""
+msgstr "The Green-Score formula is subject to change as it is is regularly improved to make it more precise."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
@@ -6453,7 +6453,7 @@ msgstr ""
 
 msgctxt "vegan_ingredients"
 msgid "No non-vegan ingredients detected"
-msgstr ""
+msgstr "No non-vegan ingredients"
 
 msgctxt "maybe_vegan_ingredients"
 msgid "Ingredients that may not be vegan"
@@ -6532,7 +6532,7 @@ msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
 msgstr ""
 
-msgctxt "nova_group_too_many_unknown_ingredient"
+msgctxt "nova_group_too_many_unknown_ingredients"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
 msgstr ""
 
@@ -6705,7 +6705,7 @@ msgstr ""
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
-msgstr ""
+msgstr "Take a photo of the recycling information"
 
 msgctxt "action_add_quantity"
 msgid "Add quantity of the product"
@@ -6825,7 +6825,7 @@ msgstr ""
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr ""
+msgstr "Limit the consumption of fat and saturated fat"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
