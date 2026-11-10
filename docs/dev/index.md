@@ -12,6 +12,7 @@ Some documentation to get you started:
 * [Developer guide (Docker)](how-to-develop-using-docker.md)
 * [Developer guide (Gitpod)](how-to-use-gitpod.md)
 * [Run several worktrees on one machine](how-to-run-several-worktrees.md)
+* [Reprocess products after a tags rules change](how-to-reprocess-products-for-tags-rules.md)
 
 
 Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)
