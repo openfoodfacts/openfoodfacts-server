@@ -18,6 +18,10 @@ components:
                 - ingredients: information that is derived from the ingredients list (e.g. allergens and traces)
                 - database-* (e.g. database-usda): information from another open database
                 - label-* (e.g. label-non-gmo-project): information from a label organization (e.g. some labels send us lists of products that have the label)
+                - rules: tags inferred by Open Food Facts rules (rules/ directory of the openfoodfacts-server repository) from other data of the product
+                  (e.g. en:caffeinated-colas for a product in en:colas that is not caffeine-free). This source is computed on every product update:
+                  it cannot be written by clients, and it is removed when no rule applies anymore. It has an extra "rules" property with the ids of
+                  the rules that added each tag.
               New sources may be added at anytime, so we are using patternProperties to make sure parsing does not break if a new source is encountered.
             patternProperties:
               "^[a-z]+(_-[a-z]+)*$":
@@ -41,6 +45,17 @@ components:
                         items:
                           type: string
                         example: ["en:organic"]
+                      rules:
+                        type: object
+                        description: |
+                          Only for the "rules" source: for each tag added by rules, the ids of the rules that added it.
+                          The rules are defined in the rules/ directory of the openfoodfacts-server repository.
+                        additionalProperties:
+                          type: array
+                          items:
+                            type: string
+                        example:
+                          "en:caffeinated-colas": ["colas-caffeinated"]
             example:
               packaging:
                 categories:

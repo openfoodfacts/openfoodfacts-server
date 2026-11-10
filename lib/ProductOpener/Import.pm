@@ -1312,6 +1312,10 @@ sub import_tags_sources_fields (
 				next;
 			}
 
+			# The "rules" source is computed by the tags rules (ProductOpener::TagsRules) on each product update,
+			# it is never imported (e.g. from the producers platform to the public platform)
+			next if $source eq "rules";
+
 			# Check the source is "packaging", "manufacturer" or starts with "label" or "database"
 			if ($source !~ /^packaging|manufacturer|label.*|database.*$/) {
 				$log->error(
