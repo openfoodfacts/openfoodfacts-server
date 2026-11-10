@@ -227,6 +227,9 @@ HTML
 	# Only call Ecobalyse API if ingredients with ecobalyse IDs cover at least this percentage
 	ecobalyse_min_ingredients_coverage_percent => $ProductOpener::Config2::ecobalyse_min_ingredients_coverage_percent
 		// 80,
+	# Call the Ecobalyse API each time a product is updated or reprocessed (if ECOBALYSE_API_TOKEN is also set).
+	# Otherwise we only prepare the request payload, and the API is called only by update_all_products.pl --compute-ecobalyse
+	ecobalyse_call_api_on_product_update => $ENV{ECOBALYSE_CALL_API_ON_PRODUCT_UPDATE} // 0,
 );
 
 $options{export_limit} = 10000;

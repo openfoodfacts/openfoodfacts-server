@@ -6552,7 +6552,7 @@ msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
 msgstr "Les ingrédients du produit doivent être spécifiés pour déterminer le groupe NOVA."
 
-msgctxt "nova_group_too_many_unknown_ingredient"
+msgctxt "nova_group_too_many_unknown_ingredients"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
 msgstr "Nous n'avons pas pu reconnaître certains des ingrédients et déterminer le groupe NOVA."
 
@@ -6576,6 +6576,10 @@ msgstr "Coût environnemental"
 msgctxt "environmental_cost_description"
 msgid "Total environmental impact score from Ecobalyse"
 msgstr "Score d'impact environnemental total d'Ecobalyse"
+
+msgctxt "environmental_cost_stale"
+msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
+msgstr "Ce coût environnemental a été calculé avant les dernières modifications du produit et pourrait ne plus être à jour."
 
 msgctxt "ecs_breakdown"
 msgid "ECS Breakdown"
