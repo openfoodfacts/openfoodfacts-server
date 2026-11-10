@@ -3259,6 +3259,15 @@ sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_ta
 
 	my $description = "";
 
+	# Fields shown in the additive facts knowledge panel are not repeated here
+	my %fields_in_panel = ();
+	if (($tagtype eq "additives") and $knowledge_panels_options_ref->{activate_knowledge_panel_additive_facts}) {
+		%fields_in_panel = (additives_classes => 1, efsa_evaluation => 1);
+		# the panel shows the Wikipedia abstract only when there is no curated description
+		$fields_in_panel{wikipedia} = 1
+			if not get_knowledge_content($tagtype, $canon_tagid, $lc, $request_ref->{cc});
+	}
+
 	foreach my $field_orig (@{$options{"display_tag_" . $tagtype}}) {
 
 		my $field = $field_orig;
@@ -3270,6 +3279,8 @@ sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_ta
 			$field = $';
 			$array = 1;
 		}
+
+		next if $fields_in_panel{$field};
 
 		# Section title?
 
@@ -3861,6 +3872,9 @@ sub display_tag_page ($request_ref) {
 
 	if (defined $tagtype) {
 
+		# also read by generate_description_from_display_tag_options()
+		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
+
 		# check if there is a template to display additional fields from the taxonomy
 		# the template is set in the Config.pm file
 		# This feature was coded before the introduction of knowledge panels
@@ -4278,7 +4292,6 @@ HTML
 
 				# Display knowledge panels for the tag, if any
 
-				initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 				my $tag_ref = {};    # Object to store the knowledge panels
 				my $panels_created
 					= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref,

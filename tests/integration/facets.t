@@ -505,6 +505,41 @@ my $tests_ref = [
 		path => '/api/v3/tag/additives/e99999?activate_knowledge_panel_additive_facts=1',
 		expected_status_code => 200,
 	},
+	# additive tag page: the facts in the panel are not repeated in the legacy description
+	{
+		test_case => 'additive-e250-page-legacy-description-by-default',
+		method => 'GET',
+		path => '/facets/additives/E250%20-%20Sodium%20nitrite',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match =>
+			'(?s)^(?=.*<b>Functions</b>)(?=.*Sodium nitrite is the inorganic compound)(?=.*<b>EFSA evaluation</b>)(?=.*class="exposure_table")',
+		response_content_must_not_match => 'panel_additive_facts',
+	},
+	{
+		test_case => 'additive-e250-page-additive-facts-panel-shown-once',
+		method => 'GET',
+		path => '/facets/additives/E250%20-%20Sodium%20nitrite?activate_knowledge_panel_additive_facts=1',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match =>
+			'(?s)^(?=.*panel_additive_facts)(?=.*Preservatives are substances which prolong)(?=.*Sodium nitrite is the inorganic compound)(?=.*Re-evaluation of potassium nitrite)(?=.*high risk of consuming too much)(?=.*class="exposure_table")',
+		response_content_must_not_match =>
+			'(?s)(Preservatives are substances which prolong.*){2}|(Sodium nitrite is the inorganic compound.*){2}|(Re-evaluation of potassium nitrite.*){2}',
+	},
+	# with a curated description in the panel, the Wikipedia abstract stays in the legacy description
+	{
+		test_case => 'additive-e250-page-additive-facts-panel-curated-description-fr',
+		method => 'GET',
+		subdomain => 'fr',
+		path => '/facets/additifs/E250%20-%20Nitrite%20de%20sodium?activate_knowledge_panel_additive_facts=1',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match =>
+			'(?s)^(?=.*Le nitrite de sodium est un conservateur)(?=.*Le nitrite de sodium, de formule NaNO2)',
+		response_content_must_not_match =>
+			'(?s)(Les conservateurs sont des substances.*){2}|(Re-evaluation of potassium nitrite.*){2}',
+	},
 ];
 
 # note: we need to execute the tests with bob, because we need authentication
