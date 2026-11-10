@@ -421,10 +421,11 @@
                }
             ],
             "ingredients_coverage_percent" : 100,
+            "ingredients_total_mass" : 250.0,
             "packaging" : [
                {
                   "category" : "en:sausages",
-                  "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
+                  "id" : "6ae763c1-16e1-478e-8a97-6b1a1d77c017",
                   "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
                   "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
                }
@@ -438,32 +439,62 @@
          },
          "ecobalyse_request" : {
             "data" : {
-               "distribution" : "fresh",
-               "ingredients" : [
+               "components" : [
                   {
-                     "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
-                     "mass" : 166.666666666667
+                     "elements" : [
+                        {
+                           "amount" : 0.166667,
+                           "material" : {
+                              "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "Pork meat",
+                     "quantity" : 1
                   },
                   {
-                     "id" : "eb95f8d6-e3c0-556b-acff-91c7773f5b33",
-                     "mass" : 41.6666666666667
+                     "elements" : [
+                        {
+                           "amount" : 0.041667,
+                           "material" : {
+                              "id" : "eb95f8d6-e3c0-556b-acff-91c7773f5b33"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "wheat",
+                     "quantity" : 1
                   },
                   {
-                     "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                     "mass" : 41.6666666666666
+                     "elements" : [
+                        {
+                           "amount" : 0.041667,
+                           "material" : {
+                              "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "salt",
+                     "quantity" : 1
                   }
                ],
-               "packaging" : [
+               "consumptions" : [
+                  "b4642cec-b72e-4116-81c5-5dbfccb46055"
+               ],
+               "distribution" : "be66b80b-1500-4e3b-bfd2-87a89ff54031",
+               "packagings" : [
                   {
                      "amount" : 1,
-                     "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27"
+                     "processId" : "6ae763c1-16e1-478e-8a97-6b1a1d77c017"
                   }
                ],
-               "preparation" : [
-                  "refrigeration"
-               ]
+               "transportOptions" : {
+                  "cooling" : true
+               }
             },
-            "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
          }
       },
       "estimate_ingredients_percent_service" : "product_opener",

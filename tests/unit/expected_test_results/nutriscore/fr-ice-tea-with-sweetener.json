@@ -76,33 +76,74 @@
             }
          ],
          "ingredients_coverage_percent" : 91,
+         "ingredients_total_mass" : 91.25,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 87.1
+                  "elements" : [
+                     {
+                        "amount" : 0.0871,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Eau",
+                  "quantity" : 1
                },
                {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 2.85
+                  "elements" : [
+                     {
+                        "amount" : 0.00285,
+                        "material" : {
+                           "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sucre",
+                  "quantity" : 1
                },
                {
-                  "id" : "d7789ffc-b986-416f-bafa-b1e705d720c4",
-                  "mass" : 0.1
+                  "elements" : [
+                     {
+                        "amount" : 0.0001,
+                        "material" : {
+                           "id" : "d7789ffc-b986-416f-bafa-b1e705d720c4"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "pêche",
+                  "quantity" : 1
                },
                {
-                  "id" : "b767e665-ad96-5200-ad67-11ac66e81559",
-                  "mass" : 1.2
+                  "elements" : [
+                     {
+                        "amount" : 0.0012,
+                        "material" : {
+                           "id" : "b767e665-ad96-5200-ad67-11ac66e81559"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "l",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "estimate_ingredients_percent_service" : "product_opener",

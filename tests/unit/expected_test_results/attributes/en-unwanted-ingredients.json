@@ -467,6 +467,7 @@
             }
          ],
          "ingredients_coverage_percent" : 71,
+         "ingredients_total_mass" : 71.875,
          "packaging_skip_reason" : "unknown_product_quantity",
          "preparation" : [
             "refrigeration"
@@ -477,22 +478,43 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "fresh",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 62.5
+                  "elements" : [
+                     {
+                        "amount" : 0.0625,
+                        "material" : {
+                           "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "palm oil",
+                  "quantity" : 1
                },
                {
-                  "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
-                  "mass" : 9.375
+                  "elements" : [
+                     {
+                        "amount" : 0.009375,
+                        "material" : {
+                           "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sea salt",
+                  "quantity" : 1
                }
             ],
-            "preparation" : [
-               "refrigeration"
-            ]
+            "consumptions" : [
+               "b4642cec-b72e-4116-81c5-5dbfccb46055"
+            ],
+            "distribution" : "be66b80b-1500-4e3b-bfd2-87a89ff54031",
+            "transportOptions" : {
+               "cooling" : true
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
       "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
       "ecobalyse_skipped" : 1

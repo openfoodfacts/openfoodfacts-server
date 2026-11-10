@@ -1,0 +1,65 @@
+[% IF panel.unit == 'ml' %][% SET per_100_column_key = 'environmental_cost_points_for_100ml' %][% ELSE %][% SET per_100_column_key = 'environmental_cost_points_for_100g' %][% END %]
+[% IF panel.has_per_product %][% SET points = panel.complements.per_product %][% ELSE %][% SET points = panel.complements.per_100 %][% END %]
+{
+    "level": "info",
+    "topics": ["environment"],
+    "evaluation": "good",
+    "title_element": {
+        "title": "[% edq(lang('environmental_cost_ecosystem_services_title')) %]",
+        "subtitle": "[% edq(f_lang('f_environmental_cost_positive_impact_points', { 'points' => points })) %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/agriculture.svg",
+        "icon_color_from_evaluation": true
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": "[% edq(lang('environmental_cost_ecosystem_services_description')) %]"
+            }
+        },
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "environmental_cost_ecosystem_services",
+                "table_type": "default",
+                "columns": [
+                    {
+                        "text": "[% edq(lang('environmental_cost_ecosystem_service')) %]",
+                        "type": "text"
+                    },
+                    [% IF panel.has_per_product %]
+                    {
+                        "text": "[% edq(f_lang('f_environmental_cost_points_for_product', { 'quantity' => panel.quantity })) %]",
+                        "type": "text"
+                    },
+                    [% END %]
+                    {
+                        "text": "[% edq(lang(per_100_column_key)) %]",
+                        "type": "text"
+                    }
+                ],
+                "rows": [
+                    [% FOREACH complement IN panel.complements_rows %]
+                    {
+                        "values": [
+                            { "text": "[% edq(lang(complement.label)) %]" },
+                            [% IF panel.has_per_product %]{ "text": "[% complement.per_product %]", "evaluation": "good" },[% END %]
+                            { "text": "[% complement.per_100 %]", "evaluation": "good" }
+                        ]
+                    }[% UNLESS loop.last %],[% END %]
+                    [% END %]
+                ]
+            }
+        },
+        [% IF panel.ingredients_with_complements.size %]
+        [%# Ingredient names are user provided values: they are HTML escaped, and encode_json keeps the JSON valid %]
+        [% ingredients_html = BLOCK %][% lang('environmental_cost_ecosystem_services_ingredients') %] [% FOREACH ingredient IN panel.ingredients_with_complements %][% ingredient.name | html %] ([% ingredient.points %])[% UNLESS loop.last %], [% END %][% END %][% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": [% encode_json(ingredients_html) %]
+            }
+        },
+        [% END %]
+    ]
+}

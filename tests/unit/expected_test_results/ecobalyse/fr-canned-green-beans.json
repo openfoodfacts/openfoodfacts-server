@@ -45,120 +45,131 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g",
-         "transform" : {
-            "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-            "mass" : 100,
-            "name" : "Canning fruits or vegetables, industrial, 1kg of canned product {FR} U",
-            "name_fr" : "Mise en conserve"
-         }
+         "transformations" : [
+            {
+               "id" : "b797d2cc-1ecb-4fa0-b049-48b44a88e283",
+               "name" : "Canning",
+               "name_fr" : "Mise en conserve"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
-                  "mass" : 66.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.066667,
+                        "material" : {
+                           "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788"
+                        },
+                        "transforms" : [
+                           "b797d2cc-1ecb-4fa0-b049-48b44a88e283"
+                        ]
+                     }
+                  ],
+                  "name" : "haricots verts",
+                  "quantity" : 1
                },
                {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : [
+                           "b797d2cc-1ecb-4fa0-b049-48b44a88e283"
+                        ]
+                     }
+                  ],
+                  "name" : "eau",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                        },
+                        "transforms" : [
+                           "b797d2cc-1ecb-4fa0-b049-48b44a88e283"
+                        ]
+                     }
+                  ],
+                  "name" : "sel",
+                  "quantity" : 1
                }
             ],
-            "transform" : {
-               "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-               "mass" : 100
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
             }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
       "ecobalyse_response" : {
-         "results" : {
-            "distribution" : {
-               "total" : {
-                  "ecs" : 0.236433
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 1.33616
-                  },
-                  "road" : 0,
-                  "roadCooled" : 600,
-                  "sea" : 0,
-                  "seaCooled" : 0
+         "complements" : {
+            "hedges" : -0.000112002,
+            "plotSize" : -0.00132003
+         },
+         "composition" : [
+            {
+               "complements" : {},
+               "mass" : 0.066667,
+               "name" : "haricots verts",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 15.2314
                }
             },
-            "packaging" : {
-               "ecs" : 0
-            },
-            "perKg" : {
-               "ecs" : 179.054
-            },
-            "preparation" : {
-               "ecs" : 0
-            },
-            "preparedMass" : 0.0933333,
-            "recipe" : {
-               "ingredientsTotal" : {
-                  "ecs" : 4.99427
-               },
-               "total" : {
-                  "ecs" : 15.1391
-               },
-               "totalBonusImpact" : {
-                  "cropDiversity" : 0,
-                  "hedges" : -0.000112,
-                  "permanentPasture" : 0,
-                  "plotSize" : -0.00132
-               },
-               "transform" : {
-                  "ecs" : 1.954
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 8.19084
-                  },
-                  "road" : 3320,
-                  "roadCooled" : 2660,
-                  "sea" : 0,
-                  "seaCooled" : 18000
+            {
+               "complements" : {},
+               "mass" : 0.016667,
+               "name" : "eau",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 1.84001
                }
             },
-            "scoring" : {
-               "all" : 179.054,
-               "biodiversity" : 78.7886,
-               "climate" : 39.3557,
-               "health" : 21.7735,
-               "resources" : 39.1387
-            },
-            "total" : {
-               "ecs" : 16.7117
-            },
-            "totalMass" : 0.0933333,
-            "transports" : {
-               "air" : 0,
-               "impacts" : {
-                  "ecs" : 9.527
+            {
+               "complements" : {
+                  "hedges" : -0.000112002,
+                  "plotSize" : -0.00132003
                },
-               "road" : 3320,
-               "roadCooled" : 3260,
-               "sea" : 0,
-               "seaCooled" : 18000
+               "mass" : 0.016667,
+               "name" : "sel",
+               "score" : {
+                  "complements" : -0.00143203,
+                  "ecs" : 2.36122
+               }
             }
+         ],
+         "productMass" : 0.100001,
+         "score" : {
+            "complements" : -0.00143203,
+            "ecs" : 39.1766
+         },
+         "stages" : {
+            "assembly" : 0,
+            "distribution" : 0.195977,
+            "endOfLife" : 0,
+            "materials" : 4.99574,
+            "packaging" : 0,
+            "transform" : 1.95402,
+            "transports" : 32.0323,
+            "usage" : 0
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 16.7117
+      "ecs_per_100g_or_100ml" : 39.1766
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [

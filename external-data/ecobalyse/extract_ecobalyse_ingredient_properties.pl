@@ -591,5 +591,12 @@ sub emit_variant_entry {
 		$variant_props++;
 	}
 
+	# Unit: only emitted for entries that are not in kg (e.g. L for spring water and wine)
+	# Transformations are in kg, and they can only be applied to ingredients in kg
+	if ((defined $entry->{unit}) and ($entry->{unit} ne "kg")) {
+		push @output_rows, [$tagid, "${prefix}_unit:en", $entry->{unit}];
+		$variant_props++;
+	}
+
 	return;
 }
