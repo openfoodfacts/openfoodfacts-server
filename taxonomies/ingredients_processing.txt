@@ -404,7 +404,7 @@ wikidata:en: Q104439353
 < en: chopped
 en: finely chopped
 da: finhakket, finhakkede
-fr: finement hachées, finement hachée, finement hachés
+fr: finement hachées, finement hachée, finement hachés, finement haché, haché finement, hachée finement, hachés finement, hachées finement, ciselé, ciselée, ciselés, ciselées
 sv: finhackad, finhackat, finhackade
 wikidata:en: Q26883106
 
@@ -430,7 +430,7 @@ ca: a daus, a dauets
 de: würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
 es: en cubitos, encuadritos, en dados, a dados
 fi: kuutioitu, kuutioidut
-fr: en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
+fr: en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d', coupé en dés, coupée en dés, coupés en dés, coupées en dés, coupé en cubes, coupée en cubes, coupés en cubes, coupées en cubes
 hu: kockázott, kockázva, kockára vágva, kockára vágott
 it: dadi, dado, a dadi, a dadini, in dadi, in dadini
 nl: blokjes, in blokjes, blokje
@@ -453,7 +453,7 @@ en: crushed, crushing
 bg: натрошенo, натрошен, натрошена, натрошени
 es: aplastada, aplastado, aplastadas, aplastados, triturado, triturada, triturados, trituradas
 fi: murskattu, murskatut
-fr: concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées, broyage
+fr: concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées, broyage, écrasé, écrasée, écrasés, écrasées, pilé, pilée, pilés, pilées
 hr: izdrobljeno, smrvljeno
 hu: zúzott, összetörve, összetört
 nl: gebroken
@@ -504,6 +504,10 @@ uk: тертий, терта, терте, терті
 # fi:parse:raastettu $, $raaste
 # sv:parse:riven $
 # en:wiktionary:grated
+
+< en: grated
+en: freshly grated
+fr: fraîchement râpé, fraîchement râpée, fraîchement râpés, fraîchement râpées, fraichement rapé, fraichement rapée, fraichement rapés, fraichement rapées, fraîchement rapé, fraîchement rapée, fraichement râpé, fraichement râpée
 
 en: rubbed
 description:en: Generally herbs, dried then rubbed against each other and the stems/stalks discarded
@@ -564,6 +568,7 @@ wikidata:en: Q26882416
 en: finely ground
 cs: jemně mleté, jemně mletá, jemně mletý
 de: fein gemahlen, fein gemahlene, fein gemahlener, fein gemahlenes
+fr: finement moulu, finement moulue, finement moulus, finement moulues
 hr: fino mljeveno
 hu: finomra őrölt
 pl: drobno mielona, drobno mielone, drobno mielony
@@ -579,6 +584,8 @@ sv: grovmalen, grovmald, grovmalet, grovmalt, grovmalna, grovmalda
 < en: ground
 en: freshly ground
 de: frischgemahlen, frischgemahlene, frischgemahlener, frischgemahlenes
+# "poivre du moulin" (pepper from the mill) means freshly ground pepper in recipes
+fr: fraîchement moulu, fraîchement moulue, fraîchement moulus, fraîchement moulues, fraichement moulu, fraichement moulue, fraichement moulus, fraichement moulues, du moulin, au moulin
 hu: frissen őrölt
 
 < en: ground
@@ -705,7 +712,7 @@ bg: наполовина
 ca: meitat, meitats, meitats de
 cs: půlený, půlená, půlené
 de: halbiert, halbierte, halbierter, halbiertes, halbe
-fr: demi
+fr: demi, coupé en deux, coupée en deux, coupés en deux, coupées en deux, en deux, coupé en 2, coupée en 2, coupés en 2, coupées en 2
 hr: polovice
 pl: połówki
 pt: metade, metades
@@ -978,7 +985,7 @@ de: ungeschält, ungeschälte, ungeschälter, ungeschältes
 sv: med skal, oskalad, oskalat, oskalade
 
 < en: peeled or shelled
-en: peeled, hulled
+en: peeled, hulled, husked, dehulled
 bg: обелен, обелено, обелена, обелени, белен, белена, белено, белени, грухана
 ca: sense pell
 da: skrællet, skrællede, uden skræl
@@ -1374,6 +1381,9 @@ sv: inte från koncentrat
 
 en: from comminute
 description:en: A comminute is a puree that is derived from whole citrus fruits.
+
+en: comminuted, comminute
+description:en: Made into a comminute: a puree derived from whole citrus fruits.
 
 #description:en: Dehydration by artificial or natural processes
 # anhydrous: No water, dehydrated: Water removed, dried: Less water.
@@ -2452,6 +2462,46 @@ pl: topiony, topiona, topione
 pt: fundido, fundida, fundidos, fundidas
 sv: smält, smälta, smälta
 
+# Temperature and state of ingredients, mostly found in cooking recipes ("eau tiède", "beurre ramolli")
+en: lukewarm
+fr: tiède, tièdes, tiédi, tiédie, tiédis, tiédies
+
+en: cold
+fr: froid, froide, froids, froides
+
+# "glacé" / "iced" is too ambiguous to be a processing, false positives include:
+# - candied: marrons glacés, cerises glacées, écorces d'orange glacées, fruits glacés
+# - frozen desserts: nougat glacé, soufflé glacé, parfait glacé, bûche glacée
+# - drinks: thé glacé, café glacé, iced tea, iced coffee
+# - glazed: oignons glacés, carottes glacées, corn flakes glacés au sucre
+# - with icing: iced biscuits, iced buns
+# "eau glacée" (ice water) is an ingredient instead
+#en: ice-cold, ice cold
+#fr: glacé, glacée, glacés, glacées
+
+# breakfast cereals: "corn flakes glacés au sucre"
+en: sugar-coated, sugar coated, sugar iced, sugar frosted, frosted
+fr: glacé au sucre, glacée au sucre, glacés au sucre, glacées au sucre, enrobé de sucre, enrobée de sucre, enrobés de sucre, enrobées de sucre
+
+en: hot
+fr: chaud, chaude, chauds, chaudes
+
+< en: hot
+en: boiling
+fr: bouillant, bouillante, bouillants, bouillantes
+
+en: softened
+fr: ramolli, ramollie, ramollis, ramollies, mou, mous, pommade, en pommade
+
+en: stale
+fr: rassis, rassise, rassises
+
+en: crumbled
+fr: émietté, émiettée, émiettés, émiettées
+
+en: beaten
+fr: battu, battue, battus, battues
+
 #######################################################################
 #
 #                A D D I T I O N   P R O C E S S E S
@@ -2775,6 +2825,7 @@ uk: нормалізований, нормалізоване, нормалізо
 
 en: seasoned, with seasoning, with liquid seasoning
 de: gewürzter, gewuerzter, gewürzter, gewuerzter, flüssig gewürzt
+fr: assaisonné, assaisonnée, assaisonnés, assaisonnées
 
 #######################################################################
 #
@@ -3399,6 +3450,11 @@ pl: nieuwodorniony, nieutwardzony, nieutwardzone
 pt: nâo hidrogenada
 ro: nehidrogenate, nehidrogenat, nehidrogenată, nehidrogenați
 sv: ohärdad, ohärdat, ohärdade, icke-hydrogenerad, icke-hydrogenerat, icke-hydrogenerade
+
+en: autolysed, autolyzed
+de: autolysiert, autolysierte, autolysierter, autolysiertes
+fr: autolysé, autolysée, autolysés, autolysées
+description:en: Broken down by the organism's own enzymes, e.g. autolysed yeast
 
 # note: both hydrolised and hydrolysed are used in British English
 en: hydrolysed, hydrolized, hydrolised

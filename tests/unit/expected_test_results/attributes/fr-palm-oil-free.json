@@ -433,6 +433,12 @@
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
                "mass" : 9.375,
                "name" : "sucre"
+            },
+            {
+               "ecobalyse_name" : "Chocolat noir par défaut -2025-",
+               "id" : "6f3939f7-408c-45d5-8653-61f3336bf305",
+               "mass" : 9.375,
+               "name" : "chocolat"
             }
          ],
          "ingredients_coverage_percent" : 90,
@@ -808,6 +814,8 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_proxy_id" : "6f3939f7-408c-45d5-8653-61f3336bf305",
+         "ecobalyse_proxy_name" : "Chocolat noir par défaut -2025-",
          "id" : "en:chocolate",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.375,
@@ -861,10 +869,8 @@
       "en:chocolate"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:chocolate"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 4,
    "languages" : {},
    "languages_codes" : {},
