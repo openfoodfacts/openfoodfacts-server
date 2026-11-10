@@ -1764,7 +1764,8 @@ Select, set and return the `ingredients_lc` field in $product_ref.
 
 This is the language that will be used to parse ingredients. We first check that ingredients_text_{lang}
 exists and is non-empty for the product main language (`lc`), and return it if it does.
-Otherwise we look at all languages defined in `languages_codes` for a non-empty `ingredients_text_lang`.
+Otherwise we look for non-empty ingredients_text_{lang} fields, preferring the language whose selected
+ingredients image was uploaded most recently. Equal or missing upload timestamps use alphabetical order.
 
 If we find a language with non empty ingredients in ingredients_text_{lang}:
 - we copy the value to the `ingredients_text` field in the product
@@ -1787,7 +1788,19 @@ sub select_ingredients_lc ($product_ref) {
 	# Get all languages that have ingredients_text_{lang} defined, capture the language code
 	# Note: we don't use language_codes here, as it might not have been computed if we are called from a service
 	# with minimal product data
-	my @ingredients_text_fields = sort grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
+	my @ingredients_text_fields = grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
+
+	# Use the source image upload time, not the selection revision: selecting an old photo again
+	# should not make its ingredients take priority over a more recently uploaded photo.
+	my %ingredients_image_uploaded_t;
+	foreach my $field (@ingredients_text_fields) {
+		my $imgid = deep_get($product_ref, 'images', 'selected', 'ingredients', substr($field, -2), 'imgid');
+		my $uploaded_t = defined $imgid ? deep_get($product_ref, 'images', 'uploaded', $imgid, 'uploaded_t') : undef;
+		$ingredients_image_uploaded_t{$field} = $uploaded_t // 0;
+	}
+	@ingredients_text_fields
+		= sort {$ingredients_image_uploaded_t{$b} <=> $ingredients_image_uploaded_t{$a} || $a cmp $b}
+		@ingredients_text_fields;
 
 	# Put the main language first
 	if (defined $product_ref->{lc}) {    # Should always be defined, except in old unit tests
