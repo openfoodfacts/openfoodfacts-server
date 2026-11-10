@@ -30,7 +30,8 @@ use JSON::MaybeXS;
 use Text::CSV;
 use Getopt::Long;
 
-# This script selects the most scanned product for each country / category, for the FOODTURE countries.
+# This script selects the most scanned product for each country / category, for the FOODTURE countries
+# and for Canada and Iceland (representative products dataset).
 # It replaces the off-query SQL that produced projects/foodture/ranked_products_202602231414.csv:
 # - products are read from the MongoDB JSONL dump (e.g. openfoodfacts-products.jsonl.gz)
 # - only complete products are kept (photos uploaded, ingredients and nutrition facts completed)
@@ -44,20 +45,33 @@ use Getopt::Long;
 #
 # The output has the same first columns as the off-query file, and can be passed to
 # extract_data_for_representative_products.pl with --ranked-file
+#
+# A second output (--incomplete-output) lists, for each country / category, the most scanned products
+# that are not complete but have photos from which contributors could complete them:
+# ingredients and nutrition photos selected, or at least --min-photos uploaded photos.
+# It can be passed to extract_data_for_representative_products.pl with --incomplete-ranked-file,
+# to list them for the country / category pairs that have no complete product.
 
 my $usage = <<TXT
 select_representative_products.pl --jsonl <products.jsonl[.gz]> [--output <file.csv>] [--years 2025,2026]
+	[--incomplete-output <file.csv>] [--max-incomplete 3] [--min-photos 3]
 TXT
 	;
 
 my $jsonl_file;
 my $out_file = "projects/foodture/ranked_products.csv";
 my $years_list = "2025,2026";
+my $incomplete_out_file = "projects/foodture/ranked_incomplete_products.csv";    # empty string: no output
+my $max_incomplete = 3;    # number of incomplete products listed for each country / category
+my $min_photos = 3;
 
 GetOptions(
 	"jsonl=s" => \$jsonl_file,
 	"output=s" => \$out_file,
 	"years=s" => \$years_list,
+	"incomplete-output=s" => \$incomplete_out_file,
+	"max-incomplete=i" => \$max_incomplete,
+	"min-photos=i" => \$min_photos,
 ) or die $usage;
 
 defined $jsonl_file or die $usage;
@@ -70,6 +84,7 @@ my @countries = qw/
 	Austria
 	Belgium
 	Bulgaria
+	Canada
 	Croatia
 	Cyprus
 	Czechia
@@ -80,6 +95,7 @@ my @countries = qw/
 	Germany
 	Greece
 	Hungary
+	Iceland
 	Ireland
 	Italy
 	Latvia
@@ -111,6 +127,19 @@ foreach my $country (@countries) {
 }
 
 my @complete_states = qw/en:nutrition-facts-completed en:ingredients-completed en:photos-uploaded/;
+my %missing_names = (
+	'en:nutrition-facts-completed' => 'nutrition facts',
+	'en:ingredients-completed' => 'ingredients',
+	'en:photos-uploaded' => 'photos',
+);
+
+# number of uploaded photos (images.uploaded, or numeric keys of images in older schemas)
+sub count_uploaded_photos ($product_ref) {
+	my $images_ref = $product_ref->{images};
+	return 0 if ref $images_ref ne 'HASH';
+	return scalar keys %{$images_ref->{uploaded}} if ref $images_ref->{uploaded} eq 'HASH';
+	return scalar grep {/^\d+$/} keys %$images_ref;
+}
 
 # Cache of recomputed categories, as many products have the same categories
 my %categories_cache = ();
@@ -160,14 +189,20 @@ my $json = JSON::MaybeXS->new(utf8 => 1);
 
 my %best = ();    # $best{country tag}{category tag} = [ranking key, product name]
 my %complete_products = ();    # $complete_products{country tag}{category tag} = number of candidate products
-my ($n, $n_complete, $n_selected) = (0, 0, 0);
+# $incomplete{country tag}{category tag} = [[ranking key, product name, photos, ingredients photo, nutrition photo, missing]]
+my %incomplete = ();
+my %incomplete_products = ();    # $incomplete_products{country tag}{category tag} = number of incomplete candidates
+my ($n, $n_complete, $n_incomplete, $n_selected) = (0, 0, 0, 0);
 
 while (my $line = <$IN>) {
 	$n++;
-	print STDERR "$n products read, $n_complete complete, $n_selected in FOODTURE countries\n" if $n % 100000 == 0;
+	print STDERR
+		"$n products read, $n_complete complete, $n_incomplete incomplete with photos, $n_selected in the countries\n"
+		if $n % 100000 == 0;
 
-	# quick filter before decoding the JSON
-	next if grep {index($line, "\"$_\"") < 0} @complete_states;
+	# quick filter before decoding the JSON: complete products, or products with uploaded photos
+	my $maybe_complete = not grep {index($line, "\"$_\"") < 0} @complete_states;
+	next if (not $maybe_complete) and (($incomplete_out_file eq '') or (index($line, '"uploaded_t"') < 0));
 
 	my $product_ref = eval {$json->decode($line)};
 	if (not defined $product_ref) {
@@ -176,8 +211,20 @@ while (my $line = <$IN>) {
 	}
 
 	my %states = map {$_ => 1} @{$product_ref->{states_tags} // []};
-	next if grep {not $states{$_}} @complete_states;
-	$n_complete++;
+	my @missing = grep {not $states{$_}} @complete_states;
+	my $complete = @missing ? 0 : 1;
+	my ($photos, $ingredients_photo, $nutrition_photo);
+	if ($complete) {
+		$n_complete++;
+	}
+	else {
+		next if $incomplete_out_file eq '';
+		$photos = count_uploaded_photos($product_ref);
+		$ingredients_photo = $states{'en:ingredients-photo-selected'} ? 1 : 0;
+		$nutrition_photo = $states{'en:nutrition-photo-selected'} ? 1 : 0;
+		next if not(($ingredients_photo and $nutrition_photo) or ($photos >= $min_photos));
+		$n_incomplete++;
+	}
 
 	my $code = $product_ref->{code};
 	next if (not defined $code) or (ref $code) or ($code eq '');
@@ -207,17 +254,34 @@ while (my $line = <$IN>) {
 		my $key_ref = [$total, @year_scans, $code];
 
 		foreach my $category_tag (@$categories_ref) {
-			$complete_products{$country_tag}{$category_tag}++;
-			my $best_ref = $best{$country_tag}{$category_tag};
-			if ((not defined $best_ref) or is_better($key_ref, $best_ref->[0])) {
-				$best{$country_tag}{$category_tag} = [$key_ref, $name];
+			if ($complete) {
+				$complete_products{$country_tag}{$category_tag}++;
+				my $best_ref = $best{$country_tag}{$category_tag};
+				if ((not defined $best_ref) or is_better($key_ref, $best_ref->[0])) {
+					$best{$country_tag}{$category_tag} = [$key_ref, $name];
+				}
+			}
+			else {
+				$incomplete_products{$country_tag}{$category_tag}++;
+				my $list_ref = $incomplete{$country_tag}{$category_tag} //= [];
+				next
+					if (@$list_ref >= $max_incomplete)
+					and (not is_better($key_ref, $list_ref->[-1][0]));
+				push @$list_ref,
+					[
+					$key_ref, $name, $photos, $ingredients_photo, $nutrition_photo,
+					join(", ", map {$missing_names{$_}} @missing)
+					];
+				@$list_ref = sort {is_better($a->[0], $b->[0]) ? -1 : 1} @$list_ref;
+				splice(@$list_ref, $max_incomplete) if @$list_ref > $max_incomplete;
 			}
 		}
 	}
 }
 close $IN;
 
-print STDERR "$n products read, $n_complete complete, $n_selected in FOODTURE countries\n";
+print STDERR
+	"$n products read, $n_complete complete, $n_incomplete incomplete with photos, $n_selected in the countries\n";
 
 open(my $OUT, '>:encoding(UTF-8)', $out_file) or die "Cannot write $out_file: $!\n";
 my $csv_out = Text::CSV->new({binary => 1, eol => "\n"});
@@ -242,3 +306,39 @@ foreach my $country_tag (sort keys %best) {
 close $OUT;
 
 print STDERR "$rows country / category pairs written to $out_file\n";
+
+if ($incomplete_out_file ne '') {
+	open(my $INCOMPLETE, '>:encoding(UTF-8)', $incomplete_out_file)
+		or die "Cannot write $incomplete_out_file: $!\n";
+	$csv_out->print(
+		$INCOMPLETE,
+		[
+			"code", "name", "country", "category", "scans", "incomplete_products", "rank", "photos",
+			"ingredients_photo_selected", "nutrition_photo_selected", "missing", map {"country_scans_$_"} @years
+		]
+	);
+	my $incomplete_rows = 0;
+	foreach my $country_tag (sort keys %incomplete) {
+		foreach my $category_tag (sort keys %{$incomplete{$country_tag}}) {
+			my $rank = 0;
+			foreach my $candidate_ref (@{$incomplete{$country_tag}{$category_tag}}) {
+				my ($key_ref, $name, $photos, $ingredients_photo, $nutrition_photo, $missing) = @$candidate_ref;
+				my ($total, @year_scans) = @$key_ref[0 .. $#years + 1];
+				$csv_out->print(
+					$INCOMPLETE,
+					[
+						$key_ref->[-1], $name,
+						$country_tag, $category_tag,
+						$total, $incomplete_products{$country_tag}{$category_tag},
+						++$rank, $photos,
+						$ingredients_photo, $nutrition_photo,
+						$missing, @year_scans
+					]
+				);
+				$incomplete_rows++;
+			}
+		}
+	}
+	close $INCOMPLETE;
+	print STDERR "$incomplete_rows incomplete products written to $incomplete_out_file\n";
+}
