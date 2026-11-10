@@ -267,6 +267,6 @@ that are independently reviewable from the main PR, and submit those separately.
 * Always add a before / after screenshot if your change is visual
 
 ### Proposing plans and helping with issues
-* For UI issues, Improving openfoodfacts-webcomponents or Open Food Facts Explorer is be more helpful than investing in the soon-to-be deprecated Product Opener Web UI
+* For UI issues, Improving openfoodfacts-webcomponents or Open Food Facts Explorer is more helpful than investing in the soon-to-be deprecated Product Opener Web UI
 * It's hard for a human to read a generic AI plan. Crisp, short writing with specific reference to existing issues, caveats (why it's not been done before), possible options… is easier to understand.
 * Avoid plans that are too large. If it is large, break it down into subtasks that are easy to code, comprehend and review.
