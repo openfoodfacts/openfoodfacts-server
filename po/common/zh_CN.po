@@ -1333,7 +1333,7 @@ msgstr "不含有%s成分的产品"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/images/misc/appstore/black/appstore_CN_SC.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
@@ -2806,7 +2806,8 @@ msgstr "查看来自全球的匹配商品"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr ""
+msgstr "信息和数据必须来自产品包装和标签(而不是来自其他网站或制造商网站)，并且您必须自己拍摄照片.<br/>\n"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">为什么重要</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -6543,7 +6544,7 @@ msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
 msgstr "必须指定产品的配料才能判断 NOVA 分类。"
 
-msgctxt "nova_group_too_many_unknown_ingredient"
+msgctxt "nova_group_too_many_unknown_ingredients"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
 msgstr "我们无法识别部分配料，无法判断 NOVA 分类。"
 
