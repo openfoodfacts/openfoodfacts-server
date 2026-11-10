@@ -40,13 +40,18 @@
                 </div>
                 [% END %]
 
-                [% IF description %]
+                [% IF tag_panels_first %]
+                <div class="tag_panels">
+                    [% tag_panels %]
+                </div>
+
+                [% END %][% IF description %]
                 <div class="description">
                     [% description %]
                 </div>
                 [% END %]
 
-                [% IF tag_panels %]
+                [% IF tag_panels && ! tag_panels_first %]
                 <div class="tag_panels">
                     [% tag_panels %]
                 </div>                
