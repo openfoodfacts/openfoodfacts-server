@@ -312,3 +312,66 @@ test("nothing is saved for a field that does not keep a history", function () {
 
     assert.deepEqual(local_storage["po_last_tags"], undefined);
 });
+
+test("clicking or focusing the tagify scope border focuses the inner input element", function () {
+    const tagify = install_fake_tagify();
+    let innerFocused = false;
+    tagify.DOM.input = {
+        focus: function () {
+            innerFocused = true;
+        }
+    };
+    const scopeListeners = {};
+    tagify.DOM.scope = {
+        addEventListener: function (event, handler) {
+            scopeListeners[event] = handler;
+        }
+    };
+    const el = {id: "categories", dataset: {}};
+    initializeTagifyInput(el, MAXIMUM);
+
+    // Clicking scope border
+    scopeListeners["click"]({target: tagify.DOM.scope});
+    assert.equal(innerFocused, true, "clicking the scope should focus the inner input");
+
+    // Focusing scope
+    innerFocused = false;
+    scopeListeners["focus"]({target: tagify.DOM.scope});
+    assert.equal(innerFocused, true, "focusing the scope should focus the inner input");
+});
+
+test("clicking the associated label focuses the inner input element", function () {
+    const tagify = install_fake_tagify();
+    let innerFocused = false;
+    tagify.DOM.input = {
+        focus: function () {
+            innerFocused = true;
+        }
+    };
+    let labelClickListener;
+    let defaultPrevented = false;
+    const label = {
+        addEventListener: function (event, handler) {
+            if (event === "click") {
+                labelClickListener = handler;
+            }
+        }
+    };
+    const el = {
+        id: "categories",
+        dataset: {},
+        labels: [label]
+    };
+    initializeTagifyInput(el, MAXIMUM);
+
+    assert.ok(labelClickListener, "a click listener should be attached to the label");
+    labelClickListener({
+        preventDefault: function () {
+            defaultPrevented = true;
+        }
+    });
+
+    assert.equal(defaultPrevented, true, "default label action should be prevented");
+    assert.equal(innerFocused, true, "clicking the label should focus the inner input");
+});
+

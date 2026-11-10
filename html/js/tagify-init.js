@@ -187,6 +187,49 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
         value = "";
         updateSuggestions(false);
     });
+
+    // Focus the inner text box when clicking or focusing the wrapper/border of the tag input (issue #15125)
+    if (input && input.DOM && input.DOM.scope && typeof input.DOM.scope.addEventListener === "function") {
+        input.DOM.scope.addEventListener("click", function (event) {
+            if (event.target === input.DOM.scope && input.DOM.input && typeof input.DOM.input.focus === "function") {
+                input.DOM.input.focus();
+            }
+        });
+        input.DOM.scope.addEventListener("focus", function (event) {
+            if (event.target === input.DOM.scope && input.DOM.input && typeof input.DOM.input.focus === "function") {
+                input.DOM.input.focus();
+            }
+        });
+    }
+
+    // Focus the inner text box when clicking the field label (issue #15125)
+    let labels = [];
+    if (el.labels && el.labels.length) {
+        labels = Array.from(el.labels);
+    } else if (el.id && typeof document !== "undefined") {
+        const escapedId = (typeof window !== "undefined" && window.CSS && window.CSS.escape)
+            ? window.CSS.escape(el.id)
+            : el.id;
+        labels = Array.from(document.querySelectorAll(`label[for="${escapedId}"]`));
+    }
+
+    const parentLabel = el.closest ? el.closest("label") : null;
+    if (parentLabel && !labels.includes(parentLabel)) {
+        labels.push(parentLabel);
+    }
+
+    labels.forEach(function (label) {
+        if (label && typeof label.addEventListener === "function") {
+            label.addEventListener("click", function (event) {
+                if (typeof event.preventDefault === "function") {
+                    event.preventDefault();
+                }
+                if (input.DOM && input.DOM.input && typeof input.DOM.input.focus === "function") {
+                    input.DOM.input.focus();
+                }
+            });
+        }
+    });
 }
 
 // Return the tags that the user added or edited for the input, and that are actually
