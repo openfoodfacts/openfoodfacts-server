@@ -692,7 +692,7 @@ msgstr "Berdonasi ke Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-id.openfoodfacts.org/donasi-ke-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -2812,7 +2812,8 @@ msgstr "Lihat hasil dari seluruh dunia"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Why it matters</a>"
-msgstr ""
+msgstr "Informasi dan data harus berasal dari kemasan dan label produk (bukan dari situs lain atau situs produsen), dan Anda harus mengambil gambarnya sendiri.<br/>\n"
+"→ <a href=\"/faq#can-i-add-product-pictures-or-data-from-the-manufacturers-si\">Mengapa hal ini penting</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -6116,23 +6117,23 @@ msgstr "SAYA MENDUKUNG"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "Masih diperlukan dana sebesar €120.000 untuk menuntaskan target 2026!"
+msgstr "Kami masih membutuhkan €120.000 untuk menyelesaikan tahun 2026!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Bergabung sebagai patron Open Food Facts"
+msgstr "Menjadi pelindung Open Food Facts"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Tiap bulan, ada 8 juta pengunjung yang kami layani, belum termasuk akses via API yang jauh lebih banyak. Kontribusi Anda krusial untuk:"
+msgstr "Setiap bulan, kami melayani 8 juta pengunjung, dan berkali-kali lipat melalui API. Dukungan Anda sangat penting untuk:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "menjaga Open Food Facts tetap terbuka & dapat diakses oleh semua orang,"
+msgstr "menjaga Open Food Facts tetap terbuka dan dapat diakses oleh semua orang,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "mendukung infrastruktur, situs web, aplikasi seluler, dan API dengan tim permanen yang kecil"
+msgstr "mendukung infrastruktur, situs web, aplikasi seluler, dan API dengan tim tetap yang kecil"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6140,15 +6141,15 @@ msgstr "tetap independen pada industri makanan,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr ""
+msgstr "mendukung komunitas"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr ""
+msgstr "mendukung sains"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Bila semua pengunjung bulan ini berdonasi sebesar 1€, dana yang terkumpul akan melebihi 8 kali anggaran tahunan kami!"
+msgstr "Jika setiap pengunjung bulan ini mengeklik Donasi dan menyumbang hanya 1€, kami akan mendapatkan lebih dari 8 kali lipat anggaran tahunan kami!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6549,7 +6550,7 @@ msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
 msgstr "Bahan-bahan produk harus ditentukan untuk menentukan kelompok NOVA."
 
-msgctxt "nova_group_too_many_unknown_ingredient"
+msgctxt "nova_group_too_many_unknown_ingredients"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
 msgstr "Kami tidak dapat mengenali beberapa bahan dan menentukan kelompok NOVA."
 
