@@ -31,6 +31,10 @@ from typing import Dict, List, Optional, Set, Tuple
 
 WIKIDATA_API_URL = "https://www.wikidata.org/w/api.php"
 USER_AGENT = "OpenFoodFacts-CI/1.0 (https://openfoodfacts.org; contact@openfoodfacts.org)"
+REPO_ROOT = os.path.realpath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
+# Repeated string literal constant to satisfy Sonar S1192
+CHEMICAL_COMPOUND = "chemical compound"
 
 # Common disallowed entity classes across food/product taxonomies
 DISALLOWED_CLASS_QIDS = {
@@ -91,13 +95,13 @@ EXPECTED_CLASS_KEYWORDS_BY_TYPE = {
         "appellation", "cru", "sauce", "confectionery", "dessert",
     ],
     "ingredient": [
-        "ingredient", "food", "substance", "chemical compound", "chemical substance",
+        "ingredient", "food", "substance", CHEMICAL_COMPOUND, "chemical substance",
         "plant", "taxon", "spice", "herb", "mineral", "nutrient", "dairy",
         "oil", "fat", "animal product", "vegetable", "fruit", "seed", "extract",
         "mixture", "flour", "flavor", "flavour",
     ],
     "additive": [
-        "additive", "food additive", "chemical compound", "chemical substance",
+        "additive", "food additive", CHEMICAL_COMPOUND, "chemical substance",
         "dye", "food coloring", "food colouring", "preservative", "flavor",
         "flavour", "flavoring", "enzyme", "antioxidant", "emulsifier",
         "thickening agent", "sweetener", "acidity regulator",
@@ -126,10 +130,10 @@ EXPECTED_CLASS_KEYWORDS_BY_TYPE = {
     ],
     "nutrient": [
         "nutrient", "vitamin", "mineral", "amino acid", "nucleotide",
-        "chemical compound", "fatty acid", "carbohydrate", "protein",
+        CHEMICAL_COMPOUND, "fatty acid", "carbohydrate", "protein",
     ],
     "allergen": [
-        "allergen", "food", "plant", "animal", "chemical compound", "substance",
+        "allergen", "food", "plant", "animal", CHEMICAL_COMPOUND, "substance",
     ],
 }
 
@@ -146,6 +150,45 @@ STOPWORDS = {
     "de", "la", "le", "les", "du", "des", "en", "et", "ou", "pour", "avec", "par",
     "der", "die", "das", "und", "oder", "von", "mit", "fur",
 }
+
+LANG_CODE_RE = re.compile(r"^[a-zA-Z]{2,3}(?:[-_][a-zA-Z0-9]{2,4})?$")
+IDENTIFIER_RE = re.compile(r"^[\w-]+$")
+QID_SEARCH_RE = re.compile(r"\b(Q\d+)\b", re.IGNORECASE)
+GIT_REF_PATTERN = re.compile(r"^[a-zA-Z0-9_][a-zA-Z0-9_.\-/@^~]*$")
+
+
+def validate_git_ref(ref: str) -> str:
+    """
+    Validate that ref is a safe git revision/branch name to prevent argument injection (CWE-88).
+    Rejects flags starting with '-' and invalid characters.
+    """
+    if not ref or not isinstance(ref, str):
+        raise ValueError(f"Invalid git ref: {ref!r}")
+    ref_trimmed = ref.strip()
+    if ref_trimmed.startswith("-"):
+        raise ValueError(f"Git ref cannot start with '-': {ref_trimmed}")
+    if not GIT_REF_PATTERN.match(ref_trimmed):
+        raise ValueError(f"Git ref contains disallowed characters: {ref_trimmed}")
+    return ref_trimmed
+
+
+def safe_resolve_path(file_path: str, allowed_base_dir: str = REPO_ROOT) -> str:
+    """
+    Safely resolve a file path and ensure it is strictly confined to allowed_base_dir.
+    Prevents path traversal attacks (CWE-22 / CWE-23).
+    """
+    if not file_path or not isinstance(file_path, str) or file_path.startswith("-"):
+        raise ValueError(f"Invalid file path: {file_path!r}")
+    resolved_base = os.path.realpath(allowed_base_dir)
+    if not os.path.isabs(file_path):
+        resolved_path = os.path.realpath(os.path.join(resolved_base, file_path))
+    else:
+        resolved_path = os.path.realpath(file_path)
+
+    if not (resolved_path == resolved_base or resolved_path.startswith(resolved_base + os.sep)):
+        raise ValueError(f"Path traversal detected: {file_path} is outside allowed directory")
+
+    return resolved_path
 
 
 def normalize_string(s: str) -> str:
@@ -208,30 +251,27 @@ def determine_taxonomy_type(file_path: str) -> str:
     return "other"
 
 
-def parse_taxonomy_entries(file_path: str, content: Optional[str] = None) -> List[Dict]:
-    """
-    Parse a taxonomy file into discrete entry blocks with line numbers and parsed fields.
-    Each block is separated by blank line(s).
-    """
-    if content is None:
-        try:
-            with open(file_path, "r", encoding="utf-8") as f:
-                content = f.read()
-        except Exception as e:
-            print(f"Error reading {file_path}: {e}", file=sys.stderr)
-            return []
+def _read_taxonomy_file(file_path: str) -> Optional[str]:
+    """Safely read taxonomy file content within repository bounds."""
+    try:
+        safe_path = safe_resolve_path(file_path)
+        with open(safe_path, "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception as e:
+        print(f"Error reading {file_path}: {e}", file=sys.stderr)
+        return None
 
-    lines = content.splitlines()
-    entries = []
-    current_lines = []
+
+def _split_into_blocks(lines: List[str]) -> List[Tuple[int, int, List[Tuple[int, str]]]]:
+    """Split raw lines into discrete non-empty blocks with (start_line, end_line, lines_with_nums)."""
+    blocks = []
+    current_lines: List[Tuple[int, str]] = []
     block_start_line = 1
 
     for line_idx, line in enumerate(lines, start=1):
         if not line.strip():
             if current_lines:
-                entry = _build_entry(file_path, block_start_line, line_idx - 1, current_lines)
-                if entry:
-                    entries.append(entry)
+                blocks.append((block_start_line, line_idx - 1, current_lines))
                 current_lines = []
             block_start_line = line_idx + 1
         else:
@@ -240,77 +280,138 @@ def parse_taxonomy_entries(file_path: str, content: Optional[str] = None) -> Lis
             current_lines.append((line_idx, line))
 
     if current_lines:
-        entry = _build_entry(file_path, block_start_line, len(lines), current_lines)
+        blocks.append((block_start_line, len(lines), current_lines))
+
+    return blocks
+
+
+def _parse_wikidata_simple(line: str, line_no: int) -> Optional[Tuple[int, str]]:
+    """Check for simple 'wikidata: Q12345' format."""
+    if not line.lower().startswith("wikidata:"):
+        return None
+    val = line.split(":", 1)[1].strip()
+    match = re.match(r"^([Qq]\d+)\b", val)
+    if match:
+        return (line_no, match.group(1).upper())
+    return None
+
+
+def _parse_entry_line(
+    line: str,
+    line_no: int,
+    parents: List[str],
+    properties: Dict[str, str],
+    wikidata_qids: List[Tuple[int, str]],
+    names: List[str],
+) -> None:
+    """Parse a single line inside a taxonomy entry block."""
+    if line.startswith("<"):
+        parent = line[1:].strip()
+        if parent:
+            parents.append(parent)
+        return
+
+    simple_wd = _parse_wikidata_simple(line, line_no)
+    if simple_wd:
+        wikidata_qids.append(simple_wd)
+        return
+
+    if ":" not in line:
+        return
+
+    parts = line.split(":", 2)
+    # Check for property like prop:lang: value
+    if len(parts) == 3 and IDENTIFIER_RE.match(parts[0]) and LANG_CODE_RE.match(parts[1]):
+        prop_name, lang, prop_val = parts[0], parts[1], parts[2].strip()
+        properties[f"{prop_name}:{lang}"] = prop_val
+        if prop_name.lower() == "wikidata":
+            qid_match = QID_SEARCH_RE.search(prop_val)
+            if qid_match:
+                wikidata_qids.append((line_no, qid_match.group(1).upper()))
+        return
+
+    # Language entry lines like xx: Nissin, Nissin Foods or en: Instant noodles
+    first_token = parts[0].strip()
+    if LANG_CODE_RE.match(first_token):
+        rest = line.split(":", 1)[1]
+        names_str = rest.split("#", 1)[0].strip()
+        if names_str:
+            for item in names_str.split(","):
+                clean_item = item.strip()
+                if clean_item:
+                    names.append(clean_item)
+
+
+def _build_entry(
+    file_path: str,
+    start_line: int,
+    end_line: int,
+    lines_with_nums: List[Tuple[int, str]],
+) -> Optional[Dict]:
+    """Build a structured entry dict from lines."""
+    names: List[str] = []
+    parents: List[str] = []
+    properties: Dict[str, str] = {}
+    wikidata_qids: List[Tuple[int, str]] = []
+
+    for line_no, raw_line in lines_with_nums:
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        _parse_entry_line(line, line_no, parents, properties, wikidata_qids, names)
+
+    if not names and not wikidata_qids:
+        return None
+
+    canonical_name = names[0] if names else "unnamed"
+    return {
+        "file_path": file_path,
+        "taxonomy_type": determine_taxonomy_type(file_path),
+        "start_line": start_line,
+        "end_line": end_line,
+        "canonical_name": canonical_name,
+        "names": names,
+        "parents": parents,
+        "properties": properties,
+        "wikidata_qids": wikidata_qids,
+    }
+
+
+def parse_taxonomy_entries(file_path: str, content: Optional[str] = None) -> List[Dict]:
+    """
+    Parse a taxonomy file into discrete entry blocks with line numbers and parsed fields.
+    Each block is separated by blank line(s).
+    """
+    if content is None:
+        content = _read_taxonomy_file(file_path)
+        if content is None:
+            return []
+
+    blocks = _split_into_blocks(content.splitlines())
+    entries = []
+    for start_line, end_line, block_lines in blocks:
+        entry = _build_entry(file_path, start_line, end_line, block_lines)
         if entry:
             entries.append(entry)
 
     return entries
 
 
-def _build_entry(file_path: str, start_line: int, end_line: int, lines_with_nums: List[Tuple[int, str]]) -> Optional[Dict]:
-    """Build a structured entry dict from lines."""
-    names = []
-    parents = []
-    properties = {}
-    wikidata_qids = []
-    canonical_name = None
-
-    for line_no, raw_line in lines_with_nums:
-        line = raw_line.strip()
-        if not line or line.startswith("#"):
-            continue
-
-        if line.startswith("<"):
-            parent = line[1:].strip()
-            parents.append(parent)
-            continue
-
-        # Property lines like wikidata:en: Q12345
-        prop_match = re.match(r"^([\w-]+):\s*([a-zA-Z]{2,3}(?:[-_][a-zA-Z]{2,4})?):\s*(.*)$", line)
-        if prop_match:
-            prop_name, lang, prop_val = prop_match.group(1), prop_match.group(2), prop_match.group(3).strip()
-            prop_key = f"{prop_name}:{lang}"
-            properties[prop_key] = prop_val
-            if prop_name.lower() == "wikidata":
-                qid_match = re.search(r"\b(Q\d+)\b", prop_val, re.IGNORECASE)
-                if qid_match:
-                    wikidata_qids.append((line_no, qid_match.group(1).upper()))
-            continue
-
-        # Simple property like wikidata: Q12345
-        simple_prop = re.match(r"^wikidata:\s*([Qq]\d+)", line)
-        if simple_prop:
-            wikidata_qids.append((line_no, simple_prop.group(1).upper()))
-            continue
-
-        # Language entry lines like xx: Nissin, Nissin Foods or en: Instant noodles
-        lang_match = re.match(r"^([a-zA-Z]{2,3}(?:[-_][a-zA-Z]{2,4})?):\s*(.*)$", line)
-        if lang_match:
-            lang, names_str = lang_match.group(1), lang_match.group(2)
-            # Remove trailing comments
-            names_str = re.sub(r"\s*#.*$", "", names_str).strip()
-            if names_str:
-                for item in re.split(r"\s*,\s*", names_str):
-                    item = item.strip()
-                    if item:
-                        names.append(item)
-                        if canonical_name is None:
-                            canonical_name = item
-
-    if not names and not wikidata_qids:
+def _parse_hunk_header(line: str) -> Optional[int]:
+    """Extract starting line number from git diff hunk header @@ -x,y +start,z @@."""
+    if not line.startswith("@@ "):
         return None
+    match = re.search(r"@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@", line)
+    return int(match.group(1)) if match else None
 
-    return {
-        "file_path": file_path,
-        "taxonomy_type": determine_taxonomy_type(file_path),
-        "start_line": start_line,
-        "end_line": end_line,
-        "canonical_name": canonical_name or (names[0] if names else "unnamed"),
-        "names": names,
-        "parents": parents,
-        "properties": properties,
-        "wikidata_qids": wikidata_qids,
-    }
+
+def _extract_wikidata_from_diff_line(line: str) -> Optional[str]:
+    """Extract QID from an added/modified diff line."""
+    if not (line.startswith("+") and not line.startswith("+++")):
+        return None
+    content = line[1:].strip()
+    match = re.search(r"^\s*wikidata(?::[a-zA-Z0-9_-]+)?:\s*([Qq]\d+)\b", content)
+    return match.group(1).upper() if match else None
 
 
 def parse_git_diff_for_new_wikidata(diff_text: str) -> List[Dict]:
@@ -329,32 +430,84 @@ def parse_git_diff_for_new_wikidata(diff_text: str) -> List[Dict]:
             current_file = None
         elif line.startswith("+++ b/"):
             current_file = line[6:].strip()
-        elif line.startswith("@@ "):
-            # Example: @@ -10,6 +12,8 @@
-            hunk_match = re.search(r"@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@", line)
-            if hunk_match:
-                current_new_line = int(hunk_match.group(1))
-        elif line.startswith("+") and not line.startswith("+++"):
-            if current_file and "taxonomies/" in current_file and current_file.endswith(".txt"):
-                content = line[1:].strip()
-                # Check for wikidata mapping
-                m = re.search(r"^\s*wikidata(?::[a-zA-Z0-9_-]+)?:\s*([Qq]\d+)\b", content)
-                if m:
-                    qid = m.group(1).upper()
+        else:
+            hunk_line = _parse_hunk_header(line)
+            if hunk_line is not None:
+                current_new_line = hunk_line
+            elif line.startswith("-") and not line.startswith("---"):
+                pass  # Deletions do not advance line number in new file
+            else:
+                qid = _extract_wikidata_from_diff_line(line)
+                if qid and current_file and "taxonomies/" in current_file and current_file.endswith(".txt"):
                     new_entries.append({
                         "file_path": current_file,
                         "line_no": current_new_line,
                         "qid": qid,
                     })
-            current_new_line += 1
-        elif line.startswith("-") and not line.startswith("---"):
-            # Deletions do not advance line number in new file
-            pass
-        else:
-            # Context lines advance line number in new file
-            current_new_line += 1
+                current_new_line += 1
 
     return new_entries
+
+
+def _fetch_wikidata_batch(
+    qids: List[str],
+    props: str,
+    languages: Optional[str] = None,
+    batch_size: int = 50,
+) -> Dict[str, Dict]:
+    """Fetch a list of Wikidata QIDs in batches."""
+    entities: Dict[str, Dict] = {}
+    for i in range(0, len(qids), batch_size):
+        batch = qids[i : i + batch_size]
+        params = {
+            "action": "wbgetentities",
+            "ids": "|".join(batch),
+            "props": props,
+            "format": "json",
+        }
+        if languages:
+            params["languages"] = languages
+        url = f"{WIKIDATA_API_URL}?{urllib.parse.urlencode(params)}"
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                for qid, entity_data in data.get("entities", {}).items():
+                    entities[qid] = entity_data
+        except Exception as e:
+            print(f"Error fetching Wikidata batch {batch}: {e}", file=sys.stderr)
+    return entities
+
+
+def _extract_claim_qids(entities: Dict[str, Dict], property_names: List[str]) -> Set[str]:
+    """Extract target entity QIDs from specified properties in claims."""
+    class_qids = set()
+    for entity in entities.values():
+        claims = entity.get("claims", {})
+        for prop in property_names:
+            for snak in claims.get(prop, []):
+                val = snak.get("mainsnak", {}).get("datavalue", {}).get("value")
+                if isinstance(val, dict) and "id" in val:
+                    class_qids.add(val["id"])
+    return class_qids
+
+
+def _parse_class_info(class_entities: Dict[str, Dict]) -> Dict[str, Dict]:
+    """Parse class labels and descriptions."""
+    classes = {}
+    for cid, centity in class_entities.items():
+        en_label = (
+            centity.get("labels", {}).get("en", {}).get("value")
+            or centity.get("labels", {}).get("fr", {}).get("value")
+            or ""
+        )
+        en_desc = (
+            centity.get("descriptions", {}).get("en", {}).get("value")
+            or centity.get("descriptions", {}).get("fr", {}).get("value")
+            or ""
+        )
+        classes[cid] = {"label": en_label, "desc": en_desc}
+    return classes
 
 
 def fetch_wikidata_entities(qids: Set[str]) -> Tuple[Dict[str, Dict], Dict[str, Dict]]:
@@ -367,66 +520,73 @@ def fetch_wikidata_entities(qids: Set[str]) -> Tuple[Dict[str, Dict], Dict[str, 
     if not qids:
         return {}, {}
 
-    entities = {}
-    qid_list = sorted(list(qids))
-    batch_size = 50
-
-    # 1. Fetch the requested entities
-    for i in range(0, len(qid_list), batch_size):
-        batch = qid_list[i : i + batch_size]
-        params = {
-            "action": "wbgetentities",
-            "ids": "|".join(batch),
-            "props": "labels|aliases|descriptions|claims|sitelinks",
-            "format": "json",
-        }
-        url = f"{WIKIDATA_API_URL}?{urllib.parse.urlencode(params)}"
-        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-
-        try:
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                for qid, entity_data in data.get("entities", {}).items():
-                    entities[qid] = entity_data
-        except Exception as e:
-            print(f"Error fetching Wikidata batch {batch}: {e}", file=sys.stderr)
-
-    # 2. Extract P31 and P279 class Q-IDs to fetch their labels and descriptions
-    class_qids = set()
-    for entity in entities.values():
-        claims = entity.get("claims", {})
-        for prop in ["P31", "P279"]:
-            for snak in claims.get(prop, []):
-                val = snak.get("mainsnak", {}).get("datavalue", {}).get("value")
-                if isinstance(val, dict) and "id" in val:
-                    class_qids.add(val["id"])
-
-    # 3. Fetch class entities
-    classes = {}
-    class_qid_list = sorted(list(class_qids))
-    for i in range(0, len(class_qid_list), batch_size):
-        batch = class_qid_list[i : i + batch_size]
-        params = {
-            "action": "wbgetentities",
-            "ids": "|".join(batch),
-            "props": "labels|descriptions",
-            "languages": "en,fr",
-            "format": "json",
-        }
-        url = f"{WIKIDATA_API_URL}?{urllib.parse.urlencode(params)}"
-        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-
-        try:
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                for cid, centity in data.get("entities", {}).items():
-                    en_label = centity.get("labels", {}).get("en", {}).get("value") or centity.get("labels", {}).get("fr", {}).get("value") or ""
-                    en_desc = centity.get("descriptions", {}).get("en", {}).get("value") or centity.get("descriptions", {}).get("fr", {}).get("value") or ""
-                    classes[cid] = {"label": en_label, "desc": en_desc}
-        except Exception as e:
-            print(f"Error fetching Wikidata class batch {batch}: {e}", file=sys.stderr)
-
+    entities = _fetch_wikidata_batch(
+        sorted(qids),
+        props="labels|aliases|descriptions|claims|sitelinks",
+    )
+    class_qids = _extract_claim_qids(entities, ["P31", "P279"])
+    class_entities = _fetch_wikidata_batch(
+        sorted(class_qids),
+        props="labels|descriptions",
+        languages="en,fr",
+    )
+    classes = _parse_class_info(class_entities)
     return entities, classes
+
+
+def _strip_disambiguation(title: str) -> str:
+    """Strip trailing disambiguation like ' (food)' or ' (company)'."""
+    if title.endswith(")") and " (" in title:
+        prefix, _ = title.rsplit(" (", 1)
+        return prefix.rstrip()
+    return title
+
+
+def _collect_entity_candidate_names(entity: Dict) -> List[str]:
+    """Collect all Wikidata candidate names from labels, aliases, and sitelinks."""
+    candidates = []
+    for label_info in entity.get("labels", {}).values():
+        val = label_info.get("value")
+        if val:
+            candidates.append(val)
+
+    for alias_list in entity.get("aliases", {}).values():
+        for alias_info in alias_list:
+            val = alias_info.get("value")
+            if val:
+                candidates.append(val)
+
+    for site_info in entity.get("sitelinks", {}).values():
+        title = site_info.get("title")
+        if title:
+            candidates.append(_strip_disambiguation(title))
+
+    return candidates
+
+
+def _matches_tier1(
+    norm_name: str,
+    no_space_name: str,
+    stripped_name: str,
+    norm_c: str,
+) -> bool:
+    """Check Tier 1 match: exact normalized, no-space, or corporate suffix stripped."""
+    if norm_name == norm_c:
+        return True
+    if no_space_name == norm_c.replace(" ", ""):
+        return True
+    stripped_c = strip_corporate_suffixes(norm_c)
+    return bool(stripped_name and stripped_c and stripped_name == stripped_c)
+
+
+def _matches_tier2(tokens_name: Set[str], tokens_c: Set[str]) -> bool:
+    """Check Tier 2 match: token containment for multi-word or compound names."""
+    if not tokens_name or not tokens_c:
+        return False
+    if tokens_name.issubset(tokens_c) or tokens_c.issubset(tokens_name):
+        common = tokens_name & tokens_c
+        return any(len(t) >= 4 for t in common) or len(common) >= 2
+    return False
 
 
 def check_name_match(entry_names: List[str], entity: Dict) -> Tuple[bool, Optional[str], Optional[str]]:
@@ -437,79 +597,102 @@ def check_name_match(entry_names: List[str], entity: Dict) -> Tuple[bool, Option
     if not entry_names:
         return False, None, None
 
-    # Collect all Wikidata candidate names
-    candidates = []
-
-    # Labels
-    for lang, label_info in entity.get("labels", {}).items():
-        val = label_info.get("value")
-        if val:
-            candidates.append(val)
-
-    # Aliases
-    for lang, alias_list in entity.get("aliases", {}).items():
-        for alias_info in alias_list:
-            val = alias_info.get("value")
-            if val:
-                candidates.append(val)
-
-    # Wikipedia sitelinks
-    for site, site_info in entity.get("sitelinks", {}).items():
-        title = site_info.get("title")
-        if title:
-            # Strip trailing disambiguation like " (food)" or " (company)"
-            clean_title = re.sub(r"\s*\([^)]*\)$", "", title)
-            candidates.append(clean_title)
-
-    # Tier 1: Exact and normalized match
+    candidates = _collect_entity_candidate_names(entity)
     normalized_candidates = [(c, normalize_string(c)) for c in candidates]
 
+    # Tier 1
     for name in entry_names:
         norm_name = normalize_string(name)
         if not norm_name:
             continue
-
-        no_space_name = norm_name.replace(" ", "")
-
+        no_space = norm_name.replace(" ", "")
+        stripped = strip_corporate_suffixes(norm_name)
         for orig_c, norm_c in normalized_candidates:
-            if not norm_c:
-                continue
-
-            # Exact normalized match
-            if norm_name == norm_c:
+            if norm_c and _matches_tier1(norm_name, no_space, stripped, norm_c):
                 return True, name, orig_c
 
-            # No-space match (e.g. "Instant-Nudeln" vs "Instantnudeln", "Coca-Cola" vs "CocaCola")
-            if no_space_name == norm_c.replace(" ", ""):
-                return True, name, orig_c
-
-            # Corporate suffix stripping (e.g. "Nissin Food Products" vs "Nissin Foods")
-            stripped_name = strip_corporate_suffixes(norm_name)
-            stripped_c = strip_corporate_suffixes(norm_c)
-            if stripped_name and stripped_c and stripped_name == stripped_c:
-                return True, name, orig_c
-
-    # Tier 2: Token subset / containment match for multi-word or compound names
+    # Tier 2
     for name in entry_names:
-        norm_name = normalize_string(name)
-        tokens_name = get_tokens(norm_name)
-        if len(tokens_name) == 0:
-            continue
-
+        tokens_name = get_tokens(normalize_string(name))
         for orig_c, norm_c in normalized_candidates:
-            tokens_c = get_tokens(norm_c)
-            if len(tokens_c) == 0:
-                continue
-
-            # If tokens of one are completely contained in the other
-            # Require at least one multi-character meaningful token match
-            if tokens_name.issubset(tokens_c) or tokens_c.issubset(tokens_name):
-                # Guard against single-token false positives with very short generic words
-                common = tokens_name & tokens_c
-                if any(len(t) >= 4 for t in common) or len(common) >= 2:
-                    return True, name, orig_c
+            if _matches_tier2(tokens_name, get_tokens(norm_c)):
+                return True, name, orig_c
 
     return False, None, None
+
+
+def _extract_snak_qids(snaks: List[Dict]) -> List[str]:
+    """Extract target entity QIDs from a list of claim snaks."""
+    qids = []
+    for snak in snaks:
+        val = snak.get("mainsnak", {}).get("datavalue", {}).get("value")
+        if isinstance(val, dict) and "id" in val:
+            qids.append(val["id"])
+    return qids
+
+
+def _find_disallowed_concept(
+    class_qids: List[str],
+    class_info: Dict[str, Dict],
+    entity_desc: str,
+) -> Optional[Tuple[str, str]]:
+    """
+    Check for disallowed class QIDs or disallowed keywords in class/entity descriptions.
+    Returns: (reason, matched_concept) or None.
+    """
+    for qid in class_qids:
+        info = class_info.get(qid, {})
+        label = info.get("label", "")
+        desc = info.get("desc", "")
+        if qid in DISALLOWED_CLASS_QIDS:
+            return (
+                f"Disallowed class {label or qid} ({desc or 'unspecified'})",
+                label or qid,
+            )
+        label_desc = f"{label} - {desc}".lower() if label or desc else ""
+        for kw in DISALLOWED_CLASS_KEYWORDS:
+            if re.search(r"\b" + re.escape(kw) + r"\b", label_desc):
+                return (
+                    f"Disallowed concept '{kw}' in class {label or qid} ({desc or ''})",
+                    label or qid,
+                )
+
+    for kw in DISALLOWED_CLASS_KEYWORDS:
+        if re.search(r"\b" + re.escape(kw) + r"\b", entity_desc.lower()):
+            return (
+                f"Disallowed concept '{kw}' in entity description: '{entity_desc}'",
+                kw,
+            )
+
+    return None
+
+
+def _find_expected_concept(
+    taxonomy_type: str,
+    class_qids: List[str],
+    class_info: Dict[str, Dict],
+    entity_desc: str,
+) -> Tuple[bool, Optional[str]]:
+    """Check if class or description contains expected keywords for taxonomy domain."""
+    expected_kws = EXPECTED_CLASS_KEYWORDS_BY_TYPE.get(taxonomy_type, [])
+    if not expected_kws:
+        return False, None
+
+    for qid in class_qids:
+        info = class_info.get(qid, {})
+        label = info.get("label", "")
+        desc = info.get("desc", "")
+        label_desc = f"{label} {desc}".lower()
+        for kw in expected_kws:
+            if re.search(r"\b" + re.escape(kw) + r"\b", label_desc):
+                matched = f"{label} ({qid})" if label else qid
+                return True, matched
+
+    for kw in expected_kws:
+        if re.search(r"\b" + re.escape(kw) + r"\b", entity_desc.lower()):
+            return True, f"description contains '{kw}'"
+
+    return False, None
 
 
 def check_entity_classes(taxonomy_type: str, entity: Dict, class_info: Dict[str, Dict]) -> Dict:
@@ -525,88 +708,33 @@ def check_entity_classes(taxonomy_type: str, entity: Dict, class_info: Dict[str,
     }
     """
     claims = entity.get("claims", {})
-    p31_qids = []
-    for snak in claims.get("P31", []):
-        val = snak.get("mainsnak", {}).get("datavalue", {}).get("value")
-        if isinstance(val, dict) and "id" in val:
-            p31_qids.append(val["id"])
-
-    p279_qids = []
-    for snak in claims.get("P279", []):
-        val = snak.get("mainsnak", {}).get("datavalue", {}).get("value")
-        if isinstance(val, dict) and "id" in val:
-            p279_qids.append(val["id"])
-
+    p31_qids = _extract_snak_qids(claims.get("P31", []))
+    p279_qids = _extract_snak_qids(claims.get("P279", []))
     all_class_qids = p31_qids + p279_qids
-    p31_labels = []
 
-    # 1. Check for explicitly disallowed Q-IDs
-    for qid in all_class_qids:
-        info = class_info.get(qid, {})
-        label = info.get("label", "")
-        desc = info.get("desc", "")
-        label_desc = f"{label} - {desc}".lower() if label or desc else ""
-        if label:
-            p31_labels.append(f"{label} ({qid})")
+    p31_labels = [
+        f"{class_info[qid]['label']} ({qid})"
+        for qid in all_class_qids
+        if qid in class_info and class_info[qid].get("label")
+    ]
 
-        if qid in DISALLOWED_CLASS_QIDS:
-            return {
-                "is_disallowed": True,
-                "disallowed_reason": f"Disallowed class {label or qid} ({desc or 'unspecified'})",
-                "is_expected": False,
-                "matched_class": label or qid,
-                "p31_labels": p31_labels,
-            }
+    entity_desc = (
+        entity.get("descriptions", {}).get("en", {}).get("value", "")
+        or entity.get("descriptions", {}).get("fr", {}).get("value", "")
+    )
 
-        for kw in DISALLOWED_CLASS_KEYWORDS:
-            if re.search(r"\b" + re.escape(kw) + r"\b", label_desc):
-                return {
-                    "is_disallowed": True,
-                    "disallowed_reason": f"Disallowed concept '{kw}' in class {label or qid} ({desc or ''})",
-                    "is_expected": False,
-                    "matched_class": label or qid,
-                    "p31_labels": p31_labels,
-                }
+    disallowed = _find_disallowed_concept(all_class_qids, class_info, entity_desc)
+    if disallowed:
+        reason, matched_concept = disallowed
+        return {
+            "is_disallowed": True,
+            "disallowed_reason": reason,
+            "is_expected": False,
+            "matched_class": matched_concept,
+            "p31_labels": p31_labels,
+        }
 
-    # Also check entity's own description for disallowed keywords (e.g. "orange giant star...")
-    entity_desc = entity.get("descriptions", {}).get("en", {}).get("value", "") or entity.get("descriptions", {}).get("fr", {}).get("value", "")
-    for kw in DISALLOWED_CLASS_KEYWORDS:
-        if re.search(r"\b" + re.escape(kw) + r"\b", entity_desc.lower()):
-            return {
-                "is_disallowed": True,
-                "disallowed_reason": f"Disallowed concept '{kw}' in entity description: '{entity_desc}'",
-                "is_expected": False,
-                "matched_class": kw,
-                "p31_labels": p31_labels,
-            }
-
-    # 2. Check for expected domain classes
-    expected_kws = EXPECTED_CLASS_KEYWORDS_BY_TYPE.get(taxonomy_type, [])
-    matched_class = None
-    is_expected = False
-
-    for qid in all_class_qids:
-        info = class_info.get(qid, {})
-        label = info.get("label", "")
-        desc = info.get("desc", "")
-        label_desc = f"{label} {desc}".lower()
-
-        for kw in expected_kws:
-            if re.search(r"\b" + re.escape(kw) + r"\b", label_desc):
-                is_expected = True
-                matched_class = f"{label} ({qid})" if label else qid
-                break
-        if is_expected:
-            break
-
-    # If entity description itself indicates the expected domain
-    if not is_expected and expected_kws:
-        for kw in expected_kws:
-            if re.search(r"\b" + re.escape(kw) + r"\b", entity_desc.lower()):
-                is_expected = True
-                matched_class = f"description contains '{kw}'"
-                break
-
+    is_expected, matched_class = _find_expected_concept(taxonomy_type, all_class_qids, class_info, entity_desc)
     return {
         "is_disallowed": False,
         "disallowed_reason": None,
@@ -651,8 +779,16 @@ def validate_wikidata_entry(entry: Dict, entity: Optional[Dict], class_info: Dic
             "message": f"Entity {qid} does not exist in Wikidata.",
         }
 
-    en_label = entity.get("labels", {}).get("en", {}).get("value") or entity.get("labels", {}).get("fr", {}).get("value") or "No label"
-    en_desc = entity.get("descriptions", {}).get("en", {}).get("value") or entity.get("descriptions", {}).get("fr", {}).get("value") or "No description"
+    en_label = (
+        entity.get("labels", {}).get("en", {}).get("value")
+        or entity.get("labels", {}).get("fr", {}).get("value")
+        or "No label"
+    )
+    en_desc = (
+        entity.get("descriptions", {}).get("en", {}).get("value")
+        or entity.get("descriptions", {}).get("fr", {}).get("value")
+        or "No description"
+    )
 
     # 2. Check classes
     class_eval = check_entity_classes(taxonomy_type, entity, class_info)
@@ -670,7 +806,6 @@ def validate_wikidata_entry(entry: Dict, entity: Optional[Dict], class_info: Dic
 
     # 3. Check name match
     name_matched, matched_entry_name, matched_wd_name = check_name_match(entry_names, entity)
-
     if not name_matched:
         return {
             "status": "ERROR",
@@ -706,24 +841,39 @@ def validate_wikidata_entry(entry: Dict, entity: Optional[Dict], class_info: Dic
 def find_git_base_ref(specified_base: Optional[str] = None) -> str:
     """Find appropriate git base ref to compare against."""
     if specified_base:
-        return specified_base
+        return validate_git_ref(specified_base)
 
     # Check GitHub Actions environment
     gh_base = os.environ.get("GITHUB_BASE_REF")
     if gh_base:
-        # Check if origin/base exists
-        ret = subprocess.run(["git", "rev-parse", "--verify", f"origin/{gh_base}"], capture_output=True, text=True)
+        safe_gh = validate_git_ref(gh_base)
+        ret = subprocess.run(
+            ["git", "rev-parse", "--verify", "--end-of-options", f"origin/{safe_gh}"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
         if ret.returncode == 0:
-            return f"origin/{gh_base}"
-        return gh_base
+            return f"origin/{safe_gh}"
+        return safe_gh
 
     # Check origin/main
-    ret = subprocess.run(["git", "rev-parse", "--verify", "origin/main"], capture_output=True, text=True)
+    ret = subprocess.run(
+        ["git", "rev-parse", "--verify", "--end-of-options", "origin/main"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
     if ret.returncode == 0:
         return "origin/main"
 
     # Check main
-    ret = subprocess.run(["git", "rev-parse", "--verify", "main"], capture_output=True, text=True)
+    ret = subprocess.run(
+        ["git", "rev-parse", "--verify", "--end-of-options", "main"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
     if ret.returncode == 0:
         return "main"
 
@@ -731,19 +881,152 @@ def find_git_base_ref(specified_base: Optional[str] = None) -> str:
 
 
 def get_git_diff(base_ref: str, head_ref: Optional[str] = None) -> str:
-    """Run git diff against base_ref for taxonomies directory."""
-    cmd = ["git", "diff", "-U3"]
+    """Run git diff against base_ref for taxonomies directory with sanitized refs."""
+    safe_base = validate_git_ref(base_ref)
+    cmd = ["git", "diff", "-U3", "--end-of-options"]
     if head_ref:
-        cmd.append(f"{base_ref}...{head_ref}")
+        safe_head = validate_git_ref(head_ref)
+        cmd.append(f"{safe_base}...{safe_head}")
     else:
-        cmd.append(base_ref)
+        cmd.append(safe_base)
     cmd.extend(["--", "taxonomies/"])
 
-    ret = subprocess.run(cmd, capture_output=True, text=True)
+    ret = subprocess.run(cmd, capture_output=True, text=True, check=False)
     if ret.returncode != 0:
         print(f"Warning: git diff returned non-zero code {ret.returncode}: {ret.stderr}", file=sys.stderr)
         return ""
     return ret.stdout
+
+
+def _collect_file_entries(
+    file_path: str,
+    check_all: bool,
+    base_ref: Optional[str],
+    head_ref: Optional[str],
+) -> List[Dict]:
+    """Collect entries to check when --file is provided."""
+    safe_path = safe_resolve_path(file_path)
+    parsed_entries = parse_taxonomy_entries(safe_path)
+    if check_all:
+        entries = []
+        for entry in parsed_entries:
+            for line_no, qid in entry["wikidata_qids"]:
+                entries.append({
+                    "file_path": file_path,
+                    "line_no": line_no,
+                    "qid": qid,
+                    "taxonomy_type": entry["taxonomy_type"],
+                    "canonical_name": entry["canonical_name"],
+                    "names": entry["names"],
+                })
+        return entries
+
+    base = find_git_base_ref(base_ref)
+    diff_text = get_git_diff(base, head_ref)
+    diff_entries = parse_git_diff_for_new_wikidata(diff_text)
+    abs_target = os.path.abspath(safe_path)
+    diff_entries = [e for e in diff_entries if os.path.abspath(safe_resolve_path(e["file_path"])) == abs_target]
+
+    entries = []
+    for de in diff_entries:
+        target_block = next(
+            (b for b in parsed_entries if b["start_line"] <= de["line_no"] <= b["end_line"]),
+            None,
+        )
+        entries.append({
+            "file_path": de["file_path"],
+            "line_no": de["line_no"],
+            "qid": de["qid"],
+            "taxonomy_type": target_block["taxonomy_type"] if target_block else determine_taxonomy_type(de["file_path"]),
+            "canonical_name": target_block["canonical_name"] if target_block else "unknown",
+            "names": target_block["names"] if target_block else [],
+        })
+    return entries
+
+
+def _collect_diff_entries(base_ref: Optional[str], head_ref: Optional[str]) -> List[Dict]:
+    """Collect entries to check from git diff against base_ref."""
+    base = find_git_base_ref(base_ref)
+    print(f"Comparing against git base: {base}")
+    diff_text = get_git_diff(base, head_ref)
+    diff_entries = parse_git_diff_for_new_wikidata(diff_text)
+
+    file_entries_cache: Dict[str, List[Dict]] = {}
+    entries = []
+    for de in diff_entries:
+        fpath = de["file_path"]
+        if fpath not in file_entries_cache:
+            file_entries_cache[fpath] = parse_taxonomy_entries(fpath)
+        parsed_blocks = file_entries_cache[fpath]
+
+        target_block = next(
+            (b for b in parsed_blocks if b["start_line"] <= de["line_no"] <= b["end_line"]),
+            None,
+        )
+        entries.append({
+            "file_path": fpath,
+            "line_no": de["line_no"],
+            "qid": de["qid"],
+            "taxonomy_type": target_block["taxonomy_type"] if target_block else determine_taxonomy_type(fpath),
+            "canonical_name": target_block["canonical_name"] if target_block else "unknown",
+            "names": target_block["names"] if target_block else [],
+        })
+    return entries
+
+
+def _validate_all_entries(entries_to_check: List[Dict]) -> Tuple[List[Dict], bool]:
+    """Fetch Wikidata entities and validate all entries."""
+    qids = {e["qid"] for e in entries_to_check}
+    print(f"Querying Wikidata for {len(qids)} unique entities...")
+    entities, class_info = fetch_wikidata_entities(qids)
+
+    results = []
+    has_errors = False
+    for entry in entries_to_check:
+        entity = entities.get(entry["qid"])
+        res = validate_wikidata_entry(entry, entity, class_info)
+        results.append(res)
+        if res["status"] == "ERROR":
+            has_errors = True
+
+    return results, has_errors
+
+
+def _print_results(results: List[Dict]) -> None:
+    """Print formatted validation results to console and GitHub annotations."""
+    print("\n" + "=" * 60)
+    print("WIKIDATA VALIDATION RESULTS")
+    print("=" * 60)
+
+    for r in results:
+        status_symbol = "✅" if r["status"] == "PASS" else "❌"
+        print(f"{status_symbol} [{r['file']}:{r['line']}] {r['entry_name']} -> {r['qid']}")
+        print(f"   Wikidata: {r['entity_label']} - {r['entity_desc']}")
+        print(f"   Result:   {r['message']}\n")
+
+        if r["status"] == "ERROR":
+            print(f"::error file={r['file']},line={r['line']}::[Wikidata Check] {r['message']}")
+
+
+def _write_step_summary(results: List[Dict]) -> None:
+    """Write validation summary table into GITHUB_STEP_SUMMARY."""
+    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if not summary_path or summary_path.startswith("-"):
+        return
+    try:
+        with open(summary_path, "a", encoding="utf-8") as f:
+            f.write("### 🔍 Wikidata Taxonomy Mappings Verification\n\n")
+            f.write("| Status | File:Line | Entry Name | Wikidata QID | Wikidata Label & Description | Details |\n")
+            f.write("| :---: | :--- | :--- | :--- | :--- | :--- |\n")
+            for r in results:
+                icon = "✅ Pass" if r["status"] == "PASS" else "❌ **Fail**"
+                f.write(
+                    f"| {icon} | `{r['file']}:{r['line']}` | **{r['entry_name']}** | "
+                    f"[{r['qid']}](https://www.wikidata.org/wiki/{r['qid']}) | "
+                    f"*{r['entity_label']}*: {r['entity_desc']} | {r['message']} |\n"
+                )
+    except Exception as e:
+        print(f"Warning: could not write to GITHUB_STEP_SUMMARY: {e}", file=sys.stderr)
 
 
 def main():
@@ -755,68 +1038,13 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Parse diff and print entries without calling Wikidata API")
     args = parser.parse_args()
 
-    entries_to_check = []
+    safe_base = validate_git_ref(args.base) if args.base else None
+    safe_head = validate_git_ref(args.head) if args.head else None
 
     if args.file:
-        parsed_entries = parse_taxonomy_entries(args.file)
-        if args.all:
-            for entry in parsed_entries:
-                for line_no, qid in entry["wikidata_qids"]:
-                    entries_to_check.append({
-                        "file_path": args.file,
-                        "line_no": line_no,
-                        "qid": qid,
-                        "taxonomy_type": entry["taxonomy_type"],
-                        "canonical_name": entry["canonical_name"],
-                        "names": entry["names"],
-                    })
-        else:
-            base_ref = find_git_base_ref(args.base)
-            diff_text = get_git_diff(base_ref, args.head)
-            diff_entries = parse_git_diff_for_new_wikidata(diff_text)
-            diff_entries = [e for e in diff_entries if os.path.abspath(e["file_path"]) == os.path.abspath(args.file)]
-            for de in diff_entries:
-                target_block = None
-                for entry in parsed_entries:
-                    if entry["start_line"] <= de["line_no"] <= entry["end_line"]:
-                        target_block = entry
-                        break
-                entries_to_check.append({
-                    "file_path": de["file_path"],
-                    "line_no": de["line_no"],
-                    "qid": de["qid"],
-                    "taxonomy_type": target_block["taxonomy_type"] if target_block else determine_taxonomy_type(de["file_path"]),
-                    "canonical_name": target_block["canonical_name"] if target_block else "unknown",
-                    "names": target_block["names"] if target_block else [],
-                })
+        entries_to_check = _collect_file_entries(args.file, args.all, safe_base, safe_head)
     else:
-        base_ref = find_git_base_ref(args.base)
-        print(f"Comparing against git base: {base_ref}")
-        diff_text = get_git_diff(base_ref, args.head)
-        diff_entries = parse_git_diff_for_new_wikidata(diff_text)
-
-        # Cache parsed files
-        file_entries_cache = {}
-        for de in diff_entries:
-            fpath = de["file_path"]
-            if fpath not in file_entries_cache:
-                file_entries_cache[fpath] = parse_taxonomy_entries(fpath)
-            parsed_blocks = file_entries_cache[fpath]
-
-            target_block = None
-            for b in parsed_blocks:
-                if b["start_line"] <= de["line_no"] <= b["end_line"]:
-                    target_block = b
-                    break
-
-            entries_to_check.append({
-                "file_path": fpath,
-                "line_no": de["line_no"],
-                "qid": de["qid"],
-                "taxonomy_type": target_block["taxonomy_type"] if target_block else determine_taxonomy_type(fpath),
-                "canonical_name": target_block["canonical_name"] if target_block else "unknown",
-                "names": target_block["names"] if target_block else [],
-            })
+        entries_to_check = _collect_diff_entries(safe_base, safe_head)
 
     if not entries_to_check:
         print("✅ No new or modified Wikidata entries found in taxonomies.")
@@ -830,61 +1058,16 @@ def main():
         print("Dry run requested; skipping API calls.")
         sys.exit(0)
 
-    # Batch fetch from Wikidata
-    qids = {e["qid"] for e in entries_to_check}
-    print(f"Querying Wikidata for {len(qids)} unique entities...")
-    entities, class_info = fetch_wikidata_entities(qids)
-
-    # Validate each entry
-    results = []
-    has_errors = False
-
-    for entry in entries_to_check:
-        entity = entities.get(entry["qid"])
-        res = validate_wikidata_entry(entry, entity, class_info)
-        results.append(res)
-        if res["status"] == "ERROR":
-            has_errors = True
-
-    # Output results
-    print("\n" + "=" * 60)
-    print("WIKIDATA VALIDATION RESULTS")
-    print("=" * 60)
-
-    for r in results:
-        status_symbol = "✅" if r["status"] == "PASS" else "❌"
-        print(f"{status_symbol} [{r['file']}:{r['line']}] {r['entry_name']} -> {r['qid']}")
-        print(f"   Wikidata: {r['entity_label']} - {r['entity_desc']}")
-        print(f"   Result:   {r['message']}\n")
-
-        # GitHub Actions annotation commands
-        if r["status"] == "ERROR":
-            print(f"::error file={r['file']},line={r['line']}::[Wikidata Check] {r['message']}")
-
-    # GitHub Actions Step Summary (markdown)
-    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
-    if summary_path:
-        try:
-            with open(summary_path, "a", encoding="utf-8") as f:
-                f.write("### 🔍 Wikidata Taxonomy Mappings Verification\n\n")
-                f.write("| Status | File:Line | Entry Name | Wikidata QID | Wikidata Label & Description | Details |\n")
-                f.write("| :---: | :--- | :--- | :--- | :--- | :--- |\n")
-                for r in results:
-                    icon = "✅ Pass" if r["status"] == "PASS" else "❌ **Fail**"
-                    f.write(
-                        f"| {icon} | `{r['file']}:{r['line']}` | **{r['entry_name']}** | "
-                        f"[{r['qid']}](https://www.wikidata.org/wiki/{r['qid']}) | "
-                        f"*{r['entity_label']}*: {r['entity_desc']} | {r['message']} |\n"
-                    )
-        except Exception as e:
-            print(f"Warning: could not write to GITHUB_STEP_SUMMARY: {e}", file=sys.stderr)
+    results, has_errors = _validate_all_entries(entries_to_check)
+    _print_results(results)
+    _write_step_summary(results)
 
     if has_errors:
         print("❌ Wikidata validation failed! Please fix the errors above.")
         sys.exit(1)
-    else:
-        print("🎉 All new Wikidata mappings verified successfully!")
-        sys.exit(0)
+
+    print("🎉 All new Wikidata mappings verified successfully!")
+    sys.exit(0)
 
 
 if __name__ == "__main__":

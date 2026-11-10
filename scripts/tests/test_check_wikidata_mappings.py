@@ -5,14 +5,16 @@ Unit tests for check_wikidata_mappings.py
 
 import unittest
 from scripts.taxonomies.check_wikidata_mappings import (
-    normalize_string,
-    strip_corporate_suffixes,
-    get_tokens,
-    determine_taxonomy_type,
-    parse_taxonomy_entries,
-    parse_git_diff_for_new_wikidata,
-    check_name_match,
     check_entity_classes,
+    check_name_match,
+    determine_taxonomy_type,
+    get_tokens,
+    normalize_string,
+    parse_git_diff_for_new_wikidata,
+    parse_taxonomy_entries,
+    safe_resolve_path,
+    strip_corporate_suffixes,
+    validate_git_ref,
     validate_wikidata_entry,
 )
 
@@ -108,7 +110,7 @@ diff --git a/lib/ProductOpener/Config.pm b/lib/ProductOpener/Config.pm
                 "enwiki": {"title": "Nissin Foods"},
             },
         }
-        matched, entry_m, wd_m = check_name_match(["Nissin", "Nissin Foods", "日清食品"], entity)
+        matched, _, _ = check_name_match(["Nissin", "Nissin Foods", "日清食品"], entity)
         self.assertTrue(matched)
 
     def test_check_name_match_failure(self):
@@ -122,7 +124,7 @@ diff --git a/lib/ProductOpener/Config.pm b/lib/ProductOpener/Config.pm
             },
             "sitelinks": {},
         }
-        matched, entry_m, wd_m = check_name_match(["Nissin", "Nissin Foods", "日清食品"], entity)
+        matched, _, _ = check_name_match(["Nissin", "Nissin Foods", "日清食品"], entity)
         self.assertFalse(matched)
 
     def test_check_entity_classes_disallowed(self):
@@ -224,6 +226,28 @@ diff --git a/lib/ProductOpener/Config.pm b/lib/ProductOpener/Config.pm
         res = validate_wikidata_entry(entry, None, {})
         self.assertEqual(res["status"], "ERROR")
         self.assertIn("does not exist", res["message"])
+
+    def test_validate_git_ref(self):
+        self.assertEqual(validate_git_ref("main"), "main")
+        self.assertEqual(validate_git_ref("origin/main"), "origin/main")
+        self.assertEqual(validate_git_ref("refs/heads/feature-1"), "refs/heads/feature-1")
+        self.assertEqual(validate_git_ref("HEAD~1"), "HEAD~1")
+
+        with self.assertRaises(ValueError):
+            validate_git_ref("-o/tmp/pwn")
+        with self.assertRaises(ValueError):
+            validate_git_ref("--output=/tmp/pwn")
+        with self.assertRaises(ValueError):
+            validate_git_ref("main; rm -rf /")
+
+    def test_safe_resolve_path(self):
+        safe = safe_resolve_path("taxonomies/brands.txt")
+        self.assertTrue(safe.endswith("taxonomies/brands.txt"))
+
+        with self.assertRaises(ValueError):
+            safe_resolve_path("../../../etc/passwd")
+        with self.assertRaises(ValueError):
+            safe_resolve_path("--option")
 
 
 if __name__ == "__main__":
