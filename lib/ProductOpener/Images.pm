@@ -95,6 +95,7 @@ BEGIN {
 		&get_imagefield_from_string
 		&get_image_type_and_image_lc_from_imagefield
 		&is_protected_image
+		&clean_image_comment
 		&process_image_upload
 		&process_image_upload_using_filehandle
 		&process_image_move
@@ -847,6 +848,28 @@ sub generate_resized_images ($path, $filename, $image_source, $sizes_ref, @sizes
 	}
 
 	return $imagemagick_error;
+}
+
+=head2 clean_image_comment ( $comment )
+
+Cleans and sanitizes an image upload comment:
+- Decodes UTF-8 if raw octets
+- Strips HTML tags and quotes using remove_tags_and_quote
+- Trims leading/trailing whitespace and collapses multiple whitespace characters
+- Returns undef if the resulting string is empty or undefined
+
+=cut
+
+sub clean_image_comment ($comment) {
+	return unless defined $comment;
+	if (!utf8::is_utf8($comment)) {
+		$comment = eval {Encode::decode('UTF-8', $comment)} // $comment;
+	}
+	$comment = remove_tags_and_quote($comment);
+	$comment =~ s/^\s+|\s+$//g;
+	$comment =~ s/\s+/ /g;
+	return if $comment eq '';
+	return $comment;
 }
 
 =head2 process_image_upload ( $product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref )

@@ -6,7 +6,9 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Images
-	qw/get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language data_to_display_image normalize_generation_ref/;
+	qw/clean_image_comment get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language data_to_display_image normalize_generation_ref/;
+
+use Encode;
 
 use File::Basename 'dirname';
 use Data::Dumper;
@@ -326,5 +328,26 @@ is(
 
 is(normalize_generation_ref(undef), undef, "normalize_generation_ref should return undef when passed undef");
 is(normalize_generation_ref({}), undef, "normalize_generation_ref should return undef when passed empty hash");
+
+# clean_image_comment tests
+is(clean_image_comment(undef), undef, 'clean_image_comment: undef comment returns undef');
+is(clean_image_comment(''), undef, 'clean_image_comment: empty string returns undef');
+is(clean_image_comment("   \t \n  "), undef, 'clean_image_comment: whitespace-only returns undef');
+is(clean_image_comment('  hello   world  '), 'hello world', 'clean_image_comment: trims and collapses whitespace');
+is(
+	clean_image_comment('<script>alert("xss")</script> front photo <b>clear</b>'),
+	'alert(&quot;xss&quot;) front photo clear',
+	'clean_image_comment: strips HTML tags and quotes'
+);
+is(
+	clean_image_comment('slovenščina photo upload'),
+	'slovenščina photo upload',
+	'clean_image_comment: preserves decoded UTF-8 string'
+);
+is(
+	clean_image_comment(Encode::encode('UTF-8', 'slovenščina photo upload')),
+	'slovenščina photo upload',
+	'clean_image_comment: decodes raw UTF-8 octets'
+);
 
 done_testing();
