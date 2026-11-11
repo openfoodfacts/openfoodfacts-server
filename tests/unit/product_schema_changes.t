@@ -1632,8 +1632,10 @@ my $small_serving_product = {
 	},
 };
 convert_product_schema($small_serving_product, 1002);
-is($small_serving_product->{nutrition_data_per}, "serving", "small serving values remain marked per serving in the legacy schema");
-is($small_serving_product->{nutriments}{"sugars_serving"}, 1, "small serving value is retained in the legacy serving field");
+is($small_serving_product->{nutrition_data_per},
+	"serving", "small serving values remain marked per serving in the legacy schema");
+is($small_serving_product->{nutriments}{"sugars_serving"},
+	1, "small serving value is retained in the legacy serving field");
 ok(!exists $small_serving_product->{nutriments}{"sugars_100g"}, "small serving value is not extrapolated to 100g");
 
 # Also pretend to be the pro platform to test that we set the correct source

@@ -604,11 +604,12 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 	if (!defined $nutrient_set_ref || !%{$nutrient_set_ref}) {
 		my $input_sets_ref = deep_get($product_ref, "nutrition", "nutrient_sets") // [];
 		my @small_serving_sets = grep {
-			($_->{per} // "") eq "serving"
+				   ($_->{per} // "") eq "serving"
 				&& defined $_->{per_quantity}
 				&& defined $_->{per_unit}
 				&& unit_to_g($_->{per_quantity}, $_->{per_unit}) > 0
-				&& unit_to_g($_->{per_quantity}, $_->{per_unit}) < 5
+				&& unit_to_g($_->{per_quantity}, $_->{per_unit})
+				< 5
 		} @{$input_sets_ref};
 		sort_sets_by_priority(\@small_serving_sets);
 		if (@small_serving_sets) {
@@ -694,11 +695,13 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 		# then add other useful data on the nutrients to the product
 		if ($preparation_state eq "") {
 			$product_ref->{nutrition_data} = "on";
-			$product_ref->{nutrition_data_per} = $serving_only_fallback ? "serving" : $product_ref->{nutrition}{aggregated_set}{per};
+			$product_ref->{nutrition_data_per}
+				= $serving_only_fallback ? "serving" : $product_ref->{nutrition}{aggregated_set}{per};
 		}
 		else {
 			$product_ref->{nutrition_data_prepared} = "on";
-			$product_ref->{nutrition_data_prepared_per} = $serving_only_fallback ? "serving" : $product_ref->{nutrition}{aggregated_set}{per};
+			$product_ref->{nutrition_data_prepared_per}
+				= $serving_only_fallback ? "serving" : $product_ref->{nutrition}{aggregated_set}{per};
 		}
 
 		# finally remove the nutrition field of the 1003 product version if deletion on
