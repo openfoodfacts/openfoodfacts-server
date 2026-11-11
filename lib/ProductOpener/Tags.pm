@@ -4754,10 +4754,10 @@ sub canonicalize_allergens_taxonomy_tag($ingredients_lc, $ingredient_or_allergen
 		return $allergenid if defined $allergenid;
 	}
 
-	# Some users enter a description around a known ingredient, e.g. "Bio
-	# pšeničná mouka hladká". Match whole taxonomy words inside that description,
+	# Some users enter a description around a known ingredient, e.g. Czech
+	# wheat flour wording. Match whole taxonomy words inside that description,
 	# but leave conjunctions to the caller so separate allergens can still split.
-	if ($ingredient_or_allergen !~ /\b(?:and|und|et|a|y|e|ja|og|en|no|not|none|without|free|sans|aucun|aucune|kein|keine|ohne|bez|žádný|žádná|žádné)\b/i) {
+	if ($ingredient_or_allergen !~ /\b(?:and|und|et|a|y|e|ja|og|en|no|not|none|without|free|sans|aucun|aucune|kein|keine|ohne|bez|\x{17E}\x{E1}dn[\x{FD}\x{E1}\x{E9}])\b/i) {
 		my @words = $ingredient_or_allergen =~ /([\p{L}\p{N}-]+)/g;
 		for (my $phrase_length = scalar(@words) - 1; $phrase_length > 0; $phrase_length--) {
 			my %candidate_allergens;

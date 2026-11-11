@@ -423,7 +423,7 @@ is(canonicalize_allergens_taxonomy_tag("de", "Glutenhaltiges Getreide: Weizen (w
 	"en:gluten", "German legal allergen phrase maps despite its clarification");
 is(canonicalize_allergens_taxonomy_tag("de", "Milch (einschließlich Laktose)"),
 	"en:milk", "German milk phrase maps despite its clarification");
-is(canonicalize_allergens_taxonomy_tag("cs", "Bio pšeničná mouka hladká"),
+is(canonicalize_allergens_taxonomy_tag("cs", "Bio p\x{161}eni\x{10D}n\x{E1} mouka hladk\x{E1}"),
 	"en:gluten", "Czech wheat flour wording maps through the ingredient taxonomy");
 is(canonicalize_allergens_taxonomy_tag("de", "Milchschokoladenpulver"),
 	"de:Milchschokoladenpulver", "A longer unknown word is not matched by an allergen prefix");
