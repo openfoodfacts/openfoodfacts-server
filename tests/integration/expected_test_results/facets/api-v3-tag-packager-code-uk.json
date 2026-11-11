@@ -1,0 +1,52 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "packager_code" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Smethwick/West Midlands (United Kingdom)</p>"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Zaheer Ahmed (T/A Ahmed Brothers Halal Poultry Products)"
+            },
+            "topics" : [
+               "emb_codes"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packager_code"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "uk-1000-ec",
+      "tagtype" : "emb_codes"
+   },
+   "tagid" : "uk-1000-ec",
+   "tagtype" : "emb_codes",
+   "warnings" : []
+}

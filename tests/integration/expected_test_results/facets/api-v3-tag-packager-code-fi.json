@@ -1,0 +1,54 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "packager_code" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Teollisuustie 10, 32440 Alastaro (Finland)</p>",
+                     "source_text" : "OpenStreetMap",
+                     "source_url" : "https://www.openstreetmap.org/?mlat=60.9390969&mlon=22.8623155#map=16/60.9390969/22.8623155"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Palvimestarit MM Oy"
+            },
+            "topics" : [
+               "emb_codes"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packager_code"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "fi-006-2-ec",
+      "tagtype" : "emb_codes"
+   },
+   "tagid" : "fi-006-2-ec",
+   "tagtype" : "emb_codes",
+   "warnings" : []
+}

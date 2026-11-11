@@ -3898,7 +3898,6 @@ sub display_tag_page ($request_ref) {
 			}
 		}
 
-		my @markers = ();
 		if ($tagtype eq 'emb_codes') {
 
 			my $city_code = get_city_code($tagid);
@@ -3914,198 +3913,13 @@ sub display_tag_page ($request_ref) {
 					. separator_before_colon($lc) . ": "
 					. display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
 			}
-
-			$log->debug("checking if the canon_tagid is a packager code") if $log->is_debug();
-			if (exists $packager_codes{$canon_tagid}) {
-				$log->debug("packager code found for the canon_tagid", {cc => $packager_codes{$canon_tagid}{cc}})
-					if $log->is_debug();
-
-				# Generate a map if we have coordinates
-				my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
-				if ((defined $lat) and (defined $lng)) {
-					my @geo = ($lat + 0.0, $lng + 0.0);
-					push @markers, \@geo;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'at') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Österreich)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{full_address}</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'cy') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Cyprus)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'cz') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Czech)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'dk') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Denmark)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'es') {
-					# Razón Social;Provincia/Localidad
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{razon_social}<br>
-$packager_codes{$canon_tagid}{provincia_localidad}
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'fi') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Finland)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}<br>
-$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}<br>
-SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_tagid}{section}">Source</a>
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'hr') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{city} $packager_codes{$canon_tagid}{postalcode} (Croatia/Hrvatska)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'hu') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Hungary)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'ie') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Ireland)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'it') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address}, $packager_codes{$canon_tagid}{region} (Italy)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'lu') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Luxembourg)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'si') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Slovenija)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'uk') {
-
-					my $district = '';
-					my $local_authority = '';
-					if ($packager_codes{$canon_tagid}{district} =~ /\w/) {
-						$district = "District: $packager_codes{$canon_tagid}{district}<br>";
-					}
-					if ($packager_codes{$canon_tagid}{local_authority} =~ /\w/) {
-						$local_authority = "Local authority: $packager_codes{$canon_tagid}{local_authority}<br>";
-					}
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$district
-$local_authority
-</p>
-HTML
-						;
-					# FSA ratings
-					if (exists $packager_codes{$canon_tagid}{fsa_rating_business_name}) {
-						my $logo = '';
-						my $img = "images/countries/uk/ratings/large/72ppi/"
-							. lc($packager_codes{$canon_tagid}{fsa_rating_key}) . ".jpg";
-						if (-e "$www_root/$img") {
-							$logo = <<HTML
-<img src="/$img" alt="Rating">
-HTML
-								;
-						}
-						$description .= <<HTML
-<div>
-<a href="https://ratings.food.gov.uk/">Food Hygiene Rating</a> from the Food Standards Agency (FSA):
-<p>
-Business name: $packager_codes{$canon_tagid}{fsa_rating_business_name}<br>
-Business type: $packager_codes{$canon_tagid}{fsa_rating_business_type}<br>
-Address: $packager_codes{$canon_tagid}{fsa_rating_address}<br>
-Local authority: $packager_codes{$canon_tagid}{fsa_rating_local_authority}<br>
-Rating: $packager_codes{$canon_tagid}{fsa_rating_value}<br>
-Rating date: $packager_codes{$canon_tagid}{fsa_rating_date}<br>
-</p>
-$logo
-</div>
-HTML
-							;
-					}
-				}
-			}
 		}
 
 		my $map_html;
-		if (((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
+		if ((scalar @wikidata_objects) > 0) {
 			my $map_template_data_ref = {
 				wikidata => \@wikidata_objects,
-				pointers => \@markers
+				pointers => []
 			};
 			process_template('web/pages/tags_map/map_of_tags.tt.html', $map_template_data_ref, \$map_html, $request_ref)
 				|| ($map_html .= 'template error: ' . $tt->error());
@@ -4282,7 +4096,7 @@ HTML
 				my $tag_ref = {};    # Object to store the knowledge panels
 				my $panels_created
 					= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref,
-					$tagtype, $canon_tagid, $request_ref);
+					$tagtype, $canon_tagid // $new_tagid, $request_ref);
 				if ($panels_created) {
 					$tag_template_data_ref->{tag_panels}
 						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
