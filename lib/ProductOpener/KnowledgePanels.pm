@@ -111,10 +111,6 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	$knowledge_panels_options_ref->{activate_knowledge_panel_nova_unknown}
 		= normalize_boolean(single_param("activate_knowledge_panel_nova_unknown"));
 
-	# Activate the additive facts knowledge panel (additive tag pages) only when specified
-	$knowledge_panels_options_ref->{activate_knowledge_panel_additive_facts}
-		= normalize_boolean(single_param("activate_knowledge_panel_additive_facts"));
-
 	# Activate product history knowledge panel only when specified (it is shown only to logged in users)
 	$knowledge_panels_options_ref->{activate_knowledge_panel_product_history}
 		= normalize_boolean(single_param("activate_knowledge_panel_product_history"));

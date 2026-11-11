@@ -88,7 +88,7 @@ Needed for some country specific panels like the Environmental-Score.
 Defines how some panels should be created (or not created)
 
 - deactivate_[panel_id] : do not create a default panel -- currently unimplemented
-- activate_[panel_id] : create an on demand panel -- currently only for physical_activities, related_categories, nova_unknown and additive_facts panels
+- activate_[panel_id] : create an on demand panel -- currently only for physical_activities, related_categories and nova_unknown panels
 
 =head4 tag type $tagtype
 
@@ -140,7 +140,7 @@ sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref,
 			{}, $tag_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		push(@panels, "nova_unknown");
 	}
-	elsif (($tagtype eq "additives") and $options_ref->{activate_knowledge_panel_additive_facts}) {
+	elsif ($tagtype eq "additives") {
 		my $created
 			= create_additive_facts_panel($tag_ref, $target_lc, $target_cc, $options_ref, $canon_tagid, $request_ref);
 		push(@panels, $created) if $created;

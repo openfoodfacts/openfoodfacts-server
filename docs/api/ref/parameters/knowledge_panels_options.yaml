@@ -40,14 +40,6 @@ components:
       schema:
         type: boolean
         example: true
-    ActivateKnowledgePanelAdditiveFacts:
-      name: activate_knowledge_panel_additive_facts
-      in: query
-      description: 'If true, the knowledge panels of an additive will include the additive facts panel: description, functions and their purpose, vegan and vegetarian status, and a link to its EFSA evaluation'
-      required: false
-      schema:
-        type: boolean
-        example: true
     ActivateKnowledgePanelProductHistory:
       name: activate_knowledge_panel_product_history
       in: query

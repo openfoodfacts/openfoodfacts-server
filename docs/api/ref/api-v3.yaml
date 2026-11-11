@@ -584,7 +584,6 @@ paths:
       - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
       - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelRelatedCategories"
       - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelNovaUnknown"
-      - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelAdditiveFacts"
       - schema:
           type: string
           example: categories
@@ -650,7 +649,7 @@ paths:
         - Unknown NOVA group (on request): why the NOVA group of some products is unknown
 
         Additives:
-        - Additive facts (on request): description, functions and their purpose, vegan and vegetarian status, and a link to its EFSA evaluation
+        - Additive facts: description, functions and their purpose, vegan and vegetarian status, and a link to its EFSA evaluation
   /api/v3/product_revert:
     parameters: []
     post:

@@ -462,21 +462,15 @@ my $tests_ref = [
 		},
 		expected_type => 'html',    # the redirect itself is html
 	},
-	# additive facts knowledge panel, on request only
+	# additive facts knowledge panel
 	{
 		test_case => 'api-v3-tag-additive-e322-additive-facts-panel',
 		method => 'GET',
-		path => '/api/v3/tag/additives/e322?activate_knowledge_panel_additive_facts=1',
+		path => '/api/v3/tag/additives/e322',
 		expected_status_code => 200,
 	},
 	{
 		test_case => 'api-v3-tag-additive-e250-additive-facts-panel',
-		method => 'GET',
-		path => '/api/v3/tag/additives/e250?activate_knowledge_panel_additive_facts=1',
-		expected_status_code => 200,
-	},
-	{
-		test_case => 'api-v3-tag-additive-e250-no-additive-facts-panel-by-default',
 		method => 'GET',
 		path => '/api/v3/tag/additives/e250',
 		expected_status_code => 200,
@@ -484,43 +478,32 @@ my $tests_ref = [
 	{
 		test_case => 'api-v3-tag-additive-e330-additive-facts-panel',
 		method => 'GET',
-		path => '/api/v3/tag/additives/e330?activate_knowledge_panel_additive_facts=1',
+		path => '/api/v3/tag/additives/e330',
 		expected_status_code => 200,
 	},
 	{
 		test_case => 'api-v3-tag-additive-e100-additive-facts-panel-fr',
 		method => 'GET',
-		path => '/api/v3/tag/additives/e100?activate_knowledge_panel_additive_facts=1&lc=fr',
+		path => '/api/v3/tag/additives/e100?lc=fr',
 		expected_status_code => 200,
 	},
 	{
 		test_case => 'api-v3-tag-additive-e120-additive-facts-panel',
 		method => 'GET',
-		path => '/api/v3/tag/additives/e120?activate_knowledge_panel_additive_facts=1',
+		path => '/api/v3/tag/additives/e120',
 		expected_status_code => 200,
 	},
 	{
 		test_case => 'api-v3-tag-additive-unknown-no-additive-facts-panel',
 		method => 'GET',
-		path => '/api/v3/tag/additives/e99999?activate_knowledge_panel_additive_facts=1',
+		path => '/api/v3/tag/additives/e99999',
 		expected_status_code => 200,
-	},
-	# additive tag page: the facts in the panel are not repeated in the legacy description
-	{
-		test_case => 'additive-e250-page-legacy-description-by-default',
-		method => 'GET',
-		path => '/facets/additives/E250%20-%20Sodium%20nitrite',
-		expected_status_code => 200,
-		expected_type => 'none',
-		response_content_must_match =>
-			'(?s)^(?=.*<b>Functions</b>)(?=.*Sodium nitrite is the inorganic compound)(?=.*<b>EFSA evaluation</b>)(?=.*class="exposure_table")',
-		response_content_must_not_match => 'panel_additive_facts',
 	},
 	# the panel (what the additive is) comes before the legacy risk block
 	{
 		test_case => 'additive-e250-page-additive-facts-panel-shown-once',
 		method => 'GET',
-		path => '/facets/additives/E250%20-%20Sodium%20nitrite?activate_knowledge_panel_additive_facts=1',
+		path => '/facets/additives/E250%20-%20Sodium%20nitrite',
 		expected_status_code => 200,
 		expected_type => 'none',
 		response_content_must_match =>
@@ -532,7 +515,7 @@ my $tests_ref = [
 	{
 		test_case => 'additive-e100-page-additive-facts-panel-wikipedia-link-without-abstract',
 		method => 'GET',
-		path => '/facets/additives/E100%20-%20Curcumin?activate_knowledge_panel_additive_facts=1',
+		path => '/facets/additives/E100%20-%20Curcumin',
 		expected_status_code => 200,
 		expected_type => 'none',
 		response_content_must_match =>
@@ -546,7 +529,7 @@ my $tests_ref = [
 		test_case => 'additive-e100-page-additive-facts-panel-curated-description-fr',
 		method => 'GET',
 		subdomain => 'fr',
-		path => '/facets/additifs/E100%20-%20Curcumine?activate_knowledge_panel_additive_facts=1',
+		path => '/facets/additifs/E100%20-%20Curcumine',
 		expected_status_code => 200,
 		expected_type => 'none',
 		response_content_must_match =>

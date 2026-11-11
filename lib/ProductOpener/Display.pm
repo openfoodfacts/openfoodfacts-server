@@ -3261,7 +3261,7 @@ sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_ta
 
 	# Fields shown in the additive facts knowledge panel are not repeated here
 	my %fields_in_panel = ();
-	if (($tagtype eq "additives") and $knowledge_panels_options_ref->{activate_knowledge_panel_additive_facts}) {
+	if ($tagtype eq "additives") {
 		%fields_in_panel = (additives_classes => 1, efsa_evaluation => 1);
 		# the panel shows the Wikipedia abstract only when there is no curated description
 		$fields_in_panel{wikipedia} = 1
@@ -3874,9 +3874,6 @@ sub display_tag_page ($request_ref) {
 
 	if (defined $tagtype) {
 
-		# also read by generate_description_from_display_tag_options()
-		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
-
 		# check if there is a template to display additional fields from the taxonomy
 		# the template is set in the Config.pm file
 		# This feature was coded before the introduction of knowledge panels
@@ -4294,6 +4291,7 @@ HTML
 
 				# Display knowledge panels for the tag, if any
 
+				initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 				my $tag_ref = {};    # Object to store the knowledge panels
 				my $panels_created
 					= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref,
@@ -4302,9 +4300,7 @@ HTML
 					$tag_template_data_ref->{tag_panels}
 						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
 					# panel before the legacy risk block
-					if (($tagtype eq "additives")
-						and $knowledge_panels_options_ref->{activate_knowledge_panel_additive_facts})
-					{
+					if ($tagtype eq "additives") {
 						$tag_template_data_ref->{tag_panels_first} = 1;
 					}
 				}
