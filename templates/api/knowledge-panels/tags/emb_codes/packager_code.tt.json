@@ -14,11 +14,10 @@
                 "html": `<p>[% panel.address | html %][% IF panel.country %] ([% display_taxonomy_tag_name('countries', panel.country) %])[% END %]</p>
 [%- IF panel.siret %]
 <p>SIRET[% sep %]: [% panel.siret | html %]</p>
-[%- END %]`,
-                [% IF panel.lat.defined %]
-                "source_text": "OpenStreetMap",
-                "source_url": "https://www.openstreetmap.org/?mlat=[% panel.lat %]&mlon=[% panel.lng %]#map=16/[% panel.lat %]/[% panel.lng %]",
-                [% END %]
+[%- END %]
+[%- IF panel.lat.defined %]
+<p><a href="https://www.openstreetmap.org/?mlat=[% panel.lat %]&amp;mlon=[% panel.lng %]#map=16/[% panel.lat %]/[% panel.lng %]">OpenStreetMap</a></p>
+[%- END %]`
             }
         },
     ]
