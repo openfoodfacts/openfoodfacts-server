@@ -4,7 +4,7 @@
         "emb_codes"
     ],
     "title_element": {
-        "title": "[% edq(panel.name) %]",
+        "title": `[% panel.name %]`,
     },
     "expanded": true,
     "elements": [

@@ -410,6 +410,31 @@ my $tests_ref = [
 		path => '/api/v3/tag/emb_codes/uk-1000-ec',
 		expected_status_code => 200,
 	},
+	# names with a backtick, a line break or a backslash, and a code with empty coordinates
+	{
+		test_case => 'api-v3-tag-packager-code-backtick',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/de-by-10357-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-line-break',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/ie-1888-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-backslash',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/se-6668-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-empty-coordinates',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fr-42-205-007-ec',
+		expected_status_code => 200,
+	},
 	{
 		test_case => 'api-v3-tag-packager-code-unknown',
 		method => 'GET',

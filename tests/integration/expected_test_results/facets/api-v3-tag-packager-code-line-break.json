@@ -1,0 +1,52 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "packager_code" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Baile Ghainín Beag, Ballydavid, Dingle, Co Kerry, V92 XHC9 (Ireland)</p>\n<p><a href=\"https://www.openstreetmap.org/?mlat=52.1407781&amp;mlon=-10.2687161#map=16/52.1407781/-10.2687161\">OpenStreetMap</a></p>"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Legal name: Dingle Farmhouse Products Ltd Trading name: Dingle Farm"
+            },
+            "topics" : [
+               "emb_codes"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packager_code"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "ie-1888-ec",
+      "tagtype" : "emb_codes"
+   },
+   "tagid" : "ie-1888-ec",
+   "tagtype" : "emb_codes",
+   "warnings" : []
+}

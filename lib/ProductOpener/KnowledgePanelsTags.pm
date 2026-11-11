@@ -59,6 +59,7 @@ use ProductOpener::RequestStats qw/set_request_stats_time_start set_request_stat
 use ProductOpener::Lang qw/lang_in_other_lc/;
 
 use Encode;
+use Scalar::Util qw(looks_like_number);
 use Data::DeepAccess qw(deep_get deep_exists);
 
 =head2 create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref, $tagtype, $canon_tagid)
@@ -323,7 +324,12 @@ sub create_packager_code_panel ($tag_ref, $target_lc, $target_cc, $options_ref, 
 	my $data_ref = $packager_codes{$packager_code} or return;
 
 	my $join_fields = sub ($fields) {
-		return join(" ", grep {defined $_ and /\S/} @$data_ref{split(/ /, $fields)});
+		my $value = join(" ", grep {defined $_ and /\S/} @$data_ref{split(/ /, $fields)});
+		# backticks delimit strings in panel templates, and the title must be a single line
+		$value =~ tr/`/'/;
+		$value =~ s/\s+/ /g;
+		$value =~ s/^ | $//g;
+		return $value;
 	};
 	my ($name_field, @address_parts) = @{$packager_code_fields{$data_ref->{cc}} // ["name", "address"]};
 	my $name = $join_fields->($name_field);
@@ -337,7 +343,8 @@ sub create_packager_code_panel ($tag_ref, $target_lc, $target_cc, $options_ref, 
 		country => cc_to_country($data_ref->{cc}),
 		siret => $data_ref->{siret},
 	};
-	if (defined $lat) {
+	# some packager codes have empty coordinates
+	if (looks_like_number($lat) and looks_like_number($lng)) {
 		$panel_data_ref->{lat} = $lat + 0.0;
 		$panel_data_ref->{lng} = $lng + 0.0;
 	}
