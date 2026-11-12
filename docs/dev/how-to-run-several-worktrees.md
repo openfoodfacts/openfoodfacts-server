@@ -377,6 +377,16 @@ also makes raw `docker compose` commands see the prefix.
   `PRODUCT_OPENER_DOMAIN`, `PRODUCT_OPENER_PORT` and `MINION_QUEUE` back to the
   shared defaults, so expectations such as the callback URL in
   `tests/integration/oidc_signin.t` keep matching.
+  Because those names are the same in every worktree, the test stacks must not
+  share a network with any other stack: they use their own default network,
+  `$PRODUCT_OPENER_NETWORK` + `_test` (`product-opener_test`, or
+  `product-opener_w11790_test` with `make agent`). Otherwise Docker DNS would
+  answer `backend` and `world.openfoodfacts.localhost` with a dev stack's
+  containers too, at random, and tests would fail with 403 "Invalid
+  access_token" or read stale data. With `PO_AGENT_ID` set, the test frontend is
+  also not published on the host (`docker/test-no-host-port.yml`), since it would
+  otherwise try to bind `127.0.0.1:80` while another stack uses it. Tests reach
+  the frontend over the Compose network, so they do not need the host port.
 
 ## See also
 
