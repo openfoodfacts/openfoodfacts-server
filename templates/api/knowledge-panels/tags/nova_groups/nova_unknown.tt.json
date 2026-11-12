@@ -1,0 +1,27 @@
+{
+    "level" :"info",
+    "topics": [
+        "nova_groups"
+    ],
+    "title_element": {
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/nova-group-unknown.svg",
+        "title": "[% edq(lang('nova_unknown_why')) %]",
+    },
+    "expanded": true,
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+<p>[% lang("nova_classification_how") %]</p>
+<ul>
+<li>[% lang("nova_group_missing_category") %]</li>
+<li>[% lang("nova_group_missing_ingredients") %]</li>
+<li>[% lang("nova_group_too_many_unknown_ingredients") %]</li>
+</ul>
+<p>&rarr; <a href="/nova">[% lang("nova_classification_learn_more") %]</a></p>
+`
+            }
+        },
+    ]
+}
