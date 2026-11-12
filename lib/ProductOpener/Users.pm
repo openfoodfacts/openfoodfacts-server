@@ -1615,7 +1615,7 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 
 	remove_user_from_org($orgid, $user_id, $groups_ref);
 
-	# Reset the 'org' field of the user, if the user was actually 
+	# Reset the 'org' field of the user, if the user was actually
 	# removed from the organization and wasn't simply pending
 	my $user_ref = retrieve_user_preferences($user_id);
 	return if not defined $user_ref;
@@ -1624,7 +1624,7 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 		delete $user_ref->{org_id};
 		store_user_preferences($user_ref);
 	}
-	
+
 	return;
 }
 
