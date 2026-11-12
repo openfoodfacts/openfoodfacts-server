@@ -50,19 +50,26 @@ BEGIN {
 
 		&load_csv_or_excel_file
 
-		&build_fields_columns_names_for_lang
 		&init_fields_columns_names_for_lang
 		&match_column_name_to_field
 		&init_columns_fields_match
 		&normalize_column_name
 
 		&generate_import_export_columns_groups_for_select2
+		&get_selectable_import_fields
+		&is_import_field_allowed
+		&create_off_columns_to_input_columns_match
 
 		&convert_file
 
 		&export_and_import_to_public_database
 
 		&import_products_categories_from_public_database_task
+
+		$GOOGLE_DRIVE_IMPORT_MAX_IMAGES
+		$GOOGLE_DRIVE_DOWNLOAD_RETRY_DELAY
+		&start_google_drive_photos_import
+		&import_photos_from_google_drive_folder
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -72,7 +79,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created ensure_dir_created_or_die/;
-use ProductOpener::Store qw/get_string_id_for_lang retrieve store store_config retrieve_config/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/%cc_nutrient_table %nutrients_tables/;
@@ -81,12 +88,16 @@ use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Display qw/$nutrient_table/;
 use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Import
-	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
+	qw/$IMPORT_MAX_PACKAGING_COMPONENTS download_image import_csv_file import_products_categories_from_public_database/;
 use ProductOpener::ImportConvert qw/clean_fields/;
 use ProductOpener::Minion qw/get_minion write_minion_log/;
+use ProductOpener::ProductImageUpload qw/import_product_image_file/;
+use ProductOpener::Config2;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Orgs qw/update_export_date/;
 use ProductOpener::Images qw/$valid_image_types_regexp/;
+use ProductOpener::GoogleDrive
+	qw/parse_google_drive_folder_url list_google_drive_folder_images get_google_drive_file_download_url/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -94,6 +105,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
 use Time::Local;
+use File::Temp qw/tempdir/;
 use Data::Dumper;
 use Text::CSV();
 
@@ -298,6 +310,9 @@ sub create_off_columns_to_input_columns_match ($default_values_ref, $input_heade
 
 	my $col = 0;
 
+	# Fields that this import may target
+	my $selectable_fields_ref = get_selectable_import_fields();
+
 	# Some fields like image_other_url may be present multiple times,
 	# in which case suffix them with .2 , .3 etc.
 	my %seen_fields = ();
@@ -316,6 +331,17 @@ sub create_off_columns_to_input_columns_match ($default_values_ref, $input_heade
 		elsif ((defined $columns_fields_ref->{$columnid}) and (defined $columns_fields_ref->{$columnid}{field})) {
 			$field = $columns_fields_ref->{$columnid}{field};
 			$column = $columnid;
+		}
+
+		# The server decides which fields an import may target: ignore the columns
+		# that are mapped to a field that is not selectable, so that a mapping can
+		# not turn an imported cell into a local image path, an owner, or a source
+		# field of another organization.
+		if ((defined $field) and (not is_import_field_allowed($field, $selectable_fields_ref))) {
+			$log->warn("create_off_columns_to_input_columns_match - ignoring non selectable field",
+				{column => $column, field => $field})
+				if $log->is_warn();
+			$field = undef;
 		}
 
 		if (defined $field) {
@@ -804,6 +830,11 @@ Populates global $fields_columns_names_for_lang for the specified language.
 The function creates a hash of all the possible localized column names
 that we can automatically recognize, and maps them to the corresponding field in OFF.
 
+Nutrient column names are not included in the hash: they are matched by match_nutrient_column_name()
+from the nutrient synonyms and the possible suffixes computed by init_nutrients_columns_names_for_lang()
+
+The column names are computed the first time they are needed for a language.
+
 =head3 Arguments
 
 =head4 $l - required
@@ -819,45 +850,8 @@ Reference to the column names hash.
 sub init_fields_columns_names_for_lang ($l) {
 
 	if (defined $fields_columns_names_for_lang{$l}) {
-		return;
+		return $fields_columns_names_for_lang{$l};
 	}
-
-	my $path = "$BASE_DIRS{CACHE_BUILD}/pro/fields_column_names/$l";
-
-	$fields_columns_names_for_lang{$l} = retrieve_config($path);
-
-	if (not defined $fields_columns_names_for_lang{$l}) {
-		die("Could not load $path.json, run scripts/build_pro_platform_fields_columns_names.pl");
-	}
-
-	return $fields_columns_names_for_lang{$l};
-}
-
-=head2 build_fields_columns_names_for_lang ( $l )
-
-Creates global $fields_columns_names_for_lang for the specified language.
-
-The function creates a hash of all the possible localized column names
-that we can automatically recognize, and maps them to the corresponding field in OFF.
-
-The result is stored in the global variable %fields_columns_names_for_lang,
-and saved to a file.
-
-This function can be called through the script scripts/build_pro_platform_fields_column_names.pl
-
-=head3 Arguments
-
-=head4 $l - required
-
-Language code (string)
-
-=head3 Return value
-
-Reference to the column names hash.
-
-=cut
-
-sub build_fields_columns_names_for_lang ($l) {
 
 	$fields_columns_names_for_lang{$l} = {};
 
@@ -872,10 +866,6 @@ sub build_fields_columns_names_for_lang ($l) {
 			= {field => "energy-kcal_100g_value_unit", value_unit => "value_in_kcal"};
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = {field => "energy-kj_100g_value_unit", value_unit => "value_in_kj"};
-
-	my $path = "$BASE_DIRS{CACHE_BUILD}/pro/fields_column_names/$l";
-
-	store_config($path, $fields_columns_names_for_lang{$l});
 
 	return $fields_columns_names_for_lang{$l};
 }
@@ -940,12 +930,31 @@ sub init_packaging_columns_names_for_lang ($l) {
 	return;
 }
 
-# Create column names for all nutrients in a specific language
-# It populates %fields_columns_names_for_lang
+# Nutrient column names are made of a nutrient synonym followed by a suffix:
+# prepared or not, per 100g or per serving, value or unit, unit of measure
+# e.g. "proteines preparees pour 100g en g"
+# Storing all the combinations for all nutrients would result in millions of column names
+# for some languages (more than 200 MB for French), so we store the nutrient synonyms
+# and the suffixes separately, and match_nutrient_column_name() splits the column names.
+
+my %nutrients_columns_names_for_lang = ();
+
+sub get_column_name_part_id (@parts) {
+	return get_string_id_for_lang("no_language", join(" ", map {$_ // ""} @parts));
+}
+
+# Create the nutrient synonyms and the suffixes of nutrient column names for a specific language
+# It populates %nutrients_columns_names_for_lang
 
 sub init_nutrients_columns_names_for_lang ($l) {
 
-	$nutrient_table = $cc_nutrient_table{off_default};
+	# synonym id -> list of [nutrient id, order]
+	# with_unit synonyms are used with suffixes that contain a unit of measure:
+	# for energy kj/kcal, we remove the unit from the synonym
+	my %synonyms = (without_unit => {}, with_unit => {});
+
+	# The order is used to select a match when a column name can be split in different ways
+	my $synonym_order = 0;
 
 	# Go through all the nutrients in the nutrients taxonomy
 	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
@@ -953,193 +962,101 @@ sub init_nutrients_columns_names_for_lang ($l) {
 		my $nid = $nutrient_tagid;
 		$nid =~ s/^zz://g;
 
-		my @synonyms = get_taxonomy_tag_synonyms($l, "nutrients", $nutrient_tagid);
-
-		# Synonyms for each nutrient
-
-		foreach my $synonym (@synonyms) {
+		foreach my $synonym (get_taxonomy_tag_synonyms($l, "nutrients", $nutrient_tagid)) {
 
 			$synonym = normalize_column_name($synonym);
+			$synonym_order++;
 
-			# Product as sold / unprepared or prepared
-			# "" is unprepared
+			push @{$synonyms{without_unit}{get_column_name_part_id($synonym)}}, [$nid, $synonym_order];
 
-			foreach my $prepared ("", "_prepared") {
+			my $synonym2 = $synonym;
+			if ($nid eq "energy-kcal") {
+				$synonym2 =~ s/kcal//;
+			}
+			elsif ($nid eq "energy-kj") {
+				$synonym2 =~ s/kj//;
+			}
+			push @{$synonyms{with_unit}{get_column_name_part_id($synonym2)}}, [$nid, $synonym_order];
+		}
+	}
 
-				# Synonyms for unprepared and prepared
+	# suffix id -> list of suffixes (prepared, per, value_unit or unit, order)
+	# value_prefix and unit_prefix suffixes are used when the column name starts with "value" or "unit"
+	my %suffixes = (without_unit => {}, with_unit => {}, value_prefix => {}, unit_prefix => {});
+	my $suffix_order = 0;
 
-				if (not defined $prepared_synonyms{$prepared}{$l}) {
-					# We need at least an empty entry for the unprepared ""
-					if ($prepared eq "") {
-						$prepared_synonyms{$prepared}{$l} = [""];
-					}
-					else {
-						$prepared_synonyms{$prepared}{$l} = [];
-					}
+	my $add_suffix = sub ($type, $parts_ref, $suffix_ref) {
+		push @{$suffixes{$type}{get_column_name_part_id(@{$parts_ref})}}, {%{$suffix_ref}, order => ++$suffix_order};
+		return;
+	};
+
+	# Product as sold / unprepared or prepared
+	# "" is unprepared
+
+	foreach my $prepared ("", "_prepared") {
+
+		# Synonyms for unprepared and prepared
+		# We need at least an empty entry for the unprepared ""
+		my @prepared_synonyms = @{$prepared_synonyms{$prepared}{$l} // ($prepared eq "" ? [""] : [])};
+
+		foreach my $prepared_synonym (@prepared_synonyms) {
+
+			# Nutrients per 100g and per serving
+
+			foreach my $per ("100g", "serving") {
+
+				# per 100 g / 100 ml -> per 100g
+				my $nutrition_data_per = $Lang{"nutrition_data_per_" . $per}{$l};
+				my $nutrition_data_per_normalized = $nutrition_data_per // "";
+				# remove the 100ml from "per 100g / 100ml";
+				$nutrition_data_per_normalized =~ s/100 g/100g/i;
+				$nutrition_data_per_normalized =~ s/100 ml/100ml/i;
+				$nutrition_data_per_normalized =~ s/100ml//i;
+
+				# Synonyms of per 100g and per serving
+				# Use the English synonyms if we don't have language specific strings
+				foreach my $per_synonym (@{$per_synonyms{$per}{$l} // $per_synonyms{$per}{en}},
+					$nutrition_data_per, $nutrition_data_per_normalized)
+				{
+					my %suffix = (prepared => $prepared, per => $per);
+
+					# field name without "unit" or "quantity"
+					$add_suffix->("without_unit", [$prepared_synonym, $per_synonym], \%suffix);
+
+					# field name with "quantity" or "unit" at beginning or end
+					$add_suffix->(
+						"without_unit",
+						[$prepared_synonym, $per_synonym, $Lang{value}{$l}],
+						{%suffix, value_unit => "value"}
+					);
+					$add_suffix->("value_prefix", [$prepared_synonym, $per_synonym], {%suffix, value_unit => "value"});
+					$add_suffix->(
+						"without_unit",
+						[$prepared_synonym, $per_synonym, $Lang{unit}{$l}],
+						{%suffix, value_unit => "unit"}
+					);
+					$add_suffix->("unit_prefix", [$prepared_synonym, $per_synonym], {%suffix, value_unit => "unit"});
 				}
+			}
 
-				foreach my $prepared_synonym (@{$prepared_synonyms{$prepared}{$l}}) {
+			# Field names with actual units. e.g. Energy kcal, carbohydrates g, calcium mg
 
-					# Nutrients per 100g and per serving
+			foreach my $unit (sort keys %units_synonyms) {
 
-					foreach my $per ("100g", "serving") {
+				$add_suffix->(
+					"with_unit",
+					[$prepared_synonym, $unit],
+					{prepared => $prepared, per => "100g", unit => $unit}
+				);
 
-						# Synonyms of per 100g and per serving
-
-						if (not defined $per_synonyms{$per}{$l}) {
-							# Use the English synonyms if we don't have language specific strings
-							$per_synonyms{$per}{$l} = $per_synonyms{$per}{"en"};
-						}
-
-						foreach my $per_synonym (
-							@{$per_synonyms{$per}{$l}},
-							$Lang{"nutrition_data_per_" . $per}{$l},
-							"nutrition_data_per_" . $per
-							)
-						{
-
-							if ($per_synonym =~ /^nutrition_data_per/) {
-								# per 100 g / 100 ml -> per 100g
-								$per_synonym = $Lang{"nutrition_data_per_" . $per}{$l};
-								# remove the 100ml from "per 100g / 100ml";
-								$per_synonym =~ s/100 g/100g/i;
-								$per_synonym =~ s/100 ml/100ml/i;
-								$per_synonym =~ s/100ml//i;
-							}
-
-							# field name without "unit" or "quantity"
-							$fields_columns_names_for_lang{$l}{
-								get_string_id_for_lang("no_language",
-									$synonym . " " . $prepared_synonym . " " . $per_synonym)
-							} = {field => $nid . $prepared . "_" . $per . "_value_unit",};
-							if ($nid eq "energy-kcal") {
-								$fields_columns_names_for_lang{$l}{
-									get_string_id_for_lang("no_language",
-										$synonym . " " . $prepared_synonym . " " . $per_synonym)
-								}{value_unit} = "value_in_kcal";
-							}
-							elsif ($nid eq "energy-kj") {
-								$fields_columns_names_for_lang{$l}{
-									get_string_id_for_lang("no_language",
-										$synonym . " " . $prepared_synonym . " " . $per_synonym)
-								}{value_unit} = "value_in_kj";
-							}
-
-							# field name with "quantity" or "unit" at beginning or end
-
-							$fields_columns_names_for_lang{$l}{
-								get_string_id_for_lang("no_language",
-									$synonym . " " . $prepared_synonym . " " . $per_synonym . " " . $Lang{value}{$l})
-								}
-								= {
-								field => $nid . $prepared . "_" . $per . "_value_unit",
-								value_unit => "value",
-								};
-
-							$fields_columns_names_for_lang{$l}{
-								get_string_id_for_lang("no_language",
-									$Lang{value}{$l} . " " . $synonym . " " . $prepared_synonym . " " . $per_synonym)
-								}
-								= {
-								field => $nid . $prepared . "_" . $per . "_value_unit",
-								value_unit => "value",
-								};
-
-							$fields_columns_names_for_lang{$l}{
-								get_string_id_for_lang("no_language",
-									$synonym . " " . $prepared_synonym . " " . $per_synonym . " " . $Lang{unit}{$l})
-								}
-								= {
-								field => $nid . $prepared . "_" . $per . "_value_unit",
-								value_unit => "unit",
-								};
-
-							$fields_columns_names_for_lang{$l}{
-								get_string_id_for_lang("no_language",
-									$Lang{unit}{$l} . " " . $synonym . " " . $prepared_synonym . " " . $per_synonym)
-								}
-								= {
-								field => $nid . $prepared . "_" . $per . "_value_unit",
-								value_unit => "unit",
-								};
-						}
-					}
-
-					# Field names with actual units. e.g. Energy kcal, carbohydrates g, calcium mg
-
-					my @units = keys %units_synonyms;
-
-					# For energy kj/kcal, remove the unit from the synonym as we will add units to the synonyms
-					my $synonym2 = $synonym;
-
-					if ($nid eq "energy-kcal") {
-						@units = qw(kcal cal calories);
-						$synonym2 =~ s/kcal//;
-					}
-					elsif ($nid eq "energy-kj") {
-						@units = qw(kj);
-						$synonym2 =~ s/kj//;
-					}
-					elsif ($nid =~ /^energy/) {
-						# Give priority to energy-kj and energy-kcal
-						@units = ();
-					}
-
-					foreach my $unit (@units) {
-						$fields_columns_names_for_lang{$l}
-							{get_string_id_for_lang("no_language", $synonym2 . " " . $prepared_synonym . " " . $unit)}
-							= {
-							field => $nid . $prepared . "_100g_value_unit",
-							value_unit => "value_in_" . $units_synonyms{$unit},
-							};
-
-						foreach my $per ("100g", "serving") {
-							if (defined $per_synonyms{$per}{$l}) {
-								foreach my $per_synonym (@{$per_synonyms{$per}{$l}}) {
-									$fields_columns_names_for_lang{$l}{
-										get_string_id_for_lang("no_language",
-											$synonym2 . " " . $prepared_synonym . " " . $unit . " " . $per_synonym)
-										}
-										= {
-										field => $nid . $prepared . "_" . $per . "_value_unit",
-										value_unit => "value_in_" . $units_synonyms{$unit},
-										};
-									$fields_columns_names_for_lang{$l}{
-										get_string_id_for_lang("no_language",
-											$synonym2 . " " . $prepared_synonym . " " . $per_synonym . " " . $unit)
-										}
-										= {
-										field => $nid . $prepared . "_" . $per . "_value_unit",
-										value_unit => "value_in_" . $units_synonyms{$unit},
-										};
-									if (defined $in{$l}) {
-										$fields_columns_names_for_lang{$l}{
-											get_string_id_for_lang("no_language",
-													  $synonym2 . " "
-													. $prepared_synonym . " "
-													. $in{$l} . " "
-													. $unit . " "
-													. $per_synonym)
-											}
-											= {
-											field => $nid . $prepared . "_" . $per . "_value_unit",
-											value_unit => "value_in_" . $units_synonyms{$unit},
-											};
-										$fields_columns_names_for_lang{$l}{
-											get_string_id_for_lang("no_language",
-													  $synonym2 . " "
-													. $prepared_synonym . " "
-													. $per_synonym . " "
-													. $in{$l} . " "
-													. $unit)
-											}
-											= {
-											field => $nid . $prepared . "_" . $per . "_value_unit",
-											value_unit => "value_in_" . $units_synonyms{$unit},
-											};
-									}
-								}
-							}
+				foreach my $per ("100g", "serving") {
+					foreach my $per_synonym (@{$per_synonyms{$per}{$l} // $per_synonyms{$per}{en}}) {
+						my %suffix = (prepared => $prepared, per => $per, unit => $unit);
+						$add_suffix->("with_unit", [$prepared_synonym, $unit, $per_synonym], \%suffix);
+						$add_suffix->("with_unit", [$prepared_synonym, $per_synonym, $unit], \%suffix);
+						if (defined $in{$l}) {
+							$add_suffix->("with_unit", [$prepared_synonym, $in{$l}, $unit, $per_synonym], \%suffix);
+							$add_suffix->("with_unit", [$prepared_synonym, $per_synonym, $in{$l}, $unit], \%suffix);
 						}
 					}
 				}
@@ -1147,7 +1064,128 @@ sub init_nutrients_columns_names_for_lang ($l) {
 		}
 	}
 
+	$nutrients_columns_names_for_lang{$l} = {
+		synonyms => \%synonyms,
+		suffixes => \%suffixes,
+		value_prefix => get_column_name_part_id($Lang{value}{$l}) . "-",
+		unit_prefix => get_column_name_part_id($Lang{unit}{$l}) . "-",
+	};
+
 	return;
+}
+
+sub nutrient_column_unit_is_allowed ($nid, $unit) {
+
+	if ($nid eq "energy-kcal") {
+		return ($unit =~ /^(kcal|cal|calories)$/);
+	}
+	elsif ($nid eq "energy-kj") {
+		return ($unit eq "kj");
+	}
+	elsif ($nid =~ /^energy/) {
+		# Give priority to energy-kj and energy-kcal
+		return 0;
+	}
+	return 1;
+}
+
+=head2 match_nutrient_column_name ( $l, $column_id )
+
+Match a column id to a nutrient field, by splitting it into a nutrient synonym and a suffix.
+
+If the column id can be split in different ways, the match with the last synonym
+(in the order of the nutrients taxonomy) and then the last suffix is selected.
+
+=head3 Return value
+
+Reference to a hash with the field and value_unit, or undef if the column id does not match a nutrient.
+
+=cut
+
+sub match_nutrient_column_name ($l, $column_id) {
+
+	my $columns_names_ref = $nutrients_columns_names_for_lang{$l} // return;
+
+	my $match_ref;
+	my @match_order = (-1, -1);
+
+	my $match_split = sub ($id, $synonyms_type, $suffixes_type) {
+
+		# Try all the possible splits at a dash, the synonym and the suffix can be empty
+		my @positions = (-1);
+		my $position = -1;
+		while (($position = index($id, "-", $position + 1)) >= 0) {
+			push @positions, $position;
+		}
+		push @positions, length($id);
+
+		foreach my $position (@positions) {
+			my $synonym_id = $position < 0 ? "" : substr($id, 0, $position);
+			my $suffix_id = $position < length($id) ? substr($id, $position + 1) : "";
+			my $synonyms_ref = $columns_names_ref->{synonyms}{$synonyms_type}{$synonym_id} // next;
+			my $suffixes_ref = $columns_names_ref->{suffixes}{$suffixes_type}{$suffix_id} // next;
+
+			foreach my $synonym_ref (@{$synonyms_ref}) {
+				my ($nid, $synonym_order) = @{$synonym_ref};
+				foreach my $suffix_ref (@{$suffixes_ref}) {
+					next
+						if defined $suffix_ref->{unit}
+						and not nutrient_column_unit_is_allowed($nid, $suffix_ref->{unit});
+					if (   ($synonym_order > $match_order[0])
+						or (($synonym_order == $match_order[0]) and ($suffix_ref->{order} > $match_order[1])))
+					{
+						@match_order = ($synonym_order, $suffix_ref->{order});
+						$match_ref = [$nid, $suffix_ref];
+					}
+				}
+			}
+		}
+		return;
+	};
+
+	$match_split->($column_id, "without_unit", "without_unit");
+	$match_split->($column_id, "with_unit", "with_unit");
+	foreach my $prefix_type ("value_prefix", "unit_prefix") {
+		my $prefix = $columns_names_ref->{$prefix_type};
+		if (index($column_id, $prefix) == 0) {
+			$match_split->(substr($column_id, length($prefix)), "without_unit", $prefix_type);
+		}
+	}
+
+	return if not defined $match_ref;
+
+	my ($nid, $suffix_ref) = @{$match_ref};
+	my $result_ref = {field => $nid . $suffix_ref->{prepared} . "_" . $suffix_ref->{per} . "_value_unit"};
+	if (defined $suffix_ref->{unit}) {
+		$result_ref->{value_unit} = "value_in_" . $units_synonyms{$suffix_ref->{unit}};
+	}
+	elsif (defined $suffix_ref->{value_unit}) {
+		$result_ref->{value_unit} = $suffix_ref->{value_unit};
+	}
+	elsif ($nid eq "energy-kcal") {
+		$result_ref->{value_unit} = "value_in_kcal";
+	}
+	elsif ($nid eq "energy-kj") {
+		$result_ref->{value_unit} = "value_in_kj";
+	}
+	return $result_ref;
+}
+
+=head2 get_column_id_field ( $l, $column_id )
+
+Match a column id to a field in a specific language.
+
+=head3 Return value
+
+Reference to a hash with the field (and optionally value_unit, lc, tag), or undef if there is no match.
+
+=cut
+
+sub get_column_id_field ($l, $column_id) {
+
+	init_fields_columns_names_for_lang($l);
+
+	return $fields_columns_names_for_lang{$l}{$column_id} // match_nutrient_column_name($l, $column_id);
 }
 
 sub init_other_fields_columns_names_for_lang ($l) {
@@ -1327,40 +1365,31 @@ sub init_other_fields_columns_names_for_lang ($l) {
 
 sub match_column_name_to_field ($l, $column_id) {
 
-	my $results_ref = {};
+	my $results_ref = get_column_id_field($l, $column_id) // get_column_id_field("en", $column_id);
 
-	if (defined $fields_columns_names_for_lang{$l}{$column_id}) {
-		$results_ref = $fields_columns_names_for_lang{$l}{$column_id};
-	}
-	elsif (defined $fields_columns_names_for_lang{en}{$column_id}) {
-		$results_ref = $fields_columns_names_for_lang{en}{$column_id};
+	if (defined $results_ref) {
+		return $results_ref;
 	}
 	# Try removing ending numbers (e.g. for columns like image_other_url_2)
 	elsif ($column_id =~ /-(\d+)$/) {
-		$column_id = $`;
-		if (defined $fields_columns_names_for_lang{$l}{$column_id}) {
-			$results_ref = $fields_columns_names_for_lang{$l}{$column_id};
-		}
-		elsif (defined $fields_columns_names_for_lang{en}{$column_id}) {
-			$results_ref = $fields_columns_names_for_lang{en}{$column_id};
-		}
+		my $column_id_without_number = $`;
+		$results_ref = get_column_id_field($l, $column_id_without_number)
+			// get_column_id_field("en", $column_id_without_number);
 	}
 	# try to see if there is a trailing language code
 	# e.g. ingredients-text-fr
 	elsif ($column_id =~ /-([a-z]{2})$/) {
-		$column_id = $`;
+		my $column_id_without_lc = $`;
 		my $field_lc = $1;
-		if (defined $fields_columns_names_for_lang{$l}{$column_id}) {
-			$results_ref = dclone($fields_columns_names_for_lang{$l}{$column_id});
-			$results_ref->{lc} = $field_lc;
-		}
-		elsif (defined $fields_columns_names_for_lang{en}{$column_id}) {
-			$results_ref = dclone($fields_columns_names_for_lang{en}{$column_id});
+		$results_ref = get_column_id_field($l, $column_id_without_lc)
+			// get_column_id_field("en", $column_id_without_lc);
+		if (defined $results_ref) {
+			$results_ref = dclone($results_ref);
 			$results_ref->{lc} = $field_lc;
 		}
 	}
 
-	return $results_ref;
+	return $results_ref // {};
 }
 
 # Go through all rows to extract examples, compute stats etc.
@@ -1585,11 +1614,181 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 	return $columns_fields_ref;
 }
 
+# Fields that the mapping interface does not offer, but that our own conversion
+# tools emit (e.g. the GS1 converter maps partyName to org_name) and that
+# import_csv_file understands. They are part of the server side allowlist for
+# that reason, and for that reason only.
+
+my @additional_import_fields = ('org_name');
+
+# Fields that are only selectable by moderators
+
+my @pro_moderator_only_import_fields = ('sources_fields_specific');
+
+=head2 get_import_export_fields_groups ()
+
+Return the list of import/export field groups the current user may pick fields
+from.
+
+Same as C<$options{import_export_fields_groups}>, except that it does not modify
+that global (the moderator-only group is added to the copy that is returned).
+
+=cut
+
+sub get_import_export_fields_groups () {
+
+	my @fields_groups = @{$options{import_export_fields_groups}};
+
+	# Special fields only selectable by moderators
+	if (defined $User{pro_moderator_owner}) {
+		push @fields_groups, ["other", [@pro_moderator_only_import_fields]];
+	}
+
+	return \@fields_groups;
+}
+
+=head2 get_selectable_import_fields ()
+
+Return a hash of the fields an import may target for the current user.
+
+This is the server side counterpart of the field dropdown rendered by
+generate_import_export_columns_groups_for_select2(): a caller supplied column
+mapping may only name fields that are part of this set, which is what keeps an
+import from writing into an arbitrary field (a local image path, the owner of
+another organization, another organization's source fields, ...).
+
+=head3 Return value
+
+Reference to a hash that maps an allowed field name to 1.
+
+=cut
+
+sub get_selectable_import_fields () {
+
+	my %fields = map {$_ => 1} @additional_import_fields;
+
+	# Nutrient table used to generate the nutrition fields of the dropdown
+	my $nutrient_table_id = $nutrient_table // $cc_nutrient_table{off_default};
+
+	foreach my $group_ref (@{get_import_export_fields_groups()}) {
+
+		my $group_id = $group_ref->[0];
+
+		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
+
+			# Nutrients offered by the dropdown
+			foreach my $nutrient (@{$nutrients_tables{$nutrient_table_id} // []}) {
+				next if $nutrient =~ /^\#/;
+				my $nid = $nutrient;
+				$nid =~ s/^(-|!)+//g;
+				$nid =~ s/-$//g;
+				foreach my $per ("100g", "serving") {
+					$fields{$nid . "_" . $per . "_value_unit"} = 1;
+					$fields{$nid . "_prepared_" . $per . "_value_unit"} = 1;
+				}
+			}
+
+			# The automatic column matching proposes every nutrient of the taxonomy,
+			# which can be wider than the nutrient table
+			foreach my $nutrient_tagid (get_all_taxonomy_entries("nutrients")) {
+				(my $nid = $nutrient_tagid) =~ s/^zz://g;
+				next if $nid =~ /\#/;
+				foreach my $per ("100g", "serving") {
+					$fields{$nid . "_" . $per . "_value_unit"} = 1;
+					$fields{$nid . "_prepared_" . $per . "_value_unit"} = 1;
+				}
+			}
+		}
+		elsif ($group_id eq "packaging") {
+
+			foreach
+				my $field ("packaging_text", "recycling_instructions_to_recycle", "recycling_instructions_to_discard")
+			{
+				$fields{$field} = 1;
+			}
+
+			for (my $i = 1; $i <= $IMPORT_MAX_PACKAGING_COMPONENTS; $i++) {
+				foreach my $property ("number_of_units", "shape", "material", "recycling", "weight_specified",
+					"quantity_per_unit")
+				{
+					$fields{"packaging_${i}_${property}"} = 1;
+				}
+			}
+		}
+		else {
+			foreach my $field (@{$group_ref->[1] // []}) {
+
+				# Image columns are offered with a language suffix (image_front_url_fr),
+				# never without one: those are matched by the pattern in
+				# is_import_field_allowed().
+				if (    ($group_id eq "images")
+					and ($field =~ /^image_($valid_image_types_regexp)_url$/))
+				{
+					foreach my $l (keys %language_codes) {
+						next if $l !~ /^[a-z]{2}$/;
+						$fields{$field . "_" . $l} = 1;
+					}
+					next;
+				}
+
+				$fields{$field} = 1;
+			}
+		}
+	}
+
+	return \%fields;
+}
+
+=head2 is_import_field_allowed ( $field, $selectable_fields_ref )
+
+Check that a field name supplied by an importer (or by a conversion fixture) may
+be used as the target of an import.
+
+=head3 Arguments
+
+=head4 $field - required
+
+Field name to check.
+
+=head4 $selectable_fields_ref - undef or result of get_selectable_import_fields()
+
+Passing the set avoids rebuilding it for every column; pass undef to compute it inside the function.
+
+=cut
+
+sub is_import_field_allowed ($field, $selectable_fields_ref) {
+
+	return 0 if not defined $field;
+	return 0 if $field eq '';
+
+	# Control fields that must never be accepted: they would let an import read a
+	# local file into a product image, take ownership of another owner's products,
+	# or write another organization's source fields.
+	return 0 if $field =~ /^sources_fields:/;
+	return 0 if $field =~ /^image_.*_file$/;
+	return 0 if $field =~ /^image_(front|ingredients|nutrition|packaging|other)$/;
+	return 0 if $field eq 'owner';
+	return 0 if $field eq 'imports';
+	return 0 if $field eq 'no_nutrition_data';
+
+	# Language specific image columns are offered with a language suffix
+	return 1 if $field =~ /^image_($valid_image_types_regexp)_url_[a-z]{2}$/;
+
+	# Fields that are only selectable by moderators
+	if ((grep {$_ eq $field} @pro_moderator_only_import_fields) and (defined $User{pro_moderator_owner})) {
+		return 1;
+	}
+
+	$selectable_fields_ref //= get_selectable_import_fields();
+
+	return $selectable_fields_ref->{$field} ? 1 : 0;
+}
+
 # Generate an array of options for select2
 
 sub generate_import_export_columns_groups_for_select2 ($lcs_ref) {    # array of language codes
 
-	my $fields_groups_ref = $options{import_export_fields_groups};
+	my $fields_groups_ref = get_import_export_fields_groups();
 
 	# Sample select2 groups and fields definition format from Config.pm:
 	my $sample_fields_groups_ref = [
@@ -1638,11 +1837,7 @@ sub generate_import_export_columns_groups_for_select2 ($lcs_ref) {    # array of
 		],
 	];
 
-	# Special fields only selectable by moderators
-
-	if (defined $User{pro_moderator_owner}) {
-		push @{$fields_groups_ref}, ["other", ["sources_fields_specific"]];
-	}
+	# Note: the moderator-only fields are added by get_import_export_fields_groups()
 
 	# Create an options array for select2
 
@@ -1870,6 +2065,14 @@ sub export_and_import_to_public_database ($args_ref) {
 	$args_ref->{comment} = "Import from producers platform";
 	$args_ref->{include_obsolete_products} = 1;
 	$args_ref->{include_images_paths} = 1;    # Export file paths to images
+
+	# The CSV file we are going to import is produced by our own exporter, so it
+	# may carry fields that a caller supplied column mapping is not allowed to
+	# name: local image paths inside the images directory, and source fields that
+	# belong to another organization than the exporting one.
+	$args_ref->{allow_local_image_paths} = 1;
+	$args_ref->{allow_any_source_fields} = 1;
+
 	$args_ref->{exported_t} = $started_t;
 
 	if (defined $Org_id) {
@@ -1939,6 +2142,305 @@ sub export_and_import_to_public_database ($args_ref) {
 	};
 }
 
+=head2 $GOOGLE_DRIVE_IMPORT_MAX_IMAGES
+
+Maximum number of images imported from a Google Drive folder at once. Images after this number
+(in name order) are not imported.
+
+=cut
+
+$GOOGLE_DRIVE_IMPORT_MAX_IMAGES = 1000;
+
+=head2 get_running_google_drive_photos_import_job_id ( $owner_id )
+
+Return the id of a Google Drive photos import of the owner that is queued or running, or undef
+
+=cut
+
+sub get_running_google_drive_photos_import_job_id ($owner_id) {
+
+	my $jobs
+		= get_minion()->jobs({tasks => ['import_photos_from_google_drive_folder'], states => ['inactive', 'active']});
+
+	while (my $info_ref = $jobs->next) {
+		if (($info_ref->{args}[0]{owner_id} // '') eq ($owner_id // '')) {
+			return $info_ref->{id};
+		}
+	}
+	return;
+}
+
+=head2 start_google_drive_photos_import ( $args_ref )
+
+Check the URL of a Google Drive folder, and queue a minion job to import its photos.
+
+=head3 Arguments
+
+A hash ref with folder_url, user_id, org_id, owner_id, lc, country, add_field_values (see import_product_image_file())
+
+=head3 Return value
+
+A hash ref with the job_id, or with an error id: google_drive_invalid_folder_url, google_drive_no_api_key
+or google_drive_import_already_running (with the job_id of the running import)
+
+=cut
+
+sub start_google_drive_photos_import ($args_ref) {
+
+	my ($folder_id, $resource_key) = parse_google_drive_folder_url($args_ref->{folder_url});
+
+	if (not defined $folder_id) {
+		return {error => "google_drive_invalid_folder_url"};
+	}
+
+	my $api_key = $ProductOpener::Config2::google_drive_api_key;
+	if ((not defined $api_key) or ($api_key eq '')) {
+		return {error => "google_drive_no_api_key"};
+	}
+
+	# One import at a time per owner: two imports would compete to add the same photos to the same products
+	my $running_job_id = get_running_google_drive_photos_import_job_id($args_ref->{owner_id});
+	if (defined $running_job_id) {
+		return {error => "google_drive_import_already_running", job_id => $running_job_id};
+	}
+
+	my $job_args_ref = {%$args_ref, folder_id => $folder_id, resource_key => $resource_key};
+
+	my $job_id
+		= get_minion()
+		->enqueue(
+		import_photos_from_google_drive_folder => [$job_args_ref] => {queue => $server_options{minion_local_queue}});
+
+	return {job_id => $job_id};
+}
+
+=head2 $GOOGLE_DRIVE_DOWNLOAD_RETRY_DELAY
+
+Seconds to wait before retrying the download of an image after a temporary error (HTTP 429 or 5xx)
+
+=cut
+
+$GOOGLE_DRIVE_DOWNLOAD_RETRY_DELAY = 5;
+
+# Download an image listed in a Google Drive folder to $file_path.
+# Temporary errors (rate limiting, server errors) are retried once.
+# Returns undef on success, or an error message
+
+sub download_google_drive_image ($image_ref, $file_path) {
+
+	my $url = get_google_drive_file_download_url($image_ref);
+
+	# download_image() checks that the URL and the redirects it follows point to globally routable addresses
+	my $response = download_image($url);
+
+	if ((not $response->is_success) and (($response->code == 429) or ($response->code >= 500))) {
+		$log->info("retrying Google Drive image download", {file => $image_ref->{path}, status => $response->code})
+			if $log->is_info();
+		sleep($GOOGLE_DRIVE_DOWNLOAD_RETRY_DELAY);
+		$response = download_image($url);
+	}
+
+	if (not $response->is_success) {
+		return "could not download the image: " . $response->status_line;
+	}
+	if (($response->header('Content-Type') // '') =~ m{^text/html}i) {
+		return "could not download the image: Google Drive returned a web page";
+	}
+
+	my $out;
+	if (not open($out, ">:raw", $file_path)) {
+		$log->error("could not write the downloaded image", {file_path => $file_path, error => $!})
+			if $log->is_error();
+		return "could not save the image";
+	}
+	print $out $response->content;
+	close($out);
+
+	return;
+}
+
+# Return how the code of an image was found, from the response of import_product_image_file()
+sub get_code_source ($file_ref) {
+	return "file_name" if defined $file_ref->{code_from_file_name};
+	return "scan" if defined $file_ref->{scanned_code};
+	return "previous_photo" if defined $file_ref->{using_previous_code};
+	return;
+}
+
+=head2 import_photos_from_google_drive_folder ( $args_ref, $progress_callback = undef )
+
+Import all the photos of a public Google Drive folder (and of its subfolders) to the products of the owner.
+
+The photos are processed in the order of their names, as they would be when uploaded on the import photos page:
+a photo that does not have a barcode in its file name or in the image is assigned to the product of the previous photo.
+
+=head3 Arguments
+
+=head4 $args_ref
+
+A hash ref with folder_id, resource_key, user_id, org_id, owner_id, lc, country and add_field_values
+
+=head4 $progress_callback
+
+Optional function called after each image with the results hash ref
+
+=head3 Return value
+
+A hash ref with:
+
+=over
+
+=item status - "done" or "error"
+
+=item error, error_message - if the folder could not be listed
+
+=item images_in_folder - number of images in the folder
+
+=item skipped_files - number of files that are not images (e.g. videos)
+
+=item max_images - set if the folder has more images than the number of images we import at once
+
+=item total, processed - number of images to process, and processed
+
+=item results - array of hashes with the file name (path), code, code_source (file_name, scan, previous_photo), product_url, thumbnail_url, error and info (e.g. image already uploaded)
+
+=back
+
+=cut
+
+sub import_photos_from_google_drive_folder ($args_ref, $progress_callback = undef) {
+
+	local $User_id = $args_ref->{user_id};
+	local $Org_id = $args_ref->{org_id};
+	local $Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
+	local $lc = $args_ref->{lc} // $lc;
+
+	my $results_ref = {status => "listing", results => [], processed => 0};
+
+	my $listing_ref = list_google_drive_folder_images($args_ref->{folder_id}, $args_ref->{resource_key});
+
+	if (defined $listing_ref->{error}) {
+		$results_ref->{status} = "error";
+		$results_ref->{error} = $listing_ref->{error};
+		$results_ref->{error_message} = $listing_ref->{error_message};
+		return $results_ref;
+	}
+
+	my @images = @{$listing_ref->{images}};
+
+	$results_ref->{images_in_folder} = scalar @images;
+	$results_ref->{skipped_files} = $listing_ref->{skipped};
+
+	if (scalar @images > $GOOGLE_DRIVE_IMPORT_MAX_IMAGES) {
+		$results_ref->{max_images} = $GOOGLE_DRIVE_IMPORT_MAX_IMAGES;
+		splice(@images, $GOOGLE_DRIVE_IMPORT_MAX_IMAGES);
+	}
+
+	$results_ref->{total} = scalar @images;
+	$results_ref->{status} = "importing";
+	defined $progress_callback and $progress_callback->($results_ref);
+
+	ensure_dir_created_or_die($BASE_DIRS{PRODUCTS_IMAGES});
+	ensure_dir_created_or_die($BASE_DIRS{CACHE_TMP});
+	# Each import downloads to its own temporary directory, so that two imports never share a file
+	my $tmp_dir = tempdir("google_drive_import_XXXXXXXX", DIR => $BASE_DIRS{CACHE_TMP}, CLEANUP => 1);
+
+	my $previous_code;
+	my $previous_imgid;
+	my %field_values_added_for_codes = ();
+	my $i = 0;
+
+	foreach my $image_ref (@images) {
+
+		$i++;
+		my $result_ref = {file => $image_ref->{path}};
+
+		# Keep the extension of the file name (e.g. .HEIC) so that the barcode is scanned
+		my ($extension) = $image_ref->{name} =~ /\.(\w+)$/;
+		my $file_path = "$tmp_dir/$i." . lc($extension // "jpg");
+
+		my $download_error = download_google_drive_image($image_ref, $file_path);
+
+		if (defined $download_error) {
+			$result_ref->{error} = $download_error;
+		}
+		else {
+			my $response_ref = eval {
+				import_product_image_file(
+					{
+						user_id => $User_id,
+						org_id => $Org_id,
+						owner_id => $Owner_id,
+						moderator => $args_ref->{moderator},
+						lc => $lc,
+						country => $args_ref->{country},
+						filename => $image_ref->{name},
+						file_path => $file_path,
+						previous_code => $previous_code,
+						previous_imgid => $previous_imgid,
+						add_field_values => $args_ref->{add_field_values},
+						field_values_added_for_codes => \%field_values_added_for_codes,
+					}
+				);
+			};
+			my $import_error = $@;
+
+			unlink($file_path);
+
+			if (not defined $response_ref) {
+				# Details of the exception (with our file paths) are logged, not shown to the producer
+				$log->error("could not import image from Google Drive",
+					{file => $image_ref->{path}, error => $import_error})
+					if $log->is_error();
+				$result_ref->{error} = "could not process the image";
+			}
+			else {
+				my $file_ref = $response_ref->{files}[0] // {};
+
+				$result_ref->{code} = $file_ref->{code} // $response_ref->{code};
+				$result_ref->{code_source} = get_code_source($file_ref);
+				$result_ref->{product_url} = $file_ref->{url};
+				$result_ref->{thumbnail_url} = $file_ref->{thumbnailUrl};
+				if (defined $file_ref->{info}) {
+					$result_ref->{info} = $file_ref->{info};
+				}
+				elsif (($response_ref->{status} // "") ne "status ok") {
+					$result_ref->{error} = $file_ref->{error} // $response_ref->{error} // $response_ref->{status};
+				}
+
+				# Same as the import photos page: the code of the next photos is the last scanned code,
+				# and the image id of the photo with the barcode is kept to select the next photo as the front image
+				if (defined $file_ref->{scanned_code}) {
+					$previous_code = $file_ref->{scanned_code};
+					$previous_imgid = (defined $response_ref->{image}) ? $response_ref->{image}{imgid} : "";
+				}
+				else {
+					$previous_imgid = "";
+				}
+			}
+		}
+
+		# If a photo could not be downloaded or processed, we do not know if it had a barcode:
+		# the next photos without a barcode would be added to the wrong product, so we do not
+		# add them to the previous product (they are reported as photos without a barcode)
+		if ((defined $download_error) or (not defined $result_ref->{code})) {
+			$previous_code = undef;
+			$previous_imgid = undef;
+		}
+
+		$log->info("imported image from Google Drive", {i => $i, total => scalar @images, result => $result_ref})
+			if $log->is_info();
+
+		push @{$results_ref->{results}}, $result_ref;
+		$results_ref->{processed} = $i;
+		defined $progress_callback and $progress_callback->($results_ref);
+	}
+
+	$results_ref->{status} = "done";
+
+	return $results_ref;
+}
+
 =head1 Minion tasks
 
 Minion tasks that can be added to the queue by standalone scripts or the web site,
@@ -1977,6 +2479,36 @@ sub import_csv_file_task ($job, $args_ref) {
 
 	write_minion_log("import_csv_file_task - job: $job_id done");
 	$job->finish("done");
+
+	return;
+}
+
+sub import_photos_from_google_drive_folder_task ($job, $args_ref) {
+
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	write_minion_log("import_photos_from_google_drive_folder_task - job: $job_id started - folder: "
+			. $args_ref->{folder_id}
+			. " - owner: "
+			. ($args_ref->{owner_id} // ''));
+
+	my $results_ref = import_photos_from_google_drive_folder(
+		$args_ref,
+		sub ($progress_ref) {
+			# The import photos page displays the progress and the results stored in the notes of the job
+			$job->note(import => $progress_ref);
+		}
+	);
+
+	write_minion_log("import_photos_from_google_drive_folder_task - job: $job_id done - status: "
+			. $results_ref->{status}
+			. " - processed: "
+			. $results_ref->{processed});
+
+	$job->note(import => $results_ref);
+	$job->finish($results_ref);
 
 	return;
 }

@@ -4306,6 +4306,11 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Please Donate"
 
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_provenance_line"
+msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
+msgstr "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
+
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Producers platform moderation"
@@ -5462,9 +5467,14 @@ msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
 msgstr ""
 
+msgctxt "attribute_forest_footprint_not_computed_title"
+msgid "Forest Footprint not computed"
+msgstr ""
+
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
 msgstr ""
+
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
 msgstr ""
@@ -6529,7 +6539,7 @@ msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
 msgstr "The ingredients of the product must be specified in order to determine the NOVA group."
 
-msgctxt "nova_group_too_many_unknown_ingredient"
+msgctxt "nova_group_too_many_unknown_ingredients"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
 msgstr "We could not recognize some of the ingredients and determine the NOVA group."
 
@@ -6544,6 +6554,83 @@ msgstr "Learn more about the Nutri-Score"
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
 msgstr "Learn more about the Green-Score"
+
+# Environmental Cost (Ecobalyse)
+msgctxt "environmental_cost_title"
+msgid "Environmental Cost"
+msgstr "Environmental Cost"
+
+msgctxt "environmental_cost_description"
+msgid "Total environmental impact score from Ecobalyse"
+msgstr "Total environmental impact score from Ecobalyse"
+
+msgctxt "environmental_cost_stale"
+msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
+msgstr "This environmental cost was computed before the latest changes to the product and may not be up to date."
+
+msgctxt "ecs_breakdown"
+msgid "ECS Breakdown"
+msgstr "ECS Breakdown"
+
+msgctxt "environmental_cost_stage"
+msgid "Stage"
+msgstr "Stage"
+
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
+msgstr "Points for 100 g"
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr "Points for 100 ml"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr "Points for the product ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr "{points} points for the product ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr "{points} points for 100 g"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr "{points} points for 100 ml"
+
+msgctxt "environmental_cost_ingredients"
+msgid "Ingredients"
+msgstr "Ingredients"
+
+msgctxt "environmental_cost_packaging"
+msgid "Packaging"
+msgstr "Packaging"
+
+msgctxt "environmental_cost_transport"
+msgid "Transport"
+msgstr "Transport"
+
+msgctxt "environmental_cost_processing"
+msgid "Processing"
+msgstr "Processing"
+
+msgctxt "environmental_cost_distribution"
+msgid "Distribution"
+msgstr "Distribution"
+
+msgctxt "environmental_cost_preparation"
+msgid "Preparation"
+msgstr "Preparation"
+
+msgctxt "environmental_cost_total"
+msgid "Total"
+msgstr "Total"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6586,6 +6673,10 @@ msgstr "Nutri-Score, Green-Score and food processing level (NOVA)"
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
 msgstr "Could you add the ingredients list?"
+
+msgctxt "actions_add_nutrition_facts"
+msgid "Could you add the nutrition facts?"
+msgstr "Could you add the nutrition facts?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
@@ -7843,6 +7934,10 @@ msgctxt "per_100g"
 msgid "for 100 g"
 msgstr "for 100 g"
 
+msgctxt "points"
+msgid "points"
+msgstr "points"
+
 msgctxt "per_100ml"
 msgid "for 100 ml"
 msgstr "for 100 ml"
@@ -8196,3 +8291,115 @@ msgstr "Chicken and egg production, even when raised in France, contributes sign
 msgctxt "forest_footprint_2026_labels_description"
 msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
 msgstr "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
+
+msgctxt "related_categories"
+msgid "Related categories"
+msgstr "Related categories"
+
+msgctxt "nova_unknown_why"
+msgid "Why the NOVA group of some products is unknown"
+msgstr "Why the NOVA group of some products is unknown"
+
+msgctxt "product_history_revision"
+msgid "Revision"
+msgstr "Revision"
+
+msgctxt "product_history_date"
+msgid "Date"
+msgstr "Date"
+
+msgctxt "product_history_contributor"
+msgid "Contributor"
+msgstr "Contributor"
+
+msgctxt "product_history_changes"
+msgid "Changes"
+msgstr "Changes"
+
+msgctxt "product_history_comment"
+msgid "Comment"
+msgstr "Comment"
+
+msgctxt "product_history_most_recent_changes"
+msgid "Only the most recent changes are shown."
+msgstr "Only the most recent changes are shown."
+
+msgctxt "product_history_see_full_history"
+msgid "See the full changes history"
+msgstr "See the full changes history"
+
+msgctxt "google_drive_import_title"
+msgid "Import photos from a Google Drive folder"
+msgstr "Import photos from a Google Drive folder"
+
+msgctxt "google_drive_import_description"
+msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+msgstr "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+
+msgctxt "google_drive_folder_url"
+msgid "Google Drive folder URL"
+msgstr "Google Drive folder URL"
+
+msgctxt "google_drive_import_button"
+msgid "Import the photos"
+msgstr "Import the photos"
+
+msgctxt "google_drive_invalid_folder_url"
+msgid "This is not the URL of a Google Drive folder."
+msgstr "This is not the URL of a Google Drive folder."
+
+msgctxt "google_drive_no_api_key"
+msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+msgstr "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+
+msgctxt "google_drive_folder_not_found"
+msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+msgstr "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+
+msgctxt "google_drive_folder_too_many_items"
+msgid "The Google Drive folder contains too many files."
+msgstr "The Google Drive folder contains too many files."
+
+msgctxt "google_drive_api_error"
+msgid "Google Drive returned an error."
+msgstr "Google Drive returned an error."
+
+msgctxt "google_drive_import_listing"
+msgid "Listing the photos of the folder..."
+msgstr "Listing the photos of the folder..."
+
+msgctxt "google_drive_import_photos_in_folder"
+msgid "Photos in the folder"
+msgstr "Photos in the folder"
+
+msgctxt "google_drive_import_skipped_files"
+msgid "Files that are not photos (e.g. videos), not imported"
+msgstr "Files that are not photos (e.g. videos), not imported"
+
+msgctxt "google_drive_import_max_images"
+msgid "The folder contains too many photos, only the first ones are imported"
+msgstr "The folder contains too many photos, only the first ones are imported"
+
+msgctxt "google_drive_import_photos_processed"
+msgid "Photos processed"
+msgstr "Photos processed"
+
+msgctxt "job_not_found"
+msgid "The photo import job could not be found."
+msgstr "The photo import job could not be found."
+
+msgctxt "job_failed"
+msgid "The photo import job failed."
+msgstr "The photo import job failed."
+
+msgctxt "post_required"
+msgid "This action requires a POST request."
+msgstr "This action requires a POST request."
+
+msgctxt "unknown_action"
+msgid "Unknown action."
+msgstr "Unknown action."
+
+msgctxt "google_drive_import_already_running"
+msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
+msgstr "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."

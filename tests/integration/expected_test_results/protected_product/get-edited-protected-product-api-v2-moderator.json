@@ -459,28 +459,29 @@
                {
                   "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                   "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
-                  "mass" : 62.5,
+                  "mass" : 156.25,
                   "name" : "apple"
                },
                {
                   "ecobalyse_name" : "Lait par défaut -2025-",
                   "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-                  "mass" : 18.75,
+                  "mass" : 46.875,
                   "name" : "milk"
                },
                {
                   "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
                   "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-                  "mass" : 9.375,
+                  "mass" : 23.4375,
                   "name" : "eggs"
                },
                {
                   "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 9.375,
+                  "mass" : 23.4375,
                   "name" : "palm oil"
                }
             ],
+            "ingredients_coverage_percent" : 100,
             "packaging" : [
                {
                   "category" : "",
@@ -488,7 +489,10 @@
                   "name" : "Soft cheeses - cat A, 250g | Packaging System, N0, All, Wooden box {FR} U",
                   "name_fr" : "Boîte en bois pour fromage à pâte molle - 250g"
                }
-            ]
+            ],
+            "reference_quantity" : 250,
+            "reference_quantity_source" : "product_quantity",
+            "reference_quantity_unit" : "g"
          },
          "ecobalyse_request" : {
             "data" : {
@@ -496,19 +500,19 @@
                "ingredients" : [
                   {
                      "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
-                     "mass" : 62.5
+                     "mass" : 156.25
                   },
                   {
                      "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-                     "mass" : 18.75
+                     "mass" : 46.875
                   },
                   {
                      "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-                     "mass" : 9.375
+                     "mass" : 23.4375
                   },
                   {
                      "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                     "mass" : 9.375
+                     "mass" : 23.4375
                   }
                ],
                "packaging" : [
@@ -792,6 +796,9 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
+         "en:ecobalyse-api-skipped",
+         "en:ecobalyse-ingredients-matched-between-90-and-100",
+         "en:ecobalyse-reference-quantity-from-product-quantity",
          "en:environmental-score-not-computed",
          "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-b",

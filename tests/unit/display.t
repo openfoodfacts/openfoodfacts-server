@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -486,6 +486,73 @@ foreach my $test_ref (@display_tests) {
 
 }
 
+# Test that the nutrition values are localized: they are stored in a language independent format
+# (e.g. 1.1 and 1300.366), so they must be displayed with the decimal and thousand separators of the
+# current language, and comparison percentages must use the percent and plus signs of the language.
+# Values are also rounded for display (as in the rest of the website), and values that are not 0
+# must not be displayed as a 0.
+# Also test the category stats column, and the energy value in kcal in the comparison column.
+
+my $product_localized_ref = {
+	nutrition_data => "on",
+	serving_size => "100g",
+	serving_quantity => 100,
+	nutrition_data_per => "100g",
+	product_type => "food",
+	code => "0000109165808",
+	id => "0000109165808",
+	categories => "",
+	categories_tags => [],
+	# category stats, displayed in a column
+	stats => 1,
+	values => {
+		energy => {mean => 1234.5678},
+		fat => {mean => 0.0502},
+	},
+	nutrition => {
+		aggregated_set => {
+			nutrients => {
+				energy => {unit => "kJ", value => 1890.5},
+				fat => {unit => "g", value => 12.34},
+				carbohydrates => {unit => "g", value => 14.0666666666667},
+				salt => {unit => "g", value => 0.0502},
+				sugars => {unit => "g", value => 0.0000718},
+			},
+			preparation => "as_sold",
+			per => "100g",
+		}
+	}
+};
+
+my $comparisons_localized_ref = [
+	{
+		name => "Aufstriche",
+		n => 1,
+		count => 100,
+		show => 1,
+		link => "/facets/categories/de:aufstriche",
+		id => "de:aufstriche",
+		nutrients => {
+			energy => {mean => 1500, mean_percent => 25.5},
+			fat => {mean => 10, mean_percent => -19},
+			carbohydrates => {mean => 14, mean_percent => 0.2},
+			salt => {mean => 0.6, mean_percent => 11},
+		},
+	}
+];
+
+$lc = 'de';
+
+my $nutrition_facts_panel_localized
+	= data_to_display_nutrition_table($product_localized_ref, $comparisons_localized_ref, {styles => ''});
+
+compare_to_expected_results(
+	$nutrition_facts_panel_localized, "$expected_result_dir/nutrition-facts-table-localized.json",
+	$update_expected_results, {id => 'nutrition-facts-table-localized'}
+);
+
+$lc = 'en';
+
 # test the generation of the comparison column of products with the new nutrition schema (version 1003)
 my @comparison_tests = (
 	[
@@ -548,6 +615,23 @@ foreach my $test_ref (@comparison_tests) {
 
 }
 
+# compare_product_nutrition_facts_to_categories ignores categories that are not taxonomized (#6853)
+my $comparisons_with_untaxonomized = compare_product_nutrition_facts_to_categories(
+	{
+		nutrition_data_per => "100g",
+		nutrition => {
+			aggregated_set => {
+				nutrients => {"fat" => {value => 10}},
+				preparation => "as_sold",
+				per => "100g",
+			}
+		},
+		categories_tags => ["en:vegan", "en:non-existent-category-12345"]
+	},
+	"en", "fr", 3
+);
+is(scalar @$comparisons_with_untaxonomized, 0, "untaxonomized categories are ignored for comparisons");
+
 is([ProductOpener::Display::get_search_field_title_and_details("additives_n")],
 	["Number of additives", "", "", "allowDecimals:false,\n"]);
 is([ProductOpener::Display::get_search_field_title_and_details("nova_group")],
@@ -572,5 +656,19 @@ is(
 		}
 	]
 ) or diag Dumper $tags_ref;
+
+# JSON facet requests must keep their requested taxonomy id. Canonical redirects
+# to display-name URLs can fail on staging and break API clients.
+my $json_facet_request_ref = {
+	tags => [{tagtype => "categories", tagid => "breakfast-cereals"}],
+	extension => "json",
+	api => "v0",
+};
+ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url($json_facet_request_ref);
+is($json_facet_request_ref->{redirect}, undef, "API facet requests are not redirected");
+
+my $html_facet_request_ref = {tags => [{tagtype => "categories", tagid => "breakfast-cereals"}]};
+ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url($html_facet_request_ref);
+isnt($html_facet_request_ref->{redirect}, undef, "HTML facet requests retain canonical redirects");
 
 done_testing();

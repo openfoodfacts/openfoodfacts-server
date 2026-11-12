@@ -48,14 +48,11 @@
                "name" : "red beet"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "en:appetizers",
-               "id" : "f755207c-ed56-4666-9b0e-4f2c515f7f18",
-               "name" : "Starters, Exotic products, 280g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-               "name_fr" : "Barquette en plastique (PET) pour entrées, produits exotiques - 280g - Proxy"
-            }
-         ]
+         "ingredients_coverage_percent" : 100,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -68,12 +65,6 @@
                {
                   "id" : "e8035fac-470a-5b89-bf84-5f158cabf65d",
                   "mass" : 30
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "f755207c-ed56-4666-9b0e-4f2c515f7f18"
                }
             ]
          },
@@ -174,6 +165,9 @@
       "en:nutrition-fruits-vegetables-legumes-from-category-en-parsnip-crisps",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
@@ -223,7 +217,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 0,
+            "negative_points_max" : 0,
             "positive_points" : 9,
+            "positive_points_max" : 0,
             "proteins" : 20,
             "proteins_points" : 5,
             "proteins_value" : 20,

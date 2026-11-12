@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Numbers - normalize numbers sent as strings in various formats
@@ -42,6 +44,8 @@ BEGIN {
 		&convert_string_to_number
 		$number_regexp
 		&round_to_max_decimal_places
+		$fraction_regexp
+		&convert_fraction_to_number
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -65,6 +69,41 @@ Regular expression to match something that looks like a number:
 # dot followed by digits,
 # or digits followed by a dot or a comma, optionnaly followed by 0 or more digits
 $number_regexp = '\.\d+|\d+(?:(?:\,|\.)\d+)?';
+
+=head2 $fraction_regexp
+
+Regular expression to match a fraction, with an optional whole number before it,
+as found in quantities of cooking recipes:
+½
+1½
+1 ½
+1/2
+1 1/2
+3⁄4 (with an Unicode fraction slash)
+
+=cut
+
+my %vulgar_fractions = (
+	"½" => 1 / 2,
+	"⅓" => 1 / 3,
+	"⅔" => 2 / 3,
+	"¼" => 1 / 4,
+	"¾" => 3 / 4,
+	"⅕" => 1 / 5,
+	"⅖" => 2 / 5,
+	"⅗" => 3 / 5,
+	"⅘" => 4 / 5,
+	"⅙" => 1 / 6,
+	"⅚" => 5 / 6,
+	"⅛" => 1 / 8,
+	"⅜" => 3 / 8,
+	"⅝" => 5 / 8,
+	"⅞" => 7 / 8,
+);
+
+my $vulgar_fractions_chars = join('', keys %vulgar_fractions);
+
+$fraction_regexp = '(?:\d+\s*)?(?:[' . $vulgar_fractions_chars . ']|(?<!\d)[1-9]\s*[\/\x{2044}]\s*(?:1[0-6]|[2-9]))';
 
 =head1 FUNCTIONS
 
@@ -184,6 +223,37 @@ sub round_to_max_decimal_places ($value, $max_decimal_places) {
 	}
 
 	return $return_value;
+}
+
+=head2 convert_fraction_to_number ($fraction)
+
+Convert a fraction matched by $fraction_regexp to a number: "1 1/2" -> 1.5, "¾" -> 0.75
+
+Return undef if $fraction is not a fraction of a quantity, or if it is not
+a proper fraction (the numerator is greater than or equal to the denominator, as in "3/2"),
+as such strings are more likely to be something else than a quantity.
+
+=cut
+
+sub convert_fraction_to_number ($fraction) {
+
+	return if not defined $fraction;
+
+	if ($fraction =~ /^\s*(?:(\d+)\s*)?(?:([$vulgar_fractions_chars])|(?<!\d)(\d+)\s*[\/\x{2044}]\s*(\d+))\s*$/) {
+		my ($whole, $vulgar_fraction, $numerator, $denominator) = ($1, $2, $3, $4);
+		my $value;
+		if (defined $vulgar_fraction) {
+			$value = $vulgar_fractions{$vulgar_fraction};
+		}
+		else {
+			return if $numerator >= $denominator;
+			$value = $numerator / $denominator;
+		}
+		$value += $whole if defined $whole;
+		return $value;
+	}
+
+	return;
 }
 
 1;

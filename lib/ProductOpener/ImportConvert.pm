@@ -73,6 +73,8 @@ BEGIN {
 
 		&load_csv_file
 
+		&download_file_to
+
 		&load_xml_file
 
 		&print_csv_file
@@ -1591,6 +1593,38 @@ sub load_xml_file ($file, $xml_rules_ref, $xml_fields_mapping_ref, $code) {
 	return 0;
 }
 
+=head2 download_file_to($url, $output_file)
+
+Download an url to a local file, with wget.
+
+The url comes from the data file of a supplier: it must be an http or https url, and wget is called
+without a shell, with the options before the url, so that no content of the data file can add an
+option to wget or a command to the line we run.
+
+Returns 1 if the file was downloaded, 0 otherwise.
+
+=cut
+
+sub download_file_to ($url, $output_file) {
+
+	if ((not defined $url) or ($url !~ m{^https?://}i)) {
+		$log->warn("not downloading a file from a url that is not http(s)", {url => $url, output_file => $output_file})
+			if $log->is_warn();
+		return 0;
+	}
+
+	# -- tells wget that the arguments after it are urls, even if one starts with a dash
+	my $status = system("wget", "-O", $output_file, "--", $url);
+
+	if ($status != 0) {
+		$log->warn("wget failed", {url => $url, output_file => $output_file, status => $status})
+			if $log->is_warn();
+		return 0;
+	}
+
+	return 1;
+}
+
 sub load_csv_file ($options_ref) {
 
 	my $file = $options_ref->{file};
@@ -1729,15 +1763,16 @@ sub load_csv_file ($options_ref) {
 						$file =~ s/[^A-Za-z0-9-_\.]/_/g;
 
 						# get big images from equadis
-						$csv_product_ref->{$source_field} =~ s/thumb=true&//;
+						my $url = $csv_product_ref->{$source_field} // "";
+						$url =~ s/thumb=true&//;
 
 						# do not download again images that we already have
 						# but try again if the size is 0
 
 						if ((!-e "$dir/$file") or ((-s "$dir/$file") < 10000)) {
 
-							# print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
-							system("wget \"" . $csv_product_ref->{$source_field} . "\" -O $dir/$file");
+							# print STDERR "downloading image: wget $url -O $dir/$file\n";
+							download_file_to($url, "$dir/$file");
 							sleep 2;    # there seems to be some limit as we received 403 Forbidden responses
 						}
 					}

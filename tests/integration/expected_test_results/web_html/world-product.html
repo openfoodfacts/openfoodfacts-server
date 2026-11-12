@@ -361,52 +361,74 @@
 
 								
 
+<!-- Open Food Facts Days 2026 start -->
 
-<!-- Donation banner TOP start -->
-<section id="donation-banner-top" style="position: relative;">
-  <donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
-  <div class="donation-banner__close" style="position: absolute; top: 0.3rem; right: 0.3rem; z-index: 2;">
-    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
+<section id="off-days-2026-banner" class="off-days-2026">
+  
+    
+  
+  <div class="off-days-2026__inner">
+    <div class="off-days-2026__title">
+      
+        <p class="off-days-2026__tagline">Focus on Research &amp; Community</p>
+        <h2><a href="//connect.openfoodfacts.org/event/open-food-facts-days-2026-36/register">Open Food Facts Days 2026</a> <img class="off-days-2026__logo" src="/images/logos/off-logo-icon-light.svg" alt="" width="48" height="48"></h2>
+      
+    </div>
+    <a class="off-days-2026__photo" href="//connect.openfoodfacts.org/event/open-food-facts-days-2026-36/register" tabindex="-1" aria-hidden="true">
+      <img src="/images/misc/donation-banners/off-days-2026-group-photo-crop.jpg" alt="" width="800" height="370" loading="lazy">
+    </a>
+    <div class="off-days-2026__card">
+      
+        <p>Fri 13th &ndash; Sat 14th November<br>Paris, France</p>
+        <a class="off-days-2026__button" href="//connect.openfoodfacts.org/event/open-food-facts-days-2026-36/register"><span class="material-icons" aria-hidden="true">edit</span>Register here</a>
+      
+    </div>
+    <button class="off-days-2026__close material-icons" type="button" aria-label="Close" onclick="closeOffDays2026Banner();">close</button>
   </div>
 </section>
 
+<style>
+  /* full width background like the other blocks of the page, content constrained like .row */
+  .off-days-2026 { background: #ffe5bf url("/images/misc/donation-banners/off-days-2026-background.svg") repeat-x center / auto 100%; }
+  .off-days-2026__inner { position: relative; display: flex; align-items: center; gap: 1.5rem; max-width: 1280px; margin: 0 auto; padding: 1rem 2.5rem 1rem 1.5rem; }
+  .off-days-2026__title { flex: 1 1 0; }
+  .off-days-2026__tagline { margin: 0; font-family: Georgia, serif; font-size: 1.4rem; color: #4a2511; }
+  .off-days-2026 h2 { display: flex; align-items: center; gap: 0.5rem; margin: 0; font-size: 2.2rem; font-weight: bold; line-height: 1.1; }
+  #main_container #off-days-2026-banner a { text-decoration: none; }
+  .off-days-2026 h2 a { color: #a34400; }
+  .off-days-2026__logo { height: 1.2em; width: auto; vertical-align: middle; }
+  .off-days-2026__photo { flex: 0 1 400px; }
+  .off-days-2026__photo img { display: block; width: 100%; height: auto; border-radius: 1rem; }
+  .off-days-2026__card { flex: 1 1 0; padding: 1rem 1.5rem; background-color: #bf5900; color: white; border-radius: 1.5rem; text-align: center; }
+  .off-days-2026__card p { margin: 0 0 0.8rem; font-size: 1.3rem; font-weight: bold; line-height: 1.3; }
+  .off-days-2026__button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 2rem; background-color: white; color: #a34400; border: 3px solid white; outline: 2px solid #bf5900; outline-offset: -6px; border-radius: 2rem; font-size: 1.3rem; font-weight: bold; transition: background-color 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s; }
+  .off-days-2026__button:hover, .off-days-2026__button:focus-visible { background-color: #a34400; color: white; outline-color: white; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); }
+  .off-days-2026__close { position: absolute; top: 0.3rem; right: 0.3rem; background: transparent; border: 0; color: #a34400; cursor: pointer; padding: 0; margin: 0; }
+  @media (max-width: 1100px) {
+    .off-days-2026__photo { display: none; }
+  }
+  @media (max-width: 640px) {
+    .off-days-2026__inner { flex-direction: column; align-items: stretch; gap: 0.8rem; padding: 1rem; text-align: center; }
+    .off-days-2026__tagline { font-size: 1.1rem; }
+    .off-days-2026 h2 { justify-content: center; font-size: 1.6rem; }
+    .off-days-2026__card p { font-size: 1.1rem; }
+  }
+</style>
+
 <script>
-  let d = new Date();
-  let bannerID = document.getElementById('donation-banner-top');
-  let getDomain = window.location.origin.split('.');
-
-  function setBannerCookie(bcname, bcval, bcexdays) {
-    d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
-    let expires = 'expires=' + d.toUTCString();
+  function closeOffDays2026Banner() {
+    const d = new Date();
+    d.setTime(d.getTime() + (30*24*60*60*1000));
     // Apply cookie for every domain contains open...facts
-    let domain = 'domain=.' + getDomain.slice(1).join('.');
-    document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
+    const domain = 'domain=.' + window.location.origin.split('.').slice(1).join('.');
+    document.cookie = 'off_days_2026_closed=1;expires=' + d.toUTCString() + ';' + domain + ';SameSite=None;Secure;path=/';
+    document.getElementById('off-days-2026-banner').style.display = 'none';
   }
-
-  function getBannerCookie(bcname) {
-    const name = bcname + '=';
-    const decodedCookies = decodeURIComponent(document.cookie);
-    const cookies = decodedCookies.split(';');
-    for (const cookie of cookies) {
-      let c = cookie;
-      while (c.charAt(0) == ' ') { c = c.substring(1); }
-      if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-    }
-
-    return '';
-  }
-
-  function DonationButton() {
-    setBannerCookie('donation_march_2026', 1, 180);
-    bannerID.style.display = 'none';
-  }
-
-  if (getBannerCookie('donation_march_2026') !== '') {
-    bannerID.style.display = 'none';
-  } else {
-    bannerID.style.display = 'block';
+  if (document.cookie.split(';').some((c) => c.trim().startsWith('off_days_2026_closed='))) {
+    document.getElementById('off-days-2026-banner').style.display = 'none';
   }
 </script>
+<!-- Open Food Facts Days 2026 end -->
 
 
 
@@ -479,6 +501,19 @@
                 </div>
             </div>
         </div>
+        
+        <div id="provenance" class="row h-space-normal" hidden>
+            <div class="large-12">
+                <p class="provenance">From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by 300+ apps</p>
+            </div>
+        </div>
+        <script>
+            // The arm is read by matomo-events.js
+            if (crypto.getRandomValues(new Uint8Array(1))[0] < 128) {
+                document.getElementById('provenance').hidden = false;
+            }
+        </script>
+        
     </div>
     <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
         <div class="row h-space-normal">
@@ -2148,7 +2183,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            1000 kJ<br>(240 kcal)
+            1,000 kJ<br>(240 kcal)
         </span>
     
                     </td>
@@ -2406,7 +2441,7 @@ The score is calculated from the data of the nutrition facts table and the compo
              style="padding-left: 0rem;"
          
          >
-            Fruits‚ vegetables‚ legumes
+            Fruits, vegetables, legumes
         </span>
     
                     </td>
@@ -2418,7 +2453,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 22.2222222222222 %
+            ~ 22.222 %
         </span>
     
                     </td>
@@ -2516,7 +2551,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            1000 kJ<br>(240 kcal)
+            1,000 kJ<br>(240 kcal)
         </span>
     
                     </td>
@@ -2528,7 +2563,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            1000 kJ<br>(240 kcal)
+            1,000 kJ<br>(240 kcal)
         </span>
     
                     </td>
@@ -2540,7 +2575,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 1232.53888888889 kJ<br>(292 kcal)
+            ~ 1,232.539 kJ<br>(292 kcal)
         </span>
     
                     </td>
@@ -2594,7 +2629,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 6.47869444444445 g
+            ~ 6.479 g
         </span>
     
                     </td>
@@ -2648,7 +2683,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 3.74413888888889 g
+            ~ 3.744 g
         </span>
     
                     </td>
@@ -2702,7 +2737,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 50.5321388888889 g
+            ~ 50.532 g
         </span>
     
                     </td>
@@ -2756,7 +2791,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 13.1723055555556 g
+            ~ 13.172 g
         </span>
     
                     </td>
@@ -2810,7 +2845,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 4.06666666666667 g
+            ~ 4.067 g
         </span>
     
                     </td>
@@ -2864,7 +2899,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 5.82972222222222 g
+            ~ 5.83 g
         </span>
     
                     </td>
@@ -2918,7 +2953,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 0.293362222222222 g
+            ~ 0.293 g
         </span>
     
                     </td>
@@ -2972,7 +3007,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 0.104672555555556 g
+            ~ 0.105 g
         </span>
     
                     </td>
@@ -2990,7 +3025,7 @@ The score is calculated from the data of the nutrition facts table and the compo
              style="padding-left: 0rem;"
          
          >
-            Fruits‚ vegetables‚ legumes
+            Fruits, vegetables, legumes
         </span>
     
                     </td>
@@ -3002,7 +3037,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 22.2222222222222 %
+            ~ 22.222 %
         </span>
     
                     </td>
@@ -3026,7 +3061,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            ~ 22.2222222222222 %
+            ~ 22.222 %
         </span>
     
                     </td>
@@ -3841,6 +3876,8 @@ Apple pies
             <p>Elements that indicate the product is in the 3 - Processed foods group:</p>
             <ul>
             
+                <li>Additive: E500 - Sodium carbonates</li>
+            
                 <li>Ingredient: butter</li>
             
                 <li>Ingredient: salt</li>
@@ -4480,7 +4517,7 @@ Apple pies
     
            <div class="panel_text">
              <table id="ordered_ingredients_list" style="border-collapse:collapse;width:100%;font-size:0.85rem">
-<thead><tr><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Ingredient</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Taxonomy ID</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual_proxy</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">percent</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">min</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">max</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">origin</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">labels</th></tr></thead>
+<thead><tr><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ingredient</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">taxonomy_id</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual_proxy</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">percent</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">min</th><th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">max</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">origin</th><th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">labels</th></tr></thead>
 <tbody>
 <tr><td style="padding:2px 6px"><span>Wheat flour</span></td><td style="padding:2px 6px">en:wheat-flour</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px">9410</td><td style="text-align:right;padding:2px 6px">55.6</td><td style="text-align:right;padding:2px 6px">11.1</td><td style="text-align:right;padding:2px 6px">100.0</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
 <tr><td style="padding:2px 6px"><span>apples</span></td><td style="padding:2px 6px">en:apple</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px"></td><td style="padding:2px 6px">13050</td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">22.2</td><td style="text-align:right;padding:2px 6px">0.0</td><td style="text-align:right;padding:2px 6px">50.0</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
@@ -6747,7 +6784,7 @@ Apple pies
 
 				
 
-<donation-banner donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
+<donation-banner id="donation-banner-footer" donate-url="//world.openfoodfacts.org/donate-to-open-food-facts" news-url="/data/tagline/web/main.json"></donation-banner>
 
 
 			

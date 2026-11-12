@@ -63,6 +63,7 @@ paths:
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelClient"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelsSimplified"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelPhysicalActivities"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelProductHistory"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsIncluded"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsExcluded"
       responses:
@@ -581,6 +582,8 @@ paths:
     parameters:
       - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
       - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
+      - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelRelatedCategories"
+      - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelNovaUnknown"
       - schema:
           type: string
           example: categories
@@ -640,6 +643,10 @@ paths:
 
         Categories:
         - Packaging stats for a category
+        - Related categories (on request): parent categories, and direct subcategories with their number of products
+
+        NOVA groups:
+        - Unknown NOVA group (on request): why the NOVA group of some products is unknown
   /api/v3/product_revert:
     parameters: []
     post:

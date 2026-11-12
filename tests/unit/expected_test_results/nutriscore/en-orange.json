@@ -50,14 +50,11 @@
                "name" : "orange"
             }
          ],
-         "packaging" : [
-            {
-               "category" : "en:fruits",
-               "id" : "52a0059e-0164-44c8-a429-198b2b7f2d62",
-               "name" : "Pureed fruits, ambient, 730g | Packaging System, N0, All, Glass jar with capsule {FR} U",
-               "name_fr" : "Bocal en verre pour purée de fruits, ambiant - 400g"
-            }
-         ]
+         "ingredients_coverage_percent" : 100,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -66,12 +63,6 @@
                {
                   "id" : "cb58f1d0-634f-5582-9c13-a12e80474e77",
                   "mass" : 100
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "52a0059e-0164-44c8-a429-198b2b7f2d62"
                }
             ]
          },
@@ -157,6 +148,9 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a"
    ],
@@ -198,7 +192,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 1,
+            "negative_points_max" : 0,
             "positive_points" : 7,
+            "positive_points_max" : 0,
             "proteins" : 0.75,
             "proteins_points" : 0,
             "proteins_value" : 0.75,

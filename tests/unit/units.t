@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -155,6 +155,14 @@ is(normalize_quantity("2 kgr"), 2000);
 is(normalize_quantity("2 kilogramme"), 2000);
 is(normalize_quantity("2 kilogrammes"), 2000);
 
+# Household measures (spoons, glasses, cups) are used only if there is no mass or volume unit
+is(normalize_quantity("1 glass jar 450 g"), 450);
+is(extract_standard_unit("1 glass jar 450 g"), "g");
+is(normalize_quantity("4 bouteilles en verre de 20cl"), 800);
+is(normalize_quantity("450 g (1 glass jar)"), 450);
+is(normalize_quantity("2 tbsp"), 30);
+is(extract_standard_unit("2 tbsp"), "ml");
+
 # . without a 0 before
 is(normalize_quantity(".33L"), 330);
 is(normalize_quantity(".33 l"), 330);
@@ -176,11 +184,33 @@ my @serving_sizes = (
 	["2 buns = 20g", "20", "g"],
 	["43 someinvalidunit (430g)", "430", "g"],
 	["1500ml", "1500", "ml"],
+	# Spoons
+	["1 tbsp", "15", "ml"],
+	["2 tsp", "10", "ml"],
+	["1 cuillère à soupe", "15", "ml"],
+	["1 c. à s.", "15", "ml"],
+	["1 c.à.s", "15", "ml"],
+	["1 càs", "15", "ml"],
+	["2 c.c.", "10", "ml"],
+	["1 c. à thé", "5", "ml"],
+	["1 c. à s. (12 g)", "12", "g"],
+	["2 tbsp (32 g)", "32", "g"],
+	["1 cup (30g)", "30", "g"],
+	# Mass and volume units win over household measures, whatever the order
+	["6 g (1 c. à soupe)", "6", "g"],
+	["6 g (1 tbsp)", "6", "g"],
+	["30 g (1 cup)", "30", "g"],
+	["1 glass (200 ml)", "200", "ml"],
+	["250 ml (1 verre)", "250", "ml"],
+	["1 verre", "200", "ml"],
 );
 
 foreach my $test_ref (@serving_sizes) {
 	is(normalize_serving_size($test_ref->[0]), $test_ref->[1]) or diag Dumper $test_ref;
-	is(extract_standard_unit($test_ref->[0]), $test_ref->[2]) or diag Dumper $test_ref;
+	# serving_quantity_unit must match serving_quantity
+	my $product_ref = {serving_size => $test_ref->[0]};
+	normalize_product_quantity_and_serving_size($product_ref);
+	is($product_ref->{serving_quantity_unit}, $test_ref->[2]) or diag Dumper $test_ref;
 }
 
 is(get_standard_unit("kg"), "g");
@@ -192,5 +222,19 @@ is(get_standard_unit("kcal"), "kj");
 is(get_standard_unit("kj"), "kj");
 is(get_standard_unit("mmol/l"), "mmol/l");
 is(get_standard_unit("ppm"), "mmol/l");
+
+is(get_unit_symbol("percent"), "%");
+is(get_unit_symbol("g  "), "g");
+is(get_unit_symbol("kj"), "kJ");
+is(get_unit_symbol("% vol"), "% vol");
+is(get_unit_symbol("kilogramai"), "kg");
+is(get_unit_symbol(""), "");
+is(get_unit_symbol("this is not a unit"), undef);
+
+# Count units used in recipes (sachet, bouquet...) are not used to parse product quantities
+is(normalize_quantity("10 sachets"), undef);
+is(normalize_quantity("10 sachets de 2 g"), 20);
+is(get_standard_unit("sachet"), undef);
+is(normalize_quantity("1 verre"), 200);
 
 done_testing();

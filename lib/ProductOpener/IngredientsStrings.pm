@@ -74,7 +74,7 @@ BEGIN {
 		%min_regexp
 		%max_regexp
 		%ignore_strings_after_percent
-		%one_regexp
+		%numbers_in_words_regexp
 
 		&convert_text_value_to_number
 
@@ -144,7 +144,8 @@ $cbrackets = qr/(?![\N{U+276F}|\N{U+301E}|\N{U+301F}|\N{U+FF09}])[\p{Pe}]/i;
 $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|\N{U+FF08}|( $dashes ))|(\/|\N{U+FF0F})/i
 	;    # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
 
-$separators = qr/($stops\s|$commas|$separators_except_comma)/i;
+# Do not split numbered names such as "FD&C Yellow No. 5", "CI Nr. 3", "CI n. 4".
+$separators = qr/((?!(?<=\b(?:no|nr|n))$stops\s*\d)$stops\s|$commas|$separators_except_comma)/i;
 
 # Symbols to indicate labels like organic, fairtrade etc.
 @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)', '¹', '²');
@@ -169,7 +170,7 @@ $symbols_regexp = join('|', @symbols);
 	fi =>
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää myös pieniä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
-		"peut contenir des traces de toutes les autres|transformé dans une usine manipulant|traces d'allergènes potentielles de|peut contenir des traces d'autres|traces d'allergènes potentielles|il peut contenir des traces de|il peut contenir des traces|peut contenir des traces de|traces éventuelles d'autres|traces eventuelles d'autres|peut contenir des traces|peut également contenir|traces potentielles de|traces éventuelles de|traces eventuelles de|présence possible de|trace potentielle de|traces possibles de|trace éventuelle de|trace eventuelle de|traces potentielles|traces éventuelles|traces eventuelles|qui manipule aussi|trace possible de|présence possible|trace potentielle|qui utilise aussi|traces possibles|trace éventuelle|trace eventuelle|traces d'autres|trace possible|peut contenir|qui manipule|manipulisant|qui utilise|utilisant|traces|trace",
+		"peut contenir des traces de toutes les autres|transformé dans une usine manipulant|traces d'allergènes potentielles de|peut contenir des traces d'autres|traces d'allergènes potentielles|il peut contenir des traces de|il peut contenir des traces|peut contenir des traces de|traces éventuelles d'autres|traces eventuelles d'autres|peut contenir des traces|peut également contenir|traces potentielles de|traces éventuelles de|traces eventuelles de|présence possible de|trace potentielle de|traces possibles de|trace éventuelle de|trace eventuelle de|traces potentielles|traces éventuelles|traces eventuelles|qui manipule aussi|trace possible de|présence possible|trace potentielle|qui utilise également|utilisant également|qui utilise aussi|utilisant aussi|traces possibles|trace éventuelle|trace eventuelle|traces d'autres|trace possible|peut contenir|qui manipule|manipulisant|qui utilise|utilisant|traces|trace",
 	hr =>
 		"mogući ostaci|mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
 	hu => "nyomokban|tartalmazhat",
@@ -239,6 +240,7 @@ $symbols_regexp = join('|', @symbols);
 		["L. reuteri", "lactobacillus reuteri"],
 		["L. rhamnosus", "lactobacillus rhamnosus"],
 		["S. thermophilus", "streptococcus thermophilus"],
+		["Str. thermophilus", "streptococcus thermophilus"],
 	],
 
 	en => [
@@ -259,13 +261,41 @@ $symbols_regexp = join('|', @symbols);
 		["pr.", "per"],
 	],
 
-	de => [["inkl.", "inklusive"], ["vit.", "vitamin"],],
+	de => [
+		["inkl.", "inklusive"],
+		["vit.", "vitamin"],
+		# geschützte Ursprungsbezeichnung / geschützte geografische Angabe (labels)
+		["g. g. A.", "ggA"],
+		["g. U.", "gU"],
+	],
 
 	es => [["vit.", "vitamina"], ["m.g.", "materia grasa"]],
 
 	fi => [["mikro.", "mikrobiologinen"], ["mm.", "muun muassa"], ["sis.", "sisältää"], ["n.", "noin"],],
 
-	fr => [["vit.", "Vitamine"], ["Mat. Gr.", "Matières Grasses"],],
+	fr => [
+		["vit.", "Vitamine"],
+		["Mat. Gr.", "Matières Grasses"],
+		# Spoons in cooking recipes
+		["c. à s.", "cuillère à soupe"],
+		["c.à.s.", "cuillère à soupe"],
+		["c.s.", "cuillère à soupe"],
+		["càs", "cuillère à soupe"],
+		["c. à soupe", "cuillère à soupe"],
+		["c. soupe", "cuillère à soupe"],
+		["c. à table", "cuillère à soupe"],
+		["c. à c.", "cuillère à café"],
+		["c.à.c.", "cuillère à café"],
+		["c.c.", "cuillère à café"],
+		["càc", "cuillère à café"],
+		["c. à café", "cuillère à café"],
+		["c. café", "cuillère à café"],
+		["c. à thé", "cuillère à café"],
+		["c. thé", "cuillère à café"],
+		["c. à dessert", "cuillère à dessert"],
+		["cuil.", "cuillère"],
+		["cuill.", "cuillère"],
+	],
 
 	hr => [
 		["temp.", "temperaturi"],
@@ -287,6 +317,7 @@ $symbols_regexp = join('|', @symbols);
 		["mod.", "modifisert"],
 		["fort.middel", "fortykningsmiddel"],
 		["veg.", "vegetabilsk"],
+		["pr.", "per"],
 	],
 
 	ru => [
@@ -321,8 +352,10 @@ $symbols_regexp = join('|', @symbols);
 	fr => " de la | de | du | des | d'| de l'",
 	is => " af ",
 	it => " di | d'",
-	nl => " van ",
 	nb => " av ",
+	nl => " van ",
+	nn => " av ",
+	no => " av ",
 	sv => " av ",
 );
 
@@ -334,7 +367,10 @@ $symbols_regexp = join('|', @symbols);
 	fr => " de la | de | du | des | d'| de l'",
 	hr => " iz ",
 	it => " dal | della | dalla | dagli | dall'",
+	nb => " fra ",
 	nl => " uit ",
+	nn => " frå ",
+	no => " fra | frå ",
 	pl => " z | ze ",
 	sv => " från ",
 );
@@ -361,9 +397,10 @@ $symbols_regexp = join('|', @symbols);
 	lv => " un ",
 	mg => " sy ",
 	ms => " dan ",
-	nl => " en ",
 	nb => " og ",
+	nl => " en ",
 	nn => " og ",
+	no => " og ",
 	oc => " e ",
 	pl => " i ",
 	pt => " e ",
@@ -391,6 +428,8 @@ $symbols_regexp = join('|', @symbols);
 	is => " og af ",
 	it => " e di | e d'",
 	nb => " og av ",
+	nn => " og av ",
+	no => " og av ",
 	sv => " och av ",
 );
 
@@ -405,8 +444,10 @@ $symbols_regexp = join('|', @symbols);
 	is => " og | eða | og/eða | og / eða ",
 	it => " e | o | e/o | e / o",
 	ja => "又は",    # or
-	nl => " en/of | en / of ",
 	nb => " og | eller | og/eller | og / eller ",
+	nl => " en/of | en / of ",
+	nn => " og | eller | og/eller | og / eller ",
+	no => " og | eller | og/eller | og / eller ",
 	pl => " i | oraz | lub | albo ",
 	ru => " и | или | и/или | и / или ",
 	sv => " och | eller | och/eller | och / eller ",
@@ -415,9 +456,14 @@ $symbols_regexp = join('|', @symbols);
 %the = (
 	en => " the ",
 	es => " el | la | los | las ",
+	da => " den | det | de ",
 	fr => " le | la | les | l'",
 	it => " il | lo | la | i | gli | le | l'",
+	nb => " den | det | de ",
 	nl => " de | het ",
+	nn => " den | det | de ",
+	no => " den | det | de ",
+	sv => " den | det | de ",
 );
 
 # Strings to identify phrases like "75g per 100g of finished product"
@@ -428,7 +474,10 @@ $symbols_regexp = join('|', @symbols);
 	fr => " pour | par ",
 	hr => " na ",
 	it => " per ",
+	nb => " (?:per|pr.) ",
 	nl => " per ",
+	nn => " (?:per|pr.) ",
+	no => " (?:per|pr.) ",
 	sv => "((?: bär)|(?:\, varav tillsatt socker \\d+\\s*g))? per ",
 );
 
@@ -461,27 +510,37 @@ including localized strings like "minimum"
 	fr => "(?:(?:é|e)labor(?:é|e)|fabriqu(?:é|e)|pr(?:é|e)par(?:é|e)|produit)(?:e)?(?:s)? (?:avec|à partir)",
 	hr => "(?:proizvedeno od|sadrži)",
 	nl => "bereid met",
-	sv => "är",
+	sv => "är|med",
 );
 
 %min_regexp = (
 	en => "min|min\.|minimum",
 	ca => "min|min\.|mín|mín\.|mínim|minim",
 	cs => "min|min\.",
+	da => "min\.|minimum|mindst",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
 	hr => "min|min\.|mini|minimum",
+	nb => "min\.|minimum",
+	nn => "min\.|minimum",
+	no => "min\.|minimum",
 	pl => "min|min\.|minimum",
+	sv => "minimum|minst",
 );
 
 %max_regexp = (
 	en => "max|max\.|maximum",
 	ca => "max|max\.|màxim",
 	cs => "max|max\.",
+	da => "maks\.|maksimum|højst",
 	es => "max|max\.|máximo",
 	fr => "max|max\.|maxi|maximum",
 	hr => "max|max\.|maxi|maximum",
+	nb => "maks\.|maksimum",
+	nn => "maks\.|maksimum",
+	no => "maks\.|maksimum",
 	pl => "max|max\.|maximum",
+	sv => "max|maximum|högst",
 );
 
 # Words that can be ignored after a percent
@@ -496,24 +555,31 @@ including localized strings like "minimum"
 	sv => "fetthalt",
 );
 
-# Used to parse "a pinch of salt", "une pincée de sel" etc.
-%one_regexp = (
-	en => "a|an|one",
-	da => "en|et",
-	es => "un|una",
-	fr => "un|une",
-	it => "un|una",
-	nb => "[eé]n|[eé]i|ett?",
-	nl => "een",
-	nn => "[eé]in|[eé]i|eitt?",
-	sv => "en|ett",
+# Numbers from 1 to 12 in words, as regexps: the first element is 1, the second is 2 etc.
+# Used to parse "a pinch of salt", "une pincée de sel", "deux carottes" etc.
+my %numbers_in_words = (
+	en => ["a|an|one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"],
+	da => ["en|et", "to", "tre", "fire", "fem", "seks", "syv", "otte", "ni", "ti", "elleve", "tolv"],
+	es => ["un|una", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce"],
+	fr => ["un|une", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze"],
+	it => ["un|una", "due", "tre", "quattro", "cinque", "sei", "sette", "otto", "nove", "dieci", "undici", "dodici"],
+	nb => ["[eé]n|[eé]i|ett?", "to", "tre", "fire", "fem", "seks", "sju|syv", "åtte", "ni", "ti", "elleve", "tolv"],
+	nl => ["een", "twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen", "tien", "elf", "twaalf"],
+	nn => ["[eé]in|[eé]i|eitt?", "to", "tre", "fire", "fem", "seks", "sju|syv", "åtte", "ni", "ti", "elleve", "tolv"],
+	no => ["[eé]i?n|[eé]i|ei?tt?", "to", "tre", "fire", "fem", "seks", "sju|syv", "åtte", "ni", "ti", "elleve", "tolv"],
+	sv => ["en|ett", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "elva", "tolv"],
 );
 
+# Regexp matching the numbers in words of a language
+%numbers_in_words_regexp = map {$_ => join('|', @{$numbers_in_words{$_}})} keys %numbers_in_words;
+
 sub convert_text_value_to_number($target_lc, $value) {
-	my $one_regexp_in_lc = $one_regexp{$target_lc};
-	if (defined $one_regexp_in_lc) {
-		if ($value =~ /^\s*$one_regexp_in_lc\s*$/i) {
-			return 1;
+	my $numbers_ref = $numbers_in_words{$target_lc};
+	if (defined $numbers_ref) {
+		foreach my $i (0 .. $#$numbers_ref) {
+			if ($value =~ /^\s*(?:$numbers_ref->[$i])\s*$/i) {
+				return $i + 1;
+			}
 		}
 	}
 	return $value;
@@ -695,7 +761,7 @@ sub unit_only_string ($ingredients_lc, $string) {
 		grep {length} (
 			_compound_unit_regexp_alternatives(), @UNIT_ACTIVITY_NUMERATORS,
 			@UNIT_MASS_NUMERATORS, "(?i:\N{U+00B5}g|\N{U+03BC}g|ug)",
-			$units_regexps{$ingredients_lc} || '',
+			$units_regexps{$ingredients_lc} // $units_regexps{xx} // '',
 		)
 	);
 	$units =~ s{\\/}{(?:/|\N{U+2044}|\N{U+FF0F})}g;
@@ -726,7 +792,7 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		# shorter taxonomy tokens such as "mg" or "g".
 		# After protect_compound_unit_slashes the solidus is U+2044, so rewrite
 		# taxonomy-escaped slashes to accept /, U+2044 and fullwidth ／.
-		my $units_regexp_in_lc = $units_regexps{$ingredients_lc} || '';
+		my $units_regexp_in_lc = $units_regexps{$ingredients_lc} // $units_regexps{xx} // '';
 		$units_regexp_in_lc =~ s{\\/}{(?:/|\N{U+2044}|\N{U+FF0F})}g;
 		my $compound_units = join('|', _compound_unit_regexp_alternatives());
 		my $activity_units = join('|', @UNIT_ACTIVITY_NUMERATORS);
@@ -735,7 +801,7 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		# are added here: micro sign U+00B5, Greek small letter mu U+03BC seen in OCR, "ug"
 		my $units_except_percent = join('|', grep {length} ($compound_units, $activity_units, $units_regexp_in_lc));
 
-		my $one_regexp_in_lc = $one_regexp{$ingredients_lc} || 'do not match';
+		my $numbers_in_words_regexp_in_lc = $numbers_in_words_regexp{$ingredients_lc} || 'do not match';
 
 		# Number separators: plain comma, dot, and U+201A lower comma (used by the parser to
 		# protect decimal commas so they are not treated as ingredient list separators).
@@ -760,8 +826,8 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 			. '(?:\d+(?:' . $decimal_sep . '\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
 			. '(' . $number    # number, possibly with a decimal separator
 			. '|(?:'
-			. $one_regexp_in_lc
-			. ')\b'    # 'une' (as in "une pincée"), needs a word boundary after it to avoid matching "une" to "un e"
+			. $numbers_in_words_regexp_in_lc
+			. ')\b' # 'une' (as in "une pincée"), 'deux', needs a word boundary after it to avoid matching "une" to "un e"
 			. ')\s*' . '(' . $units_except_percent . '|\%|)\s*'    # % or unit or empty string "3 carrots"
 				# note: \% needs to be added individually as it seems ignored as a synonym in the units taxonomy
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum

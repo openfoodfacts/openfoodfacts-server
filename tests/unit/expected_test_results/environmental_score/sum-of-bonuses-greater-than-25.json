@@ -411,6 +411,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "36016",
+         "ecobalyse_proxy_id" : "a360871c-fc35-4cb3-af2c-5eeb8bd6f984",
+         "ecobalyse_proxy_name" : "Blanc de poulet cru FR",
          "id" : "en:chicken",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
@@ -456,10 +458,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:chicken"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "labels_tags" : [
       "en:demeter"

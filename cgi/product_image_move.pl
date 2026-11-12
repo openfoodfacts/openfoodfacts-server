@@ -31,7 +31,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User can_delete_image/;
 use ProductOpener::Images qw/process_image_move/;
 use ProductOpener::Products qw/:all/;
 
@@ -79,6 +79,29 @@ my $r = Apache2::RequestUtil->request();
 
 # If the requests is an OPTIONS request, we return the headers and exit
 if ($r->method_number == Apache2::Const::M_OPTIONS) {
+	exit(0);
+}
+
+# Moving or trashing an uploaded image destroys or relocates another contributor's work and
+# writes a new revision of the product, so it is a moderator action.
+# On the producers platform, members of an organization can also do it: the product is
+# loaded with their owner id, so they can only reach products of their organization.
+# This endpoint was reachable without any authentication: the restriction existed only in the
+# edit form ([% IF can_delete_image %] in product_edit_form_display.tt.html) and in the front-end
+# JavaScript. The API v3 route to the same sink (APIProductImagesUpload) uses the same
+# can_delete_image() check.
+if (not can_delete_image()) {
+	$log->warn("no permission to move or delete images", {ip => remote_addr(), code => $code})
+		if $log->is_warn();
+	my %response = (status => 'status not ok');
+	$response{error} = "error - no permission";
+	my $data = encode_json(\%response);
+	print header(-status => 403, -type => 'application/json', -charset => 'utf-8') . $data;
+	# Flush the 403 response, then reset the status to 200: setting an error status without
+	# flushing makes mod_perl append its default error page to our JSON body, and drop the
+	# status we asked for (see the comment in cgi/auth.pl).
+	$r->rflush;
+	$r->status(200);
 	exit(0);
 }
 

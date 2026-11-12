@@ -85,6 +85,9 @@ sub unac_string_perl ($s) {
 	$s
 		=~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝŸ/aaaaaaceeeeiiiinooooouuuuyyaaaaaaceeeeiiiinooooouuuuyy/;
 
+	# Romanian: ă, ș and ț (and the legacy cedilla forms ş and ţ)
+	$s =~ tr/ășțşţĂȘȚŞŢ/aststASTST/;
+
 	# alternative methods, slower than above, but more readable and still faster than s///.
 
 	#$s =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
@@ -155,6 +158,8 @@ sub get_string_id_for_lang ($lc, $string) {
 
 	if ($unaccent) {
 		$string =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
+		# Romanian: ă, ș and ț (and the legacy cedilla forms ş and ţ)
+		$string =~ tr/ășțşţ/astst/;
 		$string =~ s/œ|Œ/oe/g;
 		$string =~ s/æ|Æ/ae/g;
 		$string =~ s/ß|\N{U+1E9E}/ss/g;

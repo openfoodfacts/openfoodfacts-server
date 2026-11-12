@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -15,7 +15,10 @@ use ProductOpener::KnowledgePanels qw/:all/;
 use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::Display qw/$knowledge_panels_options_ref/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
+use boolean qw/true/;
+use ProductOpener::Config qw/%options/;
 
 is(
 	ProductOpener::KnowledgePanels::convert_multiline_string_to_singleline('
@@ -32,6 +35,51 @@ is(
 		'<a href="https://agribalyse.ademe.fr/app/aliments/[% product.environmental_score_data.agribalyse.code %]">'),
 	'"<a href=\"https://agribalyse.ademe.fr/app/aliments/[% product.environmental_score_data.agribalyse.code %]\">"'
 );
+
+# The escaped value has to be valid JSON on its own: it is interpolated into a JSON string in the
+# panel, and the panel is not built at all if it does not parse.
+# JSON does not allow the control characters unescaped inside a string, and the backslash has to be
+# escaped before the quote, otherwise the escaper used to leave a quote unescaped when the value
+# already contained a backslash.
+
+foreach my $test_case (
+	['a plain value', 'a value', '"a value"'],
+	['a quote', 'say "hello"', '"say \\"hello\\""'],
+	['a trailing backslash', 'a value\\', '"a value\\\\"'],
+	['a backslash before a quote', 'a\\"b', '"a\\\\\\"b"'],
+	['a tab', "a\tvalue", '"a\\u0009value"'],
+	['a control character', "a\x01value", '"a\\u0001value"'],
+	['a newline', "a\nvalue", '"a\\nvalue"'],
+	['a carriage return', "a\rvalue", '"a\\nvalue"'],
+	# \R matches the vertical tab and the form feed too, and they become \n
+	['a vertical tab', "a\x0bvalue", '"a\\nvalue"'],
+	['a form feed', "a\x0cvalue", '"a\\nvalue"'],
+	['a delete character', "a\x7fvalue", '"a\\u007fvalue"'],
+	['an undefined value', undef, '""'],
+	)
+{
+	my ($desc, $value, $expected) = @{$test_case};
+	my $escaped = ProductOpener::KnowledgePanels::convert_multiline_string_to_singleline($value);
+	is($escaped, $expected, "$desc is escaped for a JSON string");
+
+	my $ok = eval {decode_json('{"h":' . $escaped . '}')->{h}; 1};
+	ok($ok, "$desc produces valid JSON") or diag($@);
+}
+
+# The same for the variant that collapses whitespace: the value must still be valid JSON
+
+foreach my $test_case (
+	['a tab', "a\t\tvalue", '"a value"'],
+	['a control character', "a\x01value", '"a\\u0001value"'],
+	['a backslash before a quote', 'a\\"b', '"a\\\\\\"b"'],
+	)
+{
+	my ($desc, $value, $expected) = @{$test_case};
+	my $escaped
+		= ProductOpener::KnowledgePanels::convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces(
+		$value);
+	is($escaped, $expected, "$desc is escaped for a JSON string (without line breaks)");
+}
 
 load_data();
 
@@ -120,6 +168,19 @@ my @tests = (
 		target_lc => 'en',
 		target_cc => 'us'
 	},
+	# "no nutrition facts on the packaging" is ticked: no action to add the nutrition facts
+	{
+		'id' => 'en-no-nutrition-data-on-packaging',
+		'product' => {
+			lc => "en",
+			ingredients_text => "Sugar, wheat flour, butter",
+			nutrition => {
+				no_nutrition_data_on_packaging => true,
+			},
+		},
+		target_lc => 'en',
+		target_cc => 'us'
+	},
 	# NOVA markers in ingredients
 	{
 		'id' => 'en-nova-markers',
@@ -127,6 +188,18 @@ my @tests = (
 			lc => "en",
 			ingredients_text =>
 				"Hydrolised wheat flour, emulsifier: soy lecithin, baking powder, rice starch, barley malt extract, colour: caramel, acidifier: citric acid, soy proteins, refined palm oil",
+		},
+		target_lc => 'en',
+		target_cc => 'us'
+	},
+	# NOVA group not computed because too many ingredients are not recognized:
+	# the NOVA panel and attribute should explain why
+	{
+		'id' => 'en-nova-too-many-unknown-ingredients',
+		'product' => {
+			lc => "en",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "some ingredient that we do not recognize",
 		},
 		target_lc => 'en',
 		target_cc => 'us'
@@ -156,6 +229,63 @@ foreach my $test_ref (@tests) {
 
 	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
+
+# Open Products Facts: no empty health card for products like toilet paper or batteries
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/12683
+{
+	local $options{product_type} = "product";
+
+	my $options_ref = {};
+	my $request_ref = {};
+	initialize_knowledge_panels_options($options_ref, $request_ref);
+
+	my $product_ref = {code => "3596710478163", lc => "en", categories_tags => ["en:toilet-papers"]};
+	is(
+		ProductOpener::KnowledgePanels::create_health_card_panel(
+			$product_ref, "en", "world", $options_ref, $request_ref
+		),
+		0,
+		"no health card without a health recommendation"
+	);
+	is($product_ref->{knowledge_panels_en}{health_card}, undef);
+
+	create_knowledge_panels($product_ref, "en", "world", $options_ref, $request_ref);
+	is($product_ref->{knowledge_panels_en}{health_card}, undef);
+	unlike($json->encode($product_ref->{knowledge_panels_en}{root}),
+		qr/health_card/, "the root panel does not link to the health card");
+
+	# The health card is still created when we have a health recommendation (e.g. the tobacco health warning)
+	$product_ref = {code => "3596710478164", lc => "en", knowledge_panels_en => {recommendation_health => {}}};
+	is(
+		ProductOpener::KnowledgePanels::create_health_card_panel(
+			$product_ref, "en", "world", $options_ref, $request_ref
+		),
+		1,
+		"health card with a health recommendation"
+	);
+	ok(defined $product_ref->{knowledge_panels_en}{health_card});
+}
+
+foreach my $analyzed (0, 1) {
+	my $product_ref = {lc => "en"};
+	if ($analyzed) {
+		$product_ref->{categories_tags} = ["en:biscuits"];
+		$product_ref->{ingredients_text} = "wheat flour, sugar";
+		analyze_and_enrich_product_data($product_ref, get_initialized_response());
+	}
+	$knowledge_panels_options_ref = {};
+	initialize_knowledge_panels_options($knowledge_panels_options_ref, {});
+	$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = 1;
+	create_knowledge_panels($product_ref, "en", "world", $knowledge_panels_options_ref, {});
+	my $panels_ref = $product_ref->{knowledge_panels_en};
+	foreach my $panel_id ("origins_of_ingredients", "origins_of_ingredients_simplified") {
+		is(defined $panels_ref->{$panel_id} ? 1 : 0, $analyzed, "$panel_id panel analyzed=$analyzed");
+	}
+	my @listed_ids
+		= map {@{$_->{panel_group_element}{panel_ids} // []}} @{$panels_ref->{environment_card_simplified}{elements}};
+	is((grep {$_ eq "origins_of_ingredients_simplified"} @listed_ids) ? 1 : 0,
+		$analyzed, "environment_card_simplified lists the origins panel analyzed=$analyzed");
 }
 
 done_testing();

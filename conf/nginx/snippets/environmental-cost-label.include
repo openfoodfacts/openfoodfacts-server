@@ -1,0 +1,12 @@
+# French "coût environnemental" (Ecobalyse) label, rendered by nginx with njs
+# e.g. /images/environmental-cost/v1/360-154-g.svg (cost for the product, cost for 100 g or 100 ml, unit)
+# see conf/nginx/njs/README.md
+#
+# Needs the njs module and conf.d/environmental_cost_label.conf:
+# only include it in servers where they are available.
+# Must be included before snippets/productopener-server.include (its generic /images/ location would match first)
+location ~ "^/images/environmental-cost/v1/(0|[1-9][0-9]{0,4})-(0|[1-9][0-9]{0,4})-(g|ml)\.svg$" {
+    include snippets/cors-headers.include;
+    gzip_types image/svg+xml;
+    js_content environmental_cost_label.label;
+}

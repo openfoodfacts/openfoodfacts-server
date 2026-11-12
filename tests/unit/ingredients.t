@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -801,6 +801,14 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 				made with 150 g of tomatoes per 100ml, prepared with: 50% of potatoes"
 		}
 	],
+	# units from the xx language need to be recognized in languages with few unit translations
+	[
+		"nn-specific-ingredients-quantity-per-100g",
+		{
+			lc => "nn",
+			ingredients_text => "Bringebær 80%, vatn, fortjukkingsmiddel (pektin). 80 g bær pr. 100 g."
+		}
+	],
 	[
 		"fr-content-of-ingredient",
 		{
@@ -1112,6 +1120,84 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => 'fr',
 			ingredients_text =>
 				"3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
+		}
+	],
+	[
+		'fr-recipes-with-spoons-and-ranges',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"2 c. à s. d'huile d'olive, 2 cuillères à soupe de sucre, 1 cuillère à café de sel, 3 c.s de farine, 1 c.à.c de cannelle, 1 càs de miel, 1 cuillerée à dessert de vinaigre, 1 c. à thé de vanille, 2 c. à table de beurre, 2 à 3 gousses d'ail, 10 à 12 % de sucre",
+		}
+	],
+	[
+		'fr-recipes-with-processing-and-count-units',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"poivre du moulin, poivre fraîchement moulu, 10 cl d'eau tiède, 50 g de beurre ramolli, 1 gousse d'ail coupée en deux, 2 gousses d'ail écrasées, pain rassis, 1 œuf battu, 2 sachets de sucre vanillé, 1 bouquet garni, 1 bouquet de persil, 1 botte de radis, 1 poignée de noisettes, 1 verre de vin blanc sec",
+		}
+	],
+	[
+		'fr-recipes-with-fractions-and-herbs',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"½ litre de lait, 1/2 cuillère à café de sel, 1 1/2 tasse de farine, ¼ c. à s. de poivre, 1½ kg de pommes de terre, 1 bouquet de persil, 1 petit bouquet de coriandre, 3 brins de thym, 1 petit verre de kirsch, 1 grand verre de lait",
+		}
+	],
+	[
+		'fr-recipes-with-spoon-abbreviations',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 cuil. à soupe de farine, 2 c.c. de sel, 1 càc de poivre, 1 c. soupe d'huile, 1 c à s de miel, 20 cl de lait tiédi, ⅔ litre d'eau, 3/2 de beurre",
+		}
+	],
+	[
+		'fr-recipes-with-common-ingredients',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 kg de pommes de terre à chair ferme, 250 g de semoule fine, 100 g de mie de pain, 4 tranches de pain de campagne, 3 oignons nouveaux, 2 cuillères à soupe d'huile de cuisson, 2 ou 3 œufs",
+		}
+	],
+	[
+		'fr-recipes-with-numbers-in-words',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"deux carottes, trois œufs, deux gousses d'ail, douze huîtres, dix cl de lait, une pincée de sel, deux noix de beurre",
+		}
+	],
+	[
+		'en-recipes-with-numbers-in-words',
+		{
+			lc => 'en',
+			ingredients_text => "two eggs, three carrots, twelve oysters, a pinch of salt",
+		}
+	],
+	[
+		# "glacé" in candied fruits, frozen desserts, iced drinks, and ice water
+		'fr-recipes-with-glace',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"10 cl d'eau glacée, 50 g de marrons glacés, 50 g de cerises glacées, écorces d'orange glacées, 20 cl de thé glacé, café glacé, nougat glacé, corn flakes glacés au sucre",
+		}
+	],
+	[
+		'en-recipes-with-iced',
+		{
+			lc => 'en',
+			ingredients_text => "iced water, iced tea, iced coffee, sugar iced corn flakes, iced biscuits",
+		}
+	],
+	[
+		'en-recipes-with-spoons',
+		{
+			lc => 'en',
+			ingredients_text => "2 tbsp olive oil, 1 tablespoon of sugar, 1 tsp salt, 2 teaspoons of cinnamon",
 		}
 	],
 	# percent_or_quantity_regexp
@@ -1466,6 +1552,111 @@ puffed orange and caramelized unknown_fruit4.",
 				"vet (plantaardige oorsprong), gelatine (dierlijke oorsprong), natuurlijke aroma's (plantaardig), E120 (dierlijk)",
 		}
 	],
+	# Origin adjectives
+	[
+		'sv-nordisk-rapsolja',
+		# https://se.openfoodfacts.org/product/7311442111401/vegansk-majonn%C3%A4s-kavli
+		{
+			lc => "sv",
+			ingredients_text => "Nordisk rapsolja, vatten, socker",
+		}
+	],
+	# Sheep's and goat's milk
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/14853
+	[
+		'en-sheep-and-goat-milk',
+		{
+			lc => "en",
+			ingredients_text => "Pasteurised sheep's and goat's milk, salt, starter culture, rennet.",
+		}
+	],
+	# “Str. Thermophilus” abbreviation
+	[
+		'de-str-thermophilus',
+		# https://de.openfoodfacts.org/produkt/5411188119098/natur-mit-kokosnuss-alpro
+		{
+			lc => "de",
+			ingredients_text =>
+				"_Sojabasis_ (Wasser, geschälte _Sojabohnen_ (10,4%)], Kokosmilch (4,3%) (Kokoscreme, Wasser), Zucker, Tricalciumcitrat, Säureregulatoren (Natriumcitrate, Citronensäure), Stabilisator (Pektine), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherol-tatige Extract, Fettsäureester der Ascorbinsäure), Vitamine (B12, D2), Joghurtkulturen (Str. Thermophilus, L. bulgaricus).",
+		}
+	],
+	# Romanian: legacy cedilla forms (ş ţ) and missing diacritics
+	[
+		'ro-cedilla-and-missing-diacritics',
+		{
+			lc => "ro",
+			ingredients_text =>
+				"Faina alba de grau, zahar, ulei de rapiţă, emulsifianti (lecitina din floarea soarelui, mono - şi digliceride ale acizilor graşi), conservanti: sorbat de potasiu si benzoat de sodiu, ţelină. Poate conţine urme de muştar, lapte şi produse derivate.",
+		}
+	],
+	# Romanian: phrases that are not ingredients
+	[
+		'ro-ignore-phrases',
+		{
+			lc => "ro",
+			ingredients_text =>
+				"Lapte normalizat (98%), cultură starter, condimente în proporţii variabile. Conține o sursă de fenilalanină. A se consuma de preferinţă înainte de: vezi pe ambalaj. Lot: vezi capac. Ambalat în atmosferă protectoare. Valoare energetică: 250 kJ. Producător: SC Exemplu SRL, Str. Florilor nr. 1, Jud. Cluj, România.",
+		}
+	],
+	# origin statement after the ingredients list, with the ingredient first:
+	# origins of the ingredient in specific_ingredients, not a new ingredient
+	[
+		'fr-ingredient-origin-statement-after-the-list',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, LAIT* entier en poudre 25%, pâte de cacao, arômes de vanille. *Lait: origine UE et/ou non UE (Royaume-Uni)",
+		}
+	],
+	[
+		'fr-ingredients-origin-statements-after-the-list',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Viande de porc, viande de bœuf, sel, dextrose. Porc : origine France. Viande de bœuf : Origine Union Européenne; Sel : origine UE",
+		}
+	],
+	[
+		'en-ingredient-origin-statement-after-the-list',
+		{
+			lc => "en",
+			ingredients_text => "Sugar, whole milk, cocoa butter. Milk: origin France",
+		}
+	],
+	# not an origin statement: ingredients of the list with their origins (in parenthesis, after a comma)
+	[
+		'fr-ingredient-origin-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Fromage (lait : origine France), sucre, beurre : origine UE, farine",
+		}
+	],
+	# ingredients list separated by ; : the ingredient is not in the text before, it is an ingredient of the list
+	[
+		'fr-ingredient-origin-in-a-list-separated-by-semicolons',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre; beurre : origine France; farine",
+		}
+	],
+	# a statement with an unknown ingredient does not prevent the next ones from being matched
+	[
+		'fr-ingredient-origin-statement-after-an-unknown-ingredient',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre, lait. Machin : origine France. Lait : origine UE",
+		}
+	],
+	# “osteløbe (mikrobiel)”
+	[
+		'da-osteloebe-mikrobiel',
+		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000
+		{
+			lc => "da",
+			ingredients_text =>
+				"96 % pasteuriseret _mælk_, 2,8 % salt, kultur (indeholder _mælk_), osteløbe (mikrobiel).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
@@ -1623,5 +1814,115 @@ is(
 	[['en:protein', undef], ['en:manganese', '3 mg'], ['en:choline', '58 mg'], ['en:taurine', '660 mg']],
 	'known ingredients and dosages survive mixed known and unknown codes on separate lines'
 );
+
+# Amino acids from the amino_acids taxonomy are included in the ingredients taxonomy
+my $amino_acids = {
+	lc => 'en',
+	ingredients_text => 'L-glutamine, L-arginine, L-isoleucine, L-leucine',
+};
+extract_ingredients_from_text($amino_acids);
+is(
+	[map {[$_->{id}, $_->{is_in_taxonomy}]} @{$amino_acids->{ingredients}}],
+	[['en:l-glutamine', 1], ['en:l-arginine', 1], ['en:l-isoleucine', 1], ['en:e641', 1]],
+	'amino acids from the amino_acids taxonomy are recognized as ingredients'
+);
+
+# Real taxonomy: conjunctions must survive origin extraction and trailing quantities.
+for my $case (
+	['en', 'milk and cream', ['en:milk', 'en:cream']],
+	['en', 'French milk and cream', ['en:milk', 'en:cream']],
+	['en', 'French lactic acid and cultures', ['en:e270', 'en:microbial-culture']],
+	['fr', 'sucre et caramel', ['en:sugar', 'en:e150']],
+	['fr', 'viandes et sous-produits animaux 95% (dont poulet 4%)', ['en:meat-and-animal-derivatives']],
+	['fr', 'oeufs, et graines de sésame', ['en:egg', 'en:sesame-seeds']],
+	['fr', 'lait de brebis et de chèvre bio', ['en:sheep-and-goat-milk']],
+	['fr', 'viande et sous-produits animaux bio', ['en:meat-and-animal-derivatives']],
+	['en', 'organic milk and cream', ['en:milk', 'en:cream']],
+	)
+{
+	my ($lc, $text, $ids) = @$case;
+	my $product = {lc => $lc, ingredients_text => $text, product_type => 'food'};
+	extract_ingredients_from_text($product);
+	is([map {$_->{id}} @{$product->{ingredients}}], $ids, "real taxonomy conjunction: $text");
+}
+
+my $compound_percent = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text => 'viandes et sous-produits animaux 95% (dont poulet 4%)'
+};
+ProductOpener::Ingredients::parse_ingredients_text_service($compound_percent, {}, []);
+is($compound_percent->{ingredients}[0]{percent}, 95, 'real compound keeps its percentage');
+is($compound_percent->{ingredients}[0]{ingredients}[0]{percent}, 4, 'real compound keeps its child percentage');
+
+my $stray_conjunction = {lc => 'fr', product_type => 'food', ingredients_text => 'oeufs, et graines de sésame'};
+extract_ingredients_from_text($stray_conjunction);
+ProductOpener::Ingredients::detect_allergens_from_text($stray_conjunction);
+is($stray_conjunction->{allergens_tags}, ['en:eggs', 'en:sesame-seeds'], 'stray conjunction keeps both allergens');
+
+# Real taxonomy: a coordination without labels whose second part is not a known ingredient
+# (a processing, a variety) keeps its percentage on the known first part
+sub flatten_ingredients ($ingredients_ref) {
+	return map {($_, flatten_ingredients($_->{ingredients} // []))} @$ingredients_ref;
+}
+
+# 3270160137664: "assaisonnée" is a processing of the cooked potato, not another ingredient
+my $processed_coordination = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text =>
+		"Soupe de poissons 40,7% (eau, poissons, carotte, crustacés, concentré de tomate, poireau, vin blanc, sel, ail, oignon frit, huile d'olive, muscade, poivre, fenouil, piment, laurier), eau, pomme de terre cuite et assaisonnée 12,5% (pomme de terre, sel), filet de colin d'Alaska (poissons) 8,5%, moule cuite décoquillée du Pacifique (mollusques) 6,5%, filet de tacaud (poissons) 4,5%, concentré de tomate"
+};
+extract_ingredients_from_text($processed_coordination);
+is(
+	[map {[$_->{id}, $_->{percent}, $_->{processing}]} @{$processed_coordination->{ingredients}}[2 .. 3]],
+	[['en:cooked-potato', 12.5, 'en:seasoned'], ['en:alaskan-pollock-fillet', 8.5, undef]],
+	'a coordinated processing stays on a single ingredient with its percentage'
+);
+
+# 3041091434043: the percentage of "saumon kéta et/ou rose" stays on the chum salmon
+my $variety_coordination = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text =>
+		"Eau de cuisson - Pommes de terre 19,7 % - Epinards 16,0 % - Carottes 10,0 % - Saumon kéta et/ou rose du Pacifique en proportion variable 8,10 % (POISSON) - Panais - Oignons - Haricots verts - Amidon de maïs - Crème (LAIT) - Céleri (CELERI) - Huiles végétales (colza, tournesol) - Sel - Muscade - Poivre noir"
+};
+extract_ingredients_from_text($variety_coordination);
+is(scalar @{$variety_coordination->{ingredients}}, 16, 'the coordination is split in 2 ingredients');
+is(
+	[map {[$_->{id}, $_->{percent}]} @{$variety_coordination->{ingredients}}[3 .. 5]],
+	[['en:carrot', 10], ['en:chum-salmon', 8.1], ['fr:rose', undef]],
+	'an unknown coordinated part does not take the percentage of the known part'
+);
+
+# When an unknown name is split in 2 later in the parsing, its percent or quantity is not given to both ingredients
+for my $case (
+	['poulet et xyzabc 20%', [['en:chicken', 20, undef], ['fr:xyzabc', undef, undef]]],
+	['xyzabc et poulet 20%', [['fr:xyzabc', undef, undef], ['en:chicken', 20, undef]]],
+	['poulet 10% et xyzabc', [['en:chicken', 10, undef], ['fr:xyzabc', undef, undef]]],
+	['poulet et xyzabc 20 g', [['en:chicken', undef, '20 g'], ['fr:xyzabc', undef, undef]]],
+	)
+{
+	my ($text, $expected) = @$case;
+	my $product = {lc => 'fr', product_type => 'food', ingredients_text => "eau, $text, sel"};
+	extract_ingredients_from_text($product);
+	is(
+		[map {[$_->{id}, $_->{percent}, $_->{quantity}]} @{$product->{ingredients}}],
+		[['en:water', undef, undef], @$expected, ['en:salt', undef, undef]],
+		"$text: the percent or quantity is counted once"
+	);
+}
+
+# 3560071252038: an origin statement with "et" must not create ingredients
+my $origin_statement = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text =>
+		"Viande de porc, gras de porc, piments d'Espagne séchés en poudre 3,9%, sel, _lactose_, ail, piment doux séché en poudre 0,5%, sucre, origan, piment de Cayenne séché en poudre 0,1%, muscade, cumin, conservateurs : ascorbate de sodium - nitrate de potassium - nitrite de sodium, ferments, boyau naturel de porc, conservateurs du boyau : sorbate de potassium et natamycine. \n135g de viande de porc mis en œuvre pour 100g de produit fini.\nViande et gras de porc origine Union Européenne et non-Union Européenne (Royaume-Uni)."
+};
+extract_ingredients_from_text($origin_statement);
+my @origin_statement_texts = map {$_->{text}} flatten_ingredients($origin_statement->{ingredients});
+ok((grep {$_ eq 'Viande et gras de porc'} @origin_statement_texts), 'origin statement keeps "viande et gras de porc"');
+is([grep {/Union/i} @origin_statement_texts], [], 'origin statement does not create an ingredient from an origin');
 
 done_testing();
