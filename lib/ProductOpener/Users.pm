@@ -1599,6 +1599,11 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 
 	my $groups_ref = ['admins', 'members', 'pending'];
 
+	# $orgid can be an org id string or an org hashref (see process_user_requested_org()).
+	# Normalize to a comparable org id string.
+	my $target_org_id = ref $orgid eq 'HASH' ? $orgid->{org_id} : $orgid;
+	$target_org_id = get_string_id_for_lang('no_language', $target_org_id) if defined $target_org_id;
+
 	# Only accounts that are in the organization can be removed from it: an admin of an
 	# organization must not be able to strip the organization of an account that belongs to
 	# another one
@@ -1608,18 +1613,21 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 	}
 	if (not $is_in_org) {
 		$log->warn('remove_user_by_org_admin - the user is not in the organization',
-			{org_id => $orgid, user_id => $user_id})
+			{org_id => $target_org_id, user_id => $user_id})
 			if $log->is_warn();
 		return;
 	}
 
 	remove_user_from_org($orgid, $user_id, $groups_ref);
 
-	# Reset the 'org' field of the user, if the user was actually
-	# removed from the organization and wasn't simply pending
+	# Only clear the primary org fields if they point at the organization being removed from:
+	# a user pending in A who is a member of B must keep org_id B.
 	my $user_ref = retrieve_user_preferences($user_id);
 	return if not defined $user_ref;
-	if ($user_ref->{org_id} eq $orgid) {
+	if (    defined $user_ref->{org_id}
+		and defined $target_org_id
+		and $user_ref->{org_id} eq $target_org_id)
+	{
 		delete $user_ref->{org};
 		delete $user_ref->{org_id};
 		store_user_preferences($user_ref);
