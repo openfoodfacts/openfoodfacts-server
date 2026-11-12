@@ -30,7 +30,7 @@ msgstr "การทำงานร่วมกันของฐานข้อ
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr "/open-food-facts-mobile-app"
+msgstr "/เปิดแอปข้อมูลอาหารบนมือถือ"
 
 msgctxt "product_description_off"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
@@ -55,7 +55,7 @@ msgstr "ส่วนประกอบ INCI, สารก่อภูมิแ�
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr "/open-beauty-facts-mobile-app"
+msgstr "/เปิดแอปข้อมูลความงามบนมือถือ"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
@@ -63,7 +63,7 @@ msgstr "และกลุ่มเฟซบุ๊ก <a href=\"https://www.face
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "เปิดการค้นหาผลิตภัณฑ์ Open Beauty Facts"
+msgstr "เปิดการค้นหาผลิตภัณฑ์ Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -415,7 +415,7 @@ msgstr "ดาวน์โหลดที่ Google Play"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>ผลิตภัณฑ์นี้ยังไม่มีในฐานข้อมูล <<site_name>> กรุณาถ่ายรูปสินค้า บาร์โค้ด ส่วนประกอบ และฉลากโภชนาการ  <a href=\"https://world-th.openfoodfacts.org\" target=\"_blank\"><<site_name>></a> เพื่อเพิ่มผลิตภัณฑ์ </p> ในระบบ\n"
+msgstr "<p>ผลิตภัณฑ์นี้ยังไม่มีในฐานข้อมูล <<site_name>> กรุณาถ่ายรูปสินค้า บาร์โค้ด ส่วนประกอบ และฉลากโภชนาการ  <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a> เพื่อเพิ่มผลิตภัณฑ์ </p> ในระบบ\n"
 "<p>ขอบคุณ</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -977,7 +977,7 @@ msgstr "คำถามที่พบบ่อย"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1065,15 +1065,42 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Open Open Beauty Facts - เครื่องสำอาง"
+msgstr "เปิดเผยข้อมูลความงาม - เครื่องสำอาง"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world.openbeautyfacts.org"
 
+# Do not translate Open Products Facts
+msgctxt "footer_opf"
+msgid "Open Products Facts"
+msgstr ""
+
+msgctxt "footer_opf_link"
+msgid "https://world.openproductsfacts.org"
+msgstr ""
+
+# Do not translate Open Pet Food Facts
+msgctxt "footer_opff"
+msgid "Open Pet Food Facts"
+msgstr ""
+
+msgctxt "footer_opff_link"
+msgid "https://world.openpetfoodfacts.org"
+msgstr ""
+
+# Do not translate Open Prices
+msgctxt "footer_op"
+msgid "Open Prices"
+msgstr ""
+
+msgctxt "footer_op_link"
+msgid "https://prices.openfoodfacts.org/"
+msgstr ""
+
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Open Food Factsสำหรับผู้ผลิต"
+msgstr "ข้อมูลอาหารเปิดเผยสำหรับผู้ผลิต"
 
 msgctxt "for"
 msgid "for"
@@ -1765,6 +1792,16 @@ msgstr ""
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr ""
+
+# Do not translate
+msgctxt "nutriscore_p"
+msgid "Nutri-Score"
+msgstr "คะแนนโภชนาการ"
+
+# Do not translate
+msgctxt "nutriscore_s"
+msgid "Nutri-Score"
+msgstr "คะแนนโภชนาการ"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -3994,7 +4031,7 @@ msgstr "ตารางนี้แสดงรายการโอกาสท
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr "เพื่อให้ได้ผลลัพธ์ที่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าข้อมูลผลิตภัณฑ์ครบถ้วน (ข้อมูลโภชนาการพร้อมค่าใยอาหารและผักผลไม้เพื่อคำนวณNutri-Score และหมวดหมู่ที่ชัดเจนเพื่อเปรียบเทียบแต่ละผลิตภัณฑ์กับผลิตภัณฑ์ที่คล้ายคลึงกัน)"
+msgstr "เพื่อให้ได้ผลลัพธ์ที่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าข้อมูลผลิตภัณฑ์ครบถ้วน (ข้อมูลโภชนาการพร้อมค่าใยอาหารและผักผลไม้เพื่อคำนวณคะแนนโภชนาการ และหมวดหมู่ที่ชัดเจนเพื่อเปรียบเทียบแต่ละผลิตภัณฑ์กับผลิตภัณฑ์ที่คล้ายคลึงกัน)"
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -4148,17 +4185,17 @@ msgstr "คะแนนโภชนาการ"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "คะแนนโภชนาการ"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr "Nutri-Score"
+msgstr "คะแนนโภชนาการ"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "คะแนนโภชนาการ"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4280,6 +4317,11 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "โปรดบริจาค"
 
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_provenance_line"
+msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
+msgstr ""
+
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "การควบคุมดูแลแพลตฟอร์มของผู้ผลิต"
@@ -4329,7 +4371,7 @@ msgstr "นำเข้าหมวดหมู่"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr "Nutri-Scoreจากผู้ผลิต"
+msgstr "คะแนนโภชนาการจากผู้ผลิต"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
@@ -4337,11 +4379,11 @@ msgstr "คะแนน Nutri-Score ที่คำนวณได้"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr "Nutri-Scoreจากผู้ผลิต"
+msgstr "คะแนนโภชนาการจากผู้ผลิต"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr "Nutri-Scoreที่คำนวณได้"
+msgstr "คะแนนโภชนาการที่คำนวณได้"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4692,7 +4734,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "คะแนนโภชนาการ"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4705,15 +4747,15 @@ msgstr "ค่าโภชนาการ (Nutri-Score) จะถูกคำน
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr "Nutri-Score %s"
+msgstr "คะแนนโภชนาการ %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr "ไม่ทราบNutri-Score"
+msgstr "ไม่ทราบค่าโภชนาการ"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr "ข้อมูลไม่ครบถ้วนสำหรับการคำนวณNutri-Score"
+msgstr "ข้อมูลไม่ครบถ้วนสำหรับการคำนวณคะแนนโภชนาการ"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
@@ -4943,11 +4985,11 @@ msgstr "สิ่งแวดล้อม"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "คะแนนสีเขียว"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "ผลกระทบต่อสิ่งแวดล้อมต่ำ (Green-Score)"
+msgstr "ผลกระทบต่อสิ่งแวดล้อมต่ำ (คะแนนสีเขียว)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
@@ -4956,11 +4998,11 @@ msgstr "คะแนนสีเขียว (Green-Score) เป็นคะแ
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "คะแนนสีเขียว"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "ผลกระทบต่อสิ่งแวดล้อมต่ำ (Green-Score)"
+msgstr "ผลกระทบต่อสิ่งแวดล้อมต่ำ (คะแนนสีเขียว)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
@@ -4969,7 +5011,7 @@ msgstr "คะแนนสีเขียว (Green-Score) เป็นคะแ
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "Green-Score %s"
+msgstr "คะแนนสีเขียว %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5155,22 +5197,22 @@ msgstr "ผลกระทบต่อสิ่งแวดล้อม"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "Green-Scoreสกอร์"
+msgstr "คะแนนกรีนสกอร์"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr "Green-Score"
+msgstr "เกรดกรีนสกอร์"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "รายละเอียดการคำนวณGreen-Score"
+msgstr "รายละเอียดการคำนวณคะแนนสีเขียว"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "ข้อมูลเกี่ยวกับGreen-Score"
+msgstr "ข้อมูลเกี่ยวกับคะแนนสีเขียว"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5207,19 +5249,19 @@ msgstr "ข้อมูลโภชนาการที่ขาดหายไ
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "คะแนนสีเขียว"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "คะแนนสีเขียว"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "คะแนนสีเขียว"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "คะแนนสีเขียว"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5296,8 +5338,8 @@ msgid "Products for which we currently miss data to determine if they match your
 msgstr "ผลิตภัณฑ์ที่ยังไม่มีข้อมูลอยู่ในขณะนี้เพื่อใช้พิจารณาว่าตรงกับความต้องการ (preferences) ของคุณหรือไม่"
 
 msgctxt "forest_footprint"
-msgid "Forest footprint"
-msgstr "รอยเท้าป่าไม้"
+msgid "Forest Footprint"
+msgstr ""
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
@@ -5324,8 +5366,8 @@ msgid "Deforestation risk"
 msgstr "ความเสี่ยงจากการตัดไม้ทำลายป่า"
 
 msgctxt "total_forest_footprint"
-msgid "Total forest footprint"
-msgstr "รอยเท้าป่าโดยรวม"
+msgid "Total Forest Footprint"
+msgstr ""
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -5348,8 +5390,8 @@ msgid "% in product"
 msgstr "เปอร์เซ็นต์ในผลิตภัณฑ์"
 
 msgctxt "forest_footprint_calculation_details"
-msgid "Details of the calculation of the forest footprint"
-msgstr "รายละเอียดการคำนวณรอยเท้าป่าไม้"
+msgid "Details of the calculation of the Forest Footprint"
+msgstr ""
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5393,64 +5435,96 @@ msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score
 msgstr "โปรแกรมนี้คำนวณตัวชี้วัดต่างๆ เช่น คะแนนโภชนาการ (Nutri-Score), NOVA และคะแนนสิ่งแวดล้อม (Green-Score) และระบุคำแนะนำในการปรับปรุงโดยอัตโนมัติ (ตัวอย่างเช่น ผลิตภัณฑ์ทั้งหมดที่จะได้รับคะแนนโภชนาการที่ดีขึ้นหากมีการเปลี่ยนแปลงส่วนประกอบเล็กน้อย)"
 
 msgctxt "attribute_forest_footprint_name"
-msgid "Forest footprint"
-msgstr "รอยเท้าป่าไม้"
+msgid "Forest Footprint"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
-msgid "Low risk of deforestation (Forest footprint)"
-msgstr "ความเสี่ยงต่ำต่อการตัดไม้ทำลายป่า (พื้นที่ป่าไม้)"
+msgid "Low risk of deforestation (Forest Footprint)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
-msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "ร่องรอยการใช้ประโยชน์จากป่าสอดคล้องกับความเสี่ยงต่อการตัดไม้ทำลายป่าที่เกี่ยวข้องกับส่วนประกอบต่างๆ ของผลิตภัณฑ์นั้น"
+msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
-msgid "Very small forest footprint"
-msgstr "ร่องรอยการใช้ประโยชน์ป่าไม้มีขนาดเล็กมาก"
+msgid "Forest Footprint A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
-msgid "Small forest footprint"
-msgstr "ร่องรอยป่าไม้ขนาดเล็ก"
+msgid "Forest Footprint B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
-msgid "Medium forest footprint"
-msgstr "รอยเท้าป่าระดับปานกลาง"
+msgid "Forest Footprint C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
-msgid "Large forest footprint"
-msgstr "ร่องรอยป่าขนาดใหญ่"
+msgid "Forest Footprint D"
+msgstr ""
 
-msgctxt "attribute_forest_footprint_e_title"
-msgid "Very large forest footprint"
-msgstr "พื้นที่ป่าขนาดใหญ่มาก"
+msgctxt "attribute_forest_footprint_a_description"
+msgid "No ingredient associated with a deforestation risk."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_b_description"
+msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_c_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_d_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
-msgid "Forest footprint not computed"
-msgstr "ไม่ได้คำนวณรอยเท้าป่า"
+msgid "Forest Footprint not computed"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_not_computed_description"
+msgid "Potential deforestation risk but not yet computed."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
-msgid "Almost no risk of deforestation"
-msgstr "แทบไม่มีความเสี่ยงต่อการตัดไม้ทำลายป่า"
+msgid "No deforestation risk"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
 msgstr "ความเสี่ยงต่อการตัดไม้ทำลายป่าต่ำ"
 
 msgctxt "attribute_forest_footprint_c_description_short"
-msgid "Moderate risk of deforestation"
-msgstr "ความเสี่ยงปานกลางต่อการตัดไม้ทำลายป่า"
+msgid "Medium risk of deforestation"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
 msgstr "มีความเสี่ยงสูงต่อการทำลายป่า"
 
-msgctxt "attribute_forest_footprint_e_description_short"
-msgid "Very high risk of deforestation"
-msgstr "มีความเสี่ยงสูงมากต่อการทำลายป่า"
-
 msgctxt "attribute_forest_footprint_not_computed_description_short"
-msgid "Currently only for products with chicken or eggs"
-msgstr "ปัจจุบันใช้ได้เฉพาะกับผลิตภัณฑ์ที่มีไก่หรือไข่เป็นส่วนประกอบเท่านั้น"
+msgid "Potential deforestation risk not computed"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_unknown_title"
+msgid "Forest Footprint not available"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_unknown_description"
+msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_unknown_description_short"
+msgid "Missing ingredients list"
+msgstr "รายการส่วนผสมที่ขาดหายไป"
+
+msgctxt "forest_footprint_2026_other_risky_ingredients"
+msgid "Other risky ingredients"
+msgstr ""
+
+msgctxt "forest_footprint_2026_other_risky_ingredients_description"
+msgid "These ingredients are not yet assessed for deforestation risk:"
+msgstr ""
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
@@ -5467,11 +5541,11 @@ msgstr "สินค้าที่ถูกสแกนมากที่สุ
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr "ผลิตภัณฑ์ที่มีNutri-Scoreดีที่สุด"
+msgstr "ผลิตภัณฑ์ที่มีคะแนนโภชนาการดีที่สุด"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "ผลิตภัณฑ์ที่มีGreen-Scoreดีที่สุด"
+msgstr "ผลิตภัณฑ์ที่มีคะแนนสีเขียวดีที่สุด"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5525,7 +5599,7 @@ msgstr "กำลังลบผู้ใช้ อาจใช้เวลา�
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "Green-Scoreไม่สามารถใช้งานได้"
+msgstr "คะแนนสีเขียวไม่สามารถใช้งานได้"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5538,11 +5612,11 @@ msgstr "ยังไม่สามารถใช้งานได้ในห
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Green-Scoreยังไม่สามารถใช้งานได้ในหมวดหมู่นี้ แต่เรากำลังดำเนินการเพิ่มการรองรับคะแนนดังกล่าวอยู่"
+msgstr "คะแนนสีเขียวยังไม่สามารถใช้งานได้ในหมวดหมู่นี้ แต่เรากำลังดำเนินการเพิ่มการรองรับคะแนนดังกล่าวอยู่"
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "ไม่ได้คำนวณGreen-Score"
+msgstr "ไม่ได้คำนวณคะแนนสีเขียว"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5554,7 +5628,7 @@ msgstr "ขาดหมวดหมู่ที่ชัดเจน"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "เราไม่สามารถคำนวณGreen-Scoreของผลิตภัณฑ์นี้ได้ เนื่องจากข้อมูลบางส่วนไม่ครบถ้วน คุณช่วยกรอกข้อมูลให้ครบถ้วนได้หรือไม่"
+msgstr "เราไม่สามารถคำนวณคะแนนสีเขียวของผลิตภัณฑ์นี้ได้ เนื่องจากข้อมูลบางส่วนไม่ครบถ้วน คุณช่วยกรอกข้อมูลให้ครบถ้วนได้หรือไม่"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5662,7 +5736,7 @@ msgstr "ข้อมูลบางส่วนสำหรับผลิตภ
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr "ผู้ผลิตสามารถใช้แพลตฟอร์ม Open Food Facts <a href=\"<producers_platform_url>\">ฟรีสำหรับผู้ผลิต</a> เพื่อเข้าถึงและกรอกข้อมูลเหล่านี้ให้ครบถ้วน รวมถึงรับรายงาน การวิเคราะห์ และโอกาสในการปรับปรุงผลิตภัณฑ์ (เช่น Nutri-Scoreที่ดีขึ้น)"
+msgstr "ผู้ผลิตสามารถใช้แพลตฟอร์ม Open Food Facts <a href=\"<producers_platform_url>\">ฟรีสำหรับผู้ผลิต</a> เพื่อเข้าถึงและกรอกข้อมูลเหล่านี้ให้ครบถ้วน รวมถึงรับรายงาน การวิเคราะห์ และโอกาสในการปรับปรุงผลิตภัณฑ์ (เช่น คะแนนคุณค่าทางโภชนาการที่ดีขึ้น)"
 
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
@@ -5679,8 +5753,8 @@ msgid "If you use the same column on multiple lines to provide images URLs for a
 msgstr "หากคุณใช้คอลัมน์เดียวกันในหลายบรรทัดเพื่อระบุ URL ของรูปภาพสำหรับผลิตภัณฑ์เดียว คุณสามารถใช้ช่องนี้เพื่อระบุประเภทของรูปภาพได้ เช่น ด้านหน้า ส่วนประกอบ ข้อมูลโภชนาการ หรือบรรจุภัณฑ์"
 
 msgctxt "forest_footprint_one_line_explanation"
-msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "รอยเท้าทางป่าไม้คำนวณโดยคำนึงถึงส่วนประกอบต่างๆ ที่ต้องใช้ถั่วเหลืองในการผลิต ซึ่งการปลูกถั่วเหลืองนั้นเชื่อมโยงกับการตัดไม้ทำลายป่า"
+msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr ""
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -5696,7 +5770,7 @@ msgstr "หากคุณเป็นผู้ผลิตผลิตภัณ
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "คำเตือน: ข้อมูลบางส่วนที่จำเป็นสำหรับการคำนวณGreen-Scoreอย่างแม่นยำนั้นไม่ได้ระบุไว้ (โปรดดูรายละเอียดการคำนวณด้านล่าง)"
+msgstr "คำเตือน: ข้อมูลบางส่วนที่จำเป็นสำหรับการคำนวณคะแนนสีเขียวอย่างแม่นยำนั้นไม่ได้ระบุไว้ (โปรดดูรายละเอียดการคำนวณด้านล่าง)"
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5851,12 +5925,12 @@ msgstr "ข้อมูลเกี่ยวกับบรรจุภัณฑ
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "เพื่อให้ได้การคำนวณGreen-Scoreที่แม่นยำยิ่งขึ้น คุณสามารถแก้ไขหน้าผลิตภัณฑ์และเพิ่มข้อมูลเหล่านั้นได้"
+msgstr "เพื่อให้ได้การคำนวณคะแนนสีเขียวที่แม่นยำยิ่งขึ้น คุณสามารถแก้ไขหน้าผลิตภัณฑ์และเพิ่มข้อมูลเหล่านั้นได้"
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "หากต้องการคำนวณGreen-Scoreให้แม่นยำยิ่งขึ้น คุณสามารถแก้ไขหน้าผลิตภัณฑ์และเพิ่มข้อมูลเหล่านั้นได้"
+msgstr "หากต้องการคำนวณคะแนนสีเขียวให้แม่นยำยิ่งขึ้น คุณสามารถแก้ไขหน้าผลิตภัณฑ์และเพิ่มข้อมูลเหล่านั้นได้"
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5878,12 +5952,12 @@ msgstr "หากคุณเป็นผู้ผลิตผลิตภัณ
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "Green-Score <a href=\"/green-score\"></a> เป็นคะแนนทดลองที่สรุปผลกระทบต่อสิ่งแวดล้อมของผลิตภัณฑ์อาหาร"
+msgstr "คะแนนสีเขียว <a href=\"/green-score\"></a> เป็นคะแนนทดลองที่สรุปผลกระทบต่อสิ่งแวดล้อมของผลิตภัณฑ์อาหาร"
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "สูตรการคำนวณGreen-Scoreอาจมีการเปลี่ยนแปลงได้ เนื่องจากมีการปรับปรุงอย่างสม่ำเสมอเพื่อให้มีความแม่นยำยิ่งขึ้น"
+msgstr "สูตรการคำนวณคะแนนสีเขียวอาจมีการเปลี่ยนแปลงได้ เนื่องจากมีการปรับปรุงอย่างสม่ำเสมอเพื่อให้มีความแม่นยำยิ่งขึ้น"
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
@@ -5900,7 +5974,7 @@ msgstr "ผลกระทบอย่างเต็มรูปแบบขอ
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "สแกนบาร์โค้ดเพื่อดูNutri-Score Green-Score และอื่นๆ อีกมากมาย!"
+msgstr "สแกนบาร์โค้ดเพื่อดูคะแนนโภชนาการ คะแนนความเป็นมิตรต่อสิ่งแวดล้อม และอื่นๆ อีกมากมาย!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -6211,7 +6285,7 @@ msgstr "โบนัสและค่าปรับ"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Green-Scoreสำหรับผลิตภัณฑ์นี้"
+msgstr "คะแนนความเป็นมิตรต่อสิ่งแวดล้อมสำหรับผลิตภัณฑ์นี้"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6492,6 +6566,83 @@ msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
 msgstr "เรียนรู้เพิ่มเติมเกี่ยวกับคะแนนสีเขียว (Green-Score)"
 
+# Environmental Cost (Ecobalyse)
+msgctxt "environmental_cost_title"
+msgid "Environmental Cost"
+msgstr ""
+
+msgctxt "environmental_cost_description"
+msgid "Total environmental impact score from Ecobalyse"
+msgstr ""
+
+msgctxt "environmental_cost_stale"
+msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
+msgstr ""
+
+msgctxt "ecs_breakdown"
+msgid "ECS Breakdown"
+msgstr ""
+
+msgctxt "environmental_cost_stage"
+msgid "Stage"
+msgstr "เวที"
+
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
+msgstr ""
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr ""
+
+msgctxt "environmental_cost_ingredients"
+msgid "Ingredients"
+msgstr "ส่วนผสม"
+
+msgctxt "environmental_cost_packaging"
+msgid "Packaging"
+msgstr "บรรจุภัณฑ์"
+
+msgctxt "environmental_cost_transport"
+msgid "Transport"
+msgstr ""
+
+msgctxt "environmental_cost_processing"
+msgid "Processing"
+msgstr "กำลังประมวลผล"
+
+msgctxt "environmental_cost_distribution"
+msgid "Distribution"
+msgstr "การกระจาย"
+
+msgctxt "environmental_cost_preparation"
+msgid "Preparation"
+msgstr "ขั้นตอนการปรุง"
+
+msgctxt "environmental_cost_total"
+msgid "Total"
+msgstr "ทั้งหมด"
+
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
@@ -6534,17 +6685,21 @@ msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
 msgstr "คุณช่วยเพิ่มรายการส่วนผสมได้ไหม?"
 
+msgctxt "actions_add_nutrition_facts"
+msgid "Could you add the nutrition facts?"
+msgstr ""
+
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr "คุณช่วยเพิ่มข้อมูลที่จำเป็นในการคำนวณNutri-Scoreได้ไหม"
+msgstr "คุณช่วยเพิ่มข้อมูลที่จำเป็นในการคำนวณคะแนนโภชนาการได้ไหม"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "คุณช่วยระบุหมวดหมู่สินค้าให้ชัดเจนยิ่งขึ้นได้ไหม เพื่อที่เราจะสามารถคำนวณGreen-Scoreได้"
+msgstr "คุณช่วยระบุหมวดหมู่สินค้าให้ชัดเจนยิ่งขึ้นได้ไหม เพื่อที่เราจะสามารถคำนวณคะแนนสีเขียวได้"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "หมวดหมู่ที่เรามีสำหรับผลิตภัณฑ์นี้ไม่แม่นยำพอที่จะคำนวณGreen-Score คุณสามารถเพิ่มหมวดหมู่ผลิตภัณฑ์ที่แม่นยำยิ่งขึ้นได้ไหม"
+msgstr "หมวดหมู่ที่เรามีสำหรับผลิตภัณฑ์นี้ไม่แม่นยำพอที่จะคำนวณคะแนนสีเขียว คุณสามารถเพิ่มหมวดหมู่ผลิตภัณฑ์ที่แม่นยำยิ่งขึ้นได้ไหม"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7285,6 +7440,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "หมวดหมู่, ฉลาก, ส่วนผสม, สารก่อภูมิแพ้, ข้อมูลโภชนาการ, รูปภาพ ฯลฯ"
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "หมวดหมู่, ฉลาก, ส่วนผสม, สารก่อภูมิแพ้, ข้อมูลโภชนาการ, รูปภาพ ฯลฯ"
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "หากข้อมูลไม่ตรงกับข้อมูลบนบรรจุภัณฑ์ คุณสามารถกรอกข้อมูลให้ครบถ้วนหรือแก้ไขได้ ขอบคุณค่ะ!"
@@ -7292,6 +7459,18 @@ msgstr "หากข้อมูลไม่ตรงกับข้อมูล
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts เป็นฐานข้อมูลที่เกิดจากความร่วมมือ และทุกการมีส่วนร่วมล้วนมีประโยชน์สำหรับทุกคน"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7620,6 +7799,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "สัมผัสกับอาหาร"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr ""
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "ติดต่อเรา"
@@ -7739,6 +7922,10 @@ msgstr "ค้นหาสินค้าในหมวดหมู่เดี
 
 msgctxt "per_100g"
 msgid "for 100 g"
+msgstr ""
+
+msgctxt "points"
+msgid "points"
 msgstr ""
 
 msgctxt "per_100ml"
@@ -8039,21 +8226,21 @@ msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
 
-msgctxt "forest_footprint_2026"
-msgid "Forest Footprint 2026"
+msgctxt "forest_footprint_2026_methodology"
+msgid "The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption."
 msgstr ""
 
-msgctxt "forest_footprint_2026_under_development"
-msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgctxt "forest_footprint_2026_methodology_more_info"
+msgid "More information on the methodology"
 msgstr ""
 
 msgctxt "forest_footprint_2026_overall_grade"
-msgid "Forest footprint grade"
+msgid "Forest Footprint grade"
 msgstr ""
 
 msgctxt "forest_footprint_2026_total"
-msgid "Total forest footprint"
-msgstr "รอยเท้าป่าโดยรวม"
+msgid "Total Forest Footprint"
+msgstr ""
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
@@ -8064,10 +8251,142 @@ msgid "Primary ingredient"
 msgstr ""
 
 msgctxt "forest_footprint_2026_origin_footprint"
-msgid "Forest footprint for the origin"
+msgid "Forest Footprint for the origin"
 msgstr ""
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
+msgstr ""
+
+msgctxt "forest_footprint_2026_grade_unknown"
+msgid "Unknown"
+msgstr "ไม่ทราบ"
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
+msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
+msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
+msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
+msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
+msgstr ""
+
+msgctxt "forest_footprint_2026_labels_description"
+msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
+msgstr ""
+
+msgctxt "related_categories"
+msgid "Related categories"
+msgstr ""
+
+msgctxt "product_history_revision"
+msgid "Revision"
+msgstr ""
+
+msgctxt "product_history_date"
+msgid "Date"
+msgstr "วันที่"
+
+msgctxt "product_history_contributor"
+msgid "Contributor"
+msgstr ""
+
+msgctxt "product_history_changes"
+msgid "Changes"
+msgstr ""
+
+msgctxt "product_history_comment"
+msgid "Comment"
+msgstr ""
+
+msgctxt "product_history_most_recent_changes"
+msgid "Only the most recent changes are shown."
+msgstr ""
+
+msgctxt "product_history_see_full_history"
+msgid "See the full changes history"
+msgstr ""
+
+msgctxt "google_drive_import_title"
+msgid "Import photos from a Google Drive folder"
+msgstr ""
+
+msgctxt "google_drive_import_description"
+msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+msgstr ""
+
+msgctxt "google_drive_folder_url"
+msgid "Google Drive folder URL"
+msgstr ""
+
+msgctxt "google_drive_import_button"
+msgid "Import the photos"
+msgstr ""
+
+msgctxt "google_drive_invalid_folder_url"
+msgid "This is not the URL of a Google Drive folder."
+msgstr ""
+
+msgctxt "google_drive_no_api_key"
+msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+msgstr ""
+
+msgctxt "google_drive_folder_not_found"
+msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+msgstr ""
+
+msgctxt "google_drive_folder_too_many_items"
+msgid "The Google Drive folder contains too many files."
+msgstr ""
+
+msgctxt "google_drive_api_error"
+msgid "Google Drive returned an error."
+msgstr ""
+
+msgctxt "google_drive_import_listing"
+msgid "Listing the photos of the folder..."
+msgstr ""
+
+msgctxt "google_drive_import_photos_in_folder"
+msgid "Photos in the folder"
+msgstr ""
+
+msgctxt "google_drive_import_skipped_files"
+msgid "Files that are not photos (e.g. videos), not imported"
+msgstr ""
+
+msgctxt "google_drive_import_max_images"
+msgid "The folder contains too many photos, only the first ones are imported"
+msgstr ""
+
+msgctxt "google_drive_import_photos_processed"
+msgid "Photos processed"
+msgstr ""
+
+msgctxt "job_not_found"
+msgid "The photo import job could not be found."
+msgstr ""
+
+msgctxt "job_failed"
+msgid "The photo import job failed."
+msgstr ""
+
+msgctxt "post_required"
+msgid "This action requires a POST request."
+msgstr ""
+
+msgctxt "unknown_action"
+msgid "Unknown action."
+msgstr ""
+
+msgctxt "google_drive_import_already_running"
+msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
 msgstr ""
 

@@ -63,7 +63,7 @@ msgstr "kaj la <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Face
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Malfermu serĉon de produktoj pri Open Beauty Facts"
+msgstr "Malfermu serĉon de produktoj pri Belecaj Faktoj"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -406,7 +406,7 @@ msgstr "Android APK"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/bildoj/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -415,7 +415,7 @@ msgstr "Akiru ĝin en Google Play"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Ĉi tiu produkto ankoraŭ ne estas en la <<site_name>> datumbazo. Ĉu vi bonvolu fari kelkajn fotojn de la produkto, strekkodon, liston de ingrediencoj kaj nutrajn informojn por aldoni ĝin al <a href=\"https://world-eo.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+msgstr "<p>Ĉi tiu produkto ankoraŭ ne estas en la <<site_name>> datumbazo. Ĉu vi bonvolu fari kelkajn fotojn de la produkto, strekkodon, liston de ingrediencoj kaj nutrajn informojn por aldoni ĝin al <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Antaŭdankon!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -688,7 +688,7 @@ msgstr "Forigita:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "Donacu al Open Food Facts"
+msgstr "Donacu al Malfermaj Manĝaĵoj"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -977,7 +977,7 @@ msgstr "Oftaj demandoj"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -1065,15 +1065,42 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Open Beauty Facts - Kosmetikaĵoj"
+msgstr "Malfermaj Belecaj Faktoj - Kosmetikaĵoj"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world.openbeautyfacts.org"
 
+# Do not translate Open Products Facts
+msgctxt "footer_opf"
+msgid "Open Products Facts"
+msgstr ""
+
+msgctxt "footer_opf_link"
+msgid "https://world.openproductsfacts.org"
+msgstr ""
+
+# Do not translate Open Pet Food Facts
+msgctxt "footer_opff"
+msgid "Open Pet Food Facts"
+msgstr "Open Pet Food Facts"
+
+msgctxt "footer_opff_link"
+msgid "https://world.openpetfoodfacts.org"
+msgstr ""
+
+# Do not translate Open Prices
+msgctxt "footer_op"
+msgid "Open Prices"
+msgstr ""
+
+msgctxt "footer_op_link"
+msgid "https://prices.openfoodfacts.org/"
+msgstr ""
+
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Open Food Facts por Produktantoj"
+msgstr "Malfermaj Manĝaĵaj Faktoj por Produktantoj"
 
 msgctxt "for"
 msgid "for"
@@ -1308,7 +1335,7 @@ msgstr "Produktoj kiuj ne enhavas la ingrediencon %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr "/images/misc/appstore/black/appstore_US.svg"
+msgstr "/bildoj/misc/appstore/black/appstore_US.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
@@ -1756,7 +1783,7 @@ msgstr "La tabelo defaŭlte listigas nutraĵojn, kiuj ofte estas specifitaj. Las
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr "Esencaj nutraĵoj por kalkuli la Nutri-Score."
+msgstr "Esencaj nutraĵoj por kalkuli la Nutri-Poentaron."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1765,6 +1792,16 @@ msgstr ""
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr ""
+
+# Do not translate
+msgctxt "nutriscore_p"
+msgid "Nutri-Score"
+msgstr "Nutri-Poentaro"
+
+# Do not translate
+msgctxt "nutriscore_s"
+msgid "Nutri-Score"
+msgstr "Nutri-Poentaro"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2899,7 +2936,7 @@ msgstr "Niaj tradukistoj"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr "Ni ŝatus diri DANKON al la mirindaj tradukistoj, kiuj ebligas prezenti Open Food Facts, Open Beauty Facts, kaj Open Pet Food Facts al vi en ĉiuj ĉi tiuj diversaj lingvoj! <a href=\"https://translate.openfoodfacts.org/\">Vi povas aliĝi al ni en ĉi tiu tutmonda klopodo: ĝi ne postulas ian ajn teknikan scion.</a>"
+msgstr "Ni ŝatus diri DANKON al la mirindaj tradukistoj, kiuj ebligas prezenti Malfermajn Faktojn pri Manĝaĵoj, Malfermajn Faktojn pri Beleco, kaj Malfermajn Faktojn pri Dorlotbesta Manĝaĵo al vi en ĉiuj ĉi tiuj diversaj lingvoj! <a href=\"https://translate.openfoodfacts.org/\">Vi povas aliĝi al ni en ĉi tiu tutmonda klopodo: ĝi ne postulas ian ajn teknikan scion.</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -3996,7 +4033,7 @@ msgstr "Ĉi tiu tabelo listigas eblajn ŝancojn plibonigi la nutran kvaliton, la
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr "Por akiri koncernajn rezultojn, bonvolu certigi, ke la produktaj datumoj estas kompletaj (nutraj faktoj kun valoroj por fibro kaj fruktoj kaj legomoj por kalkuli la Nutri-Score, kaj preciza kategorio por kompari ĉiun produkton kun similaj produktoj)."
+msgstr "Por akiri koncernajn rezultojn, bonvolu certigi, ke la produktaj datumoj estas kompletaj (nutraj faktoj kun valoroj por fibro kaj fruktoj kaj legomoj por kalkuli la Nutri-Poentaron, kaj preciza kategorio por kompari ĉiun produkton kun similaj produktoj)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -4065,15 +4102,15 @@ msgstr "Dosiero ricevita"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr "Detaloj pri la kalkulado de la Nutri-Score"
+msgstr "Detaloj pri la kalkulado de la Nutri-Poentaro"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr "Ĉi tiu produkto estas konsiderata trinkaĵo por la kalkulado de la Nutri-Score."
+msgstr "Ĉi tiu produkto estas konsiderata trinkaĵo por la kalkulado de la Nutri-Poentaro."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr "Ĉi tiu produkto ne estas konsiderata trinkaĵo por la kalkulado de la Nutri-Score."
+msgstr "Ĉi tiu produkto ne estas konsiderata trinkaĵo por la kalkulado de la Nutri-Poentaro."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -4150,7 +4187,7 @@ msgstr "Nutra poentaro"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "Nutri-Poentaro"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4160,7 +4197,7 @@ msgstr "Nutri-Score-poentaro"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "Nutri-Poentaro"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4192,7 +4229,7 @@ msgstr "Meza valoro por la kategorio %s"
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr "La Nutri-Score povas esti ŝanĝita de %s al %s ŝanĝante la valoron %s de %s al %s (procenta diferenco%s )."
+msgstr "La Nutri-Poentaro povas esti ŝanĝita de %s al %s ŝanĝante la valoron %s de %s al %s (procenta diferenco%s )."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
@@ -4281,6 +4318,11 @@ msgstr "Ni bezonas vian subtenon!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Bonvolu Donaci"
+
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_provenance_line"
+msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
+msgstr ""
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -4568,7 +4610,7 @@ msgstr "Interna kodo uzata de la produktanto por identigi specifan version de pr
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr "Provizi kategorion estas tre grave por faciligi la serĉadon de la produkto kaj por kalkuli la Nutri-Score."
+msgstr "Provizi kategorion estas tre grave por faciligi la serĉadon de la produkto kaj por kalkuli la Nutri-Poentaron."
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
@@ -4694,7 +4736,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Score"
+msgstr "Nutri-Poentaro"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4702,24 +4744,24 @@ msgstr "Bona nutra kvalito (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr "La Nutri-Score estas kalkulita kaj povas esti konsiderata por ĉiuj produktoj, eĉ se ne estas montrata sur la pakaĵo."
+msgstr "La Nutri-Poentaro estas kalkulita kaj povas esti konsiderata por ĉiuj produktoj, eĉ se ne estas montrata sur la pakaĵo."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr "Nutri-Score %s"
+msgstr "Nutri-Poentaro %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr "Nutri-Score nekonata"
+msgstr "Nutri-Poentaro nekonata"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr "Mankas datumoj por kalkuli la Nutri-Score"
+msgstr "Mankas datumoj por kalkuli la Nutri-Poentaron"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Nutri-Score ne aplikebla"
+msgstr "Nutri-Poentaro ne aplikebla"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -4832,19 +4874,19 @@ msgstr "Nekonata uzanto."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr "La salnivelo estas konsiderata de la Nutri-Score. Uzu ĉi tiun agordon nur se vi specife sekvas malalt-san dieton."
+msgstr "La salnivelo estas konsiderata de la Nutri-Poentaro. Uzu ĉi tiun agordon nur se vi specife sekvas malalt-san dieton."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr "La sukernivelo estas konsiderata de la Nutri-Score. Uzu ĉi tiun agordon nur se vi specife sekvas malalt-sukera dieton."
+msgstr "La sukernivelo estas konsiderata de la Nutri-Poentaro. Uzu ĉi tiun agordon nur se vi specife sekvas malalt-sukera dieton."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr "La grasnivelo estas konsiderata de la Nutri-Score. Uzu ĉi tiun agordon nur se vi specife sekvas malaltgrasan dieton."
+msgstr "La grasnivelo estas konsiderata de la Nutri-Poentaro. Uzu ĉi tiun agordon nur se vi specife sekvas malaltgrasan dieton."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "La nivelo de saturita graso estas konsiderata de la Nutri-Score. Uzu ĉi tiun agordon nur se vi specife sekvas dieton kun malalta saturita graso."
+msgstr "La nivelo de saturita graso estas konsiderata de la Nutri-Poentaro. Uzu ĉi tiun agordon nur se vi specife sekvas dieton kun malalta saturita graso."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -4945,33 +4987,33 @@ msgstr "Medio"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Verda-Poentaro"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Malalta media efiko (Green-Score)"
+msgstr "Malalta media efiko (Verda-Poentaro)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "La Green-Score estas media poentaro de A+ ĝis F, kiu faciligas kompari la efikon de nutraĵoj sur la medion."
+msgstr "La Verda Poentaro estas media poentaro de A+ ĝis F, kiu faciligas kompari la efikon de nutraĵoj sur la medion."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Verda-Poentaro"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Malalta media efiko (Green-Score)"
+msgstr "Malalta media efiko (Verda-Poentaro)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "La Green-Score estas media poentaro de A+ ĝis F, kiu faciligas kompari la efikon de nutraĵoj sur la medion."
+msgstr "La Verda Poentaro estas media poentaro de A+ ĝis F, kiu faciligas kompari la efikon de nutraĵoj sur la medion."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "Green-Score %s"
+msgstr "Verda-Poentaro %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5157,22 +5199,22 @@ msgstr "Media efiko"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "Green-Score"
+msgstr "Verda-Score-poentaro"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr "Green-Score grado"
+msgstr "Verda-Poentara grado"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "Detaloj pri la kalkulo de la Green-Score"
+msgstr "Detaloj pri la kalkulo de la Verda-Poentaro"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "Informoj pri la Green-Score"
+msgstr "Informoj pri la Verda-Poentaro"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5209,19 +5251,19 @@ msgstr "Mankas nutraj informoj por preta produkto"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Verda-Poentaro"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Verda-Poentaro"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Verda-Poentaro"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Green-Score"
+msgstr "Verda-Poentaro"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5298,8 +5340,8 @@ msgid "Products for which we currently miss data to determine if they match your
 msgstr "Produktoj por kiuj ni nuntempe mankas datumojn por determini ĉu ili kongruas kun viaj preferoj"
 
 msgctxt "forest_footprint"
-msgid "Forest footprint"
-msgstr "Arbara piedsigno"
+msgid "Forest Footprint"
+msgstr ""
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
@@ -5326,8 +5368,8 @@ msgid "Deforestation risk"
 msgstr "Senarbariga risko"
 
 msgctxt "total_forest_footprint"
-msgid "Total forest footprint"
-msgstr "Totala arbara piedsigno"
+msgid "Total Forest Footprint"
+msgstr ""
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -5350,8 +5392,8 @@ msgid "% in product"
 msgstr "% en produkto"
 
 msgctxt "forest_footprint_calculation_details"
-msgid "Details of the calculation of the forest footprint"
-msgstr "Detaloj pri la kalkulo de la arbara piedsigno"
+msgid "Details of the calculation of the Forest Footprint"
+msgstr ""
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5395,64 +5437,96 @@ msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score
 msgstr "Ĝi kalkulas indikilojn kiel la Nutri-Score, NOVA, kaj la Green-Score, kaj aŭtomate identigas sugestojn por plibonigi ilin (ekzemple ĉiuj produktoj, kiuj ricevus pli bonan Nutri-Score-gradon kun eta ŝanĝo en la konsisto)."
 
 msgctxt "attribute_forest_footprint_name"
-msgid "Forest footprint"
-msgstr "Arbara piedsigno"
+msgid "Forest Footprint"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_name"
-msgid "Low risk of deforestation (Forest footprint)"
-msgstr "Malalta risko de senarbarigo (Arbara piedsigno)"
+msgid "Low risk of deforestation (Forest Footprint)"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_setting_note"
-msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "La arbara piedsigno respondas al la risko de senarbarigo asociita kun ĝiaj ingrediencoj."
+msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
-msgid "Very small forest footprint"
-msgstr "Tre malgranda arbara piedsigno"
+msgid "Forest Footprint A"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_title"
-msgid "Small forest footprint"
-msgstr "Malgranda arbara piedsigno"
+msgid "Forest Footprint B"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_c_title"
-msgid "Medium forest footprint"
-msgstr "Meza arbara piedsigno"
+msgid "Forest Footprint C"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_title"
-msgid "Large forest footprint"
-msgstr "Granda arbara piedsigno"
+msgid "Forest Footprint D"
+msgstr ""
 
-msgctxt "attribute_forest_footprint_e_title"
-msgid "Very large forest footprint"
-msgstr "Tre granda arbara piedsigno"
+msgctxt "attribute_forest_footprint_a_description"
+msgid "No ingredient associated with a deforestation risk."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_b_description"
+msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_c_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_d_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_not_computed_title"
-msgid "Forest footprint not computed"
-msgstr "Arbara piedsigno ne kalkulita"
+msgid "Forest Footprint not computed"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_not_computed_description"
+msgid "Potential deforestation risk but not yet computed."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_description_short"
-msgid "Almost no risk of deforestation"
-msgstr "Preskaŭ neniu risko de senarbarigo"
+msgid "No deforestation risk"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
 msgstr "Malalta risko de senarbarigo"
 
 msgctxt "attribute_forest_footprint_c_description_short"
-msgid "Moderate risk of deforestation"
-msgstr "Modera risko de senarbarigo"
+msgid "Medium risk of deforestation"
+msgstr ""
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
 msgstr "Alta risko de senarbarigo"
 
-msgctxt "attribute_forest_footprint_e_description_short"
-msgid "Very high risk of deforestation"
-msgstr "Tre alta risko de senarbarigo"
-
 msgctxt "attribute_forest_footprint_not_computed_description_short"
-msgid "Currently only for products with chicken or eggs"
-msgstr "Nuntempe nur por produktoj kun kokido aŭ ovoj"
+msgid "Potential deforestation risk not computed"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_unknown_title"
+msgid "Forest Footprint not available"
+msgstr ""
+
+msgctxt "attribute_forest_footprint_unknown_description"
+msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
+msgstr ""
+
+msgctxt "attribute_forest_footprint_unknown_description_short"
+msgid "Missing ingredients list"
+msgstr "Listo de mankantaj ingrediencoj"
+
+msgctxt "forest_footprint_2026_other_risky_ingredients"
+msgid "Other risky ingredients"
+msgstr ""
+
+msgctxt "forest_footprint_2026_other_risky_ingredients_description"
+msgid "These ingredients are not yet assessed for deforestation risk:"
+msgstr ""
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
@@ -5469,11 +5543,11 @@ msgstr "Plej multaj skanitaj produktoj"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr "Produktoj kun la plej bona Nutri-Score"
+msgstr "Produktoj kun la plej bona Nutri-Poentaro"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Produktoj kun la plej bona Green-Score"
+msgstr "Produktoj kun la plej bona Verda Poentaro"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5527,7 +5601,7 @@ msgstr "Uzanto estas forigata. Tio povas daŭri kelkajn minutojn."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "Green-Score ne aplikebla"
+msgstr "Verda-Poentaro ne aplikebla"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5540,11 +5614,11 @@ msgstr "Ankoraŭ ne aplikebla por la kategorio: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "La Green-Score ankoraŭ ne aplikeblas por ĉi tiu kategorio, sed ni laboras por aldoni subtenon por ĝi."
+msgstr "La Verda Poentaro ankoraŭ ne aplikeblas por ĉi tiu kategorio, sed ni laboras por aldoni subtenon por ĝi."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Green-Score ne kalkulita"
+msgstr "Verda-Poentaro ne kalkulita"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5556,7 +5630,7 @@ msgstr "Mankas preciza kategorio"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Ni ne povis kalkuli la Green-Score de ĉi tiu produkto ĉar al ĝi mankas iuj datumoj, ĉu vi povus helpi kompletigi ĝin?"
+msgstr "Ni ne povis kalkuli la Verdan Poentaron de ĉi tiu produkto ĉar al ĝi mankas iuj datumoj, ĉu vi povus helpi kompletigi ĝin?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5681,12 +5755,12 @@ msgid "If you use the same column on multiple lines to provide images URLs for a
 msgstr "Se vi uzas la saman kolumnon sur pluraj linioj por provizi bildajn URL-ojn por unuopa produkto, vi povas uzi ĉi tiun kampon por indiki la tipon de la bildo: fronto, ingrediencoj, nutraj informoj aŭ pakaĵo."
 
 msgctxt "forest_footprint_one_line_explanation"
-msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "La arbara spuro estas kalkulata per konsidero de la ingrediencoj, kies produktado postulas sojfabojn, kies kultivado estas ligita al senarbarigo."
+msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr ""
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "La Green-Score povas esti kalkulita nur se la produkto havas sufiĉe precizan kategorion."
+msgstr "La Verda Poentaro povas esti kalkulita nur se la produkto havas sufiĉe precizan kategorion."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
@@ -5698,7 +5772,7 @@ msgstr "Se vi estas la fabrikanto de ĉi tiu produkto, vi povas sendi al ni la i
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Averto: iuj informoj necesaj por precize kalkuli la Green-Score ne estas provizitaj (vidu la detalojn de la kalkulo sube)."
+msgstr "Averto: iuj informoj necesaj por precize kalkuli la Verdan Poentaron ne estas provizitaj (vidu la detalojn de la kalkulo sube)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5853,12 +5927,12 @@ msgstr "La informoj pri la pakaĵo de ĉi tiu produkto ne estas sufiĉe precizaj
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "Por pli preciza kalkulo de la Green-Score, vi povas modifi la produktan paĝon kaj aldoni ilin."
+msgstr "Por pli preciza kalkulo de la Verda-Poentaro, vi povas modifi la produktan paĝon kaj aldoni ilin."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Por pli preciza kalkulo de la Green-Score, vi povas redakti la produktan paĝon kaj aldoni ilin."
+msgstr "Por pli preciza kalkulo de la Verda-Poentaro, vi povas redakti la produktan paĝon kaj aldoni ilin."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5880,7 +5954,7 @@ msgstr "Se vi estas la fabrikanto de ĉi tiu produkto, vi povas sendi al ni la i
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "La <a href=\"/green-score\">Green-Score</a> estas eksperimenta poentaro kiu resumas la mediajn efikojn de nutraĵproduktoj."
+msgstr "La <a href=\"/green-score\">Verda-Poentaro</a> estas eksperimenta poentaro kiu resumas la mediajn efikojn de nutraĵproduktoj."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
@@ -5890,7 +5964,7 @@ msgstr "La formulo de Green-Score povas ŝanĝiĝi, ĉar ĝi estas regule plibon
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "La Green-Score estis komence evoluigita por Francio kaj ĝi estas etendita al aliaj eŭropaj landoj. La formulo de la Green-Score povas ŝanĝiĝi, ĉar ĝi estas regule plibonigata por igi ĝin pli preciza kaj pli taŭga por ĉiu lando."
+msgstr "La Verda Poentaro estis komence evoluigita por Francio kaj ĝi estas etendita al aliaj eŭropaj landoj. La formulo de la Verda Poentaro povas ŝanĝiĝi, ĉar ĝi estas regule plibonigata por igi ĝin pli preciza kaj pli taŭga por ĉiu lando."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5902,7 +5976,7 @@ msgstr "La plena efiko de transportado al via lando estas nuntempe nekonata."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "Skanu strekkodojn por ricevi la Nutri-Score, la Green-Score kaj pli!"
+msgstr "Skanu strekkodojn por ricevi la Nutri-Poentaron, la Verdan-Poentaron kaj pli!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5976,7 +6050,7 @@ msgstr "meza"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
-msgstr "Noto: la Nutri-Score de teoj kaj herbaj teoj respondas al la produkto preparita nur kun akvo, sen sukero aŭ lakto."
+msgstr "Noto: la Nutri-Poentaro de teoj kaj herbaj teoj respondas al la produkto preparita nur kun akvo, sen sukero aŭ lakto."
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
@@ -6213,7 +6287,7 @@ msgstr "Gratifikoj kaj malbonusoj"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Green-Score por ĉi tiu produkto"
+msgstr "Verda Poentaro por ĉi tiu produkto"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6245,11 +6319,11 @@ msgstr "Nutri-Score ne aplikeblas por ĉi tiu produkta kategorio."
 
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
-msgstr "La kategorio de la produkto devas esti specifita por kalkuli la Nutri-Score."
+msgstr "La kategorio de la produkto devas esti specifita por kalkuli la Nutri-Poentaron."
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr "La nutraj informoj de la produkto devas esti specifitaj por kalkuli la Nutri-Score."
+msgstr "La nutraj informoj de la produkto devas esti specifitaj por kalkuli la Nutri-Poentaron."
 
 msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
@@ -6261,7 +6335,7 @@ msgstr "Mankas nutraj informoj por la preta produkto:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr "La kategorio kaj la nutraj informoj de la produkto devas esti specifitaj por kalkuli la Nutri-Score."
+msgstr "La kategorio kaj la nutraj informoj de la produkto devas esti specifitaj por kalkuli la Nutri-Poentaron."
 
 msgctxt "health"
 msgid "Health"
@@ -6492,7 +6566,84 @@ msgstr ""
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr "Lernu pli pri la Green-Score"
+msgstr "Lernu pli pri la Verda-Poentaro"
+
+# Environmental Cost (Ecobalyse)
+msgctxt "environmental_cost_title"
+msgid "Environmental Cost"
+msgstr ""
+
+msgctxt "environmental_cost_description"
+msgid "Total environmental impact score from Ecobalyse"
+msgstr ""
+
+msgctxt "environmental_cost_stale"
+msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
+msgstr ""
+
+msgctxt "ecs_breakdown"
+msgid "ECS Breakdown"
+msgstr ""
+
+msgctxt "environmental_cost_stage"
+msgid "Stage"
+msgstr "Scenejo"
+
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
+msgstr ""
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr ""
+
+msgctxt "environmental_cost_ingredients"
+msgid "Ingredients"
+msgstr "Ingrediencoj"
+
+msgctxt "environmental_cost_packaging"
+msgid "Packaging"
+msgstr "Pakaĵo"
+
+msgctxt "environmental_cost_transport"
+msgid "Transport"
+msgstr ""
+
+msgctxt "environmental_cost_processing"
+msgid "Processing"
+msgstr "Prilaborado"
+
+msgctxt "environmental_cost_distribution"
+msgid "Distribution"
+msgstr "Distribuo"
+
+msgctxt "environmental_cost_preparation"
+msgid "Preparation"
+msgstr "Preparado"
+
+msgctxt "environmental_cost_total"
+msgid "Total"
+msgstr "Totalo"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6536,17 +6687,21 @@ msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
 msgstr "Ĉu vi povus aldoni la liston de ingrediencoj?"
 
+msgctxt "actions_add_nutrition_facts"
+msgid "Could you add the nutrition facts?"
+msgstr ""
+
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr "Ĉu vi povus aldoni la informojn necesajn por kalkuli la Nutri-Score?"
+msgstr "Ĉu vi povus aldoni la informojn necesajn por kalkuli la Nutri-Poentaron?"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Ĉu vi povus aldoni precizan produktan kategorion por ke ni povu kalkuli la Green-Score?"
+msgstr "Ĉu vi povus aldoni precizan produktan kategorion por ke ni povu kalkuli la Verdan Poentaron?"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "La kategorio, kiun ni havas por ĉi tiu produkto, ne estas sufiĉe preciza por kalkuli la Green-Score. Ĉu vi povus aldoni pli precizan produktokategorion?"
+msgstr "La kategorio, kiun ni havas por ĉi tiu produkto, ne estas sufiĉe preciza por kalkuli la Verdan Poentaron. Ĉu vi povus aldoni pli precizan produktokategorion?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7131,11 +7286,11 @@ msgstr "Foresto"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr "Ĉi tiu produkto estas konsiderata akvo por la kalkulado de la Nutri-Score."
+msgstr "Ĉi tiu produkto estas konsiderata akvo por la kalkulado de la Nutri-Poentaro."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr "Ĉi tiu produkto estas konsiderata kiel graso, oleo, nuksoj aŭ semoj por la kalkulo de la Nutri-Score."
+msgstr "Ĉi tiu produkto estas konsiderata kiel graso, oleo, nuksoj aŭ semoj por la kalkulo de la Nutri-Poentaro."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
@@ -7143,7 +7298,7 @@ msgstr "Ĉi tiu produkto estas konsiderata fromaĝo por la kalkulado de la Nutri
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr "Ĉi tiu produkto estas konsiderata ruĝvianda produkto por la kalkulo de la Nutri-Score."
+msgstr "Ĉi tiu produkto estas konsiderata ruĝvianda produkto por la kalkulo de la Nutri-Poentaro."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
@@ -7175,7 +7330,7 @@ msgstr "Malkovru la novan Nutri-Score!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr "<p>La kalkulado de la Nutri-Score evoluas por provizi pli bonajn rekomendojn bazitajn sur la plej novaj sciencaj pruvoj.</p><p>Ĉefaj plibonigoj:</p><ul><li>Pli bona poentaro por iuj grasaj fiŝoj kaj oleoj riĉaj je bonaj grasoj</li><li>Pli bona poentaro por tutaj produktoj riĉaj je fibro</li><li>Pli malbona poentaro por produktoj enhavantaj multe da salo aŭ sukero</li><li>Pli malbona poentaro por ruĝa viando (kompare kun kokaĵo)</li></ul>"
+msgstr "<p>La kalkulado de la Nutri-Poentaro evoluas por provizi pli bonajn rekomendojn bazitajn sur la plej novaj sciencaj pruvoj.</p><p>Ĉefaj plibonigoj:</p><ul><li>Pli bona poentaro por iuj grasaj fiŝoj kaj oleoj riĉaj je bonaj grasoj</li><li>Pli bona poentaro por tutaj produktoj riĉaj je fibro</li><li>Pli malbona poentaro por produktoj enhavantaj multe da salo aŭ sukero</li><li>Pli malbona poentaro por ruĝa viando (kompare kun kokaĵo)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
@@ -7183,7 +7338,7 @@ msgstr "Malkovru ĉiujn plibonigojn de la nova Nutri-Score"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr "La Nutri-Score estas emblemo pri la ĝenerala nutra kvalito de produktoj."
+msgstr "La Nutri-Poentaro estas emblemo pri la ĝenerala nutra kvalito de produktoj."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
@@ -7199,7 +7354,7 @@ msgstr "La montrado de ĉi tiu emblemo estas rekomendata de publikasanaj aŭtori
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr "Kio estas la Nutri-Score?"
+msgstr "Kio estas la Nutri-Poentaro?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
@@ -7287,6 +7442,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Kategorio, etikedoj, ingrediencoj, alergenoj, nutraj informoj, fotoj ktp."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Kategorio, etikedoj, ingrediencoj, alergenoj, nutraj informoj, fotoj ktp."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Se la informoj ne kongruas kun la informoj sur la pakaĵo, vi povas kompletigi aŭ korekti ilin. Dankon!"
@@ -7294,6 +7461,18 @@ msgstr "Se la informoj ne kongruas kun la informoj sur la pakaĵo, vi povas komp
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts estas kunlabora datumbazo, kaj ĉiu kontribuo estas utila por ĉiuj."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7622,6 +7801,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "En kontakto kun manĝaĵoj"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr ""
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "Kontaktu nin"
@@ -7685,7 +7868,7 @@ msgstr "Raporti ĉi tiun bildon al niaj moderigantoj"
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "Mankas al ni la valoro de la porcio kaj/aŭ unuo por kalkuli la Nutri-Score."
+msgstr "Mankas al ni la valoro de la porcio kaj/aŭ unuo por kalkuli la Nutri-Poentaron."
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
@@ -7741,6 +7924,10 @@ msgstr "Serĉu produktojn en la sama kategorio sen aldonitaj sukeroj:"
 
 msgctxt "per_100g"
 msgid "for 100 g"
+msgstr ""
+
+msgctxt "points"
+msgid "points"
 msgstr ""
 
 msgctxt "per_100ml"
@@ -8041,21 +8228,21 @@ msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
 
-msgctxt "forest_footprint_2026"
-msgid "Forest Footprint 2026"
+msgctxt "forest_footprint_2026_methodology"
+msgid "The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption."
 msgstr ""
 
-msgctxt "forest_footprint_2026_under_development"
-msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgctxt "forest_footprint_2026_methodology_more_info"
+msgid "More information on the methodology"
 msgstr ""
 
 msgctxt "forest_footprint_2026_overall_grade"
-msgid "Forest footprint grade"
+msgid "Forest Footprint grade"
 msgstr ""
 
 msgctxt "forest_footprint_2026_total"
-msgid "Total forest footprint"
-msgstr "Totala arbara piedsigno"
+msgid "Total Forest Footprint"
+msgstr ""
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
@@ -8066,10 +8253,142 @@ msgid "Primary ingredient"
 msgstr ""
 
 msgctxt "forest_footprint_2026_origin_footprint"
-msgid "Forest footprint for the origin"
+msgid "Forest Footprint for the origin"
 msgstr ""
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
 msgstr "Etikedo"
+
+msgctxt "forest_footprint_2026_grade_unknown"
+msgid "Unknown"
+msgstr "Nekonata"
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
+msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
+msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
+msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
+msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
+msgstr ""
+
+msgctxt "forest_footprint_2026_labels_description"
+msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
+msgstr ""
+
+msgctxt "related_categories"
+msgid "Related categories"
+msgstr ""
+
+msgctxt "product_history_revision"
+msgid "Revision"
+msgstr ""
+
+msgctxt "product_history_date"
+msgid "Date"
+msgstr ""
+
+msgctxt "product_history_contributor"
+msgid "Contributor"
+msgstr "Kontribuanto"
+
+msgctxt "product_history_changes"
+msgid "Changes"
+msgstr ""
+
+msgctxt "product_history_comment"
+msgid "Comment"
+msgstr ""
+
+msgctxt "product_history_most_recent_changes"
+msgid "Only the most recent changes are shown."
+msgstr ""
+
+msgctxt "product_history_see_full_history"
+msgid "See the full changes history"
+msgstr ""
+
+msgctxt "google_drive_import_title"
+msgid "Import photos from a Google Drive folder"
+msgstr ""
+
+msgctxt "google_drive_import_description"
+msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+msgstr ""
+
+msgctxt "google_drive_folder_url"
+msgid "Google Drive folder URL"
+msgstr ""
+
+msgctxt "google_drive_import_button"
+msgid "Import the photos"
+msgstr ""
+
+msgctxt "google_drive_invalid_folder_url"
+msgid "This is not the URL of a Google Drive folder."
+msgstr ""
+
+msgctxt "google_drive_no_api_key"
+msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+msgstr ""
+
+msgctxt "google_drive_folder_not_found"
+msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+msgstr ""
+
+msgctxt "google_drive_folder_too_many_items"
+msgid "The Google Drive folder contains too many files."
+msgstr ""
+
+msgctxt "google_drive_api_error"
+msgid "Google Drive returned an error."
+msgstr ""
+
+msgctxt "google_drive_import_listing"
+msgid "Listing the photos of the folder..."
+msgstr ""
+
+msgctxt "google_drive_import_photos_in_folder"
+msgid "Photos in the folder"
+msgstr ""
+
+msgctxt "google_drive_import_skipped_files"
+msgid "Files that are not photos (e.g. videos), not imported"
+msgstr ""
+
+msgctxt "google_drive_import_max_images"
+msgid "The folder contains too many photos, only the first ones are imported"
+msgstr ""
+
+msgctxt "google_drive_import_photos_processed"
+msgid "Photos processed"
+msgstr ""
+
+msgctxt "job_not_found"
+msgid "The photo import job could not be found."
+msgstr ""
+
+msgctxt "job_failed"
+msgid "The photo import job failed."
+msgstr ""
+
+msgctxt "post_required"
+msgid "This action requires a POST request."
+msgstr ""
+
+msgctxt "unknown_action"
+msgid "Unknown action."
+msgstr ""
+
+msgctxt "google_drive_import_already_running"
+msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
+msgstr ""
 
