@@ -1369,12 +1369,12 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 	# Only accounts that are in the organization can be removed from it: an admin of an
 	# organization must not be able to strip the organization of an account that belongs to
 	# another one
-	my $is_in_org = 0;
+	my $is_in_org = builtin::false();
 	foreach my $group_id (@{$groups_ref}) {
-		$is_in_org = 1 if is_user_in_org_group($orgid, $user_id, $group_id);
+		$is_in_org = builtin::true() if is_user_in_org_group($orgid, $user_id, $group_id);
 	}
 	if (not $is_in_org) {
-		$log->warn("remove_user_by_org_admin - the user is not in the organization",
+		$log->warn('remove_user_by_org_admin - the user is not in the organization',
 			{org_id => $orgid, user_id => $user_id})
 			if $log->is_warn();
 		return;
@@ -1382,12 +1382,16 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 
 	remove_user_from_org($orgid, $user_id, $groups_ref);
 
-	# Reset the 'org' field of the user
+	# Reset the 'org' field of the user, if the user was actually 
+	# removed from the organization and wasn't simply pending
 	my $user_ref = retrieve_user_preferences($user_id);
 	return if not defined $user_ref;
-	delete $user_ref->{org};
-	delete $user_ref->{org_id};
-	store_user_preferences($user_ref);
+	if ($user_ref->{org_id} eq $orgid) {
+		delete $user_ref->{org};
+		delete $user_ref->{org_id};
+		store_user_preferences($user_ref);
+	}
+	
 	return;
 }
 
