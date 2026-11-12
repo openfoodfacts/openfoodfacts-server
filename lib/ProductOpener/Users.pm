@@ -103,7 +103,7 @@ use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param request_param/;
 use ProductOpener::Orgs
-	qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org update_last_logged_in_member /;
+	qw/add_user_to_org create_org is_user_in_org_group remove_user_from_org retrieve_or_create_org retrieve_org update_last_logged_in_member /;
 use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Brevo qw/add_contact_to_list/;
@@ -1596,14 +1596,43 @@ sub retrieve_user_by_email ($email) {
 }
 
 sub remove_user_by_org_admin ($orgid, $user_id) {
+
 	my $groups_ref = ['admins', 'members', 'pending'];
+
+	# $orgid can be an org id string or an org hashref (see process_user_requested_org()).
+	# Normalize to a comparable org id string.
+	my $target_org_id = ref $orgid eq 'HASH' ? $orgid->{org_id} : $orgid;
+	$target_org_id = get_string_id_for_lang('no_language', $target_org_id) if defined $target_org_id;
+
+	# Only accounts that are in the organization can be removed from it: an admin of an
+	# organization must not be able to strip the organization of an account that belongs to
+	# another one
+	my $is_in_org = builtin::false();
+	foreach my $group_id (@{$groups_ref}) {
+		$is_in_org = builtin::true() if is_user_in_org_group($orgid, $user_id, $group_id);
+	}
+	if (not $is_in_org) {
+		$log->warn('remove_user_by_org_admin - the user is not in the organization',
+			{org_id => $target_org_id, user_id => $user_id})
+			if $log->is_warn();
+		return;
+	}
+
 	remove_user_from_org($orgid, $user_id, $groups_ref);
 
-	# Reset the 'org' field of the user
+	# Only clear the primary org fields if they point at the organization being removed from:
+	# a user pending in A who is a member of B must keep org_id B.
 	my $user_ref = retrieve_user_preferences($user_id);
-	delete $user_ref->{org};
-	delete $user_ref->{org_id};
-	store_user_preferences($user_ref);
+	return if not defined $user_ref;
+	if (    defined $user_ref->{org_id}
+		and defined $target_org_id
+		and $user_ref->{org_id} eq $target_org_id)
+	{
+		delete $user_ref->{org};
+		delete $user_ref->{org_id};
+		store_user_preferences($user_ref);
+	}
+
 	return;
 }
 
