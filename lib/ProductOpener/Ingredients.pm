@@ -2671,7 +2671,7 @@ Text to analyze
 					}
 
 					if (    ($between =~ $separators)
-						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
+						and ($` !~ /\s*(origin|origins|origine|origem|alkuperä|ursprung)\s*/i)
 						and ($` !~ /\s*(allergens)\s*/i)
 						and ($between !~ compiled_regexp('^' . $percent_or_quantity_regexp . '$')))
 					{
@@ -2720,7 +2720,7 @@ Text to analyze
 
 							# try to remove the origin and store it as property
 							if ($between
-								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
+								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong|pa[ií]s de origem|origem)\s?:?\s?\b(.*)$/i
 								)
 							{
 								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
@@ -6104,6 +6104,7 @@ sub normalize_vitamin ($lc, $a) {
 		($lc eq 'nl') and return "vitamine $a";
 		($lc eq 'is') and return "$a-vítamín";
 		($lc eq 'pl') and return "witamina $a";
+		($lc eq 'pt') and return "vitamina $a";
 		return "vitamin $a";
 	}
 	else {

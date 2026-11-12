@@ -1385,6 +1385,12 @@ my @tests = (
 		id => 'de-types-without-category',
 		lc => 'de',
 		ingredients_text => 'Zucker, Raps, Sonnenblumen, Salz'
+	},
+	# Portuguese vitamin enumerations
+	{
+		id => 'pt-vitamins-enumeration',
+		lc => 'pt',
+		ingredients_text => 'Leite, vitaminas (B1, B2, B6, C, D), vitaminas A e E'
 	}
 );
 

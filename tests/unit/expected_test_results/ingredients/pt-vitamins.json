@@ -1,0 +1,202 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+         "ecobalyse_name" : "Lait par défaut -2025-",
+         "id" : "en:milk",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 54.5454545454545,
+         "percent_max" : 100,
+         "percent_min" : 9.09090909090909,
+         "text" : "Leite",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamins",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 22.7272727272727,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "vitaminas",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:thiamin",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 11.3636363636364,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "vitamina B1",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e101i",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.68181818181818,
+         "percent_max" : 25.0,
+         "percent_min" : 0,
+         "text" : "vitamina B2",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-b6",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.84090909090909,
+         "percent_max" : 20.0,
+         "percent_min" : 0,
+         "text" : "vitamina B6",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-b12",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.42045454545455,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "vitamina B12",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-c",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.710227272727273,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "vitamina C",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cholecalciferol",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.35511363636364,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "vitamina D3",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:vitamins",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.17755681818182,
+         "percent_max" : 11.1111111111111,
+         "percent_min" : 0,
+         "text" : "vitaminas",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-a",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.0887784090909065,
+         "percent_max" : 10.0,
+         "percent_min" : 0,
+         "text" : "vitamina A",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:vitamin-e",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.0887784090909065,
+         "percent_max" : 9.09090909090909,
+         "percent_min" : 0,
+         "text" : "vitamina E",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+         "en:cholecalciferol",
+         "en:vitamin-a"
+      ],
+      "en:non-vegan" : [
+         "en:milk"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "pt",
+   "ingredients_n" : 11,
+   "ingredients_n_tags" : [
+      "11",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:milk",
+      "en:vitamins",
+      "en:thiamin",
+      "en:e101i",
+      "en:vitamin-b6",
+      "en:vitamin-b12",
+      "en:vitamin-c",
+      "en:cholecalciferol",
+      "en:vitamins",
+      "en:vitamin-a",
+      "en:vitamin-e"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:milk",
+      "en:dairy",
+      "en:vitamins",
+      "en:thiamin",
+      "en:e101i",
+      "en:e101",
+      "en:vitamin-b6",
+      "en:vitamin-b12",
+      "en:vitamin-c",
+      "en:cholecalciferol",
+      "en:vitamin-d",
+      "en:vitamin-a",
+      "en:vitamin-e"
+   ],
+   "ingredients_text" : "Leite, vitaminas (B1, B2, B6, B12, C, D3), vitaminas A e E",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 11,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_without_ciqual_codes" : [
+      "en:cholecalciferol",
+      "en:e101i",
+      "en:thiamin",
+      "en:vitamin-a",
+      "en:vitamin-b12",
+      "en:vitamin-b6",
+      "en:vitamin-c",
+      "en:vitamin-e",
+      "en:vitamins"
+   ],
+   "ingredients_without_ciqual_codes_n" : 9,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cholecalciferol",
+      "en:e101i",
+      "en:thiamin",
+      "en:vitamin-a",
+      "en:vitamin-b12",
+      "en:vitamin-b6",
+      "en:vitamin-c",
+      "en:vitamin-e",
+      "en:vitamins"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 9,
+   "known_ingredients_n" : 11,
+   "lc" : "pt",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
