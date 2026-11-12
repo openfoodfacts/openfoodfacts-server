@@ -131,27 +131,12 @@
          "text" : "arômes de vanille",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
-      },
-      {
-         "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-         "ecobalyse_name" : "Lait par défaut -2025-",
-         "id" : "en:milk",
-         "is_in_taxonomy" : 1,
-         "origins" : "en:european-union,en:non-european-union",
-         "percent_estimate" : 0,
-         "percent_max" : 3,
-         "percent_min" : 0,
-         "text" : "Lait",
-         "vegan" : "no",
-         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
          "en:whole-milk-powder",
-         "en:skimmed-milk-powder",
-         "en:milk"
+         "en:skimmed-milk-powder"
       ],
       "en:palm-oil" : [
          "en:palm-oil",
@@ -172,9 +157,9 @@
       "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 12,
+   "ingredients_n" : 11,
    "ingredients_n_tags" : [
-      "12",
+      "11",
       "11-20"
    ],
    "ingredients_original_tags" : [
@@ -187,7 +172,6 @@
       "en:sunflower-oil",
       "en:e322",
       "en:vanilla-flavouring",
-      "en:milk",
       "en:palm-oil",
       "en:palm-kernel-oil"
    ],
@@ -210,7 +194,6 @@
       "en:e322",
       "en:vanilla-flavouring",
       "en:flavouring",
-      "en:milk",
       "en:palm-oil",
       "en:palm-oil-and-fat",
       "en:palm-kernel-oil",
@@ -219,7 +202,7 @@
    "ingredients_text" : "Sucre, LAIT* entier en poudre 25%, graisse végétale (palme, palmiste), beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%, huile de tournesol, émulsifiant: lécithines, arômes de vanille. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
    "ingredients_with_specified_percent_n" : 2,
    "ingredients_with_specified_percent_sum" : 28,
-   "ingredients_with_unspecified_percent_n" : 9,
+   "ingredients_with_unspecified_percent_n" : 8,
    "ingredients_with_unspecified_percent_sum" : 73,
    "ingredients_without_ciqual_codes" : [
       "en:e322",
@@ -239,7 +222,7 @@
       "fr:pâte de cacao1"
    ],
    "ingredients_without_ecobalyse_ids_n" : 6,
-   "known_ingredients_n" : 10,
+   "known_ingredients_n" : 9,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
@@ -247,10 +230,11 @@
    ],
    "specific_ingredients" : [
       {
-         "id" : "en:cocoa",
-         "ingredient" : "Cacao",
+         "id" : "en:milk",
+         "ingredient" : "Lait",
+         "origins" : "en:european-union,en:non-european-union,en:united-kingdom",
          "percent" : 30,
-         "text" : "Cacao: 30% minimum dans le chocolat au lait"
+         "text" : "*Lait: origine UE et non UE (Royaume-Uni)"
       }
    ],
    "unknown_ingredients_n" : 2
