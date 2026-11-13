@@ -1311,7 +1311,7 @@ kk: Бифидобактериялар
 la: Bifidobacterium
 nl: bifidus, Bifidobacterium
 pl: bifidobacterium sp, bifidobacterium, bifidobacterium BB-12
-pt: Bifidus
+pt: Bifidus, bifidobactérias, bifidobactéria
 ru: Бифидобактерии
 sv: bifidobacterium, bifidobacterium sp
 tr: Bifido bakterisi
@@ -3670,6 +3670,15 @@ pt: lactose e proteínas do leite, lactose e proteínas lácteas
 vegan:en: no
 vegetarian:en: yes
 
+< en: dairy
+en: milk solids, dairy solids, reconstituted milk solids
+es: sólidos lácteos, sólidos lácteos reconstituidos
+fr: extrait sec laitier, extrait sec du lait
+it: solidi del latte
+pt: sólidos lácteos, sólidos lácteos reconstituídos, sólidos de leite, concentrado de sólidos lácteos reconstituído
+vegan:en: no
+vegetarian:en: yes
+
 ################################ MILK POWDERS ##################################
 
 #process:en: en:powder
@@ -3986,6 +3995,7 @@ hr: minerali mlijeka
 hu: tejből kivont ásványi anyagok, ásványi anyagok tejből
 it: minerali del latte
 nl: melkmineralen
+pt: minerais do leite, minerais de leite
 ro: minerale din lapte
 vegan:en: no
 vegetarian:en: yes
@@ -4000,6 +4010,7 @@ fr: concentré des minéraux du lait, concentré de minéraux du lait
 hr: mineralni koncentrat mlijeka
 it: concentrato minerale di latte
 nl: melkmineralenconcentraat
+pt: concentrado de minerais do leite, concentrado de minerais de leite
 
 < en: lactose
 < en: milk minerals
@@ -4499,6 +4510,7 @@ en: acid whey
 fr: Lactosérum acide
 hr: kisela sirutka
 it: siero di latte acido
+pt: lactosoro ácido, soro de leite ácido
 usda_fdc_2_code:en: 171281
 usda_fdc_code:en: 170885
 usda_ndb_2_code:en: 1113
@@ -7007,7 +7019,7 @@ mk: Ементалер
 ms: Keju Emmental
 nb: emmentaler, sveitserost
 pl: ementaler, emmentaler, ser ementalski, ser ementaler, ser emmentaler
-pt: Emmental
+pt: Emmental, queijo emmental
 ru: Эмменталь
 sk: Ementálsky syr
 sl: Ementalski sir
@@ -8765,7 +8777,7 @@ ms: Ricotta
 nb: ricotta
 nl: ricotta
 pl: ricotta, ser ricotta
-pt: requeijão
+pt: requeijão, ricota, ricotta, queijo ricota
 ro: Ricotta
 ru: Рикотта
 sl: Rikota
@@ -10650,6 +10662,7 @@ nb: kjøtt av storfe
 nl: Rundvlees
 no: Oksekjøtt
 pl: Mięso wołowe
+pt: carne de bovino, carne de vaca
 ro: carne de vită, carne de vita
 sl: Goveje meso
 tr: Sığır eti
@@ -12945,7 +12958,7 @@ oc: Couenne
 or: ପୋର୍କ ଚମଡା
 pa: ਪੋਰਕ ਦਾ ਛਿਲਕਾ
 pl: skwarki, skórki wieprzowe, skóry wieprzowe
-pt: torresmo
+pt: torresmo, courato, couratos
 rm: Couenne
 ro: șorici, șorici de porc
 ru: шкварки
@@ -13585,7 +13598,7 @@ hr: kuhana šunka
 hu: főtt sonka
 it: prosciutto cotto
 nl: gekookte ham
-pt: fiambre cozinhado
+pt: fiambre cozinhado, fiambre
 sv: kokt skinka
 ecobalyse_alias:en: cooked-ham-2025
 ecobalyse_category:en: other_food_items
@@ -13731,6 +13744,7 @@ de: Schweinekeule, Schweineschenkel
 fr: cuisse de porc
 hr: svinjska noga
 it: coscia di suino, coscia suina
+pt: perna de suíno, carne da perna de suíno
 
 < en: pork meat
 bg: свинско месо от врат
@@ -13819,6 +13833,7 @@ ja: ポークベリー
 jv: weteng babi
 ko: 삼겹살
 nl: varkensbuik, buikspek
+pt: entremeada de suíno, entremeada de porco, entremeada
 ru: пашина
 sv: sidfläsk
 vi: thịt ba chỉ
@@ -15816,7 +15831,7 @@ lv: piena tauki
 nb: melkefett
 nl: melkvet
 pl: tłuszcz mleczny, tłuszcz z mleka
-pt: gorda do leite
+pt: gorda do leite, matéria gorda láctea, gordura láctea, gordura do leite
 ro: grasimi din lapte, grăsimi din lapte, grasime din lapte, grăsime din lapte
 sk: mliečny tuk
 sv: mjölkfett
@@ -15858,7 +15873,7 @@ ms: lemak mentega, lemak susu
 nb: vannfritt melkefett
 nl: boterconcentraat, botervet, watervrij melkvet, boterolie, geconcentreerde boter
 pl: bezwodny tłuszcz mleczny
-pt: gordura butrica, lípido butrica, matéria gorda butírica, manteiga concentrada, gordura de leite anhidra, lípido de leite anhidra
+pt: gordura butírica, lípido butírico, matéria gorda butírica, manteiga concentrada, gordura de leite anidra, lípido de leite anidro, matéria gorda láctea anidra, gordura láctea anidra, manteiga anidra
 ro: grasimi din unt, grăsime din unt, ulei de unt, unt concentrat
 ru: Молочный жир, топленое масло, жир-молочный
 sl: mlečna maščoba
@@ -16118,7 +16133,7 @@ nl: plantaardige vetten, plantaardig vet
 nn: vegetabilisk fett
 no: vegetabilst felt
 pl: tłuszcz roślinny, tłuszcze roślinne
-pt: gordura vegetal, gorduras vegetais, lípido vegetal, lípidos vegetais, matérias gordas vegetais
+pt: gordura vegetal, gorduras vegetais, lípido vegetal, lípidos vegetais, matérias gordas vegetais, matéria gorda vegetal
 ro: grăsime vegetală, grăsimi vegetale, grăsime vegetală nehidrogenată, grăsimi vegetale nehidrogenate
 ru: растительные жиры, жир растительный, растительный-жир
 sk: rastlinný tuk
@@ -17044,7 +17059,7 @@ fr: Oléïne de palme
 hr: palmin olein
 it: oleina di palma
 nl: Palmoleïne
-pt: oleína de palma
+pt: oleína de palma, palmoleína
 th: น้ำมันปาล์มโอเลอิน
 description:en: The olein (liquid) fraction of palm oil.
 #wiktionary:en:palmolein
@@ -19051,6 +19066,7 @@ fr: tournesol oléique, tournesol à haute teneur en acide oléique
 hr: visoko oleinskog suncokreta
 it: girasole alto oleico
 pl: wysoko oleinowy olej słonecznikowy
+pt: girassol alto oleico, girassol rico em ácido oleico, girassol com alto teor de ácido oleico, girassol com alto teor em ácido oleico
 comment:en: has a higher oleic oil fraction
 usda_ndb_proxy_code:en: 4584
 usda_ndb_proxy_name:en: Oil, sunflower, high oleic (70% and over)
@@ -19066,7 +19082,7 @@ fr: huile de tournesol à haute teneur en acide oléique, huile de tournesol à 
 hr: suncokretovo ulje s visokim udjelom oleinske kiseline, visokooleinsko suncokretovo ulje, suncokretovo ulje s visokim sadržajem oleinske kiseline
 it: olio di girasole alto oleico
 nl: high oleic zonnebloemolie
-pt: óleo de girassol com alto teor em ácido oleico, óleo refinado de girassol alto oleíco
+pt: óleo de girassol com alto teor em ácido oleico, óleo refinado de girassol alto oleíco, óleo de girassol alto oleico, óleo de girassol com alto teor de ácido oleico, óleo de girassol rico em ácido oleico, óleo de girassol alto oleico refinado, óleo de girassol com alto teor em ácido oleico refinado
 ru: масло подсолнечное высокоолеиновое рафинированное дезодорированное
 usda_ndb_proxy_code:en: 4584
 usda_ndb_proxy_name:en: Oil, sunflower, high oleic (70% and over)
@@ -25724,7 +25740,7 @@ lv: kviešu klijas
 nb: hvetekli
 nl: tarwezemelen, tarwezemel
 pl: otręby pszenne
-pt: farelo de trigo
+pt: farelo de trigo, sêmea de trigo
 ro: tărâțe de grâu
 ru: отруби пшеничные
 sl: pšenični otrobi
@@ -27276,7 +27292,7 @@ nn: bokkveite
 oc: blat negre
 os: сауфагæ
 pl: gryka, gryka zwyczajna
-pt: trigo mourisco
+pt: trigo mourisco, trigo sarraceno
 ro: hrișcă
 ru: ядрица, гречиха посевная, греча, гречиха съедобная
 sh: heljda
@@ -29073,7 +29089,7 @@ hu: tönkölyliszt
 it: farina di spelta, farina di farro spelta
 nl: speltmeel, speltbloem, spelttarwemeel
 pl: mąka orkiszowa, mąka z pszenicy orkisz
-pt: farinha de espelta
+pt: farinha de espelta, farinha de trigo espelta
 sk: múka z pšenice špaldy
 sv: speltvetemjöl, dinkelmjöl, dinkelvetemjöl, mjöl av dinkelvete
 ciqual_food_code:en: 9480
@@ -32754,6 +32770,7 @@ it: carruba
 lv: ceratonijas pupiņas
 nl: carob, johannesbroodmeel, carobpoeder
 pl: karob, karobu, karobowy, karobowe, karobowa
+pt: alfarroba, farinha de alfarroba
 ro: roșcove
 sl: rožič
 sv: Johannesbrödfrö
@@ -33974,6 +33991,7 @@ it: zucchero di fiori di cocco, zucchero di cocco
 nl: kokosbloesemsuiker, kokossuiker
 nn: kokosnøttsukker
 pl: cukier kokosowy, cukier z kwiatu palmy kokosowej
+pt: açúcar de coco
 su: Gula kalapa
 sv: kokossocker, kokospalmsocker
 ta: தென்னை சர்க்கரை
@@ -34850,6 +34868,7 @@ lv: oligofruktoze
 nb: oligofruktose
 nl: oligofructose
 pl: oligofruktoza
+pt: oligofrutose
 ro: oligofructoză
 sv: oligofruktos
 comment:en: The wikidata names are not used on packages.
@@ -36435,6 +36454,18 @@ hu: vérfehérjék
 it: proteine del sangue
 vegetarian:en: no
 
+< en: blood proteins
+en: haemoglobin, hemoglobin
+de: Hämoglobin
+es: hemoglobina
+fr: hémoglobine
+it: emoglobina
+nl: hemoglobine
+pt: hemoglobina
+vegan:en: no
+vegetarian:en: no
+wikidata:en: Q43041
+
 < en: animal protein
 en: pork protein
 bg: свински протеин, свински белтък
@@ -36448,6 +36479,7 @@ hu: sertésfehérje, sertéshúsfehérje, sertés fehérje
 it: proteina di maiale
 nl: varkenseiwit
 pl: białko wieprzowe, białka zwierzęce wieprzowe
+pt: proteína de suíno, proteínas de suíno
 ro: proteină de porc, proteina de porc, proteină animală de porc, proteină animală din porc, proteină din porc
 sl: svinjske beljakovine
 sv: grisköttprotein, animaliskt protein av gris
@@ -37492,7 +37524,7 @@ he: שברי שוקולד, נטיפי שוקולד, שוקולד צ׳יפס, ש�
 it: pezzi di cioccolato, gocce di cioccolato
 nl: Chocostukjes
 pl: Kawałki czekolady
-pt: raspas de chocolate
+pt: raspas de chocolate, pepitas de chocolate, pepita de chocolate, pedaços de chocolate, pedaço de chocolate
 sv: Choklad bitar, chokladbitar
 # usage:de:Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
 ciqual_proxy_food_code:en: 31005
@@ -37606,7 +37638,7 @@ nn: mørk sjokolade
 or: ଡାର୍କ ଚୋକୋଲେଟ
 pa: ਡਾਰਕ ਚੌਕਲੇਟ
 pl: gorzka czekolada, czekolada gorzka, czekolada ciemna
-pt: chocolate amargo
+pt: chocolate amargo, chocolate negro, chocolate preto
 ro: ciocolată neagră, ciocolată amăruie
 ru: горький шоколад
 sk: horká čokoláda
@@ -40208,7 +40240,7 @@ fr: Fruits rouges, fruit rouge
 hr: crveno voće
 it: frutti rossi
 nl: rode vruchten
-pt: frutas vermelhas
+pt: frutas vermelhas, frutos vermelhos, fruto vermelho
 ciqual_food_code:en: 13997
 ciqual_food_name:en: Red berries (raspberries, strawberries, red currants, black currants) , raw
 ciqual_food_name:fr: Fruits rouges, crus (framboises, fraises, groseilles, cassis)
@@ -40659,7 +40691,7 @@ os: абрикос
 pa: ਖ਼ੁਰਮਾਨੀ
 pl: Morela, moreli, morele, morelowy, morelowa, morelowym, morelowe
 ps: خوبانۍ
-pt: damasco
+pt: damasco, alperce, alperces
 rm: apricosa
 ro: caisă, caise
 ru: абрикос, абрикосы
@@ -41769,7 +41801,7 @@ hr: pire od manga
 it: polpa di mango
 nl: mangopuree
 pl: przecier z mango, puree z mango
-pt: Puré de manga, polpa de manga
+pt: Puré de manga, polpa de manga, polme de manga
 ru: манговое пюре, пюре манго
 sv: mangopuré
 # In process de:Mangopüree, Mangomark
@@ -41874,7 +41906,7 @@ lv: persiks
 nl: perziken, perzik
 oc: Persec
 pl: Brzoskwinia, brzoskwinie, brzoskwiń, brzoskwiniowy, brzoskwiniowego, brzoskwini
-pt: pêssegos
+pt: pêssegos, pêssego
 ro: piersici
 ru: персик
 sk: Broskyňa
@@ -42006,7 +42038,7 @@ fr: purée de pêches, purée de pêche
 hr: kaša breskve
 it: purea di pesche
 nl: perzikenpuree
-pt: puré de pêssego
+pt: puré de pêssego, polme de pêssego
 ro: piure de piersici
 sv: persikopuré
 ciqual_food_code:en: 13043
@@ -42023,6 +42055,7 @@ ciqual_food_name:fr: Pêche, pulpe et peau, crue
 < en: peach
 en: peach pulp
 cs: broskvová dřeň
+pt: polpa de pêssego
 
 #process:en:juice
 < en: peach
@@ -42409,7 +42442,7 @@ hr: kaša kruške
 it: purea di pera
 nl: perenpuree
 pl: przecier gruszkowy
-pt: Puré de pêra
+pt: Puré de pêra, polme de pêra, polme de pera
 ro: piure de pere
 
 < en: Williams' bon chrétien pear
@@ -43519,7 +43552,7 @@ nb: eplepuré
 nl: appelmoes
 nn: eplepuré
 pl: przecier jabłkowy, przecier z jabłek, puree jabłkowe
-pt: puré de maçã, puré de maçãs
+pt: puré de maçã, puré de maçãs, polme de maçã, polme de maçãs
 ro: piure de mere
 ru: Яблочное пюре, пюре яблочное
 sv: äppelpuré
@@ -47704,7 +47737,7 @@ nb: kokos, kokosnøtt
 nl: kokosnoot, kokos
 nn: kokosnøtt
 pl: kokos, kokosa, orzech kokosowy, orzecha kokosowego, kokosowy, kokosowa, kokosowe
-pt: cocos
+pt: cocos, coco
 ro: nucă de cocos, nuca de cocos, cocos
 ru: кокос
 sa: नारिकेलम्
@@ -48065,6 +48098,7 @@ nl: dadel, dadels
 nn: dadler
 nv: Hashkʼaan dijéʼé
 pl: Daktyle, daktyl, daktyli, daktylowa, daktylowe
+pt: tâmara, tâmaras
 ro: Curmală, curmale
 ru: финик, финики
 sk: Datľa
@@ -48686,6 +48720,7 @@ it: goji
 ko: 구기자
 la: Lycium barbarum
 pl: goji, jagoda goji, jagody goji
+pt: goji, bagas de goji, baga de goji
 sk: Kou-čchi
 sq: Goji
 sv: Gojibär
@@ -48932,7 +48967,7 @@ nv: chʼil dishooí
 oc: kiwi
 pa: ਕੀਵੀ
 pl: kiwi, aktinidia
-pt: quiuí
+pt: quiuí, kiwi, kiwis
 ro: kiwi
 ru: киви
 sh: kivi
@@ -50887,7 +50922,7 @@ nl: framboos, frambozen
 nn: bringebær, bringbær
 nv: Dzidzé łikaní dinilchííʼígíí
 pl: malina, maliny, malinowy, malinowa, malinowe, malin, owoc maliny
-pt: framboesas
+pt: framboesas, framboesa
 ro: zmeură
 ru: Малина
 sd: راسپ بيري
@@ -51558,7 +51593,7 @@ nb: jordbærpuré
 nl: aardbeienpuree
 nn: jordbærpuré
 pl: przecier truskawkowy, przecier z truskawek, puree truskawkowe
-pt: Puré de morango
+pt: Puré de morango, polme de morango
 ro: piure de căpșuni
 ru: Клубничное пюре, пюре клубничное
 sv: jordgubbspuré
@@ -60246,6 +60281,7 @@ hr: pasta od češnjaka
 it: Impasto d'aglio
 # ja:ガーリックペースト # see ingredients_processings.txt
 pl: pasta czosnkowa
+pt: massa de alho, pasta de alho
 
 #en:processing:en:powder removed due to specific nutritional data
 < en: garlic
@@ -61190,6 +61226,7 @@ lv: melnais burkāns
 nb: sort gulrot
 nl: zwarte wortel
 pl: czarna marchew, czarnej marchwi
+pt: cenoura negra, cenouras negras, cenoura preta, cenouras pretas
 sv: svart morot, svart morots, svartmorot, svartmorots
 wikidata:en: Q11767451
 
@@ -61227,6 +61264,7 @@ de: schwarze Möhre Konzentrat, Konzentrate aus schwarzer Karotte
 fr: concentré de carotte pourpre
 hr: koncentrat crne mrkve
 it: concentrato di carota nera, concentrato di carote nere
+pt: concentrado de cenoura negra, concentrado de cenoura preta
 ro: concentrat de morcov negru, suc concentrat de morcov negru
 sv: svart morotskoncentrat, koncentrat av svartmorot
 
@@ -61873,7 +61911,7 @@ nb: tapioka, tapiokastivelse
 nl: tapiocazetmeel, tapioca zetmeel, tapioca
 nn: tapioka
 pl: tapioka, skrobia z tapioki, skrobia tapiokowa, skrobia z manioku
-pt: tapioca
+pt: tapioca, amido de tapioca, fécula de tapioca, fécula de mandioca, amido de mandioca
 ro: amidon de tapioca, amidon din tapioca
 ru: тапиока
 sk: tapiokový škrob
@@ -64410,7 +64448,7 @@ or: ଲଙ୍କା ମରୀଚ
 os: Цывзы
 pa: ਮਿਰਚ
 pl: papryka chili, papryka chilli, chili, chilli, papryczka chili, papryczka chilli, papryczki chili, papryka chilli, papryka pepperoni, ostra papryka pepperoni
-pt: chili
+pt: chili, malagueta, malaguetas
 qu: Utsu
 ro: chili, ardei iute, chilli
 ru: перец чили
@@ -66692,6 +66730,7 @@ nb: raps
 nl: koolzaad, raapzaad
 nn: raps
 pl: rzepak, rzepaku, rzepakowy, rzepakowa, rzepakowe
+pt: colza
 ro: rapiță
 sv: raps, rapsfrön
 comment:en: Why is this listed separately. Is only used as oil source. Can this be listed as a synonym of the oil names?
@@ -67368,7 +67407,7 @@ ms: kacang serinding, kacang keratuk, kacang kratok, kacang cina
 nb: limabønne, limabønner
 nl: limaboon, Indische maanboon, wilgenbladboon, olifantsboon
 pl: fasola półksiężycowata
-pt: feijão de lima
+pt: feijão de lima, feijão manteiga, feijões manteiga
 ru: фасоль луновидная, Фасо́ль лунообра́зная, фасоль ли́мская, фасоль лу́нная
 sr: лима пасуљ, lima pasulj
 su: roay, kacang jawa, kekara
@@ -67596,7 +67635,7 @@ ja: 金時豆, 赤インゲン豆
 lv: sarkanās pupiņas
 nl: Rode bonen
 pl: fasola czerwona, fasoli czerwonej, czerwona fasola
-pt: Feijões vermelhos
+pt: Feijões vermelhos, feijão encarnado, feijões encarnados, feijão vermelho
 ru: фасоль красная, красная фасоль, Фасоль крупа красная
 sl: rdeči fižol
 sv: röda kidneybönor, kidneybönor
@@ -73989,7 +74028,7 @@ lv: zāle
 nb: urt, urte
 nl: Kruiden, kruidenmengsel
 pl: Zioło, zioła, ziół, mieszanka ziół, mieszanka ziołowa
-pt: plantas aromáticas, ervas
+pt: plantas aromáticas, ervas, ervas aromáticas, erva aromática
 ro: Ierburi, plante aromatice, ierburi aromatice, verdeață, verdețuri
 sl: zelišča
 sv: örter, örtkrydda, örtkryddor, kryddörter
@@ -75477,7 +75516,7 @@ or: ଲବଙ୍ଗ
 pa: ਲੌਂਗ
 pl: goździki, goździk, goździkowy, goździkowe, goździkowa, goździków
 ps: لونګ
-pt: cravo-da-índia
+pt: cravo-da-índia, cravinho, cravinhos
 ro: cuișoare, cuisoare
 ru: гвоздика
 sa: लवङ्गम्
@@ -94386,6 +94425,7 @@ hr: gumena baza, gumi baza
 it: gomma base
 ja: ガムベース
 pl: baza gumowa
+pt: goma base, goma de base
 ro: bază de gumă
 sv: gummibas, tuggummibas
 description:en: GUM BASE is the non-nutritive, non-digestible, water-insoluble masticatory delivery system used to carry sweeteners, flavors, and any other substances in chewing gum and bubble gum. It provides all the basic textural and masticatory properties of gum. The actual composition of gum base is usually a trade secret.
@@ -95288,6 +95328,7 @@ es: éster de esterol vegetal, ésteres de esteroles vegetales
 fi: kasvisteroliesteri, kasvisteroliesterit
 fr: ester de stérol végétal, esters de stérol végétal
 pl: estry steroli roślinnych
+pt: éster de esterol vegetal, ésteres de esteróis vegetais
 vegan:en: yes
 vegetarian:en: yes
 
@@ -95796,7 +95837,7 @@ nv: Naaʼahóóhai
 ny: Nkhuku
 pa: ਕੁੱਕੜ
 pl: Kurczaki, kurczak, kura, kur, kurczaków, kurcząt, kurczęta
-pt: galinha
+pt: galinha, frango, frangos
 qu: Wallpa
 ro: pui, găină
 ru: курица
@@ -96118,6 +96159,7 @@ fr: viande de poulet séparée mécaniquement, viande séparée mécaniquement d
 hr: mehanički otkošeno pileće meso
 it: carne di pollo separata meccanicamente
 pl: mięso mechanicznie oddzielone z kurczaka, mięso oddzielone mechanicznie z kurczaka, mięso oddzielone mechanicznie z kurcząt
+pt: carne separada mecanicamente de frango, carnes separadas mecanicamente de frango
 
 #<en:chicken meat
 #en:raw hen meat
@@ -97821,6 +97863,7 @@ hr: tekuća jaja
 it: uovo liquido
 ja: 液卵
 pl: masa jajowa, masa jajeczna
+pt: ovo líquido, ovos líquidos
 
 < en: egg
 en: egg white, egg albumen, egg albumin
@@ -97854,7 +97897,7 @@ ms: putih telur
 nb: eggehvite
 nl: ei-eiwit, albumine
 pl: białka jaj, białko jaja, białko jaj
-pt: clara do ovo, clara de ovos
+pt: clara do ovo, clara de ovos, albumina de ovo
 ro: albuș de ou, albuș
 ru: белок
 sh: bjelance
@@ -98584,7 +98627,7 @@ nl: puree
 nn: puré
 pa: ਪਿਊਰੇ
 pl: Purée, przecier, przeciery, przecier z, przeciery z
-pt: puré
+pt: puré, polme
 ro: piure
 ru: пюре
 sq: pire
@@ -98930,6 +98973,7 @@ it: fibra di agrumi, fibra di agrume, fibre di agrumi
 nl: citrusvezel, citrusvezels
 no: sitrusfiber
 pl: błonnik cytrusowy, błonnik z owoców cytrusowych, błonnik z cytrusów
+pt: fibra de citrinos, fibras de citrinos
 ro: fibră de citrice, fibre de citrice, fibre din citrice
 sv: citrusfiber, citrusfibrer
 
@@ -98956,6 +99000,7 @@ it: fibra di mais solubile
 lv: šķīstošā kukurūzas šķiedra
 nl: oplosbare maïsvezel
 pl: rozpuszczalny błonnik kukurydziany, błonnik rozpuszczalny kukurydziany
+pt: fibra solúvel de milho, fibra de milho solúvel
 
 < en: vegetable fiber
 en: flax seed fiber, flaxseed fiber, flax fiber, flax fibers
