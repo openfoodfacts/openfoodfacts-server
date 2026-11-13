@@ -12,7 +12,8 @@ use JSON;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging
-	qw/aggregate_packaging_by_parent_materials analyze_and_combine_packaging_data get_checked_and_taxonomized_packaging_component_data guess_language_of_packaging_text init_packaging_taxonomies_regexps/;
+	qw/aggregate_packaging_by_parent_materials analyze_and_combine_packaging_data get_checked_and_taxonomized_packaging_component_data guess_language_of_packaging_text init_packaging_taxonomies_regexps should_display_legacy_packaging/;
+use ProductOpener::APIProductWrite qw/update_product_field_api_v2_and_cgi/;
 use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::API qw/get_initialized_response/;
 
@@ -863,5 +864,55 @@ is(
 	}
 
 ) or diag Dumper $product_ref->{packagings_materials};
+
+# Testing should_display_legacy_packaging
+ok(should_display_legacy_packaging({}, 1), "moderator can view legacy packaging field");
+ok(should_display_legacy_packaging({packaging => "carton"}, 0), "product with packaging string shows field");
+ok(should_display_legacy_packaging({packaging_tags => ["en:cardboard"]}, 0), "product with packaging_tags shows field");
+ok(!should_display_legacy_packaging({}, 0), "product without legacy packaging does not show field for regular user");
+ok(!should_display_legacy_packaging({packaging => ""}, 0),
+	"product with empty packaging string does not show field for regular user");
+ok(
+	!should_display_legacy_packaging({packaging_tags => []}, 0),
+	"product with empty packaging_tags does not show field for regular user"
+);
+
+# Deleting deprecated packaging field
+my $legacy_product_ref = {
+	code => "12345678",
+	packaging => "some deprecated insult",
+	packaging_tags => ["en:some-deprecated-insult"],
+	packaging_old => "some deprecated insult",
+	packaging_old_before_taxonomization => "some deprecated insult",
+	packaging_hierarchy => ["en:some-deprecated-insult"],
+	packaging_lc => "en",
+};
+
+update_product_field_api_v2_and_cgi($legacy_product_ref, "en", "packaging", "", "web");
+is($legacy_product_ref->{packaging}, undef, "packaging field is deleted when updated with empty string");
+is($legacy_product_ref->{packaging_tags}, undef, "packaging_tags is deleted when packaging field is cleared");
+is($legacy_product_ref->{packaging_old}, undef, "packaging_old is deleted when packaging field is cleared");
+is($legacy_product_ref->{packaging_old_before_taxonomization},
+	undef, "packaging_old_before_taxonomization is deleted when packaging field is cleared");
+is($legacy_product_ref->{packaging_hierarchy}, undef, "packaging_hierarchy is deleted when packaging field is cleared");
+is($legacy_product_ref->{packaging_lc}, undef, "packaging_lc is deleted when packaging field is cleared");
+
+# Updating packaging when value is unchanged (skips recomputing tags)
+my $unchanged_product_ref = {
+	code => "12345678",
+	packaging => "box",
+	packaging_tags => ["en:box"],
+};
+update_product_field_api_v2_and_cgi($unchanged_product_ref, "fr", "packaging", "box", "web");
+is($unchanged_product_ref->{packaging}, "box", "packaging remains unchanged");
+is($unchanged_product_ref->{packaging_tags}, ["en:box"], "packaging_tags preserved without recomputing language");
+
+# Updating packaging with a new value
+my $new_packaging_product_ref = {
+	code => "12345678",
+	packaging => "bottle",
+};
+update_product_field_api_v2_and_cgi($new_packaging_product_ref, "en", "packaging", "bottle", "web");
+is($new_packaging_product_ref->{packaging}, "bottle", "packaging updated to new value");
 
 done_testing();
