@@ -856,7 +856,18 @@ sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value
 	else {
 		$product_ref->{$field} = $value;
 
-		if ($field =~ /^ingredients_text/) {
+		if ($field eq "packaging") {
+			if ($value eq "") {
+				delete $product_ref->{packaging};
+				delete $product_ref->{packaging_tags};
+				delete $product_ref->{packaging_old};
+				delete $product_ref->{packaging_old_before_taxonomization};
+			}
+			else {
+				compute_field_tags($product_ref, $target_lc // $product_ref->{lc} // "en", "packaging");
+			}
+		}
+		elsif ($field =~ /^ingredients_text/) {
 			# the ingredients_text_with_allergens[_$lc] will be recomputed after
 			my $ingredients_text_with_allergens = $field;
 			$ingredients_text_with_allergens =~ s/ingredients_text/ingredients_text_with_allergens/;

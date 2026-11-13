@@ -345,6 +345,12 @@
                 <legend>[% lang('packaging') %]</legend>
                 [% display_tab_packaging %]
 
+                [% IF display_field_packaging_legacy %]
+                <div class="panel callout">
+                    [% display_field_packaging_legacy %]
+                </div>
+                [% END %]
+
                 [% INCLUDE web/pages/product_edit/product_edit_form_packagings.tt.html product = product %]
             </div>
         </section>

@@ -1294,6 +1294,15 @@ HTML
 		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs},
 		\%Langs, \@packaging_fields, $request_ref);
 
+	# Display the legacy deprecated packaging text field if present or if user is a moderator,
+	# so that contributors/moderators can view, edit, or clear legacy insults/obsolete values.
+	if ($User{moderator} || ((defined $product_ref->{packaging}) && ($product_ref->{packaging} ne ''))
+		|| ((defined $product_ref->{packaging_tags}) && (@{$product_ref->{packaging_tags}} > 0)))
+	{
+		$template_data_ref_display->{display_field_packaging_legacy}
+			= display_input_field($product_ref, "packaging", undef, $request_ref);
+	}
+
 	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
 	# and another empty packaging element at the end
 	if (not defined $product_ref->{packagings}) {
