@@ -1077,7 +1077,7 @@ fi: hapate, hapatteet, käyte, käyteaine
 fr: ferment, ferments, cultures
 hr: ferment
 hu: fermentált, erjesztett, kovászolt
-it: fermenti
+it: fermenti, fermenti vivi
 kk: Ферменттер
 ky: Фермент
 lt: fermentas
@@ -1182,7 +1182,7 @@ fi: maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttivil
 fr: ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt, bactéries lactiques, ferments lactiques naturels, levain lactique
 hr: mljekarska kultura, mljekarske kulture, mlijekarske kulture, sirna kultura, sirne kulture, starter kultura, baktrije mliječnog vrenja, bakterije mliječne kiseline, kultura plemenitih plijesni, sirište mljekarske kulture, mezofilna starter kultura, starter kulture, mliječnokiselinske kulture, kultura mliječnih bakterija, mliječno-kiselinske bakterije, mliječno-kiselinske kulture
 hu: tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák, tejoltó enzim
-it: fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
+it: fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt, fermenti lattici specifici vivi
 lt: jogurtinės bakterijos
 lv: pienskābes fermenti, pienskābes baktēriju ieraugs, Pienskābo baktēriju ieraugs
 nb: melkesyrekultur, starterkultur, yoghurtkultur, yoghurtbakterier, syrekultur
@@ -1578,6 +1578,14 @@ en: Lactococcus lactis
 xx: Lactococcus lactis
 wikidata:en: Q133598
 wikipedia:en: https://en.wikipedia.org/wiki/Lactococcus_lactis
+
+< en: lactic ferments
+en: Lactococcus cremoris, Lactococcus lactis subsp. cremoris, Lactococcus lactis ssp. cremoris
+xx: Lactococcus cremoris, Lactococcus lactis subsp. cremoris, Lactococcus lactis ssp. cremoris
+
+< en: lactic ferments
+en: Leuconostoc mesenteroides
+xx: Leuconostoc mesenteroides
 
 < en: lactic ferments
 en: Streptococcus thermophilus, s.thermophilus
@@ -4155,6 +4163,7 @@ es: yogur de leche entera
 fi: täysmaitojogurtti
 fr: yogourt au lait entier, yaourt au lait entier
 hr: jogurt od punomasnog mlijeka
+it: yogurt di latte intero
 nl: volle yoghurt, volle melk yoghurt
 usda_fdc_code:en: 171284
 usda_ndb_code:en: 1116
@@ -4283,6 +4292,11 @@ ecobalyse_origins_en_france_name:fr: Yaourt à la grecque, au lait de brebis FR
 ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: reference
 ecobalyse_transport_cooling:en: always
+
+# Strained yogurt is kept separate from en:greek yogurt (see comment above)
+< en: yogurt
+en: strained yogurt
+it: yogurt colato
 
 < en: greek yogurt
 en: Plain Greek-style Yogurt
@@ -12927,7 +12941,7 @@ id: Couenne
 ie: Couenne
 io: Couenne
 is: Couenne
-it: cotenne, Ciccioli
+it: cotenne, Ciccioli, cotenna
 ja: ポーク・スクラッチング
 kn: Couenne
 ko: 돼지 껍데기
@@ -15080,6 +15094,10 @@ se: pšenični škrob, pšenični skrob, pšenica škrob
 sl: pšenični škrob
 sv: vetestärkelse
 allergens:en: en:gluten
+
+< en: wheat starch
+en: gluten-free wheat starch, deglutenised wheat starch, deglutenized wheat starch
+it: amido di frumento deglutinato, amido di grano deglutinato
 
 < en: modified starch
 < en: wheat starch
@@ -17247,7 +17265,7 @@ hr: ulje palminih koštica, palmine koštice, palminih koštica, ulja palminih k
 hu: pálmamagolaj, pálmamag
 id: Minyak inti kelapa sawit
 is: pálmakjarmaolía
-it: olio di palmisto, palmisto
+it: olio di palmisto, palmisto, palmisti
 kn: ಪಾಮ್ ಕೆರ್ನಲ್ ಎಣ್ಣೆ
 ln: Mafúta ma ndiká
 lt: Alyvpalmių sėklų aliejus, palmių branduolių
@@ -19049,7 +19067,7 @@ de: High-Oleic-Sonnenblumen, HO-Sonnenblumen
 es: girasol alto oleico
 fr: tournesol oléique, tournesol à haute teneur en acide oléique
 hr: visoko oleinskog suncokreta
-it: girasole alto oleico
+it: girasole alto oleico, girasole altoleico
 pl: wysoko oleinowy olej słonecznikowy
 comment:en: has a higher oleic oil fraction
 usda_ndb_proxy_code:en: 4584
@@ -19064,7 +19082,7 @@ de: High Oleic-Sonnenblumenöl, High-Oleic-Sonnenblumenöl, Sonnenblumenöl mit 
 es: aceite de girasol alto oleico, aceite refinado de girasol alto oleico
 fr: huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique, huile de tournesol haut oléique, huile de tournesol à haute teneur oléique, huile de tournesol riche en acide oléique
 hr: suncokretovo ulje s visokim udjelom oleinske kiseline, visokooleinsko suncokretovo ulje, suncokretovo ulje s visokim sadržajem oleinske kiseline
-it: olio di girasole alto oleico
+it: olio di girasole alto oleico, olio di girasole altoleico, olio di semi di girasole alto oleico, olio di semi di girasole altoleico
 nl: high oleic zonnebloemolie
 pt: óleo de girassol com alto teor em ácido oleico, óleo refinado de girassol alto oleíco
 ru: масло подсолнечное высокоолеиновое рафинированное дезодорированное
@@ -25716,7 +25734,7 @@ fi: vehnälese
 fr: son de blé, son de froment
 hr: pšenične mekinje, pšeničene mekinje
 hu: búzakorpa
-it: crusca di frumento
+it: crusca di frumento, cruschello, cruschello di frumento, cruschello di grano
 ja: 小麦ふすま
 kk: бидай кебек
 lt: kviečių sėlenos, kvietiniai sėlenos, kvietinės sėlenos, kvietinis sėlenos
@@ -26075,6 +26093,10 @@ ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: none
 #13020 in 29 @2021-09-28
 wikidata:en: Q95370124
+
+< en: durum wheat semolina
+en: remilled durum wheat semolina, re-milled durum wheat semolina
+it: semola rimacinata di grano duro, semola di grano duro rimacinata, semola rimacinata
 
 < en: durum wheat semolina
 en: fine semolina, fine durum wheat semolina
@@ -30807,7 +30829,7 @@ hy: եգիպտացորեն
 id: jagung
 io: maizo
 is: maís
-it: mais
+it: mais, granturco, granoturco
 ja: トウモロコシ, とうもろこし, コーン
 jv: jagung
 ka: სიმინდი
@@ -31160,7 +31182,7 @@ fi: maissisuurimo
 fr: semoule de maïs, semoule de mais
 hr: kukuruzni griz, kukuruzna krupica, kukuruzna prekrupa
 hu: kukoricadara
-it: spezzato di mais, semolino di granoturco
+it: spezzato di mais, semolino di granoturco, semola di mais
 ja: コーングリッツ
 # lv: kukurūzas milti
 nl: Maïsgrits, maisgrut, maïsgrut
@@ -33424,7 +33446,7 @@ fi: tomusokeri
 fr: sucre glace, sucre en poudre, sucre à glacer, sucre impalpable
 hr: šećerni posip
 hu: porcukor
-it: zucchero a velo
+it: zucchero a velo, zucchero impalpabile
 nl: poedersuiker, glazuursuiker, bloemsuiker
 pl: cukier puder
 pt: Açúcar em pó
@@ -33824,7 +33846,7 @@ es: Azúcar sin refinar, azucar integral
 fi: raakasokeri
 fr: sucre non raffiné, sucre brut, sucre complet
 hr: nerafinirani šećer
-it: Zucchero non raffinato
+it: Zucchero non raffinato, zucchero grezzo
 ja: 粗糖
 nl: ongeraffineerde suiker, ruwe suiker, oerzoet
 pl: Cukier nierafinowany
@@ -33846,7 +33868,7 @@ fi: raakaruokosokeri
 fr: sucre de canne non raffiné, sucre de canne brut, sucre de canne roux, sucre roux de canne, sucre de canne roux non raffiné, sucre brut de canne
 hr: smeđi šećer od šećerne trske, sirovi šećer od trske, neprerađeni šećer šećerne trske
 hu: finomítatlan nádcukor
-it: zucchero di canna grezzo
+it: zucchero di canna grezzo, zucchero grezzo di canna
 ja: 黒糖
 nb: rårørsukker
 nl: Ongeraffineerde rietsuiker
@@ -34233,7 +34255,7 @@ hu: melasz
 id: Molase
 ik: Milaasiq
 io: Melaso
-it: melassa
+it: melassa, melasso
 ja: 糖蜜
 jv: Tètès
 kn: ಕಾಕಂಬಿ
@@ -34710,6 +34732,15 @@ de: Glukosepulver
 fr: Poudre de glucose
 hr: glukoza u prahu
 it: glucosio in polvere
+
+< en: monosaccharide
+en: galactose
+de: Galactose
+es: galactosa
+fr: galactose
+it: galattosio
+nl: galactose
+pt: galactose
 
 < en: monosaccharide
 en: fructose
@@ -36112,7 +36143,7 @@ fi: hydrolysoitu kasviproteiini, kasviproteiinihydrosylaatti
 fr: protéine végétale hydrolysée, protéines végétales hydrolysées
 hr: hidrolizirane biljne bjelančevine, hidrolizirane bjelančevine povrća
 hu: hidrolizált növényi fehérjék, hidolizált növényi fehérje
-it: Proteine vegetali idrolisse
+it: Proteine vegetali idrolisse, proteine vegetali idrolizzate, proteina vegetale idrolizzata
 lv: hidrolizēts augu proteīns
 nb: hydrolysert vegetabilsk protein
 nl: gehydroliseerde plantaardige eiwit, gehydroliseerd plantaardig eiwit, gehydrolyseerd plantaardig eiwit, gehydroliseerde plantaardige eiwitten
@@ -37656,7 +37687,7 @@ es: Trozos de chocolate negro, pepitas de chocolate negro, pedacitos de chocolat
 fi: tumma suklaarouhe
 fr: morceaux de chocolat noir, pépites de chocolat noir, copeaux de chocolat noir
 hr: kapljice tamne čokolade
-it: pezzetti di cioccolato fondente
+it: pezzetti di cioccolato fondente, gocce di cioccolato fondente
 nl: stukjes pure chocolade
 pl: kawalki czekolady deserowej
 # usage:it: pezzetti di cioccolato fondente (zucchero, pasta di cacao, burro di cacao, emulsionante: lecitina di soia: aroma naturale di vaniglia)
@@ -38851,7 +38882,7 @@ hu: szójabab
 hy: սոյա
 id: kacang kedelai
 is: sojabaun
-it: semi di soia
+it: semi di soia, fagioli di soia
 ja: 大豆, だいず
 kn: ಸೋಯಾ ಅವರೆ
 ko: 콩
@@ -39612,6 +39643,7 @@ he: שמר האפייה
 hr: pekarski kvasac
 hu: Élesztőgomba
 is: Pressuger, Ölger
+it: lievito per panificazione
 ja: 出芽酵母, パン酵母, ビール酵母
 lt: kepimo mielės
 mk: Лебен квасец
@@ -40865,7 +40897,7 @@ fr: noyau d'abricot, noyaux d'abricots
 hr: koštice marelice
 hu: sárgabarackmag
 hy: ծիրանի կորիզ
-it: noccioli di albicocca, mandorle d'albicocca, armellina
+it: noccioli di albicocca, mandorle d'albicocca, armellina, armelline
 ja: 杏仁
 ko: 살구씨
 nb: aprikoskjerner
@@ -47410,7 +47442,7 @@ es: Cereza agria
 fi: hapankirsikka, hapankirsikat
 fr: griotte, griottes, cerises griottes
 hr: višnja, višnje, od višnje
-it: amarene
+it: amarene, amarena
 la: prunus cerasus
 nl: morellen, kriek, krieken, zure kers
 pl: wiśnia, wiśnie, wiśniowy, wiśniowe, wiśniowa, wiśniowego, wiśniowych, wiśniowej, wiśni
@@ -54343,7 +54375,7 @@ hy: հազար
 id: Selada
 io: Latugo
 is: Salat
-it: Lattuga
+it: Lattuga, lattughino, lattughino verde
 ja: アキノノゲシ属, レタス
 ka: ღორისქადა, სალათა
 kk: Ассүттіген, Салат
@@ -54558,7 +54590,7 @@ fr: jeunes pousses de laitue rouge
 
 < en: lettuce
 en: red leaf lettuce
-it: lattuga rossa
+it: lattuga rossa, lattughino rosso
 ja: サニーレタス, アカチリメンチシャ, 赤チリメンチシャ
 sv: rödbladig sallad
 usda_fdc_code:en: 168431
@@ -54657,7 +54689,7 @@ gl: Acelga
 he: סלק עלים
 hr: blitva
 hu: Mángold
-it: Bietola, bietole
+it: Bietola, bietole, bieta, biete, biete da costa
 ja: フダンソウ
 kk: Жапырақты қызылша
 ko: 근대
@@ -54857,7 +54889,7 @@ hy: սպանախ
 id: Horenso
 io: Spinato
 is: Spínat
-it: spinaci
+it: spinaci, spinacio
 ja: ホウレンソウ, ほうれん草
 kk: Самалдық
 kn: ಪಾಲಕ್
@@ -54982,7 +55014,7 @@ es: Espinaca bebé.
 fi: babypinaatti, baby-pinaatti
 fr: Jeunes pousses d'épinards, pousse d'épinards
 hr: mladi špinat
-it: spinaci baby
+it: spinaci baby, spinacino, spinacini
 nl: Baby spinazie
 sv: babyspenat
 
@@ -56747,6 +56779,11 @@ usda_ndb_name:en: Kale, raw
 wikidata:en: Q45989
 
 < en: kale
+en: lacinato kale, Tuscan kale, black kale, cavolo nero
+fr: chou noir de Toscane
+it: cavolo nero
+
+< en: kale
 en: kale sprouts
 it: germogli di cavolo nero
 pl: kiełki jarmużu
@@ -57851,7 +57888,7 @@ hr: ljekovita šparoga
 id: Asparagus
 io: Asparago
 is: Spergill
-it: Asparago, aspargi, asparagio
+it: Asparago, aspargi, asparagio, asparagi
 ja: アスパラガス
 ka: სატაცური
 kk: Кәдімгі қасқыржем
@@ -58347,7 +58384,7 @@ de: Rote Bete, Rote Beete
 es: Remolacha roja
 fr: betterave rouge, betteraves rouges
 hr: crvena cikla
-it: barbabietole rosse
+it: barbabietole rosse, barbabietola rossa
 ja: 赤ビーツ
 lt: raudonieji burokėliai
 nl: rode biet
@@ -64280,7 +64317,7 @@ fr: poivron rouge, poivrons rouge
 he: פלפל אדום, גמבה אדומה
 hr: crveni papar, crvena paprika
 hu: kaliforniai paprika, piros bell paprika, piros kaliformiai paprika
-it: peperoni rossi
+it: peperoni rossi, peperone rosso
 ja: 赤ピーマン
 lt: sarkanā paprika
 lv: sarkanā paprika
@@ -67229,7 +67266,7 @@ hy: Հատիկաընդեղեն բույսեր
 ia: Legumine
 id: Kacang-kacangan
 is: Baun
-it: leguminose
+it: leguminose, legumi
 ja: 豆果
 ko: 협과
 la: Legumen
@@ -80870,7 +80907,7 @@ es: fibra de psyllium
 fi: psylliumkuitu
 fr: fibre de psyllium, fibres de psyllium
 hr: vlakna psylliuma
-it: fibra di psillio
+it: fibra di psillio, fibra di psyllium, fibre di psyllium, fibre di psillio
 nl: psylliumvezels, psylliumvezel, vlozaadvezels
 pl: błonnik psylium, błonnik z babki płesznik
 sv: psylliumfiber
@@ -82662,7 +82699,7 @@ it: semi di vaniglia estratti
 < en: vanilla
 en: vanilla preparation
 hr: pripravak vanilija, krema sa okusom vanilije, puding s okusom vanilije
-it: preparato alla vaniglia
+it: preparato alla vaniglia, preparazione alla vaniglia
 
 < en: herb
 en: za'atar
@@ -83466,7 +83503,7 @@ he: נורי
 hr: niti ja
 hu: nori
 id: Nori
-it: Nori
+it: Nori, alga nori
 ja: 海苔, のり
 jv: Nori
 ka: ნორი
@@ -83595,7 +83632,7 @@ en: kelp
 bg: келп
 fr: varech
 hr: kelp
-it: kelp
+it: kelp, alga kelp
 la: Laminariales
 sv: kelp
 description:en: Kelp is a type of large brown seaweed that grows in cold, nutrient-rich coastal waters, and it's become a fairly common food ingredient, especially in East Asian cuisines. Kelp is notably rich in iodine, along with other minerals like calcium, magnesium, and iron. It's low in calories and contains some fiber. It has a natural savory, oceanic taste often described as umami. Kelp is a common term covering many species across several genera, all in the order Laminariales.
@@ -86681,7 +86718,7 @@ ga: trosc, troisc
 hr: bakalar
 hu: tőkehal
 id: Ikan kod
-it: Merluzzo bianco, Merluzzo nordico
+it: Merluzzo bianco, Merluzzo nordico, merluzzo
 ja: コッド
 ka: ಕಾಡ್ ಮೀನು
 lv: Menca
@@ -92967,6 +93004,7 @@ he: שרימפ
 hr: kozica, kozice, pacifička kozica
 hu: garnéla
 id: Udang
+it: gamberetti, gamberetto
 ja: エビ, えび
 ko: 새우
 la: Squilla
@@ -94786,7 +94824,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Coffee
 < en: preparation
 en: coffee preparation
 hr: pripravak kave
-it: preparazione del caffè
+it: preparazione del caffè, preparazione al caffè
 
 #Added as child of coffee as it is a brand but still coffee
 < en: coffee
@@ -95313,7 +95351,7 @@ ga: Cúcamar
 he: מלפפון, מלפפונים
 hr: krastavac, krastavci
 hu: uborka
-it: cetrioli
+it: cetrioli, cetriolo
 ja: 胡瓜
 lv: gurķi
 nb: agurk
@@ -97374,7 +97412,7 @@ es: Huevos de corral, huevos de gallinas criadas en el suelo
 fi: ulkomunat
 fr: Oeufs d'élevage en plein air, Oeufs élevés en plein air, oeufs plein air, œufs d'élevage en plein air
 hr: jaja slobodnog uzgoja
-it: uova da allevamento a terra, Uova di allevamento all'aperto
+it: Uova di allevamento all'aperto
 ja: 平飼い卵
 nl: vrije-uitloopei, vrije uitloop ei, vrije-uitloopeieren
 pl: jaja z wolnego wybiegu, jajka z wolnego wybiegu, jaja z chowu na wolnym wybiegu
@@ -97606,7 +97644,7 @@ es: huevos de granero
 fi: lattiakanojen munat, vapaan kanan munat, onnellisen kanan munat, pesämunat
 fr: œufs d'élevage au sol, œufs de poules élevées au sol, œufs de ponte au sol, oeufs de poules élevées au sol, oeufs de ponte au sol, oeufs «sol»
 hr: ambar jaja
-it: uova di allevamento al suolo
+it: uova di allevamento al suolo, uova da allevamento a terra, uova da galline allevate a terra, uova di galline allevate a terra
 nl: scharreleieren, scharrelei, scharrel-ei, ei van scharreleieren
 pl: jaja z chowu ściółkowego
 ro: ouă de găini crescute în hale la sol, ouă de la găini crescute la sol
@@ -98653,7 +98691,7 @@ hy: մանրաթելեր
 id: Serat
 io: Fibro
 is: Trefjar
-it: fibra, fibra alimentare, fibra di
+it: fibra, fibra alimentare, fibra di, fibre, fibre alimentari
 ja: 繊維
 kk: Волокнит
 kn: ನಾರು

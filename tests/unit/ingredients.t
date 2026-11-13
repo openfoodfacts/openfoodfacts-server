@@ -1749,6 +1749,31 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "sl",
 			ingredients_text =>
 				"pšenična bela moka, glukozni sirup, kakavova masa, palmino olje, repično olje, jagode 12 %, maline, korenje, paradižnikov koncentrat, krompirjev škrob, modificiran škrob, maltodekstrin, jogurt, posneto mleko v prahu, piščančje meso, jedilna želatina, alkoholni kis, vinski kis, ekstrakt kvasa, kvas, karoteni, sirilo, kumarice, emulgatorja (sojini lecitini, E471), stabilizatorji (E407, E412), gostilo (E415), antioksidanta (E300, E306), konzervansa (E202, E211), sredstvi za vzhajanje (E500, E450), sredstvo za ohranjanje vlage (E422), barvila (E160a), sladili (E950, E955), vanilin sladkor.",
+	# IT - frequent unknown Italian ingredients (cereals, sugars, fats, fibres)
+	[
+		'it-cereals-sugars-fats-fibres',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Semola rimacinata di grano duro, acqua, legumi, gocce di cioccolato fondente 10%, olio di semi di girasole altoleico, palmisti, fibre alimentari, psillio, cruschello di frumento, granturco, amido di frumento deglutinato, zucchero impalpabile, melasso, zucchero grezzo di canna, lievito per panificazione, proteine vegetali idrolizzate, semola di mais",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (vegetables, fruits, fish, meat)
+	[
+		'it-vegetables-fish-meat',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Lattughino verde, lattughino rosso, spinacino, cavolo nero, bieta, asparagi, barbabietola rossa, peperone rosso, cetriolo, fagioli di soia, amarena, armelline, cotenna, merluzzo, gamberetti, alga nori",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (dairy, ferments, eggs)
+	[
+		'it-dairy-ferments-eggs',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Yogurt di latte intero, yogurt colato, fermenti lattici specifici vivi (Lactococcus cremoris, Leuconostoc mesenteroides), fermenti vivi, uova da galline allevate a terra, preparazione alla vaniglia, galattosio",
 		}
 	],
 );
