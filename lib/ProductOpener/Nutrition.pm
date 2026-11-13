@@ -2989,7 +2989,11 @@ sub add_misc_tags_for_protein_energy ($product_ref) {
 	return if ($proteins_ref->{modifier} // '') =~ /[<>]/ or ($energy_ref->{modifier} // '') =~ /[<>]/;
 
 	my $protein_energy = $proteins * $energy_per_gram;
-	add_tag($product_ref, "misc", $protein_energy >= (20 * $energy / 100) ? $at_least_tag : $less_than_tag);
+	my $threshold_energy = 0.2 * $energy;
+	# Keep exactly 20% inclusive despite floating-point rounding. Scale the tolerance
+	# with the threshold so zero protein stays below it even at very small energies.
+	my $epsilon = 1e-12 * $threshold_energy;
+	add_tag($product_ref, "misc", $protein_energy >= ($threshold_energy - $epsilon) ? $at_least_tag : $less_than_tag);
 
 	return;
 }
