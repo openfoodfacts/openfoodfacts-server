@@ -1580,6 +1580,15 @@ puffed orange and caramelized unknown_fruit4.",
 				"_Sojabasis_ (Wasser, geschälte _Sojabohnen_ (10,4%)], Kokosmilch (4,3%) (Kokoscreme, Wasser), Zucker, Tricalciumcitrat, Säureregulatoren (Natriumcitrate, Citronensäure), Stabilisator (Pektine), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherol-tatige Extract, Fettsäureester der Ascorbinsäure), Vitamine (B12, D2), Joghurtkulturen (Str. Thermophilus, L. bulgaricus).",
 		}
 	],
+	# Frequent unknown German ingredients (2026-11 analysis of German products)
+	[
+		'de-frequent-unknown-ingredients',
+		{
+			lc => "de",
+			ingredients_text =>
+				"Brechbohnen, Pecannüssen, Macadamianüssen, Haselnüssen, stark entölter Kakao, Erdbeermark, Himbeerpüree, Himbeermark, löslicher Bohnenkaffee, Mu-Err-Pilze, Liebstockwurzel, grüne Paprika, grüne Peperoni, Weizenröstmalzmehl, natürliches Zitronenaroma mit anderen natürlichen Aromen, färbendes Konzentrat aus Karotte, färbendes Spirulinakonzentrat, färbendes Rote-Bete-Saftkonzentrat, färbender Paprikaextrakt, färbender Kurkuma-Auszug, Hähnchenfett mit Haut, Geflügelfett mit Haut, Salatmayonnaise, Süßkraut, süße Brombeerblätter, kakaohaltige Fettglasur, essbare Hülle aus Rinderkollagen, Mango-Chutney, Lollo Rosso, Lollo Bionda, Weißbrot, mildgesäuerte Butter, gekörnte Brühe, Eibisch, Bibernelle, Schlüsselblume, Frauenmantel, Schafgarbe, Aroma Chinin, Gewürzgurken, Kochschinken, Molkeneiweißkäse Ricotta, Frischkäse Doppelrahmstufe, Schnittkäse, Edelschimmelkulturen, Starterkultur, Enzyme, Tomatensoße.",
+		}
+	],
 	# Romanian: legacy cedilla forms (ş ţ) and missing diacritics
 	[
 		'ro-cedilla-and-missing-diacritics',
