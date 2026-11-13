@@ -1219,6 +1219,32 @@ puffed orange and caramelized unknown_fruit4.",
 				"Hierro 30 mg/kg, ácido fólico 2,2 mg/kg, tiamina 6,3 mg/kg, riboflavina 1,3 mg/kg, niacina 13 mg/kg",
 		}
 	],
+
+	# Spanish ingredients that were frequently unknown in production
+	[
+		"es-melva-thunnus-alalunga",
+		{
+			lc => "es",
+			ingredients_text =>
+				"Melva (66%), aceite de oliva (33%) y sal. Bonito del norte (Thunnus alalunga), aceite de oliva 35%, sal.",
+		}
+	],
+	[
+		"es-morcilla-sangre-vacuno-pimentones",
+		{
+			lc => "es",
+			ingredients_text =>
+				"morcilla curada 5,5% (tocino, papada, sangre y magro de cerdo, cebolla, pimentones, sal), gelatina (vacuno), sal de potasio, recubrimiento: colágeno.",
+		}
+	],
+	[
+		"es-frequent-unknown-ingredients",
+		{
+			lc => "es",
+			ingredients_text =>
+				"Fideos orientales 93,7% (harina de trigo, aceite de girasol, sal), empanado (30%) (pan rallado, agua), masa madre de trigo inactiva, sólidos lácteos ricos en calcio, dextrinomaltosa, almidones, grosella, espirulina, goma base, cobertura de chocolate con leche, cobertura 25% (azúcar, cacao), mazada, ricotta, algarroba, picatostes, anís verde, aroma a queso, café soluble descafeinado, humo de madera de haya, vinagre de uva, aceite de girasol y oliva, aroma natural de limón con otros aromas naturales.",
+		}
+	],
 	[
 		"en-compound-unit-minimum-qualifier",
 		{
