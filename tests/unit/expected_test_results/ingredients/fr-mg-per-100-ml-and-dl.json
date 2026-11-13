@@ -1,0 +1,141 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "text" : "Eau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "sucre",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:calcium",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "quantity" : "120 mg/100ml",
+         "text" : "calcium",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:magnesium",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25.0,
+         "percent_min" : 0,
+         "quantity" : "5 mg/dl",
+         "text" : "magnésium",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_name" : "Sel -2025-",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20.0,
+         "percent_min" : 0,
+         "quantity" : "2 g/l",
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:ferment",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "quantity" : "10 UFC/ml",
+         "text" : "ferments",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar",
+         "en:ferment"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:ferment"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:water",
+      "en:sugar",
+      "en:calcium",
+      "en:magnesium",
+      "en:salt",
+      "en:ferment"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:water",
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:calcium",
+      "en:minerals",
+      "en:magnesium",
+      "en:salt",
+      "en:ferment"
+   ],
+   "ingredients_text" : "Eau, sucre, calcium 120 mg/100 ml, magnésium 5 mg/dl, sel 2 g/l, ferments 10 UFC/ml",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_without_ciqual_codes" : [
+      "en:calcium",
+      "en:ferment",
+      "en:magnesium"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:calcium",
+      "en:ferment",
+      "en:magnesium"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 6,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

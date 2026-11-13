@@ -644,8 +644,14 @@ my @UNIT_MASS_NUMERATORS = ('mg', 'mcg', 'µg', 'ug', 'g');
 # ingredient-list and sentence parsing.
 # Colony-forming units: UFC / CFU
 my @UNIT_ACTIVITY_NUMERATORS = ('i\.?u', 'u\.?i', 'i\.?e', 'ufc', 'cfu');
-# Denominators after solidus (100 g before bare g)
-my @UNIT_DENOMINATORS = ('100\s*g', 'kg', 'g');
+# Denominators after solidus (100 g before bare g, 100 ml before ml):
+# per mass (mg/kg, UFC/g) and per volume (mineral water "Calcium 80 mg/l",
+# "Extraktgehalt: 1,2 g/l", "UFC/ml"). Without the volume denominators the
+# solidus splits the list and leaves an orphan "l" ingredient.
+my @UNIT_DENOMINATORS = ('100\s*g', '100\s*ml', 'kg', 'g', 'ml', 'cl', 'dl', 'l');
+# A denominator must not be the start of a longer word ("g/lait", "mg/litre")
+# or of an elided article ("hareng/l'huile")
+my $UNIT_DENOMINATOR_END_REGEXP = '(?![\p{L}\'\N{U+2019}])';
 
 =head2 _compound_unit_regexp_alternatives ()
 
@@ -660,7 +666,8 @@ sub _compound_unit_regexp_alternatives() {
 	my @alternatives;
 	foreach my $numerator (@numerators) {
 		foreach my $denominator (@UNIT_DENOMINATORS) {
-			push @alternatives, $numerator . '\s*' . $UNIT_SOLIDUS_REGEXP . '\s*' . $denominator;
+			push @alternatives,
+				$numerator . '\s*' . $UNIT_SOLIDUS_REGEXP . '\s*' . $denominator . $UNIT_DENOMINATOR_END_REGEXP;
 		}
 	}
 	return @alternatives;
@@ -694,6 +701,7 @@ sub protect_compound_unit_slashes ($text) {
 			(?:$denominators)
 		)
 		\b
+		$UNIT_DENOMINATOR_END_REGEXP
 	}{
 		my $unit = $1;
 		$unit =~ s{(?:/|\N{U+FF0F})}{\N{U+2044}}g;

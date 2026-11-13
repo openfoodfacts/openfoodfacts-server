@@ -1607,4 +1607,31 @@ foreach my $test (
 	is(preparse_ingredients_text('da', $test->[0]), $test->[1], "da categories and types: $test->[0]");
 }
 
+# HTML entities, mangled HTML entities (& and ; turned into commas), subscript digits
+foreach my $test (
+	['it', "farina di grano tenero tipo &quot;00&quot;, acqua", 'farina di grano tenero tipo "00", acqua'],
+	['en', "salt &amp; pepper, sugar &lt;1%", "salt and pepper, sugar <1%"],
+	['en', "rapeseed&nbsp;oil, baker&#39;s yeast", "rapeseed oil, baker's yeast"],
+	['it', "Farina di GRANO tenero tipo ,quot,0,quot, 32%, acqua", 'Farina di GRANO tenero tipo "0" 32%, acqua'],
+	['it', "semi di chia ,quot,Salvia hispanica,quot, (2,7%), sale", 'semi di chia "Salvia hispanica" (2.7%), sale'],
+	['en', "wheat flour type ,quot,0,quot,, water", 'wheat flour type "0", water'],
+	['it', "zucchero, sale ,lt,1%", "zucchero, sale <1%"],
+	# not a mangled entity: "quot" or "lt" as separate list items are kept
+	['it', "acqua, lt, sale", "acqua, lt, sale"],
+	[
+		'de',
+		"Zucker, Vitamine (B₁, B₂, B₆, B₁₂, D₃)",
+		"Zucker, vitamine, vitamin B1, vitamin B2, vitamin B6, vitamin B12, vitamin D3"
+	],
+	# a decimal concentration per volume is not turned into a percentage
+	['de', "Extraktgehalt: 1,2 g/l", "Extraktgehalt: 1,2 g/l"],
+	['fr', "eau, CO₂", "eau, CO2"],
+	# superscript digits are footnote markers and are kept
+	['fr', "sucre¹, sel²", "sucre¹, sel²"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]),
+		$test->[2], "entities and subscripts: $test->[0] / $test->[1]");
+}
+
 done_testing();

@@ -1749,6 +1749,70 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "sl",
 			ingredients_text =>
 				"pšenična bela moka, glukozni sirup, kakavova masa, palmino olje, repično olje, jagode 12 %, maline, korenje, paradižnikov koncentrat, krompirjev škrob, modificiran škrob, maltodekstrin, jogurt, posneto mleko v prahu, piščančje meso, jedilna želatina, alkoholni kis, vinski kis, ekstrakt kvasa, kvas, karoteni, sirilo, kumarice, emulgatorja (sojini lecitini, E471), stabilizatorji (E407, E412), gostilo (E415), antioksidanta (E300, E306), konzervansa (E202, E211), sredstvi za vzhajanje (E500, E450), sredstvo za ohranjanje vlage (E422), barvila (E160a), sladili (E950, E955), vanilin sladkor.",
+	# concentrations per volume (g/l, mg/l, mg/100 ml) must not leave an orphan "l" ingredient
+	[
+		'de-extract-content-g-per-l',
+		# 7616800204086
+		{
+			lc => "de",
+			ingredients_text =>
+				"Aufguss aus Schwarztee und Hagebutten/Karkadeblüten (Extraktgehalt: 1,2 g/l), Zucker, Zitronensaft aus Konzentrat 2%.",
+		}
+	],
+	[
+		'de-mineral-water-mg-per-l',
+		# 42376132
+		{
+			lc => "de",
+			ingredients_text =>
+				"Mineralwasser mit Natrium 19,7 mg/l, Magnesium 5,9 mg/l, Calcium 40,0 mg/l, Hydrogencarbonat 194 mg/l",
+		}
+	],
+	[
+		'it-mineral-water-mg-per-l',
+		# 80418207
+		{
+			lc => "it",
+			ingredients_text => "Bicarbonati 80 mg/l, Calcio 94.2 mg/l, Cloruri 17.9 mg/l, Sodio 10 mg/L",
+		}
+	],
+	[
+		'fr-mg-per-100-ml-and-dl',
+		{
+			lc => "fr",
+			ingredients_text => "Eau, sucre, calcium 120 mg/100 ml, magnésium 5 mg/dl, sel 2 g/l, ferments 10 UFC/ml",
+		}
+	],
+	# subscript digits in vitamin names
+	[
+		'de-vitamins-subscript-digits',
+		{
+			lc => "de",
+			ingredients_text => "Zucker, Vitamine (B₁, B₂, B₆, B₁₂, C, E, D₃), Salz",
+		}
+	],
+	[
+		'es-vitamins-subscript-digits',
+		{
+			lc => "es",
+			ingredients_text => "azúcar, vitaminas (B₁, B₂, B₆, B₁₂, D₃), sal",
+		}
+	],
+	# HTML entities mangled into ",quot,"
+	[
+		'it-mangled-html-entities',
+		# 8017596115225
+		{
+			lc => "it",
+			ingredients_text =>
+				"Farina di GRANO tenero tipo ,quot,0,quot, 32%, acqua, semi di chia ,quot,Salvia hispanica,quot, (2,7%), sale ,lt,1%",
+		}
+	],
+	[
+		'en-html-entities',
+		{
+			lc => "en",
+			ingredients_text => "wheat flour type ,quot,0,quot,, water, salt &amp; pepper, sugar &lt;1%",
 		}
 	],
 );
