@@ -21,7 +21,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 from common.convert import convert_excel_to_csv, merge_csv_files
-from common.download import download_excel_file
+from common.download import download_excel_file, download_csv_file
 from common.transform import preprocess_csv
 
 
@@ -76,6 +76,38 @@ def process_excel_file(country_name: str, country_code: str,
     # Step 4: Merge all CSV files into one
     merge_csv_files(country_name, csv_files, source_file, skip_headers=True)
     
+    return True, new_filename
+
+
+def process_csv_file(country_name: str, country_code: str,
+                     url: str, keyword: str, last_filename: str,
+                     file_config: dict, file_id: str) -> tuple:
+    """
+    Process a CSV file: download and preprocess.
+
+    Args:
+        country_name: Name of the country
+        country_code: Country code
+        url: URL of the source
+        keyword: Keyword to identify the file
+        last_filename: Last known filename
+        file_config: Configuration for the file
+        file_id: Generated file identifier
+
+    Returns:
+        Tuple of (success: bool, new_filename: str or None)
+    """
+    csv_file = f'{country_code}_{file_id}_downloaded.csv'
+    source_file = f'{country_code}_{file_id}_preprocessed.csv'
+
+    new_filename = download_csv_file(country_name, url, csv_file, keyword=keyword, expected_file_name=last_filename)
+
+    if new_filename is None and keyword:
+        print(f"{country_name} - Info - File already up to date, skipping processing")
+        return True, None
+
+    preprocess_csv(country_name, country_code, csv_file, source_file, file_config)
+
     return True, new_filename
 
 def process_html_file(country_name: str, country_code: str,
