@@ -6,9 +6,10 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Images
-	qw/get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language data_to_display_image normalize_generation_ref/;
+	qw/add_images_urls_to_product get_code_and_imagefield_from_file_name scan_code get_image_url get_image_in_best_language data_to_display_image normalize_generation_ref/;
 
 use File::Basename 'dirname';
+use Storable qw(dclone);
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 
@@ -283,6 +284,15 @@ is($image_lc, 'fr');
 
 get_image_in_best_language($product_ref, "nutrition", "de", \$image_lc);
 is($image_lc, 'it');
+
+# add_images_urls_to_product respects target_lc
+my $product_fr = dclone($product_ref);
+add_images_urls_to_product($product_fr, "fr");
+like($product_fr->{image_front_url}, qr/front_fr/, "image_front_url uses target_lc fr");
+
+my $product_en = dclone($product_ref);
+add_images_urls_to_product($product_en, "en");
+like($product_en->{image_front_url}, qr/front_en/, "image_front_url uses target_lc en");
 
 is(
 	data_to_display_image($product_ref, "front", "en"),
