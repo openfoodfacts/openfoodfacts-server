@@ -45,7 +45,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
+use ProductOpener::HTTP qw/request_param single_param redirect_to_url set_http_response_header/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
@@ -178,6 +178,14 @@ sub read_product_api ($request_ref) {
 	}
 	else {
 		$response_ref->{result} = {id => "product_found"};
+
+		# Optimistic Concurrency Control (OCC): expose weak ETag derived from product barcode and last_modified_t
+		if (defined $product_ref->{code}) {
+			my $last_modified_t = $product_ref->{last_modified_t} || 0;
+			my $etag = qq(W/"$product_ref->{code}-$last_modified_t");
+			set_http_response_header($request_ref, 'ETag', $etag);
+			$response_ref->{etag} = $etag;
+		}
 
 		add_images_urls_to_product($product_ref, $lc);
 
