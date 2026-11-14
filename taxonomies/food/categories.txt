@@ -7802,6 +7802,7 @@ ciqual_food_name:fr: Eau de coco
 wikidata:en: Q633401
 
 < en: Desserts
+< en: Fruit soups
 < en: Plant-based beverages
 en: Rose hip soups, Rosehip soups
 da: Hybensupper
@@ -10133,6 +10134,9 @@ lt: Ramunėlės
 nl: Kamille
 pl: Rumianek
 sv: Kamomillteer, Kamomill
+foodex2_code:en: A03JC
+foodex2_extended_name:en: Chamomile
+foodex2_old_code:en: A.01.000407
 wikidata:en: Q19704254
 
 < en: Herbal teas from leaves
@@ -10557,6 +10561,9 @@ la: Tilia
 lt: Liepų arbata, Liepa, Liepų
 nl: Linde
 pl: Lipa
+foodex2_code:en: A03JH
+foodex2_extended_name:en: Lime infusion flowers
+foodex2_old_code:en: A.01.000412
 wikidata:en: Q127849
 
 < en: Limeflower tea
@@ -10724,7 +10731,19 @@ ja: ルイボス
 la: Aspalathus linearis
 nl: Rooibos
 pl: Rooibos, Czerwonokrzew
+foodex2_code:en: A03JP
+foodex2_extended_name:en: Rooibos
+foodex2_old_code:en: A.01.000414
 wikidata:en: Q272181
+
+< en: Herbal teas from leaves
+en: Lemon verbena teas, Lemon verbena infusions
+de: Zitronenverbenentees, Zitronenverbene-Tee
+es: Infusiones de hierba luisa
+fr: Infusions de verveine citronnelle, Infusions de verveine odorante
+foodex2_code:en: A03JN
+foodex2_extended_name:en: Lemon verbena infusion leaves
+foodex2_old_code:en: A.01.000404
 
 # mixes based on rooibos
 < en: Rooibos
@@ -11007,6 +11026,9 @@ pl: Herbaty bezkofeinowe
 pt: Chás descafeinados
 ru: Безкофеиновые чаи
 zh: 无咖啡因茶
+foodex2_code:en: A03HV
+foodex2_extended_name:en: Tea leaves and stalks decaffeinated
+foodex2_old_code:en: A.01.000406
 
 < en: Fermented drinks
 < en: Teas
@@ -11051,6 +11073,7 @@ nl: Ceylontheeën, Ceylon thee, Ceylonthee, Theeën uit Ceylon, Theeën uit Sri 
 wikidata:en: Q105616623
 #origins:en: en:Sri-Lanka
 
+< en: Green or white teas
 < en: Teas
 en: Green teas
 bg: Зелен чай
@@ -11323,6 +11346,7 @@ ciqual_food_code:en: 18156
 ciqual_food_name:en: Oolong tea, brewed, without sugar
 ciqual_food_name:fr: Thé oolong, infusé, non sucré
 
+< en: Green or white teas
 < en: Teas
 en: White teas, baicha
 de: Weiße Tees
@@ -11336,6 +11360,15 @@ ja: 白茶
 nl: Witte theeën, Witte thee
 zh: 白茶
 wikidata:en: Q238306
+
+< en: Teas
+en: Green or white teas, Non-fermented teas
+de: Grüne oder weiße Tees
+fr: Thés verts ou blancs
+it: Tè verdi o bianchi
+foodex2_code:en: A03HT
+foodex2_extended_name:en: Non-fermented tea leaves (green or white tea)
+foodex2_old_code:en: A.01.000405
 
 < en: White teas
 en: Baihao Yinzhen teas, Baihao Yinzhen, Bai Hao Yinzhen teas, Bai Hao Yinzhen, White Hair Silver Needle
@@ -36218,12 +36251,12 @@ pt: Pães de aveia sem glúten laminados congelados
 sv: Frysta skivade glutenfria havrelimpor
 
 < en: Breads
-en: Rye breads, Wheat rye breads
+en: Rye breads
 bg: Ръжен хляб
 de: Roggenbrote
 es: Panes de centeno, Pan de centeno
 fi: ruisleivät
-fr: Pains de seigle, Pains au seigle, Pain au seigle, Pains de seigle et de froment, Pains au seigle et au froment
+fr: Pains de seigle, Pains au seigle, Pain au seigle
 hr: Raženi kruhovi
 it: Pane di segale, pane nero
 lt: Ruginė duona, Kvietinė ruginė duona, Ruginės duonos
@@ -36265,6 +36298,7 @@ foodex2_old_code:en: A.01.000119
 foodex2_scope_note:en: The group includes any type of bread and rolls made with refined rye flour (i.e. containing very little or no bran).
 
 < en: Breads
+< en: Wholemeal rye breads
 en: Pumpernickel
 xx: Pumpernickel
 nl: Pompernikkel
@@ -36280,11 +36314,11 @@ sv: Rågbröd
 wikidata:en: Q3302944
 
 < en: Multigrain breads
-en: Rye-and-wheat breads, Rye-and-wheat bread
+en: Rye-and-wheat breads, Rye-and-wheat bread, Wheat rye breads
 bg: Ръжeнo-пшеничен хляб
 de: Roggen- und Weizenbrote
 fi: Ruis-vehnäleivät, Ruisvehnäleipä
-fr: Pains de seigle et de blé
+fr: Pains de seigle et de blé, Pains de seigle et de froment, Pains au seigle et au froment
 hr: Raženi i pšenični kruhovi
 lt: Ruginės ir kvietinės duonos, ruginė ir kvietinė duona
 nl: Rogge-graanbroden
@@ -36463,6 +36497,7 @@ ciqual_food_code:en: 7201
 ciqual_food_name:en: Sandwich loaf, crust less, prepacked
 ciqual_food_name:fr: Pain de mie, sans croûte, préemballé
 
+< en: Multigrain breads
 < en: Sliced breads
 en: Multigrain sliced breads, Sliced breads with cereals, Multigrain sandwich loaf
 de: Geschnittenes Mehrkornbrot
@@ -37902,6 +37937,7 @@ fi: Mämmi, mammi
 wikidata:en: Q1630666
 
 < en: Cakes
+< en: Cream cakes
 < en: Desserts
 en: Black Forest gâteau, Black Forest cake, Chocolate sponge cake with cherry, Chocolate sponge cake without cherry
 de: Schwarzwälder Kirschtorte, Schwarzwälderkirschtorte, Schwarzwäldertorte
@@ -51023,8 +51059,10 @@ ciqual_food_name:fr: Fromage de brebis à pâte pressée
 
 < en: Cow cheeses
 < en: Semi-hard cheeses
-en: Oltermanni
+en: Oltermanni, Alderman
 xx: Oltermanni
+fi: Oltermanni
+zh: 奥尔特曼尼奶酪
 description:en: Finnish semi-hard cheese made from cow's milk (originally a Valio cheese).
 foodex2_code:en: A02VY
 foodex2_extended_name:en: Cheese, oltermanni
@@ -56397,10 +56435,12 @@ it: Composte di fragola
 lt: Braškinės tyrės, Tyrės su braškėmis
 nl: Aardbeiencompotes
 
+< en: Mixed fruit compotes
 < en: Strawberry compotes
 fr: Compotes fraise groseille
 nl: Aardbeien-aalbessencompotes
 
+< en: Mixed fruit compotes
 < en: Strawberry compotes
 en: Strawberry and blueberry compotes
 de: Erdbeer-Blaubeer-Kompott, Blaubeer-Erdbeer-Kompott, Erdbeer-Heidelbeer-Kompott
@@ -56441,8 +56481,8 @@ wikidata:en: Q618345
 
 < en: Compotes
 en: Mixed fruit compotes, Multifruit compotes
-de: Kompotte aus gemischten Früchten
-fr: Compotes de fruits mélangés, Compotes multifruits
+de: Kompotte aus gemischten Früchten, Mehrfruchtkompott, Mehrfruchtmus
+fr: Compotes de fruits mélangés, Compotes multifruits, Compotes tous fruits
 description:en: Compotes made from two or more fruits (e.g. apple-pear, apple-strawberry).
 foodex2_code:en: A01PR
 foodex2_extended_name:en: Fruit compote, mixed fruit
@@ -56526,6 +56566,7 @@ en: Pure apple compotes
 nl: Pure appelcompotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 en: Apricot Apple compotes
 de: Apfel-Aprikosen-Kompott, Aprikosen-Apfel-Kompott
 fr: Compotes pommes abricot
@@ -56535,6 +56576,7 @@ lt: Obuolių ir abrikosų tyrės, Tyrės su obuoliais ir abrikosais
 nl: Appel-abrikozencompotes, Abrikozen-appelcompotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 en: Banana Apple compotes
 de: Apfel-Bananen-Kompott, Bananen-Apfel-Kompott
 fr: Compotes pommes banane
@@ -56544,6 +56586,7 @@ lt: Obuolių ir bananų tyrės, Tyrės su obuoliais ir bananais
 nl: Appel-banaancompotes, Banaan-appelcompotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 fr: Compotes pommes cassis
 de: Apfel-Johannisbeer-Kompott, Johannisbeer-Apfel-Kompott
 it: Composte mela e ribes nero
@@ -56560,6 +56603,7 @@ lt: Kaštonų ir obuolių tyrė
 nl: Appel-kastanjecompotes, Kastanje-appelcompotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 fr: Compotes pommes coing
 de: Apfel-Quitten-Kompott, Quitten-Apfel-Kompott
 it: Composte mela e cotogna
@@ -56567,6 +56611,7 @@ lt: Svarainių ir obuolių tyrės, Tyrės su obuoliais ir svarainiais
 nl: Appel-kweepeercompotes, Kweepeer-appelcompotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 en: Strawberry applesauces
 de: Erdbeer-Apfelmus, Erdbeer-Apfel-Saucen
 fr: Compotes pommes fraise
@@ -56576,6 +56621,7 @@ lt: Braškių ir obuolių tyrė
 nl: Aardbeien-appelcompotes, Appel-aardbeiencompotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 en: Raspberry applesauces
 de: Himbeer-Apfelmus, Himbeer-Apfel-Purée
 fr: Compotes pommes framboise
@@ -56585,6 +56631,7 @@ lt: Aviečių ir obuolių tyrė
 nl: Frambozen-appelcompotes, Appel-frambozencompotes, Appel/frambozen compotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 en: Mango applesauces
 de: Mango-Apfel-Soßen
 fi: mango-omenasoseet
@@ -56595,6 +56642,7 @@ lt: Mangų ir obuolių tyrė
 nl: Appel/Mango compotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 fr: Compotes pommes mûre
 es: Compotas de manzana y mora
 it: Composte mela e mora
@@ -56602,6 +56650,7 @@ lt: Obuolių ir mėlynės tyrės
 nl: Appel-bramencompotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 en: Blueberry applesauces
 de: Blaubeersauce
 fr: Compotes pommes myrtille
@@ -56624,6 +56673,7 @@ se: omenasose
 #sv:Äppelmos
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 en: Peach applesauce
 de: Pfrisich-Apfel-Sauce
 fr: Compotes pommes pêche
@@ -56633,6 +56683,7 @@ lt: Persikų ir obuolių tyrė
 nl: Perzik appelcompotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 en: Pear applesauces
 de: Birnen-Apfelmus
 fi: päärynä-omenasoseet
@@ -56643,10 +56694,12 @@ lt: Kriaušių ir obuolių tyrė
 nl: Peer appelcompotes
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 fr: Compotes pommes pruneau
 lt: Džiovintų slyvų ir obuolių tyrė
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 en: Rhubarb applesauces
 de: Rhabarber-Apfelmus, Rhabarber-Apfel-Purée, Rhabarber-Apfel-Kompott
 fr: Compotes pommes rhubarbe
@@ -56661,22 +56714,26 @@ it: Composte mela e vaniglia
 lt: Vanilės ir obuolių tyrė
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 fr: Compotes pommes ananas
 it: Composte mela e ananas
 lt: Ananasų ir obuolių tyrė
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 fr: Compotes pommes figue
 it: Composte mela e fico
 lt: Figų ir obuolių tyrė
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 en: Apple and cherry compotes
 fr: Compotes pommes cerise
 it: Composte mela e ciliegia
 lt: Vyšnių ir obuolių tyrė
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 fr: Compotes pommes kiwi
 it: Composte mela e kiwi
 lt: Kivių ir obuolių tyrė
@@ -56687,6 +56744,7 @@ it: Composte mela e caramello
 lt: Karamelės ir obuolių tyrė
 
 < en: Apple compotes
+< en: Mixed fruit compotes
 fr: Compotes pommes prune
 lt: Slyvų ir obuolių tyrė
 
@@ -60879,6 +60937,7 @@ lt: Skysti margarinai
 nl: Vloeibare margarines
 pl: Margaryny płynne
 
+< en: Butter and vegetable oil blends
 < en: Fats
 < en: Margarines
 en: 50-63% blended fat with vegetable and animal origins
@@ -60888,6 +60947,7 @@ ciqual_food_code:en: 16743
 ciqual_food_name:en: Blended fat (vegetable and animal origins), 50-63% fat
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière) à 50-63% MG
 
+< en: Butter and vegetable oil blends
 < en: Fats
 < en: Margarines
 en: 50-63% lightly salted blended fat with vegetable and animal origins
@@ -60897,6 +60957,7 @@ ciqual_food_code:en: 16744
 ciqual_food_name:en: Blended fat (vegetable and animal origins), 50-63% fat, lightly salted
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière) à 50-63% MG, demi-sel
 
+< en: Butter and vegetable oil blends
 < en: Fats
 < en: Margarines
 en: 30-40% blended fat with vegetable and animal origins
@@ -60906,6 +60967,7 @@ ciqual_food_code:en: 16745
 ciqual_food_name:en: Blended fat (vegetable and animal origins), spreadable, 30-40% fat
 ciqual_food_name:fr: Matière grasse mélangée (végétale et laitière), à tartiner, à 30-40% MG
 
+< en: Butter and vegetable oil blends
 < en: Fats
 < en: Margarines
 en: 30-40% lightly salted blended fat with vegetable and animal origins
@@ -61585,6 +61647,7 @@ ciqual_food_name:en: Vegetable fat (margarine type), spreadable, 50-63% fat, lig
 ciqual_food_name:fr: Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux
 
 < en: Margarines
+< en: Shortenings
 en: Solid vegetable fat for frying, margarine for frying
 fr: Matière grasse solide pour friture, graisse végétale solide pour friture, margarine pour friture
 agribalyse_food_code:en: 16080
@@ -75549,7 +75612,7 @@ foodex2_scope_note:en: The group includes any type of Canned or jarred Mixed fru
 
 < en: Canned fruits
 en: Canned sour cherries, Canned morello cherries
-de: Sauerkirschen im Glas
+de: Sauerkirschen im Glas, Schattenmorellen
 fr: Griottes en conserve
 foodex2_code:en: A01NX
 foodex2_extended_name:en: Canned or jarred sour cherry
@@ -82264,6 +82327,7 @@ sv: Currysenap
 < en: Mustards
 fr: Moutardes au noix
 
+< en: Mild mustards
 < en: Mustards
 en: Yellow mustards
 de: Gelbe Senfe
@@ -82417,9 +82481,10 @@ foodex2_old_code:en: A.01.001650
 foodex2_scope_note:en: The group includes any type of sweet mustard sauce (sweet flavor).
 
 < en: Mustards
-en: Mild mustards
-de: Milde Senfe
-fr: Moutardes douces
+en: Mild mustards, Mild mustard
+de: Milde Senfe, Milder Senf
+fr: Moutardes douces, Moutarde douce
+nl: Milde mosterd
 foodex2_code:en: A044J
 foodex2_extended_name:en: Mustard, mild
 foodex2_implicit_facets:en: F04.A015S$F10.A0CQM$F33.A0C2J
@@ -83068,6 +83133,7 @@ lt: Vengriški mėsos produktai
 pl: Węgierskie produkty mięsne
 
 < en: Hungarian meat products
+< en: Kolbász
 hu: Gyulai kolbász, Gyulai pároskolbász
 origins:en: en:hungary
 protected_name_file_number:en: PGI-HU-0394
@@ -83075,6 +83141,7 @@ protected_name_type:en: pgi
 wikidata:en: Q1029851
 
 < en: Hungarian meat products
+< en: Kolbász
 en: Csabai sausages
 xx: Csabai kolbász, Csabai vastagkolbász
 hu: Csabai kolbász, Csabai vastagkolbász
@@ -83084,6 +83151,7 @@ protected_name_type:en: pgi
 wikidata:en: Q870187
 
 < en: Hungarian meat products
+< en: Hungarian salami
 en: Budapest winter salami
 xx: Budapesti téliszalámi
 hu: Budapesti téliszalámi
@@ -83093,6 +83161,7 @@ protected_name_type:en: pgi
 wikidata:en: Q148052
 
 < en: Hungarian meat products
+< en: Hungarian salami
 hu: Szegedi szalámi, Szegedi téliszalámi
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-0392
@@ -83468,6 +83537,7 @@ origins:en: en:poland
 protected_name_file_number:en: PGI-PL-02154
 protected_name_type:en: pgi
 
+< en: Kielbasa
 < en: Polish meat products
 pl: Kiełbasa biała parzona wielkopolska
 origins:en: en:poland
@@ -85634,6 +85704,7 @@ hr: Teleći rižoti
 nl: Kalfsvleesrisotto
 
 < en: Meals with chicken
+< en: Rice dishes with meat and vegetables
 < en: Risottos
 en: Chicken risottos
 fi: Kanarisotot
@@ -87103,6 +87174,10 @@ foodex2_implicit_facets:en: F10.A07VP
 foodex2_old_code:en: A.01.001863
 foodex2_scope_note:en: The group includes any type of Milk product/egg soup.
 
+< en: Dairy and egg soups
+en: Koldskål
+da: Koldskål
+
 < en: Soups
 en: Fruit soups
 de: Obstsuppen, Fruchtsuppen
@@ -87391,6 +87466,7 @@ ciqual_food_code:en: 25936
 ciqual_food_name:en: Soup, mushrooms, dehydrated and reconstituted
 ciqual_food_name:fr: Soupe aux champignons, déshydratée reconstituée
 
+< en: Meat and vegetable soups
 < en: Reheatable soups
 en: Chicken and vegetables soup
 fi: Kana-vihanneskeitot
@@ -87463,7 +87539,14 @@ foodex2_implicit_facets:en: F04.A07XJ$F04.A0EYH$F10.A07VP
 foodex2_old_code:en: A.01.001856
 foodex2_scope_note:en: The group includes any type of Meat and vegetable soup, with puree or pieces.
 
+< en: Meat and vegetable soups with pieces
+en: Goulash soups
+cs: Gulášová polévka
+de: Gulaschsuppen, Gulaschsuppe
+hu: Gulyásleves
+
 < en: Chicken soups
+< en: Meat soups with pieces
 en: Chicken and vermicelli soup
 fr: Soupes à la volaille et aux vermicelles
 hr: Pileća i vermicelli juha
@@ -87520,6 +87603,7 @@ ciqual_food_code:en: 25950
 ciqual_food_name:en: Soup, chicken and vermicelli, dehydrated and reconstituted
 ciqual_food_name:fr: Soupe à la volaille et aux vermicelles, déshydratée reconstituée
 
+< en: Meat soups with pieces
 < en: Soups
 en: Chorba frik soup with meat and frik
 fr: Soupe chorba frik à base de viande et de frik
@@ -89054,6 +89138,7 @@ nl: Ovenschotels
 wikidata:en: Q1412833
 
 < en: Gratins
+< en: Vegetable casseroles
 en: Vegetable gratins, Oven grilled vegetables gratin
 de: Gemüseaufläufe
 fi: kasvisgratiinit
@@ -90285,6 +90370,12 @@ en: Knödel
 fr: Knödel
 wikidata:en: Q158382
 
+< en: Bread-based dishes
+< en: Knödel
+en: Bread dumplings
+cs: Houskové knedlíky
+de: Semmelknödel, Serviettenknödel, Brezenknödel
+
 < en: Dumplings
 < en: Pastries
 en: Sweet dumplings
@@ -90829,9 +90920,12 @@ foodex2_scope_note:en: The group includes any type of Mixed vegetable salad, i.e
 
 < en: Vegetable salads
 en: Greek salads, Greek salad, Horiatiki
-de: Griechische Salate
+de: Griechische Salate, Griechischer Salat, Griechischer Bauernsalat
 el: Χωριάτικη σαλάτα
-fr: Salades grecques
+es: Ensalada griega
+fr: Salades grecques, Salade grecque
+it: Insalata greca
+nl: Griekse salade
 description:en: Salad of tomatoes, cucumber, onion, feta cheese and olives, dressed with olive oil.
 foodex2_code:en: A042F
 foodex2_extended_name:en: Greek salad
@@ -96485,6 +96579,7 @@ en: Liverwurst sausages
 < en: Meat spreads
 en: Liverwurst spreads
 
+< en: Mettwurst
 < en: Unripened raw sausages
 en: Teewurst
 xx: Teewurst
@@ -97476,6 +97571,7 @@ protected_name_file_number:en: PGI-GB-0882
 protected_name_type:en: pgi
 wikidata:en: Q16998891
 
+< en: Breakfast sausages
 < en: Sausages
 en: Traditional Cumberland Sausage
 origins:en: en:united-kingdom
@@ -97786,8 +97882,14 @@ foodex2_scope_note:en: The group includes any type of Frankfurt sausage, a produ
 
 < en: Frankfurter sausages
 en: Wiener sausages, Vienna sausages
-de: Wiener Würstchen, Wienerli
+cs: Párky
+da: Wienerpølser
+de: Wiener Würstchen, Wienerli, Wiener Würstel
 fr: Saucisses de Vienne
+hu: Virsli
+nl: Knakworsten
+pl: Parówki
+sv: Wienerkorv
 description:en: Wiener Würstchen (Austria, Germany, Switzerland). The raw French saucisse viennoise is a different product.
 foodex2_code:en: A026D
 foodex2_common_names:en: Vienna sausage
@@ -98079,6 +98181,7 @@ nl: Worst uit de Savoie
 fr: Diots, Diot
 
 < en: French sausages
+< en: Wiener sausages
 en: Viennese pork and veal sausages
 fr: Saucisses viennoises
 agribalyse_food_code:en: 30750
@@ -100981,11 +101084,6 @@ pl: Morski
 
 < en: Cow cheeses
 pl: Radamer
-
-< en: Cow cheeses
-en: Alderman
-fi: Oltermanni
-zh: 奥尔特曼尼‌奶酪
 
 < en: Cow cheeses
 pl: podlaski
@@ -105491,6 +105589,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Sandwiches/Filled Rolls/Wraps (Frozen)
 
 < en: Sandwiches
+< en: Sandwiches with meat and vegetables
 en: Club sandwiches, Sandwich made with loaf bread, Club sandwich, Clubhouse sandwiches
 am: ክለብ ሳንድዊች
 ar: شطيرة النادي
@@ -106794,6 +106893,7 @@ hr: Njemački morski proizvodi
 it: Prodotti ittici tedeschi
 
 < en: German sea products
+< en: Matjes herrings
 de: Glückstädter Matjes
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-1112
@@ -106866,6 +106966,7 @@ protected_name_file_number:en: PGI-IT-0964
 protected_name_type:en: pgi
 
 < en: Italian sea products
+< en: Semi-preserved anchovy in salt
 it: Acciughe sotto sale del mar Ligure
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0358
@@ -107427,6 +107528,7 @@ it: Prodotti ittici portoghesi
 
 < en: Cods
 < en: Portuguese sea products
+< en: Salted dried cod
 pt: Bacalhau de Cura Tradicional Portuguesa
 origins:en: en:portugal
 protected_name_file_number:en: TSG-PT-0064
@@ -109477,6 +109579,11 @@ de: Salzheringe
 fr: Harengs salés
 nl: Gezouten haring
 
+< en: Salted herrings
+en: Matjes herrings, Matjes
+de: Matjes, Matjesfilets, Matjesheringe
+nl: Maatjesharing, Maatjes, Hollandse nieuwe
+
 < en: Herring fillets
 < en: Smoked herrings
 en: Smoked Atlantic herring fillet
@@ -110798,8 +110905,12 @@ ciqual_food_name:fr: Morue, salée, bouillie/cuite à l'eau
 
 < en: Cods
 < en: Salted fishes
-en: Salted dried cod
+en: Salted dried cod, Salt cod, Salted cod, Dried salted cod
+es: Bacalao salado
 fr: Morue salée sèche
+it: Baccalà
+nb: Klippfisk
+pt: Bacalhau, Bacalhau seco
 agribalyse_food_code:en: 26098
 ciqual_food_code:en: 26098
 ciqual_food_name:en: Cod, salted, dried
@@ -111692,9 +111803,11 @@ foodex2_old_code:en: A.01.001388
 foodex2_scope_note:en: The group includes blends of different fats/oils or of different fats/oils with margarines or butter
 
 < de: Mischfette
+< en: Butter and vegetable oil blends
 de: Dreiviertelmischfett
 
 < de: Mischfette
+< en: Butter and vegetable oil blends
 de: Halbmischfett
 
 < de: Mischfette
@@ -124756,6 +124869,7 @@ nl: Roergebakken gerechten
 en: Kedgeree
 description:en: Kedgeree is a dish consisting of cooked, flaked fish, boiled rice, parsley, hard-boiled eggs, curry powder, butter or cream, and occasionally sultanas. The dish can be eaten hot or cold. Other fish can be used instead of haddock such as tuna or salmon, though these are not traditional.
 
+< en: Braised mixed vegetables
 < en: Pan-fried dishes
 < en: Plant-based foods
 en: Pan-fried vegetables
@@ -126195,6 +126309,7 @@ foodex2_implicit_facets:en: F12.A008L$F28.A07GX$F33.A0C3Q
 foodex2_old_code:en: A.01.000255
 foodex2_scope_note:en: The group includes any type of Buns, i.e. small-sized pastries based on a yeast leavened dough, usually enriched with sugar and butter and sometimes eggs. Savoury variants are also available on the market.
 
+< en: Sweet buns
 < en: Viennoiseries
 en: Cinnamon rolls
 da: Kanelsnegle
@@ -126462,6 +126577,7 @@ xx: Franzbrötchen
 de: Franzbrötchen
 wikidata:en: Q314491
 
+< en: Sweet buns
 < en: Viennoiseries
 en: Milk bread rolls
 de: Milchbrötchen, Milchbrotrollen
@@ -128516,7 +128632,7 @@ ciqual_food_name:en: Puff pastry, pure butter, frozen, raw
 ciqual_food_name:fr: Pâte feuilletée pur beurre, surgelée crue
 
 < en: Pie dough
-en: Phyllo dough, Filo dough
+en: Phyllo dough, Filo dough, Phyllo pastry, Filo pastry
 bg: Точени кори
 fr: Pâte phyllo, Pâte filo
 hr: Filo tijesto
@@ -130340,6 +130456,7 @@ foodex2_implicit_facets:en: F04.A07XJ$F28.A07GG
 foodex2_old_code:en: A.01.001843
 foodex2_scope_note:en: The group includes any type of Mixed vegetables, boiled.
 
+< en: Rice dishes with vegetables
 < en: Risottos
 en: Vegetable risottos, Risotto with vegetables
 de: Gemüserisotto
@@ -130857,6 +130974,7 @@ ciqual_food_code:en: 23425
 ciqual_food_name:en: Puff pastry, pure butter, frozen, raw
 ciqual_food_name:fr: Pâte feuilletée pur beurre, surgelée crue
 
+< en: Phyllo dough
 < en: Pie dough
 en: Phyllo dough raw, Filo dough raw
 fr: Pâte phyllo crue, Pâte filo crue
@@ -130865,6 +130983,7 @@ ciqual_food_name:en: Phyllo or filo dough, raw
 ciqual_food_name:fr: Pâte phyllo ou Pâte filo, crue
 
 < en: Frozen foods
+< en: Phyllo dough
 < en: Pie dough
 en: Frozen phyllo dough, Frozen filo dough
 fr: Pâte phyllo surgelée, Pâte filo surgelée
@@ -130927,7 +131046,7 @@ ciqual_food_code:en: 25151
 ciqual_food_name:en: Fish or seafood in puff pastry
 
 < en: Meals
-en: Khatfa, Phyllo pastry, Filo pastry
+en: Khatfa
 fr: Khatfa
 ciqual_food_code:en: 51550
 ciqual_food_name:en: Khatfa (phyllo or filo pastry), prepacked
