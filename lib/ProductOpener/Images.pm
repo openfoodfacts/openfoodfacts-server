@@ -892,7 +892,7 @@ Used to return some debug information to the caller.
 
 =cut
 
-sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref) {
+sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref, $skip_min_size = 0) {
 
 	# $time = shift  ->  usually current time (images just uploaded), except for images moved from another product
 	# $imgid_ref = shift  ->  to return the imgid (new image or existing image)
@@ -942,7 +942,7 @@ sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, 
 	}
 
 	return process_image_upload_using_filehandle($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref,
-		$debug_string_ref);
+		$debug_string_ref, $skip_min_size);
 }
 
 =head2 process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref, $debug_string_ref)
@@ -984,7 +984,7 @@ Used to return some debug information to the caller.
 =cut
 
 sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, $time, $comment, $imgid_ref,
-	$debug_string_ref)
+	$debug_string_ref, $skip_min_size = 0)
 {
 
 	local $log->context->{uploader} = $user_id;
@@ -1173,7 +1173,8 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 
 		# Check the image is big enough so that we do not get thumbnails from other sites
 		if (
-			(($source->Get('width') < 640) and ($source->Get('height') < 160))
+			(not $skip_min_size)
+			and (($source->Get('width') < 640) and ($source->Get('height') < 160))
 			and (  (not defined $options{users_who_can_upload_small_images})
 				or (not defined $options{users_who_can_upload_small_images}{$user_id}))
 			)
@@ -1473,7 +1474,8 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 					$product_ref->{images}{uploaded}{$imgid}{uploaded_t},
 					"image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{uploaded}{$imgid}{uploader} - time: $product_ref->{images}{uploaded}{$imgid}{uploaded_t}",
 					\$new_imgid,
-					\$debug
+					\$debug,
+					1  # skip_min_size: existing images being moved between products have already been validated
 				);
 				if ($ok < 0) {
 					$log->error(
@@ -1516,7 +1518,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 			}
 
 			# Don't delete images to be moved if they weren't moved correctly
-			if ($ok) {
+			if ($ok > 0) {
 				# Delete images (move them to the deleted.images dir)
 				delete_uploaded_image_and_associated_selected_images($product_ref, $imgid);
 			}
