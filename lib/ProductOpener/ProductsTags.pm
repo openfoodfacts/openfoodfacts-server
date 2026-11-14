@@ -329,6 +329,11 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	return;
 }
 
+# Some apps send "null" or "undefined" as a string when a field is empty,
+# those values must not become tags (e.g. en:null or en:undefined categories)
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/11933
+my $null_tag_regexp = qr/^(?:[a-z][a-z]:)?(?:null|undefined)$/i;
+
 =head2 set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags)
 
 New function to set the input tags for a field and a source. (e.g. categories for the manufacturer source)
@@ -415,6 +420,7 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 		$tag =~ s/\s+$//;
 
 		next if $tag eq "";
+		next if $tag =~ $null_tag_regexp;
 
 		my $normalized_tag;
 
@@ -567,7 +573,8 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 
 	if (defined $taxonomy_fields{$field}) {
 		$product_ref->{$field . "_lc"} = $tag_lc;    # save the language for the field, useful for debugging
-		$product_ref->{$field . "_hierarchy"} = [gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field})];
+		$product_ref->{$field . "_hierarchy"}
+			= [grep {$_ !~ $null_tag_regexp} gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field})];
 		$product_ref->{$field . "_tags"} = [];
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
 			push @{$product_ref->{$field . "_tags"}}, $tag;
@@ -585,7 +592,9 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 		}
 
 		foreach my $tag (split(',', $value)) {
-			if (get_string_id_for_lang($tag_lc, $tag) ne '') {
+			if (    (get_string_id_for_lang($tag_lc, $tag) ne '')
+				and (get_string_id_for_lang("no_language", $tag) !~ $null_tag_regexp))
+			{
 				# There is only one field value for all languages, use "no_language" to normalize
 				push @{$product_ref->{$field . "_tags"}}, get_string_id_for_lang("no_language", $tag);
 				if ($field eq 'emb_codes') {
