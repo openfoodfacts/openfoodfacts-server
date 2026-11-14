@@ -259,6 +259,13 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 		# ie sets with unknow per quantity
 		@input_sets = grep {defined $_->{set}{per_quantity} && $_->{set}{per_quantity} ne ""} @input_sets;
 
+		# A serving cannot be normalized if its weight/volume unit is unknown.
+		@input_sets = grep {
+			my $standard_unit = get_standard_unit($_->{set}{per_unit});
+			($_->{set}{per} ne "serving")
+				or (defined $standard_unit and (($standard_unit eq "g") or ($standard_unit eq "ml")))
+		} @input_sets;
+
 		# Remove sets that have a per quantity that is less than 5g or 5ml, so that we don't extrapolate very small quantities to 100g
 		@input_sets = grep {unit_to_g($_->{set}{per_quantity}, $_->{set}{per_unit}) >= 5} @input_sets;
 
@@ -685,7 +692,10 @@ sub get_specific_nutrition_input_set($product_ref, $source, $preparation, $per) 
 
 Fill the per_quantity and per_unit field of nutrients input set,
 based upon the "per" value of the nutrient input set,
-or product serving_quantity and unit for "serving".
+or product serving_quantity and unit for "as_sold" sets per "serving".
+
+Prepared sets keep their own serving quantity and unit. The shared product
+serving size does not reliably identify the complete prepared serving.
 
 =head3 Arguments
 
@@ -720,6 +730,9 @@ sub set_per_quantity_and_unit($product_ref, $input_set_ref) {
 		}
 		# If possible convert per serving to quantity + unit from product
 		elsif ($per eq "serving") {
+			# Do not replace a prepared serving size with the shared size (#12867).
+			return if ((deep_get($input_set_ref, "preparation") // "") eq "prepared");
+
 			if (    (defined $product_ref->{serving_quantity})
 				and (defined $product_ref->{serving_quantity_unit}))
 			{
@@ -1382,7 +1395,8 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 					normalize_product_quantity_and_serving_size($product_ref);
 				}
 
-				if (defined $product_ref->{serving_quantity}) {
+				# The shared size must not overwrite prepared serving metadata.
+				if (($preparation eq "as_sold") and (defined $product_ref->{serving_quantity})) {
 					# set the per_quantity and per_unit fields of the input set
 					$log->debug(
 						"serving size for per serving",
@@ -1397,7 +1411,7 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 					deep_set($input_sets_hash_ref, $source, $preparation, $per, "per_unit",
 						$product_ref->{serving_unit});
 				}
-				else {
+				elsif ($preparation eq "as_sold") {
 					# no valid serving size, we will record the per serving values but without serving size
 					$log->debug("no valid serving size for per serving nutrition data in API call",
 						{serving_size => $product_ref->{serving_size}})
@@ -2968,4 +2982,3 @@ sub add_misc_tags_for_input_nutrition_data_pers($product_ref) {
 }
 
 1;
-
