@@ -1,0 +1,66 @@
+# Tags rules for crispbreads and biscuits. See rules/README.md for the format.
+
+exclusive:
+  - [en:crispbreads-wholemeal, en:crispbreads-non-wholemeal]
+  - [en:wholemeal-rye-crispbreads, en:wholemeal-wheat-crispbreads]
+
+rules:
+
+  - id: crispbreads-wholemeal-rye
+    description: Crispbreads whose first ingredient is wholemeal rye flour (FoodEx2 A006B)
+    if:
+      categories: en:crispbreads
+      ingredients:
+        first: en:wholemeal-rye-flour
+    add:
+      categories: en:wholemeal-rye-crispbreads
+    tests:
+      match:
+        - categories: [en:crispbreads]
+          ingredients: [{id: en:wholemeal-rye-flour, percent: 92}, en:salt]
+        - categories: [en:crispbreads, en:rye-crispbreads]
+          ingredients: [en:wholemeal-rye-flour, en:water, en:salt]
+      no_match:
+        - categories: [en:crispbreads]
+          ingredients: [en:wheat-flour, en:wholemeal-rye-flour]
+        - categories: [en:crispbreads]
+          ingredients: [en:rye-flour, en:salt]
+        # Conflict: the product is already tagged as non-wholemeal crispbreads
+        - categories: [en:crispbreads-non-wholemeal]
+          ingredients: [en:wholemeal-rye-flour, en:salt]
+
+  - id: crispbreads-wholemeal-wheat
+    description: Crispbreads whose first ingredient is wholemeal wheat flour (FoodEx2 A006E)
+    if:
+      categories: en:crispbreads
+      ingredients:
+        first: en:whole-wheat-flour
+    add:
+      categories: en:wholemeal-wheat-crispbreads
+    tests:
+      match:
+        - categories: [en:crispbreads]
+          ingredients: [en:whole-wheat-flour, en:sunflower-oil, en:salt]
+      no_match:
+        - categories: [en:crispbreads]
+          ingredients: [en:wheat-flour, en:whole-wheat-flour]
+        - categories: [en:crispbreads, en:wholemeal-rye-crispbreads]
+          ingredients: [en:whole-wheat-flour, en:wholemeal-rye-flour]
+
+  - id: biscuits-wholemeal-wheat
+    description: Biscuits whose first ingredient is wholemeal wheat flour (FoodEx2 A00AA)
+    if:
+      categories: en:biscuits
+      ingredients:
+        first: en:whole-wheat-flour
+    add:
+      categories: en:wholemeal-wheat-biscuits
+    tests:
+      match:
+        - categories: [en:biscuits]
+          ingredients: [{id: en:whole-wheat-flour, percent: 45}, en:sugar, en:palm-oil]
+      no_match:
+        - categories: [en:biscuits]
+          ingredients: [en:wheat-flour, en:whole-wheat-flour, en:sugar]
+        - categories: [en:biscuits]
+          ingredients: [en:oat-flakes, en:whole-wheat-flour]

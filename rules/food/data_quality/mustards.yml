@@ -1,0 +1,41 @@
+# Data quality rules for mustards. See rules/README.md for the format.
+#
+# Rules never remove tags. When the data of a product looks wrong, a rule adds a data quality warning
+# so that the product can be reviewed and fixed by a contributor.
+
+rules:
+
+  - id: sweet-mustards-named-mild
+    description: >-
+      Products in sweet mustards whose name says "moutarde douce" (mild mustard, not sweet mustard):
+      the category is probably wrong and should be en:mild-mustards
+    if:
+      categories: en:sweet-mustards
+      name:
+        fr: '\bmoutarde\s+(fine\s+et\s+)?douce\b'
+    unless:
+      - categories: en:mild-mustards
+      - name:
+          fr: 'sucr[eé]|bavaroise|miel'
+      # Sugar as first or second ingredient: probably a real sweet mustard
+      - ingredients:
+          in_first: {n: 2, of: en:sugar}
+    add:
+      data_quality_warnings: en:sweet-mustards-named-mild-mustard
+    tests:
+      match:
+        - categories: [en:sweet-mustards]
+          lc: fr
+          product_name: Moutarde douce
+        - categories: [en:sweet-mustards]
+          product_name_fr: Moutarde fine et douce
+      no_match:
+        - categories: [en:sweet-mustards]
+          product_name_fr: Moutarde douce bavaroise
+        - categories: [en:sweet-mustards, en:mild-mustards]
+          product_name_fr: Moutarde douce
+        - categories: [en:mustards]
+          product_name_fr: Moutarde douce
+        - categories: [en:sweet-mustards]
+          product_name_fr: Moutarde douce
+          ingredients: [en:beet-sugar, en:water, en:spirit-vinegar, en:mustard-seed]

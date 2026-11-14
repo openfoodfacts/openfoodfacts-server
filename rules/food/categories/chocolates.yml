@@ -1,0 +1,73 @@
+# Tags rules for chocolates. See rules/README.md for the format.
+#
+# The cocoa content cannot be computed from the ingredients (cocoa butter and cocoa powder add up to the
+# cocoa paste). The rules use the cocoa nutrient ("cocoa: 55% minimum", entered in the nutrition facts)
+# or the cocoa percentage in the product name or generic name.
+# A bare percentage must end the name ("Chocolat noir 55%"), otherwise it must be followed by a cocoa word:
+# generic names often give the percentage of a filling or of nuts ("fourré (60%) au praliné", "34% noisettes").
+
+rules:
+
+  - id: dark-chocolates-semi-sweet
+    description: Dark chocolates with less than 65% cocoa (FoodEx2 A034H Bitter-sweet chocolate)
+    if:
+      categories: en:dark-chocolates
+      any:
+        - nutrients:
+            cocoa: {min: 30, max: 64.9}
+        - all:
+            - name:
+                any: '(?<![\d.,])([3-5]\d|6[0-4])(?:[.,]\d+)?\s*%\s*(?:$|(?:de |of |di |d[ei] )?(?:cacao|cocoa|kakao|cacau|cocoa solids))'
+            - not:
+                nutrients:
+                  cocoa: {min: 65}
+    unless:
+      # Another percentage of 65% or more in the name (e.g. "70% cocoa, 50% less sugar")
+      - name:
+          any: '(?<![\d.,])(6[5-9]|[7-9]\d|100)(?:[.,]\d+)?\s*%'
+      - nutrients:
+          cocoa: {min: 65}
+      - categories: [en:milk-chocolates, en:plant-milk-chocolates, en:filled-chocolates, en:bonbons, en:spreads]
+      # Milk powder: a dark milk chocolate rather than a dark chocolate
+      - ingredients:
+          contains: en:milk-powder
+      - name:
+          any: '\b(au lait|milk|vollmilch|al latte|con leche|ao leite|melk|mleczn|white|blanc|weiss)\b'
+    add:
+      categories: en:semi-sweet-dark-chocolates
+    tests:
+      match:
+        - categories: [en:dark-chocolates]
+          product_name_fr: Chocolat noir 55% de cacao
+        - categories: [en:dark-chocolates]
+          nutrients: {cocoa: 52}
+        - categories: [en:dark-chocolates]
+          product_name_en: Dark chocolate 64.5 %
+        - categories: [en:dark-chocolates]
+          generic_name_en: Dark chocolate, 56% cacao
+      no_match:
+        - categories: [en:dark-chocolates]
+          product_name_fr: Chocolat noir 70% de cacao
+        - categories: [en:dark-chocolates]
+          product_name_fr: Chocolat noir 165% plaisir
+        - categories: [en:dark-chocolates]
+          nutrients: {cocoa: 72}
+        - categories: [en:dark-chocolates]
+          product_name_fr: Chocolat noir 55%
+          nutrients: {cocoa: 70}
+        - categories: [en:dark-chocolates]
+          product_name_fr: Chocolat noir
+        - categories: [en:dark-chocolates]
+          product_name_fr: Chocolat noir 85% - 30% de sucres en moins
+        # Percentage of nuts or of a filling
+        - categories: [en:dark-chocolates]
+          product_name_fr: Les grandes 34% Noisettes Noir
+        - categories: [en:dark-chocolates]
+          generic_name_fr: Chocolat noir fourré (60%) au praliné noisettes
+        - categories: [en:dark-chocolates]
+          product_name_fr: Pépites de chocolat au lait 36%
+        - categories: [en:dark-chocolates]
+          nutrients: {cocoa: 46}
+          ingredients: [en:sugar, en:cocoa-paste, en:skimmed-milk-powder, en:cocoa-butter]
+        - categories: [en:dark-chocolates, en:cocoa-and-hazelnuts-spreads]
+          nutrients: {cocoa: 60}
