@@ -1050,6 +1050,21 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	return $text;
 }
 
+sub get_origin_from_name_or_adjective ($ingredients_lc, $text) {
+
+	my $origin_id = canonicalize_taxonomy_tag($ingredients_lc, "origins", $text);
+	if ((exists_taxonomy_tag("origins", $origin_id)) and ($origin_id ne "en:unknown")) {
+		return $origin_id;
+	}
+
+	my $origin_adjective_id = canonicalize_taxonomy_tag($ingredients_lc, "origins_adjectives", $text);
+	if (exists_taxonomy_tag("origins_adjectives", $origin_adjective_id)) {
+		return get_inherited_property("origins_adjectives", $origin_adjective_id, "origins:en");
+	}
+
+	return;
+}
+
 # Note: in regular expressions below, use non-capturing groups (starting with (?: )
 # for all groups, except groups that capture actual data: ingredient name, percent, origins
 
@@ -2527,7 +2542,7 @@ Text to analyze
 					}
 
 					if (    ($between =~ $separators)
-						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
+						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung|oorsprong)\s*/i)
 						and ($` !~ /\s*(allergens)\s*/i)
 						and ($between !~ compiled_regexp('^' . $percent_or_quantity_regexp . '$')))
 					{
@@ -2576,7 +2591,7 @@ Text to analyze
 
 							# try to remove the origin and store it as property
 							if ($between
-								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
+								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.+)$/i
 								)
 							{
 								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
@@ -2661,6 +2676,16 @@ Text to analyze
 
 								# origins:   Fraise (France)
 								my $originid = canonicalize_taxonomy_tag($ingredients_lc, "origins", $between);
+								my $text_before_origin_keyword
+									= ($between
+										=~ /^\s*((?:\S+\s+){0,2}\S+)\s+(?:origin|origins|oorsprong|ursprung|alkuperä)\s*$/i
+									)
+									? $1
+									: undef;
+								my $origin_before_keyword
+									= defined $text_before_origin_keyword
+									? get_origin_from_name_or_adjective($ingredients_lc, $text_before_origin_keyword)
+									: undef;
 								if (exists_taxonomy_tag("origins", $originid)) {
 									$origin = $originid;
 									$debug_ingredients
@@ -2671,6 +2696,14 @@ Text to analyze
 									$log->debug(
 										"parse_ingredients_text - sub-ingredients: between is an origin: $between")
 										if $log->is_debug();
+								}
+								elsif (defined $origin_before_keyword) {
+									$origin = $origin_before_keyword;
+									$debug_ingredients
+										and $log->debug("between is an origin followed by an origin keyword",
+										{between => $between, origin => $origin})
+										if $log->is_debug();
+									$between = '';
 								}
 								# put origins first because the country can be associated with the label "Made in ..."
 								# Skip too short entries (1 or 2 letters) to avoid false positives
@@ -2737,6 +2770,9 @@ Text to analyze
 											}
 											$between = '';
 										}
+									}
+									elsif (defined $text_before_origin_keyword) {
+										$between = '';
 									}
 								}
 							}
@@ -8208,20 +8244,21 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# "mono - et diglycérides", "mono-et diglycérides", "di - et triphosphates", "tri - and dicalcium phosphate"
 	# -> "mono- et diglycérides", "di- et triphosphates", "tri- and dicalcium phosphate"
 	my $multi_prefix = '(?:mono|di|tri|tetra|poly)';
-	$text =~ s/\b($multi_prefix)\s?-\s?($and_without_spaces)\s+(?=$multi_prefix)/$1- $2 /ig;
+	$text =~ s/\b($multi_prefix)\s*-\s*($and_without_spaces)\s+(?=$multi_prefix)/$1- $2 /ig;
+	$text =~ s/\b($multi_prefix)(\p{L}+)\s*-\s*($and_without_spaces)\s+(?=$multi_prefix\2\p{L})/$1$2- $3 /ig;
 	# same with another short word (typo, or "and" in another language), so that the dash is not a separator
 	# and we keep 1 ingredient: "mono - ti digliceride" -> "mono- ti digliceride"
-	$text =~ s/\b($multi_prefix)\s?-\s?(\p{L}{1,3})\s+(?=$multi_prefix)/$1- $2 /ig;
+	$text =~ s/\b($multi_prefix)\s*-\s*(\p{L}{1,3})\s+(?=$multi_prefix)/$1- $2 /ig;
 	# "mono et diglycérides" -> "mono- et diglycérides"
 	$text =~ s/\b($multi_prefix)\s+($and_without_spaces)\s+(?=$multi_prefix)/$1- $2 /ig;
 	# "mono-diglycérides", "mono - di-glycérides" -> "mono- et diglycérides"
 	my ($first_and) = split(/\|/, $and);
 	$first_and =~ s/^\s+|\s+$//g;
-	$text =~ s/\b(mono)\s?-\s?(?=di\s?-?\s?gl[iy]c)/$1- $first_and /ig;
+	$text =~ s/\b(mono)\s*-\s*(?=di\s?-?\s?gl[iy]c)/$1- $first_and /ig;
 	# mono-glycéride -> monoglycérides, di-potassium -> dipotassium
 	# only before words of 4+ letters, so that we do not join "and" words of other languages ("mono - und")
 	# or "di-t-butyl"
-	$text =~ s/\b(mono|di)\s?-\s?(\p{L}{4})/$1$2/ig;
+	$text =~ s/\b(mono|di)\s*-\s*(\p{L}{4})/$1$2/ig;
 
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
