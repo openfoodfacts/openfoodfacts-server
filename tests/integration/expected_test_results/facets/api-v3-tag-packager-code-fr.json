@@ -1,0 +1,52 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "packager_code" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>84 RTE DES SABLES, 85800 SAINT-GILLES-CROIX-DE-VIE (France)</p>\n<p>SIRET: 34201072500022</p>\n<p><a href=\"https://www.openstreetmap.org/?mlat=46.6837429&amp;mlon=-1.9249496#map=16/46.6837429/-1.9249496\">OpenStreetMap</a></p>"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "GENDREAU"
+            },
+            "topics" : [
+               "emb_codes"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packager_code"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "fr-85-222-003-ec",
+      "tagtype" : "emb_codes"
+   },
+   "tagid" : "fr-85-222-003-ec",
+   "tagtype" : "emb_codes",
+   "warnings" : []
+}

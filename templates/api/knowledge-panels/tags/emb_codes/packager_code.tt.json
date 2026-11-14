@@ -1,0 +1,24 @@
+{
+    "level" :"info",
+    "topics": [
+        "emb_codes"
+    ],
+    "title_element": {
+        "title": `[% panel.name %]`,
+    },
+    "expanded": true,
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<p>[% panel.address | html %][% IF panel.country %] ([% display_taxonomy_tag_name('countries', panel.country) %])[% END %]</p>
+[%- IF panel.siret %]
+<p>SIRET[% sep %]: [% panel.siret | html %]</p>
+[%- END %]
+[%- IF panel.lat.defined %]
+<p><a href="https://www.openstreetmap.org/?mlat=[% panel.lat %]&amp;mlon=[% panel.lng %]#map=16/[% panel.lat %]/[% panel.lng %]">OpenStreetMap</a></p>
+[%- END %]`
+            }
+        },
+    ]
+}

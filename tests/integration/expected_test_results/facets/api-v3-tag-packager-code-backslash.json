@@ -1,0 +1,52 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "packager_code" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Box 79, 239 30 SKANÖR (Sweden)</p>\n<p><a href=\"https://www.openstreetmap.org/?mlat=55.4100741&amp;mlon=12.8520369#map=16/55.4100741/12.8520369\">OpenStreetMap</a></p>"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Holmdrop\\'s Laxrökeri"
+            },
+            "topics" : [
+               "emb_codes"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packager_code"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "se-6668-ec",
+      "tagtype" : "emb_codes"
+   },
+   "tagid" : "se-6668-ec",
+   "tagtype" : "emb_codes",
+   "warnings" : []
+}

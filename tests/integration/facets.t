@@ -391,6 +391,64 @@ my $tests_ref = [
 		path => '/api/v3/tag/categories/en:canned-carrots?activate_knowledge_panel_related_categories=1',
 		expected_status_code => 200,
 	},
+	# packager code knowledge panel: name, address and link to the location
+	{
+		test_case => 'api-v3-tag-packager-code-fr',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fr-85-222-003-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-fi',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fi-006-2-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-uk',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/uk-1000-ec',
+		expected_status_code => 200,
+	},
+	# names with a backtick, a line break or a backslash, and a code with empty coordinates
+	{
+		test_case => 'api-v3-tag-packager-code-backtick',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/de-by-10357-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-line-break',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/ie-1888-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-backslash',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/se-6668-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-empty-coordinates',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fr-42-205-007-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-unknown',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fr-00-000-000-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'packager-code-page-shows-panel',
+		method => 'GET',
+		path => '/facets/packager-codes/fr-85-222-003-ec',
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_match => '84 RTE DES SABLES, 85800 SAINT-GILLES-CROIX-DE-VIE',
+	},
 	# test some redirects
 	{
 		test_case => 'redirect-facets-singulars',
