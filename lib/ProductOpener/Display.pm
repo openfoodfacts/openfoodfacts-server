@@ -5408,7 +5408,22 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $request_parameters_ref = get_products_collection_request_parameters($request_ref);
 
 	$request_ref->{data_debug} = init_data_debug();
-	$request_ref->{structured_response} = get_cache_results($key, \$request_ref->{data_debug});
+
+	# Logged in users looking at the latest products on the web site (e.g. editors checking
+	# the latest edits on /?sort_by=last_modified_t) need to see up to date results,
+	# so we don't read them from the cache.
+	# This is limited to web pages without query filters (other than the country of the site),
+	# so that facet pages, searches and API clients still use the cache.
+	if (    (defined $request_ref->{user_id})
+		and (not defined $request_ref->{api})
+		and (not grep {$_ ne 'countries_tags'} keys %$query_ref)
+		and (($sort_by eq 'last_modified_t') or ($sort_by eq 'created_t')))
+	{
+		$request_ref->{data_debug} .= "not using cache: logged in user viewing the latest products by $sort_by\n";
+	}
+	else {
+		$request_ref->{structured_response} = get_cache_results($key, \$request_ref->{data_debug});
+	}
 
 	if (not defined $request_ref->{structured_response}) {
 
