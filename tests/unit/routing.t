@@ -50,6 +50,22 @@ my @tests = (
 		},
 	},
 	{
+		id => 'facets-index',
+		desc => "Facets Index URL",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'facets',
+			no_index => '0',
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	{
 		id => 'facet-url',
 		desc => "Facet URL",
 		lc => "en",
