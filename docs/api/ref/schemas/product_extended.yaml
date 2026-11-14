@@ -26,6 +26,9 @@ properties:
     type: array
     items:
       type: object
+  brand_owner:
+    type: string
+    description: Owner of the brand (e.g. parent company or distributor).
   carbon_footprint_percent_of_known_ingredients:
     type: integer
   categories_properties:
@@ -65,12 +68,31 @@ properties:
       See also `forest_footprint_2026.grade`, `forest_footprint_2026.summary`,
       `forest_footprint_2026.total_footprint_per_kg`, and
       `forest_footprint_2026.primary_ingredients`.
+  forest_footprint_data:
+    type: object
+    description: Forest footprint data (legacy / pre-2026 structure).
+  improvements_data:
+    type: object
+    description: Improvement data for the product (producers platform).
+  improvements_tags:
+    type: array
+    description: Improvement tags for the product (producers platform).
+    items:
+      type: string
   conservation_conditions:
     type: string
   customer_service:
     type: string
     description: |
       Contact info of customer service.
+  drained_weight_unit:
+    type: string
+    description: Unit for `drained_weight_value`.
+  drained_weight_value:
+    type:
+      - number
+      - string
+    description: Drained weight numeric value.
   expiration_date:
     type: string
 
@@ -83,6 +105,14 @@ properties:
     type: array
     items:
       type: object
+  net_weight_unit:
+    type: string
+    description: Unit for `net_weight_value`.
+  net_weight_value:
+    type:
+      - number
+      - string
+    description: Net weight numeric value.
 
   minerals_prev_tags:
     type: array
@@ -130,13 +160,85 @@ properties:
       type: object
   origin:
     type: string
+  other_information:
+    type: string
+    description: Additional information printed on the packaging.
+  packaging_materials_tags:
+    type: array
+    description: Canonical tags of packaging materials derived from `packagings`.
+    items:
+      type: string
+  packaging_recycling_tags:
+    type: array
+    description: Canonical tags of packaging recycling instructions derived from `packagings`.
+    items:
+      type: string
+  packaging_shapes_tags:
+    type: array
+    description: Canonical tags of packaging shapes derived from `packagings`.
+    items:
+      type: string
+  packagings_materials:
+    type: object
+    description: Summary of packaging materials and their weights.
+  packagings_materials_main:
+    type: string
+    description: Main packaging material tag.
+  packagings_n:
+    type: integer
+    description: Number of packaging components.
+  periods_after_opening:
+    type: string
+    description: Period after opening (e.g. `12M`).
+  preparation:
+    type: string
+    description: Preparation instructions.
+  producer:
+    type: string
+    description: Producer name or details.
+  producer_product_id:
+    type: string
+    description: Producer-assigned product identifier.
   purchase_places:
     type: string
     description: |
       Country, state, or city where the product can be purchased.
     example: Paris
+  quantity_unit:
+    type: string
+    description: Unit for `quantity_value`.
+  quantity_value:
+    type:
+      - number
+      - string
+    description: Quantity numeric value.
+  serving_size_unit:
+    type: string
+    description: Unit for `serving_size_value`.
+  serving_size_value:
+    type:
+      - number
+      - string
+    description: Serving size numeric value.
   purchase_places_tags:
     type: array
+    items:
+      type: string
+  recipe_idea:
+    type: string
+    description: Recipe idea printed on the packaging.
+  recycling_instructions_to_discard:
+    type: string
+    description: Recycling instructions for components to discard.
+  recycling_instructions_to_recycle:
+    type: string
+    description: Recycling instructions for components to recycle.
+  storage_conditions:
+    type: string
+    description: Storage conditions for the product (e.g. `frozen`), derived from category properties.
+  storage_conditions_tags:
+    type: array
+    description: Canonical tag IDs for storage conditions (e.g. `["en:frozen"]`).
     items:
       type: string
   stores:
@@ -152,6 +254,29 @@ properties:
     type: string
   traces_from_user:
     type: string
+  volume_unit:
+    type: string
+    description: Unit for `volume_value`.
+  volume_value:
+    type:
+      - number
+      - string
+    description: Volume numeric value.
+  warning:
+    type: string
+    description: Warning text on the packaging.
+  product_infocard:
+    type: string
+    description: Product infocard text in the product's main language.
+  ingredients_infocard:
+    type: string
+    description: Ingredients infocard text in the product's main language.
+  nutrition_infocard:
+    type: string
+    description: Nutrition infocard text in the product's main language.
+  environment_infocard:
+    type: string
+    description: Environment infocard text in the product's main language.
 
 patternProperties:
   'conservation_conditions_(?<language_code>\w\w)':
@@ -162,3 +287,36 @@ patternProperties:
     type: string
     description: |
       `origin` in language indicated by `language_code`
+  'other_information_(?<language_code>\w\w)':
+    type: string
+    description: "`other_information` in language indicated by `language_code`"
+  'preparation_(?<language_code>\w\w)':
+    type: string
+    description: "`preparation` in language indicated by `language_code`"
+  'producer_(?<language_code>\w\w)':
+    type: string
+    description: "`producer` in language indicated by `language_code`"
+  'recipe_idea_(?<language_code>\w\w)':
+    type: string
+    description: "`recipe_idea` in language indicated by `language_code`"
+  'recycling_instructions_to_discard_(?<language_code>\w\w)':
+    type: string
+    description: "`recycling_instructions_to_discard` in language indicated by `language_code`"
+  'recycling_instructions_to_recycle_(?<language_code>\w\w)':
+    type: string
+    description: "`recycling_instructions_to_recycle` in language indicated by `language_code`"
+  'warning_(?<language_code>\w\w)':
+    type: string
+    description: "`warning` in language indicated by `language_code`"
+  'product_infocard_(?<language_code>\w\w)':
+    type: string
+    description: "`product_infocard` in language indicated by `language_code`"
+  'ingredients_infocard_(?<language_code>\w\w)':
+    type: string
+    description: "`ingredients_infocard` in language indicated by `language_code`"
+  'nutrition_infocard_(?<language_code>\w\w)':
+    type: string
+    description: "`nutrition_infocard` in language indicated by `language_code`"
+  'environment_infocard_(?<language_code>\w\w)':
+    type: string
+    description: "`environment_infocard` in language indicated by `language_code`"

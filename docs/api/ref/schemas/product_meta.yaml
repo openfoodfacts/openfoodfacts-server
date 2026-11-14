@@ -10,6 +10,14 @@ required:
   - rev
 
 properties:
+  completed_t:
+    type: integer
+    description: |
+      UNIX timestamp when the product was marked complete (`complete == 1`).
+  created_by_client:
+    type: string
+    description: |
+      Identifier of the client/application that created the product.
   created_t:
     type: integer
     description: |
@@ -63,12 +71,19 @@ properties:
       type: string
   last_editor:
     type: string
-
+  last_exported_t:
+    type: integer
+    description: |
+      UNIX timestamp when the product was last exported.
   last_modified_by:
     type: string
     description: |
       The username of the user who last modified the product.
     example: sebleouf
+  last_modified_by_client:
+    type: string
+    description: |
+      Identifier of the client/application that last modified the product.
   last_modified_t:
     type: integer
     description: |
@@ -96,6 +111,10 @@ properties:
   rev:
     description: revision number of this product version (each edit adds a revision)
     type: integer
+  server:
+    type: string
+    description: |
+      Identifier of the server that processed the product.
   sources:
     type: array
     items:
@@ -159,3 +178,9 @@ properties:
       type: string
   update_key:
     type: string
+  weighers_tags:
+    type: array
+    description: |
+      List of users who weighed packaging components (`packagings` `weight_measured`).
+    items:
+      type: string

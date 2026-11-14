@@ -71,6 +71,14 @@ properties:
     type: array
     items:
       type: string
+  environmental_score_tags:
+    description: |
+      All Green-Score (formerly Eco-Score) tags of a product.
+      Replaces `ecoscore_tags` since API v3.1.
+      See also: `environmental_score_score`, `environmental_score_grade`.
+    type: array
+    items:
+      type: string
 
   emb_codes:
     type: string

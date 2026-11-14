@@ -182,6 +182,12 @@ properties:
   ecoscore_extended_data_version:
     type: string
 
+  environmental_score_data:
+    $ref: "#/properties/ecoscore_data"
+    description: |
+      Detailed data used for Green-Score (formerly Eco-Score) computation.
+      Replaces `ecoscore_data` since API v3.1.
+
   environment_impact_level:
     type: string
   environment_impact_level_tags:
