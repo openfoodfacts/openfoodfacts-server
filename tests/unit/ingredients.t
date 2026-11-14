@@ -1860,6 +1860,19 @@ extract_ingredients_from_text($stray_conjunction);
 ProductOpener::Ingredients::detect_allergens_from_text($stray_conjunction);
 is($stray_conjunction->{allergens_tags}, ['en:eggs', 'en:sesame-seeds'], 'stray conjunction keeps both allergens');
 
+# 8720256082934: the allergen-label note is not an ingredient.
+my $allergen_label_note = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text => 'Eau, sel. Allergènes signalés en majuscules et en gras.',
+};
+extract_ingredients_from_text($allergen_label_note);
+is(
+	[map {$_->{id}} @{$allergen_label_note->{ingredients}}],
+	['en:water', 'en:salt'],
+	'allergen-label note does not add an ingredient'
+);
+
 # Real taxonomy: a coordination without labels whose second part is not a known ingredient
 # (a processing, a variety) keeps its percentage on the known first part
 sub flatten_ingredients ($ingredients_ref) {
