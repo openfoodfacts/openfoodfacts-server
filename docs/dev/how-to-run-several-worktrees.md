@@ -144,7 +144,7 @@ Taking `w11790` in **slot 1** as the example, in addition to everything
 | --- | --- | --- |
 | compose project | `po_off` | `po_off_w11790` |
 | default network | `product-opener` | `product-opener_w11790` |
-| `minion_db` network | `minion_db` | `w11790_minion_db` |
+| `minion_db` network | `off_minion_db` | `w11790_off_minion_db` |
 | `users` volume | `po_users` | `w11790_po_users` |
 | `orgs` volume | `po_orgs` | `w11790_po_orgs` |
 | `export_files` volume | `po_export_files` | `w11790_po_export_files` |
