@@ -1587,7 +1587,11 @@ sub create_nutrient_levels_panels ($product_ref, $target_lc, $target_cc, $option
 	my $nutrient_levels_ref = data_to_display_nutrient_levels($product_ref);
 
 	# Nutrient levels panels
-	if (not $nutrient_levels_ref->{do_not_display}) {
+	# Do not create an empty nutrient levels panel if we don't have any nutrient level
+	# (e.g. when nutrition facts are unknown)
+	if (    (defined $nutrient_levels_ref)
+		and (scalar @{$nutrient_levels_ref->{nutrient_levels}} > 0))
+	{
 		foreach my $nutrient_level_ref (@{$nutrient_levels_ref->{nutrient_levels}}) {
 			my $nid = $nutrient_level_ref->{nid};
 			create_panel_from_json_template(
