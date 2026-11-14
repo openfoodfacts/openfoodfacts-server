@@ -9002,8 +9002,10 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 				"f_attribute_nutriscore_not_applicable_description",
 				{
 					category => display_taxonomy_tag_name(
-						$lc, "categories",
-						deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/)
+						$lc,
+						"categories",
+						deep_get($product_ref, "nutriscore", $version, "not_applicable_category")
+							// deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/)
 					)
 				}
 			);
