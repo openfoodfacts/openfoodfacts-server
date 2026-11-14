@@ -11,6 +11,7 @@ use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/%default_product %default_product_form/;
 use ProductOpener::Products qw/process_product_edit_rules/;
+use Storable qw(dclone);
 
 my %base_product = (%default_product,);
 
@@ -219,6 +220,147 @@ my @tests = (
 	# FIXME: add tests on warning and slack notifications
 );
 
+# v3 tests mirror a subset of the v2/CGI cases above, but pass the pending
+# values through $request_ref->{body_json}{product} (flat fields, or nested
+# nutrition.input_sets for nutriments) instead of CGI parameters.
+# Each case expects the same result as its v2 counterpart, proving the same
+# rule text governs v2 and v3 alike.
+# Fields:
+# - body_product: hash placed under body_json->{product} for the request
+# - expected_body_product (optional): expected body_json->{product} after rules
+#   (defaults to input when no ignore is expected)
+my @v3_tests = (
+	{
+		id => "v3_ignore_if_existing_ingredients_text_fr",
+		desc => "v3: remove edit on french ingredients text if one already exists",
+		edit_rules =>
+			[{name => "Disallow ingredients if exists", actions => [["ignore_if_existing_ingredients_text_fr"]]},],
+		product => {ingredients_text_fr => "YES"},
+		body_product => {ingredients_text_fr => "NOPE"},
+		expected_body_product => {},
+		delete_param => ["ingredients_text_fr", "ingredients_text"],
+		result => 1,
+	},
+	{
+		id => "v3_ignore_if_existing_ingredients_text_fr_empty",
+		desc => "v3: no existing ingredients text, edit is kept",
+		edit_rules => [{name => "Disallow ingredients", actions => [["ignore_if_existing_ingredients_text_fr"]]},],
+		product => {},
+		body_product => {ingredients_text_fr => "NOPE"},
+		expected_body_product => {ingredients_text_fr => "NOPE"},
+		result => 1,
+	},
+	{
+		id => "v3_ignore_if_0_nutriment_fruits_vegetables_nuts",
+		desc => "v3: remove nested nutriment edit when value is 0",
+		edit_rules =>
+			[{name => "Disallow ingredients", actions => [["ignore_if_0_nutriment_fruits-vegetables-nuts"]]},],
+		product => {},
+		body_product => {
+			nutrition => {
+				input_sets => [
+					{
+						source => "packaging",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {"fruits-vegetables-nuts" => {value_string => "0", unit => "%"}}
+					}
+				]
+			}
+		},
+		expected_body_product => {
+			nutrition => {
+				input_sets => [
+					{
+						source => "packaging",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {}
+					}
+				]
+			}
+		},
+		delete_param => ["nutriment_fruits-vegetables-nuts", "nutriment_fruits-vegetables-nuts_100g"],
+		result => 1,
+	},
+	{
+		id => "v3_ignore_if_greater_nutriment_fruits_vegetables_nuts",
+		desc => "v3: remove nested nutriment edit when value is greater than 0",
+		edit_rules => [
+			{
+				name => "Disallow ingredients",
+				actions => [["ignore_if_greater_nutriment_fruits-vegetables-nuts", 0]]
+			},
+		],
+		product => {},
+		body_product => {
+			nutrition => {
+				input_sets => [
+					{
+						source => "packaging",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {"fruits-vegetables-nuts" => {value_string => "50", unit => "%"}}
+					}
+				]
+			}
+		},
+		expected_body_product => {
+			nutrition => {
+				input_sets => [
+					{
+						source => "packaging",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {}
+					}
+				]
+			}
+		},
+		delete_param => ["nutriment_fruits-vegetables-nuts", "nutriment_fruits-vegetables-nuts_100g"],
+		result => 1,
+	},
+	{
+		id => "v3_nutriment_not_passed_skips_rule",
+		desc => "v3: rule is skipped when the nutriment is not in the request",
+		edit_rules =>
+			[{name => "Disallow ingredients", actions => [["ignore_if_0_nutriment_fruits-vegetables-nuts"]]},],
+		product => {},
+		body_product => {
+			nutrition => {
+				input_sets => [
+					{
+						source => "packaging",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {sugars => {value_string => "10", unit => "g"}}
+					}
+				]
+			}
+		},
+		result => 1,
+	},
+	{
+		id => "v3_block_if_regexp_match_brand",
+		desc => "v3: block edit if brands value matches regexp",
+		edit_rules =>
+			[{name => "Disallow ingredients", actions => [["block_if_regexp_match_brands", "(acme|hacky)"]]},],
+		product => {},
+		body_product => {brands => "Another, Acme inc."},
+		expected_body_product => {brands => "Another, Acme inc."},
+		result => 0,
+	},
+	{
+		id => "v3_unconditional_ignore_blocks",
+		desc => "v3: unconditional ignore blocks the edit",
+		edit_rules => [{name => "Block test", conditions => [["user_id", "test"]], actions => [["ignore"]]},],
+		product => {},
+		body_product => {ingredients_text_fr => "NOPE"},
+		expected_body_product => {ingredients_text_fr => "NOPE"},
+		result => 0,
+	},
+);
+
 my @edit_rules_backup = @edit_rules;
 
 # a global for fake CGI parameters
@@ -273,6 +415,38 @@ my @removed = ();
 			is($result, $test_ref->{result}, "Result for $id - $desc");
 			is(\@removed, $test_ref->{delete_param} // [], "Delete params for $id - $desc");
 		};
+		if ($@) {
+			fail("Test $test_ref->{id} died: $@");
+		}
+		# restore edit_rules
+		@edit_rules = @edit_rules_backup;
+	}
+
+	foreach my $test_ref (@v3_tests) {
+		# use eval to ensure edit_rules changes will be reverted
+		eval {
+			my $id = $test_ref->{id};
+			my $desc = $test_ref->{desc};
+			# overide edit rules
+			@edit_rules = @{$test_ref->{edit_rules}};
+			$User_id = $test_ref->{user_id} // "test";
+			my %product = (%base_product, %{$test_ref->{product} // {}});
+			# Isolate from CGI: v3 values come only from the JSON body
+			%form = ();
+			@removed = ();
+			my $request_ref = {body_json => {product => dclone($test_ref->{body_product} // {})}};
+			my $result = process_product_edit_rules(\%product, $request_ref);
+			is($result, $test_ref->{result}, "Result for $id - $desc");
+			is(\@removed, $test_ref->{delete_param} // [], "Delete params for $id - $desc");
+			my $expected_body
+				= exists $test_ref->{expected_body_product}
+				? $test_ref->{expected_body_product}
+				: $test_ref->{body_product};
+			is($request_ref->{body_json}{product}, $expected_body, "Body product for $id - $desc");
+		};
+		if ($@) {
+			fail("Test $test_ref->{id} died: $@");
+		}
 		# restore edit_rules
 		@edit_rules = @edit_rules_backup;
 	}
