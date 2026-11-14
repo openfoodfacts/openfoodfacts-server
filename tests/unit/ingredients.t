@@ -1648,6 +1648,81 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	# “osteløbe (mikrobiel)”
+	# content statements at the end of the list go to specific_ingredients, not to the ingredients list
+	[
+		'fr-cocoa-content-statement-minimum',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, pâte de cacao, beurre de cacao, émulsifiant : lécithine de soja, arôme naturel de vanille. Cacao : 46% minimum.",
+		}
+	],
+	[
+		'fr-cocoa-milk-content-statement',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, beurre de cacao, lait entier en poudre, pâte de cacao. Le chocolat au lait contient cacao 35% minimum, matière sèche de lait 20% minimum.",
+		}
+	],
+	[
+		'en-cocoa-solids-content-statement',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Sugar, cocoa butter, whole milk powder, cocoa mass, emulsifier (soya lecithin), flavouring. Milk chocolate contains cocoa solids 30% minimum, milk solids 20% minimum.",
+		}
+	],
+	[
+		'en-ingredient-in-the-filling-content-statement',
+		{
+			lc => "en",
+			ingredients_text => "Sugar, wheat flour, strawberries, glucose syrup, strawberries in the filling: 49.8%",
+		}
+	],
+	# the percent is relative to the filling: it is scaled with the percent of the filling
+	[
+		'en-ingredient-in-the-filling-with-filling-percent',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Biscuit 60% (wheat flour, sugar, butter), filling 40% (sugar, strawberries, glucose syrup), strawberries in the filling: 49.8%",
+		}
+	],
+	# nested filling: the percent of the filling in the product is 50% x 40% = 20%
+	[
+		'en-ingredient-in-the-nested-filling-with-percents',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Cake 50% (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+		}
+	],
+	# nested filling in a cake without a percent: the percent of the filling in the product is unknown
+	[
+		'en-ingredient-in-the-nested-filling-without-parent-percent',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Cake (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+		}
+	],
+	# no other cocoa in the list: "cacao 30% minimum" is the cocoa ingredient, not a content statement
+	[
+		'fr-cocoa-minimum-only-cocoa-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre, lait en poudre, cacao 30% minimum, sel",
+		}
+	],
+	# minimum percents of ingredients in the list are kept
+	[
+		'fr-minimum-percents-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Pomme 60 % minimum, poire 30 %, sucre, cacao 30%",
+		}
+	],
 	[
 		'da-osteloebe-mikrobiel',
 		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000
