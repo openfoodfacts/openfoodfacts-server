@@ -4741,33 +4741,69 @@ The taxonomy id for the allergen, or the original ingredient if no allergen was 
 
 sub canonicalize_allergens_taxonomy_tag($ingredients_lc, $ingredient_or_allergen) {
 
-	# Check if $ingredient_or_allergen is in the allergen taxonomy
-	my $allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $ingredient_or_allergen);
-	if (exists_taxonomy_tag("allergens", $allergenid)) {
-		return $allergenid;
+	# First try the complete input and common label clarifications such as
+	# "Milk (including lactose)" or "gluten-containing cereals: wheat".
+	my @candidate_phrases = ($ingredient_or_allergen);
+	my $base_phrase = $ingredient_or_allergen;
+	if ($base_phrase =~ s/\s*[:(].*$//) {
+		push @candidate_phrases, $base_phrase;
 	}
-	else {
-		# Check if $ingredient_or_allergen is in the ingredients taxonomy and has an inherited allergens:en: property
-		my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_or_allergen);
-		my $allergens = get_inherited_property("ingredients", $ingredient_id, "allergens:en");
-		if (defined $allergens) {
-			if ($allergens =~ /,/) {
-				# Currently we support only 1 allergen for a single ingredient
-				$log->warn(
-					"canonicalize_allergens_taxonomy_tag - multiple allergens for ingredient",
-					{ingredient_or_allergen => $ingredient_or_allergen, allergens => $allergens}
-				);
-				$allergens = $`;
+
+	foreach my $phrase (@candidate_phrases) {
+		my $allergenid = _allergen_id_for_taxonomy_phrase($ingredients_lc, $phrase, $ingredient_or_allergen);
+		return $allergenid if defined $allergenid;
+	}
+
+	# Some users enter a description around a known ingredient, e.g. Czech
+	# wheat flour wording. Match whole taxonomy words inside that description,
+	# but leave conjunctions to the caller so separate allergens can still split.
+	if ($ingredient_or_allergen
+		!~ /\b(?:and|und|et|a|y|e|ja|og|en|no|not|none|without|free|sans|aucun|aucune|kein|keine|ohne|bez|\x{17E}\x{E1}dn[\x{FD}\x{E1}\x{E9}])\b/i
+		)
+	{
+		my @words = $ingredient_or_allergen =~ /([\p{L}\p{N}-]+)/g;
+		for (my $phrase_length = scalar(@words) - 1; $phrase_length > 0; $phrase_length--) {
+			my %candidate_allergens;
+			for (my $start = 0; $start + $phrase_length <= scalar(@words); $start++) {
+				my $phrase = join(" ", @words[$start .. $start + $phrase_length - 1]);
+				my $allergenid = _allergen_id_for_taxonomy_phrase($ingredients_lc, $phrase, $ingredient_or_allergen);
+				$candidate_allergens{$allergenid} = 1 if defined $allergenid;
 			}
-			$allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergens);
-			if (exists_taxonomy_tag("allergens", $allergenid)) {
-				return $allergenid;
+			if (keys %candidate_allergens == 1) {
+				return (keys %candidate_allergens)[0];
+			}
+			elsif (keys %candidate_allergens > 1) {
+				last;
 			}
 		}
 	}
 
 	# If we did not recognize the allergen, return the allergen id
-	return $allergenid;
+	return canonicalize_taxonomy_tag($ingredients_lc, "allergens", $ingredient_or_allergen);
+}
+
+sub _allergen_id_for_taxonomy_phrase ($ingredients_lc, $phrase, $original_input) {
+	# Check if the phrase is in the allergen taxonomy.
+	my $allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $phrase);
+	return $allergenid if exists_taxonomy_tag("allergens", $allergenid);
+
+	# Otherwise, check whether it is an ingredient with an inherited allergen property.
+	my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $phrase);
+	my $allergens = get_inherited_property("ingredients", $ingredient_id, "allergens:en");
+	if (defined $allergens) {
+		if ($allergens =~ /,/) {
+			# Currently we support only 1 allergen for a single ingredient
+			$log->warn(
+				"canonicalize_allergens_taxonomy_tag - multiple allergens for ingredient",
+				{ingredient_or_allergen => $original_input, allergens => $allergens}
+			);
+			$allergens = $`;
+		}
+		$allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergens);
+		return $allergenid if exists_taxonomy_tag("allergens", $allergenid);
+	}
+
+	return;
 }
 
 sub add_user_translation ($tag_lc, $tagtype, $user, $from, $to) {
