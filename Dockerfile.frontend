@@ -1,4 +1,4 @@
-# syntax = docker/dockerfile:1.2
+# syntax = docker/dockerfile:1
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
@@ -21,8 +21,15 @@ RUN usermod --uid "$USER_UID" node && \
 COPY --chown=node:node package*.json .npmrc /opt/product-opener/
 COPY --chown=node:node .snyk /opt/product-opener/
 WORKDIR /opt/product-opener
+RUN npm_version="$(node -p 'require("./package.json").packageManager || ""')" && \
+    case "$npm_version" in \
+        npm@[0-9]*.[0-9]*.[0-9]*) ;; \
+        *) echo "package.json must declare packageManager as an npm version" >&2; exit 1 ;; \
+    esac && \
+    npm install --global --ignore-scripts "$npm_version"
 USER node
-RUN --mount=type=cache,id=npm-cacache,target=/root/.npm/_cacache npm ci
+RUN --mount=type=cache,id=npm-cacache,target=/home/node/.npm/_cacache,uid=$USER_UID,gid=$USER_GID \
+    npm ci --ignore-scripts && npm run snyk-protect
 ENV PATH="/opt/product-opener/node_modules/.bin:${PATH}"
 
 COPY --chown=node:node html /opt/product-opener/html
