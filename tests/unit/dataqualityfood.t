@@ -1869,6 +1869,40 @@ check_quality_and_test_product_has_quality_tag(
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
 
+# category Chia with expected ingredient en:chia. Accepts en:chia (e.g. Salvia hispanica) (#15362)
+$product_ref = {
+	categories_tags => [
+		"en:plant-based-foods-and-beverages", "en:plant-based-foods",
+		"en:cereals-and-potatoes", "en:seeds",
+		"en:cereals-and-their-products", "en:cereal-grains",
+		"en:chia"
+	],
+	ingredients => [{id => 'en:chia'}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
+	'Chia category accepts en:chia (Salvia hispanica)', 0
+);
+
+# category Chia with expected ingredient en:chia. Accepts child ingredient en:chia-seed (#15362)
+$product_ref = {
+	categories_tags => [
+		"en:plant-based-foods-and-beverages", "en:plant-based-foods",
+		"en:cereals-and-potatoes", "en:seeds",
+		"en:cereals-and-their-products", "en:cereal-grains",
+		"en:chia"
+	],
+	ingredients => [{id => 'en:chia-seed'}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
+	'Chia category accepts en:chia-seed', 0
+);
+
 # category minimum number of ingredients. Raise error
 $product_ref = {
 	categories_tags => [
