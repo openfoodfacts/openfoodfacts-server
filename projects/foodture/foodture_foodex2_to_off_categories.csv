@@ -1,0 +1,542 @@
+foodture_code,foodture_name,actia_l7_names,needs_recipe,l1,l2,foodex2_code,foodex2_name,foodex2_level,off_category,off_name,off_status,status
+A03MH,Ale beer,Ale beer,Yes,Alcoholic beverages,Beer and beer-like beverage,A03MH,Ale beer,4,en:ales,Ales,existing,OK
+A03MK,Dark ale beer,Dark ale beer,Yes,Alcoholic beverages,Beer and beer-like beverage,A03MK,Dark ale beer,5,en:dark-ales,Dark ales,existing,OK
+A03MJ,Pale ale beer,Pale ale beer,Yes,Alcoholic beverages,Beer and beer-like beverage,A03MJ,Pale ale beer,5,en:pale-ales,Pale ales,existing,OK
+A03MB,Beer,Beer,Yes,Alcoholic beverages,Beer and beer-like beverage,A03MB,Beer,3,en:beers,Beers,existing,OK
+A03MG,"Beer, alcohol-free","Beer, alcohol-free",Yes,Alcoholic beverages,Beer and beer-like beverage,A03MG,"Beer, alcohol-free",5,en:non-alcoholic-beers,Non-alcoholic beers,existing,OK
+A03MF,"Beer, light","Beer, light",Yes,Alcoholic beverages,Beer and beer-like beverage,A03MF,"Beer, light",5,en:light-beers,Light beers,existing,FEW PRODUCTS
+A03ME,"Beer, regular","Beer, regular",Yes,Alcoholic beverages,Beer and beer-like beverage,A03ME,"Beer, regular",5,en:5-beer,5% beer,existing,OK
+A03MD,"Beer, strong","Beer, strong",Yes,Alcoholic beverages,Beer and beer-like beverage,A03MD,"Beer, strong",5,en:strong-beers,Strong beers,existing,OK
+A03MC,Lager beer,Lager beer,Yes,Alcoholic beverages,Beer and beer-like beverage,A03MC,Lager beer,4,en:lagers,Lagers,existing,OK
+A03ML,Stout beer,Stout beer,Yes,Alcoholic beverages,Beer and beer-like beverage,A03ML,Stout beer,4,en:stouts,Stouts,existing,OK
+A03MM,Wheat beer,Wheat beer,Yes,Alcoholic beverages,Beer and beer-like beverage,A03MM,Wheat beer,4,en:wheat-beers,Wheat beers,existing,OK
+A03MN,Beer-like beverages,Beer-like beverages,Yes,Alcoholic beverages,Beer and beer-like beverage,A03MN,Beer-like beverages,3,en:beer-like-beverages,,new,NEW CATEGORY
+A03MR,Mixed beer drinks,Mixed beer drinks,Yes,Alcoholic beverages,Beer and beer-like beverage,A03MR,Mixed beer drinks,4,en:mixed-beer-drinks,Mixed beer drinks,existing,OK
+A03MQ,Shandy,Beer aromatised with lemon | Shandy,Yes,Alcoholic beverages,Beer and beer-like beverage,A03MQ,Shandy,4,en:shandy,Shandy,existing,OK
+A03PN,Cocktail drink,Cocktail drink,Yes,Alcoholic beverages,Mixed alcoholic drinks,A03PN,Cocktail drink,3,en:alcoholic-cocktails,Alcoholic cocktails,existing,FEW PRODUCTS
+A03PM,Mixed alcoholic drinks,Mixed alcoholic drinks,Yes,Alcoholic beverages,Mixed alcoholic drinks,A03PM,Mixed alcoholic drinks,2,en:premixed-alcoholic-beverages,Premixed alcoholic beverages,existing,OK
+A03NS,Liqueurs,Liqueurs,Yes,Alcoholic beverages,Unsweetened spirits and liqueurs,A03NS,Liqueurs,3,en:liqueurs,Liqueurs,existing,OK
+A04QF,Unsweetened spirits and liqueurs,Unsweetened spirits and liqueurs,Yes,Alcoholic beverages,Unsweetened spirits and liqueurs,A04QF,Unsweetened spirits and liqueurs,2,en:distilled-beverages,Distilled beverages,existing,OK
+A03NG,Fortified and liqueur wines,Fortified and liqueur wines,Yes,Alcoholic beverages,Wine and wine-like drinks,A03NG,Fortified and liqueur wines,4,en:fortified-wines,Fortified wines,existing,OK
+A04SD,Blended fat and oils,Blended fat and oils,Maybe,Animal and vegetable fats and oils and primary derivatives thereof,Fat emulsions and blended fats,A04SD,Blended fat and oils,3,en:blended-spreads,Blended spreads,existing,OK
+A039J,Blended frying oil/fats,Blended frying oil/fats,Maybe,Animal and vegetable fats and oils and primary derivatives thereof,Fat emulsions and blended fats,A039J,Blended frying oil/fats,4,en:frying-oil,Frying oil,existing,OK
+A039F,Butter and margarine/oil blends,Butter and margarine/oil blends,Yes,Animal and vegetable fats and oils and primary derivatives thereof,Fat emulsions and blended fats,A039F,Butter and margarine/oil blends,4,en:butter-and-vegetable-oil-blends,Butter and vegetable oil blends,existing,NO PRODUCTS
+A039G,Shortening and similar baking fats,Shortening and similar baking fats,Yes,Animal and vegetable fats and oils and primary derivatives thereof,Fat emulsions and blended fats,A039G,Shortening and similar baking fats,4,en:shortenings,Shortenings,existing,NO PRODUCTS
+A039C,Butter,Butter,Yes,Animal and vegetable fats and oils and primary derivatives thereof,Fat emulsions and blended fats,A039C,Butter,3,en:butters,Butters,existing,OK
+A039B,Fat emulsions and blended fats,Fat emulsions and blended fats,Yes,Animal and vegetable fats and oils and primary derivatives thereof,Fat emulsions and blended fats,A039B,Fat emulsions and blended fats,2,en:spreadable-fats,Spreadable fats,existing,OK
+A039E,Blended margarine,Blended margarine,Yes,Animal and vegetable fats and oils and primary derivatives thereof,Fat emulsions and blended fats,A039E,Blended margarine,4,en:blended-margarines,,new,NEW CATEGORY
+A039H,Functional vegetable margarines/fats,Functional vegetable margarines/fats,Yes,Animal and vegetable fats and oils and primary derivatives thereof,Fat emulsions and blended fats,A039H,Functional vegetable margarines/fats,4,en:margarines-with-plant-sterols-esters,Margarines with plant sterols esters,existing,OK
+A039H-margarine-omega-3-full-fat,"Margarine omega 3, full fat","Margarine omega 3, full fat",Yes,Animal and vegetable fats and oils and primary derivatives thereof,Fat emulsions and blended fats,A039H,Functional vegetable margarines/fats,4,en:margarines-high-in-omega-3,Margarines high in omega 3,existing,OK
+A039D,Traditional margarine,"Margarine, full fat | Margarines, full fat | Traditional margarine",Yes,Animal and vegetable fats and oils and primary derivatives thereof,Fat emulsions and blended fats,A039D,Traditional margarine,4,en:margarines,Margarines,existing,OK
+A03KY,Cocoa beverages,Cocoa beverages,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03KY,Cocoa beverages,3,en:chocolate-milks,Chocolate milks,existing,OK
+A03KZ,Hot chocolate,Hot chocolate,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03KZ,Hot chocolate,4,en:hot-chocolate-drinks,,new,NEW CATEGORY
+A03LH,Camomile infusion,Camomile infusion,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03LH,Camomile infusion,4,en:brewed-camomile-teas,,new,NEW CATEGORY
+A16GR,Fennel infusion,Fennel infusion,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A16GR,Fennel infusion,4,en:brewed-fennel-teas,,new,NEW CATEGORY
+A03LK,Fruit infusion,Fruit infusion,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03LK,Fruit infusion,4,en:brewed-fruit-teas,,new,NEW CATEGORY
+A03LG,Herbal and other non-tea infusions,Herbal and other non-tea infusions,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03LG,Herbal and other non-tea infusions,3,en:herbal-tea-beverages,Herbal tea beverages,existing,OK
+A03LS,Lemon verbena infusion,Lemon verbena infusion,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03LS,Lemon verbena infusion,4,en:brewed-lemon-verbena-teas,,new,NEW CATEGORY
+A03LP,Lime blossoms infusion,Lime blossoms infusion,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03LP,Lime blossoms infusion,4,en:brewed-lime-blossom-teas,,new,NEW CATEGORY
+A16GQ,Peppermint infusion,Peppermint infusion,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A16GQ,Peppermint infusion,4,en:brewed-peppermint-teas,,new,NEW CATEGORY
+A03LT,Rooibos infusion,Rooibos infusion,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03LT,Rooibos infusion,4,en:brewed-rooibos,,new,NEW CATEGORY
+A03LC,Fermented tea infusion,Fermented tea infusion,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03LC,Fermented tea infusion,4,en:brewed-black-teas,,new,NEW CATEGORY
+A03LD,"Non-fermented tea, infusion","Non-fermented tea, infusion",Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03LD,"Non-fermented tea, infusion",4,en:brewed-green-or-white-teas,,new,NEW CATEGORY
+A03LB,Tea beverages,Tea beverages,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03LB,Tea beverages,3,en:tea-based-beverages,Tea-based beverages,existing,OK
+A03LF,Tea infusion with added flavouring ingredients,Tea infusion with added flavouring ingredients,Yes,"Coffee, cocoa, tea and infusions","Hot drinks and similar (coffee, cocoa, tea and herbal infusions)",A03LF,Tea infusion with added flavouring ingredients,4,en:brewed-flavoured-teas,,new,NEW CATEGORY
+A03LE,"Tea, decaffeinated, infusion","Tea, decaffeinated, infusion",Yes,"Coffee, cocoa, tea and infusions","Ingredients for coffee, cocoa, tea, and herbal infusions",A03LE,"Tea, decaffeinated, infusion",4,en:brewed-decaffeinated-teas,,new,NEW CATEGORY
+A03HG,Cocoa powder,Cocoa powder,Yes,"Coffee, cocoa, tea and infusions","Ingredients for coffee, cocoa, tea, and herbal infusions",A03HG,Cocoa powder,5,en:cocoa-powders,Cocoa powders,existing,OK
+A03JA,Herbal infusion materials (generic),Herbal infusion materials (generic),Yes,"Coffee, cocoa, tea and infusions","Ingredients for coffee, cocoa, tea, and herbal infusions",A03JA,Herbal infusion materials (generic),3,en:herbal-teas,Herbal teas,existing,OK
+A03JK,Herbal infusion materials from leaves and herbs,Herbal infusion materials from leaves and herbs,Yes,"Coffee, cocoa, tea and infusions","Ingredients for coffee, cocoa, tea, and herbal infusions",A03JK,Herbal infusion materials from leaves and herbs,3,en:herbal-teas-from-leaves,,new,NEW CATEGORY
+A03HH,"Cocoa beverage-preparation, powder","Cocoa beverage-preparation, powder",Yes,"Coffee, cocoa, tea and infusions","Ingredients for coffee, cocoa, tea, and herbal infusions",A03HH,"Cocoa beverage-preparation, powder",4,en:instant-chocolate-powders,Instant chocolate powders,existing,OK
+A03HS,Tea leaves and stalks with fruit and flavours,Tea leaves and stalks with fruit and flavours,Yes,"Coffee, cocoa, tea and infusions","Ingredients for coffee, cocoa, tea, and herbal infusions",A03HS,Tea leaves and stalks with fruit and flavours,6,en:flavoured-teas,Flavoured teas,existing,OK
+A03HR,"Tea leaves and stalks, fermented","Tea leaves and stalks, fermented",Yes,"Coffee, cocoa, tea and infusions","Ingredients for coffee, cocoa, tea, and herbal infusions",A03HR,"Tea leaves and stalks, fermented",5,en:black-teas,Black teas,existing,OK
+A03VA,Composite dishes,Composite dishes,Yes,Composite dishes,,A03VA,Composite dishes,1,en:meals,Meals,existing,OK
+A16FF,Bread- (or similar products) based dishes,Bread- (or similar products) based dishes,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A16FF,Bread- (or similar products) based dishes,4,en:bread-based-dishes,,new,NEW CATEGORY
+A03YJ,Egg based dishes,Egg based dishes,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03YJ,Egg based dishes,4,en:egg-preparations,Egg preparations,existing,OK
+A03XJ,Fish and seafood based dishes,Fish and seafood based dishes,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03XJ,Fish and seafood based dishes,4,en:meals-with-fish,Meals with fish,existing,OK
+A03XV,Fish pâté,Fish pâté,Yes,Fish and seafood,Fish and seafood processed,A03XV,Fish pâté,5,en:fish-spreads,Fish spreads,existing,OK
+A03VM,Legumes based dishes,Beans meal | Legumes based dishes,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03VM,Legumes based dishes,4,en:legume-dishes,Legume dishes,existing,OK
+A03VX,Goulash,Goulash,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03VX,Goulash,5,en:goulash,Goulash,existing,FEW PRODUCTS
+A03XG,Meat balls,Meat balls,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03XG,Meat balls,5,en:meat-balls,Meat balls,existing,OK
+A03VV,Meat based dishes,Meat based dishes,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03VV,Meat based dishes,4,en:meals-with-meat,Meals with meat,existing,OK
+A03XF,Meat burger (no sandwich),Meat burger (no sandwich),Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03XF,Meat burger (no sandwich),5,en:meat-patties,Meat patties,existing,OK
+A03XA,Meat loaf,Meat loaf,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03XA,Meat loaf,5,en:meatloafs,Meatloafs,existing,OK
+A03VY,Meat stew,Meat stew,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03VY,Meat stew,5,en:stews,Stews,existing,OK
+A03XE,Moussaka,Moussaka,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03XE,Moussaka,5,en:moussaka,Moussaka,existing,OK
+A0BYV,French fries from cut potato,French fries from cut potato,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A0BYV,French fries from cut potato,6,en:potato-fries,Potato fries,existing,OK
+A011N,Fries (finger chips),Fries (finger chips),Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A011N,Fries (finger chips),5,en:fries,,new,NEW CATEGORY
+A011Q,Pan-fried potato,Pan-fried potato,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A011Q,Pan-fried potato,5,en:sauteed-potatoes,Sautéed Potatoes,existing,OK
+A03VD,Potato based dishes,Potato based dishes | Potatoes meal,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03VD,Potato based dishes,4,en:potato-dishes,Potato dishes,existing,OK
+A03VF,Potato casserole,Potato casserole,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03VF,Potato casserole,5,en:potato-gratin,Potato gratin,existing,OK
+A0C6H,Potato puree,"Potato puree | Potatoes, puree",Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A0C6H,Potato puree,5,en:mashed-potatoes,Mashed potatoes,existing,OK
+A0C6K,Potato puree from potatoes,Potato puree from potatoes,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A0C6K,Potato puree from potatoes,6,en:fresh-mashed-potatoes,,new,NEW CATEGORY
+A03VL,Potatoes and cheese meal,Potatoes and cheese meal,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03VL,Potatoes and cheese meal,5,en:potato-and-cheese-dishes,Potato and cheese dishes,existing,OK
+A03VG,Prepared potato salad,Prepared potato salad,Yes,Composite dishes,Soups and salads,A03VG,Prepared potato salad,5,en:potato-salads,Potato salads,existing,OK
+A011M,Roesti,Roesti,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A011M,Roesti,5,en:rostis,Rostis,existing,OK
+A16GB,Mixed vegetables,Mixed vegetables,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A16GB,Mixed vegetables,5,en:mixed-vegetables,Mixed vegetables,existing,OK
+A03YE,"Mixed vegetables, boiled","Mixed vegetables, boiled",Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03YE,"Mixed vegetables, boiled",6,en:vegetables-macedoines,vegetables macedoines,existing,OK
+A03YD,"Mixed vegetables, braised","Mixed vegetables, braised",Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03YD,"Mixed vegetables, braised",6,en:braised-mixed-vegetables,,new,NEW CATEGORY
+A03YH,Ratatouille,Ratatouille,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03YH,Ratatouille,5,en:ratatouille,Ratatouille,existing,OK
+A03XX,Vegetable based dishes,Vegetable based dishes,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03XX,Vegetable based dishes,4,en:prepared-vegetables,Prepared vegetables,existing,OK
+A03XZ,Vegetable casserole,Vegetables casserole,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03XZ,Vegetable casserole,5,en:vegetable-casseroles,,new,NEW CATEGORY
+A03YF,"Vegetables, gratinated","Vegetables, gratinated",Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03YF,"Vegetables, gratinated",5,en:vegetable-gratins,Vegetable gratins,existing,OK
+A040N,"Pasta based dishes, cooked","Pasta based dishes, cooked",Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A040N,"Pasta based dishes, cooked",4,en:pasta-dishes,Pasta dishes,existing,OK
+A040P,Lasagna,Lasagna,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A040P,Lasagna,6,en:prepared-lasagne,Prepared lasagne,existing,OK
+A040Q,"Pasta, cooked, with mixed sauce","Pasta, cooked, with mixed sauce",Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A040Q,"Pasta, cooked, with mixed sauce",6,en:pasta-with-multi-ingredient-sauce,,new,NEW CATEGORY
+A0CDQ,"Pasta, plain (not stuffed), cooked","Pasta, cooked | Pasta, plain (not stuffed), cooked",Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A0CDQ,"Pasta, plain (not stuffed), cooked",5,en:pasta-in-sauce,,new,NEW CATEGORY
+A040M,Pastas and rice (or other cereal) –based dishes,Pastas and rice (or other cereal) based dishes,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A040M,Pastas and rice (or other cereal) –based dishes,3,en:cereal-based-dishes,,new,NEW CATEGORY
+A041A,Dolma,Dolma,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A041A,Dolma,5,en:dolmas,Dolmas,existing,FEW PRODUCTS
+A041G,Rice and vegetables meal,Rice and vegetables meal,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A041G,Rice and vegetables meal,5,en:rice-dishes-with-vegetables,Rice dishes with vegetables,existing,NO PRODUCTS
+A040Z,"Rice based dishes, cooked","Rice based dishes, cooked | Rice meal",Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A040Z,"Rice based dishes, cooked",4,en:rice-dishes,Rice dishes,existing,OK
+A041J,"Rice, meat, and vegetables meal","Rice, meat, and vegetables meal",Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A041J,"Rice, meat, and vegetables meal",5,en:rice-dishes-with-meat-and-vegetables,Rice dishes with meat and vegetables,existing,NO PRODUCTS
+A041F,Risotto,Risotto,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A041F,Risotto,5,en:risottos,Risottos,existing,OK
+A040C,Finger food,Finger food,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A040C,Finger food,4,en:appetizers,Appetizers,existing,OK
+A040D,Sausage roll,Sausage roll,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A040D,Sausage roll,5,en:sausage-rolls,Sausage rolls,existing,OK
+A03ZN,Pizza and pizza-like dishes,Pizza and pizza-like dishes | Pizzas,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03ZN,Pizza and pizza-like dishes,4,en:pizzas,Pizzas,existing,OK
+A03ZP,Pizza and similar with cheese topping,Pizza and similar with cheese topping,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03ZP,Pizza and similar with cheese topping,5,en:cheese-pizzas,Cheese pizzas,existing,OK
+A040B,"Pizza and similar with cheese, meat, mushrooms, and vegetables","Pizza and similar with cheese, meat, mushrooms, and vegetables",Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A040B,"Pizza and similar with cheese, meat, mushrooms, and vegetables",5,en:regina-pizza,Regina pizza,existing,OK
+A03ZQ,Pizza and similar with processed meat topping,Pizza and similar with processed meat topping,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03ZQ,Pizza and similar with processed meat topping,5,en:pizzas-with-meat,Pizzas with meat,existing,OK
+A03ZL,Hamburger with bread,Hamburger with bread,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03ZL,Hamburger with bread,5,en:hamburgers,Hamburgers,existing,OK
+A03YZ,Sandwich and sandwich-like dishes,Sandwich | Sandwich and sandwich-like dishes | Sandwish and sandwish-like dishes,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03YZ,Sandwich and sandwich-like dishes,4,en:sandwiches,Sandwiches,existing,OK
+A03ZG,Sandwich with meat and vegetable topping/filling,Sandwich with meat and vegetable topping/filling,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03ZG,Sandwich with meat and vegetable topping/filling,5,en:sandwiches-with-meat-and-vegetables,Sandwiches with meat and vegetables,existing,NO PRODUCTS
+A03ZB,Sandwich with processed meat topping/filling,Sandwich with processed meat topping/filling,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03ZB,Sandwich with processed meat topping/filling,5,en:sandwiches-filled-with-cold-cuts,Sandwiches filled with cold cuts,existing,OK
+A00CA,Cheese savoury pie,Cheese savoury pie,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A00CA,Cheese savoury pie,5,en:cheese-pies,Cheese pies,existing,OK
+A03YM,Quiche,Quiche,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A03YM,Quiche,5,en:quiches,Quiches,existing,OK
+A0CEN,Savoury pies and tarts,Savoury pies and tarts,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A0CEN,Savoury pies and tarts,4,en:salted-pies,Salted pies,existing,OK
+A0EQX,Chips/crisps,Chips/crisps,Yes,Composite dishes,"Fried or extruded cereal, seed or root-based products",A0EQX,Chips/crisps,4,en:crisps,Crisps,existing,OK
+A0BYT,Potato crisps from dough,Potato crisps from dough,Yes,Composite dishes,"Fried or extruded cereal, seed or root-based products",A0BYT,Potato crisps from dough,6,en:crisps-made-from-reconstituted-potato,Crisps made from reconstituted potato,existing,OK
+A0BYS,Potato crisps from potato slices,Potato crisps from potato slices,Yes,Composite dishes,"Fried or extruded cereal, seed or root-based products",A0BYS,Potato crisps from potato slices,6,en:potato-crisps,Potato crisps,existing,OK
+A011L,Potato crisps or sticks,Potato crisps or sticks,Yes,Composite dishes,"Fried or extruded cereal, seed or root-based products",A011L,Potato crisps or sticks,5,en:salty-snacks-made-from-potato,Salty snacks made from potato,existing,OK
+A00FH,Mixed cereal-based snacks,Mixed cereal-based snacks,Yes,Composite dishes,"Fried or extruded cereal, seed or root-based products",A00FH,Mixed cereal-based snacks,4,en:salty-snacks,Salty snacks,existing,OK
+A01QG,Fruit salad,Fruit salad,Yes,Composite dishes,Soups and salads,A01QG,Fruit salad,4,en:fruit-salads,Fruit salads,existing,OK
+A042F,Greek salad,Greek salad,Yes,Composite dishes,Soups and salads,A042F,Greek salad,4,en:greek-salads,Greek salads,existing,FEW PRODUCTS
+A042C,Mixed green salad,Mixed green salad,Yes,Composite dishes,Soups and salads,A042C,Mixed green salad,4,en:leaf-salads,Leaf salads,existing,OK
+A042D,Mixed vegetable salad,Mixed vegetable salad | Mixed vegetables salad,Yes,Composite dishes,Soups and salads,A042D,Mixed vegetable salad,4,en:vegetable-salads,Vegetable salads,existing,OK
+A042M,Prepared mixed egg/meat/fish/vegetable salad,Prepared mixed egg/meat/fish/vegetable salad,Yes,Composite dishes,Soups and salads,A042M,Prepared mixed egg/meat/fish/vegetable salad,4,en:salads-with-egg-or-meat-or-fish,Salads with egg or meat or fish,existing,OK
+A042B,Salads,Prepared salad | Salads,Yes,Composite dishes,Soups and salads,A042B,Salads,3,en:prepared-salads,Prepared salads,existing,OK
+A041Y,Cereal products and grains based soup,Cereal products and grains based soup,Yes,Composite dishes,Soups and salads,A041Y,Cereal products and grains based soup,4,en:cereal-soups,Cereal soups,existing,FEW PRODUCTS
+A00EP,Corn semolina based thick soup,Corn semolina based thick soup,Yes,Composite dishes,Soups and salads,A00EP,Corn semolina based thick soup,4,en:cooked-polentas,,new,NEW CATEGORY
+A041Z,Dairy/egg soup,Dairy/egg soup,Yes,Composite dishes,Soups and salads,A041Z,Dairy/egg soup,4,en:dairy-and-egg-soups,,new,NEW CATEGORY
+A042A,Fruit soup,Fruit soup,Yes,Composite dishes,Soups and salads,A042A,Fruit soup,4,en:fruit-soups,,new,NEW CATEGORY
+A041Q,Legume (beans) soup,Legume (beans) soup,Yes,Composite dishes,Soups and salads,A041Q,Legume (beans) soup,4,en:legume-soups,,new,NEW CATEGORY
+A041T,Meat soup,Meat soup,Yes,Composite dishes,Soups and salads,A041T,Meat soup,4,en:meat-soups,Meat soups,existing,OK
+A0BZB,"Meat soup, clear","Meat soup, clear",Yes,Composite dishes,Soups and salads,A0BZB,"Meat soup, clear",5,en:meat-broths,,new,NEW CATEGORY
+A0BZA,"Meat soup, with pieces","Meat soup, with pieces",Yes,Composite dishes,Soups and salads,A0BZA,"Meat soup, with pieces",5,en:meat-soups-with-pieces,,new,NEW CATEGORY
+A041V,Meat and vegetable soup,Meat and vegetable soup,Yes,Composite dishes,Soups and salads,A041V,Meat and vegetable soup,5,en:meat-and-vegetable-soups,Meat and vegetable soups,existing,FEW PRODUCTS
+A0BZC,"Meat and vegetable soup, with puree or pieces","Meat and vegetable soup, with puree or pieces",Yes,Composite dishes,Soups and salads,A0BZC,"Meat and vegetable soup, with puree or pieces",6,en:meat-and-vegetable-soups-with-pieces,,new,NEW CATEGORY
+A041S,Mixed vegetables soup,Mixed vegetables soup,Yes,Composite dishes,Soups and salads,A041S,Mixed vegetables soup,5,en:vegetable-soups,Vegetable soups,existing,OK
+A0BZ8,"Mixed vegetables soup, clear","Mixed vegetables soup, clear",Yes,Composite dishes,Soups and salads,A0BZ8,"Mixed vegetables soup, clear",6,en:vegetable-broths,Vegetable broths,existing,OK
+A0BZ9,"Mixed vegetables soup, with puree or pieces","Mixed vegetables soup, with puree or pieces",Yes,Composite dishes,Soups and salads,A0BZ9,"Mixed vegetables soup, with puree or pieces",6,en:cream-of-vegetable-soups,Cream of vegetable soups,existing,OK
+A041L,Soups (ready-to-eat),Soups (ready-to-eat),Yes,Composite dishes,Soups and salads,A041L,Soups (ready-to-eat),3,en:soups,Soups,existing,OK
+A041N,Tomato soup,Tomato soup,Yes,Composite dishes,Soups and salads,A041N,Tomato soup,4,en:tomato-soups,Tomato soups,existing,OK
+A0FCA,Canned anchovies,Canned anchovies,Yes,Fish and seafood,Fish and seafood processed,A0FCA,Canned anchovies,5,en:anchovy-fillets-in-oil,Anchovy fillets in oil,existing,OK
+A0FBT,Canned tunas and similar,Canned tunas and similar,Yes,Fish and seafood,Fish and seafood processed,A0FBT,Canned tunas and similar,5,en:canned-tunas,Canned tunas,existing,OK
+A0EYR,Canned/jarred fish,Canned/jarred fish,Yes,Fish and seafood,Fish and seafood processed,A0EYR,Canned/jarred fish,4,en:canned-fishes,Canned fishes,existing,OK
+A0F0P,Marinated / pickled fish,Marinated / pickled fish | Marinated /pickled fish,Yes,Fish and seafood,Fish and seafood processed,A0F0P,Marinated / pickled fish,4,en:marinated-fish,marinated fish,existing,OK
+A0F0P-marinated-pickled-herring,Marinated / pickled herring,Marinated / pickled herring,Yes,Fish and seafood,Fish and seafood processed,A0F0P,Marinated / pickled fish,4,en:pickled-herring,Pickled herring,existing,OK
+A0EYT,Salt-preserved fish,Salt-preserved fish,Yes,,,A0EYT,Salt-preserved fish,4,en:salted-fishes,Salted fishes,existing,FEW PRODUCTS
+A0EYT-salt-preserved-herring,Salt-preserved herring,Salt-preserved herring,Yes,Fish and seafood,Fish and seafood processed,A0EYT,Salt-preserved fish,4,en:salted-herrings,Salted herrings,existing,NO PRODUCTS
+A0FCB,Salted cod,Salted cod,Yes,Fish and seafood,Fish and seafood processed,A0FCB,Salted cod,5,en:salted-dried-cod,Salted dried cod,existing,FEW PRODUCTS
+A0EYS,Smoked fish,Smoked fish,Yes,Fish and seafood,Fish and seafood processed,A0EYS,Smoked fish,4,en:smoked-fishes,Smoked fishes,existing,OK
+A02KG,Smoked herring,Smoked herring,Yes,Fish and seafood,Fish and seafood processed,A02KG,Smoked herring,5,en:smoked-herrings,Smoked herrings,existing,OK
+A16EM,Smoked mackerel,Smoked mackerel,Yes,Fish and seafood,Fish and seafood processed,A16EM,Smoked mackerel,5,en:smoked-mackerels,Smoked mackerels,existing,OK
+A0EYS-smoked-river-eels,Smoked river eels,Smoked river eels,Yes,Fish and seafood,Fish and seafood processed,A0EYS,Smoked fish,4,en:smoked-eel,Smoked eel,existing,NO PRODUCTS
+A02KF,Smoked salmon,Smoked salmon,Yes,Fish and seafood,Fish and seafood processed,A02KF,Smoked salmon,5,en:smoked-salmons,Smoked salmons,existing,OK
+A02KC,"Fish fingers, breaded","Fish fingers, breaded",Yes,Fish and seafood,Fish and seafood processed,A02KC,"Fish fingers, breaded",5,en:fish-fingers,Fish fingers,existing,OK
+A0BZ5,Canned seafood,Canned seafood,Yes,Fish and seafood,Fish and seafood processed,A0BZ5,Canned seafood,4,en:canned-seafood,Canned seafood,existing,OK
+A0FCY,Blue mussel,Blue mussel,Yes,Fish and seafood,Molluscs,A0FCY,Blue mussel,4,en:common-mussels,Common mussels,existing,FEW PRODUCTS
+A02HF,Mussels,Mussels,Yes,Fish and seafood,Molluscs,A02HF,Mussels,3,en:mussels,Mussels,existing,OK
+A02JE,"Octopus, common","Octopus, common",Yes,Fish and seafood,Molluscs,A02JE,"Octopus, common",5,en:common-octopus,Common octopus,existing,OK
+A02JJ,"Squid, common","Squid, common",Yes,Fish and seafood,Molluscs,A02JJ,"Squid, common",5,en:squid,Squid,existing,OK
+A02JH,Squids,Squids,Yes,Fish and seafood,Molluscs,A02JH,Squids,4,en:calamari,Calamari,existing,OK
+A01ME,Dried vine fruits (raisins etc.),Dried vine fruits (raisins etc.),Yes,Fruit and fruit products,Processed fruit products,A01ME,Dried vine fruits (raisins etc.),4,en:raisins,Raisins,existing,OK
+A01QF,Mixed dried fruits,Mixed dried fruits,Yes,Fruit and fruit products,Processed fruit products,A01QF,Mixed dried fruits,4,en:mixed-dried-fruits,Mixed dried fruits,existing,OK
+A01PD,Compote of fruit / vegetables,Compote of fruit / vegetables,Yes,Fruit and fruit products,Processed fruit products,A01PD,Compote of fruit / vegetables,4,en:compotes,Compotes,existing,OK
+A01PF,"Fruit compote, apple","Fruit compote, apple",Yes,Fruit and fruit products,Processed fruit products,A01PF,"Fruit compote, apple",5,en:apple-compotes,Apple compotes,existing,OK
+A01PR,"Fruit compote, mixed fruit","Fruit compote, mixed fruit",Yes,Fruit and fruit products,Processed fruit products,A01PR,"Fruit compote, mixed fruit",5,en:mixed-fruit-compotes,Mixed fruit compotes,existing,FEW PRODUCTS
+A01PG,"Fruit compote, pear","Fruit compote, pear",Yes,Fruit and fruit products,Processed fruit products,A01PG,"Fruit compote, pear",5,en:pear-compotes,Pear compotes,existing,OK
+A01PL,"Fruit compote, sour cherry","Fruit compote, sour cherry",Yes,Fruit and fruit products,Processed fruit products,A01PL,"Fruit compote, sour cherry",5,en:sour-cherry-compotes,,new,NEW CATEGORY
+A01MM,Jam of fruit / vegetables,Jam of fruit / vegetables | Jam of fruit/vegetables,Yes,Fruit and fruit products,Processed fruit products,A01MM,Jam of fruit / vegetables,4,en:jams,Jams,existing,OK
+A01NA,"Jam, apricots","Jam, apricots",Yes,Fruit and fruit products,Processed fruit products,A01NA,"Jam, apricots",5,en:apricot-jams,Apricot jams,existing,OK
+A01NH,"Jam, mixed fruit","Jam, mixed fruit",Yes,Fruit and fruit products,Processed fruit products,A01NH,"Jam, mixed fruit",5,en:mixed-fruit-jams,Mixed fruit jams,existing,OK
+A01NB-jam-mirabelle-plum,"Jam, mirabelle plum","Jam, mirabelle plum",Yes,Fruit and fruit products,Processed fruit products,A01NB,"Jam, plums",5,en:mirabelle-plum-jams,Mirabelle plum jams,existing,OK
+A01NB,"Jam, plums","Jam, plums",Yes,Fruit and fruit products,Processed fruit products,A01NB,"Jam, plums",5,en:plum-jams,Plum jams,existing,OK
+A01MN,"Jam, strawberries","Jam, strawberries",Yes,Fruit and fruit products,Processed fruit products,A01MN,"Jam, strawberries",5,en:strawberry-jams,Strawberry jams,existing,OK
+A01NJ,Marmalade,Marmalade,Yes,Fruit and fruit products,Processed fruit products,A01NJ,Marmalade,4,en:marmalades,Marmalades,existing,OK
+A01NK,"Marmalade, oranges","Marmalade, oranges",Yes,Fruit and fruit products,Processed fruit products,A01NK,"Marmalade, oranges",5,en:orange-jams,Orange jams,existing,OK
+A01NS,Canned or jarred apricot,Canned or jarred apricot,Yes,Fruit and fruit products,Processed fruit products,A01NS,Canned or jarred apricot,5,en:apricots-in-syrup,Apricots in syrup,existing,OK
+A01NN,Canned or jarred fruit,Canned or jarred fruit,Yes,Fruit and fruit products,Processed fruit products,A01NN,Canned or jarred fruit,4,en:canned-fruits,Canned fruits,existing,OK
+A01PC,Canned or jarred mixed fruit,Canned or jarred mixed fruit,Yes,Fruit and fruit products,Processed fruit products,A01PC,Canned or jarred mixed fruit,5,en:canned-mixed-fruits,Canned mixed fruits,existing,OK
+A01PB,Canned or jarred pineapple,Canned or jarred pineapple,Yes,Fruit and fruit products,Processed fruit products,A01PB,Canned or jarred pineapple,5,en:canned-pineapples,Canned pineapples,existing,OK
+A01NX,Canned or jarred sour cherry,Canned or jarred sour cherry,Yes,Fruit and fruit products,Processed fruit products,A01NX,Canned or jarred sour cherry,5,en:canned-sour-cherries,Canned sour cherries,existing,NO PRODUCTS
+A01BR,"Olives, processed","Olives, processed",Yes,Fruit and fruit products,Processed fruit products,A01BR,"Olives, processed",5,en:olives,Olives,existing,OK
+A01BQ,Table olives ready for consumption,Table olives ready for consumption,Yes,Fruit and fruit products,Processed fruit products,A01BQ,Table olives ready for consumption,6,en:olives,Olives,existing,OK
+A03BN,Fruit juice concentrates,Fruit juice concentrates,Yes,Fruit and vegetable juices and nectars (including concentrates),Concentrated or dehydrated fruit/vegetables juices,A03BN,Fruit juice concentrates,4,en:fruit-juice-concentrates,Fruit juice concentrates,existing,OK
+A03CA,"Juice concentrate, orange","Juice concentrate, orange",Yes,Fruit and vegetable juices and nectars (including concentrates),Concentrated or dehydrated fruit/vegetables juices,A03CA,"Juice concentrate, orange",5,en:orange-juice-concentrates,,new,NEW CATEGORY
+A0BX9,Fruit / vegetable juices and nectars,Fruit / vegetable juices and nectars | Fruit / vegetables juices and nectars,Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A0BX9,Fruit / vegetable juices and nectars,2,en:juices-and-nectars,Juices and nectars,existing,OK
+A0BY4,Fruit juices (100% from named source),Fruit juices (100% from named source),Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A0BY4,Fruit juices (100% from named source),3,en:fruit-juices,Fruit juices,existing,OK
+A039M,"Juice, apple","Juice, apple",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A039M,"Juice, apple",4,en:apple-juices,Apple juices,existing,OK
+A03AK,"Juice, grape","Juice, grape",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03AK,"Juice, grape",4,en:grape-juices,Grape juices,existing,OK
+A03AH,"Juice, lemon","Juice, lemon",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03AH,"Juice, lemon",4,en:lemon-juice,Lemon juice,existing,OK
+A03AM,"Juice, orange","Juice, orange",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03AM,"Juice, orange",4,en:orange-juices,Orange juices,existing,OK
+A03AF,"Juice, pineapple","Juice, pineapple",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03AF,"Juice, pineapple",4,en:pineapple-juices,Pineapple juices,existing,OK
+A03AY,"Juice, apricot-orange","Juice, apricot-orange",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03AY,"Juice, apricot-orange",5,en:apricot-and-orange-juices,Apricot and orange juices,existing,NO PRODUCTS
+A03AP,"Juice, mixed fruit","Juice, mixed fruit",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03AP,"Juice, mixed fruit",5,en:multifruit-juices,Multifruit juices,existing,OK
+A03AN,Mixed fruit juice,Mixed fruit juice,Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03AN,Mixed fruit juice,4,en:multifruit-juices,Multifruit juices,existing,OK
+A03BB,Fruit nectars (min. 25-50% fruit as defined in EU legislation),Fruit nectars (min. 25-50% fruit as defined in EU legislation),Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03BB,Fruit nectars (min. 25-50% fruit as defined in EU legislation),3,en:fruit-nectars,Fruit nectars,existing,OK
+A03BL,Mixed fruit nectars,Mixed fruit nectars,Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03BL,Mixed fruit nectars,4,en:multifruit-nectars,Multifruit nectars,existing,OK
+A03BD,"Nectar, apple","Nectar, apple",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03BD,"Nectar, apple",4,en:apple-nectars,Apple nectars,existing,OK
+A03BG,"Nectar, orange","Nectar, orange",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03BG,"Nectar, orange",4,en:orange-nectars,Orange nectars,existing,OK
+A03BH,"Nectar, peach","Nectar, peach",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03BH,"Nectar, peach",4,en:peach-nectars,Peach nectars,existing,OK
+A03DF,Fruit smoothies,Fruit smoothies,Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03DF,Fruit smoothies,4,en:fruit-smoothies,Fruit smoothies,existing,OK
+A03DH,Multivitamin juices,Multivitamin juices,Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03DH,Multivitamin juices,4,en:multivitamin-juices,Multivitamin juices,existing,OK
+A03CJ,"Juice, tomato","Juice, tomato",Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A03CJ,"Juice, tomato",4,en:tomato-juices,Tomato juices,existing,OK
+A04PQ,Vegetable juices,Vegetable juices,Yes,Fruit and vegetable juices and nectars (including concentrates),Fruit / vegetable juices and nectars,A04PQ,Vegetable juices,3,en:vegetable-juices,Vegetable juices,existing,OK
+A007C,Bread stuffing,Bread stuffing,Yes,Grains and grain-based products,Bread and similar products,A007C,Bread stuffing,4,en:stuffing,stuffing,existing,OK
+A007A,Breadcrumbs,Breadcrumbs,Yes,Grains and grain-based products,Bread and similar products,A007A,Breadcrumbs,4,en:bread-crumbs,Bread crumbs,existing,OK
+A005Y,Crackers and breadsticks,Crackers and breadsticks,Yes,Grains and grain-based products,Bread and similar products,A005Y,Crackers and breadsticks,3,en:breadsticks,Breadsticks,existing,OK
+A0CHT,Crisp bread,Crisp bread,Yes,Grains and grain-based products,Bread and similar products,A0CHT,Crisp bread,3,en:crispbreads,Crispbreads,existing,OK
+A006B,"Crisp bread, rye wholemeal","Crisp bread, rye wholemeal",Yes,Grains and grain-based products,Bread and similar products,A006B,"Crisp bread, rye wholemeal",5,en:wholemeal-rye-crispbreads,Wholemeal rye crispbreads,existing,NO PRODUCTS
+A006C,"Crisp bread, rye, refined flour","Crisp bread, rye, refined flour",Yes,Grains and grain-based products,Bread and similar products,A006C,"Crisp bread, rye, refined flour",5,en:rye-crispbreads,Rye crispbreads,existing,FEW PRODUCTS
+A006F,"Crisp bread, wheat, refined flour","Crisp bread, wheat, refined flour",Yes,Grains and grain-based products,Bread and similar products,A006F,"Crisp bread, wheat, refined flour",5,en:crispbreads-non-wholemeal,Crispbreads (non-wholemeal),existing,FEW PRODUCTS
+A006E,"Crisp bread, wheat, wholemeal","Crisp bread, wheat, wholemeal",Yes,Grains and grain-based products,Bread and similar products,A006E,"Crisp bread, wheat, wholemeal",5,en:wholemeal-wheat-crispbreads,Wholemeal wheat crispbreads,existing,NO PRODUCTS
+A005K,Bread and rolls with special ingredients added,Bread and rolls with special ingredients added,Yes,Grains and grain-based products,Bread and similar products,A005K,Bread and rolls with special ingredients added,4,en:special-breads,Special breads,existing,OK
+A0BY0,Leavened bread and similar,Bread from bakery | Leavened bread | Leavened bread and rolls,Yes,Grains and grain-based products,Bread and similar products,A0BY0,Leavened bread and similar,3,en:breads,Breads,existing,OK
+A005M,Mixed wheat and rye bread and rolls,Mixed wheat and rye bread and rolls,Yes,Grains and grain-based products,Bread and similar products,A005M,Mixed wheat and rye bread and rolls,5,en:rye-and-wheat-breads,Rye-and-wheat breads,existing,OK
+A005N,"Rye-wheat bread and rolls, refined flour","Rye-wheat bread and rolls, refined flour",Yes,Grains and grain-based products,Bread and similar products,A005N,"Rye-wheat bread and rolls, refined flour",6,en:refined-rye-and-wheat-breads,,new,NEW CATEGORY
+A005P,"Rye-wheat bread and rolls, wholemeal","Rye-wheat bread and rolls, wholemeal",Yes,Grains and grain-based products,Bread and similar products,A005P,"Rye-wheat bread and rolls, wholemeal",6,en:wholemeal-rye-and-wheat-breads,Wholemeal rye-and-wheat breads,existing,NO PRODUCTS
+A005Q,Multigrain (not only rye-wheat) bread and rolls,Multigrain (not only rye-wheat) bread and rolls,Yes,Grains and grain-based products,Bread and similar products,A005Q,Multigrain (not only rye-wheat) bread and rolls,5,en:multigrain-breads-not-only-rye-and-wheat,,new,NEW CATEGORY
+A005L,Multigrain bread and rolls,Multigrain bread and rolls,Yes,Grains and grain-based products,Bread and similar products,A005L,Multigrain bread and rolls,4,en:multigrain-breads,Multigrain breads,existing,OK
+A005G,"Rye bread and rolls, refined flour","Rye bread and rolls, refined flour",Yes,Grains and grain-based products,Bread and similar products,A005G,"Rye bread and rolls, refined flour",5,en:refined-rye-breads,,new,NEW CATEGORY
+A005H,"Rye bread and rolls, wholemeal","Rye bread and rolls, wholemeal",Yes,Grains and grain-based products,Bread and similar products,A005H,"Rye bread and rolls, wholemeal",5,en:wholemeal-rye-breads,,new,NEW CATEGORY
+A005F,Rye only bread and rolls,Rye only bread and rolls,Yes,Grains and grain-based products,Bread and similar products,A005F,Rye only bread and rolls,4,en:rye-breads,Rye breads,existing,OK
+A0BB2,Sandwich bread (hamburger roll-type),Sandwich bread (hamburger roll-type),Yes,Grains and grain-based products,Bread and similar products,A0BB2,Sandwich bread (hamburger roll-type),4,en:hamburger-buns,Hamburger buns,existing,OK
+A004X,Wheat bread and rolls,Wheat bread and rolls,Yes,Grains and grain-based products,Bread and similar products,A004X,Wheat bread and rolls,4,en:wheat-breads,Wheat breads,existing,OK
+A005E,"Wheat bread and rolls, brown or wholemeal","Wheat bread and rolls, brown or wholemeal",Yes,Grains and grain-based products,Bread and similar products,A005E,"Wheat bread and rolls, brown or wholemeal",5,en:wholemeal-breads,Wholemeal breads,existing,OK
+A005D,"Wheat bread and rolls, semi-brown","Wheat bread and rolls, semi-brown",Yes,Grains and grain-based products,Bread and similar products,A005D,"Wheat bread and rolls, semi-brown",5,en:semi-wholemeal-breads,Semi-wholemeal breads,existing,FEW PRODUCTS
+A004Y,"Wheat bread and rolls, white (refined flour)","Wheat bread and rolls, white (refined flour)",Yes,Grains and grain-based products,Bread and similar products,A004Y,"Wheat bread and rolls, white (refined flour)",5,en:white-breads,White breads,existing,OK
+A004Z,"Wheat bread and rolls, white with maize","Wheat bread and rolls, white with maize",Yes,Grains and grain-based products,Bread and similar products,A004Z,"Wheat bread and rolls, white with maize",6,en:white-breads-with-maize,,new,NEW CATEGORY
+A006M,Rusk,Rusk,Yes,Grains and grain-based products,Bread and similar products,A006M,Rusk,3,en:rusks,Rusks,existing,OK
+A006N,"Rusk, refined flour","Rusk, refined flour",Yes,Grains and grain-based products,Bread and similar products,A006N,"Rusk, refined flour",4,en:common-wheat-rusks,Common wheat rusks,existing,OK
+A006P,"Rusk, wholemeal","Rusk, wholemeal",Yes,Grains and grain-based products,Bread and similar products,A006P,"Rusk, wholemeal",4,en:wholemeal-rusks,Wholemeal rusks,existing,OK
+A006Q,"Pizza base, cooked","Pizza base, cooked",Yes,Grains and grain-based products,Bread and similar products,A006Q,"Pizza base, cooked",4,en:cooked-pizza-base,Cooked pizza base,existing,OK
+A006S,Pita bread,Pita bread,Yes,Grains and grain-based products,Bread and similar products,A006S,Pita bread,5,en:pitas,Pitas,existing,OK
+A006V,Tortilla,Tortilla,Yes,Grains and grain-based products,Bread and similar products,A006V,Tortilla,5,en:tortillas,,new,NEW CATEGORY
+A006R,Traditional unleavened breads,Traditional unleavened bread,Yes,Grains and grain-based products,Bread and similar products,A006R,Traditional unleavened breads,4,en:unleavened-breads,Unleavened breads,existing,OK
+A00EQ,Oat porridge,Oat porridge,Yes,Grains and grain-based products,Breakfast cereals,A00EQ,Oat porridge,5,en:porridge,Porridge,existing,OK
+A00ER,Rice porridge,Rice porridge,Yes,Grains and grain-based products,Breakfast cereals,A00ER,Rice porridge,5,en:rices-for-porridge,Rices for porridge,existing,FEW PRODUCTS
+A0F0V,Porridge (ready to eat),Porridge (ready to eat),Yes,Grains and grain-based products,Breakfast cereals,A0F0V,Porridge (ready to eat),4,en:ready-to-eat-porridges,,new,NEW CATEGORY
+A0F0T,Porridge milk based (ready to eat),Porridge milk based (ready to eat),Yes,Grains and grain-based products,Breakfast cereals,A0F0T,Porridge milk based (ready to eat),5,en:ready-to-eat-milk-porridges,,new,NEW CATEGORY
+A0ESM,Porridge water based (ready to eat),Porridge water based (ready to eat),Yes,Grains and grain-based products,Breakfast cereals,A0ESM,Porridge water based (ready to eat),5,en:ready-to-eat-water-porridges,,new,NEW CATEGORY
+A00FA,Cereal bars mixed,Cereal bars mixed,Yes,Grains and grain-based products,Breakfast cereals,A00FA,Cereal bars mixed,4,en:cereal-bars,Cereal bars,existing,OK
+A00EL,Mixed breakfast cereals,Mixed breakfast cereals,Yes,Grains and grain-based products,Breakfast cereals,A00EL,Mixed breakfast cereals,4,en:mueslis-with-fruits,Mueslis with fruits,existing,OK
+A00EJ,Muesli and similar mixed breakfast cereals,Muesli and similar mixed breakfast cereals | Muesli breakfast cereals,Yes,Grains and grain-based products,Breakfast cereals,A00EJ,Muesli and similar mixed breakfast cereals,3,en:mueslis,Mueslis,existing,OK
+A04QY,Cereal flakes and similar,Cereal flakes and similar,Yes,Grains and grain-based products,Breakfast cereals,A04QY,Cereal flakes and similar,4,en:cereal-flakes,Cereal flakes,existing,OK
+A0F4Q,Extruded breakfast cereal products,Extruded breakfast cereal products,Yes,Grains and grain-based products,Breakfast cereals,A0F4Q,Extruded breakfast cereal products,5,en:extruded-cereals,Extruded cereals,existing,OK
+A00DD,Processed maize-based flakes,Processed maize-based flakes,Yes,Grains and grain-based products,Breakfast cereals,A00DD,Processed maize-based flakes,5,en:corn-flakes,Corn flakes,existing,OK
+A00EM,Processed mixed cereal-based flakes,Processed mixed cereal-based flakes,Yes,Grains and grain-based products,Breakfast cereals,A00EM,Processed mixed cereal-based flakes,5,en:mixed-cereal-flakes,Mixed cereal flakes,existing,OK
+A00DN,Processed oat-based flakes,Processed oat-based flakes,Yes,Grains and grain-based products,Breakfast cereals,A00DN,Processed oat-based flakes,5,en:rolled-oats,Rolled oats,existing,OK
+A00EF,Processed wheat-based flakes,Processed wheat-based flakes,Yes,Grains and grain-based products,Breakfast cereals,A00EF,Processed wheat-based flakes,5,en:wheat-flakes,Wheat flakes,existing,OK
+A04LL,Popped cereals,Popped cereals,Yes,Grains and grain-based products,Breakfast cereals,A04LL,Popped cereals,4,en:puffed-cereals,Puffed cereals,existing,OK
+A00AE,"Biscuit with inclusions, filling or coating","Biscuit with inclusions, filling or coating",Yes,Grains and grain-based products,Fine bakery wares,A00AE,"Biscuit with inclusions, filling or coating",4,en:filled-biscuits,Filled biscuits,existing,OK
+A0BYR,Wafers,Wafers,Yes,Grains and grain-based products,Fine bakery wares,A0BYR,Wafers,5,en:wafers,Wafers,existing,OK
+A009V,Biscuits,Biscuits,Yes,Grains and grain-based products,Fine bakery wares,A009V,Biscuits,3,en:biscuits,Biscuits,existing,OK
+A009Z,"Biscuits, chocolate","Biscuits, chocolate",Yes,Grains and grain-based products,Fine bakery wares,A009Z,"Biscuits, chocolate",5,en:chocolate-biscuits,Chocolate biscuits,existing,OK
+A009X,"Biscuits, sweet, plain","Biscuits, sweet, plain",Yes,Grains and grain-based products,Fine bakery wares,A009X,"Biscuits, sweet, plain",4,en:dry-biscuits,Dry biscuits,existing,OK
+A00AA,"Biscuits, sweet, wheat wholemeal","Biscuits, sweet, wheat wholemeal",Yes,Grains and grain-based products,Fine bakery wares,A00AA,"Biscuits, sweet, wheat wholemeal",5,en:wholemeal-wheat-biscuits,Wholemeal wheat biscuits,existing,FEW PRODUCTS
+A009Y,Butter biscuits,Butter biscuits,Yes,Grains and grain-based products,Fine bakery wares,A009Y,Butter biscuits,5,en:shortbread-cookies,Shortbread cookies,existing,OK
+A00AN,Cakes,Cakes,Yes,Grains and grain-based products,Fine bakery wares,A00AN,Cakes,3,en:cakes,Cakes,existing,OK
+A00BG,Chocolate cake,Chocolate cake,Yes,Grains and grain-based products,Fine bakery wares,A00BG,Chocolate cake,5,en:chocolate-cakes,Chocolate cakes,existing,OK
+A00BF,Chocolate-based cakes,Chocolate-based cakes,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A00BF,Chocolate-based cakes,4,en:chocolate-based-cakes,,new,NEW CATEGORY
+A00AR,Cheese cake,Cheese cake,Yes,Milk and dairy products,Cheese,A00AR,Cheese cake,6,en:cheesecakes,Cheesecakes,existing,OK
+A00AV,Cream cake,Cream cake,Yes,Grains and grain-based products,Fine bakery wares,A00AV,Cream cake,5,en:cream-cakes,Cream cakes,existing,FEW PRODUCTS
+A00BA,Fruit cake,Cakes with fruits | Fruit cake,Yes,Grains and grain-based products,Fine bakery wares,A00BA,Fruit cake,5,en:fruit-cakes,Fruit cakes,existing,OK
+A00BC,Muffins,Muffins,Yes,Grains and grain-based products,Fine bakery wares,A00BC,Muffins,5,en:muffins,Muffins,existing,OK
+A00AP,Plain cakes,Plain cakes,Yes,Grains and grain-based products,Fine bakery wares,A00AP,Plain cakes,4,en:pound-cake,Pound Cake,existing,OK
+A00AQ,Sponge cake,Sponge cake,Yes,Grains and grain-based products,Fine bakery wares,A00AQ,Sponge cake,5,en:sponge-cakes,Sponge cakes,existing,OK
+A00CF,Apple strudel,Apple strudel,Yes,Grains and grain-based products,Fine bakery wares,A00CF,Apple strudel,4,en:apple-strudels,Apple strudels,existing,FEW PRODUCTS
+A00CG,Cream-cheese strudel,Cream-cheese strudel,Yes,Grains and grain-based products,Fine bakery wares,A00CG,Cream-cheese strudel,4,en:quark-strudels,Quark strudels,existing,NO PRODUCTS
+A00CD,Croissant from puff pastry,Croissant from puff pastry,Yes,Grains and grain-based products,Fine bakery wares,A00CD,Croissant from puff pastry,4,en:croissants,Croissants,existing,OK
+A00CE,"Puff-pastry croissant, filled with chocolate","Puff-pastry croissant, filled with chocolate",Yes,Grains and grain-based products,Fine bakery wares,A00CE,"Puff-pastry croissant, filled with chocolate",5,en:chocolate-croissant,Chocolate croissant,existing,OK
+A00CC,Pastry based on laminated dough,Pastry based on laminated dough,Yes,Grains and grain-based products,Fine bakery wares,A00CC,Pastry based on laminated dough,3,en:laminated-dough-pastries,Laminated dough pastries,existing,OK
+A00BZ,Fruit pie-tarts,Fruit pie-tarts,Yes,Grains and grain-based products,Fine bakery wares,A00BZ,Fruit pie-tarts,4,en:fruit-tarts,Fruit tarts,existing,OK
+A00BV,Shortcrust (pies -tarts),Shortcrust (pies -tarts),Yes,Grains and grain-based products,Fine bakery wares,A00BV,Shortcrust (pies -tarts),3,en:sweet-pies,Sweet pies,existing,OK
+A00CK,"Dumpling, sweet","Dumpling, sweet",Yes,Grains and grain-based products,Fine bakery wares,A00CK,"Dumpling, sweet",4,en:sweet-dumplings,Sweet dumplings,existing,FEW PRODUCTS
+A00CL,Pancakes,Pancakes,Yes,Grains and grain-based products,Fine bakery wares,A00CL,Pancakes,4,en:pancakes,Pancakes,existing,OK
+A00CM,Scones and similar,Scones and similar,Yes,Grains and grain-based products,Fine bakery wares,A00CM,Scones and similar,4,en:scones,Scones,existing,FEW PRODUCTS
+A00CS,Lebkuchen,Lebkuchen,Yes,Grains and grain-based products,Fine bakery wares,A00CS,Lebkuchen,5,en:gingerbreads,Gingerbreads,existing,OK
+A00CJ,Various pastry,Various pastry,Yes,Grains and grain-based products,Fine bakery wares,A00CJ,Various pastry,3,en:pastries,Pastries,existing,OK
+A00CQ,Waffles,Waffles,Yes,Grains and grain-based products,Fine bakery wares,A00CQ,Waffles,4,en:waffles,Waffles,existing,OK
+A00BT,Brioche type products,Brioche type products,Yes,Grains and grain-based products,Fine bakery wares,A00BT,Brioche type products,4,en:brioches,Brioches,existing,OK
+A00BL,Buns,Buns,Yes,Grains and grain-based products,Fine bakery wares,A00BL,Buns,4,en:sweet-buns,,new,NEW CATEGORY
+A00BM,Croissant,Croissant,Yes,Grains and grain-based products,Fine bakery wares,A00BM,Croissant,4,en:soft-croissants,,new,NEW CATEGORY
+A00BN,"Croissant, filled with chocolate","Croissant, filled with chocolate",Yes,Grains and grain-based products,Fine bakery wares,A00BN,"Croissant, filled with chocolate",5,en:croissant-filled-with-chocolate,Croissant filled with chocolate,existing,OK
+A00BQ,"Croissant, filled with jam","Croissant, filled with jam",Yes,Grains and grain-based products,Fine bakery wares,A00BQ,"Croissant, filled with jam",5,en:croissant-filled-with-jam,Croissant filled with jam,existing,OK
+A00BR,Doughnuts-berliner,Doughnuts-berliner,Yes,Grains and grain-based products,Fine bakery wares,A00BR,Doughnuts-berliner,4,en:doughnuts,Doughnuts,existing,OK
+A16FV,Flat bread-based pastry,Flat bread-based pastry,Yes,Grains and grain-based products,Fine bakery wares,A16FV,Flat bread-based pastry,4,en:flatbread-based-pastries,,new,NEW CATEGORY
+A00BS,Kringles,Kringles,Yes,Grains and grain-based products,Fine bakery wares,A00BS,Kringles,4,en:kringles,Kringles,existing,NO PRODUCTS
+A00BK,Yeast leavened pastry,Yeast leavened pastry,Yes,Grains and grain-based products,Fine bakery wares,A00BK,Yeast leavened pastry,3,en:viennoiseries,Viennoiseries,existing,OK
+A007D,Pasta and similar products,Pasta and similar products,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A007D,Pasta and similar products,3,en:pastas-and-dumplings,Pastas and dumplings,existing,OK
+A007P,Dried durum pasta,Dried durum pasta,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A007P,Dried durum pasta,6,en:dry-durum-wheat-pasta,Dry durum wheat pasta,existing,OK
+A007M,Dried egg pasta,Dried egg pasta,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A007M,Dried egg pasta,6,en:dry-egg-pastas,Dry egg pastas,existing,OK
+A007L,Dried pasta,Dried pasta,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A007L,Dried pasta,5,en:dry-pastas,Dry pastas,existing,OK
+A007G,Fresh egg pasta,Fresh egg pasta,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A007G,Fresh egg pasta,6,en:fresh-egg-pasta,Fresh egg pasta,existing,OK
+A007E,"Pasta, plain (not stuffed), uncooked","Pasta, plain (not stuffed), uncooked",Yes,Grains and grain-based products,"Pasta, doughs and similar products",A007E,"Pasta, plain (not stuffed), uncooked",4,en:pastas,Pastas,existing,OK
+A008E,Glass noodle,Glass noodle,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A008E,Glass noodle,5,en:cellophane-noodles,Cellophane noodles,existing,OK
+A008D,Gnocchi,Gnocchi,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A008D,Gnocchi,5,en:gnocchi,Gnocchi,existing,OK
+A009J,Cake pre-mixes/batter,Cake pre-mixes/batter,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A009J,Cake pre-mixes/batter,4,en:cake-mixes,Cake mixes,existing,OK
+A009L,Laminated doughs,Laminated doughs,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A009L,Laminated doughs,4,en:puff-pastry-sheets,Puff pastry sheets,existing,OK
+A16FH,Phyllo dough,Phyllo dough,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A16FH,Phyllo dough,5,en:phyllo-dough,Phyllo dough,existing,OK
+A009S,Suet pastry (pâte a grasse de boeuf) dough,Suet pastry (pâte a grasse de boeuf) dough,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A009S,Suet pastry (pâte a grasse de boeuf) dough,5,en:suet-pastry-doughs,,new,NEW CATEGORY
+A008Y,Short pastry dough (pate brisee),Short pastry dough (pate brisee),Yes,Grains and grain-based products,"Pasta, doughs and similar products",A008Y,Short pastry dough (pate brisee),5,en:shortcrust-pastry,Shortcrust pastry,existing,OK
+A008T,Unleavened doughs,Unleavened doughs,Yes,Grains and grain-based products,"Pasta, doughs and similar products",A008T,Unleavened doughs,4,en:pie-dough,Pie dough,existing,OK
+A008J,Yeast bread – pizza dough,Yeast bread – pizza dough,Yes,"Products for non-standard diets, food imitates and food supplements",Food supplements and similar preparations,A008J,Yeast bread – pizza dough,5,en:pizza-dough,Pizza dough,existing,OK
+A008M,Fine yeast sweet dough (brioche),Fine yeast sweet dough (brioche),Yes,Grains and grain-based products,"Pasta, doughs and similar products",A008M,Fine yeast sweet dough (brioche),5,en:brioche-doughs,,new,NEW CATEGORY
+A015H-peanuts-with-added-salt,Peanuts with added salt,Peanuts with added salt,Yes,"Legumes, nuts, oilseeds and spices","Processed legumes, nuts, oilseeds and spices",A015H,Peanuts,5,en:salted-peanuts,Salted peanuts,existing,OK
+A01BE,Canned or jarred chickpea,Canned or jarred chickpea,Yes,"Legumes, nuts, oilseeds and spices","Processed legumes, nuts, oilseeds and spices",A01BE,Canned or jarred chickpea,4,en:canned-chickpeas,Canned chickpeas,existing,OK
+A01BB,Canned or jarred common beans,Canned or jarred common beans,Yes,"Legumes, nuts, oilseeds and spices","Processed legumes, nuts, oilseeds and spices",A01BB,Canned or jarred common beans,4,en:canned-common-beans,Canned common beans,existing,OK
+A01BC,Canned or jarred peas,Canned or jarred peas,Yes,"Legumes, nuts, oilseeds and spices","Processed legumes, nuts, oilseeds and spices",A01BC,Canned or jarred peas,4,en:canned-peas,Canned peas,existing,OK
+A01BN,Peanut butter,Peanut butter,Yes,"Legumes, nuts, oilseeds and spices","Processed legumes, nuts, oilseeds and spices",A01BN,Peanut butter,5,en:peanut-butters,Peanut butters,existing,OK
+A01BM,Sesame paste (tahini) (sesamus indicum),Sesame paste (tahini) (sesamus indicum),Yes,"Legumes, nuts, oilseeds and spices","Processed legumes, nuts, oilseeds and spices",A01BM,Sesame paste (tahini) (sesamus indicum),5,en:tahini,Tahini,existing,OK
+A018Z,"Peppercorn (black, green and white)","Peppercorn (black, green and white)",Maybe,"Legumes, nuts, oilseeds and spices",Spices,A018Z,"Peppercorn (black, green and white)",5,en:peppercorns,Peppercorns,existing,OK
+A019D,Pink pepper fruit,Pink pepper fruit & peppercorn,Yes,"Seasoning, sauces and condiments",Seasonings,A019D,Pink pepper fruit,5,en:pink-peppers,Pink peppers,existing,FEW PRODUCTS
+A016S,Spices,Spices,Maybe,"Legumes, nuts, oilseeds and spices",Spices,A016S,Spices,2,en:spices,Spices,existing,OK
+A026R,"Pate, pork liver","Pate, pork liver",Yes,Meat and meat products,Meat specialties,A026R,"Pate, pork liver",4,en:pork-liver-pates,Pork liver Pâtés,existing,OK
+A0B9G,"Corned beef, cooked","Corned beef, cooked",Yes,Meat and meat products,Processed whole meat products,A0B9G,"Corned beef, cooked",5,en:corned-beef,Corned beef,existing,OK
+A023G,Cooked cured (or seasoned) meat,Cooked cured (or seasoned) meat,Maybe,Meat and meat products,Processed whole meat products,A023G,Cooked cured (or seasoned) meat,3,en:cooked-charcuterie,Cooked charcuterie,existing,OK
+A023H,Cooked cured (or seasoned) pork meat,Cooked cured (or seasoned) pork meat,Maybe,Meat and meat products,Processed whole meat products,A023H,Cooked cured (or seasoned) pork meat,4,en:cooked-pork-charcuterie,,new,NEW CATEGORY
+A023K,Cooked pork ham,Cooked pork ham,Yes,Meat and meat products,Processed whole meat products,A023K,Cooked pork ham,5,en:white-hams,White hams,existing,OK
+A023T,Cooked turkey meat,Cooked turkey meat,Yes,Meat and meat products,Processed whole meat products,A023T,Cooked turkey meat,5,en:prepared-turkey-meats,Prepared turkey meats,existing,OK
+A023V,Corned turkey,Corned turkey,Yes,Meat and meat products,Processed whole meat products,A023V,Corned turkey,5,en:poultry-hams,Poultry hams,existing,OK
+A04ND,Processed whole meat products,Processed whole meat products,Yes,,,A04ND,Processed whole meat products,2,en:prepared-meats,Prepared meats,existing,OK
+A022X,Bacon,Bacon,Maybe,Meat and meat products,Processed whole meat products,A022X,Bacon,5,en:bacon,Bacon,existing,OK
+A022S,Cured seasoned pork meat,Cured seasoned pork meat | Raw cured (or seasoned) pig meat,Yes,Meat and meat products,Processed whole meat products,A022S,Cured seasoned pork meat,4,en:cured-pork-meats,Cured pork meats,existing,OK
+A022T,"Ham, pork","Ham, pork",Yes,Meat and meat products,Processed whole meat products,A022T,"Ham, pork",5,en:cured-hams,Cured hams,existing,OK
+A023E,Cured seasoned poultry meat,Cured seasoned poultry meat,Yes,Meat and meat products,Processed whole meat products,A023E,Cured seasoned poultry meat,4,en:prepared-poultry-meats,Prepared poultry meats,existing,OK
+A024L,Breakfast-type sausage,Breakfast-type sausage,Yes,Meat and meat products,Sausages,A024L,Breakfast-type sausage,4,en:breakfast-sausages,Breakfast sausages,existing,NO PRODUCTS
+A024M,Chipolata-type sausage,Chipolata-type sausage,Yes,Meat and meat products,Sausages,A024M,Chipolata-type sausage,4,en:chipolatas,Chipolatas,existing,OK
+A024N,Fresh bratwurst,Fresh bratwurst,Yes,Meat and meat products,Sausages,A024N,Fresh bratwurst,4,en:bratwursts,Bratwursts,existing,OK
+A024K,Fresh bulk sausages,Fresh bulk sausages,Yes,Meat and meat products,Sausages,A024K,Fresh bulk sausages,4,en:sausage-meat,Sausage meat,existing,OK
+A024J,Fresh spiced sausages in casing,Fresh spices sausages in casing,Yes,Meat and meat products,Sausages,A024J,Fresh spiced sausages in casing,4,en:fresh-sausages,Fresh sausages,existing,FEW PRODUCTS
+A024H,Italian-style sausage,Italian-style sausage,Yes,Meat and meat products,Sausages,A024H,Italian-style sausage,4,en:italian-sausages,Italian sausages,existing,FEW PRODUCTS
+A025J,Cooked sausages (generic),Cooked sausages (generic),Yes,Meat and meat products,Sausages,A025J,Cooked sausages (generic),4,en:cooked-sausages,Cooked sausages,existing,OK
+A024V,Cured ripened raw sausages,Cured ripened raw sausages,Yes,Meat and meat products,Sausages,A024V,Cured ripened raw sausages,4,en:cured-sausages,Cured sausages,existing,OK
+A025C,Chorizo and similar,Chorizo and similar,Yes,Meat and meat products,Sausages,A025C,Chorizo and similar,6,en:chorizos,Chorizos,existing,OK
+A025F,Ripened kolbasz,Ripened kolbasz,Yes,Meat and meat products,Sausages,A025F,Ripened kolbasz,6,en:kolbasz,,new,NEW CATEGORY
+A025A,German salami,German salami,Yes,Meat and meat products,Sausages,A025A,German salami,6,en:german-style-salami,German-style salami,existing,FEW PRODUCTS
+A024Z,Hungarian-type salami,Hungarian-type salami,Yes,Meat and meat products,Sausages,A024Z,Hungarian-type salami,6,en:salami-ungherese,Salami ungherese,existing,FEW PRODUCTS
+A024X,Salami-type sausage,Salami-type sausage,Yes,Meat and meat products,Sausages,A024X,Salami-type sausage,5,en:salami,Salami,existing,OK
+A024Q,Cured unripened raw sausages,Cured unripened raw sausages,Yes,Meat and meat products,Sausages,A024Q,Cured unripened raw sausages,4,en:unripened-raw-sausages,Unripened raw sausages,existing,FEW PRODUCTS
+A024R,Mettwurst-type sausage,Mettwurst-type sausage,Yes,Meat and meat products,Sausages,A024R,Mettwurst-type sausage,5,en:mettwurst,Mettwurst,existing,FEW PRODUCTS
+A026B,Frankfurt-type sausage,Frankfurt-type sausage,Yes,Meat and meat products,Sausages,A026B,Frankfurt-type sausage,5,en:frankfurter-sausages,Frankfurter sausages,existing,OK
+A026C,Frankfurter sausage,Frankfurter sausage,Yes,Meat and meat products,Sausages,A026C,Frankfurter sausage,6,en:frankfurter-wurstchen-pgi,,new,NEW CATEGORY
+A026D,Wiener sausage,Wiener sausage,Yes,Meat and meat products,Sausages,A026D,Wiener sausage,6,en:wiener-sausages,,new,NEW CATEGORY
+A025S,Blood-type sausage,Blood-type sausage,Yes,Meat and meat products,Sausages,A025S,Blood-type sausage,5,en:black-pudding,Black pudding,existing,OK
+A025R,Bologna-type sausage,Bologna-type sausage,Yes,Meat and meat products,Sausages,A025R,Bologna-type sausage,5,en:bologna-type-sausages,Bologna-type sausages,existing,FEW PRODUCTS
+A025Y,Blood and tongue sausage,Blood and tongue sausage,Yes,Meat and meat products,Sausages,A025Y,Blood and tongue sausage,6,en:blood-and-tongue-sausages,Blood and tongue sausages,existing,NO PRODUCTS
+A025V,Cooked salami,Cooked salami,Yes,Meat and meat products,Sausages,A025V,Cooked salami,6,en:cooked-salami,Cooked salami,existing,FEW PRODUCTS
+A025Z,Head cheese,Head cheese,Yes,Meat and meat products,Sausages,A025Z,Head cheese,6,en:head-cheese,Head cheese,existing,FEW PRODUCTS
+A025Q,Mortadella-type sausage,Mortadella-type sausage,Yes,Meat and meat products,Sausages,A025Q,Mortadella-type sausage,5,en:mortadella,Mortadella,existing,OK
+A025P,Polish-type cooked sausage,Polish-type cooked sausage,Yes,Meat and meat products,Sausages,A025P,Polish-type cooked sausage,5,en:kielbasa,Kielbasa,existing,FEW PRODUCTS
+A025N,Sliceable or firm cooked sausages,Sliceable or firm cooked sausages,Yes,Meat and meat products,Sausages,A025N,Sliceable or firm cooked sausages,4,en:sliceable-cooked-sausages,Sliceable cooked sausages,existing,OK
+A025L,Liver-type sausage,Liver-type sausage,Yes,Meat and meat products,Sausages,A025L,Liver-type sausage,5,xx:liverwurst,Liverwurst,existing,OK
+A024F,Sausages,Sausages,Yes,Meat and meat products,Sausages,A024F,Sausages,2,en:sausages,Sausages,existing,OK
+A02RE,Firm brined cheese (ricotta salata type),Firm brined cheese (ricotta salata type),Maybe,Milk and dairy products,Cheese,A02RE,Firm brined cheese (ricotta salata type),4,en:brined-cheeses,Brined cheeses,existing,OK
+A02RC,"Cheese, feta","Cheese, feta",Maybe,Milk and dairy products,Cheese,A02RC,"Cheese, feta",5,en:feta,Feta,existing,OK
+A02RD,"Cheese, telemea","Cheese, telemea",Maybe,Milk and dairy products,Cheese,A02RD,"Cheese, telemea",5,en:telemea,Telemea,existing,FEW PRODUCTS
+A065R,Halloumi,Halloumi,Maybe,Milk and dairy products,Cheese,A065R,Halloumi,5,en:halloumi,Halloumi,existing,OK
+A02RB,Soft brined cheese (feta type),Soft brined cheese (feta type),Maybe,Milk and dairy products,Cheese,A02RB,Soft brined cheese (feta type),4,en:feta-type-cheese,Feta-type cheese,existing,OK
+A02QE,Cheese,Cheese,Maybe,Milk and dairy products,Cheese,A02QE,Cheese,2,en:cheeses,Cheeses,existing,OK
+A0CRN,Cheese curd,Cheese curd,Maybe,Milk and dairy products,Cheese,A0CRN,Cheese curd,4,en:curd-cheeses,,new,NEW CATEGORY
+A02QV,"Cheese, mizithra","Cheese, mizithra",Maybe,Milk and dairy products,Cheese,A02QV,"Cheese, mizithra",4,en:mizithra,Mizithra,existing,FEW PRODUCTS
+A02QR,Clotted cream,Clotted cream,Maybe,Milk and dairy products,Cheese,A02QR,Clotted cream,4,en:cornish-clotted-cream,Cornish Clotted Cream,existing,FEW PRODUCTS
+A02QG,Cottage cheese,Cottage cheese,Maybe,Milk and dairy products,Cheese,A02QG,Cottage cheese,4,en:cottage-cheeses,Cottage cheeses,existing,OK
+A02QZ,Cream cheese,Cream cheese,Maybe,Milk and dairy products,Cheese,A02QZ,Cream cheese,4,en:cream-cheeses,Cream cheeses,existing,OK
+A02QF,Fresh uncured cheese,Fresh uncured cheese,Maybe,Milk and dairy products,Cheese,A02QF,Fresh uncured cheese,3,en:fresh-cheeses,Fresh cheeses,existing,OK
+A04NV-cheese-gebjna,"Cheese, Gebjna","Cheese, Gebjna",Maybe,Milk and dairy products,Cheese,A04NV,Miscellaneous fresh uncured cheeses,4,en:gbejna,Gbejna,existing,NO PRODUCTS
+A02QJ,Mozzarella,Mozzarella,Maybe,Milk and dairy products,Cheese,A02QJ,Mozzarella,4,en:mozzarella,Mozzarella,existing,OK
+A02QK-flavoured-quark,Flavoured quark,Flavoured quark,Yes,Milk and dairy products,Dairy dessert and similar,A02QK,Quark,4,en:fruit-quarks,Fruit quarks,existing,OK
+A02QK,Quark,Quark,Maybe,Milk and dairy products,Cheese,A02QK,Quark,4,en:quarks,Quarks,existing,OK
+A031A,Processed cheese and spreads,Processed cheese and spreads,Maybe,Milk and dairy products,Cheese,A031A,Processed cheese and spreads,3,en:processed-cheeses,Processed cheeses,existing,OK
+A031D,Processed cheese wedges and similar,Processed cheese wedges and similar,Maybe,Milk and dairy products,Cheese,A031D,Processed cheese wedges and similar,4,en:processed-cheese-wedges,Processed cheese wedges,existing,FEW PRODUCTS
+A031B,"Processed cheese, sliceable","Processed cheese, sliceable",Maybe,Milk and dairy products,Cheese,A031B,"Processed cheese, sliceable",4,en:processed-cheese-in-slices,Processed cheese in slices,existing,OK
+A031C,"Processed cheese, spreadable","Processed cheese, spreadable",Maybe,Milk and dairy products,Cheese,A031C,"Processed cheese, spreadable",4,en:cheese-spreads,Cheese spreads,existing,OK
+A02ZL,"Cheese, caciocavallo","Cheese, caciocavallo",Maybe,Milk and dairy products,Cheese,A02ZL,"Cheese, caciocavallo",6,en:caciocavallo,Caciocavallo,existing,FEW PRODUCTS
+A02ZM,"Cheese, comte","Cheese, comte",Maybe,Milk and dairy products,Cheese,A02ZM,"Cheese, comte",6,en:comte,Comté,existing,OK
+A02ZQ,"Cheese, grana padano","Cheese, grana padano",Maybe,Milk and dairy products,Cheese,A02ZQ,"Cheese, grana padano",6,en:grana-padano,Grana Padano,existing,OK
+A02ZS,"Cheese, parmigiano reggiano","Cheese, parmigiano reggiano",Maybe,Milk and dairy products,Cheese,A02ZS,"Cheese, parmigiano reggiano",6,en:parmigiano-reggiano,Parmigiano-Reggiano,existing,OK
+A02ZT,"Cheese, pecorino romano","Cheese, pecorino romano",Maybe,Milk and dairy products,Cheese,A02ZT,"Cheese, pecorino romano",6,en:pecorino-romano,Pecorino Romano,existing,OK
+A02ST,Firm - ripened cheeses,Firm - ripened cheeses | Firm-ripened cheeses,Maybe,Milk and dairy products,Cheese,A02ST,Firm - ripened cheeses,4,en:firm-ripened-cheeses,,new,NEW CATEGORY
+A030S,"Cheese, buche de chevre","Cheese, buche de chevre",Maybe,Milk and dairy products,Cheese,A030S,"Cheese, buche de chevre",6,en:goat-cheese-logs,Goat cheese logs,existing,OK
+A02TP,"Cheese, cream havarti","Cheese, cream havarti",Maybe,Milk and dairy products,Cheese,A02TP,"Cheese, cream havarti",6,en:havarti,Havarti,existing,OK
+A02TQ,"Cheese, danbo","Cheese, danbo",Maybe,Milk and dairy products,Cheese,A02TQ,"Cheese, danbo",6,en:danbo,Danbo,existing,FEW PRODUCTS
+A02TV,"Cheese, edam","Cheese, edam",Maybe,Milk and dairy products,Cheese,A02TV,"Cheese, edam",6,en:edam,Edam,existing,OK
+A02TZ,"Cheese, gjetost","Cheese, gjetost",Maybe,Milk and dairy products,Cheese,A02TZ,"Cheese, gjetost",6,en:brunost,Brunost,existing,FEW PRODUCTS
+A02VA,"Cheese, gouda","Cheese, gouda",Maybe,Milk and dairy products,Cheese,A02VA,"Cheese, gouda",6,en:gouda,Gouda,existing,OK
+A02VY,"Cheese, oltermanni","Cheese, oltermanni",Maybe,Milk and dairy products,Cheese,A02VY,"Cheese, oltermanni",6,en:oltermanni,Oltermanni,existing,NO PRODUCTS
+A02XF,"Cheese, raclette","Cheese, raclette",Maybe,Milk and dairy products,Cheese,A02XF,"Cheese, raclette",6,en:raclette,Raclette,existing,OK
+A02XV,"Cheese, trappist","Cheese, trappist",Maybe,Milk and dairy products,Cheese,A02XV,"Cheese, trappist",6,en:trappista,Trappista,existing,FEW PRODUCTS
+A02XY,"Cheese, turunmaa","Cheese, turunmaa",Maybe,Milk and dairy products,Cheese,A02XY,"Cheese, turunmaa",6,en:turunmaa,Turunmaa,existing,NO PRODUCTS
+A02SV,Firm/semi-hard cheese (gouda and edam type),Firm/semi-hard cheese (gouda and edam type),Maybe,Milk and dairy products,Cheese,A02SV,Firm/semi-hard cheese (gouda and edam type),5,en:semi-hard-cheeses,Semi-hard cheeses,existing,OK
+A02YK,"Cheese, cheddar","Cheese, cheddar",Maybe,Milk and dairy products,Cheese,A02YK,"Cheese, cheddar",6,en:cheddar-cheese,Cheddar cheese,existing,OK
+A02YM,"Cheese, emmental","Cheese, emmental",Maybe,Milk and dairy products,Cheese,A02YM,"Cheese, emmental",6,en:emmentaler,Emmentaler,existing,OK
+A02YP,"Cheese, gruyere","Cheese, gruyere",Maybe,Milk and dairy products,Cheese,A02YP,"Cheese, gruyere",6,en:gruyere-cheeses,Gruyère cheeses,existing,OK
+A02YT,"Cheese, kefalotyri","Cheese, kefalotyri",Maybe,Milk and dairy products,Cheese,A02YT,"Cheese, kefalotyri",6,en:kefalotyri,Kefalotyri,existing,NO PRODUCTS
+A02YE,"Hard cheese (cheddar, emmental type)","Hard cheese (cheddar, emmental type)",Maybe,Milk and dairy products,Cheese,A02YE,"Hard cheese (cheddar, emmental type)",5,en:hard-cheeses,Hard cheeses,existing,OK
+A02RH,Soft - ripened cheese,Soft – ripened cheese,Maybe,Milk and dairy products,Cheese,A02RH,Soft - ripened cheese,4,en:soft-cheeses,Soft cheeses,existing,OK
+A02SG,"Soft-ripened cheese veined with blue mould (blue bavarian, blue de graven type )","Soft-ripened cheese veined with blue mould (blue bavarian, blue de graven type )",Maybe,Milk and dairy products,Cheese,A02SG,"Soft-ripened cheese veined with blue mould (blue bavarian, blue de graven type )",5,en:blue-veined-cheeses,Blue-veined cheeses,existing,OK
+A02RV,"Cheese, brie","Cheese, brie",Maybe,Milk and dairy products,Cheese,A02RV,"Cheese, brie",6,en:bries,Bries,existing,OK
+A02RX,"Cheese, camembert","Cheese, camembert",Maybe,Milk and dairy products,Cheese,A02RX,"Cheese, camembert",6,en:camemberts,Camemberts,existing,OK
+A02PX,Custard,Custard,Yes,Milk and dairy products,Dairy dessert and similar,A02PX,Custard,4,en:custard-puddings,Custard puddings,existing,OK
+A02PV,Dairy desserts spoonable,Dairy desserts spoonable,Yes,Milk and dairy products,Dairy dessert and similar,A02PV,Dairy desserts spoonable,3,en:dairy-desserts,Dairy desserts,existing,OK
+A02PY,Starchy pudding,Starchy pudding,Yes,Milk and dairy products,Dairy dessert and similar,A02PY,Starchy pudding,4,en:creamy-puddings,Creamy puddings,existing,OK
+A02QA,"Ice cream, milk-based","Ice cream, milk-based",Yes,Milk and dairy products,Dairy dessert and similar,A02QA,"Ice cream, milk-based",4,en:ice-creams,Ice creams,existing,OK
+A065Z,Dairy snacks,Dairy snacks,Yes,Milk and dairy products,Dairy dessert and similar,A065Z,Dairy snacks,3,en:dairy-snacks,,new,NEW CATEGORY
+A02NV,Kefir,Kefir,Maybe,Milk and dairy products,Fermented milk or cream,A02NV,Kefir,5,en:kefir,Kefir,existing,OK
+A02PA,Filmjölk,Filmjölk,Maybe,Milk and dairy products,Fermented milk or cream,A02PA,Filmjölk,6,en:filmjolk,Filmjölk,existing,FEW PRODUCTS
+A02PB,Viili,Viili,Maybe,Milk and dairy products,Fermented milk or cream,A02PB,Viili,6,en:viili,Viili,existing,FEW PRODUCTS
+A02NT,Traditional sour milk products,Traditional sour milk products,Maybe,Milk and dairy products,Fermented milk or cream,A02NT,Traditional sour milk products,4,en:soured-milks,,new,NEW CATEGORY
+A16GH,Strained yoghurt,Strained yoghurt,Maybe,Milk and dairy products,Fermented milk or cream,A16GH,Strained yoghurt,5,en:greek-style-yogurts,Greek-style yogurts,existing,OK
+A02NE,Yoghurt,Yoghurt,Maybe,Milk and dairy products,Fermented milk or cream,A02NE,Yoghurt,4,en:yogurts,Yogurts,existing,OK
+A02NF,"Yoghurt, cow milk","Yoghurt, cow milk",Maybe,Milk and dairy products,Fermented milk or cream,A02NF,"Yoghurt, cow milk",5,en:cow-milk-yogurts,Cow milk yogurts,existing,OK
+A02NH,"Yoghurt, cow milk, flavoured","Yoghurt, cow milk, flavoured",Yes,Milk and dairy products,Fermented milk or cream,A02NH,"Yoghurt, cow milk, flavoured",6,en:flavoured-yogurts,Flavoured yogurts,existing,OK
+A02NG,"Yoghurt, cow milk, plain","Yoghurt, cow milk, plain",Maybe,Milk and dairy products,Fermented milk or cream,A02NG,"Yoghurt, cow milk, plain",6,en:plain-yogurts,Plain yogurts,existing,OK
+A02NQ,"Yoghurt drinks, including sweetened and/or flavoured variants","Yoghurt drinks, including sweetened and/or flavoured variants",Yes,Milk and dairy products,Fermented milk or cream,A02NQ,"Yoghurt drinks, including sweetened and/or flavoured variants",4,en:yogurt-drinks,Yogurt drinks,existing,OK
+A02NC,Créme fraiche and other mild variants of sour cream,Créme fraiche and other mild variants of sour cream,Yes,Milk and dairy products,Fermented milk or cream,A02NC,Créme fraiche and other mild variants of sour cream,4,en:cremes-fraiches,Crèmes fraîches,existing,OK
+A02ND,Flavoured sour cream,Flavoured sour cream,Maybe,Milk and dairy products,Fermented milk or cream,A02ND,Flavoured sour cream,4,en:flavoured-sour-creams,Flavoured sour creams,existing,NO PRODUCTS
+A02NB,"Sour cream, plain","Sour cream, plain",Maybe,Milk and dairy products,Fermented milk or cream,A02NB,"Sour cream, plain",4,en:sour-creams,Sour creams,existing,OK
+A02MM,Cream with other ingredients,Cream with other ingredients,Yes,Milk and dairy products,"Milk, whey and cream",A02MM,Cream with other ingredients,4,en:flavoured-creams,,new,NEW CATEGORY
+A02MP,Flavoured milks,Flavoured milks,Yes,Milk and dairy products,"Milk, whey and cream",A02MP,Flavoured milks,4,en:flavoured-milks,Flavoured milks,existing,OK
+A03SX,"Formulations containing special fatty acids (e.g. Omega-3, essential fatty acids)","Formulations containing special fatty acids (e.g. Omega-3, essential fatty acids)",Yes,"Products for non-standard diets, food imitates and food supplements",Food supplements and similar preparations,A03SX,"Formulations containing special fatty acids (e.g. Omega-3, essential fatty acids)",4,en:omega-3-supplements,Omega-3 supplements,existing,FEW PRODUCTS
+A03SY,Protein and amino acids supplements,Protein and amino acids supplements,Yes,"Products for non-standard diets, food imitates and food supplements",Food supplements and similar preparations,A03SY,Protein and amino acids supplements,4,en:protein-powders,Protein powders,existing,OK
+A03SN,Combination of vitamin and mineral only supplements,Combination of vitamin and mineral only supplements,Yes,"Products for non-standard diets, food imitates and food supplements",Food supplements and similar preparations,A03SN,Combination of vitamin and mineral only supplements,4,en:multivitamin-and-mineral-supplements,Multivitamin and mineral supplements,existing,OK
+A03SM,Mineral only supplements,Mineral only supplements,Yes,"Products for non-standard diets, food imitates and food supplements",Food supplements and similar preparations,A03SM,Mineral only supplements,4,en:mineral-supplements,Mineral supplements,existing,OK
+A03SK,Vitamin and mineral supplements,Vitamin and mineral supplements,Yes,"Products for non-standard diets, food imitates and food supplements",Food supplements and similar preparations,A03SK,Vitamin and mineral supplements,3,en:vitamin-and-mineral-supplements,Vitamin and mineral supplements,existing,OK
+A03SL,Vitamin only supplements,Vitamin only supplements,Yes,"Products for non-standard diets, food imitates and food supplements",Food supplements and similar preparations,A03SL,Vitamin only supplements,4,en:vitamin-supplements,Vitamin supplements,existing,OK
+A0BXC,Dairy imitates,Dairy susbsitutes,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A0BXC,Dairy imitates,3,en:dairy-substitutes,Dairy substitutes,existing,OK
+A03TY,Imitation cheese,Cheese substitutes,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TY,Imitation cheese,5,en:cheese-substitutes,Cheese substitutes,existing,OK
+A03TR,Imitation cream,Imitation cream,Yes,"Products for non-standard diets, food imitates and food supplements",Meat and dairy imitates,A03TR,Imitation cream,5,en:plant-based-creams,Plant-based creams,existing,OK
+A03TS,Non dairy coffee creamer,Non dairy coffee creamer,Yes,"Products for non-standard diets, food imitates and food supplements",Meat and dairy imitates,A03TS,Non dairy coffee creamer,5,en:creamer,Creamer,existing,OK
+A03TQ-soy-desserts,Soy desserts,Soy desserts,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TQ,Dairy imitates other than milks,4,en:soy-desserts,Soy desserts,existing,OK
+A03TV,Soya yoghurt,Soya yoghurt,Yes,"Products for non-standard diets, food imitates and food supplements",Meat and dairy imitates,A03TV,Soya yoghurt,5,en:soy-milk-yogurts,Soy milk yogurts,existing,OK
+A03TT,Tofu,Tofu,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TT,Tofu,5,xx:tofu,Tofu,existing,OK
+A03TQ-vegan-creamy-puddings,Vegan creamy puddings,Vegan creamy puddings,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TQ,Dairy imitates other than milks,4,en:vegan-creamy-puddings,Vegan creamy puddings,existing,OK
+A03TH-nut-drink,Nut drink,Nut drink,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TH,Milk imitates,4,en:nut-based-drinks,Nut-based drinks,existing,OK
+A03TL,Oats drink,Oat drink | Oats drink,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TL,Oats drink,5,en:oat-based-drinks,Oat-based drinks,existing,OK
+A03TM,Rice drink,Rice drink,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TM,Rice drink,5,en:rice-based-drinks,Rice-based drinks,existing,OK
+A03TJ,Soya drink,Soya drink,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TJ,Soya drink,5,en:soy-based-drinks,Soy-based drinks,existing,OK
+A03TG,Fungi-based meat imitates,Fungi-based meat imitate,Yes,"Products for non-standard diets, food imitates and food supplements",Meat and dairy imitates,A03TG,Fungi-based meat imitates,4,en:meat-analogues-from-mycoproteins,Meat analogues from mycoproteins,existing,NO PRODUCTS
+A03TF-soy-steak,Soy steak,Soy steak,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TF,Soyabean-based meat imitates,4,en:soy-steak,Soy steak,existing,OK
+A03TF,Soyabean-based meat imitates,Soyabean-based meat imitates,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TF,Soyabean-based meat imitates,4,en:meat-analogues-from-soy-or-wheat-proteins,Meat analogues from soy or wheat proteins,existing,OK
+A03TE-vegetarian-balls,Vegetarian balls,Vegetarian balls,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TE,Meat imitates,3,en:vegetarian-balls,Vegetarian balls,existing,OK
+A03TE-vegetarian-hamburger,Vegetarian hamburger,Vegetarian hamburger,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TE,Meat imitates,3,en:vegetarian-hamburgers,Vegetarian hamburgers,existing,OK
+A03TE-vegetarian-kroket,Vegetarian kroket,Vegetarian kroket,Yes,"Products for non-standard diets, food imitates and food supplements",Meat and dairy imitates,A03TE,Meat imitates,3,en:vegetarian-kroketten,Vegetarian kroketten,existing,NO PRODUCTS
+A03TE-vegetarian-nuggets,Vegetarian nuggets,Vegetarian nuggets,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TE,Meat imitates,3,en:vegetarian-nuggets,Vegetarian nuggets,existing,OK
+A03TE-vegetarian-patties,Vegetarian patties,Vegetarian patties,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TE,Meat imitates,3,en:vegetarian-patties,Vegetarian patties,existing,OK
+A03TE-vegetarian-sausages,Vegetarian sausages,Vegetarian sausages,Yes,Alternative products (outside of FoodEx),Alternative products (outside of FoodEx),A03TE,Meat imitates,3,en:vegetarian-sausages,Vegetarian sausages,existing,OK
+A046D,Mixed pickle,Mixed pickle,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A046D,Mixed pickle,5,en:plant-based-mixed-pickles,Plant-based mixed pickles,existing,OK
+A046E,Relishes,Relishes,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A046E,Relishes,3,en:relish,Relish,existing,OK
+A045K,Salad dressing,Salad dressing,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A045K,Salad dressing,3,en:salad-dressings,Salad dressings,existing,OK
+A043Z,"Continental european brown cooked sauce, gravy","Continental european brown cooked sauce, gravy",Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A043Z,"Continental european brown cooked sauce, gravy",4,en:gravy,Gravy,existing,OK
+A045D,Curry sauce,Curry sauce,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A045D,Curry sauce,5,en:curry-sauces,Curry sauces,existing,OK
+A044Q,Tabasco sauce,Fermented chili pepper sauce,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044Q,Tabasco sauce,5,en:hot-sauces,Hot sauces,existing,OK
+A045F,Hollandaise type sauce,Hollandaise type sauce,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A045F,Hollandaise type sauce,5,en:hollandaise-sauce,Hollandaise sauce,existing,OK
+A044X,Mayonnaise sauce,Mayonnaise sauce,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044X,Mayonnaise sauce,5,en:mayonnaises,Mayonnaises,existing,OK
+A044Y,"Mayonnaise, low fat","Mayonnaise, low fat",Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044Y,"Mayonnaise, low fat",6,en:light-mayonnaises,Light mayonnaises,existing,OK
+A0F1M,"Mayonnaise, hollandaise and related sauces","Mayonnaise, hollandaise and related sauces",Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A0F1M,"Mayonnaise, hollandaise and related sauces",4,en:emulsified-sauces,Emulsified sauces,existing,OK
+A045N,Tartar sauce,Tartar sauce,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A045N,Tartar sauce,5,en:tartare-sauces,Tartare sauces,existing,OK
+A16BR,Meat sauce,Meat sauce,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A16BR,Meat sauce,4,en:meat-based-pasta-sauces,Meat-based pasta sauces,existing,OK
+A044G,Mustard and related sauces,Mustard | Mustard and related sauces,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044G,Mustard and related sauces,4,en:mustards,Mustards,existing,OK
+A044J,"Mustard, mild","Mustard, mild",Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044J,"Mustard, mild",5,en:mild-mustards,Mild mustards,existing,NO PRODUCTS
+A044H,"Mustard, sweet","Mustard, sweet",Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044H,"Mustard, sweet",5,en:sweet-mustards,Sweet mustards,existing,OK
+A044R,Soy sauce,Soy sauce,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044R,Soy sauce,5,en:soy-sauces,Soy sauces,existing,OK
+A043V,Savoury sauces,Savoury sauces,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A043V,Savoury sauces,3,en:sauces,Sauces,existing,OK
+A044P,Tomato ketchup and related sauces,Tomato ketchup and related sauces,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044P,Tomato ketchup and related sauces,4,en:ketchup,Ketchup,existing,OK
+A044C,Tomato-containing cooked sauces,Tomato-based cooking sauce | Tomato-containing cooked sauces,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044C,Tomato-containing cooked sauces,4,en:tomato-sauces,Tomato sauces,existing,OK
+A044E,Vegetables-based cooked sauce,Vegetables-based cooked sauce,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A044E,Vegetables-based cooked sauce,4,en:vegetable-sauces,Vegetable sauces,existing,OK
+A043X,Bechamel sauce,Bechamel sauce,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A043X,Bechamel sauce,5,en:bechamel-sauces,Béchamel sauces,existing,OK
+A043Y,Cheese sauce,Cheese sauce,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A043Y,Cheese sauce,5,en:cheese-sauces,Cheese sauces,existing,OK
+A044A,Cream sauce,Cream sauce,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044A,Cream sauce,5,en:cream-sauces,Cream sauces,existing,OK
+A0F1N,White sauces,White sauces,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A0F1N,White sauces,4,en:white-sauces,White sauces,existing,OK
+A04JG,Balsamic vinegar and similar,Balsamic vinegar and similar,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A04JG,Balsamic vinegar and similar,4,en:balsamic-vinegars,Balsamic vinegars,existing,OK
+A044L,Vinegar,Vinegar,Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044L,Vinegar,3,en:vinegars,Vinegars,existing,OK
+A044N,"Vinegar, apple","Vinegar, apple",Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044N,"Vinegar, apple",4,en:cider-vinegars,Cider vinegars,existing,OK
+A044M,"Vinegar, wine","Vinegar, wine",Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A044M,"Vinegar, wine",4,en:wine-vinegars,Wine vinegars,existing,OK
+A045J-fermented-wheat-bran-bor,Fermented wheat bran (Borş),Fermented wheat bran (Borş),Yes,"Seasoning, sauces and condiments",Condiments (including table-top formats),A045J,Mixed and other not listed condiments,2,en:bors,Borș,existing,FEW PRODUCTS
+A043T,Gravy instant granules,Gravy instant granules,Yes,"Seasoning, sauces and condiments",Savoury extracts and sauce ingredients,A043T,Gravy instant granules,4,en:gravy-granules,Gravy granules,existing,FEW PRODUCTS
+A043F,Stock cubes or granulate (bouillon base),Stock cubes or granulate (bouillon base),Yes,"Seasoning, sauces and condiments",Savoury extracts and sauce ingredients,A043F,Stock cubes or granulate (bouillon base),3,en:dehydrated-broths,Dehydrated broths,existing,OK
+A043H,"Stock cube or granulate, beef","Stock cube or granulate, beef | Stock cubes or granulate, beef",Yes,"Seasoning, sauces and condiments",Savoury extracts and sauce ingredients,A043H,"Stock cube or granulate, beef",5,en:beef-bouillon-cubes,Beef bouillon cubes,existing,FEW PRODUCTS
+A043G,"Stock cubes or granulate, chicken","Stock cubes or granulate, chicken",Yes,"Seasoning, sauces and condiments",Savoury extracts and sauce ingredients,A043G,"Stock cubes or granulate, chicken",5,en:chicken-bouillon-cubes,Chicken bouillon cubes,existing,FEW PRODUCTS
+A0BZ7,"Stock cubes or granulate, meat","Stock cubes or granulate, meat",Yes,"Seasoning, sauces and condiments",Savoury extracts and sauce ingredients,A0BZ7,"Stock cubes or granulate, meat",4,en:bouillon-cubes,Bouillon cubes,existing,OK
+A043J,"Stock cubes or granulate, vegetables","Stock cubes or granulate, vegetables",Yes,"Seasoning, sauces and condiments",Savoury extracts and sauce ingredients,A043J,"Stock cubes or granulate, vegetables",4,en:dehydrated-vegetable-bouillons,Dehydrated vegetable bouillons,existing,OK
+A043M,Meat extract,Meat extract,Yes,"Seasoning, sauces and condiments",Savoury extracts and sauce ingredients,A043M,Meat extract,5,en:meat-extracts,Meat extracts,existing,FEW PRODUCTS
+A043L,Vegetable savoury extracts,Vegetable savoury extracts,Yes,"Seasoning, sauces and condiments",Savoury extracts and sauce ingredients,A043L,Vegetable savoury extracts,5,en:yeast-extract-spreads,Yeast extract spreads,existing,OK
+A043A,Curry powder,Curry powder,Yes,"Seasoning, sauces and condiments",Seasonings,A043A,Curry powder,4,en:curry-powders,Curry powders,existing,OK
+A042Z,Mixed herbs and spices,Mixed herbs and spices | Mixed herbs and spices (powder),Yes,"Seasoning, sauces and condiments",Seasonings,A042Z,Mixed herbs and spices,4,en:mixtures-of-herbs-and-spices,Mixtures of herbs and spices,existing,OK
+A042Z-provence-herbs-dry,"Provence herbs, dry","Provence herbs, dry",Yes,"Legumes, nuts, oilseeds and spices",Spices,A042Z,Mixed herbs and spices,4,en:herbes-de-provence,Herbes de Provence,existing,OK
+A042Y,Seasoning mixes,Seasoning mixes,Yes,"Seasoning, sauces and condiments",Seasonings,A042Y,Seasoning mixes,3,en:spice-blends,Spice blends,existing,OK
+A011C,Dried potato products,Dried potato products,Maybe,"Starchy roots or tubers and products thereof, sugar plants",Starchy root and tuber products,A011C,Dried potato products,4,en:instant-mashed-potatoes,Instant mashed potatoes,existing,OK
+A011P,Potato boiled,Potato boiled,Yes,Composite dishes,"Dishes, incl. Ready to eat meals (excluding soups and salads)",A011P,Potato boiled,5,en:cooked-potatoes,Cooked potatoes,existing,OK
+A035A,"Caramel, soft","Caramel, soft",Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035A,"Caramel, soft",4,en:caramels,Caramels,existing,OK
+A0EQQ,Candies (soft and hard),Candies (soft and hard),Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A0EQQ,Candies (soft and hard),3,en:candies,Candies,existing,OK
+A034X,Hard candies,Hard candies,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A034X,Hard candies,4,en:hard-candies,Hard candies,existing,OK
+A035H,Foamed sugar products (marshmallows),Foamed sugar products (marshmallows),Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035H,Foamed sugar products (marshmallows),5,en:marshmallows,Marshmallows,existing,OK
+A035K,Gum drops,Gum drops,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035K,Gum drops,5,en:wine-gums,Wine gums,existing,FEW PRODUCTS
+A035L,Jelly candies,Jelly candies,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035L,Jelly candies,5,en:gummi-candies,Gummi candies,existing,OK
+A035J,Liquorice candies,Liquorice candies,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035J,Liquorice candies,5,en:liquorice-candies,Liquorice candies,existing,OK
+A035M,Chewing gum,Chewing gum,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035M,Chewing gum,3,en:chewing-gums,Chewing gums,existing,OK
+A034G,Bitter chocolate,Bitter chocolate,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A034G,Bitter chocolate,5,en:dark-chocolates,Dark chocolates,existing,OK
+A034H,Bitter-sweet chocolate,Bitter-sweet chocolate,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A034H,Bitter-sweet chocolate,6,en:semi-sweet-dark-chocolates,,new,NEW CATEGORY
+A0EQD,Chocolate and similar,Chocolate and similar,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A0EQD,Chocolate and similar,4,en:chocolates,Chocolates,existing,OK
+A034L,Cream chocolate,Cream chocolate,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A034L,Cream chocolate,6,en:cream-chocolates,,new,NEW CATEGORY
+A034J,Milk chocolate,Milk chocolate,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A034J,Milk chocolate,5,en:milk-chocolates,Milk chocolates,existing,OK
+A034R,Chocolate coated confectionery,Chocolate coated confectionery,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A034R,Chocolate coated confectionery,5,en:chocolate-candies,Chocolate candies,existing,OK
+A0C6P,Chocolate spread,Chocolate spread,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A0C6P,Chocolate spread,5,en:chocolate-spreads,Chocolate spreads,existing,OK
+A0EQS,Chocolate/cocoa-based products,Chocolate/cocoa-based products,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A0EQS,Chocolate/cocoa-based products,4,en:cocoa-and-its-products,Cocoa and its products,existing,OK
+A034Q,Filled chocolate,Filled chocolate,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A034Q,Filled chocolate,5,en:filled-chocolates,Filled chocolates,existing,OK
+A034S,Pralines,Pralines,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A034S,Pralines,5,en:bonbons,Bonbons,existing,OK
+A04PE,Confectionery including chocolate,Confectionery including chocolate,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A04PE,Confectionery including chocolate,2,en:confectioneries,Confectioneries,existing,OK
+A034Y,Marzipan,Marzipan,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A034Y,Marzipan,4,en:marzipan,Marzipan,existing,OK
+A036H,Gelatine dessert,Gelatine dessert,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Water-based sweet desserts,A036H,Gelatine dessert,4,en:jelly-desserts,Jelly desserts,existing,OK
+A00TZ,Canned mushrooms,Canned mushrooms,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00TZ,Canned mushrooms,4,en:canned-mushrooms,Canned mushrooms,existing,OK
+A0ETQ-canned-jarred-carrots,Canned/jarred carrots,Canned/jarred carrots,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A0ETQ,Canned/jarred vegetables,3,en:canned-carrots,Canned carrots,existing,OK
+A0ETQ-canned-jarred-endives,Canned/jarred endives,Canned/jarred endives,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A0ETQ,Canned/jarred vegetables,3,en:canned-belgian-endives,Canned Belgian endives,existing,FEW PRODUCTS
+A0ETQ-canned-jarred-heart-of-palm,Canned/jarred heart of palm,Canned/jarred heart of palm,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A0ETQ,Canned/jarred vegetables,3,en:canned-palm-hearts,Canned palm hearts,existing,OK
+A0ETQ-canned-jarred-sweet-pepper-and-tomatoes,Canned/jarred sweet pepper and tomatoes,Canned/jarred sweet pepper and tomatoes,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A0ETQ,Canned/jarred vegetables,3,en:lecso,Lecsó,existing,NO PRODUCTS
+A0ETQ-canned-jarred-tomato-sauce,Canned/jarred tomato sauce,Canned/jarred tomato sauce,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A0ETQ,Canned/jarred vegetables,3,en:tomato-purees,Tomato purées,existing,OK
+A0ETQ,Canned/jarred vegetables,Canned/jarred vegetables,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A0ETQ,Canned/jarred vegetables,3,en:canned-vegetables,Canned vegetables,existing,OK
+A0ESL,French beans canned,Canned or jarred french beans (with pods) | Canned or jarred slicing bean,Yes,"Legumes, nuts, oilseeds and spices","Processed legumes, nuts, oilseeds and spices",A0ESL,French beans canned,4,en:canned-green-beans,Canned green beans,existing,OK
+A00ZP,Sweet corn canned,Sweet corn canned,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZP,Sweet corn canned,4,en:canned-sweet-corn,Canned sweet corn,existing,OK
+A00ZQ,Dried vegetables,Dried vegetables,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZQ,Dried vegetables,3,en:dried-vegetables,Dried vegetables,existing,OK
+A00ZK,Sauerkraut,Sauerkraut,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZK,Sauerkraut,5,en:sauerkrauts,Sauerkrauts,existing,OK
+A00ZJ-pickled-marinated-cucumbers,Pickled / marinated cucumbers,Pickled / marinated cucumbers,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZJ,Pickled / marinated vegetables,4,en:pickled-cucumbers,Pickled cucumbers,existing,OK
+A00ZJ-pickled-marinated-gherkins,Pickled / marinated gherkins,Canned/jarred gherkins | Pickled / marinated gherkins,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZJ,Pickled / marinated vegetables,4,en:pickled-gherkins,Pickled gherkins,existing,OK
+A00ZJ,Pickled / marinated vegetables,Pickled / marinated vegetables,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZJ,Pickled / marinated vegetables,4,en:pickled-vegetables,Pickled vegetables,existing,OK
+A00ZA,Processed or preserved vegetables and similar,Processed or preserved vegetables and similar,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZA,Processed or preserved vegetables and similar,2,en:processed-vegetables,,new,NEW CATEGORY
+A00ZE,Preserved concentrated tomatoes,Preserved concentrated tomatoes,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZE,Preserved concentrated tomatoes,4,en:concentrated-tomato-products,Concentrated tomato products,existing,OK
+A00ZF,Tomato paste,Tomato paste,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZF,Tomato paste,5,en:tomato-pastes,Tomato pastes,existing,OK
+A00ZC,"Preserved tomato, whole or pieces","Preserved tomato, whole or pieces",Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZC,"Preserved tomato, whole or pieces",5,en:canned-tomatoes,Canned tomatoes,existing,OK
+A00ZD,Tomato puree,Tomato puree,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A00ZD,Tomato puree,5,en:strained-tomatoes,Strained tomatoes,existing,OK
+A04MB,Processed tomato products,Processed tomato products,Yes,Vegetables and vegetable products,Processed or preserved vegetables and similar,A04MB,Processed tomato products,3,en:tomatoes-and-their-products,Tomatoes and their products,existing,OK
+A00FJ,Vegetables and vegetable products,Vegetables and vegetables products,Maybe,Vegetables and vegetable products,Vegetables and vegetable products,A00FJ,Vegetables and vegetable products,1,en:vegetables-based-foods,Vegetables based foods,existing,OK
+A03GE,Liquid drink bases (including concentrates and home-made preparations),Liquid drink bases (including concentrates and home-made preparations),Maybe,Water and water-based beverages,Beverages concentrates,A03GE,Liquid drink bases (including concentrates and home-made preparations),4,en:flavoured-syrups,Flavoured syrups,existing,OK
+A03DY,Flavoured bottled water,Flavoured bottled water,Yes,Water and water-based beverages,Drinking water,A03DY,Flavoured bottled water,4,en:flavored-waters,Flavored waters,existing,OK
+A03GC,Fortified bottled water,Fortified bottled water,Yes,Water and water-based beverages,Drinking water,A03GC,Fortified bottled water,4,en:vitamin-waters,Vitamin waters,existing,OK
+A03GA,Energy drinks,Energy drinks,Yes,Water and water-based beverages,Water based beverages,A03GA,Energy drinks,4,en:energy-drinks,Energy drinks,existing,OK
+A03FZ,Functional drinks,Functional drinks,Yes,Water and water-based beverages,Water based beverages,A03FZ,Functional drinks,3,en:functional-drinks,Functional drinks,existing,OK
+A03GB,Isotonic and sport drinks,Isotonic and sport drinks,Yes,Water and water-based beverages,Water based beverages,A03GB,Isotonic and sport drinks,4,en:sports-drinks,Sports drinks,existing,OK
+A03FR,"Cola beverages, caffeinic","Cola beverages, caffeinic",Yes,Water and water-based beverages,Water based beverages,A03FR,"Cola beverages, caffeinic",5,en:caffeinated-colas,,new,NEW CATEGORY
+A03FY,Diet soft drink with caffeine,Diet soft drink with caffeine,Yes,Water and water-based beverages,Water based beverages,A03FY,Diet soft drink with caffeine,6,en:diet-cola-soft-drink,Diet cola soft drink,existing,OK
+A03FS,"Cola mix, flavoured cola","Cola mix, flavoured cola",Yes,Water and water-based beverages,Water based beverages,A03FS,"Cola mix, flavoured cola",5,en:cola-mixes,Cola mixes,existing,OK
+A03FQ,Cola-type drinks,Cola-type drinks,Yes,Water and water-based beverages,Water based beverages,A03FQ,Cola-type drinks,4,en:colas,Colas,existing,OK
+A03DZ,Soft drinks,Soft drinks,Yes,Water and water-based beverages,Water based beverages,A03DZ,Soft drinks,3,en:soft-drinks,Soft drinks,existing,OK
+A03FX,Diet soft drinks with flavours,Diet soft drinks with flavours,Yes,Water and water-based beverages,Water based beverages,A03FX,Diet soft drinks with flavours,6,en:diet-sodas,Diet sodas,existing,OK
+A03FD,"Soft drink, flavoured with herbs","Soft drink, flavoured with herbs",Yes,Water and water-based beverages,Water based beverages,A03FD,"Soft drink, flavoured with herbs",6,en:herbal-sodas,,new,NEW CATEGORY
+A03EX,"Soft drink, flavoured, no fruit","Soft drink, flavoured, no fruit",Yes,Water and water-based beverages,Water based beverages,A03EX,"Soft drink, flavoured, no fruit",5,en:sodas,Sodas,existing,OK
+A03FF,"Soft drink, lemon flavour","Soft drink, lemon flavour",Yes,Water and water-based beverages,Water based beverages,A03FF,"Soft drink, lemon flavour",6,en:lemon-soft-drinks,Lemon soft drinks,existing,OK
+A03FH,"Soft drink, mixed flavours","Soft drink, mixed flavours",Yes,Water and water-based beverages,Water based beverages,A03FH,"Soft drink, mixed flavours",6,en:mixed-flavour-sodas,Mixed-flavour sodas,existing,NO PRODUCTS
+A03FJ,"Soft drink, orange flavour","Soft drink, orange flavour",Yes,Water and water-based beverages,Water based beverages,A03FJ,"Soft drink, orange flavour",6,en:orange-flavoured-sodas-without-juice,Orange-flavoured sodas without juice,existing,NO PRODUCTS
+A03FV,Diet soft drinks with fruit juice,Diet soft drinks with fruit juice,Yes,Water and water-based beverages,Water based beverages,A03FV,Diet soft drinks with fruit juice,6,en:light-fruit-sodas,Light fruit sodas,existing,OK
+A03EV,"Fruit soft drink, mixed fruit","Fruit soft drink, mixed fruit",Yes,Water and water-based beverages,Water based beverages,A03EV,"Fruit soft drink, mixed fruit",6,en:mixed-fruit-soft-drinks,Mixed fruit soft drinks,existing,NO PRODUCTS
+A03EL,"Fruit soft drink, orange","Fruit soft drink, orange",Yes,Water and water-based beverages,Water based beverages,A03EL,"Fruit soft drink, orange",6,en:orange-soft-drinks,Orange soft drinks,existing,OK
+A03EA,"Soft drink, with fruit juice (fruit content below the minimum for nectars)","Soft drink, with fruit juice (fruit content below the minimum for nectars)",Yes,Water and water-based beverages,Water based beverages,A03EA,"Soft drink, with fruit juice (fruit content below the minimum for nectars)",5,en:fruit-soft-drinks,Fruit soft drinks,existing,OK
+A0EQN,Soft drinks with minor amounts of fruits or flavours,Soft drinks with minor amounts of fruits or flavours,Yes,Water and water-based beverages,Water based beverages,A0EQN,Soft drinks with minor amounts of fruits or flavours,4,en:flavoured-soft-drinks,,new,NEW CATEGORY
