@@ -16,7 +16,11 @@ fi
 
 set -o allexport
 
-# Clear / unset environment variables to avoid cross-flavor bleed
+# Clear / unset environment variables to avoid cross-flavor bleed.
+# Only variables that every env.* file re-sets (or that setenv.sh itself
+# re-sets below) are listed here. ROBOTOFF_URL and QUERY_URL are omitted
+# because only some flavors define them; docker compose picks up their
+# defaults from .env, but direct shell usage would lose the value.
 unset COMPOSE_PROFILES \
       COMPOSE_PROJECT_NAME \
       MONGO_EXPOSE_PORT \
@@ -31,8 +35,6 @@ unset COMPOSE_PROFILES \
       POSTGRES_DB \
       MINION_QUEUE \
       COMMON_NET_NAME \
-      QUERY_URL \
-      ROBOTOFF_URL \
       NUTRIPATROL_URL \
       APACHE_ENVVARS \
       PERL5LIB

@@ -145,6 +145,11 @@ services:
     networks:
       default:
         aliases:
+          # Derive these from PRODUCT_OPENER_DOMAIN so that non-default domains
+          # (flavours, deployments, per-worktree isolation) resolve correctly.
+          # See conf/nginx-docker/nginx.conf which only serves
+          # ${PRODUCT_OPENER_DOMAIN} and *.${PRODUCT_OPENER_DOMAIN}.
+          # docker/dev.yml adds the other subdomains on top of these.
           - ${PRODUCT_OPENER_DOMAIN:-openfoodfacts.localhost}
           - world.${PRODUCT_OPENER_DOMAIN:-openfoodfacts.localhost}
     ports:

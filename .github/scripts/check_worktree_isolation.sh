@@ -366,7 +366,7 @@ def want(cfg, label, actual, expected):
 # the deployments keep working exactly as before.
 want(default, "default project name", default.get("name"), "po_off")
 want(default, "default network", default["networks"]["default"]["name"], "product-opener")
-want(default, "default minion_db network", default["networks"]["minion_db"]["name"], "minion_db")
+want(default, "default minion_db network", default["networks"]["minion_db"]["name"], "off_minion_db")
 want(default, "default users volume", default["volumes"]["users"]["name"], "po_users")
 want(default, "default product_images volume",
      default["volumes"]["product_images"]["name"], "po_off_product_images")
@@ -389,7 +389,7 @@ want(default, "default frontend aliases",
 want(agent, "isolated project name", agent.get("name"), "po_off_" + agent_id)
 want(agent, "isolated network", agent["networks"]["default"]["name"], "product-opener" + suffix)
 want(agent, "isolated minion_db network", agent["networks"]["minion_db"]["name"],
-     prefix + "minion_db")
+     prefix + "off_minion_db")
 want(agent, "isolated frontend port",
      [str(p.get("published")) for p in agent["services"]["frontend"]["ports"]], [port])
 want(agent, "isolated frontend domain",

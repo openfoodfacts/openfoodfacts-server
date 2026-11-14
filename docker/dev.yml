@@ -1,5 +1,9 @@
 x-backend-conf: &backend-conf
-  image: openfoodfacts-server/backend:dev
+  # The tag suffix is empty unless per-worktree isolation is enabled
+  # (PO_AGENT_ID), so by default the image is shared with other worktrees.
+  # When it is set, a worktree keeps its own image so that a rebuild in one
+  # worktree cannot swap the image under another worktree's running containers.
+  image: openfoodfacts-server/backend:dev${PO_AGENT_SUFFIX:-}
   build:
     context: .
     dockerfile: Dockerfile
@@ -144,4 +148,4 @@ volumes:
 networks:
   # this is a specific network to enable pro platform to join the postgres db
   minion_db:
-    name: ${PO_COMMON_PREFIX:-}${PRODUCT_OPENER_FLAVOR_SHORT:-off}_minion_db
+    name: ${PO_COMMON_PREFIX:-}${PO_AGENT_PREFIX:-}${PRODUCT_OPENER_FLAVOR_SHORT:-off}_minion_db

@@ -757,7 +757,7 @@ run_deps: clone_deps
 	@for dep in ${DEPS} ; do \
 		cd "${DEPS_DIR}/$$dep" && $(MAKE) run; \
 	done
-	@if [ -n "${COMMON_NET_NAME}" ]; then \
+	@if [ -n "${COMMON_NET_NAME}" ] && [ -z "${PO_AGENT_ID}" ]; then \
 		echo "🥫 Ensuring shared network ${COMMON_NET_NAME} exists and shared services are attached..."; \
 		if ! docker network inspect "${COMMON_NET_NAME}" >/dev/null 2>&1; then \
 			if ! err=$$(docker network create "${COMMON_NET_NAME}" 2>&1); then \
@@ -767,7 +767,7 @@ run_deps: clone_deps
 				fi; \
 			fi; \
 		fi; \
-		for proj in off_shared off_auth; do \
+		for proj in off_shared openfoodfacts-auth; do \
 			for container_id in $$(docker compose -p $$proj ps -q 2>/dev/null); do \
 				if ! docker inspect "$$container_id" --format '{{json .NetworkSettings.Networks}}' 2>/dev/null | grep -q "\"${COMMON_NET_NAME}\""; then \
 					if ! err=$$(docker network connect "${COMMON_NET_NAME}" "$$container_id" 2>&1); then \
