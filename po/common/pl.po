@@ -415,7 +415,7 @@ msgstr "Dostępny w Google Play"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Tego produktu nie ma jeszcze w bazie danych <<site_name>>. Czy możesz zrobić zdjęcia produktu, kodu kreskowego, składu i zawartości ożywczej by dodać je przez <a href=\"https://world-pl.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+msgstr "<p>Tego produktu nie ma jeszcze w bazie danych <<site_name>>. Czy możesz zrobić zdjęcia produktu, kodu kreskowego, składu i zawartości ożywczej by dodać je przez <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Dzięki z góry!</p>    \n"
 
 msgctxt "app_take_a_picture"
@@ -841,7 +841,7 @@ msgstr "Hasło oraz hasło potwierdzające są różne."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "Adres e-mail jest używany przez innego użytkownika. Może masz już konto? Możesz <a href=\"/cgi/reset_password.pl\"> zresetować hasło </a> do swojego konta."
+msgstr "Adres e-mail jest używany przez innego użytkownika. Może masz już konto? Możesz <a href=\"\"<a href=\"/cgi/reset_password.pl\"> zresetować hasło </a> do swojego konta."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -1070,6 +1070,33 @@ msgstr "Open Beauty Facts – Kosmetyki"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world.openbeautyfacts.org"
+
+# Do not translate Open Products Facts
+msgctxt "footer_opf"
+msgid "Open Products Facts"
+msgstr "Open Products Facts"
+
+msgctxt "footer_opf_link"
+msgid "https://world.openproductsfacts.org"
+msgstr "https://world-pl.openproductsfacts.org"
+
+# Do not translate Open Pet Food Facts
+msgctxt "footer_opff"
+msgid "Open Pet Food Facts"
+msgstr "Open Pet Food Facts"
+
+msgctxt "footer_opff_link"
+msgid "https://world.openpetfoodfacts.org"
+msgstr "https://world-pl.openpetfoodfacts.org"
+
+# Do not translate Open Prices
+msgctxt "footer_op"
+msgid "Open Prices"
+msgstr "Open Prices"
+
+msgctxt "footer_op_link"
+msgid "https://prices.openfoodfacts.org/"
+msgstr "https://prices.openfoodfacts.org/"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
@@ -1765,6 +1792,16 @@ msgstr "Stopnie odżywienia"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Stopień odżywienia"
+
+# Do not translate
+msgctxt "nutriscore_p"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# Do not translate
+msgctxt "nutriscore_s"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4281,6 +4318,11 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Proszę przekaż darowiznę"
 
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_provenance_line"
+msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
+msgstr "Z <b>Open Food Facts</b>, otwartej bazy danych o żywności · tworzonej przez wolontariuszy od 2012 r. · dane wykorzystywane przez ponad {apps_count} aplikacji"
+
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderacja platformy producentów"
@@ -5297,7 +5339,7 @@ msgid "Products for which we currently miss data to determine if they match your
 msgstr "Produkty, dla których obecnie nie posiadamy danych, aby ustalić, czy są zgodne z Twoimi preferencjami"
 
 msgctxt "forest_footprint"
-msgid "Forest footprint"
+msgid "Forest Footprint"
 msgstr "Ślad leśny"
 
 msgctxt "ingredients_requiring_soy"
@@ -5325,8 +5367,8 @@ msgid "Deforestation risk"
 msgstr "Ryzyko wylesiania"
 
 msgctxt "total_forest_footprint"
-msgid "Total forest footprint"
-msgstr "Ślad leśny ogółem"
+msgid "Total Forest Footprint"
+msgstr "Całkowity ślad leśny"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -5349,8 +5391,8 @@ msgid "% in product"
 msgstr "% w produkcie"
 
 msgctxt "forest_footprint_calculation_details"
-msgid "Details of the calculation of the forest footprint"
-msgstr "Szczegóły obliczania śladu lasu"
+msgid "Details of the calculation of the Forest Footprint"
+msgstr "Szczegóły obliczenia śladu leśnego"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5394,64 +5436,96 @@ msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score
 msgstr "Oblicza wskaźniki takie jak Nutri-Score, NOVA i Green-Score, a także automatycznie identyfikuje sugestie ich poprawy (na przykład wszystkie produkty, które uzyskałyby lepszą ocenę Nutri-Score po drobnej zmianie składu)."
 
 msgctxt "attribute_forest_footprint_name"
-msgid "Forest footprint"
+msgid "Forest Footprint"
 msgstr "Ślad leśny"
 
 msgctxt "attribute_forest_footprint_setting_name"
-msgid "Low risk of deforestation (Forest footprint)"
-msgstr "Niskie ryzyko wylesiania"
+msgid "Low risk of deforestation (Forest Footprint)"
+msgstr "Niskie ryzyko wylesiania (Ślad leśny)"
 
 msgctxt "attribute_forest_footprint_setting_note"
-msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Ślad leśny opisuje ryzyko degradacji obszarów leśnych związane z produkcją."
+msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
+msgstr "Ślad leśny odpowiada ryzyku wylesiania związanemu ze składnikami produktu."
 
 msgctxt "attribute_forest_footprint_a_title"
-msgid "Very small forest footprint"
-msgstr "Bardzo mały ślad leśny"
+msgid "Forest Footprint A"
+msgstr "Ślad leśny A"
 
 msgctxt "attribute_forest_footprint_b_title"
-msgid "Small forest footprint"
-msgstr "Mały ślad leśny"
+msgid "Forest Footprint B"
+msgstr "Ślad leśny B"
 
 msgctxt "attribute_forest_footprint_c_title"
-msgid "Medium forest footprint"
-msgstr "Zwykły ślad leśny"
+msgid "Forest Footprint C"
+msgstr "Ślad leśny C"
 
 msgctxt "attribute_forest_footprint_d_title"
-msgid "Large forest footprint"
-msgstr "Duży ślad leśny"
+msgid "Forest Footprint D"
+msgstr "Ślad leśny D"
 
-msgctxt "attribute_forest_footprint_e_title"
-msgid "Very large forest footprint"
-msgstr "Wielki ślad leśny"
+msgctxt "attribute_forest_footprint_a_description"
+msgid "No ingredient associated with a deforestation risk."
+msgstr "Brak składników związanych z ryzykiem wylesiania."
+
+msgctxt "attribute_forest_footprint_b_description"
+msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
+msgstr "Obecność jednego lub większej liczby składników stwarzających ryzyko wylesiania, lecz ryzyko jest niskie ze względu na ich ilość, pochodzenie i/lub etykiety."
+
+msgctxt "attribute_forest_footprint_c_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
+msgstr "Obecność jednego lub większej liczby składników stwarzających ryzyko wylesiania, przy umiarkowanym ryzyku ze względu na ich ilość, pochodzenie i/lub etykiety."
+
+msgctxt "attribute_forest_footprint_d_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
+msgstr "Obecność jednego lub większej liczby składników stwarzających ryzyko wylesiania, przy wysokim ryzyku ze względu na ich ilość, pochodzenie i/lub etykiety."
 
 msgctxt "attribute_forest_footprint_not_computed_title"
-msgid "Forest footprint not computed"
-msgstr "Ślad leśny nie został obliczony"
+msgid "Forest Footprint not computed"
+msgstr "Ślad leśny nieobliczony"
+
+msgctxt "attribute_forest_footprint_not_computed_description"
+msgid "Potential deforestation risk but not yet computed."
+msgstr "Potencjalne ryzyko wylesiania, ale jeszcze nieobliczone."
 
 msgctxt "attribute_forest_footprint_a_description_short"
-msgid "Almost no risk of deforestation"
-msgstr "Praktyczny brak ryzyka wylesiania"
+msgid "No deforestation risk"
+msgstr "Brak ryzyka wylesiania"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
 msgstr "Małe ryzyko wylesiania"
 
 msgctxt "attribute_forest_footprint_c_description_short"
-msgid "Moderate risk of deforestation"
-msgstr "Umiarkowane ryzyko wylesiania"
+msgid "Medium risk of deforestation"
+msgstr "Średnie ryzyko wylesiania"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
 msgstr "Wysokie ryzyko wylesiania"
 
-msgctxt "attribute_forest_footprint_e_description_short"
-msgid "Very high risk of deforestation"
-msgstr "Bardzo wysokie ryzyko wylesiania"
-
 msgctxt "attribute_forest_footprint_not_computed_description_short"
-msgid "Currently only for products with chicken or eggs"
-msgstr "Obecnie tylko dla produktów z kurczakiem lub jajami"
+msgid "Potential deforestation risk not computed"
+msgstr "Potencjalne ryzyko wylesiania nieobliczone"
+
+msgctxt "attribute_forest_footprint_unknown_title"
+msgid "Forest Footprint not available"
+msgstr "Ślad leśny niedostępny"
+
+msgctxt "attribute_forest_footprint_unknown_description"
+msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
+msgstr "Ślad leśny nie może zostać obliczony, ponieważ brakuje listy składników."
+
+msgctxt "attribute_forest_footprint_unknown_description_short"
+msgid "Missing ingredients list"
+msgstr "Lista brakujących składników"
+
+msgctxt "forest_footprint_2026_other_risky_ingredients"
+msgid "Other risky ingredients"
+msgstr "Inne ryzykowne składniki"
+
+msgctxt "forest_footprint_2026_other_risky_ingredients_description"
+msgid "These ingredients are not yet assessed for deforestation risk:"
+msgstr "Te składniki nie zostały jeszcze ocenione pod kątem ryzyka wylesiania:"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
@@ -5680,8 +5754,8 @@ msgid "If you use the same column on multiple lines to provide images URLs for a
 msgstr "Jeśli używasz tej samej kolumny w wielu wierszach, aby podać adresy URL obrazów dla pojedynczego produktu, możesz użyć tego pola, aby wskazać typ obrazu: przód, składniki, wartości odżywcze czy opakowanie."
 
 msgctxt "forest_footprint_one_line_explanation"
-msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "Ślad leśny jest obliczany, biorąc pod uwagę składniki, których produkcja wymaga soi - jej uprawa wiąże się z wylesianiem."
+msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr "Ślad leśny jest obliczany z uwzględnieniem składników, których produkcja wymaga soi, a jej uprawa wiąże się z wylesianiem."
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -6493,6 +6567,83 @@ msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
 msgstr "Dowiedz się więcej o Green-Score"
 
+# Environmental Cost (Ecobalyse)
+msgctxt "environmental_cost_title"
+msgid "Environmental Cost"
+msgstr "Koszt środowiskowy"
+
+msgctxt "environmental_cost_description"
+msgid "Total environmental impact score from Ecobalyse"
+msgstr "Całkowity wynik wpływu na środowisko z Ecobalyse"
+
+msgctxt "environmental_cost_stale"
+msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
+msgstr "Ten koszt środowiskowy został obliczony przed ostatnimi zmianami w produkcie i może nie być aktualny."
+
+msgctxt "ecs_breakdown"
+msgid "ECS Breakdown"
+msgstr "Szczegóły ECS"
+
+msgctxt "environmental_cost_stage"
+msgid "Stage"
+msgstr "Etap"
+
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
+msgstr "Punkty na 100 g"
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr "Punkty na 100 ml"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr "Punkty dla produktu ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr "{points} punktów dla produktu ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr "{points} punktów na 100 g"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr "{points} punktów na 100 ml"
+
+msgctxt "environmental_cost_ingredients"
+msgid "Ingredients"
+msgstr "Składniki"
+
+msgctxt "environmental_cost_packaging"
+msgid "Packaging"
+msgstr "Opakowanie"
+
+msgctxt "environmental_cost_transport"
+msgid "Transport"
+msgstr "Transport"
+
+msgctxt "environmental_cost_processing"
+msgid "Processing"
+msgstr "Przetwórstwo"
+
+msgctxt "environmental_cost_distribution"
+msgid "Distribution"
+msgstr "Dystrybucja"
+
+msgctxt "environmental_cost_preparation"
+msgid "Preparation"
+msgstr "Przygotowanie"
+
+msgctxt "environmental_cost_total"
+msgid "Total"
+msgstr "Razem"
+
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
@@ -6534,6 +6685,10 @@ msgstr "Nutri-Score, Green-Score i poziom przetwarzania żywności (NOVA)"
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
 msgstr "Czy mógłbyś dodać listę składników?"
+
+msgctxt "actions_add_nutrition_facts"
+msgid "Could you add the nutrition facts?"
+msgstr "Czy możesz dodać wartości odżywcze?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
@@ -7286,6 +7441,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Kategoria, etykiety, składniki, alergeny, informacje żywieniowe, zdjęcia itp."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr "Kategoria, certyfikaty, składniki, alergeny, zdjęcia itp."
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr "Kategoria, certyfikaty, składniki, charakterystyka produktu, zdjęcia itp."
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Kategoria, etykiety, składniki, alergeny, informacje żywieniowe, zdjęcia itp."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Jeśli informacje nie zgadzają się z informacjami na opakowaniu, możesz je uzupełnić lub poprawić. Dziękujemy!"
@@ -7293,6 +7460,18 @@ msgstr "Jeśli informacje nie zgadzają się z informacjami na opakowaniu, może
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts to wspólna baza danych, w której każdy wkład ma wartość dla wszystkich."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Beauty Facts to wspólna baza danych i każdy wkład jest przydatny dla wszystkich."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Products Facts to wspólna baza danych i każdy wkład jest przydatny dla wszystkich."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Pet Food Facts to wspólna baza danych i każdy wkład jest przydatny dla wszystkich."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7621,6 +7800,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "W kontakcie z żywnością"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr "W kontakcie z produktem"
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "Skontaktuj się z nami"
@@ -7741,6 +7924,10 @@ msgstr "Wyszukaj produkty w tej samej kategorii bez dodatku cukru:"
 msgctxt "per_100g"
 msgid "for 100 g"
 msgstr ""
+
+msgctxt "points"
+msgid "points"
+msgstr "punkty"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
@@ -8040,35 +8227,166 @@ msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
 
-msgctxt "forest_footprint_2026"
-msgid "Forest Footprint 2026"
+msgctxt "forest_footprint_2026_methodology"
+msgid "The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption."
 msgstr ""
 
-msgctxt "forest_footprint_2026_under_development"
-msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
-msgstr ""
+msgctxt "forest_footprint_2026_methodology_more_info"
+msgid "More information on the methodology"
+msgstr "Więcej informacji o metodologii"
 
 msgctxt "forest_footprint_2026_overall_grade"
-msgid "Forest footprint grade"
-msgstr ""
+msgid "Forest Footprint grade"
+msgstr "Ocena śladu leśnego"
 
 msgctxt "forest_footprint_2026_total"
-msgid "Total forest footprint"
-msgstr "Ślad leśny ogółem"
+msgid "Total Forest Footprint"
+msgstr "Całkowity ślad leśny"
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
-msgstr ""
+msgstr "Ocena głównego składnika"
 
 msgctxt "forest_footprint_2026_primary_ingredient"
 msgid "Primary ingredient"
-msgstr ""
+msgstr "Główny składnik"
 
 msgctxt "forest_footprint_2026_origin_footprint"
-msgid "Forest footprint for the origin"
-msgstr ""
+msgid "Forest Footprint for the origin"
+msgstr "Ślad leśny dla pochodzenia"
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
 msgstr "Etykieta"
 
+msgctxt "forest_footprint_2026_grade_unknown"
+msgid "Unknown"
+msgstr "Nieznany"
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
+msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
+msgstr "Produkcja kakao, skoncentrowana głównie w Afryce Zachodniej, w znacznym stopniu przyczynia się do wylesiania. Na przykład Wybrzeże Kości Słoniowej, wiodący producent kakao, utraciło 90% swoich lasów od lat 60. XX wieku."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
+msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
+msgstr "Produkcja oleju palmowego, skoncentrowana głównie w Indonezji i Malezji, w znacznym stopniu przyczynia się do wylesiania. Borneo straciło ponad połowę swoich lasów od lat 70. XX wieku."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
+msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
+msgstr "Uprawa kawy, skoncentrowana głównie w Ameryce Środkowej i Południowej oraz Azji Południowo-Wschodniej, odpowiada za wylesianie 130 000 hektarów rocznie od 2000 roku."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
+msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
+msgstr "Produkcja kurczaków i jaj, nawet hodowanych we Francji, w znacznym stopniu przyczynia się do wylesiania ze względu na paszę: soję. Francja importuje dwie trzecie soi z Brazylii, gdzie jej uprawa przyczynia się do niszczenia Amazonii."
+
+msgctxt "forest_footprint_2026_labels_description"
+msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
+msgstr "Obecność niektórych certyfikatów może znacznie pomóc w zmniejszeniu ryzyka wylesiania dzięki kryteriom środowiskowym i/lub lepszemu wynagrodzeniu producentów."
+
+msgctxt "related_categories"
+msgid "Related categories"
+msgstr "Powiązane kategorie"
+
+msgctxt "product_history_revision"
+msgid "Revision"
+msgstr "Wersja"
+
+msgctxt "product_history_date"
+msgid "Date"
+msgstr "Data"
+
+msgctxt "product_history_contributor"
+msgid "Contributor"
+msgstr "Współtwórca"
+
+msgctxt "product_history_changes"
+msgid "Changes"
+msgstr "Zmiany"
+
+msgctxt "product_history_comment"
+msgid "Comment"
+msgstr ""
+
+msgctxt "product_history_most_recent_changes"
+msgid "Only the most recent changes are shown."
+msgstr "Pokazywane są tylko najnowsze zmiany."
+
+msgctxt "product_history_see_full_history"
+msgid "See the full changes history"
+msgstr "Zobacz pełną historię zmian"
+
+msgctxt "google_drive_import_title"
+msgid "Import photos from a Google Drive folder"
+msgstr "Importuj zdjęcia z folderu Google Drive"
+
+msgctxt "google_drive_import_description"
+msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+msgstr ""
+
+msgctxt "google_drive_folder_url"
+msgid "Google Drive folder URL"
+msgstr "Adres URL folderu Google Drive"
+
+msgctxt "google_drive_import_button"
+msgid "Import the photos"
+msgstr "Importuj zdjęcia"
+
+msgctxt "google_drive_invalid_folder_url"
+msgid "This is not the URL of a Google Drive folder."
+msgstr "To nie jest adres URL folderu Google Drive."
+
+msgctxt "google_drive_no_api_key"
+msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+msgstr "Importowanie zdjęć z Google Drive jest niedostępne: na tym serwerze nie skonfigurowano klucza API Google Drive."
+
+msgctxt "google_drive_folder_not_found"
+msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+msgstr ""
+
+msgctxt "google_drive_folder_too_many_items"
+msgid "The Google Drive folder contains too many files."
+msgstr "Folder Google Drive zawiera zbyt wiele plików."
+
+msgctxt "google_drive_api_error"
+msgid "Google Drive returned an error."
+msgstr "Google Drive zwrócił błąd."
+
+msgctxt "google_drive_import_listing"
+msgid "Listing the photos of the folder..."
+msgstr "Pobieranie listy zdjęć w folderze..."
+
+msgctxt "google_drive_import_photos_in_folder"
+msgid "Photos in the folder"
+msgstr "Zdjęcia w folderze"
+
+msgctxt "google_drive_import_skipped_files"
+msgid "Files that are not photos (e.g. videos), not imported"
+msgstr "Pliki niebędące zdjęciami (np. filmy), niezaimportowane"
+
+msgctxt "google_drive_import_max_images"
+msgid "The folder contains too many photos, only the first ones are imported"
+msgstr "Folder zawiera zbyt wiele zdjęć, zaimportowano tylko pierwsze z nich"
+
+msgctxt "google_drive_import_photos_processed"
+msgid "Photos processed"
+msgstr "Przetworzone zdjęcia"
+
+msgctxt "job_not_found"
+msgid "The photo import job could not be found."
+msgstr "Nie znaleziono zadania importu zdjęć."
+
+msgctxt "job_failed"
+msgid "The photo import job failed."
+msgstr "Zadanie importu zdjęć nie powiodło się."
+
+msgctxt "post_required"
+msgid "This action requires a POST request."
+msgstr "Ta akcja wymaga żądania POST."
+
+msgctxt "unknown_action"
+msgid "Unknown action."
+msgstr "Nieznana akcja."
+
+msgctxt "google_drive_import_already_running"
+msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
+msgstr "Import zdjęć z Google Drive jest już w toku. Możesz rozpocząć nowy po jego zakończeniu."
