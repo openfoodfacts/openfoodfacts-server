@@ -13,6 +13,7 @@ use JSON;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging
 	qw/aggregate_packaging_by_parent_materials analyze_and_combine_packaging_data get_checked_and_taxonomized_packaging_component_data guess_language_of_packaging_text init_packaging_taxonomies_regexps/;
+use ProductOpener::APIProductWrite qw/update_product_field_api_v2_and_cgi/;
 use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::API qw/get_initialized_response/;
 
@@ -863,5 +864,16 @@ is(
 	}
 
 ) or diag Dumper $product_ref->{packagings_materials};
+
+# Deleting deprecated packaging field
+my $legacy_product_ref = {
+	code => "12345678",
+	packaging => "some deprecated insult",
+	packaging_tags => ["en:some-deprecated-insult"],
+};
+
+update_product_field_api_v2_and_cgi($legacy_product_ref, "en", "packaging", "", "web");
+is($legacy_product_ref->{packaging}, undef, "packaging field is deleted when updated with empty string");
+is($legacy_product_ref->{packaging_tags}, undef, "packaging_tags is deleted when packaging field is cleared");
 
 done_testing();

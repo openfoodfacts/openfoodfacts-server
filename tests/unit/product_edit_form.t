@@ -80,4 +80,26 @@ like($beauty_form_with_nutrition_data,
 	qr{name="no_nutrition_data"},
 	'beauty edit form includes the no nutrition data checkbox when the product has nutrition data');
 
+# Test rendering of legacy packaging input field when present
+my $form_with_legacy_packaging = '';
+my $template_data_ref_packaging = {
+	errors_index => -1,
+	input_sets => {},
+	pers => [],
+	nutrition_feature_enabled => 1,
+	display_field_packaging_legacy => '<input type="text" name="packaging" id="packaging" value="legacy-box" />',
+};
+ok(
+	process_template(
+		'web/pages/product_edit/product_edit_form_display.tt.html',
+		$template_data_ref_packaging, \$form_with_legacy_packaging, {lc => 'en'}
+	),
+	'render product edit form with legacy packaging field'
+);
+like(
+	$form_with_legacy_packaging,
+	qr{name="packaging"},
+	'edit form includes legacy packaging input when display_field_packaging_legacy is provided'
+);
+
 done_testing();
