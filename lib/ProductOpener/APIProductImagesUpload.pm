@@ -260,10 +260,16 @@ sub upload_product_image_api ($request_ref) {
 			my $image_data = decode_base64($request_body_ref->{image_data_base64});
 			open(my $filehandle, '<', \$image_data);
 
+			my $comment = clean_image_comment($request_body_ref->{comment} // $request_body_ref->{photo_comment}
+					// request_param($request_ref, 'comment') // request_param($request_ref, 'photo_comment'));
+			my $upload_comment = "image upload API v3";
+			if (defined $comment && $comment ne '') {
+				$upload_comment .= " - $comment";
+			}
+
 			my $return_code
 				= process_image_upload_using_filehandle($product_ref, $filehandle, $User_id, time(),
-				"image upload API v3",
-				\$imgid, \$debug);
+				$upload_comment, \$imgid, \$debug);
 
 			# A negative return code means that the image upload failed
 			if ($return_code < 0) {
