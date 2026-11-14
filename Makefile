@@ -183,24 +183,34 @@ DOCKER_COMPOSE_BUILD=COMPOSE_FILE="${COMPOSE_FILE_BUILD}" ${DOCKER_COMPOSE}
 # We keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
+#
+# The test stacks get their own default network: otherwise they would join the
+# dev stack's one (product-opener, or product-opener_<id> with `make agent`), and
+# Docker DNS would answer `backend` / world.openfoodfacts.localhost with the dev
+# containers too, at random (403 "Invalid access_token", stale results).
+# With `make agent`, the test frontend is not published on the host either, as
+# PRODUCT_OPENER_PORT is pinned to 80 below and another stack may already use it.
+PO_TEST_NETWORK := $(or $(strip $(PRODUCT_OPENER_NETWORK)),product-opener)_test
+PO_TEST_EXTRA_COMPOSE_FILE := $(if $(strip $(PO_AGENT_ID)),;docker/test-no-host-port.yml,)
 DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" \
 	GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" \
 	ODOO_CRM_URL="" \
 	GOOGLE_DRIVE_API_KEY="" \
 	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
+	PRODUCT_OPENER_NETWORK=${PO_TEST_NETWORK} \
 	OIDC_IMPLEMENTATION_LEVEL=5 \
 	PO_COMMON_PREFIX=test_ \
 	PRODUCT_OPENER_DOMAIN=openfoodfacts.localhost \
 	PRODUCT_OPENER_PORT=80 \
 	MINION_QUEUE=openfoodfacts.localhost \
 	docker compose --env-file=${ENV_FILE}
-DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
+DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml${PO_TEST_EXTRA_COMPOSE_FILE}" \
     REDIS_URL= \
 	${DOCKER_COMPOSE_TEST_BASE}
 # Enable Redis only for integration tests.
 # Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
-DOCKER_COMPOSE_INT_TEST=PRODUCT_OPENER_HOST_PORT= COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
+DOCKER_COMPOSE_INT_TEST=PRODUCT_OPENER_HOST_PORT= COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml${PO_TEST_EXTRA_COMPOSE_FILE}" \
 	REDIS_URL="redis:6379" \
 	${DOCKER_COMPOSE_TEST_BASE}
 
