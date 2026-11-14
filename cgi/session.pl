@@ -75,7 +75,7 @@ if (defined $User_id) {
 
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
-		write_auth_deprecated_headers();
+		write_auth_deprecated_headers({endpoint => 'cgi/session.pl', flow => 'redirect_after_login'});
 		if (defined $request_ref->{cookie}) {
 			$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 		}
@@ -97,7 +97,8 @@ if (single_param('jqm')) {
 	}
 	my $data = encode_json(\%response);
 
-	write_auth_deprecated_headers();
+	write_cors_headers();
+	write_auth_deprecated_headers({endpoint => 'cgi/session.pl', flow => 'jqm_json'});
 	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 }
@@ -125,6 +126,6 @@ else {
 
 	$request_ref->{content_ref} = \$html;
 
-	write_auth_deprecated_headers();
+	write_auth_deprecated_headers({endpoint => 'cgi/session.pl', flow => 'html_page'});
 	display_page($request_ref);
 }
