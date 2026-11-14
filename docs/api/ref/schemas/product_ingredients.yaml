@@ -98,6 +98,22 @@ properties:
       non-empty `ingredient_text`.
   ingredients_text:
     type: string
+  ingredients_without_ciqual_codes:
+    type: array
+    description: List of ingredient taxonomy IDs without a matching CIQUAL food code.
+    items:
+      type: string
+  ingredients_without_ciqual_codes_n:
+    type: integer
+    description: Number of ingredients without a matching CIQUAL food code.
+  ingredients_without_ecobalyse_ids:
+    type: array
+    description: List of ingredient taxonomy IDs without a matching Ecobalyse ID.
+    items:
+      type: string
+  ingredients_without_ecobalyse_ids_n:
+    type: integer
+    description: Number of ingredients without a matching Ecobalyse ID.
     description: |
       Raw list of ingredients. This will get automatically
       parsed and get used to compute the Eco-Score or find allergens, etc..
@@ -166,6 +182,28 @@ properties:
         - type: "string"
   unknown_ingredients_n:
     type: integer
+  specific_ingredients:
+    type: array
+    description: |
+      Specific ingredients extracted from the ingredients list or labels
+      (such as key ingredient percentages, quantities, or origins).
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        ingredient:
+          type: string
+        origins:
+          type: string
+        percent:
+          type: number
+        quantity:
+          type: string
+        quantity_g:
+          type: number
+        quantity_ml:
+          type: number
 
 patternProperties:
   'ingredients_text_(?<language_code>\w\w)':
