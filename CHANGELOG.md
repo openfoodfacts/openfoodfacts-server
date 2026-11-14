@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.122.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.121.0...v2.122.0) (2026-11-14)
+
+
+### Features
+
+* NOVA unknown knowledge panel for the NOVA groups tag page (opt-in) ([#15325](https://github.com/openfoodfacts/openfoodfacts-server/issues/15325)) ([7fbee09](https://github.com/openfoodfacts/openfoodfacts-server/commit/7fbee094fb9d89e98c49ab4b2102c7b48b1a7a05))
+
+
+### Bug Fixes
+
+* capitalize World in countries taxonomy ([#15358](https://github.com/openfoodfacts/openfoodfacts-server/issues/15358)) ([7ecff22](https://github.com/openfoodfacts/openfoodfacts-server/commit/7ecff2246063c593a1e38d7e88f8b3c16e74d1d3))
+* **display:** do not compare products to categories that are not taxonomized ([#6853](https://github.com/openfoodfacts/openfoodfacts-server/issues/6853)) ([#15330](https://github.com/openfoodfacts/openfoodfacts-server/issues/15330)) ([dc76dd6](https://github.com/openfoodfacts/openfoodfacts-server/commit/dc76dd63d6889b4a2a430051b7f687db812e4e60))
+* **security:** check that the account is in the organization before removing it ([#14890](https://github.com/openfoodfacts/openfoodfacts-server/issues/14890)) ([ccf491c](https://github.com/openfoodfacts/openfoodfacts-server/commit/ccf491ca6c046dfa22fc880bd44b1692b9055152))
+
 ## [2.121.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.120.0...v2.121.0) (2026-11-10)
 
 
