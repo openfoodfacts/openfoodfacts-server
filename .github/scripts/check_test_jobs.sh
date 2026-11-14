@@ -5,12 +5,14 @@
 # CODE_MODIFIED, MATRIX_RESULT, UNIT_RESULT, INTEGRATION_RESULT and EVENT_NAME.
 set -euo pipefail
 
-if [ "$FILTER_RESULT" != success ] || [ "$BUILD_RESULT" != success ]; then
-  echo "The path filter and backend build must succeed."
+if [ "$FILTER_RESULT" != success ]; then
+  echo "The path filter must succeed."
   exit 1
 fi
 case "$CODE_MODIFIED" in
   true)
+    # Code changed: backend build and test matrix must have run successfully.
+    [ "$BUILD_RESULT" = success ] || exit 1
     [ "$MATRIX_RESULT" = success ] && [ "$UNIT_RESULT" = success ] || exit 1
     case "$EVENT_NAME" in
       pull_request) [ "$INTEGRATION_RESULT" = success ] || exit 1 ;;
@@ -19,6 +21,12 @@ case "$CODE_MODIFIED" in
     esac
     ;;
   false)
+    # Docs-only: backend build is skipped (see build_backend gating on
+    # code_modified), so allow success (e.g. manual run) or skipped.
+    case "$BUILD_RESULT" in
+      success|skipped) ;;
+      *) exit 1 ;;
+    esac
     [ "$MATRIX_RESULT" = skipped ] && [ "$UNIT_RESULT" = skipped ] \
       && [ "$INTEGRATION_RESULT" = skipped ] || exit 1
     ;;

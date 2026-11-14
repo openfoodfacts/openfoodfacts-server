@@ -11,6 +11,11 @@ on:
   push:
     # on merge to main, build and publish
     branches: [ "main" ]
+    paths:
+    - "docs/**"
+    - ".github/workflows/generate-doc.yml"
+    - "mkdocs.yml"
+    - ".spectral.yaml"
 
 permissions:
   contents: read
