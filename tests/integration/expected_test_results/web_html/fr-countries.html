@@ -192,7 +192,7 @@
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
-									<select id="select_country" style="width:100%" data-placeholder="Pays">
+									<select id="select_country" style="width:100%" data-placeholder="Pays" data-search-placeholder="Search for a country…">
 										<option></option>
 									</select>
 								</li>
@@ -647,6 +647,9 @@ let oTable = $('#tagstable').DataTable({
 
 <script>
 $(document).foundation({
+	topbar: {
+		back_text: 'Back'
+	},
 	equalizer : {
 		equalize_on_stack: true
 	},
@@ -656,6 +659,8 @@ $(document).foundation({
 		}
 	}
 });
+
+$('.top-bar .back h5 > a').attr('aria-label', 'Back');
 
 </script>
 <script type="application/ld+json">
