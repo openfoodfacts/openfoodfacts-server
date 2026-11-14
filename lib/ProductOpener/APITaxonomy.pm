@@ -29,6 +29,7 @@ ProductOpener::APITaxonomy - implementation of APIs to canonicalize taxonomy tag
 package ProductOpener::APITaxonomy;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Auth qw/require_scope_if_token_present/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -69,6 +70,8 @@ Reference to the request object.
 =cut
 
 sub taxonomy_canonicalize_tags_api ($request_ref) {
+
+	return if (not require_scope_if_token_present($request_ref, 'products:read'));
 
 	my $response_ref = $request_ref->{api_response};
 
@@ -147,6 +150,8 @@ Reference to the request object.
 =cut
 
 sub taxonomy_display_tags_api ($request_ref) {
+
+	return if (not require_scope_if_token_present($request_ref, 'products:read'));
 
 	my $response_ref = $request_ref->{api_response};
 

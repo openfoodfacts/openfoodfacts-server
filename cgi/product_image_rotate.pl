@@ -29,6 +29,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Products qw/normalize_code product_id_for_owner product_path_from_id/;
 use ProductOpener::Display qw/init_request/;
+use ProductOpener::Auth qw/enforce_scope_if_token_present/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 
@@ -37,6 +38,8 @@ use CGI qw/:cgi :form escapeHTML/;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
+
+enforce_scope_if_token_present($request_ref, 'products:write');
 
 my $code = normalize_code(single_param('code'));
 my $product_id = product_id_for_owner($Owner_id, $code);

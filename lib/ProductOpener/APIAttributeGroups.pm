@@ -29,6 +29,7 @@ ProductOpener::APITaxonomy - implementation of APIs to return the list of availa
 package ProductOpener::APIAttributeGroups;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Auth qw/require_scope_if_token_present/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -113,6 +114,8 @@ Reference to the request object.
 
 sub preferences_api ($request_ref) {
 
+	return if (not require_scope_if_token_present($request_ref, 'products:read'));
+
 	my $response_ref = $request_ref->{api_response};
 
 	my $target_lc = $request_ref->{lc};
@@ -172,6 +175,8 @@ This parameter sets the desired language for the user facing strings.
 =cut
 
 sub display_attribute_groups_api ($request_ref, $target_lc) {
+
+	return if (not require_scope_if_token_present($request_ref, 'products:read'));
 
 	if (not defined $target_lc) {
 		$target_lc = $lc;
