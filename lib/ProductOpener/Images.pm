@@ -2415,17 +2415,24 @@ sub compute_orientation_from_cloud_vision_annotations ($annotations_ref) {
 	return;
 }
 
-=head2 select_ocr_engine ($requested_ocr_engine)
+=head2 select_ocr_engine ($requested_ocr_engine, $requested_from_request)
 
 Select the OCR engine to use based on the requested OCR engine and the available engines.
 
-If the requested OCR engine is not available, we return the first available one.
+If the requested OCR engine is not available, we return the first available one. A requested
+engine that comes from a request parameter is ignored: the paid engine is chosen by the server,
+not by the caller.
 
 =head3 Arguments
 
 =head4 $requested_ocr_engine
 
 Either 'tesseract' or 'google_cloud_vision'.
+
+=head4 $requested_from_request
+
+Set to 1 if $requested_ocr_engine was read from a request parameter, so that the request cannot
+select the paid OCR engine.
 
 =head3 Return values
 
@@ -2435,15 +2442,25 @@ Either 'tesseract' or 'google_cloud_vision'.
 
 =cut
 
-sub select_ocr_engine($requested_ocr_engine) {
+sub select_ocr_engine($requested_ocr_engine, $requested_from_request = 0) {
 
 	my $ocr_engine;
 
-	if ($requested_ocr_engine eq 'tesseract') {
+	# A value that comes from a request parameter must not be able to select the paid engine: it
+	# lets the caller decide who pays for the call. The default below is the engine we are willing
+	# to use, and it is chosen by the server.
+	if ((not $requested_from_request) and (defined $requested_ocr_engine) and ($requested_ocr_engine eq 'tesseract')) {
 		$ocr_engine = 'tesseract' if $ProductOpener::Config::tesseract_ocr_available;
 	}
-	elsif ($requested_ocr_engine eq 'google_cloud_vision') {
+	elsif ( (not $requested_from_request)
+		and (defined $requested_ocr_engine)
+		and ($requested_ocr_engine eq 'google_cloud_vision'))
+	{
 		$ocr_engine = 'google_cloud_vision' if $ProductOpener::Config::google_cloud_vision_api_key;
+	}
+	elsif ($requested_from_request) {
+		$log->info("ignoring the OCR engine asked for in the request", {requested_ocr_engine => $requested_ocr_engine})
+			if $log->is_info();
 	}
 
 	# Default to google cloud vision if available, otherwise tesseract if available, otherwise return undef
@@ -2497,11 +2514,13 @@ A hash reference to store the results.
 
 =cut
 
-sub extract_text_from_image ($product_ref, $image_type, $image_lc, $field, $requested_ocr_engine, $results_ref) {
+sub extract_text_from_image ($product_ref, $image_type, $image_lc, $field, $requested_ocr_engine, $results_ref,
+	$ocr_engine_from_request = 0)
+{
 
 	delete $product_ref->{$field};
 
-	my $ocr_engine = select_ocr_engine($requested_ocr_engine);
+	my $ocr_engine = select_ocr_engine($requested_ocr_engine, $ocr_engine_from_request);
 
 	# Return if the OCR engine is undef
 	if (not defined $ocr_engine) {
@@ -2682,7 +2701,8 @@ sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs
 
 	print($gv_logs "CV:sending to $url\n");
 
-	my $ua = create_user_agent();
+	# A stalled call to Cloud Vision would otherwise keep the worker busy for the default timeout
+	my $ua = create_user_agent(timeout => $ProductOpener::Config::google_cloud_vision_timeout // 30);
 
 	open(my $IMAGE, "<", $image_path) || die "Could not read $image_path: $!\n";
 	binmode($IMAGE);

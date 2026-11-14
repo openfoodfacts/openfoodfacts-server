@@ -49,6 +49,7 @@ BEGIN {
 		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
+		$google_cloud_vision_timeout
 
 		$crowdin_project_identifier
 		$crowdin_project_key
@@ -263,6 +264,7 @@ $geolite2_path = $ProductOpener::Config2::geolite2_path;
 $tesseract_ocr_available = $ProductOpener::Config2::tesseract_ocr_available;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 $google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
+$google_cloud_vision_timeout = $ProductOpener::Config2::google_cloud_vision_timeout;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;

@@ -108,10 +108,12 @@ Extract packaging data from packaging info / recycling instructions photo.
 
 =cut
 
-sub extract_packaging_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
+sub extract_packaging_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref,
+	$ocr_engine_from_request = 0)
+{
 
 	extract_text_from_image($product_ref, $image_type, $image_lc, "packaging_text_from_image", $ocr_engine,
-		$results_ref);
+		$results_ref, $ocr_engine_from_request);
 
 	# TODO: extract structured data from the text
 	if (($results_ref->{status} == 0) and (defined $results_ref->{packaging_text_from_image})) {
