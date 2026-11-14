@@ -1,0 +1,72 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "additive_facts" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p><strong>Fonctions</strong> :</p>\n<ul>\n<li><strong>Colorant</strong> : Les colorants sont des substances qui ajoutent ou redonnent de la couleur à des denrées alimentaires; il peut s'agir de constituants naturels de denrées alimentaires ou d'autres substances naturelles qui ne sont pas normalement consommés comme aliments en soi et qui ne sont pas habituellement utilisés comme ingrédients caractéristiques dans l'alimentation.</li>\n</ul>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Végétalien, Végétarien</p>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p><strong>Evaluation de l'EFSA</strong> : Scientific Opinion on the re-evaluation of curcumin -E 100- as a food additive (2010-09-06)</p>",
+                     "source_text" : "EFSA",
+                     "source_url" : "http://dx.doi.org/10.2903/j.efsa.2010.1679"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "E100 - Curcumine"
+            },
+            "topics" : [
+               "additives"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_facts"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "en:e100",
+      "tagtype" : "additives"
+   },
+   "tagid" : "e100",
+   "tagtype" : "additives",
+   "warnings" : []
+}

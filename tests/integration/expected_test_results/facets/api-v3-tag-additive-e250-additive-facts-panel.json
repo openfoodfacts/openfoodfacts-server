@@ -1,0 +1,76 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "additive_facts" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<strong>Sodium nitrite:</strong> Sodium nitrite is the inorganic compound with the chemical formula NaNO2. It is a white to slightly yellowish crystalline powder that is very soluble in water and is hygroscopic. It is a useful precursor to a variety of organic compounds, such as pharmaceuticals, dyes, and pesticides, but it is probably best known as a food additive to prevent botulism. It is on the World Health Organization's List of Essential Medicines, the most important medications needed in a basic health system.Nitrate or nitrite -ingested- under conditions that result in endogenous nitrosation has been classified as \"probably carcinogenic to humans\" by International Agency for Research on Cancer -IARC-.",
+                     "source_language" : "English",
+                     "source_lc" : "en",
+                     "source_text" : "Wikipedia",
+                     "source_url" : "https://en.wikipedia.org/wiki/Sodium nitrite"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p><strong>Functions</strong>:</p>\n<ul>\n<li><strong>Preservative</strong>: Preservatives are substances which prolong the shelf-life of foods by protecting them against deterioration caused by micro-organisms and/or which protect against growth of pathogenic micro-organisms.</li>\n</ul>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Vegan, Vegetarian</p>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p><strong>EFSA evaluation</strong>: Re-evaluation of potassium nitrite -E 249- and sodium nitrite -E 250- as food additives (2017/06/15)</p>",
+                     "source_text" : "EFSA",
+                     "source_url" : "https://zenodo.org/record/1252752/files/EFSAOutputs_KJ_2018.xlsx"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "E250 - Sodium nitrite"
+            },
+            "topics" : [
+               "additives"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_facts"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "en:e250",
+      "tagtype" : "additives"
+   },
+   "tagid" : "e250",
+   "tagtype" : "additives",
+   "warnings" : []
+}

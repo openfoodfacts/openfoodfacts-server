@@ -1,0 +1,76 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "additive_facts" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<strong>Citric acid:</strong> Citric acid is a weak organic acid that has the chemical formula C6H8O7. It occurs naturally in citrus fruits. In biochemistry, it is an intermediate in the citric acid cycle, which occurs in the metabolism of all aerobic organisms. More than a million tons of citric acid are manufactured every year. It is used  widely as an acidifier, as a flavoring and chelating agent.A citrate is a derivative of citric acid; that is, the salts, esters, and the polyatomic anion found in solution. An example of the former, a salt is trisodium citrate; an ester is triethyl citrate. When part of a salt, the formula of the citrate ion is written as C6H5O3−7 or C3H5O-COO-3−3.",
+                     "source_language" : "English",
+                     "source_lc" : "en",
+                     "source_text" : "Wikipedia",
+                     "source_url" : "https://en.wikipedia.org/wiki/Citric acid"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p><strong>Functions</strong>:</p>\n<ul>\n<li><strong>Antioxidant</strong>: Antioxidants are substances which prolong the shelf-life of foods by protecting them against deterioration caused by oxidation, such as fat rancidity and colour changes.</li>\n<li><strong>Sequestrant</strong>: Sequestrants are substances which form chemical complexes with metallic ions.</li>\n</ul>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Vegan, Vegetarian</p>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p><strong>EFSA evaluation</strong>: Scientific Opinion on the safety evaluation of the active substances citric acid -E330- and sodium hydrogen carbonate -E500ii-, used as carbon dioxide generators, together with liquid absorbers cellulose and polyacrylic acid sodium salt crosslinked, in active food contact materials. (2013-04-09)</p>",
+                     "source_text" : "EFSA",
+                     "source_url" : "http://dx.doi.org/10.2903/j.efsa.2013.3152"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "E330 - Citric acid"
+            },
+            "topics" : [
+               "additives"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_facts"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "en:e330",
+      "tagtype" : "additives"
+   },
+   "tagid" : "e330",
+   "tagtype" : "additives",
+   "warnings" : []
+}

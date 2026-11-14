@@ -647,6 +647,9 @@ paths:
 
         NOVA groups:
         - Unknown NOVA group (on request): why the NOVA group of some products is unknown
+
+        Additives:
+        - Additive facts: description, functions and their purpose, vegan and vegetarian status, and a link to its EFSA evaluation
   /api/v3/product_revert:
     parameters: []
     post:
