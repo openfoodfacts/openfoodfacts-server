@@ -162,6 +162,49 @@ product_with_type_and_code_has_quality_tag('food', '976000000000', 'en:gs1-coupo
 product_with_type_and_code_has_quality_tag('food', '9760000000000', 'en:gs1-coupon-prefix',
 	'product with GTIN-13 has no gs1-coupon-prefix tag because of the barcode prefix 976', 0);
 
+foreach my $test_ref (
+	['merguez😉', 1],
+	['Grany Fraise 🍓 & Framboise', 1],
+	['Café ☕', 1],
+	['Cœur ❤️ fondant', 1],
+	['Sauce 🌶', 1],
+	['🇫🇷 Saucisson', 1],
+	['Pack 1️⃣', 1],
+	['All☆Star', 0],
+	['Nutella®', 0],
+	['Coca-Cola™', 0],
+	['I ♥ NY', 0],
+	['Pâte à tartiner ★★★', 0],
+	['Lait demi-écrémé', 0],
+	)
+{
+	my ($product_name, $expected) = @$test_ref;
+	check_quality_and_test_product_has_quality_tag(
+		{product_type => 'food', code => '3000000000000', product_name => $product_name},
+		'en:product-name-contains-emoji',
+		"product name '$product_name' " . ($expected ? 'contains' : 'does not contain') . ' emoji', $expected
+	);
+}
+
+check_quality_and_test_product_has_quality_tag(
+	{
+		product_type => 'food',
+		code => '3000000000000',
+		languages_codes => {en => 1, fr => 1},
+		product_name_en => 'Sausages',
+		product_name_fr => 'merguez😉',
+	},
+	'en:product-name-contains-emoji',
+	'emoji in the product name of a language other than the main language',
+	1
+);
+
+check_quality_and_test_product_has_quality_tag(
+	{product_type => 'food', code => '3000000000000'},
+	'en:product-name-contains-emoji',
+	'product without a product name', 0
+);
+
 # Products can be reclassified before being moved to the destination server.
 # Food checks require a food product and food server; common checks remain enabled.
 foreach my $private_products (0, 1) {

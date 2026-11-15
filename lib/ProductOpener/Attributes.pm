@@ -1016,6 +1016,11 @@ sub compute_attribute_nova ($product_ref, $target_lc) {
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nova_unknown_title");
 			$attribute_ref->{description} = lang_in_other_lc($target_lc, "attribute_nova_unknown_description");
+			# When we know why the NOVA group could not be computed, explain it
+			if (defined $product_ref->{nova_group_error}) {
+				$attribute_ref->{description}
+					= lang_in_other_lc($target_lc, "nova_group_" . $product_ref->{nova_group_error});
+			}
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_nova_unknown_description_short");
 		}

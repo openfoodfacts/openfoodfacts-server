@@ -1,0 +1,53 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "nova_unknown" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<ul>\n<li>The category of the product must be specified in order to determine the NOVA group.</li>\n<li>The ingredients of the product must be specified in order to determine the NOVA group.</li>\n<li>We could not recognize some of the ingredients and determine the NOVA group.</li>\n</ul>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-unknown.svg",
+               "title" : "Why the NOVA group of some products is unknown"
+            },
+            "topics" : [
+               "nova_groups"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nova_unknown"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "en:unknown",
+      "tagtype" : "nova_groups"
+   },
+   "tagid" : "unknown",
+   "tagtype" : "nova_groups",
+   "warnings" : []
+}

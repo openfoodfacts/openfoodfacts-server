@@ -4,6 +4,11 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use ProductOpener::Config qw/%options/;
 use ProductOpener::Nutrition qw/:all/;
+use ProductOpener::Food qw/check_availability_of_nutrients_needed_for_nutriscore/;
+use ProductOpener::Tags qw/init_taxonomies/;
+
+# Initialize taxonomies so nutrient units (e.g. % for crude-protein, crude-ash) are available
+init_taxonomies(0);
 
 # Concentrations and dimensionless values do not change with the quantity of product
 for my $unit ('%', '% vol', '', 'mmol/l') {
@@ -51,6 +56,287 @@ for my $unit ('%', '% vol', '', 'mmol/l') {
 	is($aggregate->{nutrients}{'energy-kcal'}{value}, 3800, 'an energy per 100g is multiplied by 10 for a kilogram');
 	is($aggregate->{nutrients}{'crude-protein'}{value}, 25, 'a percentage per 100g does not change');
 	is($aggregate->{nutrients}{'crude-ash'}{value}, 6, 'a percentage per serving does not change');
+}
+
+# GitHub issue #14505: Nutri-Score is not calculated when packaging provides only energy-kcal
+# and an estimated nutrient set provides energy-kj
+{
+	# Case 1 (Scenario A): Packaging contains energy-kcal = 450, no energy-kj.
+	# Estimated nutrient set provides energy-kj = 1286.29.
+	# Aggregation must preserve packaging energy as authoritative for normalized energy
+	# and must not allow lower-priority estimated energy to override packaging energy.
+	my $inputs = [
+		{
+			source => 'packaging',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kcal' => {value => 450, unit => 'kcal'},
+				'fat' => {value => 17, unit => 'g'},
+				'saturated-fat' => {value => 11, unit => 'g'},
+				'sugars' => {value => 23, unit => 'g'},
+				'proteins' => {value => 10, unit => 'g'},
+				'sodium' => {value => 0.075, unit => 'g'},
+			}
+		},
+		{
+			source => 'estimate',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kj' => {value => 1286.29, unit => 'kJ'},
+				'fat' => {value => 15, unit => 'g'},
+				'sugars' => {value => 20, unit => 'g'},
+			}
+		}
+	];
+	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
+
+	# Energy is derived from packaging energy-kcal (int(450 * 4.184) = 1882 kJ)
+	is($aggregate->{nutrients}{energy}{value}, 1882, 'energy value derived from packaging energy-kcal');
+	is($aggregate->{nutrients}{energy}{unit}, 'kJ', 'energy unit is kJ');
+	is($aggregate->{nutrients}{energy}{source}, 'packaging', 'energy source is packaging');
+	is($aggregate->{nutrients}{'energy-kcal'}{value}, 450, 'energy-kcal preserved from packaging');
+	is($aggregate->{nutrients}{'energy-kcal'}{source}, 'packaging', 'energy-kcal source is packaging');
+
+	# Estimated energy-kj is present as estimated nutrient, but does not override packaging energy
+	is($aggregate->{nutrients}{'energy-kj'}{value}, 1286.29, 'estimated energy-kj populated in aggregate');
+	is($aggregate->{nutrients}{'energy-kj'}{source}, 'estimate', 'energy-kj source is estimate');
+
+	# Nutri-Score availability check must succeed without mixed-sources rejection
+	my $product_ref = {
+		categories_tags => ['en:breakfast-cereals'],
+		nutrition_score_debug => '',
+		nutrition => {
+			aggregated_set => $aggregate,
+		},
+	};
+	my ($nutrients_available, $preparation, $estimated)
+		= check_availability_of_nutrients_needed_for_nutriscore($product_ref);
+	is($nutrients_available, 1, 'nutrients_available is 1 for Nutri-Score');
+	is($estimated, 0, 'nutrients are not flagged as estimated');
+	ok(!defined $product_ref->{nutrition_grades_tags} || $product_ref->{nutrition_grades_tags}[0] ne 'unknown',
+		'nutrition_grades_tags is not set to unknown');
+}
+
+# Neighbouring Test 1 (Scenario B): Existing valid packaging energy-kj remains correct when estimate exists
+{
+	my $inputs = [
+		{
+			source => 'packaging',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kj' => {value => 1883, unit => 'kJ'},
+				'energy-kcal' => {value => 450, unit => 'kcal'},
+			}
+		},
+		{
+			source => 'estimate',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kj' => {value => 1200, unit => 'kJ'},
+			}
+		}
+	];
+	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
+	is($aggregate->{nutrients}{'energy-kj'}{value}, 1883, 'packaging energy-kj value preserved');
+	is($aggregate->{nutrients}{'energy-kj'}{source}, 'packaging', 'packaging energy-kj source preserved');
+	is($aggregate->{nutrients}{'energy-kcal'}{value}, 450, 'packaging energy-kcal value preserved');
+	is($aggregate->{nutrients}{'energy-kcal'}{source}, 'packaging', 'packaging energy-kcal source preserved');
+	is($aggregate->{nutrients}{energy}{value}, 1883, 'energy equals packaging energy-kj');
+	is($aggregate->{nutrients}{energy}{source}, 'packaging', 'energy source is packaging');
+}
+
+# Neighbouring Test 2 (Scenario C): kcal-only packaging data handled correctly with no lower-priority sets
+{
+	my $inputs = [
+		{
+			source => 'packaging',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kcal' => {value => 450, unit => 'kcal'},
+			}
+		}
+	];
+	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
+	is($aggregate->{nutrients}{'energy-kcal'}{value}, 450, 'energy-kcal preserved');
+	is($aggregate->{nutrients}{'energy-kcal'}{source}, 'packaging', 'energy-kcal source is packaging');
+	is($aggregate->{nutrients}{energy}{value}, 1882, 'energy derived in kJ');
+	is($aggregate->{nutrients}{energy}{unit}, 'kJ', 'energy unit is kJ');
+	is($aggregate->{nutrients}{energy}{source}, 'packaging', 'energy source is packaging');
+	ok(!exists $aggregate->{nutrients}{'energy-kj'}, 'energy-kj does not exist in aggregate');
+}
+
+# Neighbouring Test 3 (Scenario D): Estimated energy remains usable when no higher-priority energy information exists
+{
+	my $inputs = [
+		{
+			source => 'packaging',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'proteins' => {value => 10, unit => 'g'},
+			}
+		},
+		{
+			source => 'estimate',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kj' => {value => 1286.29, unit => 'kJ'},
+			}
+		}
+	];
+	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
+	is($aggregate->{nutrients}{'energy-kj'}{value},
+		1286.29, 'estimated energy-kj populated when no higher-priority energy exists');
+	is($aggregate->{nutrients}{'energy-kj'}{source}, 'estimate', 'energy-kj source is estimate');
+	is($aggregate->{nutrients}{energy}{value}, 1286.29, 'energy populated from estimate');
+	is($aggregate->{nutrients}{energy}{source}, 'estimate', 'energy source is estimate');
+	is($aggregate->{nutrients}{proteins}{source}, 'packaging', 'proteins source preserved from packaging');
+}
+
+# Neighbouring Test 4 (Scenario E): Existing source-priority behaviour is preserved (manufacturer vs packaging)
+{
+	my $inputs = [
+		{
+			source => 'manufacturer',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kcal' => {value => 200, unit => 'kcal'},
+			}
+		},
+		{
+			source => 'packaging',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kj' => {value => 1000, unit => 'kJ'},
+			}
+		}
+	];
+	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
+	is($aggregate->{nutrients}{'energy-kcal'}{value}, 200, 'manufacturer energy-kcal preserved');
+	is($aggregate->{nutrients}{'energy-kcal'}{source}, 'manufacturer', 'energy-kcal source is manufacturer');
+	is($aggregate->{nutrients}{'energy-kj'}{value}, 1000, 'packaging energy-kj value preserved');
+	is($aggregate->{nutrients}{'energy-kj'}{source}, 'packaging', 'packaging energy-kj source is packaging');
+	is($aggregate->{nutrients}{energy}{value}, 836, 'energy derived from manufacturer energy-kcal');
+	is($aggregate->{nutrients}{energy}{source}, 'manufacturer', 'energy source is manufacturer');
+}
+
+# Neighbouring Test 5 (Scenario F): Input ordering varied (estimate first, packaging second)
+{
+	my $inputs = [
+		{
+			source => 'estimate',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kj' => {value => 1286.29, unit => 'kJ'},
+			}
+		},
+		{
+			source => 'packaging',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kcal' => {value => 450, unit => 'kcal'},
+			}
+		}
+	];
+	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
+	is($aggregate->{nutrients}{energy}{value},
+		1882, 'energy value derived from packaging even if passed after estimate');
+	is($aggregate->{nutrients}{energy}{source}, 'packaging',
+		'energy source is packaging even if passed after estimate');
+	is($aggregate->{nutrients}{'energy-kcal'}{value}, 450, 'energy-kcal preserved from packaging');
+	is($aggregate->{nutrients}{'energy-kcal'}{source}, 'packaging', 'energy-kcal source is packaging');
+	is($aggregate->{nutrients}{'energy-kj'}{value}, 1286.29, 'energy-kj populated from estimate');
+	is($aggregate->{nutrients}{'energy-kj'}{source}, 'estimate', 'energy-kj source is estimate');
+}
+
+# Neighbouring Test 6 (Scenario G): Missing or undefined energy values handled properly
+{
+	my $inputs = [
+		{
+			source => 'packaging',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kj' => {value => undef, unit => 'kJ'},
+				'energy-kcal' => {value => 450, unit => 'kcal'},
+			}
+		},
+		{
+			source => 'estimate',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kj' => {value => 1200, unit => 'kJ'},
+			}
+		}
+	];
+	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
+	is($aggregate->{nutrients}{energy}{value}, 1882, 'energy derived from defined energy-kcal when energy-kj is undef');
+	is($aggregate->{nutrients}{energy}{source}, 'packaging', 'energy source is packaging when energy-kj is undef');
+}
+{
+	my $inputs = [
+		{
+			source => 'packaging',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kj' => {value => undef, unit => 'kJ'},
+			}
+		},
+		{
+			source => 'estimate',
+			preparation => 'as_sold',
+			per => '100g',
+			per_quantity => 100,
+			per_unit => 'g',
+			nutrients => {
+				'energy-kj' => {value => 1200, unit => 'kJ'},
+			}
+		}
+	];
+	my $aggregate = generate_nutrient_aggregated_set_from_sets($inputs);
+	is($aggregate->{nutrients}{energy}{value}, 1200, 'energy falls back to estimate when packaging energy is undef');
+	is($aggregate->{nutrients}{energy}{source},
+		'estimate', 'energy source falls back to estimate when packaging energy is undef');
 }
 
 done_testing();

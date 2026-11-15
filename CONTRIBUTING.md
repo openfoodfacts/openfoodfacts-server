@@ -12,6 +12,11 @@ When contributing to this repository, please first discuss the change you wish t
 
 To get started running the server in development mode, see [Dev environment quick start guide](./docs/dev/how-to-quick-start-guide.md)
 
+If you work in several git worktrees (or run several agents) on the same machine,
+give each one its own container names, domain and port with `make agent` (no
+arguments needed, it allocates a free id and port) before `make dev`, otherwise
+they will fight over port 80 and over Docker DNS names. See [How to run several worktrees on one machine](./docs/dev/how-to-run-several-worktrees.md).
+
 ### Pull Request Process
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
