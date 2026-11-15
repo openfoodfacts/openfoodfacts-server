@@ -22,7 +22,7 @@
 
 use autodie;
 use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use experimental qw/switch/;
 
 use ProductOpener::Config qw/:all/;

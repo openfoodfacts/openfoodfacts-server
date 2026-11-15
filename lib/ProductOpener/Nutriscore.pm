@@ -391,6 +391,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 	# negative points
 
 	$nutriscore_data_ref->{negative_points} = 0;
+	$nutriscore_data_ref->{negative_points_max} = 0;
 	foreach my $nutrient ("energy", "sugars", $saturated_fat, "sodium") {
 		$nutriscore_data_ref->{negative_points} += $nutriscore_data_ref->{$nutrient . "_points"};
 	}
@@ -402,6 +403,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 	# If the product is a cheese, always count the proteins points
 
 	$nutriscore_data_ref->{positive_points} = 0;
+	$nutriscore_data_ref->{positive_points_max} = 0;
 
 	my @positive_nutrients = qw(fruits_vegetables_nuts_colza_walnut_olive_oils fiber);
 
@@ -776,6 +778,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	}
 
 	$nutriscore_data_ref->{negative_points} = 0;
+	$nutriscore_data_ref->{negative_points_max} = 0;
 
 	foreach my $nutrient (@$negative_components) {
 		my $points = ($nutriscore_data_ref->{$nutrient . "_points"} || 0);
@@ -794,6 +797,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	# positive points
 
 	$nutriscore_data_ref->{positive_points} = 0;
+	$nutriscore_data_ref->{positive_points_max} = 0;
 	$nutriscore_data_ref->{positive_nutrients} = ["fiber", "fruits_vegetables_legumes"];
 
 	# positive points for proteins are counted in the following 3 cases:
@@ -943,4 +947,3 @@ sub compute_nutriscore_grade_2023 ($nutrition_score, $is_beverage, $is_water, $i
 %points_thresholds = %points_thresholds_2021;
 
 1;
-

@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 #11872 Use PO Storable
@@ -46,9 +46,8 @@ my @products = ();
 
 my $d = 0;
 
-sub find_products($) {
+sub find_products ($dir) {
 
-	my $dir = shift;
 	my $next = product_iter($dir, qr/^(([0-9]+))/);
 	while (my $file = $next->()) {
 		push @products, [$file, $1];

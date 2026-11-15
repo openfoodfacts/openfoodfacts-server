@@ -2,6 +2,8 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
+         "ecobalyse_proxy_id" : "f2f3c3f0-c7d1-4a3c-ad2f-f3659c9b546b",
+         "ecobalyse_proxy_name" : "Lait de soja FR -2025-",
          "id" : "en:soy-base",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 42.65,
@@ -13,8 +15,8 @@
       },
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-         "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 26.525,
@@ -41,10 +43,14 @@
       },
       {
          "ciqual_food_code" : "18041",
+         "ecobalyse_id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6",
+         "ecobalyse_name" : "Noix de coco décortiquée HORS UE",
          "id" : "en:coconut-milk",
          "ingredients" : [
             {
                "ciqual_food_code" : "18041",
+               "ecobalyse_id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6",
+               "ecobalyse_name" : "Noix de coco décortiquée HORS UE",
                "id" : "en:coconut-cream",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 3.225,
@@ -56,8 +62,8 @@
             },
             {
                "ciqual_food_code" : "18066",
-               "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
+               "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "en:water",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 1.075,
@@ -355,8 +361,6 @@
    ],
    "ingredients_without_ciqual_codes_n" : 14,
    "ingredients_without_ecobalyse_ids" : [
-      "en:coconut-cream",
-      "en:coconut-milk",
       "en:e304",
       "en:e307b",
       "en:e330",
@@ -367,12 +371,11 @@
       "en:lactic-ferments",
       "en:lactobacillus-bulgaricus",
       "en:natural-flavouring",
-      "en:soy-base",
       "en:streptococcus-thermophilus",
       "en:vitamin-b12",
       "en:vitamins"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 16,
+   "ingredients_without_ecobalyse_ids_n" : 13,
    "known_ingredients_n" : 21,
    "lc" : "de",
    "misc_tags" : [

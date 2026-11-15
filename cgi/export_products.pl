@@ -35,6 +35,7 @@ use ProductOpener::Users qw/$Org_id $Owner_id $User_id %Org %User/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Mail qw/send_email_to_producers_admin/;
+use ProductOpener::Products qw/is_valid_code/;
 use ProductOpener::Producers qw/export_and_import_to_public_database/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 
@@ -62,13 +63,36 @@ if (not defined $Owner_id) {
 	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 }
 
+# Product fields the caller is not allowed to filter on through the query_* parameters.
+#
+# owner / owners_tags carry the tenant scope: that scope is applied as a predicate on the
+# products selected below, and is not a filter the caller gets to choose. Letting a
+# query_owner parameter overwrite it would let any logged-in producer select and export
+# another organization's private, unpublished products.
+# _id is internal state that has no meaning as a caller-supplied filter.
+my %reserved_query_fields = (owner => 1, owners_tags => 1, _id => 1);
+
 # Require moderator status to launch the export / import process,
 # unless there is only one product specified through the ?query_code= parameter
 # or if the organization has the permission enable_manual_export_to_public_platform checked
+#
+# A query_code parameter is not on its own an authorization: it must name exactly one
+# valid product, and that product must belong to the caller. Counting it through
+# count_products() reuses the owner filter that every other product listing applies
+# (see ProductOpener::Display::add_country_and_owner_filters_to_query), so a
+# query_code naming someone else's product does not unlock the export.
+
+my $single_product_owned = 0;
+
+my $query_code = single_param("query_code");
+
+if ((defined $query_code) and ($query_code ne "") and is_valid_code($query_code)) {
+	$single_product_owned = (count_products({}, {code => $query_code}) > 0) ? 1 : 0;
+}
 
 my $allow_submit = (
 		   $User{moderator}
-		or (defined single_param("query_code"))
+		or $single_product_owned
 		or ((defined $Org{enable_manual_export_to_public_platform})
 		and ($Org{enable_manual_export_to_public_platform} eq "on"))
 );
@@ -82,7 +106,7 @@ if ($action eq "display") {
 	my $query_ref = {};
 
 	foreach my $param (multi_param()) {
-		if ($param =~ /^query_/) {
+		if (($param =~ /^query_/) and (not $reserved_query_fields{$'})) {
 			my $field = $';
 			my $value = remove_tags_and_quote(decode utf8 => single_param($param));
 
@@ -130,13 +154,21 @@ elsif (($action eq "process") and $allow_submit) {
 	my $args_ref = {query => {owner => $Owner_id, "data_quality_errors_producers_tags.0" => {'$exists' => false}},};
 
 	# Add query filters
+	# Reserved fields are skipped: see %reserved_query_fields above.
 
 	foreach my $param (multi_param()) {
-		if ($param =~ /^query_/) {
+		if (($param =~ /^query_/) and (not $reserved_query_fields{$'})) {
 			my $query = $';
 			$args_ref->{query}{$query} = remove_tags_and_quote(decode utf8 => single_param($param));
 		}
 	}
+
+	# Re-assert the tenant scope after merging the caller's filters, so that the export is
+	# always restricted to the products of the caller's own organization or user account.
+	# This mirrors the read path, where the owner filter is applied after the caller's
+	# filters have been merged (see ProductOpener::Display::add_country_and_owner_filters_to_query).
+	$args_ref->{query}{owner} = $Owner_id;
+
 	if (not((defined single_param("export_photos")) and (single_param("export_photos")))) {
 		$args_ref->{do_not_upload_images} = 1;
 	}

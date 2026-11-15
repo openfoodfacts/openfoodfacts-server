@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -112,6 +112,34 @@ my @tests = (
 	[
 		{lc => "fr", ingredients_text => "Traces possibles : céleri", traces => "Lait, Gluten"},
 		[], ["en:celery", "en:gluten", "en:milk"]
+	],
+
+	# Issue 14345: Czech name "lepek" in ingredients text should emit canonical en:gluten in traces_tags, not en:lepek
+	[
+		{
+			lc => "en",
+			ingredients_text => "cukr. Může obsahovat lepek.",
+			traces => "gluten",
+		},
+		[],
+		["en:gluten"]
+	],
+	[
+		{
+			lc => "cs",
+			ingredients_text => "cukr. Může obsahovat lepek.",
+			traces => "gluten",
+		},
+		[],
+		["en:gluten"]
+	],
+	[
+		{
+			lc => "cs",
+			ingredients_text => "cukr. Může obsahovat lepek.",
+		},
+		[],
+		["en:gluten"]
 	],
 	[
 		{

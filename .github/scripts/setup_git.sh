@@ -5,7 +5,7 @@ echo "Setting up git and restoring taxonomies dates..."
 
 # Setup git for origin main branch
 git remote set-branches --add origin main
-git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin main
+git fetch --no-tags --prune --no-recurse-submodules --depth=5 origin main
 
 # Restore taxonomies dates for files in taxonomies
 

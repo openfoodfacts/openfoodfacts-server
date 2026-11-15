@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -205,6 +205,10 @@ my $args_ref = {
 	global_values => \%global_values,
 	images_dir => $images_dir,
 	images_download_dir => $images_download_dir,
+	# Operator script: the CSV file and the image paths it contains come from us
+	# (see scripts/imports/*), so local image paths and any source fields are accepted
+	allow_local_image_paths => 1,
+	allow_any_source_fields => 1,
 	comment => $comment,
 	source_id => $source_id,
 	source_name => $source_name,

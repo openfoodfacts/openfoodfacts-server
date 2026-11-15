@@ -150,6 +150,8 @@ BEGIN {
 		&add_users_translations_to_taxonomy
 
 		&remove_stopwords_from_start_or_end_of_string
+		&remove_stopwords
+		&remove_plurals
 		&get_lc_tagid
 
 		&generate_tags_taxonomy_extract
@@ -168,6 +170,7 @@ BEGIN {
 
 		&get_taxonomy_tag_path
 		&get_tag_with_parents
+		&get_tag_direct_children
 
 		&get_minimal_tags_subset
 		&gen_tags_list_with_parents
@@ -3043,6 +3046,18 @@ sub get_tag_with_parents ($tagtype, $tagid) {
 	}
 
 	return @tag_with_parents;
+}
+
+=head2 get_tag_direct_children ($tagtype, $tagid)
+
+Given a canonical tagid, return the list of its direct children, in alphabetical order of their ids.
+
+=cut
+
+sub get_tag_direct_children ($tagtype, $tagid) {
+
+	my @children = sort keys %{$direct_children{$tagtype}{$tagid} // {}};
+	return @children;
 }
 
 sub gen_ingredients_tags_hierarchy_taxonomy ($tag_lc, $tags_list) {

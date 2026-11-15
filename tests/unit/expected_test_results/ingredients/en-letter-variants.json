@@ -3,12 +3,14 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_proxy_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-         "ecobalyse_proxy_name" : "Farine UE -2025-",
+         "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_name" : "Farine UE agrégée -2025-",
          "id" : "en:wheat-flour",
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "9410",
+               "ecobalyse_proxy_id" : "eb95f8d6-e3c0-556b-acff-91c7773f5b33",
+               "ecobalyse_proxy_name" : "Blé tendre Origine Inconnue",
                "id" : "en:wheat",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 54.1666666666667,
@@ -29,8 +31,8 @@
       },
       {
          "ciqual_proxy_food_code" : "19044",
-         "ecobalyse_proxy_id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
-         "ecobalyse_proxy_name" : "Poudre de lait écrémé FR -2025-",
+         "ecobalyse_id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "ecobalyse_name" : "Poudre de lait écrémé FR -2025-",
          "id" : "en:milk-powder",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 22.9166666666667,
@@ -131,6 +133,8 @@
       },
       {
          "ciqual_food_code" : "19402",
+         "ecobalyse_proxy_id" : "2cced940-3abf-439d-b2f1-e6241ffb31fd",
+         "ecobalyse_proxy_name" : "Crème fraiche FR -2025-",
          "id" : "en:sour-cream",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0895182291666714,
@@ -154,8 +158,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_proxy_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_proxy_name" : "Sel -2025-",
+         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_name" : "Sel -2025-",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0447591145833428,
@@ -244,11 +248,9 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:sour-cream",
-      "en:soya-lecithin",
-      "en:wheat"
+      "en:soya-lecithin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 13,
    "lc" : "en",
    "misc_tags" : [

@@ -3,6 +3,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "26043",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:cod",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 39.5,
@@ -16,6 +18,8 @@
       },
       {
          "ciqual_food_code" : "26036",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:salmon",
          "is_in_taxonomy" : 1,
          "percent" : 30,
@@ -28,6 +32,8 @@
       },
       {
          "ciqual_proxy_food_code" : "26053",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:tuna",
          "is_in_taxonomy" : 1,
          "percent" : 20,
@@ -40,6 +46,8 @@
       },
       {
          "ciqual_food_code" : "26051",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:mackerel",
          "is_in_taxonomy" : 1,
          "percent" : 7,
@@ -52,6 +60,8 @@
       },
       {
          "ciqual_food_code" : "26065",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:sardine",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 3.5,
@@ -117,14 +127,8 @@
    "ingredients_with_unspecified_percent_sum" : 43,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:cod",
-      "en:mackerel",
-      "en:salmon",
-      "en:sardine",
-      "en:tuna"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 5,
    "lc" : "en",
    "misc_tags" : [

@@ -62,6 +62,8 @@ BEGIN {
 		&init_user
 
 		&is_admin_user
+		&can_delete_product
+		&can_delete_image
 		&create_password_hash
 		&check_password_hash
 		&retrieve_user
@@ -77,6 +79,7 @@ BEGIN {
 
 		&check_session
 		&open_user_session
+		&update_user_session_tokens
 		&remove_user_session
 		&remove_all_user_sessions
 		&is_stale_user_session
@@ -100,7 +103,7 @@ use ProductOpener::Lang qw/$lc  %Lang lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param request_param/;
 use ProductOpener::Orgs
-	qw/add_user_to_org create_org remove_user_from_org retrieve_or_create_org retrieve_org update_last_logged_in_member /;
+	qw/add_user_to_org create_org is_user_in_org_group remove_user_from_org retrieve_or_create_org retrieve_org update_last_logged_in_member /;
 use ProductOpener::Products qw/find_and_replace_user_id_in_products/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Brevo qw/add_contact_to_list/;
@@ -400,6 +403,68 @@ sub is_admin_user ($user_id) {
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
 	return ((%admins) and (defined $user_id) and (exists $admins{$user_id}));
+}
+
+=head2 can_delete_product ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id)
+
+Checks if the current user (%User) has permission to delete a product page,
+or to delete or move images of a product (see can_delete_image()).
+
+Admins and moderators can always delete.
+
+On the producers platform (private products), pro moderators can delete,
+and so can members of an organization (the owner is "org-<org_id>"), for products
+of their organization. Users without an organization cannot delete.
+
+=head3 Parameters
+
+=head4 Product object $product_ref (optional)
+
+If passed, members of an organization can only delete it if it is owned by their organization.
+
+=head4 String user ID $user_id (optional, defaults to $User_id)
+
+=head4 String owner ID $owner_id (optional, defaults to $Owner_id)
+
+=head3 Return values
+
+1 if the user can delete the product, 0 otherwise.
+
+=cut
+
+sub can_delete_product ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id) {
+
+	# Admins and moderators can always delete
+	if ((is_admin_user($user_id)) or ($User{moderator})) {
+		return 1;
+	}
+
+	# On the producers platform: pro moderators and members of an organization can delete
+	if ($server_options{private_products}) {
+		if ($User{pro_moderator}) {
+			return 1;
+		}
+		if ((defined $owner_id) and ($owner_id =~ /^org-/)) {
+			if ((defined $product_ref) and (defined $product_ref->{owner}) and ($product_ref->{owner} ne $owner_id)) {
+				return 0;
+			}
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+=head2 can_delete_image ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id)
+
+Checks if the current user (%User) has permission to delete or move uploaded images of a product.
+
+The rules are the same as for deleting the product itself, see can_delete_product().
+
+=cut
+
+sub can_delete_image ($product_ref = undef, $user_id = $User_id, $owner_id = $Owner_id) {
+	return can_delete_product($product_ref, $user_id, $owner_id);
 }
 
 =head2 check_user_org($user_ref, $new_org)
@@ -1275,6 +1340,34 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 	return $user_session;
 }
 
+=head2 update_user_session_tokens($user_ref, $user_session, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at)
+
+Update OIDC tokens stored for an existing Product Opener session and persist them.
+Needed after a refresh so rotated refresh tokens stay usable on the next request.
+
+=cut
+
+sub update_user_session_tokens ($user_ref, $user_session, $refresh_token, $refresh_expires_at, $access_token,
+	$access_expires_at)
+{
+	if ((not defined $user_ref) or (not defined $user_session)) {
+		return 0;
+	}
+
+	my $session_ref = $user_ref->{'user_sessions'}{$user_session};
+	if (not defined $session_ref) {
+		return 0;
+	}
+
+	$session_ref->{refresh_token} = $refresh_token;
+	$session_ref->{refresh_expires_at} = $refresh_expires_at;
+	$session_ref->{access_token} = $access_token;
+	$session_ref->{access_expires_at} = $access_expires_at;
+	store_user_preferences($user_ref);
+
+	return 1;
+}
+
 # This just fetches the local data about the user, e.g. sessions. It should not be used if you need access to data
 # that comes from Keycloak, like email, name, locale and country
 sub retrieve_user_preferences ($user_id) {
@@ -1503,14 +1596,43 @@ sub retrieve_user_by_email ($email) {
 }
 
 sub remove_user_by_org_admin ($orgid, $user_id) {
+
 	my $groups_ref = ['admins', 'members', 'pending'];
+
+	# $orgid can be an org id string or an org hashref (see process_user_requested_org()).
+	# Normalize to a comparable org id string.
+	my $target_org_id = ref $orgid eq 'HASH' ? $orgid->{org_id} : $orgid;
+	$target_org_id = get_string_id_for_lang('no_language', $target_org_id) if defined $target_org_id;
+
+	# Only accounts that are in the organization can be removed from it: an admin of an
+	# organization must not be able to strip the organization of an account that belongs to
+	# another one
+	my $is_in_org = builtin::false();
+	foreach my $group_id (@{$groups_ref}) {
+		$is_in_org = builtin::true() if is_user_in_org_group($orgid, $user_id, $group_id);
+	}
+	if (not $is_in_org) {
+		$log->warn('remove_user_by_org_admin - the user is not in the organization',
+			{org_id => $target_org_id, user_id => $user_id})
+			if $log->is_warn();
+		return;
+	}
+
 	remove_user_from_org($orgid, $user_id, $groups_ref);
 
-	# Reset the 'org' field of the user
+	# Only clear the primary org fields if they point at the organization being removed from:
+	# a user pending in A who is a member of B must keep org_id B.
 	my $user_ref = retrieve_user_preferences($user_id);
-	delete $user_ref->{org};
-	delete $user_ref->{org_id};
-	store_user_preferences($user_ref);
+	return if not defined $user_ref;
+	if (    defined $user_ref->{org_id}
+		and defined $target_org_id
+		and $user_ref->{org_id} eq $target_org_id)
+	{
+		delete $user_ref->{org};
+		delete $user_ref->{org_id};
+		store_user_preferences($user_ref);
+	}
+
 	return;
 }
 
@@ -1544,6 +1666,25 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 	$log->debug("The list of email ids ", {emails_list => $email_ref}) if $log->is_debug();
 
 	return $email_ref;
+}
+
+=head2 _is_explicit_session_login_request($request_ref)
+
+True when the current CGI script is an explicit login endpoint that should open a lasting
+Product Opener / Keycloak session (auth.pl, login.pl, or session.pl).
+
+Other scripts that accept user_id+password (legacy mobile / API password auth) must only
+authenticate the current request.
+
+=cut
+
+sub _is_explicit_session_login_request ($request_ref) {
+	my $script_name = $request_ref->{script_name} // '';
+	return (
+			   ($script_name eq '/cgi/auth.pl')
+			or ($script_name eq '/cgi/login.pl')
+			or ($script_name eq '/cgi/session.pl')
+	) ? 1 : 0;
 }
 
 sub init_user ($request_ref, $r = undef) {
@@ -1709,10 +1850,18 @@ sub init_user ($request_ref, $r = undef) {
 				}
 			}
 			else {
+				# Explicit login endpoints (auth.pl / login.pl / session.pl) may create a lasting
+				# session with offline_access. Per-request API auth with user_id+password must not
+				# (#15091).
+				my $persist_session = _is_explicit_session_login_request($request_ref)
+					&& (not defined request_param($request_ref, 'no_log'));
+
 				my (
 					$keycloak_user_ref, $refresh_token, $refresh_expires_at,
 					$access_token, $access_expires_at, $id_token
-				) = password_signin($user_id, encode_utf8(request_param($request_ref, 'password')), $request_ref);
+					)
+					= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')),
+					$request_ref, $persist_session);
 				$user_ref = $keycloak_user_ref;
 
 				# We don't have the right password
@@ -1722,15 +1871,31 @@ sub init_user ($request_ref, $r = undef) {
 					# Trigger an error
 					return "error_bad_login_password";
 				}
-				# We have the right login/password
-				elsif (
-					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
-				{
-					$user_id = $user_ref->{userid};
+
+				$user_id = $user_ref->{userid};
+
+				if ($persist_session) {
 					$log->info("creating OIDC session") if $log->is_info();
 					open_user_session($user_ref, $refresh_token, $refresh_expires_at,
 						$access_token, $access_expires_at, $id_token, $request_ref);
 					update_external_login_time($user_ref);
+				}
+				else {
+					# Authenticate this request only: no Product Opener session cookie, and revoke
+					# the Keycloak session created by the password grant so Device Activity is clean.
+					# Revocation is best-effort (same as sign-out): retry once on failure, then continue
+					# the request so a transient IdP outage does not reject a valid password.
+					$log->info("password authenticated without persisting session") if $log->is_info();
+					if ($refresh_token) {
+						my $revoked = revoke_token($refresh_token, 'refresh_token');
+						if (not $revoked) {
+							$revoked = revoke_token($refresh_token, 'refresh_token');
+						}
+						if (not $revoked) {
+							$log->warn('failed to revoke Keycloak session after password API auth; continuing request')
+								if $log->is_warn();
+						}
+					}
 				}
 			}
 		}
@@ -1803,6 +1968,45 @@ sub init_user ($request_ref, $r = undef) {
 						$request_ref->{refresh_expires_at} = $session_ref->{refresh_expires_at}
 							if $session_ref->{refresh_expires_at};
 						$request_ref->{id_token} = $session_ref->{id_token} if $session_ref->{id_token};
+
+						# Keep PO sessions in sync with Keycloak Device Activity:
+						# refresh expired access tokens; if refresh fails the IdP session is gone.
+						if (    (defined $request_ref->{access_expires_at})
+							and ($request_ref->{access_expires_at} < time)
+							and (defined $request_ref->{refresh_token}))
+						{
+							my ($new_refresh_token, $new_refresh_expires_at, $new_access_token, $new_access_expires_at)
+								= ProductOpener::Auth::refresh_access_token($request_ref->{refresh_token});
+							if ($new_access_token) {
+								update_user_session_tokens($user_ref, $user_session,
+									$new_refresh_token, $new_refresh_expires_at,
+									$new_access_token, $new_access_expires_at);
+								$request_ref->{refresh_token} = $new_refresh_token;
+								$request_ref->{refresh_expires_at} = $new_refresh_expires_at;
+								$request_ref->{access_token} = $new_access_token;
+								$request_ref->{access_expires_at} = $new_access_expires_at;
+							}
+							else {
+								$log->info('OIDC refresh failed; signing user out locally', {user_id => $user_id})
+									if $log->is_info();
+								remove_user_session($user_id, $user_session);
+								$user_id = undef;
+								$user_ref = undef;
+								delete $request_ref->{access_token};
+								delete $request_ref->{access_expires_at};
+								delete $request_ref->{refresh_token};
+								delete $request_ref->{refresh_expires_at};
+								delete $request_ref->{id_token};
+								my $session = {};
+								$request_ref->{cookie} = cookie(
+									-name => $cookie_name,
+									-expires => '-1d',
+									-value => $session,
+									-path => '/',
+									-domain => "$cookie_domain"
+								);
+							}
+						}
 					}
 				}
 			}
