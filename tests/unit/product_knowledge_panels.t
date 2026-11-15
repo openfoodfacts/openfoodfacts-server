@@ -46,10 +46,10 @@ my @tests = (
 	{
 		id => "free_text_escaping",
 		product => {
-			conservation_conditions_en => "Keep `cool` \"dry\"\ here\n// and there",
+			conservation_conditions_en => "Keep `cool` \"dry\" back\\slash here\n// and there",
 			owner => "org-test-org",
 		},
-		org_name => "Org `quoted`",
+		org_name => "Org `quoted` \"name\"",
 	},
 );
 

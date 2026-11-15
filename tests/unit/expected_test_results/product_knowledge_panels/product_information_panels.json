@@ -129,7 +129,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "Keep 'cool' \"dry\" here<br>// and there"
+                  "html" : "Keep 'cool' \"dry\" back\\slash here<br>// and there"
                }
             }
          ],
@@ -191,7 +191,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "Some of the data for this product has been provided directly by the manufacturer <a href=\"/facets/editors/org-test-org\">Org 'quoted'</a>."
+                  "html" : "Some of the data for this product has been provided directly by the manufacturer <a href=\"/facets/editors/org-test-org\">Org 'quoted' \"name\"</a>."
                }
             }
          ],

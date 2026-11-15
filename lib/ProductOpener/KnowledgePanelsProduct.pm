@@ -54,7 +54,7 @@ use ProductOpener::Tags qw(display_taxonomy_tag get_tags_grouped_by_property get
 use Encode;
 use Data::DeepAccess qw(deep_get);
 
-sub _product_text ($text) {
+sub _text_for_panel_html ($text) {
 	$text //= '';
 	$text =~ s/`/'/g;
 	$text =~ s/\R/<br>/g;
@@ -154,7 +154,7 @@ sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_re
 			create_panel_from_json_template(
 				$field,
 				"api/knowledge-panels/product/product_text_panel.tt.json",
-				{field => $field, text => _product_text($value)},
+				{field => $field, text => _text_for_panel_html($value)},
 				$product_ref, $target_lc, $target_cc, $options_ref, $request_ref
 			);
 			push @text_panels, $field;
@@ -194,7 +194,7 @@ sub create_sources_manufacturer_panel ($product_ref, $target_lc, $target_cc, $op
 	create_panel_from_json_template(
 		"sources_manufacturer",
 		"api/knowledge-panels/product/sources_manufacturer.tt.json",
-		{org_name => _product_text($org_ref->{name})},
+		{org_name => _text_for_panel_html($org_ref->{name})},
 		$product_ref, $target_lc, $target_cc, $options_ref, $request_ref
 	);
 
