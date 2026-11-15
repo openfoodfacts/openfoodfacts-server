@@ -1,0 +1,561 @@
+{
+   "flag_off" : {
+      "product_card" : {
+         "elements" : [],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Product information"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
+      }
+   },
+   "flag_on_with_fields" : {
+      "conservation_conditions" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Keep refrigerated"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Conservation conditions"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "customer_service" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Call us"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Customer service"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "product_card" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "conservation_conditions"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "customer_service"
+               }
+            }
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Product information"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
+      },
+      "sources_manufacturer" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Some of the data for this product has been provided directly by the manufacturer <a href=\"/facets/editors/org-test-org\">Test org</a>."
+               }
+            }
+         ],
+         "level" : "info",
+         "title_element" : {
+            "title" : "Data source"
+         },
+         "topics" : [
+            "product"
+         ]
+      }
+   },
+   "flag_on_without_fields" : {
+      "product_card" : {
+         "elements" : [],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Product information"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
+      },
+      "sources_manufacturer" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Some of the data for this product has been provided directly by the manufacturer <a href=\"/facets/editors/org-test-org\">Test org</a>."
+               }
+            }
+         ],
+         "level" : "info",
+         "title_element" : {
+            "title" : "Data source"
+         },
+         "topics" : [
+            "product"
+         ]
+      }
+   },
+   "free_text_escaping" : {
+      "conservation_conditions" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Keep 'cool' \"dry\" here<br>// and there"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Conservation conditions"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "customer_service" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Call us"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Customer service"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "product_card" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "conservation_conditions"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "customer_service"
+               }
+            }
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Product information"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
+      },
+      "sources_manufacturer" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Some of the data for this product has been provided directly by the manufacturer <a href=\"/facets/editors/org-test-org\">Org 'quoted'</a>."
+               }
+            }
+         ],
+         "level" : "info",
+         "title_element" : {
+            "title" : "Data source"
+         },
+         "topics" : [
+            "product"
+         ]
+      }
+   },
+   "language_fallback" : {
+      "conservation_conditions" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Keep in a cool place"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Conditions de conservation"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "customer_service" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Appelez-nous"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Service consommateur"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "product_card" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "conservation_conditions"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "customer_service"
+               }
+            }
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Informations sur le produit"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
+      },
+      "sources_manufacturer" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Certaines informations de ce produit ont été fournies directement par son fabricant <a href=\"/facets/editeurs/org-test-org\">Test org</a>."
+               }
+            }
+         ],
+         "level" : "info",
+         "title_element" : {
+            "title" : "Source des données"
+         },
+         "topics" : [
+            "product"
+         ]
+      }
+   },
+   "owner_not_org" : {
+      "conservation_conditions" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Keep refrigerated"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Conservation conditions"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "customer_service" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Call us"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Customer service"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "product_card" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "conservation_conditions"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "customer_service"
+               }
+            }
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Product information"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
+      }
+   },
+   "owner_org" : {
+      "conservation_conditions" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Keep refrigerated"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Conservation conditions"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "customer_service" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Call us"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Customer service"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "product_card" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "conservation_conditions"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "customer_service"
+               }
+            }
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Product information"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
+      },
+      "sources_manufacturer" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Some of the data for this product has been provided directly by the manufacturer <a href=\"/facets/editors/org-test-org\">Test org</a>."
+               }
+            }
+         ],
+         "level" : "info",
+         "title_element" : {
+            "title" : "Data source"
+         },
+         "topics" : [
+            "product"
+         ]
+      }
+   },
+   "owner_org_missing" : {
+      "conservation_conditions" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Keep refrigerated"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Conservation conditions"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "customer_service" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Call us"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Customer service"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "product_card" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "conservation_conditions"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "customer_service"
+               }
+            }
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Product information"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
+      }
+   },
+   "producers_platform" : {
+      "conservation_conditions" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Keep refrigerated"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Conservation conditions"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "customer_service" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "Call us"
+               }
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "title" : "Customer service"
+         },
+         "topics" : [
+            "product"
+         ]
+      },
+      "product_card" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "conservation_conditions"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "customer_service"
+               }
+            }
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Product information"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
+      }
+   }
+}

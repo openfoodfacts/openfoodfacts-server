@@ -48,6 +48,14 @@ components:
       schema:
         type: boolean
         example: true
+    ActivateKnowledgePanelProductInformation:
+      name: activate_knowledge_panel_product_information
+      in: query
+      description: 'If true, the product_card panel also lists the storage conditions and customer service of the product when filled, and a sources_manufacturer panel is returned for products of a producer organization'
+      required: false
+      schema:
+        type: boolean
+        example: true
     KnowledgePanelsIncluded:
       name: knowledge_panels_included
       in: query
