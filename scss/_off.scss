@@ -1042,10 +1042,66 @@ a.attribute_card:hover {
   margin-top: 1rem;
   padding-left: 2rem !important;
   padding-right: 2rem !important;
+
+  @media #{$small-only} {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
 }
 
 .panel_content_card {
   margin-top: 1rem;
+
+  @media #{$small-only} {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+}
+
+.panel_accordion {
+  @media #{$small-only} {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    .content.panel_content {
+      padding-left: 0.25rem !important;
+      padding-right: 0.25rem !important;
+    }
+  }
+}
+
+.panel_card {
+  @media #{$small-only} {
+    .card-section {
+      padding: 0.5rem 0.25rem !important;
+    }
+  }
+}
+
+.panel_table_container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  width: 100%;
+
+  @media #{$small-only} {
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      th,
+      td {
+        padding: 5px 3px !important;
+        font-size: rem-calc(11.5);
+        line-height: 1.2 !important;
+      }
+
+      th:first-child,
+      td:first-child {
+        max-width: rem-calc(80) !important;
+      }
+    }
+  }
 }
 
 .evaluation_good_title {

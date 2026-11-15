@@ -354,12 +354,18 @@
     #---------------------------------------------------------------------- ~%]
 
     [% table_element = element_ref.table_element %]
+    <div class="panel_table_container">
     <table[% IF element.id %] id="[% table_element.id %]"[% END %] aria-label="[% table_element.title %]">
         <thead>
             <tr>
                 [% FOREACH column IN table_element.columns %]
                 <th scope="col"[% IF column.style.defined %] style="[% column.style %]"[% END %]>
+                    [% IF column.text_for_small_screens.defined %]
+                    <span class="show-for-small-only">[% column.text_for_small_screens %]</span>
+                    <span class="show-for-medium-up">[% column.text %]</span>
+                    [% ELSE %]
                     [% column.text %]
+                    [% END %]
                 </th>
                 [% END %]
             </tr>
@@ -376,6 +382,7 @@
             [% END %]
         </tbody>
     </table>
+    </div>
 
 [%~ #----------------------------------------------------------------------
     END; # BLOCK panel_table
