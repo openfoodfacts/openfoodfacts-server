@@ -380,6 +380,14 @@ my @tests = (
 	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown fruit"],],
 	[{lc => "en", ingredients_text => "colour (Natural Red 4, mg/kg 1b306(i))"}, ["en:e120", "en:mg/kg 1b306"],],
 
+	# en:sourdough must stay distinct from en:sourdough-starter
+	# (a "sourdough starter" synonym on en:sourdough used to silently merge both entries)
+	[{lc => "en", ingredients_text => "wheat flour, sourdough, salt"}, ["en:wheat-flour", "en:sourdough", "en:salt"],],
+	[{lc => "en", ingredients_text => "sourdough starter, water"}, ["en:sourdough-starter", "en:water"],],
+	[{lc => "fr", ingredients_text => "farine de blé, levain, sel"}, ["en:wheat-flour", "en:sourdough", "en:salt"],],
+	[{lc => "de", ingredients_text => "Roggenmehl, Sauerteig, Salz"}, ["en:rye-flour", "en:sourdough", "en:salt"],],
+	[{lc => "nl", ingredients_text => "tarwebloem, zuurdesem, zout"}, ["en:wheat-flour", "en:sourdough", "en:salt"],],
+
 );
 
 foreach my $test_ref (@tests) {
