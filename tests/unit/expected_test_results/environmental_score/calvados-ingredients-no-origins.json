@@ -250,6 +250,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "1014",
+         "ecobalyse_proxy_id" : "6621c18e-85de-4683-82be-7b236e68bc48",
+         "ecobalyse_proxy_name" : "Vin rouge FR -2025-",
          "id" : "en:wine",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -291,10 +293,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:wine"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [

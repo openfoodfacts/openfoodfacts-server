@@ -450,10 +450,10 @@ sub is_user_in_org_group ($org_id_or_ref, $user_id, $group_id) {
 		and (defined $org_ref->{$group_id})
 		and (defined $org_ref->{$group_id}{$user_id}))
 	{
-		return 1;
+		return builtin::true();
 	}
 	else {
-		return 0;
+		return builtin::false();
 	}
 }
 

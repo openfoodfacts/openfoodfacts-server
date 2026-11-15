@@ -1,5 +1,4 @@
 {
-   "allergens_from_ingredients" : "en:milk, ",
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
@@ -221,6 +220,14 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
+   ],
+   "specific_ingredients" : [
+      {
+         "id" : "en:milk",
+         "ingredient" : "Lait",
+         "origins" : "en:european-union,en:non-european-union,en:united-kingdom",
+         "text" : "*Lait: origine UE et non UE (Royaume-Uni)"
+      }
    ],
    "unknown_ingredients_n" : 2
 }

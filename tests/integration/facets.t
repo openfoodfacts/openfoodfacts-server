@@ -371,6 +371,19 @@ my $tests_ref = [
 		path => 'facets/categories/Vitamins.json?fields=product_name,labels_tags',
 		expected_status_code => 200,
 	},
+	# NOVA unknown knowledge panel, on request only
+	{
+		test_case => 'api-v3-tag-nova-groups-unknown-panel',
+		method => 'GET',
+		path => '/api/v3/tag/nova_groups/unknown?activate_knowledge_panel_nova_unknown=1',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-nova-groups-unknown-no-panel-by-default',
+		method => 'GET',
+		path => '/api/v3/tag/nova_groups/unknown',
+		expected_status_code => 200,
+	},
 	# related categories knowledge panel, on request only (leaf category: no Query call)
 	{
 		test_case => 'api-v3-tag-category-canned-carrots-related-categories',
