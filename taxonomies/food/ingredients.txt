@@ -7904,7 +7904,7 @@ bn: ম্যাসকারপোন
 ca: mascarpone
 cs: mascarpone
 cv: Маскарпоне
-da: mascarpone
+da: mascarpone, mascarponeost
 de: Mascarpone, Mascarpone Frischkäse
 el: μασκαρπόνε
 eo: Maskarpono
@@ -23019,6 +23019,7 @@ sv: naturlig ananasarom
 
 < en: flavouring
 en: banana flavouring
+da: bananaroma
 de: Bananengeschmack, Bananenaroma, Bananen-Aroma
 es: aroma de plátano, aroma de banana
 fi: banaaniaromi
@@ -29072,7 +29073,7 @@ en: wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
 bg: пълнозърнесто брашно от спелта
 ca: farina de blat d'espelta integral, farina integral de blat d'espelta
 cs: celozrnná špaldová mouka, celozrnná mouka z pšenice špaldy
-de: Dinkelvollkornmehl, dinkel vollkornmehl, Dinkelweizenvollkornmehl
+de: Dinkelvollkornmehl, dinkel vollkornmehl, Dinkelweizenvollkornmehl, Dinkel-Vollkornmehl, Dinkelweizen-Vollkornmehl
 es: harina de espelta integral, harina integral de espelta, harina integral de trigo de espelta
 fi: täysjyväspelttijauho, täysjyväspelttivehnäjauho
 fr: farine complète d’épeautre, farine d'épeautre complète, farine d'épeautre complet, farine complète blé d'épeautre, farine complète de grand épeautre, farine de grand épeautre complète
@@ -29111,8 +29112,9 @@ usda_ndb_name:en: Spelt, cooked
 
 < en: cereal
 en: khorasan wheat
-xx: kamut
+xx: khorasan, kamut
 bg: камут
+da: khorasanhvede
 de: Kamut
 el: σιτηρό kamut
 es: kamut, trigo de Jorasán Kamut
@@ -29820,11 +29822,11 @@ bg: пълнозърнесто пшенично брашно, брашно пш�
 ca: farina integral de blat, farina de blat integral
 cs: celozrnná pšeničná mouka, celozrnna pšenična mouka
 da: hvedefuldkornsmel, fuldkornshvedemel
-de: Vollkornweizenmehl, Weizenvollkornmehl
+de: Vollkornweizenmehl, Weizenvollkornmehl, Weizen-Vollkornmehl, Vollkorn-Weizenmehl
 es: harina de trigo integral, harina integral de trigo
 et: täistera nisujahu, täisteranisujahu
 fi: täysjyvävehnäjauho
-fr: farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
+fr: farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment, farine de blé à grains entiers, farine de blé grains entiers
 hr: integralno pšenično brašno, pšenično brašno od cjelovitog zrna, pšenično brašno iz cijelog zrna, brašno cijelog zrna pšenice, brašno od cjelovitog zrna pšenice, cjelovito pšenično brašno, integralno i namjensko pšenično brašno, brašno pšenično integralno iz cijelog zrna
 hu: teljes kiőrlésű búzaliszt
 it: farina integrale di frumento, farina di frumento integrale
@@ -30036,7 +30038,7 @@ sv: fullkornskornmjöl
 en: barley malt flour, malted barley flour
 ca: farina de malta d'ordi
 cs: Ječmenná sladová mouka, ječná sladová mouka
-da: bygmaltmel
+da: bygmaltmel, maltet bygmel
 de: Gerstenmalzmehl
 es: harina de malta de cebada
 fi: ohramallasjauho
@@ -30068,6 +30070,7 @@ it: farina d'orzo destrinata
 nl: gedextrineerd gerstemeel, gedextrineerd gerstmeel
 
 < en: cereal flour
+< en: rye
 en: rye flour
 bg: ръжено брашно, брашно от ръж, брашно ръжено, ръжено пшенично брашно
 ca: farina de blat de sègol, farina de blat de segol, farina de sègol
@@ -30136,14 +30139,15 @@ it: farina di segale tipo tipo 1250
 
 < en: rye flour
 < en: wholemeal flour
+< en: wholemeal rye
 en: wholemeal rye flour, wholegrain rye flour, whole grain rye flour
 bg: пълнозърнесто ръжено брашно, ръжено пълнозърнесто брашно
 cs: celozrnná žitná mouka
 da: fuldkornsrugmel
-de: Roggenvollkornmehl
+de: Roggenvollkornmehl, Roggen-Vollkornmehl, Vollkornroggenmehl, Vollkorn-Roggenmehl
 es: flor de harina integral de centeno, harina integral de centeno
 fi: täysjyväruisjauho, täysjyväruisjauhoa
-fr: farine de seigle complète, farine complète de seigle, farine de seigle complet
+fr: farine de seigle complète, farine complète de seigle, farine de seigle complet, farine de seigle grains entiers, farine de seigle à grains entiers
 hr: integralno raženo brašno, brašno od cjelovitog zrna raži, brašno od integralni raži, raženo brašno od cijelog zrna, raženo brašno iz cijelog zrna, brašno iz cijelog zrna raži, raženo brašno od cjelovitog zrna
 hu: teljes kiőrlésű rozsliszt
 it: farina di segale integrale
@@ -34950,6 +34954,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/High-fructose_corn_syrup
 en: invert sugar syrup, invert syrup, liquid invert syrup, inverted syrup
 bg: сироп от инвертна захар, инвертен захарен сироп, инвертиран захарен сироп, инвертен сироп, сироп на инвертна захар
 cs: sirup z invertního cukru
+da: invertsukkersirup, invert sukkersirup
 de: Invertzuckersirup
 es: Jarabe de azúcar invertido, sirope de azúcar invertido
 fi: inverttisokerisiirappi, inverttisokerisiirappia
@@ -48620,7 +48625,8 @@ en: goji, goji berries
 bg: годжи, годжи бери
 ca: goji
 cs: godži
-de: Gemeiner Bocksdorn
+da: gojibær
+de: Goji Beeren, Gojibeeren, Gemeiner Bocksdorn
 el: γκότζι μπέρυ
 es: Goji, bayas de goji
 eu: hesilahar
@@ -58310,6 +58316,7 @@ en: beetroot powder
 #en:processing:en:powder
 #bg:цвекло на прах
 #ca:remolatxa en pols
+da: rødbedepulver
 #de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver, Rote Beete-Pulver, Randenpulver
 de: färbendes Lebensmittel Rote Bete Pulver
 it: polvere di barbabietola
@@ -62347,7 +62354,7 @@ eu: Taro
 fa: تارو
 fi: Taaro
 fj: Dalo
-fr: Colocasia esculenta
+fr: Colocasia esculenta, taro
 gl: Taro
 gu: અળવી
 ha: Gwaza
@@ -90536,6 +90543,25 @@ ciqual_food_name:fr: Lieu jaune ou colin, cru
 # lieu (lieu 25%, huile de colza, sel, échalotes, gélatine de poisson)
 # ... Crabe, lieu, crème liquide, échalotes
 
+< en: freshwater fish
+en: roach, rutilus roach, common roach
+da: skalle
+de: Rotauge, Plötze, Unechte Rotfeder, Schwal
+es: rutilo
+fi: särki
+fr: Gardon, Gardon blanc, Gardon commun
+hr: bodorka
+hu: bodorka
+it: rutilo, gardon
+la: Rutilus rutilus
+li: röts
+lt: Paprastoji kuoja, mẽkšras, bruĩšė, raudà
+lv: rauda
+nl: blankvoorn
+pl: Płoć, płotka
+ro: babușca, ocheana, gardonul, bălosul
+wikidata:en: Q182976
+
 # description:fr:Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
 
 < en: fish
@@ -96200,6 +96226,7 @@ fi: uunipaahdettu broilerinfilee
 en: chicken breast, chicken breast meat
 bg: пилешки гърди
 ca: pit de pollastre
+da: kyllingebryst
 de: Hähnchenbrust, Hähnchenbrustfleisch
 es: pechuga de pollo, carne de pechuga de pollo
 fr: blanc de poulet, blancs de poulet, poitrine de poulet
@@ -96763,6 +96790,7 @@ fr: viande de dinde halal
 en: turkey breast, turkey fillet, turkey breast meat
 bg: пуешко филе
 ca: pit de gall d'indi, pit d'indiot
+da: kalkunbryst
 de: Putenfilet
 es: pechuga de pavo
 fi: kalkkunanrinta, kalkkunan rintaliha, kalkkunanfilee, kalkkunan filee, kalkkuna filee
