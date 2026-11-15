@@ -1199,6 +1199,65 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 
 		return 1;
 	}
+
+	# Ingredient first, after the end of the ingredients list: "... arômes. *Lait : origine UE et/ou non UE (Royaume-Uni)"
+	# Only after a . or ; or a starting *: after a comma or in parenthesis, it can be an ingredient of the list
+	# e.g. "Cheddar 36% : origine Belgique (lait pasteurisé, sel)"
+	my %ingredient_origin_regexp_in_lc = (
+		en => "(?:origins?|country of origin)",
+		fr => "(?:origines?|provenance)",
+	);
+	my $ingredient_origin_regexp = $ingredient_origin_regexp_in_lc{$ingredients_lc};
+	my $origins_list_regexp = '(?:' . $origins_regexp . ')(?:(?:,|' . $and_or . ')(?:\s?)(?:' . $origins_regexp . '))*';
+
+	return 0 if not($origins_regexp and (defined $ingredient_origin_regexp));
+
+	my $statement_regexp
+		= compiled_regexp('((?:\.|;)\s*\**|^\s*\*+)\s*([^,.;:()*]+?)\s*\**\s*:\s*'
+			. $ingredient_origin_regexp
+			. '\s*:?\s*('
+			. $origins_list_regexp
+			. ')(?:\s*\(\s*('
+			. $origins_list_regexp
+			. ')\s*\))?\s*(?=,|;|\.| - |$)');
+
+	# Try each candidate: a rejected one must not prevent the following statements from being matched
+	# e.g. "... sel. Machin : origine France. Lait : origine UE"
+	while ($$text_ref =~ /$statement_regexp/g) {
+
+		# save the match variables before other regexps are run by exists_taxonomy_tag()
+		my ($before, $ingredient, $origins, $origins_in_parenthesis) = ($1, $2, $3, $4);
+		my ($start, $end, $pos) = ($-[0], $+[0], pos($$text_ref));
+		my $prematch = substr($$text_ref, 0, $start);
+		my $matched_text = substr($$text_ref, $start, $end - $start);
+		my $postmatch = substr($$text_ref, $end);
+
+		my $is_origin_statement = exists_taxonomy_tag("ingredients",
+			canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient));
+
+		# After a ;, it can be an ingredient of a list separated by ; : "Sucre; beurre : origine France; farine"
+		# It is an origin statement only if the ingredient is also in the text before it
+		if ($is_origin_statement and ($before =~ /^;/)) {
+			$is_origin_statement = ($prematch =~ /(?<!\p{L})\Q$ingredient\E(?!\p{L})/i);
+		}
+
+		if (not $is_origin_statement) {
+			pos($$text_ref) = $pos;
+			next;
+		}
+
+		$matched_ingredient_ref->{ingredient} = $ingredient;
+		# "UE et/ou non UE (Royaume-Uni)": the origins in parenthesis are added
+		$matched_ingredient_ref->{origins}
+			= $origins . ((defined $origins_in_parenthesis) ? ",$origins_in_parenthesis" : '');
+		$matched_ingredient_ref->{matched_text} = $matched_text;
+
+		# Remove the matched text, but keep the separator before it
+		my $separator = ($before =~ /^([.;])/) ? $1 : '';
+		$$text_ref = $prematch . $separator . ' ' . $postmatch;
+
+		return 1;
+	}
 	return 0;
 }
 
@@ -1705,7 +1764,8 @@ Select, set and return the `ingredients_lc` field in $product_ref.
 
 This is the language that will be used to parse ingredients. We first check that ingredients_text_{lang}
 exists and is non-empty for the product main language (`lc`), and return it if it does.
-Otherwise we look at all languages defined in `languages_codes` for a non-empty `ingredients_text_lang`.
+Otherwise we look for non-empty ingredients_text_{lang} fields, preferring the language whose selected
+ingredients image was uploaded most recently. Equal or missing upload timestamps use alphabetical order.
 
 If we find a language with non empty ingredients in ingredients_text_{lang}:
 - we copy the value to the `ingredients_text` field in the product
@@ -1728,7 +1788,19 @@ sub select_ingredients_lc ($product_ref) {
 	# Get all languages that have ingredients_text_{lang} defined, capture the language code
 	# Note: we don't use language_codes here, as it might not have been computed if we are called from a service
 	# with minimal product data
-	my @ingredients_text_fields = sort grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
+	my @ingredients_text_fields = grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
+
+	# Use the source image upload time, not the selection revision: selecting an old photo again
+	# should not make its ingredients take priority over a more recently uploaded photo.
+	my %ingredients_image_uploaded_t;
+	foreach my $field (@ingredients_text_fields) {
+		my $imgid = deep_get($product_ref, 'images', 'selected', 'ingredients', substr($field, -2), 'imgid');
+		my $uploaded_t = defined $imgid ? deep_get($product_ref, 'images', 'uploaded', $imgid, 'uploaded_t') : undef;
+		$ingredients_image_uploaded_t{$field} = $uploaded_t // 0;
+	}
+	@ingredients_text_fields
+		= sort {$ingredients_image_uploaded_t{$b} <=> $ingredients_image_uploaded_t{$a} || $a cmp $b}
+		@ingredients_text_fields;
 
 	# Put the main language first
 	if (defined $product_ref->{lc}) {    # Should always be defined, except in old unit tests

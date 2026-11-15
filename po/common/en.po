@@ -6552,7 +6552,7 @@ msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
 msgstr "The ingredients of the product must be specified in order to determine the NOVA group."
 
-msgctxt "nova_group_too_many_unknown_ingredient"
+msgctxt "nova_group_too_many_unknown_ingredients"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
 msgstr "We could not recognize some of the ingredients and determine the NOVA group."
 
@@ -8287,6 +8287,10 @@ msgstr "The presence of certain labels can greatly help reduce the risk of defor
 msgctxt "related_categories"
 msgid "Related categories"
 msgstr "Related categories"
+
+msgctxt "nova_unknown_why"
+msgid "Why the NOVA group of some products is unknown"
+msgstr "Why the NOVA group of some products is unknown"
 
 msgctxt "product_history_revision"
 msgid "Revision"
