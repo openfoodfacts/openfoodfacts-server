@@ -7904,7 +7904,7 @@ bn: ম্যাসকারপোন
 ca: mascarpone
 cs: mascarpone
 cv: Маскарпоне
-da: mascarpone
+da: mascarpone, mascarponeost
 de: Mascarpone, Mascarpone Frischkäse
 el: μασκαρπόνε
 eo: Maskarpono
@@ -23019,6 +23019,7 @@ sv: naturlig ananasarom
 
 < en: flavouring
 en: banana flavouring
+da: bananaroma
 de: Bananengeschmack, Bananenaroma, Bananen-Aroma
 es: aroma de plátano, aroma de banana
 fi: banaaniaromi
@@ -29111,8 +29112,9 @@ usda_ndb_name:en: Spelt, cooked
 
 < en: cereal
 en: khorasan wheat
-xx: kamut
+xx: khorasan, kamut
 bg: камут
+da: khorasanhvede
 de: Kamut
 el: σιτηρό kamut
 es: kamut, trigo de Jorasán Kamut
@@ -30036,7 +30038,7 @@ sv: fullkornskornmjöl
 en: barley malt flour, malted barley flour
 ca: farina de malta d'ordi
 cs: Ječmenná sladová mouka, ječná sladová mouka
-da: bygmaltmel
+da: bygmaltmel, maltet bygmel
 de: Gerstenmalzmehl
 es: harina de malta de cebada
 fi: ohramallasjauho
@@ -34950,6 +34952,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/High-fructose_corn_syrup
 en: invert sugar syrup, invert syrup, liquid invert syrup, inverted syrup
 bg: сироп от инвертна захар, инвертен захарен сироп, инвертиран захарен сироп, инвертен сироп, сироп на инвертна захар
 cs: sirup z invertního cukru
+da: invertsukkersirup, invert sukkersirup
 de: Invertzuckersirup
 es: Jarabe de azúcar invertido, sirope de azúcar invertido
 fi: inverttisokerisiirappi, inverttisokerisiirappia
@@ -48620,7 +48623,8 @@ en: goji, goji berries
 bg: годжи, годжи бери
 ca: goji
 cs: godži
-de: Gemeiner Bocksdorn
+da: gojibær
+de: Goji Beeren, Gojibeeren, Gemeiner Bocksdorn
 el: γκότζι μπέρυ
 es: Goji, bayas de goji
 eu: hesilahar
@@ -58310,6 +58314,7 @@ en: beetroot powder
 #en:processing:en:powder
 #bg:цвекло на прах
 #ca:remolatxa en pols
+da: rødbedepulver
 #de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver, Rote Beete-Pulver, Randenpulver
 de: färbendes Lebensmittel Rote Bete Pulver
 it: polvere di barbabietola
@@ -62347,7 +62352,7 @@ eu: Taro
 fa: تارو
 fi: Taaro
 fj: Dalo
-fr: Colocasia esculenta
+fr: Colocasia esculenta, taro
 gl: Taro
 gu: અળવી
 ha: Gwaza
@@ -90536,6 +90541,25 @@ ciqual_food_name:fr: Lieu jaune ou colin, cru
 # lieu (lieu 25%, huile de colza, sel, échalotes, gélatine de poisson)
 # ... Crabe, lieu, crème liquide, échalotes
 
+< en: freshwater fish
+en: roach, rutilus roach, common roach
+da: skalle
+de: Rotauge, Plötze, Unechte Rotfeder, Schwal
+es: rutilo
+fi: särki
+fr: Gardon, Gardon blanc, Gardon commun
+hr: bodorka
+hu: bodorka
+it: rutilo, gardon
+la: Rutilus rutilus
+li: röts
+lt: Paprastoji kuoja, mẽkšras, bruĩšė, raudà
+lv: rauda
+nl: blankvoorn
+pl: Płoć, płotka
+ro: babușca, ocheana, gardonul, bălosul
+wikidata:en: Q182976
+
 # description:fr:Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
 
 < en: fish
@@ -96200,6 +96224,7 @@ fi: uunipaahdettu broilerinfilee
 en: chicken breast, chicken breast meat
 bg: пилешки гърди
 ca: pit de pollastre
+da: kyllingebryst
 de: Hähnchenbrust, Hähnchenbrustfleisch
 es: pechuga de pollo, carne de pechuga de pollo
 fr: blanc de poulet, blancs de poulet, poitrine de poulet
@@ -96763,6 +96788,7 @@ fr: viande de dinde halal
 en: turkey breast, turkey fillet, turkey breast meat
 bg: пуешко филе
 ca: pit de gall d'indi, pit d'indiot
+da: kalkunbryst
 de: Putenfilet
 es: pechuga de pavo
 fi: kalkkunanrinta, kalkkunan rintaliha, kalkkunanfilee, kalkkunan filee, kalkkuna filee
