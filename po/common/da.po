@@ -976,7 +976,7 @@ msgstr "Ofte Stillede Spørgsmål"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -4320,7 +4320,7 @@ msgstr "Donér venligst"
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_provenance_line"
 msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
-msgstr ""
+msgstr "Fra <b>Open Food Facts</b>, den gratis fødevaredatabase · bygget af frivillige siden 2012 · data genbrugt af {apps_count}+ apps"
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -4985,7 +4985,7 @@ msgstr "Miljø"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4998,7 +4998,7 @@ msgstr "Green-Score er en miljøscore fra A+ til F, som gør det nemt at sammenl
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -5249,19 +5249,19 @@ msgstr "Manglende næringsindhold for færdiglavet produkt"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5339,7 +5339,7 @@ msgstr "Produkter, for hvilke der pt. mangler data til at afgøre, om de matcher
 
 msgctxt "forest_footprint"
 msgid "Forest Footprint"
-msgstr ""
+msgstr "Forest Footprint"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
@@ -5367,7 +5367,7 @@ msgstr "Skovrydningsrisiko"
 
 msgctxt "total_forest_footprint"
 msgid "Total Forest Footprint"
-msgstr ""
+msgstr "Samlet Forest Foodprint"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -5391,7 +5391,7 @@ msgstr "% i produkt"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the Forest Footprint"
-msgstr ""
+msgstr "Beregningsdetaljer for skovbelastningen"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5436,59 +5436,59 @@ msgstr "Den beregner indikatorer såsom Nutri-Score, NOVA og Green-Score og iden
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest Footprint"
-msgstr ""
+msgstr "Forest Footprint"
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest Footprint)"
-msgstr ""
+msgstr "Lav risiko for skovrydning (skovbelastning)"
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr ""
+msgstr "Skovfodaftrykket svarer til risikoen for skovrydning forbundet med produktets ingredienser."
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Forest Footprint A"
-msgstr ""
+msgstr "Forest Footprint A"
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Forest Footprint B"
-msgstr ""
+msgstr "Forest Footprint B"
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Forest Footprint C"
-msgstr ""
+msgstr "Forest Footprint C"
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Forest Footprint D"
-msgstr ""
+msgstr "Forest Footprint D"
 
 msgctxt "attribute_forest_footprint_a_description"
 msgid "No ingredient associated with a deforestation risk."
-msgstr ""
+msgstr "Ingen ingredienser forbundet med risiko for skovrydning."
 
 msgctxt "attribute_forest_footprint_b_description"
 msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
-msgstr ""
+msgstr "Forekomst af en eller flere ingredienser med risiko for skovrydning, men lav risiko på grund af deres mængde, oprindelse og/eller mærkning."
 
 msgctxt "attribute_forest_footprint_c_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
-msgstr ""
+msgstr "Forekomst af en eller flere ingredienser med risiko for skovrydning, med moderat risiko givet deres mængde, oprindelse og/eller etiketter."
 
 msgctxt "attribute_forest_footprint_d_description"
 msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
-msgstr ""
+msgstr "Forekomst af en eller flere ingredienser med risiko for skovrydning, med høj risiko på grund af deres mængde, oprindelse og/eller mærkning."
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest Footprint not computed"
-msgstr ""
+msgstr "Skovbelastning ikke beregnet"
 
 msgctxt "attribute_forest_footprint_not_computed_description"
 msgid "Potential deforestation risk but not yet computed."
-msgstr ""
+msgstr "Potentiel risiko for skovrydning, men ikke endnu beregnet."
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "No deforestation risk"
-msgstr ""
+msgstr "Ingen risiko for skovrydning"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
@@ -5496,7 +5496,7 @@ msgstr "Lav risiko for skovrydning"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Medium risk of deforestation"
-msgstr ""
+msgstr "Moderat risiko for skovrydning"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
@@ -5504,15 +5504,15 @@ msgstr "Høj risiko for skovrydning"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Potential deforestation risk not computed"
-msgstr ""
+msgstr "Potentiel risiko for skovrydning ikke beregnet"
 
 msgctxt "attribute_forest_footprint_unknown_title"
 msgid "Forest Footprint not available"
-msgstr ""
+msgstr "Forest Footprint ikke tilgængelig"
 
 msgctxt "attribute_forest_footprint_unknown_description"
 msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
-msgstr ""
+msgstr "Skovningsrisikoen kan ikke beregnes, fordi ingredienslisten mangler."
 
 msgctxt "attribute_forest_footprint_unknown_description_short"
 msgid "Missing ingredients list"
@@ -5520,11 +5520,11 @@ msgstr "Manglende ingrediensliste"
 
 msgctxt "forest_footprint_2026_other_risky_ingredients"
 msgid "Other risky ingredients"
-msgstr ""
+msgstr "Andre risikable ingredienser"
 
 msgctxt "forest_footprint_2026_other_risky_ingredients_description"
 msgid "These ingredients are not yet assessed for deforestation risk:"
-msgstr ""
+msgstr "Disse ingredienser er endnu ikke vurderet for skovrydningsrisiko:"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
@@ -5754,7 +5754,7 @@ msgstr "Bruger du den samme kolonne på flere linjer til billed-URL'er for et en
 
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr ""
+msgstr "Skovfodaftrykket beregnes ved at tage højde for de ingredienser, hvis produktion kræver sojabønner, eller hvis dyrkning er knyttet til skovrydning."
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -6569,19 +6569,19 @@ msgstr "Få mere at vide om Øko-Score"
 # Environmental Cost (Ecobalyse)
 msgctxt "environmental_cost_title"
 msgid "Environmental Cost"
-msgstr ""
+msgstr "Miljøomkostninger"
 
 msgctxt "environmental_cost_description"
 msgid "Total environmental impact score from Ecobalyse"
-msgstr ""
+msgstr "Samlet miljøpåvirkningsscore fra Ecobalyse"
 
 msgctxt "environmental_cost_stale"
 msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
-msgstr ""
+msgstr "Denne miljøomkostning blev beregnet før de seneste ændringer af produktet og er muligvis ikke opdateret."
 
 msgctxt "ecs_breakdown"
 msgid "ECS Breakdown"
-msgstr ""
+msgstr "ECS-fordeling"
 
 msgctxt "environmental_cost_stage"
 msgid "Stage"
@@ -6589,31 +6589,31 @@ msgstr "Fase"
 
 msgctxt "environmental_cost_points_for_100g"
 msgid "Points for 100 g"
-msgstr ""
+msgstr "Point for 100 g"
 
 msgctxt "environmental_cost_points_for_100ml"
 msgid "Points for 100 ml"
-msgstr ""
+msgstr "Point for 100 ml"
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_points_for_product"
 msgid "Points for the product ({quantity})"
-msgstr ""
+msgstr "Point for produktet ({quantity})"
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_for_product"
 msgid "{points} points for the product ({quantity})"
-msgstr ""
+msgstr "{points} point for produktet ({quantity})"
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_for_100g"
 msgid "{points} points for 100 g"
-msgstr ""
+msgstr "{points} point for 100 g"
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_for_100ml"
 msgid "{points} points for 100 ml"
-msgstr ""
+msgstr "{points} point for 100 ml"
 
 msgctxt "environmental_cost_ingredients"
 msgid "Ingredients"
@@ -6625,7 +6625,7 @@ msgstr "Emballage"
 
 msgctxt "environmental_cost_transport"
 msgid "Transport"
-msgstr ""
+msgstr "Transport"
 
 msgctxt "environmental_cost_processing"
 msgid "Processing"
@@ -6687,7 +6687,7 @@ msgstr "Kan du tilføje ingredienslisten?"
 
 msgctxt "actions_add_nutrition_facts"
 msgid "Could you add the nutrition facts?"
-msgstr ""
+msgstr "Kan du tilføje ernæringsfakta?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
@@ -7442,11 +7442,11 @@ msgstr "Kategori, etiketter, ingredienser, allergener, ernæringsoplysninger, fo
 
 msgctxt "incomplete_or_incorrect_data_subtitle_obf"
 msgid "Category, labels, ingredients, allergens, photos etc."
-msgstr ""
+msgstr "Kategori, etiketter, ingredienser, allergener, fotos osv."
 
 msgctxt "incomplete_or_incorrect_data_subtitle_opf"
 msgid "Category, labels, ingredients, product characteristics, photos etc."
-msgstr ""
+msgstr "Kategori, etiketter, ingredienser, produktegenskaber, fotos osv."
 
 msgctxt "incomplete_or_incorrect_data_subtitle_opff"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
@@ -7462,15 +7462,15 @@ msgstr "Open Food Facts er en samarbejdsdatabase, hvor hvert bidrag er nyttigt f
 
 msgctxt "incomplete_or_incorrect_data_content_correct_obf"
 msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
-msgstr ""
+msgstr "Open Beauty Facts er en samarbejdsdatabase, og ethvert bidrag er nyttigt for alle."
 
 msgctxt "incomplete_or_incorrect_data_content_correct_opf"
 msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
-msgstr ""
+msgstr "Open Products Facts er en samarbejdsbaseret database, og ethvert bidrag er nyttigt for alle."
 
 msgctxt "incomplete_or_incorrect_data_content_correct_opff"
 msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
-msgstr ""
+msgstr "Open Pet Food Facts er en samarbejdsdatabase, og ethvert bidrag er nyttigt for alle."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7926,7 +7926,7 @@ msgstr "pr. 100 g"
 
 msgctxt "points"
 msgid "points"
-msgstr ""
+msgstr "point"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
@@ -8096,15 +8096,15 @@ msgstr "Genbrug"
 
 msgctxt "qfdmo_solution_recycle_description"
 msgid "Find collection points for proper recycling when the product reaches end of life"
-msgstr ""
+msgstr "Find indsamlingssteder til korrekt genbrug, når produktet når slutningen af sin levetid"
 
 msgctxt "qfdmo_solutions_action"
 msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
-msgstr ""
+msgstr "Brug Que Faire De Mes Objets (Frankrig) til at finde løsninger nær dig:"
 
 msgctxt "qfdmo_solutions_find_nearby"
 msgid "Find solutions nearby on QFDMO"
-msgstr ""
+msgstr "Find løsninger i nærheden på QFDMO"
 
 msgctxt "qfdmo_category"
 msgid "Product category"
@@ -8176,19 +8176,19 @@ msgstr "Ingredienser er knyttet til Open Food Facts ingredienstaksonomi, og dere
 
 msgctxt "test_ingredients_text_language"
 msgid "Ingredients text language"
-msgstr ""
+msgstr "Tekstsprog for ingredienser"
 
 msgctxt "test_ingredients_text"
 msgid "Ingredients text"
-msgstr ""
+msgstr "Ingredienstekst"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
-msgstr ""
+msgstr "Vælg en ingrediensprocent estimator:"
 
 msgctxt "test_ingredients_product_opener_description"
 msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
-msgstr ""
+msgstr "bruger en kombination af regler og heuristikker og et begrænset sæt af næringsoplysninger og ingrediensbegrænsninger"
 
 msgctxt "test_ingredients_recipe_estimator_glop_description"
 msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
@@ -8204,11 +8204,11 @@ msgstr ""
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
-msgstr ""
+msgstr "Ernæringsfakta"
 
 msgctxt "test_ingredients_parsing_estimates_and_analysis"
 msgid "Ingredients parsing and quantity estimation"
-msgstr ""
+msgstr "Ingrediensanalyse og mængdeestimering"
 
 msgctxt "test_ingredients_percent_estimator"
 msgid "Ingredient percent estimator:"
@@ -8232,15 +8232,15 @@ msgstr ""
 
 msgctxt "forest_footprint_2026_methodology_more_info"
 msgid "More information on the methodology"
-msgstr ""
+msgstr "Mere information om metoden"
 
 msgctxt "forest_footprint_2026_overall_grade"
 msgid "Forest Footprint grade"
-msgstr ""
+msgstr "Forest Footprint-karakter"
 
 msgctxt "forest_footprint_2026_total"
 msgid "Total Forest Footprint"
-msgstr ""
+msgstr "Samlet Forest Foodprint"
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
@@ -8252,7 +8252,7 @@ msgstr ""
 
 msgctxt "forest_footprint_2026_origin_footprint"
 msgid "Forest Footprint for the origin"
-msgstr ""
+msgstr "Skovfodaftryk for oprindelsen"
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
@@ -8264,35 +8264,35 @@ msgstr "Ukendt"
 
 msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
 msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
-msgstr ""
+msgstr "Kakaoproduktion, der hovedsageligt er koncentreret i Vestafrika, bidrager betydeligt til skovrydning. For eksempel har Elfenbenskysten, det førende kakaoproducerende land, mistet 90 % af sine skove siden 1960'erne."
 
 msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
 msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
-msgstr ""
+msgstr "Palmeolieproduktion, der hovedsageligt er koncentreret i Indonesien og Malaysia, bidrager betydeligt til skovrydning. Borneo har mistet mere end halvdelen af sine skove siden 1970'erne."
 
 msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
 msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
-msgstr ""
+msgstr "Kaffedyrkning, der hovedsageligt er koncentreret i Central- og Sydamerika og Sydøstasien, er ansvarlig for skovrydning på 130.000 hektar hvert år siden år 2000."
 
 msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
 msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
-msgstr ""
+msgstr "Kylling- og ægproduktion, selv når de opdrættes i Frankrig, bidrager betydeligt til skovrydning gennem deres foder: soja. Frankrig importerer to tredjedele af sin soja fra Brasilien, hvor dyrkningen bidrager til ødelæggelsen af Amazonas."
 
 msgctxt "forest_footprint_2026_labels_description"
 msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
-msgstr ""
+msgstr "Tilstedeværelsen af visse mærker kan i høj grad bidrage til at reducere risikoen for skovrydning, gennem tilstedeværelsen af miljøkriterier og/eller gennem bedre aflønning af producenter."
 
 msgctxt "related_categories"
 msgid "Related categories"
-msgstr ""
+msgstr "Relaterede kategorier"
 
 msgctxt "nova_unknown_why"
 msgid "Why the NOVA group of some products is unknown"
-msgstr ""
+msgstr "Hvorfor NOVA-gruppen er ukendt for nogle produkter"
 
 msgctxt "product_history_revision"
 msgid "Revision"
-msgstr ""
+msgstr "Revision"
 
 msgctxt "product_history_date"
 msgid "Date"
@@ -8304,7 +8304,7 @@ msgstr "Bidragsyder"
 
 msgctxt "product_history_changes"
 msgid "Changes"
-msgstr ""
+msgstr "Ændringer"
 
 msgctxt "product_history_comment"
 msgid "Comment"
@@ -8312,35 +8312,35 @@ msgstr "Kommentér"
 
 msgctxt "product_history_most_recent_changes"
 msgid "Only the most recent changes are shown."
-msgstr ""
+msgstr "Kun de seneste ændringer er vist."
 
 msgctxt "product_history_see_full_history"
 msgid "See the full changes history"
-msgstr ""
+msgstr "Se den fulde ændringshistorik"
 
 msgctxt "google_drive_import_title"
 msgid "Import photos from a Google Drive folder"
-msgstr ""
+msgstr "Importer billeder fra en Google Drev-mappe"
 
 msgctxt "google_drive_import_description"
 msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
-msgstr ""
+msgstr "Del Google Drev-mappen med \"Alle med linket\", og kopier derefter dens URL nedenfor. Billederne i mappen og dens undermapper behandles i rækkefølge efter deres filnavne: et foto, der ikke har en stregkode i filnavnet eller i billedet, føjes til produktet af det forrige foto."
 
 msgctxt "google_drive_folder_url"
 msgid "Google Drive folder URL"
-msgstr ""
+msgstr "URL-adressen til Google Drev-mappen"
 
 msgctxt "google_drive_import_button"
 msgid "Import the photos"
-msgstr ""
+msgstr "Importer billederne"
 
 msgctxt "google_drive_invalid_folder_url"
 msgid "This is not the URL of a Google Drive folder."
-msgstr ""
+msgstr "Dette er ikke URL'en til en Google Drev-mappe."
 
 msgctxt "google_drive_no_api_key"
 msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
-msgstr ""
+msgstr "Det er ikke muligt at importere billeder fra Google Drev: Der er ikke konfigureret en Google Drive API-nøgle på denne server."
 
 msgctxt "google_drive_folder_not_found"
 msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
