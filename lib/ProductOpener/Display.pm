@@ -96,6 +96,7 @@ BEGIN {
 		&count_products
 		&add_params_to_query
 		&add_params_and_filters_to_query
+		&generate_query_cache_key
 
 		&process_template
 
@@ -307,6 +308,80 @@ $tt = Template->new(
 				return $json_utf8->encode($text);
 			},
 		},
+		# Global template functions (not filters): e.g. [% encode_json(pointers) %]
+		# Filters stringify refs (ARRAY(0x...)), while a function preserves them,
+		# so structures must go through a function. Uses $json (utf8(0))
+		# to return character strings for TT with ENCODING => 'UTF-8'.
+		# Only pure / static subs live here: no per-request state ($request_ref,
+		# $target_lc, time()). Per-process stash values override these globals.
+		VARIABLES => {
+			encode_json => sub ($var) {
+				return $json->encode($var);
+			},
+			# Note: use late-binding wrappers (not \&foo refs) so that mocks
+			# and redefinitions (e.g. in unit tests) are honored at call time.
+			feature_enabled => sub {
+				return feature_enabled(@_);
+			},
+			# escaping quotes for use in javascript or json
+			# using short names to favour readability
+			esq => sub {escape_char(@_, "\'")},    # esq as escape_single_quote_and_newlines
+			edq => sub {escape_char(@_, '"')},    # edq as escape_double_quote
+			display_icon => sub {
+				return display_icon(@_);
+			},
+			display_date_without_time => sub {
+				return display_date_without_time(@_);
+			},
+			display_date_ymd => sub {
+				return display_date_ymd(@_);
+			},
+			display_date_tag => sub {
+				return display_date_tag(@_);
+			},
+			product_url => sub {
+				return product_url(@_);
+			},
+			product_action_url => sub {
+				return product_action_url(@_);
+			},
+			product_name_brand_quantity => sub {
+				return product_name_brand_quantity(@_);
+			},
+			# These closures read the global $lc at call time, same as before.
+			canonicalize_taxonomy_tag_link => sub ($tagtype, $tag) {
+				return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tag => sub ($tagtype, $tag) {
+				return display_taxonomy_tag($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tag_name => sub ($tagtype, $tag) {
+				return display_taxonomy_tag_name($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tags_list => sub ($tagtype, $tags_ref) {
+				if (defined $tags_ref) {
+					return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_)} @$tags_ref);
+				}
+				else {
+					return "";
+				}
+			},
+			round => sub ($var) {
+				# Check if $var is defined and is numeric
+				if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
+					return sprintf("%.0f", $var);
+				}
+				else {
+					return;
+				}
+			},
+			sprintf => sub ($var1, $var2) {
+				return sprintf($var1, $var2);
+			},
+			uri_escape => sub ($var) {
+				return uri_escape($var);
+			},
+		},
 	}
 );
 
@@ -344,9 +419,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	# give priority to request_ref lc but eventually fallback to global $lc
 	my $target_lc = $request_ref->{lc} // $lc;
 	# Add functions and values that are passed to all templates
-
-	# Features for each product type
-	$template_data_ref->{feature_enabled} = \&feature_enabled;
 
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
@@ -396,20 +468,9 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{f_lang} = sub ($stringid, $variables_ref) {
 		return f_lang_in_lc($target_lc, $stringid, $variables_ref);
 	};
-	# escaping quotes for use in javascript or json
-	# using short names to favour readability
-	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
-	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
-	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{time_t} = time();
-	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
-	$template_data_ref->{display_date_ymd} = \&display_date_ymd;
-	$template_data_ref->{display_date_tag} = \&display_date_tag;
-	$template_data_ref->{product_url} = \&product_url;
-	$template_data_ref->{product_action_url} = \&product_action_url;
-	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 	$template_data_ref->{has_permission} = sub ($permission) {
 		return has_permission($request_ref, $permission);
 	};
@@ -419,53 +480,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{header} = $request_ref->{header};
 	$template_data_ref->{styles} = $request_ref->{styles};
 	$template_data_ref->{bodyabout} = $request_ref->{bodyabout};
-
-	# Return a link to one taxonomy entry in the target language
-	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
-		return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
-	};
-
-	# Display one taxonomy entry in the target language
-	$template_data_ref->{display_taxonomy_tag} = sub ($tagtype, $tag) {
-		return display_taxonomy_tag($lc, $tagtype, $tag);
-	};
-
-	# Display one taxonomy entry in the target language, without language prefix
-	$template_data_ref->{display_taxonomy_tag_name} = sub ($tagtype, $tag) {
-		return display_taxonomy_tag_name($lc, $tagtype, $tag);
-	};
-
-	# Display a list of taxonomy entries in the target language
-	$template_data_ref->{display_taxonomy_tags_list} = sub ($tagtype, $tags_ref) {
-		if (defined $tags_ref) {
-			return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_)} @$tags_ref);
-		}
-		else {
-			return "";
-		}
-	};
-
-	$template_data_ref->{round} = sub ($var) {
-		# Check if $var is defined and is numeric
-		if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
-			return sprintf("%.0f", $var);
-		}
-		else {
-			return;
-		}
-	};
-
-	$template_data_ref->{sprintf} = sub ($var1, $var2) {
-		return sprintf($var1, $var2);
-	};
-
-	$template_data_ref->{encode_json} = sub ($var) {
-		return $json->encode($var);
-	};
-
-	$template_data_ref->{uri_escape} = sub ($var) {
-		return uri_escape($var);
-	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
 }
@@ -3193,7 +3207,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 	# If the query contained tags in non-canonical form, redirect to the form with the canonical tags
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
-	if ($redirect_to_canonical_url) {
+	if ($redirect_to_canonical_url && !defined $request_ref->{api}) {
 		$request_ref->{redirect} = $request_ref->{formatted_subdomain} . $request_ref->{current_link};
 		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
 
@@ -4303,12 +4317,13 @@ HTML
 
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 		if ($tag_ref->{tagtype} eq 'users') {
-			deep_set($request_ref, "body_json", "creator", $tag_ref->{tagid});
+			deep_set($request_ref, "body_json", "creator", $tag_ref->{new_tagid} // $tag_ref->{tagid});
 		}
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
 			my $current_value = deep_get($request_ref, "body_json", $field_name);
-			my $new_value = ($tag_ref->{tag_prefix} // '') . ($tag_ref->{canon_tagid} // $tag_ref->{tagid});
+			my $new_value = ($tag_ref->{tag_prefix} // '')
+				. ($tag_ref->{canon_tagid} // $tag_ref->{new_tagid} // $tag_ref->{tagid});
 			if ($current_value) {
 				$new_value = $current_value . ',' . $new_value;
 			}
@@ -7331,28 +7346,29 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 	while (my $product_ref = $products_iter->()) {
 		my $url = $request_ref->{formatted_subdomain} . product_url($product_ref->{code});
 
-		my $manufacturing_places = escape_single_quote_and_newlines($product_ref->{"manufacturing_places"});
+		# Plain-text lines for the map popup. Values are JSON-encoded by the
+		# template and rendered with textContent in display-map.js, so no
+		# HTML building or escaping is needed here.
+		my @origins_lines = ();
+
+		my $manufacturing_places = $product_ref->{"manufacturing_places"} // '';
 		$manufacturing_places =~ s/,( )?/, /g;
 		if ($manufacturing_places ne '') {
-			$manufacturing_places
-				= ucfirst(lang("manufacturing_places_p"))
-				. separator_before_colon($lc) . ": "
-				. $manufacturing_places . "<br>";
+			push @origins_lines,
+				ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places;
 		}
 
-		my $origins = escape_single_quote_and_newlines($product_ref->{origins});
+		my $origins = $product_ref->{origins} // '';
 		$origins =~ s/,( )?/, /g;
 		if ($origins ne '') {
-			$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
+			push @origins_lines, ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins;
 		}
-
-		$origins = $manufacturing_places . $origins;
 
 		my $pointer = {
 			product_name => $product_ref->{product_name},
 			brands => $product_ref->{brands},
 			url => $url,
-			origins => $origins,
+			origins => \@origins_lines,
 			img => display_image($product_ref, "front", $request_ref->{lc}, $thumb_size)
 		};
 
@@ -8291,7 +8307,8 @@ JS
 
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{code} = $code;
-	$template_data_ref->{user_moderator} = $User{moderator};
+	$template_data_ref->{can_delete} = can_delete_product($product_ref);
+	$template_data_ref->{can_delete_image} = can_delete_image($product_ref);
 
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
@@ -9099,6 +9116,8 @@ sub compare_product_nutrition_facts_to_categories ($product_ref, $target_lc, $ta
 		if (defined $categories_stats_ref) {
 
 			foreach my $cid (@{$product_ref->{categories_tags}}) {
+
+				next unless exists_taxonomy_tag('categories', $cid);
 
 				if (    (defined $categories_stats_ref->{$cid})
 					and (defined $categories_stats_ref->{$cid}{stats}))

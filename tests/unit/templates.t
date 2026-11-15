@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -15,11 +15,10 @@ use ProductOpener::Display qw/$tt/;
 # Note that only compilation errors will be found.
 # Runtime errors (e.g. a scalar instead of a list etc.) will not be tested.
 
-sub test_template($);
+sub test_template;
 
-sub test_template($) {
+sub test_template ($path) {
 
-	my $path = shift;
 	my $full_path = "$data_root/templates/" . $path;
 
 	if (-d $full_path) {

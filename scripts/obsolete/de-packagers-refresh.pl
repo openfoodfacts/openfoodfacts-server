@@ -23,7 +23,7 @@
 use utf8;
 use autodie;
 use open qw(:std :utf8);
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 
 use Encode qw( encode );
 

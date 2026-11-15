@@ -178,6 +178,9 @@ foreach my $test_ref (@tests) {
 	# Note: extract_ingredients_from_text will create fields allergens/traces_from_ingredients
 	# Those are kept in the unit tests, but in real processing, they are then removed by detect_allergens_from_text
 
+	# The time of the results changes at each run
+	delete $product_ref->{environmental_impact}{ecobalyse_results_t} if defined $product_ref->{environmental_impact};
+
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 
 	# Save the ecobalyse mocked response

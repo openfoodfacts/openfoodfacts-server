@@ -45,6 +45,16 @@ subtest 'user + password_signin' => sub {
 		ok($access_expires_at, 'access token expires_at is defined');
 		ok($id_token, 'id token is defined');
 	};
+
+	subtest 'without persistent session then revoke' => sub {
+		my ($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
+			= password_signin('tests', 'testtest', {}, 0);
+		is($user_ref->{userid}, 'tests', 'user_id matches the one we used');
+		ok($refresh_token, 'refresh token is defined for online session');
+		ok($access_token, 'access token is defined');
+		ok($id_token, 'id token is defined');
+		ok(revoke_token($refresh_token, 'refresh_token'), 'online session can be revoked');
+	};
 };
 
 subtest 'mail + password_signin' => sub {

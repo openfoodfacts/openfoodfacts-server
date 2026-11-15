@@ -2,7 +2,7 @@
 
 # Tests of parsing nested ingredients, such as "ingredient (component 1, component 2)", etc.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -419,7 +419,101 @@ my @tests = (
 		]
 	],
 
+	[
+		{lc => "fr", ingredients_text => "ferments lactiques, présure (animale), sucre"},
+		[
+			{
+				'id' => 'en:lactic-ferments',
+				'is_in_taxonomy' => 1,
+				'text' => 'ferments lactiques'
+			},
+			{
+				'id' => 'en:animal-based-rennet',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:non-vegan',
+				'text' => 'présure animale'
+			},
+			{
+				'id' => 'en:sugar',
+				'is_in_taxonomy' => 1,
+				'text' => 'sucre'
+			}
+		]
+	],
+
+	[
+		{lc => "fr", ingredients_text => "présure (végétale)"},
+		[
+			{
+				'id' => 'en:vegetarian-rennet',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:vegan',
+				'text' => 'présure végétale',
+				'vegan' => 'yes',
+				'vegetarian' => 'yes'
+			}
+		]
+	],
+
+	[
+		{lc => "en", ingredients_text => "milk, salt, rennet (animal)"},
+		[
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:salt',
+				'is_in_taxonomy' => 1,
+				'text' => 'salt'
+			},
+			{
+				'id' => 'en:animal-based-rennet',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:non-vegan',
+				'text' => 'animal rennet'
+			}
+		]
+	],
+
+	[
+		{lc => "fr", ingredients_text => "oeufs (plein air)"},
+		[
+			{
+				'id' => 'en:free-range-eggs',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:free-range',
+				'text' => 'oeufs plein air'
+			}
+		]
+	],
+
 );
+
+# A period in "No. 5" is part of a cosmetic colorant name, not an ingredient separator.
+my $cosmetic_product_ref = {lc => "en", ingredients_text => "FD&C Yellow No. 5, glycerin"};
+parse_ingredients_text_service($cosmetic_product_ref, {}, []);
+is(scalar(@{$cosmetic_product_ref->{ingredients}}), 2, "Numbered cosmetic colorant stays one ingredient");
+like($cosmetic_product_ref->{ingredients}[0]{text}, qr/No\.\s*5/i, "The number stays attached to the colorant");
+
+# Number abbreviations must be followed by a digit to avoid splitting.
+# A standalone "no." before another ingredient remains a sentence separator.
+foreach my $case (
+	["en", "FD&C Yellow No. 5, glycerin", 2, qr/No\.\s*5/i],
+	["lt", "Maistinis geltonasis CI Nr. 3, cukrus", 2, qr/Nr\.\s*3/i],
+	["fr", "Orange CI n. 4, sucre", 2, qr/\bn\.\s*4/i],
+	["en", "Gluten no. Milk powder", 2, undef],
+	)
+{
+	my ($lc, $text, $expected_count, $numbered_name) = @$case;
+	my $product_ref = {lc => $lc, ingredients_text => $text};
+	parse_ingredients_text_service($product_ref, {}, []);
+	is(scalar(@{$product_ref->{ingredients}}), $expected_count, "$text: ingredient count");
+	if (defined $numbered_name) {
+		like($product_ref->{ingredients}[0]{text}, $numbered_name, "$text: number stays with ingredient");
+	}
+}
 
 foreach my $test_ref (@tests) {
 

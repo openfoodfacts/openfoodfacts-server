@@ -11,6 +11,7 @@ Some documentation to get you started:
 * [Quick start guide (Docker)](how-to-quick-start-guide.md)
 * [Developer guide (Docker)](how-to-develop-using-docker.md)
 * [Developer guide (Gitpod)](how-to-use-gitpod.md)
+* [Run several worktrees on one machine](how-to-run-several-worktrees.md)
 
 
 Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)

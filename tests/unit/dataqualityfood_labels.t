@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -15,11 +15,7 @@ use ProductOpener::ProductsTags qw/has_tag/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::FoodProducts qw/:all/;
 
-sub check_quality_and_test_product_has_quality_tag($$$$) {
-	my $product_ref = shift;
-	my $tag = shift;
-	my $reason = shift;
-	my $yesno = shift;
+sub check_quality_and_test_product_has_quality_tag ($product_ref, $tag, $reason, $yesno) {
 	# Add default lc if not present to avoid warnings in processing
 	$product_ref->{lc} //= 'en';
 	specific_processes_for_food_product($product_ref);

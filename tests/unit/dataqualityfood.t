@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -21,12 +21,9 @@ use boolean;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
-sub check_quality_and_test_product_has_quality_tag($$$$;$) {
-	my $product_ref = shift;
-	my $tag_name = shift;
-	my $reason = shift;
-	my $yesno = shift;
-	my $tag_level = shift // 'data_quality';
+sub check_quality_and_test_product_has_quality_tag ($product_ref, $tag_name, $reason, $yesno,
+	$tag_level = 'data_quality')
+{
 	# If the product has nutrition.input_sets, generate aggregated_set
 	if (defined $product_ref->{nutrition}{input_sets}) {
 		generate_nutrient_aggregated_set($product_ref);
@@ -44,10 +41,7 @@ sub check_quality_and_test_product_has_quality_tag($$$$;$) {
 	return;
 }
 
-sub product_with_energy_has_quality_tag($$$) {
-	my $energy = shift;
-	my $reason = shift;
-	my $yesno = shift;
+sub product_with_energy_has_quality_tag ($energy, $reason, $yesno) {
 
 	my $product_ref = {
 		lc => "de",
