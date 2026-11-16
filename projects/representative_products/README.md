@@ -45,11 +45,16 @@ products and incomplete products with photos, with a status: OK, INCOMPLETE (inc
 `--all-pairs` adds the pairs that FOODTURE does not need (other terms, Canada, Iceland) with `foodture_needed` = 0.
 Fallback categories are not used: the `fallback_category` column is empty, for the end of the campaign.
 
-It runs every day in `scripts/gen_feeds_daily.sh`, after the JSONL export, and writes `index.html`,
-`foodture_campaign.csv` and `foodture_campaign.json` in https://static.openfoodfacts.org/data/foodture/
+It writes `foodture_campaign.csv` and `foodture_campaign.json`. `projects/foodture/build_campaign_site.pl` makes the
+web pages from the JSON file: `index.html` (summary per country, sortable; `index.html?country=at` opens the Austria page),
+one page per country (`at.html`, `be.html`... country subdomain codes) and `all.html`.
+
+Both run every day in `scripts/gen_feeds_daily.sh`, after the JSONL export, and write to
+https://static.openfoodfacts.org/data/foodture/
 
 ```bash
 ./projects/foodture/list_campaign_needed_categories.pl --jsonl openfoodfacts-products.jsonl.gz --output-dir /tmp/foodture
+./projects/foodture/build_campaign_site.pl --json /tmp/foodture/foodture_campaign.json --output-dir /tmp/foodture
 ```
 
 ## Pipeline

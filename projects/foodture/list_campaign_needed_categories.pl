@@ -49,7 +49,8 @@ use RepresentativeProducts
 # With --all-pairs, all the FOODTURE codes in all the countries of the representative products dataset
 # (including Canada and Iceland) are listed, with foodture_needed = 0 for the pairs that FOODTURE does not need.
 #
-# Outputs, in --output-dir: index.html, foodture_campaign.csv, foodture_campaign.json
+# Outputs, in --output-dir: foodture_campaign.csv and foodture_campaign.json
+# build_campaign_site.pl makes the web pages from foodture_campaign.json
 
 my $usage = <<TXT
 list_campaign_needed_categories.pl --jsonl <products.jsonl[.gz]> --output-dir <dir>
@@ -380,6 +381,18 @@ print $JSON JSON::MaybeXS->new(utf8 => 1, canonical => 1, pretty => 1)->encode(
 		dump_file => basename($jsonl_file),
 		scans_years => \@years,
 		all_pairs => $all_pairs ? JSON::MaybeXS::true : JSON::MaybeXS::false,
+		countries => {
+			map {
+				(
+					$countries{$_}{name} => {
+						country_tag => $_,
+						country_code => $countries{$_}{cc},
+						languages => $countries{$_}{languages},
+						foodture_country => $countries{$_}{foodture},
+					}
+				)
+			} keys %countries
+		},
 		summary => {
 			map {
 				my $s = $summary{$_};
@@ -392,241 +405,9 @@ print $JSON JSON::MaybeXS->new(utf8 => 1, canonical => 1, pretty => 1)->encode(
 close $JSON;
 rename("$json_file.tmp", $json_file) or die "Cannot rename $json_file.tmp: $!\n";
 
-# HTML
-sub h ($text) {
-	$text //= '';
-	$text =~ s/&/&amp;/g;
-	$text =~ s/</&lt;/g;
-	$text =~ s/>/&gt;/g;
-	$text =~ s/"/&quot;/g;
-	return $text;
-}
-
-sub country_id ($name) {
-	my $id = lc($name);
-	$id =~ s/[^a-z0-9]+/-/g;
-	return "country-$id";
-}
-
-sub fmt_scans ($row_ref) {
-	return
-		join(" · ", "country: " . ($row_ref->{country_scans} // 0),
-		"all countries: " . ($row_ref->{global_scans} // 0));
-}
-
-my @country_names = sort keys %{{map {$_->{country} => 1} @rows}};
-my $years_text = join(" and ", sort @years);
-
-my $html = <<HTML;
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FOODTURE: products to scan in each country</title>
-<style>
-:root { --bg: #fff; --fg: #1f2328; --muted: #57606a; --line: #d0d7de; --head: #f6f8fa;
-	--missing: #b42318; --missing-bg: #fde8e7; --incomplete: #9a6700; --incomplete-bg: #fff4d6; --ok: #1a7f37; --ok-bg: #e6f4ea; --link: #0969da; }
-\@media (prefers-color-scheme: dark) { :root { --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --line: #30363d; --head: #161b22;
-	--missing: #ff8b80; --missing-bg: #3d1614; --incomplete: #e3b341; --incomplete-bg: #33270b; --ok: #56d364; --ok-bg: #12301b; --link: #4493f8; } }
-body { margin: 0; padding: 0 16px 48px; background: var(--bg); color: var(--fg); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-main { max-width: 1200px; margin: 0 auto; }
-h1 { font-size: 1.6rem; margin: 24px 0 8px; }
-h2 { font-size: 1.25rem; margin: 32px 0 4px; padding-top: 8px; border-top: 2px solid var(--line); }
-a { color: var(--link); }
-.muted, small { color: var(--muted); }
-.note { background: var(--head); border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; margin: 12px 0; }
-.filters { position: sticky; top: 0; z-index: 1; background: var(--bg); padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
-.filters label { white-space: nowrap; }
-select, input[type=search] { font: inherit; padding: 4px 6px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 4px; }
-.table-wrap { overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; margin: 8px 0; }
-th, td { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
-th { background: var(--head); font-weight: 600; }
-td.num { text-align: right; white-space: nowrap; }
-.badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 0.85em; font-weight: 600; white-space: nowrap; }
-.MISSING { color: var(--missing); background: var(--missing-bg); }
-.INCOMPLETE { color: var(--incomplete); background: var(--incomplete-bg); }
-.OK { color: var(--ok); background: var(--ok-bg); }
-.cat { font-weight: 600; }
-.local { font-style: italic; }
-.summary td, .summary th { text-align: right; }
-.summary td:first-child, .summary th:first-child { text-align: left; }
-.hidden { display: none; }
-\@media (max-width: 700px) { .details-col { display: none; } }
-</style>
-</head>
-<body>
-<main>
-<h1>FOODTURE: products to scan in each country</h1>
-<p>The <a href="https://foodture.eu/">FOODTURE</a> research project needs, for each type of food (FoodEx2 term) and each European country,
-one representative product with complete data on Open Food Facts: photos, ingredients and nutrition facts.
-This page lists the food categories needed in each country. Categories with <span class="badge MISSING">no product</span> or with
-<span class="badge INCOMPLETE">incomplete products only</span> are listed first: if you live in one of these countries,
-please scan and photograph products of these categories in stores with the Open Food Facts app,
-or complete existing products from their photos.</p>
-<div class="note">
-<b>Updated daily.</b> Data: Open Food Facts products of $dump_date, page generated $generated. The selected product is the most scanned
-complete product of the category sold in the country (unique scans in $years_text).<br>
-The counts of this page use the latest categories taxonomy. The category pages on the Open Food Facts website can show fewer products
-until all products are updated with the new categories.<br>
-Data: <a href="foodture_campaign.csv">CSV</a> · <a href="foodture_campaign.json">JSON</a>
-</div>
-HTML
-
-# overall summary table
-$html .= <<HTML;
-<h2 id="summary">Summary</h2>
-<div class="table-wrap"><table class="summary">
-<tr><th>Country</th><th>Needed categories</th><th><span class="badge MISSING">no product</span></th><th><span class="badge INCOMPLETE">incomplete only</span></th><th><span class="badge OK">complete</span></th></tr>
-HTML
-foreach my $country (
-	sort {($summary{$b}{MISSING} // 0) <=> ($summary{$a}{MISSING} // 0) or $a cmp $b}
-	grep {$_ ne ''} keys %summary
-	)
-{
-	my $s = $summary{$country};
-	$html .= sprintf(
-		"<tr><td><a href=\"#%s\">%s</a></td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n",
-		country_id($country), h($country), $s->{total},
-		$s->{MISSING} // 0,
-		$s->{INCOMPLETE} // 0,
-		$s->{OK} // 0
-	);
-}
 my $all = $summary{''} // {};
-$html .= sprintf(
-	"<tr><th>All countries</th><th>%d</th><th>%d</th><th>%d</th><th>%d</th></tr>\n</table></div>\n",
-	$all->{total} // 0,
-	$all->{MISSING} // 0,
-	$all->{INCOMPLETE} // 0,
-	$all->{OK} // 0
-);
 
-# filters
-$html .= qq{<div class="filters">\n<label>Country <select id="f-country"><option value="">All countries</option>\n};
-$html .= qq{<option value="} . h($_) . qq{">} . h($_) . "</option>\n" for @country_names;
-$html .= <<HTML;
-</select></label>
-<label><input type="checkbox" class="f-status" value="MISSING" checked> <span class="badge MISSING">no product</span></label>
-<label><input type="checkbox" class="f-status" value="INCOMPLETE" checked> <span class="badge INCOMPLETE">incomplete only</span></label>
-<label><input type="checkbox" class="f-status" value="OK" checked> <span class="badge OK">complete</span></label>
-<label><input type="search" id="f-text" placeholder="Search a category"></label>
-<span id="f-count" class="muted"></span>
-</div>
-HTML
-
-foreach my $country (@country_names) {
-	my @country_rows = grep {$_->{country} eq $country} @rows;
-	my $s = $summary{$country} // {};
-	my $first = $country_rows[0];
-	my $languages = join(", ", @{$countries{$first->{country_tag}}{languages}});
-	$html .= sprintf(
-		qq{<section class="country" data-country="%s">\n<h2 id="%s">%s</h2>\n<p class="muted">%d needed categories: %d with no product, %d with incomplete products only, %d with a complete product. Category names in: en, %s.</p>\n},
-		h($country), country_id($country), h($country),
-		$s->{total} // 0,
-		$s->{MISSING} // 0,
-		$s->{INCOMPLETE} // 0,
-		$s->{OK} // 0,
-		h($languages)
-	);
-	$html
-		.= qq{<div class="table-wrap"><table>\n<tr><th>Category</th><th>Status</th><th>Products in $country</th><th class="details-col">Selected product</th></tr>\n};
-	foreach my $r (@country_rows) {
-		my $search = lc(join(" ", $r->{off_category_name_en}, $r->{off_category_names_local}, $r->{foodex2_name}));
-		my $category
-			= qq{<a class="cat" href="} . h($r->{category_url}) . qq{">} . h($r->{off_category_name_en}) . "</a>";
-		$category .= qq{<br><span class="local">} . h($r->{off_category_names_local}) . "</span>"
-			if $r->{off_category_names_local} ne '';
-		$category .= "<br><small>FoodEx2 " . h($r->{foodex2_code}) . ": " . h($r->{foodex2_name}) . "</small>";
-		$category .= "<br><small>Not needed by FOODTURE (dataset only)</small>" if not $r->{foodture_needed};
-		my $counts = sprintf(
-			"%d products<br>%d complete<br>%d incomplete with photos",
-			$r->{products},
-			$r->{complete_products},
-			$r->{incomplete_products_with_photos}
-		);
-		if (@{$r->{incomplete_products}}) {
-			$counts .= "<br><small>to complete: " . join(
-				", ",
-				map {
-						  qq{<a href="}
-						. h($_->{product_url})
-						. qq{" title="missing: }
-						. h($_->{missing}) . qq{">}
-						. h($_->{code}) . "</a>"
-				} @{$r->{incomplete_products}}
-			) . "</small>";
-		}
-		my $product = '';
-		if (defined $r->{code}) {
-			$product
-				= qq{<a href="}
-				. h($r->{product_url}) . qq{">}
-				. h($r->{product_name} || $r->{code}) . "</a>"
-				. ($r->{brands} ne '' ? " – " . h($r->{brands}) : '')
-				. "<br><small>"
-				. h($r->{code})
-				. "<br>scans $years_text: "
-				. fmt_scans($r)
-				. "</small>";
-		}
-		$html .= sprintf(
-			qq{<tr class="row" data-status="%s" data-search="%s"><td>%s</td><td><span class="badge %s">%s</span></td><td>%s</td><td class="details-col">%s</td></tr>\n},
-			$r->{status}, h($search), $category, $r->{status}, h($r->{status_label}),
-			$counts, $product
-		);
-	}
-	$html .= "</table></div>\n</section>\n";
-}
-
-$html .= <<'HTML';
-<p class="muted">Made by Open Food Facts for the FOODTURE project. Source: projects/foodture/list_campaign_needed_categories.pl in
-<a href="https://github.com/openfoodfacts/openfoodfacts-server">openfoodfacts-server</a>.</p>
-</main>
-<script>
-(function () {
-	var country = document.getElementById('f-country');
-	var text = document.getElementById('f-text');
-	var statuses = document.querySelectorAll('.f-status');
-	var count = document.getElementById('f-count');
-	function apply() {
-		var wanted = {};
-		statuses.forEach(function (s) { wanted[s.value] = s.checked; });
-		var c = country.value, t = text.value.trim().toLowerCase(), shown = 0;
-		document.querySelectorAll('section.country').forEach(function (section) {
-			var visible = 0;
-			if (!c || section.dataset.country === c) {
-				section.querySelectorAll('tr.row').forEach(function (row) {
-					var ok = wanted[row.dataset.status] && (!t || row.dataset.search.indexOf(t) >= 0);
-					row.classList.toggle('hidden', !ok);
-					if (ok) { visible++; }
-				});
-			}
-			section.classList.toggle('hidden', visible === 0);
-			shown += visible;
-		});
-		count.textContent = shown + ' categories shown';
-		try { localStorage.setItem('foodture-country', c); } catch (e) {}
-	}
-	try { var saved = localStorage.getItem('foodture-country'); if (saved) { country.value = saved; } } catch (e) {}
-	country.addEventListener('change', apply);
-	text.addEventListener('input', apply);
-	statuses.forEach(function (s) { s.addEventListener('change', apply); });
-	apply();
-})();
-</script>
-</body>
-</html>
-HTML
-
-my $html_file = "$output_dir/index.html";
-open(my $HTML, '>:encoding(UTF-8)', "$html_file.tmp") or die "Cannot write $html_file.tmp: $!\n";
-print $HTML $html;
-close $HTML;
-rename("$html_file.tmp", $html_file) or die "Cannot rename $html_file.tmp: $!\n";
-
-print STDERR scalar(@rows) . " rows written to $csv_file, $json_file and $html_file\n";
+print STDERR scalar(@rows) . " rows written to $csv_file and $json_file\n";
 foreach my $country (sort grep {$_ ne ''} keys %summary) {
 	my $s = $summary{$country};
 	printf STDERR "%-20s %4d needed: %4d OK, %4d INCOMPLETE, %4d MISSING\n", $country, $s->{total}, $s->{OK} // 0,
