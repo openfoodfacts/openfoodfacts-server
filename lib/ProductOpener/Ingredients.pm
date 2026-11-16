@@ -7327,15 +7327,25 @@ my %ingredients_categories_and_types = (
 
 	da => [
 		# oil
+		# (separate from fat, so that "vegetabilsk olie (palme)" gives "palmeolie" and not "palmefedt")
 		{
-			categories => ["olie", "fedt", "fedtstoffer", "vegetabilsk olie", "vegetabilsk fedt", "vegetabilske fedtstoffer"],
+			categories => ["olie", "olier", "vegetabilsk olie", "vegetabilske olier"],
 			types => ["avocado", "kokos", "majs", "oliven", "palme", "raps", "sal", "shea", "soja", "solsikke"],
-			alternate_names => ["<type>fedt", "<type>olie"],
+			alternate_names => ["<type>olie"],
+		},
+		# fat
+		{
+			categories => ["fedt", "fedtstoffer", "vegetabilsk fedt", "vegetabilske fedtstoffer"],
+			types => ["avocado", "kokos", "majs", "oliven", "palme", "raps", "sal", "shea", "soja", "solsikke"],
+			alternate_names => ["<type>fedt"],
 		},
 		# protein
 		{
-			categories => ["protein", "vegetabilsk protein"],
-			types => ["ærte", "havre", "kartoffel", "kikærte", "mælke", "majs", "raps",  "ris", "soja", "svampe", "solsikke", "hvede"],
+			categories => ["protein", "proteiner", "vegetabilsk protein", "vegetabilske proteiner"],
+			types => [
+				"ærte", "havre", "kartoffel", "kikærte", "mælke", "majs",
+				"raps", "ris", "soja", "svampe", "solsikke", "hvede"
+			],
 			alternate_names => ["<type>protein"],
 		},
 	],
@@ -7827,6 +7837,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 			$text =~ s/$regexps_ref->{dash_separated_types}/$1, $2/ig;
 
 			if (   ($ingredients_lc eq "en")
+				or ($ingredients_lc eq "da")
 				or ($ingredients_lc eq "de")
 				or ($ingredients_lc eq "hr")
 				or ($ingredients_lc eq "ru")
