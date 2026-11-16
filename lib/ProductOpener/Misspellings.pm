@@ -77,7 +77,8 @@ sub init_misspellings ($field) {
 			$line =~ s/\s+$//;
 			next unless $line;
 
-			next unless $line =~ /^([a-z]{2}):([^->]+?)\s*->\s*(.+)$/;
+			# The misspelled form can contain hyphens, as in "sel-poivre": stop at the first "->"
+			next unless $line =~ /^([a-z]{2}):(.+?)\s*->\s*(.+)$/;
 			my ($lang, $misspelled, $correct) = ($1, $2, $3);
 			$misspelled =~ s/^\s+//;
 			$misspelled =~ s/\s+$//;

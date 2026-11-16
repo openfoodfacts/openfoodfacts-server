@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding UTF-8
+
 =head1 NAME
 
 ProductOpener::Units - functions to convert or otherwise handle units
@@ -46,6 +48,7 @@ BEGIN {
 		&unit_to_mmoll
 		&mmoll_to_unit
 
+		&parse_serving_size
 		&normalize_serving_size
 		&normalize_quantity
 		&extract_standard_unit
@@ -110,6 +113,8 @@ Also create a regexp matching all names.
 my %units = ();
 my %units_names = ();
 my $units_regexp;
+# Same without household measures (spoons, glasses, cups...), so that mass and volume units win when both are present
+my $units_regexp_without_household_measures;
 
 sub init_units_names() {
 
@@ -118,11 +123,17 @@ sub init_units_names() {
 		my $standard_unit = get_property("units", $tagid, "standard_unit:en");
 		my $conversion_factor = get_property("units", $tagid, "conversion_factor:en");
 		my $symbol = get_property("units", $tagid, "symbol:en");
+		my $household_measure = get_property("units", $tagid, "household_measure:en");
+
+		# Count units used in recipes (packet, bunch...) cannot be converted to g or ml,
+		# so we do not use them to parse product quantities like "10 sachets"
+		next if (($standard_unit // '') eq 'count');
 
 		$units{$tagid} = {
 			standard_unit => $standard_unit,
 			conversion_factor => $conversion_factor,
 			symbol => $symbol,
+			household_measure => (($household_measure // '') eq 'yes'),
 		};
 
 		# If there is a symbol, add it to the unit names
@@ -144,11 +155,11 @@ sub init_units_names() {
 	# Construct a regexp that match all unit names
 	# We want to match the longest strings first
 
-	$units_regexp = join(
-		'|', map {regexp_escape($_)}
-			sort {(length $b <=> length $a) || ($a cmp $b)}
-			keys %units_names
-	);
+	my @sorted_units_names = sort {(length $b <=> length $a) || ($a cmp $b)} keys %units_names;
+
+	$units_regexp = join('|', map {regexp_escape($_)} @sorted_units_names);
+	$units_regexp_without_household_measures
+		= join('|', map {regexp_escape($_)} grep {not $units{$units_names{$_}}{household_measure}} @sorted_units_names);
 
 	return;
 }
@@ -255,35 +266,34 @@ parse_quantity_unit(2kg)                returns (2, undef, kg)
 
 Returns (undef, undef, undef) if no quantity was detected.
 
+Household measures (spoons, glasses, cups...) are used only if there is no mass or volume unit:
+parse_quantity_unit(1 glass jar 450 g) returns (450, undef, g)
+
 =cut
 
 sub parse_quantity_unit ($quantity, $standard_unit_bool = undef) {
 
-	my $q = undef;
-	my $m = undef;
-	my $u = undef;
+	return (undef, undef, undef) if not defined $quantity;
 
-	# 12 pots x125 g
-	# 6 bouteilles de 33 cl
-	# 6 bricks de 1 l
-	# 10 unités, 170 g
-	# 4 bouteilles en verre de 20cl
-	if (defined $quantity) {
+	foreach my $regexp ($units_regexp_without_household_measures, $units_regexp) {
+
+		# 12 pots x125 g
+		# 6 bouteilles de 33 cl
+		# 6 bricks de 1 l
+		# 10 unités, 170 g
+		# 4 bouteilles en verre de 20cl
 		if ($quantity
-			=~ /(?<number>\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?(?<quantity>$number_regexp)(\s)?(?<unit>$units_regexp)\b/i
+			=~ /(?<number>\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?(?<quantity>$number_regexp)(\s)?(?<unit>$regexp)\b/i
 			)
 		{
-			$m = $+{number};
-			$q = lc($+{quantity});
-			$u = $+{unit};
+			return (lc($+{quantity}), $+{number}, $+{unit});
 		}
-		elsif ($quantity =~ /(?<quantity>$number_regexp)(\s)?(?<unit>$units_regexp)\s*\b/i) {
-			$q = lc($+{quantity});
-			$u = $+{unit};
+		elsif ($quantity =~ /(?<quantity>$number_regexp)(\s)?(?<unit>$regexp)\s*\b/i) {
+			return (lc($+{quantity}), undef, $+{unit});
 		}
 	}
 
-	return ($q, $m, $u);
+	return (undef, undef, undef);
 }
 
 =head2 normalize_quantity($quantity)
@@ -370,6 +380,31 @@ sub get_standard_unit ($unit) {
 	return $standard_unit;
 }
 
+=head2 parse_serving_size($serving)
+
+Returns the quantity and the unit (as written) of the serving. Eg.:
+parse_serving_size(1 barquette de 40g) returns (40, "g")
+parse_serving_size(2 tbsp (32 g)) returns (32, "g")
+
+The last quantity with an unit is used. Household measures (spoons, glasses, cups...) are used only if there
+is no mass or volume unit, so that both "2 tbsp (32 g)" and "6 g (1 c. à soupe)" give a quantity in g.
+
+=cut
+
+sub parse_serving_size ($serving) {
+
+	return if not defined $serving;
+
+	foreach my $regexp ($units_regexp_without_household_measures, $units_regexp) {
+		# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
+		# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
+		if ($serving =~ /^(.*[ \(])?(?<quantity>$number_regexp)( )?(?<unit>$regexp)\b/i) {
+			return (convert_string_to_number($+{quantity}), $+{unit});
+		}
+	}
+	return;
+}
+
 =head2 normalize_serving_size($serving)
 
 Returns the size in g or ml for the serving. Eg.:
@@ -380,16 +415,11 @@ normalize_serving_size(2.5kg)->returns 2500
 
 sub normalize_serving_size ($serving) {
 
-	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
-	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
-	if ((defined $serving) and ($serving =~ /^(.*[ \(])?(?<quantity>$number_regexp)( )?(?<unit>$units_regexp)\b/i)) {
-		my $q = $+{quantity};
-		my $u = $+{unit};
-		$q = convert_string_to_number($q);
+	my ($q, $u) = parse_serving_size($serving);
 
-		return unit_to_g($q, $u);
-	}
-	return;
+	return if not defined $q;
+
+	return unit_to_g($q, $u);
 }
 
 =head2 normalize_product_quantity_and_serving_size ($product_ref)
@@ -422,7 +452,10 @@ sub normalize_product_quantity_and_serving_size ($product_ref) {
 	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
 		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
 
-		my $serving_quantity_unit = extract_standard_unit($product_ref->{serving_size});
+		# Use the same quantity as serving_quantity: "2 tbsp (32 g)" -> g, not ml
+		my (undef, $serving_unit) = parse_serving_size($product_ref->{serving_size});
+		my $serving_quantity_unit = get_standard_unit($serving_unit)
+			// extract_standard_unit($product_ref->{serving_size});
 		if (defined $serving_quantity_unit) {
 			$product_ref->{serving_quantity_unit} = $serving_quantity_unit;
 		}
