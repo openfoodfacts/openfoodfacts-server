@@ -7325,6 +7325,21 @@ my %ingredients_categories_and_types = (
 		},
 	],
 
+	da => [
+		# oil
+		{
+			categories => ["olie", "fedt", "fedtstoffer", "vegetabilsk olie", "vegetabilsk fedt", "vegetabilske fedtstoffer"],
+			types => ["avocado", "kokos", "majs", "oliven", "palme", "raps", "sal", "shea", "soja", "solsikke"],
+			alternate_names => ["<type>fedt", "<type>olie"],
+		},
+		# protein
+		{
+			categories => ["protein", "vegetabilsk protein"],
+			types => ["ærte", "havre", "kartoffel", "kikærte", "mælke", "majs", "raps",  "ris", "soja", "svampe", "solsikke", "hvede"],
+			alternate_names => ["<type>protein"],
+		},
+	],
+
 	de => [
 		# oil
 		{
