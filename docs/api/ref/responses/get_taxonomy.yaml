@@ -58,11 +58,11 @@ example:
     name:
       en: "Organic"
       fr: "Bio"
-    parents:
-      - "en:sustainable"
     children:
       - "en:eu-organic"
-  "en:fair-trade":
+  "en:eu-organic":
     name:
-      en: "Fair trade"
-      fr: "Commerce équitable"
+      en: "EU Organic"
+      fr: "Bio européen"
+    parents:
+      - "en:organic"
