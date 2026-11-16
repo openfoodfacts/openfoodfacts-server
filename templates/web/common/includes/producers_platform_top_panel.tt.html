@@ -10,7 +10,7 @@
                 <h4> [% lang('producers_platform_moderation_title') %]</h4>
                 <p>
                     [% IF user.pro_moderator_owner %]
-                        [% f_lang('f_pro_moderator_edit_owner_set', user.pro_moderator_owner) %]
+                        [% f_lang('f_pro_moderator_owner_set', {organization => user.pro_moderator_owner}) %]
                     [% ELSE %]
                         [% lang('pro_moderator_owner_not_set') %]
                     [% END %]

@@ -6,7 +6,8 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Log::Any qw($log);
 
-use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::APITest qw/construct_test_url create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Products qw/retrieve_product/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Auth qw/get_token_using_password_credentials/;
@@ -14,6 +15,7 @@ use ProductOpener::Auth qw/get_token_using_password_credentials/;
 use File::Basename "dirname";
 
 use Storable qw(dclone);
+use URI;
 
 wait_application_ready(__FILE__);
 remove_all_products();
@@ -132,5 +134,32 @@ my $tests_ref = [
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
+
+# Rejected requests must not create a product in the search_or_add path, which
+# runs before the main edit form is processed.
+for my $action ('process', 'search') {
+	my $url = construct_test_url('/cgi/product_multilingual.pl');
+	my %form = (type => 'search_or_add', action => $action, code => '1234567890098');
+	my $get_url = URI->new($url);
+	$get_url->query_form(%form);
+	my $response = $ua->get($get_url);
+	is($response->code, 405, "GET search_or_add action=$action is rejected");
+	ok(!retrieve_product('1234567890098'), 'GET did not create the product');
+
+	$response = $ua->post($url, Content => \%form, Origin => 'https://attacker.example');
+	is($response->code, 403, "cross-origin search_or_add action=$action is rejected");
+	ok(!retrieve_product('1234567890098'), 'cross-origin POST did not create the product');
+}
+
+# A code change can move product files during early edit processing.
+my $original_product = retrieve_product('1234567890012');
+my $response = $ua->post(
+	construct_test_url('/cgi/product_multilingual.pl'),
+	Content => {type => 'edit', action => 'process', code => '1234567890012', new_code => '1234567890098'},
+	Origin => 'https://attacker.example',
+);
+is($response->code, 403, 'cross-origin edit is rejected before changing the code');
+is(retrieve_product('1234567890012'), $original_product, 'the original product is unchanged');
+ok(!retrieve_product('1234567890098'), 'the rejected edit did not move the product');
 
 done_testing();

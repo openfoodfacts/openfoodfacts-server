@@ -45,7 +45,10 @@ my $tests_ref = [
 		},
 		expected_status_code => 200,
 		headers => {
-			"Set-Cookie" => "/session=/",    # We get a session cookie
+			# We get a session cookie, and it must be HttpOnly: its value is the credential itself,
+			# so no script running under the cookie domain may read it.
+			# It is not Secure here because the tests run over plain HTTP on a *.localhost domain.
+			"Set-Cookie" => "/^session=.*HttpOnly/",
 		},
 		expected_type => "json",
 	},
