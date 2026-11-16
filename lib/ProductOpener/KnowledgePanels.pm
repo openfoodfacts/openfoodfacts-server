@@ -75,7 +75,7 @@ use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsIngredients qw/:all/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
-use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel/;
+use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel create_sources_manufacturer_panel/;
 use ProductOpener::EnvironmentalImpact qw/format_ecs_value get_environmental_cost_label_path/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
@@ -107,9 +107,17 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	$knowledge_panels_options_ref->{activate_knowledge_panel_related_categories}
 		= normalize_boolean(single_param("activate_knowledge_panel_related_categories"));
 
+	# Activate the NOVA unknown knowledge panel (NOVA unknown tag page) only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panel_nova_unknown}
+		= normalize_boolean(single_param("activate_knowledge_panel_nova_unknown"));
+
 	# Activate product history knowledge panel only when specified (it is shown only to logged in users)
 	$knowledge_panels_options_ref->{activate_knowledge_panel_product_history}
 		= normalize_boolean(single_param("activate_knowledge_panel_product_history"));
+
+	# Activate storage conditions, customer service and manufacturer note panels only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panel_product_information}
+		= normalize_boolean(single_param("activate_knowledge_panel_product_information"));
 
 	# Specify if we knowledge panels are requested from the app or the website
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
@@ -253,6 +261,10 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 	my $has_product_card;
 	if ($panel_is_requested->('product_card')) {
 		$has_product_card = create_product_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
+	if ($panel_is_requested->('sources_manufacturer')) {
+		create_sources_manufacturer_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
 	my $has_environment_card;

@@ -1454,6 +1454,46 @@ foreach my $test (
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "code variants and conjunctions: $test->[1]");
 }
 
+# Abbreviations with dots: a dot followed by a space matches ". ", "." or " ",
+# other dots match "." or ". ", but no other character
+foreach my $test (
+	['en', 'salt, i.a. pepper', 'salt, inter alia pepper'],
+	['en', 'salt, i. a. pepper', 'salt, inter alia pepper'],
+	['es', 'm.g. 20%', 'materia grasa 20%'],
+	['es', 'm. g. 20%', 'materia grasa 20%'],
+	['es', '100 mxg', '100 mxg'],
+	['nb', 'kons.middel (E202)', 'konserveringsmiddel (e202)'],
+	['nb', 'kons. middel (E202)', 'konserveringsmiddel (e202)'],
+	['nb', 'kons-middel (E202)', 'kons-middel (e202)'],
+	['fr', '2 c.s. de sucre', '2 cuillère à soupe de sucre'],
+	['fr', '2 c. s. de sucre', '2 cuillère à soupe de sucre'],
+	['fr', '1 c. à s. de miel', '1 cuillère à soupe de miel'],
+	['fr', '1 c à s de miel', '1 cuillère à soupe de miel'],
+	['fr', '1 c.à.c de sel', '1 cuillère à café de sel'],
+	['fr', 'en cas de doute', 'en cas de doute'],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "abbreviations: $test->[0] / $test->[1]");
+}
+
+# Ranges in French recipes
+foreach my $test (
+	["2 à 3 gousses d'ail", "2-3 gousses d'ail"],
+	['2 ou 3 œufs', '2-3 œufs'],
+	['1,5 à 2 kg de pommes de terre', '1.5-2 kg de pommes de terre'],
+	['E330 ou 331', 'e330 ou 331'],
+	)
+{
+	is(preparse_ingredients_text('fr', $test->[0]), $test->[1], "ranges: $test->[0]");
+}
+
+# Misspellings with a hyphen
+is(
+	preparse_ingredients_text('fr', 'farine, sel-poivre'),
+	'farine, sel, poivre',
+	'misspelling with a hyphen: sel-poivre'
+);
+
 # mono-, di-, tri- prefixes (examples from products)
 foreach my $test (
 	# prefix followed by "and" in the language of the ingredients list, and another prefix
@@ -1503,6 +1543,28 @@ foreach my $test (
 {
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2],
 		"mono, di, tri prefixes: $test->[0] / $test->[1]");
+}
+
+# HTML entities, GMO thresholds and missing separators between ingredients with percents
+foreach my $test (
+	['en', "salt &amp; pepper", "salt and pepper"],
+	# decoded once
+	['en', "salt &amp;lt; pepper", "salt &lt; pepper"],
+	['fr', "Jambon de porc nourri sans OGM (< 0,9%), sel", "Jambon de porc nourri sans OGM, sel"],
+	['fr', "Jambon de porc nourri sans OGM (&lt; 0.9 %), sel", "Jambon de porc nourri sans OGM, sel"],
+	['fr', "Lait de vaches nourries sans OGM <0,9 %, sucre", "Lait de vaches nourries sans OGM, sucre"],
+	['fr', "carotte 23,4% oignon 9,9%, chou-fleur 9,9%", "carotte 23.4%, oignon 9.9%, chou-fleur 9.9%"],
+	# not split: connectors ("ou" is turned to "et"), percent before the ingredient
+	['fr', "lait écrémé à 1,4% de matière grasse 90%", "lait écrémé à 1.4% de matière grasse 90%"],
+	['fr', "chocolat noir 70% cacao 20%, sucre", "chocolat noir 70% cacao 20%, sucre"],
+	['fr', "lait entier 3,5% matière grasse 90%, sucre", "lait entier 3.5% matière grasse 90%, sucre"],
+	['fr', "LAIT anhydre 21,8% cacao 10,9%", "LAIT anhydre 21.8%, cacao 10.9%"],
+	['fr', "huile de tournesol 5% d'ail 3%", "huile de tournesol 5% d'ail 3%"],
+	['fr', "Fraise 50% ou abricot 50%", "Fraise 50% et abricot 50%"],
+	['fr', "FARINE, 32,1% BEURRE 5,6% SÉSAME", "FARINE, 32.1% BEURRE 5.6% SÉSAME"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "entities and percents: $test->[1]");
 }
 
 done_testing();

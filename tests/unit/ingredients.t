@@ -1122,6 +1122,84 @@ puffed orange and caramelized unknown_fruit4.",
 				"3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
 		}
 	],
+	[
+		'fr-recipes-with-spoons-and-ranges',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"2 c. à s. d'huile d'olive, 2 cuillères à soupe de sucre, 1 cuillère à café de sel, 3 c.s de farine, 1 c.à.c de cannelle, 1 càs de miel, 1 cuillerée à dessert de vinaigre, 1 c. à thé de vanille, 2 c. à table de beurre, 2 à 3 gousses d'ail, 10 à 12 % de sucre",
+		}
+	],
+	[
+		'fr-recipes-with-processing-and-count-units',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"poivre du moulin, poivre fraîchement moulu, 10 cl d'eau tiède, 50 g de beurre ramolli, 1 gousse d'ail coupée en deux, 2 gousses d'ail écrasées, pain rassis, 1 œuf battu, 2 sachets de sucre vanillé, 1 bouquet garni, 1 bouquet de persil, 1 botte de radis, 1 poignée de noisettes, 1 verre de vin blanc sec",
+		}
+	],
+	[
+		'fr-recipes-with-fractions-and-herbs',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"½ litre de lait, 1/2 cuillère à café de sel, 1 1/2 tasse de farine, ¼ c. à s. de poivre, 1½ kg de pommes de terre, 1 bouquet de persil, 1 petit bouquet de coriandre, 3 brins de thym, 1 petit verre de kirsch, 1 grand verre de lait",
+		}
+	],
+	[
+		'fr-recipes-with-spoon-abbreviations',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 cuil. à soupe de farine, 2 c.c. de sel, 1 càc de poivre, 1 c. soupe d'huile, 1 c à s de miel, 20 cl de lait tiédi, ⅔ litre d'eau, 3/2 de beurre",
+		}
+	],
+	[
+		'fr-recipes-with-common-ingredients',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 kg de pommes de terre à chair ferme, 250 g de semoule fine, 100 g de mie de pain, 4 tranches de pain de campagne, 3 oignons nouveaux, 2 cuillères à soupe d'huile de cuisson, 2 ou 3 œufs",
+		}
+	],
+	[
+		'fr-recipes-with-numbers-in-words',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"deux carottes, trois œufs, deux gousses d'ail, douze huîtres, dix cl de lait, une pincée de sel, deux noix de beurre",
+		}
+	],
+	[
+		'en-recipes-with-numbers-in-words',
+		{
+			lc => 'en',
+			ingredients_text => "two eggs, three carrots, twelve oysters, a pinch of salt",
+		}
+	],
+	[
+		# "glacé" in candied fruits, frozen desserts, iced drinks, and ice water
+		'fr-recipes-with-glace',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"10 cl d'eau glacée, 50 g de marrons glacés, 50 g de cerises glacées, écorces d'orange glacées, 20 cl de thé glacé, café glacé, nougat glacé, corn flakes glacés au sucre",
+		}
+	],
+	[
+		'en-recipes-with-iced',
+		{
+			lc => 'en',
+			ingredients_text => "iced water, iced tea, iced coffee, sugar iced corn flakes, iced biscuits",
+		}
+	],
+	[
+		'en-recipes-with-spoons',
+		{
+			lc => 'en',
+			ingredients_text => "2 tbsp olive oil, 1 tablespoon of sugar, 1 tsp salt, 2 teaspoons of cinnamon",
+		}
+	],
 	# percent_or_quantity_regexp
 	[
 		'en-percent-or-quantity-regexp',
@@ -1520,7 +1598,141 @@ puffed orange and caramelized unknown_fruit4.",
 				"Lapte normalizat (98%), cultură starter, condimente în proporţii variabile. Conține o sursă de fenilalanină. A se consuma de preferinţă înainte de: vezi pe ambalaj. Lot: vezi capac. Ambalat în atmosferă protectoare. Valoare energetică: 250 kJ. Producător: SC Exemplu SRL, Str. Florilor nr. 1, Jud. Cluj, România.",
 		}
 	],
+	# origin statement after the ingredients list, with the ingredient first:
+	# origins of the ingredient in specific_ingredients, not a new ingredient
+	[
+		'fr-ingredient-origin-statement-after-the-list',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, LAIT* entier en poudre 25%, pâte de cacao, arômes de vanille. *Lait: origine UE et/ou non UE (Royaume-Uni)",
+		}
+	],
+	[
+		'fr-ingredients-origin-statements-after-the-list',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Viande de porc, viande de bœuf, sel, dextrose. Porc : origine France. Viande de bœuf : Origine Union Européenne; Sel : origine UE",
+		}
+	],
+	[
+		'en-ingredient-origin-statement-after-the-list',
+		{
+			lc => "en",
+			ingredients_text => "Sugar, whole milk, cocoa butter. Milk: origin France",
+		}
+	],
+	# not an origin statement: ingredients of the list with their origins (in parenthesis, after a comma)
+	[
+		'fr-ingredient-origin-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Fromage (lait : origine France), sucre, beurre : origine UE, farine",
+		}
+	],
+	# ingredients list separated by ; : the ingredient is not in the text before, it is an ingredient of the list
+	[
+		'fr-ingredient-origin-in-a-list-separated-by-semicolons',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre; beurre : origine France; farine",
+		}
+	],
+	# a statement with an unknown ingredient does not prevent the next ones from being matched
+	[
+		'fr-ingredient-origin-statement-after-an-unknown-ingredient',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre, lait. Machin : origine France. Lait : origine UE",
+		}
+	],
 	# “osteløbe (mikrobiel)”
+	# content statements at the end of the list go to specific_ingredients, not to the ingredients list
+	[
+		'fr-cocoa-content-statement-minimum',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, pâte de cacao, beurre de cacao, émulsifiant : lécithine de soja, arôme naturel de vanille. Cacao : 46% minimum.",
+		}
+	],
+	[
+		'fr-cocoa-milk-content-statement',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, beurre de cacao, lait entier en poudre, pâte de cacao. Le chocolat au lait contient cacao 35% minimum, matière sèche de lait 20% minimum.",
+		}
+	],
+	[
+		'en-cocoa-solids-content-statement',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Sugar, cocoa butter, whole milk powder, cocoa mass, emulsifier (soya lecithin), flavouring. Milk chocolate contains cocoa solids 30% minimum, milk solids 20% minimum.",
+		}
+	],
+	[
+		'en-ingredient-in-the-filling-content-statement',
+		{
+			lc => "en",
+			ingredients_text => "Sugar, wheat flour, strawberries, glucose syrup, strawberries in the filling: 49.8%",
+		}
+	],
+	# the percent is relative to the filling: it is scaled with the percent of the filling
+	[
+		'en-ingredient-in-the-filling-with-filling-percent',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Biscuit 60% (wheat flour, sugar, butter), filling 40% (sugar, strawberries, glucose syrup), strawberries in the filling: 49.8%",
+		}
+	],
+	# nested filling: the percent of the filling in the product is 50% x 40% = 20%
+	[
+		'en-ingredient-in-the-nested-filling-with-percents',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Cake 50% (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+		}
+	],
+	# nested filling in a cake without a percent: the percent of the filling in the product is unknown
+	[
+		'en-ingredient-in-the-nested-filling-without-parent-percent',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Cake (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+		}
+	],
+	# no other cocoa in the list: "cacao 30% minimum" is the cocoa ingredient, not a content statement
+	[
+		'fr-cocoa-minimum-only-cocoa-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre, lait en poudre, cacao 30% minimum, sel",
+		}
+	],
+	# minimum percents of ingredients in the list are kept
+	[
+		'fr-minimum-percents-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Pomme 60 % minimum, poire 30 %, sucre, cacao 30%",
+		}
+	],
+	# a content statement followed by an origin statement: two specific ingredients,
+	# the cocoa percent must not be attached to the milk origin
+	[
+		'fr-cocoa-content-statement-and-milk-origin',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"LAIT* entier en poudre 25%,  beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
+		}
+	],
 	[
 		'da-osteloebe-mikrobiel',
 		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000
@@ -1732,6 +1944,19 @@ my $stray_conjunction = {lc => 'fr', product_type => 'food', ingredients_text =>
 extract_ingredients_from_text($stray_conjunction);
 ProductOpener::Ingredients::detect_allergens_from_text($stray_conjunction);
 is($stray_conjunction->{allergens_tags}, ['en:eggs', 'en:sesame-seeds'], 'stray conjunction keeps both allergens');
+
+# 8720256082934: the allergen-label note is not an ingredient.
+my $allergen_label_note = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text => 'Eau, sel. Allergènes signalés en majuscules et en gras.',
+};
+extract_ingredients_from_text($allergen_label_note);
+is(
+	[map {$_->{id}} @{$allergen_label_note->{ingredients}}],
+	['en:water', 'en:salt'],
+	'allergen-label note does not add an ingredient'
+);
 
 # Real taxonomy: a coordination without labels whose second part is not a known ingredient
 # (a processing, a variety) keeps its percentage on the known first part

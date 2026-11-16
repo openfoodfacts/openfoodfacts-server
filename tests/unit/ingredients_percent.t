@@ -78,6 +78,66 @@ my @tests = (
 
 	['minimum-percent', {lc => "es", ingredients_text => "Leche. Cacao: 27% mínimo"},],
 
+	# GMO threshold, not a percent of the ingredient
+	[
+		'fr-gmo-threshold-not-a-percent',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Jambon de porc issu d'animaux nourris sans OGM (< 0,9%), sel, dextrose, arômes naturels, conservateur : nitrite de sodium"
+		},
+	],
+	[
+		'fr-gmo-threshold-html-entity',
+		{lc => "fr", ingredients_text => "Jambon de porc nourri sans OGM (&lt; 0.9 %), sel"},
+	],
+	['fr-gmo-threshold-no-space', {lc => "fr", ingredients_text => "Jambon de porc nourri sans OGM (<0,9%), sel"},],
+	[
+		'fr-gmo-threshold-followed-by-percent',
+		{lc => "fr", ingredients_text => "Jambon de porc issu d'animaux nourris sans OGM (< 0,9%) 98%, sel 2%"},
+	],
+
+	# processing after a synonym in parenthesis: the percent applies once, to the roasted peanuts
+	[
+		'fr-peanuts-synonym-roasted-percent',
+		{
+			lc => "fr",
+			ingredients_text => "CACAHUÈTES (ARACHIDES) GRILLÉES (91%), SUCRE, HUILE DE COLZA, HUILE DE COTON, SEL."
+		},
+	],
+
+	# missing separators between ingredients with percents
+	[
+		'fr-missing-separators-between-percents',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"carotte 23,4% oignon 9,9%, chou-fleur 9,9%, poireau 8,4% courgette 8,4%, eau, huile de tournesol, sel"
+		},
+	],
+	# not split: the words after the percent are a content of the ingredient (cocoa of chocolate, fat of milk)
+	['fr-no-split-cocoa-content-of-chocolate', {lc => "fr", ingredients_text => "chocolat noir 70% cacao 20%, sucre"},],
+	[
+		'fr-no-split-fat-content-of-milk',
+		{lc => "fr", ingredients_text => "lait entier 3,5% matière grasse 90%, sucre"},
+	],
+	# split: cocoa is an ingredient after milk fat
+	[
+		'fr-split-cocoa-after-milk-fat',
+		{lc => "fr", ingredients_text => "sucre, LAIT anhydre 21,8% cacao 10,9%, émulsifiant"},
+	],
+	# &amp; entity (no Ciqual / Ecobalyse data in this test)
+	['en-amp-entity', {lc => "en", ingredients_text => "Tomatoes, salt &amp; pepper, sugar"},],
+	# not split: "à 1,4% de matière grasse" is not an ingredient, "32,1%" is before the ingredient
+	[
+		'fr-no-split-between-percents',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"lait partiellement écrémé à 1,4% de matière grasse 90%, sucre, FARINE DE BLÉ, 32,1% BEURRE 5,6% GRAINES DE SÉSAME"
+		},
+	],
+
 	# All ingredients have % specified, but the total is not 100%
 	# We now scale them to 100%.
 	# Note: currently the min part is ignored, we set percent instead of percent_min

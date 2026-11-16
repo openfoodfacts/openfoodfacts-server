@@ -1,5 +1,46 @@
 # Changelog
 
+## [2.122.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.121.0...v2.122.0) (2026-11-16)
+
+
+### Features
+
+* NOVA unknown knowledge panel for the NOVA groups tag page (opt-in) ([#15325](https://github.com/openfoodfacts/openfoodfacts-server/issues/15325)) ([7fbee09](https://github.com/openfoodfacts/openfoodfacts-server/commit/7fbee094fb9d89e98c49ab4b2102c7b48b1a7a05))
+* opt-in storage conditions, customer service and manufacturer note knowledge panels ([#15384](https://github.com/openfoodfacts/openfoodfacts-server/issues/15384)) ([904630b](https://github.com/openfoodfacts/openfoodfacts-server/commit/904630b62cb59af1069efc91e11980e849792fbc))
+
+
+### Bug Fixes
+
+* allow viewing and deleting deprecated packaging field ([#15338](https://github.com/openfoodfacts/openfoodfacts-server/issues/15338)) ([#15367](https://github.com/openfoodfacts/openfoodfacts-server/issues/15367)) ([ae72c8d](https://github.com/openfoodfacts/openfoodfacts-server/commit/ae72c8d7166d44fc8b139346c261ee9c44184964))
+* capitalize World in countries taxonomy ([#15358](https://github.com/openfoodfacts/openfoodfacts-server/issues/15358)) ([7ecff22](https://github.com/openfoodfacts/openfoodfacts-server/commit/7ecff2246063c593a1e38d7e88f8b3c16e74d1d3))
+* **display:** do not compare products to categories that are not taxonomized ([#6853](https://github.com/openfoodfacts/openfoodfacts-server/issues/6853)) ([#15330](https://github.com/openfoodfacts/openfoodfacts-server/issues/15330)) ([dc76dd6](https://github.com/openfoodfacts/openfoodfacts-server/commit/dc76dd63d6889b4a2a430051b7f687db812e4e60))
+* ingredient parsing attaching wrong percents (GMO threshold, content statements, missing separators) ([#15279](https://github.com/openfoodfacts/openfoodfacts-server/issues/15279)) ([d9e9baa](https://github.com/openfoodfacts/openfoodfacts-server/commit/d9e9baa3c6de117878d51fde2eaa35ac09f2bbb5))
+* **ingredients:** ignore French allergen label note ([#15376](https://github.com/openfoodfacts/openfoodfacts-server/issues/15376)) ([eef9882](https://github.com/openfoodfacts/openfoodfacts-server/commit/eef9882b3231033b960bef26849bc79ebac9c990))
+* **nginx:** support longer checkout hostnames ([#15341](https://github.com/openfoodfacts/openfoodfacts-server/issues/15341)) ([0443da7](https://github.com/openfoodfacts/openfoodfacts-server/commit/0443da7a12c7248b10244babc7c48933c4b98093))
+* put the donation banner back after the Open Food Facts Days ([#15382](https://github.com/openfoodfacts/openfoodfacts-server/issues/15382)) ([e5c6b91](https://github.com/openfoodfacts/openfoodfacts-server/commit/e5c6b913da99a8e6976112e8cae1ee8d13f13e94))
+* **security:** check that the account is in the organization before removing it ([#14890](https://github.com/openfoodfacts/openfoodfacts-server/issues/14890)) ([ccf491c](https://github.com/openfoodfacts/openfoodfacts-server/commit/ccf491ca6c046dfa22fc880bd44b1692b9055152))
+
+## [2.121.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.120.0...v2.121.0) (2026-11-10)
+
+
+### Features
+
+* add Matomo event when deleting a product page ([#13218](https://github.com/openfoodfacts/openfoodfacts-server/issues/13218)) ([#13261](https://github.com/openfoodfacts/openfoodfacts-server/issues/13261)) ([ba81e08](https://github.com/openfoodfacts/openfoodfacts-server/commit/ba81e0802f71a90ad901d82b0facc2eaa042c798))
+* better parsing of cooking recipes ingredients ([#15242](https://github.com/openfoodfacts/openfoodfacts-server/issues/15242)) ([d53c21b](https://github.com/openfoodfacts/openfoodfacts-server/commit/d53c21bea891be13e84e5ae922fa1f055c66e82c))
+* **dev:** Isolate git worktrees ([#14825](https://github.com/openfoodfacts/openfoodfacts-server/issues/14825)) ([a54b227](https://github.com/openfoodfacts/openfoodfacts-server/commit/a54b2276b9e12715ac23f5fd18bcc34e4bea6412))
+* **foodture:** select representative products from the JSONL dump and 2026 scans ([#15168](https://github.com/openfoodfacts/openfoodfacts-server/issues/15168)) ([d060c67](https://github.com/openfoodfacts/openfoodfacts-server/commit/d060c67427393db47c1a93406abef90f2b15ffe0))
+* new categories for FOODTURE, and foodex2 properties ([#15230](https://github.com/openfoodfacts/openfoodfacts-server/issues/15230)) ([cdf6f25](https://github.com/openfoodfacts/openfoodfacts-server/commit/cdf6f25941fed46c1253e9b0eb03c4819e55d3c0))
+
+
+### Bug Fixes
+
+* explain why the NOVA group is unknown in the NOVA attribute and panel ([#15297](https://github.com/openfoodfacts/openfoodfacts-server/issues/15297)) ([0c779c3](https://github.com/openfoodfacts/openfoodfacts-server/commit/0c779c349c43671b771116b07305ca150612f004))
+* parse "Lait : origine France" after the ingredients list as an origin ([#15289](https://github.com/openfoodfacts/openfoodfacts-server/issues/15289)) ([91e4b9e](https://github.com/openfoodfacts/openfoodfacts-server/commit/91e4b9e247f230c8a5e9c168badddb4013f08288))
+* prefer language of newest uploaded ingredients photo ([#15254](https://github.com/openfoodfacts/openfoodfacts-server/issues/15254)) ([56fb060](https://github.com/openfoodfacts/openfoodfacts-server/commit/56fb060c93a10970c613aa945757746397433239)), closes [#15237](https://github.com/openfoodfacts/openfoodfacts-server/issues/15237)
+* preserve recognised ingredient qualifiers ([#14993](https://github.com/openfoodfacts/openfoodfacts-server/issues/14993)) ([100f86a](https://github.com/openfoodfacts/openfoodfacts-server/commit/100f86aa7a93fcabff5452a775de9ed00d9733e6))
+* query filter for export_products_data_and_images.pl ([#14867](https://github.com/openfoodfacts/openfoodfacts-server/issues/14867)) ([93853b6](https://github.com/openfoodfacts/openfoodfacts-server/commit/93853b60dec075794383c6b8cd80dd9f70a36f34))
+* writable cache directory for www-data in the Docker image ([#15292](https://github.com/openfoodfacts/openfoodfacts-server/issues/15292)) ([caceb8d](https://github.com/openfoodfacts/openfoodfacts-server/commit/caceb8d150a3da5b7d1baed7faf5cc8836dccbab))
+
 ## [2.120.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.119.0...v2.120.0) (2026-11-06)
 
 

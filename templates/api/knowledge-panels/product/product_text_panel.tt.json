@@ -1,0 +1,19 @@
+{
+    "level": "info",
+    "topics": [
+        "product"
+    ],
+    "expand_for": "large",
+    "evaluation": "neutral",
+    "title_element": {
+        "title": "[% edq(lang(panel.field)) %]",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% panel.text %]`
+            }
+        }
+    ]
+}

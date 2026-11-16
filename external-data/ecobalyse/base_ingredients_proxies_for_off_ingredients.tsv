@@ -42,3 +42,21 @@ en:maple-syrup  glucose-syrup
 en:agave-syrup  glucose-syrup
 # flour is a proxy for en:flour, as it is in fact wheat flour in Ecobalyse
 en:flour    flour
+# Generic ingredients found in cooking recipes (scripts/recipes_coverage)
+# white wine entries are not visible in Ecobalyse: use red wine
+en:white-wine	red-wine
+en:dry-white-wine	red-wine
+en:wine	red-wine
+en:pepper	black-pepper
+en:chocolate	dark-chocolate
+en:mascarpone	fresh-cream-cheese
+en:pecorino	parmesan-cheese
+en:breadcrumbs	flour
+# bread is mostly flour
+en:bread	flour
+en:mutton	lamb
+en:sheep	lamb
+en:giant-squash	squash
+en:lime	lemon
+en:vegetable-oil	rapeseed-oil
+en:margarine	unknown-oil

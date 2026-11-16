@@ -1,0 +1,44 @@
+[
+   {
+      "id" : "en:ham",
+      "is_in_taxonomy" : 1,
+      "labels" : "en:fed-without-gmos",
+      "percent_estimate" : 60,
+      "percent_max" : 100,
+      "percent_min" : 20,
+      "text" : "Jambon de porc"
+   },
+   {
+      "id" : "en:salt",
+      "is_in_taxonomy" : 1,
+      "percent_estimate" : 20,
+      "percent_max" : 50,
+      "percent_min" : 0,
+      "text" : "sel"
+   },
+   {
+      "id" : "en:dextrose",
+      "is_in_taxonomy" : 1,
+      "percent_estimate" : 10,
+      "percent_max" : 33.3333333333333,
+      "percent_min" : 0,
+      "text" : "dextrose"
+   },
+   {
+      "id" : "en:natural-flavouring",
+      "is_in_taxonomy" : 1,
+      "percent_estimate" : 2.5,
+      "percent_max" : 5,
+      "percent_min" : 0,
+      "text" : "arômes naturels"
+   },
+   {
+      "additive_class" : "en:preservative",
+      "id" : "en:e250",
+      "is_in_taxonomy" : 1,
+      "percent_estimate" : 7.5,
+      "percent_max" : 5,
+      "percent_min" : 0,
+      "text" : "nitrite de sodium"
+   }
+]

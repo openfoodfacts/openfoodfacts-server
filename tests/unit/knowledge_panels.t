@@ -192,6 +192,18 @@ my @tests = (
 		target_lc => 'en',
 		target_cc => 'us'
 	},
+	# NOVA group not computed because too many ingredients are not recognized:
+	# the NOVA panel and attribute should explain why
+	{
+		'id' => 'en-nova-too-many-unknown-ingredients',
+		'product' => {
+			lc => "en",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "some ingredient that we do not recognize",
+		},
+		target_lc => 'en',
+		target_cc => 'us'
+	},
 );
 
 foreach my $test_ref (@tests) {
