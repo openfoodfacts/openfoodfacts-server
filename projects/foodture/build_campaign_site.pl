@@ -254,6 +254,7 @@ th { background: var(--head); font-weight: 600; }
 .summary th[data-sort] { cursor: pointer; user-select: none; }
 .summary thead th { white-space: normal; vertical-align: bottom; line-height: 1.25; }
 .summary thead .badge { white-space: normal; }
+.summary thead tr:last-child th[title] { text-decoration: underline dotted var(--muted); text-underline-offset: 3px; }
 .summary .bar { width: 44px; }
 .summary th, .summary td { padding: 6px 5px; }
 .summary tr.groups th { text-align: left; font-weight: 600; background: var(--bg); border-bottom: 2px solid var(--line); }
@@ -912,14 +913,17 @@ sub summary_table ($id, $names_ref, $with_total) {
 	my $html = <<HTML;
 <div class="table-wrap"><table class="summary" id="$id">
 <thead>
-<tr class="groups"><th colspan="7">🛒 Data gathering: scan and complete products</th><th colspan="3" class="quality">🧙 Data quality: ingredients analysis</th></tr>
-<tr><th data-sort="text" aria-sort="ascending">Country</th><th data-sort="num" class="wide">Needed<br>categories</th>
-<th data-sort="num"><span class="badge MISSING">no product</span></th><th data-sort="num"><span class="badge INCOMPLETE">incomplete<br>only</span></th>
-<th data-sort="num"><span class="badge OK">complete</span></th><th data-sort="num">Data<br>Coverage</th>
-<th class="wide">Scan list</th>
-<th data-sort="num" class="wide quality">Known<br>ingredients</th>
-<th data-sort="num" class="wide" title="Categories whose selected product is complete and has at least 95% of the estimated quantity of its ingredients recognized">Complete +<br>95% ingredients</th>
-<th data-sort="num" title="Share of the needed categories that are complete with at least 95% of the ingredients recognized">Full<br>Coverage</th></tr>
+<tr class="groups"><th colspan="7" title="Mission Scan Champion: find, scan and photograph the products of the needed categories in stores, or complete existing products from their photos">🛒 Data gathering: scan and complete products</th><th colspan="3" class="quality" title="Mission Taxonomy Wiz: make sure that the ingredients of the selected products are recognized, so that FOODTURE can compute their environmental impact">🧙 Data quality: ingredients analysis</th></tr>
+<tr><th data-sort="text" aria-sort="ascending" title="Click on a country to see its needed categories and their products">Country</th>
+<th data-sort="num" class="wide" title="Number of food categories needed in this country: the foods most consumed in the country, according to the EFSA food consumption data">Needed<br>categories</th>
+<th data-sort="num" title="Number of needed categories with no product sold in this country on Open Food Facts"><span class="badge MISSING">no product</span></th>
+<th data-sort="num" title="Number of needed categories that only have incomplete products in this country (photos, ingredients or nutrition facts missing)"><span class="badge INCOMPLETE">incomplete<br>only</span></th>
+<th data-sort="num" title="Number of needed categories with at least one complete product (photos, ingredients and nutrition facts) sold in this country"><span class="badge OK">complete</span></th>
+<th data-sort="num" title="Share of the needed categories that have at least one complete product in this country">Data<br>Coverage</th>
+<th class="wide" title="Scan Champion: the list of the categories to scan in stores in this country, to use on your phone">Scan list</th>
+<th data-sort="num" class="wide quality" title="Share of the ingredients of the selected products (the most scanned complete product of each category) that are recognized by Open Food Facts">Known<br>ingredients</th>
+<th data-sort="num" class="wide" title="Number of needed categories whose selected product has at least 95% of its ingredients recognized, by estimated quantity: FOODTURE needs this to compute the environmental impact">Complete +<br>95% ingredients</th>
+<th data-sort="num" title="Share of the needed categories whose selected product is complete and has at least 95% of its ingredients recognized by estimated quantity: the categories that FOODTURE can use">Full<br>Coverage</th></tr>
 </thead>
 <tbody>
 HTML
