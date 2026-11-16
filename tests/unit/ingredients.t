@@ -1723,6 +1723,16 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "Pomme 60 % minimum, poire 30 %, sucre, cacao 30%",
 		}
 	],
+	# a content statement followed by an origin statement: two specific ingredients,
+	# the cocoa percent must not be attached to the milk origin
+	[
+		'fr-cocoa-content-statement-and-milk-origin',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"LAIT* entier en poudre 25%,  beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
+		}
+	],
 	[
 		'da-osteloebe-mikrobiel',
 		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000

@@ -230,10 +230,15 @@
    ],
    "specific_ingredients" : [
       {
+         "id" : "en:cocoa",
+         "ingredient" : "Cacao",
+         "percent" : 30,
+         "text" : "Cacao: 30% minimum dans le chocolat au lait"
+      },
+      {
          "id" : "en:milk",
          "ingredient" : "Lait",
          "origins" : "en:european-union,en:non-european-union,en:united-kingdom",
-         "percent" : 30,
          "text" : "*Lait: origine UE et non UE (Royaume-Uni)"
       }
    ],

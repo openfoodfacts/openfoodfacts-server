@@ -1121,7 +1121,12 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			# Origine du Cacao: Pérou
 			# Oprindelse jalapeño chili: Peru
 			# Ursprung fullkornsrågmjöl: Sverige och Danmark
-			if (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
+			# Only if nothing matched above: otherwise the origin would replace the ingredient
+			# but keep its percent (e.g. "Cacao: 30% minimum. Lait: origine UE" -> milk 30%).
+			# The origin is matched in the next pass of the loop.
+			if ((not defined $ingredient)
+				and match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref))
+			{
 				$origins = $matched_ingredient_ref->{origins};
 				$ingredient = $matched_ingredient_ref->{ingredient};
 				$matched_text = $matched_ingredient_ref->{matched_text};
