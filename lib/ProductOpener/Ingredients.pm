@@ -3470,6 +3470,7 @@ Text to analyze
 								'^y compris les cereales contenant du gluten$',
 								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
 								'^(les allerg[èe]nes )?sont indiques en gras$',
+								'^allerg[èe]nes? signal[ée]s? en majuscules? et en gras$',
 								'^Conditionné[es]* sous atmosph[èe]re',    # ... protectrice/contrôlée/modifiée/etc
 									# remaining words of footnotes: "* Ingrédients d'origine végétale"
 								'^ingr[ée]dients?$',
