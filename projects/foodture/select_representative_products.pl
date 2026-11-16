@@ -22,13 +22,14 @@
 
 use ProductOpener::PerlStandards;
 
-use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Products qw/product_path_from_id/;
 use JSON::MaybeXS;
 use Text::CSV;
 use Getopt::Long;
+use FindBin;
+use lib $FindBin::Bin;
+use RepresentativeProducts
+	qw/@complete_states %missing_names &dataset_countries_ccs &count_uploaded_photos &get_current_categories &retrieve_product_scans &country_year_scans &is_better &open_jsonl/;
 
 # This script selects the most scanned product for each country / category, for the FOODTURE countries
 # and for Canada and Iceland (representative products dataset).
@@ -79,111 +80,11 @@ defined $jsonl_file or die $usage;
 # most recent year first, used for ties
 my @years = sort {$b <=> $a} split(/\s*,\s*/, $years_list);
 
-# same countries as extract_data_for_representative_products.pl
-my @countries = qw/
-	Austria
-	Belgium
-	Bulgaria
-	Canada
-	Croatia
-	Cyprus
-	Czechia
-	Denmark
-	Estonia
-	Finland
-	France
-	Germany
-	Greece
-	Hungary
-	Iceland
-	Ireland
-	Italy
-	Latvia
-	Lithuania
-	Luxembourg
-	Malta
-	Montenegro
-	Netherlands
-	Norway
-	Poland
-	Portugal
-	Romania
-	Serbia
-	Slovakia
-	Slovenia
-	Spain
-	Sweden
-	Switzerland
-	UK
-	/;
+# countries of the dataset (same as extract_data_for_representative_products.pl)
+# country tag -> country codes used in scans.json
+my %countries_ccs = %{dataset_countries_ccs()};
 
-# country tag -> country codes used in scans.json (GeoIP uses gb for the United Kingdom)
-my %countries_ccs = ();
-foreach my $country (@countries) {
-	my $country_tag = canonicalize_taxonomy_tag('en', 'countries', $country);
-	my $cc = country_to_cc($country_tag) // die "No country code for $country_tag\n";
-	$countries_ccs{$country_tag} = [$cc];
-	push @{$countries_ccs{$country_tag}}, 'gb' if $cc eq 'uk';
-}
-
-my @complete_states = qw/en:nutrition-facts-completed en:ingredients-completed en:photos-uploaded/;
-my %missing_names = (
-	'en:nutrition-facts-completed' => 'nutrition facts',
-	'en:ingredients-completed' => 'ingredients',
-	'en:photos-uploaded' => 'photos',
-);
-
-# number of uploaded photos (images.uploaded, or numeric keys of images in older schemas)
-sub count_uploaded_photos ($product_ref) {
-	my $images_ref = $product_ref->{images};
-	return 0 if ref $images_ref ne 'HASH';
-	return scalar keys %{$images_ref->{uploaded}} if ref $images_ref->{uploaded} eq 'HASH';
-	return scalar grep {/^\d+$/} keys %$images_ref;
-}
-
-# Cache of recomputed categories, as many products have the same categories
-my %categories_cache = ();
-
-sub get_current_categories ($product_ref) {
-	my ($tag_lc, @input_tags);
-	my $sources_ref = $product_ref->{tags_sources}{categories};
-	if (ref $sources_ref eq 'HASH') {
-		# schema >= 1005: categories_tags is made from the tags of all sources (users, producers etc.)
-		my %tags = map {$_ => 1} map {@{$_->{tags} // []}} grep {ref $_ eq 'HASH'} values %$sources_ref;
-		($tag_lc, @input_tags) = ('en', sort keys %tags);
-	}
-	elsif (($product_ref->{categories} // '') ne '') {
-		# older schema: categories_tags is made from the categories field
-		($tag_lc, @input_tags) = (
-			$product_ref->{categories_lc} // $product_ref->{lc} // 'en',
-			split(/\s*,\s*/, $product_ref->{categories})
-		);
-	}
-	else {
-		# fall back to the stored tags
-		($tag_lc, @input_tags) = ('en', @{$product_ref->{categories_tags} // []});
-	}
-	my $key = join("\t", $tag_lc, @input_tags);
-	$categories_cache{$key} //= [gen_tags_list_with_parents($tag_lc, 'categories', \@input_tags)];
-	return $categories_cache{$key};
-}
-
-# 1 if the ranking key $a_ref is better than $b_ref: [total scans, scans for each year (most recent first), code]
-sub is_better ($a_ref, $b_ref) {
-	for my $i (0 .. $#years + 1) {
-		return 1 if $a_ref->[$i] > $b_ref->[$i];
-		return 0 if $a_ref->[$i] < $b_ref->[$i];
-	}
-	return ($a_ref->[-1] lt $b_ref->[-1]) ? 1 : 0;
-}
-
-my $IN;
-if ($jsonl_file =~ /\.gz$/) {
-	open($IN, '-|', 'gzip', '-dc', $jsonl_file) or die "Cannot read $jsonl_file: $!\n";
-}
-else {
-	open($IN, '<', $jsonl_file) or die "Cannot read $jsonl_file: $!\n";
-}
+my $IN = open_jsonl($jsonl_file);
 
 my $json = JSON::MaybeXS->new(utf8 => 1);
 
@@ -237,18 +138,12 @@ while (my $line = <$IN>) {
 	my $categories_ref = get_current_categories($product_ref);
 	next if not @$categories_ref;
 
-	my $scans_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($code) . "/scans") // {};
+	my $scans_ref = retrieve_product_scans($code);
 
 	my $name = $product_ref->{product_name} // '';
 
 	foreach my $country_tag (@product_countries) {
-		my @year_scans = ();
-		foreach my $year (@years) {
-			my $scans_by_country_ref = $scans_ref->{$year}{unique_scans_n_by_country} // {};
-			my $year_scans = 0;
-			$year_scans += $scans_by_country_ref->{$_} // 0 for @{$countries_ccs{$country_tag}};
-			push @year_scans, $year_scans;
-		}
+		my @year_scans = country_year_scans($scans_ref, \@years, $countries_ccs{$country_tag});
 		my $total = 0;
 		$total += $_ for @year_scans;
 		my $key_ref = [$total, @year_scans, $code];

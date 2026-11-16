@@ -27,6 +27,31 @@ Contributors of the in-store campaign use another team, `representative-products
 
 The first FOODTURE selection stays marked with `editors_tags=foodture`.
 
+## In-store campaign: categories needed in each country
+
+FOODTURE does not need every term in every country. The countries needed for each term come from the ACTIA workbook
+(tab `Food_product_to_model`, L7s with Yes or Maybe in the "Is_needed_a_recipe ? Mano" column of `Is_needed_a_recipe`;
+"EU27+N" = all 32 FOODTURE countries). The workbook is not in the repo, so the result is committed:
+
+```bash
+# needs openpyxl; writes projects/foodture/foodture_needed_term_countries.csv (2,750 term x country pairs)
+# and projects/foodture/foodture_needed_countries_per_term.csv
+python3 projects/foodture/generate_needed_term_countries.py actia.xlsx
+```
+
+`projects/foodture/list_campaign_needed_categories.pl` lists, for each needed pair, the most scanned complete product of the
+category in the country (same ranking as `select_representative_products.pl`), and the numbers of products, complete
+products and incomplete products with photos, with a status: OK, INCOMPLETE (incomplete products only) or MISSING.
+`--all-pairs` adds the pairs that FOODTURE does not need (other terms, Canada, Iceland) with `foodture_needed` = 0.
+Fallback categories are not used: the `fallback_category` column is empty, for the end of the campaign.
+
+It runs every day in `scripts/gen_feeds_daily.sh`, after the JSONL export, and writes `index.html`,
+`foodture_campaign.csv` and `foodture_campaign.json` in https://static.openfoodfacts.org/data/foodture/
+
+```bash
+./projects/foodture/list_campaign_needed_categories.pl --jsonl openfoodfacts-products.jsonl.gz --output-dir /tmp/foodture
+```
+
 ## Pipeline
 
 All commands run on the production server, from the Product Opener directory
