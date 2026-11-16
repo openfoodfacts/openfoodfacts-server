@@ -500,6 +500,13 @@ print $JSON JSON::MaybeXS->new(utf8 => 1, canonical => 1, pretty => 1)->encode(
 						{map {($_ => $s->{$_} // 0)} qw/total OK INCOMPLETE MISSING/})
 			} keys %summary
 		},
+		# names of the categories in all the languages of the taxonomy (for the mini-sites, in the language of the user)
+		category_names => {
+			map {
+				my $tag = $_;
+				($tag => {%{$translations_to{categories}{$tag} // {}}})
+			} sort keys %tracked_categories
+		},
 		rows => \@rows,
 	}
 );

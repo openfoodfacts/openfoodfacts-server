@@ -978,7 +978,7 @@ HTML
 	// index.html?country=<cc> opens the page of the country
 	var pages = $pages_json;
 	var cc = (new URLSearchParams(location.search).get('country') || '').toLowerCase();
-	if (pages[cc]) { location.replace(pages[cc]); return; }
+	if (pages[cc]) { location.replace(pages[cc] + location.hash); return; }
 	document.querySelectorAll('table.summary').forEach(function (table) {
 		var tbody = table.tBodies[0];
 		var headers = table.tHead.rows[0].cells;
@@ -1153,6 +1153,11 @@ sub round1 ($value) {
 		overall_coverage_pct => $total_items ? round1(100 * $total_with_code / $total_items) : 0,
 		countries => \%stats_countries,
 	};
+	# all the translations of the categories, if the JSON file has them
+	foreach my $tag (keys %translations) {
+		my $names_ref = $data_ref->{category_names}{$tag} // {};
+		$translations{$tag}{$_} //= $names_ref->{$_} for keys %$names_ref;
+	}
 	my $json = JSON::MaybeXS->new(canonical => 1, pretty => 1);
 	write_file("data.js",
 			  "window.CAMPAIGN_STATS = "
