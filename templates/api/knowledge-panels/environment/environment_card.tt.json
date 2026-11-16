@@ -10,14 +10,8 @@
     ],
     "title_element": {
         "title": "[% edq(lang('environment_card_title')) %]",
-        [% IF knowledge_panels_options.activate_knowledge_panels_ingredients_nutrition_first %]
-        [% summary = [] %]
-        [% FOREACH panel_id IN ['environmental_score', 'carbon_footprint', 'forest_footprint'] %]
-            [% IF panels.$panel_id.title_element.title %][% summary.push(panels.$panel_id.title_element.title) %][% END %]
-        [% END %]
-        [% IF summary.size %]
-        "subtitle": "[% edq(summary.join(' - ')) %]",
-        [% END %]
+        [% IF panel.summary %]
+        "subtitle": "[% edq(panel.summary) %]",
         [% END %]
     },    
     "elements": [

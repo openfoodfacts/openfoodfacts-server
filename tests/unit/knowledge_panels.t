@@ -357,4 +357,14 @@ foreach my $analyzed (0, 1) {
 		$analyzed, "environment_card_simplified lists the origins panel analyzed=$analyzed");
 }
 
+# A product with only ingredients (e.g. Open Beauty Facts) gets no empty health or nutrition card
+{
+	local $options{product_type} = "beauty";
+	my $product_ref = {code => "3596710478165", lc => "en", knowledge_panels_en => {ingredients => {}}};
+	my $options_ref = {activate_knowledge_panels_ingredients_nutrition_first => 1};
+	is(ProductOpener::KnowledgePanels::create_health_card_panel($product_ref, "en", "world", $options_ref, {}),
+		0, "no health card when only the ingredients are left");
+	ok(!defined $product_ref->{knowledge_panels_en}{nutrition_card}, "no nutrition card without nutrition panels");
+}
+
 done_testing();

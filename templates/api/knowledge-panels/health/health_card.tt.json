@@ -10,14 +10,8 @@
     ],
     "title_element": {
         "title": "[% edq(lang('health')) %]",
-        [% IF knowledge_panels_options.activate_knowledge_panels_ingredients_nutrition_first %]
-        [% summary = [] %]
-        [% FOREACH panel_id IN ['nutriscore_2023', 'nova'] %]
-            [% IF panels.$panel_id.title_element.title %][% summary.push(panels.$panel_id.title_element.title) %][% END %]
-        [% END %]
-        [% IF summary.size %]
-        "subtitle": "[% edq(summary.join(' - ')) %]",
-        [% END %]
+        [% IF panel.summary %]
+        "subtitle": "[% edq(panel.summary) %]",
         [% END %]
     },    
     "elements": [
@@ -41,7 +35,6 @@
 
         [% IF knowledge_panels_options.activate_knowledge_panels_ingredients_nutrition_first %]
 
-            [%# ingredients and nutrition facts have their own cards, the Nutri-Score stays here %]
             [% IF feature_enabled("nutrition") AND (panels.nutriscore_2023.defined OR panels.nutriscore.defined) %]
             {
                 "element_type": "panel_group",
