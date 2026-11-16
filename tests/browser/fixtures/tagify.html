@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tagify regression fixture</title>
+    <link rel="stylesheet" href="/tagify.css">
+    <style>
+        body { margin: 16px; font-family: Arial, sans-serif; }
+        #field-container { max-width: calc(100vw - 32px); }
+        .tagify { width: 100%; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <form id="product-form">
+        <label for="categories">Categories</label>
+        <div id="field-container">
+            <input id="categories" name="categories" value="A,B">
+        </div>
+    </form>
+    <script src="/tagify.js"></script>
+    <script src="/tagify-init.js"></script>
+    <script>
+        const parameters = new URLSearchParams(location.search);
+        document.documentElement.dir = parameters.get("direction") || "ltr";
+        document.getElementById("field-container").style.width = `${Number(parameters.get("width") || 600)}px`;
+        localStorage.setItem("po_last_tags", JSON.stringify({categories: ["C", "Cake", "Carrots", "Cashews"]}));
+        const originalInput = document.getElementById("categories");
+        initializeTagifyInput(originalInput, 10);
+        window.tagify = originalInput.__tagify;
+    </script>
+</body>
+</html>

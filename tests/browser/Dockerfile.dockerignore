@@ -1,0 +1,5 @@
+# Only dependency manifests are needed to build the browser-test image.
+**
+!package.json
+!package-lock.json
+!.npmrc

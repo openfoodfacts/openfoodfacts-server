@@ -66,6 +66,42 @@ You can also use `init_expected_results` to generate new expected results file a
 
 ## Running tests
 
+### JavaScript and browser component tests
+
+Run the JavaScript unit tests with `make front_test`.
+
+Run the browser component tests with `make front_browser_test`. This builds an
+isolated Node/Chromium test container; it does not start the application server,
+connect to databases, or use development data. The first run downloads npm
+dependencies and Chromium. Later runs reuse the Docker build cache.
+
+The committed fixture in `tests/browser/fixtures/tagify.html` loads the installed
+Tagify version, `html/js/tagify-init.js`, and CSS compiled from
+`scss/_tagify.scss`. Tests cover keyboard navigation with suggestions visible and
+hidden, text-cursor boundaries, RTL, Backspace, submitted insertion order, and
+rendered input width in desktop and narrow layouts. Width assertions use browser
+measurements, not mocked CSS properties. These are component tests, not
+end-to-end product-save tests.
+
+`make checks` and pull-request CI include the browser tests. If dependencies and
+Chromium are already installed on your host, `npm run test:browser` runs the same
+tests without Docker.
+
+To verify that a regression test catches an old implementation, place the old
+`html/js/tagify-init.js` and `scss/_tagify.scss` under
+`tests/browser/outputs/baseline/` (retaining those paths), then run:
+
+```bash
+TAGIFY_TEST_SOURCE_DIR=tests/browser/outputs/baseline make front_browser_test
+```
+
+The override changes only the JavaScript and SCSS loaded by the fixture. The test
+cases and installed Tagify version stay unchanged. Run without the variable to
+test the current source again. The source directory can be absolute or relative
+to the repository root. Baseline files are ignored by Git.
+
+### Perl tests
+
 The best way to run all tests is to run:
 
 ```bash

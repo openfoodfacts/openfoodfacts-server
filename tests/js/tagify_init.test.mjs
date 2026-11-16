@@ -34,7 +34,7 @@ function install_fake_tagify() {
     const handlers = {};
     const shownSuggestions = [];
     const tagify = {
-        DOM: {},
+        DOM: {input: new EventTarget()},
         whitelist: null,
         dropdown: {show: function (value) { shownSuggestions.push(value); }},
         on: function (event, handler) {

@@ -268,6 +268,17 @@ module.exports = [
     }
   },
   {
+    files: ["tests/browser/*.mjs"],
+    languageOptions: {
+      ecmaVersion: 2020,
+      sourceType: "module",
+      globals: { ...baseGlobals, process: "readonly" }
+    },
+    rules: {
+      ...js.configs.recommended.rules
+    }
+  },
+  {
     files: ["html/js/display.js", "html/js/product-multilingual.js"],
     rules: {
       "no-unused-vars": "off"
