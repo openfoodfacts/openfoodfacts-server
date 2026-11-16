@@ -39,6 +39,10 @@ FOODTURE does not need every term in every country. The countries needed for eac
 python3 projects/foodture/generate_needed_term_countries.py actia.xlsx
 ```
 
+The same script writes `projects/foodture/representative_dataset_other_countries.csv` for the 2 dataset countries that
+FOODTURE does not need: Iceland gets the terms needed in at least 2 of the 4 Nordic FOODTURE countries (87 terms),
+Canada the terms needed in at least 9 of the 32 FOODTURE countries (88 terms). The thresholds are options of the script.
+
 `projects/foodture/list_campaign_needed_categories.pl` lists, for each needed pair, the most scanned complete product of the
 category in the country (same ranking as `select_representative_products.pl`), and the numbers of products, complete
 products and incomplete products with photos, with a status: OK, INCOMPLETE (incomplete products only) or MISSING.
@@ -47,7 +51,19 @@ Fallback categories are not used: the `fallback_category` column is empty, for t
 
 It writes `foodture_campaign.csv` and `foodture_campaign.json`. `projects/foodture/build_campaign_site.pl` makes the
 web pages from the JSON file: `index.html` (summary per country, sortable; `index.html?country=at` opens the Austria page),
-one page per country (`at.html`, `be.html`... country subdomain codes) and `all.html`.
+one page per country (`at.html`, `be.html`... country subdomain codes) and `all.html`. It also writes:
+- `data.js`, in the format of the Scan Champion and Data Detective mini-sites
+  (https://github.com/openfoodfacts/smooth-app_assets): they can load it from
+  https://static.openfoodfacts.org/data/foodture/data.js instead of their own copy.
+  Their progress is computed against `scan_champion_baseline.json`, created on the first run and then kept.
+- `foodture_ingredients_by_country.csv` (% of known ingredients in the selected products of each country) and
+  `foodture_unknown_ingredients.csv`, for the Taxonomy Wiz mission (it replaces the Taxonomy Wiz spreadsheet: each
+  country page has its instructions, the products with the most unknown ingredients and the unknown ingredients in the
+  most products). An ingredient is known if it is in the current ingredients taxonomy. FOODTURE needs at least 95% of
+  the estimated quantity of the ingredients recognized to compute the environmental impact of a product: the number of
+  selected products that reach it is shown for each country.
+- `foodture_history.csv`: the metrics of each country for each day (updated for the same date if the script runs again),
+  used for the progress charts of the pages. Like the baseline file, it is kept in the output directory.
 
 Both run every day in `scripts/gen_feeds_daily.sh`, after the JSONL export, and write to
 https://static.openfoodfacts.org/data/foodture/

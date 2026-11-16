@@ -49,12 +49,17 @@ use RepresentativeProducts
 # With --all-pairs, all the FOODTURE codes in all the countries of the representative products dataset
 # (including Canada and Iceland) are listed, with foodture_needed = 0 for the pairs that FOODTURE does not need.
 #
+# The terms of the dataset countries that FOODTURE does not need (Iceland, Canada) are listed in
+# --other-countries (representative_dataset_other_countries.csv, made by generate_needed_term_countries.py):
+# they have foodture_needed = 0, dataset_needed = 1 and the rule used to choose them in selection_rule.
+#
 # Outputs, in --output-dir: foodture_campaign.csv and foodture_campaign.json
 # build_campaign_site.pl makes the web pages from foodture_campaign.json
 
 my $usage = <<TXT
 list_campaign_needed_categories.pl --jsonl <products.jsonl[.gz]> --output-dir <dir>
 	[--needed <foodture_needed_term_countries.csv>] [--mapping <foodture_foodex2_to_off_categories.csv>]
+	[--other-countries <representative_dataset_other_countries.csv>]
 	[--years 2025,2026] [--min-photos 3] [--max-incomplete 3] [--all-pairs] [--dump-date YYYY-MM-DD]
 TXT
 	;
@@ -62,6 +67,7 @@ TXT
 my $jsonl_file;
 my $output_dir;
 my $needed_file = "$FindBin::Bin/foodture_needed_term_countries.csv";
+my $other_countries_file = "$FindBin::Bin/representative_dataset_other_countries.csv";
 my $mapping_file = "$FindBin::Bin/foodture_foodex2_to_off_categories.csv";
 my $years_list = "2025,2026";
 my $min_photos = 3;
@@ -73,6 +79,7 @@ GetOptions(
 	"jsonl=s" => \$jsonl_file,
 	"output-dir=s" => \$output_dir,
 	"needed=s" => \$needed_file,
+	"other-countries=s" => \$other_countries_file,
 	"mapping=s" => \$mapping_file,
 	"years=s" => \$years_list,
 	"min-photos=i" => \$min_photos,
@@ -148,6 +155,84 @@ foreach my $row_ref (read_csv($needed_file)) {
 	$needed{$row_ref->{foodture_code}}{$country_tag} = 1;
 }
 
+# Terms of the dataset countries that FOODTURE does not need: code -> country tag -> selection rule
+my %other_needed = ();
+foreach my $row_ref (read_csv($other_countries_file)) {
+	my $country_tag = canonicalize_taxonomy_tag('en', 'countries', $row_ref->{country_tag} || $row_ref->{country});
+	next if (not defined $countries{$country_tag}) or (not defined $terms{$row_ref->{foodture_code}});
+	$other_needed{$row_ref->{foodture_code}}{$country_tag} = $row_ref->{selection_rule} // '';
+}
+
+# Ingredients of the selected products (Taxonomy Wiz mission): an ingredient is known if it is in the current
+# ingredients taxonomy (the is_in_taxonomy field of the products is computed with the taxonomy of their last update)
+my %ingredient_cache = ();    # stored id -> [canonical tag, known]
+
+sub check_ingredient ($id) {
+	return ('', 0) if $id eq '';
+	if (not defined $ingredient_cache{$id}) {
+		my $tag = canonicalize_taxonomy_tag('en', 'ingredients', $id);
+		$ingredient_cache{$id} = [$tag, exists_taxonomy_tag('ingredients', $tag) ? 1 : 0];
+	}
+	return @{$ingredient_cache{$id}};
+}
+
+# Share of the estimated quantity of the ingredients (percent_estimate) that is recognized: FOODTURE computes the
+# environmental impact of the products from their ingredients, and needs at least 95% of the quantity recognized.
+# A recognized ingredient counts with all its quantity (even if some of its sub-ingredients are unknown),
+# an unknown ingredient with sub-ingredients is replaced by its sub-ingredients.
+# Returns undef if the product has no ingredients with an estimated quantity.
+sub recognized_quantity ($ingredients_ref) {
+	my ($total, $known) = (0, 0);
+	foreach my $ingredient_ref (@{$ingredients_ref // []}) {
+		next if ref $ingredient_ref ne 'HASH';
+		my $quantity = $ingredient_ref->{percent_estimate};
+		next
+			if (not defined $quantity)
+			or (ref $quantity)
+			or ($quantity !~ /^-?[\d.]+(?:e-?\d+)?$/i)
+			or ($quantity <= 0);
+		$total += $quantity;
+		my (undef, $is_known) = check_ingredient($ingredient_ref->{id} // '');
+		if ($is_known) {
+			$known += $quantity;
+		}
+		elsif (ref $ingredient_ref->{ingredients} eq 'ARRAY') {
+			my ($sub_total, $sub_known) = recognized_quantity($ingredient_ref->{ingredients});
+			# the sub-ingredients may not add up to the quantity of the ingredient
+			$known += $quantity * $sub_known / $sub_total if $sub_total > 0;
+		}
+	}
+	return ($total, $known);
+}
+
+sub recognized_quantity_pct ($ingredients_ref) {
+	my ($total, $known) = recognized_quantity($ingredients_ref);
+	return $total > 0 ? sprintf("%.1f", 100 * $known / $total) + 0 : undef;
+}
+
+sub ingredients_stats ($product_ref, $info_ref) {
+	my ($n, $unknown) = (0, 0);
+	my %unknown_tags = ();
+	my @stack = @{$product_ref->{ingredients} // []};
+	while (my $ingredient_ref = shift @stack) {
+		next if ref $ingredient_ref ne 'HASH';
+		push @stack, @{$ingredient_ref->{ingredients}} if ref $ingredient_ref->{ingredients} eq 'ARRAY';
+		next if ($ingredient_ref->{id} // '') eq '';
+		$n++;
+		my ($tag, $known) = check_ingredient($ingredient_ref->{id});
+		if (not $known) {
+			$unknown++;
+			$unknown_tags{$tag} = 1;
+		}
+	}
+	$info_ref->{ingredients_n} = $n;
+	$info_ref->{unknown_ingredients_n} = $unknown;
+	$info_ref->{recognized_quantity_pct} = recognized_quantity_pct($product_ref->{ingredients});
+	$info_ref->{unknown_ingredients} = [sort keys %unknown_tags];
+	$info_ref->{ingredients_lc} = $product_ref->{ingredients_lc} // $product_ref->{lc} // '';
+	return;
+}
+
 # Quick filter before decoding the JSON: products sold in one of the countries
 my $countries_regexp = join('|', map {quotemeta("\"$_\"")} sort keys %countries);
 $countries_regexp = qr/$countries_regexp/;
@@ -204,6 +289,7 @@ while (my $line = <$IN>) {
 			missing => join(", ", map {$missing_names{$_}} @missing),
 			global_scans => [global_year_scans($scans_ref, \@years)],
 		};
+		ingredients_stats($product_ref, $product_info_ref) if $complete;
 	}
 
 	foreach my $country_tag (@product_countries) {
@@ -265,13 +351,18 @@ foreach my $code (sort keys %terms) {
 	my $category_tag = $term_ref->{off_category};
 	foreach my $country_tag (sort keys %countries) {
 		my $foodture_needed = $needed{$code}{$country_tag} ? 1 : 0;
-		next if not($foodture_needed or $all_pairs);
+		my $selection_rule
+			= $foodture_needed ? 'FOODTURE (ACTIA, EFSA consumption data)' : $other_needed{$code}{$country_tag};
+		my $dataset_needed = defined $selection_rule ? 1 : 0;
+		next if not($dataset_needed or $all_pairs);
 		my $country_ref = $countries{$country_tag};
 		my $cc = $country_ref->{cc};
 		my $stats_ref = $stats{$country_tag}{$category_tag} // {products => 0, complete => 0, with_photos => 0};
 		my $status = $stats_ref->{complete} ? 'OK' : $stats_ref->{products} ? 'INCOMPLETE' : 'MISSING';
 		my %row = (
 			foodture_needed => $foodture_needed,
+			dataset_needed => $dataset_needed,
+			selection_rule => $selection_rule // '',
 			foodture_country => $country_ref->{foodture},
 			country => $country_ref->{name},
 			country_tag => $country_tag,
@@ -282,6 +373,7 @@ foreach my $code (sort keys %terms) {
 			l1 => $term_ref->{l1},
 			l2 => $term_ref->{l2},
 			mapping_status => $term_ref->{status},
+			needs_recipe => $term_ref->{needs_recipe},
 			off_category => $category_tag,
 			off_category_name_en => category_name('en', $category_tag) || $term_ref->{off_name},
 			off_category_names_local => join("; ",
@@ -315,6 +407,11 @@ foreach my $code (sort keys %terms) {
 				(map {("country_scans_$years[$_]" => $key_ref->[$_ + 1])} 0 .. $#years),
 				global_scans => $global,
 				(map {("global_scans_$years[$_]" => $product_ref->{global_scans}[$_])} 0 .. $#years),
+				ingredients_lc => $product_ref->{ingredients_lc},
+				ingredients_n => $product_ref->{ingredients_n},
+				unknown_ingredients_n => $product_ref->{unknown_ingredients_n},
+				unknown_ingredients => $product_ref->{unknown_ingredients},
+				recognized_quantity_pct => $product_ref->{recognized_quantity_pct},
 			);
 		}
 		$row{incomplete_products} = [
@@ -336,19 +433,20 @@ foreach my $code (sort keys %terms) {
 
 @rows = sort {
 		   $a->{country} cmp $b->{country}
-		or $b->{foodture_needed} <=> $a->{foodture_needed}
+		or $b->{dataset_needed} <=> $a->{dataset_needed}
 		or $status_order{$a->{status}} <=> $status_order{$b->{status}}
 		or lc($a->{off_category_name_en}) cmp lc($b->{off_category_name_en})
 		or $a->{foodture_code} cmp $b->{foodture_code}
 } @rows;
 
 my @columns = (
-	qw/foodture_needed foodture_country country country_tag country_code foodture_code foodex2_code foodex2_name l1 l2
-		mapping_status off_category off_category_name_en off_category_names_local off_category_untranslated_languages
+	qw/foodture_needed dataset_needed selection_rule foodture_country country country_tag country_code foodture_code foodex2_code foodex2_name l1 l2
+		mapping_status needs_recipe off_category off_category_name_en off_category_names_local off_category_untranslated_languages
 		category_url fallback_category status status_label code product_name brands product_url country_scans/,
 	(map {"country_scans_$_"} @years),
 	'global_scans',
 	(map {"global_scans_$_"} @years),
+	qw/ingredients_lc ingredients_n unknown_ingredients_n unknown_ingredients recognized_quantity_pct/,
 	qw/products complete_products incomplete_products_with_photos incomplete_products_with_photos_codes/
 );
 
@@ -356,15 +454,17 @@ my @columns = (
 my $csv_file = "$output_dir/foodture_campaign.csv";
 open(my $CSV, '>:encoding(UTF-8)', "$csv_file.tmp") or die "Cannot write $csv_file.tmp: $!\n";
 $csv->print($CSV, \@columns);
-$csv->print($CSV, [map {$_ // ''} @$_{@columns}]) for @rows;
+# list fields (unknown ingredients can contain commas): separated by " | " in the CSV
+$csv->print($CSV, [map {ref $_ eq 'ARRAY' ? join(" | ", @$_) : $_ // ''} @$_{@columns}]) for @rows;
 close $CSV;
 rename("$csv_file.tmp", $csv_file) or die "Cannot rename $csv_file.tmp: $!\n";
 
 # Summary per country
 my %summary = ();
-foreach my $row_ref (grep {$_->{foodture_needed}} @rows) {
+foreach my $row_ref (grep {$_->{dataset_needed}} @rows) {
 	$summary{$row_ref->{country}}{$row_ref->{status}}++;
 	$summary{$row_ref->{country}}{total}++;
+	next if not $row_ref->{foodture_needed};
 	$summary{''}{$row_ref->{status}}++;
 	$summary{''}{total}++;
 }
@@ -396,7 +496,8 @@ print $JSON JSON::MaybeXS->new(utf8 => 1, canonical => 1, pretty => 1)->encode(
 		summary => {
 			map {
 				my $s = $summary{$_};
-				(($_ eq '' ? 'All countries' : $_) => {map {($_ => $s->{$_} // 0)} qw/total OK INCOMPLETE MISSING/})
+				(($_ eq '' ? 'All FOODTURE countries' : $_) =>
+						{map {($_ => $s->{$_} // 0)} qw/total OK INCOMPLETE MISSING/})
 			} keys %summary
 		},
 		rows => \@rows,
@@ -413,5 +514,6 @@ foreach my $country (sort grep {$_ ne ''} keys %summary) {
 	printf STDERR "%-20s %4d needed: %4d OK, %4d INCOMPLETE, %4d MISSING\n", $country, $s->{total}, $s->{OK} // 0,
 		$s->{INCOMPLETE} // 0, $s->{MISSING} // 0;
 }
-printf STDERR "%-20s %4d needed: %4d OK, %4d INCOMPLETE, %4d MISSING\n", "All", $all->{total} // 0, $all->{OK} // 0,
+printf STDERR "%-20s %4d needed: %4d OK, %4d INCOMPLETE, %4d MISSING\n", "All FOODTURE", $all->{total} // 0,
+	$all->{OK} // 0,
 	$all->{INCOMPLETE} // 0, $all->{MISSING} // 0;

@@ -19,7 +19,15 @@ Outputs (committed, as the ACTIA workbook is not in the repo):
 - foodture_needed_term_countries.csv: one row per needed FOODTURE code x country
 - foodture_needed_countries_per_term.csv: one row per FOODTURE code, with its needed countries
 
+The representative products dataset also covers 2 countries that FOODTURE does not need, for other research.
+EFSA has no consumption data for them in the ACTIA workbook, so their terms are chosen with simple rules:
+- Iceland: the terms needed in at least --iceland-min-nordic (2) of the 4 Nordic FOODTURE countries
+  (Denmark, Finland, Norway, Sweden)
+- Canada: the terms needed in at least --canada-min-countries (9) of the 32 FOODTURE countries (common European basket)
+Output: representative_dataset_other_countries.csv (one row per term x country)
+
 Usage: generate_needed_term_countries.py <actia.xlsx> [--mapping <csv>] [--output-dir <dir>]
+	[--iceland-min-nordic 2] [--canada-min-countries 9]
 Needs openpyxl.
 """
 
@@ -108,6 +116,8 @@ def main():
     parser.add_argument("actia", help="ACTIA workbook (xlsx)")
     parser.add_argument("--mapping", default=os.path.join(here, "foodture_foodex2_to_off_categories.csv"))
     parser.add_argument("--output-dir", default=here)
+    parser.add_argument("--iceland-min-nordic", type=int, default=2)
+    parser.add_argument("--canada-min-countries", type=int, default=9)
     args = parser.parse_args()
 
     needs, l7_countries = read_actia(args.actia)
@@ -155,6 +165,22 @@ def main():
         for row, countries, all_countries in terms:
             w.writerow([row["foodture_code"], row["foodture_name"], row["off_category"], row["needs_recipe"], len(countries),
                         ", ".join(countries), "yes" if all_countries else ""])
+
+    nordic = {"Denmark", "Finland", "Norway", "Sweden"}
+    other = []
+    for row, countries, all_countries in terms:
+        n_nordic = len(nordic.intersection(countries))
+        if n_nordic >= args.iceland_min_nordic:
+            other.append((row, "Iceland", "en:iceland", f"needed in {n_nordic} of the 4 Nordic FOODTURE countries"))
+    for row, countries, all_countries in terms:
+        if len(countries) >= args.canada_min_countries:
+            other.append((row, "Canada", "en:canada", f"needed in {len(countries)} of the 32 FOODTURE countries"))
+    with open(os.path.join(args.output_dir, "representative_dataset_other_countries.csv"), "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f, lineterminator="\n")
+        w.writerow(["foodture_code", "foodex2_name", "off_category", "country", "country_tag", "selection_rule"])
+        for row, country, country_tag, rule in other:
+            w.writerow([row["foodture_code"], row["foodture_name"], row["off_category"], country, country_tag, rule])
+    print(f"Other countries: {collections.Counter(o[1] for o in other)}", file=sys.stderr)
 
     print(f"{len(terms)} terms, {sum(1 for t in terms if t[1])} needed in at least one country, "
           f"{sum(1 for t in terms if t[2])} in all countries (EU27+N), {cells} needed term x country cells", file=sys.stderr)
