@@ -129,6 +129,35 @@ my @tests = (
 		target_lc => 'fr',
 		target_cc => 'fr'
 	},
+	# root panel with ingredients and nutrition first, then collapsed health and environment cards
+	{
+		'id' => 'en-ingredients-nutrition-first',
+		'product' => {
+			lc => "en",
+			categories => "biscuits",
+			categories_tags => ["en:biscuits"],
+			ingredients_text => "wheat flour, sugar, palm oil, hazelnuts, emulsifier: soy lecithin",
+			nutrition => {
+				aggregated_set => {
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						energy => {value => 2252},
+						fat => {value => 30.9},
+						"saturated-fat" => {value => 10.6},
+						sugars => {value => 56.3},
+						salt => {value => 0.107},
+						sodium => {value => 0.0428},
+						proteins => {value => 6.3},
+						fiber => {value => 3.4},
+					}
+				}
+			}
+		},
+		options => {activate_knowledge_panels_ingredients_nutrition_first => 1},
+		target_lc => 'en',
+		target_cc => 'world'
+	},
 	# added sugars tests
 	# english test with "with added sugar" ingredient
 	{
@@ -224,11 +253,51 @@ foreach my $test_ref (@tests) {
 	my $options_ref = {};
 	my $request_ref = {};
 	initialize_knowledge_panels_options($options_ref, $request_ref);
+	%$options_ref = (%$options_ref, %{$test_ref->{options} // {}});
 
 	create_knowledge_panels($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
+
+# The root panel lists ingredients and nutrition first only when the option is set
+foreach my $ingredients_nutrition_first (0, 1) {
+	my $product_ref = {
+		lc => "en",
+		categories_tags => ["en:biscuits"],
+		ingredients_text => "wheat flour, sugar",
+		nutrition => {aggregated_set => {nutrients => {energy => {value => 2000}, sugars => {value => 20}}}},
+	};
+	analyze_and_enrich_product_data($product_ref, get_initialized_response());
+	my $options_ref = {};
+	initialize_knowledge_panels_options($options_ref, {});
+	$options_ref->{activate_knowledge_panels_ingredients_nutrition_first} = $ingredients_nutrition_first;
+	create_knowledge_panels($product_ref, "en", "world", $options_ref, {});
+	my $panels_ref = $product_ref->{knowledge_panels_en};
+	my @root_ids = map {$_->{panel_element}{panel_id}} @{$panels_ref->{root}{elements}};
+	my @health_ids = map {@{$_->{panel_group_element}{panel_ids} // []}} @{$panels_ref->{health_card}{elements}};
+	my $health_lists_ingredients = (grep {$_ eq "ingredients"} @health_ids) ? 1 : 0;
+
+	if ($ingredients_nutrition_first) {
+		is(
+			\@root_ids,
+			[qw/ingredients_card nutrition_card health_card environment_card product_card report_problem_card/],
+			"root panel order with ingredients and nutrition first"
+		);
+		ok(!$panels_ref->{health_card}{expanded}, "health card collapsed");
+		ok(!$panels_ref->{environment_card}{expanded}, "environment card collapsed");
+		ok(!$panels_ref->{report_problem_card}{expanded}, "report a problem card collapsed");
+		like($panels_ref->{health_card}{title_element}{subtitle}, qr/Nutri-Score/, "health card summary");
+		is($health_lists_ingredients, 0, "ingredients only in the ingredients card");
+	}
+	else {
+		is(\@root_ids, [qw/health_card environment_card report_problem_card product_card/], "default root panel order");
+		ok(!defined $panels_ref->{ingredients_card}, "no ingredients card by default");
+		ok(!defined $panels_ref->{nutrition_card}, "no nutrition card by default");
+		ok(!defined $panels_ref->{health_card}{title_element}{subtitle}, "no health card summary by default");
+		is($health_lists_ingredients, 1, "ingredients in the health card by default");
+	}
 }
 
 # Open Products Facts: no empty health card for products like toilet paper or batteries

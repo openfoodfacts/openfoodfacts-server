@@ -16,6 +16,14 @@ components:
       schema:
         type: boolean
         example: true
+    ActivateKnowledgePanelsIngredientsNutritionFirst:
+      name: activate_knowledge_panels_ingredients_nutrition_first
+      in: query
+      description: 'If true, the root knowledge panel starts with an ingredients card and a nutrition card, followed by collapsed health and environment cards with a one-line summary, the product information card, and a collapsed report a problem card'
+      required: false
+      schema:
+        type: boolean
+        example: true
     ActivateKnowledgePanelPhysicalActivities:
       name: activate_knowledge_panel_physical_activities
       in: query

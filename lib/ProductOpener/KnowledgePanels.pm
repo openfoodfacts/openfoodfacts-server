@@ -99,6 +99,10 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	$knowledge_panels_options_ref->{activate_knowledge_panels_simplified}
 		= normalize_boolean(single_param("activate_knowledge_panels_simplified"));
 
+	# Activate the root panel that shows ingredients and nutrition first, then collapsed health and environment cards
+	$knowledge_panels_options_ref->{activate_knowledge_panels_ingredients_nutrition_first}
+		= normalize_boolean(single_param("activate_knowledge_panels_ingredients_nutrition_first"));
+
 	# Activate physical activity knowledge panel only when specified
 	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
 		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
@@ -1397,6 +1401,17 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	$log->debug("create health card panel - data", {code => $product_ref->{code}, panel_data => $panel_data_ref})
 		if $log->is_debug();
+
+	if ($options_ref->{activate_knowledge_panels_ingredients_nutrition_first}) {
+		if (defined $panels_ref->{ingredients}) {
+			create_panel_from_json_template("ingredients_card", "api/knowledge-panels/health/ingredients_card.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+		if (feature_enabled("nutrition")) {
+			create_panel_from_json_template("nutrition_card", "api/knowledge-panels/health/nutrition_card.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+	}
 
 	create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
