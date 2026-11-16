@@ -121,6 +121,18 @@ sub quantity_ok ($pct) {
 	return ((defined $pct) and ($pct ne '') and ($pct >= $min_recognized_quantity_pct)) ? 1 : 0;
 }
 
+# Categories whose selected product (the most scanned complete product) has at least 95% of the estimated quantity of
+# its ingredients recognized ("Complete + 95% ingredients"), and Full Coverage: their share of the needed categories
+foreach my $row_ref (@rows) {
+	next if (not $row_ref->{dataset_needed}) or ($row_ref->{status} ne 'OK');
+	next if not quantity_ok($row_ref->{recognized_quantity_pct});
+	$summary{$_}{READY}++ for ($row_ref->{country}, ($row_ref->{foodture_needed} ? '' : ()));
+}
+
+sub full_pct ($s) {
+	return $s->{total} ? 100 * ($s->{READY} // 0) / $s->{total} : 0;
+}
+
 # Ingredients of the selected products, per country and for all the FOODTURE countries ('').
 # Each product is counted once, even if it is selected for several categories.
 # $ingredients{country}{products}{code} = {product info}, $ingredients{country}{unknown}{ingredient tag} = [product codes]
@@ -240,6 +252,12 @@ th { background: var(--head); font-weight: 600; }
 .summary td, .summary th { text-align: right; white-space: nowrap; }
 .summary td:first-child, .summary th:first-child, .summary td.left { text-align: left; }
 .summary th[data-sort] { cursor: pointer; user-select: none; }
+.summary thead th { white-space: normal; vertical-align: bottom; line-height: 1.25; }
+.summary thead .badge { white-space: normal; }
+.summary .bar { width: 44px; }
+.summary th, .summary td { padding: 6px 5px; }
+.summary tr.groups th { text-align: left; font-weight: 600; background: var(--bg); border-bottom: 2px solid var(--line); }
+.summary .quality { border-left: 2px solid var(--line); }
 .summary th[data-sort]::after { content: " \2195"; color: var(--muted); }
 .summary th[aria-sort=ascending]::after { content: " \2191"; color: var(--fg); }
 .summary th[aria-sort=descending]::after { content: " \2193"; color: var(--fg); }
@@ -258,7 +276,7 @@ figure.chart .cross { stroke: var(--muted); stroke-width: 1; }
 .tooltip { position: absolute; pointer-events: none; background: var(--bg); color: var(--fg); border: 1px solid var(--line);
 	border-radius: 6px; padding: 6px 8px; font-size: 0.85em; box-shadow: 0 2px 8px rgba(0,0,0,.15); white-space: nowrap; }
 details.table-view summary { cursor: pointer; color: var(--link); font-size: 0.9em; }
-@media (max-width: 700px) { figure.chart { overflow-x: auto; } figure.chart svg { min-width: 540px; }
+@media (max-width: 700px) { .summary tr.groups { display: none; } figure.chart { overflow-x: auto; } figure.chart svg { min-width: 540px; }
 	.details-col { display: none; } .summary .wide { display: none; }
 	.filters { position: static; }
 	table.cards, table.cards tbody, table.cards tr, table.cards td { display: block; }
@@ -308,8 +326,8 @@ Source: projects/foodture/list_campaign_needed_categories.pl and build_campaign_
 HTML
 
 # Progress over time: history of the metrics of each country (one line per date and country)
-my @history_metrics = qw/needed complete incomplete_only no_product coverage_pct selected_products
-	known_ingredients_pct quantity_ok quantity_ok_pct/;
+my @history_metrics = qw/needed complete incomplete_only no_product coverage_pct complete_95 full_coverage_pct
+	selected_products known_ingredients_pct quantity_ok quantity_ok_pct/;
 my %history = ();    # $history{country}{date} = {metric => value}
 if (-e $history_file) {
 	open(my $HISTORY, '<:encoding(UTF-8)', $history_file) or die "Cannot read $history_file: $!\n";
@@ -331,6 +349,8 @@ foreach my $country ((grep {$_ ne ''} keys %summary), '') {
 		incomplete_only => $s->{INCOMPLETE} // 0,
 		no_product => $s->{MISSING} // 0,
 		coverage_pct => sprintf("%.1f", pct($s)),
+		complete_95 => $s->{READY} // 0,
+		full_coverage_pct => sprintf("%.1f", full_pct($s)),
 		selected_products => $products,
 		known_ingredients_pct => defined $known ? sprintf("%.1f", $known) : '',
 		quantity_ok => $ok,
@@ -352,8 +372,8 @@ foreach my $country ((grep {$_ ne ''} keys %summary), '') {
 
 # Series of the progress charts: metric, name, color
 my @chart_series = (
-	['coverage_pct', 'Categories with a complete product', 'var(--s1)'],
-	['quantity_ok_pct', 'Selected products with ≥ 95% of ingredients quantity recognized', 'var(--s2)'],
+	['coverage_pct', 'Data Coverage: categories with a complete product', 'var(--s1)'],
+	['full_coverage_pct', 'Full Coverage: complete product with ≥ 95% of ingredients recognized', 'var(--s2)'],
 	['known_ingredients_pct', 'Recognized ingredients in the selected products', 'var(--s3)'],
 );
 
@@ -389,7 +409,7 @@ sub progress_chart ($country) {
 			qq{<text class="axis" x="%.1f" y="%d" text-anchor="%s">%s</text>\n},
 			$x->($date),
 			$height - 6,
-			($date eq $dates[0] and @dates > 1) ? 'start' : 'end',
+			($date eq $dates[0]) ? 'start' : 'end',
 			h($date)
 		);
 	}
@@ -566,11 +586,14 @@ sub country_table ($country, $heading) {
 	my $html = '';
 	$html .= qq{<h2 id="} . h($countries{$country}{country_code}) . qq{">} . h($country) . "</h2>\n" if $heading;
 	$html .= sprintf(
-		qq{<p class="muted">%d needed categories: %d with no product, %d with incomplete products only, %d with a complete product.%s</p>\n},
+		qq{<p class="muted">%d needed categories: %d with no product, %d with incomplete products only, %d with a complete product,
+including %d with at least 95%% of the ingredients recognized (Full Coverage: %.0f%%).%s</p>\n},
 		$s->{total} // 0,
 		$s->{MISSING} // 0,
 		$s->{INCOMPLETE} // 0,
 		$s->{OK} // 0,
+		$s->{READY} // 0,
+		full_pct($s),
 		$languages ne '' ? " Category names in English and " . h($languages) . "." : ''
 	);
 	$html
@@ -880,72 +903,81 @@ foreach my $country (@country_names) {
 }
 
 # Summary page
-sub quantity_ok_ratio ($country) {
-	my ($ok, $products) = quantity_ok_counts($country);
-	return $products ? $ok / $products : -1;
-}
-
-sub quantity_ok_text ($country) {
-	my ($ok, $products) = quantity_ok_counts($country);
-	return '' if not $products;
-	return sprintf("%d / %d (%.0f%%)", $ok, $products, 100 * $ok / $products);
+sub bar_cell ($pct) {
+	return sprintf(qq{<td data-value="%.3f">%.0f%%<span class="bar"><span style="width:%.0f%%"></span></span></td>},
+		$pct, $pct, $pct);
 }
 
 sub summary_table ($id, $names_ref, $with_total) {
 	my $html = <<HTML;
 <div class="table-wrap"><table class="summary" id="$id">
-<thead><tr><th data-sort="text" aria-sort="ascending">Country</th><th data-sort="num" class="wide">Needed</th>
-<th data-sort="num"><span class="badge MISSING">no product</span></th><th data-sort="num"><span class="badge INCOMPLETE">incomplete only</span></th>
-<th data-sort="num"><span class="badge OK">complete</span></th><th data-sort="num">Coverage</th>
-<th data-sort="num" class="wide">Known ingredients</th>
-<th data-sort="num" class="wide" title="Selected products with at least 95% of the estimated quantity of ingredients recognized">Quantity &ge; 95% recognized</th>
-<th class="wide">Scan list</th></tr></thead>
+<thead>
+<tr class="groups"><th colspan="7">🛒 Data gathering: scan and complete products</th><th colspan="3" class="quality">🧙 Data quality: ingredients analysis</th></tr>
+<tr><th data-sort="text" aria-sort="ascending">Country</th><th data-sort="num" class="wide">Needed<br>categories</th>
+<th data-sort="num"><span class="badge MISSING">no product</span></th><th data-sort="num"><span class="badge INCOMPLETE">incomplete<br>only</span></th>
+<th data-sort="num"><span class="badge OK">complete</span></th><th data-sort="num">Data<br>Coverage</th>
+<th class="wide">Scan list</th>
+<th data-sort="num" class="wide quality">Known<br>ingredients</th>
+<th data-sort="num" class="wide" title="Categories whose selected product is complete and has at least 95% of the estimated quantity of its ingredients recognized">Complete +<br>95% ingredients</th>
+<th data-sort="num" title="Share of the needed categories that are complete with at least 95% of the ingredients recognized">Full<br>Coverage</th></tr>
+</thead>
 <tbody>
 HTML
 	foreach my $country (@$names_ref) {
 		my $s = $summary{$country};
 		my $cc = $countries{$country}{country_code};
 		my $tools_cc = $scan_champion_cc{$cc} // $cc;
-		my $pct = pct($s);
 		my $known = known_pct($country);
 		$html .= sprintf(
-			qq{<tr><td data-value="%s"><a href="%s">%s</a></td><td class="wide">%d</td><td>%d</td><td>%d</td><td>%d</td>}
-				. qq{<td data-value="%.3f">%.0f%%<span class="bar"><span style="width:%.0f%%"></span></span></td>}
-				. qq{<td class="wide" data-value="%.3f">%s</td><td class="wide" data-value="%.4f">%s</td><td class="wide left">%s</td></tr>\n},
-			h($country),
-			page_file($country),
-			h($country),
-			$s->{total},
+			qq{<tr><td data-value="%s"><a href="%s">%s</a></td><td class="wide">%d</td><td>%d</td><td>%d</td><td>%d</td>},
+			h($country), page_file($country), h($country), $s->{total},
 			$s->{MISSING} // 0,
 			$s->{INCOMPLETE} // 0,
-			$s->{OK} // 0,
-			$pct,
-			$pct,
-			$pct,
+			$s->{OK} // 0
+			)
+			. bar_cell(pct($s))
+			. qq{<td class="wide left">}
+			. (
+			$scan_champion_countries{$tools_cc}
+			? qq{<a href="$scan_champion_url?country=$tools_cc" title="Scan Champion: scan list for shops">🛒 Open</a>}
+			: ''
+			)
+			. "</td>"
+			. sprintf(
+			qq{<td class="wide quality" data-value="%.3f">%s</td><td class="wide">%d</td>},
 			$known // -1,
 			defined $known ? sprintf(qq{<a href="%s#ingredients">%.1f%%</a>}, page_file($country), $known) : '',
-			quantity_ok_ratio($country),
-			quantity_ok_text($country),
-			$scan_champion_countries{$tools_cc}
-			? qq{<a href="$scan_champion_url?country=$tools_cc">Scan Champion</a>}
-			: ''
-		);
+			$s->{READY} // 0
+			)
+			. bar_cell(full_pct($s))
+			. "</tr>\n";
 	}
 	$html .= "</tbody>\n";
 	if ($with_total) {
 		my $all = $summary{''} // {};
 		my $known = known_pct('');
 		$html .= sprintf(
-			qq{<tfoot><tr><th><a href="all.html">All FOODTURE countries</a></th><th class="wide">%d</th><th>%d</th><th>%d</th><th>%d</th><th>%.0f%%</th><th class="wide">%s</th><th class="wide">%s</th><th class="wide"></th></tr></tfoot>\n},
+			qq{<tfoot><tr><th><a href="all.html">All FOODTURE countries</a></th><th class="wide">%d</th><th>%d</th><th>%d</th><th>%d</th><th>%.0f%%</th><th class="wide"></th>}
+				. qq{<th class="wide quality">%s</th><th class="wide">%d</th><th>%.0f%%</th></tr></tfoot>\n},
 			$all->{total} // 0,
 			$all->{MISSING} // 0,
 			$all->{INCOMPLETE} // 0,
 			$all->{OK} // 0,
-			pct($all), defined $known ? sprintf("%.1f%%", $known) : '',
-			quantity_ok_text('')
+			pct($all),
+			defined $known ? sprintf("%.1f%%", $known) : '',
+			$all->{READY} // 0,
+			full_pct($all)
 		);
 	}
-	return $html . "</table></div>\n";
+	$html .= <<'HTML';
+</table></div>
+<p class="muted"><small><b>Data Coverage</b>: share of the needed categories with a complete product (photos, ingredients and
+nutrition facts) sold in the country. <b>Known ingredients</b>: share of the ingredients of the selected products that are
+recognized. <b>Complete + 95% ingredients</b>: categories whose selected product (the most scanned complete product) has
+at least 95% of the estimated quantity of its ingredients recognized, which FOODTURE needs to compute the environmental
+impact. <b>Full Coverage</b>: their share of the needed categories.</small></p>
+HTML
+	return $html;
 }
 
 {
@@ -981,7 +1013,7 @@ HTML
 	if (pages[cc]) { location.replace(pages[cc] + location.hash); return; }
 	document.querySelectorAll('table.summary').forEach(function (table) {
 		var tbody = table.tBodies[0];
-		var headers = table.tHead.rows[0].cells;
+		var headers = table.tHead.rows[table.tHead.rows.length - 1].cells;
 		function value(row, i, type) {
 			var cell = row.cells[i];
 			var v = cell.dataset.value !== undefined ? cell.dataset.value : cell.textContent.trim();
