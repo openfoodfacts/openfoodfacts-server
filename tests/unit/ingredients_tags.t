@@ -404,7 +404,19 @@ my @tests = (
 		{lc => "fr", ingredients_text => "arôme naturel de fruit de la passion, arôme de fruit de la passion"},
 		["en:natural-passion-fruit-flavouring", "en:passion-fruit-flavouring"],
 	],
-
+	# same concept that was defined in two blocks: consolidated, the canonical id is unchanged
+	[{lc => "en", ingredients_text => "komatsuna, mustard spinach"}, ["en:mustard-spinach", "en:mustard-spinach"],],
+	[{lc => "en", ingredients_text => "lemon beebrush, lemon verbena"}, ["en:lemon-verbena", "en:lemon-verbena"],],
+	[{lc => "en", ingredients_text => "vine spinach, basella leaves"}, ["en:basella-leaves", "en:basella-leaves"],],
+	[{lc => "en", ingredients_text => "broccoli raab, rapini"}, ["en:rapini", "en:rapini"],],
+	[{lc => "en", ingredients_text => "napa cabbage, chinese cabbage"}, ["en:chinese-cabbage", "en:chinese-cabbage"],],
+	[{lc => "en", ingredients_text => "pepeiao, pepeao"}, ["en:pepeao", "en:pepeao"],],
+	[
+		{lc => "en", ingredients_text => "powdered glucose syrup, dehydrated glucose syrup"},
+		["en:dehydrated-glucose-syrup", "en:dehydrated-glucose-syrup"],
+	],
+	[{lc => "en", ingredients_text => "wild blueberries, broccoli"}, ["en:wild-blueberry", "en:broccoli"],],
+	[{lc => "fr", ingredients_text => "eau de source gazéifiée"}, ["en:carbonated-spring-water"],],
 );
 
 # restored entries keep the expected parents
