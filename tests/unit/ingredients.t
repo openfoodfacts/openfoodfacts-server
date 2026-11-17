@@ -1778,6 +1778,23 @@ puffed orange and caramelized unknown_fruit4.",
 				"Yogurt di latte intero, yogurt colato, fermenti lattici specifici vivi (Lactococcus cremoris, Leuconostoc mesenteroides), fermenti vivi, uova da galline allevate a terra, preparazione alla vaniglia, galattosio",
 		}
 	],
+	# a sub-ingredient of the same family is not composed with its parent:
+	# "latte intero" stays whole milk, not "yogurt di latte intero" (8007735193627, 8007735193641)
+	[
+		'it-yogurt-whole-milk-sub-ingredient',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Yogurt (latte intero, fermenti lattici vivi), zucchero, olio vegetale (girasole, colza)",
+		}
+	],
+	[
+		'fr-yogurt-whole-milk-sub-ingredient',
+		{
+			lc => "fr",
+			ingredients_text => "Yaourt (lait entier, ferments lactiques), sucre, huile végétale (colza, tournesol)",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
