@@ -2319,16 +2319,15 @@ ciqual_proxy_food_name:en: Butter, 82% fat, unsalted
 ciqual_proxy_food_name:fr: Beurre à 82% MG, doux
 comment:en: Butter is not added to the fat section (to much water?)
 description:en: BUTTER is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk. It is generally used as a spread on plain or toasted bread products and a condiment on cooked vegetables, as well as in cooking, such as baking, sauce making, and pan frying.
-ecobalyse_alias:en: butter-39-41pct-fat-light-default
 ecobalyse_category:en: dairy
 ecobalyse_default_origin:en:
-ecobalyse_id:en: 1dd1d7ed-2266-4317-bb45-709f850bd1e1
+ecobalyse_id:en: 9f7ca704-e3b6-4ad9-b376-6c0662ebeeec
 ecobalyse_labels_en_organic_origins_en_france_alias:en: butter-organic-2025
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: aeedb0fa-81a7-4f21-9bf1-7ec9c4c69ed9
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Beurre Bio (2025)
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Beurre à 39-41% MG, léger, doux Origine Inconnue
+ecobalyse_name:fr: Beurre à 82% MG ou huile de beurre Origine Inconnue
 ecobalyse_origins_en_france_alias:en: butter-2025
 ecobalyse_origins_en_france_default_origin:en: FR
 ecobalyse_origins_en_france_id:en: bbda834e-1548-4682-a461-c367dc1ce517
@@ -3212,6 +3211,11 @@ description:fr: Le lait de chèvre est le lait que produit la femelle de la Chè
 description:it: Il latte caprino è il tipo di latte generato dalle capre.
 description:nb: Geitemelk er melk fra geit (Capra aegagrus hircus).
 description:pl: Geitenmelk is de melk die gevormd wordt in de uier van een geit.
+# Ecobalyse only has a French goat milk: without it, goat milk would get the cow milk of the en:milk parent
+ecobalyse_default_origin:en: FR
+ecobalyse_id:en: a9eed813-3242-4701-8d76-f4fb2f222121
+ecobalyse_name:fr: Lait de chèvre FR (2025)
+ecobalyse_scenario:en: reference
 wikidata:en: Q1418287
 
 < en: goat milk
@@ -15876,16 +15880,15 @@ ciqual_food_code:en: 16401
 ciqual_food_name:en: Butter oil or concentrated butter
 comment:en: BUTTERFAT seems to be more than just butter, water has been removed
 description:en: BUTTERFAT - the fatty portion of milk.
-ecobalyse_proxy_alias:en: butter-39-41pct-fat-light-default
 ecobalyse_proxy_category:en: dairy
 ecobalyse_proxy_default_origin:en:
-ecobalyse_proxy_id:en: 1dd1d7ed-2266-4317-bb45-709f850bd1e1
+ecobalyse_proxy_id:en: 9f7ca704-e3b6-4ad9-b376-6c0662ebeeec
 ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: butter-organic-2025
 ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: aeedb0fa-81a7-4f21-9bf1-7ec9c4c69ed9
 ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Beurre Bio (2025)
 ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_proxy_name:fr: Beurre à 39-41% MG, léger, doux Origine Inconnue
+ecobalyse_proxy_name:fr: Beurre à 82% MG ou huile de beurre Origine Inconnue
 ecobalyse_proxy_origins_en_france_alias:en: butter-2025
 ecobalyse_proxy_origins_en_france_default_origin:en: FR
 ecobalyse_proxy_origins_en_france_id:en: bbda834e-1548-4682-a461-c367dc1ce517
@@ -17441,17 +17444,13 @@ zh: 椰子油
 ciqual_food_code:en: 16040
 ciqual_food_name:en: Coconut fat or oil
 description:en: COCONUT OIL, or copra oil, is an edible oil extracted from the kernel or meat of mature coconuts harvested from the coconut palm (Cocos nucifera).
-ecobalyse_proxy_alias:en: unknown-oil-2025
+# "Autres huiles (non encore répertoriées) (2025)" (66e7706b-5129-410c-b070-0a7feff2680f) has an environmental cost of about 7460 points per kg in the Ecobalyse food2 API (2026-11), 17 times more than palm or rapeseed oil
+# coconut oil is not in Ecobalyse: we use palm oil (also a refined tropical oil) as a proxy
 ecobalyse_proxy_category:en: other_food_items
-ecobalyse_proxy_crop_group:en: TOURNESOL
 ecobalyse_proxy_default_origin:en: REM
-ecobalyse_proxy_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
-ecobalyse_proxy_name:fr: Autres huiles (non encore répertoriées) (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: unknown-oil-2025
-ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
-ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Autres huiles (non encore répertoriées) (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_id:en: 45658c32-66d9-4305-a34b-21d6a4cef89c
+ecobalyse_proxy_name:fr: Huile de palme (raffinée) par défaut (2025)
+ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_transport_cooling:en: none
 from_palm_oil:en: no
@@ -18936,18 +18935,24 @@ ecobalyse_alias:en: sunflower-oil-2025
 ecobalyse_category:en: other_food_items
 ecobalyse_crop_group:en: TOURNESOL
 ecobalyse_default_origin:en: REM
-ecobalyse_id:en: 3cfab110-363e-442a-9170-1af337fe9ea3
+# "Huile de tournesol par défaut (2025)" (3cfab110-363e-442a-9170-1af337fe9ea3) has an environmental cost
+# of about 7460 points per kg in the Ecobalyse food2 API (2026-11), 18 to 30 times more than the FR (417)
+# and UE (250) sunflower oils and the default rapeseed oil (423): we use the UE sunflower oil until this is clarified
+ecobalyse_id:en: ea419fa9-d69f-4735-8fe8-fab427ce5185
 ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en: sunflower-oil-organic-2025
 ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
 ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en: 64fb23f2-0cac-403c-bbfa-1973c9a0ea40
 ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Huile de tournesol Bio (2025)
 ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
-ecobalyse_name:fr: Huile de tournesol par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: sunflower-oil-2025
+ecobalyse_name:fr: Huile de tournesol UE (2025)
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 3cfab110-363e-442a-9170-1af337fe9ea3
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Huile de tournesol par défaut (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: ea419fa9-d69f-4735-8fe8-fab427ce5185
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Huile de tournesol UE (2025)
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_origins_en_france_default_origin:en: FR
+ecobalyse_origins_en_france_id:en: 583d00ab-0340-444b-9581-71175f0a937b
+ecobalyse_origins_en_france_name:fr: Huile de tournesol (raffinée) FR (2025)
+ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: none
 from_palm_oil:en: no
@@ -39067,7 +39072,7 @@ da: sojabase
 de: sojabasis
 es: zumo de soja, jugo de soja, zumo de soya, jugo de soya, base de soja
 fi: soijapohja
-fr: jus de soja
+fr: jus de soja, base de soja
 hr: baza soje
 it: base di soia
 ja: 大豆ベース
@@ -105600,17 +105605,17 @@ description:fr: La margarine est une émulsion d'eau et d'huile végétale stabi
 description:it: La margarina è un grasso alimentare, costituito da due fasi: una lipidica (oli e grassi) e una acquosa intimamente mescolate.
 description:nl: Margarine is de benaming die in zwang kwam voor een vervangingsproduct voor boter.
 description:pt: Margarina é termo genérico para identificar gorduras alimentares de origem vegetal usadas em substituição da manteiga.
-ecobalyse_proxy_alias:en: unknown-oil-2025
+# "Autres huiles (non encore répertoriées) (2025)" (66e7706b-5129-410c-b070-0a7feff2680f) has an environmental cost of about 7460 points per kg in the Ecobalyse food2 API (2026-11), 17 times more than palm or rapeseed oil
+# margarine is not in Ecobalyse: we use rapeseed oil (the main oil of margarines sold in France) as a proxy
 ecobalyse_proxy_category:en: other_food_items
-ecobalyse_proxy_crop_group:en: TOURNESOL
 ecobalyse_proxy_default_origin:en: REM
-ecobalyse_proxy_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
-ecobalyse_proxy_name:fr: Autres huiles (non encore répertoriées) (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: unknown-oil-2025
-ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
-ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Autres huiles (non encore répertoriées) (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_id:en: 96b301d9-d21b-4cea-8903-bd7917e95a30
+ecobalyse_proxy_name:fr: Huile de colza par défaut (2025)
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: c3697176-e682-43c3-b16a-3992ff8f1404
+ecobalyse_proxy_origins_en_france_name:fr: Huile de colza (raffinée) FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_transport_cooling:en: none
 wikidata:en: Q4287
