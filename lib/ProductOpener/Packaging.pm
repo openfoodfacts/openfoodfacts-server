@@ -53,6 +53,7 @@ BEGIN {
 		&aggregate_packaging_by_parent_materials
 		&load_categories_packagings_materials_stats
 		&get_parent_material
+		&should_display_legacy_packaging
 
 		%packaging_taxonomies
 	);    # symbols to export on request
@@ -1140,6 +1141,21 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 		{packagings => $product_ref->{packagings}, response => $response_ref})
 		if $log->is_debug();
 	return;
+}
+
+=head2 should_display_legacy_packaging($product_ref, $is_moderator = 0)
+
+Check if the legacy deprecated packaging input field should be displayed in the product edit form.
+It is displayed if the user is a moderator, or if the product contains legacy packaging text
+or legacy packaging tags.
+
+=cut
+
+sub should_display_legacy_packaging ($product_ref, $is_moderator = 0) {
+	return 1 if $is_moderator;
+	return 1 if ((defined $product_ref->{packaging}) && ($product_ref->{packaging} ne ''));
+	return 1 if ((defined $product_ref->{packaging_tags}) && (@{$product_ref->{packaging_tags}} > 0));
+	return 0;
 }
 
 1;

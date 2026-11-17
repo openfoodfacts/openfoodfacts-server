@@ -9117,6 +9117,8 @@ sub compare_product_nutrition_facts_to_categories ($product_ref, $target_lc, $ta
 
 			foreach my $cid (@{$product_ref->{categories_tags}}) {
 
+				next unless exists_taxonomy_tag('categories', $cid);
+
 				if (    (defined $categories_stats_ref->{$cid})
 					and (defined $categories_stats_ref->{$cid}{stats}))
 				{
