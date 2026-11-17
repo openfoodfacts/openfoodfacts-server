@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # This script expects nginx access logs on STDIN
+# See scanbot.md in this directory for how to get the scan files and run scanbot
 # filtered by the app:
 # grep "Official Android App" nginx.access2.log | grep Scan > android_app.log
 
@@ -76,6 +77,8 @@ GetOptions(
 if ((not defined $year) or not(1 or (defined $update_popularity) or (defined $update_scans))) {
 	print STDERR <<USAGE
 scanbot.pl processes nginx log files that have been filtered to keep only the OFF apps scans for a particular year.
+
+See scripts/scanbot.md for how to extract the scan files from the logs, and how to run scanbot.
 
 Usage:
 
