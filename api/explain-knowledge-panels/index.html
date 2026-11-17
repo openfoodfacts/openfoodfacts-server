@@ -587,6 +587,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#product-panels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product panels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opt-in-panels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opt-in panels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-to-make-a-knowledge-panel-related-contribution" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2460,6 +2482,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#product-panels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product panels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opt-in-panels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opt-in panels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-to-make-a-knowledge-panel-related-contribution" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2530,6 +2574,86 @@ We also have a concept of action, which allows the user to take an action, curre
 <blockquote>
 <p>See the reference documentation for <a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/products/get-product-by-code/">Getting Knowledge panels for a specific product by barcode</a>.</p>
 </blockquote>
+<h2 id="product-panels">Product panels<a class="headerlink" href="#product-panels" title="Permanent link">#</a></h2>
+<p>The <code>root</code> panel lists the cards to show on the product page, in order. Each card groups sub-panels, and most sub-panels are only sent when the product has the data. Some ids include a tag and depend on the product, for example <code>ingredients_analysis_en:vegan</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Card</th>
+<th>Main sub-panels</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>health_card</code></td>
+<td><code>nutriscore_2023</code>, <code>nutrient_levels</code>, <code>nutrition_facts_table</code>, <code>ingredients</code>, <code>nova</code>, <code>ingredients_analysis</code></td>
+<td>Only on flavors with the health card feature</td>
+</tr>
+<tr>
+<td><code>environment_card</code></td>
+<td><code>environmental_score</code>, <code>carbon_footprint</code>, <code>forest_footprint</code>, <code>packaging</code>, <code>origins_of_ingredients</code>, <code>threatened_species</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>product_card</code></td>
+<td><code>raw_brands</code>, <code>raw_countries</code>, <code>raw_stores</code>, <code>raw_labels</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>report_problem_card</code></td>
+<td><code>incomplete_or_incorrect_data</code></td>
+<td>Not on the producers platform</td>
+</tr>
+<tr>
+<td><code>contribution_card</code></td>
+<td>data quality panels, <code>product_history</code></td>
+<td>Data quality panels only for logged in users on the web</td>
+</tr>
+<tr>
+<td><code>secondhand_card</code></td>
+<td>repair, donation and used product panels</td>
+<td>Only for the <code>product</code> product type</td>
+</tr>
+</tbody>
+</table>
+<h2 id="opt-in-panels">Opt-in panels<a class="headerlink" href="#opt-in-panels" title="Permanent link">#</a></h2>
+<p>These panels are only sent when the client asks for them with a query parameter set to <code>1</code>. The parameters are described in the <a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/products/get-product-by-code/">API reference</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Adds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>activate_knowledge_panels_simplified</code></td>
+<td><code>simplified_root</code> and its simplified health and environment cards</td>
+</tr>
+<tr>
+<td><code>activate_knowledge_panel_physical_activities</code></td>
+<td><code>physical_activities</code> in the health card</td>
+</tr>
+<tr>
+<td><code>activate_knowledge_panel_product_history</code></td>
+<td><code>product_history</code> in the contribution card, for logged in users</td>
+</tr>
+<tr>
+<td><code>activate_knowledge_panel_product_information</code></td>
+<td><code>conservation_conditions</code> and <code>customer_service</code> in the product card, and a <code>sources_manufacturer</code> panel for products of a producer organization</td>
+</tr>
+<tr>
+<td><code>activate_knowledge_panel_related_categories</code></td>
+<td><code>related_categories</code> on category pages</td>
+</tr>
+<tr>
+<td><code>activate_knowledge_panel_nova_unknown</code></td>
+<td>A panel explaining why the NOVA group is unknown, on the unknown NOVA group page</td>
+</tr>
+</tbody>
+</table>
+<p><code>knowledge_panels_included</code> and <code>knowledge_panels_excluded</code> take a comma separated list of panel ids to keep or drop.</p>
 <h2 id="how-to-make-a-knowledge-panel-related-contribution">How to make a knowledge panel related contribution<a class="headerlink" href="#how-to-make-a-knowledge-panel-related-contribution" title="Permanent link">#</a></h2>
 <ul>
 <li>You need to have a clear vision of the information you want to convey, both in synthetic and larger form</li>
