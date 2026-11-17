@@ -64,6 +64,44 @@ for my $case (
 	is([map {$_->{id}} @{$parent->{ingredients}}], \@child_ids, "$text children compose with its generic name");
 }
 
+# An allergen after a "from", "of" or "contains" word is an allergen indication, not a sub-ingredient
+for my $case (
+	['en', 'whey powder (from milk)', 'en:whey-powder'],
+	['en', 'lactose (from milk)', 'en:lactose'],
+	['pl', 'serwatka w proszku (z mleka)', 'en:whey-powder'],
+	['da', 'vallepulver (af MÆLK)', 'en:whey-powder'],
+	['sv', 'vasslepulver (från mjölk)', 'en:whey-powder'],
+	['de', 'Molkenpulver (aus Milch)', 'en:whey-powder'],
+	)
+{
+	my ($lc, $text, $parent_id) = @$case;
+	my $product = {lc => $lc, ingredients_text => $text};
+	parse_ingredients_text_service($product, {}, []);
+	my $parent = $product->{ingredients}[0];
+	is($parent->{id}, $parent_id, "$text keeps its parent");
+	is($parent->{ingredients}, undef, "$text has no milk sub-ingredient");
+	like($product->{allergens_from_ingredients}, qr/en:milk/, "$text: milk is an allergen");
+}
+
+# Parents still compose with their children
+for my $case (
+	# a "from" word before a non-allergen still lets the parent compose with its child
+	['en', 'starch (from wheat)', 'en:starch', 'en:wheat-starch'],
+	# a more specific parent can still refine a broader child
+	['nl', 'E500i (e500)', 'en:e500i', 'en:e500i'],
+	# category parents still compose with their children
+	['en', 'vegetable oil (palm, rapeseed)', 'en:vegetable-oil', 'en:palm-oil'],
+	['fr', 'jus (pomme)', 'en:juice', 'en:apple-juice'],
+	)
+{
+	my ($lc, $text, $parent_id, $child_id) = @$case;
+	my $product = {lc => $lc, ingredients_text => $text};
+	parse_ingredients_text_service($product, {}, []);
+	my $parent = $product->{ingredients}[0];
+	is($parent->{id}, $parent_id, "$text keeps its parent");
+	is($parent->{ingredients}[0]{id}, $child_id, "$text: child is $child_id");
+}
+
 for my $case (
 	['lait origine France', 'en:milk', 'en:france'],
 	['lait entier origine France', 'en:whole-milk', 'en:france'],

@@ -1558,6 +1558,18 @@ sub _extract_ingredient_labels ($lc, $ingredient) {
 	return ($ingredient, [uniq(@ingredient_labels)], $last_label);
 }
 
+# "from milk" -> "milk", "z mleka" -> "mleka", "af mælk" -> "mælk", "contains milk" -> "milk"
+# so that an allergen named after a "from" or "contains" word is recognized as an allergen.
+sub _remove_from_or_contains_prefix ($lc, $text) {
+	# %from and %of entries are plain words surrounded by spaces, %contains_regexps entries are regexps
+	my @prefixes
+		= uniq(map {quotemeta(s/^\s+|\s+$//gr)} grep {/\S/} map {split(/\|/, $_ // '')} ($from{$lc}, $of{$lc}));
+	push @prefixes, $contains_regexps{$lc} if defined $contains_regexps{$lc};
+	return $text unless @prefixes;
+	$text =~ s/${\compiled_regexp('^\s*(?:' . join('|', @prefixes) . ')\s+')}//i;
+	return $text;
+}
+
 # "huile végétale" -> "huile": the generic name of a plant parent, to compose it with its children.
 sub _remove_dietary_words ($lc, $text) {
 	foreach my $labelid ('en:vegan', 'en:vegetarian') {
@@ -2562,7 +2574,10 @@ Text to analyze
 					# in Japanese, 豚肉を含む (contains (を含む) pork (豚肉))
 					# 一部に卵・小麦・乳成分・大豆を含む (contains (を含む) parts of (一部に), eggs, wheat, milk, soybeans (卵・小麦・乳成分・大豆)
 					# 香料(乳由来) (Spices (from milk origin))
-					my $cano = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between);
+					# The allergen may follow a "from" or "contains" word:
+					# whey powder (from milk), serwatka w proszku (z mleka), lactose (contains milk)
+					my $allergen_text = _remove_from_or_contains_prefix($ingredients_lc, $between);
+					my $cano = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergen_text);
 					$log->debug("parse_ingredients_text - BEFORE $cano.")
 						if $log->is_debug();
 					$log->debug("parse_ingredients_text - BEFORE2 $ingredients_lc:$between.")
@@ -2570,18 +2585,18 @@ Text to analyze
 					if (
 						(
 							# only one sub-ingredient
-							($between !~ /$separators|$and/)
+							($allergen_text !~ /$separators|$and/)
 							and (
 								(
 									# The ingredient in parenthesis is in the allergens taxonomy
 									exists_taxonomy_tag("allergens",
-										canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between))
+										canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergen_text))
 									# The ingredient in parenthesis is the actual allergen, not an ingredient that contains the allergen
 									# e.g. in the allergens taxonomy, "cheese" and "parmigiano" are synonyms of "en:milk"
 									# because they contain the allergen milk
 									# but we don't want to turn "cheese (parmigiano)" to "cheese".
 									# The regexp below only contain the main allergen names, not ingredients that contain that allergen
-									and (canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $between)
+									and (canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $allergen_text)
 										=~ /^en:(celery|crustacean|egg|fish|gluten|lactose|lupin-bean|lupin|milk|mollusc|mustard|nut|peanut|sesame|sesame-seeds|soy|soya|sulfite|e220)$/
 									)
 									# Also check that the parent ingredient is not just a label
@@ -2601,7 +2616,7 @@ Text to analyze
 						# avoid "allergens:" to avoid false positive (for example, "salt, egg, spice.
 						#   allergen advice: for allergens including cereals containing gluten, see ingredients
 						#   in bold. May contain traces of nuts.")
-						$between = ">allergens<:" . $between;
+						$between = ">allergens<:" . $allergen_text;
 
 						$log->debug(
 							"parse_ingredients_text - sub-ingredients: single allergen or keyword for allergen.")
