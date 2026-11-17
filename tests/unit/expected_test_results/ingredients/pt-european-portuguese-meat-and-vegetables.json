@@ -139,12 +139,16 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "pt:feijão manteiga",
-         "is_in_taxonomy" : 0,
+         "ecobalyse_id" : "134bc97e-e3dc-44de-8ec6-947b608a2d42",
+         "ecobalyse_name" : "Pois par défaut -2025-",
+         "id" : "en:manteiga-bean",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.011948529411768,
          "percent_max" : 2.44705882352941,
          "percent_min" : 0,
-         "text" : "feijão manteiga"
+         "text" : "feijão manteiga",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "ciqual_proxy_food_code" : "11000",
@@ -247,15 +251,6 @@
          "en:pork-rind",
          "en:pork-protein",
          "en:haemoglobin"
-      ],
-      "en:palm-oil-content-unknown" : [
-         "pt:feijão manteiga"
-      ],
-      "en:vegan-status-unknown" : [
-         "pt:feijão manteiga"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "pt:feijão manteiga"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -281,7 +276,7 @@
       "en:pork-protein",
       "en:haemoglobin",
       "en:red-bean",
-      "pt:feijão manteiga",
+      "en:manteiga-bean",
       "en:garlic-paste",
       "en:chili-pepper",
       "en:clove",
@@ -318,7 +313,8 @@
       "en:legume",
       "en:pod-and-seed-vegetable",
       "en:vegetable",
-      "pt:feijão manteiga",
+      "en:manteiga-bean",
+      "en:beans",
       "en:garlic-paste",
       "en:garlic",
       "en:onion-family-vegetable",
@@ -339,23 +335,22 @@
    "ingredients_with_unspecified_percent_sum" : 26.0,
    "ingredients_without_ciqual_codes" : [
       "en:haemoglobin",
+      "en:manteiga-bean",
       "en:pork-protein",
-      "en:red-bean",
-      "pt:feijão manteiga"
+      "en:red-bean"
    ],
    "ingredients_without_ciqual_codes_n" : 4,
    "ingredients_without_ecobalyse_ids" : [
       "en:clove",
       "en:haemoglobin",
-      "en:pork-protein",
-      "pt:feijão manteiga"
+      "en:pork-protein"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
-   "known_ingredients_n" : 17,
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 18,
    "lc" : "pt",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }
