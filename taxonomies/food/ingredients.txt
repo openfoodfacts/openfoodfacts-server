@@ -26078,16 +26078,7 @@ wikidata:en: Q95370124
 
 < en: durum wheat semolina
 en: fine semolina, fine durum wheat semolina
-fr: semoule fine, semoules fines, semoule de blé dur fine, semoule fine de blé dur
-
-#<en:durum wheat semolina
-#en:organic durum wheat semolina
-#de:Bio Hartweizengriess
-#fi:luomu durumvehnäsuurimo
-#fr:semoule de blé dur bio, semoule de blé dur biologique, Semoule de blé dur issu de l'agriculture #biologique
-#hu:bio durumbúzadara, bio durum búzadara
-#it:semola di grano duro bio
-#nl:biologische harde tarwegries
+fr: semoule fine, semoules fines, semoule de blé dur fine, semoule fine de blé dur, fin finot de blé
 
 #<en:durum wheat semolina
 #en:organic superior quality durum wheat semolina
@@ -29839,8 +29830,8 @@ usda_ndb_code:en: 20080
 usda_ndb_name:en: Wheat flour, whole-grain (Includes foods for USDA's Food Distribution Program)
 
 < en: cereal flour
-en: semi-wholemeal flour
-fr: farine semi-complète
+en: semi-wholemeal flour, brown flour, high-extraction flour, half-white flour
+fr: farine semi-complète, farine bise
 hr: poluintegralno brašno
 it: farina semi-integrale
 
@@ -35659,30 +35650,105 @@ wikipedia:en: https://en.wikipedia.org/wiki/Agave_nectar
 < en: agave syrup
 en: organic agave syrup
 bg: био сироп от агаве
+ca: xarop d'atzavara ecològic, xarop d'agave ecològic
+cs: bio agávový sirup
+da: økologisk agavesirup
 de: Bio-Agavensirup
 es: Sirope de agave orgánico, jarabe de agave orgánico
 fi: luomu agavesiirappi
-fr: sirop d'agave issu de l'agriculture biologique, sirop d'agave concentre issu de l'agriculture biologique, sirop d'agave biologique
+fr: sirop d'agave issu de l'agriculture biologique, sirop d'agave biologique
 hr: organski agavin sirup
 hu: bio agaveszirup
 it: sciroppo d'agave biologico
-nl: biologische agave
+nl: biologische agavesiroop, biologische agave
+pl: ekologiczny syrop z agawy
+pt: xarope de agave biológico
+ro: sirop de agave ecologic
+sv: ekologisk agavesirap
 
 < en: agave syrup
 en: concentrated agave syrup
+bg: концентриран сироп от агаве
+ca: xarop d'atzavara concentrat, xarop d'agave concentrat
+cs: koncentrovaný agávový sirup
+da: koncentreret agavesirup
 de: Agavendicksaft
-es: concentrado de agave
-fr: jus d'agave concentré
+es: jarabe de agave concentrado, sirope de agave concentrado
+fi: tiivistetty agavesiirappi
+fr: sirop d'agave concentré
 hr: koncentriranog agavinog sirupa
-it: succo di agave concentrato
+hu: sűrített agaveszirup
+it: sciroppo di agave concentrato, sciroppo d'agave concentrato
+nl: geconcentreerde agavesiroop
 pl: koncentrat syropu z agawy
+pt: xarope de agave concentrado
+ro: sirop concentrat de agave
+ru: концентрированный сироп агавы
+sv: koncentrerad agavesirap
 
 < en: concentrated agave syrup
 en: organic concentrated agave syrup
+de: Bio-Agavendicksaft
 es: jarabe de ágave concentrado ecológico, sirope de ágave concentrado ecológico
-fr: sirop d'agave concentré biologique
+fr: sirop d'agave concentré biologique, sirop d'agave concentré issu de l'agriculture biologique
 hr: organski koncentrirani sirup od agave
 it: sciroppo di agave concentrato biologico
+nl: biologische geconcentreerde agavesiroop
+pt: xarope de agave concentrado biológico
+
+< en: disaccharide
+en: agave juice
+bg: сок от агаве
+ca: suc d'atzavara, suc d'agave
+cs: agávová šťáva
+da: agavesaft
+de: Agavensaft
+es: jugo de agave, zumo de agave
+fi: agavemehu
+fr: jus d'agave
+hr: sok od agave
+hu: agavélé
+it: succo di agave, succo d'agave
+lv: agaves sula
+nl: agavesap
+pl: sok z agawy
+pt: suco de agave, sumo de agave
+ro: suc de agave
+ru: сок агавы
+sl: agavin sok
+sv: agavesaft
+vegan:en: yes
+vegetarian:en: yes
+
+< en: agave juice
+en: concentrated agave juice, agave juice concentrate
+bg: концентриран сок от агаве
+ca: suc d'atzavara concentrat, suc d'agave concentrat
+cs: koncentrovaná agávová šťáva
+da: koncentreret agavesaft
+de: Agavensaftkonzentrat, konzentrierter Agavensaft
+es: jugo de agave concentrado, zumo de agave concentrado, concentrado de agave
+fi: tiivistetty agavemehu, agavemehutiiviste
+fr: jus d'agave concentré, concentré de jus d'agave
+hr: koncentrirani sok od agave
+hu: sűrített agavélé
+it: succo di agave concentrato, succo d'agave concentrato
+nl: geconcentreerd agavesap
+pl: zagęszczony sok z agawy
+pt: suco de agave concentrado, sumo de agave concentrado
+ro: suc concentrat de agave
+ru: концентрированный сок агавы
+sv: koncentrerad agavesaft
+
+< en: concentrated agave juice
+en: organic concentrated agave juice
+de: Bio-Agavensaftkonzentrat
+es: jugo de agave concentrado ecológico, zumo de agave concentrado ecológico
+fr: jus d'agave concentré biologique, jus d'agave concentré issu de l'agriculture biologique
+hr: organski koncentrirani sok od agave
+it: succo di agave concentrato biologico
+nl: biologisch geconcentreerd agavesap
+pt: suco de agave concentrado biológico
 
 < en: sweetener
 en: oligosaccharides
@@ -106229,3 +106295,8 @@ wikidata:en: Q223081
 
 < en: hydroxymethylbutyrate
 en: calcium beta-hydroxy beta-methyl butyrate
+
+# some products include a fork that can be eaten. e.g. https://world.openfoodfacts.org/product/3242274030056/salade-compagnie-manhattan-oeuf-poulet-roti-fromage-sauce-balsamique
+# <en: compound
+en: fork, eatable fork
+fr: fourchette, fourchette comestible
