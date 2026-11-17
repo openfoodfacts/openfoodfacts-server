@@ -2156,14 +2156,6 @@ sub _calculate_recognition_rate ($ingredients_ref) {
 	return $recognized / scalar(@$ingredients_ref);
 }
 
-sub _have_common_ancestor ($ingredient_id_1, $ingredient_id_2) {
-	# get_tag_with_parents() returns the tag itself first, then all its ancestors
-	my (undef, @ancestors_1) = get_tag_with_parents('ingredients', $ingredient_id_1);
-	my (undef, @ancestors_2) = get_tag_with_parents('ingredients', $ingredient_id_2);
-	my %ancestors_1 = map {$_ => 1} @ancestors_1;
-	return scalar grep {$ancestors_1{$_}} @ancestors_2;
-}
-
 sub _matches_declared_ingredient_name ($ingredients_lc, $text, $ingredient_id) {
 	my $name = $translations_to{ingredients}{$ingredient_id}{$ingredients_lc};
 	return 0 unless defined $name;
@@ -3872,15 +3864,6 @@ Text to analyze
 							\$exists_in_taxonomy);
 
 						next unless $exists_in_taxonomy;
-						# A known child of the same family as the composed ingredient is a sub-ingredient of
-						# the parent, not a type of it: in "yogurt (latte intero, fermenti lattici vivi)",
-						# "latte intero" stays whole milk instead of becoming "yogurt di latte intero"
-						# (both are dairy). "huile végétale (colza)" still gives rapeseed oil: rapeseed and
-						# rapeseed oil have no common ancestor.
-						next
-							if $known_child
-							&& !is_a('ingredients', $parent_plus_child_ingredient_id, $ingredient_id)
-							&& _have_common_ancestor($ingredient_id, $parent_plus_child_ingredient_id);
 						# The generic name of a plant parent must not turn a known child into the parent itself:
 						# "bouillon" + "légumes" is the broth again, which says nothing about this ingredient.
 						next
