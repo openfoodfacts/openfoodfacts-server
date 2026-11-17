@@ -388,7 +388,53 @@ my @tests = (
 	[{lc => "de", ingredients_text => "Roggenmehl, Sauerteig, Salz"}, ["en:rye-flour", "en:sourdough", "en:salt"],],
 	[{lc => "nl", ingredients_text => "tarwebloem, zuurdesem, zout"}, ["en:wheat-flour", "en:sourdough", "en:salt"],],
 
+	# distinct entries that used to be silently merged by a shared synonym
+	[{lc => "en", ingredients_text => "tangerine, mandarin orange"}, ["en:tangerine", "en:mandarin"],],
+	[{lc => "en", ingredients_text => "runner beans, flat beans"}, ["en:runner-bean", "en:flat-bean"],],
+	[
+		{lc => "en", ingredients_text => "atta, whole wheat flour, maida, refined wheat flour"},
+		["en:atta", "en:whole-wheat-flour", "en:maida", "en:refined-wheat-flour"],
+	],
+	[
+		{lc => "en", ingredients_text => "sustainable palm fruit oil, sustainable palm oil, palm oil"},
+		["en:sustainable-palm-oil", "en:sustainable-palm-oil", "en:palm-oil"],
+	],
+	[{lc => "en", ingredients_text => "apples, raw apples without skin"}, ["en:apple", "en:raw-apples-without-skin"],],
+	[
+		{lc => "fr", ingredients_text => "arôme naturel de fruit de la passion, arôme de fruit de la passion"},
+		["en:natural-passion-fruit-flavouring", "en:passion-fruit-flavouring"],
+	],
+	# same concept that was defined in two blocks: consolidated, the canonical id is unchanged
+	[{lc => "en", ingredients_text => "komatsuna, mustard spinach"}, ["en:mustard-spinach", "en:mustard-spinach"],],
+	[{lc => "en", ingredients_text => "lemon beebrush, lemon verbena"}, ["en:lemon-verbena", "en:lemon-verbena"],],
+	[{lc => "en", ingredients_text => "vine spinach, basella leaves"}, ["en:basella-leaves", "en:basella-leaves"],],
+	[{lc => "en", ingredients_text => "broccoli raab, rapini"}, ["en:rapini", "en:rapini"],],
+	[{lc => "en", ingredients_text => "napa cabbage, chinese cabbage"}, ["en:chinese-cabbage", "en:chinese-cabbage"],],
+	[{lc => "en", ingredients_text => "pepeiao, pepeao"}, ["en:pepeao", "en:pepeao"],],
+	[
+		{lc => "en", ingredients_text => "powdered glucose syrup, dehydrated glucose syrup"},
+		["en:dehydrated-glucose-syrup", "en:dehydrated-glucose-syrup"],
+	],
+	[{lc => "en", ingredients_text => "wild blueberries, broccoli"}, ["en:wild-blueberry", "en:broccoli"],],
+	[{lc => "fr", ingredients_text => "eau de source gazéifiée"}, ["en:carbonated-spring-water"],],
 );
+
+# restored entries keep the expected parents
+for my $test_ref (
+	['en:atta', 'en:whole-wheat-flour'],
+	['en:maida', 'en:refined-wheat-flour'],
+	['en:tangerine', 'en:mandarin'],
+	['en:runner-bean', 'en:legume'],
+	['en:sustainable-palm-oil', 'en:palm-oil'],
+	['en:natural-passion-fruit-flavouring', 'en:natural-flavouring'],
+	)
+{
+	my ($tag, $parent) = @$test_ref;
+	ok(exists_taxonomy_tag('ingredients', $tag), "$tag exists");
+	ok(is_a('ingredients', $tag, $parent), "$tag is a $parent");
+}
+ok(!is_a('ingredients', 'en:passion-fruit-flavouring', 'en:natural-flavouring'),
+	'en:passion-fruit-flavouring is not a natural flavouring');
 
 foreach my $test_ref (@tests) {
 
