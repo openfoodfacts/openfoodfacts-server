@@ -1581,6 +1581,16 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	# Frequent unknown German ingredients (2026-11 analysis of German products)
+	# traces with the plural forms of macadamia and pecan nuts
+	[
+		'de-traces-macadamia-pecan-nuts',
+		# staging 20408923
+		{
+			lc => "de",
+			ingredients_text =>
+				"Zucker, Weizenmehl. Kann Spuren von Haselnüssen, Macadamianüssen, Pecannüssen und Eiern enthalten.",
+		}
+	],
 	[
 		'de-frequent-unknown-ingredients',
 		{
