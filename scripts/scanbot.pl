@@ -103,7 +103,7 @@ Unique scans are counted by distinct IPs over the whole year, and ranks are comp
 so scanbot always needs the scan logs of the whole year (old and new logs), not only the new logs.
 
 Each run (incremental or not, except dry runs) saves the scan data of each product in
-scanbot.[year]/scanbot.[year].state.sto, and the GeoIP results in scanbot.[year]/scanbot.[year].geoip.sto
+scanbot.[year]/scanbot.[year].state.sto, and (also in dry runs) the GeoIP results in scanbot.[year]/scanbot.[year].geoip.sto
 
 With --incremental, a product is updated only if its number of scans, its number of unique scans,
 its unique scans by country or its popularity tags for the year changed since the previous run.
@@ -275,7 +275,8 @@ foreach my $ip (keys %ips) {
 
 print STDERR "Computed GeoIPs: $geoip_lookups lookups, " . ($ips_n - $geoip_lookups) . " cached\n";
 
-if (not $dry_run) {
+# The GeoIP cache is saved even in dry runs (it does not contain product data), so that the next run can reuse it
+{
 	# Keep only the IPs of this year's logs
 	my %geoips_to_save = map {$_ => $geoips{$_}} keys %ips;
 	nstore(\%geoips_to_save, "$geoip_cache_file.tmp");
