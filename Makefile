@@ -770,7 +770,12 @@ run_deps: clone_deps
 		for proj in off_shared openfoodfacts-auth; do \
 			for container_id in $$(docker compose -p $$proj ps -q 2>/dev/null); do \
 				if ! docker inspect "$$container_id" --format '{{json .NetworkSettings.Networks}}' 2>/dev/null | grep -q "\"${COMMON_NET_NAME}\""; then \
-					if ! err=$$(docker network connect "${COMMON_NET_NAME}" "$$container_id" 2>&1); then \
+					service=$$(docker inspect "$$container_id" --format '{{index .Config.Labels "com.docker.compose.service"}}' 2>/dev/null); \
+					alias_flag=""; \
+					if [ -n "$$service" ] && [ "$$service" != "<no value>" ]; then \
+						alias_flag="--alias $$service"; \
+					fi; \
+					if ! err=$$(docker network connect $$alias_flag "${COMMON_NET_NAME}" "$$container_id" 2>&1); then \
 						if ! echo "$$err" | grep -qi "already exists"; then \
 							echo "Failed to connect $$container_id to ${COMMON_NET_NAME}: $$err" >&2; \
 							exit 1; \
@@ -778,16 +783,6 @@ run_deps: clone_deps
 					fi; \
 				fi; \
 			done; \
-		done; \
-		for container_id in $$(docker ps -q -f "name=off_shared" 2>/dev/null); do \
-			if ! docker inspect "$$container_id" --format '{{json .NetworkSettings.Networks}}' 2>/dev/null | grep -q "\"${COMMON_NET_NAME}\""; then \
-				if ! err=$$(docker network connect "${COMMON_NET_NAME}" "$$container_id" 2>&1); then \
-					if ! echo "$$err" | grep -qi "already exists"; then \
-						echo "Failed to connect $$container_id to ${COMMON_NET_NAME}: $$err" >&2; \
-						exit 1; \
-					fi; \
-				fi; \
-			fi; \
 		done; \
 	fi
 
