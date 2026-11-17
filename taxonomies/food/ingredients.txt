@@ -101,8 +101,6 @@ synonyms:en: colourful, colorful
 
 synonyms:en: colouring, coloring, colourings, colorings
 
-synonyms:en: fiber, fibre
-
 synonyms:en: hydrolysed, hydrolyzed
 synonyms:sv: hydrolyserat, hydrolyserad, hydrolyserade
 
@@ -1250,7 +1248,7 @@ it: coltura di skyr
 nl: skyr-culturen
 
 < en: lactic ferments
-en: sourdough starter, sourdough culture
+en: sourdough starter, sour dough starter, sourdough culture
 da: surdejskultur
 de: Sauerteig-Starter, Sauerteigstarter, Sauerteigstarterkulturen, Sauerteigkulturen
 es: levadura natural de masa madre, levadura de masa madre
@@ -16814,7 +16812,7 @@ ru: заменитель масла какао, заменитель какао 
 
 # <en:palm
 < en: palm oil and fat
-en: palm oil, palmoil, sustainable palm fruit oil, palm vegetable oil, vegetable palm oil
+en: palm oil, palmoil, palm vegetable oil, vegetable palm oil
 ar: زيت النخيل
 be: Пальмавы алей
 bg: Палмово масло
@@ -22976,7 +22974,7 @@ en: natural lychee flavour
 fr: arôme naturel de litchi
 
 < en: natural flavouring
-en: passion fruit flavouring
+en: natural passion fruit flavouring
 fr: arôme naturel de fruit de la passion
 
 < en: natural flavouring
@@ -25552,6 +25550,7 @@ hr: zrno pšenice
 sv: vetekorn
 
 < en: wheat grain
+< en: whole wheat
 en: whole wheat kernels
 da: fuldkornshvedekerner
 sv: fullkornskärnor av vete
@@ -25793,11 +25792,6 @@ en: cracked wheat
 az: Manna yarması
 pl: kasza manna, kasza manna z pszenicy
 sr: griz
-
-< en: whole wheat
-en: whole wheat kernels
-da: fuldkornshvedekerner
-sv: fullkornskärnor av vete
 
 ##################################################################################
 #
@@ -27627,6 +27621,8 @@ ifct_food_name:en: Bajra
 
 < en: millet
 en: little millet, samai
+hr: malo prosa
+it: miglio piccolo
 la: Panicum sumatrense, Panicum miliare
 description:en: Samai, or little millet (Panicum sumatrense, syn. Panicum miliare), is one of India's oldest cultivated minor millets, traditionally grown in the rain-fed hills and plateaus of Tamil Nadu, Karnataka, Andhra Pradesh, and Odisha for over 5,000 years. Its small, round grains carry a mild, subtly nutty flavor and light, fluffy texture when cooked. Valued for its resilience in poor soil and low rainfall, it's traditionally used as a rice substitute—steamed, boiled into porridge (kanji), or ground into idli and dosa batters—and is popular during religious fasting periods. Nutritionally, samai is rich in dietary fiber, iron, and B vitamins, has a low glycemic index, and is naturally gluten-free, making it valued in diabetic-friendly and gluten-free diets.
 ifct_food_code:en: A016
@@ -27634,6 +27630,8 @@ ifct_food_name:en: Samai
 
 < en: millet
 en: Kodo millet, varagu
+hr: kodo proso
+it: miglio Kodo
 la: Paspalum scrobiculatum
 description:en: Varagu, known in English as kodo millet, is another of India's ancient minor millets, cultivated for over 3,000 years primarily in the drier, hilly regions of Tamil Nadu, Karnataka, Madhya Pradesh, and Chhattisgarh. It's one of the hardiest millets, thriving in poor soils with minimal water, and is often grown as a famine-reserve or marginal-land crop. The small, round, reddish-brown grains have an earthy, mildly nutty flavor similar to other millets. Traditionally cooked like rice, ground into flour for flatbreads, or used in porridges and idli/dosa batters, it's also popular in fasting foods and diabetic-friendly diets. Nutritionally, kodo millet is notably high in dietary fiber and polyphenol antioxidants, a good source of iron and B vitamins, naturally gluten-free, and has one of the lowest glycemic indices among cereals.
 
@@ -27691,16 +27689,6 @@ hr: prst proso
 it: miglio cinese
 ifct_food_code:en: A010
 ifct_food_name:en: Ragi
-
-< en: millet
-en: kodo millet
-hr: kodo proso
-it: miglio Kodo
-
-< en: millet
-en: little millet
-hr: malo prosa
-it: miglio piccolo
 
 < en: millet
 en: barnyard millet
@@ -28319,8 +28307,12 @@ it: malto d'avena
 #
 ##################################################################################
 
-< en: plant
+< en: leaf vegetable
 en: amaranth leaves
+la: Amaranthus gangeticus
+description:en: Amaranth leaves come from the amaranth plant, native to Central and South America but now cultivated widely across Africa, Asia, and the Caribbean, where they form a staple leafy vegetable. Varieties range from vivid red-purple to deep green, with spined and spineless forms differing mainly in stem texture. The leaves have a mild, slightly earthy, spinach-like flavor with a subtle sweetness. They're commonly boiled, steamed, sautéed, or added to soups, stews, and stir-fries, softening quickly when cooked. Nutritionally, amaranth leaves are notably rich in vitamins A, C, and K, folate, calcium, iron, and dietary fiber, alongside plant-based protein.
+ifct_proxy_food_code:en: C004
+ifct_proxy_food_name:en: Amaranth leaves, red and green mix
 usda_fdc_code:en: 168385
 usda_ndb_code:en: 11003
 usda_ndb_name:en: Amaranth leaves, raw
@@ -29664,7 +29656,7 @@ bg: пшенично брашно тип 450
 fr: farine de blé type 45, farine de blé t45
 pl: mąka pszenna typ 450, mąka pszenna 450, mąka pszenna tortowa typ 450, mąka pszenna tortowa
 
-< en: wheat flour
+< en: refined wheat flour
 en: maida
 comment:en: In France, "Wheat, flour, refined" (maida) corresponds most closely to farine de blé type 45 (T45), and to a lesser extent type 55 (T55).
 description:en: Maida is a highly refined wheat flour, milled from Triticum aestivum after the bran and germ are removed, leaving mostly starchy endosperm — a process that became widespread in India with industrial roller-milling. It has a mild, slightly sweet, neutral taste, making it a versatile base that readily takes on other flavors. Maida is used for naan, bhatura, puri, pastries, cakes, biscuits, and samosa wrappers, prized for its soft, elastic texture. Nutritionally, it's calorie-dense (~348 kcal/100g) but low in fiber and micronutrients (iron, zinc, B-vitamins), with a high glycemic index compared to whole wheat flour.
@@ -29693,7 +29685,7 @@ nl: tarwemeel T65
 pl: mąka pszenna typ 650
 
 < en: wheat flour
-en: refined wheat flour, maida
+en: refined wheat flour
 hr: rafinirano pšenično brašno
 it: farina di grano raffinato
 
@@ -29846,7 +29838,7 @@ it: farina semi-integrale
 
 < en: wheat flour
 < en: wholemeal flour
-en: whole wheat flour, wholewheat flour, wholemeal wheat flour, atta
+en: whole wheat flour, wholewheat flour, wholemeal wheat flour
 bg: пълнозърнесто пшенично брашно, брашно пшенично пълнозърнесто
 ca: farina integral de blat, farina de blat integral
 cs: celozrnná pšeničná mouka, celozrnna pšenična mouka
@@ -29969,7 +29961,7 @@ ciqual_food_code:en: 9415
 ciqual_food_name:en: Wheat flour, type 150
 ciqual_food_name:fr: Farine de blé tendre ou froment T150
 
-< en: wheat flour
+< en: whole wheat flour
 en: atta
 comment:en: Indian atta (whole wheat flour, IFCT A013) would map to T150 ("farine intégrale") or sometimes T110, since these retain most or all of the bran and germ.
 description:en: Atta is whole wheat flour, stone-ground or milled from Triticum aestivum using the entire grain — bran, germ, and endosperm intact. This traditional chakki-milling method has been used across South Asia for centuries, predating industrial refining. Atta has a warm, nutty, slightly earthy taste with a denser, coarser texture than refined flour. It's the staple for everyday Indian breads — roti, chapati, paratha — and is also used in some baked goods. Nutritionally, it's rich in fiber, iron, magnesium, and B-vitamins (retained from the bran and germ), with a lower glycemic index than maida, making it more filling and slower-digesting.
@@ -34643,10 +34635,6 @@ it: sciroppo di glucosio disidratato
 nl: gedroogde glucosestroop
 pl: suszony syrop glukozowy
 sv: torkad glukossirap
-
-< en: glucose syrup
-en: powdered glucose syrup
-#en:processing:en:powder
 #fr:sirop de glucose en poudre
 #it:sciroppo di glucosio in polvere
 
@@ -38289,7 +38277,15 @@ wikidata:en: Q1881858
 < en: carbonated water
 < en: spring water
 en: carbonated spring water
-fr: eau de source gazeuse
+bg: газирана изворна вода
+de: Quellwasser mit Kohlensäure
+es: agua de manantial con gas
+fr: eau de source gazeuse, eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique
+hr: gazirana izvorska voda
+it: acqua di sorgente gassata
+nl: bruisend bronwater
+pt: água de nascente gaseificada
+sv: kolsyrat källvatten
 
 < en: spring water
 fr: eau de source St Benoît, Eau de source Saint Benoît
@@ -38319,19 +38315,6 @@ hr: planinska izvorska voda
 it: acqua di sorgente di montagna
 nl: bergbronwater
 pl: górska woda źródlana
-
-< en: carbonated water
-< en: spring water
-en: carbonated spring water
-bg: газирана изворна вода
-de: Quellwasser mit Kohlensäure
-es: agua de manantial con gas
-fr: eau de source gazéifiée, Eau de source avec adjonction de gaz carbonique
-hr: gazirana izvorska voda
-it: acqua di sorgente gassata
-nl: bruisend bronwater
-pt: água de nascente gaseificada
-sv: kolsyrat källvatten
 
 < en: carbonated spring water
 fr: eau de source St Benoît gazéifiée
@@ -38946,6 +38929,7 @@ fi: vihreä soijapapu
 fr: soja vert
 hr: zeleno sojino zrno
 it: fagioli di soia verdi
+usda_fdc_code:en: 169282
 usda_ndb_code:en: 11450
 usda_ndb_name:en: Soybeans, green, raw
 
@@ -39001,23 +38985,6 @@ it: fagioli di soia decorticati
 < en: hulled soya bean
 en: GMO-free hulled soya bean
 fr: fèves de soja sans ogm décortiquées
-
-< en: soya bean
-en: black soy bean
-de: Schwarze Sojabohnen
-fr: soja noir
-ja: 黒大豆
-
-< en: soya bean
-en: green soy bean
-de: Grünaäe Sojabohnen
-fi: vihreä soijapapu
-fr: soja vert
-hr: zeleno sojino zrno
-it: fagioli di soia verdi
-usda_fdc_code:en: 169282
-usda_ndb_code:en: 11450
-usda_ndb_name:en: Soybeans, green, raw
 
 #process:en: en:paste
 < en: soya bean
@@ -39759,7 +39726,7 @@ it: aroma di estratto di lievito
 pl: aromat z ekstraktu drożdżowego, aromat ekstraktu drożdżowego
 
 < en: dough
-en: sourdough, sour dough, sourdough starter, sour dough starter
+en: sourdough, sour dough
 an: Emprenyatuera
 ar: خبز عجينة متخمرة
 bg: Квас
@@ -43251,7 +43218,7 @@ usda_ndb_code:en: 9003
 usda_ndb_name:en: Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)
 
 < en: apple
-en: apples, raw, without skin
+en: raw apples without skin
 ecobalyse_alias:en: apple-pulp-raw-default
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: VERGERS
@@ -45428,7 +45395,7 @@ wikidata:en: Q190024
 wikipedia:en: https://en.wikipedia.org/wiki/Mandarin_orange
 
 < en: mandarin
-en: tangerine, tangerines, mandarin orange
+en: tangerine, tangerines
 hr: crvena mandarina
 ecobalyse_alias:en: mandarin-non-eu-2025
 ecobalyse_category:en: fruits_and_vegetables
@@ -46781,7 +46748,16 @@ usda_ndb_name:en: Blueberries, raw
 wikidata:en: Q5812410
 
 < en: blueberry
-en: wild blueberry
+en: wild blueberry, wild blueberries
+bg: дива боровинка, диви боровинки
+da: vildt blåbær, vilde blåbær
+de: Wilde Heidelbeeren
+fi: villimustikka
+fr: myrtille sauvage
+hr: divlja borovnica, šumska borovnica
+it: mirtilli selvatici
+nl: wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
+pl: borówka dzika, borówki dzikie
 usda_fdc_code:en: 173949
 usda_ndb_code:en: 9053
 usda_ndb_name:en: Blueberries, wild, frozen (Includes foods for USDA's Food Distribution Program)
@@ -46819,19 +46795,6 @@ pl: borówka amerykańska, borówki amerykańskie
 ro: Afine
 sk: Čučoriedky
 wikidata:en: Q1791749
-
-#comment:en:
-< en: blueberry
-en: wild blueberry, wild blueberries
-bg: дива боровинка, диви боровинки
-da: vildt blåbær, vilde blåbær
-de: Wilde Heidelbeeren
-fi: villimustikka
-fr: myrtille sauvage
-hr: divlja borovnica, šumska borovnica
-it: mirtilli selvatici
-nl: wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
-pl: borówka dzika, borówki dzikie
 
 #<en:blueberry
 #en:organic blueberry
@@ -48390,6 +48353,7 @@ zh: 接骨木花
 wikidata:en: Q67778134
 
 < en: elderflower
+< en: white tea
 de: Aufguss aus weißem Tee und Holunderblüte
 
 #comment:en:Be sure it refers to the flower
@@ -53886,15 +53850,6 @@ ifct_food_name:en: Agathi leaves
 #
 ##################################################################################
 
-< en: leaf vegetable
-en: amaranth leaves
-la: Amaranthus gangeticus
-description:en: Amaranth leaves come from the amaranth plant, native to Central and South America but now cultivated widely across Africa, Asia, and the Caribbean, where they form a staple leafy vegetable. Varieties range from vivid red-purple to deep green, with spined and spineless forms differing mainly in stem texture. The leaves have a mild, slightly earthy, spinach-like flavor with a subtle sweetness. They're commonly boiled, steamed, sautéed, or added to soups, stews, and stir-fries, softening quickly when cooked. Nutritionally, amaranth leaves are notably rich in vitamins A, C, and K, folate, calcium, iron, and dietary fiber, alongside plant-based protein.
-ifct_proxy_food_code:en: C004
-ifct_proxy_food_name:en: Amaranth leaves, red and green mix
-usda_ndb_code:en: 11003
-usda_ndb_name:en: Amaranth leaves, raw
-
 < en: amaranth leaves
 en: green amaranth leaves
 ifct_food_code:en: C002
@@ -53922,11 +53877,14 @@ ifct_food_name:en: Amaranth, spined, leaves, red and green
 ##################################################################################
 
 < en: leaf vegetable
-en: basella leaves, Malabar spinach, vine spinach
-la: Basella alba
-description:en: Basella alba, commonly called Malabar spinach or vine spinach, is a fast-growing climbing vine native to tropical Asia and Africa, now cultivated widely across South and Southeast Asia, Africa, and the Caribbean. Its thick, glossy leaves have a mild, slightly peppery taste and a mucilaginous texture similar to okra when cooked. Popular in stir-fries, soups, curries, and stews, it holds up well in hot, humid climates where true spinach struggles. Nutritionally, the leaves are rich in vitamins A and C, iron, calcium, and antioxidants, with a naturally high water and fiber content, making them a staple leafy green in many traditional cuisines worldwide.
+en: basella leaves, Malabar spinach, vine spinach, vinespinach, basella
+la: Basella alba, Basella rubra
+description:en: Vine spinach (also called Malabar spinach) is a tropical leafy green plant, not a true spinach but used similarly in cooking. It's especially popular in Indian, Filipino, and West African cooking, where it goes by various local names like poi saag (India) or slippery vegetable.
 ifct_food_code:en: C007
 ifct_food_name:en: Basella, leaves
+usda_fdc_code:en: 170474
+usda_ndb_code:en: 11587
+usda_ndb_name:en: Vinespinach, (basella), raw
 
 ##################################################################################
 #
@@ -53949,9 +53907,11 @@ ifct_food_name:en: Bathua leaves
 < en: leaf vegetable
 en: beet greens, chukandar ke patte
 hi: चुकंदर के पत्ते
+comment:en: is this a salad? Or more like spinach and to be cooked?
 description:en: Beet greens are the leafy tops of the beetroot plant (Beta vulgaris), native to the Mediterranean and Near East, where wild sea beet has been used since antiquity. They have an earthy, slightly bitter flavor with mild sweetness, similar to Swiss chard, and tender-crisp stems ranging from white to deep red. Widely used across Mediterranean, European, Middle Eastern, and South Asian cuisines, they are sautéed, steamed, added to soups, stews, and stir-fries, or eaten raw in salads when young. Nutritionally, beet greens are rich in vitamins A, C, and K, along with folate, potassium, magnesium, iron, and dietary fiber, plus antioxidant compounds including betalains.
 ifct_food_code:en: C009
 ifct_food_name:en: Beet greens
+usda_fdc_code:en: 170375
 usda_ndb_code:en: 11086
 usda_ndb_name:en: Beet greens, raw
 
@@ -54790,8 +54750,11 @@ usda_ndb_2_process:en: en:frozen, en:unprepared
 usda_ndb_code:en: 11270
 usda_ndb_name:en: Mustard greens, raw
 
+< en: cabbage
 < en: leaf vegetable
 en: mustard spinach, komatsuna
+it: komatsuna
+ja: 小松菜, コマツナ
 la: Brassica rapa var. perviridis
 description:en: Mustard spinach, also known as komatsuna, is a leafy green vegetable that's actually part of the mustard/brassica family (Brassica rapa var. perviridis) rather than being related to true spinach. It's an East Asian vegetable, especially popular in Japanese cuisine (where it's called komatsuna), though it's also grown and eaten in China and other parts of Asia. The flavor is mild and slightly peppery.
 usda_fdc_code:en: 168438
@@ -55058,20 +55021,6 @@ ms: bayam
 en: garden orache, orach
 it: arancio da giardino
 eurocode_2_group_3:en: 8.10.28
-
-###################################################################################################
-#
-#                                Vine spinach
-#
-###################################################################################################
-
-< en: leaf vegetable
-en: vine spinach, vinespinach, basella, Malabar spinach
-la: Basella alba, Basella rubra
-description:en: Vine spinach (also called Malabar spinach) is a tropical leafy green plant, not a true spinach but used similarly in cooking. It's especially popular in Indian, Filipino, and West African cooking, where it goes by various local names like poi saag (India) or slippery vegetable.
-usda_fdc_code:en: 170474
-usda_ndb_code:en: 11587
-usda_ndb_name:en: Vinespinach, (basella), raw
 
 ###################################################################################################
 #
@@ -55846,9 +55795,11 @@ average_weight_per_unit:en: 150
 # yue:西蘭花
 carbon_footprint_fr_foodges_ingredient:fr: Brocoli (France)
 carbon_footprint_fr_foodges_value:fr: 0.4
-ciqual_proxy_food_code:en: 20057
-ciqual_proxy_food_name:en: Broccoli, raw
-ciqual_proxy_food_name:fr: Brocoli, cru
+ciqual_food_code:en: 20057
+ciqual_food_name:en: Broccoli, raw
+ciqual_food_name:fr: Brocoli, cru
+comment:en: Broccoli is either the whole (flower+stalks), only the flowers or the leaves.
+description:en: BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable.
 ecobalyse_alias:en: broccoli-default
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
@@ -55869,8 +55820,9 @@ ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
 eurocode_2_group_3:en: 8.15.10
 season_in_country_fr:en: 9,10,11
-usda_ndb_proxy_code:en: 11090
-usda_ndb_proxy_name:en: Broccoli, raw
+usda_fdc_code:en: 170379
+usda_ndb_code:en: 11090
+usda_ndb_name:en: Broccoli, raw
 wikidata:en: Q47722
 wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
@@ -55896,6 +55848,9 @@ sv: broccolibukett, broccolibuketter
 carbon_footprint_fr_foodges_ingredient:fr: Brocoli (France)
 carbon_footprint_fr_foodges_value:fr: 0.4
 eurocode_2_group_3:en: 8.15.12
+usda_fdc_code:en: 169330
+usda_ndb_code:en: 11740
+usda_ndb_name:en: Broccoli, flower clusters, raw
 
 < en: broccoli
 en: broccoli cress
@@ -55910,6 +55865,7 @@ sv: broccolikrasse
 
 < en: broccoli
 en: romanesco broccoli, Broccolo Romanesco, Romanesque cauliflower, Romanesco
+xx: romanesco
 ar: بروكلى رومانسكى
 #arz:بروكلى رومانسكى
 ca: romanesco
@@ -56297,6 +56253,7 @@ average_weight_per_unit:en: 1000
 ciqual_food_code:en: 20014
 ciqual_food_name:en: Red cabbage, raw
 ciqual_food_name:fr: Chou rouge, cru
+description:en: Native to coastal Europe and cultivated worldwide since antiquity, red cabbage is a dense, round vegetable with deep purple-red leaves, colored by anthocyanin pigments that shift hue with soil acidity. Its flavor is peppery and slightly sweet when raw, mellowing into a tangy, earthy sweetness when cooked, often enhanced with vinegar or apples in European cuisines. Globally, it's eaten raw in salads and slaws, pickled, fermented, braised, or stewed alongside meats in German, Scandinavian, and Eastern European dishes. Nutritionally, it's a good source of vitamin C, vitamin K, fiber, and various antioxidant compounds, contributing to its widespread culinary and cultural presence.
 ecobalyse_alias:en: red-cabbage-non-eu-2025
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
@@ -56319,8 +56276,14 @@ eurocode_2_group_3:en: 8.15.24
 # pcd:colé'd vaque
 # szl:modro kapusta
 # vec:Càvorlo roso
+ifct_food_code:en: C016
+ifct_food_name:en: Cabbage, violet
+usda_fdc_code:en: 169977
+usda_ndb_code:en: 11112
+usda_ndb_name:en: Cabbage, red, raw
 wikidata:en: q263203
 wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
+# hsb:čerwjeny kał
 
 ###################################################################################################
 #
@@ -56328,8 +56291,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
 #
 ###################################################################################################
 
+< en: Brassica Rapa L.
 < en: cabbage
-en: Chinese cabbage, Napa cabbage
+en: Chinese cabbage, Napa cabbage, kimchi cabbage, wombok
 ar: برند
 bg: китайско зеле
 ca: col xinesa
@@ -56342,8 +56306,9 @@ es: col china
 et: pekingi lehtnaeris
 fa: کاهوی چینی
 fi: kiinankaali
-fr: chou chinois, pe-tsaï
+fr: chou chinois, pe-tsaï, chou de Chine
 ga: cabáiste Síneach
+gl: col chinesa, coia chinesa, repolo chinés
 hr: kineski kupus
 id: sawi putih
 it: cavolo di pechino
@@ -56405,12 +56370,15 @@ ecobalyse_transport_cooling:en: always
 eurocode_2_group_3:en: 8.15.28
 ifct_food_code:en: C013
 ifct_food_name:en: Cabbage, Chinese
+usda_fdc_code:en: 169979
+usda_ndb_code:en: 11119
+usda_ndb_name:en: Cabbage, chinese (pe-tsai), raw
 wikidata:en: Q13360268
 wikipedia:en: https://en.wikipedia.org/wiki/Chinese_cabbage
 
 # description:en:Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
 
-< en: cabbage
+< en: chinese cabbage
 en: pak choi, bok choy, pok choi
 ar: ملفوف صيني
 bo: ཚལ་དཀར་ཆེ་བ།
@@ -56447,11 +56415,16 @@ zh: 小白菜
 ciqual_food_code:en: 20167
 ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
 ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
+description:en: Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
 eurocode_2_group_3:en: 8.15.28
 #arz:ملفوف صينى
 #yue:白菜
+usda_fdc_code:en: 170390
+usda_ndb_code:en: 11116
+usda_ndb_name:en: Cabbage, chinese (pak-choi), raw
 wikidata:en: Q18968514
 wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
+#zh: 小白菜
 
 ###################################################################################################
 #
@@ -56575,7 +56548,11 @@ eurocode_2_group_3:en: 8.15.40
 ifct_food_code:en: C012
 ifct_food_name:en: Brussels sprouts
 season_in_country_fr:en: 1,2,3,10,11,12
+usda_fdc_2_code:en: 169972
 usda_fdc_code:en: 170383
+usda_ndb_2_code:en: 11100
+usda_ndb_2_name:en: Brussels sprouts, frozen, unprepared
+usda_ndb_2_process:en: en:frozen, en:unprepared
 usda_ndb_code:en: 11098
 usda_ndb_name:en: Brussels sprouts, raw
 wikidata:en: Q150463
@@ -56631,12 +56608,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kohlrabi
 
 < en: Brassica Rapa L.
 < en: cabbage
-en: rapini, broccoli rabe
+en: rapini, broccoli rabe, broccoli raab, broccolii rabe
 de: Wildbrokkoli
 es: grelos, rapini
 fr: rapini, brocoli-rave
 hr: rapini
 it: friarielli, broccoletti, broccoli di rapa, cime di rapa, rapini, pulezze
+description:en: Broccoli raab (also spelled rabe, and sometimes called rapini) is a leafy green vegetable popular in Italian and Mediterranean cooking. Despite its name, it's not closely related to regular broccoli — it's actually more closely related to turnips. It has long, thin stalks with dark green, slightly jagged leaves and small florets that resemble tiny broccoli heads. The whole plant is edible — leaves, stems, and florets. Its defining characteristic is a pleasantly bitter, slightly pungent, nutty flavor, much more assertive than regular broccoli.
+usda_fdc_code:en: 170381
+usda_ndb_code:en: 11096
+usda_ndb_name:en: Broccoli raab, raw
 
 < en: cabbage
 en: kale, curly cale, curly kale
@@ -56754,11 +56735,6 @@ wikidata:en: Q45989
 en: kale sprouts
 it: germogli di cavolo nero
 pl: kiełki jarmużu
-
-< en: cabbage
-en: komatsuna
-it: komatsuna
-ja: 小松菜, コマツナ
 
 < en: kale
 en: baby kale
@@ -56894,6 +56870,10 @@ sv: daggkål, kinesisk broccoli
 th: คะน้า
 za: byaekgaiqlanz
 zh: 芥藍
+description:en: Chinese broccoli (also called gai lan or kai lan, 芥蓝) is actually a distinct vegetable from regular broccoli, though they're related. Both belong to the Brassica oleracea species and the broader cabbage family. Gai lan has long, thick green stalks with flat, broad leaves and small, scattered flower buds. Western broccoli has a large, compact floret head on a thick stalk. It's slightly more bitter and robust than regular broccoli, with an earthy, slightly peppery flavor.
+usda_fdc_code:en: 169404
+usda_ndb_code:en: 11994
+usda_ndb_name:en: Broccoli, chinese, raw
 wikidata:en: Q1677369
 wikipedia:en: https://en.wikipedia.org/wiki/Gai_lan
 
@@ -58272,13 +58252,6 @@ usda_ndb_name:en: Taro shoots, raw
 #
 ###################################################################################################
 
-< en: vegetable
-en: beet greens
-comment:en: is this a salad? Or more like spinach and to be cooked?
-usda_fdc_code:en: 170375
-usda_ndb_code:en: 11086
-usda_ndb_name:en: Beet greens, raw
-
 #comment:this should NOT contain the colour red, as beetroot can have multiple colours. Put it under en:red beetroot.
 < en: taproot vegetable
 en: beetroot, beet, beet root
@@ -58482,160 +58455,9 @@ pl: kiełki buraka
 
 ###################################################################################################
 #
-#                                Broccoli raab
-#
-###################################################################################################
-
-< en: vegetable
-en: broccoli raab, broccolii rabe, rapini
-de: Wildbrokkoli
-es: grelos, rapini
-fr: rapini, brocoli-rave
-hr: rapini
-it: friarielli, broccoletti, broccoli di rapa, cime di rapa, rapini, pulezze
-description:en: Broccoli raab (also spelled rabe, and sometimes called rapini) is a leafy green vegetable popular in Italian and Mediterranean cooking. Despite its name, it's not closely related to regular broccoli — it's actually more closely related to turnips. It has long, thin stalks with dark green, slightly jagged leaves and small florets that resemble tiny broccoli heads. The whole plant is edible — leaves, stems, and florets. Its defining characteristic is a pleasantly bitter, slightly pungent, nutty flavor, much more assertive than regular broccoli.
-usda_fdc_code:en: 170381
-usda_ndb_code:en: 11096
-usda_ndb_name:en: Broccoli raab, raw
-
-###################################################################################################
-#
 #                                Broccoli
 #
 ###################################################################################################
-
-# <en:category:en:Vegetables
-< en: brassica
-en: broccoli, broccoli cuts
-af: Broccoli
-ar: قنبيط أخضر
-az: Brokkoli
-bg: Броколи
-bn: ব্রকলি
-bo: མེ་ཚལ་ལྗང་ཁུ།
-bs: Brokula
-ca: bròcoli
-cs: brokolice
-cy: Brocoli
-da: broccoli
-de: Brokkoli, Broccoli
-dv: ބުރޮކޯޅި
-el: Μπρόκολο
-eo: Brokolo
-es: Brócoli, Brócolis
-et: brokkoli, spargelkapsas
-eu: Brokoli
-fa: کلم بروکلی
-fi: parsakaali
-fr: Brocoli, Brocolis, choux brocolis
-ga: Brocailí
-gl: Brócoli
-gv: Callish Rangagh
-he: ברוקולי
-hr: brokula
-ht: Bwokoli
-hu: Brokkoli
-hy: բրոկկոլի
-id: Brokoli
-is: Spergilkál
-it: broccoli
-ja: ブロッコリー
-jv: Brokoli
-kk: Брокколи
-kn: ಬ್ರಾಕಲಿ
-ko: 브로콜리
-la: Brassica oleracea italica
-lo: ດອກກ້ວຍໄມ້ຝະລັ່ງ
-lt: Brokolis
-lv: brokoļi
-mk: Брокула
-ml: ബ്രോക്കൊളി
-mr: ब्रोकली
-ms: Brokoli
-nb: brokkoli
-nl: broccoli
-nn: brokkoli
-nv: Chʼilzooł
-os: Брокколи
-pa: ਬਰੋਕਲੀ
-pl: brokuł, brokuły, brokuła, brokułów, brokułowy, brokułowa, brokułowe
-pt: brócolos
-ro: Broccoli
-ru: брокколи, Капуста брокколи
-sh: Brokula
-sk: Brokolica
-sl: Brokoli
-sr: броколи
-su: Brokoli
-sv: broccoli
-ta: புரோக்கோலி
-te: బ్రొక్కొలి
-th: บรอกโคลี
-tl: Brokoli
-tr: Brokoli
-uk: броколі
-ur: شاخ گوبھی
-vi: Bông cải xanh
-zh: 西蘭花
-# bho:ब्रोकली
-# ckb:برۆکڵی
-# hsb:Brokoli
-# ilo:Broccoli
-# lij:Bròccolo
-# nan:Chheⁿ-hoe-chhài
-# nap:Vruoccole
-# pnb:بروکلی
-# pt-br:brócolis
-# war:Brokoli
-# yue:西蘭花
-carbon_footprint_fr_foodges_ingredient:fr: Brocoli (France)
-carbon_footprint_fr_foodges_value:fr: 0.4
-ciqual_food_code:en: 20057
-ciqual_food_name:en: Broccoli, raw
-ciqual_food_name:fr: Brocoli, cru
-comment:en: Broccoli is either the whole (flower+stalks), only the flowers or the leaves.
-description:en: BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable.
-ecobalyse_alias:en: broccoli-default
-ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 39c533c5-98ce-5b84-8dd3-53415f75d37a
-ecobalyse_name:fr: Brocoli Origine Inconnue
-ecobalyse_origins_en_europe_and_maghreb_alias:en: broccoli-eu
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: a528f97c-b83b-57bd-af7f-5b7e52116e6b
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Brocoli UE
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: broccoli-fr
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 5461f2bc-7010-41ee-ab90-35312769a49f
-ecobalyse_origins_en_france_name:fr: Brocoli FR
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
-eurocode_2_group_3:en: 8.15.10
-season_in_country_fr:en: 9,10,11
-usda_fdc_code:en: 170379
-usda_ndb_code:en: 11090
-usda_ndb_name:en: Broccoli, raw
-wikidata:en: Q47722
-wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
-
-< en: broccoli
-en: broccoli floret, broccoli top
-da: broccolibuket, broccolibuketter
-de: Brokkoliröschen
-fr: brocolis en fleurettes, fleurettes de brocolis
-hr: cvjetić brokule
-it: fiore di broccolo
-nl: broccoliroosjes, broccoli roosjes
-sv: broccolibukett, broccolibuketter
-carbon_footprint_fr_foodges_ingredient:fr: Brocoli (France)
-carbon_footprint_fr_foodges_value:fr: 0.4
-eurocode_2_group_3:en: 8.15.12
-usda_fdc_code:en: 169330
-usda_ndb_code:en: 11740
-usda_ndb_name:en: Broccoli, flower clusters, raw
 
 < en: broccoli
 en: broccoli leaves
@@ -58648,175 +58470,6 @@ en: broccoli stalks, broccoli stalk
 usda_fdc_code:en: 169331
 usda_ndb_code:en: 11741
 usda_ndb_name:en: Broccoli, stalks, raw
-
-< en: broccoli
-en: broccoli cress
-da: broccolikarse
-de: Brokkolikresse
-es: mastuerzo
-fr: pousses de brocoli
-hr: brokula kres
-it: crescione di broccoli
-nl: broccoli cress
-sv: broccolikrasse
-
-< en: broccoli
-en: romanesco broccoli, Broccolo Romanesco, Romanesque cauliflower, Romanesco
-xx: romanesco
-ar: بروكلى رومانسكى
-#arz:بروكلى رومانسكى
-de: Romanesco
-eo: florbrokolo
-es: romanescu
-et: romaani lillkapsas
-eu: romanesko
-fa: کلم رومی
-fr: choux romanesco, chou romanesco, romanesco, choux romanesco en fleurettes, fleurettes de chou romanesco
-gl: brócoli romanesco
-hr: romanesco brokula
-hu: pagodakarfiol
-id: romanesko
-it: broccolo romanesco
-ja: ロマネスコ
-kk: романеско қырыққабаты, romanesko qırıqqabatı, رومانەسكو قىرىققاباتى
-la: brassica oleracea convar. botrytis var. botrytis
-mk: римска брокула
-ml: റൊമാനെസ്കോ ബ്രോക്കോളി
-ru: романеско
-uk: капуста романеско
-zh: 宝塔花菜
-ciqual_food_code:en: 20280
-ciqual_food_name:en: Romanesco cauliflower or romanesco broccoli, raw
-ciqual_food_name:fr: Chou romanesco ou brocoli à pomme, cru
-wikidata:en: Q1775431
-
-###################################################################################################
-#
-#                                Brussels sprouts
-#
-###################################################################################################
-
-< en: brassica
-< en: cabbage
-en: brussels sprouts
-af: brusselspruit
-ar: كرنب بروكسل
-bg: брюкселско зеле
-bn: ব্রাসেলস স্প্রাউট
-br: kaol-bihan
-ca: col de Brusselles
-cs: růžičková kapusta, kapusta růžičková
-cy: ysgewyll
-da: rosenkål
-de: Rosenkohl
-el: λαχανάκι Βρυξελλών, λάχανα Βρυξελλών
-eo: burĝonbrasiko
-es: col de Bruselas, coles de bruselas
-et: rooskapsas, brüsseli kapsas
-eu: bruselaza
-fa: کلم بروکسل
-fi: ruusukaali, brysselinkaali
-fr: chou de Bruxelles, choux de bruxelles
-ga: bachlóg Bhruiséile
-gd: buinneag Bhruisealach
-gl: col de Bruxelas
-gv: caaylag
-he: כרוב ניצנים
-hr: kelj pupčar
-hu: bimbós kel
-id: kubis brussel
-is: rósakál
-it: cavolini di Bruxelles, cavolo di Bruxelles
-ja: メキャベツ, 芽キャベツ
-ka: ბრიუსელის კომბოსტო
-kk: Брюссель қырыққабаты
-ko: 방울다다기
-la: Cauliculus Bruxellanus
-lb: brockelchen
-lt: briuselio kopūstas
-lv: briseles kāposti, rožkāposti
-ms: kubis brussels
-mt: kaboċċi ta' Brussell, kaboċċi taz-zokk
-nb: rosenkål
-nl: spruitjes, spruitkool
-nn: rosenkål
-nv: atʼééké bijish yázhí
-pl: kapusta brukselska, Kapusta warzywna brukselska, brukselka, brukselki
-pt: couve-de-bruxelas
-ro: varză de Bruxelles
-ru: брюссельская капуста
-sh: prokelj
-sk: kapusta obyčajná ružičková, kel ružičkový
-sl: brstični ohrovt
-sr: прокељ
-sv: brysselkål
-ta: கிளைக்கோசு
-tg: ғужмкарам
-th: กะหล่ำดาว
-tl: usbong ng bruselas
-tr: brüksel lahanası
-uk: брюссельська капуста
-uz: bryussel karami
-vi: cải brussels
-zh: 抱子甘藍
-# hsb:pupkaty kał, pupak
-# kk-arab:بريۋسسەل قىرىققاباتى
-# kk-cn:بريۋسسەل قىرىققاباتى
-# kk-cyrl:брюссель қырыққабаты
-# kk-kz:брюссель қырыққабаты
-# kk-latn:bryusselʹ qırıqqabatı
-# kk-tr:bryusselʹ qırıqqabatı
-# ksh:spruut
-# lij:cöo de Bruxelles
-# mri:aonanī
-# nds-nl:keulkes
-# pcd:ésproete
-# sr-ec:прокељ
-# sr-el:prokelj
-# vec:càvorlo de Brusel
-# wuu:抱子甘蓝
-# zh-cn:抱子甘蓝
-# zh-hans:抱子甘蓝
-# zh-hant:抱子甘藍
-# zh-hk:抱子甘藍
-# zh-sg:抱子甘蓝
-# zh-tw:抱子甘藍
-ciqual_food_code:en: 20058
-ciqual_food_name:en: Brussels sprout, raw
-ciqual_food_name:fr: Chou de Bruxelles, cru
-ecobalyse_alias:en: brussels-sprout-non-ue-2025
-ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: f2ca7ffb-f4b2-478f-8008-41956b2aefa2
-ecobalyse_labels_en_organic_origins_en_france_alias:en: brussels-sprout-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 65296024-b028-46c2-be67-84068893cfe3
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou de Bruxelles Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Chou de Bruxelles par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: brussels-sprout-eu
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 2cebf403-f193-5904-93b6-1164e8f740f7
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Chou de Bruxelles UE
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: brussels-sprout-fr
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: f8e12f3a-6308-425c-bede-f8f9dbe405ee
-ecobalyse_origins_en_france_name:fr: Chou de Bruxelles FR
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
-eurocode_2_group_3:en: 8.15.40
-season_in_country_fr:en: 1,2,3,10,11,12
-usda_fdc_2_code:en: 169972
-usda_fdc_code:en: 170383
-usda_ndb_2_code:en: 11100
-usda_ndb_2_name:en: Brussels sprouts, frozen, unprepared
-usda_ndb_2_process:en: en:frozen, en:unprepared
-usda_ndb_code:en: 11098
-usda_ndb_name:en: Brussels sprouts, raw
-wikidata:en: Q150463
 
 ###################################################################################################
 #
@@ -58848,205 +58501,6 @@ usda_ndb_name:en: Celtuce, raw
 
 ###################################################################################################
 #
-#                                Chinese broccoli
-#
-###################################################################################################
-
-< en: cabbage
-en: gai lan, chinese broccoli, chinese kale, gai-lan, kailan, kai-lan
-ca: bròquil xinès
-de: kai-lan
-eo: ĉina brokolo
-es: brassica oleracea var. alboglabra
-eu: kai-lan
-fa: کلم‌برگ چینی
-fi: härmekaali, kiinanbrokkoli, kailaan
-fr: brocoli chinois
-he: ברוקולי סיני
-hr: gai lan
-id: kailan
-it: brassica oleracea var. alboglabra
-ja: カイラン
-ko: 가이란
-ms: kailan
-nl: kailan
-sv: daggkål, kinesisk broccoli
-th: คะน้า
-za: byaekgaiqlanz
-zh: 芥藍
-description:en: Chinese broccoli (also called gai lan or kai lan, 芥蓝) is actually a distinct vegetable from regular broccoli, though they're related. Both belong to the Brassica oleracea species and the broader cabbage family. Gai lan has long, thick green stalks with flat, broad leaves and small, scattered flower buds. Western broccoli has a large, compact floret head on a thick stalk. It's slightly more bitter and robust than regular broccoli, with an earthy, slightly peppery flavor.
-usda_fdc_code:en: 169404
-usda_ndb_code:en: 11994
-usda_ndb_name:en: Broccoli, chinese, raw
-wikidata:en: Q1677369
-wikipedia:en: https://en.wikipedia.org/wiki/Gai_lan
-
-###################################################################################################
-#
-#                                Chinese cabbage
-#
-###################################################################################################
-
-< en: Brassica Rapa L.
-< en: cabbage
-en: chinese cabbage
-bg: китайско зеле
-ca: col xinesa
-da: kinakål
-de: Chinakohl
-el: kινέζικο λάχανο
-es: col china
-fi: kiinankaali
-fr: chou chinois, chou de Chine
-ga: cabáiste Síneach
-gl: col chinesa, coia chinesa, repolo chinés
-hr: kineski kupus
-lv: ķīnas kāposti
-mk: кинеска зелка
-ms: kubis cina
-nl: chinese kool
-pt: couve-da-china
-sk: kapusta čínska
-sl: kitajski kapus
-sv: kinakål
-ciqual_food_code:en: 20167
-ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
-comment:en: IN french chou chinois is used for both varieties. And in other languages as well.
-description:en: CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine: the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
-ecobalyse_alias:en: chinese-cabbage-non-ue-2025
-ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 3e3f8e66-57c3-43f8-b86c-54fb42af7f45
-ecobalyse_labels_en_organic_origins_en_france_alias:en: chinese-cabbage-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 701f6e68-9eb9-4ee2-8b40-a3553811bda4
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou chinois Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Chou chinois par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: chinese-cabbage-ue-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: ebb1d5ac-83e9-4295-9067-01e4bc5e43d1
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Chou chinois UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: chinese-cabbage-fr-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 65f1221e-cf4c-413b-b023-8cec646e8ee4
-ecobalyse_origins_en_france_name:fr: Chou chinois FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
-usda_ndb_proxy_code:en: 11119
-usda_ndb_proxy_name:en: Cabbage, chinese (pe-tsai), raw
-
-< en: chinese cabbage
-en: Napa cabbage, kimchi cabbage, wombok
-ar: برند
-cs: pekingské zelí
-eo: pekina brasiko
-et: pekingi lehtnaeris
-fa: کاهوی چینی
-fr: pe-tsaï
-id: sawi putih
-it: cavolo di pechino
-ja: ハクサイ, はくさい
-jv: sawi putih
-ko: 배추
-la: brassica rapa subsp. pekinensis
-lt: pekininis kopūstas
-nb: napakål
-pl: kapusta pekińska, kapusta właściwa pekińska
-sk: kapusta pekinská
-th: ผักกาดขาว
-tl: petsay
-tr: çin lahanası
-ug: يېسىۋېلەك
-uk: капуста пекінська
-uz: pekin karami
-vi: cải thảo
-zh: 大白菜
-ecobalyse_alias:en: chinese-cabbage-non-ue-2025
-ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 3e3f8e66-57c3-43f8-b86c-54fb42af7f45
-ecobalyse_labels_en_organic_origins_en_france_alias:en: chinese-cabbage-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 701f6e68-9eb9-4ee2-8b40-a3553811bda4
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou chinois Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Chou chinois par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: chinese-cabbage-ue-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: ebb1d5ac-83e9-4295-9067-01e4bc5e43d1
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Chou chinois UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: chinese-cabbage-fr-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 65f1221e-cf4c-413b-b023-8cec646e8ee4
-ecobalyse_origins_en_france_name:fr: Chou chinois FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
-# 200 @2021-09-29
-#arz:ملفوف برند
-#lzh:菘
-#szy:mamumuway
-# yue:紹菜
-eurocode_2_group_3:en: 8.15.28
-usda_fdc_code:en: 169979
-usda_ndb_code:en: 11119
-usda_ndb_name:en: Cabbage, chinese (pe-tsai), raw
-wikidata:en: Q13360268
-wikipedia:en: https://en.wikipedia.org/wiki/Chinese_cabbage
-
-< en: chinese cabbage
-en: pak choi, bok choy, pok choi
-ar: ملفوف صيني
-bo: ཚལ་དཀར་ཆེ་བ།
-ca: pak choi, bleda xinesa
-cs: bok čoj, pak čoj zelí, čínské
-da: bok choi, pak choi, kinesisk kål
-de: Pak Choi, Chinesischer Senfkohl
-el: mποκ τσόι
-es: bok choy, pak choi
-eu: txinatar aza
-fa: کلم چینی
-fi: pinaattikiinankaali, pak choi, bok choy, paksoi, pak-soi
-fr: bok choy, pak choï
-hr: pak choi
-hu: bordáskel, bok choy, pak choi, bok choi
-id: pakcoy, bok choy
-is: blaðkál, salatkál, kínverskt selleríkál
-it: bok choy, pak-choi
-ja: チンゲンサイ, チンゲン菜, 青梗菜
-kn: ಬಾಯ್ ಚಾಯ್
-ko: 청경채
-la: Brassica rapa subsp. chinensis
-mk: бок чој, пак чој
-ms: bok choy, pak choi, pok choi
-nb: bak choy, pak choy, paksoi, tai tsai
-nl: paksoi, bokchoy, pak-choi
-pl: pak choi, bok choy, pok choi, kapusta bok choy, kapusta pak choy
-pt: pak-choi, bok-choi, tsoi sum
-ru: бок-чой, пак-чо́й, кита́йская черешко́вая капу́ста
-sv: sellerikål, pak choi
-uk: бок-чой
-vi: cải thìa, cải bẹ trắng, cải chíp, bạch giới tử
-#zh: 小白菜
-#arz:ملفوف صينى
-#yue:白菜
-description:en: Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
-eurocode_2_group_3:en: 8.15.28
-usda_fdc_code:en: 170390
-usda_ndb_code:en: 11116
-usda_ndb_name:en: Cabbage, chinese (pak-choi), raw
-wikidata:en: Q18968514
-wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
-
-###################################################################################################
-#
 #                                Fuki
 #
 ###################################################################################################
@@ -59072,94 +58526,6 @@ description:en: Mustard Cabbage (also called gai choy or Chinese mustard) is a l
 usda_fdc_code:en: 169891
 usda_ndb_code:en: 43144
 usda_ndb_name:en: Cabbage, mustard, salted
-
-###################################################################################################
-#
-#                                Red cabbage
-#
-###################################################################################################
-
-< en: cabbage
-en: red cabbage
-bg: червено зеле
-bn: লাল বাঁধাকপি
-br: kaol ruz
-ca: col llombarda
-cs: červené zelí
-da: rødkål
-de: rotkohl, Rotkraut
-el: κόκκινο λάχανο
-eo: ruĝa brasiko
-es: cacho lombarda, col lombarda
-fa: کلم‌قرمز
-fi: punakaali
-fr: chou rouge
-ga: cabáiste dearg
-gl: lombarda
-he: כרוב אדום
-hi: लाल पत्ता गोभी
-hr: crveni kupus
-hu: vörös káposzta
-hy: կարմիր կաղամբ
-id: kol merah
-is: rauðkál
-it: cavolo rosso
-ja: 赤キャベツ, 紫キャベツ, レッドキャベツ
-ka: წითელი კომბოსტო
-ko: 적채
-lg: emboga
-lv: sarkanais galviņkāposts
-mk: црвена зелка
-ml: ചുവന്ന കാബേജ്
-ms: kubis merah
-nb: rødkål
-ne: रातो गोभी
-nl: rode kool, rodekool
-pl: czerwona kapusta, kapusta czerwona
-pt: couve-roxa
-ro: varză roșie
-sk: červená kapusta
-sq: lakër e kuqe
-sv: rödkål
-th: กะหล่ำปลีม่วง
-tr: kırmızı lahana
-uk: капуста червоноголова
-zh: 紫甘藍
-# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
-average_weight_per_unit:en: 1000
-# bar:blaukraut
-# bho:लाल पत्ता गोभी
-# frr:ruadkual
-# hsb:čerwjeny kał
-# nan:âng ko-lê-chhài
-# pcd:colé'd vaque
-# szl:modro kapusta
-# vec:Càvorlo roso
-ciqual_food_code:en: 20014
-ciqual_food_name:en: Red cabbage, raw
-ciqual_food_name:fr: Chou rouge, cru
-description:en: Native to coastal Europe and cultivated worldwide since antiquity, red cabbage is a dense, round vegetable with deep purple-red leaves, colored by anthocyanin pigments that shift hue with soil acidity. Its flavor is peppery and slightly sweet when raw, mellowing into a tangy, earthy sweetness when cooked, often enhanced with vinegar or apples in European cuisines. Globally, it's eaten raw in salads and slaws, pickled, fermented, braised, or stewed alongside meats in German, Scandinavian, and Eastern European dishes. Nutritionally, it's a good source of vitamin C, vitamin K, fiber, and various antioxidant compounds, contributing to its widespread culinary and cultural presence.
-ecobalyse_alias:en: red-cabbage-non-eu-2025
-ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 28f7c945-14d0-4d83-b04d-ea09f48a05b2
-ecobalyse_labels_en_organic_origins_en_france_alias:en: red-cabbage-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: ba292cce-6815-45e3-be3e-ed34a3b04a6f
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou rouge Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Chou rouge par défaut (2025)
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
-eurocode_2_group_3:en: 8.15.24
-ifct_food_code:en: C016
-ifct_food_name:en: Cabbage, violet
-usda_fdc_code:en: 169977
-usda_ndb_code:en: 11112
-usda_ndb_name:en: Cabbage, red, raw
-wikidata:en: q263203
-wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
 
 ###################################################################################################
 #
@@ -67063,7 +66429,7 @@ eurocode_2_group_3:en: 8.45.25
 wikidata:en: Q68189268
 
 < en: green bean
-en: flat bean, romano bean, helda bean, flat green beans, flat beans, runner bean
+en: flat bean, romano bean, helda bean, flat green beans, flat beans
 de: flache Bohne, Helda Bohne, Romano Bohne, flache grüne Bohnen, flache Bohnen
 es: judia verde plana, ferraúra
 fi: romanopapu, romanopavut
@@ -67315,13 +66681,18 @@ wikidata:en: Q2727662
 #
 ###################################################################################################
 
-< en: legume
-en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
+< en: pulse
+en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans, safed val, sem
 la: Lablab purpureus
+comment:en: Note the IFCT name is confusing.
 description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
-usda_fdc_code:en: 169234
-usda_ndb_code:en: 11224
-usda_ndb_name:en: Hyacinth-beans, immature seeds, raw
+usda_fdc_2_code:en: 169234
+usda_fdc_code:en: 175210
+usda_ndb_2_code:en: 11224
+usda_ndb_2_name:en: Hyacinth-beans, immature seeds, raw
+usda_ndb_code:en: 16067
+usda_ndb_name:en: Hyacinth beans, mature seeds, raw
+usda_ndb_process:en: en:dried
 
 ###################################################################################################
 #
@@ -68029,16 +67400,6 @@ nl: extra fijne groene flageolets
 #
 #
 ###################################################################################################
-
-< en: pulse
-en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans, safed val, sem
-la: Lablab purpureus
-comment:en: Note the IFCT name is confusing.
-description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
-usda_fdc_code:en: 175210
-usda_ndb_code:en: 16067
-usda_ndb_name:en: Hyacinth beans, mature seeds, raw
-usda_ndb_process:en: en:dried
 
 < en: hyacinth bean
 en: white hyacinth bean, white field bean
@@ -74057,6 +73418,7 @@ de: Kräutertee
 < en: herb
 de: Süßblatt
 
+< en: black tea
 < en: herbal tea
 de: Aufguss aus Schwarztee und Kräutertee
 
@@ -76490,6 +75852,10 @@ nl: bonenkruid
 pl: cząber, cząbru
 ro: cimbru
 sv: kyndel
+usda_fdc_code:en: 170936
+usda_ndb_code:en: 2039
+usda_ndb_name:en: Spices, savory, ground
+usda_ndb_process:en: en:ground
 wikidata:en: Q19787919
 wikipedia:en: https://en.wikipedia.org/wiki/Summer_savory
 
@@ -77502,33 +76868,6 @@ wikidata:en: Q16131953
 
 ###################################################################################################
 #
-#                                Savory
-#
-###################################################################################################
-
-< en: herb
-en: summer savory, savory
-bg: ронена чубрица
-da: sar
-de: Bohnenkraut
-es: ajedrea
-fr: sariette, sarriette
-hr: ljetni ukusan
-it: santoreggia
-nl: bonenkruid
-pl: cząber, cząbru
-ro: cimbru
-sv: kyndel
-usda_fdc_code:en: 170936
-usda_ndb_code:en: 2039
-usda_ndb_name:en: Spices, savory, ground
-usda_ndb_process:en: en:ground
-wikidata:en: Q19787919
-wikipedia:en: https://en.wikipedia.org/wiki/Summer_savory
-# 739 in 7 @2021-09-17
-
-###################################################################################################
-#
 #                                Tarragon
 #
 ###################################################################################################
@@ -77844,15 +77183,20 @@ it: foglie di verbena
 nl: verveinebladeren
 
 < en: verbena
-en: lemon verbena
-fr: verveine citronnee, verveine citronelle
-hr: limunska verbena
-it: verbena citriodora
+en: lemon verbena, lemon beebrush
+de: Zitronenverbene, Zitronenstrauch
+es: hierba luisa, cedrón, verbena de Indias, hierbaluisa
+fr: verveine citronnee, verveine citronelle, verveine citronnelle
+hr: limunska verbena, četkica od limuna
+it: verbena citriodora, erba cedrina, verbena odorosa, limoncina, erba luigia
 la: Aloysia citrodora, lippia citriodora
 nl: citroenverbena
+pt: Lúcia-lima, bela-luísa
+ro: verbină parfumată
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.46
 wikidata:en: Q206532
+wikipedia:en: https://es.wikipedia.org/wiki/Aloysia_citrodora
 
 < en: herb
 en: hemp
@@ -79949,26 +79293,6 @@ fr: mélisse bio
 hr: organski matičnjak
 it: melissa biologica
 
-###################################################################################################
-#
-#                                Lemon beebrush
-#
-###################################################################################################
-
-< en: plant
-en: lemon beebrush, lemon verbena
-de: Zitronenverbene, Zitronenstrauch
-es: hierba luisa, cedrón, verbena de Indias, hierbaluisa
-fr: verveine citronnelle
-hr: četkica od limuna
-it: erba cedrina, verbena odorosa, limoncina, erba luigia
-la: aloysia citrodora
-nl: Citroenverbena
-pt: Lúcia-lima, bela-luísa
-ro: verbină parfumată
-wikidata:en: Q206532
-wikipedia:en: https://es.wikipedia.org/wiki/Aloysia_citrodora
-
 # description:en:TILIA is a genus of about 30 species of trees, or bushes, native throughout most of the temperate Northern Hemisphere.
 
 < en: plant
@@ -82028,10 +81352,6 @@ wikidata:en: Q203415
 wikipedia:en: https://en.wikipedia.org/wiki/Black_tea
 
 < en: black tea
-< en: herbal tea
-de: Aufguss aus Schwarztee und Kräutertee
-
-< en: black tea
 en: black tea leaf, black tea leaves
 fr: feuilles de thé noir
 it: foglia di tè nero
@@ -82278,10 +81598,6 @@ fr: thé blanc
 hr: bijeli čaj
 it: tè bianco
 pl: biała herbata, herbata biała
-
-< en: elderflower
-< en: white tea
-de: Aufguss aus weißem Tee und Holunderblüte
 
 < en: green tea
 en: decaffeinated green tea
@@ -84677,12 +83993,15 @@ usda_ndb_name:en: Mushrooms, enoki, raw
 
 < en: mushroom
 en: pepeao, pepeiao, wood ear mushroom
-la: Auricularia polytricha
-description:en: Fresh pepeiao has a convex shape with a smooth, sometimes wrinkly surface, and can be a purply gray-brown color. It has a slightly chewy texture that many describe as rubbery-crunchy. It grows wild on logs of koa and kukui trees in Hawaii, typically on fallen or dying tree branches, often appearing after rain. It's known for its ability to absorb flavors when cooked and is commonly added to soups and stir-fries. It's a staple in Hawaii's Asian-influenced cuisine and is essentially the same category of mushroom used as "wood ear" or "cloud ear" in Chinese and Japanese cooking (sometimes called kikurage).
-usda_fdc_code:en: 168418
-usda_ndb_code:en: 11230
-usda_ndb_name:en: Pepeao, dried
-usda_ndb_process:en: en:dried
+la: Auricularia polytricha, Auricularia cornea
+description:en: "Pepeao" is a Hawaiian word — it literally means "ear," and it's used in Hawaii to refer to a type of jelly fungus (wood ear mushroom, genus Auricularia) because of its ear-shaped, rubbery cap. It grows on dead or decaying wood and is edible, often used in soups and stir-fries, similar to how "wood ear" or "cloud ear" mushrooms are used in Chinese cuisine.
+usda_fdc_2_code:en: 168418
+usda_fdc_code:en: 169237
+usda_ndb_2_code:en: 11230
+usda_ndb_2_name:en: Pepeao, dried
+usda_ndb_2_process:en: en:dried
+usda_ndb_code:en: 11228
+usda_ndb_name:en: Jew's ear, (pepeao), raw
 
 # description:en:PHOLIOTA is a genus of small to medium-sized, fleshy mushrooms in the family Strophariaceae.
 
@@ -85105,14 +84424,6 @@ usda_ndb_name:en: Fungi, Cloud ears, dried
 usda_ndb_process:en: en:dried
 wikidata:en: Q321342
 wikipedia:en: https://en.wikipedia.org/wiki/Auricularia_auricula-judae
-
-< en: mushroom
-en: pepeiao
-la: Auricularia cornea
-description:en: "Pepeao" is a Hawaiian word — it literally means "ear," and it's used in Hawaii to refer to a type of jelly fungus (wood ear mushroom, genus Auricularia) because of its ear-shaped, rubbery cap. It grows on dead or decaying wood and is edible, often used in soups and stir-fries, similar to how "wood ear" or "cloud ear" mushrooms are used in Chinese cuisine.
-usda_fdc_code:en: 169237
-usda_ndb_code:en: 11228
-usda_ndb_name:en: Jew's ear, (pepeao), raw
 
 < en: mushroom
 en: truffle
@@ -97999,10 +97310,6 @@ ru: продукты яичные, яичные-продукты
 # en:processing:powder
 < en: powdered egg white
 nl: scharrelei-eiwitpoeder, scharreleiwitpoeder
-
-< en: egg white powder
-# en:processing:powder
-nl: vrije uitloopeiwitpoeder, vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
 
 < en: egg white powder
 fr: blanc d'oeuf en poudre de poules élevées au sol
