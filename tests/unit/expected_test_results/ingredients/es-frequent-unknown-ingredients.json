@@ -76,7 +76,7 @@
             }
          ],
          "is_in_taxonomy" : 1,
-         "percent" : 30,
+         "percent" : 30.0,
          "percent_estimate" : 6.3,
          "text" : "empanado",
          "vegan" : "maybe",
@@ -284,15 +284,10 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "13184",
-         "ecobalyse_id" : "34e35753-f5ae-58d4-8f4e-5d15a3821a8e",
-         "ecobalyse_name" : "Olives Origine Inconnue",
-         "id" : "en:olive",
-         "is_in_taxonomy" : 1,
+         "id" : "es:oliva",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 0,
-         "text" : "oliva",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "text" : "oliva"
       },
       {
          "id" : "en:natural-lemon-flavouring-with-other-natural-flavourings",
@@ -312,11 +307,13 @@
       ],
       "en:vegan-status-unknown" : [
          "en:gum-base",
-         "en:crouton"
+         "en:crouton",
+         "es:oliva"
       ],
       "en:vegetarian-status-unknown" : [
          "en:gum-base",
-         "en:crouton"
+         "en:crouton",
+         "es:oliva"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -352,7 +349,7 @@
       "en:beech-wood-smoke",
       "en:wine-vinegar",
       "en:sunflower-oil",
-      "en:olive",
+      "es:oliva",
       "en:natural-lemon-flavouring-with-other-natural-flavourings",
       "en:wheat-flour",
       "en:sunflower-oil",
@@ -415,8 +412,7 @@
       "en:vegetable-oil",
       "en:vegetable-oil-and-fat",
       "en:oil-and-fat",
-      "en:olive",
-      "en:fruit-vegetable",
+      "es:oliva",
       "en:natural-lemon-flavouring-with-other-natural-flavourings",
       "en:natural-flavouring",
       "en:natural-lemon-flavouring",
@@ -446,9 +442,10 @@
       "en:maltodextrin",
       "en:milk-minerals",
       "en:natural-lemon-flavouring-with-other-natural-flavourings",
-      "en:noodle"
+      "en:noodle",
+      "es:oliva"
    ],
-   "ingredients_without_ciqual_codes_n" : 10,
+   "ingredients_without_ciqual_codes_n" : 11,
    "ingredients_without_ecobalyse_ids" : [
       "en:aniseed",
       "en:beech-wood-smoke",
@@ -462,14 +459,15 @@
       "en:milk-minerals",
       "en:natural-lemon-flavouring-with-other-natural-flavourings",
       "en:noodle",
-      "en:spirulina"
+      "en:spirulina",
+      "es:oliva"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 13,
-   "known_ingredients_n" : 30,
+   "ingredients_without_ecobalyse_ids_n" : 14,
+   "known_ingredients_n" : 29,
    "lc" : "es",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 1
 }
