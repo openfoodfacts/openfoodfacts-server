@@ -692,7 +692,9 @@ sub protect_compound_unit_slashes ($text) {
 	my $denominators = join('|', @UNIT_DENOMINATORS);
 
 	# Only real solidus characters here (not U+2044): we replace them with U+2044.
+	# The numerator must start a token: "Sellerie/L-Cystein" is not "ie/l"
 	$text =~ s{
+		(?<!\p{L})
 		(
 			(?:$numerators)
 			\s*

@@ -8188,7 +8188,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	# transform 0,2% into 0.2%
 	# but not a concentration: "Extraktgehalt: 1,2 g/l" must not become "1.2%/l"
-	$text =~ s/(\d),(\d+)( )?(\%|g\b(?!\s*[\/\N{U+2044}\N{U+FF0F}]))/$1.$2\%/ig;
+	# (per 100 g / 100 ml is a percentage: "Fruchtgehalt: 45,5 g/100 g" -> 45.5%)
+	$text =~ s/(\d),(\d+)( )?(\%|g\b(?!\s*[\/\N{U+2044}\N{U+FF0F}](?!\s*100\s*(?:g|ml)\b)))/$1.$2\%/ig;
 	$text =~ s/—/-/g;
 	# transform 0,1-0.2% into 0.1-0.2%
 	$text =~ s/(\d),(\d+( )?-( )?\d)/$1.$2/ig;

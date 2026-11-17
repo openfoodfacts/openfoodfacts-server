@@ -11,6 +11,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::IngredientsStrings qw/protect_compound_unit_slashes/;
 use ProductOpener::Ingredients
 	qw/normalize_a_of_b normalize_enumeration preparse_ingredients_text separate_additive_class/;
 
@@ -1625,6 +1626,8 @@ foreach my $test (
 	],
 	# a decimal concentration per volume is not turned into a percentage
 	['de', "Extraktgehalt: 1,2 g/l", "Extraktgehalt: 1,2 g/l"],
+	# per 100 g is still a percentage
+	['de', "Fruchtgehalt: 45,5 g/100 g", "Fruchtgehalt: 45.5%/100 g"],
 	['fr', "eau, CO₂", "eau, CO2"],
 	# superscript digits are footnote markers and are kept
 	['fr', "sucre¹, sel²", "sucre¹, sel²"],
@@ -1632,6 +1635,17 @@ foreach my $test (
 {
 	is(preparse_ingredients_text($test->[0], $test->[1]),
 		$test->[2], "entities and subscripts: $test->[0] / $test->[1]");
+}
+
+# slashes inside compound units are protected, but only when the numerator starts a token
+foreach my $test (
+	["Calcium 40 mg/l, Natrium", "Calcium 40 mg\N{U+2044}l, Natrium"],
+	["Bifidobacterium 10 UFC/ml", "Bifidobacterium 10 UFC\N{U+2044}ml"],
+	["Sellerie/L-Cystein", "Sellerie/L-Cystein"],
+	["Zwiebeln/Knoblauch", "Zwiebeln/Knoblauch"],
+	)
+{
+	is(protect_compound_unit_slashes($test->[0]), $test->[1], "compound unit slashes: $test->[0]");
 }
 
 done_testing();
