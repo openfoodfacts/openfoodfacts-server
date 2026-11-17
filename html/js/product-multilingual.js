@@ -377,6 +377,192 @@ const maximumRecentEntriesPerTag = 10;
         images.push(image_data);
     }
 
+    const SUPPORTED_IMAGE_EXTENSIONS = /\.(jpe?g|png|gif|webp|heic|heif|jpf|jp2)$/i;
+
+    const SUPPORTED_IMAGE_MIME_TYPES = {
+        'image/jpeg': true,
+        'image/pjpeg': true,
+        'image/jpg': true,
+        'image/png': true,
+        'image/x-png': true,
+        'image/gif': true,
+        'image/webp': true,
+        'image/heic': true,
+        'image/heif': true,
+        'image/heic-sequence': true,
+        'image/heif-sequence': true,
+        'image/jp2': true,
+        'image/jpx': true
+    };
+
+    function isSupportedImageFile(file) {
+        if (!file || typeof file !== 'object') {
+            return false;
+        }
+
+        const name = typeof file.name === 'string' ? file.name.trim() : '';
+        const type = typeof file.type === 'string' ? file.type.trim().toLowerCase() : '';
+
+        const hasExtension = (/\.[a-zA-Z0-9]+$/).test(name);
+        const hasSupportedExtension = hasExtension && SUPPORTED_IMAGE_EXTENSIONS.test(name);
+
+        if (hasExtension && !hasSupportedExtension) {
+            return false;
+        }
+
+        if (type && type !== 'application/octet-stream') {
+            return Boolean(SUPPORTED_IMAGE_MIME_TYPES[type]);
+        }
+
+        return hasSupportedExtension;
+    }
+
+    const BACKEND_IMGID_ERRORS = {
+        '-3': 'image_upload_error_image_already_exists',
+        '-4': 'image_upload_error_image_too_small',
+        '-5': 'image_upload_error_could_not_read_image'
+    };
+
+    const KNOWN_BACKEND_ERRORS = {
+        'this picture has already been sent.': 'image_upload_error_image_already_exists',
+        'the picture is too small. please do not upload pictures found on the internet and only send photos you have taken yourself.': 'image_upload_error_image_too_small',
+        'the image could not be read.': 'image_upload_error_could_not_read_image',
+        'no barcode specified or found in the image or filename.': 'image_upload_error_no_barcode_specified_or_found'
+    };
+
+    function getLangString(key, fallback) {
+        if (typeof lang === 'function') {
+            const langData = lang();
+            if (langData && langData[key]) {
+                return langData[key];
+            }
+        }
+
+        return fallback;
+    }
+
+    const KNOWN_BACKEND_KEYS = [
+        'image_upload_error_image_already_exists',
+        'image_upload_error_image_too_small',
+        'image_upload_error_could_not_read_image',
+        'image_upload_error_no_barcode_specified_or_found'
+    ];
+
+    function resolveSafeBackendError(obj) {
+        if (!obj || typeof obj !== 'object') {
+            return null;
+        }
+
+        if (typeof obj.imgid !== 'undefined' && BACKEND_IMGID_ERRORS[String(obj.imgid)]) {
+            const key = BACKEND_IMGID_ERRORS[String(obj.imgid)];
+
+            return getLangString(key, typeof obj.error === 'string' ? obj.error : null);
+        }
+
+        if (typeof obj.error === 'string') {
+            const text = obj.error.trim();
+            const lower = text.toLowerCase();
+
+            if (KNOWN_BACKEND_ERRORS[lower]) {
+                return getLangString(KNOWN_BACKEND_ERRORS[lower], text);
+            }
+
+            if (typeof lang === 'function') {
+                const langData = lang();
+                if (langData) {
+                    for (let i = 0; i < KNOWN_BACKEND_KEYS.length; i++) {
+                        const translationKey = KNOWN_BACKEND_KEYS[i];
+                        if (langData[translationKey] &&
+                            typeof langData[translationKey] === 'string' &&
+                            langData[translationKey].trim() === text) {
+                            return langData[translationKey];
+                        }
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    function extractServerError(jqXHR) {
+        if (jqXHR && jqXHR.responseJSON) {
+            return resolveSafeBackendError(jqXHR.responseJSON);
+        }
+
+        return null;
+    }
+
+    function getUploadFailureErrorMessage(data) {
+        if (!data || typeof data !== 'object') {
+            return getLangString('product_js_image_upload_error', 'Error while uploading image');
+        }
+
+        if (data.textStatus === 'abort') {
+            return null;
+        }
+
+        const serverError = extractServerError(data.jqXHR);
+        if (serverError) {
+            return serverError;
+        }
+
+        const jqXHR = data.jqXHR;
+        const hasStatus = jqXHR && typeof jqXHR.status === 'number';
+        const status = hasStatus ? jqXHR.status : null;
+
+        if (status === 413) {
+            return getLangString('product_js_image_upload_error_file_too_large', 'This image is too large. Please choose a smaller image.');
+        }
+
+        if (data.textStatus === 'timeout' || (hasStatus && status === 0)) {
+            return getLangString('product_js_image_upload_error_network', 'Network error while uploading the image. Please try again.');
+        }
+
+        if (typeof status === 'number' && status >= 500 && status < 600) {
+            return getLangString('product_js_image_upload_error_server', 'The image could not be uploaded due to a server error. Please try again later.');
+        }
+
+        return getLangString('product_js_image_upload_error', 'Error while uploading image');
+    }
+
+    function getUploadDoneErrorMessage(result) {
+        const safeError = resolveSafeBackendError(result);
+        if (safeError) {
+            return safeError;
+        }
+
+        return getLangString('product_js_image_upload_error', 'Error while uploading image');
+    }
+
+    function showImageUploadError(imagefield, message) {
+        if (!message) {
+            return;
+        }
+        const selector = '#imgsearcherror_' + imagefield;
+        let $errorDiv = $(selector);
+        if (!$errorDiv.length) {
+            $errorDiv = $('<div id="imgsearcherror_' + imagefield + '" data-alert class="alert-box alert" style="display:none"></div>');
+            const $msg = $('#imgsearchmsg_' + imagefield);
+            if ($msg.length) {
+                $msg.after($errorDiv);
+            } else {
+                const $progress = $('#progressbar_' + imagefield);
+                if ($progress.length) {
+                    $progress.after($errorDiv);
+                }
+            }
+        }
+        $errorDiv.empty();
+        $errorDiv.append(document.createTextNode(message));
+        $errorDiv.append(' <a href="#" class="close">&times;</a>');
+        $errorDiv.show();
+    }
+
+    function hideImageUploadError(imagefield) {
+        $('#imgsearcherror_' + imagefield).hide();
+    }
+
     function imageFieldsShow($fields) {
 
         $fields.each(function () {
@@ -422,13 +608,14 @@ const maximumRecentEntriesPerTag = 10;
                         '</div>' +
                         '<div id="imgsearchmsg_' + id + '" data-alert class="alert-box info" style="display:none">' + lang().product_js_uploading_image +
                         '<a href="#" class="close">&times;</a>' +
+                        '</div>' +
+                        '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' +
+                        escapeHtml((typeof lang === 'function' && lang().product_js_image_upload_error) || 'Error while uploading image') +
+                        '<a href="#" class="close">&times;</a>' +
                         '</div>';
 
 
                     if (typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")) {
-                        html += '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error +
-                            '<a href="#" class="close">&times;</a>' +
-                            '</div>';
                         html += '<input type="checkbox" class="use_low_res_images" name="use_low_res_images_' + id + '" id="use_low_res_images_' + id + '">';
                         html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';
 
@@ -499,29 +686,48 @@ const maximumRecentEntriesPerTag = 10;
                         resizeMaxWidth: 2000,
                         resizeMaxHeight: 2000,
 
+                        add: function (e, data) {
+                            hideImageUploadError(imagefield);
+                            const files = data.files || [];
+                            for (let i = 0; i < files.length; i++) {
+                                if (!isSupportedImageFile(files[i])) {
+                                    const msg = getLangString('product_js_image_upload_error_format', 'This image format is not supported. Please use a supported format.');
+                                    showImageUploadError(imagefield, msg);
+
+                                    return false;
+                                }
+                            }
+                            if (typeof data.process === 'function') {
+                                data.process().done(function () {
+                                    data.submit();
+                                });
+                            } else {
+                                data.submit();
+                            }
+                        },
 
                         done: function (e, data) {
 
-                            if (data.result) {
-                                if (data.result.image) {
-                                    $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
-                                    $("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.result.image.imgid);
-                                    imageFieldsAddImage(data.result.image);
-                                    imageFieldsShow($(".select_crop"));
+                            if (data.result && data.result.image) {
+                                hideImageUploadError(imagefield);
+                                $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
+                                $("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.result.image.imgid);
+                                imageFieldsAddImage(data.result.image);
+                                imageFieldsShow($(".select_crop"));
 
-                                    $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
-                                    change_image(imagefield, data.result.image.imgid);
-                                    trackMatomoEvent('product', 'image upload', imagefield);
-                                }
-
-                                if (data.result.error) {
-                                    $("#imgsearcherror_" + imagefield).html(data.result.error);
-                                    $("#imgsearcherror_" + imagefield).show();
-                                }
+                                $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
+                                change_image(imagefield, data.result.image.imgid);
+                                trackMatomoEvent('product', 'image upload', imagefield);
+                            } else {
+                                const message = getUploadDoneErrorMessage(data.result);
+                                showImageUploadError(imagefield, message);
                             }
                         },
-                        fail: function () {
-                            $("#imgsearcherror_" + imagefield).show();
+                        fail: function (e, data) {
+                            const message = getUploadFailureErrorMessage(data);
+                            if (message) {
+                                showImageUploadError(imagefield, message);
+                            }
                         },
                         always: function () {
                             $("#progressbar_" + imagefield).hide();
@@ -536,8 +742,8 @@ const maximumRecentEntriesPerTag = 10;
                             $('.img_input').prop("disabled", false);
                         },
                         start: function () {
+                            hideImageUploadError(imagefield);
                             $("#imgsearchbutton_" + imagefield).hide();
-                            $("#imgsearcherror_" + imagefield).hide();
                             $("#imgsearchmsg_" + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_uploading_image).show();
                             $("#progressbar_" + imagefield).show();
                             $("#progressmeter_" + imagefield).css('width', "0%");
@@ -606,6 +812,11 @@ const maximumRecentEntriesPerTag = 10;
         setImages: imageFieldsSetImages,
         addImage: imageFieldsAddImage,
         show: imageFieldsShow,
+        isSupportedImageFile: isSupportedImageFile,
+        getUploadFailureErrorMessage: getUploadFailureErrorMessage,
+        getUploadDoneErrorMessage: getUploadDoneErrorMessage,
+        showError: showImageUploadError,
+        hideError: hideImageUploadError
     };
 
     $('#back-btn').click(function () {
