@@ -419,8 +419,15 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "eau de source gazéifiée"}, ["en:carbonated-spring-water"],],
 	# Greek (el)
 	[
-		{lc => "el", ingredients_text => "Ζάχαρη, βούτυρο κακάο, κακαόμαζα, πλήρες γάλα σε σκόνη, λεκιθίνη ηλίανθου, φυσική αρωματική ύλη"},
-		["en:sugar", "en:cocoa-butter", "en:cocoa-paste", "en:whole-milk-powder", "en:sunflower-lecithin", "en:natural-flavouring"],
+		{
+			lc => "el",
+			ingredients_text =>
+				"Ζάχαρη, βούτυρο κακάο, κακαόμαζα, πλήρες γάλα σε σκόνη, λεκιθίνη ηλίανθου, φυσική αρωματική ύλη"
+		},
+		[
+			"en:sugar", "en:cocoa-butter", "en:cocoa-paste", "en:whole-milk-powder",
+			"en:sunflower-lecithin", "en:natural-flavouring"
+		],
 	],
 	[
 		{lc => "el", ingredients_text => "ημιαποβουτυρωμένο γάλα, καλλιέργεια γιαούρτης"},
