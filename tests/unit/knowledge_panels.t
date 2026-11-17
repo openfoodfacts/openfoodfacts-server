@@ -288,4 +288,41 @@ foreach my $analyzed (0, 1) {
 		$analyzed, "environment_card_simplified lists the origins panel analyzed=$analyzed");
 }
 
+# No empty nutrient levels panel when nutrition facts are unknown
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/15351
+foreach my $with_nutrition (0, 1) {
+	my $product_ref = {lc => "en", categories_tags => ["en:biscuits"]};
+	if ($with_nutrition) {
+		$product_ref->{nutrition} = {
+			input_sets => [
+				{
+					preparation => "as_sold",
+					per => "100g",
+					per_quantity => "100",
+					per_unit => "g",
+					source => "packaging",
+					nutrients => {
+						fat => {value_string => "20", value => 20, unit => "g"},
+						"saturated-fat" => {value_string => "10", value => 10, unit => "g"},
+						sugars => {value_string => "30", value => 30, unit => "g"},
+						salt => {value_string => "1", value => 1, unit => "g"},
+					}
+				}
+			]
+		};
+	}
+	analyze_and_enrich_product_data($product_ref, get_initialized_response());
+	my $options_ref = {};
+	initialize_knowledge_panels_options($options_ref, {});
+	$options_ref->{activate_knowledge_panels_simplified} = 1;
+	create_knowledge_panels($product_ref, "en", "world", $options_ref, {});
+	my $panels_ref = $product_ref->{knowledge_panels_en};
+	is(defined $panels_ref->{nutrient_levels} ? 1 : 0,
+		$with_nutrition, "nutrient_levels panel with_nutrition=$with_nutrition");
+	my @listed_ids
+		= map {@{$_->{panel_group_element}{panel_ids} // []}} @{$panels_ref->{health_card_simplified}{elements}};
+	is((grep {$_ eq "nutrient_levels"} @listed_ids) ? 1 : 0,
+		$with_nutrition, "health_card_simplified lists the nutrient_levels panel with_nutrition=$with_nutrition");
+}
+
 done_testing();
