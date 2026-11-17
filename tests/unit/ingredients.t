@@ -1749,6 +1749,8 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "sl",
 			ingredients_text =>
 				"pšenična bela moka, glukozni sirup, kakavova masa, palmino olje, repično olje, jagode 12 %, maline, korenje, paradižnikov koncentrat, krompirjev škrob, modificiran škrob, maltodekstrin, jogurt, posneto mleko v prahu, piščančje meso, jedilna želatina, alkoholni kis, vinski kis, ekstrakt kvasa, kvas, karoteni, sirilo, kumarice, emulgatorja (sojini lecitini, E471), stabilizatorji (E407, E412), gostilo (E415), antioksidanta (E300, E306), konzervansa (E202, E211), sredstvi za vzhajanje (E500, E450), sredstvo za ohranjanje vlage (E422), barvila (E160a), sladili (E950, E955), vanilin sladkor.",
+		}
+	],
 	# Portuguese origins in parenthesis: "origem", "país de origem"
 	[
 		'pt-origins-in-parenthesis',
@@ -1756,6 +1758,15 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "pt",
 			ingredients_text =>
 				"Leite (Origem: UE), carne de porco (País de origem: Portugal), azeite (origem: Espanha, Itália), açúcar (país de origem: França), amido (de origem vegetal)",
+		}
+	],
+	# "Denominação de Origem Protegida" is a label (PDO), not an origin statement
+	[
+		'pt-pdo-not-origin',
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Queijo (Denominação de Origem Protegida), vinho (Denominação de Origem Controlada), leite (origem: Portugal)",
 		}
 	],
 	# Portuguese vitamins enumeration
