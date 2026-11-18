@@ -1330,9 +1330,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 	# Concatenate taxonomy files if needed
 	my $file_path;
+	# Source file of each line of $file_path, as a list of [first line number, source file] (sorted by line number)
+	# Used to tell apart intended merges of entries from different source files (e.g. additives and ingredients)
+	# from accidental merges of entries within the same source file
+	my @source_files_line_ranges = ();
 	if ((scalar @files) == 1) {
 		# Only 1 file
 		$file_path = get_path_for_taxonomy_file($files[0]);
+		push @source_files_line_ranges, [1, $files[0]];
 	}
 	else {
 		# Multiple files
@@ -1341,18 +1346,26 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		open(my $OUT, ">:encoding(UTF-8)", $file_path)
 			or die("Cannot write $file_path : $!\n");
 
+		my $output_lines = 0;
 		foreach my $taxonomy_file (@files) {
 			my $taxonomy_path = get_path_for_taxonomy_file($taxonomy_file);
 			open(my $IN, "<:encoding(UTF-8)", $taxonomy_path)
 				or die("Cannot open $taxonomy_path: $!\n");
 
 			print $OUT "# $taxonomy_file\n\n";
+			$output_lines += 2;
+			push @source_files_line_ranges, [$output_lines + 1, $taxonomy_file];
 
+			my $last_line = "\n";
 			while (<$IN>) {
 				print $OUT $_;
+				$output_lines++;
+				$last_line = $_;
 			}
 
 			print $OUT "\n\n";
+			# if the file does not end with a newline, the first \n terminates its last line
+			$output_lines += ($last_line =~ /\n$/) ? 2 : 1;
 			close($IN);
 		}
 
@@ -1463,6 +1476,18 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		my $line_number = 0;
 
+		# line number of the first line of the block that defined each canonical tagid
+		my %canon_tagid_line_number = ();
+		# source taxonomy file of a line of $file_path, and line number in this source file
+		my $get_source_file_and_line = sub ($n) {
+			my ($start, $source_file) = @{$source_files_line_ranges[0]};
+			foreach my $range_ref (@source_files_line_ranges) {
+				last if $range_ref->[0] > $n;
+				($start, $source_file) = @$range_ref;
+			}
+			return ($source_file, $n - $start + 1);
+		};
+
 		while (<$IN>) {
 
 			my $line = sanitize_taxonomy_line($_);
@@ -1517,6 +1542,33 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						# Normalized search variants must not merge distinct declared concepts.
 						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{get_string_id_for_lang($lc, $tag)};
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
+							# Merging entries is intended when they come from different source files
+							# (e.g. an additive that is also listed in ingredients.txt), but merging two
+							# entries of the same source file is almost always an accidental duplicate synonym
+							my $existing_canon_tagid = $translations_from{$tagtype}{"$lc:$possible_canon_tagid"}
+								// "$lc:$possible_canon_tagid";
+							my $existing_line_number = $canon_tagid_line_number{$existing_canon_tagid};
+							if (defined $existing_line_number) {
+								my ($source_file, $source_line_number) = $get_source_file_and_line->($line_number);
+								my ($existing_source_file, $existing_source_line_number)
+									= $get_source_file_and_line->($existing_line_number);
+								if ($source_file eq $existing_source_file) {
+									my $msg;
+									if ("$lc:$lc_tagid" eq $existing_canon_tagid) {
+										# same entry defined twice: the blocks are merged, it is less harmful
+										$msg
+											= "WARNING - duplicate_entry - $source_file - entry $lc:$lc_tagid (line $source_line_number)"
+											. " is defined again, it is merged with the entry at line $existing_source_line_number\n";
+									}
+									else {
+										$msg
+											= "WARNING - synonym_merge - $source_file - entry $lc:$lc_tagid (line $source_line_number)"
+											. " is merged into entry $existing_canon_tagid (line $existing_source_line_number)"
+											. " because they share the $lc synonym \"$tag\"\n";
+									}
+									print STDERR $msg;
+								}
+							}
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
 							$lc_tagid = $possible_canon_tagid;
 							# we already have a canon_tagid $canon_tagid for the tag
@@ -1536,6 +1588,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				if (not defined $canon_tagid) {
 					# this is the first entry for the block, so it defines the canonical tagid
 					$canon_tagid = "$lc:$lc_tagid";
+					$canon_tagid_line_number{$canon_tagid} //= $line_number;
 					# print STDERR "new canon_tagid: $canon_tagid\n";
 					if ((defined $qualifier) and ($qualifier eq 'synonyms:')) {
 						# register that it's just a synonym

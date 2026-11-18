@@ -1539,6 +1539,18 @@ foreach my $test (
 	['en', "mono - und Diglyceride", "mono- und Diglyceride"],
 	['fr', "mono - and diglycerides", "mono- and diglycerides"],
 	['ro', "mono - ti digliceride ale acizilor grași", "mono- ti digliceride ale acizilor grași"],
+	# additive class without a colon, followed by mono- and diglycerides
+	[
+		'de',
+		"Emulgator Mono - und Diglyceride von Speisefettsäuren",
+		"Emulgator : Mono- und Diglyceride von Speisefettsäuren"
+	],
+	['fr', "émulsifiant mono - et diglycérides d'acides gras", "émulsifiant : mono- et diglycérides d'acides gras"],
+	[
+		'it',
+		"emulsionante mono-e digliceridi degli acidi grassi",
+		"emulsionante : mono- e digliceridi degli acidi grassi"
+	],
 	)
 {
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2],
@@ -1565,6 +1577,46 @@ foreach my $test (
 	)
 {
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "entities and percents: $test->[1]");
+}
+
+# Danish oil / fat and protein categories and types
+foreach my $test (
+	# category followed by an enumeration of types
+	['vegetabilsk olie (solsikke, raps)', 'vegetabilsk olie (solsikkeolie, rapsolie)'],
+	['vegetabilsk olie (solsikke og raps)', 'vegetabilsk olie (solsikkeolie, rapsolie)'],
+	['vegetabilske olier (palme, kokos og shea)', 'vegetabilske olier (palmeolie, kokosolie, sheaolie)'],
+	['vegetabilsk fedt (palme, shea)', 'vegetabilsk fedt (palmefedt, sheafedt)'],
+	# category followed by a single type
+	['vegetabilsk olie (raps)', 'vegetabilsk olie (rapsolie)'],
+	# oil must give oil even when the corresponding fat exists in the taxonomy (palmefedt, sheafedt)
+	['vegetabilsk olie (palme)', 'vegetabilsk olie (palmeolie)'],
+	['vegetabilsk fedt (palme)', 'vegetabilsk fedt (palmefedt)'],
+	['vegetabilsk olie: solsikke', 'vegetabilsk olie (solsikkeolie)'],
+	# Danish compound words with an elided first category: "solsikke- og rapsolie"
+	['solsikke- og rapsolie', 'olie (solsikkeolie, rapsolie)'],
+	['palme- og kokosfedt', 'fedt (palmefedt, kokosfedt)'],
+	['sukker, solsikke- og rapsolie, salt', 'sukker, olie (solsikkeolie, rapsolie), salt'],
+	# proteins
+	['vegetabilsk protein (ærte, soja)', 'vegetabilsk protein (ærteprotein, sojaprotein)'],
+	['protein (mælke, soja)', 'protein (mælkeprotein, sojaprotein)'],
+	['ærte- og risprotein', 'protein (ærteprotein, risprotein)'],
+	['vegetabilske proteiner (soja, majs)', 'vegetabilske proteiner (sojaprotein, majsprotein)'],
+	# kikærte must not be matched as ærte
+	['ærte- og kikærteprotein', 'protein (ærteprotein, kikærteprotein)'],
+	[
+		'vegetabilsk protein (havre, kartoffel, solsikke, hvede)',
+		'vegetabilsk protein (havreprotein, kartoffelprotein, solsikkeprotein, hvedeprotein)'
+	],
+	['solsikke- og palmefedt', 'fedt (solsikkefedt, palmefedt)'],
+	# not developed: one of the types is not listed
+	['vegetabilsk olie (solsikke, hasselnød)', 'vegetabilsk olie (solsikke, hasselnød)'],
+	# not developed: no category
+	['sukker, solsikke, raps', 'sukker, solsikke, raps'],
+	# "salt" starts with the "sal" type: must not be changed
+	['salt og sojaolie', 'salt og sojaolie'],
+	)
+{
+	is(preparse_ingredients_text('da', $test->[0]), $test->[1], "da categories and types: $test->[0]");
 }
 
 done_testing();
