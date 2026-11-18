@@ -156,6 +156,57 @@ my @tests = (
 		},
 	],
 
+	# Minimum and maximum percent words in German, Italian, Portuguese and Dutch
+	[
+		'de-minimum-maximum-percent',
+		{
+			lc => "de",
+			ingredients_text =>
+				"Zucker, Kakaomasse mind. 30 %, Haselnüsse mindestens 12%, Milchpulver 10 % mindestens, Salz max. 1%, Vanille höchstens 0,5 %"
+		},
+	],
+	[
+		'it-minimum-maximum-percent',
+		{
+			lc => "it",
+			ingredients_text =>
+				"pomodoro min. 60%, cacao min 20%, nocciole minimo 10%, latte 5% minimo, sale max 1%, zucchero massimo 0,5%"
+		},
+	],
+	[
+		'pt-minimum-maximum-percent',
+		{
+			lc => "pt",
+			ingredients_text =>
+				"cacau mínimo 70%, açúcar, avelãs mín. 10%, leite no mínimo 5%, sal máx. 1%, baunilha máximo 0,5%"
+		},
+	],
+	[
+		'nl-minimum-maximum-percent',
+		{
+			lc => "nl",
+			ingredients_text =>
+				"cacao min 60%, suiker, hazelnoten minimaal 10%, melkpoeder ten minste 5%, zout max. 1%, vanille maximaal 0,5%"
+		},
+	],
+
+	[
+		'hu-minimum-maximum-percent',
+		{
+			lc => "hu",
+			ingredients_text =>
+				"kakaómassza min. 50%, cukor, mogyoró legalább 10%, tejpor 5% minimum, só max. 1%, vanília legfeljebb 0,5%"
+		},
+	],
+	[
+		'ro-minimum-maximum-percent',
+		{
+			lc => "ro",
+			ingredients_text =>
+				"cacao min. 50%, zahăr, alune minim 10%, lapte praf 5% minim, sare max. 1%, vanilie maxim 0,5%"
+		},
+	],
+
 	# Relative percent
 
 	[
