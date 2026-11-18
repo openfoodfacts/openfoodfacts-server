@@ -39,8 +39,8 @@
                     "icon_alt": "[% display_taxonomy_tag_name("packaging_recycling",recycling_type) %]",
                     [% ELSE %]
                     "evaluation": "neutral",
-                    "icon_url": "[% static_subdomain %]/images/icons/dist/help.svg",
-                    "icon_alt": "[% edq(lang('unknown')) %]",
+                    "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
+                    "icon_alt": "[% edq(lang('packaging_part_short')) %]",
                     [% END %]
                     "html": `
                         [% FOREACH packaging IN product.packagings %]

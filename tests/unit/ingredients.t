@@ -1770,6 +1770,15 @@ puffed orange and caramelized unknown_fruit4.",
 				"Perna de suíno (74%), carne de bovino, carne de vaca, frango, fiambre, entremeada de suíno, carnes separadas mecanicamente de frango, couratos, proteína de suíno, hemoglobina, feijão encarnado, feijão manteiga, massa de alho, malagueta, cravinho, ervas aromáticas, água, sal.",
 		}
 	],
+	# Frequent Czech ingredients and additive class names
+	[
+		'cs-frequent-unknown-ingredients',
+		{
+			lc => "cs",
+			ingredients_text =>
+				"celozrnné ovesné vločky, kukuřičné lupínky, pšeničná sladová mouka, hrachová mouka, hrachová vláknina, citrusová vláknina, bambusová vláknina, karamelizovaný cukr, řepný cukr, kokosový cukr, javorový sirup, kakao se sníženým obsahem tuku, kakaové boby, čokoládový prášek, sezamová pasta, datlová pasta, rajčatový prášek, meruňkové pyré, jahodové pyré, višně, květák, ledový salát, černá mrkev, koncentrát z mrkve, kuřecí maso, bramborová bílkovina, bramborové vločky, mák, dýňová semínka, zeleninový vývar, pramenitá voda, himalájská sůl, jedlá sůl s jódem, řepkový lecitin, lékořicový extrakt, kypřící látky (uhličitany draselné), konzervanty (E202), nosič (E1520), balicí plyny (E941).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
