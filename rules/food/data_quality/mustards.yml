@@ -1,4 +1,4 @@
-# Data quality rules for mustards. See rules/README.md for the format.
+# Data quality rules for mustards. See docs/dev/explain-tags-rules.md for the format.
 #
 # Rules never remove tags. When the data of a product looks wrong, a rule adds a data quality warning
 # so that the product can be reviewed and fixed by a contributor.

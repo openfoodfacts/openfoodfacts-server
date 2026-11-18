@@ -39,7 +39,34 @@ Tags rules add more precise tags (e.g. categories) to products, from data that i
 categories, ingredients, labels, countries, brands, nutrients, product names and ingredients lists.
 
 Rules are stored in YAML files in the rules/ directory, grouped by product type and by target field,
-e.g. rules/food/categories/beverages.yml. See rules/README.md for the format.
+e.g. rules/food/categories/beverages.yml.
+
+docs/dev/explain-tags-rules.md explains the format of the rules files (each field of a rule, the conditions
+and the actions), the design choices, and how to test a rule.
+
+How it works:
+
+=over
+
+=item *
+
+load_tags_rules() reads the YAML files, validates each rule and compiles its conditions to closures
+(_compile_rule(), _compile_condition_*()). Invalid rules are reported and skipped.
+
+=item *
+
+evaluate_tags_rules() selects the rules whose required categories the product has, runs their conditions,
+and checks that the categories they would add do not conflict with existing categories, or with each other.
+
+=item *
+
+apply_tags_rules_to_product() stores the result in the "rules" source of tags_sources,
+and add_tags_rules_data_quality_tags() adds the data quality tags from check_quality().
+
+=back
+
+The tag fields that conditions can test, and the tag fields that rules can add tags to, are set for each flavor
+in $options{tags_rules} (lib/ProductOpener/Config_off.pm). Flavors without this setting do not run tags rules.
 
 Principles:
 
@@ -110,21 +137,14 @@ my $rules_source = "rules";
 # Data quality warning added when a rule would add a category that conflicts with an existing one
 my $conflict_warning = "en:category-rules-conflict";
 
-# Tag fields that can be used in conditions
-my %condition_tag_fields = (
-	categories => 1,
-	labels => 1,
-	countries => 1,
-	brands => 1,
-	origins => 1,
-	states => 1,
-);
+# Tag fields that can be used in conditions, e.g. "labels: en:organic" (flavor setting)
+my %condition_tag_fields = map {$_ => 1} @{deep_get(\%options, "tags_rules", "condition_tag_fields") // []};
 
-# Fields that can be written by the "add" action
-# data_quality_* fields are computed fields: the tags are added by check_quality(),
-# through add_tags_rules_data_quality_tags()
+# Fields that can be written by the "add" action, and their kind:
+# - "tags": tag fields (flavor setting), stored in tags_sources.[field].rules by apply_tags_rules_to_product()
+# - "data_quality": computed fields, the tags are added by check_quality() through add_tags_rules_data_quality_tags()
 my %add_fields = (
-	categories => "tags",
+	(map {$_ => "tags"} @{deep_get(\%options, "tags_rules", "add_tag_fields") // []}),
 	data_quality_warnings => "data_quality",
 	data_quality_info => "data_quality",
 );
@@ -145,11 +165,17 @@ loaded from rules/[product type]/ the first time it is called.
 
 Invalid rules are logged and skipped. tests/unit/tags_rules.t checks that all rules are valid.
 
+If the flavor has no $options{tags_rules} setting, an empty set of rules is returned.
+
 =cut
 
 sub get_tags_rules ($product_type = undef) {
 
 	$product_type //= $options{product_type} // "food";
+
+	if (not defined $options{tags_rules}) {
+		return {rules => [], by_category => {}, exclusive => {}, errors => [], by_id => {}};
+	}
 
 	if (not defined $tags_rules_for_product_type{$product_type}) {
 		my $dir = $BASE_DIRS{RULES} . "/" . $product_type;
@@ -177,19 +203,28 @@ A hash ref:
 
 =item *
 
-rules: list of compiled rules, in file order
+rules: list of compiled rules (see _compile_rule()), in file order
 
 =item *
 
-by_category: required category => list of rules
+by_category: required category => list of rules. Used to select the rules to evaluate for a product.
 
 =item *
 
-exclusive: category => list of the other categories in its exclusive groups
+by_id: rule id => rule
 
 =item *
 
-errors: list of validation errors (strings). Rules with errors are not included in "rules".
+exclusive: category => { other category => 1 }.
+An exclusive group is a list of categories that a product cannot have at the same time
+(e.g. [en:caffeinated-colas, en:cola-sodas-without-caffeine]). Groups are listed in the "exclusive" key of
+the rules files. For each category of a group, this map lists the other categories of the group,
+so that a rule never adds a category that is exclusive with one that the product already has.
+
+=item *
+
+errors: list of validation errors (strings, prefixed with the file, the rule id and the path of the
+condition in the rule, e.g. "if.ingredients.first"). Rules with errors are not included in "rules".
 
 =back
 
@@ -254,21 +289,28 @@ sub load_tags_rules ($dir) {
 	return $ruleset_ref;
 }
 
+# Read the "exclusive" key of a rules file: a list of groups of categories that a product cannot have
+# at the same time, e.g. [[en:caffeinated-colas, en:cola-sodas-without-caffeine]].
+# Fills $ruleset_ref->{exclusive}{category}{other category} = 1 for each pair of categories of a group,
+# and pushes errors to $ruleset_ref->{errors}.
 sub _load_exclusive_groups ($ruleset_ref, $file, $exclusive_ref) {
 
 	if (ref($exclusive_ref) ne 'ARRAY') {
 		push @{$ruleset_ref->{errors}}, "$file: exclusive must be a list of lists of categories";
 		return;
 	}
+	my $i = 0;
 	foreach my $group_ref (@$exclusive_ref) {
+		my $path = "exclusive[" . $i++ . "]";
 		if ((ref($group_ref) ne 'ARRAY') or (scalar @$group_ref < 2)) {
-			push @{$ruleset_ref->{errors}}, "$file: each exclusive group must be a list of at least 2 categories";
+			push @{$ruleset_ref->{errors}},
+				"$file: $path: each exclusive group must be a list of at least 2 categories";
 			next;
 		}
 		my @errors = ();
-		my @group = map {_canonicalize_tag("categories", $_, \@errors)} @$group_ref;
+		my @group = map {_canonicalize_tag("categories", $_, $path, \@errors)} @$group_ref;
 		if (@errors) {
-			push @{$ruleset_ref->{errors}}, map {"$file: exclusive group: $_"} @errors;
+			push @{$ruleset_ref->{errors}}, map {"$file: $_"} @errors;
 			next;
 		}
 		foreach my $tag (@group) {
@@ -281,10 +323,14 @@ sub _load_exclusive_groups ($ruleset_ref, $file, $exclusive_ref) {
 	return;
 }
 
-sub _canonicalize_tag ($field, $tag, $errors_ref) {
+# Check that a tag of a rules file exists in the taxonomy of $field, and that it is written with its
+# canonical id (so that rules are easy to search and to compare with product data).
+# $path is the place of the tag in the rules file (for error messages), e.g. "if.categories".
+# Returns the canonical tag id. Brands have no taxonomy: they are normalized like brands_tags.
+sub _canonicalize_tag ($field, $tag, $path, $errors_ref) {
 
 	if ((not defined $tag) or (ref($tag) ne '') or ($tag eq '')) {
-		push @$errors_ref, "$field: invalid tag value";
+		push @$errors_ref, "$path: invalid tag value, expected a tag id like en:example";
 		return "";
 	}
 
@@ -293,7 +339,7 @@ sub _canonicalize_tag ($field, $tag, $errors_ref) {
 	}
 
 	if ($tag !~ /^[a-z]{2}:/) {
-		push @$errors_ref, "$field: tag '$tag' must be prefixed with a language code (e.g. en:)";
+		push @$errors_ref, "$path: tag '$tag' must be prefixed with a language code (e.g. en:)";
 		return $tag;
 	}
 
@@ -302,10 +348,10 @@ sub _canonicalize_tag ($field, $tag, $errors_ref) {
 
 	my $canon_tag = canonicalize_taxonomy_tag("en", $taxonomy, $tag);
 	if (not exists_taxonomy_tag($taxonomy, $canon_tag)) {
-		push @$errors_ref, "$field: tag '$tag' does not exist in the $taxonomy taxonomy";
+		push @$errors_ref, "$path: tag '$tag' does not exist in the $taxonomy taxonomy";
 	}
 	elsif ($canon_tag ne $tag) {
-		push @$errors_ref, "$field: tag '$tag' is not the canonical id, use '$canon_tag'";
+		push @$errors_ref, "$path: tag '$tag' is not the canonical id, use '$canon_tag'";
 	}
 	return $canon_tag;
 }
@@ -324,6 +370,43 @@ sub _as_list ($value) {
 	return ($value);
 }
 
+=head2 _compile_rule ($ruleset_ref, $file, $rule_def)
+
+Validate one rule of a rules file and compile it.
+
+$rule_def is the rule as read from the YAML file: a mapping with the keys id, description, if, unless, add,
+tests and comment (see docs/dev/explain-tags-rules.md).
+
+Returns the compiled rule, or undef if the rule has errors (the errors are pushed to $ruleset_ref->{errors}).
+The compiled rule is a hash ref with:
+
+=over
+
+=item *
+
+id, description, file, definition (the YAML mapping), tests (the match / no_match fixtures)
+
+=item *
+
+required_categories: the categories of the top-level "categories" condition of "if". Only products in one of
+those categories (or in a child) are evaluated, and the rule can only add categories under them.
+
+=item *
+
+if_sub: closure that returns 1 if all the "if" conditions match the product
+
+=item *
+
+unless_sub: closure that returns 1 if any of the "unless" conditions matches (undef if there is no "unless")
+
+=item *
+
+add: field => list of canonical tags to add
+
+=back
+
+=cut
+
 sub _compile_rule ($ruleset_ref, $file, $rule_def) {
 
 	my @errors = ();
@@ -333,6 +416,8 @@ sub _compile_rule ($ruleset_ref, $file, $rule_def) {
 		return;
 	}
 
+	# Rule ids are global (not prefixed by the file name): they are used in the misc tags
+	# en:tags-rule-[rule id], which must not change when a rule is moved to another file.
 	my $id = $rule_def->{id};
 	if ((not defined $id) or ($id !~ /^[a-z0-9]+(-[a-z0-9]+)*$/)) {
 		push @{$ruleset_ref->{errors}},
@@ -341,6 +426,7 @@ sub _compile_rule ($ruleset_ref, $file, $rule_def) {
 	}
 	my $where = "$file: rule $id";
 
+	# Duplicate ids are reported by tests/unit/tags_rules.t, with the file of the second rule
 	if (defined $ruleset_ref->{by_id}{$id} or $ruleset_ref->{seen_ids}{$id}) {
 		push @{$ruleset_ref->{errors}}, "$where: duplicate rule id";
 		return;
@@ -355,24 +441,25 @@ sub _compile_rule ($ruleset_ref, $file, $rule_def) {
 	# Required categories: the top-level categories condition of "if"
 	my @required_categories = ();
 	if ((ref($rule_def->{if}) ne 'HASH') or (not defined $rule_def->{if}{categories})) {
-		push @errors, "'if' must be a mapping with a top-level 'categories' condition (the required categories)";
+		push @errors, "if: must be a mapping with a top-level 'categories' condition (the required categories)";
 	}
 	else {
 		@required_categories
-			= map {_canonicalize_tag("categories", $_, \@errors)} _as_list($rule_def->{if}{categories});
+			= map {_canonicalize_tag("categories", $_, "if.categories", \@errors)}
+			_as_list($rule_def->{if}{categories});
 	}
 
-	my $if_sub = _compile_condition_all($rule_def->{if}, \@errors);
+	# Conditions: "if" matches when all its conditions match, "unless" when any of its conditions matches
+	my $if_sub = _compile_condition_all($rule_def->{if}, "if", \@errors);
 	my $unless_sub;
 	if (defined $rule_def->{unless}) {
-		my $any_sub = _compile_condition_any($rule_def->{unless}, \@errors);
-		$unless_sub = $any_sub if defined $any_sub;
+		$unless_sub = _compile_condition_any($rule_def->{unless}, "unless", \@errors);
 	}
 
-	# Action
+	# Action: tags to add, for each field
 	my %add = ();
 	if ((ref($rule_def->{add}) ne 'HASH') or (scalar keys %{$rule_def->{add}} == 0)) {
-		push @errors, "'add' must be a mapping of fields to tags, e.g. add: {categories: en:x}";
+		push @errors, "add: must be a mapping of fields to tags, e.g. add: {categories: en:x}";
 	}
 	else {
 		foreach my $field (sort keys %{$rule_def->{add}}) {
@@ -380,13 +467,16 @@ sub _compile_rule ($ruleset_ref, $file, $rule_def) {
 				push @errors, "add: unsupported field '$field' (supported: " . join(", ", sort keys %add_fields) . ")";
 				next;
 			}
-			my @tags = map {_canonicalize_tag($field, $_, \@errors)} _as_list($rule_def->{add}{$field});
-			push @errors, "add: no tags for field $field" if not @tags;
+			my @tags = map {_canonicalize_tag($field, $_, "add.$field", \@errors)} _as_list($rule_def->{add}{$field});
+			push @errors, "add.$field: no tags" if not @tags;
 			$add{$field} = \@tags;
 		}
 	}
 
-	# Added categories must be more precise than the required categories
+	# Added categories must be more precise than the required categories.
+	# A rule refines a category that the product already has: it cannot add an unrelated category.
+	# This keeps rules safe (a rule only applies to the products of its required categories, which a
+	# contributor entered), and lets evaluate_tags_rules() select the rules from the categories of the product.
 	foreach my $tag (@{$add{categories} // []}) {
 		my $under_required = 0;
 		foreach my $required (@required_categories) {
@@ -397,7 +487,7 @@ sub _compile_rule ($ruleset_ref, $file, $rule_def) {
 		}
 		if (not $under_required) {
 			push @errors,
-				"add: category '$tag' must be a descendant of the required categories ("
+				"add.categories: category '$tag' must be a descendant of the required categories ("
 				. join(", ", @required_categories) . ")";
 		}
 	}
@@ -442,45 +532,43 @@ sub _compile_rule ($ruleset_ref, $file, $rule_def) {
 
 Conditions are compiled to closures that take an evaluation context (see _new_context()) and return 1 or 0.
 
+The YAML structure gives the logic, so that most rules need no explicit "all" or "any":
+
 =over
 
 =item *
 
-A mapping: all keys must match (AND).
+Under "if" and "all", the keys of a mapping, or the items of a list, must all match (AND).
+e.g. if: {categories: en:colas, labels: en:organic}
 
 =item *
 
-all: [conditions]: all must match. any: [conditions]: at least one must match.
+Under "any" and "unless", one of the keys of the mapping, or one of the items of the list, must match (OR).
+"unless" lists the cases where the rule must not apply: the rule does not apply if any of them matches.
 
 =item *
 
-not: condition: the condition must not match. A list means "none of the conditions match".
+Each item of a list is itself a condition whose keys must all match (AND).
 
 =item *
 
-unless (at the rule level): a list of conditions, or a mapping: the rule does not apply if any of the
-list items, or any of the mapping keys, matches.
+A list of tags in a tag condition is an OR: categories: [en:x, en:y] matches products in en:x or in en:y.
+
+=item *
+
+not: condition: the condition must not match. not: [c1, c2]: none of the conditions matches.
 
 =back
 
+Each compile function takes the path of the condition in the rule (e.g. "if.any[1].ingredients"),
+used to prefix the error messages, and a reference to the list of errors.
+
 =cut
 
-sub _compile_condition_all ($cond, $errors_ref) {
-
-	my @subs = ();
-	if (ref($cond) eq 'ARRAY') {
-		@subs = map {_compile_condition_all($_, $errors_ref)} @$cond;
-	}
-	elsif (ref($cond) eq 'HASH') {
-		foreach my $key (sort keys %$cond) {
-			push @subs, _compile_condition_key($key, $cond->{$key}, $errors_ref);
-		}
-	}
-	else {
-		push @$errors_ref, "a condition must be a mapping or a list";
-		return sub ($ctx) {0};
-	}
-	@subs = grep {defined} @subs;
+# Compile a condition that matches if all its parts match:
+# a mapping (all keys must match) or a list of conditions (all items must match).
+sub _compile_condition_all ($cond, $path, $errors_ref) {
+	my @subs = _compile_condition_parts($cond, $path, $errors_ref);
 	return sub ($ctx) {
 		foreach my $sub (@subs) {
 			return 0 if not $sub->($ctx);
@@ -489,22 +577,10 @@ sub _compile_condition_all ($cond, $errors_ref) {
 	};
 }
 
-sub _compile_condition_any ($cond, $errors_ref) {
-
-	my @subs = ();
-	if (ref($cond) eq 'ARRAY') {
-		@subs = map {_compile_condition_all($_, $errors_ref)} @$cond;
-	}
-	elsif (ref($cond) eq 'HASH') {
-		foreach my $key (sort keys %$cond) {
-			push @subs, _compile_condition_key($key, $cond->{$key}, $errors_ref);
-		}
-	}
-	else {
-		push @$errors_ref, "a condition must be a mapping or a list";
-		return sub ($ctx) {0};
-	}
-	@subs = grep {defined} @subs;
+# Compile a condition that matches if any of its parts matches:
+# a mapping (any key must match) or a list of conditions (any item must match).
+sub _compile_condition_any ($cond, $path, $errors_ref) {
+	my @subs = _compile_condition_parts($cond, $path, $errors_ref);
 	return sub ($ctx) {
 		foreach my $sub (@subs) {
 			return 1 if $sub->($ctx);
@@ -513,77 +589,118 @@ sub _compile_condition_any ($cond, $errors_ref) {
 	};
 }
 
-sub _compile_condition_key ($key, $value, $errors_ref) {
+# Compile the parts of a condition: each key of a mapping, or each item of a list (an item is itself
+# a mapping or a list, whose parts must all match). Returns the list of closures.
+sub _compile_condition_parts ($cond, $path, $errors_ref) {
+
+	my @subs = ();
+	if (ref($cond) eq 'ARRAY') {
+		my $i = 0;
+		foreach my $item (@$cond) {
+			push @subs, _compile_condition_all($item, $path . "[" . $i++ . "]", $errors_ref);
+		}
+	}
+	elsif (ref($cond) eq 'HASH') {
+		foreach my $key (sort keys %$cond) {
+			push @subs, _compile_condition_key($key, $cond->{$key}, "$path.$key", $errors_ref);
+		}
+	}
+	else {
+		push @$errors_ref,
+			"$path: expected a mapping of conditions (e.g. {labels: en:organic}) or a list of conditions, got '"
+			. ($cond // '') . "'";
+	}
+	return grep {defined} @subs;
+}
+
+# Compile one key of a condition mapping: $key is the type of condition (e.g. "labels", "ingredients", "any")
+# and $value its parameters. Returns a closure, or undef if the condition is unknown.
+sub _compile_condition_key ($key, $value, $path, $errors_ref) {
 
 	if ($key eq 'all') {
-		return _compile_condition_all($value, $errors_ref);
+		return _compile_condition_all($value, $path, $errors_ref);
 	}
 	elsif ($key eq 'any') {
-		return _compile_condition_any($value, $errors_ref);
+		return _compile_condition_any($value, $path, $errors_ref);
 	}
 	elsif ($key eq 'not') {
 		my $sub
 			= (ref($value) eq 'ARRAY')
-			? _compile_condition_any($value, $errors_ref)
-			: _compile_condition_all($value, $errors_ref);
-		return sub ($ctx) {return $sub->($ctx) ? 0 : 1};
+			? _compile_condition_any($value, $path, $errors_ref)
+			: _compile_condition_all($value, $path, $errors_ref);
+		return sub ($ctx) {return not $sub->($ctx)};
 	}
+	# key is a tag field (e.g. labels): the product must have one of the tags, or a child of one of them
 	elsif ($condition_tag_fields{$key}) {
-		my @tags = map {_canonicalize_tag($key, $_, $errors_ref)} _as_list($value);
-		push @$errors_ref, "$key: no tags" if not @tags;
+		my @tags = map {_canonicalize_tag($key, $_, $path, $errors_ref)} _as_list($value);
+		push @$errors_ref, "$path: no tags" if not @tags;
+		# the rule matches if any of the tags of the product (with their parents)
+		# is one of the specified tags
 		return sub ($ctx) {
-			my $set_ref = _tag_set($ctx, $key);
+			my $product_tags_ref = _get_complete_tag_set($ctx, $key);
 			foreach my $tag (@tags) {
-				return 1 if $set_ref->{$tag};
+				return 1 if $product_tags_ref->{$tag};
 			}
 			return 0;
 		};
 	}
-	elsif ($key eq 'categories_exact') {
-		my @tags = map {_canonicalize_tag("categories", $_, $errors_ref)} _as_list($value);
+	# key is a tag field with _exact (e.g. categories_exact): one of the tags must have been entered
+	# on the product, the parents of the entered tags do not match.
+	# e.g. categories_exact: en:colas matches a product entered as en:colas, not one entered as en:diet-colas
+	elsif (($key =~ /^(.+)_exact$/) and ($condition_tag_fields{$1})) {
+		my $field = $1;
+		if ($field eq 'brands') {
+			push @$errors_ref, "$path: brands have no parents, use brands instead";
+			return;
+		}
+		my @tags = map {_canonicalize_tag($field, $_, $path, $errors_ref)} _as_list($value);
+		push @$errors_ref, "$path: no tags" if not @tags;
 		return sub ($ctx) {
-			my $set_ref = _input_tag_set($ctx, "categories");
+			my $product_tags_ref = _get_input_tag_set($ctx, $field);
 			foreach my $tag (@tags) {
-				return 1 if $set_ref->{$tag};
+				return 1 if $product_tags_ref->{$tag};
 			}
 			return 0;
 		};
 	}
 	elsif ($key eq 'ingredients') {
-		return _compile_ingredients_condition($value, $errors_ref);
+		return _compile_ingredients_condition($value, $path, $errors_ref);
 	}
 	elsif ($key eq 'nutrients') {
-		return _compile_nutrients_condition($value, $errors_ref);
+		return _compile_nutrients_condition($value, $path, $errors_ref);
 	}
 	elsif ($key eq 'name') {
-		return _compile_regexp_condition($value, [qw(product_name generic_name)], "name", $errors_ref);
+		return _compile_regexp_condition($value, [qw(product_name generic_name)], $path, $errors_ref);
 	}
 	elsif ($key eq 'ingredients_text') {
-		return _compile_regexp_condition($value, [qw(ingredients_text)], "ingredients_text", $errors_ref);
+		return _compile_regexp_condition($value, [qw(ingredients_text)], $path, $errors_ref);
 	}
 
-	push @$errors_ref, "unknown condition '$key'";
+	push @$errors_ref, "$path: unknown condition '$key'";
 	return;
 }
 
-sub _compile_min_max ($what, $spec, $errors_ref) {
+sub _compile_min_max ($path, $spec, $errors_ref) {
 
 	my ($min, $max) = ($spec->{min}, $spec->{max});
 	foreach my $value ($min, $max) {
 		if ((defined $value) and ($value !~ /^-?\d+(\.\d+)?$/)) {
-			push @$errors_ref, "$what: min and max must be numbers";
+			push @$errors_ref, "$path: min and max must be numbers";
 		}
 	}
 	if ((not defined $min) and (not defined $max)) {
-		push @$errors_ref, "$what: min or max is required";
+		push @$errors_ref, "$path: min or max is required";
 	}
 	return ($min, $max);
 }
 
-sub _compile_ingredients_condition ($spec, $errors_ref) {
+# Compile an ingredients condition: a mapping of ingredients conditions (contains, first, in_first, percent,
+# count_of, known) that must all match. Ingredients are matched with is_a(), so a condition on en:wholemeal-flour
+# also matches en:wholemeal-rye-flour.
+sub _compile_ingredients_condition ($spec, $path, $errors_ref) {
 
 	if (ref($spec) ne 'HASH') {
-		push @$errors_ref, "ingredients: must be a mapping";
+		push @$errors_ref, "$path: must be a mapping, e.g. {first: en:water}";
 		return;
 	}
 
@@ -592,12 +709,13 @@ sub _compile_ingredients_condition ($spec, $errors_ref) {
 	foreach my $key (sort keys %$spec) {
 
 		my $value = $spec->{$key};
+		my $key_path = "$path.$key";
 
 		if (not $ingredients_condition_keys{$key}) {
-			push @$errors_ref, "ingredients: unknown condition '$key'";
+			push @$errors_ref, "$path: unknown condition '$key'";
 		}
 		elsif ($key eq 'contains') {
-			my @of = map {_canonicalize_tag("ingredients", $_, $errors_ref)} _as_list($value);
+			my @of = map {_canonicalize_tag("ingredients", $_, $key_path, $errors_ref)} _as_list($value);
 			push @subs, sub ($ctx) {
 				my $found = 0;
 				_walk_ingredients(
@@ -610,7 +728,7 @@ sub _compile_ingredients_condition ($spec, $errors_ref) {
 			};
 		}
 		elsif ($key eq 'first') {
-			my @of = map {_canonicalize_tag("ingredients", $_, $errors_ref)} _as_list($value);
+			my @of = map {_canonicalize_tag("ingredients", $_, $key_path, $errors_ref)} _as_list($value);
 			push @subs, sub ($ctx) {
 				my $first_ref = deep_get($ctx->{product}, "ingredients", 0);
 				return ((defined $first_ref) and _ingredient_is_a($first_ref, \@of)) ? 1 : 0;
@@ -618,11 +736,11 @@ sub _compile_ingredients_condition ($spec, $errors_ref) {
 		}
 		elsif ($key eq 'in_first') {
 			if ((ref($value) ne 'HASH') or (($value->{n} // '') !~ /^\d+$/) or (not defined $value->{of})) {
-				push @$errors_ref, "ingredients: in_first must be a mapping with n (number) and of (ingredients)";
+				push @$errors_ref, "$key_path: must be a mapping with n (number) and of (ingredients)";
 				next;
 			}
 			my $n = $value->{n};
-			my @of = map {_canonicalize_tag("ingredients", $_, $errors_ref)} _as_list($value->{of});
+			my @of = map {_canonicalize_tag("ingredients", $_, $key_path, $errors_ref)} _as_list($value->{of});
 			push @subs, sub ($ctx) {
 				my $ingredients_ref = $ctx->{product}{ingredients} // [];
 				for (my $i = 0; ($i < $n) and ($i < scalar @$ingredients_ref); $i++) {
@@ -633,18 +751,18 @@ sub _compile_ingredients_condition ($spec, $errors_ref) {
 		}
 		elsif ($key eq 'percent') {
 			if ((ref($value) ne 'HASH') or (not defined $value->{of})) {
-				push @$errors_ref, "ingredients: percent must be a mapping with of (ingredients), min and/or max";
+				push @$errors_ref, "$key_path: must be a mapping with of (ingredients), min and/or max";
 				next;
 			}
 			foreach my $percent_key (keys %$value) {
-				push @$errors_ref, "ingredients: percent: unknown key '$percent_key'"
+				push @$errors_ref, "$key_path: unknown key '$percent_key'"
 					if $percent_key !~ /^(of|min|max|use)$/;
 			}
-			my @of = map {_canonicalize_tag("ingredients", $_, $errors_ref)} _as_list($value->{of});
-			my ($min, $max) = _compile_min_max("ingredients: percent", $value, $errors_ref);
+			my @of = map {_canonicalize_tag("ingredients", $_, $key_path, $errors_ref)} _as_list($value->{of});
+			my ($min, $max) = _compile_min_max($key_path, $value, $errors_ref);
 			my $use = $value->{use} // "any";
 			if ($use !~ /^(declared|estimate|any)$/) {
-				push @$errors_ref, "ingredients: percent: use must be declared, estimate or any";
+				push @$errors_ref, "$key_path: use must be declared, estimate or any";
 			}
 			push @subs, sub ($ctx) {
 				my $ingredients_ref = $ctx->{product}{ingredients};
@@ -658,11 +776,11 @@ sub _compile_ingredients_condition ($spec, $errors_ref) {
 		}
 		elsif ($key eq 'count_of') {
 			if ((ref($value) ne 'HASH') or (not defined $value->{of})) {
-				push @$errors_ref, "ingredients: count_of must be a mapping with of (ingredients), min and/or max";
+				push @$errors_ref, "$key_path: must be a mapping with of (ingredients), min and/or max";
 				next;
 			}
-			my @of = map {_canonicalize_tag("ingredients", $_, $errors_ref)} _as_list($value->{of});
-			my ($min, $max) = _compile_min_max("ingredients: count_of", $value, $errors_ref);
+			my @of = map {_canonicalize_tag("ingredients", $_, $key_path, $errors_ref)} _as_list($value->{of});
+			my ($min, $max) = _compile_min_max($key_path, $value, $errors_ref);
 			push @subs, sub ($ctx) {
 				my %ids = ();
 				_walk_ingredients(
@@ -751,23 +869,25 @@ sub _sum_percent ($ingredients_ref, $of_ref, $use) {
 	return ($sum, $missing);
 }
 
-sub _compile_nutrients_condition ($spec, $errors_ref) {
+# Compile a nutrients condition: nutrient id => {min, max}, all must match.
+# Values are read from the aggregated nutrition set, per 100g or 100ml, as sold.
+sub _compile_nutrients_condition ($spec, $path, $errors_ref) {
 
 	if ((ref($spec) ne 'HASH') or (not %$spec)) {
-		push @$errors_ref, "nutrients: must be a mapping of nutrient ids to {min, max}";
+		push @$errors_ref, "$path: must be a mapping of nutrient ids to {min, max}";
 		return;
 	}
 
 	my @checks = ();
 	foreach my $nid (sort keys %$spec) {
 		if ($nid !~ /^[a-z0-9]+(-[a-z0-9]+)*$/) {
-			push @$errors_ref, "nutrients: invalid nutrient id '$nid'";
+			push @$errors_ref, "$path: invalid nutrient id '$nid'";
 		}
 		if (ref($spec->{$nid}) ne 'HASH') {
-			push @$errors_ref, "nutrients: $nid must be a mapping with min and/or max";
+			push @$errors_ref, "$path.$nid: must be a mapping with min and/or max";
 			next;
 		}
-		my ($min, $max) = _compile_min_max("nutrients: $nid", $spec->{$nid}, $errors_ref);
+		my ($min, $max) = _compile_min_max("$path.$nid", $spec->{$nid}, $errors_ref);
 		push @checks, [$nid, $min, $max];
 	}
 
@@ -797,27 +917,30 @@ sub _normalize_text ($text) {
 	return lc(unac_string_perl($text));
 }
 
-sub _compile_regexp_condition ($spec, $fields_ref, $what, $errors_ref) {
+# Compile a regular expression condition on text fields: language code (or "any") => regular expression.
+# Matches if one of the regular expressions matches one of the $fields_ref fields in its language
+# (case and accent insensitive).
+sub _compile_regexp_condition ($spec, $fields_ref, $path, $errors_ref) {
 
 	if ((ref($spec) ne 'HASH') or (not %$spec)) {
-		push @$errors_ref, "$what: must be a mapping of language codes (or 'any') to regular expressions";
+		push @$errors_ref, "$path: must be a mapping of language codes (or 'any') to regular expressions";
 		return;
 	}
 
 	my %regexps = ();
 	foreach my $lc (sort keys %$spec) {
 		if ($lc !~ /^([a-z]{2}|any)$/) {
-			push @$errors_ref, "$what: invalid language code '$lc'";
+			push @$errors_ref, "$path: invalid language code '$lc'";
 			next;
 		}
 		my $pattern = $spec->{$lc};
 		if ((not defined $pattern) or (ref($pattern) ne '') or ($pattern eq '')) {
-			push @$errors_ref, "$what: $lc: invalid regular expression";
+			push @$errors_ref, "$path.$lc: invalid regular expression";
 			next;
 		}
 		my $regexp = eval {qr/${\ unac_string_perl($pattern)}/i};
 		if ($@ or not defined $regexp) {
-			push @$errors_ref, "$what: $lc: invalid regular expression '$pattern': $@";
+			push @$errors_ref, "$path.$lc: invalid regular expression '$pattern': $@";
 			next;
 		}
 		$regexps{$lc} = $regexp;
@@ -855,10 +978,13 @@ The tags are recomputed with their parents from the current taxonomy.
 
 =cut
 
+# sets: field => {tag => 1} for _get_complete_tag_set(), input_sets: same for _get_input_tag_set()
 sub _new_context ($product_ref) {
 	return {product => $product_ref, sets => {}, input_sets => {}};
 }
 
+# Return the tags entered for a field (without parents), from all the sources of tags_sources.[field]
+# except the "rules" source. Returns undef if the field has no tags_sources (e.g. older product data).
 sub _input_tags ($product_ref, $field) {
 	my $sources_ref = deep_get($product_ref, "tags_sources", $field);
 	if ((ref($sources_ref) eq 'HASH') and (%$sources_ref)) {
@@ -873,7 +999,11 @@ sub _input_tags ($product_ref, $field) {
 	return;
 }
 
-sub _tag_set ($ctx, $field) {
+# Return the set of tags of the product for a field, with their parents: {tag => 1}.
+# Used by tag conditions (e.g. categories: en:colas also matches a product in en:diet-colas).
+# Tags added by rules are not included (rules are flat), except for products without tags_sources,
+# where the [field]_tags are used as is.
+sub _get_complete_tag_set ($ctx, $field) {
 	return $ctx->{sets}{$field} //= do {
 		my $product_ref = $ctx->{product};
 		my @tags;
@@ -893,7 +1023,9 @@ sub _tag_set ($ctx, $field) {
 	};
 }
 
-sub _input_tag_set ($ctx, $field) {
+# Return the set of tags entered on the product for a field, without their parents: {tag => 1}.
+# Used by [field]_exact conditions. Without tags_sources, the most specific tags of [field]_tags are used.
+sub _get_input_tag_set ($ctx, $field) {
 	return $ctx->{input_sets}{$field} //= do {
 		my $input_tags_ref = _input_tags($ctx->{product}, $field)
 			// [get_minimal_tags_subset($field, $ctx->{product}{$field . "_tags"} // [])];
@@ -1031,7 +1163,7 @@ sub evaluate_tags_rules ($product_ref, $options_ref = {}) {
 	}
 
 	# Candidate rules: rules indexed by one of the categories of the product
-	my $categories_ref = _tag_set($ctx, "categories");
+	my $categories_ref = _get_complete_tag_set($ctx, "categories");
 	my %candidates = ();
 	foreach my $category (keys %$categories_ref) {
 		foreach my $rule_ref (@{$ruleset_ref->{by_category}{$category} // []}) {
@@ -1055,7 +1187,8 @@ sub evaluate_tags_rules ($product_ref, $options_ref = {}) {
 						push @{$result_ref->{already}{$rule_ref->{id}}}, $tag;
 						next;
 					}
-					my @conflicts = _category_conflicts($ruleset_ref, $tag, $categories_ref, _tag_set($ctx, "labels"));
+					my @conflicts = _category_conflicts($ruleset_ref, $tag, $categories_ref,
+						_get_complete_tag_set($ctx, "labels"));
 					if (@conflicts) {
 						push @{$result_ref->{conflicts}}, {rule => $rule_ref->{id}, tag => $tag, with => \@conflicts};
 						_add_result($result_ref, "data_quality_warnings", $conflict_warning, $rule_ref->{id});
@@ -1072,11 +1205,20 @@ sub evaluate_tags_rules ($product_ref, $options_ref = {}) {
 	if ((defined $added_categories_ref) and (scalar keys %$added_categories_ref > 1)) {
 		my %conflicting = ();
 		foreach my $tag (sort keys %$added_categories_ref) {
-			my %others = map {$_ => 1} grep {$_ ne $tag} keys %$added_categories_ref;
-			my %others_with_parents = map {$_ => 1} gen_tags_list_with_parents("en", "categories", [keys %others]);
-			my @conflicts = grep {$others{$_}} _category_conflicts($ruleset_ref, $tag, \%others_with_parents);
-			if (@conflicts) {
-				$conflicting{$tag} = \@conflicts;
+			# The other added categories and their parents, each mapped to the added categories it comes from:
+			# a conflict is often found on a parent (e.g. an exclusive group of parent categories)
+			my %others_with_parents = ();
+			foreach my $other (grep {$_ ne $tag} keys %$added_categories_ref) {
+				foreach my $other_or_parent (gen_tags_list_with_parents("en", "categories", [$other])) {
+					$others_with_parents{$other_or_parent}{$other} = 1;
+				}
+			}
+			my %conflicts = ();
+			foreach my $conflict (_category_conflicts($ruleset_ref, $tag, \%others_with_parents)) {
+				$conflicts{$_} = 1 foreach keys %{$others_with_parents{$conflict} // {}};
+			}
+			if (%conflicts) {
+				$conflicting{$tag} = [sort keys %conflicts];
 			}
 		}
 		foreach my $tag (sort keys %conflicting) {
@@ -1231,9 +1373,9 @@ Build a product from a test fixture of a rules file, so that rule authors only n
 	brands: [xx:some-brand]                   # -> brands_tags
 	ingredients: [en:water, {id: en:sugar, percent: 10, ingredients: [...]}]
 	nutrients: {cocoa: 55}                    # -> nutrition.aggregated_set (per 100g, as sold)
+	product_name_fr: Moutarde douce           # other fields are copied as is
 
 Tags and ingredient ids are canonicalized (e.g. en:citric-acid -> en:e330), so fixtures can use synonyms.
-	product_name_fr: Moutarde douce           # other fields are copied as is
 
 =cut
 
