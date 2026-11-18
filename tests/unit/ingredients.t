@@ -1786,6 +1786,14 @@ puffed orange and caramelized unknown_fruit4.",
 				"celozrnné ovesné vločky, kukuřičné lupínky, pšeničná sladová mouka, hrachová mouka, hrachová vláknina, citrusová vláknina, bambusová vláknina, karamelizovaný cukr, řepný cukr, kokosový cukr, javorový sirup, kakao se sníženým obsahem tuku, kakaové boby, čokoládový prášek, sezamová pasta, datlová pasta, rajčatový prášek, meruňkové pyré, jahodové pyré, višně, květák, ledový salát, černá mrkev, koncentrát z mrkve, kuřecí maso, bramborová bílkovina, bramborové vločky, mák, dýňová semínka, zeleninový vývar, pramenitá voda, himalájská sůl, jedlá sůl s jódem, řepkový lecitin, lékořicový extrakt, kypřící látky (uhličitany draselné), konzervanty (E202), nosič (E1520), balicí plyny (E941).",
 		}
 	],
+	[
+		'sk-frequent-unknown-ingredients',
+		{
+			lc => "sk",
+			ingredients_text =>
+				"pitná voda, soľ, cibuľa, zemiaky, mrkva, jahody, cuketa, datle, cícer, okara, múka pšeničná, múka sójová, zemiakový škrob, pšeničný škrob, rastlinné oleje, kokosový olej, rastlinné tuky, kokosový tuk, sušené odtučnené mlieko, mliečna bielkovina, hrachová bielkovina, odtučnený kakaový prášok, trstinový cukor, fruktóza, droždie, kvasničný extrakt, kvasný ocot liehový, koreniny, byliny, kurkuma, biele korenie, sušený cesnak, cesnak, koreň petržlenu, zelerové semeno, karamelový sirup, maltodextrín, prírodná minerálna voda, ryžové vločky, ľanové semienko, kvasný ocot vínny, kvasnicový extrakt, namočený cícer, horčičné semeno, petržlenová vňať, prírodná aróma, arómy, jogurtová kultúra, enzým laktáza, poleva, kyseliny (kyselina citrónová), regulátory kyslosti (citrany sodné), emulgátory (E471), stabilizátory (guma guar, xantánová guma), zahusťovadlá (metylcelulóza), antioxidanty (E300, E306), konzervačné látky (E202, disiričitan draselný), kypriace látky (uhličitany amónne), farbivá (karotény, amoniakový sulfitový karamel), protihrudkové činidlo (E551), zvýrazňovače chuti (E621), želírujúce látky (E440), polevové činidlá (E903), nosič (E1520), baliace plyny (E941), zvlhčovadlá (E422).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
