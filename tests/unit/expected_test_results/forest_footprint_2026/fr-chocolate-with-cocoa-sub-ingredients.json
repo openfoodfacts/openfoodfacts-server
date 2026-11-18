@@ -1,0 +1,70 @@
+{
+   "forest_footprint_2026" : {
+      "grade" : "b",
+      "primary_ingredients" : {
+         "en:cocoa" : {
+            "footprint_per_kg" : 0.0592,
+            "grade" : "b",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.03552,
+                  "ingredient_category_id" : "en:cocoa-paste",
+                  "ingredient_id" : "en:cocoa-paste",
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
+                  "percent" : 12,
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               },
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.02368,
+                  "ingredient_category_id" : "en:cocoa-paste",
+                  "ingredient_id" : "en:cocoa-butter",
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
+                  "percent" : 8,
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
+         }
+      },
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 0.0592
+   },
+   "ingredients" : [
+      {
+         "id" : "en:chocolate",
+         "ingredients" : [
+            {
+               "id" : "en:cocoa-paste",
+               "percent" : 12,
+               "text" : "pâte de cacao"
+            },
+            {
+               "id" : "en:cocoa-butter",
+               "percent" : 8,
+               "text" : "beurre de cacao"
+            }
+         ],
+         "percent" : 20,
+         "text" : "chocolat"
+      },
+      {
+         "id" : "en:wheat-flour",
+         "percent_estimate" : 80,
+         "text" : "farine de blé"
+      }
+   ],
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-b"
+   ]
+}

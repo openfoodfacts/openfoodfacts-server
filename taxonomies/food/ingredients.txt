@@ -95375,6 +95375,13 @@ ciqual_food_code:en: 40054
 ciqual_food_name:en: Heart, chicken, raw
 ciqual_food_name:fr: Coeur, poulet, cru
 
+< en: chicken
+en: chicken gizzard, chicken gizzards
+fr: gésier de poulet, gésiers de poulet
+ciqual_food_code:en: 40700
+ciqual_food_name:en: Gizzard, chicken, raw
+ciqual_food_name:fr: Gésier, poulet, cru
+
 # <en:liver
 < en: chicken
 en: chicken liver
@@ -95641,6 +95648,9 @@ it: filetto di pollo pregiato
 
 < en: chicken fillet
 fr: filet de poulet jaune, filets de poulet jaune
+
+< en: chicken thigh
+fr: cuisse de poulet jaune, cuisses de poulet jaune
 # 6@2019-06-07
 
 < en: chicken fillet
@@ -95913,9 +95923,6 @@ de: Enten-Kaumagen, Enten-Kaumägen
 fr: gésier de canard
 hr: pačji želudac
 it: ventriglio d'anatra
-#ciqual_food_code:en: 40700
-#ciqual_food_name:en: Gizzard, chicken, raw
-#ciqual_food_name:fr: Gésier, poulet, cru
 ciqual_food_code:en: 40702
 ciqual_food_name:en: Gizzard, duck, raw
 #46 in 2 @2021-09-12
