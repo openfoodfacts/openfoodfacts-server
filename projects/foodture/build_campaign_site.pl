@@ -31,6 +31,8 @@ use Getopt::Long;
 # - index.html: summary per country (sortable), with links to the country pages and to the campaign tools.
 #   index.html?country=<cc> redirects to the page of the country.
 # - <cc>.html: categories needed in one country (cc = country subdomain on openfoodfacts.org: at, be, uk...)
+# - <cc>_ingredients.html: Taxonomy Wiz, unknown ingredients in the selected products of the country
+#   (<cc>.html#ingredients redirects to it)
 # - all.html: all countries on one page
 # - data.js: data for the Scan Champion and Data Detective mini-sites
 #   (https://github.com/openfoodfacts/smooth-app_assets, same format as their own data.js)
@@ -43,21 +45,40 @@ use Getopt::Long;
 #
 # --history: metrics of each country for each day (foodture_history.csv), completed (or updated for the same date)
 # at each run, for the progress charts of the pages. Kept in the output directory.
+#
+# --partners: organizations that relay the campaign in a country (associations, communities...), shown on the page of
+# the country. JSON file: {"si": [{"name": "...", "url": "https://...", "logo": "https://..."}], ...}, keys are the
+# country codes of the pages. Read from partners.json in the output directory if the option is not given.
 
 my $usage
-	= "build_campaign_site.pl --json <foodture_campaign.json> --output-dir <dir> [--baseline <file.json>] [--history <file.csv>]\n";
+	= "build_campaign_site.pl --json <foodture_campaign.json> --output-dir <dir> [--baseline <file.json>] [--history <file.csv>] [--partners <file.json>]\n";
 
-my ($json_file, $output_dir, $baseline_file, $history_file);
+my ($json_file, $output_dir, $baseline_file, $history_file, $partners_file);
 GetOptions(
 	"json=s" => \$json_file,
 	"output-dir=s" => \$output_dir,
 	"baseline=s" => \$baseline_file,
-	"history=s" => \$history_file
+	"history=s" => \$history_file,
+	"partners=s" => \$partners_file
 ) or die $usage;
 (defined $json_file and defined $output_dir) or die $usage;
 -d $output_dir or die "Output directory $output_dir does not exist\n";
 $baseline_file //= "$output_dir/scan_champion_baseline.json";
 $history_file //= "$output_dir/foodture_history.csv";
+$partners_file //= "$output_dir/partners.json";
+
+# Partners of each country: $partners{cc} = [{name, url, logo}]
+my %partners = ();
+if (-e $partners_file) {
+	open(my $PARTNERS, '<:raw', $partners_file) or die "Cannot read $partners_file: $!\n";
+	%partners = %{JSON::MaybeXS->new(utf8 => 1)->decode(
+			do {local $/; <$PARTNERS>}
+		)
+	};
+	close $PARTNERS;
+}
+# Contact for organizations that want to relay the campaign
+my $partners_contact = 'contact@openfoodfacts.org';
 
 open(my $IN, '<:raw', $json_file) or die "Cannot read $json_file: $!\n";
 my $data_ref = JSON::MaybeXS->new(utf8 => 1)->decode(
@@ -199,6 +220,11 @@ sub page_file ($country) {
 	return $countries{$country}{country_code} . ".html";
 }
 
+# Taxonomy Wiz page of a country: unknown ingredients in the selected products
+sub ingredients_page_file ($country) {
+	return $countries{$country}{country_code} . "_ingredients.html";
+}
+
 sub pct ($s) {
 	return $s->{total} ? 100 * ($s->{OK} // 0) / $s->{total} : 0;
 }
@@ -277,6 +303,17 @@ figure.chart .cross { stroke: var(--muted); stroke-width: 1; }
 .tooltip { position: absolute; pointer-events: none; background: var(--bg); color: var(--fg); border: 1px solid var(--line);
 	border-radius: 6px; padding: 6px 8px; font-size: 0.85em; box-shadow: 0 2px 8px rgba(0,0,0,.15); white-space: nowrap; }
 details.table-view summary { cursor: pointer; color: var(--link); font-size: 0.9em; }
+.help { border: 2px solid var(--ok); border-radius: 8px; padding: 12px 16px; margin: 16px 0; background: var(--ok-bg); }
+.help h2 { border: none; margin: 0 0 8px; padding: 0; }
+.help ol { margin: 8px 0; padding-left: 22px; }
+.help li { margin: 4px 0; }
+.help .apps { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; }
+.help .apps a, .help .cta { display: inline-block; padding: 6px 12px; border-radius: 16px; text-decoration: none; background: var(--bg); border: 1px solid var(--line); }
+.help .cta { background: var(--ok); color: var(--bg); border-color: var(--ok); font-weight: 600; }
+.partners { margin: 16px 0; }
+.partners .sponsors { justify-content: flex-start; }
+.partners .name { font-weight: 600; text-decoration: none; padding: 8px 12px; }
+.advanced { margin-top: 40px; }
 @media (max-width: 700px) { .summary tr.groups { display: none; } figure.chart { overflow-x: auto; } figure.chart svg { min-width: 540px; }
 	.details-col { display: none; } .summary .wide { display: none; }
 	.filters { position: static; }
@@ -572,7 +609,8 @@ sub tools_links ($country) {
 		$html .= qq{<a href="$scan_champion_url$param">🛒 Scan Champion: scan list for shops</a>\n}
 			. qq{<a href="$data_detective_url$param">🕵️ Data Detective: complete products at home</a>\n};
 	}
-	$html .= qq{<a href="#ingredients">🧙 Taxonomy Wiz: unknown ingredients</a>\n} if defined $country;
+	$html .= qq{<a href="} . ingredients_page_file($country) . qq{">🧙 Taxonomy Wiz: unknown ingredients</a>\n}
+		if defined $country;
 	return $html . qq{<a href="$blog_url">📖 Missions and guide</a>\n</div>\n};
 }
 
@@ -701,6 +739,14 @@ my $filters_script = <<'HTML';
 </script>
 HTML
 
+my $foodture_about = <<HTML;
+<p><a href="https://foodture-project.eu/">FOODTURE</a> is a European research project to build an open database of the
+environmental impacts of the food products consumed in Europe.
+The project needs, for each category of the foods most consumed
+in each European country, one representative product with complete data on Open Food Facts: photos, ingredients and nutrition facts.
+All the data is open and free for everyone to reuse.</p>
+HTML
+
 my $foodture_intro = <<HTML;
 <p><a href="https://foodture-project.eu/">FOODTURE</a> is a European research project to build an open database of the
 environmental impacts of the food products consumed in Europe.
@@ -787,7 +833,7 @@ sub recognized_quantity_badge ($product_ref) {
 
 sub ingredients_section ($country) {
 	my $i = $ingredients{$country};
-	my $html = qq{<h2 id="ingredients">🧙 Taxonomy Wiz: unknown ingredients in the selected products</h2>\n};
+	my $html = '';
 	if ((not defined $i) or (not %{$i->{products}})) {
 		return $html . "<p>No selected product yet.</p>\n";
 	}
@@ -843,10 +889,100 @@ FOODTURE needs it to compute their environmental impact.<br>
 	return $html . "</table></div>\n";
 }
 
+# One line about the ingredients of the selected products, on the country page, with a link to the Taxonomy Wiz page
+sub ingredients_summary ($country) {
+	my $known = known_pct($country);
+	return '' if not defined $known;
+	my ($ok, $products) = quantity_ok_counts($country);
+	return sprintf(
+		qq{<p>%.1f%% of the ingredients of the selected products are recognized, and %d of the %d selected products have at
+least %d%% of their ingredients recognized. <a href="%s">See the unknown ingredients</a>.</p>\n},
+		$known, $ok, $products, $min_recognized_quantity_pct, ingredients_page_file($country)
+	);
+}
+
+# Old links to <cc>.html#ingredients (the ingredients were on the country page) open the Taxonomy Wiz page
+sub ingredients_redirect_script ($country) {
+	my $file = ingredients_page_file($country);
+	return qq{<script>if (location.hash === '#ingredients') { location.replace('$file'); }</script>\n};
+}
+
 sub status_counts ($country) {
 	my %counts = ();
 	$counts{$_->{status}}++ for grep {$_->{country} eq $country} @rows;
 	return \%counts;
+}
+
+# "How you can help" box at the top of the country pages, for people who do not know Open Food Facts
+# (e.g. members of a partner organization)
+my $app_links = <<'HTML';
+<div class="apps">
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner">📱 Android app</a>
+<a href="https://apps.apple.com/app/open-food-facts/id588797948">📱 iPhone app</a>
+<a href="https://f-droid.org/packages/openfoodfacts.github.scrachx.openfood/">F-Droid</a>
+</div>
+HTML
+
+sub how_to_help ($country) {
+	my $s = $summary{$country} // {};
+	my $todo = ($s->{MISSING} // 0) + ($s->{INCOMPLETE} // 0);
+	my $cc = $countries{$country}{country_code};
+	my $tools_cc = $scan_champion_cc{$cc} // $cc;
+	my $name = h($country);
+	my $html = qq{<section class="help">\n<h2>🙌 How you can help in 5 minutes</h2>\n};
+	if (not $todo) {
+		return $html
+			. "<p>All the needed categories of $name have a complete product: thank you! You can still help by making sure their ingredients are recognized (see the advanced contributors section at the bottom of the page).</p>\n</section>\n";
+	}
+	$html
+		.= sprintf(
+		qq{<p><b>We still need %d products sold in %s.</b> One product per category is enough: you do not need to scan everything!</p>\n},
+		$todo, $name);
+	$html .= <<HTML;
+<ol>
+<li>Install the free Open Food Facts app (no account needed to start).</li>
+<li>Look at the list below for a category marked <span class="badge MISSING">no product</span> or
+<span class="badge INCOMPLETE">incomplete only</span>, and find a product of that category at home or in a shop.
+Any brand is fine, ideally a common one.</li>
+<li>Scan its barcode and take 3 photos: the front of the package, the ingredients list and the nutrition facts table.
+That's it: volunteers and AI extract the data from the photos.</li>
+</ol>
+$app_links
+HTML
+	$html .= qq{<p><a class="cta" href="#categories">See the products we need ↓</a>};
+	$html .= qq{ <a href="$scan_champion_url?country=$tools_cc">🛒 Shopping list to use on your phone</a>}
+		if $scan_champion_countries{$tools_cc};
+	$html .= "</p>\n";
+	return $html . "</section>\n";
+}
+
+# Organizations that relay the campaign in the country, and how to become one
+sub partners_section ($country) {
+	my $cc = $countries{$country}{country_code};
+	my @partners = @{$partners{$cc} // []};
+	my $name = h($country);
+	my $html = qq{<section class="partners" id="partners">\n};
+	if (@partners) {
+		$html .= "<h2>🤝 Partners in $name</h2>\n<p>These organizations relay the campaign. Thank you!</p>\n"
+			. qq{<div class="sponsors">\n};
+		foreach my $partner_ref (@partners) {
+			my $content
+				= ($partner_ref->{logo} // '') ne ''
+				? qq{<img src="} . h($partner_ref->{logo}) . qq{" alt="} . h($partner_ref->{name}) . qq{">}
+				: qq{<span class="name">} . h($partner_ref->{name}) . "</span>";
+			$html
+				.= qq{<a href="}
+				. h($partner_ref->{url})
+				. qq{" title="}
+				. h($partner_ref->{name})
+				. qq{">$content</a>\n};
+		}
+		$html .= "</div>\n";
+	}
+	$html .= qq{<p class="muted">Your association, community or school wants to help gather the food products of $name?
+Share this page with your members, and write to <a href="mailto:$partners_contact">$partners_contact</a>
+to be listed as a partner, with your logo and a link to your website.</p>\n};
+	return $html . "</section>\n";
 }
 
 # Country pages
@@ -859,12 +995,14 @@ foreach my $country (@country_names) {
 		. "</h1>\n"
 		. (
 		  $foodture
-		? $foodture_intro
+		? $foodture_about
 		: qq{<div class="note other">\n} . other_intro(0) . other_rule($country) . "</div>\n"
 		)
-		. tools_links($country)
-		. $data_note
-		. progress_chart($country)
+		. how_to_help($country)
+		. partners_section($country)
+		. qq{<h2 id="categories">Products needed in }
+		. h($country)
+		. "</h2>\n"
 		. qq{<div class="filters">\n}
 		. country_select($country)
 		. filters(status_counts($country))
@@ -872,14 +1010,36 @@ foreach my $country (@country_names) {
 		. qq{<section class="country">\n}
 		. country_table($country, 0)
 		. "</section>\n"
-		. ingredients_section($country);
+		. progress_chart($country)
+		. $data_note
+		. qq{<div class="advanced">\n<h2>For advanced contributors</h2>\n}
+		. qq{<p class="muted">You do not need this section to help: scanning and photographing products is the most useful contribution. }
+		. qq{Other campaign tools, including Taxonomy Wiz: the ingredients that Open Food Facts does not recognize yet in the selected products.</p>\n}
+		. ingredients_summary($country)
+		. tools_links($country)
+		. "</div>\n";
 	write_file(
 		page_file($country),
 		page(
-			($foodture ? "FOODTURE" : "Representative products") . ": products needed in $country", $body,
-			$filters_script
+			($foodture ? "FOODTURE" : "Representative products") . ": products needed in $country",
+			$body, $filters_script . ingredients_redirect_script($country)
 		)
 	);
+
+	# Taxonomy Wiz page of the country
+	my $ingredients_body
+		= "<h1>🧙 Taxonomy Wiz: unknown ingredients in "
+		. h($country)
+		. "</h1>\n"
+		. qq{<p><a href="}
+		. page_file($country)
+		. qq{">← Products needed in }
+		. h($country)
+		. "</a></p>\n"
+		. ingredients_section($country)
+		. $data_note;
+	write_file(ingredients_page_file($country),
+		page("Taxonomy Wiz: unknown ingredients in $country", $ingredients_body));
 }
 
 # All countries on one page
@@ -950,7 +1110,7 @@ HTML
 			. sprintf(
 			qq{<td class="wide quality" data-value="%.3f">%s</td><td class="wide">%d</td>},
 			$known // -1,
-			defined $known ? sprintf(qq{<a href="%s#ingredients">%.1f%%</a>}, page_file($country), $known) : '',
+			defined $known ? sprintf(qq{<a href="%s">%.1f%%</a>}, ingredients_page_file($country), $known) : '',
 			$s->{READY} // 0
 			)
 			. bar_cell(full_pct($s))
