@@ -17,6 +17,7 @@ use ProductOpener::Test qw/compare_to_expected_results init_expected_results nor
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::Display qw/$knowledge_panels_options_ref/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
+use ProductOpener::Tags qw/get_property/;
 use boolean qw/true/;
 use ProductOpener::Config qw/%options/;
 
@@ -259,6 +260,48 @@ foreach my $test_ref (@tests) {
 
 	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
+
+# Additives flagged by ANSES get a source line, read from the additive's own taxonomy entry only
+{
+	my $product_ref = {lc => "en", ingredients_text => "sugar, colour: e100, acid: e330, stabiliser: e450iv"};
+	analyze_and_enrich_product_data($product_ref, get_initialized_response());
+	my $options_ref = {};
+	initialize_knowledge_panels_options($options_ref, {});
+	create_knowledge_panels($product_ref, "en", "world", $options_ref, {});
+	my $anses_source_url
+		= "https://www.anses.fr/fr/content/rapport-oqali-bilan-et-%C3%A9volution-de-lutilisation-des-additifs-dans-les-produits-transform%C3%A9s";
+	my $e100_elements_ref = $product_ref->{knowledge_panels_en}{"additive_en:e100"}{elements};
+	is(scalar @$e100_elements_ref, 1, "flagged additive has only the ANSES element");
+	is(
+		$e100_elements_ref->[0]{text_element},
+		{
+			html =>
+				"The French food safety agency ANSES listed this additive as an additive of interest in its 2019 report on the use of additives in processed foods.",
+			source_text => "ANSES - Oqali (2019)",
+			source_url => $anses_source_url,
+		},
+		"flagged additive ANSES element"
+	);
+	is(
+		scalar(
+			grep {($_->{text_element}{source_url} // "") eq $anses_source_url}
+				@{$product_ref->{knowledge_panels_en}{"additive_en:e330"}{elements}}
+		),
+		0,
+		"unflagged additive has no ANSES element"
+	);
+	is(
+		scalar(
+			grep {($_->{text_element}{source_url} // "") eq $anses_source_url}
+				@{$product_ref->{knowledge_panels_en}{"additive_en:e450iv"}{elements} // []}
+		),
+		0,
+		"unflagged child of a flagged additive has no ANSES element"
+	);
+	is(get_property("additives", "en:e450", "anses_additives_of_interest:en"), "yes", "flag on the parent");
+	is(get_property("additives", "en:e450iv", "anses_additives_of_interest:en"),
+		undef, "flag not inherited by the child");
 }
 
 # The root panel lists ingredients and nutrition first only when the option is set

@@ -14,7 +14,7 @@
             "text_element": {
                 "html": `[% panel.additive_description %]`
             }
-        }
+        },
         [% ELSIF panel.wikipedia_abstract -%]
         {
             "element_type": "text",
@@ -25,7 +25,17 @@
                 "source_lc": "[% panel.wikipedia_url_lc %]",
                 "source_language": "[% panel.wikipedia_url_language %]"
             }
-        }
+        },
+        [% END %]
+        [% IF panel.anses_additive_of_interest -%]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% lang("additives_anses_additive_of_interest") %]`,
+                "source_text": "ANSES - Oqali (2019)",
+                "source_url": "https://www.anses.fr/fr/content/rapport-oqali-bilan-et-%C3%A9volution-de-lutilisation-des-additifs-dans-les-produits-transform%C3%A9s"
+            }
+        },
         [% END %]
     ]
 }
