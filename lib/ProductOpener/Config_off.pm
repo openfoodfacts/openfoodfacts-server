@@ -230,6 +230,15 @@ HTML
 	# Call the Ecobalyse API each time a product is updated or reprocessed (if ECOBALYSE_API_TOKEN is also set).
 	# Otherwise we only prepare the request payload, and the API is called only by update_all_products.pl --compute-ecobalyse
 	ecobalyse_call_api_on_product_update => $ENV{ECOBALYSE_CALL_API_ON_PRODUCT_UPDATE} // 0,
+	# Tags rules (rules/food/, lib/ProductOpener/TagsRules.pm), see docs/dev/explain-tags-rules.md
+	# Flavors without this setting do not run tags rules.
+	tags_rules => {
+		# Tag fields that rule conditions can test (e.g. "labels: en:organic")
+		condition_tag_fields => [qw(categories labels countries brands origins states)],
+		# Tag fields that rules can add tags to (stored in tags_sources.[field].rules).
+		# Data quality tags (data_quality_warnings, data_quality_info) can always be added.
+		add_tag_fields => [qw(categories)],
+	},
 );
 
 $options{export_limit} = 10000;

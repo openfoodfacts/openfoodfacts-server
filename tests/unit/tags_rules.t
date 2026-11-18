@@ -346,7 +346,7 @@ my @semantics_tests = (
 	],
 
 	# nested all / any / not, and unless
-	['nested' => 1, fixture(categories => "en:biscuits", labels => "en:eu-organic")],
+	['nested' => 1, fixture(categories => "en:biscuits", labels => "en:farm-verified-organic")],
 	['nested' => 1, fixture(categories => "en:biscuits", countries => "en:france")],
 	['nested' => 0, fixture(categories => "en:biscuits", countries => "en:france", brands => ["xx:Some Brand"])],
 	['nested' => 0, fixture(categories => "en:biscuits", countries => "en:germany")],
@@ -493,6 +493,80 @@ YAML
 	);
 }
 
+# 2 rules adding categories whose parents are exclusive: the conflict is found on a parent
+{
+	my $parents_dir = write_rules_dir(
+		{
+			"food/categories/parents.yml" => <<'YAML'
+exclusive:
+  - [en:crispbreads-wholemeal, en:crispbreads-non-wholemeal]
+rules:
+  - id: wholemeal-wheat
+    description: child of crispbreads-wholemeal
+    if: {categories: en:crispbreads, ingredients: {contains: en:whole-wheat-flour}}
+    add: {categories: en:wholemeal-wheat-crispbreads}
+    tests: {match: [{categories: en:crispbreads, ingredients: [en:whole-wheat-flour]}]}
+  - id: non-wholemeal
+    description: crispbreads-non-wholemeal
+    if: {categories: en:crispbreads, labels: en:organic}
+    add: {categories: en:crispbreads-non-wholemeal}
+    tests: {match: [{categories: en:crispbreads, labels: en:organic}]}
+YAML
+		}
+	);
+	my $parents_rules_ref = load_tags_rules("$parents_dir/food");
+	is($parents_rules_ref->{errors}, [], "exclusive parents: rules are valid")
+		or diag(join("\n", @{$parents_rules_ref->{errors}}));
+	my $result_ref
+		= evaluate_tags_rules(
+		fixture(categories => ["en:crispbreads"], labels => ["en:organic"], ingredients => ["en:whole-wheat-flour"]),
+		{rules => $parents_rules_ref});
+	is($result_ref->{added}{categories}, undef, "2 rules adding children of exclusive categories: none is added")
+		or diag(Dumper($result_ref));
+	is(
+		[sort map {$_->{rule} . ":" . join(",", @{$_->{with}})} @{$result_ref->{conflicts}}],
+		["non-wholemeal:en:wholemeal-wheat-crispbreads", "wholemeal-wheat:en:crispbreads-non-wholemeal"],
+		"2 rules adding children of exclusive categories: conflicts reported with the added categories"
+	);
+}
+
+# [field]_exact for other tag fields than categories
+{
+	my $exact_dir = write_rules_dir(
+		{
+			"food/categories/exact.yml" => <<'YAML'
+rules:
+  - id: labels-exact
+    description: labels_exact
+    if: {categories: en:colas, labels_exact: en:organic}
+    add: {categories: en:caffeinated-colas}
+    tests: {match: [{categories: en:colas, labels: en:organic}]}
+YAML
+		}
+	);
+	my $exact_rules_ref = load_tags_rules("$exact_dir/food");
+	is($exact_rules_ref->{errors}, [], "labels_exact: rule is valid")
+		or diag(join("\n", @{$exact_rules_ref->{errors}}));
+	is(
+		evaluate_tags_rules(fixture(categories => "en:colas", labels => "en:organic"), {rules => $exact_rules_ref})
+			->{matched},
+		["labels-exact"],
+		"labels_exact: the entered label matches"
+	);
+	is(
+		evaluate_tags_rules(fixture(categories => "en:colas", labels => "en:farm-verified-organic"),
+			{rules => $exact_rules_ref})->{matched},
+		[],
+		"labels_exact: a child of the label does not match"
+	);
+}
+
+# Flavors without the tags_rules setting do not run rules
+{
+	local $ProductOpener::Config::options{tags_rules} = undef;
+	is(get_tags_rules("food")->{rules}, [], "no tags_rules setting: no rules");
+}
+
 # apply_tags_rules_to_product: rules source, categories_tags, misc tags, idempotence
 {
 	my $product_ref = {
@@ -596,6 +670,21 @@ my @validation_tests = (
 		"unknown ingredient",
 		"if: {categories: en:colas, ingredients: {first: en:not-an-ingredient-xyz}}\n  add: {categories: en:caffeinated-colas}",
 		qr/does not exist in the ingredients taxonomy/
+	],
+	[
+		"path of the error in the rule",
+		"if: {categories: en:colas, any: [{labels: en:organic}, {ingredients: {first: en:not-an-ingredient-xyz}}]}\n  add: {categories: en:caffeinated-colas}",
+		qr/rule invalid-rule: if\.any\[1\]\.ingredients\.first: tag 'en:not-an-ingredient-xyz' does not exist/
+	],
+	[
+		"single value instead of a condition",
+		"if: {categories: en:colas, any: en:organic}\n  add: {categories: en:caffeinated-colas}",
+		qr/if\.any: expected a mapping of conditions .* got 'en:organic'/
+	],
+	[
+		"brands_exact",
+		"if: {categories: en:colas, brands_exact: coca-cola}\n  add: {categories: en:caffeinated-colas}",
+		qr/if\.brands_exact: brands have no parents/
 	],
 	[
 		"non canonical tag",
