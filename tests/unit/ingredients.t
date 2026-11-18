@@ -1810,6 +1810,17 @@ puffed orange and caramelized unknown_fruit4.",
 				"pšenično brašno T 850, pšenične bjelančevine, tapiokin škrob, dijetalna vlakna, vlakna cikorije, suncokretove sjemenke, integralne zobene pahuljice, pšenične klice, proteini graška, mliječni protein, sir mascarpone, zrnati sir, atlantski losos, životinjsko sirilo, kvaščevi ekstrakti, limunova kora, mladi luk, bijeli grah, aroma vanilina, natrijev alginat, eritritol, karminska kiselina, kolin klorid, vitamin A palmitat, željezo, kromov klorid, crni slanutak, zeleni grah, sok crvene naranče, ječmena krupica, pileća koža, zrna soje, zaštitne kulture, sredstvo za obradu brašna (E300), sredstva za želiranje (E440), tvar za rahljenje tijesta (E500), sekvestrant (E385), nosač (E1520), plinovi za pakiranje (E941).",
 		}
 	],
+	# “berry content: …” in Swedish
+	# https://github.com/openfoodfacts/openfoodfacts-server/pull/15454
+	[
+		'sv-berry-content',
+		# https://se.openfoodfacts.org/product/7310090244240/jordgubbssylt-bob
+		{
+			lc => "sv",
+			ingredients_text =>
+				"Jordgubbar, socker, vatten, aroniajuicekoncentrat, förtjockningsmedel (pektin), surhetsreglerande medel (citronsyra), konserveringsmedel (kaliumsorbat). Bärmängd: 46 g jordgubbar per 100 g sylt.",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
