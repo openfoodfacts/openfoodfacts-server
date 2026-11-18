@@ -26,6 +26,8 @@ use JSON::MaybeXS;
 use Text::CSV;
 use POSIX ();
 use Getopt::Long;
+use File::Copy ();
+use FindBin;
 
 # Static web pages of the FOODTURE campaign, made from foodture_campaign.json (list_campaign_needed_categories.pl):
 # - index.html: summary per country (sortable), with links to the country pages and to the campaign tools.
@@ -79,6 +81,14 @@ if (-e $partners_file) {
 }
 # Contact for organizations that want to relay the campaign
 my $partners_contact = 'contact@openfoodfacts.org';
+
+# Photos of Open Food Facts members scanning products in shops (from the blog post of the campaign), shown in the
+# "How you can help" box: copied from assets/ next to this script to the output directory
+my @citizen_photos = map {"citizen_scan_$_.jpg"} 1 .. 4;
+foreach my $photo (@citizen_photos) {
+	File::Copy::copy("$FindBin::Bin/assets/$photo", "$output_dir/$photo")
+		or warn "Cannot copy $FindBin::Bin/assets/$photo to $output_dir: $!\n";
+}
 
 open(my $IN, '<:raw', $json_file) or die "Cannot read $json_file: $!\n";
 my $data_ref = JSON::MaybeXS->new(utf8 => 1)->decode(
@@ -314,6 +324,8 @@ details.table-view summary { cursor: pointer; color: var(--link); font-size: 0.9
 .partners .sponsors { justify-content: flex-start; }
 .partners .name { font-weight: 600; text-decoration: none; padding: 8px 12px; }
 .advanced { margin-top: 40px; }
+.help .photos { display: flex; gap: 8px; margin: 4px 0 12px; }
+.help .photos img { flex: 1 1 0; min-width: 0; max-width: 260px; aspect-ratio: 345 / 302; object-fit: cover; border-radius: 6px; }
 @media (max-width: 700px) { .summary tr.groups { display: none; } figure.chart { overflow-x: auto; } figure.chart svg { min-width: 540px; }
 	.details-col { display: none; } .summary .wide { display: none; }
 	.filters { position: static; }
@@ -923,16 +935,29 @@ my $app_links = <<'HTML';
 </div>
 HTML
 
+my $need_help = <<HTML;
+<h3>Do you need help?</h3>
+<p>Write to us at <a href="mailto:$partners_contact">$partners_contact</a>, or
+<a href="https://slack.openfoodfacts.org/">join our Slack</a> and ask your questions in the #foodture channel.</p>
+HTML
+
 sub how_to_help ($country) {
 	my $s = $summary{$country} // {};
 	my $todo = ($s->{MISSING} // 0) + ($s->{INCOMPLETE} // 0);
 	my $cc = $countries{$country}{country_code};
 	my $tools_cc = $scan_champion_cc{$cc} // $cc;
 	my $name = h($country);
-	my $html = qq{<section class="help">\n<h2>🙌 How you can help in 5 minutes</h2>\n};
+	my $html = qq{<section class="help">\n<h2>🙌 How you can help in 5 minutes</h2>\n<div class="photos">}
+		. join("",
+		map {qq{<img src="$_" alt="Open Food Facts volunteer scanning products in a shop" loading="lazy">}}
+			@citizen_photos)
+		. "</div>\n";
 	if (not $todo) {
-		return $html
-			. "<p>All the needed categories of $name have a complete product: thank you! You can still help by making sure their ingredients are recognized (see the advanced contributors section at the bottom of the page).</p>\n</section>\n";
+		return
+			  $html
+			. "<p>All the needed categories of $name have a complete product: thank you! You can still help by making sure their ingredients are recognized (see the advanced contributors section at the bottom of the page).</p>\n"
+			. $need_help
+			. "</section>\n";
 	}
 	$html
 		.= sprintf(
@@ -944,8 +969,9 @@ sub how_to_help ($country) {
 <li>Look at the list below for a category marked <span class="badge MISSING">no product</span> or
 <span class="badge INCOMPLETE">incomplete only</span>, and find a product of that category at home or in a shop.
 Any brand is fine, ideally a common one.</li>
-<li>Scan its barcode and take 3 photos: the front of the package, the ingredients list and the nutrition facts table.
-That's it: volunteers and AI extract the data from the photos.</li>
+<li>Scan its barcode and take 3 photos: the front of the package, the ingredients list and the nutrition facts table.</li>
+<li>Add the category of the product (the one from the list, e.g. "Sauerkrauts"), so that we can find it.
+That's it: volunteers and AI extract the other data from the photos.</li>
 </ol>
 $app_links
 HTML
@@ -953,7 +979,7 @@ HTML
 	$html .= qq{ <a href="$scan_champion_url?country=$tools_cc">🛒 Shopping list to use on your phone</a>}
 		if $scan_champion_countries{$tools_cc};
 	$html .= "</p>\n";
-	return $html . "</section>\n";
+	return $html . $need_help . "</section>\n";
 }
 
 # Organizations that relay the campaign in the country, and how to become one
