@@ -1751,6 +1751,15 @@ puffed orange and caramelized unknown_fruit4.",
 				"pšenična bela moka, glukozni sirup, kakavova masa, palmino olje, repično olje, jagode 12 %, maline, korenje, paradižnikov koncentrat, krompirjev škrob, modificiran škrob, maltodekstrin, jogurt, posneto mleko v prahu, piščančje meso, jedilna želatina, alkoholni kis, vinski kis, ekstrakt kvasa, kvas, karoteni, sirilo, kumarice, emulgatorja (sojini lecitini, E471), stabilizatorji (E407, E412), gostilo (E415), antioksidanta (E300, E306), konzervansa (E202, E211), sredstvi za vzhajanje (E500, E450), sredstvo za ohranjanje vlage (E422), barvila (E160a), sladili (E950, E955), vanilin sladkor.",
 		}
 	],
+	# Frequent Czech ingredients and additive class names
+	[
+		'cs-frequent-unknown-ingredients',
+		{
+			lc => "cs",
+			ingredients_text =>
+				"celozrnné ovesné vločky, kukuřičné lupínky, pšeničná sladová mouka, hrachová mouka, hrachová vláknina, citrusová vláknina, bambusová vláknina, karamelizovaný cukr, řepný cukr, kokosový cukr, javorový sirup, kakao se sníženým obsahem tuku, kakaové boby, čokoládový prášek, sezamová pasta, datlová pasta, rajčatový prášek, meruňkové pyré, jahodové pyré, višně, květák, ledový salát, černá mrkev, koncentrát z mrkve, kuřecí maso, bramborová bílkovina, bramborové vločky, mák, dýňová semínka, zeleninový vývar, pramenitá voda, himalájská sůl, jedlá sůl s jódem, řepkový lecitin, lékořicový extrakt, kypřící látky (uhličitany draselné), konzervanty (E202), nosič (E1520), balicí plyny (E941).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
