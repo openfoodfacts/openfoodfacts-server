@@ -583,14 +583,20 @@ $theme_script$chart_script$script
 HTML
 }
 
+# Last update, under the title of the pages
+my $updated_line = qq{<p class="muted"><small>Updated every day · last update: $dump_date</small></p>\n};
+
+# Details on the data, at the bottom of the pages
 my $data_note = <<HTML;
-<div class="note">
-<b>Updated daily.</b> Open Food Facts products of $dump_date, pages generated $generated.
-The selected product is the most scanned complete product of the category sold in the country (unique scans in $years_text).<br>
-The counts use the latest categories taxonomy. The category pages on the Open Food Facts website can show fewer products
-until all products are updated with the new categories.<br>
-Data for all countries: <a href="foodture_campaign.csv">CSV</a> · <a href="foodture_campaign.json">JSON</a>
-</div>
+<section class="about-data">
+<h2 id="about-data">About the data</h2>
+<p>The pages are updated every day from the Open Food Facts database (products of $dump_date, pages generated $generated).
+For each category, the selected product is the complete product of the category that was scanned by the most people in
+the country (in $years_text).</p>
+<p>The counts use the latest version of the Open Food Facts categories: for a few days, the category pages on the
+Open Food Facts website can show fewer products.</p>
+<p>Download the data for all countries: <a href="foodture_campaign.csv">CSV</a> · <a href="foodture_campaign.json">JSON</a></p>
+</section>
 HTML
 
 sub country_select ($current) {
@@ -941,12 +947,14 @@ my $need_help = <<HTML;
 <a href="https://slack.openfoodfacts.org/">join our Slack</a> and ask your questions in the #foodture channel.</p>
 HTML
 
+# $country = '': summary page, for all the FOODTURE countries
 sub how_to_help ($country) {
 	my $s = $summary{$country} // {};
 	my $todo = ($s->{MISSING} // 0) + ($s->{INCOMPLETE} // 0);
-	my $cc = $countries{$country}{country_code};
+	my $index = $country eq '';
+	my $cc = $index ? '' : $countries{$country}{country_code};
 	my $tools_cc = $scan_champion_cc{$cc} // $cc;
-	my $name = h($country);
+	my $name = $index ? 'the FOODTURE countries' : h($country);
 	my $html = qq{<section class="help">\n<h2>🙌 How you can help in 5 minutes</h2>\n<div class="photos">}
 		. join("",
 		map {qq{<img src="$_" alt="Open Food Facts volunteer scanning products in a shop" loading="lazy">}}
@@ -963,21 +971,31 @@ sub how_to_help ($country) {
 		.= sprintf(
 		qq{<p><b>We still need %d products sold in %s.</b> One product per category is enough: you do not need to scan everything!</p>\n},
 		$todo, $name);
+	my $find_step = $index
+		? qq{Open the page of your country in the list below: it lists the categories marked
+<span class="badge MISSING">no product</span> or <span class="badge INCOMPLETE">incomplete only</span>.
+Find a product of one of these categories at home or in a shop. Any brand is fine, ideally a common one.}
+		: qq{Look at the list below for a category marked <span class="badge MISSING">no product</span> or
+<span class="badge INCOMPLETE">incomplete only</span>, and find a product of that category at home or in a shop.
+Any brand is fine, ideally a common one.};
 	$html .= <<HTML;
 <ol>
 <li>Install the free Open Food Facts app (no account needed to start).</li>
-<li>Look at the list below for a category marked <span class="badge MISSING">no product</span> or
-<span class="badge INCOMPLETE">incomplete only</span>, and find a product of that category at home or in a shop.
-Any brand is fine, ideally a common one.</li>
+<li>$find_step</li>
 <li>Scan its barcode and take 3 photos: the front of the package, the ingredients list and the nutrition facts table.</li>
 <li>Add the category of the product (the one from the list, e.g. "Sauerkrauts"), so that we can find it.
 That's it: volunteers and AI extract the other data from the photos.</li>
 </ol>
 $app_links
 HTML
-	$html .= qq{<p><a class="cta" href="#categories">See the products we need ↓</a>};
-	$html .= qq{ <a href="$scan_champion_url?country=$tools_cc">🛒 Shopping list to use on your phone</a>}
-		if $scan_champion_countries{$tools_cc};
+	if ($index) {
+		$html .= qq{<p><a class="cta" href="#countries">Find your country ↓</a>};
+	}
+	else {
+		$html .= qq{<p><a class="cta" href="#categories">See the products we need ↓</a>};
+		$html .= qq{ <a href="$scan_champion_url?country=$tools_cc">🛒 Shopping list to use on your phone</a>}
+			if $scan_champion_countries{$tools_cc};
+	}
 	$html .= "</p>\n";
 	return $html . $need_help . "</section>\n";
 }
@@ -1019,6 +1037,7 @@ foreach my $country (@country_names) {
 		. ($foodture ? "FOODTURE: products needed in " : "Representative products needed in ")
 		. h($country)
 		. "</h1>\n"
+		. $updated_line
 		. (
 		  $foodture
 		? $foodture_about
@@ -1037,13 +1056,13 @@ foreach my $country (@country_names) {
 		. country_table($country, 0)
 		. "</section>\n"
 		. progress_chart($country)
-		. $data_note
 		. qq{<div class="advanced">\n<h2>For advanced contributors</h2>\n}
 		. qq{<p class="muted">You do not need this section to help: scanning and photographing products is the most useful contribution. }
 		. qq{Other campaign tools, including Taxonomy Wiz: the ingredients that Open Food Facts does not recognize yet in the selected products.</p>\n}
 		. ingredients_summary($country)
 		. tools_links($country)
-		. "</div>\n";
+		. "</div>\n"
+		. $data_note;
 	write_file(
 		page_file($country),
 		page(
@@ -1074,8 +1093,8 @@ foreach my $country (@country_names) {
 	$counts{$_->{status}}++ for @rows;
 	my $body
 		= "<h1>FOODTURE: products needed in each country</h1>\n"
+		. $updated_line
 		. $foodture_intro
-		. $data_note
 		. qq{<div class="filters">\n}
 		. country_select('*')
 		. filters(\%counts)
@@ -1086,6 +1105,7 @@ foreach my $country (@country_names) {
 			if not $countries{$country}{foodture_country};
 		$body .= country_table($country, 1) . "</section>\n";
 	}
+	$body .= $data_note;
 	write_file("all.html", page("FOODTURE: products needed in each country", $body, $filters_script));
 }
 
@@ -1173,13 +1193,11 @@ HTML
 {
 	my $body
 		= "<h1>FOODTURE: products needed in each country</h1>\n"
-		. $foodture_intro
-		. $efsa_note
-		. tools_links(undef)
-		. $data_note
-		. progress_chart('')
-		. "<h2>FOODTURE countries</h2>\n"
-		. qq{<p class="muted">Pick a country to see its categories. Click on a column header to sort.</p>\n}
+		. $updated_line
+		. $foodture_about
+		. how_to_help('')
+		. qq{<h2 id="countries">FOODTURE countries</h2>\n}
+		. qq{<p class="muted">Pick your country to see the products we need. Click on a column header to sort.</p>\n}
 		. summary_table("summary-foodture", \@foodture_names, 1);
 	if (@other_names) {
 		$body
@@ -1190,6 +1208,15 @@ HTML
 			. "</div>\n"
 			. summary_table("summary-other", \@other_names, 0);
 	}
+	$body
+		.= progress_chart('')
+		. qq{<div class="advanced">\n<h2>Other ways to help</h2>\n}
+		. qq{<p class="muted">The campaign tools and the guide of the missions: complete existing products from their photos, }
+		. qq{or make sure their ingredients are recognized.</p>\n}
+		. tools_links(undef)
+		. "</div>\n"
+		. $data_note
+		. $efsa_note;
 	my %pages = map {($countries{$_}{country_code} => page_file($_))} @country_names;
 	# also accept the country codes of the Scan Champion list
 	$pages{$scan_champion_cc{$_}} = $pages{$_} for grep {defined $pages{$_}} keys %scan_champion_cc;
