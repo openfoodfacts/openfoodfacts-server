@@ -391,4 +391,51 @@ foreach my $test_ref (@tests) {
 
 }
 
+subtest 'NOVA facet numeric routing (Issue #15405)' => sub {
+	# Test /nova-group/4 -> tag nova_groups with value 4, page undefined
+	my $req1 = {
+		cc => "world",
+		lc => "en",
+		original_query_string => 'nova-group/4',
+	};
+	$lc = "en";
+	analyze_request($req1);
+	is($req1->{tags}, [['nova_groups', '4']], '/nova-group/4 extracts tag nova_groups with value 4');
+	is($req1->{page}, undef, '/nova-group/4 does not set page number');
+
+	# Test /nova-group/4/2 -> tag nova_groups with value 4, page 2
+	my $req2 = {
+		cc => "world",
+		lc => "en",
+		original_query_string => 'nova-group/4/2',
+	};
+	$lc = "en";
+	analyze_request($req2);
+	is($req2->{tags}, [['nova_groups', '4']], '/nova-group/4/2 extracts tag nova_groups with value 4');
+	is($req2->{page}, '2', '/nova-group/4/2 sets page number to 2');
+
+	# Test /nova-groups/2 -> facet listing with page 2
+	my $req3 = {
+		cc => "world",
+		lc => "en",
+		original_query_string => 'nova-groups/2',
+	};
+	$lc = "en";
+	analyze_request($req3);
+	is($req3->{page}, '2', '/nova-groups/2 sets page number to 2');
+
+	# Test /nova-group/1, /nova-group/2, /nova-group/3
+	foreach my $group (1 .. 3) {
+		my $req = {
+			cc => "world",
+			lc => "en",
+			original_query_string => "nova-group/$group",
+		};
+		$lc = "en";
+		analyze_request($req);
+		is($req->{tags}, [['nova_groups', "$group"]], "/nova-group/$group extracts tag nova_groups with value $group");
+		is($req->{page}, undef, "/nova-group/$group does not set page number");
+	}
+};
+
 done_testing();

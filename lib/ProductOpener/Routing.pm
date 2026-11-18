@@ -602,8 +602,18 @@ sub facets_route($request_ref) {
 	if (scalar @{$request_ref->{components}} > 0) {
 		# The last component can be a page number
 		if ($request_ref->{components}[-1] =~ /^\d+$/) {
-			$request_ref->{page} = pop @{$request_ref->{components}};
-			$log->debug("got a page number", {$request_ref->{page}}) if $log->is_debug();
+			my $is_page = 1;
+			if (scalar @{$request_ref->{components}} >= 2) {
+				my ($tagtype, $lc, $is_singular) = _get_facet_tagtype($request_ref->{components}[-2], $target_lc);
+				if ($is_singular) {
+					# If preceding component is a singular facet tag type (e.g. nova-group), this digit is its value, not a page number
+					$is_page = 0;
+				}
+			}
+			if ($is_page) {
+				$request_ref->{page} = pop @{$request_ref->{components}};
+				$log->debug("got a page number", {$request_ref->{page}}) if $log->is_debug();
+			}
 		}
 	}
 

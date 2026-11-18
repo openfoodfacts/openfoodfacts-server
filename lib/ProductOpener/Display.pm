@@ -1858,6 +1858,39 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		my @tags = @{$results};
 		my $tagtype = $request_ref->{groupby_tagtype};
 
+		# Coalesce legacy and canonical nova_groups tags so each semantic group appears exactly once
+		if ($tagtype eq 'nova_groups') {
+			my %merged_tags;
+			my @order;
+			foreach my $tagcount_ref (@tags) {
+				my $raw_id = $tagcount_ref->{_id};
+				next if not defined $raw_id;
+				my $canon_id = $raw_id;
+				if ($raw_id =~ /^en:[1-4]-/) {
+					$canon_id = $raw_id;
+				}
+				elsif ($raw_id =~ /^(?:en:)?([1-4])$/) {
+					$canon_id = canonicalize_taxonomy_tag("en", "nova_groups", $1) || $raw_id;
+				}
+				elsif ($raw_id =~ /^(?:en:)?not-applicable$/) {
+					$canon_id = "en:not-applicable";
+				}
+				elsif ($raw_id =~ /^(?:en:)?unknown$/) {
+					$canon_id = "en:unknown";
+				}
+				else {
+					$canon_id = canonicalize_taxonomy_tag("en", "nova_groups", $raw_id) || $raw_id;
+				}
+
+				if (not exists $merged_tags{$canon_id}) {
+					push @order, $canon_id;
+					$merged_tags{$canon_id} = { _id => $canon_id, count => 0 };
+				}
+				$merged_tags{$canon_id}{count} += ($tagcount_ref->{count} || 0);
+			}
+			@tags = map { $merged_tags{$_} } @order;
+		}
+
 		if (not defined $request_ref->{structured_response}{count}) {
 			$request_ref->{structured_response}{count} = ($#tags + 1);
 		}
@@ -2183,12 +2216,18 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					. $grade;
 			}
 			elsif ($tagtype eq 'nova_groups') {
-				if ($tagid =~ /^en:(1|2|3|4)/) {
-					my $group = $1;
-					$display = display_taxonomy_tag($lc, $tagtype, $tagid);
+				my $canon = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
+				if ($canon =~ /^en:([1-4])/) {
+					$display = display_taxonomy_tag($lc, $tagtype, $canon) || $canon;
+				}
+				elsif ($canon eq "en:not-applicable" or $tagid =~ /^(?:en:)?not-applicable$/) {
+					$display = display_taxonomy_tag($lc, $tagtype, "en:not-applicable") || lang("not_applicable");
+				}
+				elsif ($canon eq "en:unknown" or $tagid =~ /^(?:en:)?unknown$/) {
+					$display = display_taxonomy_tag($lc, $tagtype, "en:unknown") || lang("unknown");
 				}
 				else {
-					$display = lang("unknown");
+					$display = display_taxonomy_tag($lc, $tagtype, $tagid) || $tagid;
 				}
 			}
 			elsif (defined $taxonomy_fields{$tagtype}) {
@@ -2406,6 +2445,8 @@ HTML
 				{
 					$series_data .= (($products{$nova_group} || 0) + 0) . ',';
 				}
+				my $unknown_count = ($products{"en:unknown"} || 0) + ($products{"unknown"} || 0);
+				$series_data .= ($unknown_count + 0) . ',';
 			}
 
 			$series_data =~ s/,$//;
@@ -4926,11 +4967,18 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					}
 					# Normal single value (not unknown)
 					else {
-						if ($tagtype eq 'nova_groups' and ($tagid eq 'en:unknown' or $tagid eq 'en:not-applicable')) {
-							# Remove language code. for unknown and not-applicable nova_groups
-							$tagid =~ s/^[a-z]{2}://;
+						if ($tagtype eq 'nova_groups' and ($tagid eq 'en:unknown' or $tagid eq 'en:not-applicable' or $tagid eq 'unknown' or $tagid eq 'not-applicable')) {
+							my $tag_bare = $tagid;
+							$tag_bare =~ s/^[a-z]{2}://;
+							my $tag_canon = "en:" . $tag_bare;
+							if ($not) {
+								$query_ref->{$tagtype . $suffix} = {'$nin' => [$tag_canon, $tag_bare]};
+							}
+							else {
+								$query_ref->{$tagtype . $suffix} = {'$in' => [$tag_canon, $tag_bare]};
+							}
 						}
-						if ($not) {
+						elsif ($not) {
 							$query_ref->{$tagtype . $suffix} = {'$ne' => $tagid};
 						}
 						else {

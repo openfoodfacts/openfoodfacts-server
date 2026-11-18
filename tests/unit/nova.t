@@ -121,4 +121,57 @@ foreach my $test_ref (@markers_tests) {
 		or diag Dumper $product_ref->{nova_groups_markers};
 }
 
+subtest 'Canonical NOVA tag generation and non-food prevention (Issue #15405)' => sub {
+	# 1. Product without ingredients: unknown NOVA with canonical tag
+	my $p_no_ing = {
+		lc => "en",
+		categories_tags => ["en:some-category"],
+	};
+	compute_nova_group($p_no_ing);
+	is($p_no_ing->{nova_group}, undef, "NOVA group is undefined when ingredients are missing");
+	is($p_no_ing->{nova_groups_tags}, ["en:unknown"], "Missing ingredients assigns canonical en:unknown");
+	is($p_no_ing->{nova_group_error}, "missing_ingredients", "Sets missing_ingredients error");
+
+	# 2. Product with non-food category: not-applicable with canonical tag
+	my $p_non_food = {
+		lc => "en",
+		categories_tags => ["en:non-food-products"],
+	};
+	compute_nova_group($p_non_food);
+	is($p_non_food->{nova_group}, undef, "NOVA group is undefined for non-food products");
+	is($p_non_food->{nova_groups_tags}, ["en:not-applicable"], "Non-food category assigns canonical en:not-applicable");
+
+	# 3. Product with product_type "beauty" must not receive NOVA scores
+	my $p_beauty = {
+		lc => "en",
+		product_type => "beauty",
+		categories_tags => ["en:body-lotions"],
+		ingredients_text_en => "water, glycerin",
+	};
+	compute_nova_group($p_beauty);
+	is($p_beauty->{nova_group}, undef, "No nova_group for beauty product");
+	is($p_beauty->{nova_groups_tags}, undef, "No nova_groups_tags for beauty product");
+
+	# 4. Product with product_type "product" must not receive NOVA scores
+	my $p_general = {
+		lc => "en",
+		product_type => "product",
+		categories_tags => ["en:hardware"],
+		ingredients_text_en => "steel",
+	};
+	compute_nova_group($p_general);
+	is($p_general->{nova_group}, undef, "No nova_group for general product");
+	is($p_general->{nova_groups_tags}, undef, "No nova_groups_tags for general product");
+
+	# 5. Food product with valid ingredients generates canonical group tag
+	my $p_food = {
+		lc => "en",
+		product_type => "food",
+		categories_tags => ["en:waters"],
+	};
+	compute_nova_group($p_food);
+	is($p_food->{nova_group}, 1, "Water is NOVA 1");
+	is($p_food->{nova_groups_tags}, ["en:1-unprocessed-or-minimally-processed-foods"], "Generates canonical NOVA 1 tag");
+};
+
 done_testing();

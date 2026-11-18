@@ -2150,7 +2150,7 @@ sub create_nova_panel ($product_ref, $target_lc, $target_cc, $options_ref, $requ
 	# Do not display the NOVA panel if it is not applicable
 	if (    (feature_enabled("nova"))
 		and (exists $product_ref->{nova_groups_tags})
-		and (not $product_ref->{nova_groups_tags}[0] eq "not-applicable"))
+		and (not $product_ref->{nova_groups_tags}[0] =~ /^(?:en:)?not-applicable$/))
 	{
 
 		$panel_data_ref->{nova_group_tag} = $product_ref->{nova_groups_tags}[0];

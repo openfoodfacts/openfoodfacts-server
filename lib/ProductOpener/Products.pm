@@ -1217,6 +1217,17 @@ sub change_product_type ($product_ref, $new_product_type) {
 		$log->info("changing product type",
 			{old_product_type => $product_ref->{old_product_type}, product_type => $new_product_type})
 			if $log->is_info();
+
+		# If the new product type does not support NOVA, remove obsolete NOVA fields
+		if (!feature_enabled("nova", { product_type => $new_product_type })) {
+			remove_fields(
+				$product_ref,
+				[
+					"nova_group_debug", "nova_group", "nova_groups", "nova_groups_tags",
+					"nova_group_tags", "nova_groups_markers", "nova_group_error"
+				]
+			);
+		}
 	}
 
 	return;
@@ -3833,13 +3844,18 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	# Run special analysis, score calculations that it specific to the product type
 
-	if (($options{product_type} eq "food")) {
+	my $product_type
+		= ((defined $product_ref) and (defined $product_ref->{product_type}))
+		? $product_ref->{product_type}
+		: $options{product_type};
+
+	if ($product_type eq "food") {
 		specific_processes_for_food_product($product_ref);
 	}
-	elsif (($options{product_type} eq "petfood")) {
+	elsif ($product_type eq "petfood") {
 		specific_processes_for_pet_food_product($product_ref);
 	}
-	elsif (($options{product_type} eq "beauty")) {
+	elsif ($product_type eq "beauty") {
 		specific_processes_for_beauty_product($product_ref);
 	}
 
