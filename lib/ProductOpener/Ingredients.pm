@@ -302,6 +302,9 @@ sub init_labels_regexps() {
 				# simple singulars and plurals
 				my $singular = $synonym;
 				$singular =~ s/s$//;
+				# a final dot is optional, as it is often removed with the ingredient separators:
+				# "Grana Padano D.O.P." -> "Grana Padano D.O.P"
+				$singular =~ s/\.$/\\.?/;
 				$label_regexp .= '|' . $singular . '|' . $singular . 's';
 
 				my $unaccented_synonym = unac_string_perl($singular);
@@ -1509,7 +1512,8 @@ sub _extract_ingredient_labels ($lc, $ingredient) {
 		my $regexp = $label_regexps_ref->{$labelid};
 		next unless defined $regexp;
 		my $is_dietary = $labelid =~ /^en:(?:vegan|vegetarian)$/;
-		while ($ingredient =~ compiled_regexp('\b(' . $regexp . ')\b')) {
+		# Use lookarounds instead of \b, as labels can end with a dot ("g.U.", "D.O.P.")
+		while ($ingredient =~ compiled_regexp('(?<!\w)(' . $regexp . ')(?!\w)')) {
 			my $label = $1;
 			my $before_the_label = $`;
 			my $after_the_label = $';
@@ -8438,20 +8442,6 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text
 		=~ s/\b(e|[1-9][ab])(\d{3,4})([a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/normalize_additive_code($1,$2,$3,$4,$&)/ieg;
 
-	# stabilisant e420 (sans : ) -> stabilisant : e420
-	# but not acidifier (pectin) : acidifier : (pectin)
-
-	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
-	# warning: the additive class may also be the start of the name of an additive.
-	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
-	if (defined $additives_classes_regexps{$ingredients_lc}) {
-		my $regexp = $additives_classes_regexps{$ingredients_lc};
-		# negative look ahead so that the additive class is not preceded by other words
-		# e.g. "de l'acide" should not match "acide"
-		my $separate_additive_class_regexp = compiled_regexp('(?<!\w( |\'))\b(' . $regexp . ')(\s+)(:?)(?!\(| \()');
-		$text =~ s/$separate_additive_class_regexp/separate_additive_class($ingredients_lc,$2,$3,$4,$')/eg;
-	}
-
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
@@ -8474,6 +8464,22 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# only before words of 4+ letters, so that we do not join "and" words of other languages ("mono - und")
 	# or "di-t-butyl"
 	$text =~ s/\b(mono|di)\s?-\s?(\p{L}{4})/$1$2/ig;
+
+	# stabilisant e420 (sans : ) -> stabilisant : e420
+	# but not acidifier (pectin) : acidifier : (pectin)
+	# This is done after the normalization of mono-, di- prefixes above, so that the additive that follows
+	# the class is recognized: "Emulgator Mono - und Diglyceride" -> "Emulgator : Mono- und Diglyceride"
+
+	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
+	# warning: the additive class may also be the start of the name of an additive.
+	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
+	if (defined $additives_classes_regexps{$ingredients_lc}) {
+		my $regexp = $additives_classes_regexps{$ingredients_lc};
+		# negative look ahead so that the additive class is not preceded by other words
+		# e.g. "de l'acide" should not match "acide"
+		my $separate_additive_class_regexp = compiled_regexp('(?<!\w( |\'))\b(' . $regexp . ')(\s+)(:?)(?!\(| \()');
+		$text =~ s/$separate_additive_class_regexp/separate_additive_class($ingredients_lc,$2,$3,$4,$')/eg;
+	}
 
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;

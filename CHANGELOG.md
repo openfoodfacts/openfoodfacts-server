@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.123.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.122.0...v2.123.0) (2026-11-17)
+
+
+### Features
+
+* Add parsing of oil and protein in danish ([#15404](https://github.com/openfoodfacts/openfoodfacts-server/issues/15404)) ([3ac721c](https://github.com/openfoodfacts/openfoodfacts-server/commit/3ac721cf7315e2ab554c24c4a5ff75eae158cfa1))
+
+
+### Bug Fixes
+
+* improve mobile menu and country search accessibility ([#15361](https://github.com/openfoodfacts/openfoodfacts-server/issues/15361)) ([5cf68b6](https://github.com/openfoodfacts/openfoodfacts-server/commit/5cf68b6d6dfbceb2c065b86cc7382bb89e26309f)), closes [#10288](https://github.com/openfoodfacts/openfoodfacts-server/issues/10288)
+* **ingredients:** minimum/maximum percentage words for de, it, pt, nl, hu and ro ([#15411](https://github.com/openfoodfacts/openfoodfacts-server/issues/15411)) ([a076951](https://github.com/openfoodfacts/openfoodfacts-server/commit/a07695119a66b58a19ed28f175848f2886dfb6ab))
+* **ingredients:** recognise 'Emulgator Mono- und Diglyceride' and labels ending with a dot (g.U.) ([#15412](https://github.com/openfoodfacts/openfoodfacts-server/issues/15412)) ([2a70071](https://github.com/openfoodfacts/openfoodfacts-server/commit/2a700715b0613b3521bb92b60429fafaa9670bc9))
+
 ## [2.122.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.121.0...v2.122.0) (2026-11-16)
 
 
