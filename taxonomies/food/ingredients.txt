@@ -35717,6 +35717,21 @@ ro: suc de agave
 ru: сок агавы
 sl: agavin sok
 sv: agavesaft
+ciqual_proxy_food_code:en: 31089
+ciqual_proxy_food_name:en: Syrup, agave
+ecobalyse_proxy_alias:en: glucose-syrup-2025
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_crop_group:en: DIVERS
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: glucose-syrup-2025
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 vegan:en: yes
 vegetarian:en: yes
 
@@ -106295,8 +106310,3 @@ wikidata:en: Q223081
 
 < en: hydroxymethylbutyrate
 en: calcium beta-hydroxy beta-methyl butyrate
-
-# some products include a fork that can be eaten. e.g. https://world.openfoodfacts.org/product/3242274030056/salade-compagnie-manhattan-oeuf-poulet-roti-fromage-sauce-balsamique
-# <en: compound
-en: fork, eatable fork
-fr: fourchette, fourchette comestible
