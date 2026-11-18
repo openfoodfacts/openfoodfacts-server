@@ -85,7 +85,9 @@ my $partners_contact = 'contact@openfoodfacts.org';
 # Photos of Open Food Facts members scanning products in shops (from the blog post of the campaign), shown in the
 # "How you can help" box: copied from assets/ next to this script to the output directory
 my @citizen_photos = map {"citizen_scan_$_.jpg"} 1 .. 4;
-foreach my $photo (@citizen_photos) {
+# Funding logos of the footer (from the footer of https://foodture-project.eu/)
+my @funding_logos = qw/funded_by_the_eu.jpg swiss_sbfi.jpg/;
+foreach my $photo (@citizen_photos, @funding_logos) {
 	File::Copy::copy("$FindBin::Bin/assets/$photo", "$output_dir/$photo")
 		or warn "Cannot copy $FindBin::Bin/assets/$photo to $output_dir: $!\n";
 }
@@ -265,6 +267,9 @@ footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line);
 .sponsors { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center; margin: 8px 0 16px; }
 .sponsors a { display: inline-flex; align-items: center; background: #fff; border-radius: 8px; padding: 8px 12px; }
 .sponsors img { height: 48px; width: auto; }
+.funding { max-width: 720px; margin: 0 auto 16px; }
+.funding .sponsors span { display: inline-flex; background: #fff; border-radius: 8px; padding: 8px 12px; }
+.funding .sponsors img { height: 44px; max-width: 100%; }
 h1 { font-size: 1.6rem; margin: 20px 0 8px; }
 h2 { font-size: 1.25rem; margin: 32px 0 4px; padding-top: 8px; border-top: 2px solid var(--line); }
 a { color: var(--link); }
@@ -367,6 +372,16 @@ my $footer = <<'HTML';
 <div class="sponsors">
 <a href="https://www.fondationdefrance.org/en" title="Fondation de France"><img src="https://thumb.wikimedia.org/wikipedia/fr/thumb/d/d2/Fondation_de_France.svg/langfr-330px-Fondation_de_France.svg.png" alt="Fondation de France"></a>
 <a href="https://foodture-project.eu/" title="FOODTURE project"><img src="https://foodture-project.eu/wp-content/uploads/2025/05/FOODTURE-LOGO_Color-scaled.png" alt="FOODTURE project"></a>
+</div>
+<div class="funding">
+<div class="sponsors">
+<span><img src="funded_by_the_eu.jpg" alt="Funded by the European Union"></span>
+<span><img src="swiss_sbfi.jpg" alt="Project funded by the Swiss State Secretariat for Education, Research and Innovation SERI"></span>
+</div>
+<p class="muted"><small>FOODTURE is funded by the European Union (grant agreement No 101182220) and by the Swiss State
+Secretariat for Education, Research and Innovation (SERI). Views and opinions expressed are however those of the
+author(s) only and do not necessarily reflect those of the European Union or the granting authority. Neither the
+European Union nor the granting authority can be held responsible for them.</small></p>
 </div>
 <p>🔬 Discover our citizen science research: <a href="https://world.openfoodfacts.org/citizen-science">Citizen science at Open Food Facts</a></p>
 <p class="muted"><small>Made by <a href="https://world.openfoodfacts.org/">Open Food Facts</a>.
@@ -980,7 +995,7 @@ Find a product of one of these categories at home or in a shop. Any brand is fin
 Any brand is fine, ideally a common one.};
 	$html .= <<HTML;
 <ol>
-<li>Install the free Open Food Facts app (no account needed to start).</li>
+<li>Install the free Open Food Facts app and create your free account in the app: it is needed to add products.</li>
 <li>$find_step</li>
 <li>Scan its barcode and take 3 photos: the front of the package, the ingredients list and the nutrition facts table.</li>
 <li>Add the category of the product (the one from the list, e.g. "Sauerkrauts"), so that we can find it.
@@ -1192,7 +1207,7 @@ HTML
 
 {
 	my $body
-		= "<h1>FOODTURE: products needed in each country</h1>\n"
+		= "<h1>FOODTURE Citizen Science Campaign</h1>\n"
 		. $updated_line
 		. $foodture_about
 		. how_to_help('')
@@ -1261,7 +1276,7 @@ HTML
 })();
 </script>
 HTML
-	write_file("index.html", page("FOODTURE: products needed in each country", $body, $script));
+	write_file("index.html", page("FOODTURE Citizen Science Campaign", $body, $script));
 }
 
 # Ingredients of the selected products (Taxonomy Wiz mission)
