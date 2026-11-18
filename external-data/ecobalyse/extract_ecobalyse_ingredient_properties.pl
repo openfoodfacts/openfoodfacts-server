@@ -44,6 +44,10 @@
 #   ecobalyse_id:en and ecobalyse_proxy_id:en "undef" properties, to stop the inheritance
 #   of Ecobalyse data from their parents (e.g. foie gras must not use the en:poultry proxy).
 # - "Origin none does not mean proxy" — None origin entries are regular variants.
+# - ecobalyse_entries_overrides.tsv can force the Ecobalyse entry used as the default of an
+#   OFF ingredient, exclude entries (e.g. entries with abnormal values) or add entries of other
+#   baseIngredients as variants. Fixes of the generated properties must be made there (or in the
+#   other input files), as the properties are removed from the taxonomy and regenerated.
 
 use ProductOpener::PerlStandards;
 use utf8;
@@ -51,6 +55,8 @@ use JSON;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use Getopt::Long;
+# Keep the input order of entries that sort equally: forced and added entries are listed first
+use sort "stable";
 
 binmode(STDIN, ":encoding(UTF-8)");
 binmode(STDOUT, ":encoding(UTF-8)");
@@ -72,6 +78,7 @@ my $overrides_file = "external-data/ecobalyse/base_ingredients_to_off_ingredient
 my $proxies_file = "external-data/ecobalyse/base_ingredients_proxies_for_off_ingredients.tsv";
 my $auto_proxies_file = "external-data/ecobalyse/base_ingredients_auto_proxies.tsv";
 my $blocked_file = "external-data/ecobalyse/off_ingredients_without_ecobalyse_data.tsv";
+my $entries_overrides_file = "external-data/ecobalyse/ecobalyse_entries_overrides.tsv";
 my $output_file = "external-data/ecobalyse/ecobalyse_ingredient_properties.csv";
 
 # Load base_ingredients → tagid mapping (from Script 1 output + overrides)
@@ -134,6 +141,38 @@ for my $pfile ($proxies_file, $auto_proxies_file) {
 }
 say STDERR "  Loaded " . scalar(keys %base_to_proxy_tagids) . " proxy source ingredients";
 
+# Load the overrides of the Ecobalyse entries used for OFF ingredients:
+# OFF tagid <TAB> action <TAB> Ecobalyse id [<TAB> comment]
+# actions: default (use the entry as the default entry), exclude (never use the entry),
+# add (add the entry as a variant, according to its origin and label)
+# Overridden entries are used even if they are hidden (visible=false) in Ecobalyse.
+my %entries_overrides;
+if (-f $entries_overrides_file) {
+	open my $ofh, '<:encoding(UTF-8)', $entries_overrides_file
+		or die "Cannot open $entries_overrides_file: $!";
+	while (my $line = <$ofh>) {
+		chomp $line;
+		next if $line =~ /^#/ || $line =~ /^\s*$/;
+		my ($tagid, $action, $id) = split /\t/, $line;
+		die "Invalid line in $entries_overrides_file: $line\n"
+			unless defined $id && $action =~ /^(default|exclude|add)$/;
+		if (not exists_taxonomy_tag("ingredients", $tagid)) {
+			push @warnings, "Entries overrides: $tagid: tagid does not exist in the ingredients taxonomy";
+			next;
+		}
+		die "Entries overrides: $tagid has more than one default entry\n"
+			if $action eq 'default' && exists $entries_overrides{$tagid}{default};
+		if ($action eq 'default') {
+			$entries_overrides{$tagid}{default} = $id;
+		}
+		else {
+			push @{$entries_overrides{$tagid}{$action}}, $id;
+		}
+	}
+	close $ofh;
+}
+say STDERR "  Loaded entries overrides for " . scalar(keys %entries_overrides) . " OFF ingredients";
+
 # Load processes.json, filter: food2 in scopes AND ingredient in categories
 die "Cannot open $processes_file: $!" unless -f $processes_file;
 my $raw_json;
@@ -161,6 +200,7 @@ ENTRY: for my $item (@$all_entries) {
 	push @filtered, $item;
 }
 say STDERR "Filtered to " . scalar(@filtered) . " entries (food2 + ingredient)";
+my %entry_by_id = map {$_->{id} => $_} @filtered;
 
 # Build tagid -> [entries] lookup from filtered entries.
 # Multiple baseIngredients can canonicalize to the same tagid (e.g. chard and
@@ -219,7 +259,7 @@ TAGID: for my $tagid (sort keys %tagid_to_entries) {
 	$matched_tags++;
 	my $entries_ref = $tagid_to_entries{$tagid};
 
-	my @usable = usable_entries($entries_ref);
+	my ($forced_default, @usable) = apply_entries_overrides($tagid, usable_entries($entries_ref));
 	unless (@usable) {
 		my @unique_bases = do {
 			my %seen;
@@ -231,37 +271,13 @@ TAGID: for my $tagid (sort keys %tagid_to_entries) {
 	}
 	$tagids_with_own_data{$tagid} = 1;
 
-	# The base default is selected among visible entries, or among hidden entries
-	# if there is no visible entry
-	my @default_pool = default_pool(@usable);
-
-	# Find the "base default" entry: None origin + non-organic (no label, no origin)
-	my @base_defaults = grep {is_none_origin($_) && !is_organic($_)} @default_pool;
-
-	if (@base_defaults) {
-		# Natural base default exists — emit as ecobalyse_id:en (non-proxy)
-		my @sorted
-			= sort {($a->{metadata}{ingredient}{scenario} // '') cmp ($b->{metadata}{ingredient}{scenario} // '')}
-			@base_defaults;
-		emit_global_props($tagid, $sorted[0], 'ecobalyse');
-		emit_variant_entry($tagid, $sorted[0], 'ecobalyse', '');
-	}
-	else {
-		# No natural base default — create a fallback base default
-		# by copying from the best available entry (non-organic preferred, France last).
-		# A non-organic fallback is emitted as ecobalyse_id:en: it is the ingredient's own
-		# entry, only its default origin differs, and the origin is a parameter that can be
-		# changed in Ecobalyse. An organic-only fallback is emitted as ecobalyse_proxy_id:en,
-		# as the organic label cannot be changed.
-		my @non_organic = grep {!is_organic($_)} @default_pool;
-		my @candidates = @non_organic ? @non_organic : @default_pool;
-		my @sorted = sort {
-			($default_origin_priority{$a->{metadata}{defaultOrigin} // ''} // 99)
-				<=> ($default_origin_priority{$b->{metadata}{defaultOrigin} // ''} // 99)
-		} @candidates;
-		emit_global_props($tagid, $sorted[0], 'ecobalyse');
-		emit_variant_entry($tagid, $sorted[0], (@non_organic ? 'ecobalyse' : 'ecobalyse_proxy'), '');
-	}
+	# A non-organic default is emitted as ecobalyse_id:en: it is the ingredient's own
+	# entry, only its default origin may differ, and the origin is a parameter that can be
+	# changed in Ecobalyse. An organic-only fallback is emitted as ecobalyse_proxy_id:en,
+	# as the organic label cannot be changed.
+	my $default_entry = $forced_default // select_base_default(@usable);
+	emit_global_props($tagid, $default_entry, 'ecobalyse');
+	emit_variant_entry($tagid, $default_entry, (is_organic($default_entry) ? 'ecobalyse_proxy' : 'ecobalyse'), '');
 
 	# Emit all OTHER usable entries as non-proxy variants
 	my %seen_variants;
@@ -305,32 +321,7 @@ for my $source_base (sort keys %base_to_proxy_tagids) {
 		next;
 	}
 
-	my @usable = usable_entries($entries_ref);
-	unless (@usable) {
-		push @warnings, "Proxy: no usable (visible) entries for $source_base -> " . join(",", @target_tagids);
-		next;
-	}
-
-	# Find the "base default" entry: None origin + non-organic
-	my @default_pool = default_pool(@usable);
-	my @base_defaults = grep {is_none_origin($_) && !is_organic($_)} @default_pool;
-	my $default_entry;
-	if (@base_defaults) {
-		my @sorted
-			= sort {($a->{metadata}{ingredient}{scenario} // '') cmp ($b->{metadata}{ingredient}{scenario} // '')}
-			@base_defaults;
-		$default_entry = $sorted[0];
-	}
-	else {
-		# No natural base default — use best available entry (non-organic preferred, France last)
-		my @non_organic = grep {!is_organic($_)} @default_pool;
-		my @candidates = @non_organic ? @non_organic : @default_pool;
-		my @sorted = sort {
-			($default_origin_priority{$a->{metadata}{defaultOrigin} // ''} // 99)
-				<=> ($default_origin_priority{$b->{metadata}{defaultOrigin} // ''} // 99)
-		} @candidates;
-		$default_entry = $sorted[0];
-	}
+	my @source_usable = usable_entries($entries_ref);
 
 	for my $target_tagid (@target_tagids) {
 
@@ -339,6 +330,13 @@ for my $source_base (sort keys %base_to_proxy_tagids) {
 			push @warnings, "Proxy: $source_base -> $target_tagid ignored, $target_tagid has its own Ecobalyse data";
 			next;
 		}
+
+		my ($forced_default, @usable) = apply_entries_overrides($target_tagid, @source_usable);
+		unless (@usable) {
+			push @warnings, "Proxy: no usable (visible) entries for $source_base -> $target_tagid";
+			next;
+		}
+		my $default_entry = $forced_default // select_base_default(@usable);
 
 		# Emit global + variant properties on the target tagid with proxy prefix
 		emit_global_props($target_tagid, $default_entry, 'ecobalyse_proxy');
@@ -436,6 +434,49 @@ sub usable_entries {
 	my ($entries_ref) = @_;
 	return @$entries_ref if $include_hidden_entries;
 	return grep {$_->{visible} // 1} @$entries_ref;
+}
+
+# Apply the overrides of ecobalyse_entries_overrides.tsv to the usable entries of an OFF tagid.
+# Returns the forced default entry (or undef), followed by the usable entries.
+sub apply_entries_overrides {
+	my ($tagid, @usable) = @_;
+	my $overrides = $entries_overrides{$tagid} or return (undef, @usable);
+	my $get_entry = sub {
+		my ($id) = @_;
+		return $entry_by_id{$id} // die "Entries overrides: $tagid: Ecobalyse id $id not found in food2 ingredients\n";
+	};
+	my $forced_default = defined $overrides->{default} ? $get_entry->($overrides->{default}) : undef;
+	my @added = map {$get_entry->($_)} @{$overrides->{add} // []};
+	# The forced default and the added entries come first, so that they are preferred
+	# over other entries with the same variant key
+	my %first_ids = map {$_->{id} => 1} (($forced_default // ()), @added);
+	my %excluded = map {$_ => 1} @{$overrides->{exclude} // []};
+	@usable = (($forced_default // ()), @added, grep {not($excluded{$_->{id}} or $first_ids{$_->{id}})} @usable);
+	return ($forced_default, @usable);
+}
+
+# Select the "base default" entry: None origin + non-organic (no label, no origin).
+# If there is none, use the best available entry (non-organic preferred, France last).
+sub select_base_default {
+	my @usable = @_;
+
+	# The base default is selected among visible entries, or among hidden entries
+	# if there is no visible entry
+	my @default_pool = default_pool(@usable);
+	my @base_defaults = grep {is_none_origin($_) && !is_organic($_)} @default_pool;
+	if (@base_defaults) {
+		my @sorted
+			= sort {($a->{metadata}{ingredient}{scenario} // '') cmp ($b->{metadata}{ingredient}{scenario} // '')}
+			@base_defaults;
+		return $sorted[0];
+	}
+	my @non_organic = grep {!is_organic($_)} @default_pool;
+	my @candidates = @non_organic ? @non_organic : @default_pool;
+	my @sorted = sort {
+		($default_origin_priority{$a->{metadata}{defaultOrigin} // ''} // 99)
+			<=> ($default_origin_priority{$b->{metadata}{defaultOrigin} // ''} // 99)
+	} @candidates;
+	return $sorted[0];
 }
 
 # Entries to select the base default from: visible entries are preferred,

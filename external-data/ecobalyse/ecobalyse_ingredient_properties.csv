@@ -622,10 +622,10 @@ en:brussels-sprouts	ecobalyse_origins_en_france_alias:en	brussels-sprout-fr
 en:brussels-sprouts	ecobalyse_origins_en_france_default_origin:en	FR
 en:butter	ecobalyse_transport_cooling:en	always
 en:butter	ecobalyse_category:en	dairy
-en:butter	ecobalyse_id:en	1dd1d7ed-2266-4317-bb45-709f850bd1e1
+en:butter	ecobalyse_id:en	9f7ca704-e3b6-4ad9-b376-6c0662ebeeec
 en:butter	ecobalyse_scenario:en	import
-en:butter	ecobalyse_name:fr	Beurre à 39-41% MG, léger, doux Origine Inconnue
-en:butter	ecobalyse_alias:en	butter-39-41pct-fat-light-default
+en:butter	ecobalyse_name:fr	Beurre à 82% MG ou huile de beurre Origine Inconnue
+en:butter	ecobalyse_alias:en	butter-82pct-fat-default
 en:butter	ecobalyse_default_origin:en	
 en:butter	ecobalyse_labels_en_organic_origins_en_france_id:en	aeedb0fa-81a7-4f21-9bf1-7ec9c4c69ed9
 en:butter	ecobalyse_labels_en_organic_origins_en_france_scenario:en	organic
@@ -1958,6 +1958,20 @@ en:goat-cheese	ecobalyse_origins_en_france_scenario:en	reference
 en:goat-cheese	ecobalyse_origins_en_france_name:fr	Fromage de chèvre FR (2025)
 en:goat-cheese	ecobalyse_origins_en_france_alias:en	goat-cheese-2025
 en:goat-cheese	ecobalyse_origins_en_france_default_origin:en	FR
+en:goat-milk	ecobalyse_transport_cooling:en	always
+en:goat-milk	ecobalyse_category:en	dairy
+en:goat-milk	ecobalyse_id:en	a9eed813-3242-4701-8d76-f4fb2f222121
+en:goat-milk	ecobalyse_scenario:en	reference
+en:goat-milk	ecobalyse_name:fr	Lait de chèvre FR (2025)
+en:goat-milk	ecobalyse_alias:en	goat-milk-2025
+en:goat-milk	ecobalyse_default_origin:en	FR
+en:goat-milk	ecobalyse_visibility:en	false
+en:goat-milk	ecobalyse_origins_en_france_id:en	a9eed813-3242-4701-8d76-f4fb2f222121
+en:goat-milk	ecobalyse_origins_en_france_scenario:en	reference
+en:goat-milk	ecobalyse_origins_en_france_name:fr	Lait de chèvre FR (2025)
+en:goat-milk	ecobalyse_origins_en_france_alias:en	goat-milk-2025
+en:goat-milk	ecobalyse_origins_en_france_default_origin:en	FR
+en:goat-milk	ecobalyse_origins_en_france_visibility:en	false
 en:gooseberry	ecobalyse_crop_group:en	VERGERS
 en:gooseberry	ecobalyse_transport_cooling:en	always
 en:gooseberry	ecobalyse_category:en	fruits_and_vegetables
@@ -4338,21 +4352,28 @@ en:sunflower	ecobalyse_origins_en_france_default_origin:en	FR
 en:sunflower-oil	ecobalyse_crop_group:en	TOURNESOL
 en:sunflower-oil	ecobalyse_transport_cooling:en	none
 en:sunflower-oil	ecobalyse_category:en	other_food_items
-en:sunflower-oil	ecobalyse_id:en	3cfab110-363e-442a-9170-1af337fe9ea3
+en:sunflower-oil	ecobalyse_id:en	ea419fa9-d69f-4735-8fe8-fab427ce5185
 en:sunflower-oil	ecobalyse_scenario:en	import
-en:sunflower-oil	ecobalyse_name:fr	Huile de tournesol par défaut (2025)
-en:sunflower-oil	ecobalyse_alias:en	sunflower-oil-2025
+en:sunflower-oil	ecobalyse_name:fr	Huile de tournesol UE (2025)
+en:sunflower-oil	ecobalyse_alias:en	sunflower-oil-eu-2025
 en:sunflower-oil	ecobalyse_default_origin:en	REM
-en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_id:en	3cfab110-363e-442a-9170-1af337fe9ea3
-en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
-en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_name:fr	Huile de tournesol par défaut (2025)
-en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_alias:en	sunflower-oil-2025
-en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:sunflower-oil	ecobalyse_visibility:en	false
 en:sunflower-oil	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en	64fb23f2-0cac-403c-bbfa-1973c9a0ea40
 en:sunflower-oil	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en	organic
 en:sunflower-oil	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr	Huile de tournesol Bio (2025)
 en:sunflower-oil	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en	sunflower-oil-organic-2025
 en:sunflower-oil	ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en	REM
+en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_id:en	ea419fa9-d69f-4735-8fe8-fab427ce5185
+en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_scenario:en	import
+en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_name:fr	Huile de tournesol UE (2025)
+en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_alias:en	sunflower-oil-eu-2025
+en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_default_origin:en	REM
+en:sunflower-oil	ecobalyse_origins_en_europe_and_maghreb_visibility:en	false
+en:sunflower-oil	ecobalyse_origins_en_france_id:en	583d00ab-0340-444b-9581-71175f0a937b
+en:sunflower-oil	ecobalyse_origins_en_france_scenario:en	reference
+en:sunflower-oil	ecobalyse_origins_en_france_name:fr	Huile de tournesol (raffinée) FR (2025)
+en:sunflower-oil	ecobalyse_origins_en_france_alias:en	refined-sunflower-oil-2025
+en:sunflower-oil	ecobalyse_origins_en_france_default_origin:en	FR
 en:sunflower-seed	ecobalyse_crop_group:en	TOURNESOL
 en:sunflower-seed	ecobalyse_transport_cooling:en	none
 en:sunflower-seed	ecobalyse_category:en	other_food_items
@@ -4838,10 +4859,10 @@ en:pepper	ecobalyse_proxy_alias:en	black-pepper-default
 en:pepper	ecobalyse_proxy_default_origin:en	
 en:butterfat	ecobalyse_proxy_transport_cooling:en	always
 en:butterfat	ecobalyse_proxy_category:en	dairy
-en:butterfat	ecobalyse_proxy_id:en	1dd1d7ed-2266-4317-bb45-709f850bd1e1
+en:butterfat	ecobalyse_proxy_id:en	9f7ca704-e3b6-4ad9-b376-6c0662ebeeec
 en:butterfat	ecobalyse_proxy_scenario:en	import
-en:butterfat	ecobalyse_proxy_name:fr	Beurre à 39-41% MG, léger, doux Origine Inconnue
-en:butterfat	ecobalyse_proxy_alias:en	butter-39-41pct-fat-light-default
+en:butterfat	ecobalyse_proxy_name:fr	Beurre à 82% MG ou huile de beurre Origine Inconnue
+en:butterfat	ecobalyse_proxy_alias:en	butter-82pct-fat-default
 en:butterfat	ecobalyse_proxy_default_origin:en	
 en:butterfat	ecobalyse_proxy_labels_en_organic_origins_en_france_id:en	aeedb0fa-81a7-4f21-9bf1-7ec9c4c69ed9
 en:butterfat	ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en	organic
@@ -5337,6 +5358,24 @@ en:vegetable-oil	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb
 en:vegetable-oil	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr	Huile de colza Bio (2025)
 en:vegetable-oil	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en	rapeseed-oil-organic-2025
 en:vegetable-oil	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en	REM
+en:margarine	ecobalyse_proxy_crop_group:en	COLZA
+en:margarine	ecobalyse_proxy_transport_cooling:en	none
+en:margarine	ecobalyse_proxy_category:en	other_food_items
+en:margarine	ecobalyse_proxy_id:en	96b301d9-d21b-4cea-8903-bd7917e95a30
+en:margarine	ecobalyse_proxy_scenario:en	import
+en:margarine	ecobalyse_proxy_name:fr	Huile de colza par défaut (2025)
+en:margarine	ecobalyse_proxy_alias:en	rapeseed-oil-2025
+en:margarine	ecobalyse_proxy_default_origin:en	
+en:margarine	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_id:en	51f8e8d2-13c0-446c-bf0a-9272fc46edde
+en:margarine	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:en	organic
+en:margarine	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr	Huile de colza Bio (2025)
+en:margarine	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en	rapeseed-oil-organic-2025
+en:margarine	ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en	REM
+en:margarine	ecobalyse_proxy_origins_en_france_id:en	c3697176-e682-43c3-b16a-3992ff8f1404
+en:margarine	ecobalyse_proxy_origins_en_france_scenario:en	reference
+en:margarine	ecobalyse_proxy_origins_en_france_name:fr	Huile de colza (raffinée) FR (2025)
+en:margarine	ecobalyse_proxy_origins_en_france_alias:en	refined-rapeseed-oil-2025
+en:margarine	ecobalyse_proxy_origins_en_france_default_origin:en	FR
 en:red-bean	ecobalyse_proxy_crop_group:en	LEGUMINEUSES A GRAIN
 en:red-bean	ecobalyse_proxy_transport_cooling:en	always
 en:red-bean	ecobalyse_proxy_category:en	legumes
@@ -5438,6 +5477,19 @@ en:palm-fat	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
 en:palm-fat	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Huile de palme (raffinée) UE (2025)
 en:palm-fat	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	refined-palm-oil-2025
 en:palm-fat	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
+en:coconut-oil	ecobalyse_proxy_crop_group:en	AUTRES CULTURES INDUSTRIELLES
+en:coconut-oil	ecobalyse_proxy_transport_cooling:en	none
+en:coconut-oil	ecobalyse_proxy_category:en	other_food_items
+en:coconut-oil	ecobalyse_proxy_id:en	45658c32-66d9-4305-a34b-21d6a4cef89c
+en:coconut-oil	ecobalyse_proxy_scenario:en	import
+en:coconut-oil	ecobalyse_proxy_name:fr	Huile de palme (raffinée) par défaut (2025)
+en:coconut-oil	ecobalyse_proxy_alias:en	refined-palm-oil-non-ue-2025
+en:coconut-oil	ecobalyse_proxy_default_origin:en	
+en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	3612e931-f0e0-4263-a079-63650a941fbd
+en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
+en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Huile de palme (raffinée) UE (2025)
+en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	refined-palm-oil-2025
+en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
 en:peanut-oil	ecobalyse_proxy_crop_group:en	PROTEAGINEUX
 en:peanut-oil	ecobalyse_proxy_transport_cooling:en	none
 en:peanut-oil	ecobalyse_proxy_category:en	other_food_items
@@ -5572,32 +5624,6 @@ en:tea	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
 en:tea	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Thé (feuilles) UE (2025)
 en:tea	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	tea-dried-2025
 en:tea	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
-en:coconut-oil	ecobalyse_proxy_crop_group:en	TOURNESOL
-en:coconut-oil	ecobalyse_proxy_transport_cooling:en	none
-en:coconut-oil	ecobalyse_proxy_category:en	other_food_items
-en:coconut-oil	ecobalyse_proxy_id:en	66e7706b-5129-410c-b070-0a7feff2680f
-en:coconut-oil	ecobalyse_proxy_scenario:en	import
-en:coconut-oil	ecobalyse_proxy_name:fr	Autres huiles (non encore répertoriées) (2025)
-en:coconut-oil	ecobalyse_proxy_alias:en	unknown-oil-2025
-en:coconut-oil	ecobalyse_proxy_default_origin:en	REM
-en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	66e7706b-5129-410c-b070-0a7feff2680f
-en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
-en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Autres huiles (non encore répertoriées) (2025)
-en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	unknown-oil-2025
-en:coconut-oil	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
-en:margarine	ecobalyse_proxy_crop_group:en	TOURNESOL
-en:margarine	ecobalyse_proxy_transport_cooling:en	none
-en:margarine	ecobalyse_proxy_category:en	other_food_items
-en:margarine	ecobalyse_proxy_id:en	66e7706b-5129-410c-b070-0a7feff2680f
-en:margarine	ecobalyse_proxy_scenario:en	import
-en:margarine	ecobalyse_proxy_name:fr	Autres huiles (non encore répertoriées) (2025)
-en:margarine	ecobalyse_proxy_alias:en	unknown-oil-2025
-en:margarine	ecobalyse_proxy_default_origin:en	REM
-en:margarine	ecobalyse_proxy_origins_en_europe_and_maghreb_id:en	66e7706b-5129-410c-b070-0a7feff2680f
-en:margarine	ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en	import
-en:margarine	ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr	Autres huiles (non encore répertoriées) (2025)
-en:margarine	ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en	unknown-oil-2025
-en:margarine	ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en	REM
 en:vinegar	ecobalyse_proxy_crop_group:en	DIVERS
 en:vinegar	ecobalyse_proxy_transport_cooling:en	none
 en:vinegar	ecobalyse_proxy_category:en	other_food_items
