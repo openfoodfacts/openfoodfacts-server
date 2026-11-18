@@ -1,0 +1,28 @@
+{
+   "api_call" : {
+      "body" : {
+         "fields" : "updated",
+         "product" : {
+            "brands_tags" : [
+               "null",
+               "Aldi"
+            ],
+            "categories_tags" : [
+               "null",
+               "coffee",
+               "undefined"
+            ],
+            "labels_tags" : [
+               "undefined"
+            ],
+            "stores_tags" : [
+               "null"
+            ]
+         }
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890401"
+   }
+}
