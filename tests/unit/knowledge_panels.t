@@ -280,6 +280,7 @@ foreach my $test_ref (@tests) {
 				"The French food safety agency ANSES listed this additive as an additive of interest in its 2019 report on the use of additives in processed foods.",
 			source_text => "ANSES - Oqali (2019)",
 			source_url => $anses_source_url,
+			source_language => "fr",
 		},
 		"flagged additive ANSES element"
 	);

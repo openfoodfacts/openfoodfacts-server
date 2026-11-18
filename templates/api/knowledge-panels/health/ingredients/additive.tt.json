@@ -33,7 +33,8 @@
             "text_element": {
                 "html": `[% lang("additives_anses_additive_of_interest") %]`,
                 "source_text": "ANSES - Oqali (2019)",
-                "source_url": "https://www.anses.fr/fr/content/rapport-oqali-bilan-et-%C3%A9volution-de-lutilisation-des-additifs-dans-les-produits-transform%C3%A9s"
+                "source_url": "https://www.anses.fr/fr/content/rapport-oqali-bilan-et-%C3%A9volution-de-lutilisation-des-additifs-dans-les-produits-transform%C3%A9s",
+                "source_language": "fr"
             }
         },
         [% END %]
