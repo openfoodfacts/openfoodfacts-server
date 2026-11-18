@@ -53,14 +53,17 @@ use RepresentativeProducts
 # --other-countries (representative_dataset_other_countries.csv, made by generate_needed_term_countries.py):
 # they have foodture_needed = 0, dataset_needed = 1 and the rule used to choose them in selection_rule.
 #
-# Outputs, in --output-dir: foodture_campaign.csv and foodture_campaign.json
+# Outputs, in --output-dir: foodture_campaign.csv and foodture_campaign.json, and
+# foodture_selected_products_without_team.txt: the codes of the selected products (FOODTURE pairs, and Iceland and
+# Canada) that are not yet in the --team team (foodture-2026 by default), one per line, to tag them with
+# update_all_products.pl --query-codes-from-file --team
 # build_campaign_site.pl makes the web pages from foodture_campaign.json
 
 my $usage = <<TXT
 list_campaign_needed_categories.pl --jsonl <products.jsonl[.gz]> --output-dir <dir>
 	[--needed <foodture_needed_term_countries.csv>] [--mapping <foodture_foodex2_to_off_categories.csv>]
 	[--other-countries <representative_dataset_other_countries.csv>]
-	[--years 2025,2026] [--min-photos 3] [--max-incomplete 3] [--all-pairs] [--dump-date YYYY-MM-DD]
+	[--years 2025,2026] [--min-photos 3] [--max-incomplete 3] [--all-pairs] [--dump-date YYYY-MM-DD] [--team foodture-2026]
 TXT
 	;
 
@@ -74,6 +77,7 @@ my $min_photos = 3;
 my $max_incomplete = 3;
 my $all_pairs = 0;
 my $dump_date;
+my $team = "foodture-2026";
 
 GetOptions(
 	"jsonl=s" => \$jsonl_file,
@@ -86,6 +90,7 @@ GetOptions(
 	"max-incomplete=i" => \$max_incomplete,
 	"all-pairs" => \$all_pairs,
 	"dump-date=s" => \$dump_date,
+	"team=s" => \$team,
 ) or die $usage;
 
 (defined $jsonl_file and defined $output_dir) or die $usage;
@@ -288,6 +293,7 @@ while (my $line = <$IN>) {
 			photos => $photos,
 			missing => join(", ", map {$missing_names{$_}} @missing),
 			global_scans => [global_year_scans($scans_ref, \@years)],
+			in_team => (grep {$_ eq $team} @{$product_ref->{teams_tags} // []}) ? 1 : 0,
 		};
 		ingredients_stats($product_ref, $product_info_ref) if $complete;
 	}
@@ -412,6 +418,7 @@ foreach my $code (sort keys %terms) {
 				unknown_ingredients_n => $product_ref->{unknown_ingredients_n},
 				unknown_ingredients => $product_ref->{unknown_ingredients},
 				recognized_quantity_pct => $product_ref->{recognized_quantity_pct},
+				in_team => $product_ref->{in_team},
 			);
 		}
 		$row{incomplete_products} = [
@@ -458,6 +465,15 @@ $csv->print($CSV, \@columns);
 $csv->print($CSV, [map {ref $_ eq 'ARRAY' ? join(" | ", @$_) : $_ // ''} @$_{@columns}]) for @rows;
 close $CSV;
 rename("$csv_file.tmp", $csv_file) or die "Cannot rename $csv_file.tmp: $!\n";
+
+# Selected products of the dataset (FOODTURE pairs, and Iceland and Canada) that are not yet in the team
+my %without_team = map {($_->{code} => 1)} grep {$_->{dataset_needed} and $_->{code} and not $_->{in_team}} @rows;
+my $codes_file = "$output_dir/foodture_selected_products_without_team.txt";
+open(my $CODES, '>', "$codes_file.tmp") or die "Cannot write $codes_file.tmp: $!\n";
+print $CODES "$_\n" for sort keys %without_team;
+close $CODES;
+rename("$codes_file.tmp", $codes_file) or die "Cannot rename $codes_file.tmp: $!\n";
+print STDERR scalar(keys %without_team) . " selected products are not in the $team team: $codes_file\n";
 
 # Summary per country
 my %summary = ();

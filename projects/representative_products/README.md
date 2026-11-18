@@ -27,6 +27,24 @@ Contributors of the in-store campaign use another team, `representative-products
 
 The first FOODTURE selection stays marked with `editors_tags=foodture`.
 
+### The `foodture-2026` team: products selected by the in-store campaign
+
+`list_campaign_needed_categories.pl` (run every day) writes the codes of the selected products (the most scanned
+complete product of each needed category and country, in the FOODTURE countries and in Iceland and Canada) that do not
+have the `foodture-2026` team yet to `foodture_selected_products_without_team.txt`, next to `foodture_campaign.json`
+(https://static.openfoodfacts.org/data/foodture/foodture_selected_products_without_team.txt). To add the team,
+and recompute the product data (ingredients analysis etc.) at the same time:
+
+```bash
+./scripts/update_all_products.pl --query-codes-from-file $OFF_PUBLIC_DATA_DIR/foodture/foodture_selected_products_without_team.txt \
+  --analyze-and-enrich-product-data --user-id foodture-2026 --team foodture-2026 --force-new-version \
+  --comment "FOODTURE campaign: selected product"
+```
+
+The products can then be reprocessed with `--query teams_tags=foodture-2026`. Products stay in the team when another
+product is selected later for their category. The `--team` option sets the bot user's team, as for
+`representative-products` (see the notes below); the codes are listed again until the next daily run.
+
 ## In-store campaign: categories needed in each country
 
 FOODTURE does not need every term in every country. The countries needed for each term come from the ACTIA workbook
