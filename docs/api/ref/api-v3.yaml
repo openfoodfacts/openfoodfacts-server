@@ -62,8 +62,10 @@ paths:
             Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelClient"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelsSimplified"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelsIngredientsNutritionFirst"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelPhysicalActivities"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelProductHistory"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelProductInformation"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsIncluded"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsExcluded"
       responses:

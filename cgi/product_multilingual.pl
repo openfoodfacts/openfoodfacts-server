@@ -48,7 +48,7 @@ use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
-	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
+	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data should_display_legacy_packaging/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Events qw/send_event/;
@@ -1293,6 +1293,13 @@ HTML
 	$template_data_ref_display->{display_tab_packaging}
 		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs},
 		\%Langs, \@packaging_fields, $request_ref);
+
+	# Display the legacy deprecated packaging text field if present or if user is a moderator,
+	# so that contributors/moderators can view, edit, or clear legacy insults/obsolete values.
+	if (should_display_legacy_packaging($product_ref, $User{moderator})) {
+		$template_data_ref_display->{display_field_packaging_legacy}
+			= display_input_field($product_ref, "packaging", undef, $request_ref);
+	}
 
 	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
 	# and another empty packaging element at the end

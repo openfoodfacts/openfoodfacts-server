@@ -113,12 +113,11 @@
    ],
    "specific_ingredients" : [
       {
-         "id" : "en:apricot",
-         "ingredient" : "abricots",
-         "origins" : "en:provence",
+         "id" : "en:sugar",
+         "ingredient" : "sucres",
          "quantity" : "60 g",
          "quantity_g" : 60,
-         "text" : "Origine des abricots: Provence"
+         "text" : "Teneur totale en sucres : 60 g pour 100 g de produit fini"
       },
       {
          "id" : "en:milk",
@@ -163,6 +162,12 @@
          "ingredient" : "TRUC INCONNU",
          "percent" : 30,
          "text" : "PREPARE AVEC 30% DE TRUC INCONNU"
+      },
+      {
+         "id" : "en:apricot",
+         "ingredient" : "abricots",
+         "origins" : "en:provence",
+         "text" : "Origine des abricots: Provence"
       }
    ],
    "unknown_ingredients_n" : 0
