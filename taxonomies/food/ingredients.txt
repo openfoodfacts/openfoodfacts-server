@@ -3978,7 +3978,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lactose
 en: milk minerals
 ca: minerals de la llet
 de: Milchmineralien
-es: minerales de la leche
+es: minerales de la leche, sólidos lácteos ricos en calcio
 fi: maidon kivennäisaine, maidon kivennäisaineet
 fr: minéraux du lait
 hr: minerali mlijeka
@@ -5408,7 +5408,7 @@ cy: llaeth enwyn
 da: kærnemælk
 de: Buttermilch, reine Buttermilch
 eo: buterlakto
-es: suero de mantequilla, leche mazada
+es: suero de mantequilla, leche mazada, mazada
 et: pett
 fa: آب‌دوغ
 fi: kirnupiimä, kirnumaito
@@ -8745,7 +8745,7 @@ cv: Рикота
 da: Ricotta
 de: Ricotta, Ricotta-Käse
 eo: Ricotta
-es: Requesón
+es: Requesón, ricotta
 et: Ricotta, Ricotta juust
 fa: ریکوتا
 fi: Ricotta, ricottajuusto
@@ -10185,7 +10185,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Celery_salt
 en: potassium salt, potassium chloride
 bg: калиева сол
 ca: sal mineral de potassi
-es: sal mineral de potasio
+es: sal mineral de potasio, sal de potasio
 fr: sel de potassium
 hr: kalijeva sol
 nl: kaliumzout, kaliumchloride
@@ -10435,6 +10435,17 @@ hr: goveđe okruglice
 it: polpette di manzo
 
 < en: animal
+en: blood
+de: Blut
+es: sangre
+fr: sang
+it: sangue
+nl: bloed
+pt: sangue
+vegan:en: no
+vegetarian:en: no
+
+< en: animal
 en: offal
 de: Innereien
 es: visceras
@@ -10526,6 +10537,7 @@ cs: Hovězí
 da: oksekød
 de: Rind, Rinderfleisch
 el: Μοσχάρι
+es: vacuno, bovino
 et: Veiseliha
 fi: nauta, naudan, härkä, härän
 fr: bœuf, boeuf, Boeufs
@@ -14707,7 +14719,7 @@ cs: Škrob
 da: stivelse, stivelser
 de: Stärke, Stärken, Speisestärke
 el: άμυλο
-es: almidón, fecula
+es: almidón, almidones, fecula
 et: Tärklis
 eu: Almidoi
 fa: نشاسته
@@ -19803,7 +19815,7 @@ ca: Vinagre de vi
 cs: vinný ocet, ocet kvasný vinný
 da: Vineddike
 de: Weinessig
-es: vinagre de vino
+es: vinagre de vino, vinagre de uva
 fi: viinietikka
 fr: vinaigre de vin
 hr: vinski ocat
@@ -22824,7 +22836,7 @@ sv: citronarom
 # derivedFrom:en:lemon flavouring
 en: natural lemon flavouring
 de: natürliches Zitronenaroma, natürliches Zitronen-aroma
-es: Saborizante natural de limón
+es: Saborizante natural de limón, aroma natural de limón
 fi: luontainen sitruuna-aromi
 fr: arôme naturel de citron, arômes naturels de citron
 hr: prirodna aroma limuna
@@ -22865,9 +22877,11 @@ fr: arôme naturel de livèche
 
 < en: natural flavouring
 < en: natural lemon flavouring
-fr: arôme naturel de citron avec autres arômes naturels, arômes naturels de citron avec autres arômes naturels, arôme naturel de citron et autres arômes naturels, arôme naturel de citron et arômes naturels, arômes naturels de citron et arômes naturels
+en: natural lemon flavouring with other natural flavourings
 de: natürliches Zitronenaroma mit anderen natürliche Aromen
+es: aroma natural de limón con otros aromas naturales
 fi: luontainen sitruuna-aromi ja muut luontaiset aromit
+fr: arôme naturel de citron avec autres arômes naturels, arômes naturels de citron avec autres arômes naturels, arôme naturel de citron et autres arômes naturels, arôme naturel de citron et arômes naturels, arômes naturels de citron et arômes naturels
 hr: prirodna aroma limuna s drugim prirodnim aromama, prirodna aroma mente citrusa sa ostalim prirodnim aromama
 it: aroma naturale di limone con altri aromi naturali
 pl: naturalny aromat cytrynowy z innymi naturalnymi aromatami, naturalny aromat cytrynowy z innymi aromatami naturalnymi
@@ -24433,7 +24447,7 @@ it: aroma naturale di fichi
 en: cheese flavouring
 bg: аромат сирене, аромат на сирене
 de: Käsearoma, Käse Aroma
-es: aromas con sabor a queso, aroma queso, aroma de queso
+es: aromas con sabor a queso, aroma queso, aroma de queso, aroma a queso
 fr: Goût fromage
 hr: aroma sira
 hu: sajt ízesítés
@@ -24919,7 +24933,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Smoking_(cooking)
 en: beech wood smoke, beechwood smoke, natural beechwood smoke
 cs: kouř z bukového dřeva
 de: Buchenholzrauch, Buchenrauch
-es: Madera de haya ahumada
+es: humo de madera de haya, Madera de haya ahumada
 fi: pyökkipuusavu, pyökistä valmistettu savuaromi
 fr: fumée de bois de hêtre, fumée naturelle au bois de hêtre
 hr: dim bukovine, dim drva bukve, dim bukve
@@ -32745,7 +32759,7 @@ ca: garrofa, farina de garrofa
 cs: carubin
 da: Johannesbrødmel
 de: Carobin, Carobpulver, Johannisbrot, Johannisbrote
-es: Harina de algarroba, harina de garrofin
+es: algarroba, algarrobas, Harina de algarroba, harina de garrofin
 et: Jaanileivapuujahu
 fi: carob
 fr: caroube, farine de caroube
@@ -39243,7 +39257,7 @@ cs: Maltodextriny, maltodextrin
 da: maltodextrin
 de: Maltodextrin, Maltodextrine
 el: Μαλτοδεξτρίνες, μαλτοδεξτρίνη
-es: Maltodextrinas, maltodextrina
+es: Maltodextrinas, maltodextrina, dextrinomaltosa
 et: maltodekstriin
 fi: maltodekstriini, maltodekstriiniä
 fr: Maltodextrines, maltodextrine, malto-dextrine
@@ -40003,6 +40017,7 @@ hr: inaktivni suhi kvasac
 < en: inactive sourdough
 < en: wheat sourdough
 en: inactive wheat sourdough
+es: masa madre de trigo inactiva, masa madre inactiva de trigo
 
 < en: inactive wheat sourdough
 en: inactive whole wheat sourdough
@@ -51095,7 +51110,7 @@ cs: červený rybíz, červené rybízy, červeného rybízu
 da: røde bær, ribs
 de: rote Johannisbeere, rote Johannisbeeren, roten Johannisbeeren, rote Johannesbeeren
 el: κόκκινα φραγκοστάφυλα
-es: grosella roja, grosellas rojas
+es: grosella roja, grosellas rojas, grosella, grosellas
 et: punase sõstra
 fi: Punaherukka, punaherukkaa
 fr: groseille, groseilles, groseilles rouges
@@ -64396,7 +64411,7 @@ da: paprika
 # de: Paprika # also "en: bell pepper", see "en: paprika or bell pepper"
 el: πάπρικα
 eo: papriko
-es: pimentón, paprika
+es: pimentón, paprika, pimentones
 eu: piperrauts
 fa: پاپریکا
 fr: paprika
@@ -71404,7 +71419,7 @@ en: aniseed, anise
 cs: anýz
 da: anis, anisfrø
 de: Anissamen, anis
-es: semilla de anís, anis, matalahúga
+es: semilla de anís, anis, matalahúga, anís verde
 fi: anis
 fr: anis, graine d'anis vert, anis vert, graine d'anis
 hr: anis, plod anisa
@@ -82429,6 +82444,7 @@ bg: Спирулина
 bn: স্পিরুলিনা
 el: Σπιρουλίνα
 eo: Spirulino
+es: espirulina
 fi: spirulina, spirulinaa, spirulina-levä, spiruliinaa
 fr: spirulina, spiruline, spiruline crue
 he: ספירולינה
@@ -88532,6 +88548,7 @@ it: ventresca di tonno
 
 < en: tuna
 en: albacore, albacore tuna, white tuna, solid white tuna
+xx: Thunnus alalunga
 af: Albakoor
 ar: تونة بيضاء
 az: Uzunüzgəc tunes
@@ -88582,6 +88599,14 @@ ciqual_food_code:en: 26101
 ciqual_food_name:en: Bonito, raw
 ciqual_food_name:fr: Bonite, crue
 description:fr: Bonite est le nom vernaculaire donné à plusieurs espèces de poissons de la famille des Scombridés (Scombridae).
+
+< en: tuna
+en: frigate tuna, frigate mackerel
+xx: Auxis thazard, Auxis rochei
+es: melva, melva canutera
+fr: auxide, bonitou
+it: tombarello, biso
+description:en: Small tunas of the genus Auxis (frigate tuna Auxis thazard and bullet tuna Auxis rochei), sold in Spain as melva.
 
 #category/skipjack-tuna
 < en: tuna
@@ -93721,7 +93746,7 @@ en: gum base
 cs: žvýkačková báze
 da: gummibase
 de: Kaumasse
-es: base de goma
+es: base de goma, goma base
 fi: purukumin perusmassa, purukumin perusmassaa
 fr: gomme base
 hr: gumena baza, gumi baza
@@ -94521,6 +94546,7 @@ wiktionary:en: instant_coffee
 
 < en: instant coffee
 en: decaffeinated instant coffee
+es: café soluble descafeinado, café instantáneo descafeinado
 fr: Café décaféiné instantané
 it: caffè istantaneo decaffeinato
 ciqual_food_code:en: 18069
@@ -99582,7 +99608,7 @@ da: nudler
 de: Nudel, Nudeln
 el: νουντλ
 eo: nudelo
-es: fideo
+es: fideo, fideos, fideos orientales
 et: nuudel, nuudlid
 eu: fideo
 fa: نودل
@@ -101030,7 +101056,7 @@ bg: Покритие
 bs: smjesa za paniranje
 cs: ochucující
 de: Beschichtung, Überzug
-es: envolviendo, sobrimiento, sazonador
+es: envolviendo, sobrimiento, sazonador, cobertura, recubrimiento
 et: kate
 fi: päällyste
 fr: enrobage, enrobant, décor, decor, chemisage, nappage, nappage blond
@@ -101080,6 +101106,7 @@ pt: chocolate de cobertura
 < en: milk chocolate
 en: milk chocolate coating, couverture milk chocolate
 de: Milchschokoladenkuvertüre, Milchschokoladenüberzug
+es: cobertura de chocolate con leche
 fr: chocolat au lait de couverture, enrobage chocolat au lait
 hr: miliječno čokoladni preljev, preljev okusa mliječne čokolade, preljev od mliječne čokalade, preljev mliječne čokolade
 it: rivestimento di cioccolato al latte
@@ -101181,7 +101208,7 @@ da: rasp, panering, krydret panering
 de: Paniermehl, Panur, Semmelbrösel
 el: ψίχουλα ψωμιού
 eo: raspaĵo
-es: pan rallado, migas de pan, migaja de pan rallado, rebozador
+es: pan rallado, migas de pan, migaja de pan rallado, rebozador, empanado
 eu: Ogi birrindu
 fa: آرد سوخاری
 fi: korppujauho, paneerausjauho, leivite, paneerausseos, maustepaneerausta
@@ -101541,7 +101568,7 @@ cs: kruton
 da: crouton, croutoner
 de: Croûton, Croutons
 el: κρουτόν
-es: croûton
+es: croûton, picatoste, picatostes
 et: krutoonid
 eu: ogi-txigorki
 fi: krutonki, krutongit
