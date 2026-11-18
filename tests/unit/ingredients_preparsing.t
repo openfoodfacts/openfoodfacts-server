@@ -1539,6 +1539,18 @@ foreach my $test (
 	['en', "mono - und Diglyceride", "mono- und Diglyceride"],
 	['fr', "mono - and diglycerides", "mono- and diglycerides"],
 	['ro', "mono - ti digliceride ale acizilor grași", "mono- ti digliceride ale acizilor grași"],
+	# additive class without a colon, followed by mono- and diglycerides
+	[
+		'de',
+		"Emulgator Mono - und Diglyceride von Speisefettsäuren",
+		"Emulgator : Mono- und Diglyceride von Speisefettsäuren"
+	],
+	['fr', "émulsifiant mono - et diglycérides d'acides gras", "émulsifiant : mono- et diglycérides d'acides gras"],
+	[
+		'it',
+		"emulsionante mono-e digliceridi degli acidi grassi",
+		"emulsionante : mono- e digliceridi degli acidi grassi"
+	],
 	)
 {
 	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2],
