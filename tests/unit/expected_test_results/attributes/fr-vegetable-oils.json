@@ -435,8 +435,8 @@
                "name" : "sel"
             }
          ],
-         "ingredients_coverage_percent" : 83,
-         "ingredients_total_mass" : 83.3333333333333,
+         "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100.0,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
@@ -455,6 +455,19 @@
                      }
                   ],
                   "name" : "farine de maïs",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "huiles végétales",
                   "quantity" : 1
                },
                {

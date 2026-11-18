@@ -132,6 +132,7 @@
             }
          ],
          "ingredients_coverage_percent" : 95,
+         "ingredients_total_mass" : 95,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
@@ -139,27 +140,67 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 60
+                  "elements" : [
+                     {
+                        "amount" : 0.06,
+                        "material" : {
+                           "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "wheat flour",
+                  "quantity" : 1
                },
                {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 20
+                  "elements" : [
+                     {
+                        "amount" : 0.02,
+                        "material" : {
+                           "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sugar",
+                  "quantity" : 1
                },
                {
-                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 10
+                  "elements" : [
+                     {
+                        "amount" : 0.01,
+                        "material" : {
+                           "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "palm oil",
+                  "quantity" : 1
                },
                {
-                  "id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7",
-                  "mass" : 5
+                  "elements" : [
+                     {
+                        "amount" : 0.005,
+                        "material" : {
+                           "id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "hazelnuts",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "environmental_score_data" : {

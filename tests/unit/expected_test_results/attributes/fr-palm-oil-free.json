@@ -441,8 +441,8 @@
                "name" : "chocolat"
             }
          ],
-         "ingredients_coverage_percent" : 90,
-         "ingredients_total_mass" : 90.625,
+         "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100.0,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
@@ -487,6 +487,19 @@
                      }
                   ],
                   "name" : "sucre",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.009375,
+                        "material" : {
+                           "id" : "6f3939f7-408c-45d5-8653-61f3336bf305"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "chocolat",
                   "quantity" : 1
                }
             ],
