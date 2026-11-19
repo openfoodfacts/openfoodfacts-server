@@ -10,6 +10,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes %packager_codes/;
 use ProductOpener::Display qw/get_packager_code_coordinates/;
+use ProductOpener::Tags qw/%emb_codes_geo/;
 
 # initial tests
 is(normalize_packager_codes("emb54253"), "EMB 54253");
@@ -114,5 +115,11 @@ $packager_codes{"test-code-valid-coords"} = {cc => "fr", lat => "48.12", lng => 
 my ($valid_lat, $valid_lng) = get_packager_code_coordinates("test-code-valid-coords");
 is($valid_lat, "48.12", "Valid latitude returned correctly");
 is($valid_lng, "-2.45", "Valid longitude returned correctly");
+
+$emb_codes_geo{"FREMB99999"} = ["45.5", "3.2"];
+$packager_codes{"emb-99999a"} = {cc => "fr", lat => "invalid", lng => ""};
+my ($fallback_lat, $fallback_lng) = get_packager_code_coordinates("emb-99999a");
+is($fallback_lat, "45.5", "Invalid packager latitude falls back to city latitude");
+is($fallback_lng, "3.2", "Invalid packager longitude falls back to city longitude");
 
 done_testing();

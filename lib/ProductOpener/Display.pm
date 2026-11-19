@@ -7244,13 +7244,9 @@ The traceability code
 =cut
 
 sub _is_valid_coordinate ($coord, $min, $max) {
-	return (
-		defined $coord
-			&& looks_like_number($coord)
-			&& $coord !~ /^(?:[-+]?inf|nan)$/i
-			&& $coord >= $min
-			&& $coord <= $max
-	);
+	return 0 unless defined $coord && looks_like_number($coord);
+	return 0 if $coord =~ /^(?:[-+]?inf|nan)$/i;
+	return $coord >= $min && $coord <= $max;
 }
 
 sub get_packager_code_coordinates ($emb_code) {
