@@ -1812,6 +1812,30 @@ puffed orange and caramelized unknown_fruit4.",
 				"celozrnné ovesné vločky, kukuřičné lupínky, pšeničná sladová mouka, hrachová mouka, hrachová vláknina, citrusová vláknina, bambusová vláknina, karamelizovaný cukr, řepný cukr, kokosový cukr, javorový sirup, kakao se sníženým obsahem tuku, kakaové boby, čokoládový prášek, sezamová pasta, datlová pasta, rajčatový prášek, meruňkové pyré, jahodové pyré, višně, květák, ledový salát, černá mrkev, koncentrát z mrkve, kuřecí maso, bramborová bílkovina, bramborové vločky, mák, dýňová semínka, zeleninový vývar, pramenitá voda, himalájská sůl, jedlá sůl s jódem, řepkový lecitin, lékořicový extrakt, kypřící látky (uhličitany draselné), konzervanty (E202), nosič (E1520), balicí plyny (E941).",
 		}
 	],
+	[
+		'sk-frequent-unknown-ingredients',
+		{
+			lc => "sk",
+			ingredients_text =>
+				"pitná voda, soľ, cibuľa, zemiaky, mrkva, jahody, cuketa, datle, cícer, okara, múka pšeničná, múka sójová, zemiakový škrob, pšeničný škrob, rastlinné oleje, kokosový olej, rastlinné tuky, kokosový tuk, sušené odtučnené mlieko, mliečna bielkovina, hrachová bielkovina, odtučnený kakaový prášok, trstinový cukor, fruktóza, droždie, kvasničný extrakt, kvasný ocot liehový, koreniny, byliny, kurkuma, biele korenie, sušený cesnak, cesnak, koreň petržlenu, zelerové semeno, karamelový sirup, maltodextrín, prírodná minerálna voda, ryžové vločky, ľanové semienko, kvasný ocot vínny, kvasnicový extrakt, namočený cícer, horčičné semeno, petržlenová vňať, prírodná aróma, arómy, jogurtová kultúra, enzým laktáza, poleva, kyseliny (kyselina citrónová), regulátory kyslosti (citrany sodné), emulgátory (E471), stabilizátory (guma guar, xantánová guma), zahusťovadlá (metylcelulóza), antioxidanty (E300, E306), konzervačné látky (E202, disiričitan draselný), kypriace látky (uhličitany amónne), farbivá (karotény, amoniakový sulfitový karamel), protihrudkové činidlo (E551), zvýrazňovače chuti (E621), želírujúce látky (E440), polevové činidlá (E903), nosič (E1520), baliace plyny (E941), zvlhčovadlá (E422).",
+		}
+	],
+	[
+		'sl-ingredients-and-traces',
+		{
+			lc => "sl",
+			ingredients_text =>
+				"izvirska voda, fižol 38 %, pražena čebula, polnomastno mleko, lešnikova pasta, breskov sok, izvleček črnega čaja, koncentrirani izvleček pomaranče, kokošja maščoba, kokošje meso, rižev škrob, grahova moka, jajčni rumenjak, naravna aroma vanilije, pektini, natrijevi citrati, kalcijevi citrati. Lahko vsebuje sledi mleka, jajc, glutena, pšenice, rakov, rib, arašidov, oreškov, oreščkov, lešnikov, mandljev, listne zelene, gorčičnega semena, sezamovih semen, volčji bob, volčjega boba in sezama.",
+		}
+	],
+	[
+		'hr-frequent-unknown-ingredients',
+		{
+			lc => "hr",
+			ingredients_text =>
+				"pšenično brašno T 850, pšenične bjelančevine, tapiokin škrob, dijetalna vlakna, vlakna cikorije, suncokretove sjemenke, integralne zobene pahuljice, pšenične klice, proteini graška, mliječni protein, sir mascarpone, zrnati sir, atlantski losos, životinjsko sirilo, kvaščevi ekstrakti, limunova kora, mladi luk, bijeli grah, aroma vanilina, natrijev alginat, eritritol, karminska kiselina, kolin klorid, vitamin A palmitat, željezo, kromov klorid, crni slanutak, zeleni grah, sok crvene naranče, ječmena krupica, pileća koža, zrna soje, zaštitne kulture, sredstvo za obradu brašna (E300), sredstva za želiranje (E440), tvar za rahljenje tijesta (E500), sekvestrant (E385), nosač (E1520), plinovi za pakiranje (E941).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
