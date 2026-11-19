@@ -42,6 +42,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&get_rate_limit_user_requests
 		&increment_rate_limit_requests
+		&rate_limit_retry_after_seconds
 		&subscribe_to_redis_streams
 		&push_product_update_to_redis
 		&push_ocr_ready_to_redis
@@ -651,6 +652,16 @@ use constant RATE_LIMIT_WINDOW_SECONDS => 60;
 sub rate_limit_key ($ip, $bucket) {
 	my $window = int(time() / RATE_LIMIT_WINDOW_SECONDS);
 	return "po-rate-limit:$ip:$bucket:$window";
+}
+
+=head2 rate_limit_retry_after_seconds ()
+
+Return the number of whole seconds to wait until the next rate-limit window.
+
+=cut
+
+sub rate_limit_retry_after_seconds () {
+	return RATE_LIMIT_WINDOW_SECONDS - (time() % RATE_LIMIT_WINDOW_SECONDS);
 }
 
 =head2 get_rate_limit_user_requests ($ip, $bucket)
