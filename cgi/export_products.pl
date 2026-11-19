@@ -125,12 +125,14 @@ if ($action eq "display") {
 	$template_data_ref->{count_to_be_exported} = count_products({}, $query_ref);
 	$template_data_ref->{count_obsolete_to_be_exported} = count_products({}, $query_ref, 1);
 
-	my $export_photos_value = "";
+	# Photos are exported by default, for all organizations
+	my $export_photos_value = "checked";
+	# Apps, labels and other databases are not the owners of the products:
+	# by default, do not let their photos replace the photos already selected on the public platform
 	my $replace_selected_photos_value = "";
 	if (    (defined $Org_id)
 		and ($Org_id !~ /^(app|database|label)-/))
 	{
-		$export_photos_value = "checked";
 		$replace_selected_photos_value = "checked";
 	}
 	my $only_export_products_with_changes_value = "checked";
