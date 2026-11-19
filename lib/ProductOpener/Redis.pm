@@ -648,6 +648,7 @@ sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
 }
 
 use constant RATE_LIMIT_WINDOW_SECONDS => 60;
+use constant RATE_LIMIT_REPLY_TIMEOUT_SECONDS => 1;
 
 sub rate_limit_key ($ip, $bucket) {
 	my $window = int(time() / RATE_LIMIT_WINDOW_SECONDS);
@@ -662,6 +663,29 @@ Return the number of whole seconds to wait until the next rate-limit window.
 
 sub rate_limit_retry_after_seconds () {
 	return RATE_LIMIT_WINDOW_SECONDS - (time() % RATE_LIMIT_WINDOW_SECONDS);
+}
+
+sub wait_for_callback ($timeout, $timeout_error, $start) {
+	# Redis commands submit asynchronously. The condition variable runs the
+	# AnyEvent loop until the callback or the deadline wakes the caller.
+	my $cv = AE::cv;
+	my $timed_out = 0;
+	my $timer = AE::timer $timeout, 0, sub {
+		$timed_out = 1;
+		$cv->send();
+	};
+	$start->(
+		sub {
+			# A late callback can still arrive after the deadline wakes the caller.
+			return if $timed_out;
+			undef $timer;
+			$cv->send(@_);
+		}
+	);
+
+	my @result = $cv->recv;
+	die "$timeout_error\n" if $timed_out;
+	return @result;
 }
 
 =head2 get_rate_limit_user_requests ($ip, $bucket)
@@ -705,12 +729,12 @@ sub get_rate_limit_user_requests ($ip, $bucket) {
 			if $ratelimiter_log->is_debug();
 		my $key = rate_limit_key($ip, $bucket);
 		eval {
-			# By default redis_client operations are asynchronous,
-			# so we use an AnyEvent condition variable to wait for the result
-			my $cv = AE::cv;
-			$redis_client->get($key, sub {$cv->send(@_);});
 			my $redis_error;
-			($resp, $redis_error) = $cv->recv;
+			($resp, $redis_error) = wait_for_callback(
+				RATE_LIMIT_REPLY_TIMEOUT_SECONDS,
+				"Timed out waiting for Redis GET reply",
+				sub ($on_reply) {$redis_client->get($key, $on_reply);}
+			);
 			die $redis_error->message() if defined $redis_error;
 		};
 		$error = $@;
@@ -778,16 +802,16 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 			if $ratelimiter_log->is_debug();
 		my $key = rate_limit_key($ip, $bucket);
 		eval {
-			# Use a MULTI/EXEC block to increment the counter and set the
-			# expiration atomically. By default redis_client operations are
-			# asynchronous, so we use an AnyEvent condition variable to wait for
-			# the result
-			my $cv = AE::cv;
+			# Increment and set the expiration atomically.
 			$redis_client->multi();
 			$redis_client->incr($key);
 			$redis_client->expire($key, 59);
-			$redis_client->exec(sub {$cv->send(@_);});
-			my (undef, $redis_error) = $cv->recv;
+			# Redis may apply the transaction even if its reply times out.
+			my (undef, $redis_error) = wait_for_callback(
+				RATE_LIMIT_REPLY_TIMEOUT_SECONDS,
+				"Timed out waiting for Redis EXEC reply",
+				sub ($on_reply) {$redis_client->exec($on_reply);}
+			);
 			die $redis_error->message() if defined $redis_error;
 		};
 		$error = $@;
