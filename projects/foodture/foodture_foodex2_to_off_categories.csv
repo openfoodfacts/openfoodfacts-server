@@ -196,8 +196,8 @@ A007A,Breadcrumbs,Breadcrumbs,Yes,Grains and grain-based products,Bread and simi
 A005Y,Crackers and breadsticks,Crackers and breadsticks,Yes,Grains and grain-based products,Bread and similar products,A005Y,Crackers and breadsticks,3,en:breadsticks,Breadsticks,existing,OK
 A0CHT,Crisp bread,Crisp bread,Yes,Grains and grain-based products,Bread and similar products,A0CHT,Crisp bread,3,en:crispbreads,Crispbreads,existing,OK
 A006B,"Crisp bread, rye wholemeal","Crisp bread, rye wholemeal",Yes,Grains and grain-based products,Bread and similar products,A006B,"Crisp bread, rye wholemeal",5,en:wholemeal-rye-crispbreads,Wholemeal rye crispbreads,existing,NO PRODUCTS
-A006C,"Crisp bread, rye, refined flour","Crisp bread, rye, refined flour",Yes,Grains and grain-based products,Bread and similar products,A006C,"Crisp bread, rye, refined flour",5,en:rye-crispbreads,Rye crispbreads,existing,FEW PRODUCTS
-A006F,"Crisp bread, wheat, refined flour","Crisp bread, wheat, refined flour",Yes,Grains and grain-based products,Bread and similar products,A006F,"Crisp bread, wheat, refined flour",5,en:crispbreads-non-wholemeal,Crispbreads (non-wholemeal),existing,FEW PRODUCTS
+A006C,"Crisp bread, rye, refined flour","Crisp bread, rye, refined flour",Yes,Grains and grain-based products,Bread and similar products,A006C,"Crisp bread, rye, refined flour",5,en:refined-rye-crispbreads,Refined rye crispbreads,new,NEW CATEGORY
+A006F,"Crisp bread, wheat, refined flour","Crisp bread, wheat, refined flour",Yes,Grains and grain-based products,Bread and similar products,A006F,"Crisp bread, wheat, refined flour",5,en:refined-wheat-crispbreads,Refined wheat crispbreads,existing,FEW PRODUCTS
 A006E,"Crisp bread, wheat, wholemeal","Crisp bread, wheat, wholemeal",Yes,Grains and grain-based products,Bread and similar products,A006E,"Crisp bread, wheat, wholemeal",5,en:wholemeal-wheat-crispbreads,Wholemeal wheat crispbreads,existing,NO PRODUCTS
 A005K,Bread and rolls with special ingredients added,Bread and rolls with special ingredients added,Yes,Grains and grain-based products,Bread and similar products,A005K,Bread and rolls with special ingredients added,4,en:special-breads,Special breads,existing,OK
 A0BY0,Leavened bread and similar,Bread from bakery | Leavened bread | Leavened bread and rolls,Yes,Grains and grain-based products,Bread and similar products,A0BY0,Leavened bread and similar,3,en:breads,Breads,existing,OK
@@ -214,7 +214,7 @@ A004X,Wheat bread and rolls,Wheat bread and rolls,Yes,Grains and grain-based pro
 A005E,"Wheat bread and rolls, brown or wholemeal","Wheat bread and rolls, brown or wholemeal",Yes,Grains and grain-based products,Bread and similar products,A005E,"Wheat bread and rolls, brown or wholemeal",5,en:wholemeal-breads,Wholemeal breads,existing,OK
 A005D,"Wheat bread and rolls, semi-brown","Wheat bread and rolls, semi-brown",Yes,Grains and grain-based products,Bread and similar products,A005D,"Wheat bread and rolls, semi-brown",5,en:semi-wholemeal-breads,Semi-wholemeal breads,existing,FEW PRODUCTS
 A004Y,"Wheat bread and rolls, white (refined flour)","Wheat bread and rolls, white (refined flour)",Yes,Grains and grain-based products,Bread and similar products,A004Y,"Wheat bread and rolls, white (refined flour)",5,en:white-breads,White breads,existing,OK
-A004Z,"Wheat bread and rolls, white with maize","Wheat bread and rolls, white with maize",Yes,Grains and grain-based products,Bread and similar products,A004Z,"Wheat bread and rolls, white with maize",6,en:white-breads-with-maize,,new,NEW CATEGORY
+A004Z,"Wheat bread and rolls, white with maize","Wheat bread and rolls, white with maize",Yes,Grains and grain-based products,Bread and similar products,A004Z,"Wheat bread and rolls, white with maize",6,en:white-wheat-breads-with-corn,White wheat breads with corn,existing,NEW CATEGORY
 A006M,Rusk,Rusk,Yes,Grains and grain-based products,Bread and similar products,A006M,Rusk,3,en:rusks,Rusks,existing,OK
 A006N,"Rusk, refined flour","Rusk, refined flour",Yes,Grains and grain-based products,Bread and similar products,A006N,"Rusk, refined flour",4,en:common-wheat-rusks,Common wheat rusks,existing,OK
 A006P,"Rusk, wholemeal","Rusk, wholemeal",Yes,Grains and grain-based products,Bread and similar products,A006P,"Rusk, wholemeal",4,en:wholemeal-rusks,Wholemeal rusks,existing,OK
@@ -323,7 +323,7 @@ A024V,Cured ripened raw sausages,Cured ripened raw sausages,Yes,Meat and meat pr
 A025C,Chorizo and similar,Chorizo and similar,Yes,Meat and meat products,Sausages,A025C,Chorizo and similar,6,en:chorizos,Chorizos,existing,OK
 A025F,Ripened kolbasz,Ripened kolbasz,Yes,Meat and meat products,Sausages,A025F,Ripened kolbasz,6,en:kolbasz,,new,NEW CATEGORY
 A025A,German salami,German salami,Yes,Meat and meat products,Sausages,A025A,German salami,6,en:german-style-salami,German-style salami,existing,FEW PRODUCTS
-A024Z,Hungarian-type salami,Hungarian-type salami,Yes,Meat and meat products,Sausages,A024Z,Hungarian-type salami,6,en:salami-ungherese,Salami ungherese,existing,FEW PRODUCTS
+A024Z,Hungarian-type salami,Hungarian-type salami,Yes,Meat and meat products,Sausages,A024Z,Hungarian-type salami,6,en:hungarian-salami,Hungarian salami,existing,FEW PRODUCTS
 A024X,Salami-type sausage,Salami-type sausage,Yes,Meat and meat products,Sausages,A024X,Salami-type sausage,5,en:salami,Salami,existing,OK
 A024Q,Cured unripened raw sausages,Cured unripened raw sausages,Yes,Meat and meat products,Sausages,A024Q,Cured unripened raw sausages,4,en:unripened-raw-sausages,Unripened raw sausages,existing,FEW PRODUCTS
 A024R,Mettwurst-type sausage,Mettwurst-type sausage,Yes,Meat and meat products,Sausages,A024R,Mettwurst-type sausage,5,en:mettwurst,Mettwurst,existing,FEW PRODUCTS
@@ -480,7 +480,7 @@ A035A,"Caramel, soft","Caramel, soft",Yes,"Sugar and similar, confectionery and 
 A0EQQ,Candies (soft and hard),Candies (soft and hard),Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A0EQQ,Candies (soft and hard),3,en:candies,Candies,existing,OK
 A034X,Hard candies,Hard candies,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A034X,Hard candies,4,en:hard-candies,Hard candies,existing,OK
 A035H,Foamed sugar products (marshmallows),Foamed sugar products (marshmallows),Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035H,Foamed sugar products (marshmallows),5,en:marshmallows,Marshmallows,existing,OK
-A035K,Gum drops,Gum drops,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035K,Gum drops,5,en:wine-gums,Wine gums,existing,FEW PRODUCTS
+A035K,Gum drops,Gum drops,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035K,Gum drops,5,en:sugar-coated-gummies,Sugar-coated gummies,new,NEW CATEGORY
 A035L,Jelly candies,Jelly candies,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035L,Jelly candies,5,en:gummi-candies,Gummi candies,existing,OK
 A035J,Liquorice candies,Liquorice candies,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035J,Liquorice candies,5,en:liquorice-candies,Liquorice candies,existing,OK
 A035M,Chewing gum,Chewing gum,Yes,"Sugar and similar, confectionery and water-based sweet desserts",Confectionery including chocolate,A035M,Chewing gum,3,en:chewing-gums,Chewing gums,existing,OK
