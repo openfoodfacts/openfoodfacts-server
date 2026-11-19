@@ -2,6 +2,8 @@
 <script src="[% static_subdomain %]/js/dist/JsBarcode.all.min.js"></script>
 
 [% INCLUDE web/common/includes/external_sources_scripts.tt.html %]
+<!-- <script src="[% static_subdomain %]/js/dist/open-prices.js" defer></script> PARA CUANDO VAYA A HACER EL PR-->
+<script src="[% static_subdomain %]/js/open-prices.js" defer></script>
 
 [% IF product_changes_saved %]
     <div data-alert class="alert-box info">
@@ -98,6 +100,11 @@
                             <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
                         [% END %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
+                        <li class="product-section-button">
+                            <a class="nav-link scrollto button small round white-button" href="#prices">
+                                <span>Prices</span>
+                            </a>
+                        </li>
                         [% IF secondhand_card_panel %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#secondhand"><span>[% lang("secondhand") %]</span></a></li>
                         [% END %]
@@ -330,6 +337,29 @@
         </div>
     </section>
 [% END %]
+
+<section class="row" id="prices">
+    <div class="large-12 column">
+        <div class="card">
+            <div class="card-section">
+                <h2>Prices</h2>
+
+                <div id="open-prices-content" aria-live="polite">
+                    Loading price information...
+                </div>
+
+                <div class="open-prices-links">
+                    <a id="open-prices-view" target="_blank" rel="noopener noreferrer">
+                        View prices on Open Prices
+                    </a>
+                    <a id="open-prices-add" target="_blank" rel="noopener noreferrer">
+                        Add a price
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Report problem card, if not on the platform for producers -->
 [% IF ! server_options_producers_platform %]
