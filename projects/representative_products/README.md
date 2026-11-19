@@ -69,7 +69,9 @@ Fallback categories are not used: the `fallback_category` column is empty, for t
 
 It writes `foodture_campaign.csv` and `foodture_campaign.json`. `projects/foodture/build_campaign_site.pl` makes the
 web pages from the JSON file: `index.html` (summary per country, sortable; `index.html?country=at` opens the Austria page),
-one page per country (`at.html`, `be.html`... country subdomain codes) and `all.html`. It also writes:
+one page per country (`at.html`, `be.html`... country subdomain codes) and `all.html`. Next to each category, an ⓘ
+shows the FoodEx2 description (scope note of the EFSA MTX catalogue) from `projects/foodture/foodture_foodex2_scope_notes.csv`
+(regenerate it with `export_foodex2_scope_notes.py <mtx_terms.json>` when the mapping changes). It also writes:
 - `data.js`, in the format of the Scan Champion and Data Detective mini-sites
   (https://github.com/openfoodfacts/smooth-app_assets): they can load it from
   https://static.openfoodfacts.org/data/foodture/data.js instead of their own copy.

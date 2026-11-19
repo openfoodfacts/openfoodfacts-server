@@ -51,17 +51,23 @@ use FindBin;
 # --partners: organizations that relay the campaign in a country (associations, communities...), shown on the page of
 # the country. JSON file: {"si": [{"name": "...", "url": "https://...", "logo": "https://..."}], ...}, keys are the
 # country codes of the pages. Read from partners.json in the output directory if the option is not given.
+#
+# --foodex2-scope-notes: FoodEx2 descriptions shown next to the categories (foodture_foodex2_scope_notes.csv, made by
+# export_foodex2_scope_notes.py from the EFSA MTX catalogue)
 
 my $usage
-	= "build_campaign_site.pl --json <foodture_campaign.json> --output-dir <dir> [--baseline <file.json>] [--history <file.csv>] [--partners <file.json>]\n";
+	= "build_campaign_site.pl --json <foodture_campaign.json> --output-dir <dir> [--baseline <file.json>] [--history <file.csv>] [--partners <file.json>]\n"
+	. "	[--foodex2-scope-notes <foodture_foodex2_scope_notes.csv>]\n";
 
 my ($json_file, $output_dir, $baseline_file, $history_file, $partners_file);
+my $scope_notes_file = "$FindBin::Bin/foodture_foodex2_scope_notes.csv";
 GetOptions(
 	"json=s" => \$json_file,
 	"output-dir=s" => \$output_dir,
 	"baseline=s" => \$baseline_file,
 	"history=s" => \$history_file,
-	"partners=s" => \$partners_file
+	"partners=s" => \$partners_file,
+	"foodex2-scope-notes=s" => \$scope_notes_file
 ) or die $usage;
 (defined $json_file and defined $output_dir) or die $usage;
 -d $output_dir or die "Output directory $output_dir does not exist\n";
@@ -149,6 +155,22 @@ foreach my $row_ref (@rows) {
 # FOODTURE computes the environmental impact of the products from their ingredients: it needs at least 95% of the
 # estimated quantity of the ingredients recognized
 my $min_recognized_quantity_pct = 95;
+
+# FoodEx2 descriptions (scope notes of the EFSA MTX catalogue): FoodEx2 code -> description
+my %foodex2_scope_notes = ();
+if (-e $scope_notes_file) {
+	my $csv = Text::CSV->new({binary => 1});
+	open(my $NOTES, '<:encoding(UTF-8)', $scope_notes_file) or die "Cannot read $scope_notes_file: $!\n";
+	$csv->header($NOTES);
+	while (my $row_ref = $csv->getline_hr($NOTES)) {
+		$foodex2_scope_notes{$row_ref->{foodex2_code}} = $row_ref->{foodex2_scope_note}
+			if ($row_ref->{foodex2_scope_note} // '') ne '';
+	}
+	close $NOTES;
+}
+else {
+	print STDERR "Warning: $scope_notes_file not found, no FoodEx2 descriptions\n";
+}
 
 sub quantity_ok ($pct) {
 	return ((defined $pct) and ($pct ne '') and ($pct >= $min_recognized_quantity_pct)) ? 1 : 0;
@@ -290,6 +312,11 @@ th { background: var(--head); font-weight: 600; }
 .OK { color: var(--ok); background: var(--ok-bg); }
 .cat { font-weight: 600; }
 .local { font-style: italic; }
+details.fx summary { cursor: pointer; list-style: none; }
+details.fx summary::-webkit-details-marker { display: none; }
+details.fx .info { color: var(--muted); font-size: 0.9em; }
+details.fx[open] .info { color: var(--fg); }
+details.fx > small { display: block; max-width: 40em; margin: 2px 0 4px; }
 .summary td, .summary th { text-align: right; white-space: nowrap; }
 .summary td:first-child, .summary th:first-child, .summary td.left { text-align: left; }
 .summary th[data-sort] { cursor: pointer; user-select: none; }
@@ -678,7 +705,18 @@ including %d with at least 95%% of the ingredients recognized (Full Coverage: %.
 			= qq{<a class="cat" href="} . h($r->{category_url}) . qq{">} . h($r->{off_category_name_en}) . "</a>";
 		$category .= qq{<br><span class="local">} . h($r->{off_category_names_local}) . "</span>"
 			if ($r->{off_category_names_local} // '') ne '';
-		$category .= "<br><small>FoodEx2 " . h($r->{foodex2_code}) . ": " . h($r->{foodex2_name}) . "</small>";
+		my $foodex2 = "FoodEx2 " . h($r->{foodex2_code}) . ": " . h($r->{foodex2_name});
+		my $scope_note = $foodex2_scope_notes{$r->{foodex2_code} // ''};
+		# FoodEx2 description: tooltip on hover, shown below on click (also on phones)
+		$category
+			.= defined $scope_note
+			? qq{<details class="fx"><summary title="}
+			. h($scope_note)
+			. qq{"><small>$foodex2</small> <span class="info" aria-label="FoodEx2 description">ⓘ</span></summary>}
+			. "<small>"
+			. h($scope_note)
+			. "</small></details>"
+			: "<br><small>$foodex2</small>";
 		if (not $r->{foodture_needed}) {
 			$category
 				.= "<br><small>Not needed by FOODTURE: "
