@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.124.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.124.0...v2.124.1) (2026-11-19)
+
+
+### Bug Fixes
+
+* **producers:** export photos from the producers platform to the public platform again ([#15445](https://github.com/openfoodfacts/openfoodfacts-server/issues/15445)) ([941451f](https://github.com/openfoodfacts/openfoodfacts-server/commit/941451f78a52de369eaee6b05c941ffaf9a8c057))
+
+## [2.124.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.123.0...v2.124.0) (2026-11-18)
+
+
+### Features
+
+* opt-in knowledge panel order with ingredients and nutrition first ([#15402](https://github.com/openfoodfacts/openfoodfacts-server/issues/15402)) ([fed2003](https://github.com/openfoodfacts/openfoodfacts-server/commit/fed200364ff01b5fd17f594c4895e3169010d85d))
+
+
+### Bug Fixes
+
+* category nutrition stats min, max and centiles from sorted values ([#15434](https://github.com/openfoodfacts/openfoodfacts-server/issues/15434)) ([e8f5eea](https://github.com/openfoodfacts/openfoodfacts-server/commit/e8f5eeab00bb2d2344bc2e0a588933773cc78ec9))
+* **display:** use 'popularity' instead of 'popularity_key' as sort_by identifier ([#15349](https://github.com/openfoodfacts/openfoodfacts-server/issues/15349)) ([#15360](https://github.com/openfoodfacts/openfoodfacts-server/issues/15360)) ([d64e243](https://github.com/openfoodfacts/openfoodfacts-server/commit/d64e243b10b924be11e1d2e8d39dc29059b28d92))
+* include /images in API v3 image upload product_type redirect ([#15398](https://github.com/openfoodfacts/openfoodfacts-server/issues/15398)) ([be0cead](https://github.com/openfoodfacts/openfoodfacts-server/commit/be0cead78c5c4b34f98823a1901cb9b88ed05f8c)), closes [#15396](https://github.com/openfoodfacts/openfoodfacts-server/issues/15396)
+* **knowledge-panels:** use packaging icon instead of question mark for unclassified recycling elements ([#14077](https://github.com/openfoodfacts/openfoodfacts-server/issues/14077)) ([#15288](https://github.com/openfoodfacts/openfoodfacts-server/issues/15288)) ([e58d046](https://github.com/openfoodfacts/openfoodfacts-server/commit/e58d046dd2e750db3656266100c57cf80acef454))
+* refuse "null" and "undefined" values in tags fields ([#14887](https://github.com/openfoodfacts/openfoodfacts-server/issues/14887)) ([f085d0b](https://github.com/openfoodfacts/openfoodfacts-server/commit/f085d0b7f60d604808bd27c11d0dccaf4303c4ff))
+* **taxonomy:** restore en:sourdough and warn when same-file entries are merged by a shared synonym ([#15408](https://github.com/openfoodfacts/openfoodfacts-server/issues/15408)) ([c6fe09d](https://github.com/openfoodfacts/openfoodfacts-server/commit/c6fe09d7f39a5abddbe67ec9d32a901d0ce3880e))
+
 ## [2.123.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.122.0...v2.123.0) (2026-11-17)
 
 

@@ -2824,10 +2824,6 @@ uk: стандартизований, стандартизована, станд
 en: normalized, normalised
 uk: нормалізований, нормалізоване, нормалізована, нормалізовані
 
-en: seasoned, with seasoning, with liquid seasoning
-de: gewürzter, gewuerzter, gewürzter, gewuerzter, flüssig gewürzt
-fr: assaisonné, assaisonnée, assaisonnés, assaisonnées
-
 #######################################################################
 #
 #                T R E A T I N G   P R O C E S S E S
@@ -2863,6 +2859,10 @@ sv: sköljd, sköljt, sköljda
 en: washed
 sv: tvättad, tvättat, tvättade
 wikidata:en: Q134401232
+
+en: polished
+sv: polerad, polerat, polerade
+wikidata:en: Q1054722
 
 en: bleached
 de: gebleicht, gebleichte, gebleichter, gebleichtes, gebleichten, gebleichtem
@@ -3156,9 +3156,15 @@ wikidata:en: Q29560
 
 de: ungepökelt
 
+en: seasoned, with seasoning, with liquid seasoning
+de: gewürzter, gewuerzter, gewürzter, gewuerzter, flüssig gewürzt
+fr: assaisonné, assaisonnée, assaisonnés, assaisonnées
+wikidata:en: Q773108
+
 en: flavoured, flavored
 bg: ароматизирано, ароматизиран, ароматизирани
 ca: aromatitzada
+da: smagsat, smagsatte, med smag
 de: aromatisiert, aromatisierte, aromatisierter, aromatisiertes, aromatisierten, aromatisiertem
 es: sabour, saboreado, saboreada
 fr: aromatisé, aromatisée, aromatisées
@@ -3169,7 +3175,10 @@ ja: 調味
 nl: gearomatiseerd, gearomatiseerde
 pl: aromatyzowany, aromatyzowana, aromatyzowane, przyprawiony, przyprawiona, przyprawione, smakowy, smakowe, smakowa
 pt: aromatizado, aromatizada, aromatizados, aromatizadas
+ro: condimentat
+sv: smaksatt, smaksatta, med smak
 uk: ароматизований, ароматизована, ароматизоване, ароматизовані
+wikidata:en: Q142212669
 
 en: unflavoured, unflavoured
 bg: без аромат, без аромат
