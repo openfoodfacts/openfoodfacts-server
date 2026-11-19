@@ -4754,15 +4754,30 @@ sub canonicalize_allergens_taxonomy_tag($ingredients_lc, $ingredient_or_allergen
 		return $allergenid if defined $allergenid;
 	}
 
+	# Check if any candidate phrase is already a known ingredient that has no allergen property (e.g. "cocoa butter").
+	foreach my $phrase (@candidate_phrases) {
+		my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $phrase);
+		if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
+			return canonicalize_taxonomy_tag($ingredients_lc, "allergens", $ingredient_or_allergen);
+		}
+	}
+
 	# Some users enter a description around a known ingredient, e.g. Czech
 	# wheat flour wording. Match whole taxonomy words inside that description,
 	# but leave conjunctions to the caller so separate allergens can still split.
-	if ($ingredient_or_allergen
+	my $text
+		= Encode::is_utf8($ingredient_or_allergen)
+		? $ingredient_or_allergen
+		: Encode::decode_utf8($ingredient_or_allergen);
+
+	if ($text
 		!~ /\b(?:and|und|et|a|y|e|ja|og|en|no|not|none|without|free|sans|aucun|aucune|kein|keine|ohne|bez|\x{17E}\x{E1}dn[\x{FD}\x{E1}\x{E9}])\b/i
 		)
 	{
-		my @words = $ingredient_or_allergen =~ /([\p{L}\p{N}-]+)/g;
-		for (my $phrase_length = scalar(@words) - 1; $phrase_length > 0; $phrase_length--) {
+		my @words = $text =~ /([\p{L}\p{N}-]+)/g;
+		my $max_length = scalar(@words) - 1;
+		$max_length = 4 if $max_length > 4;
+		for (my $phrase_length = $max_length; $phrase_length >= 2; $phrase_length--) {
 			my %candidate_allergens;
 			for (my $start = 0; $start + $phrase_length <= scalar(@words); $start++) {
 				my $phrase = join(" ", @words[$start .. $start + $phrase_length - 1]);

@@ -429,6 +429,21 @@ is(canonicalize_allergens_taxonomy_tag("de", "Milchschokoladenpulver"),
 	"de:Milchschokoladenpulver", "A longer unknown word is not matched by an allergen prefix");
 is(canonicalize_allergens_taxonomy_tag("en", "no wheat"),
 	"en:no wheat", "An absence statement is not interpreted as an allergen");
+is(
+	canonicalize_allergens_taxonomy_tag("en", "cocoa butter"),
+	"en:cocoa butter",
+	"Known ingredient without allergens is not matched by subphrase (cocoa butter)"
+);
+is(
+	canonicalize_allergens_taxonomy_tag("en", "coconut milk"),
+	"en:coconut milk",
+	"Known ingredient without allergens is not matched by subphrase (coconut milk)"
+);
+is(
+	canonicalize_allergens_taxonomy_tag("it", "senza glutine"),
+	"it:senza glutine",
+	"Short absence note is not mapped to an allergen (senza glutine)"
+);
 
 my $allergen_product = {};
 set_field_input_tags_for_source($allergen_product, "de", "allergens", "user",
@@ -457,5 +472,10 @@ is(
 	"en:some very strange ingredient",
 	"Testing canonicalize_allergens_taxonomy_tag for strange ingredient (en)"
 );
+
+# Long unstructured input does not cause excessive lookups
+my $long_unstructured_input = join(" ", ("word") x 400);
+is(canonicalize_allergens_taxonomy_tag("en", $long_unstructured_input),
+	"en:$long_unstructured_input", "Long text without allergens is handled quickly without hang");
 
 done_testing();
