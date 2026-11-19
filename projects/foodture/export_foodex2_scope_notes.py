@@ -30,7 +30,7 @@ terms = json.load(open(terms_file, encoding='utf-8'))
 codes = sorted({row['foodex2_code'] for row in csv.DictReader(open(mapping_file, encoding='utf-8')) if row['foodex2_code']})
 missing = 0
 with open(output_file, 'w', newline='', encoding='utf-8') as out:
-    w = csv.writer(out)
+    w = csv.writer(out, lineterminator='\n')
     w.writerow(['foodex2_code', 'foodex2_name', 'foodex2_scope_note'])
     for code in codes:
         term = terms.get(code)
