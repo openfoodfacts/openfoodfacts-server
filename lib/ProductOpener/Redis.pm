@@ -693,7 +693,15 @@ sub get_rate_limit_user_requests ($ip, $bucket) {
 		$ratelimiter_log->debug("Getting rate-limit user requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
 		my $key = rate_limit_key($ip, $bucket);
-		eval {$resp = $redis_client->get($key);};
+		eval {
+			# By default redis_client operations are asynchronous,
+			# so we use an AnyEvent condition variable to wait for the result
+			my $cv = AE::cv;
+			$redis_client->get($key, sub {$cv->send(@_);});
+			my $redis_error;
+			($resp, $redis_error) = $cv->recv;
+			die $redis_error->message() if defined $redis_error;
+		};
 		$error = $@;
 	}
 	else {
@@ -759,11 +767,17 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 			if $ratelimiter_log->is_debug();
 		my $key = rate_limit_key($ip, $bucket);
 		eval {
-			# Use a MULTI/EXEC block to increment the counter and set the expiration atomically
+			# Use a MULTI/EXEC block to increment the counter and set the
+			# expiration atomically. By default redis_client operations are
+			# asynchronous, so we use an AnyEvent condition variable to wait for
+			# the result
+			my $cv = AE::cv;
 			$redis_client->multi();
 			$redis_client->incr($key);
 			$redis_client->expire($key, 59);
-			$redis_client->exec();
+			$redis_client->exec(sub {$cv->send(@_);});
+			my (undef, $redis_error) = $cv->recv;
+			die $redis_error->message() if defined $redis_error;
 		};
 		$error = $@;
 	}
