@@ -856,7 +856,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		fr => "(?:teneur|taux)(?: (?:$minimum_or_total))?(?: en)?",   # need to have " en" as it's not in the $of regexp
 		hr => "ukupni(?: udio)?|udio",
 		sl => "vsebuje",
-		sv => "(?:(?:$minimum_or_total) )?(?:frukt)?mängd",
+		sv => "(?:(?:$minimum_or_total) )?mängd",
 	);
 	my $content_of_ingredient = $content_of_ingredient{$ingredients_lc};
 
@@ -869,6 +869,14 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		sv => "mängd"
 	);
 	my $ingredient_content = $ingredient_content{$ingredients_lc};
+
+	# generic content label before a quantity of a specific ingredient, which is not captured
+	# e.g. sv: "Bärmängd: 46 g jordgubbar per 100 g sylt" ("Berry amount: 46 g strawberries per 100 g jam")
+	# (sv compound words: "bärmängd" = "bär" (berry) + "mängd" (amount), "fruktmängd" = fruit amount)
+	# not enabled for en ("fruit content: 45g orange per 100g"), as it matches badly separated statements like
+	# "Total sugar content 65g per 100g Produced from 75g of fruits per 100g"
+	my %content_label = (sv => '[[:alpha:] ]*?mängd(?::|\s)*',);
+	my $content_label = (defined $content_label{$ingredients_lc}) ? '(?:' . $content_label{$ingredients_lc} . ')?' : '';
 
 	# content statements of chocolate products, with a minimum, e.g. "Cacao : 46% minimum."
 	# "milk chocolate contains cocoa solids 30% minimum", "cacao 52% minimum dans le chocolat"
@@ -1078,10 +1086,11 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 					)
 				)
 				or
-				# percent, ingredient, per 100g, separator
+				# optional content label, percent, ingredient, per 100g, separator
 				(
 					$text =~ compiled_regexp(
 							  '((?:^|;|,|\.| - )\s*)'
+							. $content_label
 							. $percent_or_quantity_regexp . '(?:'
 							. $of
 							. '|\s|:)+\s*([^,.;]+?)\s*(?:'

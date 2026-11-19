@@ -515,7 +515,7 @@ $symbols_regexp = join('|', @symbols);
 	nl => " per ",
 	nn => " (?:per|pr.) ",
 	no => " (?:per|pr.) ",
-	sv => "((?: bär)|(?:\, varav tillsatt socker \\d+\\s*g))? per ",
+	sv => "(\, varav tillsatt socker \\d+\\s*g)? per ",
 );
 
 $one_hundred_grams_or_ml = '100\s*(?:g|gr|ml)';

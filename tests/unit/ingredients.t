@@ -809,6 +809,33 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "Bringebær 80%, vatn, fortjukkingsmiddel (pektin). 80 g bær pr. 100 g."
 		}
 	],
+	# sv: generic "berry amount" / "fruit amount" label, followed by a quantity of a specific ingredient
+	# "Berry amount: 46 g strawberries per 100 g jam" -> strawberries: 46 g
+	# https://se.openfoodfacts.org/product/7310090244240/jordgubbssylt-bob
+	[
+		"sv-specific-ingredients-berry-amount-quantity-of-ingredient",
+		{
+			lc => "sv",
+			ingredients_text =>
+				"Jordgubbar, socker, vatten, aroniajuicekoncentrat, förtjockningsmedel (pektin), surhetsreglerande medel (citronsyra), konserveringsmedel (kaliumsorbat). Bärmängd: 46 g jordgubbar per 100 g sylt."
+		}
+	],
+	# "Total fruit amount: 55g cloudberries per 100g" -> cloudberries: 55 g
+	[
+		"sv-specific-ingredients-fruit-amount-quantity-of-ingredient",
+		{
+			lc => "sv",
+			ingredients_text => "Hjortron, rörsocker, vatten och pektin. Total fruktmängd 55g hjortron per 100g."
+		}
+	],
+	# "Fruit amount: 52g per 100 g jam. Berry amount: 40 g berries per 100g." -> fruit: 52 g, berries: 40 g
+	[
+		"sv-specific-ingredients-fruit-amount-generic",
+		{
+			lc => "sv",
+			ingredients_text => "Lingon, socker, vatten. Fruktmängd: 52g per 100 g sylt. Bärmängd: 40 g bär per 100g."
+		}
+	],
 	[
 		"fr-content-of-ingredient",
 		{
