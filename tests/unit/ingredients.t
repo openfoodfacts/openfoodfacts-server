@@ -1219,6 +1219,32 @@ puffed orange and caramelized unknown_fruit4.",
 				"Hierro 30 mg/kg, ácido fólico 2,2 mg/kg, tiamina 6,3 mg/kg, riboflavina 1,3 mg/kg, niacina 13 mg/kg",
 		}
 	],
+
+	# Spanish ingredients that were frequently unknown in production
+	[
+		"es-melva-thunnus-alalunga",
+		{
+			lc => "es",
+			ingredients_text =>
+				"Melva (66%), aceite de oliva (33%) y sal. Bonito del norte (Thunnus alalunga), aceite de oliva 35%, sal.",
+		}
+	],
+	[
+		"es-morcilla-sangre-vacuno-pimentones",
+		{
+			lc => "es",
+			ingredients_text =>
+				"morcilla curada 5,5% (tocino, papada, sangre y magro de cerdo, cebolla, pimentones, sal), gelatina (vacuno), sal de potasio, recubrimiento: colágeno.",
+		}
+	],
+	[
+		"es-frequent-unknown-ingredients",
+		{
+			lc => "es",
+			ingredients_text =>
+				"Fideos orientales 93,7% (harina de trigo, aceite de girasol, sal), empanado (30%) (pan rallado, agua), masa madre de trigo inactiva, sólidos lácteos ricos en calcio, dextrinomaltosa, almidones, grosella, espirulina, goma base, cobertura de chocolate con leche, cobertura 25% (azúcar, cacao), mazada, ricotta, algarroba, picatostes, anís verde, aroma a queso, café soluble descafeinado, humo de madera de haya, vinagre de uva, aceite de girasol y oliva, aroma natural de limón con otros aromas naturales.",
+		}
+	],
 	[
 		"en-compound-unit-minimum-qualifier",
 		{
@@ -1648,6 +1674,91 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	# “osteløbe (mikrobiel)”
+	# content statements at the end of the list go to specific_ingredients, not to the ingredients list
+	[
+		'fr-cocoa-content-statement-minimum',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, pâte de cacao, beurre de cacao, émulsifiant : lécithine de soja, arôme naturel de vanille. Cacao : 46% minimum.",
+		}
+	],
+	[
+		'fr-cocoa-milk-content-statement',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, beurre de cacao, lait entier en poudre, pâte de cacao. Le chocolat au lait contient cacao 35% minimum, matière sèche de lait 20% minimum.",
+		}
+	],
+	[
+		'en-cocoa-solids-content-statement',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Sugar, cocoa butter, whole milk powder, cocoa mass, emulsifier (soya lecithin), flavouring. Milk chocolate contains cocoa solids 30% minimum, milk solids 20% minimum.",
+		}
+	],
+	[
+		'en-ingredient-in-the-filling-content-statement',
+		{
+			lc => "en",
+			ingredients_text => "Sugar, wheat flour, strawberries, glucose syrup, strawberries in the filling: 49.8%",
+		}
+	],
+	# the percent is relative to the filling: it is scaled with the percent of the filling
+	[
+		'en-ingredient-in-the-filling-with-filling-percent',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Biscuit 60% (wheat flour, sugar, butter), filling 40% (sugar, strawberries, glucose syrup), strawberries in the filling: 49.8%",
+		}
+	],
+	# nested filling: the percent of the filling in the product is 50% x 40% = 20%
+	[
+		'en-ingredient-in-the-nested-filling-with-percents',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Cake 50% (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+		}
+	],
+	# nested filling in a cake without a percent: the percent of the filling in the product is unknown
+	[
+		'en-ingredient-in-the-nested-filling-without-parent-percent',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Cake (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+		}
+	],
+	# no other cocoa in the list: "cacao 30% minimum" is the cocoa ingredient, not a content statement
+	[
+		'fr-cocoa-minimum-only-cocoa-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre, lait en poudre, cacao 30% minimum, sel",
+		}
+	],
+	# minimum percents of ingredients in the list are kept
+	[
+		'fr-minimum-percents-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Pomme 60 % minimum, poire 30 %, sucre, cacao 30%",
+		}
+	],
+	# a content statement followed by an origin statement: two specific ingredients,
+	# the cocoa percent must not be attached to the milk origin
+	[
+		'fr-cocoa-content-statement-and-milk-origin',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"LAIT* entier en poudre 25%,  beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
+		}
+	],
 	[
 		'da-osteloebe-mikrobiel',
 		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000
@@ -1655,6 +1766,48 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "da",
 			ingredients_text =>
 				"96 % pasteuriseret _mælk_, 2,8 % salt, kultur (indeholder _mælk_), osteløbe (mikrobiel).",
+		}
+	],
+	# Frequent Slovenian ingredients and additive class names
+	[
+		'sl-frequent-unknown-ingredients',
+		{
+			lc => "sl",
+			ingredients_text =>
+				"pšenična bela moka, glukozni sirup, kakavova masa, palmino olje, repično olje, jagode 12 %, maline, korenje, paradižnikov koncentrat, krompirjev škrob, modificiran škrob, maltodekstrin, jogurt, posneto mleko v prahu, piščančje meso, jedilna želatina, alkoholni kis, vinski kis, ekstrakt kvasa, kvas, karoteni, sirilo, kumarice, emulgatorja (sojini lecitini, E471), stabilizatorji (E407, E412), gostilo (E415), antioksidanta (E300, E306), konzervansa (E202, E211), sredstvi za vzhajanje (E500, E450), sredstvo za ohranjanje vlage (E422), barvila (E160a), sladili (E950, E955), vanilin sladkor.",
+		}
+	],
+	# Frequent Czech ingredients and additive class names
+	[
+		'cs-frequent-unknown-ingredients',
+		{
+			lc => "cs",
+			ingredients_text =>
+				"celozrnné ovesné vločky, kukuřičné lupínky, pšeničná sladová mouka, hrachová mouka, hrachová vláknina, citrusová vláknina, bambusová vláknina, karamelizovaný cukr, řepný cukr, kokosový cukr, javorový sirup, kakao se sníženým obsahem tuku, kakaové boby, čokoládový prášek, sezamová pasta, datlová pasta, rajčatový prášek, meruňkové pyré, jahodové pyré, višně, květák, ledový salát, černá mrkev, koncentrát z mrkve, kuřecí maso, bramborová bílkovina, bramborové vločky, mák, dýňová semínka, zeleninový vývar, pramenitá voda, himalájská sůl, jedlá sůl s jódem, řepkový lecitin, lékořicový extrakt, kypřící látky (uhličitany draselné), konzervanty (E202), nosič (E1520), balicí plyny (E941).",
+		}
+	],
+	[
+		'sk-frequent-unknown-ingredients',
+		{
+			lc => "sk",
+			ingredients_text =>
+				"pitná voda, soľ, cibuľa, zemiaky, mrkva, jahody, cuketa, datle, cícer, okara, múka pšeničná, múka sójová, zemiakový škrob, pšeničný škrob, rastlinné oleje, kokosový olej, rastlinné tuky, kokosový tuk, sušené odtučnené mlieko, mliečna bielkovina, hrachová bielkovina, odtučnený kakaový prášok, trstinový cukor, fruktóza, droždie, kvasničný extrakt, kvasný ocot liehový, koreniny, byliny, kurkuma, biele korenie, sušený cesnak, cesnak, koreň petržlenu, zelerové semeno, karamelový sirup, maltodextrín, prírodná minerálna voda, ryžové vločky, ľanové semienko, kvasný ocot vínny, kvasnicový extrakt, namočený cícer, horčičné semeno, petržlenová vňať, prírodná aróma, arómy, jogurtová kultúra, enzým laktáza, poleva, kyseliny (kyselina citrónová), regulátory kyslosti (citrany sodné), emulgátory (E471), stabilizátory (guma guar, xantánová guma), zahusťovadlá (metylcelulóza), antioxidanty (E300, E306), konzervačné látky (E202, disiričitan draselný), kypriace látky (uhličitany amónne), farbivá (karotény, amoniakový sulfitový karamel), protihrudkové činidlo (E551), zvýrazňovače chuti (E621), želírujúce látky (E440), polevové činidlá (E903), nosič (E1520), baliace plyny (E941), zvlhčovadlá (E422).",
+		}
+	],
+	[
+		'sl-ingredients-and-traces',
+		{
+			lc => "sl",
+			ingredients_text =>
+				"izvirska voda, fižol 38 %, pražena čebula, polnomastno mleko, lešnikova pasta, breskov sok, izvleček črnega čaja, koncentrirani izvleček pomaranče, kokošja maščoba, kokošje meso, rižev škrob, grahova moka, jajčni rumenjak, naravna aroma vanilije, pektini, natrijevi citrati, kalcijevi citrati. Lahko vsebuje sledi mleka, jajc, glutena, pšenice, rakov, rib, arašidov, oreškov, oreščkov, lešnikov, mandljev, listne zelene, gorčičnega semena, sezamovih semen, volčji bob, volčjega boba in sezama.",
+		}
+	],
+	[
+		'hr-frequent-unknown-ingredients',
+		{
+			lc => "hr",
+			ingredients_text =>
+				"pšenično brašno T 850, pšenične bjelančevine, tapiokin škrob, dijetalna vlakna, vlakna cikorije, suncokretove sjemenke, integralne zobene pahuljice, pšenične klice, proteini graška, mliječni protein, sir mascarpone, zrnati sir, atlantski losos, životinjsko sirilo, kvaščevi ekstrakti, limunova kora, mladi luk, bijeli grah, aroma vanilina, natrijev alginat, eritritol, karminska kiselina, kolin klorid, vitamin A palmitat, željezo, kromov klorid, crni slanutak, zeleni grah, sok crvene naranče, ječmena krupica, pileća koža, zrna soje, zaštitne kulture, sredstvo za obradu brašna (E300), sredstva za želiranje (E440), tvar za rahljenje tijesta (E500), sekvestrant (E385), nosač (E1520), plinovi za pakiranje (E941).",
 		}
 	],
 );
@@ -1859,6 +2012,19 @@ my $stray_conjunction = {lc => 'fr', product_type => 'food', ingredients_text =>
 extract_ingredients_from_text($stray_conjunction);
 ProductOpener::Ingredients::detect_allergens_from_text($stray_conjunction);
 is($stray_conjunction->{allergens_tags}, ['en:eggs', 'en:sesame-seeds'], 'stray conjunction keeps both allergens');
+
+# 8720256082934: the allergen-label note is not an ingredient.
+my $allergen_label_note = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text => 'Eau, sel. Allergènes signalés en majuscules et en gras.',
+};
+extract_ingredients_from_text($allergen_label_note);
+is(
+	[map {$_->{id}} @{$allergen_label_note->{ingredients}}],
+	['en:water', 'en:salt'],
+	'allergen-label note does not add an ingredient'
+);
 
 # Real taxonomy: a coordination without labels whose second part is not a known ingredient
 # (a processing, a variety) keeps its percentage on the known first part

@@ -16,6 +16,14 @@ components:
       schema:
         type: boolean
         example: true
+    ActivateKnowledgePanelsIngredientsNutritionFirst:
+      name: activate_knowledge_panels_ingredients_nutrition_first
+      in: query
+      description: 'If true, the root knowledge panel starts with an ingredients card and a nutrition card, followed by collapsed health and environment cards with a one-line summary, the product information card, and a collapsed report a problem card. The ingredients and nutrition cards are part of the health card: knowledge_panels_included and knowledge_panels_excluded select them with health_card'
+      required: false
+      schema:
+        type: boolean
+        example: true
     ActivateKnowledgePanelPhysicalActivities:
       name: activate_knowledge_panel_physical_activities
       in: query
@@ -32,10 +40,26 @@ components:
       schema:
         type: boolean
         example: true
+    ActivateKnowledgePanelNovaUnknown:
+      name: activate_knowledge_panel_nova_unknown
+      in: query
+      description: 'If true, the knowledge panels of the unknown NOVA group will include a panel explaining why the NOVA group of some products is unknown'
+      required: false
+      schema:
+        type: boolean
+        example: true
     ActivateKnowledgePanelProductHistory:
       name: activate_knowledge_panel_product_history
       in: query
       description: 'If true, and if the user is logged in, knowledge panels will include the product_history panel (a table of the changes history of the product, in the contribution card)'
+      required: false
+      schema:
+        type: boolean
+        example: true
+    ActivateKnowledgePanelProductInformation:
+      name: activate_knowledge_panel_product_information
+      in: query
+      description: 'If true, the product_card panel also lists the storage conditions and customer service of the product when filled, and a sources_manufacturer panel is returned for products of a producer organization'
       required: false
       schema:
         type: boolean
