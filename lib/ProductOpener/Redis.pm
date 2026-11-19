@@ -646,6 +646,13 @@ sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
 	return;
 }
 
+use constant RATE_LIMIT_WINDOW_SECONDS => 60;
+
+sub rate_limit_key ($ip, $bucket) {
+	my $window = int(time() / RATE_LIMIT_WINDOW_SECONDS);
+	return "po-rate-limit:$ip:$bucket:$window";
+}
+
 =head2 get_rate_limit_user_requests ($ip, $bucket)
 
 Return the number of requests performed by the given user for the current minute for the given rate-limit bucket.
@@ -685,8 +692,8 @@ sub get_rate_limit_user_requests ($ip, $bucket) {
 	if (defined $redis_client) {
 		$ratelimiter_log->debug("Getting rate-limit user requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
-		my $current_minute = int(time() / 60);
-		eval {$resp = $redis_client->get("po-rate-limit:$ip:$bucket:$current_minute");};
+		my $key = rate_limit_key($ip, $bucket);
+		eval {$resp = $redis_client->get($key);};
 		$error = $@;
 	}
 	else {
@@ -750,12 +757,12 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 	if (defined $redis_client) {
 		$ratelimiter_log->debug("Incrementing rate-limit requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
-		my $current_minute = int(time() / 60);
+		my $key = rate_limit_key($ip, $bucket);
 		eval {
 			# Use a MULTI/EXEC block to increment the counter and set the expiration atomically
 			$redis_client->multi();
-			$redis_client->incr("po-rate-limit:$ip:$bucket:$current_minute");
-			$redis_client->expire("po-rate-limit:$ip:$bucket:$current_minute", 59);
+			$redis_client->incr($key);
+			$redis_client->expire($key, 59);
 			$redis_client->exec();
 		};
 		$error = $@;
