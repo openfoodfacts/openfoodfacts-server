@@ -615,6 +615,23 @@ foreach my $test_ref (@comparison_tests) {
 
 }
 
+# compare_product_nutrition_facts_to_categories ignores categories that are not taxonomized (#6853)
+my $comparisons_with_untaxonomized = compare_product_nutrition_facts_to_categories(
+	{
+		nutrition_data_per => "100g",
+		nutrition => {
+			aggregated_set => {
+				nutrients => {"fat" => {value => 10}},
+				preparation => "as_sold",
+				per => "100g",
+			}
+		},
+		categories_tags => ["en:vegan", "en:non-existent-category-12345"]
+	},
+	"en", "fr", 3
+);
+is(scalar @$comparisons_with_untaxonomized, 0, "untaxonomized categories are ignored for comparisons");
+
 is([ProductOpener::Display::get_search_field_title_and_details("additives_n")],
 	["Number of additives", "", "", "allowDecimals:false,\n"]);
 is([ProductOpener::Display::get_search_field_title_and_details("nova_group")],

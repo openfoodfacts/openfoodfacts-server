@@ -245,7 +245,7 @@
          {
             "attributes" : [
                {
-                  "description" : "",
+                  "description" : "The ingredients of the product must be specified in order to determine the NOVA group.",
                   "description_short" : "Food processing level unknown",
                   "grade" : "unknown",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-unknown.svg",
@@ -1016,9 +1016,9 @@
                   "text_element" : {
                      "evaluation" : "neutral",
                      "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    bag\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                        \n                                            - In contact with food\n                                        \n                                    \n                                    <br>\n                            \n                        \n                        ",
-                     "icon_alt" : "Unknown",
+                     "icon_alt" : "Packaging",
                      "icon_color_from_evaluation" : true,
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
                      "type" : "summary"
                   }
                }

@@ -1,7 +1,11 @@
 [%# A panel to indicate how to report problems with the product or its data %]
 {
     "type": "card",
+    [% IF knowledge_panels_options.activate_knowledge_panels_ingredients_nutrition_first %]
+    "expanded": false,
+    [% ELSE %]
     "expanded": true,
+    [% END %]
     "topics": [
         "problems"
     ],
