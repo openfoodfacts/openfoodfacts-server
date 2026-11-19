@@ -30072,6 +30072,14 @@ en: wheat flour preparation
 hr: pripravak pšenično brašno, pripravak pšenično brašno 1850
 it: preparato a base di farina
 
+# durum wheat flour is already a child of wheat flour, but including
+# wheat flour as a parent here since this is explicitly a mix of the two
+< en: durum wheat flour
+< en: flour blend
+< en: wheat flour
+en: wheat and durum wheat flour blend, flour from wheat and durum wheat
+sv: mjöl av vete och durumvete
+
 < en: barley
 < en: cereal flour
 en: barley flour
