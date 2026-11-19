@@ -75,7 +75,7 @@ use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsIngredients qw/:all/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
-use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel/;
+use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel create_sources_manufacturer_panel/;
 use ProductOpener::EnvironmentalImpact qw/format_ecs_value get_environmental_cost_label_path/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
@@ -99,6 +99,10 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	$knowledge_panels_options_ref->{activate_knowledge_panels_simplified}
 		= normalize_boolean(single_param("activate_knowledge_panels_simplified"));
 
+	# Activate the ingredients and nutrition first root panel only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panels_ingredients_nutrition_first}
+		= normalize_boolean(single_param("activate_knowledge_panels_ingredients_nutrition_first"));
+
 	# Activate physical activity knowledge panel only when specified
 	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
 		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
@@ -107,9 +111,17 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	$knowledge_panels_options_ref->{activate_knowledge_panel_related_categories}
 		= normalize_boolean(single_param("activate_knowledge_panel_related_categories"));
 
+	# Activate the NOVA unknown knowledge panel (NOVA unknown tag page) only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panel_nova_unknown}
+		= normalize_boolean(single_param("activate_knowledge_panel_nova_unknown"));
+
 	# Activate product history knowledge panel only when specified (it is shown only to logged in users)
 	$knowledge_panels_options_ref->{activate_knowledge_panel_product_history}
 		= normalize_boolean(single_param("activate_knowledge_panel_product_history"));
+
+	# Activate storage conditions, customer service and manufacturer note panels only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panel_product_information}
+		= normalize_boolean(single_param("activate_knowledge_panel_product_information"));
 
 	# Specify if we knowledge panels are requested from the app or the website
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
@@ -253,6 +265,10 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 	my $has_product_card;
 	if ($panel_is_requested->('product_card')) {
 		$has_product_card = create_product_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
+	if ($panel_is_requested->('sources_manufacturer')) {
+		create_sources_manufacturer_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
 	my $has_environment_card;
@@ -999,6 +1015,12 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 
 	# Create the environment_card panel
 	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc);
+	if ($options_ref->{activate_knowledge_panels_ingredients_nutrition_first}) {
+		$panel_data_ref->{summary} = panel_titles_summary(
+			$product_ref->{"knowledge_panels_" . $target_lc},
+			qw(environmental_score carbon_footprint forest_footprint)
+		);
+	}
 	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	return 1;
@@ -1293,6 +1315,16 @@ sub create_manufacturing_place_panel ($product_ref, $target_lc, $target_cc, $opt
 	return;
 }
 
+=head2 panel_titles_summary ($panels_ref, @panel_ids)
+
+Join the titles of the existing panels among @panel_ids, to summarize a collapsed card in its subtitle.
+
+=cut
+
+sub panel_titles_summary ($panels_ref, @panel_ids) {
+	return join(' - ', grep {$_} map {deep_get($panels_ref, $_, qw(title_element title))} @panel_ids);
+}
+
 =head2 create_health_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains all knowledge panels related to health.
@@ -1393,6 +1425,25 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	$log->debug("create health card panel - data", {code => $product_ref->{code}, panel_data => $panel_data_ref})
 		if $log->is_debug();
+
+	if ($options_ref->{activate_knowledge_panels_ingredients_nutrition_first}) {
+		if (defined $panels_ref->{ingredients}) {
+			create_panel_from_json_template("ingredients_card", "api/knowledge-panels/health/ingredients_card.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+		if (grep {defined $panels_ref->{$_}}
+			qw(nutrition_facts_table serving_size physical_activities nutrient_level_fat nutrient_level_saturated-fat nutrient_level_sugars nutrient_level_salt)
+			)
+		{
+			create_panel_from_json_template("nutrition_card", "api/knowledge-panels/health/nutrition_card.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+		# Ingredients and nutrition have their own cards
+		return 0
+			if not grep {defined $panels_ref->{$_}}
+			qw(recommendation_health recommendation_health2 nutriscore nutriscore_2023 nova additives ingredients_analysis);
+		$panel_data_ref->{summary} = panel_titles_summary($panels_ref, qw(nutriscore_2023 nova));
+	}
 
 	create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);

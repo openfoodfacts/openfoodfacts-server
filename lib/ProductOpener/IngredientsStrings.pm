@@ -267,6 +267,11 @@ $symbols_regexp = join('|', @symbols);
 		# geschützte Ursprungsbezeichnung / geschützte geografische Angabe (labels)
 		["g. g. A.", "ggA"],
 		["g. U.", "gU"],
+		# minimum / maximum before a percent: "Kakao mind. 30 %"
+		# (". " is an ingredients separator, so dotted abbreviations are expanded)
+		["mind.", "mindestens"],
+		["min.", "mindestens"],
+		["max.", "maximal"],
 	],
 
 	es => [["vit.", "vitamina"], ["m.g.", "materia grasa"]],
@@ -307,6 +312,18 @@ $symbols_regexp = join('|', @symbols);
 		["zgrud.", "zgrudnjavanja"],
 	],
 
+	hu => [
+		# minimum / maximum before a percent: "kakaó min. 50%"
+		["min.", "minimum"],
+		["max.", "maximum"],
+	],
+
+	it => [
+		# minimum / maximum before a percent: "pomodoro min. 60%"
+		["min.", "minimo"],
+		["max.", "massimo"],
+	],
+
 	nb => [
 		["bl. a.", "blant annet"],
 		["inkl.", "inklusive"],
@@ -318,6 +335,26 @@ $symbols_regexp = join('|', @symbols);
 		["fort.middel", "fortykningsmiddel"],
 		["veg.", "vegetabilsk"],
 		["pr.", "per"],
+	],
+
+	nl => [
+		# minimum / maximum before a percent: "zout max. 1%"
+		["min.", "minimaal"],
+		["max.", "maximaal"],
+	],
+
+	pt => [
+		# minimum / maximum before a percent: "avelãs mín. 10%"
+		["mín.", "mínimo"],
+		["min.", "mínimo"],
+		["máx.", "máximo"],
+		["max.", "máximo"],
+	],
+
+	ro => [
+		# minimum / maximum before a percent: "cacao min. 50%"
+		["min.", "minim"],
+		["max.", "maxim"],
 	],
 
 	ru => [
@@ -518,13 +555,19 @@ including localized strings like "minimum"
 	ca => "min|min\.|mín|mín\.|mínim|minim",
 	cs => "min|min\.",
 	da => "min\.|minimum|mindst",
+	de => "min|min\.|mind\.|mindestens",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
 	hr => "min|min\.|mini|minimum",
+	hu => "min|min\.|minimum|legalább",
+	it => "min|min\.|minimo|minima",
 	nb => "min\.|minimum",
+	nl => "min|min\.|minimaal|ten minste",
 	nn => "min\.|minimum",
 	no => "min\.|minimum",
 	pl => "min|min\.|minimum",
+	pt => "min|min\.|mín|mín\.|mínimo|minimo|no mínimo",
+	ro => "min|min\.|minim|minimum",
 	sv => "minimum|minst",
 );
 
@@ -533,13 +576,19 @@ including localized strings like "minimum"
 	ca => "max|max\.|màxim",
 	cs => "max|max\.",
 	da => "maks\.|maksimum|højst",
+	de => "max|max\.|maximal|höchstens",
 	es => "max|max\.|máximo",
 	fr => "max|max\.|maxi|maximum",
 	hr => "max|max\.|maxi|maximum",
+	hu => "max|max\.|maximum|legfeljebb",
+	it => "max|max\.|massimo|massima",
 	nb => "maks\.|maksimum",
+	nl => "max|max\.|maximaal",
 	nn => "maks\.|maksimum",
 	no => "maks\.|maksimum",
 	pl => "max|max\.|maximum",
+	pt => "max|max\.|máx|máx\.|máximo|maximo",
+	ro => "max|max\.|maxim|maximum",
 	sv => "max|maximum|högst",
 );
 
