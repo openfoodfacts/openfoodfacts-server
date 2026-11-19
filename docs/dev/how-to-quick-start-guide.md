@@ -20,7 +20,7 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 **Installation steps:**
 - GIT version >= 2.25.0
 - [Install Docker CE](https://docs.docker.com/engine/install/) (Docker Engine)
-- [Docker Compose V2](https://docs.docker.com/compose/install/) (Docker Compose CLI plugin)
+- [Docker Compose v2 or later](https://docs.docker.com/compose/install/) (Docker Compose CLI plugin)
   - Ensure a supported version of Docker Compose V2 is installed and registered as a Docker CLI plugin. Note that Product Opener commands invoke Docker Compose through the Docker CLI plugin (`docker compose` with a space), rather than invoking a standalone `docker-compose` executable directly.
   - Verify your installation by running:
     ```bash
@@ -670,7 +670,12 @@ The banner `Usage: docker [OPTIONS] COMMAND [ARG...]` indicates that the root Do
    ```bash
    docker compose version
    ```
-   If this outputs `docker: unknown command: docker compose`, the Docker Compose CLI plugin is either not installed or not registered in your Docker plugins directory.
+   If this command produces either of the following errors:
+   ```bash
+   docker: unknown command: docker compose
+   docker: 'compose' is not a docker command.
+   ```
+   the Docker Compose CLI plugin may either be missing or not registered in your Docker plugins directory.
 
 2. Verify that `--env-file` is supported by your Docker Compose installation:
    ```bash
