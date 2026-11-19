@@ -85,6 +85,10 @@ shows the FoodEx2 description (scope note of the EFSA MTX catalogue) from `proje
 - `foodture_history.csv`: the metrics of each country for each day (updated for the same date if the script runs again),
   used for the progress charts of the pages. Like the baseline file, it is kept in the output directory.
 
+The partners of each country (organizations that relay the campaign) are listed in `projects/foodture/partners.json`
+(keys are the country page codes: `be`, `ch`...), with their logos in `projects/foodture/assets/partner_logos/`
+(official logos from the partners' websites), copied to `partner_logos/` in the output directory.
+
 Both run every day in `scripts/gen_feeds_daily.sh`, after the JSONL export, and write to
 https://static.openfoodfacts.org/data/foodture/
 

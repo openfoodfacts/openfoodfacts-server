@@ -49,8 +49,9 @@ use FindBin;
 # at each run, for the progress charts of the pages. Kept in the output directory.
 #
 # --partners: organizations that relay the campaign in a country (associations, communities...), shown on the page of
-# the country. JSON file: {"si": [{"name": "...", "url": "https://...", "logo": "https://..."}], ...}, keys are the
-# country codes of the pages. Read from partners.json in the output directory if the option is not given.
+# the country. JSON file: {"si": [{"name": "...", "url": "https://...", "logo": "partner_logos/..."}], ...}, keys are
+# the country codes of the pages. Default: partners.json next to this script. The logos are in assets/partner_logos/
+# next to this script, copied to partner_logos/ in the output directory (a logo can also be a https:// URL).
 #
 # --foodex2-scope-notes: FoodEx2 descriptions shown next to the categories (foodture_foodex2_scope_notes.csv, made by
 # export_foodex2_scope_notes.py from the EFSA MTX catalogue)
@@ -73,7 +74,7 @@ GetOptions(
 -d $output_dir or die "Output directory $output_dir does not exist\n";
 $baseline_file //= "$output_dir/scan_champion_baseline.json";
 $history_file //= "$output_dir/foodture_history.csv";
-$partners_file //= "$output_dir/partners.json";
+$partners_file //= "$FindBin::Bin/partners.json";
 
 # Partners of each country: $partners{cc} = [{name, url, logo}]
 my %partners = ();
@@ -96,6 +97,14 @@ my @funding_logos = qw/funded_by_the_eu.jpg swiss_sbfi.jpg/;
 foreach my $photo (@citizen_photos, @funding_logos) {
 	File::Copy::copy("$FindBin::Bin/assets/$photo", "$output_dir/$photo")
 		or warn "Cannot copy $FindBin::Bin/assets/$photo to $output_dir: $!\n";
+}
+# Logos of the partners
+if (not -d "$output_dir/partner_logos") {
+	mkdir("$output_dir/partner_logos") or warn "Cannot create $output_dir/partner_logos: $!\n";
+}
+foreach my $logo_file (glob("$FindBin::Bin/assets/partner_logos/*")) {
+	File::Copy::copy($logo_file, "$output_dir/partner_logos/")
+		or warn "Cannot copy $logo_file to $output_dir/partner_logos: $!\n";
 }
 
 open(my $IN, '<:raw', $json_file) or die "Cannot read $json_file: $!\n";
