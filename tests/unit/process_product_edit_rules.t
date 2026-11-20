@@ -6,6 +6,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Config qw/@edit_rules/;
+use ProductOpener::ForbiddenWords qw/$ALL_FORBIDDEN_WORDS_REGEXP_STR/;
 use ProductOpener::Users qw/$User_id/;
 
 use ProductOpener::Test qw/:all/;
@@ -215,6 +216,22 @@ my @tests = (
 			"ingredients_text_fr", "ingredients_text", "nutriment_sugar", "nutriment_sugar_100g",
 			"serving_size", "brands"
 		],
+	},
+	{
+		id => "warn_forbidden_words",
+		desc => "Warn on forbidden words in product name",
+		edit_rules => [
+			{
+				name => "Forbidden words in product fields",
+				actions => [
+					["warn_if_regexp_match_product_name", $ALL_FORBIDDEN_WORDS_REGEXP_STR],
+				],
+			},
+		],
+		product => {product_name => "Old name"},
+		form => {product_name => "sexe amour pipi caca bite cul gazi"},
+		result => 1,
+		delete_param => [],
 	},
 	# FIXME: add tests on warning and slack notifications
 );

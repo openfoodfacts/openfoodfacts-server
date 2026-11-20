@@ -40,12 +40,14 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&check_quality_common
+		&check_forbidden_words
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
+use ProductOpener::ForbiddenWords qw(check_forbidden_words);
 
 use Log::Any qw($log);
 
@@ -252,6 +254,7 @@ sub check_quality_common ($product_ref) {
 	check_codes($product_ref);
 	check_packagings($product_ref);
 	check_product_names($product_ref);
+	check_forbidden_words($product_ref);
 
 	return;
 }

@@ -1,0 +1,708 @@
+# ==============================================================================
+# Open Food Facts - Forbidden Words Allow List
+# Configurable false-positive exclusions for data quality rules and scanners.
+#
+# Sections:
+#   [barcodes]      - Product barcodes that are known legitimate products
+#   [patterns]      - Phrases or terms that should not trigger violations
+#   [country_rules] - Words allowed in specific countries or languages (e.g. pute in Germany)
+# ==============================================================================
+
+[barcodes]
+# Novelty, humorous, or colloquial products with known legitimate barcodes
+4901588160819 # cacaball
+8413209325003 # mojicacas
+3760168112003 # velouté de cacasse à cul nu
+3760168117169 # cacasse à cul nu
+3760168112430 # cacasse à cul nu
+3760168117152 # cacasse à cul nu
+8606107718514 # cacanski chips
+5901549275131 # caca koko
+5601055312657 # Kit Caça aos Ovos
+9551008160025 # Caca
+5601312105220 # paté com caça
+5604880000065 # com caça
+
+# Medical or dietary products
+0852870004646 # Vanilla diarrhea relief drink mix
+0852870004837 # Diarrhea relief drink mix
+3518646123085 # Physiolac Diarrhea
+
+# Confectionery and culinary specialties
+8030525002311 # Fiasconaro Panettone Oro Verde
+5410293620116 # couilles de singe
+5410293620123 # couilles de singe - monkey balls
+5425002713386 # couilles de singe
+5425002710507 # couilles de singe
+
+# Beverages and novelty wines/beers
+3760182600142 # vin de merde
+3760182600012 # vin de merde
+3760182600029 # vin de merde
+3760182600036 # vin de merde
+3760311102097 # Bière de merde
+3478220003045 # merda di can
+5602131000161 # Licor de merda Licor de leite
+
+# Regional and traditional products
+3760099400453 # la fessée
+3760099400606 # la fessée
+3760099400828 # la fessée
+3770006626005 # la fessée
+3770006626012 # la fessée
+3770006626074 # la fessée
+0211396216214 # fesse de jambon
+3760153932227 # jolies fesses
+0686905000415 # la côte à 2 fesses
+3760099400965 # la grosse fessée
+
+# Humorous pasta and candies
+3660273027974 # mega nichons
+3700281632781 # pâtes nichons
+
+# Beverages and waters
+3770013046032 # pipi joli
+3850129064103 # pipi
+3859893637001 # pipi
+3870183100340 # pipi
+3870183400006 # pipi
+3870183400167 # pipi
+3870183400396 # pipi
+3870183100050 # pipi mandarina lubenica
+3770024849004 # pipiri stick
+8606105495882 # pipi extra
+9004145027107 # pipifein
+3701013233337 # pisse fillette
+3701013244449 # pisse gamin
+3701013255551 # pisse nénette
+3701013266663 # pisse patron
+3701013277775 # pisse pépé
+3701013288887 # pisse mémé
+3770006626999 # pisse de vache
+3760141071082 # pisse de caribou
+9359964000009 # pipis in xo sauce
+
+# International brands and food names
+8436578200214 # hijoputa
+8424343000985 # hijoputa
+5400113006350 # Neputa mix
+4770209046081 # liliputas
+8005811007103 # sputafuoco
+3838975566521 # Argeta, Pute
+4058172823800 # Gemüseallerei mit reis & pute
+4032943446269 # Sandwich Pute
+8606018800414 # Puter od kikirikija
+90026621      # KnabberNossi Pute
+4058204564589 # pute
+4260230571862 # pute in mango chutney
+
+# Thematic, romantic, and cocktail products
+3760042798347 # no sex for butterfly
+4049162180232 # sex Gewürz
+3760238194410 # sex in a canoe
+3760238194403 # sex in a canoe
+0684746400074 # sex on the beach
+0684746400555 # sex on the beach
+3014409005884 # sex on the beach
+3760057471952 # sex on the beach
+4003310017474 # sex on the beach
+8413425013661 # sex on the beach
+8435117988194 # sex on the beach
+8435608806068 # sex on the peach
+3760153932425 # Houmousexuel
+0642860300236 # Dark rich & sexy
+3700389713924 # goût sexy
+4006814002854 # sexy xmas
+3700444604303 # sexy candy explosion
+4029811280186 # sexy sucette
+4029811290888 # sexy candy
+2110000680379 # sexy
+4049162112257 # sexy pfeffermühle
+8436553981527 # Infusión Descaradamente Sexy
+3662051008311 # sexy mojito
+9715371000146 # sexy chips
+3770010353027 # sexe on fire
+3286010009036 # tonifiant sexuel
+3286010066114 # tonifiant sexuel
+7610815065861 # sexy dark swiss chocolate
+0815784020171 # sex dust
+0815784020928 # sex dust
+4029811179961 # sex pasta
+8436562014773 # slow sex
+4270003195706 # kitsler. hell&sexuell
+0793573799838 # better than sex sauce
+0085629050827 # sex chocolates
+0865984000220 # "SeXXXy Mama's Rub"
+0735202863633 # collagen strong and sexy fit
+5022782888770 # sexy jelly men
+
+# Specialized beers and intimate care products
+5430001715002 # urine (beer)
+0658010116633 # raw probiotic vaginal care
+5902448150994 # vaginal beer
+
+# Confectionery and humorous novelties
+3700281631890 # les zizibons
+3700281615746 # pasta zizi
+3760150330545 # zizi des alpes
+3760150337841 # zizi top
+4029811142163 # pastille zizi
+3700281637380 # sucette zizi
+3700281603569 # zizi
+3700281691306 # zizibonbons cerise
+
+# Soups, drinks, and poultry terms
+5032490000227 # bancock
+9421008690221 # big cock energy drink
+0714834004287 # cock cola
+0055270844168 # cock soup mix
+84812636      # cock flavored soup mix
+0055270844304 # cock soup mix
+0027246108314 # cock soup mix
+8004194041049 # le cock
+0714218116155 # Gamecocks sauce
+
+# Puddings, German dairy products, and candies
+03721412      # bag of dicks
+03567898      # tasty dicks
+4021074000013 # dicke
+0792851360937 # delicious spotted dick
+9417986934495 # Auntys Spotted Dick Puddings
+5022782987688 # dunking dickies
+5060560280408 # dick & cremig
+5400742102461 # moby dick
+4388844133624 # extra dick
+9120003416279 # dick
+4061458031837 # dick
+4337256395908 # dick
+9100200100621 # bratwürstel dick
+0205886009714 # toast nordick
+2000008011013 # dick
+6945433600776 # bag of dicks
+0627843959564 # Dick duff's
+0627843959489 # Dick duff's
+03746112      # Sour Dick Heads
+5022782000028 # Dick on a stick
+4337256309738 # extra dick
+4260438160165 # espresso dicker pitter
+5200368700832 # linsen-dick
+
+# Craft and irreverent branding
+4006989407720 # fuck off vodka
+3760262450032 # big fucking IPA
+5902837741031 # fucking delicious cookie
+5060243075512 # fucking strong coffee
+0869043000213 # calm the fuck down tea
+8718868184313 # just fucking good wine
+3760299631251 # fuck le virus
+3770004763382 # fucking regalade
+0850228006236 # full as fuck
+8010835004601 # fucking hot
+4006989407782 # fuck off (vodka)
+7350069384843 # I am fucked up
+7350069380753 # I am fucked up
+6430057697283 # fucked up
+
+# Halloween / novelty names
+3760243920639 # Bière Rotten Christmas
+00067546      # rotten rolls
+0022000277817 # rotten zombies
+9300613115292 # rotten
+0643901600117 # spoiled rotten
+
+# Barbecue rubs and American novelty sauces
+4260582960925 # wholey shit
+0689076701846 # special shit
+0689076701945 # good shit
+0713757333931 # bull shit steak seasoning
+0718122227877 # BBQ shit
+0748252027283 # shit seasoning / chicken shit
+4014600204887 # shit happens
+0894323000034 # don't be a chicken shit
+4903326112258 # shittori matcha
+4806527610434 # ashitaba coffee
+57651392      # No shit seasoning
+0019962699818 # shit
+0718122354795 # Hot Shit salsa
+0810037823103 # shit could be worse
+0748252027368 # bad as shit
+0071567999403 # stink bug
+0893511002027 # stinkin' good
+0844527036674 # love stinks sugar cookie kit
+6924743932845 # spicy stinky tofu chips
+4260159374001 # stinkefinger-einhorn
+
+# Novelty adult pasta and candies
+00149         # penis pasta
+03346442      # penis pop
+5022782000936 # Penis Pasta
+5022782333607 # Willie Lollipop With Penis Shape
+5022782099442 # Jelly Willies Penis Gums
+5022782888749 # Cola Willies Penis Gums
+0817717009857 # Super Fun Penis Candy Shaft
+
+# German colloquial and humorous products
+4006986043105 # Herrgotts Bscheißerle
+4001205136514 # Scheißegal Pille
+
+[patterns]
+# Words or phrases that should never be flagged as forbidden
+# French abbreviations and food idioms
+p'tit
+p'tits
+p’tit
+p’tits
+p-tit
+p-tits
+pain fesse
+fessenjan stew
+benichon
+cornichon
+cornichons
+pissenlit
+pissenlits
+gin pipifein
+pipi de marmotte
+pipi du dragon
+pipin pear
+pipinetto
+pipin
+piping
+pipian
+pipina
+pipino
+pipirai
+pipistrelli
+pisse dru
+pisse renard
+couilles du pape
+couille du pape
+sauvagine
+zizi coin coin
+zizin
+ziziphus
+gerbe d'or
+gerbe
+tanche
+menage a trois
+ménage à trois
+
+
+# Italian food words that are culinary terms
+pesce
+quaglia
+regina
+finocchio
+fava
+patata
+pisello
+fiasconaro
+merda di can
+merda de can
+penisola
+rampenisser
+
+# Spanish color and culinary terms
+negro
+concha
+alheira de caca
+chancaca
+cacaks
+cacao
+cacau
+cacahuete
+cacahuetes
+guasacaca
+cacarena
+cacarola
+cacafe
+cacavelli
+decacake
+
+# German culinary and poultry terms
+muckefuck
+grotten
+karotten
+lo crotten
+rottenburger
+sprotten
+the rotten fruit box
+sommerdinkel
+bio pute
+hackfleisch pute
+huhn pute
+kaffeputer
+putaan pulla
+pute heidelbeeren
+pute lamm
+puten
+puteri
+kikiriki puter
+landpute
+mit pute
+putanesca
+puttanesca
+pute ei
+pute huhn
+pute mais
+pute mit
+pute pfeffer
+pute sugo
+sugo pute
+pute und
+und pute
+salami pute
+salat pute
+sandwich pute
+zarter pute
+dickmann
+dickmilch
+dickkopf
+dicksaft
+verdickter
+verdickungsmittel
+kaserei sexten
+sextner bio heumilch
+
+# English food terms, cuts of meat, and brands
+h e butt
+h-e-b
+butt grocery
+butt grocery company
+boston butt
+cock brand
+cock flavour soup
+cockatoo
+cockburn
+cock a leekie
+cock n bull
+hitchcock
+peacock
+poppycock
+spatchcock
+cock brand
+cock mint
+cock s comb
+cockle
+cockles
+cockta
+cocktel
+cocktail
+cocktails
+lecock
+cockove
+bendick
+dick jane
+dick johnson
+dick taylor
+dickason
+dicke
+dickey
+dick smith
+dick stevens
+dickensian
+dickinson
+dicksons
+indicka
+indicku
+lisen dick
+linsen dick
+spotted dick
+fucking delicious
+no bullshit
+shitake
+shishito
+ashitaki
+cashita
+fishitos
+hashita
+sarashita
+shito
+sushita
+yoshito
+gerber
+trio
+trío
+mong lee shang
+wei mong
+nude food
+hardcore
+xxx
+ass kickin
+pain in the ass
+smart ass
+ass'n
+ass.
+sexton
+sexy pop
+sussex
+unisexe
+wessex
+essex
+sex on the beach
+sexage
+sexy xmas
+magnetron
+petrona
+petrone
+petroni
+serrapetron
+merdrignac
+somerdale
+summerdown
+ymerdrys
+salopian
+figurine
+maurine
+pippurinen
+saurine
+seigneurine
+signurine
+tannourine
+taurine
+turine
+verdurine
+yogurine
+
+# Preservative and food additive functional descriptions
+to retard spoilage
+retard spoilage
+retard staling
+retard oxidation
+retard mold
+retard mould
+retard growth
+retard decay
+retard fermentation
+to retard
+flame retardant
+fire retardant
+retarder la moisissure
+retarder l oxydation
+retardateur
+rapeseed
+rapeseed oil
+fromage rape
+carottes rapees
+emmental rape
+gruyere rape
+
+# Words that are everyday language or food terms mistakenly flagged
+con
+del
+cerveja
+frango assado
+saco
+vacca
+marha
+jajko
+muna
+хрен
+montare
+spagnola
+nicht
+pot
+semen
+jelly donut
+dog style
+lolita
+pau
+baiser
+nude
+batard
+bâtard
+pain batard
+batard blanc
+pain bâtard
+le batard
+gratte cul
+gratte-cul
+cul d ange
+cul d'ange
+cul dange
+theppadungporn
+thep padung porn
+theppadung
+porn star
+pornstar
+food porn
+coon
+coon cheese
+pork faggots
+faggots in gravy
+traditional faggots
+nero di troia
+vino di troia
+uva di troia
+red rimming sugar
+rimming sugar
+cocktail rimmer
+big black cherry
+honey butt spice
+butt rub
+pork shoulder butt
+boston butt
+pork butt
+shoulder butt
+peanut butt
+cocoa butt
+almond butt
+milk butt
+cabeza de rape
+caldo de rape
+filete de rape
+pescado rape
+rape rosse
+cocco rape
+cocco rapè
+vi negre
+pebre negre
+arros negre
+arròs negre
+coacaze negre
+coacăze negre
+xocolata negra
+te negre
+two bite
+two-bite
+rawbite
+bite to fight
+bite size
+bite-size
+bite sized
+bite-sized
+do not bite
+cock brand
+cock-brand
+cock tail
+cocktail
+cock soup
+cock flavour
+sucre de conne
+big bite
+sweet bite
+bite+
+bite +
+mini poivrons sweet bite
+arrogant bastard
+fat bastard
+lucky bastard
+bastard brewery
+double bastard
+dirty bastard
+crazy bastard
+bastard safran
+bastard-safran
+13.
+กะปิ
+comer
+porco
+panna
+rosette
+muts
+bimbo
+pipari
+bourre
+knor
+hol
+sas
+sås
+dillsås
+gräddig sås
+bearnaise sås
+bbq sås
+chilli sås
+sriracha sås
+bitte
+pecorina
+barenaked
+bare naked
+biga
+tit
+titane
+tit'bulles
+p'tit
+lemn de fag
+afumat cu lemn de fag
+fag bianchi
+fag. bianchi
+acide trique
+acide ci trique
+retard spollage
+retard spoilage
+no retard
+to retard
+vitamin c retard
+voltaren retard
+nipple butter
+nipple balm
+nipple cream
+buttery nipple
+candy nipple tassels
+raspberry nipple
+cock chantaboon
+cock cola
+grace cock
+boisson ananas cock
+haricot mungo cock
+pickled green chilli cock
+mas negre
+oliva negre
+botifarra negre
+bull negre
+all negre
+negre crepuscule
+jus de pomme negre
+dick and jane
+extra dick
+agaven dick saft
+burger dick
+dick milch
+dick saft
+casse a cul nu
+casse à cul nu
+cacasse a cul nu
+cacasse à cul nu
+di cul
+cul iure
+cul-iure
+sel de cul
+natural bite
+protein bite
+farine de bite
+farine de bité
+nikki's hot ass
+nikkis hot ass
+big ass durum
+ass saucisses
+frts ass
+sticks ass
+ass classique
+viennoiseries ass
+shake mix ass
+ass isonnement
+ass corbinsaure
+asscorbinsaure
+fit porn
+
+
+[country_rules]
+# Format: <word> : <allowed country tags or languages, separated by comma>
+# In German-speaking countries, "Pute" means turkey, "bitte" means please:
+pute : de,germany,at,austria,ch,switzerland
+bitte : de,germany,at,austria,ch,switzerland
+# In French, Spanish, and Italian: "râpé" = grated, "rape" = monkfish / turnips:
+rape : fr,france,fr:france,belgium,switzerland,es,spain,it,italy
+rapes : fr,france,fr:france,belgium,switzerland,es,spain,it,italy
+rapee : fr,france,fr:france,belgium,switzerland,es,spain,it,italy
+rapees : fr,france,fr:france,belgium,switzerland,es,spain,it,italy
+# In Swedish, "sås" means sauce; in French SAS is a company form:
+sas : sv,sweden,se,fr,france
+sås : sv,sweden,se
+# In Italian, "panna" means cream, "porco" is pork:
+panna : it,italy,italia
+porco : it,italy,pt,portugal,brazil
+rosette : fr,france
+comer : pt,portugal,es,spain
+fag : ro,romania,it,italy
+negre : ca,catalan,es,spain,ro,romania

@@ -1,0 +1,26 @@
+# ==============================================================================
+# Open Food Facts - Forbidden Words Configuration (Sample / Template)
+#
+# To enable forbidden words detection locally or in production:
+# 1. Run the updater to fetch curated bad word lists from community sources:
+#       python3 scripts/update_forbidden_words.py
+#    or:
+#       make update_forbidden_words
+#
+# 2. Or create your own uncommitted conf/forbidden_words.txt file.
+#    Format: <lang>: <word or phrase>
+#    Where <lang> is a 2-letter language code (e.g. en, fr, de, es, it) or xx for universal slurs.
+#
+# conf/forbidden_words.txt is gitignored so developers are not forced to commit
+# obscenities or profanities into the git repository.
+# ==============================================================================
+
+# Universal / language-independent test markers
+xx: test_vandalism_placeholder
+
+# Language-specific test markers
+en: test_profanity_en
+fr: test_profanity_fr
+es: test_profanity_es
+de: test_profanity_de
+it: test_profanity_it
