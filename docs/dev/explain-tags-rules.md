@@ -82,7 +82,7 @@ A file is a list of rules:
   unless:
     - labels: en:no-caffeine
     - categories: en:cola-sodas-without-caffeine
-    - name: {any: 'caffeine.?free|decaf'}
+    - name: {labels: en:no-caffeine, languages: any}
   add:
     categories: en:caffeinated-colas
   tests:
@@ -175,8 +175,11 @@ unless:
 | `ingredients: {in_first: {n: 3, of: X}}` | One of the first n ingredients is X or a child of X. |
 | `ingredients: {known: true}` | The product has an ingredients list, and all its ingredients (at all depths) are in the taxonomy. |
 | `nutrients: {cocoa: {min: 30, max: 64.9}}` | The value per 100 g or 100 ml as sold, from the aggregated nutrition set, is in the range. |
+| `specific_ingredients: {en:cocoa: {min: 30, max: 64.9}}` | A percent stated in the ingredients text for the ingredient or a child (e.g. "cocoa: 55% minimum", parsed in `specific_ingredients`) is in the range. |
+| `name: {labels: X, categories: [Y, Z]}` | `product_name_<lc>` or `generic_name_<lc>` (and `product_name` / `generic_name` in the main language) contains, as whole words, a synonym in `<lc>` (or `xx`) of X, Y, Z or of one of their children. Possible taxonomies: `categories`, `labels`, `ingredients`, `ingredients_processing`. Add `languages: any` to match the synonyms of all languages in all the names (names are often written in another language than their field, e.g. "Caffeine free" in `product_name_fr`). Case and accent insensitive; spaces, dashes and apostrophes are interchangeable. **Prefer this to regular expressions**: translations are maintained in the taxonomies, by translators, and also improve the ingredients parser. If a word is missing, add it to the taxonomy. |
+| `ingredients_text: {ingredients: X}` | Same, on `ingredients_text_<lc>`. Useful when the parser does not recognise the ingredient (e.g. in an unparsed "flavourings (including caffeine)"). |
 | `name: {fr: 'regexp', any: 'regexp'}` | A regular expression matches `product_name_<lc>` or `generic_name_<lc>` (and `product_name` / `generic_name` when `<lc>` is the main language). `any` applies to all languages. Case and accent insensitive. One matching language is enough: with `{fr: 'complet', de: 'vollkorn'}`, a product whose French name matches is a match, whatever its German name. |
-| `ingredients_text: {fr: 'regexp'}` | Same, on `ingredients_text_<lc>`. Last resort for things the parser does not keep. |
+| `ingredients_text: {fr: 'regexp'}` | Same, on `ingredients_text_<lc>`. Regular expressions are a last resort, for patterns that are not words (e.g. percentages). |
 | `all: [conditions]` | All the conditions match. |
 | `any: [conditions]` | At least one of the conditions matches. |
 | `not: condition` | The condition does not match (`not: [c1, c2]`: none of them matches). |

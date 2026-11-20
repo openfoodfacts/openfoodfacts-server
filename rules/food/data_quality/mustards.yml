@@ -5,16 +5,16 @@
 
 - id: sweet-mustards-named-mild
   description: >-
-    Products in sweet mustards whose name says "moutarde douce" (mild mustard, not sweet mustard):
+    Products in sweet mustards whose name says mild mustard (e.g. "moutarde douce", which is mild, not sweet):
     the category is probably wrong and should be en:mild-mustards
   if:
     categories: en:sweet-mustards
     name:
-      fr: '\bmoutarde\s+(fine\s+et\s+)?douce\b'
+      categories: en:mild-mustards
   unless:
     - categories: en:mild-mustards
     - name:
-        fr: 'sucr[eé]|bavaroise|miel'
+        categories: [en:sweet-mustards, en:honey-mustards, en:bavarian-mustards]
     # Sugar as first or second ingredient: probably a real sweet mustard
     - ingredients:
         in_first: {n: 2, of: en:sugar}

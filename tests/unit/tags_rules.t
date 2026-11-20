@@ -129,6 +129,24 @@ my $engine_rules_yaml = <<'YAML';
   add: {categories: en:wholemeal-wheat-biscuits}
   tests: {match: [{categories: en:biscuits, ingredients_text_fr: Farine complète}]}
 
+- id: name-taxonomy
+  description: name matches synonyms of taxonomy entries
+  if: {categories: en:colas, name: {labels: en:no-caffeine}}
+  add: {categories: en:cola-sodas-without-caffeine}
+  tests: {match: [{categories: en:colas, product_name_fr: Cola sans caféine}]}
+
+- id: ingredients-text-taxonomy
+  description: ingredients text matches synonyms of taxonomy entries and of their children
+  if: {categories: en:mashed-potatoes, ingredients_text: {ingredients_processing: en:dehydrated}}
+  add: {categories: en:instant-mashed-potatoes}
+  tests: {match: [{categories: en:mashed-potatoes, ingredients_text_fr: Pommes de terre déshydratées}]}
+
+- id: specific-ingredients
+  description: specific ingredients percent
+  if: {categories: en:dark-chocolates, specific_ingredients: {en:cocoa: {min: 30, max: 64.9}}}
+  add: {categories: en:semi-sweet-dark-chocolates}
+  tests: {match: [{categories: en:dark-chocolates, specific_ingredients: [{id: en:cocoa, percent: 55}]}]}
+
 - id: nutrients
   description: nutrients
   if: {categories: en:dark-chocolates, nutrients: {cocoa: {min: 30, max: 64.9}}}
@@ -232,6 +250,37 @@ my @semantics_tests = (
 
 	['ingredients-text' => 1, fixture(categories => "en:biscuits", ingredients_text_fr => "FARINE COMPLETE de blé")],
 	['ingredients-text' => 0, fixture(categories => "en:biscuits", ingredients_text_en => "farine complète")],
+
+	# taxonomy entries in text fields: synonyms in the language of the field, whole words, accent insensitive
+	['name-taxonomy' => 1, fixture(categories => "en:colas", product_name_de => "Cola KOFFEINFREI")],
+	['name-taxonomy' => 1, fixture(categories => "en:colas", lc => "es", product_name => "Cola sin cafeina")],
+	['name-taxonomy' => 1, fixture(categories => "en:colas", generic_name_en => "Caffeine-free cola")],
+	# synonyms of another language do not match
+	['name-taxonomy' => 0, fixture(categories => "en:colas", product_name_en => "Cola sans caféine")],
+	['name-taxonomy' => 0, fixture(categories => "en:colas", product_name_fr => "Cola")],
+	[
+		'ingredients-text-taxonomy' => 1,
+		fixture(categories => "en:mashed-potatoes", ingredients_text_de => "Kartoffeln dehydriert")
+	],
+	[
+		'ingredients-text-taxonomy' => 0,
+		fixture(categories => "en:mashed-potatoes", ingredients_text_fr => "Pommes de terre, lait")
+	],
+
+	# specific ingredients: percent of the ingredient or of a child
+	[
+		'specific-ingredients' => 1,
+		fixture(categories => "en:dark-chocolates", specific_ingredients => [{id => "en:cocoa", percent => 64.9}])
+	],
+	[
+		'specific-ingredients' => 0,
+		fixture(categories => "en:dark-chocolates", specific_ingredients => [{id => "en:cocoa", percent => 70}])
+	],
+	[
+		'specific-ingredients' => 0,
+		fixture(categories => "en:dark-chocolates", specific_ingredients => [{id => "en:cocoa"}])
+	],
+	['specific-ingredients' => 0, fixture(categories => "en:dark-chocolates")],
 
 	# nutrients: from the aggregated set, per 100g as sold
 	['nutrients' => 1, fixture(categories => "en:dark-chocolates", nutrients => {cocoa => 64.9})],
@@ -614,7 +663,10 @@ YAML
 # Required categories (used for the batch reprocessing queries)
 is(
 	[tags_rules_required_categories($engine_rules_ref)],
-	["en:biscuits", "en:cheeses", "en:colas", "en:crispbreads", "en:dark-chocolates", "en:sweet-mustards"],
+	[
+		"en:biscuits", "en:cheeses", "en:colas", "en:crispbreads",
+		"en:dark-chocolates", "en:mashed-potatoes", "en:sweet-mustards"
+	],
 	"tags_rules_required_categories"
 );
 
