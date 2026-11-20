@@ -817,7 +817,7 @@ sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
 		my $subject = $1;
 		my $body = $';
 		$body =~ s/^\n+//;
-		send_email_to_producers_admin($subject, $body);
+		send_email_to_producers_admin($subject, $body, $user_ref->{email});
 	}
 	else {
 		send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account_admin_notification.tt.html",
