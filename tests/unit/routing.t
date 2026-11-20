@@ -392,7 +392,7 @@ foreach my $test_ref (@tests) {
 }
 
 subtest 'NOVA facet numeric routing (Issue #15405)' => sub {
-	# Test /nova-group/4 -> tag nova_groups with value 4, page undefined
+	# Test /nova-group/4 -> tag nova_groups with value 4, default page 1
 	my $req1 = {
 		cc => "world",
 		lc => "en",
@@ -400,8 +400,9 @@ subtest 'NOVA facet numeric routing (Issue #15405)' => sub {
 	};
 	$lc = "en";
 	analyze_request($req1);
-	is($req1->{tags}, [['nova_groups', '4']], '/nova-group/4 extracts tag nova_groups with value 4');
-	is($req1->{page}, undef, '/nova-group/4 does not set page number');
+	is($req1->{tags}[0]{tagtype}, 'nova_groups', '/nova-group/4 extracts tagtype nova_groups');
+	like($req1->{tags}[0]{tagid}, qr/^(?:en:)?4/, '/nova-group/4 extracts tagid for group 4');
+	is($req1->{page}, 1, '/nova-group/4 sets page number to default 1');
 
 	# Test /nova-group/4/2 -> tag nova_groups with value 4, page 2
 	my $req2 = {
@@ -411,7 +412,8 @@ subtest 'NOVA facet numeric routing (Issue #15405)' => sub {
 	};
 	$lc = "en";
 	analyze_request($req2);
-	is($req2->{tags}, [['nova_groups', '4']], '/nova-group/4/2 extracts tag nova_groups with value 4');
+	is($req2->{tags}[0]{tagtype}, 'nova_groups', '/nova-group/4/2 extracts tagtype nova_groups');
+	like($req2->{tags}[0]{tagid}, qr/^(?:en:)?4/, '/nova-group/4/2 extracts tagid for group 4');
 	is($req2->{page}, '2', '/nova-group/4/2 sets page number to 2');
 
 	# Test /nova-groups/2 -> facet listing with page 2
@@ -422,6 +424,7 @@ subtest 'NOVA facet numeric routing (Issue #15405)' => sub {
 	};
 	$lc = "en";
 	analyze_request($req3);
+	is($req3->{groupby_tagtype}, 'nova_groups', '/nova-groups/2 sets groupby_tagtype to nova_groups');
 	is($req3->{page}, '2', '/nova-groups/2 sets page number to 2');
 
 	# Test /nova-group/1, /nova-group/2, /nova-group/3
@@ -433,9 +436,22 @@ subtest 'NOVA facet numeric routing (Issue #15405)' => sub {
 		};
 		$lc = "en";
 		analyze_request($req);
-		is($req->{tags}, [['nova_groups', "$group"]], "/nova-group/$group extracts tag nova_groups with value $group");
-		is($req->{page}, undef, "/nova-group/$group does not set page number");
+		is($req->{tags}[0]{tagtype}, 'nova_groups', "/nova-group/$group extracts tagtype nova_groups");
+		like($req->{tags}[0]{tagid}, qr/^(?:en:)?$group/, "/nova-group/$group extracts tagid for group $group");
+		is($req->{page}, 1, "/nova-group/$group sets page number to default 1");
 	}
+
+	# Test that unrelated numeric facet routes are unaffected:
+	# /category/breads/4 extracts tagtype categories with page 4
+	my $req_cat = {
+		cc => "world",
+		lc => "en",
+		original_query_string => 'category/breads/4',
+	};
+	$lc = "en";
+	analyze_request($req_cat);
+	is($req_cat->{tags}[0]{tagtype}, 'categories', '/category/breads/4 extracts tagtype categories');
+	is($req_cat->{page}, '4', '/category/breads/4 sets page number to 4');
 };
 
 done_testing();

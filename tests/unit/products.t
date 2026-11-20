@@ -4,6 +4,7 @@ use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
+use Test2::Tools::ClassicCompare qw(is_deeply);
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 $Data::Dumper::Sortkeys = 1;
@@ -472,7 +473,7 @@ subtest 'Product type transitions and NOVA field cleanup (Issue #15405)' => sub 
 		nova_groups => "4",
 		nova_groups_tags => ["en:4-ultra-processed-food-and-drink-products"],
 		nova_group_tags => ["en:4-ultra-processed-food-and-drink-products"],
-		nova_groups_markers => { 4 => [["additives", "en:e14xx"]] },
+		nova_groups_markers => {4 => [["additives", "en:e14xx"]]},
 		nova_group_debug => "some debug info",
 		nova_group_error => "none",
 	};
@@ -504,7 +505,22 @@ subtest 'Product type transitions and NOVA field cleanup (Issue #15405)' => sub 
 	is($p_food2->{nova_group}, undef, "nova_group purged on transition to product");
 	is($p_food2->{nova_groups_tags}, undef, "nova_groups_tags purged on transition to product");
 
-	# 3. Invalid product type transition returns error
+	# 3. Transition food -> petfood preserves NOVA fields (petfood supports NOVA)
+	my $p_food3 = {
+		code => "11223344",
+		product_type => "food",
+		product_name => "Dog Food mistakenly marked human food",
+		nova_group => 3,
+		nova_groups => "3",
+		nova_groups_tags => ["en:3-processed-foods"],
+	};
+	change_product_type($p_food3, "petfood");
+	is($p_food3->{product_type}, "petfood", "product_type changed to petfood");
+	is($p_food3->{nova_group}, 3, "nova_group preserved on transition to petfood");
+	is_deeply($p_food3->{nova_groups_tags},
+		["en:3-processed-foods"], "nova_groups_tags preserved on transition to petfood");
+
+	# 4. Invalid product type transition returns error
 	my $err = change_product_type($p_food, "invalid_type_xyz");
 	is($err, "invalid_product_type", "Returns invalid_product_type error for invalid type");
 	is($p_food->{product_type}, "beauty", "product_type unchanged on error");

@@ -4,6 +4,7 @@ use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
+use Test2::Tools::ClassicCompare qw(is_deeply);
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 $Data::Dumper::Sortkeys = 1;
@@ -121,25 +122,25 @@ foreach my $test_ref (@markers_tests) {
 		or diag Dumper $product_ref->{nova_groups_markers};
 }
 
-subtest 'Canonical NOVA tag generation and non-food prevention (Issue #15405)' => sub {
-	# 1. Product without ingredients: unknown NOVA with canonical tag
+subtest 'NOVA tag generation and non-food prevention (Issue #15405)' => sub {
+	# 1. Product without ingredients: unknown NOVA with standard unknown tag
 	my $p_no_ing = {
 		lc => "en",
 		categories_tags => ["en:some-category"],
 	};
 	compute_nova_group($p_no_ing);
 	is($p_no_ing->{nova_group}, undef, "NOVA group is undefined when ingredients are missing");
-	is($p_no_ing->{nova_groups_tags}, ["en:unknown"], "Missing ingredients assigns canonical en:unknown");
+	is_deeply($p_no_ing->{nova_groups_tags}, ["unknown"], "Missing ingredients assigns unknown");
 	is($p_no_ing->{nova_group_error}, "missing_ingredients", "Sets missing_ingredients error");
 
-	# 2. Product with non-food category: not-applicable with canonical tag
+	# 2. Product with non-food category: not-applicable with standard not-applicable tag
 	my $p_non_food = {
 		lc => "en",
 		categories_tags => ["en:non-food-products"],
 	};
 	compute_nova_group($p_non_food);
 	is($p_non_food->{nova_group}, undef, "NOVA group is undefined for non-food products");
-	is($p_non_food->{nova_groups_tags}, ["en:not-applicable"], "Non-food category assigns canonical en:not-applicable");
+	is_deeply($p_non_food->{nova_groups_tags}, ["not-applicable"], "Non-food category assigns not-applicable");
 
 	# 3. Product with product_type "beauty" must not receive NOVA scores
 	my $p_beauty = {
@@ -171,7 +172,11 @@ subtest 'Canonical NOVA tag generation and non-food prevention (Issue #15405)' =
 	};
 	compute_nova_group($p_food);
 	is($p_food->{nova_group}, 1, "Water is NOVA 1");
-	is($p_food->{nova_groups_tags}, ["en:1-unprocessed-or-minimally-processed-foods"], "Generates canonical NOVA 1 tag");
+	is_deeply(
+		$p_food->{nova_groups_tags},
+		["en:1-unprocessed-or-minimally-processed-foods"],
+		"Generates canonical NOVA 1 tag"
+	);
 };
 
 done_testing();

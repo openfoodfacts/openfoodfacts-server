@@ -4,6 +4,7 @@ use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
+use Test2::Tools::ClassicCompare qw(is_deeply);
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
@@ -673,24 +674,44 @@ isnt($html_facet_request_ref->{redirect}, undef, "HTML facet requests retain can
 
 subtest 'NOVA groups query params backward compatibility (Issue #15405)' => sub {
 	my $q1 = {};
-	add_params_to_query({ nova_groups_tags => 'en:unknown' }, $q1);
-	is($q1->{nova_groups_tags}, { '$in' => ['en:unknown', 'unknown'] }, "add_params_to_query for en:unknown queries both canonical and legacy");
+	add_params_to_query({nova_groups_tags => 'en:unknown'}, $q1);
+	is_deeply(
+		$q1->{nova_groups_tags},
+		{'$in' => ['en:unknown', 'unknown']},
+		"add_params_to_query for en:unknown queries both canonical and legacy"
+	);
 
 	my $q2 = {};
-	add_params_to_query({ nova_groups_tags => 'unknown' }, $q2);
-	is($q2->{nova_groups_tags}, { '$in' => ['en:unknown', 'unknown'] }, "add_params_to_query for legacy unknown queries both canonical and legacy");
+	add_params_to_query({nova_groups_tags => 'unknown'}, $q2);
+	is_deeply(
+		$q2->{nova_groups_tags},
+		{'$in' => ['en:unknown', 'unknown']},
+		"add_params_to_query for legacy unknown queries both canonical and legacy"
+	);
 
 	my $q3 = {};
-	add_params_to_query({ nova_groups_tags => 'en:not-applicable' }, $q3);
-	is($q3->{nova_groups_tags}, { '$in' => ['en:not-applicable', 'not-applicable'] }, "add_params_to_query for en:not-applicable queries both");
+	add_params_to_query({nova_groups_tags => 'en:not-applicable'}, $q3);
+	is_deeply(
+		$q3->{nova_groups_tags},
+		{'$in' => ['en:not-applicable', 'not-applicable']},
+		"add_params_to_query for en:not-applicable queries both"
+	);
 
 	my $q4 = {};
-	add_params_to_query({ nova_groups_tags => 'not-applicable' }, $q4);
-	is($q4->{nova_groups_tags}, { '$in' => ['en:not-applicable', 'not-applicable'] }, "add_params_to_query for legacy not-applicable queries both");
+	add_params_to_query({nova_groups_tags => 'not-applicable'}, $q4);
+	is_deeply(
+		$q4->{nova_groups_tags},
+		{'$in' => ['en:not-applicable', 'not-applicable']},
+		"add_params_to_query for legacy not-applicable queries both"
+	);
 
 	my $q5 = {};
-	add_params_to_query({ nova_groups_tags => '-en:unknown' }, $q5);
-	is($q5->{nova_groups_tags}, { '$nin' => ['en:unknown', 'unknown'] }, "add_params_to_query for negated -en:unknown queries nin");
+	add_params_to_query({nova_groups_tags => '-en:unknown'}, $q5);
+	is_deeply(
+		$q5->{nova_groups_tags},
+		{'$nin' => ['en:unknown', 'unknown']},
+		"add_params_to_query for negated -en:unknown queries nin"
+	);
 };
 
 done_testing();
