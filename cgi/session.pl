@@ -95,6 +95,10 @@ if (defined $User_id && !single_param('jqm')) {
 	}
 	elsif (defined $target_return_url) {
 		$url = $target_return_url;
+	elsif (is_allowed_return_url($referer)
+		and (not($referer =~ /(?:login|session|user|reset_password)\.pl/)))
+	{
+		$url = $referer;
 	}
 
 	if (defined $url) {

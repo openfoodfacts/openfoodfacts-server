@@ -191,7 +191,7 @@
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
-									<select id="select_country" style="width:100%" data-placeholder="Country">
+									<select id="select_country" style="width:100%" data-placeholder="Country" data-search-placeholder="Search for a country…">
 										<option></option>
 									</select>
 								</li>
@@ -610,9 +610,10 @@
 <li><a href="/facets/categories/Black%20Forest%20g%C3%A2teau" class="tag well_known">Black Forest gâteau</a></li>
 <li><a href="/facets/categories/Carrot%20cakes" class="tag well_known">Carrot cakes</a></li>
 <li><a href="/facets/categories/Cheesecakes" class="tag well_known">Cheesecakes</a></li>
-<li><a href="/facets/categories/Chocolate%20cakes" class="tag well_known">Chocolate cakes</a></li>
+<li><a href="/facets/categories/Chocolate-based%20cakes" class="tag well_known">Chocolate-based cakes</a></li>
 <li><a href="/facets/categories/Chocolate%20soft%20cake" class="tag well_known">Chocolate soft cake</a></li>
 <li><a href="/facets/categories/Clafoutis" class="tag well_known">Clafoutis</a></li>
+<li><a href="/facets/categories/Cream%20cakes" class="tag well_known">Cream cakes</a></li>
 <li><a href="/facets/categories/Dorayaki" class="tag well_known">Dorayaki</a></li>
 <li><a href="/facets/categories/Doughnuts" class="tag well_known">Doughnuts</a></li>
 <li><a href="/facets/categories/Fairy%20cakes" class="tag well_known">Fairy cakes</a></li>
@@ -625,7 +626,6 @@
 <li><a href="/facets/categories/Fruit%20cakes" class="tag well_known">Fruit cakes</a></li>
 <li><a href="/facets/categories/Lemon%20cake" class="tag well_known">Lemon cake</a></li>
 <li><a href="/facets/categories/Makowiec" class="tag well_known">Makowiec</a></li>
-<li><a href="/facets/categories/Marble%20cakes" class="tag well_known">Marble cakes</a></li>
 <li><a href="/facets/categories/Mooncake" class="tag well_known">Mooncake</a></li>
 <li><a href="/facets/categories/Muffins" class="tag well_known">Muffins</a></li>
 <li><a href="/facets/categories/Nut%20rolls" class="tag well_known">Nut rolls</a></li>
@@ -770,7 +770,7 @@
         <div>
           <button href="#" data-dropdown="drop_sort" aria-controls="drop_sort" aria-expanded="false" class="button round dropdown small secondary unmarged">
             <span class="material-icons">swap_vert</span>
-            
+            Most scanned products
           </button>
           <ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
           
@@ -1342,6 +1342,9 @@ var product_type = "food";
 
 <script>
 $(document).foundation({
+	topbar: {
+		back_text: 'Back'
+	},
 	equalizer : {
 		equalize_on_stack: true
 	},
@@ -1351,6 +1354,8 @@ $(document).foundation({
 		}
 	}
 });
+
+$('.top-bar .back h5 > a').text('Back').attr('aria-label', 'Back');
 
 </script>
 <script type="application/ld+json">

@@ -419,6 +419,137 @@ my @tests = (
 		]
 	],
 
+	[
+		{lc => "fr", ingredients_text => "ferments lactiques, présure (animale), sucre"},
+		[
+			{
+				'id' => 'en:lactic-ferments',
+				'is_in_taxonomy' => 1,
+				'text' => 'ferments lactiques'
+			},
+			{
+				'id' => 'en:animal-based-rennet',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:non-vegan',
+				'text' => 'présure animale'
+			},
+			{
+				'id' => 'en:sugar',
+				'is_in_taxonomy' => 1,
+				'text' => 'sucre'
+			}
+		]
+	],
+
+	[
+		{lc => "fr", ingredients_text => "présure (végétale)"},
+		[
+			{
+				'id' => 'en:vegetarian-rennet',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:vegan',
+				'text' => 'présure végétale',
+				'vegan' => 'yes',
+				'vegetarian' => 'yes'
+			}
+		]
+	],
+
+	[
+		{lc => "en", ingredients_text => "milk, salt, rennet (animal)"},
+		[
+			{
+				'id' => 'en:milk',
+				'is_in_taxonomy' => 1,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:salt',
+				'is_in_taxonomy' => 1,
+				'text' => 'salt'
+			},
+			{
+				'id' => 'en:animal-based-rennet',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:non-vegan',
+				'text' => 'animal rennet'
+			}
+		]
+	],
+
+	[
+		{lc => "fr", ingredients_text => "oeufs (plein air)"},
+		[
+			{
+				'id' => 'en:free-range-eggs',
+				'is_in_taxonomy' => 1,
+				'labels' => 'en:free-range',
+				'text' => 'oeufs plein air'
+			}
+		]
+	],
+
+);
+
+# A period in "No. 5" is part of a cosmetic colorant name, not an ingredient separator.
+my $cosmetic_product_ref = {lc => "en", ingredients_text => "FD&C Yellow No. 5, glycerin"};
+parse_ingredients_text_service($cosmetic_product_ref, {}, []);
+is(scalar(@{$cosmetic_product_ref->{ingredients}}), 2, "Numbered cosmetic colorant stays one ingredient");
+like($cosmetic_product_ref->{ingredients}[0]{text}, qr/No\.\s*5/i, "The number stays attached to the colorant");
+
+# Number abbreviations must be followed by a digit to avoid splitting.
+# A standalone "no." before another ingredient remains a sentence separator.
+foreach my $case (
+	["en", "FD&C Yellow No. 5, glycerin", 2, qr/No\.\s*5/i],
+	["lt", "Maistinis geltonasis CI Nr. 3, cukrus", 2, qr/Nr\.\s*3/i],
+	["fr", "Orange CI n. 4, sucre", 2, qr/\bn\.\s*4/i],
+	["en", "Gluten no. Milk powder", 2, undef],
+	)
+{
+	my ($lc, $text, $expected_count, $numbered_name) = @$case;
+	my $product_ref = {lc => $lc, ingredients_text => $text};
+	parse_ingredients_text_service($product_ref, {}, []);
+	is(scalar(@{$product_ref->{ingredients}}), $expected_count, "$text: ingredient count");
+	if (defined $numbered_name) {
+		like($product_ref->{ingredients}[0]{text}, $numbered_name, "$text: number stays with ingredient");
+	}
+}
+
+# An additive class directly followed by "mono - and diglycerides" (without a colon)
+# and labels ending with a dot ("g.U.", "D.O.P.", "A.O.P.") at the end of an ingredient.
+# Each case lists the expected ids and labels of the top level ingredients.
+foreach my $case (
+	["de", "Emulgator Mono - und Diglyceride von Speisefettsäuren", [["en:e471", undef]]],
+	[
+		"de",
+		"Zucker, Emulgator Mono - und Diglyceride von Speisefettsäuren, Salz",
+		[["en:sugar", undef], ["en:e471", undef], ["en:salt", undef]]
+	],
+	["fr", "émulsifiant mono - et diglycérides d'acides gras", [["en:e471", undef]]],
+	["it", "emulsionante mono - e digliceridi degli acidi grassi", [["en:e471", undef]]],
+	["es", "emulgente mono - y diglicéridos de ácidos grasos", [["en:e471", undef]]],
+	["de", "Grana Padano g.U.", [["en:grana-padano", "en:pdo"]]],
+	["de", "Käse (Parmigiano Reggiano g.U.), Salz", [["en:cheese", undef], ["en:salt", undef]]],
+	["it", "Grana Padano D.O.P.", [["en:grana-padano", "en:pdo"]]],
+	["it", "Grana Padano D.O.P., sale", [["en:grana-padano", "en:pdo"], ["en:salt", undef]]],
+	["fr", "lait, Comté A.O.P., sel", [["en:milk", undef], ["en:comte", "en:pdo"], ["en:salt", undef]]],
+	["es", "queso Manchego D.O.P.", [["en:manchego", "en:pdo"]]],
+	)
+{
+	my ($lc, $text, $expected_ref) = @$case;
+	my $product_ref = {lc => $lc, ingredients_text => $text};
+	parse_ingredients_text_service($product_ref, {}, []);
+	is([map {[$_->{id}, $_->{labels}]} @{$product_ref->{ingredients}}],
+		$expected_ref, "$lc: $text - ingredients and labels");
+}
+
+# The label of a sub-ingredient ending with a dot, before a closing parenthesis
+my $parmigiano_ref = {lc => "de", ingredients_text => "Käse (Parmigiano Reggiano g.U.), Salz"};
+parse_ingredients_text_service($parmigiano_ref, {}, []);
+is(
+	[map {[$_->{id}, $_->{labels}]} @{$parmigiano_ref->{ingredients}[0]{ingredients}}],
+	[["en:parmigiano-reggiano", "en:pdo"]],
+	"Parmigiano Reggiano g.U. sub-ingredient has the PDO label"
 );
 
 foreach my $test_ref (@tests) {

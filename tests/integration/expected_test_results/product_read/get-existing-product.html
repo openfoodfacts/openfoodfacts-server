@@ -200,7 +200,7 @@
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
-									<select id="select_country" style="width:100%" data-placeholder="Country">
+									<select id="select_country" style="width:100%" data-placeholder="Country" data-search-placeholder="Search for a country…">
 										<option></option>
 									</select>
 								</li>
@@ -638,6 +638,19 @@
                 </div>
             </div>
         </div>
+        
+        <div id="provenance" class="row h-space-normal" hidden>
+            <div class="large-12">
+                <p class="provenance">From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by 300+ apps</p>
+            </div>
+        </div>
+        <script>
+            // The arm is read by matomo-events.js
+            if (crypto.getRandomValues(new Uint8Array(1))[0] < 128) {
+                document.getElementById('provenance').hidden = false;
+            }
+        </script>
+        
     </div>
     <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
         <div class="row h-space-normal">
@@ -2616,6 +2629,23 @@ The score is calculated from the data of the nutrition facts table and the compo
             
         </tbody>
     </table>
+    </div>
+              <div style="margin-bottom:0.5rem">
+       <div>
+    
+
+    Could you add the nutrition facts?
+
+    
+        <div>
+            <a class="button small action-add_nutrition_facts"
+                href="/cgi/product.pl?type=edit&code=2000000000034#nutrition">
+                Add nutrition facts
+            </a>
+        </div>
+    
+
+    </div>
     </div>
               
 
@@ -5481,9 +5511,9 @@ The score is calculated from the data of the nutrition facts table and the compo
     </div>
               <div style="margin-bottom:0.5rem">
        
-    	<img src="//static.openfoodfacts.localhost/images/icons/dist/help.svg"
+    	<img src="//static.openfoodfacts.localhost/images/icons/dist/packaging.svg"
     	    style="height:72px;float:left;margin-right:1rem;"
-    	    alt="Unknown"
+    	    alt="Packaging"
     	    
   	            class="filter-grey"
     	    >
@@ -6932,6 +6962,9 @@ var product_type = "food";
 
 <script>
 $(document).foundation({
+	topbar: {
+		back_text: 'Back'
+	},
 	equalizer : {
 		equalize_on_stack: true
 	},
@@ -6941,6 +6974,8 @@ $(document).foundation({
 		}
 	}
 });
+
+$('.top-bar .back h5 > a').text('Back').attr('aria-label', 'Back');
 
 </script>
 <script type="application/ld+json">

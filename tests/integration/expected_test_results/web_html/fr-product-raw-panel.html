@@ -202,7 +202,7 @@
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
-									<select id="select_country" style="width:100%" data-placeholder="Pays">
+									<select id="select_country" style="width:100%" data-placeholder="Pays" data-search-placeholder="Search for a country…">
 										<option></option>
 									</select>
 								</li>
@@ -640,6 +640,19 @@
                 </div>
             </div>
         </div>
+        
+        <div id="provenance" class="row h-space-normal" hidden>
+            <div class="large-12">
+                <p class="provenance">From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by 300+ apps</p>
+            </div>
+        </div>
+        <script>
+            // The arm is read by matomo-events.js
+            if (crypto.getRandomValues(new Uint8Array(1))[0] < 128) {
+                document.getElementById('provenance').hidden = false;
+            }
+        </script>
+        
     </div>
     <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
         <div class="row h-space-normal">
@@ -7081,7 +7094,7 @@ Tartes aux pommes
              
 Vous avez rencontré un problème avec ce produit : <b>étiquetage non conforme, produit périmé encore en vente,
 présence d'un corps étranger, etc.</b> ?<br>
-Faites un signalement à l'entreprise et à la répression des fraudes sur <a href="//signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=3300000000002&utm_source=openfoodfacts&utm_campaign=product_page_panel">SignalConso</a>,
+Faites un signalement à l'entreprise et à la répression des fraudes sur <a href="//signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=3300000000002&utm_source=openfoodfacts&utm_campaign=product_page_panel" onclick="if (window._paq) { window._paq.push(['trackEvent', 'SignalConso', 'click']); }">SignalConso</a>,
 un outil de la Direction générale de la concurrence, de la consommation et de la répression des fraudes (DGCCRF).
                 
            </div>
@@ -7375,6 +7388,9 @@ var product_type = "food";
 
 <script>
 $(document).foundation({
+	topbar: {
+		back_text: 'Back'
+	},
 	equalizer : {
 		equalize_on_stack: true
 	},
@@ -7384,6 +7400,8 @@ $(document).foundation({
 		}
 	}
 });
+
+$('.top-bar .back h5 > a').text('Back').attr('aria-label', 'Back');
 
 </script>
 <script type="application/ld+json">

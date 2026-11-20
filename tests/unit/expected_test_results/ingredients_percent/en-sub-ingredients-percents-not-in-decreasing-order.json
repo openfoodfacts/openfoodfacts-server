@@ -1,0 +1,46 @@
+[
+   {
+      "id" : "en:water",
+      "is_in_taxonomy" : 1,
+      "percent_estimate" : 69.9,
+      "percent_max" : 69.9,
+      "percent_min" : 69.9,
+      "text" : "water"
+   },
+   {
+      "id" : "en:rice",
+      "is_in_taxonomy" : 1,
+      "percent" : 30,
+      "percent_estimate" : 30,
+      "percent_max" : 30,
+      "percent_min" : 30,
+      "text" : "rice"
+   },
+   {
+      "id" : "en:fruit",
+      "ingredients" : [
+         {
+            "id" : "en:e164",
+            "is_in_taxonomy" : 1,
+            "percent_estimate" : 4.99999999999999e-05,
+            "percent_max" : 4.76190476190449e-06,
+            "percent_min" : 9.52380952380952e-05,
+            "text" : "e164"
+         },
+         {
+            "id" : "en:natural-flavouring",
+            "is_in_taxonomy" : 1,
+            "percent_estimate" : 0.0999499999999943,
+            "percent_max" : 4.76190476190449e-06,
+            "percent_min" : 9.52380952380952e-05,
+            "text" : "natural flavouring"
+         }
+      ],
+      "is_in_taxonomy" : 1,
+      "percent" : 0.1,
+      "percent_estimate" : 0.0999999999999943,
+      "percent_max" : 0.0999999999999943,
+      "percent_min" : 0.1,
+      "text" : "fruits"
+   }
+]
