@@ -192,7 +192,6 @@ vm.runInThisContext(scriptSource, {
 
 const { imageFieldUI } = globalThis.window;
 const {
-    isSupportedImageFile,
     getUploadFailureErrorMessage,
     getUploadDoneErrorMessage,
     showError: showImageUploadError,
@@ -206,7 +205,6 @@ describe("Image upload error handling and classification", () => {
         langTranslations = {
             product_js_image_upload_error: "Error while uploading image",
             product_js_image_upload_error_file_too_large: "This image is too large. Please choose a smaller image.",
-            product_js_image_upload_error_format: "This image format is not supported. Please use a supported format.",
             product_js_image_upload_error_network: "Network error while uploading the image. Please try again.",
             product_js_image_upload_error_server: "The image could not be uploaded due to a server error. Please try again later.",
             image_upload_error_image_already_exists: "This picture has already been sent.",
@@ -221,11 +219,11 @@ describe("Image upload error handling and classification", () => {
 
     describe("Global namespace hygiene", () => {
         test("does not pollute window with loose helper functions", () => {
-            assert.equal(globalThis.window.isSupportedImageFile, undefined);
             assert.equal(globalThis.window.getUploadFailureErrorMessage, undefined);
             assert.equal(globalThis.window.getUploadDoneErrorMessage, undefined);
             assert.equal(globalThis.window.showImageUploadError, undefined);
             assert.equal(globalThis.window.hideImageUploadError, undefined);
+            assert.equal(globalThis.window.isSupportedImageFile, undefined);
         });
 
         test("exposes all required methods on window.imageFieldUI", () => {
@@ -234,90 +232,14 @@ describe("Image upload error handling and classification", () => {
             assert.equal(typeof imageFieldUI.setImages, "function");
             assert.equal(typeof imageFieldUI.addImage, "function");
             assert.equal(typeof imageFieldUI.show, "function");
-            assert.equal(typeof imageFieldUI.isSupportedImageFile, "function");
             assert.equal(typeof imageFieldUI.getUploadFailureErrorMessage, "function");
             assert.equal(typeof imageFieldUI.getUploadDoneErrorMessage, "function");
             assert.equal(typeof imageFieldUI.showError, "function");
             assert.equal(typeof imageFieldUI.hideError, "function");
         });
-    });
 
-    describe("isSupportedImageFile (Format validation)", () => {
-        test("accepts standard supported image formats with matching MIME type", () => {
-            assert.equal(isSupportedImageFile({ name: "front.jpg", type: "image/jpeg" }), true);
-            assert.equal(isSupportedImageFile({ name: "front.jpeg", type: "image/jpeg" }), true);
-            assert.equal(isSupportedImageFile({ name: "ingredients.png", type: "image/png" }), true);
-            assert.equal(isSupportedImageFile({ name: "nutrition.gif", type: "image/gif" }), true);
-            assert.equal(isSupportedImageFile({ name: "packaging.webp", type: "image/webp" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.heic", type: "image/heic" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.heif", type: "image/heif" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.jpf", type: "image/jp2" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.jp2", type: "image/jp2" }), true);
-        });
-
-        test("accepts uppercase and mixed-case supported extensions", () => {
-            assert.equal(isSupportedImageFile({ name: "PHOTO.JPG", type: "image/jpeg" }), true);
-            assert.equal(isSupportedImageFile({ name: "PHOTO.JPEG", type: "image/jpeg" }), true);
-            assert.equal(isSupportedImageFile({ name: "PHOTO.PNG", type: "image/png" }), true);
-            assert.equal(isSupportedImageFile({ name: "PHOTO.GIF", type: "image/gif" }), true);
-            assert.equal(isSupportedImageFile({ name: "PHOTO.WEBP", type: "image/webp" }), true);
-            assert.equal(isSupportedImageFile({ name: "PHOTO.HEIC", type: "image/heic" }), true);
-            assert.equal(isSupportedImageFile({ name: "PHOTO.JPF", type: "image/jp2" }), true);
-            assert.equal(isSupportedImageFile({ name: "PHOTO.JP2", type: "image/jp2" }), true);
-        });
-
-        test("accepts files with valid extensions when MIME type is missing or generic", () => {
-            assert.equal(isSupportedImageFile({ name: "photo.jpg", type: "" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.jpeg", type: "" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.png", type: "application/octet-stream" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.heic", type: "" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.webp", type: "" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.jpf", type: "" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.jp2", type: "" }), true);
-            assert.equal(isSupportedImageFile({ name: "photo.JPG", type: "" }), true);
-        });
-
-        test("accepts blob uploads without filename extension if MIME type is supported", () => {
-            assert.equal(isSupportedImageFile({ name: "blob", type: "image/jpeg" }), true);
-            assert.equal(isSupportedImageFile({ name: "camera_upload", type: "image/png" }), true);
-            assert.equal(isSupportedImageFile({ name: "", type: "image/webp" }), true);
-        });
-
-        test("rejects contradictory MIME type and extension", () => {
-            // Filename says PDF, MIME says JPEG
-            assert.equal(isSupportedImageFile({ name: "invoice.pdf", type: "image/jpeg" }), false);
-            // Filename says JPG, MIME says PDF
-            assert.equal(isSupportedImageFile({ name: "photo.jpg", type: "application/pdf" }), false);
-            // Filename says script.sh, MIME says PNG
-            assert.equal(isSupportedImageFile({ name: "script.sh", type: "image/png" }), false);
-            // Filename says SVG, MIME says JPEG
-            assert.equal(isSupportedImageFile({ name: "drawing.svg", type: "image/jpeg" }), false);
-        });
-
-        test("rejects unsupported image formats even when MIME type starts with image/", () => {
-            assert.equal(isSupportedImageFile({ name: "drawing.svg", type: "image/svg+xml" }), false);
-            assert.equal(isSupportedImageFile({ name: "photo.bmp", type: "image/bmp" }), false);
-            assert.equal(isSupportedImageFile({ name: "photo.tiff", type: "image/tiff" }), false);
-            assert.equal(isSupportedImageFile({ name: "icon.ico", type: "image/x-icon" }), false);
-            assert.equal(isSupportedImageFile({ name: "photo.avif", type: "image/avif" }), false);
-        });
-
-        test("rejects non-image files", () => {
-            assert.equal(isSupportedImageFile({ name: "document.pdf", type: "application/pdf" }), false);
-            assert.equal(isSupportedImageFile({ name: "data.txt", type: "text/plain" }), false);
-            assert.equal(isSupportedImageFile({ name: "archive.zip", type: "application/zip" }), false);
-            assert.equal(isSupportedImageFile({ name: "video.mp4", type: "video/mp4" }), false);
-            assert.equal(isSupportedImageFile({ name: "document.pdf", type: "" }), false);
-            assert.equal(isSupportedImageFile({ name: "archive.zip", type: "application/octet-stream" }), false);
-        });
-
-        test("rejects null, undefined, and malformed file objects", () => {
-            assert.equal(isSupportedImageFile(null), false);
-            assert.equal(isSupportedImageFile(undefined), false);
-            assert.equal(isSupportedImageFile({}), false);
-            assert.equal(isSupportedImageFile("string"), false);
-            assert.equal(isSupportedImageFile(123), false);
-            assert.equal(isSupportedImageFile({ name: "", type: "" }), false);
+        test("does not expose restrictive client-side format checker", () => {
+            assert.equal(imageFieldUI.isSupportedImageFile, undefined);
         });
     });
 
@@ -366,11 +288,11 @@ describe("Image upload error handling and classification", () => {
             assert.equal(getUploadFailureErrorMessage(data), null);
         });
 
-        test("resolves known safe error from responseJSON when present", () => {
+        test("resolves known safe error_key from responseJSON when present", () => {
             const data = {
                 jqXHR: {
                     status: 400,
-                    responseJSON: { imgid: -3 }
+                    responseJSON: { error_key: "image_upload_error_image_already_exists" }
                 },
                 textStatus: "error"
             };
@@ -415,70 +337,115 @@ describe("Image upload error handling and classification", () => {
         });
     });
 
-    describe("getUploadDoneErrorMessage (Backend 200 response handling)", () => {
-        test("maps structured negative imgid return codes to user-friendly messages", () => {
-            assert.equal(getUploadDoneErrorMessage({ imgid: -3 }), "This picture has already been sent.");
-            assert.equal(getUploadDoneErrorMessage({ imgid: -4 }), "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.");
-            assert.equal(getUploadDoneErrorMessage({ imgid: -5 }), "The image could not be read.");
-            // -2 is internal "field not set", should fall back to generic
+    describe("getUploadDoneErrorMessage (Backend error classification via error_key)", () => {
+        test("resolves structured backend error_keys directly", () => {
+            assert.equal(
+                getUploadDoneErrorMessage({ error_key: "image_upload_error_image_already_exists" }),
+                "This picture has already been sent."
+            );
+            assert.equal(
+                getUploadDoneErrorMessage({ error_key: "image_upload_error_image_too_small" }),
+                "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
+            );
+            assert.equal(
+                getUploadDoneErrorMessage({ error_key: "image_upload_error_could_not_read_image" }),
+                "The image could not be read."
+            );
+            assert.equal(
+                getUploadDoneErrorMessage({ error_key: "image_upload_error_no_barcode_specified_or_found" }),
+                "No barcode specified or found in the image or filename."
+            );
+        });
+
+        test("preserves backward compatibility for legacy negative imgid codes", () => {
+            assert.equal(
+                getUploadDoneErrorMessage({ imgid: -4 }),
+                "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
+            );
+            assert.equal(
+                getUploadDoneErrorMessage({ imgid: -5 }),
+                "The image could not be read."
+            );
+            // -2 is internal "field not set", falls back to generic
             assert.equal(getUploadDoneErrorMessage({ imgid: -2 }), "Error while uploading image");
         });
 
-        test("preserves known legitimate backend translated error messages", () => {
-            assert.equal(getUploadDoneErrorMessage({ error: "This picture has already been sent." }), "This picture has already been sent.");
-            assert.equal(getUploadDoneErrorMessage({ error: "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself." }), "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.");
-            assert.equal(getUploadDoneErrorMessage({ error: "The image could not be read." }), "The image could not be read.");
-            assert.equal(getUploadDoneErrorMessage({ error: "No barcode specified or found in the image or filename." }), "No barcode specified or found in the image or filename.");
+        test("handles realistic duplicate image response fixture from cgi/product_image_upload.pl", () => {
+            // Note: On duplicate upload, process_image_upload_using_filehandle returns -3,
+            // but sets $imgid to the existing image ID. Thus the CGI sets imgid = 1 (positive integer).
+            const duplicateFixture = {
+                code: "1234567890014",
+                debug: "product_id: 1234567890014 - user_id:  - imagefield: front_en - we have already received an image with this file size: 18145 - imgid: 1",
+                error: "This picture has already been sent.",
+                error_key: "image_upload_error_image_already_exists",
+                files: [
+                    {
+                        code: "1234567890014",
+                        filename: "",
+                        name: "1234567890014",
+                        thumbnailUrl: "/images/products/123/456/789/0014/1.100.jpg",
+                        url: "/product/1234567890014"
+                    }
+                ],
+                imagefield: "front_en",
+                imgid: 1,
+                status: "status not ok"
+            };
+
+            assert.equal(getUploadDoneErrorMessage(duplicateFixture), "This picture has already been sent.");
+            assert.ok(duplicateFixture.imgid > 0, "Duplicate response retains positive existing image id");
         });
 
-        test("handles realistic CGI endpoint response fixtures", () => {
-            // Fixture 1: Duplicate image response from product_image_upload.pl
-            const dupResponse = {
-                status: "status not ok",
-                error: "This picture has already been sent.",
-                imgid: -3,
-                debug: "product_id: 123456 - user_id: test - imagefield: front_en - we have already received an image with this file size: 1024 - imgid: 1"
-            };
-            assert.equal(getUploadDoneErrorMessage(dupResponse), "This picture has already been sent.");
-
-            // Fixture 2: Too small image response
-            const tooSmallResponse = {
-                status: "status not ok",
+        test("handles realistic image too small response fixture", () => {
+            const tooSmallFixture = {
+                code: "1234567890013",
+                debug: "product_id: 1234567890013 - user_id:  - imagefield: front_en - size of image file received: 909 - saved jpg: 288 - image too small - width: 4 - height: 4",
                 error: "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.",
-                imgid: -4
+                error_key: "image_upload_error_image_too_small",
+                files: [
+                    {
+                        code: "1234567890013",
+                        filename: "",
+                        name: "1234567890013",
+                        url: "/product/1234567890013"
+                    }
+                ],
+                imagefield: "front_en",
+                imgid: -4,
+                status: "status not ok"
             };
-            assert.equal(getUploadDoneErrorMessage(tooSmallResponse), "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.");
 
-            // Fixture 3: Image could not be read (corrupt / unreadable by ImageMagick)
-            const unreadableResponse = {
-                status: "status not ok",
+            assert.equal(getUploadDoneErrorMessage(tooSmallFixture), "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.");
+        });
+
+        test("handles realistic unreadable / corrupt image response fixture", () => {
+            const unreadableFixture = {
+                debug: "product_id: 123456 - user_id: test - imagefield: front_en - could not read image: 420 Corrupt JPEG data",
                 error: "The image could not be read.",
+                error_key: "image_upload_error_could_not_read_image",
+                imagefield: "front_en",
                 imgid: -5,
-                debug: "product_id: 123456 - user_id: test - imagefield: front_en - could not read image: 420 Corrupt JPEG data"
+                status: "status not ok"
             };
-            assert.equal(getUploadDoneErrorMessage(unreadableResponse), "The image could not be read.");
 
-            // Fixture 4: No barcode found response (code not specified)
-            const noBarcodeResponse = {
-                status: "status not ok",
+            assert.equal(getUploadDoneErrorMessage(unreadableFixture), "The image could not be read.");
+        });
+
+        test("handles realistic missing barcode response fixture", () => {
+            const noBarcodeFixture = {
                 error: "No barcode specified or found in the image or filename.",
-                files: [{ filename: "sample.jpg" }]
+                error_key: "image_upload_error_no_barcode_specified_or_found",
+                files: [
+                    {
+                        error: "No barcode specified or found in the image or filename.",
+                        error_key: "image_upload_error_no_barcode_specified_or_found",
+                        filename: "sample.jpg"
+                    }
+                ],
+                status: "status not ok"
             };
-            assert.equal(getUploadDoneErrorMessage(noBarcodeResponse), "No barcode specified or found in the image or filename.");
 
-            // Fixture 5: Invalid product code response (technical)
-            const invalidCodeResponse = {
-                status: "status not ok",
-                error: "error - invalid product code: abc"
-            };
-            assert.equal(getUploadDoneErrorMessage(invalidCodeResponse), "Error while uploading image");
-
-            // Fixture 6: Missing imagefield error (technical)
-            const missingFieldResponse = {
-                status: "status not ok",
-                error: "error - imagefield not defined"
-            };
-            assert.equal(getUploadDoneErrorMessage(missingFieldResponse), "Error while uploading image");
+            assert.equal(getUploadDoneErrorMessage(noBarcodeFixture), "No barcode specified or found in the image or filename.");
         });
 
         test("does not leak arbitrary technical or unvalidated server errors", () => {
@@ -502,6 +469,7 @@ describe("Image upload error handling and classification", () => {
             assert.equal(getUploadDoneErrorMessage({}), "Error while uploading image");
             assert.equal(getUploadDoneErrorMessage({ error: null }), "Error while uploading image");
             assert.equal(getUploadDoneErrorMessage({ error: "" }), "Error while uploading image");
+            assert.equal(getUploadDoneErrorMessage({ error_key: "unknown_key_xyz" }), "Error while uploading image");
         });
     });
 
@@ -510,10 +478,11 @@ describe("Image upload error handling and classification", () => {
             langTranslations = {
                 product_js_image_upload_error: "Erreur lors de l'envoi de l'image",
                 product_js_image_upload_error_file_too_large: "Cette image est trop volumineuse. Veuillez choisir une image plus petite.",
-                product_js_image_upload_error_format: "Ce format d'image n'est pas pris en charge.",
                 product_js_image_upload_error_network: "Erreur réseau lors de l'envoi de l'image. Veuillez réessayer.",
                 product_js_image_upload_error_server: "L'image n'a pas pu être envoyée en raison d'une erreur de serveur.",
-                image_upload_error_image_already_exists: "Cette image a déjà été envoyée."
+                image_upload_error_image_already_exists: "Cette image a déjà été envoyée.",
+                image_upload_error_image_too_small: "L'image est trop petite.",
+                image_upload_error_could_not_read_image: "L'image n'a pas pu être lue."
             };
 
             const netError = getUploadFailureErrorMessage({ jqXHR: { status: 0 }, textStatus: "error" });
@@ -525,7 +494,7 @@ describe("Image upload error handling and classification", () => {
             const serverError = getUploadFailureErrorMessage({ jqXHR: { status: 500 }, textStatus: "error" });
             assert.equal(serverError, "L'image n'a pas pu être envoyée en raison d'une erreur de serveur.");
 
-            const duplicateError = getUploadDoneErrorMessage({ imgid: -3 });
+            const duplicateError = getUploadDoneErrorMessage({ error_key: "image_upload_error_image_already_exists", imgid: 1 });
             assert.equal(duplicateError, "Cette image a déjà été envoyée.");
 
             const genericError = getUploadDoneErrorMessage({ error: "error" });
@@ -543,6 +512,9 @@ describe("Image upload error handling and classification", () => {
 
             const serverError = getUploadFailureErrorMessage({ jqXHR: { status: 500 }, textStatus: "error" });
             assert.equal(serverError, "The image could not be uploaded due to a server error. Please try again later.");
+
+            const duplicateError = getUploadDoneErrorMessage({ error_key: "image_upload_error_image_already_exists", imgid: 1 });
+            assert.equal(duplicateError, "This picture has already been sent.");
 
             const genericError = getUploadDoneErrorMessage({});
             assert.equal(genericError, "Error while uploading image");

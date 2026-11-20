@@ -377,57 +377,16 @@ const maximumRecentEntriesPerTag = 10;
         images.push(image_data);
     }
 
-    const SUPPORTED_IMAGE_EXTENSIONS = /\.(jpe?g|png|gif|webp|heic|heif|jpf|jp2)$/i;
-
-    const SUPPORTED_IMAGE_MIME_TYPES = {
-        'image/jpeg': true,
-        'image/pjpeg': true,
-        'image/jpg': true,
-        'image/png': true,
-        'image/x-png': true,
-        'image/gif': true,
-        'image/webp': true,
-        'image/heic': true,
-        'image/heif': true,
-        'image/heic-sequence': true,
-        'image/heif-sequence': true,
-        'image/jp2': true,
-        'image/jpx': true
+    const KNOWN_BACKEND_ERROR_KEYS = {
+        image_upload_error_image_already_exists: 'This picture has already been sent.',
+        image_upload_error_image_too_small: 'The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.',
+        image_upload_error_could_not_read_image: 'The image could not be read.',
+        image_upload_error_no_barcode_specified_or_found: 'No barcode specified or found in the image or filename.'
     };
 
-    function isSupportedImageFile(file) {
-        if (!file || typeof file !== 'object') {
-            return false;
-        }
-
-        const name = typeof file.name === 'string' ? file.name.trim() : '';
-        const type = typeof file.type === 'string' ? file.type.trim().toLowerCase() : '';
-
-        const hasExtension = (/\.[a-zA-Z0-9]+$/).test(name);
-        const hasSupportedExtension = hasExtension && SUPPORTED_IMAGE_EXTENSIONS.test(name);
-
-        if (hasExtension && !hasSupportedExtension) {
-            return false;
-        }
-
-        if (type && type !== 'application/octet-stream') {
-            return Boolean(SUPPORTED_IMAGE_MIME_TYPES[type]);
-        }
-
-        return hasSupportedExtension;
-    }
-
-    const BACKEND_IMGID_ERRORS = {
-        '-3': 'image_upload_error_image_already_exists',
+    const LEGACY_IMGID_ERROR_KEYS = {
         '-4': 'image_upload_error_image_too_small',
         '-5': 'image_upload_error_could_not_read_image'
-    };
-
-    const KNOWN_BACKEND_ERRORS = {
-        'this picture has already been sent.': 'image_upload_error_image_already_exists',
-        'the picture is too small. please do not upload pictures found on the internet and only send photos you have taken yourself.': 'image_upload_error_image_too_small',
-        'the image could not be read.': 'image_upload_error_could_not_read_image',
-        'no barcode specified or found in the image or filename.': 'image_upload_error_no_barcode_specified_or_found'
     };
 
     function getLangString(key, fallback) {
@@ -441,45 +400,14 @@ const maximumRecentEntriesPerTag = 10;
         return fallback;
     }
 
-    const KNOWN_BACKEND_KEYS = [
-        'image_upload_error_image_already_exists',
-        'image_upload_error_image_too_small',
-        'image_upload_error_could_not_read_image',
-        'image_upload_error_no_barcode_specified_or_found'
-    ];
-
     function resolveSafeBackendError(obj) {
         if (!obj || typeof obj !== 'object') {
             return null;
         }
 
-        if (typeof obj.imgid !== 'undefined' && BACKEND_IMGID_ERRORS[String(obj.imgid)]) {
-            const key = BACKEND_IMGID_ERRORS[String(obj.imgid)];
-
-            return getLangString(key, typeof obj.error === 'string' ? obj.error : null);
-        }
-
-        if (typeof obj.error === 'string') {
-            const text = obj.error.trim();
-            const lower = text.toLowerCase();
-
-            if (KNOWN_BACKEND_ERRORS[lower]) {
-                return getLangString(KNOWN_BACKEND_ERRORS[lower], text);
-            }
-
-            if (typeof lang === 'function') {
-                const langData = lang();
-                if (langData) {
-                    for (let i = 0; i < KNOWN_BACKEND_KEYS.length; i++) {
-                        const translationKey = KNOWN_BACKEND_KEYS[i];
-                        if (langData[translationKey] &&
-                            typeof langData[translationKey] === 'string' &&
-                            langData[translationKey].trim() === text) {
-                            return langData[translationKey];
-                        }
-                    }
-                }
-            }
+        const errorKey = obj.error_key || (typeof obj.imgid !== 'undefined' && LEGACY_IMGID_ERROR_KEYS[String(obj.imgid)]);
+        if (errorKey && KNOWN_BACKEND_ERROR_KEYS[errorKey]) {
+            return getLangString(errorKey, KNOWN_BACKEND_ERROR_KEYS[errorKey]);
         }
 
         return null;
@@ -686,26 +614,6 @@ const maximumRecentEntriesPerTag = 10;
                         resizeMaxWidth: 2000,
                         resizeMaxHeight: 2000,
 
-                        add: function (e, data) {
-                            hideImageUploadError(imagefield);
-                            const files = data.files || [];
-                            for (let i = 0; i < files.length; i++) {
-                                if (!isSupportedImageFile(files[i])) {
-                                    const msg = getLangString('product_js_image_upload_error_format', 'This image format is not supported. Please use a supported format.');
-                                    showImageUploadError(imagefield, msg);
-
-                                    return false;
-                                }
-                            }
-                            if (typeof data.process === 'function') {
-                                data.process().done(function () {
-                                    data.submit();
-                                });
-                            } else {
-                                data.submit();
-                            }
-                        },
-
                         done: function (e, data) {
 
                             if (data.result && data.result.image) {
@@ -721,6 +629,14 @@ const maximumRecentEntriesPerTag = 10;
                             } else {
                                 const message = getUploadDoneErrorMessage(data.result);
                                 showImageUploadError(imagefield, message);
+
+                                if (data.result && data.result.error_key === 'image_upload_error_image_already_exists' && data.result.imgid > 0) {
+                                    const $existingThumb = $('#' + imagefield + '_' + data.result.imgid);
+                                    if ($existingThumb.length) {
+                                        $existingThumb.addClass("ui-selected").siblings().removeClass("ui-selected");
+                                        change_image(imagefield, data.result.imgid);
+                                    }
+                                }
                             }
                         },
                         fail: function (e, data) {
@@ -812,7 +728,6 @@ const maximumRecentEntriesPerTag = 10;
         setImages: imageFieldsSetImages,
         addImage: imageFieldsAddImage,
         show: imageFieldsShow,
-        isSupportedImageFile: isSupportedImageFile,
         getUploadFailureErrorMessage: getUploadFailureErrorMessage,
         getUploadDoneErrorMessage: getUploadDoneErrorMessage,
         showError: showImageUploadError,
