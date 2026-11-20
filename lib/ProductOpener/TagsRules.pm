@@ -94,7 +94,8 @@ use vars @EXPORT_OK;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Config qw/%options/;
 use ProductOpener::Tags qw/is_a exists_taxonomy_tag gen_tags_list_with_parents get_property
-	canonicalize_taxonomy_tag get_minimal_tags_subset %writable_tags_fields/;
+	canonicalize_taxonomy_tag get_minimal_tags_subset %writable_tags_fields
+	get_all_taxonomy_entries get_taxonomy_entry_synonyms_regexps join_regexps_longest_first %translations_to/;
 use ProductOpener::Store qw/unac_string_perl/;
 use ProductOpener::ProductsTags
 	qw/set_field_input_tags_for_source get_field_input_tags_from_all_sources generate_field_tags_from_all_sources add_tag/;
@@ -534,6 +535,9 @@ sub _compile_condition_key ($key, $value, $path, $errors_ref) {
 	elsif ($key eq 'nutrients') {
 		return _compile_nutrients_condition($value, $path, $errors_ref);
 	}
+	elsif ($key eq 'specific_ingredients') {
+		return _compile_specific_ingredients_condition($value, $path, $errors_ref);
+	}
 	elsif ($key eq 'name') {
 		return _compile_regexp_condition($value, ["product_name", "generic_name"], $path, $errors_ref);
 	}
@@ -563,7 +567,7 @@ sub _compile_tags_condition ($field, $value, $path, $errors_ref) {
 	};
 }
 
-# Ingredients condition: a mapping of ingredients conditions (contains, first, in_first, known)
+# Ingredients condition: a mapping of ingredients conditions (contains, first, in_first, processing, known)
 # that must all match. Ingredients are matched with is_a(), so a condition on en:wholemeal-flour
 # also matches en:wholemeal-rye-flour.
 sub _compile_ingredients_condition ($spec, $path, $errors_ref) {
@@ -616,6 +620,23 @@ sub _compile_ingredients_condition ($spec, $path, $errors_ref) {
 					return 1 if _ingredient_is_a($ingredients_ref->[$i], \@of);
 				}
 				return 0;
+			};
+		}
+		elsif ($key eq 'processing') {
+			# One of the ingredients, at any depth, has one of the listed processings (or a child),
+			# e.g. "Kartoffeln getrocknet", "Sahnepulver" (en:cream with en:powder)
+			my @of = map {_check_tag("ingredients_processing", $_, $key_path, $errors_ref)} _as_list($value);
+			push @subs, sub ($ctx) {
+				my $found = 0;
+				_walk_ingredients(
+					$ctx->{product}{ingredients},
+					sub ($ingredient_ref) {
+						foreach my $processing (split(/,/, $ingredient_ref->{processing} // '')) {
+							$found = 1 if grep {is_a("ingredients_processing", $processing, $_)} @of;
+						}
+					}
+				);
+				return $found;
 			};
 		}
 		elsif ($key eq 'known') {
@@ -723,41 +744,106 @@ sub _compile_nutrients_condition ($spec, $path, $errors_ref) {
 	};
 }
 
+# Specific ingredients condition: ingredient id => {min, max} percent, all must match.
+# Specific ingredients are the mentions parsed from the ingredients text, e.g. "cocoa: 55% minimum"
+# (see parse_specific_ingredients_from_text() in Ingredients.pm). A specific ingredient matches
+# the ingredient id or one of its children.
+sub _compile_specific_ingredients_condition ($spec, $path, $errors_ref) {
+
+	if ((ref($spec) ne 'HASH') or (not %$spec)) {
+		push @$errors_ref, "$path: must be a mapping of ingredient ids to {min, max}, e.g. en:cocoa: {min: 70}";
+		return;
+	}
+
+	my @checks = ();
+	foreach my $ingredient (sort keys %$spec) {
+		my $id = _check_tag("ingredients", $ingredient, $path, $errors_ref);
+		my $range_ref = $spec->{$ingredient};
+		if ((ref($range_ref) ne 'HASH') or ((not defined $range_ref->{min}) and (not defined $range_ref->{max}))) {
+			push @$errors_ref, "$path.$ingredient: must be a mapping with min and/or max";
+			next;
+		}
+		push @checks, {id => $id, min => $range_ref->{min}, max => $range_ref->{max}};
+	}
+
+	return sub ($ctx) {
+		foreach my $check_ref (@checks) {
+			my $found = 0;
+			foreach my $specific_ingredient_ref (@{$ctx->{product}{specific_ingredients} // []}) {
+				my $percent = $specific_ingredient_ref->{percent};
+				next if (not defined $percent) or (not defined $specific_ingredient_ref->{id});
+				next if not is_a("ingredients", $specific_ingredient_ref->{id}, $check_ref->{id});
+				next if (defined $check_ref->{min}) and ($percent < $check_ref->{min});
+				next if (defined $check_ref->{max}) and ($percent > $check_ref->{max});
+				$found = 1;
+				last;
+			}
+			return 0 if not $found;
+		}
+		return 1;
+	};
+}
+
 # Text is matched case- and accent-insensitively
 sub _normalize_text ($text) {
 	return lc(unac_string_perl($text));
 }
 
-# Regular expression condition on text fields: language code (or "any") => regular expression.
-# Matches if one of the regular expressions matches one of the fields in its language: one language is enough
-# (e.g. a "fr" regexp that matches product_name_fr is a match, even if the "en" regexp does not match product_name_en).
-# Fields are [field]_[lc], and [field] when [lc] is the main language of the product. "any" matches all languages.
+# Taxonomies whose entries can be matched in text fields
+my %text_taxonomies = map {$_ => 1} qw(categories labels ingredients ingredients_processing);
+
+# Text condition on text fields: a mapping of language codes (or "any") to regular expressions, and/or
+# of taxonomies to entries (e.g. labels: en:no-caffeine). Matches if one of them matches one of the texts.
+# - regular expressions: fields are [field]_[lc], and [field] when [lc] is the main language of the product,
+#   "any" matches all languages. One language is enough.
+# - taxonomy entries: each text in a language is matched with the synonyms of the entries (and of their
+#   children) in that language (and xx:), as whole words. Translations are maintained in the taxonomies.
 sub _compile_regexp_condition ($spec, $fields_ref, $path, $errors_ref) {
 
 	if ((ref($spec) ne 'HASH') or (not %$spec)) {
-		push @$errors_ref, "$path: must be a mapping of language codes (or 'any') to regular expressions";
+		push @$errors_ref,
+			"$path: must be a mapping of language codes (or 'any') to regular expressions, or of taxonomies to entries";
 		return;
 	}
 
 	my %regexps = ();
-	foreach my $lc (sort keys %$spec) {
-		if ($lc !~ /^([a-z]{2}|any)$/) {
-			push @$errors_ref, "$path: invalid language code '$lc'";
+	my %entries = ();
+	# languages: any -> the synonyms of the taxonomy entries in all languages match texts in all languages
+	my $all_languages = 0;
+	foreach my $key (sort keys %$spec) {
+		if ($key eq 'languages') {
+			if (($spec->{$key} // '') ne 'any') {
+				push @$errors_ref, "$path.languages: the only possible value is 'any'";
+			}
+			$all_languages = 1;
 			next;
 		}
-		my $pattern = $spec->{$lc};
+		if ($text_taxonomies{$key}) {
+			my @tags = map {_check_tag($key, $_, "$path.$key", $errors_ref)} _as_list($spec->{$key});
+			push @$errors_ref, "$path.$key: no entries" if not @tags;
+			$entries{$key} = \@tags;
+			next;
+		}
+		if ($key !~ /^([a-z]{2}|any)$/) {
+			push @$errors_ref, "$path: invalid language code or taxonomy '$key'";
+			next;
+		}
+		my $pattern = $spec->{$key};
 		if ((not defined $pattern) or (ref($pattern) ne '') or ($pattern eq '')) {
-			push @$errors_ref, "$path.$lc: invalid regular expression";
+			push @$errors_ref, "$path.$key: invalid regular expression";
 			next;
 		}
 		my $normalized_pattern = unac_string_perl($pattern);
 		my $regexp = eval {qr/$normalized_pattern/i};
 		if (not defined $regexp) {
-			push @$errors_ref, "$path.$lc: invalid regular expression '$pattern': $@";
+			push @$errors_ref, "$path.$key: invalid regular expression '$pattern': $@";
 			next;
 		}
-		$regexps{$lc} = $regexp;
+		$regexps{$key} = $regexp;
 	}
+
+	# Regular expressions of the taxonomy entries, per language, built when first needed
+	my %entries_regexps = ();
 
 	return sub ($ctx) {
 		my $product_ref = $ctx->{product};
@@ -766,8 +852,81 @@ sub _compile_regexp_condition ($spec, $fields_ref, $path, $errors_ref) {
 				return 1 if _normalize_text($text) =~ $regexps{$lc};
 			}
 		}
+		if (%entries) {
+			foreach my $text_ref (_get_texts_with_lc($product_ref, $fields_ref)) {
+				my ($lc, $text) = @$text_ref;
+				$lc = "any" if $all_languages;
+				# exists: also cache languages without synonyms (undef)
+				$entries_regexps{$lc} = _taxonomy_entries_regexp(\%entries, $lc) if not exists $entries_regexps{$lc};
+				return 1 if (defined $entries_regexps{$lc}) and (_normalize_text($text) =~ $entries_regexps{$lc});
+			}
+		}
 		return 0;
 	};
+}
+
+# Children of the taxonomy entries (cached)
+my %children_cache = ();
+
+sub _taxonomy_entries_and_children ($taxonomy, $tags_ref) {
+	my $key = $taxonomy . ":" . join(",", @$tags_ref);
+	if (not defined $children_cache{$key}) {
+		my %parents = map {$_ => 1} @$tags_ref;
+		$children_cache{$key} = [
+			grep {
+				my $entry = $_;
+				$parents{$entry} or grep {is_a($taxonomy, $entry, $_)} @$tags_ref
+			} get_all_taxonomy_entries($taxonomy)
+		];
+	}
+	return @{$children_cache{$key}};
+}
+
+# Regular expression that matches the synonyms in language $lc (and xx) of taxonomy entries and of their
+# children, in a normalized text (see _normalize_text()). Returns undef if there are no synonyms in $lc
+sub _taxonomy_entries_regexp ($entries_ref, $lc) {
+	my %synonyms_regexps = ();
+	foreach my $taxonomy (keys %$entries_ref) {
+		foreach my $entry (_taxonomy_entries_and_children($taxonomy, $entries_ref->{$taxonomy})) {
+			my @languages = ($lc eq 'any') ? (sort keys %{$translations_to{$taxonomy}{$entry} // {}}) : ($lc, "xx");
+			# spaces, dashes and apostrophes are interchangeable
+			foreach my $synonym_regexp (
+				map {get_taxonomy_entry_synonyms_regexps($taxonomy, $entry, $_, {loose_separators => 1})} @languages)
+			{
+				# whole words, except for languages written without spaces between words
+				my $type = ($synonym_regexp =~ /[\p{Han}\p{Hiragana}\p{Katakana}\p{Thai}]/) ? "anywhere" : "words";
+				$synonyms_regexps{$type}{$synonym_regexp} = 1;
+			}
+		}
+	}
+	return if not %synonyms_regexps;
+	my @alternatives = ();
+	foreach my $type (sort keys %synonyms_regexps) {
+		my $alternatives = join_regexps_longest_first(keys %{$synonyms_regexps{$type}});
+		push @alternatives, ($type eq "words") ? "(?<!\\w)(?:$alternatives)(?!\\w)" : "(?:$alternatives)";
+	}
+	my $regexp = join('|', @alternatives);
+	return qr/$regexp/i;
+}
+
+# Return [lc, text] for the non-empty values of text fields: [field]_[lc], and [field] in the main language
+sub _get_texts_with_lc ($product_ref, $fields_ref) {
+	my @texts = ();
+	foreach my $field (@$fields_ref) {
+		foreach my $key (keys %$product_ref) {
+			my $lc;
+			if ($key =~ /^${field}_([a-z]{2})$/) {
+				$lc = $1;
+			}
+			elsif ($key eq $field) {
+				$lc = $product_ref->{lc};
+			}
+			next if not defined $lc;
+			my $text = $product_ref->{$key};
+			push @texts, [$lc, $text] if (defined $text) and (ref($text) eq '') and ($text ne '');
+		}
+	}
+	return @texts;
 }
 
 # Return the non-empty values of text fields in a language ("any": all languages)

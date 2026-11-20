@@ -161,6 +161,8 @@ BEGIN {
 
 		&generate_regexps_matching_taxonomy_stopwords
 		&generate_regexps_matching_taxonomy_entries
+		&get_taxonomy_entry_synonyms_regexps
+		&join_regexps_longest_first
 
 		&cmp_taxonomy_tags_alphabetically
 
@@ -5030,6 +5032,101 @@ sub generate_regexps_matching_taxonomy_stopwords ($taxonomy) {
 	return $result_ref;
 }
 
+=head2 get_taxonomy_entry_synonyms_regexps($taxonomy, $tagid, $language, $options_ref)
+
+Create regular expressions that match the synonyms of one taxonomy entry in one language.
+
+=head3 Arguments
+
+=head4 $taxonomy
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tagid
+
+The canonical id of the entry (e.g. en:coffee)
+
+=head4 $language
+
+The language of the synonyms (e.g. en, or xx for language-independent synonyms)
+
+=head4 $options_ref
+
+A reference to a hash to enable options to indicate how to match:
+
+- add_simple_plurals : in some languages, like French, we will allow an extra "s" at the end of entries
+- add_simple_singulars: same with removing the "s" at the end of entries
+- match_space_with_dash: spaces or dashes in entries will match either a space or a dash (e.g. "South America" will match "South-America")
+- loose_separators: runs of spaces, dashes and apostrophes in entries will match any run of whitespace, dashes
+  and apostrophes, or nothing (e.g. "l'eau" will match "l' eau", "l eau" and "leau")
+
+=head3 Return values
+
+A list of regular expressions (strings), one for each synonym, in the order of the synonyms (the first synonym
+is the main translation), each followed by its unaccented variant if it is different.
+
+The list is empty if the entry has no synonyms in that language.
+
+=cut
+
+sub get_taxonomy_entry_synonyms_regexps ($taxonomy, $tagid, $language, $options_ref = {}) {
+
+	my @regexps = ();
+
+	foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
+
+		# Escape some characters
+		my $regexp = regexp_escape($synonym);
+
+		if ($options_ref->{add_simple_singulars}) {
+			if ($regexp =~ /s$/) {
+				# match entry without final s
+				$regexp =~ s/s$/\(\?:s\?\)/;
+			}
+		}
+
+		if ($options_ref->{add_simple_plurals}) {
+			if ($regexp !~ /s$/) {
+				# match entry with additional final s
+				$regexp =~ s/$/\(\?:s\?\)/;
+			}
+		}
+
+		if ($options_ref->{match_space_with_dash}) {
+			# Make spaces match dashes and the reverse
+			$regexp =~ s/( |-)/\(\?: \|-\)/g;
+		}
+
+		if ($options_ref->{loose_separators}) {
+			# Make runs of spaces, dashes and apostrophes match any run of them, or nothing
+			$regexp =~ s/[ \-'’]+/[\\s\\-'’]*/g;
+		}
+
+		push @regexps, $regexp;
+
+		if ((my $unaccented_regexp = unac_string_perl($regexp)) ne $regexp) {
+			push @regexps, $unaccented_regexp;
+		}
+	}
+
+	return @regexps;
+}
+
+=head2 join_regexps_longest_first(@regexps)
+
+Join regular expressions (strings) in one regular expression that tries the longest ones first,
+so that the longest strings are matched.
+
+=head3 Return values
+
+A string with the regular expressions separated by |, sorted by decreasing length, then alphabetically.
+
+=cut
+
+sub join_regexps_longest_first (@regexps) {
+	return join('|', sort {(length $b <=> length $a) || ($a cmp $b)} @regexps);
+}
+
 =head2 generate_regexps_matching_taxonomy_entries($taxonomy, $return_type, $options_ref)
 
 Create regular expressions that will match entries of a taxonomy.
@@ -5056,6 +5153,8 @@ A reference to a hash to enable options to indicate how to match:
 - add_simple_singulars: same with removing the "s" at the end of entries
 - match_space_with_dash: spaces or dashes in entries will match either a space or a dash (e.g. "South America" will match "South-America")
 
+See get_taxonomy_entry_synonyms_regexps() for all options.
+
 =cut
 
 sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $options_ref) {
@@ -5080,43 +5179,14 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 
 			defined $synonyms_regexps{$language} or $synonyms_regexps{$language} = [];
 
-			# the synonyms below also contain the main translation as the first entry
-			# (3rd element of the pairs below), used to deterministically pick the
-			# entry that keeps a synonym listed for several entries
+			# the synonyms regexps also contain the regexps of the main translation first (first synonym, and
+			# its unaccented variant), used to deterministically pick the entry that keeps a synonym listed
+			# for several entries (3rd element of the triplets below)
+			my @regexps = get_taxonomy_entry_synonyms_regexps($taxonomy, $tagid, $language, $options_ref);
+			next if not @regexps;
+			my %main_translation_regexps = map {$_ => 1} ($regexps[0], unac_string_perl($regexps[0]));
 
-			my $is_main_translation = 1;
-
-			foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
-
-				# Escape some characters
-				$synonym = regexp_escape($synonym);
-
-				if ($options_ref->{add_simple_singulars}) {
-					if ($synonym =~ /s$/) {
-						# match entry without final s
-						$synonym =~ s/s$/\(\?:s\?\)/;
-					}
-				}
-
-				if ($options_ref->{add_simple_plurals}) {
-					if ($synonym !~ /s$/) {
-						# match entry with additional final s
-						$synonym =~ s/$/\(\?:s\?\)/;
-					}
-				}
-
-				if ($options_ref->{match_space_with_dash}) {
-					# Make spaces match dashes and the reverse
-					$synonym =~ s/( |-)/\(\?: \|-\)/g;
-				}
-
-				push @{$synonyms_regexps{$language}}, [$tagid, $synonym, $is_main_translation];
-
-				if ((my $unaccented_synonym = unac_string_perl($synonym)) ne $synonym) {
-					push @{$synonyms_regexps{$language}}, [$tagid, $unaccented_synonym, $is_main_translation];
-				}
-				$is_main_translation = 0;
-			}
+			push @{$synonyms_regexps{$language}}, map {[$tagid, $_, $main_translation_regexps{$_} ? 1 : 0]} @regexps;
 		}
 	}
 
@@ -5146,10 +5216,7 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 	# We want to match the longest strings first
 	if ($return_type eq 'unique_regexp') {
 		foreach my $language (keys %synonyms_regexps) {
-			$result_ref->{$language} = join('|',
-				map {$_->[1]}
-					sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])}
-					@{$synonyms_regexps{$language}});
+			$result_ref->{$language} = join_regexps_longest_first(map {$_->[1]} @{$synonyms_regexps{$language}});
 		}
 	}
 	elsif ($return_type eq 'list_of_regexps') {
