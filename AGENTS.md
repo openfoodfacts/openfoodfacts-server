@@ -188,6 +188,8 @@ Generated frontend output lands in `html/css/dist/`, `html/js/dist/`, `html/imag
 
 To change configuration, edit `.env` (or a `.envrc` override), `conf/`, or `lib/ProductOpener/Config2_docker.pm` as appropriate. Edits to `Config2.pm` itself are silently discarded on container start.
 
+Flavor-specific configuration goes in `Config_off.pm` (Open Food Facts), `Config_obf.pm` (Open Beauty Facts), `Config_opf.pm` (Open Products Facts) and `Config_opff.pm` (Open Pet Food Facts).
+
 ## Frontend workflow
 
 1. Edit `scss/` or `html/js/`.
@@ -206,26 +208,6 @@ Deprecation warnings about Sass `@import` are expected and harmless.
 4. `make check_perltidy`, `make check_perl_fast`, `make check_critic`, and `make check_perl`.
 
 Changing `cpanfile` requires `make build`. Databases and containers persist between sessions, so tests get faster over time.
-
-## Writing code maintainers will accept
-
-Reviewers have pushed back on agent PRs for reinventing what OFF already has, and for Perl that only a Perl expert can read. Before you write code:
-
-**Reuse first.** Before adding a helper or a new mechanism, grep for an existing one and say in the PR why it doesn't fit:
-- Tags on a product: `lib/ProductOpener/ProductsTags.pm` (`has_tag`, `get_all_tags_having_property`, `set_field_input_tags_for_source`, `generate_field_tags_from_all_sources`). Since product schema 1004, input tags live in `tags_sources.<field>.<source>`. Never write `<field>_tags` / `<field>_hierarchy` directly. If a function is close but not quite right, extend it (e.g. add an optional parameter) so both callers share it. Don't write a private copy.
-- Taxonomies: `lib/ProductOpener/Tags.pm` (`canonicalize_taxonomy_tag`, `is_a`, `get_property`, `get_inherited_property`, `get_taxonomy_tag_synonyms`, `generate_regexps_matching_taxonomy_entries`).
-- Taxonomy properties: before adding a list, a config key or a YAML section that says something about tags (e.g. "these categories exclude each other"), grep `taxonomies/` for a property that already says it (`incompatible_with:en`, `ciqual_food_code:en`…). Add the property lines to the taxonomy in your PR.
-- Ingredients: `Ingredients.pm` already stores `ingredients_n`, `unknown_ingredients_n`, `specific_ingredients` (e.g. cocoa %), and per-ingredient `percent`, `processing`, `vegan`… Read these fields. Don't recompute them or regex `ingredients_text`.
-
-**No translations in code or regexes.** A word that must be recognized in several languages is a taxonomy synonym. Add the missing translations to `taxonomies/` and match the entry: the parser and translators then benefit too.
-
-**Generic, but only as far as a real use.** Settings that differ by flavor (food, beauty, pet food…) go in `Config_<flavor>.pm` `%options`, not hardcoded in a module. But don't add options, conditions or field types that nothing uses yet. A reviewer asking "why only X?" wants the use case. It is not a request to implement every X.
-
-**Readable by a non-Perl expert.**
-- No nested `map`/`grep`/ternaries, `@{[ ]}` or `+{map ...}` tricks. A `foreach` loop with a comment is preferred, even if longer.
-- Every sub gets a short POD or comment: what it takes, what it returns, and why it exists if that is not obvious. A new subsystem gets a `docs/dev/explain-*.md` doc.
-- Names say what a sub returns (`_get_input_tag_set`, not `_tag_set`). Error messages name the file / field / path that caused them.
-- Before opening the PR, reread the diff for code that duplicates something else in the same PR, and for code that nothing calls.
 
 ## Troubleshooting
 
@@ -256,7 +238,7 @@ Do **not** run a bare `docker system prune` — it is unscoped and will remove a
 
 **Diagnosing a running environment** — `make log`, or `docker compose logs <service>`. Full reset: `make down && make dev`.
 
-### Disclosure
+## Disclosure
 
 * Always disclose yourself when creating a PR with or on behalf of your user (prompt used, model used, effort)
 
@@ -274,6 +256,8 @@ You SHOULD insert an `Assisted-by: AI` tag when the commit contains
 substantial assistance, and `Generated-by: AI` when the commit is
 effectively entirely generated.
 
+## Pull requests and plans
+
 ### Large changes
 
 If the generated code is more than ~500 lines of substantial (non-whitespace) code,
@@ -287,6 +271,35 @@ that are independently reviewable from the main PR, and submit those separately.
 * Always add a before / after screenshot if your change is visual
 
 ### Proposing plans and helping with issues
+
 * For UI issues, Improving openfoodfacts-webcomponents or Open Food Facts Explorer is more helpful than investing in the soon-to-be deprecated Product Opener Web UI
 * It's hard for a human to read a generic AI plan. Crisp, short writing with specific reference to existing issues, caveats (why it's not been done before), possible options… is easier to understand.
 * Avoid plans that are too large. If it is large, break it down into subtasks that are easy to code, comprehend and review.
+
+## Coding guidelines
+
+### Reuse and extend existing code when possible, do not duplicate code
+
+Before adding new mechanisms, helpers and functions, check if there is an existing one that can be reused or extended. This helps keep the codebase consistent and reduces duplication.
+e.g. to read and write tags or use the associated taxonomies, prefer using the existing functions in modules like Tags.pm and ProductsTags.pm rather than implementing your own logic.
+If an existing function does not fit, explain why in the PR.
+
+Before adding a list or a setting that says something about tags (e.g. categories that cannot be on the same product), check if a taxonomy property already says it (e.g. `incompatible_with:en`), and add the property to the taxonomy instead.
+
+Before computing something (e.g. whether a product contains ingredients that are not in the taxonomy), check if it is already available in the existing product fields (e.g. `unknown_ingredients_n`).
+
+Avoid duplicating code, always check if code can be refactored to avoid repetition. Try to make functions generic.
+
+### Do not hardcode values and translations
+
+For configuration values, use the Config_* modules and their `%options` hashes. Do not hardcode values directly in the code.
+
+For UI strings, use `lang()` / `f_lang()` with strings defined in `po/common/`, see [`how-to-add-a-translation.md`](docs/dev/how-to-add-a-translation.md).
+
+For language-specific values used to analyze product content (e.g. ingredients strings), use the taxonomies in the `taxonomies/` directory, and their synonyms defined there. Do not hardcode language-specific values in the code.
+
+### Write code that is easy to read, including for non-Perl experts
+
+- No nested `map`/`grep`/ternaries, `@{[ ]}` or `+{map ...}` tricks. A `foreach` loop with a comment is preferred, even if longer.
+- Every sub gets a short POD or comment: what it takes, what it returns, and why it exists if that is not obvious. A new subsystem gets a `docs/dev/explain-*.md` doc.
+- Names say what a sub returns (`_get_input_tag_set`, not `_tag_set`). Error messages name the file / field / path that caused them.
