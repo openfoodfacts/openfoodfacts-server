@@ -241,6 +241,7 @@ my @labels = (
 	"en:fed-without-gmos", "fr:crc",
 	"en:without-gluten", "en:sustainable-farming",
 	"en:krav", "en:whole-grain",
+	"en:rainforest-alliance",
 );
 my %labels_regexps = ();
 
@@ -8103,6 +8104,10 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		$text =~ s/($and_or)(?!($and_without_spaces |\d|$separators))/$and/ig;
 	}
 
+	# superscript parentheses used as footnote markers: "extrait de thé vert⁽¹⁾" -> "extrait de thé vert(1)"
+	$text =~ s/\N{U+207D}\s*([\N{U+00B9}\N{U+00B2}\N{U+00B3}\N{U+2070}\N{U+2074}-\N{U+2079}]+|[0-9]+|\*+)\s*\N{U+207E}/
+		my $s = $1; $s =~ tr{\N{U+2070}\N{U+00B9}\N{U+00B2}\N{U+00B3}\N{U+2074}-\N{U+2079}}{0-9}; "($s)"/eg;
+
 	$text =~ s/\&quot;/"/g;
 	$text =~ s/\&lt;/</g;
 	$text =~ s/\&gt;/>/g;
@@ -8655,7 +8660,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			# we need a negative look ahead (?!\)) to make sure we match (*) completely (otherwise we would match *)
 			# we use (\b|\s) before and after the symbol, to make sure we don't match a symbol that is part of another symbol
 			# e.g. * in **
-			if ($text =~ /^(.*)(\b|\s)(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)/i) {
+			if ($text =~ /^(.*)(\b|\s|(?<=[,;.]))(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)/i) {
 				my $after = $';
 				#print STDERR "symbol: $symbol - after: $after\n";
 				foreach my $labelid (@labels) {
@@ -8667,7 +8672,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 						if ($after =~ /^($regexp)\b\s*(\([^\)]+\))?\s*\.?\s*/i) {
 							my $label = $1;
 							$text
-								=~ s/^(.*)(\b|\s)(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
+								=~ s/^(.*)(\b|\s|(?<=[,;.]))(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
 							my $ingredients_lc_label = display_taxonomy_tag($ingredients_lc, "labels", $labelid);
 							# We don't want to match * in ** or ° in °° but we want to match them in *°
 							my $not_char_from_matched_symbol = '.';

@@ -1493,6 +1493,21 @@ foreach my $test (
 	is(preparse_ingredients_text('fr', $test->[0]), $test->[1], "ranges: $test->[0]");
 }
 
+# Footnote markers with superscript parentheses, and footnote right after a comma
+foreach my $test (
+	[
+		"Eau, extrait de thé vert⁽¹⁾ (0,12%), sucre, ⁽¹⁾ Certifié Rainforest Alliance.",
+		"Eau, extrait de thé vert Vérifié Rainforest Alliance (0.12%), sucre"
+	],
+	[
+		"Eau, extrait de thé vert(1), sucre,(1) Certifié Rainforest Alliance.",
+		"Eau, extrait de thé vert Vérifié Rainforest Alliance, sucre"
+	],
+	)
+{
+	is(preparse_ingredients_text('fr', $test->[0]), $test->[1], "footnotes: $test->[0]");
+}
+
 # Misspellings with a hyphen
 is(
 	preparse_ingredients_text('fr', 'farine, sel-poivre'),
