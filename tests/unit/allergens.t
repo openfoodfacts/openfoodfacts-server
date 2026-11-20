@@ -331,6 +331,33 @@ my @tests = (
 			allergens => "poisson",
 			traces => "crustacés, mollusques, lait, gluten"
 		}
+	],
+
+	# Serbian "may contain" variants
+	[
+		'sr-moze-da-sadrzi',
+		{
+			lc => "sr",
+			lang => "sr",
+			ingredients_text_sr => "šećer, kakao maslac, mleko u prahu. Može da sadrži kikiriki, susam."
+		}
+	],
+	[
+		'sr-moze-sadrzati-u-tragovima',
+		{
+			lc => "sr",
+			lang => "sr",
+			ingredients_text_sr =>
+				"šećer, kakao maslac, mleko u prahu. Može sadržati lešnik, badem, kikiriki u tragovima."
+		}
+	],
+	[
+		'sr-moze-da-sadrzi-u-tragovima',
+		{
+			lc => "sr",
+			lang => "sr",
+			ingredients_text_sr => "šećer, kakao maslac, mleko u prahu. Može da sadrži u tragovima: kikiriki."
+		}
 	]
 );
 
