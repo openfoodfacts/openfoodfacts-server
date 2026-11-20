@@ -1,0 +1,189 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "19593",
+         "ecobalyse_id" : "0e77146c-be67-4f16-b072-f4fdb43b4acf",
+         "ecobalyse_name" : "Fromage blanc FR -2025-",
+         "id" : "en:whole-milk-yogurt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 57.1428571428571,
+         "percent_max" : 100,
+         "percent_min" : 14.2857142857143,
+         "text" : "Yogurt di latte intero",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "19593",
+         "ecobalyse_id" : "0e77146c-be67-4f16-b072-f4fdb43b4acf",
+         "ecobalyse_name" : "Fromage blanc FR -2025-",
+         "id" : "en:strained-yogurt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 21.4285714285714,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "yogurt colato",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:lactic-ferments",
+         "ingredients" : [
+            {
+               "id" : "en:lactococcus-cremoris",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5.35714285714286,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "Lactococcus cremoris",
+               "vegan" : "maybe",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:leuconostoc-mesenteroides",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5.35714285714286,
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0,
+               "text" : "Leuconostoc mesenteroides",
+               "vegan" : "maybe",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.7142857142857,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "fermenti lattici specifici vivi",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:ferment",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.35714285714286,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "fermenti vivi",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "ciqual_food_code" : "22000",
+         "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+         "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
+         "id" : "en:barn-eggs",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.67857142857143,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "uova da galline allevate a terra",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ecobalyse_id" : "77dc04ff-6163-5b79-8657-381436135399",
+         "ecobalyse_name" : "Extrait de vanille, alcoolique ou aqueux HORS UE",
+         "id" : "en:vanilla-preparation",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.33928571428572,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "preparazione alla vaniglia",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:galactose",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.33928571428572,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "galattosio",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+         "en:ferment"
+      ],
+      "en:non-vegan" : [
+         "en:whole-milk-yogurt",
+         "en:strained-yogurt",
+         "en:barn-eggs"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "it",
+   "ingredients_n" : 9,
+   "ingredients_n_tags" : [
+      "9",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:whole-milk-yogurt",
+      "en:strained-yogurt",
+      "en:lactic-ferments",
+      "en:ferment",
+      "en:barn-eggs",
+      "en:vanilla-preparation",
+      "en:galactose",
+      "en:lactococcus-cremoris",
+      "en:leuconostoc-mesenteroides"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:whole-milk-yogurt",
+      "en:yogurt",
+      "en:dairy",
+      "en:strained-yogurt",
+      "en:lactic-ferments",
+      "en:microbial-culture",
+      "en:ferment",
+      "en:barn-eggs",
+      "en:egg",
+      "en:vanilla-preparation",
+      "en:preparation",
+      "en:vanilla",
+      "en:plant",
+      "en:galactose",
+      "en:monosaccharide",
+      "en:added-sugar",
+      "en:lactococcus-cremoris",
+      "en:leuconostoc-mesenteroides"
+   ],
+   "ingredients_text" : "Yogurt di latte intero, yogurt colato, fermenti lattici specifici vivi (Lactococcus cremoris, Leuconostoc mesenteroides), fermenti vivi, uova da galline allevate a terra, preparazione alla vaniglia, galattosio",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 8,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:ferment",
+      "en:galactose",
+      "en:lactic-ferments",
+      "en:lactococcus-cremoris",
+      "en:leuconostoc-mesenteroides",
+      "en:vanilla-preparation"
+   ],
+   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:ferment",
+      "en:galactose",
+      "en:lactic-ferments",
+      "en:lactococcus-cremoris",
+      "en:leuconostoc-mesenteroides"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 9,
+   "lc" : "it",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
