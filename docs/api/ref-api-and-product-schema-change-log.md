@@ -32,6 +32,22 @@ Note: API v3 is under active development, and the API and corresponding product 
 
 ## Schema version and API version change log
 
+### 2026-11 — Product version 1004 (no change) — API version 3.6 (no change) — New `rules` source in tags_sources
+
+Non-breaking change: tags inferred by rules (defined in the `rules/` directory, see `ProductOpener::TagsRules`) from other
+data of the product are stored in a new `rules` source, e.g. `tags_sources.categories.rules`. The `[field]_tags` fields
+include them, as for all other sources. The `rules` source has an extra `rules` property that lists, for each tag, the ids
+of the rules that added it:
+
+```json
+"tags_sources": {"categories": {
+    "packaging": {"tags": ["en:colas"], "last_updated_t": 1762790000},
+    "rules": {"tags": ["en:caffeinated-colas"], "last_updated_t": 1762800000,
+              "rules": {"en:caffeinated-colas": ["colas-caffeinated"]}}}}
+```
+
+The `rules` source is recomputed on every product update, and it cannot be written by clients.
+
 ### 2026-05-27 — Product version 1004 — API version 3.6 — New tags schema with tags_sources
 
 Breaking changes for product read API responses:
