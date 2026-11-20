@@ -856,7 +856,8 @@ sub _compile_regexp_condition ($spec, $fields_ref, $path, $errors_ref) {
 			foreach my $text_ref (_get_texts_with_lc($product_ref, $fields_ref)) {
 				my ($lc, $text) = @$text_ref;
 				$lc = "any" if $all_languages;
-				$entries_regexps{$lc} //= _taxonomy_entries_regexp(\%entries, $lc);
+				# exists: also cache languages without synonyms (undef)
+				$entries_regexps{$lc} = _taxonomy_entries_regexp(\%entries, $lc) if not exists $entries_regexps{$lc};
 				return 1 if (defined $entries_regexps{$lc}) and (_normalize_text($text) =~ $entries_regexps{$lc});
 			}
 		}
