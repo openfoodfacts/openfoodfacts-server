@@ -7637,6 +7637,7 @@ foodex2_extended_name:en: Cola beverages, caffeinic
 foodex2_implicit_facets:en: F10.A0CQG$F33.A0C1T
 foodex2_old_code:en: A.01.001510
 foodex2_scope_note:en: The group includes any type of Cola beverage containing caffeine.
+incompatible_with:en: categories:en:cola-sodas-without-caffeine
 
 < en: Colas
 en: Cola with sugar
@@ -35950,6 +35951,7 @@ foodex2_extended_name:en: Crisp bread, rye wholemeal
 foodex2_implicit_facets:en: F04.A001K$F10.A06HR$F33.A0C3Q
 foodex2_old_code:en: A.01.000145
 foodex2_scope_note:en: The group includes any type of crisp bread based on rye flour containing high proportion of bran or wholemeal (brown or wholemeal rye flour).
+incompatible_with:en: categories:en:wholemeal-wheat-crispbreads
 
 < en: Crispbreads
 en: Crispbreads (wholemeal), Crispbreads(wholemeal)
@@ -35957,6 +35959,7 @@ da: Fuldkornsknækbrød, Knækbrød (fuldkorn)
 fr: Pains croustillants complets
 nl: Knäckebrot (volkoren)
 sv: Fullkornsknäckebröd, Knäckebröd (fullkorn)
+incompatible_with:en: categories:en:crispbreads-non-wholemeal
 
 < en: Crispbreads
 en: Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
@@ -88564,6 +88567,7 @@ foodex2_extended_name:en: Stock cubes or granulate, chicken
 foodex2_implicit_facets:en: F33.A0C2H
 foodex2_old_code:en: A.01.001640
 foodex2_scope_note:en: The group includes any type of chicken stock cubes or granulate.
+incompatible_with:en: categories:en:beef-bouillon-cubes
 
 < en: Beef broth
 < en: Bouillon cubes
@@ -129231,6 +129235,7 @@ foodex2_extended_name:en: Potato puree from potatoes
 foodex2_implicit_facets:en: F03.A06JG$F04.A00ZT$F28.A0C6N$F28.A0BA1
 foodex2_old_code:en: A.01.000468
 foodex2_scope_note:en: The group includes any type of potato puree produced from boiled potatoes and often dairy ingredients, fat and salt, with possibly some flavouring ingredients. Here it is considered in the ready to eat form.
+incompatible_with:en: categories:en:instant-mashed-potatoes
 
 # without milk, cream, butter
 < en: Mashed potatoes
