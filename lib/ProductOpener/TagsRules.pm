@@ -619,19 +619,13 @@ sub _compile_ingredients_condition ($spec, $path, $errors_ref) {
 			};
 		}
 		elsif ($key eq 'known') {
-			# known: true -> the product has an ingredients list, and all ingredients (at all depths) are known
+			# known: true -> the product has an ingredients list, and all ingredients (at all depths) are known.
+			# Uses the counts computed by compute_ingredients_tags() (in extract_ingredients_from_text())
 			my $expected = $value ? 1 : 0;
 			push @subs, sub ($ctx) {
-				my $ingredients_ref = $ctx->{product}{ingredients};
-				my $known = ((defined $ingredients_ref) and (scalar @$ingredients_ref > 0)) ? 1 : 0;
-				if ($known) {
-					_walk_ingredients(
-						$ingredients_ref,
-						sub ($ingredient_ref) {
-							$known = 0 if not exists_taxonomy_tag("ingredients", $ingredient_ref->{id} // "");
-						}
-					);
-				}
+				my $ingredients_n = $ctx->{product}{ingredients_n} // 0;
+				my $unknown_ingredients_n = $ctx->{product}{unknown_ingredients_n} // 0;
+				my $known = (($ingredients_n > 0) and ($unknown_ingredients_n == 0)) ? 1 : 0;
 				return $known == $expected;
 			};
 		}
@@ -1184,7 +1178,7 @@ Build a product from a test product of a rules file, so that rule authors only n
 
 	categories: [en:colas]                    # -> tags_sources.categories (also labels, countries, origins)
 	states: [en:ingredients-to-be-completed]  # -> states_tags with parents (computed fields)
-	ingredients: [en:water, {id: en:sugar, percent: 10, ingredients: [...]}]
+	ingredients: [en:water, {id: en:sugar, percent: 10, ingredients: [...]}]  # also sets ingredients_n, unknown_ingredients_n
 	nutrients: {cocoa: 55}                    # -> nutrition.aggregated_set (per 100g, as sold)
 	product_name_fr: Moutarde douce           # other fields are copied as is
 
@@ -1214,6 +1208,17 @@ sub build_product_from_tags_rules_fixture ($fixture_ref) {
 		}
 		elsif ($key eq 'ingredients') {
 			$product_ref->{ingredients} = _build_fixture_ingredients($value);
+			# Counts of ingredients and unknown ingredients, as computed by compute_ingredients_tags()
+			my ($ingredients_n, $unknown_ingredients_n) = (0, 0);
+			_walk_ingredients(
+				$product_ref->{ingredients},
+				sub ($ingredient_ref) {
+					$ingredients_n++;
+					$unknown_ingredients_n++ if not exists_taxonomy_tag("ingredients", $ingredient_ref->{id} // "");
+				}
+			);
+			$product_ref->{ingredients_n} = $ingredients_n;
+			$product_ref->{unknown_ingredients_n} = $unknown_ingredients_n;
 		}
 		elsif ($key eq 'nutrients') {
 			my %nutrients = ();
