@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.124.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.124.0...v2.124.1) (2026-11-19)
+
+
+### Bug Fixes
+
+* **producers:** export photos from the producers platform to the public platform again ([#15445](https://github.com/openfoodfacts/openfoodfacts-server/issues/15445)) ([941451f](https://github.com/openfoodfacts/openfoodfacts-server/commit/941451f78a52de369eaee6b05c941ffaf9a8c057))
+
 ## [2.124.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.123.0...v2.124.0) (2026-11-18)
 
 
