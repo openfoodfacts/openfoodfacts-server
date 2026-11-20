@@ -1801,6 +1801,8 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => "pt",
 			ingredients_text => "Leite, vitaminas (B1, B2, B6, B12, C, D3), vitaminas A e E",
+		}
+	],
 	# European Portuguese (pt-PT) ingredient names: polme, alperce, sêmea, couratos, fiambre, colza...
 	[
 		'pt-european-portuguese-fruit-and-dairy',
