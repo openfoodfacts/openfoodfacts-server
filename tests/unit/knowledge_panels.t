@@ -15,7 +15,9 @@ use ProductOpener::KnowledgePanels qw/:all/;
 use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::Display qw/$knowledge_panels_options_ref/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
+use boolean qw/true/;
 use ProductOpener::Config qw/%options/;
 
 is(
@@ -127,6 +129,35 @@ my @tests = (
 		target_lc => 'fr',
 		target_cc => 'fr'
 	},
+	# root panel with ingredients and nutrition first, then collapsed health and environment cards
+	{
+		'id' => 'en-ingredients-nutrition-first',
+		'product' => {
+			lc => "en",
+			categories => "biscuits",
+			categories_tags => ["en:biscuits"],
+			ingredients_text => "wheat flour, sugar, palm oil, hazelnuts, emulsifier: soy lecithin",
+			nutrition => {
+				aggregated_set => {
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						energy => {value => 2252},
+						fat => {value => 30.9},
+						"saturated-fat" => {value => 10.6},
+						sugars => {value => 56.3},
+						salt => {value => 0.107},
+						sodium => {value => 0.0428},
+						proteins => {value => 6.3},
+						fiber => {value => 3.4},
+					}
+				}
+			}
+		},
+		options => {activate_knowledge_panels_ingredients_nutrition_first => 1},
+		target_lc => 'en',
+		target_cc => 'world'
+	},
 	# added sugars tests
 	# english test with "with added sugar" ingredient
 	{
@@ -166,6 +197,19 @@ my @tests = (
 		target_lc => 'en',
 		target_cc => 'us'
 	},
+	# "no nutrition facts on the packaging" is ticked: no action to add the nutrition facts
+	{
+		'id' => 'en-no-nutrition-data-on-packaging',
+		'product' => {
+			lc => "en",
+			ingredients_text => "Sugar, wheat flour, butter",
+			nutrition => {
+				no_nutrition_data_on_packaging => true,
+			},
+		},
+		target_lc => 'en',
+		target_cc => 'us'
+	},
 	# NOVA markers in ingredients
 	{
 		'id' => 'en-nova-markers',
@@ -173,6 +217,18 @@ my @tests = (
 			lc => "en",
 			ingredients_text =>
 				"Hydrolised wheat flour, emulsifier: soy lecithin, baking powder, rice starch, barley malt extract, colour: caramel, acidifier: citric acid, soy proteins, refined palm oil",
+		},
+		target_lc => 'en',
+		target_cc => 'us'
+	},
+	# NOVA group not computed because too many ingredients are not recognized:
+	# the NOVA panel and attribute should explain why
+	{
+		'id' => 'en-nova-too-many-unknown-ingredients',
+		'product' => {
+			lc => "en",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "some ingredient that we do not recognize",
 		},
 		target_lc => 'en',
 		target_cc => 'us'
@@ -197,11 +253,51 @@ foreach my $test_ref (@tests) {
 	my $options_ref = {};
 	my $request_ref = {};
 	initialize_knowledge_panels_options($options_ref, $request_ref);
+	%$options_ref = (%$options_ref, %{$test_ref->{options} // {}});
 
 	create_knowledge_panels($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
+
+# The root panel lists ingredients and nutrition first only when the option is set
+foreach my $ingredients_nutrition_first (0, 1) {
+	my $product_ref = {
+		lc => "en",
+		categories_tags => ["en:biscuits"],
+		ingredients_text => "wheat flour, sugar",
+		nutrition => {aggregated_set => {nutrients => {energy => {value => 2000}, sugars => {value => 20}}}},
+	};
+	analyze_and_enrich_product_data($product_ref, get_initialized_response());
+	my $options_ref = {};
+	initialize_knowledge_panels_options($options_ref, {});
+	$options_ref->{activate_knowledge_panels_ingredients_nutrition_first} = $ingredients_nutrition_first;
+	create_knowledge_panels($product_ref, "en", "world", $options_ref, {});
+	my $panels_ref = $product_ref->{knowledge_panels_en};
+	my @root_ids = map {$_->{panel_element}{panel_id}} @{$panels_ref->{root}{elements}};
+	my @health_ids = map {@{$_->{panel_group_element}{panel_ids} // []}} @{$panels_ref->{health_card}{elements}};
+	my $health_lists_ingredients = (grep {$_ eq "ingredients"} @health_ids) ? 1 : 0;
+
+	if ($ingredients_nutrition_first) {
+		is(
+			\@root_ids,
+			[qw/ingredients_card nutrition_card health_card environment_card product_card report_problem_card/],
+			"root panel order with ingredients and nutrition first"
+		);
+		ok(!$panels_ref->{health_card}{expanded}, "health card collapsed");
+		ok(!$panels_ref->{environment_card}{expanded}, "environment card collapsed");
+		ok(!$panels_ref->{report_problem_card}{expanded}, "report a problem card collapsed");
+		like($panels_ref->{health_card}{title_element}{subtitle}, qr/Nutri-Score/, "health card summary");
+		is($health_lists_ingredients, 0, "ingredients only in the ingredients card");
+	}
+	else {
+		is(\@root_ids, [qw/health_card environment_card report_problem_card product_card/], "default root panel order");
+		ok(!defined $panels_ref->{ingredients_card}, "no ingredients card by default");
+		ok(!defined $panels_ref->{nutrition_card}, "no nutrition card by default");
+		ok(!defined $panels_ref->{health_card}{title_element}{subtitle}, "no health card summary by default");
+		is($health_lists_ingredients, 1, "ingredients in the health card by default");
+	}
 }
 
 # Open Products Facts: no empty health card for products like toilet paper or batteries
@@ -238,6 +334,37 @@ foreach my $test_ref (@tests) {
 		"health card with a health recommendation"
 	);
 	ok(defined $product_ref->{knowledge_panels_en}{health_card});
+}
+
+foreach my $analyzed (0, 1) {
+	my $product_ref = {lc => "en"};
+	if ($analyzed) {
+		$product_ref->{categories_tags} = ["en:biscuits"];
+		$product_ref->{ingredients_text} = "wheat flour, sugar";
+		analyze_and_enrich_product_data($product_ref, get_initialized_response());
+	}
+	$knowledge_panels_options_ref = {};
+	initialize_knowledge_panels_options($knowledge_panels_options_ref, {});
+	$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = 1;
+	create_knowledge_panels($product_ref, "en", "world", $knowledge_panels_options_ref, {});
+	my $panels_ref = $product_ref->{knowledge_panels_en};
+	foreach my $panel_id ("origins_of_ingredients", "origins_of_ingredients_simplified") {
+		is(defined $panels_ref->{$panel_id} ? 1 : 0, $analyzed, "$panel_id panel analyzed=$analyzed");
+	}
+	my @listed_ids
+		= map {@{$_->{panel_group_element}{panel_ids} // []}} @{$panels_ref->{environment_card_simplified}{elements}};
+	is((grep {$_ eq "origins_of_ingredients_simplified"} @listed_ids) ? 1 : 0,
+		$analyzed, "environment_card_simplified lists the origins panel analyzed=$analyzed");
+}
+
+# A product with only ingredients (e.g. Open Beauty Facts) gets no empty health or nutrition card
+{
+	local $options{product_type} = "beauty";
+	my $product_ref = {code => "3596710478165", lc => "en", knowledge_panels_en => {ingredients => {}}};
+	my $options_ref = {activate_knowledge_panels_ingredients_nutrition_first => 1};
+	is(ProductOpener::KnowledgePanels::create_health_card_panel($product_ref, "en", "world", $options_ref, {}),
+		0, "no health card when only the ingredients are left");
+	ok(!defined $product_ref->{knowledge_panels_en}{nutrition_card}, "no nutrition card without nutrition panels");
 }
 
 done_testing();

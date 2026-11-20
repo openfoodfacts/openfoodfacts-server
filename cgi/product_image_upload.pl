@@ -26,18 +26,14 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
-use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
-use ProductOpener::Images
-	qw/get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code $valid_image_types_regexp/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Text qw/remove_tags_and_quote/;
-use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::Products qw/normalize_code/;
+use ProductOpener::ProductImageUpload qw/import_product_image_file/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -45,7 +41,6 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
 use Log::Any qw($log);
-use Data::DeepAccess qw(deep_exists deep_get deep_set);
 
 my $type = single_param('type') || 'add';
 my $action = single_param('action') || 'display';
@@ -345,58 +340,38 @@ if ($imagefield) {
 					or (not deep_exists($product_ref, "images", "selected", $image_type, $image_lc))
 				)
 				and (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator})
+# Check that the image directory exists
+ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit($request_ref, "Missing path", 503);
 
-				)
-			{
-				$log->debug("selecting image", {imgid => $imgid, image_type => $image_type, lc => $image_lc})
-					if $log->is_debug();
-				process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, undef);
-			}
-		}
-		# If the image type is "other" and we don't have a front image, assign it
-		# This is in particular for producers that send us many images without specifying their type: assume the first one is the front
-		elsif (
-			($imagefield =~ /^other/)
-			and (
-				(not deep_exists($product_ref, "images", "selected", "front", $product_ref->{lc}))
-				or (    (defined $previous_imgid)
-					and ($previous_imgid eq $product_ref->{images}{selected}{"front"}{$product_ref->{lc}}{imgid}))
-			)
-			)
-		{
-			$log->debug(
-				"selecting front image as we don't have one",
-				{
-					imgid => $imgid,
-					previous_imgid => $previous_imgid,
-					imagefield => $imagefield,
-					front_imagefield => "front_" . $product_ref->{lc}
-				}
-			) if $log->is_debug();
-			process_image_crop($User_id, $product_ref, "front", $product_ref->{lc}, $imgid, undef);
-		}
+# Producers platform: the input file name is files[]
+# If no code and imagefield is passed, import_product_image_file() tries to guess it from the filename,
+# then by scanning the barcode, then by using the previous code
+my $file = single_param("files[]");
+
+my $response_ref = import_product_image_file(
+	{
+		user_id => $User_id,
+		org_id => $Org_id,
+		owner_id => $Owner_id,
+		moderator => $User{moderator},
+		lc => $lc,
+		country => $request_ref->{country},
+		code => $code,
+		imagefield => $imagefield,
+		filename => defined($file) ? ($file . "") : "",
+		filehandle => $file,
+		tmp_file_prefix => remote_addr(),
+		previous_code => $previous_code,
+		previous_imgid => $previous_imgid,
+		source => single_param('source'),
 	}
+);
 
-	(defined $code) and $response_ref->{files}[0]{code} = $code;
-	(defined $code_from_file_name) and $response_ref->{files}[0]{code_from_file_name} = $code_from_file_name;
-	(defined $scanned_code) and $response_ref->{files}[0]{scanned_code} = $scanned_code;
-	(defined $using_previous_code) and $response_ref->{files}[0]{using_previous_code} = $using_previous_code;
+my $data = encode_json($response_ref);
 
-	my $data = encode_json($response_ref);
+$log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
-	$log->debug("JSON data output", {data => $data}) if $log->is_debug();
-
-	print header(-type => 'application/json', -charset => 'utf-8') . $data;
-
-}
-else {
-
-	$log->warn("no image field defined");
-	$response_ref->{status} = 'status not ok';
-	$response_ref->{error} = "error - imagefield not defined";
-	my $data = encode_json($response_ref);
-	print header(-type => 'application/json', -charset => 'utf-8') . $data;
-}
+print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 exit(0);
 

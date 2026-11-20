@@ -56,7 +56,6 @@ if (defined $User_id) {
 	my $r = shift;
 	my $referer = $r->headers_in->{Referer};
 	my $url;
-	my $subdomain = $request_ref->{subdomain};
 
 	if ((defined $next_action) and ($code =~ /^(\d+)$/)) {
 		if ($next_action eq 'product_add') {
@@ -66,7 +65,7 @@ if (defined $User_id) {
 			$url = "/cgi/product.pl?type=edit&code=$code";
 		}
 	}
-	elsif (is_allowed_return_url($referer, $subdomain)
+	elsif (is_allowed_return_url($referer)
 		and (not($referer =~ /(?:login|session|user|reset_password)\.pl/)))
 	{
 		$url = $referer;

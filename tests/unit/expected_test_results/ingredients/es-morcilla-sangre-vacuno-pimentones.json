@@ -1,0 +1,240 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:black-pudding",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "28858",
+               "ecobalyse_id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
+               "ecobalyse_name" : "Viande de porc -alim. ani. 100% FR-",
+               "id" : "en:bacon",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 2.75,
+               "text" : "tocino",
+               "vegan" : "no",
+               "vegetarian" : "no"
+            },
+            {
+               "ciqual_proxy_food_code" : "28205",
+               "ecobalyse_id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
+               "ecobalyse_name" : "Viande de porc -alim. ani. 100% FR-",
+               "id" : "en:dewlap",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 1.375,
+               "text" : "papada",
+               "vegan" : "no",
+               "vegetarian" : "no"
+            },
+            {
+               "id" : "en:blood",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.6875,
+               "text" : "sangre",
+               "vegan" : "no",
+               "vegetarian" : "no"
+            },
+            {
+               "ciqual_proxy_food_code" : "28205",
+               "ecobalyse_id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
+               "ecobalyse_name" : "Viande de porc -alim. ani. 100% FR-",
+               "id" : "en:lean-pork",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.34375,
+               "text" : "magro de cerdo",
+               "vegan" : "no",
+               "vegetarian" : "no"
+            },
+            {
+               "ciqual_food_code" : "20034",
+               "ecobalyse_id" : "23d64366-18f7-5f10-a3a8-6c15176d16a9",
+               "ecobalyse_name" : "Oignons HORS UE",
+               "id" : "en:onion",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.171875,
+               "text" : "cebolla",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "11049",
+               "id" : "en:paprika",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.0859375,
+               "text" : "pimentones",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "11058",
+               "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Sel -2025-",
+               "id" : "en:salt",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.0859375,
+               "text" : "sal",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 5.5,
+         "percent_estimate" : 5.5,
+         "processing" : "en:cured",
+         "text" : "morcilla",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "id" : "en:e428",
+         "ingredients" : [
+            {
+               "ecobalyse_id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8",
+               "ecobalyse_name" : "Viande de boeuf sans os par défaut",
+               "id" : "en:beef",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 47.25,
+               "text" : "vacuno",
+               "vegan" : "no",
+               "vegetarian" : "no"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 47.25,
+         "text" : "gelatina",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "id" : "en:e508",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 23.625,
+         "text" : "sal de potasio",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:coating",
+         "ingredients" : [
+            {
+               "id" : "en:collagen",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 23.625,
+               "text" : "colágeno",
+               "vegan" : "no",
+               "vegetarian" : "no"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 23.625,
+         "text" : "recubrimiento",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:black-pudding",
+         "en:bacon",
+         "en:dewlap",
+         "en:blood",
+         "en:lean-pork",
+         "en:e428",
+         "en:beef",
+         "en:collagen"
+      ],
+      "en:non-vegetarian" : [
+         "en:black-pudding",
+         "en:bacon",
+         "en:dewlap",
+         "en:blood",
+         "en:lean-pork",
+         "en:e428",
+         "en:beef",
+         "en:collagen"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_lc" : "es",
+   "ingredients_n" : 13,
+   "ingredients_n_tags" : [
+      "13",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:black-pudding",
+      "en:e428",
+      "en:e508",
+      "en:coating",
+      "en:bacon",
+      "en:dewlap",
+      "en:blood",
+      "en:lean-pork",
+      "en:onion",
+      "en:paprika",
+      "en:salt",
+      "en:beef",
+      "en:collagen"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:black-pudding",
+      "en:meat",
+      "en:e428",
+      "en:e508",
+      "en:coating",
+      "en:bacon",
+      "en:pork-meat",
+      "en:pork",
+      "en:animal",
+      "en:dewlap",
+      "en:blood",
+      "en:lean-pork",
+      "en:onion",
+      "en:onion-family-vegetable",
+      "en:root-vegetable",
+      "en:vegetable",
+      "en:paprika",
+      "en:spice",
+      "en:condiment",
+      "en:salt",
+      "en:beef",
+      "en:collagen"
+   ],
+   "ingredients_text" : "morcilla curada 5,5% (tocino, papada, sangre y magro de cerdo, cebolla, pimentones, sal), gelatina (vacuno), sal de potasio, recubrimiento: colágeno.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 10,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:beef",
+      "en:black-pudding",
+      "en:blood",
+      "en:coating",
+      "en:collagen",
+      "en:e428",
+      "en:e508"
+   ],
+   "ingredients_without_ciqual_codes_n" : 7,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:black-pudding",
+      "en:blood",
+      "en:coating",
+      "en:collagen",
+      "en:e428",
+      "en:e508",
+      "en:paprika"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 7,
+   "known_ingredients_n" : 13,
+   "lc" : "es",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

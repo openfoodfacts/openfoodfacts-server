@@ -208,7 +208,7 @@
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
-									<select id="select_country" style="width:100%" data-placeholder="Pays">
+									<select id="select_country" style="width:100%" data-placeholder="Pays" data-search-placeholder="Search for a country…">
 										<option></option>
 									</select>
 								</li>
@@ -34794,6 +34794,10 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
       max-height: min(800px, 65dvh);
     }
 
+    #crop-container cropper-handle[action="move"] {
+      cursor: move;
+    }
+
     .editor-options {
       overflow: hidden;
       margin-top: 0.5rem;
@@ -34872,6 +34876,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 <script type="module" src="//static.openfoodfacts.localhost/js/dist/image-editor.js"></script>
 
 <!-- end templates/web/pages/product_edit/product_edit_form_display.tt.html -->
+
 
 <!-- end templates/web/pages/product_edit/product_edit_form_display.tt.html -->
 
@@ -35326,6 +35331,9 @@ var other_nutrients = [
 
 <script>
 $(document).foundation({
+	topbar: {
+		back_text: 'Back'
+	},
 	equalizer : {
 		equalize_on_stack: true
 	},
@@ -35335,6 +35343,8 @@ $(document).foundation({
 		}
 	}
 });
+
+$('.top-bar .back h5 > a').text('Back').attr('aria-label', 'Back');
 
 </script>
 <script type="application/ld+json">

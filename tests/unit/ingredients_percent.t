@@ -78,6 +78,66 @@ my @tests = (
 
 	['minimum-percent', {lc => "es", ingredients_text => "Leche. Cacao: 27% mínimo"},],
 
+	# GMO threshold, not a percent of the ingredient
+	[
+		'fr-gmo-threshold-not-a-percent',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Jambon de porc issu d'animaux nourris sans OGM (< 0,9%), sel, dextrose, arômes naturels, conservateur : nitrite de sodium"
+		},
+	],
+	[
+		'fr-gmo-threshold-html-entity',
+		{lc => "fr", ingredients_text => "Jambon de porc nourri sans OGM (&lt; 0.9 %), sel"},
+	],
+	['fr-gmo-threshold-no-space', {lc => "fr", ingredients_text => "Jambon de porc nourri sans OGM (<0,9%), sel"},],
+	[
+		'fr-gmo-threshold-followed-by-percent',
+		{lc => "fr", ingredients_text => "Jambon de porc issu d'animaux nourris sans OGM (< 0,9%) 98%, sel 2%"},
+	],
+
+	# processing after a synonym in parenthesis: the percent applies once, to the roasted peanuts
+	[
+		'fr-peanuts-synonym-roasted-percent',
+		{
+			lc => "fr",
+			ingredients_text => "CACAHUÈTES (ARACHIDES) GRILLÉES (91%), SUCRE, HUILE DE COLZA, HUILE DE COTON, SEL."
+		},
+	],
+
+	# missing separators between ingredients with percents
+	[
+		'fr-missing-separators-between-percents',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"carotte 23,4% oignon 9,9%, chou-fleur 9,9%, poireau 8,4% courgette 8,4%, eau, huile de tournesol, sel"
+		},
+	],
+	# not split: the words after the percent are a content of the ingredient (cocoa of chocolate, fat of milk)
+	['fr-no-split-cocoa-content-of-chocolate', {lc => "fr", ingredients_text => "chocolat noir 70% cacao 20%, sucre"},],
+	[
+		'fr-no-split-fat-content-of-milk',
+		{lc => "fr", ingredients_text => "lait entier 3,5% matière grasse 90%, sucre"},
+	],
+	# split: cocoa is an ingredient after milk fat
+	[
+		'fr-split-cocoa-after-milk-fat',
+		{lc => "fr", ingredients_text => "sucre, LAIT anhydre 21,8% cacao 10,9%, émulsifiant"},
+	],
+	# &amp; entity (no Ciqual / Ecobalyse data in this test)
+	['en-amp-entity', {lc => "en", ingredients_text => "Tomatoes, salt &amp; pepper, sugar"},],
+	# not split: "à 1,4% de matière grasse" is not an ingredient, "32,1%" is before the ingredient
+	[
+		'fr-no-split-between-percents',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"lait partiellement écrémé à 1,4% de matière grasse 90%, sucre, FARINE DE BLÉ, 32,1% BEURRE 5,6% GRAINES DE SÉSAME"
+		},
+	],
+
 	# All ingredients have % specified, but the total is not 100%
 	# We now scale them to 100%.
 	# Note: currently the min part is ignored, we set percent instead of percent_min
@@ -93,6 +153,57 @@ my @tests = (
 		{
 			lc => "fr",
 			ingredients_text => "sel (min 20%), poivre (min. 10%), piment (min : 5%), cumin 0,4%, ail : 0.1%"
+		},
+	],
+
+	# Minimum and maximum percent words in German, Italian, Portuguese and Dutch
+	[
+		'de-minimum-maximum-percent',
+		{
+			lc => "de",
+			ingredients_text =>
+				"Zucker, Kakaomasse mind. 30 %, Haselnüsse mindestens 12%, Milchpulver 10 % mindestens, Salz max. 1%, Vanille höchstens 0,5 %"
+		},
+	],
+	[
+		'it-minimum-maximum-percent',
+		{
+			lc => "it",
+			ingredients_text =>
+				"pomodoro min. 60%, cacao min 20%, nocciole minimo 10%, latte 5% minimo, sale max 1%, zucchero massimo 0,5%"
+		},
+	],
+	[
+		'pt-minimum-maximum-percent',
+		{
+			lc => "pt",
+			ingredients_text =>
+				"cacau mínimo 70%, açúcar, avelãs mín. 10%, leite no mínimo 5%, sal máx. 1%, baunilha máximo 0,5%"
+		},
+	],
+	[
+		'nl-minimum-maximum-percent',
+		{
+			lc => "nl",
+			ingredients_text =>
+				"cacao min 60%, suiker, hazelnoten minimaal 10%, melkpoeder ten minste 5%, zout max. 1%, vanille maximaal 0,5%"
+		},
+	],
+
+	[
+		'hu-minimum-maximum-percent',
+		{
+			lc => "hu",
+			ingredients_text =>
+				"kakaómassza min. 50%, cukor, mogyoró legalább 10%, tejpor 5% minimum, só max. 1%, vanília legfeljebb 0,5%"
+		},
+	],
+	[
+		'ro-minimum-maximum-percent',
+		{
+			lc => "ro",
+			ingredients_text =>
+				"cacao min. 50%, zahăr, alune minim 10%, lapte praf 5% minim, sare max. 1%, vanilie maxim 0,5%"
 		},
 	],
 
@@ -295,6 +406,54 @@ my @tests = (
 			},
 		},
 	],
+
+	# Products with valid specified percents that were wrongly flagged with ingredients_percent_analysis = -1
+	# (the min / max computation did not converge and bailed out after too many loops,
+	# as sub-ingredients lists are re-initialized at each loop, and the same changes were then made again)
+	# The optional 3rd element is the expected value of ingredients_percent_analysis
+
+	# The percent_max from the taxonomy deleted the percent_max computed in the previous loop
+	[
+		'fr-sub-ingredients-percent-max-reset',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Lait d'amande* (eau, amandes* 2,8%), sucre de canne non raffiné, amidon de riz*, sel marin."
+		},
+		1
+	],
+
+	# All sub-ingredients have a specified percent, with a sum equal to the parent percent:
+	# floating point errors lowered the percent_max of sub-ingredients again at each loop
+	[
+		'fr-sub-ingredients-all-percents-sum-equal-to-parent',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Céréales 98,5 % (farine complète de blé 66,2 %, farine de seigle 12,1 %, farine de blé 10,1 %, farine de riz 3,2 %, farine de blé malté 2,1 %, farine de sarrasin 1,6 %, farine d'orge 1,6 %, semoule de blé 1,6 %), sucre, lactosérum en poudre (de lait), sel, huile de palme, germes de blé."
+		},
+		1
+	],
+
+	# Sub-ingredients with specified percents that are not in decreasing order (allowed for ingredients under 2%)
+	[
+		'en-sub-ingredients-percents-not-in-decreasing-order',
+		{lc => "en", ingredients_text => "water, rice 30%, fruits 0.1% (e164 0.5%, natural flavouring 10%)"}, 1
+	],
+
+	# The percent_max of flavourings from the taxonomy (5%) also applies to sub-ingredients
+	# of a parent ingredient without a specified percent
+	[
+		'fr-flavouring-sub-ingredient-percent-max',
+		{
+			lc => "fr",
+			ingredients_text => "preparation pour dessert (lait entier en poudre, arômes naturels, sucre), eau"
+		},
+		1
+	],
+
+	# Impossible values: the first 3 ingredients must each be at least 53%
+	['fr-impossible-minimum-percent', {lc => "fr", ingredients_text => "Sucre, farine, beurre, lait 53%"}, -1],
 );
 
 foreach my $test_ref (@tests) {
@@ -304,6 +463,10 @@ foreach my $test_ref (@tests) {
 
 	parse_ingredients_text_service($product_ref, {}, {});
 	estimate_ingredients_percent_service($product_ref, {}, {});
+
+	if (defined $test_ref->[2]) {
+		is($product_ref->{ingredients_percent_analysis}, $test_ref->[2], "$testid - ingredients_percent_analysis");
+	}
 
 	compare_to_expected_results(
 		$product_ref->{ingredients},

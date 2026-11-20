@@ -308,7 +308,10 @@ RUN \
     done && \
     # logs dir
     mkdir -p /var/log/apache2/ && \
-    chown www-data:www-data -R /var/log
+    chown www-data:www-data -R /var/log && \
+    # cache dir in the HOME of www-data (/var/www), used by GLib and fontconfig (e.g. ssconvert for Excel imports)
+    mkdir -p /var/www/.cache && \
+    chown www-data:www-data /var/www/.cache
 
 EXPOSE 80
 COPY ./docker/docker-entrypoint.sh /

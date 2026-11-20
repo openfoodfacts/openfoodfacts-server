@@ -68,6 +68,9 @@ app->minion->add_task(import_csv_file => \&ProductOpener::Producers::import_csv_
 app->minion->add_task(export_csv_file => \&ProductOpener::Producers::export_csv_file_task);
 
 app->minion->add_task(
+	import_photos_from_google_drive_folder => \&ProductOpener::Producers::import_photos_from_google_drive_folder_task);
+
+app->minion->add_task(
 	update_export_status_for_csv_file => \&ProductOpener::Producers::update_export_status_for_csv_file_task);
 
 app->minion->add_task(
