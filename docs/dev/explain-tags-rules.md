@@ -8,7 +8,7 @@ Example: a product in `en:colas` that is not labelled, tagged or named caffeine-
 - Rules: `rules/<product type>/<target>/*.yml`, e.g. `rules/food/categories/beverages.yml`.
 - Engine: `lib/ProductOpener/TagsRules.pm`.
 - Tests: `tests/unit/tags_rules.t`.
-- Dry run on a dump: `scripts/tags_rules_report.pl`.
+- Dry run on a dump: `scripts/tags_rules_report.pl`, run with `make tags_rules_report` (see [Testing a rule](#testing-a-rule)).
 - Design issue: [#15342](https://github.com/openfoodfacts/openfoodfacts-server/issues/15342).
 
 ## Why rules?
@@ -206,10 +206,13 @@ add:
 - Before merging, run the dry run on the latest dump and review the samples:
 
   ```bash
-  ./scripts/tags_rules_report.pl --jsonl openfoodfacts-products.jsonl.gz --output report.csv --rules-ids my-rule
+  make tags_rules_report dump=openfoodfacts-products.jsonl.gz rules=my-rule
   ```
 
-  It evaluates the rules on a dump (no MongoDB, no writes) and writes, per rule, the number of matches, of products
-  already in the target, of products that would get the tag, of conflicts, and random samples to review.
+  The script uses Product Opener's modules and taxonomies, so the target runs it in a one-off backend container
+  (it needs the dev images and `make build_taxonomies`, not the running stack: no MongoDB, no writes). The dump is
+  read from the host, and the files are written to `tmp/tags_rules_report/`: per rule, the number of matches, of
+  products already in the target, of products that would get the tag, of conflicts (`report.csv`), random samples
+  to review (`report_samples.csv`), and the changed products (`products.csv`).
 - In the pull request, paste the report lines of the changed rules (matches, would add, conflicts), and say how many
   samples were reviewed and what was changed after the review.

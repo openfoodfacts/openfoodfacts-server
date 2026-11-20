@@ -381,6 +381,18 @@ refresh_product_tags: run_deps
 	@echo "🥫 Refreshing product data cached in Postgres …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
+# Dry run of the tags rules on a products dump (no database needed, nothing written to products).
+# make tags_rules_report dump=openfoodfacts-products.jsonl.gz [rules=rule-id,rule-id]
+# The report is written to tmp/tags_rules_report/ (report.csv, report_samples.csv, products.csv)
+tags_rules_report:
+	@if [ -z "${dump}" ]; then echo "Usage: make tags_rules_report dump=<products .jsonl or .jsonl.gz> [rules=<rule ids>]"; exit 1; fi
+	@echo "🥫 Running the tags rules on ${dump} …"
+	mkdir -p tmp/tags_rules_report
+	set -o pipefail; zcat -f ${dump} | ${DOCKER_COMPOSE} run --rm --no-deps -T backend perl /opt/product-opener/scripts/tags_rules_report.pl \
+		--jsonl /dev/stdin --output /opt/product-opener/tmp/tags_rules_report/report.csv \
+		--products-output /opt/product-opener/tmp/tags_rules_report/products.csv ${if ${rules},--rules-ids ${rules}}
+	@echo "🥫 Report written to tmp/tags_rules_report/"
+
 import_sample_data: run_deps
 	@ if [[ "${PRODUCT_OPENER_FLAVOR_SHORT}" = "off" &&  "${PRODUCERS_PLATFORM}" != "1" ]]; then \
    		echo "🥫 Importing sample data (~200 products) into MongoDB …"; \
