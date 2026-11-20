@@ -5057,6 +5057,8 @@ A reference to a hash to enable options to indicate how to match:
 - add_simple_plurals : in some languages, like French, we will allow an extra "s" at the end of entries
 - add_simple_singulars: same with removing the "s" at the end of entries
 - match_space_with_dash: spaces or dashes in entries will match either a space or a dash (e.g. "South America" will match "South-America")
+- loose_separators: runs of spaces, dashes and apostrophes in entries will match any run of whitespace, dashes
+  and apostrophes, or nothing (e.g. "l'eau" will match "l' eau", "l eau" and "leau")
 
 =head3 Return values
 
@@ -5093,6 +5095,11 @@ sub get_taxonomy_entry_synonyms_regexps ($taxonomy, $tagid, $language, $options_
 		if ($options_ref->{match_space_with_dash}) {
 			# Make spaces match dashes and the reverse
 			$regexp =~ s/( |-)/\(\?: \|-\)/g;
+		}
+
+		if ($options_ref->{loose_separators}) {
+			# Make runs of spaces, dashes and apostrophes match any run of them, or nothing
+			$regexp =~ s/[ \-'’]+/[\\s\\-'’]*/g;
 		}
 
 		push @regexps, $regexp;
