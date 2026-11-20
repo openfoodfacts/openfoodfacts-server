@@ -1841,6 +1841,8 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => "en",
 			ingredients_text => "wheat flour type ,quot,0,quot,, water, salt &amp; pepper, sugar &lt;1%",
+		}
+	],
 	# European Portuguese (pt-PT) ingredient names: polme, alperce, sêmea, couratos, fiambre, colza...
 	[
 		'pt-european-portuguese-fruit-and-dairy',
