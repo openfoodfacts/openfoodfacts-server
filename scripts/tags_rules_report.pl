@@ -25,6 +25,8 @@ use utf8;
 
 my $usage = <<TXT
 tags_rules_report.pl: dry run of the tags rules (rules/) on a JSONL dump of products. No MongoDB, no writes.
+It needs Product Opener's modules and taxonomies: from the host, run it with
+make tags_rules_report dump=openfoodfacts-products.jsonl.gz [rules=rule-id,rule-id]
 
 Usage:
 
