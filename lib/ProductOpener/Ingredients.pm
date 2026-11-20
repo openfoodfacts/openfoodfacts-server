@@ -2126,6 +2126,23 @@ sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, 
 	return ($percent, $quantity, $quantity_g, $quantity_ml);
 }
 
+=head2 set_labels_from_ingredients ($product_ref, $ingredients_lc, $labels_ref)
+
+Store the labels found in the ingredients list in the "ingredients" source of the labels field
+(tags_sources.labels.ingredients), and regenerate labels_tags from all sources.
+
+If no labels were found, the "ingredients" source is removed.
+
+=cut
+
+sub set_labels_from_ingredients ($product_ref, $ingredients_lc, $labels_ref) {
+
+	set_computed_field_tags_for_source($product_ref, $ingredients_lc // $product_ref->{lc} // "en",
+		"labels", "ingredients", $labels_ref);
+
+	return;
+}
+
 =head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
 
 Parse the ingredients_text field to extract individual ingredients.
@@ -2220,8 +2237,15 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 				};
 		}
 
+		# No ingredients to parse: remove labels previously detected in the ingredients
+		set_labels_from_ingredients($product_ref, $ingredients_lc, []);
+
 		return;
 	}
+
+	# Labels found in the ingredients list (e.g. "organic" or "contains a source of phenylalanine")
+	# are stored in tags_sources.labels.ingredients once the list is parsed
+	my @labels_from_ingredients = ();
 
 	my $text = $product_ref->{ingredients_text};
 
@@ -3309,7 +3333,7 @@ Text to analyze
 						if (exists_taxonomy_tag("labels", $label_id)) {
 
 							# Add the label to the product
-							add_tags_to_field($product_ref, $ingredients_lc, "labels", $label_id);
+							push @labels_from_ingredients, $label_id;
 
 							$ingredient_recognized = 1;
 
@@ -4092,6 +4116,8 @@ Text to analyze
 
 	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients}, undef, 0, $text);
 
+	set_labels_from_ingredients($product_ref, $ingredients_lc, \@labels_from_ingredients);
+
 	$log->debug("ingredients: ", {ingredients => $product_ref->{ingredients}}) if $log->is_debug();
 
 	# If the original text had newlines (e.g. cooking recipe with 1 ingredient per line), try parsing with newlines as separators
@@ -4141,6 +4167,7 @@ Text to analyze
 			# Restore Parse A
 			$product_ref->{ingredients} = $parse_a_ingredients_ref;
 			$product_ref->{specific_ingredients} = $parse_a_specific_ingredients_ref;
+			set_labels_from_ingredients($product_ref, $ingredients_lc, \@labels_from_ingredients);
 		}
 
 		# Restore original ingredients_text

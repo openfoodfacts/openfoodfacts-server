@@ -71,12 +71,6 @@
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 2,
-   "labels" : "Organic, en:no-gluten",
-   "labels_hierarchy" : [
-      "en:no-gluten",
-      "en:organic"
-   ],
-   "labels_lc" : "en",
    "labels_tags" : [
       "en:no-gluten",
       "en:organic"
@@ -85,5 +79,16 @@
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
    ],
+   "tags_sources" : {
+      "labels" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:organic",
+               "en:no-gluten"
+            ]
+         }
+      }
+   },
    "unknown_ingredients_n" : 0
 }

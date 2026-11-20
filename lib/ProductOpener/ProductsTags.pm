@@ -52,6 +52,7 @@ BEGIN {
 		&remove_tag
 		&add_tags_to_field
 		&set_field_input_tags_for_source
+		&set_computed_field_tags_for_source
 		&generate_field_tags_from_all_sources
 		&compute_field_tags
 
@@ -478,6 +479,52 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 
 	# We generate the [field]_tags field from all sources
 	generate_field_tags_from_all_sources($product_ref, $field);
+
+	return;
+}
+
+=head2 set_computed_field_tags_for_source ($product_ref, $tag_lc, $field, $source, $tags_ref)
+
+Set the tags that are computed from other data of the product (e.g. labels found in the ingredients list)
+for a field and a source (e.g. "ingredients"), and regenerate [field]_tags from all sources.
+
+If $tags_ref is empty, the source is removed, so that tags that are no longer computed are removed too.
+
+Code that computes tags must use this function instead of add_tags_to_field(), which uses the
+[field], [field]_lc and [field]_hierarchy fields that do not exist anymore with tags_sources
+(product schema 1004). Those fields, if left by a previous version of the code, are removed.
+
+=cut
+
+sub set_computed_field_tags_for_source ($product_ref, $tag_lc, $field, $source, $tags_ref) {
+
+	# [field]_hierarchy is not used anymore with tags_sources: if it exists, [field]_tags was computed
+	# from the old fields by a previous version of the code, and it needs to be regenerated from tags_sources
+	my $regenerate = 0;
+	if (exists $product_ref->{$field . "_hierarchy"}) {
+		delete $product_ref->{$field . "_hierarchy"};
+		delete $product_ref->{$field . "_lc"};
+		# The brands field is still generated from brands_tags
+		delete $product_ref->{$field} if $field ne "brands";
+		$regenerate = 1;
+	}
+
+	if (scalar @$tags_ref) {
+		set_field_input_tags_for_source($product_ref, $tag_lc, $field, $source, join(",", @$tags_ref));
+		return;
+	}
+
+	if (deep_exists($product_ref, "tags_sources", $field, $source)) {
+		delete $product_ref->{tags_sources}{$field}{$source};
+		if (not %{$product_ref->{tags_sources}{$field}}) {
+			delete $product_ref->{tags_sources}{$field};
+		}
+		$regenerate = 1;
+	}
+
+	if ($regenerate) {
+		generate_field_tags_from_all_sources($product_ref, $field);
+	}
 
 	return;
 }
