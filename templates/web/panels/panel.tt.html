@@ -360,12 +360,7 @@
             <tr>
                 [% FOREACH column IN table_element.columns %]
                 <th scope="col"[% IF column.style.defined %] style="[% column.style %]"[% END %]>
-                    [% IF column.text_for_small_screens.defined %]
-                    <span class="show-for-small-only">[% column.text_for_small_screens %]</span>
-                    <span class="show-for-medium-up">[% column.text %]</span>
-                    [% ELSE %]
                     [% column.text %]
-                    [% END %]
                 </th>
                 [% END %]
             </tr>
