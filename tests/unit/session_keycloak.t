@@ -258,7 +258,7 @@ subtest 'Test 6: Redirect security - untrusted destinations rejected' => sub {
 		'/\\evil.example/steal',
 		'https://world.' . $server_domain . '\@evil.example/steal',
 		'https://world.' . $server_domain . '%2eevil.example/steal',
-		'https://pro.' . $server_domain . '/facets/brands/Coca-Cola',
+		'https://pro.world.' . $server_domain . '/facets/brands/Coca-Cola',
 		'javascript:alert(1)',
 		"https://world.$server_domain/cgi/session.pl",
 		"https://world.$server_domain/cgi/login.pl",

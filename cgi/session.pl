@@ -65,13 +65,13 @@ if (defined $return_url && $return_url =~ m{^/(?!/|\\)}) {
 
 my $target_return_url;
 if (    defined $return_url
-	and is_allowed_return_url($return_url, $subdomain)
+	and is_allowed_return_url($return_url)
 	and ($return_url !~ $auth_scripts_pattern))
 {
 	$target_return_url = $return_url;
 }
 elsif ( defined $referer
-	and is_allowed_return_url($referer, $subdomain)
+	and is_allowed_return_url($referer)
 	and ($referer !~ $auth_scripts_pattern))
 {
 	$target_return_url = $referer;
@@ -95,10 +95,6 @@ if (defined $User_id && !single_param('jqm')) {
 	}
 	elsif (defined $target_return_url) {
 		$url = $target_return_url;
-	elsif (is_allowed_return_url($referer)
-		and (not($referer =~ /(?:login|session|user|reset_password)\.pl/)))
-	{
-		$url = $referer;
 	}
 
 	if (defined $url) {
