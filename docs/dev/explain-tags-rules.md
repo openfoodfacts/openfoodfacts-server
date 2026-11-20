@@ -1,7 +1,7 @@
 # Explain tags rules
 
 Tags rules add more precise tags to products from data that is already on the product: categories, ingredients,
-labels, countries, brands, nutrients, names and ingredients lists.
+labels, countries, nutrients, names and ingredients lists.
 
 Example: a product in `en:colas` that is not labelled, tagged or named caffeine-free gets `en:caffeinated-colas`.
 
@@ -32,9 +32,8 @@ data (ingredients, labels, name) gives the precise one. Rules fill that gap, in 
   repeats A's conditions.
 - **Conflicts become warnings.** A rule never adds a category that is incompatible with a category the product already
   has, or with a category added by another rule. It adds the `en:category-rules-conflict` data quality warning
-  instead. Incompatible categories come from the `exclusive:` groups of the rules files, and from the
-  `incompatible_with:en` property of the categories taxonomy. Conflicts are also checked on the parents of the
-  categories.
+  instead. Incompatible categories come from the `incompatible_with:en` property of the categories taxonomy (see
+  below). Conflicts are also checked on the parents of the categories.
 - **Fix the taxonomies rather than listing variants in the rules.** Conditions on tags and ingredients use `is_a`,
   so a rule should use a single generic ingredient (e.g. `en:wholemeal-flour`), and missing synonyms should be added
   to the taxonomy.
@@ -72,30 +71,26 @@ Flavors without this setting do not run tags rules. Only Open Food Facts has it 
 
 ## Rules files
 
-A file is a mapping with a `rules:` list and an optional `exclusive:` list:
+A file is a list of rules:
 
 ```yaml
-exclusive:
-  - [en:caffeinated-colas, en:cola-sodas-without-caffeine]
-
-rules:
-  - id: colas-caffeinated
-    description: Colas are caffeinated unless they are labelled, tagged or named caffeine-free
-    comment: Free text for rule editors (optional)
-    if:
-      categories: en:colas
-    unless:
-      - labels: en:no-caffeine
-      - categories: en:cola-sodas-without-caffeine
-      - name: {any: 'caffeine.?free|decaf'}
-    add:
-      categories: en:caffeinated-colas
-    tests:
-      match:
-        - categories: [en:colas]
-      no_match:
-        - categories: [en:colas]
-          labels: [en:no-caffeine]
+- id: colas-caffeinated
+  description: Colas are caffeinated unless they are labelled, tagged or named caffeine-free
+  comment: Free text for rule editors (optional)
+  if:
+    categories: en:colas
+  unless:
+    - labels: en:no-caffeine
+    - categories: en:cola-sodas-without-caffeine
+    - name: {any: 'caffeine.?free|decaf'}
+  add:
+    categories: en:caffeinated-colas
+  tests:
+    match:
+      - categories: [en:colas]
+    no_match:
+      - categories: [en:colas]
+        labels: [en:no-caffeine]
 ```
 
 ### Fields of a rule
@@ -110,15 +105,41 @@ rules:
 | `add` | yes | The tags to add, for each field. Added categories must be children of the required categories. |
 | `tests` | yes | Test products: `match` (at least one) must match the rule, `no_match` must not. They are run by `tests/unit/tags_rules.t`. |
 
-### Exclusive groups
+### Rule compilation and errors
 
-`exclusive:` lists groups of categories that a product cannot have at the same time, e.g. a cola cannot be both
-caffeinated and caffeine-free. If a rule would add a category of a group while the product already has another
-category of the same group (or a child of it), the category is not added and the product gets the
-`en:category-rules-conflict` data quality warning instead. The same applies when 2 rules would add categories of the
-same group: none of them is added.
+The first time a process needs the rules (e.g. to evaluate a product), the rules files of the product type are read,
+and each rule is checked and compiled to Perl functions:
 
-The `incompatible_with:en` property of the categories taxonomy works the same way, and is checked too.
+- tags and ingredients must exist in their taxonomies, with their canonical id;
+- added categories must be children of the required categories;
+- conditions must be known, and regular expressions must compile;
+- rule ids must be unique, and each rule must have at least one `match` test product.
+
+A rule with an error is skipped (the other rules still run) and the error is logged. `tests/unit/tags_rules.t`
+fails on any error, so an invalid rule cannot be merged.
+
+**When a taxonomy changes**, the rules are checked again: if a tag used in a rule is renamed (its canonical id
+changes) or removed, `tags_rules.t` fails and gives the new canonical id. If a synonym is added (e.g. a new
+translation of an ingredient), nothing needs to change in the rules: they use ids, and products get the new id.
+
+### Incompatible categories
+
+A rule never adds a category that is incompatible with another category of the product (or with a category added
+by another rule): the category is not added and the product gets the `en:category-rules-conflict` data quality
+warning instead. When 2 rules add incompatible categories, none of them is added.
+
+Incompatible categories are set in the taxonomy, with the `incompatible_with:en` property (on one of the 2
+categories), e.g. in `taxonomies/food/categories.txt`:
+
+```text
+en: Caffeinated colas
+...
+incompatible_with:en: categories:en:cola-sodas-without-caffeine
+```
+
+When a rule adds a category that cannot be combined with another one (e.g. caffeinated colas / colas without
+caffeine), add the property in the same pull request. The property is also used by data quality checks: products
+that have both categories get a `en:mutually-exclusive-tags-for-...` data quality error.
 
 ## Conditions
 
@@ -149,16 +170,12 @@ unless:
 | Condition | Matches when |
 | --- | --- |
 | `categories: X` or `[X, Y]` | The product is in X or in a child of X. Same for `labels`, `countries`, `origins`, `states`. |
-| `brands: xx:brand` | The product has the brand (case and accent insensitive). |
-| `categories_exact: X` | X is one of the categories entered on the product, not a parent of an entered category. Same for `labels_exact`, `countries_exact`, `origins_exact`, `states_exact`. |
 | `ingredients: {contains: X}` | An ingredient, at any depth, is X or a child of X (`is_a`). |
 | `ingredients: {first: X}` | The first ingredient is X or a child of X. |
 | `ingredients: {in_first: {n: 3, of: X}}` | One of the first n ingredients is X or a child of X. |
-| `ingredients: {percent: {of: X, min: 50, max: 100, use: declared}}` | The sum of the percents of the ingredients that are X (or a child of X) is in the range. `use`: `declared` (percent on the label), `estimate` (estimated percent) or `any` (declared, else estimate; the default). If a matching ingredient has no value, the condition does not match. |
-| `ingredients: {count_of: {of: X, min: 2}}` | The number of distinct ingredients that are X (or a child of X) is in the range. |
 | `ingredients: {known: true}` | The product has an ingredients list, and all its ingredients (at all depths) are in the taxonomy. |
 | `nutrients: {cocoa: {min: 30, max: 64.9}}` | The value per 100 g or 100 ml as sold, from the aggregated nutrition set, is in the range. |
-| `name: {fr: 'regexp', any: 'regexp'}` | A regular expression matches `product_name_<lc>` or `generic_name_<lc>` (and `product_name` / `generic_name` when `<lc>` is the main language). `any` applies to all languages. Case and accent insensitive. |
+| `name: {fr: 'regexp', any: 'regexp'}` | A regular expression matches `product_name_<lc>` or `generic_name_<lc>` (and `product_name` / `generic_name` when `<lc>` is the main language). `any` applies to all languages. Case and accent insensitive. One matching language is enough: with `{fr: 'complet', de: 'vollkorn'}`, a product whose French name matches is a match, whatever its German name. |
 | `ingredients_text: {fr: 'regexp'}` | Same, on `ingredients_text_<lc>`. Last resort for things the parser does not keep. |
 | `all: [conditions]` | All the conditions match. |
 | `any: [conditions]` | At least one of the conditions matches. |
@@ -166,6 +183,9 @@ unless:
 
 Tags must be written with their canonical id (e.g. `en:colas`, not `en:cola`): the validation gives the canonical id
 when it is not.
+
+Other conditions (e.g. on brands, or on the percent of an ingredient) can be added to `TagsRules.pm` when a rule
+needs them, with tests.
 
 ## Actions
 
@@ -191,3 +211,5 @@ add:
 
   It evaluates the rules on a dump (no MongoDB, no writes) and writes, per rule, the number of matches, of products
   already in the target, of products that would get the tag, of conflicts, and random samples to review.
+- In the pull request, paste the report lines of the changed rules (matches, would add, conflicts), and say how many
+  samples were reviewed and what was changed after the review.

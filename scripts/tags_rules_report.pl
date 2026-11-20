@@ -48,6 +48,8 @@ TXT
 use ProductOpener::Config qw/%options/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::TagsRules qw/:all/;
+use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
+use ProductOpener::ProductsTags qw/get_field_input_tags_from_all_sources/;
 
 use Getopt::Long;
 use Cpanel::JSON::XS;
@@ -157,6 +159,10 @@ while (my $line = <$in>) {
 	next if not defined $product_ref;
 	$candidates++;
 
+	# The dump contains products in the schema version in which they were last saved:
+	# convert them to the current schema (e.g. tags_sources), as retrieve_product() does
+	convert_product_schema($product_ref, $current_schema_version);
+
 	my $result_ref = evaluate_tags_rules($product_ref, {rules => $ruleset_ref, rule_ids => \@rule_ids});
 	next if not @{$result_ref->{matched}};
 
@@ -227,12 +233,7 @@ sub sample_fields ($product_ref) {
 			}
 		}
 	}
-	my @input_categories = ();
-	foreach my $source (sort keys %{$product_ref->{tags_sources}{categories} // {}}) {
-		next if $source eq "rules";
-		push @input_categories, @{$product_ref->{tags_sources}{categories}{$source}{tags} // []};
-	}
-	@input_categories = @{$product_ref->{categories_tags} // []} if not @input_categories;
+	my @input_categories = get_field_input_tags_from_all_sources($product_ref, "categories", ["rules"]);
 	my @first_ingredients = map {$_->{id} . (defined $_->{percent} ? " " . $_->{percent} . "%" : "")}
 		grep {ref($_) eq 'HASH'} @{$product_ref->{ingredients} // []};
 	splice(@first_ingredients, 5) if @first_ingredients > 5;

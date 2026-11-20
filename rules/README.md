@@ -8,3 +8,4 @@ The format of the rules files, the conditions, the design choices and how to tes
 
 Before changing a rule, run `make test-unit test=tags_rules.t`, then the dry run on the latest dump
 (`scripts/tags_rules_report.pl`) and review the samples: a rule must show no false positive.
+Paste the report lines of the changed rules in the pull request.

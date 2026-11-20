@@ -33,6 +33,7 @@ foreach my $product_type (sort grep {-d "$BASE_DIRS{RULES}/$_"} qw(food beauty p
 		or diag(join("\n", @{$ruleset_ref->{errors}}));
 
 	ok(scalar @{$ruleset_ref->{rules}} > 0, "rules/$product_type: rules are loaded") if $product_type eq "food";
+	ok(scalar @{$ruleset_ref->{rules}} == 0, "rules/$product_type: no rules yet") if $product_type ne "food";
 
 	foreach my $rule_ref (@{$ruleset_ref->{rules}}) {
 
@@ -86,119 +87,85 @@ sub write_rules_dir ($files_ref) {
 
 # Minimal test fixtures: each rule needs a match test, the engine tests below test the semantics
 my $engine_rules_yaml = <<'YAML';
-exclusive:
-  - [en:wholemeal-rye-crispbreads, en:wholemeal-wheat-crispbreads]
+- id: first
+  description: first ingredient
+  if: {categories: en:crispbreads, ingredients: {first: en:wholemeal-flour}}
+  add: {categories: en:crispbreads-wholemeal}
+  tests: {match: [{categories: en:crispbreads, ingredients: [en:wholemeal-rye-flour]}]}
 
-rules:
-  - id: first
-    description: first ingredient
-    if: {categories: en:crispbreads, ingredients: {first: en:wholemeal-flour}}
-    add: {categories: en:crispbreads-wholemeal}
-    tests: {match: [{categories: en:crispbreads, ingredients: [en:wholemeal-rye-flour]}]}
+- id: in-first
+  description: in the 2 first ingredients
+  if: {categories: en:crispbreads, ingredients: {in_first: {n: 2, of: en:whole-wheat-flour}}}
+  add: {categories: en:wholemeal-wheat-crispbreads}
+  tests: {match: [{categories: en:crispbreads, ingredients: [en:water, en:whole-wheat-flour]}]}
 
-  - id: in-first
-    description: in the 2 first ingredients
-    if: {categories: en:crispbreads, ingredients: {in_first: {n: 2, of: en:whole-wheat-flour}}}
-    add: {categories: en:wholemeal-wheat-crispbreads}
-    tests: {match: [{categories: en:crispbreads, ingredients: [en:water, en:whole-wheat-flour]}]}
+- id: known
+  description: all ingredients known
+  if: {categories: en:biscuits, ingredients: {known: true}}
+  add: {categories: en:wholemeal-wheat-biscuits}
+  tests: {match: [{categories: en:biscuits, ingredients: [en:sugar]}]}
 
-  - id: percent-declared
-    description: declared percent
-    if: {categories: en:biscuits, ingredients: {percent: {of: en:wholemeal-flour, min: 50, use: declared}}}
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits, ingredients: [{id: en:whole-wheat-flour, percent: 60}]}]}
+- id: contains
+  description: contains at any depth
+  if: {categories: en:biscuits, ingredients: {contains: en:fruit}}
+  add: {categories: en:wholemeal-wheat-biscuits}
+  tests: {match: [{categories: en:biscuits, ingredients: [en:apple]}]}
 
-  - id: percent-estimate
-    description: estimated percent, nested ingredients
-    if: {categories: en:biscuits, ingredients: {percent: {of: en:wholemeal-flour, min: 50, use: estimate}}}
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits, ingredients: [{id: en:whole-wheat-flour, percent_estimate: 60}]}]}
+- id: name
+  description: name per language
+  if: {categories: en:biscuits, name: {fr: '\bcomplet\b', de: 'vollkorn'}}
+  add: {categories: en:wholemeal-wheat-biscuits}
+  tests: {match: [{categories: en:biscuits, product_name_fr: Biscuit complet}]}
 
-  - id: percent-any
-    description: declared or estimated percent
-    if: {categories: en:biscuits, ingredients: {percent: {of: en:wholemeal-flour, max: 20}}}
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits, ingredients: [{id: en:whole-wheat-flour, percent: 10}]}]}
+- id: name-any
+  description: name in any language
+  if: {categories: en:biscuits, name: {any: 'p[eé]pite'}}
+  add: {categories: en:wholemeal-wheat-biscuits}
+  tests: {match: [{categories: en:biscuits, product_name_xx: pepite}]}
 
-  - id: count-of
-    description: count of distinct ingredients
-    if: {categories: en:biscuits, ingredients: {count_of: {of: en:fruit, min: 2}}}
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits, ingredients: [en:apple, en:pear]}]}
+- id: ingredients-text
+  description: ingredients text
+  if: {categories: en:biscuits, ingredients_text: {fr: 'farine compl[eè]te'}}
+  add: {categories: en:wholemeal-wheat-biscuits}
+  tests: {match: [{categories: en:biscuits, ingredients_text_fr: Farine complète}]}
 
-  - id: known
-    description: all ingredients known
-    if: {categories: en:biscuits, ingredients: {known: true}}
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits, ingredients: [en:sugar]}]}
+- id: nutrients
+  description: nutrients
+  if: {categories: en:dark-chocolates, nutrients: {cocoa: {min: 30, max: 64.9}}}
+  add: {categories: en:semi-sweet-dark-chocolates}
+  tests: {match: [{categories: en:dark-chocolates, nutrients: {cocoa: 50}}]}
 
-  - id: contains
-    description: contains at any depth
-    if: {categories: en:biscuits, ingredients: {contains: en:fruit}}
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits, ingredients: [en:apple]}]}
+- id: nested
+  description: all, any, not and unless
+  if:
+    categories: en:biscuits
+    any:
+      - labels: en:organic
+      - all:
+          - countries: en:france
+          - not: {origins: en:germany}
+  unless:
+    - labels: en:fair-trade
+  add: {categories: en:wholemeal-wheat-biscuits}
+  tests: {match: [{categories: en:biscuits, labels: en:organic}]}
 
-  - id: name
-    description: name per language
-    if: {categories: en:biscuits, name: {fr: '\bcomplet\b', de: 'vollkorn'}}
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits, product_name_fr: Biscuit complet}]}
+- id: colas
+  description: colas
+  if: {categories: en:colas}
+  add: {categories: en:caffeinated-colas}
+  tests: {match: [{categories: en:colas}]}
 
-  - id: name-any
-    description: name in any language
-    if: {categories: en:biscuits, name: {any: 'p[eé]pite'}}
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits, product_name_xx: pepite}]}
+- id: pasteurized
+  description: incompatible_with property
+  if: {categories: en:cheeses}
+  add: {categories: en:pasteurized-cheeses}
+  tests: {match: [{categories: en:cheeses}]}
 
-  - id: ingredients-text
-    description: ingredients text
-    if: {categories: en:biscuits, ingredients_text: {fr: 'farine compl[eè]te'}}
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits, ingredients_text_fr: Farine complète}]}
-
-  - id: nutrients
-    description: nutrients
-    if: {categories: en:dark-chocolates, nutrients: {cocoa: {min: 30, max: 64.9}}}
-    add: {categories: en:semi-sweet-dark-chocolates}
-    tests: {match: [{categories: en:dark-chocolates, nutrients: {cocoa: 50}}]}
-
-  - id: nested
-    description: all, any, not and unless
-    if:
-      categories: en:biscuits
-      any:
-        - labels: en:organic
-        - all:
-            - countries: en:france
-            - not: {brands: xx:some-brand}
-    unless:
-      - labels: en:fair-trade
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits, labels: en:organic}]}
-
-  - id: exact
-    description: categories exact
-    if: {categories: en:biscuits, categories_exact: en:biscuits}
-    add: {categories: en:wholemeal-wheat-biscuits}
-    tests: {match: [{categories: en:biscuits}]}
-
-  - id: colas
-    description: colas
-    if: {categories: en:colas}
-    add: {categories: en:caffeinated-colas}
-    tests: {match: [{categories: en:colas}]}
-
-  - id: pasteurized
-    description: incompatible_with property
-    if: {categories: en:cheeses}
-    add: {categories: en:pasteurized-cheeses}
-    tests: {match: [{categories: en:cheeses}]}
-
-  - id: warning
-    description: data quality warning
-    if: {categories: en:sweet-mustards, name: {fr: 'moutarde douce'}}
-    add: {data_quality_warnings: en:sweet-mustards-named-mild-mustard}
-    tests: {match: [{categories: en:sweet-mustards, product_name_fr: Moutarde douce}]}
+- id: warning
+  description: data quality warning
+  if: {categories: en:sweet-mustards, name: {fr: 'moutarde douce'}}
+  add: {data_quality_warnings: en:sweet-mustards-named-mild-mustard}
+  tests: {match: [{categories: en:sweet-mustards, product_name_fr: Moutarde douce}]}
 YAML
 
 my $engine_rules_dir = write_rules_dir({"food/categories/engine.yml" => $engine_rules_yaml});
@@ -232,63 +199,6 @@ my @semantics_tests = (
 		'in-first' => 0,
 		fixture(categories => "en:crispbreads", ingredients => ["en:water", "en:salt", "en:whole-wheat-flour"])
 	],
-
-	# percent declared: estimates are not used
-	[
-		'percent-declared' => 1,
-		fixture(categories => "en:biscuits", ingredients => [{id => "en:whole-wheat-flour", percent => 50}])
-	],
-	[
-		'percent-declared' => 0,
-		fixture(categories => "en:biscuits", ingredients => [{id => "en:whole-wheat-flour", percent_estimate => 70}])
-	],
-	# percents of several matching ingredients are added, also in sub-ingredients
-	[
-		'percent-declared' => 1,
-		fixture(
-			categories => "en:biscuits",
-			ingredients => [
-				{id => "en:whole-wheat-flour", percent => 30},
-				{id => "en:flour", percent => 40, ingredients => [{id => "en:wholemeal-rye-flour", percent => 25}]}
-			]
-		)
-	],
-	# a matching ingredient without a declared percent: unknown, so no match
-	[
-		'percent-declared' => 0,
-		fixture(
-			categories => "en:biscuits",
-			ingredients => [{id => "en:whole-wheat-flour", percent => 60}, {id => "en:wholemeal-rye-flour"}]
-		)
-	],
-	[
-		'percent-estimate' => 1,
-		fixture(
-			categories => "en:biscuits",
-			ingredients => [{id => "en:whole-wheat-flour", percent => 40, percent_estimate => 55}]
-		)
-	],
-	[
-		'percent-estimate' => 0,
-		fixture(categories => "en:biscuits", ingredients => [{id => "en:whole-wheat-flour", percent => 55}])
-	],
-	# max: no matching ingredient -> 0%
-	['percent-any' => 1, fixture(categories => "en:biscuits", ingredients => ["en:sugar"])],
-	['percent-any' => 0, fixture(categories => "en:biscuits")],
-	[
-		'percent-any' => 0,
-		fixture(categories => "en:biscuits", ingredients => [{id => "en:whole-wheat-flour", percent_estimate => 30}])
-	],
-
-	# count_of: distinct ingredients, at any depth
-	[
-		'count-of' => 1,
-		fixture(
-			categories => "en:biscuits",
-			ingredients => ["en:apple", {id => "en:filling", ingredients => ["en:pear"]}]
-		)
-	],
-	['count-of' => 0, fixture(categories => "en:biscuits", ingredients => ["en:apple", "en:apple"])],
 
 	# known: all ingredients at all depths are in the taxonomy
 	['known' => 1, fixture(categories => "en:biscuits", ingredients => ["en:sugar", "en:salt"])],
@@ -330,7 +240,7 @@ my @semantics_tests = (
 	[
 		'nutrients' => 0,
 		{
-			categories_tags => ["en:dark-chocolates"],
+			tags_sources => {categories => {test => {tags => ["en:dark-chocolates"]}}},
 			nutrition => {
 				aggregated_set => {per => "100g", preparation => "prepared", nutrients => {cocoa => {value => 50}}}
 			}
@@ -340,7 +250,7 @@ my @semantics_tests = (
 	[
 		'nutrients' => 0,
 		{
-			categories_tags => ["en:dark-chocolates"],
+			tags_sources => {categories => {test => {tags => ["en:dark-chocolates"]}}},
 			nutrition => {aggregated_set => {per => "100g", nutrients => {cocoa => {value => 60, modifier => "<"}}}}
 		}
 	],
@@ -348,20 +258,9 @@ my @semantics_tests = (
 	# nested all / any / not, and unless
 	['nested' => 1, fixture(categories => "en:biscuits", labels => "en:farm-verified-organic")],
 	['nested' => 1, fixture(categories => "en:biscuits", countries => "en:france")],
-	['nested' => 0, fixture(categories => "en:biscuits", countries => "en:france", brands => ["xx:Some Brand"])],
+	['nested' => 0, fixture(categories => "en:biscuits", countries => "en:france", origins => ["en:germany"])],
 	['nested' => 0, fixture(categories => "en:biscuits", countries => "en:germany")],
 	['nested' => 0, fixture(categories => "en:biscuits", labels => ["en:organic", "en:fair-trade"])],
-
-	# categories_exact: input tags, not descendants
-	['exact' => 1, fixture(categories => "en:biscuits")],
-	['exact' => 0, fixture(categories => "en:chocolate-biscuits")],
-	[
-		'exact' => 0,
-		{
-			categories_tags => ["en:biscuits", "en:chocolate-biscuits"],
-			tags_sources => {categories => {packaging => {tags => ["en:chocolate-biscuits"]}}}
-		}
-	],
 
 	# Flat rules: tags from the rules source are ignored
 	[
@@ -380,7 +279,7 @@ my @semantics_tests = (
 			}
 		}
 	],
-	# tags_sources are recomputed with parents: categories_tags is not used when there are tags_sources
+	# categories come from tags_sources, with their parents: categories_tags is not used
 	[
 		'colas' => 1,
 		{
@@ -411,7 +310,7 @@ foreach my $test_ref (@semantics_tests) {
 	is($result_ref->{matched}, ["colas"], "already in the target category: matched");
 }
 
-# Conflicts with an existing category (exclusive group): warning instead of the category
+# Conflict with an existing category (incompatible_with:en): warning instead of the category
 {
 	my $result_ref
 		= evaluate_tags_rules(
@@ -420,12 +319,12 @@ foreach my $test_ref (@semantics_tests) {
 	is(
 		$result_ref->{added},
 		{data_quality_warnings => {"en:category-rules-conflict" => ["in-first"]}},
-		"exclusive group conflict: warning, no category"
+		"conflict with an existing category: warning, no category"
 	) or diag(Dumper($result_ref));
 	is(
 		$result_ref->{conflicts},
 		[{rule => "in-first", tag => "en:wholemeal-wheat-crispbreads", with => ["en:wholemeal-rye-crispbreads"]}],
-		"exclusive group conflict: reported"
+		"conflict with an existing category: reported"
 	);
 }
 
@@ -463,19 +362,16 @@ foreach my $test_ref (@semantics_tests) {
 	my $two_rules_dir = write_rules_dir(
 		{
 			"food/categories/two.yml" => <<'YAML'
-exclusive:
-  - [en:wholemeal-rye-crispbreads, en:wholemeal-wheat-crispbreads]
-rules:
-  - id: rye
-    description: rye
-    if: {categories: en:crispbreads, ingredients: {contains: en:wholemeal-rye-flour}}
-    add: {categories: en:wholemeal-rye-crispbreads}
-    tests: {match: [{categories: en:crispbreads}]}
-  - id: wheat
-    description: wheat
-    if: {categories: en:crispbreads, ingredients: {contains: en:whole-wheat-flour}}
-    add: {categories: en:wholemeal-wheat-crispbreads}
-    tests: {match: [{categories: en:crispbreads}]}
+- id: rye
+  description: rye
+  if: {categories: en:crispbreads, ingredients: {contains: en:wholemeal-rye-flour}}
+  add: {categories: en:wholemeal-rye-crispbreads}
+  tests: {match: [{categories: en:crispbreads}]}
+- id: wheat
+  description: wheat
+  if: {categories: en:crispbreads, ingredients: {contains: en:whole-wheat-flour}}
+  add: {categories: en:wholemeal-wheat-crispbreads}
+  tests: {match: [{categories: en:crispbreads}]}
 YAML
 		}
 	);
@@ -484,80 +380,47 @@ YAML
 		= evaluate_tags_rules(
 		fixture(categories => ["en:crispbreads"], ingredients => ["en:wholemeal-rye-flour", "en:whole-wheat-flour"]),
 		{rules => $two_rules_ref});
-	is($result_ref->{added}{categories}, undef, "2 rules adding exclusive categories: none is added")
+	is($result_ref->{added}{categories}, undef, "2 rules adding incompatible categories: none is added")
 		or diag(Dumper($result_ref));
 	is(
 		$result_ref->{added}{data_quality_warnings},
 		{"en:category-rules-conflict" => ["rye", "wheat"]},
-		"2 rules adding exclusive categories: warning"
+		"2 rules adding incompatible categories: warning"
 	);
 }
 
-# 2 rules adding categories whose parents are exclusive: the conflict is found on a parent
+# 2 rules adding categories whose parents are incompatible: the conflict is found on a parent
 {
 	my $parents_dir = write_rules_dir(
 		{
 			"food/categories/parents.yml" => <<'YAML'
-exclusive:
-  - [en:crispbreads-wholemeal, en:crispbreads-non-wholemeal]
-rules:
-  - id: wholemeal-wheat
-    description: child of crispbreads-wholemeal
-    if: {categories: en:crispbreads, ingredients: {contains: en:whole-wheat-flour}}
-    add: {categories: en:wholemeal-wheat-crispbreads}
-    tests: {match: [{categories: en:crispbreads, ingredients: [en:whole-wheat-flour]}]}
-  - id: non-wholemeal
-    description: crispbreads-non-wholemeal
-    if: {categories: en:crispbreads, labels: en:organic}
-    add: {categories: en:crispbreads-non-wholemeal}
-    tests: {match: [{categories: en:crispbreads, labels: en:organic}]}
+# en:crispbreads-wholemeal has incompatible_with:en: categories:en:crispbreads-non-wholemeal
+- id: wholemeal-wheat
+  description: child of crispbreads-wholemeal
+  if: {categories: en:crispbreads, ingredients: {contains: en:whole-wheat-flour}}
+  add: {categories: en:wholemeal-wheat-crispbreads}
+  tests: {match: [{categories: en:crispbreads, ingredients: [en:whole-wheat-flour]}]}
+- id: non-wholemeal
+  description: crispbreads-non-wholemeal
+  if: {categories: en:crispbreads, labels: en:organic}
+  add: {categories: en:crispbreads-non-wholemeal}
+  tests: {match: [{categories: en:crispbreads, labels: en:organic}]}
 YAML
 		}
 	);
 	my $parents_rules_ref = load_tags_rules("$parents_dir/food");
-	is($parents_rules_ref->{errors}, [], "exclusive parents: rules are valid")
+	is($parents_rules_ref->{errors}, [], "incompatible parents: rules are valid")
 		or diag(join("\n", @{$parents_rules_ref->{errors}}));
 	my $result_ref
 		= evaluate_tags_rules(
 		fixture(categories => ["en:crispbreads"], labels => ["en:organic"], ingredients => ["en:whole-wheat-flour"]),
 		{rules => $parents_rules_ref});
-	is($result_ref->{added}{categories}, undef, "2 rules adding children of exclusive categories: none is added")
+	is($result_ref->{added}{categories}, undef, "2 rules adding children of incompatible categories: none is added")
 		or diag(Dumper($result_ref));
 	is(
 		[sort map {$_->{rule} . ":" . join(",", @{$_->{with}})} @{$result_ref->{conflicts}}],
-		["non-wholemeal:en:wholemeal-wheat-crispbreads", "wholemeal-wheat:en:crispbreads-non-wholemeal"],
-		"2 rules adding children of exclusive categories: conflicts reported with the added categories"
-	);
-}
-
-# [field]_exact for other tag fields than categories
-{
-	my $exact_dir = write_rules_dir(
-		{
-			"food/categories/exact.yml" => <<'YAML'
-rules:
-  - id: labels-exact
-    description: labels_exact
-    if: {categories: en:colas, labels_exact: en:organic}
-    add: {categories: en:caffeinated-colas}
-    tests: {match: [{categories: en:colas, labels: en:organic}]}
-YAML
-		}
-	);
-	my $exact_rules_ref = load_tags_rules("$exact_dir/food");
-	is($exact_rules_ref->{errors}, [], "labels_exact: rule is valid")
-		or diag(join("\n", @{$exact_rules_ref->{errors}}));
-	is(
-		evaluate_tags_rules(fixture(categories => "en:colas", labels => "en:organic"), {rules => $exact_rules_ref})
-			->{matched},
-		["labels-exact"],
-		"labels_exact: the entered label matches"
-	);
-	is(
-		evaluate_tags_rules(fixture(categories => "en:colas", labels => "en:farm-verified-organic"),
-			{rules => $exact_rules_ref})->{matched},
-		[],
-		"labels_exact: a child of the label does not match"
+		["non-wholemeal:en:crispbreads-wholemeal", "wholemeal-wheat:en:crispbreads-non-wholemeal"],
+		"2 rules adding children of incompatible categories: conflicts reported"
 	);
 }
 
@@ -614,7 +477,9 @@ YAML
 {
 	my $product_ref = fixture(categories => "en:sweet-mustards", product_name_fr => "Moutarde douce");
 	apply_tags_rules_to_product($product_ref, {rules => $engine_rules_ref});
-	is($product_ref->{tags_sources}, undef, "apply: data quality warnings are not stored in tags_sources");
+	is([sort keys %{$product_ref->{tags_sources}}],
+		["categories"], "apply: data quality warnings are not stored in tags_sources");
+	is($product_ref->{tags_sources}{categories}{rules}, undef, "apply: no rules source for a warning rule");
 	is($product_ref->{misc_tags}, ["en:tags-rule-warning"], "apply: misc tag for the warning rule");
 
 	$product_ref->{data_quality_warnings_tags} = [];
@@ -639,7 +504,7 @@ my @validation_tests = (
 	[
 		"add not under the required category",
 		"if: {categories: en:colas}\n  add: {categories: en:biscuits}",
-		qr/must be a descendant of the required categories/
+		qr/must be a child of the required categories/
 	],
 	[
 		"invalid regexp",
@@ -682,11 +547,6 @@ my @validation_tests = (
 		qr/if\.any: expected a mapping of conditions .* got 'en:organic'/
 	],
 	[
-		"brands_exact",
-		"if: {categories: en:colas, brands_exact: coca-cola}\n  add: {categories: en:caffeinated-colas}",
-		qr/if\.brands_exact: brands have no parents/
-	],
-	[
 		"non canonical tag",
 		"if: {categories: en:cola}\n  add: {categories: en:caffeinated-colas}",
 		qr/is not the canonical id, use 'en:colas'/
@@ -709,6 +569,15 @@ YAML
 	ok((grep {$_ =~ $expected_error} @{$ruleset_ref->{errors}}), "validation: $name")
 		or diag(Dumper($ruleset_ref->{errors}));
 	is(scalar @{$ruleset_ref->{rules}}, 0, "validation: $name: the invalid rule is skipped");
+}
+
+# A rules file must contain a list of rules
+{
+	my $dir = write_rules_dir({"food/categories/mapping.yml" => "rules:\n  - id: a-rule\n"});
+	my $ruleset_ref = load_tags_rules("$dir/food");
+	ok((grep {/the file must contain a list of rules/} @{$ruleset_ref->{errors}}),
+		"validation: a file is a list of rules")
+		or diag(Dumper($ruleset_ref->{errors}));
 }
 
 # Duplicate ids, missing tests
