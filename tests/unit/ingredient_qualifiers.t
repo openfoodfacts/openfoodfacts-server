@@ -141,4 +141,23 @@ is(
 	'a child that only gives the generic name back is not turned into its parent'
 );
 
+for my $case (
+	['en', 'pork (EU origin)', 'en:pork', 'en:european-union'],
+	['en', 'pork (non-EU origin)', 'en:pork', 'en:non-european-union'],
+	['en', 'tomatoes (Italian origin)', 'en:tomato', 'en:italy'],
+	['en', 'pork (mysterious origin)', 'en:pork', undef],
+	['nl', 'varkensvlees (Nederlandse oorsprong)', 'en:pork-meat', undef],
+	['nl', 'varkensvlees (oorsprong: Nederland, België)', 'en:pork-meat', 'en:netherlands,en:belgium'],
+	)
+{
+	my ($lc, $text, $id, $origin) = @$case;
+	my $product_ref = {lc => $lc, ingredients_text => $text};
+	parse_ingredients_text_service($product_ref, {}, []);
+	my $ingredients = $product_ref->{ingredients};
+	is(scalar @$ingredients, 1, "$text is one ingredient");
+	is($ingredients->[0]{id}, $id, "$text keeps its identity");
+	is($ingredients->[0]{ingredients}, undef, "$text has no unknown sub-ingredient");
+	is($ingredients->[0]{origins}, $origin, "$text has the expected origin");
+}
+
 done_testing;
