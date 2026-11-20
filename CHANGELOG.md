@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.125.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.124.1...v2.125.0) (2026-11-20)
+
+
+### Features
+
+* show ANSES "additive of interest" line in the additive knowledge panel ([#15437](https://github.com/openfoodfacts/openfoodfacts-server/issues/15437)) ([60fe14e](https://github.com/openfoodfacts/openfoodfacts-server/commit/60fe14e20c2c7b3ffdf528cd2fd93993c3a10f1c))
+
+
+### Bug Fixes
+
+* **ingredients:** Portuguese vitamin lists and 'origem' origin statements ([#15413](https://github.com/openfoodfacts/openfoodfacts-server/issues/15413)) ([20f8231](https://github.com/openfoodfacts/openfoodfacts-server/commit/20f8231ab399c2982f5443c1ffd5766d7434849c))
+* **ingredients:** recognise superscript footnote markers like ⁽¹⁾ ([#15428](https://github.com/openfoodfacts/openfoodfacts-server/issues/15428)) ([d88dc10](https://github.com/openfoodfacts/openfoodfacts-server/commit/d88dc10a098e04781f6ea6bf145d56366049df15))
+* **mail:** set reply-to header to user email for pro user signup notifications ([#15447](https://github.com/openfoodfacts/openfoodfacts-server/issues/15447)) ([#15467](https://github.com/openfoodfacts/openfoodfacts-server/issues/15467)) ([c1c5836](https://github.com/openfoodfacts/openfoodfacts-server/commit/c1c5836e9725f829be3dbfae6593be0829db707d))
+
 ## [2.124.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.124.0...v2.124.1) (2026-11-19)
 
 

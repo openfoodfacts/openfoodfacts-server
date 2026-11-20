@@ -1606,6 +1606,25 @@ puffed orange and caramelized unknown_fruit4.",
 				"_Sojabasis_ (Wasser, geschälte _Sojabohnen_ (10,4%)], Kokosmilch (4,3%) (Kokoscreme, Wasser), Zucker, Tricalciumcitrat, Säureregulatoren (Natriumcitrate, Citronensäure), Stabilisator (Pektine), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherol-tatige Extract, Fettsäureester der Ascorbinsäure), Vitamine (B12, D2), Joghurtkulturen (Str. Thermophilus, L. bulgaricus).",
 		}
 	],
+	# Frequent unknown German ingredients (2026-11 analysis of German products)
+	# traces with the plural forms of macadamia and pecan nuts
+	[
+		'de-traces-macadamia-pecan-nuts',
+		# staging 20408923
+		{
+			lc => "de",
+			ingredients_text =>
+				"Zucker, Weizenmehl. Kann Spuren von Haselnüssen, Macadamianüssen, Pecannüssen und Eiern enthalten.",
+		}
+	],
+	[
+		'de-frequent-unknown-ingredients',
+		{
+			lc => "de",
+			ingredients_text =>
+				"Brechbohnen, Pecannüssen, Macadamianüssen, Haselnüssen, stark entölter Kakao, Erdbeermark, Himbeerpüree, Himbeermark, löslicher Bohnenkaffee, Mu-Err-Pilze, Liebstockwurzel, grüne Paprika, grüne Peperoni, Weizenröstmalzmehl, natürliches Zitronenaroma mit anderen natürlichen Aromen, färbendes Konzentrat aus Karotte, färbendes Spirulinakonzentrat, färbendes Rote-Bete-Saftkonzentrat, färbender Paprikaextrakt, färbender Kurkuma-Auszug, Hähnchenfett mit Haut, Geflügelfett mit Haut, Salatmayonnaise, Süßkraut, süße Brombeerblätter, kakaohaltige Fettglasur, essbare Hülle aus Rinderkollagen, Mango-Chutney, Lollo Rosso, Lollo Bionda, Weißbrot, mildgesäuerte Butter, gekörnte Brühe, Eibisch, Bibernelle, Schlüsselblume, Frauenmantel, Schafgarbe, Aroma Chinin, Gewürzgurken, Kochschinken, Molkeneiweißkäse Ricotta, Frischkäse Doppelrahmstufe, Schnittkäse, Edelschimmelkulturen, Starterkultur, Enzyme, Tomatensoße.",
+		}
+	],
 	# Romanian: legacy cedilla forms (ş ţ) and missing diacritics
 	[
 		'ro-cedilla-and-missing-diacritics',
@@ -1777,6 +1796,59 @@ puffed orange and caramelized unknown_fruit4.",
 				"pšenična bela moka, glukozni sirup, kakavova masa, palmino olje, repično olje, jagode 12 %, maline, korenje, paradižnikov koncentrat, krompirjev škrob, modificiran škrob, maltodekstrin, jogurt, posneto mleko v prahu, piščančje meso, jedilna želatina, alkoholni kis, vinski kis, ekstrakt kvasa, kvas, karoteni, sirilo, kumarice, emulgatorja (sojini lecitini, E471), stabilizatorji (E407, E412), gostilo (E415), antioksidanta (E300, E306), konzervansa (E202, E211), sredstvi za vzhajanje (E500, E450), sredstvo za ohranjanje vlage (E422), barvila (E160a), sladili (E950, E955), vanilin sladkor.",
 		}
 	],
+	# Portuguese origins in parenthesis: "origem", "país de origem"
+	[
+		'pt-origins-in-parenthesis',
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Leite (Origem: UE), carne de porco (País de origem: Portugal), azeite (origem: Espanha, Itália), açúcar (país de origem: França), amido (de origem vegetal)",
+		}
+	],
+	# "Denominação de Origem Protegida" is a label (PDO), not an origin statement
+	[
+		'pt-pdo-not-origin',
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Queijo (Denominação de Origem Protegida), vinho (Denominação de Origem Controlada), leite (origem: Portugal)",
+		}
+	],
+	# Portuguese vitamins enumeration
+	[
+		'pt-vitamins',
+		{
+			lc => "pt",
+			ingredients_text => "Leite, vitaminas (B1, B2, B6, B12, C, D3), vitaminas A e E",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (cereals, sugars, fats, fibres)
+	[
+		'it-cereals-sugars-fats-fibres',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Semola rimacinata di grano duro, acqua, legumi, gocce di cioccolato fondente 10%, olio di semi di girasole altoleico, palmisti, fibre alimentari, psillio, cruschello di frumento, granturco, amido di frumento deglutinato, zucchero impalpabile, melasso, zucchero grezzo di canna, lievito per panificazione, proteine vegetali idrolizzate, semola di mais",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (vegetables, fruits, fish, meat)
+	[
+		'it-vegetables-fish-meat',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Lattughino verde, lattughino rosso, spinacino, cavolo nero, bieta, asparagi, barbabietola rossa, peperone rosso, cetriolo, fagioli di soia, amarena, armelline, cotenna, merluzzo, gamberetti, alga nori",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (dairy, ferments, eggs)
+	[
+		'it-dairy-ferments-eggs',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Yogurt di latte intero, yogurt colato, fermenti lattici specifici vivi (Lactococcus cremoris, Leuconostoc mesenteroides), fermenti vivi, uova da galline allevate a terra, preparazione alla vaniglia, galattosio",
+		}
+	],
 	# European Portuguese (pt-PT) ingredient names: polme, alperce, sêmea, couratos, fiambre, colza...
 	[
 		'pt-european-portuguese-fruit-and-dairy',
@@ -1835,6 +1907,14 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "et",
 			ingredients_text =>
 				"maitsetaimed, ürdid, sinepipulber, jodeeritud sool, joogivesi, suhkrusiirup, õunapüree, piimašokolaad, rukkijahu, hernevalk, meresool, rukkilinnasejahu, veiniäädikas, cayenne'i pipar, cayenne pipar, ensüümid, invertsuhkrusiirup, kartulihelbed, linnaseekstrakt, peedisuhkur, sidrunimahl, marineeritud kurk, mikrobioloogiline laap, modifitseeritud kartulitärklis, munakollasepulber, taimne kiud, täielikult hüdrogeenitud kookosõli, õunamahla kontsentraat, chia seemned, hernekiud, juustupulber, kanepijahu, kanepiseemned, kirsipüree, köögiviljad, küpsised, nisulinnasejahu, peedipulber, punapeet, puuviljapektiin, rabarberimahl, rafineeritud rapsiõli, rasvatu piim, riivsai, sealihavalk, sheaõli, suitsuaroom, toorjuust, tsitruskiud, täielikult hüdrogeenitud päevalilleõli, vaarikad, broileriliha, glükoosisiirupi pulber, loomne valk, apelsinimahl kontsentreeritud mahlast, hirveliha, kodujuust, kõvanisujahu, kaerapõhi, maasikamahl, pruun suhkur, rukkitäisterajahu, valge peakapsas, viinamarjamahl kontsentreeritud mahlast, kuivatatud sibul, piiritusäädikas, sealiha, broileri rinnafilee, hibiskus, seapekk, tainas, rukkipüülijahu, koorejäätis, vitamiin c, mononaatriumglutamaat, naatriumisoaskorbaat, trifosfaat, dekstriin, difosfaadid, guargummi, stabilisaatorid (E407), emulgaatorid (E471), värvaine (E160a), toiduvärvid (E150c), värvained (E100), antioksüdandid (E306), happed (E330), maitsetugevdajad (E621), maitsetugevdaja (E631), paakumisvastased ained (E551), vahutamisvastased ained (E900), kandeaine (E1520), kandeained (E1518), mahuained (E1200), emulgeerivad soolad (E339), tardained (E509), vahustusained (E999), želeerivad ained (E440), tarret andvad ained (E406), glaseerained (E903), niiskusesäilitajad (E422), modifitseeritud tärklised (E1422), pakendusgaas (E941), pakendusgaasid (E938), propellendid (E942), sekvestrandid (E385), magusained (E950), konservant (E202), konservandid (E211), jahu parendajad (E300).",
+		}
+	],
+	[
+		'sr-frequent-unknown-ingredients',
+		{
+			lc => "sr",
+			ingredients_text =>
+				"aroma, pšenično brašno, obrano mleko u prahu, surutka u prahu, suncokretovo ulje, biljna mast, biljno ulje, palmino ulje, maltodekstrin, kakao masa, laktoza, crni luk, punomasno mleko u prahu, krompirov skrob, ekstrakt kvasca, prirodna aroma, kokosovo ulje, mleko, morska so, senf, beli luk u prahu, svinjsko meso, koncentrat paradajza, pirinčano brašno, pšenični skrob, seme susama, lešnik, kikiriki, med, kurkuma, čokolada, pekarski kvasac, prezle, instant kafa, jogurtna kultura, maslinovo ulje, pšenični griz, kukuruz, ražano brašno, vinsko sirće, sušeni crni luk, mrkva, ruzmarin, šećer u prahu, beli pasulj, suvo grožđe, cimet, grašak, jodirana so, tunjevina, crni čaj, sojino ulje, mleveni crni biber, pšenično brašno t500, kakao prah sa redukovanim sadržajem kakao maslaca, mononatrijum glutaminat, natrijum hidrogenkarbonat, askorbinska kiselina, guar guma, karagenan, ksantan guma, natrijum nitrit, aspartam, difosfati, sorbitol, natrijum benzoat, kalcijum karbonat, sukraloza, kalcijum propionat, želatin, riboflavini, karoteni, vitamini, tiamin, kalcijum d pantotenat, taurin, emulgator (E471), emulgatori (E322), konzervans (E202), konzervansi (E211), antioksidans (E300), stabilizator (E407), stabilizatori (E412), zgušnjivač (E415), zgušnjivači (E410), sredstvo za dizanje testa (E500), sredstva za dizanje testa (E503), pojačivač arome (E621), pojačivač ukusa (E631), boje (E150d), modifikovani skrob (E1422), zaslađivač (E951), zaslađivači (E955), sredstvo za želiranje (E440), humektant (E422), regulatori kiselosti (E330), sredstvo protiv zgrudnjavanja (E551), sredstvo za tretiranje brašna (E300), sredstvo za glaziranje (E903), učvršćivač (E509). može sadržati tragove jezgrastog voća, lešnika, mleka, slačice, glutena, susama, sezama, lupine, soju.",
 		}
 	],
 );

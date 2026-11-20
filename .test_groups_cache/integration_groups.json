@@ -6,9 +6,9 @@
       "tests/integration/auth-keycloak.t",
       "tests/integration/create_user.t",
       "tests/integration/import_file_fields_authorization.t",
-      "tests/integration/page_crawler.t",
-      "tests/integration/recipes_stats.t",
-      "tests/integration/web_html.t"
+      "tests/integration/org_user_delete.t",
+      "tests/integration/recent_changes.t",
+      "tests/integration/upload_images.t"
     ],
     "total_time": 240.0
   },
@@ -19,10 +19,11 @@
       "tests/integration/auth.t",
       "tests/integration/data_quality_knowledge_panel.t",
       "tests/integration/import_systemeu.t",
-      "tests/integration/password_api_no_keycloak_session.t",
-      "tests/integration/remove_documents_by_ids.t"
+      "tests/integration/page_crawler.t",
+      "tests/integration/recipes_stats.t",
+      "tests/integration/web_html.t"
     ],
-    "total_time": 210.0
+    "total_time": 240.0
   },
   {
     "tests": [
@@ -31,8 +32,8 @@
       "tests/integration/auth_user_from_keycloak.t",
       "tests/integration/delete_user.t",
       "tests/integration/keycloak_device_activity_session_sync.t",
-      "tests/integration/product_history_knowledge_panel.t",
-      "tests/integration/return_url_allowlist.t"
+      "tests/integration/password_api_no_keycloak_session.t",
+      "tests/integration/remove_documents_by_ids.t"
     ],
     "total_time": 210.0
   },
@@ -43,8 +44,8 @@
       "tests/integration/change_product_code_and_product_type.t",
       "tests/integration/export.t",
       "tests/integration/knowledge_panel_escaping.t",
-      "tests/integration/product_read.t",
-      "tests/integration/run_cloud_vision_ocr.t"
+      "tests/integration/product_history_knowledge_panel.t",
+      "tests/integration/return_url_allowlist.t"
     ],
     "total_time": 210.0
   },
@@ -55,8 +56,8 @@
       "tests/integration/convert_and_import_excel_file.t",
       "tests/integration/external_sources.t",
       "tests/integration/madenearme.t",
-      "tests/integration/product_write.t",
-      "tests/integration/search_v1.t"
+      "tests/integration/product_read.t",
+      "tests/integration/run_cloud_vision_ocr.t"
     ],
     "total_time": 210.0
   },
@@ -67,8 +68,8 @@
       "tests/integration/cors.t",
       "tests/integration/facets.t",
       "tests/integration/minion_job_status.t",
-      "tests/integration/products_comparison.t",
-      "tests/integration/session_revocation.t"
+      "tests/integration/product_write.t",
+      "tests/integration/search_v1.t"
     ],
     "total_time": 210.0
   },
@@ -79,8 +80,8 @@
       "tests/integration/countries.t",
       "tests/integration/fix_non_normalized_codes.t",
       "tests/integration/modify_user.t",
-      "tests/integration/protected_images.t",
-      "tests/integration/sugar_random_lang.t"
+      "tests/integration/products_comparison.t",
+      "tests/integration/session_revocation.t"
     ],
     "total_time": 210.0
   },
@@ -91,8 +92,8 @@
       "tests/integration/create_pro_user.t",
       "tests/integration/image_move_authorization.t",
       "tests/integration/oidc_signin.t",
-      "tests/integration/protected_product.t",
-      "tests/integration/unknown_tags.t"
+      "tests/integration/protected_images.t",
+      "tests/integration/sugar_random_lang.t"
     ],
     "total_time": 210.0
   },
@@ -103,8 +104,8 @@
       "tests/integration/create_product.t",
       "tests/integration/import_csv_file.t",
       "tests/integration/oidc_signout.t",
-      "tests/integration/recent_changes.t",
-      "tests/integration/upload_images.t"
+      "tests/integration/protected_product.t",
+      "tests/integration/unknown_tags.t"
     ],
     "total_time": 210.0
   }

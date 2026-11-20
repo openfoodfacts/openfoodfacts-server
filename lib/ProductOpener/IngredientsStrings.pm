@@ -191,7 +191,8 @@ $symbols_regexp = join('|', @symbols);
 	ru => "Могут содержаться следы",
 	sk => "výrobok môže obsahovat|môže obsahovať",
 	sl => "lahko vsebuje sledi|lahko vsebuje sledove",
-	sr => "može sadržati tragove",
+	sr =>
+		"može da sadrži tragove|može da sadrži u tragovima|može sadržati u tragovima|može sadržati tragove|može sadrzati tragove|može da sadrži|može sadržati|može sadržavati",
 	sv =>
 		"denna produkt kan innet?h[åa]lla sp[åa]r av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
