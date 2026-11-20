@@ -45,7 +45,7 @@ foreach my $url (
 }
 
 # Urls that are not ours are refused. The first ones are the ones the prefix match accepted.
-my $other_domain = $server_domain =~ s/openfoodfacts/openpetfoodfacts/;
+my $other_domain = $server_domain =~ s/openfoodfacts/openpetfoodfacts/r;
 
 my @refused = (
 	["https://world.$server_domain.evil.example/steal", 'a host suffixed to ours'],
