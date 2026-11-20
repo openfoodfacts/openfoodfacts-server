@@ -670,6 +670,8 @@ sub wait_for_callback ($timeout, $timeout_error, $start) {
 	# AnyEvent loop until the callback or the deadline wakes the caller.
 	my $cv = AE::cv;
 	my $timed_out = 0;
+	# Apache workers can go idle between calls into the event loop.
+	AnyEvent->now_update();
 	my $timer = AE::timer $timeout, 0, sub {
 		$timed_out = 1;
 		$cv->send();
@@ -727,15 +729,19 @@ sub get_rate_limit_user_requests ($ip, $bucket) {
 	if (defined $redis_client) {
 		$ratelimiter_log->debug("Getting rate-limit user requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
-		my $key = rate_limit_key($ip, $bucket);
 		eval {
-			my $redis_error;
-			($resp, $redis_error) = wait_for_callback(
-				RATE_LIMIT_REPLY_TIMEOUT_SECONDS,
-				"Timed out waiting for Redis GET reply",
-				sub ($on_reply) {$redis_client->get($key, $on_reply);}
-			);
-			die $redis_error->message() if defined $redis_error;
+			my $key;
+			do {
+				$key = rate_limit_key($ip, $bucket);
+				my $redis_error;
+				($resp, $redis_error) = wait_for_callback(
+					RATE_LIMIT_REPLY_TIMEOUT_SECONDS,
+					"Timed out waiting for Redis GET reply",
+					sub ($on_reply) {$redis_client->get($key, $on_reply);}
+				);
+				die $redis_error->message() if defined $redis_error;
+				# The reply can arrive after this counter's window ends.
+			} while ($key ne rate_limit_key($ip, $bucket));
 		};
 		$error = $@;
 	}
