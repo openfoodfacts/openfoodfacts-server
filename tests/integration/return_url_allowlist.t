@@ -34,6 +34,10 @@ foreach my $url (
 	"https://world.$server_domain/?code=1",
 	"http://world.$server_domain/cgi/session.pl",    # http is accepted, as before
 	"https://world.$server_domain:8080/cgi/product.pl",
+	"https://world.$server_domain/facets/brands/Coca-Cola",
+	"https://world.$server_domain/facets/categories/Breads",
+	"https://world.$server_domain/facets/labels/organic",
+	"https://world.$server_domain/facets/countries/france",
 	)
 {
 	ok(is_allowed_return_url($url, 'world'), "'$url' is one of our urls");
@@ -87,6 +91,17 @@ foreach my $target ("https://world.$server_domain.evil.example/steal", "https://
 	my $location = $response->header('Location') // '';
 	isnt($location, $target, "login.pl does not redirect to '$target'");
 	isnt($location, $target . '/', "login.pl does not redirect to '$target/'");
+}
+
+my $facet_url = "https://world.$server_domain/facets/brands/Coca-Cola";
+$response = $ua->get(construct_test_url('/cgi/session.pl?return_url=' . uri_escape($facet_url)));
+is($response->header('Location'), $facet_url, "session.pl redirects logged-in user to facet url");
+
+foreach my $target ("https://world.$server_domain.evil.example/steal", "https://evil.example/") {
+	$response = $ua->get(construct_test_url('/cgi/session.pl?return_url=' . uri_escape($target)));
+	my $location = $response->header('Location') // '';
+	isnt($location, $target, "session.pl does not redirect to '$target'");
+	isnt($location, $target . '/', "session.pl does not redirect to '$target/'");
 }
 
 done_testing();

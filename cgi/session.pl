@@ -31,7 +31,12 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Lang qw/lang/;
-use ProductOpener::Auth qw/is_allowed_return_url write_auth_deprecated_headers/;
+use ProductOpener::Auth qw/
+	access_to_protected_resource
+	get_oidc_implementation_level
+	is_allowed_return_url
+	write_auth_deprecated_headers
+	/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -47,16 +52,38 @@ my $template_data_ref = {};
 
 $template_data_ref->{user_id} = $User_id;
 
-if (defined $User_id) {
+my $r = shift || eval {Apache2::RequestUtil->request()};
+my $subdomain = $request_ref->{subdomain};
+my $referer = $request_ref->{referer} // ($r ? eval {$r->headers_in->{Referer}} : undef);
+
+my $auth_scripts_pattern = qr/(?:login|session|user|reset_password|oidc_sign(?:in|out)(?:_callback)?)\.pl/;
+
+my $return_url = single_param('return_url') // single_param('redirect');
+if (defined $return_url && $return_url =~ m{^/(?!/|\\)}) {
+	$return_url = $request_ref->{formatted_subdomain} . $return_url;
+}
+
+my $target_return_url;
+if (    defined $return_url
+	and is_allowed_return_url($return_url, $subdomain)
+	and ($return_url !~ $auth_scripts_pattern))
+{
+	$target_return_url = $return_url;
+}
+elsif ( defined $referer
+	and is_allowed_return_url($referer, $subdomain)
+	and ($referer !~ $auth_scripts_pattern))
+{
+	$target_return_url = $referer;
+}
+
+if (defined $User_id && !single_param('jqm')) {
 
 	$template_data_ref->{user_name} = $User{name};
 
 	my $next_action = single_param('next_action');
 	my $code = single_param('code');
-	my $r = shift;
-	my $referer = $r->headers_in->{Referer};
 	my $url;
-	my $subdomain = $request_ref->{subdomain};
 
 	if ((defined $next_action) and ($code =~ /^(\d+)$/)) {
 		if ($next_action eq 'product_add') {
@@ -66,10 +93,8 @@ if (defined $User_id) {
 			$url = "/cgi/product.pl?type=edit&code=$code";
 		}
 	}
-	elsif (is_allowed_return_url($referer, $subdomain)
-		and (not($referer =~ /(?:login|session|user|reset_password)\.pl/)))
-	{
-		$url = $referer;
+	elsif (defined $target_return_url) {
+		$url = $target_return_url;
 	}
 
 	if (defined $url) {
@@ -77,11 +102,13 @@ if (defined $User_id) {
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
 		write_auth_deprecated_headers();
-		if (defined $request_ref->{cookie}) {
+		if (defined $request_ref->{cookie} && $r) {
 			$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 		}
-		$r->headers_out->set(Location => "$url");
-		$r->status(302);
+		if ($r) {
+			$r->headers_out->set(Location => "$url");
+			$r->status(302);
+		}
 		return 302;
 	}
 }
@@ -100,7 +127,7 @@ if (single_param('jqm')) {
 
 	write_auth_deprecated_headers();
 	print header(-type => 'application/json', -charset => 'utf-8') . $data;
-
+	return;
 }
 else {
 	my $template;
@@ -115,9 +142,23 @@ else {
 		$template = "signed_in";
 		$request_ref->{title} = '';
 	}
+	elsif (get_oidc_implementation_level() >= 3) {
+		# The user is signing in: redirect to Keycloak OIDC authentication flow
+		if (defined $target_return_url) {
+			$request_ref->{return_url} = $target_return_url;
+		}
+		else {
+			delete $request_ref->{return_url};
+		}
+
+		write_auth_deprecated_headers();
+		access_to_protected_resource($request_ref);
+		return 302;
+	}
 	else {
-		# The user is signing in: display the login form
+		# The user is signing in: display the legacy login form
 		$template = "sign_in_form";
+		$template_data_ref->{redirect} = $target_return_url // $return_url;
 		$request_ref->{title} = lang('sign_in');
 	}
 
