@@ -4,11 +4,13 @@
 
 async function loadOpenPrices() {
   const container = document.getElementById("open-prices-content");
-
+  
   if (!container) {
     return;
   }
 
+  const viewLink = document.getElementById("open-prices-view");
+  const addLink = document.getElementById("open-prices-add");
   const barcode = window.productData?.code;
 
   if (!barcode) {
@@ -17,25 +19,30 @@ async function loadOpenPrices() {
     return;
   }
 
-  const viewLink = document.getElementById("open-prices-view");
-  const addLink = document.getElementById("open-prices-add");
-
+  // Configure the links.
   if (viewLink) {
-    viewLink.href = `https://prices.openfoodfacts.org/products/${encodeURIComponent(barcode)}`;
+    viewLink.href =
+      `https://prices.openfoodfacts.org/products/${encodeURIComponent(barcode)}`;
   }
 
   if (addLink) {
-    const url = new URL("https://prices.openfoodfacts.org/prices/add/multiple");
-    url.searchParams.set("code", barcode);
-    addLink.href = url.toString();
+    const addUrl = new URL(
+      "https://prices.openfoodfacts.org/prices/add/multiple",
+    );
+    addUrl.searchParams.set("code", barcode);
+    addLink.href = addUrl.toString();
+    addLink.hidden = false;
   }
 
   try {
-    const url = new URL("https://prices.openfoodfacts.org/api/v1/prices");
-    url.searchParams.set("product_code", barcode);
-    url.searchParams.set("size", "1");
+    const apiUrl = new URL(
+      "https://prices.openfoodfacts.org/api/v1/prices",
+    );
 
-    const response = await fetch(url.toString());
+    apiUrl.searchParams.set("product_code", barcode);
+    apiUrl.searchParams.set("size", "1");
+
+    const response = await fetch(apiUrl.toString());
 
     if (!response.ok) {
       throw new Error(`Open Prices API returned ${response.status}`);
@@ -50,13 +57,26 @@ async function loadOpenPrices() {
     if (data.total > 0) {
       container.textContent =
         `${data.total} price(s) found for this product.`;
+
+      if (viewLink) {
+        viewLink.hidden = false;
+      }
     } else {
       container.textContent =
         "No prices found for this product. Help us by adding one!";
+
+      if (viewLink) {
+        viewLink.hidden = true;
+      }
     }
   } catch (error) {
     container.textContent =
-      "Could not load price information. You can still visit Open Prices.";
+      "Could not load price information. You can still add a price.";
+
+    if (viewLink) {
+      viewLink.hidden = true;
+    }
+
     console.error("Failed to load Open Prices:", error);
   }
 }

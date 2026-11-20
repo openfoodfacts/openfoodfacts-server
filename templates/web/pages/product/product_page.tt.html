@@ -344,17 +344,28 @@
             <div class="card-section">
                 <h2>Prices</h2>
 
-                <div id="open-prices-content" aria-live="polite">
-                    Loading price information...
-                </div>
+                <p id="open-prices-content" aria-live="polite">
+                Loading price information...
+                </p>
 
-                <div class="open-prices-links">
-                    <a id="open-prices-view" target="_blank" rel="noopener noreferrer">
-                        View prices on Open Prices
-                    </a>
-                    <a id="open-prices-add" target="_blank" rel="noopener noreferrer">
-                        Add a price
-                    </a>
+                <div class="open-prices-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;"></div>
+                <a
+                    id="open-prices-view"
+                    class="button small round"
+                    href="#"
+                    hidden
+                >
+                    View prices on Open Prices
+                </a>
+
+                <a
+                    id="open-prices-add"
+                    class="button small round"
+                    href="#"
+                    hidden
+                >
+                    Add a price
+                </a>
                 </div>
             </div>
         </div>
