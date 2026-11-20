@@ -66,7 +66,7 @@ is: glúten
 it: glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
 ja: 小麦/そば, 小麦, 穀物, グルテン, コムギ, そば, ソバ
 lt: avižos, avižų, avižiniai, avižinės, glitimas, glitimo, glitimu, kamutas, kviečiai, kviečių, kvietiniai, kvietinės, miežiai, miežių, miežiniai, miežinės, rugiai, ruginiai, ruginės, rugių, spelta, manų
-lv: auzas, auzu, kvieši, kviešu, lipekli, manna, mieži, miežu, rudzi, speltas kvieši, triticum turgidum polonicum, satur lipekli saturošus graudaugus
+lv: auzas, auzu, kvieši, kviešu, lipekli, manna, mieži, miežu, rudzi, speltas kvieši, triticum turgidum polonicum, satur lipekli saturošus graudaugus, kviešu daļiņas
 mt: glutina, qamħ, segala, barli, ħafur, ispelt, kamut
 nb: gluten, hvete, durumhvete, hvetemel, spelt, rugmel, fullkornshvete, fullkornshvetemel, havre, havremel, havregryn, bygg, rug, rugklimel, hvetestivelse, hveteflak, havreflak, havrekli, rugflak, hvetekli, hvetegluten, byggmalt, byggmaltmel, byggmaltekstrakt, hvetemalt, hvetemaltmel kornslag som indeholder gluten, hvetekornet, paneringsmel, speltkli
 nl: gluten, tarwe, rogge, gerst, haver, spelt, kamut, tarwemeel, volkorentarwemeel, tarwezetmeel, tarwebloem
@@ -134,7 +134,7 @@ hu: tojás, tojássárgája, tojásfehérje, tojáspor, tyúktojás, tojássárg
 it: uova, uovo
 ja: 卵, 玉子, たまご, タマゴ, エッグ, 鶏卵, あひる卵, うずら卵
 lt: kiaušiniai, kiaušinis, kiaušinių, kiaušinio, kiaušinio baltymas, kiaušinio baltymai, kiaušinio trynys, kiaušinio tryniai
-lv: olas, ola
+lv: olas, ola, olu, olu daļiņas
 mt: bajd
 nb: egg, eggeplomme, eggeplommepulver, eggehviter, eggehvitepulver
 nl: eieren, ei, scharreleigeel, scharrelkipeigeel, scharrelkipeiwit, scharrelkipeiwitpoeder, scharrelkipheelei, scharrelei
@@ -243,7 +243,7 @@ hu: földimogyoró, földimogyorót, arachis hypogaea
 it: arachidi, arachis hypogaea
 ja: 落花生, ラッカセイ, ピーナッツ
 lt: žemės riešutai, žemės riešutų, arachis hypogaea
-lv: zemesrieksti, arachis hypogaea
+lv: zemesrieksti, arachis hypogaea, zemesriekstu, zemesriekstus
 mt: karawett, arachis hypogaea
 nb: peanøtt, peanøtter
 nl: pinda, aardnoten, pindas, pinda's, arachis hypogaea
@@ -280,7 +280,7 @@ is: soja
 it: soia, lecitina di soia
 ja: 大豆, だいず, ダイズ, 醤油
 lt: sojų pupelės, sojų, soja, sojos, sojos pupelė, sojų miltai, sojų lecitinas, sojų lecitinai, sojos baltymas, sojų baltymai, sojų baltymų izoliatas, sojų produktų, sojos produktų
-lv: sojas pupas, sojas, sojas pārpalikumi
+lv: sojas pupas, sojas, sojas pārpalikumi, soju, sojas produktu, sojas daļiņas
 mt: soybeans
 nb: soya, soyabønner, soyamel, soyalecitin, soyalecitiner, soyapulver
 nl: soja, sojalecithine, sojaeiwitten, sojabonen
@@ -316,7 +316,7 @@ is: mjólk, undanrenna, nýmjólk, léttmjólk
 it: latte, lattosio, panna, panna di latte, parmigiano reggiano, grana padano
 ja: 乳, 乳成分, 牛乳, ミルク, クリーム, バター, バターオイル, ヨーグルト, チーズ, アイスクリーム
 lt: išrūgų, pienas, pieno, pienu, pieniškas, laktozę, laktozė, laktozės, laktoze, sviestas, sviesto, sviestu, pasukos, pasukų, jogurtas, jogurto, grietinė, grietinėlė, pieniškas šokoladas, pieniško šokolado, pieno milteliai, pieno baltymai, pieno baltymas
-lv: laktozi, piena, piens, pilnpiena, vājpiena
+lv: laktozi, piena, piens, pilnpiena, vājpiena, pienu, piena daļiņas
 mt: ħalib, lattosju
 nb: melk, melkepulver, skummet melk, skummetmelkepulver, helmelk, helmelkpulver, helmelkspulver, kumelk, laktose, fløte, melkefett, melkeprotein, melkeproteiner, tørrmelk, ost, ostepulver, geitost, geitmyse, geitfløte, geitmelk, myse, mysepulver, kjernemelk, ferskost, ferskostepulver, skummetmelkyoghurtpulver
 nl: melk, melkpoeder, lactose, boter, karnemelk, room, jogurt, kaas, gouda, edam, yoghurt, melkvet, melkeiwit
@@ -353,7 +353,7 @@ is: hnetur
 it: frutta a guscio, mandorle, nocciole, noci, noci di acagiù, noci di pecan, noci del Brasile, pistacchi, noci macadamia, noci del Queensland
 ja: くるみ/アーモンド, くるみ, 種実類, 木の実, 木の実類, アーモンド, ヘーゼルナッツ, クルミ, カシューナッツ, ペカン, ブラジルナッツ, ピスタチオ, マカダミアナッツ
 lt: riešutai, riešutų, riešutas, riešutais, migdolai, migdolų, migdolas, migdolais, lazdyno riešutai, lazdynų, lazdynas, lazdynais, lazdyno, graikiniai riešutai, graikinių riešutų, graikiniais riešutais, anakardžiai, anakardžių, anakardžiais, Anakardium occidentale, pekaninės karijos, pekaninių karijų, brazilinės bertoletijos, brazilinių bertoletijų, pistacijos, pistacijų, pistacija, makadamijos, makadamijų, makadamija, Kvinslendo riešutai, kitų riešutų
-lv: rieksti, mandeles, lazdu rieksti, valrieksti, Indijas rieksti, pekanrieksti, Brazīlijas rieksti, pistāciju rieksti, makadāmijas, Kvīnslendas rieksti
+lv: rieksti, mandeles, lazdu rieksti, valrieksti, Indijas rieksti, pekanrieksti, Brazīlijas rieksti, pistāciju rieksti, makadāmijas, Kvīnslendas rieksti, riekstu, riekstus, citus riekstus, citu riekstu, citu riekstu daļiņas, mandeļu
 mt: ġewż, lewż, ġellewż, ġewż, anakardji, ġewż Amerikan, ġewż tal-Brażil, pistaċċi, macadamia, Queensland nuts
 nb: nøtter, andre nøtter, andre typer nøtter, mandel, mandler, mandelprotein, hasselnøtt, hasselnøtter, hasselnøttpasta, hasselnøttmasse, hasselnøttkjerner, kasjunøtt, kasjunøtter, cashewnøtt, cashewnøtter, pistasjnøtt, valnøtt, valnøtter, paranøtt, paranøtter
 nl: noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten, paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
@@ -388,7 +388,7 @@ hu: zeller, zellergumó, zellert
 it: sedano
 ja: セロリ
 lt: salierai, salieras, saliero, salierų, salierais, salieru
-lv: selerijas
+lv: selerijas, seleriju
 mt: karfus
 nb: selleri, sellerifrø, sellerisalt
 nl: selderij
@@ -425,7 +425,7 @@ hu: mustár, mustármag, mustárt, mustárral
 it: senape
 ja: マスタード, カラシナ, シロガラシ
 lt: garstyčios, garstyčių, garstyčia, garstyčiomis
-lv: sinepes
+lv: sinepes, sinepju
 mt: mustarda
 nb: sennep, sennepsfrø, sennepspulver, dijonsennep
 nl: mosterd, mosterzaad, mosterdzaden
@@ -461,7 +461,7 @@ hu: szezámmag, szezám, szezámmagot
 it: semi di sesamo, sesamo
 ja: ごま, ゴマ, 胡麻
 lt: sezamo sėklos, sezamo, sezamas, sezamų, sezamai, sezamais, sezamu
-lv: sezama sēklas, sezama
+lv: sezama sēklas, sezama, sezama sēklu, sezama sēklu daļiņas
 mt: ġulġlien
 nb: sesamfrø, sesam
 nl: sesamzaad, sesam
@@ -535,7 +535,7 @@ hu: csillagfürt, csillagfürtöt
 it: lupini
 ja: ルピナス属
 lt: lubinai
-lv: lupīna
+lv: lupīna, lupīnu
 mt: lupina
 nl: lupine
 nl_be: lupine
