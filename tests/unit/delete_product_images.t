@@ -63,7 +63,7 @@ subtest "delete_all_product_images - moves files and cleans up directories" => s
 	);
 
 	foreach my $file (@test_files) {
-		open my $fh, ">:utf8", "$product_img_dir/$file" or die "Cannot create test file $file: $!";
+		open my $fh, ">:encoding(UTF-8)", "$product_img_dir/$file" or die "Cannot create test file $file: $!";
 		print $fh "dummy content for $file\n";
 		close $fh;
 	}
@@ -125,11 +125,11 @@ subtest "store_product - deletes images when product is flagged as deleted" => s
 	my $product_img_dir = "$BASE_DIRS{PRODUCTS_IMAGES}/$path";
 	make_path($product_img_dir);
 
-	open my $fh1, ">:utf8", "$product_img_dir/1.jpg" or die "Cannot create test file: $!";
+	open my $fh1, ">:encoding(UTF-8)", "$product_img_dir/1.jpg" or die "Cannot create test file: $!";
 	print $fh1 "image 1 data\n";
 	close $fh1;
 
-	open my $fh2, ">:utf8", "$product_img_dir/front_en.1.jpg" or die "Cannot create test file: $!";
+	open my $fh2, ">:encoding(UTF-8)", "$product_img_dir/front_en.1.jpg" or die "Cannot create test file: $!";
 	print $fh2 "front image data\n";
 	close $fh2;
 
