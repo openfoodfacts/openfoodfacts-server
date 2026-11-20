@@ -95,7 +95,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Config qw/%options/;
 use ProductOpener::Tags qw/is_a exists_taxonomy_tag gen_tags_list_with_parents get_property
 	canonicalize_taxonomy_tag get_minimal_tags_subset %writable_tags_fields
-	get_all_taxonomy_entries get_taxonomy_tag_synonyms %translations_to/;
+	get_all_taxonomy_entries get_taxonomy_entry_synonyms_regexps join_regexps_longest_first %translations_to/;
 use ProductOpener::Store qw/unac_string_perl/;
 use ProductOpener::ProductsTags
 	qw/set_field_input_tags_for_source get_field_input_tags_from_all_sources generate_field_tags_from_all_sources add_tag/;
@@ -885,32 +885,28 @@ sub _taxonomy_entries_and_children ($taxonomy, $tags_ref) {
 # Regular expression that matches the synonyms in language $lc (and xx) of taxonomy entries and of their
 # children, in a normalized text (see _normalize_text()). Returns undef if there are no synonyms in $lc
 sub _taxonomy_entries_regexp ($entries_ref, $lc) {
-	my %synonyms = ();
+	my %synonyms_regexps = ();
 	foreach my $taxonomy (keys %$entries_ref) {
 		foreach my $entry (_taxonomy_entries_and_children($taxonomy, $entries_ref->{$taxonomy})) {
 			my @languages = ($lc eq 'any') ? (sort keys %{$translations_to{$taxonomy}{$entry} // {}}) : ($lc, "xx");
-			foreach my $synonym_lc (@languages) {
-				foreach my $synonym (get_taxonomy_tag_synonyms($synonym_lc, $taxonomy, $entry)) {
-					my $normalized = _normalize_text($synonym);
-					$normalized =~ s/^\s+|\s+$//g;
-					next if $normalized eq '';
-					# spaces, dashes and apostrophes are interchangeable
-					my $synonym_regexp = join('[\s\-\'’]*', map {quotemeta($_)} split(/[\s\-\'’]+/, $normalized));
-					# whole words, except for languages written without spaces between words
-					my $type = ($normalized =~ /[\p{Han}\p{Hiragana}\p{Katakana}\p{Thai}]/) ? "anywhere" : "words";
-					$synonyms{$type}{$synonym_regexp} = 1;
-				}
+			# spaces, dashes and apostrophes are interchangeable
+			foreach my $synonym_regexp (
+				map {get_taxonomy_entry_synonyms_regexps($taxonomy, $entry, $_, {loose_separators => 1})} @languages)
+			{
+				# whole words, except for languages written without spaces between words
+				my $type = ($synonym_regexp =~ /[\p{Han}\p{Hiragana}\p{Katakana}\p{Thai}]/) ? "anywhere" : "words";
+				$synonyms_regexps{$type}{$synonym_regexp} = 1;
 			}
 		}
 	}
-	return if not %synonyms;
+	return if not %synonyms_regexps;
 	my @alternatives = ();
-	foreach my $type (sort keys %synonyms) {
-		my $alternatives = join('|', sort {(length($b) <=> length($a)) || ($a cmp $b)} keys %{$synonyms{$type}});
+	foreach my $type (sort keys %synonyms_regexps) {
+		my $alternatives = join_regexps_longest_first(keys %{$synonyms_regexps{$type}});
 		push @alternatives, ($type eq "words") ? "(?<!\\w)(?:$alternatives)(?!\\w)" : "(?:$alternatives)";
 	}
 	my $regexp = join('|', @alternatives);
-	return qr/$regexp/;
+	return qr/$regexp/i;
 }
 
 # Return [lc, text] for the non-empty values of text fields: [field]_[lc], and [field] in the main language

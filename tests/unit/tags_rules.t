@@ -255,6 +255,14 @@ my @semantics_tests = (
 	['name-taxonomy' => 1, fixture(categories => "en:colas", product_name_de => "Cola KOFFEINFREI")],
 	['name-taxonomy' => 1, fixture(categories => "en:colas", lc => "es", product_name => "Cola sin cafeina")],
 	['name-taxonomy' => 1, fixture(categories => "en:colas", generic_name_en => "Caffeine-free cola")],
+	# spaces, dashes and apostrophes are interchangeable, case and accents are ignored
+	['name-taxonomy' => 1, fixture(categories => "en:colas", product_name_fr => "Cola SANS-CAFEINE")],
+	['name-taxonomy' => 1, fixture(categories => "en:colas", product_name_en => "Cola zero\ncaffeine")],
+	['name-taxonomy' => 1, fixture(categories => "en:colas", product_name_ca => "Cola sense cafeina")],
+	['name-taxonomy' => 1, fixture(categories => "en:colas", product_name_ru => "Кола БЕЗ КОФЕИНА")],
+	# whole words, except for languages written without spaces between words
+	['name-taxonomy' => 0, fixture(categories => "en:colas", product_name_en => "Cola decafs")],
+	['name-taxonomy' => 1, fixture(categories => "en:colas", product_name_th => "โคล่าไม่มีคาเฟอีน")],
 	# synonyms of another language do not match
 	['name-taxonomy' => 0, fixture(categories => "en:colas", product_name_en => "Cola sans caféine")],
 	['name-taxonomy' => 0, fixture(categories => "en:colas", product_name_fr => "Cola")],
