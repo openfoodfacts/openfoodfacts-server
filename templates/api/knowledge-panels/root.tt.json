@@ -2,6 +2,24 @@
     "type": "root",
     "expanded": true,
     "elements": [
+        [% IF knowledge_panels_options.activate_knowledge_panels_ingredients_nutrition_first %]
+        [% IF panels.ingredients_card.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "ingredients_card",
+            },
+        },
+        [% END %]
+        [% IF panels.nutrition_card.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "nutrition_card",
+            },
+        },
+        [% END %]
+        [% END %]
         [% IF panel.has_health_card %]
         {
             "element_type": "panel",
@@ -42,6 +60,14 @@
             },
         },
         [% END %]       
+        [% IF panel.has_product_card AND knowledge_panels_options.activate_knowledge_panels_ingredients_nutrition_first %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "product_card",
+            },
+        },
+        [% END %]
         [% IF panel.has_report_problem_card %]
         {
             "element_type": "panel",
@@ -58,7 +84,7 @@
                 },
             },
         [% END %]
-        [% IF panel.has_product_card %]
+        [% IF panel.has_product_card AND NOT knowledge_panels_options.activate_knowledge_panels_ingredients_nutrition_first %]
         {
             "element_type": "panel",
             "panel_element": {

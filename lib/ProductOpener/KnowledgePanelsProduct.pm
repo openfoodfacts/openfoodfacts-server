@@ -40,6 +40,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&create_product_card_panel
+		&create_sources_manufacturer_panel
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -47,10 +48,18 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
+use ProductOpener::Orgs qw(retrieve_org);
 use ProductOpener::Tags qw(display_taxonomy_tag get_tags_grouped_by_property get_taxonomy_tag_and_link_for_lang);
 
 use Encode;
 use Data::DeepAccess qw(deep_get);
+
+sub _text_for_panel_html ($text) {
+	$text //= '';
+	$text =~ s/`/'/g;
+	$text =~ s/\R/<br>/g;
+	return $text;
+}
 
 =head2 create_product_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
 
@@ -134,8 +143,27 @@ sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_re
 			};
 	}
 
+	my @text_panels;
+
+	if ($options_ref->{activate_knowledge_panel_product_information}) {
+		foreach my $field (qw(conservation_conditions customer_service)) {
+			my $value = $product_ref->{"${field}_$target_lc"};
+			$value = $product_ref->{$field} if (not defined $value or $value eq '');
+			next if (not defined $value or $value eq '');
+
+			create_panel_from_json_template(
+				$field,
+				"api/knowledge-panels/product/product_text_panel.tt.json",
+				{field => $field, text => _text_for_panel_html($value)},
+				$product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+			);
+			push @text_panels, $field;
+		}
+	}
+
 	my $panel_data_ref = {
 		taxonomy_panels => \@taxonomy_panels,
+		text_panels => \@text_panels,
 		target_lc => $target_lc,
 	};
 
@@ -143,6 +171,32 @@ sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_re
 
 	create_panel_from_json_template("product_card", "api/knowledge-panels/product/product_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return 1;
+}
+
+=head2 create_sources_manufacturer_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref )
+
+Creates the panel saying that the product data was provided by the manufacturer.
+Only when the product has an owner organization, and not on the producers platform.
+
+Returns 1 if the panel was created.
+
+=cut
+
+sub create_sources_manufacturer_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+	return unless $options_ref->{activate_knowledge_panel_product_information};
+	return if $options_ref->{producers_platform};
+	return unless ($product_ref->{owner} // '') =~ /^org-(.+)$/;
+
+	my $org_ref = retrieve_org($1) or return;
+
+	create_panel_from_json_template(
+		"sources_manufacturer",
+		"api/knowledge-panels/product/sources_manufacturer.tt.json",
+		{org_name => _text_for_panel_html($org_ref->{name})},
+		$product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+	);
 
 	return 1;
 }

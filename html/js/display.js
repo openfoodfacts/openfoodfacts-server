@@ -151,6 +151,16 @@ $(function () {
                 };
             }
         }
+    }).on("select2:open", function () {
+        const countrySelect = $(this);
+        const select2 = countrySelect.data('select2');
+        if (select2 && select2.dropdown && select2.dropdown.$search) {
+            const searchLabel = countrySelect.attr('data-search-placeholder');
+            select2.dropdown.$search.attr({
+                placeholder: searchLabel,
+                'aria-label': searchLabel
+            });
+        }
     }).on("select2:select", function (e) {
         let subdomain = e.params.data.id;
         if (!subdomain) {

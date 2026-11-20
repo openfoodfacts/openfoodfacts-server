@@ -234,7 +234,7 @@ HTML
 	# Flavors without this setting do not run tags rules.
 	tags_rules => {
 		# Tag fields that rule conditions can test (e.g. "labels: en:organic")
-		condition_tag_fields => [qw(categories labels countries brands origins states)],
+		condition_tag_fields => [qw(categories labels countries origins states)],
 		# Tag fields that rules can add tags to (stored in tags_sources.[field].rules).
 		# Data quality tags (data_quality_warnings, data_quality_info) can always be added.
 		add_tag_fields => [qw(categories)],

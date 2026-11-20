@@ -80,18 +80,13 @@
          "text" : "nougat glacé"
       },
       {
-         "ciqual_food_code" : "9200",
-         "ecobalyse_id" : "11fd6550-211b-5c84-8424-5331b1cb3ca6",
-         "ecobalyse_name" : "Maïs Origine Inconnue",
          "id" : "en:corn-flakes",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.68359375,
          "percent_max" : 12.5,
          "percent_min" : 0,
          "processing" : "en:sugar-coated",
-         "text" : "corn flakes",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "text" : "corn flakes"
       }
    ],
    "ingredients_analysis" : {
@@ -100,14 +95,16 @@
          "en:candied-orange-peel",
          "en:iced-tea",
          "en:iced-coffee",
-         "en:frozen-nougat"
+         "en:frozen-nougat",
+         "en:corn-flakes"
       ],
       "en:vegetarian-status-unknown" : [
          "en:glace-cherry",
          "en:candied-orange-peel",
          "en:iced-tea",
          "en:iced-coffee",
-         "en:frozen-nougat"
+         "en:frozen-nougat",
+         "en:corn-flakes"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -147,9 +144,7 @@
       "en:iced-tea",
       "en:iced-coffee",
       "en:frozen-nougat",
-      "en:corn-flakes",
-      "en:corn",
-      "en:cereal"
+      "en:corn-flakes"
    ],
    "ingredients_text" : "10 cl d'eau glacée, 50 g de marrons glacés, 50 g de cerises glacées, écorces d'orange glacées, 20 cl de thé glacé, café glacé, nougat glacé, corn flakes glacés au sucre",
    "ingredients_with_specified_percent_n" : 0,
@@ -157,19 +152,21 @@
    "ingredients_with_unspecified_percent_n" : 8,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "en:corn-flakes",
       "en:glace-cherry",
       "en:iced-coffee",
       "en:iced-tea"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 4,
    "ingredients_without_ecobalyse_ids" : [
       "en:candied-orange-peel",
+      "en:corn-flakes",
       "en:frozen-nougat",
       "en:glace-cherry",
       "en:iced-coffee",
       "en:iced-tea"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 6,
    "known_ingredients_n" : 8,
    "lc" : "fr",
    "misc_tags" : [

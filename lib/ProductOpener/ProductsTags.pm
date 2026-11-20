@@ -52,6 +52,7 @@ BEGIN {
 		&remove_tag
 		&add_tags_to_field
 		&set_field_input_tags_for_source
+		&get_field_input_tags_from_all_sources
 		&generate_field_tags_from_all_sources
 		&compute_field_tags
 
@@ -329,6 +330,11 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	return;
 }
 
+# Some apps send "null" or "undefined" as a string when a field is empty,
+# those values must not become tags (e.g. en:null or en:undefined categories)
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/11933
+my $null_tag_regexp = qr/^(?:[a-z][a-z]:)?(?:null|undefined)$/i;
+
 =head2 set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags)
 
 New function to set the input tags for a field and a source. (e.g. categories for the manufacturer source)
@@ -415,6 +421,7 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 		$tag =~ s/\s+$//;
 
 		next if $tag eq "";
+		next if $tag =~ $null_tag_regexp;
 
 		my $normalized_tag;
 
@@ -476,6 +483,33 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 	return;
 }
 
+=head2 get_field_input_tags_from_all_sources ($product_ref, $tagtype, $excluded_sources_ref = [])
+
+Return the sorted list of the input tags of a field (without their parents), from all the sources
+in tags_sources.[tagtype], except the sources listed in $excluded_sources_ref.
+
+e.g. the tags rules (TagsRules.pm) exclude the "rules" source, so that rules only see the tags
+entered by contributors, producers, apps etc.
+
+=cut
+
+sub get_field_input_tags_from_all_sources ($product_ref, $tagtype, $excluded_sources_ref = []) {
+
+	my %excluded_sources = map {$_ => 1} @$excluded_sources_ref;
+	my $sources_ref = deep_get($product_ref, "tags_sources", $tagtype) // {};
+
+	my %all_input_tags = ();
+	foreach my $source (keys %$sources_ref) {
+		next if $excluded_sources{$source};
+		foreach my $tag (@{$sources_ref->{$source}{tags} // []}) {
+			$all_input_tags{$tag} = 1;
+		}
+	}
+
+	my @all_input_tags_list = sort keys %all_input_tags;
+	return @all_input_tags_list;
+}
+
 =head2 generate_field_tags_from_all_sources ($product_ref, $tagtype)
 
 This function gathers all the input tags for a field from all sources, and generates the final tags for the field,
@@ -485,29 +519,7 @@ including parents for taxonomy fields.
 
 sub generate_field_tags_from_all_sources ($product_ref, $tagtype) {
 
-	my %all_input_tags = ();
-
-	if (defined $product_ref->{tags_sources}{$tagtype}) {
-		foreach my $source (keys %{$product_ref->{tags_sources}{$tagtype}}) {
-
-			$log->debug(
-				"generate_field_tags_from_all_sources - source",
-				{
-					tagtype => $tagtype,
-					source => $source,
-					source_data => $product_ref->{tags_sources}{$tagtype}{$source}
-				}
-			) if $log->is_debug();
-
-			if (defined $product_ref->{tags_sources}{$tagtype}{$source}{tags}) {
-				foreach my $tag (@{$product_ref->{tags_sources}{$tagtype}{$source}{tags}}) {
-					$all_input_tags{$tag} = 1;
-				}
-			}
-		}
-	}
-
-	my @all_input_tags_list = sort keys %all_input_tags;
+	my @all_input_tags_list = get_field_input_tags_from_all_sources($product_ref, $tagtype);
 
 	$log->debug("generate_field_tags_from_all_sources - all input tags", {all_input_tags_list => \@all_input_tags_list})
 		if $log->is_debug();
@@ -567,7 +579,8 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 
 	if (defined $taxonomy_fields{$field}) {
 		$product_ref->{$field . "_lc"} = $tag_lc;    # save the language for the field, useful for debugging
-		$product_ref->{$field . "_hierarchy"} = [gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field})];
+		$product_ref->{$field . "_hierarchy"}
+			= [grep {$_ !~ $null_tag_regexp} gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field})];
 		$product_ref->{$field . "_tags"} = [];
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
 			push @{$product_ref->{$field . "_tags"}}, $tag;
@@ -585,7 +598,9 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 		}
 
 		foreach my $tag (split(',', $value)) {
-			if (get_string_id_for_lang($tag_lc, $tag) ne '') {
+			if (    (get_string_id_for_lang($tag_lc, $tag) ne '')
+				and (get_string_id_for_lang("no_language", $tag) !~ $null_tag_regexp))
+			{
 				# There is only one field value for all languages, use "no_language" to normalize
 				push @{$product_ref->{$field . "_tags"}}, get_string_id_for_lang("no_language", $tag);
 				if ($field eq 'emb_codes') {
