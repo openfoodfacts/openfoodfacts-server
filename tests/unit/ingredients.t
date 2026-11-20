@@ -1606,6 +1606,25 @@ puffed orange and caramelized unknown_fruit4.",
 				"_Sojabasis_ (Wasser, geschälte _Sojabohnen_ (10,4%)], Kokosmilch (4,3%) (Kokoscreme, Wasser), Zucker, Tricalciumcitrat, Säureregulatoren (Natriumcitrate, Citronensäure), Stabilisator (Pektine), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherol-tatige Extract, Fettsäureester der Ascorbinsäure), Vitamine (B12, D2), Joghurtkulturen (Str. Thermophilus, L. bulgaricus).",
 		}
 	],
+	# Frequent unknown German ingredients (2026-11 analysis of German products)
+	# traces with the plural forms of macadamia and pecan nuts
+	[
+		'de-traces-macadamia-pecan-nuts',
+		# staging 20408923
+		{
+			lc => "de",
+			ingredients_text =>
+				"Zucker, Weizenmehl. Kann Spuren von Haselnüssen, Macadamianüssen, Pecannüssen und Eiern enthalten.",
+		}
+	],
+	[
+		'de-frequent-unknown-ingredients',
+		{
+			lc => "de",
+			ingredients_text =>
+				"Brechbohnen, Pecannüssen, Macadamianüssen, Haselnüssen, stark entölter Kakao, Erdbeermark, Himbeerpüree, Himbeermark, löslicher Bohnenkaffee, Mu-Err-Pilze, Liebstockwurzel, grüne Paprika, grüne Peperoni, Weizenröstmalzmehl, natürliches Zitronenaroma mit anderen natürlichen Aromen, färbendes Konzentrat aus Karotte, färbendes Spirulinakonzentrat, färbendes Rote-Bete-Saftkonzentrat, färbender Paprikaextrakt, färbender Kurkuma-Auszug, Hähnchenfett mit Haut, Geflügelfett mit Haut, Salatmayonnaise, Süßkraut, süße Brombeerblätter, kakaohaltige Fettglasur, essbare Hülle aus Rinderkollagen, Mango-Chutney, Lollo Rosso, Lollo Bionda, Weißbrot, mildgesäuerte Butter, gekörnte Brühe, Eibisch, Bibernelle, Schlüsselblume, Frauenmantel, Schafgarbe, Aroma Chinin, Gewürzgurken, Kochschinken, Molkeneiweißkäse Ricotta, Frischkäse Doppelrahmstufe, Schnittkäse, Edelschimmelkulturen, Starterkultur, Enzyme, Tomatensoße.",
+		}
+	],
 	# Romanian: legacy cedilla forms (ş ţ) and missing diacritics
 	[
 		'ro-cedilla-and-missing-diacritics',
@@ -1841,6 +1860,33 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => "en",
 			ingredients_text => "wheat flour type ,quot,0,quot,, water, salt &amp; pepper, sugar &lt;1%",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (cereals, sugars, fats, fibres)
+	[
+		'it-cereals-sugars-fats-fibres',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Semola rimacinata di grano duro, acqua, legumi, gocce di cioccolato fondente 10%, olio di semi di girasole altoleico, palmisti, fibre alimentari, psillio, cruschello di frumento, granturco, amido di frumento deglutinato, zucchero impalpabile, melasso, zucchero grezzo di canna, lievito per panificazione, proteine vegetali idrolizzate, semola di mais",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (vegetables, fruits, fish, meat)
+	[
+		'it-vegetables-fish-meat',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Lattughino verde, lattughino rosso, spinacino, cavolo nero, bieta, asparagi, barbabietola rossa, peperone rosso, cetriolo, fagioli di soia, amarena, armelline, cotenna, merluzzo, gamberetti, alga nori",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (dairy, ferments, eggs)
+	[
+		'it-dairy-ferments-eggs',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Yogurt di latte intero, yogurt colato, fermenti lattici specifici vivi (Lactococcus cremoris, Leuconostoc mesenteroides), fermenti vivi, uova da galline allevate a terra, preparazione alla vaniglia, galattosio",
 		}
 	],
 	# European Portuguese (pt-PT) ingredient names: polme, alperce, sêmea, couratos, fiambre, colza...
