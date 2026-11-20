@@ -12,6 +12,7 @@ stopwords:is: í, snefilmagni
 stopwords:it: derivanti, del, di, de, la, e, tracce, contiene, una, fonte, di, puo, può, contenere, altra, contenenti, a, base, semi
 stopwords:pt: traços, vestígios, vestígio, a, e, uma, em, ou, de, que, com, contém, contêm, possível, eventual, outros, produto, produtos, derivado, derivados, incluido, incluidos, incluida, incluidas, fonte, pode, elaborado, onde, se, processa, grãos, possível, possíveis, este, feito, manofaturado, fabricado, fábrica, também, usa, subproduto, subprodutos, mín, min, mínimo, refinado
 stopwords:sk: obsahuje, s obsahom, výrobky zo, výrobok zo, výrobky z, výrobok z
+stopwords:sr: i, ili, može, da, sadrži, sadržati, sadrzati, sadržavati, tragove, u tragovima
 
 en: none, allergens-free, without allergens, without, n, no, no allergens, 0
 ar: لا أحد, خال من مسببات الحساسية, بدون مسببات الحساسية, بدون, لا, لا توجد مسببات للحساسية, 0
@@ -77,7 +78,7 @@ ro: gluten, grâu, secară, orz, ovăz, grâu spelt, grâu dur, griș de grău
 ru: глютен, пшеница, рожь, ячмень, овёс, полба (камут) (спельта) (двузернянка) (фарро), манная крупа
 sk: pšenica, pšenica obyčajná, raž, jačmeň, ovos, pšenica, špalda, cirok, glutén, lepok
 sl: gluten, pšenica, pšenico, rž, ječmen, oves, pira, kamut, glutena, pšenice
-sr: pšenica, pšenično, pšenični, gluten, glutenom, glutenski, surutka, surutke, surutkom, spelta, pšenični griz
+sr: pšenica, pšenično, pšenični, gluten, glutenom, glutenski, spelta, pšenični griz, glutena
 sv: gluten, vete, durumvete, råg, korn, havre, spelt, kamut, dinkel, dinkelvete, vetemjöl, durumvetemjöl, rågmjöl, kornmjöl, havremjöl, speltmjöl, kamutmjöl, havrekorn, vetekli, rågkli, kornkli, havrekli, speltkli, kamutkli, veteflingor, rågflingor, kornflingor, havreflingor, speltflingor, kamutflingor, dinkelflingor, fullkornsvete, fullkornsdurumvete, fullkornsråg, fullkornskorn, fullkornshavre, fullkornsspelt, fullkornskamut, fullkornsvetemjöl, fullkornsdurumvetemjöl, fullkornsrågmjöl, fullkornshavremjöl, fullkornsveteflingor, fullkornsrågflingor, fullkornshavreflingor, fullkornsspeltflingor, fullkornskamutflingor, fullkornsrågkross, malt, vetemalt, vetemaltextrakt, rågmalt, rågmaltextrakt, kornmalt, kornmaltextrakt, kornmaltsextrakt, havremalt, havremaltextrakt, speltmalt, speltmaltextrakt, kamutmalt, kamutmaltextrakt, dinkelmalt, vetegryn, råggryn, korngryn, havregryn, speltgryn, kamutgryn, vetegroddar, råggroddar, korngroddar, havregroddar, speltgroddar, kamutgroddar, vetefibrer, vetestärkelse, kornmaltvinäger, vetedextros, vetegluten, råggluten, korngluten, havreglute, sädesslag, andra sädesslag, spannmål som innehåller gluten, durum, durumkärnor, rågsikt, rågskållning, rågkärnor, havrefiber, veteknäckebröd, maltmjöl, vetegrits
 th: กลูเต็น, ข้าวสาลี, ข้าวไร, บาร์เลย์
 zh: 麸质
@@ -291,7 +292,7 @@ ro: soia, lecitină din soia
 ru: соя, соевые бобы
 sk: sójové bôby, sójové, sója, sóje, sóju, sójových bôbov
 sl: zrnja soje, zrnje soje, soje, sojo
-sr: soja, soje, sojin, sojino, sojin lecitin, sojino brašno
+sr: soja, soje, sojin, sojino, sojin lecitin, sojino brašno, soju
 sv: soja, sojabönor, sojalecitin, sojabönolja, sojabönsolja, sojaprotein, sojasås, sojamjöl, sojapulver
 th: ถั่วเหลือง
 zh: 大豆类制品, 黄豆，大豆，酱油
@@ -327,7 +328,7 @@ ro: lapte, lactoză, produse lactate
 ru: молоко, лактоза, сливки, молочная сыворотка, йогурт
 sk: mlieko, mlieka, laktózy, laktóza, mliečne výrobky, mliečnych výrobkov, mliečne, mliečnych
 sl: mleko, laktozo, mleka
-sr: mleko, mlečno, mlečni, laktoza
+sr: mleko, mlečno, mlečni, laktoza, surutka, surutke, surutkom, mleka
 sv: mjölk, mjölkpulver, skummjölk, skummjölkspulver, mellanmjölk, mellanmjölkspulver, kärnmjölk, standardmjölk, standardmjölkspulver, helmjölk, helmjölkspulver, laktos, grädde, matlagningsgrädde, gräddpulver, vispgrädde, smör, smörfett, fårmjölk, getmjölk, komjölk, vassle, vasslepulver, vassleprotein, mjölkfett, mjölkprotein, mjölkproteiner, mjölksocker, mjölkprodukt, ost, emmentaler, emmentalerost, hårdost, mozzarellaost, halloumi, cheddarost, ostpulver, yoghurt, kvarg, crème fraiche
 th: นม, แล็กโทส, ครีม, เนย, นมเปรี้ยว, เนยแข็ง
 zh: 乳, 乳糖, 奶油, 鮮奶油, 忌廉, 黃油, 奶油, 牛油
@@ -364,7 +365,7 @@ ro: fructe cu coajă lemnoasă, migdale, alune de pădure, nuci, nuci Caju, nuci
 ru: орехи, миндаль, кешью, пекан, бразильский орех, макадамия, фисташки, орехи Куинсленд
 sk: orechy, mandle, Amygdalus communis L., lieskové oriešky, Corylus avellana, vlašské orechy, Juglans regia, kešu oriešky, Anacardium occidentale, pekanové orechy, Carya illinoinensis, brazílske orechy, Bertholletia excelsa, pistáciové oriešky, Pistacia vera, makadamové orechy, queenslandské orechy, Macadamia ternifolia
 sl: oreški, mandlji, lešniki, lešnike, orehi, indijski oreščki, ameriški orehi, brazilski oreščki, pistacija, makadamija, orehi Queensland, drugih oreškov, oreškov, oreščkov, lešnikov, mandljev
-sr: jezgrasto voće, orasi, badem, badema, bademi, indijski orah, indijski orasi, pekan, pekan orasi, pistaći, makadamija, ostalog jezgrastog voća
+sr: jezgrasto voće, orasi, badem, badema, bademi, indijski orah, indijski orasi, pekan, pekan orasi, pistaći, makadamija, ostalog jezgrastog voća, jezgrastog voća, orašaste plodove, lešnika, lešnik
 sv: nötter, notter, mandel, mandlar, mandelprotein, hasselnöt, hasselnötter, hasselnötshalvor, hasselnötpasta, hasselnötssmör, valnöt, valnötter, cashewnöt, cashewnötter, pekannöt, pekannötter, paranöt, paranötter, pistachnöt, pistagenöt, pistagenötter, pistaschmandel, makadamianöt, makadamianötter, macadamianöt, macadamianötter, Queenslandsnöt, Queenslandsnötter, andra nötter, nötter (inga jordnötter)
 th: อัลมอนด์
 zh: 坚果, 扁桃仁, 坚果, 杏仁, 扁桃仁, 腰果, 榛子, 核桃, 松子, 榛仁, 核桃=核桃仁, 松子=松仁, 开心果=阿月浑子, 板栗, 白果, 银杏果, 开心果, 夏威夷果, 碧根果
@@ -436,7 +437,7 @@ ro: muștar
 ru: горчица
 sk: horčica, horčice, horčicu
 sl: gorčice, gorčično seme, gorčičnih semen, gorčičnega semena
-sr: senf, slačica
+sr: senf, slačica, slačice, slačicu
 sv: senap, senapsfrö, senapsfröpulver, senapspulver, senapsmjöl
 th: มัสตาร์ด
 zh: 芥末醬
@@ -472,7 +473,7 @@ ro: semințe de susan, susan
 ru: сезам, кунжут
 sk: sezamové semeno, sezamových semien
 sl: sezamovo seme, sezamovo, sezamovega semena, sezama, sezamovih semen
-sr: susam, susamovo seme, seme susama
+sr: susam, susamovo seme, seme susama, susama, sezama
 sv: sesamfrön, sesamfrö, sesam
 th: งา
 zh: 芝麻
@@ -545,6 +546,7 @@ ro: lupin
 ru: люпин
 sk: vlčí bôb, lupina, vlčieho bôbu
 sl: volčji, volčji bob, volčjega boba
+sr: lupina, lupine
 sv: lupin
 th: ลูพิน
 zh: 羽扇豆, 鲁冰花

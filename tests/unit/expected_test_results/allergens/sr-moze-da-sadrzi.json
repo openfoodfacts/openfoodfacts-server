@@ -1,0 +1,138 @@
+{
+   "allergens_tags" : [
+      "en:milk"
+   ],
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "text" : "šećer",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "16030",
+         "ecobalyse_id" : "0ea5f5a0-51d9-41da-9ac4-cb60f3ddb86c",
+         "ecobalyse_name" : "Beurre de cacao par défaut -2025-",
+         "from_palm_oil" : "no",
+         "id" : "en:cocoa-butter",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "kakao maslac",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "19044",
+         "ecobalyse_id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "ecobalyse_name" : "Poudre de lait écrémé FR -2025-",
+         "id" : "en:milk-powder",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "mleko u prahu",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:milk-powder"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "sr",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:sugar",
+      "en:cocoa-butter",
+      "en:milk-powder"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:cocoa-butter",
+      "en:cocoa",
+      "en:vegetable-fat",
+      "en:plant",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
+      "en:milk-powder",
+      "en:dairy"
+   ],
+   "ingredients_text" : "šećer, kakao maslac, mleko u prahu. Može da sadrži kikiriki, susam.",
+   "ingredients_text_sr" : "šećer, kakao maslac, mleko u prahu. Može da sadrži kikiriki, susam.",
+   "ingredients_text_with_allergens" : "šećer, kakao maslac, mleko u prahu. Može da sadrži <span class=\"allergen\">kikiriki</span>, <span class=\"allergen\">susam</span>.",
+   "ingredients_text_with_allergens_sr" : "šećer, kakao maslac, mleko u prahu. Može da sadrži <span class=\"allergen\">kikiriki</span>, <span class=\"allergen\">susam</span>.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 3,
+   "lang" : "sr",
+   "languages" : {
+      "en:serbian" : 1
+   },
+   "languages_codes" : {
+      "sr" : 1
+   },
+   "languages_hierarchy" : [
+      "en:serbian"
+   ],
+   "languages_tags" : [
+      "en:serbian",
+      "en:1"
+   ],
+   "lc" : "sr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:milk"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:peanuts",
+               "en:sesame-seeds"
+            ]
+         }
+      }
+   },
+   "traces_tags" : [
+      "en:peanuts",
+      "en:sesame-seeds"
+   ],
+   "unknown_ingredients_n" : 0
+}
