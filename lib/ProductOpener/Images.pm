@@ -99,6 +99,7 @@ BEGIN {
 		&process_image_upload_using_filehandle
 		&process_image_move
 		&delete_uploaded_image_and_associated_selected_images
+		&delete_all_product_images
 
 		&same_image_generation_parameters
 		&normalize_generation_ref
@@ -1362,6 +1363,81 @@ sub delete_uploaded_image_and_associated_selected_images($product_ref, $imgid) {
 			}
 		}
 	}
+
+	return 1;
+}
+
+=head2 delete_all_product_images ( $product_ref )
+
+Moves all image files of a product to the deleted images directory ($BASE_DIRS{DELETED_IMAGES}/$code).
+This function deletes all uploaded images and unselects associated selected images, moving
+all corresponding files to the deleted folder. Any remaining files in the product's image directory
+are also moved, and the empty directory is cleaned up.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+A reference to the product data structure.
+
+=head3 Return values
+
+1 if successfully processed, 0 if product_ref is invalid.
+
+=cut
+
+sub delete_all_product_images ($product_ref) {
+
+	if ((ref($product_ref) ne 'HASH') or (not defined $product_ref->{code})) {
+		return 0;
+	}
+
+	my $code = $product_ref->{code};
+	my $path = product_path($product_ref);
+	my $product_images_dir = "$BASE_DIRS{PRODUCTS_IMAGES}/$path";
+	my $deleted_images_dir = "$BASE_DIRS{DELETED_IMAGES}/$code";
+
+	$log->debug("delete_all_product_images - start", {code => $code, path => $path})
+		if $log->is_debug();
+
+	# 1. Delete all uploaded images and their associated selected images
+	if (ref($product_ref->{images}) eq 'HASH') {
+		if (ref($product_ref->{images}{uploaded}) eq 'HASH') {
+			foreach my $imgid (sort {$a <=> $b} keys %{$product_ref->{images}{uploaded}}) {
+				delete_uploaded_image_and_associated_selected_images($product_ref, $imgid);
+			}
+		}
+
+		# 2. Clean up any remaining selected images (e.g. unlinked or orphaned selections)
+		if (ref($product_ref->{images}{selected}) eq 'HASH') {
+			foreach my $image_type (keys %{$product_ref->{images}{selected}}) {
+				foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
+					my $rev = $product_ref->{images}{selected}{$image_type}{$image_lc}{rev};
+					my $id = $image_type . '_' . $image_lc;
+					remove_images_by_prefix($product_ref, "$id.$rev");
+				}
+			}
+			delete $product_ref->{images}{selected};
+		}
+	}
+
+	# 3. Move any remaining files in the product's image directory to the deleted folder
+	if (-d $product_images_dir) {
+		ensure_dir_created_or_die($deleted_images_dir);
+
+		my @remaining_files = glob("$product_images_dir/*");
+		foreach my $file (@remaining_files) {
+			if (-f $file) {
+				move($file, $deleted_images_dir);
+			}
+		}
+
+		# Remove the now-empty product image directory
+		rmdir($product_images_dir);
+	}
+
+	$log->debug("delete_all_product_images - end", {code => $code})
+		if $log->is_debug();
 
 	return 1;
 }
