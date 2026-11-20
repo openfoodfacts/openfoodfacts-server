@@ -207,6 +207,26 @@ Deprecation warnings about Sass `@import` are expected and harmless.
 
 Changing `cpanfile` requires `make build`. Databases and containers persist between sessions, so tests get faster over time.
 
+## Writing code maintainers will accept
+
+Reviewers have pushed back on agent PRs for reinventing what OFF already has, and for Perl that only a Perl expert can read. Before you write code:
+
+**Reuse first.** Before adding a helper or a new mechanism, grep for an existing one and say in the PR why it doesn't fit:
+- Tags on a product: `lib/ProductOpener/ProductsTags.pm` (`has_tag`, `get_all_tags_having_property`, `set_field_input_tags_for_source`, `generate_field_tags_from_all_sources`). Since product schema 1004, input tags live in `tags_sources.<field>.<source>`. Never write `<field>_tags` / `<field>_hierarchy` directly. If a function is close but not quite right, extend it (e.g. add an optional parameter) so both callers share it. Don't write a private copy.
+- Taxonomies: `lib/ProductOpener/Tags.pm` (`canonicalize_taxonomy_tag`, `is_a`, `get_property`, `get_inherited_property`, `get_taxonomy_tag_synonyms`, `generate_regexps_matching_taxonomy_entries`).
+- Taxonomy properties: before adding a list, a config key or a YAML section that says something about tags (e.g. "these categories exclude each other"), grep `taxonomies/` for a property that already says it (`incompatible_with:en`, `ciqual_food_code:en`…). Add the property lines to the taxonomy in your PR.
+- Ingredients: `Ingredients.pm` already stores `ingredients_n`, `unknown_ingredients_n`, `specific_ingredients` (e.g. cocoa %), and per-ingredient `percent`, `processing`, `vegan`… Read these fields. Don't recompute them or regex `ingredients_text`.
+
+**No translations in code or regexes.** A word that must be recognized in several languages is a taxonomy synonym. Add the missing translations to `taxonomies/` and match the entry: the parser and translators then benefit too.
+
+**Generic, but only as far as a real use.** Settings that differ by flavor (food, beauty, pet food…) go in `Config_<flavor>.pm` `%options`, not hardcoded in a module. But don't add options, conditions or field types that nothing uses yet. A reviewer asking "why only X?" wants the use case. It is not a request to implement every X.
+
+**Readable by a non-Perl expert.**
+- No nested `map`/`grep`/ternaries, `@{[ ]}` or `+{map ...}` tricks. A `foreach` loop with a comment is preferred, even if longer.
+- Every sub gets a short POD or comment: what it takes, what it returns, and why it exists if that is not obvious. A new subsystem gets a `docs/dev/explain-*.md` doc.
+- Names say what a sub returns (`_get_input_tag_set`, not `_tag_set`). Error messages name the file / field / path that caused them.
+- Before opening the PR, reread the diff for code that duplicates something else in the same PR, and for code that nothing calls.
+
 ## Troubleshooting
 
 **Cannot reach http://world.openfoodfacts.localhost/** — if the domain fails to resolve, add the `/etc/hosts` entry from Initial setup (most common cause). Otherwise check that `make dev` completed and the containers are up with `make status`.
