@@ -277,7 +277,7 @@ foreach my $test_ref (@tests) {
 		$e100_elements_ref->[0]{text_element},
 		{
 			html =>
-				"The French food safety agency ANSES listed this additive as an additive of interest in its 2019 report on the use of additives in processed foods.",
+				"The French food safety agency (ANSES) lists this additive among the additives that should be monitored. Additives on this list meet at least one of these criteria: some people may consume more than the acceptable daily intake; there is no legal maximum amount in foods; the acceptable daily intake was lowered after a recent re-evaluation; or the additive can be present as nanoparticles. Being on this list does not mean the additive is unsafe at usual levels of consumption.",
 			source_text => "ANSES - Oqali (2019)",
 			source_url => $anses_source_url,
 			source_language => "fr",
