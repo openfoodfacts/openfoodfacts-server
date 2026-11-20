@@ -1494,6 +1494,20 @@ is(
 	'misspelling with a hyphen: sel-poivre'
 );
 
+# a dash before "and" stands for the shared end of two compound words
+foreach my $test (
+	['et', "maasika lõhna - ja maitseaine", "maasika lõhna- ja maitseaine"],
+	# a dash between two ingredients is still a separator
+	['et', "suhkur - sool", "suhkur - sool"],
+	['et', "suhkur - jahu", "suhkur - jahu"],
+	# other languages are unchanged
+	['fi', "aromi - ja makuaineet", "aromi - ja makuaineet"],
+	['fr', "sel - et poivre", "sel - poivre"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "dash before and: $test->[0] / $test->[1]");
+}
+
 # mono-, di-, tri- prefixes (examples from products)
 foreach my $test (
 	# prefix followed by "and" in the language of the ingredients list, and another prefix
