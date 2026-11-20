@@ -11,6 +11,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::IngredientsStrings qw/protect_compound_unit_slashes/;
 use ProductOpener::Ingredients
 	qw/normalize_a_of_b normalize_enumeration preparse_ingredients_text separate_additive_class/;
 
@@ -1632,6 +1633,46 @@ foreach my $test (
 	)
 {
 	is(preparse_ingredients_text('da', $test->[0]), $test->[1], "da categories and types: $test->[0]");
+}
+
+# HTML entities, mangled HTML entities (& and ; turned into commas), subscript digits
+foreach my $test (
+	['it', "farina di grano tenero tipo &quot;00&quot;, acqua", 'farina di grano tenero tipo "00", acqua'],
+	['en', "salt &amp; pepper, sugar &lt;1%", "salt and pepper, sugar <1%"],
+	['en', "rapeseed&nbsp;oil, baker&#39;s yeast", "rapeseed oil, baker's yeast"],
+	['it', "Farina di GRANO tenero tipo ,quot,0,quot, 32%, acqua", 'Farina di GRANO tenero tipo "0" 32%, acqua'],
+	['it', "semi di chia ,quot,Salvia hispanica,quot, (2,7%), sale", 'semi di chia "Salvia hispanica" (2.7%), sale'],
+	['en', "wheat flour type ,quot,0,quot,, water", 'wheat flour type "0", water'],
+	['it', "zucchero, sale ,lt,1%", "zucchero, sale <1%"],
+	# not a mangled entity: "quot" or "lt" as separate list items are kept
+	['it', "acqua, lt, sale", "acqua, lt, sale"],
+	[
+		'de',
+		"Zucker, Vitamine (B₁, B₂, B₆, B₁₂, D₃)",
+		"Zucker, vitamine, vitamin B1, vitamin B2, vitamin B6, vitamin B12, vitamin D3"
+	],
+	# a decimal concentration per volume is not turned into a percentage
+	['de', "Extraktgehalt: 1,2 g/l", "Extraktgehalt: 1,2 g/l"],
+	# per 100 g is still a percentage
+	['de', "Fruchtgehalt: 45,5 g/100 g", "Fruchtgehalt: 45.5%/100 g"],
+	['fr', "eau, CO₂", "eau, CO2"],
+	# superscript digits are footnote markers and are kept
+	['fr', "sucre¹, sel²", "sucre¹, sel²"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]),
+		$test->[2], "entities and subscripts: $test->[0] / $test->[1]");
+}
+
+# slashes inside compound units are protected, but only when the numerator starts a token
+foreach my $test (
+	["Calcium 40 mg/l, Natrium", "Calcium 40 mg\N{U+2044}l, Natrium"],
+	["Bifidobacterium 10 UFC/ml", "Bifidobacterium 10 UFC\N{U+2044}ml"],
+	["Sellerie/L-Cystein", "Sellerie/L-Cystein"],
+	["Zwiebeln/Knoblauch", "Zwiebeln/Knoblauch"],
+	)
+{
+	is(protect_compound_unit_slashes($test->[0]), $test->[1], "compound unit slashes: $test->[0]");
 }
 
 done_testing();

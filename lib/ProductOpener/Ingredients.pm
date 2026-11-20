@@ -8107,6 +8107,23 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/\&lt;/</g;
 	$text =~ s/\&gt;/>/g;
 	$text =~ s/\&apos;/'/g;
+	$text =~ s/\&nbsp;/ /g;
+	$text =~ s/\&#(?:39|x27);/'/gi;
+	$text =~ s/\&#(?:34|x22);/"/gi;
+	# HTML entities mangled by an import where & and ; became commas:
+	# "farina di grano tenero tipo ,quot,0,quot," -> "farina di grano tenero tipo "0""
+	# "zucchero ,lt,1%" -> "zucchero <1%"
+	# Only the exact tokens, and < > only before a number.
+	$text =~ s/,quot,/"/g;
+	$text =~ s/,apos,/'/g;
+	$text =~ s/,amp,/&/g;
+	$text =~ s/,lt,(?=\s*\d)/</g;
+	$text =~ s/,gt,(?=\s*\d)/>/g;
+
+	# Subscript digits to ASCII digits: "Vitamine (B₁, B₂, B₁₂, D₃)" -> "Vitamine (B1, B2, B12, D3)"
+	# (superscript digits are not converted: they are often footnote markers, as in "sucre¹")
+	$text =~ tr/\x{2080}-\x{2089}/0-9/;
+
 	# last, so that "&amp;lt;" is decoded once to "&lt;" and not to "<"
 	$text =~ s/\&amp;/&/g;
 	$text =~ s/’/'/g;
@@ -8179,7 +8196,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/(\d| )g(\*)/$1g/ig;
 
 	# transform 0,2% into 0.2%
-	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
+	# but not a concentration: "Extraktgehalt: 1,2 g/l" must not become "1.2%/l"
+	# (per 100 g / 100 ml is a percentage: "Fruchtgehalt: 45,5 g/100 g" -> 45.5%)
+	$text =~ s/(\d),(\d+)( )?(\%|g\b(?!\s*[\/\N{U+2044}\N{U+FF0F}](?!\s*100\s*(?:g|ml)\b)))/$1.$2\%/ig;
 	$text =~ s/—/-/g;
 	# transform 0,1-0.2% into 0.1-0.2%
 	$text =~ s/(\d),(\d+( )?-( )?\d)/$1.$2/ig;
