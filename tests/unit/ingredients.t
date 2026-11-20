@@ -1796,6 +1796,25 @@ puffed orange and caramelized unknown_fruit4.",
 				"Αλεύρι σίτου, σουσάμι 21%, αλεύρι σίτου ολικής άλεσης 20%, φυτικό έλαιο (φοινικέλαιο), ζάχαρη, σιρόπι γλυκόζης, μαλτοδεξτρίνη, αλάτι, γλουτένη σίτου, αλεύρι βύνης κριθαριού, μαγιά, αρωματική ύλη.",
 		}
 	],
+	# European Portuguese (pt-PT) ingredient names: polme, alperce, sêmea, couratos, fiambre, colza...
+	[
+		'pt-european-portuguese-fruit-and-dairy',
+		# based on real ingredient lists of Portuguese products (5601312078630, 5601312504337, 7613035619425)
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Polme de Pêssego (55%), Polme de Maçã (35%), polme de manga, polme de pêra, polme de morango, alperce, framboesa, kiwi, tâmaras, frutos vermelhos, sólidos lácteos reconstituídos, matéria gorda láctea anidra, concentrado de minerais do leite, lactosoro ácido, ovo líquido, albumina de ovo, bifidobactérias, ricota, queijo emmental, pepitas de chocolate, chocolate negro, coco, açúcar de coco, oligofrutose, sêmea de trigo, trigo sarraceno, farinha de trigo espelta, farinha de alfarroba, óleo de girassol alto oleico, óleos vegetais (colza, palmoleína), matéria gorda vegetal, fibra de citrinos, fibra solúvel de milho, amido de tapioca, fécula de mandioca, concentrado de cenoura negra, bagas de goji, goma base, ésteres de esteróis vegetais.",
+		}
+	],
+	[
+		'pt-european-portuguese-meat-and-vegetables',
+		# based on real ingredient lists of Portuguese products (8480000057815, 5601119007970, 5601240022088)
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Perna de suíno (74%), carne de bovino, carne de vaca, frango, fiambre, entremeada de suíno, carnes separadas mecanicamente de frango, couratos, proteína de suíno, hemoglobina, feijão encarnado, feijão manteiga, massa de alho, malagueta, cravinho, ervas aromáticas, água, sal.",
+		}
+	],
 	# Frequent Czech ingredients and additive class names
 	[
 		'cs-frequent-unknown-ingredients',
@@ -1827,6 +1846,14 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "hr",
 			ingredients_text =>
 				"pšenično brašno T 850, pšenične bjelančevine, tapiokin škrob, dijetalna vlakna, vlakna cikorije, suncokretove sjemenke, integralne zobene pahuljice, pšenične klice, proteini graška, mliječni protein, sir mascarpone, zrnati sir, atlantski losos, životinjsko sirilo, kvaščevi ekstrakti, limunova kora, mladi luk, bijeli grah, aroma vanilina, natrijev alginat, eritritol, karminska kiselina, kolin klorid, vitamin A palmitat, željezo, kromov klorid, crni slanutak, zeleni grah, sok crvene naranče, ječmena krupica, pileća koža, zrna soje, zaštitne kulture, sredstvo za obradu brašna (E300), sredstva za želiranje (E440), tvar za rahljenje tijesta (E500), sekvestrant (E385), nosač (E1520), plinovi za pakiranje (E941).",
+		}
+	],
+	[
+		'et-frequent-unknown-ingredients',
+		{
+			lc => "et",
+			ingredients_text =>
+				"maitsetaimed, ürdid, sinepipulber, jodeeritud sool, joogivesi, suhkrusiirup, õunapüree, piimašokolaad, rukkijahu, hernevalk, meresool, rukkilinnasejahu, veiniäädikas, cayenne'i pipar, cayenne pipar, ensüümid, invertsuhkrusiirup, kartulihelbed, linnaseekstrakt, peedisuhkur, sidrunimahl, marineeritud kurk, mikrobioloogiline laap, modifitseeritud kartulitärklis, munakollasepulber, taimne kiud, täielikult hüdrogeenitud kookosõli, õunamahla kontsentraat, chia seemned, hernekiud, juustupulber, kanepijahu, kanepiseemned, kirsipüree, köögiviljad, küpsised, nisulinnasejahu, peedipulber, punapeet, puuviljapektiin, rabarberimahl, rafineeritud rapsiõli, rasvatu piim, riivsai, sealihavalk, sheaõli, suitsuaroom, toorjuust, tsitruskiud, täielikult hüdrogeenitud päevalilleõli, vaarikad, broileriliha, glükoosisiirupi pulber, loomne valk, apelsinimahl kontsentreeritud mahlast, hirveliha, kodujuust, kõvanisujahu, kaerapõhi, maasikamahl, pruun suhkur, rukkitäisterajahu, valge peakapsas, viinamarjamahl kontsentreeritud mahlast, kuivatatud sibul, piiritusäädikas, sealiha, broileri rinnafilee, hibiskus, seapekk, tainas, rukkipüülijahu, koorejäätis, vitamiin c, mononaatriumglutamaat, naatriumisoaskorbaat, trifosfaat, dekstriin, difosfaadid, guargummi, stabilisaatorid (E407), emulgaatorid (E471), värvaine (E160a), toiduvärvid (E150c), värvained (E100), antioksüdandid (E306), happed (E330), maitsetugevdajad (E621), maitsetugevdaja (E631), paakumisvastased ained (E551), vahutamisvastased ained (E900), kandeaine (E1520), kandeained (E1518), mahuained (E1200), emulgeerivad soolad (E339), tardained (E509), vahustusained (E999), želeerivad ained (E440), tarret andvad ained (E406), glaseerained (E903), niiskusesäilitajad (E422), modifitseeritud tärklised (E1422), pakendusgaas (E941), pakendusgaasid (E938), propellendid (E942), sekvestrandid (E385), magusained (E950), konservant (E202), konservandid (E211), jahu parendajad (E300).",
 		}
 	],
 );
