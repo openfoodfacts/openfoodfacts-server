@@ -600,19 +600,31 @@ sub compute_attribute_nutriscore ($product_ref, $target_lc, $target_cc) {
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
-			# Note: we now display the not-applicable category in the short description
-			$attribute_ref->{description_short} = f_lang_in_lc(
-				$target_lc,
-				"f_attribute_nutriscore_not_applicable_description",
-				{
-					category => display_taxonomy_tag_name(
-						$target_lc, "categories",
-						deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/)
-					)
-				}
-			);
-			#$attribute_ref->{description_short}
-			#	= lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");
+
+			my $not_applicable_category = deep_get($product_ref, "nutriscore", $version, "not_applicable_category")
+				// deep_get($product_ref, qw/nutriscore_data nutriscore_not_applicable_for_category/)
+				// deep_get($product_ref, "nutriscore", "2021", "not_applicable_category");
+
+			my $category_name
+				= (defined $not_applicable_category && $not_applicable_category ne "")
+				? display_taxonomy_tag_name($target_lc, "categories", $not_applicable_category)
+				: "";
+
+			if (defined $category_name && $category_name =~ /\S/) {
+				$attribute_ref->{description_short} = f_lang_in_lc(
+					$target_lc,
+					"f_attribute_nutriscore_not_applicable_description",
+					{category => $category_name}
+				);
+
+				$attribute_ref->{description} = f_lang_in_lc($target_lc, "f_nutriscore_not_applicable_for_category",
+					{category => $category_name});
+			}
+			else {
+				$attribute_ref->{description_short}
+					= lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_description_short");
+				$attribute_ref->{description} = lang_in_other_lc($target_lc, "nutriscore_not_applicable");
+			}
 		}
 	}
 
