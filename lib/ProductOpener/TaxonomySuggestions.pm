@@ -600,9 +600,9 @@ sub _filter_suggestions ($entries_ref, $tags_ref, $tagtype, $search_lc, $string,
 
 	# search for emb codes
 	if ($tagtype eq 'emb_codes') {
-		my $stringid = get_string_id_for_lang("no_language", normalize_packager_codes($string));
+		my $stringid = get_string_id_for_lang("no_language", $string);
 		foreach my $canon_tagid (@$tags_ref) {
-			next if $canon_tagid !~ /^$stringid/;
+			next if index($canon_tagid, $stringid) == -1;
 			my $normalized_tag = normalize_packager_codes($canon_tagid);
 			my $suggestion_ref = {
 				tag => $normalized_tag,
