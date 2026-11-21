@@ -1670,23 +1670,91 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 	# groupby_tagtype
 	my $group_field_name = $groupby_tagtype . "_tags";
+	my @pre_unwind_stages = ();
 	my @unwind_req = ({"\$unwind" => ("\$" . $group_field_name)},);
 	# specific case
 	if ($groupby_tagtype eq 'users') {
 		$group_field_name = "creator";
 		@unwind_req = ();
 	}
+	elsif ($groupby_tagtype eq 'nova_groups') {
+		# Normalize and deduplicate nova_groups_tags at the individual product level
+		# to ensure each product contributes at most once to each semantic group
+		my $normalized_nova_tags_expr = {
+			"\$setUnion" => [
+				{
+					"\$map" => {
+						input => {"\$ifNull" => ["\$nova_groups_tags", []]},
+						as => "tag",
+						in => {
+							"\$switch" => {
+								branches => [
+									{
+										case => {
+											"\$in" => [
+												"\$\$tag",
+												["1", "en:1", "en:1-unprocessed-or-minimally-processed-foods"]
+											]
+										},
+										then => "en:1-unprocessed-or-minimally-processed-foods",
+									},
+									{
+										case => {
+											"\$in" => ["\$\$tag", ["2", "en:2", "en:2-processed-culinary-ingredients"]]
+										},
+										then => "en:2-processed-culinary-ingredients",
+									},
+									{
+										case => {
+											"\$in" => ["\$\$tag", ["3", "en:3", "en:3-processed-foods"]]
+										},
+										then => "en:3-processed-foods",
+									},
+									{
+										case => {
+											"\$in" => [
+												"\$\$tag", ["4", "en:4", "en:4-ultra-processed-food-and-drink-products"]
+											]
+										},
+										then => "en:4-ultra-processed-food-and-drink-products",
+									},
+									{
+										case => {
+											"\$in" => ["\$\$tag", ["not-applicable", "en:not-applicable"]]
+										},
+										then => "en:not-applicable",
+									},
+									{
+										case => {
+											"\$in" => ["\$\$tag", ["unknown", "en:unknown"]]
+										},
+										then => "en:unknown",
+									},
+								],
+								default => "\$\$tag",
+							},
+						},
+					},
+				},
+				[],
+			],
+		};
+
+		$group_field_name = "normalized_nova_groups_tags";
+		@pre_unwind_stages = ({"\$addFields" => {"normalized_nova_groups_tags" => $normalized_nova_tags_expr}},);
+		@unwind_req = ({"\$unwind" => "\$normalized_nova_groups_tags"});
+	}
 
 	my $aggregate_count_parameters = [
 		{"\$match" => $query_ref},
-		@unwind_req,
+		@pre_unwind_stages, @unwind_req,
 		{"\$group" => {"_id" => ("\$" . $group_field_name)}},
 		{"\$count" => ($group_field_name)}
 	];
 
 	my $aggregate_parameters = [
 		{"\$match" => $query_ref},
-		@unwind_req,
+		@pre_unwind_stages, @unwind_req,
 		{"\$group" => {"_id" => ("\$" . $group_field_name), "count" => {"\$sum" => 1}}},
 		{"\$sort" => $sort_ref},
 		{"\$skip" => $skip},
@@ -1857,6 +1925,38 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 		my @tags = @{$results};
 		my $tagtype = $request_ref->{groupby_tagtype};
+
+		# Normalize nova_groups tag IDs if needed while preserving deduplicated product counts
+		if ($tagtype eq 'nova_groups') {
+			my %seen;
+			my @deduped_tags;
+			foreach my $tagcount_ref (@tags) {
+				my $raw_id = $tagcount_ref->{_id};
+				next if not defined $raw_id;
+				my $canon_id = $raw_id;
+				if ($raw_id =~ /^en:[1-4]-/) {
+					$canon_id = $raw_id;
+				}
+				elsif ($raw_id =~ /^(?:en:)?([1-4])$/) {
+					$canon_id = canonicalize_taxonomy_tag("en", "nova_groups", $1) || $raw_id;
+				}
+				elsif ($raw_id =~ /^(?:en:)?not-applicable$/) {
+					$canon_id = "en:not-applicable";
+				}
+				elsif ($raw_id =~ /^(?:en:)?unknown$/) {
+					$canon_id = "en:unknown";
+				}
+				else {
+					$canon_id = canonicalize_taxonomy_tag("en", "nova_groups", $raw_id) || $raw_id;
+				}
+
+				if (not $seen{$canon_id}++) {
+					$tagcount_ref->{_id} = $canon_id;
+					push @deduped_tags, $tagcount_ref;
+				}
+			}
+			@tags = @deduped_tags;
+		}
 
 		if (not defined $request_ref->{structured_response}{count}) {
 			$request_ref->{structured_response}{count} = ($#tags + 1);
@@ -2183,12 +2283,18 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					. $grade;
 			}
 			elsif ($tagtype eq 'nova_groups') {
-				if ($tagid =~ /^en:(1|2|3|4)/) {
-					my $group = $1;
-					$display = display_taxonomy_tag($lc, $tagtype, $tagid);
+				my $canon = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
+				if ($canon =~ /^en:([1-4])/) {
+					$display = display_taxonomy_tag($lc, $tagtype, $canon) || $canon;
+				}
+				elsif ($canon eq "en:not-applicable" or $tagid =~ /^(?:en:)?not-applicable$/) {
+					$display = display_taxonomy_tag($lc, $tagtype, "en:not-applicable") || lang("not_applicable");
+				}
+				elsif ($canon eq "en:unknown" or $tagid =~ /^(?:en:)?unknown$/) {
+					$display = display_taxonomy_tag($lc, $tagtype, "en:unknown") || lang("unknown");
 				}
 				else {
-					$display = lang("unknown");
+					$display = display_taxonomy_tag($lc, $tagtype, $tagid) || $tagid;
 				}
 			}
 			elsif (defined $taxonomy_fields{$tagtype}) {
@@ -2406,6 +2512,8 @@ HTML
 				{
 					$series_data .= (($products{$nova_group} || 0) + 0) . ',';
 				}
+				my $unknown_count = $products{"en:unknown"} // $products{"unknown"} // 0;
+				$series_data .= ($unknown_count + 0) . ',';
 			}
 
 			$series_data =~ s/,$//;
@@ -4926,11 +5034,25 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					}
 					# Normal single value (not unknown)
 					else {
-						if ($tagtype eq 'nova_groups' and ($tagid eq 'en:unknown' or $tagid eq 'en:not-applicable')) {
-							# Remove language code. for unknown and not-applicable nova_groups
-							$tagid =~ s/^[a-z]{2}://;
+						if (
+							$tagtype eq 'nova_groups'
+							and (  $tagid eq 'en:unknown'
+								or $tagid eq 'en:not-applicable'
+								or $tagid eq 'unknown'
+								or $tagid eq 'not-applicable')
+							)
+						{
+							my $tag_bare = $tagid;
+							$tag_bare =~ s/^[a-z]{2}://;
+							my $tag_canon = "en:" . $tag_bare;
+							if ($not) {
+								$query_ref->{$tagtype . $suffix} = {'$nin' => [$tag_canon, $tag_bare]};
+							}
+							else {
+								$query_ref->{$tagtype . $suffix} = {'$in' => [$tag_canon, $tag_bare]};
+							}
 						}
-						if ($not) {
+						elsif ($not) {
 							$query_ref->{$tagtype . $suffix} = {'$ne' => $tagid};
 						}
 						else {

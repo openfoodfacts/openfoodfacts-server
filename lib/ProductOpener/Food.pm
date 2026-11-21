@@ -102,6 +102,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Products qw(&remove_fields);
+use ProductOpener::ProductsFeatures qw(&feature_enabled);
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
@@ -2247,6 +2248,11 @@ sub compute_nova_group ($product_ref) {
 			"nova_group_tags", "nova_groups_markers", "nova_group_error"
 		]
 	);
+
+	# Check if NOVA feature is enabled for this product type
+	if (!feature_enabled("nova", $product_ref)) {
+		return;
+	}
 
 	$product_ref->{nova_group_debug} = "";
 
