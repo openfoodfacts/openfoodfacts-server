@@ -6393,10 +6393,12 @@ msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
 msgstr "Some infos about data quality on this product"
 
-# will be followed by : and a value. e.g. "Compared to: bananas"
+# Header of the nutrition table column that compares the product to a category average.
+# will be followed by : and a category name, e.g. "Product compared to the category average: Spreads".
+# The percentage shown in the column is the product's value relative to that average, e.g. +4% = the product has 4% more than the average.
 msgctxt "compared_to"
-msgid "Compared to"
-msgstr "Compared to"
+msgid "Product compared to the category average"
+msgstr "Product compared to the category average"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
