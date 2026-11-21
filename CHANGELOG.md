@@ -6,6 +6,7 @@
 ### Features
 
 * show ANSES "additive of interest" line in the additive knowledge panel ([#15437](https://github.com/openfoodfacts/openfoodfacts-server/issues/15437)) ([60fe14e](https://github.com/openfoodfacts/openfoodfacts-server/commit/60fe14e20c2c7b3ffdf528cd2fd93993c3a10f1c))
+* **product:** show Open Prices availability and links on classic product pages ([#14375](https://github.com/openfoodfacts/openfoodfacts-server/issues/14375))
 
 
 ### Bug Fixes

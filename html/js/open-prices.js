@@ -83,7 +83,13 @@ async function loadOpenPrices() {
 }
 
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", loadOpenPrices);
+  document.addEventListener("DOMContentLoaded", () => {
+    loadOpenPrices().catch((error) => {
+      console.error("Failed to load Open Prices:", error);
+    });
+  });
 } else {
-  loadOpenPrices();
+  loadOpenPrices().catch((error) => {
+    console.error("Failed to load Open Prices:", error);
+  });
 }
