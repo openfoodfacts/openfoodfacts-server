@@ -137,6 +137,7 @@ use ProductOpener::Texts qw(%texts);
 use ProductOpener::Lang qw(:all);
 use ProductOpener::Images qw(display_image data_to_display_image add_images_urls_to_product);
 use ProductOpener::Food qw(:all);
+use ProductOpener::Nutrition qw(get_unit_label_for_nutrient);
 use ProductOpener::Ingredients qw(flatten_sub_ingredients);
 use ProductOpener::Products qw(:all);
 use ProductOpener::Missions qw(:all);
@@ -9482,7 +9483,7 @@ CSS
 							$stat_value = $format_value->(g_to_unit($stat_value, $unit));
 						}
 
-						$values = "$stat_value $unit";
+						$values = "$stat_value " . get_unit_label_for_nutrient($nid, $unit);
 					}
 					else {
 						$values = '?';
@@ -9509,7 +9510,7 @@ CSS
 					}
 
 					if (defined $value) {
-						$values = "$value $unit";
+						$values = "$value " . get_unit_label_for_nutrient($nid, $unit);
 					}
 
 					if (   (not defined $value)
@@ -9596,7 +9597,7 @@ CSS
 						$formatted_value = $format_value->($value);
 
 						if (defined $nutrient_set_unit) {
-							$value_unit = "$formatted_value $nutrient_set_unit";
+							$value_unit = "$formatted_value " . get_unit_label_for_nutrient($nid, $nutrient_set_unit);
 						}
 						else {
 							$value_unit = $formatted_value;
