@@ -92,7 +92,7 @@ CI is the arbiter: **both the unit and integration suites are gated** — `tests
 
 - `make check_perl` — compiles **every** `.pl`/`.pm`/`.t`; the check that catches a rename you didn't update. Slower, but not optional.
 - `make update_package_lock` — CI fails if `package-lock.json` drifts after a `package.json` change.
-- Translation check (`translation-check.yml`) and Spectral linting of `docs/api/ref/*.yaml` (`api-linting.yml`).
+- Translation check (`translation-check.yml`), Wikidata check (`check-wikidata.yml`), and Spectral linting of `docs/api/ref/*.yaml` (`api-linting.yml`).
 
 > **Caveat:** `check_perltidy`, `check_perl_fast`, `check_critic` and `check_taxonomies` select files via `git diff origin/main --name-only` (the `TO_CHECK` selection in the `Makefile`, Makefile:408) and **exit 0 when that list is empty**. On a clone without an `origin/main` ref (e.g. a single-branch clone), they silently check nothing. Verify with `git rev-parse origin/main`; use `make check_perl` and `make lint_perltidy` when you need unconditional coverage.
 

@@ -1,0 +1,40 @@
+name: 🔍 Check Wikidata Mappings
+
+on:
+  pull_request:
+    paths:
+      - "taxonomies/**"
+      - ".github/workflows/check-wikidata.yml"
+      - "scripts/taxonomies/check_wikidata_mappings.py"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check-wikidata:
+    name: Check new Wikidata entries
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Fetch full history so git diff can compare against origin/${{ github.base_ref }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.x"
+
+      - name: Run unit tests
+        run: |
+          python3 -m unittest scripts/tests/test_check_wikidata_mappings.py
+
+      - name: Verify new Wikidata mappings
+        run: |
+          python3 scripts/taxonomies/check_wikidata_mappings.py --base "origin/${{ github.base_ref || 'main' }}"
