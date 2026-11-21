@@ -392,7 +392,7 @@ foreach my $test_ref (@tests) {
 }
 
 subtest 'NOVA facet numeric routing (Issue #15405)' => sub {
-	# Test /nova-group/4 -> tag nova_groups with value 4, default page 1
+	# Test /nova-group/4 -> tag nova_groups with value 4, page undefined (no page number)
 	my $req1 = {
 		cc => "world",
 		lc => "en",
@@ -402,7 +402,7 @@ subtest 'NOVA facet numeric routing (Issue #15405)' => sub {
 	analyze_request($req1);
 	is($req1->{tags}[0]{tagtype}, 'nova_groups', '/nova-group/4 extracts tagtype nova_groups');
 	like($req1->{tags}[0]{tagid}, qr/^(?:en:)?4/, '/nova-group/4 extracts tagid for group 4');
-	is($req1->{page}, 1, '/nova-group/4 sets page number to default 1');
+	is($req1->{page}, undef, '/nova-group/4 page is undefined (no page number in URL)');
 
 	# Test /nova-group/4/2 -> tag nova_groups with value 4, page 2
 	my $req2 = {
@@ -438,7 +438,7 @@ subtest 'NOVA facet numeric routing (Issue #15405)' => sub {
 		analyze_request($req);
 		is($req->{tags}[0]{tagtype}, 'nova_groups', "/nova-group/$group extracts tagtype nova_groups");
 		like($req->{tags}[0]{tagid}, qr/^(?:en:)?$group/, "/nova-group/$group extracts tagid for group $group");
-		is($req->{page}, 1, "/nova-group/$group sets page number to default 1");
+		is($req->{page}, undef, "/nova-group/$group page is undefined (no page number in URL)");
 	}
 
 	# Test that unrelated numeric facet routes are unaffected:
@@ -452,6 +452,53 @@ subtest 'NOVA facet numeric routing (Issue #15405)' => sub {
 	analyze_request($req_cat);
 	is($req_cat->{tags}[0]{tagtype}, 'categories', '/category/breads/4 extracts tagtype categories');
 	is($req_cat->{page}, '4', '/category/breads/4 sets page number to 4');
+
+	# Test /label/3: normal pagination after singular tag type is preserved (Issue #15405 / PR #13360)
+	my $req_label = {
+		cc => "world",
+		lc => "en",
+		original_query_string => 'label/3',
+	};
+	$lc = "en";
+	analyze_request($req_label);
+	is($req_label->{groupby_tagtype}, 'labels', '/label/3 sets groupby_tagtype to labels');
+	is($req_label->{page}, '3', '/label/3 preserves page 3 pagination');
+
+	# Test PR #13360 numeric facet threshold (> 500 treated as facet value, <= 500 as page number)
+	my $req_brand1664 = {
+		cc => "world",
+		lc => "en",
+		original_query_string => 'facets/brands/1664',
+	};
+	$lc = "en";
+	analyze_request($req_brand1664);
+	is($req_brand1664->{tags}[0]{tagtype}, 'brands', '/facets/brands/1664 extracts tagtype brands');
+	like($req_brand1664->{tags}[0]{tagid}, qr/^(?:en:)?1664/, '/facets/brands/1664 extracts tagid 1664 (> 500)');
+	is($req_brand1664->{page}, undef, '/facets/brands/1664 page is undefined (value > 500 is a facet value)');
+
+	my $req_brand365 = {
+		cc => "world",
+		lc => "en",
+		original_query_string => 'facets/brands/365',
+	};
+	$lc = "en";
+	analyze_request($req_brand365);
+	is($req_brand365->{groupby_tagtype}, 'brands', '/facets/brands/365 sets groupby_tagtype to brands');
+	is($req_brand365->{page}, '365', '/facets/brands/365 sets page number to 365 (<= 500)');
+
+	# Test /facets/nova-group/1 through /facets/nova-group/4
+	foreach my $group (1 .. 4) {
+		my $req = {
+			cc => "world",
+			lc => "en",
+			original_query_string => "facets/nova-group/$group",
+		};
+		$lc = "en";
+		analyze_request($req);
+		is($req->{tags}[0]{tagtype}, 'nova_groups', "/facets/nova-group/$group extracts tagtype nova_groups");
+		like($req->{tags}[0]{tagid}, qr/^(?:en:)?$group/, "/facets/nova-group/$group extracts tagid for group $group");
+		is($req->{page}, undef, "/facets/nova-group/$group page is undefined (numeric facet value 1..4)");
+	}
 };
 
 done_testing();
