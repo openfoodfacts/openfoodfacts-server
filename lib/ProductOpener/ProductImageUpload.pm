@@ -58,7 +58,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/display_date/;
 use ProductOpener::Images
-	qw/$valid_image_types_regexp get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
+	qw/$valid_image_types_regexp clean_image_comment get_code_and_imagefield_from_file_name is_protected_image process_image_crop process_image_upload scan_code/;
 use ProductOpener::APIProductWrite qw/update_product_field_api_v2_and_cgi/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 
@@ -125,6 +125,8 @@ A hash ref with:
 
 =head4 source - "product_edit_form" if the image is uploaded through the product edit form
 
+=head4 comment - optional comment passed by the client or app
+
 =head4 add_field_values - optional array ref of hashes with a field and a value, added to the product
 
 =head4 field_values_added_for_codes - hash ref of the codes for which the field values have already been added: field values are added only once per product
@@ -143,6 +145,7 @@ sub import_product_image_file ($args_ref) {
 	my $previous_code = $args_ref->{previous_code};
 	my $previous_imgid = $args_ref->{previous_imgid};
 	my $user_id = $args_ref->{user_id};
+	my $comment = clean_image_comment($args_ref->{comment});
 	my $tmp_filename;
 
 	# Producers platform: the input file name is files[]
@@ -270,7 +273,11 @@ sub import_product_image_file ($args_ref) {
 		$product_ref = init_product($user_id, $args_ref->{org_id}, $code, $args_ref->{country});
 		$product_ref->{interface_version_created} = $interface_version;
 		$product_ref->{lc} = $args_ref->{lc};
-		store_product($user_id, $product_ref, "Creating product (image upload)");
+		my $create_comment = "Creating product (image upload)";
+		if (defined $comment && $comment ne '') {
+			$create_comment .= " - $comment";
+		}
+		store_product($user_id, $product_ref, $create_comment);
 	}
 	else {
 		$log->info("product code already exists", {code => $code});
@@ -310,8 +317,13 @@ sub import_product_image_file ($args_ref) {
 	my $imagefield_or_filename = $imagefield;
 	(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
 
+	my $upload_comment = "image upload";
+	if (defined $comment && $comment ne '') {
+		$upload_comment .= " - $comment";
+	}
+
 	my $imgid_returncode
-		= process_image_upload($product_ref, $imagefield_or_filename, $user_id, time(), "image upload", \$imgid,
+		= process_image_upload($product_ref, $imagefield_or_filename, $user_id, time(), $upload_comment, \$imgid,
 		\$debug_string);
 
 	$log->debug(
