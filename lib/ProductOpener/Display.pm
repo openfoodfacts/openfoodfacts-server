@@ -3259,6 +3259,17 @@ sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_ta
 
 	my $description = "";
 
+	# Fields shown in the additive facts knowledge panel are not repeated here
+	my %fields_in_panel = ();
+	if ($tagtype eq "additives") {
+		%fields_in_panel = (additives_classes => 1, efsa_evaluation => 1);
+		# the panel shows the Wikipedia abstract only when there is no curated description
+		$fields_in_panel{wikipedia} = 1
+			if (not get_knowledge_content($tagtype, $canon_tagid, $lc, $request_ref->{cc}))
+			and (get_property($tagtype, $canon_tagid, "wikipedia_abstract:$lc")
+			// get_property($tagtype, $canon_tagid, "wikipedia_abstract:en"));
+	}
+
 	foreach my $field_orig (@{$options{"display_tag_" . $tagtype}}) {
 
 		my $field = $field_orig;
@@ -3270,6 +3281,8 @@ sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_ta
 			$field = $';
 			$array = 1;
 		}
+
+		next if $fields_in_panel{$field};
 
 		# Section title?
 
@@ -4286,6 +4299,10 @@ HTML
 				if ($panels_created) {
 					$tag_template_data_ref->{tag_panels}
 						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
+					# panel before the legacy risk block
+					if ($tagtype eq "additives") {
+						$tag_template_data_ref->{tag_panels_first} = 1;
+					}
 				}
 			}
 		}

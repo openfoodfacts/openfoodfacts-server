@@ -462,6 +462,81 @@ my $tests_ref = [
 		},
 		expected_type => 'html',    # the redirect itself is html
 	},
+	# additive facts knowledge panel
+	{
+		test_case => 'api-v3-tag-additive-e322-additive-facts-panel',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e322',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-additive-e250-additive-facts-panel',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e250',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-additive-e330-additive-facts-panel',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e330',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-additive-e100-additive-facts-panel-fr',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e100?lc=fr',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-additive-e120-additive-facts-panel',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e120',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-additive-unknown-no-additive-facts-panel',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e99999',
+		expected_status_code => 200,
+	},
+	# the panel (what the additive is) comes before the legacy risk block
+	{
+		test_case => 'additive-e250-page-additive-facts-panel-shown-once',
+		method => 'GET',
+		path => '/facets/additives/E250%20-%20Sodium%20nitrite',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match =>
+			'(?s)^(?=.*panel_additive_facts.*high risk of consuming too much)(?=.*Preservatives are substances which prolong)(?=.*Sodium nitrite is the inorganic compound)(?=.*Re-evaluation of potassium nitrite)(?=.*class="exposure_table")',
+		response_content_must_not_match =>
+			'(?s)(Preservatives are substances which prolong.*){2}|(Sodium nitrite is the inorganic compound.*){2}|(Re-evaluation of potassium nitrite.*){2}',
+	},
+	# E100 has a Wikipedia link but no abstract: the panel cannot show it, the legacy description keeps it
+	{
+		test_case => 'additive-e100-page-additive-facts-panel-wikipedia-link-without-abstract',
+		method => 'GET',
+		path => '/facets/additives/E100%20-%20Curcumin',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match =>
+			'(?s)^(?=.*panel_additive_facts.*Colours are substances which add)(?=.*en\.wikipedia\.org/wiki/Curcumin)',
+		response_content_must_not_match =>
+			'(?s)(Colours are substances which add.*){2}|(en\.wikipedia\.org/wiki/Curcumin.*){2}',
+	},
+	# E100 has a curated fr description and a Wikipedia link but no abstract:
+	# the panel shows the curated text, the legacy description keeps the link
+	{
+		test_case => 'additive-e100-page-additive-facts-panel-curated-description-fr',
+		method => 'GET',
+		subdomain => 'fr',
+		path => '/facets/additifs/E100%20-%20Curcumine',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match =>
+			'(?s)^(?=.*panel_additive_facts.*curcumine ne pr.sente pas de risques connus)(?=.*Les colorants sont des substances)(?=.*re-evaluation of curcumin)(?=.*en\.wikipedia\.org/wiki/Curcumin)',
+		response_content_must_not_match =>
+			'(?s)(curcumine ne pr.sente pas de risques connus.*){2}|(Les colorants sont des substances.*){2}|(re-evaluation of curcumin.*){2}|(en\.wikipedia\.org/wiki/Curcumin.*){2}',
+	},
 ];
 
 # note: we need to execute the tests with bob, because we need authentication
