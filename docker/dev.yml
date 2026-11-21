@@ -1,4 +1,4 @@
-﻿x-backend-conf: &backend-conf
+x-backend-conf: &backend-conf
   # The tag suffix is empty unless per-worktree isolation is enabled
   # (PO_AGENT_ID), so by default the image is shared with other worktrees.
   # When it is set, a worktree keeps its own image so that a rebuild in one
@@ -148,4 +148,4 @@ volumes:
 networks:
   # this is a specific network to enable pro platform to join the postgres db
   minion_db:
-    name: ${PO_COMMON_PREFIX:-}${PO_AGENT_PREFIX:-}minion_db
+    name: ${PO_COMMON_PREFIX:-}${PO_AGENT_PREFIX:-}${PRODUCT_OPENER_FLAVOR_SHORT:-off}_minion_db
