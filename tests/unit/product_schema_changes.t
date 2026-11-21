@@ -1612,6 +1612,32 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
+my $small_serving_product = {
+	schema_version => 1003,
+	product_type => "food",
+	serving_quantity => 1.5,
+	serving_quantity_unit => "g",
+	nutrition => {
+		nutrient_sets => [
+			{
+				per => "serving",
+				per_quantity => 1.5,
+				per_unit => "g",
+				preparation => "as_sold",
+				nutrients => {
+					sugars => {value => 1, unit => "g", source => "packaging"},
+				},
+			},
+		],
+	},
+};
+convert_product_schema($small_serving_product, 1002);
+is($small_serving_product->{nutrition_data_per},
+	"serving", "small serving values remain marked per serving in the legacy schema");
+is($small_serving_product->{nutriments}{"sugars_serving"},
+	1, "small serving value is retained in the legacy serving field");
+ok(!exists $small_serving_product->{nutriments}{"sugars_100g"}, "small serving value is not extrapolated to 100g");
+
 # Also pretend to be the pro platform to test that we set the correct source
 
 $server_options{producers_platform} = 1;
