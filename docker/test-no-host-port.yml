@@ -1,0 +1,12 @@
+# Added by the Makefile test targets when PO_AGENT_ID is set (see `make agent`).
+#
+# The test stacks pin PRODUCT_OPENER_PORT=80 so that URLs inside the containers
+# stay canonical, and docker-compose.yml publishes the frontend on that same
+# host port. With several worktrees on one machine, the test frontend would then
+# fight over 127.0.0.1:80 with every other dev or test stack. Tests reach the
+# frontend over the Compose network, never through the host, so we simply do
+# not publish it.
+# See docs/dev/how-to-run-several-worktrees.md
+services:
+  frontend:
+    ports: !reset []
