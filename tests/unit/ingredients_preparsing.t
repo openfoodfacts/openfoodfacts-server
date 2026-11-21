@@ -1578,6 +1578,21 @@ foreach my $test (
 		"mono, di, tri prefixes: $test->[0] / $test->[1]");
 }
 
+# Suspended hyphens followed by "and": the hyphen stands for the end of a compound word,
+# it must not be turned into a separator between 2 ingredients
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/13578
+foreach my $test (
+	['sv', "raps- och majsprotein", "raps- och majsprotein"],
+	['sv', "vatten, hydrolyserat raps- och majsprotein, salt", "vatten, hydrolyserat raps- och majsprotein, salt"],
+	['de', "Schafs- und Ziegenmilch", "Schafs- und Ziegenmilch"],
+	['nl', "alcohol- en witte wijnazijn", "alcohol- en witte wijnazijn"],
+	# other dashes with a missing space are still turned into separators
+	['sv', "socker- salt -peppar", "socker - salt - peppar"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "suspended hyphens: $test->[0] / $test->[1]");
+}
+
 # HTML entities, GMO thresholds and missing separators between ingredients with percents
 foreach my $test (
 	['en', "salt &amp; pepper", "salt and pepper"],
