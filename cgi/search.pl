@@ -31,6 +31,7 @@ use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/request_param single_param get_http_request_header/;
+use ProductOpener::RateLimiter qw/move_rate_limit_accounting rollback_rate_limit_accounting set_rate_limit_bucket/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
 use ProductOpener::Food qw/%nutrients_lists/;
@@ -156,15 +157,25 @@ $request_ref->{search} = 1;
 my $user_agent_header = get_http_request_header('X-User-Agent');
 my $is_intake24_request = (defined $user_agent_header) && ($user_agent_header =~ /intake24/i);
 
-# rate_limiter_bucket is required for `check_and_update_rate_limits`
-# Skip rate limiting for intake24 requests
-if (not $is_intake24_request) {
-	$request_ref->{rate_limiter_bucket} = 'search';
+# init_request() has already counted the request in the "other" bucket: setting the search bucket
+# moves the count, so that the search counter is the one that is checked. For intake24 requests,
+# the count is removed instead, as they are exempt from rate limiting.
+if ($is_intake24_request) {
+	# Back out of the count made by init_request(): intake24 requests are exempt. The rollback
+	# uses the minute the request was accounted in and also clears rate_limiter_blocking, so an
+	# already exhausted "other" bucket cannot reject an exempt request.
+	if (not $rate_limiter_disabled) {
+		rollback_rate_limit_accounting($request_ref);
+		$request_ref->{rate_limiter_bucket} = undef;
+	}
 }
+else {
+	set_rate_limit_bucket($request_ref, 'search');
 
-# Check and update rate limits if not disabled (default is ENABLED for production safety)
-if (not $rate_limiter_disabled) {
-	check_and_update_rate_limits($request_ref);
+	# Check and update rate limits if not disabled (default is ENABLED for production safety)
+	if (not $rate_limiter_disabled) {
+		move_rate_limit_accounting($request_ref);
+	}
 }
 
 # Block request if rate limit exceeded (only if rate limiter is not disabled)
