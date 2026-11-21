@@ -1048,6 +1048,13 @@ a.attribute_card:hover {
   margin-top: 1rem;
 }
 
+.panel_table_container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  width: 100%;
+}
+
 .evaluation_good_title {
   color: $evaluation-good-color;
 }

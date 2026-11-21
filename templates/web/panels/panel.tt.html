@@ -354,6 +354,7 @@
     #---------------------------------------------------------------------- ~%]
 
     [% table_element = element_ref.table_element %]
+    <div class="panel_table_container">
     <table[% IF element.id %] id="[% table_element.id %]"[% END %] aria-label="[% table_element.title %]">
         <thead>
             <tr>
@@ -376,6 +377,7 @@
             [% END %]
         </tbody>
     </table>
+    </div>
 
 [%~ #----------------------------------------------------------------------
     END; # BLOCK panel_table
