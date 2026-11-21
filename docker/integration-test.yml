@@ -7,6 +7,15 @@ services:
         backend:
           condition: service_started
 
+  # The tests only need the built assets in the *_dist volumes (the backend inlines the svg icons).
+  # dynamicfront starts before the backend and mounts the empty volumes first, so Docker copies the
+  # assets of the frontend image (built from the same Dockerfile.frontend) into them: no need to build
+  # the dynamicfront image and run gulp in each test run. "true" ignores the npm command and exits.
+  dynamicfront:
+    image: openfoodfacts-server/frontend:dev
+    build: !reset null
+    entrypoint: ["true"]
+
   keycloak:
     image: ghcr.io/openfoodfacts/openfoodfacts-auth:testcontainer
     environment:
