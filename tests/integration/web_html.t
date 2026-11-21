@@ -451,6 +451,13 @@ my $tests_ref = [
 		path => 'facets/categories/Desserts',
 		expected_type => 'html',
 	},
+	# Facet pages sorted by last modification date still use the cache for logged in users
+	{
+		test_case => 'world-category-signedin-last-modified',
+		path => 'facets/categories/Desserts?sort_by=last_modified_t',
+		expected_type => 'html',
+		ua => $ua,
+	},
 	{
 		test_case => 'world-brands',
 		path => 'facets/brands',
