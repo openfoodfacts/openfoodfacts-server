@@ -68,26 +68,16 @@ async function loadOpenPrices() {
         ? foundTemplate.replace("{count}", String(data.total))
         : `${data.total} price(s) found for this product.`;
 
-      if (viewLink) {
-        viewLink.hidden = false;
-      }
     } else {
       container.textContent =
         messages.open_prices_none ||
         "No prices found for this product. Help us by adding one!";
 
-      if (viewLink) {
-        viewLink.hidden = true;
-      }
     }
   } catch (error) {
     container.textContent =
       messages.open_prices_error ||
       "Could not load price information. You can still add a price.";
-
-    if (viewLink) {
-      viewLink.hidden = true;
-    }
 
     console.error("Failed to load Open Prices:", error);
   }
