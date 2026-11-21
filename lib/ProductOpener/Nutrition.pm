@@ -85,7 +85,7 @@ use Clone qw/clone/;
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ProductsTags qw/:all/;
-use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit/;
+use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit extract_standard_unit/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::API qw/add_error add_warning/;
@@ -106,6 +106,25 @@ use Log::Any qw($log);
 use Encode;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use boolean;
+
+sub get_per_standard_unit ($per) {
+	return if not defined $per;
+	return "serving" if ($per eq "serving");
+
+	if ($per =~ /^(?:\d+(?:\.\d+)?)\s*(g|kg|mg|mcg|µg|oz|lb)$/i) {
+		return "g";
+	}
+	if ($per =~ /^(?:\d+(?:\.\d+)?)\s*(ml|cl|dl|l)$/i) {
+		return "ml";
+	}
+	if ($per =~ /^(?:\d+(?:\.\d+)?)\s*(kj|kcal)$/i) {
+		return "kj";
+	}
+
+	my $std = extract_standard_unit($per);
+	return $std if defined $std;
+	return;
+}
 
 =head1 FUNCTIONS
 
@@ -1958,6 +1977,23 @@ sub assign_nutrition_values_from_request_object ($request_ref, $product_ref) {
 						200
 					);
 					$ignore_set = 1;
+				}
+				else {
+					my $per_standard_unit = get_per_standard_unit($per);
+					if (!defined $per_standard_unit
+						|| ($per_standard_unit ne "g" && $per_standard_unit ne "ml" && $per_standard_unit ne "serving"))
+					{
+						add_error(
+							$response_ref,
+							{
+								message => {id => "unrecognized_value"},
+								field => {id => "nutrition.inputs_sets[$input_set_index].per", value => $per},
+								impact => {id => "input_set_ignored"},
+							},
+							200
+						);
+						$ignore_set = 1;
+					}
 				}
 
 				if ($ignore_set) {

@@ -1290,6 +1290,57 @@ foreach my $test_ref (@tests) {
 		$update_expected_results, {id => $testid});
 }
 
+# API ingestion rejects unsupported per reference
+my $request_with_invalid_per = {
+	body_json => {
+		product => {
+			nutrition => {
+				input_sets => [
+					{
+						source => "packaging",
+						preparation => "as_sold",
+						per => "100kj",
+						nutrients => {fat => {value_string => "10"}}
+					}
+				]
+			}
+		}
+	},
+	api_response => {errors => [], warnings => []},
+	updated_product_fields => {},
+};
+my $target_product = {};
+ProductOpener::Nutrition::assign_nutrition_values_from_request_object($request_with_invalid_per, $target_product);
+is(scalar(@{$request_with_invalid_per->{api_response}{errors}}), 1, "invalid per reference triggers API error");
+is($request_with_invalid_per->{api_response}{errors}[0]{message}{id},
+	"unrecognized_value", "error is unrecognized_value");
+is($target_product->{nutrition}{input_sets}, [], "invalid input set is ignored");
+
+# API ingestion accepts valid custom mass or volume per references like 200ml
+my $request_with_valid_custom_per = {
+	body_json => {
+		product => {
+			nutrition => {
+				input_sets => [
+					{
+						source => "packaging",
+						preparation => "as_sold",
+						per => "200ml",
+						nutrients => {fat => {value_string => "10"}}
+					}
+				]
+			}
+		}
+	},
+	api_response => {errors => [], warnings => []},
+	updated_product_fields => {},
+};
+my $target_product_valid = {};
+ProductOpener::Nutrition::assign_nutrition_values_from_request_object($request_with_valid_custom_per,
+	$target_product_valid);
+is(scalar(@{$request_with_valid_custom_per->{api_response}{errors}}), 0, "valid per (200ml) triggers no API errors");
+is($target_product_valid->{nutrition}{input_sets}[0]{per}, "200ml", "valid custom input set is kept");
+
 # Other tests
 
 # Computing the populated nutrition fields to export to CSV
