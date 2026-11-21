@@ -138,4 +138,9 @@ is(display_tag("emb_codes", "fr-85-222-003-ce"), "FR 85.222.003 CE");
 is(display_tag("emb_codes", "fr-85-222-003-ec"), "FR 85.222.003 CE");
 is(display_tag("emb_codes", "EMB 62863C"), "EMB 62863C");
 
+# display_taxonomy_tag
+is(display_taxonomy_tag("xx", "units", "kj"), "kJ");
+is(display_taxonomy_tag("xx", "units", "%"), "%");
+is(display_taxonomy_tag("xx", "units", "percent"), "percent");
+
 done_testing();
