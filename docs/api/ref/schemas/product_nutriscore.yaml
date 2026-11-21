@@ -311,6 +311,9 @@ components:
         nutriscore_grade:
           $ref: "#/components/schemas/NutriscoreGrade"
           examples: ["d"]
+        nutriscore_grade_producer:
+          $ref: "#/components/schemas/NutriscoreGrade"
+          description: Nutri-Score grade provided by the producer.
         nutriscore_score:
           description: |
             Nutri-Score for the product as an integer (see also `nutriscore_grade`).
@@ -319,7 +322,34 @@ components:
         nutriscore_score_opposite:
           type: integer
           examples: [-13]
+        nutriscore_score_producer:
+          type: integer
+          description: Nutri-Score score provided by the producer.
         nutriscore_tags:
           $ref: "#/components/schemas/NutriscoreGradeTags"
         nutriscore_version:
           type: string
+        nutrition_grade_fr_producer:
+          $ref: "#/components/schemas/NutriscoreGrade"
+          description: Legacy alias for `nutriscore_grade_producer`.
+        nutrition_score_debug:
+          type: string
+          description: Debug details for Nutri-Score calculation.
+        nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients:
+          type: number
+          description: Estimated fruits, vegetables, and legumes percentage from ingredients when not explicitly provided.
+        nutrition_score_warning_fruits_vegetables_legumes_from_category:
+          type: integer
+          description: Indicates that fruits, vegetables, and legumes percentage was derived from the product category.
+        nutrition_score_warning_fruits_vegetables_nuts_from_category:
+          type: integer
+          description: Indicates that fruits, vegetables, and nuts percentage was derived from the product category.
+        nutrition_score_warning_fruits_vegetables_nuts_from_category_value:
+          type: number
+          description: Fruits, vegetables, and nuts percentage derived from the product category.
+        nutrition_score_warning_no_fruits_vegetables_nuts:
+          type: integer
+          description: Indicates that no fruits, vegetables, or nuts data was available for Nutri-Score calculation.
+        nutrition_score_warning_nutriments_estimated:
+          type: integer
+          description: Indicates that some nutriments were estimated for Nutri-Score calculation.

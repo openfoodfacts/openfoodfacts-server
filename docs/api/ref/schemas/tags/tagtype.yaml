@@ -7,6 +7,7 @@ enum:
   - additives
   - allergens
   - amino_acids
+  - brands
   - categories
   - countries
   - data_quality
@@ -24,6 +25,7 @@ enum:
   - nutrient_levels
   - nutrients
   - origins
+  - origins_adjectives
   - other_nutritional_substances
   - packaging_materials
   - packaging_recycling
@@ -31,9 +33,12 @@ enum:
   - packaging_shapes
   - periods_after_opening
   - preservation
+  - sizes
   - states
+  - storage_conditions
   - test
   - traces
+  - units
   - vitamins
 description: 'Identifier of a taxonomy. See https://wiki.openfoodfacts.org/Global_taxonomies and https://github.com/openfoodfacts/openfoodfacts-server/tree/main/taxonomies'
 examples: []

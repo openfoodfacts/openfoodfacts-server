@@ -10,6 +10,14 @@ properties:
         Each data quality bug describes a data quality bug on the product.
 
         Refer to the [data quality taxonomy](https://static.openfoodfacts.org/data/taxonomies/data_quality.json)
+  data_quality_completeness_tags:
+    type: array
+    items:
+      type: string
+      description: |
+        Data quality tags related to product completeness.
+
+        Refer to the [data quality taxonomy](https://static.openfoodfacts.org/data/taxonomies/data_quality.json)
   data_quality_errors_tags:
     type: array
     items:
