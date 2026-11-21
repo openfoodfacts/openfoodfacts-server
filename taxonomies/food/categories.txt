@@ -44418,9 +44418,10 @@ ciqual_food_code:en: 9390
 ciqual_food_name:en: Rye, whole, raw
 ciqual_food_name:fr: Seigle entier, cru
 
-< en: Seeds
+< en: Cereal grains
 en: Sesame, raw sesame, sesame seeds
 bg: Сусам, сусамово семе
+da: Sesamfrø
 de: Sesam
 es: Sésamo, Ajonjolí, Semillas de sésamo
 fi: seesami
@@ -44432,6 +44433,7 @@ ja: ゴマ, ごま, 胡麻
 la: Sesamum indicum
 lt: Sezamai, Sezamas
 nl: Sesamzaden, Sesamzaad
+sv: Sesamfrön
 zh: 芝麻
 agribalyse_food_code:en: 15010
 ciqual_food_code:en: 15010
@@ -44443,7 +44445,14 @@ wikidata:en: Q2763698
 
 < en: Sesame
 en: Black Sesame, black sesame seeds
+da: Sorte sesamfrø, Sort sesam-frø
 fr: Sésame noir, Graines de sésame noir
+sv: Svarta sesamfrön, Svart sesam-frön
+
+< en: Sesame
+en: White sesame, White sesame seeds
+da: Hvide sesamfrø, Hvid sesam-frø
+sv: Vita sesamfrön, Vit sesam-frön
 
 < en: Sesame
 en: Husked sesame seed, Sesame seed husked
@@ -44457,17 +44466,28 @@ sales_format:en: package, weight
 
 < en: Sesame
 en: Toasted sesame, grilled sesame, husked sesame, Sesame seeds (roasted)
+da: Ristede sesamfrø
 de: Gerösteter Sesam
 es: Semillas de sésamo tostadas
 fr: Sésame toasté, Graines de sésame toastées
 hr: Prženi sezam
 lt: Skrudinti sezamai, Kepinti sezamai
 nl: Geroosterde sesamzaden, Geroosterde sesamzaad
+sv: Rostade sesamfrön
 zh: 烤芝麻
 agribalyse_food_code:en: 15038
 ciqual_food_code:en: 15038
 ciqual_food_name:en: Sesame seed, grilled, husked
 sales_format:en: package, weight
+
+< en: Toasted sesame
+< en: White sesame
+en: Toasted white sesame seeds, Roasted white sesame seeds
+da: Ristede hvide sesamfrø
+sv: Rostade vita sesamfrön
+agribalyse_proxy_food_code:en: 15038
+ciqual_proxy_food_code:en: 15038
+ciqual_proxy_food_name:en: Sesame seed, grilled, husked
 
 < en: Cereal grains
 en: Sorghum, Whole sorghum
