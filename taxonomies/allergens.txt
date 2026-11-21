@@ -46,7 +46,7 @@ sv: ingen, allergenfri, utan allergener, utan, nej, inga allergener, 0
 th: ไม่มี, ปราศจากสารก่อภูมิแพ้, ไม่มีสารก่อภูมิแพ้, ไม่มี, ไม่, ไม่มีสารก่อภูมิแพ้, 0
 zh: 无, 不含过敏原, 无过敏原, 无, 否, 无过敏原, 0
 
-en: gluten, cereals containing gluten, other cereals containing gluten, barley, barley malt flour, malted barley, malted barley extract, malted barley flour, kamut, rye, rye flour, spelt, speltflour, wheat, wheat flour, wheatflour, wheat semolina, oats, oat fiber
+en: gluten, cereals containing gluten, other cereals containing gluten, barley, barley malt flour, malted barley, malted barley extract, malted barley flour, kamut, rye, rye flour, spelt, speltflour, oats, oat fiber
 ar: غلوتين
 bg: глутен, ечемик, ечемичен, ечемично-малцов, пшеница, пшенично, пшеничено, ръж, овес, спелта, камут, хоросан, вид едра твърда пшеница, лимец, булгур, пшеничен глутен
 bs: gluten
@@ -65,7 +65,7 @@ hr: gluten, glutena, ječmeni, ječmeni slad, ječam, ječma, ječmeno, ječmeno
 hu: glutén, búza, búzaliszt, búzarost, búzadara, búzacsíra, búzafehérje, búzakorpa, búzamaláta, búzapehely, búzakeményítő, búzasikér, tönkölybúza, tönkölybúzaliszt, tönkölybúzapehely, durumbúza, durumbúzaliszt, rozs, rozsliszt, rozspehely, durumrozsliszt, árpa, árpaliszt, árpapehely, árpamaláta, árpadara, árpacsíra, zab, zabliszt, zabpehely, zabkorpa, durumliszt, durum liszt, Grahamliszt, Graham liszt, kenyérliszt, kenyér liszt, rétesliszt, rétes liszt, kamut, alakor, bulgur, glutént, glutént tartalmazó gabona, glutént tartalmazó gabonafélék
 is: glúten
 it: glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
-ja: 小麦/そば, 小麦, 穀物, グルテン, コムギ, そば, ソバ
+ja: グルテン, 穀物
 lt: avižos, avižų, avižiniai, avižinės, glitimas, glitimo, glitimu, kamutas, kviečiai, kviečių, kvietiniai, kvietinės, miežiai, miežių, miežiniai, miežinės, rugiai, ruginiai, ruginės, rugių, spelta, manų
 lv: auzas, auzu, kvieši, kviešu, lipekli, manna, mieži, miežu, rudzi, speltas kvieši, triticum turgidum polonicum, satur lipekli saturošus graudaugus
 mt: glutina, qamħ, segala, barli, ħafur, ispelt, kamut
@@ -84,6 +84,13 @@ th: กลูเต็น, ข้าวสาลี, ข้าวไร, บา�
 zh: 麸质
 wikidata:en: Q188251
 
+< en: gluten
+en: wheat, wheat flour, wheatflour, wheat semolina
+ja: 小麦, コムギ
+
+en: buckwheat
+ja: そば, ソバ
+
 en: crustaceans, crab, lobster, crayfish, prawn, shrimp
 ar: قشريات
 bg: ракообразни
@@ -100,7 +107,7 @@ ga: crústach, crústaigh
 hr: rakova, rakove
 hu: rákfélék, rák, homár, garnéla, garnélarák
 it: crostacei
-ja: えび/かに, えび, 甲殻類, カニ, エビ, かに
+ja: 甲殻類, えび/かに
 lt: vėžiagyviai, krabai, krabų, omarai, omarų, vėžiai, krevetės, krevečių
 lv: vēžveidīgie
 mt: krustaċej
@@ -114,6 +121,12 @@ sl: raki, rakov
 sv: kräftdjur, skaldjur, räkor, räkkrydda, krabba, krabbarom, krabbextrakt, räkarom, räkpulver
 th: ครัสเตเชียน, ปู, กั้ง, กุ้ง, กะปิ
 zh: 甲壳亚门
+
+< en: crustaceans
+ja: えび, エビ
+
+< en: crustaceans
+ja: かに, カニ
 
 en: eggs, egg, barn egg, egg whites, egg white, egg yolks, egg yolk, whole eggs, whole egg
 ar: بيض, بيضة
@@ -152,7 +165,7 @@ th: ไข่
 zh: 雞蛋
 wikidata:en: Q93189
 
-en: fish, fishes, cod, mackerel, flounder, halibut, turbot, haddock, salmon, sole, trout, tuna, sardine, sardines
+en: fish, fishes, cod, flounder, halibut, turbot, haddock, sole, trout, tuna, sardine, sardines
 ar: سمك
 bg: риба
 ca: peixos, peix, bacallà, btonyina, bacora, salmó, sardina, truita, anxova, lluç
@@ -169,7 +182,7 @@ he: דג, דגים, טונה, סלמון, קוד, מקרל, ברבוניה, הל
 hr: riba, ribe, skuša
 hu: hal, halak, tőkehal, tőkehalfilé, makréla, hering, heringfilé, lazac, lazacfilé, pisztráng, tonhal, szardínia, lepényhal, rombuszhal, sprotni, alaszkai tőkehal
 it: pesce
-ja: さけ/さば, 魚, 魚類, さけ, 鮭, サケ, サーモン, しゃけ, シャケ, さば, 鯖, サバ
+ja: 魚類, 魚, さけ/さば
 lt: žuvis, žuvys, žuvies, žuvų, menkė, menkės, menkių, skumbrė, skumbrės, skumbrių, plekšnė, plekšnės, plekšnių, lašiša, lašišos, lašišų, upėtakis, upėtakiai, upėtakių, tunas, tunu, tuno, sardinės, sardinė, sardinių
 lv: zivis
 mt: ħut
@@ -188,9 +201,17 @@ th: ปลา
 zh: 魚
 wikidata:en: Q600396
 
-# <en:fish
+< en: fish
+en: salmon
+ja: さけ, 鮭, サケ, サーモン, しゃけ, シャケ
+
+< en: fish
 en: red caviar
 ja: いくら, イクラ, すじこ, スジコ
+
+< en: fish
+en: mackerel
+ja: さば, 鯖, サバ
 
 en: orange
 ja: オレンジ
@@ -222,6 +243,7 @@ ja: やまいも, 山芋, ヤマイモ, 山いも
 en: gelatin
 ja: ゼラチン
 
+# Removed from CAA (Japan) guidelines as of March 2024
 en: matsutake
 ja: まつたけ, 松茸, マツタケ
 
@@ -333,7 +355,7 @@ sv: mjölk, mjölkpulver, skummjölk, skummjölkspulver, mellanmjölk, mellanmj�
 th: นม, แล็กโทส, ครีม, เนย, นมเปรี้ยว, เนยแข็ง
 zh: 乳, 乳糖, 奶油, 鮮奶油, 忌廉, 黃油, 奶油, 牛油
 
-en: nuts, almonds, hazelnuts, walnuts, cashews, cashew, pecan nuts, pecan, Brazil nuts, pistachio nuts, pistachio, macadamia, Macadamia nuts, Queensland nuts, tree nuts, treenuts, other nuts, other tree nuts
+en: nuts, hazelnuts, pecan nuts, pecan, Brazil nuts, pistachio nuts, pistachio, Queensland nuts, tree nuts, treenuts, other nuts, other tree nuts
 ar: بندقة, الكاجو, المكاداميا, الفستقجوز, لوز
 bg: ядки, бадеми, лешници, орехи, кашу, пеканови ядки, бразилски орехи, шамфъстък, орехи макадамия, орехи Куинсленд, други ядки
 bs: bademe, lešnike
@@ -352,7 +374,7 @@ hr: orašaste plodove, orašastih plodova, orašasto voće, orašasto voče, ora
 hu: diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pisztácia, makadámia, queenslandi dió, dióféléket, egyéb dióféléket
 is: hnetur
 it: frutta a guscio, mandorle, nocciole, noci, noci di acagiù, noci di pecan, noci del Brasile, pistacchi, noci macadamia, noci del Queensland
-ja: くるみ/アーモンド, くるみ, 種実類, 木の実, 木の実類, アーモンド, ヘーゼルナッツ, クルミ, カシューナッツ, ペカン, ブラジルナッツ, ピスタチオ, マカダミアナッツ
+ja: ナッツ, 種実類, 木の実, 木の実類, ヘーゼルナッツ, ペカン, ブラジルナッツ, ピスタチオ, くるみ/アーモンド
 lt: riešutai, riešutų, riešutas, riešutais, migdolai, migdolų, migdolas, migdolais, lazdyno riešutai, lazdynų, lazdynas, lazdynais, lazdyno, graikiniai riešutai, graikinių riešutų, graikiniais riešutais, anakardžiai, anakardžių, anakardžiais, Anakardium occidentale, pekaninės karijos, pekaninių karijų, brazilinės bertoletijos, brazilinių bertoletijų, pistacijos, pistacijų, pistacija, makadamijos, makadamijų, makadamija, Kvinslendo riešutai, kitų riešutų
 lv: rieksti, mandeles, lazdu rieksti, valrieksti, Indijas rieksti, pekanrieksti, Brazīlijas rieksti, pistāciju rieksti, makadāmijas, Kvīnslendas rieksti
 mt: ġewż, lewż, ġellewż, ġewż, anakardji, ġewż Amerikan, ġewż tal-Brażil, pistaċċi, macadamia, Queensland nuts
@@ -369,6 +391,22 @@ sr: jezgrasto voće, orasi, badem, badema, bademi, indijski orah, indijski orasi
 sv: nötter, notter, mandel, mandlar, mandelprotein, hasselnöt, hasselnötter, hasselnötshalvor, hasselnötpasta, hasselnötssmör, valnöt, valnötter, cashewnöt, cashewnötter, pekannöt, pekannötter, paranöt, paranötter, pistachnöt, pistagenöt, pistagenötter, pistaschmandel, makadamianöt, makadamianötter, macadamianöt, macadamianötter, Queenslandsnöt, Queenslandsnötter, andra nötter, nötter (inga jordnötter)
 th: อัลมอนด์
 zh: 坚果, 扁桃仁, 坚果, 杏仁, 扁桃仁, 腰果, 榛子, 核桃, 松子, 榛仁, 核桃=核桃仁, 松子=松仁, 开心果=阿月浑子, 板栗, 白果, 银杏果, 开心果, 夏威夷果, 碧根果
+
+< en: nuts
+en: walnuts
+ja: くるみ, クルミ
+
+< en: nuts
+en: almonds
+ja: アーモンド
+
+< en: nuts
+en: macadamia, Macadamia nuts
+ja: マカダミアナッツ
+
+< en: nuts
+en: cashews, cashew
+ja: カシューナッツ
 
 en: celery, celeriac
 ar: كرفس
@@ -552,7 +590,7 @@ th: ลูพิน
 zh: 羽扇豆, 鲁冰花
 wikidata:en: Q156811
 
-en: molluscs, mollusc, mollusks, mollusk, squid, cuttlefish, oysters, oyster, mussels, mussel, clams, clam, scallops, scallop
+en: molluscs, mollusc, mollusks, mollusk, cuttlefish, oysters, oyster, mussels, mussel, clams, clam, scallops, scallop
 ar: رخويات , محار, بلح البحر
 bg: мекотели
 ca: mol·lusc, calamar, ostra, vieira, cargol
@@ -568,7 +606,7 @@ ga: moilisc, breallach, breallaigh
 hr: mekušac, mekušaca
 hu: puhatestűek, kagyló, tintahal
 it: molluschi
-ja: あわび/いか, あわび, いか, 軟体動物, イカ, タコ, カキ, アワビ
+ja: 軟体動物, タコ, カキ, あわび/いか
 lt: moliuskai, moliuskas, moliuskų, moliuskais
 lv: gliemji
 mt: molluski
@@ -585,3 +623,9 @@ th: มอลลัสกา
 zh: 软体动物
 wikidata:en: Q1275863
 
+< en: molluscs
+ja: あわび, アワビ
+
+< en: molluscs
+en: squid
+ja: いか, イカ
