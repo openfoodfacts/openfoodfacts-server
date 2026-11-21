@@ -28,9 +28,10 @@ To gradually modernize the front-end without a complete rewrite, the project has
 
 ## The Next Generation: OpenFoodFacts-Explorer
 
-The long-term vision for the Open Food Facts front-end is [**openfoodfacts-explorer**](https://github.com/openfoodfacts/openfoodfacts-explorer). This will be a fully autonomous and modern JavaScript application, likely built with a framework like Vue.js or SvelteKit. It will communicate with the Perl backend via API and will eventually replace the server-rendered pages, offering a faster, richer, and more maintainable user experience.
+The long-term vision for the Open Food Facts front-end is [**openfoodfacts-explorer**](https://github.com/openfoodfacts/openfoodfacts-explorer). This will be a fully autonomous and modern JavaScript application, built with SvelteKit and Tailwind CSS. It will communicate with the Perl backend via API and aims to provide a modern, responsive, and maintainable user experience offering a faster, richer, and more maintainable user experience.
 
 ## File Structure and Build Process
 
 * **Legacy Location:** Older JavaScript and jQuery plugins are located in the `htdocs/js/` directory and are included directly via `<script>` tags without a build step.
-* **Modern Location:** Newer code, including Web Components, resides in separate directories and has its own modern build process (e.g., using Vite or Rollup) to bundle and optimize assets.
+* **Modern Location:** Newer code, including Web Components, resides in separate directories and has its own modern build process (e.g., ) to bundle and optimize assets.
+* **Modern Location:** Newer code, including Web Components, resides in separate directories and has its own modern build process (e.g., ) to bundle and optimize assets.
