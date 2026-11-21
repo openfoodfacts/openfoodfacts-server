@@ -7312,7 +7312,7 @@ my %ingredients_categories_and_types = (
 			# trailing word (e.g. "stearin") as an unexpanded ingredient.
 			types => [
 				"avocado", "coconut", "colza", "cottonseed", "olive", "palm kernel",
-				"palm stearin", "palm", "rapeseed", "safflower", "sunflower",
+				"palm stearin", "palm", "rapeseed", "safflower", "shea", "sunflower",
 			],
 		},
 	],
