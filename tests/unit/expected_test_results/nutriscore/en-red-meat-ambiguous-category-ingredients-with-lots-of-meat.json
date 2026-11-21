@@ -58,6 +58,7 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "preparation" : [
             "refrigeration"
@@ -68,30 +69,69 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "fresh",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9",
-                  "mass" : 61
+                  "elements" : [
+                     {
+                        "amount" : 0.061,
+                        "material" : {
+                           "id" : "6fb662dc-583f-47d5-814f-2cc6a8c1f3b9"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "pork meat",
+                  "quantity" : 1
                },
                {
-                  "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
-                  "mass" : 20
+                  "elements" : [
+                     {
+                        "amount" : 0.02,
+                        "material" : {
+                           "id" : "d79e0fce-8633-4189-a937-7b8010abafed"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "lamb meat",
+                  "quantity" : 1
                },
                {
-                  "id" : "8fb5024c-ceec-4201-b069-ea253c537ad6",
-                  "mass" : 10
+                  "elements" : [
+                     {
+                        "amount" : 0.01,
+                        "material" : {
+                           "id" : "8fb5024c-ceec-4201-b069-ea253c537ad6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "chicken meat",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 9
+                  "elements" : [
+                     {
+                        "amount" : 0.009,
+                        "material" : {
+                           "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "salt",
+                  "quantity" : 1
                }
             ],
-            "preparation" : [
-               "refrigeration"
-            ]
+            "consumptions" : [
+               "b4642cec-b72e-4116-81c5-5dbfccb46055"
+            ],
+            "distribution" : "be66b80b-1500-4e3b-bfd2-87a89ff54031",
+            "transportOptions" : {
+               "cooling" : true
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "estimate_ingredients_percent_service" : "product_opener",

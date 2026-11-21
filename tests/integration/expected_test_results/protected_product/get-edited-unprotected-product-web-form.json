@@ -481,10 +481,11 @@
                }
             ],
             "ingredients_coverage_percent" : 100,
+            "ingredients_total_mass" : 250.0,
             "packaging" : [
                {
                   "category" : "",
-                  "id" : "604c4bbf-c35a-4717-bc27-6b80940440c9",
+                  "id" : "8f9a21ba-7bc0-4b41-8714-778ff6a05ef1",
                   "name" : "Soft cheeses - cat A, 250g | Packaging System, N0, All, Wooden box {FR} U",
                   "name_fr" : "Boîte en bois pour fromage à pâte molle - 250g"
                }
@@ -495,33 +496,73 @@
          },
          "ecobalyse_request" : {
             "data" : {
-               "distribution" : "ambient",
-               "ingredients" : [
+               "components" : [
                   {
-                     "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
-                     "mass" : 156.25
+                     "elements" : [
+                        {
+                           "amount" : 0.15625,
+                           "material" : {
+                              "id" : "f489c1d2-d770-4614-9878-f6445a8a937f"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "apple",
+                     "quantity" : 1
                   },
                   {
-                     "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-                     "mass" : 46.875
+                     "elements" : [
+                        {
+                           "amount" : 0.046875,
+                           "material" : {
+                              "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "milk",
+                     "quantity" : 1
                   },
                   {
-                     "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-                     "mass" : 23.4375
+                     "elements" : [
+                        {
+                           "amount" : 0.023438,
+                           "material" : {
+                              "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "eggs",
+                     "quantity" : 1
                   },
                   {
-                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                     "mass" : 23.4375
+                     "elements" : [
+                        {
+                           "amount" : 0.023438,
+                           "material" : {
+                              "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "palm oil",
+                     "quantity" : 1
                   }
                ],
-               "packaging" : [
+               "consumptions" : [],
+               "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+               "packagings" : [
                   {
                      "amount" : 1,
-                     "id" : "604c4bbf-c35a-4717-bc27-6b80940440c9"
+                     "processId" : "8f9a21ba-7bc0-4b41-8714-778ff6a05ef1"
                   }
-               ]
+               ],
+               "transportOptions" : {
+                  "cooling" : false
+               }
             },
-            "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
          }
       },
       "estimate_ingredients_percent_service" : "product_opener",

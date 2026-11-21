@@ -188,10 +188,11 @@
                }
             ],
             "ingredients_coverage_percent" : 94,
+            "ingredients_total_mass" : 94.7916666666667,
             "packaging" : [
                {
                   "category" : "",
-                  "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b",
+                  "id" : "b134e9ef-7784-4f94-b7b7-e8c9de4eb4c0",
                   "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
                   "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
                }
@@ -202,33 +203,73 @@
          },
          "ecobalyse_request" : {
             "data" : {
-               "distribution" : "ambient",
-               "ingredients" : [
+               "components" : [
                   {
-                     "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
-                     "mass" : 58.3333333333333
+                     "elements" : [
+                        {
+                           "amount" : 0.058333,
+                           "material" : {
+                              "id" : "f489c1d2-d770-4614-9878-f6445a8a937f"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "apple",
+                     "quantity" : 1
                   },
                   {
-                     "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-                     "mass" : 20.8333333333333
+                     "elements" : [
+                        {
+                           "amount" : 0.020833,
+                           "material" : {
+                              "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "milk",
+                     "quantity" : 1
                   },
                   {
-                     "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-                     "mass" : 10.4166666666667
+                     "elements" : [
+                        {
+                           "amount" : 0.010417,
+                           "material" : {
+                              "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "eggs",
+                     "quantity" : 1
                   },
                   {
-                     "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                     "mass" : 5.20833333333333
+                     "elements" : [
+                        {
+                           "amount" : 0.005208,
+                           "material" : {
+                              "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "palm oil",
+                     "quantity" : 1
                   }
                ],
-               "packaging" : [
+               "consumptions" : [],
+               "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+               "packagings" : [
                   {
                      "amount" : 1,
-                     "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b"
+                     "processId" : "b134e9ef-7784-4f94-b7b7-e8c9de4eb4c0"
                   }
-               ]
+               ],
+               "transportOptions" : {
+                  "cooling" : false
+               }
             },
-            "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
          }
       },
       "environmental_score_data" : {

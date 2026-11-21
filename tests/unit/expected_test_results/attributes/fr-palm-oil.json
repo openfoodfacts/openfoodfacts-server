@@ -430,25 +430,48 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "999485a8-08af-5135-bf2c-48ce04c68f81",
-                  "mass" : 75
+                  "elements" : [
+                     {
+                        "amount" : 0.075,
+                        "material" : {
+                           "id" : "999485a8-08af-5135-bf2c-48ce04c68f81"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "pommes de terres",
+                  "quantity" : 1
                },
                {
-                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 25
+                  "elements" : [
+                     {
+                        "amount" : 0.025,
+                        "material" : {
+                           "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "huile de palme",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "environmental_score_data" : {

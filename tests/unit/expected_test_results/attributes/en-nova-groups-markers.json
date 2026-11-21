@@ -458,6 +458,7 @@
             }
          ],
          "ingredients_coverage_percent" : 84,
+         "ingredients_total_mass" : 84.2857142857143,
          "packaging_skip_reason" : "unknown_product_quantity",
          "preparation" : [
             "refrigeration"
@@ -468,30 +469,69 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "fresh",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "413dbd30-f224-580c-bf02-51664910430e",
-                  "mass" : 57.1428571428571
+                  "elements" : [
+                     {
+                        "amount" : 0.057143,
+                        "material" : {
+                           "id" : "413dbd30-f224-580c-bf02-51664910430e"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Cow milk",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 21.4285714285714
+                  "elements" : [
+                     {
+                        "amount" : 0.021429,
+                        "material" : {
+                           "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "salt",
+                  "quantity" : 1
                },
                {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 2.5
+                  "elements" : [
+                     {
+                        "amount" : 0.0025,
+                        "material" : {
+                           "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sugar",
+                  "quantity" : 1
                },
                {
-                  "id" : "06dffb5c-07ad-48de-9630-632f4c84e02d",
-                  "mass" : 3.21428571428572
+                  "elements" : [
+                     {
+                        "amount" : 0.003214,
+                        "material" : {
+                           "id" : "06dffb5c-07ad-48de-9630-632f4c84e02d"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "high fructose corn syrup",
+                  "quantity" : 1
                }
             ],
-            "preparation" : [
-               "refrigeration"
-            ]
+            "consumptions" : [
+               "b4642cec-b72e-4116-81c5-5dbfccb46055"
+            ],
+            "distribution" : "be66b80b-1500-4e3b-bfd2-87a89ff54031",
+            "transportOptions" : {
+               "cooling" : true
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "environmental_score_data" : {

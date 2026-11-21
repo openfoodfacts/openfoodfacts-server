@@ -35,76 +35,49 @@
             {
                "ecobalyse_name" : "Soja Origine Inconnue",
                "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-               "mass" : 30,
-               "name" : "soy beans"
-            },
-            {
-               "ecobalyse_name" : "Soja Origine Inconnue",
-               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-               "mass" : 25,
-               "name" : "soy beans"
-            },
-            {
-               "ecobalyse_name" : "Soja Origine Inconnue",
-               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-               "mass" : 20,
-               "name" : "soy beans"
-            },
-            {
-               "ecobalyse_name" : "Soja Origine Inconnue",
-               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-               "mass" : 15,
-               "name" : "soy beans"
-            },
-            {
-               "ecobalyse_name" : "Soja Origine Inconnue",
-               "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-               "mass" : 10,
+               "mass" : 100,
                "name" : "soy beans"
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g",
-         "transform" : {
-            "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
-            "mass" : 100,
-            "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
-            "name_fr" : "Cuisson"
-         }
+         "transformations" : [
+            {
+               "id" : "e297d2a0-1945-4f48-838f-fbbb4a6cde72",
+               "name" : "Cooking",
+               "name_fr" : "Cuisson"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-                  "mass" : 30
-               },
-               {
-                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-                  "mass" : 25
-               },
-               {
-                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-                  "mass" : 20
-               },
-               {
-                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-                  "mass" : 15
-               },
-               {
-                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-                  "mass" : 10
+                  "elements" : [
+                     {
+                        "amount" : 0.1,
+                        "material" : {
+                           "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "soy beans",
+                  "quantity" : 1
                }
             ],
-            "transform" : {
-               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
-               "mass" : 100
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
             }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "estimate_ingredients_percent_service" : "product_opener",

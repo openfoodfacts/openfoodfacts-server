@@ -105,6 +105,19 @@ my @tests = (
 			ingredients_text => "abricots",
 		}
 	],
+	# Cooked meal with many ingredients: cooking is applied to each ingredient,
+	# except red wine (Ecobalyse ingredient in L, transformations are in kg),
+	# ingredients listed twice (beef, water, salt) are merged
+	[
+		'fr-chili-con-carne',
+		{
+			lc => "fr",
+			categories => "chili con carne",
+			ingredients_text =>
+				"Riz long cuit 31%, haricots rouges 22% (haricots, eau, sel), eau, viande de boeuf 12%, concentré de tomates 4,2%, poivrons rouges 3,8%, oignons 3,5%, vin rouge, tomates 1,9% (tomates, jus de tomates, jus de citron concentré), huile de colza, amidon de riz, épices 0,7%, sel, ail",
+			quantity => "300 g",
+		}
+	],
 );
 
 # Reference quantity of product for which we send the ingredients to Ecobalyse
@@ -132,7 +145,7 @@ if (!$update_expected_results) {
 				my ($url_recipe, $payload_ref, $testid) = @_;
 				my $mock_response_file = "$expected_result_dir/$testid.ecobalyse.json";
 				my $response_data = '';
-				if (open(my $mock_response, "<:encoding(UTF-8)", $mock_response_file)) {
+				if (open(my $mock_response, "<:raw", $mock_response_file)) {
 					local $/;    #Enable 'slurp' mode
 					$response_data = <$mock_response>;
 					print STDERR "Ecobalyse mock response loaded from $mock_response_file\n";

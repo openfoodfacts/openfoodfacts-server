@@ -73,6 +73,7 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "preparation" : [
             "refrigeration"
@@ -83,38 +84,95 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "fresh",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-                  "mass" : 53.8333333333333
+                  "elements" : [
+                     {
+                        "amount" : 0.053833,
+                        "material" : {
+                           "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "eggs",
+                  "quantity" : 1
                },
                {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 24.0833333333333
+                  "elements" : [
+                     {
+                        "amount" : 0.024083,
+                        "material" : {
+                           "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "wheat flour",
+                  "quantity" : 1
                },
                {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 12.0416666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.012042,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "water",
+                  "quantity" : 1
                },
                {
-                  "id" : "9db59fb1-143d-420d-a0b8-a5887c6def60",
-                  "mass" : 6.02083333333333
+                  "elements" : [
+                     {
+                        "amount" : 0.006021,
+                        "material" : {
+                           "id" : "9db59fb1-143d-420d-a0b8-a5887c6def60"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "rice flour",
+                  "quantity" : 1
                },
                {
-                  "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
-                  "mass" : 2
+                  "elements" : [
+                     {
+                        "amount" : 0.002,
+                        "material" : {
+                           "id" : "d79e0fce-8633-4189-a937-7b8010abafed"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "lamb",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 2.02083333333333
+                  "elements" : [
+                     {
+                        "amount" : 0.002021,
+                        "material" : {
+                           "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "salt",
+                  "quantity" : 1
                }
             ],
-            "preparation" : [
-               "refrigeration"
-            ]
+            "consumptions" : [
+               "b4642cec-b72e-4116-81c5-5dbfccb46055"
+            ],
+            "distribution" : "be66b80b-1500-4e3b-bfd2-87a89ff54031",
+            "transportOptions" : {
+               "cooling" : true
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "estimate_ingredients_percent_service" : "product_opener",

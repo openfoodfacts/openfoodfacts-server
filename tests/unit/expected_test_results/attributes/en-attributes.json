@@ -499,6 +499,7 @@
             }
          ],
          "ingredients_coverage_percent" : 99,
+         "ingredients_total_mass" : 99.4857954545455,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
@@ -506,47 +507,132 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 54.5454545454545
+                  "elements" : [
+                     {
+                        "amount" : 0.054545,
+                        "material" : {
+                           "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "wheat flour",
+                  "quantity" : 1
                },
                {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 12.5
+                  "elements" : [
+                     {
+                        "amount" : 0.0125,
+                        "material" : {
+                           "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sugar",
+                  "quantity" : 1
                },
                {
-                  "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-                  "mass" : 12.5
+                  "elements" : [
+                     {
+                        "amount" : 0.0125,
+                        "material" : {
+                           "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "eggs",
+                  "quantity" : 1
                },
                {
-                  "id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
-                  "mass" : 10.2272727272727
+                  "elements" : [
+                     {
+                        "amount" : 0.010227,
+                        "material" : {
+                           "id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "strawberries",
+                  "quantity" : 1
                },
                {
-                  "id" : "06dffb5c-07ad-48de-9630-632f4c84e02d",
-                  "mass" : 5.11363636363636
+                  "elements" : [
+                     {
+                        "amount" : 0.005114,
+                        "material" : {
+                           "id" : "06dffb5c-07ad-48de-9630-632f4c84e02d"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "high fructose corn syrup",
+                  "quantity" : 1
                },
                {
-                  "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
-                  "mass" : 2.55681818181818
+                  "elements" : [
+                     {
+                        "amount" : 0.002557,
+                        "material" : {
+                           "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "rapeseed oil",
+                  "quantity" : 1
                },
                {
-                  "id" : "02a9df90-91c4-5bf0-900a-9efa6ffcfaf6",
-                  "mass" : 1.27840909090909
+                  "elements" : [
+                     {
+                        "amount" : 0.001278,
+                        "material" : {
+                           "id" : "02a9df90-91c4-5bf0-900a-9efa6ffcfaf6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "macadamia nuts",
+                  "quantity" : 1
                },
                {
-                  "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-                  "mass" : 0.639204545454547
+                  "elements" : [
+                     {
+                        "amount" : 0.000639,
+                        "material" : {
+                           "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "milk proteins",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 0.125
+                  "elements" : [
+                     {
+                        "amount" : 0.000125,
+                        "material" : {
+                           "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "salt",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "environmental_score_data" : {

@@ -62,33 +62,74 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
-                  "mass" : 45
+                  "elements" : [
+                     {
+                        "amount" : 0.045,
+                        "material" : {
+                           "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Huile de colza",
+                  "quantity" : 1
                },
                {
-                  "id" : "3cfab110-363e-442a-9170-1af337fe9ea3",
-                  "mass" : 30
+                  "elements" : [
+                     {
+                        "amount" : 0.03,
+                        "material" : {
+                           "id" : "3cfab110-363e-442a-9170-1af337fe9ea3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "huile de tournesol",
+                  "quantity" : 1
                },
                {
-                  "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
-                  "mass" : 20
+                  "elements" : [
+                     {
+                        "amount" : 0.02,
+                        "material" : {
+                           "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "huile d'olive vierge extra",
+                  "quantity" : 1
                },
                {
-                  "id" : "61ede109-0eed-4aa3-93bb-aacf132b6bdd",
-                  "mass" : 5
+                  "elements" : [
+                     {
+                        "amount" : 0.005,
+                        "material" : {
+                           "id" : "61ede109-0eed-4aa3-93bb-aacf132b6bdd"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "huile de lin",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "estimate_ingredients_percent_service" : "product_opener",

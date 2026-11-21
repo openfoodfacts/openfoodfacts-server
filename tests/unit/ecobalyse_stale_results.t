@@ -22,7 +22,7 @@ my $ecobalyse_mock = mock 'ProductOpener::EnvironmentalImpact' => (
 );
 
 sub success_response ($ecs) {
-	return (encode_json({results => {total => {ecs => $ecs}}}), 1, 200);
+	return (encode_json({score => {ecs => $ecs, complements => 0}}), 1, 200);
 }
 
 sub new_product ($sugar_percent = 100) {
@@ -54,7 +54,7 @@ is($product_ref->{environmental_impact}{ecobalyse_results_t}, $results_t, "same 
 ok(has_misc_tag($product_ref, "en:ecobalyse-api-not-called-same-request"), "same request: misc tag");
 
 # Same request, with numbers stored as strings (e.g. after the product is stored and loaded)
-$product_ref->{environmental_impact}{ecobalyse_request}{data}{ingredients}[0]{mass} = "100";
+$product_ref->{environmental_impact}{ecobalyse_request}{data}{components}[0]{elements}[0]{amount} = "0.1";
 estimate_environmental_impact_service($product_ref, {}, []);
 is($mock_calls, 1, "same request with numbers as strings: API not called");
 
@@ -73,8 +73,8 @@ is($product_ref->{environmental_impact}{ecs_per_100g_or_100ml}, 200, "skipped ca
 is($product_ref->{environmental_impact}{ecobalyse_input}, $previous_input_ref, "skipped call: previous input kept");
 ok($product_ref->{environmental_impact}{ecobalyse_stale}, "skipped call: results are stale");
 ok(has_misc_tag($product_ref, "en:ecobalyse-results-stale"), "skipped call: stale misc tag");
-is($product_ref->{environmental_impact}{ecobalyse_pending_request}{data}{ingredients}[0]{mass},
-	90, "skipped call: pending request");
+is($product_ref->{environmental_impact}{ecobalyse_pending_request}{data}{components}[0]{elements}[0]{amount},
+	0.09, "skipped call: pending request");
 my $stale_t = $product_ref->{environmental_impact}{ecobalyse_stale_t};
 ok($stale_t, "skipped call: time when results became stale");
 
@@ -125,8 +125,14 @@ $product_ref = new_product();
 push @{$product_ref->{ingredients}}, {id => "en:salt", percent_estimate => 0, ecobalyse_id => "salt-id"};
 @mock_response = success_response(100);
 estimate_environmental_impact_service($product_ref, {}, []);
-is([map {$_->{id}} @{$product_ref->{environmental_impact}{ecobalyse_request}{data}{ingredients}}],
-	["sugar-id"], "ingredient with a quantity of 0 not sent");
+is(
+	[
+		map {$_->{elements}[0]{material}{id}}
+			@{$product_ref->{environmental_impact}{ecobalyse_request}{data}{components}}
+	],
+	["sugar-id"],
+	"ingredient with a quantity of 0 not sent"
+);
 
 # Timeout without previous results: error, no results
 $product_ref = new_product();
@@ -139,5 +145,18 @@ ok(
 	has_misc_tag($product_ref, "en:ecobalyse-api-temporary-error"),
 	"timeout without previous results: temporary error misc tag"
 );
+
+# Results from the previous Ecobalyse food API (different structure, with data that we cannot keep):
+# they are not reused, even if the API call is skipped
+$product_ref = new_product();
+$product_ref->{environmental_impact} = {
+	ecs_per_100g_or_100ml => 50,
+	ecobalyse_request => {url => "https://ecobalyse.beta.gouv.fr/api/food", data => {}},
+	ecobalyse_response => {results => {total => {ecs => 50}, scoring => {climate => 10}}},
+};
+estimate_environmental_impact_service($product_ref, {}, [], 1);
+ok(!exists $product_ref->{environmental_impact}{ecs_per_100g_or_100ml}, "food API results: not kept as stale");
+ok(!exists $product_ref->{environmental_impact}{ecobalyse_response}, "food API results: response removed");
+ok(!has_misc_tag($product_ref, "en:ecobalyse-results-stale"), "food API results: no stale misc tag");
 
 done_testing();

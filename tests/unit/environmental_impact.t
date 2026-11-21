@@ -98,7 +98,7 @@ my $mock_calls = 0;
 my $ecobalyse_mock;
 
 if (!$update_expected_results) {
-	if (open(my $mock_response, "<:encoding(UTF-8)", $mock_response_file)) {
+	if (open(my $mock_response, "<:raw", $mock_response_file)) {
 		local $/;    #Enable 'slurp' mode
 		my $response_data = <$mock_response>;
 		$ecobalyse_mock = mock 'ProductOpener::EnvironmentalImpact' => (

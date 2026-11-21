@@ -59,6 +59,7 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "preparation" : [
             "refrigeration"
          ],
@@ -68,26 +69,56 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "fresh",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957",
-                  "mass" : 90
+                  "elements" : [
+                     {
+                        "amount" : 0.09,
+                        "material" : {
+                           "id" : "2c2e014e-3a4a-523a-8d26-eead5e99a957"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "soy beans",
+                  "quantity" : 1
                },
                {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 9
+                  "elements" : [
+                     {
+                        "amount" : 0.009,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "water",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 1
+                  "elements" : [
+                     {
+                        "amount" : 0.001,
+                        "material" : {
+                           "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "salt",
+                  "quantity" : 1
                }
             ],
-            "preparation" : [
-               "refrigeration"
-            ]
+            "consumptions" : [
+               "b4642cec-b72e-4116-81c5-5dbfccb46055"
+            ],
+            "distribution" : "be66b80b-1500-4e3b-bfd2-87a89ff54031",
+            "transportOptions" : {
+               "cooling" : true
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "estimate_ingredients_percent_service" : "product_opener",

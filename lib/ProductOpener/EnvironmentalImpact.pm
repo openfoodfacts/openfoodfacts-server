@@ -86,22 +86,34 @@ use Time::HiRes qw/clock_gettime CLOCK_MONOTONIC/;
 use List::Util qw/sum/;
 use Data::DeepAccess qw(deep_exists deep_get);
 
-my $ecobalyse_version
-	= "food";    # "food" or "food2" (the Ecobalyse food2 API is newer and more complete, but not yet fully documented)
+# Ecobalyse food2 API (generic simulator for the food2 scope)
+my $ecobalyse_api_url = "https://ecobalyse.beta.gouv.fr/api/food2/simulator";
 
-# Mapping of OFF storage conditions (inherited from categories) to Ecobalyse food API distribution values
-# (Ecobalyse accepts only "ambient", "fresh" and "frozen")
+# Mapping of OFF storage conditions (inherited from categories) to distribution values
 my %ecobalyse_distribution_for_storage_conditions = (
 	"en:ambient" => "ambient",
 	"en:refrigerated" => "fresh",
 	"en:frozen" => "frozen",
 );
 
+# Ecobalyse food2 distribution processes (retail sale of dry, fresh and frozen products)
+my %ecobalyse_distribution_process_ids = (
+	"ambient" => "29118025-efa0-47bb-94e2-f5ccba31a903",
+	"fresh" => "be66b80b-1500-4e3b-bfd2-87a89ff54031",
+	"frozen" => "a7b3d399-4c7b-4556-9826-a79f952feb7f",
+);
+
 # Products that are refrigerated or frozen at the distributor are also kept in the fridge or freezer by the consumer:
-# Ecobalyse food API preparation (consumption step) values for each distribution value
+# consumer preparation (consumption step) for each distribution value
 my %ecobalyse_preparation_for_distribution = (
 	"fresh" => "refrigeration",
 	"frozen" => "freezing",
+);
+
+# Ecobalyse food2 consumption processes for each consumer preparation
+my %ecobalyse_consumption_process_ids = (
+	"refrigeration" => "b4642cec-b72e-4116-81c5-5dbfccb46055",
+	"freezing" => "0048f6f5-5f8f-4a34-acde-4e0d909883d4",
 );
 
 =head1 FUNCTIONS
@@ -264,16 +276,21 @@ sub ecobalyse_api_call_enabled () {
 }
 
 # Previous environmental impact data has Ecobalyse results if it has an ECS value
+# computed with the current Ecobalyse API (results from the previous food API have a different structure,
+# and they contain data that we cannot keep, so they are not reused)
 sub _has_ecobalyse_results ($environmental_impact_ref) {
-	return ((defined $environmental_impact_ref)
-			and looks_like_number($environmental_impact_ref->{ecs_per_100g_or_100ml}));
+	return (    (defined $environmental_impact_ref)
+			and looks_like_number($environmental_impact_ref->{ecs_per_100g_or_100ml})
+			and ((deep_get($environmental_impact_ref, qw(ecobalyse_request url)) // '') eq $ecobalyse_api_url));
 }
 
 # Copy of a data structure with all numeric values as numbers,
 # as numbers may become strings (or the reverse) when the product is stored and loaded
+# (booleans are objects that may also change when the product is stored and loaded, they become 0 or 1)
 sub _normalize_numbers ($value) {
 	return {map {$_ => _normalize_numbers($value->{$_})} keys %$value} if ref($value) eq 'HASH';
 	return [map {_normalize_numbers($_)} @$value] if ref($value) eq 'ARRAY';
+	return ($value ? 1 : 0) if ref($value);
 	return looks_like_number($value) ? $value + 0 : $value;
 }
 
@@ -351,78 +368,71 @@ sub estimate_environmental_impact_service (
 	# If undefined ingredients, do nothing
 	return if not defined $product_ref->{ingredients};
 
-	# Example Ecobalyse food API request:
-
-	# {
-	# 	"ingredients": [
-	# 		{
-	# 		"id": "5fc8032f-ca1c-4497-844b-f9213075eab3",
-	# 		"mass": 100
-	# 		}
-	# 	],
-	# 	"transform": {
-	# 		"id": "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
-	# 		"mass": 100
-	# 	},
-	# 	"packaging": [
-	# 		{
-	# 		"id": "6bc3e083-e989-4bb0-bf49-99a8e68694a4",
-	# 		"amount": 1
-	# 		}
-	# 	],
-	# 	"distribution": "frozen"
-	# }
-
 	# Example Ecobalyse food2 API request:
 	#
 	# {
 	#   "components": [
 	#     {
-	#       "quantity": 100,
-	#       "custom": {
-	#         "name": "Sucre de betterave par défaut (2025)",
-	#         "elements": [
-	#           {
-	#             "amount": 1,
-	#             "material": {
-	#               "id": "5fc8032f-ca1c-4497-844b-f9213075eab3"
-	#             },
-	#             "transforms": []
-	#           }
-	#         ]
-	#       }
+	#       "quantity": 1,
+	#       "name": "viande de boeuf",
+	#       "elements": [
+	#         {
+	#           "amount": 0.036,
+	#           "material": {"id": "22179caa-eb41-49c0-ae04-49eda23da4da"},
+	#           "transforms": ["e297d2a0-1945-4f48-838f-fbbb4a6cde72"]
+	#         }
+	#       ]
 	#     }
 	#   ],
-	#   "recyclable": true
+	#   "packagings": [{"amount": 1, "processId": "d00ac9f1-59a3-436f-b91e-24dceace830c"}],
+	#   "distribution": "be66b80b-1500-4e3b-bfd2-87a89ff54031",
+	#   "consumptions": ["b4642cec-b72e-4116-81c5-5dbfccb46055"],
+	#   "transportOptions": {"cooling": true}
 	# }
+	#
+	# Each ingredient is sent as a separate component, so that the response contains the score of each ingredient
+	# (in the "composition" field). The total score is the same as with a single component containing all ingredients.
 
 	# Initialisation of the payload structure
-	my $payload_ref = {ingredients => [],};
+	my $payload_ref = {components => [],};
 
 	# Keep a separate structure with more information for debugging and analysis
-	$product_ref->{environmental_impact}{ecobalyse_input}{ingredients} = [];
+	my $input_ref = $product_ref->{environmental_impact}{ecobalyse_input} = {ingredients => []};
 
 	# Reference quantity of product for which we send the ingredients and packaging to Ecobalyse
 	my ($reference_quantity, $reference_quantity_unit, $reference_quantity_source)
 		= get_ecobalyse_reference_quantity($product_ref);
-	$product_ref->{environmental_impact}{ecobalyse_input}{reference_quantity} = $reference_quantity;
-	$product_ref->{environmental_impact}{ecobalyse_input}{reference_quantity_unit} = $reference_quantity_unit;
-	$product_ref->{environmental_impact}{ecobalyse_input}{reference_quantity_source} = $reference_quantity_source;
+	$input_ref->{reference_quantity} = $reference_quantity;
+	$input_ref->{reference_quantity_unit} = $reference_quantity_unit;
+	$input_ref->{reference_quantity_source} = $reference_quantity_source;
 	my $reference_quantity_source_tag = $reference_quantity_source =~ s/_/-/gr;
 	add_tag($product_ref, "misc", "en:ecobalyse-reference-quantity-from-$reference_quantity_source_tag");
 
 	# Ingredients quantities (in g) are estimated for 100 g or 100 ml of product
 	# (depending on the nutrition data, which is used to estimate the ingredients percentages):
-	# we scale them to the reference quantity
+	# we scale them to the reference quantity.
+	# Quantities estimated by the recipe estimator are the quantities of ingredients before cooking:
+	# their sum can be greater than 100 g when water evaporates during cooking.
 	my $quantity_factor = $reference_quantity / 100;
+
+	# Transformations / processing, applied to each ingredient
+	my @transformation_entries = get_ecobalyse_transformation_entries($product_ref);
+	if (@transformation_entries) {
+		$input_ref->{transformations}
+			= [map {{id => $_->{id}, name => $_->{name}, name_fr => $_->{name_fr}}} @transformation_entries];
+	}
 
 	# Add ingredients
 	# We only add leaf ingredients (without their parents)
+	# Leaf ingredients that are listed more than once (e.g. water in the main recipe and in a sub-recipe)
+	# are merged if they are the same OFF ingredient with the same Ecobalyse id
 
 	my $ingredients_quantities_ref = get_ecobalyse_ingredients_quantities($product_ref);
 	my $total_ingredients_quantity = $ingredients_quantities_ref->{total_quantity};
 	my $total_ingredients_quantity_with_ecobalyse_id = $ingredients_quantities_ref->{total_quantity_with_ecobalyse_id};
 
+	my %input_ingredients = ();
+	my %units = ();
 	foreach my $leaf_ref (@{$ingredients_quantities_ref->{ingredients}}) {
 		my $quantity = $leaf_ref->{quantity};
 		my $id = $leaf_ref->{ecobalyse_id};
@@ -431,20 +441,49 @@ sub estimate_environmental_impact_service (
 		next unless defined $quantity and defined $id and $quantity > 0;
 
 		my $ingredient_ref = $leaf_ref->{ingredient};
-		push @{$payload_ref->{ingredients}},
-			{
-			id => $id,
-			mass => $quantity * $quantity_factor,
+		my $key = $id . " " . ($ingredient_ref->{id} // $ingredient_ref->{text} // '');
+		my $input_ingredient_ref = $input_ingredients{$key};
+		if (not defined $input_ingredient_ref) {
+			$input_ingredient_ref = $input_ingredients{$key} = {
+				id => $id,
+				mass => 0,
+				name => $ingredient_ref->{text} // '',
+				ecobalyse_name => $ingredient_ref->{ecobalyse_name} || $ingredient_ref->{ecobalyse_proxy_name} // '',
 			};
-		# Also store the ingredient in the ecobalyse_input structure for debugging and analysis
-		push @{$product_ref->{environmental_impact}{ecobalyse_input}{ingredients}},
+			# Unit of the Ecobalyse ingredient: kg for most ingredients, L for some liquids
+			# (the unit property is in the ingredients taxonomy only for ingredients that are not in kg)
+			my $prefix = $ingredient_ref->{ecobalyse_id} ? "ecobalyse" : "ecobalyse_proxy";
+			$units{$key} = $ingredient_ref->{$prefix . "_unit"} // "kg";
+			push @{$input_ref->{ingredients}}, $input_ingredient_ref;
+			$input_ingredient_ref->{key} = $key;
+		}
+		$input_ingredient_ref->{mass} += $quantity * $quantity_factor;
+	}
+
+	my $ingredients_total_mass = 0;
+	foreach my $input_ingredient_ref (@{$input_ref->{ingredients}}) {
+		my $unit = $units{delete $input_ingredient_ref->{key}};
+		$ingredients_total_mass += $input_ingredient_ref->{mass};
+		# Amounts are in the unit of the Ecobalyse material: kg for most ingredients, L for some liquids
+		# (for which we consider that 1 g is 1 ml)
+		# Transformations are in kg, and they can only be applied to materials in kg
+		push @{$payload_ref->{components}},
 			{
-			id => $id,
-			mass => $quantity * $quantity_factor,
-			name => $ingredient_ref->{text} // '',
-			ecobalyse_name => $ingredient_ref->{ecobalyse_name} || $ingredient_ref->{ecobalyse_proxy_name} // '',
+			quantity => 1,
+			name => $input_ingredient_ref->{name}
+				|| $input_ingredient_ref->{ecobalyse_name}
+				|| $input_ingredient_ref->{id},
+			elements => [
+				{
+					amount => sprintf("%.6f", $input_ingredient_ref->{mass} / 1000) + 0,
+					material => {id => $input_ingredient_ref->{id}},
+					transforms => [$unit eq "kg" ? (map {$_->{id}} @transformation_entries) : ()],
+				}
+			],
 			};
 	}
+	# Total mass of the ingredients sent to Ecobalyse, for the reference quantity of product
+	$input_ref->{ingredients_total_mass} = $ingredients_total_mass;
 
 	# Compute ingredients coverage percentage and set misc_tags
 	my $ingredients_coverage_percent = 0;
@@ -452,73 +491,28 @@ sub estimate_environmental_impact_service (
 		$ingredients_coverage_percent
 			= int(($total_ingredients_quantity_with_ecobalyse_id / $total_ingredients_quantity) * 100);
 	}
-	$product_ref->{environmental_impact}{ecobalyse_input}{ingredients_coverage_percent} = $ingredients_coverage_percent;
+	$input_ref->{ingredients_coverage_percent} = $ingredients_coverage_percent;
 
 	set_ecobalyse_coverage_misc_tags($product_ref);
-
-	# Add transformations / processing
-	my @transformation_entries = get_ecobalyse_transformation_entries($product_ref);
-	if (@transformation_entries) {
-		# Note: the food2 API allows multiple transformations, but the food API only allows one transformation in the "transform" field.
-		# We use the food API for now, so we only take the first transformation entry.
-		if ($ecobalyse_version eq "food") {
-			@transformation_entries = ($transformation_entries[0]);
-			$payload_ref->{transform} = {
-				id => $transformation_entries[0]->{id},
-				mass => $total_ingredients_quantity * $quantity_factor,
-			};
-			$product_ref->{environmental_impact}{ecobalyse_input}{transform} = {
-				id => $transformation_entries[0]->{id},
-				name => $transformation_entries[0]->{name},
-				name_fr => $transformation_entries[0]->{name_fr},
-				mass => $total_ingredients_quantity * $quantity_factor,
-			};
-		}
-		else {
-			# For the food2 API, we can keep all transformation entries
-			$payload_ref->{transformations} = [];
-			$product_ref->{environmental_impact}{ecobalyse_input}{transformations} = [];
-
-			foreach my $entry (@transformation_entries) {
-				push @{$payload_ref->{transformations}},
-					{
-					id => $entry->{id},
-					mass => $total_ingredients_quantity * $quantity_factor,
-					};
-				push @{$product_ref->{environmental_impact}{ecobalyse_input}{transformations}},
-					{
-					id => $entry->{id},
-					name => $entry->{name},
-					name_fr => $entry->{name_fr},
-					mass => $total_ingredients_quantity * $quantity_factor,
-					};
-			}
-		}
-
-	}
 
 	# Add packaging
 	# The Ecobalyse packaging entries are for a whole package,
 	# so we send the packaging only if we know the product quantity
 	my $packaging_entry_ref = get_ecobalyse_packaging_entry($product_ref);
 	if ((defined $packaging_entry_ref) and ($reference_quantity_source ne "product_quantity")) {
-		$product_ref->{environmental_impact}{ecobalyse_input}{packaging_skip_reason} = "unknown_product_quantity";
+		$input_ref->{packaging_skip_reason} = "unknown_product_quantity";
 	}
 	elsif (defined $packaging_entry_ref) {
-		$payload_ref->{packaging} = [];
-		$product_ref->{environmental_impact}{ecobalyse_input}{packaging} = [];
-		push @{$payload_ref->{packaging}}, {
-			id => $packaging_entry_ref->{id},
-			amount =>
-				1 # The packaging entries in Ecobalyse are already normalized to the product quantity, so we always use amount=1 here (only raw materials need a mass)
-		};
-		push @{$product_ref->{environmental_impact}{ecobalyse_input}{packaging}},
+		# The packaging entries in Ecobalyse are for a whole package (unit "Item(s)"), so the amount is always 1
+		$payload_ref->{packagings} = [{amount => 1, processId => $packaging_entry_ref->{id}}];
+		$input_ref->{packaging} = [
 			{
-			id => $packaging_entry_ref->{id},
-			name => $packaging_entry_ref->{activityName},
-			name_fr => $packaging_entry_ref->{displayName},
-			category => $packaging_entry_ref->{categories_tagid},
-			};
+				id => $packaging_entry_ref->{id},
+				name => $packaging_entry_ref->{activityName},
+				name_fr => $packaging_entry_ref->{displayName},
+				category => $packaging_entry_ref->{categories_tagid},
+			}
+		];
 	}
 
 	# Add distribution
@@ -530,20 +524,21 @@ sub estimate_environmental_impact_service (
 		|| "en:ambient";
 	$storage_conditions = "en:" . $storage_conditions if $storage_conditions !~ /^[a-z]{2}:/;
 	my $distribution = $ecobalyse_distribution_for_storage_conditions{$storage_conditions} // "ambient";
-	$payload_ref->{distribution} = $distribution;
-	$product_ref->{environmental_impact}{ecobalyse_input}{distribution} = $distribution;
+	$payload_ref->{distribution} = $ecobalyse_distribution_process_ids{$distribution};
+	$input_ref->{distribution} = $distribution;
+	# Refrigerated or frozen products are transported cooled to the distributor
+	$payload_ref->{transportOptions} = {cooling => ($distribution ne "ambient") ? JSON::true : JSON::false};
 
 	# Add consumer preparation (consumption step)
+	# We always send the consumptions (possibly empty), so that Ecobalyse does not apply default ones
 	my $preparation = $ecobalyse_preparation_for_distribution{$distribution};
+	$payload_ref->{consumptions} = [];
 	if (defined $preparation) {
-		$payload_ref->{preparation} = [$preparation];
-		$product_ref->{environmental_impact}{ecobalyse_input}{preparation} = [$preparation];
+		push @{$payload_ref->{consumptions}}, $ecobalyse_consumption_process_ids{$preparation};
+		$input_ref->{preparation} = [$preparation];
 	}
 
-	# API URL
-	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
-
-	my $request_ref = {url => $url_recipe, data => $payload_ref};
+	my $request_ref = {url => $ecobalyse_api_url, data => $payload_ref};
 	$product_ref->{environmental_impact}{ecobalyse_request} = $request_ref;
 
 	# Check ingredients coverage threshold ($ingredients_coverage_percent was computed above)
@@ -575,7 +570,7 @@ sub estimate_environmental_impact_service (
 	if ($skip_ecobalyse_call) {
 		$log->debug(
 			"Skipping Ecobalyse API call, only preparing request payload",
-			{endpoint => $url_recipe, payload => $payload_ref}
+			{endpoint => $ecobalyse_api_url, payload => $payload_ref}
 		) if $log->is_debug();
 		add_tag($product_ref, "misc", "en:ecobalyse-api-skipped");
 		# The previous results do not correspond to the current product data anymore
@@ -585,14 +580,14 @@ sub estimate_environmental_impact_service (
 	else {
 
 		# Debug information for the request
-		$log->debug("Send Ecobalyse API request", {endpoint => $url_recipe, payload => $payload_ref})
+		$log->debug("Send Ecobalyse API request", {endpoint => $ecobalyse_api_url, payload => $payload_ref})
 			if $log->is_debug();
 
 		# Send the request and get the response
 		# For tests, we pass a testid to call_ecobalyse() so that the mock response is used instead of a real API call.
 		add_tag($product_ref, "misc", "en:ecobalyse-api-called");
 		my ($response_content, $is_success, $response_code)
-			= (call_ecobalyse($url_recipe, $payload_ref, $product_ref->{testid}));
+			= (call_ecobalyse($ecobalyse_api_url, $payload_ref, $product_ref->{testid}));
 
 		# Parse the JSON response
 		my $response_data_ref;
@@ -604,7 +599,7 @@ sub estimate_environmental_impact_service (
 		if ($@) {
 			$json_decoded = 0;
 			$log->error("Failed to decode JSON response from Ecobalyse API",
-				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content, error => $@})
+				{endpoint => $ecobalyse_api_url, payload => $payload_ref, response => $response_content, error => $@})
 				if $log->is_error();
 			$response_data_ref = {error => "Failed to decode JSON response: $@"};
 		}
@@ -613,7 +608,7 @@ sub estimate_environmental_impact_service (
 		}
 
 		# Access the specific "ecs" value
-		my $ecs_value = $json_decoded ? deep_get($response_data_ref, 'results', 'total', 'ecs') : undef;
+		my $ecs_value = $json_decoded ? deep_get($response_data_ref, 'score', 'ecs') : undef;
 
 		# Handle the response based on success or failure
 		# We consider the call successful only if we got a valid JSON response with an ecs value
@@ -633,7 +628,7 @@ sub estimate_environmental_impact_service (
 		else {
 			# If the request failed, log the error
 			$log->error("Ecobalyse API request failed or returned no ecs value",
-				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content})
+				{endpoint => $ecobalyse_api_url, payload => $payload_ref, response => $response_content})
 				if $log->is_error();
 			# Add error misc tag
 			add_tag($product_ref, "misc", "en:ecobalyse-api-error");
@@ -836,10 +831,12 @@ sub call_ecobalyse($url, $payload_ref, $testid) {
 	$log->info("Ecobalyse API call", {duration => sprintf("%.3f", $duration), code => $response->code})
 		if $log->is_info();
 
-	return ($response->decoded_content, $response->is_success, $response->code);
+	# The response is returned as UTF-8 bytes, for decode_json()
+	# (the names of the ingredients in the response can contain non ASCII characters)
+	return ($response->decoded_content(charset => 'none'), $response->is_success, $response->code);
 }
 
-# Packaging data from Ecobalyse is stored in a JSON file (processes_packaging_matched.json) that is loaded and indexed on first call.
+# Packaging data from Ecobalyse is stored in a JSON file (processes_packaging_food2_matched.json) that is loaded and indexed on first call.
 
 # Load and index the Ecobalyse packaging data. Cached on first call in a state variable.
 # The packaging material/shape fields in the data have already been canonicalized to
@@ -849,7 +846,7 @@ sub _load_ecobalyse_packaging_data () {
 	state $cache;
 	return $cache if defined $cache;
 
-	my $file = $data_root . "/external-data/ecobalyse/processes_packaging_matched.json";
+	my $file = $data_root . "/external-data/ecobalyse/processes_packaging_food2_matched.json";
 	open(my $fh, '<:encoding(UTF-8)', $file)
 		or die "Could not open Ecobalyse packaging data file $file: $!\n";
 	my $json = JSON->new->canonical;
@@ -1093,20 +1090,26 @@ A transformation that includes another one (e.g. canning includes cooking) super
 
 sub get_ecobalyse_transformation_entries ($product_ref) {
 
-	my $cooking_id = 'a2836bb8-7f45-5cfa-bb00-8b38046291cf';
-	my $canning_id = 'a83c94af-6e31-5599-8022-7ae795862a99';
+	# Generic Ecobalyse food2 transformations, that can be applied to all ingredients.
+	# Note: Ecobalyse also has cooking transformations for specific types of ingredients (e.g. "Cuisson des viandes rouges"),
+	# but they include a mass variation (e.g. 1 kg of cooked rice from 0.44 kg of raw rice), and they consider that
+	# the amount of the ingredient is the amount after cooking.
+	# We send the amounts of the ingredients before cooking (e.g. as estimated by the recipe estimator),
+	# so we use the generic transformations, which do not change the mass.
+	my $cooking_id = 'e297d2a0-1945-4f48-838f-fbbb4a6cde72';
+	my $canning_id = 'b797d2cc-1ecb-4fa0-b049-48b44a88e283';
 
 	my %transforms = (
 		$cooking_id => {
 			id => $cooking_id,
-			name => 'Cooking, industrial, 1kg of cooked product {FR} U',
+			name => 'Cooking',
 			name_fr => 'Cuisson',
-			ecs => 17.42,
+			ecs => 17.49,
 			unit => 'kg',
 		},
 		$canning_id => {
 			id => $canning_id,
-			name => 'Canning fruits or vegetables, industrial, 1kg of canned product {FR} U',
+			name => 'Canning',
 			name_fr => 'Mise en conserve',
 			ecs => 19.54,
 			unit => 'kg',
@@ -1158,61 +1161,70 @@ sub get_ecobalyse_transformation_entries ($product_ref) {
 
 =head2 filter_ecobalyse_response_for_open_data ( $response_ref )
 
-Filter an Ecobalyse API response so that only the data suitable for the
-OFF open-data database is retained.
+Filter an Ecobalyse food2 API response so that only the data that we can store
+in the OFF open-data database is retained.
 
-The following transformations are applied:
+Only the scores in points are kept (whitelist), so that new fields added by Ecobalyse
+are not stored unless we explicitly decide to keep them:
 
-- The C<query> key is removed (it is already stored separately in
-C<ecobalyse_input>).
+- C<error>: the error message, if any
+- C<score>: C<ecs> (total environmental cost) and C<complements> (total of the complements, negative values decrease the cost)
+- C<stages>: environmental cost of each life cycle stage (materials, transform, packaging, transports etc.)
+- C<complements>: points of each complement (hedges, permanent pastures, plot size, crop diversity)
+- C<productMass>: mass of the product in kg
+- C<composition>: for each component (one for each ingredient), its C<name>, C<mass>, C<score> and C<complements>
 
-- Only the contents of the C<results> key are kept; all other
-top-level keys (C<description>, C<webUrl>, …) are dropped.
-
-- For every hash that contains an C<ecs> key, all other keys are
-removed so that only C<ecs> remains.  This pruning is applied recursively
-throughout the C<results> sub-structure.
+The other fields are removed, in particular the subscores (C<subscores>) and the physical impacts
+(C<impacts>, also in each item of C<composition>), that we are not allowed to redistribute,
+and the request (C<query>, already stored separately) and the C<webUrl> and C<description>.
 
 The original hash is not modified; a new hash reference is returned.
 
 =cut
 
+my @ecobalyse_stages = qw(materials transform assembly packaging transports distribution usage endOfLife);
+
 sub filter_ecobalyse_response_for_open_data ($response_ref) {
 	return unless ref($response_ref) eq 'HASH';
-
-	# Keep only what's inside "error" and "results"; remove query, description, webUrl, etc.
 
 	my $filtered_response_ref = {};
 	if (exists $response_ref->{error}) {
 		$filtered_response_ref->{error} = $response_ref->{error};
 	}
-	if (exists $response_ref->{results}) {
-		$filtered_response_ref->{results} = _filter_ecobalyse_results_for_open_data($response_ref->{results});
+	if (ref($response_ref->{score}) eq 'HASH') {
+		$filtered_response_ref->{score} = _keep_ecobalyse_points($response_ref->{score}, qw(ecs complements));
+	}
+	if (ref($response_ref->{stages}) eq 'HASH') {
+		$filtered_response_ref->{stages} = _keep_ecobalyse_points($response_ref->{stages}, @ecobalyse_stages);
+	}
+	if (ref($response_ref->{complements}) eq 'HASH') {
+		$filtered_response_ref->{complements} = _keep_ecobalyse_points($response_ref->{complements});
+	}
+	if (looks_like_number($response_ref->{productMass})) {
+		$filtered_response_ref->{productMass} = $response_ref->{productMass};
+	}
+	if (ref($response_ref->{composition}) eq 'ARRAY') {
+		$filtered_response_ref->{composition} = [
+			map {
+				my $item_ref = ref($_) eq 'HASH' ? $_ : {};
+				{
+					name => $item_ref->{name},
+					mass => $item_ref->{mass},
+					score => _keep_ecobalyse_points($item_ref->{score} // {}, qw(ecs complements)),
+					complements => _keep_ecobalyse_points($item_ref->{complements} // {}),
+				}
+			} @{$response_ref->{composition}}
+		];
 	}
 
 	return $filtered_response_ref;
 }
 
-sub _filter_ecobalyse_results_for_open_data ($value_ref) {
-	# Hash reference: if it has an "ecs" key, keep only that key
-	if (ref($value_ref) eq 'HASH') {
-		if (exists $value_ref->{ecs}) {
-			return {ecs => $value_ref->{ecs}};
-		}
-		my %filtered = ();
-		for my $key (keys %$value_ref) {
-			$filtered{$key} = _filter_ecobalyse_results_for_open_data($value_ref->{$key});
-		}
-		return \%filtered;
-	}
-
-	# Array reference: recurse into each element
-	if (ref($value_ref) eq 'ARRAY') {
-		return [map {_filter_ecobalyse_results_for_open_data($_)} @$value_ref];
-	}
-
-	# Scalar or undef: return as-is
-	return $value_ref;
+# Copy of a hash with only the given keys (or all keys) that have numeric values (points)
+sub _keep_ecobalyse_points ($hash_ref, @keys) {
+	return {} unless ref($hash_ref) eq 'HASH';
+	@keys = sort keys %$hash_ref if not @keys;
+	return {map {$_ => $hash_ref->{$_}} grep {looks_like_number($hash_ref->{$_})} @keys};
 }
 
 1;

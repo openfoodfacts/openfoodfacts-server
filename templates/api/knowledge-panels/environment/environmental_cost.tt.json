@@ -1,4 +1,5 @@
 [% IF panel.unit == 'ml' %][% SET per_100_key = 'f_environmental_cost_for_100ml' %][% SET per_100_column_key = 'environmental_cost_points_for_100ml' %][% ELSE %][% SET per_100_key = 'f_environmental_cost_for_100g' %][% SET per_100_column_key = 'environmental_cost_points_for_100g' %][% END %]
+[% IF panel.has_per_product %][% SET calculation_key = 'per_product' %][% ELSE %][% SET calculation_key = 'per_100' %][% END %]
 {
     "level": "info",
     "topics": ["environment"],
@@ -37,12 +38,20 @@
             }
         },
         [% END %]
+        [% IF panel.has_complements %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": "<strong>[% edq(lang('environmental_cost_calculation_title')) %]</strong><br>[% edq(f_lang('f_environmental_cost_calculation', { 'impacts' => panel.impacts.$calculation_key, 'positive_impact' => panel.complements.$calculation_key, 'total' => panel.total.$calculation_key })) %]"
+            }
+        },
+        [% END %]
         {
             "element_type": "table",
             "table_element": {
-                "id": "environmental_cost_breakdown",
-                "table_type": "default",
-                "title": "[% edq(lang('ecs_breakdown')) %]",
+                "id": "environmental_cost_stages",
+                "table_type": "percents",
+                "title": "[% edq(lang('environmental_cost_impacts_by_stage')) %]",
                 "columns": [
                     {
                         "text": "[% edq(lang('environmental_cost_stage')) %]",
@@ -57,20 +66,127 @@
                     {
                         "text": "[% edq(lang(per_100_column_key)) %]",
                         "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang('environmental_cost_share')) %]",
+                        "type": "percent"
                     }
                 ],
                 "rows": [
-                    [% FOREACH row IN panel.rows %]
+                    [% FOREACH stage IN panel.stages %]
+                    {
+                        "id": "[% stage.id %]",
+                        "values": [
+                            {
+                                "icon_url": "[% static_subdomain %]/images/icons/dist/[% stage.icon %].svg",
+                                "text": "[% edq(lang(stage.label)) %]"
+                            },
+                            [% IF panel.has_per_product %]{ "text": "[% stage.per_product %]" },[% END %]
+                            { "text": "[% stage.per_100 %]" },
+                            [% IF stage.percent.defined %]
+                            { "text": "[% stage.percent FILTER format('%.0f') %] %", "percent": [% stage.percent %] }
+                            [% ELSE %]
+                            { "text": "" }
+                            [% END %]
+                        ]
+                    },
+                    [% END %]
+                    {
+                        "id": "total",
+                        "values": [
+                            { "text": "[% edq(lang('environmental_cost_total_impacts')) %]" },
+                            [% IF panel.has_per_product %]{ "text": "[% panel.impacts.per_product %]" },[% END %]
+                            { "text": "[% panel.impacts.per_100 %]" },
+                            { "text": "100 %" }
+                        ]
+                    }
+                ]
+            }
+        },
+        [% IF panel.ingredients.size %]
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "environmental_cost_ingredients",
+                "table_type": "percents",
+                "title": "[% edq(lang('environmental_cost_impacts_by_ingredient')) %]",
+                "columns": [
+                    {
+                        "text": "[% edq(lang('environmental_cost_ingredient')) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang('environmental_cost_ecobalyse_ingredient')) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang('environmental_cost_quantity_' _ panel.unit)) %]",
+                        "type": "text"
+                    },
+                    [% IF panel.has_per_product %]
+                    {
+                        "text": "[% edq(f_lang('f_environmental_cost_points_for_product', { 'quantity' => panel.quantity })) %]",
+                        "type": "text"
+                    },
+                    [% END %]
+                    {
+                        "text": "[% edq(lang(per_100_column_key)) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang('environmental_cost_share')) %]",
+                        "type": "percent"
+                    }
+                ],
+                "rows": [
+                    [% FOREACH ingredient IN panel.ingredients %]
                     {
                         "values": [
-                            { "text": "[% edq(lang(row.label)) %]" },
-                            [% IF panel.has_per_product %]{ "text": "[% row.per_product %]" },[% END %]
-                            { "text": "[% row.per_100 %]" }
+                            [% IF ingredient.other_ingredients %]
+                            { "text": "[% edq(f_lang('f_environmental_cost_other_ingredients', { 'number' => ingredient.other_ingredients })) %]" },
+                            { "text": [% encode_json(ingredient.ecobalyse_name) %] },
+                            [% ELSE %]
+                            [%# Ingredient names are user provided values: encode_json keeps the JSON valid %]
+                            { "text": [% encode_json(ingredient.name) %] },
+                            { "text": [% encode_json(ingredient.ecobalyse_name) %] },
+                            [% END %]
+                            { "text": "[% ingredient.mass %]" },
+                            [% IF panel.has_per_product %]{ "text": "[% ingredient.per_product %]" },[% END %]
+                            { "text": "[% ingredient.per_100 %]" },
+                            [% IF ingredient.percent.defined %]
+                            { "text": "[% ingredient.percent FILTER format('%.0f') %] %", "percent": [% ingredient.percent %] }
+                            [% ELSE %]
+                            { "text": "" }
+                            [% END %]
                         ]
                     }[% UNLESS loop.last %],[% END %]
                     [% END %]
                 ]
             }
-        }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "notes",
+                "html": "[% edq(lang('environmental_cost_impacts_by_ingredient_note')) %]"
+            }
+        },
+        [% END %]
+        [% IF panel.water_loss %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": "[% edq(f_lang('f_environmental_cost_ingredients_mass', { 'ingredients_mass' => panel.ingredients_total_mass, 'water_loss' => panel.water_loss, 'product_mass' => panel.reference_quantity })) %]"
+            }
+        },
+        [% END %]
+        [% IF panel.has_complements %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "environmental_cost_ecosystem_services"
+            }
+        },
+        [% END %]
     ]
 }

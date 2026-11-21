@@ -8,198 +8,120 @@ use ProductOpener::EnvironmentalImpact qw/filter_ecobalyse_response_for_open_dat
 
 my $json = JSON->new->allow_nonref->canonical;
 
-# Build a representative Ecobalyse response that covers all the cases:
-# - top-level keys that should be removed (description, webUrl)
-# - query that should be removed
-# - results with various nested structures containing ecs + other impacts
-# - results with hashes that have NO ecs (like scoring, totalBonusImpact)
-# - scalar values that should pass through (totalMass, road, etc.)
+# Representative Ecobalyse food2 API response (shortened) that covers all the cases:
+# - scores in points that should be kept (score, stages, complements, composition scores)
+# - subscores and physical impacts that should be removed (we are not allowed to redistribute them)
+# - top-level keys that should be removed (query, webUrl, description)
+# - an unknown field that should be removed (whitelist)
 my $raw_response = $json->decode(<<'JSON');
 {
-   "description": "TODO",
-   "query": {
-      "distribution": "ambient",
-      "ingredients": [
-         {"id": "abc", "mass": 50}
-      ],
-      "packaging": [
-         {"amount": 1, "id": "def"}
-      ]
+   "complements": {
+      "hedges": -8.32894,
+      "permanentPasture": -10.3011,
+      "plotSize": -7.97893
    },
-   "results": {
-      "distribution": {
-         "total": {
-            "acd": 7.6e-06,
-            "cch": 0.001,
-            "ecs": 0.253,
-            "etf": 0.009,
-            "wtu": 0.003
-         },
-         "transports": {
-            "air": 0,
-            "impacts": {
-               "acd": 0.0002,
-               "cch": 0.047,
-               "ecs": 4.91,
-               "etf": 0.49
-            },
-            "road": 600,
-            "roadCooled": 0,
-            "sea": 0,
-            "seaCooled": 0
-         }
+   "composition": [
+      {
+         "complements": {},
+         "impacts": {"acd": 0.0003, "cch": 0.11, "ecs": 33.404},
+         "mass": 0.093,
+         "name": "Riz long",
+         "quantity": 1,
+         "score": {"complements": 0, "ecs": 33.404}
       },
-      "packaging": {
-         "acd": 0.002,
-         "cch": 0.455,
-         "ecs": 38.66,
-         "etf": 4.638
-      },
-      "perKg": {
-         "acd": 0.057,
-         "ecs": 973.181,
-         "etf": 118.704
-      },
-      "preparation": {
-         "acd": 0,
-         "ecs": 0,
-         "etf": 0
-      },
-      "preparedMass": 0.1,
-      "recipe": {
-         "ingredientsTotal": {
-            "acd": 0.003,
-            "ecs": 49.38,
-            "etf": 6.318
-         },
-         "total": {
-            "acd": 0.003,
-            "ecs": 53.49,
-            "etf": 6.73
-         },
-         "totalBonusImpact": {
-            "cropDiversity": 0,
-            "hedges": 0,
-            "plotSize": 0
-         },
-         "transform": {
-            "acd": 0,
-            "ecs": 0,
-            "etf": 0
-         },
-         "transports": {
-            "air": 18000,
-            "impacts": {
-               "acd": 0.0002,
-               "cch": 0.04,
-               "ecs": 4.11,
-               "etf": 0.41
-            },
-            "road": 9800,
-            "sea": 36000
-         }
-      },
-      "scoring": {
-         "all": 973.181,
-         "biodiversity": 451.194,
-         "climate": 157.121,
-         "health": 96.1446,
-         "resources": 268.723
-      },
-      "total": {
-         "acd": 0.006,
-         "cch": 0.564,
-         "ecs": 97.318,
-         "etf": 11.87
-      },
-      "totalMass": 0.5296,
-      "transports": {
-         "air": 0,
-         "impacts": {
-            "acd": 0.0004,
-            "cch": 0.087,
-            "ecs": 9.025,
-            "etf": 0.905
-         },
-         "road": 10400,
-         "sea": 36000
+      {
+         "complements": {"hedges": -8.30587, "permanentPasture": -10.3011, "plotSize": -7.88826},
+         "impacts": {"acd": 0.002, "cch": 0.9, "ecs": 102.293},
+         "mass": 0.03675,
+         "name": "viande de boeuf",
+         "quantity": 1,
+         "score": {"complements": -26.4953, "ecs": 102.293}
       }
+   ],
+   "description": "Simulation",
+   "impacts": {"acd": 0.004, "cch": 1.6, "etf": 21.2, "ldu": 120.3, "wtu": 2.1},
+   "productMass": 0.2898,
+   "query": {"components": [{"quantity": 1, "name": "Riz long"}]},
+   "score": {"complements": -26.609, "ecs": 264.944},
+   "someNewField": {"ecs": 1},
+   "stages": {
+      "assembly": 0,
+      "distribution": 1.4875,
+      "endOfLife": 0,
+      "materials": 159.068,
+      "packaging": 29.33,
+      "transform": 13.8191,
+      "transports": 86.696,
+      "usage": 1.15289
+   },
+   "subscores": {
+      "biodiversity": 129.437,
+      "climate": 80.4175,
+      "complements": -26.609,
+      "health": 36.3735,
+      "resources": 45.3342
    },
    "webUrl": "https://example.com"
 }
 JSON
 
-# Run the filter
 my $filtered_ref = filter_ecobalyse_response_for_open_data($raw_response);
 
-# 1. The query must be removed
-ok(!exists $filtered_ref->{query}, "query key removed");
-
-# 2. Only results is kept at the top level
-ok(exists $filtered_ref->{results}, "results key present");
-is([sort keys %$filtered_ref], ['results'], "only results key at top level");
-
-# 3. Hashes with ecs keep only ecs
-is($filtered_ref->{results}{packaging}, {ecs => 38.66}, "packaging keeps only ecs");
-is($filtered_ref->{results}{perKg}, {ecs => 973.181}, "perKg keeps only ecs");
-is($filtered_ref->{results}{total}, {ecs => 97.318}, "total keeps only ecs");
-is($filtered_ref->{results}{preparation}, {ecs => 0}, "preparation keeps only ecs");
-
-# 4. Nested hashes inside results with ecs are also filtered
-is($filtered_ref->{results}{distribution}{total}, {ecs => 0.253}, "distribution.total keeps only ecs");
 is(
-	$filtered_ref->{results}{distribution}{transports},
+	$filtered_ref,
 	{
-		air => 0,
-		impacts => {ecs => 4.91},
-		road => 600,
-		roadCooled => 0,
-		sea => 0,
-		seaCooled => 0,
+		score => {ecs => 264.944, complements => -26.609},
+		stages => {
+			materials => 159.068,
+			transform => 13.8191,
+			assembly => 0,
+			packaging => 29.33,
+			transports => 86.696,
+			distribution => 1.4875,
+			usage => 1.15289,
+			endOfLife => 0,
+		},
+		complements => {hedges => -8.32894, permanentPasture => -10.3011, plotSize => -7.97893},
+		productMass => 0.2898,
+		composition => [
+			{name => "Riz long", mass => 0.093, score => {ecs => 33.404, complements => 0}, complements => {}},
+			{
+				name => "viande de boeuf",
+				mass => 0.03675,
+				score => {ecs => 102.293, complements => -26.4953},
+				complements => {hedges => -8.30587, permanentPasture => -10.3011, plotSize => -7.88826},
+			},
+		],
 	},
-	"distribution.transports keeps non-impact scalars and filters impacts"
+	"only the scores in points are kept"
 );
-is($filtered_ref->{results}{recipe}{ingredientsTotal}, {ecs => 49.38}, "recipe.ingredientsTotal keeps only ecs");
-is($filtered_ref->{results}{recipe}{total}, {ecs => 53.49}, "recipe.total keeps only ecs");
-is($filtered_ref->{results}{recipe}{transform}, {ecs => 0}, "recipe.transform keeps only ecs");
 
-# 5. Hashes without ecs are kept as-is (scoring, totalBonusImpact)
+ok(!exists $filtered_ref->{subscores}, "subscores removed");
+ok(!exists $filtered_ref->{impacts}, "physical impacts removed");
+ok(!(grep {exists $_->{impacts}} @{$filtered_ref->{composition}}), "physical impacts of ingredients removed");
+ok(!exists $filtered_ref->{$_}, "$_ removed") for qw(query webUrl description someNewField);
+
+# Non numeric values are removed
 is(
-	$filtered_ref->{results}{scoring},
-	{
-		all => 973.181,
-		biodiversity => 451.194,
-		climate => 157.121,
-		health => 96.1446,
-		resources => 268.723,
-	},
-	"scoring kept as-is (no ecs key)"
+	filter_ecobalyse_response_for_open_data({score => {ecs => "null", complements => 0}, stages => {materials => {}}}),
+	{score => {complements => 0}, stages => {}},
+	"non numeric values removed"
 );
+
+# Error responses
 is(
-	$filtered_ref->{results}{recipe}{totalBonusImpact},
-	{
-		cropDiversity => 0,
-		hedges => 0,
-		plotSize => 0,
-	},
-	"totalBonusImpact kept as-is (no ecs key)"
+	filter_ecobalyse_response_for_open_data(
+		{error => {general => "Invalid request"}, documentation => "https://ecobalyse.beta.gouv.fr/#/api"}
+	),
+	{error => {general => "Invalid request"}},
+	"error kept"
 );
 
-# 6. Scalar values pass through
-is($filtered_ref->{results}{preparedMass}, 0.1, "preparedMass scalar kept");
-is($filtered_ref->{results}{totalMass}, 0.5296, "totalMass scalar kept");
+# Original response is not modified
+ok(exists $raw_response->{subscores}, "original subscores still present");
+ok(exists $raw_response->{composition}[0]{impacts}, "original impacts of ingredients still present");
 
-# 7. Original response is not modified
-ok(exists $raw_response->{query}, "original query still present");
-ok(exists $raw_response->{description}, "original description still present");
-ok(exists $raw_response->{webUrl}, "original webUrl still present");
-is(
-	[sort keys %{$raw_response->{results}{packaging}}],
-	['acd', 'cch', 'ecs', 'etf'],
-	"original packaging still has all keys"
-);
-
-# 8. Non-hash input returns undef
+# Non-hash input returns undef
 is(filter_ecobalyse_response_for_open_data(undef), undef, "undef input returns undef");
 is(filter_ecobalyse_response_for_open_data("not a hash"), undef, "non-hash input returns undef");
 
