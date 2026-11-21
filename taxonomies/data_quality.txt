@@ -12444,6 +12444,116 @@ nl: Productnaam bevat emoji
 pt: O nome do produto contém emojis
 description:en: The product name contains an emoji, for example "merguez😉" or "Fraise 🍓 & Framboise". Emoji are usually decoration added to the name, and can be removed. Symbols that can be part of a brand name, like ☆, ® or ™, are not counted as emoji.
 
+## Text vandalism and forbidden words
+
+< en: Data quality warnings
+en: Forbidden words warnings
+ar: تحذيرات الكلمات الممنوعة
+ca: Advertències de paraules prohibides
+cs: Varování ohledně zakázaných slov
+da: Advarsler om forbudte ord
+de: Warnungen vor verbotenen Wörtern
+el: Προειδοποιήσεις απαγορευμένων λέξεων
+es: Advertencias de palabras prohibidas
+fi: Varoitukset kielletyistä sanoista
+fr: Avertissements de mots interdits
+it: Avvisi di parole proibite
+nl: Waarschuwingen voor verboden woorden
+pl: Ostrzeżenia o zabronionych słowach
+pt: Avisos de palavras proibidas
+ro: Avertismente privind cuvintele interzise
+ru: Предупреждения о запрещённых словах
+sv: Varningar för förbjudna ord
+description:en: Potential vandalism, insults, or vulgar words detected in product fields.
+description:de: Potenzieller Vandalismus, Beleidigungen oder vulgäre Wörter in Produktfeldern erkannt.
+description:es: Posible vandalismo, insultos o palabras vulgares detectadas en los campos del producto.
+description:fr: Vandalisme potentiel, insultes ou mots vulgaires détectés dans les champs du produit.
+description:it: Potenziale vandalismo, insulti o parole volgari rilevati nei campi del prodotto.
+description:nl: Mogelijke vandalisme, beledigingen of vulgaire woorden gedetecteerd in productvelden.
+description:pt: Possível vandalismo, insultos ou palavras vulgares detectadas nos campos do produto.
+description:ru: В полях продукта обнаружен возможный вандализм, оскорбления или вульгарные слова.
+
+< en: Forbidden words warnings
+en: Product name contains forbidden words
+ar: اسم المنتج يحتوي على كلمات ممنوعة
+ca: El nom del producte conté paraules prohibides
+cs: Název produktu obsahuje zakázaná slova
+da: Produktnavnet indeholder forbudte ord
+de: Produktname enthält verbotene Wörter
+el: Το όνομα του προϊόντος περιέχει απαγορευμένες λέξεις
+es: El nombre del producto contiene palabras prohibidas
+fi: Tuotteen nimi sisältää kiellettyjä sanoja
+fr: Le nom du produit contient des mots interdits
+it: Il nome del prodotto contiene parole proibite
+nl: Productnaam bevat verboden woorden
+pl: Nazwa produktu zawiera zabronione słowa
+pt: O nome do produto contém palavras proibidas
+ro: Numele produsului conține cuvinte interzise
+ru: Название продукта содержит запрещённые слова
+sv: Produktnamnet innehåller förbjudna ord
+description:en: The product name contains potential insults, vulgar words, or profanities.
+description:de: Der Produktname enthält potenzielle Beleidigungen, vulgäre Wörter oder Obszönitäten.
+description:es: El nombre del producto contiene posibles insultos, palabras vulgares o blasfemias.
+description:fr: Le nom du produit contient des insultes potentielles, des mots vulgaires ou des grossièretés.
+description:it: Il nome del prodotto contiene potenziali insulti, parole volgari o bestemmie.
+description:nl: De productnaam bevat mogelijke beledigingen, vulgaire woorden of grofheden.
+description:pt: O nome do produto contém potenciais insultos, palavras vulgares ou profanidades.
+description:ru: Название продукта содержит потенциальные оскорбления, нецензурные или вульгарные слова.
+
+< en: Forbidden words warnings
+en: Ingredients contain forbidden words
+ar: قائمة المكونات تحتوي على كلمات ممنوعة
+ca: Els ingredients contenen paraules prohibides
+cs: Složení obsahuje zakázaná slova
+da: Ingredienser indeholder forbudte ord
+de: Zutaten enthalten verbotene Wörter
+el: Τα συστατικά περιέχουν απαγορευμένες λέξεις
+es: Los ingredientes contienen palabras prohibidas
+fi: Ainesosat sisältävät kiellettyjä sanoja
+fr: Les ingrédients contiennent des mots interdits
+it: Gli ingredienti contengono parole proibite
+nl: Ingrediënten bevatten verboden woorden
+pl: Składniki zawierają zabronione słowa
+pt: Os ingredientes contêm palavras proibidas
+ro: Ingredientele conțin cuvinte interzise
+ru: Ингредиенты содержат запрещённые слова
+sv: Ingredienserna innehåller förbjudna ord
+description:en: The ingredients list contains potential insults, vulgar words, or profanities.
+description:de: Die Zutatenliste enthält potenzielle Beleidigungen, vulgäre Wörter oder Obszönitäten.
+description:es: La lista de ingredientes contiene posibles insultos, palabras vulgares o blasfemias.
+description:fr: La liste des ingrédients contient des insultes potentielles, des mots vulgaires ou des grossièretés.
+description:it: La lista degli ingredienti contiene potenziali insulti, parole volgari o bestemmie.
+description:nl: De ingrediëntenlijst bevat mogelijke beledigingen, vulgaire woorden of grofheden.
+description:pt: A lista de ingredientes contém potenciais insultos, palavras vulgares ou profanidades.
+description:ru: Список ингредиентов содержит потенциальные оскорбления, нецензурные или вульгарные слова.
+
+< en: Forbidden words warnings
+en: Brands contain forbidden words
+ar: اسم العلامة التجارية يحتوي على كلمات ممنوعة
+ca: La marca conté paraules prohibides
+cs: Značka obsahuje zakázaná slova
+da: Mærket indeholder forbudte ord
+de: Marke enthält verbotene Wörter
+el: Η επωνυμία περιέχει απαγορευμένες λέξεις
+es: La marca contiene palabras prohibidas
+fi: Tuotemerkki sisältää kiellettyjä sanoja
+fr: La marque contient des mots interdits
+it: La marca contiene parole proibite
+nl: Merk bevat verboden woorden
+pl: Marka zawiera zabronione słowa
+pt: A marca contém palavras proibidas
+ro: Marca conține cuvinte interzise
+ru: Бренд содержит запрещённые слова
+sv: Varumärket innehåller förbjudna ord
+description:en: The brand name contains potential insults, vulgar words, or profanities.
+description:de: Der Markenname enthält potenzielle Beleidigungen, vulgäre Wörter oder Obszönitäten.
+description:es: La marca contiene posibles insultos, palabras vulgares o blasfemias.
+description:fr: La marque contient des insultes potentielles, des mots vulgaires ou des grossièretés.
+description:it: La marca contiene potenziali insulti, parole volgari o bestemmie.
+description:nl: De merknaam bevat mogelijke beledigingen, vulgaire woorden of grofheden.
+description:pt: A marca contém potenciais insultos, palavras vulgares ou profanidades.
+description:ru: Название бренда содержит потенциальные оскорбления, нецензурные или вульгарные слова.
+
 ## categories
 
 < en: Data quality warnings

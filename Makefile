@@ -516,6 +516,11 @@ update_integration_tests_results:
 	${DOCKER_COMPOSE_INT_TEST} exec backend bash tests/update_integration_tests_results.sh
 	${DOCKER_COMPOSE_INT_TEST} stop
 
+update_forbidden_words:
+	@echo "🥫 Fetching forbidden words from external sources …"
+	python3 scripts/update_forbidden_words.py
+
+
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
 	${DOCKER_COMPOSE_BUILD} run --rm -w /opt/product-opener backend bash

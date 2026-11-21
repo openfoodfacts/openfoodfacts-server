@@ -117,6 +117,7 @@ BEGIN {
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
+use ProductOpener::ForbiddenWords qw($ALL_FORBIDDEN_WORDS_REGEXP_STR);
 
 $flavor = 'off';
 
@@ -438,6 +439,25 @@ $options{users_who_can_upload_small_images} = {
 		name => "Additives App Chakib",
 		conditions => [["user_id", "additives-app-chakib"],],
 		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+
+	# Alert on potential vandalism or forbidden words in product fields
+	{
+		name => "Forbidden words in product fields",
+		actions => [
+			["warn_if_regexp_match_product_name", $ALL_FORBIDDEN_WORDS_REGEXP_STR],
+			["warn_if_regexp_match_product_name_fr", $ALL_FORBIDDEN_WORDS_REGEXP_STR],
+			["warn_if_regexp_match_product_name_en", $ALL_FORBIDDEN_WORDS_REGEXP_STR],
+			["warn_if_regexp_match_ingredients_text", $ALL_FORBIDDEN_WORDS_REGEXP_STR],
+			["warn_if_regexp_match_ingredients_text_fr", $ALL_FORBIDDEN_WORDS_REGEXP_STR],
+			["warn_if_regexp_match_ingredients_text_en", $ALL_FORBIDDEN_WORDS_REGEXP_STR],
+			["warn_if_regexp_match_brands", $ALL_FORBIDDEN_WORDS_REGEXP_STR],
+		],
 		notifications => [
 			qw (
 				slack_channel_edit-alert
