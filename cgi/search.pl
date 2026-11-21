@@ -152,15 +152,14 @@ if (user_agent() =~ /apps-spreadsheets/) {
 
 $request_ref->{search} = 1;
 
-# Check if request is from intake24 (case-insensitive) to exempt from rate limiting
+# rate_limiter_bucket is required for `check_and_update_rate_limits`
+# The intake24 integration identifies itself with an X-User-Agent request header, but that
+# header is client-supplied: it can only be used to give a higher limit (rate_limit_search_intake24),
+# not to skip rate limiting, otherwise anyone could send the header and never be counted or blocked.
 my $user_agent_header = get_http_request_header('X-User-Agent');
 my $is_intake24_request = (defined $user_agent_header) && ($user_agent_header =~ /intake24/i);
 
-# rate_limiter_bucket is required for `check_and_update_rate_limits`
-# Skip rate limiting for intake24 requests
-if (not $is_intake24_request) {
-	$request_ref->{rate_limiter_bucket} = 'search';
-}
+$request_ref->{rate_limiter_bucket} = $is_intake24_request ? 'search_intake24' : 'search';
 
 # Check and update rate limits if not disabled (default is ENABLED for production safety)
 if (not $rate_limiter_disabled) {
